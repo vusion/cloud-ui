@@ -1,0 +1,31 @@
+{
+  "name": "vision-cloud-ui",
+  "description": "Vision Cloud UI",
+  "version": "0.0.1",
+  "author": "Rainfore <rainforest92@126.com>",
+  "main": "./index.js",
+  "repository": "vision-app/cloud-ui",
+  "homepage": "http://vision-app.github.io",
+  "bugs": {
+    "url": "http://github.com/vision-app/cloud-ui/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "vision",
+    "cloud",
+    "ui"
+  ],
+  "tags": [
+    "vision",
+    "cloud",
+    "ui"
+  ],
+  "dependencies": {
+      "vision-v-base": "vision-app/v-base",
+      "vision-v-progress": "vision-app/v-progress",
+      "vision-v-pager": "vision-app/v-pager"
+  },
+  "peerDependencies": {
+    "vue": "^2.1.8"
+  }
+}

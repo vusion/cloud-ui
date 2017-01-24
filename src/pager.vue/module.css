@@ -1,0 +1,12 @@
+.root {
+    > li[disabled] {
+        > a {
+            background: #ccc;
+            color: red;
+        }
+    }
+}
+
+.test {
+    color: blue;
+}
