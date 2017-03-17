@@ -1,3 +1,4 @@
-@import 'vision-v-base/global.css';
+@import 'v-base.vue/global.css';
 
-$brand-primary: blue;
+$brand-primary: #387ee8;
+$height-base: 34px;

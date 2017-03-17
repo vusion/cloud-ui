@@ -1,0 +1,45 @@
+.root {
+    border-color: #b2b2b2;
+    color: #555;
+    padding: 0 30px;
+    border-radius: 2px;
+}
+
+.root:active {
+    background-color: white;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.root[disabled] {
+    color: #bbb;
+    border-color: #dedede;
+}
+
+/**
+ * Color extends
+ */
+
+.root[color=primary] {
+    background: $brand-primary;
+    color: white;
+    border: none;
+}
+
+.root[color=primary][disabled] {
+    background: #dedede;
+}
+
+/**
+ * Size extends
+ */
+
+.root[size=small] {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+}
+
+.root[square] {
+    width: $height-base;
+    padding: 0;
+}

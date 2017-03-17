@@ -1,5 +1,5 @@
 {
-  "name": "vision-cloud-ui",
+  "name": "cloud-ui.vision",
   "description": "Vision Cloud UI",
   "version": "0.0.1",
   "author": "Rainfore <rainforest92@126.com>",
@@ -13,19 +13,18 @@
   "keywords": [
     "vision",
     "cloud",
-    "ui"
+    "ui",
+    "cloud-ui"
   ],
   "tags": [
     "vision",
     "cloud",
-    "ui"
+    "ui",
+    "cloud-ui"
   ],
   "dependencies": {
-      "vision-v-base": "vision-app/v-base",
-      "vision-v-progress": "vision-app/v-progress",
-      "vision-v-pager": "vision-app/v-pager"
-  },
-  "peerDependencies": {
-    "vue": "^2.1.8"
+      "vue": "^2.2.1",
+      "v-circular-progress.vue": "^0.0.1",
+      "v-linear-progress.vue": "^0.0.1"
   }
 }

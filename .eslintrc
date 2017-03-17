@@ -1,0 +1,6 @@
+{
+    "extends": "rgui",
+    "env": {
+        "browser": true
+    }
+}
