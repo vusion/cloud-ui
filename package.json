@@ -25,6 +25,7 @@
   "dependencies": {
       "vue": "^2.2.1",
       "v-circular-progress.vue": "^0.0.1",
-      "v-linear-progress.vue": "^0.0.1"
+      "v-linear-progress.vue": "^0.0.1",
+      "v-pagination.vue": "^0.0.1"
   }
 }

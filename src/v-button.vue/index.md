@@ -32,10 +32,3 @@
 ``` html
 <v-button square><i class="i-font i-font-refresh"></i></v-button>
 ```
-
-### 降级处理
-
-``` html
-<button class="v-button">Button</button>
-<a class="v-button">Link</a>
-```
