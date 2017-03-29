@@ -1,4 +1,4 @@
-@import 'v-base.vue/global.css';
+@import 'vi-base.vue/global.css';
 
 $brand-primary: #387ee8;
 
@@ -6,3 +6,5 @@ $field-disabled-color: #bbb;
 
 $height-base: 34px;
 $border-radius-base: 2px;
+
+$sidebar-background-color: #294265;

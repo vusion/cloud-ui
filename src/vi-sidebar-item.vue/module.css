@@ -1,0 +1,20 @@
+.root {
+    display: block;
+    cursor: pointer;
+
+    height: 52px;
+    line-height: 52px;
+    color: #9dabc2;
+    padding-left: 20px;
+    transition: color 0.2s;
+}
+
+.root:hover {
+    color: white;
+}
+
+.root[selected] {
+    background-color: #15243a;
+    color: white;
+    border-right: 3px solid #387ee8;
+}

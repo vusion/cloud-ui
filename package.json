@@ -24,10 +24,10 @@
   ],
   "dependencies": {
       "vue": "^2.2.1",
-      "v-base.vue": "^0.0.2",
-      "v-button.vue": "^0.0.2",
-      "v-circular-progress.vue": "^0.0.2",
-      "v-linear-progress.vue": "^0.0.2",
-      "v-pagination.vue": "^0.0.1"
+      "vi-base.vue": "^0.0.1",
+      "vi-button.vue": "^0.0.1",
+      "vi-circular-progress.vue": "^0.0.1",
+      "vi-linear-progress.vue": "^0.0.1",
+      "vi-pagination.vue": "^0.0.1"
   }
 }

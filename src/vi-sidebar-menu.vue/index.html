@@ -1,0 +1,6 @@
+<li :class="$style.root">
+    <vi-sidebar-item @click.native="open_ = !open_">{{ title }}</vi-sidebar-item>
+    <ul :class="$style.list" v-show="open_">
+        <slot></slot>
+    </ul>
+</li>
