@@ -1,6 +1,7 @@
 import Vue from 'vue';
 
 import Base from './src/vi-base.vue';
+import Link from './src/vi-link.vue';
 import Button from './src/vi-button.vue';
 import LinearProgress from 'vi-linear-progress.vue';
 import CircularProgress from 'vi-circular-progress.vue';
@@ -11,6 +12,7 @@ import SidebarMenu from './src/vi-sidebar-menu.vue';
 
 const Components = {
     Base,
+    Link,
     Button,
     LinearProgress,
     CircularProgress,
@@ -25,6 +27,7 @@ Object.keys(Components).forEach((key) => Vue.component(Components[key].options.n
 
 export {
     Base,
+    Link,
     Button,
     LinearProgress,
     CircularProgress,
