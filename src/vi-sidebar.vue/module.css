@@ -1,7 +1,4 @@
 .root {
     user-select: none;
-    overflow-x: hidden;
-    overflow-y: auto;
-    height: 100%;
     background-color: $sidebar-background-color;
 }

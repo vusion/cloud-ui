@@ -8,14 +8,28 @@ const SidebarItem = Base.extend({
         append: Boolean,
         replace: Boolean,
     },
-    created() {
-        const router = this.$router;
-        const current = this.$route;
+    computed: {
+        active() {
+            if (!this.$route || this.to === undefined)
+                return;
 
-        if (!router || !current)
-            return;
+            const current = this.$route;
+            const route = this.$router.resolve(this.to, current, this.append).route;
 
-        const { location, route, href } = router.resolve(this.to, current, this.append);
+            return this.exact ? route.path === current.path : current.path.includes(route.path);
+        },
+    },
+    methods: {
+        onClick(e) {
+            if (!this.$route || this.to === undefined)
+                return;
+
+            const router = this.$router;
+
+            router.push(this.to);
+
+            this.$emit('click', e);
+        },
     },
 });
 
