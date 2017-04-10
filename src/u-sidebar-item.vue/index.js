@@ -1,7 +1,7 @@
-import Base from '../vi-base.vue';
+import Base from '../u-base.vue';
 
 const SidebarItem = Base.extend({
-    name: 'vi-sidebar-item',
+    name: 'u-sidebar-item',
     props: {
         to: [String, Object],
         exact: Boolean,

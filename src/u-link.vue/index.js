@@ -1,7 +1,7 @@
-import Base from 'vi-base.vue';
+import Base from 'u-base.vue';
 
 const Link = Base.extend({
-    name: 'vi-link',
+    name: 'u-link',
 });
 
 export default Link;

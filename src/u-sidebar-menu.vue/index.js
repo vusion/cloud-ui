@@ -1,4 +1,4 @@
-import Base from '../vi-base.vue';
+import Base from '../u-base.vue';
 import Vue from 'vue';
 
 Vue.directive('link', {
@@ -8,7 +8,7 @@ Vue.directive('link', {
 });
 
 const SidebarMenu = Base.extend({
-    name: 'vi-sidebar-menu',
+    name: 'u-sidebar-menu',
     props: {
         title: String,
         open: {

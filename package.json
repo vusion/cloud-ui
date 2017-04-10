@@ -1,33 +1,35 @@
 {
-  "name": "cloud-ui.vision",
-  "description": "Vision Cloud UI",
+  "name": "cloud-ui.vusion",
+  "description": "Vusion Cloud UI",
   "version": "0.0.1",
   "author": "Rainfore <rainforest92@126.com>",
   "main": "./index.js",
-  "repository": "vision-app/cloud-ui",
-  "homepage": "http://vision-app.github.io",
+  "repository": "vusion/cloud-ui",
+  "homepage": "http://vusion.github.io",
   "bugs": {
-    "url": "http://github.com/vision-app/cloud-ui/issues"
+    "url": "http://github.com/vusion/cloud-ui/issues"
   },
   "license": "MIT",
   "keywords": [
-    "vision",
+    "vusion",
     "cloud",
     "ui",
     "cloud-ui"
   ],
   "tags": [
-    "vision",
+    "vusion",
     "cloud",
     "ui",
     "cloud-ui"
   ],
   "dependencies": {
+      "eslint": "^3.18.0",
+      "eslint-config-vusion": "^1.1.0",
       "vue": "^2.2.1",
-      "vi-base.vue": "^0.0.1",
-      "vi-button.vue": "^0.0.1",
-      "vi-circular-progress.vue": "^0.0.1",
-      "vi-linear-progress.vue": "^0.0.1",
-      "vi-pagination.vue": "^0.0.1"
+      "u-base.vue": "^0.0.1",
+      "u-button.vue": "^0.0.1",
+      "u-circular-progress.vue": "^0.0.1",
+      "u-linear-progress.vue": "^0.0.1",
+      "u-pagination.vue": "^0.0.1"
   }
 }

@@ -1,4 +1,4 @@
-import Pagination from 'vi-pagination.vue';
+import Pagination from 'u-pagination.vue';
 
 /**
  * @class Pagination

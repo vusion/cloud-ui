@@ -1,7 +1,7 @@
-import Base from '../vi-base.vue';
+import Base from '../u-base.vue';
 
 const Sidebar = Base.extend({
-    name: 'vi-sidebar',
+    name: 'u-sidebar',
 });
 
 export default Sidebar;

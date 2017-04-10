@@ -1,4 +1,4 @@
-import Button from 'vi-button.vue';
+import Button from 'u-button.vue';
 
 /**
  * @class Button

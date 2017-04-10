@@ -1,5 +1,5 @@
 {
-    "extends": "rgui",
+    "extends": "vusion",
     "env": {
         "browser": true
     }

@@ -1,14 +1,14 @@
 import Vue from 'vue';
 
-import Base from './src/vi-base.vue';
-import Link from './src/vi-link.vue';
-import Button from './src/vi-button.vue';
-import LinearProgress from 'vi-linear-progress.vue';
-import CircularProgress from 'vi-circular-progress.vue';
-import Pagination from './src/vi-pagination.vue';
-import Sidebar from './src/vi-sidebar.vue';
-import SidebarItem from './src/vi-sidebar-item.vue';
-import SidebarMenu from './src/vi-sidebar-menu.vue';
+import Base from './src/u-base.vue';
+import Link from './src/u-link.vue';
+import Button from './src/u-button.vue';
+import LinearProgress from 'u-linear-progress.vue';
+import CircularProgress from 'u-circular-progress.vue';
+import Pagination from './src/u-pagination.vue';
+import Sidebar from './src/u-sidebar.vue';
+import SidebarItem from './src/u-sidebar-item.vue';
+import SidebarMenu from './src/u-sidebar-menu.vue';
 
 const Components = {
     Base,

@@ -2,27 +2,27 @@ body {
     color: #345;
 }
 
-.vi-article {
+.u-article {
     margin: 0 auto;
     width: 960px;
 }
 
-.vi-article > li > p {
+.u-article > li > p {
     text-indent: 0;
 }
 
-.vi-article > h1 {
+.u-article > h1 {
     font-size: 24px;
     line-height: 30px;
 }
 
-.vi-article > h2 {
+.u-article > h2 {
     font-size: 20px;
     padding: 0 60px;
     margin: 80px -60px 10px;
 }
 
-.vi-article > h3 {
+.u-article > h3 {
     font-size: 16px;
     margin: 40px -60px 30px;
     border-top: 1px solid #f4f4f4;
@@ -31,18 +31,18 @@ body {
     color: #387ee8;
 }
 
-.vi-article > h2 + h3 {
+.u-article > h2 + h3 {
     margin-top: 10px;
 }
 
-.vi-article > h4 {
+.u-article > h4 {
     font-size: 14px;
     margin: 25px 0 10px;
     margin-left: -9px;
 
 }
 
-.vi-article  > h4:before {
+.u-article  > h4:before {
     content: '';
     margin-right: 6px;
     display: inline-block;
@@ -52,21 +52,21 @@ body {
     background: #387ee8;
 }
 
-.vi-article > h5 {
+.u-article > h5 {
     font-size: 12px;
     margin: .3em 0;
 }
 
-.vi-article > h1, .vi-article > h2, .vi-article > h3, .vi-article > h4, .vi-article > h5 {
-    .vi-article > a {color: inherit;}
+.u-article > h1, .u-article > h2, .u-article > h3, .u-article > h4, .u-article > h5 {
+    .u-article > a {color: inherit;}
 }
 
 
-.vi-article > ul, .vi-article > ol {
+.u-article > ul, .u-article > ol {
     padding-left: 20px;
 }
 
-.vi-article pre {
+.u-article pre {
     $tab-size: 4;
     // - Contain overflow in all browsers.
     overflow: auto;
@@ -74,7 +74,7 @@ body {
     // word-wrap: break-word;
 }
 
-.vi-article pre code {
+.u-article pre code {
     background: none;
     border: none;
     padding: 0;
@@ -84,14 +84,14 @@ body {
     // white-space: pre-wrap;
 }
 
-.vi-article code {
+.u-article code {
     padding: 0 3px;
     font-size: 12px;
     background: #fafafa;
     color: #d05;
 }
 
-.vi-article pre {
+.u-article pre {
     padding: 6px 12px;
     font-size: 12px;
     background: #fafafa;
@@ -100,33 +100,33 @@ body {
     $border-radius: $border-radius-base;
 }
 
-.vi-article pre.lang-console {
+.u-article pre.lang-console {
     background: #2e74ac;
     border: none;
 }
 
-.vi-article pre.lang-console code {
+.u-article pre.lang-console code {
     color: white;
 }
 
-.vi-article > blockquote h6 {
+.u-article > blockquote h6 {
     margin: .5em 0 .3em;
     text-indent: 2em;
     color: #e74c3c;
 }
 
-.vi-article > table {
+.u-article > table {
     margin: 0 auto;
     width: 100%;
     // word-break: break-all;
 }
 
-.vi-article > table th, .vi-article > table td {
+.u-article > table th, .u-article > table td {
     border: 1px solid #f4f4f4;
     padding: 2px 6px;
     font-size: 12px;
 }
 
-.vi-article > table img {
+.u-article > table img {
     max-width:none;
 }
