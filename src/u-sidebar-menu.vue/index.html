@@ -1,5 +1,5 @@
 <li :class="$style.root">
-    <u-sidebar-item @click.native="open_ = !open_">{{ title }}</u-sidebar-item>
+    <div :class="$style.item" :open="open_" @click="open_ = !open_">{{ title }}</div>
     <ul :class="$style.list" v-show="open_">
         <slot></slot>
     </ul>

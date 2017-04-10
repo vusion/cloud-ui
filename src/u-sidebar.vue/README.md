@@ -4,7 +4,7 @@
 ### 基本形式
 
 ``` html
-<div style="width: 164px; height: 300px;">
+<div style="width: 164px;">
     <u-sidebar>
         <u-sidebar-item>用户管理</u-sidebar-item>
         <u-sidebar-item selected>用户审核</u-sidebar-item>
@@ -16,7 +16,7 @@
 ### 分组
 
 ``` html
-<div style="width: 164px; height: 500px;">
+<div style="width: 164px;">
     <u-sidebar>
         <u-sidebar-item>用户管理</u-sidebar-item>
         <u-sidebar-menu title="用户审核">
