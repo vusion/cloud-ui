@@ -9,6 +9,8 @@ import Pagination from './src/u-pagination.vue';
 import Sidebar from './src/u-sidebar.vue';
 import SidebarItem from './src/u-sidebar-item.vue';
 import SidebarMenu from './src/u-sidebar-menu.vue';
+import Tabs from './src/u-tabs.vue';
+import Tab from './src/u-tab.vue';
 
 const Components = {
     Base,
@@ -20,6 +22,8 @@ const Components = {
     Sidebar,
     SidebarItem,
     SidebarMenu,
+    Tabs,
+    Tab,
 };
 
 window.Vue = Vue;
@@ -35,4 +39,6 @@ export {
     Sidebar,
     SidebarItem,
     SidebarMenu,
+    Tabs,
+    Tab,
 };

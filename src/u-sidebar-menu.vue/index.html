@@ -1,5 +1,7 @@
 <li :class="$style.root">
-    <div :class="$style.item" :open="open_" @click="open_ = !open_">{{ title }}</div>
+    <div :class="$style.item" :open="open_" @click="open_ = !open_">
+        <slot name="title">{{ title }}</slot>
+    </div>
     <ul :class="$style.list" v-show="open_">
         <slot></slot>
     </ul>

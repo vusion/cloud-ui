@@ -1,0 +1,55 @@
+$tabs-border: #e0e6ed;
+
+.root {
+    .head {
+        user-select: none;
+        border-bottom: 1px solid $tabs-border;
+    }
+
+    .item {
+        cursor: pointer;
+        display: inline-block;
+
+        height: 39px;
+        line-height: 36px;
+        padding: 0 30px;
+
+        border-left: 1px solid transparent;
+        border-right: 1px solid transparent;
+        border-top: 2px solid transparent;
+        border-bottom: 1px solid $tabs-border;
+        margin-bottom: -1px;
+    }
+
+    .item:hover {
+        background: #f6f7f9;
+    }
+
+    .item[selected] {
+        background: white;
+        color: $brand-primary;
+        border-color: $tabs-border;
+        border-top-color: $brand-primary;
+        border-bottom-color: transparent;
+    }
+
+    .item[disabled] {
+        cursor: not-allowed;
+    }
+
+    .body {
+        padding-top: 10px;
+    }
+}
+
+.root[disabled] {
+    .head {
+        .item {
+            cursor: not-allowed;
+        }
+
+        .item[selected] {
+            cursor: default;
+        }
+    }
+}
