@@ -16,7 +16,7 @@ const SidebarItem = Base.extend({
             const current = this.$route;
             const route = this.$router.resolve(this.to, current, this.append).route;
 
-            return this.exact ? route.path === current.path : current.path.includes(route.path);
+            return this.exact ? route.path === current.path : current.path.startsWith(route.path);
         },
     },
     methods: {
