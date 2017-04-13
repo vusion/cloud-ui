@@ -8,7 +8,7 @@ $item_size: 30px;
         min-width: auto;
         width: $item_size;
         height: $item_size;
-        line-height: $item_size;
+        line-height: 28px;
         background: white;
         color: #555;
         border: 1px solid #ccc;
@@ -54,5 +54,9 @@ $item_size: 30px;
     .item {
         background: none;
         color: $field-disabled-color;
+    }
+
+    .item[selected] {
+        background: white;
     }
 }

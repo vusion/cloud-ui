@@ -1,4 +1,4 @@
-import Base from '../u-base.vue';
+import Base from 'u-base.vue';
 import Vue from 'vue';
 
 Vue.directive('link', {

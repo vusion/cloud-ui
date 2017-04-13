@@ -1,4 +1,4 @@
-import Base from '../u-base.vue';
+import Base from 'u-base.vue';
 
 const Sidebar = Base.extend({
     name: 'u-sidebar',
