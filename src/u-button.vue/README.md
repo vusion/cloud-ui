@@ -32,3 +32,14 @@
 ``` html
 <u-button square><i class="i-font i-font-refresh"></i></u-button>
 ```
+
+### 链接
+
+- 使用`v-href`指令添加普通链接
+- 使用`v-to`指令添加[vue-router](https://router.vuejs.org)链接
+
+``` html
+<u-button v-href="'https://github.com/vusion/vusion'">Button</u-button>
+<u-button v-to="'/some/router/path'">Button</u-button>
+<u-button v-href="'https://github.com/vusion/vusion'" disabled>Button</u-button>
+```
