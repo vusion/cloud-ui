@@ -1,0 +1,30 @@
+.root {
+    cursor: pointer;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 12px;
+    background: $field-background;
+    color: $field-color;
+    border: 1px solid $field-border-color;
+    border-radius: $border-radius-base;
+}
+
+.root:hover {
+    border-color: $brand-primary;
+}
+
+.root[selected] {
+    background: $brand-primary;
+    color: white;
+    border-color: $brand-primary;
+}
+
+.root[disabled] {
+    color: $field-border-color;
+    border-color: $field-border-color;
+}
+
+.root[selected][disabled] {
+    background: $gray-light;
+}

@@ -10,5 +10,15 @@ import Pagination from 'u-pagination.vue';
  * @param {boolean=false}       props.readonly                  Readonly
  * @param {boolean=false}       props.disabled                  Disabled
  */
+/**
+ * @method select(page) - Select a page
+ * @public
+ * @param  {number} page - The page number to select
+ * @return {void}
+ */
+/**
+ * @event select - Emit when selecting a page
+ * @property {number} current - The current page
+ */
 
 export default Pagination;

@@ -2,7 +2,11 @@
 
 $brand-primary: #387ee8;
 
+$field-background: white;
+$field-color: #666;
+$field-border-color: #cbd5dd;
 $field-disabled-color: #bbb;
+$field-selected-color: $brand-primary;
 
 $height-base: 34px;
 $border-radius-base: 2px;
