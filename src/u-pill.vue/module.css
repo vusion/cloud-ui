@@ -21,6 +21,7 @@
 }
 
 .root[disabled] {
+    cursor: not-allowed;
     color: $field-border-color;
     border-color: $field-border-color;
 }

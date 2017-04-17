@@ -1,0 +1,52 @@
+.root {
+    cursor: pointer;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    font-size: $font-size-base;
+    padding: 0 16px;
+    margin-right: -1px;
+    background: white;
+    color: #666;
+    border: 1px solid $brand-primary;
+}
+
+.root:first-child {
+    border-top-left-radius: $border-radius-base;
+    border-bottom-left-radius: $border-radius-base;
+}
+
+.root:last-child {
+    border-top-right-radius: $border-radius-base;
+    border-bottom-right-radius: $border-radius-base;
+}
+
+.root[selected] {
+    position: relative;
+    background: $brand-primary;
+    color: white;
+}
+
+.root[flag] {
+    position: relative;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        border: 5px solid;
+        border-color: #fc7272 #fc7272 transparent transparent;
+    }
+}
+
+.root[disabled] {
+    position: relative;
+    z-index: -1;
+    color: #d6d6d6;
+    border-color: $field-border-color;
+}
+
+.root[selected][disabled] {
+    background: $gray-light;
+}

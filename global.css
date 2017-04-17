@@ -1,5 +1,7 @@
 @import 'u-base.vue/global.css';
 
+$font-size-base: 14px;
+
 $brand-primary: #387ee8;
 
 $field-background: white;
