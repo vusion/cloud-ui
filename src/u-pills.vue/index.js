@@ -1,15 +1,15 @@
 import ListView from 'u-list-view.vue';
 
 /**
- * @class Selection
+ * @class Pills
  * @extends ListView
  * @param {any}                 props.value                     Value of selected item
  * @param {boolean=false}       props.cancelable                Select twice to cancel
  * @param {boolean=false}       props.readonly                  Readonly
  * @param {boolean=false}       props.disabled                  Disabled
  */
-const Selection = ListView.extend({
-    name: 'u-selection',
+const Pills = ListView.extend({
+    name: 'u-pills',
     /**
      * @method select(item) - Select a item
      * @public
@@ -22,4 +22,4 @@ const Selection = ListView.extend({
      */
 });
 
-export default Selection;
+export default Pills;

@@ -1,13 +1,13 @@
 import ListViewItem from 'u-list-view-item.vue';
 
 /**
- * @class ListViewItem
- * @extends Base
+ * @class Pill
+ * @extends ListViewItem
  * @param {any}                 props.value                     Value of this item
  * @param {boolean=false}       props.disabled                  Disabled
  */
-const SelectionItem = ListViewItem.extend({
-    name: 'u-selection-item',
+const Pill = ListViewItem.extend({
+    name: 'u-pill',
 });
 
-export default SelectionItem;
+export default Pill;

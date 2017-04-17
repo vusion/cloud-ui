@@ -11,8 +11,8 @@ import SidebarItem from './src/u-sidebar-item.vue';
 import SidebarMenu from './src/u-sidebar-menu.vue';
 import Tabs from './src/u-tabs.vue';
 import Tab from './src/u-tab.vue';
-import Selection from './src/u-selection.vue';
-import SelectionItem from './src/u-selection-item.vue';
+import Pills from './src/u-pills.vue';
+import Pill from './src/u-pill.vue';
 
 const Components = {
     Base,
@@ -26,8 +26,8 @@ const Components = {
     SidebarMenu,
     Tabs,
     Tab,
-    Selection,
-    SelectionItem,
+    Pills,
+    Pill,
 };
 
 window.Vue = Vue;
@@ -45,6 +45,6 @@ export {
     SidebarMenu,
     Tabs,
     Tab,
-    Selection,
-    SelectionItem,
+    Pills,
+    Pill,
 };
