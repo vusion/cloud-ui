@@ -1,0 +1,7 @@
+.root {
+    /* @Private */
+    user-select: none;
+    display: inline-block;
+    font-size: 0;
+    margin: -8px;
+}

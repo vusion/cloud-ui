@@ -15,6 +15,8 @@ import Pills from './src/u-pills.vue';
 import Pill from './src/u-pill.vue';
 import Capsules from './src/u-capsules.vue';
 import Capsule from './src/u-capsule.vue';
+import Tablets from './src/u-tablets.vue';
+import Tablet from './src/u-tablet.vue';
 
 const Components = {
     Base,
@@ -32,6 +34,8 @@ const Components = {
     Pill,
     Capsules,
     Capsule,
+    Tablets,
+    Tablet,
 };
 
 window.Vue = Vue;
@@ -53,4 +57,6 @@ export {
     Pill,
     Capsules,
     Capsule,
+    Tablets,
+    Tablet,
 };
