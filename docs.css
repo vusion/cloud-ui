@@ -1,0 +1,142 @@
+body {
+    color: #345;
+}
+
+a {
+    color: #4477d0;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.u-article {
+    margin: 0 auto;
+    width: 960px;
+    margin-top: 60px;
+}
+
+.u-article > li > p {
+    text-indent: 0;
+}
+
+.u-article > h1 {
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.u-article > h2 {
+    font-size: 20px;
+    padding: 0 60px;
+    margin: 80px -60px 10px;
+}
+
+.u-article > h3 {
+    font-size: 16px;
+    margin: 40px -60px 30px;
+    border-top: 1px solid #f4f4f4;
+    padding-top: 30px;
+    padding-left: 60px;
+    color: #387ee8;
+}
+
+.u-article > h2 + h3 {
+    margin-top: 10px;
+}
+
+.u-article > h4 {
+    font-size: 14px;
+    margin: 25px 0 10px;
+    margin-left: -9px;
+
+}
+
+.u-article  > h4:before {
+    content: '';
+    margin-right: 6px;
+    display: inline-block;
+    height: 4px;
+    width: 4px;
+    vertical-align: middle;
+    background: #387ee8;
+}
+
+.u-article > h5 {
+    font-size: 12px;
+    margin: .3em 0;
+}
+
+.u-article > h1, .u-article > h2, .u-article > h3, .u-article > h4, .u-article > h5 {
+    .u-article > a {color: inherit;}
+}
+
+
+.u-article > ul, .u-article > ol {
+    padding-left: 20px;
+}
+
+.u-article pre {
+    $tab-size: 4;
+    // - Contain overflow in all browsers.
+    overflow: auto;
+    // word-break: break-all;
+    // word-wrap: break-word;
+}
+
+.u-article pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    color: inherit;
+    // white-space: pre-wrap;
+}
+
+.u-article code {
+    padding: 0 3px;
+    font-size: 12px;
+    background: #fafafa;
+    color: #d05;
+}
+
+.u-article pre {
+    padding: 6px 12px;
+    font-size: 12px;
+    background: #fafafa;
+    color: #333;
+    border: 1px solid #eee;
+    $border-radius: $border-radius-base;
+}
+
+.u-article pre.lang-console {
+    background: #2e74ac;
+    border: none;
+}
+
+.u-article pre.lang-console code {
+    color: white;
+}
+
+.u-article > blockquote h6 {
+    margin: .5em 0 .3em;
+    text-indent: 2em;
+    color: #e74c3c;
+}
+
+.u-article > table {
+    margin: 0 auto;
+    width: 100%;
+    // word-break: break-all;
+}
+
+.u-article > table th, .u-article > table td {
+    border: 1px solid #f4f4f4;
+    padding: 2px 6px;
+    font-size: 12px;
+}
+
+.u-article > table img {
+    max-width:none;
+}

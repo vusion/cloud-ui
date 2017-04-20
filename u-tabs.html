@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="docs.css">
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script src="bundle.js"></script>
+</head>
+<body>
+
+                <article class="u-article"><h1>标签页（Tabs）</h1>
+<h2>示例</h2>
+<h3>基本形式</h3>
+<div id="u-example-0" class="u-example"><u-tabs><u-tab title="详细信息">Content1</u-tab><u-tab title="性能监控">Content2</u-tab><u-tab title="操作日志">Content3</u-tab></u-tabs></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-tabs</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tab</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"详细信息"</span>&gt;</span>Content1<span class="hljs-tag">&lt;/<span class="hljs-name">u-tab</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tab</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"性能监控"</span>&gt;</span>Content2<span class="hljs-tag">&lt;/<span class="hljs-name">u-tab</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tab</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"操作日志"</span>&gt;</span>Content3<span class="hljs-tag">&lt;/<span class="hljs-name">u-tab</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-tabs</span>&gt;</span>
+</code></pre>
+<h3>初始值</h3>
+<div id="u-example-1" class="u-example"><u-tabs :selected-index="2"><u-tab title="详细信息">Content1</u-tab><u-tab title="性能监控">Content2</u-tab><u-tab title="操作日志">Content3</u-tab></u-tabs></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-tabs</span> <span class="hljs-attr">:selected-index</span>=<span class="hljs-string">"2"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tab</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"详细信息"</span>&gt;</span>Content1<span class="hljs-tag">&lt;/<span class="hljs-name">u-tab</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tab</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"性能监控"</span>&gt;</span>Content2<span class="hljs-tag">&lt;/<span class="hljs-name">u-tab</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tab</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"操作日志"</span>&gt;</span>Content3<span class="hljs-tag">&lt;/<span class="hljs-name">u-tab</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-tabs</span>&gt;</span>
+</code></pre>
+<h3>禁用</h3>
+<div id="u-example-2" class="u-example"><u-tabs><u-tab title="详细信息">部分禁用</u-tab><u-tab title="性能监控" disabled>部分禁用</u-tab><u-tab title="操作日志">部分禁用</u-tab></u-tabs><u-tabs disabled><u-tab title="详细信息">全部禁用</u-tab><u-tab title="性能监控">全部禁用</u-tab><u-tab title="操作日志">全部禁用</u-tab></u-tabs></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-tabs</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tab</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"详细信息"</span>&gt;</span>部分禁用<span class="hljs-tag">&lt;/<span class="hljs-name">u-tab</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tab</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"性能监控"</span> <span class="hljs-attr">disabled</span>&gt;</span>部分禁用<span class="hljs-tag">&lt;/<span class="hljs-name">u-tab</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tab</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"操作日志"</span>&gt;</span>部分禁用<span class="hljs-tag">&lt;/<span class="hljs-name">u-tab</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-tabs</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">u-tabs</span> <span class="hljs-attr">disabled</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tab</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"详细信息"</span>&gt;</span>全部禁用<span class="hljs-tag">&lt;/<span class="hljs-name">u-tab</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tab</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"性能监控"</span>&gt;</span>全部禁用<span class="hljs-tag">&lt;/<span class="hljs-name">u-tab</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tab</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"操作日志"</span>&gt;</span>全部禁用<span class="hljs-tag">&lt;/<span class="hljs-name">u-tab</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-tabs</span>&gt;</span>
+</code></pre>
+</article>
+                <article server-rendered="true" class="u-article"><h2 id="API">API</h2> <h3 id="Class">Class</h3> <h4>Tabs</h4> <p>Extends <strong>Base</strong>。</p> <p></p> <h3 id="Options">Options</h3> <h4>new Tabs()</h4> <table><thead><tr><th width="24%">Param</th><th width="16%">Type</th><th width="16%">Default</th><th width="26%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>props.selectedIndex</code></td> <td class="f-wsn">number</td> <td class="f-wsn"><code>0</code></td> <td>Index of selected tab</td></tr><tr><td class="f-wsn"><code>props.readonly</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>false</code></td> <td>Readonly</td></tr><tr><td class="f-wsn"><code>props.disabled</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>false</code></td> <td>Disabled</td></tr></tbody></table> <h3 id="Methods">Methods</h3> <h4><!----> tabs.select(index)</h4> <p>Select a tab</p> <table><thead><tr><th width="25%">Param</th><th width="25%">Type</th><th width="25%">Default</th><th width="25%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>index</code></td> <td class="f-wsn">number</td> <td class="f-wsn"><!----></td> <td>Index of tab to select</td></tr></tbody> <thead><tr><th width="25%">Return</th><th width="25%">Type</th><th width="50%" colspan="2">Description</th></tr></thead> <tbody><tr><td colspan="4" class="f-tac">No Returns</td></tr></tbody></table> <!----> <h3 id="Events">Events</h3> <h4>tabs.$on(&#x27;select&#x27;)</h4> <p>Emit when selecting a tab</p> <table><thead><tr><th width="33%">Property</th><th width="33%">Type</th><th width="33%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>selectedTab</code></td> <td class="f-wsn">number</td> <td class="f-wsn">The selected tab</td></tr><tr><td class="f-wsn"><code>selectedIndex</code></td> <td class="f-wsn">number</td> <td class="f-wsn">Index of selected tab</td></tr></tbody></table></article>
+                <script>new Vue().$mount('#u-example-0');
+new Vue().$mount('#u-example-1');
+new Vue().$mount('#u-example-2');</script>
+            
+</body>
+</html>

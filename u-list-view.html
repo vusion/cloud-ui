@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="docs.css">
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script src="bundle.js"></script>
+</head>
+<body>
+
+                <article class="u-article"><h1>ListView</h1>
+<h2>Examples</h2>
+<h3>Basic</h3>
+<div id="u-example-0" class="u-example"><u-list-view><u-list-view-item>Apple</u-list-view-item><u-list-view-item>Banana</u-list-view-item><u-list-view-item>Cake</u-list-view-item></u-list-view></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-list-view</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span>&gt;</span>Apple<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span>&gt;</span>Banana<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span>&gt;</span>Cake<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view</span>&gt;</span>
+</code></pre>
+<h3>Value</h3>
+<div id="u-example-1" class="u-example"><u-list-view value="C"><u-list-view-item value="A">Apple</u-list-view-item><u-list-view-item value="B">Banana</u-list-view-item><u-list-view-item value="C">Cake</u-list-view-item></u-list-view></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-list-view</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"A"</span>&gt;</span>Apple<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"B"</span>&gt;</span>Banana<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>Cake<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view</span>&gt;</span>
+</code></pre>
+<h3>Readonly &amp; Disabled</h3>
+<div id="u-example-2" class="u-example"><u-list-view value="C" readonly><u-list-view-item value="A">Apple</u-list-view-item><u-list-view-item value="B">Banana</u-list-view-item><u-list-view-item value="C">Cake</u-list-view-item></u-list-view><u-list-view value="C" disabled><u-list-view-item value="A">Apple</u-list-view-item><u-list-view-item value="B">Banana</u-list-view-item><u-list-view-item value="C">Cake</u-list-view-item></u-list-view><u-list-view value="C"><u-list-view-item value="A">Apple</u-list-view-item><u-list-view-item value="B" disabled>Banana</u-list-view-item><u-list-view-item value="C">Cake</u-list-view-item></u-list-view></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-list-view</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span> <span class="hljs-attr">readonly</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"A"</span>&gt;</span>Apple<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"B"</span>&gt;</span>Banana<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>Cake<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">u-list-view</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span> <span class="hljs-attr">disabled</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"A"</span>&gt;</span>Apple<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"B"</span>&gt;</span>Banana<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>Cake<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">u-list-view</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"A"</span>&gt;</span>Apple<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"B"</span> <span class="hljs-attr">disabled</span>&gt;</span>Banana<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>Cake<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view</span>&gt;</span>
+</code></pre>
+<h3>Cancelable</h3>
+<p>Try to click twice on an item.</p>
+<div id="u-example-3" class="u-example"><u-list-view value="C" cancelable><u-list-view-item value="A">Apple</u-list-view-item><u-list-view-item value="B">Banana</u-list-view-item><u-list-view-item value="C">Cake</u-list-view-item></u-list-view></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-list-view</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span> <span class="hljs-attr">cancelable</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"A"</span>&gt;</span>Apple<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"B"</span>&gt;</span>Banana<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>Cake<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view</span>&gt;</span>
+</code></pre>
+</article>
+                <article server-rendered="true" class="u-article"><h2 id="API">API</h2> <h3 id="Class">Class</h3> <h4>ListView</h4> <p>Extends <strong>Base</strong>。</p> <p></p> <h3 id="Options">Options</h3> <h4>new ListView()</h4> <table><thead><tr><th width="24%">Param</th><th width="16%">Type</th><th width="16%">Default</th><th width="26%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>props.value</code></td> <td class="f-wsn">any</td> <td class="f-wsn"><!----></td> <td>Value of selected item</td></tr><tr><td class="f-wsn"><code>props.cancelable</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>false</code></td> <td>Select twice to cancel</td></tr><tr><td class="f-wsn"><code>props.readonly</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>false</code></td> <td>Readonly</td></tr><tr><td class="f-wsn"><code>props.disabled</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>false</code></td> <td>Disabled</td></tr></tbody></table> <h3 id="Methods">Methods</h3> <h4><!----> listView.select(item)</h4> <p>Select a item</p> <table><thead><tr><th width="25%">Param</th><th width="25%">Type</th><th width="25%">Default</th><th width="25%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>item</code></td> <td class="f-wsn">number</td> <td class="f-wsn"><!----></td> <td>Item to select</td></tr></tbody> <thead><tr><th width="25%">Return</th><th width="25%">Type</th><th width="50%" colspan="2">Description</th></tr></thead> <tbody><tr><td colspan="4" class="f-tac">No Returns</td></tr></tbody></table> <!----> <h3 id="Events">Events</h3> <h4>listView.$on(&#x27;select&#x27;)</h4> <p>Emit when selecting an item</p> <table><thead><tr><th width="33%">Property</th><th width="33%">Type</th><th width="33%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>selectedItem</code></td> <td class="f-wsn">number</td> <td class="f-wsn">The selected item</td></tr></tbody></table></article>
+                <script>new Vue().$mount('#u-example-0');
+new Vue().$mount('#u-example-1');
+new Vue().$mount('#u-example-2');
+new Vue().$mount('#u-example-3');</script>
+            
+</body>
+</html>

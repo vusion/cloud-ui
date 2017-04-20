@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="docs.css">
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script src="bundle.js"></script>
+</head>
+<body>
+
+                <article class="u-article"><h1>侧边栏（Sidebar）</h1>
+<h2>示例</h2>
+<h3>基本形式</h3>
+<div id="u-example-0" class="u-example"><div style="width: 164px;"><u-sidebar><u-sidebar-item>用户管理</u-sidebar-item><u-sidebar-item selected>用户审核</u-sidebar-item><u-sidebar-item>ICP管理</u-sidebar-item></u-sidebar></div></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 164px;"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>用户管理<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span> <span class="hljs-attr">selected</span>&gt;</span>用户审核<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>ICP管理<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h3>分组</h3>
+<div id="u-example-1" class="u-example"><div style="width: 164px;"><u-sidebar><u-sidebar-item>用户管理</u-sidebar-item><u-sidebar-menu title="用户审核"><u-sidebar-item>企业认证</u-sidebar-item><u-sidebar-item>个人认证</u-sidebar-item><u-sidebar-item>发票资质</u-sidebar-item><u-sidebar-item>发票审核</u-sidebar-item></u-sidebar-menu><u-sidebar-item>ICP管理</u-sidebar-item><u-sidebar-item>资源配置</u-sidebar-item><u-sidebar-menu title="费用管理"><u-sidebar-item>退款</u-sidebar-item><u-sidebar-item>订单管理</u-sidebar-item><u-sidebar-item>用户优惠</u-sidebar-item><u-sidebar-item>代金券管理</u-sidebar-item><u-sidebar-item>费用统计</u-sidebar-item></u-sidebar-menu><u-sidebar-menu title="通知平台"><u-sidebar-item>发短信</u-sidebar-item><u-sidebar-item>发邮件</u-sidebar-item><u-sidebar-item>消息中心</u-sidebar-item><u-sidebar-item>公告管理</u-sidebar-item></u-sidebar-menu><u-sidebar-menu title="工单管理"><u-sidebar-item>工单问答</u-sidebar-item></u-sidebar-menu><u-sidebar-menu title="市场渠道"><u-sidebar-item>渠道推广</u-sidebar-item><u-sidebar-item>用户申请</u-sidebar-item><u-sidebar-item>活动管理</u-sidebar-item></u-sidebar-menu><u-sidebar-item>策略管理</u-sidebar-item></u-sidebar></div></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width: 164px;"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>用户管理<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-menu</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"用户审核"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>企业认证<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>个人认证<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>发票资质<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>发票审核<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-menu</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>ICP管理<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>资源配置<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-menu</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"费用管理"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>退款<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>订单管理<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>用户优惠<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>代金券管理<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>费用统计<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-menu</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-menu</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"通知平台"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>发短信<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>发邮件<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>消息中心<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>公告管理<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-menu</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-menu</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"工单管理"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>工单问答<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-menu</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-menu</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"市场渠道"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>渠道推广<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>用户申请<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>活动管理<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-menu</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-sidebar-item</span>&gt;</span>策略管理<span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-sidebar</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+</article>
+                <!---->
+                <script>new Vue().$mount('#u-example-0');
+new Vue().$mount('#u-example-1');</script>
+            
+</body>
+</html>
