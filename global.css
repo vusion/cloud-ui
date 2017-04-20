@@ -1,5 +1,8 @@
 @import 'u-base.vue/global.css';
 
+$margin-bottom-base: 20px;
+$margin-right-base: 5px;
+
 $font-size-base: 14px;
 
 $brand-primary: #387ee8;

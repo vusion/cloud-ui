@@ -2,9 +2,19 @@ body {
     color: #345;
 }
 
+a {
+    color: #4477d0;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 .u-article {
     margin: 0 auto;
     width: 960px;
+    margin-top: 60px;
 }
 
 .u-article > li > p {
