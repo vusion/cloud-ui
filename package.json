@@ -27,8 +27,8 @@
       "u-button.vue": "^0.1.0",
       "u-circular-progress.vue": "^0.1.0",
       "u-linear-progress.vue": "^0.1.0",
-      "u-list-view.vue": "^0.1.0",
-      "u-list-view-item.vue": "^0.1.0",
+      "u-list-view.vue": "^0.1.1",
+      "u-list-view-item.vue": "^0.1.1",
       "u-pagination.vue": "^0.1.0",
       "u-tab.vue": "^0.1.2",
       "u-tabs.vue": "^0.1.2"
