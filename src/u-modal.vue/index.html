@@ -1,0 +1,18 @@
+<div :class="$style.root" v-if="show">
+    <div :class="$style.item">
+        <div :class="$style['item-head']">
+            <h3 v-if="title" :class="$style['item-title']">{{title}}</h3>
+            <slot name="title"></slot>
+            <a :class="$style['item-close']" @click.stop="cancelButton ? cancel() : ok()"></a>
+        </div>
+        <div :class="$style['item-body']">
+            <slot name="body"></slot>
+            <slot></slot>
+            {{content}}
+        </div>
+        <div :class="$style['item-ft']">
+            <u-button v-if="okButton" :class="$style['item-btn']" color="primary" @click.native="ok">{{okButton}}</u-button>
+            <u-button v-if="cancelButton" :class="$style['item-btn']" @click.native="cancel">{{cancelButton}}</u-button>
+        </div>
+    </div>
+</div>

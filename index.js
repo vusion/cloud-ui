@@ -17,6 +17,7 @@ import Capsules from './src/u-capsules.vue';
 import Capsule from './src/u-capsule.vue';
 import Tablets from './src/u-tablets.vue';
 import Tablet from './src/u-tablet.vue';
+import Modal from './src/u-modal.vue';
 
 const Components = {
     Base,
@@ -36,6 +37,7 @@ const Components = {
     Capsule,
     Tablets,
     Tablet,
+    Modal,
 };
 
 window.Vue = Vue;
@@ -59,4 +61,5 @@ export {
     Capsule,
     Tablets,
     Tablet,
+    Modal,
 };
