@@ -18,6 +18,8 @@ import Capsule from './src/u-capsule.vue';
 import Tablets from './src/u-tablets.vue';
 import Tablet from './src/u-tablet.vue';
 import Modal from './src/u-modal.vue';
+import NavbarItem from './src/u-navbar-item.vue';
+import Navbar from './src/u-navbar.vue';
 
 const Components = {
     Base,
@@ -38,6 +40,8 @@ const Components = {
     Tablets,
     Tablet,
     Modal,
+    NavbarItem,
+    Navbar,
 };
 
 window.Vue = Vue;
@@ -62,4 +66,6 @@ export {
     Tablets,
     Tablet,
     Modal,
+    NavbarItem,
+    Navbar,
 };

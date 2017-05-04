@@ -5,7 +5,7 @@ $margin-right-base: 5px;
 
 $font-size-base: 14px;
 
-$brand-primary: #387ee8;
+$brand-primary: #2cb78e;
 
 $field-background: white;
 $field-color: #666;
@@ -16,6 +16,6 @@ $field-selected-color: $brand-primary;
 $height-base: 34px;
 $border-radius-base: 2px;
 
-$sidebar-background-color: #294265;
+$sidebar-background-color: #f0f6fa;
 
 $link-color: #4477d0;

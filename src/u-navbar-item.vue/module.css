@@ -1,19 +1,21 @@
 .root {
-    display: block;
+    display: inline-block;
     cursor: pointer;
+
     height: 52px;
     line-height: 52px;
     color: #9dabc2;
-    padding-left: 20px;
+    padding: 0 20px;
     transition: color 0.2s;
 }
 
 .root:hover {
-    color: #2cb78e;
     background-color: #dde8f0;
+    color: #2cb78e;
 }
 
 .root[selected] {
     background-color: #dde8f0;
     color: #2cb78e;
+    border-bottom: 2px solid #2cb78e;
 }

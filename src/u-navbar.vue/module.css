@@ -1,0 +1,4 @@
+.root {
+    user-select: none;
+    background-color: $sidebar-background-color;
+}

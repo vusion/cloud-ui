@@ -2,7 +2,7 @@
     .item {
         display: block;
         cursor: pointer;
-
+        
         height: 52px;
         line-height: 52px;
         color: #9dabc2;
@@ -22,7 +22,8 @@
     }
 
     .item:hover {
-        color: white;
+        color: #2cb78e;
+        background-color: #dde8f0;
 
         /* @TODO: replace by icon-font */
         &:after {
@@ -49,6 +50,6 @@
 
     .list {
         clear: both;
-        background: #1a2f4b;
+        background: #f0f6fa;
     }
 }
