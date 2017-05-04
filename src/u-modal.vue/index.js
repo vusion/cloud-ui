@@ -4,48 +4,44 @@ import Button from 'u-button.vue';
 const Modal = Base.extend({
     name: 'u-modal',
     props: {
-        title: {
-            type: String,
-            default: '提示',
-        },
-        okButton: {
-            type: String,
-            default: '确定',
-        },
-        cancelButton: {
-            type: String,
-            default: '取消',
-        },
-        content: {
-            type: String,
-            default: '提示内容',
-        },
+        title: { type: String, default: '提示' },
+        okButton: { type: String, default: '确定' },
+        cancelButton: { type: String, default: '取消' },
+        content: { type: String, default: '提示内容' },
+        visible: { type: Boolean, default: false },
     },
     data() {
         return {
-            show: false,
+            visible_: this.visible,
         };
     },
+    watch: {
+        visible(visible) {
+            this.visible_ = visible;
+        },
+    },
     methods: {
-        ok() {
-            this.$emit('onOk', {
-                sender: this,
-            });
-            this.close();
-        },
-        cancel() {
-            this.close();
-        },
-        close() {
-            this.show = false;
-        },
         open() {
-            this.show = true;
+            this.visible_ = true;
             if (!this.$el) {
                 const ele = document.createElement('div');
                 this.$mount(ele);
                 document.body.appendChild(this.$el);
             }
+
+            this.$emit('open');
+        },
+        close() {
+            this.visible_ = false;
+            this.$emit('close');
+        },
+        ok() {
+            this.$emit('ok');
+            this.close();
+        },
+        cancel() {
+            this.$emit('cancel');
+            this.close();
         },
     },
 });

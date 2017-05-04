@@ -1,18 +1,23 @@
-<div :class="$style.root" v-if="show">
-    <div :class="$style.item">
-        <div :class="$style['item-head']">
-            <h3 v-if="title" :class="$style['item-title']">{{title}}</h3>
-            <slot name="title"></slot>
-            <a :class="$style['item-close']" @click.stop="cancelButton ? cancel() : ok()"></a>
+<div :class="$style.root" v-if="visible_">
+    <div :class="$style.dialog">
+        <div :class="$style.head">
+            <slot name="head">
+                <div v-if="title" :class="$style.title">
+                    <slot name="title">{{ title }}</slot>
+                </div>
+                <a :class="$style.close" @click="cancel()"></a>
+            </slot>
         </div>
-        <div :class="$style['item-body']">
-            <slot name="body"></slot>
-            <slot></slot>
-            {{content}}
+        <div :class="$style.body">
+            <slot name="body">
+                <slot>{{ content }}</slot>
+            </slot>
         </div>
-        <div :class="$style['item-ft']">
-            <u-button v-if="okButton" :class="$style['item-btn']" color="primary" @click.native="ok">{{okButton}}</u-button>
-            <u-button v-if="cancelButton" :class="$style['item-btn']" @click.native="cancel">{{cancelButton}}</u-button>
+        <div :class="$style.foot">
+            <slot name="foot">
+                <u-button :class="$style.button" v-if="okButton" color="primary" @click.native="ok()">{{okButton}}</u-button>
+                <u-button :class="$style.button" v-if="cancelButton" @click.native="cancel()">{{cancelButton}}</u-button>
+            </slot>
         </div>
     </div>
 </div>

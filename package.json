@@ -36,9 +36,9 @@
   "devDependencies": {
     "eslint": "^3.18.0",
     "eslint-config-vusion": "^1.1.0",
-    "vue": "^2.2.1"
+    "vue": "^2.3.0"
   },
   "peerDependencies": {
-    "vue": "^2.2.1"
+    "vue": "^2.3.0"
   }
 }

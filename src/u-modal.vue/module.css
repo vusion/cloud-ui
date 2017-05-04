@@ -1,5 +1,6 @@
 $brand-default: #f4f4f4;
 $media-sm-max-width: 768px - 1;
+
 .root {
     position: fixed;
     top: 0;
@@ -21,27 +22,27 @@ $media-sm-max-width: 768px - 1;
         height: 100%;
     }
 
-    .item {
+    .dialog {
         display: inline-block;
         vertical-align: middle;
         text-align: left;
         width: 400px;
         background: white;
-        $box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     }
 
-    .item-head {
+    .head {
         position: relative;
         padding: 15px;
         border-bottom: 1px solid $brand-default;
     }
 
-    .item-title {
+    .title {
         margin: 0;
         font-size: 18px;
     }
 
-    .item-close {
+    .close {
         position: absolute;
         right: 15px;
 	    top: 18px;
@@ -55,48 +56,30 @@ $media-sm-max-width: 768px - 1;
 	    }
     }
 
-    .item-body {
+    .body {
     	padding: 15px;
     	min-height: 10px;
     }
 
-    .item-ft {
+    .foot {
         padding: 15px;
 	    text-align: center;
 	    border-top: 1px solid $brand-default;
-
-	    .item-btn {
-	        margin: 0 10px;
-	        cursor: pointer;
-	        padding: 0 12px;
-            height: 34px;
-            line-height: 34px;
-            border-radius: 3px;
-            border: 1px solid #ddd;
-            color: #444;
-            background: #f4f4f4;
-	    }
-	    .item-btn:hover{
-	    	text-decoration: none;
-	    	background: #e5e5e5;
-	    	border:1px solid #adadad;
-	    }
-	    .item-btn[color=primary]{
-	    	background: #3c8dbc;
-	    	color: #fff;
-	    	border: 1px solid #367fa9;
-	    }
-	    .item-btn[color=primary]:hover{
-	    	background: #367fa9;
-	    	color: #fff;
-	    	border: 1px solid #367fa9;
-	    }
     }
 
-   @media (max-width: $media-sm-max-width) {
+    .button:last-child {
+        margin-left: 15px;
+    }
+
+    @media (max-width: $media-sm-max-width) {
         .item {
             width: auto;
             margin: 10px;
         }
     }
+}
+
+.root[static] {
+    position: static;
+    padding: $margin-bottom-base;
 }
