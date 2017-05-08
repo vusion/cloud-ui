@@ -21,6 +21,7 @@ import Modal from './src/u-modal.vue';
 import Calendar from './src/u-calendar.vue';
 import NavbarItem from './src/u-navbar-item.vue';
 import Navbar from './src/u-navbar.vue';
+import NumberInput from './src/u-numberinput.vue';
 
 const Components = {
     Base,
@@ -44,6 +45,7 @@ const Components = {
     Calendar,
     NavbarItem,
     Navbar,
+    NumberInput,
 };
 
 window.Vue = Vue;
@@ -71,4 +73,5 @@ export {
     Calendar,
     NavbarItem,
     Navbar,
+    NumberInput,
 };
