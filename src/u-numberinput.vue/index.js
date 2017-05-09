@@ -46,8 +46,13 @@ const NumberInput = Base.extend({
     },
     watch: {
         showValue(newValue, oldValue) {
-            if (typeof newValue === 'string')
-                return this.showValue = +newValue;
+            if (typeof newValue === 'string') {
+                const _newValue = +newValue;
+                if (isNaN(_newValue))
+                    return this.showValue = +this.value;
+                else
+                    return this.showValue = +newValue;
+            }
 
             // 如果超出数值范围，则设置为范围边界的数值
             const isOutOfRange = this.isOutOfRange(newValue);
