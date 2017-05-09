@@ -46,13 +46,20 @@ const NumberInput = Base.extend({
         };
     },
     watch: {
+        value(newValue) {
+            // 如果超出数值范围，则设置为范围边界的数值
+            const isOutOfRange = this.isOutOfRange(newValue);
+            if (isOutOfRange !== false)
+                this.showValue = this.formatNumber(isOutOfRange);
+            this.showValue = this.formatNumber(newValue);
+        },
         showValue(newValue, oldValue) {
             if (typeof newValue === 'string') {
                 const _newValue = +newValue;
                 if (isNaN(_newValue))
-                    return this.showValue = this.formatNumber(+this.value);
+                    this.showValue = this.formatNumber(+this.value);
                 else
-                    return this.showValue = this.formatNumber(+newValue);
+                    this.showValue = this.formatNumber(+newValue);
             }
 
             // 如果超出数值范围，则设置为范围边界的数值
@@ -87,7 +94,7 @@ const NumberInput = Base.extend({
                 throw new TypeError(value + ' is not a number!');
 
             _showValue += value;
-            this.showValue = this.formatNumber(_showValue);
+            this.showValue = _showValue;
         },
         /**
          * @method isOutOfRange(value) 是否超出规定的数值范围
@@ -110,7 +117,7 @@ const NumberInput = Base.extend({
         formatNumber(value) {
             // debugger;
             value = '' + (value || 0);
-            if(this.format)
+            if (this.format)
                 return this.format.replace(new RegExp('\\d{0,' + value.length + '}$'), value);
             return value;
         },
