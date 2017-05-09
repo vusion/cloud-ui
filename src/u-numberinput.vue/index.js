@@ -20,6 +20,7 @@ const NumberInput = Base.extend({
                 return '';
             },
         },
+        format: String,
         placeholder: String,
         autofocus: String,
         readonly: String,
@@ -41,7 +42,7 @@ const NumberInput = Base.extend({
     },
     data() {
         return {
-            showValue: +this.value,
+            showValue: this.formatNumber(+this.value),
         };
     },
     watch: {
@@ -49,15 +50,15 @@ const NumberInput = Base.extend({
             if (typeof newValue === 'string') {
                 const _newValue = +newValue;
                 if (isNaN(_newValue))
-                    return this.showValue = +this.value;
+                    return this.showValue = this.formatNumber(+this.value);
                 else
-                    return this.showValue = +newValue;
+                    return this.showValue = this.formatNumber(+newValue);
             }
 
             // 如果超出数值范围，则设置为范围边界的数值
             const isOutOfRange = this.isOutOfRange(newValue);
             if (isOutOfRange !== false)
-                return this.showValue = isOutOfRange;
+                return this.showValue = this.formatNumber(isOutOfRange);
 
             /**
              * @event change 数值改变时触发
@@ -78,13 +79,15 @@ const NumberInput = Base.extend({
          * @return {number} value 计算后的值
          */
         add(value) {
+            let _showValue = +this.showValue;
             if (this.readonly || this.disabled || !value)
                 return;
 
             if (isNaN(value))
                 throw new TypeError(value + ' is not a number!');
 
-            return this.showValue += value;
+            _showValue += value;
+            this.showValue = this.formatNumber(_showValue);
         },
         /**
          * @method isOutOfRange(value) 是否超出规定的数值范围
@@ -103,6 +106,13 @@ const NumberInput = Base.extend({
                 return max;
             else
                 return false;
+        },
+        formatNumber(value) {
+            // debugger;
+            value = '' + (value || 0);
+            if(this.format)
+                return this.format.replace(new RegExp('\\d{0,' + value.length + '}$'), value);
+            return value;
         },
     },
 });

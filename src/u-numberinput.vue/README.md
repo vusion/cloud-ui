@@ -10,6 +10,11 @@
 <u-number-input></u-number-input>
 ```
 
+### format属性
+``` html
+<u-number-input format="00" value="5"></u-number-input>
+```
+
 ### autofocus
 ``` html
 <u-number-input value="12" autofocus="autofocus"></u-number-input>
