@@ -22,6 +22,7 @@ import Calendar from './src/u-calendar.vue';
 import NavbarItem from './src/u-navbar-item.vue';
 import Navbar from './src/u-navbar.vue';
 import NumberInput from './src/u-numberinput.vue';
+import DatePicker from './src/u-datepicker.vue';
 
 const Components = {
     Base,
@@ -46,6 +47,7 @@ const Components = {
     NavbarItem,
     Navbar,
     NumberInput,
+    DatePicker,
 };
 
 window.Vue = Vue;
@@ -74,4 +76,5 @@ export {
     NavbarItem,
     Navbar,
     NumberInput,
+    DatePicker,
 };

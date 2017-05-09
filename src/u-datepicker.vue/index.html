@@ -1,0 +1,9 @@
+<div :class="$style.root" ref="element">
+    <div :class="$style.header">
+        <input :class="$style.input" :placeholder="placeholder" :value="format(showDate,'yyyy-MM-dd')" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
+            @focus="toggle(true)" @change="onInput($event)">
+    </div>
+    <div :class="$style.body" v-show="open">
+        <u-calendar :minDate="minDate" :maxDate="maxDate" :date="showDate" @select="select($event.date)"/>
+    </div>
+</div>
