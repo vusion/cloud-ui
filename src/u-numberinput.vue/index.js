@@ -22,9 +22,9 @@ const NumberInput = Base.extend({
         },
         format: String,
         placeholder: String,
-        autofocus: String,
-        readonly: String,
-        disabled: String,
+        autofocus: [String, Boolean],
+        readonly: [String, Boolean],
+        disabled: [String, Boolean],
         min: [String, Number],
         max: [String, Number],
         width: {

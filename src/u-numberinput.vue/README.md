@@ -43,13 +43,14 @@
 ### 获取改变后的值change方法
 ``` vue
 <template>
-<u-number-input @change="change" :value="value"></u-number-input>
+<u-number-input @change="change" :value="value" :readonly="readonly"></u-number-input>
 </template>
 
 <script>
 export default {
 	data: {
 		value: 12,
+		readonly: false,
 	},
     methods: {
         change(value) {
@@ -59,5 +60,3 @@ export default {
 };
 </script>
 ```
-
-</script>
