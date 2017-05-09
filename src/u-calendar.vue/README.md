@@ -24,4 +24,4 @@
 ``` html
 <u-calendar date="2018-08-08" min-date="2017-08-08" max-date="2019-08-08" disabled="disabled"></u-calendar>
 ```
-</script>
+

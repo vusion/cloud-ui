@@ -35,16 +35,20 @@ const Calendar = Base.extend({
     },
     computed: {
         showYear() {
-            const date = this.showDate;
+            const date = this.transformDate(this.showDate);
             return date.getFullYear();
         },
         showMonth() {
-            const date = this.showDate;
+            const date = this.transformDate(this.showDate);
             const month = date.getMonth() + 1;
             return this.fix(month);
         },
     },
     watch: {
+        date(newValue) {
+            this.showDate = this.transformDate(newValue);
+            this.updateFlag = true;
+        },
         showDate(newValue) {
             // 如果超出日期范围，则设置为范围边界的日期
             const isOutOfRange = this.isOutOfRange(newValue);
