@@ -10,6 +10,8 @@ import Base from 'u-base.vue';
  * @param {boolean=false}           options.autofocus           => 是否自动获得焦点
  * @param {boolean=false}           options.readonly            => 是否只读
  * @param {boolean=false}           options.disabled            => 是否禁用
+ * @param {string='140'}            options.width               => 输入框宽度
+ * @param {string='34'}             options.width               => 输入框高度
  */
 const NumberInput = Base.extend({
     name: 'u-number-input',
@@ -42,7 +44,7 @@ const NumberInput = Base.extend({
     },
     data() {
         return {
-            showValue: this.formatNumber(+this.value),
+            showValue: this.formatNumber(this.value),
         };
     },
     watch: {
@@ -50,7 +52,7 @@ const NumberInput = Base.extend({
             // 如果超出数值范围，则设置为范围边界的数值
             const isOutOfRange = this.isOutOfRange(newValue);
             if (isOutOfRange !== false)
-                this.showValue = this.formatNumber(isOutOfRange);
+                return this.showValue = this.formatNumber(isOutOfRange);
             this.showValue = this.formatNumber(newValue);
         },
         showValue(newValue, oldValue) {
@@ -74,8 +76,28 @@ const NumberInput = Base.extend({
              */
             this.$emit('change', {
                 sender: this,
-                value: newValue,
+                value: this.showValue,
             });
+        },
+        min(newValue, oldValue) {
+            const _max = this.max;
+            if (!isNaN(newValue) && newValue - _max > 0)
+                throw new NumberInput.NumberRangeError(newValue, _max);
+
+            // 如果超出数值范围，则设置为范围边界的数值
+            const isOutOfRange = this.isOutOfRange(this.showValue);
+            if (isOutOfRange !== false)
+                return this.showValue = isOutOfRange;
+        },
+        max(newValue, oldValue) {
+            const _min = this.min;
+            if (!isNaN(newValue) && _min - newValue > 0)
+                throw new NumberInput.NumberRangeError(_min, newValue);
+
+            // 如果超出数值范围，则设置为范围边界的数值
+            const isOutOfRange = this.isOutOfRange(this.showValue);
+            if (isOutOfRange !== false)
+                return this.showValue = isOutOfRange;
         },
     },
     methods: {
@@ -115,7 +137,6 @@ const NumberInput = Base.extend({
                 return false;
         },
         formatNumber(value) {
-            // debugger;
             value = '' + (value || 0);
             if (this.format)
                 return this.format.replace(new RegExp('\\d{0,' + value.length + '}$'), value);
