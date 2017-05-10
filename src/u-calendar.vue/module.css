@@ -23,11 +23,12 @@ $u-calendar_item_height: 30px;
 
 	.item:hover {
 	    background: #f4f4f4;
-	    color: #444;
+	    color: #2cb78e;
+    	border-color: #2cb78e;
 	}
 
 	.item[sel=sel] {
-	    background: #3c8dbc;
+	    background: #2cb78e;
 	    color: #fff;
 	}
 
