@@ -1,0 +1,11 @@
+.root{
+	display: inline-block;
+	.item{
+		input{
+			padding: 6px;
+		}
+	}
+	.dot{
+		padding: 0 5px;
+	}
+}
