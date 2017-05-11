@@ -1,5 +1,5 @@
 <div :class="$style.root" v-if="visible_">
-    <div :class="$style.dialog">
+    <div :class="$style.dialog" :style="{width: width+'px'}">
         <div :class="$style.head">
             <slot name="head">
                 <div v-if="title" :class="$style.title">

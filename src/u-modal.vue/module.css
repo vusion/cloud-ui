@@ -26,7 +26,6 @@ $media-sm-max-width: 768px - 1;
         display: inline-block;
         vertical-align: middle;
         text-align: left;
-        width: 400px;
         background: white;
         box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     }

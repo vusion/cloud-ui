@@ -9,6 +9,7 @@ const Modal = Base.extend({
         cancelButton: { type: String, default: '取消' },
         content: { type: String, default: '提示内容' },
         visible: { type: Boolean, default: false },
+        width: { type: [String, Number], default: '400' },
     },
     data() {
         return {
