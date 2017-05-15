@@ -24,6 +24,7 @@ import Navbar from './src/u-navbar.vue';
 import NumberInput from './src/u-numberinput.vue';
 import DatePicker from './src/u-datepicker.vue';
 import TimePicker from './src/u-timepicker.vue';
+import Chart from './src/u-chart.vue';
 
 const Components = {
     Base,
@@ -50,6 +51,7 @@ const Components = {
     NumberInput,
     DatePicker,
     TimePicker,
+    Chart,
 };
 
 window.Vue = Vue;
@@ -80,4 +82,5 @@ export {
     NumberInput,
     DatePicker,
     TimePicker,
+    Chart,
 };

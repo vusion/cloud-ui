@@ -1,0 +1,85 @@
+$m-chart_padding: 15px;
+$m-chart_tt_height: 40px;
+$m-chart_legend_height: 30px;
+
+.root {
+    position: relative;
+    box-sizing: border-box;
+    width: 800px;
+    height: 480px;
+    padding: 15px;
+
+    .ittitle {
+        position: absolute;
+        z-index: 5;
+        top: $m-chart_padding;
+        left: $m-chart_padding;
+        right: $m-chart_padding;
+        height: $m-chart_tt_height;
+        line-height: $m-chart_tt_height;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .legend {
+        position: absolute;
+        bottom: $m-chart_padding;
+        height: $m-chart_legend_height;
+        line-height: $m-chart_legend_height;
+        left: $m-chart_padding;
+        right: $m-chart_padding;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .legend-item {
+        display: inline-block;
+        cursor: pointer;
+        user-select: none;
+
+        &:before {
+            display: inline-block;
+            content: '';
+            width: 10px;
+            height: 10px;
+            vertical-align: text-bottom;
+            margin-right: 4px;
+        }
+    }
+
+    .legend-item:nth-of-type(1):before { background: rgba(0,153,255,0.6); }
+    .legend-item:nth-of-type(2):before { background: rgba(255,174,60,0.6); }
+    .legend-item:nth-of-type(3):before { background: rgba(78,201,171,0.6); }
+    .legend-item:nth-of-type(4):before { background: rgba(245,131,122,0.6); }
+    .legend-item:nth-of-type(5):before { background: rgba(158,156,246,0.6); }
+
+    .legend-item + .legend-item {
+        margin-left: 2em;
+    }
+
+    .legend-item[dis] {
+        color: #ccc;
+
+        &:before { background: #ccc; }
+    }
+
+    .content {
+        position: absolute;
+        top: $m-chart_padding;
+        left: $m-chart_padding;
+        right: $m-chart_padding;
+        bottom: $m-chart_padding;
+    }
+
+    .ittitle ~ .content {
+        top: 55px;
+    }
+
+    .legend ~ .content {
+        bottom: 45px;
+    }
+}
+
+.root[border] {
+    border:1px solid #eee;
+}
