@@ -26,6 +26,7 @@ import DatePicker from './src/u-datepicker.vue';
 import TimePicker from './src/u-timepicker.vue';
 import Chart from './src/u-chart.vue';
 import PieChart from './src/u-piechart.vue';
+import LineChart from './src/u-linechart.vue';
 
 const Components = {
     Base,
@@ -54,6 +55,7 @@ const Components = {
     TimePicker,
     Chart,
     PieChart,
+    LineChart,
 };
 
 window.Vue = Vue;
@@ -86,4 +88,5 @@ export {
     TimePicker,
     Chart,
     PieChart,
+    LineChart,
 };
