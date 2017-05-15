@@ -25,6 +25,7 @@ import NumberInput from './src/u-numberinput.vue';
 import DatePicker from './src/u-datepicker.vue';
 import TimePicker from './src/u-timepicker.vue';
 import Chart from './src/u-chart.vue';
+import PieChart from './src/u-piechart.vue';
 
 const Components = {
     Base,
@@ -52,6 +53,7 @@ const Components = {
     DatePicker,
     TimePicker,
     Chart,
+    PieChart,
 };
 
 window.Vue = Vue;
@@ -83,4 +85,5 @@ export {
     DatePicker,
     TimePicker,
     Chart,
+    PieChart,
 };
