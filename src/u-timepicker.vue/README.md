@@ -24,3 +24,24 @@
 ``` html
 <u-time-picker time="15:46:33" width="56" min-time="12:30:00" max-time="14:45:00"></u-time-picker>
 ```
+
+``` vue
+<template>
+<u-time-picker width="56" :time="time" @change="change($event.time)"></u-time-picker>
+</template>
+
+<script>
+export default {
+	data() {
+		return {
+			time: '20:12:12',
+		};
+	},
+    methods: {
+        change(time) {
+            console.log(time);
+        },
+    },
+};
+</script>
+```
