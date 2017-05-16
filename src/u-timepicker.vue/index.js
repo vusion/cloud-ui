@@ -26,9 +26,7 @@ const TimePicker = Base.extend({
     props: {
         time: {
             type: String,
-            default() {
-                return '00:00:00';
-            },
+            default: '00:00:00',
         },
         autofocus: [String, Boolean],
         disabled: [String, Boolean],
@@ -36,15 +34,11 @@ const TimePicker = Base.extend({
         width: String,
         minTime: {
             type: String,
-            default() {
-                return '00:00:00';
-            },
+            default: '00:00:00',
         },
         maxTime: {
             type: String,
-            default() {
-                return '23:59:59';
-            },
+            default: '23:59:59',
         },
     },
     data() {
@@ -141,6 +135,22 @@ const TimePicker = Base.extend({
                 sender: this,
                 time: newValue,
             });
+        },
+        minTime(newValue, oldValue) {
+            this.hourmin = HOUR_MIN;
+            this.minutemin = MINUTE_MIN;
+            this.secondmin = SECOND_MIN;
+            this.hourmax = HOUR_MAX;
+            this.minutemax = MINUTE_MAX;
+            this.secondmax = SECOND_MAX;
+        },
+        maxTime(newValue, oldValue) {
+            this.hourmin = HOUR_MIN;
+            this.minutemin = MINUTE_MIN;
+            this.secondmin = SECOND_MIN;
+            this.hourmax = HOUR_MAX;
+            this.minutemax = MINUTE_MAX;
+            this.secondmax = SECOND_MAX;
         },
     },
     methods: {
