@@ -18,9 +18,7 @@ const NumberInput = Base.extend({
     props: {
         value: {
             type: [String, Number],
-            default() {
-                return '';
-            },
+            default: '',
         },
         format: String,
         placeholder: String,
@@ -31,15 +29,11 @@ const NumberInput = Base.extend({
         max: [String, Number],
         width: {
             type: [String, Number],
-            default() {
-                return '140';
-            },
+            default: '140',
         },
         height: {
             type: [String, Number],
-            default() {
-                return '34';
-            },
+            default: '34',
         },
     },
     data() {
@@ -59,15 +53,17 @@ const NumberInput = Base.extend({
             if (typeof newValue === 'string') {
                 const _newValue = +newValue;
                 if (isNaN(_newValue))
-                    this.showValue = this.formatNumber(+this.value);
+                    this.showValue = this.formatNumber(this.value);
                 else
-                    this.showValue = this.formatNumber(+newValue);
+                    this.showValue = this.formatNumber(newValue);
             }
 
             // 如果超出数值范围，则设置为范围边界的数值
             const isOutOfRange = this.isOutOfRange(newValue);
             if (isOutOfRange !== false)
                 return this.showValue = this.formatNumber(isOutOfRange);
+
+            this.showValue = this.formatNumber(newValue);
 
             /**
              * @event change 数值改变时触发
