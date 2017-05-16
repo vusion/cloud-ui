@@ -13,5 +13,6 @@
     <div :class="$style.content">
         <div :class="$style.week"><span :class="$style.item">日</span><span :class="$style.item">一</span><span :class="$style.item">二</span><span :class="$style.item">三</span><span :class="$style.item">四</span><span :class="$style.item">五</span><span :class="$style.item">六</span></div>
         <div :class="$style.day"><span v-for="day in days_" :class="$style.item" :sel="showDate.toDateString() === day.toDateString() ? 'sel' : ''" :disabled="!!isOutOfRange(day)" :role="showDate.getMonth() !== day.getMonth() ? 'muted': ''" @click.stop="select(day)">{{day | format('dd')}}</span></div>
+        <slot></slot>
     </div>
 </div>
