@@ -13,7 +13,6 @@ const MS_OF_DAY = 24 * 3600 * 1000;
  * @param {boolean=false}           options.autofocus           => 是否自动获得焦点
  * @param {boolean=false}           options.readonly            => 是否只读
  * @param {boolean=false}           options.disabled            => 是否禁用
- * @param {boolean=true}            options.visible             => 是否显示
  */
 const DatePicker = Base.extend({
     name: 'u-date-picker',
@@ -26,9 +25,7 @@ const DatePicker = Base.extend({
         readonly: [Boolean, String],
         placeholder: {
             type: String,
-            default() {
-                return '请输入';
-            },
+            default: '请输入',
         },
     },
     data() {
@@ -115,7 +112,7 @@ const DatePicker = Base.extend({
             this.toggle(false);
         },
         /**
-         * @method _onInput($event) 输入日期
+         * @method onInput($event) 输入日期
          * @private
          * @param  {object} $event
          * @return {void}
