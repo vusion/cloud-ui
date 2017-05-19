@@ -9,161 +9,167 @@ $m-barChart_line_offset: 6px;
 $m-barChart_bar_width: 60px;
 
 .root {
-    .grid, .layer {
-        position: absolute;
-        bottom: $m-barChart_axis-x_height;
-        top: 15px;
-        left: $m-barChart_axis-y_width;
-        right: 20px;
-        font-size: 0;
-    }
-
-    .line {
-        position: absolute;
-    }
-
-    .line[role=line-x] {
-        left: -$m-barChart_line_offset;
-        right: -1px;
-        border-top: 1px solid $m-barChart_line_border;
-    }
-
-    .line[role=line-y] {
-        top: -1px;
-        bottom: -$m-barChart_line_offset;
-        border-left: 1px solid $m-barChart_line_border;
-    }
-
-    .axis {
-        position: absolute;
-        z-index: 2;
-    }
-
-    .axis[role=axis-x] {
-        left: $m-barChart_axis-y_width;
-        right: 19px;
-        bottom: 0;
-        height: $m-barChart_axis-x_height;
-        border-top: 1px solid $m-barChart_axis_border;
-    }
-
-    .axis[role=axis-y] {
-        left: 0;
-        top: 14px;
-        bottom: $m-barChart_axis-x_height;
-        width: $m-barChart_axis-y_width;
-        border-right: 1px solid $m-barChart_axis_border;
-    }
-
-    .label {
-        position: absolute;
-        font-size: 12px;
-    }
-
-    .label[role=label-x] {
-        top: $m-barChart_axis-x_offset;
-        bottom: 0;
-        text-align: center;
-    }
-
-    .label[role=label-y] {
-        left: 0;
-        right: $m-barChart_axis-y_offset;
-        -webkit-transform: translateY(50%);
-	    -moz-transform: translateY(50%);
-	    -ms-transform: translateY(50%);
-	    -o-transform: translateY(50%);
-	    transform: translateY(50%);
-        text-align: right;
-    }
-
-    .label[role=label-xName] {
-        right: -50px;
-        top: 6px;
-        bottom: 0;
-    }
-
-    .label[role=label-yName] {
-        right: 10px;
-        top: -30px;
-        text-align: right;
-    }
-
-    .layer {
-        z-index: 10;
-    }
-
-    .piece {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-    }
-
-    .bar {
-        position: absolute;
-        box-sizing: border-box;
-        bottom: 0;
-        width: $m-barChart_bar_width;
-        left: 50%;
-        margin-left: -30px;
-        background: rgba(0,153,255,0.3);
-        border: $m-barChart_line_width solid rgba(0,153,255,0.6);
-        border-bottom: none;
-
-    }
-    .tooltip {
-    	display: none;
-    	position: absolute;
-    	z-index: 10;
-    	left: 100%;
-    	top: -2px;
-    	margin-left: 5px;
-    	white-space: nowrap;
-        box-sizing: border-box;
-	    max-width: 200px;
-	    padding: 4px 8px;
-	    font-size: 12px;
-	    background: #333;
-	    color: #eee;
-        &:after {
-            content: '';
-            display: block;
-            position: absolute;
-            border: 5px solid #333;
-        }
-    }
-
-    .tooltip[role=tooltip-right-top] {
-        margin-left: 4px;
-        &:after{
-            top: 10px;
-            left: -5px;
-            border-left: none;
-            border-top-color: transparent;
-            border-bottom-color:transparent;
-        }
-    }
-
-    .bar:hover {
-        .tooltip {
-            display: block;
-        }
-    }
-
-    .bar[role=bar-stack] {
-        border: none;
-        background: none;
-    }
-
-    .bar[role=bar-static] {
-        position: static;
-        width: auto;
-        margin: 0;
-    }
-
-    .bar[role=bar-static]:nth-of-type(1) { border-color: rgba(0,153,255,0.6); background: rgba(0,153,255,0.3); }
-    .bar[role=bar-static]:nth-of-type(2) { border-color: rgba(255,174,60,0.6); background: rgba(255,174,60,0.3); }
-    .bar[role=bar-static]:nth-of-type(3) { border-color: rgba(78,201,171,0.6); background: rgba(78,201,171,0.3); }
-    .bar[role=bar-static]:nth-of-type(4) { border-color: rgba(245,131,122,0.6); background: rgba(245,131,122,0.3); }
-    .bar[role=bar-static]:nth-of-type(5) { border-color: rgba(158,156,246,0.6); background: rgba(158,156,246,0.3); }
 }
+.grid {
+    position: absolute;
+    bottom: $m-barChart_axis-x_height;
+    top: 15px;
+    left: $m-barChart_axis-y_width;
+    right: 20px;
+    font-size: 0;
+}
+.layer {
+	position: absolute;
+    bottom: $m-barChart_axis-x_height;
+    top: 15px;
+    left: $m-barChart_axis-y_width;
+    right: 20px;
+    font-size: 0;
+}
+
+.line {
+    position: absolute;
+}
+
+.line[role=line-x] {
+    left: -$m-barChart_line_offset;
+    right: -1px;
+    border-top: 1px solid $m-barChart_line_border;
+}
+
+.line[role=line-y] {
+    top: -1px;
+    bottom: -$m-barChart_line_offset;
+    border-left: 1px solid $m-barChart_line_border;
+}
+
+.axis {
+    position: absolute;
+    z-index: 2;
+}
+
+.axis[role=axis-x] {
+    left: $m-barChart_axis-y_width;
+    right: 19px;
+    bottom: 0;
+    height: $m-barChart_axis-x_height;
+    border-top: 1px solid $m-barChart_axis_border;
+}
+
+.axis[role=axis-y] {
+    left: 0;
+    top: 14px;
+    bottom: $m-barChart_axis-x_height;
+    width: $m-barChart_axis-y_width;
+    border-right: 1px solid $m-barChart_axis_border;
+}
+
+.label {
+    position: absolute;
+    font-size: 12px;
+}
+
+.label[role=label-x] {
+    top: $m-barChart_axis-x_offset;
+    bottom: 0;
+    text-align: center;
+}
+
+.label[role=label-y] {
+    left: 0;
+    right: $m-barChart_axis-y_offset;
+    -webkit-transform: translateY(50%);
+    -moz-transform: translateY(50%);
+    -ms-transform: translateY(50%);
+    -o-transform: translateY(50%);
+    transform: translateY(50%);
+    text-align: right;
+}
+
+.label[role=label-xName] {
+    right: -50px;
+    top: 6px;
+    bottom: 0;
+}
+
+.label[role=label-yName] {
+    right: 10px;
+    top: -30px;
+    text-align: right;
+}
+
+.layer {
+    z-index: 10;
+}
+
+.piece {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.bar {
+    position: absolute;
+    box-sizing: border-box;
+    bottom: 0;
+    width: $m-barChart_bar_width;
+    left: 50%;
+    margin-left: -30px;
+    background: rgba(0,153,255,0.3);
+    border: $m-barChart_line_width solid rgba(0,153,255,0.6);
+    border-bottom: none;
+
+}
+.tooltip {
+	display: none;
+	position: absolute;
+	z-index: 10;
+	left: 100%;
+	top: -2px;
+	margin-left: 5px;
+	white-space: nowrap;
+    box-sizing: border-box;
+    max-width: 200px;
+    padding: 4px 8px;
+    font-size: 12px;
+    background: #333;
+    color: #eee;
+}
+.tooltip:after {
+    content: '';
+    display: block;
+    position: absolute;
+    border: 5px solid #333;
+}
+
+.tooltip[role=tooltip-right-top] {
+    margin-left: 4px;
+}
+.tooltip[role=tooltip-right-top]:after{
+    top: 10px;
+    left: -5px;
+    border-left: none;
+    border-top-color: transparent;
+    border-bottom-color:transparent;
+}
+
+.bar:hover .tooltip {
+    display: block;
+}
+
+.bar[role=bar-stack] {
+    border: none;
+    background: none;
+}
+
+.bar[role=bar-static] {
+    position: static;
+    width: auto;
+    margin: 0;
+}
+
+.bar[role=bar-static]:nth-of-type(1) { border-color: rgba(0,153,255,0.6); background: rgba(0,153,255,0.3); }
+.bar[role=bar-static]:nth-of-type(2) { border-color: rgba(255,174,60,0.6); background: rgba(255,174,60,0.3); }
+.bar[role=bar-static]:nth-of-type(3) { border-color: rgba(78,201,171,0.6); background: rgba(78,201,171,0.3); }
+.bar[role=bar-static]:nth-of-type(4) { border-color: rgba(245,131,122,0.6); background: rgba(245,131,122,0.3); }
+.bar[role=bar-static]:nth-of-type(5) { border-color: rgba(158,156,246,0.6); background: rgba(158,156,246,0.3); }

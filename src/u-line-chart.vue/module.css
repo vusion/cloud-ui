@@ -8,228 +8,220 @@ $m-lineChart_line_width: 2px;
 $m-lineChart_line_offset: 6px;
 $m-lineChart_point_size: 9px;
 
-.root {
-    .grid, .layer {
-        position: absolute;
-        bottom: $m-lineChart_axis-x_height;
-        top: 15px;
-        left: $m-lineChart_axis-y_width;
-        right: 20px;
-        font-size: 0;
-    }
-
-    .line {
-        position: absolute;
-    }
-
-    .line[role=x] {
-        left: -$m-lineChart_line_offset;
-        right: -1px;
-        border-top: 1px solid $m-lineChart_line_border;
-    }
-
-    .line[role=y] {
-        top: -1px;
-        bottom: -$m-lineChart_line_offset;
-        border-left: 1px solid $m-lineChart_line_border;
-    }
-
-    .axis {
-        position: absolute;
-        z-index: 2;
-    }
-
-    .axis[role=axisx] {
-        left: $m-lineChart_axis-y_width;
-        right: 19px;
-        bottom: 0;
-        height: $m-lineChart_axis-x_height;
-        border-top: 1px solid $m-lineChart_axis_border;
-    }
-
-    .axis[role=axisy] {
-        left: 0;
-        top: 14px;
-        bottom: $m-lineChart_axis-x_height;
-        width: $m-lineChart_axis-y_width;
-        border-right: 1px solid $m-lineChart_axis_border;
-    }
-
-    .label {
-        position: absolute;
-        font-size: 12px;
-    }
-
-    .label[role=label-xName]{
-        right: -50px;
-        top: 6px;
-        bottom: 0;
-    }
-
-    .label[role=label-yName]{
-        right: 10px;
-        top: -30px;
-        text-align: center;
-    }
-
-    .label[role=labelx] {
-        top: $m-lineChart_axis-x_offset;
-        bottom: 0;
-        transform: translateX(-50%);
-        text-align: center;
-    }
-
-    .label[role=labely] {
-        left: 0;
-        right: $m-lineChart_axis-y_offset;
-        transform: translateY(50%);
-        text-align: right;
-    }
-
-    .label-xName {
-        right: -50px;
-        top: 6px;
-        bottom: 0;
-    }
-
-    .label-yName {
-        right: 10px;
-        top: -30px;
-        text-align: right;
-    }
-
-    .layer {
-        z-index: 10;
-
-        > svg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    }
-
-    /* 修复最下面2px线条在svg中只显示一半的问题*/
-    .layer[role=layersvg] {
-        bottom: $m-lineChart_axis-x_height - $m-lineChart_line_width;
-    }
-
-    .line { fill-opacity: 0; stroke-width: $m-lineChart_line_width; }
-    .area { stroke-opacity: 0; }
-
-    .layer {
-        > svg:nth-of-type(1) {
-            .line { stroke: rgba(0,153,255,0.6); }
-            .area { fill: rgba(0,153,255,0.3); }
-        }
-
-        > svg:nth-of-type(2) {
-            .line { stroke: rgb(255,174,60); }
-            .area { fill: rgba(255,174,60,0.1); }
-        }
-
-        > svg:nth-of-type(3) {
-            .line { stroke: rgb(78,201,171); }
-            .area { fill: rgba(78,201,171,0.1); }
-        }
-
-        > svg:nth-of-type(4) {
-            .line { stroke: rgb(245,131,122); }
-            .area { fill: rgba(245,131,122,0.1); }
-        }
-
-        > svg:nth-of-type(5) {
-            .line { stroke: rgb(158,156,246); }
-            .area { fill: rgba(158,156,246,0.1); }
-        }
-    }
-
-    .piece {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        border-left: 1px solid transparent;
-
-        &:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: -50%;
-            width: 50%;
-        }
-
-        .u-tooltip {
-            display: none;
-            position: absolute;
-            z-index: 10;
-            margin-top: -16px;
-            white-space: nowrap;
-            padding: 4px 12px;
-            font-size: 12px;
-            background: #333;
-            color: #eee;
-            box-sizing: border-box;
-            max-width: 200px;
-            &:after {
-                content: '';
-                display: block;
-                position: absolute;
-                border: 5px solid #333;
-            }
-        }
-
-        .u-tooltip[role=u-tooltip-right-top] {
-            margin-left: 4px;
-            &:after{
-                bottom: 10px;
-                left: -5px;
-                border-left: none;
-                border-top-color: transparent;
-                border-bottom-color:transparent;
-            }
-        }
-
-        .u-tooltip[role=u-tooltip-left-top] {
-            margin-right: 10px;
-            right: 100%;
-            &:after{
-                top: 10px;
-                right: -5px;
-                border-right: none;
-                border-top-color: transparent;
-                border-bottom-color:transparent;
-            }
-        }
-    }
-
-    .piece:hover {
-        border-left: 1px solid rgba(0,0,0,0.2);
-
-        .u-tooltip {
-            display: block;
-        }
-    }
-
-    .point {
-        position: absolute;
-        left: -1px;
-        box-sizing: border-box;
-        $size: $m-lineChart_point_size;
-        background: white;
-        border: 2px solid rgba(0,153,255,0.6);
-        border-radius: 100%;
-        margin-bottom: -4px;
-        margin-left: -4px;
-        width: 9px;
-        height: 9px;
-        border-radius: 100%;
-    }
-
-    .piece .point:nth-of-type(1) { border-color: rgba(0,153,255,0.6); }
-    .piece .point:nth-of-type(2) { border-color: rgb(255,174,60); }
-    .piece .point:nth-of-type(3) { border-color: rgb(78,201,171); }
-    .piece .point:nth-of-type(4) { border-color: rgb(245,131,122); }
-    .piece .point:nth-of-type(5) { border-color: rgb(158,156,246); }
+.grid {
+    position: absolute;
+    bottom: $m-lineChart_axis-x_height;
+    top: 15px;
+    left: $m-lineChart_axis-y_width;
+    right: 20px;
+    font-size: 0;
 }
+.layer{
+    position: absolute;
+    bottom: $m-lineChart_axis-x_height;
+    top: 15px;
+    left: $m-lineChart_axis-y_width;
+    right: 20px;
+    font-size: 0;
+}
+.line {
+    position: absolute;
+}
+
+.line[role=x] {
+    left: -$m-lineChart_line_offset;
+    right: -1px;
+    border-top: 1px solid $m-lineChart_line_border;
+}
+
+.line[role=y] {
+    top: -1px;
+    bottom: -$m-lineChart_line_offset;
+    border-left: 1px solid $m-lineChart_line_border;
+}
+
+.axis {
+    position: absolute;
+    z-index: 2;
+}
+
+.axis[role=axisx] {
+    left: $m-lineChart_axis-y_width;
+    right: 19px;
+    bottom: 0;
+    height: $m-lineChart_axis-x_height;
+    border-top: 1px solid $m-lineChart_axis_border;
+}
+
+.axis[role=axisy] {
+    left: 0;
+    top: 14px;
+    bottom: $m-lineChart_axis-x_height;
+    width: $m-lineChart_axis-y_width;
+    border-right: 1px solid $m-lineChart_axis_border;
+}
+
+.label {
+    position: absolute;
+    font-size: 12px;
+}
+
+.label[role=label-xName]{
+    right: -50px;
+    top: 6px;
+    bottom: 0;
+}
+
+.label[role=label-yName]{
+    right: 10px;
+    top: -30px;
+    text-align: center;
+}
+
+.label[role=labelx] {
+    top: $m-lineChart_axis-x_offset;
+    bottom: 0;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.label[role=labely] {
+    left: 0;
+    right: $m-lineChart_axis-y_offset;
+    transform: translateY(50%);
+    text-align: right;
+}
+
+.label-xName {
+    right: -50px;
+    top: 6px;
+    bottom: 0;
+}
+
+.label-yName {
+    right: 10px;
+    top: -30px;
+    text-align: right;
+}
+
+.layer {
+    z-index: 10;
+
+}
+.layer .elsvg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* 修复最下面2px线条在svg中只显示一半的问题*/
+.layer[role=layersvg] {
+    bottom: $m-lineChart_axis-x_height - $m-lineChart_line_width;
+}
+
+.line { fill-opacity: 0; stroke-width: $m-lineChart_line_width; }
+.area { stroke-opacity: 0; }
+
+.layer .elsvg:nth-of-type(1) .line { stroke: rgba(0,153,255,0.6); }
+.layer .elsvg:nth-of-type(1) .area { fill: rgba(0,153,255,0.3); }
+
+.layer .elsvg:nth-of-type(2) .line { stroke: rgb(255,174,60); }
+.layer .elsvg:nth-of-type(2) .area { fill: rgba(255,174,60,0.1); }
+
+.layer .elsvg:nth-of-type(3) .line { stroke: rgb(78,201,171); }
+.layer .elsvg:nth-of-type(3) .area { fill: rgba(78,201,171,0.1); }
+
+.layer .elsvg:nth-of-type(4) .line { stroke: rgb(245,131,122); }
+.layer .elsvg:nth-of-type(4) .area { fill: rgba(245,131,122,0.1); }
+
+.layer .elsvg:nth-of-type(5) .line { stroke: rgb(158,156,246); }
+.layer .elsvg:nth-of-type(5) .area { fill: rgba(158,156,246,0.1); }
+
+.piece {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-left: 1px solid transparent;
+
+}
+.piece:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -50%;
+    width: 50%;
+}
+
+.piece .u-tooltip {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    margin-top: -16px;
+    white-space: nowrap;
+    padding: 4px 12px;
+    font-size: 12px;
+    background: #333;
+    color: #eee;
+    box-sizing: border-box;
+    max-width: 200px;
+}
+.piece .u-tooltip:after {
+    content: '';
+    display: block;
+    position: absolute;
+    border: 5px solid #333;
+}
+
+.piece .u-tooltip[role=u-tooltip-right-top] {
+    margin-left: 4px;
+}
+.piece .u-tooltip[role=u-tooltip-right-top]:after{
+    bottom: 10px;
+    left: -5px;
+    border-left: none;
+    border-top-color: transparent;
+    border-bottom-color:transparent;
+}
+
+.piece .u-tooltip[role=u-tooltip-left-top] {
+    margin-right: 10px;
+    right: 100%;
+}
+.piece .u-tooltip[role=u-tooltip-left-top]:after{
+    top: 10px;
+    right: -5px;
+    border-right: none;
+    border-top-color: transparent;
+    border-bottom-color:transparent;
+}
+
+.piece:hover {
+    border-left: 1px solid rgba(0,0,0,0.2);
+}
+
+.piece:hover .u-tooltip {
+    display: block;
+}
+
+.point {
+    position: absolute;
+    left: -1px;
+    box-sizing: border-box;
+    background: white;
+    border: 2px solid rgba(0,153,255,0.6);
+    border-radius: 100%;
+    margin-bottom: -4px;
+    margin-left: -4px;
+    width: 9px;
+    height: 9px;
+    border-radius: 100%;
+}
+
+.piece .point:nth-of-type(1) { border-color: rgba(0,153,255,0.6); }
+.piece .point:nth-of-type(2) { border-color: rgb(255,174,60); }
+.piece .point:nth-of-type(3) { border-color: rgb(78,201,171); }
+.piece .point:nth-of-type(4) { border-color: rgb(245,131,122); }
+.piece .point:nth-of-type(5) { border-color: rgb(158,156,246); }

@@ -1,19 +1,19 @@
 .root{
 	display: inline-block;
 	position: relative;
-	.input{
-		box-sizing: border-box;
-		margin: 0;
-		padding: 6px 12px;
-		vertical-align: middle;
-		border: 1px solid #d2d6de;
-		color: #555;
-		background: #fff;
-		border-radius: 3px;
-	}
-	.input[disabled]{
-		cursor: not-allowed;
-		background: #eee;
-    	color: #999;
-	}
+}
+.input{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 6px 12px;
+	vertical-align: middle;
+	border: 1px solid #d2d6de;
+	color: #555;
+	background: #fff;
+	border-radius: 3px;
+}
+.input[disabled]{
+	cursor: not-allowed;
+	background: #eee;
+	color: #999;
 }
