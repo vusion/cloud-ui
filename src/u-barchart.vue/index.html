@@ -1,0 +1,39 @@
+<u-chart :class="$style.root" :title="title" :border="border" :width="width" :height="height" :legend="legend" :titleTemplate="titleTemplate" :tooltipTemplate="tooltipTemplate" :series="series" :data="data">
+    <div :class="$style.grid">
+        <div v-for="(xLabel,index) in xAxis_.data" :class="$style.line" role="line-y" :style="{left: 100*index/xAxis_.data.length+'%'}"></div>
+        <div :class="$style.line" role="line-y" style="left: 100%;"></div>
+        <div v-for="(yLabel,index) in yAxis_.data" :class="$style.line" role="line-x" :style="{bottom: 100*index/(yAxis_.data.length - 1)+'%'}"></div>
+    </div>
+    <div :class="$style.axis" role="axis-x">
+        <div v-for="(xLabel,index) in xAxis_.data" :class="$style.label"  role="label-x" :title="xLabel" :style="{left: 100*index/xAxis_.data.length+'%', width: 100/xAxis_.data.length+'%'}">
+            <slot name="xLabelTemplate">
+                {{xLabel}}
+            </slot>
+        </div>
+        <div :class="$style.label" role="label-xName">{{xAxis.name}}</div>
+    </div>
+    <div :class="$style.axis" role="axis-y">
+        <div v-for="(yLabel,index) in yAxis_.data" :class="$style.label" role="label-y" :title="yLabel" :style="{bottom: 100*index/(yAxis_.data.length - 1)+'%'}">{{format(yLabel)}}</div>
+        <div :class="$style.label" role="label-yName">{{yAxis.name}}</div>
+    </div>
+    <div :class="$style.layer">
+        <div v-for="(item,index) in data" :class="$style.piece" :style="{left: 100*index/data.length+'%', width: 100/data.length+'%'}">
+            <div v-if="!stack" v-for="sery in series" :class="$style.bar" :style="{height: 100*(item[sery.key] - yAxis_.min)/yAxis_.max+'%'}">
+                <div :class="$style.value">{{format(item[sery.key])}}</div>
+                <div :class="$style.tooltip" role="tooltip-right-top">
+                    <slot name="tooltipTemplate">
+                        {{sery.name || sery.key}}: {{format(item[sery.key])}}
+                    </slot>
+                </div>
+            </div>
+            <div v-else :class="$style.bar" role="bar-stack" :style="{height: 100*(item.total - yAxis_.min)/yAxis_.max+'%'}">
+                <div v-for="sery in series" :class="$style.bar" role="bar-static" :style="{height: 100*(item[sery.key])/item.total+'%'}" v-if="item[sery.key]"></div>
+                <div :class="$style.tooltip" role="tooltip-right-top">
+                    <slot name="tooltipTemplate">
+                        <div v-for="sery in series">{{sery.name || sery.key}}: {{format(item[sery.key])}}</div>
+                    </slot>
+                </div>
+            </div>
+        </div>
+    </div>
+</u-chart>

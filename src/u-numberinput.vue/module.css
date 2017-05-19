@@ -1,0 +1,68 @@
+.root {
+    display: inline-block;
+    position: relative;
+    user-select: none;
+    .input {
+    	box-sizing: border-box;
+    	vertical-align: middle;
+    	color: rgb(85,85,85);
+    	margin: 0;
+    	padding: 6px 12px;
+    	border: 1px solid rgb(210,214,222);
+    	border-radius: 3px;
+    	background: rgb(255,255,255);
+    }
+    .input[disabled]{
+    	color: rgb(153,153,153);
+    	border: 1px solid rgb(210,214,222);
+    	background: rgb(238,238,238);
+    	cursor: not-allowed;
+    }
+	.input[readonly]{
+		cursor: not-allowed;
+	}
+	.input[readonly] ~ .btn{
+		cursor: not-allowed;
+	}
+    .btn {
+    	position: absolute;
+        right: 2px;
+        top: 2px;
+        height: 14px;
+        line-height: 14px;
+        padding: 0 4px;
+        cursor: pointer;
+        border: 1px solid rgb(221,221,221);
+        background: rgb(244, 244, 244);
+    }
+    .btn[disabled]{
+    	cursor: not-allowed;
+    	opacity: 0.65;
+    	border: 1px solid rgb(204,204,204);
+    	background: rgb(255,255,255);
+    }
+
+    .btn + .btn {
+        top: auto;
+        bottom: 2px;
+    }
+    .icon {
+    	width: 1em;
+    	display: inline-block;
+    	font-style: normal;
+    	text-align: center;
+    }
+    .icon[role=up]:before{
+		content: '\0394';
+		display: inline-block;
+		height:14px;
+    }
+    .icon[role=down]{
+    	transform: rotate(180deg);
+    }
+    .icon[role=down]:before{
+		content: '\0394';
+		display: inline-block;
+		height: 14px;
+    }
+}

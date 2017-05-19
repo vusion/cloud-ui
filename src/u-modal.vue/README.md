@@ -5,7 +5,6 @@
 
 #### 声明式
 
-<div id="app"></div>
 
 ``` html
 <u-button @click.native="$refs.modal.open()">Modal</u-button>
@@ -14,7 +13,6 @@
 
 #### 命令式
 
-<div id="app"></div>
 
 ``` vue
 <template>
@@ -34,7 +32,6 @@ export default {
 
 ### Static
 
-<div id="app"></div>
 
 ``` html
 <u-modal visible static>wawegeg</u-modal>

@@ -1,0 +1,11 @@
+<div :class="$style.root" ref="element">
+    <div :class="$style.head">
+        <input :class="$style.input" :placeholder="placeholder" :value="dateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}"
+            @focus="toggle(true)" @change="onInput($event)">
+    </div>
+    <div :class="$style.body" v-show="open">
+        <u-calendar :readonly="readonly" :min-date="minCalendarDate" :max-date="maxCalendarDate" :date="showDate" @select="onDateTimeChange($event.date, showTime)" @change="outRangeDateTime($event.date, showTime)">
+            <u-time-picker :readonly="readonly" :time="showTime" width="50" :min-time="minTime" :max-time="maxTime" @change="onDateTimeChange(showDate, $event.time)" />
+        </u-calendar>
+    </div>
+</div>

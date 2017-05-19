@@ -18,8 +18,17 @@ import Capsule from './src/u-capsule.vue';
 import Tablets from './src/u-tablets.vue';
 import Tablet from './src/u-tablet.vue';
 import Modal from './src/u-modal.vue';
+import Calendar from './src/u-calendar.vue';
 import NavbarItem from './src/u-navbar-item.vue';
 import Navbar from './src/u-navbar.vue';
+import NumberInput from './src/u-numberinput.vue';
+import DatePicker from './src/u-datepicker.vue';
+import TimePicker from './src/u-timepicker.vue';
+import Chart from './src/u-chart.vue';
+import PieChart from './src/u-piechart.vue';
+import LineChart from './src/u-linechart.vue';
+import BarChart from './src/u-barchart.vue';
+import DateTimePicker from './src/u-datetimepicker.vue';
 
 const Components = {
     Base,
@@ -40,8 +49,17 @@ const Components = {
     Tablets,
     Tablet,
     Modal,
+    Calendar,
     NavbarItem,
     Navbar,
+    NumberInput,
+    DatePicker,
+    TimePicker,
+    Chart,
+    PieChart,
+    LineChart,
+    DateTimePicker,
+    BarChart,
 };
 
 window.Vue = Vue;
@@ -66,6 +84,15 @@ export {
     Tablets,
     Tablet,
     Modal,
+    Calendar,
     NavbarItem,
     Navbar,
+    NumberInput,
+    DatePicker,
+    TimePicker,
+    Chart,
+    PieChart,
+    LineChart,
+    DateTimePicker,
+    BarChart,
 };
