@@ -25,7 +25,7 @@ import NumberInput from './src/u-numberinput.vue';
 import DatePicker from './src/u-datepicker.vue';
 import TimePicker from './src/u-timepicker.vue';
 import Chart from './src/u-chart.vue';
-import PieChart from './src/u-piechart.vue';
+import PieChart from './src/u-pie-chart.vue';
 import LineChart from './src/u-line-chart.vue';
 import BarChart from './src/u-bar-chart.vue';
 import DateTimePicker from './src/u-datetimepicker.vue';
