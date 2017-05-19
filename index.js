@@ -21,14 +21,14 @@ import Modal from './src/u-modal.vue';
 import Calendar from './src/u-calendar.vue';
 import NavbarItem from './src/u-navbar-item.vue';
 import Navbar from './src/u-navbar.vue';
-import NumberInput from './src/u-numberinput.vue';
-import DatePicker from './src/u-datepicker.vue';
-import TimePicker from './src/u-timepicker.vue';
+import NumberInput from './src/u-number-input.vue';
+import DatePicker from './src/u-date-picker.vue';
+import TimePicker from './src/u-time-picker.vue';
 import Chart from './src/u-chart.vue';
 import PieChart from './src/u-pie-chart.vue';
 import LineChart from './src/u-line-chart.vue';
 import BarChart from './src/u-bar-chart.vue';
-import DateTimePicker from './src/u-datetimepicker.vue';
+import DateTimePicker from './src/u-date-time-picker.vue';
 
 const Components = {
     Base,
