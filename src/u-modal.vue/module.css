@@ -14,67 +14,71 @@ $media-sm-max-width: 768px - 1;
     text-align: center;
     overflow: hidden;
     background: rgba(0, 0, 0, 0.6);
+}
+
+.root:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.dialog {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+    background: white;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.head {
+    position: relative;
+    padding: 15px;
+    border-bottom: 1px solid $brand-default;
+}
+
+.title {
+    margin: 0;
+    font-size: 18px;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 18px;
+    line-height: 1;
+    color: #bbb;
+
+    &:hover { color: #888; }
 
     &:before {
-        content: '';
-        display: inline-block;
-        vertical-align: middle;
-        height: 100%;
+       content:'\00d7';
     }
+}
 
-    .dialog {
-        display: inline-block;
-        vertical-align: middle;
-        text-align: left;
-        background: white;
-        box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-    }
+.body {
+    padding: 15px;
+    min-height: 10px;
+}
 
-    .head {
-        position: relative;
-        padding: 15px;
-        border-bottom: 1px solid $brand-default;
-    }
+.foot {
+    padding: 15px;
+    text-align: center;
+    border-top: 1px solid $brand-default;
+}
 
-    .title {
-        margin: 0;
-        font-size: 18px;
-    }
+.root .button {
+    margin-right: 20px;
+}
 
-    .close {
-        position: absolute;
-        right: 15px;
-	    top: 18px;
-	    line-height: 1;
-	    color: #bbb;
+.root .button:last-child {
+    margin-right: 0;
+}
 
-	    &:hover { color: #888; }
-
-	    &:before {
-	       content:'\00d7';
-	    }
-    }
-
-    .body {
-    	padding: 15px;
-    	min-height: 10px;
-    }
-
-    .foot {
-        padding: 15px;
-	    text-align: center;
-	    border-top: 1px solid $brand-default;
-    }
-
-    .button:last-child {
-        margin-left: 15px;
-    }
-
-    @media (max-width: $media-sm-max-width) {
-        .item {
-            width: auto;
-            margin: 10px;
-        }
+@media (max-width: $media-sm-max-width) {
+    .item {
+        width: auto;
+        margin: 10px;
     }
 }
 

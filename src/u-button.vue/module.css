@@ -19,13 +19,13 @@
  * Color extends
  */
 
-.root[color=primary] {
+.root[color="primary"] {
     background: $brand-primary;
     color: white;
     border: none;
 }
 
-.root[color=primary][disabled] {
+.root[color="primary"][disabled] {
     background: #dedede;
 }
 

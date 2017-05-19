@@ -29,15 +29,15 @@
 
 .root[flag] {
     position: relative;
+}
 
-    &:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        border: 5px solid;
-        border-color: #fc7272 #fc7272 transparent transparent;
-    }
+.root:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 5px solid;
+    border-color: #fc7272 #fc7272 transparent transparent;
 }
 
 .root[disabled] {
