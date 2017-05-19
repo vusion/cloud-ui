@@ -1,55 +1,51 @@
-.root {
-    .item {
-        display: block;
-        cursor: pointer;
-        
-        height: 52px;
-        line-height: 52px;
-        color: #9dabc2;
-        padding-left: 20px;
-        transition: color 0.2s;
+.root {}
 
-        /* @TODO: replace by icon-font */
-        &:after {
-            float: right;
-            content: '';
-            display: block;
-            border: 5px solid transparent;
-            border-left-color: #9dabc2;
-            margin: 21px 0;
-            margin-right: 12px;
-        }
-    }
+.item {
+    display: block;
+    cursor: pointer;
 
-    .item:hover {
-        color: #2cb78e;
-        background-color: #dde8f0;
+    height: 52px;
+    line-height: 52px;
+    color: #9dabc2;
+    padding-left: 20px;
+    transition: color 0.2s;
+}
 
-        /* @TODO: replace by icon-font */
-        &:after {
-            border-left-color: white;
-        }
-    }
+/* @TODO: replace by icon-font */
+.item:after {
+    float: right;
+    content: '';
+    display: block;
+    border: 5px solid transparent;
+    border-left-color: #9dabc2;
+    margin: 21px 0;
+    margin-right: 12px;
+}
 
-    .item[open] {
-        /* @TODO: replace by icon-font */
-        &:after {
-            border: 5px solid transparent;
-            border-top-color: #9dabc2;
-            margin: 24px 0 18px;
-            margin-right: 15px;
-        }
-    }
+.item:hover {
+    color: #2cb78e;
+    background-color: #dde8f0;
+}
 
-    .item[open]:hover {
-        /* @TODO: replace by icon-font */
-        &:after {
-            border-top-color: white;
-        }
-    }
+/* @TODO: replace by icon-font */
+.item:hover:after {
+    border-left-color: white;
+}
 
-    .list {
-        clear: both;
-        background: #f0f6fa;
-    }
+/* @TODO: replace by icon-font */
+.item[open]:after {
+    border: 5px solid transparent;
+    border-top-color: #9dabc2;
+    margin: 24px 0 18px;
+    margin-right: 15px;
+}
+
+/* @TODO: replace by icon-font */
+.item[open]:hover:after {
+    border-top-color: white;
+}
+
+.list {
+    clear: both;
+    background: #f0f6fa;
 }
