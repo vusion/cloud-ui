@@ -101,7 +101,7 @@ $m-barChart_bar_width: 60px;
 
     .bar {
         position: absolute;
-        $box-sizing: border-box;
+        box-sizing: border-box;
         bottom: 0;
         width: $m-barChart_bar_width;
         left: 50%;
@@ -136,7 +136,7 @@ $m-barChart_bar_width: 60px;
     .tooltip[role=tooltip-right-top] {
         margin-left: 4px;
         &:after{
-            bottom: 10px;
+            top: 10px;
             left: -5px;
             border-left: none;
             border-top-color: transparent;
