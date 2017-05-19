@@ -8,7 +8,7 @@ const Chart = Base.extend({
         caption: String,
         captionTemplate: String,
         series: Array,
-        data: Object,
+        data: Array,
         border: {
             type: Boolean,
             default: false,
