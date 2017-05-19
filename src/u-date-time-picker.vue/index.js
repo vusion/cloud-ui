@@ -1,6 +1,6 @@
 import Base from 'u-base.vue';
 import Calendar from '../u-calendar.vue';
-import TimePicker from '../u-timepicker.vue';
+import TimePicker from '../u-time-picker.vue';
 
 /**
  * @class DateTimePicker

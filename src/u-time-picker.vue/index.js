@@ -1,5 +1,5 @@
 import Base from 'u-base.vue';
-import NumberInput from '../u-numberinput.vue';
+import NumberInput from '../u-number-input.vue';
 
 const HOUR_MIN = '00';
 const MINUTE_MIN = '00';
