@@ -1,4 +1,4 @@
-<u-chart :class="$style.root" :title="title" :border="border" :width="width" :height="height" :legend="legend" :titleTemplate="titleTemplate" :tooltipTemplate="tooltipTemplate" :series="data">
+<u-chart :class="$style.root" :title="title" :border="border" :width="width" :height="height" :legend="legend" :titleTemplate="titleTemplate" :tooltipTemplate="tooltipTemplate" :series="series" :data="data">
     <div :class="$style.grid" ref="grid">
         <div v-for="(xLablel, index) in xAxis_.data" :class="$style.lineChart_line" role="y" :style="{left: 100*index/(xAxis_.data.length - 1)+'%'}"></div>
         <div v-for="(yLabel, index) in yAxis_.data" :class="$style.lineChart_line" role='x' :style="{bottom: 100*index/(yAxis_.data.length - 1)+'%'}"></div>

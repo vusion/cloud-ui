@@ -20,8 +20,6 @@ const TICKES = [2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 20, 30, 40, 50, 100, 200, 50
  * @param {boolean=false}           options.fill                => 是否填充区域
  * @param {boolean=false}           options.border              => 是否显示边框
  * @param {boolean=true}            options.legend              => 是否显示图例
- * @param {boolean=true}            options.visible             => 是否显示
- * @param {string='m-lineChart'}    options.class               => 补充class
  */
 const LineChart = Base.extend({
     name: 'u-line-chart',
@@ -43,19 +41,9 @@ const LineChart = Base.extend({
             type: String,
             default: '480px',
         },
-        xAxis: {
-            type: Object,
-            // default() {
-            //     return { key: 'week' };
-            // },
-        },
+        xAxis: Object,
         xLabelTemplate: String,
-        yAxis: {
-            type: Object,
-            // default() {
-            //     return { min: 0 };
-            // },
-        },
+        yAxis: Object,
         smooth: Boolean,
         fill: Boolean,
     },
