@@ -1,20 +1,15 @@
-body {
-    color: #345;
-}
-
-a {
+.u-link {
     color: #4477d0;
     text-decoration: none;
 }
 
-a:hover {
+.u-link:hover {
     text-decoration: underline;
 }
 
 .u-article {
-    margin: 0 auto;
+    margin: 60px auto;
     width: 960px;
-    margin-top: 60px;
 }
 
 .u-article > li > p {

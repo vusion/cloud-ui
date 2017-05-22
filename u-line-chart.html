@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="docs.css">
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<script src="bundle.js"></script>
+</head>
+<body>
+
+                <article class="u-article"><p>#线状图（LineChart）</p>
+<h2>示例</h2>
+<h3>基本形式</h3>
+<div id="u-example-0" class="u-example"><u-line-chart border legend title="每星期访问量" :x-axis="{ key: 'week' }" :y-axis="{ min: 0 }" :series="[{ key: 'number' }]" :data="[{ week: '星期一', number: 150 }, { week: '星期二', number: 300 }, { week: '星期三', number: 28 }, { week: '星期四', number: 200 }, { week: '星期五', number: 74 }, { week: '星期六', number: 532 }, { week: '星期日', number: 420 }]"></u-line-chart></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-line-chart</span> <span class="hljs-attr">border</span> <span class="hljs-attr">legend</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"每星期访问量"</span> <span class="hljs-attr">:x-axis</span>=<span class="hljs-string">"{ key: 'week' }"</span> <span class="hljs-attr">:y-axis</span>=<span class="hljs-string">"{ min: 0 }"</span> <span class="hljs-attr">:series</span>=<span class="hljs-string">"[{ key: 'number' }]"</span> <span class="hljs-attr">:data</span>=<span class="hljs-string">"[{ week: '星期一', number: 150 }, { week: '星期二', number: 300 }, { week: '星期三', number: 28 }, { week: '星期四', number: 200 }, { week: '星期五', number: 74 }, { week: '星期六', number: 532 }, { week: '星期日', number: 420 }]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-line-chart</span>&gt;</span>
+</code></pre>
+<h3>曲线图</h3>
+<div id="u-example-1" class="u-example"><u-line-chart border legend title="每星期访问量" :x-axis="{ key: 'week' }" :y-axis="{ min: 0 }" :smooth="true" :series="[{ key: 'number' }]" :data="[{ week: '星期一', number: 150 }, { week: '星期二', number: 300 }, { week: '星期三', number: 28 }, { week: '星期四', number: 200 }, { week: '星期五', number: 74 }, { week: '星期六', number: 532 }, { week: '星期日', number: 420 }]"></u-line-chart></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-line-chart</span> <span class="hljs-attr">border</span> <span class="hljs-attr">legend</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"每星期访问量"</span> <span class="hljs-attr">:x-axis</span>=<span class="hljs-string">"{ key: 'week' }"</span> <span class="hljs-attr">:y-axis</span>=<span class="hljs-string">"{ min: 0 }"</span> <span class="hljs-attr">:smooth</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">:series</span>=<span class="hljs-string">"[{ key: 'number' }]"</span> <span class="hljs-attr">:data</span>=<span class="hljs-string">"[{ week: '星期一', number: 150 }, { week: '星期二', number: 300 }, { week: '星期三', number: 28 }, { week: '星期四', number: 200 }, { week: '星期五', number: 74 }, { week: '星期六', number: 532 }, { week: '星期日', number: 420 }]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-line-chart</span>&gt;</span>
+</code></pre>
+<h3>填充下方区域</h3>
+<div id="u-example-2" class="u-example"><u-line-chart border legend title="每星期访问量" :x-axis="{ key: 'week' }" :y-axis="{ min: 0 }" :fill="true" :series="[{ key: 'number' }]" :data="[{ week: '星期一', number: 150 }, { week: '星期二', number: 300 }, { week: '星期三', number: 28 }, { week: '星期四', number: 200 }, { week: '星期五', number: 74 }, { week: '星期六', number: 532 }, { week: '星期日', number: 420 }]"></u-line-chart></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-line-chart</span> <span class="hljs-attr">border</span> <span class="hljs-attr">legend</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"每星期访问量"</span> <span class="hljs-attr">:x-axis</span>=<span class="hljs-string">"{ key: 'week' }"</span> <span class="hljs-attr">:y-axis</span>=<span class="hljs-string">"{ min: 0 }"</span> <span class="hljs-attr">:fill</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">:series</span>=<span class="hljs-string">"[{ key: 'number' }]"</span> <span class="hljs-attr">:data</span>=<span class="hljs-string">"[{ week: '星期一', number: 150 }, { week: '星期二', number: 300 }, { week: '星期三', number: 28 }, { week: '星期四', number: 200 }, { week: '星期五', number: 74 }, { week: '星期六', number: 532 }, { week: '星期日', number: 420 }]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-line-chart</span>&gt;</span>
+</code></pre>
+<h3>隐藏图例</h3>
+<div id="u-example-3" class="u-example"><u-line-chart border legend title="每星期访问量" :legend="false" :x-axis="{ key: 'week' }" :y-axis="{ min: 0 }" :series="[{ key: 'number' }]" :data="[{ week: '星期一', number: 150 }, { week: '星期二', number: 300 }, { week: '星期三', number: 28 }, { week: '星期四', number: 200 }, { week: '星期五', number: 74 }, { week: '星期六', number: 532 }, { week: '星期日', number: 420 }]"></u-line-chart></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-line-chart</span> <span class="hljs-attr">border</span> <span class="hljs-attr">legend</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"每星期访问量"</span> <span class="hljs-attr">:legend</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">:x-axis</span>=<span class="hljs-string">"{ key: 'week' }"</span> <span class="hljs-attr">:y-axis</span>=<span class="hljs-string">"{ min: 0 }"</span> <span class="hljs-attr">:series</span>=<span class="hljs-string">"[{ key: 'number' }]"</span> <span class="hljs-attr">:data</span>=<span class="hljs-string">"[{ week: '星期一', number: 150 }, { week: '星期二', number: 300 }, { week: '星期三', number: 28 }, { week: '星期四', number: 200 }, { week: '星期五', number: 74 }, { week: '星期六', number: 532 }, { week: '星期日', number: 420 }]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-line-chart</span>&gt;</span>
+</code></pre>
+<h3>单位</h3>
+<div id="u-example-4" class="u-example"><u-line-chart border legend title="每星期访问量" :x-axis="{ key: 'week' }" :y-axis="{ min: 0, name: '个' }" :series="[{ key: 'number' }]" :data="[{ week: '星期一', number: 150 }, { week: '星期二', number: 300 }, { week: '星期三', number: 28 }, { week: '星期四', number: 200 }, { week: '星期五', number: 74 }, { week: '星期六', number: 532 }, { week: '星期日', number: 420 }]"></u-line-chart></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-line-chart</span> <span class="hljs-attr">border</span> <span class="hljs-attr">legend</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"每星期访问量"</span> <span class="hljs-attr">:x-axis</span>=<span class="hljs-string">"{ key: 'week' }"</span> <span class="hljs-attr">:y-axis</span>=<span class="hljs-string">"{ min: 0, name: '个' }"</span> <span class="hljs-attr">:series</span>=<span class="hljs-string">"[{ key: 'number' }]"</span> <span class="hljs-attr">:data</span>=<span class="hljs-string">"[{ week: '星期一', number: 150 }, { week: '星期二', number: 300 }, { week: '星期三', number: 28 }, { week: '星期四', number: 200 }, { week: '星期五', number: 74 }, { week: '星期六', number: 532 }, { week: '星期日', number: 420 }]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-line-chart</span>&gt;</span>
+</code></pre>
+<h4>命令式</h4>
+<div id="u-example-5" class="u-example"><u-line-chart border legend :title="title" :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data"></u-line-chart></div>
+<pre class="hljs lang-vue"><code><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">u-line-chart</span> <span class="hljs-attr">border</span> <span class="hljs-attr">legend</span> <span class="hljs-attr">:title</span>=<span class="hljs-string">"title"</span> <span class="hljs-attr">:x-axis</span>=<span class="hljs-string">"xaxis"</span> <span class="hljs-attr">:y-axis</span>=<span class="hljs-string">"yaxis"</span> <span class="hljs-attr">:series</span>=<span class="hljs-string">"series"</span> <span class="hljs-attr">:data</span>=<span class="hljs-string">"data"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-line-chart</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+	data() {
+		<span class="hljs-keyword">return</span> {
+			<span class="hljs-attr">title</span>: <span class="hljs-string">'每星期访问量'</span>,
+			<span class="hljs-attr">xaxis</span>: { <span class="hljs-attr">key</span>: <span class="hljs-string">'week'</span> },
+			<span class="hljs-attr">yaxis</span>: { <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">'个'</span>},
+			<span class="hljs-attr">series</span>: [{<span class="hljs-attr">key</span>: <span class="hljs-string">'number'</span>}],
+			<span class="hljs-attr">data</span>: [{ <span class="hljs-attr">week</span>: <span class="hljs-string">'星期一'</span>, <span class="hljs-attr">number</span>: <span class="hljs-number">150</span> }, { <span class="hljs-attr">week</span>: <span class="hljs-string">'星期二'</span>, <span class="hljs-attr">number</span>: <span class="hljs-number">300</span> }, { <span class="hljs-attr">week</span>: <span class="hljs-string">'星期三'</span>, <span class="hljs-attr">number</span>: <span class="hljs-number">28</span> }, { <span class="hljs-attr">week</span>: <span class="hljs-string">'星期四'</span>, <span class="hljs-attr">number</span>: <span class="hljs-number">200</span> }, { <span class="hljs-attr">week</span>: <span class="hljs-string">'星期五'</span>, <span class="hljs-attr">number</span>: <span class="hljs-number">74</span> }, { <span class="hljs-attr">week</span>: <span class="hljs-string">'星期六'</span>, <span class="hljs-attr">number</span>: <span class="hljs-number">532</span> }, { <span class="hljs-attr">week</span>: <span class="hljs-string">'星期日'</span>, <span class="hljs-attr">number</span>: <span class="hljs-number">420</span> }],
+		}
+	}
+};
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+</article>
+                <article data-server-rendered="true" class="u-article"><h2 id="API">API</h2> <h3 id="Class">Class</h3> <h4>LineChart</h4> <p>Extends <strong>Chart</strong>。</p> <p></p> <h3 id="Options">Options</h3> <h4>new LineChart()</h4> <table><thead><tr><th width="24%">Param</th><th width="16%">Type</th><th width="16%">Default</th><th width="26%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>options</code></td> <td class="f-wsn">Object</td> <td class="f-wsn"><!----></td> <td>=  绑定属性</td></tr><tr><td class="f-wsn"><code>width</code></td> <td class="f-wsn">string</td> <td class="f-wsn"><code>&#x27;100%&#x27;</code></td> <td>=&gt; 图表宽度</td></tr><tr><td class="f-wsn"><code>height</code></td> <td class="f-wsn">string</td> <td class="f-wsn"><code>&#x27;480px&#x27;</code></td> <td>=&gt; 图表高度</td></tr><tr><td class="f-wsn"><code>title</code></td> <td class="f-wsn">string</td> <td class="f-wsn"><code>&#x27;&#x27;</code></td> <td>=&gt; 标题</td></tr><tr><td class="f-wsn"><code>titleTemplate</code></td> <td class="f-wsn">string</td> <td class="f-wsn"><code>&#x27;&#x27;</code></td> <td>@=&gt; 标题模板</td></tr><tr><td class="f-wsn"><code>tooltipTemplate</code></td> <td class="f-wsn">string</td> <td class="f-wsn"><code>&#x27;&#x27;</code></td> <td>@=&gt; 工具提示模板</td></tr><tr><td class="f-wsn"><code>data</code></td> <td class="f-wsn">Array</td> <td class="f-wsn"><!----></td> <td>=&gt; 数据。如果为&#x60;undefined&#x60;，表示数据正在加载；如果为&#x60;[]&#x60;，表示数据为空。</td></tr><tr><td class="f-wsn"><code>xAxis</code></td> <td class="f-wsn">Object</td> <td class="f-wsn"><!----></td> <td>=&gt; 横坐标信息</td></tr><tr><td class="f-wsn"><code>yAxis</code></td> <td class="f-wsn">Object</td> <td class="f-wsn"><!----></td> <td>=&gt; 纵坐标信息</td></tr><tr><td class="f-wsn"><code>series</code></td> <td class="f-wsn">Array</td> <td class="f-wsn"><code>[]</code></td> <td>=&gt; 序列信息</td></tr><tr><td class="f-wsn"><code>smooth</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>false</code></td> <td>=&gt; 是否用光滑曲线</td></tr><tr><td class="f-wsn"><code>fill</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>false</code></td> <td>=&gt; 是否填充区域</td></tr><tr><td class="f-wsn"><code>border</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>false</code></td> <td>=&gt; 是否显示边框</td></tr><tr><td class="f-wsn"><code>legend</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>true</code></td> <td>=&gt; 是否显示图例</td></tr></tbody></table>   </article>
+                <script>new Vue().$mount('#u-example-0');
+new Vue().$mount('#u-example-1');
+new Vue().$mount('#u-example-2');
+new Vue().$mount('#u-example-3');
+new Vue().$mount('#u-example-4');
+new Vue({
+	data() {
+		return {
+			title: '每星期访问量',
+			xaxis: { key: 'week' },
+			yaxis: { min: 0, name: '个'},
+			series: [{key: 'number'}],
+			data: [{ week: '星期一', number: 150 }, { week: '星期二', number: 300 }, { week: '星期三', number: 28 }, { week: '星期四', number: 200 }, { week: '星期五', number: 74 }, { week: '星期六', number: 532 }, { week: '星期日', number: 420 }],
+		}
+	}
+}).$mount('#u-example-5');</script>
+            
+</body>
+</html>
