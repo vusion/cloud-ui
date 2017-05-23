@@ -175,7 +175,7 @@ $m-lineChart_point_size: 9px;
     background: #333;
     color: #eee;
     box-sizing: border-box;
-    max-width: 200px;
+    max-width: 230px;
 }
 .piece .u-tooltip:after {
     content: '';
@@ -188,7 +188,7 @@ $m-lineChart_point_size: 9px;
     margin-left: 4px;
 }
 .piece .u-tooltip[role=u-tooltip-right-top]:after{
-    bottom: 10px;
+    top: 10px;
     left: -5px;
     border-left: none;
     border-top-color: transparent;
