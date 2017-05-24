@@ -15,7 +15,7 @@
         <div :class="$style.label" role="label-yName">{{yAxis.name}}</div>
     </div>
     <div :class="$style.layer" role="layersvg">
-        <svg v-for="sery in series" v-if="!sery.hidden">
+        <svg :class="$style.elsvg" v-for="sery in series" v-if="!sery.hidden">
             <path v-if="fill" :class="$style.area" :d="getD(sery, 'area')" />
             <path :class="$style.line" :d="getD(sery)" />
         </svg>

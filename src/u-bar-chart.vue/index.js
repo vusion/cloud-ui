@@ -51,6 +51,11 @@ const BarChart = Base.extend({
     created() {
         this.draw();
     },
+    watch: {
+        data(newValue) {
+            this.draw();
+        },
+    },
     methods: {
         draw() {
             if (!this.data || !this.data.length)

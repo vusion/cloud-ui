@@ -1,6 +1,6 @@
 <u-chart :class="$style.root" :title="title" :border="border" :width="width" :height="height" :legend="legend" :titleTemplate="titleTemplate" :tooltipTemplate="tooltipTemplate" :series="data">
-    <svg ref="svg" viewBox="0 0 100 100">
-        <g transform="translate(50, 50)">
+    <svg :class="$style.elsvg" ref="svg" viewBox="0 0 100 100">
+        <g :class="$style.elg" transform="translate(50, 50)">
             <circle v-for="(item,index) in data" v-if="item.percent === 100" :class="$style.item" cx="0" cy="0" :r="RADIUS"/>
             <path v-for="(item,index) in posData" v-if="item.percent !== 100" :class="$style.item"
                 :d="getD(item)"
