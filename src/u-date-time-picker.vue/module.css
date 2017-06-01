@@ -12,6 +12,14 @@
 	background: #fff;
 	border-radius: 3px;
 }
+.body{
+	position:absolute;
+	z-index:1;
+	width:100%;
+	top:100%;
+	margin-top:2px;
+	min-width:160px;
+}
 .input[disabled]{
 	cursor: not-allowed;
 	background: #eee;
