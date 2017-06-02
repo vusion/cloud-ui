@@ -15,14 +15,14 @@
         <div :class="$style.label" role="label-yName">{{yAxis.name}}</div>
     </div>
     <div :class="$style.layer" role="layersvg">
-        <svg :class="$style.elsvg" v-for="sery in series" v-if="!sery.hidden">
+        <svg :class="$style.elsvg" v-for="sery in series" v-show="!sery.hidden">
             <path v-if="fill" :class="$style.area" :d="getD(sery, 'area')" />
             <path :class="$style.line" :d="getD(sery)" />
         </svg>
     </div>
     <div :class="$style.layer">
         <div v-for="(item,index) in data" v-if="!item.hidden" :class="$style.piece" :style="{left: 100*index/(data.length - 1)+'%', width: 100/(data.length - 1)+'%'}">
-                <div v-for="sery in series" v-if="item[sery.key] !== undefined && !sery.hidden" :class="$style.point" :style="{bottom: 100*(item[sery.key] - yAxis_.min)/(yAxis_.max - yAxis_.min)+'%'}">
+                <div v-for="sery in series" v-show="item[sery.key] !== undefined && !sery.hidden" :class="$style.point" :style="{bottom: 100*(item[sery.key] - yAxis_.min)/(yAxis_.max - yAxis_.min)+'%'}">
                     <div class="value">{{format(item[sery.key])}}</div>
                 </div>
             <div :class="$style['u-tooltip']" :role="index >= data.length/2 ? 'u-tooltip-left-top' : 'u-tooltip-right-top'" :style="{top: 100*(yAxis_.max - getTopOne(item))/(yAxis_.max - yAxis_.min)+'%'}">

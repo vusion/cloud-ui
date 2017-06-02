@@ -62,6 +62,11 @@ const LineChart = Base.extend({
     created() {
         this.draw();
     },
+    watch: {
+        data(newValue) {
+            this.draw();
+        },
+    },
     mounted() {
         this._onResize = this._onResize.apply(this);
         window.addEventListener('resize', this._onResize, false);
