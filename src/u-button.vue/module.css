@@ -19,7 +19,7 @@
  * Color extends
  */
 
-.root[color="primary"] {
+.root[color=primary], .root[color=primary]:hover {
     background: $brand-primary;
     color: white;
     border: none;
