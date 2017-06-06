@@ -63,6 +63,18 @@
     cursor: pointer;
     position: relative;
 }
+.listitem[divider]{
+    margin: 9px 0;
+    padding: 0;
+    height: 1px;
+    background: #e5e5e5;
+    overflow: hidden;
+    cursor: default;
+}
+.listitem[disabled]{
+    cursor: not-allowed;
+    color: #999;
+}
 .listitem:hover{
     background: #f4f4f4;
     color: #444;

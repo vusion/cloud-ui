@@ -1,4 +1,5 @@
 import Base from 'u-base.vue';
+import EventUtil from '../util/event.js';
 
 /**
  * @class Select
@@ -24,15 +25,25 @@ const Select = Base.extend({
             selectedIndex: 0,
         };
     },
+    created() {
+        EventUtil.addHandler(document, 'click', this.fadeOut.bind(this));
+    },
     methods: {
-        toggle() {
+        toggle(value) {
             if (this.disabled)
                 return;
-            this.open = !this.open;
+            if (value)
+                this.open = value;
+            else
+                this.open = !this.open;
         },
-        select(index) {
+        select(event, index) {
             if (this.readonly)
                 return;
+            if (this.options[index].disabled || this.options[index].divider) {
+                event.stopPropagation();
+                return false;
+            }
             this.selected = this.options[index];
             this.selectedIndex = index;
 
@@ -48,8 +59,28 @@ const Select = Base.extend({
                 value: this.options[index].value,
             });
         },
+        fadeOut(event) {
+            Select.opens.forEach((item, index) => {
+                // 这个地方不能用stopPropagation来处理，因为展开一个Select的同时要收起其他Select
+                const element = item.$refs.element;
+                let element2 = event.target;
+                while (element2) {
+                    if (element === element2)
+                        return;
+                    element2 = element2.parentElement;
+                }
+                item.toggle(false);
+            });
+        },
     },
     watch: {
+        open(newValue) {
+            const index = Select.opens.indexOf(this);
+            if (newValue && index < 0)
+                Select.opens.push(this);
+            else if (!newValue && index > -1)
+                Select.opens.splice(index, 1);
+        },
         /**
          * @event change 选中列表项改变时触发
          * @property {object} sender 事件发送对象
@@ -65,5 +96,8 @@ const Select = Base.extend({
         },
     },
 });
+
+//Select 类的静态属性 用来保存当前处于open状态的Select对象
+Select.opens = [];
 
 export default Select;

@@ -41,8 +41,11 @@ export default {
                 value: '选项4',
                 name: '龙须面'
             }, {
+                divider: true
+            }, {
                 value: '选项5',
-                name: '北京烤鸭'
+                name: '北京烤鸭',
+                disabled: true
             }],
         };
     },
