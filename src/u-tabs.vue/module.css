@@ -10,17 +10,9 @@ $tabs-border: #e0e6ed;
     padding: 0 30px;
 }
 
-<<<<<<< Updated upstream
 .item:hover {
     background: #f6f7f9;
 }
-=======
-    .item[selected] {
-        background: white;
-        color: $brand-primary;
-        border-top: 2px solid $brand-primary;
-    }
->>>>>>> Stashed changes
 
 .item[selected] {
     background: white;

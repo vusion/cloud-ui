@@ -21,13 +21,14 @@
 ### 方法
 ``` vue
 <template>
-<u-select :options="options" @change="change($event.selected)" @select="select($event.selected)"></u-select>
+<u-select :options="options" :value="value" @change="change($event.value)" @select="select($event.selected)"></u-select>
 </template>
 
 <script>
 export default {
     data() {
         return {
+            value: "选项3",
             options: [{
                 value: '选项1',
                 name: '黄金糕'
@@ -50,8 +51,9 @@ export default {
         };
     },
     methods: {
-        change(selected) {
-            console.log(selected);
+        change(value) {
+            console.log(value);
+            this.value = value;
         },
         select(selected) {
             console.log(selected.name,selected.value);

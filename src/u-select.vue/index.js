@@ -17,16 +17,21 @@ const Select = Base.extend({
         disabled: Boolean,
         visible: { type: Boolean, default: true },
         width: { type: [String, Number], default: '160' },
+        value: [String, Number],
     },
     data() {
         return {
             open: false,
-            selected: this.options[0],
-            selectedIndex: 0,
+            selectedIndex: this.initSelectedIndex(this.value),
         };
     },
     created() {
         EventUtil.addHandler(document, 'click', this.fadeOut.bind(this));
+    },
+    computed: {
+        selected() {
+            return this.options[this.selectedIndex];
+        },
     },
     methods: {
         toggle(value) {
@@ -44,7 +49,7 @@ const Select = Base.extend({
                 event.stopPropagation();
                 return false;
             }
-            this.selected = this.options[index];
+            // this.selected = this.options[index];
             this.selectedIndex = index;
 
             /**
@@ -58,6 +63,19 @@ const Select = Base.extend({
                 selected: this.options[index],
                 value: this.options[index].value,
             });
+        },
+        initSelectedIndex(value) {
+            let selIndex = 0;
+            if (this.value) {
+                this.options.some((item, index) => {
+                    if (item.value === value) {
+                        selIndex = index;
+                        return true;
+                    }
+                    return false;
+                });
+            }
+            return selIndex;
         },
         fadeOut(event) {
             Select.opens.forEach((item, index) => {
@@ -93,6 +111,9 @@ const Select = Base.extend({
                 selected: newValue,
                 value: newValue.value,
             });
+        },
+        value(newValue) {
+            this.selectedIndex = this.initSelectedIndex(newValue);
         },
     },
 });
