@@ -27,13 +27,17 @@
     border-radius: 3px;
 }
 .head:after{
-    position: absolute;
-    right:10px;
-    display: inline-block;
-    width: 1em;
-    text-align: center;
-    content: '\0394';
-    transform: rotate(180deg);
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #9dabc2;
+    float: right;
+    position: relative;
+    left: 10px;
+    top: 14px;
+
 }
 .body{
     margin-top: 2px;
@@ -80,6 +84,6 @@
     color: #444;
 }
 .listitem[role=z-sel]{
-    background: #3c8dbc;
+    background: #2cb78c;
     color: #fff;
 }
