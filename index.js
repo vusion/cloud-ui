@@ -29,6 +29,8 @@ import PieChart from './src/u-pie-chart.vue';
 import LineChart from './src/u-line-chart.vue';
 import BarChart from './src/u-bar-chart.vue';
 import DateTimePicker from './src/u-date-time-picker.vue';
+import Select from './src/u-select.vue';
+import Toast from './src/u-toast.vue';
 
 const Components = {
     Base,
@@ -60,6 +62,8 @@ const Components = {
     LineChart,
     DateTimePicker,
     BarChart,
+    Select,
+    Toast,
 };
 
 window.Vue = Vue;
@@ -95,4 +99,6 @@ export {
     LineChart,
     DateTimePicker,
     BarChart,
+    Select,
+    Toast,
 };

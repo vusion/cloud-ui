@@ -17,7 +17,7 @@ const MS_OF_DAY = 24 * 3600 * 1000;
 const DatePicker = Base.extend({
     name: 'u-date-picker',
     props: {
-        date: String,
+        date: [String, Number],
         minDate: [String, Number, Object],
         maxDate: [String, Number, Object],
         disabled: [Boolean, String],

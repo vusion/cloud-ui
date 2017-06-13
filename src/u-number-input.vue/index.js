@@ -55,7 +55,7 @@ const NumberInput = Base.extend({
                 if (isNaN(_newValue))
                     this.showValue = this.formatNumber(this.value);
                 else
-                    this.showValue = this.formatNumber(newValue);
+                    this.showValue = this.formatNumber(_newValue);
             }
 
             // 如果超出数值范围，则设置为范围边界的数值
@@ -63,7 +63,7 @@ const NumberInput = Base.extend({
             if (isOutOfRange !== false)
                 return this.showValue = this.formatNumber(isOutOfRange);
 
-            this.showValue = this.formatNumber(newValue);
+            // this.showValue = this.formatNumber(newValue);
 
             /**
              * @event change 数值改变时触发
@@ -112,7 +112,7 @@ const NumberInput = Base.extend({
                 throw new TypeError(value + ' is not a number!');
 
             _showValue += value;
-            this.showValue = _showValue;
+            this.showValue = this.formatNumber(_showValue);
         },
         /**
          * @method isOutOfRange(value) 是否超出规定的数值范围
@@ -126,9 +126,9 @@ const NumberInput = Base.extend({
 
             // min && value < min && min，先判断是否为空，再判断是否超出数值范围，如果超出则返回范围边界的数值
             if (!isNaN(min) && value < min)
-                return min;
+                return this.formatNumber(min);
             else if (!isNaN(max) && value > max)
-                return max;
+                return this.formatNumber(max);
             else
                 return false;
         },
