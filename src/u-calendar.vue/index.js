@@ -214,7 +214,7 @@ const Calendar = Base.extend({
         },
         transformDate(date) {
             if (typeof date === 'string')
-                return new Date(date);
+                return new Date(date.replace(/-/g, '/'));
             else if (typeof date === 'number')
                 return new Date(date);
             else if (typeof date === 'object')
