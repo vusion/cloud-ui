@@ -2,20 +2,17 @@
     display: inline-block;
     cursor: pointer;
 
-    height: 52px;
-    line-height: 52px;
+    height: 35px;
+    line-height: 35px;
     color: #9dabc2;
     padding: 0 20px;
     transition: color 0.2s;
 }
 
 .root:hover {
-    background-color: #dde8f0;
     color: #2cb78e;
 }
 
 .root[selected] {
-    background-color: #dde8f0;
     color: #2cb78e;
-    border-bottom: 2px solid #2cb78e;
 }
