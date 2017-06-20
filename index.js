@@ -31,6 +31,7 @@ import BarChart from './src/u-bar-chart.vue';
 import DateTimePicker from './src/u-date-time-picker.vue';
 import Select from './src/u-select.vue';
 import Toast from './src/u-toast.vue';
+import Tag from './src/u-tag.vue';
 
 const Components = {
     Base,
@@ -64,6 +65,7 @@ const Components = {
     BarChart,
     Select,
     Toast,
+    Tag,
 };
 
 window.Vue = Vue;
@@ -101,4 +103,5 @@ export {
     BarChart,
     Select,
     Toast,
+    Tag,
 };

@@ -1,0 +1,6 @@
+<transition name="tag">
+    <span :class="$style.root" :role="type" :style="{background: color}" v-if="visible">
+        <slot></slot>
+        <i :class="$style.close" v-if="closeable" @click="handleClose"></i>
+    </span>
+</transition>
