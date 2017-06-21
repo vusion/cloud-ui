@@ -1,0 +1,18 @@
+<div ref="element" :class="$style.root" :readonly="readonly" v-if="visible" :style="{width: width+'px'}" @click="toggle()">
+    <div :class="$style.head" :disabled="disabled">
+        <span :class="$style.tiptext" v-if="!selFlag">请选择</span>
+        <div :class="$style.wraptag" v-else>
+            <span>
+                <u-tag :class="$style.tag" v-for="(selItem, index) in selItems" :key="selItem.value" :closeable="closeable" @close.stop="close(index)">{{selItem.name}}</u-tag>
+            </span>
+        </div>
+        <i :class="$style.icon" :role="open ? 'up':''"></i>
+    </div>
+    <div :class="$style.body" v-if="open">
+        <ul :class="$style.listview">
+            <li :class="$style.listitem" v-for="(item,index) in optionsData" :disabled="item.disabled" :role="item.selected ? 'z-sel':''" @click.stop="select($event,index)">
+                <span :class="$style.listcontent">{{item.name}}</span>
+            </li>
+        </ul>
+    </div>
+</div>

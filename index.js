@@ -32,6 +32,7 @@ import DateTimePicker from './src/u-date-time-picker.vue';
 import Select from './src/u-select.vue';
 import Toast from './src/u-toast.vue';
 import Tag from './src/u-tag.vue';
+import MultiSelect from './src/u-multi-select.vue';
 
 const Components = {
     Base,
@@ -66,6 +67,7 @@ const Components = {
     Select,
     Toast,
     Tag,
+    MultiSelect,
 };
 
 window.Vue = Vue;
@@ -104,4 +106,5 @@ export {
     Select,
     Toast,
     Tag,
+    MultiSelect,
 };
