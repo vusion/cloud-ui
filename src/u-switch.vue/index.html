@@ -1,0 +1,28 @@
+<label :class="$style.root":role="checked"  :disabled="disabled">
+  <input
+    :class="$style.input"
+    type="checkbox"
+    @change="handleChange"
+    ref="input"
+    :true-value="onValue"
+    :false-value="offValue">
+  <span :class="$style.core" ref="core" :style="{ 'width': coreWidth + 'px' }">
+    <span :class="$style.button" :style="{ transform }"></span>
+  </span>
+  <transition name="label-fade">
+    <div
+      :class="$style.labelleft"
+      v-show="checked"
+      :style="{ 'width': coreWidth + 'px' }">
+      <span :class="$style.ontext" v-if="onText">{{ onText }}</span>
+    </div>
+  </transition>
+  <transition name="label-fade">
+    <div
+      :class="$style.labelright"
+      v-show="!checked"
+      :style="{ 'width': coreWidth + 'px' }">
+      <span :class="$style.offtext" v-if="offText">{{ offText }}</span>
+    </div>
+  </transition>
+</label>

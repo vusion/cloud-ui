@@ -33,6 +33,7 @@ import Select from './src/u-select.vue';
 import Toast from './src/u-toast.vue';
 import Tag from './src/u-tag.vue';
 import MultiSelect from './src/u-multi-select.vue';
+import Switch from './src/u-switch.vue';
 
 const Components = {
     Base,
@@ -68,6 +69,7 @@ const Components = {
     Toast,
     Tag,
     MultiSelect,
+    Switch,
 };
 
 window.Vue = Vue;
@@ -107,4 +109,5 @@ export {
     Toast,
     Tag,
     MultiSelect,
+    Switch,
 };
