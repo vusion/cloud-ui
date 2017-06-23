@@ -53,6 +53,8 @@ $media-sm-max-width: 768px - 1;
 
     &:before {
        content:'\00d7';
+       display: block;
+       transform: scale(2);
     }
 }
 
