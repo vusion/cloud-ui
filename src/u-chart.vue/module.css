@@ -46,6 +46,8 @@ $m-chart_legend_height: 30px;
     height: 10px;
     vertical-align: text-bottom;
     margin-right: 4px;
+    position: relative;
+    top: -2px;
 }
 
 .item:nth-of-type(1):before { background: rgba(238,134,125,0.6); }

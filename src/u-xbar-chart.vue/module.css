@@ -14,15 +14,15 @@ $m-barChart_bar_width: 60px;
     position: absolute;
     bottom: $m-barChart_axis-x_height;
     top: 15px;
-    left: $m-barChart_axis-y_width;
+    left: 100px;
     right: 20px;
     font-size: 0;
 }
 .layer {
-	position: absolute;
+    position: absolute;
     bottom: $m-barChart_axis-x_height;
     top: 15px;
-    left: $m-barChart_axis-y_width;
+    left: 100px;
     right: 20px;
     font-size: 0;
 }
@@ -32,7 +32,7 @@ $m-barChart_bar_width: 60px;
 }
 
 .line[role=line-x] {
-    left: -$m-barChart_line_offset;
+    left: 0px;
     right: -1px;
     border-top: 1px solid $m-barChart_line_border;
 }
@@ -49,7 +49,7 @@ $m-barChart_bar_width: 60px;
 }
 
 .axis[role=axis-x] {
-    left: $m-barChart_axis-y_width;
+    left: 100px;
     right: 19px;
     bottom: 0;
     height: $m-barChart_axis-x_height;
@@ -60,8 +60,19 @@ $m-barChart_bar_width: 60px;
     left: 0;
     top: 14px;
     bottom: $m-barChart_axis-x_height;
-    width: $m-barChart_axis-y_width;
+    width: 100px;
     border-right: 1px solid $m-barChart_axis_border;
+}
+.xlabel{
+    position: relative;
+    left: -50%;
+    text-align: center;
+}
+.ylabel{
+    display: block;
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
 }
 
 .label {
@@ -72,17 +83,13 @@ $m-barChart_bar_width: 60px;
 .label[role=label-x] {
     top: $m-barChart_axis-x_offset;
     bottom: 0;
-    text-align: center;
+    text-align: left;
+    width: 40px;
 }
 
 .label[role=label-y] {
     left: 0;
     right: $m-barChart_axis-y_offset;
-    -webkit-transform: translateY(50%);
-    -moz-transform: translateY(50%);
-    -ms-transform: translateY(50%);
-    -o-transform: translateY(50%);
-    transform: translateY(50%);
     text-align: right;
 }
 
@@ -113,21 +120,22 @@ $m-barChart_bar_width: 60px;
     box-sizing: border-box;
     bottom: 0;
     width: $m-barChart_bar_width;
-    left: 50%;
-    margin-left: -30px;
+    left: 0;
+    margin-left: 0;
     background: rgba(238,134,125,0.3);
     border: $m-barChart_line_width solid rgba(238,134,125,0.6);
-    border-bottom: none;
-
+    border-left: none;
+    top:50%;
+    transform: translateY(-50%);
 }
 .tooltip {
-	display: none;
-	position: absolute;
-	z-index: 10;
-	left: 100%;
-	top: -2px;
-	margin-left: 5px;
-	white-space: nowrap;
+    display: none;
+    position: absolute;
+    z-index: 10;
+    left: 100%;
+    top: 0;
+    margin-left: 5px;
+    white-space: nowrap;
     box-sizing: border-box;
     max-width: 200px;
     padding: 4px 8px;
@@ -143,7 +151,7 @@ $m-barChart_bar_width: 60px;
 }
 
 .tooltip[role=tooltip-right-top] {
-    margin-left: 4px;
+    margin-left: 5px;
 }
 .tooltip[role=tooltip-right-top]:after{
     top: 10px;
@@ -163,16 +171,13 @@ $m-barChart_bar_width: 60px;
 }
 
 .bar[role=bar-static] {
-    position: static;
-    width: auto;
+    position: absolute;
     margin: 0;
+    display: inline-block;
 }
 
-.bar[role=bar-static]:nth-of-type(1) { border-color: rgba(238,134,125,0.6); background: rgba(238,134,125,0.3); }
-.bar[role=bar-static]:nth-of-type(2) { border-color: rgba(128,93,207,0.6); background: rgba(128,93,207,0.3); }
-.bar[role=bar-static]:nth-of-type(3) { border-color: rgba(64,204,202,0.6); background: rgba(64,204,202,0.3); }
-.bar[role=bar-static]:nth-of-type(4) { border-color: rgba(255,202,18,0.6); background: rgba(255,202,18,0.3); }
-.bar[role=bar-static]:nth-of-type(5) { border-color: rgba(48,168,220,0.6); background: rgba(48,168,220,0.3); }
-.bar[role=bar-static]:nth-of-type(6) { border-color: rgba(225,174,246,0.6); background: rgba(225,174,246,0.3); }
-.bar[role=bar-static]:nth-of-type(7) { border-color: rgba(210,210,210,0.6); background: rgba(210,210,210,0.3); }
-.bar[role=bar-static]:nth-of-type(8) { border-color: rgba(188,224,90,0.6); background: rgba(188,224,90,0.3s); }
+.bar[role=bar-static]:nth-of-type(1) { border-color: rgba(0,153,255,0.6); background: rgba(0,153,255,0.3); }
+.bar[role=bar-static]:nth-of-type(2) { border-color: rgba(255,174,60,0.6); background: rgba(255,174,60,0.3); }
+.bar[role=bar-static]:nth-of-type(3) { border-color: rgba(78,201,171,0.6); background: rgba(78,201,171,0.3); }
+.bar[role=bar-static]:nth-of-type(4) { border-color: rgba(245,131,122,0.6); background: rgba(245,131,122,0.3); }
+.bar[role=bar-static]:nth-of-type(5) { border-color: rgba(158,156,246,0.6); background: rgba(158,156,246,0.3); }

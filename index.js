@@ -34,6 +34,7 @@ import Toast from './src/u-toast.vue';
 import Tag from './src/u-tag.vue';
 import MultiSelect from './src/u-multi-select.vue';
 import Switch from './src/u-switch.vue';
+import XBarChart from './src/u-xbar-chart.vue';
 
 const Components = {
     Base,
@@ -70,6 +71,7 @@ const Components = {
     Tag,
     MultiSelect,
     Switch,
+    XBarChart,
 };
 
 window.Vue = Vue;
@@ -110,4 +112,5 @@ export {
     Tag,
     MultiSelect,
     Switch,
+    XBarChart,
 };
