@@ -25,7 +25,7 @@
                 <div v-for="sery in series" v-show="item[sery.key] !== undefined && !sery.hidden" :class="$style.point" :style="{bottom: 100*(item[sery.key] - yAxis_.min)/(yAxis_.max - yAxis_.min)+'%'}">
                     <div class="value">{{format(item[sery.key])}}</div>
                 </div>
-            <div :class="$style['u-tooltip']" :role="index >= data.length/2 ? 'u-tooltip-left-top' : 'u-tooltip-right-top'" :style="{top: 100*(yAxis_.max - getTopOne(item))/(yAxis_.max - yAxis_.min)+'%'}">
+            <div :class="$style['u-tooltip']" :role="'u-tooltip-'+(index >= data.length/2 ? 'left' : 'right')+'-'+(getPercent(item) < 50 ? 'top' : 'bottom')" :style="{top: getPercent(item)+'%'}">
                 <slot v-if="tooltipTemplate" name="tooltipTemplate"></slot>
                 <div v-else v-for="sery in series">{{sery.name || sery.key}}: {{format(item[sery.key])}}</div>
             </div>

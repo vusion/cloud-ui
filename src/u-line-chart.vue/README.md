@@ -49,7 +49,7 @@ export default {
 			data: [
 				{ week: '星期一', number: 150, num: 120 },
 				{ week: '星期二', number: 300, num: 120 },
-				{ week: '星期三', number: 28, num:28 },
+				{ week: '星期三', number: 28, num:undefined },
 				{ week: '星期四', number: 200, num: 200 },
 				{ week: '星期五', number: 74, num: 74 },
 				{ week: '星期六', number: 532, num:200 },

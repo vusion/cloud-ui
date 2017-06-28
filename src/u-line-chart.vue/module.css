@@ -195,11 +195,34 @@ $m-lineChart_point_size: 9px;
     border-bottom-color:transparent;
 }
 
+.piece .u-tooltip[role=u-tooltip-right-bottom] {
+    margin-left: 4px;
+}
+.piece .u-tooltip[role=u-tooltip-right-bottom]:after{
+    top: 10px;
+    left: -5px;
+    border-left: none;
+    border-top-color: transparent;
+    border-bottom-color:transparent;
+}
+
 .piece .u-tooltip[role=u-tooltip-left-top] {
     margin-right: 10px;
     right: 100%;
 }
 .piece .u-tooltip[role=u-tooltip-left-top]:after{
+    top: 10px;
+    right: -5px;
+    border-right: none;
+    border-top-color: transparent;
+    border-bottom-color:transparent;
+}
+
+.piece .u-tooltip[role=u-tooltip-left-bottom] {
+    margin-right: 10px;
+    right: 100%;
+}
+.piece .u-tooltip[role=u-tooltip-left-bottom]:after{
     top: 10px;
     right: -5px;
     border-right: none;
