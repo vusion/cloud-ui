@@ -27,6 +27,7 @@ const DatePicker = Base.extend({
             type: String,
             default: '请输入',
         },
+        width: { type: [String, Number], default: 154 },
     },
     data() {
         return {

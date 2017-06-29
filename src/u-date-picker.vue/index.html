@@ -1,6 +1,6 @@
 <div :class="$style.root" ref="element">
     <div :class="$style.header">
-        <input :class="$style.input" :placeholder="placeholder" :value="format(showDate,'yyyy-MM-dd')" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
+        <input :class="$style.input" :placeholder="placeholder" :value="format(showDate,'yyyy-MM-dd')" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}"
             @focus="toggle(true)" @change="onInput($event)">
     </div>
     <div :class="$style.body" v-show="open">
