@@ -71,15 +71,13 @@ const Select = Base.extend({
             if (this.options.length === 0)
                 return;
             let selIndex = 0;
-            if (this.value) {
-                this.options.some((item, index) => {
-                    if (item.value === value) {
-                        selIndex = index;
-                        return true;
-                    }
-                    return false;
-                });
-            }
+            this.options.some((item, index) => {
+                if (item.value === value) {
+                    selIndex = index;
+                    return true;
+                }
+                return false;
+            });
             return selIndex;
         },
         fadeOut(event) {
