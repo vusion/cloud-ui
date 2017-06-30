@@ -1,6 +1,6 @@
 <div ref="element" :class="$style.root" :readonly="readonly" :style="{width: width+'px'}" @click="toggle()" >
     <div :class="$style.head" :disabled="disabled">
-        <span>{{placeholder || selected.name}}</span>
+        <span>{{selected.name}}</span>
     </div>
     <div :class="$style.body" v-if="open && options.length !== 0">
         <ul :class="$style.listview">

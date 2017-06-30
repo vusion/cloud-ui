@@ -23,7 +23,6 @@ const Select = Base.extend({
         return {
             open: false,
             selectedIndex: this.initSelectedIndex(this.value),
-            placeholder: '请选择',
         };
     },
     created() {
@@ -32,7 +31,7 @@ const Select = Base.extend({
     computed: {
         selected() {
             if (this.options.length === 0)
-                return null;
+                return { name: '请选择', value: '' };
             return this.options[this.selectedIndex];
         },
     },
