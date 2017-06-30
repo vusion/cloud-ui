@@ -7,7 +7,7 @@ import EventUtil from '../util/event.js';
  * @param {Array}                   options.options             => 下拉菜单列表
  * @param {boolean=false}           options.readonly            => 是否只读
  * @param {boolean=false}           options.disabled            => 是否禁用
- * @param {width|string|number}     options.width               => 输入框长度
+ * @param {string|number}     options.width               => 输入框长度
  */
 const Select = Base.extend({
     name: 'u-select',
@@ -15,7 +15,7 @@ const Select = Base.extend({
         options: Array,
         readonly: Boolean,
         disabled: Boolean,
-        visible: { type: Boolean, default: true },
+        // visible: { type: Boolean, default: true },
         width: { type: [String, Number], default: '160' },
         value: [String, Number],
     },
@@ -23,6 +23,7 @@ const Select = Base.extend({
         return {
             open: false,
             selectedIndex: this.initSelectedIndex(this.value),
+            placeholder: '请选择',
         };
     },
     created() {
@@ -30,6 +31,8 @@ const Select = Base.extend({
     },
     computed: {
         selected() {
+            if (this.options.length === 0)
+                return null;
             return this.options[this.selectedIndex];
         },
     },
@@ -65,6 +68,8 @@ const Select = Base.extend({
             });
         },
         initSelectedIndex(value) {
+            if (this.options.length === 0)
+                return;
             let selIndex = 0;
             if (this.value) {
                 this.options.some((item, index) => {
@@ -113,6 +118,9 @@ const Select = Base.extend({
             });
         },
         value(newValue) {
+            this.selectedIndex = this.initSelectedIndex(newValue);
+        },
+        options(newValue) {
             this.selectedIndex = this.initSelectedIndex(newValue);
         },
     },

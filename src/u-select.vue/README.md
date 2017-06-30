@@ -5,7 +5,7 @@
 
 #### 声明式
 ``` html
-<u-select :options="[{value: '选项1', name: '黄金糕'}, {value: '选项2', name: '双皮奶'}, {value: '选项3', name: '蚵仔煎'}, {value: '选项4', name: '龙须面'}, {value: '选项5', name: '北京烤鸭'}]">Modal</u-select>
+<u-select :options="[]">Modal</u-select>
 ```
 
 #### 只读
@@ -28,7 +28,7 @@
 export default {
     data() {
         return {
-            value: "选项3",
+            value: '',
             options: [{
                 value: '选项1',
                 name: '黄金糕'
