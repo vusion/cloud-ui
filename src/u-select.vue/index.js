@@ -104,6 +104,12 @@ const Select = Base.extend({
             else if (!newValue && index > -1)
                 Select.opens.splice(index, 1);
         },
+        options(newValue) {
+            this.selectedIndex = this.initSelectedIndex(this.value);
+        },
+        value(newValue) {
+            this.selectedIndex = this.initSelectedIndex(newValue);
+        },
         /**
          * @event change 选中列表项改变时触发
          * @property {object} sender 事件发送对象
@@ -116,12 +122,6 @@ const Select = Base.extend({
                 selected: newValue,
                 value: newValue.value,
             });
-        },
-        value(newValue) {
-            this.selectedIndex = this.initSelectedIndex(newValue);
-        },
-        options(newValue) {
-            this.selectedIndex = this.initSelectedIndex(newValue);
         },
     },
 });
