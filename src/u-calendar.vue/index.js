@@ -23,8 +23,8 @@ const Calendar = Base.extend({
         },
         readonly: [String, Boolean],
         disabled: [String, Boolean],
-        minDate: [String, Object],
-        maxDate: [String, Object],
+        minDate: [String, Object, Number],
+        maxDate: [String, Object, Number],
     },
     data() {
         return {
