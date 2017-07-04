@@ -112,7 +112,9 @@ const Calendar = Base.extend({
             this.showDate = this.transformDate(this.showDate);
             const date = this.showDate;
             const month = date.getMonth();
-            const mfirst = new Date(date); mfirst.setDate(1);
+            const mfirst = new Date(date);
+            mfirst.setDate(1);
+            mfirst.setHours(0, 0, 0, 0);
             const mfirstTime = +mfirst;
             const nfirst = new Date(mfirst); nfirst.setMonth(month + 1); nfirst.setDate(1);
             const nfirstTime = +nfirst;
@@ -206,8 +208,8 @@ const Calendar = Base.extend({
             let maxDate = this.transformDate(this.maxDate);
 
             // 不要直接在$watch中改变`minDate`和`maxDate`的值，因为有时向外绑定时可能不希望改变它们。
-            minDate = minDate && new Date((minDate / MS_OF_DAY >> 0) * MS_OF_DAY);
-            maxDate = maxDate && new Date((maxDate / MS_OF_DAY >> 0) * MS_OF_DAY);
+            minDate = minDate && minDate.setHours(0, 0, 0, 0);
+            maxDate = maxDate && maxDate.setHours(0, 0, 0, 0);
 
             // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期
             return (minDate && date < minDate && minDate) || (maxDate && date > maxDate && maxDate);

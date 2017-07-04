@@ -64,21 +64,20 @@ const DatePicker = Base.extend({
             if (!newValue)
                 return;
 
-            if (typeof newValue === 'string')
-                return this.minDate = new Date(newValue);
-
             if (newValue === 'Invalid Date' || newValue === 'NaN')
                 throw new TypeError('Invalid Date');
+
+            this.minDate = new Date(newValue);
         },
         maxDate(newValue) {
             if (!newValue)
                 return;
 
-            if (typeof newValue === 'string')
-                return this.maxDate = new Date(newValue);
-
             if (newValue === 'Invalid Date' || newValue === 'NaN')
                 throw new TypeError('Invalid Date');
+
+            this.maxDate = new Date(newValue);
+
         },
         open(newValue) {
             this.$emit('toggle', {
@@ -138,8 +137,8 @@ const DatePicker = Base.extend({
             let maxDate = this.transformDate(this.maxDate);
 
             // 不要直接在$watch中改变`minDate`和`maxDate`的值，因为有时向外绑定时可能不希望改变它们。
-            minDate = minDate && new Date((minDate / MS_OF_DAY >> 0) * MS_OF_DAY);
-            maxDate = maxDate && new Date((maxDate / MS_OF_DAY >> 0) * MS_OF_DAY);
+            minDate = minDate && minDate.setHours(0, 0, 0, 0);
+            maxDate = maxDate && maxDate.setHours(0, 0, 0, 0);
 
             // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期。
             return (minDate && date < minDate && minDate) || (maxDate && date > maxDate && maxDate);
