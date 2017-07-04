@@ -66,8 +66,6 @@ const DatePicker = Base.extend({
 
             if (newValue === 'Invalid Date' || newValue === 'NaN')
                 throw new TypeError('Invalid Date');
-
-            this.minDate = new Date(newValue);
         },
         maxDate(newValue) {
             if (!newValue)
@@ -75,9 +73,6 @@ const DatePicker = Base.extend({
 
             if (newValue === 'Invalid Date' || newValue === 'NaN')
                 throw new TypeError('Invalid Date');
-
-            this.maxDate = new Date(newValue);
-
         },
         open(newValue) {
             this.$emit('toggle', {
