@@ -66,6 +66,9 @@ const DateTimePicker = Base.extend({
         document.addEventListener('click', this.fadeOut.bind(this), false);
     },
     watch: {
+        date(newValue) {
+            this.dateTime = this.format(newValue, 'yyyy-MM-dd HH:mm:ss');
+        },
         dateTime(newValue) {
             // 字符类型自动转为日期类型
 
@@ -97,7 +100,7 @@ const DateTimePicker = Base.extend({
              */
             this.$emit('change', {
                 sender: this,
-                date: newValue,
+                date: new Date(newValue.replace(/-/g, '/')).getTime(),
             });
         },
     },
@@ -194,6 +197,8 @@ const DateTimePicker = Base.extend({
             };
             const trunk = new RegExp(Object.keys(maps).join('|'), 'g');
             type = type || 'yyyy-MM-dd HH:mm';
+            if (typeof value === 'string')
+                value = value.replace(/-/g, '/');
             value = new Date(value);
             if (value.toString() === 'Invalid Date')
                 return;
@@ -215,7 +220,7 @@ const DateTimePicker = Base.extend({
         },
         transformDate(date) {
             if (typeof date === 'string')
-                return new Date(date);
+                return new Date(date.replace(/-/g, '/'));
             else if (typeof date === 'number')
                 return new Date(date);
             else if (typeof date === 'object')

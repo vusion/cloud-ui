@@ -31,7 +31,7 @@ const DatePicker = Base.extend({
     },
     data() {
         return {
-            showDate: this.date,
+            showDate: this.format(this.date, 'yyyy/MM/dd'),
             open: false,
         };
     },
@@ -47,17 +47,17 @@ const DatePicker = Base.extend({
     },
     watch: {
         date(newValue) {
-            this.showDate = new Date(newValue);
+            this.showDate = this.format(newValue, 'yyyy/MM/dd');
         },
         showDate(newValue) {
             /**
              * @event change 日期改变时触发
              * @property {object} sender 事件发送对象
-             * @property {object} date 改变后的日期
+             * @property {number} date 改变后的日期 返回格式统一为时间戳
              */
             this.$emit('change', {
                 sender: this,
-                date: newValue,
+                date: new Date(newValue).getTime(),
             });
         },
         minDate(newValue) {
@@ -92,16 +92,16 @@ const DatePicker = Base.extend({
             if (this.readonly || this.disabled || this.isOutOfRange(date))
                 return;
 
-            this.showDate = date;
+            this.showDate = this.format(date, 'yyyy/MM/dd');
 
             /**
              * @event select 选择某一项时触发
              * @property {object} sender 事件发送对象
-             * @property {object} date 当前选择项
+             * @property {number} date 当前选择项 返回格式是时间戳
              */
             this.$emit('select', {
                 sender: this,
-                date,
+                date: new Date(this.showDate).getTime(),
             });
 
             this.toggle(false);
@@ -117,7 +117,7 @@ const DatePicker = Base.extend({
             const date = value ? new Date(value) : null;
 
             if (date.toString() !== 'Invalid Date')
-                this.showDate = date;
+                this.showDate = this.format(date, 'yyyy/MM/dd');
             else
                 this.$refs.input.value = this.format(this.showDate, 'yyyy-MM-dd');
         },
