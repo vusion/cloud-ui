@@ -8,8 +8,11 @@ $m-lineChart_line_width: 2px;
 $m-lineChart_line_offset: 6px;
 $m-lineChart_point_size: 9px;
 
-.root[role=empty] :global(.u-chart_content) {
+.root[role=empty] :global(.u-line-chart_wrap) {
     display: none;
+}
+.wrap {
+    height: 100%;
 }
 .grid {
     position: absolute;
