@@ -148,7 +148,7 @@ const DatePicker = Base.extend({
         },
         format(value, type) {
             if (!value)
-                return '';
+                return undefined;
             const fix = (str) => {
                 str = '' + (String(str) || '');
                 return str.length <= 1 ? '0' + str : str;
