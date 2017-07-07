@@ -263,6 +263,15 @@ const LineChart = Base.extend({
     destroyed() {
         window.removeEventListener('resize', this._onResize, false);
     },
+    components: {
+        'u-blank': {
+            template: '',
+            props: {
+                item: Object,
+                index: Number,
+            },
+        },
+    },
 });
 
 export default LineChart;
