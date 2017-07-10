@@ -27,7 +27,7 @@
                     <div class="value">{{format(item[sery.key])}}</div>
                 </div>
                 <div :class="$style['u-tooltip']" :role="'u-tooltip-'+(index >= data.length/2 ? 'left' : 'right')+'-'+(getPercent(item) < 50 ? 'top' : 'bottom')" :style="{top: getPercent(item)+'%'}">
-                    <u-blank v-if="tooltipTemplate" :item="item" :index="index"></u-blank>
+                    <u-blank v-if="tooltipTemplate" :item="item" :index="index" :series="series" :y-axis="yAxis"></u-blank>
                     <div v-else v-for="sery in series">{{sery.name || sery.key}}: {{format(item[sery.key])}}</div>
                 </div>
             </div>
