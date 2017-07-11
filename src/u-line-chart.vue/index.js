@@ -98,7 +98,7 @@ const LineChart = Base.extend({
             //
             {
                 const xAxis_ = this.xAxis_;
-                xAxis_.count = this.xAxis_.count || 12;
+                xAxis_.count = this.xAxis.count || 12;
                 let pieceCounts = this.data.length - 1;
                 let tick = pieceCounts / xAxis_.count;
                 if (tick !== parseInt(tick)) {
@@ -151,7 +151,7 @@ const LineChart = Base.extend({
                     )); // 支持空数据
                 }
 
-                yAxis_.count = this.yAxis_.count || 8;
+                yAxis_.count = this.yAxis.count || 8;
                 const tick = this.roundToFirst((yAxis_.max - yAxis_.min) / yAxis_.count) || 1;
                 const fixedCount = this.getFixedCount(tick);
                 yAxis_.min = Math.floor(yAxis_.min / tick) * tick;
