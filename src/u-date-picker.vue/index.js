@@ -53,11 +53,11 @@ const DatePicker = Base.extend({
             /**
              * @event change 日期改变时触发
              * @property {object} sender 事件发送对象
-             * @property {number} date 改变后的日期 返回格式统一为时间戳
+             * @property {number} date 改变后的日期 返回格式为日期对象
              */
             this.$emit('change', {
                 sender: this,
-                date: new Date(newValue).getTime(),
+                date: new Date(newValue),
             });
         },
         minDate(newValue) {
@@ -97,11 +97,11 @@ const DatePicker = Base.extend({
             /**
              * @event select 选择某一项时触发
              * @property {object} sender 事件发送对象
-             * @property {number} date 当前选择项 返回格式是时间戳
+             * @property {number} date 当前选择项 返回格式是日期对象
              */
             this.$emit('select', {
                 sender: this,
-                date: new Date(this.showDate).getTime(),
+                date: new Date(this.showDate),
             });
 
             this.toggle(false);
