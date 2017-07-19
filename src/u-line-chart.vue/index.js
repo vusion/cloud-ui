@@ -216,14 +216,14 @@ const LineChart = Base.extend({
                         }
 
                         const nextPoint = points[i + 1];
-                        if (this.data.smooth && nextPoint) {
+                        if (this.smooth && nextPoint) {
                             const helperPointStr = [point[0] + delta, point[1]].join(',');
                             const nextHelperPointStr = [nextPoint[0] - delta, nextPoint[1]].join(',');
                             cmd += ` C ${helperPointStr} ${nextHelperPointStr} ` + nextPoint.join(',');
                             i++;
                         }
                     } else {
-                        if (!this.data.smooth)
+                        if (!this.smooth)
                             cmd = 'L ' + pointStr;
                         else {
                             const helperPointStr = [point[0] - delta, point[1]].join(',');

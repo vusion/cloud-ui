@@ -35,7 +35,7 @@
 
 ``` vue
 <template>
-<u-line-chart border legend :title="title" :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data"></u-line-chart>
+<u-line-chart border legend :title="title" :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data" :smooth="smooth"></u-line-chart>
 </template>
 
 <script>
@@ -55,6 +55,7 @@ export default {
 				{ week: '星期六', number: 532, num:200 },
 				{ week: '星期日', number: 420 ,num: 500},
 			],
+			smooth: true,
 		}
 	}
 };
