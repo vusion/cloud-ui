@@ -79,6 +79,18 @@ const Toast = Base.extend({
             this.list = [];
         },
     },
+    watch: {
+        // 此处有坑啊 由于message的内容是放在数组中，msg在父组件更新后，并不会触发数组内msg的更新
+        message(newValue, oldValue) {
+            this.list.some((item, index) => {
+                if (item.message === oldValue) {
+                    item.message = newValue;
+                    return true;
+                }
+                return false;
+            });
+        },
+    },
 });
 
 const STATES = Toast.STATES = ['success', 'warning', 'info', 'error'];
