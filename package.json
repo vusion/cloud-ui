@@ -45,5 +45,8 @@
   },
   "peerDependencies": {
     "vue": "^2.3.0"
+  },
+  "vusion": {
+    "type": "library"
   }
 }
