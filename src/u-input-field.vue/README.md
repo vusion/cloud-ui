@@ -1,5 +1,5 @@
 # 输入扩展（InputField）
-# 具体demo和细节和regular-ui基本一致，请看 https://regular-ui.github.io/ui-field/validation/index.html
+# 具体demo和细节请参考regular-ui组件中的validation，规则一致
 
 ## 示例
 ### 基本形式
@@ -138,11 +138,6 @@ export default {
 </script>
 ```
 
-### 始终可点
-```vue
-
-```
-
 ### 所有内容正确可点
 ```vue
 <template>
@@ -208,9 +203,9 @@ export default {
             alert('提交成功！');
         },
         input() {
-            this.$nextTick(() => {
+            // this.$nextTick(() => {
                 this.canSubmit = this.$refs.validation && this.$refs.validation.fields.every((field) => field.state === 'success');
-            });
+            // });
         },
     },
 };

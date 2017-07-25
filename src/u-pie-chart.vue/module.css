@@ -1,4 +1,4 @@
-$m-pieChart_g_size: 120px;
+$g_size: 120px;
 
 .elsvg {
     width: 100%;
@@ -8,8 +8,8 @@ $m-pieChart_g_size: 120px;
 
 }
 .elsvg .elg {
-    width: $m-pieChart_g_size;
-    height: $m-pieChart_g_size;
+    width: $g_size;
+    height: $g_size;
 }
 
 .item {
