@@ -1,18 +1,18 @@
-$m-barChart_axis-y_width: 40px;
-$m-barChart_axis-x_height: 30px;
-$m-barChart_axis_border: #ccc;
-$m-barChart_axis-y_offset: 10px;
-$m-barChart_axis-x_offset: 6px;
-$m-barChart_line_border: #eee;
-$m-barChart_line_width: 2px;
-$m-barChart_line_offset: 6px;
-$m-barChart_bar_width: 60px;
+$axis-y_width: 40px;
+$axis-x_height: 30px;
+$axis_border: #ccc;
+$axis-y_offset: 10px;
+$axis-x_offset: 6px;
+$line_border: #eee;
+$line_width: 2px;
+$line_offset: 6px;
+$bar_width: 60px;
 
 .root {
 }
 .grid {
     position: absolute;
-    bottom: $m-barChart_axis-x_height;
+    bottom: $axis-x_height;
     top: 15px;
     left: 100px;
     right: 20px;
@@ -20,7 +20,7 @@ $m-barChart_bar_width: 60px;
 }
 .layer {
     position: absolute;
-    bottom: $m-barChart_axis-x_height;
+    bottom: $axis-x_height;
     top: 15px;
     left: 100px;
     right: 20px;
@@ -34,13 +34,13 @@ $m-barChart_bar_width: 60px;
 .line[role=line-x] {
     left: 0px;
     right: -1px;
-    border-top: 1px solid $m-barChart_line_border;
+    border-top: 1px solid $line_border;
 }
 
 .line[role=line-y] {
     top: -1px;
-    bottom: -$m-barChart_line_offset;
-    border-left: 1px solid $m-barChart_line_border;
+    bottom: -$line_offset;
+    border-left: 1px solid $line_border;
 }
 
 .axis {
@@ -52,16 +52,16 @@ $m-barChart_bar_width: 60px;
     left: 100px;
     right: 19px;
     bottom: 0;
-    height: $m-barChart_axis-x_height;
-    border-top: 1px solid $m-barChart_axis_border;
+    height: $axis-x_height;
+    border-top: 1px solid $axis_border;
 }
 
 .axis[role=axis-y] {
     left: 0;
     top: 14px;
-    bottom: $m-barChart_axis-x_height;
+    bottom: $axis-x_height;
     width: 100px;
-    border-right: 1px solid $m-barChart_axis_border;
+    border-right: 1px solid $axis_border;
 }
 .xlabel{
     position: relative;
@@ -81,7 +81,7 @@ $m-barChart_bar_width: 60px;
 }
 
 .label[role=label-x] {
-    top: $m-barChart_axis-x_offset;
+    top: $axis-x_offset;
     bottom: 0;
     text-align: left;
     width: 40px;
@@ -89,7 +89,7 @@ $m-barChart_bar_width: 60px;
 
 .label[role=label-y] {
     left: 0;
-    right: $m-barChart_axis-y_offset;
+    right: $axis-y_offset;
     text-align: right;
 }
 
@@ -119,11 +119,11 @@ $m-barChart_bar_width: 60px;
     position: absolute;
     box-sizing: border-box;
     bottom: 0;
-    width: $m-barChart_bar_width;
+    width: $bar_width;
     left: 0;
     margin-left: 0;
     background: rgba(238,134,125,0.3);
-    border: $m-barChart_line_width solid rgba(238,134,125,0.6);
+    border: $line_width solid rgba(238,134,125,0.6);
     border-left: none;
     top:50%;
     transform: translateY(-50%);

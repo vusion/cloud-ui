@@ -1,12 +1,11 @@
-$m-lineChart_axis-y_width: 40px;
-$m-lineChart_axis-x_height: 30px;
-$m-lineChart_axis_border: #ccc;
-$m-lineChart_axis-y_offset: 10px;
-$m-lineChart_axis-x_offset: 6px;
-$m-lineChart_line_border: #eee;
-$m-lineChart_line_width: 2px;
-$m-lineChart_line_offset: 6px;
-$m-lineChart_point_size: 9px;
+$axis-y_width: 40px;
+$axis-x_height: 30px;
+$axis_border: #ccc;
+$axis-y_offset: 10px;
+$axis-x_offset: 6px;
+$line_border: #eee;
+$line_width: 2px;
+$line_offset: 6px;
 
 .root[role=empty] .wrap {
     display: none;
@@ -16,17 +15,17 @@ $m-lineChart_point_size: 9px;
 }
 .grid {
     position: absolute;
-    bottom: $m-lineChart_axis-x_height;
+    bottom: $axis-x_height;
     top: 15px;
-    left: $m-lineChart_axis-y_width;
+    left: $axis-y_width;
     right: 20px;
     font-size: 0;
 }
 .layer{
     position: absolute;
-    bottom: $m-lineChart_axis-x_height;
+    bottom: $axis-x_height;
     top: 15px;
-    left: $m-lineChart_axis-y_width;
+    left: $axis-y_width;
     right: 20px;
     font-size: 0;
 }
@@ -35,15 +34,15 @@ $m-lineChart_point_size: 9px;
 }
 
 .line[role=x] {
-    left: -$m-lineChart_line_offset;
+    left: -$line_offset;
     right: -1px;
-    border-top: 1px solid $m-lineChart_line_border;
+    border-top: 1px solid $line_border;
 }
 
 .line[role=y] {
     top: -1px;
-    bottom: -$m-lineChart_line_offset;
-    border-left: 1px solid $m-lineChart_line_border;
+    bottom: -$line_offset;
+    border-left: 1px solid $line_border;
 }
 
 .axis {
@@ -52,19 +51,19 @@ $m-lineChart_point_size: 9px;
 }
 
 .axis[role=axisx] {
-    left: $m-lineChart_axis-y_width;
+    left: $axis-y_width;
     right: 19px;
     bottom: 0;
-    height: $m-lineChart_axis-x_height;
-    border-top: 1px solid $m-lineChart_axis_border;
+    height: $axis-x_height;
+    border-top: 1px solid $axis_border;
 }
 
 .axis[role=axisy] {
     left: 0;
     top: 14px;
-    bottom: $m-lineChart_axis-x_height;
-    width: $m-lineChart_axis-y_width;
-    border-right: 1px solid $m-lineChart_axis_border;
+    bottom: $axis-x_height;
+    width: $axis-y_width;
+    border-right: 1px solid $axis_border;
 }
 
 .label {
@@ -85,7 +84,7 @@ $m-lineChart_point_size: 9px;
 }
 
 .label[role=labelx] {
-    top: $m-lineChart_axis-x_offset;
+    top: $axis-x_offset;
     bottom: 0;
     transform: translateX(-50%);
     text-align: center;
@@ -93,7 +92,7 @@ $m-lineChart_point_size: 9px;
 
 .label[role=labely] {
     left: 0;
-    right: $m-lineChart_axis-y_offset;
+    right: $axis-y_offset;
     transform: translateY(50%);
     text-align: right;
 }
@@ -127,7 +126,7 @@ $m-lineChart_point_size: 9px;
     bottom: 28px;
 }
 
-.line { fill-opacity: 0; stroke-width: $m-lineChart_line_width; }
+.line { fill-opacity: 0; stroke-width: $line_width; }
 .area { stroke-opacity: 0; }
 
 .layer .elsvg:nth-of-type(1) .line { stroke: rgba(238,134,125,0.6); }

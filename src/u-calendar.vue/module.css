@@ -1,6 +1,3 @@
-$u-calendar_item_width: 32px;
-$u-calendar_item_height: 30px;
-
 .root{
 	width: 238px;
 	padding: 4px;
@@ -10,9 +7,6 @@ $u-calendar_item_height: 30px;
 	border: 1px solid #d2d6de;
 	border-radius: 4px;
 	box-sizing: content-box;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
 	user-select: none;
 }
 .item {
