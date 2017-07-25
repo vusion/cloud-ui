@@ -1,3 +1,5 @@
+@import 'u-button.vue/module.css';
+
 .root {
     border-color: #b2b2b2;
     color: #555;

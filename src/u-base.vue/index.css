@@ -1,3 +1,5 @@
+@import 'u-base.vue/index.css';
+
 body {
     font: 14px/1.6 "Microsoft YaHei", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
 }
