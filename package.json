@@ -34,13 +34,13 @@
     "u-list-view-item.vue": "^0.1.3",
     "u-pagination.vue": "^0.1.2",
     "u-tab.vue": "^0.1.3",
-    "u-tabs.vue": "^0.1.3"
+    "u-tabs.vue": "^0.1.3",
+    "validator": "^8.0.0"
   },
   "devDependencies": {
     "eslint": "^4.3.0",
     "eslint-config-vusion": "^1.2.0",
     "husky": "^0.13.3",
-    "validator": "^8.0.0",
     "vue": "^2.4.0",
     "vusion-hooks": "^0.1.0"
   },
