@@ -5,7 +5,7 @@
   "author": "Rainfore <rainforest92@126.com>",
   "main": "./index.js",
   "scripts": {
-    "precommit": "node_modules/vusion-hooks/pre-commit"
+    "precommit": "bash node_modules/vusion-hooks/pre-commit"
   },
   "repository": "vusion/cloud-ui",
   "homepage": "http://vusion.github.io",
@@ -26,25 +26,25 @@
     "cloud-ui"
   ],
   "dependencies": {
-    "u-base.vue": "^0.1.3",
-    "u-button.vue": "^0.1.1",
-    "u-circular-progress.vue": "^0.1.1",
-    "u-linear-progress.vue": "^0.1.1",
-    "u-list-view.vue": "^0.1.3",
-    "u-list-view-item.vue": "^0.1.3",
-    "u-pagination.vue": "^0.1.2",
-    "u-tab.vue": "^0.1.3",
-    "u-tabs.vue": "^0.1.3"
+    "u-base.vue": "~0.1.3",
+    "u-button.vue": "~0.1.1",
+    "u-circular-progress.vue": "~0.1.1",
+    "u-linear-progress.vue": "~0.1.1",
+    "u-list-view.vue": "~0.1.3",
+    "u-list-view-item.vue": "~0.1.3",
+    "u-pagination.vue": "~0.1.2",
+    "u-tab.vue": "~0.1.3",
+    "u-tabs.vue": "~0.1.3"
   },
   "devDependencies": {
-    "eslint": "^3.18.0",
-    "eslint-config-vusion": "^1.1.0",
+    "eslint": "^4.3.0",
+    "eslint-config-vusion": "^1.2.0",
     "husky": "^0.13.3",
-    "vue": "^2.3.0",
+    "vue": "^2.4.0",
     "vusion-hooks": "^0.1.0"
   },
   "peerDependencies": {
-    "vue": "^2.3.0"
+    "vue": "^2.4.0"
   },
   "vusion": {
     "type": "library"
