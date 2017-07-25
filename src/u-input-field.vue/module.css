@@ -1,0 +1,43 @@
+.root{
+    display: inline-block;
+    position: relative;
+}
+.input{
+    box-sizing: border-box;
+    margin: 0;
+    vertical-align: middle;
+    padding: 6px 12px;
+    border: 1px solid #d2d6de;
+    color: #555;
+    background: #fff;
+    border-radius: 3px;
+}
+.input:focus{
+    outline: none;
+    background: #fff;
+    color: #555;
+    border: 1px solid #3c8dbc;
+}
+.input[role=success]{
+    color: #00a65a;
+    border-color: #00a65a;
+}
+.input[role=error]{
+    color: #dd4d39;
+    border-color: #dd4b39;
+}
+.tip{
+    margin-left: 4px;
+    display: inline-block;
+    padding: 0 6px;
+    background: #f4f4f4;
+    border-radius: 2px;
+}
+.tip[role=error]{
+    background: #fcedeb;
+    color: #dd4b39;
+}
+.unit{
+    position: relative;
+    right: 40px;
+}
