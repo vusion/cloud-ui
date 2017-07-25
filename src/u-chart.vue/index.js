@@ -19,6 +19,7 @@ const Chart = Base.extend({
         },
         width: String,
         height: String,
+        titleAlign: { type: String, default: 'center' },
     },
     data() {
         return {

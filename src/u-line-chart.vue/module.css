@@ -8,7 +8,7 @@ $m-lineChart_line_width: 2px;
 $m-lineChart_line_offset: 6px;
 $m-lineChart_point_size: 9px;
 
-.root[role=empty] :global(.u-line-chart_wrap) {
+.root[role=empty] .wrap {
     display: none;
 }
 .wrap {
@@ -124,7 +124,7 @@ $m-lineChart_point_size: 9px;
 
 /* 修复最下面2px线条在svg中只显示一半的问题*/
 .layer[role=layersvg] {
-    bottom: $m-lineChart_axis-x_height - $m-lineChart_line_width;
+    bottom: 28px;
 }
 
 .line { fill-opacity: 0; stroke-width: $m-lineChart_line_width; }
