@@ -1,8 +1,8 @@
 <div :class="$style.root" :border="border" :loading="!data" :empty="data && !data.length" v-show="visible" :style="{width: width, height: height}">
-    <div v-if="titleTemplate" :class="$style.ittitle">
+    <div v-if="titleTemplate" :class="$style.ittitle" :style="{textAlign: titleAlign}">
         <slot name="titleTemplate"></slot>
     </div>
-    <div v-else-if="title" :class="$style.ittitle">{{title}}</div>
+    <div v-else-if="title" :class="$style.ittitle" :style="{textAlign: titleAlign}">{{title}}</div>
     <div v-if="captionTemplate" :class="$style.caption">
         <slot name="captionTemplate"></slot>
     </div>

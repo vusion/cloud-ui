@@ -34,7 +34,8 @@
     "u-list-view-item.vue": "~0.1.3",
     "u-pagination.vue": "~0.1.2",
     "u-tab.vue": "~0.1.3",
-    "u-tabs.vue": "~0.1.3"
+    "u-tabs.vue": "~0.1.3",
+    "validator": "^8.0.0"
   },
   "devDependencies": {
     "eslint": "^4.3.0",

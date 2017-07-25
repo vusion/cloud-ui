@@ -36,6 +36,9 @@ import MultiSelect from './src/u-multi-select.vue';
 import Switch from './src/u-switch.vue';
 import XBarChart from './src/u-xbar-chart.vue';
 import Blank from './src/u-blank.vue';
+import Validation from './src/u-validation.vue';
+import Field from './src/u-field.vue';
+import InputField from './src/u-input-field.vue';
 
 const Components = {
     Base,
@@ -74,6 +77,9 @@ const Components = {
     Switch,
     XBarChart,
     Blank,
+    Validation,
+    Field,
+    InputField,
 };
 
 window.Vue = Vue;
@@ -116,4 +122,7 @@ export {
     Switch,
     XBarChart,
     Blank,
+    Validation,
+    Field,
+    InputField,
 };

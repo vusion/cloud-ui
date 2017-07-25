@@ -46,6 +46,7 @@ const LineChart = Base.extend({
         yAxis: Object,
         smooth: Boolean,
         fill: Boolean,
+        titleAlign: { type: String, default: 'center' },
     },
     data() {
         return {
@@ -115,7 +116,7 @@ const LineChart = Base.extend({
                             this.data.push({ hidden: true });
                             pieceCounts++;
                         } else
-                        break;
+                            break;
                     }
                 }
 
@@ -206,7 +207,7 @@ const LineChart = Base.extend({
                     }
                 } else {
                     const pointStr = point.join(',');
-                    if (discontinued) {    // discontinue end
+                    if (discontinued) { // discontinue end
                         discontinued = false;
                         if (type !== 'area')
                             cmd = 'M ' + pointStr;
