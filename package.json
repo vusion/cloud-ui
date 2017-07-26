@@ -26,7 +26,7 @@
     "cloud-ui"
   ],
   "dependencies": {
-    "u-base.vue": "~0.1.3",
+    "u-base.vue": "~0.1.5",
     "u-button.vue": "~0.1.1",
     "u-circular-progress.vue": "~0.1.1",
     "u-linear-progress.vue": "~0.1.1",
