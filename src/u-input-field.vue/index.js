@@ -31,7 +31,7 @@ const InputField = Field.extend({
          * @private
          */
         onFocus($event) {
-            this.state = '';
+            this.state = this.status;
             this.tip = this.tipInfo;
             this.$emit('focus', $event);
         },

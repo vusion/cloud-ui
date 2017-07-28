@@ -16,12 +16,12 @@
     outline: none;
     background: #fff;
     color: #555;
-    border: 1px solid #3c8dbc;
+    border: 1px solid #2cb78e;
 }
-.input[role=success]{
+/*.input[role=success]{
     color: #00a65a;
     border-color: #00a65a;
-}
+}*/
 .input[role=error]{
     color: #dd4d39;
     border-color: #dd4b39;
