@@ -3,6 +3,7 @@ import Base from './src/u-base.vue';
 import Link from './src/u-link.vue';
 import Button from './src/u-button.vue';
 import LinearProgress from 'u-linear-progress.vue';
+import LinearLayout from 'u-linear-layout.vue';
 import CircularProgress from 'u-circular-progress.vue';
 import Pagination from './src/u-pagination.vue';
 import Sidebar from './src/u-sidebar.vue';
@@ -44,6 +45,7 @@ const Components = {
     Link,
     Button,
     LinearProgress,
+    LinearLayout,
     CircularProgress,
     Pagination,
     Sidebar,
@@ -86,6 +88,7 @@ export {
     Link,
     Button,
     LinearProgress,
+    LinearLayout,
     CircularProgress,
     Pagination,
     Sidebar,

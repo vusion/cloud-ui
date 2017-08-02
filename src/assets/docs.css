@@ -1,5 +1,5 @@
 .u-link {
-    color: #4477d0;
+    color: #5494db;
     text-decoration: none;
 }
 
@@ -33,7 +33,7 @@
     border-top: 1px solid #f4f4f4;
     padding-top: 30px;
     padding-left: 60px;
-    color: #387ee8;
+    color: #67aaf5;
 }
 
 .u-article > h2 + h3 {
@@ -54,7 +54,7 @@
     height: 4px;
     width: 4px;
     vertical-align: middle;
-    background: #387ee8;
+    background: #67aaf5;
 }
 
 .u-article > h5 {

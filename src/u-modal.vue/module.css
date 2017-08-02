@@ -86,5 +86,5 @@ $media-sm-max-width: 767px;
 
 .root[static] {
     position: static;
-    padding: $margin-bottom-base;
+    padding: $margin-base;
 }

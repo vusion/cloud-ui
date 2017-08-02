@@ -16,15 +16,19 @@
 ### 颜色扩展
 
 ``` html
-<u-button color="primary">立即创建</u-button>
-<u-button color="primary" disabled>立即创建</u-button>
+<u-linear-layout>
+    <u-button color="primary">立即创建</u-button>
+    <u-button color="primary" disabled>立即创建</u-button>
+</u-linear-layout>
 ```
 
 ### 大小扩展
 
 ``` html
-<u-button size="small" disabled>保存</u-button>
-<u-button disabled>创建服务</u-button>
+<u-linear-layout>
+    <u-button size="small" disabled>保存</u-button>
+    <u-button disabled>创建服务</u-button>
+</u-linear-layout>
 ```
 
 ### 正方形
@@ -39,7 +43,9 @@
 - 使用`v-to`指令添加[vue-router](https://router.vuejs.org)链接
 
 ``` html
-<u-button v-href="'https://github.com/vusion/vusion'">Button</u-button>
-<u-button v-to="'/some/router/path'">Button</u-button>
-<u-button v-href="'https://github.com/vusion/vusion'" disabled>Button</u-button>
+<u-linear-layout>
+    <u-button v-href="'https://github.com/vusion/vusion'">Button</u-button>
+    <u-button v-to="'/some/router/path'">Button</u-button>
+    <u-button v-href="'https://github.com/vusion/vusion'" disabled>Button</u-button>
+</u-linear-layout>
 ```
