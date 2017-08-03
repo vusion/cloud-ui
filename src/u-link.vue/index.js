@@ -1,7 +1,3 @@
-import Base from 'u-base.vue';
-
-const Link = Base.extend({
-    name: 'u-link',
-});
+import Link from 'u-link.vue';
 
 export default Link;

@@ -1,7 +1,5 @@
-.root {
-    color: $link-color;
-}
+@import 'u-link.vue/module.css';
 
-.root:hover {
-    text-decoration: underline;
+.root {
+    color: #5494db;
 }
