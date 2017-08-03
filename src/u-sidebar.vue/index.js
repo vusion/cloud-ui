@@ -1,7 +1,3 @@
-import Base from 'u-base.vue';
-
-const Sidebar = Base.extend({
+export default {
     name: 'u-sidebar',
-});
-
-export default Sidebar;
+};

@@ -11,8 +11,9 @@ import Capsule from '../u-capsule.vue';
  * @param {boolean=false}       props.readonly                  Readonly
  * @param {boolean=false}       props.disabled                  Disabled
  */
-const Capsules = ListView.extend({
+const Capsules = {
     name: 'u-capsules',
+    mixins: [ListView],
     data() {
         return {
             ChildComponent: Capsule,
@@ -28,6 +29,6 @@ const Capsules = ListView.extend({
      * @event select - Emit when selecting an item
      * @property {number} selectedItem - The selected item
      */
-});
+};
 
 export default Capsules;

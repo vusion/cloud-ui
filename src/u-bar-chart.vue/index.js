@@ -1,6 +1,3 @@
-import Base from 'u-base.vue';
-import Chart from '../u-chart.vue';
-
 /**
  * @class BarChart
  * @extends Chart
@@ -17,7 +14,7 @@ import Chart from '../u-chart.vue';
  * @param {boolean=false}           options.border              => 是否显示边框
  * @param {boolean=true}            options.legend              => 是否显示图例
  */
-const BarChart = Base.extend({
+export default {
     name: 'u-bar-chart',
     props: {
         data: Array,
@@ -136,6 +133,4 @@ const BarChart = Base.extend({
                 return num;
         },
     },
-});
-
-export default BarChart;
+};

@@ -1,13 +1,4 @@
-import Base from 'u-base.vue';
-import Vue from 'vue';
-
-Vue.directive('link', {
-    inserted(el) {
-        el.style.background = 'red';
-    },
-});
-
-const SidebarMenu = Base.extend({
+export default {
     name: 'u-sidebar-menu',
     props: {
         title: String,
@@ -21,6 +12,4 @@ const SidebarMenu = Base.extend({
             open_: this.open,
         };
     },
-});
-
-export default SidebarMenu;
+};

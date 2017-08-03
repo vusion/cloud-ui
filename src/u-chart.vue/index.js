@@ -1,6 +1,4 @@
-import Base from 'u-base.vue';
-
-const Chart = Base.extend({
+export default {
     name: 'u-chart',
     props: {
         title: String,
@@ -46,6 +44,4 @@ const Chart = Base.extend({
             this.series.splice(index, 1, _obj);
         },
     },
-});
-
-export default Chart;
+};

@@ -1,5 +1,4 @@
 import Chart from '../u-chart.vue';
-import Base from 'u-base.vue';
 
 const TICKES = [2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 20, 30, 40, 50, 100, 200, 500, 1000, 1];
 
@@ -21,7 +20,8 @@ const TICKES = [2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 20, 30, 40, 50, 100, 200, 50
  * @param {boolean=false}           options.border              => 是否显示边框
  * @param {boolean=true}            options.legend              => 是否显示图例
  */
-const LineChart = Base.extend({
+
+export default {
     name: 'u-line-chart',
     props: {
         data: Array,
@@ -273,6 +273,4 @@ const LineChart = Base.extend({
             },
         },
     },
-});
-
-export default LineChart;
+};

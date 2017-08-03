@@ -1,4 +1,3 @@
-import Base from 'u-base.vue';
 import Calendar from '../u-calendar.vue';
 const MS_OF_DAY = 24 * 3600 * 1000;
 
@@ -14,7 +13,7 @@ const MS_OF_DAY = 24 * 3600 * 1000;
  * @param {boolean=false}           options.readonly            => 是否只读
  * @param {boolean=false}           options.disabled            => 是否禁用
  */
-const DatePicker = Base.extend({
+export default {
     name: 'u-date-picker',
     props: {
         date: [String, Number],
@@ -180,6 +179,4 @@ const DatePicker = Base.extend({
                 return date;
         },
     },
-});
-
-export default DatePicker;
+};

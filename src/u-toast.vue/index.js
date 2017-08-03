@@ -1,4 +1,4 @@
-import Base from 'u-base.vue';
+import Vue from 'vue';
 
 /**
  * @class Toast
@@ -9,7 +9,7 @@ import Base from 'u-base.vue';
  * @param {String}                   options.message          => 提示信息
  *@param {boolean=true}              options.visible          => 显示/隐藏
  */
-const Toast = Base.extend({
+const Toast = {
     name: 'u-toast',
     props: {
         position: { type: String, default: 'top-center' },
@@ -91,7 +91,7 @@ const Toast = Base.extend({
             });
         },
     },
-});
+};
 
 const STATES = Toast.STATES = ['success', 'warning', 'info', 'error'];
 /**
@@ -102,7 +102,7 @@ const STATES = Toast.STATES = ['success', 'warning', 'info', 'error'];
  * @return {void}
  */
 STATES.forEach((state) => {
-    Toast.prototype[state] = function (message, duration) {
+    Toast.methods[state] = function (message, duration) {
         this.show(message, duration, state);
     };
 });
@@ -112,7 +112,7 @@ STATES.forEach((state) => {
  * @private {Toast}
  * @description 直接初始化一个实例
  */
-const toast = Toast.toast = new Toast();
+const toast = Toast.toast = new Vue(Toast);
 const METHODS = Toast.METHODS = ['show', 'close', 'closeAll', 'success', 'warning', 'info', 'error'];
 /**
  * @method show(message[,duration][,state]) 弹出一个消息

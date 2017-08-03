@@ -1,5 +1,3 @@
-import Base from 'u-base.vue';
-import Chart from '../u-chart.vue';
 import Utils from '../util/utils.js';
 
 /**
@@ -18,7 +16,7 @@ import Utils from '../util/utils.js';
  * @param {boolean=false}           options.border              => 是否显示边框
  * @param {boolean=true}            options.legend              => 是否显示图例
  */
-const XBarChart = Base.extend({
+export default {
     name: 'u-xbar-chart',
     props: {
         data: Array,
@@ -81,19 +79,18 @@ const XBarChart = Base.extend({
                     this.series.forEach((sery, index) => {
                         if (index === 0) {
                             item['part' + index] = 0;
-                            item['part' + (index+1)] = item[sery.key] / item.total;
+                            item['part' + (index + 1)] = item[sery.key] / item.total;
                         } else if (index !== this.series.length - 1)
                             item['part' + (index + 1)] = item['part' + index] + item[sery.key] / item.total;
                     });
                 });
             }
 
-            //此处对data数据进行排序处理 默认降序 升序 按原始数据排序三种
+            // 此处对data数据进行排序处理 默认降序 升序 按原始数据排序三种
             if (this.order === 'desc')
                 this.chartData.sort(this.sortDesc);
             else if (this.order === 'asc')
                 this.chartData.sort(this.sortAsc);
-
 
             //
             // 确定纵坐标
@@ -168,6 +165,4 @@ const XBarChart = Base.extend({
             return value1.total - value2.total;
         },
     },
-});
-
-export default XBarChart;
+};

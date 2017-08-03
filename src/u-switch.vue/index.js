@@ -1,5 +1,3 @@
-import Base from 'u-base.vue';
-
 /**
  * @class Switch
  * @extend Base
@@ -12,7 +10,7 @@ import Base from 'u-base.vue';
  * @param {string|number|boolean}        options.onValue                 => on提示 暂未实现
  * @param {string|number|boolean}        options.offValue                => off提示 暂未实现
  */
-const Switch = Base.extend({
+export default {
     name: 'u-switch',
     props: {
         value: { type: [Boolean, String, Number], default: true },
@@ -56,7 +54,7 @@ const Switch = Base.extend({
                 value: !this.checked ? this.onValue : this.offValue,
             });
             this.$nextTick(() => {
-              //此处有坑
+                // 此处有坑
                 this.$refs.input.checked = this.checked;
             });
         },
@@ -79,6 +77,4 @@ const Switch = Base.extend({
             this.setBackgroundColor();
         this.$refs.input.checked = this.checked;
     },
-});
-
-export default Switch;
+};

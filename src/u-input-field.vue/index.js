@@ -1,7 +1,8 @@
 import Field from '../u-field.vue';
 
-const InputField = Field.extend({
+export default {
     name: 'u-input-field',
+    mixins: [Field],
     props: {
         name: String,
         visible: { type: Boolean, default: true },
@@ -43,5 +44,4 @@ const InputField = Field.extend({
             this.$emit('blur', $event);
         },
     },
-});
-export default InputField;
+};

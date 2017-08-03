@@ -1,4 +1,3 @@
-import Base from 'u-base.vue';
 import validator from 'validator';
 
 /**
@@ -7,7 +6,7 @@ import validator from 'validator';
  * @param {Object}                  options.data                     =  绑定属性
  * @param {boolean=false}           options.data.disabled            => 是否禁用。当禁用时，验证始终通过。
  */
-const Validation = Base.extend({
+const Validation = {
     name: 'u-validation',
     props: {
         disabled: { type: Boolean, default: false },
@@ -72,7 +71,7 @@ const Validation = Base.extend({
                 field.$once('validate', done.bind(this)).validate());
         },
     },
-});
+};
 
 /**
  * @method validate(value,rules,callback) 根据规则验证单个值

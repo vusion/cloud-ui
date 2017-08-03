@@ -1,4 +1,3 @@
-import Base from 'u-base.vue';
 import Tag from '../u-tag.vue';
 import EventUtil from '../util/event.js';
 
@@ -10,7 +9,7 @@ import EventUtil from '../util/event.js';
  * @param {boolean=false}           options.disabled            => 是否禁用
  * @param {width|string|number}     options.width               => 输入框长度
  */
-const MultiSelect = Base.extend({
+const MultiSelect = {
     name: 'u-multi-select',
     props: {
         options: Array,
@@ -125,9 +124,9 @@ const MultiSelect = Base.extend({
             this.optionsData = this.initOptionsData();
         },
     },
-});
+};
 
-//MultiSelect 类的静态属性 用来保存当前处于open状态的MultiSelect对象
+// MultiSelect 类的静态属性 用来保存当前处于open状态的MultiSelect对象
 MultiSelect.opens = [];
 
 export default MultiSelect;

@@ -1,4 +1,3 @@
-import Base from 'u-base.vue';
 import NumberInput from '../u-number-input.vue';
 
 const HOUR_MIN = '00';
@@ -21,7 +20,7 @@ const SECOND_MAX = '59';
  * @param {boolean=true}            options.data.visible             => 是否显示
  * @param {string=''}               options.data.class               => 补充class
  */
-const TimePicker = Base.extend({
+const TimePicker = {
     name: 'u-time-picker',
     props: {
         time: {
@@ -180,7 +179,7 @@ const TimePicker = Base.extend({
             this.showTime = this.hour + ':' + this.minute + ':' + (second.length > 1 ? second : '0' + second);
         },
     },
-});
+};
 
 const TimeRangeError = function (minTime, maxTime) {
     this.name = 'TimeRangeError';

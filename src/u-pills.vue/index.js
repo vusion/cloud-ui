@@ -10,8 +10,9 @@ import Pill from '../u-pill.vue';
  * @param {boolean=false}       props.readonly                  Readonly
  * @param {boolean=false}       props.disabled                  Disabled
  */
-const Pills = ListView.extend({
+const Pills = {
     name: 'u-pills',
+    mixins: [ListView],
     data() {
         return {
             ChildComponent: Pill,
@@ -27,6 +28,6 @@ const Pills = ListView.extend({
      * @event select - Emit when selecting an item
      * @property {number} selectedItem - The selected item
      */
-});
+};
 
 export default Pills;

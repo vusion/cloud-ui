@@ -1,7 +1,3 @@
-import Base from 'u-base.vue';
-import Calendar from '../u-calendar.vue';
-import TimePicker from '../u-time-picker.vue';
-
 /**
  * @class DateTimePicker
  * @extend Dropdown
@@ -15,7 +11,7 @@ import TimePicker from '../u-time-picker.vue';
  * @param {boolean=false}           options.disabled            => 是否禁用
  * @param {width|string|number}     options.width               => 输入框长度
  */
-const DateTimePicker = Base.extend({
+export default {
     name: 'u-date-time-picker',
     props: {
         disabled: [String, Boolean],
@@ -227,6 +223,4 @@ const DateTimePicker = Base.extend({
                 return date;
         },
     },
-});
-
-export default DateTimePicker;
+};

@@ -1,4 +1,3 @@
-import Base from 'u-base.vue';
 import EventUtil from '../util/event.js';
 
 /**
@@ -9,7 +8,7 @@ import EventUtil from '../util/event.js';
  * @param {boolean=false}           options.disabled            => 是否禁用
  * @param {string|number}     options.width               => 输入框长度
  */
-const Select = Base.extend({
+const Select = {
     name: 'u-select',
     props: {
         options: Array,
@@ -121,9 +120,9 @@ const Select = Base.extend({
             });
         },
     },
-});
+};
 
-//Select 类的静态属性 用来保存当前处于open状态的Select对象
+// Select 类的静态属性 用来保存当前处于open状态的Select对象
 Select.opens = [];
 
 export default Select;

@@ -1,7 +1,3 @@
-import Base from 'u-base.vue';
-
-const Navbar = Base.extend({
+export default {
     name: 'u-navbar',
-});
-
-export default Navbar;
+};

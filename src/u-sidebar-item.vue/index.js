@@ -1,9 +1,6 @@
-import Base from 'u-base.vue';
-import { RouterItem } from 'u-base.vue/mixins';
+import RouterItem from 'u-router-item.vue';
 
-const SidebarItem = Base.extend({
+export default {
     name: 'u-sidebar-item',
     mixins: [RouterItem],
-});
-
-export default SidebarItem;
+};

@@ -1,4 +1,3 @@
-import Base from 'u-base.vue';
 /**
  * @class NumberInput
  * @extend Input2
@@ -13,7 +12,7 @@ import Base from 'u-base.vue';
  * @param {string='140'}            options.width               => 输入框宽度
  * @param {string='34'}             options.width               => 输入框高度
  */
-const NumberInput = Base.extend({
+const NumberInput = {
     name: 'u-number-input',
     props: {
         value: {
@@ -139,7 +138,8 @@ const NumberInput = Base.extend({
             return value;
         },
     },
-});
+};
+
 const NumberRangeError = function (min, max) {
     this.type = 'NumberRangeError';
     this.message = 'Wrong Number Range where `min` is ' + min + ' and `max` is ' + max + '!';

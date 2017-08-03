@@ -1,9 +1,6 @@
-import Base from 'u-base.vue';
-import { RouterItem } from 'u-base.vue/mixins';
+import RouterItem from 'u-router-item.vue';
 
-const NavbarItem = Base.extend({
+export default {
     name: 'u-navbar-item',
     mixins: [RouterItem],
-});
-
-export default NavbarItem;
+};

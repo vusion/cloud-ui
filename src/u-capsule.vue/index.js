@@ -6,8 +6,7 @@ import ListViewItem from 'u-list-view-item.vue';
  * @param {any}                 props.value                     Value of this item
  * @param {boolean=false}       props.disabled                  Disabled
  */
-const Capsule = ListViewItem.extend({
+export default {
     name: 'u-capsule',
-});
-
-export default Capsule;
+    mixins: [ListViewItem],
+};

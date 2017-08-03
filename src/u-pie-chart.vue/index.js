@@ -1,6 +1,4 @@
-import Chart from '../u-chart.vue';
-import Base from 'u-base.vue';
-const PieChart = Base.extend({
+export default {
     name: 'u-pie-chart',
     props: {
         data: Array,
@@ -79,6 +77,4 @@ const PieChart = Base.extend({
             this.data[index].hidden = !this.data[index].hidden;
         },
     },
-});
-
-export default PieChart;
+};

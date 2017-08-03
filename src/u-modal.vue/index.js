@@ -1,7 +1,4 @@
-import Base from 'u-base.vue';
-import Button from 'u-button.vue';
-
-const Modal = Base.extend({
+const Modal = {
     name: 'u-modal',
     props: {
         title: { type: String, default: '提示' },
@@ -45,7 +42,7 @@ const Modal = Base.extend({
             this.close();
         },
     },
-});
+};
 
 /**
  * @method alert(content[,title]) 弹出一个alert模态框。关闭时始终触发确定事件。

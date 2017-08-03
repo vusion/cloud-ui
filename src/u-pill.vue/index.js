@@ -6,8 +6,7 @@ import ListViewItem from 'u-list-view-item.vue';
  * @param {any}                 props.value                     Value of this item
  * @param {boolean=false}       props.disabled                  Disabled
  */
-const Pill = ListViewItem.extend({
+export default {
     name: 'u-pill',
-});
-
-export default Pill;
+    mixins: [ListViewItem],
+};

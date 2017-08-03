@@ -1,5 +1,3 @@
-import Base from 'u-base.vue';
-
 /**
  * @class Tag
  * @extend Base
@@ -7,7 +5,7 @@ import Base from 'u-base.vue';
  * @param {string}                                 options.color               => 背景颜色
  * @param {gray|primary|success|warning|error}     options.type                => 类型
  */
-const Tag = Base.extend({
+export default {
     name: 'u-tag',
     props: {
         closeable: Boolean,
@@ -25,6 +23,4 @@ const Tag = Base.extend({
             this.$emit('close', event);
         },
     },
-});
-
-export default Tag;
+};

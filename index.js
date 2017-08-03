@@ -1,4 +1,5 @@
 import './src/u-base.vue/base.css';
+import * as directives from 'u-base.vue/directives';
 import Base from './src/u-base.vue';
 import Link from './src/u-link.vue';
 import Button from './src/u-button.vue';
@@ -128,7 +129,10 @@ export {
 
 const Library = {
     install(Vue) {
-        Object.keys(Components).forEach((key) => Vue.component(Components[key].options.name, Components[key]));
+        for (const key in directives)
+            Vue.directive(key, directives[key]);
+        for (const key in Components)
+            Vue.component(Components[key].name, Components[key]);
     },
 };
 

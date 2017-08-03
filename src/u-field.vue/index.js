@@ -1,4 +1,3 @@
-import Base from 'u-base.vue';
 import Validation from '../u-validation.vue';
 
 /**
@@ -13,7 +12,7 @@ import Validation from '../u-validation.vue';
  * @param {boolean=false}           options.data.disabled            => 是否禁用
  * @param {boolean=true}            options.data.visible             => 是否显示
  */
-const Field = Base.extend({
+export default {
     name: 'u-field',
     /**
      * @protected
@@ -104,6 +103,4 @@ const Field = Base.extend({
             this.state = newValue;
         },
     },
-});
-
-export default Field;
+};

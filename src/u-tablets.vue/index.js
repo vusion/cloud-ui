@@ -10,8 +10,9 @@ import Tablet from '../u-tablet.vue';
  * @param {boolean=false}       props.readonly                  Readonly
  * @param {boolean=false}       props.disabled                  Disabled
  */
-const Tablets = ListView.extend({
+export default {
     name: 'u-tablets',
+    mixins: [ListView],
     data() {
         return {
             ChildComponent: Tablet,
@@ -27,6 +28,4 @@ const Tablets = ListView.extend({
      * @event select - Emit when selecting an item
      * @property {number} selectedItem - The selected item
      */
-});
-
-export default Tablets;
+};

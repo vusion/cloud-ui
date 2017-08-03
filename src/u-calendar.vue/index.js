@@ -1,5 +1,3 @@
-import Base from 'u-base.vue';
-
 const MS_OF_DAY = 24 * 3600 * 1000;
 
 /**
@@ -12,7 +10,7 @@ const MS_OF_DAY = 24 * 3600 * 1000;
  * @param {boolean=false}           options.readonly            => 是否只读
  * @param {disabled=disabled}       options.disabled            => 是否禁用
  */
-const Calendar = Base.extend({
+const Calendar = {
     name: 'u-calendar',
     props: {
         date: {
@@ -227,7 +225,7 @@ const Calendar = Base.extend({
             return str.length <= 1 ? '0' + str : str;
         },
     },
-});
+};
 
 const DateRangeError = function (minDate, maxDate) {
     this.name = 'DateRangeError';
