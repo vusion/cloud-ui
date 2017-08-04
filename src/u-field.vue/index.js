@@ -36,7 +36,7 @@ export default {
     created() {
         let parentEl = this.$parent;
         while (parentEl) {
-            if (parentEl instanceof Validation) {
+            if (parentEl.$options.name === 'u-validation') {
                 parentEl.fields.push(this);
                 break;
             }
@@ -48,7 +48,7 @@ export default {
      * @override
      */
     destroyed() {
-        if (this.$parent && this.$parent instanceof Validation) {
+        if (this.$parent && this.$parent.$options.name === 'u-validation') {
             // 从$parent组件的列表中删除自己
             const index = this.$parent.fields.indexOf(this);
             ~index && this.$parent.fields.splice(index, 1);
