@@ -3,3 +3,7 @@
 .root {
     color: #5494db;
 }
+.root[disabled] {
+    cursor: not-allowed;
+    color: #ccc;
+}

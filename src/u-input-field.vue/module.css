@@ -11,6 +11,9 @@
     color: #555;
     background: #fff;
     border-radius: 3px;
+    font-size: 14px;
+    line-height: 28px;
+    height: 34px;
 }
 .input:focus{
     outline: none;
