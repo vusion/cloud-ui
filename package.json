@@ -36,6 +36,7 @@
     "u-list-view.vue": "~0.2.0",
     "u-pagination.vue": "~0.2.0",
     "u-router-item.vue": "^0.1.0",
+    "u-switch.vue": "^0.1.0",
     "u-tab.vue": "~0.2.0",
     "u-tabs.vue": "~0.2.0",
     "validator": "^8.0.0"
