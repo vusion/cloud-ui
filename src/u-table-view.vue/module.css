@@ -1,0 +1,68 @@
+.root{}
+.thead{
+    width: 100%;
+}
+.thead .hthSpan{
+    position: relative;
+    vertical-align: middle;
+    padding-right: 0;
+    box-sizing: border-box;
+    padding: 12px 0 12px 30px;
+    line-height: 20px;
+    vertical-align: top;
+    overflow: hidden;
+    width: auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: 400;
+}
+.body{
+    overflow: auto;
+}
+.tbody{
+    width: 100%;
+}
+.tbody .btrItem{
+    border-top: 1px solid #ebf0f5;
+}
+.tbody .btrItem[role]{
+    border-bottom: 1px solid #ebf0f5;
+}
+.tbody .btrItem .btdSpan{
+    position: relative;
+    vertical-align: middle;
+    padding-right: 0;
+    box-sizing: border-box;
+    padding: 12px 0 12px 30px;
+    line-height: 20px;
+    vertical-align: top;
+    overflow: hidden;
+    width: auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #999;
+}
+.icon {
+    width: 1em;
+    display: inline-block;
+    font-style: normal;
+    text-align: center;
+}
+.icon[role=up]:before{
+    content: '\0394';
+    display: inline-block;
+    height:14px;
+}
+.icon[role=down]{
+    transform: rotate(180deg);
+}
+.icon[role=down]:before{
+    content: '\0394';
+    display: inline-block;
+    height: 14px;
+}
+.ditem{
+    display: inline-block;
+    width: 100%;
+}

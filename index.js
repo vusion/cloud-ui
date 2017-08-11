@@ -40,6 +40,8 @@ import Blank from './src/u-blank.vue';
 import Validation from './src/u-validation.vue';
 import Field from './src/u-field.vue';
 import InputField from './src/u-input-field.vue';
+import TableColumn from './src/u-table-column.vue';
+import TableView from './src/u-table-view.vue';
 
 const Components = {
     Base,
@@ -82,6 +84,8 @@ const Components = {
     Validation,
     Field,
     InputField,
+    TableColumn,
+    TableView,
 };
 
 export {
@@ -125,6 +129,8 @@ export {
     Validation,
     Field,
     InputField,
+    TableColumn,
+    TableView,
 };
 
 const Library = {

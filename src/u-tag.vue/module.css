@@ -15,7 +15,7 @@
     border-color: #e4e8f1;
     color: #48576a;
 }
-.root[role=primary]{
+.root[role=primary] {
     background-color: rgba(32,160,255,.1);
     border-color: rgba(32,160,255,.2);
     color: #20a0ff;

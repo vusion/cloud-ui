@@ -12,7 +12,7 @@ const deepcopy = function (result, source) {
         if (isObject(copy))
             result[key] = deepcopy(result[key] || {}, copy);
         else if (isArray(copy))
-            result[key] = deepcopy(result[key] || {}, copy);
+            result[key] = deepcopy(result[key] || [], copy);
         else
             result[key] = copy;
     }
