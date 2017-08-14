@@ -21,7 +21,7 @@ export default {
         handleClick() {
             if (this.accordion) {
                 this.$parent.$children.forEach((item) => {
-                    if (item.$options.name === 'u-sidebar-menu')
+                    if (item.$options.name === 'u-sidebar-menu' && item !== this)
                         item.open_ = false;
                 });
             }
