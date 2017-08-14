@@ -9,7 +9,6 @@
     box-sizing: border-box;
     padding: 12px 0 12px 30px;
     line-height: 20px;
-    vertical-align: top;
     overflow: hidden;
     width: auto;
     text-overflow: ellipsis;
@@ -17,11 +16,18 @@
     text-align: left;
     font-weight: 400;
 }
+.htrItem {
+    background-color: #f5f7fa;
+    border-bottom: 1px solid #ebf0f5;
+}
 .body{
     overflow: auto;
 }
 .tbody{
     width: 100%;
+}
+.tbody .btrItem:first-child{
+    border-top: none;
 }
 .tbody .btrItem{
     border-top: 1px solid #ebf0f5;
@@ -36,33 +42,56 @@
     box-sizing: border-box;
     padding: 12px 0 12px 30px;
     line-height: 20px;
-    vertical-align: top;
     overflow: hidden;
     width: auto;
     text-overflow: ellipsis;
     white-space: nowrap;
     color: #999;
 }
-.icon {
-    width: 1em;
+.wrapicon{
     display: inline-block;
-    font-style: normal;
-    text-align: center;
+    height: 30px;
+    margin-left: 4px;
+    margin-top: -1px;
+    vertical-align: middle;
+    cursor: pointer;
+    position: relative;
 }
-.icon[role=up]:before{
-    content: '\0394';
+.icon {
     display: inline-block;
-    height:14px;
+    width: 0;
+    height: 0;
+    border: 0;
+    content: "";
+    position: absolute;
+    left: 3px;
+    z-index: 2;
+}
+.icon[role=up]{
+    top: 9px;
+    border-top: none;
+    border-bottom: 5px solid #97a8be;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
 }
 .icon[role=down]{
-    transform: rotate(180deg);
+    bottom: 9px;
+    border-top: 5px solid #97a8be;
+    border-bottom: none;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
 }
-.icon[role=down]:before{
-    content: '\0394';
-    display: inline-block;
-    height: 14px;
+.icon[role=up][sel] {
+    border-bottom-color: rgb(72, 87, 106);
+}
+.icon[role=down][sel] {
+    border-top-color: rgb(72, 87, 106);
 }
 .ditem{
-    display: inline-block;
-    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: break-all;
+    line-height: 24px;
 }

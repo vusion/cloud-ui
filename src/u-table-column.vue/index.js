@@ -10,10 +10,13 @@ export default {
         type: String,
         width: String,
         minWidth: { type: [String, Number], default: '80' },
+        formatter: Function,
+        sortMethod: Function,
     },
     data() {
         return {
             index: 0,
+            sortoperate: '',
         };
     },
     beforeCreate() {
