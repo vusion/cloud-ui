@@ -13,12 +13,14 @@ export default {
         };
     },
     computed: {
-        accordion: this.$parent.accordion,
+        accordion() {
+            return this.$parent.accordion;
+        },
     },
     methods: {
         handleClick() {
             if (this.accordion) {
-                this.parent.$children.forEach((item) => {
+                this.$parent.$children.forEach((item) => {
                     if (item.$options.name === 'u-sidebar-menu')
                         item.open_ = false;
                 });
