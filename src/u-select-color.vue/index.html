@@ -1,0 +1,10 @@
+<div ref="element" :class="$style.root" :readonly="readonly" :style="{width: width+'px'}" @click="toggle()" >
+    <div :class="$style.head" :disabled="disabled">
+        <span :class="$style.colorShow" :style="{background: selected.value}">{{selected.name}}</span>
+    </div>
+    <div :class="$style.body" v-if="open && options.length !== 0">
+        <ul :class="$style.listview">
+            <li :class="$style.listitem" v-for="(item,index) in options" :disabled="item.disabled" :role="(index === selectedIndex) ? 'z-sel':''" @click="select($event,index)" :style="{background: item.value}">{{item.name}}</li>
+        </ul>
+    </div>
+</div>

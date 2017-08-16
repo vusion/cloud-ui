@@ -42,6 +42,7 @@ import Field from './src/u-field.vue';
 import InputField from './src/u-input-field.vue';
 import TableColumn from './src/u-table-column.vue';
 import TableView from './src/u-table-view.vue';
+import SelectColor from './src/u-select-color.vue';
 
 const Components = {
     Base,
@@ -86,6 +87,7 @@ const Components = {
     InputField,
     TableColumn,
     TableView,
+    SelectColor,
 };
 
 export {
@@ -131,6 +133,7 @@ export {
     InputField,
     TableColumn,
     TableView,
+    SelectColor,
 };
 
 const Library = {
