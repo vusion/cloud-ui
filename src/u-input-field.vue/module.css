@@ -44,3 +44,9 @@
     position: relative;
     right: 40px;
 }
+.input[disabled] {
+    cursor: not-allowed;
+    background: #eee;
+    border: 1px solid #d3d6de;
+    color: #999;
+}

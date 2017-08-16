@@ -6,7 +6,7 @@
 
 ``` vue
 <template>
-<u-input-field v-model="value" :rules="rules" :tip-info="tipInfo"></u-input-field>
+<u-input-field v-model="value" :rules="rules" :tip-info="tipInfo" disabled></u-input-field>
 </template>
 
 <script>
