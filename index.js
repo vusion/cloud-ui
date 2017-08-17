@@ -43,6 +43,8 @@ import InputField from './src/u-input-field.vue';
 import TableColumn from './src/u-table-column.vue';
 import TableView from './src/u-table-view.vue';
 import SelectColor from './src/u-select-color.vue';
+import Popper from './src/u-popper.vue';
+import Popover from './src/u-popover.vue';
 
 const Components = {
     Base,
@@ -88,6 +90,8 @@ const Components = {
     TableColumn,
     TableView,
     SelectColor,
+    Popper,
+    Popover,
 };
 
 export {
@@ -134,6 +138,8 @@ export {
     TableColumn,
     TableView,
     SelectColor,
+    Popper,
+    Popover,
 };
 
 const Library = {

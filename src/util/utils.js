@@ -1,4 +1,6 @@
 const isObject = function (value) {
+    if (value === null || value === undefined)
+        return false;
     return value.toString() === '[object Object]';
 };
 
@@ -18,5 +20,15 @@ const deepcopy = function (result, source) {
     }
     return result;
 };
+// 判断参数是否属于数组中的值 返回值Boolean
+const oneOf = function (target, source) {
+    const flag = source.some((item) => {
+        if (target === item)
+            return true;
+        else
+            return false;
+    });
+    return flag;
+};
 
-export default { isObject, isArray, deepcopy };
+export default { isObject, isArray, deepcopy, oneOf };
