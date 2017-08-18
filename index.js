@@ -20,8 +20,8 @@ import Tablets from './src/u-tablets.vue';
 import Tablet from './src/u-tablet.vue';
 import Modal from './src/u-modal.vue';
 import Calendar from './src/u-calendar.vue';
-import NavbarItem from './src/u-navbar-item.vue';
-import Navbar from './src/u-navbar.vue';
+import SubnavItem from './src/u-subnav-item.vue';
+import Subnav from './src/u-subnav.vue';
 import NumberInput from './src/u-number-input.vue';
 import DatePicker from './src/u-date-picker.vue';
 import TimePicker from './src/u-time-picker.vue';
@@ -62,8 +62,8 @@ const Components = {
     Tablet,
     Modal,
     Calendar,
-    NavbarItem,
-    Navbar,
+    SubnavItem,
+    Subnav,
     NumberInput,
     DatePicker,
     TimePicker,
@@ -105,8 +105,8 @@ export {
     Tablet,
     Modal,
     Calendar,
-    NavbarItem,
-    Navbar,
+    SubnavItem,
+    Subnav,
     NumberInput,
     DatePicker,
     TimePicker,
