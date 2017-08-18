@@ -1,0 +1,52 @@
+<div :class="$style.root">
+    <div :class="$style.title" v-if="title">
+        {{title}}
+        <slot name="title"></slot>
+    </div>
+    <div :class="$style.header">
+        <table :class="$style.thead" cellspacing="0" cellpadding="0" border="0">
+            <colgroup>
+                <col v-for="(column, index) in columnsWidth" :width="column"></col>
+            </colgroup>
+            <thead>
+                <tr :class="$style.htrItem">
+                    <th v-for="(column, index) in columns" :class="$style.hthSpan">
+                        <span :class="$style.itemtitle">{{column.title}}</span>
+                        <template v-if="column.type === 'selection'"><input type="checkbox" v-model="allSel" @change="allSelected"></template>
+                        <template v-else>
+                            <span :class="$style.wrapicon" v-if="column.sortable">
+                                <i :class="$style.icon" role="up" :sel="column.sortoperate === 'asc'" @click="handleSort('asc', column)"></i>
+                                <i :class="$style.icon" role="down" :sel="column.sortoperate === 'desc'" @click="handleSort('desc', column)"></i>
+                            </span>
+                            <span v-if="column.selectable">
+                                <u-select :options="column.options" :value="column.value"></u-select>
+                            </span>
+                        </template>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div :class="$style.body" ref="body">
+        <table cellspacing="0" cellpadding="0" border="0" :class="$style.tbody">
+            <colgroup>
+                <col v-for="(column, index) in columnsWidth" :width="column">
+            </colgroup>
+            <tbody :class="$style.btbody">
+                <template v-for="(row, index) in tdata">
+                    <tr :class="$style.btrItem" :role="index === (tdata.length-1)">
+                        <td v-for="(column, cindex) in columns" :class="$style.btdSpan">
+                            <span v-if="column.type === 'selection'"><input type="checkbox" v-model="row.selected"/></span>
+                            <div v-else-if="!column.label" v-html="column.$slots.default && column.$slots.default[0].elm.innerHTML"></div>
+                            <span :class="$style.ditem" v-else-if="column.formatter">{{column.formatter(row, column, index, cindex)}}</span>
+                            <span :class="$style.ditem" v-else>{{row[column.label]}}</span>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <slot></slot>
+    </div>
+</div>

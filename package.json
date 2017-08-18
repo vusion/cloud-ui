@@ -26,6 +26,7 @@
     "cloud-ui"
   ],
   "dependencies": {
+    "popper.js": "^1.12.2",
     "u-base.vue": "~0.2.0",
     "u-button.vue": "~0.2.0",
     "u-circular-progress.vue": "~0.2.0",

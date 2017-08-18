@@ -1,0 +1,36 @@
+<div :class="$style.root"
+    @mouseenter="handleMouseenter"
+    @mouseleave="handleMouseleave"
+    v-clickoutside="handleClose">
+    <div :class="$style.reference" ref="reference" @click="handleClick">
+        <slot></slot>
+    </div>
+    <div :class="$style.popper" ref="popper"
+        v-show="visible"
+        :style="{width: width+'px'}"
+        @mouseenter="handleMouseenter"
+        @mouseleave="handleMouseleave">
+        <div :class="$style.body" :role="arrow">
+            <div :class="$style.arrow" v-if="arrow"></div>
+            <div :class="$style.wrap" v-if="confirm">
+                <div :class="$style.chead">
+                    <slot name="confirm">
+                        <div :class="$style.message">{{message}}</div>
+                    </slot>
+                </div>
+                <div :class="$style.linkGroup">
+                    <u-link :class="$style.linkitem" v-if="confirmOk" @click.native="handleClose">{{confirmOk}}</u-link>
+                    <u-link :class="$style.linkitem" v-if="confirmCancel"  @click.native="handleClose">{{confirmCancel}}</u-link>
+                </div>
+            </div>
+            <div :class="$style.wrap" v-else>
+                <slot name="title">
+                    <div :class="$style.title" v-if="title">{{title}}</div>
+                </slot>
+                <slot name="content">
+                    <div :class="$style.content" v-if="content">{{content}}</div>
+                </slot>
+            </div>
+        </div>
+    </div>
+</div>

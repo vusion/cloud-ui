@@ -40,6 +40,11 @@ import Blank from './src/u-blank.vue';
 import Validation from './src/u-validation.vue';
 import Field from './src/u-field.vue';
 import InputField from './src/u-input-field.vue';
+import TableColumn from './src/u-table-column.vue';
+import TableView from './src/u-table-view.vue';
+import SelectColor from './src/u-select-color.vue';
+import Popper from './src/u-popper.vue';
+import Popover from './src/u-popover.vue';
 
 const Components = {
     Base,
@@ -82,6 +87,11 @@ const Components = {
     Validation,
     Field,
     InputField,
+    TableColumn,
+    TableView,
+    SelectColor,
+    Popper,
+    Popover,
 };
 
 export {
@@ -125,6 +135,11 @@ export {
     Validation,
     Field,
     InputField,
+    TableColumn,
+    TableView,
+    SelectColor,
+    Popper,
+    Popover,
 };
 
 const Library = {

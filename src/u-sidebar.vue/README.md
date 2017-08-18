@@ -17,7 +17,7 @@
 
 ``` html
 <div style="width: 164px;">
-    <u-sidebar>
+    <u-sidebar accordion>
         <u-sidebar-item>用户管理</u-sidebar-item>
         <u-sidebar-menu title="用户审核">
             <u-sidebar-item>企业认证</u-sidebar-item>
