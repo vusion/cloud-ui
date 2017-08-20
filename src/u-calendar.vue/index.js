@@ -1,3 +1,6 @@
+import uPopover from '../u-popover.vue';
+import uListViewItem from 'u-list-view-item.vue';
+import uListView from 'u-list-view.vue';
 const MS_OF_DAY = 24 * 3600 * 1000;
 
 /**
@@ -23,24 +26,73 @@ const Calendar = {
         disabled: [String, Boolean],
         minDate: [String, Object, Number],
         maxDate: [String, Object, Number],
+        yearDiff: {
+            type: [String, Number],
+            default: 3,
+        },
+        yearAdd: {
+            type: [String, Number],
+            default: 1,
+        },
     },
     data() {
         return {
             days_: [],
             showDate: this.date,
             updateFlag: false,
+            monthCol: this.getMonthCol(),
+            yearCol: this.getYearCol(),
+            yearvisible: false,
+            monthvisible: false,
         };
     },
     computed: {
-        showYear() {
-            const date = this.transformDate(this.showDate);
-            return date.getFullYear();
+        showYear: {
+            get() {
+                const date = this.transformDate(this.showDate);
+                return date.getFullYear();
+            },
+            set(value) {
+                const date = this.showDate;
+                const oldMonth = date.getMonth();
+                date.setFullYear(value);
+                if (date.getMonth() !== oldMonth)
+                    date.setDate(0);
+
+                this.updateFlag = true;
+                this.showDate = new Date(date);
+            },
         },
-        showMonth() {
-            const date = this.transformDate(this.showDate);
-            const month = date.getMonth() + 1;
-            return this.fix(month);
+        showMonth: {
+            get() {
+                const date = this.transformDate(this.showDate);
+                const month = date.getMonth() + 1;
+                return month;
+            },
+            set(value) {
+                const date = this.showDate;
+                date.setMonth(value - 1);
+
+                this.updateFlag = true;
+                this.showDate = new Date(date);
+            },
         },
+        // yearCol() {
+        //     const date = this.transformDate(this.showDate);
+        //     const currentYear = date.getFullYear();
+        //     const yearcol = [];
+        //     const yearmin = currentYear - this.yearDiff;
+        //     const yearmax = parseInt(currentYear) + parseInt(this.yearAdd);
+        //     for (let i = yearmin; i <= yearmax; i++)
+        //         yearcol.push(i);
+
+        //     return yearcol;
+        // },
+    },
+    components: {
+        uPopover,
+        uListView,
+        uListViewItem,
     },
     watch: {
         date(newValue) {
@@ -73,6 +125,7 @@ const Calendar = {
                 date: newValue,
             });
         },
+        // 最小值 最大值 发生变化 需要监听
     },
     filters: {
         format(value, type) {
@@ -100,6 +153,88 @@ const Calendar = {
         this.update();
     },
     methods: {
+        yearSelect(value) {
+            this.showYear = value;
+            this.yearvisible = false;
+        },
+        monthSelect(month) {
+            this.showMonth = month.value;
+            this.monthvisible = false;
+        },
+        getYearCol() {
+            const date = this.transformDate(this.date);
+            let minDate = null,
+                maxDate = null;
+
+            if (this.minDate)
+                minDate = this.transformDate(this.minDate).getFullYear();
+
+            if (this.maxDate)
+                maxDate = this.transformDate(this.maxDate).getFullYear();
+
+            const currentYear = date.getFullYear();
+            const yearcol = [];
+            const yearmin = currentYear - this.yearDiff;
+            const yearmax = currentYear + parseInt(this.yearAdd);
+            for (let i = yearmin; i <= yearmax; i++) {
+                const obj = {
+                    value: i,
+                };
+                if (minDate && (i < minDate))
+                    obj.disabled = true;
+                else if (maxDate && (i > maxDate))
+                    obj.disabled = true;
+                else
+                    obj.disabled = false;
+
+                yearcol.push(obj);
+            }
+
+            return yearcol;
+        },
+        getMonthCol() {
+            const date = this.transformDate(this.date);
+            let minDate = null,
+                maxDate = null;
+
+            if (this.minDate) {
+                minDate = this.transformDate(this.minDate);
+                const minYear = minDate.getFullYear();
+                const minMonth = minDate.getMonth();
+                const minFormat = minYear + '/' + (minMonth + 1);
+                minDate = new Date(minFormat).getTime();
+            }
+
+            if (this.maxDate) {
+                maxDate = this.transformDate(this.maxDate);
+                const maxYear = maxDate.getFullYear();
+                const maxMonth = maxDate.getMonth();
+                const maxFormat = maxYear + '/' + (maxMonth + 1);
+                maxDate = new Date(maxFormat).getTime();
+            }
+
+            const currentYear = date.getFullYear();
+            const monthcol = [];
+            // const mindate = currentYear - this.yearDiff;
+            // const maxdate = parseInt(currentYear) + parseInt(this.yearAdd);
+            for (let i = 1; i <= 12; i++) {
+                const obj = {
+                    value: i,
+                };
+                const dateFormat = currentYear + '/' + i;
+                const dateTime = new Date(dateFormat).getTime;
+                if (minDate && (dateTime < minDate))
+                    obj.disabled = true;
+                else if (maxDate && (dateTime > maxDate))
+                    obj.disabled = true;
+                else
+                    obj.disabled = false;
+
+                monthcol.push(obj);
+            }
+
+            return monthcol;
+        },
         /**
          * @method update() 日期改变后更新日历
          * @private

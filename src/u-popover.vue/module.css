@@ -20,7 +20,7 @@
     position: absolute;
     line-height: 1.5;
     z-index: 1060;
-    min-width: 150px;
+    /*min-width: 130px;*/
     &[x-placement^="top"] {
         padding: 5px 0 8px 0;
     }

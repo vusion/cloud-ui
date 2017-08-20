@@ -1,7 +1,7 @@
 .root{
 	width: 238px;
 	padding: 4px;
-	text-align: center;
+	/*text-align: center;*/
 	background: #fff;
 	color: #555;
 	border: 1px solid #d2d6de;
@@ -9,7 +9,7 @@
 	box-sizing: content-box;
 	user-select: none;
 }
-.item {
+.item, .dayitem {
     width: 32px;
     height: 30px;
     line-height: 30px;
@@ -17,16 +17,20 @@
     border-radius: 3px;
     cursor: pointer;
     display: inline-block;
+    text-align: center;
+    border-radius: 50%;
 }
-
+.dayitem[role=week]{
+    color: #f99;
+}
 .item:hover {
-    background: #f4f4f4;
-    color: #2cb78e;
+    background: rgba(103,170,245,.5);
+    color: #fff;
 	border-color: #2cb78e;
 }
 
 .item[sel=sel] {
-    background: #2cb78e;
+    background: #67aaf5;
     color: #fff;
 }
 
@@ -85,4 +89,83 @@
 }
 .day{
     white-space: normal;
+}
+.year{
+    width: 78px;
+    text-align: left;
+    padding: 7px 10px 0 10px;
+    position: relative;
+    display: inline-block;
+    border: 1px solid #fff;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.textYear{
+    position: relative;
+}
+.textYear:after{
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    top: 8px;
+    right: -15px;
+    border: 4px solid #666;
+    border-color: #666 transparent transparent transparent;
+}
+.monthList{
+    width: 138px;
+    padding: 10px 6px;
+    box-sizing: border-box;
+    list-style: none;
+    overflow: hidden;
+}
+.listitem{
+    float: left;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+.listitem[role]{
+    background-color: #67aaf5;
+    color: #fff;
+    border-radius: 50%;
+}
+.listitem[disabled], .listitem[disabled]:hover{
+    cursor: not-allowed;
+    background-color: #fff;
+    color: #999;
+}
+.listitem:hover{
+    background: rgba(103,170,245,.5);
+}
+.month{
+    width: 60px;
+    text-align: left;
+    padding: 7px 24px 0 10px;
+    padding-right: 0px;
+    display: inline-block;
+    position: relative;
+    border: 1px solid #fff;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.textMonth{
+    position: relative;
+}
+.textMonth:after{
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    top: 8px;
+    right: -15px;
+    border: 4px solid #666;
+    border-color: #666 transparent transparent transparent;
+}
+.monthPopper{
+    float: right;
 }

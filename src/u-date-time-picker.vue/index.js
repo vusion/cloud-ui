@@ -1,3 +1,4 @@
+import directive from '../util/directives.js';
 /**
  * @class DateTimePicker
  * @extend Dropdown
@@ -58,8 +59,8 @@ export default {
             return this.format(this.maxDate, 'HH:mm:ss');
         },
     },
-    created() {
-        document.addEventListener('click', this.fadeOut.bind(this), false);
+    directives: {
+        clickoutside: directive.clickoutside,
     },
     watch: {
         date(newValue) {
@@ -203,17 +204,6 @@ export default {
         toggle(value) {
             this.open = value;
         },
-        fadeOut(event) {
-            const element = this.$refs.element;
-            let element2 = event.target;
-            while (element2) {
-                if (element === element2)
-                    return;
-                element2 = element2.parentElement;
-            }
-            if (this.open)
-                this.toggle(false);
-        },
         transformDate(date) {
             if (typeof date === 'string')
                 return new Date(date.replace(/-/g, '/'));
@@ -221,6 +211,9 @@ export default {
                 return new Date(date);
             else if (typeof date === 'object')
                 return date;
+        },
+        handleClose() {
+            this.open = false;
         },
     },
 };
