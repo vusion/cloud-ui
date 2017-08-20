@@ -17,7 +17,7 @@
 
 ### 最大值maxDate 最小值minDate
 ``` html
-<u-calendar date="2018-08-08" min-date="2017-08-08" max-date="2019-08-08"></u-calendar>
+<u-calendar date="2018-08-08" min-date="2018-08-02" max-date="2018-08-18"></u-calendar>
 ```
 
 ### 禁用disabled

@@ -1,5 +1,6 @@
 import Calendar from '../u-calendar.vue';
 const MS_OF_DAY = 24 * 3600 * 1000;
+import directive from '../util/directives.js';
 
 /**
  * @class DatePicker
@@ -42,7 +43,10 @@ export default {
                 throw new Calendar.DateRangeError(minDate, maxDate);
         }
 
-        document.addEventListener('click', this.fadeOut.bind(this), false);
+        // document.addEventListener('click', this.fadeOut.bind(this), false);
+    },
+    directives: {
+        clickoutside: directive.clickoutside,
     },
     watch: {
         date(newValue) {
@@ -88,6 +92,7 @@ export default {
          * @return {void}
          */
         select(date) {
+            // debugger;
             if (this.readonly || this.disabled || this.isOutOfRange(date))
                 return;
 
@@ -165,11 +170,12 @@ export default {
             value = new Date(value);
             return type.replace(trunk, (capture) => maps[capture] ? maps[capture](value) : '');
         },
-        fadeOut(event) {
-            const _target = event.target;
-            if (_target !== this.$refs.input && this.open)
-                this.toggle(false);
-        },
+        // fadeOut(event) {
+        //     debugger;
+        //     const _target = event.target;
+        //     if (_target !== this.$refs.input && this.open)
+        //         this.toggle(false);
+        // },
         transformDate(date) {
             if (typeof date === 'string')
                 return new Date(date);
@@ -177,6 +183,9 @@ export default {
                 return new Date(date);
             else if (typeof date === 'object')
                 return date;
+        },
+        handleClose() {
+            this.open = false;
         },
     },
 };
