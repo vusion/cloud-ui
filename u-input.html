@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="docs.css">
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<link rel="stylesheet" type="text/css" href="vusion-icon-font.css">
+<script src="docs.js"></script>
+</head>
+<body>
+
+                <article class="u-article"><h1>单行输入框</h1>
+<h2>示例</h2>
+<h3>基本形式</h3>
+<p>大部分属性与<code>&lt;input&gt;</code>元素一致。</p>
+<div id="u-example-0" class="u-example"><u-input maxlength="24" placeholder="1-24位小写字母、数字、或中划线组成" autofocus></u-input></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-input</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"24"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"1-24位小写字母、数字、或中划线组成"</span> <span class="hljs-attr">autofocus</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input</span>&gt;</span>
+</code></pre>
+<h3>只读与禁用</h3>
+<div id="u-example-1" class="u-example"><u-linear-layout><u-input value="Readonly" readonly></u-input><u-input value="Disabled" disabled></u-input></u-linear-layout></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Readonly"</span> <span class="hljs-attr">readonly</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Disabled"</span> <span class="hljs-attr">disabled</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
+</code></pre>
+<h2>API</h2>
+<h3>Attrs/Props</h3>
+<table>
+<thead>
+<tr>
+<th>Attr/Prop</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>String</td>
+<td><code>'text'</code></td>
+<td>type of input, 'text'/'password'</td>
+</tr>
+<tr>
+<td>value</td>
+<td>String</td>
+<td></td>
+<td>The value</td>
+</tr>
+<tr>
+<td>placeholder</td>
+<td>String</td>
+<td></td>
+<td>Original attribute</td>
+</tr>
+<tr>
+<td>maxlength</td>
+<td>Number</td>
+<td></td>
+<td>Original attribute</td>
+</tr>
+<tr>
+<td>autofocus</td>
+<td>Boolean</td>
+<td></td>
+<td>Original attribute</td>
+</tr>
+<tr>
+<td>readonly</td>
+<td>Boolean</td>
+<td></td>
+<td>Original attribute</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td>Boolean</td>
+<td></td>
+<td>Original attribute</td>
+</tr>
+</tbody>
+</table>
+<h3>Slots</h3>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(default)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</article>
+                <!---->
+                <script>new Vue().$mount('#u-example-0');
+new Vue().$mount('#u-example-1');</script>
+            
+</body>
+</html>

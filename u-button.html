@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="docs.css">
 <link rel="stylesheet" type="text/css" href="atom-one-light.css">
-<script src="bundle.js"></script>
+<link rel="stylesheet" type="text/css" href="vusion-icon-font.css">
+<script src="docs.js"></script>
 </head>
 <body>
 
@@ -19,37 +20,52 @@
 <pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">disabled</span>&gt;</span>设 置<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
 </code></pre>
 <h3>颜色扩展</h3>
-<div id="u-example-2" class="u-example"><u-button color="primary">立即创建</u-button><u-button color="primary" disabled>立即创建</u-button></div>
-<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>立即创建<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">disabled</span>&gt;</span>立即创建<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+<div id="u-example-2" class="u-example"><u-linear-layout><u-button color="primary">立即创建</u-button><u-button color="primary" disabled>立即创建</u-button></u-linear-layout></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span>&gt;</span>立即创建<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">disabled</span>&gt;</span>立即创建<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
 </code></pre>
 <h3>大小扩展</h3>
-<div id="u-example-3" class="u-example"><u-button size="small" disabled>保存</u-button><u-button disabled>创建服务</u-button></div>
-<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"small"</span> <span class="hljs-attr">disabled</span>&gt;</span>保存<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">disabled</span>&gt;</span>创建服务<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+<div id="u-example-3" class="u-example"><u-linear-layout><u-button size="small" disabled>保存</u-button><u-button disabled>创建服务</u-button></u-linear-layout></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"small"</span> <span class="hljs-attr">disabled</span>&gt;</span>保存<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">disabled</span>&gt;</span>创建服务<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
 </code></pre>
 <h3>正方形</h3>
-<div id="u-example-4" class="u-example"><u-button square><i class="i-font i-font-refresh"></i></u-button></div>
-<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">square</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"i-font i-font-refresh"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+<div id="u-example-4" class="u-example"><u-button square icon="refresh"></u-button></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">square</span> <span class="hljs-attr">icon</span>=<span class="hljs-string">"refresh"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+</code></pre>
+<h3>图标</h3>
+<div id="u-example-5" class="u-example"><u-linear-layout><u-button color="primary" icon="create">创建实例</u-button><u-button color="primary" icon="loading">立即创建</u-button><u-button color="primary" icon="loading" disabled>立即创建</u-button></u-linear-layout></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">icon</span>=<span class="hljs-string">"create"</span>&gt;</span>创建实例<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">icon</span>=<span class="hljs-string">"loading"</span>&gt;</span>立即创建<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">color</span>=<span class="hljs-string">"primary"</span> <span class="hljs-attr">icon</span>=<span class="hljs-string">"loading"</span> <span class="hljs-attr">disabled</span>&gt;</span>立即创建<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
 </code></pre>
 <h3>链接</h3>
 <ul>
 <li>使用<code>v-href</code>指令添加普通链接</li>
 <li>使用<code>v-to</code>指令添加<a href="https://router.vuejs.org">vue-router</a>链接</li>
 </ul>
-<div id="u-example-5" class="u-example"><u-button v-href="'https://github.com/vusion/vusion'">Button</u-button><u-button v-to="'/some/router/path'">Button</u-button><u-button v-href="'https://github.com/vusion/vusion'" disabled>Button</u-button></div>
-<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">v-href</span>=<span class="hljs-string">"'https://github.com/vusion/vusion'"</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">v-to</span>=<span class="hljs-string">"'/some/router/path'"</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">v-href</span>=<span class="hljs-string">"'https://github.com/vusion/vusion'"</span> <span class="hljs-attr">disabled</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+<div id="u-example-6" class="u-example"><u-linear-layout><u-button v-href="'https://github.com/vusion/vusion'">Button</u-button><u-button v-to="'/some/router/path'">Button</u-button><u-button v-href="'https://github.com/vusion/vusion'" disabled>Button</u-button></u-linear-layout></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">v-href</span>=<span class="hljs-string">"'https://github.com/vusion/vusion'"</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">v-to</span>=<span class="hljs-string">"'/some/router/path'"</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">v-href</span>=<span class="hljs-string">"'https://github.com/vusion/vusion'"</span> <span class="hljs-attr">disabled</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
 </code></pre>
 </article>
-                <article data-server-rendered="true" class="u-article"><h2 id="API">API</h2> <h3 id="Class">Class</h3> <h4>Button</h4> <p>Extends <strong>Base</strong>。</p> <p></p> <h3 id="Options">Options</h3> <h4>new Button()</h4> <table><thead><tr><th width="24%">Param</th><th width="16%">Type</th><th width="16%">Default</th><th width="26%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>attrs.color</code></td> <td class="f-wsn">string</td> <td class="f-wsn"><code>&#x27;&#x27;</code></td> <td>Color</td></tr><tr><td class="f-wsn"><code>attrs.size</code></td> <td class="f-wsn">string</td> <td class="f-wsn"><code>&#x27;&#x27;</code></td> <td>Size</td></tr><tr><td class="f-wsn"><code>attrs.square</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>false</code></td> <td>Shape is a square</td></tr><tr><td class="f-wsn"><code>attrs.disabled</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>false</code></td> <td>Disabled the button</td></tr></tbody></table>   </article>
+                <article data-server-rendered="true" class="u-article"><h2 id="API">API</h2> <h3 id="Class">Class</h3> <h4>Button</h4> <p>Extends <strong>Base</strong>。</p> <p></p> <h3 id="Options">Options</h3> <h4>new Button()</h4> <table><thead><tr><th width="24%">Param</th><th width="16%">Type</th><th width="16%">Default</th><th width="26%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>attrs.color</code></td> <td class="f-wsn">string</td> <td class="f-wsn"><code>''</code></td> <td>Color</td></tr><tr><td class="f-wsn"><code>attrs.size</code></td> <td class="f-wsn">string</td> <td class="f-wsn"><code>''</code></td> <td>Size</td></tr><tr><td class="f-wsn"><code>attrs.square</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>false</code></td> <td>Shape is a square</td></tr><tr><td class="f-wsn"><code>attrs.disabled</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>false</code></td> <td>Disabled the button</td></tr></tbody></table> <!----> <!----> <!----></article>
                 <script>new Vue().$mount('#u-example-0');
 new Vue().$mount('#u-example-1');
 new Vue().$mount('#u-example-2');
 new Vue().$mount('#u-example-3');
 new Vue().$mount('#u-example-4');
-new Vue().$mount('#u-example-5');</script>
+new Vue().$mount('#u-example-5');
+new Vue().$mount('#u-example-6');</script>
             
 </body>
 </html>

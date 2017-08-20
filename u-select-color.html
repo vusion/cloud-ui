@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="docs.css">
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<link rel="stylesheet" type="text/css" href="vusion-icon-font.css">
+<script src="docs.js"></script>
+</head>
+<body>
+
+                <article class="u-article"><h1>颜色选择扩展（SelectColor）</h1>
+<h2>示例</h2>
+<h3>基本形式</h3>
+<h3>方法</h3>
+<div id="u-example-0" class="u-example"><u-select-color :options="options" :value="value" @select="select($event.value)"></u-select-color></div>
+<pre class="hljs lang-vue"><code><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">u-select-color</span> <span class="hljs-attr">:options</span>=<span class="hljs-string">"options"</span> <span class="hljs-attr">:value</span>=<span class="hljs-string">"value"</span> @<span class="hljs-attr">select</span>=<span class="hljs-string">"select($event.value)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-select-color</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+    data() {
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-attr">value</span>: <span class="hljs-string">'#EE867D'</span>,
+            <span class="hljs-attr">options</span>: [
+                {
+                    <span class="hljs-attr">value</span>: <span class="hljs-string">'#EE867D'</span>,
+                },
+                {
+                    <span class="hljs-attr">value</span>:<span class="hljs-string">'#805DCF'</span>
+                },
+                {
+                    <span class="hljs-attr">value</span>:<span class="hljs-string">'#40CCCA'</span>
+                },
+                {
+                    <span class="hljs-attr">value</span>:<span class="hljs-string">'#FFCA12'</span>
+                },
+                {
+                    <span class="hljs-attr">value</span>:<span class="hljs-string">'#30A8DC'</span>
+                },
+                {
+                    <span class="hljs-attr">value</span>:<span class="hljs-string">'#E1AEF6'</span>
+                },
+                {
+                    <span class="hljs-attr">value</span>:<span class="hljs-string">'#D2D2D2'</span>
+                },
+            ],
+        };
+    },
+    <span class="hljs-attr">methods</span>: {
+        select(value) {
+            <span class="hljs-built_in">console</span>.log(value);
+            <span class="hljs-keyword">this</span>.value = value;
+        }
+    },
+};
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+</article>
+                <article data-server-rendered="true" class="u-article"><h2 id="API">API</h2> <h3 id="Class">Class</h3> <h4>Select</h4> <p>Extends <strong></strong>。</p> <p></p> <h3 id="Options">Options</h3> <h4>new Select()</h4> <table><thead><tr><th width="24%">Param</th><th width="16%">Type</th><th width="16%">Default</th><th width="26%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>options</code></td> <td class="f-wsn">Array</td> <td class="f-wsn"><!----></td> <td>=&gt; 下拉菜单列表</td></tr><tr><td class="f-wsn"><code>readonly</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>false</code></td> <td>=&gt; 是否只读</td></tr><tr><td class="f-wsn"><code>disabled</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>false</code></td> <td>=&gt; 是否禁用</td></tr><tr><td class="f-wsn"><code>width</code></td> <td class="f-wsn">string&lt;br&gt;number</td> <td class="f-wsn"><!----></td> <td>=&gt; 输入框长度</td></tr></tbody></table> <!----> <!----> <h3 id="Events">Events</h3> <h4>select.$on('select')</h4> <p>选中列表项时触发</p> <table><thead><tr><th width="33%">Property</th><th width="33%">Type</th><th width="33%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>sender</code></td> <td class="f-wsn">object</td> <td class="f-wsn">事件发送对象</td></tr><tr><td class="f-wsn"><code>selected</code></td> <td class="f-wsn">object</td> <td class="f-wsn">选中后的列表对象</td></tr><tr><td class="f-wsn"><code>value</code></td> <td class="f-wsn">String</td> <td class="f-wsn">选中后的列表对象的值</td></tr></tbody></table><h4>select.$on('change')</h4> <p>选中列表项改变时触发</p> <table><thead><tr><th width="33%">Property</th><th width="33%">Type</th><th width="33%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>sender</code></td> <td class="f-wsn">object</td> <td class="f-wsn">事件发送对象</td></tr><tr><td class="f-wsn"><code>selected</code></td> <td class="f-wsn">object</td> <td class="f-wsn">改变后的列表对象</td></tr><tr><td class="f-wsn"><code>value</code></td> <td class="f-wsn">String</td> <td class="f-wsn">改变后的列表对象的值</td></tr></tbody></table></article>
+                <script>new Vue({
+    data() {
+        return {
+            value: '#EE867D',
+            options: [
+                {
+                    value: '#EE867D',
+                },
+                {
+                    value:'#805DCF'
+                },
+                {
+                    value:'#40CCCA'
+                },
+                {
+                    value:'#FFCA12'
+                },
+                {
+                    value:'#30A8DC'
+                },
+                {
+                    value:'#E1AEF6'
+                },
+                {
+                    value:'#D2D2D2'
+                },
+            ],
+        };
+    },
+    methods: {
+        select(value) {
+            console.log(value);
+            this.value = value;
+        }
+    },
+}).$mount('#u-example-0');</script>
+            
+</body>
+</html>

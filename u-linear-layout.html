@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="docs.css">
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<link rel="stylesheet" type="text/css" href="vusion-icon-font.css">
+<script src="docs.js"></script>
+</head>
+<body>
+
+                <article class="u-article"><h1>LinearLayout</h1>
+<h2>Examples</h2>
+<h3>Basic</h3>
+<div id="u-example-0" class="u-example"><u-linear-layout><u-button>Button</u-button><u-button>Button</u-button><u-button>Button</u-button></u-linear-layout></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
+</code></pre>
+<h3>Direction</h3>
+<div id="u-example-1" class="u-example"><u-linear-layout direction="vertical"><u-pagination></u-pagination><u-pagination></u-pagination><u-pagination></u-pagination></u-linear-layout></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span> <span class="hljs-attr">direction</span>=<span class="hljs-string">"vertical"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-pagination</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-pagination</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-pagination</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-pagination</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-pagination</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-pagination</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
+</code></pre>
+<h2>API</h2>
+<h3>Attrs/Props</h3>
+<table>
+<thead>
+<tr>
+<th>Attr/Prop</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>direction</td>
+<td>String</td>
+<td><code>'horizontal'</code></td>
+<td>'horizontal' or 'vertical'</td>
+</tr>
+</tbody>
+</table>
+<h3>Slots</h3>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(default)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</article>
+                <!---->
+                <script>new Vue().$mount('#u-example-0');
+new Vue().$mount('#u-example-1');</script>
+            
+</body>
+</html>
