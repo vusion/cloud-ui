@@ -1,0 +1,31 @@
+@import 'u-input.vue/module.css';
+
+.input {
+    width: 440px;
+    height: 40px;
+    padding: 0 12px;
+    color: #666;
+    border-color: #e1e8ed;
+    border-radius: 3px;
+    transition: border-color $transition-duration;
+}
+
+.input::placeholder {
+    /* Removes placeholder transparency in Firefox. */
+    opacity: 1;
+    color: #999;
+}
+
+.input:focus {
+    border-color: #8ebee9;
+}
+
+.input[disabled] {
+    background-color: #e9f0f5;
+    border-color: #e9f0f5;
+}
+
+.input[size="small"] {
+    width: 200px;
+    height: 34px;
+}

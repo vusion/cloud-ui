@@ -37,6 +37,16 @@
 <u-button square><i class="i-font i-font-refresh"></i></u-button>
 ```
 
+### 图标
+
+``` html
+<u-linear-layout>
+    <u-button color="primary" icon="create">创建实例</u-button>
+    <u-button color="primary" icon="loading">创建实例</u-button>
+    <u-button color="primary" icon="loading" disabled>创建实例</u-button>
+</u-linear-layout>
+```
+
 ### 链接
 
 - 使用`v-href`指令添加普通链接

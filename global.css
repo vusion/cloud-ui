@@ -5,7 +5,6 @@ $margin-base: 20px;
 $font-size-base: 14px;
 
 $brand-primary: #67aaf5;
-/*$brand-primary: #2cb78e;*/
 
 $field-background: white;
 $field-color: #666;
@@ -17,3 +16,5 @@ $height-base: 34px;
 $border-radius-base: 2px;
 
 $sidebar-background-color: #f0f6fa;
+
+$transition-duration: 0.2s;
