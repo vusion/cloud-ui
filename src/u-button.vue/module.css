@@ -58,6 +58,16 @@
     margin-right: 8px;
 }
 
+.root[square][icon="refresh"]:before {
+    icon-font: url('../u-icon.vue/icons/refresh.svg');
+    vertical-align: -2px;
+    color: #9ba4ad;
+}
+
+.root[square][icon="refresh"]:hover:before {
+    color: $brand-primary;
+}
+
 .root[icon="loading"]:before {
     content: '';
     display: inline-block;

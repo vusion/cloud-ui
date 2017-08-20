@@ -34,7 +34,7 @@
 ### 正方形
 
 ``` html
-<u-button square><i class="i-font i-font-refresh"></i></u-button>
+<u-button square icon="refresh"></u-button>
 ```
 
 ### 图标
