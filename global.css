@@ -5,6 +5,7 @@ $margin-base: 20px;
 $font-size-base: 14px;
 
 $brand-primary: #67aaf5;
+$hover-color: rgba(103,170,245,.5);
 
 $field-background: white;
 $field-color: #666;

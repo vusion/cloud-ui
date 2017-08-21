@@ -60,12 +60,16 @@
     border: 1px solid #d2d6de;
     list-style: none;
     margin: 0;
+    max-height: 152px;
 }
 .listitem{
     padding: 3px 14px;
     color: #777;
     cursor: pointer;
     position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .listitem[divider]{
     margin: 9px 0;
@@ -84,6 +88,6 @@
     color: #444;
 }
 .listitem[role=z-sel]{
-    background: #2cb78c;
+    background: $brand-primary;
     color: #fff;
 }

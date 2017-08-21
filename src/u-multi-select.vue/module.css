@@ -103,6 +103,6 @@
     color: #444;
 }
 .listitem[role=z-sel]{
-    background: #2cb78c;
+    background: $brand-primary;
     color: #fff;
 }

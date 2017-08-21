@@ -31,10 +31,10 @@ export default {
             value: '',
             options: [{
                 value: '选项1',
-                name: '黄金糕'
+                name: '黄金糕111111111111111111111111111111111'
             }, {
                 value: '选项2',
-                name: '双皮奶'
+                name: '双皮奶222222222222222222222222222222222222222222222222'
             }, {
                 value: '选项3',
                 name: '蚵仔煎'
@@ -42,11 +42,12 @@ export default {
                 value: '选项4',
                 name: '龙须面'
             }, {
-                divider: true
-            }, {
                 value: '选项5',
                 name: '北京烤鸭',
                 disabled: true
+            }, {
+                name: '选项6',
+                value: '牛杂',
             }],
         };
     },
