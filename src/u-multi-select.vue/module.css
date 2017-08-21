@@ -99,10 +99,10 @@
     color: #999;
 }
 .listitem:hover{
-    background: #f4f4f4;
+    background: $hover-color;
     color: #444;
 }
 .listitem[role=z-sel]{
-    background: #2cb78c;
+    background: $brand-primary;
     color: #fff;
 }

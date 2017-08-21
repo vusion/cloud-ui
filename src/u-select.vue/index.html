@@ -4,7 +4,7 @@
     </div>
     <div :class="$style.body" v-if="open && options.length !== 0">
         <ul :class="$style.listview">
-            <li :class="$style.listitem" v-for="(item,index) in options" :disabled="item.disabled" :divider="item.divider" :role="(index === selectedIndex) ? 'z-sel':''" @click="select($event,index)">{{item.name}}</li>
+            <li :class="$style.listitem" v-for="(item,index) in options" :disabled="item.disabled" :divider="item.divider" :role="(index === selectedIndex) ? 'z-sel':''" @click="select($event,index)" :title="item.name">{{item.name}}</li>
         </ul>
     </div>
 </div>

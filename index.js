@@ -45,6 +45,7 @@ import TableViewColumn from './src/u-table-view-column.vue';
 import SelectColor from './src/u-select-color.vue';
 import Popper from './src/u-popper.vue';
 import Popover from './src/u-popover.vue';
+import Badge from './src/u-badge.vue';
 import Input from './src/u-input.vue';
 import Form from './src/u-form.vue';
 import FormItem from './src/u-form-item.vue';
@@ -95,6 +96,7 @@ const Components = {
     SelectColor,
     Popper,
     Popover,
+    Badge,
     Input,
     Form,
     FormItem,
@@ -146,6 +148,7 @@ export {
     SelectColor,
     Popper,
     Popover,
+    Badge,
     Input,
     Form,
     FormItem,
