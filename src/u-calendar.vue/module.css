@@ -25,7 +25,7 @@
 }
 .item:hover {
     background: $hover-color;
-    color: $field-background;
+    color: #444;
 	border-color: #2cb78e;
 }
 
