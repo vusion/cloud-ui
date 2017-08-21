@@ -96,6 +96,42 @@ export default {
 </script>
 ```
 
+#### 多字段的规则列表
+
+如果一个表单多个字段有规则列表，可以在`u-form`中汇总传入。
+
+``` vue
+<template>
+<u-form ref="form" :rules="rules">
+    <u-form-item title="用户名" name="username">
+        <u-input maxlength="12" placeholder="4~12个字符"></u-input>
+    </u-form-item>
+    <u-form-item title="邮箱" name="email">
+        <u-input maxlength="24" placeholder="请输入邮箱"></u-input>
+    </u-form-item>
+</u-form>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            rules: {
+                username: [
+                    { type: 'string', required: true, trigger: 'blur', message: '请输入用户名' },
+                    { type: 'string', min: 4, max: 12, trigger: 'blur', message: '请输入4~12个字符' },
+                ],
+                email: [
+                    { type: 'string', required: true, trigger: 'blur', message: '请输入邮箱' },
+                    { type: 'email', trigger: 'blur', message: '邮箱格式不正确' },
+                ],
+            },
+        };
+    },
+};
+</script>
+```
+
 ### 数据类型
 
 - `string`: Must be of type string. This is the default type.
@@ -127,11 +163,11 @@ export default {
 
 ``` vue
 <template>
-<u-form ref="form">
-    <u-form-item title="用户名" :rules="rules.username">
+<u-form ref="form" :rules="rules">
+    <u-form-item title="用户名" name="username">
         <u-input maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>
-    <u-form-item title="邮箱" :rules="rules.email">
+    <u-form-item title="邮箱" name="email">
         <u-input maxlength="24" placeholder="请输入邮箱"></u-input>
     </u-form-item>
     <u-form-item>
@@ -173,11 +209,11 @@ export default {
 
 ``` vue
 <template>
-<u-form ref="form">
-    <u-form-item title="用户名" :rules="rules.username">
+<u-form ref="form" :rules="rules">
+    <u-form-item title="用户名" name="username">
         <u-input maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>
-    <u-form-item title="邮箱" :rules="rules.email">
+    <u-form-item title="邮箱" name="email">
         <u-input maxlength="24" placeholder="请输入邮箱"></u-input>
     </u-form-item>
 </u-form>
@@ -211,11 +247,11 @@ export default {
 
 ``` vue
 <template>
-<u-form ref="form">
-    <u-form-item title="用户名" :rules="rules.username">
+<u-form ref="form" :rules="rules">
+    <u-form-item title="用户名" name="username">
         <u-input maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>
-    <u-form-item title="邮箱" :rules="rules.email">
+    <u-form-item title="邮箱" name="email">
         <u-input maxlength="24" placeholder="请输入邮箱"></u-input>
     </u-form-item>
 </u-form>
@@ -267,15 +303,15 @@ export default {
 
 ``` vue
 <template>
-<u-form ref="form">
-    <u-form-item title="用户名" :rules="rules.username">
-        <u-input maxlength="12" placeholder="4~12个字符"></u-input>
+<u-form ref="form" :rules="rules">
+    <u-form-item title="用户名" name="username">
+        <u-input v-model="model.username" maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>
-    <u-form-item title="邮箱" :rules="rules.email">
-        <u-input maxlength="24" placeholder="请输入邮箱"></u-input>
+    <u-form-item title="邮箱" name="email">
+        <u-input v-model="model.email" maxlength="24" placeholder="请输入邮箱"></u-input>
     </u-form-item>
-    <u-form-item title="手机号码" :rules="rules.phone">
-        <u-input maxlength="11" placeholder="请输入手机号码"></u-input>
+    <u-form-item title="手机号码" name="phone">
+        <u-input v-model="model.phone" maxlength="11" placeholder="请输入手机号码"></u-input>
     </u-form-item>
     <u-form-item>
         <u-button color="primary" @click="submit()">提交</u-button>
@@ -287,6 +323,11 @@ export default {
 export default {
     data() {
         return {
+            model: {
+                username: '',
+                email: '',
+                phone: '',
+            },
             rules: {
                 username: [
                     { type: 'string', required: true, trigger: 'blur', message: '请输入用户名' },
@@ -321,14 +362,14 @@ export default {
 
 ``` vue
 <template>
-<u-form ref="form">
-    <u-form-item title="用户名" :rules="rules.username">
+<u-form ref="form" :rules="rules">
+    <u-form-item title="用户名" name="username">
         <u-input v-model="model.username" maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>
-    <u-form-item title="邮箱" :rules="rules.email">
+    <u-form-item title="邮箱" name="email">
         <u-input v-model="model.email" maxlength="24" placeholder="请输入邮箱"></u-input>
     </u-form-item>
-    <u-form-item title="手机号码" :rules="rules.phone">
+    <u-form-item title="手机号码" name="phone">
         <u-input v-model="model.phone" maxlength="11" placeholder="请输入手机号码"></u-input>
     </u-form-item>
     <u-form-item>
@@ -385,14 +426,14 @@ export default {
 
 ``` vue
 <template>
-<u-form ref="form" @validate="canSubmit = $event">
-    <u-form-item title="用户名" :rules="rules.username">
+<u-form ref="form" :rules="rules" @validate="canSubmit = $event">
+    <u-form-item title="用户名" name="username">
         <u-input v-model="model.username" maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>
-    <u-form-item title="邮箱" :rules="rules.email">
+    <u-form-item title="邮箱" name="email">
         <u-input v-model="model.email" maxlength="24" placeholder="请输入邮箱"></u-input>
     </u-form-item>
-    <u-form-item title="手机号码" :rules="rules.phone">
+    <u-form-item title="手机号码" name="phone">
         <u-input v-model="model.phone" maxlength="11" placeholder="请输入手机号码"></u-input>
     </u-form-item>
     <u-form-item>
