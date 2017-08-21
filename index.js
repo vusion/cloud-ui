@@ -45,6 +45,7 @@ import TableView from './src/u-table-view.vue';
 import SelectColor from './src/u-select-color.vue';
 import Popper from './src/u-popper.vue';
 import Popover from './src/u-popover.vue';
+import Badge from './src/u-badge.vue';
 
 const Components = {
     Base,
@@ -92,6 +93,7 @@ const Components = {
     SelectColor,
     Popper,
     Popover,
+    Badge,
 };
 
 export {
@@ -140,6 +142,7 @@ export {
     SelectColor,
     Popper,
     Popover,
+    Badge,
 };
 
 const Library = {

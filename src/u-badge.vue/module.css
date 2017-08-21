@@ -1,0 +1,31 @@
+.root{
+    display: inline-block;
+}
+.content{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+.count{
+    position: absolute;
+    transform: translateX(50%);
+    top: -10px;
+    right: 0;
+    min-width: 20px;
+    height: 20px;
+    line-height: 18px;
+    border-radius: 10px;
+    background: #f00;
+    color: #fff;
+    text-align: center;
+    padding: 0 6px;
+}
+.dot{
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    height: 6px;
+    width: 6px;
+    background: #f00;
+    border-radius: 50%;
+}
