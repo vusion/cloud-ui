@@ -9,11 +9,11 @@
 }
 
 .root:hover {
-    color: #2cb78e;
-    background-color: #dde8f0;
+    color: $brand-primary;
+    /*background-color: $hover-color;*/
 }
 
 .root[selected] {
-    background-color: #dde8f0;
-    color: #2cb78e;
+    background-color: $brand-primary;
+    color: #fff;
 }

@@ -10,9 +10,9 @@
 }
 
 .root:hover {
-    color: #2cb78e;
+    color: $brand-primary;
 }
 
 .root[selected] {
-    color: #2cb78e;
+    color: $brand-primary;
 }
