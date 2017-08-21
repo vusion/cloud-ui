@@ -9,9 +9,9 @@
 ``` vue
 <template>
     <u-table-view :data="tdata">
-        <u-table-column title="日期" label="date" sortable></u-table-column>
-        <u-table-column title="姓名" label="name" :formatter="formatter"></u-table-column>
-        <u-table-column title="地址" label="address" ></u-table-column>
+        <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
+        <u-table-view-column title="姓名" label="name" :formatter="formatter"></u-table-view-column>
+        <u-table-view-column title="地址" label="address" ></u-table-view-column>
     </u-table-view>
 </template>
 <script>
@@ -51,9 +51,9 @@ export default {
 ``` vue
 <template>
     <u-table-view :data="tdata">
-        <u-table-column title="日期" label="date" sortable :sort-method="sortMethod"></u-table-column>
-        <u-table-column title="姓名" label="name"></u-table-column>
-        <u-table-column title="地址" label="address" ></u-table-column>
+        <u-table-view-column title="日期" label="date" sortable :sort-method="sortMethod"></u-table-view-column>
+        <u-table-view-column title="姓名" label="name"></u-table-view-column>
+        <u-table-view-column title="地址" label="address" ></u-table-view-column>
     </u-table-view>
 </template>
 <script>
@@ -95,10 +95,10 @@ export default {
 ``` vue
 <template>
     <u-table-view :data="tdata">
-        <u-table-column type="selection"></u-table-column>
-        <u-table-column title="日期" label="date" sortable></u-table-column>
-        <u-table-column title="姓名" label="name" ></u-table-column>
-        <u-table-column title="地址" label="address" ></u-table-column>
+        <u-table-view-column type="selection"></u-table-view-column>
+        <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
+        <u-table-view-column title="姓名" label="name" ></u-table-view-column>
+        <u-table-view-column title="地址" label="address" ></u-table-view-column>
     </u-table-view>
 </template>
 <script>
@@ -133,4 +133,3 @@ export default {
 };
 </script>
 ```
-

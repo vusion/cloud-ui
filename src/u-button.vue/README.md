@@ -34,7 +34,17 @@
 ### 正方形
 
 ``` html
-<u-button square><i class="i-font i-font-refresh"></i></u-button>
+<u-button square icon="refresh"></u-button>
+```
+
+### 图标
+
+``` html
+<u-linear-layout>
+    <u-button color="primary" icon="create">创建实例</u-button>
+    <u-button color="primary" icon="loading">立即创建</u-button>
+    <u-button color="primary" icon="loading" disabled>立即创建</u-button>
+</u-linear-layout>
 ```
 
 ### 链接

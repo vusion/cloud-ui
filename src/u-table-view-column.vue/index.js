@@ -1,5 +1,5 @@
 export default {
-    name: 'u-table-column',
+    name: 'u-table-view-column',
     props: {
         title: String,
         sortable: { type: Boolean, default: false },

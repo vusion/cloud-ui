@@ -7,7 +7,7 @@
 ``` html
 <template>
     <u-table-view>
-        <u-table-column title="日期" label="date"></u-table-column>
+        <u-table-view-column title="日期" label="date"></u-table-view-column>
     </u-table-view>
 </template>
 ```

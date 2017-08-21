@@ -40,12 +40,15 @@ import Blank from './src/u-blank.vue';
 import Validation from './src/u-validation.vue';
 import Field from './src/u-field.vue';
 import InputField from './src/u-input-field.vue';
-import TableColumn from './src/u-table-column.vue';
 import TableView from './src/u-table-view.vue';
+import TableViewColumn from './src/u-table-view-column.vue';
 import SelectColor from './src/u-select-color.vue';
 import Popper from './src/u-popper.vue';
 import Popover from './src/u-popover.vue';
 import Badge from './src/u-badge.vue';
+import Input from './src/u-input.vue';
+import Form from './src/u-form.vue';
+import FormItem from './src/u-form-item.vue';
 
 const Components = {
     Base,
@@ -88,12 +91,15 @@ const Components = {
     Validation,
     Field,
     InputField,
-    TableColumn,
     TableView,
+    TableViewColumn,
     SelectColor,
     Popper,
     Popover,
     Badge,
+    Input,
+    Form,
+    FormItem,
 };
 
 export {
@@ -137,12 +143,15 @@ export {
     Validation,
     Field,
     InputField,
-    TableColumn,
     TableView,
+    TableViewColumn,
     SelectColor,
     Popper,
     Popover,
     Badge,
+    Input,
+    Form,
+    FormItem,
 };
 
 const Library = {

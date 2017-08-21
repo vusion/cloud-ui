@@ -1,0 +1,450 @@
+# 表单
+
+## 示例
+### 基本形式
+
+``` html
+<u-form>
+    <u-form-item title="计费方式">
+    </u-form-item>
+    <u-form-item title="实例名称">
+        <u-input maxlength="63" placeholder="由1-63个小写字母，数字，中划线组成，以字母开头，字母或数字结尾"></u-input>
+    </u-form-item>
+    <u-form-item title="规格">
+        <u-capsules value="0101">
+            <u-capsule value="0101">1核 1GB</u-capsule>
+            <u-capsule value="0102">1核 2GB</u-capsule>
+            <u-capsule value="0204">2核 4GB</u-capsule>
+            <u-capsule value="0408">4核 8GB</u-capsule>
+            <u-capsule value="0816">8核 16GB</u-capsule>
+            <u-capsule value="0832">8核 32GB</u-capsule>
+            <u-capsule value="1664">16核 64GB</u-capsule>
+        </u-capsules>
+    </u-form-item>
+    <u-form-item title="端口号">
+        <u-input maxlength="5" placeholder="1150-65535" value="3306"></u-input>
+    </u-form-item>
+    <u-form-item>
+        <u-button color="primary">立即创建</u-button>
+    </u-form-item>
+</u-form>
+```
+
+### 行内
+
+``` html
+<u-form inline>
+    <u-form-item title="状态">
+        <u-input size="small" maxlength="63" placeholder="认证中"></u-input>
+    </u-form-item>
+    <u-form-item title="用户名">
+        <u-input size="small" maxlength="63" placeholder="请输入用户名"></u-input>
+    </u-form-item>
+    <u-form-item title="联系号码">
+        <u-input size="small" maxlength="63" placeholder="请输入联系号码"></u-input>
+    </u-form-item>
+    <u-form-item>
+        <u-button color="primary">查询</u-button>
+    </u-form-item>
+</u-form>
+```
+
+## 表单验证
+### 规则列表
+
+每个表单项的验证行为用一个有序列表`rules`来声明，列表中包含若干条验证规则。结构如下：
+
+``` javascript
+[{ type: 'string', required: true, ... }, { type: 'string', min: ... }, { type: 'string', pattern: ... }, ...]
+```
+
+每条规则至少包含以下几个参数：
+- `type`：数据类型
+- `trigger`：触发方式
+- `message`：验证不通过时的消息提示
+- ...
+
+下面举个例子，一个用户名输入框的验证包含以下规则：
+
+1. 必须输入用户名，失焦验证
+2. 以字母开头，实时验证
+3. 字母、数字或中划线组成，实时验证
+4. 以字母或数字结尾，失焦验证
+5. 4~12个字符，失焦验证
+
+``` vue
+<template>
+<u-form-item title="用户名" :rules="rules">
+    <u-input maxlength="112" placeholder="4~12位字母、数字或中划线组成"></u-input>
+</u-form-item>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            rules: [
+                { type: 'string', required: true, trigger: 'blur', message: '请输入用户名' },
+                { type: 'string', pattern: /^[a-zA-Z]/, trigger: 'input+blur', message: '以字母开头' },
+                { type: 'string', pattern: /^[a-zA-Z0-9-]+$/, trigger: 'input+blur', message: '字母、数字或中划线组成' },
+                { type: 'string', pattern: /[a-zA-Z0-9]$/, trigger: 'blur', message: '以字母或数字结尾' },
+                { type: 'string', min: 4, trigger: 'blur', message: '不得少于4个字符' },
+            ],
+        };
+    },
+};
+</script>
+```
+
+### 数据类型
+
+- `string`: Must be of type string. This is the default type.
+- `number`: Must be of type number.
+- `boolean`: Must be of type boolean.
+- `method`: Must be of type function.
+- `regexp`: Must be an instance of RegExp or a string that does not generate an exception when creating a new RegExp.
+- `integer`: Must be of type number and an integer.
+- `float`: Must be of type number and a floating point number.
+- `array`: Must be an array as determined by Array.isArray.
+- `object`: Must be of type object and not Array.isArray.
+- `enum`: Value must exist in the enum.
+- `date`: Value must be valid as determined by Date
+- `url`: Must be of type url.
+- `hex`: Must be of type hex.
+- `email`: Must be of type email.
+
+其它请参见[async-validator](https://github.com/yiminghe/async-validator)。
+
+### 触发方式
+
+表单验证行为按照实时性通常可以分为三种：提交验证、失焦验证、实时验证，分别对应验证规则`trigger`的三种触发方式：`submit`, `blur`, `input`，规则中默认为`submit`。
+
+另外还有一种行为叫表单限制，不属于表单验证，但通常与之配合使用。
+
+#### 提交验证
+
+点击表单提交按钮时才对表单中所有控件进行验证，通常对应submit按钮的`click`事件。示例如下：
+
+``` vue
+<template>
+<u-form ref="form">
+    <u-form-item title="用户名" :rules="rules.username">
+        <u-input maxlength="12" placeholder="4~12个字符"></u-input>
+    </u-form-item>
+    <u-form-item title="邮箱" :rules="rules.email">
+        <u-input maxlength="24" placeholder="请输入邮箱"></u-input>
+    </u-form-item>
+    <u-form-item>
+        <u-button color="primary" @click="submit()">提交</u-button>
+    </u-form-item>
+</u-form>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            rules: {
+                username: [
+                    { type: 'string', required: true, message: '请输入用户名' },
+                    { type: 'string', min: 4, max: 12, message: '请输入4~12个字符' },
+                ],
+                email: [
+                    { type: 'string', required: true, message: '请输入邮箱' },
+                    { type: 'email', message: '邮箱格式不正确' },
+                ],
+            },
+        };
+    },
+    methods: {
+        submit() {
+            this.$refs.form.validate()
+                .then(() => alert('提交成功'))
+                .catch(() => {});
+        },
+    },
+};
+</script>
+```
+
+#### 失焦验证
+
+在表单控件失去焦点时对该控件进行验证，通常对应表单控件的`blur`事件。示例如下：
+
+``` vue
+<template>
+<u-form ref="form">
+    <u-form-item title="用户名" :rules="rules.username">
+        <u-input maxlength="12" placeholder="4~12个字符"></u-input>
+    </u-form-item>
+    <u-form-item title="邮箱" :rules="rules.email">
+        <u-input maxlength="24" placeholder="请输入邮箱"></u-input>
+    </u-form-item>
+</u-form>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            rules: {
+                username: [
+                    { type: 'string', required: true, trigger: 'blur', message: '请输入用户名' },
+                    { type: 'string', min: 4, max: 12, trigger: 'blur', message: '请输入4~12个字符' },
+                ],
+                email: [
+                    { type: 'string', required: true, trigger: 'blur', message: '请输入邮箱' },
+                    { type: 'email', trigger: 'blur', message: '邮箱格式不正确' },
+                ],
+            },
+        };
+    },
+};
+</script>
+```
+
+#### 实时验证
+
+在表单控件的值实时输入改变时，对该控件进行验证，通常对应表单的`input`事件。当只激活实时验证时，失焦验证会跳过此规则并且覆盖原来的结果，因此通常我们需要采用实时与失焦叠加的方式`input+blur`。
+
+下面的例子中，对用户名长度和邮箱格式的判断为实时验证。其中邮箱的验证没有采用实时与失焦叠加的方式，可以发现这种方式不是很合理。
+
+``` vue
+<template>
+<u-form ref="form">
+    <u-form-item title="用户名" :rules="rules.username">
+        <u-input maxlength="12" placeholder="4~12个字符"></u-input>
+    </u-form-item>
+    <u-form-item title="邮箱" :rules="rules.email">
+        <u-input maxlength="24" placeholder="请输入邮箱"></u-input>
+    </u-form-item>
+</u-form>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            rules: {
+                username: [
+                    { type: 'string', required: true, trigger: 'blur', message: '请输入用户名' },
+                    { type: 'string', min: 4, max: 12, trigger: 'input+blur', message: '请输入4~12个字符' },
+                ],
+                email: [
+                    { type: 'string', required: true, trigger: 'blur', message: '请输入邮箱' },
+                    { type: 'email', trigger: 'input', message: '邮箱格式不正确' },
+                ],
+            },
+        };
+    },
+};
+</script>
+```
+
+#### 表单限制
+
+在表单控件的值改变时，对该值限制在规定的长度或范围内，如`<input>`控件的部分`type`和`maxlength`的限制行为等：
+
+``` html
+<u-form>
+    <u-form-item title="用户名">
+        <u-input maxlength="4" placeholder="不超过4个字符"></u-input>
+    </u-form-item>
+</u-form>
+```
+
+## 案例
+
+前面的示例只是局部展示组件库表单验证体系的使用方法，达到的效果不一定符合实际情况。下面举几种比较合理的案例：
+
+按照表单提交按钮在什么情况下可点击，可以分为以下几种常见且比较合理的情况：始终可点、必填项有内容可点、所有项内容正确时才可点。
+
+### 始终可点
+
+表单提交按钮始终可点。
+
+表现为表单中所有控件的所有行为必须进行提交验证，适当采用失焦和实时验证加以帮助。
+
+``` vue
+<template>
+<u-form ref="form">
+    <u-form-item title="用户名" :rules="rules.username">
+        <u-input maxlength="12" placeholder="4~12个字符"></u-input>
+    </u-form-item>
+    <u-form-item title="邮箱" :rules="rules.email">
+        <u-input maxlength="24" placeholder="请输入邮箱"></u-input>
+    </u-form-item>
+    <u-form-item title="手机号码" :rules="rules.phone">
+        <u-input maxlength="11" placeholder="请输入手机号码"></u-input>
+    </u-form-item>
+    <u-form-item>
+        <u-button color="primary" @click="submit()">提交</u-button>
+    </u-form-item>
+</u-form>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            rules: {
+                username: [
+                    { type: 'string', required: true, trigger: 'blur', message: '请输入用户名' },
+                    { type: 'string', min: 4, max: 12, trigger: 'blur', message: '请输入4~12个字符' },
+                ],
+                email: [
+                    { type: 'string', required: true, trigger: 'blur', message: '请输入邮箱' },
+                    { type: 'email', trigger: 'blur', message: '邮箱格式不正确' },
+                ],
+                phone: [
+                    { type: 'string', pattern: /^\d{11}$/, trigger: 'blur', message: '手机号码格式不正确' },
+                ],
+            },
+        };
+    },
+    methods: {
+        submit() {
+            this.$refs.form.validate()
+                .then(() => alert('提交成功'))
+                .catch(() => {});
+        },
+    },
+};
+</script>
+```
+
+### 必填项有内容可点
+
+当表单中所有必填项有内容时，表单提交按钮才可点。
+
+表现为根据表单中必填项是否为空，使用计算属性来实时判断提交按钮是否可点。并且在这种情况下，通常采用三种验证相结合的方式。
+
+``` vue
+<template>
+<u-form ref="form">
+    <u-form-item title="用户名" :rules="rules.username">
+        <u-input v-model="model.username" maxlength="12" placeholder="4~12个字符"></u-input>
+    </u-form-item>
+    <u-form-item title="邮箱" :rules="rules.email">
+        <u-input v-model="model.email" maxlength="24" placeholder="请输入邮箱"></u-input>
+    </u-form-item>
+    <u-form-item title="手机号码" :rules="rules.phone">
+        <u-input v-model="model.phone" maxlength="11" placeholder="请输入手机号码"></u-input>
+    </u-form-item>
+    <u-form-item>
+        <u-button color="primary" :disabled="!canSubmit" @click="submit()">提交</u-button>
+    </u-form-item>
+</u-form>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            model: {
+                username: '',
+                email: '',
+                phone: '',
+            },
+            rules: {
+                username: [
+                    { type: 'string', required: true, trigger: 'blur', message: '请输入用户名' },
+                    { type: 'string', min: 4, max: 12, trigger: 'blur', message: '请输入4~12个字符' },
+                ],
+                email: [
+                    { type: 'string', required: true, trigger: 'blur', message: '请输入邮箱' },
+                    { type: 'email', trigger: 'blur', message: '邮箱格式不正确' },
+                ],
+                phone: [
+                    { type: 'string', pattern: /^\d{11}$/, trigger: 'blur', message: '手机号码格式不正确' },
+                ],
+            },
+        };
+    },
+    computed: {
+        canSubmit() {
+            return this.model.username && this.model.email;
+        },
+    },
+    methods: {
+        submit() {
+            this.$refs.form.validate()
+                .then(() => alert('提交成功'))
+                .catch(() => {});
+        },
+    },
+};
+</script>
+```
+
+### 所有项内容正确可点
+
+当表单中所有项内容均符合要求时，表单提交按钮才可点。
+
+表现为根据每个表单控件的验证结果，使用计算属性来实时判断提交按钮是否可点。这种情况下，一般就不需要进行提交验证了。
+
+``` vue
+<template>
+<u-form ref="form" @validate="canSubmit = $event">
+    <u-form-item title="用户名" :rules="rules.username">
+        <u-input v-model="model.username" maxlength="12" placeholder="4~12个字符"></u-input>
+    </u-form-item>
+    <u-form-item title="邮箱" :rules="rules.email">
+        <u-input v-model="model.email" maxlength="24" placeholder="请输入邮箱"></u-input>
+    </u-form-item>
+    <u-form-item title="手机号码" :rules="rules.phone">
+        <u-input v-model="model.phone" maxlength="11" placeholder="请输入手机号码"></u-input>
+    </u-form-item>
+    <u-form-item>
+        <u-button color="primary" :disabled="!canSubmit" @click="submit()">提交</u-button>
+    </u-form-item>
+</u-form>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            canSubmit: false,
+            model: {
+                username: '',
+                email: '',
+                phone: '',
+            },
+            rules: {
+                username: [
+                    { type: 'string', required: true, trigger: 'input+blur', message: '请输入用户名' },
+                    { type: 'string', min: 4, max: 12, trigger: 'input+blur', message: '请输入4~12个字符' },
+                ],
+                email: [
+                    { type: 'string', required: true, trigger: 'input+blur', message: '请输入邮箱' },
+                    { type: 'email', trigger: 'input+blur', message: '邮箱格式不正确' },
+                ],
+                phone: [
+                    { type: 'string', pattern: /^\d{11}$/, trigger: 'input+blur', message: '手机号码格式不正确' },
+                ],
+            },
+        };
+    },
+    mounted() {
+        // 必须初始化时或在获取数据到时安静验证一次
+        this.$refs.form.validate(true)
+            .then(() => alert('提交成功'))
+            .catch(() => {});
+
+        // 在获取数据到时如下
+        // this.getData().then(...)
+        //  .then(() => this.$refs.form.validate(true))
+        //  .then(() => alert('提交成功'))
+        //  .catch(() => {});
+    },
+    methods: {
+        submit() {
+            this.$refs.form.validate()
+                .then(() => alert('提交成功'))
+                .catch(() => {});
+        },
+    },
+};
+</script>
+```
