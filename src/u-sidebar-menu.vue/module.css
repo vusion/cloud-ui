@@ -23,7 +23,7 @@
 }
 
 .item:hover {
-    color: #2cb78e;
+    color: $brand-primary;
     background-color: #dde8f0;
 }
 
