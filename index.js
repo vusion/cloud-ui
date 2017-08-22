@@ -20,6 +20,8 @@ import Tablets from './src/u-tablets.vue';
 import Tablet from './src/u-tablet.vue';
 import Modal from './src/u-modal.vue';
 import Calendar from './src/u-calendar.vue';
+import NavbarItem from './src/u-navbar-item.vue';
+import Navbar from './src/u-navbar.vue';
 import SubnavItem from './src/u-subnav-item.vue';
 import Subnav from './src/u-subnav.vue';
 import NumberInput from './src/u-number-input.vue';
@@ -49,6 +51,7 @@ import Badge from './src/u-badge.vue';
 import Input from './src/u-input.vue';
 import Form from './src/u-form.vue';
 import FormItem from './src/u-form-item.vue';
+import Logo from './src/u-logo.vue';
 
 const Components = {
     Base,
@@ -71,6 +74,8 @@ const Components = {
     Tablet,
     Modal,
     Calendar,
+    NavbarItem,
+    Navbar,
     SubnavItem,
     Subnav,
     NumberInput,
@@ -100,6 +105,7 @@ const Components = {
     Input,
     Form,
     FormItem,
+    Logo,
 };
 
 export {
@@ -123,6 +129,8 @@ export {
     Tablet,
     Modal,
     Calendar,
+    NavbarItem,
+    Navbar,
     SubnavItem,
     Subnav,
     NumberInput,
@@ -152,6 +160,7 @@ export {
     Input,
     Form,
     FormItem,
+    Logo,
 };
 
 const Library = {

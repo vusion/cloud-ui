@@ -1,0 +1,7 @@
+<div :class="$style.root">
+    <a :class="$style.icon"></a>
+    <span v-if="$slots.default" :class="$style.divider"></span>
+    <span v-if="$slots.default" :class="$style.sub">
+        <slot></slot>
+    </span>
+</div>

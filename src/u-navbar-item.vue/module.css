@@ -1,0 +1,32 @@
+.root {
+    display: inline-block;
+    position: relative;
+    user-select: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    padding: 0 4px;
+    height: 64px;
+    line-height: 64px;
+    color: white;
+}
+
+.root + .root {
+    margin-left: 34px;
+}
+
+.root:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    width: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+}
+
+.root:hover:after {
+    transition: width 0.5s;
+    width: 100%;
+}

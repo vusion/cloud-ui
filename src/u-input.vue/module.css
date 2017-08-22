@@ -20,6 +20,10 @@
     border-color: #8ebee9;
 }
 
+.input[color="error"] {
+    border-color: #ff867f;
+}
+
 .input[disabled] {
     background-color: #e9f0f5;
     border-color: #e9f0f5;
