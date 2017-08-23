@@ -68,7 +68,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "./";
+/******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 84);
@@ -14406,7 +14406,11 @@ exports.locals = {
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('ul', {
     class: _vm.$style.root
-  }, [_vm._t("default")], 2)
+  }, [_c('div', {
+    class: _vm.$style.top
+  }, [_vm._t("top")], 2), _vm._t("default"), _c('div', {
+    class: _vm.$style.bottom
+  }, [_vm._t("bottom")], 2)], 2)
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
@@ -14623,7 +14627,7 @@ exports.locals = {
     },
     data() {
         return {
-            open_: this.open,
+            currentOpen: this.open,
         };
     },
     computed: {
@@ -14631,16 +14635,21 @@ exports.locals = {
             return this.$parent.accordion;
         },
     },
+    watch: {
+        open(open) {
+            this.currentOpen = open;
+        },
+    },
     methods: {
-        handleClick() {
+        onClick() {
             if (this.accordion) {
                 this.$parent.$children.forEach((item) => {
                     if (item.$options.name === 'u-sidebar-menu' && item !== this)
-                        item.open_ = false;
+                        item.currentOpen = false;
                 });
             }
 
-            this.open_ = !this.open_;
+            this.currentOpen = !this.currentOpen;
         },
     },
 });
@@ -14657,17 +14666,17 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_c('div', {
     class: _vm.$style.item,
     attrs: {
-      "open": _vm.open_
+      "open": _vm.currentOpen
     },
     on: {
-      "click": _vm.handleClick
+      "click": _vm.onClick
     }
   }, [_vm._t("title", [_vm._v(_vm._s(_vm.title))])], 2), _c('ul', {
     directives: [{
       name: "show",
       rawName: "v-show",
-      value: (_vm.open_),
-      expression: "open_"
+      value: (_vm.currentOpen),
+      expression: "currentOpen"
     }],
     class: _vm.$style.list
   }, [_vm._t("default")], 2)])
@@ -19251,7 +19260,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "._3Llltm-Jc4sVk1sc{display:inline-block;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;text-align:center;font-size:16px;padding:0 4px;height:64px;line-height:64px;color:#fff}._3Llltm-Jc4sVk1sc+._3Llltm-Jc4sVk1sc{margin-left:34px}._3Llltm-Jc4sVk1sc:after{content:\"\";position:absolute;bottom:0;height:3px;width:0;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);background-color:#fff}._3Llltm-Jc4sVk1sc:hover:after{-webkit-transition:width .5s;-o-transition:width .5s;transition:width .5s;width:100%}", ""]);
+exports.push([module.i, "._3Llltm-Jc4sVk1sc{display:inline-block;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;text-align:center;font-size:16px;padding:0 4px;height:64px;line-height:64px;color:#fff}._3Llltm-Jc4sVk1sc+._3Llltm-Jc4sVk1sc{margin-left:34px}._3Llltm-Jc4sVk1sc:after{content:\"\";position:absolute;bottom:0;height:3px;width:0;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);background-color:#fff}._3Llltm-Jc4sVk1sc:hover:after{-webkit-transition:width .5s;-o-transition:width .5s;transition:width .5s;width:100%}._3Llltm-Jc4sVk1sc[selected]:after{width:100%}", ""]);
 
 // exports
 exports.locals = {
@@ -19341,7 +19350,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, ".g6oG1VILyFSpkoa3{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;overflow:hidden;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}._3WZsSCseYNOLrfCb{-webkit-box-flex:1;-ms-flex:auto;flex:auto;margin:0 50px}.g6oG1VILyFSpkoa3[alignment=center] ._3WZsSCseYNOLrfCb{text-align:center}.g6oG1VILyFSpkoa3[alignment=right] ._3WZsSCseYNOLrfCb{text-align:right}", ""]);
+exports.push([module.i, ".g6oG1VILyFSpkoa3{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;overflow:hidden;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}._3WZsSCseYNOLrfCb{-webkit-box-flex:1;-ms-flex:auto;flex:auto;margin:0 50px}.g6oG1VILyFSpkoa3[align=center] ._3WZsSCseYNOLrfCb{text-align:center}.g6oG1VILyFSpkoa3[align=right] ._3WZsSCseYNOLrfCb{text-align:right}", ""]);
 
 // exports
 exports.locals = {
@@ -29810,8 +29819,8 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index_js__ = __webpack_require__(479);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Vusion_vusion_cli_node_modules_vue_multifile_loader_node_modules_vusion_vue_loader_lib_template_compiler_index_js_id_data_v_1ab30dd5_preserveWhitespace_false_index_html__ = __webpack_require__(480);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__index_js__ = __webpack_require__(481);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Vusion_vusion_cli_node_modules_vue_multifile_loader_node_modules_vusion_vue_loader_lib_template_compiler_index_js_id_data_v_1ab30dd5_preserveWhitespace_false_index_html__ = __webpack_require__(482);
 var cssModules = {};
 function injectStyle (ssrContext) {
 cssModules['$style'] = __webpack_require__(475);
@@ -29854,7 +29863,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, ".MhFe1ahyGM9ZjXYQ{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}._2ZDAsCpmQsDUCg9F{width:104px;height:64px;background:url(" + __webpack_require__(477) + ")}.MhFe1ahyGM9ZjXYQ[color=colorful] ._2ZDAsCpmQsDUCg9F{background:url(" + __webpack_require__(478) + ")}._19s4ScdkkM2fA9Cg{margin:0 1em;border-left:1px solid #fff;height:18px}.LNgGYLAKeDQpqnyo{font-size:16px;color:#fff}", ""]);
+exports.push([module.i, ".MhFe1ahyGM9ZjXYQ{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}._2ZDAsCpmQsDUCg9F{width:104px;height:64px;background:url(" + __webpack_require__(477) + ")}.MhFe1ahyGM9ZjXYQ[color=\"2color\"] ._2ZDAsCpmQsDUCg9F{background:url(" + __webpack_require__(478) + ")}.MhFe1ahyGM9ZjXYQ[name=yiwu] ._2ZDAsCpmQsDUCg9F{background:url(" + __webpack_require__(479) + ")}.MhFe1ahyGM9ZjXYQ[name=yiwu][color=\"2color\"] ._2ZDAsCpmQsDUCg9F{background:url(" + __webpack_require__(480) + ")}._19s4ScdkkM2fA9Cg{margin:0 1em;border-left:1px solid #fff;height:18px}.LNgGYLAKeDQpqnyo{font-size:16px;color:#fff}", ""]);
 
 // exports
 exports.locals = {
@@ -29868,16 +29877,28 @@ exports.locals = {
 /* 477 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "logo-white.svg?5d234ebe50b4e820e833ac380481c3df";
+module.exports = __webpack_require__.p + "logo-c-white.svg?5d234ebe50b4e820e833ac380481c3df";
 
 /***/ }),
 /* 478 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "logo-colorful.svg?e780fdb089a12ff92f035935ef36ed7a";
+module.exports = __webpack_require__.p + "logo-c-2color.svg?e780fdb089a12ff92f035935ef36ed7a";
 
 /***/ }),
 /* 479 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "logo-yiwu-white.svg?ed73893fb184a3ab7f3b7f9533bb141d";
+
+/***/ }),
+/* 480 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "logo-yiwu-2color.svg?7e883063a5fbf9a12b5c2e584d84c7f3";
+
+/***/ }),
+/* 481 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -29887,7 +29908,7 @@ module.exports = __webpack_require__.p + "logo-colorful.svg?e780fdb089a12ff92f03
 
 
 /***/ }),
-/* 480 */
+/* 482 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
