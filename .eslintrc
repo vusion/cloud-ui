@@ -1,5 +1,8 @@
 {
-    "extends": "vusion",
+    "extends": [
+        "vusion",
+        "vusion/test"
+    ],
     "env": {
         "browser": true
     }

@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "eslint": "^4.3.0",
-    "eslint-config-vusion": "^1.2.0",
+    "eslint-config-vusion": "^1.2.2",
     "husky": "^0.13.3",
     "vue": "^2.4.0",
     "vusion-hooks": "^0.1.0"
