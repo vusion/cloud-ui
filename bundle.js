@@ -30122,7 +30122,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "._39CrefUq3nXLRmI3{display:inline-block;position:relative;width:100px;height:100px}._3Dd82duteKh-i8mY{width:100%;height:100%}._1e9mh5zxkPF-UDvz{fill:none;stroke-width:6px;stroke:#eee}._2KpdBbCTarxlXDy_{fill:none;stroke-width:6px;stroke:#67aaf5;-webkit-transition:stroke .6s ease,stroke-dasharray .6s ease;-o-transition:stroke .6s ease,stroke-dasharray .6s ease;transition:stroke .6s ease,stroke-dasharray .6s ease}._3ojnkdL5s4901yAQ{position:absolute;top:0;left:0;right:0;text-align:center;line-height:100px;font-size:18px;color:#666;line-height:normal;height:100%}._4q4-IimfN9ExEDyG{position:absolute;width:100%;text-align:center;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}._17uZaXS3s6od-i5s{font-size:20px;color:#999;line-height:30px}._3zJoRDQZsAlzZ4fv{font-size:14px;color:#999}", ""]);
+exports.push([module.i, "._39CrefUq3nXLRmI3{display:inline-block;position:relative;width:100px;height:100px}._3Dd82duteKh-i8mY{width:100%;height:100%}._1e9mh5zxkPF-UDvz{fill:none;stroke-width:6px;stroke:#eee}._2KpdBbCTarxlXDy_{fill:none;stroke-width:6px;stroke:#67aaf5;-webkit-transition:stroke .6s ease,stroke-dasharray .6s ease;-o-transition:stroke .6s ease,stroke-dasharray .6s ease;transition:stroke .6s ease,stroke-dasharray .6s ease}._3ojnkdL5s4901yAQ{position:absolute;top:0;left:0;right:0;text-align:center;line-height:100px;font-size:18px;color:#666;line-height:normal;height:100%}._4q4-IimfN9ExEDyG{position:absolute;width:100%;text-align:center;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}._17uZaXS3s6od-i5s{font-size:20px;color:#999;line-height:30px}._2TJXrQgZuis2CTJc,._3zJoRDQZsAlzZ4fv{font-size:14px;color:#999}._2TJXrQgZuis2CTJc{width:120px;text-align:center}", ""]);
 
 // exports
 exports.locals = {
@@ -30133,7 +30133,8 @@ exports.locals = {
 	"text": "_3ojnkdL5s4901yAQ",
 	"wrap": "_4q4-IimfN9ExEDyG",
 	"percent": "_17uZaXS3s6od-i5s",
-	"self": "_3zJoRDQZsAlzZ4fv"
+	"self": "_3zJoRDQZsAlzZ4fv",
+	"footer": "_2TJXrQgZuis2CTJc"
 };
 
 /***/ }),
@@ -30192,7 +30193,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     class: _vm.$style.percent
   }, [_vm._v(_vm._s(_vm.percent + '%'))]), _c('div', {
     class: _vm.$style.self
-  }, [_vm._t("default")], 2)])])])
+  }, [_vm._t("default")], 2)])]), _c('div', {
+    class: _vm.$style.footer
+  }, [_vm._t("title")], 2)])
 }
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
