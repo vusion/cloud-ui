@@ -138,6 +138,84 @@
 };
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </code></pre>
+<h3>demo4 select</h3>
+<div id="u-example-3" class="u-example"><u-table-view :data="tdata"><u-table-view-column title="日期" label="date" sortable :formatter="dateFormat"></u-table-view-column><u-table-view-column title="姓名" label="name" ></u-table-view-column><u-table-view-column title="地址" label="address" ></u-table-view-column><u-table-view-column title="性别" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column></u-table-view></div>
+<pre class="hljs lang-vue"><code><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-table-view</span> <span class="hljs-attr">:data</span>=<span class="hljs-string">"tdata"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-table-view-column</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"日期"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"date"</span> <span class="hljs-attr">sortable</span> <span class="hljs-attr">:formatter</span>=<span class="hljs-string">"dateFormat"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-table-view-column</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-table-view-column</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"姓名"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"name"</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-table-view-column</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-table-view-column</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"地址"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"address"</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-table-view-column</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-table-view-column</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"性别"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"female"</span> <span class="hljs-attr">filter</span> <span class="hljs-attr">:options</span>=<span class="hljs-string">"options"</span> <span class="hljs-attr">:value</span>=<span class="hljs-string">"value"</span> <span class="hljs-attr">:filter-method</span>=<span class="hljs-string">"filterMethod"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-table-view-column</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-table-view</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+    <span class="hljs-attr">data</span>: {
+        <span class="hljs-attr">tdata</span>: [{
+            <span class="hljs-attr">date</span>: <span class="hljs-number">1501977600000</span>,
+            <span class="hljs-attr">name</span>: <span class="hljs-string">'王小虎'</span>,
+            <span class="hljs-attr">address</span>: <span class="hljs-string">'上海市普陀区金沙江路 1518 弄'</span>,
+            <span class="hljs-attr">female</span>: <span class="hljs-string">'男'</span>,
+            <span class="hljs-attr">use</span>: <span class="hljs-number">12</span>,
+            <span class="hljs-attr">total</span>: <span class="hljs-number">20</span>,
+        }, {
+            <span class="hljs-attr">date</span>: <span class="hljs-number">1502236800000</span>,
+            <span class="hljs-attr">name</span>: <span class="hljs-string">'王大虎'</span>,
+            <span class="hljs-attr">address</span>: <span class="hljs-string">'上海市普陀区金沙江路 1517 弄'</span>,
+            <span class="hljs-attr">female</span>: <span class="hljs-string">'女'</span>,
+            <span class="hljs-attr">use</span>: <span class="hljs-number">12</span>,
+            <span class="hljs-attr">total</span>: <span class="hljs-number">20</span>,
+        }, {
+            <span class="hljs-attr">date</span>: <span class="hljs-number">1503100800000</span>,
+            <span class="hljs-attr">name</span>: <span class="hljs-string">'天王盖地虎'</span>,
+            <span class="hljs-attr">address</span>: <span class="hljs-string">'上海市普陀区金沙江路 1519 弄'</span>,
+            <span class="hljs-attr">female</span>: <span class="hljs-string">'男'</span>,
+            <span class="hljs-attr">use</span>: <span class="hljs-number">12</span>,
+            <span class="hljs-attr">total</span>: <span class="hljs-number">20</span>,
+        }, {
+            <span class="hljs-attr">date</span>: <span class="hljs-number">1503964800000</span>,
+            <span class="hljs-attr">name</span>: <span class="hljs-string">'小鸡炖蘑菇'</span>,
+            <span class="hljs-attr">address</span>: <span class="hljs-string">'上海市普陀区金沙江路 1516 弄'</span>,
+            <span class="hljs-attr">female</span>: <span class="hljs-string">'女'</span>,
+            <span class="hljs-attr">use</span>: <span class="hljs-number">12</span>,
+            <span class="hljs-attr">total</span>: <span class="hljs-number">20</span>,
+        }],
+        <span class="hljs-attr">options</span>: [
+            {
+                <span class="hljs-attr">name</span>: <span class="hljs-string">'全部'</span>,
+                <span class="hljs-attr">value</span>: <span class="hljs-string">''</span>,
+            },
+            {
+                <span class="hljs-attr">name</span>: <span class="hljs-string">'男'</span>,
+                <span class="hljs-attr">value</span>: <span class="hljs-string">'男'</span>
+            },
+            {
+                <span class="hljs-attr">name</span>: <span class="hljs-string">'女'</span>,
+                <span class="hljs-attr">value</span>: <span class="hljs-string">'女'</span>
+            },
+        ],
+        <span class="hljs-attr">value</span>: <span class="hljs-string">''</span>
+    },
+    <span class="hljs-attr">methods</span>: {
+        filterMethod(value, columnValue) {
+            <span class="hljs-keyword">if</span> (value === <span class="hljs-string">''</span>)
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+            <span class="hljs-keyword">return</span> columnValue === value;
+        },
+        dateFormat(row) {
+            <span class="hljs-keyword">const</span> value = row.date;
+            <span class="hljs-keyword">const</span> year = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(value).getFullYear();
+            <span class="hljs-keyword">let</span> month = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(value).getMonth() + <span class="hljs-number">1</span>;
+            month += <span class="hljs-string">''</span>;
+            <span class="hljs-keyword">if</span>(month.length === <span class="hljs-number">1</span>)
+                month = <span class="hljs-string">'0'</span> + month;
+            <span class="hljs-keyword">const</span> date = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(value).getDate();
+            <span class="hljs-keyword">return</span> year + <span class="hljs-string">'-'</span> + month + <span class="hljs-string">'-'</span> + date;
+        },
+    }
+};
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
 </article>
                 <!---->
                 <script>new Vue({
@@ -228,7 +306,72 @@ new Vue({
                 return row.name;
         }
     }
-}).$mount('#u-example-2');</script>
+}).$mount('#u-example-2');
+new Vue({
+    data: {
+        tdata: [{
+            date: 1501977600000,
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1518 弄',
+            female: '男',
+            use: 12,
+            total: 20,
+        }, {
+            date: 1502236800000,
+            name: '王大虎',
+            address: '上海市普陀区金沙江路 1517 弄',
+            female: '女',
+            use: 12,
+            total: 20,
+        }, {
+            date: 1503100800000,
+            name: '天王盖地虎',
+            address: '上海市普陀区金沙江路 1519 弄',
+            female: '男',
+            use: 12,
+            total: 20,
+        }, {
+            date: 1503964800000,
+            name: '小鸡炖蘑菇',
+            address: '上海市普陀区金沙江路 1516 弄',
+            female: '女',
+            use: 12,
+            total: 20,
+        }],
+        options: [
+            {
+                name: '全部',
+                value: '',
+            },
+            {
+                name: '男',
+                value: '男'
+            },
+            {
+                name: '女',
+                value: '女'
+            },
+        ],
+        value: ''
+    },
+    methods: {
+        filterMethod(value, columnValue) {
+            if (value === '')
+                return true;
+            return columnValue === value;
+        },
+        dateFormat(row) {
+            const value = row.date;
+            const year = new Date(value).getFullYear();
+            let month = new Date(value).getMonth() + 1;
+            month += '';
+            if(month.length === 1)
+                month = '0' + month;
+            const date = new Date(value).getDate();
+            return year + '-' + month + '-' + date;
+        },
+    }
+}).$mount('#u-example-3');</script>
             
 </body>
 </html>
