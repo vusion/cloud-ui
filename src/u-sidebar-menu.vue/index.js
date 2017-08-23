@@ -9,7 +9,7 @@ export default {
     },
     data() {
         return {
-            open_: this.open,
+            currentOpen: this.open,
         };
     },
     computed: {
@@ -17,16 +17,21 @@ export default {
             return this.$parent.accordion;
         },
     },
+    watch: {
+        open(open) {
+            this.currentOpen = open;
+        },
+    },
     methods: {
-        handleClick() {
+        onClick() {
             if (this.accordion) {
                 this.$parent.$children.forEach((item) => {
                     if (item.$options.name === 'u-sidebar-menu' && item !== this)
-                        item.open_ = false;
+                        item.currentOpen = false;
                 });
             }
 
-            this.open_ = !this.open_;
+            this.currentOpen = !this.currentOpen;
         },
     },
 };

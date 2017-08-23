@@ -6,11 +6,19 @@
 .icon {
     width: 104px;
     height: 64px;
-    background: url('./logo-white.svg');
+    background: url('./logo-c-white.svg');
 }
 
-.root[color="colorful"] .icon {
-    background: url('./logo-colorful.svg');
+.root[color="2color"] .icon {
+    background: url('./logo-c-2color.svg');
+}
+
+.root[name="yiwu"] .icon {
+    background: url('./logo-yiwu-white.svg');
+}
+
+.root[name="yiwu"][color="2color"] .icon {
+    background: url('./logo-yiwu-2color.svg');
 }
 
 .divider {

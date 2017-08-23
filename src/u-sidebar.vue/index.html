@@ -1,3 +1,9 @@
 <ul :class="$style.root">
+    <div :class="$style.top">
+        <slot name="top"></slot>
+    </div>
     <slot></slot>
+    <div :class="$style.bottom">
+        <slot name="bottom"></slot>
+    </div>
 </ul>
