@@ -39,6 +39,12 @@
     top: 14px;
 
 }
+.name{
+    display: inline-block;
+    width: calc(100% - 10px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .body{
     margin-top: 2px;
     width: 100%;

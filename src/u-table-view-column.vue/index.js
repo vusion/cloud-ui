@@ -3,7 +3,7 @@ export default {
     props: {
         title: String,
         sortable: { type: Boolean, default: false },
-        selectable: { type: Boolean, default: false },
+        filter: { type: Boolean, default: false },
         options: Array,
         value: [String, Number, Boolean],
         label: String,
@@ -12,12 +12,24 @@ export default {
         minWidth: { type: [String, Number], default: '80' },
         formatter: Function,
         sortMethod: Function,
+        filterMethod: Function,
+        placement: {
+            type: String,
+            default: 'bottom-end',
+        },
     },
     data() {
         return {
             index: 0,
             sortoperate: '',
+            selectValue: this.value,
+            row: {},
         };
+    },
+    watch: {
+        value(newValue) {
+            this.selectValue = newValue;
+        },
     },
     beforeCreate() {
         this.$parent.add(this);

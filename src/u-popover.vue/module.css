@@ -3,7 +3,6 @@
 }
 .reference{
     position: relative;
-    display: inline-block;
 }
 .arrow, .arrow:after{
     display: block;

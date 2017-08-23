@@ -1,4 +1,6 @@
-import Utils from '../util/style.js';
+import Style from '../util/style.js';
+import Utils from '../util/utils.js';
+import uPopover from '../u-popover.vue';
 
 export default {
     name: 'u-table-view',
@@ -13,11 +15,26 @@ export default {
             tdata: [],
             allSel: this.allChecked,
             columnsWidth: [],
+            popvisible: false,
+            copyTdata: [], // tdata的复制版本主要用来过滤
         };
     },
     mounted() {
         this.tdata = this.initTableData();
+        this.copyTdata = this.initTableData();
         this.handleResize();
+        // this.setScopeSlot();
+    },
+    watch: {
+        data(newValue) {
+            this.tdata = this.initTableData();
+            this.copyTdata = this.initTableData();
+            this.handleResize();
+            // this.setScopeSlot();
+        },
+    },
+    components: {
+        uPopover,
     },
     methods: {
         add(item) {
@@ -86,7 +103,7 @@ export default {
                 if (allWidth)
                     this.tableWidth = this.columns.map((cell) => cell.width).reduce((a, b) => a + b);
                 else
-                    this.tableWidth = parseInt(Utils.getStyle(this.$el, 'width')) - 1;
+                    this.tableWidth = parseInt(Style.getStyle(this.$el, 'width')) - 1;
                 this.columnsWidth = [];
                 this.$nextTick(() => {
                     if (this.data.length) {
@@ -97,7 +114,7 @@ export default {
                             if (column.width)
                                 width = column.width;
                             else
-                                width = parseInt(Utils.getStyle($td[i], 'width'));
+                                width = parseInt(Style.getStyle($td[i], 'width'));
 
                             this.columnsWidth.push(width);
                             // this.columnsWidth[i].width = width;
@@ -105,6 +122,21 @@ export default {
                     }
                 });
             });
+        },
+        select(option, column) {
+            column.selectValue = option.value;
+            this.popvisible = false;
+            this.tdata = this.copyTdata.filter((item) => column.filterMethod(option.value, item[column.label], item, column));
+        },
+        setScopeSlot(column, row) {
+            column.row = row;
+            if (column.$slots && column.$slots.default) {
+                column.$slots.default(row);
+                return column.$slots;
+            } else if (column.$scopedSlots && column.$scopedSlots.default) {
+                column.$scopedSlots.default(row);
+                return column.$scopedSlots;
+            }
         },
     },
 };

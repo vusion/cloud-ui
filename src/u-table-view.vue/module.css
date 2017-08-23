@@ -1,20 +1,24 @@
 .root{}
 .thead{
     width: 100%;
+    table-layout: fixed;
 }
 .thead .hthSpan{
     position: relative;
     vertical-align: middle;
     padding-right: 0;
     box-sizing: border-box;
-    padding: 12px 0 12px 30px;
+    padding: 12px 20px 12px 10px;
     line-height: 20px;
-    overflow: hidden;
-    width: auto;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    /*overflow: hidden;*/
+    /*width: auto;*/
+    /*text-overflow: ellipsis;*/
+    /*white-space: nowrap;*/
     text-align: left;
     font-weight: 400;
+}
+.hthSpan[role]{
+    cursor: pointer;
 }
 .htrItem {
     background-color: #f5f7fa;
@@ -40,7 +44,7 @@
     vertical-align: middle;
     padding-right: 0;
     box-sizing: border-box;
-    padding: 12px 0 12px 30px;
+    padding: 12px 20px 12px 10px;
     line-height: 20px;
     overflow: hidden;
     width: auto;
@@ -94,4 +98,32 @@
     white-space: normal;
     word-break: break-all;
     line-height: 24px;
+}
+.popover{
+    width: 100%;
+}
+.itemtitle{
+    position: relative;
+    word-break: break-all;
+    display: inline-block;
+}
+.itemtitle[role]:after{
+    content: '';
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-top-color: #9dabc2;
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.option{
+    min-width: 120px;
+    padding: 3px 14px;
+    box-sizing: border-box;
+}
+.option[role] {
+    background: $brand-primary;
+    color: #fff;
 }

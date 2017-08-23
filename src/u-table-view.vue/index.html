@@ -10,16 +10,21 @@
             </colgroup>
             <thead>
                 <tr :class="$style.htrItem">
-                    <th v-for="(column, index) in columns" :class="$style.hthSpan">
-                        <span :class="$style.itemtitle">{{column.title}}</span>
+                    <th v-for="(column, index) in columns" :class="$style.hthSpan" :role="column.filter">
+                        <span v-if="!column.filter" :class="$style.itemtitle">{{column.title}}</span>
+                        <template v-if="column.filter">
+                            <u-popover :class="$style.popover" trigger="click" :placement="column.placement" v-model="popvisible">
+                                <span :class="$style.itemtitle" :role="column.filter">{{column.title}}</span>
+                                <template slot="content">
+                                    <div :class="$style.option" v-for="option in column.options" @click.stop="select(option, column)" :role="column.selectValue === option.value">{{option.name}}</div>
+                                </template>
+                            </u-popover>
+                        </template>
                         <template v-if="column.type === 'selection'"><input type="checkbox" v-model="allSel" @change="allSelected"></template>
                         <template v-else>
                             <span :class="$style.wrapicon" v-if="column.sortable">
                                 <i :class="$style.icon" role="up" :sel="column.sortoperate === 'asc'" @click="handleSort('asc', column)"></i>
                                 <i :class="$style.icon" role="down" :sel="column.sortoperate === 'desc'" @click="handleSort('desc', column)"></i>
-                            </span>
-                            <span v-if="column.selectable">
-                                <u-select :options="column.options" :value="column.value"></u-select>
                             </span>
                         </template>
                     </th>
@@ -37,7 +42,7 @@
                     <tr :class="$style.btrItem" :role="index === (tdata.length-1)">
                         <td v-for="(column, cindex) in columns" :class="$style.btdSpan">
                             <span v-if="column.type === 'selection'"><input type="checkbox" v-model="row.selected"/></span>
-                            <div v-else-if="!column.label" v-html="column.$slots.default && column.$slots.default[0].elm.innerHTML"></div>
+                            <div v-else-if="!column.label">{{setScopeSlot(column,row)}}</div>
                             <span :class="$style.ditem" v-else-if="column.formatter">{{column.formatter(row, column, index, cindex)}}</span>
                             <span :class="$style.ditem" v-else>{{row[column.label]}}</span>
                         </td>
