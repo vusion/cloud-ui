@@ -22,7 +22,7 @@ export default {
             default() {
                 return {
                     modifiers: {
-                        boundariesElement: 'body',
+                        // boundariesElement: 'body', 不设置此属性能够自动识别出现位置
                     },
                 };
             },

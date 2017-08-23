@@ -3,7 +3,7 @@ import Popper from '../u-popper.vue';
 import directive from '../util/directives.js';
 
 export default {
-    name: 'u-popover',
+    name: 'u-tooltip',
     props: {
         trigger: {
             validator(value) {
@@ -15,30 +15,12 @@ export default {
             validator(value) {
                 return ['top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left', 'left-start', 'left-end', 'right', 'right-start', 'right-end'].includes(value);
             },
-            default: 'bottom',
+            default: 'top',
         },
-        title: String,
         width: {
             type: [String, Number],
         },
         content: String,
-        confirm: {
-            type: Boolean,
-            default: false,
-        },
-        confirmOk: {
-            type: String,
-            default: '确定',
-        },
-        confirmCancel: {
-            type: String,
-            default: '取消',
-        },
-        message: String,
-        arrow: {
-            type: Boolean,
-            default: false,
-        },
     },
     data() {
         return {
@@ -54,7 +36,7 @@ export default {
     },
     methods: {
         onMouseenter() {
-            if (this.trigger !== 'hover' || this.confirm)
+            if (this.trigger !== 'hover')
                 return false;
 
             if (this.enterTimer)
@@ -64,7 +46,7 @@ export default {
             }, 100);
         },
         onMouseleave() {
-            if (this.trigger !== 'hover' || this.confirm)
+            if (this.trigger !== 'hover')
                 return false;
 
             if (this.enterTimer) {
@@ -73,26 +55,6 @@ export default {
                     this.visible = false;
                 }, 100);
             }
-        },
-        onClick() {
-            if (this.confirm) {
-                this.visible = !this.visible;
-                return true;
-            }
-            if (this.trigger !== 'click')
-                return false;
-
-            this.visible = !this.visible;
-        },
-        close() {
-            if (this.confirm) {
-                this.visible = false;
-                return true;
-            }
-            if (this.trigger !== 'click')
-                return false;
-
-            this.visible = false;
         },
     },
 };

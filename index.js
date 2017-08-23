@@ -53,6 +53,7 @@ import Form from './src/u-form.vue';
 import FormItem from './src/u-form-item.vue';
 import Logo from './src/u-logo.vue';
 import CircularSpecificProgress from './src/u-circular-specific-progress.vue';
+import Tooltip from './src/u-tooltip.vue';
 
 const Components = {
     Base,
@@ -108,6 +109,7 @@ const Components = {
     FormItem,
     Logo,
     CircularSpecificProgress,
+    Tooltip,
 };
 
 export {
@@ -164,6 +166,7 @@ export {
     FormItem,
     Logo,
     CircularSpecificProgress,
+    Tooltip,
 };
 
 const Library = {
