@@ -142,11 +142,6 @@ export default {
         <u-table-view-column title="姓名" label="name" ></u-table-view-column>
         <u-table-view-column title="地址" label="address" ></u-table-view-column>
         <u-table-view-column title="性别" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
-        <u-table-view-column title="使用/总量">
-            <template scope="props">
-                {{props.row.use}}个
-            </template>
-        </u-table-view-column>
     </u-table-view>
 </template>
 <script>

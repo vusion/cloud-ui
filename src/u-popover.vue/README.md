@@ -10,7 +10,7 @@
 </u-popover>
 ```
 ``` html
-<u-popover trigger="hover" content="内容" placement="bottom">
+<u-popover trigger="click" content="内容" placement="bottom">
     <u-button>hover 激活</u-button>
 </u-popover>
 ```
