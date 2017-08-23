@@ -4,7 +4,7 @@ import Utils from '../util/utils.js';
 import directive from '../util/directives.js';
 
 export default {
-    name: 'u-poptip',
+    name: 'u-popover',
     props: {
         trigger: {
             validator(value) {
