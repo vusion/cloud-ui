@@ -6,6 +6,9 @@
 ``` html
 <u-circular-specific-progress :percent="36">
     <div>VCPU</div>
+    <div slot="title">
+        50/2294
+    </div>
 </u-circular-specific-progress>
 ```
 
