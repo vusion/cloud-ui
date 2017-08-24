@@ -19,7 +19,7 @@ export default {
         },
         title: String,
         width: {
-            type: [String, Number],
+            type: String,
         },
         content: String,
         confirm: {

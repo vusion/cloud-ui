@@ -1,0 +1,30 @@
+.popper{
+    display: block !important;
+    position: relative;
+}
+.title{
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+}
+.title:after{
+    content: '';
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-top-color: #75818a;
+    position: absolute;
+    right: 10px;
+    top: 60%;
+    transform: translateY(-50%);
+}
+.option{
+    /*min-width: 120px;*/
+    padding: 3px 14px;
+    box-sizing: border-box;
+    width: 100%;
+}
+.option[role] {
+    background: $brand-primary;
+    color: #fff;
+}
