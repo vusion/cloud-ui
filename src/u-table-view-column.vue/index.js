@@ -26,6 +26,8 @@ export default {
             row: {},
         };
     },
+    methods: {
+    },
     watch: {
         value(newValue) {
             this.selectValue = newValue;

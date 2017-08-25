@@ -41,8 +41,12 @@
                 <template v-for="(row, index) in tdata">
                     <tr :class="$style.btrItem" :role="index === (tdata.length-1)">
                         <td v-for="(column, cindex) in columns" :class="$style.btdSpan">
-                            <span v-if="column.type === 'selection'"><input type="checkbox" v-model="row.selected"/></span>
-                            <div v-else-if="!column.label">{{setScopeSlot(column,row)}}</div>
+                            <span v-if="column.type === 'selection'"><input type="chcolumn.$slots.defaulteckbox" v-model="row.selected"/></span>
+                            <div v-else-if="!column.label">
+                                <u-table-cell :row="row">
+                                    {{column.$slots.default?column.$slots.default:column.$scopedSlots.default}}
+                                </u-table-cell>
+                            </div>
                             <span :class="$style.ditem" v-else-if="column.formatter">{{column.formatter(row, column, index, cindex)}}</span>
                             <span :class="$style.ditem" v-else>{{row[column.label]}}</span>
                         </td>

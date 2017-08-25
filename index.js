@@ -55,6 +55,7 @@ import Logo from './src/u-logo.vue';
 import CircularSpecificProgress from './src/u-circular-specific-progress.vue';
 import Tooltip from './src/u-tooltip.vue';
 import TableSelect from './src/u-table-select.vue';
+import TableCell from './src/u-table-cell.vue';
 
 const Components = {
     Base,
@@ -112,6 +113,7 @@ const Components = {
     CircularSpecificProgress,
     Tooltip,
     TableSelect,
+    TableCell,
 };
 
 export {
@@ -170,6 +172,7 @@ export {
     CircularSpecificProgress,
     Tooltip,
     TableSelect,
+    TableCell,
 };
 
 const Library = {

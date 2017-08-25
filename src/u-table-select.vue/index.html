@@ -1,4 +1,4 @@
-<u-popover trigger="click" placement="bottom" :class="$style.popper" width="100%">
+<u-popover trigger="click" placement="bottom" :class="$style.popper" width="100%" v-model="visible">
     <div :class="$style.title">{{title}}</div>
     <template slot="content">
         <div :class="$style.option" v-for="(option, index) in options" @click.stop="select(option, index)" :role="selectedValue === option.value">{{option.name}}</div>

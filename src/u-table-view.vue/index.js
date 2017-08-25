@@ -1,6 +1,7 @@
 import Style from '../util/style.js';
 import Utils from '../util/utils.js';
-import uPopover from '../u-popover.vue';
+import Popover from '../u-popover.vue';
+import TableCell from '../u-table-cell.vue';
 
 export default {
     name: 'u-table-view',
@@ -34,7 +35,8 @@ export default {
         },
     },
     components: {
-        uPopover,
+        'u-popover': Popover,
+        'u-table-cell': TableCell,
     },
     methods: {
         add(item) {

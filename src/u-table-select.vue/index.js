@@ -20,6 +20,7 @@ export default {
     data() {
         return {
             selectedValue: this.value,
+            visible: false,
         };
     },
     watch: {
@@ -30,6 +31,7 @@ export default {
     methods: {
         select(option, index) {
             this.selectedValue = option[this.keyValue];
+            this.visible = false;
             this.$emit('select', {
                 sender: this,
                 selected: option,
