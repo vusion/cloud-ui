@@ -6,16 +6,13 @@
     position: relative;
     cursor: pointer;
 }
-.title:after{
-    content: '';
-    width: 0;
-    height: 0;
+.triangle{
     border: 5px solid transparent;
     border-top-color: #75818a;
-    position: absolute;
-    right: 10px;
-    top: 60%;
-    transform: translateY(-50%);
+    display: inline-block;
+    margin-left: 10px;
+    position: relative;
+    top: 3px;
 }
 .option{
     padding: 3px 14px;

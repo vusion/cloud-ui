@@ -27,6 +27,12 @@ export default {
         };
     },
     methods: {
+        renderCell(row) {
+            if (this.$scopedSlots.default)
+                return `<div>${this.$scopedSlots.default(row)}</div>`;
+            else
+                return `<div>${this.$slots.default()}</div>`;
+        },
     },
     watch: {
         value(newValue) {

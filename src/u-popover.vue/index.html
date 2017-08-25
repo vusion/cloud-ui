@@ -7,7 +7,7 @@
     </div>
     <div :class="$style.popper" ref="popper"
         v-show="visible"
-        :style="{width: width}"
+        :style="styleObject"
         @mouseenter="onMouseenter"
         @mouseleave="onMouseleave">
         <div :class="$style.body" :role="arrow">

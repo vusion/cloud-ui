@@ -4,10 +4,23 @@
 ### 基本形式
 
 #### 声明式
-``` html
-<u-popover trigger="click" content="内容" placement="top" arrow>
-    <u-button>click 激活</u-button>
-</u-popover>
+``` vue
+<template>
+    <u-popover trigger="click" content="内容" placement="bottom" :style-object="styleObject">
+        <u-button>click 激活</u-button>
+    </u-popover>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            styleObject: {
+                padding: 0,
+            }
+        }
+    }
+};
+</script>
 ```
 ``` html
 <u-popover trigger="hover" content="内容" placement="bottom">
