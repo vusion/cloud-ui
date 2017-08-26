@@ -21,6 +21,15 @@
     background: url('./logo-yiwu-2color.svg');
 }
 
+.root[name="163yun"] .icon {
+    background: url('./logo-163yun-white.svg');
+}
+
+.root[name="163yun"][color="2color"] .icon {
+    background: url('./logo-163yun-2color.svg');
+}
+
+
 .divider {
     margin: 0 1em;
     border-left: 1px solid white;
