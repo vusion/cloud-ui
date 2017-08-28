@@ -13,11 +13,11 @@
     margin: 0 50px;
 }
 
-.root[align="center"] .middle {
+.root[alignment="center"] .middle {
     text-align: center;
 }
 
-.root[align="right"] .middle {
+.root[alignment="right"] .middle {
     text-align: right;
 }
 

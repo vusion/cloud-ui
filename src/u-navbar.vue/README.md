@@ -18,14 +18,14 @@
 ``` html
 <u-linear-layout direction="vertical">
     <div style="background: #4289db">
-        <u-navbar align="center">
+        <u-navbar alignment="center">
             <u-navbar-item selected>主体</u-navbar-item>
             <u-navbar-item>备案管理</u-navbar-item>
             <u-navbar-item>帮助</u-navbar-item>
         </u-navbar>
     </div>
     <div style="background: #4289db">
-        <u-navbar align="right">
+        <u-navbar alignment="right">
             <u-navbar-item selected>主体</u-navbar-item>
             <u-navbar-item>备案管理</u-navbar-item>
             <u-navbar-item>帮助</u-navbar-item>
@@ -47,7 +47,7 @@
         </u-navbar>
     </div>
     <div style="background: #151d2b; padding: 0 10px;">
-        <u-navbar align="right">
+        <u-navbar alignment="right">
             <u-logo slot="left"></u-logo>
             <u-navbar-item>产品</u-navbar-item>
             <u-navbar-item selected>价格</u-navbar-item>

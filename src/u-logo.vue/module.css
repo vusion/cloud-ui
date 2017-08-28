@@ -3,6 +3,7 @@
     align-items: center;
 }
 
+/* Default Logo */
 .icon {
     width: 104px;
     height: 64px;
@@ -10,6 +11,15 @@
 }
 
 .root[color="2color"] .icon {
+    background: url('./logo-c-2color.svg');
+}
+
+/* Logo extend */
+.root[name="c"] .icon {
+    background: url('./logo-c-white.svg');
+}
+
+.root[name="c"][color="2color"] .icon {
     background: url('./logo-c-2color.svg');
 }
 
