@@ -46,19 +46,103 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
 </code></pre>
 <h3>链接</h3>
-<ul>
-<li>使用<code>v-href</code>指令添加普通链接</li>
-<li>使用<code>v-to</code>指令添加<a href="https://router.vuejs.org">vue-router</a>链接</li>
-</ul>
-<div id="u-example-6" class="u-example"><u-linear-layout><u-button v-href="'https://github.com/vusion/vusion'">Button</u-button><u-button v-to="'/some/router/path'">Button</u-button><u-button v-href="'https://github.com/vusion/vusion'" disabled>Button</u-button></u-linear-layout></div>
+<div id="u-example-6" class="u-example"><u-linear-layout><u-button href="https://github.com/vusion/vusion">Button</u-button><u-button to="/some/router/path">Button</u-button><u-button href="https://github.com/vusion/vusion" disabled>Button</u-button></u-linear-layout></div>
 <pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">v-href</span>=<span class="hljs-string">"'https://github.com/vusion/vusion'"</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">v-to</span>=<span class="hljs-string">"'/some/router/path'"</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">v-href</span>=<span class="hljs-string">"'https://github.com/vusion/vusion'"</span> <span class="hljs-attr">disabled</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://github.com/vusion/vusion"</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/some/router/path"</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://github.com/vusion/vusion"</span> <span class="hljs-attr">disabled</span>&gt;</span>Button<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
 </code></pre>
+<h2>API</h2>
+<h3>Attrs/Props</h3>
+<table>
+<thead>
+<tr>
+<th>Attr/Prop</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>href</td>
+<td>String</td>
+<td></td>
+<td><code>href</code> property of link</td>
+</tr>
+<tr>
+<td>target</td>
+<td>String</td>
+<td></td>
+<td>(native property)</td>
+</tr>
+<tr>
+<td>to</td>
+<td>String | Object</td>
+<td></td>
+<td><code>to</code> property of <code>vue-router</code></td>
+</tr>
+<tr>
+<td>replace</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td></td>
+</tr>
+<tr>
+<td>append</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td></td>
+</tr>
+<tr>
+<td>color</td>
+<td>String</td>
+<td><code>''</code></td>
+<td></td>
+</tr>
+<tr>
+<td>size</td>
+<td>String</td>
+<td><code>''</code></td>
+<td></td>
+</tr>
+<tr>
+<td>square</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td></td>
+</tr>
+<tr>
+<td>disabled</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Disable the button</td>
+</tr>
+</tbody>
+</table>
+<h3>Slots</h3>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(default)</td>
+<td>Hold the text and can contain HTML</td>
+</tr>
+</tbody>
+</table>
+<h3>Events</h3>
+<h4>$listeners</h4>
+<p>Inherit all events from <code>&lt;a&gt;</code> element.</p>
+<h4>@click</h4>
+<h4>@navigate</h4>
 </article>
-                <article data-server-rendered="true" class="u-article"><h2 id="API">API</h2> <h3 id="Class">Class</h3> <h4>Button</h4> <p>Extends <strong>Base</strong>。</p> <p></p> <h3 id="Options">Options</h3> <h4>new Button()</h4> <table><thead><tr><th width="24%">Param</th><th width="16%">Type</th><th width="16%">Default</th><th width="26%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>attrs.color</code></td> <td class="f-wsn">string</td> <td class="f-wsn"><code>''</code></td> <td>Color</td></tr><tr><td class="f-wsn"><code>attrs.size</code></td> <td class="f-wsn">string</td> <td class="f-wsn"><code>''</code></td> <td>Size</td></tr><tr><td class="f-wsn"><code>attrs.square</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>false</code></td> <td>Shape is a square</td></tr><tr><td class="f-wsn"><code>attrs.disabled</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>false</code></td> <td>Disabled the button</td></tr></tbody></table> <!----> <!----> <!----></article>
+                <!---->
                 <script>new Vue().$mount('#u-example-0');
 new Vue().$mount('#u-example-1');
 new Vue().$mount('#u-example-2');
