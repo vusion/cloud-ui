@@ -125,7 +125,6 @@
     width: 100%;
     border-radius: 2px;
     white-space: nowrap;
-    box-shadow: 0 0 8px rgba(151, 164, 175, 0.35);
     box-sizing: border-box;
 }
 .title{
