@@ -99,7 +99,7 @@
 <table>
 <thead>
 <tr>
-<th>Name</th>
+<th>Attr/Prop</th>
 <th>Type</th>
 <th>Default</th>
 <th>Description</th>
@@ -113,7 +113,7 @@
 <td>Pass a data list and no need to loop tags manually</td>
 </tr>
 <tr>
-<td>value</td>
+<td>value.sync, v-model</td>
 <td>Any</td>
 <td></td>
 <td>Value of selected item</td>
@@ -148,7 +148,7 @@
 <table>
 <thead>
 <tr>
-<th>Name</th>
+<th>Slot</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -172,10 +172,33 @@
 </thead>
 <tbody>
 <tr>
+<td>value</td>
+<td>Any</td>
+<td>Value of selected item</td>
+</tr>
+<tr>
 <td>item</td>
+<td>Object</td>
+<td>The selected object. Only useful in data pattern</td>
+</tr>
+<tr>
+<td>$item</td>
 <td>ListViewItem</td>
 <td>Selected item</td>
 </tr>
+</tbody>
+</table>
+<h4>@input</h4>
+<p>Emit when selecting</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td>value</td>
 <td>Any</td>
@@ -188,7 +211,7 @@
 <table>
 <thead>
 <tr>
-<th>Name</th>
+<th>Attr/Prop</th>
 <th>Type</th>
 <th>Default</th>
 <th>Description</th>
@@ -213,7 +236,7 @@
 <table>
 <thead>
 <tr>
-<th>Name</th>
+<th>Slot</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -237,14 +260,19 @@
 </thead>
 <tbody>
 <tr>
-<td>item</td>
-<td>ListViewItem</td>
-<td>This item</td>
-</tr>
-<tr>
 <td>value</td>
 <td>Any</td>
 <td>Value of this item</td>
+</tr>
+<tr>
+<td>item</td>
+<td>Object</td>
+<td>Only useful in data pattern</td>
+</tr>
+<tr>
+<td>$item</td>
+<td>ListViewItem</td>
+<td>This item</td>
 </tr>
 </tbody>
 </table>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="docs.css">
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<link rel="stylesheet" type="text/css" href="vusion-icon-font.css">
+<script src="docs.js"></script>
+</head>
+<body>
+
+                <article class="u-article"><h1>TreeView</h1>
+<h2>Examples</h2>
+<h3>Basic</h3>
+<p>It is recommended to use data pattern to generate tags easily.</p>
+<h4>Tag Pattern</h4>
+<div id="u-example-0" class="u-example"><u-tree-view><u-tree-view-node text="Node 1"><u-tree-view-node text="Node 1.1"></u-tree-view-node><u-tree-view-node text="Node 1.2"><u-tree-view-node text="Node 1.2.1"></u-tree-view-node><u-tree-view-node text="Node 1.2.2"></u-tree-view-node></u-tree-view-node><u-tree-view-node text="Node 1.3"></u-tree-view-node><u-tree-view-node text="Node 1.4"></u-tree-view-node></u-tree-view-node><u-tree-view-node text="Node 2"></u-tree-view-node><u-tree-view-node text="Node 3"><u-tree-view-node text="Node 3.1"></u-tree-view-node><u-tree-view-node text="Node 3.2"></u-tree-view-node></u-tree-view-node></u-tree-view></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.2"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.2.1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.2.2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.3"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.4"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 3"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 3.1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 3.2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view</span>&gt;</span>
+</code></pre>
+<h4>Data Pattern</h4>
+<div id="u-example-1" class="u-example"><u-tree-view :data="[
+    { text: 'Node 1', children: [
+        { text: 'Node 1.1' },
+        { text: 'Node 1.2', children: [
+            { text: 'Node 1.2.1' },
+            { text: 'Node 1.2.2' },
+        ] },
+        { text: 'Node 1.3' },
+        { text: 'Node 1.4' },
+    ] },
+    { text: 'Node 2' },
+    { text: 'Node 3', children: [
+        { text: 'Node 3.1' },
+        { text: 'Node 3.2' },
+    ] },
+]"></u-tree-view></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view</span> <span class="hljs-attr">:data</span>=<span class="hljs-string">"[
+    { text: 'Node 1', children: [
+        { text: 'Node 1.1' },
+        { text: 'Node 1.2', children: [
+            { text: 'Node 1.2.1' },
+            { text: 'Node 1.2.2' },
+        ] },
+        { text: 'Node 1.3' },
+        { text: 'Node 1.4' },
+    ] },
+    { text: 'Node 2' },
+    { text: 'Node 3', children: [
+        { text: 'Node 3.1' },
+        { text: 'Node 3.2' },
+    ] },
+]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view</span>&gt;</span>
+</code></pre>
+<h3>Value</h3>
+<h4>Tag Pattern</h4>
+<div id="u-example-2" class="u-example"><u-tree-view value="1.2"><u-tree-view-node text="Node 1" value="1"><u-tree-view-node text="Node 1.1" value="1.1"></u-tree-view-node><u-tree-view-node text="Node 1.2" value="1.2"><u-tree-view-node text="Node 1.2.1" value="1.2.1"></u-tree-view-node><u-tree-view-node text="Node 1.2.2" value="1.2.2"></u-tree-view-node></u-tree-view-node><u-tree-view-node text="Node 1.3" value="1.3"></u-tree-view-node><u-tree-view-node text="Node 1.4" value="1.4"></u-tree-view-node></u-tree-view-node><u-tree-view-node text="Node 2" value="2"></u-tree-view-node><u-tree-view-node text="Node 3" value="3"><u-tree-view-node text="Node 3.1" value="3.1"></u-tree-view-node><u-tree-view-node text="Node 3.2" value="3.2"></u-tree-view-node></u-tree-view-node></u-tree-view></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1.2"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.1"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1.1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.2"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1.2"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.2.1"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1.2.1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.2.2"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1.2.2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.3"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1.3"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.4"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1.4"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 2"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 3"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"3"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 3.1"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"3.1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 3.2"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"3.2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view</span>&gt;</span>
+</code></pre>
+<h4>Data Pattern</h4>
+<div id="u-example-3" class="u-example"><u-tree-view value="1.2" :data="[
+    { text: 'Node 1', value: '1', children: [
+        { text: 'Node 1.1', value: '1.1' },
+        { text: 'Node 1.2', value: '1.2', children: [
+            { text: 'Node 1.2.1', value: '1.2.1' },
+            { text: 'Node 1.2.2', value: '1.2.2' },
+        ] },
+        { text: 'Node 1.3', value: '1.3' },
+        { text: 'Node 1.4', value: '1.4' },
+    ] },
+    { text: 'Node 2', value: '2' },
+    { text: 'Node 3', value: '3', children: [
+        { text: 'Node 3.1', value: '3.1' },
+        { text: 'Node 3.2', value: '3.2' },
+    ] },
+]"></u-tree-view></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"1.2"</span> <span class="hljs-attr">:data</span>=<span class="hljs-string">"[
+    { text: 'Node 1', value: '1', children: [
+        { text: 'Node 1.1', value: '1.1' },
+        { text: 'Node 1.2', value: '1.2', children: [
+            { text: 'Node 1.2.1', value: '1.2.1' },
+            { text: 'Node 1.2.2', value: '1.2.2' },
+        ] },
+        { text: 'Node 1.3', value: '1.3' },
+        { text: 'Node 1.4', value: '1.4' },
+    ] },
+    { text: 'Node 2', value: '2' },
+    { text: 'Node 3', value: '3', children: [
+        { text: 'Node 3.1', value: '3.1' },
+        { text: 'Node 3.2', value: '3.2' },
+    ] },
+]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view</span>&gt;</span>
+</code></pre>
+<h3>Readonly &amp; Disabled</h3>
+<h4>Tag Pattern</h4>
+<div id="u-example-4" class="u-example"><u-tree-view readonly><u-tree-view-node text="Node 1"><u-tree-view-node text="Node 1.1"></u-tree-view-node><u-tree-view-node text="Node 1.2"><u-tree-view-node text="Node 1.2.1"></u-tree-view-node><u-tree-view-node text="Node 1.2.2"></u-tree-view-node></u-tree-view-node><u-tree-view-node text="Node 1.3"></u-tree-view-node><u-tree-view-node text="Node 1.4"></u-tree-view-node></u-tree-view-node><u-tree-view-node text="Node 2"></u-tree-view-node><u-tree-view-node text="Node 3"><u-tree-view-node text="Node 3.1"></u-tree-view-node><u-tree-view-node text="Node 3.2"></u-tree-view-node></u-tree-view-node></u-tree-view><u-tree-view disabled><u-tree-view-node text="Node 1"><u-tree-view-node text="Node 1.1"></u-tree-view-node><u-tree-view-node text="Node 1.2"><u-tree-view-node text="Node 1.2.1"></u-tree-view-node><u-tree-view-node text="Node 1.2.2"></u-tree-view-node></u-tree-view-node><u-tree-view-node text="Node 1.3"></u-tree-view-node><u-tree-view-node text="Node 1.4"></u-tree-view-node></u-tree-view-node><u-tree-view-node text="Node 2"></u-tree-view-node><u-tree-view-node text="Node 3"><u-tree-view-node text="Node 3.1"></u-tree-view-node><u-tree-view-node text="Node 3.2"></u-tree-view-node></u-tree-view-node></u-tree-view><u-tree-view><u-tree-view-node text="Node 1"><u-tree-view-node text="Node 1.1"></u-tree-view-node><u-tree-view-node text="Node 1.2" disabled><u-tree-view-node text="Node 1.2.1"></u-tree-view-node><u-tree-view-node text="Node 1.2.2"></u-tree-view-node></u-tree-view-node><u-tree-view-node text="Node 1.3" disabled></u-tree-view-node><u-tree-view-node text="Node 1.4"></u-tree-view-node></u-tree-view-node><u-tree-view-node text="Node 2" disabled></u-tree-view-node><u-tree-view-node text="Node 3"><u-tree-view-node text="Node 3.1"></u-tree-view-node><u-tree-view-node text="Node 3.2"></u-tree-view-node></u-tree-view-node></u-tree-view></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view</span> <span class="hljs-attr">readonly</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.2"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.2.1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.2.2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.3"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.4"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 3"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 3.1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 3.2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view</span> <span class="hljs-attr">disabled</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.2"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.2.1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.2.2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.3"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.4"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 3"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 3.1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 3.2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.2"</span> <span class="hljs-attr">disabled</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.2.1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.2.2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.3"</span> <span class="hljs-attr">disabled</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.4"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 2"</span> <span class="hljs-attr">disabled</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 3"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 3.1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 3.2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view</span>&gt;</span>
+</code></pre>
+<h4>Data Pattern</h4>
+<div id="u-example-5" class="u-example"><u-tree-view :data="[
+    { text: 'Node 1', children: [
+        { text: 'Node 1.1' },
+        { text: 'Node 1.2', disabled: true, children: [
+            { text: 'Node 1.2.1' },
+            { text: 'Node 1.2.2'}
+        ] },
+        { text: 'Node 1.3', disabled: true  },
+        { text: 'Node 1.4' },
+    ] },
+    { text: 'Node 2', disabled: true  },
+    { text: 'Node 3', children: [
+        { text: 'Node 3.1' },
+        { text: 'Node 3.2'}
+    ]}
+]"></u-tree-view></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view</span> <span class="hljs-attr">:data</span>=<span class="hljs-string">"[
+    { text: 'Node 1', children: [
+        { text: 'Node 1.1' },
+        { text: 'Node 1.2', disabled: true, children: [
+            { text: 'Node 1.2.1' },
+            { text: 'Node 1.2.2'}
+        ] },
+        { text: 'Node 1.3', disabled: true  },
+        { text: 'Node 1.4' },
+    ] },
+    { text: 'Node 2', disabled: true  },
+    { text: 'Node 3', children: [
+        { text: 'Node 3.1' },
+        { text: 'Node 3.2'}
+    ]}
+]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view</span>&gt;</span>
+</code></pre>
+<h3>Cancelable</h3>
+<div id="u-example-6" class="u-example"><u-tree-view cancelable><u-tree-view-node text="Node 1"><u-tree-view-node text="Node 1.1"></u-tree-view-node><u-tree-view-node text="Node 1.2"><u-tree-view-node text="Node 1.2.1"></u-tree-view-node><u-tree-view-node text="Node 1.2.2"></u-tree-view-node></u-tree-view-node><u-tree-view-node text="Node 1.3"></u-tree-view-node><u-tree-view-node text="Node 1.4"></u-tree-view-node></u-tree-view-node><u-tree-view-node text="Node 2"></u-tree-view-node><u-tree-view-node text="Node 3"><u-tree-view-node text="Node 3.1"></u-tree-view-node><u-tree-view-node text="Node 3.2"></u-tree-view-node></u-tree-view-node></u-tree-view></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view</span> <span class="hljs-attr">cancelable</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.2"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.2.1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.2.2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.3"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 1.4"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 3"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 3.1"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-tree-view-node</span> <span class="hljs-attr">text</span>=<span class="hljs-string">"Node 3.2"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view-node</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-tree-view</span>&gt;</span>
+</code></pre>
+<h2>TreeView API</h2>
+<h3>Attrs/Props</h3>
+<table>
+<thead>
+<tr>
+<th>Attr/Prop</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data</td>
+<td>Array&lt;{ text, value }&gt;</td>
+<td></td>
+<td>Pass a data list and no need to loop tags manually</td>
+</tr>
+<tr>
+<td>value.sync, v-model</td>
+<td>Any</td>
+<td></td>
+<td>Value of selected item</td>
+</tr>
+<tr>
+<td>field</td>
+<td>String</td>
+<td><code>'text'</code></td>
+<td>Indicate which field to show text</td>
+</tr>
+<tr>
+<td>cancelable</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Select twice to cancel</td>
+</tr>
+<tr>
+<td>readonly</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Readonly</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Disabled</td>
+</tr>
+</tbody>
+</table>
+<h3>Slots</h3>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(default)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>Events</h3>
+<h4>@select</h4>
+<p>Emit when selecting an node.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>Any</td>
+<td>Value of this node</td>
+</tr>
+<tr>
+<td>node</td>
+<td>Object</td>
+<td>Node object of selected node</td>
+</tr>
+<tr>
+<td>$node</td>
+<td>TreeViewNode</td>
+<td>Selected node</td>
+</tr>
+</tbody>
+</table>
+<h4>@toggle</h4>
+<p>Emit when expanding or collapsing this node.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>expanded</td>
+<td>Boolean</td>
+<td>Expanded or Collapsed</td>
+</tr>
+<tr>
+<td>$node</td>
+<td>TreeViewNode</td>
+<td>Node to toggle</td>
+</tr>
+</tbody>
+</table>
+<h2>ListViewItem API</h2>
+<h3>Attrs/Props</h3>
+<table>
+<thead>
+<tr>
+<th>Attr/Prop</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>Any</td>
+<td></td>
+<td>Value of this item</td>
+</tr>
+<tr>
+<td>expanded.sync</td>
+<td>Any</td>
+<td></td>
+<td>Value of this item</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Disabled</td>
+</tr>
+</tbody>
+</table>
+<h3>Slots</h3>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(default)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>Events</h3>
+<h4>@select</h4>
+<p>Emit when selecting an node.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>Any</td>
+<td>Value of this node</td>
+</tr>
+<tr>
+<td>node</td>
+<td>Object</td>
+<td>Object of this node</td>
+</tr>
+<tr>
+<td>$node</td>
+<td>TreeViewNode</td>
+<td>This node</td>
+</tr>
+</tbody>
+</table>
+<h4>@toggle</h4>
+<p>Emit when expanding or collapsing this node.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>expanded</td>
+<td>Boolean</td>
+<td>Expanded or Collapsed</td>
+</tr>
+</tbody>
+</table>
+</article>
+                <!---->
+                <script>new Vue().$mount('#u-example-0');
+new Vue().$mount('#u-example-1');
+new Vue().$mount('#u-example-2');
+new Vue().$mount('#u-example-3');
+new Vue().$mount('#u-example-4');
+new Vue().$mount('#u-example-5');
+new Vue().$mount('#u-example-6');</script>
+            
+</body>
+</html>
