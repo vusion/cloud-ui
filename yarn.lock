@@ -835,9 +835,11 @@ u-base.vue@~0.2.0:
   dependencies:
     normalize.css "^7.0.0"
 
-u-button.vue@~0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/u-button.vue/-/u-button.vue-0.2.0.tgz#92a3ff803a1ef4399a35b8d3efdea7d6308ae7dd"
+u-button.vue@~0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/u-button.vue/-/u-button.vue-0.2.1.tgz#9180541d0651e93473772631082bd790e030de6e"
+  dependencies:
+    u-link.vue "~0.2.1"
 
 u-circular-progress.vue@~0.2.0:
   version "0.2.0"
@@ -853,36 +855,36 @@ u-field.vue@~0.1.1:
   dependencies:
     u-emitter.vue "~0.1.0"
 
-u-form-item.vue@~0.1.1:
+u-form-item.vue@~0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/u-form-item.vue/-/u-form-item.vue-0.1.3.tgz#f684a1b9c2539930f9cd8bef05a83f2d861e434e"
   dependencies:
     async-validator "^1.7.1"
     u-emitter.vue "~0.1.0"
 
-u-form.vue@~0.1.1:
+u-form.vue@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/u-form.vue/-/u-form.vue-0.1.2.tgz#5d863eb70a3f86a22b18aa6f907866251bb3c902"
   dependencies:
     async-validator "^1.7.1"
 
-u-input.vue@~0.1.1:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/u-input.vue/-/u-input.vue-0.1.2.tgz#314a2b21e67b406f8245371df2c4b36c779a6608"
+u-input.vue@~0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/u-input.vue/-/u-input.vue-0.1.3.tgz#f2a843d756b4f5f48c31818eb156bf84c87f08e6"
   dependencies:
     u-field.vue "~0.1.1"
 
-u-linear-layout.vue@~0.1.0:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/u-linear-layout.vue/-/u-linear-layout.vue-0.1.1.tgz#8aef94d639a1c68ce49b10dff129859432f8f177"
+u-linear-layout.vue@~0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/u-linear-layout.vue/-/u-linear-layout.vue-0.1.2.tgz#a79a5c9dcc98879b20d965e1410dc975be61d25d"
 
 u-linear-progress.vue@~0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/u-linear-progress.vue/-/u-linear-progress.vue-0.2.0.tgz#1e642b701832025a02cb4681a443d7d89e8c5fd9"
 
-u-link.vue@~0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/u-link.vue/-/u-link.vue-0.2.0.tgz#91bdb651d915c7e3cf558671584ebbf87da7a5a2"
+u-link.vue@~0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/u-link.vue/-/u-link.vue-0.2.1.tgz#1861f81382d4f8913937ca24d6860bf9fec319d0"
 
 u-list-view-item.vue@~0.2.0:
   version "0.2.0"

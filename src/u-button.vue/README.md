@@ -49,13 +49,41 @@
 
 ### 链接
 
-- 使用`v-href`指令添加普通链接
-- 使用`v-to`指令添加[vue-router](https://router.vuejs.org)链接
-
 ``` html
 <u-linear-layout>
-    <u-button v-href="'https://github.com/vusion/vusion'">Button</u-button>
-    <u-button v-to="'/some/router/path'">Button</u-button>
-    <u-button v-href="'https://github.com/vusion/vusion'" disabled>Button</u-button>
+    <u-button href="https://github.com/vusion/vusion">Button</u-button>
+    <u-button to="/some/router/path">Button</u-button>
+    <u-button href="https://github.com/vusion/vusion" disabled>Button</u-button>
 </u-linear-layout>
 ```
+
+## API
+### Attrs/Props
+
+| Attr/Prop | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| href | String |  | `href` property of link |
+| target | String |  | (native property) |
+| to | String \| Object |  | `to` property of `vue-router` |
+| replace | Boolean | `false` | |
+| append | Boolean | `false` | |
+| color | String | `''` | |
+| size | String | `''` | |
+| square | Boolean | `false` | |
+| disabled | Boolean | `false` | Disable the button |
+
+### Slots
+
+| Slot | Description |
+| ---- | ----------- |
+| (default) | Hold the text and can contain HTML |
+
+### Events
+
+#### $listeners
+
+Inherit all events from `<a>` element.
+
+#### @click
+
+#### @navigate

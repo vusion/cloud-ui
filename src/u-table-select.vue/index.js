@@ -17,6 +17,15 @@ export default {
             type: String,
             default: 'bottom-start',
         },
+        styleObject: {
+            type: Object,
+            default() {
+                return {
+                    width: '100%',
+                    marginLeft: '-30px',
+                };
+            },
+        },
     },
     components: {
         'u-popover': Popover,

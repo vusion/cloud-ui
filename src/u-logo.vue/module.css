@@ -3,6 +3,7 @@
     align-items: center;
 }
 
+/* Default Logo */
 .icon {
     width: 104px;
     height: 64px;
@@ -13,6 +14,15 @@
     background: url('./logo-c-2color.svg');
 }
 
+/* Logo extend */
+.root[name="c"] .icon {
+    background: url('./logo-c-white.svg');
+}
+
+.root[name="c"][color="2color"] .icon {
+    background: url('./logo-c-2color.svg');
+}
+
 .root[name="yiwu"] .icon {
     background: url('./logo-yiwu-white.svg');
 }
@@ -20,6 +30,15 @@
 .root[name="yiwu"][color="2color"] .icon {
     background: url('./logo-yiwu-2color.svg');
 }
+
+.root[name="163yun"] .icon {
+    background: url('./logo-163yun-white.svg');
+}
+
+.root[name="163yun"][color="2color"] .icon {
+    background: url('./logo-163yun-2color.svg');
+}
+
 
 .divider {
     margin: 0 1em;
