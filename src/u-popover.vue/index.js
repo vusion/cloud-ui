@@ -18,9 +18,7 @@ export default {
             default: 'bottom',
         },
         title: String,
-        width: {
-            type: String,
-        },
+        styleObject: Object,
         content: String,
         confirm: {
             type: Boolean,
