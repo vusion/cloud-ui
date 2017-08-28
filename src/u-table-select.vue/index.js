@@ -23,6 +23,9 @@ export default {
                 return {
                     width: '100%',
                     marginLeft: '-30px',
+                    marginTop: '35px',
+                    border: '1px solid #f1f1f1',
+                    padding: 0,
                 };
             },
         },

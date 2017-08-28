@@ -2,8 +2,18 @@
     display: block !important;
 }
 .title{
-    position: relative;
     cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    height: 46px;
+    line-height: 46px;
+    padding-left: 30px;
+}
+.title:hover{
+    background: #eef2f8;
 }
 .triangle{
     border: 5px solid transparent;

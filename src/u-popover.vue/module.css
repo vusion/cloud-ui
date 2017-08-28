@@ -2,7 +2,7 @@
     display: inline-block;
 }
 .reference{
-    position: relative;
+    /*position: relative;*/
 }
 .arrow, .arrow:after{
     display: block;
