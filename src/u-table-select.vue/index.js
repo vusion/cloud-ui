@@ -13,6 +13,10 @@ export default {
             type: String,
             default: 'value',
         },
+        placement: {
+            type: String,
+            default: 'bottom-start',
+        },
     },
     components: {
         'u-popover': Popover,
