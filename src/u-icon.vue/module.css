@@ -1,0 +1,1367 @@
+.root{
+    display: inline-block;
+}
+.root[name="warnning"]:before {
+    icon-font: url(./icons/warning.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="access_key"]:before {
+    icon-font: url(./icons/access_key.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="accessory"]:before {
+    icon-font: url(./icons/accessory.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="address"]:before {
+    icon-font: url(./icons/address.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="angle-bold-left"]:before {
+    icon-font: url(./icons/angle-bold-left.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="angle-down"]:before {
+    icon-font: url(./icons/angle-down.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="angle-left"]:before {
+    icon-font: url(./icons/angle-left.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="angle-right"]:before {
+    icon-font: url(./icons/angle-right.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="angle-up"]:before {
+    icon-font: url(./icons/angle-up.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="api"]:before {
+    icon-font: url(./icons/api.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="apm-alert"]:before {
+    icon-font: url(./icons/apm-alert.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="apm-screenshot"]:before {
+    icon-font: url(./icons/apm-screenshot.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="apm-topology"]:before {
+    icon-font: url(./icons/apm-topology.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="apm-warn"]:before {
+    icon-font: url(./icons/apm-warn.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="arrow-down"]:before {
+    icon-font: url(./icons/arrow-down.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="arrow-up"]:before {
+    icon-font: url(./icons/arrow-up.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="certification"]:before {
+    icon-font: url(./icons/certification.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="chain"]:before {
+    icon-font: url(./icons/chain.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="chart-refresh"]:before {
+    icon-font: url(./icons/chart-refresh.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="chart-zoom"]:before {
+    icon-font: url(./icons/chart-zoom.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="check"]:before {
+    icon-font: url(./icons/check.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="close"]:before {
+    icon-font: url(./icons/close.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="close-circle"]:before {
+    icon-font: url(./icons/close-circle.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="close-small"]:before {
+    icon-font: url(./icons/close-small.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="cloud"]:before {
+    icon-font: url(./icons/cloud.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="cloud-fill"]:before {
+    icon-font: url(./icons/cloud-fill.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="collection"]:before {
+    icon-font: url(./icons/collection.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="combcloud"]:before {
+    icon-font: url(./icons/combcloud.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="compute"]:before {
+    icon-font: url(./icons/compute.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="detail"]:before {
+    icon-font: url(./icons/detail.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="doc"]:before {
+    icon-font: url(./icons/doc.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="docker"]:before {
+    icon-font: url(./icons/docker.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="down"]:before {
+    icon-font: url(./icons/down.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="download"]:before {
+    icon-font: url(./icons/download.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="dropdown"]:before {
+    icon-font: url(./icons/dropdown.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="earphone"]:before {
+    icon-font: url(./icons/earphone.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="edit-circle"]:before {
+    icon-font: url(./icons/edit-circle.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="expire"]:before {
+    icon-font: url(./icons/expire.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="form-delete"]:before {
+    icon-font: url(./icons/form-delete.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="github"]:before {
+    icon-font: url(./icons/github.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="help"]:before {
+    icon-font: url(./icons/help.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="help-o"]:before {
+    icon-font: url(./icons/help-o.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-balance"]:before {
+    icon-font: url(./icons/home-balance.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-balance-thin"]:before {
+    icon-font: url(./icons/home-balance-thin.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-cache"]:before {
+    icon-font: url(./icons/home-cache.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-cache-thin"]:before {
+    icon-font: url(./icons/home-cache-thin.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-cdn"]:before {
+    icon-font: url(./icons/home-cdn.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-cdn-thin"]:before {
+    icon-font: url(./icons/home-cdn-thin.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-cluster"]:before {
+    icon-font: url(./icons/home-cluster.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-cluster-thin"]:before {
+    icon-font: url(./icons/home-cluster-thin.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-container"]:before {
+    icon-font: url(./icons/home-container.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-container-thin"]:before {
+    icon-font: url(./icons/home-container-thin.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-database"]:before {
+    icon-font: url(./icons/home-database.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-database-thin"]:before {
+    icon-font: url(./icons/home-database-thin.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-domain"]:before {
+    icon-font: url(./icons/home-domain.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-domain-thin"]:before {
+    icon-font: url(./icons/home-domain-thin.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-entrepot"]:before {
+    icon-font: url(./icons/home-entrepot.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-entrepot-thin"]:before {
+    icon-font: url(./icons/home-entrepot-thin.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-micro"]:before {
+    icon-font: url(./icons/home-micro.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-micro-thin"]:before {
+    icon-font: url(./icons/home-micro-thin.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-mongodb"]:before {
+    icon-font: url(./icons/home-mongodb.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-monitoring"]:before {
+    icon-font: url(./icons/home-monitoring.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-monitoring-thin"]:before {
+    icon-font: url(./icons/home-monitoring-thin.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-mount"]:before {
+    icon-font: url(./icons/home-mount.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-net"]:before {
+    icon-font: url(./icons/home-net.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-net-thin"]:before {
+    icon-font: url(./icons/home-net-thin.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-nqs"]:before {
+    icon-font: url(./icons/home-nqs.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-nqs-thin"]:before {
+    icon-font: url(./icons/home-nqs-thin.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-other"]:before {
+    icon-font: url(./icons/home-other.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-other-thin"]:before {
+    icon-font: url(./icons/home-other-thin.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-record"]:before {
+    icon-font: url(./icons/home-record.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-record-thin"]:before {
+    icon-font: url(./icons/home-record-thin.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-security"]:before {
+    icon-font: url(./icons/home-security.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-security-thin"]:before {
+    icon-font: url(./icons/home-security-thin.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-ssl"]:before {
+    icon-font: url(./icons/home-ssl.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-stop"]:before {
+    icon-font: url(./icons/home-stop.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-storage"]:before {
+    icon-font: url(./icons/home-storage.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-storage-thin"]:before {
+    icon-font: url(./icons/home-storage-thin.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-syslogd"]:before {
+    icon-font: url(./icons/home-syslogd.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-syslogd-thin"]:before {
+    icon-font: url(./icons/home-syslogd-thin.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-volume"]:before {
+    icon-font: url(./icons/home-volume.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-volume-thin"]:before {
+    icon-font: url(./icons/home-volume-thin.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-win"]:before {
+    icon-font: url(./icons/home-win.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="home-win-thin"]:before {
+    icon-font: url(./icons/home-win-thin.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="info"]:before {
+    icon-font: url(./icons/info.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="infra"]:before {
+    icon-font: url(./icons/infra.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="key"]:before {
+    icon-font: url(./icons/key.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="list-disable2"]:before {
+    icon-font: url(./icons/list-disable2.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="list-drag"]:before {
+    icon-font: url(./icons/list-drag.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="list-start"]:before {
+    icon-font: url(./icons/list-start.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="list_build"]:before {
+    icon-font: url(./icons/list_build.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="list_confirm"]:before {
+    icon-font: url(./icons/list_confirm.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="list_end"]:before {
+    icon-font: url(./icons/list_end.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="list_error"]:before {
+    icon-font: url(./icons/list_error.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="list_expire"]:before {
+    icon-font: url(./icons/list_expire.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="list_fix"]:before {
+    icon-font: url(./icons/list_fix.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="list_minus"]:before {
+    icon-font: url(./icons/list_minus.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="list_mount"]:before {
+    icon-font: url(./icons/list_mount.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="list_move"]:before {
+    icon-font: url(./icons/list_move.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="list_ok"]:before {
+    icon-font: url(./icons/list_ok.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="list_open"]:before {
+    icon-font: url(./icons/list_open.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="list_plus"]:before {
+    icon-font: url(./icons/list_plus.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="list_stop"]:before {
+    icon-font: url(./icons/list_stop.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="list_undisposed"]:before {
+    icon-font: url(./icons/list_undisposed.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="list_undo"]:before {
+    icon-font: url(./icons/list_undo.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="list_warn"]:before {
+    icon-font: url(./icons/list_warn.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="lock"]:before {
+    icon-font: url(./icons/lock.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="log-big"]:before {
+    icon-font: url(./icons/log-big.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="log-black"]:before {
+    icon-font: url(./icons/log-black.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="log-change"]:before {
+    icon-font: url(./icons/log-change.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="log-play"]:before {
+    icon-font: url(./icons/log-play.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="log-search"]:before {
+    icon-font: url(./icons/log-search.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="log-small"]:before {
+    icon-font: url(./icons/log-small.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="log-stop"]:before {
+    icon-font: url(./icons/log-stop.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="log-time"]:before {
+    icon-font: url(./icons/log-time.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="log-white"]:before {
+    icon-font: url(./icons/log-white.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="logout"]:before {
+    icon-font: url(./icons/logout.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="mail"]:before {
+    icon-font: url(./icons/mail.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="maintain"]:before {
+    icon-font: url(./icons/maintain.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="man"]:before {
+    icon-font: url(./icons/man.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="maximize"]:before {
+    icon-font: url(./icons/maximize.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="memcache"]:before {
+    icon-font: url(./icons/memcache.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="message"]:before {
+    icon-font: url(./icons/message.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="minus"]:before {
+    icon-font: url(./icons/minus.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="mobile"]:before {
+    icon-font: url(./icons/mobile.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="money"]:before {
+    icon-font: url(./icons/money.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="more"]:before {
+    icon-font: url(./icons/more.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="more2"]:before {
+    icon-font: url(./icons/more2.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="mouse"]:before {
+    icon-font: url(./icons/mouse.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="next"]:before {
+    icon-font: url(./icons/next.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="nos-plus"]:before {
+    icon-font: url(./icons/nos-plus.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="notice"]:before {
+    icon-font: url(./icons/notice.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="permission"]:before {
+    icon-font: url(./icons/permission.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="person-big"]:before {
+    icon-font: url(./icons/person-big.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="personal"]:before {
+    icon-font: url(./icons/personal.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="phone"]:before {
+    icon-font: url(./icons/phone.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="platform"]:before {
+    icon-font: url(./icons/platform.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="plus"]:before {
+    icon-font: url(./icons/plus.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="price_del"]:before {
+    icon-font: url(./icons/price_del.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="price_edit"]:before {
+    icon-font: url(./icons/price_edit.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="product-cloud"]:before {
+    icon-font: url(./icons/product-cloud.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="product-download"]:before {
+    icon-font: url(./icons/product-download.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="product-file"]:before {
+    icon-font: url(./icons/product-file.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="product-ugc"]:before {
+    icon-font: url(./icons/product-ugc.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="question"]:before {
+    icon-font: url(./icons/question.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="rabbitMQ"]:before {
+    icon-font: url(./icons/rabbitMQ.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="readonly"]:before {
+    icon-font: url(./icons/readonly.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="readonly2"]:before {
+    icon-font: url(./icons/readonly2.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="refresh"]:before {
+    icon-font: url(./icons/refresh.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="region"]:before {
+    icon-font: url(./icons/region.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="safe"]:before {
+    icon-font: url(./icons/safe.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="sam"]:before {
+    icon-font: url(./icons/sam.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="schema-modify"]:before {
+    icon-font: url(./icons/schema-modify.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="schema-record"]:before {
+    icon-font: url(./icons/schema-record.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="seal"]:before {
+    icon-font: url(./icons/seal.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="search"]:before {
+    icon-font: url(./icons/search.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="secret-public"]:before {
+    icon-font: url(./icons/secret-public.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="speaker"]:before {
+    icon-font: url(./icons/speaker.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="square-danger"]:before {
+    icon-font: url(./icons/square-danger.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="square-error"]:before {
+    icon-font: url(./icons/square-error.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="square-normal"]:before {
+    icon-font: url(./icons/square-normal.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="square-success"]:before {
+    icon-font: url(./icons/square-success.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="square-warning"]:before {
+    icon-font: url(./icons/square-warning.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="ssl"]:before {
+    icon-font: url(./icons/ssl.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="ssl2"]:before {
+    icon-font: url(./icons/ssl2.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="star"]:before {
+    icon-font: url(./icons/star.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="stateful"]:before {
+    icon-font: url(./icons/stateful.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="stateless"]:before {
+    icon-font: url(./icons/stateless.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="sub-account"]:before {
+    icon-font: url(./icons/sub-account.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="success"]:before {
+    icon-font: url(./icons/success.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="success2"]:before {
+    icon-font: url(./icons/success2.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="time"]:before {
+    icon-font: url(./icons/time.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="time2"]:before {
+    icon-font: url(./icons/time2.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="tools"]:before {
+    icon-font: url(./icons/tools.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="type-service"]:before {
+    icon-font: url(./icons/type-service.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="type-vm"]:before {
+    icon-font: url(./icons/type-vm.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="unpaid"]:before {
+    icon-font: url(./icons/unpaid.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="update"]:before {
+    icon-font: url(./icons/update.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="upload"]:before {
+    icon-font: url(./icons/upload.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="use"]:before {
+    icon-font: url(./icons/use.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="user"]:before {
+    icon-font: url(./icons/user.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="view-graph"]:before {
+    icon-font: url(./icons/view-graph.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="view-list"]:before {
+    icon-font: url(./icons/view-list.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="vpn"]:before {
+    icon-font: url(./icons/vpn.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="warning"]:before {
+    icon-font: url(./icons/warning.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="web-service"]:before {
+    icon-font: url(./icons/web-service.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="write"]:before {
+    icon-font: url(./icons/write.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="angle-bold-left"]:before {
+    icon-font: url(./icons/angle-bold-left.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="resource"]:before{
+    icon-font: url(./icons/resource.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+}
+.root[name="resource-double"]:before{
+    icon-font: url(./icons/resource-double.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+}
+.root[name="resource-use"]:before{
+    icon-font: url(./icons/resource-use.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+}
+.root[name="resource-use-double"]:before{
+    icon-font: url(./icons/resource-use-double.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+}
+.root[name="area"]:before{
+    icon-font: url(./icons/area.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+}
+.root[name="netease-cloud-logo"]:before{
+    icon-font: url(./icons/netease-cloud-logo.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+}
+.root[name="area"]:before{
+    icon-font: url(./icons/area.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+}
+.root[name="portrait"]:before{
+    icon-font: url(./icons/portrait.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+}
