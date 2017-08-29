@@ -1,17 +1,17 @@
-
-.root[size="small"] {
-    height: 18px;
-    width: 18px;
-}
-
 .root {
+    display: inline-block;
     height: 24px;
     width: 24px;
 }
 
+.root[size="small"] {
+    height: 16px;
+    width: 16px;
+}
+
 .root[size="large"]  {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
 }
 
 .svg {
@@ -19,32 +19,33 @@
     height: 100%;
 }
 
-.root .circle {
-    stroke-dasharray: 1, 155;
-    stroke-dashoffset: 0;
-    animation-fill-mode: forwards;
-    animation: dash 1.3s ease-in-out infinite;
+.circle {
     stroke-linecap: round;
     stroke-width: 4px;
     stroke: #dae1e6;
+    fill: none;
+    stroke-dasharray: 0,1000;
+    stroke-dashoffset: 0;
+    animation: dash 1.5s ease-out infinite;
 }
 
 @keyframes dash {
     0% {
-        stroke-dasharray: 0,155;
-        stroke-dashoffset: 0;
+        stroke-dasharray: 0,1000;
+        stroke-dashoffset: -111;
     }
-    33.3% {
-        stroke-dasharray: 68,155;
-        stroke-dashoffset: -30;
+
+    40% {
+        stroke-dasharray: 45,1000;
     }
+
     80% {
-        stroke-dasharray: 100,155;
-        stroke-dashoffset: -100;
+        stroke-dasharray: 0,1000;
+        stroke-dashoffset: 0;
     }
 
     100% {
-        stroke-dasharray: 137,155;
-        stroke-dashoffset: -137;
+        stroke-dasharray: 0,1000;
+        stroke-dashoffset: 0;
     }
 }
