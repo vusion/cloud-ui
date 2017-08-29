@@ -11,7 +11,7 @@ import Sidebar from './src/u-sidebar.vue';
 import SidebarItem from './src/u-sidebar-item.vue';
 import SidebarMenu from './src/u-sidebar-menu.vue';
 import Tabs from './src/u-tabs.vue';
-import Tab from './src/u-tab.vue';
+import Tab from 'u-tab.vue';
 import Pills from './src/u-pills.vue';
 import Pill from './src/u-pill.vue';
 import Capsules from './src/u-capsules.vue';

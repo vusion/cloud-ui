@@ -1,5 +1,4 @@
 import ListView from 'u-list-view.vue';
-import Pill from '../u-pill.vue';
 
 /**
  * @class Pills
@@ -15,7 +14,7 @@ const Pills = {
     mixins: [ListView],
     data() {
         return {
-            ChildComponent: Pill,
+            ChildComponent: 'u-pill',
         };
     },
     /**

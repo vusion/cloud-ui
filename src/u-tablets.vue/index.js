@@ -1,5 +1,4 @@
 import ListView from 'u-list-view.vue';
-import Tablet from '../u-tablet.vue';
 
 /**
  * @class Tablets
@@ -15,7 +14,7 @@ export default {
     mixins: [ListView],
     data() {
         return {
-            ChildComponent: Tablet,
+            ChildComponent: 'u-tablet',
         };
     },
     /**

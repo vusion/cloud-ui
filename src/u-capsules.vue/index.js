@@ -1,5 +1,4 @@
 import ListView from 'u-list-view.vue';
-import Capsule from '../u-capsule.vue';
 
 /**
  * @class Capsules
@@ -16,7 +15,7 @@ const Capsules = {
     mixins: [ListView],
     data() {
         return {
-            ChildComponent: Capsule,
+            ChildComponent: 'u-capsule',
         };
     },
     /**
