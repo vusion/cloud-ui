@@ -924,6 +924,16 @@ u-textarea.vue@~0.1.1:
   dependencies:
     u-field.vue "~0.1.1"
 
+u-tree-view-node.vue@^0.2.0, u-tree-view-node.vue@~0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/u-tree-view-node.vue/-/u-tree-view-node.vue-0.2.0.tgz#49ee2f929b5dc07c06176e07b99d0398469dbfb9"
+
+u-tree-view.vue@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/u-tree-view.vue/-/u-tree-view.vue-0.2.1.tgz#50ac88bf3ca9cc2a0c494c1db3ad216400f3e6a8"
+  dependencies:
+    u-tree-view-node.vue "~0.2.0"
+
 util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"

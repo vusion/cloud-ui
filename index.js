@@ -30,6 +30,8 @@ import TimePicker from './src/u-time-picker.vue';
 import Chart from './src/u-chart.vue';
 import PieChart from './src/u-pie-chart.vue';
 import LineChart from './src/u-line-chart.vue';
+import ListView from 'u-list-view.vue';
+import ListViewItem from 'u-list-view-item.vue';
 import BarChart from './src/u-bar-chart.vue';
 import DateTimePicker from './src/u-date-time-picker.vue';
 import Select from './src/u-select.vue';
@@ -44,6 +46,8 @@ import Field from './src/u-field.vue';
 import InputField from './src/u-input-field.vue';
 import TableView from './src/u-table-view.vue';
 import TableViewColumn from './src/u-table-view-column.vue';
+import TreeView from 'u-tree-view.vue';
+import TreeViewNode from 'u-tree-view-node.vue';
 import SelectColor from './src/u-select-color.vue';
 import Popper from './src/u-popper.vue';
 import Popover from './src/u-popover.vue';
@@ -57,6 +61,7 @@ import Tooltip from './src/u-tooltip.vue';
 import TableSelect from './src/u-table-select.vue';
 import TableCell from './src/u-table-cell.vue';
 import Icon from './src/u-icon.vue';
+import Loading from './src/u-loading.vue';
 
 const Components = {
     Base,
@@ -89,6 +94,8 @@ const Components = {
     Chart,
     PieChart,
     LineChart,
+    ListView,
+    ListViewItem,
     DateTimePicker,
     BarChart,
     Select,
@@ -103,6 +110,8 @@ const Components = {
     InputField,
     TableView,
     TableViewColumn,
+    TreeView,
+    TreeViewNode,
     SelectColor,
     Popper,
     Popover,
@@ -116,6 +125,7 @@ const Components = {
     TableSelect,
     TableCell,
     Icon,
+    Loading,
 };
 
 export {
@@ -149,6 +159,8 @@ export {
     Chart,
     PieChart,
     LineChart,
+    ListView,
+    ListViewItem,
     DateTimePicker,
     BarChart,
     Select,
@@ -163,6 +175,8 @@ export {
     InputField,
     TableView,
     TableViewColumn,
+    TreeView,
+    TreeViewNode,
     SelectColor,
     Popper,
     Popover,
@@ -176,6 +190,7 @@ export {
     TableSelect,
     TableCell,
     Icon,
+    Loading,
 };
 
 const Library = {
