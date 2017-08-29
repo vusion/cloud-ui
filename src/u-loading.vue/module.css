@@ -1,0 +1,50 @@
+
+.root[size="small"] {
+    height: 18px;
+    width: 18px;
+}
+
+.root {
+    height: 24px;
+    width: 24px;
+}
+
+.root[size="large"]  {
+    width: 48px;
+    height: 48px;
+}
+
+.svg {
+    width: 100%;
+    height: 100%;
+}
+
+.root .circle {
+    stroke-dasharray: 1, 155;
+    stroke-dashoffset: 0;
+    animation-fill-mode: forwards;
+    animation: dash 1.3s ease-in-out infinite;
+    stroke-linecap: round;
+    stroke-width: 4px;
+    stroke: #dae1e6;
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 0,155;
+        stroke-dashoffset: 0;
+    }
+    33.3% {
+        stroke-dasharray: 68,155;
+        stroke-dashoffset: -30;
+    }
+    80% {
+        stroke-dasharray: 100,155;
+        stroke-dashoffset: -100;
+    }
+
+    100% {
+        stroke-dasharray: 137,155;
+        stroke-dashoffset: -137;
+    }
+}

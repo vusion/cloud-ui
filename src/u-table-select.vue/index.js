@@ -7,7 +7,7 @@ export default {
             type: String,
             default: '标题',
         },
-        value: [String, Number],
+        value: [String, Number, Boolean],
         options: Array,
         keyValue: {
             type: String,
