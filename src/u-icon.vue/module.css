@@ -21,5 +21,52 @@
     vertical-align: -7px;
     font-size: 24px;
     margin-right: 6px;
-    color: #3ad0af;
+}
+.root[name="arrow-up"]:before {
+    icon-font: url(./icons/arrow-up.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+}
+.root[name="arrow-down"]:before {
+    icon-font: url(./icons/arrow-down.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+}
+.root[name="angle-left"]:before {
+    icon-font: url(./icons/angle-left.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+}
+.root[name="angle-right"]:before {
+    icon-font: url(./icons/angle-right.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+}
+.root[name="refresh"]:before {
+    icon-font: url(./icons/refresh.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+}
+.root[name="logout"]:before {
+    icon-font: url(./icons/logout.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+}
+.root[name="search"]:before {
+    icon-font: url(./icons/search.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+}
+.root[name="apm-alert"]:before {
+    icon-font: url(./icons/apm-alert.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
 }

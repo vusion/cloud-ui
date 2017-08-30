@@ -9,6 +9,27 @@
 ``` html
 <u-icon name="portrait">设置</u-icon>
 ```
+``` html
+<u-icon name="angle-left">设置</u-icon>
+```
+``` html
+<u-icon name="angle-right">设置</u-icon>
+```
+``` html
+<u-icon name="arrow-down">设置</u-icon>
+```
+``` html
+<u-icon name="arrow-up">设置</u-icon>
+```
+``` html
+<u-icon name="refresh">设置</u-icon>
+```
+``` html
+<u-icon name="search">设置</u-icon>
+```
+``` html
+<u-icon name="apm-alert">设置</u-icon>
+```
 
 #### 命令式
 
