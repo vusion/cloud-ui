@@ -1,0 +1,28 @@
+.root[name="list_ok"]:before {
+    icon-font: url(../u-icon.vue/icons/list_ok.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="list_fix"]:before {
+    icon-font: url(../u-icon.vue/icons/list_fix.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="list_stop"]:before {
+    icon-font: url(../u-icon.vue/icons/list_stop.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
+.root[name="list_warn"]:before {
+    icon-font: url(../u-icon.vue/icons/list_warn.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 6px;
+    color: #3ad0af;
+}
