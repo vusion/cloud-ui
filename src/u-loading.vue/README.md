@@ -10,3 +10,10 @@
     <u-loading size="large"></u-loading>
 </u-linear-layout>
 ```
+## API
+### Attrs/Props
+| Attr/Prop | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| size | String | default size is 24px, other value is small/large | decide u-loading size(16 24 40) |
+
+
