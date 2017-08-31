@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="docs.css">
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<link rel="stylesheet" type="text/css" href="vusion-icon-font.css">
+<script src="docs.js"></script>
+</head>
+<body>
+
+                <article class="u-article"><h1>列表视图（ListView）</h1>
+<h2>示例</h2>
+<h3>基本形式</h3>
+<p>有两种书写方式，这里推荐使用Tag方式，使用起来更加灵活。</p>
+<h4>Tag方式</h4>
+<div id="u-example-0" class="u-example"><u-list-view><u-list-view-item>苹果</u-list-view-item><u-list-view-item>香蕉</u-list-view-item><u-list-view-item>蛋糕</u-list-view-item></u-list-view></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-list-view</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span>&gt;</span>苹果<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span>&gt;</span>香蕉<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span>&gt;</span>蛋糕<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view</span>&gt;</span>
+</code></pre>
+<h4>Data方式</h4>
+<div id="u-example-1" class="u-example"><u-list-view :data="[
+    { text: '苹果' },
+    { text: '香蕉' },
+    { text: '蛋糕' },
+]"></u-list-view></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-list-view</span> <span class="hljs-attr">:data</span>=<span class="hljs-string">"[
+    { text: '苹果' },
+    { text: '香蕉' },
+    { text: '蛋糕' },
+]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view</span>&gt;</span>
+</code></pre>
+<h3>选项值</h3>
+<h4>Tag方式</h4>
+<div id="u-example-2" class="u-example"><u-list-view value="C"><u-list-view-item value="A">苹果</u-list-view-item><u-list-view-item value="B">香蕉</u-list-view-item><u-list-view-item value="C">蛋糕</u-list-view-item></u-list-view></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-list-view</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"A"</span>&gt;</span>苹果<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"B"</span>&gt;</span>香蕉<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>蛋糕<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view</span>&gt;</span>
+</code></pre>
+<h4>Data方式</h4>
+<div id="u-example-3" class="u-example"><u-list-view value="C" :data="[
+    { text: '苹果', value: 'A' },
+    { text: '香蕉', value: 'B' },
+    { text: '蛋糕', value: 'C' },
+]"></u-list-view></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-list-view</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span> <span class="hljs-attr">:data</span>=<span class="hljs-string">"[
+    { text: '苹果', value: 'A' },
+    { text: '香蕉', value: 'B' },
+    { text: '蛋糕', value: 'C' },
+]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view</span>&gt;</span>
+</code></pre>
+<h3>只读、禁用、禁用某一项</h3>
+<h4>Tag方式</h4>
+<div id="u-example-4" class="u-example"><u-list-view value="C" readonly><u-list-view-item value="A">苹果</u-list-view-item><u-list-view-item value="B">香蕉</u-list-view-item><u-list-view-item value="C">蛋糕</u-list-view-item></u-list-view><u-list-view value="C" disabled><u-list-view-item value="A">苹果</u-list-view-item><u-list-view-item value="B">香蕉</u-list-view-item><u-list-view-item value="C">蛋糕</u-list-view-item></u-list-view><u-list-view value="C"><u-list-view-item value="A">苹果</u-list-view-item><u-list-view-item value="B" disabled>香蕉</u-list-view-item><u-list-view-item value="C">蛋糕</u-list-view-item></u-list-view></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-list-view</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span> <span class="hljs-attr">readonly</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"A"</span>&gt;</span>苹果<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"B"</span>&gt;</span>香蕉<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>蛋糕<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">u-list-view</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span> <span class="hljs-attr">disabled</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"A"</span>&gt;</span>苹果<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"B"</span>&gt;</span>香蕉<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>蛋糕<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">u-list-view</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"A"</span>&gt;</span>苹果<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"B"</span> <span class="hljs-attr">disabled</span>&gt;</span>香蕉<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>蛋糕<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view</span>&gt;</span>
+</code></pre>
+<h4>Data方式</h4>
+<div id="u-example-5" class="u-example"><u-list-view value="C" :data="[
+    { text: '苹果', value: 'A' },
+    { text: '香蕉', value: 'B', disabled: true },
+    { text: '蛋糕', value: 'C' },
+]"></u-list-view></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-list-view</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span> <span class="hljs-attr">:data</span>=<span class="hljs-string">"[
+    { text: '苹果', value: 'A' },
+    { text: '香蕉', value: 'B', disabled: true },
+    { text: '蛋糕', value: 'C' },
+]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view</span>&gt;</span>
+</code></pre>
+<h3>可取消</h3>
+<p>尝试在同一个选项上点击两次。</p>
+<div id="u-example-6" class="u-example"><u-list-view value="C" cancelable><u-list-view-item value="A">苹果</u-list-view-item><u-list-view-item value="B">香蕉</u-list-view-item><u-list-view-item value="C">蛋糕</u-list-view-item></u-list-view></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-list-view</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span> <span class="hljs-attr">cancelable</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"A"</span>&gt;</span>苹果<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"B"</span>&gt;</span>香蕉<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>蛋糕<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view</span>&gt;</span>
+</code></pre>
+<h3>多项</h3>
+<div id="u-example-7" class="u-example"><u-list-view multiple v-model="value"><u-list-view-item value="A">苹果</u-list-view-item><u-list-view-item value="B">香蕉</u-list-view-item><u-list-view-item value="C">蛋糕</u-list-view-item></u-list-view><p>value: {{ value }}<p></div>
+<pre class="hljs lang-vue"><code><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">u-list-view</span> <span class="hljs-attr">multiple</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"value"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"A"</span>&gt;</span>苹果<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"B"</span>&gt;</span>香蕉<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-list-view-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>蛋糕<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view-item</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-list-view</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>value: {{ value }}<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+    data() {
+        <span class="hljs-keyword">return</span> { <span class="hljs-attr">value</span>: [<span class="hljs-string">'B'</span>, <span class="hljs-string">'C'</span>] };
+    },
+};
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<h2>ListView API</h2>
+<h3>Attrs/Props</h3>
+<table>
+<thead>
+<tr>
+<th>Attr/Prop</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data</td>
+<td>Array&lt;{ text, value }&gt;</td>
+<td></td>
+<td>Data书写方式中的数据列表</td>
+</tr>
+<tr>
+<td>value.sync, v-model</td>
+<td>Any</td>
+<td></td>
+<td>当前选择的值</td>
+</tr>
+<tr>
+<td>field</td>
+<td>String</td>
+<td><code>'text'</code></td>
+<td>显示文本字段</td>
+</tr>
+<tr>
+<td>cancelable</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>是否可以取消选择</td>
+</tr>
+<tr>
+<td>multiple</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>是否可以多选</td>
+</tr>
+<tr>
+<td>readonly</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>是否只读</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>是否禁用</td>
+</tr>
+</tbody>
+</table>
+<h3>Slots</h3>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(default)</td>
+<td>在插槽中插入<code>&lt;u-list-view-item&gt;</code>子组件</td>
+</tr>
+</tbody>
+</table>
+<h3>Events</h3>
+<h4>@before-select</h4>
+<p>选择某一项前触发</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$event.value</td>
+<td>Any</td>
+<td>选择项的值</td>
+</tr>
+<tr>
+<td>$event.oldValue</td>
+<td>Any</td>
+<td>旧的值</td>
+</tr>
+<tr>
+<td>$event.item</td>
+<td>Object</td>
+<td>选择项相关对象</td>
+</tr>
+<tr>
+<td>$event.$item</td>
+<td>ListViewItem</td>
+<td>选择项子组件</td>
+</tr>
+<tr>
+<td>$event.preventDefault</td>
+<td>Function</td>
+<td>阻止选择流程</td>
+</tr>
+</tbody>
+</table>
+<h4>@input</h4>
+<p>选择某一项时触发</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$event</td>
+<td>Any</td>
+<td>选择项的值</td>
+</tr>
+</tbody>
+</table>
+<h4>@select</h4>
+<p>选择某一项时触发</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$event.value</td>
+<td>Any</td>
+<td>改变后的值</td>
+</tr>
+<tr>
+<td>$event.oldValue</td>
+<td>Any</td>
+<td>旧的值</td>
+</tr>
+<tr>
+<td>$event.item</td>
+<td>Object</td>
+<td>单选模式中，选择项相关对象</td>
+</tr>
+<tr>
+<td>$event.$item</td>
+<td>ListViewItem</td>
+<td>单选模式中，选择项子组件</td>
+</tr>
+<tr>
+<td>$event.items</td>
+<td>Array&lt;Object&gt;</td>
+<td>多选模式中，所有选中项相关对象的数组</td>
+</tr>
+<tr>
+<td>$event.$item</td>
+<td>Array&lt;ListViewItem&gt;</td>
+<td>多选模式中，所有选中项子组件的数组</td>
+</tr>
+</tbody>
+</table>
+<h2>ListViewItem API</h2>
+<h3>Attrs/Props</h3>
+<table>
+<thead>
+<tr>
+<th>Attr/Prop</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>Any</td>
+<td></td>
+<td>此项的值</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>禁用此项</td>
+</tr>
+<tr>
+<td>item</td>
+<td>Object</td>
+<td></td>
+<td>相关对象。当选择此项时，抛出的事件会传递该对象，便于开发</td>
+</tr>
+</tbody>
+</table>
+<h3>Slots</h3>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(default)</td>
+<td>在插槽中插入文本或HTML</td>
+</tr>
+</tbody>
+</table>
+<h3>Events</h3>
+<h4>@before-select</h4>
+<p>选择此项前触发</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$event.value</td>
+<td>Any</td>
+<td>此项的值</td>
+</tr>
+<tr>
+<td>$event.item</td>
+<td>Object</td>
+<td>此项的相关对象</td>
+</tr>
+<tr>
+<td>$event.$item</td>
+<td>ListViewItem</td>
+<td>此组件</td>
+</tr>
+<tr>
+<td>$event.preventDefault</td>
+<td>Function</td>
+<td>阻止选择流程</td>
+</tr>
+</tbody>
+</table>
+</article>
+                <!---->
+                <script>new Vue().$mount('#u-example-0');
+new Vue().$mount('#u-example-1');
+new Vue().$mount('#u-example-2');
+new Vue().$mount('#u-example-3');
+new Vue().$mount('#u-example-4');
+new Vue().$mount('#u-example-5');
+new Vue().$mount('#u-example-6');
+new Vue({
+    data() {
+        return { value: ['B', 'C'] };
+    },
+}).$mount('#u-example-7');</script>
+            
+</body>
+</html>
