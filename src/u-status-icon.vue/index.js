@@ -1,5 +1,5 @@
 export default {
-    name: 'u-icon-svg',
+    name: 'u-status-icon',
     props: {
         name: String,
     },
