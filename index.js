@@ -6,6 +6,7 @@ import Button from './src/u-button.vue';
 import LinearProgress from 'u-linear-progress.vue';
 import LinearLayout from 'u-linear-layout.vue';
 // import CircularProgress from 'u-circular-progress.vue';
+import Checkbox from 'u-checkbox.vue';
 import Pagination from './src/u-pagination.vue';
 import Sidebar from './src/u-sidebar.vue';
 import SidebarItem from './src/u-sidebar-item.vue';
@@ -70,6 +71,7 @@ const Components = {
     Button,
     LinearProgress,
     LinearLayout,
+    Checkbox,
     CircularProgress,
     Pagination,
     Sidebar,
@@ -135,6 +137,7 @@ export {
     Button,
     LinearProgress,
     LinearLayout,
+    Checkbox,
     CircularProgress,
     Pagination,
     Sidebar,
