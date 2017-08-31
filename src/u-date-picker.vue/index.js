@@ -17,7 +17,7 @@ import directive from '../util/directives.js';
 export default {
     name: 'u-date-picker',
     props: {
-        date: [String, Number],
+        date: [String, Number, Date],
         minDate: [String, Number, Object],
         maxDate: [String, Number, Object],
         disabled: [Boolean, String],

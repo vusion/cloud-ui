@@ -17,7 +17,7 @@
 
 ### 最大值maxDate 最小值minDate
 ``` html
-<u-date-picker date="2018-08-08" min-date="2010-08-08" max-date="2019-08-08"></u-date-picker>
+<u-date-picker date="2018-08-08" min-date="2018-08-06" max-date="2018-08-18"></u-date-picker>
 ```
 
 ### 禁用
