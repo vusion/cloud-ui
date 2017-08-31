@@ -60,7 +60,7 @@ import CircularSpecificProgress from './src/u-circular-specific-progress.vue';
 import Tooltip from './src/u-tooltip.vue';
 import TableSelect from './src/u-table-select.vue';
 import TableCell from './src/u-table-cell.vue';
-import IconSvg from './src/u-icon-svg.vue';
+import IconSvg from './src/u-icon.vue';
 import Loading from './src/u-loading.vue';
 import StatusIcon from './src/u-status-icon.vue';
 
