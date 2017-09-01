@@ -9,7 +9,7 @@ import EventUtil from '../util/event.js';
  * @param {string|number}     options.width               => 输入框长度
  */
 const SelectColor = {
-    name: 'u-select-color',
+    name: 'u-color-select',
     props: {
         options: Array,
         readonly: Boolean,

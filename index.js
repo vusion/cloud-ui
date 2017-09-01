@@ -6,7 +6,6 @@ import Button from './src/u-button.vue';
 import LinearProgress from 'u-linear-progress.vue';
 import LinearLayout from 'u-linear-layout.vue';
 import Checkbox from 'u-checkbox.vue';
-import CircularProgress from 'u-circular-progress.vue';
 import Pagination from './src/u-pagination.vue';
 import Sidebar from './src/u-sidebar.vue';
 import SidebarItem from './src/u-sidebar-item.vue';
@@ -50,7 +49,7 @@ import TableViewColumn from './src/u-table-view-column.vue';
 import TreeView from 'u-tree-view.vue';
 import TreeViewNode from 'u-tree-view-node.vue';
 import Textarea from 'u-textarea.vue';
-import SelectColor from './src/u-select-color.vue';
+import ColorSelect from './src/u-color-select.vue';
 import Popper from './src/u-popper.vue';
 import Popover from './src/u-popover.vue';
 import Badge from './src/u-badge.vue';
@@ -58,7 +57,7 @@ import Input from './src/u-input.vue';
 import Form from './src/u-form.vue';
 import FormItem from './src/u-form-item.vue';
 import Logo from './src/u-logo.vue';
-import CircularSpecificProgress from './src/u-circular-specific-progress.vue';
+import CircularProgress from './src/u-circular-progress.vue';
 import Tooltip from './src/u-tooltip.vue';
 import TableSelect from './src/u-table-select.vue';
 import TableCell from './src/u-table-cell.vue';
@@ -117,7 +116,7 @@ const Components = {
     TreeView,
     TreeViewNode,
     Textarea,
-    SelectColor,
+    ColorSelect,
     Popper,
     Popover,
     Badge,
@@ -125,7 +124,6 @@ const Components = {
     Form,
     FormItem,
     Logo,
-    CircularSpecificProgress,
     Tooltip,
     TableSelect,
     TableCell,
@@ -185,7 +183,7 @@ export {
     TreeView,
     TreeViewNode,
     Textarea,
-    SelectColor,
+    ColorSelect,
     Popper,
     Popover,
     Badge,
@@ -193,7 +191,6 @@ export {
     Form,
     FormItem,
     Logo,
-    CircularSpecificProgress,
     Tooltip,
     TableSelect,
     TableCell,

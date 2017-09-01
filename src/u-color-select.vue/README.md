@@ -6,7 +6,7 @@
 ### 方法
 ``` vue
 <template>
-<u-select-color :options="options" :value="value" @select="select($event.value)"></u-select-color>
+<u-color-select :options="options" :value="value" @select="select($event.value)"></u-color-select>
 </template>
 
 <script>

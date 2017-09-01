@@ -30,6 +30,12 @@
 ``` html
 <u-icon-svg name="apm-alert">设置</u-icon-svg>
 ```
+``` html
+<u-icon-svg name="logout">设置</u-icon-svg>
+```
+``` html
+<u-icon-svg name="dropdown">设置</u-icon-svg>
+```
 
 #### 命令式
 

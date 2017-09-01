@@ -24,8 +24,8 @@ const Calendar = {
         },
         readonly: [String, Boolean],
         disabled: [String, Boolean],
-        minDate: [String, Object, Number],
-        maxDate: [String, Object, Number],
+        minDate: [String, Date, Number],
+        maxDate: [String, Date, Number],
         yearDiff: {
             type: [String, Number],
             default: 3,
