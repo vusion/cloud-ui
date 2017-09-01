@@ -1,7 +1,7 @@
 import Popper from 'popper.js';
 import Vue from 'vue';
 export default {
-    name: 'u-popper-plus',
+    name: 'u-popper-pro',
     props: {
         visibleControl: {
             type: Boolean,

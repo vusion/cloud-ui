@@ -52,6 +52,7 @@ import Textarea from 'u-textarea.vue';
 import ColorSelect from './src/u-color-select.vue';
 import Popper from './src/u-popper.vue';
 import Popover from './src/u-popover.vue';
+import PopperPro from './src/u-popper-pro.vue';
 import Badge from './src/u-badge.vue';
 import Input from './src/u-input.vue';
 import Form from './src/u-form.vue';
@@ -119,6 +120,7 @@ const Components = {
     ColorSelect,
     Popper,
     Popover,
+    PopperPro,
     Badge,
     Input,
     Form,
@@ -186,6 +188,7 @@ export {
     ColorSelect,
     Popper,
     Popover,
+    PopperPro,
     Badge,
     Input,
     Form,
