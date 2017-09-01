@@ -1,18 +1,12 @@
 @import 'u-form-item.vue/module.css';
 
 .root {
-    composes: item from '../u-form.vue/module.css';
     margin-bottom: 30px;
 }
 
 .title {
-    composes: item-title from '../u-form.vue/module.css';
-    padding: 9px 0;
     color: #999;
-}
-
-.field {
-    composes: item-field from '../u-form.vue/module.css';
+    margin-right: 10px;
 }
 
 .message {
@@ -45,4 +39,8 @@
 
 .message[color="error"]:after {
     border-right-color: #ff867f;
+}
+
+.root[placement="bottom"] .message:after {
+    display: none;
 }

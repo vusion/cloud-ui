@@ -1,9 +1,14 @@
 @import 'u-input.vue/module.css';
 
+.root {
+    max-width: 100%;
+}
+
 .input {
-    width: 440px;
-    height: 40px;
-    padding: 0 12px;
+    width: 200px;
+    max-width: 100%;
+    height: $height-base;
+    padding: 0 10px;
     color: #666;
     border-color: #e1e8ed;
     border-radius: 3px;
@@ -29,7 +34,7 @@
     border-color: #e9f0f5;
 }
 
-.input[size="small"] {
-    width: 200px;
-    height: 34px;
-}
+.input[size$="large"] { width: 440px; padding: 0 12px; }
+.input[size^="large"] { height: 40px; }
+.input[size$="small"] { width: 140px; padding: 0 8px; }
+.input[size^="small"] { height: 28px; }

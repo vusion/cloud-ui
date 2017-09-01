@@ -49,6 +49,7 @@ import TableView from './src/u-table-view.vue';
 import TableViewColumn from './src/u-table-view-column.vue';
 import TreeView from 'u-tree-view.vue';
 import TreeViewNode from 'u-tree-view-node.vue';
+import Textarea from 'u-textarea.vue';
 import SelectColor from './src/u-select-color.vue';
 import Popper from './src/u-popper.vue';
 import Popover from './src/u-popover.vue';
@@ -115,6 +116,7 @@ const Components = {
     TableViewColumn,
     TreeView,
     TreeViewNode,
+    Textarea,
     SelectColor,
     Popper,
     Popover,
@@ -182,6 +184,7 @@ export {
     TableViewColumn,
     TreeView,
     TreeViewNode,
+    Textarea,
     SelectColor,
     Popper,
     Popover,

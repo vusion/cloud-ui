@@ -8,7 +8,7 @@
     <u-form-item title="计费方式">
     </u-form-item>
     <u-form-item title="实例名称">
-        <u-input maxlength="63" placeholder="由1-63个小写字母，数字，中划线组成，以字母开头，字母或数字结尾"></u-input>
+        <u-input size="large" maxlength="63" placeholder="由1-63个小写字母，数字，中划线组成，以字母开头，字母或数字结尾"></u-input>
     </u-form-item>
     <u-form-item title="规格">
         <u-capsules value="0101">
@@ -22,7 +22,33 @@
         </u-capsules>
     </u-form-item>
     <u-form-item title="端口号">
-        <u-input maxlength="5" placeholder="1150-65535" value="3306"></u-input>
+        <u-input size="large" maxlength="5" placeholder="1150-65535" value="3306"></u-input>
+    </u-form-item>
+    <u-form-item title="详情">
+        <u-textarea></u-textarea>
+    </u-form-item>
+    <u-form-item title="表格" layout="block">
+        <u-table-view :data="[{
+            date: '2016-05-02',
+            name: '王小虎',
+            address: '上海市普陀区金沙江路 1518 弄',
+        }, {
+            date: '2016-05-04',
+            name: '王大虎',
+            address: '上海市普陀区金沙江路 1517 弄'
+        }, {
+            date: '2016-05-01',
+            name: '天王盖地虎',
+            address: '上海市普陀区金沙江路 1519 弄'
+        }, {
+            date: '2016-05-03',
+            name: '小鸡炖蘑菇',
+            address: '上海市普陀区金沙江路 1516 弄'
+        }]">
+            <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
+            <u-table-view-column title="姓名" label="name"></u-table-view-column>
+            <u-table-view-column title="地址" label="address"></u-table-view-column>
+        </u-table-view>
     </u-form-item>
     <u-form-item>
         <u-button color="primary">立即创建</u-button>
@@ -33,15 +59,15 @@
 ### 行内
 
 ``` html
-<u-form inline>
+<u-form layout="inline" label-size="auto">
     <u-form-item title="状态">
-        <u-input size="small" maxlength="63" placeholder="认证中"></u-input>
+        <u-input maxlength="63" placeholder="认证中"></u-input>
     </u-form-item>
     <u-form-item title="用户名">
-        <u-input size="small" maxlength="63" placeholder="请输入用户名"></u-input>
+        <u-input maxlength="63" placeholder="请输入用户名"></u-input>
     </u-form-item>
     <u-form-item title="联系号码">
-        <u-input size="small" maxlength="63" placeholder="请输入联系号码"></u-input>
+        <u-input maxlength="63" placeholder="请输入联系号码"></u-input>
     </u-form-item>
     <u-form-item>
         <u-button color="primary">查询</u-button>
@@ -75,7 +101,7 @@
 ``` vue
 <template>
 <u-form-item title="用户名" :rules="rules">
-    <u-input maxlength="112" placeholder="4~12位字母、数字或中划线组成"></u-input>
+    <u-input size="large" maxlength="112" placeholder="4~12位字母、数字或中划线组成"></u-input>
 </u-form-item>
 </template>
 
@@ -104,10 +130,10 @@ export default {
 <template>
 <u-form ref="form" :rules="rules">
     <u-form-item title="用户名" name="username">
-        <u-input maxlength="12" placeholder="4~12个字符"></u-input>
+        <u-input size="large" maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>
     <u-form-item title="邮箱" name="email">
-        <u-input maxlength="24" placeholder="请输入邮箱"></u-input>
+        <u-input size="large" maxlength="24" placeholder="请输入邮箱"></u-input>
     </u-form-item>
 </u-form>
 </template>
@@ -165,10 +191,10 @@ export default {
 <template>
 <u-form ref="form" :rules="rules">
     <u-form-item title="用户名" name="username">
-        <u-input maxlength="12" placeholder="4~12个字符"></u-input>
+        <u-input size="large" maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>
     <u-form-item title="邮箱" name="email">
-        <u-input maxlength="24" placeholder="请输入邮箱"></u-input>
+        <u-input size="large" maxlength="24" placeholder="请输入邮箱"></u-input>
     </u-form-item>
     <u-form-item>
         <u-button color="primary" @click="submit()">提交</u-button>
@@ -211,10 +237,10 @@ export default {
 <template>
 <u-form ref="form" :rules="rules">
     <u-form-item title="用户名" name="username">
-        <u-input maxlength="12" placeholder="4~12个字符"></u-input>
+        <u-input size="large" maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>
     <u-form-item title="邮箱" name="email">
-        <u-input maxlength="24" placeholder="请输入邮箱"></u-input>
+        <u-input size="large" maxlength="24" placeholder="请输入邮箱"></u-input>
     </u-form-item>
 </u-form>
 </template>
@@ -249,10 +275,10 @@ export default {
 <template>
 <u-form ref="form" :rules="rules">
     <u-form-item title="用户名" name="username">
-        <u-input maxlength="12" placeholder="4~12个字符"></u-input>
+        <u-input size="large" maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>
     <u-form-item title="邮箱" name="email">
-        <u-input maxlength="24" placeholder="请输入邮箱"></u-input>
+        <u-input size="large" maxlength="24" placeholder="请输入邮箱"></u-input>
     </u-form-item>
 </u-form>
 </template>
@@ -284,7 +310,7 @@ export default {
 ``` html
 <u-form>
     <u-form-item title="用户名">
-        <u-input maxlength="4" placeholder="不超过4个字符"></u-input>
+        <u-input size="large" maxlength="4" placeholder="不超过4个字符"></u-input>
     </u-form-item>
 </u-form>
 ```
@@ -305,13 +331,13 @@ export default {
 <template>
 <u-form ref="form" :rules="rules">
     <u-form-item title="用户名" name="username">
-        <u-input v-model="model.username" maxlength="12" placeholder="4~12个字符"></u-input>
+        <u-input size="large" v-model="model.username" maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>
     <u-form-item title="邮箱" name="email">
-        <u-input v-model="model.email" maxlength="24" placeholder="请输入邮箱"></u-input>
+        <u-input size="large" v-model="model.email" maxlength="24" placeholder="请输入邮箱"></u-input>
     </u-form-item>
     <u-form-item title="手机号码" name="phone">
-        <u-input v-model="model.phone" maxlength="11" placeholder="请输入手机号码"></u-input>
+        <u-input size="large" v-model="model.phone" maxlength="11" placeholder="请输入手机号码"></u-input>
     </u-form-item>
     <u-form-item>
         <u-button color="primary" @click="submit()">提交</u-button>
@@ -364,13 +390,13 @@ export default {
 <template>
 <u-form ref="form" :rules="rules">
     <u-form-item title="用户名" name="username">
-        <u-input v-model="model.username" maxlength="12" placeholder="4~12个字符"></u-input>
+        <u-input size="large" v-model="model.username" maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>
     <u-form-item title="邮箱" name="email">
-        <u-input v-model="model.email" maxlength="24" placeholder="请输入邮箱"></u-input>
+        <u-input size="large" v-model="model.email" maxlength="24" placeholder="请输入邮箱"></u-input>
     </u-form-item>
     <u-form-item title="手机号码" name="phone">
-        <u-input v-model="model.phone" maxlength="11" placeholder="请输入手机号码"></u-input>
+        <u-input size="large" v-model="model.phone" maxlength="11" placeholder="请输入手机号码"></u-input>
     </u-form-item>
     <u-form-item>
         <u-button color="primary" :disabled="!canSubmit" @click="submit()">提交</u-button>
@@ -428,13 +454,13 @@ export default {
 <template>
 <u-form ref="form" :rules="rules" @validate="canSubmit = $event">
     <u-form-item title="用户名" name="username">
-        <u-input v-model="model.username" maxlength="12" placeholder="4~12个字符"></u-input>
+        <u-input size="large" v-model="model.username" maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>
     <u-form-item title="邮箱" name="email">
-        <u-input v-model="model.email" maxlength="24" placeholder="请输入邮箱"></u-input>
+        <u-input size="large" v-model="model.email" maxlength="24" placeholder="请输入邮箱"></u-input>
     </u-form-item>
     <u-form-item title="手机号码" name="phone">
-        <u-input v-model="model.phone" maxlength="11" placeholder="请输入手机号码"></u-input>
+        <u-input size="large" v-model="model.phone" maxlength="11" placeholder="请输入手机号码"></u-input>
     </u-form-item>
     <u-form-item>
         <u-button color="primary" :disabled="!canSubmit" @click="submit()">提交</u-button>
