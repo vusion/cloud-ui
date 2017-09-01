@@ -36,9 +36,9 @@ export default {
         };
     },
     created() {
-        const minDate = new Date(this.minDate);
-        const maxDate = new Date(this.maxDate);
-        if (minDate && maxDate) {
+        if (this.minDate && this.maxDate) {
+            const minDate = new Date(this.minDate);
+            const maxDate = new Date(this.maxDate);
             if (minDate / MS_OF_DAY >> 0 > maxDate / MS_OF_DAY >> 0)
                 throw new Calendar.DateRangeError(minDate, maxDate);
         }
