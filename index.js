@@ -65,6 +65,8 @@ import TableCell from './src/u-table-cell.vue';
 import IconSvg from './src/u-icon.vue';
 import Loading from './src/u-loading.vue';
 import StatusIcon from './src/u-status-icon.vue';
+import Drag from './src/u-drag.vue';
+import Drop from './src/u-drop.vue';
 
 const Components = {
     Base,
@@ -132,6 +134,8 @@ const Components = {
     IconSvg,
     Loading,
     StatusIcon,
+    Drag,
+    Drop,
 };
 
 export {
@@ -200,6 +204,8 @@ export {
     IconSvg,
     Loading,
     StatusIcon,
+    Drag,
+    Drop,
 };
 
 const Library = {
