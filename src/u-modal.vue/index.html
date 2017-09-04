@@ -13,7 +13,7 @@
                 <slot>{{ content }}</slot>
             </slot>
         </div>
-        <div :class="$style.foot">
+        <div :class="$style.foot" v-if="okButton || cancelButton">
             <slot name="foot">
                 <u-button :class="$style.button" v-if="okButton" color="primary" @click.native="ok()">{{okButton}}</u-button>
                 <u-button :class="$style.button" v-if="cancelButton" @click.native="cancel()">{{cancelButton}}</u-button>

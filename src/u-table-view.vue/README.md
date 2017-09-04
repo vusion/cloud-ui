@@ -222,7 +222,7 @@ export default {
         <u-table-view-column title="性别" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
         <u-table-view-column title="占比">
             <template scope="scope">
-                {{scope.row.use/scope.row.total}}
+                {{scope.row}}
             </template>
         </u-table-view-column>
     </u-table-view>

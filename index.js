@@ -17,7 +17,7 @@ import DateTimePicker from './src/u-date-time-picker.vue';
 import Field from './src/u-field.vue';
 import Form from './src/u-form.vue';
 import FormItem from './src/u-form-item.vue';
-import IconSvg from './src/u-icon.vue';
+import Icon from './src/u-icon.vue';
 import Input from './src/u-input.vue';
 import InputField from './src/u-input-field.vue';
 import LineChart from './src/u-line-chart.vue';
@@ -66,6 +66,9 @@ import TreeView from 'u-tree-view.vue';
 import TreeViewNode from 'u-tree-view-node.vue';
 import Validation from './src/u-validation.vue';
 import XBarChart from './src/u-xbar-chart.vue';
+import Drag from './src/u-drag.vue';
+import Drop from './src/u-drop.vue';
+import Movable from './src/u-movable.vue';
 
 const Components = {
     Badge,
@@ -85,7 +88,7 @@ const Components = {
     Field,
     Form,
     FormItem,
-    IconSvg,
+    Icon,
     Input,
     InputField,
     LineChart,
@@ -134,6 +137,9 @@ const Components = {
     TreeViewNode,
     Validation,
     XBarChart,
+    Drag,
+    Drop,
+    Movable,
 };
 
 export {
@@ -154,7 +160,7 @@ export {
     Field,
     Form,
     FormItem,
-    IconSvg,
+    Icon,
     Input,
     InputField,
     LineChart,
@@ -182,7 +188,6 @@ export {
     Sidebar,
     SidebarItem,
     SidebarMenu,
-    StatusIcon,
     Subnav,
     SubnavItem,
     Switch,
@@ -203,6 +208,9 @@ export {
     TreeViewNode,
     Validation,
     XBarChart,
+    Drag,
+    Drop,
+    Movable,
 };
 
 const Library = {

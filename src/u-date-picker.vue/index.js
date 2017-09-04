@@ -18,8 +18,8 @@ export default {
     name: 'u-date-picker',
     props: {
         date: [String, Number, Date],
-        minDate: [String, Number, Object],
-        maxDate: [String, Number, Object],
+        minDate: [String, Number, Date],
+        maxDate: [String, Number, Date],
         disabled: [Boolean, String],
         autofocus: [Boolean, String],
         readonly: [Boolean, String],

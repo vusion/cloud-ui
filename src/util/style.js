@@ -42,7 +42,7 @@ const getSize = function (elem, mode = 'outside') {
         return { width: elem.offsetWidth, height: elem.offsetHeight };
 };
 const getDimension = function (elem, mode) {
-    return Object.assign(this.getSize(elem, mode), this.getPosition(elem));
+    return Object.assign(getSize(elem, mode), getPosition(elem));
 };
 const isInRect = function (position, dimension) {
     if (!position || !dimension)
@@ -80,5 +80,5 @@ const manager = {
     droppables: [],
 };
 
-export default { getStyle, getPosition, getSize, getDimension, isInRect, getComputedStyle, manager };
+export { getStyle, getPosition, getSize, getDimension, isInRect, getComputedStyle, manager };
 
