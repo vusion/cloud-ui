@@ -10,7 +10,7 @@
                 </u-list-view>
             </div>
         </u-popper>
-        <u-popper :class="$style.monthPopper" trigger="click" placement="bottom-end" :open="monthvisible">
+        <u-popper :class="$style.monthPopper" trigger="click" placement="bottom-end" :open.sync="monthvisible">
             <div :class="$style.month">
                 <span :class="$style.textMonth">{{showMonth}}月</span>
             </div>
