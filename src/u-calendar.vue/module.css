@@ -91,7 +91,7 @@
     white-space: normal;
 }
 .year{
-    width: 78px;
+    width: 82px;
     text-align: left;
     padding: 7px 10px 0 10px;
     position: relative;
@@ -99,6 +99,10 @@
     border: 1px solid $field-background;
     cursor: pointer;
     box-sizing: border-box;
+}
+
+.yearList {
+    z-index: 10;
 }
 .textYear{
     position: relative;
@@ -114,6 +118,7 @@
     border-color: $field-color transparent transparent transparent;
 }
 .monthList{
+    z-index: 10;
     width: 138px;
     padding: 10px 6px;
     box-sizing: border-box;
