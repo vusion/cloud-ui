@@ -1,4 +1,4 @@
-<u-popper ref="popper" :trigger="trigger" :placement="placement" :open.sync="open">
+<u-popper ref="popper" :trigger="trigger" :placement="placement" :open="open">
     <slot></slot>
     <div slot="popper" :class="$style.body" :role="arrow">
         <div :class="$style.arrow" v-if="arrow"></div>

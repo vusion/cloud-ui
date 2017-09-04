@@ -10,16 +10,14 @@
                 </u-list-view>
             </div>
         </u-popper>
-        <u-popover :class="$style.monthPopper" trigger="click" placement="bottom-end" v-model="monthvisible">
+        <u-popper :class="$style.monthPopper" trigger="click" placement="bottom-end" :open="monthvisible">
             <div :class="$style.month">
                 <span :class="$style.textMonth">{{showMonth}}月</span>
             </div>
-            <template slot="content">
-               <ul :class="$style.monthList">
-                   <li :class="$style.listitem" v-for="(month, mindex) in monthCol" :role="month.value === showMonth" :disabled="month.disabled" @click="monthSelect(month, mindex)">{{month.value}}</li>
-               </ul>
-            </template>
-        </u-popover>
+            <ul slot="popper" :class="$style.monthList">
+                <li :class="$style.listitem" v-for="(month, mindex) in monthCol" :role="month.value === showMonth" :disabled="month.disabled" @click="monthSelect(month, mindex)">{{month.value}}</li>
+            </ul>
+        </u-popper>
     </div>
     <div :class="$style.content">
         <div :class="$style.week"><span :class="$style.dayitem" role="week">日</span><span :class="$style.dayitem">一</span><span :class="$style.dayitem">二</span><span :class="$style.dayitem">三</span><span :class="$style.dayitem">四</span><span :class="$style.dayitem">五</span><span :class="$style.dayitem" role="week">六</span></div>
