@@ -67,6 +67,7 @@ import Loading from './src/u-loading.vue';
 import StatusIcon from './src/u-status-icon.vue';
 import Drag from './src/u-drag.vue';
 import Drop from './src/u-drop.vue';
+import Movable from './src/u-movable.vue';
 
 const Components = {
     Base,
@@ -136,6 +137,7 @@ const Components = {
     StatusIcon,
     Drag,
     Drop,
+    Movable,
 };
 
 export {
@@ -206,6 +208,7 @@ export {
     StatusIcon,
     Drag,
     Drop,
+    Movable,
 };
 
 const Library = {

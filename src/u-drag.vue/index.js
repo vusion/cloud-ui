@@ -165,12 +165,8 @@ export default {
             let next;
             if (this.restrict)
                 next = this.restrict(manager);
-            else {
-                next = {
-                    left: manager.startLeft + manager.dragX,
-                    top: manager.startTop + manager.dragY,
-                };
-            }
+            else
+                next = this.limit(manager);
             // 设置位置
             if (manager.proxy) {
                 manager.proxy.style.left = next.left + 'px';
@@ -214,6 +210,12 @@ export default {
 
             // dragEnter之后也要dragOver
             pointDroppable && pointDroppable.dragOver(this);
+        },
+        limit(params) {
+            return {
+                left: params.startLeft + params.dragX,
+                top: params.startTop + params.dragY,
+            };
         },
         cancel() {
             this.dragEnd();

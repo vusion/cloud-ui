@@ -23,13 +23,17 @@ export default {
             index: 0,
             sortoperate: '',
             selectValue: this.value,
-            row: {},
+            // row: {},
         };
     },
     methods: {
         renderCell(row) {
+            const obj = {
+                row,
+            };
+            const a = this.$scopedSlots.default(obj);
             if (this.$scopedSlots.default)
-                return `<div>${this.$scopedSlots.default(row)}</div>`;
+                return `<div>${this.$scopedSlots.default(obj)}</div>`;
             else
                 return `<div>${this.$slots.default()}</div>`;
         },
