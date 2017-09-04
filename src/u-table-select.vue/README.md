@@ -7,7 +7,7 @@
 ``` vue
 <template>
     <div style="width:100px;position: relative;">
-        <u-table-select :title="title" :options="options" :value="value" @select="select($event.value)"></u-table-select>
+        <u-table-select :title="title" :options="options" v-model="value" @select="select($event.value)"></u-table-select>
     </div>
 </template>
 <script>
@@ -20,7 +20,7 @@
                     {name: '成功', value: 'success'},
                     {name: '失败', value: 'fail'},
                 ],
-                value: 'all',
+                value: 'success',
             }
         },
         methods: {

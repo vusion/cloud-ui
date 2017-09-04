@@ -1,15 +1,15 @@
 <div :class="$style.root" :disabled="disabled">
     <div :class="$style.head">
-        <u-popover trigger="click" v-model="yearvisible">
+        <u-popper trigger="click" :open.sync="yearvisible">
             <div :class="$style.year">
                 <span :class="$style.textYear">{{showYear}}年</span>
             </div>
-            <template slot="content">
+            <div slot="popper">
                 <u-list-view :value="showYear" @select="yearSelect($event.value)">
                     <u-list-view-item v-for="(year, index) in yearCol" :value="year.value" :disabled="year.disabled">{{year.value}}年</u-list-view-item>
                 </u-list-view>
-            </template>
-        </u-popover>
+            </div>
+        </u-popper>
         <u-popover :class="$style.monthPopper" trigger="click" placement="bottom-end" v-model="monthvisible">
             <div :class="$style.month">
                 <span :class="$style.textMonth">{{showMonth}}月</span>

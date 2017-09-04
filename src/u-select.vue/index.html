@@ -1,10 +1,16 @@
-<div ref="element" :class="$style.root" :readonly="readonly" :style="{width: width+'px'}" @click="toggle()" >
-    <div :class="$style.head" :disabled="disabled">
-        <span :class="$style.name">{{selected.name}}</span>
+<u-popper ref="popper" :disabled="readonly || disabled" @toggle="onToggle($event)">
+    <div :class="$style.root" :readonly="readonly" :disabled="disabled" :size="size">
+        <span :class="$style.text">{{ selectedItem && selectedItem.$el.textContent }}</span>
     </div>
-    <div :class="$style.body" v-if="open && options.length !== 0">
-        <ul :class="$style.listview">
-            <li :class="$style.listitem" v-for="(item,index) in options" :disabled="item.disabled" :divider="item.divider" :role="(index === selectedIndex) ? 'z-sel':''" @click="select($event,index)" :title="item.name">{{item.name}}</li>
-        </ul>
-    </div>
-</div>
+    <!-- 这个地方以后可能要改用render实现 -->
+    <ul :class="$style.popper" slot="popper" :size="size">
+        <component :is="ChildComponent" v-if="data"
+            v-for="item in data"
+            :key="item.value"
+            :value="item.value"
+            :disabled="item.disabled || disabled"
+            :item="item"
+        >{{ item[field] }}</component>
+        <slot></slot>
+    </ul>
+</u-popper>

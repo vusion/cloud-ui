@@ -10,10 +10,10 @@ const clickoutside = {
                 binding.value(e);
         };
         el.__vueClickOutside__ = documentHandler;
-        EventUtil.addHandler(document, 'click', documentHandler);
+        EventUtil.on(document, 'click', documentHandler);
     },
     unbind(el, binding) {
-        EventUtil.removeHandler(document, 'click', el.__vueClickOutside__);
+        EventUtil.off(document, 'click', el.__vueClickOutside__);
         delete el.__vueClickOutside__;
     },
 };

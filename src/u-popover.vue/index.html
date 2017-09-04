@@ -1,36 +1,25 @@
-<div :class="$style.root"
-    @mouseenter="onMouseenter"
-    @mouseleave="onMouseleave"
-    v-clickoutside="close">
-    <div :class="$style.reference" ref="reference" @click="onClick">
-        <slot></slot>
-    </div>
-    <div :class="$style.popper" ref="popper"
-        v-show="visible"
-        :style="styleObject"
-        @mouseenter="onMouseenter"
-        @mouseleave="onMouseleave">
-        <div :class="$style.body" :role="arrow">
-            <div :class="$style.arrow" v-if="arrow"></div>
-            <div :class="$style.wrap" v-if="confirm">
-                <div :class="$style.chead">
-                    <slot name="confirm">
-                        <div :class="$style.message">{{message}}</div>
-                    </slot>
-                </div>
-                <div :class="$style.linkGroup">
-                    <u-link :class="$style.linkitem" v-if="confirmOk" @click.native="close">{{confirmOk}}</u-link>
-                    <u-link :class="$style.linkitem" v-if="confirmCancel"  @click.native="close">{{confirmCancel}}</u-link>
-                </div>
+<u-popper ref="popper" :trigger="trigger" :placement="placement" :open.sync="open">
+    <slot></slot>
+    <div slot="popper" :class="$style.body" :role="arrow">
+        <div :class="$style.arrow" v-if="arrow"></div>
+        <div :class="$style.wrap" v-if="confirm">
+            <div :class="$style.chead">
+                <slot name="confirm">
+                    <div :class="$style.message">{{message}}</div>
+                </slot>
             </div>
-            <div :class="$style.wrap" v-else>
-                <slot name="title">
-                    <div :class="$style.title" v-if="title">{{title}}</div>
-                </slot>
-                <slot name="content">
-                    <div :class="$style.content" v-if="content">{{content}}</div>
-                </slot>
+            <div :class="$style.linkGroup">
+                <u-link :class="$style.linkitem" v-if="confirmOk" @click.native="close">{{confirmOk}}</u-link>
+                <u-link :class="$style.linkitem" v-if="confirmCancel"  @click.native="close">{{confirmCancel}}</u-link>
             </div>
         </div>
+        <div :class="$style.wrap" v-else>
+            <slot name="title">
+                <div :class="$style.title" v-if="title">{{title}}</div>
+            </slot>
+            <slot name="content">
+                <div :class="$style.content" v-if="content">{{content}}</div>
+            </slot>
+        </div>
     </div>
-</div>
+</u-popper>

@@ -109,7 +109,7 @@ export default {
                 this.columnsWidth = [];
                 this.$nextTick(() => {
                     if (this.data.length) {
-                        const $td = this.$refs.body.querySelectorAll('tbody tr')[0].querySelectorAll('td');
+                        const $td = this.$refs.body.querySelectorAll('tbody tr:first-child td');
                         for (let i = 0; i < $td.length; i++) {
                             const column = this.columns[i];
                             let width;
@@ -127,6 +127,7 @@ export default {
         },
         select(option, column) {
             column.selectValue = option.value;
+            this.popvisible = undefined;
             this.popvisible = false;
             this.tdata = this.copyTdata.filter((item) => column.filterMethod(option.value, item[column.label], item, column));
         },

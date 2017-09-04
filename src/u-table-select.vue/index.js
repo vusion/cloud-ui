@@ -36,7 +36,7 @@ export default {
     data() {
         return {
             selectedValue: this.value,
-            visible: false,
+            open: false,
         };
     },
     watch: {
@@ -47,12 +47,13 @@ export default {
     methods: {
         select(option, index) {
             this.selectedValue = option[this.keyValue];
-            this.visible = false;
+            this.$refs.popover.toggle(false);
             this.$emit('select', {
                 sender: this,
                 selected: option,
                 value: option[this.keyValue],
             });
+            this.$emit('input', this.selectedValue);
         },
     },
 };

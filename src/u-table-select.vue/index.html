@@ -1,9 +1,9 @@
-<u-popover trigger="click" placement="bottom" :class="$style.popper" :placement="placement" width="100%" v-model="visible" :style-object="styleObject">
+<u-popover ref="popover" trigger="click" placement="bottom" :class="$style.popper" :placement="placement" width="100%" :style-object="styleObject">
     <div :class="$style.title">
         {{title}}
         <div :class="$style.triangle"></div>
     </div>
     <template slot="content">
-        <div :class="$style.option" v-for="(option, index) in options" @click.stop="select(option, index)" :role="selectedValue === option.value">{{option.name}}</div>
+        <div :class="$style.option" v-for="(option, index) in options" :key="option.value" @click.stop="select(option, index)" :role="selectedValue === option.value">{{option.name}}</div>
     </template>
 </u-popover>

@@ -25,7 +25,7 @@ const SelectColor = {
         };
     },
     created() {
-        EventUtil.addHandler(document, 'click', this.fadeOut.bind(this));
+        EventUtil.on(document, 'click', this.fadeOut.bind(this));
     },
     computed: {
         selected() {

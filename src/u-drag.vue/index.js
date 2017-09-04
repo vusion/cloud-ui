@@ -59,8 +59,8 @@ export default {
                 dragY: 0,
             });
 
-            EventUtil.addHandler(document, 'mousemove', this.onMousemove);
-            EventUtil.addHandler(document, 'mouseup', this.onmouseup);
+            EventUtil.on(document, 'mousemove', this.onMousemove);
+            EventUtil.on(document, 'mouseup', this.onmouseup);
         },
         onMousemove(event) {
             event.preventDefault();

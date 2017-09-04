@@ -13,7 +13,7 @@
                     <th v-for="(column, index) in columns" :class="$style.hthSpan" :role="column.filter">
                         <span v-if="!column.filter" :class="$style.itemtitle">{{column.title}}</span>
                         <template v-if="column.filter">
-                            <u-popover :class="$style.popover" trigger="click" :placement="column.placement" v-model="popvisible">
+                            <u-popover :class="$style.popover" trigger="click" :placement="column.placement" :open="popvisible">
                                 <span :class="$style.itemtitle" :role="column.filter">{{column.title}}</span>
                                 <template slot="content">
                                     <div :class="$style.option" v-for="option in column.options" @click.stop="select(option, column)" :role="column.selectValue === option.value">{{option.name}}</div>
