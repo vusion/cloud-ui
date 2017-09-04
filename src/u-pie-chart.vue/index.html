@@ -7,7 +7,7 @@
                 @mouseover="onMouseOver(item)" />
         </g>
     </svg>
-    <div v-for="item in posData" :class="$style.text" :style="getTextStyle(item)">
+    <div v-for="(item, index) in posData" :class="$style.text" :style="getTextStyle(item)">
         {{item ? item.percent + '%' : ''}}
         <div :class="$style['u-tooltip']">
             <slot :name="'tooltipTemplate'+index">{{item.name || item.key}}: {{item.percent}}%</slot>
