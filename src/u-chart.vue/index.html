@@ -1,12 +1,12 @@
 <div :class="$style.root" :border="border" :loading="!data" :empty="data && !data.length" v-show="visible" :style="{width: width, height: height}">
-    <div v-if="titleTemplate" :class="$style.ittitle" :style="{textAlign: titleAlign}">
-        <slot name="titleTemplate"></slot>
+    <div :class="$style.ittitle" :style="{textAlign: titleAlign}">
+        <slot name="titleTemplate">{{title}}</slot>
     </div>
-    <div v-else-if="title" :class="$style.ittitle" :style="{textAlign: titleAlign}">{{title}}</div>
-    <div v-if="captionTemplate" :class="$style.caption">
-        <slot name="captionTemplate"></slot>
+    <div :class="$style.caption">
+        <slot name="captionTemplate">
+            {{caption}}
+        </slot>
     </div>
-    <div v-else-if="caption" :class="$style.caption">{{caption}}</div>
     <div v-if="legend" :class="$style.legend">
         <div v-for="(sery,index) in series" :class="$style.item" :disabled="sery.hidden" @click.stop="toggle(index)">{{sery.name || sery.key}}</div>
     </div>

@@ -2,9 +2,7 @@ export default {
     name: 'u-chart',
     props: {
         title: String,
-        titleTemplate: { type: Boolean, default: false },
         caption: String,
-        captionTemplate: { type: Boolean, default: false },
         series: Array,
         data: Array,
         border: {

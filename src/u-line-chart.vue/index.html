@@ -1,4 +1,4 @@
-<u-chart :class="$style.root" :role="data.length === 0 ? 'empty' : ''" :title="title" :border="border" :width="width" :height="height" :legend="legend" :titleTemplate="titleTemplate" :series="series" :data="data" :title-align="titleAlign">
+<u-chart :class="$style.root" :role="data.length === 0 ? 'empty' : ''" :title="title" :border="border" :width="width" :height="height" :legend="legend" :series="series" :data="data" :title-align="titleAlign">
     <div :class="$style.wrap">
         <div :class="$style.grid" ref="grid">
             <div v-for="(xLablel, index) in xAxis_.data" :class="$style.line" role="y" :style="{left: 100*index/(xAxis_.data.length - 1)+'%'}"></div>
@@ -6,8 +6,7 @@
         </div>
         <div :class="$style.axis" role="axisx">
             <div v-for="(xLabel, index) in xAxis_.data" :class="$style.label" role="labelx" title="xLabel" :style="{left: 100*index/(xAxis_.data.length - 1)+'%', width: 100/xAxis_.data.length+'%'}">
-                <slot v-if="xLabelTemplate" name="xLabelTemplate"></slot>
-                <span v-else>{{xLabel}}</span>
+                <slot name="xLabelTemplate">{{xLabel}}</slot>
             </div>
             <div :class="$style.label" role="label-xName">{{xAxis.name}}</div>
         </div>
@@ -27,8 +26,9 @@
                     <div class="value">{{format(item[sery.key])}}</div>
                 </div>
                 <div :class="$style['u-tooltip']" :role="'u-tooltip-'+(index >= data.length/2 ? 'left' : 'right')+'-'+(getPercent(item) < 50 ? 'top' : 'bottom')" :style="{top: getPercent(item)+'%'}">
-                    <u-blank v-if="tooltipTemplate" :item="item" :index="index" :series="series" :y-axis="yAxis"></u-blank>
-                    <div v-else v-for="sery in series">{{sery.name || sery.key}}: {{format(item[sery.key])}}</div>
+                    <slot :name="'tooltipTemplate'+index">
+                        <div v-for="sery in series">{{sery.name || sery.key}}: {{format(item[sery.key])}}</div>
+                    </slot>
                 </div>
             </div>
         </div>

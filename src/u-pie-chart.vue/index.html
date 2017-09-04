@@ -1,4 +1,4 @@
-<u-chart :class="$style.root" :title="title" :border="border" :width="width" :height="height" :legend="legend" :titleTemplate="titleTemplate" :tooltipTemplate="tooltipTemplate" :series="data">
+<u-chart :class="$style.root" :title="title" :border="border" :width="width" :height="height" :legend="legend" :title-template="titleTemplate" :series="data">
     <svg :class="$style.elsvg" ref="svg" viewBox="0 0 100 100">
         <g :class="$style.elg" transform="translate(50, 50)">
             <circle v-for="(item,index) in data" v-if="item.percent === 100" :class="$style.item" cx="0" cy="0" :r="RADIUS"/>
@@ -9,9 +9,8 @@
     </svg>
     <div v-for="item in posData" :class="$style.text" :style="getTextStyle(item)">
         {{item ? item.percent + '%' : ''}}
-        <div :class="$style['u-tooltip']" size="size">
-            <slot v-if="tooltipTemplate" name="tooltipTemplate"></slot>
-            <div v-else>{{item.name || item.key}}: {{item.percent}}%</div>
+        <div :class="$style['u-tooltip']">
+            <slot :name="'tooltipTemplate'+index">{{item.name || item.key}}: {{item.percent}}%</slot>
         </div>
     </div>
 </u-chart>

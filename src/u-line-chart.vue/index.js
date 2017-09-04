@@ -26,10 +26,7 @@ export default {
     props: {
         data: Array,
         title: String,
-        titleTemplate: Boolean,
-        tooltipTemplate: Boolean,
         caption: String,
-        captionTemplate: Boolean,
         series: Array,
         border: Boolean,
         legend: Boolean,
@@ -42,7 +39,6 @@ export default {
             default: '480px',
         },
         xAxis: Object,
-        xLabelTemplate: { type: Boolean, default: false },
         yAxis: Object,
         smooth: Boolean,
         fill: Boolean,

@@ -3,10 +3,7 @@ export default {
     props: {
         data: Array,
         title: String,
-        titleTemplate: String,
-        tooltipTemplate: String,
         caption: String,
-        captionTemplate: String,
         series: Array,
         border: Boolean,
         legend: Boolean,
