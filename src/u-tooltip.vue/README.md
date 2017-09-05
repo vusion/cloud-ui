@@ -5,7 +5,7 @@
 
 #### 声明式
 ``` html
-<u-tooltip content="内容111111111111111111111111111111111111111" placement="right-start">
-    <u-button>hover 激活</u-button>
+<u-tooltip content="内容111111111111111111111111111111111111111">
+    <u-button style="margin-left: 300px;">hover 激活</u-button>
 </u-tooltip>
 ```
