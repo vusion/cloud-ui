@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="docs.css">
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<link rel="stylesheet" type="text/css" href="vusion-icon-font.css">
+<script src="docs.js"></script>
+</head>
+<body>
+
+                <article class="u-article"><h1>拖放（Drag and Drop）</h1>
+<h2>示例</h2>
+<h3>基本形式</h3>
+<div id="u-example-0" class="u-example"><div style="overflow: hidden; "><u-drag :value="value"><div style="background: #00a65a;color: #fff;height: 128px;width: 128px;line-height: 128px;">拖我</div></u-drag><u-drop :value.sync="dropValue"><div :class="dropValue" style="background: #3c8dbc;color: #fff;height: 128px;width: 128px;line-height: 128px; margin-top:150px;">放到这里</div></u-drop></div></div>
+<pre class="hljs lang-vue"><code><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"overflow: hidden; "</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-drag</span> <span class="hljs-attr">:value</span>=<span class="hljs-string">"value"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background: #00a65a;color: #fff;height: 128px;width: 128px;line-height: 128px;"</span>&gt;</span>拖我<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-drag</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-drop</span> <span class="hljs-attr">:value.sync</span>=<span class="hljs-string">"dropValue"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">:class</span>=<span class="hljs-string">"dropValue"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background: #3c8dbc;color: #fff;height: 128px;width: 128px;line-height: 128px; margin-top:150px;"</span>&gt;</span>放到这里<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-drop</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+        data() {
+            <span class="hljs-keyword">return</span> {
+                <span class="hljs-attr">value</span>: <span class="hljs-string">'success'</span>,
+                <span class="hljs-attr">dropValue</span>: <span class="hljs-string">''</span>,
+            };
+        },
+        <span class="hljs-attr">watch</span>: {
+            dropValue(newValue) {
+                <span class="hljs-built_in">console</span>.log(newValue);
+            },
+        },
+    };
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">scoped</span>&gt;</span><span class="css">
+    <span class="hljs-selector-class">.success</span>{
+        <span class="hljs-attribute">background</span>: <span class="hljs-number">#00a65a</span> <span class="hljs-meta">!important</span>;
+    }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+</code></pre>
+</article>
+                <!---->
+                <script>new Vue({
+        data() {
+            return {
+                value: 'success',
+                dropValue: '',
+            };
+        },
+        watch: {
+            dropValue(newValue) {
+                console.log(newValue);
+            },
+        },
+    }).$mount('#u-example-0');</script>
+            
+</body>
+</html>

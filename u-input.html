@@ -9,18 +9,38 @@
 </head>
 <body>
 
-                <article class="u-article"><h1>单行输入框</h1>
+                <article class="u-article"><h1>单行输入</h1>
 <h2>示例</h2>
 <h3>基本形式</h3>
 <p>大部分属性与<code>&lt;input&gt;</code>元素一致。</p>
-<div id="u-example-0" class="u-example"><u-input maxlength="24" placeholder="1-24位小写字母、数字、或中划线组成" autofocus></u-input></div>
-<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-input</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"24"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"1-24位小写字母、数字、或中划线组成"</span> <span class="hljs-attr">autofocus</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input</span>&gt;</span>
+<div id="u-example-0" class="u-example"><u-input maxlength="12" placeholder="1~12位小写字母" autofocus></u-input></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-input</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"12"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"1~12位小写字母"</span> <span class="hljs-attr">autofocus</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input</span>&gt;</span>
 </code></pre>
 <h3>只读与禁用</h3>
-<div id="u-example-1" class="u-example"><u-linear-layout><u-input value="Readonly" readonly></u-input><u-input value="Disabled" disabled></u-input></u-linear-layout></div>
+<div id="u-example-1" class="u-example"><u-linear-layout><u-input value="只读" readonly></u-input><u-input value="禁用" disabled></u-input></u-linear-layout></div>
 <pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">u-input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Readonly"</span> <span class="hljs-attr">readonly</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">u-input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Disabled"</span> <span class="hljs-attr">disabled</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"只读"</span> <span class="hljs-attr">readonly</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"禁用"</span> <span class="hljs-attr">disabled</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
+</code></pre>
+<h3>大小扩展</h3>
+<div id="u-example-2" class="u-example"><u-linear-layout direction="vertical"><u-linear-layout><u-input size="small" value="small" readonly></u-input><u-input size="small normal" value="small normal" readonly></u-input><u-input size="small large" value="small large" readonly></u-input></u-linear-layout><u-linear-layout><u-input size="normal small" value="normal small" readonly></u-input><u-input value="normal" readonly></u-input><u-input size="normal large" value="normal large" readonly></u-input></u-linear-layout><u-linear-layout><u-input size="large small" value="large small" readonly></u-input><u-input size="large normal" value="large normal" readonly></u-input><u-input size="large" value="large" readonly></u-input></u-linear-layout></u-linear-layout></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span> <span class="hljs-attr">direction</span>=<span class="hljs-string">"vertical"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-input</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"small"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"small"</span> <span class="hljs-attr">readonly</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-input</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"small normal"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"small normal"</span> <span class="hljs-attr">readonly</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-input</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"small large"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"small large"</span> <span class="hljs-attr">readonly</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-input</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"normal small"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"normal small"</span> <span class="hljs-attr">readonly</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"normal"</span> <span class="hljs-attr">readonly</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-input</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"normal large"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"normal large"</span> <span class="hljs-attr">readonly</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-input</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"large small"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"large small"</span> <span class="hljs-attr">readonly</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-input</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"large normal"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"large normal"</span> <span class="hljs-attr">readonly</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-input</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"large"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"large"</span> <span class="hljs-attr">readonly</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
 </code></pre>
 <h2>API</h2>
@@ -39,65 +59,136 @@
 <td>type</td>
 <td>String</td>
 <td><code>'text'</code></td>
-<td>type of input, 'text'/'password'</td>
+<td>输入框的类型，目前只支持两种：<code>'text'</code>和<code>'password'</code></td>
 </tr>
 <tr>
 <td>value</td>
 <td>String</td>
 <td></td>
-<td>The value</td>
+<td>输入框的值</td>
 </tr>
 <tr>
 <td>placeholder</td>
 <td>String</td>
 <td></td>
-<td>Original attribute</td>
+<td>原生属性</td>
 </tr>
 <tr>
 <td>maxlength</td>
 <td>Number</td>
 <td></td>
-<td>Original attribute</td>
+<td>原生属性</td>
 </tr>
 <tr>
 <td>autofocus</td>
 <td>Boolean</td>
 <td></td>
-<td>Original attribute</td>
+<td>原生属性</td>
 </tr>
 <tr>
 <td>readonly</td>
 <td>Boolean</td>
 <td></td>
-<td>Original attribute</td>
+<td>原生属性</td>
 </tr>
 <tr>
 <td>disabled</td>
 <td>Boolean</td>
 <td></td>
-<td>Original attribute</td>
+<td>原生属性</td>
+</tr>
+<tr>
+<td>size</td>
+<td>String</td>
+<td><code>'normal'</code></td>
+<td>大小扩展，支持一个值：<code>'mini'</code>, <code>'small'</code>, <code>'normal'</code>, <code>'large'</code>, <code>'huge'</code>。或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding</td>
 </tr>
 </tbody>
 </table>
 <h3>Slots</h3>
+<h4>(default)</h4>
+<h4>@input</h4>
+<p>输入时触发</p>
 <table>
 <thead>
 <tr>
-<th>Slot</th>
+<th>Param</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>(default)</td>
-<td></td>
+<td>$event</td>
+<td>Any</td>
+<td>选择项的值</td>
+</tr>
+</tbody>
+</table>
+<h4>@change</h4>
+<p>值变化时触发（与原生事件不同）</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$event.value</td>
+<td>Any</td>
+<td>改变后的值</td>
+</tr>
+<tr>
+<td>$event.oldValue</td>
+<td>Any</td>
+<td>旧的值</td>
+</tr>
+</tbody>
+</table>
+<h4>@focus</h4>
+<p>获得焦点时触发</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$event</td>
+<td>Any</td>
+<td>原生事件对象</td>
+</tr>
+</tbody>
+</table>
+<h4>@blur</h4>
+<p>失去焦点时触发</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$event</td>
+<td>Any</td>
+<td>原生事件对象</td>
 </tr>
 </tbody>
 </table>
 </article>
                 <!---->
                 <script>new Vue().$mount('#u-example-0');
-new Vue().$mount('#u-example-1');</script>
+new Vue().$mount('#u-example-1');
+new Vue().$mount('#u-example-2');</script>
             
 </body>
 </html>

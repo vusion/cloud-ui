@@ -9,11 +9,13 @@
 </head>
 <body>
 
-                <article class="u-article"><h1>Circular Progress</h1>
+                <article class="u-article"><h1>Circular Specific Progress</h1>
 <h2>Examples</h2>
 <h3>Basic</h3>
-<div id="u-example-0" class="u-example"><u-circular-progress :percent="36"></u-circular-progress></div>
-<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-circular-progress</span> <span class="hljs-attr">:percent</span>=<span class="hljs-string">"36"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-circular-progress</span>&gt;</span>
+<div id="u-example-0" class="u-example"><u-circular-specific-progress :percent="36"><div>VCPU</div></u-circular-specific-progress></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-circular-specific-progress</span> <span class="hljs-attr">:percent</span>=<span class="hljs-string">"36"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>VCPU<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-circular-specific-progress</span>&gt;</span>
 </code></pre>
 <h2>API</h2>
 <h3>Attrs/Props</h3>

@@ -9,107 +9,419 @@
 </head>
 <body>
 
-                <article class="u-article"><h1>选择扩展（Select）</h1>
+                <article class="u-article"><h1>选择框（Select）</h1>
 <h2>示例</h2>
 <h3>基本形式</h3>
-<h4>声明式</h4>
-<div id="u-example-0" class="u-example"><u-select :options="[]">Modal</u-select></div>
-<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-select</span> <span class="hljs-attr">:options</span>=<span class="hljs-string">"[]"</span>&gt;</span>Modal<span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
+<p>有两种书写方式，这里推荐使用Tag方式，使用起来更加灵活。</p>
+<h4>Tag方式</h4>
+<div id="u-example-0" class="u-example"><u-linear-layout><u-select><u-select-item>苹果</u-select-item><u-select-item>香蕉</u-select-item><u-select-item>蛋糕</u-select-item></u-select><u-select><u-select-item>请选择</u-select-item><u-select-item>苹果</u-select-item><u-select-item>香蕉</u-select-item><u-select-item>蛋糕</u-select-item></u-select></u-linear-layout></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-select</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>苹果<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>香蕉<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>蛋糕<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-select</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>请选择<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>苹果<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>香蕉<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>蛋糕<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
 </code></pre>
-<h4>只读</h4>
-<div id="u-example-1" class="u-example"><u-select readonly :options="[{value: '选项1', name: '黄金糕'}, {value: '选项2', name: '双皮奶'}, {value: '选项3', name: '蚵仔煎'}, {value: '选项4', name: '龙须面'}, {value: '选项5', name: '北京烤鸭'}]">Modal</u-select></div>
-<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-select</span> <span class="hljs-attr">readonly</span> <span class="hljs-attr">:options</span>=<span class="hljs-string">"[{value: '选项1', name: '黄金糕'}, {value: '选项2', name: '双皮奶'}, {value: '选项3', name: '蚵仔煎'}, {value: '选项4', name: '龙须面'}, {value: '选项5', name: '北京烤鸭'}]"</span>&gt;</span>Modal<span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
+<h4>Data方式</h4>
+<div id="u-example-1" class="u-example"><u-linear-layout><u-select :data="[
+        { text: '苹果' },
+        { text: '香蕉' },
+        { text: '蛋糕' },
+    ]"></u-select><u-select :data="[
+        { text: '请选择' },
+        { text: '苹果' },
+        { text: '香蕉' },
+        { text: '蛋糕' },
+    ]"></u-select></u-linear-layout></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-select</span> <span class="hljs-attr">:data</span>=<span class="hljs-string">"[
+        { text: '苹果' },
+        { text: '香蕉' },
+        { text: '蛋糕' },
+    ]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-select</span> <span class="hljs-attr">:data</span>=<span class="hljs-string">"[
+        { text: '请选择' },
+        { text: '苹果' },
+        { text: '香蕉' },
+        { text: '蛋糕' },
+    ]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
 </code></pre>
-<h4>禁止</h4>
-<div id="u-example-2" class="u-example"><u-select disabled :options="[{value: '选项1', name: '黄金糕'}, {value: '选项2', name: '双皮奶'}, {value: '选项3', name: '蚵仔煎'}, {value: '选项4', name: '龙须面'}, {value: '选项5', name: '北京烤鸭'}]">Modal</u-select></div>
-<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-select</span> <span class="hljs-attr">disabled</span> <span class="hljs-attr">:options</span>=<span class="hljs-string">"[{value: '选项1', name: '黄金糕'}, {value: '选项2', name: '双皮奶'}, {value: '选项3', name: '蚵仔煎'}, {value: '选项4', name: '龙须面'}, {value: '选项5', name: '北京烤鸭'}]"</span>&gt;</span>Modal<span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
+<h3>选择值</h3>
+<h4>Tag方式</h4>
+<div id="u-example-2" class="u-example"><u-select value="C"><u-select-item>请选择</u-select-item><u-select-item value="A">苹果</u-select-item><u-select-item value="B">香蕉</u-select-item><u-select-item value="C">蛋糕</u-select-item></u-select></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-select</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>请选择<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"A"</span>&gt;</span>苹果<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"B"</span>&gt;</span>香蕉<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>蛋糕<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
 </code></pre>
-<h3>方法</h3>
-<div id="u-example-3" class="u-example"><u-select :options="options" :value="value" @change="change($event.value)" @select="select($event.selected)"></u-select></div>
-<pre class="hljs lang-vue"><code><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">u-select</span> <span class="hljs-attr">:options</span>=<span class="hljs-string">"options"</span> <span class="hljs-attr">:value</span>=<span class="hljs-string">"value"</span> @<span class="hljs-attr">change</span>=<span class="hljs-string">"change($event.value)"</span> @<span class="hljs-attr">select</span>=<span class="hljs-string">"select($event.selected)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
-    data() {
-        <span class="hljs-keyword">return</span> {
-            <span class="hljs-attr">value</span>: <span class="hljs-string">''</span>,
-            <span class="hljs-attr">options</span>: [{
-                <span class="hljs-attr">value</span>: <span class="hljs-string">'选项1'</span>,
-                <span class="hljs-attr">name</span>: <span class="hljs-string">'黄金糕111111111111111111111111111111111'</span>
-            }, {
-                <span class="hljs-attr">value</span>: <span class="hljs-string">'选项2'</span>,
-                <span class="hljs-attr">name</span>: <span class="hljs-string">'双皮奶222222222222222222222222222222222222222222222222'</span>
-            }, {
-                <span class="hljs-attr">value</span>: <span class="hljs-string">'选项3'</span>,
-                <span class="hljs-attr">name</span>: <span class="hljs-string">'蚵仔煎'</span>
-            }, {
-                <span class="hljs-attr">value</span>: <span class="hljs-string">'选项4'</span>,
-                <span class="hljs-attr">name</span>: <span class="hljs-string">'龙须面'</span>
-            }, {
-                <span class="hljs-attr">value</span>: <span class="hljs-string">'选项5'</span>,
-                <span class="hljs-attr">name</span>: <span class="hljs-string">'北京烤鸭'</span>,
-                <span class="hljs-attr">disabled</span>: <span class="hljs-literal">true</span>
-            }, {
-                <span class="hljs-attr">name</span>: <span class="hljs-string">'选项6'</span>,
-                <span class="hljs-attr">value</span>: <span class="hljs-string">'牛杂'</span>,
-            }],
-        };
-    },
-    <span class="hljs-attr">methods</span>: {
-        change(value) {
-            <span class="hljs-built_in">console</span>.log(value);
-            <span class="hljs-keyword">this</span>.value = value;
-        },
-        select(selected) {
-            <span class="hljs-built_in">console</span>.log(selected.name,selected.value);
-        }
-    },
-};
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<h4>Data方式</h4>
+<div id="u-example-3" class="u-example"><u-select value="C" :data="[
+    { text: '请选择' },
+    { text: '苹果', value: 'A' },
+    { text: '香蕉', value: 'B' },
+    { text: '蛋糕', value: 'C' },
+]"></u-select></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-select</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span> <span class="hljs-attr">:data</span>=<span class="hljs-string">"[
+    { text: '请选择' },
+    { text: '苹果', value: 'A' },
+    { text: '香蕉', value: 'B' },
+    { text: '蛋糕', value: 'C' },
+]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
 </code></pre>
+<h3>只读、禁用、禁用某一项</h3>
+<h4>Tag方式</h4>
+<div id="u-example-4" class="u-example"><u-linear-layout><u-select value="C" readonly><u-select-item value="A">苹果</u-select-item><u-select-item value="B">香蕉</u-select-item><u-select-item value="C">蛋糕</u-select-item></u-select><u-select value="C" disabled><u-select-item value="A">苹果</u-select-item><u-select-item value="B">香蕉</u-select-item><u-select-item value="C">蛋糕</u-select-item></u-select><u-select value="C"><u-select-item value="A">苹果</u-select-item><u-select-item value="B" disabled>香蕉</u-select-item><u-select-item value="C">蛋糕</u-select-item></u-select></u-linear-layout></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-select</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span> <span class="hljs-attr">readonly</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"A"</span>&gt;</span>苹果<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"B"</span>&gt;</span>香蕉<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>蛋糕<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-select</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span> <span class="hljs-attr">disabled</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"A"</span>&gt;</span>苹果<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"B"</span>&gt;</span>香蕉<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>蛋糕<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-select</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"A"</span>&gt;</span>苹果<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"B"</span> <span class="hljs-attr">disabled</span>&gt;</span>香蕉<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>蛋糕<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
+</code></pre>
+<h4>Data方式</h4>
+<div id="u-example-5" class="u-example"><u-select value="C" :data="[
+    { text: '苹果', value: 'A' },
+    { text: '香蕉', value: 'B', disabled: true },
+    { text: '蛋糕', value: 'C' },
+]"></u-select></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-select</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span> <span class="hljs-attr">:data</span>=<span class="hljs-string">"[
+    { text: '苹果', value: 'A' },
+    { text: '香蕉', value: 'B', disabled: true },
+    { text: '蛋糕', value: 'C' },
+]"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
+</code></pre>
+<h3>大小扩展</h3>
+<div id="u-example-6" class="u-example"><u-linear-layout direction="vertical"><u-linear-layout><u-select size="small"><u-select-item>苹果</u-select-item><u-select-item>香蕉</u-select-item><u-select-item>蛋糕</u-select-item></u-select><u-select size="small normal"><u-select-item>苹果</u-select-item><u-select-item>香蕉</u-select-item><u-select-item>蛋糕</u-select-item></u-select><u-select size="small large"><u-select-item>苹果</u-select-item><u-select-item>香蕉</u-select-item><u-select-item>蛋糕</u-select-item></u-select></u-linear-layout><u-linear-layout><u-select size="normal small"><u-select-item>苹果</u-select-item><u-select-item>香蕉</u-select-item><u-select-item>蛋糕</u-select-item></u-select><u-select size="normal normal"><u-select-item>苹果</u-select-item><u-select-item>香蕉</u-select-item><u-select-item>蛋糕</u-select-item></u-select><u-select size="normal large"><u-select-item>苹果</u-select-item><u-select-item>香蕉</u-select-item><u-select-item>蛋糕</u-select-item></u-select></u-linear-layout><u-linear-layout><u-select size="large small"><u-select-item>苹果</u-select-item><u-select-item>香蕉</u-select-item><u-select-item>蛋糕</u-select-item></u-select><u-select size="large normal"><u-select-item>苹果</u-select-item><u-select-item>香蕉</u-select-item><u-select-item>蛋糕</u-select-item></u-select><u-select size="large"><u-select-item>苹果</u-select-item><u-select-item>香蕉</u-select-item><u-select-item>蛋糕</u-select-item></u-select></u-linear-layout></u-linear-layout></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span> <span class="hljs-attr">direction</span>=<span class="hljs-string">"vertical"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"small"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>苹果<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>香蕉<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>蛋糕<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"small normal"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>苹果<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>香蕉<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>蛋糕<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"small large"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>苹果<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>香蕉<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>蛋糕<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"normal small"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>苹果<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>香蕉<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>蛋糕<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"normal normal"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>苹果<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>香蕉<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>蛋糕<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"normal large"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>苹果<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>香蕉<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>蛋糕<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"large small"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>苹果<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>香蕉<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>蛋糕<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"large normal"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>苹果<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>香蕉<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>蛋糕<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-select</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"large"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>苹果<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>香蕉<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-select-item</span>&gt;</span>蛋糕<span class="hljs-tag">&lt;/<span class="hljs-name">u-select-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-select</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
+</code></pre>
+<h2>Select API</h2>
+<h3>Attrs/Props</h3>
+<table>
+<thead>
+<tr>
+<th>Attr/Prop</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data</td>
+<td>Array&lt;{ text, value }&gt;</td>
+<td></td>
+<td>Data书写方式中的数据列表</td>
+</tr>
+<tr>
+<td>value.sync, v-model</td>
+<td>Any</td>
+<td></td>
+<td>当前选择的值</td>
+</tr>
+<tr>
+<td>field</td>
+<td>String</td>
+<td><code>'text'</code></td>
+<td>显示文本字段</td>
+</tr>
+<tr>
+<td>readonly</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>是否只读</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>是否禁用</td>
+</tr>
+</tbody>
+</table>
+<h3>Slots</h3>
+<h4>(default)</h4>
+<p>在插槽中插入<code>&lt;u-select-item&gt;</code>子组件</p>
+<h3>Events</h3>
+<h4>@before-select</h4>
+<p>选择某一项前触发</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$event.value</td>
+<td>Any</td>
+<td>选择项的值</td>
+</tr>
+<tr>
+<td>$event.oldValue</td>
+<td>Any</td>
+<td>旧的值</td>
+</tr>
+<tr>
+<td>$event.item</td>
+<td>Object</td>
+<td>选择项相关对象</td>
+</tr>
+<tr>
+<td>$event.$item</td>
+<td>ListViewItem</td>
+<td>选择项子组件</td>
+</tr>
+<tr>
+<td>$event.preventDefault</td>
+<td>Function</td>
+<td>阻止选择流程</td>
+</tr>
+</tbody>
+</table>
+<h4>@input</h4>
+<p>选择某一项时触发</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$event</td>
+<td>Any</td>
+<td>选择项的值</td>
+</tr>
+</tbody>
+</table>
+<h4>@select</h4>
+<p>选择某一项时触发</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$event.value</td>
+<td>Any</td>
+<td>改变后的值</td>
+</tr>
+<tr>
+<td>$event.oldValue</td>
+<td>Any</td>
+<td>旧的值</td>
+</tr>
+<tr>
+<td>$event.item</td>
+<td>Object</td>
+<td>单选模式中，选择项相关对象</td>
+</tr>
+<tr>
+<td>$event.$item</td>
+<td>ListViewItem</td>
+<td>单选模式中，选择项子组件</td>
+</tr>
+<tr>
+<td>$event.items</td>
+<td>Array&lt;Object&gt;</td>
+<td>多选模式中，所有选中项相关对象的数组</td>
+</tr>
+<tr>
+<td>$event.$item</td>
+<td>Array&lt;ListViewItem&gt;</td>
+<td>多选模式中，所有选中项子组件的数组</td>
+</tr>
+</tbody>
+</table>
+<h4>@toggle</h4>
+<p>展开/收起选择框时触发</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$event.open</td>
+<td>Boolean</td>
+<td>展开/收起状态</td>
+</tr>
+</tbody>
+</table>
+<h2>SelectItem API</h2>
+<h3>Attrs/Props</h3>
+<table>
+<thead>
+<tr>
+<th>Attr/Prop</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>Any</td>
+<td></td>
+<td>此项的值</td>
+</tr>
+<tr>
+<td>disabled</td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>禁用此项</td>
+</tr>
+<tr>
+<td>item</td>
+<td>Object</td>
+<td></td>
+<td>相关对象。当选择此项时，抛出的事件会传递该对象，便于开发</td>
+</tr>
+</tbody>
+</table>
+<h3>Slots</h3>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(default)</td>
+<td>在插槽中插入文本或HTML</td>
+</tr>
+</tbody>
+</table>
+<h3>Events</h3>
+<h4>@before-select</h4>
+<p>选择此项前触发</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$event.value</td>
+<td>Any</td>
+<td>此项的值</td>
+</tr>
+<tr>
+<td>$event.item</td>
+<td>Object</td>
+<td>此项的相关对象</td>
+</tr>
+<tr>
+<td>$event.$item</td>
+<td>ListViewItem</td>
+<td>此组件</td>
+</tr>
+<tr>
+<td>$event.preventDefault</td>
+<td>Function</td>
+<td>阻止选择流程</td>
+</tr>
+</tbody>
+</table>
 </article>
-                <article data-server-rendered="true" class="u-article"><h2 id="API">API</h2> <h3 id="Class">Class</h3> <h4>Select</h4> <p>Extends <strong></strong>。</p> <p></p> <h3 id="Options">Options</h3> <h4>new Select()</h4> <table><thead><tr><th width="24%">Param</th><th width="16%">Type</th><th width="16%">Default</th><th width="26%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>options</code></td> <td class="f-wsn">Array</td> <td class="f-wsn"><!----></td> <td>=&gt; 下拉菜单列表</td></tr><tr><td class="f-wsn"><code>readonly</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>false</code></td> <td>=&gt; 是否只读</td></tr><tr><td class="f-wsn"><code>disabled</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>false</code></td> <td>=&gt; 是否禁用</td></tr><tr><td class="f-wsn"><code>width</code></td> <td class="f-wsn">string&lt;br&gt;number</td> <td class="f-wsn"><!----></td> <td>=&gt; 输入框长度</td></tr></tbody></table> <!----> <!----> <h3 id="Events">Events</h3> <h4>select.$on('select')</h4> <p>选中列表项时触发</p> <table><thead><tr><th width="33%">Property</th><th width="33%">Type</th><th width="33%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>sender</code></td> <td class="f-wsn">object</td> <td class="f-wsn">事件发送对象</td></tr><tr><td class="f-wsn"><code>selected</code></td> <td class="f-wsn">object</td> <td class="f-wsn">选中后的列表对象</td></tr><tr><td class="f-wsn"><code>value</code></td> <td class="f-wsn">String</td> <td class="f-wsn">选中后的列表对象的值</td></tr></tbody></table><h4>select.$on('change')</h4> <p>选中列表项改变时触发</p> <table><thead><tr><th width="33%">Property</th><th width="33%">Type</th><th width="33%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>sender</code></td> <td class="f-wsn">object</td> <td class="f-wsn">事件发送对象</td></tr><tr><td class="f-wsn"><code>selected</code></td> <td class="f-wsn">object</td> <td class="f-wsn">改变后的列表对象</td></tr><tr><td class="f-wsn"><code>value</code></td> <td class="f-wsn">String</td> <td class="f-wsn">改变后的列表对象的值</td></tr></tbody></table></article>
+                <!---->
                 <script>new Vue().$mount('#u-example-0');
 new Vue().$mount('#u-example-1');
 new Vue().$mount('#u-example-2');
-new Vue({
-    data() {
-        return {
-            value: '',
-            options: [{
-                value: '选项1',
-                name: '黄金糕111111111111111111111111111111111'
-            }, {
-                value: '选项2',
-                name: '双皮奶222222222222222222222222222222222222222222222222'
-            }, {
-                value: '选项3',
-                name: '蚵仔煎'
-            }, {
-                value: '选项4',
-                name: '龙须面'
-            }, {
-                value: '选项5',
-                name: '北京烤鸭',
-                disabled: true
-            }, {
-                name: '选项6',
-                value: '牛杂',
-            }],
-        };
-    },
-    methods: {
-        change(value) {
-            console.log(value);
-            this.value = value;
-        },
-        select(selected) {
-            console.log(selected.name,selected.value);
-        }
-    },
-}).$mount('#u-example-3');</script>
+new Vue().$mount('#u-example-3');
+new Vue().$mount('#u-example-4');
+new Vue().$mount('#u-example-5');
+new Vue().$mount('#u-example-6');</script>
             
 </body>
 </html>

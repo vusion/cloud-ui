@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="docs.css">
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<link rel="stylesheet" type="text/css" href="vusion-icon-font.css">
+<script src="docs.js"></script>
+</head>
+<body>
+
+                <article class="u-article"><h1>弹出层 Popper</h1>
+<h2>示例</h2>
+<h3>基本形式</h3>
+<p>一般情况下，需要用一个popper slot来设置弹出元素，并且要用default slot来设置触发元素，这个触发元素通常也作为参照元素。由于Vue的限制，每个slot中只能有一个根节点。</p>
+<div id="u-example-0" class="u-example"><u-popper><u-button>click</u-button><div slot="popper"><u-button>popper</u-button></div></u-popper></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-popper</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span>&gt;</span>click<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"popper"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span>&gt;</span>popper<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-popper</span>&gt;</span>
+</code></pre>
+<h3>触发事件</h3>
+<div id="u-example-1" class="u-example"><u-linear-layout><u-popper trigger="click"><u-button>click（默认）</u-button><div slot="popper"><u-button>popper</u-button></div></u-popper><u-popper trigger="hover"><u-button>hover</u-button><div slot="popper"><u-button>popper</u-button></div></u-popper><u-popper trigger="right-click"><u-button>right-click</u-button><div slot="popper"><u-button>popper</u-button></div></u-popper><u-popper trigger="double-click"><u-button>double-click</u-button><div slot="popper"><u-button>popper</u-button></div></u-popper></u-linear-layout></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-popper</span> <span class="hljs-attr">trigger</span>=<span class="hljs-string">"click"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span>&gt;</span>click（默认）<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"popper"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span>&gt;</span>popper<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-popper</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-popper</span> <span class="hljs-attr">trigger</span>=<span class="hljs-string">"hover"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span>&gt;</span>hover<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"popper"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span>&gt;</span>popper<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-popper</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-popper</span> <span class="hljs-attr">trigger</span>=<span class="hljs-string">"right-click"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span>&gt;</span>right-click<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"popper"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span>&gt;</span>popper<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-popper</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-popper</span> <span class="hljs-attr">trigger</span>=<span class="hljs-string">"double-click"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span>&gt;</span>double-click<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"popper"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span>&gt;</span>popper<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-popper</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
+</code></pre>
+<h3>弹出位置</h3>
+<div id="u-example-2" class="u-example"><u-linear-layout><u-popper placement="bottom-start"><u-button>bottom-start（默认）</u-button><div slot="popper"><u-button>popper</u-button></div></u-popper><u-popper placement="bottom"><u-button>bottom</u-button><div slot="popper"><u-button>popper</u-button></div></u-popper><u-popper placement="right-start"><u-button>right-start</u-button><div slot="popper"><u-button>popper</u-button></div></u-popper><u-popper placement="left"><u-button>left</u-button><div slot="popper"><u-button>popper</u-button></div></u-popper></u-linear-layout></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-popper</span> <span class="hljs-attr">placement</span>=<span class="hljs-string">"bottom-start"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span>&gt;</span>bottom-start（默认）<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"popper"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span>&gt;</span>popper<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-popper</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-popper</span> <span class="hljs-attr">placement</span>=<span class="hljs-string">"bottom"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span>&gt;</span>bottom<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"popper"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span>&gt;</span>popper<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-popper</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-popper</span> <span class="hljs-attr">placement</span>=<span class="hljs-string">"right-start"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span>&gt;</span>right-start<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"popper"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span>&gt;</span>popper<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-popper</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-popper</span> <span class="hljs-attr">placement</span>=<span class="hljs-string">"left"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span>&gt;</span>left<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"popper"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span>&gt;</span>popper<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-popper</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
+</code></pre>
+<h3>禁用</h3>
+<div id="u-example-3" class="u-example"><u-popper disabled><u-button disabled>disabled</u-button></u-popper></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-popper</span> <span class="hljs-attr">disabled</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> <span class="hljs-attr">disabled</span>&gt;</span>disabled<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-popper</span>&gt;</span>
+</code></pre>
+<h2>Popper API</h2>
+<h3>Attrs/Props</h3>
+<table>
+<thead>
+<tr>
+<th>Attr/Prop</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>trigger</td>
+<td>String</td>
+<td><code>'click'</code></td>
+<td>弹出层的触发方式，可选click,hover,manual</td>
+</tr>
+<tr>
+<td>placement</td>
+<td>String</td>
+<td><code>'bottom'</code></td>
+<td>弹出层的弹出方向：top,bottom,left,right,top-start,top-end...</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>String</td>
+<td><code>undefined</code></td>
+<td>弹出层偏移，&quot;10px 10px&quot;,&quot;10% 10%&quot;</td>
+</tr>
+<tr>
+<td>escapeWithReference</td>
+<td>Boolean</td>
+<td><code>true</code></td>
+<td>当触发元素离开边际时，弹出层是否跟随离开或保留在边际元素内</td>
+</tr>
+<tr>
+<td>hoverDelay</td>
+<td>Number</td>
+<td><code>0</code></td>
+<td>trigger为hover时的延迟时间</td>
+</tr>
+<tr>
+<td>boundariesElement</td>
+<td>element/String</td>
+<td><code>scrollParent</code></td>
+<td>弹出层所在的边框元素，定义弹出层的边际，默认为第一个滚动的父级元素</td>
+</tr>
+<tr>
+<td>arrowElement</td>
+<td>String</td>
+<td><code>'[u-arrow]'</code></td>
+<td>箭头元素的query值，默认为u-arrow属性，定义该属性则组件会控制箭头元素的偏移量</td>
+</tr>
+<tr>
+<td>modifiers</td>
+<td>Object</td>
+<td></td>
+<td>Popper.js的modify参数，具体参照popper.js的文档</td>
+</tr>
+</tbody>
+</table>
+</article>
+                <!---->
+                <script>new Vue().$mount('#u-example-0');
+new Vue().$mount('#u-example-1');
+new Vue().$mount('#u-example-2');
+new Vue().$mount('#u-example-3');</script>
+            
+</body>
+</html>
