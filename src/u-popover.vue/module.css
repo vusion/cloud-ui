@@ -156,6 +156,7 @@
 }
 .body{
     background-color: #fff;
+    z-index: 1065;
 }
 .body[role]{
     color: #fff;
