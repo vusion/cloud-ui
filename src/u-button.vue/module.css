@@ -25,6 +25,7 @@
     background: $brand-primary;
     color: white;
     border: none;
+    line-height: 34px;
 }
 
 .root[color="primary"]:hover {
