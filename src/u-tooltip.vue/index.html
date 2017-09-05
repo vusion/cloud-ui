@@ -1,21 +1,9 @@
-<div :class="$style.root"
-    @mouseenter="onMouseenter"
-    @mouseleave="onMouseleave">
-    <div :class="$style.reference" ref="reference">
-        <slot></slot>
+<u-popper trigger="click" :placement="placement">
+    <slot></slot>
+    <div :class="$style.wrap" slot="popper">
+        <div :class="$style.arrow"></div>
+        <slot name="content">
+            <div :class="$style.content">{{content}}</div>
+        </slot>
     </div>
-    <div :class="$style.popper" ref="popper"
-        v-show="visible"
-        :style="{width: width+'px'}"
-        @mouseenter="onMouseenter"
-        @mouseleave="onMouseleave">
-        <div :class="$style.body">
-            <div :class="$style.arrow"></div>
-            <div :class="$style.wrap">
-                <slot name="content">
-                    <div :class="$style.content" v-if="content">{{content}}</div>
-                </slot>
-            </div>
-        </div>
-    </div>
-</div>
+</u-popper>

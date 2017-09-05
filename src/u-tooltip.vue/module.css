@@ -1,9 +1,3 @@
-.root{
-    display: inline-block;
-}
-.reference{
-    position: relative;
-}
 .arrow, .arrow:after{
     display: block;
     width: 0;
@@ -33,7 +27,7 @@
         padding: 0 8px 0 5px;
     }
 }
-.popper[x-placement^="top"] .arrow{
+.wrap[x-placement^="top"] .arrow{
     bottom: 3px;
     border-width: 6px 6px 0;
     /*border-top-color:hsla(0, 0%, 85%, .5);*/
@@ -45,17 +39,17 @@
         border-top-color: rgba(71,88,107,0.9);
     }
 }
-.popper[x-placement="top"] .arrow{
+.wrap[x-placement="top"] .arrow{
     left: 50%;
     margin-left: -6px;
 }
-.popper[x-placement="top-start"] .arrow{
+.wrap[x-placement="top-start"] .arrow{
     left: 16px;
 }
-.popper[x-placement="top-end"] .arrow{
+.wrap[x-placement="top-end"] .arrow{
     right: 16px;
 }
-.popper[x-placement^="right"] .arrow{
+.wrap[x-placement^="right"] .arrow{
     left: 3px;
     border-width: 6px 6px 6px 0;
     /*border-right-color:hsla(0, 0%, 85%, .5);*/
@@ -67,17 +61,17 @@
         border-right-color: rgba(71,88,107,0.9);
     }
 }
-.popper[x-placement="right"] .arrow{
+.wrap[x-placement="right"] .arrow{
     top: 50%;
     margin-top: -6px;
 }
-.popper[x-placement="right-start"] .arrow{
+.wrap[x-placement="right-start"] .arrow{
     top: 8px;
 }
-.popper[x-placement="right-end"] .arrow{
+.wrap[x-placement="right-end"] .arrow{
     bottom: 8px;
 }
-.popper[x-placement^="left"] .arrow{
+.wrap[x-placement^="left"] .arrow{
     right: 3px;
     border-width: 6px 0 6px 6px;
     /*border-left-color:hsla(0, 0%, 85%, .5);*/
@@ -89,17 +83,17 @@
         border-left-color: rgba(71,88,107,0.9);
     }
 }
-.popper[x-placement="left"] .arrow{
+.wrap[x-placement="left"] .arrow{
     top: 50%;
     margin-top: -6px;
 }
-.popper[x-placement="left-start"] .arrow{
+.wrap[x-placement="left-start"] .arrow{
     top: 8px;
 }
-.popper[x-placement="left-end"] .arrow{
+.wrap[x-placement="left-end"] .arrow{
     bottom: 8px;
 }
-.popper[x-placement^="bottom"] .arrow{
+.wrap[x-placement^="bottom"] .arrow{
     top: 3px;
     border-width: 0px 6px 6px;
     /*border-bottom-color:hsla(0, 0%, 85%, .5);*/
@@ -111,20 +105,19 @@
         border-bottom-color: rgba(71,88,107,0.9);
     }
 }
-.popper[x-placement="bottom"] .arrow{
+.wrap[x-placement="bottom"] .arrow{
     left: 50%;
     margin-left: -6px;
 }
-.popper[x-placement="bottom-start"] .arrow{
+.wrap[x-placement="bottom-start"] .arrow{
     left: 16px;
 }
-.popper[x-placement="bottom-end"] .arrow{
+.wrap[x-placement="bottom-end"] .arrow{
     right: 16px;
 }
 .wrap{
-    width: 100%;
+    max-width: 260px;
     border-radius: 2px;
-    box-shadow: 0 0 8px rgba(151, 164, 175, 0.35);
     box-sizing: border-box;
 }
 .content{
@@ -132,8 +125,18 @@
     max-width: 260px;
     word-break: break-all;
     color: #fff;
-}
-.body{
-    color: #fff;
     background: rgba(71,88,107,0.9);
+    position: relative;
+}
+.wrap[x-placement^="top"] .content{
+    top: -10px;
+}
+.wrap[x-placement^="bottom"] .content{
+    top: 10px;
+}
+.wrap[x-placement^="right"] .content{
+    left: 10px;
+}
+.wrap[x-placement^="left"] .content{
+    left: -10px;
 }
