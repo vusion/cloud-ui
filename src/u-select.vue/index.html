@@ -1,6 +1,6 @@
 <u-popper ref="popper" :disabled="readonly || disabled" @toggle="onToggle($event)">
     <div :class="$style.root" :readonly="readonly" :disabled="disabled" :size="size">
-        <span :class="$style.text">{{ selectedItem && selectedItem.$el.textContent }}</span>
+        <span :class="$style.text">{{ selectedVM && selectedVM.$el.textContent }}</span>
     </div>
     <!-- 这个地方以后可能要改用render实现 -->
     <ul :class="$style.popper" slot="popper" :size="size">
