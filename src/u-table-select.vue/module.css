@@ -1,5 +1,6 @@
 .popper{
-    display: block !important;
+    width: 100%;
+    z-index: 1065;
 }
 .title{
     cursor: pointer;
@@ -8,8 +9,8 @@
     top: 0;
     bottom: 0;
     right: 0;
-    height: 46px;
-    line-height: 46px;
+    height: 56px;
+    line-height: 56px;
     padding-left: 30px;
 }
 .title:hover{
@@ -23,12 +24,11 @@
     position: relative;
     top: 3px;
 }
-.option{
-    padding: 3px 14px;
-    box-sizing: border-box;
-    width: 100%;
+@import "../u-select.vue/module.css";
+.popper{
+    line-height: 30px;
+    background: #fff;
 }
-.option[role] {
-    background: $brand-primary;
-    color: #fff;
+.item{
+    padding-left: 15px;
 }
