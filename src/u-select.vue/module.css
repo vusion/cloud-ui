@@ -46,7 +46,6 @@
 }
 
 .popper {
-    z-index: 50;
     margin-top: -1px;
     width: 160px;
     max-height: 180px;

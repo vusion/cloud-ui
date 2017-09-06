@@ -6,16 +6,34 @@
         <u-navbar-item to="/components">组件</u-navbar-item>
         <u-navbar-item>模式</u-navbar-item>
         <u-navbar-item>资源</u-navbar-item>
-        <u-theme-select slot="right">
-            <u-theme-select-item><div :class="$style.color"></div>Default</u-theme-select-item>
-            <u-theme-select-item><div :class="$style.color" color="dark"></div>Dark</u-theme-select-item>
-            <u-theme-select-item><div :class="$style.color" color="seagreen"></div>SeaGreen</u-theme-select-item>
+        <u-theme-select slot="right" v-model="theme" @select="onSelectTheme">
+            <u-theme-select-item value="default"><div :class="$style.color"></div>Default</u-theme-select-item>
+            <u-theme-select-item value="dark"><div :class="$style.color" color="dark"></div>Dark</u-theme-select-item>
+            <u-theme-select-item value="seagreen"><div :class="$style.color" color="seagreen"></div>SeaGreen</u-theme-select-item>
         </u-theme-select>
     </u-navbar>
     <div><router-view></router-view></div>
     <div :class="$style.foot" slot="foot"></div>
 </u-global-layout>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            theme: window.theme,
+        };
+    },
+    methods: {
+        onSelectTheme($event) {
+            if ($event.value !== window.theme) {
+                localStorage.setItem('theme', $event.value);
+                location.reload();
+            }
+        },
+    },
+};
+</script>
 
 <style module>
 .foot {

@@ -2,17 +2,21 @@ const path = require('path');
 const hljs = require('highlight.js');
 const codeActivator = require('./code-activator');
 
+let theme = path.basename(process.cwd());
+if (theme === 'src')
+    theme = 'theme-default';
+
 module.exports = {
     type: 'app',
     assetsPath: path.resolve(__dirname, './assets'),
     webpack: {
         entry: {
-            'docs.default': path.resolve(__dirname, './index.js'),
+            docs: path.resolve(__dirname, './index.js'),
         },
         output: {
-            path: path.resolve(__dirname, '../public'),
+            path: path.resolve(__dirname, '../public/' + theme),
             // Use relative public path by default
-            publicPath: '/',
+            publicPath: process.env.NODE_ENV === 'development' ? '/' : `/cloud-ui/${theme}/`,
             filename: '[name].js',
             chunkFilename: 'chunk.[name].[chunkhash:16].js',
         },

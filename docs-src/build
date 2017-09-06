@@ -3,10 +3,14 @@
 const path = require('path');
 const shell = require('shelljs');
 
+const outputPath = path.resolve(__dirname, '../public');
+shell.rm('-rf', outputPath);
+shell.cp('-r', path.resolve(__dirname, 'assets'), outputPath);
+
 const configPath = path.resolve(__dirname, 'vusion.config.js');
 shell.cd(path.resolve(__dirname, '../src'));
 shell.exec(`vusion build -c "${configPath}"`);
-// shell.cd(path.resolve(__dirname, '../src'));
-// shell.exec(`vusion build -c "${configPath}"`);
-// shell.cd(path.resolve(__dirname, '../src'));
-// shell.exec(`vusion build -c "${configPath}"`);
+shell.cd(path.resolve(__dirname, '../theme-dark'));
+shell.exec(`vusion build -c "${configPath}"`);
+shell.cd(path.resolve(__dirname, '../theme-seagreen'));
+shell.exec(`vusion build -c "${configPath}"`);

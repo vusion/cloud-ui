@@ -1,4 +1,4 @@
-import Library from './src';
+import Library from '../src';
 
 export default Library;
-export * from './src';
+export * from '../src';

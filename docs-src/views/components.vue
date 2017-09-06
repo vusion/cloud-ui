@@ -35,7 +35,7 @@
                     <u-sidebar-item to="/components/u-checkbox">多选框 <small>Checkbox</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-switch">开关 <small>Switch</small></u-sidebar-item>
                     <u-sidebar-item v-if="advanced" to="/components/u-field">表单控件 <small>Field</small></u-sidebar-item>
-                    <u-sidebar-item v-if="advanced" to="/components/u-form-item">表单项 <small>FormItem</small></u-sidebar-item>
+                    <!-- <u-sidebar-item v-if="advanced" to="/components/u-form-item">表单项 <small>FormItem</small></u-sidebar-item> -->
                     <u-sidebar-item to="/components/u-form">表单 <small>Form</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Data">
