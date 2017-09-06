@@ -59,4 +59,5 @@
 .popper[size$="large"] { width: 300px; }
 .root[size^="large"] { height: 40px; line-height: 38px; }
 .root[size$="small"] { width: 120px; }
+.popper[size$="small"] { width: 120px; }
 .root[size^="small"] { height: 28px; line-height: 26px; }
