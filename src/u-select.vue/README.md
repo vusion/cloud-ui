@@ -150,6 +150,13 @@
             <u-select-item>蛋糕</u-select-item>
         </u-select>
     </u-linear-layout>
+    <u-linear-layout>
+        <u-select size="mini">
+            <u-select-item>10</u-select-item>
+            <u-select-item>50</u-select-item>
+            <u-select-item>200</u-select-item>
+        </u-select>
+    </u-linear-layout>
 </u-linear-layout>
 ```
 
