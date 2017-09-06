@@ -1,9 +1,18 @@
 {
+    "parser": "babel-eslint",
     "extends": [
         "vusion",
         "vusion/test"
     ],
     "env": {
-        "browser": true
-    }
+        "browser": true,
+        "node": true
+    },
+    "plugins": ["html"],
+    "overrides": [{
+        "files": ["*.vue"],
+        "rules": {
+            "no-multiple-empty-lines": [1, { "max": 1, "maxEOF": 1, "maxBOF": 1 }]
+        }
+    }]
 }

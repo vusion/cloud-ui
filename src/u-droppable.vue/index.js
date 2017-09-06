@@ -1,7 +1,7 @@
 import { manager, getDimension } from '../util/style.js';
 
 export default {
-    name: 'u-drop',
+    name: 'u-droppable',
     props: {
         element: {
             type: String,

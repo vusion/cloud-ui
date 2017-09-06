@@ -1,8 +1,8 @@
-import Drag from '../u-drag.vue';
+import Draggable from '../u-draggable.vue';
 import { getSize, getComputedStyle, manager } from '../util/style.js';
 export default {
     name: 'u-movable',
-    mixins: [Drag],
+    mixins: [Draggable],
     props: {
         axis: {
             default: 'both',

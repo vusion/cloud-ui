@@ -26,3 +26,7 @@ $tabs-border: #e0e6ed;
 .item[disabled] {
     background: white;
 }
+
+.body {
+    margin-top: 20px;
+}

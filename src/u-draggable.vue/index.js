@@ -1,7 +1,7 @@
 import EventUtil from '../util/event.js';
 import { getPosition, getSize, getComputedStyle, manager } from '../util/style.js';
 export default {
-    name: 'u-drag',
+    name: 'u-draggable',
     props: {
         proxy: {
             type: String,
