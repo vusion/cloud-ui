@@ -62,6 +62,6 @@
 .root[size$="small"] { width: 120px; }
 .popper[size$="small"] { width: 120px; }
 .root[size^="small"] { height: 28px; line-height: 26px; }
-.root[size$="mini"] { width: 80px; }
-.popper[size$="mini"] { width: 80px; }
+.root[size$="mini"] { width: 80px; height: 30px; line-height: 28px; }
+.popper[size$="mini"] { width: 80px;}
 .root[size$="mini"] .text { width: 25px; }
