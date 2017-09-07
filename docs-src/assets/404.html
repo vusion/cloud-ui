@@ -7,6 +7,8 @@
 <body>
     <div id="app"><router-view></router-view></div>
     <script>
+    const base = window.base = location.host === 'vusion.github.io' ? '/cloud-ui/' : '/';
+
     let theme = localStorage.getItem('theme');
     if (!theme)
         theme = 'default';
@@ -14,11 +16,11 @@
 
     const $link = document.createElement('link');
     $link.rel = 'stylesheet';
-    $link.href = `/cloud-ui/theme-${theme}/vusion-icon-font.css`;
+    $link.href = base + `theme-${theme}/vusion-icon-font.css`;
     document.body.appendChild($link);
 
     const $script = document.createElement('script');
-    $script.src = `/cloud-ui/theme-${theme}/docs.js`;
+    $script.src = base + `theme-${theme}/docs.js`;
     document.body.appendChild($script);
     </script>
 </body>

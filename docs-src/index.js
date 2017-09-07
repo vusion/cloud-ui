@@ -19,7 +19,7 @@ Vue.component(ThemeSelectItem.name, ThemeSelectItem);
 import routes from './routes';
 new Vue({
     router: new VueRouter({
-        base: '/cloud-ui/',
+        base: window.base,
         mode: 'history',
         routes,
         scrollBehavior: (to, from, savedPosition) => savedPosition || { x: 0, y: 0 },

@@ -8,7 +8,6 @@ if (theme === 'src')
 
 module.exports = {
     type: 'app',
-    assetsPath: path.resolve(__dirname, './assets'),
     webpack: {
         entry: {
             docs: path.resolve(__dirname, './index.js'),
@@ -16,7 +15,7 @@ module.exports = {
         output: {
             path: path.resolve(__dirname, '../public/' + theme),
             // Use relative public path by default
-            publicPath: process.env.NODE_ENV === 'development' ? '/' : `/cloud-ui/${theme}/`,
+            publicPath: process.env.NODE_ENV === 'development' ? `/${theme}/` : `/cloud-ui/${theme}/`,
             filename: '[name].js',
             chunkFilename: 'chunk.[name].[chunkhash:16].js',
         },
@@ -57,5 +56,9 @@ module.exports = {
                 } },
             ],
         },
+    },
+    webpackDevServer: {
+        publicPath: process.env.NODE_ENV === 'development' ? `/${theme}/` : `/cloud-ui/${theme}/`,
+        contentBase: path.resolve(__dirname, '../public'),
     },
 };
