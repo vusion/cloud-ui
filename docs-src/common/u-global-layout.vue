@@ -33,7 +33,7 @@ export default {
     right: 0;
     left: 0;
     height: 64px;
-    background: #4289db;
+    background: #1c2b41;
     box-shadow: 0 3px 4px rgba(0,0,0,0.1);
     z-index: 1;
 }

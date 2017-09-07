@@ -19,7 +19,7 @@ export default {
 }
 
 .root:hover {
-    background: #397ece;
+    background: rgba(255,255,255,0.1);
 }
 
 .text {
