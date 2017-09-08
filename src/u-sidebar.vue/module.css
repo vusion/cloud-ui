@@ -2,3 +2,8 @@
     user-select: none;
     background-color: $sidebar-background-color;
 }
+
+.root[size="small"] .item {
+    height: 32px;
+    line-height: 32px;
+}

@@ -1,4 +1,4 @@
-import Style from '../util/style.js';
+import * as Style from '../util/style.js';
 import Utils from '../util/utils.js';
 import Popover from '../u-popover.vue';
 import TableCell from '../u-table-cell.vue';

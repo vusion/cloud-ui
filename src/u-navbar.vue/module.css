@@ -1,6 +1,5 @@
 .root {
     user-select: none;
-    overflow: hidden;
     display: flex;
     justify-content: space-between;
 }

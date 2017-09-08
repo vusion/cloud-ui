@@ -4,14 +4,17 @@
 ### 基本形式
 
 ``` html
-<u-status-icon name="list-ok">设置</u-status-icon>
+<u-status-icon name="success">设置</u-status-icon>
 ```
 ``` html
-<u-status-icon name="list-stop">设置</u-status-icon>
+<u-status-icon name="pause">设置</u-status-icon>
 ```
 ``` html
-<u-status-icon name="list-warn">设置</u-status-icon>
+<u-status-icon name="warnning">设置</u-status-icon>
 ```
 ``` html
-<u-status-icon name="list-fix">设置</u-status-icon>
+<u-status-icon name="waiting">设置</u-status-icon>
+```
+``` html
+<u-status-icon name="error">设置</u-status-icon>
 ```

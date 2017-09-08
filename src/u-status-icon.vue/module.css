@@ -1,28 +1,35 @@
-.root[name="list-ok"]:before {
+.root[name="success"]:before {
     icon-font: url(../u-icon.vue/icons/list_ok.svg);
     vertical-align: -7px;
     font-size: 24px;
     margin-right: 10px;
     color: #3ad0af;
 }
-.root[name="list-fix"]:before {
+.root[name="waiting"]:before {
     icon-font: url(../u-icon.vue/icons/list_fix.svg);
     vertical-align: -7px;
     font-size: 24px;
     margin-right: 10px;
-    color: #3ad0af;
+    color: #a2b0b7;
 }
-.root[name="list-stop"]:before {
+.root[name="pause"]:before {
     icon-font: url(../u-icon.vue/icons/list_stop.svg);
     vertical-align: -7px;
     font-size: 24px;
     margin-right: 10px;
-    color: #3ad0af;
+    color: #ff867f;
 }
-.root[name="list-warn"]:before {
+.root[name="warnning"]:before {
     icon-font: url(../u-icon.vue/icons/list_warn.svg);
     vertical-align: -7px;
     font-size: 24px;
     margin-right: 10px;
-    color: #3ad0af;
+    color: #fbcc3e;
+}
+.root[name="error"]:before {
+    icon-font: url(../u-icon.vue/icons/list_error.svg);
+    vertical-align: -7px;
+    font-size: 24px;
+    margin-right: 10px;
+    color: #ff867f;
 }
