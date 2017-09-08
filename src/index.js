@@ -190,6 +190,7 @@ export {
     SidebarMenu,
     Subnav,
     SubnavItem,
+    StatusIcon,
     Switch,
     Tab,
     TableCell,
