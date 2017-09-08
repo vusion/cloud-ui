@@ -1,0 +1,26 @@
+@import '../../src/u-button.vue/module.css';
+
+.root {
+    border-radius: $border-radius-base;
+}
+
+.root:hover {
+    color: #333;
+    border-color: #cdcdcd;
+}
+
+.root[disabled] {
+    background: white;
+    color: #ccc;
+    border-color: #ddd;
+}
+
+.root[color="primary"]:hover {
+    background: #508de8;
+    color: white;
+}
+
+.root[color="primary"][disabled] {
+    background: #d9d9d9;
+    color: white;
+}

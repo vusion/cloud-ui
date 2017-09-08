@@ -2,19 +2,22 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
-import Library from 'library';
-Vue.use(Library);
-
+import * as Library from 'library';
 import GlobalLayout from './common/u-global-layout.vue';
 import Article from './common/u-article.vue';
 import ThemeSelect from './common/u-theme-select.vue';
 import ThemeSelectItem from './common/u-theme-select-item.vue';
 import './common/atom-one-light.css';
 
-Vue.component(GlobalLayout.name, GlobalLayout);
-Vue.component(Article.name, Article);
-Vue.component(ThemeSelect.name, ThemeSelect);
-Vue.component(ThemeSelectItem.name, ThemeSelectItem);
+const Components = Object.assign({}, Library, {
+    GlobalLayout,
+    Article,
+    ThemeSelect,
+    ThemeSelectItem,
+});
+delete Components.default;
+
+Object.keys(Components).forEach((key) => Components[key].name && Vue.component(Components[key].name, Components[key]));
 
 import routes from './routes';
 new Vue({
