@@ -69,6 +69,7 @@ import XBarChart from './u-xbar-chart.vue';
 import Draggable from './u-draggable.vue';
 import Droppable from './u-droppable.vue';
 import Movable from './u-movable.vue';
+import Slider from './u-slider.vue';
 
 const Components = {
     Badge,
@@ -140,6 +141,7 @@ const Components = {
     Draggable,
     Droppable,
     Movable,
+    Slider,
 };
 
 export {
@@ -212,6 +214,7 @@ export {
     Draggable,
     Droppable,
     Movable,
+    Slider,
 };
 
 const Library = {

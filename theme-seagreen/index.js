@@ -70,4 +70,5 @@ export {
     Draggable,
     Droppable,
     Movable,
+    Slider,
 } from '../src';
