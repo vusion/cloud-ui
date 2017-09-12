@@ -28,7 +28,7 @@ export default {
             default: '请输入',
         },
         width: { type: [String, Number], default: 154 },
-        align: {
+        alignment: {
             type: String,
             default: 'left',
             validator(value) {
@@ -86,9 +86,9 @@ export default {
     },
     computed: {
         placement() {
-            if (this.align === 'left')
+            if (this.alignment === 'left')
                 return 'bottom-start';
-            else if (this.align === 'right')
+            else if (this.alignment === 'right')
                 return 'bottom-end';
         },
     },
