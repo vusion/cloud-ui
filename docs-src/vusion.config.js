@@ -14,7 +14,6 @@ module.exports = {
         },
         output: {
             path: path.resolve(__dirname, '../public/' + theme),
-            // Use relative public path by default
             publicPath: process.env.NODE_ENV === 'development' ? `/${theme}/` : `/cloud-ui/${theme}/`,
             filename: '[name].js',
             chunkFilename: 'chunk.[name].[chunkhash:16].js',
@@ -58,7 +57,6 @@ module.exports = {
         },
     },
     webpackDevServer: {
-        publicPath: process.env.NODE_ENV === 'development' ? `/${theme}/` : `/cloud-ui/${theme}/`,
         contentBase: path.resolve(__dirname, '../public'),
     },
 };
