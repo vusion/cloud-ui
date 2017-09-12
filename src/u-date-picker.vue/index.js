@@ -28,11 +28,17 @@ export default {
             default: '请输入',
         },
         width: { type: [String, Number], default: 154 },
+        align: {
+            type: String,
+            default: 'left',
+            validator(value) {
+                return ['left', 'right'].includes(value);
+            },
+        },
     },
     data() {
         return {
             showDate: this.format(this.date, 'yyyy/MM/dd'),
-            open: false,
         };
     },
     created() {
@@ -77,11 +83,13 @@ export default {
             if (newValue === 'Invalid Date' || newValue === 'NaN')
                 throw new TypeError('Invalid Date');
         },
-        open(newValue) {
-            this.$emit('toggle', {
-                sender: this,
-                open: newValue,
-            });
+    },
+    computed: {
+        placement() {
+            if (this.align === 'left')
+                return 'bottom-start';
+            else if (this.align === 'right')
+                return 'bottom-end';
         },
     },
     methods: {
@@ -108,7 +116,9 @@ export default {
                 date: new Date(this.showDate),
             });
 
-            this.toggle(false);
+            this.$emit('update:date', this.showDate);
+
+            this.$refs.popper.toggle(false);
         },
         /**
          * @method onInput($event) 输入日期
@@ -147,8 +157,8 @@ export default {
          * @public
          * @param {flag} true 显示 false 隐藏
          */
-        toggle(flag) {
-            this.open = flag;
+        onToggle($event) {
+            this.$emit('toggle', $event);
         },
         format(value, type) {
             if (!value)
@@ -170,12 +180,6 @@ export default {
             value = new Date(value);
             return type.replace(trunk, (capture) => maps[capture] ? maps[capture](value) : '');
         },
-        // fadeOut(event) {
-        //     debugger;
-        //     const _target = event.target;
-        //     if (_target !== this.$refs.input && this.open)
-        //         this.toggle(false);
-        // },
         transformDate(date) {
             if (typeof date === 'string')
                 return new Date(date);
@@ -183,9 +187,6 @@ export default {
                 return new Date(date);
             else if (typeof date === 'object')
                 return date;
-        },
-        handleClose() {
-            this.open = false;
         },
     },
 };
