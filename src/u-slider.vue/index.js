@@ -4,6 +4,10 @@ import { getDimension } from '../util/style.js';
 export default {
     name: 'u-slider',
     props: {
+        value: {
+            type: [String, Number],
+            default: 0,
+        },
         readonly: {
             type: Boolean,
             default: false,
@@ -33,12 +37,29 @@ export default {
             type: [String, Number],
             default: 0,
         },
+        tooltip: {
+            type: Boolean,
+            default: false,
+        },
+        placement: {
+            type: String,
+            default: 'top',
+        },
+        formatter: {
+            type: Function,
+        },
     },
     mixins: [Movable],
     data() {
         return {
             currentValue: this.value,
         };
+    },
+    created() {
+        // console.log(this.value);
+        // console.log(this.percent);
+        // console.log(this.min);
+        // console.log(this.max);
     },
     watch: {
         value(newValue) {
@@ -54,14 +75,26 @@ export default {
                 return (this.currentValue - this.min) / (this.max - this.min) * 100;
             },
             set(percent) {
-                let value = +this.min + percent / (this.max - this.min) * 100;
+                let value = +this.min + (this.max - this.min) * percent / 100;
                 if (this.step)
                     value = Math.round(value / this.step) * this.step;
                 const isOutOfRange = this.isOutOfRange(value);
                 if (isOutOfRange)
                     this.currentValue = isOutOfRange;
-                this.currentValue = value;
+                this.currentValue = value.toFixed(4);
             },
+        },
+        tooltipMessage() {
+            if (this.formatter)
+                return this.formatter(this.currentValue);
+            else
+                return this.currentValue;
+        },
+        styleObject() {
+            const left = (this.currentValue - this.min) / (this.max - this.min) * 100 + '%';
+            return {
+                left,
+            };
         },
     },
     methods: {
@@ -79,8 +112,9 @@ export default {
             const $handle = this.$refs.handle;
             const $parent = $handle.$el.offsetParent;
             const dimension = getDimension($parent, 'center');
+            const distance = e.clientX - dimension.left >= 0 ? e.clientX - dimension.left : 0;
 
-            this.percent = (e.clientX - dimension.left) / dimension.width * 100;
+            this.percent = distance / dimension.width * 100;
         },
         isOutOfRange(value) {
             const min = +this.min;

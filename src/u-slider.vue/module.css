@@ -25,3 +25,29 @@
     border: 1px solid #ddd;
     border-radius: 2px;
 }
+.handle:hover .tooltip{
+    display: block;
+}
+.tooltip {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -40px;
+    background: #1f2d3d;
+    color: #fff;
+    padding: 0 5px;
+    display: none;
+}
+.tooltip:after{
+    content: '';
+    width: 0;
+    height: 0;
+    border: 5px solid #1f2d3d;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    margin-left: -5px;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+}

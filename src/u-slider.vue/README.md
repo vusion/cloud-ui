@@ -13,7 +13,7 @@
 ```vue
 <template>
 <div style="width: 100px;position: relative;">
-    <u-slider :value.sync="value"></u-slider>
+    <u-slider :value.sync="value" tooltip :step="step" min="10" max="500"></u-slider>
 </div>
 </template>
 <script>
@@ -21,6 +21,7 @@ export default {
    data() {
     return {
         value: 20,
+        step: 10,
     }
    },
    watch: {
