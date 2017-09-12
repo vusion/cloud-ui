@@ -7,7 +7,9 @@
 
 ### 基本
 ``` html
-<u-date-picker date="2018-08-08"></u-date-picker>
+<div style="position: absolute;right:0;">
+    <u-date-picker date="2018-08-08" align="right"></u-date-picker>
+</div>
 ```
 
 ### 基本
@@ -28,7 +30,7 @@
 ### 获取改变值方法 change select
 ``` vue
 <template>
-<u-date-picker :date="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
+<u-date-picker :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
 </template>
 
 <script>
@@ -48,6 +50,11 @@ export default {
         toggle(event) {
         	console.log(event.open);
         }
+    },
+    watch: {
+        date(newValue) {
+            console.log(newValue);
+        },
     },
 };
 </script>
