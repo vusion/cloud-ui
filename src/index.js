@@ -70,6 +70,7 @@ import Draggable from './u-draggable.vue';
 import Droppable from './u-droppable.vue';
 import Movable from './u-movable.vue';
 import Slider from './u-slider.vue';
+import TableViewCell from './u-table-view-cell.vue';
 
 const Components = {
     Badge,
@@ -142,6 +143,7 @@ const Components = {
     Droppable,
     Movable,
     Slider,
+    TableViewCell,
 };
 
 export {
@@ -215,6 +217,7 @@ export {
     Droppable,
     Movable,
     Slider,
+    TableViewCell,
 };
 
 const Library = {
