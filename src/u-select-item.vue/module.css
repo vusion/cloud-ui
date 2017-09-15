@@ -1,5 +1,10 @@
 @import 'u-list-view-item.vue/module.css';
 
+.root {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
 .root:hover {
     background: #f5f7fa;
 }

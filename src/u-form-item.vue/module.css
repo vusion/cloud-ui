@@ -1,9 +1,5 @@
 @import 'u-form-item.vue/module.css';
 
-.root {
-    margin-bottom: 30px;
-}
-
 .title {
     color: #999;
     text-align: right;
