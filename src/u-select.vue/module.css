@@ -22,12 +22,12 @@
 }
 
 .root:after {
-    float: right;
-    position: relative;
+    position: absolute;
     icon-font: url('../u-icon.vue/icons/keyboard-arrow-down.svg');
     color: #a5a5a6;
     font-size: 18px;
-    left: 12px;
+    right: 6px;
+    top: 0;
 }
 
 .root[disabled] {
@@ -39,7 +39,7 @@
 
 .text {
     float: left;
-    width: calc(100% - 20px);
+    width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -56,12 +56,27 @@
     z-index: 1065;
 }
 
-.root[size$="large"] { width: 300px; }
-.popper[size$="large"] { width: 300px; }
-.root[size^="large"] { height: 40px; line-height: 38px; }
+.root[size$="mini"] { width: 80px; }
+.popper[size$="mini"] { width: 80px; }
+.root[size^="mini"] {  height: 28px; line-height: 26px; }
+/* .root[size$="mini"] .text { width: 25px; } */
+
 .root[size$="small"] { width: 120px; }
 .popper[size$="small"] { width: 120px; }
-.root[size^="small"] { height: 28px; line-height: 26px; }
-.root[size$="mini"] { width: 80px; height: 30px; line-height: 28px; }
-.popper[size$="mini"] { width: 80px;}
-.root[size$="mini"] .text { width: 25px; }
+.root[size^="small"] { height: 30px; line-height: 28px; }
+
+.root[size$="normal"] { width: 160px; }
+.popper[size$="normal"] { width: 160px; }
+.root[size^="normal"] { height: $height-base; line-height: 32px; }
+
+.root[size$="large"] { width: 360px; }
+.popper[size$="large"] { width: 360px; }
+.root[size^="large"] { height: 38px; line-height: 36px; }
+
+.root[size$="huge"] { width: 440px; }
+.popper[size$="huge"] { width: 440px; }
+.root[size^="huge"] { height: 40px; line-height: 38px; }
+
+.root[size$="full"] { width: 100%; }
+.popper[size$="full"] { width: 100%; }
+.root[size^="full"] { height: 100%; }
