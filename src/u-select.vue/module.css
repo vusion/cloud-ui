@@ -59,7 +59,6 @@
 .root[size$="mini"] { width: 80px; }
 .popper[size$="mini"] { width: 80px; }
 .root[size^="mini"] {  height: 28px; line-height: 26px; }
-/* .root[size$="mini"] .text { width: 25px; } */
 
 .root[size$="small"] { width: 120px; }
 .popper[size$="small"] { width: 120px; }
@@ -78,5 +77,5 @@
 .root[size^="huge"] { height: 40px; line-height: 38px; }
 
 .root[size$="full"] { width: 100%; }
-.popper[size$="full"] { width: 100%; }
+.popper[size$="full"] { width: 100%; box-sizing: content-box; }
 .root[size^="full"] { height: 100%; }
