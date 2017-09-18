@@ -32,13 +32,13 @@ export default [
             /* Form */
             { path: 'u-input', component: () => import('../src/u-input.vue/README.md') },
             { path: 'u-number-input', component: () => import('../src/u-number-input.vue/README.md') },
-            { path: 'u-textarea', component: () => import('u-textarea.vue/README.md') },
+            { path: 'u-textarea', component: () => import('../src/u-textarea.vue/README.md') },
             { path: 'u-select', component: () => import('../src/u-select.vue/README.md') },
             { path: 'u-multi-select', component: () => import('../src/u-multi-select.vue/README.md') },
             { path: 'u-color-select', component: () => import('../src/u-color-select.vue/README.md') },
             { path: 'u-checkbox', component: () => import('u-checkbox.vue/README.md') },
             { path: 'u-switch', component: () => import('../src/u-switch.vue/README.md') },
-            { path: 'u-slider', component: () => import('../src/u-slider.vue/README.md') },
+            /* { path: 'u-slider', component: () => import('../src/u-slider.vue/README.md') },*/
             { path: 'u-field', component: Empty },
             { path: 'u-form-item', component: Empty },
             { path: 'u-form', component: () => import('../src/u-form.vue/README.md') },

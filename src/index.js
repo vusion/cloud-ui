@@ -58,7 +58,7 @@ import Tablet from './u-tablet.vue';
 import Tablets from './u-tablets.vue';
 import Tabs from './u-tabs.vue';
 import Tag from './u-tag.vue';
-import Textarea from 'u-textarea.vue';
+import Textarea from './u-textarea.vue';
 import TimePicker from './u-time-picker.vue';
 import Toast from './u-toast.vue';
 import Tooltip from './u-tooltip.vue';

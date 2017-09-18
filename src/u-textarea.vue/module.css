@@ -1,0 +1,41 @@
+@import 'u-textarea.vue/module.css';
+.root {
+    max-width: 100%;
+}
+
+.input {
+    max-width: 100%;
+    padding: 0 10px;
+    color: #666;
+    border-color: #e1e8ed;
+    border-radius: 3px;
+    transition: border-color $transition-duration;
+    resize: both;
+}
+
+.input::placeholder {
+    /* Removes placeholder transparency in Firefox. */
+    opacity: 1;
+    color: #999;
+}
+
+.input:focus {
+    border-color: #8ebee9;
+}
+
+.input[color="error"] {
+    border-color: #ff867f;
+}
+
+.input[disabled] {
+    background-color: #e9f0f5;
+    border-color: #e9f0f5;
+}
+.input[size$="normal"] { width: 320px; padding: 0 10px; }
+.input[size^="normal"] { height: 120px; }
+
+.input[size$="large"] { width: 440px; padding: 0 10px; }
+.input[size^="large"] { height: 200px; }
+
+.input[size$="huge"] { width: 600px; padding: 0 10px; }
+.input[size^="huge"] { height: 360px; }
