@@ -4,13 +4,16 @@
 }
 
 .input {
+    width: 160px;
+    height: 80px;
+    line-height: inherit;
     max-width: 100%;
-    padding: 0 10px;
+    min-height: $height-base;
+    padding: 5px 10px;
     color: #666;
     border-color: #e1e8ed;
     border-radius: 3px;
     transition: border-color $transition-duration;
-    resize: both;
 }
 
 .input::placeholder {
@@ -31,11 +34,17 @@
     background-color: #e9f0f5;
     border-color: #e9f0f5;
 }
-.input[size$="normal"] { width: 320px; padding: 0 10px; }
-.input[size^="normal"] { height: 120px; }
 
-.input[size$="large"] { width: 440px; padding: 0 10px; }
-.input[size^="large"] { height: 200px; }
+.input[size$="normal"] { width: 160px; padding: 5px 10px; }
+.input[size^="normal"] { height: 80px; }
 
-.input[size$="huge"] { width: 600px; padding: 0 10px; }
-.input[size^="huge"] { height: 360px; }
+.input[size$="large"] { width: 320px; padding: 5px 10px; }
+.input[size^="large"] { height: 120px; }
+
+.input[size$="huge"] { width: 440px; padding: 5px 10px; }
+.input[size^="huge"] { height: 200px; }
+
+.root[size$="full"] { width: 100%; }
+.input[size$="full"] { width: 100%; padding: 5px 10px; }
+.root[size^="full"] { height: 100%; }
+.input[size^="full"] { height: 100%; }

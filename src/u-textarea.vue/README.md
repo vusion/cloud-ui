@@ -21,16 +21,15 @@ Most attributes are inherited from `<textarea>` element.
 
 ```html
 <u-linear-layout direction="vertical">
-<u-linear-layout>
-    <u-textarea size="normal" value="normal"></u-textarea>
-</u-linear-layout>
-<u-linear-layout>
-    <u-textarea size="large" value="large"></u-textarea>
-</u-linear-layout>
-
-<u-linear-layout>
-    <u-textarea size="huge" value="huge"></u-textarea>
-</u-linear-layout>
+    <u-linear-layout>
+        <u-textarea size="normal" value="normal" readonly></u-textarea>
+    </u-linear-layout>
+    <u-linear-layout>
+        <u-textarea size="large" value="large" readonly></u-textarea>
+    </u-linear-layout>
+    <u-linear-layout>
+        <u-textarea size="huge" value="huge" readonly></u-textarea>
+    </u-linear-layout>
 </u-linear-layout>
 ```
 

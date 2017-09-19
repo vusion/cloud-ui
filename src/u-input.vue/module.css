@@ -36,16 +36,20 @@
 
 .input[size$="mini"] { width: 80px; padding: 0 6px; }
 .input[size^="mini"] { height: 28px; }
+
 .input[size$="small"] { width: 120px; padding: 0 8px; }
 .input[size^="small"] { height: 30px; }
+
 .input[size$="normal"] { width: 160px; padding: 0 10px; }
 .input[size^="normal"] { height: $height-base; }
+
 .input[size$="large"] { width: 360px; padding: 0 10px; }
 .input[size^="large"] { height: 38px; }
-.input[size$="huge"] { width: 440px; padding: 0 12px; }
+
+.input[size$="huge"] { width: 440px; padding: 0 10px; }
 .input[size^="huge"] { height: 40px; }
 
 .root[size$="full"] { width: 100%; }
-.input[size$="full"] { width: 100%; padding: 0 12px; }
+.input[size$="full"] { width: 100%; padding: 0 10px; }
 .root[size^="full"] { height: 100%; }
 .input[size^="full"] { height: 100%; }
