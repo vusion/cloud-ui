@@ -11,6 +11,7 @@ export default [
         { path: 'components', component: Components, children: [
             { path: '', redirect: 'u-link' },
             /* Basic */
+            { path: 'u-carousel', component: () => import('../src/u-carousel.vue/README.md') },
             { path: 'u-base', component: Empty },
             { path: 'u-link', component: () => import('../src/u-link.vue/README.md') },
             { path: 'u-button', component: () => import('../src/u-button.vue/README.md') },

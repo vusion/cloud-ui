@@ -1,0 +1,52 @@
+.root{
+    position: relative;
+    overflow: hidden;
+}
+.list{
+    width: 100%;
+    height: 100%;
+}
+.nav{
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    text-align: center;
+}
+.navitem{
+    display: inline-block;
+    cursor: pointer;
+}
+.navitem:after{
+    content: '';
+    display: inline-block;
+    margin: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+.navitem:hover:after, .navitem[selected]:after{
+    background: rgba(255, 255, 255, 1);
+}
+.slice, .sliceitem{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+.sliceitem{
+    animation: sliceAnimation 0.5s ease-in-out;
+}
+@keyframes sliceAnimation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}

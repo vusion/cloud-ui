@@ -4,6 +4,7 @@
             <u-sidebar size="small">
                 <u-sidebar-item><u-checkbox v-model="advanced" @check="onCheck">显示所有组件</u-checkbox></u-sidebar-item>
                 <u-sidebar-group title="Basic">
+                    <u-sidebar-item to="/components/u-carousel">轮播图 <small>Carousel</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-base">基础 <small>Base</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-link">链接 <small>Link</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-button">按钮 <small>Button</small></u-sidebar-item>

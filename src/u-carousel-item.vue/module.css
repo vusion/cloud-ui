@@ -1,0 +1,120 @@
+.root{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+/*animation = ''*/
+.root[current]{
+    display: block;
+}
+
+.root[animation="fade"]{
+    display: block;
+    transition: all 0.5s ease-out;
+    opacity: 0;
+}
+.root[current][animation="fade"]{
+    opacity: 1;
+}
+
+.root[animation="scroll"]{
+    transition: all 0.5s ease-in;
+    display: block;
+}
+.root[current][animation="scroll"]{
+    z-index: 10;
+    transform: translateX(0);
+}
+.root[pre][animation="scroll"]{
+    transform: translateX(-100%);
+}
+.root[next][animation="scroll"]{
+    transform: translateX(100%);
+}
+.root[active][animation="scroll"]{
+    z-index: 9;
+}
+
+.root[animation="swipe"]{
+    transition: all 0.5s ease-in;
+    display: block;
+}
+.root[current][animation="swipe"]{
+    z-index: 10;
+    transition: all 0.1s ease-in;
+    transform: translateX(0);
+}
+.root[pre][animation="swipe"]{
+    transform: translateX(-100%);
+}
+.root[next][animation="swipe"]{
+    transform: translateX(100%);
+}
+.root[active][animation="swipe"]{
+    z-index: 11;
+}
+
+.root[animation="zoom-in"]{
+    display: block;
+    transition: all 0.5s ease-in;
+    opacity: 0;
+}
+.root[current][animation="zoom-in"]{
+    z-index: 10;
+    opacity: 1;
+    transform: scale(1);
+}
+.root[active][animation="zoom-in"]{
+    transform: scale(2);
+}
+
+.root[animation="zoom-out"]{
+    display: block;
+    transition: all 0.5s ease-in;
+    opacity: 0;
+    transform: scale(2);
+}
+.root[current][animation="zoom-out"]{
+    z-index: 10;
+    opacity: 1;
+    transform: scale(1);
+}
+.root[active][animation="zoom-out"]{
+    transform: scale(1);
+}
+
+.root[current][animation="kenburns"]{
+    animation: kenburns 3s infinite;
+}
+@keyframes kenburns {
+    0% {
+      opacity: 0;
+    }
+    5% {
+      opacity: 1;
+    }
+    95% {
+        transform: scale3d(1.2, 1.2, 1.2) translate3d(-8%, -8%, 0px);
+        animation-timing-function: ease-in;
+        opacity: 1;
+    }
+    100% {
+        transform: scale3d(1.5, 1.5, 1.5) translate3d(-5%, -5%, 0px);
+        opacity: 0;
+    }
+}
+
+.root[animation="slice-down"]{
+    opacity: 0;
+    display: block;
+}
+.root[active][animation="slice-down"]{
+    opacity: 1;
+}

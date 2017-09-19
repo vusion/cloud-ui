@@ -1,0 +1,19 @@
+<div :class="[animation === '' ? '' : ('m-carousel-' + animation), $style.root]"
+    :style="{width: width + 'px', height: height + 'px'}" >
+    <div :class="$style.list">
+        <slot></slot>
+        <div :class="$style.slice"
+            v-if="animation.includes('slice')"
+            v-show="showTop">
+            <div v-for="item in topItems" :class="$style.sliceitem" :style="item.style" v-html="item.html"></div>
+        </div>
+    </div>
+    <ul :class="$style.nav">
+        <li :class="$style.navitem" v-for="(item, index) in items"
+            :selected="current === index"
+            @click="select(index)">
+        </li>
+    </ul>
+    <a :class="$style.button" role="pre" @click="pre()"></a>
+    <a :class="$style.button" role="next" @click="next()"></a>
+</div>

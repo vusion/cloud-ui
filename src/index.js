@@ -7,6 +7,8 @@ import Button from './u-button.vue';
 import Calendar from './u-calendar.vue';
 import Capsule from './u-capsule.vue';
 import Capsules from './u-capsules.vue';
+import Carousel from './u-carousel.vue';
+import CarouselItem from './u-carousel-item.vue';
 import Chart from './u-chart.vue';
 import Checkbox from 'u-checkbox.vue';
 import CircularProgress from './u-circular-progress.vue';
@@ -79,6 +81,8 @@ const Components = {
     Calendar,
     Capsule,
     Capsules,
+    Carousel,
+    CarouselItem,
     Chart,
     Checkbox,
     CircularProgress,
@@ -152,6 +156,8 @@ export {
     Calendar,
     Capsule,
     Capsules,
+    Carousel,
+    CarouselItem,
     Chart,
     Checkbox,
     CircularProgress,
