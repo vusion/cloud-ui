@@ -29,6 +29,7 @@ export default {
     font-size: 20px;
     padding: 0 60px;
     margin: 80px -60px 10px;
+    color: #666;
 }
 
 .root > h3 {
@@ -66,8 +67,14 @@ export default {
     margin: .3em 0;
 }
 
-.root > ul, .root > ol {
+.root > ul {
+    list-style: disc;
     padding-left: 20px;
+}
+
+.root > ol {
+    padding-left: 20px;
+    list-style: decimal;
 }
 
 .root pre {

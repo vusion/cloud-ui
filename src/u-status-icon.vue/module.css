@@ -1,35 +1,26 @@
-.root[name="success"]:before {
-    icon-font: url(./icon/success.svg);
+.root:before {
     vertical-align: -7px;
     font-size: 24px;
-    margin-right: 10px;
+    margin-right: 8px;
+}
+
+.root[name="success"]:before {
+    icon-font: url(./icons/success.svg);
     color: #3ad0af;
 }
 .root[name="waiting"]:before {
-    icon-font: url(./icon/waiting.svg);
-    vertical-align: -7px;
-    font-size: 24px;
-    margin-right: 10px;
+    icon-font: url(./icons/waiting.svg);
     color: #a2b0b7;
 }
 .root[name="pause"]:before {
-    icon-font: url(./icon/pause.svg);
-    vertical-align: -7px;
-    font-size: 24px;
-    margin-right: 10px;
+    icon-font: url(./icons/pause.svg);
     color: #ff867f;
 }
 .root[name="warning"]:before {
-    icon-font: url(./icon/warning.svg);
-    vertical-align: -7px;
-    font-size: 24px;
-    margin-right: 10px;
+    icon-font: url(./icons/warning.svg);
     color: #fbcc3e;
 }
 .root[name="error"]:before {
-    icon-font: url(./icon/error.svg);
-    vertical-align: -7px;
-    font-size: 24px;
-    margin-right: 10px;
+    icon-font: url(./icons/error.svg);
     color: #ff867f;
 }
