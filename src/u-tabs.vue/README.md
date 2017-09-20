@@ -14,7 +14,7 @@
 ### 初始值
 
 ``` html
-<u-tabs :selected-index="2">
+<u-tabs :index="2">
     <u-tab title="详细信息">Content1</u-tab>
     <u-tab title="性能监控">Content2</u-tab>
     <u-tab title="操作日志">Content3</u-tab>

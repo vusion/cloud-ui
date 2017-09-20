@@ -1,0 +1,30 @@
+@import 'u-tabs.vue/module.css';
+
+$tabs-border: #e0e6ed;
+
+.head {
+    border-bottom: 1px solid $tabs-border;
+}
+
+.item {
+    padding: 0 24px;
+}
+
+.item:hover {
+    background: #f6f7f9;
+}
+
+.item[selected] {
+    background: white;
+    color: $brand-primary;
+    border-color: $tabs-border;
+    border-radius: 5px 5px 0 0;
+}
+
+.item[disabled] {
+    background: white;
+}
+
+.body {
+    margin-top: 20px;
+}

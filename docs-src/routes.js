@@ -28,6 +28,7 @@ export default [
             { path: 'u-sidebar', component: () => import('../src/u-sidebar.vue/README.md') },
             { path: 'u-subnav', component: () => import('../src/u-subnav.vue/README.md') },
             { path: 'u-tabs', component: () => import('../src/u-tabs.vue/README.md') },
+            { path: 'u-subtabs', component: () => import('../src/u-subtabs.vue/README.md') },
             { path: 'u-pagination', component: () => import('../src/u-pagination.vue/README.md') },
             /* Form */
             { path: 'u-input', component: () => import('../src/u-input.vue/README.md') },
