@@ -3,6 +3,8 @@
     :active="isActive"
     :pre="isPrev"
     :next="isNext"
-    :animation="animation">
+    :animation="animation"
+    @animationend="animationEnd"
+    @transitionend="animationEnd">
     <slot></slot>
 </div>

@@ -1,5 +1,8 @@
+import Emitter from 'u-emitter.vue';
+
 export default {
     name: 'u-carousel-item',
+    mixins: [Emitter],
     computed: {
         index() {
             return this.parentVM.items.indexOf(this);
@@ -8,7 +11,7 @@ export default {
             return this.parentVM.items.length;
         },
         isCurrent() {
-            return this.index === this.parentVM.current;
+            return this.parentVM.showCurrent && this.index === this.parentVM.current;
         },
         isActive() {
             return this.index === this.parentVM.active;
@@ -30,5 +33,10 @@ export default {
     destroyed() {
         const parentVM = this.$parent;
         parentVM.$emit('remove-item-vm', this);
+    },
+    methods: {
+        animationEnd() {
+            this.dispatch('u-carousel', 'u-carousel-item-end', 1);
+        },
     },
 };

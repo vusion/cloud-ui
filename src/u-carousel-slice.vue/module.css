@@ -1,0 +1,19 @@
+.sliceitem{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+.sliceitem{
+    opacity: 0;
+    animation: sliceAnimation 0.5s ease-in-out;
+}
+@keyframes sliceAnimation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}

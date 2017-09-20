@@ -4,7 +4,7 @@
 ### 基本形式
 
 ``` html
-<u-carousel>
+<u-carousel :index="3" :autoPlay="false">
     <u-carousel-item><img src="/images/1.jpg"></u-carousel-item>
     <u-carousel-item><img src="/images/2.jpg"></u-carousel-item>
     <u-carousel-item><img src="/images/3.jpg"></u-carousel-item>
@@ -92,9 +92,10 @@
 | height | Number | 420 | 幻灯片高度 |
 | index | Number | 0 | 轮播起始 |
 | autoPlay | Boolean | true | 是否自动播放幻灯片 |
-| autoplayInterval | Number | 4000 | 幻灯片切换时间 |
+| autoplayInterval | Number | 4000 | 幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换 |
 | autoplayDirection | String | right | 幻灯片播放方向 |
-| colume | Number | 14 | 鼠标悬停是否停止动画 |
-| pauseOnHover | Boolean | true | 动画为slice时，图片分割列数 |
+| colume | Number | 14 | 动画为slice时，图片分割列数 |
+| pauseOnHover | Boolean | true | 鼠标悬停是否暂停自动播放 |
+| showButtonOnHover | Boolean | true | 鼠标悬停才显示上/下按钮 |
 
 

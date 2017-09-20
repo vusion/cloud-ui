@@ -32,21 +32,34 @@
 .navitem:hover:after, .navitem[selected]:after{
     background: rgba(255, 255, 255, 1);
 }
-.slice, .sliceitem{
+.slice{
     position: absolute;
     top: 0px;
     left: 0px;
     width: 100%;
     height: 100%;
 }
-.sliceitem{
-    animation: sliceAnimation 0.5s ease-in-out;
+.button{
+    position: absolute;
+    z-index: 100;
+    font-size: 60px;
+    color: rgba(255, 255, 255, 0.6);
+    $transition: all 0.3s;
+    top: 36%;
 }
-@keyframes sliceAnimation {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+.button:hover{
+    color: rgba(255, 255, 255, 1);
+}
+.button[role='pre']{
+    transform: rotate(180deg);
+    left: 20px;
+}
+.button[role='pre']:before{
+    icon-font: url('../u-icon.vue/icons/keyboard-arrow-right.svg');
+}
+.button[role='next']{
+    right: 20px;
+}
+.button[role='next']:before{
+    icon-font: url('../u-icon.vue/icons/keyboard-arrow-right.svg');
 }

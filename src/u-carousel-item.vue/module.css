@@ -10,7 +10,6 @@ img{
     width: 100%;
     height: 100%;
 }
-/*animation = ''*/
 .root[current]{
     display: block;
 }
@@ -117,4 +116,8 @@ img{
 }
 .root[active][animation="slice-down"]{
     opacity: 1;
+}
+.root[current][animation="slice-down"]{
+    opacity: 1;
+    z-index: 10;
 }

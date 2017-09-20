@@ -1,11 +1,11 @@
 <div :class="[animation === '' ? '' : ('m-carousel-' + animation), $style.root]"
-    :style="{width: width + 'px', height: height + 'px'}" >
-    <div :class="$style.list">
+    :style="{width: width + 'px', height: height + 'px'}" @mouseover="rootMouseover" @mouseout="rootMouseout">
+    <div :class="$style.list" @mouseover="mouseover" @mouseout="mouseout">
         <slot></slot>
         <div :class="$style.slice"
             v-if="animation.includes('slice')"
-            v-show="showTop">
-            <div v-for="item in topItems" :class="$style.sliceitem" :style="item.style" v-html="item.html"></div>
+            v-show="slice.showSlice">
+            <u-carousel-slice v-for="item in slice.topItems" :style="item.style" :content="item.html" :key="item.id" :allAnimationEnd="allAnimationEnd"></u-carousel-slice>
         </div>
     </div>
     <ul :class="$style.nav">
@@ -14,6 +14,6 @@
             @click="select(index)">
         </li>
     </ul>
-    <a :class="$style.button" role="pre" @click="pre()"></a>
-    <a :class="$style.button" role="next" @click="next()"></a>
+    <a v-show="showButton" :class="$style.button" role="pre" @click="pre()"></a>
+    <a v-show="showButton" :class="$style.button" role="next" @click="next()"></a>
 </div>
