@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": "Rainfore <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -47,8 +47,8 @@
     "u-pagination.vue": "~0.3.0",
     "u-router-item.vue": "~0.1.0",
     "u-switch.vue": "~0.1.1",
-    "u-tab.vue": "~0.3.0",
-    "u-tabs.vue": "~0.3.0",
+    "u-tab.vue": "~0.3.3",
+    "u-tabs.vue": "~0.3.3",
     "u-textarea.vue": "~0.1.6",
     "u-tree-view-node.vue": "~0.2.5",
     "u-tree-view.vue": "~0.2.5",

@@ -1533,16 +1533,16 @@ u-switch.vue@~0.1.1:
   dependencies:
     u-field.vue "~0.1.4"
 
-u-tab.vue@~0.3.0:
-  version "0.3.0"
-  resolved "http://registry.npm.taobao.org/u-tab.vue/download/u-tab.vue-0.3.0.tgz#86f0a1b9852ed157ebfc601f81024c322ea6ce71"
+u-tab.vue@~0.3.3:
+  version "0.3.3"
+  resolved "https://registry.npmjs.org/u-tab.vue/-/u-tab.vue-0.3.3.tgz#04fd9216ff917e4b5df6515169f3883e2730beef"
   dependencies:
     u-emitter.vue "~0.1.0"
     u-router-item.vue "~0.1.0"
 
-u-tabs.vue@~0.3.0:
-  version "0.3.0"
-  resolved "http://registry.npm.taobao.org/u-tabs.vue/download/u-tabs.vue-0.3.0.tgz#ab9d595c95ea8b24297486d63e1eadff7b1b339b"
+u-tabs.vue@~0.3.3:
+  version "0.3.3"
+  resolved "https://registry.npmjs.org/u-tabs.vue/-/u-tabs.vue-0.3.3.tgz#9e793e9b5f8b977086e264446c870180725de152"
 
 u-textarea.vue@~0.1.6:
   version "0.1.6"
@@ -1596,9 +1596,9 @@ vue-eslint-parser@^2.0.1-beta.0:
     esquery "^1.0.0"
     lodash "^4.17.4"
 
-vue-markdown-loader@rainfore/vue-markdown-loader:
-  version "2.1.0"
-  resolved "https://codeload.github.com/rainfore/vue-markdown-loader/tar.gz/bb050a8aa8e6794453645ace74b3d9cf902f989e"
+vue-markdown-loader@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.npmjs.org/vue-markdown-loader/-/vue-markdown-loader-2.2.1.tgz#becf0c7455589eb27189fe78a9d5a283bb7acc00"
   dependencies:
     cheerio "^0.20.0"
     highlight.js "^9.4.0"
