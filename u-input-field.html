@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="docs.css">
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<link rel="stylesheet" type="text/css" href="vusion-icon-font.css">
+<script src="docs.js"></script>
+</head>
+<body>
+
+                <article class="u-article"><h1>输入扩展（InputField）</h1>
+<h1>具体demo和细节请参考regular-ui组件中的validation，规则一致</h1>
+<h2>示例</h2>
+<h3>基本形式</h3>
+<div id="u-example-0" class="u-example"><u-input-field v-model="value" :rules="rules" :tip-info="tipInfo" disabled></u-input-field></div>
+<pre class="hljs lang-vue"><code><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">u-input-field</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"value"</span> <span class="hljs-attr">:rules</span>=<span class="hljs-string">"rules"</span> <span class="hljs-attr">:tip-info</span>=<span class="hljs-string">"tipInfo"</span> <span class="hljs-attr">disabled</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input-field</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+    data() {
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-attr">tipInfo</span>: <span class="hljs-string">'请输入注册的邮箱'</span>,
+            <span class="hljs-attr">rules</span>: [
+                { <span class="hljs-attr">type</span>: <span class="hljs-string">'isFilled'</span>, <span class="hljs-attr">trigger</span>: <span class="hljs-string">'blur'</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">'邮箱不能为空！'</span> },
+                { <span class="hljs-attr">type</span>: <span class="hljs-string">'isEmail'</span>, <span class="hljs-attr">trigger</span>: <span class="hljs-string">'blur'</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">'请输入正确的邮箱！'</span> },
+            ],
+            <span class="hljs-attr">value</span>: <span class="hljs-string">''</span>,
+        }
+    },
+    <span class="hljs-attr">watch</span>: {
+        value(newValue) {
+            <span class="hljs-built_in">console</span>.log(newValue);
+        },
+    },
+};
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<h3>有序规则集</h3>
+<div id="u-example-1" class="u-example"><form class="m-form"><div class="form_item"><label class="form_label">用户名<span class="form_required">*</span>：</label><span class="form_field"><u-input-field v-model="value" :rules="rules" maxlength="12" placeholder="4~12个字符" /></u-input-field></span></div></form></div>
+<pre class="hljs lang-vue"><code><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"m-form"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_item"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_label"</span>&gt;</span>用户名<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_required"</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_field"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-input-field</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"value"</span> <span class="hljs-attr">:rules</span>=<span class="hljs-string">"rules"</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"12"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"4~12个字符"</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+    data() {
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-attr">rules</span>: [
+                { <span class="hljs-attr">type</span>: <span class="hljs-string">'is'</span>, <span class="hljs-attr">trigger</span>: <span class="hljs-string">'input+blur'</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">'以字母开头'</span>, <span class="hljs-attr">options</span>: <span class="hljs-regexp">/^[a-zA-Z]/</span> },
+                { <span class="hljs-attr">type</span>: <span class="hljs-string">'is'</span>, <span class="hljs-attr">trigger</span>: <span class="hljs-string">'input+blur'</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">'字母、数字或中划线组成'</span>, <span class="hljs-attr">options</span>: <span class="hljs-regexp">/^[a-zA-Z0-9-]+$/</span> },
+                { <span class="hljs-attr">type</span>: <span class="hljs-string">'is'</span>, <span class="hljs-attr">trigger</span>: <span class="hljs-string">'blur'</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">'以字母或数字结尾'</span>, <span class="hljs-attr">options</span>: <span class="hljs-regexp">/[a-zA-Z0-9]$/</span> },
+                { <span class="hljs-attr">type</span>: <span class="hljs-string">'isRequired'</span>, <span class="hljs-attr">trigger</span>: <span class="hljs-string">'blur'</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">'请输入用户名'</span> },
+                { <span class="hljs-attr">type</span>: <span class="hljs-string">'isLength'</span>, <span class="hljs-attr">trigger</span>: <span class="hljs-string">'blur'</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">'不得少于4个字符'</span>, <span class="hljs-attr">options</span>: { <span class="hljs-attr">min</span>: <span class="hljs-number">4</span> } },
+            ],
+            <span class="hljs-attr">value</span>: <span class="hljs-string">''</span>,
+        }
+    },
+    <span class="hljs-attr">watch</span>: {
+        value(newValue) {
+            <span class="hljs-built_in">console</span>.log(newValue);
+        },
+    },
+};
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<h3>必填项有内容可点</h3>
+<div id="u-example-2" class="u-example"><form class="m-form"><u-validation ref="validation"><div class="form_item"><label class="form_label">用户名<span class="form_required">*</span>：</label><span class="form_field"><u-input-field v-model="user.name" :rules="rules.name" maxlength="12" placeholder="4~12个字符" /></span></div><div class="form_item"><label class="form_label">邮箱<span class="form_required">*</span>：</label><span class="form_field"><u-input-field v-model="user.email" :rules="rules.email" maxlength="20" placeholder="请输入邮箱" /></span></div><div class="form_item"><label class="form_label">手机号码：</label><span class="form_field"><u-input-field v-model="user.phone" :rules="rules.phone" maxlength="11" placeholder="请输入手机号码" /></span></div><div class="form_item"><span class="form_field"><a class="u-btn u-btn-primary" :disabled="!canSubmit" @click="canSubmit && submit">提交</a></span></div></u-validation></form></div>
+<pre class="hljs lang-vue"><code><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"m-form"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-validation</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"validation"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_item"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_label"</span>&gt;</span>用户名<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_required"</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_field"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">u-input-field</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"user.name"</span> <span class="hljs-attr">:rules</span>=<span class="hljs-string">"rules.name"</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"12"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"4~12个字符"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_item"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_label"</span>&gt;</span>邮箱<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_required"</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_field"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">u-input-field</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"user.email"</span> <span class="hljs-attr">:rules</span>=<span class="hljs-string">"rules.email"</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"20"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"请输入邮箱"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_item"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_label"</span>&gt;</span>手机号码：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_field"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">u-input-field</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"user.phone"</span> <span class="hljs-attr">:rules</span>=<span class="hljs-string">"rules.phone"</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"11"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"请输入手机号码"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_item"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_field"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"u-btn u-btn-primary"</span> <span class="hljs-attr">:disabled</span>=<span class="hljs-string">"!canSubmit"</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"canSubmit &amp;&amp; submit"</span>&gt;</span>提交<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-validation</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+        data() {
+            <span class="hljs-keyword">return</span> {
+                <span class="hljs-attr">user</span>: {
+                    <span class="hljs-attr">name</span>: <span class="hljs-string">''</span>,
+                    <span class="hljs-attr">email</span>: <span class="hljs-string">''</span>,
+                    <span class="hljs-attr">phone</span>: <span class="hljs-string">''</span>,
+                },
+                <span class="hljs-attr">rules</span>: {
+                    <span class="hljs-attr">name</span>: [
+                        { <span class="hljs-attr">type</span>: <span class="hljs-string">'isRequired'</span>, <span class="hljs-attr">trigger</span>: <span class="hljs-string">'input+blur'</span>, <span class="hljs-attr">mute</span>: <span class="hljs-string">'input+blur'</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">'请输入用户名！'</span> },
+                        { <span class="hljs-attr">type</span>: <span class="hljs-string">'isFilled'</span>, <span class="hljs-attr">trigger</span>: <span class="hljs-string">'input+blur'</span>, <span class="hljs-attr">mute</span>: <span class="hljs-string">'input'</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">'请输入合适的用户名！'</span> },
+                        { <span class="hljs-attr">type</span>: <span class="hljs-string">'isLength'</span>, <span class="hljs-attr">trigger</span>: <span class="hljs-string">'input+blur'</span>, <span class="hljs-attr">mute</span>: <span class="hljs-string">'input'</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">'请输入4~12个字符！'</span>, <span class="hljs-attr">options</span>: { <span class="hljs-attr">min</span>: <span class="hljs-number">4</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">12</span> } },
+                    ],
+                    <span class="hljs-attr">email</span>: [
+                        { <span class="hljs-attr">type</span>: <span class="hljs-string">'isRequired'</span>, <span class="hljs-attr">trigger</span>: <span class="hljs-string">'input+blur'</span>, <span class="hljs-attr">mute</span>: <span class="hljs-string">'input+blur'</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">'请输入邮箱！'</span> },
+                        { <span class="hljs-attr">type</span>: <span class="hljs-string">'isEmail'</span>, <span class="hljs-attr">trigger</span>: <span class="hljs-string">'input+blur'</span>, <span class="hljs-attr">mute</span>: <span class="hljs-string">'input'</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">'邮箱格式不正确！'</span> },
+                    ],
+                    <span class="hljs-attr">phone</span>: [
+                        { <span class="hljs-attr">type</span>: <span class="hljs-string">'is'</span>, <span class="hljs-attr">trigger</span>: <span class="hljs-string">'input+blur'</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">'手机号码格式不正确！'</span>, <span class="hljs-attr">options</span>: <span class="hljs-regexp">/^\d+$/</span> },
+                    ],
+                },
+                <span class="hljs-comment">// canSubmit: false,</span>
+            };
+        },
+        <span class="hljs-attr">computed</span>: {
+            canSubmit() {
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.user.name &amp;&amp; <span class="hljs-keyword">this</span>.user.email;
+            }
+        },
+        <span class="hljs-attr">methods</span>: {
+            submit() {
+                <span class="hljs-keyword">this</span>.$refs.validation.$once(<span class="hljs-string">'validate'</span>, (conclusion) =&gt; {
+                    <span class="hljs-keyword">if</span>(conclusion.success)
+                        alert(<span class="hljs-string">'提交成功！'</span>);
+                }).validate();
+            },
+        }
+    }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<h3>所有内容正确可点</h3>
+<div id="u-example-3" class="u-example"><form class="m-form"><u-validation ref="validation"><div class="item"><label class="form_label">用户名<span class="form_required">*</span>：</label><span class="form_field"><u-input-field v-model="user.name" :rules="rules.name" maxlength="12" placeholder="4~12个字符" @input="input"></u-input-field></span></div><div class="item"><label class="form_label">邮箱<span class="form_required">*</span>：</label><span class="form_field"><u-input-field v-model="user.email" :rules="rules.email" maxlength="20" placeholder="请输入邮箱" @input="input"></u-input-field></span></div><div class="item"><label class="form_label">手机号码：</label><span class="form_field"><u-input-field status="success" v-model="user.mobile" :rules="rules.phone" maxlength="11" placeholder="请输入手机号码" @input="input"></u-input-field></span></div><div class="item"><span class="form_field"><a class="u-btn u-btn-primary" :disabled="!canSubmit" @click="submit">提交</a></span></div></u-validation></form></div>
+<pre class="hljs lang-vue"><code><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"m-form"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">u-validation</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"validation"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_label"</span>&gt;</span>用户名<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_required"</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_field"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-input-field</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"user.name"</span> <span class="hljs-attr">:rules</span>=<span class="hljs-string">"rules.name"</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"12"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"4~12个字符"</span> @<span class="hljs-attr">input</span>=<span class="hljs-string">"input"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_label"</span>&gt;</span>邮箱<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_required"</span>&gt;</span>*<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_field"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-input-field</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"user.email"</span> <span class="hljs-attr">:rules</span>=<span class="hljs-string">"rules.email"</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"20"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"请输入邮箱"</span> @<span class="hljs-attr">input</span>=<span class="hljs-string">"input"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_label"</span>&gt;</span>手机号码：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_field"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-input-field</span> <span class="hljs-attr">status</span>=<span class="hljs-string">"success"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"user.mobile"</span> <span class="hljs-attr">:rules</span>=<span class="hljs-string">"rules.phone"</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"11"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"请输入手机号码"</span> @<span class="hljs-attr">input</span>=<span class="hljs-string">"input"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-input-field</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"item"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form_field"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"u-btn u-btn-primary"</span> <span class="hljs-attr">:disabled</span>=<span class="hljs-string">"!canSubmit"</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"submit"</span>&gt;</span>提交<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-validation</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+    data() {
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-attr">user</span>: {
+                <span class="hljs-attr">name</span>: <span class="hljs-string">''</span>,
+                <span class="hljs-attr">email</span>: <span class="hljs-string">''</span>,
+                <span class="hljs-attr">mobile</span>: <span class="hljs-string">''</span>,
+            },
+            <span class="hljs-attr">rules</span>: {
+                <span class="hljs-attr">name</span>: [
+                    { <span class="hljs-attr">type</span>: <span class="hljs-string">'isRequired'</span>, <span class="hljs-attr">trigger</span>: <span class="hljs-string">'input+blur'</span>, <span class="hljs-attr">mute</span>: <span class="hljs-string">'input+blur'</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">'请输入用户名！'</span> },
+                    { <span class="hljs-attr">type</span>: <span class="hljs-string">'isFilled'</span>, <span class="hljs-attr">trigger</span>: <span class="hljs-string">'input+blur'</span>, <span class="hljs-attr">mute</span>: <span class="hljs-string">'input'</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">'请输入合适的用户名！'</span> },
+                    { <span class="hljs-attr">type</span>: <span class="hljs-string">'isLength'</span>, <span class="hljs-attr">trigger</span>: <span class="hljs-string">'input+blur'</span>, <span class="hljs-attr">mute</span>: <span class="hljs-string">'input'</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">'请输入4~12个字符！'</span>, <span class="hljs-attr">options</span>: { <span class="hljs-attr">min</span>: <span class="hljs-number">4</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">12</span> } },
+                ],
+                <span class="hljs-attr">email</span>: [
+                    { <span class="hljs-attr">type</span>: <span class="hljs-string">'isRequired'</span>, <span class="hljs-attr">trigger</span>: <span class="hljs-string">'input+blur'</span>, <span class="hljs-attr">mute</span>: <span class="hljs-string">'input+blur'</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">'请输入邮箱！'</span> },
+                    { <span class="hljs-attr">type</span>: <span class="hljs-string">'isEmail'</span>, <span class="hljs-attr">trigger</span>: <span class="hljs-string">'input+blur'</span>, <span class="hljs-attr">mute</span>: <span class="hljs-string">'input'</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">'邮箱格式不正确！'</span> },
+                ],
+                <span class="hljs-attr">phone</span>: [
+                    { <span class="hljs-attr">type</span>: <span class="hljs-string">'is'</span>, <span class="hljs-attr">trigger</span>: <span class="hljs-string">'input+blur'</span>, <span class="hljs-attr">message</span>: <span class="hljs-string">'手机号码格式不正确！'</span>, <span class="hljs-attr">options</span>: <span class="hljs-regexp">/^\d+$/</span> },
+                ],
+            },
+            <span class="hljs-attr">canSubmit</span>: <span class="hljs-literal">false</span>,
+        };
+    },
+    <span class="hljs-attr">methods</span>: {
+        submit() {
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.user);
+            <span class="hljs-keyword">if</span>(!<span class="hljs-keyword">this</span>.canSubmit)
+                <span class="hljs-keyword">return</span>;
+
+            alert(<span class="hljs-string">'提交成功！'</span>);
+        },
+        input() {
+            <span class="hljs-comment">// this.$nextTick(() =&gt; {</span>
+                <span class="hljs-keyword">this</span>.canSubmit = <span class="hljs-keyword">this</span>.$refs.validation &amp;&amp; <span class="hljs-keyword">this</span>.$refs.validation.fields.every(<span class="hljs-function">(<span class="hljs-params">field</span>) =&gt;</span> field.state === <span class="hljs-string">'success'</span>);
+            <span class="hljs-comment">// });</span>
+        },
+    },
+};
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+</article>
+                <!---->
+                <script>new Vue({
+    data() {
+        return {
+            tipInfo: '请输入注册的邮箱',
+            rules: [
+                { type: 'isFilled', trigger: 'blur', message: '邮箱不能为空！' },
+                { type: 'isEmail', trigger: 'blur', message: '请输入正确的邮箱！' },
+            ],
+            value: '',
+        }
+    },
+    watch: {
+        value(newValue) {
+            console.log(newValue);
+        },
+    },
+}).$mount('#u-example-0');
+new Vue({
+    data() {
+        return {
+            rules: [
+                { type: 'is', trigger: 'input+blur', message: '以字母开头', options: /^[a-zA-Z]/ },
+                { type: 'is', trigger: 'input+blur', message: '字母、数字或中划线组成', options: /^[a-zA-Z0-9-]+$/ },
+                { type: 'is', trigger: 'blur', message: '以字母或数字结尾', options: /[a-zA-Z0-9]$/ },
+                { type: 'isRequired', trigger: 'blur', message: '请输入用户名' },
+                { type: 'isLength', trigger: 'blur', message: '不得少于4个字符', options: { min: 4 } },
+            ],
+            value: '',
+        }
+    },
+    watch: {
+        value(newValue) {
+            console.log(newValue);
+        },
+    },
+}).$mount('#u-example-1');
+new Vue({
+        data() {
+            return {
+                user: {
+                    name: '',
+                    email: '',
+                    phone: '',
+                },
+                rules: {
+                    name: [
+                        { type: 'isRequired', trigger: 'input+blur', mute: 'input+blur', message: '请输入用户名！' },
+                        { type: 'isFilled', trigger: 'input+blur', mute: 'input', message: '请输入合适的用户名！' },
+                        { type: 'isLength', trigger: 'input+blur', mute: 'input', message: '请输入4~12个字符！', options: { min: 4, max: 12 } },
+                    ],
+                    email: [
+                        { type: 'isRequired', trigger: 'input+blur', mute: 'input+blur', message: '请输入邮箱！' },
+                        { type: 'isEmail', trigger: 'input+blur', mute: 'input', message: '邮箱格式不正确！' },
+                    ],
+                    phone: [
+                        { type: 'is', trigger: 'input+blur', message: '手机号码格式不正确！', options: /^\d+$/ },
+                    ],
+                },
+                // canSubmit: false,
+            };
+        },
+        computed: {
+            canSubmit() {
+                return this.user.name && this.user.email;
+            }
+        },
+        methods: {
+            submit() {
+                this.$refs.validation.$once('validate', (conclusion) => {
+                    if(conclusion.success)
+                        alert('提交成功！');
+                }).validate();
+            },
+        }
+    }
+).$mount('#u-example-2');
+new Vue({
+    data() {
+        return {
+            user: {
+                name: '',
+                email: '',
+                mobile: '',
+            },
+            rules: {
+                name: [
+                    { type: 'isRequired', trigger: 'input+blur', mute: 'input+blur', message: '请输入用户名！' },
+                    { type: 'isFilled', trigger: 'input+blur', mute: 'input', message: '请输入合适的用户名！' },
+                    { type: 'isLength', trigger: 'input+blur', mute: 'input', message: '请输入4~12个字符！', options: { min: 4, max: 12 } },
+                ],
+                email: [
+                    { type: 'isRequired', trigger: 'input+blur', mute: 'input+blur', message: '请输入邮箱！' },
+                    { type: 'isEmail', trigger: 'input+blur', mute: 'input', message: '邮箱格式不正确！' },
+                ],
+                phone: [
+                    { type: 'is', trigger: 'input+blur', message: '手机号码格式不正确！', options: /^\d+$/ },
+                ],
+            },
+            canSubmit: false,
+        };
+    },
+    methods: {
+        submit() {
+            console.log(this.user);
+            if(!this.canSubmit)
+                return;
+
+            alert('提交成功！');
+        },
+        input() {
+            // this.$nextTick(() => {
+                this.canSubmit = this.$refs.validation && this.$refs.validation.fields.every((field) => field.state === 'success');
+            // });
+        },
+    },
+}).$mount('#u-example-3');</script>
+            
+</body>
+</html>

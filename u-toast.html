@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="docs.css">
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<link rel="stylesheet" type="text/css" href="vusion-icon-font.css">
+<script src="docs.js"></script>
+</head>
+<body>
+
+                <article class="u-article"><h1>消息提示（Toast）</h1>
+<h2>示例</h2>
+<h3>基本形式</h3>
+<h4>声明式</h4>
+<div id="u-example-0" class="u-example"><u-button @click.native="$refs.toast.show()">toast</u-button><u-toast ref="toast" message="消息提示" position="static"></u-toast></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> @<span class="hljs-attr">click.native</span>=<span class="hljs-string">"$refs.toast.show()"</span>&gt;</span>toast<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">u-toast</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"toast"</span> <span class="hljs-attr">message</span>=<span class="hljs-string">"消息提示"</span> <span class="hljs-attr">position</span>=<span class="hljs-string">"static"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-toast</span>&gt;</span>
+</code></pre>
+<div id="u-example-1" class="u-example"><u-button @click.native="$refs.toastInfo.show()">toast</u-button><u-toast ref="toastInfo" message="消息提示" state="info"></u-toast></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> @<span class="hljs-attr">click.native</span>=<span class="hljs-string">"$refs.toastInfo.show()"</span>&gt;</span>toast<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">u-toast</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"toastInfo"</span> <span class="hljs-attr">message</span>=<span class="hljs-string">"消息提示"</span> <span class="hljs-attr">state</span>=<span class="hljs-string">"info"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-toast</span>&gt;</span>
+</code></pre>
+<div id="u-example-2" class="u-example"><u-button @click.native="$refs.toastSucc.show()">toast</u-button><u-toast ref="toastSucc" message="消息提示" state="success"></u-toast></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> @<span class="hljs-attr">click.native</span>=<span class="hljs-string">"$refs.toastSucc.show()"</span>&gt;</span>toast<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">u-toast</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"toastSucc"</span> <span class="hljs-attr">message</span>=<span class="hljs-string">"消息提示"</span> <span class="hljs-attr">state</span>=<span class="hljs-string">"success"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-toast</span>&gt;</span>
+</code></pre>
+<div id="u-example-3" class="u-example"><u-button @click.native="$refs.toastWarn.show()">toast</u-button><u-toast ref="toastWarn" message="消息提示" state="warnning"></u-toast></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> @<span class="hljs-attr">click.native</span>=<span class="hljs-string">"$refs.toastWarn.show()"</span>&gt;</span>toast<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">u-toast</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"toastWarn"</span> <span class="hljs-attr">message</span>=<span class="hljs-string">"消息提示"</span> <span class="hljs-attr">state</span>=<span class="hljs-string">"warnning"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-toast</span>&gt;</span>
+</code></pre>
+<div id="u-example-4" class="u-example"><u-button @click.native="$refs.toastError.show()">toast</u-button><u-toast ref="toastError" message="消息提示" state="error"></u-toast></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> @<span class="hljs-attr">click.native</span>=<span class="hljs-string">"$refs.toastError.show()"</span>&gt;</span>toast<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">u-toast</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"toastError"</span> <span class="hljs-attr">message</span>=<span class="hljs-string">"消息提示"</span> <span class="hljs-attr">state</span>=<span class="hljs-string">"error"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-toast</span>&gt;</span>
+</code></pre>
+<h4>命令式</h4>
+<div id="u-example-5" class="u-example"><u-button @click.native="open">Toast</u-button></div>
+<pre class="hljs lang-vue"><code><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">u-button</span> @<span class="hljs-attr">click.native</span>=<span class="hljs-string">"open"</span>&gt;</span>Toast<span class="hljs-tag">&lt;/<span class="hljs-name">u-button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+    <span class="hljs-attr">methods</span>: {
+        open() {
+            <span class="hljs-keyword">new</span> VusionUI.Toast().show(<span class="hljs-string">'提示信息'</span>, <span class="hljs-number">3000</span>);
+        },
+    },
+};
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+</article>
+                <article data-server-rendered="true" class="u-article"><h2 id="API">API</h2> <h3 id="Class">Class</h3> <h4>Toast</h4> <p>Extends <strong></strong>。</p> <p></p> <h3 id="Options">Options</h3> <h4>new Toast()</h4> <table><thead><tr><th width="24%">Param</th><th width="16%">Type</th><th width="16%">Default</th><th width="26%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>position</code></td> <td class="f-wsn">String</td> <td class="f-wsn"><!----></td> <td>=&gt; 显示位置</td></tr><tr><td class="f-wsn"><code>single</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>false</code></td> <td>=&gt; 始终只显示一个提示</td></tr><tr><td class="f-wsn"><code>state</code></td> <td class="f-wsn">String</td> <td class="f-wsn"><!----></td> <td>=&gt; info,success,warnning,error不同类型的提示</td></tr><tr><td class="f-wsn"><code>message</code></td> <td class="f-wsn">String</td> <td class="f-wsn"><!----></td> <td>=&gt; 提示信息</td></tr><tr><td class="f-wsn"><code>visible</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>true</code></td> <td>=&gt; 显示/隐藏</td></tr></tbody></table> <h3 id="Methods">Methods</h3> <h4><!----> toast.closeAll()</h4> <p>关闭所有消息</p> <table><thead><tr><th width="25%">Param</th><th width="25%">Type</th><th width="25%">Default</th><th width="25%">Description</th></tr></thead> <tbody></tbody> <thead><tr><th width="25%">Return</th><th width="25%">Type</th><th width="50%" colspan="2">Description</th></tr></thead> <tbody><tr><td colspan="4" class="f-tac">No Returns</td></tr></tbody></table><h4><!----> toast.[info|success|warning|error](message[, duration])</h4> <p>弹出特殊类型的消息。为show方法的简写方式。</p> <table><thead><tr><th width="25%">Param</th><th width="25%">Type</th><th width="25%">Default</th><th width="25%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>message</code></td> <td class="f-wsn">string</td> <td class="f-wsn"><code>''</code></td> <td>消息内容</td></tr><tr><td class="f-wsn"><code>duration</code></td> <td class="f-wsn">number</td> <td class="f-wsn"><code>toast.duration</code></td> <td>该条消息的停留毫秒数。如果为0，则表示消息常驻不消失。如果不填，则使用toast默认的duration。</td></tr></tbody> <thead><tr><th width="25%">Return</th><th width="25%">Type</th><th width="50%" colspan="2">Description</th></tr></thead> <tbody><tr><td colspan="4" class="f-tac">No Returns</td></tr></tbody></table> <h3 id="Static-Methods">Static Methods</h3> <h4><!----> Toast.show(message[, duration][, state])</h4> <p>弹出一个消息</p> <table><thead><tr><th width="25%">Param</th><th width="25%">Type</th><th width="25%">Default</th><th width="25%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>message</code></td> <td class="f-wsn">string</td> <td class="f-wsn"><code>''</code></td> <td>消息内容</td></tr><tr><td class="f-wsn"><code>duration</code></td> <td class="f-wsn">number</td> <td class="f-wsn"><code>toast.duration</code></td> <td>该条消息的停留毫秒数。如果为0，则表示消息常驻不消失。如果不填，则使用toast默认的duration。</td></tr><tr><td class="f-wsn"><code>state</code></td> <td class="f-wsn">string</td> <td class="f-wsn"><code>''</code></td> <td>消息状态，可选参数：`info`、`success`、`warning`、`error`</td></tr></tbody> <thead><tr><th width="25%">Return</th><th width="25%">Type</th><th width="50%" colspan="2">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>item</code></td> <td class="f-wsn">object</td> <td colspan="2">返回弹出的消息项</td></tr></tbody></table><h4><!----> Toast.[info|success|warning|error](message[, duration])</h4> <p>弹出特殊类型的消息。为show方法的简写方式。</p> <table><thead><tr><th width="25%">Param</th><th width="25%">Type</th><th width="25%">Default</th><th width="25%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>message</code></td> <td class="f-wsn">string</td> <td class="f-wsn"><code>''</code></td> <td>消息内容</td></tr><tr><td class="f-wsn"><code>duration</code></td> <td class="f-wsn">number</td> <td class="f-wsn"><code>toast.duration</code></td> <td>该条消息的停留毫秒数。如果为0，则表示消息常驻不消失。如果不填，则使用toast默认的duration。</td></tr></tbody> <thead><tr><th width="25%">Return</th><th width="25%">Type</th><th width="50%" colspan="2">Description</th></tr></thead> <tbody><tr><td colspan="4" class="f-tac">No returns</td></tr></tbody></table><h4><!----> Toast.close(item)</h4> <p>关闭某条消息</p> <table><thead><tr><th width="25%">Param</th><th width="25%">Type</th><th width="25%">Default</th><th width="25%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>item</code></td> <td class="f-wsn">object</td> <td class="f-wsn"><!----></td> <td>需要关闭的消息对象</td></tr></tbody> <thead><tr><th width="25%">Return</th><th width="25%">Type</th><th width="50%" colspan="2">Description</th></tr></thead> <tbody><tr><td colspan="4" class="f-tac">No returns</td></tr></tbody></table><h4><!----> Toast.closeAll()</h4> <p>关闭所有消息</p> <table><thead><tr><th width="25%">Param</th><th width="25%">Type</th><th width="25%">Default</th><th width="25%">Description</th></tr></thead> <tbody></tbody> <thead><tr><th width="25%">Return</th><th width="25%">Type</th><th width="50%" colspan="2">Description</th></tr></thead> <tbody><tr><td colspan="4" class="f-tac">No returns</td></tr></tbody></table> <!----></article>
+                <script>new Vue().$mount('#u-example-0');
+new Vue().$mount('#u-example-1');
+new Vue().$mount('#u-example-2');
+new Vue().$mount('#u-example-3');
+new Vue().$mount('#u-example-4');
+new Vue({
+    methods: {
+        open() {
+            new VusionUI.Toast().show('提示信息', 3000);
+        },
+    },
+}).$mount('#u-example-5');</script>
+            
+</body>
+</html>

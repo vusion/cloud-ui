@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="docs.css">
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<link rel="stylesheet" type="text/css" href="vusion-icon-font.css">
+<script src="docs.js"></script>
+</head>
+<body>
+
+                <article class="u-article"><h1>Pills</h1>
+<h2>Examples</h2>
+<h3>Basic</h3>
+<div id="u-example-0" class="u-example"><u-pills><u-pill>Apple</u-pill><u-pill>Banana</u-pill><u-pill>Cake</u-pill></u-pills></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-pills</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-pill</span>&gt;</span>Apple<span class="hljs-tag">&lt;/<span class="hljs-name">u-pill</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-pill</span>&gt;</span>Banana<span class="hljs-tag">&lt;/<span class="hljs-name">u-pill</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-pill</span>&gt;</span>Cake<span class="hljs-tag">&lt;/<span class="hljs-name">u-pill</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-pills</span>&gt;</span>
+</code></pre>
+<h3>Value</h3>
+<div id="u-example-1" class="u-example"><u-pills value="C"><u-pill value="A">Apple</u-pill><u-pill value="B">Banana</u-pill><u-pill value="C">Cake</u-pill></u-pills></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-pills</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-pill</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"A"</span>&gt;</span>Apple<span class="hljs-tag">&lt;/<span class="hljs-name">u-pill</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-pill</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"B"</span>&gt;</span>Banana<span class="hljs-tag">&lt;/<span class="hljs-name">u-pill</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-pill</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>Cake<span class="hljs-tag">&lt;/<span class="hljs-name">u-pill</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-pills</span>&gt;</span>
+</code></pre>
+<h3>Readonly &amp; Disabled</h3>
+<div id="u-example-2" class="u-example"><u-pills value="C" readonly><u-pill value="A">Apple</u-pill><u-pill value="B">Banana</u-pill><u-pill value="C">Cake</u-pill></u-pills><p></p><u-pills value="C" disabled><u-pill value="A">Apple</u-pill><u-pill value="B">Banana</u-pill><u-pill value="C">Cake</u-pill></u-pills><p></p><u-pills value="C"><u-pill value="A">Apple</u-pill><u-pill value="B" disabled>Banana</u-pill><u-pill value="C">Cake</u-pill></u-pills></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-pills</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span> <span class="hljs-attr">readonly</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-pill</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"A"</span>&gt;</span>Apple<span class="hljs-tag">&lt;/<span class="hljs-name">u-pill</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-pill</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"B"</span>&gt;</span>Banana<span class="hljs-tag">&lt;/<span class="hljs-name">u-pill</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-pill</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>Cake<span class="hljs-tag">&lt;/<span class="hljs-name">u-pill</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-pills</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">u-pills</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span> <span class="hljs-attr">disabled</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-pill</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"A"</span>&gt;</span>Apple<span class="hljs-tag">&lt;/<span class="hljs-name">u-pill</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-pill</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"B"</span>&gt;</span>Banana<span class="hljs-tag">&lt;/<span class="hljs-name">u-pill</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-pill</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>Cake<span class="hljs-tag">&lt;/<span class="hljs-name">u-pill</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-pills</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">u-pills</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-pill</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"A"</span>&gt;</span>Apple<span class="hljs-tag">&lt;/<span class="hljs-name">u-pill</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-pill</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"B"</span> <span class="hljs-attr">disabled</span>&gt;</span>Banana<span class="hljs-tag">&lt;/<span class="hljs-name">u-pill</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-pill</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>Cake<span class="hljs-tag">&lt;/<span class="hljs-name">u-pill</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-pills</span>&gt;</span>
+</code></pre>
+<h3>Cancelable</h3>
+<p>Try to click twice on an item.</p>
+<div id="u-example-3" class="u-example"><u-pills value="C" cancelable><u-pill value="A">Apple</u-pill><u-pill value="B">Banana</u-pill><u-pill value="C">Cake</u-pill></u-pills></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-pills</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span> <span class="hljs-attr">cancelable</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-pill</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"A"</span>&gt;</span>Apple<span class="hljs-tag">&lt;/<span class="hljs-name">u-pill</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-pill</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"B"</span>&gt;</span>Banana<span class="hljs-tag">&lt;/<span class="hljs-name">u-pill</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-pill</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"C"</span>&gt;</span>Cake<span class="hljs-tag">&lt;/<span class="hljs-name">u-pill</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-pills</span>&gt;</span>
+</code></pre>
+</article>
+                <!---->
+                <script>new Vue().$mount('#u-example-0');
+new Vue().$mount('#u-example-1');
+new Vue().$mount('#u-example-2');
+new Vue().$mount('#u-example-3');</script>
+            
+</body>
+</html>

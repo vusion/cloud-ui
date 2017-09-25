@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="docs.css">
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<link rel="stylesheet" type="text/css" href="vusion-icon-font.css">
+<script src="docs.js"></script>
+</head>
+<body>
+
+                <article class="u-article"><h1>日期选择（DatePicker）</h1>
+<h2>示例</h2>
+<h3>基本形式</h3>
+<h4>声明式</h4>
+<h3>基本</h3>
+<div id="u-example-0" class="u-example"><u-date-picker date="2018-08-08"></u-date-picker></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-date-picker</span> <span class="hljs-attr">date</span>=<span class="hljs-string">"2018-08-08"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-date-picker</span>&gt;</span>
+</code></pre>
+<h3>基本</h3>
+<div id="u-example-1" class="u-example"><u-date-picker></u-date-picker></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-date-picker</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-date-picker</span>&gt;</span>
+</code></pre>
+<h3>最大值maxDate 最小值minDate</h3>
+<div id="u-example-2" class="u-example"><u-date-picker date="2018-08-08" min-date="2018-08-06" max-date="2018-08-18"></u-date-picker></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-date-picker</span> <span class="hljs-attr">date</span>=<span class="hljs-string">"2018-08-08"</span> <span class="hljs-attr">min-date</span>=<span class="hljs-string">"2018-08-06"</span> <span class="hljs-attr">max-date</span>=<span class="hljs-string">"2018-08-18"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-date-picker</span>&gt;</span>
+</code></pre>
+<h3>禁用</h3>
+<div id="u-example-3" class="u-example"><u-date-picker disabled date="2018-08-08" min-date="2017-08-08" max-date="2019-08-08"></u-date-picker></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-date-picker</span> <span class="hljs-attr">disabled</span> <span class="hljs-attr">date</span>=<span class="hljs-string">"2018-08-08"</span> <span class="hljs-attr">min-date</span>=<span class="hljs-string">"2017-08-08"</span> <span class="hljs-attr">max-date</span>=<span class="hljs-string">"2019-08-08"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-date-picker</span>&gt;</span>
+</code></pre>
+<h3>获取改变值方法 change select</h3>
+<div id="u-example-4" class="u-example"><u-date-picker :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker></div>
+<pre class="hljs lang-vue"><code><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">u-date-picker</span> <span class="hljs-attr">:date.sync</span>=<span class="hljs-string">"date"</span> @<span class="hljs-attr">change</span>=<span class="hljs-string">"change"</span> @<span class="hljs-attr">select</span>=<span class="hljs-string">"select"</span> @<span class="hljs-attr">toggle</span>=<span class="hljs-string">"toggle($event)"</span>&gt;</span>Modal<span class="hljs-tag">&lt;/<span class="hljs-name">u-date-picker</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+	data(){
+		<span class="hljs-keyword">return</span> {
+			<span class="hljs-attr">date</span>: <span class="hljs-string">'2014-12-01'</span>,
+		}
+	},
+    <span class="hljs-attr">methods</span>: {
+        change(newVal) {
+            <span class="hljs-built_in">console</span>.log(newVal);
+        },
+        select(newVal) {
+        	<span class="hljs-built_in">console</span>.log(newVal);
+        },
+        toggle(event) {
+        	<span class="hljs-built_in">console</span>.log(event.open);
+        }
+    },
+    <span class="hljs-attr">watch</span>: {
+        date(newValue) {
+            <span class="hljs-built_in">console</span>.log(newValue);
+        },
+    },
+};
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+</article>
+                <article data-server-rendered="true" class="u-article"><h2 id="API">API</h2> <h3 id="Class">Class</h3> <h4>DatePicker</h4> <p>Extends <strong></strong>。</p> <p></p> <h3 id="Options">Options</h3> <h4>new DatePicker()</h4> <table><thead><tr><th width="24%">Param</th><th width="16%">Type</th><th width="16%">Default</th><th width="26%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>options</code></td> <td class="f-wsn">object</td> <td class="f-wsn"><!----></td> <td>=  绑定属性</td></tr><tr><td class="f-wsn"><code>date</code></td> <td class="f-wsn">object</td> <td class="f-wsn"><code>null</code></td> <td>&lt;=&gt; 当前选择的日期</td></tr><tr><td class="f-wsn"><code>placeholder</code></td> <td class="f-wsn">string</td> <td class="f-wsn"><code>'请输入'</code></td> <td>=&gt; 文本框的占位文字</td></tr><tr><td class="f-wsn"><code>minDate</code></td> <td class="f-wsn">Date&lt;br&gt;string</td> <td class="f-wsn"><code>null</code></td> <td>=&gt; 最小日期，如果为空则不限制</td></tr><tr><td class="f-wsn"><code>maxDate</code></td> <td class="f-wsn">Date&lt;br&gt;string</td> <td class="f-wsn"><code>null</code></td> <td>=&gt; 最大日期，如果为空则不限制</td></tr><tr><td class="f-wsn"><code>autofocus</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>false</code></td> <td>=&gt; 是否自动获得焦点</td></tr><tr><td class="f-wsn"><code>readonly</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>false</code></td> <td>=&gt; 是否只读</td></tr><tr><td class="f-wsn"><code>disabled</code></td> <td class="f-wsn">boolean</td> <td class="f-wsn"><code>false</code></td> <td>=&gt; 是否禁用</td></tr></tbody></table> <h3 id="Methods">Methods</h3> <h4><!----> datePicker.select(date)</h4> <p>选择一个日期</p> <table><thead><tr><th width="25%">Param</th><th width="25%">Type</th><th width="25%">Default</th><th width="25%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>date</code></td> <td class="f-wsn">Date</td> <td class="f-wsn"><code>null</code></td> <td>选择的日期</td></tr></tbody> <thead><tr><th width="25%">Return</th><th width="25%">Type</th><th width="50%" colspan="2">Description</th></tr></thead> <tbody><tr><td colspan="4" class="f-tac">No Returns</td></tr></tbody></table><h4><!----> datePicker.isOutOfRange(date)</h4> <p>是否超出规定的日期范围</p> <table><thead><tr><th width="25%">Param</th><th width="25%">Type</th><th width="25%">Default</th><th width="25%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>date</code></td> <td class="f-wsn">Date</td> <td class="f-wsn"><!----></td> <td>待测的日期</td></tr></tbody> <thead><tr><th width="25%">Return</th><th width="25%">Type</th><th width="50%" colspan="2">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>date</code></td> <td class="f-wsn">boolean&lt;br&gt;Date</td> <td colspan="2">如果没有超出日期范围，则返回false；如果超出日期范围，则返回范围边界的日期</td></tr></tbody></table><h4><!----> datePicker.toggle(flag)</h4> <p>是否显示日历组件</p> <table><thead><tr><th width="25%">Param</th><th width="25%">Type</th><th width="25%">Default</th><th width="25%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>true</code></td> <td class="f-wsn">flag</td> <td class="f-wsn"><!----></td> <td>显示 false 隐藏</td></tr></tbody> <thead><tr><th width="25%">Return</th><th width="25%">Type</th><th width="50%" colspan="2">Description</th></tr></thead> <tbody><tr><td colspan="4" class="f-tac">No Returns</td></tr></tbody></table> <!----> <h3 id="Events">Events</h3> <h4>datePicker.$on('change')</h4> <p>日期改变时触发</p> <table><thead><tr><th width="33%">Property</th><th width="33%">Type</th><th width="33%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>sender</code></td> <td class="f-wsn">object</td> <td class="f-wsn">事件发送对象</td></tr><tr><td class="f-wsn"><code>date</code></td> <td class="f-wsn">number</td> <td class="f-wsn">改变后的日期 返回格式为日期对象</td></tr></tbody></table><h4>datePicker.$on('select')</h4> <p>选择某一项时触发</p> <table><thead><tr><th width="33%">Property</th><th width="33%">Type</th><th width="33%">Description</th></tr></thead> <tbody><tr><td class="f-wsn"><code>sender</code></td> <td class="f-wsn">object</td> <td class="f-wsn">事件发送对象</td></tr><tr><td class="f-wsn"><code>date</code></td> <td class="f-wsn">number</td> <td class="f-wsn">当前选择项 返回格式是日期对象</td></tr></tbody></table></article>
+                <script>new Vue().$mount('#u-example-0');
+new Vue().$mount('#u-example-1');
+new Vue().$mount('#u-example-2');
+new Vue().$mount('#u-example-3');
+new Vue({
+	data(){
+		return {
+			date: '2014-12-01',
+		}
+	},
+    methods: {
+        change(newVal) {
+            console.log(newVal);
+        },
+        select(newVal) {
+        	console.log(newVal);
+        },
+        toggle(event) {
+        	console.log(event.open);
+        }
+    },
+    watch: {
+        date(newValue) {
+            console.log(newValue);
+        },
+    },
+}).$mount('#u-example-4');</script>
+            
+</body>
+</html>

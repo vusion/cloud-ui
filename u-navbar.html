@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="docs.css">
+<link rel="stylesheet" type="text/css" href="atom-one-light.css">
+<link rel="stylesheet" type="text/css" href="vusion-icon-font.css">
+<script src="docs.js"></script>
+</head>
+<body>
+
+                <article class="u-article"><h1>导航条（Navbar）</h1>
+<h2>示例</h2>
+<h3>基本形式</h3>
+<div id="u-example-0" class="u-example"><div style="background: #4289db"><u-navbar><u-navbar-item selected>主体</u-navbar-item><u-navbar-item>备案管理</u-navbar-item><u-navbar-item>帮助</u-navbar-item></u-navbar></div></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background: #4289db"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar-item</span> <span class="hljs-attr">selected</span>&gt;</span>主体<span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar-item</span>&gt;</span>备案管理<span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar-item</span>&gt;</span>帮助<span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar-item</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<h3>位置</h3>
+<div id="u-example-1" class="u-example"><u-linear-layout direction="vertical"><div style="background: #4289db"><u-navbar alignment="center"><u-navbar-item selected>主体</u-navbar-item><u-navbar-item>备案管理</u-navbar-item><u-navbar-item>帮助</u-navbar-item></u-navbar></div><div style="background: #4289db"><u-navbar alignment="right"><u-navbar-item selected>主体</u-navbar-item><u-navbar-item>备案管理</u-navbar-item><u-navbar-item>帮助</u-navbar-item></u-navbar></div></u-linear-layout></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span> <span class="hljs-attr">direction</span>=<span class="hljs-string">"vertical"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background: #4289db"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar</span> <span class="hljs-attr">alignment</span>=<span class="hljs-string">"center"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar-item</span> <span class="hljs-attr">selected</span>&gt;</span>主体<span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar-item</span>&gt;</span>备案管理<span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar-item</span>&gt;</span>帮助<span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background: #4289db"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar</span> <span class="hljs-attr">alignment</span>=<span class="hljs-string">"right"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar-item</span> <span class="hljs-attr">selected</span>&gt;</span>主体<span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar-item</span>&gt;</span>备案管理<span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar-item</span>&gt;</span>帮助<span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
+</code></pre>
+<h3>与Logo结合</h3>
+<div id="u-example-2" class="u-example"><u-linear-layout direction="vertical"><div style="background: #4289db; padding: 0 10px;"><u-navbar><u-logo slot="left"><a href="/" target="_blank">ICP 备案系统</a></u-logo><u-navbar-item selected>主体</u-navbar-item><u-navbar-item>备案管理</u-navbar-item><u-navbar-item>帮助</u-navbar-item></u-navbar></div><div style="background: #151d2b; padding: 0 10px;"><u-navbar alignment="right"><u-logo slot="left"></u-logo><u-navbar-item>产品</u-navbar-item><u-navbar-item selected>价格</u-navbar-item><u-navbar-item>帮助</u-navbar-item><u-navbar-item>合作与生态</u-navbar-item><u-navbar-item>博客</u-navbar-item><u-navbar-item>备案</u-navbar-item></u-navbar></div></u-linear-layout></div>
+<pre class="hljs lang-html"><code><span class="hljs-tag">&lt;<span class="hljs-name">u-linear-layout</span> <span class="hljs-attr">direction</span>=<span class="hljs-string">"vertical"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background: #4289db; padding: 0 10px;"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-logo</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"left"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span>&gt;</span>ICP 备案系统<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-logo</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar-item</span> <span class="hljs-attr">selected</span>&gt;</span>主体<span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar-item</span>&gt;</span>备案管理<span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar-item</span>&gt;</span>帮助<span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background: #151d2b; padding: 0 10px;"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar</span> <span class="hljs-attr">alignment</span>=<span class="hljs-string">"right"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-logo</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"left"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">u-logo</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar-item</span>&gt;</span>产品<span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar-item</span> <span class="hljs-attr">selected</span>&gt;</span>价格<span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar-item</span>&gt;</span>帮助<span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar-item</span>&gt;</span>合作与生态<span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar-item</span>&gt;</span>博客<span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">u-navbar-item</span>&gt;</span>备案<span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar-item</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">u-navbar</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">u-linear-layout</span>&gt;</span>
+</code></pre>
+</article>
+                <!---->
+                <script>new Vue().$mount('#u-example-0');
+new Vue().$mount('#u-example-1');
+new Vue().$mount('#u-example-2');</script>
+            
+</body>
+</html>
