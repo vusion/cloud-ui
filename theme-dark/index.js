@@ -48,6 +48,8 @@ export {
     SidebarMenu,
     Subnav,
     SubnavItem,
+    Subtabs,
+    Subtab,
     StatusIcon,
     Switch,
     Tab,

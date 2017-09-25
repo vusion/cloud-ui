@@ -35,6 +35,7 @@ export default {
     margin-top: 0px;
     border: none;
     border-radius: 0;
+    color: #333;
     box-shadow: 0 3px 4px rgba(0,0,0,0.1);
 }
 </style>

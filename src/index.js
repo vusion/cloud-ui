@@ -48,6 +48,8 @@ import SidebarMenu from './u-sidebar-menu.vue';
 import StatusIcon from './u-status-icon.vue';
 import Subnav from './u-subnav.vue';
 import SubnavItem from './u-subnav-item.vue';
+import Subtabs from './u-subtabs.vue';
+import Subtab from './u-subtab.vue';
 import Switch from './u-switch.vue';
 import Tab from 'u-tab.vue';
 import TableCell from './u-table-cell.vue';
@@ -58,7 +60,7 @@ import Tablet from './u-tablet.vue';
 import Tablets from './u-tablets.vue';
 import Tabs from './u-tabs.vue';
 import Tag from './u-tag.vue';
-import Textarea from 'u-textarea.vue';
+import Textarea from './u-textarea.vue';
 import TimePicker from './u-time-picker.vue';
 import Toast from './u-toast.vue';
 import Tooltip from './u-tooltip.vue';
@@ -121,6 +123,8 @@ const Components = {
     StatusIcon,
     Subnav,
     SubnavItem,
+    Subtabs,
+    Subtab,
     Switch,
     Tab,
     TableCell,
@@ -194,6 +198,8 @@ export {
     SidebarMenu,
     Subnav,
     SubnavItem,
+    Subtabs,
+    Subtab,
     StatusIcon,
     Switch,
     Tab,

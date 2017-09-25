@@ -31,6 +31,7 @@ const Modal = {
         },
         close() {
             this.visible_ = false;
+            this.$emit('update:visible', false);
             this.$emit('close');
         },
         ok() {

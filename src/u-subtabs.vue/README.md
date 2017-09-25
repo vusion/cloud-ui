@@ -1,57 +1,57 @@
-# 标签页（Tabs）
+# 子标签页（subtabs）
 
 ## 示例
 ### 基本形式
 
 ``` html
-<u-tabs>
-    <u-tab title="详细信息">ContentA</u-tab>
-    <u-tab title="性能监控">ContentB</u-tab>
-    <u-tab title="操作日志">ContentC</u-tab>
-</u-tabs>
+<u-subtabs>
+    <u-subtab title="未使用">Content1</u-subtab>
+    <u-subtab title="使用中">Content2</u-subtab>
+    <u-subtab title="已过期">Content3</u-subtab>
+</u-subtabs>
 ```
 
 ### 索引
 
 ``` html
-<u-tabs :index="2">
-    <u-tab title="详细信息">ContentA</u-tab>
-    <u-tab title="性能监控">ContentB</u-tab>
-    <u-tab title="操作日志">ContentC</u-tab>
-</u-tabs>
+<u-subtabs :index="2">
+    <u-subtab title="未使用">Content1</u-subtab>
+    <u-subtab title="使用中">Content2</u-subtab>
+    <u-subtab title="已过期">Content3</u-subtab>
+</u-subtabs>
 ```
 
 ### 只读和禁用
 
 ``` html
-<u-tabs readonly>
-    <u-tab title="详细信息">Readonly</u-tab>
-    <u-tab title="性能监控">Readonly</u-tab>
-    <u-tab title="操作日志">Readonly</u-tab>
-</u-tabs>
-<u-tabs disabled>
-    <u-tab title="详细信息">Disabled All</u-tab>
-    <u-tab title="性能监控">Disabled All</u-tab>
-    <u-tab title="操作日志">Disabled All</u-tab>
-</u-tabs>
-<u-tabs>
-    <u-tab title="详细信息">Disabled Partially</u-tab>
-    <u-tab title="性能监控" disabled>Disabled Partially</u-tab>
-    <u-tab title="操作日志">Disabled Partially</u-tab>
-</u-tabs>
+<u-subtabs readonly>
+    <u-subtab title="未使用">部分禁用</u-subtab>
+    <u-subtab title="使用中" disabled>部分禁用</u-subtab>
+    <u-subtab title="已过期">部分禁用</u-subtab>
+</u-subtabs>
+<u-subtabs disabled>
+    <u-subtab title="未使用">全部禁用</u-subtab>
+    <u-subtab title="使用中">全部禁用</u-subtab>
+    <u-subtab title="已过期">全部禁用</u-subtab>
+</u-subtabs>
+<u-subtabs>
+    <u-subtab title="未使用">部分禁用</u-subtab>
+    <u-subtab title="使用中" disabled>部分禁用</u-subtab>
+    <u-subtab title="已过期">部分禁用</u-subtab>
+</u-subtabs>
 ```
 
 ### 隐藏部分项
 
 ``` html
-<u-tabs :index="2">
-    <u-tab title="详细信息">ContentA</u-tab>
-    <u-tab title="性能监控" hidden>ContentB</u-tab>
-    <u-tab title="操作日志">ContentC</u-tab>
-</u-tabs>
+<u-subtabs :index="2">
+    <u-subtab title="未使用">隐藏部分项</u-subtab>
+    <u-subtab title="使用中" hidden>隐藏部分项</u-subtab>
+    <u-subtab title="已过期">隐藏部分项</u-subtab>
+</u-subtabs>
 ```
 
-## Tabs API
+## Subtabs API
 ### Attrs/Props
 
 | Attr/Prop | Type | Default | Description |
@@ -65,7 +65,7 @@
 
 #### (default)
 
-在插槽中插入`<u-tab>`子组件
+在插槽中插入`<u-subtab>`子组件
 
 ### Events
 
@@ -99,7 +99,7 @@
 | index | Number | 当前标签页索引 |
 | oldIndex | Number | 旧的标签页索引 |
 
-## Tab API
+## Subtab API
 ### Attrs/Props
 
 | Attr/Prop | Type | Default | Description |
