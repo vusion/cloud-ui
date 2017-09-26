@@ -2,8 +2,10 @@
     <slot></slot>
     <div :class="$style.popper" slot="popper">
         <div :class="$style.arrow"></div>
-        <slot name="content">
-            <div :class="$style.content">{{content}}</div>
-        </slot>
+        <div :class="$style.content">
+            <slot name="content">
+                <div>{{content}}</div>
+            </slot>
+        </div>
     </div>
 </u-popper>

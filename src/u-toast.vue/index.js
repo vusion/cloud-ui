@@ -138,7 +138,6 @@ const Toast = {
  */
 Vue.nextTick(() => {
     // 获取构造器函数 （vue-loader 处理生成d额）
-    const instance = Toast.instance = new Toast._Ctor[0]();
     const STATES = Toast.STATES = ['success', 'warning', 'info', 'error'];
     const METHODS = Toast.METHODS = ['show', 'close', 'closeAll', 'success', 'warning', 'info', 'error'];
     STATES.forEach((state) => {
@@ -146,6 +145,7 @@ Vue.nextTick(() => {
             this.show(message, duration, state);
         };
     });
+    const instance = Toast.instance = new Toast._Ctor[0]();
     METHODS.forEach((method) => Toast[method] = instance[method].bind(instance));
 });
 export default Toast;
