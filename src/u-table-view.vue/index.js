@@ -18,20 +18,19 @@ export default {
             columnsWidth: [],
             popvisible: false,
             copyTdata: [], // tdata的复制版本主要用来过滤
+            tableWidth: 0,
         };
     },
     mounted() {
         this.tdata = this.initTableData();
         this.copyTdata = this.initTableData();
         this.handleResize();
-        // this.setScopeSlot();
     },
     watch: {
         data(newValue) {
             this.tdata = this.initTableData();
             this.copyTdata = this.initTableData();
             this.handleResize();
-            // this.setScopeSlot();
         },
     },
     components: {
@@ -130,16 +129,6 @@ export default {
             this.popvisible = undefined;
             this.popvisible = false;
             this.tdata = this.copyTdata.filter((item) => column.filterMethod(option.value, item[column.label], item, column));
-        },
-        setScopeSlot(column, row) {
-            column.row = row;
-            if (column.$slots && column.$slots.default) {
-                column.$slots.default(row);
-                return column.$slots;
-            } else if (column.$scopedSlots && column.$scopedSlots.default) {
-                column.$scopedSlots.default(row);
-                return column.$scopedSlots;
-            }
         },
     },
 };

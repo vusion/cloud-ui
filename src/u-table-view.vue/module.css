@@ -8,12 +8,8 @@
     vertical-align: middle;
     padding-right: 0;
     box-sizing: border-box;
-    padding: 12px 20px 12px 10px;
+    padding: 10px 20px 12px 10px;
     line-height: 20px;
-    /*overflow: hidden;*/
-    /*width: auto;*/
-    /*text-overflow: ellipsis;*/
-    /*white-space: nowrap;*/
     text-align: left;
     font-weight: 400;
 }
@@ -29,6 +25,7 @@
 }
 .tbody{
     width: 100%;
+    table-layout: fixed;
 }
 .tbody .btrItem:first-child{
     border-top: none;
@@ -44,7 +41,7 @@
     vertical-align: middle;
     padding-right: 0;
     box-sizing: border-box;
-    padding: 12px 20px 12px 10px;
+    padding: 10px 20px 12px 10px;
     line-height: 20px;
     overflow: hidden;
     width: auto;
@@ -99,31 +96,43 @@
     word-break: break-all;
     line-height: 24px;
 }
-.popover{
+.popper{
     width: 100%;
+    z-index: 1065;
+    background: #fff;
 }
 .itemtitle{
     position: relative;
     word-break: break-all;
     display: inline-block;
 }
-.itemtitle[role]:after{
-    content: '';
-    width: 0;
-    height: 0;
-    border: 5px solid transparent;
-    border-top-color: #9dabc2;
-    position: absolute;
-    right: -15px;
-    top: 50%;
-    transform: translateY(-50%);
-}
 .option{
-    min-width: 120px;
+    width: 100%;
     padding: 3px 14px;
     box-sizing: border-box;
+    line-height: 24px;
+}
+.option:hover{
+    background: #f4f4f4;
+    color: #444;
 }
 .option[role] {
     background: $brand-primary;
     color: #fff;
+}
+.filtertitle{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom:0;
+    line-height: 50px;
+}
+.traingle{
+    display: inline-block;
+    border: 5px solid transparent;
+    border-top-color: #9dabc2;
+    position: relative;
+    left:5px;
+    top:3px;
 }

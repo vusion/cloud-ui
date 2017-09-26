@@ -1,4 +1,4 @@
-.root{
+.header{
 	display: inline-block;
 	position: relative;
 }
@@ -23,8 +23,7 @@
 .body{
 	position: absolute;
 	z-index: 1;
-	width: 100%;
+	width: 248px;
 	top: 100%;
-	min-width: 160px;
 	margin-top: 2px;
 }

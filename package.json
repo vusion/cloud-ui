@@ -1,8 +1,13 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "author": "Rainfore <rainforest92@126.com>",
+  "contributors": [
+    "haoxutong <1255965516@qq.com>",
+    "ChenWeiYuan123 <360411956@qq.com>",
+    "zou-xinhua <m15616168428@163.com>"
+  ],
   "main": "./index.js",
   "scripts": {
     "precommit": "bash node_modules/vusion-hooks/pre-commit"

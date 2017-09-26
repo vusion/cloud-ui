@@ -38,6 +38,7 @@ export default [
             { path: 'u-color-select', component: () => import('../src/u-color-select.vue/README.md') },
             { path: 'u-checkbox', component: () => import('u-checkbox.vue/README.md') },
             { path: 'u-switch', component: () => import('../src/u-switch.vue/README.md') },
+            { path: 'u-slider', component: () => import('../src/u-slider.vue/README.md') },
             { path: 'u-field', component: Empty },
             { path: 'u-form-item', component: Empty },
             { path: 'u-form', component: () => import('../src/u-form.vue/README.md') },

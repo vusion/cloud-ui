@@ -71,4 +71,5 @@ export {
     Droppable,
     Movable,
     Slider,
+    TableViewCell,
 } from '../src';

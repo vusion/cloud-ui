@@ -219,10 +219,10 @@ export default {
         <u-table-view-column title="日期" label="date" sortable :formatter="dateFormat"></u-table-view-column>
         <u-table-view-column title="姓名" label="name" ></u-table-view-column>
         <u-table-view-column title="地址" label="address" ></u-table-view-column>
-        <u-table-view-column title="性别" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
+        <u-table-view-column title="性别" width="30%" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
         <u-table-view-column title="占比">
             <template scope="scope">
-                {{scope.row}}
+                <u-button @click="click(scope.row)">配置</u-button>
             </template>
         </u-table-view-column>
     </u-table-view>
@@ -291,6 +291,10 @@ export default {
             const date = new Date(value).getDate();
             return year + '-' + month + '-' + date;
         },
+        click(row) {
+            console.log('click');
+            console.log(row);
+        }
     }
 };
 </script>

@@ -4,7 +4,7 @@
         <slot name="title"></slot>
     </div>
     <div :class="$style.header">
-        <table :class="$style.thead" cellspacing="0" cellpadding="0" border="0">
+        <table :class="$style.thead" cellspacing="0" cellpadding="0" border="0" :style="{width: tableWidth+'px'}">
             <colgroup>
                 <col v-for="(column, index) in columnsWidth" :width="column"></col>
             </colgroup>
@@ -13,12 +13,15 @@
                     <th v-for="(column, index) in columns" :class="$style.hthSpan" :role="column.filter">
                         <span v-if="!column.filter" :class="$style.itemtitle">{{column.title}}</span>
                         <template v-if="column.filter">
-                            <u-popover :class="$style.popover" trigger="click" :placement="column.placement" :open="popvisible">
-                                <span :class="$style.itemtitle" :role="column.filter">{{column.title}}</span>
-                                <template slot="content">
+                            <u-popper trigger="click" :placement="column.placement" append-to="reference">
+                                <div :class="$style.filtertitle" :role="column.filter">
+                                    <span :class="$style.titleitem">{{column.title}}</span>
+                                    <div :class="$style.traingle"></div>
+                                </div>
+                                <div :class="$style.popper" slot="popper">
                                     <div :class="$style.option" v-for="option in column.options" @click.stop="select(option, column)" :role="column.selectValue === option.value">{{option.name}}</div>
-                                </template>
-                            </u-popover>
+                                </div>
+                            </u-popper>
                         </template>
                         <template v-if="column.type === 'selection'"><input type="checkbox" v-model="allSel" @change="allSelected"></template>
                         <template v-else>
@@ -33,7 +36,7 @@
         </table>
     </div>
     <div :class="$style.body" ref="body">
-        <table cellspacing="0" cellpadding="0" border="0" :class="$style.tbody">
+        <table cellspacing="0" cellpadding="0" border="0" :class="$style.tbody" :style="{width: tableWidth+'px'}">
             <colgroup>
                 <col v-for="(column, index) in columnsWidth" :width="column">
             </colgroup>
@@ -43,7 +46,7 @@
                         <td v-for="(column, cindex) in columns" :class="$style.btdSpan">
                             <span v-if="column.type === 'selection'"><input type="checkbox" v-model="row.selected"/></span>
                             <div v-else-if="!column.label">
-                                {{column.renderCell(row)}}
+                                <u-table-view-cell :row="row" :column="column"></u-table-view-cell>
                             </div>
                             <span :class="$style.ditem" v-else-if="column.formatter">{{column.formatter(row, column, index, cindex)}}</span>
                             <span :class="$style.ditem" v-else>{{row[column.label]}}</span>

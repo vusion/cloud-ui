@@ -23,7 +23,7 @@
     width: 0;
     left: 50%;
     transform: translateX(-50%);
-    background-color: white;
+    background-color: currentColor;
 }
 
 .root:hover:after {
