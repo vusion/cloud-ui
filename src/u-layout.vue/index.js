@@ -3,41 +3,60 @@ import Flex from "../u-flex.vue"
 export default {
 	name:"u-layout",
 	props:{
-		sidebarWidth:{
+		leftWidth:{
 			type:String,
 			default:"auto"
 		},
-		siderDirection:{
+		rightWidth:{
 			type:String,
-			default:"row"
+			default:"auto"
 		},
-		siderBackground:{
+		leftBackground:{
+			type:String,
+			default:undefined
+		},
+		rightBackground:{
 			type:String,
 			default:undefined
 		},
 		mode:{
 			type:Number,
 			default:1
+		},
+		fixSide:{
+			type:Boolean,
+			default:false
 		}
 	},
 	data(){
 		return {
-
+			
 		}
 	},
 	mixins:[Flex],
 	computed:{
-		unit() {
-			if(/px/.test(this.sidebarWidth))return "px";
-			else return "%";
+		fixHeight() {
+			return this.fixSide ? "100%" : "auto";
 		},
-		siderSpan() {
-			let num = parseInt(this.sidebarWidth);
+		unit() {
+			if(/\%/.test(this.leftWidth) || /\%/.test(this.rightWidth)) return "%";
+			else return "px";
+		},
+		leftSpan() {
+			return this.getSpan(this.leftWidth);
+		},
+		rightSpan() {
+			return this.getSpan(this.rightWidth);
+		},
+	},
+	methods:{
+		getSpan(span) {
+			let num = parseInt(span);
 			if(this.unit==="%") {
 			 	return num / 24;
 			} else {
 			 	return num;
 			}
-		},
+		}
 	}
 }

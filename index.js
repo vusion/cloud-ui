@@ -15,11 +15,15 @@ import ColorSelect from './src/u-color-select.vue';
 import DatePicker from './src/u-date-picker.vue';
 import DateTimePicker from './src/u-date-time-picker.vue';
 import Field from './src/u-field.vue';
+import Flex from './src/u-flex.vue';
 import Form from './src/u-form.vue';
 import FormItem from './src/u-form-item.vue';
+import GridColumn from './src/u-grid-column.vue';
+import GridRow from './src/u-grid-row.vue';
 import Icon from './src/u-icon.vue';
 import Input from './src/u-input.vue';
 import InputField from './src/u-input-field.vue';
+import Layout from './src/u-layout.vue';
 import LineChart from './src/u-line-chart.vue';
 import LinearLayout from 'u-linear-layout.vue';
 import LinearProgress from 'u-linear-progress.vue';
@@ -86,11 +90,15 @@ const Components = {
     DatePicker,
     DateTimePicker,
     Field,
+    Flex,
     Form,
     FormItem,
+    GridColumn,
+    GridRow,
     Icon,
     Input,
     InputField,
+    Layout,
     LineChart,
     LinearLayout,
     LinearProgress,
@@ -158,11 +166,15 @@ export {
     DatePicker,
     DateTimePicker,
     Field,
+    Flex,
     Form,
     FormItem,
+    GridColumn,
+    GridRow,
     Icon,
     Input,
     InputField,
+    Layout,
     LineChart,
     LinearLayout,
     LinearProgress,
