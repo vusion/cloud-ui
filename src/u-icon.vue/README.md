@@ -4,37 +4,43 @@
 ### 基本形式
 
 ``` html
-<u-icon-svg name="area">设置</u-icon-svg>
+<u-icon-svg name="area">area</u-icon-svg>
 ```
 ``` html
-<u-icon-svg name="portrait">设置</u-icon-svg>
+<u-icon-svg name="portrait">portrait</u-icon-svg>
 ```
 ``` html
-<u-icon-svg name="angle-left">设置</u-icon-svg>
+<u-icon-svg name="angle-left">left</u-icon-svg>
 ```
 ``` html
-<u-icon-svg name="angle-right">设置</u-icon-svg>
+<u-icon-svg name="angle-right">right</u-icon-svg>
 ```
 ``` html
-<u-icon-svg name="arrow-down">设置</u-icon-svg>
+<u-icon-svg name="arrow-down">arrow-down</u-icon-svg>
 ```
 ``` html
-<u-icon-svg name="arrow-up">设置</u-icon-svg>
+<u-icon-svg name="arrow-up">arrow-up</u-icon-svg>
 ```
 ``` html
-<u-icon-svg name="refresh">设置</u-icon-svg>
+<u-icon-svg name="refresh">refresh</u-icon-svg>
 ```
 ``` html
-<u-icon-svg name="search">设置</u-icon-svg>
+<u-icon-svg name="search">search</u-icon-svg>
 ```
 ``` html
-<u-icon-svg name="apm-alert">设置</u-icon-svg>
+<u-icon-svg name="apm-alert">alert</u-icon-svg>
 ```
 ``` html
-<u-icon-svg name="logout">设置</u-icon-svg>
+<u-icon-svg name="logout" size="small">logout</u-icon-svg>
 ```
 ``` html
-<u-icon-svg name="dropdown">设置</u-icon-svg>
+<u-icon-svg name="dropdown" size="large">dropdown</u-icon-svg>
+```
+``` html
+<u-icon-svg name="angle-down">down</u-icon-svg>
+```
+``` html
+<u-icon-svg name="angle-up">up</u-icon-svg>
 ```
 
 #### 命令式
