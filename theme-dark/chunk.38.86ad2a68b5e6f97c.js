@@ -1,9 +1,9 @@
 /* icon font style message */
 
                             if (window && !window.ICON_FONT_STYLE) {
-                                window.ICON_FONT_STYLE = {"name":"vusion-icon-font","ttf":{"path":"\\cloud-ui\\theme-dark\\vusion-icon-font.ttf","md5":"80d3c27c6968ff1094b094adaf85c724"},"eot":{"path":"\\cloud-ui\\theme-dark\\vusion-icon-font.eot","md5":"f12f23b6ec30d167466caa28cfa46be5"},"woff":{"path":"\\cloud-ui\\theme-dark\\vusion-icon-font.woff","md5":"a3a30848678af9ce702046123e0c7173"},"svg":{"path":"\\cloud-ui\\theme-dark\\vusion-icon-font.svg","md5":"dd00e18f3cbd849a8fa7211ffc3f2e13"}};
+                                window.ICON_FONT_STYLE = {"name":"vusion-icon-font","ttf":{"path":"\\cloud-ui\\theme-dark\\vusion-icon-font.ttf","md5":"9c17123c0c34baa7cebb54b061551644"},"eot":{"path":"\\cloud-ui\\theme-dark\\vusion-icon-font.eot","md5":"c29cc34dac4a18e333cf017bc870e6b2"},"woff":{"path":"\\cloud-ui\\theme-dark\\vusion-icon-font.woff","md5":"8067ac0eb899c73e7e1a1d3b493bd6eb"},"svg":{"path":"\\cloud-ui\\theme-dark\\vusion-icon-font.svg","md5":"031a9a91f4e8c8c5cc7f5018ac705320"}};
                             } else if (window.ICON_FONT_STYLE && window.ICON_FONT_STYLE.update) {
-                                window.ICON_FONT_STYLE.update({"name":"vusion-icon-font","ttf":{"path":"\\cloud-ui\\theme-dark\\vusion-icon-font.ttf","md5":"80d3c27c6968ff1094b094adaf85c724"},"eot":{"path":"\\cloud-ui\\theme-dark\\vusion-icon-font.eot","md5":"f12f23b6ec30d167466caa28cfa46be5"},"woff":{"path":"\\cloud-ui\\theme-dark\\vusion-icon-font.woff","md5":"a3a30848678af9ce702046123e0c7173"},"svg":{"path":"\\cloud-ui\\theme-dark\\vusion-icon-font.svg","md5":"dd00e18f3cbd849a8fa7211ffc3f2e13"}});
+                                window.ICON_FONT_STYLE.update({"name":"vusion-icon-font","ttf":{"path":"\\cloud-ui\\theme-dark\\vusion-icon-font.ttf","md5":"9c17123c0c34baa7cebb54b061551644"},"eot":{"path":"\\cloud-ui\\theme-dark\\vusion-icon-font.eot","md5":"c29cc34dac4a18e333cf017bc870e6b2"},"woff":{"path":"\\cloud-ui\\theme-dark\\vusion-icon-font.woff","md5":"8067ac0eb899c73e7e1a1d3b493bd6eb"},"svg":{"path":"\\cloud-ui\\theme-dark\\vusion-icon-font.svg","md5":"031a9a91f4e8c8c5cc7f5018ac705320"}});
                             }webpackJsonp([38],{
 
 /***/ 606:
