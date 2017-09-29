@@ -1,6 +1,6 @@
 <div :class="$style.root" :disabled="disabled">
     <div :class="$style.head">
-        <u-popper trigger="click" :open.sync="yearvisible">
+        <u-popper trigger="click" :open.sync="yearvisible" appendTo="reference">
             <div :class="$style.year">
                 <span :class="$style.textYear">{{showYear}}年</span>
             </div>
@@ -10,7 +10,7 @@
                 </u-list-view>
             </div>
         </u-popper>
-        <u-popper :class="$style.monthPopper" trigger="click" placement="bottom-end" :open.sync="monthvisible">
+        <u-popper :class="$style.monthPopper" trigger="click" placement="bottom-end" :open.sync="monthvisible" appendTo="reference">
             <div :class="$style.month">
                 <span :class="$style.textMonth">{{showMonth}}月</span>
             </div>
