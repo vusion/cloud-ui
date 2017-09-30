@@ -42,28 +42,3 @@
 ``` html
 <u-icon-svg name="angle-up">up</u-icon-svg>
 ```
-
-#### 命令式
-
-
-``` vue
-<template>
-    <div>
-        <u-icon-svg name="password">
-            <u-button color="primary">按钮</u-button>
-        </u-icon-svg>
-    </div>
-</template>
-<script>
-export default {
-    data() {
-        return {
-
-        };
-    },
-    methods: {
-
-    },
-};
-</script>
-```

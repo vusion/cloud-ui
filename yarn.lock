@@ -981,6 +981,10 @@ lru-cache@^4.0.1:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
+markdown-it-for-inline@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.npmjs.org/markdown-it-for-inline/-/markdown-it-for-inline-0.1.1.tgz#435f2316f5b5e68e1450cfa2242f2b8d59adc75f"
+
 markdown-it@^6.0.5:
   version "6.1.1"
   resolved "http://registry.npm.taobao.org/markdown-it/download/markdown-it-6.1.1.tgz#ced037f4473ee9f5153ac414f77dc83c91ba927c"

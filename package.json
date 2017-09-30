@@ -31,6 +31,7 @@
     "cloud-ui"
   ],
   "dependencies": {
+    "markdown-it-for-inline": "^0.1.1",
     "popper.js": "^1.12.2",
     "u-base.vue": "~0.2.0",
     "u-button.vue": "~0.2.1",

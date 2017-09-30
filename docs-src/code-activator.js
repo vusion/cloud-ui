@@ -19,7 +19,7 @@ exports.activate = (markdown) => {
         index++;
 
         if (lang === 'vue')
-            return m;
+            return `<div class="u-example">${content}</div>\n\n` + m;
         // const template = getTagContent(content, 'template');
         // const script = getTagContent(content, 'script').replace(/^\s*export\s+default\s+/, '').replace(/;\s*$/, '');
         // const style = getTagContent(content, 'style');

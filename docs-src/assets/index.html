@@ -14,11 +14,6 @@
         theme = 'default';
     window.theme = theme;
 
-    const $link = document.createElement('link');
-    $link.rel = 'stylesheet';
-    $link.href = base + `theme-${theme}/vusion-icon-font.css`;
-    document.body.appendChild($link);
-
     const $script = document.createElement('script');
     $script.src = base + `theme-${theme}/docs.js`;
     document.body.appendChild($script);
