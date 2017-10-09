@@ -8,11 +8,13 @@
 ### demo1 排序和格式化
 ``` vue
 <template>
-    <u-table-view :data="tdata">
-        <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
-        <u-table-view-column title="姓名" label="name" :formatter="formatter"></u-table-view-column>
-        <u-table-view-column title="地址" label="address" ></u-table-view-column>
-    </u-table-view>
+    <div>
+        <u-table-view :data="tdata">
+            <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
+            <u-table-view-column title="姓名" label="name" :formatter="formatter"></u-table-view-column>
+            <u-table-view-column title="地址" label="address" ></u-table-view-column>
+        </u-table-view>
+    </div>
 </template>
 <script>
 export default {
@@ -215,17 +217,25 @@ export default {
 ### demo5 作用域插槽方式
 ``` vue
 <template>
-    <u-table-view :data="tdata">
-        <u-table-view-column title="日期" label="date" sortable :formatter="dateFormat"></u-table-view-column>
-        <u-table-view-column title="姓名" label="name" ></u-table-view-column>
-        <u-table-view-column title="地址" label="address" ></u-table-view-column>
-        <u-table-view-column title="性别" width="30%" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
-        <u-table-view-column title="占比">
-            <template scope="scope">
-                <u-button @click="click(scope.row)">配置</u-button>
-            </template>
-        </u-table-view-column>
-    </u-table-view>
+    <div>
+        <u-table-view :data="tdata">
+            <u-table-view-column title="日期" label="date" sortable :formatter="dateFormat"></u-table-view-column>
+            <u-table-view-column title="姓名" label="name" ></u-table-view-column>
+            <u-table-view-column title="地址" label="address" tooltip></u-table-view-column>
+            <u-table-view-column title="性别" width="30%" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
+            <u-table-view-column title="占比">
+                <template scope="scope">
+                    <u-button @click="click(scope.row)">配置</u-button>
+                </template>
+            </u-table-view-column>
+        </u-table-view>
+        <u-modal :visible.sync="visible">
+            <div>
+                <span>{{current.name}}</span>
+                <span style="margin-left:10px;">{{current.address}}</span>
+            </div>
+        </u-modal>
+    </div>
 </template>
 <script>
 export default {
@@ -273,7 +283,9 @@ export default {
                 value: '女'
             },
         ],
-        value: ''
+        value: '',
+        current: {},
+        visible: false,
     },
     methods: {
         filterMethod(value, columnValue) {
@@ -294,6 +306,8 @@ export default {
         click(row) {
             console.log('click');
             console.log(row);
+            this.visible = true;
+            this.current = row;
         }
     }
 };

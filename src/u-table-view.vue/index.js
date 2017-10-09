@@ -1,7 +1,5 @@
 import * as Style from '../util/style.js';
 import Utils from '../util/utils.js';
-import Popover from '../u-popover.vue';
-import TableCell from '../u-table-cell.vue';
 
 export default {
     name: 'u-table-view',
@@ -9,6 +7,15 @@ export default {
         title: String,
         data: Array,
         allChecked: { type: Boolean, default: false },
+        defaultSort: {
+            type: Object,
+            default() {
+                return {
+                    label: undefined,
+                    order: undefined,
+                };
+            },
+        },
     },
     data() {
         return {
@@ -32,10 +39,6 @@ export default {
             this.copyTdata = this.initTableData();
             this.handleResize();
         },
-    },
-    components: {
-        'u-popover': Popover,
-        'u-table-cell': TableCell,
     },
     methods: {
         add(item) {
@@ -61,8 +64,14 @@ export default {
         },
         handleSort(type, column) {
             // console.log(type);
-            // debugger;
-            const order = type === 'asc' ? -1 : 1;
+
+            if (column.label === this.defaultSort.label)
+                this.defaultSort.order = this.defaultSort.order === 'asc' ? 'desc' : 'asc';
+            else {
+                this.defaultSort.label = column.label;
+                this.defaultSort.order = type;
+            }
+            const order = this.defaultSort.order === 'asc' ? -1 : 1;
             const label = column.label;
             if (column.sortMethod)
                 this.tdata.sort((value1, value2) => column.sortMethod(value1[label], value2[label]) ? order : -order);
@@ -73,7 +82,6 @@ export default {
                     return value1[label] < value2[label] ? order : -order;
                 });
             }
-            column.sortoperate = type;
         },
         allSelected() {
             const flag = this.allSel;
@@ -114,6 +122,8 @@ export default {
                             let width;
                             if (column.width)
                                 width = column.width;
+                            else if (column.type === 'selection')
+                                width = 35;
                             else
                                 width = parseInt(Style.getStyle($td[i], 'width'));
 
