@@ -119,11 +119,12 @@
 
 .filtertitle {
     position: absolute;
-    left: 30px;
+    left: 0;
     right: 0;
     top: 0;
     bottom: 0;
     line-height: 44px;
+    padding-left: 30px;
 }
 
 .traingle {
