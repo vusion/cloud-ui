@@ -23,10 +23,6 @@ export default {
             default: '取消',
         },
         message: String,
-        arrow: {
-            type: Boolean,
-            default: false,
-        },
     },
     data() {
         return {

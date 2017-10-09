@@ -4,15 +4,6 @@
 .reference{
     /*position: relative;*/
 }
-.arrow, .arrow:after{
-    display: block;
-    width: 0;
-    height: 0;
-    position: absolute;
-    border-color: transparent;
-    border-style: solid;
-    border-width: 6px;
-}
 .popper{
     display: block;
     visibility: visible;
@@ -20,106 +11,18 @@
     line-height: 1.5;
     z-index: 1060;
     /*min-width: 130px;*/
-    &[x-placement^="top"] {
-        padding: 5px 0 8px 0;
-    }
-    &[x-placement^="right"] {
-        padding: 0 5px 0 8px;
-    }
-    &[x-placement^="bottom"] {
-        padding: 8px 0 5px 0;
-    }
-    &[x-placement^="left"] {
-        padding: 0 8px 0 5px;
-    }
 }
-.popper[x-placement^="top"] .arrow{
-    bottom: 3px;
-    border-width: 6px 6px 0;
-    /*border-top-color:hsla(0, 0%, 85%, .5);*/
-    &:after{
-        content: '';
-        bottom: 1px;
-        margin-left: -6px;
-        border-bottom-width: 0;
-        border-top-color: rgba(71,88,107,0.9);
-    }
+.popper[x-placement^="top"] {
+    padding: 5px 0 8px 0;
 }
-.popper[x-placement="top"] .arrow{
-    left: 50%;
-    margin-left: -6px;
+.popper[x-placement^="right"] {
+    padding: 0 5px 0 8px;
 }
-.popper[x-placement="top-start"] .arrow{
-    left: 16px;
+.popper[x-placement^="bottom"] {
+    padding: 8px 0 5px 0;
 }
-.popper[x-placement="top-end"] .arrow{
-    right: 16px;
-}
-.popper[x-placement^="right"] .arrow{
-    left: 3px;
-    border-width: 6px 6px 6px 0;
-    /*border-right-color:hsla(0, 0%, 85%, .5);*/
-    &:after{
-        content: '';
-        left: 1px;
-        bottom: -6px;
-        border-left-width: 0;
-        border-right-color: rgba(71,88,107,0.9);
-    }
-}
-.popper[x-placement="right"] .arrow{
-    top: 50%;
-    margin-top: -6px;
-}
-.popper[x-placement="right-start"] .arrow{
-    top: 8px;
-}
-.popper[x-placement="right-end"] .arrow{
-    bottom: 8px;
-}
-.popper[x-placement^="left"] .arrow{
-    right: 3px;
-    border-width: 6px 0 6px 6px;
-    /*border-left-color:hsla(0, 0%, 85%, .5);*/
-    &:after{
-        content: '';
-        right: 1px;
-        bottom: -6px;
-        border-right-width: 0;
-        border-left-color: rgba(71,88,107,0.9);
-    }
-}
-.popper[x-placement="left"] .arrow{
-    top: 50%;
-    margin-top: -6px;
-}
-.popper[x-placement="left-start"] .arrow{
-    top: 8px;
-}
-.popper[x-placement="left-end"] .arrow{
-    bottom: 8px;
-}
-.popper[x-placement^="bottom"] .arrow{
-    top: 3px;
-    border-width: 0px 6px 6px;
-    /*border-bottom-color:hsla(0, 0%, 85%, .5);*/
-    &:after{
-        content: '';
-        top: 1px;
-        margin-left: -6px;
-        border-top-width: 0;
-        border-bottom-color: rgba(71,88,107,0.9);
-    }
-}
-.popper[x-placement="bottom"] .arrow{
-    left: 50%;
-    margin-left: -6px;
-}
-.popper[x-placement="bottom-start"] .arrow{
-    left: 16px;
-}
-.popper[x-placement="bottom-end"] .arrow{
-    right: 16px;
+.popper[x-placement^="left"] {
+    padding: 0 8px 0 5px;
 }
 .wrap{
     width: 100%;
@@ -130,16 +33,16 @@
 .title{
     padding: 8px 16px;
     position: relative;
-    &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        left:8px;
-        right:8px;
-        bottom:0;
-        background: #e9eaec;
-        height: 1px;
-    }
+}
+.title:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left:8px;
+    right:8px;
+    bottom:0;
+    background: #e9eaec;
+    height: 1px;
 }
 .content{
     padding: 8px 16px;
@@ -157,8 +60,4 @@
 .body{
     background-color: #fff;
     z-index: 1065;
-}
-.body[role]{
-    color: #fff;
-    background: rgba(71,88,107,0.9);
 }
