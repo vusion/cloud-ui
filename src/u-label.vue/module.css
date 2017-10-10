@@ -1,0 +1,21 @@
+@import 'u-label.vue/module.css';
+
+.root {
+    padding: 3px 8px;
+    font-size: 12px;
+    border-radius: 2px;
+    background: #cad4e4;
+    color: white;
+}
+
+.root[color="success"] {
+    background: #76b86e;
+}
+
+.root[color="warning"] {
+    background: #ffa136;
+}
+
+.root[color="error"] {
+    background: #ff8a7a;
+}

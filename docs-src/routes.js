@@ -16,7 +16,7 @@ export default [
             { path: 'u-button', component: () => import('../src/u-button.vue/README.md') },
             { path: 'u-badge', component: () => import('../src/u-badge.vue/README.md') },
             { path: 'u-tag', component: () => import('../src/u-tag.vue/README.md') },
-            { path: 'u-label', component: Empty },
+            { path: 'u-label', component: () => import('../src/u-label.vue/README.md') },
             { path: 'u-icon', component: () => import('../src/u-icon.vue/README.md') },
             { path: 'u-status-icon', component: () => import('../src/u-status-icon.vue/README.md') },
             { path: 'u-logo', component: () => import('../src/u-logo.vue/README.md') },

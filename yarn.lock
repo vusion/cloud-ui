@@ -1499,6 +1499,10 @@ u-input.vue@~0.1.6:
   dependencies:
     u-field.vue "~0.1.7"
 
+u-label.vue@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.npmjs.org/u-label.vue/-/u-label.vue-0.1.0.tgz#39a138de776de83b1d713bc17ab0e86d73acbca3"
+
 u-linear-layout.vue@~0.1.2:
   version "0.1.2"
   resolved "http://registry.npm.taobao.org/u-linear-layout.vue/download/u-linear-layout.vue-0.1.2.tgz#a79a5c9dcc98879b20d965e1410dc975be61d25d"

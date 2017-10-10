@@ -8,8 +8,8 @@
                     <u-sidebar-item to="/components/u-link">链接 <small>Link</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-button">按钮 <small>Button</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-badge">徽章 <small>Badge</small></u-sidebar-item>
-                    <u-sidebar-item to="/components/u-tag">标签 <small>Tag</small></u-sidebar-item>
-                    <u-sidebar-item to="/components/u-label">标签条 <small>Label</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-label">标签 <small>Label</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-tags">标签组 <small>Tags</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-icon">图标 <small>Icon</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-status-icon">状态图标 <small>StatusIcon</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-logo">标识 <small>Logo</small></u-sidebar-item>
