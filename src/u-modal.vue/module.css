@@ -8,12 +8,14 @@ $media-sm-max-width: 767px;
     bottom: 0;
     left: 0;
     z-index: 1000;
-    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     touch-action: cross-slide-y pinch-zoom double-tap-zoom;
     text-align: center;
     overflow: hidden;
+    overflow-y: auto;
     background: rgba(0, 0, 0, 0.6);
+    padding-top: 65px;
+    padding-bottom: 30px;
 }
 
 .root:before {
@@ -39,7 +41,7 @@ $media-sm-max-width: 767px;
 
 .title {
     margin: 0;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .close {

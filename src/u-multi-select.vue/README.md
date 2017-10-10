@@ -32,9 +32,6 @@ export default {
             }],
         };
     },
-    methods: {
-
-    },
     watch: {
         value(newValue) {
             console.log(newValue);

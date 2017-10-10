@@ -1,6 +1,8 @@
 import Button from './u-button.vue';
+import Link from './u-link.vue';
+import SubnavItem from './u-subnav-item.vue';
 
-export { Button };
+export { Button, Link, SubnavItem };
 export {
     Badge,
     BarChart,
@@ -23,7 +25,6 @@ export {
     LineChart,
     LinearLayout,
     LinearProgress,
-    Link,
     ListView,
     ListViewItem,
     Loading,
@@ -47,7 +48,6 @@ export {
     SidebarItem,
     SidebarMenu,
     Subnav,
-    SubnavItem,
     Subtabs,
     Subtab,
     StatusIcon,

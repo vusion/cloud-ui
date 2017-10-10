@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.1.7",
+  "version": "0.1.11",
   "author": "Rainfore <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -31,6 +31,7 @@
     "cloud-ui"
   ],
   "dependencies": {
+    "markdown-it-for-inline": "^0.1.1",
     "popper.js": "^1.12.2",
     "u-base.vue": "~0.2.0",
     "u-button.vue": "~0.2.1",

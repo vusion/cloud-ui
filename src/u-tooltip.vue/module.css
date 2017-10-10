@@ -108,6 +108,7 @@
     color: #fff;
     background: rgba(71,88,107,0.9);
     position: relative;
+    line-height: 20px;
 }
 .popper[x-placement^="top"] .content{
     top: -10px;

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+<svg id="展开.svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
   <metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
 <x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c138 79.159824, 2016/09/14-01:09:01        ">
    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
@@ -30,10 +30,18 @@
 <defs>
     <style>
       .cls-1 {
-        fill: #75818a;
+        fill: #d6dce3;
+      }
+
+      .cls-1, .cls-2 {
         fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #98a8ba;
       }
     </style>
   </defs>
-  <path id="右.svg" class="cls-1" d="M458,171.846v8.333a0.771,0.771,0,0,0,.691.834,0.63,0.63,0,0,0,.462-0.214l4.572-4.121a0.949,0.949,0,0,0,.137-1.163,0.681,0.681,0,0,0-.137-0.165l-4.621-4.168a0.617,0.617,0,0,0-.965.167,0.927,0.927,0,0,0-.139.5h0Zm0,0" transform="translate(-455 -170)"/>
+  <path id="矩形_129_拷贝" data-name="矩形 129 拷贝" class="cls-1" d="M372,662H356a1,1,0,0,1-1-1V646a1,1,0,0,1,1-1h16a1,1,0,0,1,1,1v15A1,1,0,0,1,372,662Zm0-16H356v15h16V646Z" transform="translate(-354 -643.5)"/>
+  <path id="形状_616_拷贝_7" data-name="形状 616 拷贝 7" class="cls-2" d="M360,651h8l-4,5Z" transform="translate(-354 -643.5)"/>
 </svg>

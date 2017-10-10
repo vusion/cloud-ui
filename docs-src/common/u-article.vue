@@ -77,6 +77,17 @@ export default {
     list-style: decimal;
 }
 
+.root > p > img {
+    max-width: 100%;
+}
+
+.root > blockquote {
+    margin: 0;
+    padding: 4px 16px;
+    background: #fafafa;
+    border-left: 4px solid #eee;
+}
+
 .root pre {
     tab-size: 4;
     /* - Contain overflow in all browsers. */
