@@ -35,7 +35,7 @@ export default {
     height: 64px;
     background: #1c2b41;
     box-shadow: 0 3px 4px rgba(0,0,0,0.1);
-    z-index: 1;
+    z-index: 20;
 }
 
 .body {

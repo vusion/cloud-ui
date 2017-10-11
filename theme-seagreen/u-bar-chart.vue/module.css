@@ -1,0 +1,40 @@
+@import '../../src/u-bar-chart.vue/module.css';
+.bar[role=bar-static]:nth-of-type(1) {
+    border-color: rgba(238, 134, 125, 0.6);
+    background: rgba(238, 134, 125, 0.3);
+}
+
+.bar[role=bar-static]:nth-of-type(2) {
+    border-color: rgba(128, 93, 207, 0.6);
+    background: rgba(128, 93, 207, 0.3);
+}
+
+.bar[role=bar-static]:nth-of-type(3) {
+    border-color: rgba(64, 204, 202, 0.6);
+    background: rgba(64, 204, 202, 0.3);
+}
+
+.bar[role=bar-static]:nth-of-type(4) {
+    border-color: rgba(255, 202, 18, 0.6);
+    background: rgba(255, 202, 18, 0.3);
+}
+
+.bar[role=bar-static]:nth-of-type(5) {
+    border-color: rgba(48, 168, 220, 0.6);
+    background: rgba(48, 168, 220, 0.3);
+}
+
+.bar[role=bar-static]:nth-of-type(6) {
+    border-color: rgba(225, 174, 246, 0.6);
+    background: rgba(225, 174, 246, 0.3);
+}
+
+.bar[role=bar-static]:nth-of-type(7) {
+    border-color: rgba(210, 210, 210, 0.6);
+    background: rgba(210, 210, 210, 0.3);
+}
+
+.bar[role=bar-static]:nth-of-type(8) {
+    border-color: rgba(188, 224, 90, 0.6);
+    background: rgba(188, 224, 90, 0.3);
+}

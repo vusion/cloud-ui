@@ -1,0 +1,96 @@
+@import '../../src/u-line-chart.vue/module.css';
+.layer .elsvg:nth-of-type(1) .line {
+    stroke: rgb(238, 134, 125);
+}
+
+.layer .elsvg:nth-of-type(1) .area {
+    fill: rgba(238, 134, 125, 0.3);
+}
+
+.layer .elsvg:nth-of-type(2) .line {
+    stroke: rgb(128, 93, 207);
+}
+
+.layer .elsvg:nth-of-type(2) .area {
+    fill: rgba(128, 93, 207, 0.1);
+}
+
+.layer .elsvg:nth-of-type(3) .line {
+    stroke: rgb(64, 204, 202);
+}
+
+.layer .elsvg:nth-of-type(3) .area {
+    fill: rgba(64, 204, 202, 0.1);
+}
+
+.layer .elsvg:nth-of-type(4) .line {
+    stroke: rgb(255, 202, 18);
+}
+
+.layer .elsvg:nth-of-type(4) .area {
+    fill: rgba(255, 202, 18, 0.1);
+}
+
+.layer .elsvg:nth-of-type(5) .line {
+    stroke: rgb(48, 168, 220);
+}
+
+.layer .elsvg:nth-of-type(5) .area {
+    fill: rgba(48, 168, 220, 0.1);
+}
+
+.layer .elsvg:nth-of-type(6) .line {
+    stroke: rgb(225, 174, 246);
+}
+
+.layer .elsvg:nth-of-type(6) .area {
+    fill: rgba(225, 174, 246, 0.1);
+}
+
+.layer .elsvg:nth-of-type(7) .line {
+    stroke: rgb(210, 210, 210);
+}
+
+.layer .elsvg:nth-of-type(7) .area {
+    fill: rgba(210, 210, 210, 0.1);
+}
+
+.layer .elsvg:nth-of-type(8) .line {
+    stroke: rgb(188, 224, 90);
+}
+
+.layer .elsvg:nth-of-type(8) .area {
+    fill: rgba(188, 224, 90, 0.1);
+}
+
+.piece .point:nth-of-type(1) {
+    border-color: rgb(238, 134, 125);
+}
+
+.piece .point:nth-of-type(2) {
+    border-color: rgb(128, 93, 207);
+}
+
+.piece .point:nth-of-type(3) {
+    border-color: rgb(64, 204, 202);
+}
+
+.piece .point:nth-of-type(4) {
+    border-color: rgb(255, 202, 18);
+}
+
+.piece .point:nth-of-type(5) {
+    border-color: rgb(48, 168, 220);
+}
+
+.piece .point:nth-of-type(6) {
+    border-color: rgb(225, 174, 246);
+}
+
+.piece .point:nth-of-type(7) {
+    border-color: rgb(210, 210, 210);
+}
+
+.piece .point:nth-of-type(8) {
+    border-color: rgb(188, 224, 90);
+}

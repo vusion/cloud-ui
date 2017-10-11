@@ -1,6 +1,5 @@
 $brand-default: #f4f4f4;
 $media-sm-max-width: 767px;
-
 .root {
     position: fixed;
     top: 0;
@@ -50,13 +49,13 @@ $media-sm-max-width: 767px;
     top: 18px;
     line-height: 1;
     color: #bbb;
-
-    &:hover { color: #888; }
-
+    &:hover {
+        color: #888;
+    }
     &:before {
-       content:'\00d7';
-       display: block;
-       transform: scale(2);
+        content: '\00d7';
+        display: block;
+        transform: scale(2);
     }
 }
 
@@ -66,9 +65,9 @@ $media-sm-max-width: 767px;
 }
 
 .foot {
-    padding: 15px;
+    padding: 15px 0 50px 0;
     text-align: center;
-    border-top: 1px solid $brand-default;
+    /* border-top: 1px solid $brand-default; */
 }
 
 .root .button {

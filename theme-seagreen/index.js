@@ -1,14 +1,15 @@
 import Button from './u-button.vue';
+import BarChart from './u-bar-chart.vue';
+import Chart from './u-chart.vue';
+import LineChart from './u-line-chart.vue';
 
-export { Button };
+export { Button, BarChart, Chart, LineChart };
 export {
     Badge,
-    BarChart,
     Base,
     Calendar,
     Capsule,
     Capsules,
-    Chart,
     Checkbox,
     CircularProgress,
     ColorSelect,
@@ -20,7 +21,6 @@ export {
     Icon,
     Input,
     InputField,
-    LineChart,
     LinearLayout,
     LinearProgress,
     Link,
@@ -72,4 +72,5 @@ export {
     Draggable,
     Droppable,
     Movable,
-} from '../src';
+}
+    from '../src';

@@ -7,9 +7,8 @@ $line_border: #eee;
 $line_width: 2px;
 $line_offset: 6px;
 $bar_width: 60px;
+.root {}
 
-.root {
-}
 .grid {
     position: absolute;
     bottom: $axis-x_height;
@@ -18,8 +17,9 @@ $bar_width: 60px;
     right: 20px;
     font-size: 0;
 }
+
 .layer {
-	position: absolute;
+    position: absolute;
     bottom: $axis-x_height;
     top: 15px;
     left: $axis-y_width;
@@ -115,19 +115,19 @@ $bar_width: 60px;
     width: $bar_width;
     left: 50%;
     margin-left: -30px;
-    background: rgba(238,134,125,0.3);
-    border: $line_width solid rgba(238,134,125,0.6);
+    background: rgba(91, 161, 242, 0.3);
+    border: $line_width solid rgba(91, 161, 242, 0.6);
     border-bottom: none;
-
 }
+
 .tooltip {
-	display: none;
-	position: absolute;
-	z-index: 10;
-	left: 100%;
-	top: -2px;
-	margin-left: 5px;
-	white-space: nowrap;
+    display: none;
+    position: absolute;
+    z-index: 10;
+    left: 100%;
+    top: -2px;
+    margin-left: 5px;
+    white-space: nowrap;
     box-sizing: border-box;
     max-width: 200px;
     padding: 4px 8px;
@@ -135,6 +135,7 @@ $bar_width: 60px;
     background: #333;
     color: #eee;
 }
+
 .tooltip:after {
     content: '';
     display: block;
@@ -145,12 +146,13 @@ $bar_width: 60px;
 .tooltip[role=tooltip-right-top] {
     margin-left: 4px;
 }
-.tooltip[role=tooltip-right-top]:after{
+
+.tooltip[role=tooltip-right-top]:after {
     top: 10px;
     left: -5px;
     border-left: none;
     border-top-color: transparent;
-    border-bottom-color:transparent;
+    border-bottom-color: transparent;
 }
 
 .bar:hover .tooltip {
@@ -168,11 +170,32 @@ $bar_width: 60px;
     margin: 0;
 }
 
-.bar[role=bar-static]:nth-of-type(1) { border-color: rgba(238,134,125,0.6); background: rgba(238,134,125,0.3); }
-.bar[role=bar-static]:nth-of-type(2) { border-color: rgba(128,93,207,0.6); background: rgba(128,93,207,0.3); }
-.bar[role=bar-static]:nth-of-type(3) { border-color: rgba(64,204,202,0.6); background: rgba(64,204,202,0.3); }
-.bar[role=bar-static]:nth-of-type(4) { border-color: rgba(255,202,18,0.6); background: rgba(255,202,18,0.3); }
-.bar[role=bar-static]:nth-of-type(5) { border-color: rgba(48,168,220,0.6); background: rgba(48,168,220,0.3); }
-.bar[role=bar-static]:nth-of-type(6) { border-color: rgba(225,174,246,0.6); background: rgba(225,174,246,0.3); }
-.bar[role=bar-static]:nth-of-type(7) { border-color: rgba(210,210,210,0.6); background: rgba(210,210,210,0.3); }
-.bar[role=bar-static]:nth-of-type(8) { border-color: rgba(188,224,90,0.6); background: rgba(188,224,90,0.3); }
+.bar[role=bar-static]:nth-of-type(1) {
+    border-color: rgba(91, 161, 242, 0.6);
+    background: rgba(91, 161, 242, 0.3);
+}
+
+.bar[role=bar-static]:nth-of-type(2) {
+    border-color: rgba(78, 201, 171, 0.6);
+    background: rgba(78, 201, 171, 0.3);
+}
+
+.bar[role=bar-static]:nth-of-type(3) {
+    border-color: rgba(255, 174, 60, 0.6);
+    background: rgba(255, 174, 60, 0.3);
+}
+
+.bar[role=bar-static]:nth-of-type(4) {
+    border-color: rgba(158, 156, 246, 0.6);
+    background: rgba(158, 156, 246, 0.3);
+}
+
+.bar[role=bar-static]:nth-of-type(5) {
+    border-color: rgba(30, 192, 216, 0.6);
+    background: rgba(30, 192, 216, 0.3);
+}
+
+.bar[role=bar-static]:nth-of-type(6) {
+    border-color: rgba(237, 139, 204, 0.6);
+    background: rgba(237, 139, 204, 0.3);
+}
