@@ -63,6 +63,7 @@
                     <u-sidebar-item to="/components/u-loading">加载中 <small>Loading</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-toast">吐司 <small>Toast</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-modal">弹窗 <small>Modal</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-lightbox">灯箱 <small>Lightbox</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Progress & Chart">
                     <u-sidebar-item to="/components/u-linear-progress">线型进度条 <small>LinearProgress</small></u-sidebar-item>

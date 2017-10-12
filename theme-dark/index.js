@@ -22,6 +22,7 @@ export {
     Icon,
     Input,
     InputField,
+    LightBox,
     LineChart,
     LinearLayout,
     LinearProgress,

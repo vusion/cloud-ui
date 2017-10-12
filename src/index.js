@@ -19,6 +19,7 @@ import FormItem from './u-form-item.vue';
 import Icon from './u-icon.vue';
 import Input from './u-input.vue';
 import InputField from './u-input-field.vue';
+import LightBox from './u-lightbox.vue';
 import LineChart from './u-line-chart.vue';
 import LinearLayout from 'u-linear-layout.vue';
 import LinearProgress from 'u-linear-progress.vue';
@@ -94,6 +95,7 @@ const Components = {
     Icon,
     Input,
     InputField,
+    LightBox,
     LineChart,
     LinearLayout,
     LinearProgress,
@@ -170,6 +172,7 @@ export {
     Icon,
     Input,
     InputField,
+    LightBox,
     LineChart,
     LinearLayout,
     LinearProgress,
