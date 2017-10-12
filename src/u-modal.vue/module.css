@@ -1,6 +1,5 @@
 $brand-default: #f4f4f4;
 $media-sm-max-width: 767px;
-
 .root {
     position: fixed;
     top: 0;
@@ -57,9 +56,8 @@ $media-sm-max-width: 767px;
 }
 
 .close:before {
-    content:'\00d7';
-    display: block;
-    transform: scale(2);
+    icon-font: url(../u-icon.vue/icons/close.svg);
+    font-size: 14px;
 }
 
 .body {

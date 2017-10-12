@@ -18,5 +18,8 @@
     <u-icon-svg name="dropdown" size="large">dropdown</u-icon-svg>
     <u-icon-svg name="angle-down">down</u-icon-svg>
     <u-icon-svg name="angle-up">up</u-icon-svg>
+    <u-icon-svg name="chart-refresh">chart-refresh</u-icon-svg>
+    <u-icon-svg name="chart-zoom">chart-zoom</u-icon-svg>
+    <u-icon-svg name="close">close</u-icon-svg>
 </u-linear-layout>
 ```
