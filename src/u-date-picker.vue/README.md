@@ -7,7 +7,9 @@
 
 ### 基本
 ``` html
-<u-date-picker date="2018-08-08"></u-date-picker>
+<div>
+    <u-date-picker date="2018-08-08" alignment="right"></u-date-picker>
+</div>
 ```
 
 ### 基本

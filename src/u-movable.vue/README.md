@@ -14,7 +14,7 @@
 
 ``` html
 <div style="position: relative;height:150px;">
-    <u-movable axis="vertical">
+    <u-movable axis="vertical" disabled>
         <div style="width:128px;height:128px;line-height:128px;background:#3c8dbc;">垂直</div>
     </u-movable>
 </div>

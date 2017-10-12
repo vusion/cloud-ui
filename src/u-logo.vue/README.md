@@ -12,7 +12,7 @@
         <u-logo name="yiwu"></u-logo>
     </div>
     <div style="background: #1d2b40; padding: 0 10px;">
-        <u-logo name="163yun"></u-logo>
+        <u-logo href="http://www.baidu.com" target="_blank" name="163yun"></u-logo>
     </div>
 </u-linear-layout>
 ```

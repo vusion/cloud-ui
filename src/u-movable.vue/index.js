@@ -23,6 +23,9 @@ export default {
         rangeMode: {
             type: String,
             default: 'inside',
+            validator(value) {
+                return ['inside', 'center', 'outside'].includes(value);
+            },
         },
         proxy: {
             type: [String, Object, Function],

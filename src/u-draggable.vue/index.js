@@ -7,7 +7,7 @@ export default {
             type: String,
             default: 'clone',
         },
-        value: String,
+        value: [String, Number],
         element: {
             type: String,
             default: 'div',
@@ -43,7 +43,7 @@ export default {
                 disabled: this.disabled,
             },
             style: {
-                position: 'absolute',
+                position: this.position,
             },
             on: {
                 mousedown: this.onMousedown,
@@ -104,8 +104,8 @@ export default {
                 dragY: 0,
             });
 
-            EventUtil.on(document, 'mousemove', this.onMousemove);
-            EventUtil.on(document, 'mouseup', this.onmouseup);
+            EventUtil.on(document, 'mousemove', this.onMouseMove);
+            EventUtil.on(document, 'mouseup', this.onMouseUp);
         },
         onMouseMove(event) {
             event.preventDefault();
@@ -126,8 +126,8 @@ export default {
                 this.onMouseMoving(event);
         },
         onMouseUp(event) {
-            EventUtil.removeHandler(document, 'mousemove', this.onMouseMove);
-            EventUtil.removeHandler(document, 'mouseup', this.onMouseUp);
+            EventUtil.off(document, 'mousemove', this.onMouseMove);
+            EventUtil.off(document, 'mouseup', this.onMouseUp);
 
             if (manager.dragging) {
                 manager.droppable && manager.droppable.drop(this);
