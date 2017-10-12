@@ -20,6 +20,7 @@ export default {
         // 显示灯箱
         open() {
             this.currentVisible = true;
+
             this.$emit('update:visible', this.currentVisible);
             this.$emit('open');
         },

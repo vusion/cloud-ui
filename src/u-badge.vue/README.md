@@ -3,11 +3,13 @@
 ## 示例
 ### 基本形式
 
-#### 声明式
-
-### 基本
 ``` html
-<u-badge count="12" dot>
-    <u-button color="primary">按钮</u-button>
-</u-badge>
+<u-linear-layout>
+    <u-badge count="12" dot>
+        <u-button color="primary">按钮</u-button>
+    </u-badge>
+    <u-badge count="12">
+        <u-button color="primary">按钮</u-button>
+    </u-badge>
+</u-linear-layout>
 ```

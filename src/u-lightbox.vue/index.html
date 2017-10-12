@@ -1,7 +1,7 @@
 <div :class="$style.root" v-if="currentVisible" @click="maskClose && close()">
-    <div :class="$style.wrapper" @click.stop.prevent>
+    <div :class="$style.wrapper" @click.stop>
         <a v-if="closeButton" :class="$style.close" @click="close()"></a>
         <slot></slot>
-        <div :class="$style.title" v-if="title">{{title}}</div>
+        <div :class="$style.title" v-if="title">{{ title }}</div>
     </div>
 </div>
