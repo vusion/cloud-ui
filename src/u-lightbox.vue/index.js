@@ -3,7 +3,7 @@ export default {
     props: {
         title: { type: String, default: '' },
         maskClose: { type: Boolean, default: true },
-        closeButtom: { type: Boolean, default: false },
+        closeButton: { type: Boolean, default: false },
         visible: { type: Boolean, default: false },
     },
     data() {
@@ -11,10 +11,16 @@ export default {
             currentVisible: this.visible,
         };
     },
+    watch: {
+        visible(visible) {
+            this.currentVisible = visible;
+        },
+    },
     methods: {
         // 显示灯箱
         open() {
             this.currentVisible = true;
+            this.$emit('update:visible', this.currentVisible);
             this.$emit('open');
         },
         close() {
@@ -27,7 +33,7 @@ export default {
 
             this.currentVisible = false;
 
-            this.$emit('update:visible', false);
+            this.$emit('update:visible', this.currentVisible);
             this.$emit('close');
         },
     },

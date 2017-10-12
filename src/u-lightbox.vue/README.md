@@ -7,22 +7,37 @@
 
 
 ``` html
+<template>
+<div>
 <u-linear-layout>
-    <u-button @click.native="$refs.lightbox1.open()">Lightbox</u-button>
-    <u-button @click.native="$refs.lightbox2.open()">Lightbox</u-button>
-    <u-button @click.native="$refs.lightbox3.open()">Lightbox show video</u-button>
+    <u-button @click="lightboxVisible1 = true">Lightbox</u-button>
+    <u-button @click="lightboxVisible2 = true">Lightbox</u-button>
+    <u-button @click="lightboxVisible3 = true">Lightbox show video</u-button>
 </u-linear-layout>
-<u-lightbox ref="lightbox1" title="图片预览">
+<u-lightbox title="图片预览" :visible.sync="lightboxVisible1">
     <img src="/images/1.jpg" />
 </u-lightbox>
-<u-lightbox ref="lightbox2" closeButtom :maskClose="false">
+<u-lightbox :visible.sync="lightboxVisible2" closeButton :maskClose="false">
     <img src="/images/2.jpg" />
 </u-lightbox>
-<u-lightbox ref="lightbox3">
+<u-lightbox :visible.sync="lightboxVisible3">
     <video controls style='width: 640px; height: 360px; display: block;'
         poster='http://www.html5videoplayer.net/poster/big_buck_bunny.jpg'
         src='http://www.html5videoplayer.net/videos/big_buck_bunny.mp4'></video>
 </u-lightbox>
+</div>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            lightboxVisible1: false,
+            lightboxVisible2: false,
+            lightboxVisible3: false,
+        };
+    },
+};
+</script>
 ```
 ## Options
 

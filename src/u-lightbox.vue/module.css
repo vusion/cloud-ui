@@ -41,12 +41,10 @@
     background: #fff;
     box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 0 6px rgba(0,0,0,.3);
     border-radius: 50%;
-
-    &:hover { color: #888; }
-
-    &:before {
-        content:'\00d7';
-        display: inline-block;
-        font-size: 20px;
-    }
+}
+.close:hover { color: #888; }
+.close:before {
+    content:'\00d7';
+    display: inline-block;
+    font-size: 20px;
 }
