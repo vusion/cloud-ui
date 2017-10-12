@@ -6,7 +6,7 @@
 #### 声明式
 ``` vue
 <template>
-    <div style="width:100px;position: relative;">
+    <div style="width:100px;position: relative;height:40px;">
         <u-table-select :title="title" :data="options" v-model="value" @select="select($event.value)"></u-table-select>
     </div>
 </template>

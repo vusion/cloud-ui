@@ -1,22 +1,29 @@
-.popper{
+.popper {
     width: 100%;
     z-index: 1065;
 }
-.title{
+
+.title {
     cursor: pointer;
     position: absolute;
     left: 0;
     top: 0;
     bottom: 0;
     right: 0;
-    height: 56px;
-    line-height: 56px;
+    /* height: 56px; */
+    /* line-height: 56px; */
     padding-left: 30px;
 }
-.title:hover{
+
+.title:hover {
     background: #eef2f8;
 }
-.triangle{
+
+.content {
+    padding-top: 9px;
+}
+
+.triangle {
     border: 5px solid transparent;
     border-top-color: #75818a;
     display: inline-block;
@@ -24,12 +31,14 @@
     position: relative;
     top: 3px;
 }
+
 @import "../u-select.vue/module.css";
-.popper{
+.popper {
     line-height: 30px;
     background: #fff;
     border: 1px solid #f1f1f1;
 }
-.item{
+
+.item {
     padding-left: 15px;
 }
