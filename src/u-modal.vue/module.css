@@ -1,5 +1,6 @@
 $brand-default: #f4f4f4;
 $media-sm-max-width: 767px;
+
 .root {
     position: fixed;
     top: 0;
@@ -49,14 +50,16 @@ $media-sm-max-width: 767px;
     top: 18px;
     line-height: 1;
     color: #bbb;
-    &:hover {
-        color: #888;
-    }
-    &:before {
-        content: '\00d7';
-        display: block;
-        transform: scale(2);
-    }
+}
+
+.close:hover {
+    color: #888;
+}
+
+.close:before {
+    content:'\00d7';
+    display: block;
+    transform: scale(2);
 }
 
 .body {
@@ -70,16 +73,8 @@ $media-sm-max-width: 767px;
     /* border-top: 1px solid $brand-default; */
 }
 
-.root .button {
-    margin-right: 20px;
-}
-
-.root .button:last-child {
-    margin-right: 0;
-}
-
 @media (max-width: $media-sm-max-width) {
-    .item {
+    .dialog {
         width: auto;
         margin: 10px;
     }

@@ -21,6 +21,7 @@ export {
     Icon,
     Input,
     InputField,
+    Label,
     LinearLayout,
     LinearProgress,
     Link,
