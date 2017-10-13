@@ -100,52 +100,103 @@
 ``` html
 <u-linear-layout direction="vertical">
     <u-linear-layout>
+        <u-select size="mini">
+            <u-select-item>mini</u-select-item>
+            <u-select-item>香蕉</u-select-item>
+            <u-select-item>蛋糕</u-select-item>
+        </u-select>
+        <u-select size="mini small">
+            <u-select-item>mini small</u-select-item>
+            <u-select-item>香蕉</u-select-item>
+            <u-select-item>蛋糕</u-select-item>
+        </u-select>
+        <u-select size="mini normal">
+            <u-select-item>mini normal</u-select-item>
+            <u-select-item>香蕉</u-select-item>
+            <u-select-item>蛋糕</u-select-item>
+        </u-select>
+        <u-select size="mini large">
+            <u-select-item>mini large</u-select-item>
+            <u-select-item>香蕉</u-select-item>
+            <u-select-item>蛋糕</u-select-item>
+        </u-select>
+    </u-linear-layout>
+    <u-linear-layout>
+        <u-select size="small mini">
+            <u-select-item>small mini</u-select-item>
+            <u-select-item>香蕉</u-select-item>
+            <u-select-item>蛋糕</u-select-item>
+        </u-select>
         <u-select size="small">
-            <u-select-item>苹果</u-select-item>
+            <u-select-item>small</u-select-item>
             <u-select-item>香蕉</u-select-item>
             <u-select-item>蛋糕</u-select-item>
         </u-select>
         <u-select size="small normal">
-            <u-select-item>苹果</u-select-item>
+            <u-select-item>small normal</u-select-item>
             <u-select-item>香蕉</u-select-item>
             <u-select-item>蛋糕</u-select-item>
         </u-select>
         <u-select size="small large">
-            <u-select-item>苹果</u-select-item>
+            <u-select-item>small large</u-select-item>
             <u-select-item>香蕉</u-select-item>
             <u-select-item>蛋糕</u-select-item>
         </u-select>
     </u-linear-layout>
     <u-linear-layout>
-        <u-select size="normal small">
-            <u-select-item>苹果</u-select-item>
+        <u-select size="normal mini">
+            <u-select-item>normal mini</u-select-item>
             <u-select-item>香蕉</u-select-item>
             <u-select-item>蛋糕</u-select-item>
         </u-select>
-        <u-select size="normal normal">
-            <u-select-item>苹果</u-select-item>
+        <u-select size="normal small">
+            <u-select-item>normal small</u-select-item>
+            <u-select-item>香蕉</u-select-item>
+            <u-select-item>蛋糕</u-select-item>
+        </u-select>
+        <u-select size="normal">
+            <u-select-item>normal</u-select-item>
             <u-select-item>香蕉</u-select-item>
             <u-select-item>蛋糕</u-select-item>
         </u-select>
         <u-select size="normal large">
-            <u-select-item>苹果</u-select-item>
+            <u-select-item>normal large</u-select-item>
             <u-select-item>香蕉</u-select-item>
             <u-select-item>蛋糕</u-select-item>
         </u-select>
     </u-linear-layout>
     <u-linear-layout>
+        <u-select size="large mini">
+            <u-select-item>large mini</u-select-item>
+            <u-select-item>香蕉</u-select-item>
+            <u-select-item>蛋糕</u-select-item>
+        </u-select>
         <u-select size="large small">
-            <u-select-item>苹果</u-select-item>
+            <u-select-item>large small</u-select-item>
             <u-select-item>香蕉</u-select-item>
             <u-select-item>蛋糕</u-select-item>
         </u-select>
         <u-select size="large normal">
-            <u-select-item>苹果</u-select-item>
+            <u-select-item>large normal</u-select-item>
             <u-select-item>香蕉</u-select-item>
             <u-select-item>蛋糕</u-select-item>
         </u-select>
         <u-select size="large">
-            <u-select-item>苹果</u-select-item>
+            <u-select-item>large</u-select-item>
+            <u-select-item>香蕉</u-select-item>
+            <u-select-item>蛋糕</u-select-item>
+        </u-select>
+    </u-linear-layout>
+    <u-linear-layout>
+        <u-select size="huge">
+            <u-select-item>huge</u-select-item>
+            <u-select-item>香蕉</u-select-item>
+            <u-select-item>蛋糕</u-select-item>
+        </u-select>
+    </u-linear-layout>
+    <u-linear-layout>
+        <u-select size="huge full">
+            <u-select-item>huge full</u-select-item>
             <u-select-item>香蕉</u-select-item>
             <u-select-item>蛋糕</u-select-item>
         </u-select>

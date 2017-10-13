@@ -1,9 +1,14 @@
-<u-popover ref="popover" trigger="click" placement="bottom" :class="$style.popper" :placement="placement" width="100%" :style-object="styleObject">
+<u-popper ref="popper" trigger="click" append-to="reference" :placement="placement">
     <div :class="$style.title">
-        {{title}}
-        <div :class="$style.triangle"></div>
+        <div :class="$style.content">
+            {{title}}
+            <div :class="$style.triangle"></div>
+        </div>
     </div>
-    <template slot="content">
-        <div :class="$style.option" v-for="(option, index) in options" :key="option.value" @click.stop="select(option, index)" :role="selectedValue === option.value">{{option.name}}</div>
-    </template>
-</u-popover>
+    <ul :class="$style.popper" slot="popper">
+        <component :is="ChildComponent" v-if="data" v-for="item in data" :key="item.value" :value="item.value" :disabled="item.disabled || disabled" :item="item">
+            <div :class="$style.item">{{ item[field] }}</div>
+        </component>
+        <slot></slot>
+    </ul>
+</u-popper>

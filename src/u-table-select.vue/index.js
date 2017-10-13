@@ -1,4 +1,4 @@
-import Popover from '../u-popover.vue';
+import ListView from 'u-list-view.vue';
 
 export default {
     name: 'u-table-select',
@@ -8,52 +8,12 @@ export default {
             default: '标题',
         },
         value: [String, Number, Boolean],
-        options: Array,
-        keyValue: {
-            type: String,
-            default: 'value',
-        },
+        data: Array,
         placement: {
             type: String,
             default: 'bottom-start',
         },
-        styleObject: {
-            type: Object,
-            default() {
-                return {
-                    width: '100%',
-                    marginLeft: '-30px',
-                    marginTop: '35px',
-                    border: '1px solid #f1f1f1',
-                    padding: 0,
-                };
-            },
-        },
     },
-    components: {
-        'u-popover': Popover,
-    },
-    data() {
-        return {
-            selectedValue: this.value,
-            open: false,
-        };
-    },
-    watch: {
-        value(newValue) {
-            this.selectedValue = newValue;
-        },
-    },
-    methods: {
-        select(option, index) {
-            this.selectedValue = option[this.keyValue];
-            this.$refs.popover.toggle(false);
-            this.$emit('select', {
-                sender: this,
-                selected: option,
-                value: option[this.keyValue],
-            });
-            this.$emit('input', this.selectedValue);
-        },
-    },
+    childName: 'u-select-item',
+    mixins: [ListView],
 };

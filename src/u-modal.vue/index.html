@@ -1,5 +1,5 @@
-<div :class="$style.root" v-if="visible_">
-    <div :class="$style.dialog" :style="{width: width+'px'}">
+<div :class="$style.root" v-if="currentVisible">
+    <div :class="$style.dialog" :style="{width: width + 'px'}">
         <div :class="$style.head">
             <slot name="head">
                 <div v-if="title" :class="$style.title">
@@ -15,8 +15,10 @@
         </div>
         <div :class="$style.foot" v-if="okButton || cancelButton">
             <slot name="foot">
-                <u-button :class="$style.button" v-if="okButton" color="primary" @click.native="ok()">{{okButton}}</u-button>
-                <u-button :class="$style.button" v-if="cancelButton" @click.native="cancel()">{{cancelButton}}</u-button>
+                <u-linear-layout>
+                    <u-button :class="$style.button" v-if="okButton" color="primary" @click.native="ok()">{{okButton}}</u-button>
+                    <u-button :class="$style.button" v-if="cancelButton" @click.native="cancel()">{{cancelButton}}</u-button>
+                </u-linear-layout>
             </slot>
         </div>
     </div>

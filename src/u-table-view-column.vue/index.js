@@ -15,28 +15,18 @@ export default {
         filterMethod: Function,
         placement: {
             type: String,
-            default: 'bottom-end',
+            default: 'bottom-start',
         },
+        tooltip: { type: Boolean, default: false },
     },
     data() {
         return {
             index: 0,
             sortoperate: '',
             selectValue: this.value,
-            // row: {},
+            row: {},
+            visible: false,
         };
-    },
-    methods: {
-        renderCell(row) {
-            const obj = {
-                row,
-            };
-            const a = this.$scopedSlots.default(obj);
-            if (this.$scopedSlots.default)
-                return `<div>${this.$scopedSlots.default(obj)}</div>`;
-            else
-                return `<div>${this.$slots.default()}</div>`;
-        },
     },
     watch: {
         value(newValue) {

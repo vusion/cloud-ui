@@ -1,1 +1,4 @@
 .root {}
+.root[usage="tabs"] {
+    margin-top: -8px;
+}

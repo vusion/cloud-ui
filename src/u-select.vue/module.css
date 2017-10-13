@@ -2,10 +2,6 @@
     display: inline-block;
     position: relative;
     user-select: none;
-    overflow: hidden;
-    word-wrap: normal;
-    white-space: nowrap;
-    text-overflow: ellipsis;
     cursor: pointer;
     height: $height-base;
     line-height: 32px;
@@ -19,13 +15,19 @@
     max-width: 100%;
 }
 
+/* 控制对齐基线 */
+.root:before {
+    content: 'a';
+    font-size: 0;
+}
+
 .root:after {
-    float: right;
-    position: relative;
+    position: absolute;
     icon-font: url('../u-icon.vue/icons/keyboard-arrow-down.svg');
     color: #a5a5a6;
     font-size: 18px;
-    left: 12px;
+    right: 6px;
+    top: 0;
 }
 
 .root[disabled] {
@@ -36,25 +38,44 @@
 }
 
 .text {
-    display: inline-block;
-    width: calc(100% - 20px);
+    float: left;
+    width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .popper {
     margin-top: -1px;
     width: 160px;
-    max-height: 160px;
+    max-height: 180px;
+    overflow: auto;
     background: #fff;
     border: 1px solid #e1e8ed;
     border-radius: $border-radius-base;
+    z-index: 1065;
 }
 
-.root[size$="large"] { width: 300px; }
-.popper[size$="large"] { width: 300px; }
-.root[size^="large"] { height: 40px; line-height: 38px; }
+.root[size$="mini"] { width: 80px; }
+.popper[size$="mini"] { width: 80px; }
+.root[size^="mini"] {  height: 28px; line-height: 26px; }
+
 .root[size$="small"] { width: 120px; }
-.root[size^="small"] { height: 28px; line-height: 26px; }
+.popper[size$="small"] { width: 120px; }
+.root[size^="small"] { height: 30px; line-height: 28px; }
 
+.root[size$="normal"] { width: 160px; }
+.popper[size$="normal"] { width: 160px; }
+.root[size^="normal"] { height: $height-base; line-height: 32px; }
 
+.root[size$="large"] { width: 360px; }
+.popper[size$="large"] { width: 360px; }
+.root[size^="large"] { height: 38px; line-height: 36px; }
+
+.root[size$="huge"] { width: 440px; }
+.popper[size$="huge"] { width: 440px; }
+.root[size^="huge"] { height: 40px; line-height: 38px; }
+
+.root[size$="full"] { width: 100%; }
+.popper[size$="full"] { width: 100%; box-sizing: content-box; }
+.root[size^="full"] { height: 100%; }

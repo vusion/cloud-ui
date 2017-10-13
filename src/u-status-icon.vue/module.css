@@ -1,28 +1,26 @@
-.root[name="list-ok"]:before {
-    icon-font: url(../u-icon.vue/icons/list_ok.svg);
+.root:before {
     vertical-align: -7px;
     font-size: 24px;
-    margin-right: 10px;
+    margin-right: 8px;
+}
+
+.root[name="success"]:before {
+    icon-font: url(./icons/success.svg);
     color: #3ad0af;
 }
-.root[name="list-fix"]:before {
-    icon-font: url(../u-icon.vue/icons/list_fix.svg);
-    vertical-align: -7px;
-    font-size: 24px;
-    margin-right: 10px;
-    color: #3ad0af;
+.root[name="waiting"]:before {
+    icon-font: url(./icons/waiting.svg);
+    color: #a2b0b7;
 }
-.root[name="list-stop"]:before {
-    icon-font: url(../u-icon.vue/icons/list_stop.svg);
-    vertical-align: -7px;
-    font-size: 24px;
-    margin-right: 10px;
-    color: #3ad0af;
+.root[name="pause"]:before {
+    icon-font: url(./icons/pause.svg);
+    color: #ff867f;
 }
-.root[name="list-warn"]:before {
-    icon-font: url(../u-icon.vue/icons/list_warn.svg);
-    vertical-align: -7px;
-    font-size: 24px;
-    margin-right: 10px;
-    color: #3ad0af;
+.root[name="warning"]:before {
+    icon-font: url(./icons/warning.svg);
+    color: #fbcc3e;
+}
+.root[name="error"]:before {
+    icon-font: url(./icons/error.svg);
+    color: #ff867f;
 }

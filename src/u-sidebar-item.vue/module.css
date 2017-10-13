@@ -1,11 +1,12 @@
 .root {
+    composes: item from '../u-sidebar.vue/module.css';
     display: block;
     cursor: pointer;
     height: 52px;
     line-height: 52px;
     color: #8594aa;
     padding-left: 20px;
-    transition: color 0.2s;
+    transition: all $transition-duration;
 }
 
 .root:hover {

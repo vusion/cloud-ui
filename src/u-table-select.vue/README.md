@@ -6,8 +6,8 @@
 #### 声明式
 ``` vue
 <template>
-    <div style="width:100px;position: relative;">
-        <u-table-select :title="title" :options="options" v-model="value" @select="select($event.value)"></u-table-select>
+    <div style="width:100px;position: relative;height:40px;">
+        <u-table-select :title="title" :data="options" v-model="value" @select="select($event.value)"></u-table-select>
     </div>
 </template>
 <script>
@@ -16,9 +16,9 @@
             return {
                 title: '状态',
                 options: [
-                    {name: '全部', value: 'all'},
-                    {name: '成功', value: 'success'},
-                    {name: '失败', value: 'fail'},
+                    {text: '全部', value: 'all'},
+                    {text: '成功', value: 'success'},
+                    {text: '失败', value: 'fail'},
                 ],
                 value: 'success',
             }

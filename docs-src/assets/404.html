@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>组件平台 - 网易云</title>
+</head>
+<body>
+    <div id="app"><router-view></router-view></div>
+    <script>
+    const base = window.base = location.host === 'vusion.github.io' ? '/cloud-ui/' : '/';
+
+    let theme = localStorage.getItem('theme');
+    if (!theme)
+        theme = 'default';
+    window.theme = theme;
+
+    const $script = document.createElement('script');
+    $script.src = base + `theme-${theme}/docs.js`;
+    document.body.appendChild($script);
+    </script>
+</body>
+</html>

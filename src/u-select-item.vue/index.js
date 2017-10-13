@@ -6,12 +6,10 @@ export default {
     mixins: [ListViewItem],
     created() {
         const parentVM = this.$parent.parentVM.$parent;
-        parentVM.$emit('add-item', this);
-        if (parentVM.selectedItem === undefined)
-            parentVM.selectedItem = this;
+        parentVM.$emit('add-item-vm', this);
     },
     destroyed() {
         const parentVM = this.$parent.parentVM.$parent;
-        parentVM.$emit('remove-item', this);
+        parentVM.$emit('remove-item-vm', this);
     },
 };

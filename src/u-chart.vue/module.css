@@ -1,18 +1,18 @@
 $m-chart_padding: 15px;
 $m-chart_tt_height: 40px;
 $m-chart_legend_height: 30px;
-
 .root {
     position: relative;
     box-sizing: border-box;
     width: 800px;
     height: 480px;
     padding: 15px;
-
 }
-.root[role=empty] .legend{
+
+.root[role=empty] .legend {
     display: none;
 }
+
 .ittitle {
     position: absolute;
     z-index: 5;
@@ -39,8 +39,8 @@ $m-chart_legend_height: 30px;
     display: inline-block;
     cursor: pointer;
     user-select: none;
-
 }
+
 .item:before {
     display: inline-block;
     content: '';
@@ -52,24 +52,41 @@ $m-chart_legend_height: 30px;
     top: -2px;
 }
 
-.item:nth-of-type(1):before { background: rgba(238,134,125,0.6); }
-.item:nth-of-type(2):before { background: rgba(128,93,207,0.6); }
-.item:nth-of-type(3):before { background: rgba(64,204,202,0.6); }
-.item:nth-of-type(4):before { background: rgba(255,202,18,0.6); }
-.item:nth-of-type(5):before { background: rgba(48,168,220,0.6); }
-.item:nth-of-type(6):before { background: rgba(225,174,246,0.6); }
-.item:nth-of-type(7):before { background: rgba(210,210,210,0.6); }
-.item:nth-of-type(8):before { background: rgba(188,224,90,0.6); }
+.item:nth-of-type(1):before {
+    background: rgba(91, 161, 242, 0.6);
+}
 
-.item + .item {
+.item:nth-of-type(2):before {
+    background: rgba(78, 201, 171, 0.6);
+}
+
+.item:nth-of-type(3):before {
+    background: rgba(255, 174, 60, 0.6);
+}
+
+.item:nth-of-type(4):before {
+    background: rgba(158, 156, 246, 0.6);
+}
+
+.item:nth-of-type(5):before {
+    background: rgba(30, 192, 216, 0.6);
+}
+
+.item:nth-of-type(6):before {
+    background: rgba(237, 139, 204, 0.6);
+}
+
+.item+.item {
     margin-left: 2em;
 }
 
 .item[disabled] {
     color: #ccc;
-
 }
-.item[disabled]:before { background: #ccc; }
+
+.item[disabled]:before {
+    background: #ccc;
+}
 
 .content {
     position: absolute;
@@ -79,14 +96,14 @@ $m-chart_legend_height: 30px;
     bottom: $m-chart_padding;
 }
 
-.ittitle ~ .content {
+.ittitle~.content {
     top: 65px;
 }
 
-.legend ~ .content {
+.legend~.content {
     bottom: 45px;
 }
 
 .root[border] {
-    border:1px solid #eee;
+    border: 1px solid #eee;
 }

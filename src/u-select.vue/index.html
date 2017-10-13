@@ -1,9 +1,9 @@
-<u-popper ref="popper" :disabled="readonly || disabled" @toggle="onToggle($event)">
+<u-popper ref="popper" :disabled="readonly || disabled" @toggle="onToggle($event)" append-to="reference">
     <div :class="$style.root" :readonly="readonly" :disabled="disabled" :size="size">
-        <span :class="$style.text">{{ selectedItem && selectedItem.$el.textContent }}</span>
+        <span :class="$style.text" v-html="selectedVM && selectedVM.$el.innerHTML"></span>
     </div>
     <!-- 这个地方以后可能要改用render实现 -->
-    <ul :class="$style.popper" slot="popper" :size="size">
+    <ul :class="$style.popper" slot="popper" :size="size" @click.stop>
         <component :is="ChildComponent" v-if="data"
             v-for="item in data"
             :key="item.value"

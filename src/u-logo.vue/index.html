@@ -1,5 +1,5 @@
 <div :class="$style.root">
-    <a :class="$style.icon"></a>
+    <a :class="$style.icon" v-bind="$attrs"></a>
     <span v-if="$slots.default" :class="$style.divider"></span>
     <span v-if="$slots.default" :class="$style.sub">
         <slot></slot>

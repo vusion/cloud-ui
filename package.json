@@ -1,8 +1,13 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.1.0",
+  "version": "0.1.12",
   "author": "Rainfore <rainforest92@126.com>",
+  "contributors": [
+    "haoxutong <1255965516@qq.com>",
+    "ChenWeiYuan123 <360411956@qq.com>",
+    "zou-xinhua <m15616168428@163.com>"
+  ],
   "main": "./index.js",
   "scripts": {
     "precommit": "bash node_modules/vusion-hooks/pre-commit"
@@ -26,34 +31,43 @@
     "cloud-ui"
   ],
   "dependencies": {
+    "markdown-it-for-inline": "^0.1.1",
     "popper.js": "^1.12.2",
     "u-base.vue": "~0.2.0",
     "u-button.vue": "~0.2.1",
     "u-checkbox.vue": "~0.1.1",
     "u-circular-progress.vue": "~0.2.0",
-    "u-form-item.vue": "~0.1.6",
-    "u-form.vue": "~0.1.6",
-    "u-input.vue": "~0.1.5",
+    "u-form-item.vue": "~0.1.7",
+    "u-form.vue": "~0.1.7",
+    "u-input.vue": "~0.1.6",
+    "u-label.vue": "^0.1.0",
     "u-linear-layout.vue": "~0.1.2",
     "u-linear-progress.vue": "~0.2.0",
     "u-link.vue": "~0.2.1",
-    "u-list-view-item.vue": "~0.2.4",
-    "u-list-view.vue": "~0.2.4",
+    "u-list-view-item.vue": "~0.2.6",
+    "u-list-view.vue": "~0.2.6",
     "u-pagination.vue": "~0.3.0",
     "u-router-item.vue": "~0.1.0",
     "u-switch.vue": "~0.1.1",
-    "u-tab.vue": "~0.3.0",
-    "u-tabs.vue": "~0.3.0",
-    "u-textarea.vue": "~0.1.4",
-    "u-tree-view-node.vue": "~0.2.4",
-    "u-tree-view.vue": "~0.2.4",
+    "u-tab.vue": "~0.3.3",
+    "u-tabs.vue": "~0.3.3",
+    "u-textarea.vue": "~0.1.6",
+    "u-tree-view-node.vue": "~0.2.6",
+    "u-tree-view.vue": "~0.2.6",
     "validator": "^8.0.0"
   },
   "devDependencies": {
+    "babel-eslint": "^7.2.3",
     "eslint": "^4.3.0",
     "eslint-config-vusion": "^1.2.2",
+    "eslint-plugin-html": "^3.2.1",
+    "eslint-plugin-vue": "^3.13.0",
+    "highlight.js": "^9.12.0",
     "husky": "^0.13.3",
+    "shelljs": "^0.7.8",
     "vue": "^2.4.0",
+    "vue-markdown-loader": "^2.2.1",
+    "vue-router": "^2.7.0",
     "vusion-hooks": "^0.1.0"
   },
   "peerDependencies": {

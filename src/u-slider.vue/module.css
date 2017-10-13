@@ -1,0 +1,53 @@
+.slider{
+    position: relative;
+    height: 6px;
+    padding: 9px 0;
+    box-sizing: content-box;
+}
+.track {
+    height: 100%;
+    background: #f4f4f4;
+}
+.trail {
+    float: left;
+    height: 100%;
+    background: $brand-primary;
+}
+.handle {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-left: -7px;
+    width: 14px;
+    height: 24px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+}
+.handle:hover .tooltip{
+    display: block;
+}
+.tooltip {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -40px;
+    background: #1f2d3d;
+    color: #fff;
+    padding: 0 5px;
+    display: none;
+}
+.tooltip:after{
+    content: '';
+    width: 0;
+    height: 0;
+    border: 5px solid #1f2d3d;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    margin-left: -5px;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+}

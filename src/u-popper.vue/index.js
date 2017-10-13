@@ -14,7 +14,9 @@ export default {
         open: { type: Boolean, default: false },
         offset: { type: Number, default: 0 },
         boundariesElement: { default: 'scrollParent' },
+        escapeWithReference: { type: Boolean, default: false },
         arrowElement: { type: String, default: '[u-arrow]' },
+        appendTo: { type: String, default: 'body', validator: (value) => ['body', 'reference'].includes(value) },
         hoverDelay: { type: Number, default: 0 },
         options: {
             type: Object,
@@ -109,14 +111,21 @@ export default {
         createPopper() {
             const referenceEl = this.$el;
             const popperEl = this.childVM.$el;
-            document.body.appendChild(popperEl);
+            if (this.appendTo === 'body')
+                document.body.appendChild(popperEl);
+            else if (this.appendTo === 'reference')
+                referenceEl.appendChild(popperEl);
 
             const options = this.getOptions();
             this.popper = new Popper(referenceEl, popperEl, options);
         },
         destroyPopper() {
+            const referenceEl = this.$el;
             const popperEl = this.childVM.$el;
-            popperEl.parentElement === document.body && document.body.removeChild(popperEl);
+            if (this.appendTo === 'body')
+                popperEl.parentElement === document.body && document.body.removeChild(popperEl);
+            else if (this.appendTo === 'reference')
+                popperEl.parentElement === referenceEl && referenceEl.removeChild(popperEl);
 
             this.popper && this.popper.destroy();
             this.popper = undefined;

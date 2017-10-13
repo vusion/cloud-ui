@@ -93,7 +93,6 @@ const Toast = {
     },
 };
 
-const STATES = Toast.STATES = ['success', 'warning', 'info', 'error'];
 /**
  * @method [info|success|warning|error](message[,duration]) 弹出特殊类型的消息。为show方法的简写方式。
  * @public
@@ -101,19 +100,12 @@ const STATES = Toast.STATES = ['success', 'warning', 'info', 'error'];
  * @param  {number=toast.duration} duration 该条消息的停留毫秒数。如果为0，则表示消息常驻不消失。如果不填，则使用toast默认的duration。
  * @return {void}
  */
-STATES.forEach((state) => {
-    Toast.methods[state] = function (message, duration) {
-        this.show(message, duration, state);
-    };
-});
 
 /**
  * @static
  * @private {Toast}
  * @description 直接初始化一个实例
  */
-const toast = Toast.toast = new Vue(Toast);
-const METHODS = Toast.METHODS = ['show', 'close', 'closeAll', 'success', 'warning', 'info', 'error'];
 /**
  * @method show(message[,duration][,state]) 弹出一个消息
  * @static
@@ -144,5 +136,16 @@ const METHODS = Toast.METHODS = ['show', 'close', 'closeAll', 'success', 'warnin
  * @public
  * @return {void}
  */
-METHODS.forEach((method) => Toast[method] = toast[method].bind(toast));
+Vue.nextTick(() => {
+    // 获取构造器函数 （vue-loader 处理生成d额）
+    const STATES = Toast.STATES = ['success', 'warning', 'info', 'error'];
+    const METHODS = Toast.METHODS = ['show', 'close', 'closeAll', 'success', 'warning', 'info', 'error'];
+    STATES.forEach((state) => {
+        Toast.methods[state] = function (message, duration) {
+            this.show(message, duration, state);
+        };
+    });
+    const instance = Toast.instance = new Toast._Ctor[0]();
+    METHODS.forEach((method) => Toast[method] = instance[method].bind(instance));
+});
 export default Toast;
