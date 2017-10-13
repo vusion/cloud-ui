@@ -7,8 +7,6 @@ export default {
     created() {
         const parentVM = this.$parent.parentVM.$parent;
         parentVM.$emit('add-item-vm', this);
-        if (parentVM.selectedVM === undefined)
-            parentVM.selectedVM = this;
     },
     destroyed() {
         const parentVM = this.$parent.parentVM.$parent;
