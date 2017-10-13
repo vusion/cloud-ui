@@ -1,9 +1,9 @@
 /*! Packed by Vusion. */
 /* icon font style message */
                                 if (typeof window !== "undefined" && !window.ICON_FONT_STYLE) {
-                                    window.ICON_FONT_STYLE = {"name":"vusion-icon-font","ttf":{"path":"\\cloud-ui\\theme-default\\vusion-icon-font.ttf","md5":"5497fc97cd913a16e77c0f0946154d04"},"eot":{"path":"\\cloud-ui\\theme-default\\vusion-icon-font.eot","md5":"656e2174cabe096bba1c7fac363906fc"},"woff":{"path":"\\cloud-ui\\theme-default\\vusion-icon-font.woff","md5":"fa7b2046835ddbfe06c83ea7d9ff78d3"},"svg":{"path":"\\cloud-ui\\theme-default\\vusion-icon-font.svg","md5":"107645003699115e480bff255c334085"}};
+                                    window.ICON_FONT_STYLE = {"name":"vusion-icon-font","ttf":{"path":"\\cloud-ui\\theme-default\\vusion-icon-font.ttf","md5":"bc7597b6e243406e05a6cccaf3fdbef2"},"eot":{"path":"\\cloud-ui\\theme-default\\vusion-icon-font.eot","md5":"8b03caaea215cca447d95812e9e093f6"},"woff":{"path":"\\cloud-ui\\theme-default\\vusion-icon-font.woff","md5":"a07ccc30b9c722eb7976fcb6de73ddb7"},"svg":{"path":"\\cloud-ui\\theme-default\\vusion-icon-font.svg","md5":"6eb2973eebdcab0ffcbc919285f3fe73"}};
                                 } else if (typeof window !== "undefined" && window.ICON_FONT_STYLE && window.ICON_FONT_STYLE.update) {
-                                    window.ICON_FONT_STYLE.update({"name":"vusion-icon-font","ttf":{"path":"\\cloud-ui\\theme-default\\vusion-icon-font.ttf","md5":"5497fc97cd913a16e77c0f0946154d04"},"eot":{"path":"\\cloud-ui\\theme-default\\vusion-icon-font.eot","md5":"656e2174cabe096bba1c7fac363906fc"},"woff":{"path":"\\cloud-ui\\theme-default\\vusion-icon-font.woff","md5":"fa7b2046835ddbfe06c83ea7d9ff78d3"},"svg":{"path":"\\cloud-ui\\theme-default\\vusion-icon-font.svg","md5":"107645003699115e480bff255c334085"}});
+                                    window.ICON_FONT_STYLE.update({"name":"vusion-icon-font","ttf":{"path":"\\cloud-ui\\theme-default\\vusion-icon-font.ttf","md5":"bc7597b6e243406e05a6cccaf3fdbef2"},"eot":{"path":"\\cloud-ui\\theme-default\\vusion-icon-font.eot","md5":"8b03caaea215cca447d95812e9e093f6"},"woff":{"path":"\\cloud-ui\\theme-default\\vusion-icon-font.woff","md5":"a07ccc30b9c722eb7976fcb6de73ddb7"},"svg":{"path":"\\cloud-ui\\theme-default\\vusion-icon-font.svg","md5":"6eb2973eebdcab0ffcbc919285f3fe73"}});
                                 }/******/ (function(modules) { // webpackBootstrap
 /******/ 	// install a JSONP callback for chunk loading
 /******/ 	var parentJsonpFunction = window["webpackJsonp"];
@@ -13917,7 +13917,7 @@ new __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */]({
 
 "use strict";
 /**
-  * vue-router v2.7.0
+  * vue-router v2.8.0
   * (c) 2017 Evan You
   * @license MIT
   */
@@ -14005,7 +14005,7 @@ var View = {
       }
     }
 
-    // also regiseter instance in prepatch hook
+    // also register instance in prepatch hook
     // in case the same component instance is reused across different routes
     ;(data.hook || (data.hook = {})).prepatch = function (_, vnode) {
       matched.instances[name] = vnode.componentInstance;
@@ -14013,6 +14013,14 @@ var View = {
 
     // resolve props
     data.props = resolveProps(route, matched.props && matched.props[name]);
+    data.attrs = {};
+
+    for (var key in data.props) {
+      if (!('props' in component) || !(key in component.props)) {
+        data.attrs[key] = data.props[key];
+        delete data.props[key];
+      }
+    }
 
     return h(component, data, children)
   }
@@ -14070,8 +14078,7 @@ function resolveQuery (
     parsedQuery = {};
   }
   for (var key in extraQuery) {
-    var val = extraQuery[key];
-    parsedQuery[key] = Array.isArray(val) ? val.slice() : val;
+    parsedQuery[key] = extraQuery[key];
   }
   return parsedQuery
 }
@@ -14148,12 +14155,18 @@ function createRoute (
   router
 ) {
   var stringifyQuery$$1 = router && router.options.stringifyQuery;
+
+  var query = location.query || {};
+  try {
+    query = clone(query);
+  } catch (e) {}
+
   var route = {
     name: location.name || (record && record.name),
     meta: (record && record.meta) || {},
     path: location.path || '/',
     hash: location.hash || '',
-    query: location.query || {},
+    query: query,
     params: location.params || {},
     fullPath: getFullPath(location, stringifyQuery$$1),
     matched: record ? formatMatch(record) : []
@@ -14162,6 +14175,20 @@ function createRoute (
     route.redirectedFrom = getFullPath(redirectedFrom, stringifyQuery$$1);
   }
   return Object.freeze(route)
+}
+
+function clone (value) {
+  if (Array.isArray(value)) {
+    return value.map(clone)
+  } else if (value && typeof value === 'object') {
+    var res = {};
+    for (var key in value) {
+      res[key] = clone(value[key]);
+    }
+    return res
+  } else {
+    return value
+  }
 }
 
 // the starting route that represents the initial state
@@ -14217,6 +14244,8 @@ function isObjectEqual (a, b) {
   if ( a === void 0 ) a = {};
   if ( b === void 0 ) b = {};
 
+  // handle null value #1566
+  if (!a || !b) { return a === b }
   var aKeys = Object.keys(a);
   var bKeys = Object.keys(b);
   if (aKeys.length !== bKeys.length) {
@@ -14396,7 +14425,7 @@ function findAnchor (children) {
 var _Vue;
 
 function install (Vue) {
-  if (install.installed) { return }
+  if (install.installed && _Vue === Vue) { return }
   install.installed = true;
 
   _Vue = Vue;
@@ -14518,14 +14547,14 @@ function cleanPath (path) {
   return path.replace(/\/\//g, '/')
 }
 
-var index$1 = Array.isArray || function (arr) {
+var isarray = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
 /**
  * Expose `pathToRegexp`.
  */
-var index = pathToRegexp;
+var pathToRegexp_1 = pathToRegexp;
 var parse_1 = parse;
 var compile_1 = compile;
 var tokensToFunction_1 = tokensToFunction;
@@ -14702,7 +14731,7 @@ function tokensToFunction (tokens) {
         }
       }
 
-      if (index$1(value)) {
+      if (isarray(value)) {
         if (!token.repeat) {
           throw new TypeError('Expected "' + token.name + '" to not repeat, but received `' + JSON.stringify(value) + '`')
         }
@@ -14853,7 +14882,7 @@ function stringToRegexp (path, keys, options) {
  * @return {!RegExp}
  */
 function tokensToRegExp (tokens, keys, options) {
-  if (!index$1(keys)) {
+  if (!isarray(keys)) {
     options = /** @type {!Object} */ (keys || options);
     keys = [];
   }
@@ -14929,7 +14958,7 @@ function tokensToRegExp (tokens, keys, options) {
  * @return {!RegExp}
  */
 function pathToRegexp (path, keys, options) {
-  if (!index$1(keys)) {
+  if (!isarray(keys)) {
     options = /** @type {!Object} */ (keys || options);
     keys = [];
   }
@@ -14940,20 +14969,21 @@ function pathToRegexp (path, keys, options) {
     return regexpToRegexp(path, /** @type {!Array} */ (keys))
   }
 
-  if (index$1(path)) {
+  if (isarray(path)) {
     return arrayToRegexp(/** @type {!Array} */ (path), /** @type {!Array} */ (keys), options)
   }
 
   return stringToRegexp(/** @type {string} */ (path), /** @type {!Array} */ (keys), options)
 }
 
-index.parse = parse_1;
-index.compile = compile_1;
-index.tokensToFunction = tokensToFunction_1;
-index.tokensToRegExp = tokensToRegExp_1;
+pathToRegexp_1.parse = parse_1;
+pathToRegexp_1.compile = compile_1;
+pathToRegexp_1.tokensToFunction = tokensToFunction_1;
+pathToRegexp_1.tokensToRegExp = tokensToRegExp_1;
 
 /*  */
 
+// $flow-disable-line
 var regexpCompileCache = Object.create(null);
 
 function fillParams (
@@ -14964,7 +14994,7 @@ function fillParams (
   try {
     var filler =
       regexpCompileCache[path] ||
-      (regexpCompileCache[path] = index.compile(path));
+      (regexpCompileCache[path] = pathToRegexp_1.compile(path));
     return filler(params || {}, { pretty: true })
   } catch (e) {
     if (false) {
@@ -14984,7 +15014,9 @@ function createRouteMap (
 ) {
   // the path list is used to control path matching priority
   var pathList = oldPathList || [];
+  // $flow-disable-line
   var pathMap = oldPathMap || Object.create(null);
+  // $flow-disable-line
   var nameMap = oldNameMap || Object.create(null);
 
   routes.forEach(function (route) {
@@ -15026,8 +15058,12 @@ function addRouteRecord (
     );
   }
 
-  var normalizedPath = normalizePath(path, parent);
   var pathToRegexpOptions = route.pathToRegexpOptions || {};
+  var normalizedPath = normalizePath(
+    path,
+    parent,
+    pathToRegexpOptions.strict
+  );
 
   if (typeof route.caseSensitive === 'boolean') {
     pathToRegexpOptions.sensitive = route.caseSensitive;
@@ -15115,9 +15151,9 @@ function addRouteRecord (
 }
 
 function compileRouteRegex (path, pathToRegexpOptions) {
-  var regex = index(path, [], pathToRegexpOptions);
+  var regex = pathToRegexp_1(path, [], pathToRegexpOptions);
   if (false) {
-    var keys = {};
+    var keys = Object.create(null);
     regex.keys.forEach(function (key) {
       warn(!keys[key.name], ("Duplicate param keys in route with path: \"" + path + "\""));
       keys[key.name] = true;
@@ -15126,8 +15162,8 @@ function compileRouteRegex (path, pathToRegexpOptions) {
   return regex
 }
 
-function normalizePath (path, parent) {
-  path = path.replace(/\/$/, '');
+function normalizePath (path, parent, strict) {
+  if (!strict) { path = path.replace(/\/$/, ''); }
   if (path[0] === '/') { return path }
   if (parent == null) { return path }
   return cleanPath(((parent.path) + "/" + path))
@@ -15399,6 +15435,8 @@ function resolveRecordPath (path, record) {
 var positionStore = Object.create(null);
 
 function setupScroll () {
+  // Fix for #1585 for Firefox
+  window.history.replaceState({ key: getStateKey() }, '');
   window.addEventListener('popstate', function (e) {
     saveScrollPosition();
     if (e.state && e.state.key) {
@@ -15430,25 +15468,21 @@ function handleScroll (
   router.app.$nextTick(function () {
     var position = getScrollPosition();
     var shouldScroll = behavior(to, from, isPop ? position : null);
+
     if (!shouldScroll) {
       return
     }
-    var isObject = typeof shouldScroll === 'object';
-    if (isObject && typeof shouldScroll.selector === 'string') {
-      var el = document.querySelector(shouldScroll.selector);
-      if (el) {
-        var offset = shouldScroll.offset && typeof shouldScroll.offset === 'object' ? shouldScroll.offset : {};
-        offset = normalizeOffset(offset);
-        position = getElementPosition(el, offset);
-      } else if (isValidPosition(shouldScroll)) {
-        position = normalizePosition(shouldScroll);
-      }
-    } else if (isObject && isValidPosition(shouldScroll)) {
-      position = normalizePosition(shouldScroll);
-    }
 
-    if (position) {
-      window.scrollTo(position.x, position.y);
+    if (typeof shouldScroll.then === 'function') {
+      shouldScroll.then(function (shouldScroll) {
+        scrollToPosition((shouldScroll), position);
+      }).catch(function (err) {
+        if (false) {
+          assert(false, err.toString());
+        }
+      });
+    } else {
+      scrollToPosition(shouldScroll, position);
     }
   });
 }
@@ -15500,6 +15534,26 @@ function normalizeOffset (obj) {
 
 function isNumber (v) {
   return typeof v === 'number'
+}
+
+function scrollToPosition (shouldScroll, position) {
+  var isObject = typeof shouldScroll === 'object';
+  if (isObject && typeof shouldScroll.selector === 'string') {
+    var el = document.querySelector(shouldScroll.selector);
+    if (el) {
+      var offset = shouldScroll.offset && typeof shouldScroll.offset === 'object' ? shouldScroll.offset : {};
+      offset = normalizeOffset(offset);
+      position = getElementPosition(el, offset);
+    } else if (isValidPosition(shouldScroll)) {
+      position = normalizePosition(shouldScroll);
+    }
+  } else if (isObject && isValidPosition(shouldScroll)) {
+    position = normalizePosition(shouldScroll);
+  }
+
+  if (position) {
+    window.scrollTo(position.x, position.y);
+  }
 }
 
 /*  */
@@ -15597,7 +15651,7 @@ function resolveAsyncComponents (matched) {
         pending++;
 
         var resolve = once(function (resolvedDef) {
-          if (resolvedDef.__esModule && resolvedDef.default) {
+          if (isESModule(resolvedDef)) {
             resolvedDef = resolvedDef.default;
           }
           // save resolved on async factory in case it's used elsewhere
@@ -15661,6 +15715,14 @@ function flatMapComponents (
 
 function flatten (arr) {
   return Array.prototype.concat.apply([], arr)
+}
+
+var hasSymbol =
+  typeof Symbol === 'function' &&
+  typeof Symbol.toStringTag === 'symbol';
+
+function isESModule (obj) {
+  return obj.__esModule || (hasSymbol && obj[Symbol.toStringTag] === 'Module')
 }
 
 // in Webpack 2, require.ensure now also returns a Promise
@@ -15991,9 +16053,18 @@ var HTML5History = (function (History$$1) {
       setupScroll();
     }
 
+    var initLocation = getLocation(this.base);
     window.addEventListener('popstate', function (e) {
       var current = this$1.current;
-      this$1.transitionTo(getLocation(this$1.base), function (route) {
+
+      // Avoiding first `popstate` event dispatched in some browsers but first
+      // history route not updated since async guard at the same time.
+      var location = getLocation(this$1.base);
+      if (this$1.current === START && location === initLocation) {
+        return
+      }
+
+      this$1.transitionTo(location, function (route) {
         if (expectScroll) {
           handleScroll(router, route, current, true);
         }
@@ -16077,26 +16148,50 @@ var HashHistory = (function (History$$1) {
   HashHistory.prototype.setupListeners = function setupListeners () {
     var this$1 = this;
 
-    window.addEventListener('hashchange', function () {
+    var router = this.router;
+    var expectScroll = router.options.scrollBehavior;
+    var supportsScroll = supportsPushState && expectScroll;
+
+    if (supportsScroll) {
+      setupScroll();
+    }
+
+    window.addEventListener(supportsPushState ? 'popstate' : 'hashchange', function () {
+      var current = this$1.current;
       if (!ensureSlash()) {
         return
       }
       this$1.transitionTo(getHash(), function (route) {
-        replaceHash(route.fullPath);
+        if (supportsScroll) {
+          handleScroll(this$1.router, route, current, true);
+        }
+        if (!supportsPushState) {
+          replaceHash(route.fullPath);
+        }
       });
     });
   };
 
   HashHistory.prototype.push = function push (location, onComplete, onAbort) {
+    var this$1 = this;
+
+    var ref = this;
+    var fromRoute = ref.current;
     this.transitionTo(location, function (route) {
       pushHash(route.fullPath);
+      handleScroll(this$1.router, route, fromRoute, false);
       onComplete && onComplete(route);
     }, onAbort);
   };
 
   HashHistory.prototype.replace = function replace (location, onComplete, onAbort) {
+    var this$1 = this;
+
+    var ref = this;
+    var fromRoute = ref.current;
     this.transitionTo(location, function (route) {
       replaceHash(route.fullPath);
+      handleScroll(this$1.router, route, fromRoute, false);
       onComplete && onComplete(route);
     }, onAbort);
   };
@@ -16146,15 +16241,27 @@ function getHash () {
   return index === -1 ? '' : href.slice(index + 1)
 }
 
-function pushHash (path) {
-  window.location.hash = path;
-}
-
-function replaceHash (path) {
+function getUrl (path) {
   var href = window.location.href;
   var i = href.indexOf('#');
   var base = i >= 0 ? href.slice(0, i) : href;
-  window.location.replace((base + "#" + path));
+  return (base + "#" + path)
+}
+
+function pushHash (path) {
+  if (supportsPushState) {
+    pushState(getUrl(path));
+  } else {
+    window.location.hash = path;
+  }
+}
+
+function replaceHash (path) {
+  if (supportsPushState) {
+    replaceState(getUrl(path));
+  } else {
+    window.location.replace(getUrl(path));
+  }
 }
 
 /*  */
@@ -16256,7 +16363,7 @@ var VueRouter = function VueRouter (options) {
   }
 };
 
-var prototypeAccessors = { currentRoute: {} };
+var prototypeAccessors = { currentRoute: { configurable: true } };
 
 VueRouter.prototype.match = function match (
   raw,
@@ -16414,7 +16521,7 @@ function createHref (base, fullPath, mode) {
 }
 
 VueRouter.install = install;
-VueRouter.version = '2.7.0';
+VueRouter.version = '2.8.0';
 
 if (inBrowser && window.Vue) {
   window.Vue.use(VueRouter);
@@ -16636,7 +16743,7 @@ var content = __webpack_require__(103);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("57e1f941", content, true);
+var update = __webpack_require__(2)("d11d70b4", content, true);
 
 /***/ }),
 /* 103 */
@@ -16794,7 +16901,7 @@ var content = __webpack_require__(109);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("07358fd0", content, true);
+var update = __webpack_require__(2)("37a70830", content, true);
 
 /***/ }),
 /* 109 */
@@ -17181,7 +17288,7 @@ var content = __webpack_require__(118);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("07edd361", content, true);
+var update = __webpack_require__(2)("574f49c8", content, true);
 
 /***/ }),
 /* 118 */
@@ -17192,7 +17299,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "._2mysIXv12K-6IuAT{-webkit-appearance:none;margin:0;border:none;overflow:visible;font:inherit;text-transform:none;text-decoration:none;cursor:pointer;background:none;display:inline-block;text-align:center;padding:0 12px;height:34px;line-height:32px;background:#fff;color:#345;border:1px solid #ccc}._2mysIXv12K-6IuAT:hover{text-decoration:none;color:#67aaf5;border-color:#67aaf5}._2mysIXv12K-6IuAT:focus{outline:none;text-decoration:none}._2mysIXv12K-6IuAT:active{background:#eee}._2mysIXv12K-6IuAT[disabled]{cursor:not-allowed;background:#fff;border-color:#ccc}._2mysIXv12K-6IuAT{border-color:#cdcdcd;color:#333;padding:0 30px}._2mysIXv12K-6IuAT:active{background-color:#fff;-webkit-box-shadow:inset 0 1px 3px rgba(0,0,0,.2);box-shadow:inset 0 1px 3px rgba(0,0,0,.2)}._2mysIXv12K-6IuAT[disabled]{color:#ccc;border-color:#ddd;-webkit-box-shadow:none;box-shadow:none}._2mysIXv12K-6IuAT[color=primary]{background:#67aaf5;color:#fff;border:none;line-height:34px}._2mysIXv12K-6IuAT[color=primary]:hover{background:#5b96d9}._2mysIXv12K-6IuAT[color=primary][disabled]{background:#d9d9d9}._2mysIXv12K-6IuAT[size=small]{height:30px;line-height:30px;padding:0 10px}._2mysIXv12K-6IuAT[square]{width:34px;padding:0}._2mysIXv12K-6IuAT[icon=create]:before{content:\"\\F119\";margin-right:8px}._2mysIXv12K-6IuAT[icon=create]:before,._2mysIXv12K-6IuAT[square][icon=refresh]:before{font-family:vusion-icon-font;font-style:normal;font-weight:400;font-variant:normal;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased;vertical-align:-2px}._2mysIXv12K-6IuAT[square][icon=refresh]:before{content:\"\\F109\";color:#9ba4ad}._2mysIXv12K-6IuAT[square][icon=refresh]:hover:before{color:#67aaf5}._2mysIXv12K-6IuAT[icon=loading]:before{content:\"\";display:inline-block;vertical-align:-4px;margin-left:-2px;margin-right:6px;width:18px;height:18px;border:2px solid currentColor;border-top-color:transparent;border-radius:100%;-webkit-animation:_3qaLkvISqm7-2IHA 1s ease-in-out 0s infinite;animation:_3qaLkvISqm7-2IHA 1s ease-in-out 0s infinite}@-webkit-keyframes _3qaLkvISqm7-2IHA{0%{-webkit-transform:rotate(0);transform:rotate(0)}80%{-webkit-transform:rotate(1turn);transform:rotate(1turn)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}@keyframes _3qaLkvISqm7-2IHA{0%{-webkit-transform:rotate(0);transform:rotate(0)}80%{-webkit-transform:rotate(1turn);transform:rotate(1turn)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}", ""]);
+exports.push([module.i, "._2mysIXv12K-6IuAT{-webkit-appearance:none;margin:0;border:none;overflow:visible;font:inherit;text-transform:none;text-decoration:none;cursor:pointer;background:none;display:inline-block;text-align:center;padding:0 12px;height:34px;line-height:32px;background:#fff;color:#345;border:1px solid #ccc}._2mysIXv12K-6IuAT:hover{text-decoration:none;color:#67aaf5;border-color:#67aaf5}._2mysIXv12K-6IuAT:focus{outline:none;text-decoration:none}._2mysIXv12K-6IuAT:active{background:#eee}._2mysIXv12K-6IuAT[disabled]{cursor:not-allowed;background:#fff;border-color:#ccc}._2mysIXv12K-6IuAT{border-color:#cdcdcd;color:#333;padding:0 30px}._2mysIXv12K-6IuAT:active{background-color:#fff;-webkit-box-shadow:inset 0 1px 3px rgba(0,0,0,.2);box-shadow:inset 0 1px 3px rgba(0,0,0,.2)}._2mysIXv12K-6IuAT[disabled]{color:#ccc;border-color:#ddd;-webkit-box-shadow:none;box-shadow:none}._2mysIXv12K-6IuAT[color=primary]{background:#67aaf5;color:#fff;border:none;line-height:34px}._2mysIXv12K-6IuAT[color=primary]:hover{background:#5b96d9}._2mysIXv12K-6IuAT[color=primary][disabled]{background:#d9d9d9}._2mysIXv12K-6IuAT[size=small]{height:30px;line-height:30px;padding:0 10px}._2mysIXv12K-6IuAT[square]{width:34px;padding:0}._2mysIXv12K-6IuAT[icon=create]:before{content:\"\\F119\";margin-right:8px}._2mysIXv12K-6IuAT[icon=create]:before,._2mysIXv12K-6IuAT[square][icon=refresh]:before{font-family:vusion-icon-font;font-style:normal;font-weight:400;font-variant:normal;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased;vertical-align:-2px}._2mysIXv12K-6IuAT[square][icon=refresh]:before{content:\"\\F10A\";color:#9ba4ad}._2mysIXv12K-6IuAT[square][icon=refresh]:hover:before{color:#67aaf5}._2mysIXv12K-6IuAT[icon=loading]:before{content:\"\";display:inline-block;vertical-align:-4px;margin-left:-2px;margin-right:6px;width:18px;height:18px;border:2px solid currentColor;border-top-color:transparent;border-radius:100%;-webkit-animation:_3qaLkvISqm7-2IHA 1s ease-in-out 0s infinite;animation:_3qaLkvISqm7-2IHA 1s ease-in-out 0s infinite}@-webkit-keyframes _3qaLkvISqm7-2IHA{0%{-webkit-transform:rotate(0);transform:rotate(0)}80%{-webkit-transform:rotate(1turn);transform:rotate(1turn)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}@keyframes _3qaLkvISqm7-2IHA{0%{-webkit-transform:rotate(0);transform:rotate(0)}80%{-webkit-transform:rotate(1turn);transform:rotate(1turn)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}", ""]);
 
 // exports
 exports.locals = {
@@ -17247,7 +17354,7 @@ var content = __webpack_require__(122);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("d35d25ee", content, true);
+var update = __webpack_require__(2)("7d7f57e9", content, true);
 
 /***/ }),
 /* 122 */
@@ -17289,7 +17396,7 @@ var content = __webpack_require__(125);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("6c1c6eae", content, true);
+var update = __webpack_require__(2)("0511fd29", content, true);
 
 /***/ }),
 /* 125 */
@@ -17386,7 +17493,7 @@ var content = __webpack_require__(129);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("3db1c2b1", content, true);
+var update = __webpack_require__(2)("2868635e", content, true);
 
 /***/ }),
 /* 129 */
@@ -17797,7 +17904,7 @@ var content = __webpack_require__(132);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("27e4707e", content, true);
+var update = __webpack_require__(2)("3a26a548", content, true);
 
 /***/ }),
 /* 132 */
@@ -20530,7 +20637,7 @@ var content = __webpack_require__(138);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("06529855", content, true);
+var update = __webpack_require__(2)("59abbb35", content, true);
 
 /***/ }),
 /* 138 */
@@ -20671,7 +20778,7 @@ var content = __webpack_require__(143);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("1e2e82f8", content, true);
+var update = __webpack_require__(2)("404bae1d", content, true);
 
 /***/ }),
 /* 143 */
@@ -20723,8 +20830,8 @@ exports.locals = {
         value(value) {
             this.watchValue(value);
         },
-        itemVMs(value) {
-            // setTimeout(this.watchValue.call(this, this.value), 0);
+        // This method just run once after pushing many itemVMs
+        itemVMs() {
             this.selectedVM = undefined;
             this.watchValue(this.value);
         }
@@ -20745,10 +20852,9 @@ exports.locals = {
     },
     methods: {
         watchValue(value) {
-            debugger;
             if (this.multiple) this.itemVMs.forEach(itemVM => itemVM.currentSelected = value && value.includes(itemVM.value));else {
                 if (this.selectedVM && this.selectedVM.value === value) return;
-                if (value === undefined) this.selectedVM = this.itemVMs[0];else this.selectedVM = this.itemVMs.find(itemVM => itemVM.value === value);
+                if (value === undefined) this.selectedVM = undefined;else this.selectedVM = this.itemVMs.find(itemVM => itemVM.value === value);
             }
         },
         select(itemVM) {
@@ -21033,7 +21139,7 @@ var content = __webpack_require__(150);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("0a81463b", content, true);
+var update = __webpack_require__(2)("904c6a00", content, true);
 
 /***/ }),
 /* 150 */
@@ -21102,7 +21208,7 @@ var content = __webpack_require__(154);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("3e4a498b", content, true);
+var update = __webpack_require__(2)("51a1b56a", content, true);
 
 /***/ }),
 /* 154 */
@@ -21312,7 +21418,7 @@ var content = __webpack_require__(162);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("4b67868a", content, true);
+var update = __webpack_require__(2)("97e0ae54", content, true);
 
 /***/ }),
 /* 162 */
@@ -21475,7 +21581,7 @@ var content = __webpack_require__(167);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("7db95ff8", content, true);
+var update = __webpack_require__(2)("de9cd76e", content, true);
 
 /***/ }),
 /* 167 */
@@ -21552,7 +21658,7 @@ var content = __webpack_require__(171);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("171470ea", content, true);
+var update = __webpack_require__(2)("1bab5cac", content, true);
 
 /***/ }),
 /* 171 */
@@ -21726,7 +21832,7 @@ var content = __webpack_require__(177);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("7aaedeef", content, true);
+var update = __webpack_require__(2)("b283a758", content, true);
 
 /***/ }),
 /* 177 */
@@ -21967,7 +22073,7 @@ var content = __webpack_require__(182);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("c97ec79e", content, true);
+var update = __webpack_require__(2)("1ce6e091", content, true);
 
 /***/ }),
 /* 182 */
@@ -22286,7 +22392,7 @@ var content = __webpack_require__(187);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("0dcbb7bf", content, true);
+var update = __webpack_require__(2)("266fec0c", content, true);
 
 /***/ }),
 /* 187 */
@@ -23154,7 +23260,7 @@ var content = __webpack_require__(197);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("10cebbe8", content, true);
+var update = __webpack_require__(2)("58fce4a8", content, true);
 
 /***/ }),
 /* 197 */
@@ -25789,7 +25895,7 @@ var content = __webpack_require__(259);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("15221433", content, true);
+var update = __webpack_require__(2)("3820764e", content, true);
 
 /***/ }),
 /* 259 */
@@ -25993,7 +26099,7 @@ var content = __webpack_require__(268);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("6a622a00", content, true);
+var update = __webpack_require__(2)("88854ac0", content, true);
 
 /***/ }),
 /* 268 */
@@ -26032,6 +26138,7 @@ exports.locals = {
         title: String,
         rules: Array,
         message: String,
+        required: { type: Boolean, default: false },
         labelSize: String
     },
     data() {
@@ -26048,8 +26155,8 @@ exports.locals = {
         currentRules() {
             return this.rules || this.parentVM && this.parentVM.rules && this.parentVM.rules[this.name];
         },
-        required() {
-            return this.currentRules && this.currentRules.some(rule => rule.required);
+        currentRequired() {
+            return this.required || this.currentRules && this.currentRules.some(rule => rule.required);
         },
         currentLabelSize() {
             return this.labelSize || this.parentVM && this.parentVM.labelSize || 'auto';
@@ -28060,7 +28167,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }],
     class: _vm.$style.title,
     attrs: {
-      "required": _vm.required
+      "required": _vm.currentRequired
     }
   }, [_vm._v(_vm._s(_vm.title))]), _c('div', {
     class: _vm.$style.field
@@ -28113,7 +28220,7 @@ var content = __webpack_require__(327);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("74cb42e6", content, true);
+var update = __webpack_require__(2)("48578d26", content, true);
 
 /***/ }),
 /* 327 */
@@ -28124,7 +28231,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "._11KJHXTyQIe3hFuj[name=area]:before{content:\"\\F101\"}._11KJHXTyQIe3hFuj[name=area]:before,._11KJHXTyQIe3hFuj[name=netease-cloud-logo]:before{font-family:vusion-icon-font;font-style:normal;font-weight:400;font-variant:normal;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}._11KJHXTyQIe3hFuj[name=netease-cloud-logo]:before{content:\"\\F102\"}._11KJHXTyQIe3hFuj[name=portrait]:before{content:\"\\F103\"}._11KJHXTyQIe3hFuj[name=password]:before,._11KJHXTyQIe3hFuj[name=portrait]:before{font-family:vusion-icon-font;font-style:normal;font-weight:400;font-variant:normal;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}._11KJHXTyQIe3hFuj[name=password]:before{content:\"\\F104\"}._11KJHXTyQIe3hFuj[name=arrow-up]:before{content:\"\\F105\"}._11KJHXTyQIe3hFuj[name=arrow-down]:before,._11KJHXTyQIe3hFuj[name=arrow-up]:before{font-family:vusion-icon-font;font-style:normal;font-weight:400;font-variant:normal;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}._11KJHXTyQIe3hFuj[name=arrow-down]:before{content:\"\\F106\"}._11KJHXTyQIe3hFuj[name=angle-left]:before{content:\"\\F108\"}._11KJHXTyQIe3hFuj[name=angle-left]:before,._11KJHXTyQIe3hFuj[name=angle-right]:before{font-family:vusion-icon-font;font-style:normal;font-weight:400;font-variant:normal;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}._11KJHXTyQIe3hFuj[name=angle-right]:before{content:\"\\F107\"}._11KJHXTyQIe3hFuj[name=refresh]:before{content:\"\\F109\"}._11KJHXTyQIe3hFuj[name=logout]:before,._11KJHXTyQIe3hFuj[name=refresh]:before{font-family:vusion-icon-font;font-style:normal;font-weight:400;font-variant:normal;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}._11KJHXTyQIe3hFuj[name=logout]:before{content:\"\\F10A\"}._11KJHXTyQIe3hFuj[name=search]:before{content:\"\\F10B\"}._11KJHXTyQIe3hFuj[name=apm-alert]:before,._11KJHXTyQIe3hFuj[name=search]:before{font-family:vusion-icon-font;font-style:normal;font-weight:400;font-variant:normal;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}._11KJHXTyQIe3hFuj[name=apm-alert]:before{content:\"\\F10C\"}._11KJHXTyQIe3hFuj[name=dropdown]:before{content:\"\\F10D\"}._11KJHXTyQIe3hFuj[name=angle-up]:before,._11KJHXTyQIe3hFuj[name=dropdown]:before{font-family:vusion-icon-font;font-style:normal;font-weight:400;font-variant:normal;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}._11KJHXTyQIe3hFuj[name=angle-up]:before{content:\"\\F10E\"}._11KJHXTyQIe3hFuj[name=angle-down]:before{content:\"\\F10F\"}._11KJHXTyQIe3hFuj[name=angle-down]:before,._11KJHXTyQIe3hFuj[name=chart-refresh]:before{font-family:vusion-icon-font;font-style:normal;font-weight:400;font-variant:normal;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}._11KJHXTyQIe3hFuj[name=chart-refresh]:before{content:\"\\F110\"}._11KJHXTyQIe3hFuj[name=chart-zoom]:before{content:\"\\F111\"}._11KJHXTyQIe3hFuj[name=chart-zoom]:before,._11KJHXTyQIe3hFuj[name=close]:before{font-family:vusion-icon-font;font-style:normal;font-weight:400;font-variant:normal;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}._11KJHXTyQIe3hFuj[name=close]:before{content:\"\\F112\"}._11KJHXTyQIe3hFuj[size=small]:before{font-size:14px;vertical-align:-2px}._11KJHXTyQIe3hFuj:before{font-size:24px;vertical-align:-7px;margin-right:6px}._11KJHXTyQIe3hFuj[size=large]:before{font-size:32px;vertical-align:-12px}", ""]);
+exports.push([module.i, "._11KJHXTyQIe3hFuj[name=area]:before{content:\"\\F102\"}._11KJHXTyQIe3hFuj[name=area]:before,._11KJHXTyQIe3hFuj[name=netease-cloud-logo]:before{font-family:vusion-icon-font;font-style:normal;font-weight:400;font-variant:normal;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}._11KJHXTyQIe3hFuj[name=netease-cloud-logo]:before{content:\"\\F103\"}._11KJHXTyQIe3hFuj[name=portrait]:before{content:\"\\F104\"}._11KJHXTyQIe3hFuj[name=password]:before,._11KJHXTyQIe3hFuj[name=portrait]:before{font-family:vusion-icon-font;font-style:normal;font-weight:400;font-variant:normal;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}._11KJHXTyQIe3hFuj[name=password]:before{content:\"\\F105\"}._11KJHXTyQIe3hFuj[name=arrow-up]:before{content:\"\\F106\"}._11KJHXTyQIe3hFuj[name=arrow-down]:before,._11KJHXTyQIe3hFuj[name=arrow-up]:before{font-family:vusion-icon-font;font-style:normal;font-weight:400;font-variant:normal;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}._11KJHXTyQIe3hFuj[name=arrow-down]:before{content:\"\\F109\"}._11KJHXTyQIe3hFuj[name=angle-left]:before{content:\"\\F107\"}._11KJHXTyQIe3hFuj[name=angle-left]:before,._11KJHXTyQIe3hFuj[name=angle-right]:before{font-family:vusion-icon-font;font-style:normal;font-weight:400;font-variant:normal;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}._11KJHXTyQIe3hFuj[name=angle-right]:before{content:\"\\F108\"}._11KJHXTyQIe3hFuj[name=refresh]:before{content:\"\\F10A\"}._11KJHXTyQIe3hFuj[name=logout]:before,._11KJHXTyQIe3hFuj[name=refresh]:before{font-family:vusion-icon-font;font-style:normal;font-weight:400;font-variant:normal;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}._11KJHXTyQIe3hFuj[name=logout]:before{content:\"\\F10B\"}._11KJHXTyQIe3hFuj[name=search]:before{content:\"\\F10C\"}._11KJHXTyQIe3hFuj[name=apm-alert]:before,._11KJHXTyQIe3hFuj[name=search]:before{font-family:vusion-icon-font;font-style:normal;font-weight:400;font-variant:normal;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}._11KJHXTyQIe3hFuj[name=apm-alert]:before{content:\"\\F10D\"}._11KJHXTyQIe3hFuj[name=dropdown]:before{content:\"\\F10E\"}._11KJHXTyQIe3hFuj[name=angle-up]:before,._11KJHXTyQIe3hFuj[name=dropdown]:before{font-family:vusion-icon-font;font-style:normal;font-weight:400;font-variant:normal;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}._11KJHXTyQIe3hFuj[name=angle-up]:before{content:\"\\F10F\"}._11KJHXTyQIe3hFuj[name=angle-down]:before{content:\"\\F110\"}._11KJHXTyQIe3hFuj[name=angle-down]:before,._11KJHXTyQIe3hFuj[name=chart-refresh]:before{font-family:vusion-icon-font;font-style:normal;font-weight:400;font-variant:normal;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}._11KJHXTyQIe3hFuj[name=chart-refresh]:before{content:\"\\F111\"}._11KJHXTyQIe3hFuj[name=chart-zoom]:before{content:\"\\F112\"}._11KJHXTyQIe3hFuj[name=chart-zoom]:before,._11KJHXTyQIe3hFuj[name=close]:before{font-family:vusion-icon-font;font-style:normal;font-weight:400;font-variant:normal;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}._11KJHXTyQIe3hFuj[name=close]:before{content:\"\\F101\"}._11KJHXTyQIe3hFuj[size=small]:before{font-size:14px;vertical-align:-2px}._11KJHXTyQIe3hFuj:before{font-size:24px;vertical-align:-7px;margin-right:6px}._11KJHXTyQIe3hFuj[size=large]:before{font-size:32px;vertical-align:-12px}", ""]);
 
 // exports
 exports.locals = {
@@ -28241,7 +28348,7 @@ var content = __webpack_require__(335);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("df293962", content, true);
+var update = __webpack_require__(2)("1d1993af", content, true);
 
 /***/ }),
 /* 335 */
@@ -28384,7 +28491,7 @@ var content = __webpack_require__(340);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("e6b3e392", content, true);
+var update = __webpack_require__(2)("06646b52", content, true);
 
 /***/ }),
 /* 340 */
@@ -28552,7 +28659,7 @@ var content = __webpack_require__(345);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("da67b400", content, true);
+var update = __webpack_require__(2)("44af6e7b", content, true);
 
 /***/ }),
 /* 345 */
@@ -28618,7 +28725,7 @@ var content = __webpack_require__(349);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("eee0de72", content, true);
+var update = __webpack_require__(2)("76a37127", content, true);
 
 /***/ }),
 /* 349 */
@@ -28697,7 +28804,7 @@ var content = __webpack_require__(354);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("4e2fe5b6", content, true);
+var update = __webpack_require__(2)("6a5c7005", content, true);
 
 /***/ }),
 /* 354 */
@@ -29313,7 +29420,7 @@ var content = __webpack_require__(364);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("438ca2dc", content, true);
+var update = __webpack_require__(2)("35a04fcd", content, true);
 
 /***/ }),
 /* 364 */
@@ -29398,7 +29505,7 @@ var content = __webpack_require__(369);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("425599b5", content, true);
+var update = __webpack_require__(2)("3f3075fa", content, true);
 
 /***/ }),
 /* 369 */
@@ -29488,7 +29595,7 @@ var content = __webpack_require__(374);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("1223fd35", content, true);
+var update = __webpack_require__(2)("0ef7ecd6", content, true);
 
 /***/ }),
 /* 374 */
@@ -29554,7 +29661,7 @@ var content = __webpack_require__(378);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("47b9de4d", content, true);
+var update = __webpack_require__(2)("c37a32a6", content, true);
 
 /***/ }),
 /* 378 */
@@ -29658,7 +29765,7 @@ var content = __webpack_require__(383);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("6761e8b4", content, true);
+var update = __webpack_require__(2)("f0de12ce", content, true);
 
 /***/ }),
 /* 383 */
@@ -29743,7 +29850,7 @@ var content = __webpack_require__(391);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("2e754231", content, true);
+var update = __webpack_require__(2)("0c34604c", content, true);
 
 /***/ }),
 /* 391 */
@@ -29754,7 +29861,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "._3lHBdQMtVMdr0TuX{position:fixed;top:0;right:0;bottom:0;left:0;z-index:1000;-webkit-overflow-scrolling:touch;-ms-touch-action:cross-slide-y pinch-zoom double-tap-zoom;touch-action:cross-slide-y pinch-zoom double-tap-zoom;text-align:center;overflow:hidden;overflow-y:auto;background:rgba(0,0,0,.6);padding-top:65px;padding-bottom:30px}._3lHBdQMtVMdr0TuX:before{content:\"\";display:inline-block;vertical-align:middle;height:100%}._1AmfGz0KIguchwtq{display:inline-block;vertical-align:middle;text-align:left;background:#fff;-webkit-box-shadow:0 0 3px rgba(0,0,0,.3);box-shadow:0 0 3px rgba(0,0,0,.3)}._2y_9vrI9MIpHuLOv{position:relative;padding:15px;border-bottom:1px solid #f4f4f4}._8_kx_zM2aJWLoHDa{margin:0;font-size:14px}.r5-Yhpujq9N7hVmK{position:absolute;right:15px;top:18px;line-height:1;color:#bbb}.r5-Yhpujq9N7hVmK:hover{color:#888}.r5-Yhpujq9N7hVmK:before{font-family:vusion-icon-font;font-style:normal;font-weight:400;font-variant:normal;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased;content:\"\\F112\";font-size:14px}._3xurgGa_t45o6QGA{padding:15px;min-height:10px}.ajLGl8Dm0N0ccQt-{padding:15px 0 50px;text-align:center}@media (max-width:767px){._1AmfGz0KIguchwtq{width:auto;margin:10px}}._3lHBdQMtVMdr0TuX[static]{position:static;padding:20px}", ""]);
+exports.push([module.i, "._3lHBdQMtVMdr0TuX{position:fixed;top:0;right:0;bottom:0;left:0;z-index:1000;-webkit-overflow-scrolling:touch;-ms-touch-action:cross-slide-y pinch-zoom double-tap-zoom;touch-action:cross-slide-y pinch-zoom double-tap-zoom;text-align:center;overflow:hidden;overflow-y:auto;background:rgba(0,0,0,.6);padding-top:65px;padding-bottom:30px}._3lHBdQMtVMdr0TuX:before{content:\"\";display:inline-block;vertical-align:middle;height:100%}._1AmfGz0KIguchwtq{display:inline-block;vertical-align:middle;text-align:left;background:#fff;-webkit-box-shadow:0 0 3px rgba(0,0,0,.3);box-shadow:0 0 3px rgba(0,0,0,.3)}._2y_9vrI9MIpHuLOv{position:relative;padding:15px;border-bottom:1px solid #f4f4f4}._8_kx_zM2aJWLoHDa{margin:0;font-size:14px}.r5-Yhpujq9N7hVmK{position:absolute;right:15px;top:18px;line-height:1;color:#bbb}.r5-Yhpujq9N7hVmK:hover{color:#888}.r5-Yhpujq9N7hVmK:before{font-family:vusion-icon-font;font-style:normal;font-weight:400;font-variant:normal;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased;content:\"\\F101\";font-size:14px}._3xurgGa_t45o6QGA{padding:15px;min-height:10px}.ajLGl8Dm0N0ccQt-{padding:15px 0 50px;text-align:center}@media (max-width:767px){._1AmfGz0KIguchwtq{width:auto;margin:10px}}._3lHBdQMtVMdr0TuX[static]{position:static;padding:20px}", ""]);
 
 // exports
 exports.locals = {
@@ -30086,7 +30193,7 @@ var content = __webpack_require__(398);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("3a85bd20", content, true);
+var update = __webpack_require__(2)("35ddaa05", content, true);
 
 /***/ }),
 /* 398 */
@@ -30244,7 +30351,7 @@ var content = __webpack_require__(401);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("158c7a50", content, true);
+var update = __webpack_require__(2)("4ee3d57d", content, true);
 
 /***/ }),
 /* 401 */
@@ -30436,7 +30543,7 @@ var content = __webpack_require__(407);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("1d962fc1", content, true);
+var update = __webpack_require__(2)("bb6def48", content, true);
 
 /***/ }),
 /* 407 */
@@ -30524,7 +30631,7 @@ var content = __webpack_require__(412);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("1fc82580", content, true);
+var update = __webpack_require__(2)("b7550080", content, true);
 
 /***/ }),
 /* 412 */
@@ -31135,7 +31242,7 @@ var content = __webpack_require__(427);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("1ae25c22", content, true);
+var update = __webpack_require__(2)("5bd5e9fc", content, true);
 
 /***/ }),
 /* 427 */
@@ -31202,7 +31309,7 @@ var content = __webpack_require__(431);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("697d4daa", content, true);
+var update = __webpack_require__(2)("8c1584ea", content, true);
 
 /***/ }),
 /* 431 */
@@ -31604,7 +31711,7 @@ var content = __webpack_require__(441);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("49612dd1", content, true);
+var update = __webpack_require__(2)("3c26082c", content, true);
 
 /***/ }),
 /* 441 */
@@ -31673,7 +31780,7 @@ var content = __webpack_require__(445);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("980b1c2a", content, true);
+var update = __webpack_require__(2)("4c7b67f0", content, true);
 
 /***/ }),
 /* 445 */
@@ -31716,7 +31823,7 @@ var content = __webpack_require__(448);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("32fa5733", content, true);
+var update = __webpack_require__(2)("058b83ae", content, true);
 
 /***/ }),
 /* 448 */
@@ -31839,7 +31946,7 @@ var content = __webpack_require__(452);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("7e70f743", content, true);
+var update = __webpack_require__(2)("ae9600c4", content, true);
 
 /***/ }),
 /* 452 */
@@ -31917,7 +32024,7 @@ var content = __webpack_require__(456);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("313fe504", content, true);
+var update = __webpack_require__(2)("4dc1d444", content, true);
 
 /***/ }),
 /* 456 */
@@ -32004,7 +32111,7 @@ var content = __webpack_require__(461);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("39ddf4cc", content, true);
+var update = __webpack_require__(2)("c134834c", content, true);
 
 /***/ }),
 /* 461 */
@@ -32089,7 +32196,7 @@ var content = __webpack_require__(466);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("7a74cdbf", content, true);
+var update = __webpack_require__(2)("598fd67f", content, true);
 
 /***/ }),
 /* 466 */
@@ -32178,7 +32285,7 @@ var content = __webpack_require__(471);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("32329a44", content, true);
+var update = __webpack_require__(2)("84b33484", content, true);
 
 /***/ }),
 /* 471 */
@@ -32308,7 +32415,7 @@ var content = __webpack_require__(476);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("d48d3b04", content, true);
+var update = __webpack_require__(2)("63e6bb3e", content, true);
 
 /***/ }),
 /* 476 */
@@ -32545,7 +32652,7 @@ var content = __webpack_require__(481);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("7c75ea68", content, true);
+var update = __webpack_require__(2)("893cb628", content, true);
 
 /***/ }),
 /* 481 */
@@ -32630,7 +32737,7 @@ var content = __webpack_require__(486);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("72d30be4", content, true);
+var update = __webpack_require__(2)("1f700b24", content, true);
 
 /***/ }),
 /* 486 */
@@ -32718,7 +32825,7 @@ var content = __webpack_require__(491);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("2976456f", content, true);
+var update = __webpack_require__(2)("5cd5a22a", content, true);
 
 /***/ }),
 /* 491 */
@@ -32806,7 +32913,7 @@ var content = __webpack_require__(496);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("3233aadf", content, true);
+var update = __webpack_require__(2)("1066b984", content, true);
 
 /***/ }),
 /* 496 */
@@ -32934,7 +33041,7 @@ var content = __webpack_require__(502);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("3df446f4", content, true);
+var update = __webpack_require__(2)("68f8db8e", content, true);
 
 /***/ }),
 /* 502 */
@@ -32980,7 +33087,7 @@ var content = __webpack_require__(505);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("69dac140", content, true);
+var update = __webpack_require__(2)("ddc49ef6", content, true);
 
 /***/ }),
 /* 505 */
@@ -33149,7 +33256,7 @@ var content = __webpack_require__(510);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("9edba250", content, true);
+var update = __webpack_require__(2)("308310d0", content, true);
 
 /***/ }),
 /* 510 */
@@ -33217,7 +33324,7 @@ var content = __webpack_require__(514);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("1493bf4f", content, true);
+var update = __webpack_require__(2)("f4721e62", content, true);
 
 /***/ }),
 /* 514 */
@@ -33415,7 +33522,7 @@ var content = __webpack_require__(521);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("5c245b43", content, true);
+var update = __webpack_require__(2)("2ec01a1e", content, true);
 
 /***/ }),
 /* 521 */
@@ -33544,7 +33651,7 @@ var content = __webpack_require__(526);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("12f593f8", content, true);
+var update = __webpack_require__(2)("71114544", content, true);
 
 /***/ }),
 /* 526 */
@@ -34019,7 +34126,7 @@ var content = __webpack_require__(535);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("14a0ef30", content, true);
+var update = __webpack_require__(2)("04719afa", content, true);
 
 /***/ }),
 /* 535 */
@@ -34141,7 +34248,7 @@ var content = __webpack_require__(540);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("a6cd711c", content, true);
+var update = __webpack_require__(2)("7168d812", content, true);
 
 /***/ }),
 /* 540 */
@@ -34210,7 +34317,7 @@ var content = __webpack_require__(544);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("419414ea", content, true);
+var update = __webpack_require__(2)("7e66536a", content, true);
 
 /***/ }),
 /* 544 */
@@ -34279,7 +34386,7 @@ var content = __webpack_require__(548);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("ba766e16", content, true);
+var update = __webpack_require__(2)("e2d9a8d6", content, true);
 
 /***/ }),
 /* 548 */
@@ -34347,7 +34454,7 @@ var content = __webpack_require__(552);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("d9733b38", content, true);
+var update = __webpack_require__(2)("35671f5f", content, true);
 
 /***/ }),
 /* 552 */
@@ -34414,7 +34521,7 @@ var content = __webpack_require__(556);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("620f3246", content, true);
+var update = __webpack_require__(2)("f4a9a73c", content, true);
 
 /***/ }),
 /* 556 */
@@ -34517,7 +34624,7 @@ var content = __webpack_require__(561);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("ea17ba6e", content, true);
+var update = __webpack_require__(2)("6d249da9", content, true);
 
 /***/ }),
 /* 561 */
@@ -34834,7 +34941,7 @@ var content = __webpack_require__(566);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("3e2c3ac6", content, true);
+var update = __webpack_require__(2)("3a59bb5d", content, true);
 
 /***/ }),
 /* 566 */
@@ -35077,7 +35184,7 @@ var content = __webpack_require__(571);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("59426a88", content, true);
+var update = __webpack_require__(2)("4717f0c1", content, true);
 
 /***/ }),
 /* 571 */
@@ -35178,7 +35285,7 @@ var content = __webpack_require__(576);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("24eea606", content, true);
+var update = __webpack_require__(2)("7284e574", content, true);
 
 /***/ }),
 /* 576 */
@@ -35243,17 +35350,12 @@ const find = (rootVM, func) => walk(rootVM, nodeVM => {
         // It is dynamic to find selected item by value
         // so using watcher is better than computed property.
         value(value) {
-            if (this.selectedVM && this.selectedVM.value === value) return;
-            if (value === undefined) this.selectedVM = undefined;else {
-                this.selectedVM = find(this, nodeVM => nodeVM.value === value);
-                if (this.selectedVM) {
-                    let nodeVM = this.selectedVM.parentVM;
-                    while (nodeVM !== this.rootVM) {
-                        nodeVM.currentExpanded = true;
-                        nodeVM = nodeVM.parentVM;
-                    }
-                }
-            }
+            this.watchValue(value);
+        },
+        // This method just run once after pushing many nodeVMs
+        nodeVMs() {
+            this.selectedVM = undefined;
+            this.watchValue(this.value);
         }
     },
     created() {
@@ -35268,9 +35370,22 @@ const find = (rootVM, func) => walk(rootVM, nodeVM => {
         // @TODO: Suggest to add a nextTick option in Vue.js
         // Must trigger `value` watcher at next tick.
         // If not, nodeVMs have not been pushed.
-        this.$nextTick(() => this.$options.watch.value.call(this, this.value));
+        this.$nextTick(() => this.watchValue(this.value));
     },
     methods: {
+        watchValue(value) {
+            if (this.selectedVM && this.selectedVM.value === value) return;
+            if (value === undefined) this.selectedVM = undefined;else {
+                this.selectedVM = find(this, nodeVM => nodeVM.value === value);
+                if (this.selectedVM) {
+                    let nodeVM = this.selectedVM.parentVM;
+                    while (nodeVM !== this.rootVM) {
+                        nodeVM.currentExpanded = true;
+                        nodeVM = nodeVM.parentVM;
+                    }
+                }
+            }
+        },
         select(nodeVM) {
             if (this.readonly || this.disabled) return;
 
@@ -35696,7 +35811,7 @@ var content = __webpack_require__(586);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(2)("6f1e12f7", content, true);
+var update = __webpack_require__(2)("b9f77b92", content, true);
 
 /***/ }),
 /* 586 */
