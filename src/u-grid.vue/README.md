@@ -1,6 +1,10 @@
-# 网格布局
+# 栅格布局（GridLayout）
 ## 示例
-### 定义12栅格系统,repeat参数定义栅格列数,span参数定义列跨越的栅格数
+
+### 基本形式
+
+定义12栅格系统,repeat参数定义栅格列数,span参数定义列跨越的栅格数。
+
 ``` html
 <u-grid-row :repeat="12" style="margin-bottom:10px">
 	<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">1/12</div></u-grid-column>
@@ -46,7 +50,7 @@
 	<u-grid-column :span="4"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">4/10</div></u-grid-column>
 </u-grid-row>
 ```
-### offset参数定义列偏移 
+### offset参数定义列偏移
 ```html
 <u-grid-row :repeat="12"  style="margin-bottom:10px">
 	<u-grid-column :span="4"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">4/12</div></u-grid-column>
