@@ -1,0 +1,17 @@
+@import 'u-linear-layout.vue/module.css';
+
+.root[direction="horizontal"][gap="small"] > * + * {
+    margin-left: 10px;
+}
+
+.root[direction="vertical"][gap="small"] > * + * {
+    margin-top: 10px;
+}
+
+.root[direction="horizontal"][gap="large"] > * + * {
+    margin-left: 30px;
+}
+
+.root[direction="vertical"][gap="large"] > * + * {
+    margin-top: 30px;
+}

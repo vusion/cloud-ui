@@ -24,7 +24,7 @@ import InputField from './u-input-field.vue';
 import Label from './u-label.vue';
 import LightBox from './u-lightbox.vue';
 import LineChart from './u-line-chart.vue';
-import LinearLayout from 'u-linear-layout.vue';
+import LinearLayout from './u-linear-layout.vue';
 import LinearProgress from 'u-linear-progress.vue';
 import Link from './u-link.vue';
 import ListView from 'u-list-view.vue';

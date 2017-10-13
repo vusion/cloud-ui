@@ -21,7 +21,7 @@ export default [
             { path: 'u-status-icon', component: () => import('../src/u-status-icon.vue/README.md') },
             { path: 'u-logo', component: () => import('../src/u-logo.vue/README.md') },
             /* Layout */
-            { path: 'u-linear-layout', component: () => import('u-linear-layout.vue/README.md') },
+            { path: 'u-linear-layout', component: () => import('../src/u-linear-layout.vue/README.md') },
             { path: 'u-grid', component: Empty },
             /* Navigation */
             { path: 'u-navbar', component: () => import('../src/u-navbar.vue/README.md') },
@@ -39,7 +39,7 @@ export default [
             { path: 'u-color-select', component: () => import('../src/u-color-select.vue/README.md') },
             { path: 'u-checkbox', component: () => import('u-checkbox.vue/README.md') },
             { path: 'u-switch', component: () => import('../src/u-switch.vue/README.md') },
-            /* { path: 'u-slider', component: () => import('../src/u-slider.vue/README.md') },*/
+            { path: 'u-slider', component: () => import('../src/u-slider.vue/README.md') },
             { path: 'u-field', component: Empty },
             { path: 'u-form-item', component: Empty },
             { path: 'u-form', component: () => import('../src/u-form.vue/README.md') },

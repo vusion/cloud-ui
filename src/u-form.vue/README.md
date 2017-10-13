@@ -25,7 +25,7 @@
         <u-input size="huge" maxlength="5" placeholder="1150-65535" value="3306"></u-input>
     </u-form-item>
     <u-form-item title="详情">
-        <u-textarea></u-textarea>
+        <u-textarea size="huge"></u-textarea>
     </u-form-item>
     <!-- u-form-item title="表格" layout="block">
         <u-table-view :data="[{
