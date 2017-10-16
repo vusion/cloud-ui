@@ -22,5 +22,7 @@
     <u-icon-svg name="chart-zoom">chart-zoom</u-icon-svg>
     <u-icon-svg name="close">close</u-icon-svg>
     <u-icon-svg name="info">info</u-icon-svg>
+    <u-icon-svg name="up">up</u-icon-svg>
+    <u-icon-svg name="down">down</u-icon-svg>
 </u-linear-layout>
 ```

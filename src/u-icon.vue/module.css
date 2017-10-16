@@ -74,6 +74,14 @@
     icon-font: url(./icons/info.svg);
 }
 
+.root[name="up"]:before {
+    icon-font: url(./icons/up.svg);
+}
+
+.root[name="down"]:before {
+    icon-font: url(./icons/down.svg);
+}
+
 .root[size="small"]:before {
     font-size: 14px;
     vertical-align: -2px;
