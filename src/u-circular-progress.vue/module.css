@@ -1,9 +1,9 @@
 @import 'u-circular-progress.vue/module.css';
-
 .text {
-   line-height: normal;
-   height: 100%;
+    line-height: normal;
+    height: 100%;
 }
+
 .wrap {
     position: absolute;
     width: 100%;
@@ -11,20 +11,28 @@
     top: 50%;
     transform: translateY(-50%);
 }
-.percent{
+
+.percent {
     font-size: 20px;
     color: #999;
     line-height: 30px;
 }
-.self{
+
+.self {
     font-size: 14px;
     color: #999;
 }
-.footer{
+
+.footer {
     text-align: center;
     color: #999;
     font-size: 14px;
 }
-.trail{
+
+.trail {
     stroke-linecap: round;
+}
+
+.trail[linecap] {
+    stroke-linecap: initial;
 }

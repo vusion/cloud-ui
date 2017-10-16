@@ -1,8 +1,8 @@
 <div :class="$style.root">
     <svg :class="$style.svg" viewBox="0 0 100 100">
-        <g transform="translate(50, 50) rotate(-90)">
+        <g transform="translate(50, 50) rotate(90)">
             <circle :class="$style.track" cx="0" cy="0" :r="radius" />
-            <circle :class="$style.trail" cx="0" cy="0" :r="radius" :style="{ strokeDasharray }" />
+            <circle :class="$style.trail" cx="0" cy="0" :r="radius" :linecap="percent === 0" :style="{ strokeDasharray }" />
         </g>
     </svg>
     <div :class="$style.text">
@@ -16,4 +16,4 @@
     <div :class="$style.footer">
         <slot name="title"></slot>
     </div>
- </div>
+</div>

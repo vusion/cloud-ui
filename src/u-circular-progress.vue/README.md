@@ -3,8 +3,8 @@
 ## Examples
 ### Basic
 
-``` html
-<u-circular-specific-progress :percent="36">
+```html
+<u-circular-specific-progress :percent="10">
     <div>VCPU</div>
 </u-circular-specific-progress>
 ```
