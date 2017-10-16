@@ -37,6 +37,7 @@
     "u-button.vue": "~0.2.1",
     "u-checkbox.vue": "~0.1.1",
     "u-circular-progress.vue": "~0.2.0",
+    "u-emitter.vue": "^0.1.1",
     "u-form-item.vue": "~0.1.7",
     "u-form.vue": "~0.1.7",
     "u-input.vue": "~0.1.6",

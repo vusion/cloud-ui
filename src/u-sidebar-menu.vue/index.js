@@ -10,7 +10,15 @@ export default {
     data() {
         return {
             currentOpen: this.open,
+            selectedMenu: undefined,
         };
+    },
+    created() {
+        this.$on('reset', () => {
+            if (!this.selectedMenu)
+                this.currentOpen = false;
+        });
+        this.$on('select', (item) => this.selectedMenu = item);
     },
     computed: {
         accordion() {
