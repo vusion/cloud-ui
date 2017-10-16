@@ -70,6 +70,10 @@
     icon-font: url(./icons/close.svg);
 }
 
+.root[name="info"]:before {
+    icon-font: url(./icons/info.svg);
+}
+
 .root[size="small"]:before {
     font-size: 14px;
     vertical-align: -2px;

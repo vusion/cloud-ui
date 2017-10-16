@@ -21,5 +21,6 @@
     <u-icon-svg name="chart-refresh">chart-refresh</u-icon-svg>
     <u-icon-svg name="chart-zoom">chart-zoom</u-icon-svg>
     <u-icon-svg name="close">close</u-icon-svg>
+    <u-icon-svg name="info">info</u-icon-svg>
 </u-linear-layout>
 ```
