@@ -1,23 +1,17 @@
-import Flex from '../u-flex.vue';
 export default {
     name: 'u-grid-row',
-    mixins: [Flex],
     props: {
         repeat: {
             type: Number,
             default: 24,
         },
-        gaps: {
-            type: Number,
-            default: 0,
-        },
         unit: {
             type: String,
             default: '%',
         },
-        type: {
+        place: {
             type: String,
-            default: undefined,
+            default: 'flex-start flex-start', // [flex-start | flex-end | center | space-between | space-around, flex-start | flex-end | center | baseline | stretch]
         },
     },
     data() {
@@ -28,12 +22,21 @@ export default {
     computed: {
         gapsStyleObject() {
             return {
-                marginLeft: '-' + this.gaps / 2 + 'px',
-                marginRight: '-' + this.gaps / 2 + 'px',
+                marginLeft: '-' + this.$parent.rowGap / 2 + 'px',
+                marginRight: '-' + this.$parent.rowGap / 2 + 'px',
+                marginTop: this.$parent.columnGap / 2 + 'px',
+                marginBottom: this.$parent.columnGap / 2 + 'px',
             };
         },
+        flexStyleObject() {
+            const style = { display: 'flex' };
+            const [justify, align] = this.place.split(' ');
+            style.justifyContent = justify;
+            style.alignItems = align;
+            return style;
+        },
         rowStyleObject() {
-            if (this.type === 'flex')
+            if (this.$parent.type === 'flex')
                 return Object.assign(this.gapsStyleObject, this.flexStyleObject);
             else
                 return this.gapsStyleObject;
