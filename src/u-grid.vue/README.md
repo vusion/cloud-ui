@@ -144,7 +144,6 @@
 		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">space-around flex-start</div></u-grid-column>
 	</u-grid-row>
 </u-grid>
-</div>
 ```
 #### 垂直排列方式
 ``` html
@@ -176,9 +175,10 @@
 		<u-grid-column :span="1"><div style="background: #67aaf5;padding:30px;color:#fff;text-align:center">stretch</div></u-grid-column>
 	</u-grid-row>
 </u-grid>
+</div>
 ```
 
-## GRID API
+## Grid API
 ### Attrs/Props
 
 | Attr/Prop | Type | Default | Description |
@@ -186,7 +186,7 @@
 | gap | Number | `medium` | 栅格之间的间隔 |
 | type | String | `undefined` | 布局模式，可选flex |
 
-## GRID-ROW API
+## Grid Row API
 ### Attrs/Props
 
 | Attr/Prop | Type | Default | Description |
@@ -195,7 +195,7 @@
 | place | Number | `flex-start flex-start` | flex布局的对齐方式 |
 
 
-## GRID-COLUNM API
+## Grid Column API
 ### Attrs/Props
 
 | Attr/Prop | Type | Default | Description |
