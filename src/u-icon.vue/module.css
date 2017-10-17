@@ -75,11 +75,11 @@
 }
 
 .root[name="up"]:before {
-    icon-font: url(./icons/up.svg);
+    icon-font: url(./icons/keyboard-arrow-up.svg);
 }
 
 .root[name="down"]:before {
-    icon-font: url(./icons/down.svg);
+    icon-font: url(./icons/keyboard-arrow-down.svg);
 }
 
 .root[size="small"]:before {
