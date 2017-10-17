@@ -7,15 +7,16 @@ export default {
         },
         gap: {
             type: String,
-            default: 'medium', // wide narrow medium
+            default: 'normal', // large small normal none
         },
     },
     data() {
         return {
             gapMap: {
-                wide: 30,
-                medium: 20,
-                narrow: 10,
+                large: 30,
+                normal: 20,
+                small: 10,
+                none: 0,
             },
         };
     },

@@ -33,44 +33,44 @@
 	</u-grid-row>
 </u-grid>
 ```
-### gaps参数定义列间隔
+### gap参数定义间隔
 ```html
-<u-grid  gap="narrow">
+<u-grid  gap="small">
 	<u-grid-row :repeat="3" >
-		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">narrow</div></u-grid-column>
-		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">narrow</div></u-grid-column>
-		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">narrow</div></u-grid-column>
+		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">small</div></u-grid-column>
+		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">small</div></u-grid-column>
+		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">small</div></u-grid-column>
 	</u-grid-row>
 	<u-grid-row :repeat="3" >
-		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">narrow</div></u-grid-column>
-		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">narrow</div></u-grid-column>
-		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">narrow</div></u-grid-column>
-	</u-grid-row>
-</u-grid>
-<br>
-<u-grid  gap="medium">
-	<u-grid-row :repeat="3" >
-		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">medium</div></u-grid-column>
-		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">medium</div></u-grid-column>
-		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">medium</div></u-grid-column>
-	</u-grid-row>
-	<u-grid-row :repeat="3" >
-		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">medium</div></u-grid-column>
-		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">medium</div></u-grid-column>
-		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">medium</div></u-grid-column>
+		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">small</div></u-grid-column>
+		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">small</div></u-grid-column>
+		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">small</div></u-grid-column>
 	</u-grid-row>
 </u-grid>
 <br>
-<u-grid  gap="wide">
+<u-grid  gap="normal">
 	<u-grid-row :repeat="3" >
-		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">wide</div></u-grid-column>
-		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">wide</div></u-grid-column>
-		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">wide</div></u-grid-column>
+		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">normal</div></u-grid-column>
+		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">normal</div></u-grid-column>
+		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">normal</div></u-grid-column>
 	</u-grid-row>
 	<u-grid-row :repeat="3" >
-		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">wide</div></u-grid-column>
-		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">wide</div></u-grid-column>
-		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">wide</div></u-grid-column>
+		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">normal</div></u-grid-column>
+		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">normal</div></u-grid-column>
+		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">normal</div></u-grid-column>
+	</u-grid-row>
+</u-grid>
+<br>
+<u-grid  gap="large">
+	<u-grid-row :repeat="3" >
+		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">large</div></u-grid-column>
+		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">large</div></u-grid-column>
+		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">large</div></u-grid-column>
+	</u-grid-row>
+	<u-grid-row :repeat="3" >
+		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">large</div></u-grid-column>
+		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">large</div></u-grid-column>
+		<u-grid-column :span="1"><div style="background: #67aaf5;padding:6px;color:#fff;text-align:center">large</div></u-grid-column>
 	</u-grid-row>
 </u-grid>
 ```
@@ -148,7 +148,7 @@
 #### 垂直排列方式
 ``` html
 <div style="height:600px;margin-top:20px;">
-<u-grid gap="wide" type="flex">
+<u-grid gap="large" type="flex">
 	<u-grid-row :repeat="6" place="center flex-start">
 		<u-grid-column :span="1"><div style="background: #67aaf5;padding:5px;color:#fff;text-align:center">flex-start</div></u-grid-column>
 		<u-grid-column :span="1"><div style="background: #78bbf6;padding:20px;color:#fff;text-align:center">flex-start</div></u-grid-column>
@@ -183,7 +183,7 @@
 
 | Attr/Prop | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
-| gap | Number | `medium` | 栅格之间的间隔 |
+| gap | String | `normal` | 栅格之间的间隔 [列间隔 行间隔]<br>可选值: large(30px), normal(20px), small(10px), none(0px)|
 | type | String | `undefined` | 布局模式，可选flex |
 
 ## Grid Row API
@@ -192,13 +192,13 @@
 | Attr/Prop | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
 | repeat | Number | `24` | 划分的栅格数 |
-| place | Number | `flex-start flex-start` | flex布局的对齐方式 |
+| place | String | `flex-start flex-start` | flex布局的对齐方式 [水平 垂直] <br> 水平可选值: flex-start, flex-end, center, space-between, space-around<br> 垂直可选值: flex-start, flex-end, center, baseline, stretch|
 
 
 ## Grid Column API
 ### Attrs/Props
 
-| Attr/Prop | Type | Default | Description |
+Attr/Prop | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
 | span | Number | `undefined` | 列跨越的栅格数 |
 | offset | Number | `0` | 列左边间隔栅格数 |
