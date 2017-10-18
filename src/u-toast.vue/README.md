@@ -36,16 +36,32 @@
 
 ``` vue
 <template>
+<div>
 <u-button @click.native="open">Toast</u-button>
+<u-toast  ref="toast" message="消息提示"></u-toast>
+</div>
 </template>
 
 <script>
 export default {
     methods: {
         open() {
-            new VusionUI.Toast().show('提示信息', 3000);
+            this.$refs.toast.show();
         },
     },
 };
 </script>
 ```
+
+## API
+### Attrs/Props
+
+| Attr/Prop | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| position | String | top-center | 显示的位置，可选的值有：top-center, top-left, top-right, bottom-center, bottom-left, bottom-right, static |
+| duration | Number | 2000 | 默认的显示位置 |
+| single | Boolean | false | 只显示一个toast提示，，需要手动设置，默认为false |
+| state | String | '' | 可选值有info，success, warnning, error和默认的五种样式toast |
+| message | String | '' | 提示内容 |
+| showClose | Boolean | false | 是否可关闭提示，默认不可关闭 |
+

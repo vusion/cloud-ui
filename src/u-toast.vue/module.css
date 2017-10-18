@@ -11,12 +11,20 @@
     margin-left: -160px;
 }
 .root[role='bottom-center'], .root[role='bottom-left'], .root[role='bottom-right'] {
-    left: 50%;
+    top: auto;
     bottom: 10px;
 }
 .root[role='top-right'], .root[role='bottom-right'] {
     left: auto;
     right: 10px;
+}
+.root[role='top-left'], .root[role='bottom-left'] {
+    left: 10px;
+    right: auto;
+}
+.root[role='top-left'], .root[role='top-center'], .root[role='top-right'] {
+    top: 10px;
+    bottom: auto;
 }
 .root[role=static]{
     position: static;
@@ -56,5 +64,5 @@
     opacity: 0.7;
 }
 .close:before{
-    content:'\00d7';
+    icon-font: url(../u-icon.vue/icons/close.svg);
 }

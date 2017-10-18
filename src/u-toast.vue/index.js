@@ -13,11 +13,12 @@ const Toast = {
     name: 'u-toast',
     props: {
         position: { type: String, default: 'top-center' },
-        single: Boolean,
+        single: { type: Boolean, default: false },
         duration: { type: Number, default: 2000 },
         state: { type: String, default: '' },
         message: String,
         visible: { type: Boolean, default: true },
+        showClose: { type: Boolean, default: false },
     },
     data() {
         return {
