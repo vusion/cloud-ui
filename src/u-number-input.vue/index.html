@@ -1,5 +1,5 @@
 <label :class="$style.root">
     <input :class="$style.input" v-model="showValue" :placeholder="placeholder" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px', height: height+'px'}">
-    <a :class="$style.btn" :disabled="disabled" @click.stop="add(1)"><u-icon-svg :class="$style.icon" name="up"></u-icon-svg></a>
-    <a :class="$style.btn" :disabled="disabled" @click.stop="add(-1)"><u-icon-svg :class="$style.icon" name="down"></u-icon-svg></a>
+    <a :class="$style.btn" :disabled="disabled" @click.stop="add(1)"><i :class="$style.icon" name="up"></i></a>
+    <a :class="$style.btn" :disabled="disabled" @click.stop="add(-1)"><i :class="$style.icon" name="down"></i></a>
 </label>

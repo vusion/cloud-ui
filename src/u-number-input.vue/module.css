@@ -43,8 +43,6 @@
 .btn[disabled] {
     cursor: not-allowed;
     opacity: 0.65;
-    border: 1px solid rgb(204, 204, 204);
-    background: rgb(255, 255, 255);
 }
 
 .btn+.btn {
@@ -53,9 +51,15 @@
 }
 
 .icon:before {
-    /* width: 1em; */
+    width: 1em;
     display: inline-block;
     font-size: 16px !important;
     vertical-align: middle !important;
     color: #989898;
+}
+.icon[name='up']:before{
+    icon-font: url(../u-icon.vue/icons/keyboard-arrow-up.svg);
+}
+.icon[name='down']:before{
+    icon-font: url(../u-icon.vue/icons/keyboard-arrow-down.svg);
 }
