@@ -1,14 +1,5 @@
 import Vue from 'vue';
 
-/**
- * @class Toast
- * @extend Base
- * @param {String}                   options.position         => 显示位置
- * @param {boolean=false}            options.single           => 始终只显示一个提示
- * @param {String}                   options.state            => info,success,warnning,error不同类型的提示
- * @param {String}                   options.message          => 提示信息
- *@param {boolean=true}              options.visible          => 显示/隐藏
- */
 const Toast = {
     name: 'u-toast',
     props: {
@@ -94,49 +85,6 @@ const Toast = {
     },
 };
 
-/**
- * @method [info|success|warning|error](message[,duration]) 弹出特殊类型的消息。为show方法的简写方式。
- * @public
- * @param  {string=''} message 消息内容
- * @param  {number=toast.duration} duration 该条消息的停留毫秒数。如果为0，则表示消息常驻不消失。如果不填，则使用toast默认的duration。
- * @return {void}
- */
-
-/**
- * @static
- * @private {Toast}
- * @description 直接初始化一个实例
- */
-/**
- * @method show(message[,duration][,state]) 弹出一个消息
- * @static
- * @public
- * @param  {string=''} message 消息内容
- * @param  {number=toast.duration} duration 该条消息的停留毫秒数。如果为0，则表示消息常驻不消失。如果不填，则使用toast默认的duration。
- * @param  {string=''} state 消息状态，可选参数：`info`、`success`、`warning`、`error`
- * @return {object} item 返回弹出的消息项
- */
-/**
- * @method [info|success|warning|error](message[,duration]) 弹出特殊类型的消息。为show方法的简写方式。
- * @static
- * @public
- * @param  {string=''} message 消息内容
- * @param  {number=toast.duration} duration 该条消息的停留毫秒数。如果为0，则表示消息常驻不消失。如果不填，则使用toast默认的duration。
- * @return {void}
- */
-/**
- * @method close(item) 关闭某条消息
- * @static
- * @public
- * @param  {object} item 需要关闭的消息对象
- * @return {void}
- */
-/**
- * @method closeAll() 关闭所有消息
- * @static
- * @public
- * @return {void}
- */
 Vue.nextTick(() => {
     // 获取构造器函数 （vue-loader 处理生成d额）
     const STATES = Toast.STATES = ['success', 'warning', 'info', 'error'];
