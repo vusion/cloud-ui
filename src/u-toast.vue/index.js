@@ -9,7 +9,7 @@ const Toast = {
         state: { type: String, default: '' },
         message: String,
         visible: { type: Boolean, default: true },
-        showClose: { type: Boolean, default: false },
+        closeable: { type: Boolean, default: false },
     },
     data() {
         return {
