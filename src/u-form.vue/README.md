@@ -315,6 +315,16 @@ export default {
 </u-form>
 ```
 
+通过设置`maxlength-message`属性，可以在已输入至最大长度的情况下继续输入时，给用户提示消息。
+
+``` html
+<u-form ref="form">
+    <u-form-item title="用户名">
+        <u-input maxlength="4" maxlength-message="不超过4个字符" placeholder="不超过4个字符"></u-input>
+    </u-form-item>
+</u-form>
+```
+
 ## 案例
 
 前面的示例只是局部展示组件库表单验证体系的使用方法，达到的效果不一定符合实际情况。下面举几种比较合理的案例：
