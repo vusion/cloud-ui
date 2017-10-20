@@ -16,11 +16,16 @@ import DateTimePicker from './u-date-time-picker.vue';
 import Draggable from './u-draggable.vue';
 import Droppable from './u-droppable.vue';
 import Field from './u-field.vue';
+import Flex from './u-flex.vue';
 import Form from './u-form.vue';
 import FormItem from './u-form-item.vue';
+import Grid from './u-grid.vue';
+import GridColumn from './u-grid-column.vue';
+import GridRow from './u-grid-row.vue';
 import Icon from './u-icon.vue';
 import Input from './u-input.vue';
 import InputField from './u-input-field.vue';
+import Layout from './u-layout.vue';
 import Label from './u-label.vue';
 import LightBox from './u-lightbox.vue';
 import LineChart from './u-line-chart.vue';
@@ -93,11 +98,16 @@ const Components = {
     Draggable,
     Droppable,
     Field,
+    Flex,
     Form,
     FormItem,
+    Grid,
+    GridColumn,
+    GridRow,
     Icon,
     Input,
     InputField,
+    Layout,
     Label,
     LightBox,
     LineChart,
@@ -171,11 +181,16 @@ export {
     Draggable,
     Droppable,
     Field,
+    Flex,
     Form,
     FormItem,
+    Grid,
+    GridColumn,
+    GridRow,
     Icon,
     Input,
     InputField,
+    Layout,
     Label,
     LightBox,
     LineChart,
