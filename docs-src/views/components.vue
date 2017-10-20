@@ -17,8 +17,6 @@
                 <u-sidebar-group title="Layout">
                     <u-sidebar-item to="/components/u-linear-layout">线性布局 <small>LinearLayout</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-grid">栅格布局 <small>Grid</small></u-sidebar-item>
-                    <u-sidebar-item to="/components/u-flex">Flex布局 <small>Flex</small></u-sidebar-item>
-                    <u-sidebar-item to="/components/u-layout">布局 <small>Layout</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Navigation">
                     <u-sidebar-item to="/components/u-navbar">导航栏 <small>Navbar</small></u-sidebar-item>

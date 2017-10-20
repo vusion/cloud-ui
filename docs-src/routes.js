@@ -23,8 +23,6 @@ export default [
             /* Layout */
             { path: 'u-linear-layout', component: () => import('../src/u-linear-layout.vue/README.md') },
             { path: 'u-grid', component: () => import('../src/u-grid.vue/README.md') },
-            { path: 'u-flex', component: () => import('../src/u-flex.vue/README.md') },
-            { path: 'u-layout', component: () => import('../src/u-layout.vue/README.md') },
             /* Navigation */
             { path: 'u-navbar', component: () => import('../src/u-navbar.vue/README.md') },
             { path: 'u-sidebar', component: () => import('../src/u-sidebar.vue/README.md') },

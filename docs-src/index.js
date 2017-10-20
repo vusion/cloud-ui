@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import * as Library from 'library';
+
 import GlobalLayout from './common/u-global-layout.vue';
 import Article from './common/u-article.vue';
 import ThemeSelect from './common/u-theme-select.vue';
@@ -17,9 +18,9 @@ const Components = Object.assign({}, Library, {
     ThemeSelectItem,
     Block,
 });
-delete Components.default;
 
-Object.keys(Components).forEach((key) => Components[key].name && Vue.component(Components[key].name, Components[key]));
+import { installComponents } from 'vusion-utils';
+installComponents(Components, Vue);
 
 import routes from './routes';
 new Vue({

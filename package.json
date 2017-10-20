@@ -55,7 +55,8 @@
     "u-textarea.vue": "~0.1.6",
     "u-tree-view-node.vue": "~0.2.6",
     "u-tree-view.vue": "~0.2.6",
-    "validator": "^8.0.0"
+    "validator": "^8.0.0",
+    "vusion-utils": "^0.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",

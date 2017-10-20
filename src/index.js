@@ -16,7 +16,6 @@ import DateTimePicker from './u-date-time-picker.vue';
 import Draggable from './u-draggable.vue';
 import Droppable from './u-droppable.vue';
 import Field from './u-field.vue';
-import Flex from './u-flex.vue';
 import Form from './u-form.vue';
 import FormItem from './u-form-item.vue';
 import Grid from './u-grid.vue';
@@ -25,7 +24,6 @@ import GridRow from './u-grid-row.vue';
 import Icon from './u-icon.vue';
 import Input from './u-input.vue';
 import InputField from './u-input-field.vue';
-import Layout from './u-layout.vue';
 import Label from './u-label.vue';
 import LightBox from './u-lightbox.vue';
 import LineChart from './u-line-chart.vue';
@@ -81,89 +79,6 @@ import TreeViewNode from 'u-tree-view-node.vue';
 import Validation from './u-validation.vue';
 import XBarChart from './u-xbar-chart.vue';
 
-const Components = {
-    Badge,
-    BarChart,
-    Base,
-    Button,
-    Calendar,
-    Capsule,
-    Capsules,
-    Chart,
-    Checkbox,
-    CircularProgress,
-    ColorSelect,
-    DatePicker,
-    DateTimePicker,
-    Draggable,
-    Droppable,
-    Field,
-    Flex,
-    Form,
-    FormItem,
-    Grid,
-    GridColumn,
-    GridRow,
-    Icon,
-    Input,
-    InputField,
-    Layout,
-    Label,
-    LightBox,
-    LineChart,
-    LinearLayout,
-    LinearProgress,
-    Link,
-    ListView,
-    ListViewItem,
-    Loading,
-    Logo,
-    Modal,
-    Movable,
-    MultiSelect,
-    Navbar,
-    NavbarItem,
-    NumberInput,
-    OldSelect,
-    Pagination,
-    PieChart,
-    Pill,
-    Pills,
-    Popover,
-    Popper,
-    Select,
-    SelectItem,
-    Sidebar,
-    SidebarGroup,
-    SidebarItem,
-    SidebarMenu,
-    Slider,
-    StatusIcon,
-    Subnav,
-    SubnavItem,
-    Subtab,
-    Subtabs,
-    Switch,
-    Tab,
-    TableCell,
-    TableSelect,
-    TableView,
-    TableViewCell,
-    TableViewColumn,
-    Tablet,
-    Tablets,
-    Tabs,
-    Tag,
-    Textarea,
-    TimePicker,
-    Toast,
-    Tooltip,
-    TreeView,
-    TreeViewNode,
-    Validation,
-    XBarChart,
-};
-
 export {
     Badge,
     BarChart,
@@ -181,7 +96,6 @@ export {
     Draggable,
     Droppable,
     Field,
-    Flex,
     Form,
     FormItem,
     Grid,
@@ -190,7 +104,6 @@ export {
     Icon,
     Input,
     InputField,
-    Layout,
     Label,
     LightBox,
     LineChart,
@@ -246,14 +159,3 @@ export {
     Validation,
     XBarChart,
 };
-
-const Library = {
-    install(Vue) {
-        for (const key in directives)
-            Vue.directive(key, directives[key]);
-        for (const key in Components)
-            Vue.component(Components[key].name, Components[key]);
-    },
-};
-
-export default Library;
