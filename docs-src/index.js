@@ -7,6 +7,7 @@ import GlobalLayout from './common/u-global-layout.vue';
 import Article from './common/u-article.vue';
 import ThemeSelect from './common/u-theme-select.vue';
 import ThemeSelectItem from './common/u-theme-select-item.vue';
+import Block from './common/u-block.vue';
 import './common/atom-one-light.css';
 
 const Components = Object.assign({}, Library, {
@@ -14,6 +15,7 @@ const Components = Object.assign({}, Library, {
     Article,
     ThemeSelect,
     ThemeSelectItem,
+    Block,
 });
 delete Components.default;
 

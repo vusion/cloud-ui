@@ -1,7 +1,18 @@
 .root {
-    position: relative;
-    margin-left: 0;
-    margin-right: 0;
-    display: block;
+    composes: row from '../u-grid.vue/module.css';
     overflow: hidden;
 }
+
+.root[type="flex"] { display: flex; }
+
+.root[justify="start"] { justify-content: flex-start; }
+.root[justify="center"] { justify-content: center; }
+.root[justify="end"] { justify-content: flex-end; }
+.root[justify="space-between"] { justify-content: space-between; }
+.root[justify="space-around"] { justify-content: space-around; }
+
+.root[alignment="top"] { align-items: flex-start; }
+.root[alignment="middle"] { align-items: flex-end; }
+.root[alignment="bottom"] { align-items: center; }
+.root[alignment="baseline"] { align-items: baseline; }
+.root[alignment="stretch"] { align-items: stretch; }
