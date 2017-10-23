@@ -1,5 +1,5 @@
 .root {
-    composes: row from '../u-grid.vue/module.css';
+    composes: row from '../u-grid-layout.vue/module.css';
     overflow: hidden;
 }
 

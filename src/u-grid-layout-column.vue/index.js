@@ -1,5 +1,5 @@
 export default {
-    name: 'u-grid-column',
+    name: 'u-grid-layout-column',
     props: {
         column: String,
         span: Number,

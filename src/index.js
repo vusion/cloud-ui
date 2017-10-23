@@ -18,9 +18,9 @@ import Droppable from './u-droppable.vue';
 import Field from './u-field.vue';
 import Form from './u-form.vue';
 import FormItem from './u-form-item.vue';
-import Grid from './u-grid.vue';
-import GridColumn from './u-grid-column.vue';
-import GridRow from './u-grid-row.vue';
+import GridLayout from './u-grid-layout.vue';
+import GridLayoutColumn from './u-grid-layout-column.vue';
+import GridLayoutRow from './u-grid-layout-row.vue';
 import Icon from './u-icon.vue';
 import Input from './u-input.vue';
 import InputField from './u-input-field.vue';
@@ -98,9 +98,9 @@ export {
     Field,
     Form,
     FormItem,
-    Grid,
-    GridColumn,
-    GridRow,
+    GridLayout,
+    GridLayoutColumn,
+    GridLayoutRow,
     Icon,
     Input,
     InputField,
