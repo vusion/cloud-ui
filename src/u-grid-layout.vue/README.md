@@ -34,7 +34,7 @@
 </u-grid-layout>
 ```
 
-### 间隔
+### 间隙
 
 ```html
 <u-grid-layout gap="none">
@@ -134,8 +134,8 @@
 </u-grid-layout>
 ```
 
-### flex模式
-#### 水平排列方式
+### Flex模式
+#### 水平分布方式
 
 ``` html
 <u-grid-layout>
@@ -167,7 +167,7 @@
 </u-grid-layout>
 ```
 
-#### 垂直排列方式
+#### 垂直对齐方式
 
 ``` html
 <u-grid-layout gap="large small">
@@ -192,9 +192,9 @@
 		<u-grid-layout-column :span="1"><u-block size="huge">baseline</u-block></u-grid-layout-column>
 	</u-grid-layout-row>
 	<u-grid-layout-row :repeat="6" type="flex" alignment="stretch">
-		<u-grid-layout-column :span="1"><u-block>stretch</u-block></u-grid-layout-column>
-		<u-grid-layout-column :span="1"><u-block size="large">stretch</u-block></u-grid-layout-column>
-		<u-grid-layout-column :span="1"><u-block size="huge">stretch</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block style="height: 100%">stretch</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block size="large" style="height: 100%">stretch</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block size="huge" style="height: 100%">stretch</u-block></u-grid-layout-column>
 	</u-grid-layout-row>
 </u-grid-layout>
 ```

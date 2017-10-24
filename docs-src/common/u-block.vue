@@ -16,8 +16,6 @@ export default {
     background: $brand-primary;
     color: white;
     text-align: center;
-    width: 100%;
-    height: 100%;
 }
 
 .root[size="large"] {
