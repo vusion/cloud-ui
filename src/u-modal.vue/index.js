@@ -7,7 +7,9 @@ const Modal = {
         cancelButton: { type: String, default: '取消' },
         visible: { type: Boolean, default: false },
         // @deprecated
-        width: { type: [String, Number], default: '400' },
+        width: { type: [String, Number], default: '' },
+        size: { type: String, default: 'normal' },
+        icon: { type: String, default: '' },
     },
     data() {
         return {

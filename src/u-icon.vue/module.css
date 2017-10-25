@@ -82,6 +82,10 @@
     icon-font: url(./icons/keyboard-arrow-down.svg);
 }
 
+.root[name="alert"]:before {
+    icon-font: url(./icons/alert.svg);
+}
+
 .root[size="small"]:before {
     font-size: 14px;
     vertical-align: -2px;

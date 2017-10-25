@@ -25,11 +25,41 @@ $media-sm-max-width: 767px;
 }
 
 .dialog {
+    width: 400px;
     display: inline-block;
     vertical-align: middle;
     text-align: left;
     background: white;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.dialog[size = "small"] {
+    width: 300px;
+}
+
+.dialog[size = "normal"] {
+    width: 400px;
+}
+
+.dialog[size = "large"] {
+    width: 600px;
+}
+
+.dialog[size = "huge"] {
+    width: 800px;
+}
+
+.dialog[size = "auto"] {
+    width: auto;
+}
+
+.body[icon ='alert']:before {
+    icon-font: url('../u-icon.vue/icons/alert.svg');
+    color: #9ba4ad;
+    margin: -24px 10px 0px 40px;
+    font-size: 60px;
+    height: 60px;
+    float: left;
 }
 
 .head {
@@ -82,3 +112,4 @@ $media-sm-max-width: 767px;
     position: static;
     padding: $margin-base;
 }
+

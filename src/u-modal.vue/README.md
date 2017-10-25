@@ -8,7 +8,10 @@
 ``` vue
 <template>
 <div>
-    <u-modal :visible.sync="modalVisible"></u-modal>
+    <u-modal :visible.sync="modalVisible" size="large" icon="alert" title="提示">
+        <span>确定移除吗？操作只能移除该账号的管理员角色操作只能移除该账号的管理员角色，其所属专属云信息不，其所属操作只能移除该账号的管理员角色，其所属专属云信息不专属云信息不</span>
+        <p>移除操作只能移除该账号的管理员角色，其所属专属云信息不可修改</p>
+    </u-modal>
     <u-linear-layout>
         <u-button @click="modalVisible = true">Modal</u-button>
         <u-button @click="open()">Open</u-button>
@@ -17,7 +20,6 @@
 </template>
 
 <script>
-import { Modal } from 'library';
 export default {
     data() {
         return {
@@ -38,19 +40,19 @@ export default {
 ### Static
 
 ``` html
-<u-modal visible static>Static</u-modal>
+<u-modal visible static width="600">Static</u-modal>
 ```
 
 ### 标题与内容
 
 ``` html
-<u-modal title="标题" visible static>内容</u-modal>
+<u-modal title="标题" visible static size="small">内容</u-modal>
 ```
 
 ### 自定义
 
 ``` html
-<u-modal visible static>
+<u-modal visible static icon="alert">
     <div slot="title">Test</div>
     <div slot="foot">
         <u-button color="primary">关闭</u-button>

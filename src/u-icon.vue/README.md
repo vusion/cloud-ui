@@ -24,5 +24,6 @@
     <u-icon-svg name="info">info</u-icon-svg>
     <u-icon-svg name="up">up</u-icon-svg>
     <u-icon-svg name="down">down</u-icon-svg>
+    <u-icon-svg name="alert">alert</u-icon-svg>
 </u-linear-layout>
 ```

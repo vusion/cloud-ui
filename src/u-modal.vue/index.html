@@ -1,5 +1,5 @@
 <div :class="$style.root" v-if="currentVisible">
-    <div :class="$style.dialog" :style="{width: width + 'px'}">
+    <div :class="$style.dialog" :style="{width: width+'px'}" :size="size">
         <div :class="$style.head">
             <slot name="head">
                 <div v-if="title" :class="$style.title">
@@ -8,7 +8,7 @@
                 <a :class="$style.close" @click="cancel()"></a>
             </slot>
         </div>
-        <div :class="$style.body">
+        <div :class="$style.body" :icon="icon">
             <slot name="body">
                 <slot>{{ content }}</slot>
             </slot>
