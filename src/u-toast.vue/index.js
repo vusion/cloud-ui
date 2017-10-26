@@ -15,6 +15,7 @@ const Toast = {
         return {
             list: [],
             showState: this.state,
+            showClose: true,
         };
     },
     methods: {
