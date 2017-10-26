@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { Modal } from 'library';
 export default {
     data() {
         return {

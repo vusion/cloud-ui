@@ -48,10 +48,12 @@
 
 <script>
 export default {
-	data: {
-		value: 12,
-		readonly: false,
-	},
+	data() {
+        return {
+            value: 12,
+            readonly: false,
+        };
+    },
     methods: {
         change(value) {
            console.log(value.value);

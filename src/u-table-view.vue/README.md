@@ -18,24 +18,26 @@
 </template>
 <script>
 export default {
-    data: {
-        tdata: [{
-            date: '2016-05-02',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1518 弄',
-        }, {
-            date: '2016-05-04',
-            name: '王大虎',
-            address: '上海市普陀区金沙江路 1517 弄'
-        }, {
-            date: '2016-05-01',
-            name: '天王盖地虎',
-            address: '上海市普陀区金沙江路 1519 弄'
-        }, {
-            date: '2016-05-03',
-            name: '小鸡炖蘑菇',
-            address: '上海市普陀区金沙江路 1516 弄'
-        }],
+    data: function () {
+        return {
+            tdata: [{
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '上海市普陀区金沙江路 1517 弄'
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '上海市普陀区金沙江路 1519 弄'
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '上海市普陀区金沙江路 1516 弄'
+            }],
+        };
     },
     methods: {
         formatter(row, column) {
@@ -60,24 +62,26 @@ export default {
 </template>
 <script>
 export default {
-    data: {
-        tdata: [{
-            date: '2016-05-02',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1518 弄',
-        }, {
-            date: '2016-05-04',
-            name: '王大虎',
-            address: '上海市普陀区金沙江路 1517 弄'
-        }, {
-            date: '2016-05-01',
-            name: '天王盖地虎',
-            address: '上海市普陀区金沙江路 1519 弄'
-        }, {
-            date: '2016-05-03',
-            name: '小鸡炖蘑菇',
-            address: '上海市普陀区金沙江路 1516 弄'
-        }],
+    data: function () {
+        return {
+            tdata: [{
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '上海市普陀区金沙江路 1517 弄'
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '上海市普陀区金沙江路 1519 弄'
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '上海市普陀区金沙江路 1516 弄'
+            }],
+        };
     },
     methods: {
         sortMethod(a, b) {
@@ -105,24 +109,26 @@ export default {
 </template>
 <script>
 export default {
-    data: {
-        tdata: [{
-            date: '2016-05-02',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1518 弄',
-        }, {
-            date: '2016-05-04',
-            name: '王大虎',
-            address: '上海市普陀区金沙江路 1517 弄'
-        }, {
-            date: '2016-05-01',
-            name: '天王盖地虎',
-            address: '上海市普陀区金沙江路 1519 弄'
-        }, {
-            date: '2016-05-03',
-            name: '小鸡炖蘑菇',
-            address: '上海市普陀区金沙江路 1516 弄'
-        }],
+    data: function () {
+        return {
+            tdata: [{
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '上海市普陀区金沙江路 1517 弄'
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '上海市普陀区金沙江路 1519 弄'
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '上海市普陀区金沙江路 1516 弄'
+            }],
+        };
     },
     methods: {
         formatter(row, column) {
@@ -148,51 +154,53 @@ export default {
 </template>
 <script>
 export default {
-    data: {
-        tdata: [{
-            date: 1501977600000,
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1518 弄',
-            female: '男',
-            use: 12,
-            total: 20,
-        }, {
-            date: 1502236800000,
-            name: '王大虎',
-            address: '上海市普陀区金沙江路 1517 弄',
-            female: '女',
-            use: 12,
-            total: 20,
-        }, {
-            date: 1503100800000,
-            name: '天王盖地虎',
-            address: '上海市普陀区金沙江路 1519 弄',
-            female: '男',
-            use: 12,
-            total: 20,
-        }, {
-            date: 1503964800000,
-            name: '小鸡炖蘑菇',
-            address: '上海市普陀区金沙江路 1516 弄',
-            female: '女',
-            use: 12,
-            total: 20,
-        }],
-        options: [
-            {
-                name: '全部',
-                value: '',
-            },
-            {
-                name: '男',
-                value: '男'
-            },
-            {
-                name: '女',
-                value: '女'
-            },
-        ],
-        value: ''
+    data: function () {
+        return {
+            tdata: [{
+                date: 1501977600000,
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄',
+                female: '男',
+                use: 12,
+                total: 20,
+            }, {
+                date: 1502236800000,
+                name: '王大虎',
+                address: '上海市普陀区金沙江路 1517 弄',
+                female: '女',
+                use: 12,
+                total: 20,
+            }, {
+                date: 1503100800000,
+                name: '天王盖地虎',
+                address: '上海市普陀区金沙江路 1519 弄',
+                female: '男',
+                use: 12,
+                total: 20,
+            }, {
+                date: 1503964800000,
+                name: '小鸡炖蘑菇',
+                address: '上海市普陀区金沙江路 1516 弄',
+                female: '女',
+                use: 12,
+                total: 20,
+            }],
+            options: [
+                {
+                    name: '全部',
+                    value: '',
+                },
+                {
+                    name: '男',
+                    value: '男'
+                },
+                {
+                    name: '女',
+                    value: '女'
+                },
+            ],
+            value: ''
+        };
     },
     methods: {
         filterMethod(value, columnValue) {
@@ -239,53 +247,55 @@ export default {
 </template>
 <script>
 export default {
-    data: {
-        tdata: [{
-            date: 1501977600000,
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1518 弄',
-            female: '男',
-            use: 12,
-            total: 20,
-        }, {
-            date: 1502236800000,
-            name: '王大虎',
-            address: '上海市普陀区金沙江路 1517 弄',
-            female: '女',
-            use: 12,
-            total: 20,
-        }, {
-            date: 1503100800000,
-            name: '天王盖地虎',
-            address: '上海市普陀区金沙江路 1519 弄',
-            female: '男',
-            use: 12,
-            total: 20,
-        }, {
-            date: 1503964800000,
-            name: '小鸡炖蘑菇',
-            address: '上海市普陀区金沙江路 1516 弄',
-            female: '女',
-            use: 12,
-            total: 20,
-        }],
-        options: [
-            {
-                name: '全部',
-                value: '',
-            },
-            {
-                name: '男',
-                value: '男'
-            },
-            {
-                name: '女',
-                value: '女'
-            },
-        ],
-        value: '',
-        current: {},
-        visible: false,
+    data: function () {
+        return {
+            tdata: [{
+                date: 1501977600000,
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄',
+                female: '男',
+                use: 12,
+                total: 20,
+            }, {
+                date: 1502236800000,
+                name: '王大虎',
+                address: '上海市普陀区金沙江路 1517 弄',
+                female: '女',
+                use: 12,
+                total: 20,
+            }, {
+                date: 1503100800000,
+                name: '天王盖地虎',
+                address: '上海市普陀区金沙江路 1519 弄',
+                female: '男',
+                use: 12,
+                total: 20,
+            }, {
+                date: 1503964800000,
+                name: '小鸡炖蘑菇',
+                address: '上海市普陀区金沙江路 1516 弄',
+                female: '女',
+                use: 12,
+                total: 20,
+            }],
+            options: [
+                {
+                    name: '全部',
+                    value: '',
+                },
+                {
+                    name: '男',
+                    value: '男'
+                },
+                {
+                    name: '女',
+                    value: '女'
+                },
+            ],
+            value: '',
+            current: {},
+            visible: false,
+        };
     },
     methods: {
         filterMethod(value, columnValue) {
