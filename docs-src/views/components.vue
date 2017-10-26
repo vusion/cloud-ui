@@ -110,7 +110,7 @@ export default {
 .side {
     padding: 20px 0;
     position: fixed;
-    width: 200px;
+    width: 220px;
     top: 64px;
     bottom: 0;
     /* height: calc(100vh - 134px); */
@@ -119,7 +119,7 @@ export default {
 }
 
 .main {
-    margin-left: 200px;
+    margin-left: 220px;
     padding: 40px;
 }
 </style>
