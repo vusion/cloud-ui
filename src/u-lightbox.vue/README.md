@@ -3,7 +3,7 @@
 ## 示例
 ### 基本形式
 
-``` html
+``` vue
 <template>
 <div>
     <u-lightbox title="图片预览" :visible.sync="visible1">
