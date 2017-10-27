@@ -1,4 +1,7 @@
 const path = require('path');
+const hljs = require('highlight.js');
+
+const hashSum = require('hash-sum');
 const iterator = require('markdown-it-for-inline');
 
 let theme = path.basename(process.cwd());
@@ -32,15 +35,34 @@ module.exports = {
                     test: /\.md$/,
                     use: [{
                         loader: 'vue-loader',
-                    },
-                    {
-                        loader: 'vue-markdown-html-loader',
                         options: {
-                            cacheDir: path.resolve(__dirname, './cache'),
-                            langPrefix: 'lang-',
-                            html: true,
+                            preserveWhitespace: false,
+                        },
+                    }, {
+                        loader: 'vue-md-loader',
+                        options: {
                             wrapper: 'u-article',
-                            use: [
+                            livePattern: {
+                                exec: (content) => [content, 'anonymous-' + hashSum(content)],
+                            },
+                            liveTemplateProcessor(template) {
+                                // Remove whitespace between tags
+                                template = template.trim().replace(/>\s+</g, '><');
+                                return `<div class="u-example">${template}</div>`;
+                            },
+                            markdown: {
+                                langPrefix: 'lang-',
+                                html: true,
+                                highlight(str, lang) {
+                                    if (lang && hljs.getLanguage(lang)) {
+                                        try {
+                                            return hljs.highlight(lang, str).value;
+                                        } catch (__) {}
+                                    }
+                                    return '';
+                                },
+                            },
+                            plugins: [
                                 [iterator, 'link_converter', 'link_open', (tokens, idx) => tokens[idx].tag = 'u-link'],
                                 [iterator, 'link_converter', 'link_close', (tokens, idx) => tokens[idx].tag = 'u-link'],
                             ],

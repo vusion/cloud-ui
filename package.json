@@ -31,7 +31,7 @@
     "cloud-ui"
   ],
   "dependencies": {
-    "markdown-it-for-inline": "^0.1.1",
+    "hash-sum": "^1.0.2",
     "popper.js": "^1.12.2",
     "u-base.vue": "~0.2.0",
     "u-button.vue": "~0.2.1",
@@ -66,10 +66,12 @@
     "eslint-plugin-vue": "^3.13.0",
     "highlight.js": "^9.12.0",
     "husky": "^0.13.3",
+    "markdown-it-for-inline": "^0.1.1",
     "shelljs": "^0.7.8",
     "vue": "^2.4.0",
-    "vue-markdown-html-loader": "0.0.2",
+    "vue-markdown-html-loader": "^0.0.2",
     "vue-markdown-loader": "^2.2.1",
+    "vue-md-loader": "^0.1.4",
     "vue-router": "^2.7.0",
     "vusion-hooks": "^0.1.0"
   },

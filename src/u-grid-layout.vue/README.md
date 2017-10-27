@@ -115,7 +115,7 @@
 		<u-grid-layout-column :span="3" :offset="3"><u-block>3/12 offset=3</u-block></u-grid-layout-column>
 		<u-grid-layout-column :span="3" :offset="3"><u-block>3/12 offset=3</u-block></u-grid-layout-column>
 	</u-grid-layout-row>
-<u-grid-layout>
+</u-grid-layout>
 ```
 
 ### 列排序
