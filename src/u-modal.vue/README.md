@@ -8,7 +8,7 @@
 ``` vue
 <template>
 <div>
-    <u-modal :visible.sync="modalVisible" size="normal" icon="alert" title="提示">
+    <u-modal :visible.sync="modalVisible" title="提示" icon="warning">
         <span>确定移除吗？</span>
     </u-modal>
     <u-linear-layout>
@@ -39,7 +39,7 @@ export default {
 ### Static
 
 ``` html
-<u-modal visible static >Static</u-modal>
+<u-modal visible static>Static</u-modal>
 ```
 
 ### 标题与内容
@@ -64,42 +64,24 @@ export default {
 <u-modal visible static size="small">
     size 为small，大小是300px
 </u-modal>
-```
-
-``` html
 <u-modal visible static size="normal">
     size 为默认的normal,大小是400px
 </u-modal>
-```
-
-``` html
 <u-modal visible static size="large">
     size 为large,大小是600px
 </u-modal>
-```
-
-``` html
 <u-modal visible static size="huge">
     size 为huge,大小是800px
 </u-modal>
-```
-
-``` html
 <u-modal visible static size="auto">
     size 为auto
 </u-modal>
 ```
 
-``` html
-<u-modal visible static size="large" width="500">
-    支持自定义width，会覆盖size的大小
-</u-modal>
-```
-
 ### 图标
 ``` html
-<u-modal visible static size="normal" icon="alert">
-    icon为alert
+<u-modal visible static icon="warning">
+    icon为warning
 </u-modal>
 ```
 
@@ -114,7 +96,7 @@ export default {
 | okButton | String | `'确定'` | 确定按钮文本，如果为空则不显示 |
 | cancelButton | String | `'取消'` | 取消按钮文本，如果为空则不显示 |
 | size | String | `'normal'` | 弹框的尺寸 |
-| icon | String | `''` | 提示图标 |
+| icon | String | | 提示图标，'info', 'success', 'warning', 'error' |
 
 ### Slots
 

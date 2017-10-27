@@ -33,27 +33,27 @@ $media-sm-max-width: 767px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
-.dialog[size = "small"] {
+.dialog[size="small"] {
     width: 300px;
 }
 
-.dialog[size = "normal"] {
+.dialog[size="normal"] {
     width: 400px;
 }
 
-.dialog[size = "large"] {
+.dialog[size="large"] {
     width: 600px;
 }
 
-.dialog[size = "huge"] {
+.dialog[size="huge"] {
     width: 800px;
 }
 
-.dialog[size = "auto"] {
+.dialog[size="auto"] {
     width: auto;
 }
 
-.body[icon ='alert']:before {
+.body[icon ="warning"]:before {
     icon-font: url('../u-icon.vue/icons/alert.svg');
     color: #9ba4ad;
     margin: -24px 10px 0px 40px;

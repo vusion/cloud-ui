@@ -9,7 +9,7 @@ const Modal = {
         // @deprecated
         width: { type: [String, Number], default: '' },
         size: { type: String, default: 'normal' },
-        icon: { type: String, default: '' },
+        icon: String,
     },
     data() {
         return {
