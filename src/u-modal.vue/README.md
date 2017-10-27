@@ -8,9 +8,8 @@
 ``` vue
 <template>
 <div>
-    <u-modal :visible.sync="modalVisible" size="large" icon="alert" title="提示">
-        <span>确定移除吗？操作只能移除该账号的管理员角色操作只能移除该账号的管理员角色，其所属专属云信息不，其所属操作只能移除该账号的管理员角色，其所属专属云信息不专属云信息不</span>
-        <p>移除操作只能移除该账号的管理员角色，其所属专属云信息不可修改</p>
+    <u-modal :visible.sync="modalVisible" size="normal" icon="alert" title="提示">
+        <span>确定移除吗？</span>
     </u-modal>
     <u-linear-layout>
         <u-button @click="modalVisible = true">Modal</u-button>
@@ -40,23 +39,67 @@ export default {
 ### Static
 
 ``` html
-<u-modal visible static width="600">Static</u-modal>
+<u-modal visible static >Static</u-modal>
 ```
 
 ### 标题与内容
 
 ``` html
-<u-modal title="标题" visible static size="small">内容</u-modal>
+<u-modal title="标题" visible static>内容</u-modal>
 ```
 
 ### 自定义
 
 ``` html
-<u-modal visible static icon="alert">
+<u-modal visible static>
     <div slot="title">Test</div>
     <div slot="foot">
         <u-button color="primary">关闭</u-button>
     </div>
+</u-modal>
+```
+### 大小扩展
+
+``` html
+<u-modal visible static size="small">
+    size 为small，大小是300px
+</u-modal>
+```
+
+``` html
+<u-modal visible static size="normal">
+    size 为默认的normal,大小是400px
+</u-modal>
+```
+
+``` html
+<u-modal visible static size="large">
+    size 为large,大小是600px
+</u-modal>
+```
+
+``` html
+<u-modal visible static size="huge">
+    size 为huge,大小是800px
+</u-modal>
+```
+
+``` html
+<u-modal visible static size="auto">
+    size 为auto
+</u-modal>
+```
+
+``` html
+<u-modal visible static size="large" width="500">
+    支持自定义width，会覆盖size的大小
+</u-modal>
+```
+
+### 图标
+``` html
+<u-modal visible static size="normal" icon="alert">
+    icon为alert
 </u-modal>
 ```
 
@@ -70,6 +113,8 @@ export default {
 | visible.sync | Boolean | `false` | 是否显示 |
 | okButton | String | `'确定'` | 确定按钮文本，如果为空则不显示 |
 | cancelButton | String | `'取消'` | 取消按钮文本，如果为空则不显示 |
+| size | String | `'normal'` | 弹框的尺寸 |
+| icon | String | `''` | 提示图标 |
 
 ### Slots
 
