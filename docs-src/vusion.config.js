@@ -53,13 +53,21 @@ module.exports = {
                             markdown: {
                                 langPrefix: 'lang-',
                                 html: true,
-                                highlight(str, lang) {
+                                highlight(str, rawLang) {
+                                    let lang = rawLang;
+                                    if (rawLang === 'vue')
+                                        lang = 'html';
+
                                     if (lang && hljs.getLanguage(lang)) {
                                         try {
-                                            return hljs.highlight(lang, str).value;
-                                        } catch (__) {}
+                                            const result = hljs.highlight(lang, str).value;
+                                            return `<pre class="hljs ${this.langPrefix}${rawLang}"><code>${result}</code></pre>`;
+                                        } catch (e) {}
                                     }
+
                                     return '';
+                                    // const result = this.utils.escapeHtml(str);
+                                    // return `<pre class="hljs"><code>${result}</code></pre>`;
                                 },
                             },
                             plugins: [
