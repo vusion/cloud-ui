@@ -8,7 +8,7 @@
         </slot>
     </div>
     <div v-if="legend" :class="$style.legend">
-        <div v-for="(sery,index) in series" :class="$style.item" :disabled="sery.hidden" @click.stop="toggle(index)">{{sery.name || sery.key}}</div>
+        <div v-for="(sery,index) in series" :class="$style.item" :disabled="sery.hidden" :title="sery.name || sery.key" @click.stop="toggle(index)">{{sery.name || sery.key}}</div>
     </div>
     <div :class="$style.content">
         <slot></slot>

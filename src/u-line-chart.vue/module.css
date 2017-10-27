@@ -187,6 +187,35 @@ $line_offset: 6px;
 .layer .elsvg:nth-of-type(6) .area {
     fill: rgba(237, 139, 204, 0.15);
 }
+.layer .elsvg:nth-of-type(7) .line {
+    stroke: rgb(138, 209, 153);
+}
+
+.layer .elsvg:nth-of-type(7) .area {
+    fill: rgba(138, 209, 153, 0.1);
+}
+
+.layer .elsvg:nth-of-type(8) .line {
+    stroke: rgb(103, 197, 245);
+}
+
+.layer .elsvg:nth-of-type(8) .area {
+    fill: rgba(103, 197, 245, 0.1);
+}
+.layer .elsvg:nth-of-type(9) .line {
+    stroke: rgb(138, 205, 78);
+}
+
+.layer .elsvg:nth-of-type(9) .area {
+    fill: rgba(138, 205, 78, 0.1);
+}
+
+.layer .elsvg:nth-of-type(10) .line {
+    stroke: rgb(245, 131, 122);
+}
+.layer .elsvg:nth-of-type(10) .area {
+    fill: rgba(245, 131, 122, 0.1);
+}
 
 .piece {
     position: absolute;
@@ -319,4 +348,17 @@ $line_offset: 6px;
 
 .piece .point:nth-of-type(6) {
     border-color: rgb(237, 139, 204);
+}
+.piece .point:nth-of-type(7) {
+    border-color: rgb(138, 209, 153);
+}
+
+.piece .point:nth-of-type(8) {
+    border-color: rgb(103, 197, 245);
+}
+.piece .point:nth-of-type(9) {
+    border-color: rgb(138, 205, 78);
+}
+.piece .point:nth-of-type(10) {
+    border-color: rgb(245, 131, 122);
 }
