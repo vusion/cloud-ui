@@ -2,15 +2,16 @@
 
 ## 示例
 ### 基本形式
+#### 灯箱包含单个元素
 
 ``` vue
 <template>
 <div>
-    <u-lightbox title="图片预览" :visible.sync="visible1">
-        <img src="/images/1.jpg" />
+    <u-lightbox :visible.sync="visible">
+        <u-lightbox-item title="图片预览"><img src="/images/1.jpg" /></u-lightbox-item>
     </u-lightbox>
     <u-linear-layout>
-        <u-button @click="visible1 = true">Lightbox</u-button>
+        <u-button @click="visible = true">Open Lightbox</u-button>
     </u-linear-layout>
 </div>
 </template>
@@ -18,10 +19,40 @@
 export default {
     data() {
         return {
-            visible1: false,
-            visible2: false,
-            visible3: false,
+            visible: false,
         };
+    },
+};
+</script>
+```
+
+#### 灯箱包含多个元素
+
+``` vue
+<template>
+<div>
+    <u-lightbox :visible.sync="visible" :index="showItem" animation="fade">
+        <u-lightbox-item v-for="(image, index) in images" :title="image.title"><img :src="image.src" /></u-lightbox-item>
+    </u-lightbox>
+    <u-linear-layout>
+        <img style="width: 300px;" v-for="(image, index) in images" :src="image.src"  @click="showLightbox(index)"/>
+    </u-linear-layout>
+</div>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            visible: false,
+            images: [{src:'/images/1.jpg', title:'图片1'}, {src:'/images/2.jpg', title: '图片2'}],
+            showItem: 0,
+        };
+    },
+    methods: {
+        showLightbox(index) {
+            this.visible = true;
+            this.showItem = index;
+        },
     },
 };
 </script>
@@ -30,7 +61,7 @@ export default {
 ### Static
 
 ``` html
-<u-lightbox visible static :maskClose="false">
+<u-lightbox visible static :maskClose="false" style="height: 400px;"> 
     <video controls style='width: 640px; height: 360px; display: block;'
         poster='http://www.html5videoplayer.net/poster/big_buck_bunny.jpg'
         src='http://www.html5videoplayer.net/videos/big_buck_bunny.mp4'></video>
@@ -40,7 +71,7 @@ export default {
 ### 关闭按钮
 
 ``` html
-<u-lightbox closeButton :maskClose="false" visible static>
+<u-lightbox visible static closeButton :maskClose="false" style="height: 450px;">
     <img src="/images/2.jpg" />
 </u-lightbox>
 ```
@@ -54,6 +85,9 @@ export default {
 | visible.sync | Boolean | `false` | 是否显示 |
 | maskClose | Boolean | `true` | 点击遮罩层关闭灯箱 |
 | closeButton | Boolean | `false` | 是否显示关闭按钮 |
+| loop | Boolean | `false` | 是否可循环播放灯箱内容 |
+| animation | String | `''` | 动画（可选fade/zoom-out） |
+| index | Integer | 0 | 设置显示第index+1个灯箱内容 |
 
 ### Slots
 

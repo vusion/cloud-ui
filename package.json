@@ -67,6 +67,7 @@
     "highlight.js": "^9.12.0",
     "husky": "^0.13.3",
     "shelljs": "^0.7.8",
+    "u-tree-view-text.vue": "^0.2.7",
     "vue": "^2.4.0",
     "vue-markdown-html-loader": "0.0.2",
     "vue-markdown-loader": "^2.2.1",

@@ -1,7 +1,10 @@
 <div :class="$style.root" v-if="currentVisible" @click="maskClose && close()">
-    <div :class="$style.wrapper" @click.stop>
-        <a v-if="closeButton" :class="$style.close" @click="close()"></a>
-        <slot></slot>
-        <div :class="$style.title" v-if="title">{{ title }}</div>
+    <div :class="$style.wrapper">
+        <div :class="$style.content" @click.stop>
+            <a v-if="closeButton" :class="$style.close" @click="close()"></a>
+            <slot></slot>
+            <a v-show="showButton && hasPre" :class="$style.button" role="pre" @click="pre()"></a>
+            <a v-show="showButton && hasNext" :class="$style.button" role="next" @click="next()"></a>
+        </div>
     </div>
 </div>

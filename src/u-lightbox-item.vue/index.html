@@ -1,0 +1,9 @@
+<div  :class="$style.root"
+    :start="isStart"
+    :current="isCurrent"
+    :animation="animation"
+    @animationend="animationEnd"
+    @transitionend="animationEnd">
+    <slot></slot>
+    <div :class="$style.title" v-if="title">{{ title }}</div>
+</div>
