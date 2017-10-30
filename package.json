@@ -53,8 +53,9 @@
     "u-tab.vue": "~0.3.3",
     "u-tabs.vue": "~0.3.3",
     "u-textarea.vue": "~0.1.6",
-    "u-tree-view-node.vue": "~0.2.6",
-    "u-tree-view.vue": "~0.2.6",
+    "u-tree-view-node.vue": "~0.2.7",
+    "u-tree-view-text.vue": "~0.2.7",
+    "u-tree-view.vue": "~0.2.7",
     "validator": "^8.0.0",
     "vusion-utils": "^0.1.0"
   },

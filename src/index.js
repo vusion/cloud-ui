@@ -76,6 +76,7 @@ import Toast from './u-toast.vue';
 import Tooltip from './u-tooltip.vue';
 import TreeView from 'u-tree-view.vue';
 import TreeViewNode from 'u-tree-view-node.vue';
+import TreeViewText from 'u-tree-view-text.vue';
 import Validation from './u-validation.vue';
 import XBarChart from './u-xbar-chart.vue';
 
@@ -156,6 +157,7 @@ export {
     Tooltip,
     TreeView,
     TreeViewNode,
+    TreeViewText,
     Validation,
     XBarChart,
 };

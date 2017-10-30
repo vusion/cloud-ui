@@ -77,6 +77,7 @@ export {
     Tooltip,
     TreeView,
     TreeViewNode,
+    TreeViewText,
     Validation,
     XBarChart,
 } from '../src';
