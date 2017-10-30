@@ -79,7 +79,6 @@
     "vue": "^2.4.0"
   },
   "vusion": {
-    "type": "library",
-    "assetsPath": "./src/assets"
+    "type": "library"
   }
 }

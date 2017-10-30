@@ -27,9 +27,9 @@
         },
     };
 </script>
-<style scoped>
+<!--style scoped>
     .success{
         background: #00a65a !important;
     }
-</style>
+</style-->
 ```
