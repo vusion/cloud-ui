@@ -1,5 +1,9 @@
+import Emitter from 'u-emitter.vue';
+
 export default {
     name: 'u-sidebar-menu',
+    parentName: 'u-sidebar',
+    mixins: [Emitter],
     props: {
         title: String,
         open: {
@@ -11,14 +15,24 @@ export default {
         return {
             currentOpen: this.open,
             selectedMenu: undefined,
+            parentVM: undefined,
         };
     },
     created() {
-        this.$on('reset', () => {
-            if (!this.selectedMenu)
-                this.currentOpen = false;
+        this.dispatch(this.$options.parentName, 'add-menu-vm', this);
+        this.$on('select', (item) => {
+            this.parentVM.itemVMs.forEach((itemMenu) => {
+                if (itemMenu.$options.name === 'u-sidebar-menu') {
+                    itemMenu.currentOpen = false;
+                    itemMenu.selectedMenu = undefined;
+                }
+            });
+            this.selectedMenu = item;
+            this.currentOpen = true;
         });
-        this.$on('select', (item) => this.selectedMenu = item);
+    },
+    destroyed() {
+        this.dispatch(this.$options.parentName, 'remove-menu-vm', this);
     },
     computed: {
         accordion() {
