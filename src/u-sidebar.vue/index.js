@@ -5,17 +5,17 @@ export default {
     },
     data() {
         return {
-            itemVMs: [],
+            menuVMs: [],
         };
     },
     created() {
         this.$on('add-menu-vm', (itemVM) => {
             itemVM.parentVM = this;
-            this.itemVMs.push(itemVM);
+            this.menuVMs.push(itemVM);
         });
         this.$on('remove-menu-vm', (itemVM) => {
             itemVM.parentVM = undefined;
-            this.itemVMs.splice(this.itemVMs.indexOf(itemVM), 1);
+            this.menuVMs.splice(this.menuVMs.indexOf(itemVM), 1);
         });
     },
 };

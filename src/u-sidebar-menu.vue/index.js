@@ -14,20 +14,16 @@ export default {
     data() {
         return {
             currentOpen: this.open,
-            selectedMenu: undefined,
             parentVM: undefined,
         };
     },
     created() {
         this.dispatch(this.$options.parentName, 'add-menu-vm', this);
         this.$on('select', (item) => {
-            this.parentVM.itemVMs.forEach((itemMenu) => {
-                if (itemMenu.$options.name === 'u-sidebar-menu') {
+            this.parentVM.menuVMs.forEach((itemMenu) => {
+                if (itemMenu.$options.name === 'u-sidebar-menu')
                     itemMenu.currentOpen = false;
-                    itemMenu.selectedMenu = undefined;
-                }
             });
-            this.selectedMenu = item;
             this.currentOpen = true;
         });
     },
@@ -36,7 +32,7 @@ export default {
     },
     computed: {
         accordion() {
-            return this.$parent.accordion;
+            return this.parentVM.accordion;
         },
     },
     watch: {
@@ -47,7 +43,7 @@ export default {
     methods: {
         onClick() {
             if (this.accordion) {
-                this.$parent.$children.forEach((item) => {
+                this.parentVM.menuVMs.forEach((item) => {
                     if (item.$options.name === 'u-sidebar-menu' && item !== this)
                         item.currentOpen = false;
                 });
