@@ -21,14 +21,13 @@ const Modal = {
             this.currentVisible = visible;
         },
     },
+    mounted() {
+        const el = document.createElement('div');
+        this.$mount(el);
+        document.body.appendChild(this.$el);
+    },
     methods: {
         open() {
-            if (!this.$el) {
-                const el = document.createElement('div');
-                this.$mount(el);
-                document.body.appendChild(this.$el);
-            }
-
             this.currentVisible = true;
             this.$emit('open');
         },
