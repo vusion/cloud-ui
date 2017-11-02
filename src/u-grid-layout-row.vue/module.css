@@ -1,13 +1,15 @@
 .root {
     composes: row from '../u-grid-layout.vue/module.css';
 }
-.root:after, .root:before {
+
+.root:after {
     display: block;
-    content: ".";
+    content: '.';
     clear: both;
     height: 0;
     visibility: hidden;
 }
+
 .root[type="flex"] { display: flex; }
 
 .root[justify="start"] { justify-content: flex-start; }

@@ -8,6 +8,9 @@ export default {
         $route: {
             immediate: true,
             handler(to, from) {
+                if (!this.to)
+                    return;
+
                 const location = this.$router.resolve(this.to).location;
                 const flag = this.exact ? location.path === to.path : to.path.startsWith(location.path);
                 if (flag)
