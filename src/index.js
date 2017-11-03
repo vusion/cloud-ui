@@ -1,4 +1,5 @@
-import './u-base.vue/base.css';
+import './base.css';
+
 import * as directives from 'u-base.vue/directives';
 import Badge from './u-badge.vue';
 import BarChart from './u-bar-chart.vue';
