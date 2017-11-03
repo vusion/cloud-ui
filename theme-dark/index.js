@@ -6,7 +6,6 @@ export { Button, Link, SubnavItem };
 export {
     Badge,
     BarChart,
-    Base,
     Calendar,
     Capsule,
     Capsules,

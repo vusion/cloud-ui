@@ -6,7 +6,6 @@ import LineChart from './u-line-chart.vue';
 export { Button, BarChart, Chart, LineChart };
 export {
     Badge,
-    Base,
     Calendar,
     Capsule,
     Capsules,

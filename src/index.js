@@ -3,7 +3,6 @@ import './base.css';
 import * as directives from 'u-base.vue/directives';
 import Badge from './u-badge.vue';
 import BarChart from './u-bar-chart.vue';
-import Base from './u-base.vue';
 import Button from './u-button.vue';
 import Calendar from './u-calendar.vue';
 import Capsule from './u-capsule.vue';
@@ -84,7 +83,6 @@ import XBarChart from './u-xbar-chart.vue';
 export {
     Badge,
     BarChart,
-    Base,
     Button,
     Calendar,
     Capsule,
