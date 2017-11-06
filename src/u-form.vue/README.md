@@ -4,7 +4,7 @@
 ### 基本形式
 
 ``` html
-<u-form>
+<u-form gap="large">
     <u-form-item title="计费方式">
     </u-form-item>
     <u-form-item title="实例名称">
@@ -128,7 +128,7 @@ export default {
 
 ``` vue
 <template>
-<u-form ref="form" :rules="rules">
+<u-form ref="form" gap="large" :rules="rules">
     <u-form-item title="用户名" name="username">
         <u-input size="huge" maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>
@@ -189,7 +189,7 @@ export default {
 
 ``` vue
 <template>
-<u-form ref="form" :rules="rules">
+<u-form ref="form" gap="large" :rules="rules">
     <u-form-item title="用户名" name="username">
         <u-input size="huge" maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>
@@ -235,7 +235,7 @@ export default {
 
 ``` vue
 <template>
-<u-form ref="form" :rules="rules">
+<u-form ref="form" gap="large" :rules="rules">
     <u-form-item title="用户名" name="username">
         <u-input size="huge" maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>
@@ -273,7 +273,7 @@ export default {
 
 ``` vue
 <template>
-<u-form ref="form" :rules="rules">
+<u-form ref="form" gap="large" :rules="rules">
     <u-form-item title="用户名" name="username">
         <u-input size="huge" maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>
@@ -308,7 +308,7 @@ export default {
 在表单控件的值改变时，对该值限制在规定的长度或范围内，如`<input>`控件的部分`type`和`maxlength`的限制行为等：
 
 ``` html
-<u-form>
+<u-form gap="large">
     <u-form-item title="用户名">
         <u-input size="huge" maxlength="4" placeholder="不超过4个字符"></u-input>
     </u-form-item>
@@ -318,7 +318,7 @@ export default {
 通过设置`maxlength-message`属性，可以在已输入至最大长度的情况下继续输入时，给用户提示消息。
 
 ``` html
-<u-form ref="form">
+<u-form ref="form" gap="large">
     <u-form-item title="用户名">
         <u-input maxlength="4" maxlength-message="不超过4个字符" placeholder="不超过4个字符"></u-input>
     </u-form-item>
@@ -339,7 +339,7 @@ export default {
 
 ``` vue
 <template>
-<u-form ref="form" :rules="rules">
+<u-form ref="form" gap="large" :rules="rules">
     <u-form-item title="用户名" name="username">
         <u-input size="huge" v-model="model.username" maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>
@@ -398,7 +398,7 @@ export default {
 
 ``` vue
 <template>
-<u-form ref="form" :rules="rules">
+<u-form ref="form" gap="large" :rules="rules">
     <u-form-item title="用户名" name="username">
         <u-input size="huge" v-model="model.username" maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>
@@ -462,7 +462,7 @@ export default {
 
 ``` vue
 <template>
-<u-form ref="form" :rules="rules" @validate="canSubmit = $event">
+<u-form ref="form" gap="large" :rules="rules" @validate="canSubmit = $event">
     <u-form-item title="用户名" name="username">
         <u-input size="huge" v-model="model.username" maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>

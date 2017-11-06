@@ -1,1 +1,17 @@
 @import 'u-form.vue/module.css';
+
+.root[gap="large"][layout="block"] > * + * {
+    margin-top: 30px;
+}
+
+.root[gap="large"][layout="inline"] > * + * {
+    margin-left: 30px;
+}
+
+.root[gap="small"][layout="block"] > * + * {
+    margin-top: 10px;
+}
+
+.root[gap="small"][layout="inline"] > * + * {
+    margin-left: 10px;
+}
