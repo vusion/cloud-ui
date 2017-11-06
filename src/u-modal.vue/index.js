@@ -10,6 +10,7 @@ const Modal = {
         width: { type: [String, Number], default: '' },
         size: { type: String, default: 'normal' },
         icon: String,
+        static: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -22,9 +23,12 @@ const Modal = {
         },
     },
     mounted() {
-        const el = document.createElement('div');
-        this.$mount(el);
-        document.body.appendChild(this.$el);
+        if (this.$el && !this.static)
+            document.body.appendChild(this.$el);
+    },
+    destroyed() {
+        if (this.$el && this.$el.parentNode === document.body)
+            document.body.removeChild(this.$el);
     },
     methods: {
         open() {

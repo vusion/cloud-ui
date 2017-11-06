@@ -5,6 +5,7 @@ export default {
         maskClose: { type: Boolean, default: true },
         closeButton: { type: Boolean, default: false },
         visible: { type: Boolean, default: false },
+        static: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -15,6 +16,14 @@ export default {
         visible(visible) {
             this.currentVisible = visible;
         },
+    },
+    mounted() {
+        if (this.$el && !this.static)
+            document.body.appendChild(this.$el);
+    },
+    destroyed() {
+        if (this.$el && this.$el.parentNode === document.body)
+            document.body.removeChild(this.$el);
     },
     methods: {
         // 显示灯箱
@@ -39,4 +48,3 @@ export default {
         },
     },
 };
-
