@@ -10,6 +10,8 @@
 <div>
     <u-modal :visible.sync="modalVisible" title="提示" icon="warning">
         <span>确定移除吗？</span>
+        <span slot="tip">上海定居的家电家具的记得记得季度奖度假酒店多久记得记得季度奖大姐姐打架大家记得记得就记得记得</span>
+
     </u-modal>
     <u-linear-layout>
         <u-button @click="modalVisible = true">Modal</u-button>
@@ -81,8 +83,11 @@ export default {
 
 ### 图标
 ``` html
-<u-modal visible static icon="warning">
-    icon为warning
+<u-modal visible static size="huge" icon="warning" width="700">
+    icon为alert是就是近段为alert是就
+    <div slot="tip"><span :style="{marginLeft:'50px'}">你好，就是就是近段时间大家都是时间大家都</span>
+    <p>哈哈哈</p>
+    </div>
 </u-modal>
 ```
 

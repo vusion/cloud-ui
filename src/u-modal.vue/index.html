@@ -10,7 +10,10 @@
         </div>
         <div :class="$style.body" :icon="icon">
             <slot name="body">
-                <slot>{{ content }}</slot>
+                <div :class="$style.info">
+                    <div :class="$style.heading"><slot>{{ content }}</slot></div>
+                    <div :class="$style.tip"><slot name="tip">{{ tip }}</slot></div>
+                </div>
             </slot>
         </div>
         <div :class="$style.foot" v-if="okButton || cancelButton">
