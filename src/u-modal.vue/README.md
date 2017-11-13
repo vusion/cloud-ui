@@ -8,10 +8,9 @@
 ``` vue
 <template>
 <div>
-    <u-modal :visible.sync="modalVisible" title="提示" icon="warning">
-        <span>确定移除吗？</span>
-        <span slot="tip">上海定居的家电家具的记得记得季度奖度假酒店多久记得记得季度奖大姐姐打架大家记得记得就记得记得</span>
-
+    <u-modal :visible.sync="modalVisible" title="提示" icon="warning" size="large" width="500">
+        <span slot="heading">确定删除该 RDS 实例吗？？</span>
+        <div>删除后实例备份将同时被删除且不可恢复</div>
     </u-modal>
     <u-linear-layout>
         <u-button @click="modalVisible = true">Modal</u-button>
@@ -79,18 +78,45 @@ export default {
 <u-modal visible static size="auto">
     size 为auto
 </u-modal>
+<u-modal visible static size="small" width="500">
+    自定义width，会覆盖默认的size
+</u-modal>
 ```
 
 ### 图标
 ``` html
-<u-modal visible static size="huge" icon="warning" width="700">
-    icon为alert是就是近段为alert是就
-    <div slot="tip"><span :style="{marginLeft:'50px'}">你好，就是就是近段时间大家都是时间大家都</span>
-    <p>哈哈哈</p>
-    </div>
+<u-modal visible static size="normal" icon="warning">
+    图标为warning
+</u-modal>
+<u-modal visible static size="normal" icon="success">
+    图标为success
+</u-modal>
+<u-modal visible static size="normal" icon="error">
+    图标为error
 </u-modal>
 ```
+### slot
+``` html
+<u-modal visible static icon="warning" size="large" width="500">
+    <span slot="heading">内容的标题需要添加heading的slot</span>
+    <span>默认的内容</span>
+    <!-- <u-form layout="inline" label-size="auto">
+            <u-form-item title="状态">
+                <u-input maxlength="63" placeholder="认证中"></u-input>
+            </u-form-item>
+            <u-form-item title="用户名">
+                <u-input maxlength="63" placeholder="请输入用户名"></u-input>
+            </u-form-item>
+            <u-form-item title="联系号码">
+                <u-input maxlength="63" placeholder="请输入联系号码"></u-input>
+            </u-form-item>
+            <u-form-item>
+                <u-button color="primary">查询</u-button>
+            </u-form-item>
+        </u-form> -->
+</u-modal>
 
+```
 ## API
 ### Attrs/Props
 
@@ -113,6 +139,7 @@ export default {
 | head | 弹窗头部自定义 |
 | body | 弹窗中部自定义 |
 | foot | 弹窗尾部自定义 |
+| heading| 弹窗内容的标题自定义 |
 
 ### Events
 

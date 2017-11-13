@@ -12,7 +12,7 @@ $media-sm-max-width: 767px;
     text-align: center;
     overflow: hidden;
     overflow-y: auto;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.3);
     padding-top: 65px;
     padding-bottom: 30px;
 }
@@ -57,30 +57,52 @@ $media-sm-max-width: 767px;
     //icon-font: url('../u-icon.vue/icons/alert.svg');
     icon-font: url('../u-status-icon.vue/icons/warning.svg');
     color: #fbcc3e;
-    height: 60px;
-    width: 60px;
-    font-size: 60px;
+    height: 50px;
+    width: 50px;
+    font-size: 50px;
     overflow: hidden;
-    line-height: 60px;
+    line-height: 50px;
+    display:inline-block;
+}
+.body[icon ="success"]:before {
+    //icon-font: url('../u-icon.vue/icons/alert.svg');
+    icon-font: url('../u-status-icon.vue/icons/success.svg');
+    color: #3ad0af;
+    height: 50px;
+    width: 50px;
+    font-size: 50px;
+    overflow: hidden;
+    line-height: 50px;
+    display:inline-block;
+}
+
+.body[icon ="error"]:before {
+    //icon-font: url('../u-icon.vue/icons/alert.svg');
+    icon-font: url('../u-status-icon.vue/icons/error.svg');
+    color: #ff867f;
+    height: 50px;
+    width: 50px;
+    font-size: 50px;
+    overflow: hidden;
+    line-height: 50px;
     display:inline-block;
 }
 
 .info {
-    color: red;
     display: inline-block;
     vertical-align: top;
-    width: 70%;
-    margin-left: 20px;
+    max-width: 80%;
+    margin-left: 10px;
 }
 
 .heading {
     /* display: inline-block;
     width: 100%; */
-    font-size: 25px;
-    margin-left: 20px;
+    font-size: 20px;
+    margin-left: 10px;
 }
 .tip {
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .head {
@@ -112,8 +134,8 @@ $media-sm-max-width: 767px;
 }
 
 .body {
-    margin: 30px 15px;
-    padding: 50px 15px 0 50px;
+    margin: 50px;
+    /* padding: 50px 50px 0 50px; */
     min-height: 10px;
 }
 
