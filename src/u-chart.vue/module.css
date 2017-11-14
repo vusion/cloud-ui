@@ -88,8 +88,8 @@ $m-chart_legend_height: 30px;
 .item:nth-of-type(10):before {
     background: rgba(245, 131, 122, 0.6);
 }
-.item+.item {
-    margin-left: 2em;
+.item{
+    margin-right: 2em;
 }
 
 .item[disabled] {
