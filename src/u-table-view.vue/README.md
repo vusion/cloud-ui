@@ -226,7 +226,7 @@ export default {
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata">
+        <u-table-view :data="tdata" v-show="show">
             <u-table-view-column title="日期" label="date" sortable :formatter="dateFormat"></u-table-view-column>
             <u-table-view-column title="姓名" label="name" ></u-table-view-column>
             <u-table-view-column title="地址" label="address" tooltip></u-table-view-column>
@@ -243,6 +243,7 @@ export default {
                 <span style="margin-left:10px;">{{current.address}}</span>
             </div>
         </u-modal>
+        <u-button @click="tableShow"> show </u-button>
     </div>
 </template>
 <script>
@@ -295,6 +296,7 @@ export default {
             value: '',
             current: {},
             visible: false,
+            show: false,
         };
     },
     methods: {
@@ -318,6 +320,9 @@ export default {
             console.log(row);
             this.visible = true;
             this.current = row;
+        },
+        tableShow() {
+            this.show = true;
         }
     }
 };

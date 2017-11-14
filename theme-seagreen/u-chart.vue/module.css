@@ -1,13 +1,6 @@
 @import '../../src/u-chart.vue/module.css';
-.item{
-    max-width: 15%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin: 0 10px;
-}
-.item+.item {
-    margin-left: 10px;
+.item:before{
+    background: rgba(97,218,198, 0.6);
 }
 .item:nth-of-type(1):before {
     background: rgba(91, 161, 242, 0.6);
@@ -45,4 +38,43 @@
 }
 .item:nth-of-type(10):before {
     background: rgba(245, 131, 122, 0.6);
+}
+.item:nth-of-type(11):before {
+    border-color: rgb(198,156,246, 0.6);
+}
+
+.item:nth-of-type(12):before {
+    border-color: rgb(137,170,247, 0.6);
+}
+
+.item:nth-of-type(13):before {
+    border-color: rgb(251,155,108, 0.6);
+}
+
+.item:nth-of-type(14):before {
+    border-color: rgb(103,170,245, 0.6);
+}
+
+.item:nth-of-type(15):before {
+    border-color: rgb(134,187,231, 0.6);
+}
+
+.item:nth-of-type(16):before {
+    border-color: rgb(245,196,80, 0.6);
+}
+
+.item:nth-of-type(17):before {
+    border-color: rgb(135,206,232, 0.6);
+}
+
+.item:nth-of-type(18):before {
+    border-color: rgb(239,216,22, 0.6);
+}
+
+.item:nth-of-type(19):before {
+    border-color: rgb(92,208,133, 0.6);
+}
+
+.item:nth-of-type(20):before {
+    border-color: rgb(241,126,248, 0.6);
 }

@@ -7,8 +7,8 @@
             {{caption}}
         </slot>
     </div>
-    <div v-if="legend" :class="$style.legend">
-        <div v-for="(sery,index) in series" :class="$style.item" :disabled="sery.hidden" :title="sery.name || sery.key" @click.stop="toggle(index)">{{sery.name || sery.key}}</div>
+    <div v-if="legend" :class="$style.legend" :role="series.length > 5 ? 'multiline' : ''">
+        <div v-for="(sery,index) in series" :class="$style.item" :role="series.length > 4 ? 'omitwidth' : ''" :disabled="sery.hidden" :title="sery.name || sery.key" @click.stop="toggle(index)">{{sery.name || sery.key}}</div>
     </div>
     <div :class="$style.content">
         <slot></slot>

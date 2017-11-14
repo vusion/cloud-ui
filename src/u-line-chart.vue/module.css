@@ -140,6 +140,14 @@ $line_offset: 6px;
     stroke-opacity: 0;
 }
 
+.layer .elsvg .line {
+    stroke: rgb(97,218,198);
+}
+
+.layer .elsvg .area {
+    fill: rgba(97,218,198, 0.3);
+}
+
 .layer .elsvg:nth-of-type(1) .line {
     stroke: rgb(91, 161, 242);
 }
@@ -215,6 +223,86 @@ $line_offset: 6px;
 }
 .layer .elsvg:nth-of-type(10) .area {
     fill: rgba(245, 131, 122, 0.1);
+}
+
+.layer .elsvg:nth-of-type(11) .line {
+    stroke: rgb(198,156,246);
+}
+
+.layer .elsvg:nth-of-type(11) .area {
+    fill: rgba(198,156,246, 0.1);
+}
+
+.layer .elsvg:nth-of-type(12) .line {
+    stroke: rgb(137,170,247);
+}
+
+.layer .elsvg:nth-of-type(12) .area {
+    fill: rgba(137,170,247, 0.1);
+}
+
+.layer .elsvg:nth-of-type(13) .line {
+    stroke: rgb(251,155,108);
+}
+
+.layer .elsvg:nth-of-type(13) .area {
+    fill: rgba(251,155,108, 0.1);
+}
+
+.layer .elsvg:nth-of-type(14) .line {
+    stroke: rgb(103,170,245);
+}
+
+.layer .elsvg:nth-of-type(14) .area {
+    fill: rgba(103,170,245, 0.1);
+}
+
+.layer .elsvg:nth-of-type(15) .line {
+    stroke: rgb(134,187,231);
+}
+
+.layer .elsvg:nth-of-type(15) .area {
+    fill: rgba(134,187,231, 0.1);
+}
+
+.layer .elsvg:nth-of-type(16) .line {
+    stroke: rgb(245,196,80);
+}
+
+.layer .elsvg:nth-of-type(16) .area {
+    fill: rgba(245,196,80, 0.1);
+}
+
+.layer .elsvg:nth-of-type(17) .line {
+    stroke: rgb(135,206,232);
+}
+
+.layer .elsvg:nth-of-type(17) .area {
+    fill: rgba(135,206,232, 0.1);
+}
+
+.layer .elsvg:nth-of-type(18) .line {
+    stroke: rgb(239,216,22);
+}
+
+.layer .elsvg:nth-of-type(18) .area {
+    fill: rgba(239,216,22, 0.1);
+}
+
+.layer .elsvg:nth-of-type(19) .line {
+    stroke: rgb(92,208,133);
+}
+
+.layer .elsvg:nth-of-type(19) .area {
+    fill: rgba(92,208,133, 0.1);
+}
+
+.layer .elsvg:nth-of-type(20) .line {
+    stroke: rgb(241,126,248);
+}
+
+.layer .elsvg:nth-of-type(20) .area {
+    fill: rgba(241,126,248, 0.1);
 }
 
 .piece {
@@ -326,6 +414,10 @@ $line_offset: 6px;
     border-radius: 100%;
 }
 
+.piece .point {
+    border-color: rgb(97,218,198);
+}
+
 .piece .point:nth-of-type(1) {
     border-color: rgb(91, 161, 242);
 }
@@ -361,4 +453,44 @@ $line_offset: 6px;
 }
 .piece .point:nth-of-type(10) {
     border-color: rgb(245, 131, 122);
+}
+
+.piece .point:nth-of-type(11) {
+    border-color: rgb(198,156,246);
+}
+
+.piece .point:nth-of-type(12) {
+    border-color: rgb(137,170,247);
+}
+
+.piece .point:nth-of-type(13) {
+    border-color: rgb(251,155,108);
+}
+
+.piece .point:nth-of-type(14) {
+    border-color: rgb(103,170,245);
+}
+
+.piece .point:nth-of-type(15) {
+    border-color: rgb(134,187,231);
+}
+
+.piece .point:nth-of-type(16) {
+    border-color: rgb(245,196,80);
+}
+
+.piece .point:nth-of-type(17) {
+    border-color: rgb(135,206,232);
+}
+
+.piece .point:nth-of-type(18) {
+    border-color: rgb(239,216,22);
+}
+
+.piece .point:nth-of-type(19) {
+    border-color: rgb(92,208,133);
+}
+
+.piece .point:nth-of-type(20) {
+    border-color: rgb(241,126,248);
 }

@@ -25,7 +25,7 @@ export default {
             columnsWidth: [],
             popvisible: false,
             copyTdata: [], // tdata的复制版本主要用来过滤
-            tableWidth: 0,
+            tableWidth: 0, // display值为none的时候需要特殊处理这个值
         };
     },
     mounted() {
@@ -110,9 +110,13 @@ export default {
             this.$nextTick(() => {
                 const allWidth = !this.columns.some((cell) => !cell.width); // each column set a width
                 if (allWidth)
-                    this.tableWidth = this.columns.map((cell) => cell.width).reduce((a, b) => a + b);
-                else
-                    this.tableWidth = parseInt(Style.getStyle(this.$el, 'width')) - 1;
+                    this.tableWidth = this.columns.map((cell) => cell.width).reduce((a, b) => a + b) + 'px';
+                else {
+                    if (Style.getStyle(this.$el, 'width') === 'auto')
+                        this.tableWidth = '100%';
+                    else
+                        this.tableWidth = parseInt(Style.getStyle(this.$el, 'width')) - 1 + 'px';
+                }
                 this.columnsWidth = [];
                 this.$nextTick(() => {
                     if (this.data.length) {
