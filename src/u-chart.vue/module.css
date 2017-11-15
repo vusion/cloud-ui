@@ -28,15 +28,15 @@ $m-chart_legend_height: 30px;
     position: absolute;
     bottom: $m-chart_padding;
     height: $m-chart_legend_height;
-    line-height: $m-chart_tt_height;
+    line-height: $m-chart_legend_height;
     left: $m-chart_padding;
     right: $m-chart_padding;
     font-size: 12px;
     text-align: center;
 }
 
-.lengend[role='multiline']{
-    line-height: 25px;
+.legend[role='multiline']{
+    line-height: 20px;
 }
 
 .item {
