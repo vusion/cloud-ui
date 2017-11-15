@@ -2,16 +2,15 @@ const Modal = {
     name: 'u-modal',
     props: {
         title: { type: String, default: '提示' },
-        content: { type: String, default: '提示信息' },
+        content: { type: String, default: '提示内容' },
         okButton: { type: String, default: '确定' },
         cancelButton: { type: String, default: '取消' },
         visible: { type: Boolean, default: false },
         // @deprecated
         width: { type: [String, Number], default: '' },
         size: { type: String, default: 'normal' },
+        icon: String,
         static: { type: Boolean, default: false },
-        icon: { type: String, default: '' },
-        tip: { type: String, default: '' },
     },
     data() {
         return {
