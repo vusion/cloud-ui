@@ -11,8 +11,8 @@
         <div :class="$style.body" :icon="icon">
             <slot name="body">
                 <div :class="$style.info">
-                    <div :class="$style.heading"><slot name="heading">{{ content }}</slot></div>
-                    <div :class="$style.tip"><slot>{{ tip }}</slot></div>
+                    <div :class="$style.heading"><slot>{{ content }}</slot></div>
+                    <div :class="$style.tip"><slot name="tip">{{ tip }}</slot></div>
                 </div>
             </slot>
         </div>
