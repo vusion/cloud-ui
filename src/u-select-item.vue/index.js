@@ -6,9 +6,6 @@ export default {
     mixins: [ListViewItem],
     props: {
         field: String,
-        value: null,
-        disabled: { type: Boolean, default: false },
-        item: Object,
     },
     created() {
         const parentVM = this.$parent.parentVM.$parent;
