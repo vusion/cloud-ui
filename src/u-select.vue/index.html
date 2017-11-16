@@ -10,6 +10,7 @@
             :value="item.value"
             :disabled="item.disabled || disabled"
             :item="item"
+            :field="field"
         >{{ item[field] }}</component>
         <slot></slot>
     </ul>

@@ -17,3 +17,9 @@
     color: #ccc;
     background: none;
 }
+
+.root{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}

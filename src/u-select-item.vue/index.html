@@ -1,0 +1,8 @@
+<li :class="$style.root"
+    :selected="selected || currentSelected"
+    :readonly="parentVM.readonly"
+    :disabled="disabled || parentVM.disabled"
+    :title="item && item[field]"
+    @click="select()">
+    <slot></slot>
+</li>
