@@ -114,7 +114,6 @@
 }
 
 .popper {
-    max-width: 260px;
     border-radius: 2px;
     box-sizing: border-box;
     z-index: 1065;
@@ -130,6 +129,18 @@
     line-height: 20px;
     font-size: 12px;
 }
+
+.content[size$="small"]{ max-width: 120px;}
+.wrap[size^="small"]{ max-height: 100px; overflow-y: scroll; }
+
+.content[size$="normal"]{ max-width: 260px;}
+.wrap[size^="normal"]{ max-height: none; }
+
+.content[size$="large"]{ max-width: 430px;}
+.wrap[size^="large"]{ max-height: 200px; overflow-y: scroll; }
+
+.content[size$="auto"]{ max-width: none;}
+.wrap[size^="auto"]{ max-height: none; }
 
 .popper[x-placement^="top"] .content {
     top: -10px;
