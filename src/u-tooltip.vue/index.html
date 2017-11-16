@@ -1,9 +1,9 @@
-<u-popper trigger="click" :placement="placement">
+<u-popper trigger="hover" :placement="placement">
     <slot></slot>
     <div :class="$style.popper" slot="popper">
         <div :class="$style.arrow"></div>
         <div :class="$style.content" v-bind="$attrs" :style="{ maxWidth: contentWidth !== 'auto'? contentWidth : ''}">
-            <div :class="$style.wrap" v-bind="$attrs" :style="{maxHeight: contentHeight !== 'auto' ? contentHeight : '',  overflowY: contentHeight !== 'auto' ? 'scroll':''}">
+            <div :class="$style.wrap" v-bind="$attrs" :style="{maxHeight: contentHeight !== 'auto' ? contentHeight : '',  overflowY: contentHeight !== 'auto' ? 'auto':''}">
                 <slot name="content">
                     <div>{{content}}</div>
                 </slot>

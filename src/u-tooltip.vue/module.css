@@ -131,13 +131,13 @@
 }
 
 .content[size$="small"]{ max-width: 120px;}
-.wrap[size^="small"]{ max-height: 100px; overflow-y: scroll; }
+.wrap[size^="small"]{ max-height: 100px; overflow-y: auto; }
 
 .content[size$="normal"]{ max-width: 260px;}
 .wrap[size^="normal"]{ max-height: none; }
 
 .content[size$="large"]{ max-width: 430px;}
-.wrap[size^="large"]{ max-height: 200px; overflow-y: scroll; }
+.wrap[size^="large"]{ max-height: 200px; overflow-y: auto; }
 
 .content[size$="auto"]{ max-width: none;}
 .wrap[size^="auto"]{ max-height: none; }
