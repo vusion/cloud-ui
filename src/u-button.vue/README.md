@@ -1,4 +1,4 @@
-# 按钮（Button）
+# 按钮 Button
 
 ## 示例
 ### 基本形式
@@ -51,39 +51,56 @@
 
 ``` html
 <u-linear-layout>
-    <u-button href="https://github.com/vusion/vusion">Button</u-button>
-    <u-button to="/some/router/path">Button</u-button>
-    <u-button href="https://github.com/vusion/vusion" disabled>Button</u-button>
+    <u-button href="https://vusion.github.io" target="_blank">href</u-button>
+    <u-button to="/proto-ui/u-link">to</u-button>
+    <u-button href="https://vusion.github.io" disabled>disabled</u-button>
 </u-linear-layout>
 ```
 
 ## API
-### Attrs/Props
+### Props/Attrs
 
-| Attr/Prop | Type | Default | Description |
+| Prop/Attr | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
-| href | String |  | `href` property of link |
-| target | String |  | (native property) |
-| to | String \| Object |  | `to` property of `vue-router` |
-| replace | Boolean | `false` | |
-| append | Boolean | `false` | |
-| color | String | `''` | |
-| size | String | `''` | |
-| square | Boolean | `false` | |
-| disabled | Boolean | `false` | Disable the button |
+| href | String |  | 链接地址 |
+| target | String |  | （原生属性） |
+| to | String \| Location |  | 需要vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
+| replace | Boolean | `false` | 需要vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
+| append | Boolean | `false` | 需要vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。 |
+| color | String |  | 颜色扩展。可选值：`'primary'`或不填 |
+| size | String |  | 大小扩展。可选值：`'small'`或不填 |
+| square | Boolean | `false` | 是否显示为正方形 |
+| disabled | Boolean | `false` | 是否禁用。禁用后不会响应`click`事件。 |
 
 ### Slots
 
 | Slot | Description |
 | ---- | ----------- |
-| (default) | Hold the text and can contain HTML |
+| (default) | 插入文本或HTML |
 
 ### Events
 
 #### $listeners
 
-Inherit all events from `<a>` element.
+监听所有`<a>`元素的事件。
 
-#### @click
+#### @before-navigate
+
+使用router相关属性切换路由前触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.to | String \| Location | `to`属性的值 |
+| $event.replace | Boolean | `replace`属性的值 |
+| $event.append | Boolean | `append`属性的值 |
+| $event.preventDefault | Function | 阻止切换流程 |
 
 #### @navigate
+
+使用router相关属性切换路由时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.to | String \| Location | `to`属性的值 |
+| $event.replace | Boolean | `replace`属性的值 |
+| $event.append | Boolean | `append`属性的值 |

@@ -6,6 +6,7 @@ import BarChart from './u-bar-chart.vue';
 import Button from './u-button.vue';
 import Calendar from './u-calendar.vue';
 import Capsule from './u-capsule.vue';
+import CapsuleGroup from './u-capsule-group.vue';
 import Capsules from './u-capsules.vue';
 import Chart from './u-chart.vue';
 import Checkbox from 'u-checkbox.vue';
@@ -86,6 +87,7 @@ export {
     Button,
     Calendar,
     Capsule,
+    CapsuleGroup,
     Capsules,
     Chart,
     Checkbox,

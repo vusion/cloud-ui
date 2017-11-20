@@ -55,6 +55,24 @@ Try to click twice on an item.
 </u-capsules>
 ```
 
+### Basic
+
+``` html
+<u-capsules>
+    <u-capsule-group>
+        <u-capsule>Apple</u-capsule>
+        <u-capsule>Banana</u-capsule>
+        <u-capsule>Cake</u-capsule>
+    </u-capsule-group>
+    <u-capsule-group>
+        <u-capsule>Apple</u-capsule>
+        <u-capsule>Banana</u-capsule>
+        <u-capsule>Cake</u-capsule>
+    </u-capsule-group>
+</u-capsules>
+```
+
+
 ### Flag
 
 ``` html
