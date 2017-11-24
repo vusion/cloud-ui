@@ -35,6 +35,10 @@ export default {
                 return ['left', 'right'].includes(value);
             },
         },
+        time: {
+            type: [String, Number],
+            default: 'start',
+        },
     },
     data() {
         return {
@@ -64,9 +68,11 @@ export default {
              * @property {object} sender 事件发送对象
              * @property {number} date 改变后的日期 返回格式为日期对象
              */
+            const showDate = this.returnTime(newValue);
+
             this.$emit('change', {
                 sender: this,
-                date: new Date(newValue),
+                date: new Date(showDate),
             });
         },
         minDate(newValue) {
@@ -106,6 +112,8 @@ export default {
 
             this.showDate = this.format(date, 'yyyy/MM/dd');
 
+            const showDate = this.returnTime(this.showDate);
+
             /**
              * @event select 选择某一项时触发
              * @property {object} sender 事件发送对象
@@ -113,10 +121,10 @@ export default {
              */
             this.$emit('select', {
                 sender: this,
-                date: new Date(this.showDate),
+                date: new Date(showDate),
             });
 
-            this.$emit('update:date', this.showDate);
+            this.$emit('update:date', new Date(showDate));
 
             this.$refs.popper.toggle(false);
         },
@@ -187,6 +195,29 @@ export default {
                 return new Date(date);
             else if (typeof date === 'object')
                 return date;
+        },
+        returnTime(date) {
+            let time;
+            if (this.time === 'start') {
+                // 0:00:00
+                time = '0:00:00';
+            } else if (this.time === 'morning') {
+                // 08:00:00
+                time = '8:00:00';
+            } else if (this.time === 'end') {
+                // 23:59:59
+                time = '23:59:59';
+            } else if (typeof this.time === 'number') {
+                // 具体的时分秒
+                if (this.time < 0)
+                    throw new Error('请输入大于0的整数');
+                time = this.time < 24 ? this.time + ':00:00' : '23:59:59';
+            } else {
+                if (!/^[0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}$/.test(this.time))
+                    throw new Error('请输入正确的时分秒格式');
+                time = this.time;
+            }
+            return date + ' ' + time;
         },
     },
 };
