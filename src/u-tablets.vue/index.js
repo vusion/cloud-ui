@@ -5,3 +5,4 @@ export default {
     childName: 'u-tablet',
     mixins: [ListView],
 };
+
