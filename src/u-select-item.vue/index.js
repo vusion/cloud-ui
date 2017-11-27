@@ -1,4 +1,5 @@
 import ListViewItem from 'u-list-view-item.vue';
+import directive from '../util/directives';
 
 export default {
     name: 'u-select-item',
@@ -6,6 +7,9 @@ export default {
     mixins: [ListViewItem],
     props: {
         field: String,
+    },
+    directives: {
+        'ellipsis-title': directive.ellipsistitle,
     },
     created() {
         const parentVM = this.$parent.parentVM.$parent;
