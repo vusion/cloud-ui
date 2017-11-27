@@ -18,7 +18,7 @@ export default {
         disabled: [String, Boolean],
         placeholder: {
             type: String,
-            default: '请输入',
+            default: '请选择时间',
         },
         readonly: [String, Boolean],
         autofocus: [String, Boolean],
