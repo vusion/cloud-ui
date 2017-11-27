@@ -5,25 +5,21 @@
 
 ``` html
 <u-linear-layout>
-    <u-icon-svg name="area">area</u-icon-svg>
-    <u-icon-svg name="portrait">portrait</u-icon-svg>
-    <u-icon-svg name="angle-left">left</u-icon-svg>
-    <u-icon-svg name="angle-right">right</u-icon-svg>
-    <u-icon-svg name="arrow-down">arrow-down</u-icon-svg>
-    <u-icon-svg name="arrow-up">arrow-up</u-icon-svg>
-    <u-icon-svg name="refresh">refresh</u-icon-svg>
-    <u-icon-svg name="search">search</u-icon-svg>
-    <u-icon-svg name="apm-alert">alert</u-icon-svg>
-    <u-icon-svg name="logout" size="small">logout</u-icon-svg>
-    <u-icon-svg name="dropdown" size="large">dropdown</u-icon-svg>
-    <u-icon-svg name="angle-down">down</u-icon-svg>
-    <u-icon-svg name="angle-up">up</u-icon-svg>
-    <u-icon-svg name="chart-refresh">chart-refresh</u-icon-svg>
-    <u-icon-svg name="chart-zoom">chart-zoom</u-icon-svg>
-    <u-icon-svg name="close">close</u-icon-svg>
-    <u-icon-svg name="info">info</u-icon-svg>
-    <u-icon-svg name="up">up</u-icon-svg>
-    <u-icon-svg name="down">down</u-icon-svg>
-    <u-icon-svg name="alert">alert</u-icon-svg>
+    <u-icon name="area">area</u-icon>
+    <u-icon name="portrait">portrait</u-icon>
+    <u-icon name="angle-left">left</u-icon>
+    <u-icon name="angle-right">right</u-icon>
+    <u-icon name="arrow-down">arrow-down</u-icon>
+    <u-icon name="arrow-up">arrow-up</u-icon>
+    <u-icon name="refresh">refresh</u-icon>
+    <u-icon name="search">search</u-icon>
+    <u-icon name="apm-alert">alert</u-icon>
+    <u-icon name="logout" size="small">logout</u-icon>
+    <u-icon name="dropdown" size="large">dropdown</u-icon>
+    <u-icon name="angle-down">down</u-icon>
+    <u-icon name="angle-up">up</u-icon>
+    <u-icon name="chart-refresh">chart-refresh</u-icon>
+    <u-icon name="chart-zoom">chart-zoom</u-icon>
+    <u-icon name="close">close</u-icon>
 </u-linear-layout>
 ```
