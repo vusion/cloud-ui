@@ -25,7 +25,7 @@ export default {
         readonly: [Boolean, String],
         placeholder: {
             type: String,
-            default: '请输入',
+            default: '请选择日期',
         },
         width: { type: [String, Number], default: 154 },
         alignment: {
