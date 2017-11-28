@@ -11,7 +11,8 @@ const Modal = {
         size: { type: String, default: 'normal' },
         static: { type: Boolean, default: false },
         icon: { type: String, default: '' },
-        tip: { type: String, default: '提示信息' },
+        tip: { type: String, default: '' },
+        hasIcon: { type: Boolean, default: false },
     },
     data() {
         return {

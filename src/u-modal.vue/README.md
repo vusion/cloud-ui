@@ -97,23 +97,9 @@ export default {
 ```
 ### slot
 ``` html
-<u-modal visible static icon="warning" size="large" width="500">
-    <span slot="heading">内容的标题需要添加heading的slot</span>
-    <span>默认的内容</span>
-    <!-- <u-form layout="inline" label-size="auto">
-            <u-form-item title="状态">
-                <u-input maxlength="63" placeholder="认证中"></u-input>
-            </u-form-item>
-            <u-form-item title="用户名">
-                <u-input maxlength="63" placeholder="请输入用户名"></u-input>
-            </u-form-item>
-            <u-form-item title="联系号码">
-                <u-input maxlength="63" placeholder="请输入联系号码"></u-input>
-            </u-form-item>
-            <u-form-item>
-                <u-button color="primary">查询</u-button>
-            </u-form-item>
-        </u-form> -->
+<u-modal visible static icon="warning" size="normal">
+    <p slot="heading">内容的标题需要添加name为heading的slot</p>
+    <p>默认的内容会放在这里</p>
 </u-modal>
 
 ```
@@ -128,7 +114,8 @@ export default {
 | okButton | String | `'确定'` | 确定按钮文本，如果为空则不显示 |
 | cancelButton | String | `'取消'` | 取消按钮文本，如果为空则不显示 |
 | size | String | `'normal'` | 弹框的尺寸 |
-| icon | String | | 提示图标，'info', 'success', 'warning', 'error' |
+| icon | String | `''` | 提示图标, 'success', 'warning', 'error' |
+| hasIcon | Boolean | `false` | 是否有图标 |
 
 ### Slots
 

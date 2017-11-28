@@ -57,22 +57,22 @@ $media-sm-max-width: 767px;
     //icon-font: url('../u-icon.vue/icons/alert.svg');
     icon-font: url('../u-status-icon.vue/icons/warning.svg');
     color: #fbcc3e;
-    height: 50px;
-    width: 50px;
-    font-size: 50px;
+    height: 40px;
+    width: 40px;
+    font-size: 40px;
     overflow: hidden;
-    line-height: 50px;
+    line-height: 40px;
     display:inline-block;
 }
 .body[icon ="success"]:before {
     //icon-font: url('../u-icon.vue/icons/alert.svg');
     icon-font: url('../u-status-icon.vue/icons/success.svg');
     color: #3ad0af;
-    height: 50px;
-    width: 50px;
-    font-size: 50px;
+    height: 40px;
+    width: 40px;
+    font-size: 40px;
     overflow: hidden;
-    line-height: 50px;
+    line-height: 40px;
     display:inline-block;
 }
 
@@ -80,29 +80,37 @@ $media-sm-max-width: 767px;
     //icon-font: url('../u-icon.vue/icons/alert.svg');
     icon-font: url('../u-status-icon.vue/icons/error.svg');
     color: #ff867f;
-    height: 50px;
-    width: 50px;
-    font-size: 50px;
+    height: 40px;
+    width: 40px;
+    font-size: 40px;
     overflow: hidden;
-    line-height: 50px;
+    line-height: 40px;
     display:inline-block;
 }
 
-.info {
+.info[hasIcon] {
     display: inline-block;
     vertical-align: top;
     max-width: 80%;
     margin-left: 10px;
 }
-
+.info {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 100%;
+    margin-left: 10px;
+}
+.info p {
+    margin: 0;
+    padding: 0;
+}
 .heading {
     /* display: inline-block;
     width: 100%; */
     font-size: 20px;
-    margin-left: 10px;
+    line-height: 24px;
 }
-.tip {
-    margin-left: 10px;
+.tip{
 }
 
 .head {

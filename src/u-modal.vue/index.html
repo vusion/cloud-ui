@@ -1,4 +1,4 @@
-<div :class="$style.root" v-if="currentVisible">
+<div :class="$style.root" v-if="currentVisible" :static="static">
     <div :class="$style.dialog" :style="{width: width+'px'}" :size="size">
         <div :class="$style.head">
             <slot name="head">
@@ -10,9 +10,9 @@
         </div>
         <div :class="$style.body" :icon="icon">
             <slot name="body">
-                <div :class="$style.info">
-                    <div :class="$style.heading"><slot name="heading">{{ content }}</slot></div>
-                    <div :class="$style.tip"><slot>{{ tip }}</slot></div>
+                <div :class="$style.info" :hasIcon="icon!==''">
+                    <div :class="$style.heading"><slot name="heading">{{ tip }}</slot></div>
+                    <div :class="$style.tip"><slot>{{ content }}</slot></div>
                 </div>
             </slot>
         </div>
