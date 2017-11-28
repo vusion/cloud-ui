@@ -85,6 +85,12 @@ export default {
     icon为warning
 </u-modal>
 ```
+### slot
+``` html
+<u-modal visible static icon="warning" size="normal">
+    <p slot="heading">内容的标题需要添加name为heading的slot</p>
+    <p>默认的内容会放在这里</p>
+</u-modal>
 
 ## API
 ### Attrs/Props
@@ -97,7 +103,8 @@ export default {
 | okButton | String | `'确定'` | 确定按钮文本，如果为空则不显示 |
 | cancelButton | String | `'取消'` | 取消按钮文本，如果为空则不显示 |
 | size | String | `'normal'` | 弹框的尺寸 |
-| icon | String | | 提示图标，'info', 'success', 'warning', 'error' |
+| icon | String | `''` | 提示图标, 'success', 'warning', 'error' |
+| hasIcon | Boolean | `false` | 是否有图标 |
 
 ### Slots
 
@@ -108,6 +115,7 @@ export default {
 | head | 弹窗头部自定义 |
 | body | 弹窗中部自定义 |
 | foot | 弹窗尾部自定义 |
+| heading | 弹框内容的标题 |
 
 ### Events
 
