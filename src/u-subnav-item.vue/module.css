@@ -2,9 +2,6 @@
     display: inline-block;
     cursor: pointer;
     user-select: none;
-
-    height: 35px;
-    line-height: 35px;
     color: #9dabc2;
     padding: 0 20px;
     transition: color 0.2s;
