@@ -4,11 +4,6 @@
     border-radius: $border-radius-base;
 }
 
-.root:hover {
-    color: #333;
-    border-color: #cdcdcd;
-}
-
 .root[disabled] {
     background: white;
     color: #ccc;
@@ -16,8 +11,8 @@
 }
 
 .root[color="primary"]:hover {
-    background: #508de8;
-    color: white;
+    background: #6098eb;
+    color: #ffffff;
 }
 
 .root[color="primary"][disabled] {

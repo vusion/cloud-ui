@@ -1,5 +1,10 @@
 @import '../../src/u-subnav-item.vue/module.css';
 
 .root {
-    color: #666666;
+    color: #222222;
+}
+
+.root:hover{
+    background: #f3f6fb;
+    color: #222222;
 }
