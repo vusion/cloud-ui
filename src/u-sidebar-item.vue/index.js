@@ -8,7 +8,7 @@ export default {
         $route: {
             immediate: true,
             handler(to, from) {
-                if (!this.to || this.$router)
+                if (!this.to || !this.$router)
                     return;
 
                 const location = this.$router.resolve(this.to).location;
