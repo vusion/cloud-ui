@@ -8,8 +8,8 @@
 ``` vue
 <template>
 <div>
-    <u-modal :visible.sync="modalVisible" title="提示" icon="warning">
-        <span>确定移除吗？</span>
+    <u-modal :visible.sync="modalVisible" title="提示">
+        <span>内容</span>
     </u-modal>
     <u-linear-layout>
         <u-button @click="modalVisible = true">Modal</u-button>
@@ -35,12 +35,10 @@ export default {
 </script>
 ```
 
-<!-- #### 命令式 -->
-
 ### Static
 
 ``` html
-<u-modal visible static>Static</u-modal>
+<u-modal visible static>静态显示，用于文档或局部展示</u-modal>
 ```
 
 ### 标题与内容
@@ -49,11 +47,18 @@ export default {
 <u-modal title="标题" visible static>内容</u-modal>
 ```
 
+### 图标、小标题与描述
+
+``` html
+<u-modal title="删除" heading="确定删除该服务吗？" icon="warning" visible static>删除后不可恢复。</u-modal>
+<u-modal title="创建" heading="创建成功" icon="success" visible static></u-modal>
+```
+
 ### 自定义
 
 ``` html
 <u-modal visible static>
-    <div slot="title">Test</div>
+    <div slot="title"></div>
     <div slot="foot">
         <u-button color="primary">关闭</u-button>
     </div>
@@ -79,19 +84,6 @@ export default {
 </u-modal>
 ```
 
-### 图标
-``` html
-<u-modal visible static icon="warning">
-    icon为warning
-</u-modal>
-```
-### slot
-``` html
-<u-modal visible static icon="warning" size="normal">
-    <p slot="heading">内容的标题需要添加name为heading的slot</p>
-    <p>默认的内容会放在这里</p>
-</u-modal>
-
 ## API
 ### Attrs/Props
 
@@ -99,23 +91,23 @@ export default {
 | --------- | ---- | ------- | ----------- |
 | title | String | `'提示'` | 弹窗的标题 |
 | content | String | `'提示内容'` | 弹窗的内容 |
+| heading | String | `'提示内容'` | 弹窗的内容 |
 | visible.sync | Boolean | `false` | 是否显示 |
 | okButton | String | `'确定'` | 确定按钮文本，如果为空则不显示 |
 | cancelButton | String | `'取消'` | 取消按钮文本，如果为空则不显示 |
 | size | String | `'normal'` | 弹框的尺寸 |
-| icon | String | `''` | 提示图标, 'success', 'warning', 'error' |
-| hasIcon | Boolean | `false` | 是否有图标 |
+| icon | String | `''` | 提示图标, 可选值：`success`, `warning`, `error` |
 
 ### Slots
 
 | Slot | Description |
 | ---- | ----------- |
 | title | 弹窗标题自定义 |
-| (default) | 弹窗内容自定义 |
 | head | 弹窗头部自定义 |
 | body | 弹窗中部自定义 |
 | foot | 弹窗尾部自定义 |
-| heading | 弹框内容的标题 |
+| heading | 弹框小标题自定义 |
+| (default) | 弹窗内容自定义 |
 
 ### Events
 

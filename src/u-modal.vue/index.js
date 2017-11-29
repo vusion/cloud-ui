@@ -2,7 +2,8 @@ const Modal = {
     name: 'u-modal',
     props: {
         title: { type: String, default: '提示' },
-        content: { type: String, default: '' },
+        content: String,
+        heading: String,
         okButton: { type: String, default: '确定' },
         cancelButton: { type: String, default: '取消' },
         visible: { type: Boolean, default: false },
@@ -10,9 +11,7 @@ const Modal = {
         width: { type: [String, Number], default: '' },
         size: { type: String, default: 'normal' },
         static: { type: Boolean, default: false },
-        icon: { type: String, default: '' },
-        tip: { type: String, default: '' },
-        hasIcon: { type: Boolean, default: false },
+        icon: String,
     },
     data() {
         return {
