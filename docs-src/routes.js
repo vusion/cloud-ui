@@ -29,7 +29,7 @@ export default [
             { path: 'u-subnav', component: () => import('../src/u-subnav.vue/README.md') },
             { path: 'u-tabs', component: () => import('proto-ui.vusion/src/u-tabs.vue/README.md') },
             { path: 'u-subtabs', component: () => import('../src/u-subtabs.vue/README.md') },
-            { path: 'u-pagination', component: () => import('../src/u-pagination.vue/README.md') },
+            { path: 'u-pagination', component: () => import('proto-ui.vusion/src/u-pagination.vue/README.md') },
             /* Form */
             { path: 'u-input', component: () => import('../src/u-input.vue/README.md') },
             { path: 'u-number-input', component: () => import('../src/u-number-input.vue/README.md') },

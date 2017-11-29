@@ -3,6 +3,7 @@ node_modules/
 npm-debug.log
 
 /public/
+/cloud-ui/
 
 # 加了lock有时忘记更新，会导致出问题
 package-lock.json

@@ -15,8 +15,8 @@ module.exports = {
             docs: path.resolve(__dirname, './index.js'),
         },
         output: {
-            path: path.resolve(__dirname, '../public/' + theme),
-            publicPath: process.env.NODE_ENV === 'development' ? `/${theme}/` : `/cloud-ui/${theme}/`,
+            path: path.resolve(__dirname, '../cloud-ui/' + theme),
+            publicPath: `/cloud-ui/${theme}/`,
             filename: '[name].js',
             chunkFilename: 'chunk.[name].[chunkhash:16].js',
         },
@@ -81,6 +81,6 @@ module.exports = {
         },
     },
     webpackDevServer: {
-        contentBase: path.resolve(__dirname, '../public'),
+        contentBase: path.resolve(__dirname, '../cloud-ui'),
     },
 };

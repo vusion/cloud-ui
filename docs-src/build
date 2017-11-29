@@ -3,7 +3,7 @@
 const path = require('path');
 const shell = require('shelljs');
 
-const outputPath = path.resolve(__dirname, '../public');
+const outputPath = path.resolve(__dirname, '../cloud-ui');
 shell.rm('-rf', outputPath);
 shell.cp('-r', path.resolve(__dirname, 'assets'), outputPath);
 

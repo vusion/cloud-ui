@@ -26,8 +26,8 @@
                         <template v-if="column.type === 'selection'"><input type="checkbox" v-model="allSel" @change="allSelected"></template>
                         <template v-if="column.sortable">
                             <span :class="$style.wrapicon">
-                                <u-icon-svg :class="$style.icon" name="arrow-up" v-if="defaultSort.order === 'asc'" :role="defaultSort.label === column.label" @click.native="handleSort('asc', column)"></u-icon-svg>
-                                <u-icon-svg :class="$style.icon" name="arrow-down" v-else :role="defaultSort.label === column.label" @click.native="handleSort('desc', column)"></u-icon-svg>
+                                <u-icon :class="$style.icon" name="arrow-up" v-if="defaultSort.order === 'asc'" :role="defaultSort.label === column.label" @click.native="handleSort('asc', column)"></u-icon>
+                                <u-icon :class="$style.icon" name="arrow-down" v-else :role="defaultSort.label === column.label" @click.native="handleSort('desc', column)"></u-icon>
                             </span>
                         </template>
                     </th>

@@ -57,7 +57,7 @@ export {
     Radio,
     Radios,
     RouterItem,
-    SelectDivier,
+    SelectDivider,
     SelectGroup,
     Select,
     SelectItem,
