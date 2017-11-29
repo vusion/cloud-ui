@@ -39,22 +39,20 @@
     cursor: pointer;
     text-align: center;
     &:after{
-        content: '';
-        width: 0;
-        height: 0;
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-top: 5px solid #9dabc2;
         position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
+        icon-font: url('../u-icon.vue/icons/keyboard-arrow-down.svg');
+        color: #a5a5a6;
+        font-size: 18px;
+        right: 6px;
+        top: 0;
+        line-height: 40px;
+        transform: rotate(0deg);
         transition: transform .3s;
     }
 }
 .icon[role=up]{
     &:after{
-        transform: translateY(-50%) rotate(-180deg);
+        transform: rotate(-180deg);
         transition: transform .3s;
     }
 }

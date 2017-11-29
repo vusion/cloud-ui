@@ -109,13 +109,12 @@
 }
 .textYear:after{
     position: absolute;
-    content: '';
-    width: 0;
-    height: 0;
-    top: 8px;
-    right: -15px;
-    border: 4px solid $field-color;
-    border-color: $field-color transparent transparent transparent;
+    icon-font: url('../u-icon.vue/icons/keyboard-arrow-down.svg');
+    color: #a5a5a6;
+    font-size: 18px;
+    right: -20px;
+    top: 0;
+    line-height: 16px;
 }
 .monthList{
     z-index: 10;
@@ -165,13 +164,12 @@
 }
 .textMonth:after{
     position: absolute;
-    content: '';
-    width: 0;
-    height: 0;
-    top: 8px;
-    right: -15px;
-    border: 4px solid $field-color;
-    border-color: $field-color transparent transparent transparent;
+    icon-font: url('../u-icon.vue/icons/keyboard-arrow-down.svg');
+    color: #a5a5a6;
+    font-size: 18px;
+    right: -20px;
+    top: 0;
+    line-height: 16px;
 }
 .monthPopper{
     float: right;

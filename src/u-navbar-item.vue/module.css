@@ -38,11 +38,3 @@
     width: 100%;
 }
 
-.root[readonly] {
-    cursor: default;
-}
-
-.root[disabled] {
-    cursor: $cursor-not-allowed;
-    color: $brand-disabled;
-}

@@ -20,9 +20,6 @@
     color: white;
     border-color: $brand-primary;
 }
-.root[selected]:hover {
-    background: #5b96d9;
-}
 
 .root[disabled] {
     cursor: not-allowed;

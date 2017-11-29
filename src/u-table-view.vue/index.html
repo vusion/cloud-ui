@@ -4,7 +4,7 @@
         <slot name="title"></slot>
     </div>
     <div :class="$style.header">
-        <table :class="$style.thead" cellspacing="0" cellpadding="0" border="0" :style="{width: tableWidth}">
+        <table :class="$style.thead" cellspacing="0" cellpadding="0" border="0" :style="{width: tableWidth+'px'}">
             <colgroup>
                 <col v-for="(column, index) in columnsWidth" :width="column"></col>
             </colgroup>
@@ -36,7 +36,7 @@
         </table>
     </div>
     <div :class="$style.body" ref="body">
-        <table cellspacing="0" cellpadding="0" border="0" :class="$style.tbody" :style="{width: tableWidth}">
+        <table cellspacing="0" cellpadding="0" border="0" :class="$style.tbody" :style="{width: tableWidth+'px'}">
             <colgroup>
                 <col v-for="(column, index) in columnsWidth" :width="column">
             </colgroup>
