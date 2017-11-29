@@ -1,6 +1,7 @@
-import RouterItem from 'proto-ui.vusion/src/u-router-item.vue';
+import NavbarItem from '../u-navbar-item.vue';
 
 export default {
     name: 'u-subnav-item',
-    mixins: [RouterItem],
+    mixins: [NavbarItem],
+    parentName: 'u-subnav',
 };

@@ -1,8 +1,8 @@
+@import 'proto-ui.vusion/src/u-navbar-item.vue/module.css';
 .root {
     display: inline-block;
     cursor: pointer;
     user-select: none;
-
     height: 35px;
     line-height: 35px;
     color: #9dabc2;

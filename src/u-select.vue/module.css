@@ -1,8 +1,6 @@
+@import 'proto-ui.vusion/src/u-select.vue/module.css';
+
 .root {
-    display: inline-block;
-    position: relative;
-    user-select: none;
-    cursor: pointer;
     height: $height-base;
     line-height: 32px;
     padding-left: 14px;
@@ -11,14 +9,6 @@
     color: #555;
     border: 1px solid #e1e8ed;
     border-radius: $border-radius-base;
-    width: 160px;
-    max-width: 100%;
-}
-
-/* 控制对齐基线 */
-.root:before {
-    content: 'a';
-    font-size: 0;
 }
 
 .root:after {

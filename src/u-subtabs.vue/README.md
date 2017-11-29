@@ -1,23 +1,23 @@
-# 子标签页 subtabs
+# 标签页 Subtabs
 
 ## 示例
 ### 基本形式
 
 ``` html
 <u-subtabs>
-    <u-subtab title="未使用">Content1</u-subtab>
-    <u-subtab title="使用中">Content2</u-subtab>
-    <u-subtab title="已过期">Content3</u-subtab>
+    <u-subtab title="模板">模板内容</u-subtab>
+    <u-subtab title="样式">样式内容</u-subtab>
+    <u-subtab title="逻辑">逻辑内容</u-subtab>
 </u-subtabs>
 ```
 
-### 索引
+### Value
 
 ``` html
-<u-subtabs :index="2">
-    <u-subtab title="未使用">Content1</u-subtab>
-    <u-subtab title="使用中">Content2</u-subtab>
-    <u-subtab title="已过期">Content3</u-subtab>
+<u-subtabs value="B">
+    <u-subtab title="模板" value="A">模板内容</u-subtab>
+    <u-subtab title="样式" value="B">样式内容</u-subtab>
+    <u-subtab title="逻辑" value="C">逻辑内容</u-subtab>
 </u-subtabs>
 ```
 
@@ -25,47 +25,91 @@
 
 ``` html
 <u-subtabs readonly>
-    <u-subtab title="未使用">部分禁用</u-subtab>
-    <u-subtab title="使用中" disabled>部分禁用</u-subtab>
-    <u-subtab title="已过期">部分禁用</u-subtab>
+    <u-subtab title="模板">模板内容</u-subtab>
+    <u-subtab title="样式">样式内容</u-subtab>
+    <u-subtab title="逻辑">逻辑内容</u-subtab>
 </u-subtabs>
 <u-subtabs disabled>
-    <u-subtab title="未使用">全部禁用</u-subtab>
-    <u-subtab title="使用中">全部禁用</u-subtab>
-    <u-subtab title="已过期">全部禁用</u-subtab>
+    <u-subtab title="模板">模板内容</u-subtab>
+    <u-subtab title="样式">样式内容</u-subtab>
+    <u-subtab title="逻辑">逻辑内容</u-subtab>
 </u-subtabs>
 <u-subtabs>
-    <u-subtab title="未使用">部分禁用</u-subtab>
-    <u-subtab title="使用中" disabled>部分禁用</u-subtab>
-    <u-subtab title="已过期">部分禁用</u-subtab>
+    <u-subtab title="模板">模板内容</u-subtab>
+    <u-subtab title="样式" disabled>样式内容</u-subtab>
+    <u-subtab title="逻辑">逻辑内容</u-subtab>
 </u-subtabs>
 ```
 
 ### 隐藏部分项
 
 ``` html
-<u-subtabs :index="2">
-    <u-subtab title="未使用">隐藏部分项</u-subtab>
-    <u-subtab title="使用中" hidden>隐藏部分项</u-subtab>
-    <u-subtab title="已过期">隐藏部分项</u-subtab>
+<u-subtabs value="2">
+    <u-subtab title="模板" value="0">模板内容</u-subtab>
+    <u-subtab title="样式" value="1" hidden>样式内容</u-subtab>
+    <u-subtab title="逻辑" value="2">逻辑内容</u-subtab>
 </u-subtabs>
 ```
 
-## Subtabs API
-### Attrs/Props
+### 可关闭
 
-| Attr/Prop | Type | Default | Description |
+``` html
+<u-subtabs closable>
+    <u-subtab title="模板">模板内容</u-subtab>
+    <u-subtab title="样式">样式内容</u-subtab>
+    <u-subtab title="逻辑">逻辑内容</u-subtab>
+    <u-subtab title="文档">文档内容</u-subtab>
+    <u-subtab title="资源">资源内容</u-subtab>
+</u-subtabs>
+```
+
+
+### 路由
+
+``` html
+<u-subtabs router>
+    <u-subtab title="Button" to="u-button"></u-subtab>
+    <u-subtab title="Checkbox" to="u-checkbox"></u-subtab>
+    <u-subtab title="Tabs" to="u-subtabs"></u-subtab>
+</u-subtabs>
+```
+
+### 额外的
+
+``` html
+<u-subtabs value="1">
+    <u-subtab title="模板" value="0">模板内容</u-subtab>
+    <u-subtab title="样式" value="1">样式内容</u-subtab>
+    <u-subtab title="逻辑" value="2">逻辑内容</u-subtab>
+    <u-checkbox slot="extra">全选</u-checkbox>
+</u-subtabs>
+```
+
+## Tabs API
+### Props/Attrs
+
+| Prop/Attr | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
-| index.sync | Number | `0` | 选中的标签页索引 |
+| value.sync, v-model | Any | | 选中标签页的值 |
 | readonly | Boolean | `false` | 是否只读 |
 | disabled | Boolean | `false` | 是否禁用 |
-| router | Boolean | `false` | 是否根据vue-router对应的路由进行高亮显示 |
+| closable | Boolean | `false` | 是否可以关闭 |
+| router | Boolean | `false` | 是否根据vue-router来控制选择哪个标签页 |
+| href | String |  | 链接地址 |
+| target | String |  | 打开方式 |
+| to | String \| Location |  | 需要vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
+| replace | Boolean | `false` | 需要vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
+| exact | Boolean | `false` | 需要vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。 |
 
 ### Slots
 
 #### (default)
 
-在插槽中插入`<u-subtab>`子组件
+插入`<u-subtab>`子组件。
+
+#### extra
+
+在标签右侧可以附加组件。
 
 ### Events
 
@@ -75,9 +119,9 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| index | Number | 选中的标签页索引 |
-| oldIndex | Number | 旧的标签页索引 |
-| tabVM | Tab | tab组件实例 |
+| value | Any | 选中标签页的值 |
+| oldValue | Any | 旧的值 |
+| itemVM | Tab | 选中标签页实例 |
 | $event.preventDefault | Function | 阻止选择流程 |
 
 #### @select
@@ -86,25 +130,39 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| index | Number | 选中的标签页索引 |
-| oldIndex | Number | 旧的标签页索引 |
-| tabVM | Tab | tab组件实例 |
+| value | Any | 选中标签页的值 |
+| oldValue | Any | 旧的值 |
+| itemVM | Tab | 选中标签页实例 |
 
-#### @change
+#### @before-close
 
-标签页索引改变时触发
+关闭某一页前触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| index | Number | 当前标签页索引 |
-| oldIndex | Number | 旧的标签页索引 |
+| value | Any | 待关闭标签页的值 |
+| oldValue | Any | 旧的值 |
+| itemVM | Tab | 待关闭的标签页实例 |
+| $event.preventDefault | Function | 阻止关闭流程 |
 
-## Subtab API
-### Attrs/Props
+#### @close
 
-| Attr/Prop | Type | Default | Description |
+关闭某一页时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| value | Any | 关闭的标签页的值 |
+| oldValue | Any | 旧的值 |
+| itemVM | Tab | 关闭的标签页实例 |
+| $event.preventDefault | Function | 阻止关闭后自动选择页的流程 |
+
+## Tab API
+### Props/Attrs
+
+| Prop/Attr | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
 | title | String | | 标签页标题 |
+| value | Any | | 标签页的值 |
 | hidden | Boolean | `false` | 是否隐藏此标签页 |
 | disabled | Boolean | `false` | 是否禁用此标签页 |
 | to | String \| Object | | vue-router的目标链接 |
@@ -115,4 +173,4 @@
 
 #### (default)
 
-在插槽中插入文本或HTML
+插入文本或HTML。

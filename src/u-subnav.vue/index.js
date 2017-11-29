@@ -1,9 +1,7 @@
+import Navbar from '../u-navbar.vue';
+
 export default {
     name: 'u-subnav',
-    props: {
-        usage: {
-            type: String,
-            validator: (value) => ['', 'tabs'].includes(value),
-        },
-    },
+    childName: 'u-subnav-item',
+    mixins: [Navbar],
 };

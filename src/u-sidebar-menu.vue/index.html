@@ -1,8 +1,0 @@
-<li :class="$style.root">
-    <div :class="$style.item" :open="currentOpen" @click="onClick">
-        <slot name="title">{{ title }}</slot>
-    </div>
-    <ul :class="$style.list" v-show="currentOpen">
-        <slot></slot>
-    </ul>
-</li>

@@ -1,3 +1,5 @@
+@import 'proto-ui.vusion/src/u-sidebar.vue/module.css';
+
 .root {
     user-select: none;
     background-color: $sidebar-background-color;

@@ -204,6 +204,38 @@
 </u-linear-layout>
 ```
 
+### 分隔符
+
+``` html
+<u-select value="nut">
+    <u-select-item value="cup">水杯</u-select-item>
+    <u-select-item value="cup">牙刷</u-select-item>
+    <u-select-divider></u-select-divider>
+    <u-select-item value="nut">坚果</u-select-item>
+    <u-select-item value="towel">毛巾</u-select-item>
+    <u-select-item value="sofa">沙发</u-select-item>
+</u-select>
+```
+
+### 分组
+
+``` html
+<u-select>
+    <u-select-group title="洗具">
+        <u-select-item>毛巾</u-select-item>
+        <u-select-item>牙刷</u-select-item>
+    </u-select-group>
+    <u-select-group title="杯具">
+        <u-select-item>牙缸</u-select-item>
+        <u-select-item>水杯</u-select-item>
+    </u-select-group>
+    <u-select-group title="餐具">
+        <u-select-item>筷子</u-select-item>
+        <u-select-item>碗</u-select-item>
+    </u-select-group>
+</u-select>
+```
+
 ## Select API
 ### Attrs/Props
 
@@ -291,3 +323,25 @@
 | $event.item | Object | 此项的相关对象 |
 | $event.$item | ListViewItem | 此组件 |
 | $event.preventDefault | Function | 阻止选择流程 |
+
+## SelectGroup API
+
+### Props/Attrs
+
+| Prop/Attr | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| title | String |  | 显示的标题 |
+
+### Slots
+
+#### (default)
+
+插入`<u-select-item>`或`<u-select-divider>`子组件。
+
+#### title
+
+自定义文本显示。
+
+## SelectDivider API
+
+无

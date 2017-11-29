@@ -1,3 +1,5 @@
+@import 'proto-ui.vusion/src/u-sidebar-item.vue/module.css';
+
 .root {
     composes: item from '../u-sidebar.vue/module.css';
     display: block;

@@ -41,16 +41,19 @@ import PieChart from './u-pie-chart.vue';
 import Pill from './u-pill.vue';
 import Pills from './u-pills.vue';
 import Popover from './u-popover.vue';
+import SelectDivider from './u-select-divider.vue';
+import SelectGroup from './u-select-group.vue';
 import Select from './u-select.vue';
 import SelectItem from './u-select-item.vue';
 import Sidebar from './u-sidebar.vue';
 import SidebarGroup from './u-sidebar-group.vue';
 import SidebarItem from './u-sidebar-item.vue';
-import SidebarMenu from './u-sidebar-menu.vue';
+import SidebarDivider from './u-sidebar-divider.vue';
 import Slider from './u-slider.vue';
 import StatusIcon from './u-status-icon.vue';
 import Subnav from './u-subnav.vue';
 import SubnavItem from './u-subnav-item.vue';
+import SubnavDivider from './u-subnav-divider.vue';
 import Subtab from './u-subtab.vue';
 import Subtabs from './u-subtabs.vue';
 import Switch from './u-switch.vue';
@@ -108,16 +111,19 @@ export {
     Pills,
     Popover,
     Radio,
+    SelectDivider,
+    SelectGroup,
     Select,
     SelectItem,
     Sidebar,
     SidebarGroup,
     SidebarItem,
-    SidebarMenu,
+    SidebarDivider,
     Slider,
     StatusIcon,
     Subnav,
     SubnavItem,
+    SubnavDivider,
     Subtab,
     Subtabs,
     Switch,
