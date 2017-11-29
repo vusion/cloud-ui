@@ -1,4 +1,4 @@
-# 颜色选择扩展（SelectColor）
+# 颜色选择扩展 SelectColor
 
 ## 示例
 ### 基本形式

@@ -1,4 +1,4 @@
-import ListView from 'u-list-view.vue';
+import ListView from 'proto-ui.vusion/src/u-list-view.vue';
 
 const Capsules = {
     name: 'u-capsules',

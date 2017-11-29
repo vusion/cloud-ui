@@ -1,5 +1,5 @@
-import RouterItem from 'u-router-item.vue';
-import Emitter from 'u-emitter.vue';
+import RouterItem from 'proto-ui.vusion/src/u-router-item.vue';
+import Emitter from 'proto-ui.vusion/src/u-emitter.vue';
 
 export default {
     name: 'u-sidebar-item',

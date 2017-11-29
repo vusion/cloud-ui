@@ -1,4 +1,4 @@
-# Icon（Icon）
+# Icon Icon
 
 ## 示例
 ### 基本形式

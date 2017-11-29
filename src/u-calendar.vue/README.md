@@ -1,4 +1,4 @@
-# 日历（Calendar）
+# 日历 Calendar
 
 ## 示例
 ### 基本形式

@@ -1,7 +1,6 @@
 const path = require('path');
 const hljs = require('highlight.js');
 
-const hashSum = require('hash-sum');
 const iterator = require('markdown-it-for-inline');
 
 let theme = path.basename(process.cwd());
@@ -10,6 +9,7 @@ if (theme === 'src')
 
 module.exports = {
     type: 'app',
+    globalCSSPath: './base/global.css',
     webpack: {
         entry: {
             docs: path.resolve(__dirname, './index.js'),
@@ -39,18 +39,18 @@ module.exports = {
                             preserveWhitespace: false,
                         },
                     }, {
-                        loader: 'vue-md-loader',
+                        loader: 'vue-markdown-html-loader',
                         options: {
                             wrapper: 'u-article',
-                            livePattern: {
-                                exec: (content) => [content, 'anonymous-' + hashSum(content)],
-                            },
-                            liveTemplateProcessor(template) {
-                                // Remove whitespace between tags
-                                template = template.trim().replace(/>\s+</g, '><');
-                                return `<div class="u-example">${template}</div>`;
-                            },
-                            markdown: {
+                            // livePattern: {
+                            //     exec: (content) => [content, 'anonymous-' + hashSum(content)],
+                            // },
+                            // liveTemplateProcessor(template) {
+                            //     // Remove whitespace between tags
+                            //     template = template.trim().replace(/>\s+</g, '><');
+                            //     return `<div class="u-example">${template}</div>`;
+                            // },
+                            markdownIt: {
                                 langPrefix: 'lang-',
                                 html: true,
                                 highlight(str, rawLang) {
@@ -70,7 +70,7 @@ module.exports = {
                                     // return `<pre class="hljs"><code>${result}</code></pre>`;
                                 },
                             },
-                            plugins: [
+                            markdownItPlugins: [
                                 [iterator, 'link_converter', 'link_open', (tokens, idx) => tokens[idx].tag = 'u-link'],
                                 [iterator, 'link_converter', 'link_close', (tokens, idx) => tokens[idx].tag = 'u-link'],
                             ],

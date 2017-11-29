@@ -1,4 +1,4 @@
-# 栅格布局（GridLayout）
+# 栅格布局 GridLayout
 ## 示例
 
 ### 基本形式

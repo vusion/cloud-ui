@@ -1,16 +1,16 @@
-# 日期时间选择（DateTimePicker）
+# 日期时间选择 DateTimePicker
 
 ## 示例
 ### 基本形式
 
 #### 声明式
 
-### 基本（有初始值）
+### 基本 有初始值
 ``` html
 <u-date-time-picker date="2018-08-08"></u-date-time-picker>
 ```
 
-### 基本（无初始值）
+### 基本 无初始值
 ``` html
 <u-date-time-picker></u-date-time-picker>
 ```

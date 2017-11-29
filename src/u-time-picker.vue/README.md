@@ -1,4 +1,4 @@
-# 时间选择（TimePicker）
+# 时间选择 TimePicker
 
 ## 示例
 ### 基本形式

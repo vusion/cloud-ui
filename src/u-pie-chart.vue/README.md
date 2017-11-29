@@ -1,4 +1,4 @@
-# 弹窗（PieChart）
+# 弹窗 PieChart
 
 ## 示例
 ### 基本形式

@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import * as Library from 'library';
+import '../src/base/index.css';
 
 import GlobalLayout from './common/u-global-layout.vue';
 import Article from './common/u-article.vue';

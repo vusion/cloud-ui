@@ -1,4 +1,4 @@
-# 表头过滤（TableSelect）
+# 表头过滤 TableSelect
 
 ## 示例
 ### 基本形式

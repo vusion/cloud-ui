@@ -1,4 +1,4 @@
-# 数字输入（NumberInput）
+# 数字输入 NumberInput
 
 ## 示例
 ### 基本形式

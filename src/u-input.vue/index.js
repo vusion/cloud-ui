@@ -1,4 +1,4 @@
-import Input from 'u-input.vue';
+import Input from 'proto-ui.vusion/src/u-input.vue';
 
 export default {
     name: 'u-input',

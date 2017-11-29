@@ -1,4 +1,4 @@
-# 日期选择（DatePicker）
+# 日期选择 DatePicker
 
 ## 示例
 ### 基本形式

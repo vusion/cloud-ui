@@ -1,4 +1,4 @@
-@import 'u-switch.vue/module.css';
+@import 'proto-ui.vusion/src/u-switch.vue/module.css';
 
 .root {
     transition: background 0.2s;

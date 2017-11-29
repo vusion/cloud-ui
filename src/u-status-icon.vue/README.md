@@ -1,4 +1,4 @@
-# 状态图标（StatusIcon）
+# 状态图标 StatusIcon
 
 ## 示例
 ### 基本形式

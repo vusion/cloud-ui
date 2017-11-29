@@ -1,0 +1,6 @@
+@import 'proto-ui.vusion/src/u-navbar-divider.vue/module.css';
+
+.root {
+    background: white;
+    vertical-align: -5px;
+}

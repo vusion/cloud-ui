@@ -1,4 +1,4 @@
-# 拖放（Draggable and Drop）
+# 拖放 Draggable and Drop
 
 ## 示例
 ### 基本形式

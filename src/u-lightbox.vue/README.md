@@ -1,4 +1,4 @@
-# 灯箱（Lightbox）
+# 灯箱 Lightbox
 
 ## 示例
 ### 基本形式

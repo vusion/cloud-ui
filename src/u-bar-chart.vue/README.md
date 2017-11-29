@@ -1,4 +1,4 @@
-# 柱状图（BarChart）
+# 柱状图 BarChart
 
 ## 示例
 ### 基本形式

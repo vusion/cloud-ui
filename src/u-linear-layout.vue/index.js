@@ -1,3 +1,3 @@
-import LinearLayout from 'u-linear-layout.vue';
+import LinearLayout from 'proto-ui.vusion/src/u-linear-layout.vue';
 
 export default LinearLayout;

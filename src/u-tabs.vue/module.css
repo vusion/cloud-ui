@@ -1,9 +1,10 @@
-@import 'u-tabs.vue/module.css';
+@import 'proto-ui.vusion/src/u-tabs.vue/module.css';
 
 $tabs-border: #e0e6ed;
 
 .head {
     border-bottom: 1px solid $tabs-border;
+    height: auto;
 }
 
 .item {

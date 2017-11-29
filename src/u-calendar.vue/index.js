@@ -1,6 +1,6 @@
 import uPopover from '../u-popover.vue';
-import uListViewItem from 'u-list-view-item.vue';
-import uListView from 'u-list-view.vue';
+import uListViewItem from 'proto-ui.vusion/src/u-list-view-item.vue';
+import uListView from 'proto-ui.vusion/src/u-list-view.vue';
 const MS_OF_DAY = 24 * 3600 * 1000;
 
 /**

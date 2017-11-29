@@ -1,4 +1,4 @@
-# 线性布局（LinearLayout）
+# 线性布局 LinearLayout
 
 ## 示例
 ### 基本形式

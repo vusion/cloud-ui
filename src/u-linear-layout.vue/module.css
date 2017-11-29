@@ -1,4 +1,4 @@
-@import 'u-linear-layout.vue/module.css';
+@import 'proto-ui.vusion/src/u-linear-layout.vue/module.css';
 
 .root[direction="horizontal"][gap="none"] > * + * {
     margin-left: 0;

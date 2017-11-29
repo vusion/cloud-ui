@@ -1,4 +1,4 @@
-# 选择扩展（MultiSelect）
+# 选择扩展 MultiSelect
 
 ## 示例
 ### 基本形式

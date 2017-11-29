@@ -1,4 +1,4 @@
-# 分页器（Pagination）
+# 分页器 Pagination
 
 ## 示例
 ### 基本形式
