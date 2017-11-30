@@ -26,7 +26,7 @@ installComponents(Components, Vue);
 import routes from './routes';
 new Vue({
     router: new VueRouter({
-        base: window.base,
+        base: '/cloud-ui/',
         mode: 'history',
         routes,
         scrollBehavior: (to, from, savedPosition) => savedPosition || { x: 0, y: 0 },
