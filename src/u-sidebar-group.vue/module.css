@@ -1,4 +1,9 @@
+.root {
+    composes: group from '../u-sidebar.vue/module.css';
+}
+
 .head {
+    composes: group_head from '../u-sidebar.vue/module.css';
     display: block;
     cursor: pointer;
 
