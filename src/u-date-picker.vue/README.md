@@ -30,7 +30,7 @@
 ### 获取改变值方法 change select
 ``` vue
 <template>
-<u-date-picker :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
+<u-date-picker time="morning" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
 </template>
 
 <script>
@@ -59,3 +59,17 @@ export default {
 };
 </script>
 ```
+## DatePicker API
+### Attrs/Props
+
+| Attr/Prop | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| date | String,Number,Date | | 初始日期值 |
+| minDate | String,Number,Date | | 最小日期 |
+| maxDate | String,Number,Date | | 最大日期 |
+| readonly | Boolean | `false` | 是否只读 |
+| disabled | Boolean | `false` | 是否禁用 |
+| autofocus | Boolean | `false` | 文本框默认处于focus |
+| placeholder | String | `请输入` | 文本框默认提示 |
+| alignment | String | `left` | 日历弹窗对其方式，可选值：left, right |
+| time | String, Number | `start` | 设置返回的日期的时分秒值，可选值为start,表示时分秒是0:00:00,morning:时分秒为8:00:00,end:表示时分秒为: 23:59:59, 输入整数表示对应的整数时刻，例如输入9代表时分秒为9:00:00,自定义时分秒请输入对应格式的字符串即可 |
