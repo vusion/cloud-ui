@@ -1,4 +1,4 @@
-import { getStyle } from '../base/style.js';
+import { getStyle } from '../base/style';
 
 export default {
     name: 'u-table-view',

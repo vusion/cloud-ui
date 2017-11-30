@@ -1,11 +1,11 @@
 const SPECIAL_CHARS_REGEXP = /([:\-_]+(.))/g;
 const MOZ_HACK_REGEXP = /^moz([A-Z])/;
 
-const camelCase = function (name) {
+export const camelCase = function (name) {
     return name.replace(SPECIAL_CHARS_REGEXP, (_, separator, letter, offset) => offset ? letter.toUpperCase() : letter).replace(MOZ_HACK_REGEXP, 'Moz$1');
 };
 
-const getStyle = function (element, styleName) {
+export const getStyle = function (element, styleName) {
     if (!element || !styleName)
         return null;
 
@@ -21,7 +21,8 @@ const getStyle = function (element, styleName) {
         return element.style[styleName];
     }
 };
-const getPosition = function (elem) {
+
+export const getPosition = function (elem) {
     const doc = elem && elem.ownerDocument;
     const docElem = doc.documentElement;
     const body = doc.body;
@@ -33,7 +34,8 @@ const getPosition = function (elem) {
 
     return { left: box.left - clientLeft, top: box.top - clientTop };
 };
-const getSize = function (elem, mode = 'outside') {
+
+export const getSize = function (elem, mode = 'outside') {
     if (mode === 'inside')
         return { width: elem.clientWidth, height: elem.clientHeight };
     else if (mode === 'center')
@@ -41,10 +43,12 @@ const getSize = function (elem, mode = 'outside') {
     else if (mode === 'outside')
         return { width: elem.offsetWidth, height: elem.offsetHeight };
 };
-const getDimension = function (elem, mode) {
+
+export const getDimension = function (elem, mode) {
     return Object.assign(getSize(elem, mode), getPosition(elem));
 };
-const isInRect = function (position, dimension) {
+
+export const isInRect = function (position, dimension) {
     if (!position || !dimension)
         return false;
 
@@ -53,32 +57,8 @@ const isInRect = function (position, dimension) {
         && position.top > dimension.top
         && (position.top < dimension.top + dimension.height);
 };
-const getComputedStyle = function (elem, property) {
+
+export const getComputedStyle = function (elem, property) {
     const computedStyle = elem.currentStyle || window.getComputedStyle(elem, null);
     return property ? computedStyle[property] : computedStyle;
 };
-
-const manager = {
-    dragging: false,
-    value: undefined,
-    proxy: undefined,
-    screenX: 0,
-    screenY: 0,
-    clientX: 0,
-    clientY: 0,
-    pageX: 0,
-    pageY: 0,
-    startX: 0,
-    startY: 0,
-    dragX: 0,
-    dragY: 0,
-    startLeft: 0,
-    startTop: 0,
-    dragLeft: 0,
-    dragTop: 0,
-    droppable: undefined,
-    droppables: [],
-};
-
-export { getStyle, getPosition, getSize, getDimension, isInRect, getComputedStyle, manager };
-

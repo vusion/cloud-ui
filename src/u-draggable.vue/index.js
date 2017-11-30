@@ -1,145 +1,107 @@
-import { getPosition, getSize, getComputedStyle, manager } from '../base/style.js';
+import { getPosition, getSize, getComputedStyle } from '../base/style';
+import manager from './manager';
 
 export default {
     name: 'u-draggable',
     props: {
-        proxy: {
-            type: String,
-            default: 'clone',
-        },
-        value: [String, Number],
-        element: {
-            type: String,
-            default: 'div',
-        },
-        disabled: {
-            type: Boolean,
-            default: false,
-        },
-        restrict: {
-            type: Function,
-            // 设置默认值比较特殊
-            // default() {
-            //     return (params) => ({
-            //         left: manager.startLeft + manager.dragX,
-            //         top: manager.startTop + manager.dragY,
-            //     });
-            // },
-        },
-        // 暂不确定是否添加这个属性
-        // cancel: {
-        //     type: Function,
-        // },
+        value: null,
+        transfer: { type: String, default: 'clone' },
+        disabled: { type: Boolean, default: false },
+        constraint: Function,
     },
-    render(h) {
-        const slots = this.$slots.default;
-        let children = slots;
-        const { footer } = this.$slots;
-        if (footer)
-            children = slots ? [...slots, ...footer] : [...footer];
-        return h(this.element, {
-            class: 'root',
-            attrs: {
-                disabled: this.disabled,
-            },
-            style: {
-                position: this.position,
-            },
-            on: {
-                mousedown: this.onMousedown,
-            },
-        }, children);
+    render() {
+        return this.$slots.default && this.$slots.default[0];
+    },
+    mounted() {
+        if (this.$el)
+            this.$el.addEventListener('mousedown', this.onMouseDown);
     },
     methods: {
-        getProxy() {
-            let proxy;
-            const source = this.$el;
+        getTransferEl() {
+            let transferEl;
+            const sourceEl = this.$el;
 
-            if (typeof this.proxy === 'function')
-                proxy = this.proxy();
-            else if (this.proxy instanceof Element)
-                proxy = this.proxy;
-            else if (this.proxy === 'self')
-                proxy = source;
-            else if (this.proxy === 'clone') {
-                proxy = source.cloneNode(true);
-                this.setProxyFixed(proxy, getPosition(source));
-                const size = getSize(source);
-                proxy.style.width = size.width + 'px';
-                proxy.style.height = size.height + 'px';
-                source.parentElement.appendChild(proxy);
+            if (this.transfer instanceof Element)
+                transferEl = this.transfer;
+            else if (this.transfer === 'self')
+                transferEl = sourceEl;
+            else if (this.transfer === 'clone') {
+                transferEl = sourceEl.cloneNode(true);
+                this.setTransferFixed(transferEl, getPosition(sourceEl));
+                const size = getSize(sourceEl);
+                transferEl.style.width = size.width + 'px';
+                transferEl.style.height = size.height + 'px';
+                sourceEl.parentElement.appendChild(transferEl);
             }
 
-            proxy && this.initProxy(proxy);
-            return proxy;
+            transferEl && this.initTransfer(transferEl);
+            return transferEl;
         },
-        initProxy(proxy) {
+        initTransfer(transfer) {
             // 如果position为static，则设置为relative，保证可以移动
-            if (getComputedStyle(proxy, 'position') === 'static')
-                proxy.style.position = 'relative';
+            if (getComputedStyle(transfer, 'position') === 'static')
+                transfer.style.position = 'relative';
         },
-        setProxyFixed(proxy, position = { left: 0, top: 0 }) {
-            proxy.style.left = position.left + 'px';
-            proxy.style.top = position.top + 'px';
-            proxy.style.zIndex = '9999';
-            proxy.style.position = 'fixed';
-            proxy.style.display = '';
+        setTransferFixed(transfer, position = { left: 0, top: 0 }) {
+            transfer.style.left = position.left + 'px';
+            transfer.style.top = position.top + 'px';
+            transfer.style.zIndex = '9999';
+            transfer.style.position = 'fixed';
+            transfer.style.display = '';
         },
-        onMousedown(event) {
+        onMouseDown(e) {
             if (this.disabled)
-                return false;
+                return;
 
-            event.preventDefault();
+            e.preventDefault();
 
             Object.assign(manager, {
-                screenX: event.screenX,
-                screenY: event.screenY,
-                clientX: event.clientX,
-                clientY: event.clientY,
-                pageX: event.pageX,
-                pageY: event.pageY,
-                startX: event.clientX,
-                startY: event.clientY,
+                screenX: e.screenX,
+                screenY: e.screenY,
+                clientX: e.clientX,
+                clientY: e.clientY,
+                pageX: e.pageX,
+                pageY: e.pageY,
+                startX: e.clientX,
+                startY: e.clientY,
                 dragX: 0,
                 dragY: 0,
             });
 
-            document.addEventListener('mousemove', this.onMouseMove);
-            document.addEventListener('mouseup', this.onMouseUp);
+            window.addEventListener('mousemove', this.onMouseMove);
+            window.addEventListener('mouseup', this.onMouseUp);
         },
-        onMouseMove(event) {
-            event.preventDefault();
+        onMouseMove(e) {
+            e.preventDefault();
+
             Object.assign(manager, {
-                screenX: event.screenX,
-                screenY: event.screenY,
-                clientX: event.clientX,
-                clientY: event.clientY,
-                pageX: event.pageX,
-                pageY: event.pageY,
-                dragX: event.clientX - manager.startX,
-                dragY: event.clientY - manager.startY,
+                screenX: e.screenX,
+                screenY: e.screenY,
+                clientX: e.clientX,
+                clientY: e.clientY,
+                pageX: e.pageX,
+                pageY: e.pageY,
+                dragX: e.clientX - manager.startX,
+                dragY: e.clientY - manager.startY,
             });
 
-            if (manager.dragging === false)
-                this.onMouseMoveStart(event);
-            else
-                this.onMouseMoving(event);
+            manager.dragging === false ? this.onMouseMoveStart(e) : this.onMouseMoving(e);
         },
-        onMouseUp(event) {
-            document.removeEventListener('mousemove', this.onMouseMove);
-            document.removeEventListener('mouseup', this.onMouseUp);
+        onMouseUp(e) {
+            window.removeEventListener('mousemove', this.onMouseMove);
+            window.removeEventListener('mouseup', this.onMouseUp);
 
             if (manager.dragging) {
                 manager.droppable && manager.droppable.drop(this);
                 this.cancel();
             }
         },
-        onMouseMoveStart(event, override) {
-            const proxy = this.getProxy();
+        onMouseMoveStart(e, override) {
+            const transferEl = this.getTransferEl();
 
             // 代理元素的位置从MouseMoveStart开始算，这样在MouseDown中也可以预先处理位置
             // 获取初始的left和top值
-            const computedStyle = proxy ? window.getComputedStyle(proxy) : {};
+            const computedStyle = transferEl ? window.getComputedStyle(transferEl) : {};
             if (!computedStyle.left || computedStyle.left === 'auto')
                 computedStyle.left = '0px';
             if (!computedStyle.top || computedStyle.top === 'auto')
@@ -147,7 +109,7 @@ export default {
 
             Object.assign(manager, {
                 dragging: true,
-                proxy,
+                transferEl,
                 value: this.value,
                 startLeft: +computedStyle.left.slice(0, -2),
                 startTop: +computedStyle.top.slice(0, -2),
@@ -159,19 +121,16 @@ export default {
 
             !override && this.dragStart();
         },
-        onMouseMoving(event) {
+        onMouseMoving(e) {
             // 拖拽约束
-            // const next = this.restrict(manager);
-            let next;
-            if (this.restrict)
-                next = this.restrict(manager);
-            else
-                next = this.limit(manager);
+            const next = (this.constraint || this.defaultConstraint)(manager);
+
             // 设置位置
-            if (manager.proxy) {
-                manager.proxy.style.left = next.left + 'px';
-                manager.proxy.style.top = next.top + 'px';
+            if (manager.transferEl) {
+                manager.transferEl.style.left = next.left + 'px';
+                manager.transferEl.style.top = next.top + 'px';
             }
+
             // 更新当前位置
             manager.left = next.left;
             manager.top = next.top;
@@ -181,24 +140,23 @@ export default {
                 return;
 
             // for Droppable
-            let pointElement = null;
-            if (manager.proxy) {
-                manager.proxy.style.display = 'none';
-                pointElement = document.elementFromPoint(event.clientX, event.clientY);
-                manager.proxy.style.display = '';
+            let pointEl = null;
+            if (manager.transferEl) {
+                manager.transferEl.style.display = 'none';
+                pointEl = document.elementFromPoint(e.clientX, e.clientY);
+                manager.transferEl.style.display = '';
             } else
-                pointElement = document.elementFromPoint(event.clientX, event.clientY);
+                pointEl = document.elementFromPoint(e.clientX, e.clientY);
 
             let pointDroppable = null;
-            while (pointElement) {
-                pointDroppable = manager.droppables.find((droppable) =>
-                    droppable.$el === pointElement);
+            // while (pointEl) {
+            pointDroppable = manager.droppables.find((droppable) => droppable.$el && droppable.$el.contains(pointEl));
 
-                if (pointDroppable)
-                    break;
-                else
-                    pointElement = pointElement.parentElement;
-            }
+            // if (pointDroppable)
+            //     break;
+            // else
+            //     pointEl = pointEl.parentElement;
+            // }
 
             if (manager.droppable !== pointDroppable) {
                 manager.droppable && manager.droppable.dragLeave(this);
@@ -211,7 +169,7 @@ export default {
             // dragEnter之后也要dragOver
             pointDroppable && pointDroppable.dragOver(this);
         },
-        limit(params) {
+        defaultConstraint(params) {
             return {
                 left: params.startLeft + params.dragX,
                 top: params.startTop + params.dragY,
@@ -223,7 +181,7 @@ export default {
             Object.assign(manager, {
                 dragging: false,
                 value: undefined,
-                proxy: undefined,
+                transferEl: undefined,
                 range: undefined,
                 screenX: 0,
                 screenY: 0,
@@ -243,48 +201,35 @@ export default {
             });
         },
         dragStart() {
-            const source = this.$el;
+            const sourceEl = this.$el;
+
+            let cancel = false;
             this.$emit('dragstart', Object.assign({
-                sender: this,
-                origin: this,
-                source,
-                cancel: this.cancel,
+                originVM: this,
+                sourceEl,
+                preventDefault: () => cancel = true,
             }, manager));
+
+            if (cancel)
+                return this.cancel();
         },
-        /**
-         * @private
-         */
         drag() {
             this.$emit('drag', Object.assign({
-                sender: this,
-                origin: this,
-                source: this.$el,
-                cancel: this.cancel,
+                originVM: this,
+                sourceEl: this.$el,
             }, manager));
         },
-        /**
-         * @private
-         */
         dragEnd() {
-            const source = this.$el;
+            const sourceEl = this.$el;
 
-            /**
-             * @event dragend 拖拽结束时触发
-             * @property {object} sender 事件发送对象，为当前draggable
-             * @property {object} origin 拖拽源，为当前draggable
-             * @property {object} source 拖拽起始元素
-             * @property {object} proxy 拖拽代理元素
-             * @property {var} value 拖拽时需要传递的值
-             */
             this.$emit('dragend', Object.assign({
-                sender: this,
-                origin: this,
-                source,
+                originVM: this,
+                sourceEl,
             }, manager));
 
-            if (manager.proxy) {
-                if (this.proxy === 'clone')
-                    manager.proxy.parentElement.removeChild(manager.proxy);
+            if (manager.transferEl) {
+                if (this.transfer === 'clone')
+                    manager.transferEl.parentElement.removeChild(manager.transferEl);
             }
         },
     },

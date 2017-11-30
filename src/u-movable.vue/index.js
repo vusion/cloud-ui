@@ -1,5 +1,5 @@
 import Draggable from '../u-draggable.vue';
-import { getSize, getComputedStyle, manager } from '../base/style.js';
+import { getSize, getComputedStyle, manager } from '../base/style';
 export default {
     name: 'u-movable',
     mixins: [Draggable],

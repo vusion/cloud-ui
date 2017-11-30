@@ -1,92 +1,77 @@
-import { manager, getDimension } from '../base/style.js';
+import { getDimension } from '../base/style';
+import manager from '../u-draggable.vue/manager';
 
 export default {
     name: 'u-droppable',
     props: {
-        element: {
-            type: String,
-            default: 'div',
-        },
-        disabled: {
-            type: Boolean,
-            default: false,
-        },
-        value: String,
+        disabled: { type: Boolean, default: false },
     },
-    data() {
-        return {};
+    render() {
+        return this.$slots.default && this.$slots.default[0];
     },
     created() {
         manager.droppables.push(this);
     },
-    render(h) {
-        return h(this.element, {
-            class: 'root',
-            attrs: {
-                disabled: this.disabled,
-            },
-        }, this.$slots.default);
-    },
-    methods: {
-        dragEnter(origin) {
-            const element = this.$el;
-            this.$emit('dragenter', Object.assign({
-                sender: this,
-                origin,
-                source: origin.$el,
-                target: element,
-                cancel: origin.cancel,
-            }, manager));
-        },
-        /**
-         * @private
-         */
-        dragLeave(origin) {
-            const element = this.$el;
-            this.$emit('dragleave', Object.assign({
-                sender: this,
-                origin,
-                source: origin.$el,
-                target: element,
-                cancel: origin.cancel,
-            }, manager));
-        },
-        /**
-         * @private
-         */
-        dragOver(origin) {
-            const element = this.$el;
-            const dimension = getDimension(element);
-            this.$emit('dragover', Object.assign({
-                sender: this,
-                origin,
-                source: origin.$el,
-                target: element,
-                ratioX: (manager.clientX - dimension.left) / dimension.width,
-                ratioY: (manager.clientY - dimension.top) / dimension.height,
-                cancel: origin.cancel,
-            }, manager));
-        },
-        /**
-         * @private
-         */
-        drop(origin) {
-            const element = this.$el;
-            const dimension = getDimension(element);
-
-            this.$emit('update:value', origin.value);
-
-            this.$emit('drop', Object.assign({
-                sender: this,
-                origin,
-                source: origin.$el,
-                target: element,
-                ratioX: (manager.clientX - dimension.left) / dimension.width,
-                ratioY: (manager.clientY - dimension.top) / dimension.height,
-            }, manager));
-        },
-    },
     destroyed() {
         manager.droppables.splice(manager.droppables.indexOf(this), 1);
+    },
+    methods: {
+        dragEnter(originVM) {
+            const targetEl = this.$el;
+
+            let cancel = false;
+            this.$emit('dragenter', Object.assign({
+                originVM,
+                sourceEl: originVM.$el,
+                targetEl,
+                preventDefault: () => cancel = true,
+            }, manager));
+
+            if (cancel)
+                return originVM.cancel();
+        },
+        dragLeave(originVM) {
+            const targetEl = this.$el;
+
+            let cancel = false;
+            this.$emit('dragleave', Object.assign({
+                originVM,
+                sourceEl: originVM.$el,
+                targetEl,
+                preventDefault: () => cancel = true,
+            }, manager));
+
+            if (cancel)
+                return originVM.cancel();
+        },
+        dragOver(originVM) {
+            const targetEl = this.$el;
+            const dimension = getDimension(targetEl);
+
+            let cancel = false;
+            this.$emit('dragover', Object.assign({
+                originVM,
+                sourceEl: originVM.$el,
+                targetEl,
+                ratioX: (manager.clientX - dimension.left) / dimension.width,
+                ratioY: (manager.clientY - dimension.top) / dimension.height,
+                preventDefault: () => cancel = true,
+            }, manager));
+
+            if (cancel)
+                return originVM.cancel();
+        },
+        drop(originVM) {
+            const targetEl = this.$el;
+            const dimension = getDimension(targetEl);
+
+            this.$emit('drop', Object.assign({
+                originVM,
+                sourceEl: originVM.$el,
+                targetEl,
+                ratioX: (manager.clientX - dimension.left) / dimension.width,
+                ratioY: (manager.clientY - dimension.top) / dimension.height,
+            }, manager));
+        },
     },
 };
