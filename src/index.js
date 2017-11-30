@@ -1,3 +1,5 @@
+import './base/index.css';
+
 import {
     Checkbox0 as Checkbox,
     Radio0 as Radio,

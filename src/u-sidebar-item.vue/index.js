@@ -1,3 +1,16 @@
 import SidebarItem from 'proto-ui.vusion/src/u-sidebar-item.vue';
 
-export default SidebarItem;
+export default {
+    name: 'u-sidebar-item',
+    mixins: [SidebarItem],
+    watch: {
+        $route(to, from) {
+            if (!this.to || !this.$router)
+                return;
+
+            const location = this.$router.resolve(this.to).location;
+            const active = this.exact ? location.path === to.path : to.path.startsWith(location.path);
+            active && this.groupVM && this.groupVM.toggle(true);
+        },
+    },
+};

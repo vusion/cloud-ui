@@ -9,6 +9,7 @@
     color: #8594aa;
     padding-left: 20px;
     transition: all $transition-duration;
+    background-color: #e2e6f7;
 }
 
 .root:hover {

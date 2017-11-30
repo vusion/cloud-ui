@@ -29,7 +29,7 @@
 /* @TODO: replace by icon-font */
 .expander:after {
     content: '▸';
-    font-size:28px;
+    font-size: 20px;
 }
 
 .head:hover {

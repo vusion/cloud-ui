@@ -1,5 +1,4 @@
-import Movable from '../u-modal.vue';
-import { getDimension } from '../base/style.js';
+import { getDimension } from '../util/style.js';
 
 export default {
     name: 'u-slider',
@@ -53,12 +52,6 @@ export default {
         return {
             currentValue: this.value,
         };
-    },
-    created() {
-        // console.log(this.value);
-        // console.log(this.percent);
-        // console.log(this.min);
-        // console.log(this.max);
     },
     watch: {
         value(newValue) {
