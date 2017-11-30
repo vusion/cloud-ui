@@ -1,4 +1,4 @@
-import directive from '../util/directives.js';
+import { clickOutside } from '../base/directives';
 /**
  * @class DateTimePicker
  * @extend Dropdown
@@ -60,7 +60,7 @@ export default {
         },
     },
     directives: {
-        clickoutside: directive.clickoutside,
+        clickOutside,
     },
     watch: {
         date(newValue) {

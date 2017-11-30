@@ -1,6 +1,6 @@
 import Calendar from '../u-calendar.vue';
 const MS_OF_DAY = 24 * 3600 * 1000;
-import directive from '../util/directives.js';
+import { clickOutside } from '../base/directives';
 
 /**
  * @class DatePicker
@@ -51,9 +51,7 @@ export default {
 
         // document.addEventListener('click', this.fadeOut.bind(this), false);
     },
-    directives: {
-        clickoutside: directive.clickoutside,
-    },
+    directives: { clickOutside },
     watch: {
         date(newValue) {
             this.showDate = this.format(newValue, 'yyyy/MM/dd');

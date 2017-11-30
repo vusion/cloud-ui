@@ -1,5 +1,3 @@
-import EventUtil from '../util/event.js';
-
 /**
  * @class Select
  * @extend Base
@@ -25,7 +23,7 @@ const SelectColor = {
         };
     },
     created() {
-        EventUtil.on(document, 'click', this.fadeOut.bind(this));
+        document.addEventListener('click', this.fadeOut.bind(this));
     },
     computed: {
         selected() {

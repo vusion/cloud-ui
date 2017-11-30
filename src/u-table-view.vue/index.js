@@ -1,5 +1,4 @@
-import * as Style from '../util/style.js';
-import Utils from '../util/utils.js';
+import { getStyle } from '../base/style.js';
 
 export default {
     name: 'u-table-view',
@@ -112,10 +111,10 @@ export default {
                 if (allWidth)
                     this.tableWidth = this.columns.map((cell) => cell.width).reduce((a, b) => a + b) + 'px';
                 else {
-                    if (Style.getStyle(this.$el, 'width') === 'auto')
+                    if (getStyle(this.$el, 'width') === 'auto')
                         this.tableWidth = '100%';
                     else
-                        this.tableWidth = parseInt(Style.getStyle(this.$el, 'width')) - 1 + 'px';
+                        this.tableWidth = parseInt(getStyle(this.$el, 'width')) - 1 + 'px';
                 }
                 this.columnsWidth = [];
                 this.$nextTick(() => {
@@ -129,7 +128,7 @@ export default {
                             else if (column.type === 'selection')
                                 width = 35;
                             else
-                                width = parseInt(Style.getStyle($td[i], 'width'));
+                                width = parseInt(getStyle($td[i], 'width'));
 
                             this.columnsWidth.push(width);
                             // this.columnsWidth[i].width = width;

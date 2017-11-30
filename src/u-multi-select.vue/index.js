@@ -1,6 +1,3 @@
-import Tag from '../u-tag.vue';
-import EventUtil from '../util/event.js';
-
 /**
  * @class MultiSelect
  * @extend Base
@@ -28,7 +25,7 @@ const MultiSelect = {
         };
     },
     created() {
-        EventUtil.on(document, 'click', this.fadeOut.bind(this));
+        document.addEventListener('click', this.fadeOut.bind(this));
     },
     computed: {
         selItems() {

@@ -1,6 +1,3 @@
-import Popper from '../u-popper.vue';
-import directive from '../util/directives.js';
-
 export default {
     name: 'u-popover',
     props: {

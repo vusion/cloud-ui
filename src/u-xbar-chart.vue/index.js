@@ -1,4 +1,4 @@
-import Utils from '../util/utils.js';
+import { deepCopy } from '../base/utils.js';
 
 /**
  * @class BarChart
@@ -152,7 +152,7 @@ export default {
                 return num;
         },
         initChartData() {
-            return Utils.deepcopy([], this.data);
+            return deepCopy([], this.data);
         },
         sortAsc(value1, value2) {
             return value1.total - value2.total;

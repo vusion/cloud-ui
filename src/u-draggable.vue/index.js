@@ -1,5 +1,5 @@
-import EventUtil from '../util/event.js';
-import { getPosition, getSize, getComputedStyle, manager } from '../util/style.js';
+import { getPosition, getSize, getComputedStyle, manager } from '../base/style.js';
+
 export default {
     name: 'u-draggable',
     props: {
@@ -104,8 +104,8 @@ export default {
                 dragY: 0,
             });
 
-            EventUtil.on(document, 'mousemove', this.onMouseMove);
-            EventUtil.on(document, 'mouseup', this.onMouseUp);
+            document.addEventListener('mousemove', this.onMouseMove);
+            document.addEventListener('mouseup', this.onMouseUp);
         },
         onMouseMove(event) {
             event.preventDefault();
@@ -126,8 +126,8 @@ export default {
                 this.onMouseMoving(event);
         },
         onMouseUp(event) {
-            EventUtil.off(document, 'mousemove', this.onMouseMove);
-            EventUtil.off(document, 'mouseup', this.onMouseUp);
+            document.removeEventListener('mousemove', this.onMouseMove);
+            document.removeEventListener('mouseup', this.onMouseUp);
 
             if (manager.dragging) {
                 manager.droppable && manager.droppable.drop(this);

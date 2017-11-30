@@ -5,7 +5,7 @@ const shell = require('shelljs');
 
 const outputPath = path.resolve(__dirname, '../cloud-ui');
 shell.rm('-rf', outputPath);
-shell.cp('-r', path.resolve(__dirname, 'assets'), outputPath);
+shell.cp('-r', path.resolve(__dirname, 'static'), outputPath);
 
 const configPath = path.resolve(__dirname, 'vusion.config.js');
 shell.cd(path.resolve(__dirname, '../src'));

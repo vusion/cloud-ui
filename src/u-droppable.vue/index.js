@@ -1,4 +1,4 @@
-import { manager, getDimension } from '../util/style.js';
+import { manager, getDimension } from '../base/style.js';
 
 export default {
     name: 'u-droppable',
