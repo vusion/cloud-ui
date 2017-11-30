@@ -22,7 +22,7 @@ export default [
             { path: 'u-logo', component: () => import('../src/u-logo.vue/README.md') },
             /* Layout */
             { path: 'u-linear-layout', component: () => import('../src/u-linear-layout.vue/README.md') },
-            { path: 'u-grid-layout', component: () => import('../src/u-grid-layout.vue/README.md') },
+            { path: 'u-grid-layout', component: () => import('proto-ui.vusion/src/u-grid-layout.vue/README.md') },
             /* Navigation */
             { path: 'u-navbar', component: () => import('../src/u-navbar.vue/README.md') },
             { path: 'u-sidebar', component: () => import('proto-ui.vusion/src/u-sidebar.vue/README.md') },
@@ -56,7 +56,7 @@ export default [
             { path: 'u-date-picker', component: () => import('../src/u-date-picker.vue/README.md') },
             { path: 'u-date-time-picker', component: () => import('../src/u-date-time-picker.vue/README.md') },
             /* Popper */
-            { path: 'u-popper', component: () => import('../src/u-popper.vue/README.md') },
+            { path: 'u-popper', component: () => import('proto-ui.vusion/src/u-popper.vue/README.md') },
             { path: 'u-tooltip', component: () => import('../src/u-tooltip.vue/README.md') },
             { path: 'u-popover', component: () => import('../src/u-popover.vue/README.md') },
             /* Feedback */

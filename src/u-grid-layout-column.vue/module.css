@@ -1,5 +1,0 @@
-.root {
-    composes: column from '../u-grid-layout.vue/module.css';
-    float: left;
-    position: relative;
-}
