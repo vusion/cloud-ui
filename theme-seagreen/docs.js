@@ -17027,7 +17027,7 @@ Object(__WEBPACK_IMPORTED_MODULE_10_vusion_utils__["a" /* installComponents */])
 
 new __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */]({
     router: new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
-        base: window.base,
+        base: '/cloud-ui/',
         mode: 'history',
         routes: __WEBPACK_IMPORTED_MODULE_11__routes__["a" /* default */],
         scrollBehavior: (to, from, savedPosition) => savedPosition || { x: 0, y: 0 },
