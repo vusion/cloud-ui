@@ -1,18 +1,18 @@
-# 话滑块 Slider
+# 滑块 Slider
 
 ## 示例
 ### 基本形式
+
 ``` html
-<div style="width: 100px;position: relative;">
-    <u-slider value="20"></u-slider>
-</div>
+<u-slider value="20"></u-slider>
 ```
 
 ## 案例
 ### 方法参数
-```vue
+
+``` vue
 <template>
-<div style="width: 100px;position: relative;">
+<div>
     <u-slider :value.sync="value" tooltip :step="step" min="10" max="500"></u-slider>
 </div>
 </template>

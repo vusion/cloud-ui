@@ -49,7 +49,6 @@ export default {
             type: Function,
         },
     },
-    mixins: [Movable],
     data() {
         return {
             currentValue: this.value,
