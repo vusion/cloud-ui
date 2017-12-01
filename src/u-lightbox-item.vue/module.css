@@ -10,6 +10,7 @@
 .root[current] {
     display: block;
     position: relative;
+    z-index: 10;
 }
 .title {
     color: #fff;
@@ -35,7 +36,6 @@
     transform: scale(1.2);
 }
 .root[current][animation="zoom-out"]{
-    z-index: 10;
     opacity: 1;
     transform: scale(1);
 }

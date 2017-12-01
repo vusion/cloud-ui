@@ -88,6 +88,16 @@ export default {
 | loop | Boolean | `false` | 是否可循环播放灯箱内容 |
 | animation | String | `''` | 动画（可选fade/zoom-out） |
 | index | Integer | 0 | 设置显示第index+1个灯箱内容 |
+| initMaxWidth | String/Number | 0.67 | 灯箱最大初始值。值为Number时，表示视窗百分比。值为string时，可为：'100'，'100px'，'100em'，'100rem'，'100vw') |
+| initMaxHeight | String/Number | 0.75 | 灯箱最大初始值。值为Number时，表示视窗百分比。值为string时，可为：'100'，'100px'，'100em'，'100rem'，'100vw') |
+| canZoom | Boolean | true | 灯箱是否开启缩放功能（只有当灯箱内容为图片时有效） |
+| zoomShowButton | Boolean | true | 是否显示缩放按钮（只有当zoom为true时有效） |
+| zoomAllowWheel | Boolean | true | 是否允许滚动鼠标缩放（只有当zoom为true时有效） |
+| zoomCanZoomin | Boolean | true | 灯箱是否开启放大功能（只有当zoom为true时有效） |
+| zoomCanZoomout | Boolean | true | 灯箱是否开启缩小功能（只有当zoom为true时有效） |
+| zoomMaxZoomin | Integer | 5 | 灯箱最大放大次数（单位为px时为最大width） |
+| zoomMaxZoomout | Integer | 5 | 灯箱最多缩小倍数（单位为px时为最小width） |
+| zoomRadio | Number | 0.1 | 每次放大缩小的比例 |
 
 ### Slots
 

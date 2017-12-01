@@ -83,3 +83,16 @@
 .button[role='next']:before{
     icon-font: url('../u-icon.vue/icons/keyboard-arrow-right.svg');
 }
+.opertaion{
+    color: #fff;
+    font-size: 20px;
+    line-height: 1;
+}
+.zoomButton{
+    margin: 0 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    display: inline-block;
+    width: 20px;
+    cursor: pointer;
+}
