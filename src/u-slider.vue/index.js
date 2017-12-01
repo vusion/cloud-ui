@@ -1,4 +1,4 @@
-import { getDimension } from '../util/style.js';
+import { getDimension } from '../base/style.js';
 
 export default {
     name: 'u-slider',
