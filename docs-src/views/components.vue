@@ -78,7 +78,7 @@
                     <u-sidebar-item to="/components/u-router-item">路由项 <small>RouterItem</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-draggable">拖拽 <small>Draggable</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-droppable">拖放 <small>Droppable</small></u-sidebar-item>
-                    <u-sidebar-item to="/components/u-movable">拖移 <small>Movable</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-dragger">拖拽器 <small>Dragger</small></u-sidebar-item>
                 </u-sidebar-group>
             </u-sidebar>
         </div>

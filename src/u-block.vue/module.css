@@ -1,0 +1,42 @@
+@import 'proto-ui.vusion/src/u-block.vue/module.css';
+
+.root {
+    padding: 8px 0;
+    background: #cad4e4;
+    overflow: hidden;
+}
+
+.root[size$="auto"] { width: auto; }
+.root[size^="auto"] { height: auto; }
+
+.root[size$="mini"] { width: 16px; }
+.root[size^="mini"] { height: 16px; }
+
+.root[size$="small"] { width: 32px; }
+.root[size^="small"] { height: 32px; }
+
+.root[size$="normal"] { width: 64px; }
+.root[size^="normal"] { height: 64px; }
+
+.root[size$="large"] { width: 128px; }
+.root[size^="large"] { height: 128px; }
+
+.root[color="primary"] {
+    background: $brand-primary;
+}
+
+.root[color="success"] {
+    background: $brand-success;
+}
+
+.root[color="warning"] {
+    background: $brand-warning;
+}
+
+.root[color="error"] {
+    background: $brand-error;
+}
+
+.root[inline] {
+    display: inline-block;
+}

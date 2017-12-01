@@ -43,7 +43,7 @@ export {
     Loading,
     Logo,
     Modal,
-    Movable,
+    Dragger,
     MultiSelect,
     Navbar,
     NavbarDivider,

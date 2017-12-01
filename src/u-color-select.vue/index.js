@@ -23,7 +23,7 @@ const SelectColor = {
         };
     },
     created() {
-        document.addEventListener('click', this.fadeOut.bind(this));
+        document.addEventListener('click', this.fadeOut);
     },
     computed: {
         selected() {

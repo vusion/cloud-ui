@@ -9,6 +9,11 @@ export default {
     render() {
         return this.$slots.default && this.$slots.default[0];
     },
+    watch: {
+        disabled(disabled) {
+            this.watchDisabled(disabled);
+        },
+    },
     created() {
         manager.droppables.push(this);
     },
@@ -16,8 +21,15 @@ export default {
         manager.droppables.splice(manager.droppables.indexOf(this), 1);
     },
     methods: {
+        watchDisabled(disabled) {
+            if (disabled)
+                this.$el.removeAttribute('droppable');
+            else
+                this.$el.setAttribute('droppable', 'droppable');
+        },
         dragEnter(originVM) {
             const targetEl = this.$el;
+            targetEl.setAttribute('droppable-target', 'droppable-target');
 
             let cancel = false;
             this.$emit('dragenter', Object.assign({
@@ -32,6 +44,7 @@ export default {
         },
         dragLeave(originVM) {
             const targetEl = this.$el;
+            targetEl.removeAttribute('droppable-target');
 
             let cancel = false;
             this.$emit('dragleave', Object.assign({
@@ -63,6 +76,7 @@ export default {
         },
         drop(originVM) {
             const targetEl = this.$el;
+            targetEl.removeAttribute('droppable-target');
             const dimension = getDimension(targetEl);
 
             this.$emit('drop', Object.assign({

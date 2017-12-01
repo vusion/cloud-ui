@@ -78,7 +78,7 @@ export default [
             { path: 'u-collapse-transition', component: () => import('proto-ui.vusion/src/u-collapse-transition.vue/README.md') },
             { path: 'u-draggable', component: () => import('../src/u-draggable.vue/README.md') },
             { path: 'u-droppable', component: () => import('../src/u-droppable.vue/README.md') },
-            { path: 'u-movable', component: () => import('../src/u-movable.vue/README.md') },
+            { path: 'u-dragger', component: () => import('../src/u-dragger.vue/README.md') },
         ] },
     ] },
     { path: '*', redirect: '/components' },

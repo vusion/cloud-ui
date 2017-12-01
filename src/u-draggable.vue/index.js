@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import { getPosition, getSize, getComputedStyle } from '../base/style';
 import manager from './manager';
 
@@ -5,28 +6,60 @@ export default {
     name: 'u-draggable',
     props: {
         value: null,
-        transfer: { type: String, default: 'clone' },
+        transfer: { type: [String, Element], default: 'clone' },
         disabled: { type: Boolean, default: false },
         constraint: Function,
     },
     render() {
         return this.$slots.default && this.$slots.default[0];
     },
+    watch: {
+        disabled(disabled) {
+            this.watchDisabled(disabled);
+        },
+    },
     mounted() {
-        if (this.$el)
-            this.$el.addEventListener('mousedown', this.onMouseDown);
+        // 创建VNode
+        /* eslint-disable consistent-this */
+        const parentVM = this;
+        this.childVM = new Vue({
+            name: 'u-draggable-child',
+            render(h) { return parentVM.$slots.transfer && parentVM.$slots.transfer[0]; },
+        });
+        this.childVM.parentVM = parentVM;
+        this.childVM.$mount();
+
+        this.watchDisabled(this.disabled);
+        this.$el.addEventListener('mousedown', this.onMouseDown);
+    },
+    updated() {
+        this.childVM.$forceUpdate();
+    },
+    destroyed() {
+        this.childVM && this.childVM.destroy && this.childVM.destroy();
+        this.childVM = undefined;
     },
     methods: {
+        watchDisabled(disabled) {
+            if (disabled)
+                this.$el.removeAttribute('draggable');
+            else
+                this.$el.setAttribute('draggable', 'draggable');
+        },
         getTransferEl() {
             let transferEl;
             const sourceEl = this.$el;
 
-            if (this.transfer instanceof Element)
+            if (this.$slots.transfer)
+                transferEl = this.childVM.$el;
+            else if (this.transfer instanceof Element)
                 transferEl = this.transfer;
             else if (this.transfer === 'self')
                 transferEl = sourceEl;
-            else if (this.transfer === 'clone') {
+            else if (this.transfer === 'clone')
                 transferEl = sourceEl.cloneNode(true);
+
+            if (this.$slots.transfer || this.transfer === 'clone') {
                 this.setTransferFixed(transferEl, getPosition(sourceEl));
                 const size = getSize(sourceEl);
                 transferEl.style.width = size.width + 'px';
@@ -87,21 +120,17 @@ export default {
 
             manager.dragging === false ? this.onMouseMoveStart(e) : this.onMouseMoving(e);
         },
-        onMouseUp(e) {
-            window.removeEventListener('mousemove', this.onMouseMove);
-            window.removeEventListener('mouseup', this.onMouseUp);
-
-            if (manager.dragging) {
-                manager.droppable && manager.droppable.drop(this);
-                this.cancel();
-            }
-        },
         onMouseMoveStart(e, override) {
             const transferEl = this.getTransferEl();
 
             // 代理元素的位置从MouseMoveStart开始算，这样在MouseDown中也可以预先处理位置
             // 获取初始的left和top值
-            const computedStyle = transferEl ? window.getComputedStyle(transferEl) : {};
+            let computedStyle = transferEl ? window.getComputedStyle(transferEl) : {};
+            computedStyle = {
+                left: computedStyle.left,
+                top: computedStyle.top,
+            };
+
             if (!computedStyle.left || computedStyle.left === 'auto')
                 computedStyle.left = '0px';
             if (!computedStyle.top || computedStyle.top === 'auto')
@@ -169,6 +198,15 @@ export default {
             // dragEnter之后也要dragOver
             pointDroppable && pointDroppable.dragOver(this);
         },
+        onMouseUp(e) {
+            window.removeEventListener('mousemove', this.onMouseMove);
+            window.removeEventListener('mouseup', this.onMouseUp);
+
+            if (manager.dragging) {
+                manager.droppable && manager.droppable.drop(this);
+                this.cancel();
+            }
+        },
         defaultConstraint(params) {
             return {
                 left: params.startLeft + params.dragX,
@@ -202,6 +240,8 @@ export default {
         },
         dragStart() {
             const sourceEl = this.$el;
+            sourceEl.setAttribute('draggable-source', 'draggable-source');
+            manager.transferEl && manager.transferEl.setAttribute('draggable-transfer', 'draggable-transfer');
 
             let cancel = false;
             this.$emit('dragstart', Object.assign({
@@ -221,6 +261,7 @@ export default {
         },
         dragEnd() {
             const sourceEl = this.$el;
+            sourceEl && sourceEl.removeAttribute('draggable-source');
 
             this.$emit('dragend', Object.assign({
                 originVM: this,
@@ -228,8 +269,10 @@ export default {
             }, manager));
 
             if (manager.transferEl) {
-                if (this.transfer === 'clone')
+                if (this.$slots.transfer || this.transfer === 'clone')
                     manager.transferEl.parentElement.removeChild(manager.transferEl);
+
+                manager.transferEl.removeAttribute('draggable-transfer');
             }
         },
     },

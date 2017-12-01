@@ -53,7 +53,7 @@ export default {
                 throw new Calendar.DateRangeError(minDate, maxDate);
         }
 
-        // document.addEventListener('click', this.fadeOut.bind(this), false);
+        // document.addEventListener('click', this.fadeOut, false);
     },
     directives: { clickOutside },
     watch: {

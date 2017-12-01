@@ -8,6 +8,7 @@ Checkbox.name = 'u-checkbox';
 Radio.name = 'u-radio';
 
 import BarChart from './u-bar-chart.vue';
+import Block from './u-block.vue';
 import Button from './u-button.vue';
 import Calendar from './u-calendar.vue';
 import Capsule from './u-capsule.vue';
@@ -19,6 +20,7 @@ import ColorSelect from './u-color-select.vue';
 import DatePicker from './u-date-picker.vue';
 import DateTimePicker from './u-date-time-picker.vue';
 import Draggable from './u-draggable.vue';
+import Dragger from './u-dragger.vue';
 import Droppable from './u-droppable.vue';
 import Form from './u-form.vue';
 import FormItem from './u-form-item.vue';
@@ -33,7 +35,6 @@ import Link from './u-link.vue';
 import Loading from './u-loading.vue';
 import Logo from './u-logo.vue';
 import Modal from './u-modal.vue';
-import Movable from './u-movable.vue';
 import MultiSelect from './u-multi-select.vue';
 import Navbar from './u-navbar.vue';
 import NavbarDivider from './u-navbar-divider.vue';
@@ -77,6 +78,7 @@ import XBarChart from './u-xbar-chart.vue';
 
 export {
     BarChart,
+    Block,
     Button,
     Calendar,
     Capsule,
@@ -103,7 +105,7 @@ export {
     Loading,
     Logo,
     Modal,
-    Movable,
+    Dragger,
     MultiSelect,
     Navbar,
     NavbarDivider,
@@ -149,7 +151,6 @@ export {
 
 export {
     Badge,
-    Block,
     Checkboxes,
     CollapseTransition,
     Emitter,

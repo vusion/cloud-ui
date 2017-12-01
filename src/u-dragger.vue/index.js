@@ -1,36 +1,16 @@
 import Draggable from '../u-draggable.vue';
-import { getSize, getComputedStyle, manager } from '../base/style';
+import { getSize, getComputedStyle } from '../base/style';
+import manager from '../u-draggable.vue/manager';
+
 export default {
-    name: 'u-movable',
+    name: 'u-dragger',
     mixins: [Draggable],
     props: {
-        axis: {
-            default: 'both',
-            validator(value) {
-                return ['both', 'horizontal', 'vertical'].includes(value);
-            },
-        },
-        grid: {
-            type: Object,
-            default() {
-                return {
-                    x: 0,
-                    y: 0,
-                };
-            },
-        },
+        axis: { type: String, default: 'both', validator: (value) => ['both', 'horizontal', 'vertical'].includes(value) },
+        grid: { type: Object, default: () => ({ x: 0, y: 0 }) },
         range: [String, Object, Function],
-        rangeMode: {
-            type: String,
-            default: 'inside',
-            validator(value) {
-                return ['inside', 'center', 'outside'].includes(value);
-            },
-        },
-        proxy: {
-            type: [String, Object, Function],
-            default: 'self',
-        },
+        rangeMode: { type: String, default: 'inside', validator: (value) => ['inside', 'center', 'outside'].includes(value) },
+        transfer: { type: [String, Element], default: 'self' },
     },
     methods: {
         getRange(proxy) {
@@ -65,13 +45,6 @@ export default {
 
             return range;
         },
-        /**
-         * @method _onMouseMoveStart(e) 处理第一次鼠标移动事件
-         * @private
-         * @override
-         * @param  {MouseEvent} e 鼠标事件
-         * @return {void}
-         */
         onMouseMoveStart(e) {
             const proxy = this.getProxy();
             const computedStyle = proxy ? window.getComputedStyle(proxy) : {};
@@ -96,11 +69,7 @@ export default {
                 manager.range = this.getRange(manager.proxy);
             this.dragStart();
         },
-        /**
-         * @protected
-         * @override
-         */
-        limit(params) {
+        defaultConstaint(params) {
             const next = {
                 left: params.startLeft + params.dragX,
                 top: params.startTop + params.dragY,
