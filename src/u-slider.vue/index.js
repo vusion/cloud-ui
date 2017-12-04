@@ -1,7 +1,8 @@
-import { getDimension } from '../base/style';
+import Field from 'proto-ui.vusion/src/u-field.vue';
 
 export default {
     name: 'u-slider',
+    mixins: [Field],
     props: {
         value: { type: Number, default: 0 },
         readonly: { type: Boolean, default: false },
