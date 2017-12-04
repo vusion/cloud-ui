@@ -1,6 +1,5 @@
 const path = require('path');
 const hljs = require('highlight.js');
-
 const iterator = require('markdown-it-for-inline');
 
 let theme = path.basename(process.cwd());

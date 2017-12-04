@@ -26,6 +26,7 @@ import Icon from './u-icon.vue';
 import Input from './u-input.vue';
 import Label from './u-label.vue';
 import LightBox from './u-lightbox.vue';
+import LightBoxItem from './u-lightbox-item.vue';
 import LineChart from './u-line-chart.vue';
 import LinearLayout from './u-linear-layout.vue';
 import Link from './u-link.vue';
@@ -95,6 +96,7 @@ export {
     Input,
     Label,
     LightBox,
+    LightBoxItem,
     LineChart,
     LinearLayout,
     Link,

@@ -8,9 +8,8 @@
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overflow: hidden;
-    vertical-align: middle;
-    text-align: center;
     background: rgba(0, 0, 0, 0.6);
+    text-align: center;
 }
 
 .root:before {
@@ -21,20 +20,20 @@
 }
 
 .wrapper {
-    display: inline-block;
-    max-width: 95%;
-    text-align: center;
-    vertical-align: middle;
     position: relative;
+    display: inline-block;
 }
 
-.title {
-    color: #fff;
-    font-weight: bold;
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .close {
     position: absolute;
+    z-index: 100;
     right: -12px;
     top: -12px;
     height: 24px;
@@ -58,4 +57,42 @@
 .root[static] {
     position: static;
     padding: $margin-base;
+}
+
+.button{
+    position: absolute;
+    z-index: 100;
+    font-size: 60px;
+    color: rgba(255, 255, 255, 0.6);
+    $transition: all 0.3s;
+    top: 36%;
+}
+.button:hover{
+    color: rgba(255, 255, 255, 1);
+}
+.button[role='pre']{
+    transform: rotate(180deg);
+    left: -60px;
+}
+.button[role='pre']:before{
+    icon-font: url('../u-icon.vue/icons/keyboard-arrow-right.svg');
+}
+.button[role='next']{
+    right: -60px;
+}
+.button[role='next']:before{
+    icon-font: url('../u-icon.vue/icons/keyboard-arrow-right.svg');
+}
+.opertaion{
+    color: #fff;
+    font-size: 20px;
+    line-height: 1;
+}
+.zoomButton{
+    margin: 0 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    display: inline-block;
+    width: 20px;
+    cursor: pointer;
 }

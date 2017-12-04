@@ -31,6 +31,7 @@ export {
     Input,
     Label,
     LightBox,
+    LightBoxItem,
     LinearLayout,
     LinearProgress,
     Link,
