@@ -16,6 +16,7 @@ export default {
     },
     created() {
         manager.droppables.push(this);
+        this.$nextTick(() => this.watchDisabled(this.disabled));
     },
     destroyed() {
         manager.droppables.splice(manager.droppables.indexOf(this), 1);
@@ -23,9 +24,9 @@ export default {
     methods: {
         watchDisabled(disabled) {
             if (disabled)
-                this.$el.removeAttribute('droppable');
+                this.$el.removeAttribute && this.$el.removeAttribute('droppable');
             else
-                this.$el.setAttribute('droppable', 'droppable');
+                this.$el.setAttribute && this.$el.setAttribute('droppable', 'droppable');
         },
         dragEnter(originVM) {
             const targetEl = this.$el;

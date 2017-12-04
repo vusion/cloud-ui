@@ -102,7 +102,7 @@ export default {
 
             const e = $event;
             const $handle = this.$refs.handle;
-            const $parent = $handle.$el.offsetParent;
+            const $parent = $handle.offsetParent;
             const dimension = getDimension($parent, 'center');
             const distance = e.clientX - dimension.left >= 0 ? e.clientX - dimension.left : 0;
 

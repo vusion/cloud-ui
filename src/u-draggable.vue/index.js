@@ -29,7 +29,7 @@ export default {
         this.childVM.parentVM = parentVM;
         this.childVM.$mount();
 
-        this.watchDisabled(this.disabled);
+        this.$nextTick(() => this.watchDisabled(this.disabled));
         this.$el.addEventListener('mousedown', this.onMouseDown);
     },
     updated() {
@@ -42,9 +42,9 @@ export default {
     methods: {
         watchDisabled(disabled) {
             if (disabled)
-                this.$el.removeAttribute('draggable');
+                this.$el.removeAttribute && this.$el.removeAttribute('draggable');
             else
-                this.$el.setAttribute('draggable', 'draggable');
+                this.$el.setAttribute && this.$el.setAttribute('draggable', 'draggable');
         },
         getTransferEl() {
             let transferEl;

@@ -2,7 +2,10 @@
     <div :class="$style.track">
         <div :class="$style.trail" :style="{width: percent+'%'}"></div>
     </div>
-    <u-dragger :class="$style.handle" ref="handle" :disabled="disabled" proxy="self" axis="horizontal" :grid="grid" range="offsetParent" rangeMode="center" :style="styleObject" @dragstart="onDragStart($event)" @drag="onDrag($event)">
-        <div v-if="tooltip" :class="$style.tooltip">{{tooltipMessage}}</div>
+    <u-dragger :disabled="disabled" transfer="self" axis="horizontal" :grid="grid" range="offset-parent" range-mode="center" :style="styleObject"
+        @dragstart="onDragStart($event)"
+        @drag="onDrag($event)">
+        <div :class="$style.handle" ref="handle"></div>
+        <!-- <div v-if="tooltip" :class="$style.tooltip">{{tooltipMessage}}</div> -->
     </u-dragger>
 </div>

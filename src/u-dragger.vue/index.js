@@ -8,27 +8,25 @@ export default {
     props: {
         axis: { type: String, default: 'both', validator: (value) => ['both', 'horizontal', 'vertical'].includes(value) },
         grid: { type: Object, default: () => ({ x: 0, y: 0 }) },
-        range: [String, Object, Function],
+        range: [String, Object],
         rangeMode: { type: String, default: 'inside', validator: (value) => ['inside', 'center', 'outside'].includes(value) },
         transfer: { type: [String, Element], default: 'self' },
     },
     methods: {
-        getRange(proxy) {
+        getRange(transferEl) {
             let range;
 
             if (typeof this.range === 'object')
                 range = this.range;
-            else if (typeof this.range === 'function')
-                range = this.range();
-            else if (this.range === 'offsetParent') {
-                if (getComputedStyle(proxy, 'position') !== 'absolute')
-                    proxy.style.position = 'absolute';
+            else if (this.range === 'offset-parent') {
+                if (getComputedStyle(transferEl, 'position') !== 'absolute')
+                    transferEl.style.position = 'absolute';
 
-                const offsetParent = proxy.offsetParent;
+                const offsetParent = transferEl.offsetParent;
                 range = Object.assign({ left: 0, top: 0 }, getSize(offsetParent, this.rangeMode));
             } else if (this.range === 'window') {
-                if (getComputedStyle(proxy, 'position') !== 'fixed')
-                    proxy.style.position = 'fixed';
+                if (getComputedStyle(transferEl, 'position') !== 'fixed')
+                    transferEl.style.position = 'fixed';
 
                 range = { left: 0, top: 0, width: window.innerWidth, height: window.innerHeight };
             }
@@ -46,30 +44,13 @@ export default {
             return range;
         },
         onMouseMoveStart(e) {
-            const proxy = this.getProxy();
-            const computedStyle = proxy ? window.getComputedStyle(proxy) : {};
-            if (!computedStyle.left || computedStyle.left === 'auto')
-                computedStyle.left = '0px';
-            if (!computedStyle.top || computedStyle.top === 'auto')
-                computedStyle.top = '0px';
+            Draggable.methods.onMouseMoveStart.call(this, e, true);
 
-            Object.assign(manager, {
-                dragging: true,
-                proxy,
-                value: this.value,
-                startLeft: +computedStyle.left.slice(0, -2),
-                startTop: +computedStyle.top.slice(0, -2),
-                droppable: undefined,
-            });
-
-            manager.left = manager.startLeft;
-            manager.top = manager.startTop;
-
-            if (manager.proxy)
-                manager.range = this.getRange(manager.proxy);
+            if (manager.transferEl)
+                manager.range = this.getRange(manager.transferEl);
             this.dragStart();
         },
-        defaultConstaint(params) {
+        defaultConstraint(params) {
             const next = {
                 left: params.startLeft + params.dragX,
                 top: params.startTop + params.dragY,
@@ -78,14 +59,14 @@ export default {
             // 范围约束
             if (params.range) {
                 if (this.rangeMode === 'inside') {
-                    next.left = Math.min(Math.max(params.range.left, next.left), params.range.right - manager.proxy.offsetWidth);
-                    next.top = Math.min(Math.max(params.range.top, next.top), params.range.bottom - manager.proxy.offsetHeight);
+                    next.left = Math.min(Math.max(params.range.left, next.left), params.range.right - manager.transferEl.offsetWidth);
+                    next.top = Math.min(Math.max(params.range.top, next.top), params.range.bottom - manager.transferEl.offsetHeight);
                 } else if (this.rangeMode === 'center') {
                     next.left = Math.min(Math.max(params.range.left, next.left), params.range.right);
                     next.top = Math.min(Math.max(params.range.top, next.top), params.range.bottom);
                 } else if (this.rangeMode === 'outside') {
-                    next.left = Math.min(Math.max(params.range.left - manager.proxy.offsetWidth, next.left), params.range.right);
-                    next.top = Math.min(Math.max(params.range.top - manager.proxy.offsetHeight, next.top), params.range.bottom);
+                    next.left = Math.min(Math.max(params.range.left - manager.transferEl.offsetWidth, next.left), params.range.right);
+                    next.top = Math.min(Math.max(params.range.top - manager.transferEl.offsetHeight, next.top), params.range.bottom);
                 }
             }
 
