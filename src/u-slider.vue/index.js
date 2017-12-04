@@ -3,62 +3,33 @@ import { getDimension } from '../base/style';
 export default {
     name: 'u-slider',
     props: {
-        value: {
-            type: [String, Number],
-            default: 0,
-        },
-        readonly: {
-            type: Boolean,
-            default: false,
-        },
-        disabled: {
-            type: Boolean,
-            default: false,
-        },
-        grid: {
-            type: Object,
-            default() {
-                return {
-                    x: 0,
-                    y: 0,
-                };
-            },
-        },
-        min: {
-            type: [String, Number],
-            default: 0,
-        },
-        max: {
-            type: [String, Number],
-            default: 100,
-        },
-        step: {
-            type: [String, Number],
-            default: 0,
-        },
-        tooltip: {
-            type: Boolean,
-            default: false,
-        },
-        placement: {
-            type: String,
-            default: 'top',
-        },
-        formatter: {
-            type: Function,
-        },
+        value: { type: Number, default: 0 },
+        readonly: { type: Boolean, default: false },
+        disabled: { type: Boolean, default: false },
+        min: { type: Number, default: 0 },
+        max: { type: Number, default: 100 },
+        step: { type: Number, default: 0 },
     },
     data() {
         return {
             currentValue: this.value,
+            grid: { x: 0, y: 0 },
+            handleEl: undefined,
         };
     },
     watch: {
-        value(newValue) {
-            this.currentValue = newValue;
+        value(value) {
+            this.currentValue = value;
+            this.handleEl.style.left = this.percent + '%';
         },
-        currentValue(newValue) {
-            this.$emit('update:value', newValue);
+        currentValue(value, oldValue) {
+            value = +value;
+
+            this.$emit('update:value', value);
+            this.$emit('change', {
+                value,
+                oldValue,
+            });
         },
     },
     computed: {
@@ -76,37 +47,18 @@ export default {
                 this.currentValue = value.toFixed(4);
             },
         },
-        tooltipMessage() {
-            if (this.formatter)
-                return this.formatter(this.currentValue);
-            else
-                return this.currentValue;
-        },
-        styleObject() {
-            const left = (this.currentValue - this.min) / (this.max - this.min) * 100 + '%';
-            return {
-                left,
-            };
-        },
+    },
+    mounted() {
+        this.handleEl = this.$refs.handle;
+        this.handleEl.style.left = this.percent + '%';
     },
     methods: {
         onDragStart($event) {
             this.grid.x = this.step / (this.max - this.min) * $event.range.width;
+            this.percent = $event.left / $event.range.width * 100;
         },
         onDrag($event) {
             this.percent = $event.left / $event.range.width * 100;
-        },
-        onMouseDown($event) {
-            if (this.readonly || this.disabled)
-                return;
-
-            const e = $event;
-            const $handle = this.$refs.handle;
-            const $parent = $handle.offsetParent;
-            const dimension = getDimension($parent, 'center');
-            const distance = e.clientX - dimension.left >= 0 ? e.clientX - dimension.left : 0;
-
-            this.percent = distance / dimension.width * 100;
         },
         isOutOfRange(value) {
             const min = +this.min;

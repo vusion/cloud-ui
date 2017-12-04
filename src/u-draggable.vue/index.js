@@ -7,6 +7,7 @@ export default {
     props: {
         value: null,
         transfer: { type: [String, Element], default: 'clone' },
+        immediate: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         constraint: Function,
     },
@@ -103,6 +104,8 @@ export default {
 
             window.addEventListener('mousemove', this.onMouseMove);
             window.addEventListener('mouseup', this.onMouseUp);
+
+            this.immediate && this.onMouseMoveStart(e);
         },
         onMouseMove(e) {
             e.preventDefault();
@@ -125,23 +128,21 @@ export default {
 
             // 代理元素的位置从MouseMoveStart开始算，这样在MouseDown中也可以预先处理位置
             // 获取初始的left和top值
-            let computedStyle = transferEl ? window.getComputedStyle(transferEl) : {};
-            computedStyle = {
-                left: computedStyle.left,
-                top: computedStyle.top,
-            };
-
-            if (!computedStyle.left || computedStyle.left === 'auto')
-                computedStyle.left = '0px';
-            if (!computedStyle.top || computedStyle.top === 'auto')
-                computedStyle.top = '0px';
+            let style = transferEl ? window.getComputedStyle(transferEl) : {};
+            style = { left: style.left, top: style.top };
+            if (!style.left || style.left === 'auto')
+                style.left = '0px';
+            if (!style.top || style.top === 'auto')
+                style.top = '0px';
+            style.left = +style.left.slice(0, -2);
+            style.top = +style.top.slice(0, -2);
 
             Object.assign(manager, {
                 dragging: true,
                 transferEl,
                 value: this.value,
-                startLeft: +computedStyle.left.slice(0, -2),
-                startTop: +computedStyle.top.slice(0, -2),
+                startLeft: style.left,
+                startTop: style.top,
                 droppable: undefined,
             });
 

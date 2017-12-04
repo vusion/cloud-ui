@@ -1,5 +1,5 @@
 import Draggable from '../u-draggable.vue';
-import { getSize, getComputedStyle } from '../base/style';
+import { getSize, getComputedStyle, getDimension } from '../base/style';
 import manager from '../u-draggable.vue/manager';
 
 export default {
@@ -44,10 +44,44 @@ export default {
             return range;
         },
         onMouseMoveStart(e) {
-            Draggable.methods.onMouseMoveStart.call(this, e, true);
+            const transferEl = this.getTransferEl();
 
-            if (manager.transferEl)
-                manager.range = this.getRange(manager.transferEl);
+            // 代理元素的位置从MouseMoveStart开始算，这样在MouseDown中也可以预先处理位置
+            // 获取初始的left和top值
+            let style = transferEl ? window.getComputedStyle(transferEl) : {};
+            style = { left: style.left, top: style.top };
+            if (!style.left || style.left === 'auto')
+                style.left = '0px';
+            if (!style.top || style.top === 'auto')
+                style.top = '0px';
+            style.left = +style.left.slice(0, -2);
+            style.top = +style.top.slice(0, -2);
+
+            if (transferEl) {
+                manager.range = this.getRange(transferEl);
+
+                const dimension = getDimension(transferEl);
+                if (!(dimension.left <= e.clientX && e.clientX < dimension.left + dimension.width))
+                    style.left += e.clientX - dimension.left - dimension.width / 2;
+                if (!(dimension.top <= e.clientY && e.clientY < dimension.top + dimension.height))
+                    style.top += e.clientY - dimension.top - dimension.height / 2;
+
+                transferEl.style.left = style.left + 'px';
+                transferEl.style.top = style.top + 'px';
+            }
+
+            Object.assign(manager, {
+                dragging: true,
+                transferEl,
+                value: this.value,
+                startLeft: style.left,
+                startTop: style.top,
+                droppable: undefined,
+            });
+
+            manager.left = manager.startLeft;
+            manager.top = manager.startTop;
+
             this.dragStart();
         },
         defaultConstraint(params) {

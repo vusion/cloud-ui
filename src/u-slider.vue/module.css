@@ -27,9 +27,11 @@
     border: 1px solid #ddd;
     border-radius: 2px;
 }
+
 .handle:hover .tooltip{
     display: block;
 }
+
 .tooltip {
     position: absolute;
     left: 50%;
@@ -40,7 +42,8 @@
     padding: 0 5px;
     display: none;
 }
-.tooltip:after{
+
+.tooltip:after {
     content: '';
     width: 0;
     height: 0;
