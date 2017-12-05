@@ -84,7 +84,11 @@ $media-sm-max-width: 767px;
 
 .body {
     position: relative;
-    margin: 50px;
+    margin: 30px 50px 50px 50px;
+}
+
+.body[icon]{
+    margin-top: 50px;
 }
 
 .body[icon]:before {

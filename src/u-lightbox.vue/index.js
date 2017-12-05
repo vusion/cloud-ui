@@ -1,4 +1,4 @@
-import Emitter from 'u-emitter.vue';
+import Emitter from 'proto-ui.vusion/src/u-emitter.vue';
 
 export default {
     name: 'u-lightbox',
@@ -77,7 +77,7 @@ export default {
         current(current) {
             this.animationEndNum = 0;
             this.allAnimationEnd = false;
-            this.items && this.items[current].zoomImg && this.items[current].zoomImg.reset(); // 显示图片变化，恢复初始大小 
+            this.items && this.items[current].zoomImg && this.items[current].zoomImg.reset(); // 显示图片变化，恢复初始大小
         },
     },
     created() {

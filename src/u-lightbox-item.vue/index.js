@@ -1,4 +1,4 @@
-import Emitter from 'u-emitter.vue';
+import Emitter from 'proto-ui.vusion/src/u-emitter.vue';
 import Zoom from './zoomobj.js';
 
 export default {
