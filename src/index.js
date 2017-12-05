@@ -19,9 +19,6 @@ import CircularProgress from './u-circular-progress.vue';
 import ColorSelect from './u-color-select.vue';
 import DatePicker from './u-date-picker.vue';
 import DateTimePicker from './u-date-time-picker.vue';
-import Draggable from './u-draggable.vue';
-import Dragger from './u-dragger.vue';
-import Droppable from './u-droppable.vue';
 import Form from './u-form.vue';
 import FormItem from './u-form-item.vue';
 import Icon from './u-icon.vue';
@@ -90,8 +87,6 @@ export {
     ColorSelect,
     DatePicker,
     DateTimePicker,
-    Draggable,
-    Droppable,
     Form,
     FormItem,
     Icon,
@@ -105,7 +100,6 @@ export {
     Loading,
     Logo,
     Modal,
-    Dragger,
     MultiSelect,
     Navbar,
     NavbarDivider,
@@ -153,6 +147,9 @@ export {
     Badge,
     Checkboxes,
     CollapseTransition,
+    Draggable,
+    Droppable,
+    Dragger,
     Emitter,
     Field,
     GridLayout,

@@ -1,4 +1,4 @@
-import { deepCopy } from '../base/utils.js';
+import { deepCopy } from '../base/utils';
 
 /**
  * @class BarChart
