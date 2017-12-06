@@ -126,6 +126,7 @@ $media-sm-max-width: 767px;
     font-size: 20px;
     line-height: 24px;
     margin-bottom: 10px;
+    color: #333;
 }
 
 .content{
