@@ -1,11 +1,11 @@
-<div :class="$style.root" v-if="currentVisible" @click="maskClose && close()">
+<div :class="$style.root" v-if="currentVisible" @click="closeOnMask && close()">
     <div :class="$style.wrapper">
         <div :class="$style.content" @click.stop>
             <a v-if="closeButton" :class="$style.close" @click="close()"></a>
             <slot></slot>
-            <a v-show="showButton && hasPre" :class="$style.button" role="pre" @click="pre()"></a>
+            <a v-show="showButton && hasPrev" :class="$style.button" role="prev" @click="prev()"></a>
             <a v-show="showButton && hasNext" :class="$style.button" role="next" @click="next()"></a>
-            <div :class="$style.opertaion" v-if="zoomShowButton">
+            <div :class="$style.operation" v-if="zoomButton">
                 <a :class="$style.zoomButton" rolo="zoomin" @click="zoom('in')">+</a>
                 <a :class="$style.zoomButton" rolo="zoomout" @click="zoom('out')">-</a>
             </div>

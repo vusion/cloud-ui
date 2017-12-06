@@ -1,26 +1,19 @@
-import Emitter from 'proto-ui.vusion/src/u-emitter.vue';
-
 export default {
     name: 'u-lightbox',
     props: {
         title: { type: String, default: '' },
-        maskClose: { type: Boolean, default: true },
         closeButton: { type: Boolean, default: false },
+        closeOnMask: { type: Boolean, default: true },
         visible: { type: Boolean, default: false },
         static: { type: Boolean, default: false },
         loop: { type: Boolean, default: false }, // item是否循环
-        animation: { type: String, default: '', validator: (value) => ['', 'fade', 'zoom-out'].includes(value) },
+        animation: String,
         index: { type: Number, default: 0, validator: (value) => Number.isInteger(value) && value >= 0 },
-        canZoom: { type: Boolean, default: true },
-        zoomShowButton: { type: Boolean, default: true },
-        zoomAllowWheel: { type: Boolean, default: true },
-        zoomCanZoomin: { type: Boolean, default: true },
-        zoomCanZoomout: { type: Boolean, default: true },
-        // 添加为number时大于0
-        zoomInitMaxWidth: { default: 0.67 },
-        zoomInitMaxHeight: { default: 0.75, validator: (value) => typeof (value) === 'string' || typeof (value) === 'number' },
-        zoomMaxZoomin: { default: 5, validator: (value) => typeof (value) === 'string' || typeof (value) === 'number' },
-        zoomMaxZoomout: { default: 5, validator: (value) => typeof (value) === 'string' || typeof (value) === 'number' },
+        zoomable: { type: Boolean, default: true },
+        zoomButton: { type: Boolean, default: true },
+        zoomWheel: { type: Boolean, default: true },
+        zoomMin: { default: -5, validator: (value) => typeof (value) === 'string' || typeof (value) === 'number' },
+        zoomMax: { default: 5, validator: (value) => typeof (value) === 'string' || typeof (value) === 'number' },
         zoomRadio: { type: Number, default: 0.1 },
     },
     data() {
@@ -30,7 +23,7 @@ export default {
         };
         return {
             currentVisible: this.visible,
-            items: [],
+            itemVMs: [],
             start: this.index, // 标记第一次点击lightbox，动画显示
             current: this.index,
             allAnimationEnd: false,
@@ -42,9 +35,9 @@ export default {
     },
     computed: {
         showButton() {
-            return this.items.length > 1;
+            return this.itemVMs.length > 1;
         },
-        hasPre() {
+        hasPrev() {
             if (this.loop)
                 return true;
             else if (this.current === 0)
@@ -54,7 +47,7 @@ export default {
         hasNext() {
             if (this.loop)
                 return true;
-            else if (this.current === this.items.length - 1)
+            else if (this.current === this.itemVMs.length - 1)
                 return false;
             return true;
         },
@@ -77,17 +70,21 @@ export default {
         current(current) {
             this.animationEndNum = 0;
             this.allAnimationEnd = false;
+<<<<<<< HEAD
             this.items && this.items[current].zoomImg && this.items[current].zoomImg.reset(); // 显示图片变化，恢复初始大小
+=======
+            this.itemVMs && this.itemVMs[current].zoomImg && this.itemVMs[current].zoomImg.reset(); // 显示图片变化，恢复初始大小
+>>>>>>> :ok_hand: Review <u-lightbox>
         },
     },
     created() {
         this.$on('add-item-vm', (item) => {
             item.parentVM = this;
-            this.items.push(item);
+            this.itemVMs.push(item);
         });
         this.$on('remove-item-vm', (item) => {
             item.parentVM = undefined;
-            this.items.splice(this.items.indexOf(item), 1);
+            this.itemVMs.splice(this.itemVMs.indexOf(item), 1);
         });
         this.$on('u-lightbox-item-end', () => {
             if (this.start === -1) {
@@ -126,24 +123,24 @@ export default {
             this.$emit('update:visible', this.currentVisible);
             this.$emit('close');
         },
-        pre() {
+        prev() {
             if (!this.canOp)
                 return;
             this.start = -1;
-            const length = this.items.length;
+            const length = this.itemVMs.length;
             this.current = (this.current - 1 + length) % length;
         },
         next() {
             if (!this.canOp)
                 return;
             this.start = -1;
-            const length = this.items.length;
+            const length = this.itemVMs.length;
             this.current = (this.current + 1) % length;
         },
         zoom(operation) {
-            if (!this.canZoom)
+            if (!this.zoomable)
                 return;
-            this.items[this.current].$emit('zoom', operation);
+            this.itemVMs[this.current].$emit('zoom', operation);
         },
         // 计算初始显示最大宽高
         _computeInitMax(val, type = 'w') {

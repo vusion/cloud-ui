@@ -1,18 +1,19 @@
-import Emitter from 'proto-ui.vusion/src/u-emitter.vue';
+import { Emitter } from 'proto-ui.vusion';
 import Zoom from './zoomobj.js';
 
 export default {
     name: 'u-lightbox-item',
+    parentName: 'u-lightbox',
     props: {
         title: { type: String, default: '' },
     },
     mixins: [Emitter],
     computed: {
         index() {
-            return this.parentVM.items.indexOf(this);
+            return this.parentVM.itemVMs.indexOf(this);
         },
         parentItemLen() {
-            return this.parentVM.items.length;
+            return this.parentVM.itemVMs.length;
         },
         isStart() {
             return this.index === this.parentVM.start;
@@ -31,12 +32,10 @@ export default {
         },
     },
     created() {
-        this.parentVM = this.$parent;
-        this.parentVM.$emit('add-item-vm', this);
+        this.dispatch(this.$options.parentName, 'add-item-vm', this);
         if (this.parentVM.selectedVM === undefined)
             this.parentVM.selectedVM = this;
         this.animation = this.parentVM.animation;
-        this.canZoom = this.parentVM.canZoom;
     },
     mounted() {
         if (!this.$refs.root || !this.$refs.root.children)
@@ -48,7 +47,7 @@ export default {
         this.resetImg();
 
         // 图片增加缩放功能
-        if (this.canZoom) {
+        if (this.parentVM.zoomable) {
             this.zoomImg = new Zoom(this.img, this.initOptions());
             // 缩放事件
             this.$on('zoom', (operation) => {

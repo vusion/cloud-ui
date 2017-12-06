@@ -70,11 +70,11 @@
 .button:hover{
     color: rgba(255, 255, 255, 1);
 }
-.button[role='pre']{
+.button[role='prev']{
     transform: rotate(180deg);
     left: -60px;
 }
-.button[role='pre']:before{
+.button[role='prev']:before{
     icon-font: url('../u-icon.vue/icons/keyboard-arrow-right.svg');
 }
 .button[role='next']{
@@ -83,7 +83,7 @@
 .button[role='next']:before{
     icon-font: url('../u-icon.vue/icons/keyboard-arrow-right.svg');
 }
-.opertaion{
+.operation {
     color: #fff;
     font-size: 20px;
     line-height: 1;
