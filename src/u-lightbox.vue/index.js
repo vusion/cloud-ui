@@ -12,8 +12,20 @@ export default {
         zoomable: { type: Boolean, default: true },
         zoomButton: { type: Boolean, default: true },
         zoomWheel: { type: Boolean, default: true },
-        zoomMin: { default: -5, validator: (value) => typeof (value) === 'string' || typeof (value) === 'number' },
-        zoomMax: { default: 5, validator: (value) => typeof (value) === 'string' || typeof (value) === 'number' },
+        zoomMin: { default: '50px', validator: (value) => {
+            if (typeof (value) === 'number')
+                return value === value >> 0;
+            else if (typeof (value) === 'string')
+                return /^(\d+\.?\d*)([%px]+)$/.test(value);
+            return false;
+        } },
+        zoomMax: { default: '2000px', validator: (value) => {
+            if (typeof (value) === 'number')
+                return value === value >> 0;
+            else if (typeof (value) === 'string')
+                return /^(\d+\.?\d*)([%px]+)$/.test(value);
+            return false;
+        } },
         zoomRadio: { type: Number, default: 0.1 },
     },
     data() {
@@ -29,8 +41,10 @@ export default {
             allAnimationEnd: false,
             animationNum: animationMap[this.animation] || 0,
             animationEndNum: 0,
-            zoomComputedMaxWidth: this._computeInitMax(this.zoomInitMaxWidth),
-            zoomComputedMaxHeight: this._computeInitMax(this.zoomInitMaxHeight, 'h'),
+            maxWidthRadio: 0.67,
+            maxHeightRadio: 0.75,
+            maxWidth: this._computeInitMax(),
+            maxHeight: this._computeInitMax('h'),
         };
     },
     computed: {
@@ -70,11 +84,7 @@ export default {
         current(current) {
             this.animationEndNum = 0;
             this.allAnimationEnd = false;
-<<<<<<< HEAD
-            this.items && this.items[current].zoomImg && this.items[current].zoomImg.reset(); // 显示图片变化，恢复初始大小
-=======
-            this.itemVMs && this.itemVMs[current].zoomImg && this.itemVMs[current].zoomImg.reset(); // 显示图片变化，恢复初始大小
->>>>>>> :ok_hand: Review <u-lightbox>
+            this.itemVMs && this.itemVMs[current] && this.itemVMs[current].zoomImg && this.itemVMs[current].zoomImg.reset(); // 显示图片变化，恢复初始大小
         },
     },
     created() {
@@ -93,6 +103,9 @@ export default {
                     this.allAnimationEnd = true;
             } else // 初始动画结束
                 this.allAnimationEnd = true;
+        });
+        this.$on('u-lightbox-item-close', () => {
+            this.close();
         });
     },
     mounted() {
@@ -124,14 +137,14 @@ export default {
             this.$emit('close');
         },
         prev() {
-            if (!this.canOp)
+            if (!this.canOp || !this.hasPrev)
                 return;
             this.start = -1;
             const length = this.itemVMs.length;
             this.current = (this.current - 1 + length) % length;
         },
         next() {
-            if (!this.canOp)
+            if (!this.canOp || !this.hasNext)
                 return;
             this.start = -1;
             const length = this.itemVMs.length;
@@ -143,11 +156,8 @@ export default {
             this.itemVMs[this.current].$emit('zoom', operation);
         },
         // 计算初始显示最大宽高
-        _computeInitMax(val, type = 'w') {
-            if (type === 'w')
-                return typeof (val) === 'number' ? window.innerWidth * val : val;
-            else
-                return typeof (val) === 'number' ? window.innerHeight * val : val;
+        _computeInitMax(type = 'w') {
+            return type === 'w' ? window.innerWidth * this.maxWidthRadio : window.innerHeight * this.maxHeightRadio;
         },
 
     },

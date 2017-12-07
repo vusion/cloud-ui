@@ -135,7 +135,6 @@ class Zoom {
     }
     // 滚轮事件
     onwheel(e) {
-        // debugger;
         let deltaY = 0;
 
         e.preventDefault();

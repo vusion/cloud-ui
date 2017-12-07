@@ -61,18 +61,18 @@ export default {
 ### Static
 
 ``` html
-<u-lightbox visible static :maskClose="false" style="position:static; height: 400px;" :zoomShowButton="false"> 
-    <video controls style='width: 640px; height: 360px; display: block;'
+<u-lightbox visible static :maskClose="false" style="position:relative; height: 400px;" :zoomButton="false"> 
+    <u-lightbox-item><video controls style='width: 640px; height: 360px; display: block;'
         poster='http://www.html5videoplayer.net/poster/big_buck_bunny.jpg'
-        src='http://www.html5videoplayer.net/videos/big_buck_bunny.mp4'></video>
+        src='http://www.html5videoplayer.net/videos/big_buck_bunny.mp4'></video></u-lightbox-item>
 </u-lightbox>
 ```
 
 ### 关闭按钮和放大缩小按钮
 
 ``` html
-<u-lightbox visible static closeButton :maskClose="false" style="position:static; height: 480px;">
-    <img src="/images/2.jpg" />
+<u-lightbox visible static :closeButton="true" :closeOnMask="false" style="position:relative; height: 520px;">
+    <u-lightbox-item><img src="/images/2.jpg" /></u-lightbox-item>
 </u-lightbox>
 ```
 ## API
@@ -88,15 +88,11 @@ export default {
 | loop | Boolean | `false` | 是否可循环播放灯箱内容 |
 | animation | String | `''` | 动画（可选fade/zoom-out） |
 | index | Integer | 0 | 设置显示第index+1个灯箱内容 |
-| initMaxWidth | Number | 0.67 | 灯箱最大初始值。表示视窗百分比。 |
-| initMaxHeight | Number | 0.75 | 灯箱最大初始值。表示视窗百分比。 |
-| canZoom | Boolean | true | 灯箱是否开启缩放功能（只有当灯箱内容为图片时有效） |
-| zoomShowButton | Boolean | true | 是否显示缩放按钮（只有当zoom为true时有效） |
-| zoomAllowWheel | Boolean | true | 是否允许滚动鼠标缩放（只有当zoom为true时有效） |
-| zoomCanZoomin | Boolean | true | 灯箱是否开启放大功能（只有当zoom为true时有效） |
-| zoomCanZoomout | Boolean | true | 灯箱是否开启缩小功能（只有当zoom为true时有效） |
-| zoomMaxZoomin | Integer | 5 | 灯箱最大放大次数 |
-| zoomMaxZoomout | Integer | 5 | 灯箱最多缩小次数 |
+| zoomable | Boolean | true | 灯箱是否开启缩放功能（只有当灯箱内容为图片时有效） |
+| zoomButton | Boolean | true | 是否显示缩放按钮（只有当zoomable为true时有效） |
+| zoomWheel | Boolean | true | 是否允许滚动鼠标缩放（只有当zoomable为true时有效） |
+| zoomMax | Integer/String | 5 | 设置最大放大宽度：类型为Integer时，表示灯箱最多放大次数。类型为String时，可以设置单位为px或者%。 |
+| zoomMin | Integer/String | -5 | 设置最小宽度：同上 |
 | zoomRadio | Number | 0.1 | 每次放大缩小的比例 |
 
 ### Slots

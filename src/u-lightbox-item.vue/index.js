@@ -12,8 +12,8 @@ export default {
         index() {
             return this.parentVM.itemVMs.indexOf(this);
         },
-        parentItemLen() {
-            return this.parentVM.itemVMs.length;
+        parentItemLength() {
+            return this.parentVM && this.parentVM.itemVMs.length;
         },
         isStart() {
             return this.index === this.parentVM.start;
@@ -25,50 +25,74 @@ export default {
             return this.index === this.parentVM.active;
         },
         isPrev() {
-            return this.index === (this.parentVM.current - 1 + this.parentItemLen) % this.parentItemLen;
+            return this.index === (this.parentVM.current - 1 + this.parentItemLength) % this.parentItemLength;
         },
         isNext() {
-            return this.index === (this.parentVM.current + 1) % this.parentItemLen;
+            return this.index === (this.parentVM.current + 1) % this.parentItemLength;
         },
+    },
+    data() {
+        return {
+            options: {},
+            zoomImg: null,
+        };
     },
     created() {
         this.dispatch(this.$options.parentName, 'add-item-vm', this);
         if (this.parentVM.selectedVM === undefined)
             this.parentVM.selectedVM = this;
         this.animation = this.parentVM.animation;
+        this.closeButton = this.parentVM.closeButton;
+        this.$watch('isCurrent', (value) => {
+            value && this.initZoomImg();
+        });
     },
     mounted() {
-        if (!this.$refs.root || !this.$refs.root.children)
+        if (!this.$refs.wrapper || !this.$refs.wrapper.children)
             return;
-        this.img = this.$refs.root.children[0];
-        if (!(this.img && this.img.nodeName && this.img.nodeName.toLowerCase() === 'img'))
+        this.img = Array.prototype.filter.call(this.$refs.wrapper.children, (ele) => ele.nodeName.toLowerCase() === 'img')[0];
+        if (!this.img)
             return;
         // 图片设置最大宽高
         this.resetImg();
 
-        // 图片增加缩放功能
-        if (this.parentVM.zoomable) {
-            this.zoomImg = new Zoom(this.img, this.initOptions());
-            // 缩放事件
-            this.$on('zoom', (operation) => {
-                if (operation === 'in')
-                    this.zoomImg.zoomin();
-                else
-                    this.zoomImg.zoomout();
-            });
-        }
+        this.initZoomImg();
     },
     destroyed() {
-        this.parentVM.$emit('remove-item-vm', this);
+        this.dispatch(this.$options.parentName, 'remove-item-vm', this);
     },
     methods: {
         animationEnd() {
-            this.dispatch('u-lightbox', 'u-lightbox-item-end', 1);
+            this.dispatch(this.$options.parentName, 'u-lightbox-item-end', 1);
+        },
+        close() {
+            this.dispatch(this.$options.parentName, 'u-lightbox-item-close');
+        },
+        initZoomImg() {
+            // 图片增加缩放功能
+            if (this.parentVM.zoomable) {
+                const tempOptions = this.initOptions();
+                if (JSON.stringify(tempOptions) !== JSON.stringify(this.options) || this.zoomImg === null) { // 如果配置发生修改，则重新生成zooImg
+                    this.options = tempOptions;
+                    this.$off('zoom');
+                    this.zoomImg = new Zoom(this.img, this.initOptions());
+                    // 缩放事件
+                    this.$on('zoom', (operation) => {
+                        if (operation === 'in')
+                            this.zoomImg.zoomin();
+                        else
+                            this.zoomImg.zoomout();
+                    });
+                }
+            } else if (this.zoomImg) {
+                this.zoomImg = null;
+                this.$off('zoom');
+            }
         },
         // 按照图片原比例，将img的宽高设置在最大宽高里面
         resetImg() {
-            const maxWidth = this.parentVM.zoomComputedMaxWidth,
-                maxHeight = this.parentVM.zoomComputedMaxHeight;
+            const maxWidth = this.parentVM.maxWidth,
+                maxHeight = this.parentVM.maxHeight;
             let w = this.img.width,
                 h = this.img.height;
             const radio = w / h;
@@ -87,20 +111,22 @@ export default {
         // 根据lightbox配置设置Zoom的options
         initOptions() {
             const options = {};
+            // 将单位转换为num
+            const _stringToNum = (val) => {
+                const res = /^(\d+\.?\d*)([%px]+)$/.exec(val); // res不为null，在u-lightbox中validator
+                return res[2] === '%' ? window.innerWidth * res[1] : +res[1];
+            };
             // 计算放大/缩小后最大宽高
             const _computeMax = (val, op = 1) => {
                 const multi = 1 + options.zoom;
-                if (op > 0)
-                    return typeof (val) === 'number' ? this.img.width * Math.pow(multi, val) : val;
-                else
-                    return typeof (val) === 'number' ? this.img.width / Math.pow(multi, val) : val;
+                return typeof (val) === 'number' ? this.img.width * Math.pow(multi, val) : _stringToNum(val);
             };
             options.zoom = this.parentVM.zoomRadio;
-            options.MaxZoomin = _computeMax(this.parentVM.zoomMaxZoomin);
-            options.MaxZoomout = _computeMax(this.parentVM.zoomMaxZoomout, -1);
-            options.canZoomin = this.parentVM.zoomCanZoomin;
-            options.canZoomout = this.parentVM.zoomCanZoomout;
-            options.allowWheel = this.parentVM.zoomAllowWheel;
+            options.MaxZoomin = _computeMax(this.parentVM.zoomMax);
+            options.MaxZoomout = _computeMax(this.parentVM.zoomMin, -1);
+            options.canZoomin = this.parentVM.zoomable;
+            options.canZoomout = this.parentVM.zoomable;
+            options.allowWheel = this.parentVM.zoomWheel;
             return options;
         },
     },

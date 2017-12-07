@@ -20,38 +20,11 @@
 }
 
 .wrapper {
-    position: relative;
-    display: inline-block;
-}
-
-.content {
     position: absolute;
+    display: inline-block;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-.close {
-    position: absolute;
-    z-index: 100;
-    right: -12px;
-    top: -12px;
-    height: 24px;
-    width: 24px;
-    line-height: 1;
-    text-align: center;
-    color: #bbb;
-    background: #fff;
-    box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 0 6px rgba(0,0,0,.3);
-    border-radius: 50%;
-}
-
-.close:hover { color: #888; }
-
-.close:before {
-    content:'\00d7';
-    font-size: 20px;
-    line-height: 24px;
 }
 
 .root[static] {
@@ -59,40 +32,42 @@
     padding: $margin-base;
 }
 
-.button{
-    position: absolute;
-    z-index: 100;
-    font-size: 60px;
-    color: rgba(255, 255, 255, 0.6);
-    $transition: all 0.3s;
-    top: 36%;
-}
-.button:hover{
-    color: rgba(255, 255, 255, 1);
-}
 .button[role='prev']{
     transform: rotate(180deg);
-    left: -60px;
+    transform-origin: 50% 43%;
 }
+
 .button[role='prev']:before{
     icon-font: url('../u-icon.vue/icons/keyboard-arrow-right.svg');
 }
-.button[role='next']{
-    right: -60px;
-}
+
 .button[role='next']:before{
     icon-font: url('../u-icon.vue/icons/keyboard-arrow-right.svg');
 }
+
 .operation {
     color: #fff;
-    font-size: 20px;
+    font-size: 60px;
+    height: 60px;
     line-height: 1;
-}
-.zoomButton{
-    margin: 0 20px;
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 50%;
+    background: hsla(0,0%,100%,.1);
+    border-radius: 30px;
     display: inline-block;
-    width: 20px;
+    z-index: 100;
+    user-select: none;
+    overflow: hidden;
+}
+
+.operation > li {
+    display: inline-block;
+    float: left;
+    padding: 0 30px;
+}
+
+.operation > li[disabled] {
+    color: rgba(256, 256, 256, .4);
+}
+.operation > li:hover {
+    background: hsla(0,0%,100%,.1);
     cursor: pointer;
 }
