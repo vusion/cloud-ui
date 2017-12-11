@@ -22,6 +22,12 @@ const Modal = {
         visible(visible) {
             this.currentVisible = visible;
         },
+        currentVisible(visible) {
+            if (visible)
+                document.addEventListener('keydown', this.escPress);// 按esc退出弹框
+            else
+                document.removeEventListener('keydown', this.escPress);
+        },
     },
     mounted() {
         if (this.$el && !this.static)
@@ -56,6 +62,10 @@ const Modal = {
         cancel() {
             this.$emit('cancel');
             this.close();
+        },
+        escPress(event) {
+            if (event.keyCode === 27)
+                this.cancel();
         },
     },
 };

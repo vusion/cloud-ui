@@ -81,6 +81,12 @@ export default {
                 this.allAnimationEnd = true;
             }
         },
+        currentVisible(visible) {
+            if (visible)
+                document.addEventListener('keydown', this.escPress);// 按esc退出弹框
+            else
+                document.removeEventListener('keydown', this.escPress);
+        },
         current(current) {
             this.animationEndNum = 0;
             this.allAnimationEnd = false;
@@ -159,6 +165,9 @@ export default {
         _computeInitMax(type = 'w') {
             return type === 'w' ? window.innerWidth * this.maxWidthRadio : window.innerHeight * this.maxHeightRadio;
         },
-
+        escPress(event) {
+            if (event.keyCode === 27)
+                this.close();
+        },
     },
 };
