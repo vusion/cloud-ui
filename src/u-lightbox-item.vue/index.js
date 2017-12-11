@@ -48,9 +48,11 @@ export default {
         });
     },
     mounted() {
-        if (!this.$refs.wrapper || !this.$refs.wrapper.children)
+        this.wrapper = this.$refs.wrapper;
+        if (!this.wrapper || !this.wrapper.children)
             return;
-        this.img = Array.prototype.filter.call(this.$refs.wrapper.children, (ele) => ele.nodeName.toLowerCase() === 'img')[0];
+        this.img = Array.prototype.filter.call(this.wrapper.children, (ele) => ele.nodeName.toLowerCase() === 'img')[0];
+
         if (!this.img)
             return;
         // 图片设置最大宽高
@@ -68,6 +70,9 @@ export default {
         close() {
             this.dispatch(this.$options.parentName, 'u-lightbox-item-close');
         },
+        stop(event) {
+            this.isCurrent && event.stopPropagation();
+        },
         initZoomImg() {
             // 图片增加缩放功能
             if (this.parentVM.zoomable) {
@@ -75,7 +80,7 @@ export default {
                 if (JSON.stringify(tempOptions) !== JSON.stringify(this.options) || this.zoomImg === null) { // 如果配置发生修改，则重新生成zooImg
                     this.options = tempOptions;
                     this.$off('zoom');
-                    this.zoomImg = new Zoom(this.img, this.initOptions());
+                    this.zoomImg = new Zoom(this.img, this.wrapper, this.initOptions());
                     // 缩放事件
                     this.$on('zoom', (operation) => {
                         if (operation === 'in')
@@ -105,8 +110,11 @@ export default {
                     h = w / radio;
                 }
             }
-            this.img.width = w;
-            this.img.height = h;
+            this.wrapper.width = w;
+            this.wrapper.height = h;
+            // 设置垂直居中
+            this.wrapper.style.left = (window.innerWidth - w) / 2 + 'px';
+            this.wrapper.style.top = (window.innerHeight - h) / 2 + 'px';
         },
         // 根据lightbox配置设置Zoom的options
         initOptions() {

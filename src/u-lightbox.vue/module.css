@@ -9,7 +9,6 @@
     -webkit-overflow-scrolling: touch;
     overflow: hidden;
     background: rgba(0, 0, 0, 0.6);
-    text-align: center;
 }
 
 .root:before {
@@ -20,11 +19,11 @@
 }
 
 .wrapper {
-    position: absolute;
-    display: inline-block;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
 }
 
 .root[static] {
@@ -52,10 +51,14 @@
     line-height: 1;
     background: hsla(0,0%,100%,.1);
     border-radius: 30px;
-    display: inline-block;
-    z-index: 100;
     user-select: none;
     overflow: hidden;
+    position: fixed;
+    left: 50%;
+    bottom: 200px;
+    text-align: center;
+    transform: translateX(-50%);
+    z-index: 10;
 }
 
 .operation > li {

@@ -12,7 +12,7 @@ export default {
         zoomable: { type: Boolean, default: true },
         zoomButton: { type: Boolean, default: true },
         zoomWheel: { type: Boolean, default: true },
-        zoomMin: { default: '50px', validator: (value) => {
+        zoomMin: { default: '100px', validator: (value) => {
             if (typeof (value) === 'number')
                 return value === value >> 0;
             else if (typeof (value) === 'string')
@@ -43,8 +43,6 @@ export default {
             animationEndNum: 0,
             maxWidthRadio: 0.67,
             maxHeightRadio: 0.75,
-            maxWidth: this._computeInitMax(),
-            maxHeight: this._computeInitMax('h'),
         };
     },
     computed: {
@@ -113,6 +111,8 @@ export default {
         this.$on('u-lightbox-item-close', () => {
             this.close();
         });
+        this.maxWidth = this._computeInitMax();
+        this.maxHeight = this._computeInitMax('h');
     },
     mounted() {
         if (this.$el && !this.static)

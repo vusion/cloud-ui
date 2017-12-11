@@ -7,7 +7,7 @@
 ``` vue
 <template>
 <div>
-    <u-lightbox :visible.sync="visible">
+    <u-lightbox :visible.sync="visible" :closeButton="true">
         <u-lightbox-item title="图片预览"><img src="/images/1.jpg" /></u-lightbox-item>
     </u-lightbox>
     <u-linear-layout>
@@ -58,23 +58,6 @@ export default {
 </script>
 ```
 
-### Static
-
-``` html
-<u-lightbox visible static :maskClose="false" style="position:relative; height: 400px;" :zoomButton="false"> 
-    <u-lightbox-item><video controls style='width: 640px; height: 360px; display: block;'
-        poster='http://www.html5videoplayer.net/poster/big_buck_bunny.jpg'
-        src='http://www.html5videoplayer.net/videos/big_buck_bunny.mp4'></video></u-lightbox-item>
-</u-lightbox>
-```
-
-### 关闭按钮和放大缩小按钮
-
-``` html
-<u-lightbox visible static :closeButton="true" :closeOnMask="false" style="position:relative; height: 520px;">
-    <u-lightbox-item><img src="/images/2.jpg" /></u-lightbox-item>
-</u-lightbox>
-```
 ## API
 
 ### Attrs/Props
