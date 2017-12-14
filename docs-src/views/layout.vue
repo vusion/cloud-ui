@@ -1,20 +1,20 @@
 <template>
-<u-global-layout>
-    <u-navbar slot="head">
-        <u-logo slot="left" name="163yun">组件平台</u-logo>
-        <u-navbar-item>首页</u-navbar-item>
-        <u-navbar-item to="/components">组件</u-navbar-item>
-        <u-navbar-item>模式</u-navbar-item>
-        <u-navbar-item>资源</u-navbar-item>
-        <u-theme-select slot="right" v-model="theme" @select="onSelectTheme">
-            <u-theme-select-item value="default"><div :class="$style.color"></div>Default</u-theme-select-item>
-            <u-theme-select-item value="dark"><div :class="$style.color" color="dark"></div>Dark</u-theme-select-item>
-            <u-theme-select-item value="seagreen"><div :class="$style.color" color="seagreen"></div>SeaGreen</u-theme-select-item>
-        </u-theme-select>
-    </u-navbar>
-    <div><router-view></router-view></div>
-    <div :class="$style.foot" slot="foot"></div>
-</u-global-layout>
+    <u-global-layout>
+        <u-navbar slot="head">
+            <u-logo slot="left" name="163yun">组件平台</u-logo>
+            <!-- <u-navbar-item>首页</u-navbar-item> -->
+            <u-navbar-item to="/components">组件</u-navbar-item>
+            <!-- <u-navbar-item>模式</u-navbar-item> -->
+            <!-- <u-navbar-item>资源</u-navbar-item> -->
+            <u-theme-select slot="right" v-model="theme" @select="onSelectTheme">
+                <u-theme-select-item value="default"><div :class="$style.color"></div>Default</u-theme-select-item>
+                <u-theme-select-item value="dark"><div :class="$style.color" color="dark"></div>Dark</u-theme-select-item>
+                <u-theme-select-item value="seagreen"><div :class="$style.color" color="seagreen"></div>SeaGreen</u-theme-select-item>
+            </u-theme-select>
+        </u-navbar>
+        <div><router-view></router-view></div>
+        <div :class="$style.foot" slot="foot"></div>
+    </u-global-layout>
 </template>
 
 <script>
