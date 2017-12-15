@@ -82,6 +82,14 @@ export default {
                 });
             }
         },
+        getSelection() {
+            const selectionIndexes = [];
+            this.tdata.forEach((row, index) => {
+                if (row.selected)
+                    selectionIndexes.push(index);
+            });
+            return this.data.filter((data, index) => selectionIndexes.indexOf(index) > -1);
+        },
         allSelected() {
             const flag = this.allSel;
             const copydata = this.tdata.concat();
@@ -89,6 +97,11 @@ export default {
                 item.selected = flag;
             });
             this.tdata = copydata;
+            const selection = this.getSelection();
+            if (flag)
+                this.$emit('select-all', selection);
+
+            this.$emit('selection-change', selection);
         },
         initTableData() {
             const tdata = [];
@@ -142,6 +155,19 @@ export default {
             this.popvisible = undefined;
             this.popvisible = false;
             this.tdata = this.copyTdata.filter((item) => column.filterMethod(option.value, item[column.label], item, column));
+        },
+        /**
+         * 选中或者取消事件
+         * @param {row} 当前选中行数据
+         */
+        changeSelect(row) {
+            const selection = this.getSelection();
+            if (row.selected)
+                this.$emit('select', selection);
+            else
+                this.$emit('select-cancel', selection);
+
+            this.$emit('selection-change', selection);
         },
     },
 };

@@ -100,7 +100,7 @@ export default {
 ### demo3 全选
 ``` vue
 <template>
-    <u-table-view :data="tdata">
+    <u-table-view :data="tdata" @selection-change="selectionChange($event)">
         <u-table-view-column type="selection"></u-table-view-column>
         <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
         <u-table-view-column title="姓名" label="name" ></u-table-view-column>
@@ -136,6 +136,9 @@ export default {
                 return '逗比一号';
             else
                 return row.name;
+        },
+        selectionChange(data) {
+            console.log(data);
         }
     }
 };

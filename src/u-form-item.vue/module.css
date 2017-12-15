@@ -4,6 +4,17 @@
     color: #999;
     text-align: right;
     padding-right: 10px;
+    position: relative;
+}
+
+.label[required]:after {
+    content: '*';
+    color: $brand-error;
+    position: absolute;
+    right: 2px;
+    height: 12px;
+    line-height: 12px;
+    top: 7px;
 }
 
 .message {
@@ -43,8 +54,11 @@
 }
 
 .root[label-size$="small"] .label { width: 80px; padding-right: 10px; }
+.root[label-size$="small"] .label:after{ right: 2px; }
 .root[label-size$="small"] .field { max-width: calc(100% - 80px); }
 .root[label-size$="normal"] .label { width: 120px; padding-right: 20px; }
+.root[label-size$="normal"] .label:after { right: 12px; }
 .root[label-size$="normal"] .field { max-width: calc(100% - 120px); }
 .root[label-size$="large"] .label { width: 160px; padding-right: 20px; }
+.root[label-size$="large"] .label:after{ right: 12px; }
 .root[label-size$="large"] .field { max-width: calc(100% - 160px); }

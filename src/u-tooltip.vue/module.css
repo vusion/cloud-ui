@@ -114,19 +114,19 @@
 }
 
 .popper {
-    border-radius: 2px;
     box-sizing: border-box;
     z-index: 1065;
 }
 
 .content {
-    padding: 20px;
+    padding: 12px 16px;;
     max-width: 260px;
     word-break: break-all;
     color: #fff;
     background: rgba(71, 88, 107, 0.9);
     position: relative;
     line-height: 20px;
+    border-radius: 2px;
     font-size: 12px;
 }
 

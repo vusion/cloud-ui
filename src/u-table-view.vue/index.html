@@ -44,7 +44,7 @@
                 <template v-for="(row, index) in tdata">
                     <tr :class="$style.btrItem" :role="index === (tdata.length-1)">
                         <td v-for="(column, cindex) in columns" :class="$style.btdSpan">
-                            <span v-if="column.type === 'selection'"><input type="checkbox" v-model="row.selected"/></span>
+                            <span v-if="column.type === 'selection'"><input type="checkbox" @ v-model="row.selected" @change="changeSelect(row)"/></span>
                             <div v-else-if="!column.label" :class="$style.ditem" :role="column.tooltip">
                                 <u-table-view-cell :row="row" :column="column"></u-table-view-cell>
                             </div>
