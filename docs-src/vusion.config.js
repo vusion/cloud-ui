@@ -2,19 +2,18 @@ const path = require('path');
 const hljs = require('highlight.js');
 const iterator = require('markdown-it-for-inline');
 
-let theme = path.basename(process.cwd());
-if (theme === 'src')
-    theme = 'theme-default';
+const theme = 'theme-' + process.argv[process.argv.length - 1];
+const themePath = theme === 'theme-default' ? 'src' : theme;
 
 module.exports = {
     type: 'app',
     version: '^0.5.4',
-    globalCSSPath: './base/global.css',
+    globalCSSPath: `./${themePath}/base/global.css`,
     extractCSS: true,
     uglifyJS: true,
     webpack: {
         entry: {
-            docs: path.resolve(__dirname, './index.js'),
+            docs: ['babel-polyfill', path.resolve(__dirname, `./index.js`)],
         },
         output: {
             path: path.resolve(__dirname, '../cloud-ui/' + theme),
@@ -26,7 +25,7 @@ module.exports = {
             EXTENDS: true,
             alias: {
                 EXTENDS: true,
-                library$: path.resolve(process.cwd(), 'index.js'),
+                library$: path.resolve(__dirname, `../${themePath}/index.js`),
             },
         },
         module: {

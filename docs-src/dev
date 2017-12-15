@@ -3,19 +3,22 @@
 const path = require('path');
 const shell = require('shelljs');
 
-const theme = process.argv[process.argv.length - 1] || './src';
+const program = require('commander');
+program
+    .option('-t, --theme <theme>', 'Theme')
+    .parse(process.argv);
+
+let theme;
+if (!program.theme || program.theme === 'src')
+    theme = 'default';
+else
+    theme = program.theme;
 
 const outputPath = path.resolve(__dirname, '../cloud-ui');
 shell.rm('-rf', outputPath);
 shell.cp('-r', path.resolve(__dirname, 'static'), outputPath);
 
-const themePath = path.resolve(process.cwd(), theme);
-if (!shell.test('-d', themePath))
-    throw new Error(`Cannot find "${themePath}"!`);
-console.info('cd', themePath);
-shell.cd(themePath);
-
 const configPath = path.resolve(__dirname, 'vusion.config.js');
-const cmd = `vusion dev -p 9002 -c "${configPath}"`;
+const cmd = `vusion dev -p 9002 -c "${configPath}" -t ${theme}`;
 console.info(cmd);
 shell.exec(cmd);

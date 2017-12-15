@@ -25,7 +25,7 @@ import routes from './routes';
 new Vue({
     router: new VueRouter({
         base: '/cloud-ui/',
-        mode: 'history',
+        mode: history.pushState ? 'history' : 'hash',
         routes,
         scrollBehavior: (to, from, savedPosition) => savedPosition || { x: 0, y: 0 },
     }),

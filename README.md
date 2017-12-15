@@ -16,7 +16,7 @@
 ``` shell
 npm install
 npm install -g vusion-cli
-docs-src/dev src
+docs-src/dev
 ```
 
 其他主题：
@@ -24,7 +24,7 @@ docs-src/dev src
 ``` shell
 npm install
 npm install -g vusion-cli
-docs-src/dev theme-seagreen
+docs-src/dev -t seagreen
 ```
 
 要在打开的浏览器中设置一下localStorage：
