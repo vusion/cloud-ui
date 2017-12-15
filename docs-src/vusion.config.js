@@ -8,7 +8,10 @@ if (theme === 'src')
 
 module.exports = {
     type: 'app',
+    version: '^0.5.4',
     globalCSSPath: './base/global.css',
+    extractCSS: true,
+    uglifyJS: true,
     webpack: {
         entry: {
             docs: path.resolve(__dirname, './index.js'),

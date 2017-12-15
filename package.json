@@ -31,12 +31,12 @@
     "cloud-ui"
   ],
   "dependencies": {
-    "proto-ui.vusion": "0.2.0",
-    "validator": "^8.0.0",
-    "vusion-utils": "^0.1.0"
+    "proto-ui.vusion": "~0.2.1",
+    "vusion-utils": "^0.1.2"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1",
     "eslint": "^4.13.1",
     "eslint-config-vusion": "^2.0.0",
     "highlight.js": "^9.12.0",
@@ -52,6 +52,7 @@
     "vue": "^2.5.0"
   },
   "vusion": {
+    "version": "^0.5.4",
     "type": "library"
   }
 }

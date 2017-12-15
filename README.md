@@ -44,5 +44,5 @@ docs-src/build
 
 ``` shell
 docs-src/build
-vusion publish
+vusion publish -p cloud-ui
 ```
