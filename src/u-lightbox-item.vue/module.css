@@ -8,28 +8,6 @@
     display: block;
 }
 
-.close {
-    position: absolute;
-    z-index: 100;
-    right: -12px;
-    top: -12px;
-    height: 30px;
-    width: 30px;
-    line-height: 1;
-    text-align: center;
-    color: #fff;
-    background-color: rgba(0,0,0,.3);
-    box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 0 6px rgba(0,0,0,.3);
-    border-radius: 50%;
-}
-
-.close:hover { color: #888; }
-
-.close:before {
-    content:'\00d7';
-    font-size: 28px;
-    line-height: 30px;
-}
 .title {
     color: #fff;
     font-weight: bold;
