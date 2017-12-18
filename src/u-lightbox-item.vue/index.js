@@ -44,7 +44,7 @@ export default {
         this.animation = this.parentVM.animation;
         this.closeButton = this.parentVM.closeButton;
         this.$watch('isCurrent', (value) => {
-            value && this.initZoomImg();
+            value && this.resetImg();
         });
     },
     mounted() {
@@ -53,12 +53,11 @@ export default {
             return;
         this.img = Array.prototype.filter.call(this.wrapper.children, (ele) => ele.nodeName.toLowerCase() === 'img')[0];
 
-        if (!this.img)
-            return;
         // 图片设置最大宽高
-        this.resetImg();
+        if (this.img.complete)
+            this.resetImg();
 
-        this.initZoomImg();
+        this.img.addEventListener('load', this.resetImg.bind(this));
     },
     destroyed() {
         this.dispatch(this.$options.parentName, 'remove-item-vm', this);
@@ -96,6 +95,9 @@ export default {
         },
         // 按照图片原比例，将img的宽高设置在最大宽高里面
         resetImg() {
+            if (!this.img)
+                return;
+
             const maxWidth = this.parentVM.maxWidth,
                 maxHeight = this.parentVM.maxHeight;
             let w = this.img.width,
@@ -103,18 +105,19 @@ export default {
             const radio = w / h;
             if (w > maxWidth || h > maxWidth) {
                 if (maxWidth / maxHeight > radio) {
-                    h = maxWidth;
+                    h = maxHeight;
                     w = h * radio;
                 } else {
                     w = maxWidth;
                     h = w / radio;
                 }
             }
-            this.wrapper.width = w;
-            this.wrapper.height = h;
+            this.wrapper.style.width = w + 'px';
+            this.wrapper.style.height = h + 'px';
             // 设置垂直居中
             this.wrapper.style.left = (window.innerWidth - w) / 2 + 'px';
             this.wrapper.style.top = (window.innerHeight - h) / 2 + 'px';
+            this.initZoomImg();
         },
         // 根据lightbox配置设置Zoom的options
         initOptions() {

@@ -49,7 +49,7 @@
     font-size: 60px;
     height: 60px;
     line-height: 1;
-    background: hsla(0,0%,100%,.1);
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 30px;
     user-select: none;
     overflow: hidden;
