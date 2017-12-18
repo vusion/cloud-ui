@@ -18,6 +18,35 @@
     vertical-align: middle;
 }
 
+.top {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.3);
+    color: rgba(255,255,255,0.7);
+    z-index: 10;
+    text-align: center;
+    font-size: 22px;
+    line-height: 50px;
+}
+
+.close {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    bottom: 0px;
+}
+
+.close:hover { color: #888; }
+
+.close:before {
+    content:'\00d7';
+    font-size: 40px;
+    line-height: 50px;
+}
+
 .wrapper {
     position: fixed;
     top: 0px;
@@ -45,7 +74,7 @@
 }
 
 .operation {
-    color: #fff;
+    color: rgba(255,255,255,0.7);
     font-size: 60px;
     height: 60px;
     line-height: 1;
@@ -55,7 +84,7 @@
     overflow: hidden;
     position: fixed;
     left: 50%;
-    bottom: 200px;
+    bottom: 0px;
     text-align: center;
     transform: translateX(-50%);
     z-index: 10;
@@ -68,9 +97,12 @@
 }
 
 .operation > li[disabled] {
-    color: rgba(256, 256, 256, .4);
+    color: rgba(256, 256, 256, .2);
 }
 .operation > li:hover {
-    background: hsla(0,0%,100%,.1);
+    background: rgba(0, 0, 0, 0.1);
     cursor: pointer;
+}
+.operation > li[disabled]:hover {
+    cursor: auto;
 }

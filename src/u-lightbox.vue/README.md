@@ -64,7 +64,6 @@ export default {
 
 | Prop | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
-| title | String | `''` | 内容标题 |
 | visible.sync | Boolean | `false` | 是否显示 |
 | maskClose | Boolean | `true` | 点击遮罩层关闭灯箱 |
 | closeButton | Boolean | `false` | 是否显示关闭按钮 |

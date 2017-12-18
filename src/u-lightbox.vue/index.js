@@ -1,7 +1,6 @@
 export default {
     name: 'u-lightbox',
     props: {
-        title: { type: String, default: '' },
         closeButton: { type: Boolean, default: false },
         closeOnMask: { type: Boolean, default: true },
         visible: { type: Boolean, default: false },
@@ -43,6 +42,8 @@ export default {
             animationEndNum: 0,
             maxWidthRadio: 0.67,
             maxHeightRadio: 0.75,
+            initWidthRadio: 0.42, // 初始img固定宽高
+            initHeightRadio: 0.6,
         };
     },
     computed: {
@@ -67,6 +68,11 @@ export default {
             if (this.animationNum === 0)
                 return true;
             return this.allAnimationEnd;
+        },
+        title() {
+            if (this.itemVMs && this.itemVMs[this.current])
+                return this.itemVMs[this.current].title || '';
+            return '';
         },
     },
     watch: {
@@ -108,11 +114,8 @@ export default {
             } else // 初始动画结束
                 this.allAnimationEnd = true;
         });
-        this.$on('u-lightbox-item-close', () => {
-            this.close();
-        });
-        this.maxWidth = this._computeInitMax();
-        this.maxHeight = this._computeInitMax('h');
+        this.initWidth = this._computeInit();
+        this.initHeight = this._computeInit('h');
     },
     mounted() {
         if (this.$el && !this.static)
@@ -162,8 +165,8 @@ export default {
             this.itemVMs[this.current].$emit('zoom', operation);
         },
         // 计算初始显示最大宽高
-        _computeInitMax(type = 'w') {
-            return type === 'w' ? window.innerWidth * this.maxWidthRadio : window.innerHeight * this.maxHeightRadio;
+        _computeInit(type = 'w') {
+            return type === 'w' ? window.innerWidth * this.initWidthRadio : window.innerHeight * this.initHeightRadio;
         },
         escPress(event) {
             if (event.keyCode === 27)

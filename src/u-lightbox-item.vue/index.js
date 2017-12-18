@@ -42,7 +42,6 @@ export default {
         if (this.parentVM.selectedVM === undefined)
             this.parentVM.selectedVM = this;
         this.animation = this.parentVM.animation;
-        this.closeButton = this.parentVM.closeButton;
         this.$watch('isCurrent', (value) => {
             value && this.resetImg();
         });
@@ -65,9 +64,6 @@ export default {
     methods: {
         animationEnd() {
             this.dispatch(this.$options.parentName, 'u-lightbox-item-end', 1);
-        },
-        close() {
-            this.dispatch(this.$options.parentName, 'u-lightbox-item-close');
         },
         stop(event) {
             this.isCurrent && event.stopPropagation();
@@ -93,24 +89,22 @@ export default {
                 this.$off('zoom');
             }
         },
-        // 按照图片原比例，将img的宽高设置在最大宽高里面
+        // 按照图片原比例，将img的宽高设置为初始宽高范围
         resetImg() {
             if (!this.img)
                 return;
 
-            const maxWidth = this.parentVM.maxWidth,
-                maxHeight = this.parentVM.maxHeight;
+            const initWidth = this.parentVM.initWidth,
+                initHeight = this.parentVM.initHeight;
             let w = this.img.width,
                 h = this.img.height;
             const radio = w / h;
-            if (w > maxWidth || h > maxWidth) {
-                if (maxWidth / maxHeight > radio) {
-                    h = maxHeight;
-                    w = h * radio;
-                } else {
-                    w = maxWidth;
-                    h = w / radio;
-                }
+            if (initWidth / initHeight > radio) {
+                h = initHeight;
+                w = h * radio;
+            } else {
+                w = initWidth;
+                h = w / radio;
             }
             this.wrapper.style.width = w + 'px';
             this.wrapper.style.height = h + 'px';

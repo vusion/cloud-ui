@@ -6,8 +6,6 @@
     @transitionend="animationEnd"
     ref="root">
     <div :class="$style.wrapper" ref="wrapper" @click="stop($event)">
-        <a v-if="closeButton" :class="$style.close" @click="close()"></a>
         <slot></slot>
-        <div :class="$style.title" v-if="title">{{ title }}</div>
     </div>
 </div>
