@@ -3,10 +3,9 @@
     :current="isCurrent"
     :animation="animation"
     @animationend="animationEnd"
-    @transitionend="animationEnd">
-    <div :class="$style.wrapper" ref="wrapper">
-        <a v-if="closeButton" :class="$style.close" @click="close()"></a>
+    @transitionend="animationEnd"
+    ref="root">
+    <div :class="$style.wrapper" ref="wrapper" @click="stop($event)">
         <slot></slot>
     </div>
-    <div :class="$style.title" v-if="title">{{ title }}</div>
 </div>

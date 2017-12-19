@@ -1,7 +1,6 @@
 export default {
     name: 'u-lightbox',
     props: {
-        title: { type: String, default: '' },
         closeButton: { type: Boolean, default: false },
         closeOnMask: { type: Boolean, default: true },
         visible: { type: Boolean, default: false },
@@ -12,7 +11,7 @@ export default {
         zoomable: { type: Boolean, default: true },
         zoomButton: { type: Boolean, default: true },
         zoomWheel: { type: Boolean, default: true },
-        zoomMin: { default: '50px', validator: (value) => {
+        zoomMin: { default: '100px', validator: (value) => {
             if (typeof (value) === 'number')
                 return value === value >> 0;
             else if (typeof (value) === 'string')
@@ -43,8 +42,8 @@ export default {
             animationEndNum: 0,
             maxWidthRadio: 0.67,
             maxHeightRadio: 0.75,
-            maxWidth: this._computeInitMax(),
-            maxHeight: this._computeInitMax('h'),
+            initWidthRadio: 0.42, // 初始img固定宽高
+            initHeightRadio: 0.6,
         };
     },
     computed: {
@@ -70,6 +69,11 @@ export default {
                 return true;
             return this.allAnimationEnd;
         },
+        title() {
+            if (this.itemVMs && this.itemVMs[this.current])
+                return this.itemVMs[this.current].title || '';
+            return '';
+        },
     },
     watch: {
         visible(visible) {
@@ -80,6 +84,12 @@ export default {
                 this.animationEndNum = 0;
                 this.allAnimationEnd = true;
             }
+        },
+        currentVisible(visible) {
+            if (visible)
+                document.addEventListener('keydown', this.escPress);// 按esc退出弹框
+            else
+                document.removeEventListener('keydown', this.escPress);
         },
         current(current) {
             this.animationEndNum = 0;
@@ -104,9 +114,8 @@ export default {
             } else // 初始动画结束
                 this.allAnimationEnd = true;
         });
-        this.$on('u-lightbox-item-close', () => {
-            this.close();
-        });
+        this.initWidth = this._computeInit();
+        this.initHeight = this._computeInit('h');
     },
     mounted() {
         if (this.$el && !this.static)
@@ -156,9 +165,12 @@ export default {
             this.itemVMs[this.current].$emit('zoom', operation);
         },
         // 计算初始显示最大宽高
-        _computeInitMax(type = 'w') {
-            return type === 'w' ? window.innerWidth * this.maxWidthRadio : window.innerHeight * this.maxHeightRadio;
+        _computeInit(type = 'w') {
+            return type === 'w' ? window.innerWidth * this.initWidthRadio : window.innerHeight * this.initHeightRadio;
         },
-
+        escPress(event) {
+            if (event.keyCode === 27)
+                this.close();
+        },
     },
 };

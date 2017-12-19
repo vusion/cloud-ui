@@ -1,43 +1,25 @@
 .root {
     display: none;
-    position: absolute;
-    top: 0px;
-    left: 0px;
 }
 .root[start] {
     animation: show .3s ease-in-out 0s;
 }
 .root[current] {
     display: block;
-    position: relative;
-    z-index: 10;
 }
 
-.close {
-    position: absolute;
-    z-index: 100;
-    right: -12px;
-    top: -12px;
-    height: 24px;
-    width: 24px;
-    line-height: 1;
-    text-align: center;
-    color: #bbb;
-    background: #fff;
-    box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 0 6px rgba(0,0,0,.3);
-    border-radius: 50%;
-}
-
-.close:hover { color: #888; }
-
-.close:before {
-    content:'\00d7';
-    font-size: 20px;
-    line-height: 24px;
-}
 .title {
     color: #fff;
     font-weight: bold;
+    position: absolute;
+    z-index: 10;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background: hsla(0,0%,100%,.1);
+    padding: 5px 10px;
+    font-size: 14px;
+    text-align: center;
 }
 @keyframes show {
     0% { transform: scale(0); }
@@ -62,4 +44,15 @@
 .root[current][animation="zoom-out"]{
     opacity: 1;
     transform: scale(1);
+}
+
+.root[current] > .wrapper {
+    z-index: 10;
+    cursor: move;
+}
+.wrapper {
+    position: absolute;
+}
+.wrapper > img {
+    width: 100%;
 }
