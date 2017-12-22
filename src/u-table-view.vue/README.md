@@ -54,7 +54,7 @@ export default {
 ### demo2 自定义排序方法
 ``` vue
 <template>
-    <u-table-view :data="tdata">
+    <u-table-view :data="tdata" @sort-change="sortChange">
         <u-table-view-column title="日期" label="date" sortable :sort-method="sortMethod"></u-table-view-column>
         <u-table-view-column title="姓名" label="name"></u-table-view-column>
         <u-table-view-column title="地址" label="address" ></u-table-view-column>
@@ -91,7 +91,10 @@ export default {
                 return true;
             else
                 return false;
-        }
+        },
+        sortChange(value) {
+            console.log(value.column, value.label, value.order);
+        },
     }
 };
 </script>
@@ -148,7 +151,7 @@ export default {
 ### demo4 select
 ``` vue
 <template>
-    <u-table-view :data="tdata">
+    <u-table-view :data="tdata" @filter-change="filterChange">
         <u-table-view-column title="日期" label="date" sortable :formatter="dateFormat"></u-table-view-column>
         <u-table-view-column title="姓名" label="name" ></u-table-view-column>
         <u-table-view-column title="地址" label="address" ></u-table-view-column>
@@ -221,6 +224,9 @@ export default {
             const date = new Date(value).getDate();
             return year + '-' + month + '-' + date;
         },
+        filterChange(data){
+            console.log(data);
+        }
     }
 };
 </script>
@@ -332,4 +338,124 @@ export default {
 </script>
 ```
 
+### demo6 loading 加载中的状态
+``` vue
+<template>
+<div>
+    <u-table-view :data="tdata" loading>
+        <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
+        <u-table-view-column title="姓名" label="name" :formatter="formatter"></u-table-view-column>
+        <u-table-view-column title="地址" label="address" ></u-table-view-column>
+    </u-table-view>
+</div>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '上海市普陀区金沙江路 1517 弄'
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '上海市普陀区金沙江路 1519 弄'
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '上海市普陀区金沙江路 1516 弄'
+            }],
+        };
+    },
+    methods: {
+        formatter(row, column) {
+            if (row.name === '天王盖地虎')
+                return '逗比一号';
+            else
+                return row.name;
+        }
+    }
+};
+</script>
+```
 
+### demo7 data为空数组自定义显示文本
+``` vue
+<template>
+<div>
+    <u-table-view :data="tdata" >
+        <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
+        <u-table-view-column title="姓名" label="name" :formatter="formatter"></u-table-view-column>
+        <u-table-view-column title="地址" label="address" ></u-table-view-column>
+        <div slot="no-data-text">
+            <span style="margin-right:10px">暂无数据,</span>
+            <u-link>请刷新页面</u-link>
+        </div>
+    </u-table-view>
+</div>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [],
+        };
+    },
+    methods: {
+        formatter(row, column) {
+            if (row.name === '天王盖地虎')
+                return '逗比一号';
+            else
+                return row.name;
+        }
+    }
+};
+</script>
+```
+
+
+## API
+### Attrs/Props
+
+| Attr/Prop | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| data | Array | '' | 表格默认要显示的数据 |
+| title | String | '' | 表格的标题 |
+| allChecked | Boolean | false | 默认是否全部选中 |
+| defaultSort | Object | '' | 默认的排序列和顺序值，其prop属性指定默认排序的列，order指定默认排序的顺序 |
+| noDataText | String | '' | 当data为空数组时，展示的信息 |
+| loading| Boolean | false | 是否展示加载中的状态信息 |
+
+#### @sort-change
+
+点击排序标签触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.column | Object | 当前列column的实例，含有当前列的所有信息，实质是table-view-column实例 |
+| $event.label | String  | 当前列的标签值  |
+| $event.order | String  | 当前列排序值： 'asc'或'desc'  |
+
+#### @filter-change
+
+点击过滤标签触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.column | Object | 当前列column的实例，含有当前列的所有信息，实质是table-view-column实例 |
+| $event.value | String  | 选中的标签值  |
+| $event.index | Number  | 当前列的索引值  |
+
+
+#### @selection-change
+
+点击checkbox触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.column | Array | 选中的行的数据集合 |

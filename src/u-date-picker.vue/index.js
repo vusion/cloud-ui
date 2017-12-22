@@ -39,6 +39,14 @@ export default {
             type: [String, Number],
             default: 'start',
         },
+        yearDiff: {
+            type: [String, Number],
+            default: 3,
+        },
+        yearAdd: {
+            type: [String, Number],
+            default: 1,
+        },
     },
     data() {
         return {

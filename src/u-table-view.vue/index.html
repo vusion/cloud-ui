@@ -3,7 +3,7 @@
         {{title}}
         <slot name="title"></slot>
     </div>
-    <div :class="$style.header">
+    <div :class="$style.header" ref="head">
         <table :class="$style.thead" cellspacing="0" cellpadding="0" border="0" :style="{width: tableWidth}">
             <colgroup>
                 <col v-for="(column, index) in columnsWidth" :width="column"></col>
@@ -19,7 +19,7 @@
                                     <div :class="$style.traingle"></div>
                                 </div>
                                 <div :class="$style.popper" slot="popper">
-                                    <div :class="$style.option" v-for="option in column.options" @click.stop="select(option, column)" :role="column.selectValue === option.value">{{option.name}}</div>
+                                    <div :class="$style.option" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value">{{option.name}}</div>
                                 </div>
                             </u-popper>
                         </template>
@@ -41,7 +41,21 @@
                 <col v-for="(column, index) in columnsWidth" :width="column">
             </colgroup>
             <tbody :class="$style.btbody">
-                <template v-for="(row, index) in tdata">
+                <template v-if="loading">
+                    <tr :class="$style.btrItem" role>
+                        <td :colspan="columns.length" :class="$style.btdSpan" role="center">
+                            <u-loading size="small"></u-loading>
+                        </td>
+                    </tr>
+                </template>
+                <template v-else-if="tdata.length === 0">
+                    <tr :class="$style.btrItem" role>
+                        <td :colspan="columns.length" :class="$style.btdSpan" role="center">
+                            <slot name="no-data-text">{{noDataText}}</slot>
+                        </td>
+                    </tr>
+                </template>
+                <template v-else v-for="(row, index) in tdata">
                     <tr :class="$style.btrItem" :role="index === (tdata.length-1)">
                         <td v-for="(column, cindex) in columns" :class="$style.btdSpan">
                             <span v-if="column.type === 'selection'"><input type="checkbox" @ v-model="row.selected" @change="changeSelect(row)"/></span>

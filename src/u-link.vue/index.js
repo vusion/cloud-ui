@@ -27,7 +27,7 @@ export default {
                 else if (this.to && this.$router) {
                     const $router = this.$router;
                     const { location } = $router.resolve(this.to, this.$route, this.append);
-                    const keys = Object.keys(location.query);
+                    const keys = location.query ? Object.keys(location.query) : [];
                     let query = '';
                     let currentHref = '';
                     if (keys.length) {

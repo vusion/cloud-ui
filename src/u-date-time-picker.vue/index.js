@@ -29,7 +29,14 @@ export default {
             type: [String, Number],
             default: '154',
         },
-
+        yearDiff: {
+            type: [String, Number],
+            default: 3,
+        },
+        yearAdd: {
+            type: [String, Number],
+            default: 1,
+        },
     },
     data() {
         return {

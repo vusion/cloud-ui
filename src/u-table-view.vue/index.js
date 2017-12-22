@@ -15,6 +15,8 @@ export default {
                 };
             },
         },
+        noDataText: String,
+        loading: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -37,6 +39,9 @@ export default {
             this.tdata = this.initTableData();
             this.copyTdata = this.initTableData();
             this.handleResize();
+        },
+        allChecked(newValue) {
+            this.allSel = newValue;
         },
     },
     methods: {
@@ -81,6 +86,11 @@ export default {
                     return value1[label] < value2[label] ? order : -order;
                 });
             }
+            this.$emit('sort-change', {
+                column,
+                label,
+                order: this.defaultSort.order,
+            });
         },
         getSelection() {
             const selectionIndexes = [];
@@ -131,30 +141,37 @@ export default {
                 }
                 this.columnsWidth = [];
                 this.$nextTick(() => {
-                    if (this.data.length) {
-                        const $td = this.$refs.body.querySelectorAll('tbody tr:first-child td');
-                        for (let i = 0; i < $td.length; i++) {
-                            const column = this.columns[i];
-                            let width;
-                            if (column.width)
-                                width = column.width;
-                            else if (column.type === 'selection')
-                                width = 35;
-                            else
-                                width = parseInt(getStyle($td[i], 'width'));
+                    let tdColls = [];
+                    if (this.loading)
+                        tdColls = this.$refs.head.querySelectorAll('thead tr:first-child th');
+                    else if (this.data.length)
+                        tdColls = this.$refs.body.querySelectorAll('tbody tr:first-child td');
 
-                            this.columnsWidth.push(width);
-                            // this.columnsWidth[i].width = width;
-                        }
+                    for (let i = 0; i < tdColls.length; i++) {
+                        const column = this.columns[i];
+                        let width;
+                        if (column.width)
+                            width = column.width;
+                        else if (column.type === 'selection')
+                            width = 35;
+                        else
+                            width = parseInt(getStyle(tdColls[i], 'width'));
+
+                        this.columnsWidth.push(width);
                     }
                 });
             });
         },
-        select(option, column) {
+        select(option, column, index) {
             column.selectValue = option.value;
             this.popvisible = undefined;
             this.popvisible = false;
             this.tdata = this.copyTdata.filter((item) => column.filterMethod(option.value, item[column.label], item, column));
+            this.$emit('filter-change', {
+                column,
+                value: option.value,
+                index,
+            });
         },
         /**
          * 选中或者取消事件

@@ -59,6 +59,10 @@
     color: #999;
 }
 
+.btdSpan[role="center"]{
+    text-align: center;
+}
+
 .wrapicon {
     display: inline-block;
     height: 20px;
