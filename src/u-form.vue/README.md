@@ -27,7 +27,7 @@
     <u-form-item title="详情">
         <u-textarea size="huge"></u-textarea>
     </u-form-item>
-    <!-- u-form-item title="表格" layout="block">
+    <u-form-item title="表格" layout="block">
         <u-table-view :data="[{
             date: '2016-05-02',
             name: '王小虎',
@@ -49,7 +49,7 @@
             <u-table-view-column title="姓名" label="name"></u-table-view-column>
             <u-table-view-column title="地址" label="address"></u-table-view-column>
         </u-table-view>
-    </u-form-item -->
+    </u-form-item
     <u-form-item>
         <u-button color="primary">立即创建</u-button>
     </u-form-item>

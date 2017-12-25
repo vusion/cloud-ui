@@ -26,7 +26,7 @@ export default {
             columnsWidth: [],
             popvisible: false,
             copyTdata: [], // tdata的复制版本主要用来过滤
-            tableWidth: 0, // display值为none的时候需要特殊处理这个值
+            tableWidth: undefined, // display值为none的时候需要特殊处理这个值
         };
     },
     mounted() {
