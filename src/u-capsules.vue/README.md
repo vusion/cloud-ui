@@ -82,6 +82,20 @@ Try to click twice on an item.
     <u-capsule flag>Cake</u-capsule>
 </u-capsules>
 ```
+
+### Label
+
+``` html
+<u-capsules>
+    <u-capsule size="small">6</u-capsule>
+    <u-capsule size="small" label="88折">7</u-capsule>
+    <u-capsule size="small" label="88折">8</u-capsule>
+    <u-capsule size="small" label="88折">9</u-capsule>
+    <u-capsule size="small" label="88折">1年</u-capsule>
+    <u-capsule size="small" label="80折">2年</u-capsule>
+</u-capsules>
+```
+
 ## Capsules API
 ### Props/Attrs
 

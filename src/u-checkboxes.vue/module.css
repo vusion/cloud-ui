@@ -1,0 +1,5 @@
+@import 'proto-ui.vusion/src/u-checkboxes.vue/module.css';
+
+.root > * + * {
+    margin-left: 80px;
+}

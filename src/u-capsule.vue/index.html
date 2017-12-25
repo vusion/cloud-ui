@@ -1,0 +1,9 @@
+<li :class="$style.root"
+    :selected="selected || currentSelected"
+    :readonly="parentVM.readonly"
+    :disabled="disabled || parentVM.disabled"
+    @click="select()"
+    v-ellipsis-title>
+    <span :class="$style.label">{{ label }}</span>
+    <slot></slot>
+</li>

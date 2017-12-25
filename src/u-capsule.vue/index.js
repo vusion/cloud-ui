@@ -4,4 +4,8 @@ export default {
     name: 'u-capsule',
     parentName: 'u-capsules',
     mixins: [ListViewItem],
+    props: {
+        label: String,
+    },
 };
+

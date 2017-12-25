@@ -12,11 +12,11 @@
             </div>
         </slot>
     </main>
-    <!-- <footer :class="$style.foot">
-        <div :class="$style.wrap">
-            <slot name="foot"></slot>
-        </div>
-    </footer> -->
+<!-- <footer :class="$style.foot">
+    <div :class="$style.wrap">
+        <slot name="foot"></slot>
+    </div>
+</footer> -->
 </div>
 </template>
 
@@ -35,7 +35,7 @@ export default {
     height: 64px;
     background: #1c2b41;
     box-shadow: 0 3px 4px rgba(0,0,0,0.1);
-    z-index: 20;
+    z-index: 2000;
 }
 
 .body {

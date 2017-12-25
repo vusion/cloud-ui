@@ -15,6 +15,7 @@ import Capsule from './u-capsule.vue';
 import CapsuleGroup from './u-capsule-group.vue';
 import Capsules from './u-capsules.vue';
 import Chart from './u-chart.vue';
+import Checkboxes from './u-checkboxes.vue';
 import CircularProgress from './u-circular-progress.vue';
 import ColorSelect from './u-color-select.vue';
 import DatePicker from './u-date-picker.vue';
@@ -42,6 +43,7 @@ import PieChart from './u-pie-chart.vue';
 import Pill from './u-pill.vue';
 import Pills from './u-pills.vue';
 import Popover from './u-popover.vue';
+import Radios from './u-radios.vue';
 import SelectDivider from './u-select-divider.vue';
 import SelectGroup from './u-select-group.vue';
 import Select from './u-select.vue';
@@ -83,6 +85,7 @@ export {
     Capsules,
     Chart,
     Checkbox,
+    Checkboxes,
     CircularProgress,
     ColorSelect,
     DatePicker,
@@ -111,6 +114,7 @@ export {
     Pills,
     Popover,
     Radio,
+    Radios,
     SelectDivider,
     SelectGroup,
     Select,
@@ -145,7 +149,6 @@ export {
 
 export {
     Badge,
-    Checkboxes,
     CollapseTransition,
     Draggable,
     Droppable,
@@ -161,7 +164,6 @@ export {
     ListViewGroup,
     ListViewItem,
     Popper,
-    Radios,
     RouterItem,
     Tab,
     TreeView,

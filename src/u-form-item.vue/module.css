@@ -62,3 +62,12 @@
 .root[label-size$="large"] .label { width: 160px; padding-right: 20px; }
 .root[label-size$="large"] .label:after{ right: 12px; }
 .root[label-size$="large"] .field { max-width: calc(100% - 160px); }
+
+.description {
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.description:empty {
+    display: none;
+}
