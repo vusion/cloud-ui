@@ -75,6 +75,14 @@ $height: 64px;
     icon-font: url('../u-icon.vue/icons/keyboard-arrow-right.svg');
 }
 
+.button[role='rotateRight']:before{
+    icon-font: url('../u-icon.vue/icons/rotate-right.svg');
+}
+
+.button[role='rotateLeft']:before{
+    icon-font: url('../u-icon.vue/icons/rotate-left.svg');
+}
+
 .operation {
     color: rgba(255,255,255,0.7);
     font-size: 60px;

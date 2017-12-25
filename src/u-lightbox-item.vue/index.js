@@ -35,6 +35,7 @@ export default {
         return {
             options: {},
             zoomImg: null,
+            current: 0,
         };
     },
     created() {
@@ -45,6 +46,7 @@ export default {
         this.$watch('isCurrent', (value) => {
             value && this.resetImg();
         });
+        this.$on('rotate', this.rotate);
     },
     mounted() {
         this.wrapper = this.$refs.wrapper;
@@ -67,6 +69,13 @@ export default {
         },
         stop(event) {
             this.isCurrent && event.stopPropagation();
+        },
+        rotate(direction) {
+            if (direction === 'right')
+                this.current = (this.current + 90) % 360;
+            else
+                this.current = (this.current - 90) % 360;
+            this.img.style.transform = 'rotate(' + this.current + 'deg)';
         },
         initZoomImg() {
             // 图片增加缩放功能
@@ -112,6 +121,8 @@ export default {
             this.wrapper.style.left = (window.innerWidth - w) / 2 + 'px';
             this.wrapper.style.top = (window.innerHeight - h) / 2 + 'px';
             this.initZoomImg();
+            this.img.style.transform = 'rotate(0deg)';// 把旋转的图片恢复原样
+            this.current = 0;
         },
         // 根据lightbox配置设置Zoom的options
         initOptions() {

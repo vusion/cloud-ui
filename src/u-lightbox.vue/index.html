@@ -6,8 +6,10 @@
     </div>
     <ul :class="$style.operation" v-if="currentVisible && (zoomButton || showButton)" @click.stop>
         <li v-show="showButton" :class="$style.button" role="prev" :disabled="!hasPrev" @click="prev()"></li>
+        <li :class="$style.button" role="rotateLeft" @click="rotate('left')"></li>
         <li :class="$style.button" rolo="zoomin" @click="zoom('in')">＋</li>
         <li :class="$style.button" rolo="zoomout" @click="zoom('out')">－</li>
+        <li :class="$style.button" role="rotateRight" @click="rotate('right')"></li>
         <li v-show="showButton" :class="$style.button" role="next" :disabled="!hasNext" @click="next()"></li>
     </ul>
 </div>
