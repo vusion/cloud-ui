@@ -40,7 +40,7 @@
 
 .label {
     position: absolute;
-    top: -7px;
+    top: -8px;
     left: 50%;
     transform: translate(-50%);
     color: white;
@@ -48,6 +48,7 @@
     font-size: 12px;
     height: 13px;
     line-height: 14px;
+    padding: 0 2px;
     white-space: nowrap;
 }
 

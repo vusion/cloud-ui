@@ -18,6 +18,7 @@ import Chart from './u-chart.vue';
 import Checkboxes from './u-checkboxes.vue';
 import CircularProgress from './u-circular-progress.vue';
 import ColorSelect from './u-color-select.vue';
+import ComboSlider from './u-combo-slider.vue';
 import DatePicker from './u-date-picker.vue';
 import DateTimePicker from './u-date-time-picker.vue';
 import Form from './u-form.vue';
@@ -88,6 +89,7 @@ export {
     Checkboxes,
     CircularProgress,
     ColorSelect,
+    ComboSlider,
     DatePicker,
     DateTimePicker,
     Form,

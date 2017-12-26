@@ -1,29 +1,17 @@
-# 滑块 Slider
-
-## 示例
-### 基本形式
+# 复合滑块 ComboSlider
 
 ``` html
-<u-slider :value="20"></u-slider>
+<u-combo-slider></u-combo-slider>
 ```
 
-### 最大值和最小值
-
 ``` html
-<u-slider :value="20" :min="10" :max="50"></u-slider>
+<u-combo-slider :step="10" unit="GB" tip="步长为10GB"></u-combo-slider>
 ```
 
-### 连续和间隔
+### 禁用
 
 ``` html
-<u-grid-layout>
-    <u-grid-layout-column :span="6">
-        <u-slider></u-slider>
-    </u-grid-layout-column>
-    <u-grid-layout-column :span="6">
-        <u-slider :step="20"></u-slider>
-    </u-grid-layout-column>
-</u-grid-layout>
+<u-combo-slider :step="10" unit="GB" tip="步长为10GB" disabled :value="40"></u-combo-slider>
 ```
 
 ## API
@@ -35,6 +23,8 @@
 | min | Number | `0` | 最小值 |
 | max | Number | `0` | 最大值 |
 | step | Number | `0` | 间隔。`0`表示连续 |
+| unit | String |  | 单位 |
+| tip | String |  | 提示 |
 | readonly | Boolean | `false` | 是否只读 |
 | disabled | Boolean | `false` | 是否禁用 |
 
@@ -50,7 +40,7 @@
 
 #### @change
 
-滑块的值改变时触发
+滑块的值改变后触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |

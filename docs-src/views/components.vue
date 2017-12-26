@@ -35,7 +35,8 @@
                     <u-sidebar-item to="/components/u-select">选择框 <small>Select</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-multi-select">多项选择框 <small>MultiSelect</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-color-select">颜色选择框 <small>ColorSelect</small></u-sidebar-item>
-                    <u-sidebar-item to="/components/u-slider">滑动条 <small>Slider</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-slider">滑块 <small>Slider</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-combo-slider">复合滑块 <small>ComboSlider</small></u-sidebar-item>
                     <u-sidebar-item v-if="advanced" to="/components/u-field">表单控件 <small>Field</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-form">表单 <small>Form</small></u-sidebar-item>
                 </u-sidebar-group>
