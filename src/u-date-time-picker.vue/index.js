@@ -118,7 +118,10 @@ export default {
             if (!time)
                 time = '00:00:00';
 
-            date = new Date(date);
+            if (date)
+                date = new Date(date);
+            else
+                date = new Date();
             time = time.split(':');
             date.setHours(time[0]);
             date.setMinutes(time[1]);
@@ -138,6 +141,11 @@ export default {
             }
             if (datetime === this.minCalendarDate || datetime === this.maxCalendarDate)
                 this.dateTime = this.format(date, 'yyyy-MM-dd HH:mm:ss');
+
+            this.$emit('select', {
+                sender: this,
+                date: new Date(date).getTime(),
+            });
         },
         /**
          * @method onDateTimeChange(date, time) 日期或时间改变后更新日期时间
@@ -154,6 +162,11 @@ export default {
             date.setMinutes(time[1]);
             date.setSeconds(time[2]);
             this.dateTime = this.format(date, 'yyyy-MM-dd HH:mm:ss');
+
+            this.$emit('select', {
+                sender: this,
+                date: new Date(date).getTime(),
+            });
         },
         /**
          * @method onInput($event) 输入日期
