@@ -52,9 +52,12 @@ export default {
     methods: {
         onClick(e) {
             if (this.disabled)
-                return e.peventDefault();
+                return e.preventDefault();
 
             this.$emit('click', e);
+
+            if (this.target !== '_self')
+                return;
 
             if (!this.href)
                 this.navigate();
@@ -65,9 +68,6 @@ export default {
 
             if (!this.$router)
                 return console.warn('[proto-ui]', 'Cannot find vue-router.');
-
-            if (this.target !== '_self')
-                return;
 
             let cancel = false;
             this.$emit('before-navigate', {

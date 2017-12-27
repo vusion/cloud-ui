@@ -1,8 +1,14 @@
 export default {
     name: 'u-popover',
     props: {
-        trigger: String,
-        placement: String,
+        trigger: {
+            type: String,
+            default: 'click',
+        },
+        placement: {
+            type: String,
+            default: 'bottom',
+        },
         open: Boolean,
         title: String,
         styleObject: Object,
