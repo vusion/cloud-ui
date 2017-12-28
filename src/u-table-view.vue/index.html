@@ -10,7 +10,7 @@
             </colgroup>
             <thead>
                 <tr :class="$style.htrItem">
-                    <th v-for="(column, index) in columns" :class="$style.hthSpan" :role="column.filter">
+                    <th v-for="(column, index) in columns" :class="$style.hthSpan" :role="column.filter" :selection="column.type==='selection'">
                         <span v-if="!column.filter" :class="$style.itemtitle">{{column.title}}</span>
                         <template v-else-if="column.filter">
                             <u-popper trigger="click" :placement="column.placement" append-to="reference">
@@ -57,7 +57,7 @@
                 </template>
                 <template v-else v-for="(row, index) in tdata">
                     <tr :class="$style.btrItem" :role="index === (tdata.length-1)">
-                        <td v-for="(column, cindex) in columns" :class="$style.btdSpan">
+                        <td v-for="(column, cindex) in columns" :class="$style.btdSpan" :selection="column.type==='selection'">
                             <span v-if="column.type === 'selection'"><input type="checkbox" @ v-model="row.selected" @change="changeSelect(row)"/></span>
                             <div v-else-if="!column.label" :class="$style.ditem" :role="column.tooltip">
                                 <u-table-view-cell :row="row" :column="column"></u-table-view-cell>

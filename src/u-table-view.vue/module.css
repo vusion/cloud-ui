@@ -23,6 +23,9 @@
 .hthSpan:hover {
     background: #eef2f8;
 }
+.hthSpan[selection]{
+    padding: 0 0 0 20px;
+}
 
 .htrItem {
     background-color: #f5f7fa;
@@ -61,6 +64,10 @@
 
 .btdSpan[role="center"]{
     text-align: center;
+}
+
+.btdSpan[selection]{
+    padding: 0 0 0 20px;
 }
 
 .wrapicon {

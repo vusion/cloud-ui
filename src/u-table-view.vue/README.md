@@ -389,6 +389,7 @@ export default {
 <template>
 <div>
     <u-table-view :data="tdata" >
+        <u-table-view-column type="selection"></u-table-view-column>
         <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
         <u-table-view-column title="姓名" label="name" :formatter="formatter"></u-table-view-column>
         <u-table-view-column title="地址" label="address" ></u-table-view-column>

@@ -142,18 +142,18 @@ export default {
                 this.columnsWidth = [];
                 this.$nextTick(() => {
                     let tdColls = [];
-                    if (this.loading)
+                    if (this.loading || this.data.length === 0)
                         tdColls = this.$refs.head.querySelectorAll('thead tr:first-child th');
                     else if (this.data.length)
                         tdColls = this.$refs.body.querySelectorAll('tbody tr:first-child td');
-
+                    debugger;
                     for (let i = 0; i < tdColls.length; i++) {
                         const column = this.columns[i];
                         let width;
                         if (column.width)
                             width = column.width;
                         else if (column.type === 'selection')
-                            width = 35;
+                            width = 25;
                         else
                             width = parseInt(getStyle(tdColls[i], 'width'));
 
