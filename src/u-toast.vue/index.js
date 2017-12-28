@@ -24,6 +24,11 @@ const Toast = {
     },
     methods: {
         show(message, duration, state) {
+            if (!this.$el) {
+                const ele = document.createElement('div');
+                this.$mount(ele);
+                document.body.appendChild(this.$el);
+            }
             const options = {
                 message: message || this.message,
                 duration: duration || this.duration,
