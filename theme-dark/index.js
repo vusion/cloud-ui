@@ -17,6 +17,7 @@ export {
     CircularProgress,
     CollapseTransition,
     ColorSelect,
+    ComboSlider,
     DatePicker,
     DateTimePicker,
     Draggable,
