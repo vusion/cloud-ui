@@ -24,7 +24,8 @@
     background: #eef2f8;
 }
 .hthSpan[selection]{
-    padding: 0 0 0 20px;
+    padding: 13px 0 13px 20px;
+    white-space: nowrap;
 }
 
 .htrItem {
@@ -67,7 +68,7 @@
 }
 
 .btdSpan[selection]{
-    padding: 0 0 0 20px;
+    padding: 13px 0 13px 20px;
 }
 
 .wrapicon {

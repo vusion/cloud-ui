@@ -18,6 +18,10 @@ const Toast = {
             showClose: true,
         };
     },
+    mounted() {
+        if (this.$el)
+            document.body.appendChild(this.$el);
+    },
     methods: {
         show(message, duration, state) {
             if (!this.$el) {
