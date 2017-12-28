@@ -159,6 +159,9 @@ export default {
             const length = this.itemVMs.length;
             this.current = (this.current + 1) % length;
         },
+        rotate(direction) {
+            this.itemVMs[this.current].$emit('rotate', direction);
+        },
         zoom(operation) {
             if (!this.zoomable)
                 return;
