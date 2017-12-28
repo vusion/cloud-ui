@@ -146,7 +146,6 @@ export default {
                         tdColls = this.$refs.head.querySelectorAll('thead tr:first-child th');
                     else if (this.data.length)
                         tdColls = this.$refs.body.querySelectorAll('tbody tr:first-child td');
-                    debugger;
                     for (let i = 0; i < tdColls.length; i++) {
                         const column = this.columns[i];
                         let width;
