@@ -8,7 +8,7 @@ const Toast = {
         duration: { type: Number, default: 2000 },
         state: { type: String, default: '' },
         message: String,
-        visible: { type: Boolean, default: true },
+        // visible: { type: Boolean, default: true },
         closeable: { type: Boolean, default: false },
     },
     data() {
@@ -24,11 +24,6 @@ const Toast = {
     },
     methods: {
         show(message, duration, state) {
-            if (!this.$el) {
-                const ele = document.createElement('div');
-                this.$mount(ele);
-                document.body.appendChild(this.$el);
-            }
             const options = {
                 message: message || this.message,
                 duration: duration || this.duration,

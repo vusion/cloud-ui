@@ -1,4 +1,4 @@
-<div :class="$style.root" :role="position" v-if="visible">
+<div :class="$style.root" :role="position">
     <div :class="$style.item" :role="showState" v-for="item in list">
         {{item.message}}
         <a :class="$style.close" v-if="showClose" @click="close(item)"></a>
