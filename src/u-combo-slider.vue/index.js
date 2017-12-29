@@ -31,14 +31,18 @@ export default {
     },
     methods: {
         onInput(value) {
-            if (isNaN(value))
-                value = this.currentValue;
+            const oldValue = this.currentValue;
 
-            value = +value;
-            if (value < this.min)
-                value = this.min;
-            if (value > this.max)
-                value = this.max;
+            if (isNaN(value))
+                value = oldValue;
+            else {
+                value = +value;
+                value = Math.min(Math.max(this.min, value), this.max);
+                this.step && (value = Math.floor(value / this.step) * this.step);
+            }
+
+            if (value === oldValue)
+                return;
 
             this.currentValue = value;
             this.$emit('input', value);
