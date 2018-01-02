@@ -1,27 +1,35 @@
-/**
- * @class MultiSelect
- * @extend Base
- * @param {Array}                   options.options             => 下拉菜单列表
- * @param {boolean=false}           options.readonly            => 是否只读
- * @param {boolean=false}           options.disabled            => 是否禁用
- * @param {width|string|number}     options.width               => 输入框长度
- */
 const MultiSelect = {
     name: 'u-multi-select',
     props: {
-        options: Array,
+        data: Array,
         readonly: Boolean,
         disabled: Boolean,
-        visible: { type: Boolean, default: true },
         width: { type: [String, Number], default: '240' },
         value: Array,
+        field: {
+            type: String,
+            default: 'text',
+        },
     },
     data() {
         return {
+            currentValue: this.value,
             open: false,
-            optionsData: this.initOptionsData(),
-            selFlag: this.initSelFlag(),
+            optionsData: this.initOptionsData(this.value),
+            selFlag: this.initSelFlag(this.value),
             closeable: true,
+            options: {
+                modifiers: {
+                    computeStyle: {
+                        gpuAcceleration: false,
+                    },
+                    preventOverflow: {
+                        boundariesElement: 'body',
+                    },
+                },
+            },
+            update: undefined,
+            placement: 'bottom',
         };
     },
     created() {
@@ -31,7 +39,7 @@ const MultiSelect = {
         selItems() {
             const selItem = [];
             this.value.forEach((item) => {
-                this.options.forEach((option) => {
+                this.data.forEach((option) => {
                     if (option.value === item)
                         selItem.push(option);
                 });
@@ -40,26 +48,23 @@ const MultiSelect = {
         },
     },
     methods: {
-        toggle(value) {
-            if (this.disabled)
-                return;
-            if (value)
-                this.open = value;
-            else
-                this.open = !this.open;
+        onToggle($event) {
+            this.$emit('toggle', $event);
         },
         select(event, index) {
             if (this.readonly)
                 return;
-            if (this.options[index].disabled || this.options[index].divider) {
+            if (this.data[index].disabled || this.data[index].divider) {
                 event.stopPropagation();
                 return false;
             }
 
-            if (this.value.indexOf(this.options[index].value) === -1)
-                this.value.push(this.options[index].value);
+            if (this.currentValue.indexOf(this.data[index].value) === -1)
+                this.currentValue.push(this.data[index].value);
             else
-                this.value.splice(this.value.indexOf(this.options[index].value), 1);
+                this.currentValue.splice(this.currentValue.indexOf(this.data[index].value), 1);
+
+            this.$nextTick(() => this.update());
 
             /**
              * @event select 选中列表项时触发
@@ -69,27 +74,37 @@ const MultiSelect = {
              */
             this.$emit('select', {
                 sender: this,
-                selected: this.options[index],
-                value: this.value,
+                selected: this.data[index],
+                value: this.currentValue,
             });
         },
-        initSelFlag() {
-            if (this.value.length === 0)
+        getUpdate(value) {
+            this.update = value;
+        },
+        initSelFlag(value) {
+            const currentValue = value || this.currentValue;
+            if (currentValue.length === 0)
                 return false;
             else
                 return true;
         },
-        initOptionsData() {
-            this.options.forEach((item) => {
-                if (this.value.indexOf(item.value) !== -1)
+        initOptionsData(value) {
+            const currentValue = value || this.currentValue;
+            this.data.forEach((item) => {
+                if (currentValue.indexOf(item.value) !== -1)
                     item.selected = true;
                 else
                     item.selected = false;
             });
-            return this.options;
+            return this.data;
         },
         close(index) {
-            this.value.splice(index, 1);
+            this.currentValue.splice(index, 1);
+            this.$nextTick(() => this.update());
+            this.$emit('close', {
+                index,
+                value: this.currentValue,
+            });
         },
         fadeOut(event) {
             MultiSelect.opens.forEach((item, index) => {
@@ -113,10 +128,16 @@ const MultiSelect = {
             else if (!newValue && index > -1)
                 MultiSelect.opens.splice(index, 1);
         },
-        options(newValue) {
+        data(newValue) {
             this.optionsData = this.initOptionsData();
         },
         value(newValue) {
+            this.currentValue = newValue;
+            this.selFlag = this.initSelFlag();
+            this.optionsData = this.initOptionsData();
+        },
+        currentValue(newValue) {
+            this.$emit('input', newValue);
             this.selFlag = this.initSelFlag();
             this.optionsData = this.initOptionsData();
         },

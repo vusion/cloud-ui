@@ -104,3 +104,27 @@
     background: $brand-primary;
     color: #fff;
 }
+.tag {
+    background-color: $brand-primary;
+    color: #fff;
+    display: inline-block;
+    padding: 0 5px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+.close[class]:before{
+    font-size: 12px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+:global(.tag-enter-active), :global(.tag-leave-active){
+    transition: all .3s cubic-bezier(.55,0,.1,1);
+}
+:global(.tag-enter), :global(.tag-leave-active){
+    opacity: 0;
+    transform: scaleX(0);
+}
