@@ -53,8 +53,6 @@ export default {
             ~index && this.columns.splice(index, 1);
         },
         setCellWidth(column, index) {
-            // debugger;
-            // console.log(index);
             let width = '';
             if (column.width)
                 width = column.width;
@@ -67,8 +65,6 @@ export default {
             return width;
         },
         handleSort(type, column) {
-            // console.log(type);
-
             if (column.label === this.defaultSort.label)
                 this.defaultSort.order = this.defaultSort.order === 'asc' ? 'desc' : 'asc';
             else {

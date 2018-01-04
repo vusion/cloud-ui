@@ -1,19 +1,31 @@
-<u-popper ref="popper" :class="$style.root" appendTo="reference" :placement="placement" @toggle="onToggle($event)" @update="getUpdate($event.update)" :options="options" :style="{width: width+'px'}">
-    <div :class="$style.head" :disabled="disabled">
-        <span :class="$style.tiptext" v-if="!selFlag">请选择</span>
-        <div :class="$style.wraptag" v-else>
+<u-popper ref="popper" :class="$style.root" appendTo="reference" :placement="placement" @toggle="onToggle($event)" :options="options" :style="{width: size ? '':width+'px'}">
+    <div :class="$style.head" :disabled="disabled" :role="filter" :size="size" @click.stop="focus">
+        <template v-if="filter">
             <div :class="$style.tag" v-for="(selItem, index) in selItems" :key="selItem.value">
-                <span>{{selItem[field]}}</span>
-                <u-icon name="close" :class="$style.close" @click.native.stop="close(index)"></u-icon>
+                <span :class="$style.text">{{selItem[field]}}</span>
+                <span :class="$style.close" @click.stop="close(index)"></span>
             </div>
-        </div>
-        <i :class="$style.icon" :role="open ? 'up':''"></i>
+            <input ref="input" :class="$style.input" :placeholder="showPlaceholder" v-model="query" @click.stop="inputClick" @input="onInput" @keydown.delete="inputDelete"  @compositionstart="compositionInputing = true"
+            @compositionend="compositionInputing = false" :style="inputStyle"></input>
+        </template>
+        <template v-else>
+            <span :class="$style.tiptext" v-if="!selFlag">请选择</span>
+            <div :class="$style.wraptag" v-else>
+                <div :class="$style.tag" v-for="(selItem, index) in selItems" :key="selItem.value">
+                    <span :class="$style.text">{{selItem[field]}}</span>
+                    <span :class="$style.close" @click.stop="close(index)"></span>
+                </div>
+            </div>
+            <i :class="$style.icon" :role="open ? 'up':''"></i>
+        </template>
     </div>
-    <div :class="$style.body" slot="popper">
-        <ul :class="$style.listview">
+    <div :class="$style.body" slot="popper" :size="size" :style="{width: size ? '':width+'px'}">
+        <ul :class="$style.listview" v-if="optionsData.length>0">
             <li :class="$style.listitem" v-for="(item,index) in optionsData" :key="index" :disabled="item.disabled" :role="item.selected ? 'z-sel':''" @click.stop="select($event,index)">
-                <span :class="$style.listcontent">{{item[field]}}</span>
+                <!-- <span :class="$style.listcontent">{{item[field]}}</span> -->
+                {{item[field]}}
             </li>
         </ul>
+        <div :class="$style.none" v-else>无匹配数据</div>
     </div>
 </u-popper>

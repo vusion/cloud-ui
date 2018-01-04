@@ -2,14 +2,34 @@ const MultiSelect = {
     name: 'u-multi-select',
     props: {
         data: Array,
-        readonly: Boolean,
-        disabled: Boolean,
-        width: { type: [String, Number], default: '240' },
+        readonly: {
+            type: Boolean,
+            default: false,
+        },
+        disabled: {
+            type: Boolean,
+            default: false,
+        },
+        width: { type: [String, Number], default: '250' },
         value: Array,
         field: {
             type: String,
             default: 'text',
         },
+        loading: {
+            type: Boolean,
+            default: false,
+        },
+        filter: {
+            type: Boolean,
+            default: false,
+        },
+        filterMethod: Function,
+        placeholder: {
+            type: String,
+            default: '请选择',
+        },
+        size: String,
     },
     data() {
         return {
@@ -28,17 +48,17 @@ const MultiSelect = {
                     },
                 },
             },
-            update: undefined,
             placement: 'bottom',
+            inputLength: 25,
+            query: '',
+            compositionInputing: false,
+            copyOptionsData: this.initOptionsData(this.value),
         };
-    },
-    created() {
-        document.addEventListener('click', this.fadeOut);
     },
     computed: {
         selItems() {
             const selItem = [];
-            this.value.forEach((item) => {
+            this.currentValue.forEach((item) => {
                 this.data.forEach((option) => {
                     if (option.value === item)
                         selItem.push(option);
@@ -46,25 +66,49 @@ const MultiSelect = {
             });
             return selItem;
         },
+        inputStyle() {
+            const style = {};
+            if (this.filter) {
+                if (this.currentValue.length === 0)
+                    style.width = '100%';
+                else
+                    style.width = `${this.inputLength}px`;
+            }
+            return style;
+        },
+        showPlaceholder() {
+            if (this.currentValue.length === 0)
+                return this.placeholder;
+            else
+                return '';
+        },
     },
     methods: {
         onToggle($event) {
+            this.open = $event.open;
             this.$emit('toggle', $event);
         },
         select(event, index) {
             if (this.readonly)
                 return;
-            if (this.data[index].disabled || this.data[index].divider) {
+            if (this.optionsData[index].disabled || this.optionsData[index].divider) {
                 event.stopPropagation();
                 return false;
             }
 
-            if (this.currentValue.indexOf(this.data[index].value) === -1)
-                this.currentValue.push(this.data[index].value);
+            if (this.currentValue.indexOf(this.optionsData[index].value) === -1)
+                this.currentValue.push(this.optionsData[index].value);
             else
-                this.currentValue.splice(this.currentValue.indexOf(this.data[index].value), 1);
+                this.currentValue.splice(this.currentValue.indexOf(this.optionsData[index].value), 1);
 
-            this.$nextTick(() => this.update());
+            this.$emit('input', this.currentValue);
+
+            this.$nextTick(() => this.$refs.popper.update());
+
+            if (this.filter) {
+                this.query = '';
+                this.$refs.input.focus();
+            }
 
             /**
              * @event select 选中列表项时触发
@@ -74,12 +118,9 @@ const MultiSelect = {
              */
             this.$emit('select', {
                 sender: this,
-                selected: this.data[index],
+                selected: this.optionsData[index],
                 value: this.currentValue,
             });
-        },
-        getUpdate(value) {
-            this.update = value;
         },
         initSelFlag(value) {
             const currentValue = value || this.currentValue;
@@ -88,36 +129,73 @@ const MultiSelect = {
             else
                 return true;
         },
-        initOptionsData(value) {
+        initOptionsData(value, data) {
             const currentValue = value || this.currentValue;
-            this.data.forEach((item) => {
+            const optionsData = data || this.data;
+            optionsData.forEach((item) => {
                 if (currentValue.indexOf(item.value) !== -1)
                     item.selected = true;
                 else
                     item.selected = false;
             });
-            return this.data;
+            return optionsData;
         },
         close(index) {
             this.currentValue.splice(index, 1);
-            this.$nextTick(() => this.update());
+            this.$nextTick(() => this.$refs.popper.update());
             this.$emit('close', {
                 index,
                 value: this.currentValue,
             });
         },
-        fadeOut(event) {
-            MultiSelect.opens.forEach((item, index) => {
-                // 这个地方不能用stopPropagation来处理，因为展开一个Select的同时要收起其他Select
-                const element = item.$refs.element;
-                let element2 = event.target;
-                while (element2) {
-                    if (element === element2)
-                        return;
-                    element2 = element2.parentElement;
+        focus() {
+            if (this.filter)
+                this.$refs.input.focus();
+        },
+        onInput(e) {
+            if (!this.compositionInputing) {
+                const query = e.target.value.trim();
+                this.inputLength = this.$refs.input.value.length * 12 + 20;
+                this.$nextTick(() => this.$refs.popper.update());
+                if (query === '')
+                    this.optionsData = [];
+                else if (this.query.length === 1) {
+                    if (this.filterMethod)
+                        this.optionsData = this.filterMethod(this.copyOptionsData, query);
+                    else {
+                        this.optionsData = this.copyOptionsData.filter((item) => {
+                            if (item[this.field].indexOf(query) !== -1)
+                                return true;
+                            else
+                                return false;
+                        });
+                    }
+                } else if (this.filterMethod)
+                    this.optionsData = this.filterMethod(this.copyOptionsData, query);
+                else {
+                    this.optionsData = this.copyOptionsData.filter((item) => {
+                        if (item[this.field].indexOf(query) !== -1)
+                            return true;
+                        else
+                            return false;
+                    });
                 }
-                item.toggle(false);
-            });
+
+                console.log(this.optionsData);
+
+                if (!query && !this.optionsData.length) {
+                    this.$refs.popper.toggle(false);
+                    this.optionsData = this.initOptionsData();
+                } else if (!this.open)
+                    this.$refs.popper.toggle(true);
+            }
+        },
+        inputDelete() {
+            if (this.query === '' && this.filter)
+                this.currentValue.splice(this.currentValue.length - 1, 1);
+        },
+        inputClick() {
+            this.$refs.popper.toggle(true);
         },
     },
     watch: {
@@ -129,17 +207,20 @@ const MultiSelect = {
                 MultiSelect.opens.splice(index, 1);
         },
         data(newValue) {
-            this.optionsData = this.initOptionsData();
+            this.copyOptionsData = this.optionsData = this.initOptionsData(this.value);
         },
         value(newValue) {
             this.currentValue = newValue;
             this.selFlag = this.initSelFlag();
-            this.optionsData = this.initOptionsData();
+            if (this.filter)
+                this.optionsData = this.initOptionsData(undefined, this.optionsData);
+            else
+                this.optionsData = this.initOptionsData();
         },
         currentValue(newValue) {
-            this.$emit('input', newValue);
             this.selFlag = this.initSelFlag();
-            this.optionsData = this.initOptionsData();
+            if (!newValue.length && !this.query)
+                this.optionsData = this.initOptionsData();
         },
     },
 };

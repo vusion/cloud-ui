@@ -112,7 +112,6 @@ export default {
          * @return {void}
          */
         select(date) {
-            // debugger;
             if (this.readonly || this.disabled || this.isOutOfRange(date))
                 return;
 

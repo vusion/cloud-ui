@@ -3,6 +3,45 @@
 ## 示例
 ### 基本形式
 
+### 大小扩展
+``` vue
+<template>
+<u-multi-select :data="options" v-model="value" size="large"></u-multi-select>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value: [],
+            options: [{
+                value: '选项1',
+                text: '黄金糕'
+            }, {
+                value: '选项2',
+                text: '双皮奶'
+            }, {
+                value: '选项3',
+                text: '蚵仔煎'
+            }, {
+                value: '选项4',
+                text: '龙须面'
+            }, {
+                value: '选项5',
+                text: '北京烤鸭',
+            }],
+        };
+    },
+    watch: {
+        value(newValue) {
+            console.log(newValue);
+        }
+    }
+};
+</script>
+```
+
+
 ### 方法
 ``` vue
 <template>
@@ -41,6 +80,90 @@ export default {
 </script>
 ```
 
+``` vue
+<template>
+<u-multi-select filter :data="options" v-model="value"></u-multi-select>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value: [],
+            options: [{
+                value: '选项1',
+                text: '黄金糕'
+            }, {
+                value: '选项2',
+                text: '双皮奶'
+            }, {
+                value: '选项3',
+                text: '蚵仔煎'
+            }, {
+                value: '选项4',
+                text: '龙须面'
+            }, {
+                value: '选项5',
+                text: '北京烤鸭',
+            }],
+        };
+    },
+    watch: {
+        value(newValue) {
+            console.log(newValue);
+        }
+    }
+};
+</script>
+```
+
+#### 自定义过滤方法
+``` vue
+<template>
+<u-multi-select filter :filter-method="filterMethod" :data="options" v-model="value" size="huge"></u-multi-select>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value: [],
+            options: [
+                { text: 'Alabama', value: 'Alabama' },
+                { text: 'Alaska', value: 'Alaska' },
+                { text: 'Arizona', value: 'Arizona' },
+                { text: 'Arkansas', value: 'Arkansas' },
+                { text: 'California', value: 'California' },
+                { text: 'Colorado', value: 'Colorado' },
+                { text: 'Connecticut', value: 'Connecticut' },
+                { text: 'Delaware', value: 'Delaware' },
+                { text: 'Florida', value: 'Florida' },
+                { text: 'Georgia', value: 'Georgia' },
+                { text: 'Hawaii', value: 'Hawaii' },
+                { text: 'Idaho', value: 'Idaho' },
+                { text: 'Illinois', value: 'Illinois' },
+            ],
+        };
+    },
+    watch: {
+        value(newValue) {
+            console.log(newValue);
+        }
+    },
+    methods: {
+        filterMethod(data,query) {
+            const tdata = data.filter((item) => {
+                if(item.value.toLowerCase().indexOf(query.toLowerCase()) > -1)
+                    return item;
+                else
+                    return false;
+            });
+            return tdata;
+        }
+    }
+};
+</script>
+```
 ## Select API
 ### Attrs/Props
 
@@ -51,6 +174,9 @@ export default {
 | field | String | `'text'` | 显示文本字段 |
 | readonly | Boolean | `false` | 是否只读 |
 | disabled | Boolean | `false` | 是否禁用 |
+| size | String | `normal normal` | 控制宽高属性，第一个值表示高度属性，第二值表示宽度，值有samll,normal,large,huage 四个值可以互相组合 |
+| filter | Boolean | `false` | 支持输入，搜索匹配项 |
+| filter-method | Function | `` | 自定义输入搜索的方法 |
 
 ### Events
 

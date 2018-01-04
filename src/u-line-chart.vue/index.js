@@ -84,7 +84,6 @@ export default {
             this._getSize();
         },
         draw() {
-            // debugger;
             if (!this.data || !this.data.length)
                 return;
 
