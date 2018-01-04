@@ -158,8 +158,17 @@ export default {
                     yAxis_.max = yAxis_.min + yAxis_.count;
 
                 yAxis_.data = [];
-                for (let i = yAxis_.min; i <= yAxis_.max; i += tick)
-                    yAxis_.data.push(i.toFixed(fixedCount)); // 防止+的时候出现无限小数的情况
+
+                while (yAxis_.min + yAxis_.count * tick < yAxis_.max)
+                    yAxis_.count++;
+
+                for (let i = 0; i <= yAxis_.count; i++) {
+                    const value = yAxis_.min + i * tick;
+                    yAxis_.data.push(value.toFixed(fixedCount)); // 防止+的时候出现无限小数的情况
+                }
+
+                const dataMax = Number(yAxis_.data[yAxis_.data.length - 1]);
+                yAxis_.max = Math.max(yAxis_.max, dataMax);
             }
 
             setTimeout(() => {
