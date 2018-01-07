@@ -9,7 +9,7 @@
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata">
+        <u-table-view :data="tdata" :height="300" layout="auto">
             <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
             <u-table-view-column title="姓名" label="name" :formatter="formatter"></u-table-view-column>
             <u-table-view-column title="地址" label="address" ></u-table-view-column>
@@ -21,6 +21,38 @@ export default {
     data: function () {
         return {
             tdata: [{
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '上海市普陀区金沙江路 1517 弄'
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '上海市普陀区金沙江路 1519 弄'
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '上海市普陀区金沙江路 1516 弄'
+            }, {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '上海市普陀区金沙江路 1517 弄'
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '上海市普陀区金沙江路 1519 弄'
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '上海市普陀区金沙江路 1516 弄'
+            }, {
                 date: '2016-05-02',
                 name: '王小虎',
                 address: '上海市普陀区金沙江路 1518 弄',
@@ -431,6 +463,8 @@ export default {
 | defaultSort | Object | '' | 默认的排序列和顺序值，其prop属性指定默认排序的列，order指定默认排序的顺序 |
 | noDataText | String | '' | 当data为空数组时，展示的信息 |
 | loading| Boolean | false | 是否展示加载中的状态信息 |
+| height| Integer/String |  | 表格组件的高度 |
+| layout| String | fixed | 表格的布局方式, 可选值有fixed, auto两种 |
 
 #### @sort-change
 
@@ -460,3 +494,12 @@ export default {
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event.column | Array | 选中的行的数据集合 |
+
+#### @row-click
+
+点击表格行触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.data | Object | 选中的行的数据集合 |
+| $event.index | Int | 行数据所在的索引值 |

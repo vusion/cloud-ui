@@ -2,7 +2,6 @@
 
 .thead {
     width: 100%;
-    table-layout: fixed;
 }
 
 .thead .hthSpan {
@@ -33,9 +32,12 @@
     border-bottom: 1px solid #ebf0f5;
 }
 
+.body[role] {
+    overflow: auto;
+}
+
 .tbody {
     width: 100%;
-    table-layout: fixed;
 }
 
 .tbody .btrItem:first-child {

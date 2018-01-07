@@ -1,4 +1,4 @@
-import { getStyle } from '../base/utils/style';
+import { getStyle, getScrollSize } from '../base/utils/style';
 
 export default {
     name: 'u-table-view',
@@ -17,6 +17,11 @@ export default {
         },
         noDataText: String,
         loading: { type: Boolean, default: false },
+        height: [String, Number],
+        layout: {
+            type: String,
+            default: 'fixed',
+        },
     },
     data() {
         return {
@@ -27,11 +32,14 @@ export default {
             popvisible: false,
             copyTdata: [], // tdata的复制版本主要用来过滤
             tableWidth: undefined, // display值为none的时候需要特殊处理这个值
+            bodyHeight: undefined,
+            bodyWidth: undefined, // 当出现垂直滚动条的时候，需要减去滚动条的宽度，确保不会出现水平滚动条
         };
     },
     mounted() {
         this.tdata = this.initTableData();
         this.copyTdata = this.initTableData();
+        this.fixedHeader();
         this.handleResize();
     },
     watch: {
@@ -130,11 +138,21 @@ export default {
                 if (allWidth)
                     this.tableWidth = this.columns.map((cell) => cell.width).reduce((a, b) => a + b) + 'px';
                 else {
-                    if (getStyle(this.$el, 'width') === 'auto')
-                        this.tableWidth = '100%';
-                    else
+                    if (getStyle(this.$el, 'width') === 'auto') {
+                        let parentNode = this.$el.parentNode;
+                        while (getStyle(parentNode, 'width') === 'auto')
+                            parentNode = parentNode.parentNode;
+                        this.tableWidth = parseInt(getStyle(parentNode, 'width')) - 1 + 'px';
+                    } else
                         this.tableWidth = parseInt(getStyle(this.$el, 'width')) - 1 + 'px';
                 }
+
+                if (this.height) {
+                    const scrollWidth = getScrollSize();
+                    this.bodyWidth = parseInt(this.tableWidth) - scrollWidth;
+                } else
+                    this.bodyWidth = this.tableWidth;
+
                 this.columnsWidth = [];
                 this.$nextTick(() => {
                     let tdColls = [];
@@ -180,6 +198,21 @@ export default {
                 this.$emit('select-cancel', selection);
 
             this.$emit('selection-change', selection);
+        },
+        fixedHeader() {
+            if (this.height) {
+                this.$nextTick(() => {
+                    const titleHeight = parseInt(getStyle(this.$refs.title, 'height')) || 0;
+                    const headHeight = parseInt(getStyle(this.$refs.head, 'height')) || 0;
+                    this.bodyHeight = this.height - titleHeight - headHeight;
+                });
+            }
+        },
+        rowClick(row, index) {
+            this.$emit('row-click', {
+                data: row,
+                index,
+            });
         },
     },
 };
