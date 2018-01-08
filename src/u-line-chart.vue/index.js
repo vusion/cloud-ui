@@ -132,7 +132,7 @@ export default {
                     yAxis_.min = this.yAxis.min;
                 else {
                     yAxis_.min = Math.min(...this.series.map((sery) =>
-                        Math.min(...this.data.map((item) =>
+                        !sery.silent && Math.min(...this.data.map((item) =>
                             item[sery.key] !== undefined ? item[sery.key] : Infinity)
                         )
                     )); // 支持空数据
@@ -141,7 +141,7 @@ export default {
                     yAxis_.max = this.yAxis.max;
                 else {
                     yAxis_.max = Math.max(...this.series.map((sery) =>
-                        Math.max(...this.data.map((item) =>
+                        !sery.silent && Math.max(...this.data.map((item) =>
                             item[sery.key] !== undefined ? item[sery.key] : -Infinity)
                         )
                     )); // 支持空数据

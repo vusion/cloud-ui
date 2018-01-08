@@ -412,6 +412,11 @@ $line_offset: 6px;
     width: 9px;
     height: 9px;
     border-radius: 100%;
+    display: none;
+}
+
+.piece:hover .point{
+    display: block;
 }
 
 .piece .point {

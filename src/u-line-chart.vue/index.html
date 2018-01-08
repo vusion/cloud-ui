@@ -1,4 +1,10 @@
-<u-chart :class="$style.root" :role="data.length === 0 ? 'empty' : ''" :title="title" :border="border" :width="width" :height="height" :legend="legend" :series="series" :data="data" :title-align="titleAlign">
+<u-chart :class="$style.root" :role="data.length === 0 ? 'empty' : ''" :border="border" :width="width" :height="height" :legend="legend" :series="series" :data="data" :title-align="titleAlign">
+    <template slot="titleTemplate">
+        {{title}}
+    </template>
+    <template slot="captionTemplate">
+        {{caption}}
+    </template>
     <div :class="$style.wrap">
         <div :class="$style.grid" ref="grid">
             <div v-for="(xLablel, index) in xAxis_.data" :class="$style.line" role="y" :style="{left: 100*index/(xAxis_.data.length - 1)+'%'}"></div>
