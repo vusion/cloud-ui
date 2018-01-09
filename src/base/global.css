@@ -1,21 +1,61 @@
 @import 'proto-ui.vusion/src/base/global.css';
 
-$margin-base: 20px;
-
-$font-size-base: 14px;
-
-$brand-primary: #67aaf5;
 $hover-color: #f4f4f4;
+$sidebar-background-color: #f0f6fa;
 
+/* Brand Colors */
+$brand-primary: #67aaf5;
+$brand-success: #3ad0af;
+$brand-warning: #ffa136;
+$brand-error: #ff8a7a;
+$brand-disabled: #e9f0f5;
+
+/* Product Colors */
+$product-nms: #30c5db;
+$product-nms-light: #1ba9bf;
+$product-ncv: #67aaf5;
+$product-ncv-light: #5a95d7;
+$product-nce: #86bbe7;
+$product-nce-light: #76a4cb;
+$product-nse: #87cee8;
+$product-nse-light: #77b5cc;
+$product-nlb: #67c5f5;
+$product-nlb-light: #5cb1db;
+$product-rep: #4ec9ab;
+$product-rep-light: #45b095;
+$product-rds: #94cd4e;
+$product-rds-light: #81b344;
+$product-ncr: #9e9cf6;
+$product-ncr-light: #8c8adb;
+$product-nos: #89aaf7;
+$product-nos-light: #7b99de;
+$product-cdn: #8ad199;
+$product-cdn-light: #79b886;
+$product-net: #61dac6;
+$product-net-light: #61dac6;
+$product-mongo: #96dce6;
+$product-mongo-light: #84c1ca;
+$product-nqs: #86d651;
+$product-nqs-light: #78c049;
+$product-snat: #c69cf6;
+$product-snat-light: #b28cdd;
+
+/* Field Colors */
 $field-background: white;
 $field-color: #666;
 $field-border-color: #cbd5dd;
 $field-disabled-color: #bbb;
 $field-selected-color: $brand-primary;
 
+/* Component Base Dimensions */
 $height-base: 34px;
 $border-radius-base: 2px;
 
-$sidebar-background-color: #f0f6fa;
+/* Spacing Dimensions */
+$margin-base: 20px;
 
+/* Font Dimensions */
+$font-size-base: 14px;
+
+/* Animation Durations */
 $transition-duration: 0.2s;
