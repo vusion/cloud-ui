@@ -166,6 +166,7 @@ export {
     ListViewGroup,
     ListViewItem,
     Popper,
+    Render,
     RouterItem,
     Tab,
     TreeView,

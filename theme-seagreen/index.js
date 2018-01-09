@@ -59,6 +59,7 @@ export {
     Popper,
     Radio,
     Radios,
+    Render,
     RouterItem,
     SelectDivider,
     SelectGroup,
