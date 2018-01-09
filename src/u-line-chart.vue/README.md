@@ -73,7 +73,7 @@ export default {
 | data | Array |  | 图表需要显示的数据 |
 | xAxis | Object | | 绘制X轴需要传入的数据，属性key的值为data数组中对象的某个属性，依据此值来绘制X轴的刻度尺 |
 | yAxis | Object | | 绘制Y轴需要传入的数据，属性min，max表示Y轴的最大值和最小值，count表示Y轴最小值和最大值之间分成几段，默认值为8 |
-| series | Array |  | 传入绘制每条线的数据，数组中对象的属性key对象data数组中对象某个属性，hidden属性表示默认隐藏此选段，silent表示不显示此选段，默认作为tooltip显示的数据内容 |
+| series | Array |  | 传入绘制每条线的数据，数组中对象的属性key对象data数组中对象某个属性，hidden属性表示默认隐藏此选段，absent表示不显示此选段，默认作为tooltip显示的数据内容 |
 | border | Boolean | false | 是否有表框 |
 | legend | Boolean | false | X轴下方是否显示每条线段对应的标签 |
 | width | String | `100%` | 图表的宽度 |

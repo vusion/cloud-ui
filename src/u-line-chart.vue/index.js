@@ -132,7 +132,7 @@ export default {
                     yAxis_.min = this.yAxis.min;
                 else {
                     yAxis_.min = Math.min(...this.series.map((sery) =>
-                        !sery.silent && Math.min(...this.data.map((item) =>
+                        !sery.absent && Math.min(...this.data.map((item) =>
                             item[sery.key] !== undefined ? item[sery.key] : Infinity)
                         )
                     )); // 支持空数据
@@ -141,7 +141,7 @@ export default {
                     yAxis_.max = this.yAxis.max;
                 else {
                     yAxis_.max = Math.max(...this.series.map((sery) =>
-                        !sery.silent && Math.max(...this.data.map((item) =>
+                        !sery.absent && Math.max(...this.data.map((item) =>
                             item[sery.key] !== undefined ? item[sery.key] : -Infinity)
                         )
                     )); // 支持空数据
@@ -179,6 +179,9 @@ export default {
             if (!this.width_ || !this.height_ || !this.data || !this.xAxis_.data.length || !this.yAxis_.data.length)
                 return;
             if (this.data.length <= 1) // 一个点无需绘制线条
+                return;
+
+            if (sery.absent)
                 return;
 
             const width = this.width_;
@@ -243,7 +246,7 @@ export default {
             return cmds.join(' ');
         },
         getTopOne(item) {
-            return Math.max(...this.series.map((sery) => !sery.hidden && item[sery.key] ? item[sery.key] : 0));
+            return Math.max(...this.series.map((sery) => !sery.absent && !sery.hidden && item[sery.key] ? item[sery.key] : 0));
         },
         format(value) {
             return value;
