@@ -31,8 +31,8 @@ export default {
 ``` vue
 <template>
 <div>
-    <u-lightbox :visible.sync="visible" :index="showItem" animation="fade">
-        <u-lightbox-item v-for="(image, index) in images" :title="image.title"><img :src="image.src" /></u-lightbox-item>
+    <u-lightbox :visible.sync="visible" :value="showItem" animation="fade">
+        <u-lightbox-item v-for="(image, index) in images" :value="index" :title="image.title"><img :src="image.src" /></u-lightbox-item>
     </u-lightbox>
     <u-linear-layout>
         <img style="width: 300px;" v-for="(image, index) in images" :src="image.src"  @click="showLightbox(index)"/>
@@ -69,7 +69,7 @@ export default {
 | closeButton | Boolean | `false` | 是否显示关闭按钮 |
 | loop | Boolean | `false` | 是否可循环播放灯箱内容 |
 | animation | String | `''` | 动画（可选fade/zoom-out） |
-| index | Integer | 0 | 设置显示第index+1个灯箱内容 |
+| value | Integer | 0 | 设置显示第index+1个灯箱内容 |
 | zoomable | Boolean | true | 灯箱是否开启缩放功能（只有当灯箱内容为图片时有效） |
 | zoomButton | Boolean | true | 是否显示缩放按钮（只有当zoomable为true时有效） |
 | zoomWheel | Boolean | true | 是否允许滚动鼠标缩放（只有当zoomable为true时有效） |

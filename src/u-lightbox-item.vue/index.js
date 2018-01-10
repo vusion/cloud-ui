@@ -6,29 +6,15 @@ export default {
     parentName: 'u-lightbox',
     props: {
         title: { type: String, default: '' },
+        value: { type: Number, default: 0, validator: (value) => Number.isInteger(value) && value >= 0 },
     },
     mixins: [Emitter],
     computed: {
-        index() {
-            return this.parentVM.itemVMs.indexOf(this);
-        },
-        parentItemLength() {
-            return this.parentVM && this.parentVM.itemVMs.length;
-        },
         isStart() {
-            return this.index === this.parentVM.start;
+            return this === this.parentVM.itemVMs[0];
         },
         isCurrent() {
-            return this.index === this.parentVM.current;
-        },
-        isActive() {
-            return this.index === this.parentVM.active;
-        },
-        isPrev() {
-            return this.index === (this.parentVM.current - 1 + this.parentItemLength) % this.parentItemLength;
-        },
-        isNext() {
-            return this.index === (this.parentVM.current + 1) % this.parentItemLength;
+            return this === this.parentVM.selectedVM;
         },
     },
     data() {
@@ -40,8 +26,6 @@ export default {
     },
     created() {
         this.dispatch(this.$options.parentName, 'add-item-vm', this);
-        if (this.parentVM.selectedVM === undefined)
-            this.parentVM.selectedVM = this;
         this.animation = this.parentVM.animation;
         this.$watch('isCurrent', (value) => {
             value && this.resetImg();

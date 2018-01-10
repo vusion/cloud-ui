@@ -6,7 +6,7 @@ $height: 64px;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 3000;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overflow: hidden;
@@ -83,6 +83,15 @@ $height: 64px;
     icon-font: url('../u-icon.vue/icons/rotate-left.svg');
 }
 
+.optionsColl{
+    position: absolute;
+    left:0;
+    right:0;
+    bottom: 0;
+    height: 60px;
+    text-align: center;
+}
+
 .operation {
     color: rgba(255,255,255,0.7);
     font-size: 60px;
@@ -92,12 +101,7 @@ $height: 64px;
     border-radius: 30px;
     user-select: none;
     overflow: hidden;
-    position: fixed;
-    left: 50%;
-    bottom: 0px;
-    text-align: center;
-    transform: translateX(-50%);
-    z-index: 10;
+    display: inline-block;
 }
 
 .operation > li {

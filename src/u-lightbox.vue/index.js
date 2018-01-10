@@ -7,7 +7,7 @@ export default {
         static: { type: Boolean, default: false },
         loop: { type: Boolean, default: false }, // item是否循环
         animation: String,
-        index: { type: Number, default: 0, validator: (value) => Number.isInteger(value) && value >= 0 },
+        value: { type: Number, default: 0, validator: (value) => Number.isInteger(value) && value >= 0 },
         zoomable: { type: Boolean, default: true },
         zoomButton: { type: Boolean, default: true },
         zoomWheel: { type: Boolean, default: true },
@@ -35,8 +35,8 @@ export default {
         return {
             currentVisible: this.visible,
             itemVMs: [],
-            start: this.index, // 标记第一次点击lightbox，动画显示
-            current: this.index,
+            start: this.value, // 标记第一次点击lightbox，动画显示
+            current: this.value,
             allAnimationEnd: false,
             animationNum: animationMap[this.animation] || 0,
             animationEndNum: 0,
@@ -44,6 +44,7 @@ export default {
             maxHeightRadio: 0.75,
             initWidthRadio: 0.42, // 初始img固定宽高
             initHeightRadio: 0.6,
+            selectedVM: undefined,
         };
     },
     computed: {
@@ -70,8 +71,8 @@ export default {
             return this.allAnimationEnd;
         },
         title() {
-            if (this.itemVMs && this.itemVMs[this.current])
-                return this.itemVMs[this.current].title || '';
+            if (this.itemVMs && this.selectedVM)
+                return this.selectedVM.title || '';
             return '';
         },
     },
@@ -79,8 +80,8 @@ export default {
         visible(visible) {
             this.currentVisible = visible;
             if (this.currentVisible) { // 显示灯箱时重置参数
-                this.start = this.index;
-                this.current = this.index;
+                this.start = this.value;
+                this.current = this.value;
                 this.animationEndNum = 0;
                 this.allAnimationEnd = true;
             }
@@ -94,7 +95,14 @@ export default {
         current(current) {
             this.animationEndNum = 0;
             this.allAnimationEnd = false;
+            this.watchValue(current);
             this.itemVMs && this.itemVMs[current] && this.itemVMs[current].zoomImg && this.itemVMs[current].zoomImg.reset(); // 显示图片变化，恢复初始大小
+        },
+        value(value) {
+            this.watchValue(value);
+        },
+        itemVMs() {
+            this.watchValue(this.value);
         },
     },
     created() {
@@ -114,6 +122,7 @@ export default {
             } else // 初始动画结束
                 this.allAnimationEnd = true;
         });
+        this.$nextTick(() => this.watchValue(this.value));
         this.initWidth = this._computeInit();
         this.initHeight = this._computeInit('h');
     },
@@ -141,6 +150,7 @@ export default {
                 return;
 
             this.currentVisible = false;
+            this.selectedVM = undefined;
 
             this.$emit('update:visible', this.currentVisible);
             this.$emit('close');
@@ -160,12 +170,12 @@ export default {
             this.current = (this.current + 1) % length;
         },
         rotate(direction) {
-            this.itemVMs[this.current].$emit('rotate', direction);
+            this.selectedVM.$emit('rotate', direction);
         },
         zoom(operation) {
             if (!this.zoomable)
                 return;
-            this.itemVMs[this.current].$emit('zoom', operation);
+            this.selectedVM.$emit('zoom', operation);
         },
         // 计算初始显示最大宽高
         _computeInit(type = 'w') {
@@ -174,6 +184,14 @@ export default {
         escPress(event) {
             if (event.keyCode === 27)
                 this.close();
+        },
+        watchValue(value) {
+            if (this.selectedVM && this.selectedVM.value === value)
+                return;
+            if (!value)
+                this.selectedVM = this.itemVMs[0];
+            else
+                this.selectedVM = this.itemVMs.find((itemVM) => itemVM.value === value);
         },
     },
 };
