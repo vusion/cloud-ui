@@ -7,7 +7,7 @@ export default {
         static: { type: Boolean, default: false },
         loop: { type: Boolean, default: false }, // item是否循环
         animation: String,
-        value: { type: Number, default: 0, validator: (value) => Number.isInteger(value) && value >= 0 },
+        value: null,
         zoomable: { type: Boolean, default: true },
         zoomButton: { type: Boolean, default: true },
         zoomWheel: { type: Boolean, default: true },
