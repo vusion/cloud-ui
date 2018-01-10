@@ -8,7 +8,7 @@
 ``` vue
 <template>
 <div>
-    <u-modal :visible.sync="modalVisible" title="提示">
+    <u-modal :visible.sync="modalVisible" mask-close title="提示">
         <span>内容</span>
     </u-modal>
     <u-linear-layout>
@@ -97,6 +97,7 @@ export default {
 | cancelButton | String | `'取消'` | 取消按钮文本，如果为空则不显示 |
 | size | String | `'normal'` | 弹框的尺寸 |
 | icon | String | `''` | 提示图标, 可选值：`success`, `warning`, `error` |
+| maskClose | Boolean | `false` | 点击遮罩层关闭弹窗，默认不可关闭，设置可关闭则需设置值为true |
 
 ### Slots
 

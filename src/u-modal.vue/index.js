@@ -1,3 +1,4 @@
+import { clickOutside } from '../base/directives';
 const Modal = {
     name: 'u-modal',
     props: {
@@ -12,12 +13,14 @@ const Modal = {
         size: { type: String, default: 'normal' },
         static: { type: Boolean, default: false },
         icon: String,
+        maskClose: { type: Boolean, default: false },
     },
     data() {
         return {
             currentVisible: this.visible,
         };
     },
+    directives: { clickOutside },
     watch: {
         visible(visible) {
             this.currentVisible = visible;
@@ -39,6 +42,11 @@ const Modal = {
     },
     methods: {
         open() {
+            if (!this.$el) {
+                const ele = document.createElement('div');
+                this.$mount(ele);
+                document.body.appendChild(this.$el);
+            }
             this.currentVisible = true;
             this.$emit('open');
         },
@@ -66,6 +74,10 @@ const Modal = {
         escPress(event) {
             if (event.keyCode === 27)
                 this.cancel();
+        },
+        handleClose() {
+            if (this.maskClose)
+                this.close();
         },
     },
 };
