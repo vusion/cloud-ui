@@ -90,6 +90,7 @@ $height: 64px;
     bottom: 0;
     height: 60px;
     text-align: center;
+    z-index: 10;
 }
 
 .operation {
