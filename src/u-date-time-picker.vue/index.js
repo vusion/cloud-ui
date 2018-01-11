@@ -139,8 +139,8 @@ export default {
                 date.setMinutes(spMaxTime[1]);
                 date.setSeconds(spMaxTime[2]);
             }
-            if (datetime === this.minCalendarDate || datetime === this.maxCalendarDate)
-                this.dateTime = this.format(date, 'yyyy-MM-dd HH:mm:ss');
+            // if (datetime === this.minCalendarDate || datetime === this.maxCalendarDate)
+            this.dateTime = this.format(date, 'yyyy-MM-dd HH:mm:ss');
 
             this.$emit('select', {
                 sender: this,
