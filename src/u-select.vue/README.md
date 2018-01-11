@@ -340,7 +340,11 @@
 
 #### title
 
-自定义文本显示。
+自定义标题文本。
+
+#### extra
+
+在右侧可以附加组件。
 
 ## SelectDivider API
 

@@ -97,7 +97,7 @@
 | router | Boolean | `false` | 是否根据vue-router来控制选择哪个标签页 |
 | href | String |  | 链接地址 |
 | target | String |  | 打开方式 |
-| to | String \| Location |  | 需要vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
+| to | String,  Location |  | 需要vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
 | replace | Boolean | `false` | 需要vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
 | exact | Boolean | `false` | 需要vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。 |
 
@@ -165,7 +165,7 @@
 | value | Any | | 标签页的值 |
 | hidden | Boolean | `false` | 是否隐藏此标签页 |
 | disabled | Boolean | `false` | 是否禁用此标签页 |
-| to | String \| Object | | vue-router的目标链接 |
+| to | String,  Object | | vue-router的目标链接 |
 | replace | Boolean | `false` | 当切换路由时，调用`router.replace()`，而不是`router.push()` |
 | exact | Boolean | `false` | 是否精确匹配 |
 
@@ -174,3 +174,7 @@
 #### (default)
 
 插入文本或HTML。
+
+#### title
+
+自定义标题文本。
