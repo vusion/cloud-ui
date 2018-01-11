@@ -1,4 +1,5 @@
 import { getStyle, getScrollSize } from '../base/utils/style';
+import { ellipsisTitle } from 'proto-ui.vusion/src/base/directives';
 
 export default {
     name: 'u-table-view',
@@ -36,11 +37,13 @@ export default {
             bodyWidth: undefined, // 当出现垂直滚动条的时候，需要减去滚动条的宽度，确保不会出现水平滚动条
         };
     },
+    directives: { ellipsisTitle },
     mounted() {
         this.tdata = this.initTableData();
         this.copyTdata = this.initTableData();
         this.fixedHeader();
         this.handleResize();
+        window.addEventListener('resize', this.onResize, false);
     },
     watch: {
         data(newValue) {
@@ -133,47 +136,49 @@ export default {
             return tdata;
         },
         handleResize() {
-            this.$nextTick(() => {
-                const allWidth = !this.columns.some((cell) => !cell.width); // each column set a width
-                if (allWidth)
-                    this.tableWidth = this.columns.map((cell) => cell.width).reduce((a, b) => a + b) + 'px';
-                else {
-                    if (getStyle(this.$el, 'width') === 'auto') {
-                        let parentNode = this.$el.parentNode;
-                        while (getStyle(parentNode, 'width') === 'auto')
-                            parentNode = parentNode.parentNode;
-                        this.tableWidth = parseInt(getStyle(parentNode, 'width')) - 1 + 'px';
-                    } else
-                        this.tableWidth = parseInt(getStyle(this.$el, 'width')) - 1 + 'px';
-                }
-
-                if (this.height) {
-                    const scrollWidth = getScrollSize();
-                    this.bodyWidth = parseInt(this.tableWidth) - scrollWidth;
-                } else
-                    this.bodyWidth = this.tableWidth;
-
-                this.columnsWidth = [];
+            if (this.layout !== 'auto') {
                 this.$nextTick(() => {
-                    let tdColls = [];
-                    if (this.loading || this.data.length === 0)
-                        tdColls = this.$refs.head.querySelectorAll('thead tr:first-child th');
-                    else if (this.data.length)
-                        tdColls = this.$refs.body.querySelectorAll('tbody tr:first-child td');
-                    for (let i = 0; i < tdColls.length; i++) {
-                        const column = this.columns[i];
-                        let width;
-                        if (column.width)
-                            width = column.width;
-                        else if (column.type === 'selection')
-                            width = 25;
-                        else
-                            width = parseInt(getStyle(tdColls[i], 'width'));
-
-                        this.columnsWidth.push(width);
+                    const allWidth = !this.columns.some((cell) => !cell.width); // each column set a width
+                    if (allWidth)
+                        this.tableWidth = this.columns.map((cell) => cell.width).reduce((a, b) => a + b) + 'px';
+                    else {
+                        if (getStyle(this.$el, 'width') === 'auto') {
+                            let parentNode = this.$el.parentNode;
+                            while (getStyle(parentNode, 'width') === 'auto')
+                                parentNode = parentNode.parentNode;
+                            this.tableWidth = parseInt(getStyle(parentNode, 'width')) - 1 + 'px';
+                        } else
+                            this.tableWidth = parseInt(getStyle(this.$el, 'width')) - 1 + 'px';
                     }
+
+                    if (this.height) {
+                        const scrollWidth = getScrollSize();
+                        this.bodyWidth = parseInt(this.tableWidth) - scrollWidth;
+                    } else
+                        this.bodyWidth = this.tableWidth;
+
+                    this.columnsWidth = [];
+                    this.$nextTick(() => {
+                        let tdColls = [];
+                        if (this.loading || this.data.length === 0)
+                            tdColls = this.$refs.head.querySelectorAll('thead tr:first-child th');
+                        else if (this.data.length)
+                            tdColls = this.$refs.body.querySelectorAll('tbody tr:first-child td');
+                        for (let i = 0; i < tdColls.length; i++) {
+                            const column = this.columns[i];
+                            let width;
+                            if (column.width)
+                                width = column.width;
+                            else if (column.type === 'selection')
+                                width = 25;
+                            else
+                                width = parseInt(getStyle(tdColls[i], 'width'));
+
+                            this.columnsWidth.push(width);
+                        }
+                    });
                 });
-            });
+            }
         },
         select(option, column, index) {
             column.selectValue = option.value;
@@ -213,6 +218,10 @@ export default {
                 data: row,
                 index,
             });
+        },
+        onResize() {
+            this.fixedHeader();
+            this.handleResize();
         },
     },
 };

@@ -1,10 +1,14 @@
 .root {}
 
+.table{
+    width: 100%;
+}
+
 .thead {
     width: 100%;
 }
 
-.thead .hthSpan {
+.thead .hthSpan, .table .hthSpan {
     position: relative;
     vertical-align: middle;
     padding-right: 0;
@@ -40,15 +44,15 @@
     width: 100%;
 }
 
-.tbody .btrItem:first-child {
+.tbody .btrItem:first-child, .table .btrItem:first-child {
     border-top: none;
 }
 
-.tbody .btrItem {
+.tbody .btrItem, .table .btrItem {
     border-top: 1px solid #ebf0f5;
 }
 
-.tbody .btrItem[role] {
+.tbody .btrItem[role], .table .btrItem[role] {
     border-bottom: 1px solid #ebf0f5;
 }
 

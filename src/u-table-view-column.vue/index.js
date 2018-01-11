@@ -17,7 +17,8 @@ export default {
             type: String,
             default: 'bottom-start',
         },
-        tooltip: { type: Boolean, default: false },
+        // tooltip: { type: Boolean, default: false },
+        ellipsis: { type: Boolean, default: false },
     },
     data() {
         return {

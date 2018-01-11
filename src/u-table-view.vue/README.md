@@ -9,9 +9,9 @@
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata" :height="300" layout="auto">
+        <u-table-view :data="tdata" :height="300">
             <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
-            <u-table-view-column title="姓名" label="name" :formatter="formatter"></u-table-view-column>
+            <u-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-table-view-column>
             <u-table-view-column title="地址" label="address" ></u-table-view-column>
         </u-table-view>
     </div>
@@ -22,15 +22,15 @@ export default {
         return {
             tdata: [{
                 date: '2016-05-02',
-                name: '王小虎',
+                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
                 address: '上海市普陀区金沙江路 1518 弄',
             }, {
                 date: '2016-05-04',
-                name: '王大虎',
+                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
                 address: '上海市普陀区金沙江路 1517 弄'
             }, {
                 date: '2016-05-01',
-                name: '天王盖地虎',
+                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
                 address: '上海市普陀区金沙江路 1519 弄'
             }, {
                 date: '2016-05-03',
@@ -503,3 +503,22 @@ export default {
 | ----- | ---- | ----------- |
 | $event.data | Object | 选中的行的数据集合 |
 | $event.index | Int | 行数据所在的索引值 |
+
+## TableViewItem API
+### Props/Attrs
+
+| Prop/Attr | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| title | String | `` | 列的标题 |
+| sortable | Boolean | `false` | 列是否可排序 |
+| filter | Boolean | `false` | 列是否可过滤 |
+| options | Array\{name, value} | `` | 过滤项列表 |
+| value | String | `` | 默认过滤项选中的值 |
+| label | String | `` | 对象data中对象的属性 |
+| type | String | `` | 表示此列是否是可选择的，如果是值为selection |
+| label | String | `` | 对象data中对象的属性 |
+| width | String | `` | 是指列的宽度值（暂未支持百分数的形式） |
+| formatter | Function | `` | 自定义列的值 |
+| sortMethod | Function | `` | 自定义排序方法 |
+| filterMethod | Function | `` | 自定义过滤方法 |
+| ellipsis | Boolean | `false` | 是否换行，默认不换行，值为true则开启不换行，超出部分显示为省略号 |

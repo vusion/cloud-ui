@@ -3,11 +3,8 @@
         {{title}}
         <slot name="title"></slot>
     </div>
-    <div :class="$style.header" ref="head">
-        <table :class="$style.thead" cellspacing="0" cellpadding="0" border="0" :style="{width: tableWidth, tableLayout: layout}">
-            <colgroup>
-                <col v-for="(column, index) in columnsWidth" :width="column"></col>
-            </colgroup>
+    <div v-if="layout === 'auto'">
+        <table :class="$style.table" cellspacing="0" cellpadding="0" border="0" :style="{tableLayout: layout}">
             <thead>
                 <tr :class="$style.htrItem">
                     <th v-for="(column, index) in columns" :class="$style.hthSpan" :role="column.filter" :selection="column.type==='selection'">
@@ -33,13 +30,6 @@
                     </th>
                 </tr>
             </thead>
-        </table>
-    </div>
-    <div :class="$style.body" ref="body" :style="{height: bodyHeight+'px'}" :role="height">
-        <table cellspacing="0" cellpadding="0" border="0" :class="$style.tbody" :style="{width: bodyWidth, tableLayout: layout}">
-            <colgroup>
-                <col v-for="(column, index) in columnsWidth" :width="column">
-            </colgroup>
             <tbody :class="$style.btbody">
                 <template v-if="loading">
                     <tr :class="$style.btrItem" role>
@@ -59,17 +49,86 @@
                     <tr :class="$style.btrItem" :role="index === (tdata.length-1)" @click="rowClick(row,index)">
                         <td v-for="(column, cindex) in columns" :class="$style.btdSpan" :selection="column.type==='selection'">
                             <span v-if="column.type === 'selection'"><u-checkbox v-model="row.selected" @check="changeSelect(row)"/></span>
-                            <div v-else-if="!column.label" :class="$style.ditem" :role="column.tooltip">
+                            <div v-else-if="!column.label" :class="$style.ditem" :role="column.ellipsis">
                                 <u-table-view-cell :row="row" :column="column"></u-table-view-cell>
                             </div>
-                            <span v-else-if="column.formatter" :class="$style.ditem" :role="column.tooltip" :title="column.tooltip ? column.formatter(row, column, index, cindex) : ''">{{column.formatter(row, column, index, cindex)}}</span>
-                            <span v-else :class="$style.ditem" :role="column.tooltip" :title="column.tooltip ? row[column.label] : ''">{{row[column.label]}}</span>
+                            <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex)}}</span>
+                            <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{row[column.label]}}</span>
                         </td>
                     </tr>
                 </template>
             </tbody>
         </table>
     </div>
+    <template v-else>
+        <div :class="$style.header" ref="head">
+            <table :class="$style.thead" cellspacing="0" cellpadding="0" border="0" :style="{width: tableWidth, tableLayout: layout}">
+                <colgroup>
+                    <col v-for="(column, index) in columnsWidth" :width="column"></col>
+                </colgroup>
+                <thead>
+                    <tr :class="$style.htrItem">
+                        <th v-for="(column, index) in columns" :class="$style.hthSpan" :role="column.filter" :selection="column.type==='selection'">
+                            <span v-if="!column.filter" :class="$style.itemtitle">{{column.title}}</span>
+                            <template v-else-if="column.filter">
+                                <u-popper trigger="click" :placement="column.placement" append-to="reference">
+                                    <div :class="$style.filtertitle" :role="column.filter">
+                                        <span :class="$style.titleitem">{{column.title}}</span>
+                                        <div :class="$style.traingle"></div>
+                                    </div>
+                                    <div :class="$style.popper" slot="popper">
+                                        <div :class="$style.option" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value">{{option.name}}</div>
+                                    </div>
+                                </u-popper>
+                            </template>
+                            <template v-if="column.type === 'selection'"><u-checkbox v-model="allSel" @check="allSelected"/></template>
+                            <template v-if="column.sortable">
+                                <span :class="$style.wrapicon">
+                                    <u-icon :class="$style.icon" name="arrow-up" v-if="defaultSort.order === 'asc'" :role="defaultSort.label === column.label" @click.native="handleSort('asc', column)"></u-icon>
+                                    <u-icon :class="$style.icon" name="arrow-down" v-else :role="defaultSort.label === column.label" @click.native="handleSort('desc', column)"></u-icon>
+                                </span>
+                            </template>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div :class="$style.body" ref="body" :style="{height: bodyHeight+'px'}" :role="height">
+            <table cellspacing="0" cellpadding="0" border="0" :class="$style.tbody" :style="{width: bodyWidth, tableLayout: layout}">
+                <colgroup>
+                    <col v-for="(column, index) in columnsWidth" :width="column">
+                </colgroup>
+                <tbody :class="$style.btbody">
+                    <template v-if="loading">
+                        <tr :class="$style.btrItem" role>
+                            <td :colspan="columns.length" :class="$style.btdSpan" role="center">
+                                <u-loading size="small"></u-loading>
+                            </td>
+                        </tr>
+                    </template>
+                    <template v-else-if="tdata.length === 0">
+                        <tr :class="$style.btrItem" role>
+                            <td :colspan="columns.length" :class="$style.btdSpan" role="center">
+                                <slot name="no-data-text">{{noDataText}}</slot>
+                            </td>
+                        </tr>
+                    </template>
+                    <template v-else v-for="(row, index) in tdata">
+                        <tr :class="$style.btrItem" :role="index === (tdata.length-1)" @click="rowClick(row,index)">
+                            <td v-for="(column, cindex) in columns" :class="$style.btdSpan" :selection="column.type==='selection'">
+                                <span v-if="column.type === 'selection'"><u-checkbox v-model="row.selected" @check="changeSelect(row)"/></span>
+                                <div v-else-if="!column.label" :class="$style.ditem" :role="column.ellipsis">
+                                    <u-table-view-cell :row="row" :column="column"></u-table-view-cell>
+                                </div>
+                                <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex)}}</span>
+                                <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{row[column.label]}}</span>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </template>
     <div>
         <slot></slot>
     </div>
