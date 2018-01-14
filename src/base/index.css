@@ -1,5 +1,5 @@
-@import 'proto-ui.vusion/src/base/revusion.css';
-
-body {
-    font: 14px/1.6 "Helvetica Neue", Helvetica, Tahoma, Arial, "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
-}
+/**
+    @deprecated
+    We recommand importing base.css directly in your project
+*/
+@import './base.css';

@@ -1,4 +1,4 @@
-import './base/index.css';
+import './base/base.css';
 
 import {
     Checkbox0 as Checkbox,
