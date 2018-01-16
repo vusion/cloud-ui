@@ -7,36 +7,36 @@
 .icon {
     width: 104px;
     height: 64px;
-    background: url('./logo-c-white.svg');
+    background: url('./logo-c-white.svg?sprite=sprite-logo');
 }
 
 .root[color="2color"] .icon {
-    background: url('./logo-c-2color.svg');
+    background: url('./logo-c-2color.svg?sprite=sprite-logo');
 }
 
 /* Logo extend */
 .root[name="c"] .icon {
-    background: url('./logo-c-white.svg');
+    background: url('./logo-c-white.svg?sprite=sprite-logo');
 }
 
 .root[name="c"][color="2color"] .icon {
-    background: url('./logo-c-2color.svg');
+    background: url('./logo-c-2color.svg?sprite=sprite-logo');
 }
 
 .root[name="yiwu"] .icon {
-    background: url('./logo-yiwu-white.svg');
+    background: url('./logo-yiwu-white.svg?sprite=sprite-logo');
 }
 
 .root[name="yiwu"][color="2color"] .icon {
-    background: url('./logo-yiwu-2color.svg');
+    background: url('./logo-yiwu-2color.svg?sprite=sprite-logo');
 }
 
 .root[name="163yun"] .icon {
-    background: url('./logo-163yun-white.svg');
+    background: url('./logo-163yun-white.svg?sprite=sprite-logo');
 }
 
 .root[name="163yun"][color="2color"] .icon {
-    background: url('./logo-163yun-2color.svg');
+    background: url('./logo-163yun-2color.svg?sprite=sprite-logo');
 }
 
 
