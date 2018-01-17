@@ -93,11 +93,8 @@ export default {
             const length = data.length;
             let currentData = [];
             if (length > FILTER) {
-                const diff = Math.floor(length / FILTER);
-                data.forEach((item, index) => {
-                    if (index % diff === 0)
-                        currentData.push(item);
-                });
+                const diff = Math.round(length / FILTER);
+                currentData = data.filter((item, index) => index % diff === 0);
             } else
                 currentData = data;
             return currentData;
