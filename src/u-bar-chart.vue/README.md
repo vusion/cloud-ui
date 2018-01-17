@@ -60,3 +60,37 @@ export default {
 };
 </script>
 ```
+
+## API
+
+### Attrs/Props
+
+| Prop | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| title | String |  | 图表的标题 |
+| caption | String |  | 图表的描述 |
+| data | Array |  | 图表需要显示的数据 |
+| xAxis | Object | | 绘制X轴需要传入的数据，属性key的值为data数组中对象的某个属性，依据此值来绘制X轴的刻度尺 |
+| yAxis | Object | | 绘制Y轴需要传入的数据，属性min，max表示Y轴的最大值和最小值，count表示Y轴最小值和最大值之间分成几段，默认值为8 |
+| series | Array |  | 传入绘制每条柱状数据的key值，key值对应着data数组中对象的属性 |
+| border | Boolean | false | 是否有表框 |
+| legend | Boolean | false | X轴下方是否显示每条线段对应的标签 |
+| width | String | `100%` | 图表的宽度 |
+| height | String | `480px` | 图表的高度 |
+| stack | Boolean | false | 线段是否采用堆叠方式，这种方式下series中的对象属性key等于data中标识不同部分的key字段 |
+| titleAlign | String | `center` | 图表标题的对齐方式，默认是居中，值有:left,center,right |
+| loading | Boolean | `false` | true表示正在加载中，false表示加载完成 |
+
+### Slots
+
+| Slot | Description |
+| ---- | ----------- |
+| tooltipTemplate + index（index为遍历data的索引） | 自定义tooltip内容 |
+
+| Slot | Description |
+| ---- | ----------- |
+| titleTemplate | 自定义标题内容 |
+
+| Slot | Description |
+| ---- | ----------- |
+| captionTemplate | 自定义caption内容 |

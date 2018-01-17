@@ -493,7 +493,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.column | Array | 选中的行的数据集合 |
+| $event | Array | 选中的行的数据集合 |
 
 #### @row-click
 

@@ -37,6 +37,7 @@ export default {
         yAxis: Object,
         stack: [String, Boolean],
         order: { type: String, default: 'desc' },
+        loading: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -154,11 +155,11 @@ export default {
         initChartData() {
             return deepCopy([], this.data);
         },
-        sortAsc(value1, value2) {
-            return value1.total - value2.total;
-        },
         sortDesc(value1, value2) {
             return value1.total - value2.total;
+        },
+        sortAsc(value1, value2) {
+            return value2.total - value1.total;
         },
     },
 };

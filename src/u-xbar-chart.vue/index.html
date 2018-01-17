@@ -1,4 +1,10 @@
-<u-chart :class="$style.root" :title="title" :border="border" :width="width" :height="height" :legend="legend" :series="series" :data="data">
+<u-chart :class="$style.root" :border="border" :width="width" :height="height" :legend="legend" :series="series" :data="data">
+    <template slot="titleTemplate">
+        {{title}}
+    </template>
+    <template slot="captionTemplate">
+        {{caption}}
+    </template>
     <div :class="$style.grid">
         <div v-for="(xLabel,index) in xAxis_.data" :class="$style.line" role="line-y" :style="{left: 100*index/(xAxis_.data.length-1)+'%'}"></div>
         <!-- <div :class="$style.line" role="line-y" style="left: 100%;"></div> -->
@@ -39,4 +45,5 @@
             </div>
         </div>
     </div>
+    <u-loading :class="$style.loading" v-if="loading"></u-loading>
 </u-chart>

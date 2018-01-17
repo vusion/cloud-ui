@@ -34,6 +34,7 @@ export default {
         xAxis: Object,
         yAxis: Object,
         stack: [String, Boolean],
+        loading: { type: Boolean, default: false },
     },
     data() {
         return {

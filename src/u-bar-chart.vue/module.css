@@ -199,3 +199,9 @@ $bar_width: 60px;
     border-color: rgba(237, 139, 204, 0.6);
     background: rgba(237, 139, 204, 0.3);
 }
+.loading{
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    margin-left: -12px;
+}
