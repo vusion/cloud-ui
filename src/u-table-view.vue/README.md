@@ -9,7 +9,7 @@
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata" :height="300">
+        <u-table-view :data="tdata" height="300">
             <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
             <u-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-table-view-column>
             <u-table-view-column title="地址" label="address" ></u-table-view-column>
@@ -88,7 +88,7 @@ export default {
 <template>
     <u-table-view :data="tdata" @sort-change="sortChange">
         <u-table-view-column title="日期" label="date" sortable :sort-method="sortMethod"></u-table-view-column>
-        <u-table-view-column title="姓名" label="name"></u-table-view-column>
+        <u-table-view-column title="姓名" label="name" width="200"></u-table-view-column>
         <u-table-view-column title="地址" label="address" ></u-table-view-column>
     </u-table-view>
 </template>
@@ -517,7 +517,7 @@ export default {
 | label | String | `` | 对象data中对象的属性 |
 | type | String | `` | 表示此列是否是可选择的，如果是值为selection |
 | label | String | `` | 对象data中对象的属性 |
-| width | String | `` | 是指列的宽度值（暂未支持百分数的形式） |
+| width | String | `` | 是指列的宽度值 |
 | formatter | Function | `` | 自定义列的值 |
 | sortMethod | Function | `` | 自定义排序方法 |
 | filterMethod | Function | `` | 自定义过滤方法 |

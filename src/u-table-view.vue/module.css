@@ -71,6 +71,7 @@
 
 .btdSpan[role="center"]{
     text-align: center;
+    padding: 13px 0px;
 }
 
 .btdSpan[selection]{
@@ -181,7 +182,7 @@
 }
 
 .ditem[role] {
-    display: inline-block;
+    display: block;
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;

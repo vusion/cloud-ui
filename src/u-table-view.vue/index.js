@@ -38,6 +38,12 @@ export default {
         };
     },
     directives: { ellipsisTitle },
+    created() {
+        this.$on('add-item-vm', (itemVM) => {
+            itemVM.parentVM = this;
+            this.columns.push(itemVM);
+        });
+    },
     mounted() {
         this.tdata = this.initTableData();
         this.copyTdata = this.initTableData();
@@ -56,16 +62,15 @@ export default {
         },
     },
     methods: {
-        add(item) {
-            this.columns.push(item);
-        },
         remove(item) {
             const index = this.columns.indexOf(item);
             ~index && this.columns.splice(index, 1);
         },
         setCellWidth(column, index) {
             let width = '';
-            if (column.width)
+            if (column.type === 'selection')
+                width = 35;
+            else if (column.width)
                 width = column.width;
             else if (this.columnsWidth[index])
                 width = this.columnsWidth[index].width;
@@ -105,6 +110,10 @@ export default {
                 if (row.selected)
                     selectionIndexes.push(index);
             });
+            if (selectionIndexes.length === this.tdata.length)
+                this.allSel = true;
+            else
+                this.allSel = false;
             return this.data.filter((data, index) => selectionIndexes.indexOf(index) > -1);
         },
         allSelected() {
@@ -138,18 +147,13 @@ export default {
         handleResize() {
             if (this.layout !== 'auto') {
                 this.$nextTick(() => {
-                    const allWidth = !this.columns.some((cell) => !cell.width); // each column set a width
-                    if (allWidth)
-                        this.tableWidth = this.columns.map((cell) => cell.width).reduce((a, b) => a + b) + 'px';
-                    else {
-                        if (getStyle(this.$el, 'width') === 'auto') {
-                            let parentNode = this.$el.parentNode;
-                            while (getStyle(parentNode, 'width') === 'auto')
-                                parentNode = parentNode.parentNode;
-                            this.tableWidth = parseInt(getStyle(parentNode, 'width')) - 1 + 'px';
-                        } else
-                            this.tableWidth = parseInt(getStyle(this.$el, 'width')) - 1 + 'px';
-                    }
+                    if (getStyle(this.$el, 'width') === 'auto') {
+                        let parentNode = this.$el.parentNode;
+                        while (getStyle(parentNode, 'width') === 'auto')
+                            parentNode = parentNode.parentNode;
+                        this.tableWidth = parseInt(getStyle(parentNode, 'width')) + 'px';
+                    } else
+                        this.tableWidth = parseInt(getStyle(this.$el, 'width')) + 'px';
 
                     if (this.height) {
                         const scrollWidth = getScrollSize();
@@ -172,7 +176,7 @@ export default {
                             else if (column.type === 'selection')
                                 width = 25;
                             else
-                                width = parseInt(getStyle(tdColls[i], 'width'));
+                                width = getStyle(tdColls[i], 'width') && getStyle(tdColls[i], 'width') !== 'auto' && getStyle(tdColls[i], 'width') !== null ? parseInt(getStyle(tdColls[i], 'width')) : '';
 
                             this.columnsWidth.push(width);
                         }

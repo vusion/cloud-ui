@@ -64,7 +64,7 @@
         <div :class="$style.header" ref="head">
             <table :class="$style.thead" cellspacing="0" cellpadding="0" border="0" :style="{width: tableWidth, tableLayout: layout}">
                 <colgroup>
-                    <col v-for="(column, index) in columnsWidth" :width="column"></col>
+                    <col v-for="(column, index) in columns" :width="setCellWidth(column,index)"></col>
                 </colgroup>
                 <thead>
                     <tr :class="$style.htrItem">
@@ -96,7 +96,7 @@
         <div :class="$style.body" ref="body" :style="{height: bodyHeight+'px'}" :role="height">
             <table cellspacing="0" cellpadding="0" border="0" :class="$style.tbody" :style="{width: bodyWidth, tableLayout: layout}">
                 <colgroup>
-                    <col v-for="(column, index) in columnsWidth" :width="column">
+                    <col v-for="(column, index) in columns" :width="setCellWidth(column,index)">
                 </colgroup>
                 <tbody :class="$style.btbody">
                     <template v-if="loading">

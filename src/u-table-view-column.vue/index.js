@@ -1,5 +1,7 @@
+import { Emitter } from 'proto-ui.vusion';
 export default {
     name: 'u-table-view-column',
+    parentName: 'u-table-view',
     props: {
         title: String,
         sortable: { type: Boolean, default: false },
@@ -20,6 +22,7 @@ export default {
         // tooltip: { type: Boolean, default: false },
         ellipsis: { type: Boolean, default: false },
     },
+    mixins: [Emitter],
     data() {
         return {
             index: 0,
@@ -27,6 +30,7 @@ export default {
             selectValue: this.value,
             row: {},
             visible: false,
+            parentVM: undefined,
         };
     },
     watch: {
@@ -34,8 +38,11 @@ export default {
             this.selectValue = newValue;
         },
     },
-    beforeCreate() {
-        this.$parent.add(this);
+    // beforeCreate() {
+    //     this.$parent.add(this);
+    // },
+    created() {
+        this.dispatch(this.$options.parentName, 'add-item-vm', this);
     },
     mounted() {
         this.index = this.$parent.columns.indexOf(this);
