@@ -20,6 +20,7 @@
                 <u-sidebar-group title="Navigation">
                     <u-sidebar-item to="/components/u-navbar">导航栏 <small>Navbar</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-sidebar">侧边栏 <small>Sidebar</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-steps">步骤条 <small>Steps</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-subnav">子导航 <small>Subnav</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-tabs">标签页 <small>Tabs</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-subtabs">子标签页 <small>Subtabs</small></u-sidebar-item>

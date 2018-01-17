@@ -55,6 +55,8 @@ import SidebarItem from './u-sidebar-item.vue';
 import SidebarDivider from './u-sidebar-divider.vue';
 import Slider from './u-slider.vue';
 import StatusIcon from './u-status-icon.vue';
+import Steps from './u-steps.vue';
+import Step from './u-step.vue';
 import Subnav from './u-subnav.vue';
 import SubnavItem from './u-subnav-item.vue';
 import SubnavDivider from './u-subnav-divider.vue';
@@ -127,6 +129,8 @@ export {
     SidebarDivider,
     Slider,
     StatusIcon,
+    Steps,
+    Step,
     Subnav,
     SubnavItem,
     SubnavDivider,

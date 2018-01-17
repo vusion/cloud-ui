@@ -1,0 +1,62 @@
+@import 'proto-ui.vusion/src/u-tabs.vue/module.css';
+
+.head {
+    text-align: center;
+    border: none;
+    counter-reset: step;
+}
+
+.item {
+    cursor: auto;
+    position: relative;
+    width: 220px;
+    line-height: 32px;
+    font-size: 14px;
+    color: #666;
+}
+
+.item:hover {
+    background: none;
+}
+
+.item::after {
+    position: absolute;
+    counter-increment: step;
+    content: counter(step);
+    top: -8px;
+    left: 50%;
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    line-height: 18px;
+    font-size: 12px;
+    margin-left: -8.5px;
+    color: #999;
+    background-color: #e1e8ed;
+}
+
+.item[pass]::after,.item[pass]::before {
+    background-color: #67aaf5;
+    color: #fff;
+}
+
+.item::before {
+    position: absolute;
+    right: 0px;
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+    content: '';
+    background-color: #e1e8ed
+}
+
+.item:first-child::before {
+    width: 50%;
+    right: 0px;
+}
+
+.item:last-child::before {
+    width: 50%;
+    left: 0px;
+}

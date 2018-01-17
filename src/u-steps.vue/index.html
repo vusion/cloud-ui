@@ -1,0 +1,14 @@
+<div :class="$style.root">
+    <ul :class="$style.head">
+        <li :class="$style.item"
+            v-for="(itemVM, index) in itemVMs"
+            :title="itemVM.title"
+            v-show="!itemVM.hidden"
+            :pass="index <= currentValue">
+            <span :class="$style.title"><u-render :vnode="itemVM.$slots.title">{{ itemVM.title }}</u-render></span>
+        </li>
+    </ul>
+    <div :class="$style.body">
+        <slot></slot>
+    </div>
+</div>
