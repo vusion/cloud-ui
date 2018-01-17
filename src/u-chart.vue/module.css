@@ -4,8 +4,6 @@ $m-chart_legend_height: 30px;
 .root {
     position: relative;
     box-sizing: border-box;
-    width: 800px;
-    height: 480px;
     padding: 15px;
 }
 

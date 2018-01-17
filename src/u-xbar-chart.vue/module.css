@@ -122,8 +122,8 @@ $bar_width: 60px;
     width: $bar_width;
     left: 0;
     margin-left: 0;
-    background: rgba(238,134,125,0.3);
-    border: $line_width solid rgba(238,134,125,0.6);
+    background: rgba(91, 161, 242, 0.3);
+    border: $line_width solid rgba(91, 161, 242, 0.6);
     border-left: none;
     top:50%;
     transform: translateY(-50%);
@@ -176,11 +176,32 @@ $bar_width: 60px;
     display: inline-block;
 }
 
-.bar[role=bar-static]:nth-of-type(1) { border-color: rgba(238,134,125,0.6); background: rgba(238,134,125,0.3); }
-.bar[role=bar-static]:nth-of-type(2) { border-color: rgba(128,93,207,0.6); background: rgba(128,93,207,0.3); }
-.bar[role=bar-static]:nth-of-type(3) { border-color: rgba(64,204,202,0.6); background: rgba(64,204,202,0.3); }
-.bar[role=bar-static]:nth-of-type(4) { border-color: rgba(255,202,18,0.6); background: rgba(255,202,18,0.3); }
-.bar[role=bar-static]:nth-of-type(5) { border-color: rgba(48,168,220,0.6); background: rgba(48,168,220,0.3); }
-.bar[role=bar-static]:nth-of-type(6) { border-color: rgba(225,174,246,0.6); background: rgba(225,174,246,0.3); }
-.bar[role=bar-static]:nth-of-type(7) { border-color: rgba(210,210,210,0.6); background: rgba(210,210,210,0.3); }
-.bar[role=bar-static]:nth-of-type(8) { border-color: rgba(188,224,90,0.6); background: rgba(188,224,90,0.3); }
+.bar[role=bar-static]:nth-of-type(1) {
+    border-color: rgba(91, 161, 242, 0.6);
+    background: rgba(91, 161, 242, 0.3);
+}
+
+.bar[role=bar-static]:nth-of-type(2) {
+    border-color: rgba(78, 201, 171, 0.6);
+    background: rgba(78, 201, 171, 0.3);
+}
+
+.bar[role=bar-static]:nth-of-type(3) {
+    border-color: rgba(255, 174, 60, 0.6);
+    background: rgba(255, 174, 60, 0.3);
+}
+
+.bar[role=bar-static]:nth-of-type(4) {
+    border-color: rgba(158, 156, 246, 0.6);
+    background: rgba(158, 156, 246, 0.3);
+}
+
+.bar[role=bar-static]:nth-of-type(5) {
+    border-color: rgba(30, 192, 216, 0.6);
+    background: rgba(30, 192, 216, 0.3);
+}
+
+.bar[role=bar-static]:nth-of-type(6) {
+    border-color: rgba(237, 139, 204, 0.6);
+    background: rgba(237, 139, 204, 0.3);
+}

@@ -1,4 +1,4 @@
-<u-chart :class="$style.root" :role="data.length === 0 ? 'empty' : ''" :border="border" :width="width" :height="height" :legend="legend" :series="series" :data="data" :title-align="titleAlign">
+<u-chart :class="$style.root" :role="currentData.length === 0 ? 'empty' : ''" :border="border" :width="width" :height="height" :legend="legend" :series="series" :data="currentData" :title-align="titleAlign">
     <template slot="titleTemplate">
         {{title}}
     </template>
@@ -27,11 +27,11 @@
             </svg>
         </div>
         <div :class="$style.layer">
-            <div v-for="(item,index) in data" v-if="!item.hidden" :class="$style.piece" :style="{left: 100*index/(data.length - 1)+'%', width: 100/(data.length - 1)+'%'}">
+            <div v-for="(item,index) in currentData" v-if="!item.hidden" :class="$style.piece" :style="{left: 100*index/(currentData.length - 1)+'%', width: 100/(currentData.length - 1)+'%'}">
                 <div v-for="sery in series" v-show="item[sery.key] !== undefined && !sery.hidden" :class="$style.point" :style="{bottom: 100*(item[sery.key] - yAxis_.min)/(yAxis_.max - yAxis_.min)+'%'}">
                     <div class="value">{{format(item[sery.key])}}</div>
                 </div>
-                <div :class="$style['u-tooltip']" :role="'u-tooltip-'+(index >= data.length/2 ? 'left' : 'right')+'-'+(getPercent(item) < 50 ? 'top' : 'bottom')" :style="{top: getPercent(item)+'%'}">
+                <div :class="$style['u-tooltip']" :role="'u-tooltip-'+(index >= currentData.length/2 ? 'left' : 'right')+'-'+(getPercent(item) < 50 ? 'top' : 'bottom')" :style="{top: getPercent(item)+'%'}">
                     <slot :name="'tooltipTemplate'+index">
                         <div v-for="sery in series">{{sery.name || sery.key}}: {{format(item[sery.key])}}</div>
                     </slot>

@@ -1,6 +1,7 @@
 import Chart from '../u-chart.vue';
 
 const TICKES = [2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 20, 30, 40, 50, 100, 200, 500, 1000, 1];
+const FILTER = 360;
 
 /**
  * @class LineChart
@@ -43,6 +44,7 @@ export default {
         smooth: Boolean,
         fill: Boolean,
         titleAlign: { type: String, default: 'center' },
+        loading: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -55,6 +57,7 @@ export default {
                 data: [],
             },
             percent_: undefined,
+            currentData: this.getCurrentData(),
         };
     },
     created() {
@@ -62,6 +65,7 @@ export default {
     },
     watch: {
         data(newValue) {
+            this.currentData = this.getCurrentData(newValue);
             this.draw();
         },
     },
@@ -82,9 +86,24 @@ export default {
          */
         _onResize() {
             this._getSize();
+            this.draw();
+        },
+        getCurrentData(value) {
+            const data = value || this.data;
+            const length = data.length;
+            let currentData = [];
+            if (length > FILTER) {
+                const diff = Math.floor(length / FILTER);
+                data.forEach((item, index) => {
+                    if (index % diff === 0)
+                        currentData.push(item);
+                });
+            } else
+                currentData = data;
+            return currentData;
         },
         draw() {
-            if (!this.data || !this.data.length)
+            if (!this.currentData || !this.currentData.length)
                 return;
 
             this._getSize();
@@ -95,7 +114,7 @@ export default {
             {
                 const xAxis_ = this.xAxis_;
                 xAxis_.count = this.xAxis.count || 12;
-                let pieceCounts = this.data.length - 1;
+                let pieceCounts = this.currentData.length - 1;
                 let tick = pieceCounts / xAxis_.count;
                 if (tick !== parseInt(tick)) {
                     tick = 1;
@@ -108,7 +127,7 @@ export default {
 
                         // 如果不能整除，则补充空数据
                         if (tick === 1) {
-                            this.data.push({ hidden: true });
+                            this.currentData.push({ hidden: true });
                             pieceCounts++;
                         } else
                             break;
@@ -117,7 +136,7 @@ export default {
 
                 xAxis_.tick = tick;
                 xAxis_.data = [];
-                this.data.forEach((item, index) =>
+                this.currentData.forEach((item, index) =>
                     index % tick === 0 && xAxis_.data.push(item[this.xAxis.key]));
             }
 
@@ -132,7 +151,7 @@ export default {
                     yAxis_.min = this.yAxis.min;
                 else {
                     yAxis_.min = Math.min(...this.series.map((sery) =>
-                        !sery.absent && Math.min(...this.data.map((item) =>
+                        !sery.absent && Math.min(...this.currentData.map((item) =>
                             item[sery.key] !== undefined ? item[sery.key] : Infinity)
                         )
                     )); // 支持空数据
@@ -141,7 +160,7 @@ export default {
                     yAxis_.max = this.yAxis.max;
                 else {
                     yAxis_.max = Math.max(...this.series.map((sery) =>
-                        !sery.absent && Math.max(...this.data.map((item) =>
+                        !sery.absent && Math.max(...this.currentData.map((item) =>
                             item[sery.key] !== undefined ? item[sery.key] : -Infinity)
                         )
                     )); // 支持空数据
@@ -176,9 +195,9 @@ export default {
             });
         },
         getD(sery, type) {
-            if (!this.width_ || !this.height_ || !this.data || !this.xAxis_.data.length || !this.yAxis_.data.length)
+            if (!this.width_ || !this.height_ || !this.currentData || !this.xAxis_.data.length || !this.yAxis_.data.length)
                 return;
-            if (this.data.length <= 1) // 一个点无需绘制线条
+            if (this.currentData.length <= 1) // 一个点无需绘制线条
                 return;
 
             if (sery.absent)
@@ -186,14 +205,14 @@ export default {
 
             const width = this.width_;
             const height = this.height_;
-            const delta = width / (this.data.length - 1) / 2;
+            const delta = width / (this.currentData.length - 1) / 2;
 
-            const points = this.data.map((item, index) => {
+            const points = this.currentData.map((item, index) => {
                 if (isNaN(item[sery.key]))
                     return null;
                 else {
                     return [
-                        width * index / (this.data.length - 1),
+                        width * index / (this.currentData.length - 1),
                         height * (1 - (item[sery.key] - this.yAxis_.min) / (this.yAxis_.max - this.yAxis_.min)),
                     ];
                 }
@@ -270,14 +289,5 @@ export default {
     },
     destroyed() {
         window.removeEventListener('resize', this._onResize, false);
-    },
-    components: {
-        'u-blank': {
-            template: '',
-            props: {
-                item: Object,
-                index: Number,
-            },
-        },
     },
 };

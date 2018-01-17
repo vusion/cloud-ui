@@ -4,7 +4,7 @@
 ### 基本形式
 
 ``` html
-<u-slider :value="20"></u-slider>
+<u-slider :value="20" :step="10"></u-slider>
 ```
 
 ### 最大值和最小值

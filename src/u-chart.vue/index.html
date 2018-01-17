@@ -1,4 +1,4 @@
-<div :class="$style.root" :border="border" :loading="!data" :empty="data && !data.length" v-show="visible" :style="{width: width, height: height}">
+<div :class="$style.root" :border="border" :empty="data && !data.length" :style="{width: width, height: height}">
     <div :class="$style.ittitle" :style="{textAlign: titleAlign}">
         <slot name="titleTemplate">{{title}}</slot>
     </div>

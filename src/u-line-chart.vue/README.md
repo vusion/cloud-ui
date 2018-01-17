@@ -81,6 +81,7 @@ export default {
 | smooth | Boolean | false | 线段是否采用平滑方式绘制 |
 | fill | Boolean | false | 线段和X轴之间否填充 |
 | titleAlign | String | `center` | 图表标题的对齐方式，默认是居中，值有:left,center,right |
+| loading | Boolean | `false` | true表示正在加载中，false表示加载完成 |
 
 ### Slots
 

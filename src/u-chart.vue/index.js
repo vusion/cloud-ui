@@ -18,23 +18,9 @@ export default {
         titleAlign: { type: String, default: 'center' },
     },
     data() {
-        return {
-            visible: true,
-            current: undefined,
-        };
-    },
-    watch: {
-        data(newVal) {
-            if (newVal && newVal.length)
-                this.draw();
-        },
+        return {};
     },
     methods: {
-        draw() {
-            this.$emit('draw', {
-                sender: this,
-            });
-        },
         toggle(index) {
             const _obj = {};
             Object.keys(this.series[index]).forEach((item) => _obj[item] = this.series[index][item]);
