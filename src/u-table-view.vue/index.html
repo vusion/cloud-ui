@@ -23,8 +23,8 @@
                         <template v-if="column.type === 'selection'"><u-checkbox v-model="allSel" @check="allSelected"/></template>
                         <template v-if="column.sortable">
                             <span :class="$style.wrapicon">
-                                <u-icon :class="$style.icon" name="arrow-up" v-if="defaultSort.order === 'asc'" :role="defaultSort.label === column.label" @click.native="handleSort('asc', column)"></u-icon>
-                                <u-icon :class="$style.icon" name="arrow-down" v-else :role="defaultSort.label === column.label" @click.native="handleSort('desc', column)"></u-icon>
+                                <u-icon :class="$style.icon" name="arrow-up" v-if="defaultSort.order === 'asc'" :role="defaultSort.title === column.title" @click.native="handleSort('asc', column)"></u-icon>
+                                <u-icon :class="$style.icon" name="arrow-down" v-else :role="defaultSort.title === column.title" @click.native="handleSort('desc', column)"></u-icon>
                             </span>
                         </template>
                     </th>
@@ -84,8 +84,8 @@
                             <template v-if="column.type === 'selection'"><u-checkbox v-model="allSel" @check="allSelected"/></template>
                             <template v-if="column.sortable">
                                 <span :class="$style.wrapicon">
-                                    <u-icon :class="$style.icon" name="arrow-up" v-if="defaultSort.order === 'asc'" :role="defaultSort.label === column.label" @click.native="handleSort('asc', column)"></u-icon>
-                                    <u-icon :class="$style.icon" name="arrow-down" v-else :role="defaultSort.label === column.label" @click.native="handleSort('desc', column)"></u-icon>
+                                    <u-icon :class="$style.icon" name="arrow-up" v-if="defaultSort.order === 'asc'" :role="defaultSort.title === column.title" @click.native="handleSort('asc', column)"></u-icon>
+                                    <u-icon :class="$style.icon" name="arrow-down" v-else :role="defaultSort.title === column.title" @click.native="handleSort('desc', column)"></u-icon>
                                 </span>
                             </template>
                         </th>
@@ -117,7 +117,7 @@
                         <tr :class="$style.btrItem" :role="index === (tdata.length-1)" @click="rowClick(row,index)">
                             <td v-for="(column, cindex) in columns" :class="$style.btdSpan" :selection="column.type==='selection'">
                                 <span v-if="column.type === 'selection'"><u-checkbox v-model="row.selected" @check="changeSelect(row)"/></span>
-                                <div v-else-if="!column.label" :class="$style.ditem" :role="column.ellipsis">
+                                <div v-else-if="column.$scopedSlots.default" :class="$style.ditem" :role="column.ellipsis">
                                     <u-table-view-cell :row="row" :column="column"></u-table-view-cell>
                                 </div>
                                 <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex)}}</span>

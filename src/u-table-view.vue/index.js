@@ -11,12 +11,12 @@ export default {
             type: Object,
             default() {
                 return {
-                    label: undefined,
+                    title: undefined,
                     order: undefined,
                 };
             },
         },
-        noDataText: String,
+        noDataText: { type: String, default: '暂无数据' },
         loading: { type: Boolean, default: false },
         height: [String, Number],
         layout: {
@@ -81,10 +81,10 @@ export default {
             return width;
         },
         handleSort(type, column) {
-            if (column.label === this.defaultSort.label)
+            if (column.title === this.defaultSort.title)
                 this.defaultSort.order = this.defaultSort.order === 'asc' ? 'desc' : 'asc';
             else {
-                this.defaultSort.label = column.label;
+                this.defaultSort.title = column.title;
                 this.defaultSort.order = type;
             }
             const order = this.defaultSort.order === 'asc' ? -1 : 1;
@@ -114,6 +114,7 @@ export default {
                 this.allSel = true;
             else
                 this.allSel = false;
+            this.$emit('update:allChecked', this.allSel);
             return this.data.filter((data, index) => selectionIndexes.indexOf(index) > -1);
         },
         allSelected() {
@@ -142,6 +143,8 @@ export default {
                     tdata.push(item);
                 });
             }
+            if (!this.data.length)
+                this.allSel = false;
             return tdata;
         },
         handleResize() {

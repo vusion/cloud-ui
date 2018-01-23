@@ -135,12 +135,15 @@ export default {
 ### demo3 全选
 ``` vue
 <template>
-    <u-table-view :data="tdata" @selection-change="selectionChange($event)">
-        <u-table-view-column type="selection"></u-table-view-column>
-        <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
-        <u-table-view-column title="姓名" label="name" ></u-table-view-column>
-        <u-table-view-column title="地址" label="address" ></u-table-view-column>
-    </u-table-view>
+    <div>
+        <u-button color="primary" @click="delData">删除</u-button>
+        <u-table-view :data="tdata" :all-checked.sync="allChecked" @selection-change="selectionChange($event)">
+            <u-table-view-column type="selection"></u-table-view-column>
+            <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
+            <u-table-view-column title="姓名" label="name" ></u-table-view-column>
+            <u-table-view-column title="地址" label="address" ></u-table-view-column>
+        </u-table-view>
+    </div>
 </template>
 <script>
 export default {
@@ -163,7 +166,13 @@ export default {
                 name: '小鸡炖蘑菇',
                 address: '上海市普陀区金沙江路 1516 弄'
             }],
+            allChecked: false,
         };
+    },
+    watch: {
+        allChecked(newValue) {
+            console.log(newValue);
+        },
     },
     methods: {
         formatter(row, column) {
@@ -174,7 +183,10 @@ export default {
         },
         selectionChange(data) {
             console.log(data);
-        }
+        },
+        delData() {
+            this.tdata = [];
+        },
     }
 };
 </script>
@@ -273,7 +285,7 @@ export default {
             <u-table-view-column title="地址" label="address" tooltip></u-table-view-column>
             <u-table-view-column title="性别" width="30%" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
             <u-table-view-column title="占比">
-                <template scope="scope">
+                <template slot-scope="scope">
                     <u-button @click="click(scope.row)">配置</u-button>
                 </template>
             </u-table-view-column>
@@ -459,7 +471,7 @@ export default {
 | --------- | ---- | ------- | ----------- |
 | data | Array | '' | 表格默认要显示的数据 |
 | title | String | '' | 表格的标题 |
-| allChecked | Boolean | false | 默认是否全部选中 |
+| allChecked.sync | Boolean | false | 默认是否全部选中 |
 | defaultSort | Object | '' | 默认的排序列和顺序值，其prop属性指定默认排序的列，order指定默认排序的顺序 |
 | noDataText | String | '' | 当data为空数组时，展示的信息 |
 | loading| Boolean | false | 是否展示加载中的状态信息 |
