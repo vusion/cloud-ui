@@ -62,16 +62,13 @@ export default {
     },
     created() {
         this.draw();
+        window.addEventListener('resize', this._onResize, false);
     },
     watch: {
         data(newValue) {
             this.currentData = this.getCurrentData(newValue);
             this.draw();
         },
-    },
-    mounted() {
-        this._onResize = this._onResize.apply(this);
-        window.addEventListener('resize', this._onResize, false);
     },
     methods: {
         _getSize() {

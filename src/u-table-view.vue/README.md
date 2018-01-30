@@ -533,4 +533,5 @@ export default {
 | formatter | Function | `` | 自定义列的值 |
 | sortMethod | Function | `` | 自定义排序方法 |
 | filterMethod | Function | `` | 自定义过滤方法 |
-| ellipsis | Boolean | `false` | 是否换行，默认不换行，值为true则开启不换行，超出部分显示为省略号 |
+| ellipsis | Boolean | `false` | 是否换行，默认换行，值为true则开启不换行，超出部分显示为省略号 |
+| border | Boolean | `false` | 是否有边框，默认无 |

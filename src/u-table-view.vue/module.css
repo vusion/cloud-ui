@@ -17,6 +17,12 @@
     line-height: 20px;
     text-align: left;
     font-weight: 400;
+    cursor: pointer;
+}
+
+.hthSpan[border] {
+    border-left: 1px solid #ebf0f5;
+    border-right: 1px solid #ebf0f5;
 }
 
 .hthSpan[role] {
@@ -67,6 +73,10 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     color: #999;
+}
+.btdSpan[border]{
+    border-left: 1px solid #ebf0f5;
+    border-right: 1px solid #ebf0f5;
 }
 
 .btdSpan[role="center"]{

@@ -23,6 +23,7 @@ export default {
             type: String,
             default: 'fixed',
         },
+        border: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -30,11 +31,11 @@ export default {
             tdata: [],
             allSel: this.allChecked,
             columnsWidth: [],
-            popvisible: false,
             copyTdata: [], // tdata的复制版本主要用来过滤
             tableWidth: undefined, // display值为none的时候需要特殊处理这个值
             bodyHeight: undefined,
             bodyWidth: undefined, // 当出现垂直滚动条的时候，需要减去滚动条的宽度，确保不会出现水平滚动条
+            scrollWidth: undefined,
         };
     },
     directives: { ellipsisTitle },
@@ -42,6 +43,9 @@ export default {
         this.$on('add-item-vm', (itemVM) => {
             itemVM.parentVM = this;
             this.columns.push(itemVM);
+        });
+        document.addEventListener('selectionchange', () => {
+            console.log('Selection changed.');
         });
     },
     mounted() {
@@ -68,10 +72,8 @@ export default {
         },
         setCellWidth(column, index) {
             let width = '';
-            if (column.type === 'selection')
-                width = 35;
-            else if (column.width)
-                width = column.width;
+            if (column.currentWidth)
+                width = column.currentWidth;
             else if (this.columnsWidth[index])
                 width = this.columnsWidth[index].width;
 
@@ -80,29 +82,31 @@ export default {
                 width = '';
             return width;
         },
-        handleSort(type, column) {
-            if (column.title === this.defaultSort.title)
-                this.defaultSort.order = this.defaultSort.order === 'asc' ? 'desc' : 'asc';
-            else {
-                this.defaultSort.title = column.title;
-                this.defaultSort.order = type;
-            }
-            const order = this.defaultSort.order === 'asc' ? -1 : 1;
-            const label = column.label;
-            if (column.sortMethod)
-                this.tdata.sort((value1, value2) => column.sortMethod(value1[label], value2[label]) ? order : -order);
-            else {
-                this.tdata.sort((value1, value2) => {
-                    if (value1[label] === value2[label])
-                        return 0;
-                    return value1[label] < value2[label] ? order : -order;
+        handleSort(column) {
+            if (column.sortable) {
+                if (column.title === this.defaultSort.title)
+                    this.defaultSort.order = this.defaultSort.order === 'asc' ? 'desc' : 'asc';
+                else {
+                    this.defaultSort.title = column.title;
+                    this.defaultSort.order = 'desc';
+                }
+                const order = this.defaultSort.order === 'asc' ? -1 : 1;
+                const label = column.label;
+                if (column.sortMethod)
+                    this.tdata.sort((value1, value2) => column.sortMethod(value1[label], value2[label]) ? order : -order);
+                else {
+                    this.tdata.sort((value1, value2) => {
+                        if (value1[label] === value2[label])
+                            return 0;
+                        return value1[label] < value2[label] ? order : -order;
+                    });
+                }
+                this.$emit('sort-change', {
+                    column,
+                    label,
+                    order: this.defaultSort.order,
                 });
             }
-            this.$emit('sort-change', {
-                column,
-                label,
-                order: this.defaultSort.order,
-            });
         },
         getSelection() {
             const selectionIndexes = [];
@@ -159,29 +163,30 @@ export default {
                         this.tableWidth = parseInt(getStyle(this.$el, 'width')) + 'px';
 
                     if (this.height) {
-                        const scrollWidth = getScrollSize();
-                        this.bodyWidth = parseInt(this.tableWidth) - scrollWidth;
+                        this.scrollWidth = getScrollSize();
+                        this.bodyWidth = parseInt(this.tableWidth) - this.scrollWidth;
                     } else
                         this.bodyWidth = this.tableWidth;
 
                     this.columnsWidth = [];
                     this.$nextTick(() => {
                         let tdColls = [];
-                        if (this.loading || this.data.length === 0)
-                            tdColls = this.$refs.head.querySelectorAll('thead tr:first-child th');
-                        else if (this.data.length)
+                        if (this.data.length) {
+                            debugger;
                             tdColls = this.$refs.body.querySelectorAll('tbody tr:first-child td');
-                        for (let i = 0; i < tdColls.length; i++) {
-                            const column = this.columns[i];
-                            let width;
-                            if (column.width)
-                                width = column.width;
-                            else if (column.type === 'selection')
-                                width = 25;
-                            else
-                                width = getStyle(tdColls[i], 'width') && getStyle(tdColls[i], 'width') !== 'auto' && getStyle(tdColls[i], 'width') !== null ? parseInt(getStyle(tdColls[i], 'width')) : '';
+                            for (let i = 0; i < tdColls.length; i++) {
+                                const column = this.columns[i];
+                                let width;
+                                if (column.currentWidth)
+                                    width = column.currentWidth;
+                                else
+                                    width = getStyle(tdColls[i], 'width') && getStyle(tdColls[i], 'width') !== 'auto' && getStyle(tdColls[i], 'width') !== null ? parseInt(getStyle(tdColls[i], 'width')) : '';
 
-                            this.columnsWidth.push(width);
+                                if (this.height && i === (this.columns.length - 1))
+                                    this.columns[i].currentWidth = width - this.scrollWidth;
+
+                                this.columnsWidth.push(width);
+                            }
                         }
                     });
                 });
@@ -189,8 +194,6 @@ export default {
         },
         select(option, column, index) {
             column.selectValue = option.value;
-            this.popvisible = undefined;
-            this.popvisible = false;
             this.tdata = this.copyTdata.filter((item) => column.filterMethod(option.value, item[column.label], item, column));
             this.$emit('filter-change', {
                 column,
