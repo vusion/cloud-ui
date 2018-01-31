@@ -24,6 +24,7 @@
                     <u-sidebar-item to="/components/u-tabs">标签页 <small>Tabs</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-subtabs">子标签页 <small>Subtabs</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-pagination">翻页器 <small>Pagination</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-linklist">链接列表 <small>LinkList</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Form">
                     <u-sidebar-item to="/components/u-input">单行输入 <small>Input</small></u-sidebar-item>

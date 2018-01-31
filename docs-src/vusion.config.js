@@ -7,7 +7,7 @@ const themePath = theme === 'theme-default' ? 'src' : theme;
 
 module.exports = {
     type: 'app',
-    version: '^0.5.4',
+    version: '0.6.1',
     globalCSSPath: `./${themePath}/base/global.css`,
     extractCSS: true,
     uglifyJS: true,

@@ -1,0 +1,6 @@
+<div :class="$style.root">
+    <span :class="$style.more" @click.stop="show = !show">{{title}}</span>
+    <div :class="$style.dropdown" :direction="currentDirection" v-show="show">
+        <slot></slot>
+    </div>
+</div>
