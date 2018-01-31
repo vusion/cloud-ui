@@ -169,7 +169,6 @@ export default {
                     this.$nextTick(() => {
                         let tdColls = [];
                         if (this.data.length) {
-                            debugger;
                             tdColls = this.$refs.body.querySelectorAll('tbody tr:first-child td');
                             for (let i = 0; i < tdColls.length; i++) {
                                 const column = this.columns[i];
