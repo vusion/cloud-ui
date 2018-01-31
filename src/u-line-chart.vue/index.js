@@ -160,6 +160,11 @@ export default {
                     )); // 支持空数据
                 }
 
+                if (yAxis_.min === yAxis_.max && yAxis_.min > 0)
+                    yAxis_.min = 0;
+                else if (yAxis_.min === yAxis_.max && yAxis_.max < 0)
+                    yAxis_.max = 0;
+
                 yAxis_.count = this.yAxis.count || 8;
                 const tick = this.roundToFirst((yAxis_.max - yAxis_.min) / yAxis_.count) || 1;
                 const fixedCount = this.getFixedCount(tick);
