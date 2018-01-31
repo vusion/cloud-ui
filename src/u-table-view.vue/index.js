@@ -44,9 +44,6 @@ export default {
             itemVM.parentVM = this;
             this.columns.push(itemVM);
         });
-        document.addEventListener('selectionchange', () => {
-            console.log('Selection changed.');
-        });
     },
     mounted() {
         this.tdata = this.initTableData();

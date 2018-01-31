@@ -9,10 +9,10 @@
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata" height="300">
+        <u-table-view :data="tdata" height="300" border>
             <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
             <u-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-table-view-column>
-            <u-table-view-column title="地址" label="address" ></u-table-view-column>
+            <u-table-view-column title="地址" label="address" sortable></u-table-view-column>
         </u-table-view>
     </div>
 </template>
