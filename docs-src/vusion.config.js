@@ -8,7 +8,7 @@ const themePath = theme === 'theme-default' ? 'src' : theme;
 module.exports = {
     type: 'app',
     version: '>=0.5.6',
-    globalCSSPath: `./${themePath}/base/global.css`,
+    libraryPath: `./${themePath}`,
     extractCSS: true,
     uglifyJS: true,
     webpack: {
