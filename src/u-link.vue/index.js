@@ -4,49 +4,16 @@ export default {
     name: 'u-link',
     mixins: [Link],
     props: {
-        target: {
-            type: String,
-            default: '_self',
-        },
+        target: { type: String, default: '_self' },
     },
-    data() {
-        return {
-            currentHref: undefined,
-        };
-    },
-    watch: {
-        href(newValue) {
-            if (newValue)
-                this.currentHref = newValue;
-        },
-        to: {
-            immediate: true,
-            handler(newValue, oldValue) {
-                if (this.href)
-                    this.currentHref = this.href;
-                else if (this.to && this.$router) {
-                    const $router = this.$router;
-                    const { location } = $router.resolve(this.to, this.$route, this.append);
-                    const keys = location.query ? Object.keys(location.query) : [];
-                    let query = '';
-                    let currentHref = '';
-                    if (keys.length) {
-                        keys.forEach((key, index) => {
-                            if (index !== (keys.length - 1))
-                                query += key + '=' + location.query[key] + '&';
-                            else
-                                query += key + '=' + location.query[key];
-                        });
-                        currentHref = location.path + '?' + query;
-                    } else
-                        currentHref = location.path;
-
-                    if ($router.mode === 'hash')
-                        currentHref = '#' + currentHref;
-
-                    this.currentHref = currentHref;
-                }
-            },
+    computed: {
+        currentHref() {
+            if (this.href !== undefined)
+                return this.href;
+            else if (this.$router)
+                return this.$router.resolve(this.to, this.$route, this.append).href;
+            else
+                return undefined;
         },
     },
     methods: {
@@ -59,35 +26,11 @@ export default {
             if (this.target !== '_self')
                 return;
 
-            if (!this.href)
+            debugger;
+            if (this.href === undefined) {
+                e.preventDefault();
                 this.navigate();
-        },
-        navigate() {
-            if (this.to === undefined)
-                return;
-
-            if (!this.$router)
-                return console.warn('[proto-ui]', 'Cannot find vue-router.');
-
-            let cancel = false;
-            this.$emit('before-navigate', {
-                to: this.to,
-                replace: this.replace,
-                append: this.append,
-                preventDefault: () => cancel = true,
-            });
-            if (cancel)
-                return;
-
-            const $router = this.$router;
-            const { location } = $router.resolve(this.to, this.$route, this.append);
-            this.replace ? $router.replace(location) : $router.push(location);
-
-            this.$emit('navigate', {
-                to: this.to,
-                replace: this.replace,
-                append: this.append,
-            });
+            }
         },
     },
 };
