@@ -142,7 +142,6 @@ export default {
 | $event.preventDefault | Function | 阻止关闭流程 |
 
 #### @close
-
 关闭弹窗时触发
 
 | Param | Type | Description |
