@@ -19,16 +19,47 @@
 
 .message {
     position: relative;
-    display: inline-block;
+    display: none;
     margin-left: 10px;
     padding: 0 10px;
+    max-width: 300px;
     line-height: 26px;
-    height: 26px;
     font-size: 12px;
     white-space: nowrap;
 }
 
-.message:after {
+
+.message[color="focus"] {
+    position: absolute;
+    display: inline-block;
+    padding: 3px 10px;
+    height: auto;
+    background: #f7faff;
+    color: #7dacde;
+    border: 1px solid #d6e6fe;
+}
+
+.message[color="focus"]:after, .message[color="focus"]:before {
+    position: absolute;
+    content: ' ';
+    top: 10px;
+    left: -8px;
+    border: 4px solid transparent;
+    border-right: 4px solid #f7faff;
+}
+
+.message[color="focus"]:before {
+    border-right-color: #d6e6fe;
+    left: -9px;
+}
+
+.message[color="error"] {
+    display: inline-block;
+    background-color: #ff867f;
+    color: #fff;
+}
+
+.message[color="error"]:after {
     content: '';
     position: absolute;
     right: 100%;
@@ -38,15 +69,6 @@
     border-top: 4px solid transparent;
     border-right: 4px solid #ff867f;
     border-bottom: 4px solid transparent;
-}
-
-.message[color="error"] {
-    background-color: #ff867f;
-    color: #fff;
-}
-
-.message[color="error"]:after {
-    border-right-color: #ff867f;
 }
 
 .root[placement="bottom"] .message:after {

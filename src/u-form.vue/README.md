@@ -328,7 +328,36 @@ export default {
 </u-form>
 ```
 
-通过设置`maxlength-message`属性，可以在已输入至最大长度的情况下继续输入时，给用户提示消息。
+### 验证提示
+
+`<u-form-item>`的`message`属性用于设置默认提示，规则中的`message`字段用于设置验证不通过时提示。
+
+``` vue
+<template>
+<u-form ref="form" :rules="rules">
+    <u-form-item label="用户名" name="username" message="用户名是唯一的">
+        <u-input maxlength="12" placeholder="4~12个字符"></u-input>
+    </u-form-item>
+</u-form>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            rules: {
+                username: [
+                    { type: 'string', required: true, trigger: 'blur', message: '请输入用户名' },
+                    { type: 'string', min: 4, max: 12, trigger: 'blur', message: '请输入4~12个字符' },
+                ],
+            },
+        };
+    },
+};
+</script>
+```
+
+通过给表单控件设置`maxlength-message`属性，可以在已输入至最大长度的情况下继续输入时，给用户提示消息。
 
 ``` html
 <u-form ref="form" gap="large">
@@ -535,3 +564,69 @@ export default {
 };
 </script>
 ```
+
+## Form API
+### Props/Attrs
+
+| Prop/Attr | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| model | Object | | 表单数据模型 |
+| rules | Object | | 表单所有域的验证规则 |
+| layout | String | `block` | 表单布局方式。可选值：`block`、`inline`。 |
+| label-size | String | `normal` | 标签大小。可选值：`small`、`normal`、`large`。 |
+
+### Slots
+
+#### (default)
+
+插入`<u-form-item>`子组件。
+
+### Events
+
+#### @validate
+
+表单验证时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.valid | Boolean | 验证是否通过 |
+
+### Methods
+
+#### validate(slient)
+
+验证此表单。
+
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
+| silent | Boolean | `false` | 是否仅验证无提示。 |
+
+
+## FormItem API
+### Props/Attrs
+
+| Prop/Attr | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| name | String | | 表单项名称，用于选择表单的模型数据和验证规则 |
+| label | String | | 标签 |
+| label-size | String | `normal` | 单独设置表单项的标签大小 |
+| rules | Array | | 表单项的验证规则。如果没有则会根据`name`属性从表单的`rules`中获取。 |
+| message | String | | 默认提示信息 |
+| required | Boolean | | 是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。 |
+
+### Slots
+
+#### (default)
+
+插入`<u-form-item>`子组件。
+
+### Methods
+
+#### validate(trigger, slient)
+
+验证此表单项。
+
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
+| trigger | String | `submit` | 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。 |
+| silent | Boolean | `false` | 是否仅验证无提示。 |
