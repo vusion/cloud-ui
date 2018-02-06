@@ -107,4 +107,7 @@ Vue.nextTick(() => {
     const instance = Toast.instance = new Toast._Ctor[0]();
     METHODS.forEach((method) => Toast[method] = instance[method].bind(instance));
 });
+
+Vue.prototype.$toast = Toast;
+
 export default Toast;
