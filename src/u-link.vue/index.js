@@ -26,7 +26,6 @@ export default {
             if (this.target !== '_self')
                 return;
 
-            debugger;
             if (this.href === undefined) {
                 e.preventDefault();
                 this.navigate();
