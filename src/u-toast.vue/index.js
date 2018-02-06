@@ -29,7 +29,7 @@ const Toast = {
                 message: message || this.message,
                 duration: duration || this.duration,
             };
-            this.showState = state || this.showState;
+            this.showState = state;
             this.open(options);
         },
         open(options) {
@@ -83,15 +83,24 @@ const Toast = {
                 return false;
             });
         },
+        state(newValue) {
+            this.showState = newValue;
+        },
     },
 };
 
 Vue.nextTick(() => {
     // 获取构造器函数 （vue-loader 处理生成d额）
     const STATES = Toast.STATES = ['success', 'warning', 'info', 'error'];
-    const METHODS = Toast.METHODS = ['show', 'close', 'closeAll', 'success', 'warning', 'info', 'error'];
+    const METHODS = Toast.METHODS = ['show', 'closeAll', 'success', 'warning', 'info', 'error'];
     STATES.forEach((state) => {
         Toast.methods[state] = function (message, duration) {
+            if (state === 'closeAll') {
+                this.closeAll();
+                return;
+            } else if (state === 'show') {
+                state = '';
+            }
             this.show(message, duration, state);
         };
     });
