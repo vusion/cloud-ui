@@ -7,7 +7,7 @@
     padding-right: 20px;
     background: #fff;
     color: #555;
-    border: 1px solid #e1e8ed;
+    border: 1px solid $brand-secondary;
     border-radius: $border-radius-base;
 }
 
@@ -43,7 +43,7 @@
     max-height: 180px;
     overflow: auto;
     background: #fff;
-    border: 1px solid #e1e8ed;
+    border: 1px solid $brand-secondary;
     border-radius: $border-radius-base;
     z-index: 1065;
 }

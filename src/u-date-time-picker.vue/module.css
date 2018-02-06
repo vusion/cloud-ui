@@ -7,7 +7,7 @@
 	margin: 0;
 	padding: 6px 12px;
 	vertical-align: middle;
-	border: 1px solid #e1e8ed;
+	border: 1px solid $brand-secondary;
 	color: #555;
 	background: $field-background;
 	border-radius: 3px;

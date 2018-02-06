@@ -31,7 +31,7 @@
     "cloud-ui"
   ],
   "dependencies": {
-    "proto-ui.vusion": "~0.2.4",
+    "proto-ui.vusion": "~0.2.6",
     "vusion-utils": "^0.1.2"
   },
   "devDependencies": {
@@ -54,7 +54,7 @@
     "vue": "^2.5.0"
   },
   "vusion": {
-    "version": "^0.5.6",
+    "version": ">=0.5.6",
     "type": "library"
   }
 }
