@@ -11,7 +11,7 @@
     min-height: $height-base;
     padding: 5px 10px;
     color: #666;
-    border-color: #e1e8ed;
+    border-color: $brand-secondary;
     border-radius: 3px;
     transition: border-color $transition-duration;
 }

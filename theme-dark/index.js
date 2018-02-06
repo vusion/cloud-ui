@@ -70,6 +70,8 @@ export {
     SidebarDivider,
     Slider,
     StatusIcon,
+    Steps,
+    Step,
     Subnav,
     SubnavDivider,
     Subtab,

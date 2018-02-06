@@ -69,6 +69,8 @@ export {
     SidebarDivider,
     Slider,
     StatusIcon,
+    Steps,
+    Step,
     Subnav,
     SubnavItem,
     SubnavDivider,

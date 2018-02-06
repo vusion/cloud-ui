@@ -26,6 +26,7 @@ export default [
             /* Navigation */
             { path: 'u-navbar', component: () => import('../src/u-navbar.vue/README.md') },
             { path: 'u-sidebar', component: () => import('proto-ui.vusion/src/u-sidebar.vue/README.md') },
+            { path: 'u-steps', component: () => import('proto-ui.vusion/src/u-steps.vue/README.md') },
             { path: 'u-subnav', component: () => import('../src/u-subnav.vue/README.md') },
             { path: 'u-tabs', component: () => import('proto-ui.vusion/src/u-tabs.vue/README.md') },
             { path: 'u-subtabs', component: () => import('../src/u-subtabs.vue/README.md') },

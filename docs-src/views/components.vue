@@ -23,6 +23,7 @@
                     <u-sidebar-item to="/components/u-subnav">子导航 <small>Subnav</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-tabs">标签页 <small>Tabs</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-subtabs">子标签页 <small>Subtabs</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-steps">步骤条 <small>Steps</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-pagination">翻页器 <small>Pagination</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Form">
@@ -37,7 +38,7 @@
                     <u-sidebar-item to="/components/u-color-select">颜色选择框 <small>ColorSelect</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-slider">滑块 <small>Slider</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-combo-slider">复合滑块 <small>ComboSlider</small></u-sidebar-item>
-                    <u-sidebar-item v-if="advanced" to="/components/u-field">表单控件 <small>Field</small></u-sidebar-item>
+                    <!-- <u-sidebar-item v-if="advanced" to="/components/u-field">表单控件 <small>Field</small></u-sidebar-item> -->
                     <u-sidebar-item to="/components/u-form">表单 <small>Form</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Data">
