@@ -10,7 +10,7 @@ export default {
         currentHref() {
             if (this.href !== undefined)
                 return this.href;
-            else if (this.$router)
+            else if (this.$router && this.to)
                 return this.$router.resolve(this.to, this.$route, this.append).href;
             else
                 return undefined;
