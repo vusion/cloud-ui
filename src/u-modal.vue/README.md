@@ -84,6 +84,50 @@ export default {
 </u-modal>
 ```
 
+### 简便使用方式
+
+调用$alert方法即可打开消息提示，它实现的是只有确定按钮的modal
+```vue
+<template>
+<div>
+    <u-button color="primary" @click="openAlert">alert</u-button>
+</div>
+</template>
+<script>
+export default {
+    methods: {
+        openAlert() {
+            this.$alert('hello world', 'title');
+        }
+    }
+}
+</script>
+```
+
+调用$confirm方法即可打开确认提示，它实现的是有确定和取消按钮modal
+```vue
+<template>
+<div>
+    <u-button color="primary" @click="openConfirm">confirm</u-button>
+</div>
+</template>
+<script>
+export default {
+    methods: {
+        openConfirm() {
+            this.$confirm('hello world', 'title').then(() => {
+                // 点击确定按钮的逻辑
+                console.log('确定');
+            }).catch(() => {
+                // 点击取消按钮的逻辑
+                console.log('取消');
+            });
+        }
+    }
+}
+</script>
+```
+
 ## API
 ### Attrs/Props
 
