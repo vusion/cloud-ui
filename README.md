@@ -11,13 +11,13 @@
 [download-img]: https://img.shields.io/npm/dm/cloud-ui.vusion.svg?style=flat-square
 [download-url]: https://npmjs.org/package/cloud-ui.vusion
 
-
 ## Install
-```shell
-npm install cloud-ui.vusion vusion-utils -S
+``` shell
+npm install --save cloud-ui.vusion vusion-utils
 ```
 
-## Quick Start
+## QuickStart
+
 ``` javascript
 import Vue from 'vue';
 import * as CloudUI from 'cloud-ui.vusion';
