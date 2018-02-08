@@ -82,6 +82,6 @@ module.exports = {
         },
     },
     webpackDevServer: {
-        contentBase: path.resolve(__dirname, '../cloud-ui'),
+        contentBase: [path.resolve(__dirname, '../cloud-ui'), path.resolve(__dirname, '../')],
     },
 };
