@@ -45,3 +45,26 @@ export default {
 };
 </script>
 ```
+
+## API
+### Props/Attrs
+
+| Prop/Attr | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| time | String | '00:00' | 当前的时间值 |
+| minTime | String | '00:00' | 最小时间 |
+| maxTime | String | '23:59' | 最大时间 |
+| autofocus | Boolean | `false` | 是否自动获得焦点 |
+| readonly | Boolean | `false` | 是否只读 |
+| disabled | Boolean | `false` | 是否禁用 |
+| visible | Boolean | `true` | 是否显示 |
+
+### Events
+
+#### @change
+
+时间改变时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| time | Object | 改变后的时间 |

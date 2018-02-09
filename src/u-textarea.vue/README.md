@@ -50,3 +50,38 @@ Most attributes are inherited from `<textarea>` element.
 | Slot | Description |
 | ---- | ----------- |
 | (default) | |
+
+
+### Events
+#### @input
+
+输入时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | String | 输入框的值 |
+
+#### @change
+
+值变化时触发（与原生事件不同）
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.value | String | 改变后的值 |
+| $event.oldValue | String | 旧的值 |
+
+#### @focus
+
+获得焦点时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | String | 原生事件对象 |
+
+#### @blur
+
+失去焦点时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | String | 原生事件对象 |

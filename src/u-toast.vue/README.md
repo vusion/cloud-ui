@@ -65,3 +65,12 @@ export default {
 | message | String | '' | 提示内容 |
 | closeable | Boolean | false | 是否可关闭提示，默认不可关闭 |
 
+### Methods
+
+#### show
+
+显示 toast 信息
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| message | String | 提示内容 |
