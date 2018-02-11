@@ -1,0 +1,30 @@
+.root:not(:first-child) {
+    margin-top: 24px;
+}
+
+.root:before, .root:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+
+.root:after {
+    clear: both;
+}
+
+.label {
+    display: block;
+    float: left;
+    margin-right: 30px;
+    width: 80px;
+    text-align: right;
+    line-height: 30px;
+    color: #999;
+}
+
+.value {
+    float: left;
+    max-width: calc(100% - 80px - 30px);
+    line-height: 30px;
+    color: #333;
+}

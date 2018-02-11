@@ -81,6 +81,8 @@ export default [
             { path: 'u-draggable', component: () => import('proto-ui.vusion/src/u-draggable.vue/README.md') },
             { path: 'u-droppable', component: () => import('proto-ui.vusion/src/u-droppable.vue/README.md') },
             { path: 'u-dragger', component: () => import('proto-ui.vusion/src/u-dragger.vue/README.md') },
+
+            { path: 'u-desc-list', component: () => import('../src/u-desc-list.vue/README.md') },
         ] },
     ] },
     { path: '*', redirect: '/components' },

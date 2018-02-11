@@ -77,6 +77,9 @@ import TimePicker from './u-time-picker.vue';
 import Toast from './u-toast.vue';
 import Tooltip from './u-tooltip.vue';
 import XBarChart from './u-xbar-chart.vue';
+import DescListItem from './u-desc-list-item.vue';
+import DescListGroup from './u-desc-list-group.vue';
+import DescList from './u-desc-list.vue';
 
 export {
     BarChart,
@@ -151,6 +154,9 @@ export {
     Toast,
     Tooltip,
     XBarChart,
+    DescListItem,
+    DescListGroup,
+    DescList,
 };
 
 export {

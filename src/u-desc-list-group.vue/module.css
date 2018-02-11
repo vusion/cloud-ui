@@ -1,0 +1,10 @@
+.root:not(:first-child) {
+    margin-top: 40px;
+}
+
+.title {
+    margin-bottom: 10px;
+    margin-top: 0;
+    font-size: 16px;
+    color: #333;
+}
