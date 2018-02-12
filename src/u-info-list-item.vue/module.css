@@ -1,0 +1,29 @@
+.root {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 16px 0 16px 20px;
+    vertical-align: top;
+    line-height: 24px;
+    white-space: nowrap;
+}
+
+.root[column="1"] { width: 100% }
+.root[column="2"] { width: 50% }
+.root[column="3"] { width: 33.333% }
+.root[column="4"] { width: 25% }
+
+.label {
+    float: left;
+    margin-right: 20px;
+    font-size: 14px;
+    color: #999;
+}
+
+.value {
+    overflow: hidden;
+    white-space: normal;
+    word-break: break-all;
+    font-size: 14px;
+    color: #666;  
+} 
