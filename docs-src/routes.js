@@ -83,6 +83,7 @@ export default [
             { path: 'u-dragger', component: () => import('proto-ui.vusion/src/u-dragger.vue/README.md') },
 
             { path: 'u-desc-list', component: () => import('../src/u-desc-list.vue/README.md') },
+            { path: 'u-info-list', component: () => import('../src/u-info-list.vue/README.md') },
         ] },
     ] },
     { path: '*', redirect: '/components' },

@@ -80,6 +80,9 @@ import XBarChart from './u-xbar-chart.vue';
 import DescListItem from './u-desc-list-item.vue';
 import DescListGroup from './u-desc-list-group.vue';
 import DescList from './u-desc-list.vue';
+import InfoListItem from './u-info-list-item.vue';
+import InfoListGroup from './u-info-list-group.vue';
+import InfoList from './u-info-list.vue';
 
 export {
     BarChart,
@@ -157,6 +160,9 @@ export {
     DescListItem,
     DescListGroup,
     DescList,
+    InfoListItem,
+    InfoListGroup,
+    InfoList,
 };
 
 export {
