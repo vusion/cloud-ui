@@ -82,6 +82,10 @@
                     <u-sidebar-item to="/components/u-droppable">拖放 <small>Droppable</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-dragger">拖拽器 <small>Dragger</small></u-sidebar-item>
                 </u-sidebar-group>
+                <u-sidebar-group>
+                    <u-sidebar-item to="/components/u-desc-list">描述列表 <small>DescList</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-info-list">详情列表 <small>InfoList</small></u-sidebar-item>
+                </u-sidebar-group>
             </u-sidebar>
         </div>
         <div :class="$style.main">
