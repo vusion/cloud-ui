@@ -4,6 +4,7 @@ export default {
     childName: 'u-info-list-item',
     props: {
         column: { type: [String, Number], default: 3 },
+        labelSize: String,
     },
     data() {
         return {

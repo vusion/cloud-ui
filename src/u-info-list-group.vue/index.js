@@ -8,17 +8,13 @@ export default {
     props: {
         title: String,
         column: [String, Number],
+        labelSize: String,
     },
     data() {
         return {
             parentVM: undefined,
             itemVMs: [],
         };
-    },
-    computed: {
-        currentColumn() {
-            return this.column === undefined && this.parentVM ? this.parentVM.column : this.column;
-        },
     },
     created() {
         this.$on('add-item-vm', (itemVM) => {

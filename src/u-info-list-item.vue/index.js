@@ -7,6 +7,7 @@ export default {
     mixins: [Emitter],
     props: {
         label: String,
+        labelSize: String,
     },
     data() {
         return {
@@ -16,13 +17,10 @@ export default {
     },
     computed: {
         currentColumn() {
-            if (this.groupVM && this.groupVM.currentColumn) {
-                return this.groupVM.currentColumn;
-            } else if (this.parentVM && this.parentVM.column) {
-                return this.parentVM.column;
-            } else {
-                return 'auto';
-            }
+            return (this.groupVM && this.groupVM.column) || (this.parentVM && this.parentVM.column) || 'auto';
+        },
+        currentLabelSize() {
+            return this.labelSize || (this.groupVM && this.groupVM.labelSize) || (this.parentVM && this.parentVM.labelSize) || 'auto';
         },
     },
     created() {
