@@ -31,16 +31,18 @@
     "cloud-ui"
   ],
   "dependencies": {
+    "date-fns": "^1.29.0",
     "proto-ui.vusion": "~0.2.6",
     "vusion-utils": "^0.1.2"
   },
   "devDependencies": {
-    "commander": "^2.12.2",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
+    "commander": "^2.12.2",
     "eslint": "^4.13.1",
     "eslint-config-vusion": "^2.0.2",
+    "eslint-plugin-vue": "^4.2.2",
     "highlight.js": "^9.12.0",
     "husky": "^0.13.3",
     "markdown-it-for-inline": "^0.1.1",

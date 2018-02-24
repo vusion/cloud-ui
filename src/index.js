@@ -11,6 +11,9 @@ import BarChart from './u-bar-chart.vue';
 import Block from './u-block.vue';
 import Button from './u-button.vue';
 import Calendar from './u-calendar.vue';
+import CalendarDay from './u-calendar-day.vue';
+import CalendarMonth from './u-calendar-month.vue';
+import CalendarYear from './u-calendar-year.vue';
 import Capsule from './u-capsule.vue';
 import CapsuleGroup from './u-capsule-group.vue';
 import Capsules from './u-capsules.vue';
@@ -83,6 +86,9 @@ export {
     Block,
     Button,
     Calendar,
+    CalendarDay,
+    CalendarMonth,
+    CalendarYear,
     Capsule,
     CapsuleGroup,
     Capsules,

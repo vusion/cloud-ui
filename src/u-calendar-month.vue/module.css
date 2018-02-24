@@ -1,0 +1,8 @@
+@import '../u-calendar.vue/base.css';
+
+.item {
+    width: 33.3%;
+    box-sizing: border-box;
+    display: inline-block;
+    line-height: 3;
+}

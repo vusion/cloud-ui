@@ -1,0 +1,19 @@
+<div :class="$style.root" :disabled="disabled" :readonly="readonly">
+    <div :class="$style.head">
+        <span @click="!disabled && addMonth(-1)"><u-icon name="angle-left"></u-icon></span>
+        <span @click="!disabled && onYearClick()">{{getYear(this.currentShowDate)}} 年 </span><span @click="!disabled && onMonthClick()">{{currentMonth + 1}} 月</span>
+        <span @click="!disabled && addMonth(1)"><u-icon name="angle-right"></u-icon></span>
+    </div>
+    <table cellspacing="0" cellpadding="0" :class="$style.content">
+        <tbody>
+            <tr><th v-for="item in weekArr">{{item}}</th></tr>
+            <tr v-for="dayRow in dayRowArr">
+            <td v-for="item in dayRow" :class="$style.item" 
+            :state="currentMonth === getMonth(item.date) ? '' : 'notcur'" 
+            :selected="isEqual(item.date, currentDate)"
+            :disabled="item.disabled"
+            @click="!disabled && !item.disabled && onDateClick(item.date)">{{item.showDate}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
