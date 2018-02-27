@@ -8,12 +8,9 @@
     margin: 0;
     height: 30px;
     line-height: 30px;
-    font-size: 14px;
     color: #333;
     background-color: #f5f7fa;
     border-bottom: 1px solid #e1e8ed;
 }
 
-.list {
-    font-size: 0;
-}
+.list {}
