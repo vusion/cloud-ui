@@ -13,9 +13,11 @@
                     <u-sidebar-item to="/components/u-status-icon">状态图标 <small>StatusIcon</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-logo">标识 <small>Logo</small></u-sidebar-item>
                 </u-sidebar-group>
-                <u-sidebar-group title="Layout">
+                <u-sidebar-group title="Layout & Composing">
                     <u-sidebar-item to="/components/u-linear-layout">线性布局 <small>LinearLayout</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-grid-layout">栅格布局 <small>GridLayout</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-desc-list">描述列表 <small>DescList</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-info-list">详情列表 <small>InfoList</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Navigation">
                     <u-sidebar-item to="/components/u-navbar">导航栏 <small>Navbar</small></u-sidebar-item>
@@ -81,10 +83,6 @@
                     <u-sidebar-item to="/components/u-draggable">拖拽 <small>Draggable</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-droppable">拖放 <small>Droppable</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-dragger">拖拽器 <small>Dragger</small></u-sidebar-item>
-                </u-sidebar-group>
-                <u-sidebar-group>
-                    <u-sidebar-item to="/components/u-desc-list">描述列表 <small>DescList</small></u-sidebar-item>
-                    <u-sidebar-item to="/components/u-info-list">详情列表 <small>InfoList</small></u-sidebar-item>
                 </u-sidebar-group>
             </u-sidebar>
         </div>

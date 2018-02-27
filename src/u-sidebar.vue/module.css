@@ -4,6 +4,9 @@
     height: 32px;
     line-height: 32px;
     font-size: 12px;
+    background: transparent;
+    color: #9dabc2;
+    cursor: default;
 }
 
 .root[size="small"] .item {
