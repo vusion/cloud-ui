@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import * as Library from 'library';
+import * as directives from '../src/base/directives';
 import '../src/base/index.css';
 
 import GlobalLayout from './common/u-global-layout.vue';
@@ -18,8 +19,9 @@ const Components = Object.assign({}, Library, {
     ThemeSelectItem,
 });
 
-import { installComponents } from 'vusion-utils';
+import { installComponents, installDirectives } from 'vusion-utils';
 installComponents(Components, Vue);
+installDirectives(directives, Vue);
 
 import routes from './routes';
 new Vue({

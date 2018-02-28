@@ -58,7 +58,7 @@ export default {
 
 ``` html
 <u-modal visible static>
-    <div slot="title"></div>
+    <div slot="title">自定义</div>
     <div slot="foot">
         <u-button color="primary">关闭</u-button>
     </div>

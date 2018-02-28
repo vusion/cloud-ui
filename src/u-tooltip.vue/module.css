@@ -1,5 +1,6 @@
-.arrow,
-.arrow:after {
+$tooltip-background-color: rgba(71, 88, 107, 0.9);
+
+.arrow {
     display: block;
     width: 0;
     height: 0;
@@ -10,16 +11,10 @@
 }
 
 .popper[x-placement^="top"] .arrow {
-    bottom: 3px;
+    bottom: 0;
+    margin-left: -6px;
     border-width: 6px 6px 0;
-    /*border-top-color:hsla(0, 0%, 85%, .5);*/
-    &:after {
-        content: '';
-        bottom: 1px;
-        margin-left: -6px;
-        border-bottom-width: 0;
-        border-top-color: rgba(71, 88, 107, 0.9);
-    }
+    border-top-color: $tooltip-background-color;
 }
 
 .popper[x-placement="top"] .arrow {
@@ -36,16 +31,10 @@
 }
 
 .popper[x-placement^="right"] .arrow {
-    left: 3px;
+    left: 0;
+    margin-bottom: -6px;
     border-width: 6px 6px 6px 0;
-    /*border-right-color:hsla(0, 0%, 85%, .5);*/
-    &:after {
-        content: '';
-        left: 1px;
-        bottom: -6px;
-        border-left-width: 0;
-        border-right-color: rgba(71, 88, 107, 0.9);
-    }
+    border-right-color: $tooltip-background-color;
 }
 
 .popper[x-placement="right"] .arrow {
@@ -62,16 +51,10 @@
 }
 
 .popper[x-placement^="left"] .arrow {
-    right: 3px;
+    right: 0;
+    margin-bottom: -6px;
     border-width: 6px 0 6px 6px;
-    /*border-left-color:hsla(0, 0%, 85%, .5);*/
-    &:after {
-        content: '';
-        right: 1px;
-        bottom: -6px;
-        border-right-width: 0;
-        border-left-color: rgba(71, 88, 107, 0.9);
-    }
+    border-left-color: $tooltip-background-color;
 }
 
 .popper[x-placement="left"] .arrow {
@@ -88,16 +71,10 @@
 }
 
 .popper[x-placement^="bottom"] .arrow {
-    top: 3px;
+    top: 0;
+    margin-left: -6px;
     border-width: 0px 6px 6px;
-    /*border-bottom-color:hsla(0, 0%, 85%, .5);*/
-    &:after {
-        content: '';
-        top: 1px;
-        margin-left: -6px;
-        border-top-width: 0;
-        border-bottom-color: rgba(71, 88, 107, 0.9);
-    }
+    border-bottom-color: $tooltip-background-color;
 }
 
 .popper[x-placement="bottom"] .arrow {
@@ -123,7 +100,7 @@
     max-width: 260px;
     word-break: break-all;
     color: #fff;
-    background: rgba(71, 88, 107, 0.9);
+    background: $tooltip-background-color;
     position: relative;
     line-height: 20px;
     border-radius: 2px;
@@ -143,17 +120,17 @@
 .wrap[size^="auto"]{ max-height: none; }
 
 .popper[x-placement^="top"] .content {
-    top: -10px;
+    top: -6px;
 }
 
 .popper[x-placement^="bottom"] .content {
-    top: 10px;
+    top: 6px;
 }
 
 .popper[x-placement^="right"] .content {
-    left: 10px;
+    left: 6px;
 }
 
 .popper[x-placement^="left"] .content {
-    left: -10px;
+    left: -6px;
 }
