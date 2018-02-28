@@ -109,8 +109,6 @@
 
 .ditem {
     box-sizing: border-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
     white-space: normal;
     word-break: break-all;
     line-height: 24px;
