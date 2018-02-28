@@ -1,6 +1,7 @@
 @import 'proto-ui.vusion/src/u-select-item.vue/module.css';
 
 .root {
+    position: relative;
     padding-top: 0;
     padding-bottom: 0;
 }
