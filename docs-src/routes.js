@@ -32,8 +32,8 @@ export default [
             { path: 'u-subtabs', component: () => import('../src/u-subtabs.vue/README.md') },
             { path: 'u-pagination', component: () => import('proto-ui.vusion/src/u-pagination.vue/README.md') },
             /* Form */
-            { path: 'u-input', component: () => import('../src/u-input.vue/README.md') },
-            { path: 'u-number-input', component: () => import('../src/u-number-input.vue/README.md') },
+            { path: 'u-input', component: () => import('proto-ui.vusion/src/u-input.vue/README.md') },
+            { path: 'u-number-input', component: () => import('proto-ui.vusion/src/u-number-input.vue/README.md') },
             { path: 'u-textarea', component: () => import('../src/u-textarea.vue/README.md') },
             { path: 'u-radios', component: () => import('proto-ui.vusion/src/u-radios.vue/README.md') },
             { path: 'u-checkboxes', component: () => import('proto-ui.vusion/src/u-checkboxes.vue/README.md') },

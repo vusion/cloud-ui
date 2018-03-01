@@ -13,6 +13,7 @@
     border-color: $brand-secondary;
     border-radius: 3px;
     transition: border-color $transition-duration;
+    height: 100%;
 }
 
 .input::placeholder {
