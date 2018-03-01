@@ -12,11 +12,15 @@
     clear: both;
 }
 
+.root[label-size$="small"] .label { width: 60px; }
+.root[label-size$="normal"] .label { width: 80px; }
+.root[label-size$="large"] .label { width: 100px; }
+.root[label-size$="huge"] .label { width: 120px; }
+
 .label {
     display: block;
     float: left;
     margin-right: 30px;
-    width: 80px;
     text-align: right;
     line-height: 30px;
     color: #999;

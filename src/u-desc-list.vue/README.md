@@ -23,6 +23,13 @@
 
 ## DescList API
 
+### Props/Attrs
+
+| Prop/Attr | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| label-size | String | `normal` | 标签大小。可选值：`small`、`normal`、`large`、`huge` |
+
+
 ### Slots
 
 #### (default)
@@ -36,6 +43,7 @@
 | Prop/Attr | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
 | label | String | | 标签 |
+| label-size | String | | 标签大小。可选值：`small`、`normal`、`large`、`huge` |
 
 ### Slots
 
@@ -50,6 +58,7 @@
 | Prop/Attr | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
 | title | String | | 标题 |
+| label-size | String | | 标签大小。 可选值：`small`、`normal`、`large`、`huge` |
 
 ### Slots
 
