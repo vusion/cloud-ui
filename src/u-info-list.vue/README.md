@@ -49,8 +49,8 @@
 
 | Prop/Attr | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
-| column | String | 3 | 列数。可选值：1、2、3、4。 |
-| label-size | String | | 标签大小。可选值：small、normal、large
+| column | String | `3` | 列数。可选值：`1`、`2`、`3`、`4` |
+| label-size | String | | 标签大小。可选值：`small`、`normal`、`large` |
 
 ### Slots
 
@@ -65,8 +65,8 @@
 | Prop/Attr | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
 | label | String | | 标签 |
-| column | String | 3 | 列数。可选值：1、2、3、4。 |
-| label-size | String | | 标签大小。可选值：small、normal、large
+| column | String | | 列数。可选值：`1`、`2`、`3`、`4` |
+| label-size | String | | 标签大小。可选值：`small`、`normal`、`large` |
 
 ### Slots
 
@@ -81,7 +81,7 @@
 | Prop/Attr | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
 | title | String | | 标题 |
-| label-size | String | | 标签大小。可选值：small、normal、large
+| label-size | String | | 标签大小。可选值：`small`、`normal`、`large` |
 
 ### Slots
 
