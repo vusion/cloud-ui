@@ -21,9 +21,15 @@ import ColorSelect from './u-color-select.vue';
 import ComboSlider from './u-combo-slider.vue';
 import DatePicker from './u-date-picker.vue';
 import DateTimePicker from './u-date-time-picker.vue';
+import DescListItem from './u-desc-list-item.vue';
+import DescListGroup from './u-desc-list-group.vue';
+import DescList from './u-desc-list.vue';
 import Form from './u-form.vue';
 import FormItem from './u-form-item.vue';
 import Icon from './u-icon.vue';
+import InfoListItem from './u-info-list-item.vue';
+import InfoListGroup from './u-info-list-group.vue';
+import InfoList from './u-info-list.vue';
 import Input from './u-input.vue';
 import Label from './u-label.vue';
 import LightBox from './u-lightbox.vue';
@@ -77,12 +83,6 @@ import TimePicker from './u-time-picker.vue';
 import Toast from './u-toast.vue';
 import Tooltip from './u-tooltip.vue';
 import XBarChart from './u-xbar-chart.vue';
-import DescListItem from './u-desc-list-item.vue';
-import DescListGroup from './u-desc-list-group.vue';
-import DescList from './u-desc-list.vue';
-import InfoListItem from './u-info-list-item.vue';
-import InfoListGroup from './u-info-list-group.vue';
-import InfoList from './u-info-list.vue';
 
 export {
     BarChart,
@@ -100,9 +100,15 @@ export {
     ComboSlider,
     DatePicker,
     DateTimePicker,
+    DescListItem,
+    DescListGroup,
+    DescList,
     Form,
     FormItem,
     Icon,
+    InfoListItem,
+    InfoListGroup,
+    InfoList,
     Input,
     Label,
     LightBox,
@@ -157,12 +163,6 @@ export {
     Toast,
     Tooltip,
     XBarChart,
-    DescListItem,
-    DescListGroup,
-    DescList,
-    InfoListItem,
-    InfoListGroup,
-    InfoList,
 };
 
 export {
