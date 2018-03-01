@@ -58,5 +58,5 @@ docs-src/build
 
 ``` shell
 docs-src/build
-vusion publish -p cloud-ui
+vusion ghpages -p cloud-ui
 ```
