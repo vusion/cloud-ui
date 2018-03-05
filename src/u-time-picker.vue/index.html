@@ -1,7 +1,3 @@
 <span :class="$style.root">
-	<u-number-input :class="$style.item" :min="hourmin" :max="hourmax" format="00" :value="hour" :readonly="readonly" :disabled="disabled" :autofocus="autofocus" :width="width" @change="changeHour($event.value)"/>
-	<span :class="$style.dot">:</span>
-	<u-number-input :class="$style.item" :min="minutemin" :max="minutemax" format="00" :value="minute" :readonly="readonly" :disabled="disabled" :width="width" @change="changeMinute($event.value)"/>
-	<span :class="$style.dot">:</span>
-	<u-number-input :class="$style.item" :min="secondmin" :max="secondmax" format="00" :value="second" :readonly="readonly" :disabled="disabled" :width="width" @change="changeSecond($event.value)"/>
+	<u-number-input style="width: 62px;" v-for="(time, index) in timeArr" v-if="time.show" :class="$style.item" :min="time.min" :max="time.max" :formatter="formatFun(2)" :value="time.value" :readonly="readonly" :disabled="disabled" :autofocus="autofocus" @change="time.onChange($event, index)"/>
 </span>
