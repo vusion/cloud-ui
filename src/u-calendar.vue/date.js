@@ -1,6 +1,8 @@
 import format from 'date-fns/format';
 
 const inDateRange = (date, dateRange) => {
+    if (!dateRange || dateRange.length <= 0)
+        return true;
     const _trans = (d) => format(d, 'YYYYMMDD');
     const d = _trans(date);
     return dateRange.some((arr) => {
