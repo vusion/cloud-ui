@@ -50,8 +50,10 @@ export const tooltip = {
     },
     update(el, binding) {
         el.dataset.tooltip = binding.value;
+        if (el.tooltip)
+            el.tooltip.content = binding.value;
     },
     unbind(el, binding) {
-        el.tooltip.$destroy();
+        el.tooltip && el.tooltip.$destroy();
     },
 };

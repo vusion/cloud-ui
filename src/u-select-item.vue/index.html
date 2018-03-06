@@ -1,0 +1,9 @@
+<li :class="$style.root"
+    :selected="selected || currentSelected"
+    :readonly="parentVM.readonly"
+    :disabled="disabled || parentVM.disabled"
+    @click="select()"
+    v-ellipsis-title>
+    <span v-if="flag !== undefined" :class="$style.flag" v-tooltip.top="flag"></span>
+    <slot></slot>
+</li>

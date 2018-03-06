@@ -79,7 +79,7 @@ Try to click twice on an item.
 <u-capsules>
     <u-capsule>Apple</u-capsule>
     <u-capsule flag>Banana</u-capsule>
-    <u-capsule flag>Cake</u-capsule>
+    <u-capsule flag="">Cake</u-capsule>
 </u-capsules>
 ```
 

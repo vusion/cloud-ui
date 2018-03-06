@@ -71,3 +71,11 @@
 .root[size$="full"] { width: 100%; }
 .popper[size$="full"] { width: 100%; box-sizing: content-box; }
 .root[size^="full"] { height: 100%; }
+
+.flag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 7px solid;
+    border-color: #4ec9ab transparent transparent #4ec9ab;
+}
