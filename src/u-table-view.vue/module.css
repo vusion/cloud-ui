@@ -17,6 +17,9 @@
     line-height: 20px;
     text-align: left;
     font-weight: 400;
+}
+
+.table .hthSpan{
     cursor: pointer;
 }
 
@@ -29,7 +32,7 @@
     cursor: pointer;
 }
 
-.hthSpan:hover {
+.hthSpan[role]:hover {
     background: #eef2f8;
 }
 .hthSpan[selection]{
@@ -40,6 +43,9 @@
 .htrItem {
     background-color: #f5f7fa;
     border-bottom: 1px solid #ebf0f5;
+}
+.htrItem[color='light'] {
+    background: #fff;
 }
 
 .body[role] {

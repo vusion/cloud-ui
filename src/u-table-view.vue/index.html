@@ -6,8 +6,8 @@
     <div v-if="layout === 'auto'">
         <table :class="$style.table" cellspacing="0" cellpadding="0" border="0" :style="{tableLayout: layout}">
             <thead>
-                <tr :class="$style.htrItem">
-                    <th v-for="(column, index) in columns" :class="$style.hthSpan" :role="column.filter" :border="border" :selection="column.type==='selection'"  @click.stop="handleSort(column)">
+                <tr :class="$style.htrItem" v-bind="$attrs">
+                    <th v-for="(column, index) in columns" :class="$style.hthSpan" :role="column.filter || column.sortable" :border="border" :selection="column.type==='selection'"  @click.stop="handleSort(column)">
                         <span v-if="!column.filter" :class="$style.itemtitle">{{column.title}}</span>
                         <template v-else-if="column.filter">
                             <u-popper trigger="click" :placement="column.placement" append-to="reference">
@@ -67,8 +67,8 @@
                     <col v-for="(column, index) in columns" :width="columnsWidth[index] || column.currentWidth"></col>
                 </colgroup>
                 <thead>
-                    <tr :class="$style.htrItem">
-                        <th v-for="(column, index) in columns" :class="$style.hthSpan" :border="border" :role="column.filter" :selection="column.type==='selection'" @click.stop="handleSort(column)">
+                    <tr :class="$style.htrItem" v-bind="$attrs">
+                        <th v-for="(column, index) in columns" :class="$style.hthSpan" :border="border" :role="column.filter || column.sortable" :selection="column.type==='selection'" @click.stop="handleSort(column)">
                             <span v-if="!column.filter" :class="$style.itemtitle">{{column.title}}</span>
                             <template v-else-if="column.filter">
                                 <u-popper trigger="click" :placement="column.placement" append-to="reference">

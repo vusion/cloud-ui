@@ -550,3 +550,4 @@ export default {
 | filterMethod | Function | `` | 自定义过滤方法 |
 | ellipsis | Boolean | `false` | 是否换行，默认换行，值为true则开启不换行，超出部分显示为省略号 |
 | border | Boolean | `false` | 是否有边框，默认无 |
+| color | String | `` | 值为light的时，表格头背景是#fff |
