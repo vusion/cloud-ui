@@ -153,20 +153,11 @@
 .head[size$="small"] {
     width: 120px;
 }
-.body[size$="small"]{ width: 120px; }
-.head[size^="small"]{
-    line-height: 28px;
-    min-height: 30px;
-}
-.head[size^="small"] .icon{
-    height: 30px;
-}
-
-.head[size^="small"] .icon[class]:after{
-    line-height: 28px;
-}
-
-.head[size^="small"] .tag{
+.body[size$="small"] { width: 120px; }
+.head[size^="small"] { line-height: 28px; min-height: 30px; }
+.head[size^="small"] .icon { height: 30px; }
+.head[size^="small"] .icon[class]:after{ line-height: 28px; }
+.head[size^="small"] .tag {
     margin: 0 0 0 6px;
 }
 
@@ -175,20 +166,14 @@
 }
 .body[size$="normal"]{ width: 250px; }
 
-.head[size$="large"] {
-    width: 360px;
-}
-.body[size$="large"]{ width: 360px; }
-.head[size^="large"]{
-    min-height: 38px;
-    line-height: 36px;
-}
+.head[size$="medium"] { width: 280px; }
+.body[size$="medium"]{ width: 280px; }
+.head[size^="medium"]{ line-height: 34px; min-height: 36px; }
 
-.head[size$="huge"] {
-    width: 440px;
-}
-.body[size$="huge"]{ width: 440px; }
-.head[size^="huge"]{
-    min-height: 40px;
-    line-height: 38px;
-}
+.head[size$="large"] { width: 360px; }
+.body[size$="large"]{ width: 360px; }
+.head[size^="large"]{ line-height: 36px; min-height: 38px; }
+
+.head[size$="huge"] { width: 440px; }
+.body[size$="huge"] { width: 440px; }
+.head[size^="huge"] { min-height: 40px; line-height: 38px; }

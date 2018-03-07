@@ -60,6 +60,10 @@
 .popper[size$="normal"] { width: 160px; }
 .root[size^="normal"] { height: $height-base; line-height: 32px; }
 
+.root[size$="medium"] { width: 280px; }
+.popper[size$="medium"] { width: 280px; }
+.root[size^="medium"] { height: 36px; line-height: 34px; }
+
 .root[size$="large"] { width: 360px; }
 .popper[size$="large"] { width: 360px; }
 .root[size^="large"] { height: 38px; line-height: 36px; }

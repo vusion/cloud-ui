@@ -43,6 +43,9 @@
 .input[size$="normal"] { width: 160px; padding: 0 10px; }
 .input[size^="normal"] { height: $height-base; }
 
+.input[size$="medium"] { width: 280px; padding: 0 10px; }
+.input[size^="medium"] { height: 36px; }
+
 .input[size$="large"] { width: 360px; padding: 0 10px; }
 .input[size^="large"] { height: 38px; }
 
