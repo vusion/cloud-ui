@@ -71,6 +71,18 @@ const Toast = {
         closeAll() {
             this.list = [];
         },
+        success(message, duration) {
+            this.show(message, duration, 'success');
+        },
+        warning(message, duration) {
+            this.show(message, duration, 'warning');
+        },
+        info(message, duration) {
+            this.show(message, duration, 'info');
+        },
+        error(message, duration) {
+            this.show(message, duration, 'error');
+        },
     },
     watch: {
         // 此处有坑啊 由于message的内容是放在数组中，msg在父组件更新后，并不会触发数组内msg的更新
@@ -91,19 +103,7 @@ const Toast = {
 
 Vue.nextTick(() => {
     // 获取构造器函数 （vue-loader 处理生成d额）
-    const STATES = Toast.STATES = ['success', 'warning', 'info', 'error'];
     const METHODS = Toast.METHODS = ['show', 'closeAll', 'success', 'warning', 'info', 'error'];
-    STATES.forEach((state) => {
-        Toast.methods[state] = function (message, duration) {
-            if (state === 'closeAll') {
-                this.closeAll();
-                return;
-            } else if (state === 'show') {
-                state = '';
-            }
-            this.show(message, duration, state);
-        };
-    });
     const instance = Toast.instance = new Toast._Ctor[0]();
     METHODS.forEach((method) => Toast[method] = instance[method].bind(instance));
 });
