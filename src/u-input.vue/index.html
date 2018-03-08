@@ -3,6 +3,6 @@
         :value="currentValue" :color="color || this.formItemVM && this.formItemVM.color"
         @input="onInput" @focus="onFocus" @blur="onBlur" @keypress="onKeypress" v-on="listeners"
         @compositionstart="compositionInputing = true"
-        @compositionend="compositionInputing = false">
+        @compositionend="compositionend">
     <slot></slot>
 </span>
