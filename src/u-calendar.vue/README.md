@@ -17,7 +17,7 @@
 export default {
     data() {
         return {
-            date: '2018-08-08',
+            date: '2018-3-10',
             allowChange: true,
         };
     },
@@ -44,7 +44,7 @@ export default {
 </script>
 ```
 
-### 只读 readonly 和 禁用 disabled 
+<!-- ### 只读 readonly 和 禁用 disabled 
 ``` html
 <u-linear-layout>
 <u-calendar date="2018-08-08" readonly style="vertical-align: top;"></u-calendar>
@@ -54,13 +54,13 @@ export default {
 
 ### 最大值maxDate 最小值minDate
 ``` html
-<u-calendar date="2018-08-18" min-date="2017-08-02" max-date="2018-08-18"></u-calendar>
+<u-calendar date="2018-08-18" min-date="2017-08-02" max-date="2018-08-21"></u-calendar>
 ```
 
 ### 多日期范围
 ``` html
 <u-calendar date="2018-08-18" :date-range="[['2010-10-10', '2012-01-01'], ['2013-01-01', '2018-10-10']]"></u-calendar>
-```
+``` -->
 
 ## Calendar API
 ### Props/Attrs

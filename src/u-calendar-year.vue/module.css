@@ -1,1 +1,5 @@
 @import '../u-calendar.vue/base.css';
+
+.content {
+    border-top: 1px solid #ebeef5;
+}

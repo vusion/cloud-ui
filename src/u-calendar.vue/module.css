@@ -1,10 +1,11 @@
 .root{
-    width: 238px;
-    padding: 4px;
+    padding: 6px 16px;
     background: $field-background;
     color: $field-color;
-    border: 1px solid #d2d6de;
+    border: 1px solid #ebeef5;
     border-radius: 4px;
+    box-shadow: 0 0 10px 0 rgba(80,90,109,0.16);
     user-select: none;
     display: inline-block;
+    width: 310px;
 }

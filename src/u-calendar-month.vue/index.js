@@ -64,6 +64,8 @@ export default {
         },
         // date月份是否在range之间
         inMonthRange(date) {
+            if (this.dateRange.length <= 0)
+                return true;
             const _trans = (d) => format(d, 'YYYYMM');
             const month = _trans(date);
             return this.dateRange.some((arr) => {
@@ -75,6 +77,7 @@ export default {
                     return month >= month1;
                 if (month2)
                     return month <= month2;
+
                 return true;
             });
         },

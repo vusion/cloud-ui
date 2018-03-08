@@ -86,6 +86,21 @@
     icon-font: url(./icons/alert.svg);
 }
 
+.root[name="arrow-right"]:before {
+    icon-font: url(./icons/arrow-right.svg);
+    font-size: 1em;
+}
+
+.root[name="arrow-left"]:before {
+    icon-font: url(./icons/arrow-left.svg);
+    font-size: 1em;
+}
+
+.root[name="calendar"]:before {
+    icon-font: url(./icons/calendar.svg);
+    font-size: 1em;
+}
+
 .root[size="small"]:before {
     font-size: 14px;
     vertical-align: -2px;

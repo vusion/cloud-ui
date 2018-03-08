@@ -21,5 +21,8 @@
     <u-icon name="chart-refresh">chart-refresh</u-icon>
     <u-icon name="chart-zoom">chart-zoom</u-icon>
     <u-icon name="close">close</u-icon>
+    <u-icon name="arrow-right">arrow-right</u-icon>
+    <u-icon name="arrow-left">arrow-left</u-icon>
+    <u-icon name="calendar">calendar</u-icon>
 </u-linear-layout>
 ```

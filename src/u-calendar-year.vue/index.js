@@ -61,6 +61,8 @@ export default {
         },
         // 是否在年份范围内
         inYearRange(date) {
+            if (this.dateRange.length <= 0)
+                return true;
             const year = getYear(date);
             return this.dateRange.some((arr) => {
                 const year1 = arr[0] ? getYear(arr[0]) : null,

@@ -1,1 +1,40 @@
 @import '../u-calendar.vue/base.css';
+
+thead {
+    border-bottom: 1px solid #ebeef5;
+}
+
+th {
+    padding-bottom: 10px;
+}
+
+.item[today] span{
+    color: $field-selected-color;
+    background-color: $field-hover-color;
+    border: 1px solid $field-selected-color;
+}
+
+.item div {
+    padding: 0 4px;
+    margin: 4px 0px;
+}
+
+.item[disabled]:not([selected]):not([today]) div {
+    background-color: $field-disabled-background;
+}
+
+.item[disabled]:first-child div {
+    margin-left: 6px;
+}
+
+.item[disabled]:first-child span {
+    padding-left: 0px;
+}
+
+.item[disabled]:last-child div {
+    margin-right: 6px;
+}
+
+.item[disabled]:last-child span {
+    padding-right: 0px;
+}

@@ -8,6 +8,7 @@ import addDays from 'date-fns/add_days';
 import isAfter from 'date-fns/is_after';
 import isEqual from 'date-fns/is_equal';
 import addMonths from 'date-fns/add_months';
+import isToday from 'date-fns/is_today';
 
 import { Emitter } from 'proto-ui.vusion';
 import { inDateRange } from '../u-calendar.vue/date';
@@ -93,5 +94,6 @@ export default {
         isEqual,
         getMonth,
         getYear,
+        isToday,
     },
 };

@@ -1,13 +1,13 @@
 <div :class="$style.root" :disabled="disabled" :readonly="readonly">
     <div :class="$style.head">
-        <span @click="addYear(-10)"><u-icon name="angle-left"></u-icon></span>
+        <span :class="$style.left" @click="!disabled && addYear(-10)"><u-icon name="arrow-left"></u-icon></span>
         <span>{{yearArr[0].text}} 年 - {{yearArr[yearArr.length - 1].text}} 年</span>
-        <span @click="addYear(10)"><u-icon name="angle-right"></u-icon></span>
+        <span :class="$style.right" @click="!disabled && addYear(10)"><u-icon name="arrow-right"></u-icon></span>
     </div>
     <div :class="$style.content">
         <div :class="$style.item3" v-for="year in yearArr" 
-        @click="!year.disabled && onYearClick(year.date)"
-        :disabled="year.disabled"
-        :selected="year.text === currentYear">{{year.text}}</div>
+        @click="!disabled && !year.disabled && onYearClick(year.date)"
+        :disabled="disabled || year.disabled"
+        :selected="year.text === currentYear"><span>{{year.text}}</span></div>
     </div>
 </div>
