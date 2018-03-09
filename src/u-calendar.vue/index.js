@@ -117,8 +117,11 @@ export default {
             });
             if (!isValid)
                 throw new Error('Invalid DateRange');
-            if (!inDateRange(this.currentDate, this.currentDateRange))
+            if (!this.inCalendarDateRange())
                 throw new RangeError('date is out of dateRange');
+        },
+        inCalendarDateRange(date = this.currentDate, range = this.currentDateRange) { // 是否在当前calendar范围内
+            return inDateRange(date, range);
         },
     },
 };

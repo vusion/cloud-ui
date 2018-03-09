@@ -44,7 +44,7 @@ export default {
 </script>
 ```
 
-<!-- ### 只读 readonly 和 禁用 disabled 
+### 只读 readonly 和 禁用 disabled 
 ``` html
 <u-linear-layout>
 <u-calendar date="2018-08-08" readonly style="vertical-align: top;"></u-calendar>
@@ -60,7 +60,7 @@ export default {
 ### 多日期范围
 ``` html
 <u-calendar date="2018-08-18" :date-range="[['2010-10-10', '2012-01-01'], ['2013-01-01', '2018-10-10']]"></u-calendar>
-``` -->
+```
 
 ## Calendar API
 ### Props/Attrs

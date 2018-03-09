@@ -1,6 +1,22 @@
-import Calendar from '../u-calendar.vue';
-const MS_OF_DAY = 24 * 3600 * 1000;
 import { clickOutside } from '../base/directives';
+
+import isDate from 'date-fns/is_date';
+import format from 'date-fns/format';
+import parse from 'date-fns/parse';
+import isEqual from 'date-fns/is_equal';
+
+const splitTag = ':';
+const formatTime = (time) => {
+    const res = [];
+    time.split(splitTag).forEach((t) => {
+        const numberT = +t;
+        if (numberT < 10)
+            res.push('0' + numberT);
+        else
+            res.push(numberT);
+    });
+    return res.join(splitTag);
+};
 
 /**
  * @class DatePicker
@@ -17,17 +33,29 @@ import { clickOutside } from '../base/directives';
 export default {
     name: 'u-date-picker',
     props: {
-        date: [String, Number, Date],
-        minDate: [String, Number, Date],
-        maxDate: [String, Number, Date],
-        disabled: [Boolean, String],
-        autofocus: [Boolean, String],
-        readonly: [Boolean, String],
-        placeholder: {
+        date: { type: [String, Date], default: format(new Date(), this.dateFormat), validator: (date) => {
+            if (!isDate(parse(date)))
+                throw new TypeError('Invalid Date');
+            return true;
+        } },
+        dateRange: { type: Array, default: () => [] },
+        minDate: { type: [String, Date], default: null, validator: (date) => {
+            if (!isDate(parse(date)))
+                throw new TypeError('Invalid Date');
+            return true;
+        } },
+        maxDate: { type: [String, Date], default: null, validator: (date) => {
+            if (!isDate(parse(date)))
+                throw new TypeError('Invalid Date');
+            return true;
+        } },
+        disabled: { type: Boolean, default: false },
+        readonly: { type: Boolean, default: false },
+        autofocus: { type: Boolean, default: false },
+        placeholder: { // 并没有用
             type: String,
             default: '请选择日期',
         },
-        width: { type: [String, Number], default: 160 },
         alignment: {
             type: String,
             default: 'left',
@@ -37,63 +65,50 @@ export default {
         },
         time: {
             type: [String, Number],
-            default: 'start',
+            default: 'start', // 默认返回00:00:00的时间戳
+            validator(value) {
+                if (['start', 'morning', 'end'].includes(value))
+                    return true;
+                const nvalue = +value;
+                if (!isNaN(value) && nvalue >= 0 && nvalue < 24)
+                    return true;
+
+                if (!/^[0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}$/.test(value))
+                    throw new Error('请输入正确的time格式');
+                return true;
+            },
         },
-        yearDiff: {
-            type: [String, Number],
-            default: 3,
-        },
-        yearAdd: {
-            type: [String, Number],
-            default: 1,
-        },
+        dateFormat: { type: String, default: 'YYYY-MM-DD' },
     },
     data() {
         return {
-            showDate: this.format(this.date, 'yyyy/MM/dd'),
+            currentDate: null,
+            currentShowDate: null,
         };
     },
     created() {
-        if (this.minDate && this.maxDate) {
-            const minDate = new Date(this.minDate);
-            const maxDate = new Date(this.maxDate);
-            if (minDate / MS_OF_DAY >> 0 > maxDate / MS_OF_DAY >> 0)
-                throw new Calendar.DateRangeError(minDate, maxDate);
-        }
-
-        // document.addEventListener('click', this.fadeOut, false);
+        // calendar中会验证时间合法性
+        this.initDate();
     },
     directives: { clickOutside },
     watch: {
-        date(newValue) {
-            this.showDate = this.format(newValue, 'yyyy/MM/dd');
+        date() {
+            this.initDate();
         },
-        showDate(newValue) {
+        currentDate(date, oldDate) {
+            this.currentShowDate = format(date, this.dateFormat); // String
+            if (this.currentShowDate === format(oldDate, this.dateFormat))
+                return;
             /**
              * @event change 日期改变时触发
              * @property {object} sender 事件发送对象
              * @property {number} date 改变后的日期 返回格式为日期对象
              */
-            const showDate = this.returnTime(newValue);
-
             this.$emit('change', {
                 sender: this,
-                date: new Date(showDate),
+                date,
+                oldDate,
             });
-        },
-        minDate(newValue) {
-            if (!newValue)
-                return;
-
-            if (newValue === 'Invalid Date' || newValue === 'NaN')
-                throw new TypeError('Invalid Date');
-        },
-        maxDate(newValue) {
-            if (!newValue)
-                return;
-
-            if (newValue === 'Invalid Date' || newValue === 'NaN')
-                throw new TypeError('Invalid Date');
         },
     },
     computed: {
@@ -105,20 +120,19 @@ export default {
         },
     },
     methods: {
+        initDate() {
+            this.currentDate = this.setDateTime(parse(this.date)); // Date
+        },
         /**
-         * @method select(date) 选择一个日期
+         * @method onSelect(date) 选择一个日期
          * @public
          * @param  {Date=null} date 选择的日期
          * @return {void}
          */
-        select(date) {
-            if (this.readonly || this.disabled || this.isOutOfRange(date))
+        onSelect(date) {
+            if (this.readonly || this.disabled)
                 return;
-
-            this.showDate = this.format(date, 'yyyy/MM/dd');
-
-            const showDate = this.returnTime(this.showDate);
-
+            this.currentDate = this.setDateTime(date);
             /**
              * @event select 选择某一项时触发
              * @property {object} sender 事件发送对象
@@ -126,44 +140,42 @@ export default {
              */
             this.$emit('select', {
                 sender: this,
-                date: new Date(showDate),
+                date: this.currentDate,
             });
 
-            this.$emit('update:date', new Date(showDate));
+            this.$emit('update:date', this.currentDate);
 
             this.$refs.popper.toggle(false);
         },
         /**
-         * @method onInput($event) 输入日期
+         * @method onInput(value) 输入日期
          * @private
          * @param  {object} $event
          * @return {void}
          */
-        onInput($event) {
-            const value = $event.target.value;
-            const date = value ? new Date(value) : null;
+        onInput(value) {
+            if (this.timer)
+                clearTimeout(this.timer);
+            this.timer = setTimeout(() => {
+                this.setValue(value);
+            }, 1000);
+            // const value = $event.target.value;
+            // const date = value ? new Date(value) : null;
 
-            if (date.toString() !== 'Invalid Date')
-                this.showDate = this.format(date, 'yyyy/MM/dd');
-            else
-                this.$refs.input.value = this.format(this.showDate, 'yyyy-MM-dd');
+            // if (date.toString() !== 'Invalid Date')
+            //     this.currentDate = format(date, this.dateFormat);
+            // else
+            //     this.$refs.input.value = format(this.currentDate, this.dateFormat);
         },
-        /**
-         * @method isOutOfRange(date) 是否超出规定的日期范围
-         * @public
-         * @param {Date} date 待测的日期
-         * @return {boolean|Date} date 如果没有超出日期范围，则返回false；如果超出日期范围，则返回范围边界的日期
-         */
-        isOutOfRange(date) {
-            let minDate = this.transformDate(this.minDate);
-            let maxDate = this.transformDate(this.maxDate);
-
-            // 不要直接在$watch中改变`minDate`和`maxDate`的值，因为有时向外绑定时可能不希望改变它们。
-            minDate = minDate && minDate.setHours(0, 0, 0, 0);
-            maxDate = maxDate && maxDate.setHours(0, 0, 0, 0);
-
-            // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期。
-            return (minDate && date < minDate && minDate) || (maxDate && date > maxDate && maxDate);
+        setValue($event) {
+            const dateStr = $event.target.value;
+            const tempDate = this.setDateTime(parse(dateStr));
+            if (tempDate.toString() !== 'Invalid Date' && isDate(tempDate)) {
+                this.$refs.input.value = format(tempDate, this.dateFormat); // 保证同一个Date，同一种format形式
+                isEqual(tempDate, this.currentDate) || (this.currentDate = tempDate);
+            } else
+                this.$refs.input.value = format(this.currentDate, this.dateFormat);
+            // this.$forceUpdate();
         },
         /**
          * @method toggle(flag) 是否显示日历组件
@@ -173,56 +185,21 @@ export default {
         onToggle($event) {
             this.$emit('toggle', $event);
         },
-        format(value, type) {
-            if (!value)
-                return undefined;
-            const fix = (str) => {
-                str = '' + (String(str) || '');
-                return str.length <= 1 ? '0' + str : str;
-            };
-            const maps = {
-                yyyy(date) { return date.getFullYear(); },
-                MM(date) { return fix(date.getMonth() + 1); },
-                dd(date) { return fix(date.getDate()); },
-                HH(date) { return fix(date.getHours()); },
-                mm(date) { return fix(date.getMinutes()); },
-                ss(date) { return fix(date.getSeconds()); },
-            };
-            const trunk = new RegExp(Object.keys(maps).join('|'), 'g');
-            type = type || 'yyyy-MM-dd HH:mm';
-            value = new Date(value);
-            return type.replace(trunk, (capture) => maps[capture] ? maps[capture](value) : '');
-        },
-        transformDate(date) {
-            if (typeof date === 'string')
-                return new Date(date);
-            else if (typeof date === 'number')
-                return new Date(date);
-            else if (typeof date === 'object')
+        setDateTime(date) { // 如果超出范围，不可设置
+            if (this.$refs.calendar && !this.$refs.calendar.inCalendarDateRange(date))
+                return new Date('Invalid Date');
+            if (!isDate(date) || this.time === 'start')
                 return date;
-        },
-        returnTime(date) {
             let time;
-            if (this.time === 'start') {
-                // 0:00:00
-                time = '0:00:00';
-            } else if (this.time === 'morning') {
-                // 08:00:00
-                time = '8:00:00';
-            } else if (this.time === 'end') {
-                // 23:59:59
+            if (this.time === 'morning')
+                time = '08:00:00';
+            else if (this.time === 'end')
                 time = '23:59:59';
-            } else if (typeof this.time === 'number') {
-                // 具体的时分秒
-                if (this.time < 0)
-                    throw new Error('请输入大于0的整数');
-                time = this.time < 24 ? this.time + ':00:00' : '23:59:59';
-            } else {
-                if (!/^[0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}$/.test(this.time))
-                    throw new Error('请输入正确的时分秒格式');
-                time = this.time;
-            }
-            return date + ' ' + time;
+            else if (typeof +this.time === 'number')
+                time = (+this.time > 10 ? this.time : '0' + this.time) + ':00:00';
+            else
+                time = formatTime(this.time);
+            return parse(format(date, 'yyyy-MM-dd') + 'T' + time);
         },
     },
 };
