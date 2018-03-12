@@ -28,7 +28,6 @@ export default {
         showDate(newDate, oldDate) {
             if (isEqual(newDate, oldDate))
                 return;
-
             this.initDate();
         },
     },

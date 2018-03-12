@@ -1,8 +1,8 @@
 <u-popper ref="popper" appendTo="reference" :placement="placement" @toggle="onToggle($event)">
     <div :class="$style.header">
-        <input :class="$style.input" :placeholder="placeholder" :value="currentShowDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" @input="onInput"></input>
+        <input :class="$style.input" :placeholder="placeholder" :value="currentShowDate" ref="input" :readonly="readonly" :disabled="disabled" @input="onInput"></input>
     </div>
     <div :class="$style.body" slot="popper" @click.stop>
-        <u-calendar ref="calendar" :disabled="disabled" :readonly="readonly" :minDate="minDate" :maxDate="maxDate" :date="currentDate" @select="onSelect($event.value)"/>
+        <u-calendar ref="calendar" :disabled="disabled" :readonly="readonly" :minDate="minDate" :maxDate="maxDate" :date="currentDate" @select="onSelect($event.value)" :tag="tag"/>
     </div>
 </u-popper>

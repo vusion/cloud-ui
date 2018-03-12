@@ -30,6 +30,7 @@ export default {
         } },
         disabled: { type: Boolean, default: false },
         readonly: { type: Boolean, default: false },
+        tag: { type: String, default: '111', validator: (t) => /^[01]{3}$/.test(t) }, // 分别对应年月日，年月表示为：110
     },
     data() {
         return {
@@ -37,6 +38,11 @@ export default {
             currentDate: null, // 选择时间, 数据流： calendar -> components & day->calendar
             showDate: null, // 显示时间, 数据流： calendar <-> components
             currentDateRange: [],
+            tagMap: {
+                year: 0,
+                month: 1,
+                day: 2,
+            },
         };
     },
     watch: {
@@ -70,6 +76,9 @@ export default {
 
             this.initDate(this.date);
         },
+        tag() {
+            this.initView();
+        },
     },
     components: {
         day: CalendarDay,
@@ -77,11 +86,21 @@ export default {
         year: CalendarYear,
     },
     created() {
+        this.initView();
         this.initDate(this.date);
         this.initDateRange();
         // components视图从fview更改为tview
         this.$on('change-view', ({ fview, tview }) => {
-            this.currentView = tview;
+            if (this.tag.charAt(this.tagMap[tview]) === '1')
+                this.currentView = tview;
+            else { // 年月选择
+                this.$emit('select', {
+                    sender: this,
+                    value: this.showDate,
+                    oldValue: this.currentDate,
+                });
+                this.currentDate = this.showDate;
+            }
         });
         this.$on('selectDate', (date) => {
             if (this.disabled || this.readonly) // 只读和禁用不修改currentDate
@@ -96,8 +115,20 @@ export default {
         });
     },
     methods: {
-        initDate(date) {
-            date === null && (date = format(new Date(), 'YYYY-MM-DD'));
+        initView() {
+            switch (this.tag.lastIndexOf('1')) {
+                case 2:
+                    this.currentView = 'day';
+                    break;
+                case 1:
+                    this.currentView = 'month';
+                    break;
+                case 0:
+                    this.currentView = 'year';
+                    break;
+            }
+        },
+        initDate(date = new Date()) {
             this.showDate = this.currentDate = parse(date);
         },
         initDateRange() {

@@ -22,6 +22,8 @@ export default {
         return {
             monthArr: [{ text: '一' }, { text: '二' }, { text: '三' }, { text: '四' }, { text: '五' }, { text: '六' }, { text: '七' }, { text: '八' }, { text: '九' }, { text: '十' }, { text: '十一' }, { text: '十二' }],
             showYear: null,
+            currentMonth: null,
+            currentYear: null,
         };
     },
     created() {

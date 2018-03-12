@@ -1,10 +1,6 @@
 # 日历 Calendar
 
 ## 示例
-### 基本形式
-
-#### 声明式
-
 ### 基本
 ``` vue
 <template>
@@ -42,6 +38,13 @@ export default {
     }
 };
 </script>
+```
+### 年月日
+``` html
+
+<u-calendar tag="100" style="vertical-align: top;"></u-calendar>
+<u-calendar tag="110" style="vertical-align: top;"></u-calendar>
+<u-calendar tag="111" style="vertical-align: top;"></u-calendar>
 ```
 
 ### 只读 readonly 和 禁用 disabled 

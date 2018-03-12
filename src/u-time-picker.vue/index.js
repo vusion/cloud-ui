@@ -44,7 +44,7 @@ export default {
         },
         disabled: { type: Boolean, default: false },
         readonly: { type: Boolean, default: false },
-        tag: { type: String, default: '111', validator: (t) => t.split('').length === 3 && t.split('').every((item) => ['0', '1'].indexOf(item) !== -1) }, // 分别对应时分秒，时分表示为：110
+        tag: { type: String, default: '111', validator: (t) => /^[01]{3}$/.test(t) }, // 分别对应时分秒，时分表示为：110
         minTime: {
             type: String,
             default: '00:00:00',
