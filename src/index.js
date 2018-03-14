@@ -55,6 +55,8 @@ import SelectDivider from './u-select-divider.vue';
 import SelectGroup from './u-select-group.vue';
 import Select from './u-select.vue';
 import SelectItem from './u-select-item.vue';
+import SuggestItem from './u-suggest-item.vue';
+import Suggest from './u-suggest.vue';
 import Sidebar from './u-sidebar.vue';
 import SidebarGroup from './u-sidebar-group.vue';
 import SidebarItem from './u-sidebar-item.vue';
@@ -135,6 +137,8 @@ export {
     SelectGroup,
     Select,
     SelectItem,
+    SuggestItem,
+    Suggest,
     Sidebar,
     SidebarGroup,
     SidebarItem,

@@ -1,0 +1,23 @@
+<u-popper ref="popper" :disabled="readonly || disabled" @toggle="onToggle($event)" append-to="reference">
+    <div :class="$style.root" :readonly="readonly" :disabled="disabled" :size="size">
+        <span :class="$style.text">
+            <input ref="input" :class="$style.input" :placeholder="placeholder" v-model="currentValue" @click.stop="inputClick" @focus="onFocus" @input="onInput" @keydown.delete="inputDelete" @blur.stop="onBlur" @compositionstart="compositionInputing = true"
+            @compositionend="compositionInputing = false"></input>
+        </span>
+    </div>
+    <!-- 这个地方以后可能要改用render实现 -->
+    <div :class="$style.body" slot="popper" :size="size">
+        <ul :class="$style.popper" v-if="currentData" @click.stop>
+            <component :is="ChildComponent"
+                v-for="item in currentData"
+                :key="item.value"
+                :value="item.value"
+                :disabled="item.disabled || disabled"
+                :item="item"
+                :field="field"
+            >{{ item[field] }}</component>
+            <slot></slot>
+        </ul>
+        <div :class="$style.none" v-else-if="!currentData || !currentData.length">无匹配数据</div>
+    </div>
+</u-popper>
