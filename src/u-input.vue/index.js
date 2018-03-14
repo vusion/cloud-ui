@@ -4,6 +4,7 @@ export default {
     name: 'u-input',
     mixins: [Input],
     props: {
+        // @override: 添加了maxlengthMessage功能
         maxlengthMessage: String,
     },
     methods: {

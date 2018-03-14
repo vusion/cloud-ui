@@ -1,6 +1,7 @@
 <u-popper ref="popper" :disabled="readonly || disabled" @toggle="onToggle($event)" append-to="reference">
     <div :class="$style.root" :readonly="readonly" :disabled="disabled" :size="size">
         <span :class="$style.text" v-ellipsis-title>
+            <!-- @override: 添加了flag功能 -->
             <span v-if="selectedVM && selectedVM.flag !== undefined" :class="$style.flag" v-tooltip.top="selectedVM && selectedVM.flag"></span>
             <u-render :vnode="selectedVM && selectedVM.$slots.default"></u-render>
         </span>
