@@ -4,6 +4,7 @@
     :disabled="disabled || parentVM.disabled"
     @click="select()"
     v-ellipsis-title>
+    <!-- @override: 添加了flag功能 -->
     <span v-if="flag !== undefined" :class="$style.flag" v-tooltip.top="flag"></span>
     <slot></slot>
 </li>

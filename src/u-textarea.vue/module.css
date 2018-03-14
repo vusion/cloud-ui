@@ -31,8 +31,8 @@
 }
 
 .input[disabled] {
-    background-color: #e9f0f5;
-    border-color: #e9f0f5;
+    background-color: $brand-disabled;
+    border-color: $brand-disabled;
 }
 
 .input[size$="normal"] { width: 160px; padding: 5px 10px; }

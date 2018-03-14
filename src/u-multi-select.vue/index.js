@@ -181,8 +181,6 @@ const MultiSelect = {
                     });
                 }
 
-                console.log(this.optionsData);
-
                 if (!query && !this.optionsData.length) {
                     this.$refs.popper.toggle(false);
                     this.optionsData = this.initOptionsData();
