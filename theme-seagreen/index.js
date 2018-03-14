@@ -65,6 +65,8 @@ export {
     SelectGroup,
     Select,
     SelectItem,
+    SuggestItem,
+    Suggest,
     SidebarGroup,
     SidebarDivider,
     Slider,

@@ -190,3 +190,23 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+
+### Methods
+
+#### alert(content, title)
+
+打开只有确定按钮的消息提示
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| content | String | 提示内容 |
+| title | String | 提示标题 |
+
+#### confirm(content, title)
+
+打开有确定和取消按钮的消息提示
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| content | String | 提示内容 |
+| title | String | 提示标题 |

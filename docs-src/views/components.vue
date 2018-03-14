@@ -34,6 +34,7 @@
                     <u-sidebar-item to="/components/u-switch">开关 <small>Switch</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-textarea">多行输入 <small>Textarea</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-select">选择框 <small>Select</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-suggest">自动提示<small>Suggest</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-multi-select">多项选择框 <small>MultiSelect</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-color-select">颜色选择框 <small>ColorSelect</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-slider">滑块 <small>Slider</small></u-sidebar-item>

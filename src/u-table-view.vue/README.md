@@ -464,7 +464,7 @@ export default {
 ```
 
 
-## API
+## TableView API
 ### Attrs/Props
 
 | Attr/Prop | Type | Default | Description |
@@ -478,6 +478,21 @@ export default {
 | height| Integer/String |  | 表格组件的高度 |
 | layout| String | fixed | 表格的布局方式, 可选值有fixed, auto两种 |
 
+### Slots
+
+#### (default)
+
+插入`<u-table-view-column>`子组件。
+
+#### title
+
+自定义表格标题
+
+#### no-data-text
+
+数据为空时自定义显示文本
+
+### Events
 #### @sort-change
 
 点击排序标签触发
@@ -516,7 +531,7 @@ export default {
 | $event.data | Object | 选中的行的数据集合 |
 | $event.index | Int | 行数据所在的索引值 |
 
-## TableViewItem API
+## TableViewColumn API
 ### Props/Attrs
 
 | Prop/Attr | Type | Default | Description |

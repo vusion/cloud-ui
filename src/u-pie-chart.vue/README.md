@@ -20,3 +20,9 @@
 | width | String | `100%` | 图表的宽度 |
 | height | String | `480px` | 图表的高度 |
 | titleAlign | String | `center` | 图表标题的对齐方式，默认是居中，值有:left,center,right |
+
+### Slot
+
+| Slot | Description |
+| ---- | ----------- |
+| tooltipTemplate + index（index为遍历data的索引） | 自定义tooltip内容 |

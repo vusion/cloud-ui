@@ -30,7 +30,7 @@ export default {
 
 ``` html
 <u-popover trigger="click" message="内容" placement="top-start" confirm>
-    <u-button>hover 激活</u-button>
+    <u-button>click 激活</u-button>
 </u-popover>
 ```
 

@@ -14,6 +14,12 @@
 <u-combo-slider :step="10" unit="GB" tip="步长为10GB" disabled :value="40"></u-combo-slider>
 ```
 
+### 最大/最小值
+
+``` html
+<u-combo-slider :step="10" unit="GB" tip="步长为10GB" :min="10" :max="90" :value="40"></u-combo-slider>
+```
+
 ## API
 ### Props/Attrs
 
