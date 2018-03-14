@@ -6,8 +6,8 @@
 }
 .head[disabled] {
     cursor: not-allowed;
-    background: #eee;
-    border: 1px solid #d3d6de;
+    background:  $brand-disabled;
+    border: 1px solid $brand-disabled;
     color: #999;
 }
 .head{
