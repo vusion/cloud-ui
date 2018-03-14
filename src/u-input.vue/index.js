@@ -5,6 +5,17 @@ export default {
     mixins: [Input],
     props: {
         maxlengthMessage: String,
+        color: String,
+    },
+    data() {
+        return {
+            currentColor: this.color,
+        };
+    },
+    watch: {
+        color(value) {
+            this.currentColor = value;
+        },
     },
     methods: {
         onKeypress(e) {
