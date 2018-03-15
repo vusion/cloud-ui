@@ -1,4 +1,6 @@
 import format from 'date-fns/format';
+import isDate from 'date-fns/is_date';
+import parse from 'date-fns/parse';
 
 const inDateRange = (date, dateRange) => {
     if (!dateRange || dateRange.length <= 0)
@@ -18,6 +20,13 @@ const inDateRange = (date, dateRange) => {
     });
 };
 
+const dateValidadtor = (date) => {
+    if (!isDate(parse(date)))
+        throw new TypeError('Invalid Date');
+    return true;
+};
+
 export {
     inDateRange,
+    dateValidadtor,
 };

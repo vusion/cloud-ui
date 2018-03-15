@@ -7,27 +7,16 @@ import isAfter from 'date-fns/is_after';
 import CalendarDay from '../u-calendar-day.vue';
 import CalendarMonth from '../u-calendar-month.vue';
 import CalendarYear from '../u-calendar-year.vue';
-import { inDateRange } from './date';
+import { inDateRange, dateValidadtor } from './date';
 
 export default {
     name: 'u-calendar',
     props: {
-        date: { type: [String, Date], default: '2017-08-08', validator: (date) => {
-            if (!isDate(parse(date)))
-                throw new TypeError('Invalid Date');
-            return true;
-        } },
+        date: { type: [String, Date], default: undefined, validator: dateValidadtor },
+        showDate: { type: [String, Date], default: undefined, validator: dateValidadtor },
         dateRange: { type: Array, default: () => [] },
-        minDate: { type: [String, Date], default: null, validator: (date) => {
-            if (!isDate(parse(date)))
-                throw new TypeError('Invalid Date');
-            return true;
-        } },
-        maxDate: { type: [String, Date], default: null, validator: (date) => {
-            if (!isDate(parse(date)))
-                throw new TypeError('Invalid Date');
-            return true;
-        } },
+        minDate: { type: [String, Date], default: null, validator: dateValidadtor },
+        maxDate: { type: [String, Date], default: null, validator: dateValidadtor },
         disabled: { type: Boolean, default: false },
         readonly: { type: Boolean, default: false },
         tag: { type: String, default: '111', validator: (t) => /^[01]{3}$/.test(t) }, // 分别对应年月日，年月表示为：110
@@ -36,7 +25,7 @@ export default {
         return {
             currentView: 'day',
             currentDate: null, // 选择时间, 数据流： calendar -> components & day->calendar
-            showDate: null, // 显示时间, 数据流： calendar <-> components
+            currentShowDate: null, // 显示时间, 数据流： calendar <-> components
             currentDateRange: [],
             tagMap: {
                 year: 0,
@@ -96,10 +85,10 @@ export default {
             else { // 年月选择
                 this.$emit('select', {
                     sender: this,
-                    value: this.showDate,
+                    value: this.currentShowDate,
                     oldValue: this.currentDate,
                 });
-                this.currentDate = this.showDate;
+                this.currentDate = this.currentShowDate;
             }
         });
         this.$on('selectDate', (date) => {
@@ -129,7 +118,8 @@ export default {
             }
         },
         initDate(date = new Date()) {
-            this.showDate = this.currentDate = parse(date);
+            this.currentDate = parse(date);
+            this.currentShowDate = this.showDate ? parse(this.showDate) : this.currentDate;
         },
         initDateRange() {
             this.currentDateRange = this.dateRange;

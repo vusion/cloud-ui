@@ -93,7 +93,7 @@ export default {
 | readonly | Boolean | `false` | 是否只读 |
 | disabled | Boolean | `false` | 是否禁用 |
 | autofocus | Boolean | `false` | 文本框默认处于focus |
-| alignment | String | `left` | 日历弹窗对其方式，可选值：left, right(分别对应popper组件的`bottom-start`和`bottom-end`)，以及popper的其他placement选项值 |
+| placement | String | `bottom-start` | 日历弹窗对其方式，设置方式同popper的placement |
 | dateFormat | String | `YYYY-MM-DD` | 日期显示格式，合法格式参照[date-fns](https://date-fns.org/v1.29.0/docs/format) |
 | tag | String | `111` | 对年月日设置是否能选择，`1`为可选择，`0`为不可选择 |
 | time | String, Number | `start` | 设置返回的日期的时分秒值，可选值为start:时分秒是0:00:00,morning:时分秒为8:00:00,end:表示时分秒为: 23:59:59, 输入整数表示对应的整数时刻，例如输入9代表时分秒为9:00:00,自定义时分秒请输入对应格式的字符串即可 |

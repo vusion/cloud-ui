@@ -22,6 +22,9 @@ export default {
         showDate: { type: Date }, // u-calendar转为Date传入
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
+        isDateRangePicker: { type: Boolean, default: false },
+        showPreMonth: { type: Boolean, default: true },
+        showNextMonth: { type: Boolean, default: true },
         dateRange: { type: Array, default: () => [] },
     },
     data() {

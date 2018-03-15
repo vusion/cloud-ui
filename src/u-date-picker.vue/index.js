@@ -42,13 +42,15 @@ export default {
             type: String,
             default: 'yyyy-mm-dd',
         },
+        // 兼容旧API，不暴露在文档中
         alignment: {
             type: String,
-            default: 'left',
+            default: undefined,
             validator(value) {
                 return ['left', 'right'].includes(value);
             },
         },
+        placement: { type: String, default: 'bottom-start' },
         time: {
             type: [String, Number],
             default: 'start', // 默认返回00:00:00的时间戳
@@ -72,9 +74,11 @@ export default {
             currentDate: null,
             currentShowDate: null,
             currentDateFormat: null,
+            currentPlacement: null,
         };
     },
     created() {
+        this.initPlacement();
         this.initDateFormat();
         // calendar中会验证时间合法性
         this.initDate();
@@ -105,16 +109,14 @@ export default {
             this.initDateFormat();
         },
     },
-    computed: {
-        placement() {
-            if (this.alignment === 'left')
-                return 'bottom-start';
-            else if (this.alignment === 'right')
-                return 'bottom-end';
-            return this.alignment; // 增加其他popper方向。
-        },
-    },
     methods: {
+        initPlacement() {
+            if (this.alignment === 'left')
+                this.currentPlacement = 'bottom-start';
+            else if (this.alignment === 'right')
+                this.currentPlacement = 'bottom-end';
+            this.currentPlacement || (this.currentPlacement = this.placement);
+        },
         initDateFormat() {
             this.currentDateFormat = this.dateFormat;
             if (this.tag.charAt(0) === '0') // 不显示年
@@ -125,7 +127,7 @@ export default {
                 this.currentDateFormat = this.currentDateFormat.replace(/([^\w]D|D)/g, '');
         },
         initDate() {
-            this.currentDate = this.date ? this.setDateTime(parse(this.date)) : null; // Date
+            this.currentDate = this.date ? this.setDateTime(parse(this.date)) : undefined; // Date
         },
         /**
          * @method onSelect(date) 选择一个日期

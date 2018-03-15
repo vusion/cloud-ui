@@ -1,8 +1,8 @@
 <div :class="$style.root" :disabled="disabled" :readonly="readonly">
     <div :class="$style.head">
-        <span :class="$style.left" @click="!disabled && addMonth(-1)"><u-icon name="arrow-left"></u-icon></span>
-        <span @click="!disabled && onYearClick()">{{getYear(this.currentShowDate)}} 年 </span><span @click="!disabled && onMonthClick()" style="margin-left: 10px;">{{currentMonth + 1}} 月</span>
-        <span :class="$style.right" @click="!disabled && addMonth(1)"><u-icon name="arrow-right"></u-icon></span>
+        <span v-show="showPreMonth" :class="$style.left" @click="!isDateRangePicker && !disabled && addMonth(-1)"><u-icon name="arrow-left"></u-icon></span>
+        <span @click="!isDateRangePicker && !disabled && onYearClick()">{{getYear(this.currentShowDate)}} 年 </span><span @click="!isDateRangePicker && !disabled && onMonthClick()" style="margin-left: 10px;">{{currentMonth + 1}} 月</span>
+        <span v-show="showNextMonth" :class="$style.right" @click="!isDateRangePicker && !disabled && addMonth(1)"><u-icon name="arrow-right"></u-icon></span>
     </div>
     <table cellspacing="0" cellpadding="0" :class="$style.content">
         <thead><tr><th v-for="item in weekArr">{{item}}</th></tr></thead>

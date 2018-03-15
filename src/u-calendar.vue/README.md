@@ -2,6 +2,14 @@
 
 ## 示例
 ### 基本
+
+默认打开当前时间日历，但不选中日期。
+```html
+<u-calendar></u-calendar>
+<u-calendar showDate="2018-01-01"></u-calendar>
+```
+
+### 事件
 ``` vue
 <template>
 <div>

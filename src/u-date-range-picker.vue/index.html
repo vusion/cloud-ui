@@ -1,0 +1,10 @@
+<u-popper ref="popper" appendTo="reference" :placement="placement" @toggle="onToggle($event)">
+    <div :class="$style.header">
+        <input :class="$style.input" :placeholder="placeholderArr[0]" :value="formatCurrentStartDate" ref="input" :readonly="readonly" :disabled="disabled" @input="onInput"></input>
+        <input :class="$style.input" :placeholder="placeholderArr[1]" :value="formatCurrentEndDate" ref="input" :readonly="readonly" :disabled="disabled" @input="onInput"></input>
+    </div>
+    <div :class="$style.body" slot="popper" @click.stop>
+        <u-calendar :showNextMonth="isAdjacent" :isDateRangePicker="true" ref="calendar" :disabled="disabled" :readonly="readonly" :minDate="minDate" :maxDate="maxDate" :date="currentStartDate" :showDate="startShowDate" @select="onSelect($event.value)"/>
+        <u-calendar :showPreMonth="isAdjacent" :isDateRangePicker="true" :disabled="disabled" :readonly="readonly" :minDate="minDate" :maxDate="maxDate" :date="currentEndDate" :showDate="endShowDate" @select="onSelect($event.value)"/>
+    </div>
+</u-popper>

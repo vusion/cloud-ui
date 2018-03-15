@@ -52,6 +52,7 @@
                 <u-sidebar-group title="DateTime">
                     <u-sidebar-item to="/components/u-calendar">日历 <small>Calendar</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-date-picker">日期选择 <small>DatePicker</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-date-range-picker">日期范围选择 <small>DateRangePicker</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-time-picker">时间选择 <small>TimePicker</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-date-time-picker">日期时间 <small>DateTimePicker</small></u-sidebar-item>
                 </u-sidebar-group>

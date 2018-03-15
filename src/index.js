@@ -23,6 +23,7 @@ import CircularProgress from './u-circular-progress.vue';
 import ColorSelect from './u-color-select.vue';
 import ComboSlider from './u-combo-slider.vue';
 import DatePicker from './u-date-picker.vue';
+import DateRangePicker from './u-date-range-picker.vue';
 import DateTimePicker from './u-date-time-picker.vue';
 import Form from './u-form.vue';
 import FormItem from './u-form-item.vue';
@@ -99,6 +100,7 @@ export {
     ColorSelect,
     ComboSlider,
     DatePicker,
+    DateRangePicker,
     DateTimePicker,
     Form,
     FormItem,

@@ -56,6 +56,7 @@ export default [
             { path: 'u-calendar', component: () => import('../src/u-calendar.vue/README.md') },
             { path: 'u-time-picker', component: () => import('../src/u-time-picker.vue/README.md') },
             { path: 'u-date-picker', component: () => import('../src/u-date-picker.vue/README.md') },
+            { path: 'u-date-range-picker', component: () => import('../src/u-date-range-picker.vue/README.md') },
             { path: 'u-date-time-picker', component: () => import('../src/u-date-time-picker.vue/README.md') },
             /* Popper */
             { path: 'u-popper', component: () => import('proto-ui.vusion/src/u-popper.vue/README.md') },
