@@ -7,7 +7,7 @@ import isEqual from 'date-fns/is_equal';
 import isAfter from 'date-fns/is_after';
 import addMonths from 'date-fns/add_months';
 
-import { inDateRange, dateValidadtor } from '../u-calendar.vue/date';
+import { inDateRange, dateValidadtor, sortIncrease } from '../u-calendar.vue/date';
 
 export default {
     name: 'u-date-range-picker',
@@ -23,17 +23,22 @@ export default {
         readonly: { type: Boolean, default: false },
         placeholderArr: { type: Array, default: () => [] },
         dateFormat: { type: String, default: 'YYYY-MM-DD' },
+        placement: { type: String, default: 'bottom-start' },
     },
     data() {
         return {
             currentDateFormat: this.dateFormat,
-            currentStartDate: null,
+            currentStartDate: null, // 当前calendar选中值
             currentEndDate: null,
-            formatCurrentStartDate: null,
+            formatCurrentStartDate: null, // 当前输入框中的值
             formatCurrentEndDate: null,
+            startShowDate: undefined, // 当前Calendar显示的日期选择页面，month改变时变化
+            endShowDate: undefined,
             selectDateArr: [],
             selectIndex: -1,
-            isAdjacent: true,
+            allowPre: false,
+            allowNext: false,
+            hoverDate: null, // 鼠标悬浮的日期
         };
     },
     created() {
@@ -48,16 +53,17 @@ export default {
         endDate(date, oldDate) {
             this.currentEndDate = parse(date); // Date
         },
+        startShowDate() {
+            this.initAllow();
+        },
+        endShowDate() {
+            this.initAllow();
+        },
         currentStartDate(date, oldDate) {
             this.formatCurrentStartDate = format(date, this.currentDateFormat); // Date
         },
         currentEndDate(date, oldDate) {
             this.formatCurrentEndDate = format(date, this.currentDateFormat); // Date
-        },
-    },
-    computed: {
-        isAdjacent() {
-            return true; // TODO: 两日期相差一月
         },
     },
     methods: {
@@ -69,6 +75,16 @@ export default {
             this.endDate && (this.currentEndDate = parse(this.endDate));
             this.startShowDate = this.showDate ? this.setDateTime(parse(this.showDate)) : new Date();
             this.endShowDate = addMonths(this.startShowDate, this.gap);
+        },
+        initAllow() { // 月份相邻不可更改上下按钮
+            const _trans = (date) => +parse(date, 'YYYYMM');
+            const setAllow = (allow) => {
+                this.allowNext = this.allowPre = allow;
+            };
+            if (_trans(this.endShowDate) - _trans(this.startShowDate) <= 1)
+                setAllow(false);
+            else
+                setAllow(true);
         },
         /**
          * @method onSelect(date) 选择一个日期
@@ -82,8 +98,10 @@ export default {
             const tempDate = this.setDateTime(date);
             this.selectIndex = (this.selectIndex + 1) % 2;
             this.selectDateArr[this.selectIndex] = tempDate;
-            if (this.selectIndex < 1)
+            if (this.selectIndex < 1) {
+                this.selectDateArr = this.selectDateArr.slice(0, 1); // 选择一个的时候，清空第二个选项
                 return;
+            }
             /**
              * @event select 选择了起始和结束时间时触发
              * @property {object} sender 事件发送对象
@@ -95,7 +113,7 @@ export default {
                 oldDate: [this.currentStartDate, this.currentEndDate],
             });
 
-            this.selectDateArr.sort((d1, d2) => +d1 - (+d2)); // 选择的两个值按照大小排序
+            this.selectDateArr = sortIncrease(this.selectDateArr); // 选择的两个值按照大小排序
             this.currentStartDate = this.selectDateArr[0];
             this.$emit('update:startDate', this.selectDateArr[0]);
             this.currentEndDate = this.selectDateArr[1];
@@ -115,6 +133,9 @@ export default {
                 this.setValue(value);
             }, 1000);
         },
+        // onMouseover(event) {
+        //     this.hoverDate = event.value;
+        // },
         setValue($event) {
             const dateStr = $event.target.value;
             const tempDate = this.setDateTime(parse(dateStr));

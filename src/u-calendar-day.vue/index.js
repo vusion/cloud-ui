@@ -9,30 +9,35 @@ import isAfter from 'date-fns/is_after';
 import isEqual from 'date-fns/is_equal';
 import addMonths from 'date-fns/add_months';
 import isToday from 'date-fns/is_today';
+import parse from 'date-fns/parse';
 
 import { Emitter } from 'proto-ui.vusion';
-import { inDateRange } from '../u-calendar.vue/date';
+import { inDateRange, dateValidadtor, sortIncrease } from '../u-calendar.vue/date';
 
 export default {
     name: 'u-calendar-day',
     parentName: 'u-calendar',
     mixins: [Emitter],
     props: {
-        currentDate: { type: Date }, // u-calendar转为Date传入
+        date: { type: [String, Date], default: undefined, validator: dateValidadtor }, // 单独引用时
         showDate: { type: Date }, // u-calendar转为Date传入
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         isDateRangePicker: { type: Boolean, default: false },
-        showPreMonth: { type: Boolean, default: true },
-        showNextMonth: { type: Boolean, default: true },
         dateRange: { type: Array, default: () => [] },
+        allowPre: { type: Boolean, default: true },
+        allowNext: { type: Boolean, default: true },
+        selectedDate: { type: Array, default: () => [] }, // dateRangePicker选择的所有日期
+        hoverDate: { type: Date },
     },
     data() {
         return {
             weekArr: ['日', '一', '二', '三', '四', '五', '六'],
+            currentDate: null,
             currentShowDate: null, // 当前显示时间页面
             currentMonth: '',
             dayRowArr: [],
+            // currentSelectedDate: this.selectedDate,
         };
     },
     watch: {
@@ -42,13 +47,24 @@ export default {
 
             this.initDate();
         },
+        date(value, oldValue) {
+            const newDate = parse(value);
+            const oldDate = parse(oldValue);
+            if (isEqual(newDate, oldDate))
+                return;
+            this.initDate();
+        },
+        // selectedDate(value) {
+        //     this.currentSelectedDate = value;
+        // },
     },
     created() {
         this.initDate();
     },
     methods: {
-        initDate() {
-            this.currentShowDate = this.showDate;
+        initDate(date) {
+            this.currentDate = parse(date || this.date);
+            this.currentShowDate = this.showDate || this.currentDate;
             this.currentMonth = getMonth(this.currentShowDate);
             this.getAllDays(this.currentShowDate);
         },
@@ -65,9 +81,22 @@ export default {
             });
         },
         onDateClick(date) {
-            this.dispatch(this.$options.parentName, 'selectDate', date);
-            // this.$emit('update:currentDate', date);
-            this.$emit('update:showDate', date);
+            if (this.isDateRangePicker) {
+                this.$emit('select', {
+                    sender: this,
+                    value: date,
+                    oldValue: null,
+                });
+                this.initDate(date);
+            } else
+                this.dispatch(this.$options.parentName, 'selectDate', date);
+        },
+        onMouseover(date) {
+            if (this.isDateRangePicker) {
+                this.$emit('mouseover', {
+                    value: date,
+                });
+            }
         },
         // 得到当前月份的所有日期
         getAllDays(date) {
@@ -93,6 +122,24 @@ export default {
         },
         addMonth(monthGap) {
             this.$emit('update:showDate', addMonths(this.currentShowDate, monthGap));
+        },
+        isSelected(item) {
+            if (this.isDateRangePicker)
+                return this.selectedDate.some((date) => isEqual(item.date, date));
+            else
+                return isEqual(item.date, this.currentDate);
+        },
+        isBetween(date) {
+            if (this.isDateRangePicker) {
+                const rangeArr = [];
+                if (this.selectedDate.length === 1 && this.hoverDate) {
+                    const hoverAfterSelect = isAfter(this.hoverDate, this.selectedDate[0]);
+                    rangeArr.push([hoverAfterSelect ? this.selectedDate[0] : this.hoverDate, hoverAfterSelect ? this.hoverDate : this.selectedDate[0]]);
+                } else if (this.selectedDate.length === 2)
+                    rangeArr.push(sortIncrease(this.selectedDate.slice(0)));
+                return rangeArr.length <= 0 ? false : inDateRange(date, rangeArr);
+            }
+            return false;
         },
         isEqual,
         getMonth,

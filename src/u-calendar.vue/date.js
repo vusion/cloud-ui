@@ -2,7 +2,9 @@ import format from 'date-fns/format';
 import isDate from 'date-fns/is_date';
 import parse from 'date-fns/parse';
 
+// dateRange是二维数组
 const inDateRange = (date, dateRange) => {
+    debugger;
     if (!dateRange || dateRange.length <= 0)
         return true;
     const _trans = (d) => format(d, 'YYYYMMDD');
@@ -26,7 +28,10 @@ const dateValidadtor = (date) => {
     return true;
 };
 
+const sortIncrease = (dateArr) => dateArr.sort((d1, d2) => +d1 - (+d2));
+
 export {
     inDateRange,
     dateValidadtor,
+    sortIncrease, // 日期从小到大排序
 };

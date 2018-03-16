@@ -2,15 +2,17 @@ import getYear from 'date-fns/get_year';
 import setYear from 'date-fns/set_year';
 import isEqual from 'date-fns/is_equal';
 import addYears from 'date-fns/add_years';
+import parse from 'date-fns/parse';
 
 import { Emitter } from 'proto-ui.vusion';
+import { dateValidadtor } from '../u-calendar.vue/date';
 
 export default {
     name: 'u-calendar-year',
     parentName: 'u-calendar',
     mixins: [Emitter],
     props: {
-        currentDate: { type: Date },
+        date: { type: [String, Date], default: undefined, validator: dateValidadtor },
         showDate: { type: Date },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
@@ -18,6 +20,7 @@ export default {
     },
     data() {
         return {
+            currentDate: null,
             yearArr: [],
         };
     },
@@ -33,7 +36,8 @@ export default {
     },
     methods: {
         initDate() {
-            this.currentShowDate = this.showDate;
+            this.currentDate = parse(this.date);
+            this.currentShowDate = this.showDate || this.currentDate;
             this.currentYear = getYear(this.currentDate);
             this.showYear = getYear(this.currentShowDate);
             this.yearArr = [];

@@ -1,8 +1,8 @@
 <div :class="$style.root" :disabled="disabled" :readonly="readonly">
     <div :class="$style.head">
-        <span v-show="showPreMonth" :class="$style.left" @click="!isDateRangePicker && !disabled && addMonth(-1)"><u-icon name="arrow-left"></u-icon></span>
+        <span v-show="allowPre" :class="$style.left" @click="!disabled && addMonth(-1)"><u-icon name="arrow-left"></u-icon></span>
         <span @click="!isDateRangePicker && !disabled && onYearClick()">{{getYear(this.currentShowDate)}} 年 </span><span @click="!isDateRangePicker && !disabled && onMonthClick()" style="margin-left: 10px;">{{currentMonth + 1}} 月</span>
-        <span v-show="showNextMonth" :class="$style.right" @click="!isDateRangePicker && !disabled && addMonth(1)"><u-icon name="arrow-right"></u-icon></span>
+        <span v-show="allowNext" :class="$style.right" @click="!disabled && addMonth(1)"><u-icon name="arrow-right"></u-icon></span>
     </div>
     <table cellspacing="0" cellpadding="0" :class="$style.content">
         <thead><tr><th v-for="item in weekArr">{{item}}</th></tr></thead>
@@ -10,10 +10,12 @@
             <tr v-for="dayRow in dayRowArr">
             <td v-for="item in dayRow" :class="$style.item" 
             :state="currentMonth === getMonth(item.date) ? '' : 'notcur'" 
-            :selected="isEqual(item.date, currentDate)"
+            :selected="isSelected(item)"
             :today="isToday(item.date)"
             :disabled="disabled || item.disabled"
-            @click="!disabled && !item.disabled && onDateClick(item.date)">
+            :isBetween="isBetween(item.date)"
+            @click="!disabled && !item.disabled && onDateClick(item.date)"
+            @mouseover="onMouseover(item.date)">
             <div>
                 <span>{{item.showDate}}</span>
             </div>

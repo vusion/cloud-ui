@@ -4,7 +4,7 @@
         <input :class="$style.input" :placeholder="placeholderArr[1]" :value="formatCurrentEndDate" ref="input" :readonly="readonly" :disabled="disabled" @input="onInput"></input>
     </div>
     <div :class="$style.body" slot="popper" @click.stop>
-        <u-calendar :showNextMonth="isAdjacent" :isDateRangePicker="true" ref="calendar" :disabled="disabled" :readonly="readonly" :minDate="minDate" :maxDate="maxDate" :date="currentStartDate" :showDate="startShowDate" @select="onSelect($event.value)"/>
-        <u-calendar :showPreMonth="isAdjacent" :isDateRangePicker="true" :disabled="disabled" :readonly="readonly" :minDate="minDate" :maxDate="maxDate" :date="currentEndDate" :showDate="endShowDate" @select="onSelect($event.value)"/>
+        <u-calendar-day :allowNext="allowNext" :isDateRangePicker="true" ref="calendar" :disabled="disabled" :readonly="readonly" :minDate="minDate" :maxDate="maxDate" :date="currentStartDate" :showDate="startShowDate" @select="onSelect($event.value)" :selectedDate="selectDateArr" @mouseover="hoverDate = $event.value" :hoverDate="hoverDate"/>
+        <u-calendar-day :allowPre="allowPre" :isDateRangePicker="true" :disabled="disabled" :readonly="readonly" :minDate="minDate" :maxDate="maxDate" :date="currentEndDate" :showDate="endShowDate" @select="onSelect($event.value)" :selectedDate="selectDateArr" @mouseover="hoverDate = $event.value" :hoverDate="hoverDate"/>
     </div>
 </u-popper>

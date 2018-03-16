@@ -4,15 +4,18 @@ import setMonth from 'date-fns/set_month';
 import isEqual from 'date-fns/is_equal';
 import addYears from 'date-fns/add_years';
 import format from 'date-fns/format';
+import parse from 'date-fns/parse';
 
 import { Emitter } from 'proto-ui.vusion';
+import { dateValidadtor } from '../u-calendar.vue/date';
 
 export default {
     name: 'u-calendar-month',
     parentName: 'u-calendar',
     mixins: [Emitter],
     props: {
-        currentDate: { type: Date },
+        date: { type: [String, Date], default: undefined, validator: dateValidadtor }, // 单独引用时
+        // currentDate: { type: Date },
         showDate: { type: Date },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
@@ -24,6 +27,8 @@ export default {
             showYear: null,
             currentMonth: null,
             currentYear: null,
+            currentDate: null,
+            currentShowDate: null,
         };
     },
     created() {
@@ -36,14 +41,23 @@ export default {
 
             this.initDate();
         },
+        date(value, oldValue) {
+            const newDate = parse(value);
+            const oldDate = parse(oldValue);
+            if (isEqual(newDate, oldDate))
+                return;
+            this.initDate();
+        },
     },
     methods: {
         initDate() {
+            this.currentDate = parse(this.date);
             this.currentMonth = getMonth(this.currentDate);
-            this.showYear = getYear(this.showDate);
+            this.currentShowDate = this.showDate || this.currentDate;
+            this.showYear = getYear(this.currentShowDate);
             this.currentYear = getYear(this.currentDate);
             this.monthArr.forEach((obj, index) => {
-                obj.date = setMonth(this.showDate, index);
+                obj.date = setMonth(this.currentShowDate, index);
                 obj.disabled = !this.inMonthRange(obj.date);
             });
         },
@@ -62,7 +76,7 @@ export default {
             });
         },
         addYear(gap) {
-            this.$emit('update:showDate', addYears(this.showDate, gap));
+            this.$emit('update:showDate', addYears(this.currentShowDate, gap));
         },
         // date月份是否在range之间
         inMonthRange(date) {

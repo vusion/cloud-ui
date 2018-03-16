@@ -20,6 +20,7 @@ export default {
         disabled: { type: Boolean, default: false },
         readonly: { type: Boolean, default: false },
         tag: { type: String, default: '111', validator: (t) => /^[01]{3}$/.test(t) }, // 分别对应年月日，年月表示为：110
+        isDateRangePicker: { type: Boolean, default: false },
     },
     data() {
         return {

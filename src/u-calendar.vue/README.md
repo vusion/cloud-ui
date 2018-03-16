@@ -48,12 +48,20 @@ export default {
 </script>
 ```
 ### 年月日
+#### 可向上跳转
 ``` html
 
 <u-calendar tag="100" style="vertical-align: top;"></u-calendar>
 <u-calendar tag="110" style="vertical-align: top;"></u-calendar>
 <u-calendar tag="111" style="vertical-align: top;"></u-calendar>
 ```
+<!-- #### 不跳转
+``` html
+
+<u-calendar-year style="vertical-align: top;"></u-calendar-year>
+<u-calendar-month style="vertical-align: top;"></u-calendar-month>
+<u-calendar-day style="vertical-align: top;"></u-calendar-day>
+``` -->
 
 ### 只读 readonly 和 禁用 disabled 
 ``` html
