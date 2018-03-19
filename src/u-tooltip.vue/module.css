@@ -1,136 +1,93 @@
 $tooltip-background-color: rgba(71, 88, 107, 0.9);
+$tooltip-arrow-size: 6px;
+$tooltip-arrow-offset: 16px;
+
+.root {
+    position: relative;
+    padding: 12px 16px;
+    background: $tooltip-background-color;
+    color: white;
+    font-size: 12px;
+    border-radius: 2px;
+    z-index: $z-index-popper;
+}
 
 .arrow {
     display: block;
-    width: 0;
-    height: 0;
     position: absolute;
-    border-color: transparent;
-    border-style: solid;
-    border-width: 6px;
+    border: $tooltip-arrow-size solid transparent;
 }
 
-.popper[x-placement^="top"] .arrow {
-    bottom: 0;
-    margin-left: -6px;
-    border-width: 6px 6px 0;
+.root[x-placement^="top"] { margin-bottom: $tooltip-arrow-size; }
+.root[x-placement^="top"] .arrow {
+    bottom: -$tooltip-arrow-size;
+    margin-left: -$tooltip-arrow-size;
+    border-width: $tooltip-arrow-size $tooltip-arrow-size 0;
     border-top-color: $tooltip-background-color;
 }
-
-.popper[x-placement="top"] .arrow {
-    left: 50%;
-    margin-left: -6px;
+.root[x-placement="top-start"] .arrow { left: $tooltip-arrow-offset; }
+.root[x-placement="top"] .arrow { left: 50%; }
+.root[x-placement="top-end"] .arrow { 
+    right: $tooltip-arrow-offset;
+    margin-right: -$tooltip-arrow-size;
 }
 
-.popper[x-placement="top-start"] .arrow {
-    left: 16px;
-}
-
-.popper[x-placement="top-end"] .arrow {
-    right: 16px;
-}
-
-.popper[x-placement^="right"] .arrow {
-    left: 0;
-    margin-bottom: -6px;
-    border-width: 6px 6px 6px 0;
-    border-right-color: $tooltip-background-color;
-}
-
-.popper[x-placement="right"] .arrow {
-    top: 50%;
-    margin-top: -6px;
-}
-
-.popper[x-placement="right-start"] .arrow {
-    top: 8px;
-}
-
-.popper[x-placement="right-end"] .arrow {
-    bottom: 8px;
-}
-
-.popper[x-placement^="left"] .arrow {
-    right: 0;
-    margin-bottom: -6px;
-    border-width: 6px 0 6px 6px;
-    border-left-color: $tooltip-background-color;
-}
-
-.popper[x-placement="left"] .arrow {
-    top: 50%;
-    margin-top: -6px;
-}
-
-.popper[x-placement="left-start"] .arrow {
-    top: 8px;
-}
-
-.popper[x-placement="left-end"] .arrow {
-    bottom: 8px;
-}
-
-.popper[x-placement^="bottom"] .arrow {
-    top: 0;
-    margin-left: -6px;
-    border-width: 0px 6px 6px;
+.root[x-placement^="bottom"] { margin-top: $tooltip-arrow-size; }
+.root[x-placement^="bottom"] .arrow {
+    top: -$tooltip-arrow-size;;
+    margin-left: -$tooltip-arrow-size;
+    border-width: 0 $tooltip-arrow-size $tooltip-arrow-size;
     border-bottom-color: $tooltip-background-color;
 }
-
-.popper[x-placement="bottom"] .arrow {
-    left: 50%;
-    margin-left: -6px;
+.root[x-placement="bottom-start"] .arrow { left: $tooltip-arrow-offset; }
+.root[x-placement="bottom"] .arrow { left: 50%; }
+.root[x-placement="bottom-end"] .arrow { 
+    right: $tooltip-arrow-offset;
+    margin-right: -$tooltip-arrow-size;
 }
 
-.popper[x-placement="bottom-start"] .arrow {
-    left: 16px;
+.root[x-placement^="left"] { margin-right: $tooltip-arrow-size; }
+.root[x-placement^="left"] .arrow {
+    right: -$tooltip-arrow-size;
+    margin-top: -$tooltip-arrow-size;
+    border-width: $tooltip-arrow-size 0 $tooltip-arrow-size $tooltip-arrow-size;
+    border-left-color: $tooltip-background-color;
+}
+.root[x-placement="left-start"] .arrow { top: $tooltip-arrow-offset; }
+.root[x-placement="left"] .arrow { top: 50%; }
+.root[x-placement="left-end"] .arrow { 
+    bottom: $tooltip-arrow-offset; 
+    margin-bottom: -$tooltip-arrow-size; 
 }
 
-.popper[x-placement="bottom-end"] .arrow {
-    right: 16px;
+.root[x-placement^="right"] { margin-left: $tooltip-arrow-size; }
+.root[x-placement^="right"] .arrow {
+    left: -$tooltip-arrow-size;
+    margin-top: -$tooltip-arrow-size;
+    border-width: $tooltip-arrow-size $tooltip-arrow-size $tooltip-arrow-size 0;
+    border-right-color: $tooltip-background-color;
+}
+.root[x-placement="right-start"] .arrow { top: $tooltip-arrow-offset; }
+.root[x-placement="right"] .arrow { top: 50%; }
+.root[x-placement="right-end"] .arrow { 
+    bottom: $tooltip-arrow-offset;
+    margin-bottom: -$tooltip-arrow-size;
 }
 
-.popper {
-    box-sizing: border-box;
-    z-index: 1065;
-}
-
-.content {
-    padding: 12px 16px;
+.wrap{
     max-width: 260px;
     word-break: break-all;
-    color: #fff;
-    background: $tooltip-background-color;
-    position: relative;
     line-height: 20px;
-    border-radius: 2px;
-    font-size: 12px;
 }
 
-.content[size$="small"]{ max-width: 120px;}
+.wrap[size$="small"]{ max-width: 120px;}
 .wrap[size^="small"]{ max-height: 100px; overflow-y: auto; }
 
-.content[size$="normal"]{ max-width: 260px;}
+.wrap[size$="normal"]{ max-width: 260px;}
 .wrap[size^="normal"]{ max-height: none; }
 
-.content[size$="large"]{ max-width: 430px;}
+.wrap[size$="large"]{ max-width: 430px;}
 .wrap[size^="large"]{ max-height: 200px; overflow-y: auto; }
 
-.content[size$="auto"]{ max-width: none;}
+.wrap[size$="auto"]{ max-width: none;}
 .wrap[size^="auto"]{ max-height: none; }
-
-.popper[x-placement^="top"] .content {
-    top: -6px;
-}
-
-.popper[x-placement^="bottom"] .content {
-    top: 6px;
-}
-
-.popper[x-placement^="right"] .content {
-    left: 6px;
-}
-
-.popper[x-placement^="left"] .content {
-    left: -6px;
-}

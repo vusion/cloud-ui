@@ -1,13 +1,14 @@
-<u-popper :trigger="trigger" :placement="placement" :reference="reference">
+<u-popper :trigger="trigger" :placement="placement" :reference="reference"
+    :open="open" v-on="$listeners" :disabled="disabled || !hasContent">
     <slot></slot>
-    <div :class="$style.popper" slot="popper" v-show="content">
-        <div :class="$style.arrow"></div>
-        <div :class="$style.content" v-bind="$attrs" :style="{ maxWidth: contentWidth !== 'auto'? contentWidth : ''}">
-            <div :class="$style.wrap" v-bind="$attrs" :style="{maxHeight: contentHeight !== 'auto' ? contentHeight : '',  overflowY: contentHeight !== 'auto' ? 'auto':''}">
-                <slot name="content">
-                    <div>{{content}}</div>
+    <div :class="[$style.root, $style.popper]" slot="popper">
+        <div :class="$style.arrow"></div><!-- popper在某些场景下可以移动该元素 -->
+        <slot name="popper">
+            <div :class="[$style.body, $style.wrap]" v-bind="$attrs">
+                <slot name="body">
+                    <slot name="content">{{ content }}</slot>
                 </slot>
             </div>
-        </div>
+        </slot>
     </div>
 </u-popper>
