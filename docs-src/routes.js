@@ -2,12 +2,20 @@ import Vue from 'vue';
 import Layout from './views/layout.vue';
 import Index from './views/index.vue';
 import Components from './views/components.vue';
+import Guide from './views/guide/index.vue';
+import GuideIntroduce from './views/guide/introduce.vue';
+import GuideDesign from './views/guide/design.vue';
 
 const Empty = Vue.extend({ template: '<div>待完善...</div>' });
 
 export default [
     { path: '/', component: Layout, children: [
         { path: '', component: Index, redirect: '/components' },
+        { path: 'guide', component: Guide, children: [
+            { path: '', redirect: 'introduce' },
+            { path: 'introduce', component: GuideIntroduce },
+            { path: 'design', component: GuideDesign },
+        ] },
         { path: 'components', component: Components, children: [
             { path: '', redirect: 'u-link' },
             /* Basic */
