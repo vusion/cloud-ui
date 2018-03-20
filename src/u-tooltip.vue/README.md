@@ -119,23 +119,6 @@ export default {
 </u-linear-layout>
 ```
 
-### 改变宽高
-``` html
-<u-linear-layout direction="vertical">
-    <u-linear-layout>
-        <u-tooltip content="Tooltip">
-            <u-button>top-start</u-button>
-        </u-tooltip>
-        <u-tooltip content="Tooltip size value is small normal" size="small normal">
-            <u-button>top</u-button>
-        </u-tooltip>
-        <u-tooltip content="Tooltip size value is large" size="large">
-            <u-button>top-end</u-button>
-        </u-tooltip>
-    </u-linear-layout>
-</u-linear-layout>
-```
-
 #### 指令形式
 
 ``` html
@@ -169,6 +152,60 @@ export default {
 <u-tooltip content="Tooltip" disabled>
     <u-button disabled>disabled</u-button>
 </u-tooltip>
+```
+
+### 大小扩展
+
+``` vue
+<template>
+<u-linear-layout>
+    <u-tooltip :content="content" size="small">
+        <u-button>small</u-button>
+    </u-tooltip>
+    <u-tooltip :content="content">
+        <u-button>normal</u-button>
+    </u-tooltip>
+    <u-tooltip :content="content" size="large">
+        <u-button>large</u-button>
+    </u-tooltip>
+    <u-tooltip :content="content" size="auto">
+        <u-button>auto</u-button>
+    </u-tooltip>
+</u-linear-layout>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            content: '深蓝的天空中挂着一轮金黄的圆月，下面是海边的沙地，都种着一望无际的碧绿的西瓜。其间有一个十一二岁的少年，项带银圈，手捏一柄钢叉，向一匹猹尽力地刺去。那猹却将身一扭，反从他的胯下逃走了。',
+        };
+    },
+};
+</script>
+```
+
+#### 指令形式
+
+``` vue
+<template>
+<u-linear-layout>
+    <u-button v-tooltip.small="content">small</u-button>
+    <u-button v-tooltip="content">normal</u-button>
+    <u-button v-tooltip.large="content">large</u-button>
+    <u-button v-tooltip.auto="content">auto</u-button>
+</u-linear-layout>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            content: '深蓝的天空中挂着一轮金黄的圆月，下面是海边的沙地，都种着一望无际的碧绿的西瓜。其间有一个十一二岁的少年，项带银圈，手捏一柄钢叉，向一匹猹尽力地刺去。那猹却将身一扭，反从他的胯下逃走了。',
+        };
+    },
+};
+</script>
 ```
 
 ## API

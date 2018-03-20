@@ -4,7 +4,7 @@
     <div :class="[$style.root, $style.popper]" slot="popper">
         <div :class="$style.arrow"></div><!-- popper在某些场景下可以移动该元素 -->
         <slot name="popper">
-            <div :class="[$style.body, $style.wrap]" v-bind="$attrs">
+            <div :class="[$style.body, $style.wrap]" :size="size">
                 <slot name="body">
                     <slot name="content">{{ content }}</slot>
                 </slot>

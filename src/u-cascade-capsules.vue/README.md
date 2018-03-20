@@ -142,7 +142,7 @@ export default {
 </u-cascade-capsules>
 ```
 
-### cancelable
+### 可取消
 
 ``` html
 <u-cascade-capsules :auto-select="false" cancelable :categories="[
