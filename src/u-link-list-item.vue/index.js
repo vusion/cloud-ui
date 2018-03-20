@@ -4,9 +4,6 @@ export default {
     name: 'u-link-list-item',
     parentName: 'u-link-list',
     mixins: [Emitter],
-    props: {
-        disabled: { type: Boolean, default: false },
-    },
     data() {
         return {
             inside: false,

@@ -3,6 +3,8 @@ export default {
     childName: 'u-link-list-item',
     props: {
         maxCount: { type: Number, default: 3 },
+        menuTitle: { type: String, default: '更多' },
+        placement: { type: String, default: 'bottom-end' },
     },
     data() {
         return {
