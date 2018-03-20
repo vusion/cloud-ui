@@ -159,11 +159,11 @@ export default {
          * @param  {object} $event
          * @return {void}
          */
-        onInput(value) {
+        onInput($event) {
             if (this.timer)
                 clearTimeout(this.timer);
             this.timer = setTimeout(() => {
-                this.setValue(value);
+                this.setValue($event);
             }, 1000);
         },
         setValue($event) {
@@ -198,7 +198,7 @@ export default {
                 time = (+this.time > 10 ? this.time : '0' + this.time) + ':00:00';
             else
                 time = this.time.replace(/^(\w:)/, '0$1').replace(/:(\w):/g, ':0$1:').replace(/:(\w)$/, ':0$1');
-            return parse(format(date, 'yyyy-MM-dd') + 'T' + time);
+            return parse(format(date, 'YYYY-MM-DD') + 'T' + time);
         },
     },
 };

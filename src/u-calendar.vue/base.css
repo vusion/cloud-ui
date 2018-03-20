@@ -81,7 +81,7 @@
     color: $field-disabled-color;
 }
 
-.item[selected] span, .item3[selected] span{
+.item[selected]:not([state='notcur']) span, .item3[selected] span{
     background-color: $field-selected-color;
     color: #fff;
 }

@@ -14,7 +14,7 @@ th {
     padding-bottom: 10px;
 }
 
-.item[today] span{
+.item[today]:not([state='notcur']) span{
     color: $field-selected-color;
     background-color: $field-hover-color;
     border: 1px solid $field-selected-color;
@@ -45,6 +45,6 @@ th {
     padding-right: 0px;
 }
 
-.item[isBetween] {
+.item[isBetween]:not([state='notcur']) div{
     background-color: $field-hover-color;
 }

@@ -16,7 +16,7 @@ export default {
         endDate: { type: [String, Date], default: null, validator: dateValidadtor },
         showDate: { type: [String, Date], default: null, validator: dateValidadtor }, // 起始日历显示的日期
         gap: { type: Number, default: 1 }, // 起始日历和结束日历的月份间隔
-        dateRange: { type: Array, default: () => [] },
+        dateRange: { type: Array, default: () => [] }, // 暂不设置区间
         minDate: { type: [String, Date], default: null, validator: dateValidadtor },
         maxDate: { type: [String, Date], default: null, validator: dateValidadtor },
         disabled: { type: Boolean, default: false },
@@ -39,10 +39,12 @@ export default {
             allowPre: false,
             allowNext: false,
             hoverDate: null, // 鼠标悬浮的日期
+            currentDateRange: [], // 当前日期选择范围
         };
     },
     created() {
         // calendar中会验证时间合法性
+        this.initDateRange();
         this.initDate();
     },
     directives: { clickOutside },
@@ -61,9 +63,13 @@ export default {
         },
         currentStartDate(date, oldDate) {
             this.formatCurrentStartDate = format(date, this.currentDateFormat); // Date
+            if (this.selectDateArr && this.selectDateArr[0])
+                this.selectDateArr[0] = date;
         },
         currentEndDate(date, oldDate) {
             this.formatCurrentEndDate = format(date, this.currentDateFormat); // Date
+            if (this.selectDateArr && this.selectDateArr[1])
+                this.selectDateArr[1] = date;
         },
     },
     methods: {
@@ -71,13 +77,24 @@ export default {
             if (this.startDate && this.endDate && isAfter(parse(this.startDate), parse(this.endDate)))
                 throw new TypeError('startDate cannot after endDate');
 
-            this.startDate && (this.currentStartDate = parse(this.startDate));
-            this.endDate && (this.currentEndDate = parse(this.endDate));
-            this.startShowDate = this.showDate ? this.setDateTime(parse(this.showDate)) : new Date();
+            if (this.startDate) {
+                this.currentStartDate = parse(this.startDate);
+                this.selectDateArr[++this.selectIndex] = this.currentStartDate;
+            }
+            if (this.endDate) {
+                this.currentEndDate = parse(this.endDate);
+                this.selectDateArr[++this.selectIndex] = this.currentEndDate; // 大小后续会排序，如果没有startDate就放第一个
+            }
+            if (this.showDate)
+                this.startShowDate = this.setDateTime(parse(this.showDate));
+            else if (this.startDate)
+                this.startShowDate = this.setDateTime(parse(this.startDate));
+            else
+                this.startDate = new Date();
             this.endShowDate = addMonths(this.startShowDate, this.gap);
         },
         initAllow() { // 月份相邻不可更改上下按钮
-            const _trans = (date) => +parse(date, 'YYYYMM');
+            const _trans = (date) => +format(date, 'YYYYMM');
             const setAllow = (allow) => {
                 this.allowNext = this.allowPre = allow;
             };
@@ -98,10 +115,8 @@ export default {
             const tempDate = this.setDateTime(date);
             this.selectIndex = (this.selectIndex + 1) % 2;
             this.selectDateArr[this.selectIndex] = tempDate;
-            if (this.selectIndex < 1) {
+            if (this.selectIndex < 1)
                 this.selectDateArr = this.selectDateArr.slice(0, 1); // 选择一个的时候，清空第二个选项
-                return;
-            }
             /**
              * @event select 选择了起始和结束时间时触发
              * @property {object} sender 事件发送对象
@@ -112,7 +127,15 @@ export default {
                 date: this.selectDateArr,
                 oldDate: [this.currentStartDate, this.currentEndDate],
             });
-
+            if (this.selectIndex < 1)
+                return;
+            if (this.selectDateArr.length === 2) {
+                this.$emit('change', {
+                    sender: this,
+                    date: this.selectDateArr,
+                    oldDate: [this.currentStartDate, this.currentEndDate],
+                });
+            }
             this.selectDateArr = sortIncrease(this.selectDateArr); // 选择的两个值按照大小排序
             this.currentStartDate = this.selectDateArr[0];
             this.$emit('update:startDate', this.selectDateArr[0]);
@@ -126,25 +149,28 @@ export default {
          * @param  {object} $event
          * @return {void}
          */
-        onInput(value) {
-            if (this.timer)
-                clearTimeout(this.timer);
-            this.timer = setTimeout(() => {
-                this.setValue(value);
+        onStartInput($event) {
+            if (this.startTimer)
+                clearTimeout(this.startTimer);
+            this.startTimer = setTimeout(() => {
+                this.setValue($event, 0);
             }, 1000);
         },
-        // onMouseover(event) {
-        //     this.hoverDate = event.value;
-        // },
-        setValue($event) {
+        onEndInput($event) {
+            if (this.endTimer)
+                clearTimeout(this.endTimer);
+            this.endTimer = setTimeout(() => {
+                this.setValue($event, 1);
+            }, 1000);
+        },
+        setValue($event, index) {
             const dateStr = $event.target.value;
             const tempDate = this.setDateTime(parse(dateStr));
             if (tempDate.toString() !== 'Invalid Date' && isDate(tempDate)) {
-                this.$refs.input.value = format(tempDate, this.currentDateFormat); // 保证同一个Date，同一种format形式
-                isEqual(tempDate, this.currentDate) || (this.currentDate = tempDate);
+                this.$refs['input' + index].value = format(tempDate, this.currentDateFormat); // 保证同一个Date，同一种format形式
+                isEqual(tempDate, index === 0 ? this.currentStartDate : this.currentEndDate) || (index === 0 ? this.currentStartDate = tempDate : this.currentEndDate = tempDate);
             } else
-                this.$refs.input.value = format(this.currentDate, this.currentDateFormat);
-            // this.$forceUpdate();
+                this.$refs['input' + index].value = format(index === 0 ? this.currentStartDate : this.currentEndDate, this.currentDateFormat);
         },
         /**
          * @method toggle(flag) 是否显示日历组件
@@ -154,8 +180,7 @@ export default {
         onToggle($event) {
             this.$emit('toggle', $event);
         },
-        setDateTime(date) { // 如果超出范围，不可设置
-            // 先不设置时分秒
+        setDateTime(date) { // 时分秒组件上了再设置时分秒
             return date;
 
             // if (this.$refs.calendar && !this.$refs.calendar.inCalendarDateRange(date))
@@ -172,6 +197,22 @@ export default {
             // else
             //     time = this.time.replace(/^(\w:)/, '0$1').replace(/:(\w):/g, ':0$1:').replace(/:(\w)$/, ':0$1');
             // return parse(format(date, 'yyyy-MM-dd') + 'T' + time);
+        },
+        initDateRange() {
+            if (this.minDate || this.maxDate)
+                this.currentDateRange.push([this.minDate, this.maxDate]);
+            if (this.minDate && this.maxDate && isAfter(this.minDate, this.maxDate))
+                throw new Error('maxDate should not before minDate');
+            if (!this.selectDateInRange())
+                throw new RangeError('date is out of dateRange');
+        },
+        selectDateInRange() { // 初始选择的数据是否在dateRange中
+            let res = true;
+            if (this.currentStartDate)
+                res = res && inDateRange(this.currentStartDate, this.currentDateRange);
+            if (this.currentEndDate)
+                res = res && inDateRange(this.currentEndDate, this.currentDateRange);
+            return res;
         },
     },
 };

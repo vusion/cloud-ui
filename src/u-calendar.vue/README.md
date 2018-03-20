@@ -65,10 +65,8 @@ export default {
 
 ### 只读 readonly 和 禁用 disabled 
 ``` html
-<u-linear-layout>
 <u-calendar date="2018-08-08" readonly style="vertical-align: top;"></u-calendar>
 <u-calendar date="2018-08-08" disabled style="vertical-align: top;"></u-calendar>
-</u-linear-layout>
 ```
 
 ### 最大值maxDate 最小值minDate

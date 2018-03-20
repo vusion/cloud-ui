@@ -61,7 +61,10 @@ export default {
 ### 事件
 ``` vue
 <template>
-<u-date-picker @change="change" @select="select" @toggle="toggle($event)"></u-date-picker>
+<u-linear-layout>
+    <u-date-picker @change="change" @select="select" @toggle="toggle($event)"></u-date-picker>
+    <u-date-picker @change="timeChange" time="morning"></u-date-picker>
+</u-linear-layout>
 </template>
 
 <script>
@@ -69,6 +72,9 @@ export default {
     methods: {
         change($event) {
             console.log('change', $event); // 改变date触发
+        },
+        timeChange($event) {
+            console.log('timeChange', $event); // 设置time为morning，事件设置为08:00:00
         },
         select($event) {
         	console.log('select', $event); // 选择日历触发

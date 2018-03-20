@@ -10,7 +10,39 @@
 <u-date-range-picker :placeholderArr="['请选择开始日期', '请选择结束日期']"></u-date-range-picker>
 ```
 
+### 日期范围
+``` html
+<u-date-range-picker startDate="2018-01-01" endDate="" minDate="2017-12-12" maxDate="2018-02-12"></u-date-range-picker>
+```
 
+### 只读
+``` html
+<u-date-range-picker readonly startDate="2018-01-01" endDate="2018-02-02"></u-date-range-picker>
+```
+<!-- ### 只读和禁用 禁用效果诡异
+``` html
+<u-date-range-picker readonly startDate="2018-01-01" endDate="2018-02-02"></u-date-range-picker>
+<u-date-range-picker disabled startDate="2018-01-01" endDate="2018-02-02"></u-date-range-picker>
+``` -->
+
+### 事件
+``` vue
+<template>
+    <u-date-range-picker startDate="2018-01-01" endDate="2018-02-02" @change="onChange($event)" @select="onSelect($event)"></u-date-range-picker>
+</template>
+<script>
+export default {
+    methods: {
+        onChange(event) {
+            console.log('change', event);
+        },
+        onSelect(event) {
+            console.log('select', event);
+        },
+    }
+};
+</script>
+```
 
 
 ## API
@@ -18,17 +50,16 @@
 
 | Attr/Prop | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
-| date | String,Number,Date | 当天 | 初始日期值 |
-| placeholder | String | 'yyyy-mm-dd' | 输入框默认值 |
+| startDate | String,Number,Date | `null` | 选择起始日期 |
+| endDate | String,Number,Date | `null` | 选择结束日期 |
+| showDate | String,Number,Date | `null` | 起始日历显示的日期, 优先级：showDate -> startDate -> new Date() |
+| placeholderArr | Array | '[]' | 输入框默认值 |
 | minDate | String,Number,Date | | 最小日期 |
 | maxDate | String,Number,Date | | 最大日期 |
 | readonly | Boolean | `false` | 是否只读 |
-| disabled | Boolean | `false` | 是否禁用 |
-| autofocus | Boolean | `false` | 文本框默认处于focus |
-| alignment | String | `left` | 日历弹窗对其方式，可选值：left, right(分别对应popper组件的`bottom-start`和`bottom-end`)，以及popper的其他placement选项值 |
+<!-- | disabled | Boolean | `false` | 是否禁用 | -->
+| placement | String | `bottom-start` | 同`<popper>`组件 |
 | dateFormat | String | `YYYY-MM-DD` | 日期显示格式，合法格式参照[date-fns](https://date-fns.org/v1.29.0/docs/format) |
-| tag | String | `111` | 对年月日设置是否能选择，`1`为可选择，`0`为不可选择 |
-| time | String, Number | `start` | 设置返回的日期的时分秒值，可选值为start:时分秒是0:00:00,morning:时分秒为8:00:00,end:表示时分秒为: 23:59:59, 输入整数表示对应的整数时刻，例如输入9代表时分秒为9:00:00,自定义时分秒请输入对应格式的字符串即可 |
 
 ### Events
 
@@ -39,8 +70,8 @@
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event.sender | Object | 发出事件的vueComponent |
-| $event.date | Date | 旧日期 |
-| $event.oldDate | Date | 新日期 |
+| $event.date | Date | 旧日期数组 |
+| $event.oldDate | Date | 新日期数组 |
 
 #### @select
 
@@ -49,7 +80,8 @@
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event.sender | Object | 发出事件的vueComponent |
-| $event.date | Date | 选择日期 |
+| $event.date | Date | 旧日期数组 |
+| $event.oldDate | Date | 新日期数组 |
 
 #### @toggle
 同`u-popper`组件的`toggle`事件

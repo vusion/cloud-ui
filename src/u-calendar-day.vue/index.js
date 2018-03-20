@@ -20,7 +20,7 @@ export default {
     mixins: [Emitter],
     props: {
         date: { type: [String, Date], default: undefined, validator: dateValidadtor }, // 单独引用时
-        showDate: { type: Date }, // u-calendar转为Date传入
+        showDate: { type: [String, Date], default: undefined, validator: dateValidadtor },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         isDateRangePicker: { type: Boolean, default: false },
@@ -37,7 +37,6 @@ export default {
             currentShowDate: null, // 当前显示时间页面
             currentMonth: '',
             dayRowArr: [],
-            // currentSelectedDate: this.selectedDate,
         };
     },
     watch: {
@@ -54,9 +53,6 @@ export default {
                 return;
             this.initDate();
         },
-        // selectedDate(value) {
-        //     this.currentSelectedDate = value;
-        // },
     },
     created() {
         this.initDate();
@@ -137,7 +133,7 @@ export default {
                     rangeArr.push([hoverAfterSelect ? this.selectedDate[0] : this.hoverDate, hoverAfterSelect ? this.hoverDate : this.selectedDate[0]]);
                 } else if (this.selectedDate.length === 2)
                     rangeArr.push(sortIncrease(this.selectedDate.slice(0)));
-                return rangeArr.length <= 0 ? false : inDateRange(date, rangeArr);
+                return rangeArr.length <= 0 ? false : inDateRange(date, rangeArr, true);
             }
             return false;
         },
