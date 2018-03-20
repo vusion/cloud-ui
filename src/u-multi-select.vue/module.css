@@ -170,10 +170,10 @@
 .body[size$="medium"]{ width: 280px; }
 .head[size^="medium"]{ line-height: 34px; min-height: 36px; }
 
-.head[size$="large"] { width: 360px; }
-.body[size$="large"]{ width: 360px; }
+.head[size$="large"] { width: 440px; }
+.body[size$="large"]{ width: 440px; }
 .head[size^="large"]{ line-height: 36px; min-height: 38px; }
 
-.head[size$="huge"] { width: 440px; }
-.body[size$="huge"] { width: 440px; }
+.head[size$="huge"] { width: 580px; }
+.body[size$="huge"] { width: 580px; }
 .head[size^="huge"] { min-height: 40px; line-height: 38px; }

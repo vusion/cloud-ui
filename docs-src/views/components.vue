@@ -49,6 +49,7 @@
                     <u-sidebar-item to="/components/u-tree-view">树型选择 <small>TreeView</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-table-view">表格视图 <small>TableView</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-capsules">胶囊 <small>Capsules</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-cascade-capsules">级联胶囊 <small>CascadeCapsules</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-pills">药丸 <small>Pills</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-tablets">药片 <small>Tablets</small></u-sidebar-item>
                 </u-sidebar-group>

@@ -38,10 +38,10 @@
 .input[size$="normal"] { width: 160px; padding: 5px 10px; }
 .input[size^="normal"] { height: 80px; }
 
-.input[size$="large"] { width: 320px; padding: 5px 10px; }
+.input[size$="large"] { width: 440px; padding: 5px 10px; }
 .input[size^="large"] { height: 120px; }
 
-.input[size$="huge"] { width: 440px; padding: 5px 10px; }
+.input[size$="huge"] { width: 580px; padding: 5px 10px; }
 .input[size^="huge"] { height: 200px; }
 
 .root[size$="full"] { width: 100%; }

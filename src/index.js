@@ -14,6 +14,7 @@ import Calendar from './u-calendar.vue';
 import Capsule from './u-capsule.vue';
 import CapsuleGroup from './u-capsule-group.vue';
 import Capsules from './u-capsules.vue';
+import CascadeCapsules from './u-cascade-capsules.vue';
 import Chart from './u-chart.vue';
 import Checkboxes from './u-checkboxes.vue';
 import CircularProgress from './u-circular-progress.vue';
@@ -94,6 +95,7 @@ export {
     Capsule,
     CapsuleGroup,
     Capsules,
+    CascadeCapsules,
     Chart,
     Checkbox,
     Checkboxes,
