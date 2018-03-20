@@ -11,6 +11,7 @@ export {
     Capsule,
     CapsuleGroup,
     Capsules,
+    CascadeCapsules,
     Chart,
     Checkbox,
     Checkboxes,

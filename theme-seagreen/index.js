@@ -13,6 +13,7 @@ export {
     Capsule,
     CapsuleGroup,
     Capsules,
+    CascadeCapsules,
     Checkbox,
     Checkboxes,
     CircularProgress,
