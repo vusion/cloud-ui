@@ -42,6 +42,7 @@
 
 .htrItem {
     background-color: #f5f7fa;
+    background-clip: padding-box;
     border-bottom: 1px solid #ebf0f5;
 }
 .htrItem[color='light'] {
@@ -171,6 +172,7 @@
 
 .btrItem:hover {
     background-color: #fff;
+    background-clip: padding-box;
 }
 
 .btrItem:hover .btdSpan:before {
