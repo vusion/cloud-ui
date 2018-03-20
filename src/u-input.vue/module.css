@@ -46,10 +46,10 @@
 .input[size$="medium"] { width: 280px; padding: 0 10px; }
 .input[size^="medium"] { height: 36px; }
 
-.input[size$="large"] { width: 360px; padding: 0 10px; }
+.input[size$="large"] { width: 440px; padding: 0 10px; }
 .input[size^="large"] { height: 38px; }
 
-.input[size$="huge"] { width: 440px; padding: 0 10px; }
+.input[size$="huge"] { width: 580px; padding: 0 10px; }
 .input[size^="huge"] { height: 40px; }
 
 .root[size$="full"] { width: 100%; }
