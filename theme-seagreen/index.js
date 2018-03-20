@@ -51,7 +51,6 @@ export {
     ListViewGroup,
     ListViewItem,
     LinkList,
-    LinkListMenu,
     LinkListItem,
     Loading,
     Logo,

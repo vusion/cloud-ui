@@ -1,0 +1,34 @@
+@import 'proto-ui.vusion/src/u-menu-item.vue/module.css';
+
+.root {
+    padding: 6px 15px;
+}
+
+.root:hover {
+    background: #f5f7fa;
+}
+
+.root[readonly] {
+    cursor: default;
+    background: none;
+}
+
+.root[selected] {
+    background: $brand-primary;
+    color: white;
+}
+
+.root[disabled] {
+    /* @Private */
+    cursor: $cursor-not-allowed;
+    background: none;
+    color: $brand-disabled;
+}
+
+.root[selected][disabled] {
+    background: $gray-lighter;
+}
+
+.root + .root {
+    border-top: 1px solid $brand-secondary;
+}

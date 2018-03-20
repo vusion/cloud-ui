@@ -23,6 +23,7 @@
                 <u-sidebar-group title="Navigation">
                     <u-sidebar-item exact to="/components/u-navbar">导航栏 <small>Navbar</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-sidebar">侧边栏 <small>Sidebar</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-menu">菜单 <small>Menu</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-subnav">子导航 <small>Subnav</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-tabs">标签页 <small>Tabs</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-subtabs">子标签页 <small>Subtabs</small></u-sidebar-item>
@@ -63,7 +64,7 @@
                 <u-sidebar-group title="Popper">
                     <u-sidebar-item exact to="/components/u-popper">弹出层 <small>Popper</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-tooltip">工具提示 <small>Tooltip</small></u-sidebar-item>
-                    <u-sidebar-item exact to="/components/u-popover">弹出框 <small>Popover</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-popup">弹出框 <small>Popup</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Feedback">
                     <u-sidebar-item exact to="/components/u-loading">加载中 <small>Loading</small></u-sidebar-item>
