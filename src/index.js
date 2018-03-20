@@ -38,8 +38,12 @@ import LightBoxItem from './u-lightbox-item.vue';
 import LineChart from './u-line-chart.vue';
 import LinearLayout from './u-linear-layout.vue';
 import Link from './u-link.vue';
+import LinkList from './u-link-list.vue';
+import LinkListItem from './u-link-list-item.vue';
 import Loading from './u-loading.vue';
 import Logo from './u-logo.vue';
+import Menu from './u-menu.vue';
+import MenuItem from './u-menu-item.vue';
 import Modal from './u-modal.vue';
 import MultiSelect from './u-multi-select.vue';
 import Navbar from './u-navbar.vue';
@@ -51,6 +55,7 @@ import PieChart from './u-pie-chart.vue';
 import Pill from './u-pill.vue';
 import Pills from './u-pills.vue';
 import Popover from './u-popover.vue';
+import Popup from './u-popup.vue';
 import Radios from './u-radios.vue';
 import SelectDivider from './u-select-divider.vue';
 import SelectGroup from './u-select-group.vue';
@@ -120,8 +125,12 @@ export {
     LineChart,
     LinearLayout,
     Link,
+    LinkList,
+    LinkListItem,
     Loading,
     Logo,
+    Menu,
+    MenuItem,
     Modal,
     MultiSelect,
     Navbar,
@@ -133,6 +142,7 @@ export {
     Pill,
     Pills,
     Popover,
+    Popup,
     Radio,
     Radios,
     SelectDivider,
@@ -187,6 +197,8 @@ export {
     ListViewDivider,
     ListViewGroup,
     ListViewItem,
+    MenuGroup,
+    MenuDivider,
     Popper,
     Render,
     RouterItem,

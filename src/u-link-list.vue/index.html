@@ -1,0 +1,16 @@
+<div :class="$style.root">
+    <div v-show="false"><slot></slot></div>
+    <u-linear-layout gap="small">
+        <u-link v-for="itemVM in outsideVMs" :key="itemVM._uid" v-bind="itemVM.$attrs" v-on="itemVM.$listeners">
+            <u-render :vnode="itemVM.$slots.default"></u-render>
+        </u-link>
+        <u-popup v-if="insideVMs.length" :placement="placement">
+            <u-link>{{ menuTitle }} ▾</u-link>
+            <u-menu slot="popper">
+                <u-menu-item v-for="itemVM in insideVMs" :key="itemVM._uid" v-bind="itemVM.$attrs" v-on="itemVM.$listeners">
+                    <u-render :vnode="itemVM.$slots.default"></u-render>
+                </u-menu-item>
+            </u-menu>
+        </u-popup>
+    </u-linear-layout>
+</div>

@@ -13,6 +13,7 @@ export default [
             /* Basic */
             { path: 'u-base', component: () => import('proto-ui.vusion/src/base/README.md') },
             { path: 'u-link', component: () => import('../src/u-link.vue/README.md') },
+            { path: 'u-link-list', component: () => import('../src/u-link-list.vue/README.md') },
             { path: 'u-button', component: () => import('../src/u-button.vue/README.md') },
             { path: 'u-badge', component: () => import('proto-ui.vusion/src/u-badge.vue/README.md') },
             { path: 'u-tags', component: () => import('../src/u-tag.vue/README.md') },
@@ -26,10 +27,11 @@ export default [
             /* Navigation */
             { path: 'u-navbar', component: () => import('../src/u-navbar.vue/README.md') },
             { path: 'u-sidebar', component: () => import('proto-ui.vusion/src/u-sidebar.vue/README.md') },
-            { path: 'u-steps', component: () => import('proto-ui.vusion/src/u-steps.vue/README.md') },
+            { path: 'u-menu', component: () => import('proto-ui.vusion/src/u-menu.vue/README.md') },
             { path: 'u-subnav', component: () => import('../src/u-subnav.vue/README.md') },
             { path: 'u-tabs', component: () => import('proto-ui.vusion/src/u-tabs.vue/README.md') },
             { path: 'u-subtabs', component: () => import('../src/u-subtabs.vue/README.md') },
+            { path: 'u-steps', component: () => import('proto-ui.vusion/src/u-steps.vue/README.md') },
             { path: 'u-pagination', component: () => import('proto-ui.vusion/src/u-pagination.vue/README.md') },
             /* Form */
             { path: 'u-input', component: () => import('../src/u-input.vue/README.md') },
@@ -62,7 +64,7 @@ export default [
             /* Popper */
             { path: 'u-popper', component: () => import('proto-ui.vusion/src/u-popper.vue/README.md') },
             { path: 'u-tooltip', component: () => import('../src/u-tooltip.vue/README.md') },
-            { path: 'u-popover', component: () => import('../src/u-popover.vue/README.md') },
+            { path: 'u-popup', component: () => import('proto-ui.vusion/src/u-popup.vue/README.md') },
             /* Feedback */
             { path: 'u-loading', component: () => import('../src/u-loading.vue/README.md') },
             { path: 'u-toast', component: () => import('../src/u-toast.vue/README.md') },

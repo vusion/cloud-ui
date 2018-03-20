@@ -7,7 +7,6 @@ export const clickOutside = {
         const documentHandler = function (e) {
             if (el.contains(e.target))
                 return false;
-
             if (binding.expression)
                 binding.value(e);
         };
