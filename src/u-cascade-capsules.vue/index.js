@@ -87,8 +87,10 @@ export default {
         // 如果没有传入 value，并且选择了 autoSelect，则自动触发一次同步事件
         if (this.autoSelect && this.value === undefined) {
             const value = this.currentConverter.get(this.values);
-            this.$emit('input', value);
-            this.$emit('update:value', value);
+            if (value !== '') {
+                this.$emit('input', value);
+                this.$emit('update:value', value);
+            }
         }
     },
     methods: {
@@ -99,15 +101,15 @@ export default {
          */
         setList(list, level) {
             // 递归结束条件
-            if (level >= this.categories.length)
-                return;
+            // if (level >= this.categories.length)
+            //     return;
 
             this.lists.splice(level, 1, list);
 
             const value = this.values[level];
             let item;
             if (list && list.length) {
-                item = list.find((item) => item.value === value);
+                item = list.find((item) => (item.exist === undefined || !!item.exist === true) && !!item.disabled && item.value === value);
 
                 // 自动调整 item 与 value
                 if (!item && this.autoSelect) {
@@ -127,10 +129,15 @@ export default {
                     item = list[index];
                 }
             }
-            this.values[level] = item ? item.value : undefined;
 
-            // 继续处理下一级
-            this.setList(item ? item.children : undefined, level + 1);
+            if (item) {
+                this.values.splice(level, 1, item.value);
+                // 继续处理下一级
+                level < this.categories.length && this.setList(item.children, level + 1);
+            } else {
+                this.values.splice(level, this.values.length - level);
+                this.lists.splice(level + 1, this.values.length - level - 1);
+            }
         },
         onSelect($event, level) {
             this.setList($event.item ? $event.item.children : undefined, level + 1);
