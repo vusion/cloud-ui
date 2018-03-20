@@ -76,6 +76,8 @@ export default {
              */
             const showDate = this.returnTime(newValue);
 
+            this.$emit('update:date', new Date(showDate));
+
             this.$emit('change', {
                 sender: this,
                 date: new Date(showDate),
@@ -128,8 +130,6 @@ export default {
                 sender: this,
                 date: new Date(showDate),
             });
-
-            this.$emit('update:date', new Date(showDate));
 
             this.$refs.popper.toggle(false);
         },

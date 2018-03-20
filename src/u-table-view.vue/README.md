@@ -139,7 +139,7 @@ export default {
         <u-button color="primary" @click="delData">删除</u-button>
         <u-table-view :data="tdata" :all-checked.sync="allChecked" @selection-change="selectionChange($event)">
             <u-table-view-column type="selection"></u-table-view-column>
-            <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
+            <u-table-view-column title="日期" label="date" type="time"></u-table-view-column>
             <u-table-view-column title="姓名" label="name" ></u-table-view-column>
             <u-table-view-column title="地址" label="address" ></u-table-view-column>
         </u-table-view>
@@ -150,19 +150,19 @@ export default {
     data: function () {
         return {
             tdata: [{
-                date: '2016-05-02',
+                date: 1521551897133,
                 name: '王小虎',
                 address: '上海市普陀区金沙江路 1518 弄',
             }, {
-                date: '2016-05-04',
+                date: 1521551897133,
                 name: '王大虎',
                 address: '上海市普陀区金沙江路 1517 弄'
             }, {
-                date: '2016-05-01',
+                date: 1521551897133,
                 name: '天王盖地虎',
                 address: '上海市普陀区金沙江路 1519 弄'
             }, {
-                date: '2016-05-03',
+                date: 1521551897133,
                 name: '小鸡炖蘑菇',
                 address: '上海市普陀区金沙江路 1516 弄'
             }],
@@ -542,7 +542,7 @@ export default {
 | options | Array\{name, value} | `` | 过滤项列表 |
 | value | String | `` | 默认过滤项选中的值 |
 | label | String | `` | 对象data中对象的属性 |
-| type | String | `` | 表示此列是否是可选择的，如果是值为selection |
+| type | String | `` | 表示此列是否是可选择的，如果是值为selection, 对于日期类型的值可以设置值为time,配合timeFormat属性，转换成想要的日期格式 |
 | label | String | `` | 对象data中对象的属性 |
 | width | String | `` | 是指列的宽度值 |
 | formatter | Function | `` | 自定义列的值 |
@@ -551,3 +551,4 @@ export default {
 | ellipsis | Boolean | `false` | 是否换行，默认换行，值为true则开启不换行，超出部分显示为省略号 |
 | border | Boolean | `false` | 是否有边框，默认无 |
 | color | String | `` | 值为light的时，表格头背景是#fff |
+| timeFormat | String | `'YYYY-MM-DD HH:mm:ss'` | 定义type值为time时，返回的指定日期格式的值 |

@@ -229,6 +229,26 @@ export default {
             this.fixedHeader();
             this.handleResize();
         },
+        translateTime(value, format) {
+            const maps = {
+                YYYY: (date) => date.getFullYear(),
+                MM: (date) => this.fix(date.getMonth() + 1),
+                DD: (date) => this.fix(date.getDate()),
+                HH: (date) => this.fix(date.getHours()),
+                mm: (date) => this.fix(date.getMinutes()),
+                ss: (date) => this.fix(date.getSeconds()),
+            };
+
+            const trunk = new RegExp(Object.keys(maps).join('|'), 'g');
+            format = format || 'YYYY-MM-DD HH:mm:ss';
+            value = new Date(value);
+
+            return format.replace(trunk, (capture) => maps[capture] ? maps[capture](value) : '');
+        },
+        fix(value) {
+            value = '' + value;
+            return value.length <= 1 ? '0' + value : value;
+        },
     },
     destroyed() {
         window.removeEventListener('resize', this.onResize, false);

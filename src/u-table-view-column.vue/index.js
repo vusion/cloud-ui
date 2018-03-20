@@ -21,6 +21,10 @@ export default {
         },
         // tooltip: { type: Boolean, default: false },
         ellipsis: { type: Boolean, default: false },
+        timeFormat: {
+            type: String,
+            default: 'YYYY-MM-DD HH:mm:ss',
+        },
     },
     mixins: [Emitter],
     data() {

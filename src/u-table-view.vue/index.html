@@ -53,6 +53,7 @@
                                 <u-table-view-cell :row="row" :column="column"></u-table-view-cell>
                             </div>
                             <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex)}}</span>
+                            <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{translateTime(row[column.label], column.timeFormat)}}</span>
                             <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{row[column.label]}}</span>
                         </td>
                     </tr>
@@ -121,6 +122,7 @@
                                     <u-table-view-cell :row="row" :column="column"></u-table-view-cell>
                                 </div>
                                 <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex)}}</span>
+                                <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{translateTime(row[column.label], column.timeFormat)}}</span>
                                 <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{row[column.label]}}</span>
                             </td>
                         </tr>

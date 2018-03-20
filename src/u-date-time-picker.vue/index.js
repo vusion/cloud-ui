@@ -97,6 +97,8 @@ export default {
                 this.maxTime = undefined;
             }
 
+            this.$emit('update:date', new Date(newValue.replace(/-/g, '/')).getTime());
+
             /**
              * @event change 日期时间改变时触发
              * @property {object} sender 事件发送对象
