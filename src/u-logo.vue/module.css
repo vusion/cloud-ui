@@ -1,10 +1,12 @@
 .root {
-    display: flex;
-    align-items: center;
+    /* display: flex;
+    align-items: center; */
 }
 
 /* Default Logo */
 .icon {
+    display: inline-block;
+    vertical-align: middle;
     width: 104px;
     height: 64px;
     background: url('./logo-c-white.svg?sprite=sprite-logo');
