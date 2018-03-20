@@ -58,7 +58,7 @@ export default {
 
 ``` html
 <u-modal visible static>
-    <div slot="title"></div>
+    <div slot="title">自定义</div>
     <div slot="foot">
         <u-button color="primary">关闭</u-button>
     </div>
@@ -82,6 +82,50 @@ export default {
 <u-modal visible static size="auto">
     size 为auto
 </u-modal>
+```
+
+### 简便使用方式
+
+调用$alert方法即可打开消息提示，它实现的是只有确定按钮的modal
+```vue
+<template>
+<div>
+    <u-button color="primary" @click="openAlert">alert</u-button>
+</div>
+</template>
+<script>
+export default {
+    methods: {
+        openAlert() {
+            this.$alert('hello world', 'title');
+        }
+    }
+}
+</script>
+```
+
+调用$confirm方法即可打开确认提示，它实现的是有确定和取消按钮modal
+```vue
+<template>
+<div>
+    <u-button color="primary" @click="openConfirm">confirm</u-button>
+</div>
+</template>
+<script>
+export default {
+    methods: {
+        openConfirm() {
+            this.$confirm('hello world', 'title').then(() => {
+                // 点击确定按钮的逻辑
+                console.log('确定');
+            }).catch(() => {
+                // 点击取消按钮的逻辑
+                console.log('取消');
+            });
+        }
+    }
+}
+</script>
 ```
 
 ## API
@@ -142,8 +186,27 @@ export default {
 | $event.preventDefault | Function | 阻止关闭流程 |
 
 #### @close
-
 关闭弹窗时触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+
+### Methods
+
+#### alert(content, title)
+
+打开只有确定按钮的消息提示
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| content | String | 提示内容 |
+| title | String | 提示标题 |
+
+#### confirm(content, title)
+
+打开有确定和取消按钮的消息提示
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| content | String | 提示内容 |
+| title | String | 提示标题 |

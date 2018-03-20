@@ -1,5 +1,9 @@
+import Vue from 'vue';
+
+export * from 'proto-ui.vusion/src/base/directives';
+
 export const clickOutside = {
-    bind(el, binding, vnode) {
+    bind(el, binding) {
         const documentHandler = function (e) {
             if (el.contains(e.target))
                 return false;

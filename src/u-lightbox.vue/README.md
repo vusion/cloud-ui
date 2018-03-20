@@ -8,7 +8,7 @@
 <template>
 <div>
     <u-lightbox :visible.sync="visible" :closeButton="true">
-        <u-lightbox-item title="图片预览"><img src="/images/1.jpg" /></u-lightbox-item>
+        <u-lightbox-item title="图片预览"><img src="/cloud-ui/images/1.jpg" /></u-lightbox-item>
     </u-lightbox>
     <u-linear-layout>
         <u-button @click="visible = true">Open Lightbox</u-button>
@@ -44,7 +44,7 @@ export default {
     data() {
         return {
             visible: false,
-            images: [{src:'/images/1.jpg', title:'图片1'}, {src:'/images/2.jpg', title: '图片2'}],
+            images: [{src:'/cloud-ui/images/1.jpg', title:'图片1'}, {src:'/cloud-ui/images/2.jpg', title: '图片2'}],
             showItem: 0,
         };
     },

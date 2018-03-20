@@ -1,0 +1,22 @@
+<u-popper ref="popper" :disabled="readonly || disabled" @toggle="onToggle($event)" append-to="reference">
+    <div :class="$style.root" :readonly="readonly" :disabled="disabled" :size="size">
+        <span :class="$style.text" v-ellipsis-title>
+            <!-- @override: 添加了flag功能 -->
+            <span v-if="selectedVM && selectedVM.flag !== undefined" :class="$style.flag" v-tooltip.top="selectedVM && selectedVM.flag"></span>
+            <u-render :vnode="selectedVM && selectedVM.$slots.default"></u-render>
+        </span>
+    </div>
+    <!-- 这个地方以后可能要改用render实现 -->
+    <ul :class="$style.popper" slot="popper" :size="size" @click.stop>
+        <component :is="ChildComponent" v-if="data"
+            v-for="item in data"
+            :key="item.value"
+            :value="item.value"
+            :disabled="item.disabled || disabled"
+            :flag="item.flag"
+            :item="item"
+            :field="field"
+        >{{ item[field] }}</component>
+        <slot></slot>
+    </ul>
+</u-popper>

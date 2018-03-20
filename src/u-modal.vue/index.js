@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import { clickOutside } from '../base/directives';
 const Modal = {
     name: 'u-modal',
@@ -85,15 +86,20 @@ const Modal = {
 Modal.alert = (content, title = '提示') => {
     const Ctor = Modal._Ctor[0];
     new Ctor({
-        propsData: { content, title },
+        propsData: { content, title, cancelButton: '' },
     }).open();
 };
 
-Modal.confirm = (content, title = '提示') => {
+Modal.confirm = (content, title = '提示') => new Promise((resolve, reject) => {
     const Ctor = Modal._Ctor[0];
-    new Ctor({
+    const instance = new Ctor({
         propsData: { content, title },
-    }).open();
-};
+    });
+    instance.$on('ok', () => resolve());
+    instance.$on('cancel', () => reject());
+    instance.open();
+});
 
+Vue.prototype.$alert = Modal.alert;
+Vue.prototype.$confirm = Modal.confirm;
 export default Modal;

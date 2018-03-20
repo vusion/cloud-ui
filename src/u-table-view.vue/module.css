@@ -19,11 +19,20 @@
     font-weight: 400;
 }
 
+.table .hthSpan{
+    cursor: pointer;
+}
+
+.hthSpan[border] {
+    border-left: 1px solid #ebf0f5;
+    border-right: 1px solid #ebf0f5;
+}
+
 .hthSpan[role] {
     cursor: pointer;
 }
 
-.hthSpan:hover {
+.hthSpan[role]:hover {
     background: #eef2f8;
 }
 .hthSpan[selection]{
@@ -34,6 +43,9 @@
 .htrItem {
     background-color: #f5f7fa;
     border-bottom: 1px solid #ebf0f5;
+}
+.htrItem[color='light'] {
+    background: #fff;
 }
 
 .body[role] {
@@ -68,6 +80,10 @@
     white-space: nowrap;
     color: #999;
 }
+.btdSpan[border]{
+    border-left: 1px solid #ebf0f5;
+    border-right: 1px solid #ebf0f5;
+}
 
 .btdSpan[role="center"]{
     text-align: center;
@@ -99,8 +115,6 @@
 
 .ditem {
     box-sizing: border-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
     white-space: normal;
     word-break: break-all;
     line-height: 24px;
@@ -167,7 +181,7 @@
     top: -6px;
     left: 0;
     background: url("../assets/images/shadow-up.png") repeat-x;
-    z-index: 9999;
+    z-index: 100;
 }
 
 .btrItem:hover .btdSpan:after {
@@ -178,7 +192,7 @@
     bottom: -6px;
     left: 0;
     background: url("../assets/images/shadow-down.png") repeat-x;
-    z-index: 9999;
+    z-index: 100;
 }
 
 .ditem[role] {

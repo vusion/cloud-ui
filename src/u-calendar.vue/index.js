@@ -125,6 +125,14 @@ const Calendar = {
                 date: newValue,
             });
         },
+        minDate(newValue, oldValue) {
+            this.monthCol = this.getMonthCol();
+            this.yearCol = this.getYearCol();
+        },
+        maxDate(newValue, oldValue) {
+            this.monthCol = this.getMonthCol();
+            this.yearCol = this.getYearCol();
+        },
         // 最小值 最大值 发生变化 需要监听
     },
     filters: {

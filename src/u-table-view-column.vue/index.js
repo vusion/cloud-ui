@@ -25,27 +25,36 @@ export default {
     mixins: [Emitter],
     data() {
         return {
-            index: 0,
-            sortoperate: '',
+            // index: 0,
+            // sortoperate: '',
             selectValue: this.value,
             row: {},
             visible: false,
             parentVM: undefined,
+            currentWidth: this.getWidth(),
         };
     },
     watch: {
         value(newValue) {
             this.selectValue = newValue;
         },
+        width(newValue) {
+            this.currentWidth = this.getWidth(newValue);
+        },
     },
-    // beforeCreate() {
-    //     this.$parent.add(this);
-    // },
     created() {
         this.dispatch(this.$options.parentName, 'add-item-vm', this);
     },
     mounted() {
         this.index = this.$parent.columns.indexOf(this);
+    },
+    methods: {
+        getWidth(value) {
+            if (this.type === 'selection')
+                return value || this.width || 35;
+            else
+                return value || this.width;
+        },
     },
     destroyed() {
         this.$parent.remove(this);

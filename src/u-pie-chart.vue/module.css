@@ -69,8 +69,69 @@ $g_size: 120px;
     border-bottom-color:transparent;
 }
 
-.root .item:nth-of-type(1) { fill: rgb(0,153,255); }
-.root .item:nth-of-type(2) { fill: rgb(255,174,60); }
-.root .item:nth-of-type(3) { fill: rgb(78,201,171); }
-.root .item:nth-of-type(4) { fill: rgb(245,131,122); }
-.root .item:nth-of-type(5) { fill: rgb(158,156,246); }
+.emptyitem {
+    fill: white;
+    stroke: #d8d8d8;
+    stroke-width: 0.5px;
+    stroke-dasharray: 2,2;
+}
+
+.emptytext {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 22px;
+    line-height: 22px;
+    margin-top: -11px;
+    margin-left: -11px;
+    cursor: pointer;
+}
+
+.emptytooltip {
+    position: relative;
+    left: 28px;
+    top: -15px;
+    margin-top: -11px;
+    padding: 4px 8px;
+    font-size: 12px;
+    background: #333;
+    color: #eee;
+    display: none;
+}
+
+.emptytooltip:after {
+    content: '';
+    display: block;
+    position: absolute;
+    border: 5px solid #333;
+    left: -5px;
+    top: 10px;
+    border-left: none;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.emptytext:hover .emptytooltip {
+    display: block;
+}
+
+.root .item:nth-of-type(1) { fill: rgb(91, 161, 242); }
+.root .item:nth-of-type(2) { fill: rgb(78, 201, 171); }
+.root .item:nth-of-type(3) { fill: rgb(255, 174, 60); }
+.root .item:nth-of-type(4) { fill: rgb(158, 156, 246); }
+.root .item:nth-of-type(5) { fill: rgb(30, 192, 216); }
+.root .item:nth-of-type(6) { fill: rgb(237, 139, 204); }
+.root .item:nth-of-type(7) { fill: rgb(138, 209, 153); }
+.root .item:nth-of-type(8) { fill: rgb(103, 197, 245); }
+.root .item:nth-of-type(9) { fill: rgb(138, 205, 78); }
+.root .item:nth-of-type(10) { fill: rgb(245, 131, 122); }
+.root .item:nth-of-type(11) { fill: rgb(198,156,246); }
+.root .item:nth-of-type(12) { fill: rgb(137,170,247); }s
+.root .item:nth-of-type(13) { fill: rgb(251,155,108); }
+.root .item:nth-of-type(14) { fill: rgb(103,170,245); }
+.root .item:nth-of-type(15) { fill: rgb(134,187,231); }
+.root .item:nth-of-type(16) { fill: rgb(245,196,80); }
+.root .item:nth-of-type(17) { fill: rgb(135,206,232); }
+.root .item:nth-of-type(18) { fill: rgb(239,216,22); }
+.root .item:nth-of-type(19) { fill: rgb(92,208,133); }
+.root .item:nth-of-type(20) { fill: rgb(241,126,248); }

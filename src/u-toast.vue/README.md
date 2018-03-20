@@ -32,13 +32,12 @@
 ```
 
 #### 命令式
-
+推荐使用下面的方式
 
 ``` vue
 <template>
 <div>
 <u-button @click.native="open">Toast</u-button>
-<u-toast  ref="toast" message="消息提示"></u-toast>
 </div>
 </template>
 
@@ -46,12 +45,13 @@
 export default {
     methods: {
         open() {
-            this.$refs.toast.show();
+            this.$toast.show('Hello world');
         },
     },
 };
 </script>
 ```
+
 
 ## API
 ### Attrs/Props
@@ -65,3 +65,12 @@ export default {
 | message | String | '' | 提示内容 |
 | closeable | Boolean | false | 是否可关闭提示，默认不可关闭 |
 
+### Methods
+
+#### show
+
+显示 toast 信息
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| message | String | 提示内容 |

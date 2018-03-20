@@ -1,0 +1,97 @@
+@import 'proto-ui.vusion/src/u-select.vue/module.css';
+
+.root {
+    height: $height-base;
+    line-height: 32px;
+    padding-left: 14px;
+    padding-right: 20px;
+    background: #fff;
+    color: #555;
+    border: 1px solid $brand-secondary;
+    border-radius: $border-radius-base;
+}
+
+.root:after {
+    position: absolute;
+    icon-font: url('../u-icon.vue/icons/keyboard-arrow-down.svg');
+    color: #a5a5a6;
+    font-size: 18px;
+    right: 6px;
+    top: 0;
+    line-height: inherit;
+}
+
+.root[disabled] {
+    cursor: not-allowed;
+    background: #eee;
+    border: 1px solid #d3d6de;
+    color: #999;
+}
+
+.text {
+    float: left;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: inherit;
+    cursor: pointer;
+}
+
+.body{
+    width: 160px;
+}
+
+.popper {
+    margin-top: -1px;
+    max-height: 180px;
+    overflow: auto;
+    background: #fff;
+    border: 1px solid $brand-secondary;
+    border-radius: $border-radius-base;
+    z-index: 1065;
+}
+
+.input {
+    border: none;
+    height: 28px;
+    outline: none;
+    width: 100%;
+}
+
+.none{
+    padding: 5px 14px;
+    cursor: pointer;
+    position: relative;
+    background: #fff;
+    color: #555;
+    border-radius: 2px;
+    border: 1px solid #d2d6de;
+    text-align: center;
+    margin-top:2px;
+    line-height: 22px;
+}
+
+.root[size$="mini"] { width: 80px; }
+.body[size$="mini"] { width: 80px; }
+.root[size^="mini"] {  height: 28px; line-height: 26px; }
+
+.root[size$="small"] { width: 120px; }
+.body[size$="small"] { width: 120px; }
+.root[size^="small"] { height: 30px; line-height: 28px; }
+
+.root[size$="normal"] { width: 160px; }
+.body[size$="normal"] { width: 160px; }
+.root[size^="normal"] { height: $height-base; line-height: 32px; }
+
+.root[size$="large"] { width: 360px; }
+.body[size$="large"] { width: 360px; }
+.root[size^="large"] { height: 38px; line-height: 36px; }
+
+.root[size$="huge"] { width: 440px; }
+.body[size$="huge"] { width: 440px; }
+.root[size^="huge"] { height: 40px; line-height: 38px; }
+
+.root[size$="full"] { width: 100%; }
+.body[size$="full"] { width: 100%; box-sizing: content-box; }
+.root[size^="full"] { height: 100%; }

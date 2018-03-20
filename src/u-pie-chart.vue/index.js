@@ -31,6 +31,10 @@ export default {
             }, { percent: 0, _pos: 0 });
             return data;
         },
+        isEmpty() {
+            const data = this.data;
+            return data.every((item) => item.percent === 0);
+        },
     },
     methods: {
         getPosition(pos, length) {

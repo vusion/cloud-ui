@@ -11,7 +11,7 @@
     min-height: $height-base;
     padding: 5px 10px;
     color: #666;
-    border-color: #e1e8ed;
+    border-color: $brand-secondary;
     border-radius: 3px;
     transition: border-color $transition-duration;
 }
@@ -31,17 +31,17 @@
 }
 
 .input[disabled] {
-    background-color: #e9f0f5;
-    border-color: #e9f0f5;
+    background-color: $brand-disabled;
+    border-color: $brand-disabled;
 }
 
 .input[size$="normal"] { width: 160px; padding: 5px 10px; }
 .input[size^="normal"] { height: 80px; }
 
-.input[size$="large"] { width: 320px; padding: 5px 10px; }
+.input[size$="large"] { width: 440px; padding: 5px 10px; }
 .input[size^="large"] { height: 120px; }
 
-.input[size$="huge"] { width: 440px; padding: 5px 10px; }
+.input[size$="huge"] { width: 580px; padding: 5px 10px; }
 .input[size^="huge"] { height: 200px; }
 
 .root[size$="full"] { width: 100%; }

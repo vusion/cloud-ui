@@ -4,7 +4,19 @@ export default {
     name: 'u-input',
     mixins: [Input],
     props: {
+        // @override: 添加了maxlengthMessage功能
         maxlengthMessage: String,
+        color: String,
+    },
+    data() {
+        return {
+            currentColor: this.color,
+        };
+    },
+    watch: {
+        color(value) {
+            this.currentColor = value;
+        },
     },
     methods: {
         onKeypress(e) {
@@ -16,12 +28,15 @@ export default {
             }
         },
         onInput(e) {
-            if (this.formItemVM && this.maxlengthMessage) {
-                this.formItemVM.color = '';
-                this.formItemVM.currentMessage = '';
+            if (!this.compositionInputing) {
+                if (this.formItemVM && this.maxlengthMessage) {
+                    this.formItemVM.color = '';
+                    this.formItemVM.currentMessage = '';
+                }
+                this.currentValue = e.target.value;
+                this.$emit('input', this.currentValue);
+                this.$emit('update:value', this.currentValue);
             }
-            this.currentValue = e.target.value;
-            this.$emit('input', this.currentValue);
         },
     },
 };

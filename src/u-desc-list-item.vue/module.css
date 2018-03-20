@@ -1,0 +1,34 @@
+.root:not(:first-child) {
+    margin-top: 24px;
+}
+
+.root:before, .root:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+
+.root:after {
+    clear: both;
+}
+
+.root[label-size$="small"] .label { width: 60px; }
+.root[label-size$="normal"] .label { width: 80px; }
+.root[label-size$="large"] .label { width: 100px; }
+.root[label-size$="huge"] .label { width: 120px; }
+
+.label {
+    display: block;
+    float: left;
+    margin-right: 30px;
+    text-align: right;
+    line-height: 30px;
+    color: #999;
+}
+
+.value {
+    float: left;
+    max-width: calc(100% - 80px - 30px);
+    line-height: 30px;
+    color: #333;
+}

@@ -26,6 +26,7 @@ export default [
             /* Navigation */
             { path: 'u-navbar', component: () => import('../src/u-navbar.vue/README.md') },
             { path: 'u-sidebar', component: () => import('proto-ui.vusion/src/u-sidebar.vue/README.md') },
+            { path: 'u-steps', component: () => import('proto-ui.vusion/src/u-steps.vue/README.md') },
             { path: 'u-subnav', component: () => import('../src/u-subnav.vue/README.md') },
             { path: 'u-tabs', component: () => import('proto-ui.vusion/src/u-tabs.vue/README.md') },
             { path: 'u-subtabs', component: () => import('../src/u-subtabs.vue/README.md') },
@@ -39,6 +40,7 @@ export default [
             { path: 'u-checkboxes', component: () => import('proto-ui.vusion/src/u-checkboxes.vue/README.md') },
             { path: 'u-switch', component: () => import('../src/u-switch.vue/README.md') },
             { path: 'u-select', component: () => import('../src/u-select.vue/README.md') },
+            { path: 'u-suggest', component: () => import('../src/u-suggest.vue/README.md') },
             { path: 'u-multi-select', component: () => import('../src/u-multi-select.vue/README.md') },
             { path: 'u-color-select', component: () => import('../src/u-color-select.vue/README.md') },
             { path: 'u-slider', component: () => import('../src/u-slider.vue/README.md') },
@@ -50,6 +52,7 @@ export default [
             { path: 'u-tree-view', component: () => import('proto-ui.vusion/src/u-tree-view.vue/README.md') },
             { path: 'u-table-view', component: () => import('../src/u-table-view.vue/README.md') },
             { path: 'u-capsules', component: () => import('../src/u-capsules.vue/README.md') },
+            { path: 'u-cascade-capsules', component: () => import('../src/u-cascade-capsules.vue/README.md') },
             { path: 'u-pills', component: () => import('../src/u-pills.vue/README.md') },
             { path: 'u-tablets', component: () => import('../src/u-tablets.vue/README.md') },
             /* DateTime */
@@ -81,6 +84,9 @@ export default [
             { path: 'u-draggable', component: () => import('proto-ui.vusion/src/u-draggable.vue/README.md') },
             { path: 'u-droppable', component: () => import('proto-ui.vusion/src/u-droppable.vue/README.md') },
             { path: 'u-dragger', component: () => import('proto-ui.vusion/src/u-dragger.vue/README.md') },
+
+            { path: 'u-desc-list', component: () => import('../src/u-desc-list.vue/README.md') },
+            { path: 'u-info-list', component: () => import('../src/u-info-list.vue/README.md') },
         ] },
     ] },
     { path: '*', redirect: '/components' },

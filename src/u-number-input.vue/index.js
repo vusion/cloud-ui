@@ -10,7 +10,7 @@
  * @param {boolean=false}           options.readonly            => 是否只读
  * @param {boolean=false}           options.disabled            => 是否禁用
  * @param {string='140'}            options.width               => 输入框宽度
- * @param {string='34'}             options.width               => 输入框高度
+ * @param {string='34'}             options.height               => 输入框高度
  */
 const NumberInput = {
     name: 'u-number-input',

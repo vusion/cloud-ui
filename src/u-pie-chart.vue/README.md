@@ -4,7 +4,22 @@
 ### 基本形式
 
 ``` html
-<u-pie-chart border legend title="每星期访问量" :data="[{ 'percent': 0, 'name': 'selector1' }, { 'percent': 0, 'name': 'selector2' }, { 'percent': 0, 'name': 'selector3' }, { 'percent': 0, 'name': 'selector4' }]"></u-pie-chart>
+<u-pie-chart border legend title="每星期访问量" :data="[
+    { 'percent': 25, 'name': 'selector1' }, 
+    { 'percent': 25, 'name': 'selector2' }, 
+    { 'percent': 25, 'name': 'selector3' }, 
+    { 'percent': 25, 'name': 'selector4' }
+]"></u-pie-chart>
+```
+
+#### 百分比都为 0
+``` html
+<u-pie-chart border legend title="每星期访问量" :data="[
+    { 'percent': 0, 'name': 'selector1' }, 
+    { 'percent': 0, 'name': 'selector2' }, 
+    { 'percent': 0, 'name': 'selector3' }, 
+    { 'percent': 0, 'name': 'selector4' }
+]"></u-pie-chart>
 ```
 
 ## API
@@ -20,3 +35,9 @@
 | width | String | `100%` | 图表的宽度 |
 | height | String | `480px` | 图表的高度 |
 | titleAlign | String | `center` | 图表标题的对齐方式，默认是居中，值有:left,center,right |
+
+### Slot
+
+| Slot | Description |
+| ---- | ----------- |
+| tooltipTemplate + index（index为遍历data的索引） | 自定义tooltip内容 |

@@ -11,6 +11,20 @@
 [download-img]: https://img.shields.io/npm/dm/cloud-ui.vusion.svg?style=flat-square
 [download-url]: https://npmjs.org/package/cloud-ui.vusion
 
+## Install
+``` shell
+npm install --save cloud-ui.vusion vusion-utils
+```
+
+## QuickStart
+
+``` javascript
+import Vue from 'vue';
+import * as CloudUI from 'cloud-ui.vusion';
+import { installComponents } from 'vusion-utils';
+installComponents(CloudUI, Vue);
+```
+
 ## Development
 
 ``` shell
@@ -44,5 +58,5 @@ docs-src/build
 
 ``` shell
 docs-src/build
-vusion publish -p cloud-ui
+vusion ghpages -p cloud-ui
 ```

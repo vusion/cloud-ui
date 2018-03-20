@@ -1,3 +1,7 @@
+.root {
+    color: #333;
+}
+
 .root:before {
     vertical-align: -7px;
     font-size: 24px;

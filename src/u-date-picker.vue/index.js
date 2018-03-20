@@ -27,7 +27,7 @@ export default {
             type: String,
             default: '请选择日期',
         },
-        width: { type: [String, Number], default: 154 },
+        width: { type: [String, Number], default: 160 },
         alignment: {
             type: String,
             default: 'left',

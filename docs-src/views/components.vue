@@ -13,9 +13,11 @@
                     <u-sidebar-item to="/components/u-status-icon">状态图标 <small>StatusIcon</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-logo">标识 <small>Logo</small></u-sidebar-item>
                 </u-sidebar-group>
-                <u-sidebar-group title="Layout">
+                <u-sidebar-group title="Layout & Composing">
                     <u-sidebar-item to="/components/u-linear-layout">线性布局 <small>LinearLayout</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-grid-layout">栅格布局 <small>GridLayout</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-desc-list">描述列表 <small>DescList</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-info-list">详情列表 <small>InfoList</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Navigation">
                     <u-sidebar-item to="/components/u-navbar">导航栏 <small>Navbar</small></u-sidebar-item>
@@ -23,6 +25,7 @@
                     <u-sidebar-item to="/components/u-subnav">子导航 <small>Subnav</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-tabs">标签页 <small>Tabs</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-subtabs">子标签页 <small>Subtabs</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-steps">步骤条 <small>Steps</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-pagination">翻页器 <small>Pagination</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-linklist">链接列表 <small>LinkList</small></u-sidebar-item>
                 </u-sidebar-group>
@@ -34,11 +37,12 @@
                     <u-sidebar-item to="/components/u-switch">开关 <small>Switch</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-textarea">多行输入 <small>Textarea</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-select">选择框 <small>Select</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-suggest">自动提示<small>Suggest</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-multi-select">多项选择框 <small>MultiSelect</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-color-select">颜色选择框 <small>ColorSelect</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-slider">滑块 <small>Slider</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-combo-slider">复合滑块 <small>ComboSlider</small></u-sidebar-item>
-                    <u-sidebar-item v-if="advanced" to="/components/u-field">表单控件 <small>Field</small></u-sidebar-item>
+                    <!-- <u-sidebar-item v-if="advanced" to="/components/u-field">表单控件 <small>Field</small></u-sidebar-item> -->
                     <u-sidebar-item to="/components/u-form">表单 <small>Form</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Data">
@@ -46,6 +50,7 @@
                     <u-sidebar-item to="/components/u-tree-view">树型选择 <small>TreeView</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-table-view">表格视图 <small>TableView</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-capsules">胶囊 <small>Capsules</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-cascade-capsules">级联胶囊 <small>CascadeCapsules</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-pills">药丸 <small>Pills</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-tablets">药片 <small>Tablets</small></u-sidebar-item>
                 </u-sidebar-group>

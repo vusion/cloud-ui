@@ -115,8 +115,8 @@
             <u-select-item>香蕉</u-select-item>
             <u-select-item>蛋糕</u-select-item>
         </u-select>
-        <u-select size="mini large">
-            <u-select-item>mini large</u-select-item>
+        <u-select size="mini medium">
+            <u-select-item>mini medium</u-select-item>
             <u-select-item>香蕉</u-select-item>
             <u-select-item>蛋糕</u-select-item>
         </u-select>
@@ -137,8 +137,8 @@
             <u-select-item>香蕉</u-select-item>
             <u-select-item>蛋糕</u-select-item>
         </u-select>
-        <u-select size="small large">
-            <u-select-item>small large</u-select-item>
+        <u-select size="small medium">
+            <u-select-item>small medium</u-select-item>
             <u-select-item>香蕉</u-select-item>
             <u-select-item>蛋糕</u-select-item>
         </u-select>
@@ -159,28 +159,35 @@
             <u-select-item>香蕉</u-select-item>
             <u-select-item>蛋糕</u-select-item>
         </u-select>
-        <u-select size="normal large">
-            <u-select-item>normal large</u-select-item>
+        <u-select size="normal medium">
+            <u-select-item>normal</u-select-item>
             <u-select-item>香蕉</u-select-item>
             <u-select-item>蛋糕</u-select-item>
         </u-select>
     </u-linear-layout>
     <u-linear-layout>
-        <u-select size="large mini">
-            <u-select-item>large mini</u-select-item>
+        <u-select size="medium mini">
+            <u-select-item>medium mini</u-select-item>
             <u-select-item>香蕉</u-select-item>
             <u-select-item>蛋糕</u-select-item>
         </u-select>
-        <u-select size="large small">
-            <u-select-item>large small</u-select-item>
+        <u-select size="medium small">
+            <u-select-item>medium small</u-select-item>
             <u-select-item>香蕉</u-select-item>
             <u-select-item>蛋糕</u-select-item>
         </u-select>
-        <u-select size="large normal">
-            <u-select-item>large normal</u-select-item>
+        <u-select size="medium normal">
+            <u-select-item>medium normal</u-select-item>
             <u-select-item>香蕉</u-select-item>
             <u-select-item>蛋糕</u-select-item>
         </u-select>
+        <u-select size="medium">
+            <u-select-item>medium</u-select-item>
+            <u-select-item>香蕉</u-select-item>
+            <u-select-item>蛋糕</u-select-item>
+        </u-select>
+    </u-linear-layout>
+    <u-linear-layout>
         <u-select size="large">
             <u-select-item>large</u-select-item>
             <u-select-item>香蕉</u-select-item>
@@ -233,6 +240,16 @@
         <u-select-item>筷子</u-select-item>
         <u-select-item>碗</u-select-item>
     </u-select-group>
+</u-select>
+```
+
+### Flag
+
+``` html
+<u-select value="C">
+    <u-select-item value="A">苹果</u-select-item>
+    <u-select-item value="B" flag>香蕉</u-select-item>
+    <u-select-item value="C" flag="默认选项">蛋糕</u-select-item>
 </u-select>
 ```
 

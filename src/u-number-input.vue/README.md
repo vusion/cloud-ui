@@ -62,3 +62,27 @@ export default {
 };
 </script>
 ```
+
+## API
+### Props/Attrs
+
+| Prop/Attr | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| value | String | 0 | 文本框的值 |
+| min | Number | | 最小值 |
+| max | Number |  | 最大值 |
+| autofocus | Boolean | `false` | 是否自动获得焦点 |
+| readonly | Boolean | `false` | 是否只读 |
+| disabled | Boolean | `false` | 是否禁用 |
+| width | String | `140` | 输入框宽度 |
+| disabled | String | `34` | 输入框高度 |
+
+### Events
+
+#### @change
+
+数值改变时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.value | Number | 改变后的数值 |

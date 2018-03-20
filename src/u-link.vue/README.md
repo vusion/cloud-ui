@@ -17,7 +17,7 @@
 
 ``` html
 <u-link href="https://vusion.github.io" target="_blank">href</u-link>&nbsp;
-<u-link to="/proto-ui/u-link">to</u-link>
+<u-link to="/components/u-button">to</u-link>
 ```
 
 ## API

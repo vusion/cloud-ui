@@ -1,6 +1,7 @@
 @import 'proto-ui.vusion/src/u-select-item.vue/module.css';
 
 .root {
+    position: relative;
     padding-top: 0;
     padding-bottom: 0;
 }
@@ -18,8 +19,16 @@
     background: none;
 }
 
-.root{
+.root {
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
+}
+
+.flag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 7px solid;
+    border-color: #4ec9ab transparent transparent #4ec9ab;
 }

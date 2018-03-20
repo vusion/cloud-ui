@@ -7,7 +7,7 @@
     padding-right: 20px;
     background: #fff;
     color: #555;
-    border: 1px solid #e1e8ed;
+    border: 1px solid $brand-secondary;
     border-radius: $border-radius-base;
 }
 
@@ -23,8 +23,8 @@
 
 .root[disabled] {
     cursor: not-allowed;
-    background: #eee;
-    border: 1px solid #d3d6de;
+    background: $brand-disabled;
+    border: 1px solid $brand-disabled;
     color: #999;
 }
 
@@ -43,7 +43,7 @@
     max-height: 180px;
     overflow: auto;
     background: #fff;
-    border: 1px solid #e1e8ed;
+    border: 1px solid $brand-secondary;
     border-radius: $border-radius-base;
     z-index: 1065;
 }
@@ -60,14 +60,26 @@
 .popper[size$="normal"] { width: 160px; }
 .root[size^="normal"] { height: $height-base; line-height: 32px; }
 
-.root[size$="large"] { width: 360px; }
-.popper[size$="large"] { width: 360px; }
+.root[size$="medium"] { width: 280px; }
+.popper[size$="medium"] { width: 280px; }
+.root[size^="medium"] { height: 36px; line-height: 34px; }
+
+.root[size$="large"] { width: 440px; }
+.popper[size$="large"] { width: 440px; }
 .root[size^="large"] { height: 38px; line-height: 36px; }
 
-.root[size$="huge"] { width: 440px; }
-.popper[size$="huge"] { width: 440px; }
+.root[size$="huge"] { width: 580px; }
+.popper[size$="huge"] { width: 580px; }
 .root[size^="huge"] { height: 40px; line-height: 38px; }
 
 .root[size$="full"] { width: 100%; }
 .popper[size$="full"] { width: 100%; box-sizing: content-box; }
 .root[size^="full"] { height: 100%; }
+
+.flag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 7px solid;
+    border-color: #4ec9ab transparent transparent #4ec9ab;
+}

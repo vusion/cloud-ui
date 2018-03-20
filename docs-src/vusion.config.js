@@ -8,7 +8,7 @@ const themePath = theme === 'theme-default' ? 'src' : theme;
 module.exports = {
     type: 'app',
     version: '>=0.6.1',
-    globalCSSPath: `./${themePath}/base/global.css`,
+    libraryPath: `./${themePath}`,
     extractCSS: true,
     uglifyJS: true,
     webpack: {
@@ -82,6 +82,6 @@ module.exports = {
         },
     },
     webpackDevServer: {
-        contentBase: path.resolve(__dirname, '../cloud-ui'),
+        contentBase: [path.resolve(__dirname, '../cloud-ui'), path.resolve(__dirname, '../')],
     },
 };

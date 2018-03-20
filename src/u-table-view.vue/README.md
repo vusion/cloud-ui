@@ -9,10 +9,10 @@
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata" height="300">
+        <u-table-view :data="tdata" height="300" border>
             <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
             <u-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-table-view-column>
-            <u-table-view-column title="地址" label="address" ></u-table-view-column>
+            <u-table-view-column title="地址" label="address" sortable></u-table-view-column>
         </u-table-view>
     </div>
 </template>
@@ -464,7 +464,7 @@ export default {
 ```
 
 
-## API
+## TableView API
 ### Attrs/Props
 
 | Attr/Prop | Type | Default | Description |
@@ -478,6 +478,21 @@ export default {
 | height| Integer/String |  | 表格组件的高度 |
 | layout| String | fixed | 表格的布局方式, 可选值有fixed, auto两种 |
 
+### Slots
+
+#### (default)
+
+插入`<u-table-view-column>`子组件。
+
+#### title
+
+自定义表格标题
+
+#### no-data-text
+
+数据为空时自定义显示文本
+
+### Events
 #### @sort-change
 
 点击排序标签触发
@@ -516,7 +531,7 @@ export default {
 | $event.data | Object | 选中的行的数据集合 |
 | $event.index | Int | 行数据所在的索引值 |
 
-## TableViewItem API
+## TableViewColumn API
 ### Props/Attrs
 
 | Prop/Attr | Type | Default | Description |
@@ -533,4 +548,6 @@ export default {
 | formatter | Function | `` | 自定义列的值 |
 | sortMethod | Function | `` | 自定义排序方法 |
 | filterMethod | Function | `` | 自定义过滤方法 |
-| ellipsis | Boolean | `false` | 是否换行，默认不换行，值为true则开启不换行，超出部分显示为省略号 |
+| ellipsis | Boolean | `false` | 是否换行，默认换行，值为true则开启不换行，超出部分显示为省略号 |
+| border | Boolean | `false` | 是否有边框，默认无 |
+| color | String | `` | 值为light的时，表格头背景是#fff |

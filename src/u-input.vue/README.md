@@ -32,24 +32,27 @@
         <u-input size="mini" value="mini" readonly></u-input>
         <u-input size="mini small" value="mini small" readonly></u-input>
         <u-input size="mini normal" value="mini normal" readonly></u-input>
-        <u-input size="mini large" value="mini large" readonly></u-input>
+        <u-input size="mini medium" value="mini medium" readonly></u-input>
     </u-linear-layout>
     <u-linear-layout>
         <u-input size="small mini" value="small mini" readonly></u-input>
         <u-input size="small" value="small" readonly></u-input>
         <u-input size="small normal" value="small normal" readonly></u-input>
-        <u-input size="small large" value="small large" readonly></u-input>
+        <u-input size="small medium" value="small medium" readonly></u-input>
     </u-linear-layout>
     <u-linear-layout>
         <u-input size="normal mini" value="normal mini" readonly></u-input>
         <u-input size="normal small" value="normal small" readonly></u-input>
         <u-input value="normal" readonly></u-input>
-        <u-input size="normal large" value="normal large" readonly></u-input>
+        <u-input size="normal medium" value="normal medium" readonly></u-input>
     </u-linear-layout>
     <u-linear-layout>
-        <u-input size="large mini" value="large mini" readonly></u-input>
-        <u-input size="large small" value="large small" readonly></u-input>
-        <u-input size="large normal" value="large normal" readonly></u-input>
+        <u-input size="medium mini" value="medium mini" readonly></u-input>
+        <u-input size="medium small" value="medium small" readonly></u-input>
+        <u-input size="medium normal" value="medium normal" readonly></u-input>
+        <u-input size="medium" value="medium" readonly></u-input>
+    </u-linear-layout>
+    <u-linear-layout>
         <u-input size="large" value="large" readonly></u-input>
     </u-linear-layout>
     <u-linear-layout>
