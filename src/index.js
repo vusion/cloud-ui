@@ -38,9 +38,9 @@ import LightBoxItem from './u-lightbox-item.vue';
 import LineChart from './u-line-chart.vue';
 import LinearLayout from './u-linear-layout.vue';
 import Link from './u-link.vue';
-import LinkList from './u-linklist.vue';
-import LinkListDropDown from './u-linklist-dropdown.vue';
-import LinkListItem from './u-linklist-item.vue';
+import LinkList from './u-link-list.vue';
+import LinkListMenu from './u-link-list-menu.vue';
+import LinkListItem from './u-link-list-item.vue';
 import Loading from './u-loading.vue';
 import Logo from './u-logo.vue';
 import Modal from './u-modal.vue';
@@ -124,7 +124,7 @@ export {
     LinearLayout,
     Link,
     LinkList,
-    LinkListDropDown,
+    LinkListMenu,
     LinkListItem,
     Loading,
     Logo,
@@ -193,7 +193,12 @@ export {
     ListViewDivider,
     ListViewGroup,
     ListViewItem,
+    Menu,
+    MenuItem,
+    MenuGroup,
+    MenuDivider,
     Popper,
+    Popup,
     Render,
     RouterItem,
     Tab,

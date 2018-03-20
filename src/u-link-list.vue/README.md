@@ -1,17 +1,17 @@
 # 链接列表 LinkList
 
 ## 示例
-
 ### 基本形式
+
 ``` vue
 <template>
-<u-linklist :maxNum="maxNum" :dropdownTitle="dropdownTitle">
-    <u-linklist-item @click="text1+='1'">{{text1}}</u-linklist-item>
-    <u-linklist-item to="/components/u-navbar">跳转到navbar</u-linklist-item>
-    <u-linklist-item @mouseover="text2+='1'">{{text2}}</u-linklist-item>
-    <u-linklist-item disabled>保存为镜像</u-linklist-item>
-    <u-linklist-item>设置密码</u-linklist-item>
-</u-linklist>
+<u-link-list :maxNum="maxNum" :dropdownTitle="dropdownTitle">
+    <u-link-list-item @click="text1+='1'">{{text1}}</u-link-list-item>
+    <u-link-list-item to="/components/u-navbar">跳转到navbar</u-link-list-item>
+    <u-link-list-item @mouseover="text2+='1'">{{text2}}</u-link-list-item>
+    <u-link-list-item disabled>保存为镜像</u-link-list-item>
+    <u-link-list-item>设置密码</u-link-list-item>
+</u-link-list>
 </template>
 <script>
 export default {
@@ -31,11 +31,11 @@ export default {
 
 ``` vue
 <template>
-<u-linklist>
-    <u-linklist-item @click="text1+='1'" disabled>{{text1}}</u-linklist-item>
-    <u-linklist-item to="/components/u-navbar" disabled>跳转到navbar</u-linklist-item>
-    <u-linklist-item @mouseover="text2+='1'" disabled>{{text2}}</u-linklist-item>
-</u-linklist>
+<u-link-list>
+    <u-link-list-item @click="text1+='1'" disabled>{{text1}}</u-link-list-item>
+    <u-link-list-item to="/components/u-navbar" disabled>跳转到navbar</u-link-list-item>
+    <u-link-list-item @mouseover="text2+='1'" disabled>{{text2}}</u-link-list-item>
+</u-link-list>
 </template>
 <script>
 export default {
@@ -52,12 +52,12 @@ export default {
 ### 不主动关闭下拉框
 ``` vue
 <template>
-<u-linklist :closeDropdown="false">
-    <u-linklist-item>设置</u-linklist-item>
-    <u-linklist-item>删除</u-linklist-item>
-    <u-linklist-item>设置密码</u-linklist-item>
-    <u-linklist-item>保存为镜像</u-linklist-item>
-</u-linklist>
+<u-link-list :closeDropdown="false">
+    <u-link-list-item>设置</u-link-list-item>
+    <u-link-list-item>删除</u-link-list-item>
+    <u-link-list-item>设置密码</u-link-list-item>
+    <u-link-list-item>保存为镜像</u-link-list-item>
+</u-link-list>
 </template>
 ```
 ### 下拉框对齐方式
@@ -65,15 +65,15 @@ export default {
 <template>
 <div>
 <u-linear-layout style="float: right;">
-    <u-button v-for="direction in directionArr" @click="currentDirection = direction" 
+    <u-button v-for="direction in directionArr" @click="currentDirection = direction"
     :style="{ color: currentDirection === direction ? '#e45649' :'#50a14f' }">{{direction}}</u-button>
 </u-linear-layout>
-<u-linklist :showDropdown="true" :direction="currentDirection"  :closeDropdown="false">
-    <u-linklist-item>设置</u-linklist-item>
-    <u-linklist-item>删除</u-linklist-item>
-    <u-linklist-item>设置密码</u-linklist-item>
-    <u-linklist-item>保存为镜像</u-linklist-item>
-</u-linklist>
+<u-link-list :showDropdown="true" :direction="currentDirection"  :closeDropdown="false">
+    <u-link-list-item>设置</u-link-list-item>
+    <u-link-list-item>删除</u-link-list-item>
+    <u-link-list-item>设置密码</u-link-list-item>
+    <u-link-list-item>保存为镜像</u-link-list-item>
+</u-link-list>
 </div>
 </template>
 <script>
@@ -87,6 +87,7 @@ export default {
 }
 </script>
 ```
+
 ## LinkList API
 
 ### Attrs/Props
@@ -95,7 +96,7 @@ export default {
 | --------- | ---- | ------- | ----------- |
 | maxNum | Number | 3 | 一列最多显示元素个数 |
 | dropdownTitle | String | '更多' | 下拉框名 |
-| closeDropdown | Boolean | `true` | 点击document或者其他`u-linklist-item`是否关闭下拉框 |
+| closeDropdown | Boolean | `true` | 点击document或者其他`u-link-list-item`是否关闭下拉框 |
 | direction | String | 'bottom-left' | 下拉框对齐方式：'bottom-left', 'bottom-right', 'top-left', 'top-right' |
 | showDropdown | Boolean | `false` | 是否展开下拉框 |
 
@@ -103,7 +104,7 @@ export default {
 
 | Slot | Description |
 | ---- | ----------- |
-| (default) | `u-linklist-item` |
+| (default) | `u-link-list-item` |
 
 ## LinkListItem API
 
