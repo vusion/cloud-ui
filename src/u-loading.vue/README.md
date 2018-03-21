@@ -1,15 +1,17 @@
-# 加载中 (Loading)
+# 加载中
 
-## Examples
+## 基本形式
 ### 大小扩展
 
 ``` html
-<u-linear-layout>
-    <u-loading size="small"></u-loading>
-    <u-loading></u-loading>
-    <u-loading size="large"></u-loading>
+<u-linear-layout direction="vertical">
+    <div>small <u-loading size="small"></u-loading></div>
+    <div>normal <u-loading></u-loading></div>
+    <div>large <u-loading size="large"></u-loading></div>
 </u-linear-layout>
 ```
+
+
 ## API
 ### Attrs/Props
 | Attr/Prop | Type | Default | Description |
