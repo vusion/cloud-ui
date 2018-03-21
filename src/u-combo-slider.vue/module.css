@@ -37,12 +37,22 @@
 
 .scales {
     margin: 0 7px;
-    display: flex;
-    justify-content: space-between;
+    /* display: flex;
+    justify-content: space-between; */
     font-size: 12px;
     color: #999;
 }
 
 .scale {
+    display: inline-block;
+    width: 33.333333%;
     text-align: center;
+}
+
+.scale:first-child {
+    text-align: left;
+}
+
+.scale:last-child {
+    text-align: right;
 }

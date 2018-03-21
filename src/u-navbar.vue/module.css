@@ -1,0 +1,30 @@
+.root {
+    user-select: none;
+    height: 64px;
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+.left {
+    float: left;
+    margin-right: 50px;
+}
+
+.middle {
+    /* flex: auto; */
+    margin: 0 50px;
+}
+
+.root[alignment="center"] .middle {
+    text-align: center;
+}
+
+.root[alignment="right"] .middle {
+    text-align: right;
+}
+
+.right {
+    float: right;
+    margin-left: 50px;
+}
+
