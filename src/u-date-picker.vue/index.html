@@ -1,6 +1,7 @@
 <u-popper ref="popper" appendTo="reference" :placement="currentPlacement" @toggle="onToggle($event)">
-    <div :class="$style.header">
+    <div :class="$style.header" :disabled="disabled" :focus="focus" :hasValue="hasValue">
         <input :class="$style.input" :placeholder="placeholder" :value="currentShowDate" ref="input" :readonly="readonly" :disabled="disabled" @input="onInput"></input>
+        <span @click="onEmptyClick" v-show="hasValue" :class="$style.empty"></span>
     </div>
     <div :class="$style.body" slot="popper" @click.stop>
         <u-calendar ref="calendar" :disabled="disabled" :readonly="readonly" :minDate="minDate" :maxDate="maxDate" :date="currentDate" @select="onSelect($event.value)" :tag="tag"/>

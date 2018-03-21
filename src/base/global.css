@@ -44,10 +44,15 @@ $product-snat-light: #b28cdd;
 /* Field Colors */
 $field-background: white;
 $field-color: #666;
+$field-color1: #606266;
 $field-border-color: #cbd5dd;
+$field-border-color1: #e1e8ed;/* 蜂巢 border */
+$field-hover-border-color: #cad0d5; /* 蜂巢hover border */
 $field-disabled-color: #bbb;
-$field-disabled-color1: rbg(196, 199, 207);
+$field-disabled-color1: rgb(196, 199, 207);
+$field-disabled-color2: #afafaf;
 $field-selected-color: $brand-primary;
+$field-focus-color: $brand-primary;
 $field-hover-color: rgb(232, 242, 254);
 $field-disabled-background: rgb(247, 247, 249);
 

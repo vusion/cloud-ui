@@ -75,6 +75,8 @@ export default {
             currentShowDate: null,
             currentDateFormat: null,
             currentPlacement: null,
+            focus: false,
+            hasValue: false,
         };
     },
     created() {
@@ -89,8 +91,12 @@ export default {
             this.initDate();
         },
         currentDate(date, oldDate) {
-            if (!date)
+            if (!date) {
+                this.currentShowDate = undefined;
+                this.hasValue = false;
                 return;
+            }
+            this.hasValue = true;
             this.currentShowDate = format(date, this.currentDateFormat); // String
             if (this.currentShowDate === format(oldDate, this.currentDateFormat))
                 return;
@@ -152,6 +158,7 @@ export default {
             this.$emit('update:date', this.currentDate);
 
             this.$refs.popper.toggle(false);
+            this.focus = false;
         },
         /**
          * @method onInput(value) 输入日期
@@ -183,6 +190,7 @@ export default {
          */
         onToggle($event) {
             this.$emit('toggle', $event);
+            this.focus = $event.open;
         },
         setDateTime(date) { // 如果超出范围，不可设置
             if (this.$refs.calendar && !this.$refs.calendar.inCalendarDateRange(date))
@@ -199,6 +207,15 @@ export default {
             else
                 time = this.time.replace(/^(\w:)/, '0$1').replace(/:(\w):/g, ':0$1:').replace(/:(\w)$/, ':0$1');
             return parse(format(date, 'YYYY-MM-DD') + 'T' + time);
+        },
+        onFocus() {
+            this.focus = true;
+        },
+        onBlur() {
+            this.focus = false;
+        },
+        onEmptyClick() {
+            this.currentDate = undefined;
         },
     },
 };

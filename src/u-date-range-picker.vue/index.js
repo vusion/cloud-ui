@@ -40,6 +40,8 @@ export default {
             allowNext: false,
             hoverDate: null, // 鼠标悬浮的日期
             currentDateRange: [], // 当前日期选择范围
+            focus: false,
+            hasValue: false,
         };
     },
     created() {
@@ -62,11 +64,19 @@ export default {
             this.initAllow();
         },
         currentStartDate(date, oldDate) {
+            if (!date)
+                return;
+
+            this.hasValue = true;
             this.formatCurrentStartDate = format(date, this.currentDateFormat); // Date
             if (this.selectDateArr && this.selectDateArr[0])
                 this.selectDateArr[0] = date;
         },
         currentEndDate(date, oldDate) {
+            if (!date)
+                return;
+
+            this.hasValue = true;
             this.formatCurrentEndDate = format(date, this.currentDateFormat); // Date
             if (this.selectDateArr && this.selectDateArr[1])
                 this.selectDateArr[1] = date;
@@ -90,7 +100,7 @@ export default {
             else if (this.startDate)
                 this.startShowDate = this.setDateTime(parse(this.startDate));
             else
-                this.startDate = new Date();
+                this.startShowDate = new Date();
             this.endShowDate = addMonths(this.startShowDate, this.gap);
         },
         initAllow() { // 月份相邻不可更改上下按钮
@@ -142,6 +152,7 @@ export default {
             this.currentEndDate = this.selectDateArr[1];
             this.$emit('update:endDate', this.selectDateArr[1]);
             this.$refs.popper.toggle(false);
+            this.focus = false;
         },
         /**
          * @method onInput(value) 输入日期
@@ -179,6 +190,7 @@ export default {
          */
         onToggle($event) {
             this.$emit('toggle', $event);
+            this.focus = $event.open;
         },
         setDateTime(date) { // 时分秒组件上了再设置时分秒
             return date;
@@ -213,6 +225,12 @@ export default {
             if (this.currentEndDate)
                 res = res && inDateRange(this.currentEndDate, this.currentDateRange);
             return res;
+        },
+        onEmptyClick() {
+            this.currentStartDate = this.currentEndDate = this.formatCurrentStartDate = this.formatCurrentEndDate = undefined;
+            this.selectDateArr = [];
+            this.selectIndex = -1;
+            this.hasValue = false;
         },
     },
 };
