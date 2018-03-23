@@ -10,7 +10,7 @@
                     <th v-for="(column, index) in columns" :class="$style.hthSpan" :role="column.filter || column.sortable" :border="border" :selection="column.type==='selection'"  @click.stop="handleSort(column)">
                         <span v-if="!column.filter" :class="$style.itemtitle">{{column.title}}</span>
                         <template v-else-if="column.filter">
-                            <u-popper trigger="click" :placement="column.placement" append-to="reference">
+                            <u-popper ref="popper" trigger="click" :placement="column.placement" append-to="reference">
                                 <div :class="$style.filtertitle" :role="column.filter">
                                     <span :class="$style.titleitem">{{column.title}}</span>
                                     <div :class="$style.traingle"></div>
@@ -72,7 +72,7 @@
                         <th v-for="(column, index) in columns" :class="$style.hthSpan" :border="border" :role="column.filter || column.sortable" :selection="column.type==='selection'" @click.stop="handleSort(column)">
                             <span v-if="!column.filter" :class="$style.itemtitle">{{column.title}}</span>
                             <template v-else-if="column.filter">
-                                <u-popper trigger="click" :placement="column.placement" append-to="reference">
+                                <u-popper ref="popper" trigger="click" :placement="column.placement" append-to="reference">
                                     <div :class="$style.filtertitle" :role="column.filter">
                                         <span :class="$style.titleitem">{{column.title}}</span>
                                         <div :class="$style.traingle"></div>

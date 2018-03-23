@@ -189,6 +189,7 @@ export default {
             }
         },
         select(option, column, index) {
+            this.$refs.popper && this.$refs.popper[0] && this.$refs.popper[0].toggle(false);
             column.selectValue = option.value;
             this.tdata = this.copyTdata.filter((item) => column.filterMethod(option.value, item[column.label], item, column));
             this.$emit('filter-change', {
