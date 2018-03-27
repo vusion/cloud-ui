@@ -64,6 +64,11 @@
 </u-linear-layout>
 ```
 
+### 删除功能
+```html
+<u-input close size="normal large" placeholder="1~12位小写字母" autofocus></u-input>
+```
+
 ## API
 ### Attrs/Props
 
@@ -77,6 +82,7 @@
 | readonly | Boolean | | 原生属性 |
 | disabled | Boolean | | 原生属性 |
 | size | String | `'normal'` | 大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式 |
+| close | Boolean | `'false'` | 删除功能，默认值false |
 
 ### Slots
 

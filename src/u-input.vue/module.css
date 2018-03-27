@@ -14,6 +14,9 @@
     border-radius: 3px;
     transition: border-color $transition-duration;
 }
+.input[close]{
+    padding-right: 30px;
+}
 
 .input::placeholder {
     /* Removes placeholder transparency in Firefox. */
@@ -34,25 +37,52 @@
     border-color: $brand-disabled;
 }
 
+.close{
+    position: relative;
+    border-radius: 100%;
+    background: #c0c4cc;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: -2px;
+    left: -28px;
+    cursor: pointer;
+}
+
+.close[class]:before{
+    font-size: 12px;
+    color:#fff;
+    margin:0 2px;
+    vertical-align: 1px;
+}
+
 .input[size$="mini"] { width: 80px; padding: 0 6px; }
 .input[size^="mini"] { height: 28px; }
+.input[size$="mini"][close] { padding-right: 30px; }
 
 .input[size$="small"] { width: 120px; padding: 0 8px; }
 .input[size^="small"] { height: 30px; }
+.input[size$="small"][close] { padding-right: 30px; }
 
 .input[size$="normal"] { width: 160px; padding: 0 10px; }
 .input[size^="normal"] { height: $height-base; }
+.input[size$="normal"][close] { padding-right: 30px; }
 
 .input[size$="medium"] { width: 280px; padding: 0 10px; }
 .input[size^="medium"] { height: 36px; }
+.input[size$="medium"][close] { padding-right: 30px; }
 
 .input[size$="large"] { width: 440px; padding: 0 10px; }
 .input[size^="large"] { height: 38px; }
+.input[size$="large"][close] { padding-right: 30px; }
 
 .input[size$="huge"] { width: 580px; padding: 0 10px; }
 .input[size^="huge"] { height: 40px; }
+.input[size$="huge"][close] { padding-right: 30px; }
 
 .root[size$="full"] { width: 100%; }
 .input[size$="full"] { width: 100%; padding: 0 10px; }
+.input[size$="full"][close] { padding-right: 30px; }
 .root[size^="full"] { height: 100%; }
 .input[size^="full"] { height: 100%; }

@@ -7,6 +7,7 @@ export default {
         // @override: 添加了maxlengthMessage功能
         maxlengthMessage: String,
         color: String,
+        close: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -37,6 +38,11 @@ export default {
                 this.$emit('input', this.currentValue);
                 this.$emit('update:value', this.currentValue);
             }
+        },
+        removeValue() {
+            this.currentValue = '';
+            this.$emit('input', this.currentValue);
+            this.$emit('update:value', this.currentValue);
         },
     },
 };
