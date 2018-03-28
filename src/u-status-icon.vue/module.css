@@ -28,3 +28,7 @@
     icon-font: url(./icons/error.svg);
     color: #ff867f;
 }
+.root[name="mount"]:before {
+    icon-font: url(./icons/mount.svg);
+    color: #3ad0af;
+}
