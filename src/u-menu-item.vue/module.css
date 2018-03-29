@@ -2,6 +2,13 @@
 
 .root {
     padding: 6px 15px;
+    padding-right: 34px;
+}
+
+.root[has-sub]:after {
+    width: 34px;
+    height: 34px;
+    line-height: 32px;
 }
 
 .root:hover {
