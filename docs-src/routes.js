@@ -41,9 +41,11 @@ export default [
             { path: 'u-checkboxes', component: () => import('proto-ui.vusion/src/u-checkboxes.vue/README.md') },
             { path: 'u-switch', component: () => import('../src/u-switch.vue/README.md') },
             { path: 'u-select', component: () => import('../src/u-select.vue/README.md') },
-            { path: 'u-suggest', component: () => import('../src/u-suggest.vue/README.md') },
+            { path: 'u-cascade-select', component: () => import('proto-ui.vusion/src/u-cascade-select.vue/README.md') },
+            { path: 'u-region-select', component: () => import('proto-ui.vusion/src/u-region-select.vue/README.md') },
             { path: 'u-multi-select', component: () => import('../src/u-multi-select.vue/README.md') },
             { path: 'u-color-select', component: () => import('../src/u-color-select.vue/README.md') },
+            { path: 'u-suggest', component: () => import('../src/u-suggest.vue/README.md') },
             { path: 'u-slider', component: () => import('../src/u-slider.vue/README.md') },
             { path: 'u-combo-slider', component: () => import('../src/u-combo-slider.vue/README.md') },
             { path: 'u-field', component: Empty },
@@ -63,8 +65,8 @@ export default [
             { path: 'u-date-time-picker', component: () => import('../src/u-date-time-picker.vue/README.md') },
             /* Popper */
             { path: 'u-popper', component: () => import('proto-ui.vusion/src/u-popper.vue/README.md') },
-            { path: 'u-tooltip', component: () => import('../src/u-tooltip.vue/README.md') },
             { path: 'u-popup', component: () => import('proto-ui.vusion/src/u-popup.vue/README.md') },
+            { path: 'u-tooltip', component: () => import('../src/u-tooltip.vue/README.md') },
             /* Feedback */
             { path: 'u-loading', component: () => import('../src/u-loading.vue/README.md') },
             { path: 'u-toast', component: () => import('../src/u-toast.vue/README.md') },

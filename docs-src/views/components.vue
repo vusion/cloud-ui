@@ -38,9 +38,11 @@
                     <u-sidebar-item exact to="/components/u-switch">开关 <small>Switch</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-textarea">多行输入 <small>Textarea</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-select">选择框 <small>Select</small></u-sidebar-item>
-                    <u-sidebar-item exact to="/components/u-suggest">自动提示 <small>Suggest</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-cascade-select">级联选择 <small>CascadeSelect</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-region-select">地区选择 <small>RegionSelect</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-multi-select">多项选择框 <small>MultiSelect</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-color-select">颜色选择框 <small>ColorSelect</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-suggest">自动提示 <small>Suggest</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-slider">滑块 <small>Slider</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-combo-slider">复合滑块 <small>ComboSlider</small></u-sidebar-item>
                     <!-- <u-sidebar-item v-if="advanced" to="/components/u-field">表单控件 <small>Field</small></u-sidebar-item> -->

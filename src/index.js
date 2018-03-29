@@ -183,6 +183,7 @@ export {
 
 export {
     Badge,
+    CascadeSelect,
     CollapseTransition,
     Draggable,
     Droppable,
@@ -200,6 +201,7 @@ export {
     MenuGroup,
     MenuDivider,
     Popper,
+    RegionSelect,
     Render,
     RouterItem,
     Tab,
