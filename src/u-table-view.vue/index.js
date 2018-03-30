@@ -1,5 +1,6 @@
 import { getStyle, getScrollSize } from '../base/utils/style';
 import { ellipsisTitle } from 'proto-ui.vusion/src/base/directives';
+import { debug } from 'util';
 
 export default {
     name: 'u-table-view',
@@ -24,6 +25,13 @@ export default {
             default: 'fixed',
         },
         border: { type: Boolean, default: false },
+        xScroll: { type: Boolean, default: false }, // 用来处理当表格出现水平滚动条时，默认scroll事件走表格的水平滚动
+        width: [String, Number],
+        visible: { type: Boolean, default: true },
+        pattern: { type: String, default: 'normal' }, // 特殊显示内容情形
+        limit: { type: [String, Number], default: 5 }, // 用来默认显示limit条数据
+        limitText: { type: String, default: '查看更多' },
+        allText: { type: String, default: '收起' },
     },
     data() {
         return {
@@ -31,11 +39,23 @@ export default {
             tdata: [],
             allSel: this.allChecked,
             columnsWidth: [],
+            fixedRightWidth: [],
             copyTdata: [], // tdata的复制版本主要用来过滤
             tableWidth: undefined, // display值为none的时候需要特殊处理这个值
             bodyHeight: undefined,
+            fixedTableHeight: undefined, // 当固定列和表格的高度一起使用的时候
             bodyWidth: undefined, // 当出现垂直滚动条的时候，需要减去滚动条的宽度，确保不会出现水平滚动条
             scrollWidth: undefined,
+            over: false, // 当mouseover在表格时，此值为true
+            fixedHeight: [], // 当fixed时表格行的高度值
+            fixedLeftWidth: null, // fixed 时表格左部分宽度和的值
+            rightColumns: [], // fixed值是right时需要重构columns顺序
+            rightColumnsWidth: [], // fixed值是right时需要重构columnsWidth顺序
+            isXScroll: false, // 判断是否会出现水平滚动条的情况
+            fixedHover: false, // 用来实现党左右列固定的时候，hover到左右列的时候，阴影效果能够同步实现
+            filterValue: undefined, // 用来记录当前filter选项的值，方便在过滤的时候点击更多显示正确的数据
+            filterColumn: undefined, // 用来记录当前filter列，方便在过滤的时候点击更多显示正确的数据
+            filterTdata: undefined, // 用来记录当前filter列过滤后符合条件的所有数据
         };
     },
     directives: { ellipsisTitle },
@@ -46,20 +66,80 @@ export default {
         });
     },
     mounted() {
-        this.tdata = this.initTableData();
+        if (this.pattern === 'limit')
+            this.tdata = this.initTableData(this.limit);
+        else
+            this.tdata = this.initTableData();
         this.copyTdata = this.initTableData();
-        this.fixedHeader();
         this.handleResize();
         window.addEventListener('resize', this.onResize, false);
+        if (this.xScroll)
+            document.addEventListener('mousewheel', this.onMouseWheel, false);
+    },
+    computed: {
+        fixedLeftColumns() {
+            return this.columns.filter((column) => column.fixed === 'left');
+        },
+        fixedRightColumns() {
+            const rightCols = [];
+            const other = [];
+            this.columns.forEach((col) => {
+                if (col.fixed && col.fixed === 'right') {
+                    rightCols.push(col);
+                } else {
+                    other.push(col);
+                }
+            });
+            this.rightColumns = rightCols.concat(other);
+            return rightCols;
+        },
+        expandedColumn() {
+            return this.columns.filter((column) => column.type === 'expand')[0];
+        },
     },
     watch: {
         data(newValue) {
-            this.tdata = this.initTableData();
+            if (this.pattern === 'limit')
+                this.tdata = this.initTableData(this.limit);
+            else
+                this.tdata = this.initTableData();
             this.copyTdata = this.initTableData();
             this.handleResize();
         },
         allChecked(newValue) {
             this.allSel = newValue;
+        },
+        columnsWidth(newValue) {
+            const leftIndexs = [];
+            const rightIndexs = [];
+            this.rightColumnsWidth = [];
+            this.fixedLeftColumns && this.fixedLeftColumns.forEach((item) => {
+                const index = this.columns.indexOf(item);
+                leftIndexs.push(index);
+            });
+            this.fixedRightColumns && this.fixedRightColumns.forEach((item) => {
+                const index = this.columns.indexOf(item);
+                rightIndexs.push(index);
+                newValue[index] && this.rightColumnsWidth.push(newValue[index]);
+            });
+            this.columns.forEach((item, index) => {
+                if (rightIndexs.indexOf(index) === -1 && newValue[index]) {
+                    this.rightColumnsWidth.push(newValue[index]);
+                }
+            });
+            this.fixedLeftWidth = null;
+            this.fixedRightWidth = null;
+            leftIndexs.forEach((item) => {
+                if (newValue[item])
+                    this.fixedLeftWidth += parseInt(newValue[item]);
+            });
+            rightIndexs.forEach((item) => {
+                if (newValue[item])
+                    this.fixedRightWidth += parseInt(newValue[item]);
+            });
+        },
+        visible(newValue) {
+            this.handleResize();
         },
     },
     methods: {
@@ -90,14 +170,18 @@ export default {
                 const order = this.defaultSort.order === 'asc' ? -1 : 1;
                 const label = column.label;
                 if (column.sortMethod)
-                    this.tdata.sort((value1, value2) => column.sortMethod(value1[label], value2[label]) ? order : -order);
+                    this.copyTdata.sort((value1, value2) => column.sortMethod(value1[label], value2[label]) ? order : -order);
                 else {
-                    this.tdata.sort((value1, value2) => {
+                    this.copyTdata.sort((value1, value2) => {
                         if (value1[label] === value2[label])
                             return 0;
                         return value1[label] < value2[label] ? order : -order;
                     });
                 }
+                if (this.pattern === 'limit')
+                    this.tdata = this.copyTdata.slice(0, this.limit);
+                else
+                    this.tdata = this.copyTdata;
                 this.$emit('sort-change', {
                     column,
                     label,
@@ -131,12 +215,26 @@ export default {
 
             this.$emit('selection-change', selection);
         },
-        initTableData() {
-            const tdata = [];
+        initTableData(value) {
+            let tdata = [];
             const selection = this.columns && this.columns.some((item) => item.type && item.type === 'selection');
-            if (selection) {
+            const expand = this.columns && this.columns.some((item) => item.type && item.type === 'expand');
+            if (selection && expand) {
                 this.data.forEach((item) => {
                     item.selected = false;
+                    item.expanded = false;
+                    item.iconName = 'right';
+                    tdata.push(item);
+                });
+            } else if (selection) {
+                this.data.forEach((item) => {
+                    item.selected = false;
+                    tdata.push(item);
+                });
+            } else if (expand) {
+                this.data.forEach((item) => {
+                    item.expanded = false;
+                    item.iconName = 'right';
                     tdata.push(item);
                 });
             } else {
@@ -146,12 +244,31 @@ export default {
             }
             if (!this.data.length)
                 this.allSel = false;
+            // 固定左右列同步阴影实现方案
+            if (this.fixedLeftColumns.length > 0 || this.fixedRightColumns.length > 0)
+                tdata.forEach((item) => item.hover = false);
+
+            if (value)
+                tdata = tdata.slice(0, value);
+
             return tdata;
         },
         handleResize() {
             if (this.layout !== 'auto') {
                 this.$nextTick(() => {
-                    if (getStyle(this.$el, 'width') === 'auto') {
+                    // 判断是否会出现水平滚动条
+                    const parentWidth = this.$refs.root.offsetWidth;
+                    const tableWidth = this.$refs.body.offsetWidth;
+                    this.isXScroll = tableWidth > parentWidth;
+                    const allWidth = !this.columns.some((cell) => !cell.currentWidth); // each column set a width
+                    if (allWidth) {
+                        this.tableWidth = this.columns.map((cell) => {
+                            if ((cell.currentWidth + '').indexOf('%') !== -1)
+                                return parseInt(cell.currentWidth) * tableWidth / 100;
+                            else
+                                return parseInt(cell.currentWidth);
+                        }).reduce((a, b) => a + b, 0);
+                    } else if (getStyle(this.$el, 'width') === 'auto') {
                         let parentNode = this.$el.parentNode;
                         while (getStyle(parentNode, 'width') === 'auto')
                             parentNode = parentNode.parentNode;
@@ -159,24 +276,54 @@ export default {
                     } else
                         this.tableWidth = parseInt(getStyle(this.$el, 'width')) + 'px';
 
-                    if (this.height) {
-                        this.scrollWidth = getScrollSize();
+                    this.scrollWidth = getScrollSize();
+                    const titleHeight = parseInt(getStyle(this.$refs.title, 'height')) || 0;
+                    const headHeight = parseInt(getStyle(this.$refs.head, 'height')) || 0;
+                    if (this.height && !this.loading && this.data.length) {
                         this.bodyWidth = parseInt(this.tableWidth) - this.scrollWidth;
-                    } else
+                        this.bodyHeight = this.height - titleHeight - headHeight;
+                    } else {
                         this.bodyWidth = this.tableWidth;
+                        // this.bodyHeight = parseInt(getStyle(this.$refs.body, 'height')) || 0;
+                    }
+
+                    if (this.loading && tableWidth > parentWidth) {
+                        this.fixedTableHeight = parseInt(getStyle(this.$refs.body, 'height')) || 0;
+                        this.$refs.body.parentNode.scrollLeft = (tableWidth - parentWidth) / 2;
+                    } else if (tableWidth > parentWidth) {
+                        this.fixedTableHeight = this.bodyHeight - this.scrollWidth;
+                        this.$refs.body.parentNode.scrollLeft = (tableWidth - parentWidth) / 2;
+                    } else
+                        this.fixedTableHeight = this.bodyHeight;
 
                     this.columnsWidth = [];
                     this.$nextTick(() => {
                         let tdColls = [];
-                        if (this.data.length) {
-                            tdColls = this.$refs.body.querySelectorAll('tbody tr:first-child td');
+                        if (this.data.length && !this.loading) {
+                            tdColls = this.$refs.body && this.$refs.body.querySelectorAll('tbody tr:first-child td') || [];
+                            for (let i = 0; i < tdColls.length; i++) {
+                                const column = this.columns[i];
+                                let width;
+                                if (column.currentWidth)
+                                    column.currentWidth = width = (column.currentWidth + '').indexOf('%') === -1 ? parseInt(column.currentWidth) : parseInt(column.currentWidth) * parseInt(this.tableWidth) / 100;
+                                else
+                                    column.currentWidth = width = getStyle(tdColls[i], 'width') && getStyle(tdColls[i], 'width') !== 'auto' && getStyle(tdColls[i], 'width') !== null ? parseInt(getStyle(tdColls[i], 'width')) : '';
+
+                                if (this.height && i === (this.columns.length - 1)) {
+                                    this.columns[i].currentWidth = width - this.scrollWidth;
+                                    this.columns[i].fixedWidth = width;
+                                }
+                                this.columnsWidth.push(width);
+                            }
+                        } else {
+                            tdColls = this.$refs.thead && this.$refs.thead.querySelectorAll('thead tr:first-child th') || [];
                             for (let i = 0; i < tdColls.length; i++) {
                                 const column = this.columns[i];
                                 let width;
                                 if (column.currentWidth)
                                     width = column.currentWidth;
                                 else
-                                    width = getStyle(tdColls[i], 'width') && getStyle(tdColls[i], 'width') !== 'auto' && getStyle(tdColls[i], 'width') !== null ? parseInt(getStyle(tdColls[i], 'width')) : '';
+                                    column.currentWidth = width = getStyle(tdColls[i], 'width') && getStyle(tdColls[i], 'width') !== 'auto' && getStyle(tdColls[i], 'width') !== null ? parseInt(getStyle(tdColls[i], 'width')) : '';
 
                                 if (this.height && i === (this.columns.length - 1))
                                     this.columns[i].currentWidth = width - this.scrollWidth;
@@ -190,8 +337,17 @@ export default {
         },
         select(option, column, index) {
             this.$refs.popper && this.$refs.popper[0] && this.$refs.popper[0].toggle(false);
-            column.selectValue = option.value;
-            this.tdata = this.copyTdata.filter((item) => column.filterMethod(option.value, item[column.label], item, column));
+            this.filterValue = column.selectValue = option.value;
+            this.filterColumn = column;
+            this.filterTdata = this.tdata = this.copyTdata.filter((item) => {
+                if (column.filterMethod)
+                    return column.filterMethod(option.value, item[column.label], item, column);
+                else
+                    return item[column.label] === option.value;
+            });
+            if (this.pattern === 'limit')
+                this.tdata = this.tdata.slice(0, this.limit);
+
             this.$emit('filter-change', {
                 column,
                 value: option.value,
@@ -211,15 +367,6 @@ export default {
 
             this.$emit('selection-change', selection);
         },
-        fixedHeader() {
-            if (this.height) {
-                this.$nextTick(() => {
-                    const titleHeight = parseInt(getStyle(this.$refs.title, 'height')) || 0;
-                    const headHeight = parseInt(getStyle(this.$refs.head, 'height')) || 0;
-                    this.bodyHeight = this.height - titleHeight - headHeight;
-                });
-            }
-        },
         rowClick(row, index) {
             this.$emit('row-click', {
                 data: row,
@@ -227,28 +374,109 @@ export default {
             });
         },
         onResize() {
-            this.fixedHeader();
             this.handleResize();
         },
         translateTime(value, format) {
+            const self = this;
             const maps = {
-                YYYY: (date) => date.getFullYear(),
-                MM: (date) => this.fix(date.getMonth() + 1),
-                DD: (date) => this.fix(date.getDate()),
-                HH: (date) => this.fix(date.getHours()),
-                mm: (date) => this.fix(date.getMinutes()),
-                ss: (date) => this.fix(date.getSeconds()),
+                YYYY(date) {
+                    return date.getFullYear();
+                },
+                MM(date) {
+                    return self.fixDate(date.getMonth() + 1);
+                },
+                DD(date) {
+                    return self.fixDate(date.getDate());
+                },
+                HH(date) {
+                    return self.fixDate(date.getHours());
+                },
+                mm(date) {
+                    return self.fixDate(date.getMinutes());
+                },
+                ss(date) {
+                    return self.fixDate(date.getSeconds());
+                },
             };
-
-            const trunk = new RegExp(Object.keys(maps).join('|'), 'g');
-            format = format || 'YYYY-MM-DD HH:mm:ss';
-            value = new Date(value);
-
-            return format.replace(trunk, (capture) => maps[capture] ? maps[capture](value) : '');
+            const date = new Date(value);
+            const pattern = new RegExp(Object.keys(maps).join('|'), 'g');
+            return format.replace(pattern, (capture) => maps[capture] ? maps[capture](date) : '');
         },
-        fix(value) {
+        fixDate(value) {
             value = '' + value;
             return value.length <= 1 ? '0' + value : value;
+        },
+        onMouseWheel(e) {
+            const direction = e.wheelDelta / 120 > 0 ? -1 : 1;
+            const parentWidth = this.$refs.root.offsetWidth;
+            const tableWidth = this.$refs.body.offsetWidth;
+            const diffWidth = tableWidth - parentWidth;
+            if (tableWidth > parentWidth && this.over) {
+                e.preventDefault();
+                if (this.$refs.body.parentNode.scrollLeft >= diffWidth && direction === 1)
+                    this.$refs.body.parentNode.scrollLeft = diffWidth;
+                else if (this.$refs.body.parentNode.scrollLeft < 0 && direction === -1)
+                    this.$refs.body.parentNode.scrollLeft = 0;
+                else if (direction === -1)
+                    this.$refs.body.parentNode.scrollLeft += -50;
+                else
+                    this.$refs.body.parentNode.scrollLeft += 50;
+            }
+        },
+        mouseover() {
+            this.over = true;
+        },
+        mouseleave() {
+            this.over = false;
+        },
+        toggleExpand(index) {
+            const copyRowData = this.tdata[index];
+            copyRowData.expanded = !copyRowData.expanded;
+            if (!copyRowData.expanded)
+                copyRowData.iconName = 'right';
+            else
+                copyRowData.iconName = 'down';
+            this.tdata.splice(index, 1, copyRowData);
+        },
+        bodyScroll(e) {
+            this.$refs.head.scrollLeft = e.target.scrollLeft;
+            if (this.fixedLeftColumns.length > 0)
+                this.$refs.lefttable.scrollTop = e.target.scrollTop;
+            if (this.fixedRightColumns.length > 0)
+                this.$refs.righttable.scrollTop = e.target.scrollTop;
+            this.$refs.popper && this.$refs.popper[0] && this.$refs.popper[0].toggle(false);
+        },
+        fixmouseover(value) {
+            if (value === -1)
+                this.fixedHover = true;
+            else {
+                const obj = this.tdata[value];
+                obj.hover = true;
+                this.tdata.splice(value, 1, obj);
+            }
+        },
+        fixmouseleave(value) {
+            if (value === -1)
+                this.fixedHover = false;
+            else {
+                const obj = this.tdata[value];
+                obj.hover = false;
+                this.tdata.splice(value, 1, obj);
+            }
+        },
+        showAll() {
+            if (this.filterValue) {
+                this.tdata = this.copyTdata.filter((item) => {
+                    if (this.filterColumn.filterMethod)
+                        return this.filterColumn.filterMethod(this.filterValue, item[this.filterColumn.label], item, this.filterColumn);
+                    else
+                        return item[this.filterColumn.label] === this.filterValue;
+                });
+            } else
+                this.tdata = this.copyTdata;
+        },
+        showLimit() {
+            this.tdata = this.tdata.slice(0, this.limit);
         },
     },
     destroyed() {

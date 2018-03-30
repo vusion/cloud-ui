@@ -21,10 +21,8 @@ export default {
         },
         // tooltip: { type: Boolean, default: false },
         ellipsis: { type: Boolean, default: false },
-        timeFormat: {
-            type: String,
-            default: 'YYYY-MM-DD HH:mm:ss',
-        },
+        timeFormat: { type: String, default: 'YYYY-MM-DD HH:mm:ss' },
+        fixed: { type: String, validator: (value) => ['left', 'right'].includes(value) },
     },
     mixins: [Emitter],
     data() {
@@ -36,6 +34,7 @@ export default {
             visible: false,
             parentVM: undefined,
             currentWidth: this.getWidth(),
+            fixedWidth: undefined, // 当表格高度固定和表格列固定一起使用的时候，这时候有的列的宽度需要特殊做处理，这时候在固定右列的时候，宽度需要时原来的正常宽度，不能减去滚动条的宽度
         };
     },
     watch: {
@@ -56,6 +55,10 @@ export default {
         getWidth(value) {
             if (this.type === 'selection')
                 return value || this.width || 35;
+            else if (this.type === 'expand')
+                return value || this.width || 50;
+            else if (this.type === 'time')
+                return value || this.width || 160;
             else
                 return value || this.width;
         },

@@ -1,4 +1,28 @@
-.root {}
+.root {
+    position: relative;
+}
+
+.root:before{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 1px;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+   background-color: #ebf0f5;
+}
+
+.root[border]:after{
+    position: absolute;
+    content: '';
+    width: 1px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    background-color: #ebf0f5;
+}
 
 .table{
     width: 100%;
@@ -7,9 +31,12 @@
 .thead {
     width: 100%;
 }
+.header{
+    overflow: hidden;
+}
 
-.thead .hthSpan, .table .hthSpan {
-    position: relative;
+.hthSpan {
+    /* position: relative; */
     vertical-align: middle;
     padding-right: 0;
     box-sizing: border-box;
@@ -17,10 +44,6 @@
     line-height: 20px;
     text-align: left;
     font-weight: 400;
-}
-
-.table .hthSpan{
-    cursor: pointer;
 }
 
 .hthSpan[border] {
@@ -49,23 +72,28 @@
     background: #fff;
 }
 
-.body[role] {
+/* .body {
     overflow: auto;
+} */
+
+.body[role="fixed"]{
+    overflow: hidden;
 }
 
 .tbody {
     width: 100%;
+    /* margin-bottom: 6px; */
 }
 
-.tbody .btrItem:first-child, .table .btrItem:first-child {
+.btrItem:first-child {
     border-top: none;
 }
 
-.tbody .btrItem, .table .btrItem {
+.btrItem {
     border-top: 1px solid #ebf0f5;
 }
 
-.tbody .btrItem[role], .table .btrItem[role] {
+.btrItem[role] {
     border-bottom: 1px solid #ebf0f5;
 }
 
@@ -122,10 +150,11 @@
 }
 
 .popper {
-    width: 100%;
     z-index: 1065;
     background: #fff;
     border: 1px solid #f1f1f1;
+    margin-left: -10px;
+    margin-top: 12px;
 }
 
 .itemtitle {
@@ -139,6 +168,7 @@
     padding: 3px 14px;
     box-sizing: border-box;
     line-height: 24px;
+    cursor: pointer;
 }
 
 .option:hover {
@@ -151,16 +181,6 @@
     color: #fff;
 }
 
-.filtertitle {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    line-height: 44px;
-    padding-left: 10px;
-}
-
 .traingle {
     display: inline-block;
     border: 5px solid transparent;
@@ -170,12 +190,16 @@
     top: 3px;
 }
 
-.btrItem:hover {
+.btrItem:hover, .btrItem[hover] {
     background-color: #fff;
     background-clip: padding-box;
 }
 
-.btrItem:hover .btdSpan:before {
+.btdSpan[expanded] {
+    border-bottom: 1px solid #ebf0f5;
+}
+
+.btrItem:hover .btdSpan:before, .btrItem[hover] .btdSpan:before {
     content: "";
     width: 100%;
     height: 6px;
@@ -186,7 +210,7 @@
     z-index: 100;
 }
 
-.btrItem:hover .btdSpan:after {
+.btrItem:hover .btdSpan:after, .btrItem[hover] .btdSpan:after {
     content: "";
     width: 100%;
     height: 6px;
@@ -197,10 +221,71 @@
     z-index: 100;
 }
 
+/* .btrItem:last-child:hover .btdSpan:before{
+    content: '';
+    width: 0;
+    height:0;
+    background: none;
+} */
+
+.btrItem:last-child:hover .btdSpan[hide]:after{
+    content: '';
+    width: 0;
+    height:0;
+    background: none;
+}
+
 .ditem[role] {
     display: block;
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.fixLeft{
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 2px 0 6px -2px rgba(0,0,0,.2);
+}
+
+.fixRight{
+    position: absolute;
+    right: 0;
+    left: auto;
+    top: 0;
+    background: #fff;
+    box-shadow: -2px 0 6px -2px rgba(0,0,0,.2);
+}
+
+.loading{
+    display: inline-block;
+    line-height: 21px;
+}
+
+.expand{
+    display: inline-block;
+    width:14px;
+    height: 14px;
+    cursor: pointer;
+}
+
+.expand[name="right"]:after {
+    icon-font: url('../u-icon.vue/icons/keyboard-arrow-right.svg');
+}
+
+.expand[name="down"]:after {
+    icon-font: url('../u-icon.vue/icons/keyboard-arrow-down.svg');
+}
+
+.fixNoText{
+    display: inline-block;
+    line-height: 20px;
+}
+
+.headExpand{
+    width: 50px;
 }

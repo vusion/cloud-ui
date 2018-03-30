@@ -4,12 +4,16 @@
 ### 基本形式
 
 
-
-### demo1 排序和格式化
+### demo0 layout布局方式，支持auto,fixed两种布局，默认是fixed布局, auto布局一个缺点是数据发生变化各列对应的宽度可能发生变化，取决于内容宽度，推荐使用fixed布局
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata" height="300" border>
+        <u-table-view :data="tdata" layout="auto" border>
+            <u-table-view-column type="expand">
+                <template slot-scope="scope">
+                    <span>11</span>    
+                </template>
+            </u-table-view-column>
             <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
             <u-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-table-view-column>
             <u-table-view-column title="地址" label="address" sortable></u-table-view-column>
@@ -83,13 +87,213 @@ export default {
 </script>
 ```
 
-### demo2 自定义排序方法
+### demo1 支持默认显示指定limit条行数据，pattern属性设置为limit值即可
+``` vue
+<template>
+    <div>
+        <u-table-view :data="tdata" border pattern="limit">
+            <u-table-view-column type="expand">
+                <template slot-scope="scope">
+                    <span>11</span>    
+                </template>
+            </u-table-view-column>
+            <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
+            <u-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-table-view-column>
+            <u-table-view-column title="地址" label="address" sortable></u-table-view-column>
+            <u-table-view-column title="性别" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
+        </u-table-view>
+    </div>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{
+                date: '2016-05-02',
+                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+                address: '上海市普陀区金沙江路 1518 弄',
+                female: '男',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+                address: '上海市普陀区金沙江路 1517 弄',
+                female: '男',
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
+                address: '上海市普陀区金沙江路 1519 弄',
+                female: '女',
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '上海市普陀区金沙江路 1516 弄',
+                female: '男',
+            }, {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄',
+                female: '男',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '上海市普陀区金沙江路 1517 弄',
+                female: '女',
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '上海市普陀区金沙江路 1519 弄',
+                female: '女',
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '上海市普陀区金沙江路 1516 弄',
+                female: '女',
+            }, {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄',
+                female: '男',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '上海市普陀区金沙江路 1517 弄',
+                female: '女',
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '上海市普陀区金沙江路 1519 弄',
+                female: '男',
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '上海市普陀区金沙江路 1516 弄',
+                female: '女',
+            }],
+            options: [
+                {
+                    name: '全部',
+                    value: '',
+                },
+                {
+                    name: '男',
+                    value: '男'
+                },
+                {
+                    name: '女',
+                    value: '女'
+                },
+            ],
+            value: ''
+        };
+    },
+    methods: {
+        formatter(row, column) {
+            if (row.name === '天王盖地虎')
+                return '逗比一号';
+            else
+                return row.name;
+        },
+        filterMethod(value, columnValue) {
+            if (value === '')
+                return true;
+            return columnValue === value;
+        },
+    }
+};
+</script>
+```
+
+
+### demo2 排序和格式化
+``` vue
+<template>
+    <div>
+        <u-table-view :data="tdata" border>
+            <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
+            <u-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-table-view-column>
+            <u-table-view-column title="地址" label="address" sortable></u-table-view-column>
+        </u-table-view>
+    </div>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{
+                date: '2016-05-02',
+                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+                address: '上海市普陀区金沙江路 1518 弄',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+                address: '上海市普陀区金沙江路 1517 弄'
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
+                address: '上海市普陀区金沙江路 1519 弄'
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '上海市普陀区金沙江路 1516 弄'
+            }, {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '上海市普陀区金沙江路 1517 弄'
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '上海市普陀区金沙江路 1519 弄'
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '上海市普陀区金沙江路 1516 弄'
+            }, {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '上海市普陀区金沙江路 1517 弄'
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '上海市普陀区金沙江路 1519 弄'
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '上海市普陀区金沙江路 1516 弄'
+            }],
+        };
+    },
+    methods: {
+        formatter(row, column) {
+            if (row.name === '天王盖地虎')
+                return '逗比一号';
+            else
+                return row.name;
+        }
+    }
+};
+</script>
+```
+
+### demo3 自定义排序方法
 ``` vue
 <template>
     <u-table-view :data="tdata" @sort-change="sortChange">
-        <u-table-view-column title="日期" label="date" sortable :sort-method="sortMethod"></u-table-view-column>
-        <u-table-view-column title="姓名" label="name" width="200"></u-table-view-column>
-        <u-table-view-column title="地址" label="address" ></u-table-view-column>
+        <u-table-view-column type="expand">
+            <template slot-scope="scope">
+                <span>11</span>    
+            </template>
+        </u-table-view-column>
+        <u-table-view-column title="日期" label="date" sortable width="500" :sort-method="sortMethod"></u-table-view-column>
+        <u-table-view-column title="姓名" label="name" width="50%"></u-table-view-column>
+        <u-table-view-column title="地址" label="address" width="1000" ></u-table-view-column>
     </u-table-view>
 </template>
 <script>
@@ -132,7 +336,7 @@ export default {
 </script>
 ```
 
-### demo3 全选
+### demo4 全选
 ``` vue
 <template>
     <div>
@@ -192,7 +396,7 @@ export default {
 </script>
 ```
 
-### demo4 select
+### demo5 select
 ``` vue
 <template>
     <u-table-view :data="tdata" @filter-change="filterChange">
@@ -275,7 +479,7 @@ export default {
 };
 </script>
 ```
-### demo5 作用域插槽方式
+### demo6 作用域插槽方式
 ``` vue
 <template>
     <div>
@@ -375,14 +579,14 @@ export default {
             this.current = row;
         },
         tableShow() {
-            this.show = true;
+            this.show = !this.show;
         }
     }
 };
 </script>
 ```
 
-### demo6 loading 加载中的状态
+### demo7 loading 加载中的状态
 ``` vue
 <template>
 <div>
@@ -428,7 +632,7 @@ export default {
 </script>
 ```
 
-### demo7 data为空数组自定义显示文本
+### demo8 data为空数组自定义显示文本
 ``` vue
 <template>
 <div>
@@ -463,6 +667,286 @@ export default {
 </script>
 ```
 
+## 对于表格内容过多的情况，提供以下两种解决方案，可以任选一种合适的方式使用
+
+### demo9 表格行可展开
+使用场景：表格的内容过多，展示不下，需要注意的是expand中自定义的内容会受到表格添加的样式对其产生的影响，比如说不换行，居中等，如果不是需要的效果，需要自己自定义消除父元素对其自定义元素内容样式的影响
+``` vue
+<template>
+    <div>
+        <u-table-view :data="tdata">
+            <u-table-view-column type="expand">
+                <template slot-scope="scope">
+                    <u-info-list style="overflow:hidden;text-align:left;white-space:initial;">
+                        <u-info-list-group title="基本信息">
+                            <u-info-list-item label="VPC名称">{{scope.row.name}}</u-info-list-item>
+                            <u-info-list-item label="UUID">152f36a3cfff4572a3a35</u-info-list-item>
+                            <u-info-list-item label="网段">10.3.0.4/16</u-info-list-item>
+                            <u-info-list-item label="默认VPC">是</u-info-list-item>
+                            <u-info-list-item label="创建时间">2018-02-22</u-info-list-item>
+                        </u-info-list-group>
+                        <u-info-list-group title="基本信息">
+                            <u-info-list-item label="VPC名称">defaultVPC</u-info-list-item>
+                            <u-info-list-item label="UUID">152f36a3cfff4572a3a35</u-info-list-item>
+                            <u-info-list-item label="网段">10.3.0.4/16</u-info-list-item>
+                            <u-info-list-item label="默认VPC">是</u-info-list-item>
+                            <u-info-list-item label="创建时间">2018-02-22</u-info-list-item>
+                        </u-info-list-group>
+                    </u-info-list>
+                </template>
+            </u-table-view-column>
+            <u-table-view-column width="200" title="日期" label="date" sortable type="time" time-format="YYYY-MM-DD"></u-table-view-column>
+            <u-table-view-column title="姓名" width="200" label="name" ></u-table-view-column>
+            <u-table-view-column title="地址" width="200" label="address" tooltip></u-table-view-column>
+            <u-table-view-column title="地址" width="200" label="address" tooltip></u-table-view-column>
+            <u-table-view-column title="地址" width="200" label="address" tooltip></u-table-view-column>
+            <u-table-view-column title="地址" width="200" label="address" tooltip></u-table-view-column>
+            <u-table-view-column title="地址" width="200" label="address" tooltip></u-table-view-column>
+            <u-table-view-column title="性别" width="200" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
+            <u-table-view-column title="操作" width="150">
+                <template slot-scope="scope">
+                    <u-button @click="click(scope.row)">配置</u-button>
+                </template>
+            </u-table-view-column>
+        </u-table-view>
+        <u-modal :visible.sync="visible">
+            <div>
+                <span>{{current.name}}</span>
+                <span style="margin-left:10px;">{{current.address}}</span>
+            </div>
+        </u-modal>
+    </div>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{
+                date: 1501977600000,
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄',
+                female: '男',
+                use: 12,
+                total: 20,
+            }, {
+                date: 1502236800000,
+                name: '王大虎',
+                address: '上海市',
+                female: '女',
+                use: 12,
+                total: 20,
+            }, {
+                date: 1503100800000,
+                name: '天王盖地虎',
+                address: '上海市普陀区金沙江路 1519 弄',
+                female: '男',
+                use: 12,
+                total: 20,
+            }, {
+                date: 1503964800000,
+                name: '小鸡炖蘑菇',
+                address: '上海市普陀',
+                female: '女',
+                use: 12,
+                total: 20,
+            }],
+            options: [
+                {
+                    name: '全部',
+                    value: '',
+                },
+                {
+                    name: '男',
+                    value: '男'
+                },
+                {
+                    name: '女',
+                    value: '女'
+                },
+            ],
+            value: '',
+            current: {},
+            visible: false,
+            show: false,
+        };
+    },
+    methods: {
+        filterMethod(value, columnValue) {
+            if (value === '')
+                return true;
+            return columnValue === value;
+        },
+        dateFormat(row) {
+            const value = row.date;
+            const year = new Date(value).getFullYear();
+            let month = new Date(value).getMonth() + 1;
+            month += '';
+            if(month.length === 1)
+                month = '0' + month;
+            const date = new Date(value).getDate();
+            return year + '-' + month + '-' + date;
+        },
+        click(row) {
+            console.log('click');
+            console.log(row);
+            this.visible = true;
+            this.current = row;
+        },
+        tableShow() {
+            this.show = true;
+        }
+    }
+};
+</script>
+```
+
+### demo10 固定左右列
+使用场景：表格的内容过多，展示不下，可以通过制定表格的宽度和单元列的宽度来展示
+``` vue
+<template>
+    <div>
+        <u-table-view :data="tdata" width="800" height="400" border>
+            <u-table-view-column width="200" fixed="left" title="日期" label="date" sortable type="time" time-format="YYYY-MM-DD"></u-table-view-column>
+            <u-table-view-column title="姓名" width="200" label="name" ></u-table-view-column>
+            <u-table-view-column title="地址" width="200" label="address" tooltip></u-table-view-column>
+            <u-table-view-column title="地址" width="200" label="address" tooltip></u-table-view-column>
+            <u-table-view-column title="地址" width="200" label="address" tooltip></u-table-view-column>
+            <u-table-view-column title="地址" width="200" label="address" tooltip></u-table-view-column>
+            <u-table-view-column title="地址" width="200" label="address" tooltip></u-table-view-column>
+            <u-table-view-column title="性别" width="200" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
+            <u-table-view-column title="操作" fixed="right" width="150">
+                <template slot-scope="scope">
+                    <u-button @click="click(scope.row)">配置</u-button>
+                </template>
+            </u-table-view-column>
+            <div slot="no-data-text">
+                <span style="margin-right:10px">暂无数据,</span>
+                <u-link>请刷新页面</u-link>
+            </div>
+        </u-table-view>
+        <u-modal :visible.sync="visible">
+            <div>
+                <span>{{current.name}}</span>
+                <span style="margin-left:10px;">{{current.address}}</span>
+            </div>
+        </u-modal>
+    </div>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{
+                date: 1501977600000,
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄',
+                female: '男',
+                use: 12,
+                total: 20,
+            }, {
+                date: 1502236800000,
+                name: '王大虎',
+                address: '上海市',
+                female: '女',
+                use: 12,
+                total: 20,
+            }, {
+                date: 1503100800000,
+                name: '天王盖地虎',
+                address: '上海市普陀区金沙江路 1519 弄',
+                female: '男',
+                use: 12,
+                total: 20,
+            }, {
+                date: 1503964800000,
+                name: '小鸡炖蘑菇',
+                address: '上海市普陀',
+                female: '女',
+                use: 12,
+                total: 20,
+            }, 
+            {
+                date: 1503964800000,
+                name: '小鸡炖蘑菇',
+                address: '上海市普陀',
+                female: '女',
+                use: 12,
+                total: 20,
+            },
+            {
+                date: 1503964800000,
+                name: '小鸡炖蘑菇',
+                address: '上海市普陀',
+                female: '女',
+                use: 12,
+                total: 20,
+            },
+            {
+                date: 1503964800000,
+                name: '小鸡炖蘑菇',
+                address: '上海市普陀',
+                female: '女',
+                use: 12,
+                total: 20,
+            },
+            {
+                date: 1503964800000,
+                name: '小鸡炖蘑菇',
+                address: '上海市普陀',
+                female: '女',
+                use: 12,
+                total: 20,
+            },
+        ],
+            options: [
+                {
+                    name: '全部',
+                    value: '',
+                },
+                {
+                    name: '男',
+                    value: '男'
+                },
+                {
+                    name: '女',
+                    value: '女'
+                },
+            ],
+            value: '',
+            current: {},
+            visible: false,
+            show: false,
+        };
+    },
+    methods: {
+        filterMethod(value, columnValue) {
+            if (value === '')
+                return true;
+            return columnValue === value;
+        },
+        dateFormat(row) {
+            const value = row.date;
+            const year = new Date(value).getFullYear();
+            let month = new Date(value).getMonth() + 1;
+            month += '';
+            if(month.length === 1)
+                month = '0' + month;
+            const date = new Date(value).getDate();
+            return year + '-' + month + '-' + date;
+        },
+        click(row) {
+            console.log('click');
+            console.log(row);
+            this.visible = true;
+            this.current = row;
+        },
+        tableShow() {
+            this.show = true;
+        }
+    }
+};
+</script>
+```
 
 ## TableView API
 ### Attrs/Props
@@ -477,7 +961,11 @@ export default {
 | loading| Boolean | false | 是否展示加载中的状态信息 |
 | height| Integer/String |  | 表格组件的高度 |
 | layout| String | fixed | 表格的布局方式, 可选值有fixed, auto两种 |
-
+| visible| Boolean | true | 默认显示 |
+| pattern| String | `'normal'` | 支持显示指定数目的数据，值设置为limit即可 |
+| limit| String, Number | `5` | 在pattern属性值为limit时，默认显示数据的数目 |
+| limitText| String | `'查看更多'` | 在pattern属性值为limit时，数据的数目大于limit的值时默认在表格最后一行显示的提示内容 |
+| allText| String | `'收起'`| 在pattern属性值为limit时，显示所有数据后默认在表格最后一行显示的提示内容 |
 ### Slots
 
 #### (default)
@@ -487,6 +975,14 @@ export default {
 #### title
 
 自定义表格标题
+
+#### limit-text
+
+在pattern属性值为limit时，数据的数目大于limit的值时默认在表格最后一行显示的提示内容
+
+#### all-text
+
+在pattern属性值为limit时，显示所有数据后默认在表格最后一行显示的提示内容
 
 #### no-data-text
 
