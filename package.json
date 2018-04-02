@@ -32,7 +32,7 @@
   ],
   "dependencies": {
     "lodash": "^4.17.5",
-    "proto-ui.vusion": "~0.2.12",
+    "proto-ui.vusion": "~0.2.13",
     "vusion-utils": "^0.2.0"
   },
   "devDependencies": {
