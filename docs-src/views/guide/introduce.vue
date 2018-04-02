@@ -52,6 +52,7 @@ export default {
     background-color: #fafafa;
     border: 1px solid #eee;
     padding: 6px 12px;
+    font-family: "Monaco,Menlo,Consolas,monospace";
 }
 .root code {
      font-family: "Monaco,Menlo,Consolas,monospace";
