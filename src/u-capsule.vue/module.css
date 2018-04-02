@@ -1,7 +1,8 @@
 .root {
     cursor: pointer;
-    position: relative;
     display: inline-block;
+    position: relative;
+    z-index: 1;
     height: 30px;
     line-height: 28px;
     font-size: $font-size-base;
@@ -58,13 +59,14 @@
 
 .root[disabled] {
     position: relative;
-    z-index: -1;
+    z-index: 0;
     color: #d6d6d6;
-    border-color: $field-border-color;
+    border-color: #c2ddfb;
 }
 
 .root[selected][disabled] {
-    background: $gray-light;
+    background: #c2ddfb;
+    color: white;
 }
 
 .root[size="small"] {
