@@ -91,7 +91,7 @@ export default {
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata" border pattern="limit">
+        <u-table-view :data="tdata" border pattern="limit" :limit="4">
             <u-table-view-column type="expand">
                 <template slot-scope="scope">
                     <span>11</span>    
@@ -484,11 +484,14 @@ export default {
 <template>
     <div>
         <u-table-view :data="tdata" v-show="show">
-            <u-table-view-column title="日期" label="date" sortable :formatter="dateFormat"></u-table-view-column>
-            <u-table-view-column title="姓名" label="name" ></u-table-view-column>
-            <u-table-view-column title="地址" label="address" tooltip></u-table-view-column>
-            <u-table-view-column title="性别" width="30%" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
-            <u-table-view-column title="占比">
+            <u-table-view-column title="日期" width="20%" label="date" sortable :formatter="dateFormat"></u-table-view-column>
+            <u-table-view-column title="姓名" width="10%" label="name" ></u-table-view-column>
+            <u-table-view-column title="地址" width="15%" label="address" tooltip></u-table-view-column>
+            <u-table-view-column title="地址" width="10%" label="address" tooltip></u-table-view-column>
+            <u-table-view-column title="地址" width="20%" label="address" tooltip></u-table-view-column>
+            <u-table-view-column title="地址" width="10%" label="address" tooltip></u-table-view-column>
+            <u-table-view-column title="性别" width="15%" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
+            <u-table-view-column title="占比" width="200">
                 <template slot-scope="scope">
                     <u-button @click="click(scope.row)">配置</u-button>
                 </template>

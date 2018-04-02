@@ -1,4 +1,4 @@
-<u-chart :class="$style.root" :role="currentData.length === 0 ? 'empty' : ''" :border="border" :width="width" :height="height" :legend="legend" :series="series" :data="currentData" :title-align="titleAlign">
+<u-chart :class="$style.root" :border="border" :width="width" :height="height" :legend="legend" :series="series" :data="currentData" :title-align="titleAlign" :loading="loading">
     <template slot="titleTemplate">
         {{title}}
     </template>
@@ -42,5 +42,4 @@
     <div :class="$style.operate" slot="operate">
         <slot></slot>
     </div>
-    <u-loading :class="$style.loading" v-if="loading"></u-loading>
 </u-chart>

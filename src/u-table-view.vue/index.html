@@ -40,7 +40,7 @@
                 <template v-if="loading">
                     <tr :class="$style.btrItem" role>
                         <td :colspan="columns.length" :class="$style.btdSpan" :border="border" role="center">
-                            <u-loading size="small"></u-loading>
+                            <u-loading></u-loading>
                         </td>
                     </tr>
                 </template>
@@ -63,9 +63,9 @@
                             <div v-else-if="!column.label" :class="$style.ditem" :role="column.ellipsis">
                                 <u-table-view-cell :row="row" :column="column"></u-table-view-cell>
                             </div>
-                            <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex)}}</span>
+                            <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex) || defaultText}}</span>
                             <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="translateTime(row[column.label], column.timeFormat)">{{translateTime(row[column.label], column.timeFormat)}}</span>
-                            <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{row[column.label]}}</span>
+                            <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{row[column.label] || defaultText}}</span>
                         </td>
                     </tr>
                     <tr :class="$style.btrItem" v-if="row.expanded">
@@ -74,7 +74,7 @@
                         </td>
                     </tr>
                 </template>
-                <template v-if="tdata.length === 5 && copyTdata.length > 5 && pattern === 'limit'">
+                <template v-if="tdata.length === limit && copyTdata.length > limit && pattern === 'limit'">
                     <tr>
                         <td :colspan="columns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
                             <slot name="limit-text">
@@ -83,7 +83,7 @@
                         </td>
                     </tr>
                 </template>
-                <template v-else-if="copyTdata.length === tdata.length && tdata.length > 5 && pattern === 'limit'">
+                <template v-else-if="copyTdata.length === tdata.length && tdata.length > limit && pattern === 'limit'">
                     <tr>
                         <td :colspan="columns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
                             <slot name="all-text">
@@ -144,7 +144,7 @@
                     <template v-if="loading">
                         <tr :class="$style.btrItem" role :hover="fixedHover">
                             <td :colspan="columns.length" :class="$style.btdSpan" :border="border" role="center">
-                                <u-loading size="small"></u-loading>
+                                <u-loading></u-loading>
                             </td>
                         </tr>
                     </template>
@@ -167,9 +167,9 @@
                                 <div v-else-if="column.$scopedSlots.default" :class="$style.ditem" :role="column.ellipsis">
                                     <u-table-view-cell :row="row" :column="column"></u-table-view-cell>
                                 </div>
-                                <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex)}}</span>
+                                <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex) || defaultText}}</span>
                                 <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="translateTime(row[column.label], column.timeFormat)">{{translateTime(row[column.label], column.timeFormat)}}</span>
-                                <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{row[column.label]}}</span>
+                                <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{row[column.label] || defaultText}}</span>
                             </td>
                         </tr>
                         <tr :class="$style.btrItem" v-if="row.expanded">
@@ -178,7 +178,7 @@
                             </td>
                         </tr>
                     </template>
-                    <template v-if="filterTdata && filterTdata.length > 5 && tdata.length === 5 && pattern === 'limit'">
+                    <template v-if="filterTdata && filterTdata.length > limit && tdata.length === limit && pattern === 'limit'">
                         <tr>
                             <td :colspan="columns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
                                 <slot name="limit-text">
@@ -187,7 +187,7 @@
                             </td>
                         </tr>
                     </template>
-                    <template v-else-if="filterTdata && filterTdata.length === tdata.length && tdata.length > 5 && pattern === 'limit'">
+                    <template v-else-if="filterTdata && filterTdata.length === tdata.length && tdata.length > limit && pattern === 'limit'">
                         <tr>
                             <td :colspan="columns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
                                 <slot name="all-text">
@@ -196,7 +196,7 @@
                             </td>
                         </tr>
                     </template>
-                    <template v-else-if="tdata.length === 5 && copyTdata.length > 5 && pattern === 'limit'">
+                    <template v-else-if="tdata.length === limit && copyTdata.length > limit && pattern === 'limit'">
                         <tr>
                             <td :colspan="columns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
                                 <slot name="limit-text">
@@ -205,7 +205,7 @@
                             </td>
                         </tr>
                     </template>
-                    <template v-else-if="copyTdata.length === tdata.length && tdata.length > 5 && pattern === 'limit'">
+                    <template v-else-if="copyTdata.length === tdata.length && tdata.length > limit && pattern === 'limit'">
                         <tr>
                             <td :colspan="columns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
                                 <slot name="all-text">
@@ -266,7 +266,7 @@
                         <template v-if="loading">
                             <tr :class="$style.btrItem" role @mouseover="fixmouseover(-1)" @mouseleave="fixmouseleave(-1)">
                                 <td :colspan="columns.length" :class="$style.btdSpan" role="center">
-                                    <u-loading size="small"></u-loading>
+                                    <u-loading></u-loading>
                                 </td>
                             </tr>
                         </template>
@@ -353,7 +353,7 @@
                         <template v-if="loading">
                             <tr :class="$style.btrItem" role @mouseover="fixmouseover(-1)" @mouseleave="fixmouseleave(-1)">
                                 <td :colspan="columns.length" :class="$style.btdSpan" role="center">
-                                    <u-loading size="small"></u-loading>
+                                    <u-loading></u-loading>
                                 </td>
                             </tr>
                         </template>

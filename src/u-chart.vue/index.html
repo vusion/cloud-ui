@@ -16,4 +16,7 @@
     <div :class="$style.operate">
         <slot name="operate"></slot>
     </div>
+    <div :class="$style.loadingLabel" v-if="loading">
+        <u-loading size="large" :class="$style.loading"></u-loading>
+    </div>
 </div>

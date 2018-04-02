@@ -6,9 +6,6 @@ $axis-x_offset: 6px;
 $line_border: #eee;
 $line_width: 2px;
 $line_offset: 6px;
-.root[role=empty] .wrap {
-    display: none;
-}
 
 .wrap {
     height: 100%;
@@ -498,10 +495,4 @@ $line_offset: 6px;
 
 .piece .point:nth-of-type(20) {
     border-color: rgb(241,126,248);
-}
-.loading{
-    position: absolute;
-    left: 50%;
-    top: 30%;
-    margin-left: -12px;
 }

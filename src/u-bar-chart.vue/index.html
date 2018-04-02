@@ -1,4 +1,4 @@
-<u-chart :class="$style.root" :border="border" :width="width" :height="height" :legend="legend" :series="series" :data="data">
+<u-chart :class="$style.root" :border="border" :width="width" :height="height" :legend="legend" :series="series" :data="data" :loading="loading">
     <template slot="titleTemplate">
         {{title}}
     </template>
@@ -46,5 +46,4 @@
             </template>
         </div>
     </div>
-    <u-loading :class="$style.loading" v-if="loading"></u-loading>
 </u-chart>

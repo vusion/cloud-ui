@@ -7,13 +7,21 @@ $m-chart_legend_height: 30px;
     padding: 15px;
 }
 
-.root[role=empty] .legend {
+.root[empty] .content {
+    display: none;
+}
+
+.root[empty] {
+    background: url(../assets/images/nodata.png) no-repeat center center;
+}
+
+.root[empty] .legend {
     display: none;
 }
 
 .ittitle {
     position: absolute;
-    z-index: 5;
+    z-index: 95;
     top: $m-chart_padding;
     left: $m-chart_padding;
     right: $m-chart_padding;
@@ -171,4 +179,22 @@ $m-chart_legend_height: 30px;
 
 .root[border] {
     border: 1px solid #eee;
+}
+
+.loadingLabel{
+    position: absolute;
+    left: 0;
+    right:0;
+    top: 0;
+    bottom: 0;
+    background: #fff;
+    z-index: 90;
+}
+
+.loading{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -20px;
+    margin-top: -20px;
 }

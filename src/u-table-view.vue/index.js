@@ -29,9 +29,10 @@ export default {
         width: [String, Number],
         visible: { type: Boolean, default: true },
         pattern: { type: String, default: 'normal' }, // 特殊显示内容情形
-        limit: { type: [String, Number], default: 5 }, // 用来默认显示limit条数据
+        limit: { type: Number, default: 5 }, // 用来默认显示limit条数据
         limitText: { type: String, default: '查看更多' },
         allText: { type: String, default: '收起' },
+        defaultText: { type: String, default: '-' },
     },
     data() {
         return {
@@ -256,10 +257,14 @@ export default {
         handleResize() {
             if (this.layout !== 'auto') {
                 this.$nextTick(() => {
+                    debugger;
                     // 判断是否会出现水平滚动条
-                    const parentWidth = this.$refs.root.offsetWidth;
-                    const tableWidth = this.$refs.body.offsetWidth;
-                    this.isXScroll = tableWidth > parentWidth;
+                    let parentWidth = this.$refs.root.offsetWidth;
+                    let tableWidth = this.$refs.body.offsetWidth;
+                    if (parentWidth === 0 && tableWidth === 0) {
+                        // 初始表格是隐藏的需要特殊处理的，此时上面两个值默认是0
+                        parentWidth = tableWidth = this.$refs.root.parentNode.offsetWidth;
+                    }
                     const allWidth = !this.columns.some((cell) => !cell.currentWidth); // each column set a width
                     if (allWidth) {
                         this.tableWidth = this.columns.map((cell) => {
@@ -276,6 +281,7 @@ export default {
                     } else
                         this.tableWidth = parseInt(getStyle(this.$el, 'width')) + 'px';
 
+                    this.isXScroll = this.tableWidth > parentWidth;
                     this.scrollWidth = getScrollSize();
                     const titleHeight = parseInt(getStyle(this.$refs.title, 'height')) || 0;
                     const headHeight = parseInt(getStyle(this.$refs.head, 'height')) || 0;
@@ -289,10 +295,10 @@ export default {
 
                     if (this.loading && tableWidth > parentWidth) {
                         this.fixedTableHeight = parseInt(getStyle(this.$refs.body, 'height')) || 0;
-                        this.$refs.body.parentNode.scrollLeft = (tableWidth - parentWidth) / 2;
+                        // this.$refs.body.parentNode.scrollLeft = (tableWidth - parentWidth) / 2;
                     } else if (tableWidth > parentWidth) {
                         this.fixedTableHeight = this.bodyHeight - this.scrollWidth;
-                        this.$refs.body.parentNode.scrollLeft = (tableWidth - parentWidth) / 2;
+                        // this.$refs.body.parentNode.scrollLeft = (tableWidth - parentWidth) / 2;
                     } else
                         this.fixedTableHeight = this.bodyHeight;
 
@@ -377,6 +383,8 @@ export default {
             this.handleResize();
         },
         translateTime(value, format) {
+            if (!value)
+                return this.defaultText;
             const self = this;
             const maps = {
                 YYYY(date) {

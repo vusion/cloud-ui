@@ -16,6 +16,7 @@ export default {
         width: String,
         height: String,
         titleAlign: { type: String, default: 'center' },
+        loading: { type: Boolean, default: false },
     },
     data() {
         return {};
