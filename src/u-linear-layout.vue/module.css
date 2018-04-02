@@ -1,25 +1,25 @@
 @import 'proto-ui.vusion/src/u-linear-layout.vue/module.css';
 
-.root[direction="horizontal"][gap="none"] > * + * {
+.root[direction="horizontal"][gap="none"] > *:not(:last-child) {
     margin-left: 0;
 }
 
-.root[direction="vertical"][gap="none"] > * + * {
+.root[direction="vertical"][gap="none"] > *:not(:last-child) {
     margin-top: 0;
 }
 
-.root[direction="horizontal"][gap="small"] > * + * {
+.root[direction="horizontal"][gap="small"] > *:not(:last-child) {
     margin-left: 10px;
 }
 
-.root[direction="vertical"][gap="small"] > * + * {
+.root[direction="vertical"][gap="small"] > *:not(:last-child) {
     margin-top: 10px;
 }
 
-.root[direction="horizontal"][gap="large"] > * + * {
+.root[direction="horizontal"][gap="large"] > *:not(:last-child) {
     margin-left: 30px;
 }
 
-.root[direction="vertical"][gap="large"] > * + * {
+.root[direction="vertical"][gap="large"] > *:not(:last-child) {
     margin-top: 30px;
 }

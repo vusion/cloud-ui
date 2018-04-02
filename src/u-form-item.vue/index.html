@@ -1,6 +1,7 @@
 <div :class="$style.root" :label-size="currentLabelSize">
     <label :class="$style.label" :required="currentRequired" v-show="label || title || currentLabelSize !== 'auto'">{{ label || title }}</label>
     <div :class="$style.field">
+        <!-- 添加了描述功能 -->
         <div :class="$style.description">{{ description }}</div>
         <slot></slot>
         <span v-if="currentMessage" :class="$style.message" :color="color">{{ currentMessage }}</span>
