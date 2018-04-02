@@ -5,6 +5,13 @@ import Components from './views/components.vue';
 import Guide from './views/guide/index.vue';
 import GuideIntroduce from './views/guide/introduce.vue';
 import GuideDesign from './views/guide/design.vue';
+import PreviewIndex from './views/templates/index.vue';
+import PreviewDashboardAnalysis from './views/templates/dashboard/analysis.vue';
+import PreviewDashboardMonitor from './views/templates/dashboard/monitor.vue';
+import PreviewFormBasic from './views/templates/form/basic.vue';
+import PreviewFormAdvance from './views/templates/form/advance.vue';
+import PreviewTableBasic from './views/templates/table/basic.vue';
+import PreviewTableAdvance from './views/templates/table/advance.vue';
 
 const Empty = Vue.extend({ template: '<div>待完善...</div>' });
 
@@ -15,6 +22,15 @@ export default [
             { path: '', redirect: 'introduce' },
             { path: 'introduce', component: GuideIntroduce },
             { path: 'design', component: GuideDesign },
+        ] },
+        { path: 'preview', component: PreviewIndex, children: [
+            { path: '', redirect: 'dashboard/analysis' },
+            { path: 'dashboard/analysis', component: PreviewDashboardAnalysis },
+            { path: 'dashboard/monitor', component: PreviewDashboardMonitor },
+            { path: 'form/basic', component: PreviewFormBasic },
+            { path: 'form/advance', component: PreviewFormAdvance },
+            { path: 'table/basic', component: PreviewTableBasic },
+            { path: 'table/advance', component: PreviewTableAdvance },
         ] },
         { path: 'components', component: Components, children: [
             { path: '', redirect: 'u-link' },

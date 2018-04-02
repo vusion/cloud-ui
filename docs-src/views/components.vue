@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :class="$style.root">
         <div :class="$style.side">
             <u-sidebar size="small">
                 <u-sidebar-item><u-checkbox v-model="advanced" @check="onCheck">显示所有组件</u-checkbox></u-sidebar-item>
@@ -111,6 +111,10 @@ export default {
 </script>
 
 <style module>
+.root {
+    width: 1180px;
+    margin: 0 auto;
+}
 .side {
     padding: 20px 0;
     position: fixed;

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :class="$style.root">
         <div :class="$style.side">
             <u-sidebar size="small">
                 <u-sidebar-group>
@@ -25,6 +25,10 @@ export default {
 </script>
 
 <style module>
+.root {
+    width: 1180px;
+    margin: 0 auto;
+}
 .side {
     padding: 20px 0;
     position: fixed;

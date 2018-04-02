@@ -10,6 +10,9 @@ import GlobalLayout from './common/u-global-layout.vue';
 import Article from './common/u-article.vue';
 import ThemeSelect from './common/u-theme-select.vue';
 import ThemeSelectItem from './common/u-theme-select-item.vue';
+import SidebarGroup from './common/u-sidebar-group.vue';
+import Sidebar from './common/u-sidebar.vue';
+import SidebarItem from './common/u-sidebar-item.vue';
 import './common/atom-one-light.css';
 
 const Components = Object.assign({}, Library, {
@@ -17,6 +20,9 @@ const Components = Object.assign({}, Library, {
     Article,
     ThemeSelect,
     ThemeSelectItem,
+    SidebarGroup,
+    Sidebar,
+    SidebarItem,
 });
 
 import { installComponents, installDirectives } from 'vusion-utils';

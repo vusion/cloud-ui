@@ -49,7 +49,7 @@ export default {
 }
 
 .wrap {
-    width: 1180px;
-    margin: 0 auto;
+    /* width: 1180px; */
+    /* margin: 0 auto; */
 }
 </style>
