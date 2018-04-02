@@ -1,7 +1,7 @@
 @import 'proto-ui.vusion/src/u-radios.vue/module.css';
 
-.root > * + * {
-    margin-left: 80px;
+.root > *:not(:last-child) {
+    margin-right: 80px;
 }
 
 
