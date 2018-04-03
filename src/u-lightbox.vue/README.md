@@ -32,7 +32,7 @@ export default {
 <template>
 <div>
     <u-lightbox :visible.sync="visible" :value="showItem" animation="fade">
-        <u-lightbox-item v-for="(image, index) in images" :value="index" :title="image.title"><img :src="image.src" /></u-lightbox-item>
+        <u-lightbox-item v-for="(image, index) in images" :key="index" :value="index" :title="image.title"><img :src="image.src" /></u-lightbox-item>
     </u-lightbox>
     <u-linear-layout>
         <img style="width: 300px;" v-for="(image, index) in images" :src="image.src"  @click="showLightbox(index)"/>

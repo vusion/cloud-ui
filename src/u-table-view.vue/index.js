@@ -257,7 +257,6 @@ export default {
         handleResize() {
             if (this.layout !== 'auto') {
                 this.$nextTick(() => {
-                    debugger;
                     // 判断是否会出现水平滚动条
                     let parentWidth = this.$refs.root.offsetWidth;
                     let tableWidth = this.$refs.body.offsetWidth;
@@ -280,8 +279,8 @@ export default {
                         this.tableWidth = parseInt(getStyle(parentNode, 'width')) + 'px';
                     } else
                         this.tableWidth = parseInt(getStyle(this.$el, 'width')) + 'px';
-
-                    this.isXScroll = this.tableWidth > parentWidth;
+                    // 由于百分数可能带来小数点问题，引起浮点数精度问题 典型的0.2+0.1不等于0.3问题，需要特殊处理这里的比较
+                    this.isXScroll = Math.abs(this.tableWidth - parentWidth) > 0.001;
                     this.scrollWidth = getScrollSize();
                     const titleHeight = parseInt(getStyle(this.$refs.title, 'height')) || 0;
                     const headHeight = parseInt(getStyle(this.$refs.head, 'height')) || 0;

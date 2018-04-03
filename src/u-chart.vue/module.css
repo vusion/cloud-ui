@@ -198,3 +198,8 @@ $m-chart_legend_height: 30px;
     margin-left: -20px;
     margin-top: -20px;
 }
+
+.operate{
+    position: relative;
+    z-index: 100;
+}
