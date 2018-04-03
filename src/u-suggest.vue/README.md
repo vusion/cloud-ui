@@ -3,12 +3,6 @@
 ## 示例
 ### 基本形式
 
-有两种书写方式，这里推荐使用Tag方式，使用起来更加灵活。
-
-#### Data方式
-
-#### 标签方式
-
 ``` vue
 <template>
 <u-suggest :data="data" :value.sync="value">
