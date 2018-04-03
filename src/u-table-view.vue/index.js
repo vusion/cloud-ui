@@ -132,11 +132,11 @@ export default {
             this.fixedRightWidth = null;
             leftIndexs.forEach((item) => {
                 if (newValue[item])
-                    this.fixedLeftWidth += parseInt(newValue[item]);
+                    this.fixedLeftWidth += parseFloat(newValue[item]);
             });
             rightIndexs.forEach((item) => {
                 if (newValue[item])
-                    this.fixedRightWidth += parseInt(newValue[item]);
+                    this.fixedRightWidth += parseFloat(newValue[item]);
             });
         },
         visible(newValue) {
@@ -268,32 +268,35 @@ export default {
                     if (allWidth) {
                         this.tableWidth = this.columns.map((cell) => {
                             if ((cell.currentWidth + '').indexOf('%') !== -1)
-                                return parseInt(cell.currentWidth) * tableWidth / 100;
+                                return parseFloat(cell.currentWidth) * tableWidth / 100;
                             else
-                                return parseInt(cell.currentWidth);
+                                return parseFloat(cell.currentWidth);
                         }).reduce((a, b) => a + b, 0);
                     } else if (getStyle(this.$el, 'width') === 'auto') {
                         let parentNode = this.$el.parentNode;
                         while (getStyle(parentNode, 'width') === 'auto')
                             parentNode = parentNode.parentNode;
-                        this.tableWidth = parseInt(getStyle(parentNode, 'width')) + 'px';
+                        this.tableWidth = parseFloat(getStyle(parentNode, 'width')) + 'px';
                     } else
-                        this.tableWidth = parseInt(getStyle(this.$el, 'width')) + 'px';
+                        this.tableWidth = parseFloat(getStyle(this.$el, 'width')) + 'px';
                     // 由于百分数可能带来小数点问题，引起浮点数精度问题 典型的0.2+0.1不等于0.3问题，需要特殊处理这里的比较
-                    this.isXScroll = Math.abs(this.tableWidth - parentWidth) > 0.001;
+                    if (this.tableWidth - parentWidth <= 0)
+                        this.isXScroll = false;
+                    else
+                        this.isXScroll = Math.abs(this.tableWidth - parentWidth) > 0.001;
                     this.scrollWidth = getScrollSize();
-                    const titleHeight = parseInt(getStyle(this.$refs.title, 'height')) || 0;
-                    const headHeight = parseInt(getStyle(this.$refs.head, 'height')) || 0;
+                    const titleHeight = parseFloat(getStyle(this.$refs.title, 'height')) || 0;
+                    const headHeight = parseFloat(getStyle(this.$refs.head, 'height')) || 0;
                     if (this.height && !this.loading && this.data.length) {
-                        this.bodyWidth = parseInt(this.tableWidth) - this.scrollWidth;
+                        this.bodyWidth = parseFloat(this.tableWidth) - this.scrollWidth;
                         this.bodyHeight = this.height - titleHeight - headHeight;
                     } else {
                         this.bodyWidth = this.tableWidth;
-                        // this.bodyHeight = parseInt(getStyle(this.$refs.body, 'height')) || 0;
+                        // this.bodyHeight = parseFloat(getStyle(this.$refs.body, 'height')) || 0;
                     }
 
                     if (this.loading && tableWidth > parentWidth) {
-                        this.fixedTableHeight = parseInt(getStyle(this.$refs.body, 'height')) || 0;
+                        this.fixedTableHeight = parseFloat(getStyle(this.$refs.body, 'height')) || 0;
                         // this.$refs.body.parentNode.scrollLeft = (tableWidth - parentWidth) / 2;
                     } else if (tableWidth > parentWidth) {
                         this.fixedTableHeight = this.bodyHeight - this.scrollWidth;
@@ -310,9 +313,9 @@ export default {
                                 const column = this.columns[i];
                                 let width;
                                 if (column.currentWidth)
-                                    column.currentWidth = width = (column.currentWidth + '').indexOf('%') === -1 ? parseInt(column.currentWidth) : parseInt(column.currentWidth) * parseInt(this.tableWidth) / 100;
+                                    column.currentWidth = width = (column.currentWidth + '').indexOf('%') === -1 ? parseFloat(column.currentWidth) : parseFloat(column.currentWidth) * parseFloat(this.tableWidth) / 100;
                                 else
-                                    column.currentWidth = width = getStyle(tdColls[i], 'width') && getStyle(tdColls[i], 'width') !== 'auto' && getStyle(tdColls[i], 'width') !== null ? parseInt(getStyle(tdColls[i], 'width')) : '';
+                                    column.currentWidth = width = getStyle(tdColls[i], 'width') && getStyle(tdColls[i], 'width') !== 'auto' && getStyle(tdColls[i], 'width') !== null ? parseFloat(getStyle(tdColls[i], 'width')) : '';
 
                                 if (this.height && i === (this.columns.length - 1)) {
                                     this.columns[i].currentWidth = width - this.scrollWidth;
@@ -328,7 +331,7 @@ export default {
                                 if (column.currentWidth)
                                     width = column.currentWidth;
                                 else
-                                    column.currentWidth = width = getStyle(tdColls[i], 'width') && getStyle(tdColls[i], 'width') !== 'auto' && getStyle(tdColls[i], 'width') !== null ? parseInt(getStyle(tdColls[i], 'width')) : '';
+                                    column.currentWidth = width = getStyle(tdColls[i], 'width') && getStyle(tdColls[i], 'width') !== 'auto' && getStyle(tdColls[i], 'width') !== null ? parseFloat(getStyle(tdColls[i], 'width')) : '';
 
                                 if (this.height && i === (this.columns.length - 1))
                                     this.columns[i].currentWidth = width - this.scrollWidth;
