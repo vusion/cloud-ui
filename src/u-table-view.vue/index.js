@@ -57,6 +57,7 @@ export default {
             filterValue: undefined, // 用来记录当前filter选项的值，方便在过滤的时候点击更多显示正确的数据
             filterColumn: undefined, // 用来记录当前filter列，方便在过滤的时候点击更多显示正确的数据
             filterTdata: undefined, // 用来记录当前filter列过滤后符合条件的所有数据
+            parentWidth: undefined,
         };
     },
     directives: { ellipsisTitle },
@@ -258,17 +259,21 @@ export default {
             if (this.layout !== 'auto') {
                 this.$nextTick(() => {
                     // 判断是否会出现水平滚动条
-                    let parentWidth = this.$refs.root.offsetWidth;
+                    let parentWidth;
+                    if (!this.parentWidth)
+                        this.parentWidth = parentWidth = this.$refs.root.offsetWidth;
+                    else
+                        parentWidth = this.$refs.root.offsetWidth;
                     let tableWidth = this.$refs.body.offsetWidth;
-                    if (parentWidth === 0 && tableWidth === 0) {
+                    if (parentWidth === 0) {
                         // 初始表格是隐藏的需要特殊处理的，此时上面两个值默认是0
                         parentWidth = tableWidth = this.$refs.root.parentNode.offsetWidth;
                     }
                     const allWidth = !this.columns.some((cell) => !cell.currentWidth); // each column set a width
-                    if (allWidth) {
+                    if (allWidth && (this.parentWidth === parentWidth || !this.parentWidth)) {
                         this.tableWidth = this.columns.map((cell) => {
-                            if ((cell.currentWidth + '').indexOf('%') !== -1)
-                                return parseFloat(cell.currentWidth) * tableWidth / 100;
+                            if ((cell.copyWidth + '').indexOf('%') !== -1)
+                                return parseFloat(cell.copyWidth) * tableWidth / 100;
                             else
                                 return parseFloat(cell.currentWidth);
                         }).reduce((a, b) => a + b, 0);
@@ -280,10 +285,10 @@ export default {
                     } else
                         this.tableWidth = parseFloat(getStyle(this.$el, 'width')) + 'px';
                     // 由于百分数可能带来小数点问题，引起浮点数精度问题 典型的0.2+0.1不等于0.3问题，需要特殊处理这里的比较
-                    if (this.tableWidth - parentWidth <= 0)
+                    if (parseFloat(this.tableWidth) - parentWidth <= 0)
                         this.isXScroll = false;
                     else
-                        this.isXScroll = Math.abs(this.tableWidth - parentWidth) > 0.001;
+                        this.isXScroll = Math.abs(parseFloat(this.tableWidth) - parentWidth) > 0.001;
                     this.scrollWidth = getScrollSize();
                     const titleHeight = parseFloat(getStyle(this.$refs.title, 'height')) || 0;
                     const headHeight = parseFloat(getStyle(this.$refs.head, 'height')) || 0;
@@ -312,10 +317,10 @@ export default {
                             for (let i = 0; i < tdColls.length; i++) {
                                 const column = this.columns[i];
                                 let width;
-                                if (column.currentWidth)
-                                    column.currentWidth = width = (column.currentWidth + '').indexOf('%') === -1 ? parseFloat(column.currentWidth) : parseFloat(column.currentWidth) * parseFloat(this.tableWidth) / 100;
-                                else
-                                    column.currentWidth = width = getStyle(tdColls[i], 'width') && getStyle(tdColls[i], 'width') !== 'auto' && getStyle(tdColls[i], 'width') !== null ? parseFloat(getStyle(tdColls[i], 'width')) : '';
+                                if (column.copyWidth)
+                                    column.currentWidth = width = (column.copyWidth + '').indexOf('%') === -1 ? parseFloat(column.copyWidth) : parseFloat(column.copyWidth) * parseFloat(this.tableWidth) / 100;
+                                // else
+                                //     column.currentWidth = width = getStyle(tdColls[i], 'width') && getStyle(tdColls[i], 'width') !== 'auto' && getStyle(tdColls[i], 'width') !== null ? parseFloat(getStyle(tdColls[i], 'width')) : '';
 
                                 if (this.height && i === (this.columns.length - 1)) {
                                     this.columns[i].currentWidth = width - this.scrollWidth;
@@ -330,8 +335,8 @@ export default {
                                 let width;
                                 if (column.currentWidth)
                                     width = column.currentWidth;
-                                else
-                                    column.currentWidth = width = getStyle(tdColls[i], 'width') && getStyle(tdColls[i], 'width') !== 'auto' && getStyle(tdColls[i], 'width') !== null ? parseFloat(getStyle(tdColls[i], 'width')) : '';
+                                // else
+                                //     column.currentWidth = width = getStyle(tdColls[i], 'width') && getStyle(tdColls[i], 'width') !== 'auto' && getStyle(tdColls[i], 'width') !== null ? parseFloat(getStyle(tdColls[i], 'width')) : '';
 
                                 if (this.height && i === (this.columns.length - 1))
                                     this.columns[i].currentWidth = width - this.scrollWidth;

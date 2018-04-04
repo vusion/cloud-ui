@@ -34,6 +34,7 @@ export default {
             visible: false,
             parentVM: undefined,
             currentWidth: this.getWidth(),
+            copyWidth: this.getWidth(),
             fixedWidth: undefined, // 当表格高度固定和表格列固定一起使用的时候，这时候有的列的宽度需要特殊做处理，这时候在固定右列的时候，宽度需要时原来的正常宽度，不能减去滚动条的宽度
         };
     },
@@ -42,7 +43,7 @@ export default {
             this.selectValue = newValue;
         },
         width(newValue) {
-            this.currentWidth = this.getWidth(newValue);
+            this.currentWidth = this.copyWidth = this.getWidth(newValue);
         },
     },
     created() {

@@ -96,7 +96,7 @@
         </table>
     </div>
     <template v-else>
-        <div :class="$style.header" ref="head">
+        <div :class="$style.header" ref="head" :role="isXScroll || fixedLeftColumns.length || fixedRightColumns.length">
             <table :class="$style.thead" ref="thead" cellspacing="0" cellpadding="0" border="0" :style="{width: tableWidth, tableLayout: layout}">
                 <colgroup>
                     <col v-for="(column, index) in columns" :width="columnsWidth[index] || column.currentWidth"></col>
@@ -218,7 +218,7 @@
             </table>
         </div>
         <div :class="$style.fixLeft" v-if="fixedLeftColumns.length" :style="{width: fixedLeftWidth + 'px'}">
-            <div :class="$style.header">
+            <div :class="$style.header" :role="fixedLeftColumns.length">
                 <table :class="$style.thead" cellspacing="0" cellpadding="0" border="0" :style="{width: tableWidth, tableLayout: layout}">
                     <colgroup>
                         <col v-for="(column, index) in columns" :width="columnsWidth[index] || column.currentWidth"></col>
@@ -305,7 +305,7 @@
             </div>
         </div>
         <div :class="$style.fixRight" v-if="fixedRightColumns.length" :style="{width: fixedRightWidth + 'px'}">
-            <div :class="$style.header">
+            <div :class="$style.header" :role="fixedRightColumns.length">
                 <table :class="$style.thead" cellspacing="0" cellpadding="0" border="0" :style="{width: tableWidth, tableLayout: layout}">
                     <colgroup>
                         <col v-for="(column, index) in rightColumns" :width="rightColumnsWidth[index] || column.currentWidth"></col>
