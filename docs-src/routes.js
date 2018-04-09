@@ -12,6 +12,10 @@ import PreviewFormBasic from './views/templates/form/basic.vue';
 import PreviewFormAdvance from './views/templates/form/advance.vue';
 import PreviewTableBasic from './views/templates/table/basic.vue';
 import PreviewTableAdvance from './views/templates/table/advance.vue';
+import PreviewTableSelect from './views/templates/table/select.vue';
+import PreviewDetailBasic from './views/templates/detail/basic.vue';
+import PreviewDetailAdvance from './views/templates/detail/advance.vue';
+import PreviewDate from './views/templates/date/basic.vue';
 
 const Empty = Vue.extend({ template: '<div>待完善...</div>' });
 
@@ -31,6 +35,10 @@ export default [
             { path: 'form/advance', component: PreviewFormAdvance },
             { path: 'table/basic', component: PreviewTableBasic },
             { path: 'table/advance', component: PreviewTableAdvance },
+            { path: 'table/select', component: PreviewTableSelect },
+            { path: 'detail/basic', component: PreviewDetailBasic },
+            { path: 'detail/advance', component: PreviewDetailAdvance },
+            { path: 'date/basic', component: PreviewDate },
         ] },
         { path: 'components', component: Components, children: [
             { path: '', redirect: 'u-link' },

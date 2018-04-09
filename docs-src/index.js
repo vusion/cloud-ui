@@ -13,6 +13,8 @@ import ThemeSelectItem from './common/u-theme-select-item.vue';
 import SidebarGroup from './common/u-sidebar-group.vue';
 import Sidebar from './common/u-sidebar.vue';
 import SidebarItem from './common/u-sidebar-item.vue';
+import OverviewItem from './common/u-overview-item.vue';
+import Table from './common/u-table.vue';
 import './common/atom-one-light.css';
 
 const Components = Object.assign({}, Library, {
@@ -23,6 +25,8 @@ const Components = Object.assign({}, Library, {
     SidebarGroup,
     Sidebar,
     SidebarItem,
+    OverviewItem,
+    Table,
 });
 
 import { installComponents, installDirectives } from 'vusion-utils';
