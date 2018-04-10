@@ -99,7 +99,11 @@ export default {
             </u-table-view-column>
             <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
             <u-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-table-view-column>
-            <u-table-view-column title="地址" label="address" sortable></u-table-view-column>
+            <u-table-view-column ellipsis title="地址" label="address" sortable>
+                <template slot-scope="scope">
+                    {{scope.row.address}}
+                </template>
+            </u-table-view-column>
             <u-table-view-column title="性别" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
         </u-table-view>
     </div>
@@ -111,7 +115,7 @@ export default {
             tdata: [{
                 date: '2016-05-02',
                 name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-                address: '上海市普陀区金沙江路 1518 弄',
+                address: '上海市普陀区金沙江路 1518 弄 11111111111111111111111111111111',
                 female: '男',
             }, {
                 date: '2016-05-04',
@@ -208,10 +212,10 @@ export default {
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata" border>
-            <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
-            <u-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-table-view-column>
-            <u-table-view-column title="地址" label="address" sortable></u-table-view-column>
+        <u-table-view :data="tdata" border height="200">
+            <u-table-view-column title="日期" label="date" width="20%" sortable></u-table-view-column>
+            <u-table-view-column ellipsis title="姓名" width="20%" label="name" :formatter="formatter"></u-table-view-column>
+            <u-table-view-column title="地址" label="address" width="20%" sortable></u-table-view-column>
         </u-table-view>
     </div>
 </template>

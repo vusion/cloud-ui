@@ -1,9 +1,13 @@
 <u-chart :class="$style.root" :border="border" :width="width" :height="height" :legend="legend" :series="series" :data="currentData" :title-align="titleAlign" :loading="loading">
     <template slot="titleTemplate">
-        {{title}}
+        <slot name="titleTemplate">
+            {{title}}
+        </slot>
     </template>
     <template slot="captionTemplate">
-        {{caption}}
+        <slot name="captionTemplate">
+            {{caption}}
+        </slot>
     </template>
     <div :class="$style.wrap">
         <div :class="$style.grid" ref="grid">

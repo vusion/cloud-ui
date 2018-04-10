@@ -60,9 +60,9 @@
                             <div v-else-if="column.type === 'expand'" @click="toggleExpand(index, cindex)">
                                 <span :class="$style.expand" :name="row.iconName"></span>
                             </div>
-                            <div v-else-if="column.$scopedSlots.default" :class="$style.ditem" :role="column.ellipsis">
-                                <u-table-view-cell :row="row" :column="column"></u-table-view-cell>
-                            </div>
+                            <template v-else-if="column.$scopedSlots.default">
+                                <u-table-view-cell :row="row" :column="column" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title></u-table-view-cell>
+                            </template>
                             <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex) || defaultText}}</span>
                             <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="translateTime(row[column.label], column.timeFormat)">{{translateTime(row[column.label], column.timeFormat)}}</span>
                             <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{row[column.label] || defaultText}}</span>
@@ -96,7 +96,7 @@
         </table>
     </div>
     <template v-else>
-        <div :class="$style.header" ref="head" :role="isXScroll || fixedLeftColumns.length || fixedRightColumns.length">
+        <div :class="$style.header" ref="head" :role="isXScroll || fixedLeftColumns.length > 0 || fixedRightColumns.length > 0">
             <table :class="$style.thead" ref="thead" cellspacing="0" cellpadding="0" border="0" :style="{width: tableWidth, tableLayout: layout}">
                 <colgroup>
                     <col v-for="(column, index) in columns" :width="columnsWidth[index] || column.currentWidth"></col>
@@ -135,7 +135,7 @@
                 </thead>
             </table>
         </div>
-        <div :class="$style.body" :style="{height: bodyHeight+'px', overflowX: isXScroll ? 'scroll' : 'visible', overflowY: height ? 'scroll' : 'visible' }" @scroll="bodyScroll">
+        <div :class="$style.body" :style="{height: bodyHeight+'px', overflowX: isXScroll ? 'scroll' : 'visible', overflowY: isYScroll ? 'scroll' : 'visible' }" @scroll="bodyScroll">
             <table cellspacing="0" ref="body" cellpadding="0" border="0" :class="$style.tbody" :style="{width: bodyWidth, tableLayout: layout}">
                 <colgroup>
                     <col v-for="(column, index) in columns" :width="column.currentWidth || columnsWidth[index]">
@@ -164,9 +164,9 @@
                                 <div v-else-if="column.type === 'expand'" @click="toggleExpand(index, cindex)">
                                     <span :class="$style.expand" :name="row.iconName"></span>
                                 </div>
-                                <div v-else-if="column.$scopedSlots.default" :class="$style.ditem" :role="column.ellipsis">
-                                    <u-table-view-cell :row="row" :column="column"></u-table-view-cell>
-                                </div>
+                                <template v-else-if="column.$scopedSlots.default">
+                                    <u-table-view-cell :row="row" :column="column" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title></u-table-view-cell>
+                                </template>
                                 <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex) || defaultText}}</span>
                                 <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="translateTime(row[column.label], column.timeFormat)">{{translateTime(row[column.label], column.timeFormat)}}</span>
                                 <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{row[column.label] || defaultText}}</span>
@@ -218,7 +218,7 @@
             </table>
         </div>
         <div :class="$style.fixLeft" v-if="fixedLeftColumns.length" :style="{width: fixedLeftWidth + 'px'}">
-            <div :class="$style.header" :role="fixedLeftColumns.length">
+            <div :class="$style.header" :role="fixedLeftColumns.length > 0">
                 <table :class="$style.thead" cellspacing="0" cellpadding="0" border="0" :style="{width: tableWidth, tableLayout: layout}">
                     <colgroup>
                         <col v-for="(column, index) in columns" :width="columnsWidth[index] || column.currentWidth"></col>
@@ -286,9 +286,9 @@
                                     <div v-else-if="column.type === 'expand'" @click="toggleExpand(index, cindex)">
                                         <span :class="$style.expand" :name="row.iconName"></span>
                                     </div>
-                                    <div v-else-if="column.$scopedSlots.default" :class="$style.ditem" :role="column.ellipsis">
-                                        <u-table-view-cell :row="row" :column="column"></u-table-view-cell>
-                                    </div>
+                                    <template v-else-if="column.$scopedSlots.default">
+                                        <u-table-view-cell :row="row" :column="column" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title></u-table-view-cell>
+                                    </template>
                                     <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex)}}</span>
                                     <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="translateTime(row[column.label], column.timeFormat)">{{translateTime(row[column.label], column.timeFormat)}}</span>
                                     <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{row[column.label]}}</span>
@@ -304,8 +304,8 @@
                 </table>
             </div>
         </div>
-        <div :class="$style.fixRight" v-if="fixedRightColumns.length" :style="{width: fixedRightWidth + 'px'}">
-            <div :class="$style.header" :role="fixedRightColumns.length">
+        <div :class="$style.fixRight" v-if="fixedRightColumns.length" :style="{width: fixedRightWidth + 'px', right: isYScroll ? scrollWidth + 'px' : 0 }">
+            <div :class="$style.header" :role="fixedRightColumns.length > 0" :style="{width: isYScroll ? (fixedRightWidth + scrollWidth) + 'px' : '' }">
                 <table :class="$style.thead" cellspacing="0" cellpadding="0" border="0" :style="{width: tableWidth, tableLayout: layout}">
                     <colgroup>
                         <col v-for="(column, index) in rightColumns" :width="rightColumnsWidth[index] || column.currentWidth"></col>
@@ -373,9 +373,9 @@
                                     <div v-else-if="column.type === 'expand'" @click="toggleExpand(index, cindex)">
                                         <span :class="$style.expand" :name="row.iconName"></span>
                                     </div>
-                                    <div v-else-if="column.$scopedSlots.default" :class="$style.ditem" :role="column.ellipsis">
-                                        <u-table-view-cell :row="row" :column="column"></u-table-view-cell>
-                                    </div>
+                                    <template v-else-if="column.$scopedSlots.default">
+                                        <u-table-view-cell :row="row" :column="column" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title></u-table-view-cell>
+                                    </template>
                                     <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex)}}</span>
                                     <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="translateTime(row[column.label], column.timeFormat)">{{translateTime(row[column.label], column.timeFormat)}}</span>
                                     <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{row[column.label]}}</span>

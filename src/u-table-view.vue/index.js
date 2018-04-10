@@ -33,6 +33,7 @@ export default {
         limitText: { type: String, default: '查看更多' },
         allText: { type: String, default: '收起' },
         defaultText: { type: String, default: '-' },
+        // mode: { type: String, default: 'self' }, // fixed布局的时候计算方式是走原生表格的还是走自定义计算规则配置项
     },
     data() {
         return {
@@ -53,6 +54,7 @@ export default {
             rightColumns: [], // fixed值是right时需要重构columns顺序
             rightColumnsWidth: [], // fixed值是right时需要重构columnsWidth顺序
             isXScroll: false, // 判断是否会出现水平滚动条的情况
+            isYScroll: false, // 判断添加height属性后，垂直方向是否应该添加滚动条
             fixedHover: false, // 用来实现党左右列固定的时候，hover到左右列的时候，阴影效果能够同步实现
             filterValue: undefined, // 用来记录当前filter选项的值，方便在过滤的时候点击更多显示正确的数据
             filterColumn: undefined, // 用来记录当前filter列，方便在过滤的时候点击更多显示正确的数据
@@ -139,6 +141,10 @@ export default {
                 if (newValue[item])
                     this.fixedRightWidth += parseFloat(newValue[item]);
             });
+
+            if (this.isYScroll) {
+                this.fixedRightWidth -= this.scrollWidth;
+            }
         },
         visible(newValue) {
             this.handleResize();
@@ -285,21 +291,27 @@ export default {
                     } else
                         this.tableWidth = parseFloat(getStyle(this.$el, 'width')) + 'px';
                     // 由于百分数可能带来小数点问题，引起浮点数精度问题 典型的0.2+0.1不等于0.3问题，需要特殊处理这里的比较
-                    if (parseFloat(this.tableWidth) - parentWidth <= 0)
+
+                    if (parseFloat(this.tableWidth) - parentWidth <= 0) {
+                        this.tableWidth = parentWidth;
                         this.isXScroll = false;
-                    else
+                    } else
                         this.isXScroll = Math.abs(parseFloat(this.tableWidth) - parentWidth) > 0.001;
+
                     this.scrollWidth = getScrollSize();
                     const titleHeight = parseFloat(getStyle(this.$refs.title, 'height')) || 0;
                     const headHeight = parseFloat(getStyle(this.$refs.head, 'height')) || 0;
                     if (this.height && !this.loading && this.data.length) {
                         this.bodyWidth = parseFloat(this.tableWidth) - this.scrollWidth;
                         this.bodyHeight = this.height - titleHeight - headHeight;
+                        const tableHeight = this.$refs.body.offsetHeight;
+                        this.isYScroll = tableHeight > this.bodyHeight;
                     } else {
                         this.bodyWidth = this.tableWidth;
                         // this.bodyHeight = parseFloat(getStyle(this.$refs.body, 'height')) || 0;
                     }
 
+                    debugger;
                     if (this.loading && tableWidth > parentWidth) {
                         this.fixedTableHeight = parseFloat(getStyle(this.$refs.body, 'height')) || 0;
                         // this.$refs.body.parentNode.scrollLeft = (tableWidth - parentWidth) / 2;

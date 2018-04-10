@@ -35,7 +35,9 @@
 
 ``` vue
 <template>
-<u-line-chart border legend :title="title" :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data" :smooth="smooth"></u-line-chart>
+<u-line-chart border legend :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data" :smooth="smooth">
+	<div slot="titleTemplate">{{title}}</div>
+</u-line-chart>
 </template>
 
 <script>
