@@ -311,7 +311,6 @@ export default {
                         // this.bodyHeight = parseFloat(getStyle(this.$refs.body, 'height')) || 0;
                     }
 
-                    debugger;
                     if (this.loading && tableWidth > parentWidth) {
                         this.fixedTableHeight = parseFloat(getStyle(this.$refs.body, 'height')) || 0;
                         // this.$refs.body.parentNode.scrollLeft = (tableWidth - parentWidth) / 2;
