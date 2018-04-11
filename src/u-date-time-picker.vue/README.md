@@ -67,8 +67,6 @@ export default {
 | autofocus | Boolean | `false` | 是否默认处于focus状态 |
 | disabled | Boolean | `false` | 是否禁用 |
 | readonly | Boolean | `false` | 是否只读 |
-| yearDiff | String, Number | `3` | 最小可选年份值为当前年减去此值 |
-| yearAdd | String, Number | `1` | 最大可选年份值为当前年加上此值 |
 
 ### Events
 

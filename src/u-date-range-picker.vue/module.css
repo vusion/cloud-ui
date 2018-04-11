@@ -13,6 +13,7 @@
 	width: 620px;
 	box-shadow: 0 0 10px 0 rgba(80,90,109,0.16);
 	border-radius: 4px;
+	background-color: #fff;
 }
 .calendayday {
 	border: none;

@@ -37,6 +37,7 @@ export default {
             currentShowDate: null, // 当前显示时间页面
             currentMonth: '',
             dayRowArr: [],
+            allowClick: !this.disabled && !this.readonly,
         };
     },
     watch: {
@@ -78,6 +79,14 @@ export default {
         },
         onDateClick(date) {
             if (this.isDateRangePicker) {
+                let cancel = false;
+                this.$emit('before-select', {
+                    preventDefault: () => cancel = true,
+                });
+
+                if (cancel)
+                    return;
+
                 this.$emit('select', {
                     sender: this,
                     value: date,

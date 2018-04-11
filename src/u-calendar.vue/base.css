@@ -9,6 +9,7 @@
     user-select: none;
     display: inline-block;
     width: 310px;
+    vertical-align: top;
 }
 .head {
     line-height: 42px;

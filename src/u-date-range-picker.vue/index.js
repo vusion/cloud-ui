@@ -21,13 +21,13 @@ export default {
         maxDate: { type: [String, Date], default: null, validator: dateValidadtor },
         disabled: { type: Boolean, default: false },
         readonly: { type: Boolean, default: false },
-        placeholderArr: { type: Array, default: () => [] },
-        dateFormat: { type: String, default: 'YYYY-MM-DD' },
+        placeholders: { type: Array, default: () => [] },
+        formatter: { type: String, default: 'YYYY-MM-DD' },
         placement: { type: String, default: 'bottom-start' },
     },
     data() {
         return {
-            currentDateFormat: this.dateFormat,
+            currentDateFormat: this.formatter,
             currentStartDate: null, // 当前calendar选中值
             currentEndDate: null,
             formatCurrentStartDate: null, // 当前输入框中的值
@@ -113,6 +113,9 @@ export default {
             else
                 setAllow(true);
         },
+        onBeforeSelect(e) {
+            this.$emit('before-select', e);
+        },
         /**
          * @method onSelect(date) 选择一个日期
          * @public
@@ -133,7 +136,6 @@ export default {
              * @property {number} date 当前选择项 返回格式是日期对象
              */
             this.$emit('select', {
-                sender: this,
                 date: this.selectDateArr,
                 oldDate: [this.currentStartDate, this.currentEndDate],
             });
@@ -141,16 +143,17 @@ export default {
                 return;
             if (this.selectDateArr.length === 2) {
                 this.$emit('change', {
-                    sender: this,
                     date: this.selectDateArr,
                     oldDate: [this.currentStartDate, this.currentEndDate],
                 });
             }
             this.selectDateArr = sortIncrease(this.selectDateArr); // 选择的两个值按照大小排序
             this.currentStartDate = this.selectDateArr[0];
-            this.$emit('update:startDate', this.selectDateArr[0]);
             this.currentEndDate = this.selectDateArr[1];
-            this.$emit('update:endDate', this.selectDateArr[1]);
+            const tempFormatDateArr = [format(this.selectDateArr[0], this.formatter), format(this.selectDateArr[1], this.formatter)];
+            this.$emit('update:startDate', tempFormatDateArr[0]);
+            this.$emit('update:endDate', tempFormatDateArr[1]);
+            this.$emit('input', tempFormatDateArr);
             this.$refs.popper.toggle(false);
             this.focus = false;
         },

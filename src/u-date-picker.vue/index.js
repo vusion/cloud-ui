@@ -1,4 +1,5 @@
 import { clickOutside } from '../base/directives';
+import debounce from 'lodash/debounce';
 
 import isDate from 'date-fns/is_date';
 import format from 'date-fns/format';
@@ -20,7 +21,7 @@ import isEqual from 'date-fns/is_equal';
 export default {
     name: 'u-date-picker',
     props: {
-        date: { type: [String, Date], default: null, validator: (date) => {
+        value: { type: [String, Date, Number], default: null, validator: (date) => {
             if (!isDate(parse(date)))
                 throw new TypeError('Invalid Date');
             return true;
@@ -38,17 +39,10 @@ export default {
         } },
         disabled: { type: Boolean, default: false },
         readonly: { type: Boolean, default: false },
+        autofocus: { type: Boolean, default: false },
         placeholder: {
             type: String,
             default: 'yyyy-mm-dd',
-        },
-        // 兼容旧API，不暴露在文档中
-        alignment: {
-            type: String,
-            default: undefined,
-            validator(value) {
-                return ['left', 'right'].includes(value);
-            },
         },
         placement: { type: String, default: 'bottom-start' },
         time: {
@@ -66,74 +60,71 @@ export default {
                 return true;
             },
         },
-        dateFormat: { type: String, default: 'YYYY-MM-DD' },
+        formatter: { type: String, default: 'YYYY-MM-DD' },
         tag: { type: String, default: '111', validator: (t) => /^[01]{3}$/.test(t) }, // 分别对应年月日，年月表示为：110
+        fixOn: { type: String, default: 'blur' },
     },
     data() {
         return {
             currentDate: null,
             currentShowDate: null,
-            currentDateFormat: null,
-            currentPlacement: null,
+            currentFormatter: null,
             focus: false,
             hasValue: false,
         };
     },
     created() {
-        this.initPlacement();
+        this.debouncedInput = debounce(this.setValue, 1000);
+
         this.initDateFormat();
-        // calendar中会验证时间合法性
         this.initDate();
     },
     directives: { clickOutside },
     watch: {
-        date() {
+        value() {
             this.initDate();
         },
         currentDate(date, oldDate) {
             if (!date) {
                 this.currentShowDate = undefined;
                 this.hasValue = false;
-                return;
+            } else {
+                this.hasValue = true;
+                this.currentShowDate = format(date, this.currentFormatter); // String
+                if (this.currentShowDate === format(oldDate, this.currentFormatter))
+                    return;
             }
-            this.hasValue = true;
-            this.currentShowDate = format(date, this.currentDateFormat); // String
-            if (this.currentShowDate === format(oldDate, this.currentDateFormat))
-                return;
             /**
              * @event change 日期改变时触发
-             * @property {object} sender 事件发送对象
-             * @property {number} date 改变后的日期 返回格式为日期对象
+             * @property {Date} date 改变后的日期 返回格式为日期对象
              */
             this.$emit('change', {
-                sender: this,
-                date,
-                oldDate,
+                value: date,
+                oldValue: oldDate,
             });
+
+            this.$emit('input', this.currentShowDate);
+            this.$emit('update:value', this.currentShowDate);
         },
         tag() {
             this.initDateFormat();
         },
     },
     methods: {
-        initPlacement() {
-            if (this.alignment === 'left')
-                this.currentPlacement = 'bottom-start';
-            else if (this.alignment === 'right')
-                this.currentPlacement = 'bottom-end';
-            this.currentPlacement || (this.currentPlacement = this.placement);
-        },
         initDateFormat() {
-            this.currentDateFormat = this.dateFormat;
+            this.currentFormatter = this.formatter;
             if (this.tag.charAt(0) === '0') // 不显示年
-                this.currentDateFormat = this.currentDateFormat.replace(/Y/g, '');
+                this.currentFormatter = this.currentFormatter.replace(/Y/g, '');
             if (this.tag.charAt(1) === '0') // 不显示月
-                this.currentDateFormat = this.currentDateFormat.replace(/([^\w]M|M)/g, '');
+                this.currentFormatter = this.currentFormatter.replace(/([^\w]M|M)/g, '');
             if (this.tag.charAt(2) === '0') // 不显示日
-                this.currentDateFormat = this.currentDateFormat.replace(/([^\w]D|D)/g, '');
+                this.currentFormatter = this.currentFormatter.replace(/([^\w]D|D)/g, '');
         },
         initDate() {
-            this.currentDate = this.date ? this.setDateTime(parse(this.date)) : undefined; // Date
+            this.currentDate = this.value ? this.setDateTime(parse(this.value)) : undefined; // Date
+        },
+        onBeforeSelect(e) {
+            this.$emit('before-select', e);
         },
         /**
          * @method onSelect(date) 选择一个日期
@@ -144,44 +135,47 @@ export default {
         onSelect(date) {
             if (this.readonly || this.disabled)
                 return;
+            const oldValue = this.currentDate;
             this.currentDate = this.setDateTime(date);
             /**
              * @event select 选择某一项时触发
-             * @property {object} sender 事件发送对象
-             * @property {number} date 当前选择项 返回格式是日期对象
+             * @property {Date} date 当前选择项 返回格式是日期对象
              */
             this.$emit('select', {
-                sender: this,
-                date: this.currentDate,
+                value: this.currentDate,
+                oldValue,
             });
-
-            this.$emit('update:date', this.currentDate);
 
             this.$refs.popper.toggle(false);
             this.focus = false;
         },
         /**
-         * @method onInput(value) 输入日期
+         * @method onBlur(value) 失焦校正
          * @private
          * @param  {object} $event
          * @return {void}
          */
-        onInput($event) {
-            if (this.timer)
-                clearTimeout(this.timer);
-            this.timer = setTimeout(() => {
-                this.setValue($event);
-            }, 1000);
+        onBlur(e) {
+            if (this.fixOn !== 'blur')
+                return;
+            this.setValue(this.$refs.input.currentValue);
+            this.focus = false;
         },
-        setValue($event) {
-            const dateStr = $event.target.value;
+        onInput(value) {
+            if (this.fixOn !== 'input')
+                return;
+            this.debouncedInput(value);
+        },
+        setValue(value) {
+            if (!value)
+                return;
+            const dateStr = value;
             const tempDate = this.setDateTime(parse(dateStr));
             if (tempDate.toString() !== 'Invalid Date' && isDate(tempDate)) {
-                this.$refs.input.value = format(tempDate, this.currentDateFormat); // 保证同一个Date，同一种format形式
+                this.$refs.input.currentValue = format(tempDate, this.currentFormatter); // 保证同一个Date，同一种format形式
                 isEqual(tempDate, this.currentDate) || (this.currentDate = tempDate);
             } else
-                this.$refs.input.value = format(this.currentDate, this.currentDateFormat);
-            // this.$forceUpdate();
+                this.$refs.input.currentValue = format(this.currentDate, this.currentFormatter);
         },
         /**
          * @method toggle(flag) 是否显示日历组件
@@ -210,9 +204,6 @@ export default {
         },
         onFocus() {
             this.focus = true;
-        },
-        onBlur() {
-            this.focus = false;
         },
         onEmptyClick() {
             this.currentDate = undefined;

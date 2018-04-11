@@ -1,11 +1,16 @@
-<u-popper ref="popper" appendTo="reference" :placement="placement" @toggle="onToggle($event)">
+<u-popper v-if="!disabled && !readonly" ref="popper" appendTo="reference" :placement="placement" @toggle="onToggle($event)">
     <div :class="$style.header" :focus="focus" :hasValue="hasValue">
-        <input :class="$style.input" :placeholder="placeholderArr[0]" :value="formatCurrentStartDate" ref="input0" :readonly="readonly" :disabled="disabled" @input="onStartInput"></input>
+        <input :class="$style.input" :placeholder="placeholders[0]" :value="formatCurrentStartDate" ref="input0" :readonly="readonly" :disabled="disabled" @input="onStartInput"></input>
         <span :class="$style.split">至</span>
-        <input :class="$style.input" :placeholder="placeholderArr[1]" :value="formatCurrentEndDate" ref="input1" :readonly="readonly" :disabled="disabled" @input="onEndInput"></input>
+        <input :class="$style.input" :placeholder="placeholders[1]" :value="formatCurrentEndDate" ref="input1" :readonly="readonly" :disabled="disabled" @input="onEndInput"></input>
         <span @click="onEmptyClick" v-show="hasValue" :class="$style.empty"></span>
     </div>
     <div :class="$style.body" slot="popper" @click.stop>
-        <u-calendar-day v-for="day in 2" style="box-shadow:none;" :allowNext="day === 1 ? allowNext : true"  :allowPre="day === 1 ? true : allowPre" :isDateRangePicker="true" :disabled="disabled" :readonly="readonly" :dateRange="currentDateRange" :date="day === 1 ? currentStartDate : currentEndDate" :showDate.sync="day === 1 ? startShowDate : endShowDate" @select="onSelect($event.value)" :selectedDate="selectDateArr" @mouseover="hoverDate = $event.value" :hoverDate="hoverDate"/>
+        <u-calendar-day v-for="day in 2" style="box-shadow:none;" :allowNext="day === 1 ? allowNext : true"  :allowPre="day === 1 ? true : allowPre" :isDateRangePicker="true" :disabled="disabled" :readonly="readonly" :dateRange="currentDateRange" :date="day === 1 ? currentStartDate : currentEndDate" :showDate.sync="day === 1 ? startShowDate : endShowDate" @select="onSelect($event.value)" @before-select="onBeforeSelect" :selectedDate="selectDateArr" @mouseover="hoverDate = $event.value" :hoverDate="hoverDate"/>
     </div>
 </u-popper>
+<div v-else :class="$style.header" :disabled="disabled">
+    <input :class="$style.input" :placeholder="placeholders[0]" :value="formatCurrentStartDate" ref="input0" :readonly="readonly" :disabled="disabled" @input="onStartInput"></input>
+    <span :class="$style.split">至</span>
+    <input :class="$style.input" :placeholder="placeholders[1]" :value="formatCurrentEndDate" ref="input1" :readonly="readonly"  @input="onEndInput" :disabled="disabled"></input>
+</div>
