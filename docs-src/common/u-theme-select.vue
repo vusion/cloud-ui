@@ -3,6 +3,7 @@ import Select from '../../src/u-select.vue';
 
 export default {
     name: 'u-theme-select',
+    childName: 'u-theme-select-item',
     mixins: [Select],
 };
 </script>
