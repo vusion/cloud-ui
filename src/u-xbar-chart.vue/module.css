@@ -177,37 +177,51 @@ $bar_width: 60px;
 }
 
 .bar[role=bar-static]:nth-of-type(1) {
-    border-color: rgba(91, 161, 242, 0.6);
-    background: rgba(91, 161, 242, 0.3);
+    border-color: $theme-chart-color1;
+    background: $theme-chart-rgba-color1;
 }
 
 .bar[role=bar-static]:nth-of-type(2) {
-    border-color: rgba(78, 201, 171, 0.6);
-    background: rgba(78, 201, 171, 0.3);
+    border-color: $theme-chart-color2;
+    background: $theme-chart-rgba-color2;
 }
 
 .bar[role=bar-static]:nth-of-type(3) {
-    border-color: rgba(255, 174, 60, 0.6);
-    background: rgba(255, 174, 60, 0.3);
+    border-color: $theme-chart-color3;
+    background: $theme-chart-rgba-color3;
 }
 
 .bar[role=bar-static]:nth-of-type(4) {
-    border-color: rgba(158, 156, 246, 0.6);
-    background: rgba(158, 156, 246, 0.3);
+    border-color: $theme-chart-color4;
+    background: $theme-chart-rgba-color4;
 }
 
 .bar[role=bar-static]:nth-of-type(5) {
-    border-color: rgba(30, 192, 216, 0.6);
-    background: rgba(30, 192, 216, 0.3);
+    border-color: $theme-chart-color5;
+    background: $theme-chart-rgba-color5;
 }
 
 .bar[role=bar-static]:nth-of-type(6) {
-    border-color: rgba(237, 139, 204, 0.6);
-    background: rgba(237, 139, 204, 0.3);
+    border-color: $theme-chart-color6;
+    background: $theme-chart-rgba-color6;
 }
-.loading{
-    position: absolute;
-    left: 50%;
-    top: 30%;
-    margin-left: -12px;
+
+.bar[role=bar-static]:nth-of-type(7) {
+    border-color: $theme-chart-color7;
+    background: $theme-chart-rgba-color7;
+}
+
+.bar[role=bar-static]:nth-of-type(8) {
+    border-color: $theme-chart-color8;
+    background: $theme-chart-rgba-color8;
+}
+
+.bar[role=bar-static]:nth-of-type(9) {
+    border-color: $theme-chart-color9;
+    background: $theme-chart-rgba-color9;
+}
+
+.bar[role=bar-static]:nth-of-type(10) {
+    border-color: $theme-chart-color10;
+    background: $theme-chart-rgba-color10;
 }

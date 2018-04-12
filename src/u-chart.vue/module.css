@@ -73,80 +73,80 @@ $m-chart_legend_height: 30px;
     background: rgba(97,218,198, 0.6);
 }
 .item:nth-of-type(1):before {
-    background: rgba(91, 161, 242, 0.6);
+    background: $theme-chart-color1;
 }
 
 .item:nth-of-type(2):before {
-    background: rgba(78, 201, 171, 0.6);
+    background: $theme-chart-color2;
 }
 
 .item:nth-of-type(3):before {
-    background: rgba(255, 174, 60, 0.6);
+    background: $theme-chart-color3;
 }
 
 .item:nth-of-type(4):before {
-    background: rgba(158, 156, 246, 0.6);
+    background: $theme-chart-color4;
 }
 
 .item:nth-of-type(5):before {
-    background: rgba(30, 192, 216, 0.6);
+    background: $theme-chart-color5;
 }
 
 .item:nth-of-type(6):before {
-    background: rgba(237, 139, 204, 0.6);
+    background: $theme-chart-color6;
 }
 
 .item:nth-of-type(7):before {
-    background: rgba(138, 209, 153, 0.6);
+    background: $theme-chart-color7;
 }
 
 .item:nth-of-type(8):before {
-    background: rgba(103, 197, 245, 0.6);
+    background: $theme-chart-color8;
 }
 .item:nth-of-type(9):before {
-    background: rgba(138, 205, 78, 0.6);
+    background: $theme-chart-color9;
 }
 .item:nth-of-type(10):before {
-    background: rgba(245, 131, 122, 0.6);
+    background: $theme-chart-color10;
 }
 .item:nth-of-type(11):before {
-    border-color: rgb(198,156,246, 0.6);
+    border-color: $theme-chart-color11;
 }
 
 .item:nth-of-type(12):before {
-    border-color: rgb(137,170,247, 0.6);
+    border-color: $theme-chart-color12;
 }
 
 .item:nth-of-type(13):before {
-    border-color: rgb(251,155,108, 0.6);
+    border-color: $theme-chart-color13;
 }
 
 .item:nth-of-type(14):before {
-    border-color: rgb(103,170,245, 0.6);
+    border-color: $theme-chart-color14;
 }
 
 .item:nth-of-type(15):before {
-    border-color: rgb(134,187,231, 0.6);
+    border-color: $theme-chart-color15;
 }
 
 .item:nth-of-type(16):before {
-    border-color: rgb(245,196,80, 0.6);
+    border-color: $theme-chart-color16;
 }
 
 .item:nth-of-type(17):before {
-    border-color: rgb(135,206,232, 0.6);
+    border-color: $theme-chart-color17;
 }
 
 .item:nth-of-type(18):before {
-    border-color: rgb(239,216,22, 0.6);
+    border-color: $theme-chart-color18;
 }
 
 .item:nth-of-type(19):before {
-    border-color: rgb(92,208,133, 0.6);
+    border-color: $theme-chart-color19;
 }
 
 .item:nth-of-type(20):before {
-    border-color: rgb(241,126,248, 0.6);
+    border-color: $theme-chart-color20;
 }
 
 .item{

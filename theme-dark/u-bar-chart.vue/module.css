@@ -1,5 +1,6 @@
 @import '../../src/u-bar-chart.vue/module.css';
 
+
 .bar[role=bar-static]:nth-of-type(1) {
     border-color: $theme-dark-chart-color1;
     background: $theme-dark-chart-rgba-color1;
@@ -31,7 +32,7 @@
 }
 
 .bar[role=bar-static]:nth-of-type(7) {
-    border-color: $theme-dark-chart-color7;
+    border-color: $theme-dark-chart-color8;
     background: $theme-dark-chart-rgba-color7;
 }
 

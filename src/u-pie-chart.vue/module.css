@@ -115,23 +115,23 @@ $g_size: 120px;
     display: block;
 }
 
-.root .item:nth-of-type(1) { fill: rgb(91, 161, 242); }
-.root .item:nth-of-type(2) { fill: rgb(78, 201, 171); }
-.root .item:nth-of-type(3) { fill: rgb(255, 174, 60); }
-.root .item:nth-of-type(4) { fill: rgb(158, 156, 246); }
-.root .item:nth-of-type(5) { fill: rgb(30, 192, 216); }
-.root .item:nth-of-type(6) { fill: rgb(237, 139, 204); }
-.root .item:nth-of-type(7) { fill: rgb(138, 209, 153); }
-.root .item:nth-of-type(8) { fill: rgb(103, 197, 245); }
-.root .item:nth-of-type(9) { fill: rgb(138, 205, 78); }
-.root .item:nth-of-type(10) { fill: rgb(245, 131, 122); }
-.root .item:nth-of-type(11) { fill: rgb(198,156,246); }
-.root .item:nth-of-type(12) { fill: rgb(137,170,247); }s
-.root .item:nth-of-type(13) { fill: rgb(251,155,108); }
-.root .item:nth-of-type(14) { fill: rgb(103,170,245); }
-.root .item:nth-of-type(15) { fill: rgb(134,187,231); }
-.root .item:nth-of-type(16) { fill: rgb(245,196,80); }
-.root .item:nth-of-type(17) { fill: rgb(135,206,232); }
-.root .item:nth-of-type(18) { fill: rgb(239,216,22); }
-.root .item:nth-of-type(19) { fill: rgb(92,208,133); }
-.root .item:nth-of-type(20) { fill: rgb(241,126,248); }
+.root .item:nth-of-type(1) { fill: $theme-chart-color1; }
+.root .item:nth-of-type(2) { fill: $theme-chart-color2; }
+.root .item:nth-of-type(3) { fill: $theme-chart-color3; }
+.root .item:nth-of-type(4) { fill: $theme-chart-color4; }
+.root .item:nth-of-type(5) { fill: $theme-chart-color5; }
+.root .item:nth-of-type(6) { fill: $theme-chart-color6; }
+.root .item:nth-of-type(7) { fill: $theme-chart-color7; }
+.root .item:nth-of-type(8) { fill: $theme-chart-color8; }
+.root .item:nth-of-type(9) { fill: $theme-chart-color9; }
+.root .item:nth-of-type(10) { fill: $theme-chart-color10; }
+.root .item:nth-of-type(11) { fill: $theme-chart-color11; }
+.root .item:nth-of-type(12) { fill: $theme-chart-color12; }
+.root .item:nth-of-type(13) { fill: $theme-chart-color13; }
+.root .item:nth-of-type(14) { fill: $theme-chart-color14; }
+.root .item:nth-of-type(15) { fill: $theme-chart-color15; }
+.root .item:nth-of-type(16) { fill: $theme-chart-color16; }
+.root .item:nth-of-type(17) { fill: $theme-chart-color17; }
+.root .item:nth-of-type(18) { fill: $theme-chart-color18; }
+.root .item:nth-of-type(19) { fill: $theme-chart-color19; }
+.root .item:nth-of-type(20) { fill: $theme-chart-color20; }

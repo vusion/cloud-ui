@@ -146,160 +146,160 @@ $line_offset: 6px;
 }
 
 .layer .elsvg:nth-of-type(1) .line {
-    stroke: rgb(91, 161, 242);
+    stroke: $theme-chart-color1;
 }
 
 .layer .elsvg:nth-of-type(1) .area {
-    fill: rgba(91, 161, 242, 0.15);
+    fill: $theme-chart-rgba-color1;
 }
 
 .layer .elsvg:nth-of-type(2) .line {
-    stroke: rgb(78, 201, 171);
+    stroke: $theme-chart-color2;
 }
 
 .layer .elsvg:nth-of-type(2) .area {
-    fill: rgba(78, 201, 171, 0.15);
+    fill: $theme-chart-rgba-color2;
 }
 
 .layer .elsvg:nth-of-type(3) .line {
-    stroke: rgb(255, 174, 60);
+    stroke: $theme-chart-color3;
 }
 
 .layer .elsvg:nth-of-type(3) .area {
-    fill: rgba(255, 174, 60, 0.15);
+    fill: $theme-chart-rgba-color3;
 }
 
 .layer .elsvg:nth-of-type(4) .line {
-    stroke: rgb(158, 156, 246);
+    stroke: $theme-chart-color4;
 }
 
 .layer .elsvg:nth-of-type(4) .area {
-    fill: rgba(158, 156, 246, 0.15);
+    fill: $theme-chart-rgba-color4;
 }
 
 .layer .elsvg:nth-of-type(5) .line {
-    stroke: rgb(30, 192, 216);
+    stroke: $theme-chart-color5;
 }
 
 .layer .elsvg:nth-of-type(5) .area {
-    fill: rgba(30, 192, 216, 0.15);
+    fill: $theme-chart-rgba-color5;
 }
 
 .layer .elsvg:nth-of-type(6) .line {
-    stroke: rgb(237, 139, 204);
+    stroke: $theme-chart-color6;
 }
 
 .layer .elsvg:nth-of-type(6) .area {
-    fill: rgba(237, 139, 204, 0.15);
+    fill: $theme-chart-rgba-color6;
 }
 .layer .elsvg:nth-of-type(7) .line {
-    stroke: rgb(138, 209, 153);
+    stroke: $theme-chart-color7;
 }
 
 .layer .elsvg:nth-of-type(7) .area {
-    fill: rgba(138, 209, 153, 0.1);
+    fill: $theme-chart-rgba-color7;
 }
 
 .layer .elsvg:nth-of-type(8) .line {
-    stroke: rgb(103, 197, 245);
+    stroke: $theme-chart-color8;
 }
 
 .layer .elsvg:nth-of-type(8) .area {
-    fill: rgba(103, 197, 245, 0.1);
+    fill: $theme-chart-rgba-color8;
 }
 .layer .elsvg:nth-of-type(9) .line {
-    stroke: rgb(138, 205, 78);
+    stroke: $theme-chart-color9;
 }
 
 .layer .elsvg:nth-of-type(9) .area {
-    fill: rgba(138, 205, 78, 0.1);
+    fill: $theme-chart-rgba-color9;
 }
 
 .layer .elsvg:nth-of-type(10) .line {
-    stroke: rgb(245, 131, 122);
+    stroke: $theme-chart-color10;
 }
 .layer .elsvg:nth-of-type(10) .area {
-    fill: rgba(245, 131, 122, 0.1);
+    fill: $theme-chart-rgba-color10;
 }
 
 .layer .elsvg:nth-of-type(11) .line {
-    stroke: rgb(198,156,246);
+    stroke: $theme-chart-color11;
 }
 
 .layer .elsvg:nth-of-type(11) .area {
-    fill: rgba(198,156,246, 0.1);
+    fill: $theme-chart-rgba-color11;
 }
 
 .layer .elsvg:nth-of-type(12) .line {
-    stroke: rgb(137,170,247);
+    stroke: $theme-chart-color12;
 }
 
 .layer .elsvg:nth-of-type(12) .area {
-    fill: rgba(137,170,247, 0.1);
+    fill: $theme-chart-rgba-color12;
 }
 
 .layer .elsvg:nth-of-type(13) .line {
-    stroke: rgb(251,155,108);
+    stroke: $theme-chart-color13;
 }
 
 .layer .elsvg:nth-of-type(13) .area {
-    fill: rgba(251,155,108, 0.1);
+    fill: $theme-chart-rgba-color13;
 }
 
 .layer .elsvg:nth-of-type(14) .line {
-    stroke: rgb(103,170,245);
+    stroke: $theme-chart-color14;
 }
 
 .layer .elsvg:nth-of-type(14) .area {
-    fill: rgba(103,170,245, 0.1);
+    fill: $theme-chart-rgba-color14;
 }
 
 .layer .elsvg:nth-of-type(15) .line {
-    stroke: rgb(134,187,231);
+    stroke: $theme-chart-color15;
 }
 
 .layer .elsvg:nth-of-type(15) .area {
-    fill: rgba(134,187,231, 0.1);
+    fill: $theme-chart-rgba-color15;
 }
 
 .layer .elsvg:nth-of-type(16) .line {
-    stroke: rgb(245,196,80);
+    stroke: $theme-chart-color16;
 }
 
 .layer .elsvg:nth-of-type(16) .area {
-    fill: rgba(245,196,80, 0.1);
+    fill: $theme-chart-rgba-color16;
 }
 
 .layer .elsvg:nth-of-type(17) .line {
-    stroke: rgb(135,206,232);
+    stroke: $theme-chart-color17;
 }
 
 .layer .elsvg:nth-of-type(17) .area {
-    fill: rgba(135,206,232, 0.1);
+    fill: $theme-chart-rgba-color17;
 }
 
 .layer .elsvg:nth-of-type(18) .line {
-    stroke: rgb(239,216,22);
+    stroke: $theme-chart-color18;
 }
 
 .layer .elsvg:nth-of-type(18) .area {
-    fill: rgba(239,216,22, 0.1);
+    fill: $theme-chart-chart-color18;
 }
 
 .layer .elsvg:nth-of-type(19) .line {
-    stroke: rgb(92,208,133);
+    stroke: $theme-chart-color19;
 }
 
 .layer .elsvg:nth-of-type(19) .area {
-    fill: rgba(92,208,133, 0.1);
+    fill: $theme-chart-rgba-color19;
 }
 
 .layer .elsvg:nth-of-type(20) .line {
-    stroke: rgb(241,126,248);
+    stroke: $theme-chart-color20;
 }
 
 .layer .elsvg:nth-of-type(20) .area {
-    fill: rgba(241,126,248, 0.1);
+    fill: $theme-chart-rgba-color20;
 }
 
 .piece {
@@ -421,60 +421,60 @@ $line_offset: 6px;
 }
 
 .piece .point:nth-of-type(1) {
-    border-color: rgb(91, 161, 242);
+    border-color: $theme-chart-color1;
 }
 
 .piece .point:nth-of-type(2) {
-    border-color: rgb(78, 201, 171);
+    border-color: $theme-chart-color2;
 }
 
 .piece .point:nth-of-type(3) {
-    border-color: rgb(255, 174, 60);
+    border-color: $theme-chart-color3;
 }
 
 .piece .point:nth-of-type(4) {
-    border-color: rgb(158, 156, 246);
+    border-color: $theme-chart-color4;
 }
 
 .piece .point:nth-of-type(5) {
-    border-color: rgb(30, 192, 216);
+    border-color: $theme-chart-color5;
 }
 
 .piece .point:nth-of-type(6) {
-    border-color: rgb(237, 139, 204);
+    border-color: $theme-chart-color6;
 }
 .piece .point:nth-of-type(7) {
-    border-color: rgb(138, 209, 153);
+    border-color: $theme-chart-color7;
 }
 
 .piece .point:nth-of-type(8) {
-    border-color: rgb(103, 197, 245);
+    border-color: $theme-chart-color8;
 }
 .piece .point:nth-of-type(9) {
-    border-color: rgb(138, 205, 78);
+    border-color: $theme-chart-color9;
 }
 .piece .point:nth-of-type(10) {
-    border-color: rgb(245, 131, 122);
+    border-color: $theme-chart-color10;
 }
 
 .piece .point:nth-of-type(11) {
-    border-color: rgb(198,156,246);
+    border-color: $theme-chart-color11;
 }
 
 .piece .point:nth-of-type(12) {
-    border-color: rgb(137,170,247);
+    border-color: $theme-chart-color12;
 }
 
 .piece .point:nth-of-type(13) {
-    border-color: rgb(251,155,108);
+    border-color: $theme-chart-color13;
 }
 
 .piece .point:nth-of-type(14) {
-    border-color: rgb(103,170,245);
+    border-color: $theme-chart-color14;
 }
 
 .piece .point:nth-of-type(15) {
-    border-color: rgb(134,187,231);
+    border-color: $theme-chart-color15;
 }
 
 .piece .point:nth-of-type(16) {

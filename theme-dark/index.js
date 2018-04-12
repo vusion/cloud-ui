@@ -1,11 +1,15 @@
+import BarChart from './u-bar-chart.vue';
 import Button from './u-button.vue';
+import Chart from './u-chart.vue';
+import LineChart from './u-line-chart.vue';
 import Link from './u-link.vue';
+import PieChart from './u-pie-chart.vue';
 import SubnavItem from './u-subnav-item.vue';
+import XBarChart from './u-xbar-chart.vue';
 
-export { Button, Link, SubnavItem };
+export { BarChart, Button, Chart, LineChart, Link, PieChart, SubnavItem, XBarChart };
 export {
     Badge,
-    BarChart,
     Block,
     Calendar,
     Capsule,
@@ -13,7 +17,6 @@ export {
     Capsules,
     CascadeCapsules,
     CascadeSelect,
-    Chart,
     Checkbox,
     Checkboxes,
     CircularProgress,
@@ -43,7 +46,6 @@ export {
     Label,
     LightBox,
     LightBoxItem,
-    LineChart,
     LinearLayout,
     LinearProgress,
     ListView,
@@ -65,7 +67,6 @@ export {
     NavbarItem,
     NumberInput,
     Pagination,
-    PieChart,
     Pill,
     Pills,
     Popover,
@@ -112,5 +113,4 @@ export {
     TreeView,
     TreeViewNode,
     TreeViewText,
-    XBarChart,
 } from '../src';
