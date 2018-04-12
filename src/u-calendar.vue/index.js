@@ -16,8 +16,8 @@ export default {
         value: { type: [String, Date, Number], default: undefined, validator: dateValidadtor },
         showDate: { type: [String, Date, Number], default: undefined, validator: dateValidadtor },
         dateRange: { type: Array, default: () => [] },
-        minDate: { type: [String, Date], default: null, validator: dateValidadtor },
-        maxDate: { type: [String, Date], default: null, validator: dateValidadtor },
+        minDate: { type: [String, Date, Number], default: null, validator: dateValidadtor },
+        maxDate: { type: [String, Date, Number], default: null, validator: dateValidadtor },
         disabled: { type: Boolean, default: false },
         readonly: { type: Boolean, default: false },
         tag: { type: String, default: '111', validator: (t) => /^[01]{3}$/.test(t) }, // 分别对应年月日，年月表示为：110
@@ -114,9 +114,10 @@ export default {
                     break;
             }
         },
-        initDate(date = new Date()) {
-            this.currentDate = parse(date);
-            this.currentShowDate = this.showDate ? parse(this.showDate) : this.currentDate;
+        initDate(date) {
+            if (date)
+                this.currentDate = parse(date);
+            this.currentShowDate = this.showDate ? parse(this.showDate) : (this.currentDate || new Date());
         },
         initDateRange() {
             this.currentDateRange = this.dateRange;

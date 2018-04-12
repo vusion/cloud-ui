@@ -81,6 +81,42 @@ export default {
 <u-calendar value="2018-08-18" :date-range="[['2010-10-10', '2011-03-01'], ['2013-01-01', '2018-10-10']]"></u-calendar>
 ```
 
+### 事件
+``` vue
+<template>
+    <u-calendar :value.sync="value" @change="onChange" @select="onSelect"  @before-select="onBeforeSelect" @input="onInput"></u-calendar>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value: '2018-09-09',
+        }
+    },
+    watch: {
+        value(date, oldDate) {
+            console.log('value watch: ', date, oldDate);
+        },
+    },
+    methods: {
+        onChange($event) {
+            console.log('change', $event); // value改变触发
+        },
+        onSelect($event) {
+        	console.log('select', $event); // 选择日历触发
+        },
+        onBeforeSelect($event) {
+        	console.log('before-select', $event);
+        },
+        onInput($event) {
+        	console.log('input', $event);
+        },
+    },
+};
+</script>
+```
+
 ## Calendar API
 ### Props/Attrs
 | Prop/Attr | Type | Default | Description |

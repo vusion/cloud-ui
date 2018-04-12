@@ -7,12 +7,10 @@
 
 ### 基本
 ``` html
-<u-date-picker placeholder="请选择日期"></u-date-picker>
-```
-``` html
-<div>
+<u-linear-layout>
+    <u-date-picker placeholder="请选择日期"></u-date-picker>
     <u-date-picker value="2018-08-08" placement="right"></u-date-picker>
-</div>
+</u-linear-layout>
 ```
 ### 输入格式化时机
 
@@ -138,8 +136,9 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.value | Date | 旧日期 |
-| $event.oldValue | Date | 新日期 |
+| $event.value | Date | 当前日期 |
+| $event.oldValue | Date | 旧日期 |
+| $event.formattedValue | String | formatter后的日期 |
 
 #### @input
 日期改变时触发
@@ -160,7 +159,7 @@ export default {
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event.value | Date | 选择日期 |
-| $event.oldValue | Date | 新日期 |
+| $event.oldValue | Date | 旧日期 |
 
 #### @toggle
 同`u-popper`组件的`toggle`事件

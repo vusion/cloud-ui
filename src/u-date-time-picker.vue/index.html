@@ -1,11 +1,18 @@
-<div :class="$style.root" ref="element" v-click-outside="handleClose">
-    <div :class="$style.head">
-        <input :class="$style.input" :placeholder="placeholder" :value="dateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}"
-            @focus="toggle(true)" @change="onInput($event)">
+<u-popper v-if="!disabled && !readonly" ref="popper" appendTo="reference" :placement="placement" @toggle="onToggle($event)">
+    <div :class="$style.inputWrapper" :focus="focus" :hasValue="hasValue">
+        <u-input :placeholder="placeholder" style="width: 200px;" :value="currentShowDate" ref="input" @input="onInput" @blur="onBlur" :autofocus="autofocus"></u-input>
+        <span :class="$style.calendar"></span>
+        <span @click="onEmptyClick" :class="$style.delete"></span>
     </div>
-    <div :class="$style.body" v-show="open">
-        <u-calendar :readonly="readonly" :year-diff="yearDiff" :year-add="yearAdd" :min-date="minCalendarDate" :max-date="maxCalendarDate" :date="showDate" @select="outRangeDateTime($event.date, showTime)">
-            <u-time-picker :class="$style.timePicker" :readonly="readonly" :time="showTime" width="50" :min-time="minTime" :max-time="maxTime" @change="outRangeDateTime(showDate, $event.time)" />
-        </u-calendar>
+    <div :class="$style.body" slot="popper" @click.stop>
+        <div :class="$style.timepicker">
+            <u-time-picker :value.sync="currentTime" :minTime="minTime" :maxTime="maxTime"></u-time-picker>
+        </div>
+        <u-calendar ref="calendar" :minDate="minDate" :maxDate="maxDate" :value.sync="currentDate"/>
     </div>
+</u-popper>
+<div v-else :class="$style.inputWrapper">
+    <u-input :placeholder="placeholder" style="width: 200px;" :value="currentShowDate" :readonly="readonly" :disabled="disabled" @input="onInput"></u-input>
+    <span :class="$style.fixcalendar"></span>
 </div>
+    

@@ -1,4 +1,11 @@
-import { clickOutside } from '../base/directives';
+import DatePicker from '../u-date-picker.vue';
+
+import { dateValidadtor } from '../u-calendar.vue/date';
+import parse from 'date-fns/parse';
+import format from 'date-fns/format';
+window.parse = parse;
+const getDateStr = (date) => format(parse(date), 'YYYY-MM-DD');
+const getTimeStr = (date) => format(parse(date), 'HH:mm:ss'); // u-time-picker只支持:分割
 /**
  * @class DateTimePicker
  * @extend Dropdown
@@ -14,226 +21,106 @@ import { clickOutside } from '../base/directives';
  */
 export default {
     name: 'u-date-time-picker',
+    mixins: [DatePicker],
     props: {
-        disabled: [String, Boolean],
-        placeholder: {
-            type: String,
-            default: '请选择时间',
-        },
-        readonly: [String, Boolean],
-        autofocus: [String, Boolean],
-        minDate: [String, Number, Object],
-        maxDate: [String, Number, Object],
-        date: [String, Number, Date],
-        width: {
-            type: [String, Number],
-            default: 160,
-        },
-        yearDiff: {
-            type: [String, Number],
-            default: 3,
-        },
-        yearAdd: {
-            type: [String, Number],
-            default: 1,
-        },
+        value: { type: [String, Date, Number], default: undefined, validator: dateValidadtor },
+        placeholder: { type: String, default: '请选择时间' },
+        formatter: { type: String, default: 'YYYY-MM-DD HH:mm:ss' },
     },
     data() {
         return {
-            dateTime: this.format(this.date, 'yyyy-MM-dd HH:mm:ss'),
-            open: false,
-            minTime: undefined,
-            maxTime: undefined,
+            currentDate: undefined, // str
+            currentTime: undefined, // str
+            currentShowDate: undefined, // str
+            isDateTimePicker: true,
+            minTime: null,
+            maxTime: null,
         };
     },
-    computed: {
-        showTime() {
-            return this.format(this.dateTime, 'HH:mm:ss');
-        },
-        showDate() {
-            return this.format(this.dateTime, 'yyyy-MM-dd');
-        },
-        minCalendarDate() {
-            return this.format(this.minDate, 'yyyy-MM-dd');
-        },
-        maxCalendarDate() {
-            return this.format(this.maxDate, 'yyyy-MM-dd');
-        },
-        spMinTime() {
-            return this.format(this.minDate, 'HH:mm:ss');
-        },
-        spMaxTime() {
-            return this.format(this.maxDate, 'HH:mm:ss');
-        },
-    },
-    directives: {
-        clickOutside,
-    },
     watch: {
-        date(newValue) {
-            this.dateTime = this.format(newValue, 'yyyy-MM-dd HH:mm:ss');
+        value(value) {
+            this.initDateTime(value);
         },
-        dateTime(newValue) {
-            // 字符类型自动转为日期类型
-
-            if (newValue === 'Invalid Date' || newValue === 'NaN')
-                throw new TypeError('Invalid Date');
-
-            // 如果不为空并且超出日期范围，则设置为范围边界的日期
-            if (newValue) {
-                const isOutOfRange = this.isOutOfRange(newValue);
-                if (isOutOfRange)
-                    return this.dateTime = this.format(isOutOfRange, 'yyyy-MM-dd HH:mm:ss');
-            }
-
-            if (newValue === this.minDate) {
-                this.minTime = this.spMinTime;
-                this.maxTime = undefined;
-            } else if (newValue === this.maxDate) {
-                this.minTime = undefined;
-                this.maxTime = this.spMaxTime;
-            } else {
-                this.minTime = undefined;
-                this.maxTime = undefined;
-            }
-
-            /**
-             * @event change 日期时间改变时触发
-             * @property {object} sender 事件发送对象
-             * @property {object} date 改变后的日期时间
-             */
-            this.$emit('change', {
-                sender: this,
-                date: new Date(newValue.replace(/-/g, '/')).getTime(),
-            });
-        },
-    },
-    methods: {
-        /**
-         * @method outRangeDateTime(date, time) 修改日期为最大日期或最小日期
-         * @private
-         * @return {void}
-         */
-        outRangeDateTime(date, time) {
-            if (!time)
-                time = '00:00:00';
-
-            if (date)
-                date = new Date(date);
-            else
-                date = new Date();
-            time = time.split(':');
-            date.setHours(time[0]);
-            date.setMinutes(time[1]);
-            date.setSeconds(time[2]);
-            const datetime = this.format(date, 'yyyy-MM-dd');
-            const dtime = this.format(date, 'HH:mm:ss');
-            if (datetime === this.minCalendarDate && dtime < this.spMinTime) {
-                const spMinTime = this.spMinTime.split(':');
-                date.setHours(spMinTime[0]);
-                date.setMinutes(spMinTime[1]);
-                date.setSeconds(spMinTime[2]);
-            } else if (datetime === this.maxCalendarDate && dtime > this.spMaxTime) {
-                const spMaxTime = this.spMaxTime.split(':');
-                date.setHours(spMaxTime[0]);
-                date.setMinutes(spMaxTime[1]);
-                date.setSeconds(spMaxTime[2]);
-            }
-            // if (datetime === this.minCalendarDate || datetime === this.maxCalendarDate)
-            this.dateTime = this.format(date, 'yyyy-MM-dd HH:mm:ss');
-
-            this.$emit('select', {
-                sender: this,
-                date: new Date(date).getTime(),
-            });
-        },
-        /**
-         * @method onDateTimeChange(date, time) 日期或时间改变后更新日期时间
-         * @private
-         * @return {void}
-         */
-        onDateTimeChange(date, time) {
-            if (!time)
-                time = '00:00:00';
-
-            date = new Date(date);
-            time = time.split(':');
-            date.setHours(time[0]);
-            date.setMinutes(time[1]);
-            date.setSeconds(time[2]);
-            this.dateTime = this.format(date, 'yyyy-MM-dd HH:mm:ss');
-
-            this.$emit('select', {
-                sender: this,
-                date: new Date(date).getTime(),
-            });
-        },
-        /**
-         * @method onInput($event) 输入日期
-         * @private
-         * @param  {object} $event
-         * @return {void}
-         */
-        onInput($event) {
-            const value = $event.target.value;
-            const date = value ? new Date(value) : null;
-
-            if (date.toString() !== 'Invalid Date')
-                this.dateTime = this.format(date, 'yyyy-MM-dd HH:mm:ss');
-            else
-                this.$refs.input.value = this.format(this.dateTime, 'yyyy-MM-dd HH:mm:ss');
-        },
-        /**
-         * @method isOutOfRange(date) 是否超出规定的日期时间范围
-         * @public
-         * @param {Date} date 待测的日期时间
-         * @return {boolean|Date} date 如果没有超出日期时间范围，则返回false；如果超出日期时间范围，则返回范围边界的日期时间
-         */
-        isOutOfRange(date) {
-            date = this.transformDate(date);
-            const minDate = this.transformDate(this.minDate);
-            const maxDate = this.transformDate(this.maxDate);
-
-            // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期时间。
-            return (minDate && date < minDate && minDate) || (maxDate && date > maxDate && maxDate);
-        },
-        format(value, type) {
+        currentTime(value) {
             if (!value)
                 return;
-            const fix = (str) => {
-                str = '' + (String(str) || '');
-                return str.length <= 1 ? '0' + str : str;
-            };
-            const maps = {
-                yyyy(date) { return date.getFullYear(); },
-                MM(date) { return fix(date.getMonth() + 1); },
-                dd(date) { return fix(date.getDate()); },
-                HH(date) { return fix(date.getHours()); },
-                mm(date) { return fix(date.getMinutes()); },
-                ss(date) { return fix(date.getSeconds()); },
-            };
-            const trunk = new RegExp(Object.keys(maps).join('|'), 'g');
-            type = type || 'yyyy-MM-dd HH:mm';
-            if (typeof value === 'string')
-                value = value.replace(/-/g, '/');
-            value = new Date(value);
-            if (value.toString() === 'Invalid Date')
+            if (!this.currentDate)
                 return;
-            return type.replace(trunk, (capture) => maps[capture] ? maps[capture](value) : '');
+            this.currentShowDate = this.formatterFun(parse(this.currentDate + ' ' + value));
         },
-        toggle(value) {
-            this.open = value;
+        currentDate(value) {
+            if (!value)
+                return;
+            if (!this.currentTime)
+                this.currentTime = '00:00:00';
+            const temp = parse(value + ' ' + this.currentTime);
+            this.currentShowDate = this.formatterFun(temp);
+            this.initRange();
         },
-        transformDate(date) {
-            if (typeof date === 'string')
-                return new Date(date.replace(/-/g, '/'));
-            else if (typeof date === 'number')
-                return new Date(date);
-            else if (typeof date === 'object')
-                return date;
+        currentShowDate(value, oldValue) {
+            this.hasValue = !!value;
+            this.initDateTime(value);
+            this.$emit('change', { value, oldValue });
+            this.$emit('update:value', value);
+            this.$emit('input', value);
         },
-        handleClose() {
-            this.open = false;
+    },
+    created() {
+        this.formatterFun = (date) => format(date, this.formatter);
+        this.initDateTime(this.value);
+        this.initRange();
+    },
+    methods: {
+        initDateTime(value) {
+            if (!value) {
+                this.currentDate = undefined;
+                this.currentTime = undefined;
+                this.currentShowDate = undefined;
+                return;
+            }
+            this.currentDate = getDateStr(value);
+            this.currentTime = getTimeStr(value);
+            this.currentShowDate = this.formatterFun(value);
+        },
+        initRange() { // 根据当前值设置minTime和maxTime
+            // 没选择日期，时间无限制
+            if (!this.currentDate) {
+                this.minTime = this.maxTime = undefined;
+                return;
+            }
+            let set = false;
+            // 时间下限改为minDate的时分秒
+            if (this.currentDate === getDateStr(this.minDate)) {
+                this.minTime = getTimeStr(this.minDate);
+                set = true;
+            }
+            // 时间上限改为maxDate的时分秒
+            if (this.currentDate === getDateStr(this.maxDate)) {
+                this.maxTime = getTimeStr(this.maxDate);
+                set = true;
+            }
+            if (!set)
+                this.minTime = this.maxTime = undefined;
+        },
+        /**
+         * 覆盖u-date-picker
+         * 1. format u-input输入值
+         * 2. 根据输入值重置u-calendar和u-time-picker
+         * @param {*} value
+         */
+        setValue(value) {
+            if (!value)
+                return;
+            const dateStr = value;
+            // 超出范围， u-input format为上一个值
+            if (this.$refs.calendar && !this.$refs.calendar.inCalendarDateRange(parse(dateStr)))
+                this.$refs.input.currentValue = this.currentShowDate ? format(parse(this.currentShowDate), this.formatter) : undefined;
+
+            this.currentShowDate = this.formatterFun(parse(value));
+            this.$refs.input.currentValue = this.currentShowDate;
+        },
+        onEmptyClick() {
+            this.currentShowDate = undefined;
         },
     },
 };

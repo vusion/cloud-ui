@@ -6,6 +6,8 @@ import format from 'date-fns/format';
 import parse from 'date-fns/parse';
 import isEqual from 'date-fns/is_equal';
 
+import { dateValidadtor } from '../u-calendar.vue/date';
+
 /**
  * @class DatePicker
  * @extend Dropdown
@@ -21,22 +23,10 @@ import isEqual from 'date-fns/is_equal';
 export default {
     name: 'u-date-picker',
     props: {
-        value: { type: [String, Date, Number], default: null, validator: (date) => {
-            if (!isDate(parse(date)))
-                throw new TypeError('Invalid Date');
-            return true;
-        } },
+        value: { type: [String, Date, Number], default: undefined, validator: dateValidadtor },
         dateRange: { type: Array, default: () => [] },
-        minDate: { type: [String, Date], default: null, validator: (date) => {
-            if (!isDate(parse(date)))
-                throw new TypeError('Invalid Date');
-            return true;
-        } },
-        maxDate: { type: [String, Date], default: null, validator: (date) => {
-            if (!isDate(parse(date)))
-                throw new TypeError('Invalid Date');
-            return true;
-        } },
+        minDate: { type: [String, Date, Number], default: null }, // calendar验证
+        maxDate: { type: [String, Date, Number], default: null },
         disabled: { type: Boolean, default: false },
         readonly: { type: Boolean, default: false },
         autofocus: { type: Boolean, default: false },
@@ -85,6 +75,8 @@ export default {
             this.initDate();
         },
         currentDate(date, oldDate) {
+            if (this.isDateTimePicker)
+                return;
             if (!date) {
                 this.currentShowDate = undefined;
                 this.hasValue = false;
@@ -101,6 +93,7 @@ export default {
             this.$emit('change', {
                 value: date,
                 oldValue: oldDate,
+                formattedValue: this.currentShowDate,
             });
 
             this.$emit('input', this.currentShowDate);
@@ -161,10 +154,11 @@ export default {
             this.setValue(this.$refs.input.currentValue);
             this.focus = false;
         },
-        onInput(value) {
+        onInput(e) {
+            this.$emit('input', e);
             if (this.fixOn !== 'input')
                 return;
-            this.debouncedInput(value);
+            this.debouncedInput(e);
         },
         setValue(value) {
             if (!value)
@@ -174,8 +168,10 @@ export default {
             if (tempDate.toString() !== 'Invalid Date' && isDate(tempDate)) {
                 this.$refs.input.currentValue = format(tempDate, this.currentFormatter); // 保证同一个Date，同一种format形式
                 isEqual(tempDate, this.currentDate) || (this.currentDate = tempDate);
-            } else
+            } else {
                 this.$refs.input.currentValue = format(this.currentDate, this.currentFormatter);
+                this.$emit('input', this.$refs.input.currentValue);
+            }
         },
         /**
          * @method toggle(flag) 是否显示日历组件

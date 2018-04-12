@@ -37,7 +37,7 @@ const formatTime = (time) => {
 export default {
     name: 'u-time-picker',
     props: {
-        time: {
+        value: {
             type: String,
             default: '00:00:00',
             validator: timeValidator,
@@ -64,26 +64,49 @@ export default {
             defaultRangeArr, // 时分秒默认的上下限
             rangeArr: [], // 根据min和max记录时分秒的range
             timeArr: [],
-            currentTime: formatTime(this.time), // 将时间转换为'xx:xx:xx'的格式，方便大小对比
+            currentTime: formatTime(this.value), // 将时间转换为'xx:xx:xx'的格式，方便大小对比
             currentMinTime: formatTime(this.minTime), // 当前时间
             currentMaxTime: formatTime(this.maxTime), // 当前时间
         };
     },
     created() {
-        this.currentTime = this.getRangeTime(); // 根据时间Range设置初始时间
-        this.initRange(); // 根据时间Range初始化时分秒的上限
-        this.initTimeArr(); // 初始化time-picker的每项value，max，min等
+        this.initTime();
     },
     watch: {
-        time(value) {
-            this.currentTime = formatTime(value);
+        value() {
+            this.initTime();
         },
         currentTime(value, oldValue) {
             this.$emit('change', { value, oldValue });
-            this.$emit('update:time', value);
+            this.$emit('update:value', value);
+            this.$emit('input', value);
+        },
+        minTime() {
+            if (!this.minTime) {
+                this.minTime = '00:00:00';
+                return;
+            }
+            this.initRange();
+            this.initTimeArr();
+        },
+        maxTime() {
+            if (!this.maxTime) {
+                this.maxTime = '23:59:59';
+                return;
+            }
+            this.initRange();
+            this.initTimeArr();
         },
     },
     methods: {
+        initTime() {
+            this.currentTime = formatTime(this.value);
+            this.currentMinTime = formatTime(this.minTime);
+            this.currentMaxTime = formatTime(this.maxTime);
+            this.currentTime = this.getRangeTime(); // 根据时间Range设置初始时间
+            this.initRange(); // 根据时间Range初始化时分秒的上限
+            this.initTimeArr(); // 初始化time-picker的每项value，max，min等
+        },
         initRange() { // 根据范围设置 时分秒 上下限
             const minArr = this.minTime.split(splitTag);
             const maxArr = this.maxTime.split(splitTag);
@@ -92,19 +115,23 @@ export default {
         },
         // 初始化timeArr
         initTimeArr() {
+            this.timeArr = [];
             const tagArr = this.tag.split('');
             this.currentTime.split(splitTag).forEach((v, index) => {
                 const timeInfo = {
                     min: this.rangeArr[index][0],
                     max: this.rangeArr[index][1],
                     value: +v,
-                    onChange: this.onChange,
                     show: tagArr[index] === '1',
                 };
                 this.timeArr.push(timeInfo);
             });
             this.setRange(0); // 根据当前value设置时分秒的上下限
         },
+        /**
+         * 更新index后的时间上下限
+         * @param {*} index
+         */
         setRange(index) {
             if (index >= 2) {
                 this.$forceUpdate();
@@ -134,18 +161,21 @@ export default {
         },
         onChange(e, index) {
             const cTimeArr = this.currentTime.split(splitTag);
-            cTimeArr[index] = e.formatValue;
+            cTimeArr[index] = e.formattedValue;
             this.currentTime = cTimeArr.join(splitTag);
             this.timeArr[index].value = e.value;
             this.setRange(index);
         },
-        formatFun(len) {
-            return (val) => {
-                if (('' + val).length >= len)
-                    return val;
-
-                return (Array(len + 1).join('0') + val).slice(-len);
-            };
+        onSelect(e, index) {
+            this.$emit('select', e);
+        },
+        onBeforeSelect(e, index) {
+            this.$emit('before-select', e);
+        },
+        onInput(e, index) {
+            const cTimeArr = this.currentTime.split(splitTag);
+            cTimeArr[index] = e;
+            this.$emit('input', cTimeArr.join(splitTag));
         },
     },
 };
