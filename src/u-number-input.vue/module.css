@@ -1,1 +1,54 @@
-@import 'proto-ui.vusion/src/u-number-input.vue/module.css';
+.root {}
+
+.button {
+    position: absolute;
+    right: 1px;
+    height: 14px;
+    line-height: 14px;
+    padding: 0 4px;
+    cursor: pointer;
+    color: #989898;
+}
+
+.button:focus {
+    outline: $focus-outline;
+}
+.button[disabled] {
+    color: #d2d2d2;
+    cursor: $cursor-not-allowed;
+}
+
+.root:not([disabled]):not([readonly]) .button:not([disabled]):not([readonly]):hover {
+    color: #535353;
+}
+
+.button[role="up"] {
+    top: 1px;
+}
+
+.button::before {
+    font-size: 16px;
+}
+
+.button[role="up"]::before {
+    icon-font: url('../u-icon.vue/icons/keyboard-arrow-up.svg');
+}
+
+.button[role="down"] {
+    bottom: 1px;
+}
+
+.button[role="down"]::before {
+    icon-font: url('../u-icon.vue/icons/keyboard-arrow-down.svg');
+}
+
+.root[readonly] .button {
+    background: transparent;
+    cursor: default;
+}
+
+.root[disabled] .button {
+    background: transparent;
+    color: #ccc;
+    cursor: $cursor-not-allowed;
+}
