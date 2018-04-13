@@ -178,11 +178,12 @@ export default {
          */
         onInput($event) {
             const value = $event.target.value;
-            const date = value ? new Date(value) : null;
+            let date = value ? new Date(value) : null;
 
-            if (date.toString() !== 'Invalid Date')
+            if (date.toString() !== 'Invalid Date') {
+                date = this.isOutOfRange(date) ? this.isOutOfRange(date) : date;
                 this.dateTime = this.format(date, 'yyyy-MM-dd HH:mm:ss');
-            else
+            } else
                 this.$refs.input.value = this.format(this.dateTime, 'yyyy-MM-dd HH:mm:ss');
         },
         /**
