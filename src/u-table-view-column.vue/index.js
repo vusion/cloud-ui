@@ -35,7 +35,6 @@ export default {
             parentVM: undefined,
             currentWidth: this.getWidth(),
             copyWidth: this.getWidth(),
-            widthPercent: undefined, // 用来处理resize情况下 已经有currentWidth 不会变化的情况
             fixedWidth: undefined, // 当表格高度固定和表格列固定一起使用的时候，这时候有的列的宽度需要特殊做处理，这时候在固定右列的时候，宽度需要时原来的正常宽度，不能减去滚动条的宽度
         };
     },

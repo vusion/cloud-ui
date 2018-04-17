@@ -59,7 +59,6 @@ export default {
             filterValue: undefined, // 用来记录当前filter选项的值，方便在过滤的时候点击更多显示正确的数据
             filterColumn: undefined, // 用来记录当前filter列，方便在过滤的时候点击更多显示正确的数据
             filterTdata: undefined, // 用来记录当前filter列过滤后符合条件的所有数据
-            parentWidth: undefined,
         };
     },
     directives: { ellipsisTitle },
@@ -266,39 +265,64 @@ export default {
                 this.$nextTick(() => {
                     // 判断是否会出现水平滚动条
                     let parentWidth;
-                    if (!this.parentWidth)
-                        this.parentWidth = parentWidth = this.$refs.root.offsetWidth;
-                    else
-                        parentWidth = this.$refs.root.offsetWidth;
+                    parentWidth = this.$el.offsetWidth;
                     let tableWidth = this.$refs.body.offsetWidth;
                     if (parentWidth === 0) {
                         // 初始表格是隐藏的需要特殊处理的，此时上面两个值默认是0
                         parentWidth = tableWidth = this.$refs.root.parentNode.offsetWidth;
                     }
 
-                    const allWidth = !this.columns.some((cell) => !cell.copyWidth); // each column set a width
-
-                    // 对于表格所有列都是百分数组成，之和小于100%的要实现原生表格的效果，需要在这里进行特殊处理
-                    const allPercentWidth = allWidth && !this.columns.some((cell) => {
-                        const cellWidth = cell.copyWidth + '';
-                        return cellWidth.indexOf('%') === -1;
+                    // 分别获取有百分比 具体数值 和无width的column集合
+                    // 获取具体数值和非数值的列集合
+                    const percentColumns = [];
+                    const valueColumns = [];
+                    const noWidthColumns = [];
+                    this.columns.forEach((item) => {
+                        const width = item.copyWidth ? item.copyWidth + '' : undefined;
+                        if (width && width.indexOf('%') !== -1)
+                            percentColumns.push(item);
+                        else if (width)
+                            valueColumns.push(item);
+                        else if (!width)
+                            noWidthColumns.push(item);
                     });
-                    if (allPercentWidth) {
+
+                    let leaveWidth = 0;
+
+                    if (percentColumns.length === this.columns.length) {
                         let sumWidth = 0;
                         this.columns.forEach((item) => {
                             sumWidth += parseFloat(item.copyWidth);
                         });
                         if (sumWidth !== 100) {
-                            this.columns.forEach((item) => {
+                            percentColumns.forEach((item) => {
                                 item.currentWidth = item.copyWidth = parseFloat(item.copyWidth) / sumWidth * 100 + '%';
                             });
                         }
                     }
 
-                    if (allWidth && (this.parentWidth === parentWidth || !this.parentWidth)) {
+                    let percentWidthSum = 0;
+                    percentColumns.forEach((item) => {
+                        const width = parseFloat(item.copyWidth) * parentWidth / 100;
+                        item.currentWidth = width;
+                        percentWidthSum += width;
+                    });
+                    let valueWidthSum = 0;
+                    valueColumns.forEach((item) => valueWidthSum += parseFloat(item.copyWidth));
+
+                    leaveWidth = parentWidth - percentWidthSum - valueWidthSum;
+
+                    if (leaveWidth > 0 && noWidthColumns.length > 0) {
+                        const width = leaveWidth / noWidthColumns.length;
+                        noWidthColumns.forEach((item) => item.currentWidth = width);
+                    }
+
+                    const allWidth = !this.columns.some((cell) => !cell.copyWidth); // each column set a width
+
+                    if (allWidth) {
                         this.tableWidth = this.columns.map((cell) => {
                             if ((cell.copyWidth + '').indexOf('%') !== -1)
-                                return parseFloat(cell.copyWidth) * tableWidth / 100;
+                                return parseFloat(cell.copyWidth) * parentWidth / 100;
                             else
                                 return parseFloat(cell.currentWidth);
                         }).reduce((a, b) => a + b, 0);
@@ -329,7 +353,6 @@ export default {
                         this.bodyWidth = this.tableWidth;
                         // this.bodyHeight = parseFloat(getStyle(this.$refs.body, 'height')) || 0;
                     }
-
                     if (this.loading && tableWidth > parentWidth) {
                         this.fixedTableHeight = parseFloat(getStyle(this.$refs.body, 'height')) || 0;
                         // this.$refs.body.parentNode.scrollLeft = (tableWidth - parentWidth) / 2;
@@ -340,47 +363,12 @@ export default {
                         this.fixedTableHeight = this.bodyHeight;
 
                     this.columnsWidth = [];
-                    this.$nextTick(() => {
-                        let tdColls = [];
-                        if (this.data.length && !this.loading) {
-                            tdColls = this.$refs.body && this.$refs.body.querySelectorAll('tbody tr:first-child td') || [];
-                            for (let i = 0; i < tdColls.length; i++) {
-                                const column = this.columns[i];
-                                let width;
-                                if (column.copyWidth)
-                                    column.currentWidth = width = (column.copyWidth + '').indexOf('%') === -1 ? parseFloat(column.copyWidth) : parseFloat(column.copyWidth) * parseFloat(this.tableWidth) / 100;
-                                else if (column.widthPercent)
-                                    column.currentWidth = width = parseFloat(this.tableWidth) * column.widthPercent / 100;
-                                else {
-                                    column.currentWidth = width = getStyle(tdColls[i], 'width') && getStyle(tdColls[i], 'width') !== 'auto' && getStyle(tdColls[i], 'width') !== null ? parseFloat(getStyle(tdColls[i], 'width')) : '';
-                                    column.widthPercent = column.currentWidth / parseFloat(this.tableWidth) * 100;
-                                }
 
-                                if (this.height && i === (this.columns.length - 1)) {
-                                    this.columns[i].currentWidth = width - this.scrollWidth;
-                                    this.columns[i].fixedWidth = width;
-                                }
-                                this.columnsWidth.push(width);
-                            }
-                        } else {
-                            tdColls = this.$refs.thead && this.$refs.thead.querySelectorAll('thead tr:first-child th') || [];
-                            for (let i = 0; i < tdColls.length; i++) {
-                                const column = this.columns[i];
-                                let width;
-                                if (column.copyWidth)
-                                    width = column.copyWidth;
-                                else if (column.widthPercent)
-                                    column.currentWidth = width = parseFloat(this.tableWidth) * column.widthPercent / 100;
-                                else {
-                                    column.currentWidth = width = getStyle(tdColls[i], 'width') && getStyle(tdColls[i], 'width') !== 'auto' && getStyle(tdColls[i], 'width') !== null ? parseFloat(getStyle(tdColls[i], 'width')) : '';
-                                    column.widthPercent = column.currentWidth / parseFloat(this.tableWidth) * 100;
-                                }
-
-                                if (this.height && i === (this.columns.length - 1))
-                                    this.columns[i].currentWidth = width - this.scrollWidth;
-
-                                this.columnsWidth.push(width);
-                            }
+                    this.columns.forEach((item, index) => {
+                        this.columnsWidth.push(item.currentWidth);
+                        if (this.height && index === (this.columns.length - 1)) {
+                            item.currentWidth = item.currentWidth - this.scrollWidth;
+                            item.fixedWidth = item.currentWidth;
                         }
                     });
                 });
