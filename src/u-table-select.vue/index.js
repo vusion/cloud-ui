@@ -1,4 +1,4 @@
-import ListView from 'proto-ui.vusion/src/u-list-view.vue';
+import Select from 'proto-ui.vusion/src/u-select.vue';
 
 export default {
     name: 'u-table-select',
@@ -14,6 +14,6 @@ export default {
             default: 'bottom-start',
         },
     },
-    childName: 'u-select-item',
-    mixins: [ListView],
+    childName: 'u-table-select-item',
+    mixins: [Select],
 };
