@@ -21,6 +21,14 @@
     line-height: inherit;
 }
 
+.root[role]:before{
+    content: none;
+}
+
+.root[role]:after{
+    content: none;
+}
+
 .root[disabled] {
     cursor: not-allowed;
     background: #eee;
@@ -40,6 +48,7 @@
 
 .body{
     width: 160px;
+    margin-top: 2px;
 }
 
 .popper {
@@ -57,6 +66,7 @@
     height: 28px;
     outline: none;
     width: 100%;
+    cursor: pointer;
 }
 
 .none{
