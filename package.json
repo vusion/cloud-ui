@@ -32,8 +32,8 @@
   ],
   "dependencies": {
     "lodash": "^4.17.5",
-    "proto-ui.vusion": "~0.2.14",
-    "vusion-utils": "^0.2.0"
+    "proto-ui.vusion": "~0.3.0",
+    "vusion-utils": "^0.2.1"
   },
   "devDependencies": {
     "commander": "^2.12.2",
