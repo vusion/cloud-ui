@@ -275,7 +275,26 @@ export default {
                         // 初始表格是隐藏的需要特殊处理的，此时上面两个值默认是0
                         parentWidth = tableWidth = this.$refs.root.parentNode.offsetWidth;
                     }
-                    const allWidth = !this.columns.some((cell) => !cell.currentWidth); // each column set a width
+
+                    const allWidth = !this.columns.some((cell) => !cell.copyWidth); // each column set a width
+
+                    // 对于表格所有列都是百分数组成，之和小于100%的要实现原生表格的效果，需要在这里进行特殊处理
+                    const allPercentWidth = allWidth && !this.columns.some((cell) => {
+                        const cellWidth = cell.copyWidth + '';
+                        return cellWidth.indexOf('%') === -1;
+                    });
+                    if (allPercentWidth) {
+                        let sumWidth = 0;
+                        this.columns.forEach((item) => {
+                            sumWidth += parseFloat(item.copyWidth);
+                        });
+                        if (sumWidth !== 100) {
+                            this.columns.forEach((item) => {
+                                item.currentWidth = item.copyWidth = parseFloat(item.copyWidth) / sumWidth * 100 + '%';
+                            });
+                        }
+                    }
+
                     if (allWidth && (this.parentWidth === parentWidth || !this.parentWidth)) {
                         this.tableWidth = this.columns.map((cell) => {
                             if ((cell.copyWidth + '').indexOf('%') !== -1)
@@ -330,8 +349,12 @@ export default {
                                 let width;
                                 if (column.copyWidth)
                                     column.currentWidth = width = (column.copyWidth + '').indexOf('%') === -1 ? parseFloat(column.copyWidth) : parseFloat(column.copyWidth) * parseFloat(this.tableWidth) / 100;
-                                // else
-                                //     column.currentWidth = width = getStyle(tdColls[i], 'width') && getStyle(tdColls[i], 'width') !== 'auto' && getStyle(tdColls[i], 'width') !== null ? parseFloat(getStyle(tdColls[i], 'width')) : '';
+                                else if (column.widthPercent)
+                                    column.currentWidth = width = parseFloat(this.tableWidth) * column.widthPercent / 100;
+                                else {
+                                    column.currentWidth = width = getStyle(tdColls[i], 'width') && getStyle(tdColls[i], 'width') !== 'auto' && getStyle(tdColls[i], 'width') !== null ? parseFloat(getStyle(tdColls[i], 'width')) : '';
+                                    column.widthPercent = column.currentWidth / parseFloat(this.tableWidth) * 100;
+                                }
 
                                 if (this.height && i === (this.columns.length - 1)) {
                                     this.columns[i].currentWidth = width - this.scrollWidth;
@@ -344,10 +367,14 @@ export default {
                             for (let i = 0; i < tdColls.length; i++) {
                                 const column = this.columns[i];
                                 let width;
-                                if (column.currentWidth)
-                                    width = column.currentWidth;
-                                // else
-                                //     column.currentWidth = width = getStyle(tdColls[i], 'width') && getStyle(tdColls[i], 'width') !== 'auto' && getStyle(tdColls[i], 'width') !== null ? parseFloat(getStyle(tdColls[i], 'width')) : '';
+                                if (column.copyWidth)
+                                    width = column.copyWidth;
+                                else if (column.widthPercent)
+                                    column.currentWidth = width = parseFloat(this.tableWidth) * column.widthPercent / 100;
+                                else {
+                                    column.currentWidth = width = getStyle(tdColls[i], 'width') && getStyle(tdColls[i], 'width') !== 'auto' && getStyle(tdColls[i], 'width') !== null ? parseFloat(getStyle(tdColls[i], 'width')) : '';
+                                    column.widthPercent = column.currentWidth / parseFloat(this.tableWidth) * 100;
+                                }
 
                                 if (this.height && i === (this.columns.length - 1))
                                     this.columns[i].currentWidth = width - this.scrollWidth;

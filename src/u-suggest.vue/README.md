@@ -14,7 +14,7 @@ export default {
         return {
             data: [
                 { text: '苹果', value: 'A' },
-                { text: '香蕉', value: 'B' },
+                { text: '香蕉', value: 'B', disabled: true },
                 { text: '蛋糕', value: 'C' },
             ],
             value: 'A',
