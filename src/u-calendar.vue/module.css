@@ -140,6 +140,9 @@
     color: $field-background;
     border-radius: 50%;
 }
+.listitem[role]:hover{
+    background-color: $brand-primary;
+}
 .listitem[disabled], .listitem[disabled]:hover{
     cursor: not-allowed;
     background-color: $field-background;
@@ -173,4 +176,7 @@
 }
 .monthPopper{
     float: right;
+}
+.yearitem[disabled] {
+    color: #999;
 }

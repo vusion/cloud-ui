@@ -230,7 +230,7 @@ const Calendar = {
                     value: i,
                 };
                 const dateFormat = currentYear + '/' + i;
-                const dateTime = new Date(dateFormat).getTime;
+                const dateTime = new Date(dateFormat).getTime();
                 if (minDate && (dateTime < minDate))
                     obj.disabled = true;
                 else if (maxDate && (dateTime > maxDate))

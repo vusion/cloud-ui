@@ -6,7 +6,7 @@
             </div>
             <div :class="$style.yearList" slot="popper" @click.stop>
                 <u-list-view :value="showYear" @select="yearSelect($event.value)">
-                    <u-list-view-item v-for="(year, index) in yearCol" :key="index" :value="year.value" :disabled="year.disabled">{{year.value}}年</u-list-view-item>
+                    <u-list-view-item :class="$style.yearitem" v-for="(year, index) in yearCol" :key="index" :value="year.value" :disabled="year.disabled">{{year.value}}年</u-list-view-item>
                 </u-list-view>
             </div>
         </u-popper>
