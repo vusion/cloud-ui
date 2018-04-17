@@ -78,6 +78,7 @@ import Subtab from './u-subtab.vue';
 import Subtabs from './u-subtabs.vue';
 import Switch from './u-switch.vue';
 import TableCell from './u-table-cell.vue';
+import TableSelectItem from './u-table-select-item.vue';
 import TableSelect from './u-table-select.vue';
 import TableView from './u-table-view.vue';
 import TableViewCell from './u-table-view-cell.vue';
@@ -166,6 +167,7 @@ export {
     Subtabs,
     Switch,
     TableCell,
+    TableSelectItem,
     TableSelect,
     TableView,
     TableViewCell,

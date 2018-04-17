@@ -97,6 +97,7 @@ export {
     Switch,
     Tab,
     TableCell,
+    TableSelectItem,
     TableSelect,
     TableView,
     TableViewCell,
