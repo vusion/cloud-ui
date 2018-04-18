@@ -145,6 +145,8 @@ export default {
 
             if (date.toString() !== 'Invalid Date') {
                 date = this.isOutOfRange(date) ? this.isOutOfRange(date) : date;
+                // 此处有坑 需要特殊处理 由于改成最小值 再次输入不合法的值会变成最小值 认为没有发生变化
+                this.showDate = '';
                 this.showDate = this.format(date, 'yyyy/MM/dd');
             } else
                 this.$refs.input.value = this.format(this.showDate, 'yyyy-MM-dd');
