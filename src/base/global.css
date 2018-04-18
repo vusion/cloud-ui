@@ -61,7 +61,7 @@ $font-size-base: 14px;
 /* Animation Durations */
 $transition-duration: 0.2s;
 
-/* theme default and segreen Chart Colors */
+/* theme segreen Chart Colors */
 $theme-chart-color1: rgb(91, 161, 242);
 $theme-chart-rgba-color1: rgba(91, 161, 242,0.6);
 
@@ -122,7 +122,7 @@ $theme-chart-rgba-color19: rgba(92,208,133,0.6);
 $theme-chart-color20: rgb(241,126,248);
 $theme-chart-rgba-color20: rgba(241,126,248,0.6);
 
-/* theme Chart Colors */
+/* theme default and dark Chart Colors */
 $theme-dark-chart-color1: rgb(103,170,245);
 $theme-dark-chart-rgba-color1: rgba(103,170,245,0.1);
 

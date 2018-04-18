@@ -167,82 +167,103 @@
 
 .piece .point {
     border-color: rgb(97,218,198);
+    background: rgb(97,218,198);
 }
 
 .piece .point:nth-of-type(1) {
     border-color: $theme-chart-color1;
+    background: $theme-chart-color1;
 }
 
 .piece .point:nth-of-type(2) {
     border-color: $theme-chart-color2;
+    background: $theme-chart-color2;
 }
 
 .piece .point:nth-of-type(3) {
     border-color: $theme-chart-color3;
+    background: $theme-chart-color3;
 }
 
 .piece .point:nth-of-type(4) {
     border-color: $theme-chart-color4;
+    background: $theme-chart-color4;
 }
 
 .piece .point:nth-of-type(5) {
     border-color: $theme-chart-color5;
+    background: $theme-chart-color5;
 }
 
 .piece .point:nth-of-type(6) {
     border-color: $theme-chart-color6;
+    background: $theme-chart-color6;
 }
 
 .piece .point:nth-of-type(7) {
     border-color: $theme-chart-color7;
+    background: $theme-chart-color7;
 }
 
 .piece .point:nth-of-type(8) {
     border-color: $theme-chart-color8;
+    background: $theme-chart-color8;
 }
 .piece .point:nth-of-type(9) {
     border-color: $theme-chart-color9;
+    background: $theme-chart-color9;
 }
 .piece .point:nth-of-type(10) {
     border-color: $theme-chart-color10;
+    background: $theme-chart-color10;
 }
 
 .piece .point:nth-of-type(11) {
     border-color: $theme-chart-color11;
+    background: $theme-chart-color11;
 }
 
 .piece .point:nth-of-type(12) {
     border-color: $theme-chart-color12;
+    background: $theme-chart-color12;
 }
 
 .piece .point:nth-of-type(13) {
     border-color: $theme-chart-color13;
+    background: $theme-chart-color13;
 }
 
 .piece .point:nth-of-type(14) {
     border-color: $theme-chart-color14;
+    background: $theme-chart-color14;
 }
 
 .piece .point:nth-of-type(15) {
     border-color: $theme-chart-color15;
+    background: $theme-chart-color15;
 }
 
 .piece .point:nth-of-type(16) {
     border-color: $theme-chart-color16;
+    background: $theme-chart-color16;
 }
 
 .piece .point:nth-of-type(17) {
     border-color: $theme-chart-color17;
+    background: $theme-chart-color17;
 }
 
 .piece .point:nth-of-type(18) {
     border-color: $theme-chart-color18;
+    background: $theme-chart-color18;
 }
 
 .piece .point:nth-of-type(19) {
     border-color: $theme-chart-color19;
+    background: $theme-chart-color19;
 }
 
 .piece .point:nth-of-type(20) {
     border-color: $theme-chart-color20;
+    background: $theme-chart-color20;
 }
