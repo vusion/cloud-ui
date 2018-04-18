@@ -1,11 +1,11 @@
 import NumberInput from '../u-number-input.vue';
 
-const HOUR_MIN = '00';
-const MINUTE_MIN = '00';
-const SECOND_MIN = '00';
-const HOUR_MAX = '23';
-const MINUTE_MAX = '59';
-const SECOND_MAX = '59';
+const HOUR_MIN = 0;
+const MINUTE_MIN = 0;
+const SECOND_MIN = 0;
+const HOUR_MAX = 23;
+const MINUTE_MAX = 59;
+const SECOND_MAX = 59;
 
 /**
  * @class TimePicker
@@ -42,7 +42,7 @@ const TimePicker = {
     },
     data() {
         return {
-            showTime: this.time,
+            showTime: this.isOutOfRange(this.time) ? this.isOutOfRange(this.time) : this.time,
             hourmin: HOUR_MIN,
             hourmax: HOUR_MAX,
             minutemin: MINUTE_MIN,
@@ -56,37 +56,37 @@ const TimePicker = {
             const isOutOfRange = this.isOutOfRange(this.showTime);
             if (isOutOfRange)
                 this.showTime = isOutOfRange;
-            return this.showTime.split(':')[0];
+            return this.showTime.split(':')[0] / 1;
         },
         minute() {
             const isOutOfRange = this.isOutOfRange(this.showTime);
             if (isOutOfRange)
                 this.showTime = isOutOfRange;
-            return this.showTime.split(':')[1];
+            return this.showTime.split(':')[1] / 1;
         },
         second() {
             const isOutOfRange = this.isOutOfRange(this.showTime);
             if (isOutOfRange)
                 this.showTime = isOutOfRange;
-            return this.showTime.split(':')[2];
+            return this.showTime.split(':')[2] / 1;
         },
         sphourmin() {
-            return this.minTime.split(':')[0];
+            return this.minTime.split(':')[0] / 1;
         },
         sphourmax() {
-            return this.maxTime.split(':')[0];
+            return this.maxTime.split(':')[0] / 1;
         },
         spminutemin() {
-            return this.minTime.split(':')[1];
+            return this.minTime.split(':')[1] / 1;
         },
         spminutemax() {
-            return this.maxTime.split(':')[1];
+            return this.maxTime.split(':')[1] / 1;
         },
         spsecondmin() {
-            return this.minTime.split(':')[2];
+            return this.minTime.split(':')[2] / 1;
         },
         spsecondmax() {
-            return this.maxTime.split(':')[2];
+            return this.maxTime.split(':')[2] / 1;
         },
     },
     watch: {
@@ -108,6 +108,10 @@ const TimePicker = {
             const isOutOfRange = this.isOutOfRange(newValue);
             if (isOutOfRange)
                 return this.showTime = isOutOfRange;
+
+            const currentHour = this.showTime.split(':')[0] / 1;
+            const currentMinute = this.showTime.split(':')[1] / 1;
+            const currentSecond = this.showTime.split(':')[2] / 1;
             if (this.showTime === this.minTime) {
                 this.hourmin = this.sphourmin;
                 this.minutemin = this.spminutemin;
@@ -116,6 +120,34 @@ const TimePicker = {
                 this.hourmax = this.sphourmax;
                 this.minutemax = this.spminutemax;
                 this.secondmax = this.spsecondmax;
+            } else if (currentHour === this.sphourmin) {
+                this.hourmin = currentHour;
+                this.minutemin = this.spminutemin;
+                this.minutemax = MINUTE_MAX;
+                if (currentMinute === this.spminutemin) {
+                    this.secondmin = this.spsecondmin;
+                    this.secondmax = SECOND_MAX;
+                } else if (currentMinute === this.spminutemax) {
+                    this.secondmin = SECOND_MIN;
+                    this.secondmax = this.spsecondmax;
+                } else {
+                    this.secondmin = SECOND_MIN;
+                    this.secondmax = SECOND_MAX;
+                }
+            } else if (currentHour === this.sphourmax) {
+                this.hourmax = currentHour;
+                this.minutemin = MINUTE_MIN;
+                this.minutemax = this.spminutemax;
+                if (currentMinute === this.spminutemin) {
+                    this.secondmin = this.spsecondmin;
+                    this.secondmax = SECOND_MAX;
+                } else if (currentMinute === this.spminutemax) {
+                    this.secondmin = SECOND_MIN;
+                    this.secondmax = this.spsecondmax;
+                } else {
+                    this.secondmin = SECOND_MIN;
+                    this.secondmax = SECOND_MAX;
+                }
             } else {
                 this.hourmin = HOUR_MIN;
                 this.minutemin = MINUTE_MIN;
@@ -167,16 +199,13 @@ const TimePicker = {
             return (minTime && time < minTime && minTime) || (maxTime && time > maxTime && maxTime);
         },
         changeHour(hour) {
-            hour = '' + hour;
-            this.showTime = (hour.length > 1 ? hour : '0' + hour) + ':' + this.minute + ':' + this.second;
+            this.showTime = hour + ':' + (this.minute < 10 ? '0' + this.minute : this.minute) + ':' + (this.second < 10 ? '0' + this.second : this.second);
         },
         changeMinute(minute) {
-            minute = '' + minute;
-            this.showTime = this.hour + ':' + (minute.length > 1 ? minute : '0' + minute) + ':' + this.second;
+            this.showTime = (this.hour < 10 ? '0' + this.hour : this.hour) + ':' + minute + ':' + (this.second < 10 ? '0' + this.second : this.second);
         },
         changeSecond(second) {
-            second = '' + second;
-            this.showTime = this.hour + ':' + this.minute + ':' + (second.length > 1 ? second : '0' + second);
+            this.showTime = (this.hour < 10 ? '0' + this.hour : this.hour) + ':' + (this.minute < 10 ? '0' + this.minute : this.minute) + ':' + second;
         },
     },
 };

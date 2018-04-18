@@ -1,7 +1,7 @@
 <span :class="$style.root">
-	<u-number-input :class="$style.item" :min="hourmin" :max="hourmax" format="00" :value="hour" :readonly="readonly" :disabled="disabled" :autofocus="autofocus" :width="width" @change="changeHour($event.value)"/>
+	<u-number-input :class="$style.item" :min="hourmin" :max="hourmax" formatter="00" fix-on="input" :value="hour" :readonly="readonly" :disabled="disabled" :autofocus="autofocus" @change="changeHour($event.formattedValue)"/>
 	<span :class="$style.dot">:</span>
-	<u-number-input :class="$style.item" :min="minutemin" :max="minutemax" format="00" :value="minute" :readonly="readonly" :disabled="disabled" :width="width" @change="changeMinute($event.value)"/>
+	<u-number-input :class="$style.item" :min="minutemin" :max="minutemax" formatter="00" fix-on="input" :value="minute" :readonly="readonly" :disabled="disabled" @change="changeMinute($event.formattedValue)"/>
 	<span :class="$style.dot">:</span>
-	<u-number-input :class="$style.item" :min="secondmin" :max="secondmax" format="00" :value="second" :readonly="readonly" :disabled="disabled" :width="width" @change="changeSecond($event.value)"/>
+	<u-number-input :class="$style.item" :min="secondmin" :max="secondmax" formatter="00" fix-on="input" :value="second" :readonly="readonly" :disabled="disabled" @change="changeSecond($event.formattedValue)"/>
 </span>

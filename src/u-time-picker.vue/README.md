@@ -7,27 +7,27 @@
 
 ### 基本
 ``` html
-<u-time-picker width="56" time="15:46:33"></u-time-picker>
+<u-time-picker time="15:46:33"></u-time-picker>
 ```
 
 ### 禁用
 ``` html
-<u-time-picker width="56" time="15:46:33" disabled="disabled"></u-time-picker>
+<u-time-picker time="15:46:33" disabled="disabled"></u-time-picker>
 ```
 
 ### 只读
 ``` html
-<u-time-picker width="56" time="15:46:33" readonly="readonly"></u-time-picker>
+<u-time-picker time="15:46:33" readonly="readonly"></u-time-picker>
 ```
 
 ### 日期范围
 ``` html
-<u-time-picker time="15:46:33" width="56" min-time="12:30:00" max-time="14:45:00"></u-time-picker>
+<u-time-picker time="15:46:33" min-time="12:30:00" max-time="14:45:00"></u-time-picker>
 ```
 
 ``` vue
 <template>
-<u-time-picker width="56" :time="time" @change="change($event.time)"></u-time-picker>
+<u-time-picker :time="time" @change="change($event.time)"></u-time-picker>
 </template>
 
 <script>

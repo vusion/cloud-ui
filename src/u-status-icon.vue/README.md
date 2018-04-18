@@ -13,3 +13,11 @@
     <u-status-icon name="mount">已绑定</u-status-icon>
 </u-linear-layout>
 ```
+
+## API
+### Props/Attrs
+
+| Prop/Attr | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| name | String | `` | 对应图标的name， |
+| size | NUmber, String | `24` | 图标对应的font-size值大小 |
