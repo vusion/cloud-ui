@@ -1,3 +1,5 @@
+@import 'proto-ui.vusion/src/u-number-input.vue/module.css';
+
 .root {
     display: inline-block;
     position: relative;
