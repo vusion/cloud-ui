@@ -88,42 +88,53 @@
 
 .piece .point {
     border-color: rgb(97,218,198);
+    background: rgb(97,218,198);
 }
 
 .piece .point:nth-of-type(1) {
     border-color: $theme-dark-chart-color1;
+    background: $theme-dark-chart-color1;
 }
 
 .piece .point:nth-of-type(2) {
     border-color: $theme-dark-chart-color2;
+    background: $theme-dark-chart-color2;
 }
 
 .piece .point:nth-of-type(3) {
     border-color: $theme-dark-chart-color3;
+    background: $theme-dark-chart-color3;
 }
 
 .piece .point:nth-of-type(4) {
     border-color: $theme-dark-chart-color4;
+    background: $theme-dark-chart-color4;
 }
 
 .piece .point:nth-of-type(5) {
     border-color: $theme-dark-chart-color5;
+    background: $theme-dark-chart-color5;
 }
 
 .piece .point:nth-of-type(6) {
     border-color: $theme-dark-chart-color6;
+    background: $theme-dark-chart-color6;
 }
 
 .piece .point:nth-of-type(7) {
     border-color: $theme-dark-chart-color7;
+    background: $theme-dark-chart-color7;
 }
 
 .piece .point:nth-of-type(8) {
     border-color: $theme-dark-chart-color8;
+    background: $theme-dark-chart-color8;
 }
 .piece .point:nth-of-type(9) {
     border-color: $theme-dark-chart-color9;
+    background: $theme-dark-chart-color9;
 }
 .piece .point:nth-of-type(10) {
     border-color: $theme-dark-chart-color10;
+    background: $theme-dark-chart-color10;
 }
