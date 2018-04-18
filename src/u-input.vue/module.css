@@ -1,13 +1,10 @@
 @import 'proto-ui.vusion/src/u-input.vue/module.css';
 
-.root {
-    max-width: 100%;
+.root{
+    position: relative;
 }
 
 .input {
-    width: 160px;
-    max-width: 100%;
-    height: $height-base;
     padding: 0 10px;
     color: #666;
     border-color: $brand-secondary;
@@ -38,51 +35,53 @@
 }
 
 .close{
-    position: relative;
+    position: absolute;
     border-radius: 100%;
     background: #c0c4cc;
     width: 18px;
     height: 18px;
     text-align: center;
     display: inline-block;
-    vertical-align: -2px;
-    left: -28px;
+    right: 18px;
+    top: 50%;
+    margin-top: -9px;
     cursor: pointer;
 }
 
 .close[class]:before{
     font-size: 12px;
     color:#fff;
-    margin:0 2px;
-    vertical-align: 1px;
+    position: relative;
+    top: -7px;
+    margin-right: 0;
+    vertical-align: middle;
 }
 
-.input[size$="mini"] { width: 80px; padding: 0 6px; }
-.input[size^="mini"] { height: 28px; }
-.input[size$="mini"][close] { padding-right: 30px; }
+.root[size$="mini"] { width: 80px; padding: 0 6px; }
+.root[size^="mini"] { height: 28px; }
+.root[size$="mini"][close] { padding-right: 30px; }
 
-.input[size$="small"] { width: 120px; padding: 0 8px; }
-.input[size^="small"] { height: 30px; }
-.input[size$="small"][close] { padding-right: 30px; }
+.root[size$="small"] { width: 120px; padding: 0 8px; }
+.root[size^="small"] { height: 30px; }
+.root[size$="small"][close] { padding-right: 30px; }
 
-.input[size$="normal"] { width: 160px; padding: 0 10px; }
-.input[size^="normal"] { height: $height-base; }
-.input[size$="normal"][close] { padding-right: 30px; }
+.root[size$="normal"] { width: 160px; padding: 0 10px; }
+.root[size^="normal"] { height: $height-base; }
+.root[size$="normal"][close] { padding-right: 30px; }
 
-.input[size$="medium"] { width: 280px; padding: 0 10px; }
-.input[size^="medium"] { height: 36px; }
-.input[size$="medium"][close] { padding-right: 30px; }
+.root[size$="medium"] { width: 280px; padding: 0 10px; }
+.root[size^="medium"] { height: 36px; }
+.root[size$="medium"][close] { padding-right: 30px; }
 
-.input[size$="large"] { width: 440px; padding: 0 10px; }
-.input[size^="large"] { height: 38px; }
-.input[size$="large"][close] { padding-right: 30px; }
+.root[size$="large"] { width: 440px; padding: 0 10px; }
+.root[size^="large"] { height: 38px; }
+.root[size$="large"][close] { padding-right: 30px; }
 
-.input[size$="huge"] { width: 580px; padding: 0 10px; }
-.input[size^="huge"] { height: 40px; }
-.input[size$="huge"][close] { padding-right: 30px; }
+.root[size$="huge"] { width: 580px; padding: 0 10px; }
+.root[size^="huge"] { height: 40px; }
+.root[size$="huge"][close] { padding-right: 30px; }
 
 .root[size$="full"] { width: 100%; }
-.input[size$="full"] { width: 100%; padding: 0 10px; }
+.input[size$="full"] { padding: 0 10px; }
 .input[size$="full"][close] { padding-right: 30px; }
 .root[size^="full"] { height: 100%; }
-.input[size^="full"] { height: 100%; }

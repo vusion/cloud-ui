@@ -1,4 +1,4 @@
-<span :class="$style.root">
+<span :class="$style.root" v-bind="$attrs">
     <input :class="$style.input" v-bind="$attrs" :close="close"
         :value="currentValue" :color="currentColor || this.formItemVM && this.formItemVM.color"
         @input="onInput" @focus="onFocus" @blur="onBlur" @keypress="onKeypress" v-on="listeners"
