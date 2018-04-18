@@ -1,27 +1,24 @@
 <div :class="$style.root">
     <div :class="$style.main">
+         <!-- @override: 增加提示 tip -->
         <div :class="$style.tip">{{ tip }}</div>
-        <u-slider :class="$style.slider"
-            :value="currentValue"
-            :min="min"
-            :max="max"
-            :step="step"
-            :readonly="readonly"
-            :disabled="disabled"
-            @input="onInput"
+        <u-slider :class="$style.slider" :value="currentValue" @input="onInput" @slide="onSlide"
+            :min="min" :max="max" :step="step" :precision="precision" :readonly="readonly" :disabled="disabled"
         ></u-slider>
+         <!-- @override: 增加数值显示 -->
         <div :class="$style.scales">
             <span :class="$style.scale">{{ min }}{{ unit }}</span>
             <span :class="$style.scale">{{ (min + max) / 2 >> 0 }}{{ unit }}</span>
             <span :class="$style.scale">{{ max }}{{ unit }}</span>
         </div>
     </div>
-    <u-input ref="input" :class="$style.input"
-        :value="currentValue"
-        :readonly="readonly"
-        :disabled="disabled"
-        @input="onInput"
-        @blur="onInputBlur"
-    ></u-input>
-    <span>{{ unit }}</span>
+    <u-number-input :class="$style.input" :value="currentValue" @change="onInput($event.value)"
+        :min="min" :max="max" :step="step || 1" :precision="precision"
+        :formatter="formatter" :fix-on="fixOn" :hide-buttons="hideButtons"
+        :readonly="readonly" :disabled="disabled"
+    ></u-number-input>
+    <slot>
+        <!-- @override: 增加单位显示 -->
+        <span>{{ unit }}</span>
+    </slot>
 </div>

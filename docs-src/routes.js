@@ -47,7 +47,7 @@ export default [
             { path: 'u-color-select', component: () => import('../src/u-color-select.vue/README.md') },
             { path: 'u-suggest', component: () => import('../src/u-suggest.vue/README.md') },
             { path: 'u-slider', component: () => import('proto-ui.vusion/src/u-slider.vue/README.md') },
-            { path: 'u-combo-slider', component: () => import('proto-ui.vusion/src/u-combo-slider.vue/README.md') },
+            { path: 'u-combo-slider', component: () => import('../src/u-combo-slider.vue/README.md') },
             { path: 'u-field', component: Empty },
             { path: 'u-form', component: () => import('../src/u-form.vue/README.md') },
             /* Data */
