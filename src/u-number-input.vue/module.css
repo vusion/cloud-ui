@@ -47,7 +47,7 @@
 
 .root[readonly] .button {
     background: none;
-    cursor: not-allowed;
+    cursor: default;
 }
 
 .root[disabled] .button { background: none; }

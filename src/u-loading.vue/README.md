@@ -5,9 +5,9 @@
 
 ``` html
 <u-linear-layout direction="vertical">
-    <div>small <u-loading size="small"></u-loading></div>
-    <div>normal <u-loading></u-loading></div>
-    <div>large <u-loading size="large"></u-loading></div>
+    <div><u-loading size="small"></u-loading> small</div>
+    <div><u-loading></u-loading> normal</div>
+    <div><u-loading size="large"></u-loading> large</div>
 </u-linear-layout>
 ```
 

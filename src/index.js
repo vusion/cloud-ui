@@ -1,5 +1,7 @@
 import './base/base.css';
 
+export * from 'proto-ui.vusion';
+
 import {
     Checkbox0 as Checkbox,
     Radio0 as Radio,
@@ -183,31 +185,3 @@ export {
     XBarChart,
 };
 
-export {
-    Badge,
-    CascadeSelect,
-    CollapseTransition,
-    Draggable,
-    Droppable,
-    Dragger,
-    Emitter,
-    Field,
-    GridLayout,
-    GridLayoutColumn,
-    GridLayoutRow,
-    LinearProgress,
-    ListView,
-    ListViewDivider,
-    ListViewGroup,
-    ListViewItem,
-    MenuGroup,
-    MenuDivider,
-    Popper,
-    RegionSelect,
-    Render,
-    RouterItem,
-    Tab,
-    TreeView,
-    TreeViewNode,
-    TreeViewText,
-} from 'proto-ui.vusion';
