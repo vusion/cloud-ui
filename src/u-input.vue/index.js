@@ -6,18 +6,7 @@ export default {
     props: {
         // @override: 添加了maxlengthMessage功能
         maxlengthMessage: String,
-        color: String,
         close: { type: Boolean, default: false },
-    },
-    data() {
-        return {
-            currentColor: this.color,
-        };
-    },
-    watch: {
-        color(value) {
-            this.currentColor = value;
-        },
     },
     methods: {
         onKeypress(e) {

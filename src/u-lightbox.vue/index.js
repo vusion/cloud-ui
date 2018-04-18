@@ -122,11 +122,11 @@ export default {
             } else // 初始动画结束
                 this.allAnimationEnd = true;
         });
-        this.$nextTick(() => this.watchValue(this.value));
         this.initWidth = this._computeInit();
         this.initHeight = this._computeInit('h');
     },
     mounted() {
+        this.watchValue(this.value);
         if (this.$el && !this.static)
             document.body.appendChild(this.$el);
     },
