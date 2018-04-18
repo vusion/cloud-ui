@@ -42,7 +42,7 @@
     height: 18px;
     text-align: center;
     display: inline-block;
-    right: 18px;
+    right: 6px;
     top: 50%;
     margin-top: -9px;
     cursor: pointer;
@@ -57,29 +57,35 @@
     vertical-align: middle;
 }
 
-.root[size$="mini"] { width: 80px; padding: 0 6px; }
+.root[size$="mini"] { width: 80px; }
 .root[size^="mini"] { height: 28px; }
-.root[size$="mini"][close] { padding-right: 30px; }
+.input[size$="mini"]{ padding: 0 6px; }
+.input[size$="mini"][close] { padding-right: 30px; }
 
-.root[size$="small"] { width: 120px; padding: 0 8px; }
+.root[size$="small"] { width: 120px; }
 .root[size^="small"] { height: 30px; }
-.root[size$="small"][close] { padding-right: 30px; }
+.input[size$="small"] { padding: 0 8px; }
+.input[size$="small"][close] { padding-right: 30px; }
 
-.root[size$="normal"] { width: 160px; padding: 0 10px; }
+.root[size$="normal"] { width: 160px; }
 .root[size^="normal"] { height: $height-base; }
+.input[size$="normal"] { padding: 0 10px; }
 .root[size$="normal"][close] { padding-right: 30px; }
 
-.root[size$="medium"] { width: 280px; padding: 0 10px; }
+.root[size$="medium"] { width: 280px; }
 .root[size^="medium"] { height: 36px; }
-.root[size$="medium"][close] { padding-right: 30px; }
+.input[size$="medium"] { padding: 0 10px; }
+.input[size$="medium"][close] { padding-right: 30px; }
 
-.root[size$="large"] { width: 440px; padding: 0 10px; }
+.root[size$="large"] { width: 440px; }
 .root[size^="large"] { height: 38px; }
-.root[size$="large"][close] { padding-right: 30px; }
+.input[size$="large"] { padding: 0 10px; }
+.input[size$="large"][close] { padding-right: 30px; }
 
-.root[size$="huge"] { width: 580px; padding: 0 10px; }
+.root[size$="huge"] { width: 580px; }
 .root[size^="huge"] { height: 40px; }
-.root[size$="huge"][close] { padding-right: 30px; }
+.input[size$="huge"] { padding: 0 10px; }
+.input[size$="huge"][close] { padding-right: 30px; }
 
 .root[size$="full"] { width: 100%; }
 .input[size$="full"] { padding: 0 10px; }

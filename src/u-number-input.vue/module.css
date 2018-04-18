@@ -6,33 +6,11 @@
     user-select: none;
 }
 
-.input {
-    box-sizing: border-box;
-    vertical-align: middle;
-    color: rgb(85, 85, 85);
-    margin: 0;
-    padding: 6px 12px;
-    border: 1px solid rgb(210, 214, 222);
-    border-radius: 3px;
-    background: rgb(255, 255, 255);
-}
-
-.input[disabled] {
-    color: rgb(153, 153, 153);
-    border: 1px solid rgb(210, 214, 222);
-    background: rgb(238, 238, 238);
+.root[readonly] .button {
     cursor: not-allowed;
 }
 
-.input[readonly] {
-    cursor: not-allowed;
-}
-
-.input[readonly]~.btn {
-    cursor: not-allowed;
-}
-
-.btn {
+.button {
     position: absolute;
     right: 2px;
     top: 4px;
@@ -40,28 +18,52 @@
     line-height: 14px;
     padding: 0 4px;
     cursor: pointer;
+    background: none;
 }
 
-.btn[disabled] {
+.button:hover{
+    background: none;
+}
+
+.button[disabled] {
     cursor: not-allowed;
     opacity: 0.65;
+    background: none;
 }
 
-.btn+.btn {
+
+.button+.button {
     top: auto;
     bottom: 4px;
 }
 
-.icon:before {
+.button[class]:before {
     width: 1em;
     display: inline-block;
-    font-size: 16px !important;
-    vertical-align: middle !important;
+    font-size: 16px;
+    vertical-align: middle;
     color: #989898;
 }
-.icon[name='up']:before{
+
+.button[class]:hover:before {
+    color: $brand-primary;
+}
+
+.button[disabled]:hover:before{
+    color: #989898;
+}
+
+.root[readonly] .button { background: none; }
+
+.root[disabled] .button { background: none; }
+
+.root[readonly] .button:hover:before {color: #989898;}
+
+.root[disabled] .button:hover:before {color: #989898;}
+
+.button[role="up"]:before{
     icon-font: url(../u-icon.vue/icons/keyboard-arrow-up.svg);
 }
-.icon[name='down']:before{
+.button[role="down"]:before{
     icon-font: url(../u-icon.vue/icons/keyboard-arrow-down.svg);
 }
