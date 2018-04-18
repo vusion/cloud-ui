@@ -1,27 +1,33 @@
 @import 'proto-ui.vusion/src/u-number-input.vue/module.css';
 
-.root {
-    display: inline-block;
-    position: relative;
-    user-select: none;
-}
-
-.root[readonly] .button {
-    cursor: not-allowed;
-}
-
 .button {
-    position: absolute;
-    right: 2px;
-    top: 4px;
-    height: 14px;
-    line-height: 14px;
-    padding: 0 4px;
-    cursor: pointer;
     background: none;
 }
 
-.button:hover{
+.button[role="up"] {
+    top: 3px;
+}
+
+.button[role="down"] {
+    bottom: 3px;
+}
+
+.button[role="up"]:before {
+    icon-font: url(../u-icon.vue/icons/keyboard-arrow-up.svg);
+}
+
+.button[role="down"]:before {
+    icon-font: url(../u-icon.vue/icons/keyboard-arrow-down.svg);
+}
+
+.button[class]:before {
+    width: 1em;
+    display: inline-block;
+    font-size: 16px;
+    color: #989898;
+}
+
+.button:hover {
     background: none;
 }
 
@@ -31,39 +37,22 @@
     background: none;
 }
 
-
-.button+.button {
-    top: auto;
-    bottom: 4px;
-}
-
-.button[class]:before {
-    width: 1em;
-    display: inline-block;
-    font-size: 16px;
-    vertical-align: middle;
-    color: #989898;
-}
-
 .button[class]:hover:before {
     color: $brand-primary;
 }
 
-.button[disabled]:hover:before{
+.button[disabled]:hover:before {
     color: #989898;
 }
 
-.root[readonly] .button { background: none; }
+.root[readonly] .button {
+    background: none;
+    cursor: not-allowed;
+}
 
 .root[disabled] .button { background: none; }
 
-.root[readonly] .button:hover:before {color: #989898;}
+.root[readonly] .button:hover:before {color: #989898; }
 
-.root[disabled] .button:hover:before {color: #989898;}
+.root[disabled] .button:hover:before {color: #989898; }
 
-.button[role="up"]:before{
-    icon-font: url(../u-icon.vue/icons/keyboard-arrow-up.svg);
-}
-.button[role="down"]:before{
-    icon-font: url(../u-icon.vue/icons/keyboard-arrow-down.svg);
-}

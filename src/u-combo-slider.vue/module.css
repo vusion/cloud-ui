@@ -3,7 +3,6 @@
 .main {
     display: inline-block;
     width: 330px;
-    vertical-align: bottom;
     vertical-align: -20px;
 }
 
@@ -12,9 +11,13 @@
     width: 100%;
 }
 
+.body {
+    margin: 0 7px;
+}
+
 .input[class] {
-    margin-left: 10px;
     width: 50px;
+    margin-left: 10px;
     margin-right: 0.5em;
 }
 
