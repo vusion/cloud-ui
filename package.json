@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": "Rainfore <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -32,7 +32,7 @@
   ],
   "dependencies": {
     "lodash": "^4.17.5",
-    "proto-ui.vusion": "~0.3.1",
+    "proto-ui.vusion": "~0.3.2",
     "vusion-utils": "^0.2.1"
   },
   "devDependencies": {
