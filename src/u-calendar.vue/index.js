@@ -166,8 +166,10 @@ const Calendar = {
             this.yearvisible = false;
         },
         monthSelect(month) {
-            this.showMonth = month.value;
-            this.monthvisible = false;
+            if (!month.disabled) {
+                this.showMonth = month.value;
+                this.monthvisible = false;
+            }
         },
         getYearCol() {
             const date = this.transformDate(this.date);

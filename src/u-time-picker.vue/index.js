@@ -168,20 +168,26 @@ const TimePicker = {
             });
         },
         minTime(newValue, oldValue) {
-            this.hourmin = HOUR_MIN;
-            this.minutemin = MINUTE_MIN;
-            this.secondmin = SECOND_MIN;
-            this.hourmax = HOUR_MAX;
-            this.minutemax = MINUTE_MAX;
-            this.secondmax = SECOND_MAX;
+            if (newValue) {
+                this.hourmin = newValue.split(':')[0] / 1;
+                this.minutemin = newValue.split(':')[1] / 1;
+                this.secondmin = newValue.split(':')[2] / 1;
+            } else {
+                this.hourmin = HOUR_MIN;
+                this.minutemin = MINUTE_MIN;
+                this.secondmin = SECOND_MIN;
+            }
         },
         maxTime(newValue, oldValue) {
-            this.hourmin = HOUR_MIN;
-            this.minutemin = MINUTE_MIN;
-            this.secondmin = SECOND_MIN;
-            this.hourmax = HOUR_MAX;
-            this.minutemax = MINUTE_MAX;
-            this.secondmax = SECOND_MAX;
+            if (newValue) {
+                this.hourmax = newValue.split(':')[0] / 1;
+                this.minutemax = newValue.split(':')[1] / 1;
+                this.secondmax = newValue.split(':')[2] / 1;
+            } else {
+                this.hourmax = HOUR_MAX;
+                this.minutemax = MINUTE_MAX;
+                this.secondmax = SECOND_MAX;
+            }
         },
     },
     methods: {

@@ -50,7 +50,7 @@ export default {
     },
     data() {
         return {
-            showDate: this.format(this.date, 'yyyy/MM/dd'),
+            showDate: this.format(this.date, 'yyyy-MM-dd'),
         };
     },
     created() {
@@ -66,7 +66,7 @@ export default {
     directives: { clickOutside },
     watch: {
         date(newValue) {
-            this.showDate = this.format(newValue, 'yyyy/MM/dd');
+            this.showDate = this.format(newValue, 'yyyy-MM-dd');
         },
         showDate(newValue) {
             /**
@@ -76,11 +76,11 @@ export default {
              */
             const showDate = this.returnTime(newValue);
 
-            this.$emit('update:date', new Date(showDate));
+            this.$emit('update:date', new Date(showDate.replace(/-/g, '/')));
 
             this.$emit('change', {
                 sender: this,
-                date: new Date(showDate),
+                date: new Date(showDate.replace(/-/g, '/')),
             });
         },
         minDate(newValue) {
@@ -117,7 +117,7 @@ export default {
             if (this.readonly || this.disabled || this.isOutOfRange(date))
                 return;
 
-            this.showDate = this.format(date, 'yyyy/MM/dd');
+            this.showDate = this.format(date, 'yyyy-MM-dd');
 
             const showDate = this.returnTime(this.showDate);
 
@@ -128,7 +128,7 @@ export default {
              */
             this.$emit('select', {
                 sender: this,
-                date: new Date(showDate),
+                date: new Date(showDate.replace(/-/g, '/')),
             });
 
             this.$refs.popper.toggle(false);
@@ -141,13 +141,12 @@ export default {
          */
         onInput($event) {
             const value = $event.target.value;
-            let date = value ? new Date(value) : null;
-
-            if (date.toString() !== 'Invalid Date') {
+            let date = value ? new Date(value.replace(/-/g, '/')) : null;
+            this.showDate = '';
+            if (date.toString() !== 'Invalid Date' && date !== null) {
                 date = this.isOutOfRange(date) ? this.isOutOfRange(date) : date;
                 // 此处有坑 需要特殊处理 由于改成最小值 再次输入不合法的值会变成最小值 认为没有发生变化
-                this.showDate = '';
-                this.showDate = this.format(date, 'yyyy/MM/dd');
+                this.showDate = this.format(date, 'yyyy-MM-dd');
             } else
                 this.$refs.input.value = this.format(this.showDate, 'yyyy-MM-dd');
         },
@@ -193,12 +192,16 @@ export default {
             };
             const trunk = new RegExp(Object.keys(maps).join('|'), 'g');
             type = type || 'yyyy-MM-dd HH:mm';
+
+            if (typeof value === 'string')
+                value = value.replace(/-/g, '/');
+
             value = new Date(value);
             return type.replace(trunk, (capture) => maps[capture] ? maps[capture](value) : '');
         },
         transformDate(date) {
             if (typeof date === 'string')
-                return new Date(date);
+                return new Date(date.replace(/-/g, '/'));
             else if (typeof date === 'number')
                 return new Date(date);
             else if (typeof date === 'object')

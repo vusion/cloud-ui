@@ -86,17 +86,6 @@ export default {
                     return this.dateTime = this.format(isOutOfRange, 'yyyy-MM-dd HH:mm:ss');
             }
 
-            if (newValue === this.minDate) {
-                this.minTime = this.spMinTime;
-                this.maxTime = undefined;
-            } else if (newValue === this.maxDate) {
-                this.minTime = undefined;
-                this.maxTime = this.spMaxTime;
-            } else {
-                this.minTime = undefined;
-                this.maxTime = undefined;
-            }
-
             this.$emit('update:date', new Date(newValue.replace(/-/g, '/')).getTime());
 
             /**
@@ -130,7 +119,11 @@ export default {
             date.setSeconds(time[2]);
             const datetime = this.format(date, 'yyyy-MM-dd');
             const dtime = this.format(date, 'HH:mm:ss');
-            if (datetime === this.minCalendarDate && dtime < this.spMinTime) {
+            if (datetime === this.minCalendarDate)
+                this.minTime = this.spMinTime;
+            else if (datetime === this.maxCalendarDate)
+                this.maxTime = this.spMaxTime;
+            else if (datetime === this.minCalendarDate && dtime < this.spMinTime) {
                 const spMinTime = this.spMinTime.split(':');
                 date.setHours(spMinTime[0]);
                 date.setMinutes(spMinTime[1]);
@@ -140,6 +133,9 @@ export default {
                 date.setHours(spMaxTime[0]);
                 date.setMinutes(spMaxTime[1]);
                 date.setSeconds(spMaxTime[2]);
+            } else {
+                this.minTime = undefined;
+                this.maxTime = undefined;
             }
             // if (datetime === this.minCalendarDate || datetime === this.maxCalendarDate)
             this.dateTime = this.format(date, 'yyyy-MM-dd HH:mm:ss');
@@ -180,7 +176,7 @@ export default {
             const value = $event.target.value;
             let date = value ? new Date(value) : null;
 
-            if (date.toString() !== 'Invalid Date') {
+            if (date.toString() !== 'Invalid Date' && date !== null) {
                 date = this.isOutOfRange(date) ? this.isOutOfRange(date) : date;
                 this.dateTime = this.format(date, 'yyyy-MM-dd HH:mm:ss');
             } else
