@@ -14,6 +14,12 @@
 <u-combo-slider :step="10" unit="GB" tip="步长为10GB" :min="10" :max="90" :value="40"></u-combo-slider>
 ```
 
+### 起始值
+
+``` html
+<u-combo-slider unit="GB" :min="10" :max="90" :value="40" :start="27" :step="5"></u-combo-slider>
+```
+
 ### 只读和禁用
 ``` html
 <u-grid-layout>

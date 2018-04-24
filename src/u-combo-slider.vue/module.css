@@ -11,6 +11,15 @@
     width: 100%;
 }
 
+.range {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-image: url(../assets/images/stripe.png);
+    background-repeat: repeat-x;
+}
+
 .body {
     margin: 0 7px;
 }
