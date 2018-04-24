@@ -145,7 +145,7 @@
 }
 
 .layer .elsvg:nth-of-type(18) .area {
-    fill: $theme-chart-chart-color18;
+    fill: $theme-chart-rgba-color18;
 }
 
 .layer .elsvg:nth-of-type(19) .line {
