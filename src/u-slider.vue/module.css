@@ -1,7 +1,7 @@
 @import 'proto-ui.vusion/src/u-slider.vue/module.css';
 
 .root {
-    vertical-align: 2px;
+    vertical-align: middle;
 }
 
 .body {
@@ -12,6 +12,29 @@
 .track {
     height: 6px;
     background: #e6e6e6;
+    overflow: initial;
+}
+
+.track:before {
+    content: '';
+    position: absolute;
+    width: 7px;
+    left: -7px;
+    height: 100%;
+    background: $brand-primary;
+}
+
+.track:after {
+    content: '';
+    position: absolute;
+    width: 7px;
+    right: -7px;
+    height: 100%;
+    background: #e6e6e6;
+}
+
+.root[disabled] .track:before {
+    background: $brand-disabled;
 }
 
 .handle {

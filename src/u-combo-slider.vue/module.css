@@ -20,6 +20,17 @@
     background-repeat: repeat-x;
 }
 
+.range:before {
+    content: '';
+    position: absolute;
+    width: 7px;
+    left: -7px;
+    height: 100%;
+    z-index: 1;
+    background-image: url(../assets/images/stripe.png);
+    background-repeat: repeat-x;
+}
+
 .body {
     margin: 0 7px;
 }
