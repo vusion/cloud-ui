@@ -1,6 +1,5 @@
 import ListView from 'proto-ui.vusion/src/u-list-view.vue';
 import { deepCopy } from '../base/utils/index';
-import lodash from 'lodash';
 
 export default {
     name: 'u-suggest',

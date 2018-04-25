@@ -14,12 +14,6 @@
 <u-combo-slider :step="10" unit="GB" tip="步长为10GB" :min="10" :max="90" :value="40"></u-combo-slider>
 ```
 
-### 起始值
-
-``` html
-<u-combo-slider unit="GB" :min="10" :max="90" :value="40" :start="27" :step="5"></u-combo-slider>
-```
-
 ### 只读和禁用
 ``` html
 <u-grid-layout>
@@ -50,6 +44,21 @@
     </u-grid-layout-column>
     <u-grid-layout-column :span="8">
         <u-combo-slider :value="20" :step="0"></u-combo-slider>
+    </u-grid-layout-column>
+</u-grid-layout>
+```
+
+### 范围
+
+使用`range`可以进一步对`value`限制，通常传入一个数组，第一个值表示范围开始值，第二个值表示范围的结束值。
+
+``` html
+<u-grid-layout>
+    <u-grid-layout-column :span="6">
+        <u-combo-slider :value="50" :range="[20, 85]"></u-slider>
+    </u-grid-layout-column>
+    <u-grid-layout-column :span="6">
+        <u-combo-slider :value="40" :step="10" :range="[30]"></u-slider>
     </u-grid-layout-column>
 </u-grid-layout>
 ```
@@ -102,6 +111,7 @@
 | max | Number | `0` | 最大值 |
 | step | Number | `1` | 间隔。`0`表示连续 |
 | precision | Number | `1` | 精度，表示数字要保留的最小单位，整数、小数均可 |
+| range | Array | `[]` | 进一步对`value`限制，通常传入一个数组，第一个值表示范围开始值，第二个值表示范围的结束值。 |
 | formatter | String, Object |  | 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。 |
 | fix-on | String | `'blur'` | 错误修复时机。可选值：`'input'`表示在输入时修复，`'blur'`表示在失焦时修复 |
 | hide-buttons | Boolean | `true` | 是否隐藏按钮 |

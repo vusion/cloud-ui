@@ -1,7 +1,7 @@
 @import 'proto-ui.vusion/src/u-slider.vue/module.css';
 
 .root {
-    vertical-align: middle;
+    vertical-align: -7px;
 }
 
 .body {
@@ -35,6 +35,10 @@
 
 .root[disabled] .track:before {
     background: $brand-disabled;
+}
+
+.bound {
+    background: url(../assets/images/stripe.png) repeat-x;
 }
 
 .handle {
