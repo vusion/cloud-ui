@@ -1,4 +1,4 @@
-#线状图（LineChart）
+# 线状图 LineChart
 
 ## 示例
 ### 基本形式

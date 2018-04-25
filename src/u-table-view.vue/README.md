@@ -4,14 +4,14 @@
 ### 基本形式
 
 
-### demo0 layout布局方式，支持auto,fixed两种布局，默认是fixed布局, auto布局一个缺点是数据发生变化各列对应的宽度可能发生变化，取决于内容宽度，推荐使用fixed布局
+layout布局方式，支持auto,fixed两种布局，默认是fixed布局, auto布局一个缺点是数据发生变化各列对应的宽度可能发生变化，取决于内容宽度，推荐使用fixed布局
 ``` vue
 <template>
     <div>
         <u-table-view :data="tdata" layout="auto" border>
             <u-table-view-column type="expand">
                 <template slot-scope="scope">
-                    <span>11</span>    
+                    <span>11</span>
                 </template>
             </u-table-view-column>
             <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
@@ -87,14 +87,14 @@ export default {
 </script>
 ```
 
-### demo1 支持默认显示指定limit条行数据，pattern属性设置为limit值即可
+默认显示指定limit条行数据，pattern属性设置为limit值即可
 ``` vue
 <template>
     <div>
         <u-table-view :data="tdata" border pattern="limit" :limit="4">
             <u-table-view-column type="expand">
                 <template slot-scope="scope">
-                    <span>11</span>    
+                    <span>11</span>
                 </template>
             </u-table-view-column>
             <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
@@ -208,7 +208,7 @@ export default {
 ```
 
 
-### demo2 排序和格式化
+排序和格式化
 ``` vue
 <template>
     <div>
@@ -286,13 +286,14 @@ export default {
 </script>
 ```
 
-### demo3 自定义排序方法
+
+自定义排序方法
 ``` vue
 <template>
     <u-table-view :data="tdata" @sort-change="sortChange">
         <u-table-view-column type="expand">
             <template slot-scope="scope">
-                <span>11</span>    
+                <span>11</span>
             </template>
         </u-table-view-column>
         <u-table-view-column title="日期" label="date" sortable width="500" :sort-method="sortMethod"></u-table-view-column>
@@ -340,18 +341,18 @@ export default {
 </script>
 ```
 
-### demo4 全选
+删除选中行
 ``` vue
 <template>
-    <div>
-        <u-button color="primary" @click="delData">删除</u-button>
-        <u-table-view :data="tdata" :all-checked.sync="allChecked" @selection-change="selectionChange($event)">
-            <u-table-view-column type="selection"></u-table-view-column>
-            <u-table-view-column title="日期" label="date" type="time"></u-table-view-column>
-            <u-table-view-column title="姓名" label="name" ></u-table-view-column>
-            <u-table-view-column title="地址" label="address" ></u-table-view-column>
-        </u-table-view>
-    </div>
+    <u-linear-layout direction="vertical">
+            <u-button color="primary" style="width:160px;" :disabled="checkedData.length === 0" @click="delData">删除</u-button>
+            <u-table-view :data="tdata" :all-checked.sync="allChecked" @selection-change="selectionChange($event)">
+                <u-table-view-column type="selection"></u-table-view-column>
+                <u-table-view-column title="日期" label="date" type="time"></u-table-view-column>
+                <u-table-view-column title="姓名" label="name" ></u-table-view-column>
+                <u-table-view-column title="地址" label="address" ></u-table-view-column>
+            </u-table-view>
+    </u-linear-layout>
 </template>
 <script>
 export default {
@@ -375,6 +376,7 @@ export default {
                 address: '上海市普陀区金沙江路 1516 弄'
             }],
             allChecked: false,
+            checkedData: [],
         };
     },
     watch: {
@@ -390,17 +392,27 @@ export default {
                 return row.name;
         },
         selectionChange(data) {
-            console.log(data);
+            this.checkedData = data;
         },
         delData() {
-            this.tdata = [];
+            let indexs = undefined;
+            this.checkedData.forEach((item) => {
+                this.tdata.some((checked, index) => {
+                    if (item.name === checked.name) {
+                        indexs = index;
+                        return true;
+                    }
+                });
+                if (indexs !== undefined)
+                    this.tdata.splice(indexs, 1);
+            })
         },
     }
 };
 </script>
 ```
 
-### demo5 select
+ select
 ``` vue
 <template>
     <u-table-view :data="tdata" @filter-change="filterChange">
@@ -483,7 +495,7 @@ export default {
 };
 </script>
 ```
-### demo6 作用域插槽方式
+ 作用域插槽方式
 ``` vue
 <template>
     <div>
@@ -593,7 +605,7 @@ export default {
 </script>
 ```
 
-### demo7 loading 加载中的状态
+ loading 加载中的状态
 ``` vue
 <template>
 <div>
@@ -639,7 +651,7 @@ export default {
 </script>
 ```
 
-### demo8 data为空数组自定义显示文本
+data为空数组自定义显示文本
 ``` vue
 <template>
 <div>
@@ -674,9 +686,9 @@ export default {
 </script>
 ```
 
-## 对于表格内容过多的情况，提供以下两种解决方案，可以任选一种合适的方式使用
+### 对于表格内容过多的情况，提供以下两种解决方案，可以任选一种合适的方式使用
 
-### demo9 表格行可展开
+表格行可展开
 使用场景：表格的内容过多，展示不下，需要注意的是expand中自定义的内容会受到表格添加的样式对其产生的影响，比如说不换行，居中等，如果不是需要的效果，需要自己自定义消除父元素对其自定义元素内容样式的影响
 ``` vue
 <template>
@@ -807,7 +819,7 @@ export default {
 </script>
 ```
 
-### demo10 固定左右列
+固定左右列
 使用场景：表格的内容过多，展示不下，可以通过制定表格的宽度和单元列的宽度来展示
 ``` vue
 <template>
@@ -871,7 +883,7 @@ export default {
                 female: '女',
                 use: 12,
                 total: 20,
-            }, 
+            },
             {
                 date: 1503964800000,
                 name: '小鸡炖蘑菇',

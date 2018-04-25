@@ -5,6 +5,8 @@
                 <u-sidebar-item><u-checkbox v-model="advanced" @check="onCheck">显示所有组件</u-checkbox></u-sidebar-item>
                 <u-sidebar-group title="Basic">
                     <u-sidebar-item exact to="/components/u-base">基础 <small>Base</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/typography">排印 <small>Typography</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-text">文本 <small>Text</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-link">链接 <small>Link</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-link-list">链接列表 <small>LinkList</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-button">按钮 <small>Button</small></u-sidebar-item>

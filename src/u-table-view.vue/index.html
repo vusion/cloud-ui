@@ -12,6 +12,9 @@
                         <template v-if="column.type === 'expand'">
                             <div :class="$style.headExpand"></div>
                         </template>
+                        <template v-else-if="column.type === 'selection'">
+                            <u-checkbox v-model="allSel" @check="allSelected" />
+                        </template>
                         <span v-else-if="!column.filter" :class="$style.itemtitle">{{column.title}}</span>
                         <template v-else-if="column.filter">
                             <u-popper ref="popper" trigger="click" :placement="column.placement" append-to="body">
@@ -23,9 +26,6 @@
                                     <div :class="$style.option" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value">{{option.name}}</div>
                                 </div>
                             </u-popper>
-                        </template>
-                        <template v-else-if="column.type === 'selection'">
-                            <u-checkbox v-model="allSel" @check="allSelected" />
                         </template>
                         <template v-if="column.sortable">
                             <span :class="$style.wrapicon">
@@ -108,6 +108,9 @@
                             <template v-if="column.type === 'expand'">
                                 <div :class="$style.headExpand"></div>
                             </template>
+                            <template v-else-if="column.type === 'selection'">
+                                <u-checkbox v-model="allSel" @check="allSelected" />
+                            </template>
                             <span v-else-if="!column.filter" :class="$style.itemtitle">{{column.title}}</span>
                             <template v-else-if="column.filter">
                                 <u-popper trigger="click" ref="popper" :placement="column.placement" append-to="body">
@@ -119,9 +122,6 @@
                                         <div :class="$style.option" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value">{{option.name}}</div>
                                     </div>
                                 </u-popper>
-                            </template>
-                            <template v-else-if="column.type === 'selection'">
-                                <u-checkbox v-model="allSel" @check="allSelected" />
                             </template>
                             <template v-if="column.sortable">
                                 <span :class="$style.wrapicon">

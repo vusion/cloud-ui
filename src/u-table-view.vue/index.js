@@ -1,5 +1,6 @@
 import { getStyle, getScrollSize } from '../base/utils/style';
 import { ellipsisTitle } from 'proto-ui.vusion/src/base/directives';
+import { deepCopy } from '../base/utils/index';
 import { debug } from 'util';
 
 export default {
@@ -224,32 +225,33 @@ export default {
         },
         initTableData(value) {
             let tdata = [];
+            const copyData = deepCopy([], this.data);
             const selection = this.columns && this.columns.some((item) => item.type && item.type === 'selection');
             const expand = this.columns && this.columns.some((item) => item.type && item.type === 'expand');
             if (selection && expand) {
-                this.data.forEach((item) => {
+                copyData.forEach((item) => {
                     item.selected = false;
                     item.expanded = false;
                     item.iconName = 'right';
                     tdata.push(item);
                 });
             } else if (selection) {
-                this.data.forEach((item) => {
+                copyData.forEach((item) => {
                     item.selected = false;
                     tdata.push(item);
                 });
             } else if (expand) {
-                this.data.forEach((item) => {
+                copyData.forEach((item) => {
                     item.expanded = false;
                     item.iconName = 'right';
                     tdata.push(item);
                 });
             } else {
-                this.data.forEach((item) => {
+                copyData.forEach((item) => {
                     tdata.push(item);
                 });
             }
-            if (!this.data.length)
+            if (!copyData.length)
                 this.allSel = false;
             // 固定左右列同步阴影实现方案
             if (this.fixedLeftColumns.length > 0 || this.fixedRightColumns.length > 0)
