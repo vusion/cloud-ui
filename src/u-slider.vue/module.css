@@ -39,6 +39,17 @@
 
 .bound {
     background: url(../assets/images/stripe.png) repeat-x;
+    box-sizing: content-box;
+}
+
+.bound[role="start"] {
+    left: -7px;
+    padding-left: 7px;
+}
+
+.bound[role="end"] {
+    right: -7px;
+    padding-right: 7px;
 }
 
 .handle {
