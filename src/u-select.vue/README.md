@@ -305,6 +305,17 @@
 | $event.items | Array\<Object\> | 多选模式中，所有选中项相关对象的数组 |
 | $event.$item | Array\<ListViewItem\> | 多选模式中，所有选中项子组件的数组 |
 
+#### @change
+
+选择值改变时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.value | Any | 选择项的值 |
+| $event.oldValue | Any | 旧的值 |
+| $event.item | Object | 选择项相关对象 |
+| $event.itemVM | ListViewItem | 选择项子组件 |
+
 #### @toggle
 
 展开/收起选择框时触发

@@ -63,7 +63,7 @@
 </u-subnav>
 ```
 
-## subnav API
+## Subnav API
 ### Props/Attrs
 
 | Prop/Attr | Type | Default | Description |
