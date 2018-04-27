@@ -7,8 +7,8 @@ export default {
         children: null,
     },
     render(h, context) {
+        // @TODO: 应该细化合并
         const data = Object.assign({}, context.props.data, context.data);
-        console.log(data);
         return h(context.props.tag, data, context.children || context.props.children);
     },
 };
