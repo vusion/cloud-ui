@@ -29,7 +29,7 @@
     /* @Private */
     cursor: $cursor-not-allowed;
     background: none;
-    color: $brand-disabled;
+    color: #999;
 }
 
 .root[selected][disabled] {

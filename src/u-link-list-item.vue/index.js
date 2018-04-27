@@ -4,6 +4,7 @@ export default {
     name: 'u-link-list-item',
     parentName: 'u-link-list',
     mixins: [Emitter],
+    inheritAttrs: false,
     created() {
         this.dispatch(this.$options.parentName, 'add-item-vm', this);
     },

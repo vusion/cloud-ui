@@ -20,6 +20,21 @@
 </u-linear-layout>
 ```
 
+### 使用指令
+
+``` html
+<u-linear-layout direction="vertical">
+    <u-link-list>
+        <u-link-list-item disabled>设置</u-link-list-item>
+        <u-link-list-item v-tooltip="'跳转到 Navbar'" to="/components/u-navbar">显示Tips</u-link-list-item>
+        <u-link-list-item>重启</u-link-list-item>
+        <u-link-list-item disabled>保存为镜像</u-link-list-item>
+        <u-link-list-item v-tooltip="'跳转到 Select'" to="/components/u-select">显示Tips</u-link-list-item>
+    </u-link-list>
+</u-linear-layout>
+```
+
+
 ## LinkList API
 ### Attrs/Props
 
