@@ -1,11 +1,11 @@
 @import 'proto-ui.vusion/src/u-textarea.vue/module.css';
 .root {
     max-width: 100%;
+    width: 160px;
+    height: 80px;
 }
 
 .input {
-    width: 160px;
-    height: 80px;
     line-height: inherit;
     max-width: 100%;
     min-height: $height-base;
@@ -35,16 +35,16 @@
     border-color: $brand-disabled;
 }
 
-.input[size$="normal"] { width: 160px; padding: 5px 10px; }
-.input[size^="normal"] { height: 80px; }
+.root[size$="normal"] { width: 160px; }
+.root[size^="normal"] { height: 80px; }
 
-.input[size$="large"] { width: 440px; padding: 5px 10px; }
-.input[size^="large"] { height: 120px; }
+.root[size$="large"] { width: 440px; }
+.root[size^="large"] { height: 120px; }
 
-.input[size$="huge"] { width: 580px; padding: 5px 10px; }
-.input[size^="huge"] { height: 200px; }
+.root[size$="huge"] { width: 580px; }
+.root[size^="huge"] { height: 200px; }
 
 .root[size$="full"] { width: 100%; }
-.input[size$="full"] { width: 100%; padding: 5px 10px; }
+.root[size$="full"] { width: 100%; }
 .root[size^="full"] { height: 100%; }
-.input[size^="full"] { height: 100%; }
+.root[size^="full"] { height: 100%; }
