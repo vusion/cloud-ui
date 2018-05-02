@@ -30,6 +30,7 @@ export default {
         },
         removeValue() {
             this.currentValue = '';
+            this.$emit('reset', this.currentValue);
             this.$emit('input', this.currentValue);
             this.$emit('update:value', this.currentValue);
         },

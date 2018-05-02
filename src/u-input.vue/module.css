@@ -36,23 +36,28 @@
 
 .close{
     position: absolute;
-    border-radius: 100%;
-    background: #c0c4cc;
-    width: 18px;
-    height: 18px;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
     text-align: center;
-    display: inline-block;
-    right: 6px;
-    top: 50%;
-    margin-top: -9px;
+    right: 1px;
+    top: 0;
     cursor: pointer;
 }
 
-.close[class]:before{
-    font-size: 12px;
-    color:#fff;
-    position: relative;
-    top: -7px;
+.closeIcon{
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    background: #f5f7fa;
+    border-radius: 100%;
+    display: inline-block;
+}
+
+.closeIcon:before{
+    icon-font: url(../u-icon.vue/icons/close-small.svg);
+    font-size: 16px;
+    color:#b4b4b4;
     margin-right: 0;
     vertical-align: middle;
 }

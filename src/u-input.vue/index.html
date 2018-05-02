@@ -5,6 +5,8 @@
         @compositionstart="compositionInputing = true"
         @compositionend="onCompositionEnd">
     <!-- @override: 增加了 icon -->
-    <u-icon v-if="close" :class="$style.close" @click.native="removeValue" name="close"></u-icon>
+    <span v-if="close && currentValue" :class="$style.close" @click="removeValue">
+        <i :class="$style.closeIcon"></i>
+    </span>
     <slot></slot>
 </span>
