@@ -122,12 +122,12 @@ export default {
     top: 64px;
     bottom: 0;
     /* height: calc(100vh - 134px); */
-    background: #f0f6fa;
-    overflow: auto;
+    background: #2b333f;
+    overflow: hidden;
 }
 
 .main {
-    margin-left: 220px;
+    margin-left: 240px;
     padding: 40px;
 }
 </style>
