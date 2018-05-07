@@ -32,12 +32,11 @@ export default {
 .side {
     padding: 20px 0;
     position: fixed;
-    width: 220px;
+    width: 200px;
     top: 64px;
     bottom: 0;
-    /* height: calc(100vh - 134px); */
-    background: #f0f6fa;
-    overflow: auto;
+    background: #2b333f;
+    overflow: hidden;
 }
 
 .main {

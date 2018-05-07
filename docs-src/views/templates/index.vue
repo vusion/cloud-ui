@@ -1,7 +1,7 @@
 <template>
     <div :class="$style.root">
         <div :class="$style.side">
-            <u-sidebar collapsible accordion expand-trigger="click" :class="$style.color">
+            <u-sidebar collapsible accordion expand-trigger="click">
                 <u-sidebar-group title="dashboard">
                     <u-sidebar-item to="/preview/dashboard/analysis">分析页</u-sidebar-item>
                     <u-sidebar-item to="/preview/dashboard/monitor">监控页</u-sidebar-item>
@@ -44,20 +44,15 @@ export default {
 .side {
     padding: 20px 0;
     position: fixed;
-    width: 220px;
+    width: 200px;
     top: 64px;
     bottom: 0;
-    /* height: calc(100vh - 134px); */
-    background: #f0f6fa;
-    overflow: auto;
+    background: #2b333f;
+    overflow: hidden;
 }
 
 .main {
-    margin-left: 220px;
-    padding: 20px;
-}
-
-.color{
-    background-color: #2b333f;
+    margin-left: 240px;
+    padding: 40px;
 }
 </style>

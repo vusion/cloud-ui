@@ -86,7 +86,6 @@ export default {
 }
 h1 {
     font-weight: 500;
-    text-align: center;
 }
 .table[class] {
     width: 90%;
