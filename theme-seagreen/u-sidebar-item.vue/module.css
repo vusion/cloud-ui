@@ -3,3 +3,12 @@
 .root:hover {
     color: $brand-primary;
 }
+
+.root[selected] {
+    color: #fff;
+    background: $brand-primary;
+}
+
+.root[disabled] {
+    color: #cdcdcd;
+}
