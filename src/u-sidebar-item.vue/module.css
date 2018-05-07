@@ -6,7 +6,7 @@
     cursor: pointer;
     height: 52px;
     line-height: 52px;
-    padding-left: 12px;
+    padding-left: 30px;
     color: #8594aa;
     transition: all $transition-duration;
 }

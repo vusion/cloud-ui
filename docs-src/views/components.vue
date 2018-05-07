@@ -1,7 +1,7 @@
 <template>
     <div :class="$style.root">
         <div :class="$style.side">
-            <u-sidebar size="small">
+            <u-sidebar size="small" style="padding: 20px 0;width: 220px;">
                 <u-sidebar-item><u-checkbox v-model="advanced" @check="onCheck">显示所有组件</u-checkbox></u-sidebar-item>
                 <u-sidebar-group title="Basic">
                     <u-sidebar-item to="/components/u-base">基础 <small>Base</small></u-sidebar-item>
@@ -115,14 +115,17 @@ export default {
     width: 1180px;
     margin: 0 auto;
 }
+
 .side {
-    padding: 20px 0;
     position: fixed;
     width: 200px;
     top: 64px;
     bottom: 0;
-    background: #2b333f;
     overflow: hidden;
+}
+
+.side li {
+    width: 200px;
 }
 
 .main {

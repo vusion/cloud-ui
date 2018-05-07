@@ -1,7 +1,7 @@
 <template>
     <div :class="$style.root">
         <div :class="$style.side">
-            <u-sidebar size="small">
+            <u-sidebar size="small" style="padding: 20px 0;">
                 <u-sidebar-group>
                     <u-sidebar-item to="/guide/introduce">介绍</u-sidebar-item>
                     <!-- <u-sidebar-item to="/guide/design">设计原则</u-sidebar-item> -->
@@ -30,12 +30,10 @@ export default {
     margin: 0 auto;
 }
 .side {
-    padding: 20px 0;
     position: fixed;
     width: 200px;
     top: 64px;
     bottom: 0;
-    background: #2b333f;
     overflow: hidden;
 }
 

@@ -1,5 +1,10 @@
 @import 'proto-ui.vusion/src/u-sidebar.vue/module.css';
 
+.root {
+    height: 100%;
+    overflow: auto;
+}
+
 .root[size="small"] .group_head {
     height: 32px;
     line-height: 32px;
