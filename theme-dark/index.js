@@ -1,8 +1,16 @@
 import Button from './u-button.vue';
 import Link from './u-link.vue';
+import SidebarDivider from './u-sidebar-divider.vue';
+import SidebarItem from './u-sidebar-item.vue';
 import SubnavItem from './u-subnav-item.vue';
 
-export { Button, Link, SubnavItem };
+export {
+    Button,
+    Link,
+    SidebarItem,
+    SidebarDivider,
+    SubnavItem,
+};
 export {
     Badge,
     BarChart,
@@ -74,8 +82,6 @@ export {
     Suggest,
     Sidebar,
     SidebarGroup,
-    SidebarItem,
-    SidebarDivider,
     Slider,
     StatusIcon,
     Steps,
