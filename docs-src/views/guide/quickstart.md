@@ -16,3 +16,5 @@ import * as CloudUI from 'cloud-ui.vusion';
 import { installComponents } from 'vusion-utils';
 installComponents(CloudUI, Vue);
 ```
+
+如果您想对组件进行样式或逻辑上的修改，请查看Vusion文档中的 [组件的扩展和继承](https://vusion.github.io/guides/components)。
