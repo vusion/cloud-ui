@@ -1,5 +1,9 @@
 @import '../../src/u-sidebar-item.vue/module.css';
 
+.root {
+    background: #e2e6f7;
+}
+
 .root:hover {
     color: $brand-primary;
 }
