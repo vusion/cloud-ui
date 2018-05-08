@@ -1,11 +1,10 @@
 <template>
     <div :class="$style.root">
         <div :class="$style.side">
-            <u-sidebar size="small" style="padding: 20px 0;">
-                <u-sidebar-group>
-                    <u-sidebar-item to="/guide/introduce">介绍</u-sidebar-item>
-                    <!-- <u-sidebar-item to="/guide/design">设计原则</u-sidebar-item> -->
-                </u-sidebar-group>
+            <u-sidebar style="padding: 20px 0;">
+                <u-sidebar-item to="/guide/introduce">介绍</u-sidebar-item>
+                <u-sidebar-item to="/guide/quickstart">快速开始</u-sidebar-item>
+                <u-sidebar-item to="/guide/releaselog">更新日志</u-sidebar-item>
             </u-sidebar>
         </div>
         <div :class="$style.main">

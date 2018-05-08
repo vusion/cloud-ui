@@ -3,8 +3,9 @@ import Layout from './views/layout.vue';
 import Index from './views/index.vue';
 import Components from './views/components.vue';
 import Guide from './views/guide/index.vue';
-import GuideIntroduce from './views/guide/introduce.vue';
-import GuideDesign from './views/guide/design.vue';
+import GuideIntroduce from './views/guide/introduce.md';
+import GuideQuickStart from './views/guide/quickstart.md';
+import GuideReleaseLog from './views/guide/releaselog.md';
 import PreviewIndex from './views/templates/index.vue';
 import PreviewDashboardAnalysis from './views/templates/dashboard/analysis.vue';
 import PreviewDashboardMonitor from './views/templates/dashboard/monitor.vue';
@@ -25,7 +26,8 @@ export default [
         { path: 'guide', component: Guide, children: [
             { path: '', redirect: 'introduce' },
             { path: 'introduce', component: GuideIntroduce },
-            { path: 'design', component: GuideDesign },
+            { path: 'quickstart', component: GuideQuickStart },
+            { path: 'releaselog', component: GuideReleaseLog },
         ] },
         { path: 'preview', component: PreviewIndex, children: [
             { path: '', redirect: 'dashboard/analysis' },
