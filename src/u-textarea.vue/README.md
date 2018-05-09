@@ -24,8 +24,9 @@
     <u-linear-layout>
         <u-textarea size="normal" value="normal" readonly></u-textarea>
         <u-textarea size="normal large" value="normal large" readonly></u-textarea>
-        <u-textarea size="normal huge" value="normal huge" readonly></u-textarea>
-        <u-textarea size="normal full" value="normal full" readonly></u-textarea>
+    </u-linear-layout>
+    <u-linear-layout>
+        <u-textarea size="medium" value="medium" readonly></u-textarea>
     </u-linear-layout>
     <u-linear-layout>
         <u-textarea size="large" value="large" readonly></u-textarea>

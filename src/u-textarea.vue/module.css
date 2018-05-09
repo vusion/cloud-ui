@@ -38,6 +38,9 @@
 .root[size$="normal"] { width: 160px; }
 .root[size^="normal"] { height: 80px; }
 
+.root[size$="medium"] { width: 280px; }
+.root[size^="medium"] { height: 100px; }
+
 .root[size$="large"] { width: 440px; }
 .root[size^="large"] { height: 120px; }
 

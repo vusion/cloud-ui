@@ -10,10 +10,12 @@ export default {
         value: [String, Number, Boolean],
         label: String,
         type: String,
+        headSelection: { type: Boolean, default: true },
         width: String,
         minWidth: { type: [String, Number], default: '80' },
         formatter: Function,
         sortMethod: Function,
+        sortRemoteMethod: Function,
         filterMethod: Function,
         placement: {
             type: String,
@@ -23,6 +25,8 @@ export default {
         ellipsis: { type: Boolean, default: false },
         timeFormat: { type: String, default: 'YYYY-MM-DD HH:mm:ss' },
         fixed: { type: String, validator: (value) => ['left', 'right'].includes(value) },
+        defaultText: { type: String, default: '-' },
+        expandIcon: { type: String, default: 'right-down', validator: (value) => ['up-down', 'right-down'].includes(value) },
     },
     mixins: [Emitter],
     data() {
@@ -54,7 +58,7 @@ export default {
     },
     methods: {
         getWidth(value) {
-            if (this.type === 'selection')
+            if (this.type === 'selection' && !this.title)
                 return value || this.width || 35;
             else if (this.type === 'expand')
                 return value || this.width || 50;

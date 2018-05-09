@@ -35,6 +35,9 @@ export default {
         allText: { type: String, default: '收起' },
         defaultText: { type: String, default: '-' },
         // mode: { type: String, default: 'self' }, // fixed布局的时候计算方式是走原生表格的还是走自定义计算规则配置项
+        showHeader: { type: Boolean, default: true }, // 展示表格头部
+        loadText: { type: String, default: '' }, // 加载状态显示的文字
+        rowClassName: { type: Function, default() { return ''; } }, // 自定义表格单行的样式
     },
     data() {
         return {
@@ -100,6 +103,9 @@ export default {
         expandedColumn() {
             return this.columns.filter((column) => column.type === 'expand')[0];
         },
+        allDisabled() {
+            return this.tdata.every((item) => item.disabled);
+        },
     },
     watch: {
         data(newValue) {
@@ -151,6 +157,9 @@ export default {
         },
     },
     methods: {
+        rowClsName(index) {
+            return this.rowClassName(index, this.tdata[index]);
+        },
         remove(item) {
             const index = this.columns.indexOf(item);
             ~index && this.columns.splice(index, 1);
@@ -177,19 +186,24 @@ export default {
                 }
                 const order = this.defaultSort.order === 'asc' ? -1 : 1;
                 const label = column.label;
-                if (column.sortMethod)
-                    this.copyTdata.sort((value1, value2) => column.sortMethod(value1[label], value2[label]) ? order : -order);
-                else {
-                    this.copyTdata.sort((value1, value2) => {
-                        if (value1[label] === value2[label])
-                            return 0;
-                        return value1[label] < value2[label] ? order : -order;
-                    });
+                if (column.sortRemoteMethod) {
+                    // 异步执行排序方法
+                    column.sortRemoteMethod(label, this.defaultSort.order, column);
+                } else {
+                    if (column.sortMethod)
+                        this.copyTdata.sort((value1, value2) => column.sortMethod(value1[label], value2[label]) ? order : -order);
+                    else {
+                        this.copyTdata.sort((value1, value2) => {
+                            if (value1[label] === value2[label])
+                                return 0;
+                            return value1[label] < value2[label] ? order : -order;
+                        });
+                    }
+                    if (this.pattern === 'limit')
+                        this.tdata = this.copyTdata.slice(0, this.limit);
+                    else
+                        this.tdata = this.copyTdata;
                 }
-                if (this.pattern === 'limit')
-                    this.tdata = this.copyTdata.slice(0, this.limit);
-                else
-                    this.tdata = this.copyTdata;
                 this.$emit('sort-change', {
                     column,
                     label,
@@ -199,11 +213,15 @@ export default {
         },
         getSelection() {
             const selectionIndexes = [];
+            let noDisabledCount = 0;
             this.tdata.forEach((row, index) => {
                 if (row.selected)
                     selectionIndexes.push(index);
+                if (!row.disabled)
+                    noDisabledCount++;
             });
-            if (selectionIndexes.length === this.tdata.length)
+            // 这里有坑 行数据的checkbox有disabled状态 点击全选 可以是全选的
+            if (selectionIndexes.length === noDisabledCount)
                 this.allSel = true;
             else
                 this.allSel = false;
@@ -211,17 +229,20 @@ export default {
             return this.data.filter((data, index) => selectionIndexes.indexOf(index) > -1);
         },
         allSelected() {
-            const flag = this.allSel;
-            const copydata = this.tdata.concat();
-            copydata.forEach((item) => {
-                item.selected = flag;
-            });
-            this.tdata = copydata;
-            const selection = this.getSelection();
-            if (flag)
-                this.$emit('select-all', selection);
+            this.$nextTick(() => {
+                const flag = this.allSel;
+                const copydata = this.tdata.concat();
+                copydata.forEach((item) => {
+                    if (!item.disabled)
+                        item.selected = flag;
+                });
+                this.tdata = copydata;
+                const selection = this.getSelection();
+                if (flag)
+                    this.$emit('select-all', selection);
 
-            this.$emit('selection-change', selection);
+                this.$emit('selection-change', selection);
+            });
         },
         initTableData(value) {
             let tdata = [];
@@ -230,20 +251,30 @@ export default {
             const expand = this.columns && this.columns.some((item) => item.type && item.type === 'expand');
             if (selection && expand) {
                 copyData.forEach((item) => {
-                    item.selected = false;
-                    item.expanded = false;
-                    item.iconName = 'right';
+                    if (item.selected === undefined)
+                        item.selected = false;
+                    if (item.expanded === undefined)
+                        item.expanded = false;
+                    if (item.iconName === undefined)
+                        item.iconName = 'right';
+                    if (item.disabled === undefined)
+                        item.disabled = false;
                     tdata.push(item);
                 });
             } else if (selection) {
                 copyData.forEach((item) => {
-                    item.selected = false;
+                    if (item.selected === undefined)
+                        item.selected = false;
+                    if (item.disabled === undefined)
+                        item.disabled = false;
                     tdata.push(item);
                 });
             } else if (expand) {
                 copyData.forEach((item) => {
-                    item.expanded = false;
-                    item.iconName = 'right';
+                    if (item.expanded === undefined)
+                        item.expanded = false;
+                    if (item.iconName === undefined)
+                        item.iconName = 'right';
                     tdata.push(item);
                 });
             } else {
@@ -259,6 +290,10 @@ export default {
 
             if (value)
                 tdata = tdata.slice(0, value);
+
+            const selectionArr = this.getSelection();
+            if (selectionArr.length !== 0)
+                this.$emit('selection-change', selectionArr);
 
             return tdata;
         },
@@ -473,6 +508,12 @@ export default {
             this.over = false;
         },
         toggleExpand(index) {
+            this.tdata.forEach((item, kindex) => {
+                if (kindex !== index) {
+                    item.expanded = false;
+                    item.iconName = 'right';
+                }
+            });
             const copyRowData = this.tdata[index];
             copyRowData.expanded = !copyRowData.expanded;
             if (!copyRowData.expanded)
@@ -480,6 +521,11 @@ export default {
             else
                 copyRowData.iconName = 'down';
             this.tdata.splice(index, 1, copyRowData);
+            this.$emit('toggle-expand', {
+                index,
+                direction: copyRowData.iconName,
+                row: copyRowData.iconName,
+            });
         },
         bodyScroll(e) {
             this.$refs.head.scrollLeft = e.target.scrollLeft;

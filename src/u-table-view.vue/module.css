@@ -92,14 +92,17 @@
 .btrItem:first-child {
     border-top: none;
 }
+.btbody[no-show-header] .btrItem:first-child {
+    border-top: 1px solid #ebf0f5;
+}
 
 .btrItem {
     border-top: 1px solid #ebf0f5;
 }
 
-.btrItem[role] {
+/* .btrItem[role] {
     border-bottom: 1px solid #ebf0f5;
-}
+} */
 
 .btdSpan {
     position: relative;
@@ -165,6 +168,7 @@
     position: relative;
     word-break: break-all;
     display: inline-block;
+    min-width: 35px;
 }
 
 .option {
@@ -285,6 +289,14 @@
     icon-font: url('../u-icon.vue/icons/keyboard-arrow-down.svg');
 }
 
+.expand[role="up-down"][name="right"]:after {
+    icon-font: url('../u-icon.vue/icons/angle-down.svg');
+}
+
+.expand[role="up-down"][name="down"]:after {
+    icon-font: url('../u-icon.vue/icons/angle-up.svg');
+}
+
 .fixNoText{
     display: inline-block;
     line-height: 20px;
@@ -292,4 +304,9 @@
 
 .headExpand{
     width: 50px;
+}
+.loadText{
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
 }

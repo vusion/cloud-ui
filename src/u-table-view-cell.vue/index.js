@@ -5,8 +5,17 @@ export default {
         column: Object,
     },
     render(h) {
+        let vnode = null;
+        if (this.column.$slots.expandContent)
+            vnode = this.column.$slots.expandContent;
+        else if (this.column.$scopedSlots.expandContent)
+            vnode = this.column.$scopedSlots.expandContent;
+        else if (this.column.$scopedSlots.default)
+            vnode = this.column.$scopedSlots.default;
+        else
+            vnode = this.column.$slots.default;
         return h('div', [
-            this.column.$scopedSlots.default({
+            typeof vnode === 'object' ? vnode : vnode({
                 row: this.row,
             }),
         ]);
