@@ -160,6 +160,30 @@ export default {
         rowClsName(index) {
             return this.rowClassName(index, this.tdata[index]);
         },
+        showExpandIcon(column, value) {
+            if (column.expandStrict) {
+                if (!value)
+                    return false;
+                if (Array.isArray(value))
+                    return value.length;
+                if (typeof value === 'object')
+                    return Object.keys(value).length;
+                return value;
+            }
+            return true;
+        },
+        // 展示表格单元格具体内容函数 现在规则是row[column.label]是对象，数组全部不展示内容，只展示基本类型
+        showContent(column, value) {
+            if (!value && column.defaultText === '')
+                return '';
+            else {
+                if (Array.isArray(value) || typeof value === 'object' && column.defaultText === '')
+                    return column.defaultText;
+                if (Array.isArray(value) || typeof value === 'object')
+                    return column.defaultText || this.defaultText;
+                return value || column.defaultText || this.defaultText;
+            }
+        },
         remove(item) {
             const index = this.columns.indexOf(item);
             ~index && this.columns.splice(index, 1);

@@ -1,0 +1,21 @@
+@import 'proto-ui.vusion/src/u-linear-progress.vue/module.css';
+
+.track {
+    height: 4px;
+    line-height: 4px;
+}
+
+.track[size="small"]{
+    height: 2px;
+    line-height: 2px;
+}
+
+.track[size="large"]{
+    height: 8px;
+    line-height: 8px;
+}
+
+.track[size="huge"]{
+    height: 12px;
+    line-height: 12px;
+}

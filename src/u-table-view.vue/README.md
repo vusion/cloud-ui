@@ -9,7 +9,7 @@ layout布局方式，支持auto,fixed两种布局，默认是fixed布局, auto�
 <template>
     <div>
         <u-table-view :data="tdata" layout="auto" border>
-            <u-table-view-column type="expand" default-text="">
+            <u-table-view-column type="expand" title="序列" default-text="">
                 <template slot="expandContent">
                     <span>11</span>
                 </template>
@@ -1036,10 +1036,10 @@ export default {
 ### expand 的高级用法
 ```vue
 <template>
-    <u-table-view :show-header="false" :data="tdata" :row-class-name="rowClassName" @toggle-expand="toggleExpand">
+    <u-table-view :show-header="false" :data="tdata" :row-class-name="rowClassName" @toggle-expand="toggleExpand" border>
         <u-table-view-column title="日期" label="date"></u-table-view-column>
         <u-table-view-column title="详细信息" label="info"></u-table-view-column>
-        <u-table-view-column title="icon" type="expand" default-text="" expand-icon="up-down">
+        <u-table-view-column title="icon" type="expand" label="listlogs" default-text="" expand-strict expand-icon="up-down">
             <template slot="expandContent" slot-scope="scope">
                 <div>
                     <p v-for="item in scope.row.listlogs" v-text="item"></p>
@@ -1086,12 +1086,6 @@ export default {
                 {
                     date: '2018-07-19 14:54:02',
                     info: '创建实例完成',
-                    listlogs:[
-                        '2018-07-19 14:52:49实例开始创建..',
-                        '2018-07-19 14:52:49云主机开始创建...',
-                        '2018-07-19 14:53:20云主机创建完成，云主机 UUID：05ab50b1-a981-492d-bfac-ebbbf94cea5e',
-                        '2018-07-19 14:53:20云硬盘开始创建...',
-                    ],
                 },
             ],
             currentIndex: 0,
@@ -1104,7 +1098,6 @@ export default {
             this.direction = e.direction;
         },
         rowClassName (index, row) {
-            debugger;
             if (index === this.currentIndex && this.direction === 'down') {
                 return 'infoRow';
             }
@@ -1220,7 +1213,7 @@ export default {
 | options | Array\{name, value} | `` | 过滤项列表 |
 | value | String | `` | 默认过滤项选中的值 |
 | label | String | `` | 对象data中对象的属性 |
-| type | String | `` | 表示此列是否是可选择的，如果是值为selection, 对于日期类型的值可以设置值为time,配合timeFormat属性，转换成想要的日期格式 |
+| type | String | `` | 可选值有`'selection'`,`'expand'`,`'time'`,值为`'selection'`,表示此列是否是可选择的， 对于日期类型的值可以设置值为`'time'`,配合timeFormat属性，转换成想要的日期格式, `'expand'`表示在当前行出现icon标识，点击icon当前行下新增新一行数据 |
 | label | String | `` | 对象data中对象的属性 |
 | width | String | `` | 是指列的宽度值 |
 | formatter | Function | `` | 自定义列的值 |

@@ -38,6 +38,7 @@ import Input from './u-input.vue';
 import Label from './u-label.vue';
 import LightBox from './u-lightbox.vue';
 import LightBoxItem from './u-lightbox-item.vue';
+import LinearProgress from './u-linear-progress.vue';
 import LineChart from './u-line-chart.vue';
 import LinearLayout from './u-linear-layout.vue';
 import Link from './u-link.vue';
@@ -127,6 +128,7 @@ export {
     Label,
     LightBox,
     LightBoxItem,
+    LinearProgress,
     LineChart,
     LinearLayout,
     Link,

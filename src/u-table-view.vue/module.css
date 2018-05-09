@@ -95,6 +95,12 @@
 .btbody[no-show-header] .btrItem:first-child {
     border-top: 1px solid #ebf0f5;
 }
+.btbody[no-show-header] .btrItem{
+    border-left: 1px solid #ebf0f5;
+}
+.btbody[no-show-header] .btdSpan{
+    border-left: none;
+}
 
 .btrItem {
     border-top: 1px solid #ebf0f5;
@@ -196,15 +202,6 @@
     position: relative;
     left: 5px;
     top: 3px;
-}
-
-.btrItem:hover, .btrItem[hover] {
-    background-color: #fff;
-    background-clip: padding-box;
-}
-
-.btdSpan[expanded] {
-    border-bottom: 1px solid #ebf0f5;
 }
 
 .btrItem:hover .btdSpan:before, .btrItem[hover] .btdSpan:before {

@@ -55,13 +55,13 @@
                             <span v-if="column.type === 'selection'">
                                 <u-checkbox v-model="row.selected" :disabled="row.disabled"  @check="changeSelect(row)" />
                             </span>
-                            <template v-else-if="column.$scopedSlots.default">
+                            <template v-else-if="column.$scopedSlots.default || column.$slots.default">
                                 <u-table-view-cell :row="row" :column="column" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title></u-table-view-cell>
                             </template>
                             <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex) || defaultText}}</span>
                             <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="translateTime(row[column.label], column.timeFormat)">{{translateTime(row[column.label], column.timeFormat)}}</span>
-                            <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{column.defaultText === '' ? row[column.label] || column.defaultText  : row[column.label] || column.defaultText || defaultText}}</span>
-                            <div v-if="column.type === 'expand'" @click="toggleExpand(index, cindex)">
+                            <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{ showContent(column, row[column.label]) }}</span>
+                            <div v-if="column.type === 'expand' && showExpandIcon(column, row[column.label])" @click="toggleExpand(index, cindex)">
                                 <slot name="expandIcon">
                                     <span :class="$style.expand" :role="column.expandIcon" :name="row.iconName"></span>
                                 </slot>
@@ -70,7 +70,7 @@
                     </tr>
                     <tr :class="$style.btrItem" v-if="row.expanded">
                         <td :colspan="columns.length" :class="$style.btdSpan" :expanded="row.expanded" :border="border" role="center" :hide="isXScroll || border">
-                            <u-table-view-cell :row="row" :column="expandedColumn"></u-table-view-cell>
+                            <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
                         </td>
                     </tr>
                 </template>
@@ -177,13 +177,13 @@
                                 <span v-if="column.type === 'selection'">
                                     <u-checkbox v-model="row.selected" :disabled="row.disabled" @check="changeSelect(row)" />
                                 </span>
-                                <template v-else-if="column.$scopedSlots.default">
+                                <template v-else-if="column.$scopedSlots.default || column.$slots.default">
                                     <u-table-view-cell :row="row" :column="column" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title></u-table-view-cell>
                                 </template>
                                 <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex) || defaultText}}</span>
                                 <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="translateTime(row[column.label], column.timeFormat)">{{translateTime(row[column.label], column.timeFormat)}}</span>
-                                <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{column.defaultText === '' ? row[column.label] || column.defaultText  : row[column.label] || column.defaultText || defaultText}}</span>
-                                <div v-if="column.type === 'expand'" @click="toggleExpand(index, cindex)">
+                                <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{ showContent(column, row[column.label]) }}</span>
+                                <div v-if="column.type === 'expand' && showExpandIcon(column, row[column.label])" @click="toggleExpand(index, cindex)">
                                     <slot name="expandIcon">
                                         <span :class="$style.expand" :role="column.expandIcon" :name="row.iconName"></span>
                                     </slot>
@@ -192,7 +192,7 @@
                         </tr>
                         <tr :class="$style.btrItem" v-if="row.expanded">
                             <td :colspan="columns.length" :class="$style.btdSpan" :expanded="row.expanded" :border="border" role="center" :hide="isXScroll || border">
-                                <u-table-view-cell :row="row" :column="expandedColumn"></u-table-view-cell>
+                                <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
                             </td>
                         </tr>
                     </template>
@@ -304,8 +304,8 @@
                                     </template>
                                     <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex) || defaultText}}</span>
                                     <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="translateTime(row[column.label], column.timeFormat)">{{translateTime(row[column.label], column.timeFormat)}}</span>
-                                    <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{column.defaultText === '' ? row[column.label] || column.defaultText  : row[column.label] || column.defaultText || defaultText}}</span>
-                                    <div v-if="column.type === 'expand'" @click="toggleExpand(index, cindex)">
+                                    <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{ showContent(column, row[column.label]) }}</span>
+                                    <div v-if="column.type === 'expand' && showExpandIcon(column, row[column.label])" @click="toggleExpand(index, cindex)">
                                         <slot name="expandIcon">
                                             <span :class="$style.expand" :role="column.expandIcon" :name="row.iconName"></span>
                                         </slot>
@@ -314,7 +314,7 @@
                             </tr>
                             <tr :class="$style.btrItem" v-if="row.expanded">
                                 <td :colspan="columns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
-                                    <u-table-view-cell :row="row" :column="expandedColumn"></u-table-view-cell>
+                                    <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
                                 </td>
                             </tr>
                         </template>
@@ -391,8 +391,8 @@
                                     </template>
                                     <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex) || defaultText}}</span>
                                     <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="translateTime(row[column.label], column.timeFormat)">{{translateTime(row[column.label], column.timeFormat)}}</span>
-                                    <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{column.defaultText === '' ? row[column.label] || column.defaultText  : row[column.label] || column.defaultText || defaultText}}</span>
-                                    <div v-if="column.type === 'expand'" @click="toggleExpand(index, cindex)">
+                                    <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{ showContent(column, row[column.label]) }}</span>
+                                    <div v-if="column.type === 'expand' && showExpandIcon(column, row[column.label])" @click="toggleExpand(index, cindex)">
                                         <slot name="expandIcon">
                                             <span :class="$style.expand" :role="column.expandIcon" :name="row.iconName"></span>
                                         </slot>
@@ -401,7 +401,7 @@
                             </tr>
                             <tr :class="$style.btrItem" v-if="row.expanded">
                                 <td :colspan="columns.length" :class="$style.btdSpan" :border="border" role="center">
-                                    <u-table-view-cell :row="row" :column="expandedColumn"></u-table-view-cell>
+                                    <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
                                 </td>
                             </tr>
                         </template>

@@ -75,7 +75,7 @@ export default [
             { path: 'u-modal', component: () => import('../src/u-modal.vue/README.md') },
             { path: 'u-lightbox', component: () => import('../src/u-lightbox.vue/README.md') },
             /* Progress & Chart */
-            { path: 'u-linear-progress', component: () => import('proto-ui.vusion/src/u-linear-progress.vue/README.md') },
+            { path: 'u-linear-progress', component: () => import('../src/u-linear-progress.vue/README.md') },
             { path: 'u-circular-progress', component: () => import('../src/u-circular-progress.vue/README.md') },
             { path: 'u-chart', component: () => import('../src/u-chart.vue/README.md') },
             { path: 'u-bar-chart', component: () => import('../src/u-bar-chart.vue/README.md') },
