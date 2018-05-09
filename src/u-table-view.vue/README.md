@@ -1134,6 +1134,7 @@ export default {
 | limit| String, Number | `5` | 在pattern属性值为limit时，默认显示数据的数目 |
 | limitText| String | `'查看更多'` | 在pattern属性值为limit时，数据的数目大于limit的值时默认在表格最后一行显示的提示内容 |
 | allText| String | `'收起'`| 在pattern属性值为limit时，显示所有数据后默认在表格最后一行显示的提示内容 |
+| defaultText | String | `'-'` | 默认当单元格取值为空时，默认显示的内容，此处是设置整个表格 |
 ### Slots
 
 #### (default)
@@ -1225,3 +1226,5 @@ export default {
 | color | String | `` | 值为light的时，表格头背景是#fff |
 | timeFormat | String | `'YYYY-MM-DD HH:mm:ss'` | 定义type值为time时，返回的指定日期格式的值 |
 | expandIcon | String | `'right-down'` | icon的图标展开方向，提供两种类型，一种是默认向右点击向下`'right-down'`，另一种是默认向下点击向上`'up-down'` |
+| expandStrict | Boolean | `false` | 开启expand严格匹配模式， 只有对应的label字段有值才显示icon |
+| defaultText | String | `'-'` | 默认当单元格取值为空时，默认显示的内容，此处是设置某一列的显示 |
