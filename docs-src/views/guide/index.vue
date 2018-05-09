@@ -4,7 +4,7 @@
             <u-sidebar style="padding: 20px 0;">
                 <u-sidebar-item to="/guide/introduce">介绍</u-sidebar-item>
                 <u-sidebar-item to="/guide/quickstart">快速开始</u-sidebar-item>
-                <u-sidebar-item to="/guide/releaselog">更新日志</u-sidebar-item>
+                <u-sidebar-item href="https://github.com/vusion/cloud-ui/releases" target="_blank">更新日志</u-sidebar-item>
             </u-sidebar>
         </div>
         <div :class="$style.main">
