@@ -24,15 +24,14 @@ installComponents(CloudUI, Vue); // 全局注册组件库
 ```vue
 <template>
 <div>
-    <u-modal :visible.sync="modalVisible" mask-close title="提示">
-        <span>内容</span>
+    <u-modal :visible.sync="modalVisible" title="提示" mask-close cancelButton="">
+        <span>Welcome to use Cloud UI !</span>
     </u-modal>
     <u-button @click="open()">Open</u-button>
 </div>
 </template>
 
 <script>
-import { Modal } from 'library';
 export default {
     data() {
         return {
@@ -41,7 +40,7 @@ export default {
     },
     methods: {
         open() {
-            Modal.alert('Welcome to use Cloud UI !');
+            this.modalVisible = true;
         }
     }
 };
