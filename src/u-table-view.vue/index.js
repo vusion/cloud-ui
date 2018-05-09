@@ -245,7 +245,7 @@ export default {
                     noDisabledCount++;
             });
             // 这里有坑 行数据的checkbox有disabled状态 点击全选 可以是全选的
-            if (selectionIndexes.length === noDisabledCount)
+            if (selectionIndexes.length === noDisabledCount && selectionIndexes.length !== 0)
                 this.allSel = true;
             else
                 this.allSel = false;
