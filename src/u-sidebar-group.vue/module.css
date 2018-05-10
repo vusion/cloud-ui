@@ -29,12 +29,12 @@
 /* @TODO: replace by icon-font */
 .expander:after {
     content: '▸';
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .head:hover {
-    color: $brand-primary;
-    background-color: #dde8f0;
+    color: #fff;
+    /*background-color: #dde8f0;*/
 }
 
 /* @TODO: replace by icon-font */

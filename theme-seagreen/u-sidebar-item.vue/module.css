@@ -1,5 +1,18 @@
 @import '../../src/u-sidebar-item.vue/module.css';
 
 .root {
-    background-color: #e2e6f7;
+    background: #e2e6f7;
+}
+
+.root:hover {
+    color: $brand-primary;
+}
+
+.root[selected] {
+    color: #fff;
+    background: $brand-primary;
+}
+
+.root[disabled] {
+    color: #cdcdcd;
 }

@@ -6,17 +6,28 @@
     cursor: pointer;
     height: 52px;
     line-height: 52px;
+    padding-left: 30px;
     color: #8594aa;
-    padding-left: 20px;
     transition: all $transition-duration;
 }
 
 .root:hover {
-    color: $brand-primary;
-    /*background-color: $hover-color;*/
+    color: #fff;
 }
 
 .root[selected] {
-    background-color: $brand-primary;
     color: #fff;
+    background: #252b33;
+    border-right: 4px solid $brand-primary;
+}
+
+.root[disabled] {
+    cursor: $cursor-not-allowed;
+    background: $sidebar-background-color;
+    color: #586475;
+}
+
+.root[selected][disabled] {
+    background: $sidebar-background-color;
+    border-right: none;
 }

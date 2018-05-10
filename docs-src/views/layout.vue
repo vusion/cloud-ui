@@ -1,9 +1,11 @@
 <template>
 <u-global-layout>
     <u-navbar slot="head">
-        <u-logo slot="left" name="163yun">组件库</u-logo>
+        <u-logo slot="left" :class="$style.logo" name="163yun">组件库</u-logo>
         <!-- <u-navbar-item>首页</u-navbar-item> -->
+        <u-navbar-item to="/guide">指南</u-navbar-item>
         <u-navbar-item to="/components">组件</u-navbar-item>
+        <u-navbar-item to="/preview">演示</u-navbar-item>
         <!-- <u-navbar-item>模式</u-navbar-item> -->
         <!-- <u-navbar-item>资源</u-navbar-item> -->
         <u-theme-select slot="right" v-model="theme" @select="onSelectTheme">
@@ -13,7 +15,7 @@
         </u-theme-select>
     </u-navbar>
     <div><router-view></router-view></div>
-    <div :class="$style.foot" slot="foot"></div>
+    <div slot="foot" :class="$style.foot"></div>
 </u-global-layout>
 </template>
 
@@ -36,6 +38,11 @@ export default {
 </script>
 
 <style module>
+.logo {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
 .foot {
     line-height: 70px;
     background: #34383b;

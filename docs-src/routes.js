@@ -2,12 +2,44 @@ import Vue from 'vue';
 import Layout from './views/layout.vue';
 import Index from './views/index.vue';
 import Components from './views/components.vue';
+import Guide from './views/guide/index.vue';
+import GuideIntroduce from './views/guide/introduce.md';
+import GuideQuickStart from './views/guide/quickstart.md';
+import PreviewIndex from './views/templates/index.vue';
+import PreviewDashboardAnalysis from './views/templates/dashboard/analysis.vue';
+import PreviewDashboardMonitor from './views/templates/dashboard/monitor.vue';
+import PreviewFormBasic from './views/templates/form/basic.vue';
+import PreviewFormAdvance from './views/templates/form/advance.vue';
+import PreviewTableBasic from './views/templates/table/basic.vue';
+import PreviewTableAdvance from './views/templates/table/advance.vue';
+import PreviewTableSelect from './views/templates/table/select.vue';
+import PreviewDetailBasic from './views/templates/detail/basic.vue';
+import PreviewDetailAdvance from './views/templates/detail/advance.vue';
+import PreviewDate from './views/templates/date/basic.vue';
 
 const Empty = Vue.extend({ template: '<div>待完善...</div>' });
 
 export default [
     { path: '/', component: Layout, children: [
         { path: '', component: Index, redirect: '/components' },
+        { path: 'guide', component: Guide, children: [
+            { path: '', redirect: 'introduce' },
+            { path: 'introduce', component: GuideIntroduce },
+            { path: 'quickstart', component: GuideQuickStart },
+        ] },
+        { path: 'preview', component: PreviewIndex, children: [
+            { path: '', redirect: 'dashboard/analysis' },
+            { path: 'dashboard/analysis', component: PreviewDashboardAnalysis },
+            { path: 'dashboard/monitor', component: PreviewDashboardMonitor },
+            { path: 'form/basic', component: PreviewFormBasic },
+            { path: 'form/advance', component: PreviewFormAdvance },
+            { path: 'table/basic', component: PreviewTableBasic },
+            { path: 'table/advance', component: PreviewTableAdvance },
+            { path: 'table/select', component: PreviewTableSelect },
+            { path: 'detail/basic', component: PreviewDetailBasic },
+            { path: 'detail/advance', component: PreviewDetailAdvance },
+            { path: 'date/basic', component: PreviewDate },
+        ] },
         { path: 'components', component: Components, children: [
             { path: '', redirect: 'u-link' },
             /* Basic */
@@ -28,7 +60,7 @@ export default [
             { path: 'u-grid-layout', component: () => import('proto-ui.vusion/src/u-grid-layout.vue/README.md') },
             /* Navigation */
             { path: 'u-navbar', component: () => import('../src/u-navbar.vue/README.md') },
-            { path: 'u-sidebar', component: () => import('proto-ui.vusion/src/u-sidebar.vue/README.md') },
+            { path: 'u-sidebar', component: () => import('../src/u-sidebar.vue/README.md') },
             { path: 'u-menu', component: () => import('proto-ui.vusion/src/u-menu.vue/README.md') },
             { path: 'u-subnav', component: () => import('../src/u-subnav.vue/README.md') },
             { path: 'u-tabs', component: () => import('proto-ui.vusion/src/u-tabs.vue/README.md') },
