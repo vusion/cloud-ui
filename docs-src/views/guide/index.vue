@@ -13,20 +13,10 @@
     </div>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-
-        };
-    },
-};
-</script>
-
 <style module>
 .root {
-    width: 1180px;
-    margin: 0 auto;
+    /* width: 1180px;
+    margin: 0 auto; */
 }
 .side {
     position: fixed;
@@ -38,6 +28,7 @@ export default {
 
 .main {
     margin-left: 220px;
+    max-width: 1000px;
     padding: 40px;
 }
 </style>
