@@ -38,6 +38,7 @@ export default {
         showHeader: { type: Boolean, default: true }, // 展示表格头部
         loadText: { type: String, default: '' }, // 加载状态显示的文字
         rowClassName: { type: Function, default() { return ''; } }, // 自定义表格单行的样式
+        deep: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -108,13 +109,16 @@ export default {
         },
     },
     watch: {
-        data(newValue) {
-            if (this.pattern === 'limit')
-                this.tdata = this.initTableData(this.limit);
-            else
-                this.tdata = this.initTableData();
-            this.copyTdata = this.initTableData();
-            this.handleResize();
+        data: {
+            deep: this.deep,
+            handler(newValue) {
+                if (this.pattern === 'limit')
+                    this.tdata = this.initTableData(this.limit);
+                else
+                    this.tdata = this.initTableData();
+                this.copyTdata = this.initTableData();
+                this.handleResize();
+            },
         },
         allChecked(newValue) {
             this.allSel = newValue;
@@ -545,6 +549,7 @@ export default {
             else
                 copyRowData.iconName = 'down';
             this.tdata.splice(index, 1, copyRowData);
+            this.handleResize();
             this.$emit('toggle-expand', {
                 index,
                 direction: copyRowData.iconName,
