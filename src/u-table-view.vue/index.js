@@ -38,7 +38,6 @@ export default {
         showHeader: { type: Boolean, default: true }, // 展示表格头部
         loadText: { type: String, default: '' }, // 加载状态显示的文字
         rowClassName: { type: Function, default() { return ''; } }, // 自定义表格单行的样式
-        deep: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -110,7 +109,7 @@ export default {
     },
     watch: {
         data: {
-            deep: this.deep,
+            deep: true,
             handler(newValue) {
                 if (this.pattern === 'limit')
                     this.tdata = this.initTableData(this.limit);
