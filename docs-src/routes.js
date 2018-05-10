@@ -6,8 +6,6 @@ import Guide from './views/guide/index.vue';
 import GuideIntroduce from './views/guide/introduce.md';
 import GuideQuickStart from './views/guide/quickstart.md';
 import PreviewIndex from './views/templates/index.vue';
-// import PreviewNavigation from './views/templates/navigation.vue';
-// import PreviewChart from './views/templates/chart.vue';
 import PreviewDashboardAnalysis from './views/templates/dashboard/analysis.vue';
 import PreviewDashboardMonitor from './views/templates/dashboard/monitor.vue';
 import PreviewFormBasic from './views/templates/form/basic.vue';
@@ -30,9 +28,6 @@ export default [
             { path: 'quickstart', component: GuideQuickStart },
         ] },
         { path: 'preview', component: PreviewIndex, children: [
-            // { path: '', redirect: 'navigation' },
-            // { path: 'navigation', component: PreviewNavigation },
-            // { path: 'chart', component: PreviewChart },
             { path: '', redirect: 'dashboard/analysis' },
             { path: 'dashboard/analysis', component: PreviewDashboardAnalysis },
             { path: 'dashboard/monitor', component: PreviewDashboardMonitor },
@@ -62,7 +57,7 @@ export default [
             { path: 'u-grid-layout', component: () => import('proto-ui.vusion/src/u-grid-layout.vue/README.md') },
             /* Navigation */
             { path: 'u-navbar', component: () => import('../src/u-navbar.vue/README.md') },
-            { path: 'u-sidebar', component: () => import('proto-ui.vusion/src/u-sidebar.vue/README.md') },
+            { path: 'u-sidebar', component: () => import('../src/u-sidebar.vue/README.md') },
             { path: 'u-steps', component: () => import('proto-ui.vusion/src/u-steps.vue/README.md') },
             { path: 'u-subnav', component: () => import('../src/u-subnav.vue/README.md') },
             { path: 'u-tabs', component: () => import('proto-ui.vusion/src/u-tabs.vue/README.md') },
