@@ -548,6 +548,7 @@ export default {
             else
                 copyRowData.iconName = 'down';
             this.tdata.splice(index, 1, copyRowData);
+            // 由于点击会导致页面出现滚动条 表格fixed布局不会有变化导致表格显示有问题 需要重新计算下布局
             this.handleResize();
             this.$emit('toggle-expand', {
                 index,
