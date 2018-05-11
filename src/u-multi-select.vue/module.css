@@ -45,24 +45,23 @@
     transform: translateY(-50%);
     cursor: pointer;
     text-align: center;
-    &:after{
-        position: absolute;
-        icon-font: url('../u-icon.vue/icons/keyboard-arrow-down.svg');
-        color: #a5a5a6;
-        font-size: 18px;
-        right: 6px;
-        top: 0;
-        line-height: 32px;
-        transform: rotate(0deg);
-        transition: transform .3s;
-    }
 }
-.icon[role=up]{
-    &:after{
-        transform: rotate(-180deg);
-        transition: transform .3s;
-    }
+.icon:after{
+    position: absolute;
+    icon-font: url('../u-icon.vue/icons/keyboard-arrow-down.svg');
+    color: #a5a5a6;
+    font-size: 18px;
+    right: 6px;
+    top: 0;
+    line-height: 32px;
+    transform: rotate(0deg);
+    transition: transform .3s;
 }
+.icon[role=up]:after{
+    transform: rotate(-180deg);
+    transition: transform .3s;
+}
+
 .body{
     margin-top: 2px;
     width: 100%;

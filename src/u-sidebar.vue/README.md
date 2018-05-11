@@ -46,7 +46,7 @@
 
 ### 分隔符
 
-``` html  
+``` html
 <u-sidebar style="width: 200px;">
     <u-sidebar-item>指南</u-sidebar-item>
     <u-sidebar-item>概念</u-sidebar-item>
@@ -170,6 +170,7 @@
 | value.sync, v-model | Any | | 当前选择的值 |
 | collapsible | Boolean | `false` | 分组是否可以折叠 |
 | accordion | Boolean | `false` | 是否每次只会展开一个分组 |
+| particular | Boolean | `false` | 是否每次点击都会收起其他展开，只展开当前选中项所在组，点击其他展开不会对其他组展开产生影响 |
 | expand-trigger | String | `'click'` | 展开/折叠的触发方式。可选值：`'click'`表示整行点击均可触发、`'click-expander'`表示仅点击小箭头时触发 |
 | readonly | Boolean | `false` | 是否只读 |
 | disabled | Boolean | `false` | 是否禁用 |
@@ -181,6 +182,14 @@
 插入`<u-sidebar-item>`、`<u-sidebar-divider>`或`<u-sidebar-group>`子组件。
 
 ### Events
+
+#### @click
+
+点击此项时触发，与原生 click 事件不同的是，它只会在非只读和禁用的情况下触发。
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | MouseEvent | 鼠标事件对象 |
 
 #### @before-select
 
