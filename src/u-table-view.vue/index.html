@@ -7,7 +7,7 @@
         <table :class="$style.table" cellspacing="0" cellpadding="0" border="0" :style="{tableLayout: layout}">
             <thead v-if="showHeader">
                 <tr :class="$style.htrItem">
-                    <th v-for="(column, index) in columns" :class="$style.hthSpan" :role="column.filter || column.sortable" :border="border" :selection="column.type==='selection'"
+                    <th v-for="(column, index) in columns" :class="[$style.hthSpan, column.headClass]" :role="column.filter || column.sortable" :border="border" :selection="column.type==='selection'"
                         @click.stop="handleSort(column)">
                         <template v-if="column.type === 'selection' && column.headSelection">
                             <u-checkbox v-model="allSel" @check="allSelected" />
@@ -121,7 +121,7 @@
                 </colgroup>
                 <thead v-if="showHeader">
                     <tr :class="$style.htrItem">
-                        <th v-for="(column, index) in columns"  :class="$style.hthSpan" :border="border" :role="column.filter || column.sortable" :selection="column.type==='selection'"
+                        <th v-for="(column, index) in columns"  :class="[$style.hthSpan, column.headClass]" :border="border" :role="column.filter || column.sortable" :selection="column.type==='selection'"
                             @click.stop="handleSort(column)">
                             <template v-if="column.type === 'selection' && column.headSelection">
                                 <u-checkbox v-model="allSel" :disabled="allDisabled" @check="allSelected" />
@@ -243,7 +243,7 @@
                     </colgroup>
                     <thead v-if="showHeader">
                         <tr :class="$style.htrItem">
-                            <th v-for="(column, index) in columns" :class="$style.hthSpan" :border="border" :role="column.filter || column.sortable" :selection="column.type==='selection'"
+                            <th v-for="(column, index) in columns" :class="[$style.hthSpan, column.headClass]" :border="border" :role="column.filter || column.sortable" :selection="column.type==='selection'"
                                 @click.stop="handleSort(column)">
                                 <template v-if="column.type === 'selection' && column.headSelection">
                                     <u-checkbox v-model="allSel" @check="allSelected" />
@@ -330,7 +330,7 @@
                     </colgroup>
                     <thead v-if="showHeader">
                         <tr :class="$style.htrItem">
-                            <th v-for="(column, index) in rightColumns" :class="$style.hthSpan" :border="border" :role="column.filter || column.sortable" :selection="column.type==='selection'"
+                            <th v-for="(column, index) in rightColumns" :class="[$style.hthSpan, column.headClass]" :border="border" :role="column.filter || column.sortable" :selection="column.type==='selection'"
                                 @click.stop="handleSort(column)">
                                 <template v-if="column.type === 'selection' && column.headSelection">
                                     <u-checkbox v-model="allSel" @check="allSelected" />

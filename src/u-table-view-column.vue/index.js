@@ -28,6 +28,7 @@ export default {
         defaultText: { type: String, default: '-' },
         expandIcon: { type: String, default: 'right-down', validator: (value) => ['up-down', 'right-down'].includes(value) },
         expandStrict: { type: Boolean, default: false }, // 开启expand严格匹配模式， 只有对应的label字段有值才显示icon
+        headClass: { type: String, default: '' },
     },
     mixins: [Emitter],
     data() {

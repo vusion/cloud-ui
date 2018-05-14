@@ -3,6 +3,27 @@
 ## 示例
 ### 基本形式
 
+#### 命令式
+推荐使用下面的方式，使用$toast方式实现toast提示，标签形式用在有路由跳转时会有问题
+
+``` vue
+<template>
+<div>
+<u-button @click.native="open">Toast</u-button>
+</div>
+</template>
+
+<script>
+export default {
+    methods: {
+        open() {
+            this.$toast.show('Hello world');
+        },
+    },
+};
+</script>
+```
+
 #### 声明式
 
 
@@ -30,28 +51,6 @@
 <u-button @click.native="$refs.toastError.show()">toast</u-button>
 <u-toast ref="toastError" message="消息提示" state="error"></u-toast>
 ```
-
-#### 命令式
-推荐使用下面的方式
-
-``` vue
-<template>
-<div>
-<u-button @click.native="open">Toast</u-button>
-</div>
-</template>
-
-<script>
-export default {
-    methods: {
-        open() {
-            this.$toast.show('Hello world');
-        },
-    },
-};
-</script>
-```
-
 
 ## API
 ### Attrs/Props
