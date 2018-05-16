@@ -275,6 +275,7 @@ export default {
             let tdata = [];
             const copyData = deepCopy([], this.data);
             copyData.forEach((item, index) => {
+                /* eslint-disable */
                 item.original_data = this.data[index];
                 item.original_index = index;
             });
