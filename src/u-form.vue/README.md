@@ -37,7 +37,7 @@
     <u-form-item label="端口号">
         <u-input size="huge" maxlength="5" placeholder="1150-65535" value="3306"></u-input>
     </u-form-item>
-    <u-form-item label="详情">
+    <u-form-item label="详情" layout="block">
         <u-textarea size="huge"></u-textarea>
     </u-form-item>
     <!-- u-form-item label="表格" layout="block">

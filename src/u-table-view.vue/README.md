@@ -562,6 +562,7 @@ export default {
 </script>
 ```
  作用域插槽方式
+ 备注：为了处理特殊需求，scope.row对象有两个特殊属性，分别是`'original_data'`属性和`'original_index'`属性，第一个属性的值是传递给表格data属性中的每个原对象，第二个值是表示此行数据在传递给表格data属性所在的索引；第一个值是为了实现对象的双向绑定，因为表格内部的数据是深拷贝传递给data的值；
 ``` vue
 <template>
     <div>

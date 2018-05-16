@@ -274,6 +274,10 @@ export default {
         initTableData(value) {
             let tdata = [];
             const copyData = deepCopy([], this.data);
+            copyData.forEach((item, index) => {
+                item.original_data = this.data[index];
+                item.original_index = index;
+            });
             const selection = this.columns && this.columns.some((item) => item.type && item.type === 'selection');
             const expand = this.columns && this.columns.some((item) => item.type && item.type === 'expand');
             if (selection && expand) {

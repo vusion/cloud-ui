@@ -32,3 +32,15 @@
     line-height: 30px;
     color: #333;
 }
+
+.root[label-size$="small"] .value {
+    max-width: calc(100% - 60px - 30px);
+}
+
+.root[label-size$="large"] .value {
+    max-width: calc(100% - 100px - 30px);
+}
+
+.root[label-size$="huge"] .value {
+    max-width: calc(100% - 120px - 30px);
+}
