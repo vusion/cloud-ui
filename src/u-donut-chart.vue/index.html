@@ -1,0 +1,39 @@
+<div :class="$style.root">
+    <div :class="$style.chart" :empty="isEmpty" :legend="legend" :style="{width: width + 'px', height: height + 'px'}">
+        <svg :class="$style.svg" viewBox="0 0 160 160">
+            <g transform="translate(80, 80)" :class="$style.g">
+                <template v-for="item in posData">
+                    <path :class="$style.path" :selected="item === current"
+                          :state="item.state" :d="getD(item)" @mouseover="onMouseOver(item)"/>
+                    <line v-if="tooltip" :class="$style.line" :x1="item.tooltip.start.x" :y1="item.tooltip.start.y"
+                          :x2="item.tooltip.end.x" :y2="item.tooltip.end.y" :selected="item === current"/>
+                </template>
+                <circle cx="0" cy="0" r="45" :class="$style.circle"/>
+            </g>
+        </svg>
+
+        <div v-if="tooltip" v-for="item in posData" :class="$style.tooltip"
+             :style="getTooltipStyle(item)" :selected="item === current">
+            <span>{{item.name}}</span>
+            <span :class="$style.value">{{item.value}}{{unit}}</span>
+        </div>
+
+        <div :class="$style.text">
+            <p :class="$style.percent"><span>{{current.percent}}</span>%</p>
+            <p :class="$style.name">{{current.name}}</p>
+        </div>
+    </div>
+
+    <div v-if="legend" :class="$style.legend" :style="{height: height + 'px', marginLeft: width + 'px'}">
+        <ul v-for="col in legendColumns">
+            <li v-for="row in legendRows" v-if="(col-1) * legendRows + row <= posData.length">
+                <span :class="$style.legendName" :state="posData[(col-1) * legendRows + row -1].state">
+                    {{posData[(col-1) * legendRows + row -1].name}}
+                </span>
+                <span :class="$style.legendValue">{{posData[(col-1) * legendRows + row -1].value}}{{unit}}</span>
+            </li>
+        </ul>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+

@@ -1,0 +1,175 @@
+.chart[legend] {
+    float: left;
+}
+
+.chart[empty]:after {
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    height: 110px;
+    width: 110px;
+    top: calc(50% - 55px);
+    left: calc(50% - 55px);
+    border: 1px solid #eee;
+    border-radius: 100%;
+}
+
+.chart[empty] .circle {
+    stroke: #eee;
+    stroke-width: 1px;
+}
+
+.chart[empty] .text {
+    height: 26px;
+    top: calc(50% - 13px);
+ }
+
+.chart {
+    position: relative;
+    margin: 0 auto;
+}
+
+.svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.path {
+    fill-opacity: 0;
+    stroke: green;
+    stroke-width: 10px;
+    transition: stroke-width 0.2s ease, stroke 0.2s ease;
+}
+
+.path[selected] {
+    stroke-width: 20px;
+}
+
+.circle {
+    fill: white;
+}
+
+.text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    top: calc(50% - 25px);
+    left: calc(50% - 30px);
+    text-align: center;
+    width: 60px;
+    height: 50px;
+    line-height: 1;
+    color: #525c60;
+}
+
+.percent, .name {
+    margin: 0;
+}
+
+.percent span {
+    font-size: 26px;
+}
+
+.name {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.line {
+    display: none;
+    stroke-width: 1px;
+    stroke: #dbdcde;
+}
+
+.line[selected] {
+    display: block;
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    padding: 0 20px;
+    color: #333;
+    border-bottom: 1px solid #dbdcde;
+    white-space: nowrap;
+}
+
+.tooltip[selected] {
+    display: block;
+}
+
+.value {
+    margin-left: 20px;
+}
+
+.legend ul {
+    float: left;
+    margin-left: 40px;
+    padding-top: 10px;
+}
+
+.legend ul li {
+    line-height: 36px;
+    color: #333;
+}
+
+.legendName {
+    display: inline-block;
+    width: 145px;
+}
+
+.legendName:before {
+    display: inline-block;
+    content: '';
+    width: 12px;
+    height: 12px;
+    margin-right: 6px;
+    background: green;
+}
+
+.path[state="nws"] { stroke: $product-nws; }
+.path[state="nvm"] { stroke: $product-nvm; }
+.path[state="nms"] { stroke: $product-nms; }
+.path[state="ncv"] { stroke: $product-ncv; }
+.path[state="nce"] { stroke: $product-nce; }
+.path[state="nse"] { stroke: $product-nse; }
+.path[state="nlb"] { stroke: $product-nlb; }
+.path[state="ing"] { stroke: $product-ing; }
+.path[state="rep"] { stroke: $product-rep; }
+.path[state="rds"] { stroke: $product-rds; }
+.path[state="ncr"] { stroke: $product-ncr; }
+.path[state="nos"] { stroke: $product-nos; }
+.path[state="cdn"] { stroke: $product-cdn; }
+.path[state="net"] { stroke: $product-net; }
+.path[state="dns"] { stroke: $product-dns; }
+.path[state="mongo"] { stroke: $product-mongo; }
+.path[state="ssl"] { stroke: $product-ssl; }
+.path[state="nqs"] { stroke: $product-nqs; }
+.path[state="ddos"] { stroke: $product-ddos; }
+.path[state="snat"] { stroke: $product-snat; }
+.path[state="nes"] { stroke: $product-nes; }
+.path[state="kafka"] { stroke: $product-kafka; }
+
+.legendName[state='nws']:before { background: $product-nws; }
+.legendName[state="nvm"]:before { background: $product-nvm; }
+.legendName[state="nms"]:before { background: $product-nms; }
+.legendName[state="ncv"]:before { background: $product-ncv; }
+.legendName[state="nce"]:before { background: $product-nce; }
+.legendName[state="nse"]:before { background: $product-nse; }
+.legendName[state="nlb"]:before { background: $product-nlb; }
+.legendName[state="ing"]:before { background: $product-ing; }
+.legendName[state="rep"]:before { background: $product-rep; }
+.legendName[state="rds"]:before { background: $product-rds; }
+.legendName[state="ncr"]:before { background: $product-ncr; }
+.legendName[state="nos"]:before { background: $product-nos; }
+.legendName[state="cdn"]:before { background: $product-cdn; }
+.legendName[state="net"]:before { background: $product-net; }
+.legendName[state="dns"]:before { background: $product-dns; }
+.legendName[state="mongo"]:before { background: $product-mongo; }
+.legendName[state="ssl"]:before { background: $product-ssl; }
+.legendName[state="nqs"]:before { background: $product-nqs; }
+.legendName[state="ddos"]:before { background: $product-ddos; }
+.legendName[state="snat"]:before { background: $product-snat; }
+.legendName[state="nes"]:before { background: $product-nes; }
+.legendName[state="kafka"]:before { background: $product-kafka; }
