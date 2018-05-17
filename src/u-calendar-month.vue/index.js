@@ -14,7 +14,7 @@ export default {
     parentName: 'u-calendar',
     mixins: [Emitter],
     props: {
-        date: { type: [String, Date], default: undefined, validator: dateValidadtor }, // 单独引用时
+        value: { type: [String, Date], default: undefined, validator: dateValidadtor }, // 单独引用时
         // currentDate: { type: Date },
         showDate: { type: Date },
         readonly: { type: Boolean, default: false },
@@ -51,7 +51,7 @@ export default {
     },
     methods: {
         initDate() {
-            this.currentDate = parse(this.date);
+            this.currentDate = parse(this.value);
             this.currentMonth = getMonth(this.currentDate);
             this.currentShowDate = this.showDate || this.currentDate;
             this.showYear = getYear(this.currentShowDate);

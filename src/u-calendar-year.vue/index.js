@@ -12,7 +12,7 @@ export default {
     parentName: 'u-calendar',
     mixins: [Emitter],
     props: {
-        date: { type: [String, Date], default: undefined, validator: dateValidadtor },
+        value: { type: [String, Date], default: undefined, validator: dateValidadtor },
         showDate: { type: Date },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
@@ -36,7 +36,7 @@ export default {
     },
     methods: {
         initDate() {
-            this.currentDate = parse(this.date);
+            this.currentDate = parse(this.value);
             this.currentShowDate = this.showDate || this.currentDate;
             this.currentYear = getYear(this.currentDate);
             this.showYear = getYear(this.currentShowDate);

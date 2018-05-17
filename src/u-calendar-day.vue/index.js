@@ -19,7 +19,7 @@ export default {
     parentName: 'u-calendar',
     mixins: [Emitter],
     props: {
-        date: { type: [String, Date], default: undefined, validator: dateValidadtor }, // 单独引用时
+        value: { type: [String, Date], default: undefined, validator: dateValidadtor }, // 单独引用时
         showDate: { type: [String, Date], default: undefined, validator: dateValidadtor },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
@@ -47,7 +47,7 @@ export default {
 
             this.initDate();
         },
-        date(value, oldValue) {
+        value(value, oldValue) {
             const newDate = parse(value);
             const oldDate = parse(oldValue);
             if (isEqual(newDate, oldDate))
@@ -60,7 +60,7 @@ export default {
     },
     methods: {
         initDate(date) {
-            this.currentDate = parse(date || this.date);
+            this.currentDate = parse(date || this.value);
             this.currentShowDate = this.showDate || this.currentDate;
             this.currentMonth = getMonth(this.currentShowDate);
             this.getAllDays(this.currentShowDate);
