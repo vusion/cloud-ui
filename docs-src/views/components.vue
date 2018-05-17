@@ -84,7 +84,7 @@
                     <u-sidebar-item exact to="/components/u-xbar-chart">水平柱状图 <small>XBarChart</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-line-chart">线状图 <small>LineChart</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-pie-chart">饼状图 <small>PieChart</small></u-sidebar-item>
-                    <u-sidebar-item exact to="/components/u-donut-chart">圆环图 <small>DonutChart</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-donut-chart">环状图 <small>DonutChart</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group v-if="advanced" title="Mixin & Utils">
                     <u-sidebar-item exact to="/components/u-emitter">触发器 <small>Emitter</small></u-sidebar-item>

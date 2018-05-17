@@ -1,4 +1,4 @@
-# 圆环图 DonutChart
+# 环状图 DonutChart
 
 ## 示例
 ### 基本形式
