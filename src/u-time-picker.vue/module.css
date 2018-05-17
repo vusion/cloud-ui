@@ -1,18 +1,2 @@
 @import '../u-picker.vue/module.css';
-.root{
-	display: inline-block;
-}
-.root .item input{
-	padding: 6px;
-}
-.item {
-	position: relative;
-	margin-right: 16px;
-	vertical-align: top;
-}
-.item:not(:last-child):after {
-	content: ':';
-	position: absolute;
-	right: -12px;
-    font-size: 140%;
-}
+

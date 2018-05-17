@@ -34,7 +34,7 @@
 ### 事件
 ``` vue
 <template>
-<u-time-picker :value.sync="time" @change="onChange" @select="onSelect"  @before-select="onBeforeSelect" @input="onInput"></u-time-picker>
+<u-time-picker :value.sync="time" @change="onChange" @select="onSelect"  @before-select="onBeforeSelect" @input="onInput" @toggle="onToggle"></u-time-picker>
 </template>
 
 <script>
@@ -62,6 +62,9 @@ export default {
         onInput($event) { // 输入
         	console.log('input', $event);
         },
+        onToggle($event) {
+        	console.log('toggle', $event);
+        }
     },
 };
 </script>
@@ -76,9 +79,9 @@ export default {
 | maxTime | String | `'23:59:59'` | 最大时间 |
 | readonly | Boolean | `false` | 是否只读 |
 | disabled | Boolean | `false` | 是否禁用 |
-| placement | String |  | popper方向 |
+| placement | String | `bottom-start` | popper方向 |
 | placeholder | String | `选择时间` | 输入框文本 |
-| trigger | String | `input`或`blur` | input校验时机 |
+| fixOn | String | `input`或`blur` | input校验时机 |
 
 ### Events
 

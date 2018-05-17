@@ -1,4 +1,3 @@
-import isDate from 'date-fns/is_date';
 import format from 'date-fns/format';
 import parse from 'date-fns/parse'; // null -> 1970 undefined -> Invalid Date
 import isEqual from 'date-fns/is_equal';
@@ -8,7 +7,7 @@ window.parse = parse;
 import CalendarDay from '../u-calendar-day.vue';
 import CalendarMonth from '../u-calendar-month.vue';
 import CalendarYear from '../u-calendar-year.vue';
-import { inDateRange, dateValidadtor } from './date';
+import { inDateRange, dateValidadtor, _isDate, setDateTime } from './date';
 
 export default {
     name: 'u-calendar',
@@ -23,6 +22,21 @@ export default {
         tag: { type: String, default: '111', validator: (t) => /^[01]{3}$/.test(t) }, // 分别对应年月日，年月表示为：110
         formatter: { type: String, default: 'YYYY-MM-DD' },
         isDateRangePicker: { type: Boolean, default: false },
+        time: {
+            type: [String, Number],
+            default: 'start', // 默认返回00:00:00的时间戳
+            validator(value) {
+                if (['start', 'morning', 'end'].includes(value))
+                    return true;
+                const nvalue = +value;
+                if (!isNaN(value) && nvalue >= 0 && nvalue < 24)
+                    return true;
+
+                if (!/^[0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}$/.test(value))
+                    throw new Error('请输入正确的time格式');
+                return true;
+            },
+        },
     },
     data() {
         return {
@@ -42,14 +56,14 @@ export default {
             if (isEqual(newDate, oldDate))
                 return;
 
+            const formattedValue = this.formatValue(newDate);
             this.$emit('change', {
-                value: newDate,
-                oldValue: oldDate,
+                value: this._setDateTime(newDate),
+                oldValue: this._setDateTime(oldDate),
+                formattedValue,
             });
-
-            const formatedValue = this.formatValue(newDate);
-            this.$emit('update:value', formatedValue);
-            this.$emit('input', formatedValue);
+            this.$emit('update:value', formattedValue);
+            this.$emit('input', formattedValue);
         },
         value(newDate, oldDate) {
             if (isEqual(newDate, oldDate))
@@ -59,6 +73,11 @@ export default {
         },
         tag() {
             this.initView();
+        },
+    },
+    computed: {
+        _setDateTime() {
+            return (date) => setDateTime(date, this.time);
         },
     },
     components: {
@@ -76,8 +95,8 @@ export default {
                 this.currentView = tview;
             else { // 年月选择
                 this.$emit('select', {
-                    value: this.currentShowDate,
-                    oldValue: this.currentDate,
+                    value: this._setDateTime(this.currentShowDate),
+                    oldValue: this._setDateTime(this.currentDate),
                 });
                 this.currentDate = this.currentShowDate;
             }
@@ -115,8 +134,7 @@ export default {
             }
         },
         initDate(date) {
-            if (date)
-                this.currentDate = parse(date);
+            this.currentDate = date ? parse(date) : undefined;
             this.currentShowDate = this.showDate ? parse(this.showDate) : (this.currentDate || new Date());
         },
         initDateRange() {
@@ -129,7 +147,7 @@ export default {
                     return false;
                 arr[0] && (arr[0] = parse(arr[0]));
                 arr[1] && (arr[1] = parse(arr[1]));
-                if (arr[0] && arr[1] && !(isDate(arr[0]) && isDate(arr[1])) || isAfter(arr[0], arr[1]))
+                if (arr[0] && arr[1] && !(_isDate(arr[0]) && _isDate(arr[1])) || isAfter(arr[0], arr[1]))
                     return false;
 
                 return true;

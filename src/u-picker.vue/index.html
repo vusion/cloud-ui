@@ -1,4 +1,4 @@
-<u-popper v-if="!disabled && !readonly" ref="popper" :placement="placement" @toggle="showPanel = $event.open">
+<u-popper v-if="!disabled && !readonly" ref="popper" :placement="placement" @toggle="onToggle">
     <div :class="$style.inputWrapper" 
         @mouseenter="onMouseEnter"
         @mouseleave="showClearBtn = false">

@@ -2,6 +2,7 @@ import format from 'date-fns/format';
 import isDate from 'date-fns/is_date';
 import parse from 'date-fns/parse';
 
+const _isDate = (date) => date && date.toString() !== 'Invalid Date' && isDate(date);
 const isArray = (o) => Object.prototype.toString.call(o) === '[object Array]';
 /**
  *
@@ -31,15 +32,30 @@ const inDateRange = (date, dateRange, openInterval = false) => {
 };
 
 const dateValidadtor = (date) => {
-    if (!isDate(parse(date)))
-        throw new TypeError('Invalid Date');
+    if (!_isDate(parse(date)))
+        return false;
     return true;
 };
 
 const sortIncrease = (dateArr) => dateArr.sort((d1, d2) => +d1 - (+d2));
 
+const setDateTime = (date, time) => { // 如果超出范围，不可设置
+    if (!_isDate(date) || time === 'start')
+        return date;
+    if (time === 'morning')
+        time = '08:00:00';
+    else if (time === 'end')
+        time = '23:59:59';
+    else if (typeof +time === 'number')
+        time = (+time > 10 ? time : '0' + time) + ':00:00';
+    else
+        time = time.replace(/^(\w:)/, '0$1').replace(/:(\w):/g, ':0$1:').replace(/:(\w)$/, ':0$1');
+    return parse(format(date, 'YYYY-MM-DD') + 'T' + time);
+};
 export {
     inDateRange,
     dateValidadtor,
     sortIncrease, // 日期从小到大排序
+    _isDate,
+    setDateTime,
 };

@@ -6,7 +6,7 @@ export default {
         readonly: { type: Boolean, default: false },
         placement: { type: String },
         value: { type: String },
-        trigger: { type: String, default: 'blur', validator: (value) => ['input', 'blur'].includes(value) }, // 时间校正方式
+        fixOn: { type: String, default: 'blur', validator: (value) => ['input', 'blur'].includes(value) }, // 时间校正方式
     },
     data() {
         return Object.assign({
@@ -37,7 +37,7 @@ export default {
     },
     watch: {
         inputValue(value) {
-            if (this.trigger === 'input')
+            if (this.fixOn === 'input')
                 this.debouncedInput(value);
             this.$emit('input', value);
         },
@@ -47,10 +47,13 @@ export default {
         $attrs() {
             Object.assign(this.$data, this.$attrs);
         },
+        placeholder(value) {
+            this.currentPlaceholder = value;
+        },
     },
     created() {
         this.debouncedInput = debounce(this.setValue, 1000);
-        this.value && (this.displayValue = this.adjustTime(this.format(this.value)));
+        this.value && (this.displayValue = this.adjust(this.format(this.value)));
     },
     methods: {
         onMouseEnter() {
@@ -59,19 +62,22 @@ export default {
             else
                 this.showClearBtn = false;
         },
+        onToggle($event) {
+            this.$emit('toggle', $event);
+            this.showPanel = $event.open;
+        },
         onBlur() {
-            if (this.trigger === 'blur')
+            if (this.fixOn === 'blur')
                 this.setValue(this.inputValue);
         },
         onChange(event) { // panel组件中的value变化
-            this.displayValue = event.value;
+            this.displayValue = event.value ? this.format(event.value) : event.value;
             this.$emit('change', event);
         },
         setValue(value) {
-            if (this.timeValidator(value))
-                this.displayValue = value;
-            else
-                this.inputValue = this.displayValue;
+            if (this.validate(value))
+                this.displayValue = this.format(value);
+            this.inputValue = this.displayValue;
         },
     },
 };

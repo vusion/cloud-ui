@@ -16,9 +16,9 @@ export default {
     },
     methods: {
         format: formatTime,
-        timeValidator,
-        adjustTime(value) {
-            if (value > formatTime(this.maxTime) || value < formatTime(this.minTime))
+        validate: timeValidator,
+        adjust(value) {
+            if (value > this.format(this.maxTime) || value < this.format(this.minTime))
                 value = undefined;
             return value;
         },
