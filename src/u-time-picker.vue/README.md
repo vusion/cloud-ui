@@ -9,11 +9,11 @@
 ``` html
 <u-time-picker value="15:46:33"></u-time-picker>
 ```
-### 显示时分
+<!-- ### 显示时分
 ``` html
 <u-time-picker value="15:46:33" tag="110"></u-time-picker>
 ```
-
+-->
 ### 禁用和只读
 ``` html
 <u-linear-layout>
@@ -25,7 +25,10 @@
 
 ### 日期范围
 ``` html
-<u-time-picker value="15:46:33" min-time="12:30:00" max-time="14:45:00"></u-time-picker>
+<u-linear-layout>
+<u-time-picker value="15:46:33" minTime="12:30:00" maxTime="14:45:00"></u-time-picker>
+<u-time-picker value="12:46:33" minTime="12:30:00" maxTime="14:45:00"></u-time-picker>
+</u-linear-layout>
 ```
 
 ### 事件
@@ -47,16 +50,16 @@ export default {
         },
     },
     methods: {
-        onChange($event) {
-            console.log('change', $event); // 时间改变触发，输入框blur
+        onChange($event) { // 合法值改变
+            console.log('change', $event);
         },
-        onSelect($event) {
-        	console.log('select', $event); // 调整时间触发
+        onSelect($event) { // 选择
+        	console.log('select', $event);
         },
         onBeforeSelect($event) {
         	console.log('before-select', $event);
         },
-        onInput($event) { // 输入框输入或者调整时间时触发
+        onInput($event) { // 输入
         	console.log('input', $event);
         },
     },
@@ -73,7 +76,9 @@ export default {
 | maxTime | String | `'23:59:59'` | 最大时间 |
 | readonly | Boolean | `false` | 是否只读 |
 | disabled | Boolean | `false` | 是否禁用 |
-| tag | String | `111` | 控制显示时分秒的显示，1为显示，0为不显示 |
+| placement | String |  | popper方向 |
+| placeholder | String | `选择时间` | 输入框文本 |
+| trigger | String | `input`或`blur` | input校验时机 |
 
 ### Events
 

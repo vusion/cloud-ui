@@ -1,3 +1,0 @@
-<span :class="$style.root">
-	<u-number-input style="width: 92px;" v-for="(time, index) in timeArr" v-if="time.show" :class="$style.item" :min="time.min" :max="time.max" formatter="00" :value="time.value" :readonly="readonly" :disabled="disabled" @change="onChange($event, index)" @select="onSelect($event, index)" @before-select="onBeforeSelect($event, index)" @input="onInput($event, index)"/>
-</span>

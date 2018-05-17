@@ -1,0 +1,19 @@
+<u-popper v-if="!disabled && !readonly" ref="popper" :placement="placement" @toggle="showPanel = $event.open">
+    <div :class="$style.inputWrapper" 
+        @mouseenter="onMouseEnter"
+        @mouseleave="showClearBtn = false">
+        <u-input :placeholder="currentPlaceholder" :value="inputValue" ref="input" @input="value => inputValue = value" @blur="onBlur"></u-input>
+        <span v-if="showClearBtn" @click="displayValue = undefined" :class="$style.delete"></span>
+        <span v-else :class="$style.calendar"></span>
+    </div>
+    <div slot="popper" @click.stop style="border-radius: 4px;box-shadow: 0 0 10px 0 rgba(80,90,109,0.16);">
+        <div v-if="init">
+            <component v-if="panelComponent" v-bind:is="panelComponent" :value="displayValue" @change="onChange" v-on="listeners" @closePanel="$refs.popper.toggle(false)" v-bind="$attrs"></component>
+        </div>
+    </div>
+</u-popper>
+<div v-else :class="$style.inputWrapper" :readonly="readonly" :disabled="disabled">
+    <u-input :placeholder="currentPlaceholder" :value="displayValue" :readonly="readonly" :disabled="disabled"></u-input>
+    <span :class="$style.calendar"></span>
+    <div :class="$style.shade"></div>
+</div>

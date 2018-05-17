@@ -44,11 +44,13 @@ import NavbarDivider from './u-navbar-divider.vue';
 import NavbarItem from './u-navbar-item.vue';
 import NumberInput from './u-number-input.vue';
 import Pagination from './u-pagination.vue';
+// import Picker from './u-picker.vue';
 import PieChart from './u-pie-chart.vue';
 import Pill from './u-pill.vue';
 import Pills from './u-pills.vue';
 import Popover from './u-popover.vue';
 import Radios from './u-radios.vue';
+import ScrollView from './u-scroll-view.vue';
 import SelectDivider from './u-select-divider.vue';
 import SelectGroup from './u-select-group.vue';
 import Select from './u-select.vue';
@@ -121,12 +123,14 @@ export {
     NavbarItem,
     NumberInput,
     Pagination,
+    // Picker,
     PieChart,
     Pill,
     Pills,
     Popover,
     Radio,
     Radios,
+    ScrollView,
     SelectDivider,
     SelectGroup,
     Select,
