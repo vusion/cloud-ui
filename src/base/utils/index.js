@@ -7,10 +7,10 @@ export const isObject = (value) => {
 export const deepCopy = function (result, source) {
     for (const key in source) {
         const copy = source[key];
-        if (isObject(copy))
-            result[key] = deepCopy(result[key] || {}, copy);
-        else if (Array.isArray(copy))
+        if (Array.isArray(copy))
             result[key] = deepCopy(result[key] || [], copy);
+        else if (isObject(copy))
+            result[key] = deepCopy(result[key] || {}, copy);
         else
             result[key] = copy;
     }
