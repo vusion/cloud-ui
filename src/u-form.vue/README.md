@@ -613,12 +613,14 @@ export default {
 | rules | Array | | 表单项的验证规则。如果没有则会根据`name`属性从表单的`rules`中获取。 |
 | message | String | | 默认提示信息 |
 | required | Boolean | | 是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。 |
+| description | String | | 添加描述内容 |
 
 ### Slots
 
-#### (default)
-
-插入`<u-form-item>`子组件。
+| Slot | Description |
+| ---- | ----------- |
+| description | 自定义描述内容 |
+| (default) | 弹窗内容自定义 |
 
 ### Methods
 
