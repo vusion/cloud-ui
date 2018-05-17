@@ -12,6 +12,9 @@ $brand-error: #ff8a7a;
 $brand-disabled: #e9f0f5;
 
 /* Product Colors */
+$product-nws: #b693f6;
+$product-nvm: #30c5db;
+$product-nvm-light: #1ba9bf;
 $product-nms: #30c5db;
 $product-nms-light: #1ba9bf;
 $product-ncv: #67aaf5;
@@ -22,6 +25,8 @@ $product-nse: #87cee8;
 $product-nse-light: #77b5cc;
 $product-nlb: #67c5f5;
 $product-nlb-light: #5cb1db;
+$product-ing: #65cf83;
+$product-ing-light: #5bba76;
 $product-rep: #4ec9ab;
 $product-rep-light: #45b095;
 $product-rds: #94cd4e;
@@ -34,12 +39,18 @@ $product-cdn: #8ad199;
 $product-cdn-light: #79b886;
 $product-net: #61dac6;
 $product-net-light: #61dac6;
+$product-dns: #c3c8ce;
+$product-dns-light: #7ab3c8;
 $product-mongo: #96dce6;
 $product-mongo-light: #84c1ca;
+$product-ssl: #f79453;
 $product-nqs: #86d651;
 $product-nqs-light: #78c049;
+$product-ddos: #f6db56;
 $product-snat: #c69cf6;
 $product-snat-light: #b28cdd;
+$product-nes: #c266d9;
+$product-kafka: #5c81e5;
 
 /* Field Colors */
 $field-background: white;

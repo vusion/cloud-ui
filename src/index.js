@@ -28,6 +28,7 @@ import DateTimePicker from './u-date-time-picker.vue';
 import DescListItem from './u-desc-list-item.vue';
 import DescListGroup from './u-desc-list-group.vue';
 import DescList from './u-desc-list.vue';
+import DonutChart from './u-donut-chart.vue';
 import Form from './u-form.vue';
 import FormItem from './u-form-item.vue';
 import Icon from './u-icon.vue';
@@ -118,6 +119,7 @@ export {
     DescListItem,
     DescListGroup,
     DescList,
+    DonutChart,
     Form,
     FormItem,
     Icon,
