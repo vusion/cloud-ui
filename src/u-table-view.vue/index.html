@@ -61,11 +61,11 @@
                             <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex) || defaultText}}</span>
                             <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="translateTime(row[column.label], column.timeFormat)">{{translateTime(row[column.label], column.timeFormat)}}</span>
                             <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{ showContent(column, row[column.label]) }}</span>
-                            <div v-if="column.type === 'expand' && showExpandIcon(column, row[column.label])" @click="toggleExpand(index, cindex)">
+                            <span v-if="column.type === 'expand' && showExpandIcon(column, row[column.label])" @click="toggleExpand(index, cindex)">
                                 <slot name="expandIcon">
                                     <span :class="$style.expand" :role="column.expandIcon" :name="row.iconName"></span>
                                 </slot>
-                            </div>
+                            </span>
                         </td>
                     </tr>
                     <tr :class="$style.btrItem" v-if="row.expanded">
@@ -183,11 +183,11 @@
                                 <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex) || defaultText}}</span>
                                 <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="translateTime(row[column.label], column.timeFormat)">{{translateTime(row[column.label], column.timeFormat)}}</span>
                                 <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{ showContent(column, row[column.label]) }}</span>
-                                <div v-if="column.type === 'expand' && showExpandIcon(column, row[column.label])" @click="toggleExpand(index, cindex)">
+                                <span v-if="column.type === 'expand' && showExpandIcon(column, row[column.label])" @click="toggleExpand(index, cindex)">
                                     <slot name="expandIcon">
                                         <span :class="$style.expand" :role="column.expandIcon" :name="row.iconName"></span>
                                     </slot>
-                                </div>
+                                </span>
                             </td>
                         </tr>
                         <tr :class="$style.btrItem" v-if="row.expanded">
@@ -305,11 +305,11 @@
                                     <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex) || defaultText}}</span>
                                     <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="translateTime(row[column.label], column.timeFormat)">{{translateTime(row[column.label], column.timeFormat)}}</span>
                                     <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{ showContent(column, row[column.label]) }}</span>
-                                    <div v-if="column.type === 'expand' && showExpandIcon(column, row[column.label])" @click="toggleExpand(index, cindex)">
+                                    <span v-if="column.type === 'expand' && showExpandIcon(column, row[column.label])" @click="toggleExpand(index, cindex)">
                                         <slot name="expandIcon">
                                             <span :class="$style.expand" :role="column.expandIcon" :name="row.iconName"></span>
                                         </slot>
-                                    </div>
+                                    </span>
                                 </td>
                             </tr>
                             <tr :class="$style.btrItem" v-if="row.expanded">
@@ -392,11 +392,11 @@
                                     <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex) || defaultText}}</span>
                                     <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="translateTime(row[column.label], column.timeFormat)">{{translateTime(row[column.label], column.timeFormat)}}</span>
                                     <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{ showContent(column, row[column.label]) }}</span>
-                                    <div v-if="column.type === 'expand' && showExpandIcon(column, row[column.label])" @click="toggleExpand(index, cindex)">
+                                    <span v-if="column.type === 'expand' && showExpandIcon(column, row[column.label])" @click="toggleExpand(index, cindex)">
                                         <slot name="expandIcon">
                                             <span :class="$style.expand" :role="column.expandIcon" :name="row.iconName"></span>
                                         </slot>
-                                    </div>
+                                    </span>
                                 </td>
                             </tr>
                             <tr :class="$style.btrItem" v-if="row.expanded">

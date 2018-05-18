@@ -34,7 +34,6 @@ export default {
             this.$emit('update:expanded', expanded);
 
             if (this.parentVM.accordion || mode) {
-                debugger;
                 this.parentVM.groupVMs.forEach((groupVM) => {
                     if (groupVM !== this) {
                         groupVM.currentExpanded = false;
