@@ -85,6 +85,9 @@
                     <u-sidebar-item exact to="/components/u-line-chart">线状图 <small>LineChart</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-pie-chart">饼状图 <small>PieChart</small></u-sidebar-item>
                 </u-sidebar-group>
+                <u-sidebar-group title="Extension">
+                    <u-sidebar-item exact to="/components/x-ace-editor">代码编辑器 <small>XAceEditor</small></u-sidebar-item>
+                </u-sidebar-group>
                 <u-sidebar-group v-if="advanced" title="Mixin & Utils">
                     <u-sidebar-item exact to="/components/u-emitter">触发器 <small>Emitter</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-router-item">路由项 <small>RouterItem</small></u-sidebar-item>

@@ -22,16 +22,12 @@ module.exports = {
             chunkFilename: 'chunk.[name].[chunkhash:16].js',
         },
         resolve: {
-            EXTENDS: true,
             alias: {
-                EXTENDS: true,
                 library$: path.resolve(__dirname, `../${themePath}/index.js`),
             },
         },
         module: {
-            EXTENDS: true,
             rules: [
-                'EXTENDS',
                 {
                     test: /\.md$/,
                     use: [{

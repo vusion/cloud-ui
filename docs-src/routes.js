@@ -114,6 +114,8 @@ export default [
             { path: 'u-xbar-chart', component: () => import('../src/u-xbar-chart.vue/README.md') },
             { path: 'u-line-chart', component: () => import('../src/u-line-chart.vue/README.md') },
             { path: 'u-pie-chart', component: () => import('../src/u-pie-chart.vue/README.md') },
+            /* Extension */
+            { path: 'x-ace-editor', component: () => import('x-ace-editor.vue/README.md') },
             /* Mixin & Utils */
             { path: 'u-emitter', component: () => import('proto-ui.vusion/src/u-emitter.vue/README.md') },
             { path: 'u-router-item', component: () => import('proto-ui.vusion/src/u-router-item.vue/README.md') },

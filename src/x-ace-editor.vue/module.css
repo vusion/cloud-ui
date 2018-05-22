@@ -1,0 +1,25 @@
+@import 'x-ace-editor.vue/module.css';
+
+.root {
+    border-color: #f5f7f9;
+    background-color: #f5f7f9;
+    padding-top: 16px;
+    font-size: 14px;
+}
+
+.root :global(.ace_gutter) {
+    background-color: #f5f7f9;
+    top: 16px;
+}
+
+.root :global(.ace_scroller) {
+    top: 16px;
+}
+
+.root :global(.ace_variable) {
+    color: #c27919;
+}
+
+.root :global(.ace_marker-layer) :global(.ace_active-line), .root :global(.ace_gutter-active-line) {
+    background: #ecf1f6;
+}

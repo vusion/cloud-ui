@@ -33,13 +33,14 @@
   "dependencies": {
     "lodash": "^4.17.5",
     "proto-ui.vusion": "~0.3.10",
-    "vusion-utils": "^0.2.1"
+    "vusion-utils": "^0.2.1",
+    "x-ace-editor.vue": "^0.1.0"
   },
   "devDependencies": {
-    "commander": "^2.12.2",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
+    "commander": "^2.12.2",
     "eslint": "^4.13.1",
     "eslint-config-vusion": "^2.0.2",
     "highlight.js": "^9.12.0",
