@@ -16,6 +16,7 @@ import ThemeSelectItem from './common/u-theme-select-item.vue';
 import OverviewItem from './common/u-overview-item.vue';
 import Table from './common/u-table.vue';
 import './common/atom-one-light.css';
+import XAceEditor from '../packages/x-ace-editor.vue';
 
 const Components = Object.assign({}, Library, {
     GlobalLayout,
@@ -27,6 +28,7 @@ const Components = Object.assign({}, Library, {
     // SidebarItem,
     OverviewItem,
     Table,
+    XAceEditor,
 });
 
 import { installComponents, installDirectives } from 'vusion-utils';

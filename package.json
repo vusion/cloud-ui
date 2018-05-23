@@ -33,8 +33,7 @@
   "dependencies": {
     "lodash": "^4.17.5",
     "proto-ui.vusion": "~0.3.10",
-    "vusion-utils": "^0.2.1",
-    "x-ace-editor.vue": "^0.1.0"
+    "vusion-utils": "^0.2.1"
   },
   "devDependencies": {
     "babel-polyfill": "^6.26.0",
@@ -50,7 +49,8 @@
     "vue": "^2.5.0",
     "vue-markdown-html-loader": "^0.0.3",
     "vue-router": "^3.0.1",
-    "vusion-hooks": "^0.1.0"
+    "vusion-hooks": "^0.1.0",
+    "x-ace-editor.vue": "^0.1.0"
   },
   "peerDependencies": {
     "vue": "^2.5.0"
