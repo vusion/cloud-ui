@@ -1,3 +1,5 @@
+import Field from 'proto-ui.vusion/src/u-field.vue';
+
 const MultiSelect = {
     name: 'u-multi-select',
     props: {
@@ -31,6 +33,7 @@ const MultiSelect = {
         },
         size: String,
     },
+    mixins: [Field],
     data() {
         return {
             currentValue: this.value,
