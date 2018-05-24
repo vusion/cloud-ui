@@ -158,6 +158,8 @@ Try to click twice on an item.
 | value | Any | | 此项的值 |
 | disabled | Boolean | `false` | 禁用此项 |
 | item | Object | | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
+| label | String | `''` | 顶部自定义提示文本 |
+| flag | Any |  | 是否右上角有flag标志 |
 
 ### Slots
 
