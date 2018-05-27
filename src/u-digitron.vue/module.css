@@ -1,0 +1,141 @@
+@keyframes scrollUpIn {
+    0% { transform: translateY(100%); }
+    100% { transform: translateY(0); }
+};
+
+@keyframes scrollUpOut {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100%); }
+};
+
+@keyframes scrollDownIn {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(0); }
+};
+
+@keyframes scrollDownOut {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100%); }
+};
+
+@keyframes flipUpIn {
+    0% { transform: rotateX(270deg); }
+    50% { transform: rotateX(270deg); }
+    100% { transform: rotateX(360deg); }
+};
+
+@keyframes flipUpOut {
+    0% { transform: rotateX(0); }
+    50% { transform: rotateX(90deg); }
+    100% { transform: rotateX(90deg); }
+};
+
+@keyframes flipDownIn {
+    0% { transform: rotateX(90deg); }
+    50% { transform: rotateX(90deg); }
+    100% { transform: rotateX(0); }
+};
+
+@keyframes flipDownOut {
+    0% { transform: rotateX(360deg); }
+    50% { transform: rotateX(270deg); }
+    100% { transform: rotateX(270deg); }
+};
+
+@keyframes await {};
+
+.root{
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    font-size: 36px;
+    line-height: 1;
+    width: 0.7em;
+    height: 1em;
+    color: $brand-primary;
+    perspective: 60;
+    vertical-align: middle;
+}
+
+.digit{
+    position: absolute;
+    background: white;
+    /* vertical-align: middle; */
+}
+
+.digit[animation="flipHalf"] {
+    overflow: hidden;
+    height: 50%;
+    left: 0;
+    top: 0;
+    transform-origin: center bottom;
+}
+.helper{
+    position: absolute;
+    margin-top: 1px;
+    top: 50%;
+    left: 0;
+    height: 50%;
+    overflow: hidden;
+    transform-origin: center top;
+}
+:global(.digit-enter-active[role="scrollUp"]) {
+    animation-name: scrollUpIn;
+}
+:global(.digit-leave-active[role="scrollUp"]) {
+    animation-name: scrollUpOut;
+}
+:global(.digit-enter-active[role="scrollDown"]) {
+    animation-name: scrollDownIn;
+}
+:global(.digit-leave-active[role="scrollDown"]) {
+    animation-name: scrollDownOut;
+}
+:global(.digit-enter-active[role="flipUp"]) {
+    animation-name: flipUpIn;
+}
+:global(.digit-leave-active[role="flipUp"]) {
+    animation-name: flipUpOut;
+}
+
+:global(.digit-enter-active[role="flipDown"]) {
+    animation-name: flipDownIn;
+}
+:global(.digit-leave-active[role="flipDown"]) {
+    animation-name: flipDownOut;
+}
+
+:global(.digit-enter-active[role="flipHalfUp"]) {
+    animation-name: flipUpIn;
+}
+:global(.digit-leave-active[role="flipHalfUp"]) {
+    animation-name: await;
+}
+
+:global(.half-enter-active[role="flipHalfUp"]) {
+    animation-name: await;
+}
+:global(.half-leave-active[role="flipHalfUp"]) {
+    animation-name: flipUpOut;
+}
+
+:global(.digit-enter-active[role="flipHalfDown"]) {
+    animation-name: flipDownIn;
+}
+:global(.digit-leave-active[role="flipHalfDown"]) {
+    animation-name: await;
+}
+
+:global(.half-enter-active[role="flipHalfDown"]) {
+    animation-name: await;
+}
+
+:global(.half-leave-active[role="flipHalfDown"]) {
+    animation-name: flipDownOut;
+}
+
+
+.helpdigit{
+    margin-top: -0.5em;
+    display: block;
+}

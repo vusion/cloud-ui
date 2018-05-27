@@ -22,12 +22,14 @@ import Checkboxes from './u-checkboxes.vue';
 import CircularProgress from './u-circular-progress.vue';
 import ColorSelect from './u-color-select.vue';
 import ComboSlider from './u-combo-slider.vue';
+import Counter from './u-counter.vue';
 import CreateElement from './u-create-element.vue';
 import DatePicker from './u-date-picker.vue';
 import DateTimePicker from './u-date-time-picker.vue';
 import DescListItem from './u-desc-list-item.vue';
 import DescListGroup from './u-desc-list-group.vue';
 import DescList from './u-desc-list.vue';
+import Digitron from './u-digitron.vue';
 import Form from './u-form.vue';
 import FormItem from './u-form-item.vue';
 import Icon from './u-icon.vue';
@@ -112,12 +114,14 @@ export {
     CircularProgress,
     ColorSelect,
     ComboSlider,
+    Counter,
     CreateElement,
     DatePicker,
     DateTimePicker,
     DescListItem,
     DescListGroup,
     DescList,
+    Digitron,
     Form,
     FormItem,
     Icon,

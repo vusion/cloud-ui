@@ -1,0 +1,13 @@
+<div :class="$style.root">
+    <slot name="prefix">
+        <span v-if="prefix" :class="$style.prefix">{{ prefix }}</span>
+    </slot>
+    <template v-for="index in currentLength">
+        <u-digitron v-bind="$attrs" :key="index" :digit="digits[index-1]"></u-digitron>
+        <span :class="$style.separator" v-if="separatorArr.indexOf(index-1) !== -1">{{ separator }}</span>
+        <span :class="$style.separator" v-if="index === decimalIndex">.</span>
+    </template>
+    <slot name="suffix">
+        <span v-if="suffix" :class="$style.prefix">{{ suffix }}</span>
+    </slot>
+</div>

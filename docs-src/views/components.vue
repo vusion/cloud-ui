@@ -15,6 +15,8 @@
                     <u-sidebar-item exact to="/components/u-icon">图标 <small>Icon</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-status-icon">状态图标 <small>StatusIcon</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-logo">标识 <small>Logo</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-counter">数字 <small>Counter</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-digitron">管道 <small>Digitron</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Layout & Composing">
                     <u-sidebar-item exact to="/components/u-linear-layout">线性布局 <small>LinearLayout</small></u-sidebar-item>

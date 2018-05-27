@@ -1,0 +1,12 @@
+<span :class="$style.root">
+    <template v-for="index in list">
+        <transition name="digit">
+            <span :key="index" v-if="index === digit" :class="$style.digit" :role="role" :animation="animation" :style="{animationDuration: duration +'ms', animationTimingFunction: speed}">{{digit}}</span>
+        </transition>
+        <transition v-if="animation === 'flipHalf'" name="half">
+            <span :key="index" v-if="index === digit" :class="$style.helper" :role="role" :style="{animationDuration: duration +'ms', animationTimingFunction: speed}">
+                <span :class="$style.helpdigit">{{digit}}</span>
+            </span>
+        </transition>
+    </template>
+</span>

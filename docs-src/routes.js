@@ -55,6 +55,8 @@ export default [
             { path: 'u-icon', component: () => import('../src/u-icon.vue/README.md') },
             { path: 'u-status-icon', component: () => import('../src/u-status-icon.vue/README.md') },
             { path: 'u-logo', component: () => import('../src/u-logo.vue/README.md') },
+            { path: 'u-counter', component: () => import('../src/u-counter.vue/README.md') },
+            { path: 'u-digitron', component: () => import('../src/u-digitron.vue/README.md') },
             /* Layout */
             { path: 'u-linear-layout', component: () => import('../src/u-linear-layout.vue/README.md') },
             { path: 'u-grid-layout', component: () => import('proto-ui.vusion/src/u-grid-layout.vue/README.md') },

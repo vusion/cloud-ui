@@ -1,0 +1,32 @@
+.root {
+    display: inline-block;
+    vertical-align: middle;
+}
+.separator{
+    font-size: 36px;
+    line-height: 1;
+    width: 0.7em;
+    height: 1em;
+    color: $brand-primary;
+    vertical-align: middle;
+}
+.prefix{
+    position: relative;
+    overflow: hidden;
+    font-size: 36px;
+    line-height: 1;
+    width: 0.7em;
+    height: 1em;
+    color: $brand-primary;
+    vertical-align: middle;
+}
+.suffix{
+    position: relative;
+    overflow: hidden;
+    font-size: 36px;
+    line-height: 1;
+    width: 0.7em;
+    height: 1em;
+    color: $brand-primary;
+    vertical-align: middle;
+}
