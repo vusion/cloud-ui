@@ -22,6 +22,7 @@ import Checkboxes from './u-checkboxes.vue';
 import CircularProgress from './u-circular-progress.vue';
 import ColorSelect from './u-color-select.vue';
 import ComboSlider from './u-combo-slider.vue';
+import CountUp from './u-countup.vue';
 import CreateElement from './u-create-element.vue';
 import DatePicker from './u-date-picker.vue';
 import DateTimePicker from './u-date-time-picker.vue';
@@ -112,6 +113,7 @@ export {
     CircularProgress,
     ColorSelect,
     ComboSlider,
+    CountUp,
     CreateElement,
     DatePicker,
     DateTimePicker,

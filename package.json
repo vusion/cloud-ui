@@ -31,6 +31,7 @@
     "cloud-ui"
   ],
   "dependencies": {
+    "countup.js": "^1.9.3",
     "lodash": "^4.17.5",
     "proto-ui.vusion": "~0.3.10",
     "vusion-utils": "^0.2.1"

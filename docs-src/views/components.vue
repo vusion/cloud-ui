@@ -58,6 +58,7 @@
                     <u-sidebar-item exact to="/components/u-cascade-capsules">级联胶囊 <small>CascadeCapsules</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-pills">药丸 <small>Pills</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-tablets">药片 <small>Tablets</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-countup">数字渐变 <small>CountUp</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="DateTime">
                     <u-sidebar-item exact to="/components/u-calendar">日历 <small>Calendar</small></u-sidebar-item>
