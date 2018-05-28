@@ -55,7 +55,8 @@
 
 .message[color="error"] {
     display: block;
-    margin: 3px 10px;
+    top: 50%;
+    transform: translateY(-50%);
     white-space: nowrap;
     background-color: #ff867f;
     color: #fff;
@@ -77,15 +78,15 @@
     display: none;
 }
 
-.root[label-size$="small"] .label { width: 80px; padding-right: 10px; }
-.root[label-size$="small"] .label:after{ right: 2px; }
-.root[label-size$="small"] .field { max-width: calc(100% - 80px); }
-.root[label-size$="normal"] .label { width: 120px; padding-right: 20px; }
-.root[label-size$="normal"] .label:after { right: 12px; }
-.root[label-size$="normal"] .field { max-width: calc(100% - 120px); }
-.root[label-size$="large"] .label { width: 160px; padding-right: 20px; }
-.root[label-size$="large"] .label:after{ right: 12px; }
-.root[label-size$="large"] .field { max-width: calc(100% - 160px); }
+.root[label-size$="small"] > .label { width: 80px; padding-right: 10px; }
+.root[label-size$="small"] > .label:after{ right: 2px; }
+.root[label-size$="small"] > .field { max-width: calc(100% - 80px); }
+.root[label-size$="normal"] > .label { width: 120px; padding-right: 20px; }
+.root[label-size$="normal"] > .label:after { right: 12px; }
+.root[label-size$="normal"] > .field { max-width: calc(100% - 120px); }
+.root[label-size$="large"] > .label { width: 160px; padding-right: 20px; }
+.root[label-size$="large"] > .label:after{ right: 12px; }
+.root[label-size$="large"] > .field { max-width: calc(100% - 160px); }
 
 .description {
     color: #999;
