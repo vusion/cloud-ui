@@ -18,6 +18,16 @@ export default {
                 };
             },
         },
+        defaultFilter: {
+            type: Object,
+            default() {
+                return {
+                    title: undefined,
+                    value: undefined,
+                    column: undefined,
+                };
+            },
+        },
         noDataText: { type: String, default: '暂无数据' },
         loading: { type: Boolean, default: false },
         height: [String, Number],
@@ -60,8 +70,8 @@ export default {
             isXScroll: false, // 判断是否会出现水平滚动条的情况
             isYScroll: false, // 判断添加height属性后，垂直方向是否应该添加滚动条
             fixedHover: false, // 用来实现党左右列固定的时候，hover到左右列的时候，阴影效果能够同步实现
-            filterValue: undefined, // 用来记录当前filter选项的值，方便在过滤的时候点击更多显示正确的数据
-            filterColumn: undefined, // 用来记录当前filter列，方便在过滤的时候点击更多显示正确的数据
+            // filterValue: undefined, // 用来记录当前filter选项的值，方便在过滤的时候点击更多显示正确的数据
+            // filterColumn: undefined, // 用来记录当前filter列，方便在过滤的时候点击更多显示正确的数据
             filterTdata: undefined, // 用来记录当前filter列过滤后符合条件的所有数据
         };
     },
@@ -115,7 +125,50 @@ export default {
                     this.tdata = this.initTableData(this.limit);
                 else
                     this.tdata = this.initTableData();
+
                 this.copyTdata = this.initTableData();
+                const flag = this.columns.some((column) => column.filter);
+                if (flag) {
+                    // 在有filter列的情况下  数据如果发生变化是需要对数据进行过滤显示的
+                    let columnIndex;
+                    if (this.defaultFilter.title === undefined) {
+                        this.columns.some((item, index) => {
+                            if (item.filter) {
+                                this.defaultFilter.title = item.title;
+                                this.defaultFilter.value = item.value;
+                                this.defaultFilter.column = item;
+                                columnIndex = index;
+                                return true;
+                            }
+                            return false;
+                        });
+                    } else {
+                        this.columns.some((column, index) => {
+                            if (column.title === this.defaultFilter.title) {
+                                this.defaultFilter.column = column;
+                                columnIndex = index;
+                                return true;
+                            }
+                            return false;
+                        });
+                    }
+                    const column = this.defaultFilter.column;
+                    const value = this.defaultFilter.value;
+                    this.filterTdata = this.tdata = this.copyTdata.filter((item) => {
+                        if (column.filterMethod)
+                            return column.filterMethod(value, item[column.label], item, column);
+                        else
+                            return item[column.label] === value;
+                    });
+                    if (this.pattern === 'limit')
+                        this.tdata = this.tdata.slice(0, this.limit);
+
+                    this.$emit('filter-change', {
+                        column,
+                        value,
+                        index: columnIndex,
+                    });
+                }
                 this.handleResize();
             },
         },
@@ -445,8 +498,10 @@ export default {
         },
         select(option, column, index) {
             this.$refs.popper && this.$refs.popper[0] && this.$refs.popper[0].toggle(false);
-            this.filterValue = column.selectValue = option.value;
-            this.filterColumn = column;
+            column.selectValue = option.value;
+            this.defaultFilter.title = column.title;
+            this.defaultFilter.value = option.value;
+            this.defaultFilter.column = column;
             this.filterTdata = this.tdata = this.copyTdata.filter((item) => {
                 if (column.filterMethod)
                     return column.filterMethod(option.value, item[column.label], item, column);
@@ -588,12 +643,14 @@ export default {
             }
         },
         showAll() {
-            if (this.filterValue) {
+            const filterValue = this.defaultFilter.value;
+            if (this.defaultFilter.value) {
                 this.tdata = this.copyTdata.filter((item) => {
-                    if (this.filterColumn.filterMethod)
-                        return this.filterColumn.filterMethod(this.filterValue, item[this.filterColumn.label], item, this.filterColumn);
+                    const filterColumn = this.defaultFilter.column;
+                    if (filterColumn.filterMethod)
+                        return filterColumn.filterMethod(filterValue, item[filterColumn.label], item, filterColumn);
                     else
-                        return item[this.filterColumn.label] === this.filterValue;
+                        return item[filterColumn.label] === filterValue;
                 });
             } else
                 this.tdata = this.copyTdata;
