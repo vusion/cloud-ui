@@ -1,4 +1,5 @@
 import { clickOutside } from '../base/directives';
+import Field from 'proto-ui.vusion/src/u-field.vue';
 /**
  * @class DateTimePicker
  * @extend Dropdown
@@ -38,6 +39,7 @@ export default {
             default: 1,
         },
     },
+    mixins: [Field],
     data() {
         return {
             dateTime: this.format(this.date, 'yyyy-MM-dd HH:mm:ss'),
@@ -83,7 +85,7 @@ export default {
             if (newValue) {
                 const isOutOfRange = this.isOutOfRange(newValue);
                 if (isOutOfRange)
-                    return this.dateTime = this.format(isOutOfRange, 'yyyy-MM-dd HH:mm:ss');
+                    newValue = this.format(isOutOfRange, 'yyyy-MM-dd HH:mm:ss');
             }
 
             this.$emit('update:date', new Date(newValue.replace(/-/g, '/')).getTime());
@@ -97,6 +99,9 @@ export default {
                 sender: this,
                 date: new Date(newValue.replace(/-/g, '/')).getTime(),
             });
+
+            // 方便u-field组件捕获到其值
+            this.$emit('input', new Date(newValue.replace(/-/g, '/')));
         },
     },
     methods: {

@@ -1,6 +1,7 @@
 import Calendar from '../u-calendar.vue';
 const MS_OF_DAY = 24 * 3600 * 1000;
 import { clickOutside } from '../base/directives';
+import Field from 'proto-ui.vusion/src/u-field.vue';
 
 /**
  * @class DatePicker
@@ -53,6 +54,7 @@ export default {
             showDate: this.format(this.date, 'yyyy-MM-dd'),
         };
     },
+    mixins: [Field],
     created() {
         if (this.minDate && this.maxDate) {
             const minDate = new Date(this.minDate);
@@ -82,6 +84,8 @@ export default {
                 sender: this,
                 date: new Date(showDate.replace(/-/g, '/')),
             });
+
+            this.$emit('input', new Date(showDate.replace(/-/g, '/')));
         },
         minDate(newValue) {
             if (!newValue)
