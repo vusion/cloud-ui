@@ -29,7 +29,7 @@ const Toast = {
                 message: message || this.message,
                 duration: duration || this.duration,
             };
-            this.showState = state;
+            this.showState = state || this.state;
             this.open(options);
         },
         open(options) {

@@ -8,7 +8,7 @@
 }
 .root[role='top-center'], .root[role='bottom-center'] {
     left: 50%;
-    margin-left: -160px;
+    transform: translateX(-50%);
 }
 .root[role='bottom-center'], .root[role='bottom-left'], .root[role='bottom-right'] {
     top: auto;
@@ -37,6 +37,7 @@
     color: #fff;
     border: 1px solid #444;
     border-radius: 3px;
+    position: relative;
 }
 .item[role=info]{
     background: #00c0ef;
@@ -59,10 +60,31 @@
     border: 1px solid #d73925;
 }
 .close{
-    float: right;
+    position: absolute;
     color: inherit;
     opacity: 0.7;
+    top: 15px;
+    right: 10px;
 }
 .close:before{
     icon-font: url(../u-icon.vue/icons/close.svg);
+}
+.message{
+    display: inline-block;
+    padding-right: 15px;
+}
+.root[size="auto"]{
+    width: auto;
+}
+.root[size="small"]{
+    width: 280px;
+}
+.root[size="normal"]{
+    width: 320px;
+}
+.root[size="large"]{
+    width: 360px;
+}
+.root[size="huge"]{
+    width: 480px;
 }
