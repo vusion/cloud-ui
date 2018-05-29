@@ -60,6 +60,8 @@ export default [
             /* Layout */
             { path: 'u-linear-layout', component: () => import('../src/u-linear-layout.vue/README.md') },
             { path: 'u-grid-layout', component: () => import('proto-ui.vusion/src/u-grid-layout.vue/README.md') },
+            { path: 'u-desc-list', component: () => import('../src/u-desc-list.vue/README.md') },
+            { path: 'u-info-list', component: () => import('../src/u-info-list.vue/README.md') },
             /* Navigation */
             { path: 'u-navbar', component: () => import('../src/u-navbar.vue/README.md') },
             { path: 'u-sidebar', component: () => import('../src/u-sidebar.vue/README.md') },
@@ -126,11 +128,9 @@ export default [
             { path: 'u-draggable', component: () => import('proto-ui.vusion/src/u-draggable.vue/README.md') },
             { path: 'u-droppable', component: () => import('proto-ui.vusion/src/u-droppable.vue/README.md') },
             { path: 'u-dragger', component: () => import('proto-ui.vusion/src/u-dragger.vue/README.md') },
-
-            { path: 'u-desc-list', component: () => import('../src/u-desc-list.vue/README.md') },
-            { path: 'u-info-list', component: () => import('../src/u-info-list.vue/README.md') },
+            /* Test */
+            { path: 'test', component: Test },
         ] },
-        { path: 'test', component: Test },
     ] },
     { path: '*', redirect: '/components' },
 ];
