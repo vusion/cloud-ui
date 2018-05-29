@@ -17,6 +17,8 @@ import PreviewDetailBasic from './views/templates/detail/basic.vue';
 import PreviewDetailAdvance from './views/templates/detail/advance.vue';
 import PreviewDate from './views/templates/date/basic.vue';
 
+import Test from './views/test.md';
+
 const Empty = Vue.extend({ template: '<div>待完善...</div>' });
 
 export default [
@@ -128,6 +130,7 @@ export default [
             { path: 'u-desc-list', component: () => import('../src/u-desc-list.vue/README.md') },
             { path: 'u-info-list', component: () => import('../src/u-info-list.vue/README.md') },
         ] },
+        { path: 'test', component: Test },
     ] },
     { path: '*', redirect: '/components' },
 ];
