@@ -122,11 +122,12 @@ export default{
 更新渐变结束值
 
 | Param | Type | Description |
+| ----- | ---- | ----------- |
 | value | Number | 最新结束值 |
 
 #### reset
 
-切换弹出/隐藏状态
+重置
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
