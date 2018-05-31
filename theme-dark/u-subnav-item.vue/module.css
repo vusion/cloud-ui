@@ -1,12 +1,12 @@
 @import '../../src/u-subnav-item.vue/module.css';
 
 .root {
-    color: #222222;
+    color: #666;
 }
 
 .root:hover{
-    background: #f3f6fb;
-    color: #222222;
+    background: #f6f7f9;
+    color: $brand-primary;
 }
 
 .root[selected] {

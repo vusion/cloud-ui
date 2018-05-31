@@ -2,15 +2,17 @@
     display: inline-block;
     cursor: pointer;
     user-select: none;
-    color: #9dabc2;
+    color: #666;
     padding: 0 20px;
     transition: color 0.2s;
 }
 
 .root:hover {
     color: $brand-primary;
+    background: #f6f7f9;
 }
 
 .root[selected] {
     color: $brand-primary;
+    background: #fff;
 }

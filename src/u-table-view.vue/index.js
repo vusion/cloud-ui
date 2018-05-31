@@ -73,6 +73,7 @@ export default {
             // filterValue: undefined, // 用来记录当前filter选项的值，方便在过滤的时候点击更多显示正确的数据
             // filterColumn: undefined, // 用来记录当前filter列，方便在过滤的时候点击更多显示正确的数据
             filterTdata: undefined, // 用来记录当前filter列过滤后符合条件的所有数据
+            currentSortColumn: undefined, // 表示当前排序列
         };
     },
     directives: { ellipsisTitle },
@@ -169,6 +170,10 @@ export default {
                         index: columnIndex,
                     });
                 }
+                if (this.currentSortColumn) {
+                    const order = this.defaultSort.order === 'asc' ? -1 : 1;
+                    this.sortData(this.currentSortColumn, order);
+                }
                 this.handleResize();
             },
         },
@@ -264,32 +269,36 @@ export default {
                     this.defaultSort.title = column.title;
                     this.defaultSort.order = 'desc';
                 }
+                this.currentSortColumn = column;
                 const order = this.defaultSort.order === 'asc' ? -1 : 1;
-                const label = column.label;
-                if (column.sortRemoteMethod) {
-                    // 异步执行排序方法
-                    column.sortRemoteMethod(label, this.defaultSort.order, column);
-                } else {
-                    if (column.sortMethod)
-                        this.copyTdata.sort((value1, value2) => column.sortMethod(value1[label], value2[label]) ? order : -order);
-                    else {
-                        this.copyTdata.sort((value1, value2) => {
-                            if (value1[label] === value2[label])
-                                return 0;
-                            return value1[label] < value2[label] ? order : -order;
-                        });
-                    }
-                    if (this.pattern === 'limit')
-                        this.tdata = this.copyTdata.slice(0, this.limit);
-                    else
-                        this.tdata = this.copyTdata;
-                }
-                this.$emit('sort-change', {
-                    column,
-                    label,
-                    order: this.defaultSort.order,
-                });
+                this.sortData(column, order);
             }
+        },
+        sortData(column, order) {
+            const label = column.label;
+            if (column.sortRemoteMethod) {
+                // 异步执行排序方法
+                column.sortRemoteMethod(label, this.defaultSort.order, column);
+            } else {
+                if (column.sortMethod)
+                    this.copyTdata.sort((value1, value2) => column.sortMethod(value1[label], value2[label]) ? order : -order);
+                else {
+                    this.copyTdata.sort((value1, value2) => {
+                        if (value1[label] === value2[label])
+                            return 0;
+                        return value1[label] < value2[label] ? order : -order;
+                    });
+                }
+                if (this.pattern === 'limit')
+                    this.tdata = this.copyTdata.slice(0, this.limit);
+                else
+                    this.tdata = this.copyTdata;
+            }
+            this.$emit('sort-change', {
+                column,
+                label,
+                order: this.defaultSort.order,
+            });
         },
         getSelection() {
             const selectionIndexes = [];

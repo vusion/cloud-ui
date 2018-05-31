@@ -72,6 +72,7 @@
 | value.sync, v-model | Any | | 当前选择的值 |
 | readonly | Boolean | `false` | 是否只读 |
 | disabled | Boolean | `false` | 是否禁用 |
+| usage | String |  | 值为 `'tabs'`间距向上移动`'10px'` |
 
 ### Slots
 
