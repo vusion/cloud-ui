@@ -614,6 +614,7 @@ export default {
 | message | String | | 默认提示信息 |
 | required | Boolean | | 是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。 |
 | description | String | | 添加描述内容 |
+| placement | String | | 值为`'bottom'`时提示信息在底部显示，改变提示信息显示位置 |
 
 ### Slots
 
