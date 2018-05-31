@@ -170,7 +170,7 @@ export default {
                         index: columnIndex,
                     });
                 }
-                if (this.currentSortColumn) {
+                if (this.currentSortColumn && !this.currentSortColumn.sortRemoteMethod) {
                     const order = this.defaultSort.order === 'asc' ? -1 : 1;
                     this.sortData(this.currentSortColumn, order);
                 }
