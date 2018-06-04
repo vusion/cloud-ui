@@ -253,6 +253,16 @@
 </u-select>
 ```
 
+### Layer
+
+``` html
+<u-select value="C">
+    <u-select-item value="A">苹果</u-select-item>
+    <u-select-item value="B" flag layer="high">香蕉</u-select-item>
+    <u-select-item value="C" flag="默认选项" layer="high">蛋糕</u-select-item>
+</u-select>
+```
+
 ## Select API
 ### Attrs/Props
 
@@ -333,6 +343,7 @@
 | disabled | Boolean | `false` | 禁用此项 |
 | item | Object | | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
 | flag | String | `''` | 选项的提示信息，设置flag会在左上角有特殊标志，hover会有提示信息出现 |
+| layer | String | `''` | 配合flag属性使用，使用自定义图片作为特殊标志，值是图片的名称 |
 
 ### Slots
 

@@ -5,5 +5,6 @@ export default {
     mixins: [SelectItem],
     props: {
         flag: { type: String },
+        layer: { type: String },
     },
 };

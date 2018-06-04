@@ -89,3 +89,13 @@
     border: 7px solid;
     border-color: #4ec9ab transparent transparent #4ec9ab;
 }
+
+.flag[layer="high"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    border: none;
+    background-image: url(../assets/images/high.png);
+}
