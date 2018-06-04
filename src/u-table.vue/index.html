@@ -1,0 +1,12 @@
+<div :class="$style.root">
+    <table :class="$style.table">
+        <slot name="thead"></slot>
+        <slot name="tbody"></slot>
+        <slot></slot>
+    </table>
+    <slot name="page">
+        <div :class="$style.page" v-if="page">
+            <u-pagination :class="$style.pagination" v-if="total > 1" :align="align" :total="total" :page.sync="currentPage" :disabled="disabled" :side="side" :around="around" :readonly="readonly"></u-pagination>
+        </div>
+    </slot>
+</div>

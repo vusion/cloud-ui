@@ -88,6 +88,7 @@ import TableSelect from './u-table-select.vue';
 import TableView from './u-table-view.vue';
 import TableViewCell from './u-table-view-cell.vue';
 import TableViewColumn from './u-table-view-column.vue';
+import Table from './u-table.vue';
 import Tablet from './u-tablet.vue';
 import Tablets from './u-tablets.vue';
 import Tabs from './u-tabs.vue';
@@ -180,6 +181,7 @@ export {
     TableView,
     TableViewCell,
     TableViewColumn,
+    Table,
     Tablet,
     Tablets,
     Tabs,

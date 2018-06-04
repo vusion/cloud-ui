@@ -53,6 +53,7 @@
                 <u-sidebar-group title="Data">
                     <u-sidebar-item exact to="/components/u-list-view">列表选择 <small>ListView</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-tree-view">树型选择 <small>TreeView</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-table">表格 <small>Table</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-table-view">表格视图 <small>TableView</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-capsules">胶囊 <small>Capsules</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-cascade-capsules">级联胶囊 <small>CascadeCapsules</small></u-sidebar-item>

@@ -10,7 +10,7 @@
     left: 0;
     bottom: 0;
     z-index: 1;
-   background-color: #ebf0f5;
+    background-color: #ebf0f5;
 }
 
 .root[border]:after{

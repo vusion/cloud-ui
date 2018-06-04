@@ -7,7 +7,7 @@
 </template>
 <script>
 export default {
-    name: 'u-table',
+    name: 'u-table2',
 };
 </script>
 

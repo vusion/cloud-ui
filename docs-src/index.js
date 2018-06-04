@@ -14,7 +14,7 @@ import ThemeSelectItem from './common/u-theme-select-item.vue';
 // import Sidebar from './common/u-sidebar.vue';
 // import SidebarItem from './common/u-sidebar-item.vue';
 import OverviewItem from './common/u-overview-item.vue';
-import Table from './common/u-table.vue';
+import Table2 from './common/u-table.vue';
 import './common/atom-one-light.css';
 import XAceEditor from '../packages/x-ace-editor.vue';
 
@@ -27,7 +27,7 @@ const Components = Object.assign({}, Library, {
     // Sidebar,
     // SidebarItem,
     OverviewItem,
-    Table,
+    Table2,
     XAceEditor,
 });
 
