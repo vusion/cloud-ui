@@ -74,6 +74,10 @@
     border-bottom: 4px solid transparent;
 }
 
+.root[placement="bottom"] .message {
+    transform: translateY(0);
+}
+
 .root[placement="bottom"] .message:after {
     display: none;
 }
