@@ -48,6 +48,7 @@ export default {
         showHeader: { type: Boolean, default: true }, // 展示表格头部
         loadText: { type: String, default: '' }, // 加载状态显示的文字
         rowClassName: { type: Function, default() { return ''; } }, // 自定义表格单行的样式
+        color: String,
     },
     data() {
         return {
@@ -235,7 +236,9 @@ export default {
         },
         // 展示表格单元格具体内容函数 现在规则是row[column.label]是对象，数组全部不展示内容，只展示基本类型
         showContent(column, value) {
-            if (!value && column.defaultText === '')
+            if (value === 0)
+                return value;
+            else if (!value && column.defaultText === '')
                 return '';
             else {
                 if (Array.isArray(value) || typeof value === 'object' && column.defaultText === '')

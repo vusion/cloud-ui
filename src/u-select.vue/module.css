@@ -91,9 +91,6 @@
 }
 
 .flag[layer="high"] {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 14px;
     height: 14px;
     border: none;

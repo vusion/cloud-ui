@@ -9,7 +9,7 @@
 
 .label[required]:after {
     content: '*';
-    color: $brand-error;
+    color: red;
     position: absolute;
     right: 2px;
     height: 12px;
