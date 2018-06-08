@@ -28,7 +28,6 @@
     font-size: 12px;
 }
 
-
 .message[color="focus"] {
     display: block;
     padding: 3px 10px;
@@ -80,6 +79,10 @@
 
 .root[placement="bottom"] .message:after {
     display: none;
+}
+
+.root[placement="bottom"] .message[color="error"] {
+    transform: none;
 }
 
 .root[label-size$="small"] > .label { width: 80px; padding-right: 10px; }

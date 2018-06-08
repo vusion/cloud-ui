@@ -87,6 +87,7 @@ export default [
             { path: 'u-slider', component: () => import('proto-ui.vusion/src/u-slider.vue/README.md') },
             { path: 'u-combo-slider', component: () => import('../src/u-combo-slider.vue/README.md') },
             { path: 'u-field', component: Empty },
+            { path: 'u-form-item', component: () => import('../src/u-form-item.vue/README.md') },
             { path: 'u-form', component: () => import('../src/u-form.vue/README.md') },
             /* Data */
             { path: 'u-list-view', component: () => import('proto-ui.vusion/src/u-list-view.vue/README.md') },
