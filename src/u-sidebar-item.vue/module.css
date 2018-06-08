@@ -4,8 +4,8 @@
     composes: item from '../u-sidebar.vue/module.css';
     display: block;
     cursor: pointer;
-    height: 52px;
-    line-height: 52px;
+    height: 54px;
+    line-height: 54px;
     padding-left: 30px;
     color: #8594aa;
     transition: all $transition-duration;

@@ -41,3 +41,39 @@ export default {
 };
 </script>
 ```
+
+### directives
+
+``` vue
+<script>
+export default {
+    render(h) {
+        return h('div', {
+            directives: [{
+                name: 'tooltip',
+                // value: 'test',
+                expression: '1 + 1'
+            }]
+        }, 'test');
+    }
+};
+</script>
+```
+
+###
+
+``` vue
+<template>
+<u-number-input v-model="test"></u-number-input>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            test: 123
+        }
+    }
+}
+</script>
+```
