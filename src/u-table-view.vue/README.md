@@ -1137,6 +1137,7 @@ export default {
 | allText| String | `'收起'`| 在pattern属性值为limit时，显示所有数据后默认在表格最后一行显示的提示内容 |
 | defaultText | String | `'-'` | 默认当单元格取值为空时，默认显示的内容，此处是设置整个表格 |
 | color | String | `` | 值为light的时，表格头背景是#fff |
+| forceFilter | Boolean | `true` | 数据发生变化是，存在数据过滤列，是否需要进行过滤，默认是需要的，但是异步获取的情况下，会出现死循环，需要将此值置为`false` |
 ### Slots
 
 #### (default)

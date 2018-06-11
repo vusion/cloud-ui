@@ -49,6 +49,7 @@ export default {
         loadText: { type: String, default: '' }, // 加载状态显示的文字
         rowClassName: { type: Function, default() { return ''; } }, // 自定义表格单行的样式
         color: String,
+        forceFilter: { type: Boolean, default: true },
     },
     data() {
         return {
@@ -130,7 +131,7 @@ export default {
 
                 this.copyTdata = this.initTableData();
                 const flag = this.columns.some((column) => column.filter);
-                if (flag) {
+                if (flag && this.forceFilter) {
                     // 在有filter列的情况下  数据如果发生变化是需要对数据进行过滤显示的
                     let columnIndex;
                     if (this.defaultFilter.title === undefined) {
