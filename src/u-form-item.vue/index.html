@@ -8,7 +8,7 @@
         <slot></slot>
         <span v-if="currentMessage" :class="$style.message" :color="color">
             <u-status-icon size="14" :class="$style.icon" name="warning"></u-status-icon>
-            {{ currentMessage }}
+            <slot name="message"></slot>{{ currentMessage }}</slot>
         </span>
     </div>
 </div>
