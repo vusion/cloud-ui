@@ -6,6 +6,9 @@
             <slot name="description">{{ description }}</slot>
         </div>
         <slot></slot>
-        <span v-if="currentMessage" :class="$style.message" :color="color">{{ currentMessage }}</span>
+        <span v-if="currentMessage" :class="$style.message" :color="color">
+            <u-status-icon size="14" :class="$style.icon" name="warning"></u-status-icon>
+            {{ currentMessage }}
+        </span>
     </div>
 </div>

@@ -103,3 +103,8 @@
 .description:empty {
     display: none;
 }
+.icon[class] > span:before{
+    font-size: 14px;
+    margin-right: 0;
+    color: #fff;
+}
