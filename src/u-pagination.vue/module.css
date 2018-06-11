@@ -16,6 +16,7 @@ $item_size: 30px;
     color: #555;
     border: 1px solid #ccc;
     margin-left: -1px;
+    cursor: $cursor-pointer;
 }
 
 .item:hover {
