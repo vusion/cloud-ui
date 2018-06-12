@@ -61,6 +61,15 @@
     color: #fff;
 }
 
+.message[color="error"]:before {
+    icon-font: url('../u-status-icon.vue/icons/warning.svg');
+    color: white;
+    font-size: 14px;
+    margin-left: -2px;
+    margin-right: 6px;
+    vertical-align: -3px;
+}
+
 .message[color="error"]:after {
     content: '';
     position: absolute;
@@ -102,9 +111,4 @@
 
 .description:empty {
     display: none;
-}
-.icon[class] > span:before{
-    font-size: 14px;
-    margin-right: 0;
-    color: #fff;
 }
