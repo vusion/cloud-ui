@@ -1,6 +1,6 @@
 @import 'x-ace-editor.vue/module.css';
 
-.root {
+.root[class] {
     border-color: #f5f7f9;
     background-color: #f5f7f9;
     padding-top: 16px;
