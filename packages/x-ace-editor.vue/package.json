@@ -1,7 +1,7 @@
 {
   "name": "@cloud-ui/x-ace-editor.vue",
   "description": "Cloud UI - AceEditor",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "author": "Rainfore <rainforest92@126.com>",
   "main": "./index.js",
   "repository": "vusion/editors",
