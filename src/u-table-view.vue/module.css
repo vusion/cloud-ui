@@ -2,7 +2,9 @@
     position: relative;
 }
 
-.root:before{
+/*和交互确认过不添加这个线*/
+
+/* .root:before{
     position: absolute;
     content: '';
     width: 100%;
@@ -11,11 +13,12 @@
     bottom: 0;
     z-index: 1;
     background-color: #ebf0f5;
-}
+} */
 
+/*
 .root[hide]:before{
     height: 0px;
-}
+} */
 
 .root[border]:after{
     position: absolute;
@@ -110,7 +113,7 @@
     border-top: 1px solid #ebf0f5;
 }
 
-.btrItem[bottom]:last-child {
+.btrItem:last-child {
     border-bottom: 1px solid #ebf0f5;
 }
 
@@ -228,13 +231,6 @@
     left: 0;
     background: url("../assets/images/shadow-down.png") repeat-x;
     z-index: 100;
-}
-
-.btrItem[bottom]:last-child:hover .btdSpan:after{
-    content: '';
-    width: 0;
-    height:0;
-    background: none;
 }
 
 .btrItem:last-child:hover .btdSpan[hide]:after{
