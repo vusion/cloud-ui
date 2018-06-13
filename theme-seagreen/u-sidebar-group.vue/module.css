@@ -3,3 +3,7 @@
 .head:hover {
     color: $brand-primary;
 }
+
+.head[selected] {
+    color: $brand-primary;
+}

@@ -13,6 +13,10 @@
     background-color: #ebf0f5;
 }
 
+.root[hide]:before{
+    height: 0px;
+}
+
 .root[border]:after{
     position: absolute;
     content: '';
@@ -106,9 +110,9 @@
     border-top: 1px solid #ebf0f5;
 }
 
-/* .btrItem[role] {
+.btrItem[bottom]:last-child {
     border-bottom: 1px solid #ebf0f5;
-} */
+}
 
 .btdSpan {
     position: relative;
@@ -226,12 +230,12 @@
     z-index: 100;
 }
 
-/* .btrItem:last-child:hover .btdSpan:before{
+.btrItem[bottom]:last-child:hover .btdSpan:after{
     content: '';
     width: 0;
     height:0;
     background: none;
-} */
+}
 
 .btrItem:last-child:hover .btdSpan[hide]:after{
     content: '';

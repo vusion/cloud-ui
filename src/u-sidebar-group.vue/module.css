@@ -15,10 +15,6 @@
     position: relative;
 }
 
-.head[selected] {
-    color: $brand-primary;
-}
-
 .expander {
     position: absolute;
     right: 0;

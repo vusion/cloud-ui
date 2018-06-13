@@ -218,6 +218,10 @@ export default {
         visible(newValue) {
             this.handleResize();
         },
+        loading(newVal) {
+            // 比较复杂情况下，可能会先赋值data，再将loading设为false
+            this.handleResize();
+        },
     },
     methods: {
         rowClsName(index) {

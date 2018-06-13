@@ -568,10 +568,10 @@ export default {
         <u-table-view :data="tdata" v-show="show">
             <u-table-view-column title="日期" width="20%" label="date" sortable :formatter="dateFormat"></u-table-view-column>
             <u-table-view-column title="姓名" width="10%" label="name" ></u-table-view-column>
-            <u-table-view-column title="地址" width="15%" label="address" tooltip></u-table-view-column>
-            <u-table-view-column title="地址" width="10%" label="address" tooltip></u-table-view-column>
-            <u-table-view-column title="地址" width="20%" label="address" tooltip></u-table-view-column>
-            <u-table-view-column title="地址" width="10%" label="address" tooltip></u-table-view-column>
+            <u-table-view-column title="地址" width="15%" label="address"></u-table-view-column>
+            <u-table-view-column title="地址" width="10%" label="address"></u-table-view-column>
+            <u-table-view-column title="地址" width="20%" label="address"></u-table-view-column>
+            <u-table-view-column title="地址" width="10%" label="address"></u-table-view-column>
             <u-table-view-column title="性别" width="15%" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
             <u-table-view-column title="占比" width="200">
                 <template slot-scope="scope">
@@ -782,11 +782,11 @@ export default {
             </u-table-view-column>
             <u-table-view-column width="200" title="日期" label="date" sortable type="time" time-format="YYYY-MM-DD"></u-table-view-column>
             <u-table-view-column title="姓名" width="200" label="name" ></u-table-view-column>
-            <u-table-view-column title="地址" width="200" label="address" tooltip></u-table-view-column>
-            <u-table-view-column title="地址" width="200" label="address" tooltip></u-table-view-column>
-            <u-table-view-column title="地址" width="200" label="address" tooltip></u-table-view-column>
-            <u-table-view-column title="地址" width="200" label="address" tooltip></u-table-view-column>
-            <u-table-view-column title="地址" width="200" label="address" tooltip></u-table-view-column>
+            <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>
+            <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>
+            <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>
+            <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>
+            <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>
             <u-table-view-column title="性别" width="200" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
             <u-table-view-column title="操作" width="150">
                 <template slot-scope="scope">
@@ -893,11 +893,11 @@ export default {
         <u-table-view :data="tdata" width="800" height="400" border>
             <u-table-view-column width="200" fixed="left" title="日期" label="date" sortable type="time" time-format="YYYY-MM-DD"></u-table-view-column>
             <u-table-view-column title="姓名" width="200" label="name" ></u-table-view-column>
-            <u-table-view-column title="地址" width="200" label="address" tooltip></u-table-view-column>
-            <u-table-view-column title="地址" width="200" label="address" tooltip></u-table-view-column>
-            <u-table-view-column title="地址" width="200" label="address" tooltip></u-table-view-column>
-            <u-table-view-column title="地址" width="200" label="address" tooltip></u-table-view-column>
-            <u-table-view-column title="地址" width="200" label="address" tooltip></u-table-view-column>
+            <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>
+            <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>
+            <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>
+            <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>
+            <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>
             <u-table-view-column title="性别" width="200" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
             <u-table-view-column title="操作" fixed="right" width="150">
                 <template slot-scope="scope">
