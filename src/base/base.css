@@ -22,3 +22,5 @@ body {
 ::-webkit-scrollbar-corner {
     display: none;
 }
+
+input::-ms-clear,input::-ms-reveal{display:none;}

@@ -3,7 +3,6 @@
 ## 示例
 ### 基本形式
 
-
 layout布局方式，支持auto,fixed两种布局，默认是fixed布局, auto布局一个缺点是数据发生变化各列对应的宽度可能发生变化，取决于内容宽度，推荐使用fixed布局
 ``` vue
 <template>
