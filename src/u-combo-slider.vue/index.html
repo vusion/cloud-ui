@@ -13,7 +13,7 @@
         </div>
     </div>
     <u-number-input :class="$style.input" :value="currentValue" @change="onInput($event.value)"
-        :min="min" :max="max" :step="step || 1" :precision="precision"
+        :min="numberMin" :max="numberMax" :step="step || 1" :precision="precision"
         :formatter="formatter" :fix-on="fixOn" :hide-buttons="hideButtons"
         :readonly="readonly" :disabled="disabled"
     ></u-number-input>
