@@ -60,7 +60,7 @@ export default {
 
 | Prop/Attr | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
-| date | String, Number, Date | | 显示的日期值 |
+| date.sync | String, Number, Date | | 显示的日期值 |
 | minDate | String, Number, Date | | 最小日期值 |
 | maxDate | SString, Number, Date | | 最大日期值 |
 | placeholder | String | `请选择时间` | 默认提示语 |
@@ -70,7 +70,19 @@ export default {
 | yearDiff | String, Number | `3` | 最小可选年份值为当前年减去此值 |
 | yearAdd | String, Number | `1` | 最大可选年份值为当前年加上此值 |
 
+### Slots
+
+#### (default)
+
 ### Events
+
+#### @input
+
+值变化时触发 (表单验证可以检测到其值得变化)
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | Date | 改变后的日期值 |
 
 #### @select
 
@@ -78,7 +90,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.date | NUmber | 选择项的值，默认返回时间戳 |
+| $event.date | Number | 选择项的值，默认返回时间戳 |
 
 #### @change
 
@@ -86,4 +98,4 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.date | NUmber | 选择项的值，默认返回时间戳 |
+| $event.date | Number | 选择项的值，默认返回时间戳 |

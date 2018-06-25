@@ -5,4 +5,5 @@
     <div :class="$style.body" slot="popper" @click.stop>
         <u-calendar :minDate="minDate" :year-diff="yearDiff" :year-add="yearAdd" :maxDate="maxDate" :date="showDate" @select="select($event.date)"/>
     </div>
+    <slot></slot>
 </u-popper>

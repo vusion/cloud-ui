@@ -124,7 +124,10 @@ export default {
             date.setSeconds(time[2]);
             const datetime = this.format(date, 'yyyy-MM-dd');
             const dtime = this.format(date, 'HH:mm:ss');
-            if (datetime === this.minCalendarDate)
+            if (datetime === this.minCalendarDate && datetime === this.maxCalendarDate) {
+                this.minTime = this.spMinTime;
+                this.maxTime = this.spMaxTime;
+            } else if (datetime === this.minCalendarDate)
                 this.minTime = this.spMinTime;
             else if (datetime === this.maxCalendarDate)
                 this.maxTime = this.spMaxTime;

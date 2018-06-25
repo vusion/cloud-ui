@@ -8,4 +8,5 @@
             <u-time-picker :class="$style.timePicker" :readonly="readonly" :time="showTime" width="50" :min-time="minTime" :max-time="maxTime" @change="outRangeDateTime(showDate, $event.time)" />
         </u-calendar>
     </div>
+    <slot></slot>
 </div>
