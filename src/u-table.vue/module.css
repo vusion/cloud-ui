@@ -58,12 +58,3 @@
     background: url("../assets/images/shadow-down.png") repeat-x;
     z-index: 100;
 }
-.page {
-    margin-top: 20px;
-}
-.pagination[class][align="right"] {
-    text-align: right;
-}
-.pagination[class][align="left"] {
-    text-align: left;
-}
