@@ -2,12 +2,14 @@
     <label :class="$style.label" :required="currentRequired" v-show="label || title || currentLabelSize !== 'auto'">{{ label || title }}</label>
     <div :class="$style.field">
         <!-- 添加了描述功能 -->
-        <div :class="$style.description">
+        <div :class="$style.description" v-if="description">
             <slot name="description">{{ description }}</slot>
         </div>
-        <slot></slot>
-        <span v-if="currentMessage" :class="$style.message" :color="color">
-            <slot name="message"></slot>{{ currentMessage }}</slot>
-        </span>
+        <div :class="$style.wrap">
+            <slot></slot>
+            <span v-if="currentMessage" :class="$style.message" :color="color">
+                <slot name="message"></slot>{{ currentMessage }}</slot>
+            </span>
+        </div>
     </div>
 </div>
