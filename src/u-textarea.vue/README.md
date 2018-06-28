@@ -17,6 +17,17 @@
     <u-textarea value="禁用" disabled></u-textarea>
 </u-linear-layout>
 ```
+
+### 调整大小
+
+``` html
+<u-linear-layout>
+    <u-textarea value="none" resize="none"></u-textarea>
+    <u-textarea value="horizontal" resize="horizontal"></u-textarea>
+    <u-textarea value="vertical" resize="vertical"></u-textarea>
+</u-linear-layout>
+```
+
 ### 大小扩展
 
 ```html
@@ -52,6 +63,7 @@
 | autofocus | Boolean | | 原生属性 |
 | readonly | Boolean | | 原生属性 |
 | disabled | Boolean | | 原生属性 |
+| resize | String | | 原生属性 |
 | size | String | `'normal'` | 大小扩展，支持一个值：`'normal'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式 |
 
 <!-- | autosize | String | `'none'` | 自适应内容宽高。可选值：`none`、`both`、`horizontal`、`vertical` | -->
