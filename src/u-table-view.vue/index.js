@@ -90,7 +90,7 @@ export default {
             this.tdata = this.initTableData(this.limit);
         else
             this.tdata = this.initTableData();
-        this.copyTdata = this.initTableData();
+        // this.copyTdata = this.initTableData();
         this.handleResize();
         window.addEventListener('resize', this.onResize, false);
         if (this.xScroll)
@@ -129,7 +129,7 @@ export default {
                 else
                     this.tdata = this.initTableData();
 
-                this.copyTdata = this.initTableData();
+                // this.copyTdata = this.initTableData();
                 const flag = this.columns.some((column) => column.filter);
                 if (flag && this.forceFilter) {
                     // 在有filter列的情况下  数据如果发生变化是需要对数据进行过滤显示的
@@ -308,10 +308,11 @@ export default {
                 order: this.defaultSort.order,
             });
         },
-        getSelection() {
+        getSelection(value) {
+            const data = value || this.tdata;
             const selectionIndexes = [];
             let noDisabledCount = 0;
-            this.tdata.forEach((row, index) => {
+            data.forEach((row, index) => {
                 if (row.selected)
                     selectionIndexes.push(index);
                 if (!row.disabled)
@@ -334,7 +335,7 @@ export default {
                         item.selected = flag;
                 });
                 this.tdata = copydata;
-                const selection = this.getSelection();
+                const selection = this.data;
                 if (flag)
                     this.$emit('select-all', selection);
 
@@ -344,6 +345,7 @@ export default {
         initTableData(value) {
             let tdata = [];
             const copyData = deepCopy([], this.data);
+            this.copyTdata = copyData;
             copyData.forEach((item, index) => {
                 /* eslint-disable */
                 item.original_data = this.data[index];
@@ -393,9 +395,9 @@ export default {
             if (value)
                 tdata = tdata.slice(0, value);
 
-            const selectionArr = this.getSelection();
-            if (selectionArr.length !== 0)
-                this.$emit('selection-change', selectionArr);
+            const selectionArr = this.getSelection(this.data);
+            // if (selectionArr.length !== 0)
+            this.$emit('selection-change', selectionArr);
 
             return tdata;
         },
@@ -539,7 +541,7 @@ export default {
          * @param {row} 当前选中行数据
          */
         changeSelect(row) {
-            const selection = this.getSelection();
+            const selection = this.data;
             if (row.selected)
                 this.$emit('select', selection);
             else
