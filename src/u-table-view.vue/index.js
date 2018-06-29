@@ -335,7 +335,7 @@ export default {
                         item.selected = flag;
                 });
                 this.tdata = copydata;
-                const selection = this.data;
+                const selection = this.getSelection();
                 if (flag)
                     this.$emit('select-all', selection);
 
@@ -541,7 +541,7 @@ export default {
          * @param {row} 当前选中行数据
          */
         changeSelect(row) {
-            const selection = this.data;
+            const selection = this.getSelection();
             if (row.selected)
                 this.$emit('select', selection);
             else
