@@ -1,5 +1,9 @@
 @import 'proto-ui.vusion/src/u-form-item.vue/module.css';
 
+.root {
+    position: relative;
+}
+
 .label {
     color: #999;
     text-align: right;
@@ -117,4 +121,29 @@
     position: relative;
     display: inline-block;
     max-width: 100%;
+}
+
+.extra{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 120px;
+}
+
+.root[label-size$="small"] > .extra{
+    left: 80px;
+}
+
+.root[label-size$="large"] > .extra{
+    left: 160px;
+}
+
+.root[distance="small"] > .field{
+    margin-left: 25px;
+}
+.root[distance="normal"] > .field{
+    margin-left: 30px;
+}
+.root[distance="large"] > .field{
+    margin-left: 35px;
 }
