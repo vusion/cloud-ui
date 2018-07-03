@@ -273,6 +273,7 @@
 | field | String | `'text'` | 显示文本字段 |
 | readonly | Boolean | `false` | 是否只读 |
 | disabled | Boolean | `false` | 是否禁用 |
+| ellipsisDirection | String| `'ltr'` | 控制文本省略方向，其值和原生`css`属性`'direction'`值保持一致 |
 
 ### Slots
 
