@@ -123,6 +123,10 @@
     max-width: 100%;
 }
 
+.root[field-size="full"] .wrap{
+    display: block;
+}
+
 .extra{
     position: absolute;
     top: 50%;

@@ -88,6 +88,8 @@
 
 #### (default)
 
+### Events
+
 #### @input
 
 输入时触发
@@ -120,11 +122,28 @@
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event | String | 原生事件对象 |
-
-
 #### @reset
 点击删除icon时触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event | String | 重置后的值 |
+
+### Methods
+#### focus
+
+使输入框处于焦点状态
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| | | |
+
+#### blur
+
+使输入框失去焦点
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| | | |
+
+
