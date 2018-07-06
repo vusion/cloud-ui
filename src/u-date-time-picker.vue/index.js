@@ -23,8 +23,8 @@ export default {
         },
         readonly: [String, Boolean],
         autofocus: [String, Boolean],
-        minDate: [String, Number, Object],
-        maxDate: [String, Number, Object],
+        minDate: [String, Number, Date],
+        maxDate: [String, Number, Date],
         date: [String, Number, Date],
         width: {
             type: [String, Number],
@@ -46,6 +46,7 @@ export default {
             open: false,
             minTime: undefined,
             maxTime: undefined,
+            currentMaxDate: this.getMaxDate(), // 可能会存在最大值小于最小值情况，组件需要内部处理让最大值和最小值一样
         };
     },
     computed: {
@@ -59,13 +60,13 @@ export default {
             return this.format(this.minDate, 'yyyy-MM-dd');
         },
         maxCalendarDate() {
-            return this.format(this.maxDate, 'yyyy-MM-dd');
+            return this.format(this.currentMaxDate, 'yyyy-MM-dd');
         },
         spMinTime() {
             return this.format(this.minDate, 'HH:mm:ss');
         },
         spMaxTime() {
-            return this.format(this.maxDate, 'HH:mm:ss');
+            return this.format(this.currentMaxDate, 'HH:mm:ss');
         },
     },
     directives: {
@@ -103,6 +104,12 @@ export default {
             // 方便u-field组件捕获到其值
             this.$emit('input', new Date(newValue.replace(/-/g, '/')));
         },
+        maxDate(value) {
+            this.currentMaxDate = this.getMaxDate(value);
+        },
+        minDate(value) {
+            this.currentMaxDate = this.getMaxDate();
+        },
     },
     methods: {
         /**
@@ -111,6 +118,7 @@ export default {
          * @return {void}
          */
         outRangeDateTime(date, time) {
+            debugger;
             if (!time)
                 time = '00:00:00';
 
@@ -199,7 +207,7 @@ export default {
         isOutOfRange(date) {
             date = this.transformDate(date);
             const minDate = this.transformDate(this.minDate);
-            const maxDate = this.transformDate(this.maxDate);
+            const maxDate = this.transformDate(this.currentMaxDate);
 
             // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期时间。
             return (minDate && date < minDate && minDate) || (maxDate && date > maxDate && maxDate);
@@ -241,6 +249,15 @@ export default {
         },
         handleClose() {
             this.open = false;
+        },
+        getMaxDate(value) {
+            value = value || this.maxDate;
+            const minTime = new Date(this.minDate).getTime();
+            const maxTime = new Date(value).getTime();
+            if (maxTime < minTime)
+                return this.minDate;
+            else
+                return this.maxDate;
         },
     },
 };

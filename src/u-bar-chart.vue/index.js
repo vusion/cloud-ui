@@ -35,7 +35,7 @@ export default {
         yAxis: Object,
         stack: [String, Boolean],
         loading: { type: Boolean, default: false },
-        contentClass: String,
+        contentStyle: Object,
     },
     data() {
         return {

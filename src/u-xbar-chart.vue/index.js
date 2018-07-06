@@ -38,7 +38,7 @@ export default {
         stack: [String, Boolean],
         order: { type: String, default: 'desc' },
         loading: { type: Boolean, default: false },
-        contentClass: String,
+        contentStyle: Object,
     },
     data() {
         return {
