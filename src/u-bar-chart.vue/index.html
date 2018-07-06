@@ -1,9 +1,13 @@
 <u-chart :class="$style.root" :title="title" :border="border" :width="width" :height="height" :legend="legend" :series="series" :data="data" :loading="loading" :content-style="contentStyle">
-    <template slot="titleTemplate">
-        {{title}}
+    <template v-if="title || $slots.titleTemplate" slot="titleTemplate">
+        <slot name="titleTemplate">
+            {{title}}
+        </slot>
     </template>
     <template slot="captionTemplate">
-        {{caption}}
+        <slot name="captionTemplate">
+            {{caption}}
+        </slot>
     </template>
     <div :class="$style.grid">
         <div v-for="(xLabel,index) in xAxis_.data" :class="$style.line" role="line-y" :style="{left: 100*index/xAxis_.data.length+'%'}"></div>

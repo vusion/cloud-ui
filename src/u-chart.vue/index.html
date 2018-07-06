@@ -1,5 +1,5 @@
 <div :class="$style.root" :border="border" :empty="data && !data.length" :style="{width: width, height: height}">
-    <div v-if="title" :class="$style.ittitle" :style="{textAlign: titleAlign}">
+    <div v-if="title || $slots.titleTemplate" :class="$style.ittitle" :style="{textAlign: titleAlign}">
         <slot name="titleTemplate">{{title}}</slot>
     </div>
     <div :class="$style.caption">
