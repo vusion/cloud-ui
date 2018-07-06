@@ -211,7 +211,7 @@ export default {
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata" border height="200">
+        <u-table-view :data="tdata" border height="800">
             <u-table-view-column title="日期" label="date" width="20%" sortable></u-table-view-column>
             <u-table-view-column ellipsis title="姓名" width="20%" label="name" :formatter="formatter"></u-table-view-column>
             <u-table-view-column title="地址" label="address" width="20%" sortable></u-table-view-column>
@@ -1128,6 +1128,8 @@ export default {
 | showHeader| Boolean | `true` | 是否展示表格头 |
 | rowClassName | Function | `` | 给表格行添加自定义class函数，第一个参数表示索引，即在第几行中，第二个参数是表格当前行数据 |
 | height| Integer/String |  | 表格组件的高度 |
+| maxHeight| Integer/String |  | 表格组件的最大高度 |
+| minHeight| Integer/String |  | 表格组件的最小高度 |
 | layout| String | fixed | 表格的布局方式, 可选值有fixed, auto两种 |
 | visible| Boolean | true | 默认显示 |
 | pattern| String | `'normal'` | 支持显示指定数目的数据，值设置为limit即可 |

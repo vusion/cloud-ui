@@ -1,4 +1,4 @@
-<div :class="$style.root" ref="root" :border="border" :style="{height: height+'px', width: width + 'px'}" v-show="visible" @mouseover="mouseover" @mouseleave="mouseleave">
+<div :class="$style.root" ref="root" :border="border" :style="{height: height+'px', width: width + 'px', maxHeight: maxHeight + 'px', minHeight: minHeight + 'px'}" v-show="visible" @mouseover="mouseover" @mouseleave="mouseleave">
     <div :class="$style.title" v-if="title" ref="title">
         {{title}}
         <slot name="title"></slot>
@@ -150,7 +150,7 @@
                 </thead>
             </table>
         </div>
-        <div :class="$style.body" :style="{height: bodyHeight+'px', overflowX: isXScroll ? 'scroll' : 'visible', overflowY: isYScroll ? 'scroll' : 'visible' }" @scroll="bodyScroll">
+        <div :class="$style.body" :style="{height: bodyHeight+'px', maxHeight: maxBodyHeight+'px', minHeight: minBodyHeight+'px', overflowX: isXScroll ? 'scroll' : 'visible', overflowY: isYScroll ? 'scroll' : 'visible' }" @scroll="bodyScroll">
             <table cellspacing="0" ref="body" cellpadding="0" border="0" :class="$style.tbody" :style="{width: bodyWidth, tableLayout: layout}">
                 <colgroup>
                     <col v-for="(column, index) in columns" :width="column.currentWidth || columnsWidth[index]">
@@ -272,7 +272,7 @@
                     </thead>
                 </table>
             </div>
-            <div :class="$style.body" id="lefttable" ref="lefttable" :style="{height: fixedTableHeight+'px'}" role="fixed">
+            <div :class="$style.body" id="lefttable" ref="lefttable" :style="{height: fixedTableHeight+'px', maxHeight: fixedMaxTableHeight+'px', minHeight: fixedMinTableHeight+'px'}" role="fixed">
                 <table cellspacing="0" cellpadding="0" border="0" :class="$style.tbody" :style="{width: bodyWidth, tableLayout: layout}">
                     <colgroup>
                         <col v-for="(column, index) in columns" :width="column.currentWidth || columnsWidth[index]">
@@ -359,7 +359,7 @@
                     </thead>
                 </table>
             </div>
-            <div :class="$style.body" id="righttable" ref="righttable" :style="{height: fixedTableHeight+'px'}" role="fixed">
+            <div :class="$style.body" id="righttable" ref="righttable" :style="{height: fixedTableHeight+'px', maxHeight: fixedMaxTableHeight+'px', minHeight: fixedMinTableHeight+'px'}" role="fixed">
                 <table cellspacing="0" cellpadding="0" border="0" :class="$style.tbody" :style="{width: bodyWidth, tableLayout: layout}">
                     <colgroup>
                         <col v-for="(column, index) in rightColumns" :width="column.fixedWidth || column.currentWidth || columnsWidth[index]">

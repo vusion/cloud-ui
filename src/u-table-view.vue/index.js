@@ -31,6 +31,8 @@ export default {
         noDataText: { type: String, default: '暂无数据' },
         loading: { type: Boolean, default: false },
         height: [String, Number],
+        maxHeight: [String, Number],
+        minHeight: [String, Number],
         layout: {
             type: String,
             default: 'fixed',
@@ -61,7 +63,11 @@ export default {
             copyTdata: [], // tdata的复制版本主要用来过滤
             tableWidth: undefined, // display值为none的时候需要特殊处理这个值
             bodyHeight: undefined,
+            maxBodyHeight: undefined,
+            minBodyHeight: undefined,
             fixedTableHeight: undefined, // 当固定列和表格的高度一起使用的时候
+            fixedMaxTableHeight: undefined,
+            fixedMinTableHeight: undefined,
             bodyWidth: undefined, // 当出现垂直滚动条的时候，需要减去滚动条的宽度，确保不会出现水平滚动条
             scrollWidth: undefined,
             over: false, // 当mouseover在表格时，此值为true
@@ -485,15 +491,25 @@ export default {
                     this.scrollWidth = getScrollSize();
                     const titleHeight = parseFloat(getStyle(this.$refs.title, 'height')) || 0;
                     const headHeight = parseFloat(getStyle(this.$refs.head, 'height')) || 0;
+                    const tableHeight = this.$refs.body.offsetHeight;
                     if (this.height && !this.loading && this.data.length) {
-                        this.bodyWidth = parseFloat(this.tableWidth) - this.scrollWidth;
+                        // this.bodyWidth = parseFloat(this.tableWidth) - this.scrollWidth;
                         this.bodyHeight = this.height - titleHeight - headHeight;
-                        const tableHeight = this.$refs.body.offsetHeight;
                         this.isYScroll = tableHeight > this.bodyHeight;
                     } else {
                         this.bodyWidth = this.tableWidth;
                         // this.bodyHeight = parseFloat(getStyle(this.$refs.body, 'height')) || 0;
                     }
+                    if (this.maxHeight && !this.loading && this.data.length) {
+                        // this.bodyWidth = parseFloat(this.tableWidth) - this.scrollWidth;
+                        this.fixedMaxTableHeight = this.maxBodyHeight = this.maxHeight - titleHeight - headHeight;
+                        this.isYScroll = tableHeight > this.maxBodyHeight;
+                    }
+                    if (this.minHeight && !this.loading && this.data.length) {
+                        // this.bodyWidth = parseFloat(this.tableWidth) - this.scrollWidth;
+                        this.fixedMinTableHeight = this.minBodyHeight = this.minHeight - titleHeight - headHeight;
+                    }
+
                     if (this.loading && tableWidth > parentWidth) {
                         this.fixedTableHeight = parseFloat(getStyle(this.$refs.body, 'height')) || 0;
                         // this.$refs.body.parentNode.scrollLeft = (tableWidth - parentWidth) / 2;
@@ -507,7 +523,11 @@ export default {
 
                     this.columns.forEach((item, index) => {
                         this.columnsWidth.push(item.currentWidth);
-                        if (this.height && index === (this.columns.length - 1)) {
+                        if (this.height && index === (this.columns.length - 1) && this.isYScroll) {
+                            item.currentWidth = item.currentWidth - this.scrollWidth;
+                            item.fixedWidth = item.currentWidth;
+                        }
+                        if (this.maxHeight && index === (this.columns.length - 1) && this.isYScroll) {
                             item.currentWidth = item.currentWidth - this.scrollWidth;
                             item.fixedWidth = item.currentWidth;
                         }
