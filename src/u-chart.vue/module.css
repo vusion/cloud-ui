@@ -143,9 +143,9 @@ $m-chart_legend_height: 30px;
     top: 65px;
 }
 
-/* .caption~.content {
+.caption~.content {
     top: 65px;
-} */
+}
 
 .legend~.content {
     bottom: 45px;
