@@ -4,7 +4,7 @@
             {{title}}
         </slot>
     </template>
-    <template slot="captionTemplate">
+    <template slot="captionTemplate"  v-if="caption || $slots.captionTemplate">
         <slot name="captionTemplate">
             {{caption}}
         </slot>

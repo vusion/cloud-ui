@@ -28,6 +28,8 @@ export default {
         defaultText: { type: String, default: '-' },
         expandIcon: { type: String, default: 'right-down', validator: (value) => ['up-down', 'right-down'].includes(value) },
         expandStrict: { type: Boolean, default: false }, // 开启expand严格匹配模式， 只有对应的label字段有值才显示icon
+        expandLabel: String, // 配合expand模式使用，可能出现字段组合的情况
+        expandClass: String, // 自定义expand的icon样式
         headClass: { type: String, default: '' },
     },
     mixins: [Emitter],
@@ -47,6 +49,9 @@ export default {
     watch: {
         value(newValue) {
             this.selectValue = newValue;
+        },
+        selectValue(newValue) {
+            this.$emit('update:value', newValue);
         },
         width(newValue) {
             this.currentWidth = this.copyWidth = this.getWidth(newValue);

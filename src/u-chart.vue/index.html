@@ -2,7 +2,7 @@
     <div v-if="title || $slots.titleTemplate" :class="$style.ittitle" :style="{textAlign: titleAlign}">
         <slot name="titleTemplate">{{title}}</slot>
     </div>
-    <div :class="$style.caption">
+    <div :class="$style.caption" v-if="caption || $slots.captionTemplate">
         <slot name="captionTemplate">
             {{caption}}
         </slot>

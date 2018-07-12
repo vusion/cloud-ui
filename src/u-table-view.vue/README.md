@@ -211,10 +211,10 @@ export default {
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata" border height="800">
-            <u-table-view-column title="日期" label="date" width="20%" sortable></u-table-view-column>
-            <u-table-view-column ellipsis title="姓名" width="20%" label="name" :formatter="formatter"></u-table-view-column>
-            <u-table-view-column title="地址" label="address" width="20%" sortable></u-table-view-column>
+        <u-table-view :data="tdata" border max-height="400">
+            <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
+            <u-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-table-view-column>
+            <u-table-view-column title="地址" label="address" width="200px" sortable></u-table-view-column>
         </u-table-view>
     </div>
 </template>
@@ -477,7 +477,7 @@ export default {
 </script>
 ```
 
- select
+带有过滤数据功能的表格，如果要实现过滤异步加载数据，请监听`filter-change`方法，并发送异步请求获取数据，更改tdata即可
 ``` vue
 <template>
     <u-table-view :data="tdata" @filter-change="filterChange">
@@ -1033,12 +1033,13 @@ export default {
 ```
 
 ### expand 的高级用法
+默认只会展开一个icon中的内容，如果不想有此限制，请给`u-table-view`传入`expandPattern`属性，只要值不等于`'toggle'`就可以，建议传入`'normal'`
 ```vue
 <template>
-    <u-table-view :show-header="false" :data="tdata" :row-class-name="rowClassName" @toggle-expand="toggleExpand" border>
+    <u-table-view :show-header="false" expand-pattern="normal" :data="tdata" :row-class-name="rowClassName" @toggle-expand="toggleExpand" border>
         <u-table-view-column title="日期" label="date"></u-table-view-column>
         <u-table-view-column title="详细信息" label="info"></u-table-view-column>
-        <u-table-view-column title="icon" type="expand" label="listlogs" default-text="" expand-strict expand-icon="up-down">
+        <u-table-view-column title="icon" expand-class="infoIcon" type="expand" label="listlogs" default-text="" expand-strict expand-icon="up-down">
             <template slot="expandContent" slot-scope="scope">
                 <div>
                     <p v-for="item in scope.row.listlogs" v-text="item"></p>
@@ -1109,6 +1110,9 @@ export default {
 :global(.infoRow)[class]{
     background: #d8d8d8;
 }
+:global(.infoIcon){
+    margin-left: 5px;
+}
 </style>
 ```
 
@@ -1139,6 +1143,7 @@ export default {
 | defaultText | String | `'-'` | 默认当单元格取值为空时，默认显示的内容，此处是设置整个表格 |
 | color | String | `` | 值为light的时，表格头背景是#fff |
 | forceFilter | Boolean | `true` | 数据发生变化是，存在数据过滤列，是否需要进行过滤，默认是需要的，但是异步获取的情况下，会出现死循环，需要将此值置为`false` |
+| expandPattern | String | `'toggle'` | 规定expand中icon每次展开数量的限制，默认只能展开一个，传入`'normal'`可取消此限制 |
 ### Slots
 
 #### (default)
@@ -1230,5 +1235,7 @@ export default {
 | timeFormat | String | `'YYYY-MM-DD HH:mm:ss'` | 定义type值为time时，返回的指定日期格式的值 |
 | expandIcon | String | `'right-down'` | icon的图标展开方向，提供两种类型，一种是默认向右点击向下`'right-down'`，另一种是默认向下点击向上`'up-down'` |
 | expandStrict | Boolean | `false` | 开启expand严格匹配模式， 只有对应的label字段有值才显示icon |
+| expandLabel | String | `` | expand模式下使用，当出现组合形式的时候，使用此字段指定icon展开依赖的属性字段 |
+| expandClass | String | `` | 定义expand的icon的样式 |
 | defaultText | String | `'-'` | 默认当单元格取值为空时，默认显示的内容，此处是设置某一列的显示 |
 | headClass | String | `''` | 给表格头部`'th'`添加自定义`'class'`名称，方便对表格头部自定义样式 |

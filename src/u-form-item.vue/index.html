@@ -1,8 +1,8 @@
-<div :class="$style.root" :label-size="currentLabelSize" :distance="distance">
+<div :class="$style.root" :label-size="currentLabelSize" :distance="parentVM && parentVM.extraLabel ? 'extra' : ''">
     <label :class="$style.label" :required="currentRequired" v-show="label || title || currentLabelSize !== 'auto'">
         <slot name="label">{{ label || title }}</slot>
     </label>
-    <span :class="$style.extra">
+    <span :class="$style.extra" v-if="parentVM && parentVM.extraLabel">
         <slot name="extra"></slot>
     </span>
     <div :class="$style.field">

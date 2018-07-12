@@ -46,6 +46,7 @@ export default {
         limitText: { type: String, default: '查看更多' },
         allText: { type: String, default: '收起' },
         defaultText: { type: String, default: '-' },
+        expandPattern: { type: String, default: 'toggle' },
         // mode: { type: String, default: 'self' }, // fixed布局的时候计算方式是走原生表格的还是走自定义计算规则配置项
         showHeader: { type: Boolean, default: true }, // 展示表格头部
         loadText: { type: String, default: '' }, // 加载状态显示的文字
@@ -169,8 +170,6 @@ export default {
                         else
                             return item[column.label] === value;
                     });
-                    if (this.pattern === 'limit')
-                        this.tdata = this.tdata.slice(0, this.limit);
 
                     this.$emit('filter-change', {
                         column,
@@ -178,6 +177,9 @@ export default {
                         index: columnIndex,
                     });
                 }
+                if (this.pattern === 'limit')
+                    this.tdata = this.tdata.slice(0, this.limit);
+
                 if (this.currentSortColumn && !this.currentSortColumn.sortRemoteMethod) {
                     const order = this.defaultSort.order === 'asc' ? -1 : 1;
                     this.sortData(this.currentSortColumn, order);
@@ -522,13 +524,16 @@ export default {
                     this.columnsWidth = [];
 
                     this.columns.forEach((item, index) => {
+                        // 存储item.currentWidth可能变化前的值，是由于如果出现水平滚动条，会导致item.currentWidth的值发生变化，
+                        // 这时候，组成tbody的表格对应的col最后一个的宽度应该是本身宽度减去滚动条的宽度，不然会导致对不齐的问题出现
                         this.columnsWidth.push(item.currentWidth);
+
                         if (this.height && index === (this.columns.length - 1) && this.isYScroll) {
-                            item.currentWidth = item.currentWidth - this.scrollWidth;
+                            item.currentWidth = parseFloat(item.currentWidth) - this.scrollWidth;
                             item.fixedWidth = item.currentWidth;
                         }
                         if (this.maxHeight && index === (this.columns.length - 1) && this.isYScroll) {
-                            item.currentWidth = item.currentWidth - this.scrollWidth;
+                            item.currentWidth = parseFloat(item.currentWidth) - this.scrollWidth;
                             item.fixedWidth = item.currentWidth;
                         }
                     });
@@ -541,6 +546,7 @@ export default {
             this.defaultFilter.title = column.title;
             this.defaultFilter.value = option.value;
             this.defaultFilter.column = column;
+            // 需要考虑数据为空 进行过滤 异步加载数据的情况
             this.filterTdata = this.tdata = this.copyTdata.filter((item) => {
                 if (column.filterMethod)
                     return column.filterMethod(option.value, item[column.label], item, column);
@@ -634,12 +640,14 @@ export default {
             this.over = false;
         },
         toggleExpand(index) {
-            this.tdata.forEach((item, kindex) => {
-                if (kindex !== index) {
-                    item.expanded = false;
-                    item.iconName = 'right';
-                }
-            });
+            if (this.expandPattern === 'toggle') {
+                this.tdata.forEach((item, kindex) => {
+                    if (kindex !== index) {
+                        item.expanded = false;
+                        item.iconName = 'right';
+                    }
+                });
+            }
             const copyRowData = this.tdata[index];
             copyRowData.expanded = !copyRowData.expanded;
             if (!copyRowData.expanded)

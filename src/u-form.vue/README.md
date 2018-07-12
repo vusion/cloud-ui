@@ -376,7 +376,7 @@ export default {
             用户名
         </span>
         <u-tooltip content="请输入正确格式的中文汉字" slot="extra" >
-            <u-icon name="alert" style="font-size:16px;marginLeft:-5px;"></u-icon>
+            <u-icon name="alert" style="font-size:16px;"></u-icon>
         </u-tooltip>
         <u-input maxlength="4" maxlength-message="不超过4个字符" placeholder="不超过4个字符"></u-input>
     </u-form-item>
@@ -398,19 +398,19 @@ export default {
 ``` vue
 <template>
 <u-form ref="form" gap="large" :rules="rules" distance="normal">
-    <u-form-item label="用户名" name="username">
+    <u-form-item label="用户名" name="username" field-size="full">
         <u-tooltip content="请输入正确格式的中文汉字" slot="extra">
-            <u-icon name="alert" style="font-size:16px;marginLeft:-5px;"></u-icon>
+            <u-icon name="alert" style="font-size:16px;"></u-icon>
         </u-tooltip>
         <u-input size="huge" v-model="model.username" maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>
-    <u-form-item label="邮箱" name="email">
+    <u-form-item label="邮箱" name="email" field-size="full">
         <u-input size="huge" v-model="model.email" maxlength="24" placeholder="请输入邮箱"></u-input>
     </u-form-item>
-    <u-form-item label="手机号码" name="phone">
+    <u-form-item label="手机号码" name="phone" field-size="full">
         <u-input size="huge" v-model="model.phone" maxlength="11" placeholder="请输入手机号码"></u-input>
     </u-form-item>
-    <u-form-item>
+    <u-form-item field-size="full">
         <u-button color="primary" @click="submit()">提交</u-button>
     </u-form-item>
 </u-form>

@@ -6,9 +6,4 @@ export default {
     props: {
         description: String,
     },
-    computed: {
-        distance() {
-            return this.parentVM && this.parentVM.distance;
-        },
-    },
 };
