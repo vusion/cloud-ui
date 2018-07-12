@@ -399,9 +399,6 @@ export default {
 <template>
 <u-form ref="form" gap="large" :rules="rules" distance="normal">
     <u-form-item label="用户名" name="username" field-size="full">
-        <u-tooltip content="请输入正确格式的中文汉字" slot="extra">
-            <u-icon name="alert" style="font-size:16px;"></u-icon>
-        </u-tooltip>
         <u-input size="huge" v-model="model.username" maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>
     <u-form-item label="邮箱" name="email" field-size="full">

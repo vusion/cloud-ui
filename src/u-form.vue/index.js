@@ -4,7 +4,7 @@ export default {
     name: 'u-form',
     mixins: [Form],
     computed: {
-        extraLabel() {
+        extraSlots() {
             return this.itemVMs.some((item) => item.$slots.extra);
         },
     },
