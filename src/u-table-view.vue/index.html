@@ -12,7 +12,12 @@
                         <template v-if="column.type === 'selection' && column.headSelection">
                             <u-checkbox v-model="allSel" @check="allSelected" />
                         </template>
-                        <span v-if="!column.filter" :class="$style.itemtitle">{{column.title}}</span>
+                        <span v-if="!column.filter" :class="$style.itemtitle">
+                            <template v-if="!column.$slots['header-title']">{{ column.title }}</template>
+                            <template v-else>
+                                <u-table-view-cell :class="$style.ditem" :column="column" text></u-table-view-cell>
+                            </template>
+                        </span>
                         <template v-else-if="column.filter">
                             <u-popper ref="popper" trigger="click" :placement="column.placement" append-to="body">
                                 <div :class="$style.filtertitle" :role="column.filter">
@@ -126,7 +131,12 @@
                             <template v-if="column.type === 'selection' && column.headSelection">
                                 <u-checkbox v-model="allSel" :disabled="allDisabled" @check="allSelected" />
                             </template>
-                            <span v-if="!column.filter" :class="$style.itemtitle">{{column.title}}</span>
+                            <span v-if="!column.filter" :class="$style.itemtitle">
+                                <template v-if="!column.$slots['header-title']">{{ column.title }}</template>
+                                <template v-else>
+                                    <u-table-view-cell :class="$style.ditem" :column="column" text></u-table-view-cell>
+                                </template>
+                            </span>
                             <template v-else-if="column.filter">
                                 <u-popper trigger="click" ref="popper" :placement="column.placement" append-to="body">
                                     <div :class="$style.filtertitle" :role="column.filter">
@@ -248,7 +258,12 @@
                                 <template v-if="column.type === 'selection' && column.headSelection">
                                     <u-checkbox v-model="allSel" @check="allSelected" />
                                 </template>
-                                <span v-if="!column.filter" :class="$style.itemtitle">{{column.title}}</span>
+                                <span v-if="!column.filter" :class="$style.itemtitle">
+                                    <template v-if="!column.$slots['header-title']">{{ column.title }}</template>
+                                <template v-else>
+                                    <u-table-view-cell :class="$style.ditem" :column="column" text></u-table-view-cell>
+                                </template>
+                                </span>
                                 <template v-else-if="column.filter">
                                     <u-popper trigger="click" ref="popper" :placement="column.placement" append-to="body">
                                         <div :class="$style.filtertitle" :role="column.filter">
@@ -335,7 +350,12 @@
                                 <template v-if="column.type === 'selection' && column.headSelection">
                                     <u-checkbox v-model="allSel" @check="allSelected" />
                                 </template>
-                                <span v-if="!column.filter" :class="$style.itemtitle">{{column.title}}</span>
+                                <span v-if="!column.filter" :class="$style.itemtitle">
+                                    <template v-if="!column.$slots['header-title']">{{ column.title }}</template>
+                                <template v-else>
+                                    <u-table-view-cell :class="$style.ditem" :column="column" text></u-table-view-cell>
+                                </template>
+                                </span>
                                 <template v-else-if="column.filter">
                                     <u-popper trigger="click" ref="popper" :placement="column.placement" append-to="body">
                                         <div :class="$style.filtertitle" :role="column.filter">

@@ -212,7 +212,11 @@ export default {
 <template>
     <div>
         <u-table-view :data="tdata" border max-height="400">
-            <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
+            <u-table-view-column label="date">
+                <div slot="header-title">
+                    日期
+                </div>
+            </u-table-view-column>
             <u-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-table-view-column>
             <u-table-view-column title="地址" label="address" width="200px" sortable></u-table-view-column>
         </u-table-view>
@@ -1239,3 +1243,9 @@ export default {
 | expandClass | String | `` | 定义expand的icon的样式 |
 | defaultText | String | `'-'` | 默认当单元格取值为空时，默认显示的内容，此处是设置某一列的显示 |
 | headClass | String | `''` | 给表格头部`'th'`添加自定义`'class'`名称，方便对表格头部自定义样式 |
+
+### Slots
+
+#### header-title
+
+自定义表格`th`标签中的内容

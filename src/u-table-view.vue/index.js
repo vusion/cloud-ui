@@ -171,11 +171,12 @@ export default {
                             return item[column.label] === value;
                     });
 
-                    this.$emit('filter-change', {
-                        column,
-                        value,
-                        index: columnIndex,
-                    });
+                    // 去掉，会导致陷入死循环中
+                    // this.$emit('filter-change', {
+                    //     column,
+                    //     value,
+                    //     index: columnIndex,
+                    // });
                 }
                 if (this.pattern === 'limit')
                     this.tdata = this.tdata.slice(0, this.limit);

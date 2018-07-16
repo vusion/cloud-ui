@@ -45,6 +45,11 @@
     cursor: pointer;
 }
 
+.closeIcon:hover{
+    color: #999;
+    background-color: #ebedef;
+}
+
 .closeIcon{
     width: 18px;
     height: 18px;
