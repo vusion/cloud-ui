@@ -13,7 +13,7 @@
                             <u-checkbox v-model="allSel" @check="allSelected" />
                         </template>
                         <span v-if="!column.filter" :class="$style.itemtitle">
-                            <template v-if="!column.$slots['header-title']">{{ column.title }}</template>
+                            <template v-if="!column.$slots.headerTitle">{{ column.title }}</template>
                             <template v-else>
                                 <u-table-view-cell :class="$style.ditem" :column="column" text></u-table-view-cell>
                             </template>
@@ -132,7 +132,7 @@
                                 <u-checkbox v-model="allSel" :disabled="allDisabled" @check="allSelected" />
                             </template>
                             <span v-if="!column.filter" :class="$style.itemtitle">
-                                <template v-if="!column.$slots['header-title']">{{ column.title }}</template>
+                                <template v-if="!column.$slots.headerTitle">{{ column.title }}</template>
                                 <template v-else>
                                     <u-table-view-cell :class="$style.ditem" :column="column" text></u-table-view-cell>
                                 </template>
@@ -259,7 +259,7 @@
                                     <u-checkbox v-model="allSel" @check="allSelected" />
                                 </template>
                                 <span v-if="!column.filter" :class="$style.itemtitle">
-                                    <template v-if="!column.$slots['header-title']">{{ column.title }}</template>
+                                    <template v-if="!column.$slots.headerTitle">{{ column.title }}</template>
                                 <template v-else>
                                     <u-table-view-cell :class="$style.ditem" :column="column" text></u-table-view-cell>
                                 </template>
@@ -351,7 +351,7 @@
                                     <u-checkbox v-model="allSel" @check="allSelected" />
                                 </template>
                                 <span v-if="!column.filter" :class="$style.itemtitle">
-                                    <template v-if="!column.$slots['header-title']">{{ column.title }}</template>
+                                    <template v-if="!column.$slots.headerTitle">{{ column.title }}</template>
                                 <template v-else>
                                     <u-table-view-cell :class="$style.ditem" :column="column" text></u-table-view-cell>
                                 </template>

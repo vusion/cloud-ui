@@ -213,7 +213,7 @@ export default {
     <div>
         <u-table-view :data="tdata" border max-height="400">
             <u-table-view-column label="date">
-                <div slot="header-title">
+                <div slot="headerTitle">
                     日期
                 </div>
             </u-table-view-column>
@@ -1246,6 +1246,7 @@ export default {
 
 ### Slots
 
-#### header-title
-
-自定义表格`th`标签中的内容
+ | Slot | Description |
+ | ---- | ----------- |
+ | headerTitle | 插入自定义`th`标签内容 |
+ | expandContent | 插入自定义icon展开的内容 |
