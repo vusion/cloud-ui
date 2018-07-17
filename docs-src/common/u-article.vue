@@ -116,9 +116,9 @@ export default {
 .root pre {
     padding: 6px 12px;
     font-size: 12px;
-    background: #fafafa;
+    /* background: #fafafa; */
     color: #333;
-    border: 1px solid #eee;
+    /* border: 1px solid #eee; */
     border-radius: $border-radius-base;
 }
 

@@ -10,7 +10,7 @@
   ],
   "main": "./index.js",
   "scripts": {
-    "precommit": "bash node_modules/vusion-hooks/pre-commit"
+    "precommit": "node node_modules/vusion-hooks/precommit"
   },
   "repository": "vusion/cloud-ui",
   "homepage": "http://vusion.github.io",
@@ -37,20 +37,21 @@
     "vusion-utils": "^0.2.1"
   },
   "devDependencies": {
+    "@vusion/md-vue-loader": "^0.1.1",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
+    "cheerio": "^1.0.0-rc.2",
     "commander": "^2.12.2",
-    "eslint": "^4.13.1",
-    "eslint-config-vusion": "^2.0.2",
+    "eslint": "^4.19.1",
+    "eslint-config-vusion": "^2.1.1",
     "highlight.js": "^9.12.0",
     "husky": "^0.13.3",
     "markdown-it-for-inline": "^0.1.1",
     "shelljs": "^0.7.8",
     "vue": "^2.5.0",
-    "vue-markdown-html-loader": "^0.0.3",
     "vue-router": "^3.0.1",
-    "vusion-hooks": "^0.1.0",
+    "vusion-hooks": "^0.2.0",
     "x-ace-editor.vue": "^0.1.0"
   },
   "peerDependencies": {

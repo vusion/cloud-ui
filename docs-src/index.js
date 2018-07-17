@@ -16,6 +16,7 @@ import ThemeSelectItem from './common/u-theme-select-item.vue';
 import OverviewItem from './common/u-overview-item.vue';
 import Table2 from './common/u-table.vue';
 import './common/atom-one-light.css';
+import Example from './common/u-example.vue';
 import XAceEditor from '../packages/x-ace-editor.vue';
 
 const Components = Object.assign({}, Library, {
@@ -28,6 +29,7 @@ const Components = Object.assign({}, Library, {
     // SidebarItem,
     OverviewItem,
     Table2,
+    Example,
     XAceEditor,
 });
 

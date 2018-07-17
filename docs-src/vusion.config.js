@@ -1,5 +1,4 @@
 const path = require('path');
-const hljs = require('highlight.js');
 const iterator = require('markdown-it-for-inline');
 
 const theme = 'theme-' + process.argv[process.argv.length - 1];
@@ -27,54 +26,32 @@ module.exports = {
             },
         },
         module: {
-            rules: [
-                {
-                    test: /\.md$/,
-                    use: [{
-                        loader: 'vue-loader',
-                        options: {
-                            preserveWhitespace: false,
+            rules: [{
+                test: /\.md$/,
+                use: [{
+                    loader: 'vue-loader',
+                    options: {
+                        preserveWhitespace: false,
+                    },
+                }, {
+                    loader: '@vusion/md-vue-loader',
+                    options: {
+                        wrapper: 'u-article',
+                        liveProcess(live, code) {
+                            // 不好直接用自定义标签，容易出问题
+                            return `<div class="u-example"><div>${live}</div><div slot="code"></div></div>\n\n${code}`;
                         },
-                    }, {
-                        loader: 'vue-markdown-html-loader',
-                        options: {
-                            wrapper: 'u-article',
-                            // livePattern: {
-                            //     exec: (content) => [content, 'anonymous-' + hashSum(content)],
-                            // },
-                            // liveTemplateProcessor(template) {
-                            //     // Remove whitespace between tags
-                            //     template = template.trim().replace(/>\s+</g, '><');
-                            //     return `<div class="u-example">${template}</div>`;
-                            // },
-                            markdownIt: {
-                                langPrefix: 'lang-',
-                                html: true,
-                                highlight(str, rawLang) {
-                                    let lang = rawLang;
-                                    if (rawLang === 'vue')
-                                        lang = 'html';
-
-                                    if (lang && hljs.getLanguage(lang)) {
-                                        try {
-                                            const result = hljs.highlight(lang, str).value;
-                                            return `<pre class="hljs ${this.langPrefix}${rawLang}"><code>${result}</code></pre>`;
-                                        } catch (e) {}
-                                    }
-
-                                    return '';
-                                    // const result = this.utils.escapeHtml(str);
-                                    // return `<pre class="hljs"><code>${result}</code></pre>`;
-                                },
-                            },
-                            markdownItPlugins: [
-                                [iterator, 'link_converter', 'link_open', (tokens, idx) => tokens[idx].tag = 'u-link'],
-                                [iterator, 'link_converter', 'link_close', (tokens, idx) => tokens[idx].tag = 'u-link'],
-                            ],
+                        postprocess(result) {
+                            const re = /<div class="u-example"><div>([\s\S]+?)<\/div><div slot="code"><\/div><\/div>\s+(<pre[\s\S]+?<\/pre>)/g;
+                            return result.replace(re, (m, live, code) => `<u-example><div>${live}</div><div slot="code">${code}</div></u-example>\n\n`);
                         },
-                    }],
-                },
-            ],
+                        plugins: [
+                            [iterator, 'link_converter', 'link_open', (tokens, idx) => tokens[idx].tag = 'u-link'],
+                            [iterator, 'link_converter', 'link_close', (tokens, idx) => tokens[idx].tag = 'u-link'],
+                        ],
+                    },
+                }],
+            }],
         },
     },
     webpackDevServer: {
