@@ -48,7 +48,7 @@
 ``` html
 <u-info-list>
     <u-info-list-group title="基本信息">
-        <template slot="operate">
+        <template slot="extra">
             <u-link style="float: right;">设置</u-link>
         </template>
         <u-info-list-item label="VPC名称">defaultVPC</u-info-list-item>
