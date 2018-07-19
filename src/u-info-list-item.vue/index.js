@@ -8,6 +8,7 @@ export default {
     props: {
         label: String,
         labelSize: String,
+        ellipsis: { type: Boolean, default: false },
     },
     data() {
         return {

@@ -67,7 +67,7 @@
 | Prop/Attr | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
 | column | String | `3` | 列数。可选值：`1`、`2`、`3`、`4` |
-| label-size | String | | 标签大小。可选值：`small`、`normal`、`large` |
+| label-size | String | `auto` | 标签大小。可选值：`small`、`normal`、`large`、`auto` |
 
 ### Slots
 
@@ -83,7 +83,8 @@
 | --------- | ---- | ------- | ----------- |
 | label | String | | 标签 |
 | column | String | | 列数。可选值：`1`、`2`、`3`、`4` |
-| label-size | String | | 标签大小。可选值：`small`、`normal`、`large` |
+| label-size | String | `auto` | 标签大小。可选值：`small`、`normal`、`large`、`auto` |
+| ellipsis | Boolean | `false` | 是否换行，默认换行，值为`true`则开启不换行，超出部分显示为省略号 |
 
 ### Slots
 
@@ -98,7 +99,7 @@
 | Prop/Attr | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
 | title | String | | 标题 |
-| label-size | String | | 标签大小。可选值：`small`、`normal`、`large` |
+| label-size | String | `auto` | 标签大小。可选值：`small`、`normal`、`large`、`auto` |
 
 ### Slots
 

@@ -17,14 +17,22 @@
 .root[label-size$="large"] .label { width: 120px;}
 
 .label {
-    float: left;
-    margin-right: 20px;
+    display: table-cell;
+    padding-right: 20px;
     color: #999;
 }
 
 .value {
-    overflow: hidden;
+    display: table-cell;
     white-space: normal;
     word-break: break-all;
     color: #666;
+}
+
+.value[ellipsis] {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    max-width: 0;
 }

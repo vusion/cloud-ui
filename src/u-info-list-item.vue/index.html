@@ -1,6 +1,6 @@
 <li :class="$style.root" :column="currentColumn" :label-size="currentLabelSize">
-    <span :class="$style.label">{{ label }}</span>
-    <div :class="$style.value">
+    <div :class="$style.label">{{ label }}</div>
+    <div :class="$style.value" :ellipsis="ellipsis">
         <slot></slot>
     </div>
 </li>

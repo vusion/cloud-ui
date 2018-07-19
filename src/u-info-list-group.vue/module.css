@@ -13,4 +13,8 @@
     border-bottom: 1px solid #e1e8ed;
 }
 
-.list {}
+.list {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
