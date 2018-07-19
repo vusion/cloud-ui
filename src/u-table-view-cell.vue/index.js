@@ -14,7 +14,6 @@ export default {
             else if (this.column.$scopedSlots.expandContent)
                 vnode = this.column.$scopedSlots.expandContent;
         } else if (this.text) {
-            debugger;
             // 表格的自定义头部内容
             vnode = this.column.$slots.headerTitle;
         } else {

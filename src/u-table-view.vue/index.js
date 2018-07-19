@@ -183,7 +183,7 @@ export default {
 
                 if (this.currentSortColumn && !this.currentSortColumn.sortRemoteMethod) {
                     const order = this.defaultSort.order === 'asc' ? -1 : 1;
-                    this.sortData(this.currentSortColumn, order);
+                    this.sortData(this.currentSortColumn, order, 'change');
                 }
                 this.handleResize();
             },
@@ -291,7 +291,8 @@ export default {
                 this.sortData(column, order);
             }
         },
-        sortData(column, order) {
+        sortData(column, order, type) {
+            // type 字段在data发生变化时传入，此时不能抛sort-change方法，防止死循环
             const label = column.label;
             if (column.sortRemoteMethod) {
                 // 异步执行排序方法
@@ -311,11 +312,14 @@ export default {
                 else
                     this.tdata = this.copyTdata;
             }
-            this.$emit('sort-change', {
-                column,
-                label,
-                order: this.defaultSort.order,
-            });
+
+            if (!type) {
+                this.$emit('sort-change', {
+                    column,
+                    label,
+                    order: this.defaultSort.order,
+                });
+            }
         },
         getSelection(value) {
             const data = value || this.tdata;
@@ -439,6 +443,7 @@ export default {
 
                     let leaveWidth = 0;
 
+                    // 全部都是百分数
                     if (percentColumns.length === this.columns.length) {
                         let sumWidth = 0;
                         this.columns.forEach((item) => {
