@@ -1,4 +1,4 @@
-<u-popper :trigger="trigger" :placement="placement" :reference="reference"
+<u-popper ref="popper" :trigger="trigger" :placement="placement" :reference="reference"
     :open="open" :hide-delay="hideDelay" v-on="$listeners" :disabled="disabled || !hasContent">
     <slot></slot>
     <div :class="[$style.root, $style.popper]" slot="popper">
