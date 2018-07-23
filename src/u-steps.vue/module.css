@@ -37,12 +37,12 @@
 .item:first-child::after {
     display: block;
     width: 50%;
-    right: 0px;
+    right: 0;
 }
 
 .item:last-child::after {
     width: 50%;
-    left: 0px;
+    left: 0;
 }
 
 .body {

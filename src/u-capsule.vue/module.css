@@ -30,7 +30,7 @@
     color: white;
 }
 
-.root[flag]:after {
+.root[flag]::after {
     content: '';
     position: absolute;
     top: 0;

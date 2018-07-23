@@ -3,6 +3,9 @@
     position: relative;
     padding-top: 0;
     padding-bottom: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .root:hover {
@@ -16,12 +19,6 @@
 .root[disabled] {
     color: #ccc;
     background: none;
-}
-
-.root {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 .flag {

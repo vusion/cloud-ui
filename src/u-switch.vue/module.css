@@ -16,10 +16,10 @@
     left: calc(54px - $button-size - 2px);
 }
 
-.root[with-text] .text:before {
+.root[with-text] .text::before {
     content: 'OFF';
 }
 
-.root[with-text][checked] .text:before {
+.root[with-text][checked] .text::before {
     content: 'ON';
 }

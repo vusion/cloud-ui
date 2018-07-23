@@ -10,7 +10,7 @@
     margin-left: 34px;
 }
 
-.root:after {
+.root::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -25,7 +25,7 @@
     color: white;
 }
 
-.root:hover:after {
+.root:hover::after {
     transition: width 0.5s;
     width: 100%;
 }
@@ -34,7 +34,7 @@
     color: white;
 }
 
-.root[selected]:after {
+.root[selected]::after {
     width: 100%;
 }
 

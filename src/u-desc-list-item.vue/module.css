@@ -2,20 +2,15 @@
     margin-top: 24px;
 }
 
-.root:before, .root:after {
+.root::before, .root::after {
     display: table;
     content: "";
     line-height: 0;
 }
 
-.root:after {
+.root::after {
     clear: both;
 }
-
-.root[label-size$="small"] .label { width: 60px; }
-.root[label-size$="normal"] .label { width: 80px; }
-.root[label-size$="large"] .label { width: 100px; }
-.root[label-size$="huge"] .label { width: 120px; }
 
 .label {
     display: block;
@@ -25,6 +20,11 @@
     line-height: 30px;
     color: #999;
 }
+
+.root[label-size$="small"] .label { width: 60px; }
+.root[label-size$="normal"] .label { width: 80px; }
+.root[label-size$="large"] .label { width: 100px; }
+.root[label-size$="huge"] .label { width: 120px; }
 
 .value {
     float: left;

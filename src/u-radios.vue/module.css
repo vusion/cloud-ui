@@ -3,5 +3,3 @@
 .root > *:not(:last-child) {
     margin-right: 80px;
 }
-
-

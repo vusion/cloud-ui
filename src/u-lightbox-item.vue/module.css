@@ -2,57 +2,60 @@
     display: none;
 }
 .root[start] {
-    animation: show .3s ease-in-out 0s;
+    animation: show 0.3s ease-in-out 0s;
 }
 .root[current] {
     display: block;
 }
 
 .title {
-    color: #fff;
+    color: white;
     font-weight: bold;
     position: absolute;
     z-index: 10;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    background: hsla(0,0%,100%,.1);
+    top: 0;
+    left: 0;
+    right: 0;
+    background: hsla(0,0%,100%,0.1);
     padding: 5px 10px;
     font-size: 14px;
     text-align: center;
 }
+
 @keyframes show {
     0% { transform: scale(0); }
     100% { transform: scale(1); }
 }
-.root[animation="fade"]{
+.root[animation="fade"] {
     display: block;
     transition: all 0.5s ease-out;
     opacity: 0;
 }
-.root[current][animation="fade"]{
+.root[current][animation="fade"] {
     opacity: 1;
 }
 
-.root[animation="zoom-out"]{
+.root[animation="zoom-out"] {
     display: block;
     transition: all 0.5s ease-in;
     opacity: 0;
     transform: scale(1.2);
 }
 
-.root[current][animation="zoom-out"]{
+.root[current][animation="zoom-out"] {
     opacity: 1;
     transform: scale(1);
+}
+
+.wrapper {
+    position: absolute;
+}
+
+.wrapper > img {
+    width: 100%;
 }
 
 .root[current] > .wrapper {
     z-index: 10;
     cursor: move;
-}
-.wrapper {
-    position: absolute;
-}
-.wrapper > img {
-    width: 100%;
 }

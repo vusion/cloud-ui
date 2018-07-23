@@ -1,6 +1,6 @@
 @import 'proto-ui.vusion/src/u-input.vue/module.css';
 
-.root{
+.root {
     position: relative;
 }
 
@@ -11,7 +11,7 @@
     border-radius: 3px;
     transition: border-color $transition-duration;
 }
-.input[close]{
+.input[close] {
     padding-right: 30px;
 }
 
@@ -34,7 +34,7 @@
     border-color: $brand-disabled;
 }
 
-.close{
+.close {
     position: absolute;
     width: 34px;
     height: 34px;
@@ -45,12 +45,7 @@
     cursor: pointer;
 }
 
-.closeIcon:hover{
-    color: #999;
-    background-color: #ebedef;
-}
-
-.closeIcon{
+.closeIcon {
     width: 18px;
     height: 18px;
     line-height: 18px;
@@ -59,17 +54,22 @@
     display: inline-block;
 }
 
-.closeIcon:before{
-    icon-font: url(../u-icon.vue/icons/close-small.svg);
+.closeIcon:hover {
+    color: #999;
+    background-color: #ebedef;
+}
+
+.closeIcon::before {
+    icon-font: url("../u-icon.vue/icons/close-small.svg");
     font-size: 16px;
-    color:#b4b4b4;
+    color: #b4b4b4;
     margin-right: 0;
     vertical-align: middle;
 }
 
 .root[size$="mini"] { width: 80px; }
 .root[size^="mini"] { height: 28px; }
-.input[size$="mini"]{ padding: 0 6px; }
+.input[size$="mini"] { padding: 0 6px; }
 .input[size$="mini"][close] { padding-right: 30px; }
 
 .root[size$="small"] { width: 120px; }

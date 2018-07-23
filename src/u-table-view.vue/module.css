@@ -2,7 +2,7 @@
     position: relative;
 }
 
-/*和交互确认过不添加这个线*/
+/* 和交互确认过不添加这个线 */
 
 /* .root:before{
     position: absolute;
@@ -20,7 +20,7 @@
     height: 0px;
 } */
 
-.root[border]:after{
+.root[border]::after {
     position: absolute;
     content: '';
     width: 1px;
@@ -31,14 +31,14 @@
     background-color: #ebf0f5;
 }
 
-.table{
+.table {
     width: 100%;
 }
 
 .thead {
     width: 100%;
 }
-.header{
+.header {
     overflow: visible;
 }
 
@@ -49,7 +49,6 @@
 .hthSpan {
     /* position: relative; */
     vertical-align: middle;
-    padding-right: 0;
     box-sizing: border-box;
     padding: 13px 0 13px 10px;
     line-height: 20px;
@@ -69,7 +68,8 @@
 .hthSpan[role]:hover {
     background: #eef2f8;
 }
-.hthSpan[selection]{
+
+.hthSpan[selection] {
     padding: 13px 0 13px 20px;
     white-space: nowrap;
 }
@@ -80,14 +80,14 @@
     border-bottom: 1px solid #ebf0f5;
 }
 .htrItem[color='light'] {
-    background: #fff;
+    background: white;
 }
 
 /* .body {
     overflow: auto;
 } */
 
-.body[role="fixed"]{
+.body[role="fixed"] {
     overflow: hidden;
 }
 
@@ -96,21 +96,24 @@
     /* margin-bottom: 6px; */
 }
 
+.btrItem {
+    border-top: 1px solid #ebf0f5;
+}
+
 .btrItem:first-child {
     border-top: none;
 }
+
 .btbody[no-show-header] .btrItem:first-child {
     border-top: 1px solid #ebf0f5;
 }
-.btbody[no-show-header] .btrItem{
+
+.btbody[no-show-header] .btrItem {
     border-left: 1px solid #ebf0f5;
 }
-.btbody[no-show-header] .btdSpan{
-    border-left: none;
-}
 
-.btrItem {
-    border-top: 1px solid #ebf0f5;
+.btbody[no-show-header] .btdSpan {
+    border-left: none;
 }
 
 .btrItem:last-child {
@@ -120,7 +123,6 @@
 .btdSpan {
     position: relative;
     vertical-align: middle;
-    padding-right: 0;
     box-sizing: border-box;
     padding: 13px 0 13px 10px;
     line-height: 20px;
@@ -129,17 +131,17 @@
     white-space: nowrap;
     color: #999;
 }
-.btdSpan[border]{
+.btdSpan[border] {
     border-left: 1px solid #ebf0f5;
     /* border-right: 1px solid #ebf0f5; */
 }
 
-.btdSpan[role="center"]{
+.btdSpan[role="center"] {
     text-align: center;
-    padding: 13px 0px;
+    padding: 13px 0;
 }
 
-.btdSpan[selection]{
+.btdSpan[selection] {
     padding: 13px 0 13px 20px;
 }
 
@@ -153,12 +155,12 @@
     position: relative;
 }
 
-.icon:before {
+.icon::before {
     font-size: 14px !important;
     color: #d3d8e0;
 }
 
-.icon[role]:before {
+.icon[role]::before {
     color: #67aaf5;
 }
 
@@ -171,7 +173,7 @@
 
 .popper {
     z-index: 1065;
-    background: #fff;
+    background: white;
     border: 1px solid #f1f1f1;
     margin-left: -10px;
     margin-top: 13px;
@@ -199,7 +201,7 @@
 
 .option[role] {
     background: $brand-primary;
-    color: #fff;
+    color: white;
 }
 
 .traingle {
@@ -211,7 +213,7 @@
     top: 3px;
 }
 
-.btrItem:hover .btdSpan:before, .btrItem[hover] .btdSpan:before {
+.btrItem:hover .btdSpan::before, .btrItem[hover] .btdSpan::before {
     content: "";
     width: 100%;
     height: 6px;
@@ -222,7 +224,7 @@
     z-index: 100;
 }
 
-.btrItem:hover .btdSpan:after, .btrItem[hover] .btdSpan:after {
+.btrItem:hover .btdSpan::after, .btrItem[hover] .btdSpan::after {
     content: "";
     width: 100%;
     height: 6px;
@@ -233,10 +235,10 @@
     z-index: 100;
 }
 
-.btrItem:last-child:hover .btdSpan[hide]:after{
+.btrItem:last-child:hover .btdSpan[hide]::after {
     content: '';
     width: 0;
-    height:0;
+    height: 0;
     background: none;
 }
 
@@ -248,69 +250,69 @@
     white-space: nowrap;
 }
 
-.fixLeft{
+.fixLeft {
     position: absolute;
     left: 0;
     top: 0;
     overflow: hidden;
-    background: #fff;
-    box-shadow: 2px 0 6px -2px rgba(0,0,0,.2);
+    background: white;
+    box-shadow: 2px 0 6px -2px rgba(0,0,0,0.2);
 }
 
-.fixRight{
+.fixRight {
     position: absolute;
     right: 0;
     left: auto;
     top: 0;
-    background: #fff;
-    box-shadow: -2px 0 6px -2px rgba(0,0,0,.2);
+    background: white;
+    box-shadow: -2px 0 6px -2px rgba(0,0,0,0.2);
 }
 
-.loading{
+.loading {
     display: inline-block;
     line-height: 21px;
 }
 
-.expand{
+.expand {
     display: inline-block;
-    width:14px;
+    width: 14px;
     height: 14px;
     cursor: pointer;
 }
 
-.expand[name="right"]:after {
-    icon-font: url('../u-icon.vue/icons/keyboard-arrow-right.svg');
+.expand[name="right"]::after {
+    icon-font: url("../u-icon.vue/icons/keyboard-arrow-right.svg");
     line-height: 24px;
     vertical-align: -2px;
 }
 
-.expand[name="down"]:after {
-    icon-font: url('../u-icon.vue/icons/keyboard-arrow-down.svg');
+.expand[name="down"]::after {
+    icon-font: url("../u-icon.vue/icons/keyboard-arrow-down.svg");
     line-height: 24px;
     vertical-align: -2px;
 }
 
-.expand[role="up-down"][name="right"]:after {
-    icon-font: url('../u-icon.vue/icons/angle-down.svg');
+.expand[role="up-down"][name="right"]::after {
+    icon-font: url("../u-icon.vue/icons/angle-down.svg");
     line-height: 24px;
     vertical-align: -2px;
 }
 
-.expand[role="up-down"][name="down"]:after {
-    icon-font: url('../u-icon.vue/icons/angle-up.svg');
+.expand[role="up-down"][name="down"]::after {
+    icon-font: url("../u-icon.vue/icons/angle-up.svg");
     line-height: 24px;
     vertical-align: -2px;
 }
 
-.fixNoText{
+.fixNoText {
     display: inline-block;
     line-height: 20px;
 }
 
-.headExpand{
+.headExpand {
     width: 50px;
 }
-.loadText{
+.loadText {
     display: inline-block;
     margin-left: 10px;
     vertical-align: middle;

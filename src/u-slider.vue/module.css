@@ -16,7 +16,7 @@
     cursor: pointer;
 }
 
-.track:before {
+.track::before {
     content: '';
     position: absolute;
     width: 7px;
@@ -25,7 +25,7 @@
     background: $brand-primary;
 }
 
-.track:after {
+.track::after {
     content: '';
     position: absolute;
     width: 7px;
@@ -34,12 +34,12 @@
     background: #e6e6e6;
 }
 
-.root[disabled] .track:before {
+.root[disabled] .track::before {
     background: $brand-disabled;
 }
 
 .bound {
-    background: url(../assets/images/stripe.png) repeat-x;
+    background: url("../assets/images/stripe.png") repeat-x;
     box-sizing: content-box;
 }
 
@@ -61,7 +61,7 @@
     cursor: pointer;
 }
 
-.handle:before {
+.handle::before {
     content: '';
     position: absolute;
     width: 2px;
@@ -71,7 +71,7 @@
     left: 3px;
 }
 
-.handle:after {
+.handle::after {
     content: '';
     position: absolute;
     width: 2px;

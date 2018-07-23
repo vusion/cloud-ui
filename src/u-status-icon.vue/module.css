@@ -2,32 +2,32 @@
     color: #333;
 }
 
-.icon:before {
+.icon::before {
     vertical-align: middle;
     margin-right: 8px;
 }
 
-.icon[name="success"]:before {
-    icon-font: url(./icons/success.svg);
+.icon[name="success"]::before {
+    icon-font: url("./icons/success.svg");
     color: #3ad0af;
 }
-.icon[name="waiting"]:before {
-    icon-font: url(./icons/waiting.svg);
+.icon[name="waiting"]::before {
+    icon-font: url("./icons/waiting.svg");
     color: #a2b0b7;
 }
-.icon[name="pause"]:before {
-    icon-font: url(./icons/pause.svg);
+.icon[name="pause"]::before {
+    icon-font: url("./icons/pause.svg");
     color: #ff867f;
 }
-.icon[name="warning"]:before {
-    icon-font: url(./icons/warning.svg);
+.icon[name="warning"]::before {
+    icon-font: url("./icons/warning.svg");
     color: #fbcc3e;
 }
-.icon[name="error"]:before {
-    icon-font: url(./icons/error.svg);
+.icon[name="error"]::before {
+    icon-font: url("./icons/error.svg");
     color: #ff867f;
 }
-.icon[name="mount"]:before {
-    icon-font: url(./icons/mount.svg);
+.icon[name="mount"]::before {
+    icon-font: url("./icons/mount.svg");
     color: #3ad0af;
 }

@@ -5,7 +5,6 @@ $g_size: 120px;
     height: 100%;
     display: block;
     margin: 0 auto;
-
 }
 .elsvg .elg {
     width: $g_size;
@@ -29,10 +28,22 @@ $g_size: 120px;
     left: 50%;
     text-align: center;
     font-size: 12px;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%,-50%);
     color: white;
     cursor: default;
 }
+
+.u-tooltip {
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    max-width: 200px;
+    padding: 4px 8px;
+    font-size: 12px;
+    background: #333;
+    color: #eee;
+}
+
 .text .u-tooltip {
     display: none;
 }
@@ -40,6 +51,7 @@ $g_size: 120px;
 .text:hover {
     z-index: 1;
 }
+
 .text:hover .u-tooltip {
     display: block;
     position: absolute;
@@ -47,17 +59,8 @@ $g_size: 120px;
     left: 8px;
     top: 0;
 }
-.u-tooltip{
-    display:inline-block;
-    position: relative;
-    box-sizing: border-box;
-    max-width:200px;
-    padding:4px 8px;
-    font-size:12px;
-    background: #333;
-    color:#eee;
-}
-.u-tooltip:after {
+
+.u-tooltip::after {
     content: '';
     display: block;
     position: absolute;
@@ -66,14 +69,14 @@ $g_size: 120px;
     top: 10px;
     border-left: none;
     border-top-color: transparent;
-    border-bottom-color:transparent;
+    border-bottom-color: transparent;
 }
 
 .emptyitem {
     fill: white;
     stroke: #d8d8d8;
     stroke-width: 0.5px;
-    stroke-dasharray: 2,2;
+    stroke-dasharray: 2, 2;
 }
 
 .emptytext {
@@ -99,7 +102,7 @@ $g_size: 120px;
     display: none;
 }
 
-.emptytooltip:after {
+.emptytooltip::after {
     content: '';
     display: block;
     position: absolute;

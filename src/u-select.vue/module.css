@@ -5,13 +5,13 @@
     line-height: 32px;
     padding-left: 14px;
     padding-right: 20px;
-    background: #fff;
+    background: white;
     color: #555;
     border: 1px solid $brand-secondary;
     border-radius: $border-radius-base;
 }
 
-.root:after {
+.root::after {
     position: absolute;
     icon-font: url('../u-icon.vue/icons/keyboard-arrow-down.svg');
     color: #a5a5a6;
@@ -42,7 +42,7 @@
     width: 160px;
     max-height: 192px;
     overflow: auto;
-    background: #fff;
+    background: white;
     border: 1px solid $brand-secondary;
     border-radius: $border-radius-base;
     z-index: 1065;
@@ -50,7 +50,7 @@
 
 .root[size$="mini"] { width: 80px; }
 .popper[size$="mini"] { width: 80px; }
-.root[size^="mini"] {  height: 28px; line-height: 26px; }
+.root[size^="mini"] { height: 28px; line-height: 26px; }
 .popper[size^="mini"] { max-height: 156px; }
 
 .root[size$="small"] { width: 120px; }
@@ -94,5 +94,5 @@
     width: 14px;
     height: 14px;
     border: none;
-    background-image: url(../assets/images/high.png);
+    background-image: url("../assets/images/high.png");
 }

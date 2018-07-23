@@ -13,12 +13,12 @@ $media-sm-max-width: 767px;
     text-align: center;
     overflow: hidden;
     overflow-y: auto;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0,0,0,0.6);
     padding-top: 65px;
     padding-bottom: 30px;
 }
 
-.root:before {
+.root::before {
     content: '';
     display: inline-block;
     vertical-align: middle;
@@ -31,7 +31,7 @@ $media-sm-max-width: 767px;
     vertical-align: middle;
     text-align: left;
     background: white;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 3px rgba(0,0,0,0.3);
 }
 
 .dialog[size="small"] {
@@ -77,41 +77,41 @@ $media-sm-max-width: 767px;
     color: #888;
 }
 
-.close:before {
-    icon-font: url(../u-icon.vue/icons/close.svg);
+.close::before {
+    icon-font: url("../u-icon.vue/icons/close.svg");
     font-size: 14px;
 }
 
 .body {
     position: relative;
-    margin: 30px 50px 50px 50px;
+    margin: 30px 50px 50px;
 }
 
-.body[icon]{
+.body[icon] {
     margin-top: 50px;
 }
 
-.body[icon]:before {
+.body[icon]::before {
     position: absolute;
     left: 0;
-    top:0;
+    top: 0;
 }
 
-.body[icon="warning"]:before {
+.body[icon="warning"]::before {
     icon-font: url('../u-status-icon.vue/icons/warning.svg');
     color: #fbcc3e;
     font-size: 40px;
     line-height: 40px;
 }
 
-.body[icon="success"]:before {
+.body[icon="success"]::before {
     icon-font: url('../u-status-icon.vue/icons/success.svg');
     color: #3ad0af;
     font-size: 40px;
     line-height: 40px;
 }
 
-.body[icon="error"]:before {
+.body[icon="error"]::before {
     icon-font: url('../u-status-icon.vue/icons/error.svg');
     color: #ff867f;
     font-size: 40px;
@@ -129,7 +129,7 @@ $media-sm-max-width: 767px;
     color: #333;
 }
 
-.content{
+.content {
     line-height: 24px;
     color: #666;
 }

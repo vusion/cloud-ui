@@ -14,5 +14,5 @@
 
 .root[selected] {
     color: $brand-primary;
-    background: #fff;
+    background: white;
 }

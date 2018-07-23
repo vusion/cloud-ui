@@ -1,109 +1,107 @@
-.root[name="area"]:before {
-    icon-font: url(./icons/area.svg);
+.root[name="area"]::before {
+    icon-font: url("./icons/area.svg");
 }
 
-.root[name="netease-cloud-logo"]:before {
-    icon-font: url(./icons/netease-cloud-logo.svg);
+.root[name="netease-cloud-logo"]::before {
+    icon-font: url("./icons/netease-cloud-logo.svg");
 }
 
-.root[name="portrait"]:before {
-    icon-font: url(./icons/portrait.svg);
+.root[name="portrait"]::before {
+    icon-font: url("./icons/portrait.svg");
 }
 
-.root[name="password"]:before {
-    icon-font: url(./icons/password.svg);
+.root[name="password"]::before {
+    icon-font: url("./icons/password.svg");
 }
 
-.root[name="arrow-up"]:before {
-    icon-font: url(./icons/arrow-up.svg);
+.root[name="arrow-up"]::before {
+    icon-font: url("./icons/arrow-up.svg");
 }
 
-.root[name="arrow-down"]:before {
-    icon-font: url(./icons/arrow-down.svg);
+.root[name="arrow-down"]::before {
+    icon-font: url("./icons/arrow-down.svg");
 }
 
-.root[name="angle-left"]:before {
-    icon-font: url(./icons/angle-left.svg);
+.root[name="angle-left"]::before {
+    icon-font: url("./icons/angle-left.svg");
 }
 
-.root[name="angle-right"]:before {
-    icon-font: url(./icons/angle-right.svg);
+.root[name="angle-right"]::before {
+    icon-font: url("./icons/angle-right.svg");
 }
 
-.root[name="refresh"]:before {
-    icon-font: url(./icons/refresh.svg);
+.root[name="refresh"]::before {
+    icon-font: url("./icons/refresh.svg");
 }
 
-.root[name="logout"]:before {
-    icon-font: url(./icons/logout.svg);
+.root[name="logout"]::before {
+    icon-font: url("./icons/logout.svg");
 }
 
-.root[name="search"]:before {
-    icon-font: url(./icons/search.svg);
+.root[name="search"]::before {
+    icon-font: url("./icons/search.svg");
 }
 
-.root[name="apm-alert"]:before {
-    icon-font: url(./icons/apm-alert.svg);
+.root[name="apm-alert"]::before {
+    icon-font: url("./icons/apm-alert.svg");
 }
 
-.root[name="dropdown"]:before {
-    icon-font: url(./icons/dropdown.svg);
+.root[name="dropdown"]::before {
+    icon-font: url("./icons/dropdown.svg");
 }
 
-.root[name="angle-up"]:before {
-    icon-font: url(./icons/angle-up.svg);
+.root[name="angle-up"]::before {
+    icon-font: url("./icons/angle-up.svg");
 }
 
-.root[name="angle-down"]:before {
-    icon-font: url(./icons/angle-down.svg);
+.root[name="angle-down"]::before {
+    icon-font: url("./icons/angle-down.svg");
 }
 
-.root[name="chart-refresh"]:before {
-    icon-font: url(./icons/chart-refresh.svg);
+.root[name="chart-refresh"]::before {
+    icon-font: url("./icons/chart-refresh.svg");
 }
 
-.root[name="chart-zoom"]:before {
-    icon-font: url(./icons/chart-zoom.svg);
+.root[name="chart-zoom"]::before {
+    icon-font: url("./icons/chart-zoom.svg");
 }
 
-.root[name="close"]:before {
-    icon-font: url(./icons/close.svg);
+.root[name="close"]::before {
+    icon-font: url("./icons/close.svg");
 }
 
-.root[name="info"]:before {
-    icon-font: url(./icons/info.svg);
+.root[name="info"]::before {
+    icon-font: url("./icons/info.svg");
 }
 
-.root[name="up"]:before {
-    icon-font: url(./icons/keyboard-arrow-up.svg);
+.root[name="up"]::before {
+    icon-font: url("./icons/keyboard-arrow-up.svg");
 }
 
-.root[name="down"]:before {
-    icon-font: url(./icons/keyboard-arrow-down.svg);
+.root[name="down"]::before {
+    icon-font: url("./icons/keyboard-arrow-down.svg");
 }
 
-.root[name="alert"]:before {
-    icon-font: url(./icons/alert.svg);
+.root[name="alert"]::before {
+    icon-font: url("./icons/alert.svg");
 }
 
-.root[name="keyboard-arrow-down"]:before {
-    icon-font: url(./icons/keyboard-arrow-down.svg);
+.root[name="keyboard-arrow-down"]::before {
+    icon-font: url("./icons/keyboard-arrow-down.svg");
 }
 
-
-
-.root[size="small"]:before {
+.root[size="small"]::before {
     font-size: 14px;
     vertical-align: -2px;
 }
 
-.root:before {
+.root::before {
     font-size: 24px;
     vertical-align: -7px;
     margin-right: 6px;
 }
 
-.root[size="large"]:before {
+.root[size="large"]::before {
     font-size: 32px;
     vertical-align: -12px;
 }

@@ -7,16 +7,51 @@ $m-chart_legend_height: 30px;
     padding: 15px;
 }
 
+.content {
+    position: absolute;
+    top: $m-chart_padding;
+    left: $m-chart_padding;
+    right: $m-chart_padding;
+    bottom: $m-chart_padding;
+}
+
+.ittitle ~ .content {
+    top: 65px;
+}
+
+.caption ~ .content {
+    top: 65px;
+}
+
+.legend ~ .content {
+    bottom: 45px;
+}
+
 .root[empty] .content {
     display: none;
 }
 
-.root[empty] {
-    background: url(../assets/images/nodata.png) no-repeat center center;
+.legend {
+    position: absolute;
+    bottom: $m-chart_padding;
+    height: $m-chart_legend_height;
+    line-height: $m-chart_legend_height;
+    left: $m-chart_padding;
+    right: $m-chart_padding;
+    font-size: 12px;
+    text-align: center;
+}
+
+.legend[role="multiline"] {
+    line-height: 20px;
 }
 
 .root[empty] .legend {
     display: none;
+}
+
+.root[empty] {
+    background: url("../assets/images/nodata.png") no-repeat center center;
 }
 
 .ittitle {
@@ -38,35 +73,22 @@ $m-chart_legend_height: 30px;
     text-align: center;
 } */
 
-.legend {
-    position: absolute;
-    bottom: $m-chart_padding;
-    height: $m-chart_legend_height;
-    line-height: $m-chart_legend_height;
-    left: $m-chart_padding;
-    right: $m-chart_padding;
-    font-size: 12px;
-    text-align: center;
-}
-
-.legend[role='multiline']{
-    line-height: 20px;
-}
-
 .item {
     display: inline-block;
     cursor: pointer;
     user-select: none;
+    margin-right: 2em;
 }
 
-.item[role="omitwidth"]{
+.item[role="omitwidth"] {
     max-width: 15%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.item:before {
+.item::before {
+    background: rgba(97,218,198,0.6);
     display: inline-block;
     content: '';
     width: 10px;
@@ -77,95 +99,67 @@ $m-chart_legend_height: 30px;
     top: -2px;
 }
 
-.item:before{
-    background: rgba(97,218,198, 0.6);
-}
-.item:nth-of-type(1):before {
+.item:nth-of-type(1)::before {
     background: $theme-dark-chart-color1;
 }
 
-.item:nth-of-type(2):before {
+.item:nth-of-type(2)::before {
     background: $theme-dark-chart-color2;
 }
 
-.item:nth-of-type(3):before {
+.item:nth-of-type(3)::before {
     background: $theme-dark-chart-color3;
 }
 
-.item:nth-of-type(4):before {
+.item:nth-of-type(4)::before {
     background: $theme-dark-chart-color4;
 }
 
-.item:nth-of-type(5):before {
+.item:nth-of-type(5)::before {
     background: $theme-dark-chart-color5;
 }
 
-.item:nth-of-type(6):before {
+.item:nth-of-type(6)::before {
     background: $theme-dark-chart-color6;
 }
 
-.item:nth-of-type(7):before {
+.item:nth-of-type(7)::before {
     background: $theme-dark-chart-color7;
 }
 
-.item:nth-of-type(8):before {
+.item:nth-of-type(8)::before {
     background: $theme-dark-chart-color8;
 }
-.item:nth-of-type(9):before {
+.item:nth-of-type(9)::before {
     background: $theme-dark-chart-color9;
 }
-.item:nth-of-type(10):before {
+.item:nth-of-type(10)::before {
     background: $theme-dark-chart-color10;
-}
-
-
-.item{
-    margin-right: 2em;
 }
 
 .item[disabled] {
     color: #ccc;
 }
 
-.item[disabled]:before {
+.item[disabled]::before {
     background: #ccc;
-}
-
-.content {
-    position: absolute;
-    top: $m-chart_padding;
-    left: $m-chart_padding;
-    right: $m-chart_padding;
-    bottom: $m-chart_padding;
-}
-
-.ittitle~.content {
-    top: 65px;
-}
-
-.caption~.content {
-    top: 65px;
-}
-
-.legend~.content {
-    bottom: 45px;
 }
 
 .root[border] {
     border: 1px solid #eee;
 }
 
-.loadingLabel{
+.loadingLabel {
     position: absolute;
     left: 0;
-    right:0;
+    right: 0;
     top: 0;
     bottom: 0;
-    background: #fff;
+    background: white;
     z-index: 90;
 }
 
-.loading{
+.loading {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -173,7 +167,7 @@ $m-chart_legend_height: 30px;
     margin-top: -20px;
 }
 
-.operate{
+.operate {
     position: relative;
     z-index: 100;
 }

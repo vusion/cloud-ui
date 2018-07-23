@@ -1,6 +1,6 @@
 .root {
     background-color: $brand-primary;
-    color: #fff;
+    color: white;
     display: inline-block;
     padding: 0 5px;
     height: 32px;
@@ -10,51 +10,51 @@
     border: 1px solid transparent;
     white-space: nowrap;
 }
-.root[role=gray] {
+.root[role="gray"] {
     background-color: #e4e8f1;
     border-color: #e4e8f1;
     color: #48576a;
 }
-.root[role=primary] {
-    background-color: rgba(32,160,255,.1);
-    border-color: rgba(32,160,255,.2);
+.root[role="primary"] {
+    background-color: rgba(32,160,255,0.1);
+    border-color: rgba(32,160,255,0.2);
     color: #20a0ff;
 }
-.root[role=success]{
-    background-color: rgba(18,206,102,.1);
-    border-color: rgba(18,206,102,.2);
+.root[role="success"] {
+    background-color: rgba(18,206,102,0.1);
+    border-color: rgba(18,206,102,0.2);
     color: #13ce66;
 }
-.root[role=warning]{
-    background-color: rgba(247,186,41,.1);
-    border-color: rgba(247,186,41,.2);
+.root[role="warning"] {
+    background-color: rgba(247,186,41,0.1);
+    /* border-color: rgba(247,186,41,0.2); */
     border-color: #f7ba2a;
 }
-.root[range=error]{
-    background-color: rgba(255,73,73,.1);
-    border-color: rgba(255,73,73,.2);
+.root[range="error"] {
+    background-color: rgba(255,73,73,0.1);
+    border-color: rgba(255,73,73,0.2);
     color: #ff4949;
 }
 .close {
     position: relative;
-    right: 0px;
+    right: 0;
     top: 2px;
     line-height: 1;
-    /*color: #fff;*/
+    /* color: white; */
     cursor: pointer;
 
     &:hover { color: #888; }
 
-    &:before {
-       content:'\00d7';
-       padding-left: 5px;
-       font-size: 20px;
+    &::before {
+        content: '\00d7';
+        padding-left: 5px;
+        font-size: 20px;
     }
 }
-:global(.tag-enter-active), :global(.tag-leave-active){
-    transition: all .3s cubic-bezier(.55,0,.1,1);
+:global(.tag-enter-active), :global(.tag-leave-active) {
+    transition: all 0.3s cubic-bezier(0.55,0,0.1,1);
 }
-:global(.tag-enter), :global(.tag-leave-active){
+:global(.tag-enter), :global(.tag-leave-active) {
     opacity: 0;
     transform: scaleX(0);
 }

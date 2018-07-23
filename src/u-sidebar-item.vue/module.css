@@ -12,11 +12,11 @@
 }
 
 .root:hover {
-    color: #fff;
+    color: white;
 }
 
 .root[selected] {
-    color: #fff;
+    color: white;
     background: #252b33;
     border-right: 4px solid $brand-primary;
 }

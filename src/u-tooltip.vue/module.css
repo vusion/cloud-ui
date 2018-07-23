@@ -1,4 +1,4 @@
-$tooltip-background-color: rgba(71, 88, 107, 0.9);
+$tooltip-background-color: rgba(71,88,107,0.9);
 $tooltip-arrow-size: 6px;
 $tooltip-arrow-offset: 16px;
 
@@ -34,7 +34,7 @@ $tooltip-arrow-offset: 16px;
 
 .root[x-placement^="bottom"] { margin-top: $tooltip-arrow-size; }
 .root[x-placement^="bottom"] .arrow {
-    top: -$tooltip-arrow-size;;
+    top: -$tooltip-arrow-size;
     margin-left: -$tooltip-arrow-size;
     border-width: 0 $tooltip-arrow-size $tooltip-arrow-size;
     border-bottom-color: $tooltip-background-color;
@@ -80,14 +80,37 @@ $tooltip-arrow-offset: 16px;
     word-break: break-all;
 }
 
-.body[size$="small"] { max-width: 120px;}
-.body[size^="small"] { max-height: 80px; overflow-y: auto; }
+.body[size$="small"] {
+    max-width: 120px;
+}
 
-.body[size$="normal"] { max-width: 260px;}
-.body[size^="normal"] { max-height: 140px; overflow-y: auto; }
+.body[size^="small"] {
+    max-height: 80px;
+    overflow-y: auto;
+}
 
-.body[size$="large"] { max-width: 440px;}
-.body[size^="large"] { max-height: 240px; overflow-y: auto; }
+.body[size$="normal"] {
+    max-width: 260px;
+}
 
-.body[size$="auto"] { max-width: none; }
-.body[size^="auto"] { max-height: none; }
+.body[size^="normal"] {
+    max-height: 140px;
+    overflow-y: auto;
+}
+
+.body[size$="large"] {
+    max-width: 440px;
+}
+
+.body[size^="large"] {
+    max-height: 240px;
+    overflow-y: auto;
+}
+
+.body[size$="auto"] {
+    max-width: none;
+}
+
+.body[size^="auto"] {
+    max-height: none;
+}

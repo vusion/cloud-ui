@@ -11,7 +11,7 @@
     position: relative;
 }
 
-.label[required]:after {
+.label[required]::after {
     content: '*';
     color: red;
     position: absolute;
@@ -42,7 +42,7 @@
     border: 1px solid #d6e6fe;
 }
 
-.message[color="focus"]:after, .message[color="focus"]:before {
+.message[color="focus"]::after, .message[color="focus"]::before {
     position: absolute;
     content: '';
     top: 10px;
@@ -51,7 +51,7 @@
     border-right: 4px solid #f7faff;
 }
 
-.message[color="focus"]:before {
+.message[color="focus"]::before {
     border-right-color: #d6e6fe;
     left: -9px;
 }
@@ -62,10 +62,10 @@
     transform: translateY(-50%);
     white-space: nowrap;
     background-color: #ff867f;
-    color: #fff;
+    color: white;
 }
 
-.message[color="error"]:before {
+.message[color="error"]::before {
     icon-font: url('../u-status-icon.vue/icons/warning.svg');
     color: white;
     font-size: 14px;
@@ -74,7 +74,7 @@
     vertical-align: -3px;
 }
 
-.message[color="error"]:after {
+.message[color="error"]::after {
     content: '';
     position: absolute;
     right: 100%;
@@ -90,7 +90,7 @@
     transform: translateY(0);
 }
 
-.root[placement="bottom"] .message:after {
+.root[placement="bottom"] .message::after {
     display: none;
 }
 
@@ -99,13 +99,13 @@
 }
 
 .root[label-size$="small"] > .label { width: 80px; padding-right: 10px; }
-.root[label-size$="small"] > .label:after{ right: 2px; }
+.root[label-size$="small"] > .label::after { right: 2px; }
 .root[label-size$="small"] > .field { max-width: calc(100% - 80px); }
 .root[label-size$="normal"] > .label { width: 120px; padding-right: 20px; }
-.root[label-size$="normal"] > .label:after { right: 12px; }
+.root[label-size$="normal"] > .label::after { right: 12px; }
 .root[label-size$="normal"] > .field { max-width: calc(100% - 120px); }
 .root[label-size$="large"] > .label { width: 160px; padding-right: 20px; }
-.root[label-size$="large"] > .label:after{ right: 12px; }
+.root[label-size$="large"] > .label::after { right: 12px; }
 .root[label-size$="large"] > .field { max-width: calc(100% - 160px); }
 
 .description {
@@ -117,17 +117,17 @@
     display: none;
 }
 
-.wrap{
+.wrap {
     position: relative;
     display: inline-block;
     max-width: 100%;
 }
 
-.root[field-size="full"] .wrap{
+.root[field-size="full"] .wrap {
     display: block;
 }
 
-.extra{
+.extra {
     width: 24px;
     display: inline-block;
     vertical-align: top;
@@ -135,20 +135,20 @@
     left: -12px;
 }
 
-.root[label-size$="small"] > .extra{
+.root[label-size$="small"] > .extra {
     left: 80px;
 }
 
-.root[label-size$="large"] > .extra{
+.root[label-size$="large"] > .extra {
     left: 160px;
 }
 
-.root[distance="extra"][label-size$="small"] > .field{
+.root[distance="extra"][label-size$="small"] > .field {
     max-width: calc(100% - 110px);
 }
-.root[distance="extra"][label-size$="normal"] > .field{
+.root[distance="extra"][label-size$="normal"] > .field {
     max-width: calc(100% - 150px);
 }
-.root[distance="extra"][label-size$="large"] > .field{
+.root[distance="extra"][label-size$="large"] > .field {
     max-width: calc(100% - 190px);
 }

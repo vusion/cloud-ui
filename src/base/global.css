@@ -62,35 +62,35 @@ $font-size-base: 14px;
 $transition-duration: 0.2s;
 
 /* theme segreen Chart Colors */
-$theme-chart-color1: rgb(91, 161, 242);
-$theme-chart-rgba-color1: rgba(91, 161, 242,0.6);
+$theme-chart-color1: rgb(91,161,242);
+$theme-chart-rgba-color1: rgba(91,161,242,0.6);
 
-$theme-chart-color2: rgb(78, 201, 171);
-$theme-chart-rgba-color2: rgba(78, 201, 171,0.6);
+$theme-chart-color2: rgb(78,201,171);
+$theme-chart-rgba-color2: rgba(78,201,171,0.6);
 
-$theme-chart-color3: rgb(255, 174, 60);
-$theme-chart-rgba-color3: rgba(255, 174, 60,0.6);
+$theme-chart-color3: rgb(255,174,60);
+$theme-chart-rgba-color3: rgba(255,174,60,0.6);
 
-$theme-chart-color4: rgb(158, 156, 246);
-$theme-chart-rgba-color4: rgba(158, 156, 246,0.6);
+$theme-chart-color4: rgb(158,156,246);
+$theme-chart-rgba-color4: rgba(158,156,246,0.6);
 
-$theme-chart-color5: rgb(30, 192, 216);
-$theme-chart-rgba-color5: rgba(30, 192, 216,0.6);
+$theme-chart-color5: rgb(30,192,216);
+$theme-chart-rgba-color5: rgba(30,192,216,0.6);
 
-$theme-chart-color6: rgb(237, 139, 204);
-$theme-chart-rgba-color6: rgba(237, 139, 204,0.6);
+$theme-chart-color6: rgb(237,139,204);
+$theme-chart-rgba-color6: rgba(237,139,204,0.6);
 
-$theme-chart-color7: rgb(138, 209, 153);
-$theme-chart-rgba-color7: rgba(138, 209, 153,0.6);
+$theme-chart-color7: rgb(138,209,153);
+$theme-chart-rgba-color7: rgba(138,209,153,0.6);
 
-$theme-chart-color8: rgb(103, 197, 245);
-$theme-chart-rgba-color8: rgba(103, 197, 245,0.6);
+$theme-chart-color8: rgb(103,197,245);
+$theme-chart-rgba-color8: rgba(103,197,245,0.6);
 
-$theme-chart-color9: rgb(138, 205, 78);
-$theme-chart-rgba-color9: rgba(138, 205, 78,0.6);
+$theme-chart-color9: rgb(138,205,78);
+$theme-chart-rgba-color9: rgba(138,205,78,0.6);
 
-$theme-chart-color10: rgb(245, 131, 122);
-$theme-chart-rgba-color10: rgba(245, 131, 122,0.6);
+$theme-chart-color10: rgb(245,131,122);
+$theme-chart-rgba-color10: rgba(245,131,122,0.6);
 
 $theme-chart-color11: rgb(198,156,246);
 $theme-chart-rgba-color11: rgba(198,156,246,0.6);

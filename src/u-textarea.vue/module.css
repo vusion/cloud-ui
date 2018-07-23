@@ -48,6 +48,6 @@
 .root[size^="huge"] { height: 200px; }
 
 .root[size$="full"] { width: 100%; }
-.root[size$="full"] { width: 100%; }
+
 .root[size^="full"] { height: 100%; }
-.root[size^="full"] { height: 100%; }
+

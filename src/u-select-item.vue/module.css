@@ -4,6 +4,9 @@
     position: relative;
     padding-top: 0;
     padding-bottom: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .root:hover {
@@ -19,12 +22,6 @@
     background: none;
 }
 
-.root {
-    overflow: hidden;
-    text-overflow:ellipsis;
-    white-space: nowrap;
-}
-
 .flag {
     position: absolute;
     top: 0;
@@ -37,5 +34,5 @@
     width: 14px;
     height: 14px;
     border: none;
-    background-image: url(../assets/images/high.png);
+    background-image: url("../assets/images/high.png");
 }

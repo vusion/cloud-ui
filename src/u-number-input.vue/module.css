@@ -12,15 +12,15 @@
     bottom: 3px;
 }
 
-.button[role="up"]:before {
-    icon-font: url(../u-icon.vue/icons/keyboard-arrow-up.svg);
+.button[role="up"]::before {
+    icon-font: url("../u-icon.vue/icons/keyboard-arrow-up.svg");
 }
 
-.button[role="down"]:before {
-    icon-font: url(../u-icon.vue/icons/keyboard-arrow-down.svg);
+.button[role="down"]::before {
+    icon-font: url("../u-icon.vue/icons/keyboard-arrow-down.svg");
 }
 
-.button[class]:before {
+.button[class]::before {
     width: 1em;
     display: inline-block;
     font-size: 16px;
@@ -37,11 +37,11 @@
     background: none;
 }
 
-.button[class]:hover:before {
+.button[class]:hover::before {
     color: $brand-primary;
 }
 
-.button[disabled]:hover:before {
+.button[disabled]:hover::before {
     color: #989898;
 }
 
@@ -52,7 +52,7 @@
 
 .root[disabled] .button { background: none; }
 
-.root[readonly] .button:hover:before {color: #989898; }
+.root[readonly] .button:hover::before { color: #989898; }
 
-.root[disabled] .button:hover:before {color: #989898; }
+.root[disabled] .button:hover::before { color: #989898; }
 

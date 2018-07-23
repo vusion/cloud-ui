@@ -1,40 +1,39 @@
-.root{
-	width: 238px;
-	padding: 4px;
-	/*text-align: center;*/
-	background: $field-background;
-	color: #555;
-	border: 1px solid #d2d6de;
-	border-radius: 4px;
-	box-sizing: content-box;
-	user-select: none;
+.root {
+    width: 238px;
+    padding: 4px;
+    /* text-align: center; */
+    background: $field-background;
+    color: #555;
+    border: 1px solid #d2d6de;
+    border-radius: 4px;
+    box-sizing: content-box;
+    user-select: none;
 }
 .item, .dayitem {
     width: 32px;
     height: 30px;
     line-height: 30px;
     margin: 1px;
-    border-radius: 3px;
     cursor: pointer;
     display: inline-block;
     text-align: center;
     border-radius: 50%;
 }
-.dayitem[role=week]{
+.dayitem[role="week"] {
     color: #f99;
 }
 .item:hover {
     background: $hover-color;
     color: #444;
-	border-color: $brand-primary;
+    border-color: $brand-primary;
 }
 
-.item[sel=sel] {
+.item[sel="sel"] {
     background: $brand-primary;
     color: $field-background;
 }
 
-.item[role=muted] {
+.item[role="muted"] {
     color: #999;
 }
 
@@ -48,16 +47,16 @@
     line-height: 32px;
     *zoom: 1;
 }
-.head:before{
-	display:table;
-	content:"";
-	line-height:0;
+.head::before {
+    display: table;
+    content: "";
+    line-height: 0;
 }
-.head:after{
-	display:table;
-	content:"";
-	line-height:0;
-	clear: both;
+.head::after {
+    display: table;
+    content: "";
+    line-height: 0;
+    clear: both;
 }
 .prev {
     float: left;
@@ -66,34 +65,34 @@
 .next {
     float: right;
 }
-.icon{
-	width: 1em;
+.icon {
+    width: 1em;
 }
 
 .body {
-	clear: both;
+    clear: both;
 }
 .week .item {
-	background: 0 0;
-	cursor: default;
-	font-weight: 700;
+    background: 0 0;
+    cursor: default;
+    font-weight: 700;
 }
 .root[disabled] .item {
     background: $field-background;
     color: #999;
     cursor: not-allowed;
 }
-.root[disabled]	.item[sel=sel] {
+.root[disabled] .item[sel="sel"] {
     background: #eee;
     color: #999;
 }
-.day{
+.day {
     white-space: normal;
 }
-.year{
+.year {
     width: 82px;
     text-align: left;
-    padding: 7px 10px 0 10px;
+    padding: 7px 10px 0;
     position: relative;
     display: inline-block;
     border: 1px solid $field-background;
@@ -104,10 +103,10 @@
 .yearList {
     z-index: 10;
 }
-.textYear{
+.textYear {
     position: relative;
 }
-.textYear:after{
+.textYear::after {
     position: absolute;
     icon-font: url('../u-icon.vue/icons/keyboard-arrow-down.svg');
     color: #a5a5a6;
@@ -116,7 +115,7 @@
     top: 0;
     line-height: 16px;
 }
-.monthList{
+.monthList {
     z-index: 10;
     width: 138px;
     padding: 10px 6px;
@@ -126,7 +125,7 @@
     background: white;
     border: 1px solid #ccc;
 }
-.listitem{
+.listitem {
     float: left;
     width: 30px;
     height: 30px;
@@ -135,37 +134,37 @@
     text-align: center;
     cursor: pointer;
 }
-.listitem[role]{
+.listitem[role] {
     background-color: $brand-primary;
     color: $field-background;
     border-radius: 50%;
 }
-.listitem[role]:hover{
+.listitem[role]:hover {
     background-color: $brand-primary;
 }
-.listitem[disabled], .listitem[disabled]:hover{
+.listitem[disabled], .listitem[disabled]:hover {
     cursor: not-allowed;
     background-color: $field-background;
     color: #999;
 }
-.listitem:hover{
+.listitem:hover {
     background: $hover-color;
 }
-.month{
+.month {
     width: 60px;
     text-align: left;
     padding: 7px 24px 0 10px;
-    padding-right: 0px;
+    padding-right: 0;
     display: inline-block;
     position: relative;
     border: 1px solid $field-background;
     cursor: pointer;
     box-sizing: border-box;
 }
-.textMonth{
+.textMonth {
     position: relative;
 }
-.textMonth:after{
+.textMonth::after {
     position: absolute;
     icon-font: url('../u-icon.vue/icons/keyboard-arrow-down.svg');
     color: #a5a5a6;
@@ -174,7 +173,7 @@
     top: 0;
     line-height: 16px;
 }
-.monthPopper{
+.monthPopper {
     float: right;
 }
 .yearitem[disabled] {

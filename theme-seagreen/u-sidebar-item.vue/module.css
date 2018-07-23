@@ -9,7 +9,7 @@
 }
 
 .root[selected] {
-    color: #fff;
+    color: white;
     background: $brand-primary;
 }
 

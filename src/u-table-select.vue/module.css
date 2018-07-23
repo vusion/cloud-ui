@@ -1,6 +1,11 @@
+@import "../u-select.vue/module.css";
+
 .popper {
     width: 100%;
     z-index: 1065;
+    line-height: 30px;
+    background: white;
+    border: 1px solid #f1f1f1;
 }
 
 .title {
@@ -30,11 +35,4 @@
     margin-left: 10px;
     position: relative;
     top: 3px;
-}
-
-@import "../u-select.vue/module.css";
-.popper {
-    line-height: 30px;
-    background: #fff;
-    border: 1px solid #f1f1f1;
 }

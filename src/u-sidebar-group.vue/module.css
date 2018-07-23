@@ -27,22 +27,22 @@
 }
 
 /* @TODO: replace by icon-font */
-.expander:after {
+.expander::after {
     content: '▸';
     font-size: 16px;
 }
 
 .head:hover {
-    color: #fff;
-    /*background-color: #dde8f0;*/
+    color: white;
+    /* background-color: #dde8f0; */
 }
 
 /* @TODO: replace by icon-font */
-.head:hover:after {
+.head:hover::after {
     border-left-color: white;
 }
 
 /* @TODO: replace by icon-font */
-.expander[expanded]:after {
+.expander[expanded]::after {
     content: '▾';
 }

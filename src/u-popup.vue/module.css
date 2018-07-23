@@ -39,7 +39,7 @@ $popup-arrow-offset: 16px;
     position: absolute;
     border: $popup-arrow-size solid transparent;
 }
-.arrow:before {
+.arrow::before {
     content: '';
     display: block;
     position: absolute;
@@ -54,7 +54,7 @@ $popup-arrow-offset: 16px;
     border-width: $popup-arrow-size $popup-arrow-size 0;
     border-top-color: $popup-background-color;
 }
-.root[x-placement^="top"] .arrow:before {
+.root[x-placement^="top"] .arrow::before {
     bottom: -1px;
     left: -1px;
     margin-left: -$popup-arrow-size;
@@ -72,7 +72,7 @@ $popup-arrow-offset: 16px;
     border-width: 0 $popup-arrow-size $popup-arrow-size;
     border-bottom-color: $popup-background-color;
 }
-.root[x-placement^="bottom"] .arrow:before {
+.root[x-placement^="bottom"] .arrow::before {
     top: -1px;
     left: -1px;
     margin-left: -$popup-arrow-size;
@@ -90,7 +90,7 @@ $popup-arrow-offset: 16px;
     border-width: $popup-arrow-size 0 $popup-arrow-size $popup-arrow-size;
     border-left-color: $popup-background-color;
 }
-.root[x-placement^="left"] .arrow:before {
+.root[x-placement^="left"] .arrow::before {
     top: -1px;
     right: -1px;
     margin-top: -$popup-arrow-size;
@@ -108,7 +108,7 @@ $popup-arrow-offset: 16px;
     border-width: $popup-arrow-size $popup-arrow-size $popup-arrow-size 0;
     border-right-color: $popup-background-color;
 }
-.root[x-placement^="right"] .arrow:before {
+.root[x-placement^="right"] .arrow::before {
     top: -1px;
     left: -1px;
     margin-top: -$popup-arrow-size;

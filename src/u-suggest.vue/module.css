@@ -5,13 +5,13 @@
     line-height: 32px;
     padding-left: 14px;
     padding-right: 20px;
-    background: #fff;
+    background: white;
     color: #555;
     border: 1px solid $brand-secondary;
     border-radius: $border-radius-base;
 }
 
-.root:after {
+.root::after {
     position: absolute;
     icon-font: url('../u-icon.vue/icons/keyboard-arrow-down.svg');
     color: #a5a5a6;
@@ -21,11 +21,11 @@
     line-height: inherit;
 }
 
-.root[role]:before{
+.root[role]::before {
     content: none;
 }
 
-.root[role]:after{
+.root[role]::after {
     content: none;
 }
 
@@ -46,7 +46,7 @@
     cursor: pointer;
 }
 
-.body{
+.body {
     width: 160px;
     margin-top: 2px;
 }
@@ -55,7 +55,7 @@
     margin-top: -1px;
     max-height: 180px;
     overflow: auto;
-    background: #fff;
+    background: white;
     border: 1px solid $brand-secondary;
     border-radius: $border-radius-base;
     z-index: 1065;
@@ -69,22 +69,22 @@
     cursor: pointer;
 }
 
-.none{
+.none {
     padding: 5px 14px;
     cursor: pointer;
     position: relative;
-    background: #fff;
+    background: white;
     color: #555;
     border-radius: 2px;
     border: 1px solid #d2d6de;
     text-align: center;
-    margin-top:2px;
+    margin-top: 2px;
     line-height: 22px;
 }
 
 .root[size$="mini"] { width: 80px; }
 .body[size$="mini"] { width: 80px; }
-.root[size^="mini"] {  height: 28px; line-height: 26px; }
+.root[size^="mini"] { height: 28px; line-height: 26px; }
 
 .root[size$="small"] { width: 120px; }
 .body[size$="small"] { width: 120px; }

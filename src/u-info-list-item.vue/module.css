@@ -7,20 +7,20 @@
     white-space: nowrap;
 }
 
-.root[column="1"] { width: 100% }
-.root[column="2"] { width: 50% }
-.root[column="3"] { width: 33.333% }
-.root[column="4"] { width: 25% }
-
-.root[label-size$="small"] .label { width: 80px;}
-.root[label-size$="normal"] .label { width: 100px;}
-.root[label-size$="large"] .label { width: 120px;}
+.root[column="1"] { width: 100%; }
+.root[column="2"] { width: 50%; }
+.root[column="3"] { width: 33.333%; }
+.root[column="4"] { width: 25%; }
 
 .label {
     display: table-cell;
     padding-right: 20px;
     color: #999;
 }
+
+.root[label-size$="small"] .label { width: 80px; }
+.root[label-size$="normal"] .label { width: 100px; }
+.root[label-size$="large"] .label { width: 120px; }
 
 .value {
     display: table-cell;

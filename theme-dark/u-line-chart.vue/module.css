@@ -4,7 +4,7 @@
 }
 
 .layer .elsvg .area {
-    fill: rgba(97,218,198, 0.1);
+    fill: rgba(97,218,198,0.1);
 }
 
 .layer .elsvg:nth-of-type(1) .line {
@@ -84,7 +84,6 @@
 .layer .elsvg:nth-of-type(10) .area {
     fill: $theme-dark-chart-rgba-color10;
 }
-
 
 .piece .point {
     border-color: rgb(97,218,198);

@@ -10,10 +10,10 @@ $height: 64px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0,0,0,0.6);
 }
 
-.root:before {
+.root::before {
     content: "";
     height: 100%;
     display: inline-block;
@@ -22,12 +22,12 @@ $height: 64px;
 
 .top {
     position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
+    top: 0;
+    left: 0;
+    right: 0;
     height: $height;
-    background: #000;
-    color: #fff;
+    background: black;
+    color: white;
     z-index: 10;
     text-align: center;
     font-size: 14px;
@@ -36,25 +36,25 @@ $height: 64px;
 
 .close {
     position: absolute;
-    top: 0px;
+    top: 0;
     right: 10px;
-    bottom: 0px;
+    bottom: 0;
 }
 
 .close:hover { color: #888; }
 
-.close:before {
-    content:'\00d7';
+.close::before {
+    content: '\00d7';
     font-size: 40px;
     line-height: $height;
 }
 
 .wrapper {
     position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .root[static] {
@@ -62,31 +62,31 @@ $height: 64px;
     padding: $margin-base;
 }
 
-.button[role='prev']{
+.button[role='prev'] {
     transform: rotate(180deg);
     transform-origin: 50% 43%;
 }
 
-.button[role='prev']:before{
+.button[role='prev']::before {
     icon-font: url('../u-icon.vue/icons/keyboard-arrow-right.svg');
 }
 
-.button[role='next']:before{
+.button[role='next']::before {
     icon-font: url('../u-icon.vue/icons/keyboard-arrow-right.svg');
 }
 
-.button[role='rotateRight']:before{
+.button[role='rotateRight']::before {
     icon-font: url('../u-icon.vue/icons/rotate-right.svg');
 }
 
-.button[role='rotateLeft']:before{
+.button[role='rotateLeft']::before {
     icon-font: url('../u-icon.vue/icons/rotate-left.svg');
 }
 
-.optionsColl{
+.optionsColl {
     position: absolute;
-    left:0;
-    right:0;
+    left: 0;
+    right: 0;
     bottom: 0;
     height: 60px;
     text-align: center;
@@ -98,7 +98,7 @@ $height: 64px;
     font-size: 60px;
     height: 60px;
     line-height: 1;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0,0,0,0.2);
     border-radius: 30px;
     user-select: none;
     overflow: hidden;
@@ -112,10 +112,10 @@ $height: 64px;
 }
 
 .operation > li[disabled] {
-    color: rgba(256, 256, 256, .2);
+    color: rgba(256,256,256,0.2);
 }
 .operation > li:hover {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0,0,0,0.1);
     cursor: pointer;
 }
 .operation > li[disabled]:hover {

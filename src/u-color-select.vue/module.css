@@ -1,4 +1,4 @@
-.root{
+.root {
     display: inline-block;
     position: relative;
     vertical-align: middle;
@@ -10,7 +10,7 @@
     border: 1px solid #d3d6de;
     color: #999;
 }
-.head{
+.head {
     overflow: hidden;
     word-wrap: normal;
     white-space: nowrap;
@@ -20,13 +20,13 @@
     height: 34px;
     line-height: 32px;
     padding-right: 20px;
-    background: #fff;
+    background: white;
     color: #555;
     border: 1px solid #d2d6de;
     border-radius: 3px;
     position: relative;
 }
-.head:after{
+.head::after {
     content: '';
     width: 0;
     height: 0;
@@ -37,14 +37,15 @@
     position: absolute;
     right: 5px;
     top: 14px;
-
 }
-.colorShow{
+
+.colorShow {
     display: inline-block;
     width: 100%;
-    height: 100%
+    height: 100%;
 }
-.body{
+
+.body {
     margin-top: 2px;
     width: 100%;
     position: absolute;
@@ -52,20 +53,22 @@
     left: 0;
     z-index: 100;
 }
-.listview{
-    overflow-x:hidden;
-    overflow-y:auto;
+
+.listview {
+    overflow-x: hidden;
+    overflow-y: auto;
     max-height: 200px;
     user-select: none;
     box-sizing: border-box;
-    background: #fff;
+    background: white;
     color: #555;
     border-radius: 4px;
     border: 1px solid #d2d6de;
     list-style: none;
     margin: 0;
 }
-.listitem{
+
+.listitem {
     padding: 3px 14px;
     color: #777;
     cursor: pointer;
@@ -73,7 +76,8 @@
     height: 20px;
     line-height: 20px;
 }
-.listitem[disabled]{
+
+.listitem[disabled] {
     cursor: not-allowed;
     color: #999;
 }

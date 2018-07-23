@@ -1,13 +1,13 @@
-.root{
-	display: inline-block;
+.root {
+    display: inline-block;
 }
 .item[class] {
-	width: 50px;
-	height:34px;
+    width: 50px;
+    height: 34px;
 }
-.root .item input{
-	box-sizing: border-box;
+.root .item input {
+    box-sizing: border-box;
 }
-.root .dot{
-	padding: 0 5px;
+.root .dot {
+    padding: 0 5px;
 }

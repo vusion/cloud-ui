@@ -31,15 +31,17 @@ $line_offset: 6px;
 
 .line {
     position: absolute;
+    fill-opacity: 0;
+    stroke-width: $line_width;
 }
 
-.line[role=x] {
+.line[role="x"] {
     left: -$line_offset;
     right: -1px;
     border-top: 1px solid $line_border;
 }
 
-.line[role=y] {
+.line[role="y"] {
     top: -1px;
     bottom: -$line_offset;
     border-left: 1px solid $line_border;
@@ -50,7 +52,7 @@ $line_offset: 6px;
     z-index: 2;
 }
 
-.axis[role=axisx] {
+.axis[role="axisx"] {
     left: $axis-y_width;
     right: 19px;
     bottom: 0;
@@ -58,7 +60,7 @@ $line_offset: 6px;
     border-top: 1px solid $axis_border;
 }
 
-.axis[role=axisy] {
+.axis[role="axisy"] {
     left: 0;
     top: 14px;
     bottom: $axis-x_height;
@@ -69,28 +71,29 @@ $line_offset: 6px;
 .label {
     position: absolute;
     font-size: 12px;
+    z-index: 10;
 }
 
-.label[role=label-xName] {
+.label[role="label-xName"] {
     right: -50px;
     top: 6px;
     bottom: 0;
 }
 
-.label[role=label-yName] {
+.label[role="label-yName"] {
     right: 10px;
     top: -30px;
     text-align: center;
 }
 
-.label[role=labelx] {
+.label[role="labelx"] {
     top: $axis-x_offset;
     bottom: 0;
     transform: translateX(-50%);
     text-align: center;
 }
 
-.label[role=labely] {
+.label[role="labely"] {
     left: 0;
     right: $axis-y_offset;
     transform: translateY(50%);
@@ -109,10 +112,6 @@ $line_offset: 6px;
     text-align: right;
 }
 
-.layer {
-    z-index: 10;
-}
-
 .layer .elsvg {
     position: absolute;
     top: 0;
@@ -121,16 +120,10 @@ $line_offset: 6px;
     height: 100%;
 }
 
+/* 修复最下面2px线条在svg中只显示一半的问题 */
 
-/* 修复最下面2px线条在svg中只显示一半的问题*/
-
-.layer[role=layersvg] {
+.layer[role="layersvg"] {
     bottom: 28px;
-}
-
-.line {
-    fill-opacity: 0;
-    stroke-width: $line_width;
 }
 
 .area {
@@ -142,7 +135,7 @@ $line_offset: 6px;
 }
 
 .layer .elsvg .area {
-    fill: rgba(97,218,198, 0.3);
+    fill: rgba(97,218,198,0.3);
 }
 
 .layer .elsvg:nth-of-type(1) .line {
@@ -229,7 +222,7 @@ $line_offset: 6px;
     border-left: 1px solid transparent;
 }
 
-.piece:before {
+.piece::before {
     content: '';
     position: absolute;
     top: 0;
@@ -252,18 +245,18 @@ $line_offset: 6px;
     max-width: 230px;
 }
 
-.piece .u-tooltip:after {
+.piece .u-tooltip::after {
     content: '';
     display: block;
     position: absolute;
     border: 5px solid #333;
 }
 
-.piece .u-tooltip[role=u-tooltip-right-top] {
+.piece .u-tooltip[role="u-tooltip-right-top"] {
     margin-left: 4px;
 }
 
-.piece .u-tooltip[role=u-tooltip-right-top]:after {
+.piece .u-tooltip[role="u-tooltip-right-top"]::after {
     top: 10px;
     left: -5px;
     border-left: none;
@@ -271,11 +264,11 @@ $line_offset: 6px;
     border-bottom-color: transparent;
 }
 
-.piece .u-tooltip[role=u-tooltip-right-bottom] {
+.piece .u-tooltip[role="u-tooltip-right-bottom"] {
     margin-left: 4px;
 }
 
-.piece .u-tooltip[role=u-tooltip-right-bottom]:after {
+.piece .u-tooltip[role="u-tooltip-right-bottom"]::after {
     top: 10px;
     left: -5px;
     border-left: none;
@@ -283,12 +276,12 @@ $line_offset: 6px;
     border-bottom-color: transparent;
 }
 
-.piece .u-tooltip[role=u-tooltip-left-top] {
+.piece .u-tooltip[role="u-tooltip-left-top"] {
     margin-right: 10px;
     right: 100%;
 }
 
-.piece .u-tooltip[role=u-tooltip-left-top]:after {
+.piece .u-tooltip[role="u-tooltip-left-top"]::after {
     top: 10px;
     right: -5px;
     border-right: none;
@@ -296,12 +289,12 @@ $line_offset: 6px;
     border-bottom-color: transparent;
 }
 
-.piece .u-tooltip[role=u-tooltip-left-bottom] {
+.piece .u-tooltip[role="u-tooltip-left-bottom"] {
     margin-right: 10px;
     right: 100%;
 }
 
-.piece .u-tooltip[role=u-tooltip-left-bottom]:after {
+.piece .u-tooltip[role="u-tooltip-left-bottom"]::after {
     top: 10px;
     right: -5px;
     border-right: none;
@@ -310,7 +303,7 @@ $line_offset: 6px;
 }
 
 .piece:hover {
-    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    border-left: 1px solid rgba(0,0,0,0.2);
 }
 
 .piece:hover .u-tooltip {
@@ -322,23 +315,22 @@ $line_offset: 6px;
     left: -1px;
     box-sizing: border-box;
     background: white;
-    border: 2px solid rgba(0, 153, 255, 0.6);
+    border: 2px solid rgba(0,153,255,0.6);
     border-radius: 100%;
     margin-bottom: -4px;
     margin-left: -4px;
     width: 9px;
     height: 9px;
-    border-radius: 100%;
     display: none;
-}
-
-.piece:hover .point{
-    display: block;
 }
 
 .piece .point {
     border-color: rgb(97,218,198);
     background: rgb(97,218,198);
+}
+
+.piece:hover .point {
+    display: block;
 }
 
 .piece .point:nth-of-type(1) {
