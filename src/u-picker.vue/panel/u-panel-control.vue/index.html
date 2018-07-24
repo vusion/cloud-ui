@@ -1,0 +1,13 @@
+<div :class="$style.root">
+    <keep-alive>
+        <component
+            :is="currentView"
+            v-on="$listeners"
+            v-bind="allProps"
+            :displayDate.sync="displayDate"
+            :selectedDate="selectedDate"
+            @dateClick="onDateClick"
+            @changeView="toView">
+        </component>
+    </keep-alive>
+</div>

@@ -1,4 +1,4 @@
-# 日期选择 DatePicker
+# 日期范围选择 DateRangePicker
 
 ## 示例
 ### 基本形式
@@ -9,45 +9,45 @@
 ``` html
 <u-date-range-picker :placeholders="['请选择开始日期', '请选择结束日期']"></u-date-range-picker>
 ```
-
+<!-- 
 ### 日期范围
 ``` html
-<u-date-range-picker startDate="2018-01-01" endDate="" minDate="2017-12-12" maxDate="2018-02-12"></u-date-range-picker>
+<u-date-range-picker startValue="2018-01-01" endValue="" minDate="2017-12-12" maxDate="2018-02-12"></u-date-range-picker>
 ```
 
 ### 禁用和只读
 ``` html
 <u-linear-layout>
-    <u-date-range-picker disabled startDate="2018-01-01" endDate="2018-02-02"></u-date-range-picker>
-    <u-date-range-picker readonly startDate="2018-01-01" endDate="2018-02-02"></u-date-range-picker>
+    <u-date-range-picker disabled startValue="2018-01-01" endValue="2018-02-02"></u-date-range-picker>
+    <u-date-range-picker readonly startValue="2018-01-01" endValue="2018-02-02"></u-date-range-picker>
 </u-linear-layout>
-```
+``` -->
 
 <!-- ### 只读和禁用 禁用效果诡异
 ``` html
-<u-date-range-picker readonly startDate="2018-01-01" endDate="2018-02-02"></u-date-range-picker>
-<u-date-range-picker disabled startDate="2018-01-01" endDate="2018-02-02"></u-date-range-picker>
+<u-date-range-picker readonly startValue="2018-01-01" endValue="2018-02-02"></u-date-range-picker>
+<u-date-range-picker disabled startValue="2018-01-01" endValue="2018-02-02"></u-date-range-picker>
 ``` -->
 
-### 事件
+<!-- ### 事件
 ``` vue
 <template>
-    <u-date-range-picker :startDate.sync="startDate" :endDate.sync="endDate" @change="onChange" @before-select="onBeforeSelect" @select="onSelect" @input="onInput"></u-date-range-picker>
+    <u-date-range-picker :startValue.sync="startValue" :endValue.sync="endValue" @change="onChange" @before-select="onBeforeSelect" @select="onSelect" @input="onInput"></u-date-range-picker>
 </template>
 <script>
 export default {
     data() {
         return {
-            startDate: '2018-09-09',
-            endDate: '2018-10-11',
+            startValue: '2018-09-09',
+            endValue: '2018-10-11',
         }
     },
     watch: {
-        startDate(date, oldDate) {
-            console.log('startDate watch: ', date, oldDate);
+        startValue(date, oldDate) {
+            console.log('startValue watch: ', date, oldDate);
         },
-        endDate(date, oldDate) {
-            console.log('endDate watch: ', date, oldDate);
+        endValue(date, oldDate) {
+            console.log('endValue watch: ', date, oldDate);
         },
     },
     methods: {
@@ -69,7 +69,7 @@ export default {
     }
 };
 </script>
-```
+``` -->
 
 
 ## API
@@ -77,9 +77,9 @@ export default {
 
 | Attr/Prop | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
-| startDate | String,Number,Date | `null` | 选择起始日期 |
-| endDate | String,Number,Date | `null` | 选择结束日期 |
-| showDate | String,Number,Date | `null` | 起始日历显示的日期, 优先级：showDate -> startDate -> new Date() |
+| startValue | String,Number,Date | `null` | 选择起始日期 |
+| endValue | String,Number,Date | `null` | 选择结束日期 |
+| showDate | String,Number,Date | `null` | 起始日历显示的日期, 优先级：showDate -> startValue -> new Date() |
 | placeholders | Array | `[]` | 输入框默认值 |
 | minDate | String,Number,Date | | 最小日期 |
 | maxDate | String,Number,Date | | 最大日期 |

@@ -9,18 +9,15 @@ import isAfter from 'date-fns/is_after';
 import isEqual from 'date-fns/is_equal';
 import addMonths from 'date-fns/add_months';
 import isToday from 'date-fns/is_today';
-import parse from 'date-fns/parse';
 
-import { Emitter } from 'proto-ui.vusion';
-import { inDateRange } from '../u-calendar.vue/date';
+import { inDateRange } from '../date';
 
 export default {
-    name: 'u-calendar-day',
-    parentName: 'u-calendar',
-    mixins: [Emitter],
+    name: 'u-panel-day',
+    parentName: 'u-panel-control',
     props: {
-        value: { type: [String, Date, Number], default: undefined },
-        showDate: { type: [String, Date, Number], default: undefined },
+        selectedDate: { type: Date },
+        displayDate: { type: Date, default: () => new Date() },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         isRangePicker: { type: Boolean, default: false },
@@ -32,8 +29,6 @@ export default {
     data() {
         return {
             weekArr: ['日', '一', '二', '三', '四', '五', '六'],
-            currentDate: null,
-            currentShowDate: null, // 当前显示时间页面
             currentMonth: '',
             dayRowArr: [],
             allowClick: !this.disabled && !this.readonly,
@@ -41,16 +36,14 @@ export default {
         };
     },
     watch: {
-        showDate(newDate, oldDate) {
+        displayDate(newDate, oldDate) {
             if (isEqual(newDate, oldDate))
                 return;
 
             this.initDate();
         },
-        value(value, oldValue) {
-            const newDate = parse(value);
-            const oldDate = parse(oldValue);
-            if (isEqual(newDate, oldDate))
+        selectedDate(value, oldValue) {
+            if (isEqual(value, oldValue))
                 return;
             this.initDate();
         },
@@ -60,41 +53,37 @@ export default {
     },
     methods: {
         initDate(date = this.value) {
-            this.currentDate = date ? parse(date) : undefined;
-            this.currentShowDate = this.showDate ? parse(this.showDate) : (this.currentDate || new Date());
-            this.currentMonth = getMonth(this.currentShowDate);
-            this.getAllDays(this.currentShowDate);
+            this.currentMonth = getMonth(this.displayDate);
+            this.getAllDays(this.displayDate);
         },
         onYearClick() {
-            this.dispatch(this.$options.parentName, 'change-view', {
-                fview: this,
-                tview: 'year',
-            });
+            this.$emit('changeView', 'year');
         },
         onMonthClick() {
-            this.dispatch(this.$options.parentName, 'change-view', {
-                fview: this,
-                tview: 'month',
-            });
+            this.$emit('changeView', 'month');
         },
         onDateClick(date) {
-            if (this.isRangePicker) {
-                let cancel = false;
-                this.$emit('before-select', {
-                    preventDefault: () => cancel = true,
-                });
+            this.$emit('dateClick', {
+                type: 'day',
+                date,
+            });
+            // if (this.isRangePicker) {
+            //     let cancel = false;
+            //     this.$emit('before-select', {
+            //         preventDefault: () => cancel = true,
+            //     });
 
-                if (cancel)
-                    return;
+            //     if (cancel)
+            //         return;
 
-                this.$emit('select', {
-                    sender: this,
-                    value: date,
-                    oldValue: null,
-                });
-                this.initDate(date);
-            } else
-                this.dispatch(this.$options.parentName, 'selectDate', date);
+            //     this.$emit('select', {
+            //         sender: this,
+            //         value: date,
+            //         oldValue: null,
+            //     });
+            //     this.initDate(date);
+            // } else
+            //     this.dispatch(this.$options.parentName, 'selectDate', date);
         },
         // 得到当前月份的所有日期
         getAllDays(date) {
@@ -103,13 +92,12 @@ export default {
             let end = lastDayOfMonth(date);
             start = addDays(startOfMonth(date), -getDay(start));
             end = addDays(lastDayOfMonth(date), 6 - getDay(end));
-
             let tempDate = start;
             while (!isAfter(tempDate, end)) {
                 const rowArr = [];
                 for (let i = 0; i < 7; ++i) {
                     rowArr.push({
-                        showDate: getDate(tempDate),
+                        day: getDate(tempDate),
                         date: tempDate,
                         disabled: !inDateRange(tempDate, this.dateRange),
                     });
@@ -119,13 +107,13 @@ export default {
             }
         },
         addMonth(monthGap) {
-            this.$emit('update:showDate', addMonths(this.currentShowDate, monthGap));
+            this.$emit('update:displayDate', addMonths(this.displayDate, monthGap));
         },
         isSelected(item) {
             if (this.isRangePicker)
                 return this.selectedValues.some((date) => isEqual(item.date, date));
             else
-                return isEqual(item.date, this.currentDate);
+                return isEqual(item.date, this.selectedDate);
         },
         isBetween(date) {
             if (this.isRangePicker) {
@@ -139,7 +127,6 @@ export default {
             }
             return false;
         },
-        isEqual,
         getMonth,
         getYear,
         isToday,

@@ -1,0 +1,24 @@
+<div :class="$style.inputWrapper">
+    <div
+        v-if="!disabled && !readonly"
+        @mouseenter="onMouseEnter"
+        @mouseleave="showClearBtn = false">
+        <u-input
+            :placeholder="placeholder"
+            :value="currentValue"
+            ref="input"
+            @input="value => currentValue = value"
+            @blur="onBlur">
+        </u-input>
+        <span v-if="showClearBtn" @click="clearInput" :class="$style.delete"></span>
+        <span v-else :class="$style.calendar"></span>
+    </div>
+    <div v-else :disabled="disabled" :class="$style.shade" :readonly="readonly"></div>
+</div>
+
+
+<!-- <div v-else :class="$style.inputWrapper" :readonly="readonly" :disabled="disabled">
+    <u-input :placeholder="placeholder" :value="currentValue" :readonly="readonly" :disabled="disabled"></u-input>
+    <span :class="$style.calendar"></span>
+    <div :class="$style.shade"></div>
+</div> -->

@@ -1,0 +1,10 @@
+
+@import '../u-picker-input.vue/module.css';
+
+.input {
+	border: none;
+	width: 160px;
+	text-align: center;
+	margin-right: 20px;
+}
+

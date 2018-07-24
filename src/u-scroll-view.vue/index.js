@@ -1,6 +1,9 @@
 import { on, off } from './dom';
 export default {
     name: 'u-scroll-view',
+    props: {
+        showThumb: { type: String, default: 'hover' }, // 默认在hover时才显示滚动条。可选值：hover | always
+    },
     data() {
         return {
             thumbDrag: false,
@@ -8,7 +11,7 @@ export default {
             thumbOffsety: 0, // 点击thumb偏移y
             thumbTop: 0, // thumb距离bar顶部的距离
             contentScrollHeight: 0,
-            showScrollBar: false, // 鼠标hover在scrollview时才显示滚动条
+            showScrollBar: this.showThumb !== 'hover',
         };
     },
     mounted() {
@@ -34,10 +37,18 @@ export default {
 
             this.thumbTop = e.offsetY > this.height ? this.height : e.offsetY;
         },
+        loadContent() {
+            this.$nextTick(() => this.setStyle());
+        },
         setStyle() {
-            this.$refs.thumb.style.height = this.$refs.content.clientHeight * 100 / this.$refs.content.scrollHeight + '%';
+            if (this.$refs.content.clientHeight >= this.$refs.content.scrollHeight)
+                this.showScrollBar = false;
+            else
+                this.$refs.thumb.style.height = this.$refs.content.clientHeight * 100 / this.$refs.content.scrollHeight + '%';
+
             this.height = this.$refs.bar.clientHeight - this.$refs.thumb.clientHeight;
             this.contentScrollHeight = this.$refs.content.scrollHeight - this.$refs.content.clientHeight;
+            this.showScrollBar = this.showThumb !== 'hover';
         },
         startDrag(e) {
             e.stopImmediatePropagation();

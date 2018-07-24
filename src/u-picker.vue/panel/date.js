@@ -27,11 +27,15 @@ const validateDateRange = (dateRange = [], minDate, maxDate) => {
 };
 /**
  *
- * @param {*} date
+ * @param {*} date，如果date为undefined，则在任何范围内
  * @param {*} dateRange 一维或二维数组
  * @param {*} openInterval 时间区间是否是开区间。 [2018, 2019]：包括2018和2019. (2018, 2019)不包括2018和2019
  */
 const inDateRange = (date, dateRange, openInterval = false) => {
+    if (date === undefined || date === null)
+        return true;
+    if (!_isDate(parse(date)))
+        return false;
     if (!dateRange || dateRange.length <= 0)
         return true;
     const _trans = (d) => format(d, 'YYYYMMDD');
@@ -60,6 +64,11 @@ const dateValidadtor = (date) => {
 
 const sortIncrease = (dateArr) => dateArr.sort((d1, d2) => +d1 - (+d2));
 
+/**
+ * return Date
+ * @param {Date} date
+ * @param {String} time
+ */
 const setDateTime = (date, time) => { // 如果超出范围，不可设置
     if (!_isDate(date) || time === 'start')
         return date;

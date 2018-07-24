@@ -8,11 +8,11 @@
 ### 基本
 ``` html
 <u-linear-layout>
-    <u-date-picker placeholder="请选择日期"></u-date-picker>
+    <!-- <u-date-picker placeholder="请选择日期"></u-date-picker> -->
     <u-date-picker value="2018-08-08" placement="right"></u-date-picker>
 </u-linear-layout>
 ```
-### 输入格式化时机
+<!-- ### 输入格式化时机
 
 用`fixOn`属性可以设置错误在失焦时格式化（默认）还是在输入时（输入结束1秒）格式化。
 
@@ -108,7 +108,7 @@ export default {
     },
 };
 </script>
-```
+``` -->
 
 ## API
 ### Attrs/Props

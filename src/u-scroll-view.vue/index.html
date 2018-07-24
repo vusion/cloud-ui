@@ -1,4 +1,4 @@
-<div :class="$style.view" @mouseover="showScrollBar = true" @mouseleave="showScrollBar = false">
+<div :class="$style.view" @mouseover="showScrollBar = true" @mouseleave="showThumb === 'hover' && (showScrollBar = false)">
     <div :class="$style.content" ref="content" @scroll="onScroll"><slot></slot></div>
     <div :class="$style.bar" @click="onBarClick" ref="bar" :style="{ visibility: showScrollBar ? 'visible' : 'hidden' }">
         <div :class="$style.thumb" @mousedown="onThumbMouseDown" ref="thumb"></div>

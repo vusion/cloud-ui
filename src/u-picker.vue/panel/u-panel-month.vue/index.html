@@ -1,0 +1,13 @@
+<div :class="$style.root" :disabled="disabled" :readonly="readonly">
+    <div :class="$style.head">
+        <span :class="$style.left" @click="!disabled && addYear(-1)"><u-icon name="arrow-left"></u-icon></span>
+        <span @click="!disabled && onYearClick()">{{displayYear}} 年</span>
+        <span :class="$style.right" @click="!disabled && addYear(1)"><u-icon name="arrow-right"></u-icon></span>
+    </div>
+    <div :class="$style.content">
+        <div :class="$style.item3" v-for="(month, index) in monthArr"
+        @click="!disabled && !month.disabled && onMonthClick(month.date)"
+        :disabled="disabled || month.disabled"
+        :selected="!month.disabled && (selectedYear === displayYear) && index === selectedMonth"><span>{{month.text}}月</span></div>
+    </div>
+</div>

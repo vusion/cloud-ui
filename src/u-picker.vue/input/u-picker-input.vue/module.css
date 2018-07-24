@@ -1,0 +1,38 @@
+$date-picker-top: 8px;
+$date-picker-right: 10px;
+$top: 5px;
+
+.inputWrapper {
+	display: inline-block;
+	position: relative;
+}
+.calendar::before {
+	icon-font: url(../../../u-icon.vue/icons/calendar.svg);
+	color: $field-disabled-color;
+	position: absolute;
+    right: $date-picker-right;
+	top: $top;
+	cursor: pointer;
+}
+.delete::before {
+	icon-font: url(../../../u-icon.vue/icons/delete.svg);
+	color: $field-disabled-color;
+	cursor: pointer;
+	position: absolute;
+    right: $date-picker-right;
+    top: $top;
+}
+.shade {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+}
+.shade[disabled] {
+	cursor: not-allowed;
+}
+
+::-moz-placeholder { color: $field-disabled-color2; }
+::-webkit-input-placeholder { color:$field-disabled-color2; }
+:-ms-input-placeholder { color:$field-disabled-color2; }
