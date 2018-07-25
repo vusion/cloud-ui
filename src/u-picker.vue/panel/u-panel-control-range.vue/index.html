@@ -1,0 +1,30 @@
+<div :class="$style.root">
+    <keep-alive>
+        <component
+            :is="currentViewStart"
+            v-on="$listeners"
+            v-bind="allProps"
+            :displayDate.sync="displayDateStart"
+            :selectedDates="selectedDates"
+            :isRangePicker="true"
+            :hoverDate.sync="hoverDate"
+            :hideNext="panelDisplayDateAdjust"
+            @dateClick="onDateClick($event, 'Start')"
+            @changeView="toViewStart">
+        </component>
+    </keep-alive>
+    </keep-alive>
+        <component
+            :is="currentViewEnd"
+            v-on="$listeners"
+            v-bind="allProps"
+            :displayDate.sync="displayDateEnd"
+            :selectedDates="selectedDates"
+            :isRangePicker="true"
+            :hoverDate.sync="hoverDate"
+            :hidePre="panelDisplayDateAdjust"
+            @dateClick="onDateClick($event, 'End')"
+            @changeView="toViewEnd">
+        </component>
+    </keep-alive>
+</div>

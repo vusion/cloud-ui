@@ -81,6 +81,11 @@ const setDateTime = (date, time) => { // 如果超出范围，不可设置
         time = time.replace(/^(\w:)/, '0$1').replace(/:(\w):/g, ':0$1:').replace(/:(\w)$/, ':0$1');
     return parse(format(date, 'YYYY-MM-DD') + 'T' + time);
 };
+
+const _parse = (value) => {
+    const res = parse(value);
+    return _isDate(res) ? res : undefined;
+};
 export {
     inDateRange,
     dateValidadtor,
@@ -88,4 +93,5 @@ export {
     _isDate,
     setDateTime,
     validateDateRange,
+    _parse,
 };

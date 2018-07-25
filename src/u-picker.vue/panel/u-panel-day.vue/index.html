@@ -1,7 +1,7 @@
 <div :class="$style.root" :disabled="disabled" :readonly="readonly">
     <div :class="$style.head">
         <span
-            v-show="allowPre"
+            v-show="!hidePre"
             :class="$style.left"
             @click="allowClick && addMonth(-1)">
             <u-icon name="arrow-left"></u-icon>
@@ -9,7 +9,7 @@
         <span @click="!isRangePicker && allowClick && onYearClick()">{{getYear(this.displayDate)}} 年 </span>
         <span @click="!isRangePicker && allowClick && onMonthClick()" style="margin-left: 10px;">{{currentMonth + 1}} 月</span>
         <span
-            v-show="allowNext"
+            v-show="!hideNext"
             :class="$style.right"
             @click="allowClick && addMonth(1)">
             <u-icon name="arrow-right"></u-icon>
@@ -28,7 +28,7 @@
                 :disabled="disabled || item.disabled"
                 :isBetween="isBetween(item.date)"
                 @click="!disabled && !item.disabled && onDateClick(item.date)"
-                @mouseover="hoverDate = item.date">
+                @mouseover="$emit('update:hoverDate', item.date)">
             <div>
                 <span>{{item.day}}</span>
             </div>

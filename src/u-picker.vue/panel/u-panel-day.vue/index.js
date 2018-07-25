@@ -22,9 +22,10 @@ export default {
         disabled: { type: Boolean, default: false },
         isRangePicker: { type: Boolean, default: false },
         dateRange: { type: Array, default: () => [] },
-        allowPre: { type: Boolean, default: true },
-        allowNext: { type: Boolean, default: true },
-        selectedValues: { type: Array, default: () => [] }, // dateRangePicker选择的所有日期
+        hidePre: { type: Boolean, default: false },
+        hideNext: { type: Boolean, default: false },
+        selectedDates: { type: Array, default: () => [] }, // dateRangePicker选择的所有日期
+        hoverDate: { type: Date },
     },
     data() {
         return {
@@ -32,7 +33,6 @@ export default {
             currentMonth: '',
             dayRowArr: [],
             allowClick: !this.disabled && !this.readonly,
-            hoverDate: undefined,
         };
     },
     watch: {
@@ -67,23 +67,6 @@ export default {
                 type: 'day',
                 date,
             });
-            // if (this.isRangePicker) {
-            //     let cancel = false;
-            //     this.$emit('before-select', {
-            //         preventDefault: () => cancel = true,
-            //     });
-
-            //     if (cancel)
-            //         return;
-
-            //     this.$emit('select', {
-            //         sender: this,
-            //         value: date,
-            //         oldValue: null,
-            //     });
-            //     this.initDate(date);
-            // } else
-            //     this.dispatch(this.$options.parentName, 'selectDate', date);
         },
         // 得到当前月份的所有日期
         getAllDays(date) {
@@ -111,19 +94,22 @@ export default {
         },
         isSelected(item) {
             if (this.isRangePicker)
-                return this.selectedValues.some((date) => isEqual(item.date, date));
+                return this.selectedDates.some((date) => isEqual(item.date, date));
             else
                 return isEqual(item.date, this.selectedDate);
         },
         isBetween(date) {
             if (this.isRangePicker) {
                 let rangeArr = [];
-                if ((this.selectedValues.filter((value) => value)).length === 1 && this.hoverDate) {
-                    const hoverAfterSelect = isAfter(this.hoverDate, this.selectedValues[0]);
-                    rangeArr.push([hoverAfterSelect ? this.selectedValues[0] : this.hoverDate, hoverAfterSelect ? this.hoverDate : this.selectedValues[0]]);
-                } else if ((this.selectedValues.filter((value) => value)).length === 2)
-                    rangeArr = this.selectedValues.slice(0);
-                return rangeArr.length <= 0 ? false : inDateRange(date, rangeArr, true);
+                if (this.selectedDates.length === 1 && this.hoverDate) {
+                    const hoverAfterSelect = isAfter(this.hoverDate, this.selectedDates[0]);
+                    rangeArr.push([hoverAfterSelect ? this.selectedDates[0] : this.hoverDate, hoverAfterSelect ? this.hoverDate : this.selectedDates[0]]);
+                } else if (this.selectedDates.length === 2) {
+                    rangeArr = this.selectedDates.slice(0);
+                }
+                else
+                    return false;
+                return inDateRange(date, rangeArr, true);
             }
             return false;
         },

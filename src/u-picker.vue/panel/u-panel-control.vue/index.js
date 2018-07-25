@@ -16,7 +16,6 @@ const viewJumpMap = {
 };
 export default {
     name: 'u-panel-control',
-    // inheritAttrs: false,
     props: {
         value: { type: [String, Date, Number] },
         panelDisplayValue: { type: [String, Date, Number], default: () => new Date() },
@@ -42,9 +41,6 @@ export default {
         view(value) {
             this.currentView = value;
         },
-        $attrs() {
-            Object.assign(this.$data, this.$attrs);
-        },
         value(value, oldValue) {
             this.initDate();
         },
@@ -64,8 +60,8 @@ export default {
     methods: {
         initDate() {
             const tempValue = this.value ? parse(this.value) : undefined;
-            const tempDisplayValue = this.panelDisplayValue ? parse(this.panelDisplayValue) : undefined;
-            this.displayDate = tempValue || (tempDisplayValue || new Date());
+            const tempDisplayValue = this.panelDisplayValue ? parse(this.panelDisplayValue) : new Date();
+            this.displayDate = tempValue || tempDisplayValue;
             this.selectedDate = tempValue;
         },
         // 点击panel栅格区的年，月，日

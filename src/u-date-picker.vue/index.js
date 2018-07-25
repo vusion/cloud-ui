@@ -11,6 +11,6 @@ export default {
     },
     props: {
         placeholder: { type: String, default: '请选择日期' },
-        type: { type: String, default: 'date', validator: (value) => ['calendar', 'year', 'month', 'date', 'datetime', 'daterange', 'datetimerang'].includes(value) },
+        type: { type: String, default: 'date', validator: (value) => ['calendar', 'year', 'month', 'date'].includes(value) },
     },
 };

@@ -3,15 +3,19 @@
         v-bind="allProps"
         v-on="$listeners"
         ref="input"
-        :value.sync="inputValue">
+        :startValue.sync="inputValueStart"
+        :endValue.sync="inputValueEnd">
     </u-custom-picker-input>
     <div slot="popper" @click.stop style="border-radius: 4px;box-shadow: 0 0 10px 0 rgba(80,90,109,0.16);">
         <u-custom-panel
             v-bind="allProps"
-            :value="currentValue"
+            v-on="$listeners"
+            :startValue="currentValueStart"
+            :endValue="currentValueEnd"
             :dateRange="currentDateRange"
             :view="panelView"
             :blockPanel="blockPanel"
+            ref="panel"
             @select="onPanelDateSelect">
         </u-custom-panel>
     </div>
@@ -20,4 +24,6 @@
     v-else
     ref="input"
     v-bind="allProps"
-    :value.sync="inputValue"></u-custom-picker-input>
+    :startValue.sync="inputValueStart"
+    :endValue.sync="inputValueEnd">
+</u-custom-picker-input>

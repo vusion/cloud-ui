@@ -14,7 +14,6 @@ export default {
         return {
             showClearBtn: false, // 显示清空按钮
             currentValue: this.value, // 当前输入值
-            preValue: this.value, // 上一个validate的值
         };
     },
     watch: {

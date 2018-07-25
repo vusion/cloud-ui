@@ -1,32 +1,29 @@
-<div :class="$style.inputWrapper">
+<div :class="$style.inputWrapper" :focus="startFocus || endFocus">
     <div
-        v-if="!disabled && !readonly"
         :class="$style.header"
         @mouseenter="onMouseEnter"
         @mouseleave="showClearBtn = false">
         <input
             :class="$style.input"
-            :placeholder="currentPlaceholders[0]"
-            :value="inputStartValue"
+            :placeholder="placeholder[0]"
+            :value="currentValueStart"
             ref="input0"
-            @input="value => inputStartValue = value"
-            @blur="onStartBlur">
+            @input="event => currentValueStart = event.target.value"
+            @blur="onStartBlur"
+            @focus="onStartFocus">
         </input>
         <span :class="$style.rangeSeparator">{{rangeSeparator}}</span>
         <input
             :class="$style.input"
-            :placeholder="currentPlaceholders[1]"
-            :value="inputEndValue"
+            :placeholder="placeholder[1]"
+            :value="currentValueEnd"
             ref="input1"
-            @input="value => inputEndValue = value"
-            @blur="onEndBlur">
+            @input="event => currentValueEnd = event.target.value"
+            @blur="onEndBlur"
+            @focus="onEndFocus">
         </input>
-        <span @click="displayStartValue = displayEndValue = undefined" v-show="showClearBtn" :class="$style.empty"></span>
+        <span v-if="showClearBtn" @click="clearInput" :class="$style.delete"></span>
+        <span v-else :class="$style.calendar"></span>
     </div>
-    <div v-else :class="$style.shade" :disabled="disabled" :readonly="readonly">
+    <div v-if="disabled || readonly" :class="$style.shade" :disabled="disabled" :readonly="readonly"></div>
 </div>
-<!-- <div v-else :class="$style.header" :disabled="disabled" :readonly="readonly">
-    <input :class="$style.input" :placeholder="currentPlaceholders[0]" :value="inputStartValue" :readonly="readonly" :disabled="disabled"></input>
-    <span :class="$style.split">至</span>
-    <input :class="$style.input" :placeholder="currentPlaceholders[1]" :value="inputEndValue" :readonly="readonly" :disabled="disabled"></input>
-</div> -->

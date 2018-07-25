@@ -1,10 +1,29 @@
 
 @import '../u-picker-input.vue/module.css';
 
+.inputWrapper {
+	border: 1px solid #ccc;
+	height: 34px;
+	line-height: 32px;
+}
+.inputWrapper[focus] {
+	border-color: #67aaf5;
+}
 .input {
 	border: none;
 	width: 160px;
 	text-align: center;
 	margin-right: 20px;
+}
+
+.input:focus {
+	outline: none;
+}
+
+.calendar::before{
+	top: 0px;
+}
+.delete::before{
+	top: 0px;
 }
 
