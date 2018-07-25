@@ -22,7 +22,8 @@
  */
 import isEqual from 'date-fns/is_equal';
 import format from 'date-fns/format';
-import { dateValidadtor, validateDateRange, inDateRange, setDateTime } from './panel/date';
+import parse from 'date-fns/parse';
+import { dateValidadtor, validateDateRange, inDateRange, setDateTime, _isDate } from './panel/date';
 
 export default {
     name: 'u-picker',
@@ -30,7 +31,7 @@ export default {
     props: {
         disabled: { type: Boolean, default: false },
         readonly: { type: Boolean, default: false },
-        editable: { type: Boolean, default: true },
+        editable: { type: Boolean, default: true }, // TODO
         placeholder: { type: [String, Array] },
         rangeSeparator: { type: String, default: '至' },
         value: { type: [String, Date, Number], default: undefined },
@@ -38,7 +39,7 @@ export default {
         fixOn: { type: String, default: 'blur', validator: (value) => ['input', 'blur'].includes(value) },
         type: { type: String, default: 'date', validator: (value) => ['calendar', 'year', 'month', 'date', 'datetime', 'daterange', 'datetimerang'].includes(value) },
         formatter: { type: String, default: 'YYYY-MM-DD', validator: (value) => dateValidadtor(format(new Date(), value)) },
-        placement: { type: String },
+        placement: { type: String, default: 'bottom-start' },
         dateRange: { type: Array },
         minDate: { type: [String, Date, Number], default: null, validator: dateValidadtor },
         maxDate: { type: [String, Date, Number], default: null, validator: dateValidadtor },
@@ -59,7 +60,7 @@ export default {
         },
     },
     data() {
-        return Object.assign({
+        return {
             showPanel: false,
             hasInit: false,
             currentFormatter: this.formatter,
@@ -68,7 +69,8 @@ export default {
             panelView: 'day',
             inputValue: '', // input框值
             currentValue: this.value,
-        });
+            changedInputValue: null,
+        };
     },
     computed: {
         init() { // 控制panel mount时机 ??? 干啥的
@@ -81,7 +83,7 @@ export default {
             return false;
         },
         allProps() {
-            return Object.assign({}, this.$props, this.$attrs);// TODO: 可能不是响应式的？
+            return Object.assign({}, this.$props, this.$attrs);// 也是响应式的
         },
     },
     watch: {
@@ -91,26 +93,37 @@ export default {
             if (isEqual(value, oldValue))
                 return;
 
-            this.$emit('change', {
-                value,
-                oldValue,
-            });
             this.inputValue = format(value, this.currentFormatter);
+            this.currentValue = value;
         },
         inputValue(value, oldValue) { // input框值emit更新
+            if (value === this.changedInputValue)
+                return;
             if (value !== undefined) {
                 if (inDateRange(value, this.currentDateRange)) {
                     this.inputValue = format(value, this.currentFormatter);
                 } else {
                     this.inputValue = oldValue;
                 }
+                this.changedInputValue = this.inputValue; // 防止循环赋值
             }
             this.currentValue = this.inputValue;
             this.$refs.input.forceUpdateValue();
         },
-        currentValue(value) {
-            this.$emit('update:value', value);
+        currentValue(value, oldValue) {
+            this.$emit('update:value', this.formatValue(value));
             this.inputValue = value ? format(value, this.currentFormatter) : value;
+            if (isEqual(value, oldValue))
+                return;
+            this.$emit('change', {
+                value: this.setDateTime(parse(value)),
+                oldValue: this.setDateTime(parse(oldValue)),
+                formattedValue: this.inputValue,
+            });
+        },
+        type(value) {
+            this.initFormatter();
+            this.initPanelControl();
         },
     },
     created() {
@@ -136,18 +149,18 @@ export default {
                 return;
 
             this.currentValue = event.value;
-            const _setDateTime = (date) => setDateTime(date, this.time);
-            const value = _setDateTime(event.value);
-            const formattedValue = this.formatValue(value);
+            const value = this.setDateTime(event.value);
             this.$emit('select', {
                 value,
-                oldValue: _setDateTime(event.oldValue),
-                formattedValue,
+                oldValue: this.setDateTime(event.oldValue),
+                formattedValue: format(value, this.currentFormatter),
             });
             this.closePanel();
         },
         validateData() {
-            this.currentDateRange = validateDateRange(this.dateRange, this.minDate, this.maxDate);
+            const tempDateRange = (this.dateRange || []).concat([]);
+            validateDateRange(tempDateRange, this.minDate, this.maxDate);
+            this.currentDateRange = tempDateRange;
             if (!inDateRange(this.currentValue, this.currentDateRange))
                 throw new RangeError('initital date is out of dateRange');
         },
@@ -156,16 +169,16 @@ export default {
             let res;
             switch (this.type) {
                 case 'year':
-                    res = /(Y)+/.exec(this.currentFormatter);
-                    this.currentFormatter = res ? res[0] : 'YYYY';
+                    res = /^(Y)+$/.exec(this.currentFormatter);
+                    this.currentFormatter = res && _isDate(parse(new Date(), res[0])) ? res[0] : 'YYYY';
                     break;
                 case 'month':
-                    res = /(M)+/.exec(this.currentFormatter);
-                    this.currentFormatter = res ? res[0] : 'MM';
+                    res = /^(Y+[^a-zA-Z]M+)$/.exec(this.currentFormatter);
+                    this.currentFormatter = res && _isDate(parse(new Date(), res[0])) ? res[0] : 'YYYY-MM';
                     break;
-                case 'day':
-                    res = /(D)+/.exec(this.currentFormatter);
-                    this.currentFormatter = res ? res[0] : 'DD';
+                case 'date':
+                    res = /^(Y+[^a-zA-Z]M+[^a-zA-Z]D+)$/.exec(this.currentFormatter);
+                    this.currentFormatter = res && _isDate(parse(new Date(), res[0])) ? res[0] : 'YYYY-MM-DD';
                     break;
             }
             this.inputValue = format(this.currentValue, this.currentFormatter);
@@ -175,15 +188,15 @@ export default {
             if (!/(Y)+/.exec(this.currentFormatter))
                 this.blockPanel.year = true;
             else
-                this.showPanel = 'year';
+                this.panelView = 'year';
             if (!/(M)+/.exec(this.currentFormatter))
                 this.blockPanel.month = true;
             else
-                this.showPanel = 'month';
+                this.panelView = 'month';
             if (!/(D)+/.exec(this.currentFormatter))
                 this.blockPanel.day = true;
             else
-                this.showPanel = 'day'; // 面板显示优先级： day > month > year
+                this.panelView = 'day'; // 面板显示优先级： day > month > year
         },
         /**
          * 返回与this.value同样类型的数据
@@ -199,6 +212,9 @@ export default {
                 default:
                     return date;
             }
+        },
+        setDateTime(date) {
+            return setDateTime(date, this.time);
         },
         closePanel() {
             this.$refs.popper.toggle(false);

@@ -19,4 +19,8 @@
         </u-custom-panel>
     </div>
 </u-popper>
-<u-custom-picker-input v-else  v-bind="allProps" :readonly="readonly" :disabled="disabled"></u-custom-picker-input>
+<u-custom-picker-input
+    v-else
+    ref="input"
+    v-bind="allProps"
+    :value.sync="inputValue"></u-custom-picker-input>

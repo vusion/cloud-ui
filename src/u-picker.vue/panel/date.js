@@ -7,12 +7,11 @@ const _isDate = (date) => date && date.toString() !== 'Invalid Date' && isDate(d
 const isArray = (o) => Object.prototype.toString.call(o) === '[object Array]';
 
 // 验证dateRange合法性并生成新的DateRange（二维数组）
-const validateDateRange = (dateRange = [], minDate, maxDate) => {
-    const currentDateRange = dateRange;
+const validateDateRange = (dateRange, minDate, maxDate) => {
     if (minDate || maxDate)
-        currentDateRange.push([minDate, maxDate]);
+        dateRange.push([minDate, maxDate]);
     // 验证时间区间设置合法性
-    const isValid = currentDateRange.every((arr) => {
+    const isValid = dateRange.every((arr) => {
         if (arr.length !== 2 || (!arr[0] && !arr[1]))
             return false;
         arr[0] && (arr[0] = parse(arr[0]));

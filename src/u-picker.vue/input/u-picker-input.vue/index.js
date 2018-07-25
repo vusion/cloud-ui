@@ -32,7 +32,7 @@ export default {
     },
     methods: {
         onMouseEnter() {
-            if (this.currentValue !== undefined)
+            if (this.currentValue)
                 this.showClearBtn = true;
             else
                 this.showClearBtn = false;

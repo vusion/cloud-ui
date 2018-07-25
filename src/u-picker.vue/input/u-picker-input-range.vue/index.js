@@ -5,7 +5,6 @@ export default {
         rangeSeparator: { type: String, default: '至' },
         disabled: { type: Boolean, default: false },
         readonly: { type: Boolean, default: false },
-        placement: { type: String },
         value: { type: String },
         fixOn: { type: String, default: 'blur', validator: (value) => ['input', 'blur'].includes(value) }, // 时间校正方式
     },

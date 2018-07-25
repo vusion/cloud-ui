@@ -27,11 +27,11 @@ export default {
         readonly: { type: Boolean },
     },
     data() {
-        return Object.assign({
+        return {
             currentView: this.view,
             displayDate: undefined,
             selectedDate: undefined,
-        });
+        };
     },
     computed: {
         allProps() {
@@ -85,13 +85,12 @@ export default {
         dateSelect(date) {
             if (this.disabled || this.readonly)
                 return;
-
-            if (!isEqual(event.date, this.selectedDate))
-                this.selectedDate = event.date; // 点击后，panel中的已选日期会发生变化
             this.$emit('select', {
                 value: date,
                 oldValue: this.selectedDate,
             });
+            if (!isEqual(date, this.selectedDate))
+                this.selectedDate = date; // 点击后，panel中的已选日期会发生变化
         },
     },
 };

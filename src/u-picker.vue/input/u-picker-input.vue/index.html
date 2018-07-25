@@ -1,6 +1,5 @@
 <div :class="$style.inputWrapper">
     <div
-        v-if="!disabled && !readonly"
         @mouseenter="onMouseEnter"
         @mouseleave="showClearBtn = false">
         <u-input
@@ -13,7 +12,7 @@
         <span v-if="showClearBtn" @click="clearInput" :class="$style.delete"></span>
         <span v-else :class="$style.calendar"></span>
     </div>
-    <div v-else :disabled="disabled" :class="$style.shade" :readonly="readonly"></div>
+    <div v-if="disabled || readonly" :disabled="disabled" :class="$style.shade" :readonly="readonly"></div>
 </div>
 
 
