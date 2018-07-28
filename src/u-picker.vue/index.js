@@ -13,15 +13,14 @@
  * dateRange: 时间范围: 二维数组形式。
  * minDate: 最小时间。
  * maxDate: 最大时间。
- * time: 并没有时分秒的地方设置默认的时分秒值，不建议使用。
+ * !time: type为date时设置默认的时分秒值。不建议使用，也不在文档暴露，建议在需要该功能的地方extends一个新组件，整理数据为想要的格式
  *
  * picker由input和panel组成，由外部传入。
  * input抛出input，focus, blur事件
  * panel抛出select, beforeSelect事件。 date都为Date格式，交由picker格式化
- * picker抛出toggle。before-select, select（不论有效值是否改变，用户点击即触发）. change(两个validate的值变化)
+ * picker抛出toggle。before-select, select（由用户点击触发）. change(currentValue值变化触发)
  */
 import format from 'date-fns/format';
-import { dateValidadtor, setDateTime } from './panel/date';
 
 export default {
     name: 'u-picker',
@@ -34,27 +33,12 @@ export default {
         value: { type: [String, Date, Number], default: undefined },
         panelDisplayValue: { type: [String, Date, Number], default: () => new Date() },
         fixOn: { type: String, default: 'blur', validator: (value) => ['input', 'blur'].includes(value) },
-        type: { type: String, default: 'date', validator: (value) => ['calendar', 'year', 'month', 'date', 'datetime', 'daterange', 'datetimerang'].includes(value) },
-        formatter: { type: String, default: 'YYYY-MM-DD', validator: (value) => dateValidadtor(format(new Date(), value)) },
+        type: { type: String, default: 'date', validator: (value) => ['calendar', 'year', 'month', 'date', 'time', 'datetime', 'daterange', 'datetimerang', 'timeRange'].includes(value) },
+        formatter: { type: String, default: 'YYYY-MM-DD' },
         placement: { type: String, default: 'bottom-start' },
         dateRange: { type: Array },
-        minDate: { type: [String, Date, Number], default: null, validator: dateValidadtor },
-        maxDate: { type: [String, Date, Number], default: null, validator: dateValidadtor },
-        time: {
-            type: [String, Number],
-            default: 'start', // 默认返回00:00:00的时间戳
-            validator(value) {
-                if (['start', 'morning', 'end'].includes(value))
-                    return true;
-                const nvalue = +value;
-                if (!isNaN(value) && nvalue >= 0 && nvalue < 24)
-                    return true;
-
-                if (!/^[0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}$/.test(value))
-                    throw new Error('请输入正确的time格式');
-                return true;
-            },
-        },
+        minDate: { type: [String, Date, Number] },
+        maxDate: { type: [String, Date, Number] },
     },
     data() {
         return {
@@ -74,25 +58,16 @@ export default {
         },
     },
     created() {
+        this.initCurrentValue && this.initCurrentValue(); // 根据value设置currentValue
         this.validateData && this.validateData(); // 根据minDate, maxDate和dateRange生成currentDateRange，并判断初始值是否在range内
 
         this.initFormatter && this.initFormatter(); // 根据type生成currentFormatter
         this.initPanelControl && this.initPanelControl(); // 根据currentFormatter判断可以跳入的页面
     },
     methods: {
-        inDateRange() {
-            return true;
-        },
         onToggle($event) {
             this.$emit('toggle', $event);
             this.showPanel = $event.open;
-        },
-        validateData() {
-            const tempDateRange = (this.dateRange || []).concat([]);
-            this.validateRange && this.validateRange(tempDateRange, this.minDate, this.maxDate);
-            this.currentDateRange = tempDateRange;
-            if (!this.inDateRange(this.currentValue, this.currentDateRange))
-                throw new RangeError('initital date is out of dateRange');
         },
         /**
          * 返回与this.value同样类型的数据
@@ -109,11 +84,10 @@ export default {
                     return date;
             }
         },
-        setDateTime(date) {
-            return setDateTime(date, this.time);
-        },
         closePanel() {
             this.$refs.popper.toggle(false);
         },
+        /* eslint no-empty-function: 0*/
+        onPanelDateSelect() {},
     },
 };

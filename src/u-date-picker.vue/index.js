@@ -5,7 +5,7 @@ import parse from 'date-fns/parse';
 import Picker from '../u-picker.vue';
 import pickerInput from '../u-picker.vue/input/u-picker-input.vue';
 import pickPanel from '../u-picker.vue/panel/u-panel-control.vue';
-import { inDateRange, _isDate, validateDateRange } from '../u-picker.vue/panel/date';
+import { inDateRange, _isDate, validateDateRange, dateValidadtor, setDateTime } from '../u-picker.vue/panel/date';
 
 export default {
     name: 'u-date-picker',
@@ -16,7 +16,20 @@ export default {
     },
     props: {
         placeholder: { type: String, default: '请选择日期' },
-        type: { type: String, default: 'date', validator: (value) => ['calendar', 'year', 'month', 'date'].includes(value) },
+        type: { type: String, default: 'date', validator: (value) => ['year', 'month', 'date'].includes(value) },
+        formatter: { type: String, default: 'YYYY-MM-DD', validator: (value) => dateValidadtor(format(new Date(), value)) },
+        time: { type: [String, Number], default: 'start', validator(value) {
+            if (['start', 'morning', 'end'].includes(value))
+                return true;
+            const nvalue = +value;
+            if (!isNaN(value) && nvalue >= 0 && nvalue < 24)
+                return true;
+
+            if (!/^[0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}$/.test(value))
+                throw new Error('invalid props time');
+            return true;
+        },
+        },
     },
     watch: {
         value(value, oldValue) {
@@ -61,6 +74,13 @@ export default {
     methods: {
         inDateRange,
         validateRange: validateDateRange,
+        validateData() {
+            const tempDateRange = (this.dateRange || []).concat([]);
+            this.validateRange && this.validateRange(tempDateRange, this.minDate, this.maxDate);
+            this.currentDateRange = tempDateRange;
+            if (!this.inDateRange(this.currentValue, this.currentDateRange))
+                throw new RangeError('initital date is out of dateRange');
+        },
         // date面板和time面板的跳转控制
         initFormatter() {
             let res;
@@ -114,6 +134,9 @@ export default {
                 formattedValue: format(value, this.currentFormatter),
             });
             this.closePanel();
+        },
+        setDateTime(date) {
+            return setDateTime(date, this.time);
         },
     },
 };
