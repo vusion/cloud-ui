@@ -1,0 +1,9 @@
+@import 'proto-ui.vusion/src/u-spinner.vue/module.css';
+
+.root {
+    animation-duration: 1s;
+}
+
+.root::before {
+    icon-font: url('./assets/refresh.svg');
+}

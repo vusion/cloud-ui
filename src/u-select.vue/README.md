@@ -160,7 +160,7 @@
             <u-select-item>蛋糕</u-select-item>
         </u-select>
         <u-select size="normal medium">
-            <u-select-item>normal</u-select-item>
+            <u-select-item>normal medium</u-select-item>
             <u-select-item>香蕉</u-select-item>
             <u-select-item>蛋糕</u-select-item>
         </u-select>

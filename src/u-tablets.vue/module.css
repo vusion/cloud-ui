@@ -3,3 +3,7 @@
     user-select: none;
     display: inline-block;
 }
+
+.root:focus {
+    outline: $focus-outline;
+}

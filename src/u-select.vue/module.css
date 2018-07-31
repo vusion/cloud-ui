@@ -11,6 +11,10 @@
     border-radius: $border-radius-base;
 }
 
+.root:focus {
+    border-color: $brand-secondary;
+}
+
 .root::after {
     position: absolute;
     icon-font: url('../u-icon.vue/icons/keyboard-arrow-down.svg');
@@ -38,9 +42,8 @@
 }
 
 .popper {
-    margin-top: -1px;
-    width: 160px;
-    max-height: 192px;
+    margin-top: 1px;
+    max-height: 194px;
     overflow: auto;
     background: white;
     border: 1px solid $brand-secondary;
@@ -49,37 +52,30 @@
 }
 
 .root[size$="mini"] { width: 80px; }
-.popper[size$="mini"] { width: 80px; }
 .root[size^="mini"] { height: 28px; line-height: 26px; }
-.popper[size^="mini"] { max-height: 156px; }
+.root[size^="mini"] .popper { max-height: 156px; }
 
 .root[size$="small"] { width: 120px; }
-.popper[size$="small"] { width: 120px; }
 .root[size^="small"] { height: 30px; line-height: 28px; }
-.popper[size^="small"] { max-height: 168px; }
+.root[size^="small"] .popper { max-height: 168px; }
 
 .root[size$="normal"] { width: 160px; }
-.popper[size$="normal"] { width: 160px; }
 .root[size^="normal"] { height: $height-base; line-height: 32px; }
-.popper[size^="normal"] { max-height: 192px; }
+.root[size^="normal"] .popper { max-height: 192px; }
 
 .root[size$="medium"] { width: 280px; }
-.popper[size$="medium"] { width: 280px; }
 .root[size^="medium"] { height: 36px; line-height: 34px; }
-.popper[size^="medium"] { max-height: 204px; }
+.root[size^="medium"] .popper { max-height: 204px; }
 
 .root[size$="large"] { width: 440px; }
-.popper[size$="large"] { width: 440px; }
 .root[size^="large"] { height: 38px; line-height: 36px; }
-.popper[size^="large"] { max-height: 216px; }
+.root[size^="large"] .popper { max-height: 216px; }
 
 .root[size$="huge"] { width: 580px; }
-.popper[size$="huge"] { width: 580px; }
 .root[size^="huge"] { height: 40px; line-height: 38px; }
-.popper[size^="huge"] { max-height: 228px; }
+.root[size^="huge"] .popper { max-height: 228px; }
 
 .root[size$="full"] { width: 100%; }
-.popper[size$="full"] { width: 100%; box-sizing: content-box; }
 .root[size^="full"] { height: 100%; }
 
 .flag {

@@ -1,5 +1,10 @@
 <u-popper ref="popper" :disabled="readonly || disabled" @toggle="onToggle($event)" append-to="reference">
-    <div :class="$style.root" :readonly="readonly" :disabled="disabled" :size="size">
+    <div :class="$style.root" :readonly="readonly" :disabled="disabled"
+        :tabindex="readonly || disabled ? '' : 0"
+        @keydown.prevent.up="$refs.popper.currentOpen ? shift(-1) : toggle(true)"
+        @keydown.prevent.down="$refs.popper.currentOpen ? shift(+1) : toggle(true)"
+        @keydown.stop.enter="toggle()"
+        @keydown.stop.esc="toggle(false)">
         <span :class="$style.text" v-ellipsis-title :style="{direction: ellipsisDirection}">
             <!-- @override: 添加了flag功能 -->
             <slot name="flag">
@@ -9,15 +14,18 @@
         </span>
     </div>
     <!-- 这个地方以后可能要改用render实现 -->
-    <ul :class="$style.popper" slot="popper" :size="size" @click.stop>
-        <component :is="ChildComponent" v-if="data"
-            v-for="item in data"
+    <ul :class="$style.popper" slot="popper" @click.stop @scroll.stop="onScroll">
+        <slot></slot>
+        <component :is="ChildComponent" v-if="currentData"
+            v-for="item in currentData"
             :key="item.value"
             :value="item.value"
             :disabled="item.disabled || disabled"
             :flag="item.flag"
             :item="item"
         >{{ item[field] }}</component>
-        <slot></slot>
+        <div :class="$style.status" status="loading" v-if="loading">
+            <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
+        </div>
     </ul>
 </u-popper>

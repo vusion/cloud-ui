@@ -1,15 +1,6 @@
-@import 'proto-ui.vusion/src/u-select.vue/module.css';
+@import 'proto-ui.vusion/src/u-suggest.vue/module.css';
 
-.root {
-    height: $height-base;
-    line-height: 32px;
-    padding-left: 14px;
-    padding-right: 20px;
-    background: white;
-    color: #555;
-    border: 1px solid $brand-secondary;
-    border-radius: $border-radius-base;
-}
+.root {}
 
 .root::after {
     position: absolute;
@@ -21,39 +12,20 @@
     line-height: inherit;
 }
 
-.root[role]::before {
-    content: none;
-}
-
-.root[role]::after {
-    content: none;
+.root[class]:focus {
+    border-color: $brand-secondary;
 }
 
 .root[disabled] {
     cursor: not-allowed;
-    background: #eee;
-    border: 1px solid #d3d6de;
+    background: $brand-disabled;
+    border: 1px solid $brand-disabled;
     color: #999;
 }
 
-.text {
-    float: left;
-    width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    line-height: inherit;
-    cursor: pointer;
-}
-
-.body {
-    width: 160px;
-    margin-top: 2px;
-}
-
 .popper {
-    margin-top: -1px;
-    max-height: 180px;
+    margin-top: 1px;
+    max-height: 194px;
     overflow: auto;
     background: white;
     border: 1px solid $brand-secondary;
@@ -61,47 +33,29 @@
     z-index: 1065;
 }
 
-.input {
-    border: none;
-    height: 28px;
-    outline: none;
-    width: 100%;
-    cursor: pointer;
-}
-
-.none {
-    padding: 5px 14px;
-    cursor: pointer;
-    position: relative;
-    background: white;
-    color: #555;
-    border-radius: 2px;
-    border: 1px solid #d2d6de;
-    text-align: center;
-    margin-top: 2px;
-    line-height: 22px;
-}
-
 .root[size$="mini"] { width: 80px; }
-.body[size$="mini"] { width: 80px; }
 .root[size^="mini"] { height: 28px; line-height: 26px; }
+.popper[size^="mini"] { max-height: 156px; }
 
 .root[size$="small"] { width: 120px; }
-.body[size$="small"] { width: 120px; }
 .root[size^="small"] { height: 30px; line-height: 28px; }
+.popper[size^="small"] { max-height: 168px; }
 
 .root[size$="normal"] { width: 160px; }
-.body[size$="normal"] { width: 160px; }
 .root[size^="normal"] { height: $height-base; line-height: 32px; }
+.popper[size^="normal"] { max-height: 192px; }
 
-.root[size$="large"] { width: 360px; }
-.body[size$="large"] { width: 360px; }
+.root[size$="medium"] { width: 280px; }
+.root[size^="medium"] { height: 36px; line-height: 34px; }
+.popper[size^="medium"] { max-height: 204px; }
+
+.root[size$="large"] { width: 440px; }
 .root[size^="large"] { height: 38px; line-height: 36px; }
+.popper[size^="large"] { max-height: 216px; }
 
-.root[size$="huge"] { width: 440px; }
-.body[size$="huge"] { width: 440px; }
+.root[size$="huge"] { width: 580px; }
 .root[size^="huge"] { height: 40px; line-height: 38px; }
+.popper[size^="huge"] { max-height: 228px; }
 
 .root[size$="full"] { width: 100%; }
-.body[size$="full"] { width: 100%; box-sizing: content-box; }
 .root[size^="full"] { height: 100%; }

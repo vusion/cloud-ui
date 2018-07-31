@@ -11,6 +11,10 @@
     margin-right: $margin-right-base;
 }
 
+.root:not(:last-child) {
+    margin-right: 4px;
+}
+
 .root:hover {
     border-color: $brand-primary;
 }

@@ -73,6 +73,7 @@ import SidebarGroup from './u-sidebar-group.vue';
 import SidebarItem from './u-sidebar-item.vue';
 import SidebarDivider from './u-sidebar-divider.vue';
 import Slider from './u-slider.vue';
+import Spinner from './u-spinner.vue';
 import StatusIcon from './u-status-icon.vue';
 import Steps from './u-steps.vue';
 import Step from './u-step.vue';
@@ -166,6 +167,7 @@ export {
     SidebarItem,
     SidebarDivider,
     Slider,
+    Spinner,
     StatusIcon,
     Steps,
     Step,
