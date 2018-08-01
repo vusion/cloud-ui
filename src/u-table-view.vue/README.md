@@ -1128,7 +1128,7 @@ export default {
 | data | Array | '' | 表格默认要显示的数据 |
 | title | String | '' | 表格的标题 |
 | allChecked.sync | Boolean | false | 默认是否全部选中 |
-| defaultSort | Object | '' | 默认的排序列和顺序值，其prop属性指定默认排序的列，order指定默认排序的顺序 |
+| defaultSort | Object | '' | 默认的排序列和顺序值，其title属性指定默认排序的列，order指定默认排序的顺序 |
 | defaultFilter | Object | '' | 默认采用某列进行过滤，其title属性指定默认过滤的列，value指定默认过滤的值，在存在多个过滤列的时候可以使用此属性指定，当前只有一个列的时候可以不指定，默认会使用第一个filter列 |
 | noDataText | String | '' | 当data为空数组时，展示的信息 |
 | loading| Boolean | false | 是否展示加载中的状态信息 |
