@@ -79,7 +79,7 @@
 
 ### 区分大小写
 
-默认区分大小写，可用`case-insensitive`属性关闭。
+默认不区分大小写，可用`case-sensitive`属性开启。
 
 ``` html
 <u-linear-layout>
@@ -91,7 +91,7 @@
         <u-suggest-item value="Break">Break</u-suggest-item>
         <u-suggest-item value="BRIEF">BRIEF</u-suggest-item>
     </u-suggest>
-    <u-suggest case-insensitive placeholder="不区分大小写">
+    <u-suggest case-sensitive placeholder="不区分大小写">
         <u-suggest-item value="abandon">abandon</u-suggest-item>
         <u-suggest-item value="Absent">Absent</u-suggest-item>
         <u-suggest-item value="ABOUT">ABOUT</u-suggest-item>
@@ -412,7 +412,7 @@ export default {
 | readonly | Boolean | `false` | 是否只读 |
 | disabled | Boolean | `false` | 是否禁用 |
 | matchMethod | String, Function | `'includes'` | 匹配方式。可选值：`includes`表示包含即可，`startsWith`表示只匹配开头，`endsWith`表示只匹配结尾。也可以传一个方法 |
-| caseInsensitive | Boolean | `false` | 是否区分大小写，默认不区分大小写 |
+| caseSensitive | Boolean | `false` | 是否区分大小写，默认不区分大小写 |
 | strict | Boolean | `false` | 是否为严格模式。当为严格模式时，`value`属性必须为一个选项的值，或者为空 |
 
 ### Slots

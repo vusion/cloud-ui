@@ -1,13 +1,10 @@
 @import 'proto-ui.vusion/src/u-textarea.vue/module.css';
+
 .root {
     max-width: 100%;
     width: 160px;
     height: 80px;
-}
-
-.input {
     line-height: inherit;
-    max-width: 100%;
     min-height: $height-base;
     padding: 5px 10px;
     color: #666;
@@ -22,15 +19,15 @@
     color: #999;
 }
 
-.input:focus {
+.root[focus] {
     border-color: #8ebee9;
 }
 
-.input[color="error"] {
+.root[color="error"] {
     border-color: #ff867f;
 }
 
-.input[disabled] {
+.root[disabled] {
     background-color: $brand-disabled;
     border-color: $brand-disabled;
 }
@@ -48,6 +45,5 @@
 .root[size^="huge"] { height: 200px; }
 
 .root[size$="full"] { width: 100%; }
-
 .root[size^="full"] { height: 100%; }
 

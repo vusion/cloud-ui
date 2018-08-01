@@ -5,11 +5,11 @@
 }
 
 .button[role="up"] {
-    top: 3px;
+    top: 2px;
 }
 
 .button[role="down"] {
-    bottom: 3px;
+    bottom: 2px;
 }
 
 .button[role="up"]::before {
@@ -55,4 +55,3 @@
 .root[readonly] .button:hover::before { color: #989898; }
 
 .root[disabled] .button:hover::before { color: #989898; }
-

@@ -1,6 +1,6 @@
 # 多行输入 Textarea
 
-## Examples
+## 示例
 ### 基本形式
 
 大部分属性与`<textarea>`元素一致。
@@ -25,6 +25,7 @@
     <u-textarea value="none" resize="none"></u-textarea>
     <u-textarea value="horizontal" resize="horizontal"></u-textarea>
     <u-textarea value="vertical" resize="vertical"></u-textarea>
+    <u-textarea value="both" resize="both"></u-textarea>
 </u-linear-layout>
 ```
 
