@@ -26,6 +26,17 @@
 </u-linear-layout>
 ```
 
+### 范围限制
+``` html
+<u-linear-layout direction="vertical">
+    <u-linear-layout>
+        <u-linear-progress :range="[20]" :percent="36">20</u-linear-progress>
+    </u-linear-layout>
+    <u-linear-layout>
+        <u-linear-progress :range="[20,50]" :percent="36">20,50</u-linear-progress>
+    </u-linear-layout>
+</u-linear-layout>
+```
 
 ## API
 ### Props/Attrs
@@ -34,6 +45,7 @@
 | --------- | ---- | ------- | ----------- |
 | percent | Number | `0` | 百分比 |
 | size | String | `'normal'` | 高度扩展，值有`'small'`, `'normal'`, `'large'`, `'huge'`四个值 |
+| range | Array | `[0, 100]` | 百分比范围限制 |
 
 ### Slots
 

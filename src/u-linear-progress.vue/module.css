@@ -19,3 +19,6 @@
     height: 12px;
     line-height: 12px;
 }
+.trail {
+    position: relative;
+}
