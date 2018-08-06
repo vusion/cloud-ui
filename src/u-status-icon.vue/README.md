@@ -11,6 +11,8 @@
     <u-status-icon name="waiting">重启中</u-status-icon>
     <u-status-icon name="error">更新失败</u-status-icon>
     <u-status-icon name="mount">已绑定</u-status-icon>
+    <u-status-icon name="end">结束</u-status-icon>
+    <u-status-icon name="expire">失效</u-status-icon>
 </u-linear-layout>
 ```
 

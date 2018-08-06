@@ -31,3 +31,11 @@
     icon-font: url("./icons/mount.svg");
     color: #3ad0af;
 }
+.icon[name="end"]::before {
+    icon-font: url("./icons/end.svg");
+    color: #a2b0b7;
+}
+.icon[name="expire"]::before {
+    icon-font: url("./icons/expire.svg");
+    color: #a2b0b7;
+}
