@@ -7,10 +7,34 @@
 <u-switch></u-switch>
 ```
 
-### With Text
+### Value绑定
+
+``` vue
+<template>
+<u-switch v-model="value" width="wide">{{ value ? 'ON' : 'OFF' }}</u-switch>
+</template>
+<script>
+export default {
+    data() {
+        return { value: false };
+    },
+};
+</script>
+```
+
+### 显示基本状态
 
 ``` html
 <u-switch with-text></u-switch>
+```
+
+### 只读和禁用
+
+``` html
+<u-linear-layout>
+    <u-switch readonly></u-switch>
+    <u-switch disabled></u-switch>
+</u-linear-layout>
 ```
 
 ## API
@@ -18,15 +42,19 @@
 
 | Prop/Attr | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
-| value | Boolean | `false` | 开关状态 |
-| readonly | Boolean | `false` | 是否只读 |
-| disabled | Boolean | `false` | 是否禁用 |
+| value | `Boolean` | `false` | 开关状态 |
+| readonly | `Boolean` | `false` | 是否只读 |
+| disabled | `Boolean` | `false` | 是否禁用 |
+| with-text | `Boolean` | `false` | 显示开关`ON`和`OFF`文字 |
 
 ### Slots
 
-| Slot | Description |
+<!--| Slot | Description |
 | ---- | ----------- |
-| (default) | 插入文本或HTML |
+| (default) | 插入文本或HTML |-->
+#### (default)
+
+插入文本或`HTML`。
 
 ### Events
 
@@ -36,9 +64,9 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.value | Boolean | 开关状态 |
-| $event.oldValue | Boolean | 旧的开关状态 |
-| $event.preventDefault | Function | 阻止切换流程 |
+| $event.value | `Boolean` | 开关状态 |
+| $event.oldValue | `Boolean` | 旧的开关状态 |
+| $event.preventDefault | `Function` | 阻止切换流程 |
 
 #### @input
 
@@ -46,7 +74,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event | Boolean | 切换后的开关状态 |
+| $event | `Boolean` | 切换后的开关状态 |
 
 #### @toggle
 
@@ -54,8 +82,8 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.value | Boolean | 开关状态 |
-| $event.oldValue | Boolean | 旧的开关状态 |
+| $event.value | `Boolean` | 开关状态 |
+| $event.oldValue | `Boolean` | 旧的开关状态 |
 
 #### @change
 
@@ -63,5 +91,5 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.value | Boolean | 开关状态 |
-| $event.oldValue | Boolean | 旧的开关状态 |
+| $event.value | `Boolean` | 开关状态 |
+| $event.oldValue | `Boolean` | 旧的开关状态 |
