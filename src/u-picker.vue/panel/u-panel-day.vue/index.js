@@ -64,7 +64,7 @@ export default {
         },
         onDateClick(date) {
             this.$emit('dateClick', {
-                type: 'day',
+                type: 'customDay',
                 date,
             });
         },
@@ -106,8 +106,7 @@ export default {
                     rangeArr.push([hoverAfterSelect ? this.selectedDates[0] : this.hoverDate, hoverAfterSelect ? this.hoverDate : this.selectedDates[0]]);
                 } else if (this.selectedDates.length === 2) {
                     rangeArr = this.selectedDates.slice(0);
-                }
-                else
+                } else
                     return false;
                 return inDateRange(date, rangeArr, true);
             }

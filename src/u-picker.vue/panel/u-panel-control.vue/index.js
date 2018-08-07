@@ -3,6 +3,7 @@ import parse from 'date-fns/parse'; // null -> 1970 undefined -> Invalid Date
 import panelDay from '../u-panel-day.vue';
 import panelMonth from '../u-panel-month.vue';
 import panelYear from '../u-panel-year.vue';
+import panelTime from '../u-panel-time.vue';
 /**
  * value: 初始时间
  * panelDisplayValue: 初始panel显示时间，如有value，则显示value
@@ -13,6 +14,7 @@ import panelYear from '../u-panel-year.vue';
 const viewJumpMap = {
     year: 'month',
     month: 'day',
+    time: 'time',
 };
 export default {
     name: 'u-panel-control',
@@ -34,7 +36,7 @@ export default {
     },
     computed: {
         allProps() {
-            return Object.assign({}, this.$props, this.$attrs);// 可能不是响应式的？
+            return Object.assign({}, this.$props, this.$attrs);
         },
     },
     watch: {
@@ -49,16 +51,20 @@ export default {
                 this.initDate();
         },
     },
-    components: {
-        day: panelDay,
-        month: panelMonth,
-        year: panelYear,
+    components: { // TODO: 用不到的component不加载
+        customDay: panelDay,
+        customMonth: panelMonth,
+        customYear: panelYear,
+        customTime: panelTime,
     },
     created() {
         this.initDate();
     },
     methods: {
         initDate() {
+            // if (['time', 'timerange'].indexOf(this.type)) {
+            //     return;
+            // }
             const tempValue = this.value ? parse(this.value) : undefined;
             const tempDisplayValue = this.panelDisplayValue ? parse(this.panelDisplayValue) : new Date();
             this.displayDate = tempValue || tempDisplayValue;

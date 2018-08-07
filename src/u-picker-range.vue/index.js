@@ -68,7 +68,7 @@ export default {
             currentFormatter: this.formatter,
             currentDateRange: [],
             blockPanel: {}, // 不能跳转到的页面
-            panelView: 'day',
+            panelView: 'customDay',
             inputValueStart: '',
             inputValueEnd: '',
             currentValueStart: _parse(this.startValue), // Date类型
@@ -224,15 +224,15 @@ export default {
             if (!/(Y)+/.exec(this.currentFormatter))
                 this.blockPanel.year = true;
             else
-                this.panelView = 'year';
+                this.panelView = 'customYear';
             if (!/(M)+/.exec(this.currentFormatter))
                 this.blockPanel.month = true;
             else
-                this.panelView = 'month';
+                this.panelView = 'customMonth';
             if (!/(D)+/.exec(this.currentFormatter))
                 this.blockPanel.day = true;
             else
-                this.panelView = 'day'; // 面板显示优先级： day > month > year
+                this.panelView = 'customDay'; // 面板显示优先级： day > month > year
         },
         /**
          * 返回与this.value同样类型的数据

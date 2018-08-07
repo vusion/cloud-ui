@@ -58,7 +58,7 @@ export default {
         },
         onYearClick(date) {
             this.$emit('dateClick', {
-                type: 'year',
+                type: 'customYear',
                 date,
             });
         },

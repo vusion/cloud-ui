@@ -1,0 +1,16 @@
+<div :class="$style.root">
+    <div :class="$style.wrapper" v-if="showPanel">
+        <u-scroll-view :class="$style.scroll" ref="hour" v-if="!blockPanel.hour">
+            <ul @click="onClick('hour', $event)" ref="hourul"><li v-for="hour in 24" :key="hour" :disabled="isDisabled('hour', hour - 1)" :selected="isSelected('hour', hour - 1)">{{('0' + (hour - 1)).slice(-2)}}</li></ul>
+        </u-scroll-view>
+        <u-scroll-view :class="$style.scroll" ref="minute" v-if="!blockPanel.minute">
+            <ul @click="onClick('minute', $event)" ref="minuteul"><li v-for="minute in 60" :key="minute" :disabled="isDisabled('minute', minute - 1)" :selected="isSelected('minute', minute - 1)">{{('0' + (minute - 1)).slice(-2)}}</li></ul>
+        </u-scroll-view>
+        <u-scroll-view :class="$style.scroll" ref="second" v-if="!blockPanel.second">
+            <ul @click="onClick('second', $event)" ref="secondul"><li v-for="second in 60" :key="second" :disabled="isDisabled('second', second - 1)" :selected="isSelected('second', second - 1)">{{('0' + (second - 1)).slice(-2)}}</li></ul>
+        </u-scroll-view>
+    </div>
+    <div :class="$style.operation">
+        <span :class="$style.confirm" @click="onConfirm">确定</span>
+    </div>
+</div>

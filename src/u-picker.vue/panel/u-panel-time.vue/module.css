@@ -1,0 +1,43 @@
+.root {
+	background-color: #fff;
+}
+.wrapper {
+	width: 250px;
+	height: 210px;
+}
+.scroll  {
+	display: inline-block;
+	width: 33.3%;
+}
+.scroll + .scroll {
+	border-left: 1px solid $field-border-color;
+}
+.scroll ul {
+	padding-bottom: 180px;
+}
+.scroll li {
+	line-height: 2.2;
+	padding-left: 10px;
+	cursor: pointer;
+}
+.scroll li:not([disabled]):hover {
+	background-color: $field-focus-color;
+}
+.scroll li[disabled] {
+	color: $field-disabled-color;
+	cursor: not-allowed;
+}
+.scroll li[selected] {
+	background-color: $hover-color;
+}
+
+.operation {
+	border-top: 1px solid $field-border-color;
+	line-height: 2.6;
+	text-align: right;
+}
+.confirm {
+	padding: 0 10px;
+	cursor: pointer;
+	color: $brand-primary;
+}

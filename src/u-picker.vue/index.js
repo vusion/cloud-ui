@@ -46,7 +46,7 @@ export default {
             currentFormatter: this.formatter,
             currentDateRange: [],
             blockPanel: {}, // 不能跳转到的页面
-            panelView: 'day',
+            panelView: 'customDay',
             inputValue: '', // input框值
             currentValue: this.value,
             changedInputValue: null,
@@ -58,11 +58,11 @@ export default {
         },
     },
     created() {
-        this.initCurrentValue && this.initCurrentValue(); // 根据value设置currentValue
-        this.validateData && this.validateData(); // 根据minDate, maxDate和dateRange生成currentDateRange，并判断初始值是否在range内
-
         this.initFormatter && this.initFormatter(); // 根据type生成currentFormatter
         this.initPanelControl && this.initPanelControl(); // 根据currentFormatter判断可以跳入的页面
+
+        this.initCurrentValue && this.initCurrentValue(this.value); // 根据value设置currentValue
+        this.validateData && this.validateData(); // 根据minDate, maxDate和dateRange生成currentDateRange，并判断初始值是否在range内
     },
     methods: {
         onToggle($event) {

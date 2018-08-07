@@ -76,6 +76,8 @@ export default {
             this.$refs.thumb.style.top = (e.target.scrollTop / this.contentScrollHeight * this.height) + 'px';
         },
         contentScrollChange(offsetY) {
+            if (!this.contentScrollHeight) // 元素还没显示在页面中时，setStyle的值可能不准确。
+                this.setStyle();
             this.thumbTop = offsetY / this.contentScrollHeight * this.height;
         },
     },

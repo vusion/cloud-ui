@@ -7,6 +7,8 @@ import pickerInput from '../u-picker.vue/input/u-picker-input.vue';
 import pickPanel from '../u-picker.vue/panel/u-panel-control.vue';
 import { inDateRange, _isDate, validateDateRange, dateValidadtor, setDateTime } from '../u-picker.vue/panel/date';
 
+// | time | String, Number | `start` | 设置返回的日期的时分秒值，可选值为start:时分秒是0:00:00,morning:时分秒为8:00:00,end:表示时分秒为: 23:59:59, 输入整数表示对应的整数时刻，例如输入9代表时分秒为9:00:00,自定义时分秒请输入对应格式的字符串即可 |
+
 export default {
     name: 'u-date-picker',
     extends: Picker,
@@ -105,15 +107,15 @@ export default {
             if (!/(Y)+/.exec(this.currentFormatter))
                 this.blockPanel.year = true;
             else
-                this.panelView = 'year';
+                this.panelView = 'customYear';
             if (!/(M)+/.exec(this.currentFormatter))
                 this.blockPanel.month = true;
             else
-                this.panelView = 'month';
+                this.panelView = 'customMonth';
             if (!/(D)+/.exec(this.currentFormatter))
                 this.blockPanel.day = true;
             else
-                this.panelView = 'day'; // 面板显示优先级： day > month > year
+                this.panelView = 'customDay'; // 面板显示优先级： day > month > year
         },
         onPanelDateSelect(event) {
             if (this.disabled || this.readonly)

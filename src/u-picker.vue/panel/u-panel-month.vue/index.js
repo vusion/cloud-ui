@@ -60,7 +60,7 @@ export default {
         },
         onMonthClick(date) {
             this.$emit('dateClick', {
-                type: 'month',
+                type: 'customMonth',
                 date,
             });
         },
