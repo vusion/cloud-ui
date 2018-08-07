@@ -15,6 +15,38 @@
 <u-input type="password" maxlength="12" placeholder="请输入密码"></u-input>
 ```
 
+### 数字
+
+使用`v-model`的`number`修饰符，可以轻松将输入值转成number类型。
+
+``` vue
+<template>
+<div>
+    <u-input v-model.number="value" maxlength="12" placeholder="请输入端口号" @input="onInput"></u-input>
+    输出：{{ output }}
+</div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value: 3306,
+            output: '',
+        };
+    },
+    methods: {
+        onInput(value) {
+            this.output = JSON.stringify({
+                inputValue: value,
+                modelValue: this.value,
+            });
+        },
+    },
+};
+</script>
+```
+
 ### 只读与禁用
 
 ``` html
@@ -82,11 +114,14 @@
 | readonly | Boolean | | 原生属性 |
 | disabled | Boolean | | 原生属性 |
 | size | String | `'normal'` | 大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式 |
-| close | Boolean | `'false'` | 删除功能，默认值false，当值为true并且输入框有输入内容才显示 |
+| close | Boolean | `'false'` | 删除功能，默认值`false`，当值为`true`并且输入框有输入内容才显示 |
+| maxlengthMessage | String | | 输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效 |
 
 ### Slots
 
 #### (default)
+
+插入 `HTML`或 `Component`, 可展示额外内容。
 
 ### Events
 
@@ -136,7 +171,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| | | |
+| $event | String | 原生事件对象 |
 
 #### blur
 
@@ -144,6 +179,6 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| | | |
+| $event | String | 原生事件对象 |
 
 
