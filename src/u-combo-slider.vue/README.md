@@ -1,8 +1,14 @@
 # 复合滑块 ComboSlider
 
+## 示例
+
+### 基本形式
+
 ``` html
 <u-combo-slider></u-combo-slider>
 ```
+
+### 提示
 
 ``` html
 <u-combo-slider :step="10" unit="GB" tip="步长为10GB"></u-combo-slider>
@@ -101,7 +107,7 @@
 ```
 
 
-## API
+## ComboSlider API
 ### Props/Attrs
 
 | Prop/Attr | Type | Default | Description |
