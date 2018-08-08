@@ -57,10 +57,10 @@ export default {
             this.getAllDays(this.displayDate);
         },
         onYearClick() {
-            this.$emit('changeView', 'year');
+            this.$emit('changeView', 'customYear');
         },
         onMonthClick() {
-            this.$emit('changeView', 'month');
+            this.$emit('changeView', 'customMonth');
         },
         onDateClick(date) {
             this.$emit('dateClick', {

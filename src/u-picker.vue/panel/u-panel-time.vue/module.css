@@ -38,6 +38,4 @@
 }
 .confirm {
 	padding: 0 10px;
-	cursor: pointer;
-	color: $brand-primary;
 }

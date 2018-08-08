@@ -7,7 +7,22 @@ import setMinutes from 'date-fns/set_minutes';
 import setSeconds from 'date-fns/set_seconds';
 
 const timeDefaultSeperator = ':';
-const _isDate = (date) => date && parse(date.toString()) !== 'Invalid Date' && isDate(date);
+/**
+ * 是否是合法时间对象
+ * @param {Date} date
+ */
+const _isDate = (date) => date && parse(date).toString() !== 'Invalid Date' && isDate(date);
+
+// 获取合法的Date类型，合法返回Date，不合法返回undefined
+const getValidDate = (value) => {
+    if (!value)
+        return undefined;
+    const tempDate = parse(value);
+    if (!_isDate(tempDate))
+        return undefined;
+    return tempDate;
+};
+
 const isArray = (o) => Object.prototype.toString.call(o) === '[object Array]';
 
 // 验证dateRange合法性并生成新的DateRange（二维数组）
@@ -239,4 +254,5 @@ export {
     getTimeArr,
     setTime,
     inDateTimeRange,
+    getValidDate,
 };

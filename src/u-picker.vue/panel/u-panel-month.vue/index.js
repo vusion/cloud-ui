@@ -56,7 +56,7 @@ export default {
             });
         },
         onYearClick() {
-            this.$emit('changeView', 'year');
+            this.$emit('changeView', 'customYear');
         },
         onMonthClick(date) {
             this.$emit('dateClick', {

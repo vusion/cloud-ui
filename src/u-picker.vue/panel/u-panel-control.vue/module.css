@@ -2,3 +2,8 @@
     display: inline-block;
     vertical-align: top;
 }
+.operation {
+	border-top: 1px solid $field-border-color;
+	line-height: 2.6;
+	text-align: left;
+}

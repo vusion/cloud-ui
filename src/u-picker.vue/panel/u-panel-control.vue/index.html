@@ -9,5 +9,8 @@
             @dateClick="onDateClick"
             @changeView="toView">
         </component>
+        <div :class="$style.operation" v-if="type.includes('datetime')">
+            <u-link @click="onChangePanel" :disabled="!selectedDate">{{currentView === 'customTime' ? '选择日期' : '选择时间'}}</u-link>
+        </div>
     </keep-alive>
 </div>

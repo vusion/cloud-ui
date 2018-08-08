@@ -4,6 +4,9 @@ import panelDay from '../u-panel-day.vue';
 import panelMonth from '../u-panel-month.vue';
 import panelYear from '../u-panel-year.vue';
 import panelTime from '../u-panel-time.vue';
+
+import { _isDate } from '../date';
+
 /**
  * value: 初始时间
  * panelDisplayValue: 初始panel显示时间，如有value，则显示value
@@ -12,9 +15,9 @@ import panelTime from '../u-panel-time.vue';
  * blockPanel: 不可跳转到的view
  */
 const viewJumpMap = {
-    year: 'month',
-    month: 'day',
-    time: 'time',
+    customYear: 'customMonth',
+    customMonth: 'customDay',
+    customTime: 'customTime',
 };
 export default {
     name: 'u-panel-control',
@@ -22,10 +25,11 @@ export default {
         value: { type: [String, Date, Number] },
         panelDisplayValue: { type: [String, Date, Number], default: () => new Date() },
         dateRange: { type: Array },
-        view: { type: String, default: 'day' },
+        view: { type: String, default: 'day' }, // 日期部分最初显示的panel
         blockPanel: { type: Object, default: {} },
         disabled: { type: Boolean },
         readonly: { type: Boolean },
+        type: { type: String },
     },
     data() {
         return {
@@ -65,7 +69,7 @@ export default {
             // if (['time', 'timerange'].indexOf(this.type)) {
             //     return;
             // }
-            const tempValue = this.value ? parse(this.value) : undefined;
+            const tempValue = this.value && _isDate(this.value) ? parse(this.value) : undefined;
             const tempDisplayValue = this.panelDisplayValue ? parse(this.panelDisplayValue) : new Date();
             this.displayDate = tempValue || tempDisplayValue;
             this.selectedDate = tempValue;
@@ -80,7 +84,8 @@ export default {
             else
                 this.toView(viewJumpMap[event.type]);
         },
-        toView(viewName) {
+        toView(viewName = this.view) {
+            debugger;
             if (!this.blockPanel[viewName])
                 this.currentView = viewName;
         },
@@ -93,6 +98,9 @@ export default {
             });
             if (!isEqual(date, this.selectedDate))
                 this.selectedDate = date; // 点击后，panel中的已选日期会发生变化
+        },
+        onChangePanel() {
+            this.currentView = this.currentView === 'customTime' ? this.view : 'customTime';
         },
     },
 };
