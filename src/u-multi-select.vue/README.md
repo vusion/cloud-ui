@@ -42,7 +42,7 @@ export default {
 
 ``` vue
 <template>
-<u-multi-select filter :data="options" v-model="value" @input="ovalue"></u-multi-select>
+<u-multi-select filter :data="options" v-model="value"></u-multi-select>
 </template>
 
 <script>
@@ -67,11 +67,6 @@ export default {
                 text: '北京烤鸭',
             }],
         };
-    },
-    methods: {
-        ovalue(newValue) {
-            console.log(newValue);
-        }
     }
 };
 </script>
@@ -183,7 +178,7 @@ export default {
 };
 </script>
 ```
-## Select API
+## MultiSelect API
 ### Attrs/Props
 
 | Attr/Prop | Type | Default | Description |
@@ -195,7 +190,7 @@ export default {
 | disabled | Boolean | `false` | 是否禁用 |
 | size | String | `normal normal` | 控制宽高属性，第一个值表示高度属性，第二值表示宽度，值有`small`,`normal`,`large`,`huge` 四个值可以互相组合 |
 | filter | Boolean | `false` | 支持输入，搜索匹配项 |
-| filter-method | Function | `` | 自定义输入搜索的方法 |
+| filter-method | Function || 自定义输入搜索的方法 |
 | placeholder | String | `'请选择'` | 默认展示的文字，在`filter=true`时生效 |
 
 ### Events
