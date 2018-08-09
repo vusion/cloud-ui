@@ -71,6 +71,7 @@ export default [
             { path: 'u-subtabs', component: () => import('../src/u-subtabs.vue/README.md') },
             { path: 'u-steps', component: () => import('../src/u-steps.vue/README.md') },
             { path: 'u-pagination', component: () => import('proto-ui.vusion/src/u-pagination.vue/README.md') },
+            { path: 'u-crumb', component: () => import('proto-ui.vusion/src/u-crumb.vue/README.md') },
             /* Form */
             { path: 'u-input', component: () => import('../src/u-input.vue/README.md') },
             { path: 'u-number-input', component: () => import('proto-ui.vusion/src/u-number-input.vue/README.md') },
@@ -100,6 +101,7 @@ export default [
             { path: 'u-pills', component: () => import('../src/u-pills.vue/README.md') },
             { path: 'u-tablets', component: () => import('../src/u-tablets.vue/README.md') },
             { path: 'u-countup', component: () => import('../src/u-countup.vue/README.md') },
+            { path: 'u-transfer', component: () => import('proto-ui.vusion/src/u-transfer.vue/README.md') },
             /* DateTime */
             { path: 'u-calendar', component: () => import('../src/u-calendar.vue/README.md') },
             { path: 'u-time-picker', component: () => import('../src/u-time-picker.vue/README.md') },
@@ -109,6 +111,7 @@ export default [
             { path: 'u-popper', component: () => import('proto-ui.vusion/src/u-popper.vue/README.md') },
             { path: 'u-popup', component: () => import('proto-ui.vusion/src/u-popup.vue/README.md') },
             { path: 'u-tooltip', component: () => import('../src/u-tooltip.vue/README.md') },
+            { path: 'u-drawer', component: () => import('proto-ui.vusion/src/u-drawer.vue/README.md') },
             /* Feedback */
             { path: 'u-spinner', component: () => import('proto-ui.vusion/src/u-spinner.vue/README.md') },
             { path: 'u-loading', component: () => import('../src/u-loading.vue/README.md') },

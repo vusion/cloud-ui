@@ -31,6 +31,7 @@
                     <u-sidebar-item exact to="/components/u-subtabs">子标签页 <small>Subtabs</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-steps">步骤条 <small>Steps</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-pagination">翻页器 <small>Pagination</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-crumb">面包屑 <small>Crumb</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Form">
                     <u-sidebar-item exact to="/components/u-input">单行输入 <small>Input</small></u-sidebar-item>
@@ -61,6 +62,7 @@
                     <u-sidebar-item exact to="/components/u-pills">药丸 <small>Pills</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-tablets">药片 <small>Tablets</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-countup">数字渐变 <small>CountUp</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-transfer">穿梭框 <small>Transfer</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="DateTime">
                     <u-sidebar-item exact to="/components/u-calendar">日历 <small>Calendar</small></u-sidebar-item>
@@ -72,6 +74,7 @@
                     <u-sidebar-item exact to="/components/u-popper">弹出层 <small>Popper</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-tooltip">工具提示 <small>Tooltip</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-popup">弹出框 <small>Popup</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-drawer">抽屉 <small>Drawer</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Feedback">
                     <u-sidebar-item exact to="/components/u-loading">加载中 <small>Loading</small></u-sidebar-item>
