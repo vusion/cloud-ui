@@ -54,7 +54,7 @@
                     <u-sidebar-item to="/components/u-date-picker">日期选择 <small>DatePicker</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-date-range-picker">日期范围选择 <small>DateRangePicker</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-time-picker">时间选择 <small>TimePicker</small></u-sidebar-item>
-                    <u-sidebar-item to="/components/u-date-time-picker">日期时间 <small>DateTimePicker</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-datetime-picker">日期时间 <small>DateTimePicker</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Popper">
                     <u-sidebar-item to="/components/u-popper">弹出层 <small>Popper</small></u-sidebar-item>

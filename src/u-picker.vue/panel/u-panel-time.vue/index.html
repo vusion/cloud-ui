@@ -1,5 +1,5 @@
 <div :class="$style.root">
-    <div :class="$style.wrapper" v-if="showPanel">
+    <div :class="$style.wrapper">
         <u-scroll-view :class="$style.scroll" ref="hour" v-if="!blockPanel.hour">
             <ul @click="onClick('hour', $event)" ref="hourul"><li v-for="hour in 24" :key="hour" :disabled="isDisabled('hour', hour - 1)" :selected="isSelected('hour', hour - 1)">{{('0' + (hour - 1)).slice(-2)}}</li></ul>
         </u-scroll-view>
@@ -11,6 +11,7 @@
         </u-scroll-view>
     </div>
     <div :class="$style.operation">
+        <u-link @click="$emit('changeView')" v-if="hasBottomOperation">选择日期</u-link>
         <u-link :class="$style.confirm" @click="onConfirm">确定</u-link>
     </div>
 </div>

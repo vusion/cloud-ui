@@ -1,9 +1,16 @@
 .root{
     display: inline-block;
-    vertical-align: top;
+	vertical-align: top;
+    border-radius: 4px;
+    box-shadow: 0 0 10px 0 rgba(80,90,109,0.16);
 }
 .operation {
-	border-top: 1px solid $field-border-color;
+	border-top: 1px solid #ebeef5;
 	line-height: 2.6;
 	text-align: left;
+	background-color: #fff;
+	padding: 0 10px;
+}
+.closebutton {
+	float: right;
 }

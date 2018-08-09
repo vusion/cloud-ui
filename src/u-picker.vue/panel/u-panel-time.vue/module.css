@@ -32,10 +32,10 @@
 }
 
 .operation {
-	border-top: 1px solid $field-border-color;
+	border-top: 1px solid #ebeef5;
 	line-height: 2.6;
-	text-align: right;
+	padding: 0 10px;
 }
 .confirm {
-	padding: 0 10px;
+	float: right;
 }

@@ -1,11 +1,12 @@
 import isEqual from 'date-fns/is_equal';
+import format from 'date-fns/format';
 import parse from 'date-fns/parse'; // null -> 1970 undefined -> Invalid Date
 import panelDay from '../u-panel-day.vue';
 import panelMonth from '../u-panel-month.vue';
 import panelYear from '../u-panel-year.vue';
 import panelTime from '../u-panel-time.vue';
 
-import { _isDate } from '../date';
+import { _isDate, setTime } from '../date';
 
 /**
  * value: 初始时间
@@ -42,6 +43,9 @@ export default {
         allProps() {
             return Object.assign({}, this.$props, this.$attrs);
         },
+        hasBottomOperation() {
+            return this.type.includes('datetime');
+        },
     },
     watch: {
         view(value) {
@@ -53,6 +57,11 @@ export default {
         panelDisplayValue(value, oldValue) {
             if (!this.value)
                 this.initDate();
+        },
+        currentView(value) {
+            if (value === 'customTime') {
+                this.$nextTick(() => this.$refs && this.$refs.panel && this.$refs.panel.reposition());
+            }
         },
     },
     components: { // TODO: 用不到的component不加载
@@ -79,28 +88,48 @@ export default {
             if (!isEqual(event.date, this.displayDate))
                 this.displayDate = event.date; // 点击后，panel中的展示日期会发生变化
 
-            if (event.type === this.view)
-                this.dateSelect(event.date);
+            if (event.type === this.view || (this.hasBottomOperation && event.type === 'customTime'))
+                this.dateSelect(event.date, event.type);
             else
                 this.toView(viewJumpMap[event.type]);
         },
         toView(viewName = this.view) {
-            debugger;
             if (!this.blockPanel[viewName])
                 this.currentView = viewName;
         },
-        dateSelect(date) {
+        dateSelect(date, type) {
             if (this.disabled || this.readonly)
                 return;
-            this.$emit('select', {
-                value: date,
-                oldValue: this.selectedDate,
-            });
-            if (!isEqual(date, this.selectedDate))
+            if (!this.hasBottomOperation)
+                this.$emit('select', {
+                    value: date,
+                    oldValue: this.selectedDate,
+                });
+            else { // datetime选择日期
+                if (type === 'customTime') { // time面板点击确认，修改时分秒并关闭面板
+                    date = parse(format(this.selectedDate, 'YYYY-MM-DD') + ' ' + format(date, 'HH:mm:ss'));
+                    this.$emit('select', {
+                        value: date,
+                        oldValue: this.selectedDate,
+                    });
+                } else { // date面板，修改年月日
+                    date = parse(format(date, 'YYYY-MM-DD') + ' ' + format(this.selectedDate, 'HH:mm:ss'));
+                }
+            }
+            if (!isEqual(date, this.selectedDate)) {
+                this.preSelectedDate = this.selectedDate;
                 this.selectedDate = date; // 点击后，panel中的已选日期会发生变化
+            }
         },
         onChangePanel() {
             this.currentView = this.currentView === 'customTime' ? this.view : 'customTime';
+        },
+        onConfirm() { // 点击date面板的确认按钮，选择日期并关闭面板
+            if (!isEqual(this.selectedDate, this.preSelectedDate))
+                this.$emit('select', {
+                    value: this.selectedDate,
+                    oldValue: this.preSelectedDate,
+                });
         },
     },
 };

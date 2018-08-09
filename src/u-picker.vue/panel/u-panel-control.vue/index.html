@@ -4,13 +4,16 @@
             :is="currentView"
             v-on="$listeners"
             v-bind="allProps"
+            ref="panel"
             :displayDate.sync="displayDate"
             :selectedDate="selectedDate"
+            :hasBottomOperation="hasBottomOperation"
             @dateClick="onDateClick"
             @changeView="toView">
         </component>
-        <div :class="$style.operation" v-if="type.includes('datetime')">
-            <u-link @click="onChangePanel" :disabled="!selectedDate">{{currentView === 'customTime' ? '选择日期' : '选择时间'}}</u-link>
-        </div>
     </keep-alive>
+    <div :class="$style.operation" v-if="hasBottomOperation" v-show="currentView !== 'customTime'">
+        <u-link @click="onChangePanel" :disabled="!selectedDate">{{currentView === 'customTime' ? '选择日期' : '选择时间'}}</u-link>
+        <u-link @click="onConfirm" :class="$style.closebutton">确定</u-link>
+    </div>
 </div>

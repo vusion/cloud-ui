@@ -25,6 +25,7 @@ import ComboSlider from './u-combo-slider.vue';
 import DatePicker from './u-date-picker.vue';
 import DateRangePicker from './u-date-range-picker.vue';
 import DateTimePicker from './u-date-time-picker.vue';
+import DateTimePicker1 from './u-datetime-picker.vue';
 import Form from './u-form.vue';
 import FormItem from './u-form-item.vue';
 import Icon from './u-icon.vue';
@@ -104,6 +105,7 @@ export {
     DatePicker,
     DateRangePicker,
     DateTimePicker,
+    DateTimePicker1,
     Form,
     FormItem,
     Icon,

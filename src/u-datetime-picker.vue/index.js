@@ -1,28 +1,23 @@
-/**
- * value: 外部传入，可能为String, Date 或Number
- * currentValue: Date
- * inputValue:  format后的String 或 undefined
- */
 import format from 'date-fns/format';
 
 import Picker from '../u-picker.vue';
 import pickerInput from '../u-picker.vue/input/u-picker-input.vue';
 import pickPanel from '../u-picker.vue/panel/u-panel-control.vue';
 
-import { setTime, inDateRange, validateTimeRange, dateValidadtor, getTimeArr, _isDate } from '../u-picker.vue/panel/date';
-import { isEqual, isDate } from 'date-fns';
+import { inDateTimeRange, dateValidadtor, _isDate, validateDateRange } from '../u-picker.vue/panel/date';
+import { isEqual, isDate, parse } from 'date-fns';
 
 export default {
-    name: 'u-time-picker',
+    name: 'u-datetime-picker',
     extends: Picker,
     components: {
         'u-custom-picker-input': pickerInput,
         'u-custom-panel': pickPanel,
     },
     props: {
-        placeholder: { type: String, default: '请选择时间' },
-        type: { type: String, default: 'time', validator: (value) => ['time'].includes(value) },
-        formatter: { type: String, default: 'HH:mm:ss', validator: (value) => dateValidadtor(format(new Date(), value)) },
+        placeholder: { type: String, default: 'yyyy-mm-dd hh:mm:ss' },
+        type: { type: String, default: 'datetime' },
+        formatter: { type: String, default: 'YYYY-MM-DD HH:mm:ss', validator: (value) => dateValidadtor(format(new Date(), value)) },
     },
     watch: {
         value(value, oldValue) {
@@ -53,8 +48,7 @@ export default {
         },
     },
     methods: {
-        inDateRange,
-        validateRange: validateTimeRange,
+        validateRange: validateDateRange,
         validateData() {
             const tempDateRange = (this.dateRange || []).concat([]);
             this.validateRange && this.validateRange(tempDateRange, this.minDate, this.maxDate);
@@ -64,23 +58,37 @@ export default {
                 dateRange.push([this.generateDate(range[0]), this.generateDate(range[1])]);
             });
             this.currentDateRange = dateRange;
-            if (!this.inDateRange(this.currentValue, this.currentDateRange))
-                throw new RangeError('initital time is out of dateRange');
+            if (!inDateTimeRange(this.currentValue, this.currentDateRange, 'second'))
+                throw new RangeError('initital date is out of dateRange');
         },
         initFormatter() {
-            ['hour', 'minute', 'second'].forEach((attr) => {
+            ['hour', 'minute', 'second', 'year', 'month', 'day'].forEach((attr) => {
                 this.blockPanel[attr] = false;
             });
             if (!this.currentFormatter.includes('H')) {
+                this.panelView = 'customTime';
                 this.blockPanel.hour = true;
             }
             if (!this.currentFormatter.includes('m')) {
+                this.panelView = 'customTime';
                 this.blockPanel.minute = true;
             }
             if (!this.currentFormatter.includes('s')) {
+                this.panelView = 'customTime';
                 this.blockPanel.second = true;
             }
-            this.panelView = 'customTime';
+            if (!this.currentFormatter.includes('Y')) {
+                this.panelView = 'customYear';
+                this.blockPanel.year = true;
+            }
+            if (!this.currentFormatter.includes('M')) {
+                this.panelView = 'customMonth';
+                this.blockPanel.month = true;
+            }
+            if (!this.currentFormatter.includes('D')) {
+                this.panelView = 'customDay';
+                this.blockPanel.day = true;
+            }
         },
         // 根据formatter设置currentValue
         initCurrentValue(value) {
@@ -91,13 +99,8 @@ export default {
                 return undefined;
             if (_isDate(date))
                 return date;
-            const timeArr = getTimeArr(date);
-            let index = 0;
-            ['hour', 'minute', 'second'].forEach((attr) => {
-                if (!this.blockPanel[attr])
-                    date = setTime(date, attr, timeArr[index++] || 0); // 转为Date
-            });
-            return date;
+
+            return parse(date); // parse('2018-08-08 15:46:33') parse('2018-08-08 15:46') parse('2018-08-08 15') 都能解析正确
         },
         onPanelDateSelect(event) {
             if (this.disabled || this.readonly)

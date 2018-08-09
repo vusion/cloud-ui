@@ -16,6 +16,7 @@ export default {
         showPanel: { type: Boolean, default: false }, // 是否显示u-panel-time
         dateRange: { type: Array, default: () => [] },
         blockPanel: { type: Object, default: {} },
+        hasBottomOperation: { type: Boolean, default: false },
     },
     data() {
         return {

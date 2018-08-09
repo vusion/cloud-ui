@@ -22,12 +22,7 @@ export default {
     },
     watch: {
         thumbTop(value) { // 同时更改thumb和content位置
-            value -= this.thumbOffsety;
-            if (value < 0 || value > this.height)
-                return;
-            const radio = value / this.height;
-            this.$refs.thumb.style.top = value + 'px';
-            this.$refs.content.scrollTop = this.contentScrollHeight * radio;
+            this.resetThumbTop(value);
         },
     },
     methods: {
@@ -78,7 +73,19 @@ export default {
         contentScrollChange(offsetY) {
             if (!this.contentScrollHeight) // 元素还没显示在页面中时，setStyle的值可能不准确。
                 this.setStyle();
-            this.thumbTop = offsetY / this.contentScrollHeight * this.height;
+            const currentThumbTop = offsetY / this.contentScrollHeight * this.height;
+            if (currentThumbTop === this.thumbTop) {
+                this.resetThumbTop(this.thumbTop); // 隐藏后再显示，不会触发change事件，手动渲染
+            } else
+                this.thumbTop = currentThumbTop;
+        },
+        resetThumbTop(value) {
+            value -= this.thumbOffsety;
+            if (value < 0 || value > this.height)
+                return;
+            const radio = value / this.height;
+            this.$refs.thumb.style.top = value + 'px';
+            this.$refs.content.scrollTop = this.contentScrollHeight * radio;
         },
     },
 

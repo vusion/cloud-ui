@@ -4,8 +4,6 @@
     padding: 6px 16px;
     background: $field-background;
     color: $field-color1;
-    border-radius: 4px;
-    box-shadow: 0 0 10px 0 rgba(80,90,109,0.16);
     user-select: none;
     display: inline-block;
     width: 310px;

@@ -9,6 +9,7 @@ import isAfter from 'date-fns/is_after';
 import isEqual from 'date-fns/is_equal';
 import addMonths from 'date-fns/add_months';
 import isToday from 'date-fns/is_today';
+import format from 'date-fns/format';
 
 import { inDateRange } from '../date';
 
@@ -95,8 +96,10 @@ export default {
         isSelected(item) {
             if (this.isRangePicker)
                 return this.selectedDates.some((date) => isEqual(item.date, date));
-            else
-                return isEqual(item.date, this.selectedDate);
+            else {
+                const dayFormatter = 'YYYY-MM-DD';
+                return format(item.date, dayFormatter) === format(this.selectedDate, dayFormatter);
+            }
         },
         isBetween(date) {
             if (this.isRangePicker) {
