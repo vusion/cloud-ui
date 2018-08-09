@@ -1,7 +1,12 @@
 export default {
     name: 'u-table-view-cell',
     props: {
-        row: Object,
+        row: {
+            type: Object,
+            default() {
+                return {};
+            },
+        },
         column: Object,
         expand: { type: Boolean, default: false },
         text: { type: Boolean, default: false }, // 表示纯文本内容

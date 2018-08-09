@@ -94,6 +94,7 @@ export default [
             { path: 'u-tree-view', component: () => import('proto-ui.vusion/src/u-tree-view.vue/README.md') },
             { path: 'u-table-view', component: () => import('../src/u-table-view.vue/README.md') },
             { path: 'u-table', component: () => import('../src/u-table.vue/README.md') },
+            { path: 'u-resize-table', component: () => import('../src/u-resize-table.vue/README.md') },
             { path: 'u-capsules', component: () => import('../src/u-capsules.vue/README.md') },
             { path: 'u-cascade-capsules', component: () => import('../src/u-cascade-capsules.vue/README.md') },
             { path: 'u-pills', component: () => import('../src/u-pills.vue/README.md') },
