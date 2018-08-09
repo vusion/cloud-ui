@@ -18,10 +18,10 @@
         <u-linear-progress :percent="36" size="normal">normal</u-linear-progress>
     </u-linear-layout>
     <u-linear-layout>
-        <u-linear-progress :percent="36" size="large">large</u-linear-progress>
+        <u-linear-progress size="large">large</u-linear-progress>
     </u-linear-layout>
     <u-linear-layout>
-        <u-linear-progress :percent="36" size="huge">huge</u-linear-progress>
+        <u-linear-progress size="huge">huge</u-linear-progress>
     </u-linear-layout>
 </u-linear-layout>
 ```

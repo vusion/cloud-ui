@@ -1,0 +1,144 @@
+<div :class="$style.root" v-show="visible" :style="{height: height+'px', width: width + 'px', maxHeight: maxHeight + 'px', minHeight: minHeight + 'px'}">
+    <div :class="$style.wrapHead" v-if="showHeader" ref="tableHead">
+        <table :class="$style.table">
+            <thead>
+                <tr :class="$style.htrItem" :color="color">
+                    <th v-for="(column, index) in itemColumns" ref="thColumn" :class="$style.hthItem" :key="column.title + index" :width="column.currentWidth" :role="column.type === 'sortable' || column.type === 'filter'" :move="!column.move" @click.stop="handleSort(column)">
+                        <div :class="$style.itemTitle">
+                            <template v-if="column.type === 'selection' && column.headSelection">
+                                <u-checkbox v-model="allSel" @check="allSelected" />
+                            </template>
+                            <template v-else-if="column.type !== 'sortable' && column.type !== 'filter'">
+                                <template v-if="!column.$slots.headerTitle">
+                                    <span :class="$style.titleText" :icon="column.icon">{{ column.title }}</span>
+                                    <u-tooltip :content="column.iconContent" :placement="column.iconPlacement" v-if="column.icon">
+                                        <span :class="$style.iconTooltip" :name="column.icon"></span>
+                                    </u-tooltip>
+                                </template>
+                                <template v-else>
+                                    <u-table-view-cell :class="$style.ditem" :column="column" text></u-table-view-cell>
+                                </template>
+                            </template>
+                            <template v-else-if="column.type === 'filter'">
+                                <u-popper ref="popper" trigger="click" :placement="column.placement" append-to="reference">
+                                    <div :class="$style.filtertitle" :role="column.filter">
+                                        <span :class="[$style.titleText, $style.filterText]">{{column.title}}</span>
+                                        <div :class="$style.traingle"></div>
+                                    </div>
+                                    <div :class="$style.popper" slot="popper" :style="{maxWidth: column.filterMaxWidth }">
+                                        <div :class="$style.option" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value" v-ellipsis-title>{{option[column.field]}}</div>
+                                    </div>
+                                </u-popper>
+                            </template>
+                            <template v-if="column.type === 'sortable'">
+                                <span :class="[$style.titleText, $style.sortText]"  v-if="!column.$slots.headerTitle">{{ column.title }}</span>
+                                <template v-else>
+                                    <u-table-view-cell :class="[$style.ditem, $style.sortText]" :column="column" text></u-table-view-cell>
+                                </template>
+                                <span :class="$style.wrapicon">
+                                    <u-icon :class="$style.icon" name="arrow-up" v-if="defaultSort.order === 'asc' && defaultSort.title === column.title" :role="defaultSort.title === column.title"></u-icon>
+                                    <u-icon :class="$style.icon" name="arrow-down" v-else :role="defaultSort.title === column.title"></u-icon>
+                                </span>
+                            </template>
+                        </div>
+                        <template v-if="column.move && index !== (itemColumns.length -1)">
+                            <div :class="$style.carve" @mousedown="onMouseDown($event, index)"></div>
+                        </template>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div :class="$style.wrapBody" ref="tableBody" :height="height || maxHeight || minHeight" :style="{height: bodyTableHeight + 'px', maxHeight: maxBodyHeight+'px', minHeight: minBodyHeight+'px',}">
+        <table :class="$style.table" role="body">
+            <thead :class="$style.hide">
+                <tr :class="$style.htrItem" :color="color">
+                    <th v-for="(column, index) in itemColumns" :key="column.title + index" :width="column.copyWidth"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <template v-if="loading">
+                    <tr :class="$style.btrItem">
+                        <td :colspan="itemColumns.length" :class="$style.btd" :border="border" role="center">
+                            <u-loading></u-loading>
+                            <span :class="$style.loadText">{{ loadText }}</span>
+                        </td>
+                    </tr>
+                </template>
+                <template v-else-if="tdata.length === 0">
+                    <tr :class="$style.btrItem">
+                        <td :colspan="itemColumns.length" :class="$style.btd" :border="border" role="center">
+                            <slot name="no-data-text">{{noDataText}}</slot>
+                        </td>
+                    </tr>
+                </template>
+                <template v-else v-for="(item, index) in tdata">
+                    <tr :class="[$style.btrItem, rowClsName(index)]">
+                        <td v-for="(column, cindex) in itemColumns" :class="$style.btd">
+                            <span v-if="column.type === 'selection'">
+                                <u-checkbox v-model="item.selected" :disabled="item.disabled" @check="changeSelect(item)" />
+                            </span>
+                            <template v-else-if="column.$scopedSlots.default || column.$slots.default">
+                                <u-table-view-cell :row="item" :column="column" :class="$style.bSpan" :role="column.currentEllipsis" v-ellipsis-title></u-table-view-cell>
+                            </template>
+                            <template v-else-if="column.filter">
+                                <span :class="$style.bSpan" :role="column.currentEllipsis" v-ellipsis-title="column.filter(item[column.label], item, column)">{{ column.filter(item[column.label], item, column) }}</span>
+                            </template>
+                            <span v-else-if="column.type === 'time'" :class="$style.bSpan" :role="column.currentEllipsis" v-ellipsis-title="translateTime(item[column.label], column.timeFormat)">{{translateTime(item[column.label], column.timeFormat)}}</span>
+                            <span v-else-if="column.type === 'expand' && showExpandIcon(column, item[column.expandLabel || column.label])" @click="toggleExpand(index, cindex)">
+                                <slot name="expandIcon">
+                                    <span :class="[$style.expand, column.expandClass]" :role="column.expandIcon" :name="item.iconName"></span>
+                                </slot>
+                            </span>
+                            <template v-else>
+                                <span :class="$style.bSpan" :role="column.currentEllipsis" v-ellipsis-title>{{ item[column.label] }}</span>
+                            </template>
+                        </td>
+                    </tr>
+                    <tr :class="$style.btrItem" v-if="item.expanded">
+                        <td :colspan="itemColumns.length" :class="$style.btd" :expanded="item.expanded" role="center">
+                            <u-table-view-cell :row="item" :column="expandedColumn" expand></u-table-view-cell>
+                        </td>
+                    </tr>
+                </template>
+                <template v-if="filterTdata && filterTdata.length > limit && tdata.length === limit && pattern === 'limit'">
+                    <tr :class="$style.btrItem">
+                        <td :colspan="itemColumns.length" :class="$style.btd" role="center">
+                            <slot name="limit-text">
+                                <u-link @click.native="showAll">{{ limitText }}</u-link>
+                            </slot>
+                        </td>
+                    </tr>
+                </template>
+                <template v-else-if="filterTdata && filterTdata.length === tdata.length && tdata.length > limit && pattern === 'limit'">
+                    <tr :class="$style.btrItem">
+                        <td :colspan="itemColumns.length" :class="$style.btd" role="center">
+                            <slot name="all-text">
+                                <u-link @click.native="showLimit">{{ allText }}</u-link>
+                            </slot>
+                        </td>
+                    </tr>
+                </template>
+                <template v-else-if="!filterTdata && tdata.length === limit && copyTdata.length > limit && pattern === 'limit'">
+                    <tr :class="$style.btrItem">
+                        <td :colspan="itemColumns.length" :class="$style.btd" role="center">
+                            <slot name="limit-text">
+                                <u-link @click.native="showAll">{{ limitText }}</u-link>
+                            </slot>
+                        </td>
+                    </tr>
+                </template>
+                <template v-else-if="!filterTdata && copyTdata.length === tdata.length && tdata.length > limit && pattern === 'limit'">
+                    <tr :class="$style.btrItem">
+                        <td :colspan="itemColumns.length" :class="$style.btd" role="center">
+                            <slot name="all-text">
+                                <u-link @click.native="showLimit">{{ allText }}</u-link>
+                            </slot>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
+    <slot></slot>
+</div>

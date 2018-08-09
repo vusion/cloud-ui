@@ -56,5 +56,6 @@ module.exports = {
     },
     webpackDevServer: {
         contentBase: [path.resolve(__dirname, '../cloud-ui'), path.resolve(__dirname, '../')],
+        // host: '0.0.0.0',
     },
 };
