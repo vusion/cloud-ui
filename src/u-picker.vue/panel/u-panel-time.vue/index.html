@@ -10,8 +10,4 @@
             <ul @click="onClick('second', $event)" ref="secondul"><li v-for="second in 60" :key="second" :disabled="isDisabled('second', second - 1)" :selected="isSelected('second', second - 1)">{{('0' + (second - 1)).slice(-2)}}</li></ul>
         </u-scroll-view>
     </div>
-    <div :class="$style.operation">
-        <u-link @click="$emit('changeView')" v-if="hasBottomOperation">选择日期</u-link>
-        <u-link :class="$style.confirm" @click="onConfirm">确定</u-link>
-    </div>
 </div>

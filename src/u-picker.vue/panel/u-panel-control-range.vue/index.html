@@ -27,4 +27,8 @@
             @changeView="toViewEnd">
         </component>
     </keep-alive>
+    <div :class="$style.operation" v-if="hasBottomOperation" v-show="currentViewStart !== 'customTime'">
+        <u-link @click="onChangePanel" :disabled="!selectedDates || selectedDates.length !== 2">{{currentViewStart === 'customTime' ? '选择日期' : '选择时间'}}</u-link>
+        <u-link @click="onConfirm" :class="$style.closebutton">确定</u-link>
+    </div>
 </div>

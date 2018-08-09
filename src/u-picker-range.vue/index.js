@@ -23,7 +23,7 @@
 import isEqual from 'date-fns/is_equal';
 import isBefore from 'date-fns/is_before';
 import format from 'date-fns/format';
-import { dateValidadtor, validateDateRange, inDateRange, setDateTime, _isDate, _parse } from '../u-picker.vue/panel/date';
+import { dateValidadtor, validateDateRange, inDateRange, setDateTime, _parse } from '../u-picker.vue/panel/date';
 
 import debounce from 'lodash/debounce';
 
@@ -143,7 +143,6 @@ export default {
                 throw new RangeError('initital date is out of dateRange');
             if (isEqual(value, oldValue))
                 return;
-            debugger;
             const inputName = 'inputValue' + id;
             const currentName = 'currentValue' + id;
             this[inputName] = format(value, this.currentFormatter);
@@ -201,21 +200,21 @@ export default {
         },
         // date面板和time面板的跳转控制
         initFormatter() {
-            let res;
-            switch (this.type) {
-                case 'year':
-                    res = /^(Y)+$/.exec(this.currentFormatter);
-                    this.currentFormatter = res && _isDate(_parse(new Date(), res[0])) ? res[0] : 'YYYY';
-                    break;
-                case 'month':
-                    res = /^(Y+[^a-zA-Z]M+)$/.exec(this.currentFormatter);
-                    this.currentFormatter = res && _isDate(_parse(new Date(), res[0])) ? res[0] : 'YYYY-MM';
-                    break;
-                case 'date':
-                    res = /^(Y+[^a-zA-Z]M+[^a-zA-Z]D+)$/.exec(this.currentFormatter);
-                    this.currentFormatter = res && _isDate(_parse(new Date(), res[0])) ? res[0] : 'YYYY-MM-DD';
-                    break;
-            }
+            // let res;
+            // switch (this.type) {
+            //     case 'year':
+            //         res = /^(Y)+$/.exec(this.currentFormatter);
+            //         this.currentFormatter = res && _isDate(_parse(new Date(), res[0])) ? res[0] : 'YYYY';
+            //         break;
+            //     case 'month':
+            //         res = /^(Y+[^a-zA-Z]M+)$/.exec(this.currentFormatter);
+            //         this.currentFormatter = res && _isDate(_parse(new Date(), res[0])) ? res[0] : 'YYYY-MM';
+            //         break;
+            //     case 'date':
+            //         res = /^(Y+[^a-zA-Z]M+[^a-zA-Z]D+)$/.exec(this.currentFormatter);
+            //         this.currentFormatter = res && _isDate(_parse(new Date(), res[0])) ? res[0] : 'YYYY-MM-DD';
+            //         break;
+            // }
             this.inputValueStart = this.currentValueStart ? format(this.currentValueStart, this.currentFormatter) : '';
             this.inputValueEnd = this.currentValueEnd ? format(this.currentValueEnd, this.currentFormatter) : '';
         },

@@ -16,7 +16,6 @@ export default {
         showPanel: { type: Boolean, default: false }, // 是否显示u-panel-time
         dateRange: { type: Array, default: () => [] },
         blockPanel: { type: Object, default: {} },
-        hasBottomOperation: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -46,6 +45,7 @@ export default {
                     const tempDate = this.displayDate || new Date();
                     this.currentValue = parse(format(tempDate, 'YYYY-MM-DD') + 'T00:00:00'); // 无值时默认选中00:00:00
                 }
+                this.$emit('timeChanged', this.currentValue);
                 this.currentDate.hour = getHours(value);
                 this.currentDate.minute = getMinutes(value);
                 this.currentDate.second = getSeconds(value);
@@ -89,12 +89,6 @@ export default {
                     return;
                 const selectedItem = Array.prototype.find.call(ulRef.childNodes, (itemli) => itemli.attributes.selected);
                 selectedItem && this.$refs[name].contentScrollChange(selectedItem.getBoundingClientRect().top - ulRef.getBoundingClientRect().top);
-            });
-        },
-        onConfirm() {
-            this.$emit('dateClick', {
-                type: 'customTime',
-                date: this.currentValue,
             });
         },
     },

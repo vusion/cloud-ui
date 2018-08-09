@@ -22,7 +22,7 @@ export default {
     props: {
         placeholder: { type: String, default: '请选择时间' },
         type: { type: String, default: 'time', validator: (value) => ['time'].includes(value) },
-        formatter: { type: String, default: 'HH:mm:ss', validator: (value) => dateValidadtor(format(new Date(), value)) },
+        formatter: { type: String, default: 'HH:mm:ss', validator: (value) => dateValidadtor(format(new Date(), 'YYYY-MM-DD') + ' ' + format(new Date(), value)) },
     },
     watch: {
         value(value, oldValue) {

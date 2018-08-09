@@ -6,6 +6,7 @@ import differenceInMonths from 'date-fns/difference_in_months';
 import panelDay from '../u-panel-day.vue';
 import panelMonth from '../u-panel-month.vue';
 import panelYear from '../u-panel-year.vue';
+import panelTime from '../u-panel-time.vue';
 
 import { sortIncrease } from '../date';
 /**
@@ -16,8 +17,9 @@ import { sortIncrease } from '../date';
  * blockPanel: 不可跳转到的view
  */
 const viewJumpMap = {
-    year: 'month',
-    month: 'day',
+    customYear: 'customMonth',
+    customMonth: 'customDay',
+    customTime: 'customTime',
 };
 export default {
     name: 'u-panel-control',
@@ -30,6 +32,7 @@ export default {
         blockPanel: { type: Object, default: {} },
         disabled: { type: Boolean },
         readonly: { type: Boolean },
+        type: { type: String },
     },
     data() {
         return {
@@ -45,6 +48,9 @@ export default {
     computed: {
         allProps() {
             return Object.assign({}, this.$props, this.$attrs);
+        },
+        hasBottomOperation() {
+            return this.type.includes('datetime');
         },
     },
     watch: {
@@ -70,10 +76,11 @@ export default {
             this.adjustDisplayDate('End');
         },
     },
-    components: {
-        day: panelDay,
-        month: panelMonth,
-        year: panelYear,
+    components: { // TODO: 用不到的component不加载
+        customDay: panelDay,
+        customMonth: panelMonth,
+        customYear: panelYear,
+        customTime: panelTime,
     },
     created() {
         this.initDate();
@@ -162,6 +169,18 @@ export default {
                 }
             }
             this.panelDisplayDateAdjust = differenceInMonths(this.displayDateEnd, this.displayDateStart) === 1;
+        },
+        onChangePanel() {
+            this.currentViewStart = this.currentViewStart === 'customTime' ? this.view : 'customTime';
+            this.currentViewEnd = this.currentViewStart;
+        },
+        onConfirm() { // 点击date面板的确认按钮，选择日期并关闭面板
+            if (this.selectedDates.length === 2) {
+                sortIncrease(this.selectedDates);
+                this.$emit('select', {
+                    value: this.selectedDates,
+                });
+            }
         },
     },
 };

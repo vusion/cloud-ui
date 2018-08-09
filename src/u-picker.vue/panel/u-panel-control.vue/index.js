@@ -6,7 +6,7 @@ import panelMonth from '../u-panel-month.vue';
 import panelYear from '../u-panel-year.vue';
 import panelTime from '../u-panel-time.vue';
 
-import { _isDate, setTime } from '../date';
+import { _isDate } from '../date';
 
 /**
  * value: 初始时间
@@ -37,13 +37,14 @@ export default {
             currentView: this.view,
             displayDate: undefined,
             selectedDate: undefined,
+            currentTimeDate: undefined,
         };
     },
     computed: {
         allProps() {
             return Object.assign({}, this.$props, this.$attrs);
         },
-        hasBottomOperation() {
+        isDateTime() {
             return this.type.includes('datetime');
         },
     },
@@ -88,7 +89,7 @@ export default {
             if (!isEqual(event.date, this.displayDate))
                 this.displayDate = event.date; // 点击后，panel中的展示日期会发生变化
 
-            if (event.type === this.view || (this.hasBottomOperation && event.type === 'customTime'))
+            if (event.type === this.view)
                 this.dateSelect(event.date, event.type);
             else
                 this.toView(viewJumpMap[event.type]);
@@ -100,12 +101,13 @@ export default {
         dateSelect(date, type) {
             if (this.disabled || this.readonly)
                 return;
-            if (!this.hasBottomOperation)
+
+            if (!this.isDateTime) {
                 this.$emit('select', {
                     value: date,
                     oldValue: this.selectedDate,
                 });
-            else { // datetime选择日期
+            } else {
                 if (type === 'customTime') { // time面板点击确认，修改时分秒并关闭面板
                     date = parse(format(this.selectedDate, 'YYYY-MM-DD') + ' ' + format(date, 'HH:mm:ss'));
                     this.$emit('select', {
@@ -116,15 +118,22 @@ export default {
                     date = parse(format(date, 'YYYY-MM-DD') + ' ' + format(this.selectedDate, 'HH:mm:ss'));
                 }
             }
+
             if (!isEqual(date, this.selectedDate)) {
                 this.preSelectedDate = this.selectedDate;
                 this.selectedDate = date; // 点击后，panel中的已选日期会发生变化
             }
         },
         onChangePanel() {
-            this.currentView = this.currentView === 'customTime' ? this.view : 'customTime';
+            this.toView(this.currentView === 'customTime' ? this.view : 'customTime');
         },
-        onConfirm() { // 点击date面板的确认按钮，选择日期并关闭面板
+        onConfirm() {
+            // time面板的确认，选择currentTimeDate
+            if (this.currentView === 'customTime') {
+                this.dateSelect(this.currentTimeDate, 'customTime');
+                return;
+            }
+            // 点击date面板的确认按钮，选择日期并关闭面板
             if (!isEqual(this.selectedDate, this.preSelectedDate))
                 this.$emit('select', {
                     value: this.selectedDate,

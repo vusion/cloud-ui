@@ -10,6 +10,7 @@
 	text-align: left;
 	background-color: #fff;
 	padding: 0 10px;
+	overflow: hidden;
 }
 .closebutton {
 	float: right;

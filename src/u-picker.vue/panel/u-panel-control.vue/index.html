@@ -7,13 +7,13 @@
             ref="panel"
             :displayDate.sync="displayDate"
             :selectedDate="selectedDate"
-            :hasBottomOperation="hasBottomOperation"
             @dateClick="onDateClick"
+            @timeChanged="(date) => currentTimeDate = date"
             @changeView="toView">
         </component>
     </keep-alive>
-    <div :class="$style.operation" v-if="hasBottomOperation" v-show="currentView !== 'customTime'">
-        <u-link @click="onChangePanel" :disabled="!selectedDate">{{currentView === 'customTime' ? '选择日期' : '选择时间'}}</u-link>
+    <div :class="$style.operation" v-if="this.type.includes('time')">
+        <u-link @click="onChangePanel" :disabled="!selectedDate" v-if="isDateTime">{{currentView === 'customTime' ? '选择日期' : '选择时间'}}</u-link>
         <u-link @click="onConfirm" :class="$style.closebutton">确定</u-link>
     </div>
 </div>

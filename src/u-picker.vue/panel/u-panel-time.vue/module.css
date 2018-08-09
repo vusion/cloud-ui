@@ -1,5 +1,6 @@
 .root {
 	background-color: #fff;
+	display: inline-block;
 }
 .wrapper {
 	width: 250px;
@@ -29,13 +30,4 @@
 }
 .scroll li[selected] {
 	background-color: $hover-color;
-}
-
-.operation {
-	border-top: 1px solid #ebeef5;
-	line-height: 2.6;
-	padding: 0 10px;
-}
-.confirm {
-	float: right;
 }
