@@ -7,9 +7,11 @@
 
 ### 基本
 ``` html
-<u-date-range-picker :placeholder="['请选择开始日期', '请选择结束日期']"></u-date-range-picker>
+<u-linear-layout>
+    <u-date-range-picker></u-date-range-picker>
+    <u-date-range-picker startValue="2018-01-01" endValue="2018-08-08"></u-date-range-picker>
+</u-linear-layout>
 ```
-
 ### 日期范围
 ``` html
 <u-date-range-picker startValue="2018-01-01" endValue="" maxDate="2018-01-09" minDate="2017-11-12"></u-date-range-picker>
@@ -100,9 +102,9 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.value | Array<Date>  | 新日期 |
-| $event.oldValue | Array<Date>  | 旧日期 |
-| $event.formattedValue | Array<String>  | formatter的新日期 |
+| $event.value | `Array<Date>`  | 新日期 |
+| $event.oldValue | `Array<Date>`  | 旧日期 |
+| $event.formattedValue | `Array<String>`  | formatter的新日期 |
 
 #### @startInput/@endInput
 时间区间改变时触发
@@ -129,9 +131,9 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.value | Array<Date> | 选择日期 |
-| $event.oldValue | Array<Date>  | 旧日期 |
-| $event.formatedValue | Array<String>  | formatter的新日期 |
+| $event.value | `Array<Date>` | 选择日期 |
+| $event.oldValue | `Array<Date>`  | 旧日期 |
+| $event.formatedValue | `Array<String>`  | formatter的新日期 |
 
 #### @toggle
 同`u-popper`组件的`toggle`事件
