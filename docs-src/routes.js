@@ -110,6 +110,7 @@ export default [
             { path: 'u-popup', component: () => import('proto-ui.vusion/src/u-popup.vue/README.md') },
             { path: 'u-tooltip', component: () => import('../src/u-tooltip.vue/README.md') },
             /* Feedback */
+            { path: 'u-spinner', component: () => import('proto-ui.vusion/src/u-spinner.vue/README.md') },
             { path: 'u-loading', component: () => import('../src/u-loading.vue/README.md') },
             { path: 'u-toast', component: () => import('../src/u-toast.vue/README.md') },
             { path: 'u-modal', component: () => import('../src/u-modal.vue/README.md') },
