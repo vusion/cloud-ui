@@ -367,16 +367,17 @@ export default {
 </u-form>
 ```
 
-表单控件`u-form-item`支持自定义左边显示内容，通过传入`slot='label'`插槽来实现label属性所实现的功能，此时控件属性`label`会失效，`slot='extra'`插槽是用来实现插入其他自定义内容，配合属性`'distance'`使用，控制内容和标题之间的间距，其值有`small,normal,large`
+表单控件`u-form-item`支持自定义左边显示内容，通过传入`slot='label'`、`slot='description'` 插槽来实现`label`, `description`属性所实现的功能，此时控件属性`label`, `description`会失效，`slot='extra'`插槽是用来实现插入其他自定义内容 <!--，配合属性`'distance'`使用，控制内容和标题之间的间距，其值有`small,normal,large`-->
 
 ``` html
 <u-form ref="form">
-    <u-form-item required distance="normal">
+    <u-form-item required layout="block">
         <span slot="label">
             用户名
         </span>
+        <div slot="description">描述描述</div>
         <u-tooltip content="请输入正确格式的中文汉字" slot="extra" >
-            <u-icon name="alert" style="font-size:16px;"></u-icon>
+            <u-icon name="alert" size="small"></u-icon>
         </u-tooltip>
         <u-input maxlength="4" maxlength-message="不超过4个字符" placeholder="不超过4个字符"></u-input>
     </u-form-item>
@@ -397,8 +398,8 @@ export default {
 
 ``` vue
 <template>
-<u-form ref="form" gap="large" :rules="rules" distance="normal">
-    <u-form-item label="用户名" name="username" field-size="full">
+<u-form ref="form" gap="large" :rules="rules">
+    <u-form-item label="用户名" name="username" >
         <u-input size="huge" v-model="model.username" maxlength="12" placeholder="4~12个字符"></u-input>
     </u-form-item>
     <u-form-item label="邮箱" name="email" field-size="full">
@@ -590,7 +591,8 @@ export default {
 | rules | Object | | 表单所有域的验证规则 |
 | layout | String | `block` | 表单布局方式。可选值：`block`、`inline`。 |
 | label-size | String | `normal` | 标签大小。可选值：`small`、`normal`、`large`。 |
-| distance | String | `` | 标签标题和内容间距大小。可选值：`small`、`normal`、`large`。 |
+<!-- @override: 这个似乎是一个无效的属性 -->
+<!--| distance | String | `` | 标签标题和内容间距大小。可选值：`small`、`normal`、`large`。 |-->
 ### Slots
 
 #### (default)
@@ -625,21 +627,33 @@ export default {
 | --------- | ---- | ------- | ----------- |
 | name | String | | 表单项名称，用于选择表单的模型数据和验证规则 |
 | label | String | | 标签 |
-| label-size | String | `normal` | 单独设置表单项的标签大小 |
+| label-size | String | `'normal'` | 单独设置表单项的标签大小 |
+| field-size | String | `'normal'` | 单独设置表单项的内容大小。可选值：`'full'` |
 | rules | Array | | 表单项的验证规则。如果没有则会根据`name`属性从表单的`rules`中获取。 |
+| ignore-rules | Boolean | `false` | 忽略验证规则。 |
 | message | String | | 默认提示信息 |
-| required | Boolean | | 是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。 |
+| required | Boolean | `false` | 是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。 |
 | description | String | | 添加描述内容 |
 | placement | String | | 值为`'bottom'`时提示信息在底部显示，改变提示信息显示位置 |
+| layout | String |  | 布局方式，可选值：`'block'` |
 
 ### Slots
 
-| Slot | Description |
-| ---- | ----------- |
-| label | 自定义标签标题 |
-| extra | 自定义标签插入内容 |
-| description | 自定义描述内容 |
-| (default) | 弹窗内容自定义 |
+#### (default)
+
+插入文本或`HTML`。
+
+#### label
+
+插入自定义标签标题，且 `FormItem` 中 `label`属性失效。
+
+#### description
+
+插入自定义描述内容，且 `FormItem` 中 `description`属性失效。
+
+#### extra
+
+自定义标签插入内容。
 
 ### Methods
 
