@@ -3,7 +3,7 @@
         <table :class="$style.table">
             <thead>
                 <tr :class="$style.htrItem" :color="color">
-                    <th v-for="(column, index) in itemColumns" ref="thColumn" :class="$style.hthItem" :key="column.title + index" :width="column.currentWidth" :role="column.type === 'sortable' || column.type === 'filter'" :move="!column.move" @click.stop="handleSort(column)">
+                    <th v-for="(column, index) in itemColumns" ref="thColumn" :class="$style.hthItem" :key="column.title + index" :width="column.currentWidth" :role="column.type === 'sortable' || column.type === 'filter'" :move="!column.move" @click.stop="handleSort($event, index, column)">
                         <div :class="$style.itemTitle">
                             <template v-if="column.type === 'selection' && column.headSelection">
                                 <u-checkbox v-model="allSel" @check="allSelected" />

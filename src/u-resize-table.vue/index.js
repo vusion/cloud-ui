@@ -464,7 +464,10 @@ export default {
                 this.$emit('selection-change', selection);
             });
         },
-        handleSort(column) {
+        handleSort(e, index, column) {
+            // 点击mousedown事件会触发此事件 需要特殊处理
+            if (e.target === this.$refs.carve[index])
+                return false;
             if (column.type === 'sortable') {
                 if (column.title === this.currentSort.title)
                     this.currentSort.order = this.currentSort.order === 'asc' ? 'desc' : 'asc';

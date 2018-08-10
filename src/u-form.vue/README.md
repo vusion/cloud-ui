@@ -367,11 +367,11 @@ export default {
 </u-form>
 ```
 
-表单控件`u-form-item`支持自定义左边显示内容，通过传入`slot='label'`插槽来实现label属性所实现的功能，此时控件属性`label`会失效，`slot='extra'`插槽是用来实现插入其他自定义内容，配合属性`'distance'`使用，控制内容和标题之间的间距，其值有`small,normal,large`
+表单控件`u-form-item`支持自定义左边显示内容，通过传入`slot='label'`插槽来实现label属性所实现的功能，此时控件属性`label`会失效，`slot='extra'`插槽是用来实现插入其他自定义内容
 
 ``` html
 <u-form ref="form">
-    <u-form-item required distance="normal">
+    <u-form-item required>
         <span slot="label">
             用户名
         </span>
