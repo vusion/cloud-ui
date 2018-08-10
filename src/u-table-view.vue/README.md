@@ -1,13 +1,13 @@
-# 表格 TableView
+# 表格视图 TableView
 
 ## 示例
 ### 基本形式
 
-layout布局方式，支持auto,fixed两种布局，默认是fixed布局, auto布局一个缺点是数据发生变化各列对应的宽度可能发生变化，取决于内容宽度，推荐使用fixed布局
+`layout`布局方式，支持`auto`,`fixed`两种布局，默认是`fixed`布局, `auto`布局一个缺点是数据发生变化各列对应的宽度可能发生变化，取决于内容宽度，推荐使用`fixed`布局
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata" layout="auto" border>
+        <u-table-view :data="tdata" layout="auto" border expandPattern="normal">
             <u-table-view-column type="expand" title="序列" default-text="">
                 <template slot="expandContent">
                     <span>11</span>
@@ -86,7 +86,9 @@ export default {
 </script>
 ```
 
-默认显示指定limit条行数据，pattern属性设置为limit值即可
+#### 默认显示指定limit条行数据
+
+表格列`pattern`属性设置为`limit`值即可，可通过设置`limit`属性控制显示条数
 ``` vue
 <template>
     <div>
@@ -207,7 +209,7 @@ export default {
 ```
 
 
-排序和格式化
+#### 排序和格式化
 ``` vue
 <template>
     <div>
@@ -290,7 +292,7 @@ export default {
 ```
 
 
-自定义排序方法
+#### 自定义排序方法
 ``` vue
 <template>
     <u-table-view :data="tdata" @sort-change="sortChange">
@@ -329,6 +331,7 @@ export default {
     },
     methods: {
         sortMethod(a, b) {
+            console.log(arguments)
             let va = new Date(a).getTime();
             let vb = new Date(b).getTime();
             if (va -vb < 0)
@@ -344,7 +347,12 @@ export default {
 </script>
 ```
 
-删除选中行 对于type类型为selection的表格列，可以控制checkbox的选择状态，传入data中每个对象中属性selected属性表示默认是否处于选中状态，disabled表示是否可选择
+#### 删除选中行 
+
+对于`type`类型为`selection`的表格列，可以控制`checkbox`的选择状态，传入`data`中每个对象中属性`selected`属性表示默认是否处于选中状态，`disabled`表示是否可选择
+
+同时也可在表格列规定`headSelection`属性，来控制列表是否可以全选。
+
 ``` vue
 <template>
     <u-linear-layout direction="vertical">
@@ -420,7 +428,7 @@ export default {
 </script>
 ```
 
-有标题的selection
+#### 有标题的selection
 ``` vue
 <template>
     <u-linear-layout direction="vertical">
@@ -481,7 +489,9 @@ export default {
 </script>
 ```
 
-带有过滤数据功能的表格，如果要实现过滤异步加载数据，请监听`filter-change`方法，并发送异步请求获取数据，更改tdata即可
+#### 过滤异步数据
+带有过滤数据功能的表格，如果要实现过滤异步加载数据，请监听`filter-change`方法，并发送异步请求获取数据，更改`tdata`即可
+
 ``` vue
 <template>
     <u-table-view :data="tdata" @filter-change="filterChange">
@@ -564,7 +574,7 @@ export default {
 };
 </script>
 ```
- 作用域插槽方式
+#### 作用域插槽方式
 ``` vue
 <template>
     <div>
@@ -674,7 +684,7 @@ export default {
 </script>
 ```
 
- loading 加载中的状态
+#### loading 加载中的状态
 ``` vue
 <template>
 <div>
@@ -690,37 +700,17 @@ export default {
     data: function () {
         return {
             tdata: [{
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼'
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园'
-            }, {
                 date: '2016-05-03',
                 name: '小鸡炖蘑菇',
                 address: '浙江省杭州市滨江区 东忠科技园'
             }],
         };
-    },
-    methods: {
-        formatter(row, column) {
-            if (row.name === '天王盖地虎')
-                return '逗比一号';
-            else
-                return row.name;
-        }
     }
 };
 </script>
 ```
 
-data为空数组自定义显示文本
+#### data为空数组自定义显示文本
 ``` vue
 <template>
 <div>
@@ -742,14 +732,6 @@ export default {
         return {
             tdata: [],
         };
-    },
-    methods: {
-        formatter(row, column) {
-            if (row.name === '天王盖地虎')
-                return '逗比一号';
-            else
-                return row.name;
-        }
     }
 };
 </script>
@@ -757,7 +739,8 @@ export default {
 
 ### 对于表格内容过多的情况，提供以下两种解决方案，可以任选一种合适的方式使用
 
-表格行可展开
+#### 表格行可展开
+
 使用场景：表格的内容过多，展示不下，需要注意的是expand中自定义的内容会受到表格添加的样式对其产生的影响，比如说不换行，居中等，如果不是需要的效果，需要自己自定义消除父元素对其自定义元素内容样式的影响
 ``` vue
 <template>
@@ -888,7 +871,8 @@ export default {
 </script>
 ```
 
-固定左右列
+#### 固定左右列
+
 使用场景：表格的内容过多，展示不下，可以通过制定表格的宽度和单元列的宽度来展示
 ``` vue
 <template>
@@ -1123,31 +1107,43 @@ export default {
 ## TableView API
 ### Attrs/Props
 
+#### 视图相关属性
+
 | Attr/Prop | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
-| data | Array | '' | 表格默认要显示的数据 |
-| title | String | '' | 表格的标题 |
-| allChecked.sync | Boolean | false | 默认是否全部选中 |
-| defaultSort | Object | '' | 默认的排序列和顺序值，其title属性指定默认排序的列，order指定默认排序的顺序 |
-| defaultFilter | Object | '' | 默认采用某列进行过滤，其title属性指定默认过滤的列，value指定默认过滤的值，在存在多个过滤列的时候可以使用此属性指定，当前只有一个列的时候可以不指定，默认会使用第一个filter列 |
-| noDataText | String | '' | 当data为空数组时，展示的信息 |
-| loading| Boolean | false | 是否展示加载中的状态信息 |
-| loadText| String | `` | 加载中的文字信息提示 |
+| color | String |  | 值为`'light'`的时，表格头背景是`#fff` |
+| visible| Boolean | `true` | 表格是否可见 |
 | showHeader| Boolean | `true` | 是否展示表格头 |
-| rowClassName | Function | `` | 给表格行添加自定义class函数，第一个参数表示索引，即在第几行中，第二个参数是表格当前行数据 |
+| layout| String | `'fixed'` | 表格的布局方式, 可选值: `'fixed'`, `'auto'` |
+| border | Boolean | `'false'` | 是否展示表格边框 |
+| width | Integer/String |  | 表格组件的宽度 |
 | height| Integer/String |  | 表格组件的高度 |
 | maxHeight| Integer/String |  | 表格组件的最大高度 |
 | minHeight| Integer/String |  | 表格组件的最小高度 |
-| layout| String | fixed | 表格的布局方式, 可选值有fixed, auto两种 |
-| visible| Boolean | true | 默认显示 |
-| pattern| String | `'normal'` | 支持显示指定数目的数据，值设置为limit即可 |
-| limit| String, Number | `5` | 在pattern属性值为limit时，默认显示数据的数目 |
-| limitText| String | `'查看更多'` | 在pattern属性值为limit时，数据的数目大于limit的值时默认在表格最后一行显示的提示内容 |
-| allText| String | `'收起'`| 在pattern属性值为limit时，显示所有数据后默认在表格最后一行显示的提示内容 |
 | defaultText | String | `'-'` | 默认当单元格取值为空时，默认显示的内容，此处是设置整个表格 |
-| color | String | `` | 值为light的时，表格头背景是#fff |
-| forceFilter | Boolean | `true` | 数据发生变化是，存在数据过滤列，是否需要进行过滤，默认是需要的，但是异步获取的情况下，会出现死循环，需要将此值置为`false` |
-| expandPattern | String | `'toggle'` | 规定expand中icon每次展开数量的限制，默认只能展开一个，传入`'normal'`可取消此限制 |
+| loading| Boolean | `false` | 是否展示加载中的状态信息 |
+| loadText| String | `''` | 加载中的文字信息提示 |
+| noDataText | String | `''` | 当`data`属性为空数组时，展示的信息 |
+| pattern| String | `'normal'` | 值设置为`'limit'`可支持显示指定数目的数据，可选值: `'normal'`, `'limit'` |
+| limit| String, Number | `5` | 在`pattern`属性值为`'limit'`时，默认显示数据的数目 |
+| limitText| String | `'查看更多'` | 在`pattern`属性值为`'limit'`时，数据的数目大于`'limit'`属性 的值时默认在表格最后一行显示的提示内容 |
+| allText| String | `'收起'`| 在`pattern`属性值为`'limit'`时，显示所有数据后默认在表格最后一行显示的提示内容 |
+| expandPattern | String | `'toggle'` | 规定`type`属性值为`'expand'`列的展开行为，可选值: `'toggle'`，`'normal'`。值为`'toggle'`时，展开一行后其他行将收回。 值为`'normal'`时，每行都可以展开。|
+| rowClassName | Function |  | 给表格行添加自定义class函数，第一个参数表示索引，即在第几行中，第二个参数是表格当前行数据 |
+| xScroll | Boolean | `false` | 鼠标滚动时表格是否可以横向滚动 |
+
+#### 数据相关属性
+
+| Attr/Prop | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| title | String |  | 表格的标题 |
+| data | Array |  | 表格默认要显示的数据 |
+| allChecked.sync | Boolean | `false` | 默认是否全部选中 |
+| defaultSort | Object\< title, order \> |  | 默认的排序列和顺序值，其中`title`属性指定默认排序的列。`order`指定默认排序的顺序，可选值: `'desc'`,`'asc'`。 |
+| defaultFilter | Object\< title, value, column \> |  | 默认采用某列进行过滤，其中`title`属性指定默认过滤的列，`value`指定默认过滤的值，在存在多个过滤列的时候可以使用此属性指定，当前只有一个列的时候可以不指定，默认会使用第一个filter列 |
+| forceFilter | Boolean | `true` | 数据发生变化时，存在数据过滤列，是否需要进行过滤，默认是需要的，但是异步获取的情况下，会出现死循环，需要将此值置为`false` |
+
+
 ### Slots
 
 #### (default)
@@ -1160,15 +1156,19 @@ export default {
 
 #### limit-text
 
-在pattern属性值为limit时，数据的数目大于limit的值时默认在表格最后一行显示的提示内容
+在`pattern`属性值为`'limit'`时，数据的数目大于`'limit'`属性 的值时默认在表格最后一行显示的提示内容
 
 #### all-text
 
-在pattern属性值为limit时，显示所有数据后默认在表格最后一行显示的提示内容
+在`pattern`属性值为`'limit'`时，显示所有数据后默认在表格最后一行显示的提示内容
 
 #### no-data-text
 
 数据为空时自定义显示文本
+
+#### expandIcon
+
+在列中`type`属性值为`'expand'`时，替换默认的切换图标
 
 ### Events
 #### @sort-change
@@ -1177,9 +1177,9 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.column | Object | 当前列column的实例，含有当前列的所有信息，实质是table-view-column实例 |
+| $event.column | Object | 当前列`column`的实例，含有当前列的所有信息，实质是`table-view-column`实例 |
 | $event.label | String  | 当前列的标签值  |
-| $event.order | String  | 当前列排序值： 'asc'或'desc'  |
+| $event.order | String  | 当前列排序值： `'asc'`或`'desc'`  |
 
 #### @filter-change
 
@@ -1187,7 +1187,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.column | Object | 当前列column的实例，含有当前列的所有信息，实质是table-view-column实例 |
+| $event.column | Object | 当前列`column`的实例，含有当前列的所有信息，实质是`table-view-column`实例 |
 | $event.value | String  | 选中的标签值  |
 | $event.index | Number  | 当前列的索引值  |
 
@@ -1209,7 +1209,10 @@ export default {
 | $event.data | Object | 选中的行的数据集合 |
 | $event.index | Int | 行数据所在的索引值 |
 
-### @toggle-expand
+#### @toggle-expand
+
+列展开或收回时触发
+
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event.index | Int | 选中的行的数据索引 |
@@ -1219,34 +1222,46 @@ export default {
 ## TableViewColumn API
 ### Props/Attrs
 
+#### 视图相关属性
+
 | Prop/Attr | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
-| title | String | `` | 列的标题 |
+| width | String |  | 是指列的宽度值 |
+| border | Boolean | `false` | 是否有边框，默认无 |
+| fixed | String | | 将列固定在左边或右边，参见例子`固定左右列`，可选值：`'left'`,`'right'`,`''` |
+| ellipsis | Boolean | `false` | 是否换行，默认换行，值为`true`则开启不换行，超出部分显示为省略号 |
+| defaultText | String | `'-'` | 默认当单元格取值为空时，默认显示的内容，此处是设置某一列的显示 |
+| headClass | String | `''` | 给表格头部`'th'`添表格内容过多加自定义`'class'`名称，方便对表格头部自定义样式 |
+| placement | String | `'bottom-start'` | 可过滤列选项弹出层的弹出方向，可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start'`,`'left-end'`, `'right-start'`, `'right-end'` |
+| expandIcon | String | `'right-down'` | `icon`的图标展开方向，提供两种类型，一种是默认向右点击向下`'right-down'`，另一种是默认向下点击向上`'up-down'` |
+| expandStrict | Boolean | `false` | 当`type`属性值为`'expand'`时，开启`'expand'`严格匹配模式， 只有对应的`label`字段有值才显示`icon` |
+| expandLabel | String |  | 当`type`属性值为`'expand'`时，当出现组合形式的时候，使用此字段指定`icon`展开依赖的属性字段 |
+| expandClass | String |  | 当`type`属性值为`'expand'`时，定义`icon`的样式 |
+
+#### 数据相关属性
+
+| Prop/Attr | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| title | String |  | 列的标题 |
+| value | String |  | 默认过滤项选中的值 |
+| label | String |  | 对象data中对象的属性 |
+| type | String |  | 可选值：`'selection'`,`'expand'`,`'time'`。值为`'selection'`,表示此列是否是可选择的， 对于日期类型的值可以设置值为`'time'`,配合`timeFormat`属性，转换成想要的日期格式, `'expand'`表示在当前行出现icon标识，点击icon当前行下新增新一行数据 |
+| timeFormat | String | `'YYYY-MM-DD HH:mm:ss'` | 定义`type`属性值为`'time'`时，返回的指定日期格式的值 |
 | sortable | Boolean | `false` | 列是否可排序 |
 | filter | Boolean | `false` | 列是否可过滤 |
-| options | Array\{name, value} | `` | 过滤项列表 |
-| value | String | `` | 默认过滤项选中的值 |
-| label | String | `` | 对象data中对象的属性 |
-| type | String | `` | 可选值有`'selection'`,`'expand'`,`'time'`,值为`'selection'`,表示此列是否是可选择的， 对于日期类型的值可以设置值为`'time'`,配合timeFormat属性，转换成想要的日期格式, `'expand'`表示在当前行出现icon标识，点击icon当前行下新增新一行数据 |
-| label | String | `` | 对象data中对象的属性 |
-| width | String | `` | 是指列的宽度值 |
-| formatter | Function | `` | 自定义列的值 |
-| sortMethod | Function | `` | 自定义排序方法 |
-| sortRemoteMethod | Funtion| `` | 异步执行排序传入的方法，第一个参数是列字段，第二个参数是排序顺序，第三个参数是列对象 |
-| filterMethod | Function | `` | 自定义过滤方法 |
-| ellipsis | Boolean | `false` | 是否换行，默认换行，值为true则开启不换行，超出部分显示为省略号 |
-| border | Boolean | `false` | 是否有边框，默认无 |
-| timeFormat | String | `'YYYY-MM-DD HH:mm:ss'` | 定义type值为time时，返回的指定日期格式的值 |
-| expandIcon | String | `'right-down'` | icon的图标展开方向，提供两种类型，一种是默认向右点击向下`'right-down'`，另一种是默认向下点击向上`'up-down'` |
-| expandStrict | Boolean | `false` | 开启expand严格匹配模式， 只有对应的label字段有值才显示icon |
-| expandLabel | String | `` | expand模式下使用，当出现组合形式的时候，使用此字段指定icon展开依赖的属性字段 |
-| expandClass | String | `` | 定义expand的icon的样式 |
-| defaultText | String | `'-'` | 默认当单元格取值为空时，默认显示的内容，此处是设置某一列的显示 |
-| headClass | String | `''` | 给表格头部`'th'`添加自定义`'class'`名称，方便对表格头部自定义样式 |
+| headSelection | Boolean | `true` | 列表是否可全选 |
+| options | Array\{name, value} |  | 过滤项列表 |
+| formatter | Function |  | 自定义格式化列数据，第一个参数是含有该行数据的对象，第二个参数是列实例 |
+| sortMethod | Function |  | 自定义排序方法，第一个参数为该列前一行数据，第二个参数为该列后一行数据，方法需要返回值，返回类型为`Boolean`|
+| sortRemoteMethod | Function|  | 异步执行排序传入的方法，第一个参数是列字段，第二个参数是排序顺序，第三个参数是列对象 |
+| filterMethod | Function |  | 自定义过滤方法，第一个参数为该列数据，第二个参数为列实例 |
 
 ### Slots
 
- | Slot | Description |
- | ---- | ----------- |
- | headerTitle | 插入自定义`th`标签内容 |
- | expandContent | 插入自定义icon展开的内容 |
+#### headerTitle
+
+插入自定义`th`标签内容。
+
+#### expandContent
+
+插入自定义`icon`展开的内容。
