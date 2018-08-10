@@ -157,7 +157,9 @@ export default {
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event | String | 原生事件对象 |
+
 #### @reset
+
 点击删除icon时触发
 
 | Param | Type | Description |
@@ -165,7 +167,7 @@ export default {
 | $event | String | 重置后的值 |
 
 ### Methods
-#### focus
+<!--#### focus
 
 使输入框处于焦点状态
 
@@ -179,6 +181,11 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event | String | 原生事件对象 |
+| $event | String | 原生事件对象 |-->
+
+#### removeValue()
+
+删除输入值
+
 
 
