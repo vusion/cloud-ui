@@ -171,7 +171,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event | String | 原生事件对象 |
+| |  |  |
 
 #### blur
 
@@ -179,6 +179,6 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event | String | 原生事件对象 |
+|  |  |  |
 
 
