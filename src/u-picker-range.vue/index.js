@@ -75,6 +75,7 @@ export default {
             currentValueEnd: _parse(this.endValue),
             changedInputValueStart: null,
             changedInputValueEnd: null,
+            showPanel: false,
         };
     },
     computed: {
@@ -96,11 +97,9 @@ export default {
             this.inputValueChange('End', value, oldValue);
         },
         currentValueStart(value, oldValue) {
-            this.oldCurrentValueStart = oldValue;
             this.currentValueChange('Start', value, oldValue);
         },
         currentValueEnd(value, oldValue) {
-            this.oldCurrentValueEnd = oldValue;
             this.currentValueChange('End', value, oldValue);
         },
         type(value) {
@@ -160,18 +159,22 @@ export default {
             this.debouncedChange();
         },
         emitChange() {
+            const value = [this.setDateTime(_parse(this.currentValueStart)), this.setDateTime(_parse(this.currentValueEnd))];
             this.$emit('change', {
-                value: [this.setDateTime(_parse(this.currentValueStart)), this.setDateTime(_parse(this.currentValueEnd))],
-                oldValue: [this.setDateTime(_parse(this.oldCurrentValueStart)), this.setDateTime(_parse(this.oldCurrentValueEnd))],
+                value,
+                oldValue: this.oldValue,
                 formattedValue: [this.inputValueStart, this.inputValueEnd],
             });
+            this.oldValue = value;
         },
         onToggle($event) {
             this.$emit('toggle', $event);
+            this.showPanel = $event.open;
         },
         onPanelDateSelect(event) {
             if (this.disabled || this.readonly)
                 return;
+            this.closePanel();
 
             const isStartEqual = isEqual(event.value[0], this.currentValueStart);
             const isEndEqual = isEqual(event.value[1], this.currentValueEnd);
@@ -187,7 +190,6 @@ export default {
                 this.currentValueStart = _parse(event.value[0]);
             if (!isEndEqual)
                 this.currentValueEnd = _parse(event.value[1]);
-            this.closePanel();
         },
         validateData() {
             const tempDateRange = (this.dateRange || []).concat([]);

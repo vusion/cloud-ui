@@ -14,7 +14,7 @@ export default {
         disabled: { type: Boolean },
         readonly: { type: Boolean },
         showPanel: { type: Boolean, default: false }, // 是否显示u-panel-time
-        dateRange: { type: Array, default: () => [] },
+        dateRange: { type: Array },
         blockPanel: { type: Object, default: {} },
     },
     data() {

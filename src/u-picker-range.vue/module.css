@@ -1,1 +1,7 @@
 @import '../u-picker.vue/module.css';
+
+.panel {
+    border-radius: 4px;
+    box-shadow: 0 0 10px 0 rgba(80,90,109,0.16);
+    background-color: #fff;
+}

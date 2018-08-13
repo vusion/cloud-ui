@@ -6,7 +6,7 @@
         :startValue.sync="inputValueStart"
         :endValue.sync="inputValueEnd">
     </u-custom-picker-input>
-    <div slot="popper" @click.stop style="border-radius: 4px;box-shadow: 0 0 10px 0 rgba(80,90,109,0.16);">
+    <div slot="popper" @click.stop :class="$style.panel">
         <u-custom-panel
             v-bind="allProps"
             v-on="$listeners"
@@ -15,6 +15,7 @@
             :dateRange="currentDateRange"
             :view="panelView"
             :blockPanel="blockPanel"
+            :showPanel="showPanel"
             ref="panel"
             @select="onPanelDateSelect">
         </u-custom-panel>

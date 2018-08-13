@@ -14,7 +14,7 @@
 ```
 ### 日期范围
 ``` html
-<u-datetime-range-picker startValue="2018-01-01" endValue="" maxDate="2018-01-09" minDate="2017-11-12"></u-datetime-range-picker>
+<u-datetime-range-picker startValue="2018-01-01 20:20:20" endValue="2018-01-02 20:20:20" maxDate="2018-01-09 10:10:10" minDate="2018-01-01 20:20:20"></u-datetime-range-picker>
 ```
 
 ### 禁用和只读

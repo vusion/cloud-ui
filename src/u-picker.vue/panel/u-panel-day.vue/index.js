@@ -11,7 +11,7 @@ import addMonths from 'date-fns/add_months';
 import isToday from 'date-fns/is_today';
 import format from 'date-fns/format';
 
-import { inDateRange } from '../date';
+import { inDateRange, isDayEqual } from '../date';
 
 export default {
     name: 'u-panel-day',
@@ -95,10 +95,9 @@ export default {
         },
         isSelected(item) {
             if (this.isRangePicker)
-                return this.selectedDates.some((date) => isEqual(item.date, date));
+                return this.selectedDates.some((date) => isDayEqual(item.date, date));
             else {
-                const dayFormatter = 'YYYY-MM-DD';
-                return format(item.date, dayFormatter) === format(this.selectedDate, dayFormatter);
+                return isDayEqual(item.date, this.selectedDate);
             }
         },
         isBetween(date) {

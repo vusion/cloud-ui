@@ -238,6 +238,10 @@ const inDateTimeRange = (date, dateRange, type, openInterval = false) => {
         return true;
     });
 };
+const isDayEqual = (date1, date2) => {
+    const dayFormatter = 'YYYY-MM-DD';
+    return format(date1, dayFormatter) === format(date2, dayFormatter);
+};
 export {
     inDateRange,
     dateValidadtor,
@@ -255,4 +259,5 @@ export {
     setTime,
     inDateTimeRange,
     getValidDate,
+    isDayEqual,
 };

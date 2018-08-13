@@ -32,6 +32,7 @@ export default {
         blockPanel: { type: Object, default: {} },
         disabled: { type: Boolean },
         readonly: { type: Boolean },
+        showPanel: { type: Boolean },
         type: { type: String },
     },
     data() {
@@ -43,14 +44,16 @@ export default {
             selectedDates: [], // 选中的值
             hoverDate: undefined,
             panelDisplayDateAdjust: true, // 显示日期是否相邻月数
+            currentTimeDateStart: undefined, // 点击选择的时间面板日期(时间需要点击确认才生效))
+            currentTimeDateEnd: undefined,
         };
     },
     computed: {
         allProps() {
             return Object.assign({}, this.$props, this.$attrs);
         },
-        hasBottomOperation() {
-            return this.type.includes('datetime');
+        hasTime() {
+            return this.type.includes('time');
         },
     },
     watch: {
@@ -59,11 +62,9 @@ export default {
             this.currentViewEnd = value;
         },
         startValue(value, oldValue) {
-            // this.debouncedInitDate(); // 清空延时过于明显
             this.initDate();
         },
         endValue(value, oldValue) {
-            // this.debouncedInitDate();
             this.initDate();
         },
         panelDisplayValue(value, oldValue) {
@@ -74,6 +75,14 @@ export default {
         },
         displayDateEnd(value) {
             this.adjustDisplayDate('End');
+        },
+        currentViewStart(value) {
+            this.repositionTimePanel();
+        },
+        showPanel(value) {
+            if (value) {
+                this.repositionTimePanel();
+            }
         },
     },
     components: { // TODO: 用不到的component不加载
@@ -122,34 +131,30 @@ export default {
             if (!this.blockPanel[viewName])
                 this.currentViewEnd = viewName;
         },
-        dateSelect(date, id) {
-            if (this.disabled || this.readonly)
-                return;
-            let cancel = false;
-            this.$emit('before-select', { // !before-select应该是before单个select还是整体？
-                preventDefault: () => cancel = true,
+        formatSelectedDateWithTime() {
+            this.selectedDates = this.selectedDates.map((date, index) => {
+                const tempDate = index ? this.currentTimeDateEnd : this.currentTimeDateStart;
+                return parse(format(date, 'YYYY-MM-DD') + ' ' + format(tempDate, 'HH:mm:ss'));
             });
-
-            if (cancel)
+        },
+        dateSelect(date, id) {
+            if (this.disabled || this.readonly || this.cancelSelect())
                 return;
 
             const selectName = 'selectedDate' + id;
             this.$emit('selectPanelDate', {
                 value: date,
             });
-            if (this.selectedDates.length === 2)
+            if (this.selectedDates.length === 2) {
                 this.selectedDates = [date];
-            else {
+            } else {
                 this.selectedDates.push(date);
                 // 已选中两个元素： 1. 选中两个相同的日期，删除一个； 2. 选中两个不同的日期，排序后emit select
                 if (this.selectedDates.length === 2) {
                     if (isEqual.apply({}, this.selectedDates)) {
                         this.selectedIndex = 1;
                     } else {
-                        sortIncrease(this.selectedDates);
-                        this.$emit('select', {
-                            value: this.selectedDates,
-                        });
+                        !this.hasTime && this.emitSelect();
                     }
                 }
             }
@@ -158,6 +163,20 @@ export default {
                 this[selectName] = date; // 点击后，panel中的已选日期会发生变化
                 this.adjustDisplayDate(id);
             }
+        },
+        cancelSelect() {
+            let cancel = false;
+            this.$emit('before-select', { // !before-select应该是before单个select还是整体？
+                preventDefault: () => cancel = true,
+            });
+
+            return cancel;
+        },
+        emitSelect() {
+            sortIncrease(this.selectedDates);
+            this.$emit('select', {
+                value: this.selectedDates,
+            });
         },
         // 日期选择后，保证第二个页面的DisplayDate比第一个大至少一月
         adjustDisplayDate(id) {
@@ -174,11 +193,21 @@ export default {
             this.currentViewStart = this.currentViewStart === 'customTime' ? this.view : 'customTime';
             this.currentViewEnd = this.currentViewStart;
         },
-        onConfirm() { // 点击date面板的确认按钮，选择日期并关闭面板
+        onConfirm() {
             if (this.selectedDates.length === 2) {
-                sortIncrease(this.selectedDates);
-                this.$emit('select', {
-                    value: this.selectedDates,
+                if (this.disabled || this.readonly || this.cancelSelect())
+                    return;
+                this.formatSelectedDateWithTime();
+                this.emitSelect();
+            }
+        },
+        repositionTimePanel() {
+            if (this.currentViewStart === 'customTime') {
+                this.$nextTick(() => {
+                    ['Start', 'End'].forEach((name) => {
+                        name = 'panel' + name;
+                        this.$refs && this.$refs[name] && this.$refs[name].reposition();
+                    });
                 });
             }
         },

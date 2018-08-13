@@ -4,11 +4,14 @@
             :is="currentViewStart"
             v-on="$listeners"
             v-bind="allProps"
+            ref="panelStart"
             :displayDate.sync="displayDateStart"
             :selectedDates="selectedDates"
+            :selectedDate="selectedDates[0]"
             :isRangePicker="true"
             :hoverDate.sync="hoverDate"
             :hideNext="panelDisplayDateAdjust"
+            @timeChanged="(date) => currentTimeDateStart = date"
             @dateClick="onDateClick($event, 'Start')"
             @changeView="toViewStart">
         </component>
@@ -18,16 +21,19 @@
             :is="currentViewEnd"
             v-on="$listeners"
             v-bind="allProps"
+            ref="panelEnd"
             :displayDate.sync="displayDateEnd"
             :selectedDates="selectedDates"
+            :selectedDate="selectedDates[1]"
             :isRangePicker="true"
             :hoverDate.sync="hoverDate"
             :hidePre="panelDisplayDateAdjust"
+            @timeChanged="(date) => currentTimeDateEnd = date"
             @dateClick="onDateClick($event, 'End')"
             @changeView="toViewEnd">
         </component>
     </keep-alive>
-    <div :class="$style.operation" v-if="hasBottomOperation" v-show="currentViewStart !== 'customTime'">
+    <div :class="$style.operation" v-if="hasTime">
         <u-link @click="onChangePanel" :disabled="!selectedDates || selectedDates.length !== 2">{{currentViewStart === 'customTime' ? '选择日期' : '选择时间'}}</u-link>
         <u-link @click="onConfirm" :class="$style.closebutton">确定</u-link>
     </div>
