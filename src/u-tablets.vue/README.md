@@ -1,7 +1,7 @@
-# Tablets
+# 药片 Tablets
 
-## Examples
-### Basic
+## 示例
+### 基本样式
 
 ``` html
 <u-tablets>
@@ -11,7 +11,7 @@
 </u-tablets>
 ```
 
-### Value
+### 选择值
 
 ``` html
 <u-tablets value="C">
@@ -21,31 +21,31 @@
 </u-tablets>
 ```
 
-### Readonly & Disabled
+### 只读、禁用、禁用某一项
 
 ``` html
+<u-linear-layout>
 <u-tablets value="C" readonly>
     <u-tablet value="A">Apple</u-tablet>
     <u-tablet value="B">Banana</u-tablet>
     <u-tablet value="C">Cake</u-tablet>
 </u-tablets>
-<p></p>
 <u-tablets value="C" disabled>
     <u-tablet value="A">Apple</u-tablet>
     <u-tablet value="B">Banana</u-tablet>
     <u-tablet value="C">Cake</u-tablet>
 </u-tablets>
-<p></p>
 <u-tablets value="C">
     <u-tablet value="A">Apple</u-tablet>
     <u-tablet value="B" disabled>Banana</u-tablet>
     <u-tablet value="C">Cake</u-tablet>
 </u-tablets>
+</u-linear-layout>
 ```
 
-### Cancelable
+### 可切换状态
 
-Try to click twice on an item.
+点击两次同一项，可切换选择状态
 
 ``` html
 <u-tablets value="C" cancelable>
@@ -122,7 +122,7 @@ Try to click twice on an item.
 
 #### (default)
 
-插入文本或HTML。
+插入文本或`HTML`。
 
 ### Events
 
