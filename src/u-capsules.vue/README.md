@@ -1,7 +1,7 @@
-# Capsules
+# Capsules 胶囊
 
-## Examples
-### Basic
+## 示例
+### 基本样式
 
 ``` html
 <u-capsules>
@@ -11,7 +11,7 @@
 </u-capsules>
 ```
 
-### Value
+### 选择值
 
 ``` html
 <u-capsules value="C">
@@ -21,31 +21,31 @@
 </u-capsules>
 ```
 
-### Readonly & Disabled
+### 只读、禁用、禁用某一项
 
 ``` html
+<u-linear-layout>
 <u-capsules value="C" readonly>
     <u-capsule value="A">Apple</u-capsule>
     <u-capsule value="B">Banana</u-capsule>
     <u-capsule value="C">Cake</u-capsule>
 </u-capsules>
-<p></p>
 <u-capsules value="C" disabled>
     <u-capsule value="A">Apple</u-capsule>
     <u-capsule value="B">Banana</u-capsule>
     <u-capsule value="C">Cake</u-capsule>
 </u-capsules>
-<p></p>
 <u-capsules value="C">
     <u-capsule value="A">Apple</u-capsule>
     <u-capsule value="B" disabled>Banana</u-capsule>
     <u-capsule value="C">Cake</u-capsule>
 </u-capsules>
+</u-linear-layout>
 ```
 
-### Cancelable
+### 可切换状态
 
-Try to click twice on an item.
+点击两次同一项，可切换选择状态
 
 ``` html
 <u-capsules value="C" cancelable>
@@ -55,7 +55,17 @@ Try to click twice on an item.
 </u-capsules>
 ```
 
-### Basic
+### 可多选
+
+``` html
+<u-capsules value="C" multiple>
+    <u-capsule value="A">Apple</u-capsule>
+    <u-capsule value="B">Banana</u-capsule>
+    <u-capsule value="C">Cake</u-capsule>
+</u-capsules>
+```
+
+### 胶囊组
 
 ``` html
 <u-capsules>
@@ -83,17 +93,28 @@ Try to click twice on an item.
 </u-capsules>
 ```
 
-### Label
+### 标签
 
-``` html
-<u-capsules>
-    <u-capsule size="small">6</u-capsule>
-    <u-capsule size="small" label="88折">7</u-capsule>
-    <u-capsule size="small" label="88折">8</u-capsule>
-    <u-capsule size="small" label="88折">9</u-capsule>
-    <u-capsule size="small" label="88折">1年</u-capsule>
-    <u-capsule size="small" label="80折">2年</u-capsule>
+``` vue
+<template>
+<u-capsules @change="test">
+    <u-capsule value="6" size="small">6</u-capsule>
+    <u-capsule value="7" size="small" label="88折">7</u-capsule>
+    <u-capsule value="8" size="small" label="88折">8</u-capsule>
+    <u-capsule value="9" size="small" label="88折">9</u-capsule>
+    <u-capsule value="10" size="small" label="88折">1年</u-capsule>
+    <u-capsule value="11" size="small" label="80折">2年</u-capsule>
 </u-capsules>
+</template>
+<script>
+export default {
+    methods:{
+        test(e) {
+            console.log(e)
+        }
+    }
+}
+</script>
 ```
 
 ## Capsules API
@@ -113,7 +134,7 @@ Try to click twice on an item.
 
 #### (default)
 
-插入`<u-capsule>`子组件。
+插入`<u-capsule>` 或 `<u-capsule-group>`子组件。
 
 ### Events
 
@@ -150,12 +171,24 @@ Try to click twice on an item.
 | $event.items | Array\<Object\> | 多选模式中，所有选中项相关对象的数组 |
 | $event.itemVMs | Array\<ListViewItem\> | 多选模式中，所有选中项子组件的数组 |
 
+#### @change
+
+选择值改变时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.value | Any | 改变后的值 |
+| $event.oldValue | Any | 旧的值 |
+| $event.item | Object | 单选模式中，选择项相关对象 |
+| $event.itemVM | ListViewItem |  单选模式中，选择项子组件 |
+
 ## Capsule API
 ### Props/Attrs
 
 | Prop/Attr | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
 | value | Any | | 此项的值 |
+| size | String | | 胶囊大小，可选值：`'small'` |
 | disabled | Boolean | `false` | 禁用此项 |
 | item | Object | | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
 | label | String | `''` | 顶部自定义提示文本 |
@@ -165,7 +198,7 @@ Try to click twice on an item.
 
 #### (default)
 
-插入文本或HTML。
+插入文本或`HTML`。
 
 ### Events
 
@@ -179,3 +212,8 @@ Try to click twice on an item.
 | $event.item | Object | 此项的相关对象 |
 | $event.itemVM | ListViewItem | 此组件 |
 | $event.preventDefault | Function | 阻止选择流程 |
+
+## CapsuleGroup API
+
+无
+
