@@ -1,5 +1,9 @@
-<div :class="$style.root">
-    <keep-alive>
-        <component :is="currentView" :disabled="disabled" :readonly="readonly" :showDate.sync="currentDisplayDate" :value.sync="currentDate" :dateRange="currentDateRange"></component>
-    </keep-alive>
-</div>
+<u-custom-panel
+    v-bind="allProps"
+    :value="currentValue"
+    :showPanel="showPanel"
+    :dateRange="currentDateRange"
+    :view="panelView"
+    :blockPanel="blockPanel"
+    @select="onPanelDateSelect">
+</u-custom-panel>

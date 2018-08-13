@@ -128,7 +128,7 @@ export default {
 | disabled | Boolean | `false` | 是否禁用 |
 | placement | String | `bottom-start` | 日历弹窗对其方式，设置方式同popper的placement |
 | formatter | String | `YYYY-MM-DD` | 日期显示格式，合法格式参照[date-fns](https://date-fns.org/v1.29.0/docs/format) |
-| type | String | `year/month/date` | 时间面板类型 |
+| type | String | `year/month/date` | 日期面板类型 |
 | fixOn | String | `'blur'` | 错误修复时机。可选值：`'input'`表示在输入时修复，`'blur'`表示在失焦时修复 |
 
 ### Events

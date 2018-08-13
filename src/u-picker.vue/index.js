@@ -84,7 +84,7 @@ export default {
             }
         },
         closePanel() {
-            this.$refs.popper.toggle(false);
+            this.$refs.popper && this.$refs.popper.toggle(false);
         },
         /* eslint no-empty-function: 0*/
         onPanelDateSelect() {},

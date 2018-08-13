@@ -2,7 +2,6 @@ import parse from 'date-fns/parse'; // null -> 1970 undefined -> Invalid Date
 import isEqual from 'date-fns/is_equal';
 import format from 'date-fns/format';
 import addMonths from 'date-fns/add_months';
-import differenceInMonths from 'date-fns/difference_in_months';
 import panelDay from '../u-panel-day.vue';
 import panelMonth from '../u-panel-month.vue';
 import panelYear from '../u-panel-year.vue';
@@ -187,7 +186,8 @@ export default {
                     this.displayDateStart = addMonths(this.displayDateEnd, -1);
                 }
             }
-            this.panelDisplayDateAdjust = differenceInMonths(this.displayDateEnd, this.displayDateStart) === 1;
+            const tempFormat = 'YYYYMM';
+            this.panelDisplayDateAdjust = format(this.displayDateEnd, tempFormat) - format(this.displayDateStart, tempFormat) <= 1;
         },
         onChangePanel() {
             this.currentViewStart = this.currentViewStart === 'customTime' ? this.view : 'customTime';

@@ -11,9 +11,6 @@ import BarChart from './u-bar-chart.vue';
 import Block from './u-block.vue';
 import Button from './u-button.vue';
 import Calendar from './u-calendar.vue';
-import CalendarDay from './u-calendar-day.vue';
-import CalendarMonth from './u-calendar-month.vue';
-import CalendarYear from './u-calendar-year.vue';
 import Capsule from './u-capsule.vue';
 import CapsuleGroup from './u-capsule-group.vue';
 import Capsules from './u-capsules.vue';
@@ -25,8 +22,7 @@ import ComboSlider from './u-combo-slider.vue';
 import DatePicker from './u-date-picker.vue';
 import DateRangePicker from './u-date-range-picker.vue';
 import DateTimePicker from './u-date-time-picker.vue';
-import DateTimePicker1 from './u-datetime-picker.vue';
-import DateTimeRangePicker from './u-datetime-range-picker.vue';
+import DateTimeRangePicker from './u-date-time-range-picker.vue';
 import Form from './u-form.vue';
 import FormItem from './u-form-item.vue';
 import Icon from './u-icon.vue';
@@ -91,9 +87,6 @@ export {
     Block,
     Button,
     Calendar,
-    CalendarDay,
-    CalendarMonth,
-    CalendarYear,
     Capsule,
     CapsuleGroup,
     Capsules,
@@ -106,7 +99,6 @@ export {
     DatePicker,
     DateRangePicker,
     DateTimePicker,
-    DateTimePicker1,
     DateTimeRangePicker,
     Form,
     FormItem,

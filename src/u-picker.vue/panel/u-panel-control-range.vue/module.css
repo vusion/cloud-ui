@@ -1,12 +1,12 @@
 .root{
     display: inline-block;
-    vertical-align: top;
+	vertical-align: top;
+	background-color: #fff;
 }
 .operation {
 	border-top: 1px solid #ebeef5;
 	line-height: 2.6;
 	text-align: left;
-	background-color: #fff;
 	padding: 0 10px;
 }
 .closebutton {

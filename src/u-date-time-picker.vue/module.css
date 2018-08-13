@@ -1,9 +1,2 @@
-@import '../u-date-picker.vue/module.css';
+@import '../u-picker.vue/module.css';
 
-.uinput {
-	width: 200px;
-}
-.timepicker {
-	width: 340px;
-	background-color: #fff;
-}

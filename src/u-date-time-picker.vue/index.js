@@ -1,126 +1,124 @@
-import DatePicker from '../u-date-picker.vue';
-
-import { dateValidadtor } from '../u-calendar.vue/date';
-import parse from 'date-fns/parse';
 import format from 'date-fns/format';
-window.parse = parse;
-const getDateStr = (date) => format(parse(date), 'YYYY-MM-DD');
-const getTimeStr = (date) => format(parse(date), 'HH:mm:ss'); // u-time-picker只支持:分割
-/**
- * @class DateTimePicker
- * @extend Dropdown
- * @param {object}                  options                     =  绑定属性
- * @param {object=null}             options.date               <=> 当前选择的日期时间
- * @param {string='请输入'}         options.placeholder         => 文本框的占位文字
- * @param {Date|string=null}        options.minDate             => 最小日期时间，如果为空则不限制
- * @param {Date|string=null}        options.maxDate             => 最大日期时间，如果为空则不限制
- * @param {boolean=false}           options.autofocus           => 是否自动获得焦点
- * @param {boolean=false}           options.readonly            => 是否只读
- * @param {boolean=false}           options.disabled            => 是否禁用
- * @param {width|string|number}     options.width               => 输入框长度
- */
+
+import Picker from '../u-picker.vue';
+import pickerInput from '../u-picker.vue/input/u-picker-input.vue';
+import pickPanel from '../u-picker.vue/panel/u-panel-control.vue';
+
+import { inDateTimeRange, dateValidadtor, _isDate, validateDateRange } from '../u-picker.vue/panel/date';
+import { isEqual, isDate, parse } from 'date-fns';
+
 export default {
     name: 'u-date-time-picker',
-    mixins: [DatePicker],
-    props: {
-        value: { type: [String, Date, Number], default: undefined, validator: dateValidadtor },
-        placeholder: { type: String, default: '请选择时间' },
-        formatter: { type: String, default: 'YYYY-MM-DD HH:mm:ss' },
+    extends: Picker,
+    components: {
+        'u-custom-picker-input': pickerInput,
+        'u-custom-panel': pickPanel,
     },
-    data() {
-        return {
-            currentDate: undefined, // str
-            currentTime: undefined, // str
-            currentShowDate: undefined, // str
-            isDateTimePicker: true,
-            minTime: null,
-            maxTime: null,
-        };
+    props: {
+        placeholder: { type: String, default: 'yyyy-mm-dd hh:mm:ss' },
+        type: { type: String, default: 'datetime' },
+        formatter: { type: String, default: 'YYYY-MM-DD HH:mm:ss', validator: (value) => dateValidadtor(format(new Date(), value)) },
     },
     watch: {
-        value(value) {
-            this.initDateTime(value);
+        value(value, oldValue) {
+            this.currentValue = value;
         },
-        currentTime(value) {
-            if (!value)
-                return;
-            if (!this.currentDate)
-                return;
-            this.currentShowDate = this.formatterFun(parse(this.currentDate + ' ' + value));
+        currentValue: {
+            immediate: true,
+            handler(value, oldValue) {
+                if (!isDate(value)) {
+                    this.initCurrentValue(value);
+                    return;
+                }
+                const formatedValue = format(value, this.currentFormatter);
+                this.$emit('update:value', formatedValue);
+                this.inputValue = formatedValue;
+
+                if (this.oldCurrentValue && isEqual(this.oldCurrentValue, value))
+                    return;
+                this.$emit('change', {
+                    value: formatedValue,
+                    oldValue: this.oldCurrentValue ? format(this.oldCurrentValue, this.currentFormatter) : undefined,
+                });
+                this.oldCurrentValue = value;
+            },
         },
-        currentDate(value) {
-            if (!value)
-                return;
-            if (!this.currentTime)
-                this.currentTime = '00:00:00';
-            const temp = parse(value + ' ' + this.currentTime);
-            this.currentShowDate = this.formatterFun(temp);
-            this.initRange();
+        inputValue(value, oldValue) {
+            this.$nextTick(() => this.currentValue = value); // 先更改input的value，再更正value
         },
-        currentShowDate(value, oldValue) {
-            this.hasValue = !!value;
-            this.initDateTime(value);
-            this.$emit('change', { value, oldValue });
-            this.$emit('update:value', value);
-            this.$emit('input', value);
-        },
-    },
-    created() {
-        this.formatterFun = (date) => format(date, this.formatter);
-        this.initDateTime(this.value);
-        this.initRange();
     },
     methods: {
-        initDateTime(value) {
-            if (!value) {
-                this.currentDate = undefined;
-                this.currentTime = undefined;
-                this.currentShowDate = undefined;
-                return;
-            }
-            this.currentDate = getDateStr(value);
-            this.currentTime = getTimeStr(value);
-            this.currentShowDate = this.formatterFun(value);
+        validateRange: validateDateRange,
+        validateData() {
+            const tempDateRange = (this.dateRange || []).concat([]);
+            this.validateRange && this.validateRange(tempDateRange, this.minDate, this.maxDate);
+            // dateRange转为Date格式
+            const dateRange = [];
+            tempDateRange.forEach((range) => {
+                dateRange.push([this.generateDate(range[0]), this.generateDate(range[1])]);
+            });
+            this.currentDateRange = dateRange;
+            if (!inDateTimeRange(this.currentValue, this.currentDateRange, 'second'))
+                throw new RangeError('initital date is out of dateRange');
         },
-        initRange() { // 根据当前值设置minTime和maxTime
-            // 没选择日期，时间无限制
-            if (!this.currentDate) {
-                this.minTime = this.maxTime = undefined;
-                return;
+        initFormatter() {
+            ['hour', 'minute', 'second', 'year', 'month', 'day'].forEach((attr) => {
+                this.blockPanel[attr] = false;
+            });
+            if (!this.currentFormatter.includes('H')) {
+                this.panelView = 'customTime';
+                this.blockPanel.hour = true;
             }
-            let set = false;
-            // 时间下限改为minDate的时分秒
-            if (this.currentDate === getDateStr(this.minDate)) {
-                this.minTime = getTimeStr(this.minDate);
-                set = true;
+            if (!this.currentFormatter.includes('m')) {
+                this.panelView = 'customTime';
+                this.blockPanel.minute = true;
             }
-            // 时间上限改为maxDate的时分秒
-            if (this.currentDate === getDateStr(this.maxDate)) {
-                this.maxTime = getTimeStr(this.maxDate);
-                set = true;
+            if (!this.currentFormatter.includes('s')) {
+                this.panelView = 'customTime';
+                this.blockPanel.second = true;
             }
-            if (!set)
-                this.minTime = this.maxTime = undefined;
+            if (!this.currentFormatter.includes('Y')) {
+                this.panelView = 'customYear';
+                this.blockPanel.year = true;
+            }
+            if (!this.currentFormatter.includes('M')) {
+                this.panelView = 'customMonth';
+                this.blockPanel.month = true;
+            }
+            if (!this.currentFormatter.includes('D')) {
+                this.panelView = 'customDay';
+                this.blockPanel.day = true;
+            }
         },
-        /**
-         * 覆盖u-date-picker
-         * 1. format u-input输入值
-         * 2. 根据输入值重置u-calendar和u-time-picker
-         * @param {*} value
-         */
-        setValue(value) {
-            if (!value)
-                return;
-            const dateStr = value;
-            // 超出范围， u-input format为上一个值
-            if (this.$refs.calendar && !this.$refs.calendar.inCalendarDateRange(parse(dateStr)))
-                this.$refs.input.currentValue = this.currentShowDate ? format(parse(this.currentShowDate), this.formatter) : undefined;
+        // 根据formatter设置currentValue
+        initCurrentValue(value) {
+            this.currentValue = this.generateDate(value);
+        },
+        generateDate(date) {
+            if (!date)
+                return undefined;
+            if (_isDate(date))
+                return date;
 
-            this.currentShowDate = this.formatterFun(parse(value));
-            this.$refs.input.currentValue = this.currentShowDate;
+            return parse(date); // parse('2018-08-08 15:46:33') parse('2018-08-08 15:46') parse('2018-08-08 15') 都能解析正确
         },
-        onEmptyClick() {
-            this.currentShowDate = undefined;
+        onPanelDateSelect(event) {
+            if (this.disabled || this.readonly)
+                return;
+            let cancel = false;
+            this.$emit('before-select', {
+                preventDefault: () => cancel = true,
+            });
+
+            if (cancel)
+                return;
+
+            this.$emit('select', {
+                value: format(event.value, this.currentFormatter),
+                oldValue: format(this.currentValue, this.currentFormatter),
+            });
+            this.currentValue = event.value;
+            this.closePanel();
         },
     },
 };

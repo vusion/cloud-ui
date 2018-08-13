@@ -8,27 +8,27 @@
 ### 基本
 ``` html
 <u-linear-layout>
-    <u-datetime-range-picker></u-datetime-range-picker>
-    <u-datetime-range-picker startValue="2018-01-01" endValue="2018-08-08"></u-datetime-range-picker>
+    <u-date-time-range-picker></u-date-time-range-picker>
+    <u-date-time-range-picker startValue="2018-01-01" endValue="2018-08-08"></u-date-time-range-picker>
 </u-linear-layout>
 ```
 ### 日期范围
 ``` html
-<u-datetime-range-picker startValue="2018-01-01 20:20:20" endValue="2018-01-02 20:20:20" maxDate="2018-01-09 10:10:10" minDate="2018-01-01 20:20:20"></u-datetime-range-picker>
+<u-date-time-range-picker startValue="2018-01-01 20:20:20" endValue="2018-01-02 20:20:20" maxDate="2018-01-09 10:10:10" minDate="2018-01-01 20:20:20"></u-date-time-range-picker>
 ```
 
 ### 禁用和只读
 ``` html
 <u-linear-layout>
-    <u-datetime-range-picker disabled startValue="2018-01-01" endValue="2018-02-02"></u-datetime-range-picker>
-    <u-datetime-range-picker readonly startValue="2018-01-01" endValue="2018-02-02"></u-datetime-range-picker>
+    <u-date-time-range-picker disabled startValue="2018-01-01" endValue="2018-02-02"></u-date-time-range-picker>
+    <u-date-time-range-picker readonly startValue="2018-01-01" endValue="2018-02-02"></u-date-time-range-picker>
 </u-linear-layout>
 ```
 
 ### 事件
 ``` vue
 <template>
-    <u-datetime-range-picker :startValue.sync="startValue" :endValue.sync="endValue" @change="onChange" @before-select="onBeforeSelect" @select="onSelect" @startInput="onStartInput" @endInput="onEndInput" @selectPanelDate="onSelectPanelDate"></u-datetime-range-picker>
+    <u-date-time-range-picker :startValue.sync="startValue" :endValue.sync="endValue" @change="onChange" @before-select="onBeforeSelect" @select="onSelect" @startInput="onStartInput" @endInput="onEndInput" @selectPanelDate="onSelectPanelDate"></u-date-time-range-picker>
 </template>
 <script>
 export default {

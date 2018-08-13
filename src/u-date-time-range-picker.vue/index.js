@@ -3,7 +3,7 @@ import pickerInput from '../u-picker.vue/input/u-picker-input-range.vue';
 import pickPanel from '../u-picker.vue/panel/u-panel-control-range.vue';
 
 export default {
-    name: 'u-datetime-range-picker',
+    name: 'u-date-time-range-picker',
     extends: Picker,
     components: {
         'u-custom-picker-input': pickerInput,
