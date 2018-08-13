@@ -1,7 +1,5 @@
-import isEqual from 'date-fns/is_equal';
 import format from 'date-fns/format';
 import parse from 'date-fns/parse';
-import isDate from 'date-fns/is_date';
 
 import Picker from '../u-picker.vue';
 import pickerInput from '../u-picker.vue/input/u-picker-input.vue';
@@ -35,71 +33,6 @@ export default {
         },
     },
     watch: {
-        value(value, oldValue) {
-            if (isEqual(value, oldValue))
-                return;
-            this.currentValue = value;
-        },
-        currentValue: {
-            immediate: true,
-            handler(value, oldValue) {
-                if (!isDate(value)) {
-                    this.initCurrentValue(value);
-                    return;
-                }
-                const formatedValue = value ? format(value, this.currentFormatter) : undefined;
-                this.$emit('update:value', formatedValue);
-                this.inputValue = formatedValue;
-
-                if (this.oldCurrentValue && isEqual(this.oldCurrentValue, value))
-                    return;
-
-                this.$emit('change', {
-                    value: formatedValue,
-                    oldValue: this.oldCurrentValue ? format(this.oldCurrentValue, this.currentFormatter) : undefined,
-                });
-                this.oldCurrentValue = value;
-            },
-        },
-        inputValue(value, oldValue) {
-            if (isEqual(value, oldValue))
-                return;
-            this.$nextTick(() => this.currentValue = value); // 先更改input的value，再更正value
-        },
-        // value(value, oldValue) {
-        //     if (!this.inDateRange(value, this.currentDateRange))
-        //         throw new RangeError('initital date is out of dateRange');
-        //     if (isEqual(value, oldValue))
-        //         return;
-
-        //     this.inputValue = format(value, this.currentFormatter);
-        //     this.currentValue = value;
-        // },
-        // inputValue(value, oldValue) { // input框值emit更新
-        //     if (value === this.changedInputValue)
-        //         return;
-        //     if (value !== undefined) {
-        //         if (this.inDateRange(value, this.currentDateRange)) {
-        //             this.inputValue = format(value, this.currentFormatter);
-        //         } else {
-        //             this.inputValue = oldValue;
-        //         }
-        //         this.changedInputValue = this.inputValue; // 防止循环赋值
-        //     }
-        //     this.currentValue = this.inputValue;
-        //     this.$refs.input.forceUpdateValue();
-        // },
-        // currentValue(value, oldValue) {
-        //     this.$emit('update:value', this.formatValue(value));
-        //     this.inputValue = value ? format(value, this.currentFormatter) : value;
-        //     if (isEqual(value, oldValue))
-        //         return;
-        //     this.$emit('change', {
-        //         value: this.setDateTime(parse(value)),
-        //         oldValue: this.setDateTime(parse(oldValue)),
-        //         formattedValue: this.inputValue,
-        //     });
-        // },
         type(value) {
             this.initFormatter();
             this.initPanelControl();

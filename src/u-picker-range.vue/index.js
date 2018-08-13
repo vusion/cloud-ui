@@ -106,6 +106,10 @@ export default {
             this.initFormatter();
             this.initPanelControl();
         },
+        listeners() {
+            delete this.$listeners['update:value'];
+            return this.$listeners;
+        },
     },
     created() {
         this.validateData();

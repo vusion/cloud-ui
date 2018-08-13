@@ -22,7 +22,8 @@ export default {
                 this.debouncedInput(value);
             this.$emit('input', value);
         },
-        value(value) {
+        value(value, oldValue) {
+            debugger;
             this.currentValue = value;
         },
     },

@@ -1,7 +1,7 @@
 <u-popper v-if="!disabled && !readonly" ref="popper" :placement="placement" @toggle="onToggle">
     <u-custom-picker-input
         v-bind="allProps"
-        v-on="$listeners"
+        v-on="listeners"
         ref="input"
         :startValue.sync="inputValueStart"
         :endValue.sync="inputValueEnd">
@@ -9,7 +9,7 @@
     <div slot="popper" @click.stop :class="$style.panel">
         <u-custom-panel
             v-bind="allProps"
-            v-on="$listeners"
+            v-on="listeners"
             :startValue="currentValueStart"
             :endValue="currentValueEnd"
             :dateRange="currentDateRange"

@@ -10,7 +10,6 @@ import pickerInput from '../u-picker.vue/input/u-picker-input.vue';
 import pickPanel from '../u-picker.vue/panel/u-panel-control.vue';
 
 import { setTime, inDateRange, validateTimeRange, dateValidadtor, getTimeArr, _isDate } from '../u-picker.vue/panel/date';
-import { isEqual, isDate } from 'date-fns';
 
 export default {
     name: 'u-time-picker',
@@ -23,34 +22,6 @@ export default {
         placeholder: { type: String, default: '请选择时间' },
         type: { type: String, default: 'time', validator: (value) => ['time'].includes(value) },
         formatter: { type: String, default: 'HH:mm:ss', validator: (value) => dateValidadtor(format(new Date(), 'YYYY-MM-DD') + ' ' + format(new Date(), value)) },
-    },
-    watch: {
-        value(value, oldValue) {
-            this.currentValue = value;
-        },
-        currentValue: {
-            immediate: true,
-            handler(value, oldValue) {
-                if (!isDate(value)) {
-                    this.initCurrentValue(value);
-                    return;
-                }
-                const formatedValue = format(value, this.currentFormatter);
-                this.$emit('update:value', formatedValue);
-                this.inputValue = formatedValue;
-
-                if (this.oldCurrentValue && isEqual(this.oldCurrentValue, value))
-                    return;
-                this.$emit('change', {
-                    value: formatedValue,
-                    oldValue: this.oldCurrentValue ? format(this.oldCurrentValue, this.currentFormatter) : undefined,
-                });
-                this.oldCurrentValue = value;
-            },
-        },
-        inputValue(value, oldValue) {
-            this.$nextTick(() => this.currentValue = value); // 先更改input的value，再更正value
-        },
     },
     methods: {
         inDateRange,
@@ -116,6 +87,15 @@ export default {
             });
             this.currentValue = event.value;
             this.closePanel();
+        },
+        emitChange(value, formatedValue) {
+            if (formatedValue === this.oldCurrentValue)
+                return;
+            this.$emit('change', {
+                value: formatedValue,
+                oldValue: this.oldCurrentValue,
+            });
+            this.oldCurrentValue = formatedValue;
         },
     },
 };

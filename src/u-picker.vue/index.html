@@ -1,7 +1,7 @@
 <u-popper v-if="!disabled && !readonly" ref="popper" :placement="placement" @toggle="onToggle">
     <u-custom-picker-input
         v-bind="allProps"
-        v-on="$listeners"
+        v-on="listeners"
         ref="input"
         :value.sync="inputValue">
     </u-custom-picker-input>

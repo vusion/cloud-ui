@@ -13,13 +13,13 @@ const timeDefaultSeperator = ':';
  */
 const _isDate = (date) => date && parse(date).toString() !== 'Invalid Date' && isDate(date);
 
-// 获取合法的Date类型，合法返回Date，不合法返回undefined
+// 获取合法的Date类型，为空返回undefined, 合法返回Date，不合法返回'invalid'
 const getValidDate = (value) => {
     if (!value)
         return undefined;
     const tempDate = parse(value);
     if (!_isDate(tempDate))
-        return undefined;
+        return 'invalid';
     return tempDate;
 };
 

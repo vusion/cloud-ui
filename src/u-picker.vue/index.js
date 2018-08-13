@@ -21,6 +21,10 @@
  * picker抛出toggle。before-select, select（由用户点击触发）. change(currentValue值变化触发)
  */
 import format from 'date-fns/format';
+import isEqual from 'date-fns/is_equal';
+import isDate from 'date-fns/is_date';
+import parse from 'date-fns/parse';
+import { _isDate } from './panel/date';
 
 export default {
     name: 'u-picker',
@@ -52,9 +56,45 @@ export default {
             changedInputValue: null,
         };
     },
+    watch: {
+        value(value, oldValue) {
+            if (isEqual(value, oldValue))
+                return;
+            this.currentValue = value;
+        },
+        currentValue: {
+            immediate: true,
+            handler(value, oldValue) {
+                if (value === 'invalid') {
+                    this.currentValue = this.oldCurrentValue || undefined;
+                    this.oldCurrentValue = value;
+                    return;
+                }
+                if (value && !isDate(value)) {
+                    this.initCurrentValue(value);
+                    return;
+                }
+                const tempFormatValue = format(value, this.currentFormatter);
+                const formatedValue = value ? tempFormatValue : undefined;
+                this.$emit('update:value', value ? this.formatValue(value) : undefined);// 返回与value相同的日期格式
+
+                this.inputValue = formatedValue;
+                if (isEqual(value, this.oldCurrentValue))
+                    return;
+                this.emitChange && this.emitChange(value, formatedValue);
+            },
+        },
+        inputValue(value, oldValue) {
+            this.$nextTick(() => this.currentValue = value); // 先更改input的value，再更正value
+        },
+    },
     computed: {
         allProps() {
             return Object.assign({}, this.$props, this.$data);// 也是响应式的
+        },
+        listeners() {
+            delete this.$listeners['update:value'];
+            return this.$listeners;
         },
     },
     created() {
@@ -88,5 +128,14 @@ export default {
         },
         /* eslint no-empty-function: 0*/
         onPanelDateSelect() {},
+        emitChange(value, formatedValue) {
+            const valueDate = value ? parse(value) : undefined;
+            this.$emit('change', {
+                value: valueDate,
+                oldValue: this.oldCurrentValue,
+                formatedValue,
+            });
+            this.oldCurrentValue = valueDate;
+        },
     },
 };
