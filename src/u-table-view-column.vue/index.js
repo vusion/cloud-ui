@@ -76,6 +76,6 @@ export default {
         },
     },
     destroyed() {
-        this.$parent.remove(this);
+        this.dispatch(this.$options.parentName, 'remove-item-vm', this);
     },
 };

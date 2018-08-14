@@ -102,6 +102,7 @@ export default [
             { path: 'u-tablets', component: () => import('../src/u-tablets.vue/README.md') },
             { path: 'u-countup', component: () => import('../src/u-countup.vue/README.md') },
             { path: 'u-transfer', component: () => import('proto-ui.vusion/src/u-transfer.vue/README.md') },
+            { path: 'u-tag', component: () => import('../src/u-tag.vue/README.md') },
             /* DateTime */
             { path: 'u-calendar', component: () => import('../src/u-calendar.vue/README.md') },
             { path: 'u-time-picker', component: () => import('../src/u-time-picker.vue/README.md') },

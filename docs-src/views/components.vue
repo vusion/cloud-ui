@@ -63,6 +63,7 @@
                     <u-sidebar-item exact to="/components/u-tablets">药片 <small>Tablets</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-countup">数字渐变 <small>CountUp</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-transfer">穿梭框 <small>Transfer</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-tag">选择扩展 <small>Tag</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="DateTime">
                     <u-sidebar-item exact to="/components/u-calendar">日历 <small>Calendar</small></u-sidebar-item>

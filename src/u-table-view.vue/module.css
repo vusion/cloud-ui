@@ -168,6 +168,8 @@
     box-sizing: border-box;
     white-space: normal;
     word-break: break-all;
+    /* 解决在火狐浏览器下英文换行显示问题 */
+    word-wrap: break-word;
     line-height: 24px;
 }
 

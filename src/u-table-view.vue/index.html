@@ -31,8 +31,8 @@
                         </template>
                         <template v-if="column.sortable">
                             <span :class="$style.wrapicon">
-                                <u-icon :class="$style.icon" name="arrow-up" v-if="defaultSort.order === 'asc' && defaultSort.title === column.title" :role="defaultSort.title === column.title"></u-icon>
-                                <u-icon :class="$style.icon" name="arrow-down" v-else :role="defaultSort.title === column.title"></u-icon>
+                                <u-icon :class="$style.icon" name="arrow-up" v-if="currentSort.order === 'asc' && currentSort.title === column.title" :role="currentSort.title === column.title"></u-icon>
+                                <u-icon :class="$style.icon" name="arrow-down" v-else :role="currentSort.title === column.title"></u-icon>
                             </span>
                         </template>
                     </th>
@@ -150,9 +150,9 @@
                             </template>
                             <template v-if="column.sortable">
                                 <span :class="$style.wrapicon">
-                                    <u-icon :class="$style.icon" name="arrow-up" v-if="defaultSort.order === 'asc' && defaultSort.title === column.title" :role="defaultSort.title === column.title"
+                                    <u-icon :class="$style.icon" name="arrow-up" v-if="currentSort.order === 'asc' && currentSort.title === column.title" :role="currentSort.title === column.title"
                                         @click.native="handleSort('asc', column)"></u-icon>
-                                    <u-icon :class="$style.icon" name="arrow-down" v-else :role="defaultSort.title === column.title" @click.native="handleSort('desc', column)"></u-icon>
+                                    <u-icon :class="$style.icon" name="arrow-down" v-else :role="currentSort.title === column.title" @click.native="handleSort('desc', column)"></u-icon>
                                 </span>
                             </template>
                         </th>
@@ -277,9 +277,9 @@
                                 </template>
                                 <template v-if="column.sortable">
                                     <span :class="$style.wrapicon">
-                                        <u-icon :class="$style.icon" name="arrow-up" v-if="defaultSort.order === 'asc' && defaultSort.title === column.title" :role="defaultSort.title === column.title"
+                                        <u-icon :class="$style.icon" name="arrow-up" v-if="currentSort.order === 'asc' && currentSort.title === column.title" :role="currentSort.title === column.title"
                                             @click.native="handleSort('asc', column)"></u-icon>
-                                        <u-icon :class="$style.icon" name="arrow-down" v-else :role="defaultSort.title === column.title" @click.native="handleSort('desc', column)"></u-icon>
+                                        <u-icon :class="$style.icon" name="arrow-down" v-else :role="currentSort.title === column.title" @click.native="handleSort('desc', column)"></u-icon>
                                     </span>
                                 </template>
                             </th>
@@ -369,9 +369,9 @@
                                 </template>
                                 <template v-if="column.sortable">
                                     <span :class="$style.wrapicon">
-                                        <u-icon :class="$style.icon" name="arrow-up" v-if="defaultSort.order === 'asc' && defaultSort.title === column.title" :role="defaultSort.title === column.title"
+                                        <u-icon :class="$style.icon" name="arrow-up" v-if="currentSort.order === 'asc' && currentSort.title === column.title" :role="currentSort.title === column.title"
                                             @click.native="handleSort('asc', column)"></u-icon>
-                                        <u-icon :class="$style.icon" name="arrow-down" v-else :role="defaultSort.title === column.title" @click.native="handleSort('desc', column)"></u-icon>
+                                        <u-icon :class="$style.icon" name="arrow-down" v-else :role="currentSort.title === column.title" @click.native="handleSort('desc', column)"></u-icon>
                                     </span>
                                 </template>
                             </th>
