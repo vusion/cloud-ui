@@ -145,6 +145,8 @@ export default {
 </script>
 ```
 
+#### 声明式
+
 ### 大小扩展
 
 ``` vue
@@ -191,7 +193,7 @@ export default {
 
 ### Methods
 
-#### show
+#### show()
 
 显示 toast 信息
 
