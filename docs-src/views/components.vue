@@ -1,7 +1,8 @@
 <template>
     <div :class="$style.root">
         <div :class="$style.side">
-            <u-sidebar size="small" style="padding: 20px 0;">
+            <u-sidebar size="small" style="padding: 20px 0;
+">
                 <u-sidebar-item><u-checkbox v-model="advanced" @check="onCheck">显示所有组件</u-checkbox></u-sidebar-item>
                 <u-sidebar-group title="Basic">
                     <u-sidebar-item exact to="/components/u-base">基础 <small>Base</small></u-sidebar-item>
@@ -79,7 +80,7 @@
                 <u-sidebar-group title="Feedback">
                     <u-sidebar-item exact to="/components/u-loading">加载中 <small>Loading</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-spinner">加载图标 <small>Spinner</small></u-sidebar-item>
-                    <u-sidebar-item exact to="/components/u-toast">吐司 <small>Toast</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-toast">吐司提示 <small>Toast</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-modal">弹窗 <small>Modal</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-lightbox">灯箱 <small>Lightbox</small></u-sidebar-item>
                 </u-sidebar-group>
