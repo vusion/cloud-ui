@@ -145,7 +145,35 @@ export default {
 </script>
 ```
 
+<<<<<<< HEAD
 #### 声明式
+=======
+#### 方法
+
+可以通过调用 `Toast` 的 `info`，`success`，`warning`，`error`的方法直接显示相应的样式。
+
+``` vue
+<template>
+    <u-linear-layout>
+        <u-button @click.native="show('info')">info 样式</u-button>
+        <u-button @click.native="show('success')">success 样式</u-button>
+        <u-button @click.native="show('warning')">warnning 样式</u-button>
+        <u-button @click.native="show('error')">error 样式</u-button>
+    </u-linear-layout>
+</template>
+
+<script>
+export default {
+    methods: {
+        show(state) {
+            this.$toast.position = 'top-center';
+            this.$toast[state]('state: ' + state);
+        },
+    },
+}
+</script>
+```
+>>>>>>> :memo: update <u-toast> README.md
 
 ### 大小扩展
 
@@ -172,13 +200,14 @@ export default {
         show(size) {
             this.size = size;
             this.$refs.toastSize.show('hello');
+
         },
     },
 }
 </script>
 ```
 
-## API
+## Toast API
 ### Attrs/Props
 
 | Attr/Prop | Type | Default | Description |
@@ -191,12 +220,63 @@ export default {
 | closeable | Boolean | `false` | 是否可关闭提示，默认不可关闭 |
 | size | String | `''` | 改变默认宽度大小，值有`'small'`, `'normal'`,`'large'`,`'huge'`,`'auto'` |
 
+### Events
+
+#### @close
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.sender | ToastVM | Toast的实例 |
+| $event.item | Object{ duration, message } | `duration`为提示停留的时间，`message`为提示的消息 |
+
 ### Methods
 
+<<<<<<< HEAD
 #### show()
+=======
+#### show(message, duration, state)
+>>>>>>> :memo: update <u-toast> README.md
 
 显示 toast 信息
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | message | String | 提示内容 |
+| duration | Number | 提示停留的时间。 |
+| state | String | toast样式 |
+
+#### success(message, duration)
+
+Toast 的成功样式
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| message | String | 提示内容 |
+| duration | Number | 提示停留的时间。 |
+
+#### warning(message, duration)
+
+Toast 的警告样式
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| message | String | 提示内容 |
+| duration | Number | 提示停留的时间。 |
+
+##### info(message, duration)
+
+Toast 的提示样式
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| message | String | 提示内容 |
+| duration | Number | 提示停留的时间。 |
+
+#### error(message, duration)
+
+Toast 的错误样式
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| message | String | 提示内容 |
+| duration | Number | 提示停留的时间。 |
