@@ -145,9 +145,6 @@ export default {
 </script>
 ```
 
-<<<<<<< HEAD
-#### 声明式
-=======
 #### 方法
 
 可以通过调用 `Toast` 的 `info`，`success`，`warning`，`error`的方法直接显示相应的样式。
@@ -173,7 +170,6 @@ export default {
 }
 </script>
 ```
->>>>>>> :memo: update <u-toast> README.md
 
 ### 大小扩展
 
@@ -231,11 +227,7 @@ export default {
 
 ### Methods
 
-<<<<<<< HEAD
-#### show()
-=======
 #### show(message, duration, state)
->>>>>>> :memo: update <u-toast> README.md
 
 显示 toast 信息
 
