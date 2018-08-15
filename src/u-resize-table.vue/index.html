@@ -42,7 +42,7 @@
                             </template>
                         </div>
                         <template v-if="column.move && index !== (itemColumns.length -1)">
-                            <div :class="$style.carve" @mousedown="onMouseDown($event, index)"></div>
+                            <div :class="$style.carve" ref="carve" @mousedown="onMouseDown($event, index)"></div>
                         </template>
                     </th>
                 </tr>
