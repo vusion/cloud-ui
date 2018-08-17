@@ -157,7 +157,9 @@ export default {
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event | String | 原生事件对象 |
+
 #### @reset
+
 点击删除icon时触发
 
 | Param | Type | Description |
@@ -179,6 +181,8 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-|  |  |  |
+| |  |  |
 
+#### removeValue()
 
+删除输入值

@@ -1,7 +1,7 @@
-# Pills
+# 药丸 Pills
 
-## Examples
-### Basic
+## 示例
+### 基本形式
 
 ``` html
 <u-pills>
@@ -11,7 +11,7 @@
 </u-pills>
 ```
 
-### Value
+### 选择值
 
 ``` html
 <u-pills value="C">
@@ -21,31 +21,31 @@
 </u-pills>
 ```
 
-### Readonly & Disabled
+### 只读、禁用、禁用某一项
 
 ``` html
+<u-linear-layout>
 <u-pills value="C" readonly>
     <u-pill value="A">Apple</u-pill>
     <u-pill value="B">Banana</u-pill>
     <u-pill value="C">Cake</u-pill>
 </u-pills>
-<p></p>
 <u-pills value="C" disabled>
     <u-pill value="A">Apple</u-pill>
     <u-pill value="B">Banana</u-pill>
     <u-pill value="C">Cake</u-pill>
 </u-pills>
-<p></p>
 <u-pills value="C">
     <u-pill value="A">Apple</u-pill>
     <u-pill value="B" disabled>Banana</u-pill>
     <u-pill value="C">Cake</u-pill>
 </u-pills>
+</u-linear-layout>
 ```
 
-### Cancelable
+### 可切换状态
 
-Try to click twice on an item.
+点击两次同一项，可切换选择状态
 
 ``` html
 <u-pills value="C" cancelable>
@@ -122,7 +122,7 @@ Try to click twice on an item.
 
 #### (default)
 
-插入文本或HTML。
+插入文本或`HTML`。
 
 ### Events
 

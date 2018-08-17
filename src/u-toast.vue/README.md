@@ -1,10 +1,14 @@
-# 消息提示 Toast
+# 吐司提示 Toast
 
 ## 示例
 ### 基本形式
 
-#### 命令式
-推荐使用下面的方式，使用$toast方式实现toast提示，标签形式用在有路由跳转时会有问题
+``` html
+<u-button @click="$refs.toastBasic.show()">toast</u-button>
+<u-toast ref="toastBasic" message="Hello World!"></u-toast>
+```
+
+推荐使用下面的方式，使用`$toast`方式实现`toast`提示，标签形式用在有路由跳转时会有问题
 
 ``` vue
 <template>
@@ -24,67 +28,247 @@ export default {
 </script>
 ```
 
-#### 位置是static形式
+### 位置扩展
+
+``` vue
+<template>
+    <u-linear-layout>
+        <u-button size="small" @click.native="show('top-center')">Top Center</u-button>
+        <u-button size="small" @click.native="show('top-left')">Top Left</u-button>
+        <u-button size="small" @click.native="show('top-right')">Top Right</u-button>
+        <u-button size="small" @click.native="show('bottom-center')">Bottom Center</u-button>
+        <u-button size="small" @click.native="show('bottom-left')">Bottom Left</u-button>
+        <u-button size="small" @click.native="show('bottom-right')">Bottom Right</u-button>
+    </u-linear-layout>
+</template>
+
+<script>
+export default {
+    methods: {
+        show(position) {
+            this.$toast.position = position;
+            this.$toast.show('position: ' + position);
+        },
+    },
+}
+</script>
+```
+### 嵌入文档流
+
+上面的 `Toast` 都是以fixed的形式固定在浏览器中，也可以将`Toast`嵌入文档流。只需使用`u-toast`标签，并设置`position="static"`即可。
 
 ``` html
-<u-button @click.native="$refs.toast.show()">toast</u-button>
-<u-toast ref="toast" message="消息提示" position="static"></u-toast>
+<u-button @click.native="$refs.toast.show()">Static</u-button>
+<u-toast ref="toast" position="static" message="Static Toast"></u-toast>
 ```
 
-#### info样式
+### 可关闭
 
 ``` html
-<u-button @click.native="$refs.toastInfo.show()">toast</u-button>
-<u-toast ref="toastInfo" message="消息提示" state="info"></u-toast>
+<u-button @click.native="$refs.toastClose.show()">可关闭的 Toast</u-button>
+<u-toast ref="toastClose" position="static" message="Static Toast" closeable></u-toast>
 ```
 
-#### success样式
+### 提示停留时间
 
-``` html
-<u-button @click.native="$refs.toastSucc.show()">toast</u-button>
-<u-toast ref="toastSucc" message="消息提示" state="success"></u-toast>
+``` vue
+<template>
+    <u-linear-layout>
+        <u-button @click="show(500)">0.5s</u-button>
+        <u-button @click="show(1000)">1s</u-button>
+        <u-button @click="show(2000)">2s</u-button>
+        <u-button @click="show(0)">常驻</u-button>
+    </u-linear-layout>
+</template>
+
+<script>
+export default {
+    methods: {
+        show(duration) {
+            this.$toast.position = 'top-center';
+            this.$toast.state = '';
+            this.$toast.show('duration: ' + duration, duration);
+        },
+    },
+}
+</script>
+```
+### 始终显示一条
+
+将`single`设置为`true`，可以让`toast`始终只显示一条提示。
+
+```vue
+<template>
+<u-button @click="show()">Single</u-button>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            number: 1,
+        };
+    },
+    methods: {
+        show() {
+            this.$toast.single = true;
+            this.$toast.show('number: ' + this.number);
+            this.number++;
+        },
+    }
+};
+</script>
 ```
 
-#### warning样式
+### 样式扩展
 
-``` html
-<u-button @click.native="$refs.toastWarn.show()">toast</u-button>
-<u-toast ref="toastWarn" message="推荐使用下面的方式，使用$toast方式实现toast提示，标签形式用在有路由跳转时会有问题" state="warnning"></u-toast>
+``` vue
+<template>
+    <u-linear-layout>
+        <u-button @click.native="show('info')">info 样式</u-button>
+        <u-button @click.native="show('success')">success 样式</u-button>
+        <u-button @click.native="show('warnning')">warnning 样式</u-button>
+        <u-button @click.native="show('error')">error 样式</u-button>
+    </u-linear-layout>
+</template>
+
+<script>
+export default {
+    methods: {
+        show(state) {
+            this.$toast.position = 'top-center';
+            this.$toast.state = state;
+            this.$toast.show('state: ' + state);
+        },
+    },
+}
+</script>
 ```
 
-#### error样式
+#### 方法
 
-``` html
-<u-button @click.native="$refs.toastError.show()">toast</u-button>
-<u-toast ref="toastError" message="消息提示" state="error"></u-toast>
+可以通过调用 `Toast` 的 `info`，`success`，`warning`，`error`的方法直接显示相应的样式。
+
+``` vue
+<template>
+    <u-linear-layout>
+        <u-button @click.native="show('info')">info 样式</u-button>
+        <u-button @click.native="show('success')">success 样式</u-button>
+        <u-button @click.native="show('warning')">warnning 样式</u-button>
+        <u-button @click.native="show('error')">error 样式</u-button>
+    </u-linear-layout>
+</template>
+
+<script>
+export default {
+    methods: {
+        show(state) {
+            this.$toast.position = 'top-center';
+            this.$toast[state]('state: ' + state);
+        },
+    },
+}
+</script>
 ```
 
-#### size改变宽度大小
+### 大小扩展
 
-``` html
-<u-button @click.native="$refs.toastSize.show()">toast</u-button>
-<u-toast ref="toastSize" message="消息提示" size="auto"></u-toast>
+``` vue
+<template>
+    <u-linear-layout>
+        <u-button @click.native="show('small')">small</u-button>
+        <u-button @click.native="show('normal')">normal</u-button>
+        <u-button @click.native="show('large')">large</u-button>
+        <u-button @click.native="show('huge')">huge</u-button>
+        <u-button @click.native="show('auto')">auto</u-button>
+        <u-toast ref="toastSize" position="top-center" :size="size"></u-toast>
+    </u-linear-layout>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            size: 'small',
+        }
+    },
+    methods: {
+        show(size) {
+            this.size = size;
+            this.$refs.toastSize.show('hello');
+
+        },
+    },
+}
+</script>
 ```
 
-## API
+## Toast API
 ### Attrs/Props
 
 | Attr/Prop | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
-| position | String | top-center | 显示的位置，可选的值有：top-center, top-left, top-right, bottom-center, bottom-left, bottom-right, static |
-| duration | Number | 2000 | 默认的显示位置 |
-| single | Boolean | false | 只显示一个toast提示，，需要手动设置，默认为false |
-| state | String | '' | 可选值有info，success, warnning, error和默认的五种样式toast |
-| message | String | '' | 提示内容 |
-| closeable | Boolean | false | 是否可关闭提示，默认不可关闭 |
-| size | String | `''` | 改变默认宽度大小，值有`'small'`, `'normal'`,`'large'`,`'huage'`,`'auto'` |
+| position | String | `top-center` | 显示的位置，可选的值有：`top-center`,`top-left`, `top-right`, `bottom-center`, `bottom-left`, `bottom-right`, `static` |
+| duration | Number | `2000 `| 提示停留的时间。`0`表示常驻。 |
+| single | Boolean | `false` | 多个提示会合并为一个 |
+| state | String | `''` | 可选值：`info`，`success`, `warnning`, `error`和默认的五种样式toast |
+| message | String | `''` | 提示内容 |
+| closeable | Boolean | `false` | 是否可关闭提示，默认不可关闭 |
+| size | String | `''` | 改变默认宽度大小，值有`'small'`, `'normal'`,`'large'`,`'huge'`,`'auto'` |
+
+### Events
+
+#### @close
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.sender | ToastVM | Toast的实例 |
+| $event.item | Object{ duration, message } | `duration`为提示停留的时间，`message`为提示的消息 |
 
 ### Methods
 
-#### show
+#### show(message, duration, state)
 
 显示 toast 信息
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | message | String | 提示内容 |
+| duration | Number | 提示停留的时间。 |
+| state | String | toast样式 |
+
+#### success(message, duration)
+
+Toast 的成功样式
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| message | String | 提示内容 |
+| duration | Number | 提示停留的时间。 |
+
+#### warning(message, duration)
+
+Toast 的警告样式
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| message | String | 提示内容 |
+| duration | Number | 提示停留的时间。 |
+
+##### info(message, duration)
+
+Toast 的提示样式
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| message | String | 提示内容 |
+| duration | Number | 提示停留的时间。 |
+
+#### error(message, duration)
+
+Toast 的错误样式
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| message | String | 提示内容 |
+| duration | Number | 提示停留的时间。 |

@@ -35,14 +35,31 @@
     </tbody>
 </u-table>
 ```
+## Table API
 
 ### Slots
 
-| Slot | Description |
+#### (default)
+
+在表格中插入内容
+
+#### thead
+
+插入表头
+
+#### tbody
+
+插入表格内容
+
+#### page
+
+插入翻页等其他不在表格内部内容
+
+<!--| Slot | Description |
 | ---- | ----------- |
 | (default) | 在表格中插入内容 |
 | thead | 插入表头 |
 | tbody | 插入表格内容 |
-| page | 插入翻页等其他不在表格内部内容 |
+| page | 插入翻页等其他不在表格内部内容 |-->
 
 

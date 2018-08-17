@@ -408,12 +408,13 @@ export default {
 | value.sync, v-model | Any | | 当前选择的值 |
 | field | String | `'text'` | 显示文本字段 |
 | data | Array\<{ text, value }\> | | Data书写方式中的数据列表 |
-| dataSource | DataSource, Function | 多功能数据源 |
+| dataSource | DataSource, Function || 多功能数据源 |
 | readonly | Boolean | `false` | 是否只读 |
 | disabled | Boolean | `false` | 是否禁用 |
 | matchMethod | String, Function | `'includes'` | 匹配方式。可选值：`includes`表示包含即可，`startsWith`表示只匹配开头，`endsWith`表示只匹配结尾。也可以传一个方法 |
 | caseSensitive | Boolean | `false` | 是否区分大小写，默认不区分大小写 |
 | strict | Boolean | `false` | 是否为严格模式。当为严格模式时，`value`属性必须为一个选项的值，或者为空 |
+| size | String | `'normal normal'` | 控制宽高属性，第一个值表示高度属性，第二值表示宽度，可选值: `mini`,`small`,`normal`,`medium`,`large`,`huge`,`full`,可以互相组合 |
 
 ### Slots
 

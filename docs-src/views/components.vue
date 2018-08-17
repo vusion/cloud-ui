@@ -80,7 +80,7 @@
                 <u-sidebar-group title="Feedback">
                     <u-sidebar-item exact to="/components/u-loading">加载中 <small>Loading</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-spinner">加载图标 <small>Spinner</small></u-sidebar-item>
-                    <u-sidebar-item exact to="/components/u-toast">吐司 <small>Toast</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-toast">吐司提示 <small>Toast</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-modal">弹窗 <small>Modal</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-lightbox">灯箱 <small>Lightbox</small></u-sidebar-item>
                 </u-sidebar-group>

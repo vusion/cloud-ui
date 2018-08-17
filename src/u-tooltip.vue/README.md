@@ -241,13 +241,13 @@ export default {
 | disabled | Boolean | `false` | 是否禁用 |
 | size | String | `'normal'` | 大小扩展，支持一个值： `'small'`, `'normal'`, `'large'`, `'auto'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式 |
 | hideDelay | Number | `0` | 提示内容消失延迟时间，单位是`'ms'` |
-| offset | String | `'0'` | 弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px` |
+| offset | String | `'0'` | 弹出层偏移，如：`'10'`, `'10px 10px'`, `'10% 10%'`, 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px` |
 
 ### Slots
 
 #### (default)
 
-触发节点，该 slot 只能插入一个节点。Tooltip 除了会给该节点绑定触发事件，不会对它做任何事情。
+触发节点，该 `slot` 只能插入一个节点。`Tooltip` 除了会给该节点绑定触发事件，不会对它做任何事情。
 
 #### popper
 
@@ -269,7 +269,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| open | Boolean | 弹出/隐藏状态 |
+| $event.open | Boolean | 弹出/隐藏状态 |
 | $event.preventDefault | Function | 阻止弹出/隐藏流程 |
 
 #### @toggle
@@ -282,9 +282,7 @@ export default {
 
 ### Methods
 
-#### update
+#### update()
 
 更新 popper 实例
 
-| Param | Type | Description |
-| ----- | ---- | ----------- |

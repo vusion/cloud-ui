@@ -362,6 +362,7 @@ export default {
 | readonly | Boolean | `false` | 是否只读 |
 | disabled | Boolean | `false` | 是否禁用 |
 | ellipsisDirection | String| `'ltr'` | 控制文本省略方向，其值和原生`css`属性`'direction'`值保持一致 |
+| size | String | `'normal normal'` | 控制宽高属性，第一个值表示高度属性，第二值表示宽度，可选值: `mini`,`small`,`normal`,`medium`,`large`,`huge`,`full`,可以互相组合 |
 
 ### Slots
 
