@@ -2,6 +2,7 @@
     display: inline-block;
     width: 60px;
     color: #999;
+    margin-top: 4px;
 }
 
 .root[label-size="small"] .label {
@@ -10,6 +11,11 @@
 
 .root[label-size="large"] .label {
     width: 120px;
+}
+
+.capsules {
+    max-width: calc(100% - 60px);
+    vertical-align: top;
 }
 
 .tip {
