@@ -591,8 +591,7 @@ export default {
 | rules | Object | | 表单所有域的验证规则 |
 | layout | String | `block` | 表单布局方式。可选值：`block`、`inline`。 |
 | label-size | String | `normal` | 标签大小。可选值：`small`、`normal`、`large`。 |
-<!-- @override: 这个似乎是一个无效的属性 -->
-<!--| distance | String | `` | 标签标题和内容间距大小。可选值：`small`、`normal`、`large`。 |-->
+
 ### Slots
 
 #### (default)
@@ -619,6 +618,15 @@ export default {
 | ----- | ---- | ------- | ----------- |
 | silent | Boolean | `false` | 是否仅验证无提示。 |
 
+#### validateItem(name, trigger, slient)
+
+验证表单中的某一项。
+
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
+| name | String | | 表单项的 name |
+| trigger | String | `submit` | 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。 |
+| silent | Boolean | `false` | 是否仅验证无提示。 |
 
 ## FormItem API
 ### Props/Attrs
