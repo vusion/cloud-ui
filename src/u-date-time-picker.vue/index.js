@@ -28,7 +28,7 @@ export default {
         date: [String, Number, Date],
         width: {
             type: [String, Number],
-            default: 165,
+            default: 170,
         },
         yearDiff: {
             type: [String, Number],
