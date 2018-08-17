@@ -52,6 +52,7 @@ export default {
     data() {
         return {
             showDate: this.format(this.date, 'yyyy-MM-dd'),
+            lastDate: '',
         };
     },
     mixins: [Field],
@@ -146,13 +147,14 @@ export default {
         onInput($event) {
             const value = $event.target.value;
             let date = value ? new Date(value.replace(/-/g, '/')) : null;
+            this.lastDate = this.showDate;
             this.showDate = '';
-            if (date.toString() !== 'Invalid Date' && date !== null) {
+            if (date !== null && date.toString() !== 'Invalid Date') {
                 date = this.isOutOfRange(date) ? this.isOutOfRange(date) : date;
                 // 此处有坑 需要特殊处理 由于改成最小值 再次输入不合法的值会变成最小值 认为没有发生变化
                 this.showDate = this.format(date, 'yyyy-MM-dd');
             } else
-                this.$refs.input.value = this.format(this.showDate, 'yyyy-MM-dd');
+                this.showDate = this.$refs.input.value = this.format(this.lastDate, 'yyyy-MM-dd');
         },
         /**
          * @method isOutOfRange(date) 是否超出规定的日期范围
