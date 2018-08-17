@@ -90,6 +90,7 @@ import TableView from './u-table-view.vue';
 import TableViewCell from './u-table-view-cell.vue';
 import TableViewColumn from './u-table-view-column.vue';
 import Table from './u-table.vue';
+import Text from './u-text.vue';
 import ResizeTableColumn from './u-resize-table-column.vue';
 import ResizeTable from './u-resize-table.vue';
 import Tablet from './u-tablet.vue';
@@ -192,6 +193,7 @@ export {
     Tablets,
     Tabs,
     Tag,
+    Text,
     Textarea,
     TimePicker,
     Toast,

@@ -37,6 +37,13 @@
 <u-button square icon="refresh"></u-button>
 ```
 
+### 展示方式
+
+``` html
+<u-button display="block">块级按钮</u-button>
+<u-button display="inline">行内按钮（默认）</u-button>
+```
+
 ### 图标
 
 ``` html
@@ -71,6 +78,7 @@
 | size | String |  | 大小扩展。可选值：`'small'`或不填 |
 | square | Boolean | `false` | 是否显示为正方形 |
 | disabled | Boolean | `false` | 是否禁用。禁用后不会响应`click`事件。 |
+| display | String | `'inline'` | 展示方式。可选值：`'inline'`, `'block'` |
 
 ### Slots
 
