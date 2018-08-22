@@ -1,7 +1,7 @@
 <u-linear-layout :class="$style.root" direction="vertical" gap="small">
     <div v-for="(category, level) in categories" :key="level">
         <span :class="$style.label">{{ category.label }}</span>
-        <u-capsules :field="field" :cancelable="cancelable" :readonly="readonly" :disabled="disabled"
+        <u-capsules :class="$style.capsules" :field="field" :cancelable="cancelable" :readonly="readonly" :disabled="disabled"
             v-model="values[level]" @select="onSelect($event, level)">
             <u-capsule v-for="item in lists[level]" v-if="item.exist === undefined || !!item.exist === true"
                 :key="item.value"
@@ -11,6 +11,6 @@
                 <slot name="text" :item="item" :level="level">{{ item[field] }}</slot>
             </u-capsule>
         </u-capsules>
-        <span :class="$style.tip">{{ category.tip }}</span>
+        <span :class="$style.tip" v-if="category.tip">{{ category.tip }}</span>
     </div>
 </u-linear-layout>

@@ -437,9 +437,6 @@ export default {
 
 ### Slots
 
-<!--| Slot | Description |
-| ---- | ----------- |
-| (default) | 在插槽中插入文本或HTML |-->
 #### (default)
 
 在插槽中插入文本或`HTML`。

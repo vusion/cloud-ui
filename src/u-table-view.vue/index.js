@@ -1,7 +1,6 @@
 import { getStyle, getScrollSize } from '../base/utils/style';
 import { ellipsisTitle } from 'proto-ui.vusion/src/base/directives';
 import { deepCopy } from '../base/utils/index';
-import { debug } from 'util';
 
 export default {
     name: 'u-table-view',
@@ -83,6 +82,7 @@ export default {
             // filterColumn: undefined, // 用来记录当前filter列，方便在过滤的时候点击更多显示正确的数据
             filterTdata: undefined, // 用来记录当前filter列过滤后符合条件的所有数据
             currentSortColumn: undefined, // 表示当前排序列
+            currentSort: this.defaultSort,
         };
     },
     directives: { ellipsisTitle },
@@ -90,6 +90,10 @@ export default {
         this.$on('add-item-vm', (itemVM) => {
             itemVM.parentVM = this;
             this.columns.push(itemVM);
+        });
+        this.$on('remove-item-vm', (itemVM) => {
+            itemVM.parentVM = undefined;
+            this.columns.splice(this.columns.indexOf(itemVM), 1);
         });
     },
     mounted() {
@@ -182,7 +186,7 @@ export default {
                     this.tdata = this.tdata.slice(0, this.limit);
 
                 if (this.currentSortColumn && !this.currentSortColumn.sortRemoteMethod) {
-                    const order = this.defaultSort.order === 'asc' ? -1 : 1;
+                    const order = this.currentSort.order === 'asc' ? -1 : 1;
                     this.sortData(this.currentSortColumn, order, 'change');
                 }
                 this.handleResize();
@@ -231,6 +235,9 @@ export default {
             // 比较复杂情况下，可能会先赋值data，再将loading设为false
             this.handleResize();
         },
+        defaultSort(newValue) {
+            this.currentSort = newValue;
+        },
     },
     methods: {
         rowClsName(index) {
@@ -262,10 +269,6 @@ export default {
                 return value || column.defaultText || this.defaultText;
             }
         },
-        remove(item) {
-            const index = this.columns.indexOf(item);
-            ~index && this.columns.splice(index, 1);
-        },
         setCellWidth(column, index) {
             let width = '';
             if (column.currentWidth)
@@ -280,14 +283,14 @@ export default {
         },
         handleSort(column) {
             if (column.sortable) {
-                if (column.title === this.defaultSort.title)
-                    this.defaultSort.order = this.defaultSort.order === 'asc' ? 'desc' : 'asc';
+                if (column.title === this.currentSort.title)
+                    this.currentSort.order = this.currentSort.order === 'asc' ? 'desc' : 'asc';
                 else {
-                    this.defaultSort.title = column.title;
-                    this.defaultSort.order = 'desc';
+                    this.currentSort.title = column.title;
+                    this.currentSort.order = 'desc';
                 }
                 this.currentSortColumn = column;
-                const order = this.defaultSort.order === 'asc' ? -1 : 1;
+                const order = this.currentSort.order === 'asc' ? -1 : 1;
                 this.sortData(column, order);
             }
         },
@@ -296,7 +299,7 @@ export default {
             const label = column.label;
             if (column.sortRemoteMethod) {
                 // 异步执行排序方法
-                column.sortRemoteMethod(label, this.defaultSort.order, column);
+                column.sortRemoteMethod(label, this.currentSort.order, column);
             } else {
                 if (column.sortMethod)
                     this.copyTdata.sort((value1, value2) => column.sortMethod(value1[label], value2[label]) ? order : -order);
@@ -317,7 +320,7 @@ export default {
                 this.$emit('sort-change', {
                     column,
                     label,
-                    order: this.defaultSort.order,
+                    order: this.currentSort.order,
                 });
             }
         },

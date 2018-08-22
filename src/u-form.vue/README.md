@@ -367,7 +367,7 @@ export default {
 </u-form>
 ```
 
-表单控件`u-form-item`支持自定义左边显示内容，通过传入`slot='label'`、`slot='description'` 插槽来实现`label`, `description`属性所实现的功能，此时控件属性`label`, `description`会失效，`slot='extra'`插槽是用来实现插入其他自定义内容 <!--，配合属性`'distance'`使用，控制内容和标题之间的间距，其值有`small,normal,large`-->
+表单控件`u-form-item`支持自定义左边显示内容，通过传入`slot='label'`、`slot='description'` 插槽来实现`label`, `description`属性所实现的功能，此时控件属性`label`, `description`会失效，`slot='extra'`插槽是用来实现插入其他自定义内容。
 
 ``` html
 <u-form ref="form">
@@ -591,8 +591,7 @@ export default {
 | rules | Object | | 表单所有域的验证规则 |
 | layout | String | `block` | 表单布局方式。可选值：`block`、`inline`。 |
 | label-size | String | `normal` | 标签大小。可选值：`small`、`normal`、`large`。 |
-<!-- @override: 这个似乎是一个无效的属性 -->
-<!--| distance | String | `` | 标签标题和内容间距大小。可选值：`small`、`normal`、`large`。 |-->
+
 ### Slots
 
 #### (default)
@@ -619,6 +618,15 @@ export default {
 | ----- | ---- | ------- | ----------- |
 | silent | Boolean | `false` | 是否仅验证无提示。 |
 
+#### validateItem(name, trigger, slient)
+
+验证表单中的某一项。
+
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
+| name | String | | 表单项的 name |
+| trigger | String | `submit` | 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。 |
+| silent | Boolean | `false` | 是否仅验证无提示。 |
 
 ## FormItem API
 ### Props/Attrs

@@ -1,8 +1,7 @@
 <template>
     <div :class="$style.root">
         <div :class="$style.side">
-            <u-sidebar size="small" style="padding: 20px 0;
-">
+            <u-sidebar size="small" style="padding: 20px 0;">
                 <u-sidebar-item><u-checkbox v-model="advanced" @check="onCheck">显示所有组件</u-checkbox></u-sidebar-item>
                 <u-sidebar-group title="Basic">
                     <u-sidebar-item exact to="/components/u-base">基础 <small>Base</small></u-sidebar-item>
@@ -64,6 +63,7 @@
                     <u-sidebar-item exact to="/components/u-tablets">药片 <small>Tablets</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-countup">数字渐变 <small>CountUp</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-transfer">穿梭框 <small>Transfer</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-tag">选择扩展 <small>Tag</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="DateTime">
                     <u-sidebar-item exact to="/components/u-calendar">日历 <small>Calendar</small></u-sidebar-item>

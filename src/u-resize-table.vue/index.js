@@ -253,6 +253,7 @@ export default {
                                 item.copyWidth = item.digitWidth;
                         }
                     });
+                    console.log(amendRight);
                     this.sumOffset += this.currentDiff.offsetX;
                     this.minIndexs = [];
                     this.itemColumns.forEach((item, index) => {
@@ -293,12 +294,13 @@ export default {
             return false;
         },
         // 获取列宽度最大值和最小值 满足缓慢移动过程中没有平均分配移动距离
+        // 加入自定义最小值，会存在自定义最小值大于46，反而成为最大的值
         getColumnIndex(index, type) {
             let columnIndex = 0;
             let m = this.itemColumns.slice(index)[0].digitWidth;
             this.itemColumns.slice(index).forEach((item, kindex) => {
                 if (type === 'max') {
-                    if (item.digitWidth > m) {
+                    if (item.digitWidth > m && item.digitWidth > item.currentMinWidth) {
                         m = item.digitWidth;
                         columnIndex = kindex;
                     }
@@ -464,7 +466,10 @@ export default {
                 this.$emit('selection-change', selection);
             });
         },
-        handleSort(column) {
+        handleSort(e, index, column) {
+            // 点击mousedown事件会触发此事件 需要特殊处理
+            if (e.target === this.$refs.carve[index])
+                return false;
             if (column.type === 'sortable') {
                 if (column.title === this.currentSort.title)
                     this.currentSort.order = this.currentSort.order === 'asc' ? 'desc' : 'asc';

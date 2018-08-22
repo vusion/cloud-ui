@@ -21,13 +21,12 @@
     border-color: #8ebee9;
 }
 
-.root[color="error"] {
-    border-color: #ff867f;
-}
-
 .root[disabled] {
     background-color: $brand-disabled;
-    border-color: $brand-disabled;
+}
+
+.root[color="error"] {
+    border-color: #ff867f;
 }
 
 .close {

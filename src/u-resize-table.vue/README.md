@@ -188,7 +188,12 @@ export default {
             }],
             loading: true,
         };
-    }
+    },
+    created() {
+        setTimeout(() => {
+            this.loading = false;
+        }, 5000);
+    },
 };
 </script>
 ```
@@ -1060,6 +1065,29 @@ export default {
 ## ResizeTable API
 ### Attrs/Props
 
+<<<<<<< HEAD
+| Attr/Prop | Type | Default | Description |
+| --------- | ---- | ------- | ----------- |
+| data | Array | '' | 表格默认要显示的数据 |
+| allChecked.sync | Boolean | false | 默认是否全部选中 |
+| defaultSort | Object | '' | 默认的排序列和顺序值，其title属性指定默认排序的列，order指定默认排序的顺序 |
+| noDataText | String | '' | 当data为空数组时，展示的信息 |
+| loading| Boolean | false | 是否展示加载中的状态信息 |
+| loadText| String | `` | 加载中的文字信息提示 |
+| showHeader| Boolean | `true` | 是否展示表格头 |
+| rowClassName | Function | `` | 给表格行添加自定义class函数，第一个参数表示索引，即在第几行中，第二个参数是表格当前行数据
+| height| Integer/String |  | 表格组件的高度 |
+| maxHeight| Integer/String |  | 表格组件的最大高度 |
+| minHeight| Integer/String |  | 表格组件的最小高度 |
+| visible| Boolean | true | 默认显示 |
+| defaultText | String | `'-'` | 默认当单元格取值为空时，默认显示的内容，此处是设置整个表格 |
+| color | String | `` | 值为light的时，表格头背景是#fff |
+| expandPattern | String | `'toggle'` | 规定expand中icon每次展开数量的限制，默认只能展开一个，传入`'normal'`可取消此限制 |
+| ellipsis | Boolean | `false` | 是否换行，默认换行，值为true则开启不换行，超出部分显示为省略号 |
+| sortMethod | Function | `` | 自定义排序方法 |
+| sortRemoteMethod | Funtion| `` | 异步执行排序传入的方法，第一个参数是列字段，第二个参数是排序顺序，第三个参数是列对象 |
+| filterMethod | Function | `` | 自定义过滤方法 |
+=======
 #### 视图相关属性
 
 | Attr/Prop | Type | Default | Description |
@@ -1093,6 +1121,7 @@ export default {
 | defaultSort | Object\< title, order \> |  | 默认的排序列和顺序值，其中`title`属性指定默认排序的列。`order`指定默认排序的顺序，可选值: `'desc'`,`'asc'`。 |
 | forceFilter | Boolean | `true` | 数据发生变化时，存在数据过滤列，是否需要进行过滤，默认是需要的，但是异步获取的情况下，会出现死循环，需要将此值置为`false` |
 
+>>>>>>> bugfix/doc
 ### Slots
 
 #### (default)

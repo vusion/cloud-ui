@@ -167,13 +167,13 @@ export default {
 | $event | String | 重置后的值 |
 
 ### Methods
-<!--#### focus
+#### focus
 
 使输入框处于焦点状态
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event | String | 原生事件对象 |
+| |  |  |
 
 #### blur
 
@@ -181,11 +181,8 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event | String | 原生事件对象 |-->
+| |  |  |
 
 #### removeValue()
 
 删除输入值
-
-
-
