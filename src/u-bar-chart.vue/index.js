@@ -72,8 +72,8 @@ export default {
             //
             {
                 const xAxis_ = this.xAxis_;
-
-                xAxis_.count = this.xAxis.count || 12;
+                // 当数据很多情况下 x轴支持间隔显示数据
+                xAxis_.count = this.xAxis.count || 1;
                 // 柱状图数据全部显示，暂不考虑收缩间隔的情况
                 xAxis_.data = this.data.map((item) => item[this.xAxis.key]);
             }

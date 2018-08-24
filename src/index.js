@@ -18,6 +18,7 @@ import CapsuleGroup from './u-capsule-group.vue';
 import Capsules from './u-capsules.vue';
 import CascadeCapsules from './u-cascade-capsules.vue';
 import Chart from './u-chart.vue';
+import ChartTooltip from './u-chart-tooltip.vue';
 import Checkboxes from './u-checkboxes.vue';
 import CircularProgress from './u-circular-progress.vue';
 import ColorSelect from './u-color-select.vue';
@@ -113,6 +114,7 @@ export {
     Capsules,
     CascadeCapsules,
     Chart,
+    ChartTooltip,
     Checkbox,
     Checkboxes,
     CircularProgress,

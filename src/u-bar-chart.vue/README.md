@@ -23,7 +23,16 @@ export default {
 			xaxis: { key: 'week' },
 			yaxis: { min: 0 },
 			series: [{key: 'number', name: '访问量' }],
-			data: [{ week: '星期一', number: 150 }, { week: '星期二', number: 300 }, { week: '星期三', number: 28 }, { week: '星期四', number: 200 }, { week: '星期五', number: 74 }, { week: '星期六', number: 532 }, { week: '星期日', number: 420 }],
+			data: [
+				{ week: '星期一', number: 150 },
+				{ week: '星期二', number: 300 },
+				{ week: '星期三', number: 28 },
+				{ week: '星期四', number: 200 },
+				{ week: '星期五', number: 74 },
+				{ week: '星期六', number: 532 },
+				{ week: '星期日', number: 420 },
+
+			],
 		}
 	}
 };
@@ -34,7 +43,13 @@ export default {
 
 ``` vue
 <template>
-<u-bar-chart border legend :stack="stack" :title="title" :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data"></u-bar-chart>
+<div>
+	<u-bar-chart border legend :stack="stack" :title="title" :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data">
+		<div slot-scope="scope" slot="tooltip">
+			<div v-for="sery in series">{{ sery.name || sery.key}} : {{ scope.row[sery.key]}} </div>
+		</div>
+	</u-bar-chart>
+</div>
 </template>
 
 <script>
@@ -61,6 +76,69 @@ export default {
 </script>
 ```
 
+#### x轴间隔显示
+
+``` vue
+<template>
+<div>
+	<u-bar-chart border legend :title="title" :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data">
+		<div slot-scope="scope" slot="tooltip">
+			{{ scope.sery.name}} : {{ scope.row[scope.sery.key]}}
+		</div>
+	</u-bar-chart>
+</div>
+</template>
+
+<script>
+export default {
+	data() {
+		return {
+			title: '6月访问量',
+			xaxis: { key: 'time', count: 4 },
+			yaxis: { min: 0 },
+			series: [{key: 'number', name: '访问量' }],
+			data: [
+				{ time: '2018-06-01', number: 150 },
+				{ time: '2018-06-02', number: 300 },
+				{ time: '2018-06-03', number: 28 },
+				{ time: '2018-06-04', number: 200 },
+				{ time: '2018-06-05', number: 74 },
+				{ time: '2018-06-06', number: 532 },
+				{ time: '2018-06-07', number: 420 },
+				{ time: '2018-06-08', number: 532 },
+				{ time: '2018-06-09', number: 420 },
+				{ time: '2018-06-10', number: 532 },
+				{ time: '2018-06-11', number: 420 },
+				{ time: '2018-06-12', number: 532 },
+				{ time: '2018-06-13', number: 420 },
+				{ time: '2018-06-14', number: 200 },
+				{ time: '2018-06-15', number: 74 },
+				{ time: '2018-06-16', number: 532 },
+				{ time: '2018-06-17', number: 420 },
+				{ time: '2018-06-18', number: 532 },
+				{ time: '2018-06-19', number: 420 },
+				{ time: '2018-06-20', number: 420 },
+				{ time: '2018-06-21', number: 420 },
+				{ time: '2018-06-22', number: 420 },
+				{ time: '2018-06-23', number: 420 },
+				{ time: '2018-06-24', number: 200 },
+				{ time: '2018-06-25', number: 74 },
+				{ time: '2018-06-26', number: 532 },
+				{ time: '2018-06-27', number: 420 },
+				{ time: '2018-06-28', number: 532 },
+				{ time: '2018-06-29', number: 420 },
+			],
+		}
+	},
+	methods: {
+		format(value) {
+			console.log(value);
+		},
+	},
+};
+</script>
+```
+
 ## API
 
 ### Attrs/Props
@@ -70,7 +148,7 @@ export default {
 | title | String |  | 图表的标题 |
 | caption | String |  | 图表的描述 |
 | data | Array |  | 图表需要显示的数据 |
-| xAxis | Object | | 绘制X轴需要传入的数据，属性key的值为data数组中对象的某个属性，依据此值来绘制X轴的刻度尺 |
+| xAxis | Object | | 绘制X轴需要传入的数据，属性key的值为data数组中对象的某个属性，依据此值来绘制X轴的刻度尺, count属性用来在数据较多的情况下让x轴间隔显示 |
 | yAxis | Object | | 绘制Y轴需要传入的数据，属性min，max表示Y轴的最大值和最小值，count表示Y轴最小值和最大值之间分成几段，默认值为8 |
 | series | Array |  | 传入绘制每条柱状数据的key值，key值对应着data数组中对象的属性 |
 | border | Boolean | false | 是否有表框 |
@@ -85,7 +163,7 @@ export default {
 
 | Slot | Description |
 | ---- | ----------- |
-| tooltipTemplate + index（index为遍历data的索引） | 自定义tooltip内容 |
+| tooltip | 自定义tooltip内容 |
 
 | Slot | Description |
 | ---- | ----------- |
