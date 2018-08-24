@@ -379,3 +379,9 @@ $line_offset: 6px;
     border-color: $theme-dark-chart-color10;
     background: $theme-dark-chart-color10;
 }
+
+.piece .point[special][class] {
+    display: block;
+    border-color: red;
+    background-color: red;
+}

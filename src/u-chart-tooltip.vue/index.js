@@ -20,11 +20,11 @@ export default {
         },
         type: {
             type: String,
-            default: 'barchart',
+            default: 'common',
         },
     },
     render(h) {
-        if (this.type === 'barchart') {
+        if (this.type === 'common') {
             if (this.stack) {
                 // 柱状图 堆积特殊处理
                 return h('div', [
