@@ -238,6 +238,10 @@ export default {
         defaultSort(newValue) {
             this.currentSort = newValue;
         },
+        columns() {
+            // 列表的列修改会导致变化 列表设置
+            this.handleResize();
+        },
     },
     methods: {
         rowClsName(index) {
