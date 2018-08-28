@@ -5,9 +5,9 @@
 
 ``` html
 <u-pie-chart border legend title="每星期访问量" :data="[
-    { 'percent': 25, 'name': 'selector1' }, 
-    { 'percent': 25, 'name': 'selector2' }, 
-    { 'percent': 25, 'name': 'selector3' }, 
+    { 'percent': 25, 'name': 'selector1' },
+    { 'percent': 25, 'name': 'selector2' },
+    { 'percent': 25, 'name': 'selector3' },
     { 'percent': 25, 'name': 'selector4' }
 ]"></u-pie-chart>
 ```
@@ -15,11 +15,23 @@
 #### 百分比都为 0
 ``` html
 <u-pie-chart border legend title="每星期访问量" :data="[
-    { 'percent': 0, 'name': 'selector1' }, 
-    { 'percent': 0, 'name': 'selector2' }, 
-    { 'percent': 0, 'name': 'selector3' }, 
+    { 'percent': 0, 'name': 'selector1' },
+    { 'percent': 0, 'name': 'selector2' },
+    { 'percent': 0, 'name': 'selector3' },
     { 'percent': 0, 'name': 'selector4' }
 ]"></u-pie-chart>
+```
+
+#### 自定义tooltip
+``` html
+<u-pie-chart border legend title="每星期访问量" :data="[
+    { 'percent': 25, 'name': 'selector1' },
+    { 'percent': 25, 'name': 'selector2' },
+    { 'percent': 30, 'name': 'selector3' },
+    { 'percent': 20, 'name': 'selector4' }
+]">
+    <div slot="tooltip" slot-scope="scope">{{ scope.row.name }}</div>
+</u-pie-chart>
 ```
 
 ## API
@@ -40,4 +52,4 @@
 
 | Slot | Description |
 | ---- | ----------- |
-| tooltipTemplate + index（index为遍历data的索引） | 自定义tooltip内容 |
+| tooltip | 自定义tooltip内容(作用域插槽，请参照示例自定义tooltip的写法) |

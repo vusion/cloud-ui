@@ -33,7 +33,7 @@ $g_size: 120px;
     cursor: default;
 }
 
-.u-tooltip {
+.tooltip {
     display: inline-block;
     position: relative;
     box-sizing: border-box;
@@ -44,7 +44,7 @@ $g_size: 120px;
     color: #eee;
 }
 
-.text .u-tooltip {
+.text .tooltip {
     display: none;
 }
 
@@ -52,7 +52,7 @@ $g_size: 120px;
     z-index: 1;
 }
 
-.text:hover .u-tooltip {
+.text:hover .tooltip {
     display: block;
     position: absolute;
     margin-left: 100%;
@@ -60,7 +60,7 @@ $g_size: 120px;
     top: 0;
 }
 
-.u-tooltip::after {
+.tooltip::after {
     content: '';
     display: block;
     position: absolute;

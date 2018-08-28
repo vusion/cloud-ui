@@ -10,7 +10,7 @@ export default {
             default: () => ({}),
         },
         row: {
-            type: Object,
+            type: [Object, Array],
             default: () => ({}),
         },
         vnode: Function,
@@ -22,8 +22,10 @@ export default {
             type: String,
             default: 'common',
         },
+        percent: Number, // 饼图特殊处理都为0的情况下
     },
     render(h) {
+        debugger;
         if (this.type === 'common') {
             if (this.stack) {
                 // 柱状图 堆积特殊处理
@@ -42,11 +44,19 @@ export default {
                 ]);
             }
         } else if (this.type === 'piechart') {
-            return h('div', [
-                this.vnode ? this.vnode({
-                    row: this.row,
-                }) : ((this.row.name || this.row.key) + ':' + this.row.percent + '%'),
-            ]);
+            if (this.percent === 0) {
+                return h('div', [
+                    this.vnode ? this.vnode({
+                        row: this.row,
+                    }) : this.row.map((sery) => h('div', ((sery.name || sery.key) + ':' + sery.percent + '%'))),
+                ]);
+            } else {
+                return h('div', [
+                    this.vnode ? this.vnode({
+                        row: this.row,
+                    }) : ((this.row.name || this.row.key) + ':' + this.row.percent + '%'),
+                ]);
+            }
         }
     },
 };

@@ -7,6 +7,7 @@
                 :key="item.value"
                 :value="item.value"
                 :item="item"
+                :label="item.label"
                 :disabled="item.disabled">
                 <slot name="text" :item="item" :level="level">{{ item[field] }}</slot>
             </u-capsule>

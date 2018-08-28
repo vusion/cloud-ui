@@ -1,27 +1,38 @@
 <u-chart :class="$style.root" :title="title" :border="border" :width="width" :height="height" :legend="legend" :series="data">
     <svg :class="$style.elsvg" ref="svg" viewBox="0 0 100 100">
         <g :class="$style.elg" transform="translate(50, 50)">
-            <circle v-if="isEmpty" :class="$style.emptyitem" cx="0" cy="0" :r="RADIUS"></circle>
+            <template  v-if="isEmpty">
+                <u-popper trigger="hover" placement="right-start" follow-cursor>
+                    <circle :class="$style.emptyitem" cx="0" cy="0" :r="RADIUS"></circle>
+                    <u-chart-tooltip :percent='0' :class="$style.tooltip" slot="popper" type="piechart" :row="data" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
+                </u-popper>
+            </template>
             <template v-else>
-                <circle v-for="(item,index) in data" v-if="item.percent === 100" :class="$style.item" cx="0" cy="0" :r="RADIUS"/>
-                <path v-for="(item,index) in posData" v-if="item.percent !== 100" :class="$style.item"
-                    :d="getD(item)"
-                    @mouseover="onMouseOver(item)" />
+                <template v-for="(item,index) in posData">
+                    <u-popper trigger="hover" placement="right-start" follow-cursor>
+                        <circle v-if="item.percent === 100" :class="[$style.item]" cx="0" cy="0" :r="RADIUS"/>
+                        <path  v-else-if="item.percent !== 100" :class="$style.item"
+                            :d="getD(item)"
+                            @mouseover="onMouseOver(item)" />
+                        <u-chart-tooltip :class="$style.tooltip" slot="popper" type="piechart" :row="item" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
+                    </u-popper>
+                </template>
             </template>
         </g>
     </svg>
     <div v-if="isEmpty" :class="$style.emptytext">
-        0%
-        <div :class="$style.emptytooltip">
-            <div v-for="(item, index) in posData">
-                {{item.name || item.key}}: {{item.percent}}%
-            </div>
-        </div>
+        <u-popper trigger="hover" placement="right-start" follow-cursor>
+            <div>0%</div>
+            <u-chart-tooltip :percent='0' :class="$style.tooltip" slot="popper" type="piechart" :row="data" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
+        </u-popper>
     </div>
     <div v-else v-for="(item, index) in posData" :class="$style.text" :style="getTextStyle(item)">
-        {{item ? item.percent + '%' : ''}}
-        <div :class="$style['u-tooltip']">
-            <slot :name="'tooltipTemplate'+index">{{item.name || item.key}}: {{item.percent}}%</slot>
-        </div>
+        <u-popper trigger="hover" placement="right-start" follow-cursor>
+            <div>{{item ? item.percent + '%' : ''}}</div>
+            <u-chart-tooltip :class="$style.tooltip" slot="popper" type="piechart" :row="item" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
+        </u-popper>
     </div>
+    <template v-if="false">
+        <slot name="tooltip" type="piechart" :row="data[0]"></slot>
+    </template>
 </u-chart>
