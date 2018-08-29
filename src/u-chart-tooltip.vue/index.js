@@ -25,7 +25,6 @@ export default {
         percent: Number, // 饼图特殊处理都为0的情况下
     },
     render(h) {
-        debugger;
         if (this.type === 'common') {
             if (this.stack) {
                 // 柱状图 堆积特殊处理

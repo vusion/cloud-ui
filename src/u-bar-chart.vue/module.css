@@ -123,12 +123,6 @@ $bar_width: 60px;
 }
 
 .tooltip {
-    /* display: none; */
-    /* position: absolute; */
-    z-index: 10;
-    /* left: 100%; */
-    /* top: -2px; */
-    /* margin-left: 5px; */
     white-space: nowrap;
     box-sizing: border-box;
     max-width: 200px;
@@ -136,6 +130,7 @@ $bar_width: 60px;
     font-size: 12px;
     background: #333;
     color: #eee;
+    z-index: $z-index-tooltip;
 }
 
 .tooltip::after {
@@ -155,10 +150,6 @@ $bar_width: 60px;
     border-left: none;
     border-top-color: transparent;
     border-bottom-color: transparent;
-}
-
-.bar:hover .tooltip {
-    display: block;
 }
 
 .bar[role="bar-stack"] {
