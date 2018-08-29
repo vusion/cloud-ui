@@ -56,6 +56,10 @@ export default {
         width(newValue) {
             this.currentWidth = this.copyWidth = this.getWidth(newValue);
         },
+        type() {
+            // 使用v-if的时候会复用现有的元素，这时候会存在类型变化的情况，导致宽度变化，需要特殊处理初始化宽度大小
+            this.currentWidth = this.copyWidth = this.getWidth();
+        },
     },
     created() {
         this.dispatch(this.$options.parentName, 'add-item-vm', this);
