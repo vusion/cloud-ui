@@ -3,6 +3,7 @@
 .root {
     height: 100%;
     overflow: auto;
+    background: $sidebar-background-color;
 }
 
 .root[size="small"] .group_head {
