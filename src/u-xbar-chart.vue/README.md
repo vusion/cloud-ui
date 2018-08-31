@@ -7,12 +7,16 @@
 <u-xbar-chart border legend title="每星期访问量" :y-axis="{ key: 'week' }" :x-axis="{ min: 0 }" :series="[{key: 'number', name: '访问量' }]" :data="[{ week: '星期一', number: 150 }, { week: '星期二', number: 300 }, { week: '星期三', number: 28 }, { week: '星期四', number: 200 }, { week: '星期五', number: 74 }, { week: '星期六', number: 532 }, { week: '星期日', number: 420 }]"></u-xbar-chart>
 ```
 
-#### 命令式
+### 自定义tooltip
 
 
 ``` vue
 <template>
-<u-xbar-chart border legend order="asc" :title="title" :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data"></u-xbar-chart>
+<u-xbar-chart border legend order="asc" :title="title" :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data">
+    <div slot="tooltip" slot-scope="scope">
+        {{ scope.row[scope.sery.key]}}
+    </div>
+</u-xbar-chart>
 </template>
 
 <script>
@@ -86,7 +90,7 @@ export default {
 
 | Slot | Description |
 | ---- | ----------- |
-| tooltipTemplate + index（index为遍历data的索引） | 自定义tooltip内容 |
+| tooltip | 自定义tooltip内容 |
 
 | Slot | Description |
 | ---- | ----------- |
