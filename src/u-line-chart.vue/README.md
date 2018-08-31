@@ -20,18 +20,12 @@
 ```
 
 
-### 隐藏图例
-``` html
-<u-line-chart border legend title="每星期访问量" :legend="false" :x-axis="{ key: 'week' }" :y-axis="{ min: 0 }" :series="[{ key: 'number' }]" :data="[{ week: '星期一', number: 150 }, { week: '星期二', number: 300 }, { week: '星期三', number: 28 }, { week: '星期四', number: 200 }, { week: '星期五', number: 74 }, { week: '星期六', number: 532 }, { week: '星期日', number: 420 }]"></u-line-chart>
-```
-
 ### 单位
 ``` html
 <u-line-chart border legend title="每星期访问量" :x-axis="{ key: 'week' }" :y-axis="{ min: 0, name: '个' }" :series="[{ key: 'number' }]" :data="[{ week: '星期一', number: 150 }, { week: '星期二', number: 300 }, { week: '星期三', number: 28 }, { week: '星期四', number: 200 }, { week: '星期五', number: 74 }, { week: '星期六', number: 532 }, { week: '星期日', number: 420 }]"></u-line-chart>
 ```
 
-
-#### 命令式
+### 隐藏图例
 
 ``` vue
 <template>
@@ -47,11 +41,44 @@ export default {
 			title: '每星期访问量',
 			xaxis: { key: 'week' },
 			yaxis: { min: 0, name: '个'},
-			series: [{key: 'number'},{key: 'num', hidden: true,} ],
+			series: [{key: 'number'},{key: 'num', hidden: true } ],
 			data: [
 				{ week: '星期一', number: 150, num: 1200 },
 				{ week: '星期二', number: 300, num: 1200 },
-				{ week: '星期三', number: 28, num:undefined },
+				{ week: '星期三', number: 28, num: undefined },
+				{ week: '星期四', number: 200, num: 2000 },
+				{ week: '星期五', number: 74, num: 740 },
+				{ week: '星期六', number: 532, num:2000 },
+				{ week: '星期日', number: 420 ,num: 5000},
+			],
+			smooth: true,
+		}
+	},
+};
+</script>
+```
+
+### 多线段形式
+
+``` vue
+<template>
+<u-line-chart border legend :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data" :smooth="smooth">
+	<div slot="titleTemplate">{{title}}</div>
+</u-line-chart>
+</template>
+
+<script>
+export default {
+	data() {
+		return {
+			title: '每星期访问量',
+			xaxis: { key: 'week' },
+			yaxis: { min: 0, name: '个'},
+			series: [{key: 'number'},{key: 'num', } ],
+			data: [
+				{ week: '星期一', number: 150, num: 1200 },
+				{ week: '星期二', number: 300, num: 1200 },
+				{ week: '星期三', number: 28, num: 1000 },
 				{ week: '星期四', number: 200, num: 2000 },
 				{ week: '星期五', number: 74, num: 740 },
 				{ week: '星期六', number: 532, num:2000 },
