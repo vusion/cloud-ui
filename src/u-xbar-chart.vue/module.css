@@ -40,7 +40,7 @@ $bar_width: 60px;
 
 .line[role='line-y'] {
     top: -1px;
-    bottom: -$line_offset;
+    bottom: 0;
     border-left: 1px solid $line_border;
 }
 
@@ -127,11 +127,11 @@ $bar_width: 60px;
 }
 
 .tooltip {
-    display: none;
     position: absolute;
-    z-index: 10;
+    z-index: $z-index-tooltip;
     left: 100%;
     top: 0;
+    margin-top: 4px;
     margin-left: 5px;
     white-space: nowrap;
     box-sizing: border-box;
@@ -149,10 +149,10 @@ $bar_width: 60px;
     border: 5px solid #333;
 }
 
-.tooltip[role='tooltip-right-top'] {
+.tooltip[x-placement='right-start'] {
     margin-left: 5px;
 }
-.tooltip[role='tooltip-right-top']::after {
+.tooltip[x-placement='right-start']::after {
     top: 10px;
     left: -5px;
     border-left: none;
@@ -160,8 +160,15 @@ $bar_width: 60px;
     border-bottom-color: transparent;
 }
 
-.bar:hover .tooltip {
-    display: block;
+.tooltip[x-placement='left-start'] {
+    margin-left: -5px;
+}
+.tooltip[x-placement='left-start']::after {
+    top: 10px;
+    right: -5px;
+    border-right: none;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
 }
 
 .bar[role='bar-stack'] {

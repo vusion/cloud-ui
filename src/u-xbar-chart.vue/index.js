@@ -137,8 +137,13 @@ export default {
                     xAxis_.max = xAxis_.min + xAxis_.count;
 
                 xAxis_.data = [];
-                for (let i = xAxis_.min; i <= xAxis_.max; i += tick)
+                for (let i = xAxis_.min; i <= xAxis_.max; i += tick) {
+                    // 处理 1.2 + 0.6这种不等于1.8的问题
+                    if (/^\d+\./.test(i + '')) {
+                        i = +i.toFixed(3);
+                    }
                     xAxis_.data.push(i);
+                }
             }
         },
         format(value) {
