@@ -125,6 +125,7 @@ const Calendar = {
                 date: newValue,
             });
         },
+        // 最小值 最大值 发生变化 需要监听
         minDate(newValue, oldValue) {
             this.monthCol = this.getMonthCol();
             this.yearCol = this.getYearCol();
@@ -133,7 +134,11 @@ const Calendar = {
             this.monthCol = this.getMonthCol();
             this.yearCol = this.getYearCol();
         },
-        // 最小值 最大值 发生变化 需要监听
+        // 年份发生变化需要监听 在设置最小值和最大值的情况 会影响月份的选择
+        showYear(newValue) {
+            this.monthCol = this.getMonthCol(newValue + '');
+        },
+        // 月份发生变化需要监听 会影响日的选择
     },
     filters: {
         format(value, type) {
@@ -173,8 +178,8 @@ const Calendar = {
         },
         getYearCol() {
             const date = this.transformDate(this.date);
-            let minDate = null,
-                maxDate = null;
+            let minDate = null;
+            let maxDate = null;
 
             if (this.minDate)
                 minDate = this.transformDate(this.minDate).getFullYear();
@@ -202,10 +207,10 @@ const Calendar = {
 
             return yearcol;
         },
-        getMonthCol() {
-            const date = this.transformDate(this.date);
-            let minDate = null,
-                maxDate = null;
+        getMonthCol(value) {
+            const date = this.transformDate(value || this.date);
+            let minDate = null;
+            let maxDate = null;
 
             if (this.minDate) {
                 minDate = this.transformDate(this.minDate);
@@ -263,7 +268,8 @@ const Calendar = {
             const nfirstTime = +nfirst;
             const lastTime = nfirstTime + ((7 - nfirst.getDay()) % 7 - 1) * MS_OF_DAY;
             let num = -mfirst.getDay();
-            let tmpTime, tmp;
+            let tmpTime;
+            let tmp;
             do {
                 tmpTime = mfirstTime + (num++) * MS_OF_DAY;
                 tmp = new Date(tmpTime);
