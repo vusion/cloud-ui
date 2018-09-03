@@ -2,14 +2,14 @@
     <svg :class="$style.elsvg" ref="svg" viewBox="0 0 100 100">
         <g :class="$style.elg" transform="translate(50, 50)">
             <template  v-if="isEmpty">
-                <u-popper trigger="hover" placement="right-start" follow-cursor>
+                <u-popper trigger="hover" placement="right-start" offset="0 10" follow-cursor>
                     <circle :class="$style.emptyitem" cx="0" cy="0" :r="RADIUS"></circle>
                     <u-chart-tooltip :percent='0' :class="$style.tooltip" slot="popper" type="piechart" :row="data" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
                 </u-popper>
             </template>
             <template v-else>
                 <template v-for="(item,index) in posData">
-                    <u-popper trigger="hover" placement="right-start" follow-cursor>
+                    <u-popper trigger="hover" placement="right-start" offset="0 10" follow-cursor>
                         <circle v-if="item.percent === 100" :class="$style.item" cx="0" cy="0" :r="RADIUS"/>
                         <path v-else-if="item.percent !== 100" :class="$style.item"
                             :d="getD(item)"
@@ -21,13 +21,13 @@
         </g>
     </svg>
     <div v-if="isEmpty" :class="$style.emptytext">
-        <u-popper trigger="hover" placement="right-start" follow-cursor>
+        <u-popper trigger="hover" placement="right-start" offset="0 10" follow-cursor>
             <div>0%</div>
             <u-chart-tooltip :percent='0' :class="$style.tooltip" slot="popper" type="piechart" :row="data" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
         </u-popper>
     </div>
     <div v-else v-for="(item, index) in posData" :class="$style.text" :style="getTextStyle(item)">
-        <u-popper trigger="hover" placement="right-start" follow-cursor>
+        <u-popper trigger="hover" placement="right-start" offset="0 10" follow-cursor>
             <div>{{item ? item.percent + '%' : ''}}</div>
             <u-chart-tooltip :class="$style.tooltip" slot="popper" type="piechart" :row="item" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
         </u-popper>

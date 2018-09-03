@@ -127,26 +127,24 @@ $bar_width: 60px;
 }
 
 .tooltip {
+    border-radius: 2px;
     position: absolute;
-    z-index: $z-index-tooltip;
-    left: 100%;
-    top: 0;
-    margin-top: 4px;
-    margin-left: 5px;
+    text-align: initial;
     white-space: nowrap;
-    box-sizing: border-box;
-    max-width: 200px;
-    padding: 4px 8px;
+    line-height: 20px;
+    padding: 17px 20px;
     font-size: 12px;
-    background: #333;
-    color: #eee;
+    background: rgba(71,88,107,0.9);
+    color: white;
+    z-index: $z-index-tooltip;
+    box-sizing: border-box;
 }
 
 .tooltip::after {
     content: '';
     display: block;
     position: absolute;
-    border: 5px solid #333;
+    border: 5px solid rgba(71,88,107,0.9);
 }
 
 .tooltip[x-placement='right-start'] {
