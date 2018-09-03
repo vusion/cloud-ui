@@ -25,6 +25,13 @@ export default {
     computed: {
         posData() {
             const data = this.data;
+            // this.data.forEach((item, index) => {
+            //     if (item.percent === 100) {
+            //         const first = this.data[0];
+            //         this.data[0] = item;
+            //         this.data[index] = first;
+            //     }
+            // });
             data && data.reduce((prev, current) => {
                 current._pos = prev._pos + prev.percent;
                 return current;

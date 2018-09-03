@@ -1,12 +1,12 @@
 @import '../../src/u-pie-chart.vue/module.css';
 
-.root .item:nth-of-type(1) { fill: $theme-dark-chart-color1; }
-.root .item:nth-of-type(2) { fill: $theme-dark-chart-color2; }
-.root .item:nth-of-type(3) { fill: $theme-dark-chart-color3; }
-.root .item:nth-of-type(4) { fill: $theme-dark-chart-color4; }
-.root .item:nth-of-type(5) { fill: $theme-dark-chart-color5; }
-.root .item:nth-of-type(6) { fill: $theme-dark-chart-color6; }
-.root .item:nth-of-type(7) { fill: $theme-dark-chart-color7; }
-.root .item:nth-of-type(8) { fill: $theme-dark-chart-color8; }
-.root .item:nth-of-type(9) { fill: $theme-dark-chart-color9; }
-.root .item:nth-of-type(10) { fill: $theme-dark-chart-color10; }
+.root .item:nth-child(1) { fill: $theme-dark-chart-color1; }
+.root .item:nth-child(2) { fill: $theme-dark-chart-color2; }
+.root .item:nth-child(3) { fill: $theme-dark-chart-color3; }
+.root .item:nth-child(4) { fill: $theme-dark-chart-color4; }
+.root .item:nth-child(5) { fill: $theme-dark-chart-color5; }
+.root .item:nth-child(6) { fill: $theme-dark-chart-color6; }
+.root .item:nth-child(7) { fill: $theme-dark-chart-color7; }
+.root .item:nth-child(8) { fill: $theme-dark-chart-color8; }
+.root .item:nth-child(9) { fill: $theme-dark-chart-color9; }
+.root .item:nth-child(10) { fill: $theme-dark-chart-color10; }

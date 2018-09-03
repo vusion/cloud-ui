@@ -233,23 +233,25 @@ $line_offset: 6px;
 
 .piece .u-tooltip {
     display: none;
+    border-radius: 2px;
     position: absolute;
-    z-index: 10;
-    margin-top: -16px;
+    text-align: initial;
     white-space: nowrap;
-    padding: 4px 12px;
+    line-height: 20px;
+    padding: 17px 20px;
     font-size: 12px;
-    background: #333;
-    color: #eee;
+    background: rgba(71,88,107,0.9);
+    color: white;
+    z-index: $z-index-tooltip;
+    margin-top: -16px;
     box-sizing: border-box;
-    max-width: 230px;
 }
 
 .piece .u-tooltip::after {
     content: '';
     display: block;
     position: absolute;
-    border: 5px solid #333;
+    border: 5px solid rgba(71,88,107,0.9);
 }
 
 .piece .u-tooltip[role="u-tooltip-right-top"] {
@@ -317,10 +319,10 @@ $line_offset: 6px;
     background: white;
     border: 2px solid rgba(0,153,255,0.6);
     border-radius: 100%;
-    margin-bottom: -4px;
-    margin-left: -4px;
-    width: 9px;
-    height: 9px;
+    width: 7px;
+    height: 7px;
+    margin-bottom: -3px;
+    margin-left: -3px;
     display: none;
 }
 

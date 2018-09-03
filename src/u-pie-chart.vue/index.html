@@ -10,8 +10,8 @@
             <template v-else>
                 <template v-for="(item,index) in posData">
                     <u-popper trigger="hover" placement="right-start" follow-cursor>
-                        <circle v-if="item.percent === 100" :class="[$style.item]" cx="0" cy="0" :r="RADIUS"/>
-                        <path  v-else-if="item.percent !== 100" :class="$style.item"
+                        <circle v-if="item.percent === 100" :class="$style.item" cx="0" cy="0" :r="RADIUS"/>
+                        <path v-else-if="item.percent !== 100" :class="$style.item"
                             :d="getD(item)"
                             @mouseover="onMouseOver(item)" />
                         <u-chart-tooltip :class="$style.tooltip" slot="popper" type="piechart" :row="item" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
