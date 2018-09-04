@@ -55,7 +55,7 @@ $line_offset: 6px;
 .axis[role="axisx"] {
     left: $axis-y_width;
     right: 19px;
-    bottom: 0;
+    bottom: 1px;
     height: $axis-x_height;
     border-top: 1px solid $axis_border;
 }

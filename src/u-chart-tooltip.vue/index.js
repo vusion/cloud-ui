@@ -32,14 +32,14 @@ export default {
                     this.vnode ? this.vnode({
                         row: this.row,
                         series: this.series,
-                    }) : this.series.map((sery) => h('div', ((sery.name || sery.key) + ':' + this.row[sery.key]))),
+                    }) : this.series.map((sery) => h('div', ((sery.name || sery.key) + ': ' + this.row[sery.key]))),
                 ]);
             } else {
                 return h('div', [
                     this.vnode ? this.vnode({
                         sery: this.sery,
                         row: this.row,
-                    }) : ((this.sery.name || this.sery.key) + ':' + this.row[this.sery.key]),
+                    }) : ((this.sery.name || this.sery.key) + ': ' + this.row[this.sery.key]),
                 ]);
             }
         } else if (this.type === 'piechart') {
@@ -47,13 +47,13 @@ export default {
                 return h('div', [
                     this.vnode ? this.vnode({
                         row: this.row,
-                    }) : this.row.map((sery) => h('div', (sery.name || sery.key) + ':' + sery.percent + '%')),
+                    }) : this.row.map((sery) => h('div', (sery.name || sery.key) + ': ' + sery.percent + '%')),
                 ]);
             } else {
                 return h('div', [
                     this.vnode ? this.vnode({
                         row: this.row,
-                    }) : ((this.row.name || this.row.key) + ':' + this.row.percent + '%'),
+                    }) : ((this.row.name || this.row.key) + ': ' + this.row.percent + '%'),
                 ]);
             }
         }

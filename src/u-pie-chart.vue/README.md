@@ -1,18 +1,19 @@
-# 弹窗 PieChart
+# 饼图 PieChart
 
 ## 示例
 ### 基本形式
 
 ``` html
 <u-pie-chart border legend title="每星期访问量" :data="[
-    { 'percent': 25, 'name': 'selector1' },
-    { 'percent': 25, 'name': 'selector2' },
-    { 'percent': 25, 'name': 'selector3' },
-    { 'percent': 25, 'name': 'selector4' }
+    { 'percent': 23, 'name': 'selector1' },
+    { 'percent': 27, 'name': 'selector2' },
+    { 'percent': 12, 'name': 'selector3' },
+    { 'percent': 38, 'name': 'selector4' }
 ]"></u-pie-chart>
 ```
 
-#### 百分比都为 0
+### 百分比都为 0
+
 ``` html
 <u-pie-chart border legend title="每星期访问量" :data="[
     { 'percent': 0, 'name': 'selector1' },
@@ -22,7 +23,7 @@
 ]"></u-pie-chart>
 ```
 
-#### 自定义tooltip
+### 自定义tooltip
 ``` html
 <u-pie-chart border legend title="每星期访问量" :data="[
     { 'percent': 25, 'name': 'selector1' },
