@@ -1,6 +1,0 @@
-<div :class="$style.root" :role="position">
-    <div :class="$style.item" :role="showState" v-for="item in list">
-        <span :class="$style.message">{{item.message}}</span>
-        <a :class="$style.close" v-if="showClose" @click="close(item)"></a>
-    </div>
-</div>

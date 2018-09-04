@@ -117,7 +117,7 @@ export default [
             /* Feedback */
             { path: 'u-spinner', component: () => import('proto-ui.vusion/src/u-spinner.vue/README.md') },
             { path: 'u-loading', component: () => import('../src/u-loading.vue/README.md') },
-            { path: 'u-toast', component: () => import('../src/u-toast.vue/README.md') },
+            { path: 'u-toast', component: () => import('proto-ui.vusion/src/u-toast.vue/README.md') },
             { path: 'u-modal', component: () => import('../src/u-modal.vue/README.md') },
             { path: 'u-lightbox', component: () => import('../src/u-lightbox.vue/README.md') },
             /* Progress & Chart */
