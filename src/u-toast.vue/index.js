@@ -102,10 +102,14 @@ const Toast = {
 };
 
 Vue.nextTick(() => {
-    // 获取构造器函数 （vue-loader 处理生成d额）
+    const Ctor = Vue.component('u-toast');
+    if (!Ctor)
+        return;
+
+    const toast = Toast.toast = new Ctor();
     const METHODS = Toast.METHODS = ['show', 'closeAll', 'success', 'warning', 'info', 'error'];
-    const instance = Toast.instance = new Toast._Ctor[0]();
-    METHODS.forEach((method) => Toast[method] = instance[method].bind(instance));
+    METHODS.forEach((method) => Toast[method] = toast[method].bind(toast));
+    Vue.prototype.$toast = toast;
 });
 
 Vue.prototype.$toast = Toast;
