@@ -36,7 +36,7 @@ $line_offset: 6px;
 }
 
 .line[role="x"] {
-    left: -$line_offset;
+    left: 0;
     right: -1px;
     border-top: 1px solid $line_border;
 }
@@ -65,7 +65,7 @@ $line_offset: 6px;
     top: 14px;
     bottom: $axis-x_height;
     width: $axis-y_width;
-    border-right: 1px solid $axis_border;
+    /* border-right: 1px solid $axis_border; */
 }
 
 .label {
