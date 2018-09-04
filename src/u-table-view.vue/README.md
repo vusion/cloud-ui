@@ -3,89 +3,6 @@
 ## 示例
 ### 基本形式
 
-`layout`布局方式，支持`auto`,`fixed`两种布局，默认是`fixed`布局, `auto`布局一个缺点是数据发生变化各列对应的宽度可能发生变化，取决于内容宽度，推荐使用`fixed`布局
-``` vue
-<template>
-    <div>
-        <u-table-view :data="tdata" layout="auto" border expandPattern="normal">
-            <u-table-view-column type="expand" title="序列" default-text="">
-                <template slot="expandContent">
-                    <span>11</span>
-                </template>
-            </u-table-view-column>
-            <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
-            <u-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-table-view-column>
-            <u-table-view-column title="地址" label="address" sortable></u-table-view-column>
-        </u-table-view>
-    </div>
-</template>
-<script>
-export default {
-    data: function () {
-        return {
-            tdata: [{
-                date: '2016-05-02',
-                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-                address: '浙江省杭州市滨江区网商路 599号',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼'
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
-                address: '浙江省杭州市滨江区 西可科技园'
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园'
-            }, {
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼'
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园'
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园'
-            }, {
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼'
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园'
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园'
-            }],
-        };
-    },
-    methods: {
-        formatter(row, column) {
-            if (row.name === '天王盖地虎')
-                return '逗比一号';
-            else
-                return row.name;
-        }
-    }
-};
-</script>
-```
-
 #### 默认显示指定limit条行数据
 
 表格列`pattern`属性设置为`limit`值即可，可通过设置`limit`属性控制显示条数
@@ -203,6 +120,125 @@ export default {
                 return true;
             return columnValue === value;
         },
+    }
+};
+</script>
+```
+
+#### 在u-subtabs中使用表格组件
+``` vue
+<template>
+    <u-subtabs value="B">
+        <u-subtab title="模板" value="A">
+            <u-table-view :data="list">
+                <u-table-view-column title="名称" width="30%" label="name">
+                </u-table-view-column>
+                <u-table-view-column ellipsis title="可用区" label="region"></u-table-view-column>
+                <u-table-view-column title="IP" label="IP" width="200px" sortable></u-table-view-column>
+            </u-table-view>
+        </u-subtab>
+        <u-subtab title="样式" value="B">
+            <u-table-view :data="tdata">
+                <u-table-view-column label="date">
+                    <div slot="headerTitle">
+                        日期
+                    </div>
+                </u-table-view-column>
+                <u-table-view-column ellipsis title="姓名" label="name"></u-table-view-column>
+                <u-table-view-column title="地址" label="address" width="200px" sortable></u-table-view-column>
+            </u-table-view>
+        </u-subtab>
+    </u-subtabs>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{
+                date: '2016-05-02',
+                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+                address: '浙江省杭州市滨江区网商路 599号',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+                address: '浙江省杭州市滨江区英飞特 D栋3楼'
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
+                address: '浙江省杭州市滨江区 西可科技园'
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '浙江省杭州市滨江区 东忠科技园'
+            }, {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '浙江省杭州市滨江区英飞特 D栋3楼'
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '浙江省杭州市滨江区 西可科技园'
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '浙江省杭州市滨江区 东忠科技园'
+            }, {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '浙江省杭州市滨江区英飞特 D栋3楼'
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '浙江省杭州市滨江区 西可科技园'
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '浙江省杭州市滨江区 东忠科技园'
+            }],
+            list: [
+                {
+                    name: 'dash',
+                    region: '可用区 A',
+                    IP: '私有网 10.18.203.14',
+                },
+                {
+                    name: 'asdf',
+                    region: '可用区 B',
+                    IP: '私有网 10.177.0.2',
+                },
+                {
+                    name: 'wert',
+                    region: '可用区 A',
+                    IP: '私有网 10.18.203.10',
+                },
+                {
+                    name: 'fghh',
+                    region: '可用区 A',
+                    IP: '私有网 10.18.203.9',
+                },
+                {
+                    name: 'zxcv',
+                    region: '可用区 B',
+                    IP: '私有网 10.18.203.8',
+                },
+            ],
+        };
+    },
+    methods: {
+        formatter(row, column) {
+            if (row.name === '天王盖地虎')
+                return '逗比一号';
+            else
+                return row.name;
+        }
     }
 };
 </script>
@@ -347,7 +383,7 @@ export default {
 </script>
 ```
 
-#### 删除选中行 
+#### 删除选中行
 
 对于`type`类型为`selection`的表格列，可以控制`checkbox`的选择状态，传入`data`中每个对象中属性`selected`属性表示默认是否处于选中状态，`disabled`表示是否可选择
 
@@ -690,7 +726,7 @@ export default {
 <div>
     <u-table-view :data="tdata" loading load-text="正在加载中…">
         <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
-        <u-table-view-column title="姓名" label="name" :formatter="formatter"></u-table-view-column>
+        <u-table-view-column title="姓名" label="name"></u-table-view-column>
         <u-table-view-column title="地址" label="address" ></u-table-view-column>
     </u-table-view>
 </div>
@@ -717,7 +753,7 @@ export default {
     <u-table-view :data="tdata" >
         <u-table-view-column type="selection"></u-table-view-column>
         <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
-        <u-table-view-column title="姓名" label="name" :formatter="formatter"></u-table-view-column>
+        <u-table-view-column title="姓名" label="name"></u-table-view-column>
         <u-table-view-column title="地址" label="address" ></u-table-view-column>
         <div slot="no-data-text">
             <span style="margin-right:10px">暂无数据,</span>

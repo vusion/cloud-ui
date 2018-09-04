@@ -430,7 +430,10 @@ export default {
                     let tableWidth = this.$refs.body.offsetWidth;
                     if (parentWidth === 0) {
                         // 初始表格是隐藏的需要特殊处理的，此时上面两个值默认是0
-                        parentWidth = tableWidth = this.$refs.root.parentNode.offsetWidth;
+                        let parentNode = this.$refs.root.parentNode;
+                        while (parentNode.offsetWidth === 0)
+                            parentNode = parentNode.parentNode;
+                        parentWidth = tableWidth = parentNode.offsetWidth;
                     }
 
                     // 分别获取有百分比 具体数值 和无width的column集合
