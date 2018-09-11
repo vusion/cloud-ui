@@ -21,9 +21,9 @@ export default {
         date: [String, Number, Date],
         minDate: [String, Number, Date],
         maxDate: [String, Number, Date],
-        disabled: [Boolean, String],
-        autofocus: [Boolean, String],
-        readonly: [Boolean, String],
+        disabled: { type: Boolean, default: false },
+        autofocus: { type: Boolean, default: false },
+        readonly: { type: Boolean, default: false },
         placeholder: {
             type: String,
             default: '请选择日期',

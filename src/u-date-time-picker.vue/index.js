@@ -16,13 +16,13 @@ import Field from 'proto-ui.vusion/src/u-field.vue';
 export default {
     name: 'u-date-time-picker',
     props: {
-        disabled: [String, Boolean],
+        disabled: { type: Boolean, default: false },
         placeholder: {
             type: String,
             default: '请选择时间',
         },
-        readonly: [String, Boolean],
-        autofocus: [String, Boolean],
+        readonly: { type: Boolean, default: false },
+        autofocus: { type: Boolean, default: false },
         minDate: [String, Number, Date],
         maxDate: [String, Number, Date],
         date: [String, Number, Date],
@@ -236,7 +236,10 @@ export default {
             return type.replace(trunk, (capture) => maps[capture] ? maps[capture](value) : '');
         },
         toggle(value) {
-            this.open = value;
+            if (this.readonly)
+                this.open = false;
+            else
+                this.open = value;
         },
         transformDate(date) {
             if (typeof date === 'string')

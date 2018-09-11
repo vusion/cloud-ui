@@ -1,4 +1,4 @@
-<u-popper ref="popper" appendTo="reference" :placement="placement" @toggle="onToggle($event)">
+<u-popper ref="popper" appendTo="reference" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)">
     <div :class="$style.header">
         <input :class="$style.input" :placeholder="placeholder" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}"  @change="onInput($event)">
     </div>
