@@ -40,7 +40,7 @@ export default {
         xScroll: { type: Boolean, default: false }, // 用来处理当表格出现水平滚动条时，默认scroll事件走表格的水平滚动
         width: [String, Number],
         visible: { type: Boolean, default: true },
-        pattern: { type: String, default: 'normal' }, // 特殊显示内容情形
+        pattern: { type: String, default: 'normal' }, // 特殊显示内容情形 三种形式 瀑布流 暂未支持
         limit: { type: Number, default: 5 }, // 用来默认显示limit条数据
         limitText: { type: String, default: '查看更多' },
         allText: { type: String, default: '收起' },
@@ -129,6 +129,9 @@ export default {
         },
         allDisabled() {
             return this.tdata.every((item) => item.disabled);
+        },
+        showColumnLength() {
+            return this.columns.filter((column) => column.visible).length;
         },
     },
     watch: {

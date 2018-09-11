@@ -31,6 +31,7 @@ export default {
         expandLabel: String, // 配合expand模式使用，可能出现字段组合的情况
         expandClass: String, // 自定义expand的icon样式
         headClass: { type: String, default: '' },
+        visible: { type: Boolean, default: true }, // 特殊业务场景下某些列的展示需要根据条件来判断
     },
     mixins: [Emitter],
     data() {
@@ -39,7 +40,7 @@ export default {
             // sortoperate: '',
             selectValue: this.value,
             row: {},
-            visible: false,
+            hide: true,
             parentVM: undefined,
             currentWidth: this.getWidth(),
             copyWidth: this.getWidth(),

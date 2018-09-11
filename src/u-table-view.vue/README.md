@@ -244,6 +244,92 @@ export default {
 </script>
 ```
 
+#### 列的个数自定义
+``` vue
+<template>
+    <div>
+        <u-table-view :data="tdata" border max-height="400">
+            <u-table-view-column :visible="isShow" label="date">
+                <div slot="headerTitle">
+                    日期
+                </div>
+            </u-table-view-column>
+            <u-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-table-view-column>
+            <u-table-view-column title="地址" label="address" width="200px" sortable></u-table-view-column>
+        </u-table-view>
+        <u-button style="margin-top: 10px;" @click="toggle">toggle</u-button>
+    </div>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{
+                date: '2016-05-02',
+                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+                address: '浙江省杭州市滨江区网商路 599号',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+                address: '浙江省杭州市滨江区英飞特 D栋3楼'
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
+                address: '浙江省杭州市滨江区 西可科技园'
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '浙江省杭州市滨江区 东忠科技园'
+            }, {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '浙江省杭州市滨江区英飞特 D栋3楼'
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '浙江省杭州市滨江区 西可科技园'
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '浙江省杭州市滨江区 东忠科技园'
+            }, {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '浙江省杭州市滨江区英飞特 D栋3楼'
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '浙江省杭州市滨江区 西可科技园'
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '浙江省杭州市滨江区 东忠科技园'
+            }],
+            isShow: false,
+        };
+    },
+    methods: {
+        formatter(row, column) {
+            if (row.name === '天王盖地虎')
+                return '逗比一号';
+            else
+                return row.name;
+        },
+        toggle() {
+            this.isShow = !this.isShow;
+        },
+    }
+};
+</script>
+```
 
 #### 排序和格式化
 ``` vue
@@ -1273,6 +1359,7 @@ export default {
 | expandStrict | Boolean | `false` | 当`type`属性值为`'expand'`时，开启`'expand'`严格匹配模式， 只有对应的`label`字段有值才显示`icon` |
 | expandLabel | String |  | 当`type`属性值为`'expand'`时，当出现组合形式的时候，使用此字段指定`icon`展开依赖的属性字段 |
 | expandClass | String |  | 当`type`属性值为`'expand'`时，定义`icon`的样式 |
+| visible | Boolean | `true` | 控制列的显示/隐藏 |
 
 #### 数据相关属性
 
