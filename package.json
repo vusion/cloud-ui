@@ -34,7 +34,7 @@
     "babel-eslint": "^8.2.6",
     "countup.js": "^1.9.3",
     "lodash": "^4.17.5",
-    "proto-ui.vusion": "~0.3.26",
+    "proto-ui.vusion": "~0.3.31",
     "vusion-utils": "^0.2.1"
   },
   "devDependencies": {
