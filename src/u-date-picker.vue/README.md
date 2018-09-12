@@ -19,8 +19,8 @@
 
 ``` html
 <u-linear-layout>
-    <u-date-picker placeholder="left" alignment="left"></u-date-picker>
-    <u-date-picker placeholder="right" alignment="right"></u-date-picker>
+    <u-date-picker placeholder="请选择日期" alignment="left"></u-date-picker>
+    <u-date-picker placeholder="请选择日期" alignment="right"></u-date-picker>
 </u-linear-layout>
 
 ```

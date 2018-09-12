@@ -56,6 +56,12 @@ export default {
                     }) : ((this.row.name || this.row.key) + ': ' + this.row.percent + '%'),
                 ]);
             }
+        } else if (this.type === 'text') {
+            return h('div', [
+                this.vnode ? this.vnode({
+                    row: this.row,
+                }) : this.row.percent + '%',
+            ]);
         }
     },
 };

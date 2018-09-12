@@ -22,17 +22,24 @@
     </svg>
     <div v-if="isEmpty" :class="$style.emptytext">
         <u-popper trigger="hover" placement="right-start" offset="0 10" follow-cursor>
-            <div>0%</div>
+            <div>
+                0%
+            </div>
             <u-chart-tooltip :percent='0' :class="$style.tooltip" slot="popper" type="piechart" :row="data" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
         </u-popper>
     </div>
     <div v-else v-for="(item, index) in posData" :class="$style.text" :style="getTextStyle(item)">
         <u-popper trigger="hover" placement="right-start" offset="0 10" follow-cursor>
-            <div>{{item ? item.percent + '%' : ''}}</div>
+            <div>
+                <u-chart-tooltip type="text" :row="item" :vnode="$scopedSlots.text"></u-chart-tooltip>
+            </div>
             <u-chart-tooltip :class="$style.tooltip" slot="popper" type="piechart" :row="item" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
         </u-popper>
     </div>
     <template v-if="false">
         <slot name="tooltip" type="piechart" :row="data[0]"></slot>
+    </template>
+    <template v-if="false">
+        <slot name="text" type="text" :row="data[0]"></slot>
     </template>
 </u-chart>

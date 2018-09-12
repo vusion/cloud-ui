@@ -32,6 +32,7 @@
     { 'percent': 20, 'name': 'selector4' }
 ]">
     <div slot="tooltip" slot-scope="scope">{{ scope.row.name }}</div>
+    <div slot="text" slot-scope="scope">{{ scope.row.percent + '%' }}</div>
 </u-pie-chart>
 ```
 
@@ -54,3 +55,4 @@
 | Slot | Description |
 | ---- | ----------- |
 | tooltip | 自定义tooltip内容(作用域插槽，请参照示例自定义tooltip的写法) |
+| text | 自定义文本显示(作用域插槽，请参照示例写法) |
