@@ -74,6 +74,14 @@
     white-space: nowrap;
 }
 
+.hthSpan[filter] {
+    padding: 0;
+}
+
+.filtertitle {
+    padding: 13px 0 13px 10px;
+}
+
 .htrItem {
     background-color: #f5f7fa;
     background-clip: padding-box;
@@ -177,8 +185,8 @@
     z-index: 1065;
     background: white;
     border: 1px solid #f1f1f1;
-    margin-left: -10px;
-    margin-top: 13px;
+    /* margin-left: -10px; */
+    /* margin-top: 13px; */
 }
 
 .itemtitle {

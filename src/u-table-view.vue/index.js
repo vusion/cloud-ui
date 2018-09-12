@@ -109,15 +109,15 @@ export default {
     },
     computed: {
         fixedLeftColumns() {
-            return this.columns.filter((column) => column.fixed === 'left');
+            return this.columns.filter((column) => column.fixed === 'left' && column.visible);
         },
         fixedRightColumns() {
             const rightCols = [];
             const other = [];
             this.columns.forEach((col) => {
-                if (col.fixed && col.fixed === 'right') {
+                if (col.fixed && col.fixed === 'right' && col.visible) {
                     rightCols.push(col);
-                } else {
+                } else if (col.visible) {
                     other.push(col);
                 }
             });
@@ -125,13 +125,14 @@ export default {
             return rightCols;
         },
         expandedColumn() {
-            return this.columns.filter((column) => column.type === 'expand')[0];
+            return this.columns.filter((column) => column.type === 'expand' && column.visible)[0];
         },
         allDisabled() {
             return this.tdata.every((item) => item.disabled);
         },
-        showColumnLength() {
-            return this.columns.filter((column) => column.visible).length;
+        showColumns() {
+            // visible属性为true的列集合
+            return this.columns.filter((column) => column.visible);
         },
     },
     watch: {
@@ -144,12 +145,12 @@ export default {
                     this.tdata = this.initTableData();
 
                 // this.copyTdata = this.initTableData();
-                const flag = this.columns.some((column) => column.filter);
+                const flag = this.showColumns.some((column) => column.filter);
                 if (flag && this.forceFilter) {
                     // 在有filter列的情况下  数据如果发生变化是需要对数据进行过滤显示的
                     let columnIndex;
                     if (this.defaultFilter.title === undefined) {
-                        this.columns.some((item, index) => {
+                        this.showColumns.some((item, index) => {
                             if (item.filter) {
                                 this.defaultFilter.title = item.title;
                                 this.defaultFilter.value = item.value;
@@ -160,7 +161,7 @@ export default {
                             return false;
                         });
                     } else {
-                        this.columns.some((column, index) => {
+                        this.showColumns.some((column, index) => {
                             if (column.title === this.defaultFilter.title) {
                                 this.defaultFilter.column = column;
                                 columnIndex = index;
@@ -203,15 +204,15 @@ export default {
             const rightIndexs = [];
             this.rightColumnsWidth = [];
             this.fixedLeftColumns && this.fixedLeftColumns.forEach((item) => {
-                const index = this.columns.indexOf(item);
+                const index = this.showColumns.indexOf(item);
                 leftIndexs.push(index);
             });
             this.fixedRightColumns && this.fixedRightColumns.forEach((item) => {
-                const index = this.columns.indexOf(item);
+                const index = this.showColumns.indexOf(item);
                 rightIndexs.push(index);
                 newValue[index] && this.rightColumnsWidth.push(newValue[index]);
             });
-            this.columns.forEach((item, index) => {
+            this.showColumns.forEach((item, index) => {
                 if (rightIndexs.indexOf(index) === -1 && newValue[index]) {
                     this.rightColumnsWidth.push(newValue[index]);
                 }
@@ -243,6 +244,9 @@ export default {
         },
         columns() {
             // 列表的列修改会导致变化 列表设置
+            this.handleResize();
+        },
+        showColumns() {
             this.handleResize();
         },
     },
@@ -374,8 +378,8 @@ export default {
                 item.original_data = this.data[index];
                 item.original_index = index;
             });
-            const selection = this.columns && this.columns.some((item) => item.type && item.type === 'selection');
-            const expand = this.columns && this.columns.some((item) => item.type && item.type === 'expand');
+            const selection = this.showColumns && this.showColumns.some((item) => item.type && item.type === 'selection');
+            const expand = this.showColumns && this.showColumns.some((item) => item.type && item.type === 'expand');
             if (selection && expand) {
                 copyData.forEach((item) => {
                     if (item.selected === undefined)
@@ -444,7 +448,7 @@ export default {
                     const percentColumns = [];
                     const valueColumns = [];
                     const noWidthColumns = [];
-                    this.columns.forEach((item) => {
+                    this.showColumns.forEach((item) => {
                         const width = item.copyWidth ? item.copyWidth + '' : undefined;
                         if (width && width.indexOf('%') !== -1)
                             percentColumns.push(item);
@@ -457,9 +461,9 @@ export default {
                     let leaveWidth = 0;
 
                     // 全部都是百分数
-                    if (percentColumns.length === this.columns.length) {
+                    if (percentColumns.length === this.showColumns.length) {
                         let sumWidth = 0;
-                        this.columns.forEach((item) => {
+                        this.showColumns.forEach((item) => {
                             sumWidth += parseFloat(item.copyWidth);
                         });
                         if (sumWidth !== 100) {
@@ -485,10 +489,10 @@ export default {
                         noWidthColumns.forEach((item) => item.currentWidth = width);
                     }
 
-                    const allWidth = !this.columns.some((cell) => !cell.copyWidth); // each column set a width
+                    const allWidth = !this.showColumns.some((cell) => !cell.copyWidth); // each column set a width
 
                     if (allWidth) {
-                        this.tableWidth = this.columns.map((cell) => {
+                        this.tableWidth = this.showColumns.map((cell) => {
                             if ((cell.copyWidth + '').indexOf('%') !== -1)
                                 return parseFloat(cell.copyWidth) * parentWidth / 100;
                             else
@@ -542,16 +546,16 @@ export default {
 
                     this.columnsWidth = [];
 
-                    this.columns.forEach((item, index) => {
+                    this.showColumns.forEach((item, index) => {
                         // 存储item.currentWidth可能变化前的值，是由于如果出现水平滚动条，会导致item.currentWidth的值发生变化，
                         // 这时候，组成tbody的表格对应的col最后一个的宽度应该是本身宽度减去滚动条的宽度，不然会导致对不齐的问题出现
                         this.columnsWidth.push(item.currentWidth);
 
-                        if (this.height && index === (this.columns.length - 1) && this.isYScroll) {
+                        if (this.height && index === (this.showColumns.length - 1) && this.isYScroll) {
                             item.currentWidth = parseFloat(item.currentWidth) - this.scrollWidth;
                             item.fixedWidth = item.currentWidth;
                         }
-                        if (this.maxHeight && index === (this.columns.length - 1) && this.isYScroll) {
+                        if (this.maxHeight && index === (this.showColumns.length - 1) && this.isYScroll) {
                             item.currentWidth = parseFloat(item.currentWidth) - this.scrollWidth;
                             item.fixedWidth = item.currentWidth;
                         }
@@ -560,7 +564,7 @@ export default {
             }
         },
         select(option, column, index) {
-            this.$refs.popper && this.$refs.popper[0] && this.$refs.popper[0].toggle(false);
+            this.$refs.popper && this.$refs.popper.forEach((item) => item.toggle(false));
             column.selectValue = option.value;
             this.defaultFilter.title = column.title;
             this.defaultFilter.value = option.value;

@@ -7,7 +7,7 @@
         <table :class="$style.table" cellspacing="0" cellpadding="0" border="0" :style="{tableLayout: layout}">
             <thead v-if="showHeader">
                 <tr :class="$style.htrItem" :color="color">
-                    <th v-for="(column, index) in columns" v-if="column.visible" :class="[$style.hthSpan, column.headClass]" :role="column.filter || column.sortable" :border="border" :selection="column.type==='selection'"
+                    <th v-for="(column, index) in showColumns" :class="[$style.hthSpan, column.headClass]" :role="column.filter || column.sortable" :filter="column.filter" :border="border" :selection="column.type==='selection'"
                         @click.stop="handleSort(column)">
                         <template v-if="column.type === 'selection' && column.headSelection">
                             <u-checkbox v-model="allSel" @check="allSelected" />
@@ -41,7 +41,7 @@
             <tbody :class="$style.btbody" :no-show-header="!showHeader">
                 <template v-if="loading">
                     <tr :class="$style.btrItem">
-                        <td :colspan="showColumnLength" :class="$style.btdSpan" :border="border" role="center">
+                        <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center">
                             <u-loading></u-loading>
                             <span :class="$style.loadText">{{ loadText }}</span>
                         </td>
@@ -49,14 +49,14 @@
                 </template>
                 <template v-else-if="tdata.length === 0">
                     <tr :class="$style.btrItem">
-                        <td :colspan="showColumnLength" :class="$style.btdSpan" :border="border" role="center">
+                        <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center">
                             <slot name="no-data-text">{{noDataText}}</slot>
                         </td>
                     </tr>
                 </template>
                 <template v-else v-for="(row, index) in tdata">
                     <tr :class="[$style.btrItem, rowClsName(index)]" @click="rowClick(row,index)">
-                        <td v-for="(column, cindex) in columns" v-if="column.visible" :class="$style.btdSpan" :border="border" :selection="column.type==='selection'" :hide="isXScroll || border">
+                        <td v-for="(column, cindex) in showColumns" :class="$style.btdSpan" :border="border" :selection="column.type==='selection'" :hide="isXScroll || border">
                             <span v-if="column.type === 'selection'">
                                 <u-checkbox v-model="row.selected" :disabled="row.disabled"  @check="changeSelect(row)" />
                             </span>
@@ -74,14 +74,14 @@
                         </td>
                     </tr>
                     <tr :class="$style.btrItem" v-if="row.expanded">
-                        <td :colspan="showColumnLength" :class="$style.btdSpan" :expanded="row.expanded" :border="border" role="center" :hide="isXScroll || border">
+                        <td :colspan="showColumns.length" :class="$style.btdSpan" :expanded="row.expanded" :border="border" role="center" :hide="isXScroll || border">
                             <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
                         </td>
                     </tr>
                 </template>
                 <template v-if="filterTdata && filterTdata.length > limit && tdata.length === limit && pattern === 'limit'">
                     <tr :class="$style.btrItem">
-                        <td :colspan="showColumnLength" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
+                        <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
                             <slot name="limit-text">
                                 <u-link @click.native="showAll">{{ limitText }}</u-link>
                             </slot>
@@ -90,7 +90,7 @@
                 </template>
                 <template v-else-if="filterTdata && filterTdata.length === tdata.length && tdata.length > limit && pattern === 'limit'">
                     <tr :class="$style.btrItem">
-                        <td :colspan="showColumnLength" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
+                        <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
                             <slot name="all-text">
                                 <u-link @click.native="showLimit">{{ allText }}</u-link>
                             </slot>
@@ -99,7 +99,7 @@
                 </template>
                 <template v-else-if="tdata.length === limit && copyTdata.length > limit && pattern === 'limit'">
                     <tr :class="$style.btrItem">
-                        <td :colspan="showColumnLength" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
+                        <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
                             <slot name="limit-text">
                                 <u-link @click.native="showAll">{{ limitText }}</u-link>
                             </slot>
@@ -108,7 +108,7 @@
                 </template>
                 <template v-else-if="copyTdata.length === tdata.length && tdata.length > limit && pattern === 'limit'">
                     <tr :class="$style.btrItem">
-                        <td :colspan="showColumnLength" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
+                        <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
                             <slot name="all-text">
                                 <u-link @click.native="showLimit">{{ allText }}</u-link>
                             </slot>
@@ -122,11 +122,11 @@
         <div :class="$style.header" ref="head" :role="isXScroll || fixedLeftColumns.length > 0 || fixedRightColumns.length > 0">
             <table :class="$style.thead" ref="thead" cellspacing="0" cellpadding="0" border="0" :style="{width: tableWidth, tableLayout: layout}">
                 <colgroup>
-                    <col v-for="(column, index) in columns" v-if="column.visible" :width="columnsWidth[index] || column.currentWidth"></col>
+                    <col v-for="(column, index) in showColumns" :width="columnsWidth[index] || column.currentWidth"></col>
                 </colgroup>
                 <thead v-if="showHeader">
                     <tr :class="$style.htrItem" :color="color">
-                        <th v-for="(column, index) in columns" v-if="column.visible"  :class="[$style.hthSpan, column.headClass]" :border="border" :role="column.filter || column.sortable" :selection="column.type==='selection'"
+                        <th v-for="(column, index) in showColumns"  :class="[$style.hthSpan, column.headClass]" :border="border" :role="column.filter || column.sortable" :filter="column.filter" :selection="column.type==='selection'"
                             @click.stop="handleSort(column)">
                             <template v-if="column.type === 'selection' && column.headSelection">
                                 <u-checkbox v-model="allSel" :disabled="allDisabled" @check="allSelected" />
@@ -163,12 +163,12 @@
         <div :class="$style.body" :style="{height: bodyHeight+'px', maxHeight: maxBodyHeight+'px', minHeight: minBodyHeight+'px', overflowX: isXScroll ? 'scroll' : 'visible', overflowY: isYScroll ? 'scroll' : 'visible' }" @scroll="bodyScroll">
             <table cellspacing="0" ref="body" cellpadding="0" border="0" :class="$style.tbody" :style="{width: bodyWidth, tableLayout: layout}">
                 <colgroup>
-                    <col v-for="(column, index) in columns" v-if="column.visible" :width="column.currentWidth || columnsWidth[index]">
+                    <col v-for="(column, index) in showColumns" :width="column.currentWidth || columnsWidth[index]">
                 </colgroup>
                 <tbody :class="$style.btbody" :no-show-header="!showHeader">
                     <template v-if="loading">
                         <tr :class="$style.btrItem" :hover="fixedHover">
-                            <td :colspan="showColumnLength" :class="$style.btdSpan" :border="border" role="center">
+                            <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center">
                                 <u-loading></u-loading>
                                 <span :class="$style.loadText">{{ loadText }}</span>
                             </td>
@@ -176,14 +176,14 @@
                     </template>
                     <template v-else-if="tdata.length === 0">
                         <tr :class="$style.btrItem" :hover="fixedHover">
-                            <td :colspan="showColumnLength" :class="$style.btdSpan" :border="border" role="center">
+                            <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center">
                                 <slot name="no-data-text">{{noDataText}}</slot>
                             </td>
                         </tr>
                     </template>
                     <template v-else v-for="(row, index) in tdata">
                         <tr :class="[$style.btrItem, rowClsName(index)]" :hover="row.hover" @click="rowClick(row,index)">
-                            <td v-for="(column, cindex) in columns" v-if="column.visible" :class="$style.btdSpan" :border="border" :selection="column.type==='selection'" :hide="isXScroll || border">
+                            <td v-for="(column, cindex) in showColumns" :class="$style.btdSpan" :border="border" :selection="column.type==='selection'" :hide="isXScroll || border">
                                 <span v-if="column.type === 'selection'">
                                     <u-checkbox v-model="row.selected" :disabled="row.disabled" @check="changeSelect(row)" />
                                 </span>
@@ -201,14 +201,14 @@
                             </td>
                         </tr>
                         <tr :class="$style.btrItem" v-if="row.expanded">
-                            <td :colspan="showColumnLength" :class="$style.btdSpan" :expanded="row.expanded" :border="border" role="center" :hide="isXScroll || border">
+                            <td :colspan="showColumns.length" :class="$style.btdSpan" :expanded="row.expanded" :border="border" role="center" :hide="isXScroll || border">
                                 <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
                             </td>
                         </tr>
                     </template>
                     <template v-if="filterTdata && filterTdata.length > limit && tdata.length === limit && pattern === 'limit'">
                         <tr :class="$style.btrItem">
-                            <td :colspan="showColumnLength" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
+                            <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
                                 <slot name="limit-text">
                                     <u-link @click.native="showAll">{{ limitText }}</u-link>
                                 </slot>
@@ -217,7 +217,7 @@
                     </template>
                     <template v-else-if="filterTdata && filterTdata.length === tdata.length && tdata.length > limit && pattern === 'limit'">
                         <tr :class="$style.btrItem">
-                            <td :colspan="showColumnLength" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
+                            <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
                                 <slot name="all-text">
                                     <u-link @click.native="showLimit">{{ allText }}</u-link>
                                 </slot>
@@ -226,7 +226,7 @@
                     </template>
                     <template v-else-if="tdata.length === limit && copyTdata.length > limit && pattern === 'limit'">
                         <tr :class="$style.btrItem">
-                            <td :colspan="showColumnLength" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
+                            <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
                                 <slot name="limit-text">
                                     <u-link @click.native="showAll">{{ limitText }}</u-link>
                                 </slot>
@@ -235,7 +235,7 @@
                     </template>
                     <template v-else-if="copyTdata.length === tdata.length && tdata.length > limit && pattern === 'limit'">
                         <tr :class="$style.btrItem">
-                            <td :colspan="showColumnLength" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
+                            <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
                                 <slot name="all-text">
                                     <u-link @click.native="showLimit">{{ allText }}</u-link>
                                 </slot>
@@ -249,11 +249,11 @@
             <div :class="$style.header" :role="fixedLeftColumns.length > 0">
                 <table :class="$style.thead" cellspacing="0" cellpadding="0" border="0" :style="{width: tableWidth, tableLayout: layout}">
                     <colgroup>
-                        <col v-for="(column, index) in columns" v-if="column.visible" :width="columnsWidth[index] || column.currentWidth"></col>
+                        <col v-for="(column, index) in showColumns" :width="columnsWidth[index] || column.currentWidth"></col>
                     </colgroup>
                     <thead v-if="showHeader">
                         <tr :class="$style.htrItem" :color="color">
-                            <th v-for="(column, index) in columns" v-if="column.visible" :class="[$style.hthSpan, column.headClass]" :border="border" :role="column.filter || column.sortable" :selection="column.type==='selection'"
+                            <th v-for="(column, index) in showColumns" :class="[$style.hthSpan, column.headClass]" :border="border" :role="column.filter || column.sortable" :filter="column.filter" :selection="column.type==='selection'"
                                 @click.stop="handleSort(column)">
                                 <template v-if="column.type === 'selection' && column.headSelection">
                                     <u-checkbox v-model="allSel" @check="allSelected" />
@@ -290,12 +290,12 @@
             <div :class="$style.body" id="lefttable" ref="lefttable" :style="{height: fixedTableHeight+'px', maxHeight: fixedMaxTableHeight+'px', minHeight: fixedMinTableHeight+'px'}" role="fixed">
                 <table cellspacing="0" cellpadding="0" border="0" :class="$style.tbody" :style="{width: bodyWidth, tableLayout: layout}">
                     <colgroup>
-                        <col v-for="(column, index) in columns" v-if="column.visible" :width="column.currentWidth || columnsWidth[index]">
+                        <col v-for="(column, index) in showColumns" :width="column.currentWidth || columnsWidth[index]">
                     </colgroup>
                     <tbody :class="$style.btbody" :no-show-header="!showHeader">
                         <template v-if="loading">
                             <tr :class="$style.btrItem" @mouseover="fixmouseover(-1)" @mouseleave="fixmouseleave(-1)">
-                                <td :colspan="showColumnLength" :class="$style.btdSpan" role="center">
+                                <td :colspan="showColumns.length" :class="$style.btdSpan" role="center">
                                     <u-loading></u-loading>
                                     <span :class="$style.loadText">{{ loadText }}</span>
                                 </td>
@@ -303,14 +303,14 @@
                         </template>
                         <template v-else-if="tdata.length === 0">
                             <tr :class="$style.btrItem" @mouseover="fixmouseover(-1)" @mouseleave="fixmouseleave(-1)">
-                                <td :colspan="showColumnLength" :class="$style.btdSpan" role="center">
+                                <td :colspan="showColumns.length" :class="$style.btdSpan" role="center">
                                     <span :class="$style.fixNoText"></span>
                                 </td>
                             </tr>
                         </template>
                         <template v-else v-for="(row, index) in tdata">
                             <tr :class="$style.btrItem" @click="rowClick(row,index)" @mouseover="fixmouseover(index)" @mouseleave="fixmouseleave(index)">
-                                <td v-for="(column, cindex) in columns" v-if="column.visible" :class="$style.btdSpan" :border="border" :selection="column.type==='selection'" :hide="isXScroll || border">
+                                <td v-for="(column, cindex) in showColumns" :class="$style.btdSpan" :border="border" :selection="column.type==='selection'" :hide="isXScroll || border">
                                     <span v-if="column.type === 'selection'">
                                         <u-checkbox v-model="row.selected" :disabled="row.disabled" @check="changeSelect(row)" />
                                     </span>
@@ -328,7 +328,7 @@
                                 </td>
                             </tr>
                             <tr :class="$style.btrItem" v-if="row.expanded">
-                                <td :colspan="showColumnLength" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
+                                <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
                                     <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
                                 </td>
                             </tr>
@@ -341,11 +341,11 @@
             <div :class="$style.header" :role="fixedRightColumns.length > 0" :style="{width: isYScroll ? (fixedRightWidth + scrollWidth) + 'px' : '' }">
                 <table :class="$style.thead" cellspacing="0" cellpadding="0" border="0" :style="{width: tableWidth, tableLayout: layout}">
                     <colgroup>
-                        <col v-for="(column, index) in rightColumns" v-if="column.visible" :width="rightColumnsWidth[index] || column.currentWidth"></col>
+                        <col v-for="(column, index) in rightColumns" :width="rightColumnsWidth[index] || column.currentWidth"></col>
                     </colgroup>
                     <thead v-if="showHeader">
                         <tr :class="$style.htrItem" :color="color">
-                            <th v-for="(column, index) in rightColumns" :class="[$style.hthSpan, column.headClass]" :border="border" :role="column.filter || column.sortable" :selection="column.type==='selection'"
+                            <th v-for="(column, index) in rightColumns" :class="[$style.hthSpan, column.headClass]" :border="border" :role="column.filter || column.sortable" :filter="column.filter" :selection="column.type==='selection'"
                                 @click.stop="handleSort(column)">
                                 <template v-if="column.type === 'selection' && column.headSelection">
                                     <u-checkbox v-model="allSel" @check="allSelected" />
@@ -382,12 +382,12 @@
             <div :class="$style.body" id="righttable" ref="righttable" :style="{height: fixedTableHeight+'px', maxHeight: fixedMaxTableHeight+'px', minHeight: fixedMinTableHeight+'px'}" role="fixed">
                 <table cellspacing="0" cellpadding="0" border="0" :class="$style.tbody" :style="{width: bodyWidth, tableLayout: layout}">
                     <colgroup>
-                        <col v-for="(column, index) in rightColumns" v-if="column.visible" :width="column.fixedWidth || column.currentWidth || columnsWidth[index]">
+                        <col v-for="(column, index) in rightColumns" :width="column.fixedWidth || column.currentWidth || columnsWidth[index]">
                     </colgroup>
                     <tbody :class="$style.btbody" :no-show-header="!showHeader">
                         <template v-if="loading">
                             <tr :class="$style.btrItem" @mouseover="fixmouseover(-1)" @mouseleave="fixmouseleave(-1)">
-                                <td :colspan="showColumnLength" :class="$style.btdSpan" role="center">
+                                <td :colspan="showColumns.length" :class="$style.btdSpan" role="center">
                                     <u-loading></u-loading>
                                     <span :class="$style.loadText">{{ loadText }}</span>
                                 </td>
@@ -395,14 +395,14 @@
                         </template>
                         <template v-else-if="tdata.length === 0">
                             <tr :class="$style.btrItem" @mouseover="fixmouseover(-1)" @mouseleave="fixmouseleave(-1)">
-                                <td :colspan="showColumnLength" :class="$style.btdSpan" role="center">
+                                <td :colspan="showColumns.length" :class="$style.btdSpan" role="center">
                                     <span :class="$style.fixNoText"></span>
                                 </td>
                             </tr>
                         </template>
                         <template v-else v-for="(row, index) in tdata">
                             <tr :class="$style.btrItem" @click="rowClick(row,index)" @mouseover="fixmouseover(index)" @mouseleave="fixmouseleave(index)">
-                                <td v-for="(column, cindex) in rightColumns" v-if="column.visible" :class="$style.btdSpan" :border="border" :selection="column.type==='selection'">
+                                <td v-for="(column, cindex) in rightColumns" :class="$style.btdSpan" :border="border" :selection="column.type==='selection'">
                                     <span v-if="column.type === 'selection'">
                                         <u-checkbox v-model="row.selected" :disabled="row.disabled" @check="changeSelect(row)" />
                                     </span>
@@ -420,7 +420,7 @@
                                 </td>
                             </tr>
                             <tr :class="$style.btrItem" v-if="row.expanded">
-                                <td :colspan="showColumnLength" :class="$style.btdSpan" :border="border" role="center">
+                                <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center">
                                     <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
                                 </td>
                             </tr>

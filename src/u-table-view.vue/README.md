@@ -555,7 +555,7 @@ export default {
 <template>
     <u-linear-layout direction="vertical">
             <u-table-view :data="tdata" @selection-change="selectionChange($event)">
-                <u-table-view-column type="selection"></u-table-view-column>
+                <u-table-view-column type="selection" title="选择" width="100"></u-table-view-column>
                 <u-table-view-column title="日期" label="date" type="time"></u-table-view-column>
                 <u-table-view-column title="姓名" label="name" ></u-table-view-column>
                 <u-table-view-column title="地址" label="address" ></u-table-view-column>
