@@ -38,6 +38,7 @@ export default {
             },
             percent_: undefined,
             currentData: this.getCurrentData(),
+            hideLine: [], // 最小值自定义会出现导致某些线段不能显示，这个时候需要特殊处理
         };
     },
     created() {
@@ -139,6 +140,16 @@ export default {
                         )
                     )); // 支持空数据
                 }
+                const maxArr = this.series.map((sery) =>
+                    !sery.absent && Math.max(...this.currentData.map((item) =>
+                        item[sery.key] !== undefined ? item[sery.key] : -Infinity))
+                );
+
+                this.hideLine = [];
+                maxArr.forEach((item, index) => {
+                    if (item < yAxis_.min)
+                        this.hideLine.push(index);
+                });
 
                 if (yAxis_.min === yAxis_.max && yAxis_.min > 0)
                     yAxis_.min = 0;
