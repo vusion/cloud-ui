@@ -222,6 +222,132 @@ export default {
 </script>
 ```
 
+### 自定义条件列显示
+``` vue
+<template>
+    <div>
+        <u-resize-table :data="tdata" @selection-change="selectionChange" :all-checked.sync="allChecked">
+            <u-resize-table-column type="selection"></u-resize-table-column>
+            <u-resize-table-column :visible="isShow" title="日期" label="date"></u-resize-table-column>
+            <u-resize-table-column title="姓名" label="name" :formatter="formatter"></u-resize-table-column>
+            <u-resize-table-column title="地址" label="address"></u-resize-table-column>
+            <u-resize-table-column title="性别" max-width="180" label="female" ></u-resize-table-column>
+        </u-resize-table>
+        <u-button color="primary" style="margin-top: 20px;" @click="toggle">toggle</u-button>
+    </div>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{
+                date: '2016-05-02',
+                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+                address: '浙江省杭州市滨江区网商路 599号 11111111111111111111111111111111',
+                female: '男',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+                address: '浙江省杭州市滨江区英飞特 D栋3楼',
+                female: '男',
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
+                address: '浙江省杭州市滨江区 西可科技园',
+                female: '女',
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '浙江省杭州市滨江区 东忠科技园',
+                female: '男',
+            }, {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
+                female: '男',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '浙江省杭州市滨江区英飞特 D栋3楼',
+                female: '女',
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '浙江省杭州市滨江区 西可科技园',
+                female: '女',
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '浙江省杭州市滨江区 东忠科技园',
+                female: '女',
+            }, {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
+                female: '男',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '浙江省杭州市滨江区英飞特 D栋3楼',
+                female: '女',
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '浙江省杭州市滨江区 西可科技园',
+                female: '男',
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '浙江省杭州市滨江区 东忠科技园',
+                female: '女',
+            }],
+            options: [
+                {
+                    text: '全部',
+                    value: '',
+                },
+                {
+                    text: '男',
+                    value: '男'
+                },
+                {
+                    text: '女',
+                    value: '女'
+                },
+            ],
+            value: '',
+            allChecked: false,
+            isShow: false,
+        };
+    },
+    methods: {
+        formatter(row, column) {
+            if (row.name === '天王盖地虎')
+                return '逗比一号';
+            else
+                return row.name;
+        },
+        filterMethod(value, columnValue) {
+            if (value === '')
+                return true;
+            return columnValue === value;
+        },
+        selectionChange(value) {
+            console.log(value);
+        },
+        toggle() {
+            this.isShow = !this.isShow;
+        }
+    },
+    watch: {
+        allChecked(newValue) {
+            console.log(newValue);
+        },
+    },
+};
+</script>
+```
+
 ### 带复选框的表格
 ``` vue
 <template>
@@ -1065,29 +1191,6 @@ export default {
 ## ResizeTable API
 ### Attrs/Props
 
-<<<<<<< HEAD
-| Attr/Prop | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| data | Array | '' | 表格默认要显示的数据 |
-| allChecked.sync | Boolean | false | 默认是否全部选中 |
-| defaultSort | Object | '' | 默认的排序列和顺序值，其title属性指定默认排序的列，order指定默认排序的顺序 |
-| noDataText | String | '' | 当data为空数组时，展示的信息 |
-| loading| Boolean | false | 是否展示加载中的状态信息 |
-| loadText| String | `` | 加载中的文字信息提示 |
-| showHeader| Boolean | `true` | 是否展示表格头 |
-| rowClassName | Function | `` | 给表格行添加自定义class函数，第一个参数表示索引，即在第几行中，第二个参数是表格当前行数据
-| height| Integer/String |  | 表格组件的高度 |
-| maxHeight| Integer/String |  | 表格组件的最大高度 |
-| minHeight| Integer/String |  | 表格组件的最小高度 |
-| visible| Boolean | true | 默认显示 |
-| defaultText | String | `'-'` | 默认当单元格取值为空时，默认显示的内容，此处是设置整个表格 |
-| color | String | `` | 值为light的时，表格头背景是#fff |
-| expandPattern | String | `'toggle'` | 规定expand中icon每次展开数量的限制，默认只能展开一个，传入`'normal'`可取消此限制 |
-| ellipsis | Boolean | `false` | 是否换行，默认换行，值为true则开启不换行，超出部分显示为省略号 |
-| sortMethod | Function | `` | 自定义排序方法 |
-| sortRemoteMethod | Funtion| `` | 异步执行排序传入的方法，第一个参数是列字段，第二个参数是排序顺序，第三个参数是列对象 |
-| filterMethod | Function | `` | 自定义过滤方法 |
-=======
 #### 视图相关属性
 
 | Attr/Prop | Type | Default | Description |
@@ -1121,7 +1224,6 @@ export default {
 | defaultSort | Object\< title, order \> |  | 默认的排序列和顺序值，其中`title`属性指定默认排序的列。`order`指定默认排序的顺序，可选值: `'desc'`,`'asc'`。 |
 | forceFilter | Boolean | `true` | 数据发生变化时，存在数据过滤列，是否需要进行过滤，默认是需要的，但是异步获取的情况下，会出现死循环，需要将此值置为`false` |
 
->>>>>>> bugfix/doc
 ### Slots
 
 #### (default)
@@ -1216,6 +1318,7 @@ export default {
 | expandStrict | Boolean | `false` | 当`type`属性值为`'expand'`时，开启`'expand'`严格匹配模式， 只有对应的`label`字段有值才显示`icon` |
 | expandLabel | String |  | 当`type`属性值为`'expand'`时，当出现组合形式的时候，使用此字段指定`icon`展开依赖的属性字段 |
 | expandClass | String |  | 当`type`属性值为`'expand'`时，定义`icon`的样式 |
+| visible | Boolean | `true` | 控制列的显示/隐藏 |
 
 #### 数据相关属性
 

@@ -99,9 +99,10 @@ export default {
             this.tdata = this.initTableData();
         window.addEventListener('resize', this.onResize, false);
         this.$nextTick(() => {
-            this.itemColumns.forEach((item, index) => {
-                if (!item.digitWidth)
+            this.showColumns.forEach((item, index) => {
+                if (!item.digitWidth && item.visible) {
                     item.copyWidth = item.currentWidth = item.digitWidth = parseFloat(getStyle(this.$refs.thColumn[index], 'width'));
+                }
             });
         });
         this.handleSize(); // 计算样式
@@ -118,12 +119,12 @@ export default {
                 else
                     this.tdata = this.initTableData();
 
-                const flag = this.itemColumns.some((column) => column.type === 'filter');
+                const flag = this.showColumns.some((column) => column.type === 'filter');
                 if (flag) {
                     // 在有filter列的情况下  数据如果发生变化是需要对数据进行过滤显示的
                     let columnIndex;
                     if (this.currentFilter.title === undefined) {
-                        this.itemColumns.some((item, index) => {
+                        this.showColumns.some((item, index) => {
                             if (item.filter) {
                                 this.currentFilter.title = item.title;
                                 this.currentFilter.value = item.value;
@@ -134,7 +135,7 @@ export default {
                             return false;
                         });
                     } else {
-                        this.itemColumns.some((column, index) => {
+                        this.showColumns.some((column, index) => {
                             if (column.title === this.currentFilter.title) {
                                 this.currentFilter.column = column;
                                 columnIndex = index;
@@ -160,16 +161,41 @@ export default {
                     const order = this.defaultSort.order === 'asc' ? -1 : 1;
                     this.sortData(this.currentSortColumn, order, 'change');
                 }
-                this.handleResize();
+                this.handleSize();
             },
+        },
+        visible() {
+            this.handleSize();
+        },
+        loading() {
+            // 比较复杂情况下，可能会先赋值data，再将loading设为false
+            this.handleSize();
+        },
+        itemColumns() {
+            // 列表的列修改会导致变化 列表设置
+            this.handleSize();
+        },
+        showColumns(newValue) {
+            this.$nextTick(() => {
+                newValue.forEach((item, index) => {
+                    item.copyWidth = item.currentWidth = item.digitWidth = parseFloat(getStyle(this.$refs.thColumn[index], 'width'));
+                });
+            });
         },
     },
     computed: {
         expandedColumn() {
-            return this.itemColumns.filter((column) => column.type === 'expand')[0];
+            return this.itemColumns.filter((column) => column.type === 'expand' && column.visible)[0];
         },
         allDisabled() {
             return this.tdata.every((item) => item.disabled);
+        },
+        showColumns() {
+            // 原来分配的宽度会影响现有新增或删除列 显示
+            this.itemColumns.forEach((item) => {
+                item.currentWidth = item.copyWidth = item.getWidth();
+            });
+            return this.itemColumns.filter((column) => column.visible);
         },
     },
     methods: {
@@ -183,23 +209,26 @@ export default {
             this.initPoint.pageX = e.clientX;
             this.initPoint.pageY = e.clientY;
             this.currentIndex = index;
-            this.itemColumns.forEach((item) => item.currentWidth = item.digitWidth);
+            if (!this.showColumns[index].digitWidth)
+                this.showColumns[index].digitWidth = parseFloat(getStyle(this.$refs.thColumn[index], 'width'));
+
+            this.showColumns.forEach((item) => item.currentWidth = item.digitWidth);
         },
         onMouseMove(e) {
-            this.pauseEvent(e);
             // 指定位置点击 才能触发move事件
             // 移动规则： 如果移动的距离不能被右边的列均分，则优先将移动距离给靠近移动列的其他列 例如右边有3列，移动距离2，则右边的移动距离是1，1，0
             if (this.isDown && this.currentIndex !== undefined) {
+                this.pauseEvent(e);
                 this.currentDiff.offsetX = e.clientX - this.initPoint.pageX;
                 this.$nextTick(() => {
                     // changeLen 表示当前列右边还剩下几个可以改变宽度的列
-                    let changeLen = this.itemColumns.length - this.currentIndex - 1;
+                    let changeLen = this.showColumns.length - this.currentIndex - 1;
                     this.direction = this.currentDiff.offsetX < 0 ? 'left' : 'right';
                     if (this.direction === 'left') {
-                        if (this.itemColumns[this.currentIndex].digitWidth <= this.itemColumns[this.currentIndex].currentMinWidth)
+                        if (this.showColumns[this.currentIndex].digitWidth <= this.showColumns[this.currentIndex].currentMinWidth)
                             return false;
                     } else {
-                        for (let i = this.currentIndex + 1; i < this.itemColumns.length; i++) {
+                        for (let i = this.currentIndex + 1; i < this.showColumns.length; i++) {
                             if (this.minIndexs.indexOf(i) !== -1)
                                 changeLen += -1;
                         }
@@ -214,8 +243,8 @@ export default {
                     let remainder = 0;
                     let amendRight = 0; // 会出现向右移动
                     let amendLeft = 0; // 会出现向左移动导致当前列最小宽度小于46， 需要特殊处理
-                    if (this.direction === 'left' && (this.itemColumns[this.currentIndex].digitWidth + this.currentDiff.offsetX < this.itemColumns[this.currentIndex].currentMinWidth)) {
-                        amendLeft = this.itemColumns[this.currentIndex].digitWidth - this.itemColumns[this.currentIndex].currentMinWidth;
+                    if (this.direction === 'left' && (this.showColumns[this.currentIndex].digitWidth + this.currentDiff.offsetX < this.showColumns[this.currentIndex].currentMinWidth)) {
+                        amendLeft = this.showColumns[this.currentIndex].digitWidth - this.showColumns[this.currentIndex].currentMinWidth;
                         averageOffset = Math.floor(amendLeft / changeLen);
                         remainder = Math.abs(amendLeft - averageOffset * changeLen);
                     } else {
@@ -229,7 +258,7 @@ export default {
                     } else {
                         changColumnIndex = this.getColumnIndex(this.currentIndex + 1, 'max');
                     }
-                    this.itemColumns.forEach((item, index) => {
+                    this.showColumns.forEach((item, index) => {
                         if (index > this.currentIndex) {
                             if (this.direction === 'left') {
                                 item.digitWidth += averageOffset;
@@ -247,29 +276,28 @@ export default {
                                 item.currentWidth = item.digitWidth = item.digitWidth < item.currentMinWidth ? parseFloat(item.currentMinWidth) : item.digitWidth;
                             }
                             // 有滚动条的情况下 最后一列需要特殊处理
-                            if (index === this.itemColumns.length - 1 && this.isYScroll)
+                            if (index === this.showColumns.length - 1 && this.isYScroll)
                                 item.copyWidth = item.digitWidth - this.scrollWidth;
                             else
                                 item.copyWidth = item.digitWidth;
                         }
                     });
-                    console.log(amendRight);
                     this.sumOffset += this.currentDiff.offsetX;
                     this.minIndexs = [];
-                    this.itemColumns.forEach((item, index) => {
+                    this.showColumns.forEach((item, index) => {
                         if (item.digitWidth <= item.currentMinWidth)
                             this.minIndexs.push(index);
                     });
                     if (this.direction === 'right') {
                         // 必须确保减去和增加的长度一样 向右移动 满足条件是右边的列不能全部为最小值
-                        this.itemColumns[this.currentIndex].digitWidth = this.itemColumns[this.currentIndex].digitWidth + this.currentDiff.offsetX - amendRight;
-                        this.itemColumns[this.currentIndex].copyWidth = this.itemColumns[this.currentIndex].currentWidth = this.itemColumns[this.currentIndex].digitWidth;
-                    } else if (this.itemColumns[this.currentIndex].digitWidth > this.itemColumns[this.currentIndex].currentMinWidth && this.direction === 'left') {
-                        this.itemColumns[this.currentIndex].digitWidth += this.currentDiff.offsetX;
-                        // 需要特殊处理小于 this.itemColumns[this.currentIndex].currentMinWidth的情况
-                        if (this.itemColumns[this.currentIndex].digitWidth < this.itemColumns[this.currentIndex].currentMinWidth)
-                            this.itemColumns[this.currentIndex].digitWidth = parseFloat(this.itemColumns[this.currentIndex].currentMinWidth);
-                        this.itemColumns[this.currentIndex].copyWidth = this.itemColumns[this.currentIndex].currentWidth = this.itemColumns[this.currentIndex].digitWidth;
+                        this.showColumns[this.currentIndex].digitWidth = this.showColumns[this.currentIndex].digitWidth + this.currentDiff.offsetX - amendRight;
+                        this.showColumns[this.currentIndex].copyWidth = this.showColumns[this.currentIndex].currentWidth = this.showColumns[this.currentIndex].digitWidth;
+                    } else if (this.showColumns[this.currentIndex].digitWidth > this.showColumns[this.currentIndex].currentMinWidth && this.direction === 'left') {
+                        this.showColumns[this.currentIndex].digitWidth += this.currentDiff.offsetX;
+                        // 需要特殊处理小于 this.showColumns[this.currentIndex].currentMinWidth的情况
+                        if (this.showColumns[this.currentIndex].digitWidth < this.showColumns[this.currentIndex].currentMinWidth)
+                            this.showColumns[this.currentIndex].digitWidth = parseFloat(this.showColumns[this.currentIndex].currentMinWidth);
+                        this.showColumns[this.currentIndex].copyWidth = this.showColumns[this.currentIndex].currentWidth = this.showColumns[this.currentIndex].digitWidth;
                     }
                     this.initPoint.pageX = e.clientX;
                 });
@@ -297,8 +325,8 @@ export default {
         // 加入自定义最小值，会存在自定义最小值大于46，反而成为最大的值
         getColumnIndex(index, type) {
             let columnIndex = 0;
-            let m = this.itemColumns.slice(index)[0].digitWidth;
-            this.itemColumns.slice(index).forEach((item, kindex) => {
+            let m = this.showColumns.slice(index)[0].digitWidth;
+            this.showColumns.slice(index).forEach((item, kindex) => {
                 if (type === 'max') {
                     if (item.digitWidth > m && item.digitWidth > item.currentMinWidth) {
                         m = item.digitWidth;
@@ -322,7 +350,7 @@ export default {
                     if (tableHeight > this.bodyTableHeight) {
                         this.isYScroll = true;
                         this.scrollWidth = getScrollSize();
-                        // this.itemColumns[this.itemColumns.length - 1].copyWidth = this.itemColumns[this.itemColumns.length - 1].digitWidth - this.scrollWidth;
+                        // this.showColumns[this.showColumns.length - 1].copyWidth = this.showColumns[this.showColumns.length - 1].digitWidth - this.scrollWidth;
                     } else
                         this.isYScroll = false;
                 } else if (this.maxHeight && !this.loading && this.data.length) {
@@ -335,7 +363,7 @@ export default {
                 }
                 if (this.isYScroll) {
                     // 有滚动条 特殊处理
-                    this.itemColumns[this.itemColumns.length - 1].copyWidth = this.itemColumns[this.itemColumns.length - 1].digitWidth - this.scrollWidth;
+                    this.showColumns[this.showColumns.length - 1].copyWidth = this.showColumns[this.showColumns.length - 1].digitWidth - this.scrollWidth;
                 }
             });
         },
@@ -371,8 +399,8 @@ export default {
                 item.original_data = this.data[index];
                 item.original_index = index;
             });
-            const selection = this.itemColumns && this.itemColumns.some((item) => item.type && item.type === 'selection');
-            const expand = this.itemColumns && this.itemColumns.some((item) => item.type && item.type === 'expand');
+            const selection = this.showColumns && this.showColumns.some((item) => item.type && item.type === 'selection');
+            const expand = this.showColumns && this.showColumns.some((item) => item.type && item.type === 'expand');
             if (selection && expand) {
                 copyData.forEach((item) => {
                     if (item.selected === undefined)
