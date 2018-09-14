@@ -39,3 +39,11 @@
     icon-font: url("./icons/expire.svg");
     color: #a2b0b7;
 }
+.icon[name="disable"]::before {
+    icon-font: url("./icons/disable.svg");
+    color: #ff867f;
+}
+.icon[name="enable"]::before {
+    icon-font: url("./icons/enable.svg");
+    color: #3ad0af;
+}

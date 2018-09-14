@@ -13,6 +13,8 @@
     <u-status-icon name="mount">已绑定</u-status-icon>
     <u-status-icon name="end">结束</u-status-icon>
     <u-status-icon name="expire">失效</u-status-icon>
+    <u-status-icon name="disable">禁用</u-status-icon>
+    <u-status-icon name="enable">启用</u-status-icon>
 </u-linear-layout>
 ```
 
