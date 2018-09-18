@@ -191,6 +191,7 @@ export default {
 
                 if (this.currentSortColumn && !this.currentSortColumn.sortRemoteMethod) {
                     const order = this.currentSort.order === 'asc' ? -1 : 1;
+                    // 此处有问题 异步执行 数据改变不希望我们在执行排序操作
                     this.sortData(this.currentSortColumn, order, 'change');
                 }
                 this.handleResize();

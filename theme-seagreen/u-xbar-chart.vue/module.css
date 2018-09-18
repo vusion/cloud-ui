@@ -1,4 +1,4 @@
-@import '../../src/u-bar-chart.vue/module.css';
+@import '../../src/u-xbar-chart.vue/module.css';
 
 .bar[role="bar-static"]:nth-of-type(1) {
     border-color: $theme-chart-color1;
