@@ -1,6 +1,6 @@
 $m-chart_padding: 15px;
 $m-chart_tt_height: 40px;
-$m-chart_legend_height: 30px;
+$m-chart_legend_height: 20px;
 .root {
     position: relative;
     box-sizing: border-box;
@@ -43,7 +43,7 @@ $m-chart_legend_height: 30px;
 }
 
 .legend[role="multiline"] {
-    line-height: 20px;
+    line-height: 16px;
 }
 
 .root[empty] .legend {
