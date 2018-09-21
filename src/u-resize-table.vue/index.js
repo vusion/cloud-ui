@@ -368,7 +368,7 @@ export default {
             });
         },
         select(option, column, index) {
-            this.$refs.popper && this.$refs.popper[0] && this.$refs.popper[0].toggle(false);
+            this.$refs.popper && this.$refs.popper.forEach((item) => item.toggle(false));
             column.selectValue = option.value;
             this.currentFilter.title = column.title;
             this.currentFilter.value = option.value;
