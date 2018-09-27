@@ -47,3 +47,23 @@
     icon-font: url("./icons/enabled.svg");
     color: #3ad0af;
 }
+.icon[name="move"]::before {
+    icon-font: url("./icons/list_move.svg");
+    color: #fbcc3e;
+}
+.icon[name="unused"]::before {
+    color: #a2b0b7;
+    icon-font: url("./icons/nec-unused.svg");
+}
+.icon[name="unpaid"]::before {
+    color: #fea237;
+    icon-font: url("./icons/unpaid.svg");
+}
+.icon[name="start"]::before {
+    color: #45dbba;
+    icon-font: url("./icons/list-start.svg");
+}
+.icon[name="no_response"]::before {
+    color: #ff867f;
+    icon-font: url("./icons/list_no_response.svg");
+}

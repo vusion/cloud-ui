@@ -642,4 +642,7 @@ export default {
             this.tdata = this.tdata.slice(0, this.limit);
         },
     },
+    destroyed() {
+        window.removeEventListener('resize', this.onResize, false);
+    },
 };
