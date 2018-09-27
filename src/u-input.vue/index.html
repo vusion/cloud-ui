@@ -1,12 +1,18 @@
-<span :class="$style.root" :readonly="readonly" :disabled="disabled" :close="close" :color="currentColor || this.formItemVM && this.formItemVM.color"
+<span :class="$style.root" :readonly="readonly" :disabled="disabled" :color="currentColor || this.formItemVM && this.formItemVM.color"
     :focus="focused" @click.self="!focused && focus()">b<!-- 用于基线对齐 -->
-    <input ref="input" :class="$style.input" v-bind="$attrs" :readonly="readonly" :disabled="disabled" :value="currentValue"
+    <span v-if="search === 'left'" :class="[$style.wrapLeft, $style.search]">
+        <i :class="[$style.icon, $style.searchIcon]"></i>
+    </span>
+    <input ref="input" :class="$style.input" v-bind="$attrs" :close="close || search !== undefined" :alignLeft="search === 'left'" :readonly="readonly" :disabled="disabled" :value="currentValue"
         @input="onInput" @focus="onFocus" @blur="onBlur" @keypress="onKeypress" v-on="listeners"
         @compositionstart="compositionInputing = true"
         @compositionend="onCompositionEnd">
     <!-- @override: 增加了 icon -->
-    <span v-if="close && currentValue" :class="$style.close" @click="removeValue">
-        <i :class="$style.closeIcon"></i>
+    <span v-if="close && currentValue" :class="[$style.wrap, $style.close]" @click="removeValue">
+        <i :class="[$style.icon, $style.closeIcon]"></i>
+    </span>
+    <span v-else-if="search !== undefined && search !== 'left'" :class="[$style.wrap, $style.search]">
+        <i :class="[$style.icon, $style.searchIcon]"></i>
     </span>
     <slot></slot>
 </span>

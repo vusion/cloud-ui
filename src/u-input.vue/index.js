@@ -7,12 +7,12 @@ export default {
         // @override: 添加了 maxlengthMessage 功能
         maxlengthMessage: String,
         close: { type: Boolean, default: false },
+        search: String,
     },
     methods: {
         onKeypress(e) {
             const inputEl = e.target;
-            if (this.formItemVM && this.maxlengthMessage
-                && inputEl.value.length === inputEl.maxLength) {
+            if (this.formItemVM && this.maxlengthMessage && inputEl.value.length === inputEl.maxLength) {
                 this.formItemVM.color = 'error';
                 this.formItemVM.currentMessage = this.maxlengthMessage;
             }

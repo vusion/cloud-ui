@@ -98,7 +98,24 @@ export default {
 
 ### 删除功能
 ```html
-<u-input close size="normal large" placeholder="1~12位小写字母" autofocus></u-input>
+<u-input close size="large normal" placeholder="1~12位小写字母" autofocus></u-input>
+```
+
+### 搜索标志
+
+```html
+<u-linear-layout>
+    <u-input search="left"  size="normal medium" placeholder="1~12位小写字母" autofocus></u-input>
+    <u-input search size="normal medium" placeholder="1~12位小写字母" autofocus></u-input>
+</u-linear-layout>
+```
+
+### 搜索 + 删除
+```html
+<u-linear-layout>
+    <u-input search="left" close  size="normal medium" placeholder="1~12位小写字母" autofocus></u-input>
+    <u-input search close size="normal medium" placeholder="1~12位小写字母" autofocus></u-input>
+</u-linear-layout>
 ```
 
 ## API
@@ -115,6 +132,7 @@ export default {
 | disabled | Boolean | | 原生属性 |
 | size | String | `'normal'` | 大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式 |
 | close | Boolean | `'false'` | 删除功能，默认值`false`，当值为`true`并且输入框有输入内容才显示 |
+| search | String| | 搜索标志，支持位置自定义，默认搜索标志在最右边，值为`left`即表示搜索标志在左边 |
 | maxlengthMessage | String | | 输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效 |
 
 ### Slots
