@@ -8,7 +8,11 @@
     <u-resize-table :data="tdata">
         <u-resize-table-column title="日期" label="date"></u-resize-table-column>
         <u-resize-table-column title="姓名" label="name" :formatter="formatter"></u-resize-table-column>
-        <u-resize-table-column title="地址" icon="help" icon-content="提示" label="address"></u-resize-table-column>
+        <u-resize-table-column title="地址" icon="help" icon-placement="bottom-end" label="address">
+            <template slot="iconContent">
+                自定义提示内容
+            </template>
+        </u-resize-table-column>
         <u-resize-table-column title="性别" label="female" ></u-resize-table-column>
     </u-resize-table>
 </template>
@@ -1198,7 +1202,6 @@ export default {
 | color | String |  | 值为`'light'`的时，表格头背景是`#fff` |
 | visible| Boolean | `true` | 表格是否可见 |
 | showHeader| Boolean | `true` | 是否展示表格头 |
-| layout| String | `'fixed'` | 表格的布局方式, 可选值: `'fixed'`, `'auto'` |
 | border | Boolean | `'false'` | 是否展示表格边框 |
 | width | Integer/String |  | 表格组件的宽度 |
 | height| Integer/String |  | 表格组件的高度 |
@@ -1214,6 +1217,9 @@ export default {
 | allText| String | `'收起'`| 在`pattern`属性值为`'limit'`时，显示所有数据后默认在表格最后一行显示的提示内容 |
 | expandPattern | String | `'toggle'` | 规定`type`属性值为`'expand'`列的展开行为，可选值: `'toggle'`，`'normal'`。值为`'toggle'`时，展开一行后其他行将收回。 值为`'normal'`时，每行都可以展开。|
 | rowClassName | Function |  | 给表格行添加自定义class函数，第一个参数表示索引，即在第几行中，第二个参数是表格当前行数据 |
+| sortMethod | Function |  | 自定义排序方法，第一个参数为该列前一行数据，第二个参数为该列后一行数据，方法需要返回值，返回类型为`Boolean`|
+| sortRemoteMethod | Function|  | 异步执行排序传入的方法，第一个参数是列字段，第二个参数是排序顺序，第三个参数是列对象 |
+| filterMethod | Function |  | 自定义过滤方法，第一个参数为该列数据，第二个参数为列实例 |
 
 #### 数据相关属性
 
@@ -1222,7 +1228,6 @@ export default {
 | data | Array |  | 表格默认要显示的数据 |
 | allChecked.sync | Boolean | `false` | 默认是否全部选中 |
 | defaultSort | Object\< title, order \> |  | 默认的排序列和顺序值，其中`title`属性指定默认排序的列。`order`指定默认排序的顺序，可选值: `'desc'`,`'asc'`。 |
-| forceFilter | Boolean | `true` | 数据发生变化时，存在数据过滤列，是否需要进行过滤，默认是需要的，但是异步获取的情况下，会出现死循环，需要将此值置为`false` |
 
 ### Slots
 
@@ -1246,6 +1251,7 @@ export default {
 #### expandIcon
 
 在列中`type`属性值为`'expand'`时，替换默认的切换图标
+
 
 
 ### Events
@@ -1275,7 +1281,8 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event | Array | 选中的行的数据集合 |
+| $event.selected | Array | 选中的行的数据集合 |
+| $event.selectedIndexs | Array | 选中的行的索引集合 |
 
 #### @row-click
 
@@ -1307,8 +1314,8 @@ export default {
 | border | Boolean | `false` | 是否有边框，默认无 |
 | fixed | String | | 将列固定在左边或右边，参见例子`固定左右列`，可选值：`'left'`,`'right'`,`''` |
 | move | Boolean | `true` | 表格列是否可以改变宽度 |
-| icon | String | | 表格头提示`icon`的`url` |
-| iconContent | String | `'提示信息'` | 表格头的提示消息 |
+| icon | String | | 表格头提示`icon`的名称,目前支持值只有`help` |
+| iconContent | String | | 表格头的提示消息 |
 | iconPlacement | Stirng |`'bottom'`| 表格头的提示消息弹出方向，可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start'`,`'left-end'`, `'right-start'`, `'right-end'` |
 | ellipsis | Boolean | `false` | 是否换行，默认换行，值为`true`则开启不换行，超出部分显示为省略号 |
 | defaultText | String | `'-'` | 默认当单元格取值为空时，默认显示的内容，此处是设置某一列的显示 |
@@ -1328,16 +1335,11 @@ export default {
 | value | String |  | 默认过滤项选中的值 |
 | label | String |  | 对象`data`中对象的属性 |
 | field | String |  | `options`中显示文本的字段 |
-| type | String |  | 可选值：`'selection'`,`'expand'`,`'time'`。值为`'selection'`,表示此列是否是可选择的， 对于日期类型的值可以设置值为`'time'`,配合`timeFormat`属性，转换成想要的日期格式, `'expand'`表示在当前行出现`icon`标识，点击`icon`当前行下新增新一行数据 |
+| type | String |  | 可选值：`'selection'`,`'expand'`,`'time'`, `sortable`, `filter`。值为`'selection'`,表示此列是否是可选择的， 对于日期类型的值可以设置值为`'time'`,配合`timeFormat`属性，转换成想要的日期格式, `'expand'`表示在当前行出现`icon`标识，点击`icon`当前行下新增新一行数据, `sortable`表示排序， `filter`表示过滤 |
 | timeFormat | String | `'YYYY-MM-DD HH:mm:ss'` | 定义`type`属性值为`'time'`时，返回的指定日期格式的值 |
-| sortable | Boolean | `false` | 列是否可排序 |
-| filter | Boolean | `false` | 列是否可过滤 |
 | headSelection | Boolean | `true` | 列表是否可全选 |
 | options | Array\{name, value} |  | 过滤项列表 |
 | formatter | Function |  | 自定义格式化列数据，第一个参数是含有该行数据的对象，第二个参数是列实例 |
-| sortMethod | Function |  | 自定义排序方法，第一个参数为该列前一行数据，第二个参数为该列后一行数据，方法需要返回值，返回类型为`Boolean`|
-| sortRemoteMethod | Function|  | 异步执行排序传入的方法，第一个参数是列字段，第二个参数是排序顺序，第三个参数是列对象 |
-| filterMethod | Function |  | 自定义过滤方法，第一个参数为该列数据，第二个参数为列实例 |
 
 ### Slots
 
@@ -1348,3 +1350,7 @@ export default {
 #### expandContent
 
 插入自定义`icon`展开的内容。
+
+#### iconContent
+
+自定义icon的提示内容

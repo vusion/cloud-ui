@@ -178,7 +178,10 @@ export default {
         showColumns(newValue) {
             this.$nextTick(() => {
                 newValue.forEach((item, index) => {
-                    item.copyWidth = item.currentWidth = item.digitWidth = parseFloat(getStyle(this.$refs.thColumn[index], 'width'));
+                    if (index === newValue.length - 1 && this.isYScroll)
+                        item.copyWidth = item.currentWidth = item.digitWidth = parseFloat(getStyle(this.$refs.thColumn[index], 'width')) - (this.scrollWidth || 0);
+                    else
+                        item.copyWidth = item.currentWidth = item.digitWidth = parseFloat(getStyle(this.$refs.thColumn[index], 'width'));
                 });
             });
         },
@@ -349,7 +352,6 @@ export default {
                 if (this.height) {
                     if (tableHeight > this.bodyTableHeight) {
                         this.isYScroll = true;
-                        this.scrollWidth = getScrollSize();
                         // this.showColumns[this.showColumns.length - 1].copyWidth = this.showColumns[this.showColumns.length - 1].digitWidth - this.scrollWidth;
                     } else
                         this.isYScroll = false;
@@ -362,6 +364,7 @@ export default {
                     this.minBodyHeight = parseFloat(this.minHeight) - headHeight;
                 }
                 if (this.isYScroll) {
+                    this.scrollWidth = getScrollSize();
                     // 有滚动条 特殊处理
                     this.showColumns[this.showColumns.length - 1].copyWidth = this.showColumns[this.showColumns.length - 1].digitWidth - this.scrollWidth;
                 }
@@ -464,7 +467,11 @@ export default {
             else
                 this.allSel = false;
             this.$emit('update:allChecked', this.allSel);
-            return this.data.filter((data, index) => selectionIndexes.indexOf(index) > -1);
+            // return this.data.filter((data, index) => selectionIndexes.indexOf(index) > -1);
+            return {
+                selected: this.data.filter((data, index) => selectionIndexes.indexOf(index) > -1),
+                selectedIndexs: selectionIndexes,
+            };
         },
         onResize() {
             this.handleSize();

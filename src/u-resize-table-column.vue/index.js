@@ -20,17 +20,14 @@ export default {
         filterMaxWidth: [String, Number], // 列的最大宽度是指移动的时候列的最大宽度 并不是指列的最大宽度，含义有缺别 设置列的最大宽度，暂时只支持数字形式
         headSelection: { type: Boolean, default: true }, // 可以实现表格头部没有checkbox的特殊需求
         ellipsis: { type: Boolean, default: false },
-        type: { type: String, default: 'normal' }, // 表格列的类型有selection,filter,sortable,normal,time五种类型
+        type: { type: String, default: 'normal' }, // 表格列的类型有selection,filter,sortable,normal,time,expand 6种类型
         timeFormat: { type: String, default: 'YYYY-MM-DD HH:mm:ss' }, // 自定义日期显示格式
         options: Array,
         value: [String, Number, Boolean],
         field: { type: String, default: 'text' },
         filter: Function, // 定义过滤器函数
         icon: String, // 表头有提示信息的
-        iconContent: {
-            type: String,
-            default: '提示信息',
-        },
+        iconContent: String,
         iconPlacement: {
             type: String,
             default: 'bottom',

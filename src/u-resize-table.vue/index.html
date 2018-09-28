@@ -11,8 +11,12 @@
                             <template v-else-if="column.type !== 'sortable' && column.type !== 'filter'">
                                 <template v-if="!column.$slots.headerTitle">
                                     <span :class="$style.titleText" :icon="column.icon">{{ column.title }}</span>
-                                    <u-tooltip :content="column.iconContent" :placement="column.iconPlacement" v-if="column.icon">
+                                    <u-tooltip :placement="column.iconPlacement" v-if="column.icon">
                                         <span :class="$style.iconTooltip" :name="column.icon"></span>
+                                        <div slot="content">
+                                            <span>{{ column.iconContent }}</span>
+                                            <u-table-view-cell v-if="!column.iconContent" :column="column" text></u-table-view-cell>
+                                        </div>
                                     </u-tooltip>
                                 </template>
                                 <template v-else>
