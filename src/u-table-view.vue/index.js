@@ -435,7 +435,7 @@ export default {
                     // 判断是否会出现水平滚动条
                     let parentWidth;
                     parentWidth = this.$el.offsetWidth;
-                    let tableWidth = this.$refs.body.offsetWidth;
+                    let tableWidth = this.$refs.body && this.$refs.body.offsetWidth;
                     if (parentWidth === 0) {
                         // 初始表格是隐藏的需要特殊处理的，此时上面两个值默认是0
                         let parentNode = this.$refs.root.parentNode;

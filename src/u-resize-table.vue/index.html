@@ -1,4 +1,4 @@
-<div :class="$style.root" v-show="visible" :style="{height: height+'px', width: width + 'px', maxHeight: maxHeight + 'px', minHeight: minHeight + 'px'}">
+<div :class="$style.root" v-if="visible" :style="{height: height+'px', width: width + 'px', maxHeight: maxHeight + 'px', minHeight: minHeight + 'px'}">
     <div :class="$style.wrapHead" v-if="showHeader" ref="tableHead">
         <table :class="$style.table">
             <thead>

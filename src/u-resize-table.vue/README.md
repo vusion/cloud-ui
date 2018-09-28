@@ -833,12 +833,6 @@ export default {
                 name: '王小虎',
                 address: '浙江省杭州市滨江区网商路 599号',
                 female: 'female',
-                listlogs:[
-                    '2018-04-19 14:52:49实例开始创建..',
-                    '2018-04-19 14:52:49云主机开始创建...',
-                    '2018-04-19 14:53:20云主机创建完成，云主机 UUID：05ab50b1-a981-492d-bfac-ebbbf94cea5e',
-                    '2018-04-19 14:53:20云硬盘开始创建...',
-                ],
             } ],
             value: ''
         };
@@ -863,9 +857,9 @@ export default {
     <u-resize-table :data="tdata">
         <u-resize-table-column title="姓名" label="name">
             <template slot="headerTitle">
-            <u-tooltip content="身份证上的姓名">
-                <span>姓名</span>
-            </u-tooltip>
+                <u-tooltip content="身份证上的姓名">
+                    <span>姓名</span>
+                </u-tooltip>
             </template>
         </u-resize-table-column>
         <u-resize-table-column title="日期" label="date" type="time"></u-resize-table-column>
@@ -1323,7 +1317,7 @@ export default {
 | placement | String | `'bottom-start'` | 可过滤列选项弹出层的弹出方向，可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start'`,`'left-end'`, `'right-start'`, `'right-end'` |
 | expandIcon | String | `'right-down'` | `icon`的图标展开方向，提供两种类型，一种是默认向右点击向下`'right-down'`，另一种是默认向下点击向上`'up-down'` |
 | expandStrict | Boolean | `false` | 当`type`属性值为`'expand'`时，开启`'expand'`严格匹配模式， 只有对应的`label`字段有值才显示`icon` |
-| expandLabel | String |  | 当`type`属性值为`'expand'`时，当出现组合形式的时候，使用此字段指定`icon`展开依赖的属性字段 |
+| expandLabel | String |  | 当`type`属性值为`'expand'`时，当出现组合形式的时候，使用此字段指定`icon`展开依赖的属性字段,label字段用来控制显示内容 |
 | expandClass | String |  | 当`type`属性值为`'expand'`时，定义`icon`的样式 |
 | visible | Boolean | `true` | 控制列的显示/隐藏 |
 

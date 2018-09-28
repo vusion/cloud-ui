@@ -347,7 +347,7 @@ export default {
         handleSize() {
             this.$nextTick(() => {
                 const headHeight = parseFloat(getStyle(this.$refs.tableHead, 'height')) || 0;
-                const tableHeight = this.$refs.tableBody.offsetHeight;
+                const tableHeight = this.$refs.tableBody && this.$refs.tableBody.offsetHeight;
                 this.bodyTableHeight = parseFloat(this.height) - headHeight;
                 if (this.height) {
                     if (tableHeight > this.bodyTableHeight) {
