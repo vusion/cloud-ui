@@ -441,7 +441,7 @@ export default {
                         let parentNode = this.$refs.root.parentNode;
                         while (parentNode.offsetWidth === 0)
                             parentNode = parentNode.parentNode;
-                        parentWidth = tableWidth = parentNode.offsetWidth;
+                        parentWidth = tableWidth = parentNode.offsetWidth || 0;
                     }
 
                     // 分别获取有百分比 具体数值 和无width的column集合
@@ -535,7 +535,8 @@ export default {
                         // this.bodyWidth = parseFloat(this.tableWidth) - this.scrollWidth;
                         this.fixedMinTableHeight = this.minBodyHeight = this.minHeight - titleHeight - headHeight;
                     }
-
+                    if (this.isYScroll)
+                        this.fixedMaxTableHeight = this.fixedMaxTableHeight - this.scrollWidth;
                     if (this.loading && tableWidth > parentWidth) {
                         this.fixedTableHeight = parseFloat(getStyle(this.$refs.body, 'height')) || 0;
                         // this.$refs.body.parentNode.scrollLeft = (tableWidth - parentWidth) / 2;

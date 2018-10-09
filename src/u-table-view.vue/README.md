@@ -999,7 +999,7 @@ export default {
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata" width="800" height="400" border>
+        <u-table-view :data="tdata" width="800" max-height="400" border>
             <u-table-view-column width="200" fixed="left" title="日期" label="date" sortable type="time" time-format="YYYY-MM-DD"></u-table-view-column>
             <u-table-view-column title="姓名" width="200" label="name" ></u-table-view-column>
             <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>

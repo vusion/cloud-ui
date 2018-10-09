@@ -179,6 +179,7 @@
     /* 解决在火狐浏览器下英文换行显示问题 */
     word-wrap: break-word;
     line-height: 24px;
+    display: inline-block;
 }
 
 .popper {
@@ -266,7 +267,7 @@
     top: 0;
     overflow: hidden;
     background: white;
-    box-shadow: 2px 0 6px -2px rgba(0,0,0,0.2);
+    box-shadow: 2px 0 6px -2px rgba(0, 0, 0, 0.2);
 }
 
 .fixRight {
@@ -275,7 +276,7 @@
     left: auto;
     top: 0;
     background: white;
-    box-shadow: -2px 0 6px -2px rgba(0,0,0,0.2);
+    box-shadow: -2px 0 6px -2px rgba(0, 0, 0, 0.2);
 }
 
 .loading {
