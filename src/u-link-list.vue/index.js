@@ -19,8 +19,8 @@ export default {
                 this.outsideVMs = itemVMs.slice(0, itemVMs.length);
                 this.insideVMs = [];
             } else {
-                this.outsideVMs = itemVMs.slice(0, 2);
-                this.insideVMs = itemVMs.slice(2, itemVMs.length);
+                this.outsideVMs = itemVMs.slice(0, this.maxCount);
+                this.insideVMs = itemVMs.slice(this.maxCount, itemVMs.length);
             }
         },
     },
