@@ -31,6 +31,9 @@ export default {
             class: {
                 expand: this.expand,
             },
+            // style: {
+            //     display: 'inline-block',
+            // },
         }, [
             /* eslint-disable */
             typeof vnode === 'object' ? vnode : vnode({
