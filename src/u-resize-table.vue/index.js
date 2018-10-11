@@ -474,9 +474,16 @@ export default {
             };
         },
         onResize() {
+            // 需要特殊处理selection expand类型的列
             this.showColumns.forEach((item) => {
-                if (!item.width)
+                if (item.type === 'selection')
+                    item.currentWidth = item.digitWidth = item.width || 46;
+                else if (item.type === 'expand')
+                    item.currentWidth = item.digitWidth = item.width || 50;
+                else if (!item.width)
                     item.currentWidth = item.digitWidth = '';
+                else if (item.width)
+                    item.currentWidth = item.width;
             });
             this.handleSize();
             this.$nextTick(() => {
