@@ -67,3 +67,11 @@
     color: #ff867f;
     icon-font: url("./icons/list_no_response.svg");
 }
+.icon[name="lock"]::before {
+    color: #45dbba;
+    icon-font: url("./icons/lock.svg");
+}
+.icon[name="secret_public"]::before {
+    color: #ff867f;
+    icon-font: url("./icons/secret_public.svg");
+}
