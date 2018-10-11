@@ -474,7 +474,19 @@ export default {
             };
         },
         onResize() {
+            this.showColumns.forEach((item) => {
+                if (!item.width)
+                    item.currentWidth = item.digitWidth = '';
+            });
             this.handleSize();
+            this.$nextTick(() => {
+                this.showColumns.forEach((item, index) => {
+                    if (index === this.showColumns.length - 1 && this.isYScroll)
+                        item.copyWidth = item.currentWidth = item.digitWidth = parseFloat(getStyle(this.$refs.thColumn[index], 'width')) - (this.scrollWidth || 0);
+                    else
+                        item.copyWidth = item.currentWidth = item.digitWidth = parseFloat(getStyle(this.$refs.thColumn[index], 'width'));
+                });
+            });
         },
         changeSelect(row) {
             const selection = this.getSelection();

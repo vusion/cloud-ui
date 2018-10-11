@@ -63,7 +63,7 @@ export default {
             if ((this.type === 'sortable' || this.type === 'filter' || this.icon) && this.minWidth === 46)
                 return 66;
             else
-                return this.minWidth;
+                return parseFloat(this.minWidth);
         },
     },
     watch: {
