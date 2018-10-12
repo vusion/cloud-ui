@@ -88,8 +88,8 @@ export default {
             itemVM.parentVM = undefined;
             this.itemColumns.splice(this.itemColumns.indexOf(itemVM), 1);
         });
-        document.body.addEventListener('mousemove', this.onMouseMove);
-        document.body.addEventListener('mouseup', this.onMouseUp);
+        document.body.addEventListener('mousemove', this.onMouseMove, false);
+        document.body.addEventListener('mouseup', this.onMouseUp, false);
     },
     mounted() {
         // 需要在没有给表格列赋值初始化的情况下 获取每列的宽度
@@ -670,5 +670,7 @@ export default {
     },
     destroyed() {
         window.removeEventListener('resize', this.onResize, false);
+        document.body.removeEventListener('mousemove', this.onMouseMove, false);
+        document.body.removeEventListener('mouseup', this.onMouseUp, false);
     },
 };

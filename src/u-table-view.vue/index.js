@@ -535,12 +535,13 @@ export default {
                         // this.bodyWidth = parseFloat(this.tableWidth) - this.scrollWidth;
                         this.fixedMinTableHeight = this.minBodyHeight = this.minHeight - titleHeight - headHeight;
                     }
-                    if (this.isYScroll)
+                    if (this.isXScroll)
                         this.fixedMaxTableHeight = this.fixedMaxTableHeight - this.scrollWidth;
+                        
                     if (this.loading && tableWidth > parentWidth) {
                         this.fixedTableHeight = parseFloat(getStyle(this.$refs.body, 'height')) || 0;
                         // this.$refs.body.parentNode.scrollLeft = (tableWidth - parentWidth) / 2;
-                    } else if (tableWidth > parentWidth) {
+                    } else if (tableWidth > parentWidth && this.bodyHeight) {
                         this.fixedTableHeight = this.bodyHeight - this.scrollWidth;
                         // this.$refs.body.parentNode.scrollLeft = (tableWidth - parentWidth) / 2;
                     } else

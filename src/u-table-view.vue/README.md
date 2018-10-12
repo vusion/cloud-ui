@@ -999,7 +999,7 @@ export default {
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata" width="800" max-height="400" border>
+        <u-table-view :data="tdata" width="800" border :loading="loading">
             <u-table-view-column width="200" fixed="left" title="日期" label="date" sortable type="time" time-format="YYYY-MM-DD"></u-table-view-column>
             <u-table-view-column title="姓名" width="200" label="name" ></u-table-view-column>
             <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>
@@ -1030,68 +1030,7 @@ export default {
 export default {
     data: function () {
         return {
-            tdata: [{
-                date: 1501977600000,
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-                female: '男',
-                use: 12,
-                total: 20,
-            }, {
-                date: 1502236800000,
-                name: '王大虎',
-                address: '浙江省杭州市滨江区',
-                female: '女',
-                use: 12,
-                total: 20,
-            }, {
-                date: 1503100800000,
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园',
-                female: '男',
-                use: 12,
-                total: 20,
-            }, {
-                date: 1503964800000,
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区',
-                female: '女',
-                use: 12,
-                total: 20,
-            },
-            {
-                date: 1503964800000,
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区',
-                female: '女',
-                use: 12,
-                total: 20,
-            },
-            {
-                date: 1503964800000,
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区',
-                female: '女',
-                use: 12,
-                total: 20,
-            },
-            {
-                date: 1503964800000,
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区',
-                female: '女',
-                use: 12,
-                total: 20,
-            },
-            {
-                date: 1503964800000,
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区',
-                female: '女',
-                use: 12,
-                total: 20,
-            },
-        ],
+            tdata: [],
             options: [
                 {
                     name: '全部',
@@ -1110,7 +1049,77 @@ export default {
             current: {},
             visible: false,
             show: false,
+            loading: false,
         };
+    },
+    created() {
+        this.loading= true;
+        setTimeout(() => {
+            this.loading = false;
+            this.tdata= [
+                {
+                    date: 1501977600000,
+                    name: '王小虎',
+                    address: '浙江省杭州市滨江区网商路 599号',
+                    female: '男',
+                    use: 12,
+                    total: 20,
+                }, {
+                    date: 1502236800000,
+                    name: '王大虎',
+                    address: '浙江省杭州市滨江区',
+                    female: '女',
+                    use: 12,
+                    total: 20,
+                }, {
+                    date: 1503100800000,
+                    name: '天王盖地虎',
+                    address: '浙江省杭州市滨江区 西可科技园',
+                    female: '男',
+                    use: 12,
+                    total: 20,
+                }, {
+                    date: 1503964800000,
+                    name: '小鸡炖蘑菇',
+                    address: '浙江省杭州市滨江区',
+                    female: '女',
+                    use: 12,
+                    total: 20,
+                },
+                {
+                    date: 1503964800000,
+                    name: '小鸡炖蘑菇',
+                    address: '浙江省杭州市滨江区',
+                    female: '女',
+                    use: 12,
+                    total: 20,
+                },
+                {
+                    date: 1503964800000,
+                    name: '小鸡炖蘑菇',
+                    address: '浙江省杭州市滨江区',
+                    female: '女',
+                    use: 12,
+                    total: 20,
+                },
+                {
+                    date: 1503964800000,
+                    name: '小鸡炖蘑菇',
+                    address: '浙江省杭州市滨江区',
+                    female: '女',
+                    use: 12,
+                    total: 20,
+                },
+                {
+                    date: 1503964800000,
+                    name: '小鸡炖蘑菇',
+                    address: '浙江省杭州市滨江区',
+                    female: '女',
+                    use: 12,
+                    total: 20,
+                },
+            ]
+        }, 2000);
     },
     methods: {
         filterMethod(value, columnValue) {
