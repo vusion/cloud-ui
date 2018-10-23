@@ -222,6 +222,9 @@ const MultiSelect = {
             this.selFlag = this.initSelFlag();
             if (!newValue.length && !this.query)
                 this.optionsData = this.initOptionsData();
+            this.$emit('change', {
+                value: newValue,
+            });
         },
     },
 };
