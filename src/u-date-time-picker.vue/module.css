@@ -28,6 +28,8 @@
     color: #999;
 }
 .timePicker {
-    text-align: center;
+    /* text-align: center; */
     width: 100%;
+    box-sizing: border-box;
+    padding-left: 32px;
 }
