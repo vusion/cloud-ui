@@ -111,7 +111,7 @@
     cursor: not-allowed;
     color: #999;
 }
-.listitem:hover {
+.listitem:hover, .listitem[hovered] {
     background: $hover-color;
     color: #444;
 }

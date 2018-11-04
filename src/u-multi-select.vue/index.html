@@ -6,7 +6,10 @@
                 <span :class="$style.close" @click.stop="close(index)"></span>
             </div>
             <input ref="input" :class="$style.input" :placeholder="showPlaceholder" v-model="query" @click.stop="inputClick" @input="onInput" @keydown.delete="inputDelete"  @compositionstart="compositionInputing = true"
-            @compositionend="compositionInputing = false" :style="inputStyle"></input>
+            @compositionend="compositionInputing = false" :style="inputStyle" @keydown.prevent.up="$refs.popper.currentOpen ? shift(-1) : toggle(true)"
+            @keydown.prevent.down="$refs.popper.currentOpen ? shift(+1) : toggle(true)"
+            @keydown.stop.enter="$refs.popper.currentOpen && enterSelected()"
+            @keydown.stop.esc="toggle(false)"></input>
         </template>
         <template v-else>
             <span :class="$style.tiptext" v-if="!selFlag">请选择</span>
@@ -20,8 +23,8 @@
         </template>
     </div>
     <div :class="$style.body" slot="popper" :size="size" :style="{width: size ? '':width+'px'}">
-        <ul :class="$style.listview" v-if="optionsData.length>0">
-            <li :class="$style.listitem" v-for="(item,index) in optionsData" :key="index" :disabled="item.disabled" :role="item.selected ? 'z-sel':''" @click.stop="select($event,index)">
+        <ul :class="$style.listview" v-if="optionsData.length>0" ref="listView">
+            <li :class="$style.listitem" ref="listItem" v-for="(item,index) in optionsData" :key="index" :disabled="item.disabled" :role="item.selected ? 'z-sel':''" :hovered="item.hovered" @click.stop="select($event,index)">
                 <!-- <span :class="$style.listcontent">{{item[field]}}</span> -->
                 {{item[field]}}
             </li>

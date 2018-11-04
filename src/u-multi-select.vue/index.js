@@ -1,4 +1,5 @@
 import Field from 'proto-ui.vusion/src/u-field.vue';
+import { deepCopy } from '../base/utils/index';
 
 const MultiSelect = {
     name: 'u-multi-select',
@@ -87,6 +88,68 @@ const MultiSelect = {
         },
     },
     methods: {
+        shift(count) {
+            let selectedIndex = -1;
+            const hovered = this.optionsData.some((item, index) => {
+                if (item.hovered) {
+                    selectedIndex = index;
+                    return true;
+                }
+                return false;
+            });
+            if (!hovered) {
+                // 如果没有处于hover状态的元素 判断是否有处于selected的元素，有的话 shfit的selectedIndex就是他的索引
+                this.optionsData.some((item, index) => {
+                    if (item.selected) {
+                        selectedIndex = index;
+                        return true;
+                    }
+                    return false;
+                });
+            }
+            // let selectedIndex = this.itemVMs.indexOf(this.selectedVM);
+            if (count > 0) {
+                if (selectedIndex + count === this.optionsData.length)
+                    selectedIndex = -1;
+                for (let i = selectedIndex + count; i < this.optionsData.length; i++) {
+                    const itemVM = this.optionsData[i];
+                    if (!itemVM.disabled) {
+                        itemVM.hovered = true;
+                        this.optionsData.forEach((item, index) => {
+                            if (index !== i)
+                                item.hovered = false;
+                        });
+                        this.$emit('shift', {
+                            selectedIndex,
+                            selectedVM: itemVM,
+                            value: itemVM.value,
+                        });
+                        this.ensureSelectedInView();
+                        break;
+                    }
+                }
+            } else if (count < 0) {
+                if (selectedIndex === -1 || selectedIndex + count < 0)
+                    selectedIndex = this.optionsData.length;
+                for (let i = selectedIndex + count; i >= 0; i--) {
+                    const itemVM = this.optionsData[i];
+                    if (!itemVM.disabled) {
+                        itemVM.hovered = true;
+                        this.optionsData.forEach((item, index) => {
+                            if (index !== i)
+                                item.hovered = false;
+                        });
+                        this.$emit('shift', {
+                            selectedIndex,
+                            selectedVM: itemVM,
+                            value: itemVM.value,
+                        });
+                        this.ensureSelectedInView();
+                        break;
+                    }
+                }
+            }
+        },
         onToggle($event) {
             this.open = $event.open;
             this.$emit('toggle', $event);
@@ -134,12 +197,13 @@ const MultiSelect = {
         },
         initOptionsData(value, data) {
             const currentValue = value || this.currentValue;
-            const optionsData = data || this.data;
+            const optionsData = deepCopy([], data || this.data);
             optionsData.forEach((item) => {
                 if (currentValue.indexOf(item.value) !== -1)
                     item.selected = true;
                 else
                     item.selected = false;
+                item.hovered = false;
             });
             return optionsData;
         },
@@ -197,6 +261,44 @@ const MultiSelect = {
         },
         inputClick() {
             this.$refs.popper.toggle(true);
+        },
+        toggle(open) {
+            this.$refs.popper && this.$refs.popper.toggle(open);
+        },
+        enterSelected() {
+            this.optionsData.some((item) => {
+                if (item.hovered && !item.selected) {
+                    item.selected = true;
+                    this.currentValue.push(item.value);
+                    return true;
+                }
+                return false;
+            });
+        },
+        ensureSelectedInView(natural) {
+            // 确保有滚动条的情况下 选择项是视野内
+            let selectedIndex;
+            const hovered = this.optionsData.some((item, index) => {
+                if (item.hovered)
+                    selectedIndex = index;
+                return item.hovered;
+            });
+            if (!hovered)
+                return false;
+
+            const selectedEl = this.$refs.listItem[selectedIndex];
+            const parentEl = selectedEl.parentElement;
+            if (parentEl.scrollTop < selectedEl.offsetTop + selectedEl.offsetHeight - parentEl.clientHeight) {
+                if (natural)
+                    parentEl.scrollTop = selectedEl.offsetTop - selectedEl.offsetHeight;
+                else
+                    parentEl.scrollTop = selectedEl.offsetTop + selectedEl.offsetHeight - parentEl.clientHeight;
+                if (selectedIndex === this.optionsData.length - 1) {
+                    setTimeout(() => parentEl.scrollTop = parentEl.scrollHeight - parentEl.clientHeight, 200);
+                }
+            }
+            if (parentEl.scrollTop > selectedEl.offsetTop)
+                parentEl.scrollTop = selectedEl.offsetTop;
         },
     },
     watch: {

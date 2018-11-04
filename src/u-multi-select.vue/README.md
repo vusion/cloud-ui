@@ -65,6 +65,18 @@ export default {
             }, {
                 value: '选项5',
                 text: '北京烤鸭',
+            },{
+                value: '选项6',
+                text: '空爆鸡丁',
+            },{
+                value: '选项7',
+                text: '熟煮牛肉',
+            },{
+                value: '选项8',
+                text: '红烧茄子',
+            },{
+                value: '选项9',
+                text: '卤煮',
             }],
         };
     }
