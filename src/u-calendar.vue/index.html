@@ -12,7 +12,7 @@
         </u-popper>
         <u-popper :class="$style.monthPopper" trigger="click" placement="bottom-end" :open.sync="monthvisible" appendTo="reference">
             <div :class="$style.month">
-                <span :class="$style.textMonth">{{showMonth}}{{ $t('month') }}</span>
+                <span :class="$style.textMonth">{{monthTextList[showMonth]}}{{ $t('month') }}</span>
             </div>
             <ul slot="popper" :class="$style.monthList">
                 <li :class="$style.listitem" v-for="(month, mindex) in monthCol" :role="month.value === showMonth" :disabled="month.disabled" @click.stop="monthSelect(month, mindex)">{{monthTextList[month.value]}}</li>
