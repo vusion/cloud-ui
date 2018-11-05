@@ -1,3 +1,4 @@
+import i18n from './i18n';
 /**
  * @class Select
  * @extend Base
@@ -8,6 +9,7 @@
  */
 const SelectColor = {
     name: 'u-color-select',
+    i18n,
     props: {
         options: Array,
         readonly: Boolean,
@@ -28,7 +30,7 @@ const SelectColor = {
     computed: {
         selected() {
             if (this.options.length === 0)
-                return { name: '请选择', value: '' };
+                return { name: this.$t('selectText'), value: '' };
             return this.options[this.selectedIndex];
         },
     },

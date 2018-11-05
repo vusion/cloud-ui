@@ -1,13 +1,16 @@
 import Vue from 'vue';
 import { clickOutside } from '../base/directives';
+import i18n from './i18n';
+
 const Modal = {
     name: 'u-modal',
+    i18n,
     props: {
-        title: { type: String, default: '提示' },
+        title: { type: String, default() { return this.$t('dialog'); } },
         content: String,
         heading: String,
-        okButton: { type: String, default: '确定' },
-        cancelButton: { type: String, default: '取消' },
+        okButton: { type: String, default() { return this.$t('ok'); } },
+        cancelButton: { type: String, default() { return this.$t('cancel'); } },
         visible: { type: Boolean, default: false },
         // @deprecated
         width: { type: [String, Number], default: '' },
@@ -83,14 +86,14 @@ const Modal = {
     },
 };
 
-Modal.alert = (content, title = '提示') => {
+Modal.alert = (content, title) => {
     const Ctor = Modal._Ctor[0];
     new Ctor({
         propsData: { content, title, cancelButton: '' },
     }).open();
 };
 
-Modal.confirm = (content, title = '提示') => new Promise((resolve, reject) => {
+Modal.confirm = (content, title) => new Promise((resolve, reject) => {
     const Ctor = Modal._Ctor[0];
     const instance = new Ctor({
         propsData: { content, title },

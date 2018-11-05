@@ -1,5 +1,8 @@
+import i18n from './i18n';
+
 export default {
     name: 'u-popover',
+    i18n,
     props: {
         trigger: {
             type: String,
@@ -19,11 +22,11 @@ export default {
         },
         confirmOk: {
             type: String,
-            default: '确定',
+            default() { return this.$t('ok'); },
         },
         confirmCancel: {
             type: String,
-            default: '取消',
+            default() { return this.$t('cancel'); },
         },
         message: String,
     },

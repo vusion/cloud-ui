@@ -9,7 +9,7 @@
             @compositionend="compositionInputing = false" :style="inputStyle"></input>
         </template>
         <template v-else>
-            <span :class="$style.tiptext" v-if="!selFlag">请选择</span>
+            <span :class="$style.tiptext" v-if="!selFlag">{{ $t('selectText') }}</span>
             <div :class="$style.wraptag" v-else>
                 <div :class="$style.tag" v-for="(selItem, index) in selItems" :key="selItem.value">
                     <span :class="$style.text">{{selItem[field]}}</span>
@@ -26,6 +26,6 @@
                 {{item[field]}}
             </li>
         </ul>
-        <div :class="$style.none" v-else>无匹配数据</div>
+        <div :class="$style.none" v-else>{{ $t('noDataText') }}</div>
     </div>
 </u-popper>

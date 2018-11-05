@@ -1,9 +1,12 @@
+import i18n from './i18n';
+
 export default {
     name: 'u-link-list',
     childName: 'u-link-list-item',
+    i18n,
     props: {
         maxCount: { type: Number, default: 3 },
-        menuTitle: { type: String, default: '更多' },
+        menuTitle: { type: String, default() { return this.$t('more'); } },
         placement: { type: String, default: 'bottom-end' },
     },
     data() {

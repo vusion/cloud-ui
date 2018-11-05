@@ -2,8 +2,11 @@ import { ellipsisTitle } from 'proto-ui.vusion/src/base/directives';
 import { getStyle, getScrollSize } from '../base/utils/style';
 // import { deepCopy } from '../base/utils/index';
 import { cloneDeep } from 'lodash';
+import i18n from './i18n';
+
 export default {
     name: 'u-resize-table',
+    i18n,
     props: {
         showHeader: { type: Boolean, default: true },
         data: { type: Array, default() {
@@ -28,12 +31,12 @@ export default {
         minHeight: [String, Number],
         pattern: { type: String, default: 'normal' },
         limit: { type: [String, Number], default: 5 }, // 配合 pattern 值是limit使用
-        limitText: { type: String, default: '查看更多' },
-        allText: { type: String, default: '收起' },
+        limitText: { type: String, default() { return this.$t('limitText'); } },
+        allText: { type: String, default() { return this.$t('allText'); } },
         allChecked: { type: Boolean, default: false },
         loading: { type: Boolean, default: false },
         loadText: { type: String, default: '' }, // 加载状态显示的文本
-        noDataText: { type: String, default: '暂无数据' }, // 无数据时的提示文案
+        noDataText: { type: String, default() { return this.$t('noDataText'); } }, // 无数据时的提示文案
         border: { type: Boolean, default: false }, // 显示边框
         defaultText: { type: String, default: '-' }, // 无数据显示内容
         visible: { type: Boolean, default: true },

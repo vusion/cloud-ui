@@ -1,0 +1,5 @@
+{
+    "selectDateText": "请选择日期",
+    "integerTip": "请输入大于0的整数",
+    "formatErrorTip": "请输入正确的时分秒格式"
+}
