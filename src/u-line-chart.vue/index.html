@@ -11,7 +11,7 @@
     </template>
     <div :class="$style.wrap">
         <div :class="$style.grid" ref="grid">
-            <!-->暂时去掉<-->
+            <!--暂时去掉-->
             <!-- <div v-for="(xLablel, index) in xAxis_.data" :class="$style.line" role="y" :style="{left: 100*index/(xAxis_.data.length - 1)+'%'}"></div> -->
             <div v-for="(yLabel, index) in yAxis_.data" :class="$style.line" role='x' :style="{bottom: 100*index/(yAxis_.data.length - 1)+'%'}"></div>
         </div>

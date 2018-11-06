@@ -2,25 +2,25 @@
     <div :class="$style.head">
         <u-popper trigger="click" :open.sync="yearvisible" appendTo="reference">
             <div :class="$style.year">
-                <span :class="$style.textYear">{{showYear}}年</span>
+                <span :class="$style.textYear">{{showYear}}{{ $t('year') }}</span>
             </div>
             <div :class="$style.yearList" slot="popper" @click.stop>
                 <u-list-view :value="showYear" @select="yearSelect($event.value)">
-                    <u-list-view-item :class="$style.yearitem" v-for="(year, index) in yearCol" :key="index" :value="year.value" :disabled="year.disabled">{{year.value}}年</u-list-view-item>
+                    <u-list-view-item :class="$style.yearitem" v-for="(year, index) in yearCol" :key="index" :value="year.value" :disabled="year.disabled">{{year.value}}{{ $t('year') }}</u-list-view-item>
                 </u-list-view>
             </div>
         </u-popper>
         <u-popper :class="$style.monthPopper" trigger="click" placement="bottom-end" :open.sync="monthvisible" appendTo="reference">
             <div :class="$style.month">
-                <span :class="$style.textMonth">{{showMonth}}月</span>
+                <span :class="$style.textMonth">{{monthTextList[showMonth]}}{{ $t('month') }}</span>
             </div>
             <ul slot="popper" :class="$style.monthList">
-                <li :class="$style.listitem" v-for="(month, mindex) in monthCol" :role="month.value === showMonth" :disabled="month.disabled" @click.stop="monthSelect(month, mindex)">{{month.value}}</li>
+                <li :class="$style.listitem" v-for="(month, mindex) in monthCol" :role="month.value === showMonth" :disabled="month.disabled" @click.stop="monthSelect(month, mindex)">{{monthTextList[month.value]}}</li>
             </ul>
         </u-popper>
     </div>
     <div :class="$style.content">
-        <div :class="$style.week"><span :class="$style.dayitem" role="week">日</span><span :class="$style.dayitem">一</span><span :class="$style.dayitem">二</span><span :class="$style.dayitem">三</span><span :class="$style.dayitem">四</span><span :class="$style.dayitem">五</span><span :class="$style.dayitem" role="week">六</span></div>
+        <div :class="$style.week"><span :class="$style.dayitem" role="week">{{ $t('sunday') }}</span><span :class="$style.dayitem">{{ $t('monday') }}</span><span :class="$style.dayitem">{{ $t('tuesday') }}</span><span :class="$style.dayitem">{{ $t('wednesday') }}</span><span :class="$style.dayitem">{{ $t('thursday') }}</span><span :class="$style.dayitem">{{ $t('friday') }}</span><span :class="$style.dayitem" role="week">{{ $t('saturday') }}</span></div>
         <div :class="$style.day"><span v-for="day in days_" :class="$style.item" :sel="showDate.toDateString() === day.toDateString() ? 'sel' : ''" :disabled="!!isOutOfRange(day)" :role="showDate.getMonth() !== day.getMonth() ? 'muted': ''" @click.stop="select(day)">{{day | format('dd')}}</span></div>
         <slot></slot>
     </div>

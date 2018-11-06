@@ -1,8 +1,10 @@
 import Field from 'proto-ui.vusion/src/u-field.vue';
 import { deepCopy } from '../base/utils/index';
+import i18n from './i18n';
 
 const MultiSelect = {
     name: 'u-multi-select',
+    i18n,
     props: {
         data: Array,
         readonly: {
@@ -30,7 +32,7 @@ const MultiSelect = {
         filterMethod: Function,
         placeholder: {
             type: String,
-            default: '请选择',
+            default() { return this.$t('selectText'); },
         },
         size: String,
     },

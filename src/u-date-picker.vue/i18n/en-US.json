@@ -1,0 +1,5 @@
+{
+    "selectDateText": "Please select date",
+    "integerTip": "Please enter an integer greater than 0",
+    "formatErrorTip": "Please enter the correct hour, minute and second format"
+}

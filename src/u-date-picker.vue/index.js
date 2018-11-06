@@ -2,6 +2,7 @@ import Calendar from '../u-calendar.vue';
 const MS_OF_DAY = 24 * 3600 * 1000;
 import { clickOutside } from '../base/directives';
 import Field from 'proto-ui.vusion/src/u-field.vue';
+import i18n from './i18n';
 
 /**
  * @class DatePicker
@@ -17,6 +18,7 @@ import Field from 'proto-ui.vusion/src/u-field.vue';
  */
 export default {
     name: 'u-date-picker',
+    i18n,
     props: {
         date: [String, Number, Date],
         minDate: [String, Number, Date],
@@ -26,7 +28,7 @@ export default {
         readonly: { type: Boolean, default: false },
         placeholder: {
             type: String,
-            default: '请选择日期',
+            default() { return this.$t('selectDateText'); },
         },
         width: { type: [String, Number], default: 160 },
         alignment: {
@@ -227,11 +229,11 @@ export default {
             } else if (typeof this.time === 'number') {
                 // 具体的时分秒
                 if (this.time < 0)
-                    throw new Error('请输入大于0的整数');
+                    throw new Error(this.$t('integerTip'));
                 time = this.time < 24 ? this.time + ':00:00' : '23:59:59';
             } else {
                 if (!/^[0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}$/.test(this.time))
-                    throw new Error('请输入正确的时分秒格式');
+                    throw new Error(this.$t('formatErrorTip'));
                 time = this.time;
             }
             return date + ' ' + time;

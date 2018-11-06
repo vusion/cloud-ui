@@ -2,6 +2,7 @@ import uPopover from '../u-popover.vue';
 import uListViewItem from 'proto-ui.vusion/src/u-list-view-item.vue';
 import uListView from 'proto-ui.vusion/src/u-list-view.vue';
 const MS_OF_DAY = 24 * 3600 * 1000;
+import i18n from './i18n';
 
 /**
  * @class Calendar
@@ -15,6 +16,7 @@ const MS_OF_DAY = 24 * 3600 * 1000;
  */
 const Calendar = {
     name: 'u-calendar',
+    i18n,
     props: {
         date: {
             type: [String, Number, Date],
@@ -44,6 +46,7 @@ const Calendar = {
             yearCol: this.getYearCol(),
             yearvisible: false,
             monthvisible: false,
+            monthTextList: [this.$t('January'), this.$t('February'), this.$t('March'), this.$t('April'), this.$t('May'), this.$t('June'), this.$t('July'), this.$t('August'), this.$t('September'), this.$t('October'), this.$t('November'), this.$t('December')],
         };
     },
     computed: {

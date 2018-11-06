@@ -1,5 +1,6 @@
 import { clickOutside } from '../base/directives';
 import Field from 'proto-ui.vusion/src/u-field.vue';
+import i18n from './i18n';
 /**
  * @class DateTimePicker
  * @extend Dropdown
@@ -15,11 +16,12 @@ import Field from 'proto-ui.vusion/src/u-field.vue';
  */
 export default {
     name: 'u-date-time-picker',
+    i18n,
     props: {
         disabled: { type: Boolean, default: false },
         placeholder: {
             type: String,
-            default: '请选择时间',
+            default() { return this.$t('selectTimeText'); },
         },
         readonly: { type: Boolean, default: false },
         autofocus: { type: Boolean, default: false },
