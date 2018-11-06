@@ -106,6 +106,7 @@ export default {
 
                 yAxis_.count = this.yAxis.count || 8;
                 const tick = this.roundToFirst((yAxis_.max - yAxis_.min) / yAxis_.count) || 1;
+                const fixedCount = this.getFixedCount(tick);
                 yAxis_.min = Math.floor(yAxis_.min / tick) * tick;
                 yAxis_.max = Math.ceil(yAxis_.max / tick) * tick;
 
@@ -115,7 +116,7 @@ export default {
 
                 yAxis_.data = [];
                 for (let i = yAxis_.min; i <= yAxis_.max; i += tick)
-                    yAxis_.data.push(i);
+                    yAxis_.data.push(i.toFixed(fixedCount)); // 防止+的时候出现无限小数的情况
             }
         },
         format(value) {
@@ -129,6 +130,10 @@ export default {
                 return +num.toFixed(String(num).match(/^0\.0*/)[0].length - 1);
             else // 不解决0或负数
                 return num;
+        },
+        getFixedCount(num) {
+            const m = String(num).match(/\.\d+/);
+            return m ? m[0].length - 1 : 0;
         },
     },
 };
