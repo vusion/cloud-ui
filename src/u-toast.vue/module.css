@@ -1,0 +1,18 @@
+@import 'proto-ui.vusion/src/u-toast.vue/module.css';
+
+.item[color="info"] {
+    background: #00c0ef;
+    color: white;
+}
+.item[color="success"] {
+    background: #00a65a;
+    color: white;
+}
+.item[color="warning"] {
+    background: #f39c12;
+    color: white;
+}
+.item[color="error"] {
+    background: #dd4b39;
+    color: white;
+}
