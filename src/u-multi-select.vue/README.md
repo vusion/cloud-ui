@@ -14,7 +14,7 @@ export default {
             value: [],
             options: [{
                 value: '选项1',
-                text: '黄金糕'
+                text: '黄金糕',
             }, {
                 value: '选项2',
                 text: '双皮奶'

@@ -21,6 +21,7 @@
     border-radius: 4px;
     min-height: 34px;
     line-height: 32px;
+    outline: none;
 }
 .head[role] {
     padding-right: 10px;

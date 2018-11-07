@@ -36,6 +36,10 @@ export default {
         stack: [String, Boolean],
         loading: { type: Boolean, default: false },
         contentStyle: Object,
+        trigger: {
+            type: String,
+            default: 'hover',
+        },
     },
     data() {
         return {
@@ -134,6 +138,12 @@ export default {
         getFixedCount(num) {
             const m = String(num).match(/\.\d+/);
             return m ? m[0].length - 1 : 0;
+        },
+        barClick(item, index) {
+            this.$emit('click', {
+                data: item,
+                index,
+            });
         },
     },
 };

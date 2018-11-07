@@ -159,6 +159,17 @@ export default {
 | titleAlign | String | `center` | 图表标题的对齐方式，默认是居中，值有:left,center,right |
 | loading | Boolean | `false` | true表示正在加载中，false表示加载完成 |
 
+### Events
+
+#### @click
+
+选择此项前触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.data | Object | 当前柱的数据 |
+| $event.index | String | 当前索引 |
+
 ### Slots
 
 | Slot | Description |

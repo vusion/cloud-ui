@@ -276,6 +276,12 @@ export default {
         getPercent(item) {
             return 100 * (this.yAxis_.max - this.getTopOne(item)) / (this.yAxis_.max - this.yAxis_.min);
         },
+        pointClick(item, index) {
+            this.$emit('click', {
+                data: item,
+                index,
+            });
+        },
     },
     destroyed() {
         window.removeEventListener('resize', this._onResize, false);

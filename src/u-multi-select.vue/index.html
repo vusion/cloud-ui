@@ -1,15 +1,16 @@
-<u-popper ref="popper" :class="$style.root" appendTo="reference" :placement="placement" @toggle="onToggle($event)" :options="options" :style="{width: size ? '':width+'px'}">
-    <div :class="$style.head" :disabled="disabled" :role="filter" :size="size" @click.stop="focus">
+<u-popper ref="popper" :class="$style.root" :disabled="disabled" appendTo="reference" :placement="placement" @toggle="onToggle($event)" :options="options" :style="{width: size ? '':width+'px'}">
+    <div :class="$style.head" :disabled="disabled" :role="filter" :size="size" @click.stop="focus"
+    :tabindex="readonly || disabled ? '' : 0" @keydown.prevent.up="$refs.popper.currentOpen ? shift(-1) : toggle(true)"
+    @keydown.prevent.down="$refs.popper.currentOpen ? shift(+1) : toggle(true)"
+    @keydown.stop.enter="$refs.popper.currentOpen && enterSelected()"
+    @keydown.stop.esc="toggle(false)">
         <template v-if="filter">
             <div :class="$style.tag" v-for="(selItem, index) in selItems" :key="selItem.value">
                 <span :class="$style.text">{{selItem[field]}}</span>
                 <span :class="$style.close" @click.stop="close(index)"></span>
             </div>
             <input ref="input" :class="$style.input" :placeholder="showPlaceholder" v-model="query" @click.stop="inputClick" @input="onInput" @keydown.delete="inputDelete"  @compositionstart="compositionInputing = true"
-            @compositionend="compositionInputing = false" :style="inputStyle" @keydown.prevent.up="$refs.popper.currentOpen ? shift(-1) : toggle(true)"
-            @keydown.prevent.down="$refs.popper.currentOpen ? shift(+1) : toggle(true)"
-            @keydown.stop.enter="$refs.popper.currentOpen && enterSelected()"
-            @keydown.stop.esc="toggle(false)"></input>
+            @compositionend="compositionInputing = false" :style="inputStyle"></input>
         </template>
         <template v-else>
             <span :class="$style.tiptext" v-if="!selFlag">{{ $t('selectText') }}</span>
