@@ -25,7 +25,7 @@
     </div>
     <div :class="$style.body" slot="popper" :size="size" :style="{width: size ? '':width+'px'}">
         <ul :class="$style.listview" v-if="optionsData.length>0" ref="listView">
-            <li :class="$style.listitem" ref="listItem" v-for="(item,index) in optionsData" :key="index" :disabled="item.disabled" :role="item.selected ? 'z-sel':''" :hovered="item.hovered" @click.stop="select($event,index)">
+            <li :class="$style.listitem" ref="listItem" v-for="(item,index) in optionsData" v-if="!item.hidden" :key="index" :disabled="item.disabled" :role="item.selected ? 'z-sel':''" :hovered="item.hovered" @click.stop="select($event,index)">
                 <!-- <span :class="$style.listcontent">{{item[field]}}</span> -->
                 {{item[field]}}
             </li>

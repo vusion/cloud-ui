@@ -195,7 +195,7 @@ export default {
 
 | Attr/Prop | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
-| data | Array\<{ text, value }\> | | Data书写方式中的数据列表 |
+| data | Array\<{ text, value }\> | | Data书写方式中的数据列表, hidden属性实现特殊需求，依然显示选中的值，但是可选项中没有 |
 | value.sync, v-model | Array | | 当前选择的值 |
 | field | String | `'text'` | 显示文本字段 |
 | readonly | Boolean | `false` | 是否只读 |

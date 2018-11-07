@@ -20,6 +20,7 @@ import Example from './common/u-example.vue';
 import XAceEditor from '../packages/x-ace-editor.vue';
 
 const Components = Object.assign({}, Library, {
+    directives,
     GlobalLayout,
     Article,
     ThemeSelect,
@@ -33,9 +34,8 @@ const Components = Object.assign({}, Library, {
     XAceEditor,
 });
 
-import { installComponents, installDirectives } from 'vusion-utils';
-installComponents(Components, Vue);
-installDirectives(directives, Vue);
+import { install } from 'vusion-utils';
+install(Components, Vue);
 
 import routes from './routes';
 new Vue({

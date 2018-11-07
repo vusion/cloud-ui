@@ -539,7 +539,7 @@ export default {
                     }
                     if (this.isXScroll)
                         this.fixedMaxTableHeight = this.fixedMaxTableHeight - this.scrollWidth;
-                        
+
                     if (this.loading && tableWidth > parentWidth) {
                         this.fixedTableHeight = parseFloat(getStyle(this.$refs.body, 'height')) || 0;
                         // this.$refs.body.parentNode.scrollLeft = (tableWidth - parentWidth) / 2;
@@ -688,7 +688,7 @@ export default {
             this.$emit('toggle-expand', {
                 index,
                 direction: copyRowData.iconName,
-                row: copyRowData.iconName,
+                row: copyRowData,
             });
         },
         bodyScroll(e) {

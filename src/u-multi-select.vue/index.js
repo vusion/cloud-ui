@@ -199,7 +199,9 @@ const MultiSelect = {
         },
         initOptionsData(value, data) {
             const currentValue = value || this.currentValue;
-            const optionsData = deepCopy([], data || this.data);
+            data = data || this.data;
+            data = data.filter((item) => !item.hidden);
+            const optionsData = deepCopy([], data);
             optionsData.forEach((item) => {
                 if (currentValue.indexOf(item.value) !== -1)
                     item.selected = true;
@@ -276,6 +278,7 @@ const MultiSelect = {
                 }
                 return false;
             });
+            this.$nextTick(() => this.$refs.popper.update());
         },
         ensureSelectedInView(natural) {
             // 确保有滚动条的情况下 选择项是视野内
