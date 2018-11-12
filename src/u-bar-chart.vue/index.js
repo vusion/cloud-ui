@@ -40,6 +40,10 @@ export default {
             type: String,
             default: 'hover',
         },
+        gapSize: {
+            type: String,
+            default: 'normal',
+        },
     },
     data() {
         return {

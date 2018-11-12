@@ -12,7 +12,7 @@
 
 ``` vue
 <template>
-<u-bar-chart border legend :title="title" :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data"></u-bar-chart>
+<u-bar-chart border legend gap-size="medium" :title="title" :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data"></u-bar-chart>
 </template>
 
 <script>
@@ -158,6 +158,7 @@ export default {
 | stack | Boolean | false | 线段是否采用堆叠方式，这种方式下series中的对象属性key等于data中标识不同部分的key字段 |
 | titleAlign | String | `center` | 图表标题的对齐方式，默认是居中，值有:left,center,right |
 | loading | Boolean | `false` | true表示正在加载中，false表示加载完成 |
+| gapSize | String | `'normal'` | 控制柱的宽度，值可以是`mini,small,normal,medium,large,huge`中的任何一个 |
 
 ### Events
 

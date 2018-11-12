@@ -122,6 +122,36 @@ $bar_width: 60px;
     border-bottom: none;
 }
 
+.bar[gap-size="mini"] {
+    width: 30%;
+    left: 70%;
+    margin-left: -35%;
+}
+
+.bar[gap-size="small"] {
+    width: 40%;
+    left: 60%;
+    margin-left: -30%;
+}
+
+.bar[gap-size="medium"] {
+    width: 60%;
+    left: 40%;
+    margin-left: -20%;
+}
+
+.bar[gap-size="large"] {
+    width: 70%;
+    left: 30%;
+    margin-left: -15%;
+}
+
+.bar[gap-size="huge"] {
+    width: 80%;
+    left: 20%;
+    margin-left: -10%;
+}
+
 .tooltip {
     border-radius: 2px;
     position: absolute;
