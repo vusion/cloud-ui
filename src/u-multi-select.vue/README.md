@@ -190,12 +190,61 @@ export default {
 };
 </script>
 ```
+
+### 创建选项
+``` vue
+<template>
+<u-multi-select filter pattern="create" :filter-method="filterMethod" :data="options" v-model="value" size="huge"></u-multi-select>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value: [],
+            options: [
+                { text: 'Alabama', value: 'Alabama' },
+                { text: 'Alaska', value: 'Alaska' },
+                { text: 'Arizona', value: 'Arizona' },
+                { text: 'Arkansas', value: 'Arkansas' },
+                { text: 'California', value: 'California' },
+                { text: 'Colorado', value: 'Colorado' },
+                { text: 'Connecticut', value: 'Connecticut' },
+                { text: 'Delaware', value: 'Delaware' },
+                { text: 'Florida', value: 'Florida' },
+                { text: 'Georgia', value: 'Georgia' },
+                { text: 'Hawaii', value: 'Hawaii' },
+                { text: 'Idaho', value: 'Idaho' },
+                { text: 'Illinois', value: 'Illinois' },
+            ],
+        };
+    },
+    watch: {
+        value(newValue) {
+            console.log(newValue);
+        }
+    },
+    methods: {
+        filterMethod(data,query) {
+            const tdata = data.filter((item) => {
+                if(item.value.toLowerCase().indexOf(query.toLowerCase()) > -1)
+                    return item;
+                else
+                    return false;
+            });
+            return tdata;
+        }
+    }
+};
+</script>
+```
+
 ## MultiSelect API
 ### Attrs/Props
 
 | Attr/Prop | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
-| data | Array\<{ text, value }\> | | Data书写方式中的数据列表, hidden属性实现特殊需求，依然显示选中的值，但是可选项中没有 |
+| data | Array\<{ text, value }\> | | Data书写方式中的数据列表 |
 | value.sync, v-model | Array | | 当前选择的值 |
 | field | String | `'text'` | 显示文本字段 |
 | readonly | Boolean | `false` | 是否只读 |
@@ -204,6 +253,7 @@ export default {
 | filter | Boolean | `false` | 支持输入，搜索匹配项 |
 | filter-method | Function || 自定义输入搜索的方法 |
 | placeholder | String | `'请选择'` | 默认展示的文字，在`filter=true`时生效 |
+| pattern | String | `''normal`| 默认值是normal，如果要实现自主添加需要将值设置为`'create'` |
 
 ### Events
 

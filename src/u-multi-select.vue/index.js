@@ -1,5 +1,6 @@
 import Field from 'proto-ui.vusion/src/u-field.vue';
 import { deepCopy } from '../base/utils/index';
+import _ from 'lodash';
 import i18n from './i18n';
 
 const MultiSelect = {
@@ -35,11 +36,15 @@ const MultiSelect = {
             default() { return this.$t('selectText'); },
         },
         size: String,
+        pattern: {
+            type: String,
+            default: 'normal',
+        },
     },
     mixins: [Field],
     data() {
         return {
-            currentValue: this.value,
+            currentValue: _.cloneDeep(this.value),
             open: false,
             optionsData: this.initOptionsData(this.value),
             selFlag: this.initSelFlag(this.value),
@@ -65,10 +70,18 @@ const MultiSelect = {
         selItems() {
             const selItem = [];
             this.currentValue.forEach((item) => {
-                this.data.forEach((option) => {
-                    if (option.value === item)
+                const isOptions = this.copyOptionsData.some((option) => {
+                    if (option.value === item) {
                         selItem.push(option);
+                        return true;
+                    }
+                    return false;
                 });
+                if (!isOptions)
+                    selItem.push({
+                        [this.field]: item,
+                        value: item,
+                    });
             });
             return selItem;
         },
@@ -115,7 +128,7 @@ const MultiSelect = {
                     selectedIndex = -1;
                 for (let i = selectedIndex + count; i < this.optionsData.length; i++) {
                     const itemVM = this.optionsData[i];
-                    if (!itemVM.disabled) {
+                    if (!itemVM.disabled && !itemVM.selected) {
                         itemVM.hovered = true;
                         this.optionsData.forEach((item, index) => {
                             if (index !== i)
@@ -135,7 +148,7 @@ const MultiSelect = {
                     selectedIndex = this.optionsData.length;
                 for (let i = selectedIndex + count; i >= 0; i--) {
                     const itemVM = this.optionsData[i];
-                    if (!itemVM.disabled) {
+                    if (!itemVM.disabled && !itemVM.selected) {
                         itemVM.hovered = true;
                         this.optionsData.forEach((item, index) => {
                             if (index !== i)
@@ -154,6 +167,11 @@ const MultiSelect = {
         },
         onToggle($event) {
             this.open = $event.open;
+            // 需要在popper层关闭之后重置OptionsData 确保下次进来的数据是全部数据
+            if (!$event.open) {
+                this.optionsData = this.initOptionsData(this.currentValue);
+                this.query = '';
+            }
             this.$emit('toggle', $event);
         },
         select(event, index) {
@@ -164,12 +182,15 @@ const MultiSelect = {
                 return false;
             }
 
-            if (this.currentValue.indexOf(this.optionsData[index].value) === -1)
+            if (this.currentValue.indexOf(this.optionsData[index].value) === -1) {
                 this.currentValue.push(this.optionsData[index].value);
-            else
+                this.optionsData[index].lastSelected = true;
+                this.optionsData[index].selected = true;
+                this.resetOptions(index);
+            } else {
                 this.currentValue.splice(this.currentValue.indexOf(this.optionsData[index].value), 1);
-
-            this.$emit('input', this.currentValue);
+                this.resetOptions();
+            }
 
             this.$nextTick(() => this.$refs.popper.update());
 
@@ -200,19 +221,22 @@ const MultiSelect = {
         initOptionsData(value, data) {
             const currentValue = value || this.currentValue;
             data = data || this.data;
-            data = data.filter((item) => !item.hidden);
+            // data = data.filter((item) => !item.hidden);
             const optionsData = deepCopy([], data);
             optionsData.forEach((item) => {
                 if (currentValue.indexOf(item.value) !== -1)
                     item.selected = true;
                 else
                     item.selected = false;
-                item.hovered = false;
+                // item.hovered = false;
+                this.$set(item, 'hovered', false);
+                this.$set(item, 'lastSelected', false);
             });
             return optionsData;
         },
         close(index) {
             this.currentValue.splice(index, 1);
+            // 新增模式下删除也需要处理下options中的数据
             this.$nextTick(() => this.$refs.popper.update());
             this.$emit('close', {
                 index,
@@ -269,15 +293,57 @@ const MultiSelect = {
         toggle(open) {
             this.$refs.popper && this.$refs.popper.toggle(open);
         },
+        // enter 按键操作处于hover状态的选中 处于selected状态 取消选中
         enterSelected() {
-            this.optionsData.some((item) => {
-                if (item.hovered && !item.selected) {
-                    item.selected = true;
-                    this.currentValue.push(item.value);
-                    return true;
+            if (this.query && this.pattern === 'create') {
+                // 这种模式允许创建options中没有的条目
+                const createFlag = this.optionsData.some((item, index) => {
+                    if (item[this.field] === this.query) {
+                        if (!item.selected) {
+                            this.currentValue.push(item.value);
+                            item.lastSelected = true;
+                            this.resetOptions(index);
+                        }
+                        return true;
+                    }
+                    return false;
+                });
+                if (!createFlag && !this.currentValue.includes(this.query)) {
+                    this.currentValue.push(this.query);
+                    this.resetOptions();
+                    this.toggle(false);
                 }
-                return false;
-            });
+                this.query = '';
+            } else {
+                const flag = this.optionsData.some((item, index) => {
+                    if (item.hovered && !item.selected) {
+                        item.selected = true;
+                        this.currentValue.push(item.value);
+                        item.lastSelected = true;
+                        this.resetOptions(index);
+                        return true;
+                    } else if (item.selected && item.lastSelected) {
+                        item.selected = false;
+                        this.currentValue.splice(this.currentValue.indexOf(item.value), 1);
+                        item.lastSelected = false;
+                        return true;
+                    }
+                    return false;
+                });
+                if (!flag) {
+                    const isAdd = this.optionsData.some((item, index) => {
+                        if (item[this.field] === this.query) {
+                            item.selected = true;
+                            this.currentValue.push(item.value);
+                            item.lastSelected = true;
+                            this.resetOptions(index);
+                            this.query = '';
+                            return true;
+                        }
+                        return false;
+                    });
+                }
+            }
             this.$nextTick(() => this.$refs.popper.update());
         },
         ensureSelectedInView(natural) {
@@ -305,6 +371,12 @@ const MultiSelect = {
             if (parentEl.scrollTop > selectedEl.offsetTop)
                 parentEl.scrollTop = selectedEl.offsetTop;
         },
+        resetOptions(index = -1) {
+            this.optionsData.forEach((item, sindex) => {
+                if (sindex !== index)
+                    item.lastSelected = false;
+            });
+        },
     },
     watch: {
         open(newValue) {
@@ -320,10 +392,10 @@ const MultiSelect = {
         value(newValue) {
             this.currentValue = newValue;
             this.selFlag = this.initSelFlag();
-            if (this.filter)
-                this.optionsData = this.initOptionsData(undefined, this.optionsData);
-            else
-                this.optionsData = this.initOptionsData();
+            // if (this.filter)
+            //     this.optionsData = this.initOptionsData(undefined, this.optionsData);
+            // else
+            //     this.optionsData = this.initOptionsData();
         },
         currentValue(newValue) {
             this.selFlag = this.initSelFlag();
@@ -332,6 +404,7 @@ const MultiSelect = {
             this.$emit('change', {
                 value: newValue,
             });
+            this.$emit('input', newValue);
         },
     },
 };
