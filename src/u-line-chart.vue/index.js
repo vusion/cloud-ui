@@ -25,6 +25,11 @@ export default {
         titleAlign: { type: String, default: 'center' },
         loading: { type: Boolean, default: false },
         contentStyle: Object,
+        // 简单散点图
+        scatter: {
+            type: Boolean,
+            default: false,
+        },
     },
     data() {
         return {
@@ -251,7 +256,7 @@ export default {
 
                 cmds.push(cmd);
             }
-
+            // console.log(cmds)
             return cmds.join(' ');
         },
         getTopOne(item) {
