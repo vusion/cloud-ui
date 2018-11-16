@@ -164,7 +164,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.data | Object | 当前柱的数据 |
+| $event.data | Object | 当前点的数据 |
 | $event.index | String | 当前索引 |
 
 ### Slots
