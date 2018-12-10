@@ -181,6 +181,10 @@
     line-height: 24px;
 }
 
+.ditem[expanded] {
+    display: inline-block;
+}
+
 .popper {
     z-index: 1065;
     background: white;
