@@ -91,7 +91,7 @@ export default {
                     newValue = this.format(isOutOfRange, 'yyyy-MM-dd HH:mm:ss');
             }
 
-            this.$emit('update:date', new Date(newValue.replace(/-/g, '/')).getTime());
+            this.$emit('update:date', newValue ? new Date(newValue.replace(/-/g, '/')).getTime() : '');
 
             /**
              * @event change 日期时间改变时触发
@@ -100,11 +100,11 @@ export default {
              */
             this.$emit('change', {
                 sender: this,
-                date: new Date(newValue.replace(/-/g, '/')).getTime(),
+                date: newValue ? new Date(newValue.replace(/-/g, '/')).getTime() : '',
             });
 
             // 方便u-field组件捕获到其值
-            this.$emit('input', new Date(newValue.replace(/-/g, '/')));
+            this.$emit('input', newValue ? new Date(newValue.replace(/-/g, '/')) : '');
         },
         maxDate(value) {
             this.currentMaxDate = this.getMaxDate(value);
@@ -125,8 +125,13 @@ export default {
 
             if (date)
                 date = new Date(date);
-            else
-                date = new Date();
+            else {
+                this.$emit('select', {
+                    sender: this,
+                    date: '',
+                });
+                return;
+            }
             time = time.split(':');
             date.setHours(time[0]);
             date.setMinutes(time[1]);
@@ -193,11 +198,13 @@ export default {
             const value = $event.target.value;
             let date = value ? new Date(value) : null;
 
-            if (date.toString() !== 'Invalid Date' && date !== null) {
+            if (date !== null && date.toString() !== 'Invalid Date') {
                 date = this.isOutOfRange(date) ? this.isOutOfRange(date) : date;
                 this.dateTime = this.format(date, 'yyyy-MM-dd HH:mm:ss');
-            } else
-                this.$refs.input.value = this.format(this.dateTime, 'yyyy-MM-dd HH:mm:ss');
+            } else {
+                this.$refs.input.value = '';
+                this.dateTime = '';
+            }
         },
         /**
          * @method isOutOfRange(date) 是否超出规定的日期时间范围

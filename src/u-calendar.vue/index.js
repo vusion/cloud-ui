@@ -367,6 +367,8 @@ const Calendar = {
             return (minDate && date < minDate && minDate) || (maxDate && date > maxDate && maxDate);
         },
         transformDate(date) {
+            if (!date)
+                return;
             if (typeof date === 'string')
                 return new Date(date.replace(/-/g, '/'));
             else if (typeof date === 'number')

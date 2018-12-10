@@ -81,14 +81,14 @@ export default {
              */
             const showDate = this.returnTime(newValue);
 
-            this.$emit('update:date', new Date(showDate.replace(/-/g, '/')));
+            this.$emit('update:date', showDate ? new Date(showDate.replace(/-/g, '/')) : '');
 
             this.$emit('change', {
                 sender: this,
-                date: new Date(showDate.replace(/-/g, '/')),
+                date: showDate ? new Date(showDate.replace(/-/g, '/')) : '',
             });
 
-            this.$emit('input', new Date(showDate.replace(/-/g, '/')));
+            this.$emit('input', showDate ? new Date(showDate.replace(/-/g, '/')) : '');
         },
         minDate(newValue) {
             if (!newValue)
@@ -216,6 +216,8 @@ export default {
                 return date;
         },
         returnTime(date) {
+            if (!date)
+                return;
             let time;
             if (this.time === 'start') {
                 // 0:00:00
@@ -237,6 +239,9 @@ export default {
                 time = this.time;
             }
             return date + ' ' + time;
+        },
+        reset() {
+            this.showDate = undefined;
         },
     },
 };
