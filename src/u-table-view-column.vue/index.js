@@ -9,7 +9,7 @@ export default {
         options: Array,
         value: [String, Number, Boolean],
         label: String,
-        type: String,
+        type: String, // selection time expand radio
         headSelection: { type: Boolean, default: true },
         width: String,
         minWidth: { type: [String, Number], default: '80' },

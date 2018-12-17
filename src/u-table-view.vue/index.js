@@ -29,6 +29,15 @@ export default {
                 };
             },
         },
+        radioTextField: {
+            type: String,
+            default: 'radiaoText',
+        },
+        radioValueField: {
+            type: String,
+            default: 'radiaoLabel',
+        },
+        radioValue: [String, Number],
         noDataText: { type: String, default() { return this.$t('noDataText'); } },
         loading: { type: Boolean, default: false },
         height: [String, Number],
@@ -61,6 +70,7 @@ export default {
             tdata: [],
             allSel: this.allChecked,
             columnsWidth: [],
+            currentRadioValue: this.radioValue,
             fixedRightWidth: [],
             copyTdata: [], // tdata的复制版本主要用来过滤
             tableWidth: undefined, // display值为none的时候需要特殊处理这个值
@@ -251,6 +261,24 @@ export default {
         },
         showColumns() {
             this.handleResize();
+        },
+        currentRadioValue(value) {
+            let row;
+            let sindex;
+            this.data.some((item, index) => {
+                if (item[this.radioValueField] === value) {
+                    row = item;
+                    sindex = index;
+                    return true;
+                }
+                return false;
+            });
+            this.$emit('update:radioValue', value);
+            this.$emit('radio-change', {
+                value,
+                row,
+                index: sindex,
+            });
         },
     },
     methods: {

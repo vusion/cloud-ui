@@ -611,6 +611,75 @@ export default {
 </script>
 ```
 
+#### 单选
+``` vue
+<template>
+    <u-linear-layout direction="vertical">
+            <u-table-view :data="tdata" radio-value-field="id" :radioValue.sync="radioValue" @radio-change="selectionChange($event)">
+                <u-table-view-column type="radio" ellipsis width="56"></u-table-view-column>
+                <u-table-view-column title="日期" label="date" type="time"></u-table-view-column>
+                <u-table-view-column title="姓名" label="name" ></u-table-view-column>
+                <u-table-view-column title="地址" label="address" ></u-table-view-column>
+            </u-table-view>
+    </u-linear-layout>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{
+                date: 1521551897133,
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
+                selected: true,
+                id: '1',
+            }, {
+                date: 1521551897133,
+                name: '王大虎',
+                address: '浙江省杭州市滨江区英飞特 D栋3楼',
+                disabled: true,
+                id: '2',
+            }, {
+                date: 1521551897133,
+                name: '天王盖地虎',
+                address: '浙江省杭州市滨江区 西可科技园',
+                id: '3',
+            }, {
+                date: 1521551897133,
+                name: '小鸡炖蘑菇',
+                address: '浙江省杭州市滨江区 东忠科技园',
+                disabled: true,
+                id: '4',
+            }],
+            allChecked: false,
+            checkedData: [],
+            radioValue: '1',
+        };
+    },
+    watch: {
+        allChecked(newValue) {
+            console.log(newValue);
+        },
+        radioValue(newValue) {
+            console.log(newValue);
+        },
+    },
+    methods: {
+        formatter(row, column) {
+            if (row.name === '天王盖地虎')
+                return '逗比一号';
+            else
+                return row.name;
+        },
+        selectionChange(data) {
+            console.log(data);
+            this.checkedData = data;
+        },
+    }
+};
+</script>
+```
+
 #### 过滤异步数据
 带有过滤数据功能的表格，如果要实现过滤异步加载数据，请监听`filter-change`方法，并发送异步请求获取数据，更改`tdata`即可
 
@@ -1251,6 +1320,8 @@ export default {
 | height| Integer/String |  | 表格组件的高度 |
 | maxHeight| Integer/String |  | 表格组件的最大高度 |
 | minHeight| Integer/String |  | 表格组件的最小高度 |
+| radioTextField | String |`'radiaoText'`| 单选按钮 文案字段key |
+| radioValueField | String/Number |`'radiaoLabel'`| 单选按钮值key |
 | defaultText | String | `'-'` | 默认当单元格取值为空时，默认显示的内容，此处是设置整个表格 |
 | loading| Boolean | `false` | 是否展示加载中的状态信息 |
 | loadText| String | `''` | 加载中的文字信息提示 |
@@ -1330,6 +1401,16 @@ export default {
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event | Array | 选中的行的数据集合 |
+
+#### @radio-change
+
+点击radio触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.value | String | 选中的行的单选值 |
+| $event.row | Object | 选中的行的值 |
+| $event.index | Number | 选中的行的索引 |
 
 #### @row-click
 

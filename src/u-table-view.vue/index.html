@@ -60,6 +60,12 @@
                             <span v-if="column.type === 'selection'">
                                 <u-checkbox v-model="row.selected" :disabled="row.disabled"  @check="changeSelect(row)" />
                             </span>
+                            <span v-else-if="column.type === 'radio'">
+                                <label :class="$style.radioLabel" :disabled="row.disabled">
+                                    <input name="radio" type="radio" :class="$style.radio" :value="row[radioValueField]" v-model="currentRadioValue" :disabled="row.disabled"/>
+                                    <span :class="$style.radioText">{{ row[radioTextField] }}</span>
+                                </label>
+                            </span>
                             <template v-else-if="column.$scopedSlots.default || column.$slots.default">
                                 <u-table-view-cell :row="row" :column="column" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title></u-table-view-cell>
                             </template>
@@ -185,7 +191,13 @@
                         <tr :class="[$style.btrItem, rowClsName(index)]" :hover="row.hover" @click="rowClick(row,index)">
                             <td v-for="(column, cindex) in showColumns" :class="$style.btdSpan" :border="border" :selection="column.type==='selection'" :hide="isXScroll || border">
                                 <span v-if="column.type === 'selection'">
-                                    <u-checkbox v-model="row.selected" :disabled="row.disabled" @check="changeSelect(row)" />
+                                    <u-checkbox v-model="row.selected" :disabled="row.disabled" @check="changeSelect(row)"/>
+                                </span>
+                                <span v-else-if="column.type === 'radio'">
+                                    <label :class="$style.radioLabel" :disabled="row.disabled">
+                                        <input name="radio" type="radio" :class="$style.radio" :value="row[radioValueField]" v-model="currentRadioValue" :disabled="row.disabled"/>
+                                        <span :class="$style.radioText">{{ row[radioTextField] }}</span>
+                                    </label>
                                 </span>
                                 <template v-else-if="column.$scopedSlots.default || column.$slots.default">
                                     <u-table-view-cell :row="row" :column="column" :class="$style.ditem" :expanded="expandedColumn" :role="column.ellipsis" v-ellipsis-title></u-table-view-cell>
@@ -314,6 +326,12 @@
                                     <span v-if="column.type === 'selection'">
                                         <u-checkbox v-model="row.selected" :disabled="row.disabled" @check="changeSelect(row)" />
                                     </span>
+                                    <span v-else-if="column.type === 'radio'">
+                                        <label :class="$style.radioLabel" :disabled="row.disabled">
+                                            <input name="radio" type="radio" :class="$style.radio" :value="row[radioValueField]" v-model="currentRadioValue" :disabled="row.disabled"/>
+                                            <span :class="$style.radioText">{{ row[radioTextField] }}</span>
+                                        </label>
+                                    </span>
                                     <template v-else-if="column.$scopedSlots.default">
                                         <u-table-view-cell :row="row" :column="column" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title></u-table-view-cell>
                                     </template>
@@ -405,6 +423,12 @@
                                 <td v-for="(column, cindex) in rightColumns" :class="$style.btdSpan" :border="border" :selection="column.type==='selection'">
                                     <span v-if="column.type === 'selection'">
                                         <u-checkbox v-model="row.selected" :disabled="row.disabled" @check="changeSelect(row)" />
+                                    </span>
+                                    <span v-else-if="column.type === 'radio'">
+                                        <label :class="$style.radioLabel" :disabled="row.disabled">
+                                            <input name="radio" type="radio" :class="$style.radio" :value="row[radioValueField]" v-model="currentRadioValue" :disabled="row.disabled"/>
+                                            <span :class="$style.radioText">{{ row[radioTextField] }}</span>
+                                        </label>
                                     </span>
                                     <template v-else-if="column.$scopedSlots.default">
                                         <u-table-view-cell :row="row" :column="column" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title></u-table-view-cell>

@@ -331,3 +331,25 @@
     margin-left: 10px;
     vertical-align: middle;
 }
+
+.radioLabel {
+    user-select: none;
+    cursor: $cursor-pointer;
+}
+
+.radioLabel[disabled] {
+    color: #999;
+    cursor: $cursor-not-allowed;
+}
+
+.radio {
+    margin-right: 4px;
+    margin-bottom: 3px;
+    vertical-align: middle;
+    cursor: inherit;
+}
+
+.radioText {
+    display: inline-block;
+    vertical-align: middle;
+}
