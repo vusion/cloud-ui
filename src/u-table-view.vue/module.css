@@ -189,6 +189,9 @@
     z-index: 1065;
     background: white;
     border: 1px solid #f1f1f1;
+    /* 对于一些很长的过滤 有最大高度的限制 */
+    max-height: 182px;
+    overflow-y: auto;
     /* margin-left: -10px; */
     /* margin-top: 13px; */
 }
