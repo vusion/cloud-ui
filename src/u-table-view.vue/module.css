@@ -108,8 +108,17 @@
     border-top: 1px solid #ebf0f5;
 }
 
+.btrItem[show-color] {
+    background: #edf3f7;
+    border-top: 1px solid #d7dbe0;
+    border-bottom: 1px solid #d7dbe0;
+}
+
 .btrItem:first-child {
     border-top: none;
+}
+.btrItem[show-color]:first-child[show-color] {
+    border-top: 1px solid #d7dbe0;
 }
 
 .btbody[no-show-header] .btrItem:first-child {
@@ -209,6 +218,12 @@
     box-sizing: border-box;
     line-height: 24px;
     cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.option[direction="rtl"] {
+    direction: rtl;
 }
 
 .option:hover {

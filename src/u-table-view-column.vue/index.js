@@ -8,6 +8,10 @@ export default {
         filter: { type: Boolean, default: false },
         options: Array,
         value: [String, Number, Boolean],
+        optionsDirection: {
+            type: String,
+            default: 'ltr',
+        },
         label: String,
         type: String, // selection time expand radio
         headSelection: { type: Boolean, default: true },

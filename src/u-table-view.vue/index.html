@@ -25,7 +25,7 @@
                                     <div :class="$style.traingle"></div>
                                 </div>
                                 <div :class="$style.popper" slot="popper">
-                                    <div :class="$style.option" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value">{{option.name}}</div>
+                                    <div :class="$style.option" :direction="column.optionsDirection" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value" v-ellipsis-title>{{option.name}}</div>
                                 </div>
                             </u-popper>
                         </template>
@@ -55,7 +55,7 @@
                     </tr>
                 </template>
                 <template v-else v-for="(row, index) in tdata">
-                    <tr :class="[$style.btrItem, rowClsName(index)]" @click="rowClick(row,index)">
+                    <tr :class="[$style.btrItem, rowClsName(index)]" :show-color="showColor && radioColumn && row[radioValueField] === currentRadioValue" @click="rowClick(row,index)">
                         <td v-for="(column, cindex) in showColumns" :class="$style.btdSpan" :border="border" :selection="column.type==='selection'" :hide="isXScroll || border">
                             <span v-if="column.type === 'selection'">
                                 <u-checkbox v-model="row.selected" :disabled="row.disabled"  @check="changeSelect(row)" />
@@ -150,7 +150,7 @@
                                         <div :class="$style.traingle"></div>
                                     </div>
                                     <div :class="$style.popper" slot="popper" :style="{width: columnsWidth[index] + 'px'}">
-                                        <div :class="$style.option" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value">{{option.name}}</div>
+                                        <div :class="$style.option" :direction="column.optionsDirection" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value" v-ellipsis-title>{{option.name}}</div>
                                     </div>
                                 </u-popper>
                             </template>
@@ -188,7 +188,7 @@
                         </tr>
                     </template>
                     <template v-else v-for="(row, index) in tdata">
-                        <tr :class="[$style.btrItem, rowClsName(index)]" :hover="row.hover" @click="rowClick(row,index)">
+                        <tr :class="[$style.btrItem, rowClsName(index)]" :hover="row.hover" :show-color="showColor && radioColumn && row[radioValueField] === currentRadioValue" @click="rowClick(row,index)">
                             <td v-for="(column, cindex) in showColumns" :class="$style.btdSpan" :border="border" :selection="column.type==='selection'" :hide="isXScroll || border">
                                 <span v-if="column.type === 'selection'">
                                     <u-checkbox v-model="row.selected" :disabled="row.disabled" @check="changeSelect(row)"/>
@@ -283,7 +283,7 @@
                                             <div :class="$style.traingle"></div>
                                         </div>
                                         <div :class="$style.popper" slot="popper" :style="{width: columnsWidth[index] + 'px'}">
-                                            <div :class="$style.option" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value">{{option.name}}</div>
+                                            <div :class="$style.option" :direction="column.optionsDirection" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value" v-ellipsis-title>{{option.name}}</div>
                                         </div>
                                     </u-popper>
                                 </template>
@@ -321,7 +321,7 @@
                             </tr>
                         </template>
                         <template v-else v-for="(row, index) in tdata">
-                            <tr :class="$style.btrItem" @click="rowClick(row,index)" @mouseover="fixmouseover(index)" @mouseleave="fixmouseleave(index)">
+                            <tr :class="$style.btrItem" @click="rowClick(row,index)" :show-color="showColor && radioColumn && row[radioValueField] === currentRadioValue" @mouseover="fixmouseover(index)" @mouseleave="fixmouseleave(index)">
                                 <td v-for="(column, cindex) in showColumns" :class="$style.btdSpan" :border="border" :selection="column.type==='selection'" :hide="isXScroll || border">
                                     <span v-if="column.type === 'selection'">
                                         <u-checkbox v-model="row.selected" :disabled="row.disabled" @check="changeSelect(row)" />
@@ -381,7 +381,7 @@
                                             <div :class="$style.traingle"></div>
                                         </div>
                                         <div :class="$style.popper" slot="popper" :style="{width: columnsWidth[index] + 'px'}">
-                                            <div :class="$style.option" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value">{{option.name}}</div>
+                                            <div :class="$style.option" :direction="column.optionsDirection" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value" v-ellipsis-title>{{option.name}}</div>
                                         </div>
                                     </u-popper>
                                 </template>
@@ -419,7 +419,7 @@
                             </tr>
                         </template>
                         <template v-else v-for="(row, index) in tdata">
-                            <tr :class="$style.btrItem" @click="rowClick(row,index)" @mouseover="fixmouseover(index)" @mouseleave="fixmouseleave(index)">
+                            <tr :class="$style.btrItem" @click="rowClick(row,index)" :show-color="showColor && radioColumn && row[radioValueField] === currentRadioValue" @mouseover="fixmouseover(index)" @mouseleave="fixmouseleave(index)">
                                 <td v-for="(column, cindex) in rightColumns" :class="$style.btdSpan" :border="border" :selection="column.type==='selection'">
                                     <span v-if="column.type === 'selection'">
                                         <u-checkbox v-model="row.selected" :disabled="row.disabled" @check="changeSelect(row)" />

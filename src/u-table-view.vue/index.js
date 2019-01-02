@@ -8,7 +8,10 @@ export default {
     i18n,
     props: {
         title: String,
-        data: Array,
+        data: {
+            type: Array,
+            default: () => ([]),
+        },
         allChecked: { type: Boolean, default: false },
         defaultSort: {
             type: Object,
@@ -63,6 +66,10 @@ export default {
         rowClassName: { type: Function, default() { return ''; } }, // 自定义表格单行的样式
         color: String,
         forceFilter: { type: Boolean, default: true },
+        showColor: {
+            type: Boolean,
+            default: false,
+        },
     },
     data() {
         return {
@@ -145,6 +152,9 @@ export default {
         showColumns() {
             // visible属性为true的列集合
             return this.columns.filter((column) => column.visible);
+        },
+        radioColumn() {
+            return this.columns.filter((column) => column.type === 'radio' && column.visible)[0];
         },
     },
     watch: {
@@ -261,6 +271,9 @@ export default {
         },
         showColumns() {
             this.handleResize();
+        },
+        radioValue(value) {
+            this.currentRadioValue = value;
         },
         currentRadioValue(value) {
             let row;
@@ -632,6 +645,10 @@ export default {
             this.$emit('selection-change', selection);
         },
         rowClick(row, index) {
+            if (this.radioColumn && !row.disabled) {
+                // 单选按钮存在的情况下要满足点击行能整个选中
+                this.currentRadioValue = row[this.radioValueField];
+            }
             this.$emit('row-click', {
                 data: row,
                 index,

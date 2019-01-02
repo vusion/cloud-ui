@@ -615,7 +615,7 @@ export default {
 ``` vue
 <template>
     <u-linear-layout direction="vertical">
-            <u-table-view :data="tdata" radio-value-field="id" :radioValue.sync="radioValue" @radio-change="selectionChange($event)">
+            <u-table-view :data="tdata" show-color radio-value-field="id" :radioValue.sync="radioValue" @radio-change="selectionChange($event)">
                 <u-table-view-column type="radio" ellipsis width="56"></u-table-view-column>
                 <u-table-view-column title="日期" label="date" type="time"></u-table-view-column>
                 <u-table-view-column title="姓名" label="name" ></u-table-view-column>
@@ -1333,6 +1333,7 @@ export default {
 | expandPattern | String | `'toggle'` | 规定`type`属性值为`'expand'`列的展开行为，可选值: `'toggle'`，`'normal'`。值为`'toggle'`时，展开一行后其他行将收回。 值为`'normal'`时，每行都可以展开。|
 | rowClassName | Function |  | 给表格行添加自定义class函数，第一个参数表示索引，即在第几行中，第二个参数是表格当前行数据 |
 | xScroll | Boolean | `false` | 鼠标滚动时表格是否可以横向滚动 |
+| showColor | Boolean | `false` | 单选选中行是否显示背景颜色 |
 
 #### 数据相关属性
 
