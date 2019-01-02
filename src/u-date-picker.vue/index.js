@@ -50,6 +50,10 @@ export default {
             type: [String, Number],
             default: 1,
         },
+        reset: {
+            type: Boolean,
+            default: false,
+        },
     },
     data() {
         return {
@@ -240,7 +244,7 @@ export default {
             }
             return date + ' ' + time;
         },
-        reset() {
+        resetValue() {
             this.showDate = undefined;
         },
     },
