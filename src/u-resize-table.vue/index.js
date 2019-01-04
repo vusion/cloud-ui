@@ -79,6 +79,7 @@ export default {
             },
             maxBodyHeight: undefined,
             minBodyHeight: undefined,
+            scrollDiff: false,
         };
     },
     directives: { ellipsisTitle },
@@ -366,10 +367,11 @@ export default {
                     // this.bodyWidth = parseFloat(this.tableWidth) - this.scrollWidth;
                     this.minBodyHeight = parseFloat(this.minHeight) - headHeight;
                 }
-                if (this.isYScroll) {
+                if (this.isYScroll && !this.scrollDiff) {
                     this.scrollWidth = getScrollSize();
                     // 有滚动条 特殊处理
                     this.showColumns[this.showColumns.length - 1].copyWidth = this.showColumns[this.showColumns.length - 1].digitWidth - this.scrollWidth;
+                    this.scrollDiff = true;
                 }
             });
         },
