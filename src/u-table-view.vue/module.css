@@ -109,13 +109,13 @@
 }
 
 .btrItem[show-color] {
-    background: #edf3f7;
+    background: #f0f4fa;
     border-top: 1px solid #d7dbe0;
     border-bottom: 1px solid #d7dbe0;
 }
 
 .btrItem:first-child {
-    border-top: none;
+    border-top: 1px solid transparent;
 }
 .btrItem[show-color]:first-child[show-color] {
     border-top: 1px solid #d7dbe0;
