@@ -62,7 +62,8 @@
                             </span>
                             <span v-else-if="column.type === 'radio'">
                                 <label :class="$style.radioLabel" :disabled="row.disabled">
-                                    <input name="radio" type="radio" :class="$style.radio" :value="row[radioValueField]" v-model="currentRadioValue" :disabled="row.disabled"/>
+                                    <input v-if="!row.disabled" name="radio" type="radio" :class="$style.radio" :value="row[radioValueField]" v-model="currentRadioValue" :disabled="row.disabled"/>
+                                    <span v-else :class="$style.radioDisabled" :selected="currentRadioValue === row[radioValueField]"></span>
                                     <span :class="$style.radioText">{{ row[radioTextField] }}</span>
                                 </label>
                             </span>
@@ -195,7 +196,8 @@
                                 </span>
                                 <span v-else-if="column.type === 'radio'">
                                     <label :class="$style.radioLabel" :disabled="row.disabled">
-                                        <input name="radio" type="radio" :class="$style.radio" :value="row[radioValueField]" v-model="currentRadioValue" :disabled="row.disabled"/>
+                                        <input v-if="!row.disabled" name="radio" type="radio" :class="$style.radio" :value="row[radioValueField]" v-model="currentRadioValue" :disabled="row.disabled"/>
+                                        <span v-else :class="$style.radioDisabled" :selected="currentRadioValue === row[radioValueField]"></span>
                                         <span :class="$style.radioText">{{ row[radioTextField] }}</span>
                                     </label>
                                 </span>
@@ -328,7 +330,8 @@
                                     </span>
                                     <span v-else-if="column.type === 'radio'">
                                         <label :class="$style.radioLabel" :disabled="row.disabled">
-                                            <input name="radio" type="radio" :class="$style.radio" :value="row[radioValueField]" v-model="currentRadioValue" :disabled="row.disabled"/>
+                                            <input v-if="!row.disabled" name="radio" type="radio" :class="$style.radio" :value="row[radioValueField]" v-model="currentRadioValue" :disabled="row.disabled"/>
+                                            <span v-else :class="$style.radioDisabled" :selected="currentRadioValue === row[radioValueField]"></span>
                                             <span :class="$style.radioText">{{ row[radioTextField] }}</span>
                                         </label>
                                     </span>
@@ -426,7 +429,8 @@
                                     </span>
                                     <span v-else-if="column.type === 'radio'">
                                         <label :class="$style.radioLabel" :disabled="row.disabled">
-                                            <input name="radio" type="radio" :class="$style.radio" :value="row[radioValueField]" v-model="currentRadioValue" :disabled="row.disabled"/>
+                                            <input v-if="!row.disabled" name="radio" type="radio" :class="$style.radio" :value="row[radioValueField]" v-model="currentRadioValue" :disabled="row.disabled"/>
+                                            <span v-else :class="$style.radioDisabled" :selected="currentRadioValue === row[radioValueField]"></span>
                                             <span :class="$style.radioText">{{ row[radioTextField] }}</span>
                                         </label>
                                     </span>

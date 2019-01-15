@@ -483,7 +483,7 @@ export default {
                     if (parentWidth === 0) {
                         // 初始表格是隐藏的需要特殊处理的，此时上面两个值默认是0
                         let parentNode = this.$refs.root.parentNode;
-                        while (parentNode.offsetWidth === 0)
+                        while (parentNode && parentNode.offsetWidth === 0)
                             parentNode = parentNode.parentNode;
                         parentWidth = tableWidth = parentNode.offsetWidth || 0;
                     }

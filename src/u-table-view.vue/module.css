@@ -371,3 +371,24 @@
     display: inline-block;
     vertical-align: middle;
 }
+
+.radioDisabled {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #d7dbe0;
+    background-color: #ebf0f5;
+    vertical-align: middle;
+    cursor: not-allowed;
+    border-radius: 100%;
+}
+
+.radioDisabled[selected]::after {
+    content: '';
+    margin: 4px;
+    display: block;
+    width: 4px;
+    height: 4px;
+    background: #d8d8d8;
+    border-radius: 50%;
+}

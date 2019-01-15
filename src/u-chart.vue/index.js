@@ -11,7 +11,7 @@ export default {
         },
         legend: {
             type: [String, Boolean],
-            default: 'always',
+            default: true,
         },
         width: String,
         height: String,

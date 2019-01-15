@@ -4,7 +4,7 @@
 ### 基本形式
 
 ``` html
-<u-line-chart border legend title="每星期访问量" :x-axis="{ key: 'week' }" :y-axis="{ min: 0 }" :series="[{ key: 'number' }]" :data="[]"></u-line-chart>
+<u-line-chart border legend title="每星期访问量" :x-axis="{ key: 'week' }" :y-axis="{ min: 0 }" :series="[{ key: 'number' }]" :data="[{ week: '星期一', number: 150 }, { week: '星期二', number: 300 }, { week: '星期三', number: 28 }, { week: '星期四', number: 200 }, { week: '星期五', number: 74 }, { week: '星期六', number: 532 }, { week: '星期日', number: 420 }]"></u-line-chart>
 ```
 
 ### 曲线图
@@ -68,7 +68,7 @@ export default {
 		<template>{{scope.sery.name || scope.sery.key}}</template>
 	</span>
 	<template slot="legendSuffix">
-		<span>更多</span>
+		<span style="vertical-align: middle;">更多</span>
 	</template>
 </u-line-chart>
 </template>
@@ -153,7 +153,7 @@ export default {
 | yAxis | Object | | 绘制Y轴需要传入的数据，属性min，max表示Y轴的最大值和最小值，count表示Y轴最小值和最大值之间分成几段，默认值为8 |
 | series | Array |  | 传入绘制每条线的数据，数组中对象的属性key对象data数组中对象某个属性，hidden属性表示默认隐藏此选段，absent表示不显示此选段，默认作为tooltip显示的数据内容 |
 | border | Boolean | false | 是否有表框 |
-| legend | [Boolean, String] | false | X轴下方是否显示每条线段对应的标签 |
+| legend | [Boolean, String] | false | X轴下方是否显示每条线段对应的标签，当值是`'always'`的时候，legend始终显示 |
 | width | String | `100%` | 图表的宽度 |
 | height | String | `480px` | 图表的高度 |
 | smooth | Boolean | false | 线段是否采用平滑方式绘制 |

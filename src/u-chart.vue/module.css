@@ -82,6 +82,7 @@ $m-chart_legend_height: 20px;
     cursor: pointer;
     user-select: none;
     margin-right: 2em;
+    vertical-align: middle;
 }
 
 .item[role="omitwidth"] {
