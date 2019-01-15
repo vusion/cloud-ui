@@ -10,8 +10,8 @@ export default {
             default: false,
         },
         legend: {
-            type: Boolean,
-            default: true,
+            type: [String, Boolean],
+            default: 'always',
         },
         width: String,
         height: String,

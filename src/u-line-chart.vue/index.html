@@ -9,6 +9,14 @@
             {{caption}}
         </slot>
     </template>
+    <template slot="legendTemplate" slot-scope="scope">
+        <slot name="legendTemplate" :sery="scope.sery" :index="scope.index">
+            {{scope.sery.name || scope.sery.key}}
+        </slot>
+    </template>
+    <template slot="legendSuffix">
+        <slot name="legendSuffix"></slot>
+    </template>
     <div :class="$style.wrap">
         <div :class="$style.grid" ref="grid">
             <!--暂时去掉-->

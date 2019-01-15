@@ -62,6 +62,13 @@ export default {
                     row: this.row,
                 }) : this.row.percent + '%',
             ]);
+        } else if (this.type === 'legend') {
+            return h('span', [
+                this.vnode ? this.vnode({
+                    sery: this.sery,
+                    index: this.percent,
+                }) : (this.sery.name || this.sery.key),
+            ]);
         }
     },
 };

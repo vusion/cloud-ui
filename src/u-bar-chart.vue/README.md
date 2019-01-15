@@ -152,7 +152,7 @@ export default {
 | yAxis | Object | | 绘制Y轴需要传入的数据，属性min，max表示Y轴的最大值和最小值，count表示Y轴最小值和最大值之间分成几段，默认值为8 |
 | series | Array |  | 传入绘制每条柱状数据的key值，key值对应着data数组中对象的属性 |
 | border | Boolean | false | 是否有表框 |
-| legend | Boolean | false | X轴下方是否显示每条线段对应的标签 |
+| legend | [Boolean, String] | false | X轴下方是否显示每条线段对应的标签 |
 | width | String | `100%` | 图表的宽度 |
 | height | String | `480px` | 图表的高度 |
 | stack | Boolean | false | 线段是否采用堆叠方式，这种方式下series中的对象属性key等于data中标识不同部分的key字段 |
@@ -184,3 +184,11 @@ export default {
 | Slot | Description |
 | ---- | ----------- |
 | captionTemplate | 自定义caption内容 |
+
+| Slot | Description |
+| ---- | ----------- |
+| legendTemplate | 自定义legend内容 |
+
+| Slot | Description |
+| ---- | ----------- |
+| legendSuffix | 自定义legend后缀内容 |

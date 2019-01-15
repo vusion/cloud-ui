@@ -9,7 +9,7 @@ export default {
         caption: String,
         series: Array,
         border: Boolean,
-        legend: Boolean,
+        legend: [Boolean, String],
         width: {
             type: String,
             default: '100%',

@@ -7,8 +7,12 @@
             {{caption}}
         </slot>
     </div>
-    <div v-if="legend" :class="$style.legend" :role="series.length > 5 ? 'multiline' : ''">
-        <div v-for="(sery,index) in series" :class="$style.item" :role="series.length > 4 ? 'omitwidth' : ''" :disabled="sery.hidden" :title="sery.name || sery.key" @click.stop="toggle(index)">{{sery.name || sery.key}}</div>
+    <div v-if="legend" :class="$style.legend" :always="legend=== 'always'" :role="series.length > 5 ? 'multiline' : ''">
+        <div v-for="(sery,index) in series" :class="$style.item" :role="series.length > 4 ? 'omitwidth' : ''" :disabled="sery.hidden" :title="sery.name || sery.key" @click.stop="toggle(index)">
+            <!-- <slot :name="'legendTemplate' + index" :sery="sery" :index="index">{{sery.name || sery.key}}</slot> -->
+            <u-chart-tooltip :sery="sery" type="legend" :percent="index" :vnode="$scopedSlots.legendTemplate"></u-chart-tooltip>
+        </div>
+        <slot name="legendSuffix"></slot>
     </div>
     <div :class="$style.content" :style="contentStyle">
         <slot></slot>
@@ -19,4 +23,7 @@
     <div :class="$style.loadingLabel" v-if="loading">
         <u-loading size="large" :class="$style.loading"></u-loading>
     </div>
+    <template v-if="false">
+        <slot name="legendTemplate"></slot>
+    </template>
 </div>

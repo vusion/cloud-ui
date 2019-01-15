@@ -50,6 +50,10 @@ $m-chart_legend_height: 20px;
     display: none;
 }
 
+.root[empty] .legend[always] {
+    display: block;
+}
+
 .root[empty] {
     background: url("../assets/images/nodata.png") no-repeat center center;
 }
@@ -88,7 +92,7 @@ $m-chart_legend_height: 20px;
 }
 
 .item::before {
-    background: rgba(97,218,198,0.6);
+    background: rgba(97, 218, 198, 0.6);
     display: inline-block;
     content: '';
     width: 10px;

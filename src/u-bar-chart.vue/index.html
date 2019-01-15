@@ -9,6 +9,14 @@
             {{caption}}
         </slot>
     </template>
+    <template slot="legendTemplate" slot-scope="scope">
+        <slot name="legendTemplate" :sery="scope.sery" :index="scope.index">
+            {{scope.sery.name || scope.sery.key}}
+        </slot>
+    </template>
+    <template slot="legendSuffix">
+        <slot name="legendSuffix"></slot>
+    </template>
     <div :class="$style.grid">
         <div v-for="(xLabel,index) in xAxis_.data" :class="$style.line" role="line-y" :style="{left: 100*index/xAxis_.data.length+'%'}"></div>
         <div :class="$style.line" role="line-y" style="left: 100%;"></div>
