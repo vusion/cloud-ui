@@ -102,7 +102,7 @@ export default {
             filterTdata: undefined, // 用来记录当前filter列过滤后符合条件的所有数据
             currentSortColumn: undefined, // 表示当前排序列
             currentSort: this.defaultSort,
-            scrollDiff: false, // 只需要减去一次滚动条的宽度
+            // scrollDiff: false,
         };
     },
     directives: { ellipsisTitle },
@@ -324,18 +324,6 @@ export default {
                     return column.defaultText || this.defaultText;
                 return value || column.defaultText || this.defaultText;
             }
-        },
-        setCellWidth(column, index) {
-            let width = '';
-            if (column.currentWidth)
-                width = column.currentWidth;
-            else if (this.columnsWidth[index])
-                width = this.columnsWidth[index].width;
-
-            // when browser has scrollBar,set a width to resolve scroll position bug
-            if (width === '0')
-                width = '';
-            return width;
         },
         handleSort(column) {
             if (column.sortable) {
@@ -593,22 +581,26 @@ export default {
 
                     this.columnsWidth = [];
 
-
-
+                    // 在点击排序和过滤的时候 不需要再减去一次滚动条的宽度
+                    // 处理有滚动条的情况下 宽度问题
+                    let diffCurrentWidth = parseFloat(this.tableWidth);
                     this.showColumns.forEach((item, index) => {
                         // 存储item.currentWidth可能变化前的值，是由于如果出现水平滚动条，会导致item.currentWidth的值发生变化，
                         // 这时候，组成tbody的表格对应的col最后一个的宽度应该是本身宽度减去滚动条的宽度，不然会导致对不齐的问题出现
-                        this.columnsWidth.push(item.currentWidth);
-
-                        if (this.height && index === (this.showColumns.length - 1) && this.isYScroll && !this.scrollDiff) {
+                        diffCurrentWidth = Math.abs(diffCurrentWidth - parseFloat(item.currentWidth));
+                        if (index === this.showColumns.length - 1 && diffCurrentWidth > 1){
+                            this.columnsWidth.push(item.currentWidth + this.scrollWidth);
+                        } else
+                            this.columnsWidth.push(item.currentWidth);
+                        if (this.height && index === (this.showColumns.length - 1) && this.isYScroll && diffCurrentWidth < 0.001) {
                             item.currentWidth = parseFloat(item.currentWidth) - this.scrollWidth;
                             item.fixedWidth = item.currentWidth;
-                            this.scrollDiff = true;
+                            // this.scrollDiff = true;
                         }
-                        if (this.maxHeight && index === (this.showColumns.length - 1) && this.isYScroll && !this.scrollDiff) {
+                        if (this.maxHeight && index === (this.showColumns.length - 1) && this.isYScroll && diffCurrentWidth < 0.001) {
                             item.currentWidth = parseFloat(item.currentWidth) - this.scrollWidth;
                             item.fixedWidth = item.currentWidth;
-                            this.scrollDiff = true;
+                            // this.scrollDiff = true;
                         }
                     });
                 });
