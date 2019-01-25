@@ -513,7 +513,7 @@ export default {
                         this.showColumns.forEach((item) => {
                             sumWidth += parseFloat(item.currentWidth);
                         });
-                        if (sumWidth < tableWidth)
+                        if (tableWidth > 0 && sumWidth < tableWidth)
                             isAutoWidthChange = true;
                     }
 
