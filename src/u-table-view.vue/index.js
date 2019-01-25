@@ -506,6 +506,17 @@ export default {
                         }
                     }
 
+                    // 全部是数值的情况 并且和是小于当前的总宽度 特殊情况
+                    let isAutoWidthChange = false;
+                    if (valueColumns.length === this.showColumns.length) {
+                        let sumWidth = 0;
+                        this.showColumns.forEach((item) => {
+                            sumWidth += parseFloat(item.currentWidth);
+                        });
+                        if (sumWidth < tableWidth)
+                            isAutoWidthChange = true;
+                    }
+
                     let percentWidthSum = 0;
                     percentColumns.forEach((item) => {
                         const width = parseFloat(item.copyWidth) * parentWidth / 100;
@@ -588,8 +599,8 @@ export default {
                         // 存储item.currentWidth可能变化前的值，是由于如果出现水平滚动条，会导致item.currentWidth的值发生变化，
                         // 这时候，组成tbody的表格对应的col最后一个的宽度应该是本身宽度减去滚动条的宽度，不然会导致对不齐的问题出现
                         diffCurrentWidth = Math.abs(diffCurrentWidth - parseFloat(item.currentWidth));
-                        if (index === this.showColumns.length - 1 && diffCurrentWidth > 1){
-                            this.columnsWidth.push(item.currentWidth + this.scrollWidth);
+                        if (index === this.showColumns.length - 1 && diffCurrentWidth > 1 && !isAutoWidthChange){
+                            this.columnsWidth.push(parseFloat(item.currentWidth) + this.scrollWidth);
                         } else
                             this.columnsWidth.push(item.currentWidth);
                         if (this.height && index === (this.showColumns.length - 1) && this.isYScroll && diffCurrentWidth < 0.001) {
