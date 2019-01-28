@@ -2,7 +2,7 @@
     <div :class="$style.main">
          <!-- @override: 增加提示 tip -->
         <div :class="$style.tip">{{ tip }}</div>
-        <u-slider :class="$style.slider" @mousedown.native="onMousedown" @mouseup.native="onMouseup" :value="currentValue" @input="onInput" @slide="onSlide"
+        <u-slider :class="$style.slider" @mousedown.native="onMousedown" :value="currentValue" @input="onInput" @slide="onSlide"
             :min="min" :max="max" :step="step" :precision="precision" :range="range" :readonly="readonly" :disabled="disabled"
         ></u-slider>
          <!-- @override: 增加数值显示 -->

@@ -14,6 +14,9 @@ export default {
             isMousedown: false,
         };
     },
+    created() {
+        document.body.addEventListener('mouseup', this.onMouseup, false);
+    },
     methods: {
         onMousedown(e) {
             this.isMousedown = true;
@@ -33,5 +36,8 @@ export default {
                 this.$emit('number-input', value);
             }
         },
+    },
+    destroyed() {
+        document.body.removeEventListener('mouseup', this.onMouseup, false);
     },
 };
