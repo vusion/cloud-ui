@@ -154,3 +154,19 @@
 | ----- | ---- | ----------- |
 | $event.value | Number | 改变后的值 |
 | $event.oldValue | Number | 旧的值 |
+
+#### @number-input
+
+改变数字输入框的值后触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.value | Number | 改变后滑块的值 |
+
+#### @slide-end
+
+拖动滑块结束后触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.value | Number | 改变后的值 |

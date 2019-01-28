@@ -8,4 +8,30 @@ export default {
         tip: String,
         hideButtons: { type: Boolean, default: true },
     },
+    data() {
+        return {
+            currentValue: this.value,
+            isMousedown: false,
+        };
+    },
+    methods: {
+        onMousedown(e) {
+            this.isMousedown = true;
+        },
+        onMouseup(e) {
+            if (this.isMousedown) {
+                this.$emit('slide-end', this.currentValue);
+                this.isMousedown = false;
+            }
+        },
+        onInput(value, type) {
+            this.currentValue = value;
+            this.$emit('input', value);
+            this.$emit('update:value', value);
+            if (type) {
+                // 区分onInput事件的来源 满足特定需求
+                this.$emit('number-input', value);
+            }
+        },
+    },
 };
