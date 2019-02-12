@@ -133,6 +133,10 @@
     border-left: none;
 }
 
+.btrItem[show-color]:last-child {
+    border-bottom: 1px solid #d7dbe0;
+}
+
 .btrItem:last-child {
     border-bottom: 1px solid #ebf0f5;
 }
@@ -288,7 +292,7 @@
     top: 0;
     overflow: hidden;
     background: white;
-    box-shadow: 2px 0 6px -2px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 0 6px -2px rgba(0,0,0,0.2);
 }
 
 .fixRight {
@@ -297,7 +301,7 @@
     left: auto;
     top: 0;
     background: white;
-    box-shadow: -2px 0 6px -2px rgba(0, 0, 0, 0.2);
+    box-shadow: -2px 0 6px -2px rgba(0,0,0,0.2);
 }
 
 .loading {
