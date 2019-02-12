@@ -188,6 +188,7 @@ const MultiSelect = {
                 this.optionsData[index].selected = true;
                 this.resetOptions(index);
             } else {
+                this.optionsData[index].selected = !this.optionsData[index].selected;
                 this.currentValue.splice(this.currentValue.indexOf(this.optionsData[index].value), 1);
                 this.resetOptions();
             }
@@ -235,7 +236,18 @@ const MultiSelect = {
             return optionsData;
         },
         close(index) {
+            const value = this.selItems[index].value;
+            let patchIndex = 0;
+            this.optionsData.some((item, index) => {
+                if (item.value === value) {
+                    patchIndex = index;
+                    return true;
+                }
+                return false;
+            });
+            this.optionsData[patchIndex].selected = !this.optionsData[patchIndex].selected;
             this.currentValue.splice(index, 1);
+            // 需要重置下optionsData的值
             // 新增模式下删除也需要处理下options中的数据
             this.$nextTick(() => this.$refs.popper.update());
             this.$emit('close', {
