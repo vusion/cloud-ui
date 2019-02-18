@@ -7,7 +7,7 @@
         <table :class="$style.table" cellspacing="0" cellpadding="0" border="0" :style="{tableLayout: layout}">
             <thead v-if="showHeader">
                 <tr :class="$style.htrItem" :color="color">
-                    <th v-for="(column, index) in showColumns" :class="[$style.hthSpan, column.headClass]" :role="column.filter || column.sortable" :filter="column.filter" :border="border" :selection="column.type==='selection'"
+                    <th v-for="(column, index) in showColumns" :class="[$style.hthSpan, column.headClass, column.columnClass]" :role="column.filter || column.sortable" :style="{textAlign: column.horizontal}" :filter="column.filter" :border="border" :selection="column.type==='selection'"
                         @click.stop="handleSort(column)">
                         <template v-if="column.type === 'selection' && column.headSelection">
                             <u-checkbox v-model="allSel" @check="allSelected" />
@@ -56,7 +56,7 @@
                 </template>
                 <template v-else v-for="(row, index) in tdata">
                     <tr :class="[$style.btrItem, rowClsName(index)]" :show-color="showColor && radioColumn && row[radioValueField] === currentRadioValue" @click="rowClick(row,index)">
-                        <td v-for="(column, cindex) in showColumns" :class="$style.btdSpan" :border="border" :selection="column.type==='selection'" :hide="isXScroll || border">
+                        <td v-for="(column, cindex) in showColumns" :class="[$style.btdSpan, column.columnClass]" :style="{textAlign: column.horizontal}" :border="border" :selection="column.type==='selection'" :hide="isXScroll || border">
                             <span v-if="column.type === 'selection'">
                                 <u-checkbox v-model="row.selected" :disabled="row.disabled"  @check="changeSelect(row)" />
                             </span>
@@ -81,7 +81,7 @@
                         </td>
                     </tr>
                     <tr :class="$style.btrItem" v-if="row.expanded">
-                        <td :colspan="showColumns.length" :class="$style.btdSpan" :expanded="row.expanded" :border="border" role="center" :hide="isXScroll || border">
+                        <td :colspan="showColumns.length" :class="$style.btdSpan" :style="{textAlign: column.horizontal}" :expanded="row.expanded" :border="border" role="center" :hide="isXScroll || border">
                             <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
                         </td>
                     </tr>
@@ -133,7 +133,7 @@
                 </colgroup>
                 <thead v-if="showHeader">
                     <tr :class="$style.htrItem" :color="color">
-                        <th v-for="(column, index) in showColumns"  :class="[$style.hthSpan, column.headClass]" :border="border" :role="column.filter || column.sortable" :filter="column.filter" :selection="column.type==='selection'"
+                        <th v-for="(column, index) in showColumns"  :class="[$style.hthSpan, column.headClass, column.columnClass]" :style="{textAlign: column.horizontal}" :border="border" :role="column.filter || column.sortable" :filter="column.filter" :selection="column.type==='selection'"
                             @click.stop="handleSort(column)">
                             <template v-if="column.type === 'selection' && column.headSelection">
                                 <u-checkbox v-model="allSel" :disabled="allDisabled" @check="allSelected" />
@@ -190,7 +190,7 @@
                     </template>
                     <template v-else v-for="(row, index) in tdata">
                         <tr :class="[$style.btrItem, rowClsName(index)]" :hover="row.hover" :show-color="showColor && radioColumn && row[radioValueField] === currentRadioValue" @click="rowClick(row,index)">
-                            <td v-for="(column, cindex) in showColumns" :class="$style.btdSpan" :border="border" :selection="column.type==='selection'" :hide="isXScroll || border">
+                            <td v-for="(column, cindex) in showColumns" :class="[$style.btdSpan, column.columnClass]" :style="{textAlign: column.horizontal}" :border="border" :selection="column.type==='selection'" :hide="isXScroll || border">
                                 <span v-if="column.type === 'selection'">
                                     <u-checkbox v-model="row.selected" :disabled="row.disabled" @check="changeSelect(row)"/>
                                 </span>
@@ -215,7 +215,7 @@
                             </td>
                         </tr>
                         <tr :class="$style.btrItem" v-if="row.expanded">
-                            <td :colspan="showColumns.length" :class="$style.btdSpan" :expanded="row.expanded" :border="border" role="center" :hide="isXScroll || border">
+                            <td :colspan="showColumns.length" :class="$style.btdSpan" :style="{textAlign: column.horizontal}" :expanded="row.expanded" :border="border" role="center" :hide="isXScroll || border">
                                 <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
                             </td>
                         </tr>
@@ -267,7 +267,7 @@
                     </colgroup>
                     <thead v-if="showHeader">
                         <tr :class="$style.htrItem" :color="color">
-                            <th v-for="(column, index) in showColumns" :class="[$style.hthSpan, column.headClass]" :border="border" :role="column.filter || column.sortable" :filter="column.filter" :selection="column.type==='selection'"
+                            <th v-for="(column, index) in showColumns" :class="[$style.hthSpan, column.headClass, column.columnClass]" :style="{textAlign: column.horizontal}" :border="border" :role="column.filter || column.sortable" :filter="column.filter" :selection="column.type==='selection'"
                                 @click.stop="handleSort(column)">
                                 <template v-if="column.type === 'selection' && column.headSelection">
                                     <u-checkbox v-model="allSel" @check="allSelected" />
@@ -324,7 +324,7 @@
                         </template>
                         <template v-else v-for="(row, index) in tdata">
                             <tr :class="$style.btrItem" @click="rowClick(row,index)" :show-color="showColor && radioColumn && row[radioValueField] === currentRadioValue" @mouseover="fixmouseover(index)" @mouseleave="fixmouseleave(index)">
-                                <td v-for="(column, cindex) in showColumns" :class="$style.btdSpan" :border="border" :selection="column.type==='selection'" :hide="isXScroll || border">
+                                <td v-for="(column, cindex) in showColumns" :class="[$style.btdSpan, column.columnClass]" :style="{textAlign: column.horizontal}" :border="border" :selection="column.type==='selection'" :hide="isXScroll || border">
                                     <span v-if="column.type === 'selection'">
                                         <u-checkbox v-model="row.selected" :disabled="row.disabled" @check="changeSelect(row)" />
                                     </span>
@@ -349,7 +349,7 @@
                                 </td>
                             </tr>
                             <tr :class="$style.btrItem" v-if="row.expanded">
-                                <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
+                                <td :colspan="showColumns.length" :class="$style.btdSpan" :style="{textAlign: column.horizontal}" :border="border" role="center" :hide="isXScroll || border">
                                     <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
                                 </td>
                             </tr>
@@ -366,7 +366,7 @@
                     </colgroup>
                     <thead v-if="showHeader">
                         <tr :class="$style.htrItem" :color="color">
-                            <th v-for="(column, index) in rightColumns" :class="[$style.hthSpan, column.headClass]" :border="border" :role="column.filter || column.sortable" :filter="column.filter" :selection="column.type==='selection'"
+                            <th v-for="(column, index) in rightColumns" :class="[$style.hthSpan, column.headClass, column.columnClass]" :style="{textAlign: column.horizontal}" :border="border" :role="column.filter || column.sortable" :filter="column.filter" :selection="column.type==='selection'"
                                 @click.stop="handleSort(column)">
                                 <template v-if="column.type === 'selection' && column.headSelection">
                                     <u-checkbox v-model="allSel" @check="allSelected" />
@@ -423,7 +423,7 @@
                         </template>
                         <template v-else v-for="(row, index) in tdata">
                             <tr :class="$style.btrItem" @click="rowClick(row,index)" :show-color="showColor && radioColumn && row[radioValueField] === currentRadioValue" @mouseover="fixmouseover(index)" @mouseleave="fixmouseleave(index)">
-                                <td v-for="(column, cindex) in rightColumns" :class="$style.btdSpan" :border="border" :selection="column.type==='selection'">
+                                <td v-for="(column, cindex) in rightColumns" :class="[$style.btdSpan, column.columnClass]" :style="{textAlign: column.horizontal}" :border="border" :selection="column.type==='selection'">
                                     <span v-if="column.type === 'selection'">
                                         <u-checkbox v-model="row.selected" :disabled="row.disabled" @check="changeSelect(row)" />
                                     </span>
@@ -448,7 +448,7 @@
                                 </td>
                             </tr>
                             <tr :class="$style.btrItem" v-if="row.expanded">
-                                <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center">
+                                <td :colspan="showColumns.length" :class="$style.btdSpan" :style="{textAlign: column.horizontal}" :border="border" role="center">
                                     <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
                                 </td>
                             </tr>

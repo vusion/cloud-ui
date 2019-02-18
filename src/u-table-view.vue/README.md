@@ -1226,7 +1226,7 @@ export default {
 <template>
     <u-table-view :show-header="false" expand-pattern="normal" :data="tdata" :row-class-name="rowClassName" @toggle-expand="toggleExpand" border>
         <u-table-view-column title="日期" label="date"></u-table-view-column>
-        <u-table-view-column title="详细信息" label="info"></u-table-view-column>
+        <u-table-view-column title="详细信息" column-class="info" label="info"></u-table-view-column>
         <u-table-view-column title="icon" expand-class="infoIcon" type="expand" label="listlogs" default-text="" expand-strict expand-icon="up-down">
             <template slot="expandContent" slot-scope="scope">
                 <div>
@@ -1300,6 +1300,9 @@ export default {
 }
 :global(.infoIcon){
     margin-left: 5px;
+}
+:global(.info){
+    text-align: center;
 }
 </style>
 ```
@@ -1451,6 +1454,8 @@ export default {
 | expandLabel | String |  | 当`type`属性值为`'expand'`时，当出现组合形式的时候，使用此字段指定`icon`展开依赖的属性字段 |
 | expandClass | String |  | 当`type`属性值为`'expand'`时，定义`icon`的样式 |
 | visible | Boolean | `true` | 控制列的显示/隐藏 |
+| horizontal | String | `` | 控制列的对齐方式 默认是左对齐 |
+| columnClass | String | `` | 自定义列样式,给某一列添加class |
 
 #### 数据相关属性
 

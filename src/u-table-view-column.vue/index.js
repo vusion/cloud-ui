@@ -25,6 +25,9 @@ export default {
             type: String,
             default: 'bottom-start',
         },
+        horizontal: {
+            type: String,
+        },
         // tooltip: { type: Boolean, default: false },
         ellipsis: { type: Boolean, default: false },
         timeFormat: { type: String, default: 'YYYY-MM-DD HH:mm:ss' },
@@ -34,7 +37,8 @@ export default {
         expandStrict: { type: Boolean, default: false }, // 开启expand严格匹配模式， 只有对应的label字段有值才显示icon
         expandLabel: String, // 配合expand模式使用，可能出现字段组合的情况
         expandClass: String, // 自定义expand的icon样式
-        headClass: { type: String, default: '' },
+        headClass: { type: String, default: '' }, // 满足自定义头部样式需求
+        columnClass: { type: String }, // 满足自定义表格列样式需求
         visible: { type: Boolean, default: true }, // 特殊业务场景下某些列的展示需要根据条件来判断
     },
     mixins: [Emitter],
