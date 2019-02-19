@@ -81,7 +81,7 @@
                         </td>
                     </tr>
                     <tr :class="$style.btrItem" v-if="row.expanded">
-                        <td :colspan="showColumns.length" :class="$style.btdSpan" :style="{textAlign: column.horizontal}" :expanded="row.expanded" :border="border" role="center" :hide="isXScroll || border">
+                        <td :colspan="showColumns.length" :class="$style.btdSpan" :expanded="row.expanded" :border="border" role="center" :hide="isXScroll || border">
                             <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
                         </td>
                     </tr>
@@ -215,7 +215,7 @@
                             </td>
                         </tr>
                         <tr :class="$style.btrItem" v-if="row.expanded">
-                            <td :colspan="showColumns.length" :class="$style.btdSpan" :style="{textAlign: column.horizontal}" :expanded="row.expanded" :border="border" role="center" :hide="isXScroll || border">
+                            <td :colspan="showColumns.length" :class="$style.btdSpan" :expanded="row.expanded" :border="border" role="center" :hide="isXScroll || border">
                                 <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
                             </td>
                         </tr>
@@ -349,7 +349,7 @@
                                 </td>
                             </tr>
                             <tr :class="$style.btrItem" v-if="row.expanded">
-                                <td :colspan="showColumns.length" :class="$style.btdSpan" :style="{textAlign: column.horizontal}" :border="border" role="center" :hide="isXScroll || border">
+                                <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
                                     <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
                                 </td>
                             </tr>
@@ -448,7 +448,7 @@
                                 </td>
                             </tr>
                             <tr :class="$style.btrItem" v-if="row.expanded">
-                                <td :colspan="showColumns.length" :class="$style.btdSpan" :style="{textAlign: column.horizontal}" :border="border" role="center">
+                                <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center">
                                     <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
                                 </td>
                             </tr>
