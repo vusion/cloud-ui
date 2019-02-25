@@ -30,6 +30,7 @@
                     <u-sidebar-item exact to="/components/u-tabs">标签页 <small>Tabs</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-subtabs">子标签页 <small>Subtabs</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-steps">步骤条 <small>Steps</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-chosen-steps">可选步骤条 <small>ChosenSteps</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-pagination">翻页器 <small>Pagination</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-crumb">面包屑 <small>Crumb</small></u-sidebar-item>
                 </u-sidebar-group>

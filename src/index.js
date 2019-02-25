@@ -20,6 +20,8 @@ import CascadeCapsules from './u-cascade-capsules.vue';
 import Chart from './u-chart.vue';
 import ChartTooltip from './u-chart-tooltip.vue';
 import Checkboxes from './u-checkboxes.vue';
+import ChosenStep from './u-chosen-step.vue';
+import ChosenSteps from './u-chosen-steps.vue';
 import CircularProgress from './u-circular-progress.vue';
 import ColorSelect from './u-color-select.vue';
 import ComboSlider from './u-combo-slider.vue';
@@ -117,6 +119,8 @@ export {
     ChartTooltip,
     Checkbox,
     Checkboxes,
+    ChosenStep,
+    ChosenSteps,
     CircularProgress,
     ColorSelect,
     ComboSlider,
