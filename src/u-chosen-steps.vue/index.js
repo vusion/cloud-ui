@@ -5,7 +5,6 @@ export default {
     childName: 'u-chosen-step',
     mixins: [Tabs],
     props: {
-        router: { type: Boolean, default: false },
         readonly: { type: Boolean, default: true },
         value: { type: Number, default: 0 },
         pattern: { type: String, default: 'normal', validator: (value) => ['normal', 'special'].includes(value) },
@@ -62,7 +61,7 @@ export default {
             }
         },
         select(itemVM, index) {
-            if (this.disabled)
+            if (this.disabled || itemVM.disabled)
                 return;
 
             const oldValue = this.currentValue;

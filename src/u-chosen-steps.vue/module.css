@@ -19,6 +19,15 @@ $radio-size: 18px;
     cursor: pointer;
 }
 
+.radioItem[disabled] {
+    cursor: not-allowed;
+    color: #999;
+}
+
+.radioItem[disabled]:hover {
+    color: #999;
+}
+
 .text {
     display: inline-block;
     position: relative;
@@ -62,7 +71,6 @@ $radio-size: 18px;
     border: 1px solid $border-color-base;
     margin-right: 5px;
     text-align: center;
-    cursor: pointer;
 }
 
 .radio::before {
@@ -93,8 +101,4 @@ $radio-size: 18px;
     font-family: 'Devanagari MT', 'Gujarati MT', monospace;
     content: '✓';
     color: white;
-}
-
-.radio[disabled] {
-    background: $background-color-base;
 }

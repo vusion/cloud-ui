@@ -25,7 +25,18 @@
 </u-chosen-steps>
 ```
 
-## Steps API
+### 特殊模式
+
+``` html
+<u-chosen-steps pattern="special" :value="1">
+    <u-chosen-step title="Step1">Content1</u-chosen-step>
+    <u-chosen-step title="Step2">Content2</u-chosen-step>
+    <u-chosen-step title="Step3">Content3</u-chosen-step>
+    <u-chosen-step title="Step4">Content4</u-chosen-step>
+</u-chosen-steps>
+```
+
+## ChosenSteps API
 ### Props/Attrs
 | Prop/Attr | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
@@ -62,7 +73,7 @@
 | oldValue | Number | 旧的步骤数 |
 
 
-## Step API
+## ChosenStep API
 ### Props/Attrs
 | Prop/Attr | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
