@@ -1,4 +1,4 @@
-<div :class="$style.root" ref="root" :border="border" :style="{height: height+'px', width: width + 'px', maxHeight: maxHeight + 'px', minHeight: minHeight + 'px'}" v-show="visible" @mouseover="mouseover" @mouseleave="mouseleave">
+<div :class="$style.root" ref="root" :border="border" :style="{height: height+'px', width: width + 'px', maxHeight: maxHeight + 'px', minHeight: minHeight + 'px'}" v-show="visible" @mouseenter="mouseenter" @mouseleave="mouseleave">
     <div :class="$style.title" v-if="title" ref="title">
         {{title}}
         <slot name="title"></slot>
@@ -55,7 +55,7 @@
                     </tr>
                 </template>
                 <template v-else v-for="(row, index) in tdata">
-                    <tr :class="[$style.btrItem, rowClsName(index)]" :show-color="showColor && radioColumn && row[radioValueField] === currentRadioValue" @click="rowClick(row,index)">
+                    <tr :class="[$style.btrItem, rowClsName(index)]" @mouseenter="fixmouseenter(index)" @mouseleave="fixmouseleave(index)" :show-color="showColor && radioColumn && row[radioValueField] === currentRadioValue" @click="rowClick(row,index)">
                         <td v-for="(column, cindex) in showColumns" :class="[$style.btdSpan, column.columnClass]" :style="{textAlign: column.horizontal}" :border="border" :selection="column.type==='selection'" :hide="isXScroll || border">
                             <span v-if="column.type === 'selection'">
                                 <u-checkbox v-model="row.selected" :disabled="row.disabled"  @check="changeSelect(row)" />
@@ -189,7 +189,7 @@
                         </tr>
                     </template>
                     <template v-else v-for="(row, index) in tdata">
-                        <tr :class="[$style.btrItem, rowClsName(index)]" :hover="row.hover" :show-color="showColor && radioColumn && row[radioValueField] === currentRadioValue" @click="rowClick(row,index)">
+                        <tr :class="[$style.btrItem, rowClsName(index)]" :hover="row.hover" :show-color="showColor && radioColumn && row[radioValueField] === currentRadioValue" @click="rowClick(row,index)" @mouseenter="fixmouseenter(index)" @mouseleave="fixmouseleave(index)">
                             <td v-for="(column, cindex) in showColumns" :class="[$style.btdSpan, column.columnClass]" :style="{textAlign: column.horizontal}" :border="border" :selection="column.type==='selection'" :hide="isXScroll || border">
                                 <span v-if="column.type === 'selection'">
                                     <u-checkbox v-model="row.selected" :disabled="row.disabled" @check="changeSelect(row)"/>
@@ -308,7 +308,7 @@
                     </colgroup>
                     <tbody :class="$style.btbody" :no-show-header="!showHeader">
                         <template v-if="loading">
-                            <tr :class="$style.btrItem" @mouseover="fixmouseover(-1)" @mouseleave="fixmouseleave(-1)">
+                            <tr :class="$style.btrItem" @mouseenter="fixmouseenter(-1)" @mouseleave="fixmouseleave(-1)">
                                 <td :colspan="showColumns.length" :class="$style.btdSpan" role="center">
                                     <u-loading></u-loading>
                                     <span :class="$style.loadText">{{ loadText }}</span>
@@ -316,14 +316,14 @@
                             </tr>
                         </template>
                         <template v-else-if="tdata.length === 0">
-                            <tr :class="$style.btrItem" @mouseover="fixmouseover(-1)" @mouseleave="fixmouseleave(-1)">
+                            <tr :class="$style.btrItem" @mouseenter="fixmouseenter(-1)" @mouseleave="fixmouseleave(-1)">
                                 <td :colspan="showColumns.length" :class="$style.btdSpan" role="center">
                                     <span :class="$style.fixNoText"></span>
                                 </td>
                             </tr>
                         </template>
                         <template v-else v-for="(row, index) in tdata">
-                            <tr :class="$style.btrItem" @click="rowClick(row,index)" :show-color="showColor && radioColumn && row[radioValueField] === currentRadioValue" @mouseover="fixmouseover(index)" @mouseleave="fixmouseleave(index)">
+                            <tr :class="$style.btrItem" @click="rowClick(row,index)" :show-color="showColor && radioColumn && row[radioValueField] === currentRadioValue" @mouseenter="fixmouseenter(index)" @mouseleave="fixmouseleave(index)">
                                 <td v-for="(column, cindex) in showColumns" :class="[$style.btdSpan, column.columnClass]" :style="{textAlign: column.horizontal}" :border="border" :selection="column.type==='selection'" :hide="isXScroll || border">
                                     <span v-if="column.type === 'selection'">
                                         <u-checkbox v-model="row.selected" :disabled="row.disabled" @check="changeSelect(row)" />
@@ -407,7 +407,7 @@
                     </colgroup>
                     <tbody :class="$style.btbody" :no-show-header="!showHeader">
                         <template v-if="loading">
-                            <tr :class="$style.btrItem" @mouseover="fixmouseover(-1)" @mouseleave="fixmouseleave(-1)">
+                            <tr :class="$style.btrItem" @mouseenter="fixmouseenter(-1)" @mouseleave="fixmouseleave(-1)">
                                 <td :colspan="showColumns.length" :class="$style.btdSpan" role="center">
                                     <u-loading></u-loading>
                                     <span :class="$style.loadText">{{ loadText }}</span>
@@ -415,14 +415,14 @@
                             </tr>
                         </template>
                         <template v-else-if="tdata.length === 0">
-                            <tr :class="$style.btrItem" @mouseover="fixmouseover(-1)" @mouseleave="fixmouseleave(-1)">
+                            <tr :class="$style.btrItem" @mouseenter="fixmouseenter(-1)" @mouseleave="fixmouseleave(-1)">
                                 <td :colspan="showColumns.length" :class="$style.btdSpan" role="center">
                                     <span :class="$style.fixNoText"></span>
                                 </td>
                             </tr>
                         </template>
                         <template v-else v-for="(row, index) in tdata">
-                            <tr :class="$style.btrItem" @click="rowClick(row,index)" :show-color="showColor && radioColumn && row[radioValueField] === currentRadioValue" @mouseover="fixmouseover(index)" @mouseleave="fixmouseleave(index)">
+                            <tr :class="$style.btrItem" @click="rowClick(row,index)" :show-color="showColor && radioColumn && row[radioValueField] === currentRadioValue" @mouseenter="fixmouseenter(index)" @mouseleave="fixmouseleave(index)">
                                 <td v-for="(column, cindex) in rightColumns" :class="[$style.btdSpan, column.columnClass]" :style="{textAlign: column.horizontal}" :border="border" :selection="column.type==='selection'">
                                     <span v-if="column.type === 'selection'">
                                         <u-checkbox v-model="row.selected" :disabled="row.disabled" @check="changeSelect(row)" />

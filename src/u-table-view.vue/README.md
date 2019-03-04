@@ -1435,6 +1435,22 @@ export default {
 | $event.direction | String | icon的方向，向哪个方向展开或收起 |
 | $event.row | Object | 选中行的数据 |
 
+#### @mouseenter
+
+表格某行数据上的鼠标处于mouseenter
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.index | Int | 行数据索引 |
+
+#### @mouseleave
+
+表格某行数据鼠标处于mouseleave
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.index | Int | 行数据索引 |
+
 ## TableViewColumn API
 ### Props/Attrs
 

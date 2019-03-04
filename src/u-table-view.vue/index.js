@@ -714,7 +714,7 @@ export default {
                     this.$refs.body.parentNode.scrollLeft += 50;
             }
         },
-        mouseover() {
+        mouseenter() {
             this.over = true;
         },
         mouseleave() {
@@ -752,22 +752,34 @@ export default {
                 this.$refs.righttable.scrollTop = e.target.scrollTop;
             this.$refs.popper && this.$refs.popper[0] && this.$refs.popper[0].toggle(false);
         },
-        fixmouseover(value) {
-            if (value === -1)
+        fixmouseenter(value) {
+            if (value === -1) {
                 this.fixedHover = true;
-            else {
+                this.$emit('mouseenter', {
+                    index: 0,
+                });
+            } else {
                 const obj = this.tdata[value];
                 obj.hover = true;
                 this.tdata.splice(value, 1, obj);
+                this.$emit('mouseenter', {
+                    index: value,
+                });
             }
         },
         fixmouseleave(value) {
-            if (value === -1)
+            if (value === -1) {
                 this.fixedHover = false;
-            else {
+                this.$emit('mouseleave', {
+                    index: 0,
+                });
+            } else {
                 const obj = this.tdata[value];
                 obj.hover = false;
                 this.tdata.splice(value, 1, obj);
+                this.$emit('mouseleave', {
+                    index: value,
+                });
             }
         },
         showAll() {
