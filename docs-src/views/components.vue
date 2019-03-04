@@ -30,7 +30,7 @@
                     <u-sidebar-item exact to="/components/u-tabs">标签页 <small>Tabs</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-subtabs">子标签页 <small>Subtabs</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-steps">步骤条 <small>Steps</small></u-sidebar-item>
-                    <u-sidebar-item exact to="/components/u-chosen-steps">可选步骤条 <small>ChosenSteps</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-selectable-steps">可选步骤条 <small>SelectableSteps</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-pagination">翻页器 <small>Pagination</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-crumb">面包屑 <small>Crumb</small></u-sidebar-item>
                 </u-sidebar-group>
@@ -65,7 +65,6 @@
                     <u-sidebar-item exact to="/components/u-tablets">药片 <small>Tablets</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-countup">数字渐变 <small>CountUp</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-transfer">穿梭框 <small>Transfer</small></u-sidebar-item>
-                    <u-sidebar-item exact to="/components/u-tag">选择扩展 <small>Tag</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="DateTime">
                     <u-sidebar-item exact to="/components/u-calendar">日历 <small>Calendar</small></u-sidebar-item>

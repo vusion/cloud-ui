@@ -20,8 +20,6 @@ import CascadeCapsules from './u-cascade-capsules.vue';
 import Chart from './u-chart.vue';
 import ChartTooltip from './u-chart-tooltip.vue';
 import Checkboxes from './u-checkboxes.vue';
-import ChosenStep from './u-chosen-step.vue';
-import ChosenSteps from './u-chosen-steps.vue';
 import CircularProgress from './u-circular-progress.vue';
 import ColorSelect from './u-color-select.vue';
 import ComboSlider from './u-combo-slider.vue';
@@ -65,6 +63,8 @@ import Pills from './u-pills.vue';
 import Popover from './u-popover.vue';
 import Popup from './u-popup.vue';
 import Radios from './u-radios.vue';
+import SelectableStep from './u-selectable-step.vue';
+import SelectableSteps from './u-selectable-steps.vue';
 import SelectDivider from './u-select-divider.vue';
 import SelectGroup from './u-select-group.vue';
 import Select from './u-select.vue';
@@ -119,8 +119,6 @@ export {
     ChartTooltip,
     Checkbox,
     Checkboxes,
-    ChosenStep,
-    ChosenSteps,
     CircularProgress,
     ColorSelect,
     ComboSlider,
@@ -165,6 +163,8 @@ export {
     Popup,
     Radio,
     Radios,
+    SelectableStep,
+    SelectableSteps,
     SelectDivider,
     SelectGroup,
     Select,

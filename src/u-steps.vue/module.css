@@ -1,20 +1,10 @@
 @import 'proto-ui.vusion/src/u-steps.vue/module.css';
 
-.head {
-    counter-reset: step;
-}
-
-.item {
-    padding-top: 10px;
+.item-body {
     color: #666;
 }
 
-.item::before {
-    counter-increment: step;
-    content: counter(step);
-    top: -9px;
-    left: 50%;
-    margin-left: -9px;
+.radio {
     width: 18px;
     height: 18px;
     line-height: 18px;
@@ -23,28 +13,43 @@
     background-color: $brand-secondary;
 }
 
-.item[pass]::after, .item[pass]::before {
-    background-color: $brand-primary;
-    color: white;
+.title {
+    padding-top: 4px;
+    line-height: 18px;
 }
 
 .item::after {
-    right: 0;
+    top: 12px;
     height: 1px;
     background-color: $brand-secondary;
 }
 
-.item:first-child::after {
-    display: block;
-    width: 50%;
-    right: 0;
-}
-
-.item:last-child::after {
-    width: 50%;
-    left: 0;
+.item[disabled] .item-body {
+    color: $field-disabled-color;
 }
 
 .body {
     margin-top: 20px;
+}
+
+.root[counter] .head {
+    counter-reset: stop;
+}
+
+.root[counter] .item {
+    counter-increment: step;
+}
+
+.root[counter] .radio::before {
+    content: counter(step);
+}
+
+.root[layout="block"] .title {
+    display: block;
+}
+
+.root[layout="inline"] .title {
+    display: inline-block;
+    padding: 0 4px;
+    vertical-align: -1px;
 }

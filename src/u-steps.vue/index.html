@@ -1,11 +1,17 @@
-<div :class="$style.root">
+<div :class="$style.root" :readonly="readonly" :disabled="disabled" :counter="counter" :layout="layout">
     <ul :class="$style.head">
         <li :class="$style.item"
             v-for="(itemVM, index) in itemVMs"
             :title="itemVM.title"
-            :style="styleObject"
-            :pass="index <= value">
-            <span :class="$style.title"><u-render :vnode="itemVM.$slots.title">{{ itemVM.title }}</u-render></span>
+            :passed="index <= selectedVM.index"
+            :selected="index === selectedVM.index"
+            :disabled="itemVM.disabled || disabled"
+            v-show="!itemVM.hidden"
+            :style="{ width: itemWidth }">
+            <div :class="$style['item-body']" @click="select(itemVM)">
+                <span :class="$style.radio"></span>
+                <span :class="$style.title"><u-render :vnode="itemVM.$slots.title">{{ itemVM.title }}</u-render></span>
+            </div>
         </li>
     </ul>
     <div :class="$style.body">
