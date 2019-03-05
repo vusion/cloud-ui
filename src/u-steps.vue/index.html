@@ -3,8 +3,8 @@
         <li :class="$style.item"
             v-for="(itemVM, index) in itemVMs"
             :title="itemVM.title"
-            :passed="index <= selectedVM.index"
-            :selected="index === selectedVM.index"
+            :passed="selectedVM && index <= selectedVM.index"
+            :selected="selectedVM && index === selectedVM.index"
             :disabled="itemVM.disabled || disabled"
             v-show="!itemVM.hidden"
             :style="{ width: itemWidth }">
