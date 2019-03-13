@@ -1323,8 +1323,8 @@ export default {
 | height| Integer/String |  | 表格组件的高度 |
 | maxHeight| Integer/String |  | 表格组件的最大高度 |
 | minHeight| Integer/String |  | 表格组件的最小高度 |
-| radioTextField | String |`'radiaoText'`| 单选按钮 文案字段key |
-| radioValueField | String/Number |`'radiaoLabel'`| 单选按钮值key |
+| radioTextField | String |`'radioText'`| 单选按钮 文案字段key |
+| radioValueField | String/Number |`'radioLabel'`| 单选按钮值key |
 | defaultText | String | `'-'` | 默认当单元格取值为空时，默认显示的内容，此处是设置整个表格 |
 | loading| Boolean | `false` | 是否展示加载中的状态信息 |
 | loadText| String | `''` | 加载中的文字信息提示 |

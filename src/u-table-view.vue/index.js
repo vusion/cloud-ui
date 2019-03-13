@@ -34,11 +34,11 @@ export default {
         },
         radioTextField: {
             type: String,
-            default: 'radiaoText',
+            default: 'radioText',
         },
         radioValueField: {
             type: String,
-            default: 'radiaoLabel',
+            default: 'radioLabel',
         },
         radioValue: [String, Number],
         noDataText: { type: String, default() { return this.$t('noDataText'); } },
