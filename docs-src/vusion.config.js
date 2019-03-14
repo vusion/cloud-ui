@@ -37,18 +37,26 @@ module.exports = {
                     loader: '@vusion/md-vue-loader',
                     options: {
                         wrapper: 'u-article',
-                        liveProcess(live, code) {
-                            // 不好直接用自定义标签，容易出问题
-                            return `<div class="u-example"><div>${live}</div><div slot="code"></div></div>\n\n${code}`;
-                        },
-                        postprocess(result) {
-                            const re = /<div class="u-example"><div>([\s\S]+?)<\/div><div slot="code"><\/div><\/div>\s+(<pre[\s\S]+?<\/pre>)/g;
-                            return result.replace(re, (m, live, code) => `<u-example><div>${live}</div><div slot="code">${code}</div></u-example>\n\n`);
-                        },
                         plugins: [
                             [iterator, 'link_converter', 'link_open', (tokens, idx) => tokens[idx].tag = 'u-link'],
                             [iterator, 'link_converter', 'link_close', (tokens, idx) => tokens[idx].tag = 'u-link'],
                         ],
+                        showCodeLineCount: 5,
+                        codeProcess(live, code, content, lang) {
+                            const relativePath = path.relative(process.cwd(), this.loader.resourcePath).replace(/\\/g, '/').replace(/^(\.\.\/)+/, '');
+
+                            if (live) {
+                                const lineCount = content.split('\n').length;
+                                return `<u-code-example
+                :show-code="${lineCount <= this.options.showCodeLineCount}"
+                :show-detail="${lang === 'vue'}"
+                file-path="${relativePath}">
+                <div>${live}</div>
+                <div slot="code">${code}</div>
+            </u-code-example>\n\n`;
+                            } else
+                                return code;
+                        },
                     },
                 }],
             }],

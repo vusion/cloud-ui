@@ -31,6 +31,7 @@
     "cloud-ui"
   ],
   "dependencies": {
+    "@vusion/doc-loader": "^0.9.1",
     "babel-eslint": "^8.2.6",
     "countup.js": "^1.9.3",
     "lodash": "^4.17.5",
@@ -38,7 +39,7 @@
     "vusion-utils": "^0.2.3"
   },
   "devDependencies": {
-    "@vusion/md-vue-loader": "^0.1.1",
+    "@vusion/md-vue-loader": "^1.0.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
