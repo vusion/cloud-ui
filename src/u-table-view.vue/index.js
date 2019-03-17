@@ -65,11 +65,15 @@ export default {
         loadText: { type: String, default: '' }, // 加载状态显示的文字
         rowClassName: { type: Function, default() { return ''; } }, // 自定义表格单行的样式
         color: String,
-        forceFilter: { type: Boolean, default: true },
+        forceFilter: { type: Boolean, default: false }, // 用来强制在数据源发生变化情况下就进行过滤
+        forceSort: { type: Boolean, default: false }, // 用来强制在数据源发生变化的情况下进行排序
         showColor: {
             type: Boolean,
             default: false,
         },
+        sortMethod: Function,
+        sortRemoteMethod: Function,
+        filterMethod: Function,
     },
     data() {
         return {
@@ -201,18 +205,11 @@ export default {
                         else
                             return item[column.label] === value;
                     });
-
-                    // 去掉，会导致陷入死循环中
-                    // this.$emit('filter-change', {
-                    //     column,
-                    //     value,
-                    //     index: columnIndex,
-                    // });
                 }
                 if (this.pattern === 'limit')
                     this.tdata = this.tdata.slice(0, this.limit);
 
-                if (this.currentSortColumn && !this.currentSortColumn.sortRemoteMethod) {
+                if (this.currentSortColumn && this.forceSort) {
                     const order = this.currentSort.order === 'asc' ? -1 : 1;
                     // 此处有问题 异步执行 数据改变不希望我们在执行排序操作
                     this.sortData(this.currentSortColumn, order, 'change');
@@ -262,9 +259,6 @@ export default {
         loading(newVal) {
             // 比较复杂情况下，可能会先赋值data，再将loading设为false
             this.handleResize();
-        },
-        defaultSort(newValue) {
-            this.currentSort = newValue;
         },
         columns() {
             // 列表的列修改会导致变化 列表设置
@@ -341,12 +335,14 @@ export default {
         sortData(column, order, type) {
             // type 字段在data发生变化时传入，此时不能抛sort-change方法，防止死循环
             const label = column.label;
-            if (column.sortRemoteMethod) {
+            const sortRemoteMethod = this.sortRemoteMethod || column.sortRemoteMethod;
+            const sortMethod = this.sortMethod || column.sortMethod;
+            if (sortRemoteMethod) {
                 // 异步执行排序方法
-                column.sortRemoteMethod(label, this.currentSort.order, column);
+                sortRemoteMethod(label, this.currentSort.order, column);
             } else {
-                if (column.sortMethod)
-                    this.copyTdata.sort((value1, value2) => column.sortMethod(value1[label], value2[label]) ? order : -order);
+                if (sortMethod)
+                    this.copyTdata.sort((value1, value2) => sortMethod(value1[label], value2[label]) ? order : -order);
                 else {
                     this.copyTdata.sort((value1, value2) => {
                         if (value1[label] === value2[label])
@@ -404,6 +400,8 @@ export default {
         },
         initTableData(value) {
             let tdata = [];
+            // 现在是将原始数据进行了深拷贝操作 现在的原因是不进行深拷贝会影响到原始数据，会添加一些新的属性，导致原始数据的变化
+            // 1 需不需要进行深拷贝（如何解决影响原始数据变化的问题）2 进行深拷贝，数据变化需不需要$emit事件
             const copyData = deepCopy([], this.data);
             this.copyTdata = copyData;
             copyData.forEach((item, index) => {

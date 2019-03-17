@@ -2,8 +2,59 @@
 
 ## 示例
 ### 基本形式
+``` vue
+<template>
+    <div>
+        <u-table-view :data="tdata" border>
+            <u-table-view-column title="日期" label="date"></u-table-view-column>
+            <u-table-view-column ellipsis title="姓名" label="name"></u-table-view-column>
+            <u-table-view-column ellipsis title="地址" label="address" sortable>
+                <template slot-scope="scope">
+                    {{scope.row.address}}
+                </template>
+            </u-table-view-column>
+            <u-table-view-column title="性别" label="female" filter></u-table-view-column>
+        </u-table-view>
+    </div>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{
+                date: '2016-05-02',
+                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+                address: '浙江省杭州市滨江区网商路 599号 11111111111111111111111111111111',
+                female: '男',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+                address: '浙江省杭州市滨江区英飞特 D栋3楼',
+                female: '男',
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
+                address: '浙江省杭州市滨江区 西可科技园',
+                female: '女',
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '浙江省杭州市滨江区 东忠科技园',
+                female: '男',
+            }, {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
+                female: '男',
+            }],
+        };
+    },
+};
+</script>
+```
 
-#### 默认显示指定limit条行数据
+
+#### 默认显示limit条行数据
 
 表格列`pattern`属性设置为`limit`值即可，可通过设置`limit`属性控制显示条数
 ``` vue
@@ -244,7 +295,8 @@ export default {
 </script>
 ```
 
-#### 列的个数自定义
+#### 自定义列显示
+在业务中经常出现某一列的显/隐是依据某个变量来的，为了保证列顺序不会出现变更，使用`visible`属性来控制列的显/隐
 ``` vue
 <template>
     <div>
@@ -332,6 +384,7 @@ export default {
 ```
 
 #### 排序和格式化
+某一列进行排序，需要为此列中设置`sortable`属性，自定义表头传入`slot='headerTitle'`
 ``` vue
 <template>
     <div>
@@ -415,17 +468,13 @@ export default {
 
 
 #### 自定义排序方法
+同步方式自定义排序方法传入`sortMethod`属性即可，点击排序，异步获取后端数据需要传入`sortRemoteMethod`方法即可，点击排序会自动执行`sortRemoteMethod`方法
 ``` vue
 <template>
-    <u-table-view :data="tdata" @sort-change="sortChange">
-        <u-table-view-column type="expand" default-text="">
-            <template slot="expandContent">
-                <span>11</span>
-            </template>
-        </u-table-view-column>
-        <u-table-view-column title="日期" label="date" sortable width="500" :sort-method="sortMethod"></u-table-view-column>
-        <u-table-view-column title="姓名" label="name" width="50%"></u-table-view-column>
-        <u-table-view-column title="地址" label="address" width="1000" ></u-table-view-column>
+    <u-table-view :data="tdata" :default-sort="defaultSort" @sort-change="sortChange">
+        <u-table-view-column title="日期" label="date" sortable :sort-method="sortMethod"></u-table-view-column>
+        <u-table-view-column title="姓名" label="name"></u-table-view-column>
+        <u-table-view-column title="地址" label="address"></u-table-view-column>
     </u-table-view>
 </template>
 <script>
@@ -449,6 +498,10 @@ export default {
                 name: '小鸡炖蘑菇',
                 address: '浙江省杭州市滨江区 东忠科技园'
             }],
+            defaultSort: {
+                title: '日期',
+                order: 'asc',
+            },
         };
     },
     methods: {
@@ -554,12 +607,12 @@ export default {
 ``` vue
 <template>
     <u-linear-layout direction="vertical">
-            <u-table-view :data="tdata" @selection-change="selectionChange($event)">
-                <u-table-view-column type="selection" title="选择" width="100"></u-table-view-column>
-                <u-table-view-column title="日期" label="date" type="time"></u-table-view-column>
-                <u-table-view-column title="姓名" label="name" ></u-table-view-column>
-                <u-table-view-column title="地址" label="address" ></u-table-view-column>
-            </u-table-view>
+        <u-table-view :data="tdata" @selection-change="selectionChange($event)">
+            <u-table-view-column type="selection" title="选择" width="100"></u-table-view-column>
+            <u-table-view-column title="日期" label="date" type="time"></u-table-view-column>
+            <u-table-view-column title="姓名" label="name" ></u-table-view-column>
+            <u-table-view-column title="地址" label="address" ></u-table-view-column>
+        </u-table-view>
     </u-linear-layout>
 </template>
 <script>
@@ -612,15 +665,16 @@ export default {
 ```
 
 #### 单选
+自定义表格第一列是单选按钮，设置`type='radio'`即可
 ``` vue
 <template>
     <u-linear-layout direction="vertical">
-            <u-table-view :data="tdata" show-color radio-value-field="id" :radioValue.sync="radioValue" @radio-change="selectionChange($event)">
-                <u-table-view-column type="radio" ellipsis width="56"></u-table-view-column>
-                <u-table-view-column title="日期" label="date" type="time"></u-table-view-column>
-                <u-table-view-column title="姓名" label="name" ></u-table-view-column>
-                <u-table-view-column title="地址" label="address" ></u-table-view-column>
-            </u-table-view>
+        <u-table-view :data="tdata" show-color radio-value-field="id" :radioValue.sync="radioValue" @radio-change="selectionChange($event)">
+            <u-table-view-column type="radio" ellipsis width="56"></u-table-view-column>
+            <u-table-view-column title="日期" label="date" type="time"></u-table-view-column>
+            <u-table-view-column title="姓名" label="name" ></u-table-view-column>
+            <u-table-view-column title="地址" label="address" ></u-table-view-column>
+        </u-table-view>
     </u-linear-layout>
 </template>
 <script>
@@ -876,6 +930,7 @@ export default {
 ```
 
 #### loading 加载中的状态
+给组件设置`loading`属性即可显示加载状态，自定义加载文字传入`loadText`属性
 ``` vue
 <template>
 <div>
@@ -902,6 +957,7 @@ export default {
 ```
 
 #### data为空数组自定义显示文本
+自定义表格空态显示文案是通过属性`noDataText`或者自定义具名插槽`slot="no-data-text"`
 ``` vue
 <template>
 <div>
@@ -927,8 +983,6 @@ export default {
 };
 </script>
 ```
-
-### 对于表格内容过多的情况，提供以下两种解决方案，可以任选一种合适的方式使用
 
 #### 表格行可展开
 
@@ -957,14 +1011,9 @@ export default {
                     </u-info-list>
                 </template>
             </u-table-view-column>
-            <u-table-view-column width="200" title="日期" label="date" sortable type="time" time-format="YYYY-MM-DD"></u-table-view-column>
-            <u-table-view-column title="姓名" width="200" label="name" ></u-table-view-column>
-            <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>
-            <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>
-            <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>
-            <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>
-            <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>
-            <u-table-view-column title="性别" width="200" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
+            <u-table-view-column title="日期" label="date" sortable type="time" time-format="YYYY-MM-DD"></u-table-view-column>
+            <u-table-view-column title="姓名" label="name" ></u-table-view-column>
+            <u-table-view-column title="性别" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
             <u-table-view-column title="操作" width="150">
                 <template slot-scope="scope">
                     <u-button @click="click(scope.row)">配置</u-button>
@@ -1060,6 +1109,94 @@ export default {
     }
 };
 </script>
+```
+
+#### expand 的高级用法
+默认只会展开一个icon中的内容，如果不想有此限制，请给`u-table-view`传入`expandPattern`属性，只要值不等于`'toggle'`就可以，建议传入`'normal'`，默认要展开第一行，需要在第一行数据中设置`'expanded'`值为`true`
+```vue
+<template>
+    <u-table-view :show-header="false" expand-pattern="normal" :data="tdata" :row-class-name="rowClassName" @toggle-expand="toggleExpand" border>
+        <u-table-view-column title="日期" label="date"></u-table-view-column>
+        <u-table-view-column title="详细信息" column-class="info" label="info"></u-table-view-column>
+        <u-table-view-column title="icon" expand-class="infoIcon" type="expand" label="listlogs" default-text="" expand-strict expand-icon="up-down">
+            <template slot="expandContent" slot-scope="scope">
+                <div>
+                    <p v-for="item in scope.row.listlogs" v-text="item"></p>
+                </div>
+            </template>
+        </u-table-view-column>
+    </u-table-view>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            tdata:  [
+                {
+                    date: '2018-04-19 14:54:02',
+                    info: '创建实例完成',
+                    listlogs:[
+                        '2018-04-19 14:52:49实例开始创建..',
+                        '2018-04-19 14:52:49云主机开始创建...',
+                        '2018-04-19 14:53:20云主机创建完成，云主机 UUID：05ab50b1-a981-492d-bfac-ebbbf94cea5e',
+                        '2018-04-19 14:53:20云硬盘开始创建...',
+                    ],
+                    expanded: true,
+                },
+                {
+                    date: '2018-05-19 14:54:02',
+                    info: '创建实例完成',
+                    listlogs:[
+                        '2018-05-19 14:52:49实例开始创建..',
+                        '2018-05-19 14:52:49云主机开始创建...',
+                        '2018-05-19 14:53:20云主机创建完成，云主机 UUID：05ab50b1-a981-492d-bfac-ebbbf94cea5e',
+                        '2018-05-19 14:53:20云硬盘开始创建...',
+                    ],
+                },
+                {
+                    date: '2018-06-19 14:54:02',
+                    info: '创建实例完成',
+                    listlogs:[
+                        '2018-06-19 14:52:49实例开始创建..',
+                        '2018-06-19 14:52:49云主机开始创建...',
+                        '2018-06-19 14:53:20云主机创建完成，云主机 UUID：05ab50b1-a981-492d-bfac-ebbbf94cea5e',
+                        '2018-06-19 14:53:20云硬盘开始创建...',
+                    ],
+                },
+                {
+                    date: '2018-07-19 14:54:02',
+                    info: '创建实例完成',
+                },
+            ],
+            currentIndex: 0,
+            direction: '',        }
+    },
+    methods: {
+        toggleExpand(e) {
+            // {index, direction, row} index 表示第几行，direction表示方向， row表示当前行的所有数据对象
+            this.currentIndex = e.index;
+            this.direction = e.direction;
+        },
+        rowClassName (index, row) {
+            if (index === this.currentIndex && this.direction === 'down') {
+                return 'infoRow';
+            }
+            return '';
+        }
+    }
+}
+</script>
+<style module>
+:global(.infoRow)[class]{
+    background: #d8d8d8;
+}
+:global(.infoIcon){
+    margin-left: 5px;
+}
+:global(.info){
+    text-align: center;
+}
+</style>
 ```
 
 #### 固定左右列
@@ -1220,92 +1357,6 @@ export default {
 </script>
 ```
 
-### expand 的高级用法
-默认只会展开一个icon中的内容，如果不想有此限制，请给`u-table-view`传入`expandPattern`属性，只要值不等于`'toggle'`就可以，建议传入`'normal'`
-```vue
-<template>
-    <u-table-view :show-header="false" expand-pattern="normal" :data="tdata" :row-class-name="rowClassName" @toggle-expand="toggleExpand" border>
-        <u-table-view-column title="日期" label="date"></u-table-view-column>
-        <u-table-view-column title="详细信息" column-class="info" label="info"></u-table-view-column>
-        <u-table-view-column title="icon" expand-class="infoIcon" type="expand" label="listlogs" default-text="" expand-strict expand-icon="up-down">
-            <template slot="expandContent" slot-scope="scope">
-                <div>
-                    <p v-for="item in scope.row.listlogs" v-text="item"></p>
-                </div>
-            </template>
-        </u-table-view-column>
-    </u-table-view>
-</template>
-<script>
-export default {
-    data() {
-        return {
-            tdata:  [
-                {
-                    date: '2018-04-19 14:54:02',
-                    info: '创建实例完成',
-                    listlogs:[
-                        '2018-04-19 14:52:49实例开始创建..',
-                        '2018-04-19 14:52:49云主机开始创建...',
-                        '2018-04-19 14:53:20云主机创建完成，云主机 UUID：05ab50b1-a981-492d-bfac-ebbbf94cea5e',
-                        '2018-04-19 14:53:20云硬盘开始创建...',
-                    ],
-                },
-                {
-                    date: '2018-05-19 14:54:02',
-                    info: '创建实例完成',
-                    listlogs:[
-                        '2018-05-19 14:52:49实例开始创建..',
-                        '2018-05-19 14:52:49云主机开始创建...',
-                        '2018-05-19 14:53:20云主机创建完成，云主机 UUID：05ab50b1-a981-492d-bfac-ebbbf94cea5e',
-                        '2018-05-19 14:53:20云硬盘开始创建...',
-                    ],
-                },
-                {
-                    date: '2018-06-19 14:54:02',
-                    info: '创建实例完成',
-                    listlogs:[
-                        '2018-06-19 14:52:49实例开始创建..',
-                        '2018-06-19 14:52:49云主机开始创建...',
-                        '2018-06-19 14:53:20云主机创建完成，云主机 UUID：05ab50b1-a981-492d-bfac-ebbbf94cea5e',
-                        '2018-06-19 14:53:20云硬盘开始创建...',
-                    ],
-                },
-                {
-                    date: '2018-07-19 14:54:02',
-                    info: '创建实例完成',
-                },
-            ],
-            currentIndex: 0,
-            direction: '',        }
-    },
-    methods: {
-        toggleExpand(e) {
-            // {index, direction, row} index 表示第几行，direction表示方向， row表示当前行的所有数据对象
-            this.currentIndex = e.index;
-            this.direction = e.direction;
-        },
-        rowClassName (index, row) {
-            if (index === this.currentIndex && this.direction === 'down') {
-                return 'infoRow';
-            }
-            return '';
-        }
-    }
-}
-</script>
-<style module>
-:global(.infoRow)[class]{
-    background: #d8d8d8;
-}
-:global(.infoIcon){
-    margin-left: 5px;
-}
-:global(.info){
-    text-align: center;
-}
-</style>
-```
 
 ## TableView API
 ### Attrs/Props
@@ -1347,7 +1398,11 @@ export default {
 | allChecked.sync | Boolean | `false` | 默认是否全部选中 |
 | defaultSort | Object\< title, order \> |  | 默认的排序列和顺序值，其中`title`属性指定默认排序的列。`order`指定默认排序的顺序，可选值: `'desc'`,`'asc'`。 |
 | defaultFilter | Object\< title, value, column \> |  | 默认采用某列进行过滤，其中`title`属性指定默认过滤的列，`value`指定默认过滤的值，在存在多个过滤列的时候可以使用此属性指定，当前只有一个列的时候可以不指定，默认会使用第一个filter列 |
-| forceFilter | Boolean | `true` | 数据发生变化时，存在数据过滤列，是否需要进行过滤，默认是需要的，但是异步获取的情况下，会出现死循环，需要将此值置为`false` |
+| forceFilter | Boolean | `false` | 数据发生变化时，存在数据过滤列，是否需要进行过滤，默认是不需要的 |
+| forceSort | Boolean | `false` | 数据发生变化时，存在数据排序，是否需要进行排序，默认是不需要的 |
+| sortMethod | Function |  | 自定义排序方法，第一个参数为该列前一行数据，第二个参数为该列后一行数据，方法需要返回值，返回类型为`Boolean`|
+| sortRemoteMethod | Function|  | 异步执行排序传入的方法，第一个参数是列字段，第二个参数是排序顺序，第三个参数是列对象 |
+| filterMethod | Function |  | 自定义过滤方法，第一个参数为该列数据，第二个参数为列实例 |
 
 
 ### Slots
@@ -1487,9 +1542,9 @@ export default {
 | headSelection | Boolean | `true` | 列表是否可全选 |
 | options | Array\{name, value} |  | 过滤项列表 |
 | formatter | Function |  | 自定义格式化列数据，第一个参数是含有该行数据的对象，第二个参数是列实例 |
-| sortMethod | Function |  | 自定义排序方法，第一个参数为该列前一行数据，第二个参数为该列后一行数据，方法需要返回值，返回类型为`Boolean`|
-| sortRemoteMethod | Function|  | 异步执行排序传入的方法，第一个参数是列字段，第二个参数是排序顺序，第三个参数是列对象 |
-| filterMethod | Function |  | 自定义过滤方法，第一个参数为该列数据，第二个参数为列实例 |
+| sortMethod（准备废弃，提升到父元素上） | Function |  | 自定义排序方法，第一个参数为该列前一行数据，第二个参数为该列后一行数据，方法需要返回值，返回类型为`Boolean`|
+| sortRemoteMethod（准备废弃，提升到父元素上） | Function|  | 异步执行排序传入的方法，第一个参数是列字段，第二个参数是排序顺序，第三个参数是列对象 |
+| filterMethod（准备废弃，提升到父元素上） | Function |  | 自定义过滤方法，第一个参数为该列数据，第二个参数为列实例 |
 
 ### Slots
 

@@ -18,9 +18,9 @@ export default {
         width: String,
         minWidth: { type: [String, Number], default: '80' },
         formatter: Function,
-        sortMethod: Function,
-        sortRemoteMethod: Function,
-        filterMethod: Function,
+        sortMethod: Function, // 准备废弃的属性
+        sortRemoteMethod: Function, // 准备废弃的属性
+        filterMethod: Function, // 准备废弃的属性
         placement: {
             type: String,
             default: 'bottom-start',
