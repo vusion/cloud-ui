@@ -60,6 +60,7 @@
 
 | Attr/Prop | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
+| hidden | Boolean | `false` | 自定义显示/隐藏条件 |
 
 ### Events
 

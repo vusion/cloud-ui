@@ -17,14 +17,8 @@ export default {
         };
     },
     watch: {
-        itemVMs(itemVMs) {
-            if (itemVMs.length <= this.maxCount) {
-                this.outsideVMs = itemVMs.slice(0, itemVMs.length);
-                this.insideVMs = [];
-            } else {
-                this.outsideVMs = itemVMs.slice(0, this.maxCount - 1);
-                this.insideVMs = itemVMs.slice(this.maxCount - 1, itemVMs.length);
-            }
+        itemVMs() {
+            this.watchValue();
         },
     },
     created() {
@@ -36,5 +30,17 @@ export default {
             itemVM.parentVM = undefined;
             this.itemVMs.splice(this.itemVMs.indexOf(itemVM), 1);
         });
+    },
+    methods: {
+        watchValue() {
+            const itemVMs = this.itemVMs.filter((itemVM) => !itemVM.hidden);
+            if (itemVMs.length <= this.maxCount) {
+                this.outsideVMs = itemVMs.slice(0, itemVMs.length);
+                this.insideVMs = [];
+            } else {
+                this.outsideVMs = itemVMs.slice(0, this.maxCount - 1);
+                this.insideVMs = itemVMs.slice(this.maxCount - 1, itemVMs.length);
+            }
+        },
     },
 };
