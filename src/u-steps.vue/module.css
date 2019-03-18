@@ -18,7 +18,7 @@
     line-height: 18px;
 }
 
-.item::after {
+.item::before {
     top: 12px;
     height: 1px;
     background-color: $brand-secondary;

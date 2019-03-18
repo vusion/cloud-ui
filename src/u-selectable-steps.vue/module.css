@@ -6,6 +6,31 @@
     vertical-align: middle;
 }
 
+.item {
+    display: inline-block;
+    width: auto;
+    white-space: nowrap;
+}
+
+.item:first-child {
+    width: auto !important;
+}
+
+.item::before {
+    position: static;
+    display: inline-block;
+    vertical-align: middle;
+    width: 140px;
+}
+
+.root[size="auto"] .item::before {
+    width: 60%;
+}
+
+.item-body {
+    background: white;
+}
+
 .item[passed] .radio {
     border-color: $brand-primary;
 }
@@ -28,8 +53,4 @@
     height: 10px;
     border-radius: 100px;
     background: $brand-primary;
-}
-
-.item-body {
-    background: white;
 }
