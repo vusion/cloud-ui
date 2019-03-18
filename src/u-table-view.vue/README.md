@@ -295,7 +295,7 @@ export default {
 </script>
 ```
 
-#### 自定义列显示
+#### 自定义列显/隐
 在业务中经常出现某一列的显/隐是依据某个变量来的，为了保证列顺序不会出现变更，使用`visible`属性来控制列的显/隐
 ``` vue
 <template>
@@ -384,7 +384,7 @@ export default {
 ```
 
 #### 排序和格式化
-某一列进行排序，需要为此列中设置`sortable`属性，自定义表头传入`slot='headerTitle'`
+某一列进行排序，需要为此列中设置`sortable`属性，自定义表头传入`slot='headerTitle'`，对于显示日期列，可通过给`u-table-view-column`标签添加`type="time"`属性来实现时间戳转换成YYYY-MM-DD HH:mm:ss格式，如果想自定义日期显示格式，可以通过传入`timeFormat="YYYY-MM-DD"`属性来自定义日期格式
 ``` vue
 <template>
     <div>
@@ -395,7 +395,8 @@ export default {
                 </div>
             </u-table-view-column>
             <u-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-table-view-column>
-            <u-table-view-column title="地址" label="address" width="200px" sortable></u-table-view-column>
+            <u-table-view-column title="地址" label="address" width="200" sortable></u-table-view-column>
+            <u-table-view-column title="出生年月" label="date" type="time"></u-table-view-column>
         </u-table-view>
     </div>
 </template>
@@ -407,50 +408,62 @@ export default {
                 date: '2016-05-02',
                 name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
                 address: '浙江省杭州市滨江区网商路 599号',
+                date: 728524800000,
             }, {
                 date: '2016-05-04',
                 name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼'
+                address: '浙江省杭州市滨江区英飞特 D栋3楼',
+                date: 696902400000,
             }, {
                 date: '2016-05-01',
                 name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
-                address: '浙江省杭州市滨江区 西可科技园'
+                address: '浙江省杭州市滨江区 西可科技园',
+                date: 665366400000,
             }, {
                 date: '2016-05-03',
                 name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园'
+                address: '浙江省杭州市滨江区 东忠科技园',
+                date: 665366400000,
             }, {
                 date: '2016-05-02',
                 name: '王小虎',
                 address: '浙江省杭州市滨江区网商路 599号',
+                date: 665366400000,
             }, {
                 date: '2016-05-04',
                 name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼'
+                address: '浙江省杭州市滨江区英飞特 D栋3楼',
+                date: 728524800000,
             }, {
                 date: '2016-05-01',
                 name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园'
+                address: '浙江省杭州市滨江区 西可科技园',
+                date: 696902400000,
             }, {
                 date: '2016-05-03',
                 name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园'
+                address: '浙江省杭州市滨江区 东忠科技园',
+                date: 665366400000,
             }, {
                 date: '2016-05-02',
                 name: '王小虎',
                 address: '浙江省杭州市滨江区网商路 599号',
+                date: 760060800000,
             }, {
                 date: '2016-05-04',
                 name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼'
+                address: '浙江省杭州市滨江区英飞特 D栋3楼',
+                date: 728524800000,
             }, {
                 date: '2016-05-01',
                 name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园'
+                address: '浙江省杭州市滨江区 西可科技园',
+                date: 665366400000,
             }, {
                 date: '2016-05-03',
                 name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园'
+                address: '浙江省杭州市滨江区 东忠科技园',
+                date: 760060800000,
             }],
         };
     },
@@ -468,7 +481,7 @@ export default {
 
 
 #### 自定义排序方法
-同步方式自定义排序方法传入`sortMethod`属性即可，点击排序，异步获取后端数据需要传入`sortRemoteMethod`方法即可，点击排序会自动执行`sortRemoteMethod`方法
+同步方式自定义排序方法传入`sortMethod`属性即可，点击排序，异步获取后端数据需要传入`sortRemoteMethod`方法即可，点击排序会自动执行`sortRemoteMethod`方法，默认让某一列处于排序状态，需要在`u-table-view`上添加`defaultSort`属性即可
 ``` vue
 <template>
     <u-table-view :data="tdata" :default-sort="defaultSort" @sort-change="sortChange">
@@ -604,6 +617,7 @@ export default {
 ```
 
 #### 有标题的selection
+给`type='selection'`列正常添加`title`属性即可
 ``` vue
 <template>
     <u-linear-layout direction="vertical">
@@ -820,6 +834,7 @@ export default {
 </script>
 ```
 #### 作用域插槽方式
+为了满足自定义单元格的内容显示，可以通过作用域插槽的方式，在`u-table-view-column`标签内通过`slot-scope="{row}"`来获取当前行内容，自定义单元格内容显示
 ``` vue
 <template>
     <div>
@@ -832,8 +847,8 @@ export default {
             <u-table-view-column title="地址" width="10%" label="address"></u-table-view-column>
             <u-table-view-column title="性别" width="15%" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
             <u-table-view-column title="占比" width="200">
-                <template slot-scope="scope">
-                    <u-button @click="click(scope.row)">配置</u-button>
+                <template slot-scope="{row}">
+                    <u-button @click="click(row)">配置</u-button>
                 </template>
             </u-table-view-column>
         </u-table-view>
@@ -1201,7 +1216,7 @@ export default {
 
 #### 固定左右列
 
-使用场景：表格的内容过多，展示不下，可以通过制定表格的宽度和单元列的宽度来展示
+使用场景：表格列过多
 ``` vue
 <template>
     <div>
