@@ -13,7 +13,7 @@
                     {{scope.row.address}}
                 </template>
             </u-table-view-column>
-            <u-table-view-column title="性别" label="female" filter></u-table-view-column>
+            <u-table-view-column title="性别" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
         </u-table-view>
     </div>
 </template>
@@ -48,6 +48,19 @@ export default {
                 female: '男',
             }],
         };
+    },
+    methods: {
+        formatter(row, column) {
+            if (row.name === '天王盖地虎')
+                return '逗比一号';
+            else
+                return row.name;
+        },
+        filterMethod(value, columnValue) {
+            if (value === '')
+                return true;
+            return columnValue === value;
+        },
     },
 };
 </script>
