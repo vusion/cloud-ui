@@ -2,6 +2,17 @@
     position: relative;
 }
 
+.root::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 1px;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: #ebf0f5;
+}
+
 .table {
     table-layout: fixed;
     width: 100%;
@@ -133,9 +144,9 @@
     border-top: none;
 }
 
-.btrItem:last-child {
+/* .btrItem:last-child {
     border-bottom: 1px solid #ebf0f5;
-}
+} */
 
 .sortText {
     max-width: calc(100% - 28px);
@@ -260,4 +271,33 @@
 /* 加载状态样式 */
 .loadText {
     margin-left: 5px;
+}
+
+.btrItem:hover .btd::before {
+    content: "";
+    width: 100%;
+    height: 6px;
+    position: absolute;
+    top: -6px;
+    left: 0;
+    background: url("../assets/images/shadow-up.png") repeat-x;
+    z-index: 100;
+}
+
+.btrItem:hover .btd::after {
+    content: "";
+    width: 100%;
+    height: 6px;
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    background: url("../assets/images/shadow-down.png") repeat-x;
+    z-index: 100;
+}
+
+.btrItem:last-child:hover .btd[hide]::after {
+    content: '';
+    width: 0;
+    height: 0;
+    background: none;
 }

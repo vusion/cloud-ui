@@ -47,6 +47,21 @@ export default {
                 address: '浙江省杭州市滨江区网商路 599号',
                 female: '男',
             }],
+            options: [
+                {
+                    name: '全部',
+                    value: '',
+                },
+                {
+                    name: '男',
+                    value: '男'
+                },
+                {
+                    name: '女',
+                    value: '女'
+                },
+            ],
+            value: ''
         };
     },
     methods: {
@@ -718,7 +733,6 @@ export default {
                 date: 1521551897133,
                 name: '王大虎',
                 address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                disabled: true,
                 id: '2',
             }, {
                 date: 1521551897133,
@@ -729,7 +743,6 @@ export default {
                 date: 1521551897133,
                 name: '小鸡炖蘑菇',
                 address: '浙江省杭州市滨江区 东忠科技园',
-                disabled: true,
                 id: '4',
             }],
             allChecked: false,

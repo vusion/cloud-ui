@@ -1,4 +1,4 @@
-<div :class="$style.root" ref="root" :border="border" :style="{height: height+'px', width: width + 'px', maxHeight: maxHeight + 'px', minHeight: minHeight + 'px'}" v-show="visible" @mouseenter="mouseenter" @mouseleave="mouseleave">
+<div :class="$style.root" ref="root" :border="border" :bottom-border="rootBottomBorder" :style="{height: height+'px', width: width + 'px', maxHeight: maxHeight + 'px', minHeight: minHeight + 'px'}" v-show="visible" @mouseenter="mouseenter" @mouseleave="mouseleave">
     <div :class="$style.title" v-if="title" ref="title">
         {{title}}
         <slot name="title"></slot>

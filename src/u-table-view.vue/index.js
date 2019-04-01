@@ -107,6 +107,7 @@ export default {
             currentSortColumn: undefined, // 表示当前排序列
             currentSort: this.defaultSort,
             // scrollDiff: false,
+            rootBottomBorder: false, // 解决tr加border-bottom带来样式上的异常问题，采用给根元素添加伪元素的方式实现
         };
     },
     directives: { ellipsisTitle },
@@ -287,6 +288,10 @@ export default {
                 row,
                 index: sindex,
             });
+            if (sindex === this.data.length - 1)
+                this.rootBottomBorder = true;
+            else
+                this.rootBottomBorder = false;
         },
     },
     methods: {

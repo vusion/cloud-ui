@@ -74,6 +74,10 @@ export default {
     directives: {
         clickOutside,
     },
+    created() {
+        // vue中的watch的immediate的执行时间是比created生命周期函数执行时间还早 所以导致u-field无法捕获
+        this.$emit('input', this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : '');
+    },
     watch: {
         date(newValue) {
             this.dateTime = this.format(newValue, 'yyyy-MM-dd HH:mm:ss');
