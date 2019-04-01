@@ -69,7 +69,7 @@ export default {
             if (minDate / MS_OF_DAY >> 0 > maxDate / MS_OF_DAY >> 0)
                 throw new Calendar.DateRangeError(minDate, maxDate);
         }
-
+        this.$emit('input', this.showDate ? new Date(this.showDate.replace(/-/g, '/')) : '');
         // document.addEventListener('click', this.fadeOut, false);
     },
     directives: { clickOutside },
