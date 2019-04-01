@@ -13,6 +13,17 @@
     background-color: #ebf0f5;
 }
 
+.root[border]::after {
+    position: absolute;
+    content: '';
+    width: 1px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    background-color: #ebf0f5;
+}
+
 .table {
     table-layout: fixed;
     width: 100%;
@@ -45,6 +56,11 @@
     text-align: left;
     font-weight: 400;
     min-width: 36px;
+}
+
+.hthItem[border] {
+    border-left: 1px solid #ebf0f5;
+    /* border-right: 1px solid #ebf0f5; */
 }
 
 .hthItem::after {
@@ -113,6 +129,9 @@
 }
 .btd[role="center"] {
     text-align: center;
+}
+.btd[border] {
+    border-left: 1px solid #ebf0f5;
 }
 
 /* 单元格具体样式 role是设置溢出样式 */
@@ -295,7 +314,7 @@
     z-index: 100;
 }
 
-.btrItem:last-child:hover .btd[hide]::after {
+.btrItem:last-child:hover .btd[border]::after {
     content: '';
     width: 0;
     height: 0;
