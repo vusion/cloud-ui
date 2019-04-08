@@ -167,97 +167,102 @@
                 </thead>
             </table>
         </div>
-        <div :class="$style.body" :style="{height: bodyHeight+'px', maxHeight: maxBodyHeight+'px', minHeight: minBodyHeight+'px', overflowX: isXScroll ? 'scroll' : 'visible', overflowY: isYScroll ? 'scroll' : 'visible' }" @scroll="bodyScroll">
-            <table cellspacing="0" ref="body" cellpadding="0" border="0" :class="$style.tbody" :style="{width: bodyWidth, tableLayout: layout}">
-                <colgroup>
-                    <col v-for="(column, index) in showColumns" :width="column.currentWidth || columnsWidth[index]">
-                </colgroup>
-                <tbody :class="$style.btbody" :no-show-header="!showHeader">
-                    <template v-if="loading">
-                        <tr :class="$style.btrItem" :hover="fixedHover">
-                            <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center">
-                                <u-loading></u-loading>
-                                <span :class="$style.loadText">{{ loadText }}</span>
-                            </td>
-                        </tr>
-                    </template>
-                    <template v-else-if="tdata.length === 0">
-                        <tr :class="$style.btrItem" :hover="fixedHover">
-                            <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center">
-                                <slot name="no-data-text">{{noDataText}}</slot>
-                            </td>
-                        </tr>
-                    </template>
-                    <template v-else v-for="(row, index) in tdata">
-                        <tr :class="[$style.btrItem, rowClsName(index)]" :hover="row.hover" :show-color="showColor && radioColumn && row[radioValueField] === currentRadioValue" @click="rowClick(row,index)" @mouseenter="fixmouseenter(index)" @mouseleave="fixmouseleave(index)">
-                            <td v-for="(column, cindex) in showColumns" :class="[$style.btdSpan, column.columnClass]" :style="{textAlign: column.horizontal}" :border="border" :selection="column.type==='selection'" :hide="isXScroll || border">
-                                <span v-if="column.type === 'selection'">
-                                    <u-checkbox v-model="row.selected" :disabled="row.disabled" @check="changeSelect(row)"/>
-                                </span>
-                                <span v-else-if="column.type === 'radio'">
-                                    <label :class="$style.radioLabel" :disabled="row.disabled">
-                                        <input v-if="!row.disabled" name="radio" type="radio" :class="$style.radio" :value="row[radioValueField]" v-model="currentRadioValue" :disabled="row.disabled"/>
-                                        <span v-else :class="$style.radioDisabled" :selected="currentRadioValue === row[radioValueField]"></span>
-                                        <span :class="$style.radioText">{{ row[radioTextField] }}</span>
-                                    </label>
-                                </span>
-                                <template v-else-if="column.$scopedSlots.default || column.$slots.default">
-                                    <u-table-view-cell :row="row" :column="column" :class="$style.ditem" :expanded="expandedColumn && column.type === 'expand'" :role="column.ellipsis" v-ellipsis-title></u-table-view-cell>
-                                </template>
-                                <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex) || defaultText}}</span>
-                                <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="translateTime(row[column.label], column.timeFormat)">{{translateTime(row[column.label], column.timeFormat)}}</span>
-                                <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{ showContent(column, row[column.label]) }}</span>
-                                <span v-if="column.type === 'expand' && showExpandIcon(column, row[column.expandLabel || column.label])" @click="toggleExpand(index, cindex)">
-                                    <slot name="expandIcon">
-                                        <span :class="[$style.expand, column.expandClass]" :role="column.expandIcon" :name="row.iconName"></span>
-                                    </slot>
-                                </span>
-                            </td>
-                        </tr>
-                        <tr :class="$style.btrItem" v-if="row.expanded">
-                            <td :colspan="showColumns.length" :class="$style.btdSpan" :expanded="row.expanded" :border="border" role="center" :hide="isXScroll || border">
-                                <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
-                            </td>
-                        </tr>
-                    </template>
-                    <template v-if="filterTdata && filterTdata.length > limit && tdata.length === limit && pattern === 'limit'">
-                        <tr :class="$style.btrItem">
-                            <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
-                                <slot name="limit-text">
-                                    <u-link @click.native="showAll">{{ limitText }}</u-link>
-                                </slot>
-                            </td>
-                        </tr>
-                    </template>
-                    <template v-else-if="filterTdata && filterTdata.length === tdata.length && tdata.length > limit && pattern === 'limit'">
-                        <tr :class="$style.btrItem">
-                            <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
-                                <slot name="all-text">
-                                    <u-link @click.native="showLimit">{{ allText }}</u-link>
-                                </slot>
-                            </td>
-                        </tr>
-                    </template>
-                    <template v-else-if="tdata.length === limit && copyTdata.length > limit && pattern === 'limit'">
-                        <tr :class="$style.btrItem">
-                            <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
-                                <slot name="limit-text">
-                                    <u-link @click.native="showAll">{{ limitText }}</u-link>
-                                </slot>
-                            </td>
-                        </tr>
-                    </template>
-                    <template v-else-if="copyTdata.length === tdata.length && tdata.length > limit && pattern === 'limit'">
-                        <tr :class="$style.btrItem">
-                            <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
-                                <slot name="all-text">
-                                    <u-link @click.native="showLimit">{{ allText }}</u-link>
-                                </slot>
-                            </td>
-                        </tr>
-                    </template>
-                </tbody>
-            </table>
+        <div :class="$style.body" :style="{height: bodyHeight+'px', maxHeight: maxBodyHeight+'px', minHeight: minBodyHeight+'px', overflowX: isXScroll ? 'scroll' : 'visible', overflowY: isYScroll ? 'scroll' : 'visible' }" @scroll="throttleScroll">
+            <div :style="{height: estimatedTotalHeight}">
+                <div :style="{paddingTop: virtualTop +'px', paddingBottom: virtualBottom + 'px'}">
+                    <!-- <div v-if="pattern === 'virtual'" :class="$style.virtual" :style="{height: virtualHeight}"></div> -->
+                    <table cellspacing="0" ref="body" cellpadding="0" border="0" :class="$style.tbody" :style="{width: bodyWidth, tableLayout: layout}">
+                        <colgroup>
+                            <col v-for="(column, index) in showColumns" :width="column.currentWidth || columnsWidth[index]">
+                        </colgroup>
+                        <tbody :class="$style.btbody" :no-show-header="!showHeader">
+                            <template v-if="loading">
+                                <tr :class="$style.btrItem" :hover="fixedHover">
+                                    <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center">
+                                        <u-loading></u-loading>
+                                        <span :class="$style.loadText">{{ loadText }}</span>
+                                    </td>
+                                </tr>
+                            </template>
+                            <template v-else-if="tdata.length === 0">
+                                <tr :class="$style.btrItem" :hover="fixedHover">
+                                    <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center">
+                                        <slot name="no-data-text">{{noDataText}}</slot>
+                                    </td>
+                                </tr>
+                            </template>
+                            <template v-else v-for="(row, index) in tdata">
+                                <tr :class="[$style.btrItem, rowClsName(index)]" :hover="row.hover" :show-color="showColor && radioColumn && row[radioValueField] === currentRadioValue" @click="rowClick(row,index)" @mouseenter="fixmouseenter(index)" @mouseleave="fixmouseleave(index)">
+                                    <td v-for="(column, cindex) in showColumns" :class="[$style.btdSpan, column.columnClass]" :style="{textAlign: column.horizontal}" :border="border" :selection="column.type==='selection'" :hide="isXScroll || border">
+                                        <span v-if="column.type === 'selection'">
+                                            <u-checkbox v-model="row.selected" :disabled="row.disabled" @check="changeSelect(row)"/>
+                                        </span>
+                                        <span v-else-if="column.type === 'radio'">
+                                            <label :class="$style.radioLabel" :disabled="row.disabled">
+                                                <input v-if="!row.disabled" name="radio" type="radio" :class="$style.radio" :value="row[radioValueField]" v-model="currentRadioValue" :disabled="row.disabled"/>
+                                                <span v-else :class="$style.radioDisabled" :selected="currentRadioValue === row[radioValueField]"></span>
+                                                <span :class="$style.radioText">{{ row[radioTextField] }}</span>
+                                            </label>
+                                        </span>
+                                        <template v-else-if="column.$scopedSlots.default || column.$slots.default">
+                                            <u-table-view-cell :row="row" :column="column" :class="$style.ditem" :expanded="expandedColumn && column.type === 'expand'" :role="column.ellipsis" v-ellipsis-title></u-table-view-cell>
+                                        </template>
+                                        <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex) || defaultText}}</span>
+                                        <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="translateTime(row[column.label], column.timeFormat)">{{translateTime(row[column.label], column.timeFormat)}}</span>
+                                        <span v-else :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title>{{ showContent(column, row[column.label]) }}</span>
+                                        <span v-if="column.type === 'expand' && showExpandIcon(column, row[column.expandLabel || column.label])" @click="toggleExpand(index, cindex)">
+                                            <slot name="expandIcon">
+                                                <span :class="[$style.expand, column.expandClass]" :role="column.expandIcon" :name="row.iconName"></span>
+                                            </slot>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr :class="$style.btrItem" v-if="row.expanded">
+                                    <td :colspan="showColumns.length" :class="$style.btdSpan" :expanded="row.expanded" :border="border" role="center" :hide="isXScroll || border">
+                                        <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
+                                    </td>
+                                </tr>
+                            </template>
+                            <template v-if="filterTdata && filterTdata.length > limit && tdata.length === limit && pattern === 'limit'">
+                                <tr :class="$style.btrItem">
+                                    <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
+                                        <slot name="limit-text">
+                                            <u-link @click.native="showAll">{{ limitText }}</u-link>
+                                        </slot>
+                                    </td>
+                                </tr>
+                            </template>
+                            <template v-else-if="filterTdata && filterTdata.length === tdata.length && tdata.length > limit && pattern === 'limit'">
+                                <tr :class="$style.btrItem">
+                                    <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
+                                        <slot name="all-text">
+                                            <u-link @click.native="showLimit">{{ allText }}</u-link>
+                                        </slot>
+                                    </td>
+                                </tr>
+                            </template>
+                            <template v-else-if="tdata.length === limit && copyTdata.length > limit && pattern === 'limit'">
+                                <tr :class="$style.btrItem">
+                                    <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
+                                        <slot name="limit-text">
+                                            <u-link @click.native="showAll">{{ limitText }}</u-link>
+                                        </slot>
+                                    </td>
+                                </tr>
+                            </template>
+                            <template v-else-if="copyTdata.length === tdata.length && tdata.length > limit && pattern === 'limit'">
+                                <tr :class="$style.btrItem">
+                                    <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
+                                        <slot name="all-text">
+                                            <u-link @click.native="showLimit">{{ allText }}</u-link>
+                                        </slot>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
         <div :class="$style.fixLeft" v-if="fixedLeftColumns.length" :style="{width: fixedLeftWidth + 'px'}">
             <div :class="$style.header" :role="fixedLeftColumns.length > 0">
