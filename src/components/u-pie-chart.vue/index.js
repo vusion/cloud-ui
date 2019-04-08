@@ -1,4 +1,4 @@
-export default {
+export const UPieChart = {
     name: 'u-pie-chart',
     props: {
         data: Array,
@@ -86,3 +86,5 @@ export default {
         },
     },
 };
+
+export default UPieChart;

@@ -1,8 +1,8 @@
-import LinearProgress from 'proto-ui.vusion/src/u-linear-progress.vue';
+import { ULinearProgress as OLinearProgress } from 'proto-ui.vusion';
 
-export default {
+export const ULinearProgress = {
     name: 'u-linear-progress',
-    mixins: [LinearProgress],
+    extends: OLinearProgress,
     props: {
         range: {
             type: Array,
@@ -17,3 +17,5 @@ export default {
         },
     },
 };
+
+export default ULinearProgress;

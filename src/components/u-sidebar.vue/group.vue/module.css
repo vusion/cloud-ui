@@ -1,0 +1,45 @@
+.root {}
+
+.head {
+    display: block;
+    cursor: pointer;
+
+    height: 52px;
+    line-height: 52px;
+    color: #9dabc2;
+    padding-left: 20px;
+    transition: color 0.2s;
+    position: relative;
+}
+
+.expander {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    width: 52px;
+    height: 52px;
+    line-height: 51px;
+    text-align: center;
+}
+
+/* @TODO: replace by icon-font */
+.expander::after {
+    content: '▸';
+    font-size: 16px;
+}
+
+.head:hover {
+    color: white;
+    /* background-color: #dde8f0; */
+}
+
+/* @TODO: replace by icon-font */
+.head:hover::after {
+    border-left-color: white;
+}
+
+/* @TODO: replace by icon-font */
+.expander[expanded]::after {
+    content: '▾';
+}

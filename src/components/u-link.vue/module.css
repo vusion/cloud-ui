@@ -1,4 +1,4 @@
-@import 'proto-ui.vusion/src/u-link.vue/module.css';
+@extend;
 
 .root {
     color: #5494db;

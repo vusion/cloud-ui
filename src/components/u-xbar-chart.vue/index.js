@@ -1,4 +1,4 @@
-import { deepCopy } from '../base/utils';
+import { deepCopy } from '../../utils';
 
 /**
  * @class BarChart
@@ -16,7 +16,7 @@ import { deepCopy } from '../base/utils';
  * @param {boolean=false}           options.border              => 是否显示边框
  * @param {boolean=true}            options.legend              => 是否显示图例
  */
-export default {
+export const UXbarChart = {
     name: 'u-xbar-chart',
     props: {
         data: Array,
@@ -169,3 +169,5 @@ export default {
         },
     },
 };
+
+export default UXbarChart;

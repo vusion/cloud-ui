@@ -1,4 +1,4 @@
-@import 'proto-ui.vusion/src/u-label.vue/module.css';
+@extend;
 
 .root {
     padding: 3px 8px;

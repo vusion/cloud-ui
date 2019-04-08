@@ -1,8 +1,11 @@
-import ListView from 'proto-ui.vusion/src/u-list-view.vue';
+import { UListView } from 'proto-ui.vusion';
 
-export default {
+export const UTablets = {
     name: 'u-tablets',
     childName: 'u-tablet',
-    mixins: [ListView],
+    extends: UListView,
 };
 
+export * from './tablet.vue';
+
+export default UTablets;

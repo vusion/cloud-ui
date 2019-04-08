@@ -1,3 +1,8 @@
-import Radios from 'proto-ui.vusion/src/u-radios.vue';
+import { URadios as ORadios } from 'proto-ui.vusion';
 
-export default Radios;
+export const URadios = {
+    name: 'u-radios',
+    extends: ORadios,
+};
+
+export default URadios;

@@ -1,3 +1,8 @@
-import Tabs from 'proto-ui.vusion/src/u-tabs.vue';
+import { UTabs as OTabs } from 'proto-ui.vusion';
 
-export default Tabs;
+export const UTabs = {
+    name: 'u-tabs',
+    extends: OTabs,
+};
+
+export default UTabs;

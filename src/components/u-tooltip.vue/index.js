@@ -1,8 +1,11 @@
-import Tooltip from 'proto-ui.vusion/src/u-tooltip.vue';
-export default {
+import { UTooltip as OTooltip } from 'proto-ui.vusion';
+
+export const UTooltip = {
     name: 'u-tooltip',
-    mixins: [Tooltip],
+    extends: OTooltip,
     props: {
         size: { type: String, default: 'normal' },
     },
 };
+
+export default UTooltip;

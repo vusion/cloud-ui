@@ -1,4 +1,4 @@
-export default {
+export const UCreateElement = {
     name: 'u-create-element',
     functional: true,
     props: {
@@ -12,3 +12,6 @@ export default {
         return h(context.props.tag, data, context.children || context.props.children);
     },
 };
+
+export default UCreateElement;
+

@@ -1,4 +1,4 @@
-export default {
+export const UIcon = {
     name: 'u-icon',
     props: {
         name: String,
@@ -6,3 +6,5 @@ export default {
         color: String,
     },
 };
+
+export default UIcon;

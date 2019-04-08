@@ -1,8 +1,8 @@
-import Input from 'proto-ui.vusion/src/u-input.vue';
+import { UInput as OInput } from 'proto-ui.vusion';
 
-export default {
+export const UInput = {
     name: 'u-input',
-    mixins: [Input],
+    extends: OInput,
     props: {
         // @override: 添加了 maxlengthMessage 功能
         maxlengthMessage: String,
@@ -36,3 +36,5 @@ export default {
         },
     },
 };
+
+export default UInput;

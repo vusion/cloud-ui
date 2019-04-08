@@ -1,3 +1,9 @@
-import Slider from 'proto-ui.vusion/src/u-slider.vue';
+import { USlider as OSlider } from 'proto-ui.vusion';
 
-export default Slider;
+export const USlider = {
+    name: 'u-slider',
+    extends: OSlider,
+};
+
+export default USlider;
+

@@ -1,3 +1,8 @@
-import Text from 'proto-ui.vusion/src/u-text.vue';
+import { UText as OText } from 'proto-ui.vusion';
 
-export default Text;
+export const UText = {
+    name: 'u-text',
+    extends: OText,
+};
+
+export default UText;

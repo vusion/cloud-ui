@@ -1,4 +1,4 @@
-export default {
+export const UDescList = {
     name: 'u-desc-list',
     groupName: 'u-desc-list-group',
     childName: 'u-desc-list-item',
@@ -30,3 +30,8 @@ export default {
         });
     },
 };
+
+export * from './group.vue';
+export * from './item.vue';
+
+export default UDescList;

@@ -1,6 +1,6 @@
 import Calendar from '../u-calendar.vue';
 const MS_OF_DAY = 24 * 3600 * 1000;
-import { clickOutside } from '../base/directives';
+import { clickOutside } from '../../directives';
 import Field from 'proto-ui.vusion/src/u-field.vue';
 import i18n from './i18n';
 
@@ -16,7 +16,7 @@ import i18n from './i18n';
  * @param {boolean=false}           options.readonly            => 是否只读
  * @param {boolean=false}           options.disabled            => 是否禁用
  */
-export default {
+export const UDatePicker = {
     name: 'u-date-picker',
     i18n,
     props: {
@@ -249,3 +249,5 @@ export default {
         },
     },
 };
+
+export default UDatePicker;

@@ -10,7 +10,7 @@
             <slot name="flag">
                 <span v-if="selectedVM && selectedVM.flag !== undefined" :class="$style.flag" :layer="selectedVM && selectedVM.layer" v-tooltip.top="selectedVM && selectedVM.flag"></span>
             </slot>
-            <u-render :vnode="selectedVM && selectedVM.$slots.default"></u-render>
+            <f-render :vnode="selectedVM && selectedVM.$slots.default"></f-render>
         </span>
     </div>
     <!-- 这个地方以后可能要改用render实现 -->

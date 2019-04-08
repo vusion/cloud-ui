@@ -1,7 +1,7 @@
 const TICKES = [2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 20, 30, 40, 50, 100, 200, 500, 1000, 1];
 const FILTER = 360;
 
-export default {
+export const ULineChart = {
     name: 'u-line-chart',
     props: {
         data: Array,
@@ -292,3 +292,5 @@ export default {
         window.removeEventListener('resize', this._onResize, false);
     },
 };
+
+export default ULineChart;

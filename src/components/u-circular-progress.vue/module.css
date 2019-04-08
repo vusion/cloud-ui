@@ -1,4 +1,5 @@
-@import 'proto-ui.vusion/src/u-circular-progress.vue/module.css';
+@extend;
+
 .text {
     line-height: normal;
     height: 100%;

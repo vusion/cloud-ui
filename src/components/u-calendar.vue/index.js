@@ -1,20 +1,7 @@
-import uPopover from '../u-popover.vue';
-import uListViewItem from 'proto-ui.vusion/src/u-list-view-item.vue';
-import uListView from 'proto-ui.vusion/src/u-list-view.vue';
 const MS_OF_DAY = 24 * 3600 * 1000;
 import i18n from './i18n';
 
-/**
- * @class Calendar
- * @extend Component
- * @param {object}                  options                    =  绑定属性
- * @param {Date|string=TODAY}       options.date               <=> 当前选择的日期
- * @param {Date|string=null}        options.minDate             => 最小日期，如果为空则不限制
- * @param {Date|string=null}        options.maxDate             => 最大日期，如果为空则不限制
- * @param {boolean=false}           options.readonly            => 是否只读
- * @param {disabled=disabled}       options.disabled            => 是否禁用
- */
-const Calendar = {
+export const UCalendar = {
     name: 'u-calendar',
     i18n,
     props: {
@@ -91,11 +78,6 @@ const Calendar = {
 
         //     return yearcol;
         // },
-    },
-    components: {
-        uPopover,
-        uListView,
-        uListViewItem,
     },
     watch: {
         date(newValue) {
@@ -388,6 +370,6 @@ const DateRangeError = function (minDate, maxDate) {
     this.message = 'Wrong Date Range where `minDate` is ' + minDate + ' and `maxDate` is ' + maxDate + '!';
 };
 DateRangeError.prototype = Object.create(RangeError.prototype);
-Calendar.DateRangeError = DateRangeError.prototype.constructor = DateRangeError;
+UCalendar.DateRangeError = DateRangeError.prototype.constructor = DateRangeError;
 
-export default Calendar;
+export default UCalendar;

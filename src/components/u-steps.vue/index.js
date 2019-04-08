@@ -1,10 +1,14 @@
-import Steps from 'proto-ui.vusion/src/u-steps.vue';
+import { USteps as OSteps } from 'proto-ui.vusion';
 
-export default {
+export const USteps = {
     name: 'u-steps',
-    extends: Steps,
+    extends: OSteps,
     props: {
         counter: { type: Boolean, default: true },
         layout: { type: String, default: 'block' },
     },
 };
+
+export * from './step.vue';
+
+export default USteps;

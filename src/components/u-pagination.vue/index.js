@@ -1,3 +1,8 @@
-import Pagination from 'proto-ui.vusion/src/u-pagination.vue';
+import { UPagination as OPagination } from 'proto-ui.vusion';
 
-export default Pagination;
+export const UPagination = {
+    name: 'u-pagination',
+    extends: OPagination,
+};
+
+export default UPagination;

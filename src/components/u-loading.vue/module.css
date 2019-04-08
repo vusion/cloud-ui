@@ -27,7 +27,7 @@
     fill: none;
     stroke-dasharray: 0, 1000;
     stroke-dashoffset: 0;
-    animation: dash 1.5s cubic-bezier(0.12,0.6,0.55,1) infinite;
+    animation: dash 1.5s cubic-bezier(0.12, 0.6, 0.55, 1) infinite;
 }
 
 @keyframes dash {

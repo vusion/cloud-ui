@@ -1,4 +1,4 @@
-@import 'proto-ui.vusion/src/u-input.vue/module.css';
+@extend;
 
 .root {
     padding: 0 10px;

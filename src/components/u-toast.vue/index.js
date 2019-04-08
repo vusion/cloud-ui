@@ -1,8 +1,8 @@
-import Toast from 'proto-ui.vusion/src/u-toast.vue';
+import { UToast as OToast } from 'proto-ui.vusion';
 
-export default {
+export const UToast = {
     name: 'u-toast',
-    mixins: [Toast],
+    extends: OToast,
     watch: {
         text(newValue, oldValue) {
             this.items.some((item, index) => {
@@ -29,3 +29,5 @@ export default {
         },
     },
 };
+
+export default UToast;

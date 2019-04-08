@@ -1,4 +1,4 @@
-export default {
+export const UInfoList = {
     name: 'u-info-list',
     groupName: 'u-info-list-group',
     childName: 'u-info-list-item',
@@ -31,3 +31,8 @@ export default {
         });
     },
 };
+
+export * from './group.vue';
+export * from './item.vue';
+
+export default UInfoList;

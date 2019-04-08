@@ -1,4 +1,4 @@
-export default {
+export const UChartTooltip = {
     name: 'u-chart-tooltip',
     props: {
         series: {
@@ -72,3 +72,5 @@ export default {
         }
     },
 };
+
+export default UChartTooltip;

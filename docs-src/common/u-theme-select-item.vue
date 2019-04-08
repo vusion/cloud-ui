@@ -1,15 +1,15 @@
 <script>
-import SelectItem from '../../src/u-select-item.vue';
+import { USelectItem } from '../../src';
 
 export default {
     name: 'u-theme-select-item',
     parentName: 'u-theme-select',
-    mixins: [SelectItem],
+    extends: USelectItem,
 };
 </script>
 
 <style module>
-@import '../../src/u-select-item.vue/module.css';
+@extend;
 
 .root {
     line-height: 36px;

@@ -1,5 +1,3 @@
-import NumberInput from '../u-number-input.vue';
-
 const HOUR_MIN = 0;
 const MINUTE_MIN = 0;
 const SECOND_MIN = 0;
@@ -20,7 +18,7 @@ const SECOND_MAX = 59;
  * @param {boolean=true}            options.data.visible             => 是否显示
  * @param {string=''}               options.data.class               => 补充class
  */
-const TimePicker = {
+export const UTimePicker = {
     name: 'u-time-picker',
     props: {
         time: {
@@ -111,7 +109,7 @@ const TimePicker = {
 
             const currentHour = this.showTime.split(':')[0] / 1;
             const currentMinute = this.showTime.split(':')[1] / 1;
-            const currentSecond = this.showTime.split(':')[2] / 1;
+            // const currentSecond = this.showTime.split(':')[2] / 1;
             if (this.showTime === this.minTime) {
                 this.hourmin = this.sphourmin;
                 this.minutemin = this.spminutemin;
@@ -222,6 +220,6 @@ const TimeRangeError = function (minTime, maxTime) {
 };
 
 TimeRangeError.prototype = Object.create(Error.prototype);
-TimePicker.TimeRangeError = TimeRangeError.prototype.constructor = TimeRangeError;
+UTimePicker.TimeRangeError = TimeRangeError.prototype.constructor = TimeRangeError;
 
-export default TimePicker;
+export default UTimePicker;

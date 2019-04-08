@@ -1,9 +1,11 @@
-import CascadeSelect from 'proto-ui.vusion/src/u-cascade-select.vue';
+import { UCascadeSelect } from 'proto-ui.vusion';
 
-export default {
+export const UCascadeCapsules = {
     name: 'u-cascade-capsules',
-    mixins: [CascadeSelect],
+    extends: UCascadeSelect,
     props: {
         cancelable: { type: Boolean, default: false },
     },
 };
+
+export default UCascadeCapsules;

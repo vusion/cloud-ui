@@ -55,7 +55,7 @@ $m-chart_legend_height: 20px;
 }
 
 .root[empty] {
-    background: url("../assets/images/nodata.png") no-repeat center center;
+    background: url("../../assets/images/nodata.png") no-repeat center center;
 }
 
 .ittitle {

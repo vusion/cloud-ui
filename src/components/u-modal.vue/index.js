@@ -1,8 +1,8 @@
 import Vue from 'vue';
-import { clickOutside } from '../base/directives';
+import { clickOutside } from '../../directives';
 import i18n from './i18n';
 
-const Modal = {
+export const Modal = {
     name: 'u-modal',
     i18n,
     props: {
@@ -105,4 +105,5 @@ Modal.confirm = (content, title) => new Promise((resolve, reject) => {
 
 Vue.prototype.$alert = Modal.alert;
 Vue.prototype.$confirm = Modal.confirm;
+
 export default Modal;

@@ -1,12 +1,14 @@
-import Steps from '../u-steps.vue';
+import USteps from '../u-steps.vue';
 
-export default {
+export const USelectableSteps = {
     name: 'u-selectable-steps',
     childName: 'u-selectable-step',
-    extends: Steps,
+    extends: USteps,
     props: {
         readonly: { type: Boolean, default: false },
         counter: { type: Boolean, default: false },
         layout: { type: String, default: 'inline' },
     },
 };
+
+export default USelectableSteps;

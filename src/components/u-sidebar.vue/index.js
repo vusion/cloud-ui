@@ -1,9 +1,15 @@
-import Sidebar from 'proto-ui.vusion/src/u-sidebar.vue';
+import { USidebar as OSidebar } from 'proto-ui.vusion';
 
-export default {
+export const USidebar = {
     name: 'u-sidebar',
-    mixins: [Sidebar],
+    extends: OSidebar,
     props: {
         particular: { type: Boolean, default: false },
     },
 };
+
+export * from './group.vue';
+export * from './item.vue';
+export * from './divider.vue';
+
+export default USidebar;

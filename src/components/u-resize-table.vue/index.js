@@ -1,10 +1,10 @@
-import { ellipsisTitle } from 'proto-ui.vusion/src/base/directives';
-import { getStyle, getScrollSize } from '../base/utils/style';
-// import { deepCopy } from '../base/utils/index';
+import { ellipsisTitle } from 'proto-ui.vusion/src/directives';
+import { getStyle, getScrollSize } from '../../utils/style';
+// import { deepCopy } from '../../utils/index';
 import { cloneDeep } from 'lodash';
 import i18n from './i18n';
 
-export default {
+export const UResizeTable = {
     name: 'u-resize-table',
     i18n,
     props: {
@@ -126,14 +126,12 @@ export default {
                 const flag = this.showColumns.some((column) => column.type === 'filter');
                 if (flag) {
                     // 在有filter列的情况下  数据如果发生变化是需要对数据进行过滤显示的
-                    let columnIndex;
                     if (this.currentFilter.title === undefined) {
                         this.showColumns.some((item, index) => {
                             if (item.filter) {
                                 this.currentFilter.title = item.title;
                                 this.currentFilter.value = item.value;
                                 this.currentFilter.column = item;
-                                columnIndex = index;
                                 return true;
                             }
                             return false;
@@ -142,7 +140,6 @@ export default {
                         this.showColumns.some((column, index) => {
                             if (column.title === this.currentFilter.title) {
                                 this.currentFilter.column = column;
-                                columnIndex = index;
                                 return true;
                             }
                             return false;
@@ -679,3 +676,7 @@ export default {
         document.body.removeEventListener('mouseup', this.onMouseUp, false);
     },
 };
+
+export * from './column.vue';
+
+export default UResizeTable;

@@ -1,3 +1,8 @@
-import Button from 'proto-ui.vusion/src/u-button.vue';
+import { UButton as OButton } from 'proto-ui.vusion';
 
-export default Button;
+export const UButton = {
+    name: 'u-button',
+    extends: OButton,
+};
+
+export default UButton;

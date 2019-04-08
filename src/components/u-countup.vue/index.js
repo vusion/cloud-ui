@@ -1,68 +1,31 @@
-import CountUp from 'countup.js';
+import Countup from 'countup.js';
 
-export default {
+export const UCountup = {
     name: 'u-countup',
     props: {
-        start: {
-            type: Number,
-            default: 0,
-        },
-        end: {
-            type: Number,
-            required: true,
-        },
-        simplify: {
-            type: Boolean,
-            default: false,
-        },
-        duration: {
-            type: Number,
-            default: 2,
-        },
-        isEasing: {
-            type: Boolean,
-            default: false,
-        },
-        isGroup: {
-            type: Boolean,
-            default: false,
-        },
-        separator: {
-            type: String,
-            default: ',',
-        },
-        decimals: {
-            type: Number,
-            default: 0,
-        },
+        start: { type: Number, default: 0 },
+        end: { type: Number, required: true },
+        simplify: { type: Boolean, default: false },
+        duration: { type: Number, default: 2 },
+        isEasing: { type: Boolean, default: false },
+        isGroup: { type: Boolean, default: false },
+        separator: { type: String, default: ',' },
+        decimals: { type: Number, default: 0 },
         // decimal: {
         //     type: String,
         //     default: '.',
         // },
-        unit: {
-            type: Array,
-            default: () => [[3, 'K+'], [6, 'M+'], [9, 'G+']],
+        unit: { type: Array, default: () => [[3, 'K+'], [6, 'M+'], [9, 'G+']],
         },
-        prefix: {
-            type: String,
-            default: '',
+        prefix: { type: String, default: '',
         },
-        suffix: {
-            type: String,
-            default: '',
+        suffix: { type: String, default: '',
         },
-        easingFn: {
-            type: Function,
-            default(t, b, c, d) {
-                return c * (-Math.pow(2, -10 * t / d) + 1) * 1024 / 1023 + b;
-            },
-        },
-        endCallback: {
-            type: Function,
-        },
-        autoStart: {
-            type: Boolean,
-            default: true,
+        easingFn: { type: Function, default(t, b, c, d) {
+            return c * (-Math.pow(2, -10 * t / d) + 1) * 1024 / 1023 + b;
+        } },
+        endCallback: { type: Function },
+        autoStart: { type: Boolean, default: true,
         },
         // formattingFn: {
         //     type: Function,
@@ -87,7 +50,7 @@ export default {
             } else {
                 end = this.end;
             }
-            this.counter = new CountUp(this.$refs.count, this.start, end, this.decimals, this.duration, {
+            this.counter = new Countup(this.$refs.count, this.start, end, this.decimals, this.duration, {
                 useEasing: this.isEasing,
                 useGrouping: this.isGroup,
                 separator: this.separator,
@@ -160,3 +123,5 @@ export default {
         },
     },
 };
+
+export default UCountup;

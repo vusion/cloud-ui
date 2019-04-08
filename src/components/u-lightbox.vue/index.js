@@ -1,4 +1,4 @@
-export default {
+export const ULightbox = {
     name: 'u-lightbox',
     props: {
         closeButton: { type: Boolean, default: false },
@@ -195,3 +195,7 @@ export default {
         },
     },
 };
+
+export * from './item.vue';
+
+export default ULightbox;

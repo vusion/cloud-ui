@@ -1,8 +1,8 @@
-import ComboSlider from 'proto-ui.vusion/src/u-combo-slider.vue';
+import { UComboSlider as OComboSlider } from 'proto-ui.vusion';
 
-export default {
+export const UComboSlider = {
     name: 'u-combo-slider',
-    mixins: [ComboSlider],
+    extends: OComboSlider,
     props: {
         unit: String,
         tip: String,
@@ -41,3 +41,5 @@ export default {
         document.body.removeEventListener('mouseup', this.onMouseup, false);
     },
 };
+
+export default UComboSlider;

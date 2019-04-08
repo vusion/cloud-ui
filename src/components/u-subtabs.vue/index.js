@@ -1,7 +1,11 @@
-import Tabs from 'proto-ui.vusion/src/u-tabs.vue';
+import { UTabs } from 'proto-ui.vusion';
 
-export default {
+export const USubtabs = {
     name: 'u-subtabs',
     childName: 'u-subtab',
-    mixins: [Tabs],
+    extends: UTabs,
 };
+
+export * from './subtab.vue';
+
+export default USubtabs;

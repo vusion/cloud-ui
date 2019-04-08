@@ -11,6 +11,14 @@
             "program": "${workspaceFolder}/docs-src/dev",
             "cwd": "${workspaceFolder}/docs-src",
             "args": ["-t", "dark"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "extend",
+            "program": "/Users/yusen/Projects/GitHub/Vusion/vusion-cli/bin/vusion-dev",
+            "cwd": "${workspaceFolder}",
+            "args": ["-c", "/Users/yusen/Projects/GitHub/VusionUI/cloud-ui.vusion/docs-src/vusion.config.js", "-t", "default"]
         }
     ]
 }

@@ -1,3 +1,8 @@
-import Popup from 'proto-ui.vusion/src/u-popup.vue';
+import { UPopup as OPopup } from 'proto-ui.vusion';
 
-export default Popup;
+export const UPopup = {
+    name: 'u-popup',
+    extends: OPopup,
+};
+
+export default UPopup;

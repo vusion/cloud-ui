@@ -1,15 +1,15 @@
 <script>
-import Select from '../../src/u-select.vue';
+import { USelect } from '../../src';
 
 export default {
     name: 'u-theme-select',
     childName: 'u-theme-select-item',
-    mixins: [Select],
+    extends: USelect,
 };
 </script>
 
 <style module>
-@import '../../src/u-select.vue/module.css';
+@extend;
 
 .root {
     height: 64px;
@@ -20,23 +20,23 @@ export default {
 }
 
 .root:hover {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .text {
     width: auto;
 }
 
-.root:after {
+.root::after {
     color: white;
     font-size: 20px;
 }
 
 .popper {
-    margin-top: 0px;
+    margin-top: 0;
     border: none;
     border-radius: 0;
     color: #333;
-    box-shadow: 0 3px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
 }
 </style>

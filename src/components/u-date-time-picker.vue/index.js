@@ -1,4 +1,4 @@
-import { clickOutside } from '../base/directives';
+import { clickOutside } from '../../directives';
 import Field from 'proto-ui.vusion/src/u-field.vue';
 import i18n from './i18n';
 /**
@@ -14,7 +14,7 @@ import i18n from './i18n';
  * @param {boolean=false}           options.disabled            => 是否禁用
  * @param {width|string|number}     options.width               => 输入框长度
  */
-export default {
+export const UDateTimePicker = {
     name: 'u-date-time-picker',
     i18n,
     props: {
@@ -276,3 +276,5 @@ export default {
         },
     },
 };
+
+export default UDateTimePicker;

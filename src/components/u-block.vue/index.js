@@ -1,6 +1,8 @@
-import Block from 'proto-ui.vusion/src/u-block.vue';
+import { UBlock as OBlock } from 'proto-ui.vusion';
 
-export default {
+export const UBlock = {
     name: 'u-block',
-    mixins: [Block],
+    extends: OBlock,
 };
+
+export default UBlock;

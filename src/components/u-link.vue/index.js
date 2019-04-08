@@ -1,3 +1,8 @@
-import Link from 'proto-ui.vusion/src/u-link.vue';
+import { ULink as OLink } from 'proto-ui.vusion';
 
-export default Link;
+export const ULink = {
+    name: 'u-link',
+    extends: OLink,
+};
+
+export default ULink;

@@ -1,6 +1,11 @@
-import Navbar from 'proto-ui.vusion/src/u-navbar.vue';
+import { UNavbar as ONavbar } from 'proto-ui.vusion';
 
-export default {
+export const UNavbar = {
     name: 'u-navbar',
-    mixins: [Navbar],
+    extends: ONavbar,
 };
+
+export * from './item.vue';
+export * from './divider.vue';
+
+export default UNavbar;

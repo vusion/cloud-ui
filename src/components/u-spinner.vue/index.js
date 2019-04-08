@@ -1,3 +1,9 @@
-import Spinner from 'proto-ui.vusion/src/u-spinner.vue';
+import { USpinner as OSpinner } from 'proto-ui.vusion';
 
-export default Spinner;
+export const USpinner = {
+    name: 'u-spinner',
+    extends: OSpinner,
+};
+
+export default USpinner;
+

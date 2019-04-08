@@ -1,7 +1,12 @@
-import Navbar from '../u-navbar.vue';
+import { UNavbar } from '../u-navbar.vue';
 
-export default {
+export const USubnav = {
     name: 'u-subnav',
     childName: 'u-subnav-item',
-    mixins: [Navbar],
+    extends: UNavbar,
 };
+
+export * from './item.vue';
+export * from './divider.vue';
+
+export default USubnav;

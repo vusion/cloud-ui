@@ -1,4 +1,4 @@
-@import 'proto-ui.vusion/src/u-sidebar.vue/module.css';
+@extend;
 
 .root {
     height: 100%;

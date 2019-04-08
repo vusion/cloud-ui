@@ -1,8 +1,8 @@
-import CircularProgress from 'proto-ui.vusion/src/u-circular-progress.vue';
+import { UCircularProgress } from 'proto-ui.vusion';
 
-export default {
+export const UCircularSpecificProgress = {
     name: 'u-circular-specific-progress',
-    mixins: [CircularProgress],
+    extends: UCircularProgress,
     props: {
         rule: {
             type: Object,
@@ -22,3 +22,5 @@ export default {
         },
     },
 };
+
+export default UCircularSpecificProgress;

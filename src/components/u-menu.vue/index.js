@@ -1,3 +1,11 @@
-import Menu from 'proto-ui.vusion/src/u-menu.vue';
+import { UMenu as OMenu } from 'proto-ui.vusion';
 
-export default Menu;
+export const UMenu = {
+    name: 'u-menu',
+    extends: OMenu,
+};
+
+export * from './item.vue';
+
+export default UMenu;
+

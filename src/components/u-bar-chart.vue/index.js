@@ -1,20 +1,4 @@
-/**
- * @class BarChart
- * @extends Chart
- * @param {Object}                  options                     =  绑定属性
- * @param {string='100%'}           options.width               => 图表宽度
- * @param {string='480px'}          options.height              => 图表高度
- * @param {string=''}               options.title               => 标题
- * @param {string=''}               options.titleTemplate      @=> 标题模板
- * @param {string=''}               options.tooltipTemplate    @=> 工具提示模板
- * @param {Array}                   options.data                => 数据。如果为`undefined`，表示数据正在加载；如果为`[]`，表示数据为空。
- * @param {Object}                  options.xAxis               => 横坐标信息
- * @param {Object}                  options.yAxis               => 纵坐标信息
- * @param {Array=[]}                options.series              => 序列信息
- * @param {boolean=false}           options.border              => 是否显示边框
- * @param {boolean=true}            options.legend              => 是否显示图例
- */
-export default {
+export const UBarChart = {
     name: 'u-bar-chart',
     props: {
         data: Array,
@@ -151,3 +135,5 @@ export default {
         },
     },
 };
+
+export default UBarChart;

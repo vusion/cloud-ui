@@ -1,4 +1,4 @@
-export default {
+export const UChart = {
     name: 'u-chart',
     props: {
         title: String,
@@ -31,3 +31,5 @@ export default {
         },
     },
 };
+
+export default UChart;

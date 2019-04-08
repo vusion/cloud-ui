@@ -1,3 +1,8 @@
-import Checkboxes from 'proto-ui.vusion/src/u-checkboxes.vue';
+import { UCheckboxes as OCheckboxes } from 'proto-ui.vusion';
 
-export default Checkboxes;
+export const UCheckboxes = {
+    name: 'u-checkboxes',
+    extends: OCheckboxes,
+};
+
+export default UCheckboxes;

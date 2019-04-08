@@ -1,3 +1,8 @@
-import Label from 'proto-ui.vusion/src/u-label.vue';
+import { ULabel as OLabel } from 'proto-ui.vusion';
 
-export default Label;
+export const ULabel = {
+    name: 'u-label',
+    extends: OLabel,
+};
+
+export default ULabel;

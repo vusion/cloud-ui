@@ -1,3 +1,8 @@
-import NumberInput from 'proto-ui.vusion/src/u-number-input.vue';
+import { UNumberInput as ONumberInput } from 'proto-ui.vusion';
 
-export default NumberInput;
+export const UNumberInput = {
+    name: 'u-number-input',
+    extends: ONumberInput,
+};
+
+export default UNumberInput;

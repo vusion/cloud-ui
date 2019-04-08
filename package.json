@@ -13,7 +13,7 @@
     "precommit": "node node_modules/vusion-hooks/precommit"
   },
   "repository": "vusion/cloud-ui",
-  "homepage": "http://vusion.github.io",
+  "homepage": "http://vusion.github.io/cloud-ui",
   "bugs": {
     "url": "http://github.com/vusion/cloud-ui/issues"
   },
@@ -35,8 +35,8 @@
     "babel-eslint": "^8.2.6",
     "countup.js": "^1.9.3",
     "lodash": "^4.17.5",
-    "proto-ui.vusion": "~0.3.50",
-    "vusion-utils": "^0.2.4"
+    "proto-ui.vusion": "~0.4.0-alpha.3",
+    "vusion-utils": "^0.3.0"
   },
   "devDependencies": {
     "@vusion/md-vue-loader": "^1.0.0",
@@ -53,13 +53,13 @@
     "shelljs": "^0.7.8",
     "stylelint": "^9.3.0",
     "stylelint-config-vusion": "^1.0.3",
-    "vue": "^2.5.0",
+    "vue": "^2.6.10",
     "vue-router": "^3.0.1",
     "vusion-hooks": "^0.2.0",
     "x-ace-editor.vue": "^0.1.0"
   },
   "peerDependencies": {
-    "vue": "^2.5.0"
+    "vue": "^2.6.10"
   },
   "vusion": {
     "version": ">=0.6.1",

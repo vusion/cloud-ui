@@ -1,4 +1,4 @@
-@import 'proto-ui.vusion/src/u-block.vue/module.css';
+@extend;
 
 .root {
     background: #cad4e4;
