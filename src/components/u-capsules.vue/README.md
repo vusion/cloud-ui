@@ -43,9 +43,9 @@
 </u-linear-layout>
 ```
 
-### 可切换状态
+### 可取消
 
-点击两次同一项，可切换选择状态
+点击两次同一项，可取消状态
 
 ``` html
 <u-capsules value="C" cancelable>
@@ -69,16 +69,16 @@
 
 ``` html
 <u-capsules>
-    <u-capsule-group>
+    <u-capsules-group>
         <u-capsule>Apple</u-capsule>
         <u-capsule>Banana</u-capsule>
         <u-capsule>Cake</u-capsule>
-    </u-capsule-group>
-    <u-capsule-group>
+    </u-capsules-group>
+    <u-capsules-group>
         <u-capsule>Apple</u-capsule>
         <u-capsule>Banana</u-capsule>
         <u-capsule>Cake</u-capsule>
-    </u-capsule-group>
+    </u-capsules-group>
 </u-capsules>
 ```
 
@@ -134,7 +134,7 @@ export default {
 
 #### (default)
 
-插入`<u-capsule>` 或 `<u-capsule-group>`子组件。
+插入`<u-capsule>` 或 `<u-capsules-group>`子组件。
 
 ### Events
 

@@ -111,13 +111,17 @@ export default [
             { path: 'm-popper', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/m-popper.vue/README.md') },
             { path: 'u-popup', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/u-popup.vue/README.md') },
             { path: 'u-tooltip', component: () => import(/* webpackChunkName: 'component' */'../src/components/u-tooltip.vue/README.md') },
-            { path: 'u-drawer', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/u-drawer.vue/README.md') },
             /* Feedback */
             { path: 'u-spinner', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/u-spinner.vue/README.md') },
             { path: 'u-loading', component: () => import(/* webpackChunkName: 'component' */'../src/components/u-loading.vue/README.md') },
             { path: 'u-toast', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/u-toast.vue/README.md') },
             { path: 'u-modal', component: () => import(/* webpackChunkName: 'component' */'../src/components/u-modal.vue/README.md') },
             { path: 'u-lightbox', component: () => import(/* webpackChunkName: 'component' */'../src/components/u-lightbox.vue/README.md') },
+            { path: 'u-drawer', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/u-drawer.vue/README.md') },
+            /* Effects */
+            { path: 'u-carousel', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/u-carousel.vue/README.md') },
+            { path: 'e-ripple', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/e-ripple.vue/README.md') },
+            { path: 'e-watermark', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/e-watermark.vue/README.md') },
             /* Progress & Chart */
             { path: 'u-linear-progress', component: () => import(/* webpackChunkName: 'component' */'../src/components/u-linear-progress.vue/README.md') },
             { path: 'u-circular-progress', component: () => import(/* webpackChunkName: 'component' */'../src/components/u-circular-progress.vue/README.md') },
@@ -130,10 +134,38 @@ export default [
             { path: 'x-ace-editor', component: () => import(/* webpackChunkName: 'component' */'x-ace-editor.vue/README.md') },
             /* Mixin & Utils */
             { path: 'm-emitter', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/m-emitter.vue/README.md') },
+            { path: 'm-parent', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/m-parent.vue/README.md'), children: [
+                { path: '', redirect: 'examples' },
+                { path: 'examples', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/m-parent.vue/docs/examples.md') },
+                { path: 'api', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/m-parent.vue/docs/api.md') },
+            ] },
+            { path: 'm-group', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/m-group.vue/README.md'), children: [
+                { path: '', redirect: 'examples' },
+                { path: 'examples', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/m-group.vue/docs/examples.md') },
+                { path: 'api', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/m-group.vue/docs/api.md') },
+            ] },
+            { path: 'm-root', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/m-root.vue/README.md') },
+            { path: 'm-singlex', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/m-singlex.vue/README.md'), children: [
+                { path: '', redirect: 'examples' },
+                { path: 'examples', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/m-singlex.vue/docs/examples.md') },
+                { path: 'api', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/m-singlex.vue/docs/api.md') },
+            ] },
+            { path: 'm-multiplex', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/m-multiplex.vue/README.md'), children: [
+                { path: '', redirect: 'examples' },
+                { path: 'examples', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/m-multiplex.vue/docs/examples.md') },
+                { path: 'api', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/m-multiplex.vue/docs/api.md') },
+            ] },
+            { path: 'm-complex', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/m-complex.vue/README.md'), children: [
+                { path: '', redirect: 'examples' },
+                { path: 'examples', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/m-complex.vue/docs/examples.md') },
+                { path: 'api', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/m-complex.vue/docs/api.md') },
+            ] },
             { path: 'f-collapse-transition', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/f-collapse-transition.vue/README.md') },
             { path: 'f-draggable', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/f-draggable.vue/README.md') },
             { path: 'f-droppable', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/f-droppable.vue/README.md') },
             { path: 'f-dragger', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/f-dragger.vue/README.md') },
+            { path: 'f-render', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/f-render.vue/README.md') },
+            { path: 'f-forbidden', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/f-forbidden.vue/README.md') },
         ] },
     ] },
     { path: '*', redirect: '/components' },

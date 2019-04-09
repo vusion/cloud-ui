@@ -1,5 +1,5 @@
-<li :class="$style.root"
-    :selected="selected || currentSelected"
+<div :class="$style.root"
+    :selected="parentVM.multiple ? currentSelected : isSelected"
     :readonly="parentVM.readonly"
     :disabled="disabled || parentVM.disabled"
     @click="select()"
@@ -7,4 +7,4 @@
     <!-- @override: 添加了label功能 -->
     <span :class="$style.label">{{ label }}</span>
     <slot></slot>
-</li>
+</div>

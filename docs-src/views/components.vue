@@ -57,7 +57,7 @@
                     <u-sidebar-item to="/components/u-list-view">UListView <small>列表选择</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-tree-view">UTreeView <small>树型选择</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-table-view">UTableView <small>表格视图</small></u-sidebar-item>
-                    <u-sidebar-item to="/components/u-old-view">UOldTableView <small>表格视图</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-old-table-view">UOldTableView <small>表格视图</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-resize-table">UResizeTable <small>调整列宽表格</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-capsules">UCapsules <small>胶囊</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-cascade-capsules">UCascadeCapsules <small>级联胶囊</small></u-sidebar-item>
@@ -73,7 +73,7 @@
                     <u-sidebar-item to="/components/u-date-time-picker">UDateTimePicker <small>日期时间</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Popper">
-                    <u-sidebar-item to="/components/u-popper">UPopper <small>弹出层</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/m-popper">MPopper <small>弹出层</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-tooltip">UTooltip <small>工具提示</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-popup">UPopup <small>弹出框</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-drawer">UDrawer <small>抽屉</small></u-sidebar-item>
@@ -84,6 +84,12 @@
                     <u-sidebar-item to="/components/u-toast">UToast <small>吐司提示</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-modal">UModal <small>弹窗</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-lightbox">ULightbox <small>灯箱</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/u-drawer">UDrawer <small>抽屉</small></u-sidebar-item>
+                </u-sidebar-group>
+                <u-sidebar-group title="Effects">
+                    <u-sidebar-item to="/components/u-carousel">UCarousel <small>走马灯</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/e-ripple">ERipple <small>波纹</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/e-watermark">EWatermark <small>水印</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Progress & Chart">
                     <u-sidebar-item to="/components/u-linear-progress">ULinearProgress <small>线型进度条</small></u-sidebar-item>
@@ -98,10 +104,19 @@
                     <u-sidebar-item to="/components/x-ace-editor">XAceEditor <small>代码编辑器</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Mixin & Utils">
-                    <u-sidebar-item to="/components/u-emitter">MEmitter <small>触发器</small></u-sidebar-item>
-                    <u-sidebar-item to="/components/u-draggable">FDraggable <small>拖拽</small></u-sidebar-item>
-                    <u-sidebar-item to="/components/u-droppable">FDroppable <small>拖放</small></u-sidebar-item>
-                    <u-sidebar-item to="/components/u-dragger">FDragger <small>拖拽器</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/m-emitter">MEmitter <small>触发器</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/m-parent">MParent <small>父子模式</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/m-group">MGroup <small>分组模式</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/m-root">MRoot <small>根节点模式</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/m-singlex">MSinglex <small>单选模式</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/m-multiplex">MMultiplex <small>多选模式</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/m-complex">MComplex <small>复合模式</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/f-collapse-transition">FCollapseTransition <small>折叠过渡</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/f-draggable">FDraggable <small>拖拽</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/f-droppable">FDroppable <small>拖放</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/f-dragger">FDragger <small>拖拽器</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/f-render">FRender <small>渲染器</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/f-forbidden">FForbidden <small>禁用</small></u-sidebar-item>
                 </u-sidebar-group>
             </u-sidebar>
         </div>
