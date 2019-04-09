@@ -1,4 +1,4 @@
-@import 'proto-ui.vusion/src/u-textarea.vue/module.css';
+@extend;
 
 .root {
     max-width: 100%;
@@ -45,4 +45,3 @@
 
 .root[size$="full"] { width: 100%; }
 .root[size^="full"] { height: 100%; }
-

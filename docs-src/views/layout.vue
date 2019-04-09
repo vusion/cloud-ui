@@ -3,9 +3,9 @@
     <u-navbar slot="head">
         <u-logo slot="left" :class="$style.logo" name="163yun">组件库</u-logo>
         <!-- <u-navbar-item>首页</u-navbar-item> -->
-        <u-navbar-item to="/guide">指南</u-navbar-item>
+        <!-- <u-navbar-item to="/guide">指南</u-navbar-item> -->
         <u-navbar-item to="/components">组件</u-navbar-item>
-        <u-navbar-item to="/preview">演示</u-navbar-item>
+        <!-- <u-navbar-item to="/preview">演示</u-navbar-item> -->
         <!-- <u-navbar-item>模式</u-navbar-item> -->
         <!-- <u-navbar-item>资源</u-navbar-item> -->
         <u-theme-select slot="right" v-model="theme" @select="onSelectTheme">

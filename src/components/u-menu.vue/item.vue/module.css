@@ -1,4 +1,4 @@
-@import 'proto-ui.vusion/src/u-menu-item.vue/module.css';
+@extend;
 
 .root {
     padding: 6px 15px;

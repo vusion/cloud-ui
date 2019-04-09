@@ -1,4 +1,4 @@
-@import 'proto-ui.vusion/src/u-steps.vue/module.css';
+@extend;
 
 .item-body {
     color: #666;

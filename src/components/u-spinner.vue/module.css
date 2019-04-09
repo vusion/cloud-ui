@@ -1,4 +1,4 @@
-@import 'proto-ui.vusion/src/u-spinner.vue/module.css';
+@extend;
 
 .root {
     animation-duration: 1s;

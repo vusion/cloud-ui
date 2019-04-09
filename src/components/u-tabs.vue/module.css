@@ -1,4 +1,4 @@
-@import 'proto-ui.vusion/src/u-tabs.vue/module.css';
+@extend;
 
 $tabs-border: #e0e6ed;
 

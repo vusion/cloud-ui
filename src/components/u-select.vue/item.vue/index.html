@@ -1,11 +1,13 @@
-<li :class="$style.root"
-    :selected="selected || currentSelected"
+<div :class="$style.root"
+    :selected="parentVM.multiple ? currentSelected : isSelected"
+    :focused="isFocused"
     :readonly="parentVM.readonly"
     :disabled="disabled || parentVM.disabled"
-    @click="select()"
-    :style="{direction: parentVM.ellipsisDirection}"
+    @mouseenter="hover"
+    @click="select"
+    :style="{ direction: parentVM.ellipsisDirection }"
     v-ellipsis-title>
     <!-- @override: 添加了flag功能 -->
     <span v-if="flag !== undefined" :class="$style.flag" :layer="layer" v-tooltip.top="flag"></span>
     <slot></slot>
-</li>
+</div>

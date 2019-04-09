@@ -1,4 +1,4 @@
-import USteps from '../u-steps.vue';
+import { USteps } from '../u-steps.vue';
 
 export const USelectableSteps = {
     name: 'u-selectable-steps',
@@ -10,5 +10,7 @@ export const USelectableSteps = {
         layout: { type: String, default: 'inline' },
     },
 };
+
+export * from './step.vue';
 
 export default USelectableSteps;

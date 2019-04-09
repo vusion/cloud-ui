@@ -1,6 +1,6 @@
 <div :class="$style.root" :readonly="readonly" :disabled="disabled" :counter="counter" :layout="layout" :size="size">
-    <ul :class="$style.head">
-        <li :class="$style.item"
+    <nav :class="$style.head">
+        <a :class="$style.item"
             v-for="(itemVM, index) in itemVMs"
             :title="itemVM.title"
             :passed="selectedVM && index <= selectedVM.index"
@@ -12,8 +12,8 @@
                 <span :class="$style.radio"></span>
                 <span :class="$style.title"><f-render :vnode="itemVM.$slots.title">{{ itemVM.title }}</f-render></span>
             </div>
-        </li>
-    </ul>
+        </a>
+    </nav>
     <div :class="$style.body">
         <slot></slot>
     </div>

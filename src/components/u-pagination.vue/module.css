@@ -1,4 +1,4 @@
-@import 'proto-ui.vusion/src/u-pagination.vue/module.css';
+@extend;
 
 $item_size: 30px;
 

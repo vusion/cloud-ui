@@ -1,5 +1,3 @@
-export * from 'proto-ui.vusion/src/components';
-
 export * from './u-actions.vue';
 export * from './u-bar-chart.vue';
 export * from './u-block.vue';
@@ -58,3 +56,5 @@ export * from './u-time-picker.vue';
 export * from './u-toast.vue';
 export * from './u-tooltip.vue';
 export * from './u-xbar-chart.vue';
+
+export * from 'proto-ui.vusion/src/components';

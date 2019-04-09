@@ -8,16 +8,7 @@
     transition: border-color $transition-duration;
 }
 
-.input[close] {
-    padding-right: 30px;
-}
-
-.input[close][alignLeft] {
-    padding-left: 30px;
-    padding-right: 10px;
-}
-
-.input::placeholder {
+.placeholder, .input::placeholder {
     /* Removes placeholder transparency in Firefox. */
     opacity: 1;
     color: #999;
@@ -35,53 +26,31 @@
     border-color: #ff867f;
 }
 
-.wrap {
+.root[search="left"] .input {
+    padding-left: 30px;
+}
+
+.root[clearable] .input, .root[search="right"] .input {
+    padding-right: 30px;
+}
+
+.search {
+    display: block;
     position: absolute;
-    text-align: center;
-    right: 10px;
+    right: 8px;
     top: 0;
 }
 
-.wrapLeft {
-    position: absolute;
-    text-align: center;
-    left: 10px;
-    top: 0;
-    z-index: 999;
-}
-
-.close {
-    cursor: pointer;
-}
-
-.icon {
-    width: 18px;
-    height: 18px;
-    line-height: 18px;
-    background: #f5f7fa;
-    border-radius: 100%;
-    display: inline-block;
-}
-
-.closeIcon:hover {
-    color: #999;
-    background-color: #ebedef;
-}
-
-.closeIcon::before {
-    icon-font: url("../u-icon.vue/icons/close-small.svg");
-    font-size: 16px;
-    color: #b4b4b4;
-    margin-right: 0;
-    vertical-align: middle;
-}
-
-.searchIcon::before {
+.search::before {
     icon-font: url("../u-icon.vue/icons/search.svg");
     font-size: 16px;
-    color: #b4b4b4;
-    margin-right: 0;
-    vertical-align: middle;
+    color: #a7afbb;
+}
+
+.search[alignment="left"] {
+    right: auto;
+    left: 8px;
+    top: 0;
 }
 
 .root[size$="mini"] { width: 80px; padding: 0 6px; }

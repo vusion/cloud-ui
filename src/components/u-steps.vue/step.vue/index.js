@@ -1,3 +1,8 @@
-import Step from 'proto-ui.vusion/src/u-step.vue';
+import { UStep as OStep } from 'proto-ui.vusion';
 
-export default Step;
+export const UStep = {
+    name: 'u-step',
+    extends: OStep,
+};
+
+export default UStep;

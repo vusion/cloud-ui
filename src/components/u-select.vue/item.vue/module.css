@@ -1,7 +1,8 @@
-@import 'proto-ui.vusion/src/u-select-item.vue/module.css';
+@extend;
 
 .root {
     position: relative;
+    line-height: 32px;
     padding-top: 0;
     padding-bottom: 0;
     overflow: hidden;

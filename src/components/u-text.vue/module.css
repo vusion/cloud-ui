@@ -1,4 +1,4 @@
-@import 'proto-ui.vusion/src/u-text.vue/module.css';
+@extend;
 
 .root[color="secondary"] {
     color: #999;

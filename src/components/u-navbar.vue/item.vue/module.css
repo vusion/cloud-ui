@@ -6,8 +6,8 @@
     color: white;
 }
 
-.root + .root {
-    margin-left: 34px;
+.root:not(:last-child) {
+    margin-right: 34px;
 }
 
 .root::after {

@@ -1,4 +1,4 @@
-@import 'proto-ui.vusion/src/u-list-view-divider.vue/module.css';
+@extend;
 
 .root {
     margin: 0 8px;

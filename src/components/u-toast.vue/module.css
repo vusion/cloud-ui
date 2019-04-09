@@ -1,4 +1,4 @@
-@import 'proto-ui.vusion/src/u-toast.vue/module.css';
+@extend;
 
 .item[color="info"] {
     background: #00c0ef;

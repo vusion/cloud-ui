@@ -22,7 +22,6 @@ import UArticle from './common/u-article.vue';
 import UThemeSelect from './common/u-theme-select.vue';
 import UThemeSelectItem from './common/u-theme-select-item.vue';
 import UOverviewItem from './common/u-overview-item.vue';
-import UTable from './common/u-table.vue';
 import './common/atom-one-light.css';
 import UExample from './common/u-example.vue';
 import XAceEditor from '../packages/x-ace-editor.vue';
@@ -34,12 +33,12 @@ install(Vue, {
     UThemeSelect,
     UThemeSelectItem,
     UOverviewItem,
-    UTable,
     UExample,
     XAceEditor,
 });
 
 Vue.prototype.$docs = '';
+Vue.prototype.NODE_ENV = process.env.NODE_ENV;
 
 import routes from './routes';
 new Vue({

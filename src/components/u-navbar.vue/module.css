@@ -3,6 +3,7 @@
     height: 64px;
     /* display: flex;
     justify-content: space-between; */
+    background: #343e4f;
 }
 
 .left {
@@ -27,4 +28,3 @@
     float: right;
     margin-left: 50px;
 }
-

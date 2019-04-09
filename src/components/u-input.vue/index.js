@@ -6,7 +6,6 @@ export const UInput = {
     props: {
         // @override: 添加了 maxlengthMessage 功能
         maxlengthMessage: String,
-        close: { type: Boolean, default: false },
         search: String,
     },
     methods: {
@@ -27,12 +26,6 @@ export const UInput = {
                 this.$emit('input', this.currentValue);
                 this.$emit('update:value', this.currentValue);
             }
-        },
-        removeValue() {
-            this.currentValue = '';
-            this.$emit('reset', this.currentValue);
-            this.$emit('input', this.currentValue);
-            this.$emit('update:value', this.currentValue);
         },
     },
 };

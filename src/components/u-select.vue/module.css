@@ -1,4 +1,4 @@
-@import 'proto-ui.vusion/src/u-select.vue/module.css';
+@extend;
 
 .root {
     height: $height-base;
@@ -16,13 +16,12 @@
 }
 
 .root::after {
-    position: absolute;
     icon-font: url('../u-icon.vue/icons/keyboard-arrow-down.svg');
     color: #a5a5a6;
     font-size: 18px;
     right: 6px;
     top: 0;
-    line-height: inherit;
+    line-height: 1;
 }
 
 .root[disabled] {
@@ -51,31 +50,47 @@
     z-index: 1065;
 }
 
-.root[size$="mini"] { width: 80px; }
+.tag {
+    border-radius: 2px;
+}
+
+.root[size$="mini"] { width: 80px; padding: 0 6px; }
+.root[size$="mini"] .item { padding: 0 6px; }
 .root[size^="mini"] { height: 28px; line-height: 26px; }
 .root[size^="mini"] .popper { max-height: 156px; }
+.root[size^="mini"] .item { line-height: 26px; }
 
-.root[size$="small"] { width: 120px; }
+.root[size$="small"] { width: 120px; padding: 0 8px; }
+.root[size$="small"] .item { padding: 0 8px; }
 .root[size^="small"] { height: 30px; line-height: 28px; }
 .root[size^="small"] .popper { max-height: 168px; }
+.root[size^="small"] .item { line-height: 28px; }
 
-.root[size$="normal"] { width: 160px; }
+.root[size$="normal"] { width: 160px; padding: 0 10px; }
+.root[size$="normal"] .item { padding: 0 10px; }
 .root[size^="normal"] { height: $height-base; line-height: 32px; }
 .root[size^="normal"] .popper { max-height: 192px; }
+.root[size^="normal"] .item { line-height: 32px; }
 
-.root[size$="medium"] { width: 280px; }
+.root[size$="medium"] { width: 280px; padding: 0 10px; }
+.root[size$="medium"] .item { padding: 0 10px; }
 .root[size^="medium"] { height: 36px; line-height: 34px; }
 .root[size^="medium"] .popper { max-height: 204px; }
+.root[size^="medium"] .item { line-height: 34px; }
 
-.root[size$="large"] { width: 440px; }
+.root[size$="large"] { width: 440px; padding: 0 10px; }
+.root[size$="large"] .item { padding: 0 10px; }
 .root[size^="large"] { height: 38px; line-height: 36px; }
 .root[size^="large"] .popper { max-height: 216px; }
+.root[size^="large"] .item { line-height: 36px; }
 
-.root[size$="huge"] { width: 580px; }
+.root[size$="huge"] { width: 580px; padding: 0 10px; }
+.root[size$="huge"] .item { padding: 0 10px; }
 .root[size^="huge"] { height: 40px; line-height: 38px; }
 .root[size^="huge"] .popper { max-height: 228px; }
+.root[size^="huge"] .item { line-height: 38px; }
 
-.root[size$="full"] { width: 100%; }
+.root[size$="full"] { width: 100%; padding: 0 10px; }
 .root[size^="full"] { height: 100%; }
 
 .flag {

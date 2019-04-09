@@ -1,24 +1,24 @@
-# 链接列表 LinkList
+# UActions 操作项
 
 ## 示例
 ### 基本形式
 
-`'u-link-list-item'`实际使用组件`'u-link'`进行渲染，所以具备`'u-link'`的所有功能，不需要再其内部使用`'u-link'`组件实现跳转等功能
+`'u-action'`实际使用组件`'u-link'`进行渲染，所以具备`'u-link'`的所有功能，不需要再其内部使用`'u-link'`组件实现跳转等功能
 
 ``` html
 <u-linear-layout direction="vertical">
-    <u-link-list>
-        <u-link-list-item disabled>设置</u-link-list-item>
-        <u-link-list-item to="/components/u-navbar">跳转到 Navbar</u-link-list-item>
-        <u-link-list-item>重启</u-link-list-item>
-    </u-link-list>
-    <u-link-list>
-        <u-link-list-item disabled>设置</u-link-list-item>
-        <u-link-list-item to="/components/u-navbar">跳转到 Navbar</u-link-list-item>
-        <u-link-list-item>重启</u-link-list-item>
-        <u-link-list-item disabled>保存为镜像</u-link-list-item>
-        <u-link-list-item to="/components/u-select">跳转到 Select</u-link-list-item>
-    </u-link-list>
+    <u-actions>
+        <u-action disabled>设置</u-action>
+        <u-action to="/components/u-navbar">跳转到 Navbar</u-action>
+        <u-action>重启</u-action>
+    </u-actions>
+    <u-actions>
+        <u-action disabled>设置</u-action>
+        <u-action to="/components/u-navbar">跳转到 Navbar</u-action>
+        <u-action>重启</u-action>
+        <u-action disabled>保存为镜像</u-action>
+        <u-action to="/components/u-select">跳转到 Select</u-action>
+    </u-actions>
 </u-linear-layout>
 ```
 
@@ -26,18 +26,18 @@
 
 ``` html
 <u-linear-layout direction="vertical">
-    <u-link-list>
-        <u-link-list-item disabled>设置</u-link-list-item>
-        <u-link-list-item v-tooltip="'跳转到 Navbar'" to="/components/u-navbar">显示Tips</u-link-list-item>
-        <u-link-list-item>重启</u-link-list-item>
-        <u-link-list-item disabled>保存为镜像</u-link-list-item>
-        <u-link-list-item v-tooltip="'跳转到 Select'" to="/components/u-select">显示Tips</u-link-list-item>
-    </u-link-list>
+    <u-actions>
+        <u-action disabled>设置</u-action>
+        <u-action v-tooltip="'跳转到 Navbar'" to="/components/u-navbar">显示Tips</u-action>
+        <u-action>重启</u-action>
+        <u-action disabled>保存为镜像</u-action>
+        <u-action v-tooltip="'跳转到 Select'" to="/components/u-select">显示Tips</u-action>
+    </u-actions>
 </u-linear-layout>
 ```
 
 
-## LinkList API
+## UActions API
 ### Attrs/Props
 
 | Attr/Prop | Type | Default | Description |
@@ -50,9 +50,9 @@
 
 #### (default)
 
-插入`<u-link-list-item>`子组件。
+插入`<u-action>`子组件。
 
-## LinkListItem API
+## UAction API
 
 属性全部透传。
 

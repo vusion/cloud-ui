@@ -1,4 +1,4 @@
-@import 'proto-ui.vusion/src/u-form.vue/module.css';
+@extend;
 
 .root[gap="large"][layout="block"] > *:not(:last-child) {
     margin-bottom: 30px;
