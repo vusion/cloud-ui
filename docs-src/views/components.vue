@@ -8,7 +8,7 @@
                     <u-sidebar-item href="https://github.com/vusion/cloud-ui/releases">Changelog <small>更新日志</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Basic">
-                    <u-sidebar-item to="/components/typography">Typography <small>排印</small></u-sidebar-item>
+                    <u-sidebar-item to="/components/typography">Typography <small>排版</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-text">UText <small>文本</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-link">ULink <small>链接</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-button">UButton <small>按钮</small></u-sidebar-item>
@@ -76,7 +76,6 @@
                     <u-sidebar-item to="/components/m-popper">MPopper <small>弹出层</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-tooltip">UTooltip <small>工具提示</small></u-sidebar-item>
                     <u-sidebar-item to="/components/u-popup">UPopup <small>弹出框</small></u-sidebar-item>
-                    <u-sidebar-item to="/components/u-drawer">UDrawer <small>抽屉</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Feedback">
                     <u-sidebar-item to="/components/u-loading">ULoading <small>加载中</small></u-sidebar-item>
