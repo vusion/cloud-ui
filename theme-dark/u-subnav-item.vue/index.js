@@ -1,3 +1,3 @@
-import SubnavItem from '../../src/u-subnav-item.vue';
+import SubnavItem from '../../src/components/u-subnav-item.vue';
 
 export default SubnavItem;

@@ -108,9 +108,21 @@ export default [
             { path: 'u-date-picker', component: () => import(/* webpackChunkName: 'component' */'../src/components/u-date-picker.vue/README.md') },
             { path: 'u-date-time-picker', component: () => import(/* webpackChunkName: 'component' */'../src/components/u-date-time-picker.vue/README.md') },
             /* Popper */
-            { path: 'm-popper', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/m-popper.vue/README.md') },
-            { path: 'u-popup', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/u-popup.vue/README.md') },
-            { path: 'u-tooltip', component: () => import(/* webpackChunkName: 'component' */'../src/components/u-tooltip.vue/README.md') },
+            { path: 'm-popper', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/m-popper.vue/README.md'), children: [
+                { path: '', redirect: 'examples' },
+                { path: 'examples', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/m-popper.vue/docs/examples.md') },
+                { path: 'api', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/m-popper.vue/docs/api.md') },
+            ] },
+            { path: 'u-popup', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/u-popup.vue/README.md'), children: [
+                { path: '', redirect: 'examples' },
+                { path: 'examples', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/u-popup.vue/docs/examples.md') },
+                { path: 'api', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/u-popup.vue/docs/api.md') },
+            ] },
+            { path: 'u-tooltip', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/u-tooltip.vue/README.md'), children: [
+                { path: '', redirect: 'examples' },
+                { path: 'examples', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/u-tooltip.vue/docs/examples.md') },
+                { path: 'api', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/u-tooltip.vue/docs/api.md') },
+            ] },
             /* Feedback */
             { path: 'u-spinner', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/u-spinner.vue/README.md') },
             { path: 'u-loading', component: () => import(/* webpackChunkName: 'component' */'../src/components/u-loading.vue/README.md') },

@@ -1,3 +1,3 @@
-import BarChart from '../../src/u-bar-chart.vue';
+import BarChart from '../../src/components/u-bar-chart.vue';
 
 export default BarChart;

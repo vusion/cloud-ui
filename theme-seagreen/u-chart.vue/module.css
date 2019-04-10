@@ -1,4 +1,4 @@
-@import '../../src/u-chart.vue/module.css';
+@import '../../src/components/u-chart.vue/module.css';
 .item::before {
     background: rgba(97,218,198,0.6);
 }

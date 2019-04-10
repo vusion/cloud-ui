@@ -1,12 +1,11 @@
-<u-popper ref="popper" appendTo="reference" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)">
-    <div :class="$style.header">
-        <input :class="$style.input" :placeholder="placeholder" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}"  @change="onInput($event)">
-        <span v-if="showDate && reset" :class="[$style.wrap, $style.close]" @click.stop="resetValue">
-            <i :class="[$style.icon, $style.closeIcon]"></i>
-        </span>
-    </div>
-    <div :class="$style.body" slot="popper" @click.stop>
-        <u-calendar :minDate="minDate" :year-diff="yearDiff" :year-add="yearAdd" :maxDate="maxDate" :date="showDate" @select="select($event.date)"/>
-    </div>
-    <slot></slot>
-</u-popper>
+<div :class="$style.header">
+    <input :class="$style.input" :placeholder="placeholder" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}"  @change="onInput($event)">
+    <span v-if="showDate && reset" :class="[$style.wrap, $style.close]" @click.stop="resetValue">
+        <i :class="[$style.icon, $style.closeIcon]"></i>
+    </span>
+    <m-popper :class="$style.popper" ref="popper" appendTo="reference" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)">
+        <div :class="$style.body" @click.stop>
+            <u-calendar :minDate="minDate" :year-diff="yearDiff" :year-add="yearAdd" :maxDate="maxDate" :date="showDate" @select="select($event.date)"/>
+        </div>
+    </m-popper>
+</div>

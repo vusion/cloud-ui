@@ -1,3 +1,3 @@
-import SidebarGroup from '../../src/u-sidebar-group.vue';
+import SidebarGroup from '../../src/components/u-sidebar-group.vue';
 
 export default SidebarGroup;

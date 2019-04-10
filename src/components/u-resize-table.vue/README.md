@@ -489,12 +489,12 @@ export default {
         </u-resize-table-column>
         <u-resize-table-column title="操作" label="female" min-width="135">
             <template slot-scope="scope">
-                <u-link-list>
-                    <u-link-list-item>设置</u-link-list-item>
-                    <u-link-list-item>删除</u-link-list-item>
-                    <u-link-list-item>更改规格</u-link-list-item>
-                    <u-link-list-item>转包年包月</u-link-list-item>
-                </u-link-list>
+                <u-actions>
+                    <u-action>设置</u-action>
+                    <u-action>删除</u-action>
+                    <u-action>更改规格</u-action>
+                    <u-action>转包年包月</u-action>
+                </u-actions>
             </template>
         </u-resize-table-column>
     </u-resize-table>
@@ -857,9 +857,10 @@ export default {
     <u-resize-table :data="tdata">
         <u-resize-table-column title="姓名" label="name">
             <template slot="headerTitle">
-                <u-tooltip content="身份证上的姓名">
-                    <span>姓名</span>
-                </u-tooltip>
+                <span>
+                    姓名
+                    <u-tooltip content="身份证上的姓名"></u-tooltip>
+                </span>
             </template>
         </u-resize-table-column>
         <u-resize-table-column title="日期" label="date" type="time"></u-resize-table-column>

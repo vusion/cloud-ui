@@ -1,4 +1,4 @@
-@import '../../src/u-line-chart.vue/module.css';
+@import '../../src/components/u-line-chart.vue/module.css';
 .layer .elsvg .line {
     stroke: rgb(97,218,198);
 }

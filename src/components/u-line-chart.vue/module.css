@@ -131,11 +131,11 @@ $line_offset: 6px;
 }
 
 .layer .elsvg .line {
-    stroke: rgb(97, 218, 198);
+    stroke: rgb(97,218,198);
 }
 
 .layer .elsvg .area {
-    fill: rgba(97, 218, 198, 0.3);
+    fill: rgba(97,218,198,0.3);
 }
 
 .layer .elsvg:nth-of-type(1) .line {
@@ -231,8 +231,11 @@ $line_offset: 6px;
     width: 50%;
 }
 
-.piece .u-tooltip {
-    display: none;
+.popper {
+    z-index: $z-index-tooltip;
+}
+
+.u-tooltip {
     border-radius: 2px;
     position: absolute;
     text-align: initial;
@@ -240,25 +243,24 @@ $line_offset: 6px;
     line-height: 20px;
     padding: 17px 20px;
     font-size: 12px;
-    background: rgba(71, 88, 107, 0.9);
+    background: rgba(71,88,107,0.9);
     color: white;
-    z-index: $z-index-tooltip;
     margin-top: -16px;
     box-sizing: border-box;
 }
 
-.piece .u-tooltip::after {
+.u-tooltip::after {
     content: '';
     display: block;
     position: absolute;
-    border: 5px solid rgba(71, 88, 107, 0.9);
+    border: 5px solid rgba(71,88,107,0.9);
 }
 
-.piece .u-tooltip[role="u-tooltip-right-top"] {
+.u-tooltip[role="u-tooltip-right-top"] {
     margin-left: 8px;
 }
 
-.piece .u-tooltip[role="u-tooltip-right-top"]::after {
+.u-tooltip[role="u-tooltip-right-top"]::after {
     top: 10px;
     left: -5px;
     border-left: none;
@@ -266,11 +268,11 @@ $line_offset: 6px;
     border-bottom-color: transparent;
 }
 
-.piece .u-tooltip[role="u-tooltip-right-bottom"] {
+.u-tooltip[role="u-tooltip-right-bottom"] {
     margin-left: 8px;
 }
 
-.piece .u-tooltip[role="u-tooltip-right-bottom"]::after {
+.u-tooltip[role="u-tooltip-right-bottom"]::after {
     top: 10px;
     left: -5px;
     border-left: none;
@@ -278,12 +280,12 @@ $line_offset: 6px;
     border-bottom-color: transparent;
 }
 
-.piece .u-tooltip[role="u-tooltip-left-top"] {
+.u-tooltip[role="u-tooltip-left-top"] {
     margin-right: 10px;
     right: 100%;
 }
 
-.piece .u-tooltip[role="u-tooltip-left-top"]::after {
+.u-tooltip[role="u-tooltip-left-top"]::after {
     top: 10px;
     right: -5px;
     border-right: none;
@@ -291,12 +293,12 @@ $line_offset: 6px;
     border-bottom-color: transparent;
 }
 
-.piece .u-tooltip[role="u-tooltip-left-bottom"] {
+.u-tooltip[role="u-tooltip-left-bottom"] {
     margin-right: 10px;
     right: 100%;
 }
 
-.piece .u-tooltip[role="u-tooltip-left-bottom"]::after {
+.u-tooltip[role="u-tooltip-left-bottom"]::after {
     top: 10px;
     right: -5px;
     border-right: none;
@@ -305,7 +307,7 @@ $line_offset: 6px;
 }
 
 .piece:hover {
-    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    border-left: 1px solid rgba(0,0,0,0.2);
 }
 .piece[scatter]:hover {
     border: none;
@@ -320,7 +322,7 @@ $line_offset: 6px;
     left: -1px;
     box-sizing: border-box;
     background: white;
-    border: 2px solid rgba(0, 153, 255, 0.6);
+    border: 2px solid rgba(0,153,255,0.6);
     border-radius: 100%;
     width: 7px;
     height: 7px;
@@ -334,15 +336,15 @@ $line_offset: 6px;
     height: 4px;
     margin-bottom: -2px;
     margin-left: -2px;
-    border-color: rgb(97, 218, 198);
-    background: rgb(97, 218, 198);
-    border: 1px solid rgba(0, 153, 255, 0.6);
+    border-color: rgb(97,218,198);
+    background: rgb(97,218,198);
+    border: 1px solid rgba(0,153,255,0.6);
     display: block;
 }
 
 .piece .point {
-    border-color: rgb(97, 218, 198);
-    background: rgb(97, 218, 198);
+    border-color: rgb(97,218,198);
+    background: rgb(97,218,198);
 }
 
 .piece:hover .point[scatter] {

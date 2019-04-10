@@ -1,5 +1,5 @@
 import { clickOutside } from '../../directives';
-import Field from 'proto-ui.vusion/src/u-field.vue';
+import Field from 'proto-ui.vusion/src/components/m-field.vue';
 import i18n from './i18n';
 /**
  * @class DateTimePicker

@@ -1,3 +1,3 @@
-import Chart from '../../src/u-chart.vue';
+import Chart from '../../src/components/u-chart.vue';
 
 export default Chart;

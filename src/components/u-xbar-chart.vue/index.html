@@ -33,19 +33,20 @@
         <div v-for="(item,index) in chartData" :class="$style.piece" :style="{top: 100*(1 - (index+1)/chartData.length)+'%', height: 100/chartData.length+'%', width: 100*(item.total - xAxis_.min)/xAxis_.max+'%'}">
             <template v-if="!stack">
                 <template v-for="(sery, seryindex) in series">
-                    <u-popper placement="right-start" trigger="hover">
-                        <div :class="$style.bar" :style="{height: 80 + '%', width: 100 + '%'}"></div>
-                        <u-chart-tooltip :class="$style.tooltip" role="tooltip-right-top" slot="popper" :sery="sery" :row="item" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
-                    </u-popper>
+                    <div :class="$style.bar" :style="{height: 80 + '%', width: 100 + '%'}">
+                        <m-popper :class="$style.tooltip" role="tooltip-right-top" placement="right-start" trigger="hover">
+                            <u-chart-tooltip :sery="sery" :row="item" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
+                        </m-popper>
+                    </div>
                 </template>
             </template>
             <template v-else>
-                <u-popper placement="right-start" trigger="hover">
-                    <div :class="$style.bar" role="bar-stack" :style="{height: 80 + '%', width: 100 + '%'}">
-                        <div v-for="(sery, seryindex) in series" :class="$style.bar" role="bar-static" :style="{width: 100*(item[sery.key])/item.total+'%', height: 100+'%', left: 100*item['part'+seryindex]+'%'}" v-if="item[sery.key]"></div>
-                    </div>
-                    <u-chart-tooltip :class="$style.tooltip" role="tooltip-right-top" slot="popper" stack :series="series" :row="item" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
-                </u-popper>
+                <div :class="$style.bar" role="bar-stack" :style="{height: 80 + '%', width: 100 + '%'}">
+                    <div v-for="(sery, seryindex) in series" :class="$style.bar" role="bar-static" :style="{width: 100*(item[sery.key])/item.total+'%', height: 100+'%', left: 100*item['part'+seryindex]+'%'}" v-if="item[sery.key]"></div>
+                    <m-popper :class="$style.tooltip" role="tooltip-right-top" placement="right-start" trigger="hover">
+                        <u-chart-tooltip stack :series="series" :row="item" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
+                    </m-popper>
+                </div>
             </template>
         </div>
     </div>

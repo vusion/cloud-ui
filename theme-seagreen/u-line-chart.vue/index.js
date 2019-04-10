@@ -1,3 +1,3 @@
-import LineChart from '../../src/u-line-chart.vue';
+import LineChart from '../../src/components/u-line-chart.vue';
 
 export default LineChart;

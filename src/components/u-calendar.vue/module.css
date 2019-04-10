@@ -151,6 +151,7 @@
     background: $hover-color;
 }
 .month {
+    float: right;
     width: 60px;
     text-align: left;
     padding: 7px 24px 0 10px;
@@ -172,9 +173,6 @@
     right: -20px;
     top: 0;
     line-height: 16px;
-}
-.monthPopper {
-    float: right;
 }
 .yearitem[disabled] {
     color: #999;

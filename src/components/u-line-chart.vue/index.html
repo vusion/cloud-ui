@@ -41,13 +41,10 @@
         </div>
         <div :class="$style.layer">
             <div v-for="(item,index) in currentData" v-if="!item.hidden" :class="$style.piece" :scatter="scatter" :style="{left: 100*index/(currentData.length - 1)+'%', width: 100/(currentData.length - 1)+'%'}">
-                <div v-for="(sery, index) in series" @click="pointClick(item, index)" v-show="item[sery.key] !== undefined && !sery.hidden && !hideLine.includes(index)" :special="item.special && item.special[sery.key]" :class="$style.point" :scatter="scatter" :style="{bottom: 100*(item[sery.key] - yAxis_.min)/(yAxis_.max - yAxis_.min)+'%', borderColor: item.special && item.special[sery.key] && item.special[sery.key].color, background: item.special && item.special[sery.key] && item.special[sery.key].color}">
-                    <div class="value">{{format(item[sery.key])}}</div>
-                </div>
-                <div :class="$style['u-tooltip']" :role="'u-tooltip-'+(index >= currentData.length/2 ? 'left' : 'right')+'-'+(getPercent(item) < 50 ? 'top' : 'bottom')" :style="{top: getPercent(item)+'%'}">
-                    <slot :name="'tooltipTemplate'+index">
-                        <div v-for="sery in series">{{sery.name || sery.key}}: {{format(item[sery.key])}}</div>
-                    </slot>
+                <div v-for="(sery, sindex) in series" @click="pointClick(item, sindex)" v-show="item[sery.key] !== undefined && !sery.hidden && !hideLine.includes(sindex)" :special="item.special && item.special[sery.key]" :class="$style.point" :scatter="scatter" :style="{bottom: 100*(item[sery.key] - yAxis_.min)/(yAxis_.max - yAxis_.min)+'%', borderColor: item.special && item.special[sery.key] && item.special[sery.key].color, background: item.special && item.special[sery.key] && item.special[sery.key].color}">
+                    <m-popper :class="$style.popper" trigger="hover">
+                        <u-chart-tooltip :class="$style['u-tooltip']" :role="'u-tooltip-'+(index >= currentData.length/2 ? 'left' : 'right')+'-'+(getPercent(item) < 50 ? 'top' : 'bottom')" :style="{top: getPercent(item)+'%'}" :sery="sery" :row="item" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
+                    </m-popper>
                 </div>
             </div>
         </div>

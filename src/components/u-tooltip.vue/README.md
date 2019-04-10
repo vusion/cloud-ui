@@ -5,13 +5,16 @@
 
 ``` html
 <u-linear-layout>
-    <u-tooltip content="使用 content 属性比较方便">
-        <u-button>使用属性</u-button>
-    </u-tooltip>
-    <u-tooltip>
-        <u-button>使用 slot</u-button>
-        <span slot="content">使用 content <u-link>slot</u-link> 更加灵活</span>
-    </u-tooltip>
+    <u-button>
+        使用属性
+        <u-tooltip content="使用 content 属性比较方便"></u-tooltip>
+    </u-button>
+    <u-button>
+        使用 slot
+        <u-tooltip>
+            <span slot="body">使用 body <u-link>slot</u-link> 更加灵活</span>
+        </u-tooltip>
+    </u-button>
     <u-button v-tooltip="'使用指令最简单'">使用指令</u-button>
 </u-linear-layout>
 ```

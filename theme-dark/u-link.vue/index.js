@@ -1,3 +1,3 @@
-import Link from '../../src/u-link.vue';
+import Link from '../../src/components/u-link.vue';
 
 export default Link;

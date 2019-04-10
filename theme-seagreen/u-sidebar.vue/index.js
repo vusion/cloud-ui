@@ -1,3 +1,3 @@
-import Sidebar from '../../src/u-sidebar.vue';
+import Sidebar from '../../src/components/u-sidebar.vue';
 
 export default Sidebar;

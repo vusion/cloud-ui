@@ -5,16 +5,16 @@
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata" border>
-            <u-table-view-column title="日期" label="date"></u-table-view-column>
-            <u-table-view-column ellipsis title="姓名" label="name"></u-table-view-column>
-            <u-table-view-column ellipsis title="地址" label="address" sortable>
+        <u-old-table-view :data="tdata" border>
+            <u-old-table-view-column title="日期" label="date"></u-old-table-view-column>
+            <u-old-table-view-column ellipsis title="姓名" label="name"></u-old-table-view-column>
+            <u-old-table-view-column ellipsis title="地址" label="address" sortable>
                 <template slot-scope="scope">
                     {{scope.row.address}}
                 </template>
-            </u-table-view-column>
-            <u-table-view-column title="性别" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
-        </u-table-view>
+            </u-old-table-view-column>
+            <u-old-table-view-column title="性别" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-old-table-view-column>
+        </u-old-table-view>
     </div>
 </template>
 <script>
@@ -88,21 +88,21 @@ export default {
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata" border pattern="limit" :limit="4">
-            <u-table-view-column type="expand" default-text="">
+        <u-old-table-view :data="tdata" border pattern="limit" :limit="4">
+            <u-old-table-view-column type="expand" default-text="">
                 <template slot="expandContent">
                     <span>11</span>
                 </template>
-            </u-table-view-column>
-            <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
-            <u-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-table-view-column>
-            <u-table-view-column ellipsis title="地址" label="address" sortable>
+            </u-old-table-view-column>
+            <u-old-table-view-column title="日期" label="date" sortable></u-old-table-view-column>
+            <u-old-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-old-table-view-column>
+            <u-old-table-view-column ellipsis title="地址" label="address" sortable>
                 <template slot-scope="scope">
                     {{scope.row.address}}
                 </template>
-            </u-table-view-column>
-            <u-table-view-column title="性别" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
-        </u-table-view>
+            </u-old-table-view-column>
+            <u-old-table-view-column title="性别" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-old-table-view-column>
+        </u-old-table-view>
     </div>
 </template>
 <script>
@@ -209,23 +209,23 @@ export default {
 <template>
     <u-subtabs value="B">
         <u-subtab title="模板" value="A">
-            <u-table-view :data="list">
-                <u-table-view-column title="名称" width="30%" label="name">
-                </u-table-view-column>
-                <u-table-view-column ellipsis title="可用区" label="region"></u-table-view-column>
-                <u-table-view-column title="IP" label="IP" width="200px" sortable></u-table-view-column>
-            </u-table-view>
+            <u-old-table-view :data="list">
+                <u-old-table-view-column title="名称" width="30%" label="name">
+                </u-old-table-view-column>
+                <u-old-table-view-column ellipsis title="可用区" label="region"></u-old-table-view-column>
+                <u-old-table-view-column title="IP" label="IP" width="200px" sortable></u-old-table-view-column>
+            </u-old-table-view>
         </u-subtab>
         <u-subtab title="样式" value="B">
-            <u-table-view :data="tdata">
-                <u-table-view-column label="date">
+            <u-old-table-view :data="tdata">
+                <u-old-table-view-column label="date">
                     <div slot="headerTitle">
                         日期
                     </div>
-                </u-table-view-column>
-                <u-table-view-column ellipsis title="姓名" label="name"></u-table-view-column>
-                <u-table-view-column title="地址" label="address" width="200px" sortable></u-table-view-column>
-            </u-table-view>
+                </u-old-table-view-column>
+                <u-old-table-view-column ellipsis title="姓名" label="name"></u-old-table-view-column>
+                <u-old-table-view-column title="地址" label="address" width="200px" sortable></u-old-table-view-column>
+            </u-old-table-view>
         </u-subtab>
     </u-subtabs>
 </template>
@@ -328,15 +328,15 @@ export default {
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata" border max-height="400">
-            <u-table-view-column :visible="isShow" label="date">
+        <u-old-table-view :data="tdata" border max-height="400">
+            <u-old-table-view-column :visible="isShow" label="date">
                 <div slot="headerTitle">
                     日期
                 </div>
-            </u-table-view-column>
-            <u-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-table-view-column>
-            <u-table-view-column title="地址" label="address" width="200px" sortable></u-table-view-column>
-        </u-table-view>
+            </u-old-table-view-column>
+            <u-old-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-old-table-view-column>
+            <u-old-table-view-column title="地址" label="address" width="200px" sortable></u-old-table-view-column>
+        </u-old-table-view>
         <u-button style="margin-top: 10px;" @click="toggle">toggle</u-button>
     </div>
 </template>
@@ -412,20 +412,20 @@ export default {
 ```
 
 #### 排序和格式化
-某一列进行排序，需要为此列中设置`sortable`属性，自定义表头传入`slot='headerTitle'`，对于显示日期列，可通过给`u-table-view-column`标签添加`type="time"`属性来实现时间戳转换成YYYY-MM-DD HH:mm:ss格式，如果想自定义日期显示格式，可以通过传入`timeFormat="YYYY-MM-DD"`属性来自定义日期格式
+某一列进行排序，需要为此列中设置`sortable`属性，自定义表头传入`slot='headerTitle'`，对于显示日期列，可通过给`u-old-table-view-column`标签添加`type="time"`属性来实现时间戳转换成YYYY-MM-DD HH:mm:ss格式，如果想自定义日期显示格式，可以通过传入`timeFormat="YYYY-MM-DD"`属性来自定义日期格式
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata" border max-height="400">
-            <u-table-view-column label="date">
+        <u-old-table-view :data="tdata" border max-height="400">
+            <u-old-table-view-column label="date">
                 <div slot="headerTitle">
                     日期
                 </div>
-            </u-table-view-column>
-            <u-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-table-view-column>
-            <u-table-view-column title="地址" label="address" width="200" sortable></u-table-view-column>
-            <u-table-view-column title="出生年月" label="date" type="time"></u-table-view-column>
-        </u-table-view>
+            </u-old-table-view-column>
+            <u-old-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-old-table-view-column>
+            <u-old-table-view-column title="地址" label="address" width="200" sortable></u-old-table-view-column>
+            <u-old-table-view-column title="出生年月" label="date" type="time"></u-old-table-view-column>
+        </u-old-table-view>
     </div>
 </template>
 <script>
@@ -509,14 +509,14 @@ export default {
 
 
 #### 自定义排序方法
-同步方式自定义排序方法传入`sortMethod`属性即可，点击排序，异步获取后端数据需要传入`sortRemoteMethod`方法即可，点击排序会自动执行`sortRemoteMethod`方法，默认让某一列处于排序状态，需要在`u-table-view`上添加`defaultSort`属性即可
+同步方式自定义排序方法传入`sortMethod`属性即可，点击排序，异步获取后端数据需要传入`sortRemoteMethod`方法即可，点击排序会自动执行`sortRemoteMethod`方法，默认让某一列处于排序状态，需要在`u-old-table-view`上添加`defaultSort`属性即可
 ``` vue
 <template>
-    <u-table-view :data="tdata" :default-sort="defaultSort" @sort-change="sortChange">
-        <u-table-view-column title="日期" label="date" sortable :sort-method="sortMethod"></u-table-view-column>
-        <u-table-view-column title="姓名" label="name"></u-table-view-column>
-        <u-table-view-column title="地址" label="address"></u-table-view-column>
-    </u-table-view>
+    <u-old-table-view :data="tdata" :default-sort="defaultSort" @sort-change="sortChange">
+        <u-old-table-view-column title="日期" label="date" sortable :sort-method="sortMethod"></u-old-table-view-column>
+        <u-old-table-view-column title="姓名" label="name"></u-old-table-view-column>
+        <u-old-table-view-column title="地址" label="address"></u-old-table-view-column>
+    </u-old-table-view>
 </template>
 <script>
 export default {
@@ -573,12 +573,12 @@ export default {
 <template>
     <u-linear-layout direction="vertical">
             <u-button color="primary" style="width:160px;" :disabled="checkedData.length === 0" @click="delData">删除</u-button>
-            <u-table-view :data="tdata" @selection-change="selectionChange($event)">
-                <u-table-view-column type="selection"></u-table-view-column>
-                <u-table-view-column title="日期" label="date" type="time"></u-table-view-column>
-                <u-table-view-column title="姓名" label="name" ></u-table-view-column>
-                <u-table-view-column title="地址" label="address" ></u-table-view-column>
-            </u-table-view>
+            <u-old-table-view :data="tdata" @selection-change="selectionChange($event)">
+                <u-old-table-view-column type="selection"></u-old-table-view-column>
+                <u-old-table-view-column title="日期" label="date" type="time"></u-old-table-view-column>
+                <u-old-table-view-column title="姓名" label="name" ></u-old-table-view-column>
+                <u-old-table-view-column title="地址" label="address" ></u-old-table-view-column>
+            </u-old-table-view>
     </u-linear-layout>
 </template>
 <script>
@@ -649,12 +649,12 @@ export default {
 ``` vue
 <template>
     <u-linear-layout direction="vertical">
-        <u-table-view :data="tdata" @selection-change="selectionChange($event)">
-            <u-table-view-column type="selection" title="选择" width="100"></u-table-view-column>
-            <u-table-view-column title="日期" label="date" type="time"></u-table-view-column>
-            <u-table-view-column title="姓名" label="name" ></u-table-view-column>
-            <u-table-view-column title="地址" label="address" ></u-table-view-column>
-        </u-table-view>
+        <u-old-table-view :data="tdata" @selection-change="selectionChange($event)">
+            <u-old-table-view-column type="selection" title="选择" width="100"></u-old-table-view-column>
+            <u-old-table-view-column title="日期" label="date" type="time"></u-old-table-view-column>
+            <u-old-table-view-column title="姓名" label="name" ></u-old-table-view-column>
+            <u-old-table-view-column title="地址" label="address" ></u-old-table-view-column>
+        </u-old-table-view>
     </u-linear-layout>
 </template>
 <script>
@@ -711,12 +711,12 @@ export default {
 ``` vue
 <template>
     <u-linear-layout direction="vertical">
-        <u-table-view :data="tdata" show-color radio-value-field="id" :radioValue.sync="radioValue" @radio-change="selectionChange($event)">
-            <u-table-view-column type="radio" ellipsis width="56"></u-table-view-column>
-            <u-table-view-column title="日期" label="date" type="time"></u-table-view-column>
-            <u-table-view-column title="姓名" label="name" ></u-table-view-column>
-            <u-table-view-column title="地址" label="address" ></u-table-view-column>
-        </u-table-view>
+        <u-old-table-view :data="tdata" show-color radio-value-field="id" :radioValue.sync="radioValue" @radio-change="selectionChange($event)">
+            <u-old-table-view-column type="radio" ellipsis width="56"></u-old-table-view-column>
+            <u-old-table-view-column title="日期" label="date" type="time"></u-old-table-view-column>
+            <u-old-table-view-column title="姓名" label="name" ></u-old-table-view-column>
+            <u-old-table-view-column title="地址" label="address" ></u-old-table-view-column>
+        </u-old-table-view>
     </u-linear-layout>
 </template>
 <script>
@@ -779,12 +779,12 @@ export default {
 
 ``` vue
 <template>
-    <u-table-view :data="tdata" @filter-change="filterChange">
-        <u-table-view-column title="日期" label="date" sortable :formatter="dateFormat"></u-table-view-column>
-        <u-table-view-column title="姓名" label="name" ></u-table-view-column>
-        <u-table-view-column title="地址" label="address" ></u-table-view-column>
-        <u-table-view-column title="性别" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
-    </u-table-view>
+    <u-old-table-view :data="tdata" @filter-change="filterChange">
+        <u-old-table-view-column title="日期" label="date" sortable :formatter="dateFormat"></u-old-table-view-column>
+        <u-old-table-view-column title="姓名" label="name" ></u-old-table-view-column>
+        <u-old-table-view-column title="地址" label="address" ></u-old-table-view-column>
+        <u-old-table-view-column title="性别" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-old-table-view-column>
+    </u-old-table-view>
 </template>
 <script>
 export default {
@@ -860,24 +860,24 @@ export default {
 </script>
 ```
 #### 作用域插槽方式
-为了满足自定义单元格的内容显示，可以通过作用域插槽的方式，在`u-table-view-column`标签内通过`slot-scope="{row}"`来获取当前行内容，自定义单元格内容显示
+为了满足自定义单元格的内容显示，可以通过作用域插槽的方式，在`u-old-table-view-column`标签内通过`slot-scope="{row}"`来获取当前行内容，自定义单元格内容显示
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata" v-show="show">
-            <u-table-view-column title="日期" width="20%" label="date" sortable :formatter="dateFormat"></u-table-view-column>
-            <u-table-view-column title="姓名" width="10%" label="name" ></u-table-view-column>
-            <u-table-view-column title="地址" width="15%" label="address"></u-table-view-column>
-            <u-table-view-column title="地址" width="10%" label="address"></u-table-view-column>
-            <u-table-view-column title="地址" width="20%" label="address"></u-table-view-column>
-            <u-table-view-column title="地址" width="10%" label="address"></u-table-view-column>
-            <u-table-view-column title="性别" width="15%" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
-            <u-table-view-column title="占比" width="200">
+        <u-old-table-view :data="tdata" v-show="show">
+            <u-old-table-view-column title="日期" width="20%" label="date" sortable :formatter="dateFormat"></u-old-table-view-column>
+            <u-old-table-view-column title="姓名" width="10%" label="name" ></u-old-table-view-column>
+            <u-old-table-view-column title="地址" width="15%" label="address"></u-old-table-view-column>
+            <u-old-table-view-column title="地址" width="10%" label="address"></u-old-table-view-column>
+            <u-old-table-view-column title="地址" width="20%" label="address"></u-old-table-view-column>
+            <u-old-table-view-column title="地址" width="10%" label="address"></u-old-table-view-column>
+            <u-old-table-view-column title="性别" width="15%" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-old-table-view-column>
+            <u-old-table-view-column title="占比" width="200">
                 <template slot-scope="{row}">
                     <u-button @click="click(row)">配置</u-button>
                 </template>
-            </u-table-view-column>
-        </u-table-view>
+            </u-old-table-view-column>
+        </u-old-table-view>
         <u-modal :visible.sync="visible">
             <div>
                 <span>{{current.name}}</span>
@@ -975,11 +975,11 @@ export default {
 ``` vue
 <template>
 <div>
-    <u-table-view :data="tdata" loading load-text="正在加载中…">
-        <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
-        <u-table-view-column title="姓名" label="name"></u-table-view-column>
-        <u-table-view-column title="地址" label="address" ></u-table-view-column>
-    </u-table-view>
+    <u-old-table-view :data="tdata" loading load-text="正在加载中…">
+        <u-old-table-view-column title="日期" label="date" sortable></u-old-table-view-column>
+        <u-old-table-view-column title="姓名" label="name"></u-old-table-view-column>
+        <u-old-table-view-column title="地址" label="address" ></u-old-table-view-column>
+    </u-old-table-view>
 </div>
 </template>
 <script>
@@ -1002,16 +1002,16 @@ export default {
 ``` vue
 <template>
 <div>
-    <u-table-view :data="tdata" >
-        <u-table-view-column type="selection"></u-table-view-column>
-        <u-table-view-column title="日期" label="date" sortable></u-table-view-column>
-        <u-table-view-column title="姓名" label="name"></u-table-view-column>
-        <u-table-view-column title="地址" label="address" ></u-table-view-column>
+    <u-old-table-view :data="tdata" >
+        <u-old-table-view-column type="selection"></u-old-table-view-column>
+        <u-old-table-view-column title="日期" label="date" sortable></u-old-table-view-column>
+        <u-old-table-view-column title="姓名" label="name"></u-old-table-view-column>
+        <u-old-table-view-column title="地址" label="address" ></u-old-table-view-column>
         <div slot="no-data-text">
             <span style="margin-right:10px">暂无数据,</span>
             <u-link>请刷新页面</u-link>
         </div>
-    </u-table-view>
+    </u-old-table-view>
 </div>
 </template>
 <script>
@@ -1031,8 +1031,8 @@ export default {
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata">
-            <u-table-view-column type="expand" default-text="">
+        <u-old-table-view :data="tdata">
+            <u-old-table-view-column type="expand" default-text="">
                 <template slot="expandContent" slot-scope="scope">
                     <u-info-list style="overflow:hidden;text-align:left;white-space:initial;">
                         <u-info-list-group title="基本信息">
@@ -1051,16 +1051,16 @@ export default {
                         </u-info-list-group>
                     </u-info-list>
                 </template>
-            </u-table-view-column>
-            <u-table-view-column title="日期" label="date" sortable type="time" time-format="YYYY-MM-DD"></u-table-view-column>
-            <u-table-view-column title="姓名" label="name" ></u-table-view-column>
-            <u-table-view-column title="性别" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
-            <u-table-view-column title="操作" width="150">
+            </u-old-table-view-column>
+            <u-old-table-view-column title="日期" label="date" sortable type="time" time-format="YYYY-MM-DD"></u-old-table-view-column>
+            <u-old-table-view-column title="姓名" label="name" ></u-old-table-view-column>
+            <u-old-table-view-column title="性别" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-old-table-view-column>
+            <u-old-table-view-column title="操作" width="150">
                 <template slot-scope="scope">
                     <u-button @click="click(scope.row)">配置</u-button>
                 </template>
-            </u-table-view-column>
-        </u-table-view>
+            </u-old-table-view-column>
+        </u-old-table-view>
         <u-modal :visible.sync="visible">
             <div>
                 <span>{{current.name}}</span>
@@ -1153,20 +1153,20 @@ export default {
 ```
 
 #### expand 的高级用法
-默认只会展开一个icon中的内容，如果不想有此限制，请给`u-table-view`传入`expandPattern`属性，只要值不等于`'toggle'`就可以，建议传入`'normal'`，默认要展开第一行，需要在第一行数据中设置`'expanded'`值为`true`
+默认只会展开一个icon中的内容，如果不想有此限制，请给`u-old-table-view`传入`expandPattern`属性，只要值不等于`'toggle'`就可以，建议传入`'normal'`，默认要展开第一行，需要在第一行数据中设置`'expanded'`值为`true`
 ```vue
 <template>
-    <u-table-view :show-header="false" expand-pattern="normal" :data="tdata" :row-class-name="rowClassName" @toggle-expand="toggleExpand" border>
-        <u-table-view-column title="日期" label="date"></u-table-view-column>
-        <u-table-view-column title="详细信息" column-class="info" label="info"></u-table-view-column>
-        <u-table-view-column title="icon" expand-class="infoIcon" type="expand" label="listlogs" default-text="" expand-strict expand-icon="up-down">
+    <u-old-table-view :show-header="false" expand-pattern="normal" :data="tdata" :row-class-name="rowClassName" @toggle-expand="toggleExpand" border>
+        <u-old-table-view-column title="日期" label="date"></u-old-table-view-column>
+        <u-old-table-view-column title="详细信息" column-class="info" label="info"></u-old-table-view-column>
+        <u-old-table-view-column title="icon" expand-class="infoIcon" type="expand" label="listlogs" default-text="" expand-strict expand-icon="up-down">
             <template slot="expandContent" slot-scope="scope">
                 <div>
                     <p v-for="item in scope.row.listlogs" v-text="item"></p>
                 </div>
             </template>
-        </u-table-view-column>
-    </u-table-view>
+        </u-old-table-view-column>
+    </u-old-table-view>
 </template>
 <script>
 export default {
@@ -1246,25 +1246,25 @@ export default {
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata" width="800" border :loading="loading">
-            <u-table-view-column width="200" fixed="left" title="日期" label="date" sortable type="time" time-format="YYYY-MM-DD"></u-table-view-column>
-            <u-table-view-column title="姓名" width="200" label="name" ></u-table-view-column>
-            <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>
-            <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>
-            <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>
-            <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>
-            <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>
-            <u-table-view-column title="性别" width="200" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-table-view-column>
-            <u-table-view-column title="操作" fixed="right" width="150">
+        <u-old-table-view :data="tdata" width="800" border :loading="loading">
+            <u-old-table-view-column width="200" fixed="left" title="日期" label="date" sortable type="time" time-format="YYYY-MM-DD"></u-old-table-view-column>
+            <u-old-table-view-column title="姓名" width="200" label="name" ></u-old-table-view-column>
+            <u-old-table-view-column title="地址" width="200" label="address"></u-old-table-view-column>
+            <u-old-table-view-column title="地址" width="200" label="address"></u-old-table-view-column>
+            <u-old-table-view-column title="地址" width="200" label="address"></u-old-table-view-column>
+            <u-old-table-view-column title="地址" width="200" label="address"></u-old-table-view-column>
+            <u-old-table-view-column title="地址" width="200" label="address"></u-old-table-view-column>
+            <u-old-table-view-column title="性别" width="200" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-old-table-view-column>
+            <u-old-table-view-column title="操作" fixed="right" width="150">
                 <template slot-scope="scope">
                     <u-button @click="click(scope.row)">配置</u-button>
                 </template>
-            </u-table-view-column>
+            </u-old-table-view-column>
             <div slot="no-data-text">
                 <span style="margin-right:10px">暂无数据,</span>
                 <u-link>请刷新页面</u-link>
             </div>
-        </u-table-view>
+        </u-old-table-view>
         <u-modal :visible.sync="visible">
             <div>
                 <span>{{current.name}}</span>
@@ -1450,7 +1450,7 @@ export default {
 
 #### (default)
 
-插入`<u-table-view-column>`子组件。
+插入`<u-old-table-view-column>`子组件。
 
 #### title
 

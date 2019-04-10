@@ -62,3 +62,7 @@
     margin-right: 0;
     vertical-align: middle;
 }
+
+.popper {
+    z-index: $z-index-tooltip;
+}
