@@ -1,0 +1,12 @@
+@import '../../../src/components/u-pie-chart.vue/module.css';
+
+.root .item:nth-child(1) { fill: $theme-chart-color1; }
+.root .item:nth-child(2) { fill: $theme-chart-color2; }
+.root .item:nth-child(3) { fill: $theme-chart-color3; }
+.root .item:nth-child(4) { fill: $theme-chart-color4; }
+.root .item:nth-child(5) { fill: $theme-chart-color5; }
+.root .item:nth-child(6) { fill: $theme-chart-color6; }
+.root .item:nth-child(7) { fill: $theme-chart-color7; }
+.root .item:nth-child(8) { fill: $theme-chart-color8; }
+.root .item:nth-child(9) { fill: $theme-chart-color9; }
+.root .item:nth-child(10) { fill: $theme-chart-color10; }

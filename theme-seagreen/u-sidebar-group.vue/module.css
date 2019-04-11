@@ -1,9 +1,0 @@
-@import '../../src/components/u-sidebar-group.vue/module.css';
-
-.head:hover {
-    color: $brand-primary;
-}
-
-.head[selected] {
-    color: $brand-primary;
-}

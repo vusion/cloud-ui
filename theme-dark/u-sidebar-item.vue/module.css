@@ -1,9 +1,0 @@
-@import '../../src/components/u-sidebar-item.vue/module.css';
-
-.root {
-    color: #9dabc2;
-}
-
-.root[selected] {
-    background: #1c324f;
-}
