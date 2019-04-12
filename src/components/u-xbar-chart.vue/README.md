@@ -1,4 +1,4 @@
-# 柱状图 XBarChart
+# UXbarChart 柱状图
 
 ## 示例
 ### 基本形式

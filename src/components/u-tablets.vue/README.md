@@ -1,4 +1,4 @@
-# 药片 Tablets
+# Tablets 药片
 
 ## 示例
 ### 基本样式

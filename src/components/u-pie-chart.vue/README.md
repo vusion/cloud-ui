@@ -1,4 +1,4 @@
-# 饼图 PieChart
+# UPieChart 饼图
 
 ## 示例
 ### 基本形式

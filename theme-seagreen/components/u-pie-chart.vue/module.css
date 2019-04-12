@@ -1,4 +1,4 @@
-@import '../../../src/components/u-pie-chart.vue/module.css';
+@extend;
 
 .root .item:nth-child(1) { fill: $theme-chart-color1; }
 .root .item:nth-child(2) { fill: $theme-chart-color2; }

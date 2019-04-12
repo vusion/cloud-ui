@@ -1,4 +1,4 @@
-@import '../../../../src/components/u-sidebar.vue/item.vue/module.css';
+@extend;
 
 .root {
     background: #e2e6f7;

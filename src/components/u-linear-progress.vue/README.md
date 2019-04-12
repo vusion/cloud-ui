@@ -1,4 +1,4 @@
-# 线型进度条 LinearProgress
+# ULinearProgress 线型进度条
 
 ## 示例
 ### 基本形式

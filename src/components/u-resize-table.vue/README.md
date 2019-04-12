@@ -1,4 +1,4 @@
-# 可变化宽度表格 ResizeTable
+# UResizeTable 可变化宽度表格
 
 ## 示例
 ### 基本形式

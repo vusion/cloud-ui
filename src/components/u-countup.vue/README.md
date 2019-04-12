@@ -1,4 +1,4 @@
-# 数字渐变 CountUp
+# UCountUp 数字渐变
 
 ## 示例
 ### 基本形式
@@ -43,7 +43,7 @@
     <u-form>
     <u-form-item label="演示效果">
         <u-linear-layout>
-        <u-countup ref="countup" :start="start" :end="end" :auto-start="autoStart" :is-easing="isEasing" :duration="duration"></u-countup>
+        <u-countup ref="countup" :start="start" :end="end" :is-easing="isEasing" :duration="duration"></u-countup>
         <u-button style="vertical-align: bottom;" color="primary" @click="show">开启渐变</u-button>
         <u-button style="vertical-align: bottom;" @click="reset">重置</u-button>
          <u-button style="vertical-align: bottom;" @click="pause">{{ `${isPause?'恢复':'暂停'}` }}</u-button>
@@ -73,7 +73,6 @@ export default{
             duration: 2,
             isEasing: true,
             isPause: false,
-            // autoStart: false,
         };
     },
     methods: {

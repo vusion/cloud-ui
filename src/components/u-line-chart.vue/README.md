@@ -1,4 +1,4 @@
-# 线状图 LineChart
+# ULineChart 线状图
 
 ## 示例
 ### 基本形式

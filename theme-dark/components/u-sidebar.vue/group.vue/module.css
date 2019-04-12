@@ -1,4 +1,4 @@
-@import '../../../../src/components/u-sidebar.vue/group.vue/module.css';
+@extend;
 
 .head:hover {
     color: $brand-primary;

@@ -1,4 +1,4 @@
-# 圆型进度条 CircularSpecificProgress
+# UCircularSpecificProgress 圆型进度条
 
 ## 示例
 

@@ -1,10 +1,10 @@
-@import '../../../src/components/u-line-chart.vue/module.css';
+@extend;
 .layer .elsvg .line {
-    stroke: rgb(97,218,198);
+    stroke: rgb(97, 218, 198);
 }
 
 .layer .elsvg .area {
-    fill: rgba(97,218,198,0.3);
+    fill: rgba(97, 218, 198, 0.3);
 }
 
 .layer .elsvg:nth-of-type(1) .line {
@@ -165,8 +165,8 @@
 }
 
 .piece .point {
-    border-color: rgb(97,218,198);
-    background: rgb(97,218,198);
+    border-color: rgb(97, 218, 198);
+    background: rgb(97, 218, 198);
 }
 
 .piece .point:nth-of-type(1) {

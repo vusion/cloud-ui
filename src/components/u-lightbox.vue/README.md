@@ -1,4 +1,4 @@
-# 灯箱 Lightbox
+# ULightbox 灯箱
 
 ## 示例
 ### 基本形式

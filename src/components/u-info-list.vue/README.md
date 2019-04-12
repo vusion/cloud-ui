@@ -1,4 +1,4 @@
-# 详情列表 InfoList
+# UInfoList 详情列表
 
 ## 示例
 ### 基本形式

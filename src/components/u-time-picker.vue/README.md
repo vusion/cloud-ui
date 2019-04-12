@@ -1,4 +1,4 @@
-# 时间选择 TimePicker
+# UTimePicker 时间选择
 
 ## 示例
 ### 基本形式

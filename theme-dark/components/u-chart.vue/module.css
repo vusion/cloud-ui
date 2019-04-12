@@ -1,6 +1,6 @@
-@import '../../../src/components/u-chart.vue/module.css';
+@extend;
 .item::before {
-    background: rgba(97,218,198,0.6);
+    background: rgba(97, 218, 198, 0.6);
 }
 
 .item:nth-of-type(1)::before {

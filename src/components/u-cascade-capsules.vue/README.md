@@ -1,4 +1,4 @@
-# 级联胶囊 CascadeCapsules
+# UCascadeCapsules 级联胶囊
 
 ## 示例
 

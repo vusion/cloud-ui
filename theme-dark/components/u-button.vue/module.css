@@ -1,4 +1,4 @@
-@import '../../../src/components/u-button.vue/module.css';
+@extend;
 
 .root {
     border-radius: $border-radius-base;

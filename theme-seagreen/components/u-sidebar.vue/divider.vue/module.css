@@ -1,4 +1,4 @@
-@import '../../../../src/components/u-sidebar.vue/divider.vue/module';
+@extend;
 
 .root {
     background: #ccc;

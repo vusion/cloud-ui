@@ -5,4 +5,8 @@ export const USidebar = {
     extends: OSidebar,
 };
 
+export * from './item.vue';
+export * from './group.vue';
+export * from './divider.vue';
+
 export default USidebar;

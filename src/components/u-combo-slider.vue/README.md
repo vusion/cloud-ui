@@ -1,4 +1,4 @@
-# 复合滑块 ComboSlider
+# UComboSlider 复合滑块
 
 ## 示例
 

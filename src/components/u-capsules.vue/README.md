@@ -1,4 +1,4 @@
-# Capsules 胶囊
+# UCapsules 胶囊
 
 ## 示例
 ### 基本样式

@@ -1,4 +1,4 @@
-# 柱状图 BarChart
+# UBarChart 柱状图
 
 ## 示例
 ### 基本形式
