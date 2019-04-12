@@ -9,7 +9,7 @@ $brand-secondary: #e1e8ed;
 $brand-success: #3ad0af;
 $brand-warning: #ffa136;
 $brand-error: #ff8a7a;
-$brand-disabled: #e9f0f5;
+$brand-disabled: #cddae9;
 
 /* Product Colors */
 $product-nms: #30c5db;
@@ -51,6 +51,8 @@ $field-selected-color: $brand-primary;
 /* Component Base Dimensions */
 $height-base: 34px;
 $border-radius-base: 2px;
+$navbar-height: 64px;
+$sidebar-width: 180px;
 
 /* Spacing Dimensions */
 $margin-base: 20px;

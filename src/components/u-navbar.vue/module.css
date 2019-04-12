@@ -8,12 +8,12 @@
 
 .left {
     float: left;
-    margin-right: 50px;
+    margin-right: 40px;
 }
 
 .middle {
     /* flex: auto; */
-    margin: 0 50px;
+    margin: 0 40px;
 }
 
 .root[alignment="center"] .middle {
@@ -26,5 +26,5 @@
 
 .right {
     float: right;
-    margin-left: 50px;
+    margin-left: 40px;
 }

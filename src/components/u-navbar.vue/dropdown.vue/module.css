@@ -1,0 +1,12 @@
+@extend;
+
+.root {
+    color: white;
+    line-height: $navbar-height;
+}
+
+.root::after {
+    icon-font: url('proto-ui.vusion/src/components/i-icon.vue/assets/angle-down.svg');
+    font-size: 18px;
+    right: 5px;
+}
