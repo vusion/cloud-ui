@@ -8,11 +8,18 @@
         <!-- <u-navbar-item to="/preview">演示</u-navbar-item> -->
         <!-- <u-navbar-item>模式</u-navbar-item> -->
         <!-- <u-navbar-item>资源</u-navbar-item> -->
-        <u-theme-select slot="right" v-model="theme" @select="onSelectTheme">
-            <u-theme-select-item value="default"><div :class="$style.color"></div>Default</u-theme-select-item>
-            <u-theme-select-item value="dark"><div :class="$style.color" color="dark"></div>Dark</u-theme-select-item>
-            <u-theme-select-item value="seagreen"><div :class="$style.color" color="seagreen"></div>SeaGreen</u-theme-select-item>
-        </u-theme-select>
+        <template slot="right">
+            <u-navbar-select value="0.4.x"
+                @select="onSelectVersion">
+                <u-navbar-select-item value="0.4.x">0.4.x</u-navbar-select-item>
+                <u-navbar-select-item value="0.3.x">0.3.x</u-navbar-select-item>
+            </u-navbar-select>
+            <u-theme-select v-model="theme" @select="onSelectTheme">
+                <u-theme-select-item value="default"><div :class="$style.color"></div>Default</u-theme-select-item>
+                <u-theme-select-item value="dark"><div :class="$style.color" color="dark"></div>Dark</u-theme-select-item>
+                <u-theme-select-item value="seagreen"><div :class="$style.color" color="seagreen"></div>SeaGreen</u-theme-select-item>
+            </u-theme-select>
+        </template>
     </u-navbar>
     <div><router-view></router-view></div>
     <div slot="foot" :class="$style.foot"></div>
@@ -20,6 +27,8 @@
 </template>
 
 <script>
+const base = 'https://vusion.dev';
+
 export default {
     data() {
         return {
@@ -32,6 +41,10 @@ export default {
                 localStorage.setItem('theme', $event.value);
                 location.reload();
             }
+        },
+        onSelectVersion($event) {
+            if ($event.value)
+                window.location = base + '/cloud-ui@' + $event.value + '/';
         },
     },
 };

@@ -6,10 +6,11 @@
 }
 
 .root::after {
-    icon-font: url('proto-ui.vusion/src/components/i-icon.vue/assets/angle-down.svg');
-    font-size: 18px;
-    right: 5px;
+    icon-font: url('../../u-icon.vue/icons/keyboard-arrow-down.svg');
     color: white;
+    font-size: 20px;
+    right: 6px;
+    top: 0;
 }
 
 .placeholder {
