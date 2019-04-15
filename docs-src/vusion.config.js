@@ -16,7 +16,7 @@ module.exports = {
         },
         output: {
             path: path.resolve(__dirname, '../cloud-ui/' + theme),
-            publicPath: `/cloud-ui/${theme}/`,
+            publicPath: `/cloud-ui@0.3.x/${theme}/`,
             filename: '[name].js',
             chunkFilename: 'chunk.[name].[chunkhash:16].js',
         },
@@ -65,5 +65,8 @@ module.exports = {
     webpackDevServer: {
         contentBase: [path.resolve(__dirname, '../cloud-ui'), path.resolve(__dirname, '../')],
         // host: '0.0.0.0',
+        historyApiFallback: {
+            index: '/cloud-ui@0.3.x/',
+        },
     },
 };
