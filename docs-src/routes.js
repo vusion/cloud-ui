@@ -13,7 +13,7 @@ export default [
             { path: 'quickstart', component: () => import(/* webpackChunkName: 'component' */'./views/guide/quickstart.md') },
             { path: 'pattern', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/docs/views/guide/pattern.md') },
             /* Basic */
-            { path: 'typography', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/base/TYPOGRAPHY.md') },
+            { path: 'typography', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/base/typography.md') },
             { path: 'u-link', component: () => import(/* webpackChunkName: 'component' */'../src/components/u-link.vue/README.md') },
             { path: 'u-button', component: () => import(/* webpackChunkName: 'component' */'../src/components/u-button.vue/README.md') },
             { path: 'u-badge', component: () => import(/* webpackChunkName: 'component' */'proto-ui.vusion/src/components/u-badge.vue/README.md') },
