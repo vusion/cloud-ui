@@ -501,7 +501,7 @@ export default {
                         let parentNode = this.$refs.root.parentNode;
                         while (parentNode && parentNode.offsetWidth === 0)
                             parentNode = parentNode.parentNode;
-                        parentWidth = tableWidth = parentNode.offsetWidth || 0;
+                        parentWidth = tableWidth = parentNode && parentNode.offsetWidth || 0;
                     }
 
                     // 分别获取有百分比 具体数值 和无width的column集合
