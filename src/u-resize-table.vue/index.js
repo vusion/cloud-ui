@@ -92,8 +92,9 @@ export default {
             itemVM.parentVM = undefined;
             this.itemColumns.splice(this.itemColumns.indexOf(itemVM), 1);
         });
-        document.body.addEventListener('mousemove', this.onMouseMove, false);
-        document.body.addEventListener('mouseup', this.onMouseUp, false);
+        // 使用document.body可能会影响对document事件的监听
+        document.addEventListener('mousemove', this.onMouseMove, false);
+        document.addEventListener('mouseup', this.onMouseUp, false);
     },
     mounted() {
         // 需要在没有给表格列赋值初始化的情况下 获取每列的宽度
