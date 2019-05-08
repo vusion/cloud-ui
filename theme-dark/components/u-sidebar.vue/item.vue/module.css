@@ -1,18 +1,9 @@
 @extend;
 
 .root {
-    background: #e2e6f7;
-}
-
-.root:hover {
-    color: $brand-primary;
+    color: #9dabc2;
 }
 
 .root[selected] {
-    color: white;
-    background: $brand-primary;
-}
-
-.root[disabled] {
-    color: #cdcdcd;
+    background: #1c324f;
 }

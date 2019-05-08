@@ -4,23 +4,19 @@
     border-radius: $border-radius-base;
 }
 
-.root:hover {
-    background: #ebebeb;
-    color: #333;
-    border-color: #cdcdcd;
-}
-
 .root[disabled] {
-    background: #cbcbcb;
-    color: white;
-    border: none;
+    background: white;
+    color: #ccc;
+    border-color: #ddd;
 }
 
 .root[color="primary"]:hover {
-    background: #3dcca1;
+    background: #6098eb;
     color: white;
 }
 
 .root[color="primary"][disabled] {
-    background: #cbcbcb;
+    background: #d9d9d9;
+    color: white;
 }
+
