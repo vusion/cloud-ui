@@ -3,34 +3,53 @@
 ## 示例
 ### 基本形式
 
-#### 声明式
-
 ``` vue
 <template>
 <div>
-    <u-modal :visible.sync="modalVisible" mask-close title="提示">
-        <span>内容</span>
+    <u-modal :visible.sync="visible" title="标题">
+        这是一段文字内容。
     </u-modal>
     <u-linear-layout>
-        <u-button @click="modalVisible = true">Modal</u-button>
-        <u-button @click="open()">Open</u-button>
+        <u-button @click="visible = true">Modal</u-button>
     </u-linear-layout>
 </div>
 </template>
 
 <script>
-import { Modal } from 'library';
 export default {
     data() {
         return {
-            modalVisible: false,
+            visible: false,
         };
     },
+};
+</script>
+```
+
+### 快捷方式
+
+``` vue
+<template>
+<u-linear-layout>
+    <u-button @click="alert()">Alert</u-button>
+    <u-button @click="confirm()">Confirm</u-button>
+</u-linear-layout>
+</template>
+
+<script>
+export default {
     methods: {
-        open() {
-            Modal.alert('test');
-        }
-    }
+        alert() {
+            this.$alert('创建失败！');
+        },
+        confirm() {
+            this.$confirm('是否要删除该任务？').then(() => {
+                console.info('用户点击了确定。');
+            }).catch(() => {
+                console.info('用户点击了取消。');
+            });
+        },
+    },
 };
 </script>
 ```
@@ -38,7 +57,7 @@ export default {
 ### Static
 
 ``` html
-<u-modal visible static>静态显示，用于文档或局部展示</u-modal>
+<u-modal visible static>静态显示，该属性用于文档中局部展示，实际开发时请去除。</u-modal>
 ```
 
 ### 标题与内容
@@ -68,64 +87,20 @@ export default {
 
 ``` html
 <u-modal visible static size="small">
-    size 为small，大小是300px
+    Small
 </u-modal>
 <u-modal visible static size="normal">
-    size 为默认的normal,大小是400px
+    Normal
 </u-modal>
 <u-modal visible static size="large">
-    size 为large,大小是600px
+    Large
 </u-modal>
 <u-modal visible static size="huge">
-    size 为huge,大小是800px
+    Huge
 </u-modal>
 <u-modal visible static size="auto">
-    size 为auto
+    Auto
 </u-modal>
-```
-
-### 简便使用方式
-
-调用$alert方法即可打开消息提示，它实现的是只有确定按钮的modal
-```vue
-<template>
-<div>
-    <u-button color="primary" @click="openAlert">alert</u-button>
-</div>
-</template>
-<script>
-export default {
-    methods: {
-        openAlert() {
-            this.$alert('hello world', 'title');
-        }
-    }
-}
-</script>
-```
-
-调用$confirm方法即可打开确认提示，它实现的是有确定和取消按钮modal
-```vue
-<template>
-<div>
-    <u-button color="primary" @click="openConfirm">confirm</u-button>
-</div>
-</template>
-<script>
-export default {
-    methods: {
-        openConfirm() {
-            this.$confirm('hello world', 'title').then(() => {
-                // 点击确定按钮的逻辑
-                console.log('确定');
-            }).catch(() => {
-                // 点击取消按钮的逻辑
-                console.log('取消');
-            });
-        }
-    }
-}
-</script>
 ```
 
 ## API
@@ -137,11 +112,12 @@ export default {
 | content | String | `'提示内容'` | 弹窗的内容 |
 | heading | String | `'提示内容'` | 弹窗的内容 |
 | visible.sync | Boolean | `false` | 是否显示 |
-| okButton | String | `'确定'` | 确定按钮文本，如果为空则不显示 |
-| cancelButton | String | `'取消'` | 取消按钮文本，如果为空则不显示 |
+| ok-button | String | `'确定'` | 确定按钮文本，如果为空则不显示 |
+| cancel-button | String | `'取消'` | 取消按钮文本，如果为空则不显示 |
 | size | String | `'normal'` | 弹框的尺寸 |
 | icon | String | `''` | 提示图标, 可选值：`success`, `warning`, `error` |
-| maskClose | Boolean | `false` | 点击遮罩层关闭弹窗，默认不可关闭，设置可关闭则需设置值为true |
+| static | Boolean | `false` | 是否嵌入页面显示 |
+| mask-closable | Boolean | `false` | 是否点击遮罩时关闭弹窗 |
 
 ### Slots
 
@@ -162,6 +138,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| senderVM | UModal | 发送事件实例 |
 
 #### @ok
 
@@ -169,6 +146,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| senderVM | UModal | 发送事件实例 |
 
 #### @cancel
 
@@ -176,6 +154,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| senderVM | UModal | 发送事件实例 |
 
 #### @before-close
 
@@ -183,15 +162,20 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event.ok | Boolean | 是否确定 |
 | $event.preventDefault | Function | 阻止关闭流程 |
+| senderVM | UModal | 发送事件实例 |
 
 #### @close
+
 关闭弹窗时触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event.ok | Boolean | 是否确定 |
+| senderVM | UModal | 发送事件实例 |
 
-### Methods
+### Static Methods
 
 #### alert(content, title)
 

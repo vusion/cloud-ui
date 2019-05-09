@@ -2,7 +2,7 @@ import Vue from 'vue';
 import { clickOutside } from '../../directives';
 import i18n from './i18n';
 
-export const Modal = {
+export const UModal = {
     name: 'u-modal',
     i18n,
     props: {
@@ -86,15 +86,15 @@ export const Modal = {
     },
 };
 
-Modal.alert = (content, title) => {
-    const Ctor = Modal._Ctor[0];
+UModal.alert = (content, title) => {
+    const Ctor = UModal._Ctor[0];
     new Ctor({
         propsData: { content, title, cancelButton: '' },
     }).open();
 };
 
-Modal.confirm = (content, title) => new Promise((resolve, reject) => {
-    const Ctor = Modal._Ctor[0];
+UModal.confirm = (content, title) => new Promise((resolve, reject) => {
+    const Ctor = UModal._Ctor[0];
     const instance = new Ctor({
         propsData: { content, title },
     });
@@ -103,7 +103,7 @@ Modal.confirm = (content, title) => new Promise((resolve, reject) => {
     instance.open();
 });
 
-Vue.prototype.$alert = Modal.alert;
-Vue.prototype.$confirm = Modal.confirm;
+Vue.prototype.$alert = UModal.alert;
+Vue.prototype.$confirm = UModal.confirm;
 
-export default Modal;
+export default UModal;

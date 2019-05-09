@@ -13,7 +13,7 @@ $media-sm-max-width: 767px;
     text-align: center;
     overflow: hidden;
     overflow-y: auto;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     padding-top: 65px;
     padding-bottom: 30px;
 }
@@ -31,7 +31,7 @@ $media-sm-max-width: 767px;
     vertical-align: middle;
     text-align: left;
     background: white;
-    box-shadow: 0 0 3px rgba(0,0,0,0.3);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
 .dialog[size="small"] {

@@ -1,4 +1,4 @@
-## UCapsules
+## UTablets
 ### Props/Attrs
 
 | Prop/Attr | Type | Default | Description |
@@ -15,7 +15,7 @@
 
 #### (default)
 
-插入`<u-capsule>`或`<u-capsules-group>`子组件。
+插入`<u-tablet>`子组件。
 
 ### Events
 
@@ -28,9 +28,9 @@
 | $event.value | Any | 选择项的值 |
 | $event.oldValue | Any | 旧的值 |
 | $event.item | Object | 选择项相关对象 |
-| $event.itemVM | UCapsule | 选择项子组件 |
+| $event.itemVM | UTablet | 选择项子组件 |
 | $event.preventDefault | Function | 阻止选择流程 |
-| senderVM | UCapsules | 发送事件实例 |
+| senderVM | UTablets | 发送事件实例 |
 
 #### @input
 
@@ -39,7 +39,7 @@
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event | Any | 选择项的值 |
-| senderVM | UCapsules | 发送事件实例 |
+| senderVM | UTablets | 发送事件实例 |
 
 #### @select
 
@@ -53,9 +53,9 @@
 | $event.oldValue | Any | 旧的值 |
 | $event.item | Object | 选择项相关对象 |
 | $event.oldItem | Object | 旧的选择项相关对象 |
-| $event.itemVM | UCapsule | 选择项子组件 |
-| $event.oldVM | UCapsule | 旧的选择项子组件 |
-| senderVM | UCapsules | 发送事件实例 |
+| $event.itemVM | UTablet | 选择项子组件 |
+| $event.oldVM | UTablet | 旧的选择项子组件 |
+| senderVM | UTablets | 发送事件实例 |
 
 多选模式中：
 
@@ -68,9 +68,9 @@
 | $event.oldValues | Array | 旧的值 |
 | $event.items | Array\<Object\> | 所有选中项相关对象的数组 |
 | $event.oldItems | Array\<Object\> | 旧的所有选中项相关对象的数组 |
-| $event.itemVMs | Array\<UCapsule\> | 所有选中项子组件的数组 |
-| $event.oldVMs | Array\<UCapsule\> | 旧的所有选中项子组件的数组 |
-| senderVM | UCapsules | 发送事件实例 |
+| $event.itemVMs | Array\<UTablet\> | 所有选中项子组件的数组 |
+| $event.oldVMs | Array\<UTablet\> | 旧的所有选中项子组件的数组 |
+| senderVM | UTablets | 发送事件实例 |
 
 #### @change
 
@@ -84,9 +84,9 @@
 | $event.oldValue | Any | 旧的值 |
 | $event.item | Object | 选择项相关对象 |
 | $event.oldItem | Object | 旧的选择项相关对象 |
-| $event.itemVM | UCapsule | 选择项子组件 |
-| $event.oldVM | UCapsule | 旧的选择项子组件 |
-| senderVM | UCapsules | 发送事件实例 |
+| $event.itemVM | UTablet | 选择项子组件 |
+| $event.oldVM | UTablet | 旧的选择项子组件 |
+| senderVM | UTablets | 发送事件实例 |
 
 多选模式中：
 
@@ -94,20 +94,17 @@
 | ----- | ---- | ----------- |
 | $event.values | Array | 所有选中项的值 |
 | $event.items | Array\<Object\> | 所有选中项相关对象的数组 |
-| $event.itemVMs | Array\<UCapsule\> | 所有选中项子组件的数组 |
-| senderVM | UCapsules | 发送事件实例 |
+| $event.itemVMs | Array\<UTablet\> | 所有选中项子组件的数组 |
+| senderVM | UTablets | 发送事件实例 |
 
-## UCapsule
+## UTablet
 ### Props/Attrs
 
 | Prop/Attr | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
 | value | Any | | 此项的值 |
-| size | String | | 胶囊大小，可选值：`'small'` |
 | selected | Boolean | `false` | 是否选中此项 |
 | disabled | Boolean | `false` | 禁用此项 |
-| label | String | `''` | 顶部自定义提示文本 |
-| flag | Any |  | 是否右上角有flag标志 |
 | item | Object | | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
 
 ### Slots
@@ -125,7 +122,7 @@
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event | MouseEvent | 鼠标事件对象 |
-| senderVM | UCapsule | 发送事件实例 |
+| senderVM | UTablet | 发送事件实例 |
 
 #### @before-select
 
@@ -135,10 +132,6 @@
 | ----- | ---- | ----------- |
 | $event.value | Any | 此项的值 |
 | $event.item | Object | 此项的相关对象 |
-| $event.itemVM | UCapsule | 此组件 |
+| $event.itemVM | UTablet | 此组件 |
 | $event.preventDefault | Function | 阻止选择流程 |
-| senderVM | UCapsule | 发送事件实例 |
-
-## CapsuleGroup API
-
-无
+| senderVM | UTablet | 发送事件实例 |

@@ -4,7 +4,7 @@ $tooltip-arrow-offset: 16px;
 
 .root {
     position: relative;
-    padding: 12px 16px;
+    padding: 8px 12px;
     background: $tooltip-background-color;
     color: white;
     font-size: 12px;
