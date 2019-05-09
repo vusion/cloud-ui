@@ -1,4 +1,4 @@
-@extend;
+@hook;
 
 .root {
     border-radius: $border-radius-base;

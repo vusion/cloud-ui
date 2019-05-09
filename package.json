@@ -33,12 +33,10 @@
   "dependencies": {
     "countup.js": "^1.9.3",
     "lodash": "^4.17.5",
-    "proto-ui.vusion": "~0.4.0-alpha.4",
-    "vusion-utils": "^0.3.0"
+    "proto-ui.vusion": "~0.4.0",
+    "vusion-utils": "^0.3.3"
   },
   "devDependencies": {
-    "@vusion/md-vue-loader": "^1.0.0",
-    "@vusion/doc-loader": "^0.9.3",
     "babel-eslint": "^8.2.6",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
@@ -60,9 +58,5 @@
   },
   "peerDependencies": {
     "vue": "^2.6.10"
-  },
-  "vusion": {
-    "version": ">=0.6.1",
-    "type": "library"
   }
 }

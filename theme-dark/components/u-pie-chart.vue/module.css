@@ -1,4 +1,4 @@
-@extend;
+@hook;
 
 .root .item:nth-child(1) { fill: $theme-dark-chart-color1; }
 .root .item:nth-child(2) { fill: $theme-dark-chart-color2; }

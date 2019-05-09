@@ -1,4 +1,4 @@
-@extend;
+@hook;
 .layer .elsvg .line {
     stroke: rgb(97, 218, 198);
 }
