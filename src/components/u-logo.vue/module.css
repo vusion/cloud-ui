@@ -4,41 +4,16 @@
 }
 
 /* Default Logo */
-.icon {
+.root .icon {
     display: inline-block;
     vertical-align: middle;
-    width: 104px;
+    width: 114px;
     height: 64px;
-    background: url('./logo-c-white.svg?sprite=sprite-logo');
+    background: url('./logo-163yun-white.svg?sprite=sprite-logo') 10px 0 no-repeat;
 }
 
 .root[color="2color"] .icon {
-    background: url('./logo-c-2color.svg?sprite=sprite-logo');
-}
-
-/* Logo extend */
-.root[name="c"] .icon {
-    background: url('./logo-c-white.svg?sprite=sprite-logo');
-}
-
-.root[name="c"][color="2color"] .icon {
-    background: url('./logo-c-2color.svg?sprite=sprite-logo');
-}
-
-.root[name="yiwu"] .icon {
-    background: url('./logo-yiwu-white.svg?sprite=sprite-logo');
-}
-
-.root[name="yiwu"][color="2color"] .icon {
-    background: url('./logo-yiwu-2color.svg?sprite=sprite-logo');
-}
-
-.root[name="163yun"] .icon {
-    background: url('./logo-163yun-white.svg?sprite=sprite-logo');
-}
-
-.root[name="163yun"][color="2color"] .icon {
-    background: url('./logo-163yun-2color.svg?sprite=sprite-logo');
+    background: url('./logo-163yun-2color.svg?sprite=sprite-logo') 10px 0 no-repeat;
 }
 
 .divider {

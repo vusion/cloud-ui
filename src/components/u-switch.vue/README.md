@@ -46,7 +46,7 @@ export default {
 
 #### (default)
 
-插入文本或`HTML`。
+插入文本或 HTML。
 
 ### Events
 

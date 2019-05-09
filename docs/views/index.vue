@@ -11,6 +11,11 @@
                         <u-navbar-select-item value="0.4.x">0.4.x</u-navbar-select-item>
                         <u-navbar-select-item value="0.3.x">0.3.x</u-navbar-select-item>
                     </u-navbar-select>
+                    <u-navbar-select v-model="theme" @select="onSelectTheme" style="width: 120px;">
+                        <u-navbar-select-item value="default"><div :class="$style.color"></div>Default</u-navbar-select-item>
+                        <u-navbar-select-item value="dark"><div :class="$style.color" color="dark"></div>Dark</u-navbar-select-item>
+                        <u-navbar-select-item value="seagreen"><div :class="$style.color" color="seagreen"></div>SeaGreen</u-navbar-select-item>
+                    </u-navbar-select>
                     <u-navbar-item :href="github" target="_blank"><i-icon name="github" style="font-size: 24px;"></i-icon></u-navbar-item>
                 </div>
             </u-navbar>
@@ -45,7 +50,7 @@ export default {
         },
         onSelectVersion($event) {
             if ($event.value)
-                window.location = base + '/proto-ui@' + $event.value + '/';
+                window.location = base + '/cloud-ui@' + $event.value + '/';
         },
     },
 };

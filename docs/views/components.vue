@@ -6,13 +6,17 @@
                 <template v-if="!group.name">
                     <u-sidebar-item v-for="component in group.children" :key="component.name"
                                     :href="component.href" :to="component.to ? component.to : '/components/' + component.name" :target="component.target">
-                        {{ component.CamelName }} <small :class="$style.alias">{{ component.alias }}</small>
+                        {{ component.CamelName }}
+                        <u-label v-if="component.deprecated" style="background: #6c80a1;">废弃</u-label>
+                        <small v-else :class="$style.alias">{{ component.alias }}</small>
                     </u-sidebar-item>
                 </template>
                 <u-sidebar-group v-else :key="group.name" :title="group.name">
                     <u-sidebar-item v-for="component in group.children" :key="component.name"
                                     :href="component.href" :to="component.to ? component.to : '/components/' + component.name" :target="component.target">
-                        {{ component.CamelName }} <small :class="$style.alias">{{ component.alias }}</small>
+                        {{ component.CamelName }}
+                        <u-label v-if="component.deprecated" style="background: #6c80a1;">废弃</u-label>
+                        <small v-else :class="$style.alias">{{ component.alias }}</small>
                     </u-sidebar-item>
                 </u-sidebar-group>
             </template>
@@ -35,7 +39,7 @@ export default {
 <style module>
 .side {
     position: fixed;
-    width: $sidebar-width;
+    width: 210px;
     top: $navbar-height;
     bottom: 0;
     overflow: hidden;
@@ -45,7 +49,7 @@ export default {
     padding: 36px 0;
     height: 100%;
     overflow: auto;
-    /* width: calc($sidebar-width + 8px); */
+    /* width: calc(240px + 8px); */
 }
 
 .alias {
@@ -53,11 +57,11 @@ export default {
 }
 
 /* .sidebar > * {
-    width: $sidebar-width;
+    width: 210px;
 } */
 
 .main {
-    margin-left: $sidebar-width;
+    margin-left: 240px;
     max-width: 1010px;
     padding-left: 50px;
     padding-bottom: 50px;

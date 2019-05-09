@@ -1,4 +1,4 @@
-@extend;
+@hook;
 .item::before {
     background: rgba(97, 218, 198, 0.6);
 }

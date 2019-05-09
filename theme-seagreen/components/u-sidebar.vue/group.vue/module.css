@@ -1,4 +1,4 @@
-@extend;
+@hook;
 
 .head:hover {
     color: $brand-primary;

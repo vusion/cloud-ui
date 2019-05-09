@@ -24,4 +24,4 @@
 | Prop/Attr | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
 | name | String | `` | 对应图标的name， |
-| size | NUmber, String | `24` | 图标对应的font-size值大小 |
+| size | Number, String | `24` | 图标对应的font-size值大小 |

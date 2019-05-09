@@ -1,4 +1,4 @@
-@extend;
+@hook;
 
 .bar[role="bar-static"]:nth-of-type(1) {
     border-color: $theme-chart-color1;
