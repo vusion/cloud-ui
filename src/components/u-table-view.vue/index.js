@@ -8,6 +8,4 @@ export const UTableView = {
     },
 };
 
-export * from './filters.vue';
-
 export default UTableView;

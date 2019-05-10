@@ -1,7 +1,7 @@
 import { ellipsisTitle } from 'proto-ui.vusion/src/directives';
 import { getStyle, getScrollSize } from '../../utils/style';
 // import { deepCopy } from '../../utils/index';
-import { cloneDeep } from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 import i18n from './i18n';
 
 export const UResizeTable = {
