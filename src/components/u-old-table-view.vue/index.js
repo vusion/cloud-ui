@@ -1,8 +1,9 @@
-import { getStyle, getScrollSize } from '../base/utils/style';
-import { ellipsisTitle } from 'proto-ui.vusion/src/base/directives';
-import { deepCopy } from '../base/utils/index';
+import { getStyle, getScrollSize } from '../../utils/style';
+import { ellipsisTitle } from 'proto-ui.vusion/src/directives';
+import { deepCopy } from '../../utils/index';
 import i18n from './i18n';
 import throttle from 'lodash/throttle';
+import { setTimeout } from 'timers';
 
 export const UOldTableView = {
     name: 'u-old-table-view',
@@ -491,7 +492,7 @@ export const UOldTableView = {
         },
         handleResize() {
             if (this.layout !== 'auto') {
-                this.$nextTick(() => {
+                setTimeout(() => {
                     // 判断是否会出现水平滚动条
                     let parentWidth;
                     parentWidth = this.$el.offsetWidth;
