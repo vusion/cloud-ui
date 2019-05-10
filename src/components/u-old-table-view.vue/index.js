@@ -1,9 +1,10 @@
-import { getStyle, getScrollSize } from '../../utils/style';
-import { ellipsisTitle } from 'proto-ui.vusion/src/directives';
-import { deepCopy } from '../../utils/index';
+import { getStyle, getScrollSize } from '../base/utils/style';
+import { ellipsisTitle } from 'proto-ui.vusion/src/base/directives';
+import { deepCopy } from '../base/utils/index';
 import i18n from './i18n';
+import throttle from 'lodash/throttle';
 
-export const UOldTableView = {
+export default {
     name: 'u-old-table-view',
     i18n,
     props: {
@@ -54,7 +55,8 @@ export const UOldTableView = {
         xScroll: { type: Boolean, default: false }, // 用来处理当表格出现水平滚动条时，默认scroll事件走表格的水平滚动
         width: [String, Number],
         visible: { type: Boolean, default: true },
-        pattern: { type: String, default: 'normal' }, // 特殊显示内容情形 三种形式 瀑布流 暂未支持
+        dataPattern: { type: String, default: 'copy' }, // 默认数据是通过深拷贝复制 保证对源数据不会产生任何影响 但是当在表格中需要修改数据的场景下不合适
+        pattern: { type: String, default: 'normal' }, // 特殊显示内容情形 limit normal virtual
         limit: { type: Number, default: 5 }, // 用来默认显示limit条数据
         limitText: { type: String, default() { return this.$t('limitText'); } },
         allText: { type: String, default() { return this.$t('allText'); } },
@@ -108,6 +110,15 @@ export const UOldTableView = {
             currentSort: this.defaultSort,
             // scrollDiff: false,
             rootBottomBorder: false, // 解决tr加border-bottom带来样式上的异常问题，采用给根元素添加伪元素的方式实现
+            headHeight: 0,
+            titleHeight: 0,
+            maxSize: 0, // 当出现滚动条 可视区可显示的最大行数
+            currentSize: 3, // 当前显示几倍最大可视区行数的数据
+            estimatedItemHeight: 51,
+            virtualTop: 0,
+            virtualBottom: 0,
+            startIndex: 0,
+            estimatedTotalHeight: undefined,
         };
     },
     directives: { ellipsisTitle },
@@ -120,6 +131,7 @@ export const UOldTableView = {
             itemVM.parentVM = undefined;
             this.columns.splice(this.columns.indexOf(itemVM), 1);
         });
+        this.throttleScroll = throttle(this.bodyScroll, 1000);
     },
     mounted() {
         if (this.pattern === 'limit')
@@ -176,12 +188,14 @@ export const UOldTableView = {
                 const flag = this.showColumns.some((column) => column.filter);
                 if (flag && this.forceFilter) {
                     // 在有filter列的情况下  数据如果发生变化是需要对数据进行过滤显示的
+                    let columnIndex;
                     if (this.defaultFilter.title === undefined) {
                         this.showColumns.some((item, index) => {
                             if (item.filter) {
                                 this.defaultFilter.title = item.title;
                                 this.defaultFilter.value = item.value;
                                 this.defaultFilter.column = item;
+                                columnIndex = index;
                                 return true;
                             }
                             return false;
@@ -190,6 +204,7 @@ export const UOldTableView = {
                         this.showColumns.some((column, index) => {
                             if (column.title === this.defaultFilter.title) {
                                 this.defaultFilter.column = column;
+                                columnIndex = index;
                                 return true;
                             }
                             return false;
@@ -367,7 +382,7 @@ export const UOldTableView = {
             }
         },
         getSelection(value) {
-            const data = value || this.tdata;
+            const data = value || this.copyTdata;
             const selectionIndexes = [];
             let noDisabledCount = 0;
             data.forEach((row, index) => {
@@ -387,12 +402,12 @@ export const UOldTableView = {
         allSelected() {
             this.$nextTick(() => {
                 const flag = this.allSel;
-                const copydata = this.tdata.concat();
-                copydata.forEach((item) => {
+                // const copydata = this.tdata.concat();
+                this.copyTdata.forEach((item) => {
                     if (!item.disabled)
                         item.selected = flag;
                 });
-                this.tdata = copydata;
+                // this.tdata = copydata;
                 const selection = this.getSelection();
                 if (flag)
                     this.$emit('select-all', selection);
@@ -404,7 +419,14 @@ export const UOldTableView = {
             let tdata = [];
             // 现在是将原始数据进行了深拷贝操作 现在的原因是不进行深拷贝会影响到原始数据，会添加一些新的属性，导致原始数据的变化
             // 1 需不需要进行深拷贝（如何解决影响原始数据变化的问题）2 进行深拷贝，数据变化需不需要$emit事件
-            const copyData = deepCopy([], this.data);
+            if (this.pattern === 'virtual')
+                this.estimatedTotalHeight = this.data.length * this.estimatedItemHeight + 'px';
+            if (this.maxHeight || this.height) {
+                this.titleHeight = parseFloat(getStyle(this.$refs.title, 'height')) || 0;
+                this.headHeight = parseFloat(getStyle(this.$refs.head, 'height')) || 0;
+                this.maxSize = Math.ceil((parseFloat(this.height || this.maxHeight) - this.titleHeight - this.headHeight) / this.estimatedItemHeight);
+            }
+            const copyData = deepCopy([], this.data, this.dataPattern === 'copy');
             this.copyTdata = copyData;
             copyData.forEach((item, index) => {
                 /* eslint-disable */
@@ -416,29 +438,29 @@ export const UOldTableView = {
             if (selection && expand) {
                 copyData.forEach((item) => {
                     if (item.selected === undefined)
-                        item.selected = false;
+                        this.$set(item, 'selected', false);
                     if (item.expanded === undefined)
-                        item.expanded = false;
+                        this.$set(item, 'expanded', false);
                     if (item.iconName === undefined)
-                        item.iconName = 'right';
+                        this.$set(item, 'iconName', 'right');
                     if (item.disabled === undefined)
-                        item.disabled = false;
+                        this.$set(item, 'disabled', false);
                     tdata.push(item);
                 });
             } else if (selection) {
                 copyData.forEach((item) => {
                     if (item.selected === undefined)
-                        item.selected = false;
+                        this.$set(item, 'selected', false);
                     if (item.disabled === undefined)
-                        item.disabled = false;
+                        this.$set(item, 'disabled', false);
                     tdata.push(item);
                 });
             } else if (expand) {
                 copyData.forEach((item) => {
                     if (item.expanded === undefined)
-                        item.expanded = false;
+                        this.$set(item, 'expanded', false);
                     if (item.iconName === undefined)
-                        item.iconName = 'right';
+                        this.$set(item, 'iconName', 'right');
                     tdata.push(item);
                 });
             } else {
@@ -454,6 +476,12 @@ export const UOldTableView = {
 
             if (value)
                 tdata = tdata.slice(0, value);
+
+            if (this.maxSize) {
+                tdata = tdata.slice(this.startIndex, this.currentSize * this.maxSize);
+                if (this.pattern === 'virtual')
+                    this.virtualBottom = parseFloat(this.estimatedTotalHeight) - this.virtualTop;
+            }
 
             const selectionArr = this.getSelection(this.data);
             // if (selectionArr.length !== 0)
@@ -473,7 +501,7 @@ export const UOldTableView = {
                         let parentNode = this.$refs.root.parentNode;
                         while (parentNode && parentNode.offsetWidth === 0)
                             parentNode = parentNode.parentNode;
-                        parentWidth = tableWidth = parentNode.offsetWidth || 0;
+                        parentWidth = tableWidth = parentNode && parentNode.offsetWidth || 0;
                     }
 
                     // 分别获取有百分比 具体数值 和无width的column集合
@@ -558,12 +586,12 @@ export const UOldTableView = {
                         this.isXScroll = Math.abs(parseFloat(this.tableWidth) - parentWidth) > 0.001;
 
                     this.scrollWidth = getScrollSize();
-                    const titleHeight = parseFloat(getStyle(this.$refs.title, 'height')) || 0;
-                    const headHeight = parseFloat(getStyle(this.$refs.head, 'height')) || 0;
+                    this.titleHeight = parseFloat(getStyle(this.$refs.title, 'height')) || 0;
+                    this.headHeight = parseFloat(getStyle(this.$refs.head, 'height')) || 0;
                     const tableHeight = this.$refs.body.offsetHeight;
                     if (this.height && !this.loading && this.data.length) {
                         // this.bodyWidth = parseFloat(this.tableWidth) - this.scrollWidth;
-                        this.bodyHeight = this.height - titleHeight - headHeight;
+                        this.bodyHeight = this.height - this.titleHeight - this.headHeight;
                         this.isYScroll = tableHeight > this.bodyHeight;
                     } else {
                         this.bodyWidth = this.tableWidth;
@@ -571,12 +599,12 @@ export const UOldTableView = {
                     }
                     if (this.maxHeight && !this.loading && this.data.length) {
                         // this.bodyWidth = parseFloat(this.tableWidth) - this.scrollWidth;
-                        this.fixedMaxTableHeight = this.maxBodyHeight = this.maxHeight - titleHeight - headHeight;
+                        this.fixedMaxTableHeight = this.maxBodyHeight = this.maxHeight - this.titleHeight - this.headHeight;
                         this.isYScroll = tableHeight > this.maxBodyHeight;
                     }
                     if (this.minHeight && !this.loading && this.data.length) {
                         // this.bodyWidth = parseFloat(this.tableWidth) - this.scrollWidth;
-                        this.fixedMinTableHeight = this.minBodyHeight = this.minHeight - titleHeight - headHeight;
+                        this.fixedMinTableHeight = this.minBodyHeight = this.minHeight - this.titleHeight - this.headHeight;
                     }
                     if (this.isXScroll)
                         this.fixedMaxTableHeight = this.fixedMaxTableHeight - this.scrollWidth;
@@ -745,12 +773,35 @@ export const UOldTableView = {
             });
         },
         bodyScroll(e) {
-            this.$refs.head.scrollLeft = e.target.scrollLeft;
+            this.$refs.head.scrollLeft = e.target && e.target.scrollLeft;
             if (this.fixedLeftColumns.length > 0)
                 this.$refs.lefttable.scrollTop = e.target.scrollTop;
             if (this.fixedRightColumns.length > 0)
                 this.$refs.righttable.scrollTop = e.target.scrollTop;
             this.$refs.popper && this.$refs.popper[0] && this.$refs.popper[0].toggle(false);
+            if (this.maxSize) {
+                const scrollTop = +e.target.scrollTop;
+                const clientHeight = +e.target.clientHeight;
+                const scrollHeight = +e.target.scrollHeight;
+                if (this.pattern === 'virtual') {
+                    // 虚拟滚动模式加载表格数据
+                    const distanceItem = Math.floor(scrollTop / this.estimatedItemHeight);
+                    this.startIndex = distanceItem > 2 * this.maxSize ? distanceItem - 2 * this.maxSize : 0;
+                    let endIndex = this.startIndex + distanceItem + this.maxSize * this.currentSize + 1;
+                    endIndex = endIndex > this.data.length ? this.data.length : endIndex;
+                    this.virtualTop = this.startIndex * this.estimatedItemHeight;
+                    this.virtualBottom = this.estimatedTotalHeight > this.virtualTop ? parseFloat(this.estimatedTotalHeight) - this.virtualTop : 0;
+                    this.tdata = this.copyTdata.slice(this.startIndex, endIndex);
+                    console.log(this.startIndex, distanceItem, endIndex, this.virtualBottom);
+                } else {
+                    // 懒加载模式加载表格数据
+                    if (scrollTop + clientHeight >= scrollHeight) {
+                        this.currentSize += 2;
+                        this.tdata = this.copyTdata.slice(0, this.maxSize * this.currentSize);
+                        this.$emit('scroll-end');
+                    }
+                }
+            }
         },
         fixmouseenter(value) {
             if (value === -1) {
@@ -803,8 +854,3 @@ export const UOldTableView = {
         window.removeEventListener('resize', this.onResize, false);
     },
 };
-
-export * from './column.vue';
-export * from './cell.vue';
-
-export default UOldTableView;

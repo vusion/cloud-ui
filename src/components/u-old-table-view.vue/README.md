@@ -1,4 +1,4 @@
-# UOldTableView 表格视图
+# 表格视图 OldTableView
 
 ## 示例
 ### 基本形式
@@ -1398,8 +1398,156 @@ export default {
 </script>
 ```
 
+#### 懒加载方式加载表格数据
+``` vue
+<template>
+    <div>
+        <u-old-table-view :data="tdata" max-height="500" @scroll-end="scrollEnd">
+            <u-old-table-view-column title="日期" label="date"></u-old-table-view-column>
+            <u-old-table-view-column ellipsis title="姓名" label="name"></u-old-table-view-column>
+            <u-old-table-view-column ellipsis title="地址" label="address" sortable>
+                <template slot-scope="scope">
+                    {{scope.row.address}}
+                </template>
+            </u-old-table-view-column>
+            <u-old-table-view-column title="性别" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-old-table-view-column>
+        </u-old-table-view>
+    </div>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            tdata: [],
+            options: [
+                {
+                    name: '全部',
+                    value: '',
+                },
+                {
+                    name: '男',
+                    value: '男'
+                },
+                {
+                    name: '女',
+                    value: '女'
+                },
+            ],
+            value: ''
+        };
+    },
+    created() {
+        for(let i=0; i<20; i++) {
+            this.tdata.push({
+                date: 1503964800000,
+                name: '令狐冲',
+                address: '浙江省杭州市滨江区',
+                female: '女',
+                use: 12,
+                total: 20,
+            });
+        }
+    },
+    methods: {
+        formatter(row, column) {
+            if (row.name === '天王盖地虎')
+                return '逗比一号';
+            else
+                return row.name;
+        },
+        filterMethod(value, columnValue) {
+            if (value === '')
+                return true;
+            return columnValue === value;
+        },
+        scrollEnd() {
+            setTimeout(() => {
+                for(let i=0;i<10;i++) {
+                    this.tdata.push({
+                        date: 1502236800000,
+                        name: '方世玉',
+                        address: '浙江省杭州市滨江区',
+                        female: '女',
+                        use: 12,
+                        total: 20,
+                    });
+                }
+            }, 1000);
+        },
+    },
+};
+</script>
+```
 
-## TableView API
+#### 虚拟滚动方式加载表格数据
+设置`pattern`属性的值为`'virtual'`, 如果不需要数据进行深拷贝，可以将`dataPattern`属性设置为`'normal'`
+``` vue
+<template>
+    <div>
+        <u-old-table-view :data="tdata" max-height="500" data-pattern="normal" pattern="virtual">
+            <u-old-table-view-column title="日期" label="date"></u-old-table-view-column>
+            <u-old-table-view-column ellipsis title="姓名" label="name"></u-old-table-view-column>
+            <u-old-table-view-column ellipsis title="地址" label="address" sortable>
+                <template slot-scope="scope">
+                    {{scope.row.address}}
+                </template>
+            </u-old-table-view-column>
+            <u-old-table-view-column title="性别" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-old-table-view-column>
+        </u-old-table-view>
+    </div>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            tdata: [],
+            options: [
+                {
+                    name: '全部',
+                    value: '',
+                },
+                {
+                    name: '男',
+                    value: '男'
+                },
+                {
+                    name: '女',
+                    value: '女'
+                },
+            ],
+            value: ''
+        };
+    },
+    created() {
+        for(let i=0; i<5000; i++) {
+            this.tdata.push({
+                date: 1503964800000,
+                name: '令狐冲' + i,
+                address: '浙江省杭州市滨江区',
+                female: '女',
+                use: 12,
+                total: 20,
+            });
+        }
+    },
+    methods: {
+        formatter(row, column) {
+            if (row.name === '天王盖地虎')
+                return '逗比一号';
+            else
+                return row.name;
+        },
+        filterMethod(value, columnValue) {
+            if (value === '')
+                return true;
+            return columnValue === value;
+        },
+    },
+};
+</script>
+```
+
+## OldTableView API
 ### Attrs/Props
 
 #### 视图相关属性
@@ -1436,6 +1584,7 @@ export default {
 | --------- | ---- | ------- | ----------- |
 | title | String |  | 表格的标题 |
 | data | Array |  | 表格默认要显示的数据 |
+| dataPattern | String | `'copy'` | 默认数据是否采用深拷贝模式，默认是采取的，在大数据量展示情形中请将此值置为`'normal'` |
 | allChecked.sync | Boolean | `false` | 默认是否全部选中 |
 | defaultSort | Object\< title, order \> |  | 默认的排序列和顺序值，其中`title`属性指定默认排序的列。`order`指定默认排序的顺序，可选值: `'desc'`,`'asc'`。 |
 | defaultFilter | Object\< title, value, column \> |  | 默认采用某列进行过滤，其中`title`属性指定默认过滤的列，`value`指定默认过滤的值，在存在多个过滤列的时候可以使用此属性指定，当前只有一个列的时候可以不指定，默认会使用第一个filter列 |
@@ -1547,7 +1696,7 @@ export default {
 | ----- | ---- | ----------- |
 | $event.index | Int | 行数据索引 |
 
-## TableViewColumn API
+## OldTableViewColumn API
 ### Props/Attrs
 
 #### 视图相关属性

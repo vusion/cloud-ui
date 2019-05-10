@@ -4,14 +4,17 @@ export const isObject = (value) => {
     return value.toString() === '[object Object]';
 };
 
-export const deepCopy = function (result, source) {
+export const deepCopy = function (result, source, type = true) {
     for (const key in source) {
         const copy = source[key];
-        if (Array.isArray(copy))
-            result[key] = deepCopy(result[key] || [], copy);
-        else if (isObject(copy))
-            result[key] = deepCopy(result[key] || {}, copy);
-        else
+        if (type) {
+            if (Array.isArray(copy))
+                result[key] = deepCopy(result[key] || [], copy);
+            else if (isObject(copy))
+                result[key] = deepCopy(result[key] || {}, copy);
+            else
+                result[key] = copy;
+        } else
             result[key] = copy;
     }
     return result;
