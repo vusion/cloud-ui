@@ -4,7 +4,7 @@ import { deepCopy } from '../base/utils/index';
 import i18n from './i18n';
 import throttle from 'lodash/throttle';
 
-export default {
+export const UOldTableView = {
     name: 'u-old-table-view',
     i18n,
     props: {
@@ -854,3 +854,8 @@ export default {
         window.removeEventListener('resize', this.onResize, false);
     },
 };
+
+export * from './column.vue';
+export * from './cell.vue';
+
+export default UOldTableView;

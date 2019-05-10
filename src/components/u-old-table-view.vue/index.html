@@ -15,19 +15,19 @@
                         <span v-if="!column.filter" :class="$style.itemtitle">
                             <template v-if="!column.$slots.headerTitle">{{ column.title }}</template>
                             <template v-else>
-                                <u-table-view-cell :class="$style.ditem" :column="column" text></u-table-view-cell>
+                                <u-old-table-view-cell :class="$style.ditem" :column="column" text></u-old-table-view-cell>
                             </template>
                         </span>
                         <template v-else-if="column.filter">
-                            <u-popper ref="popper" trigger="click" :placement="column.placement" append-to="body">
-                                <div :class="$style.filtertitle" :role="column.filter">
-                                    <span :class="$style.titleitem">{{column.title}}</span>
-                                    <div :class="$style.traingle"></div>
-                                </div>
-                                <div :class="$style.popper" slot="popper">
-                                    <div :class="$style.option" :direction="column.optionsDirection" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value" v-ellipsis-title>{{option.name}}</div>
-                                </div>
-                            </u-popper>
+                           <div :class="$style.filtertitle" :role="column.filter">
+                               <span :class="$style.titleitem">{{column.title}}</span>
+                               <div :class="$style.traingle"></div>
+                               <m-popper :class="$style.popper" trigger="click" ref="popper" :placement="column.placement" append-to="body">
+                                   <div :style="{width: columnsWidth[index] + 'px'}">
+                                       <div :class="$style.option" :direction="column.optionsDirection" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value" v-ellipsis-title>{{option.name}}</div>
+                                   </div>
+                               </m-popper>
+                           </div>
                         </template>
                         <template v-if="column.sortable">
                             <span :class="$style.wrapicon">
@@ -68,7 +68,7 @@
                                 </label>
                             </span>
                             <template v-else-if="column.$scopedSlots.default || column.$slots.default">
-                                <u-table-view-cell :row="row" :column="column" :class="$style.ditem" :expanded="expandedColumn && column.type === 'expand'" :role="column.ellipsis" v-ellipsis-title></u-table-view-cell>
+                                <u-old-table-view-cell :row="row" :column="column" :class="$style.ditem" :expanded="expandedColumn && column.type === 'expand'" :role="column.ellipsis" v-ellipsis-title></u-old-table-view-cell>
                             </template>
                             <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex) || defaultText}}</span>
                             <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="translateTime(row[column.label], column.timeFormat)">{{translateTime(row[column.label], column.timeFormat)}}</span>
@@ -82,7 +82,7 @@
                     </tr>
                     <tr :class="$style.btrItem" v-if="row.expanded">
                         <td :colspan="showColumns.length" :class="$style.btdSpan" :expanded="row.expanded" :border="border" role="center" :hide="isXScroll || border">
-                            <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
+                            <u-old-table-view-cell :row="row" :column="expandedColumn" expand></u-old-table-view-cell>
                         </td>
                     </tr>
                 </template>
@@ -141,19 +141,19 @@
                             <span v-if="!column.filter" :class="$style.itemtitle">
                                 <template v-if="!column.$slots.headerTitle">{{ column.title }}</template>
                                 <template v-else>
-                                    <u-table-view-cell :class="$style.ditem" :column="column" text></u-table-view-cell>
+                                    <u-old-table-view-cell :class="$style.ditem" :column="column" text></u-old-table-view-cell>
                                 </template>
                             </span>
                             <template v-else-if="column.filter">
-                                <u-popper trigger="click" ref="popper" :placement="column.placement" append-to="body">
-                                    <div :class="$style.filtertitle" :role="column.filter">
-                                        <span :class="$style.titleitem">{{column.title}}</span>
-                                        <div :class="$style.traingle"></div>
-                                    </div>
-                                    <div :class="$style.popper" slot="popper" :style="{width: columnsWidth[index] + 'px'}">
-                                        <div :class="$style.option" :direction="column.optionsDirection" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value" v-ellipsis-title>{{option.name}}</div>
-                                    </div>
-                                </u-popper>
+                               <div :class="$style.filtertitle" :role="column.filter">
+                                   <span :class="$style.titleitem">{{column.title}}</span>
+                                   <div :class="$style.traingle"></div>
+                                   <m-popper :class="$style.popper" trigger="click" ref="popper" :placement="column.placement" append-to="body">
+                                       <div :style="{width: columnsWidth[index] + 'px'}">
+                                           <div :class="$style.option" :direction="column.optionsDirection" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value" v-ellipsis-title>{{option.name}}</div>
+                                       </div>
+                                   </m-popper>
+                               </div>
                             </template>
                             <template v-if="column.sortable">
                                 <span :class="$style.wrapicon">
@@ -205,7 +205,7 @@
                                             </label>
                                         </span>
                                         <template v-else-if="column.$scopedSlots.default || column.$slots.default">
-                                            <u-table-view-cell :row="row" :column="column" :class="$style.ditem" :expanded="expandedColumn && column.type === 'expand'" :role="column.ellipsis" v-ellipsis-title></u-table-view-cell>
+                                            <u-old-table-view-cell :row="row" :column="column" :class="$style.ditem" :expanded="expandedColumn && column.type === 'expand'" :role="column.ellipsis" v-ellipsis-title></u-old-table-view-cell>
                                         </template>
                                         <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex) || defaultText}}</span>
                                         <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="translateTime(row[column.label], column.timeFormat)">{{translateTime(row[column.label], column.timeFormat)}}</span>
@@ -219,7 +219,7 @@
                                 </tr>
                                 <tr :class="$style.btrItem" v-if="row.expanded">
                                     <td :colspan="showColumns.length" :class="$style.btdSpan" :expanded="row.expanded" :border="border" role="center" :hide="isXScroll || border">
-                                        <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
+                                        <u-old-table-view-cell :row="row" :column="expandedColumn" expand></u-old-table-view-cell>
                                     </td>
                                 </tr>
                             </template>
@@ -280,19 +280,19 @@
                                 <span v-if="!column.filter" :class="$style.itemtitle">
                                     <template v-if="!column.$slots.headerTitle">{{ column.title }}</template>
                                 <template v-else>
-                                    <u-table-view-cell :class="$style.ditem" :column="column" text></u-table-view-cell>
+                                    <u-old-table-view-cell :class="$style.ditem" :column="column" text></u-old-table-view-cell>
                                 </template>
                                 </span>
                                 <template v-else-if="column.filter">
-                                    <u-popper trigger="click" ref="popper" :placement="column.placement" append-to="body">
-                                        <div :class="$style.filtertitle" :role="column.filter">
-                                            <span :class="$style.titleitem">{{column.title}}</span>
-                                            <div :class="$style.traingle"></div>
-                                        </div>
-                                        <div :class="$style.popper" slot="popper" :style="{width: columnsWidth[index] + 'px'}">
-                                            <div :class="$style.option" :direction="column.optionsDirection" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value" v-ellipsis-title>{{option.name}}</div>
-                                        </div>
-                                    </u-popper>
+                                   <div :class="$style.filtertitle" :role="column.filter">
+                                       <span :class="$style.titleitem">{{column.title}}</span>
+                                       <div :class="$style.traingle"></div>
+                                       <m-popper :class="$style.popper" trigger="click" ref="popper" :placement="column.placement" append-to="body">
+                                           <div :style="{width: columnsWidth[index] + 'px'}">
+                                               <div :class="$style.option" :direction="column.optionsDirection" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value" v-ellipsis-title>{{option.name}}</div>
+                                           </div>
+                                       </m-popper>
+                                   </div>
                                 </template>
                                 <template v-if="column.sortable">
                                     <span :class="$style.wrapicon">
@@ -341,7 +341,7 @@
                                         </label>
                                     </span>
                                     <template v-else-if="column.$scopedSlots.default">
-                                        <u-table-view-cell :row="row" :column="column" :class="$style.ditem" :expanded="expandedColumn && column.type === 'expand'" :role="column.ellipsis" v-ellipsis-title></u-table-view-cell>
+                                        <u-old-table-view-cell :row="row" :column="column" :class="$style.ditem" :expanded="expandedColumn && column.type === 'expand'" :role="column.ellipsis" v-ellipsis-title></u-old-table-view-cell>
                                     </template>
                                     <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex) || defaultText}}</span>
                                     <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="translateTime(row[column.label], column.timeFormat)">{{translateTime(row[column.label], column.timeFormat)}}</span>
@@ -355,7 +355,7 @@
                             </tr>
                             <tr :class="$style.btrItem" v-if="row.expanded">
                                 <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center" :hide="isXScroll || border">
-                                    <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
+                                    <u-old-table-view-cell :row="row" :column="expandedColumn" expand></u-old-table-view-cell>
                                 </td>
                             </tr>
                         </template>
@@ -379,19 +379,19 @@
                                 <span v-if="!column.filter" :class="$style.itemtitle">
                                     <template v-if="!column.$slots.headerTitle">{{ column.title }}</template>
                                 <template v-else>
-                                    <u-table-view-cell :class="$style.ditem" :column="column" text></u-table-view-cell>
+                                    <u-old-table-view-cell :class="$style.ditem" :column="column" text></u-old-table-view-cell>
                                 </template>
                                 </span>
                                 <template v-else-if="column.filter">
-                                    <u-popper trigger="click" ref="popper" :placement="column.placement" append-to="body">
-                                        <div :class="$style.filtertitle" :role="column.filter">
-                                            <span :class="$style.titleitem">{{column.title}}</span>
-                                            <div :class="$style.traingle"></div>
-                                        </div>
-                                        <div :class="$style.popper" slot="popper" :style="{width: columnsWidth[index] + 'px'}">
-                                            <div :class="$style.option" :direction="column.optionsDirection" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value" v-ellipsis-title>{{option.name}}</div>
-                                        </div>
-                                    </u-popper>
+                                    <div :class="$style.filtertitle" :role="column.filter">
+                                        <span :class="$style.titleitem">{{column.title}}</span>
+                                        <div :class="$style.traingle"></div>
+                                        <m-popper :class="$style.popper" trigger="click" ref="popper" :placement="column.placement" append-to="body">
+                                            <div :style="{width: columnsWidth[index] + 'px'}">
+                                                <div :class="$style.option" :direction="column.optionsDirection" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value" v-ellipsis-title>{{option.name}}</div>
+                                            </div>
+                                        </m-popper>
+                                    </div>
                                 </template>
                                 <template v-if="column.sortable">
                                     <span :class="$style.wrapicon">
@@ -440,7 +440,7 @@
                                         </label>
                                     </span>
                                     <template v-else-if="column.$scopedSlots.default">
-                                        <u-table-view-cell :row="row" :column="column" :class="$style.ditem" :expanded="expandedColumn && column.type === 'expand'" :role="column.ellipsis" v-ellipsis-title></u-table-view-cell>
+                                        <u-old-table-view-cell :row="row" :column="column" :class="$style.ditem" :expanded="expandedColumn && column.type === 'expand'" :role="column.ellipsis" v-ellipsis-title></u-old-table-view-cell>
                                     </template>
                                     <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex) || defaultText}}</span>
                                     <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="translateTime(row[column.label], column.timeFormat)">{{translateTime(row[column.label], column.timeFormat)}}</span>
@@ -454,7 +454,7 @@
                             </tr>
                             <tr :class="$style.btrItem" v-if="row.expanded">
                                 <td :colspan="showColumns.length" :class="$style.btdSpan" :border="border" role="center">
-                                    <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
+                                    <u-old-table-view-cell :row="row" :column="expandedColumn" expand></u-old-table-view-cell>
                                 </td>
                             </tr>
                         </template>
