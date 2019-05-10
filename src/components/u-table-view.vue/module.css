@@ -1,0 +1,25 @@
+@extend;
+
+.head-title[sortable]:hover, .head-title[filterable]:hover {
+    background: #eef2f8;
+}
+
+.filter {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.filter::before {
+    icon-font: url('../u-icon.vue/icons/keyboard-arrow-down.svg');
+    position: absolute;
+    display: block;
+    right: 5px;
+    line-height: 46px;
+    font-size: 18px;
+    color: #9dabc2;
+}

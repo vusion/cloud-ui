@@ -48,6 +48,7 @@ export * from './u-subnav.vue';
 export * from './u-subtabs.vue';
 export * from './u-switch.vue';
 export * from './u-table.vue';
+export * from './u-table-view.vue';
 export * from './u-tablets.vue';
 export * from './u-tabs.vue';
 export * from './u-text.vue';

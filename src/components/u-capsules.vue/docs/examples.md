@@ -94,7 +94,7 @@
 ### 标签
 
 ``` html
-<u-capsules @change="test">
+<u-capsules>
     <u-capsule value="6" size="small">6</u-capsule>
     <u-capsule value="7" size="small" label="88折">7</u-capsule>
     <u-capsule value="8" size="small" label="88折">8</u-capsule>

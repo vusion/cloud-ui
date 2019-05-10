@@ -15,7 +15,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
     border-radius: 3px;
-    background: rgba(92,110,130,0.6);
+    background: rgba(92, 110, 130, 0.6);
 }
 
 ::-webkit-scrollbar-button,
