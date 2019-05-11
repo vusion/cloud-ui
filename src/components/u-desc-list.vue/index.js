@@ -31,7 +31,7 @@ export const UDescList = {
     },
 };
 
-export * from './group.vue';
-export * from './item.vue';
+export { UDescListGroup } from './group.vue';
+export { UDescListItem } from './item.vue';
 
 export default UDescList;

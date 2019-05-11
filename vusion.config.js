@@ -5,6 +5,7 @@ module.exports = {
     type: 'library',
     name: 'cloud-ui',
     CamelName: 'CloudUI',
+    uglifyJS: false,
     extractCSS: true,
     sourceMap: true,
     webpackDevServer: {

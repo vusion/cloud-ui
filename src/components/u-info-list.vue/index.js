@@ -32,7 +32,7 @@ export const UInfoList = {
     },
 };
 
-export * from './group.vue';
-export * from './item.vue';
+export { UInfoListGroup } from './group.vue';
+export { UInfoListItem } from './item.vue';
 
 export default UInfoList;

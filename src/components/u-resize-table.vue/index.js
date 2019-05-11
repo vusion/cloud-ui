@@ -677,6 +677,6 @@ export const UResizeTable = {
     },
 };
 
-export * from './column.vue';
+export { UResizeTableColumn } from './column.vue';
 
 export default UResizeTable;

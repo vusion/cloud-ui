@@ -45,6 +45,6 @@ export const UActions = {
     },
 };
 
-export * from './action.vue';
+export { UAction } from './action.vue';
 
 export default UActions;

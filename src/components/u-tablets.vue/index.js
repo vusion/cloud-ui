@@ -6,6 +6,6 @@ export const UTablets = {
     extends: UListView,
 };
 
-export * from './tablet.vue';
+export { UTablet } from './tablet.vue';
 
 export default UTablets;

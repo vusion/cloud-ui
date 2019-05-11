@@ -5,7 +5,7 @@ export const UNavbarMenu = {
     extends: ONavbarMenu,
 };
 
-export * from './item.vue';
+export { UNavbarMenuItem } from './item.vue';
 // export * from './group.vue';
 // export * from './divider.vue';
 

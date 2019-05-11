@@ -196,6 +196,6 @@ export const ULightbox = {
     },
 };
 
-export * from './item.vue';
+export { ULightboxItem } from './item.vue';
 
 export default ULightbox;

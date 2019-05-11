@@ -6,6 +6,6 @@ export const UPills = {
     extends: UListView,
 };
 
-export * from './pill.vue';
+export { UPill } from './pill.vue';
 
 export default UPills;

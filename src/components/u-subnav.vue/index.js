@@ -6,7 +6,7 @@ export const USubnav = {
     extends: UNavbar,
 };
 
-export * from './item.vue';
-export * from './divider.vue';
+export { USubnavItem } from './item.vue';
+export { USubnavDivider } from './divider.vue';
 
 export default USubnav;

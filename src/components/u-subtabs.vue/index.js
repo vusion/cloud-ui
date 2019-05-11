@@ -6,6 +6,6 @@ export const USubtabs = {
     extends: UTabs,
 };
 
-export * from './subtab.vue';
+export { USubtab } from './subtab.vue';
 
 export default USubtabs;

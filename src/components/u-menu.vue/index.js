@@ -5,7 +5,7 @@ export const UMenu = {
     extends: OMenu,
 };
 
-export * from './item.vue';
+export { UMenuItem } from './item.vue';
 
 export default UMenu;
 

@@ -5,6 +5,6 @@ export const UNavbarSelect = {
     extends: ONavbarSelect,
 };
 
-export * from './item.vue';
+export { UNavbarSelectItem } from './item.vue';
 
 export default UNavbarSelect;

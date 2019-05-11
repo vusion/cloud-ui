@@ -10,6 +10,6 @@ export const UForm = {
     },
 };
 
-export * from './item.vue';
+export { UFormItem } from './item.vue';
 
 export default UForm;

@@ -11,6 +11,6 @@ export const USelectableSteps = {
     },
 };
 
-export * from './step.vue';
+export { USelectableStep } from './step.vue';
 
 export default USelectableSteps;

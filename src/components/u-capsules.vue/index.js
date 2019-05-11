@@ -6,7 +6,7 @@ export const UCapsules = {
     extends: UListView,
 };
 
-export * from './capsule.vue';
-export * from './group.vue';
+export { UCapsule } from './capsule.vue';
+export { UCapsuleGroup } from './group.vue';
 
 export default UCapsules;

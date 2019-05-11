@@ -8,8 +8,8 @@ export const USidebar = {
     },
 };
 
-export * from './group.vue';
-export * from './item.vue';
-export * from './divider.vue';
+export { USidebarGroup } from './group.vue';
+export { USidebarItem } from './item.vue';
+export { USidebarDivider } from './divider.vue';
 
 export default USidebar;
