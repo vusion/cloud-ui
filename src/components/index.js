@@ -58,4 +58,4 @@ export * from './u-toast.vue';
 export * from './u-tooltip.vue';
 export * from './u-xbar-chart.vue';
 
-// export * from 'proto-ui.vusion/src/components';
+export * from 'proto-ui.vusion/src/components';

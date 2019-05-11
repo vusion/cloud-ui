@@ -7,6 +7,6 @@ export const UCapsules = {
 };
 
 export { UCapsule } from './capsule.vue';
-export { UCapsuleGroup } from './group.vue';
+export { UCapsulesGroup } from './group.vue';
 
 export default UCapsules;
