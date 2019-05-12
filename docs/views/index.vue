@@ -38,15 +38,15 @@ export default {
             logo: this.$docs.logo,
             navbar: this.$docs.navbar,
             github: this.$docs.github,
-            theme: window.theme,
+            theme: (process.env.NODE_ENV === 'development' ? this.$docs.theme : window.theme) || 'default',
         };
     },
     methods: {
         onSelectTheme($event) {
-            if ($event.value !== window.theme) {
-                localStorage.setItem('theme', $event.value);
-                location.reload();
-            }
+            localStorage.setItem('theme', $event.value);
+            const linkEl = document.getElementById('theme-css');
+            const index = linkEl.href.lastIndexOf('/');
+            linkEl.href = linkEl.href.slice(0, index + 1) + window.getThemeCSS($event.value);
         },
         onSelectVersion($event) {
             if ($event.value)

@@ -40,6 +40,8 @@ npm i --save cloud-ui.vusion
 import Vue from 'vue';
 import * as CloudUI from 'cloud-ui.vusion/dist';
 import 'cloud-ui.vusion/dist/index.css';
+// 如需引入其他主题，将上面的路径替换为如下不同的主题样式
+// import 'cloud-ui.vusion/dist/theme-dark.css';
 
 Vue.use(CloudUI); // 全局安装组件库中的组件、指令等
 ```
@@ -86,6 +88,8 @@ install(Vue, { directives, UButton, UText, UInput }); // 全局安装组件库�
 
 ``` htm
 <link rel="stylesheet" href="https://unpkg.com/cloud-ui.vusion/dist/index.css">
+<!-- 如需引入其他主题，将上面的路径替换为如下不同的主题样式 -->
+<!-- link rel="stylesheet" href="https://unpkg.com/cloud-ui.vusion/dist/theme-dark.css" -->
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/cloud-ui.vusion/dist/index.js"></script>
 <script>

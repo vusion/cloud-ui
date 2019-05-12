@@ -28,6 +28,7 @@ export default {
 .root {
     box-sizing: border-box;
 }
+
 @media (min-width: 1200px) {
     .col {
         width: 25%;

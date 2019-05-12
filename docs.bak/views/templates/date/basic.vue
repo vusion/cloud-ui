@@ -49,8 +49,8 @@
 .inline {
     display: inline-block;
 }
-.btn{
-    margin:0 5px !important;
+.btn {
+    margin: 0 5px !important;
     color: #999;
 }
 .label {

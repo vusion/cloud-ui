@@ -13,50 +13,62 @@
 
 ## Install
 ``` shell
-npm install --save cloud-ui.vusion vusion-utils
+npm install --save cloud-ui.vusion
 ```
 
 ## QuickStart
 
 ``` javascript
 import Vue from 'vue';
-import * as CloudUI from 'cloud-ui.vusion';
-import { installComponents } from 'vusion-utils';
-installComponents(CloudUI, Vue);
+import * as CloudUI from 'cloud-ui.vusion/dist';
+import 'cloud-ui.vusion/dist/index.css';
+// 如需引入其他主题，将上面的路径替换为如下不同的主题样式
+// import 'cloud-ui.vusion/dist/theme-dark.css';
+
+Vue.use(CloudUI); // 全局安装组件库中的组件、指令等
 ```
 
 ## Development
 
-``` shell
-npm install
+### Install
+
+```
 npm install -g vusion-cli
-docs-src/dev
-```
-
-其他主题：
-
-``` shell
 npm install
-npm install -g vusion-cli
-docs-src/dev -t seagreen
 ```
 
-要在打开的浏览器中设置一下localStorage：
+### Build dist
 
-``` javascript
-localStorage.setItem('theme', 'seagreen');
-location.reload();
+```
+npm run build
 ```
 
-## Build
+### Develop docs
 
 ``` shell
-docs-src/build
+vusion doc
 ```
 
-## Publish
+如需不同的主题
 
 ``` shell
-docs-src/build
-vusion ghpages -p cloud-ui
+vusion doc -t dark
 ```
+
+### Build docs
+
+```
+npm run doc-build
+```
+
+## Changelog
+
+See [Releases](https://github.com/vusion/proto-ui/releases)
+
+## Contributing
+
+See [Contributing Guide](https://github.com/vusion/DOCUMENTATION/issues/8)
+
+## License
+
+[MIT](LICENSE)

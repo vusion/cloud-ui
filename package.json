@@ -10,6 +10,8 @@
   ],
   "main": "./index.js",
   "scripts": {
+    "build": "vusion build && vusion build -C -t dark && vusion build -C -t seagreen",
+    "doc-build": "set NODE_OPTIONS=--max_old_space_size=4096 && vusion doc-build && vusion doc-build -C -t dark && vusion doc-build -C -t seagreen",
     "precommit": "node node_modules/vusion-hooks/precommit"
   },
   "repository": "vusion/cloud-ui",
@@ -33,7 +35,7 @@
   "dependencies": {
     "countup.js": "^1.9.3",
     "lodash": "^4.17.5",
-    "proto-ui.vusion": "~0.4.0",
+    "proto-ui.vusion": "~0.4.1",
     "vusion-utils": "^0.3.3"
   },
   "devDependencies": {

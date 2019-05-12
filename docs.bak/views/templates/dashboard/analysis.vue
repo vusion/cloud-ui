@@ -67,10 +67,10 @@ export default {
 .row:not(:first-child) {
     background-color: #fff;
 }
-.row:after {
+.row::after {
     clear: both;
 }
-.row:before,.row:after {
+.row::before, .row::after {
     content: " ";
     display: table;
 }

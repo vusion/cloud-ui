@@ -6,7 +6,7 @@
             <h3>作用域插槽的方式</h3>
             <u-table-view :data="tdata">
                 <u-table-view-column :formatter="dateFormat" title="日期" width="20%" label="date" sortable></u-table-view-column>
-                <u-table-view-column title="姓名" width="10%" label="name" ></u-table-view-column>
+                <u-table-view-column title="姓名" width="10%" label="name"></u-table-view-column>
                 <u-table-view-column title="地址" width="15%" label="address" tooltip></u-table-view-column>
                 <u-table-view-column title="地址" width="10%" label="address" tooltip></u-table-view-column>
                 <u-table-view-column title="地址" width="20%" label="address" tooltip></u-table-view-column>

@@ -231,10 +231,10 @@ export default {
 .row:not(:first-child) {
     background-color: #fff;
 }
-.row:after {
+.row::after {
     clear: both;
 }
-.row:before,.row:after {
+.row::before, .row::after {
     content: " ";
     display: table;
 }
@@ -262,7 +262,7 @@ export default {
     color: #fff;
     border-radius: 2px;
 }
-.h5{
+.h5 {
     display: inline-block;
     font-size: 14px;
     margin: 0 0 7px;

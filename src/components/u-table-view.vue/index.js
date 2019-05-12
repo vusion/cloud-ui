@@ -5,6 +5,7 @@ export const UTableView = {
     extends: OTableView,
     props: {
         sortTrigger: { type: String, default: 'head' },
+        showSizer: { type: Boolean, default: true },
     },
 };
 
