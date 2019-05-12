@@ -7,19 +7,19 @@
 <body>
     <div id="app"><router-view></router-view></div>
     <script>
-    var theme = localStorage.getItem('theme');
-    if (!theme)
-        theme = 'default';
-    window.theme = theme;
+    // @TODO: different library collision
+    var theme = window.theme = localStorage.getItem('theme');
 
-    var $link = document.createElement('link');
-    $link.rel = 'stylesheet';
-    $link.href = '/cloud-ui/theme-' + theme + '/docs.css';
-    document.head.appendChild($link);
+    window.getThemeCSS = (theme) => !theme || theme === 'default' ? 'docs.css' : 'theme-' + theme + '.css';
 
-    var $script = document.createElement('script');
-    $script.src = '/cloud-ui/theme-' + theme + '/docs.js';
-    document.body.appendChild($script);
+    var linkEl = document.createElement('link');
+    linkEl.id = 'theme-css';
+    linkEl.rel = 'stylesheet';
+    linkEl.href = '/cloud-ui/' + getThemeCSS(theme);
+    document.head.appendChild(linkEl);
     </script>
+    
+        <script src="/cloud-ui/docs.js?b98ad0291f95d403191e"></script>
+    
 </body>
 </html>
