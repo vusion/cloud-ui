@@ -9,11 +9,11 @@
     vertical-align: middle;
     width: 114px;
     height: 64px;
-    background: url('./logo-163yun-white.svg?sprite=sprite-logo') 10px 0 no-repeat;
+    background: url('./logo-163yun-white.svg') 10px 0 no-repeat;
 }
 
 .root[color="2color"] .icon {
-    background: url('./logo-163yun-2color.svg?sprite=sprite-logo') 10px 0 no-repeat;
+    background: url('./logo-163yun-2color.svg') 10px 0 no-repeat;
 }
 
 .divider {

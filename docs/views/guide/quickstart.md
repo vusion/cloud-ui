@@ -112,10 +112,11 @@ Vue.use(CloudUI);
     <u-button @click="show">Click me!</u-button>
 </div>
 <script>
+    Vue.use(CloudUI);
     new Vue({
         el: '#app',
         methods: {
-            show: function () {
+            show() {
                 this.$alert('Hello World!');
             },
         },

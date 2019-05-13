@@ -126,11 +126,11 @@ module.exports = {
             { group: 'Directive', name: 'v-focus' },
         ],
         filters: [],
-        utils: [
-            { group: 'Utils', name: 'DataSource', alias: '数据源' },
-            { group: 'Utils', name: 'Formatters', alias: '格式器' },
-            { group: 'Utils', name: 'dom', alias: 'DOM 相关' },
-            { group: 'Utils', name: 'edit', alias: '编辑相关' },
-        ],
+        // utils: [
+        //     { group: 'Utils', name: 'DataSource', alias: '数据源' },
+        //     { group: 'Utils', name: 'Formatters', alias: '格式器' },
+        //     { group: 'Utils', name: 'dom', alias: 'DOM 相关' },
+        //     { group: 'Utils', name: 'edit', alias: '编辑相关' },
+        // ],
     },
 };
