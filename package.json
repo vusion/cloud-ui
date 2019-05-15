@@ -10,6 +10,7 @@
   ],
   "main": "./index.js",
   "scripts": {
+    "build": "vusion build && vusion build -C -t dark && vusion build -C -t seagreen",
     "precommit": "node node_modules/vusion-hooks/precommit"
   },
   "repository": "vusion/cloud-ui",
@@ -63,6 +64,11 @@
   },
   "vusion": {
     "version": ">=0.6.1",
-    "type": "library"
+    "type": "library",
+    "name": "cloud-ui",
+    "CamelName": "CloudUI",
+    "uglifyJS": true,
+    "extractCSS": true,
+    "sourceMap": true
   }
 }
