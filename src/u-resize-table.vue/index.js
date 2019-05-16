@@ -676,7 +676,7 @@ export default {
     },
     destroyed() {
         window.removeEventListener('resize', this.onResize, false);
-        document.body.removeEventListener('mousemove', this.onMouseMove, false);
-        document.body.removeEventListener('mouseup', this.onMouseUp, false);
+        document.removeEventListener('mousemove', this.onMouseMove, false);
+        document.removeEventListener('mouseup', this.onMouseUp, false);
     },
 };
