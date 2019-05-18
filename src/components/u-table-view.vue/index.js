@@ -9,4 +9,6 @@ export const UTableView = {
     },
 };
 
+export { UTableViewFilters } from './filters.vue';
+
 export default UTableView;

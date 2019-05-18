@@ -49,6 +49,7 @@ module.exports = {
             { group: 'Navigation', name: 'u-navbar', alias: '导航栏' },
             { group: 'Navigation', name: 'u-sidebar', alias: '侧边栏' },
             { group: 'Navigation', name: 'u-menu', alias: '菜单' },
+            { group: 'Navigation', name: 'u-subnav', alias: '子导航' },
             { group: 'Navigation', name: 'u-tabs', alias: '标签页' },
             { group: 'Navigation', name: 'u-subtabs', alias: '子标签页' },
             { group: 'Navigation', name: 'u-steps', alias: '步骤条' },

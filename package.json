@@ -11,7 +11,7 @@
   "main": "./index.js",
   "scripts": {
     "build": "vusion build && vusion build -C -t dark && vusion build -C -t seagreen",
-    "doc-build": "set NODE_OPTIONS=--max_old_space_size=4096 && vusion doc-build && vusion doc-build -C -t dark && vusion doc-build -C -t seagreen",
+    "doc-build": "vusion doc-build && vusion doc-build -C -t dark && vusion doc-build -C -t seagreen",
     "precommit": "node node_modules/vusion-hooks/precommit"
   },
   "repository": "vusion/cloud-ui",
