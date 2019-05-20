@@ -28,6 +28,7 @@ export const UToast = {
             });
         },
     },
+    install: OToast.install,
 };
 
 export default UToast;
