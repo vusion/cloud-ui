@@ -1,0 +1,16 @@
+@import 'proto-ui.vusion/src/u-list-view.vue/module.css';
+
+.root {
+    border: 1px solid $brand-secondary;
+    border-radius: $border-radius-base;
+}
+
+.root:focus {
+    border-color: $brand-secondary;
+}
+
+.root[disabled] {
+    background: $brand-disabled;
+    border: 1px solid $brand-disabled;
+    color: #999;
+}

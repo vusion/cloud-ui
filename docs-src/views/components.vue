@@ -8,7 +8,6 @@
                     <u-sidebar-item exact to="/components/typography">排印 <small>Typography</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-text">文本 <small>Text</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-link">链接 <small>Link</small></u-sidebar-item>
-                    <u-sidebar-item exact to="/components/u-link-list">链接列表 <small>LinkList</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-button">按钮 <small>Button</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-badge">徽章 <small>Badge</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-label">标签 <small>Label</small></u-sidebar-item>
@@ -33,6 +32,8 @@
                     <u-sidebar-item exact to="/components/u-selectable-steps">可选步骤条 <small>SelectableSteps</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-pagination">翻页器 <small>Pagination</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-crumb">面包屑 <small>Crumb</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-link-list">链接列表 <small>LinkList</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-actions">操作列表 <small>Actions</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Form">
                     <u-sidebar-item exact to="/components/u-input">单行输入 <small>Input</small></u-sidebar-item>
@@ -63,8 +64,8 @@
                     <u-sidebar-item exact to="/components/u-cascade-capsules">级联胶囊 <small>CascadeCapsules</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-pills">药丸 <small>Pills</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-tablets">药片 <small>Tablets</small></u-sidebar-item>
-                    <u-sidebar-item exact to="/components/u-countup">数字渐变 <small>CountUp</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-transfer">穿梭框 <small>Transfer</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-countup">数字渐变 <small>Countup</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="DateTime">
                     <u-sidebar-item exact to="/components/u-calendar">日历 <small>Calendar</small></u-sidebar-item>
@@ -81,6 +82,7 @@
                 <u-sidebar-group title="Feedback">
                     <u-sidebar-item exact to="/components/u-loading">加载中 <small>Loading</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-spinner">加载图标 <small>Spinner</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-placeholder">占位图 <small>Placeholder</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-toast">吐司提示 <small>Toast</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-modal">弹窗 <small>Modal</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-lightbox">灯箱 <small>Lightbox</small></u-sidebar-item>
@@ -88,11 +90,13 @@
                 <u-sidebar-group title="Progress & Chart">
                     <u-sidebar-item exact to="/components/u-linear-progress">线型进度条 <small>LinearProgress</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-circular-progress">圆型进度条 <small>CircularProgress</small></u-sidebar-item>
-                    <u-sidebar-item v-if="advanced" to="/components/u-chart">图表 <small>Chart</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-water-progress">水量进度条 <small>WaterProgress</small></u-sidebar-item>
+                    <u-sidebar-item v-if="advanced" to="/components/u-chart">图表基类 <small>Chart</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-bar-chart">柱状图 <small>BarChart</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-xbar-chart">水平柱状图 <small>XBarChart</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-line-chart">线状图 <small>LineChart</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-pie-chart">饼状图 <small>PieChart</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-donut-chart">甜圈图 <small>DonutChart</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Extension">
                     <u-sidebar-item exact to="/components/x-ace-editor">代码编辑器 <small>XAceEditor</small></u-sidebar-item>

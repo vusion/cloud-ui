@@ -9,6 +9,8 @@ import {
 Checkbox.name = 'u-checkbox';
 Radio.name = 'u-radio';
 
+import Action from './u-action.vue';
+import Actions from './u-actions.vue';
 import BarChart from './u-bar-chart.vue';
 import Block from './u-block.vue';
 import Button from './u-button.vue';
@@ -27,25 +29,28 @@ import CountUp from './u-countup.vue';
 import CreateElement from './u-create-element.vue';
 import DatePicker from './u-date-picker.vue';
 import DateTimePicker from './u-date-time-picker.vue';
-import DescListItem from './u-desc-list-item.vue';
-import DescListGroup from './u-desc-list-group.vue';
 import DescList from './u-desc-list.vue';
+import DescListGroup from './u-desc-list-group.vue';
+import DescListItem from './u-desc-list-item.vue';
+import DonutChart from './u-donut-chart.vue';
 import Form from './u-form.vue';
 import FormItem from './u-form-item.vue';
 import Icon from './u-icon.vue';
-import InfoListItem from './u-info-list-item.vue';
-import InfoListGroup from './u-info-list-group.vue';
 import InfoList from './u-info-list.vue';
+import InfoListGroup from './u-info-list-group.vue';
+import InfoListItem from './u-info-list-item.vue';
 import Input from './u-input.vue';
 import Label from './u-label.vue';
 import LightBox from './u-lightbox.vue';
 import LightBoxItem from './u-lightbox-item.vue';
-import LinearProgress from './u-linear-progress.vue';
 import LineChart from './u-line-chart.vue';
 import LinearLayout from './u-linear-layout.vue';
+import LinearProgress from './u-linear-progress.vue';
 import Link from './u-link.vue';
 import LinkList from './u-link-list.vue';
 import LinkListItem from './u-link-list-item.vue';
+import ListView from './u-list-view.vue';
+import ListViewItem from './u-list-view-item.vue';
 import Loading from './u-loading.vue';
 import Logo from './u-logo.vue';
 import Menu from './u-menu.vue';
@@ -60,53 +65,58 @@ import Pagination from './u-pagination.vue';
 import PieChart from './u-pie-chart.vue';
 import Pill from './u-pill.vue';
 import Pills from './u-pills.vue';
+import Placeholder from './u-placeholder.vue';
 import Popover from './u-popover.vue';
 import Popup from './u-popup.vue';
 import Radios from './u-radios.vue';
-import SelectableStep from './u-selectable-step.vue';
-import SelectableSteps from './u-selectable-steps.vue';
+import ResizeTable from './u-resize-table.vue';
+import ResizeTableColumn from './u-resize-table-column.vue';
+import Select from './u-select.vue';
 import SelectDivider from './u-select-divider.vue';
 import SelectGroup from './u-select-group.vue';
-import Select from './u-select.vue';
 import SelectItem from './u-select-item.vue';
-import SuggestItem from './u-suggest-item.vue';
-import Suggest from './u-suggest.vue';
+import SelectableStep from './u-selectable-step.vue';
+import SelectableSteps from './u-selectable-steps.vue';
 import Sidebar from './u-sidebar.vue';
+import SidebarDivider from './u-sidebar-divider.vue';
 import SidebarGroup from './u-sidebar-group.vue';
 import SidebarItem from './u-sidebar-item.vue';
-import SidebarDivider from './u-sidebar-divider.vue';
 import Slider from './u-slider.vue';
 import Spinner from './u-spinner.vue';
 import StatusIcon from './u-status-icon.vue';
-import Steps from './u-steps.vue';
 import Step from './u-step.vue';
+import Steps from './u-steps.vue';
 import Subnav from './u-subnav.vue';
-import SubnavItem from './u-subnav-item.vue';
 import SubnavDivider from './u-subnav-divider.vue';
+import SubnavItem from './u-subnav-item.vue';
 import Subtab from './u-subtab.vue';
 import Subtabs from './u-subtabs.vue';
+import Suggest from './u-suggest.vue';
+import SuggestItem from './u-suggest-item.vue';
 import Switch from './u-switch.vue';
+import Table from './u-table.vue';
 import TableCell from './u-table-cell.vue';
-import TableSelectItem from './u-table-select-item.vue';
 import TableSelect from './u-table-select.vue';
+import TableSelectItem from './u-table-select-item.vue';
 import TableView from './u-table-view.vue';
 import TableViewCell from './u-table-view-cell.vue';
 import TableViewColumn from './u-table-view-column.vue';
-import Table from './u-table.vue';
-import Text from './u-text.vue';
-import ResizeTableColumn from './u-resize-table-column.vue';
-import ResizeTable from './u-resize-table.vue';
 import Tablet from './u-tablet.vue';
 import Tablets from './u-tablets.vue';
 import Tabs from './u-tabs.vue';
 import Tag from './u-tag.vue';
+import Text from './u-text.vue';
 import Textarea from './u-textarea.vue';
 import TimePicker from './u-time-picker.vue';
 import Toast from './u-toast.vue';
 import Tooltip from './u-tooltip.vue';
+import Transfer from './u-transfer.vue';
+import WaterProgress from './u-water-progress.vue';
 import XBarChart from './u-xbar-chart.vue';
 
 export {
+    Action,
+    Actions,
     BarChart,
     Block,
     Button,
@@ -126,25 +136,28 @@ export {
     CreateElement,
     DatePicker,
     DateTimePicker,
-    DescListItem,
-    DescListGroup,
     DescList,
+    DescListGroup,
+    DescListItem,
+    DonutChart,
     Form,
     FormItem,
     Icon,
-    InfoListItem,
-    InfoListGroup,
     InfoList,
+    InfoListGroup,
+    InfoListItem,
     Input,
     Label,
     LightBox,
     LightBoxItem,
-    LinearProgress,
     LineChart,
     LinearLayout,
+    LinearProgress,
     Link,
     LinkList,
     LinkListItem,
+    ListView,
+    ListViewItem,
     Loading,
     Logo,
     Menu,
@@ -159,42 +172,43 @@ export {
     PieChart,
     Pill,
     Pills,
+    Placeholder,
     Popover,
     Popup,
     Radio,
     Radios,
-    SelectableStep,
-    SelectableSteps,
+    ResizeTable,
+    ResizeTableColumn,
+    Select,
     SelectDivider,
     SelectGroup,
-    Select,
     SelectItem,
-    SuggestItem,
-    Suggest,
+    SelectableStep,
+    SelectableSteps,
     Sidebar,
+    SidebarDivider,
     SidebarGroup,
     SidebarItem,
-    SidebarDivider,
     Slider,
     Spinner,
     StatusIcon,
-    Steps,
     Step,
+    Steps,
     Subnav,
-    SubnavItem,
     SubnavDivider,
+    SubnavItem,
     Subtab,
     Subtabs,
+    Suggest,
+    SuggestItem,
     Switch,
+    Table,
     TableCell,
-    TableSelectItem,
     TableSelect,
+    TableSelectItem,
     TableView,
     TableViewCell,
     TableViewColumn,
-    Table,
-    ResizeTableColumn,
-    ResizeTable,
     Tablet,
     Tablets,
     Tabs,
@@ -204,6 +218,8 @@ export {
     TimePicker,
     Toast,
     Tooltip,
+    Transfer,
+    WaterProgress,
     XBarChart,
 };
 

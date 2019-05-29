@@ -1,0 +1,30 @@
+<u-chart :class="$style.root" :title="title" :border="border" :legend="legend" readonly :series="currentData" :data="data"
+    :width="width" :height="height" @select-series="selectedItem = $event.series">
+    <slot name="title" slot="title"></slot>
+    <slot name="caption" slot="caption"></slot>
+    <svg :class="$style.svg" ref="svg" viewBox="0 0 200 200">
+        <g transform="translate(100, 100)" :class="$style.group">
+            <circle v-if="zero" :class="$style.zero" cx="0" cy="0" :r="RADIUS"></circle>
+            <g v-if="!zero">
+                <path v-for="item in currentData" :class="$style.item" :selected="item === selectedItem"
+                        :color="item.color" :style="{ stroke: item.color }"
+                        :d="item.d" @mouseover="onMouseOver(item)" />
+            </g>
+            <g v-if="!zero">
+                <path v-for="item in currentData" :class="$style['label-line']" :d="item.label.d" :selected="item === selectedItem" />
+            </g>
+            <circle cx="0" cy="0" :r="RADIUS * 0.75" :class="$style.circle" />
+        </g>
+    </svg>
+    <div v-if="zero" :class="$style['zero-text']">
+        <!-- <div>0%</div> -->
+    </div>
+    <div v-else v-for="item in currentData" :class="$style.label"
+            :style="getLabelStyle(item)" :selected="item === selectedItem">
+        <slot name="label">{{ item.name }}: {{ item.value }}</slot>
+    </div>
+    <div v-if="selectedItem" :class="$style.text">
+        <p :class="$style.percent"><span>{{ selectedItem.percentage }}</span>%</p>
+        <p :class="$style.name">{{ selectedItem.name }}</p>
+    </div>
+</u-chart>

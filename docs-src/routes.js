@@ -47,7 +47,6 @@ export default [
             /* Basic */
             { path: 'u-base', component: () => import('proto-ui.vusion/src/base/README.md') },
             { path: 'u-link', component: () => import('../src/u-link.vue/README.md') },
-            { path: 'u-link-list', component: () => import('../src/u-link-list.vue/README.md') },
             { path: 'u-button', component: () => import('../src/u-button.vue/README.md') },
             { path: 'u-badge', component: () => import('proto-ui.vusion/src/u-badge.vue/README.md') },
             { path: 'u-tags', component: () => import('../src/u-tag.vue/README.md') },
@@ -73,6 +72,8 @@ export default [
             { path: 'u-selectable-steps', component: () => import('../src/u-selectable-steps.vue/README.md') },
             { path: 'u-pagination', component: () => import('proto-ui.vusion/src/u-pagination.vue/README.md') },
             { path: 'u-crumb', component: () => import('proto-ui.vusion/src/u-crumb.vue/README.md') },
+            { path: 'u-link-list', component: () => import('../src/u-link-list.vue/README.md') },
+            { path: 'u-actions', component: () => import('../src/u-actions.vue/README.md') },
             /* Form */
             { path: 'u-input', component: () => import('../src/u-input.vue/README.md') },
             { path: 'u-number-input', component: () => import('proto-ui.vusion/src/u-number-input.vue/README.md') },
@@ -117,17 +118,20 @@ export default [
             /* Feedback */
             { path: 'u-spinner', component: () => import('proto-ui.vusion/src/u-spinner.vue/README.md') },
             { path: 'u-loading', component: () => import('../src/u-loading.vue/README.md') },
+            { path: 'u-placeholder', component: () => import('../src/u-placeholder.vue/README.md') },
             { path: 'u-toast', component: () => import('proto-ui.vusion/src/u-toast.vue/README.md') },
             { path: 'u-modal', component: () => import('../src/u-modal.vue/README.md') },
             { path: 'u-lightbox', component: () => import('../src/u-lightbox.vue/README.md') },
             /* Progress & Chart */
             { path: 'u-linear-progress', component: () => import('../src/u-linear-progress.vue/README.md') },
             { path: 'u-circular-progress', component: () => import('../src/u-circular-progress.vue/README.md') },
+            { path: 'u-water-progress', component: () => import('../src/u-water-progress.vue/README.md') },
             { path: 'u-chart', component: () => import('../src/u-chart.vue/README.md') },
             { path: 'u-bar-chart', component: () => import('../src/u-bar-chart.vue/README.md') },
             { path: 'u-xbar-chart', component: () => import('../src/u-xbar-chart.vue/README.md') },
             { path: 'u-line-chart', component: () => import('../src/u-line-chart.vue/README.md') },
             { path: 'u-pie-chart', component: () => import('../src/u-pie-chart.vue/README.md') },
+            { path: 'u-donut-chart', component: () => import('../src/u-donut-chart.vue/README.md') },
             /* Extension */
             { path: 'x-ace-editor', component: () => import('x-ace-editor.vue/README.md') },
             /* Mixin & Utils */

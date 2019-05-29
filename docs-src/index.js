@@ -6,7 +6,6 @@ Vue.use(CodeExamplePlugin);
 
 import * as Library from 'library';
 import * as directives from '../src/base/directives';
-import '../src/base/index.css';
 
 import GlobalLayout from './common/u-global-layout.vue';
 import Article from './common/u-article.vue';
@@ -20,6 +19,7 @@ import Table2 from './common/u-table.vue';
 import './common/atom-one-light.css';
 import Example from './common/u-example.vue';
 import XAceEditor from '../packages/x-ace-editor.vue';
+
 const requires = require.context('@vusion/doc-loader/components/', true, /\.vue$/);
 requires.keys().forEach((key) => {
     if (key.indexOf('.vue') !== key.lastIndexOf('.vue'))
@@ -45,6 +45,9 @@ const Components = Object.assign({}, Library, {
 
 import { install } from 'vusion-utils';
 install(Components, Vue);
+
+import '../src/base/index.css';
+import './common/base.css';
 
 Vue.prototype.$docs = '';
 
