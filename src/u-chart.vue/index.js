@@ -5,18 +5,15 @@ export default {
         caption: String,
         series: Array,
         data: Array,
-        border: {
-            type: Boolean,
-            default: false,
-        },
-        legend: {
-            type: [String, Boolean],
-            default: true,
-        },
-        width: String,
-        height: String,
+        border: { type: Boolean, default: false },
+        legend: { type: Boolean, default: false },
+        width: { type: String, default: '100%' }, // @deprecated
+        height: { type: String, default: '450px' }, // @deprecated
         titleAlign: { type: String, default: 'center' },
+        titleAlignment: { type: String, default: 'center' },
         loading: { type: Boolean, default: false },
+        error: { type: Boolean, default: false },
+        readonly: { type: Boolean, default: false },
         contentStyle: Object,
     },
     data() {
