@@ -43,7 +43,7 @@ export default {
         setTimeout(() => this.draw(), 16);
     },
     destroyed() {
-        this.removeEventListener('resize', this.draw);
+        window.removeEventListener('resize', this.draw);
     },
     methods: {
         draw() {

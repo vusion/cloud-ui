@@ -8,7 +8,7 @@
 ``` vue
 <template>
 <div>
-    <u-modal :visible.sync="modalVisible" mask-close title="提示">
+    <u-modal :visible.sync="modalVisible" title="提示">
         <span>内容</span>
     </u-modal>
     <u-linear-layout>
@@ -52,6 +52,18 @@ export default {
 ``` html
 <u-modal title="删除" heading="确定删除该服务吗？" icon="warning" visible static>删除后不可恢复。</u-modal>
 <u-modal title="创建" heading="创建成功" icon="success" visible static></u-modal>
+```
+
+### 改变主要按钮
+
+``` html
+<u-modal title="标题" visible static primary-button="cancelButton">内容</u-modal>
+```
+
+### 禁用按钮
+
+``` html
+<u-modal title="标题" visible static disable-ok>内容</u-modal>
 ```
 
 ### 自定义

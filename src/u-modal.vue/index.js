@@ -6,12 +6,15 @@ const Modal = {
     name: 'u-modal',
     i18n,
     props: {
+        visible: { type: Boolean, default: false },
         title: { type: String, default() { return this.$t('dialog'); } },
         content: String,
         heading: String,
         okButton: { type: String, default() { return this.$t('ok'); } },
         cancelButton: { type: String, default() { return this.$t('cancel'); } },
-        visible: { type: Boolean, default: false },
+        primaryButton: { type: String, default: 'okButton' },
+        disableOk: { type: Boolean, default: false },
+        disableCancel: { type: Boolean, default: false },
         // @deprecated
         width: { type: [String, Number], default: '' },
         size: { type: String, default: 'normal' },
@@ -47,16 +50,17 @@ const Modal = {
     methods: {
         open() {
             if (!this.$el) {
-                const ele = document.createElement('div');
-                this.$mount(ele);
+                const el = document.createElement('div');
+                this.$mount(el);
                 document.body.appendChild(this.$el);
             }
             this.currentVisible = true;
             this.$emit('open');
         },
-        close() {
+        close(ok) {
             let cancel = false;
             this.$emit('before-close', {
+                ok,
                 preventDefault: () => cancel = true,
             });
             if (cancel)
@@ -65,15 +69,23 @@ const Modal = {
             this.currentVisible = false;
 
             this.$emit('update:visible', false);
-            this.$emit('close');
+            this.$emit('close', {
+                ok,
+            }, this);
         },
         ok() {
-            this.$emit('ok');
-            this.close();
+            if (this.disableOk)
+                return;
+
+            this.$emit('ok', undefined, this);
+            this.close(true);
         },
         cancel() {
-            this.$emit('cancel');
-            this.close();
+            if (this.disableCancel)
+                return;
+
+            this.$emit('cancel', undefined, this);
+            this.close(false);
         },
         escPress(event) {
             if (event.keyCode === 27)
