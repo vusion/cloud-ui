@@ -14,6 +14,7 @@ import ThemeSelectItem from './common/u-theme-select-item.vue';
 // import SidebarGroup from './common/u-sidebar-group.vue';
 // import Sidebar from './common/u-sidebar.vue';
 // import SidebarItem from './common/u-sidebar-item.vue';
+import FCollapseTransition from './common/f-collapse-transition.vue';
 import OverviewItem from './common/u-overview-item.vue';
 import Table2 from './common/u-table.vue';
 import './common/atom-one-light.css';
@@ -41,6 +42,7 @@ const Components = Object.assign({}, Library, {
     Table2,
     Example,
     XAceEditor,
+    FCollapseTransition,
 });
 
 import { install } from 'vusion-utils';
