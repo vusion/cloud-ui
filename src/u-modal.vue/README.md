@@ -8,7 +8,7 @@
 ``` vue
 <template>
 <div>
-    <u-modal :visible.sync="modalVisible" title="提示">
+    <u-modal :visible.sync="modalVisible" mask-close title="提示">
         <span>内容</span>
     </u-modal>
     <u-linear-layout>
