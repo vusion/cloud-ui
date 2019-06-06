@@ -25,7 +25,6 @@ const Modal = {
     data() {
         return {
             currentVisible: this.visible,
-            isMouseDown: false,
         };
     },
     directives: { clickOutside },
@@ -95,8 +94,7 @@ const Modal = {
         handleClose(e) {
             if (!this.$refs.dialog)
                 return false;
-            this.isMouseDown = this.$refs.dialog.contains(e.target);
-            if (!this.$refs.dialog.contains(e.target) && this.maskClose && !this.isMouseDown)
+            if (this.maskClose && !this.$refs.dialog.contains(e.target))
                 this.close();
         },
     },
