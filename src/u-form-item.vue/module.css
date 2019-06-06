@@ -148,3 +148,13 @@
 .root[distance="extra"][label-size$="large"] > .field {
     max-width: calc(100% - 190px);
 }
+
+.root[layout="none"] {
+    display: inline-block;
+}
+.root[layout="none"] > .label {
+    display: none;
+}
+.root[layout="none"] > .field {
+    max-width: none;
+}

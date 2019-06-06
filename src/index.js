@@ -112,6 +112,7 @@ import Toast from './u-toast.vue';
 import Tooltip from './u-tooltip.vue';
 import Transfer from './u-transfer.vue';
 import Validator from './u-validator.vue';
+import ValidatorTr from './u-validator-tr.vue';
 import WaterProgress from './u-water-progress.vue';
 import XBarChart from './u-xbar-chart.vue';
 
@@ -221,6 +222,7 @@ export {
     Tooltip,
     Transfer,
     Validator,
+    ValidatorTr,
     WaterProgress,
     XBarChart,
 };

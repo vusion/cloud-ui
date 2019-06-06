@@ -1,0 +1,14 @@
+@import '../u-validator.vue/module.css';
+
+.root {
+    display: table-row;
+    position: static;
+}
+
+.last-td {
+    position: relative;
+}
+
+.message {
+    margin-top: 8px;
+}
