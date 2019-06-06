@@ -134,6 +134,11 @@
     left: -12px;
 }
 
+.root[layout="block"] > .field > .wrap > .message {
+    top: 0;
+    transform: none;
+}
+
 .root[distance="extra"][label-size$="small"] > .field {
     max-width: calc(100% - 110px);
 }

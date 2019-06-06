@@ -92,6 +92,7 @@ export default [
             { path: 'u-field', component: Empty },
             { path: 'u-form-item', component: () => import('../src/u-form-item.vue/README.md') },
             { path: 'u-form', component: () => import('../src/u-form.vue/README.md') },
+            { path: 'u-validator', component: () => import('proto-ui.vusion/src/u-validator.vue/README.md') },
             { path: 'u-uploader', component: () => import('proto-ui.vusion/src/u-uploader.vue/README.md') },
             /* Data */
             { path: 'u-list-view', component: () => import('proto-ui.vusion/src/u-list-view.vue/README.md') },

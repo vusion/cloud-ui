@@ -111,6 +111,7 @@ import TimePicker from './u-time-picker.vue';
 import Toast from './u-toast.vue';
 import Tooltip from './u-tooltip.vue';
 import Transfer from './u-transfer.vue';
+import Validator from './u-validator.vue';
 import WaterProgress from './u-water-progress.vue';
 import XBarChart from './u-xbar-chart.vue';
 
@@ -219,6 +220,7 @@ export {
     Toast,
     Tooltip,
     Transfer,
+    Validator,
     WaterProgress,
     XBarChart,
 };

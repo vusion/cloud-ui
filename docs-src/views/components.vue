@@ -36,6 +36,8 @@
                     <u-sidebar-item exact to="/components/u-actions">操作列表 <small>Actions</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Form">
+                    <u-sidebar-item exact to="/components/u-form">表单 <small>Form</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-validator">验证器 <small>Validator</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-input">单行输入 <small>Input</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-number-input">数字输入 <small>NumberInput</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-radios">单选组 <small>Radios</small></u-sidebar-item>
@@ -52,7 +54,6 @@
                     <u-sidebar-item exact to="/components/u-combo-slider">复合滑块 <small>ComboSlider</small></u-sidebar-item>
                     <!-- <u-sidebar-item v-if="advanced" to="/components/u-field">表单控件 <small>Field</small></u-sidebar-item> -->
                     <u-sidebar-item exact to="/components/u-uploader">文件上传 <small>Uploader</small></u-sidebar-item>
-                    <u-sidebar-item exact to="/components/u-form">表单 <small>Form</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Data">
                     <u-sidebar-item exact to="/components/u-list-view">列表选择 <small>ListView</small></u-sidebar-item>
