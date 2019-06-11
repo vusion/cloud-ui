@@ -62,7 +62,7 @@ const Modal = {
             this.$emit('before-close', {
                 ok,
                 preventDefault: () => cancel = true,
-            });
+            }, this);
             if (cancel)
                 return;
 

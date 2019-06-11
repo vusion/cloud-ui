@@ -134,7 +134,7 @@
     left: -12px;
 }
 
-.root[layout="block"] > .field > .wrap > .message {
+.root[layout="block"][placement="right"] > .field > .wrap > .message {
     top: 0;
     transform: none;
 }
