@@ -5,7 +5,7 @@ export default {
     mixins: [Form],
     computed: {
         extraSlots() {
-            return this.itemVMs.some((item) => item.$slots.extra);
+            return this.validatorVMs.some((itemVM) => itemVM.$slots.extra);
         },
     },
 };
