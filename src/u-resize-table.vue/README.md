@@ -1,13 +1,20 @@
-# 可变化宽度表格 ResizeTable
+# UResizeTable 可变化宽度表格
 
 ## 示例
+
 ### 基本形式
+
+下面是表格视图组件中的基本用法。
+
+以列的视角对数据进行配置，`title`为列的标题，`label`是数据中作为唯一识别的字段名。
+
+列宽默认会平均分配，可以使用`width`对列宽进行适当调整，支持数值和百分比两种格式。
 
 ``` vue
 <template>
     <u-resize-table :data="tdata">
         <u-resize-table-column title="日期" label="date"></u-resize-table-column>
-        <u-resize-table-column title="姓名" label="name" :formatter="formatter"></u-resize-table-column>
+        <u-resize-table-column title="姓名" label="name"></u-resize-table-column>
         <u-resize-table-column title="地址" icon="help" icon-placement="bottom-end" label="address">
             <template slot="iconContent">
                 自定义提示内容
@@ -22,17 +29,17 @@ export default {
         return {
             tdata: [{
                 date: '2016-05-02',
-                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-                address: '浙江省杭州市滨江区网商路 599号 11111111111111111111111111111111',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
                 female: '男',
             }, {
                 date: '2016-05-04',
-                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+                name: '王大虎',
                 address: '浙江省杭州市滨江区英飞特 D栋3楼',
                 female: '男',
             }, {
                 date: '2016-05-01',
-                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
+                name: '天王盖地虎',
                 address: '浙江省杭州市滨江区 西可科技园',
                 female: '女',
             }, {
@@ -60,62 +67,17 @@ export default {
                 name: '小鸡炖蘑菇',
                 address: '浙江省杭州市滨江区 东忠科技园',
                 female: '女',
-            }, {
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-                female: '男',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                female: '女',
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园',
-                female: '男',
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                female: '女',
-            }],
-            options: [
-                {
-                    text: '全部',
-                    value: '',
-                },
-                {
-                    text: '男',
-                    value: '男'
-                },
-                {
-                    text: '女',
-                    value: '女'
-                },
-            ],
-            value: ''
+            }, ],
         };
     },
-    methods: {
-        formatter(row, column) {
-            if (row.name === '天王盖地虎')
-                return '逗比一号';
-            else
-                return row.name;
-        },
-        filterMethod(value, columnValue) {
-            if (value === '')
-                return true;
-            return columnValue === value;
-        },
-    }
 };
 </script>
 ```
 
-### 加载状态表格
+### 状态
+
+#### 加载中
+
 ``` vue
 <template>
     <u-resize-table :data="tdata" :loading="loading" load-text="加载中…">
@@ -131,17 +93,17 @@ export default {
         return {
             tdata: [{
                 date: '2016-05-02',
-                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-                address: '浙江省杭州市滨江区网商路 599号 11111111111111111111111111111111',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
                 female: '男',
             }, {
                 date: '2016-05-04',
-                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+                name: '王大虎',
                 address: '浙江省杭州市滨江区英飞特 D栋3楼',
                 female: '男',
             }, {
                 date: '2016-05-01',
-                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
+                name: '天王盖地虎',
                 address: '浙江省杭州市滨江区 西可科技园',
                 female: '女',
             }, {
@@ -169,27 +131,7 @@ export default {
                 name: '小鸡炖蘑菇',
                 address: '浙江省杭州市滨江区 东忠科技园',
                 female: '女',
-            }, {
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-                female: '男',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                female: '女',
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园',
-                female: '男',
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                female: '女',
-            }],
+            } ],
             loading: true,
         };
     },
@@ -202,7 +144,7 @@ export default {
 </script>
 ```
 
-### 空数据状态表格
+#### 空态
 ``` vue
 <template>
     <u-resize-table :data="tdata">
@@ -226,141 +168,17 @@ export default {
 </script>
 ```
 
-### 自定义条件列显示
-``` vue
-<template>
-    <div>
-        <u-resize-table :data="tdata" @selection-change="selectionChange" :all-checked.sync="allChecked">
-            <u-resize-table-column type="selection"></u-resize-table-column>
-            <u-resize-table-column :visible="isShow" title="日期" label="date"></u-resize-table-column>
-            <u-resize-table-column title="姓名" label="name" :formatter="formatter"></u-resize-table-column>
-            <u-resize-table-column title="地址" label="address"></u-resize-table-column>
-            <u-resize-table-column title="性别" max-width="180" label="female" ></u-resize-table-column>
-        </u-resize-table>
-        <u-button color="primary" style="margin-top: 20px;" @click="toggle">toggle</u-button>
-    </div>
-</template>
-<script>
-export default {
-    data: function () {
-        return {
-            tdata: [{
-                date: '2016-05-02',
-                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-                address: '浙江省杭州市滨江区网商路 599号 11111111111111111111111111111111',
-                female: '男',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                female: '男',
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
-                address: '浙江省杭州市滨江区 西可科技园',
-                female: '女',
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                female: '男',
-            }, {
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-                female: '男',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                female: '女',
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园',
-                female: '女',
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                female: '女',
-            }, {
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-                female: '男',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                female: '女',
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园',
-                female: '男',
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                female: '女',
-            }],
-            options: [
-                {
-                    text: '全部',
-                    value: '',
-                },
-                {
-                    text: '男',
-                    value: '男'
-                },
-                {
-                    text: '女',
-                    value: '女'
-                },
-            ],
-            value: '',
-            allChecked: false,
-            isShow: false,
-        };
-    },
-    methods: {
-        formatter(row, column) {
-            if (row.name === '天王盖地虎')
-                return '逗比一号';
-            else
-                return row.name;
-        },
-        filterMethod(value, columnValue) {
-            if (value === '')
-                return true;
-            return columnValue === value;
-        },
-        selectionChange(value) {
-            console.log(value);
-        },
-        toggle() {
-            this.isShow = !this.isShow;
-        }
-    },
-    watch: {
-        allChecked(newValue) {
-            console.log(newValue);
-        },
-    },
-};
-</script>
-```
+### 格式器
 
-### 带复选框的表格
+在表格的列组件中可以配置`formatter`属性，会自动将该列数据做一个格式化处理，类似于 Vue 的 filter，目前仅支持传入函数形式。
+
 ``` vue
 <template>
-    <u-resize-table :data="tdata" @selection-change="selectionChange" :all-checked.sync="allChecked">
-        <u-resize-table-column type="selection"></u-resize-table-column>
+    <u-resize-table :data="tdata">
         <u-resize-table-column title="日期" label="date"></u-resize-table-column>
         <u-resize-table-column title="姓名" label="name" :formatter="formatter"></u-resize-table-column>
         <u-resize-table-column title="地址" label="address"></u-resize-table-column>
-        <u-resize-table-column title="性别" max-width="180" label="female" ></u-resize-table-column>
+        <u-resize-table-column title="性别" label="female" ></u-resize-table-column>
     </u-resize-table>
 </template>
 <script>
@@ -369,34 +187,14 @@ export default {
         return {
             tdata: [{
                 date: '2016-05-02',
-                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-                address: '浙江省杭州市滨江区网商路 599号 11111111111111111111111111111111',
-                female: '男',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                female: '男',
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
-                address: '浙江省杭州市滨江区 西可科技园',
-                female: '女',
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                female: '男',
-            }, {
-                date: '2016-05-02',
-                name: '王小虎',
+                name: '王虎',
                 address: '浙江省杭州市滨江区网商路 599号',
                 female: '男',
             }, {
                 date: '2016-05-04',
                 name: '王大虎',
                 address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                female: '女',
+                female: '男',
             }, {
                 date: '2016-05-01',
                 name: '天王盖地虎',
@@ -404,74 +202,35 @@ export default {
                 female: '女',
             }, {
                 date: '2016-05-03',
-                name: '小鸡炖蘑菇',
+                name: '王虎威',
                 address: '浙江省杭州市滨江区 东忠科技园',
-                female: '女',
+                female: '男',
             }, {
                 date: '2016-05-02',
                 name: '王小虎',
                 address: '浙江省杭州市滨江区网商路 599号',
                 female: '男',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                female: '女',
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园',
-                female: '男',
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                female: '女',
-            }],
-            options: [
-                {
-                    text: '全部',
-                    value: '',
-                },
-                {
-                    text: '男',
-                    value: '男'
-                },
-                {
-                    text: '女',
-                    value: '女'
-                },
-            ],
-            value: '',
-            allChecked: false,
+            } ],
         };
     },
     methods: {
         formatter(row, column) {
             if (row.name === '天王盖地虎')
-                return '逗比一号';
+                return '段子手';
             else
                 return row.name;
         },
-        filterMethod(value, columnValue) {
-            if (value === '')
-                return true;
-            return columnValue === value;
-        },
-        selectionChange(value) {
-            console.log(value);
-        },
-    },
-    watch: {
-        allChecked(newValue) {
-            console.log(newValue);
-        },
-    },
+    }
 };
 </script>
 ```
 
-### 自定义表格内容显示
+### 列插槽
+
+如果需要对数据进行更加自定义的展示，可以使用列的`slot-scope`插槽，定制想要的格式。
+
+这个插槽为一个作用域插槽，会传入三个参数`row`、`column`。
+
 ``` vue
 <template>
     <u-resize-table :data="tdata">
@@ -489,12 +248,12 @@ export default {
         </u-resize-table-column>
         <u-resize-table-column title="操作" label="female" min-width="135">
             <template slot-scope="scope">
-                <u-link-list>
-                    <u-link-list-item>设置</u-link-list-item>
-                    <u-link-list-item>删除</u-link-list-item>
-                    <u-link-list-item>更改规格</u-link-list-item>
-                    <u-link-list-item>转包年包月</u-link-list-item>
-                </u-link-list>
+                <u-actions>
+                    <u-action>设置</u-action>
+                    <u-action>删除</u-action>
+                    <u-action>更改规格</u-action>
+                    <u-action>转包年包月</u-action>
+                </u-actions>
             </template>
         </u-resize-table-column>
     </u-resize-table>
@@ -505,17 +264,17 @@ export default {
         return {
             tdata: [{
                 date: 1533427200000,
-                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-                address: '浙江省杭州市滨江区网商路 599号 11111111111111111111111111111111',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
                 female: 'male',
             }, {
                 date: 1533340800000,
-                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+                name: '王大虎',
                 address: '浙江省杭州市滨江区英飞特 D栋3楼',
                 female: 'male',
             }, {
                 date: 1533254400000,
-                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
+                name: '天王盖地虎',
                 address: '浙江省杭州市滨江区 西可科技园',
                 female: 'female',
             }, {
@@ -545,12 +304,17 @@ export default {
 </script>
 ```
 
-### 排序表格
+### 垂直数据过多
+
+#### 表头固定
+
+通过给`<u-resize-table>`的样式设置`height`或`max-height`属性，可以限制表格高度。在数据较多的情况下，会自动固定表头。
+
 ``` vue
 <template>
-    <u-resize-table :data="tdata" :default-sort="defaultSort" @sort-change="sortChange">
-        <u-resize-table-column title="日期" type="sortable" label="date"></u-resize-table-column>
-        <u-resize-table-column title="姓名" type="sortable" label="name" :formatter="formatter"></u-resize-table-column>
+    <u-resize-table :data="tdata" max-height="360">
+        <u-resize-table-column title="日期" label="date"></u-resize-table-column>
+        <u-resize-table-column title="姓名" label="name"></u-resize-table-column>
         <u-resize-table-column title="地址" label="address"></u-resize-table-column>
         <u-resize-table-column title="性别" max-width="180" label="female" ></u-resize-table-column>
     </u-resize-table>
@@ -561,17 +325,17 @@ export default {
         return {
             tdata: [{
                 date: '2016-05-02',
-                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-                address: '浙江省杭州市滨江区网商路 599号 11111111111111111111111111111111',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
                 female: '男',
             }, {
                 date: '2016-05-04',
-                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+                name: '王大虎',
                 address: '浙江省杭州市滨江区英飞特 D栋3楼',
                 female: '男',
             }, {
                 date: '2016-05-01',
-                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
+                name: '天王盖地虎',
                 address: '浙江省杭州市滨江区 西可科技园',
                 female: '女',
             }, {
@@ -620,21 +384,304 @@ export default {
                 address: '浙江省杭州市滨江区 东忠科技园',
                 female: '女',
             }],
-            options: [
-                {
-                    text: '全部',
-                    value: '',
-                },
-                {
-                    text: '男',
-                    value: '男'
-                },
-                {
-                    text: '女',
-                    value: '女'
-                },
-            ],
-            value: '',
+        };
+    },
+};
+</script>
+```
+
+### 水平内容过长
+
+#### 默认单行省略显示
+
+某些情况下，我们会遇到文字过长的问题，默认单行省略显示。
+
+``` vue
+<template>
+    <u-resize-table :data="tdata">
+        <u-resize-table-column title="日期" label="date"></u-resize-table-column>
+        <u-resize-table-column title="姓名" label="name"></u-resize-table-column>
+        <u-resize-table-column title="地址" label="address"></u-resize-table-column>
+        <u-resize-table-column title="性别" max-width="180" label="female" ></u-resize-table-column>
+    </u-resize-table>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
+                female: '男',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '浙江省杭州市滨江区英飞特 D栋3楼 滨安路江虹路口',
+                female: '男',
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '浙江省杭州市滨江区 西可科技园 秋溢路606号',
+                female: '女',
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '浙江省杭州市滨江区 东忠科技园 长河路590号',
+                female: '男',
+            }, {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 699号 网易园区二期',
+                female: '男',
+            } ],
+        };
+    },
+};
+</script>
+```
+
+
+### 隐藏部分列
+``` vue
+<template>
+    <div>
+        <u-checkboxes v-model="checkedList">
+            <u-checkbox label="isShow">日期</u-checkbox>
+            <u-checkbox label="isNameShow">姓名</u-checkbox>
+            <u-checkbox label="isAddressShow">地址</u-checkbox>
+            <u-checkbox label="isFemaleShow">性别</u-checkbox>
+        </u-checkboxes>
+        <u-resize-table :data="tdata">
+            <u-resize-table-column :visible="checkedList.includes('isShow')" title="日期" label="date"></u-resize-table-column>
+            <u-resize-table-column :visible="checkedList.includes('isNameShow')" title="姓名" label="name" :formatter="formatter"></u-resize-table-column>
+            <u-resize-table-column :visible="checkedList.includes('isAddressShow')" title="地址" label="address"></u-resize-table-column>
+            <u-resize-table-column :visible="checkedList.includes('isFemaleShow')" title="性别" max-width="180" label="female" ></u-resize-table-column>
+        </u-resize-table>
+    </div>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
+                female: '男',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '浙江省杭州市滨江区英飞特 D栋3楼',
+                female: '男',
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '浙江省杭州市滨江区 西可科技园',
+                female: '女',
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '浙江省杭州市滨江区 东忠科技园',
+                female: '男',
+            }, {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
+                female: '男',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '浙江省杭州市滨江区英飞特 D栋3楼',
+                female: '女',
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '浙江省杭州市滨江区 西可科技园',
+                female: '女',
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '浙江省杭州市滨江区 东忠科技园',
+                female: '女',
+            }, {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
+                female: '男',
+            } ],
+            checkedList: ['isShow', 'isNameShow', 'isAddressShow', 'isFemaleShow'],
+        };
+    },
+};
+</script>
+```
+
+### 特殊列
+
+UResizeTable 中内置了一些特殊的列，通过设置`type`来开启。
+
+#### 多选列
+``` vue
+<template>
+    <u-resize-table :data="tdata" @selection-change="selectionChange" :all-checked.sync="allChecked">
+        <u-resize-table-column type="selection"></u-resize-table-column>
+        <u-resize-table-column title="日期" label="date"></u-resize-table-column>
+        <u-resize-table-column title="姓名" label="name" :formatter="formatter"></u-resize-table-column>
+        <u-resize-table-column title="地址" label="address"></u-resize-table-column>
+        <u-resize-table-column title="性别" max-width="180" label="female" ></u-resize-table-column>
+    </u-resize-table>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
+                female: '男',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '浙江省杭州市滨江区英飞特 D栋3楼',
+                female: '男',
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '浙江省杭州市滨江区 西可科技园',
+                female: '女',
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '浙江省杭州市滨江区 东忠科技园',
+                female: '男',
+            }, {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
+                female: '男',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '浙江省杭州市滨江区英飞特 D栋3楼',
+                female: '女',
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '浙江省杭州市滨江区 西可科技园',
+                female: '女',
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '浙江省杭州市滨江区 东忠科技园',
+                female: '女',
+            }, {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
+                female: '男',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '浙江省杭州市滨江区英飞特 D栋3楼',
+                female: '女',
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '浙江省杭州市滨江区 西可科技园',
+                female: '男',
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '浙江省杭州市滨江区 东忠科技园',
+                female: '女',
+            }],
+            allChecked: false,
+        };
+    },
+    methods: {
+        formatter(row, column) {
+            if (row.name === '天王盖地虎')
+                return '逗比一号';
+            else
+                return row.name;
+        },
+        filterMethod(value, columnValue) {
+            if (value === '')
+                return true;
+            return columnValue === value;
+        },
+        selectionChange(value) {
+            console.log(value);
+        },
+    },
+    watch: {
+        allChecked(newValue) {
+            console.log(newValue);
+        },
+    },
+};
+</script>
+```
+
+### 其他用法
+
+#### 排序表格
+``` vue
+<template>
+    <u-resize-table :data="tdata" :default-sort="defaultSort" @sort-change="sortChange">
+        <u-resize-table-column title="日期" type="sortable" label="date"></u-resize-table-column>
+        <u-resize-table-column title="姓名" type="sortable" label="name" :formatter="formatter"></u-resize-table-column>
+        <u-resize-table-column title="地址" label="address"></u-resize-table-column>
+        <u-resize-table-column title="性别" max-width="180" label="female" ></u-resize-table-column>
+    </u-resize-table>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
+                female: '男',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '浙江省杭州市滨江区英飞特 D栋3楼',
+                female: '男',
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '浙江省杭州市滨江区 西可科技园',
+                female: '女',
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '浙江省杭州市滨江区 东忠科技园',
+                female: '男',
+            }, {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
+                female: '男',
+            }, {
+                date: '2016-05-04',
+                name: '王大虎',
+                address: '浙江省杭州市滨江区英飞特 D栋3楼',
+                female: '女',
+            }, {
+                date: '2016-05-01',
+                name: '天王盖地虎',
+                address: '浙江省杭州市滨江区 西可科技园',
+                female: '女',
+            }, {
+                date: '2016-05-03',
+                name: '小鸡炖蘑菇',
+                address: '浙江省杭州市滨江区 东忠科技园',
+                female: '女',
+            } ],
             defaultSort: {
                 title: '姓名',
                 order: 'desc',
@@ -656,7 +703,7 @@ export default {
 </script>
 ```
 
-### 过滤表格
+#### 过滤表格
 ``` vue
 <template>
     <u-resize-table :data="tdata" @filter-change="filterChange">
@@ -672,17 +719,17 @@ export default {
         return {
             tdata: [{
                 date: '2016-05-02',
-                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-                address: '浙江省杭州市滨江区网商路 599号 11111111111111111111111111111111',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
                 female: '男',
             }, {
                 date: '2016-05-04',
-                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+                name: '王大虎',
                 address: '浙江省杭州市滨江区英飞特 D栋3楼',
                 female: '男',
             }, {
                 date: '2016-05-01',
-                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
+                name: '天王盖地虎',
                 address: '浙江省杭州市滨江区 西可科技园',
                 female: '女',
             }, {
@@ -715,22 +762,7 @@ export default {
                 name: '王小虎',
                 address: '浙江省杭州市滨江区网商路 599号',
                 female: '男',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                female: '女',
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园',
-                female: '男',
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                female: '女',
-            }],
+            } ],
             options: [
                 {
                     text: '全部',
@@ -763,7 +795,7 @@ export default {
 </script>
 ```
 
-### 扩展显示表格
+#### 扩展显示表格
 ``` vue
 <template>
     <u-resize-table :data="tdata">
@@ -786,8 +818,8 @@ export default {
         return {
             tdata: [{
                 date: 1533427200000,
-                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-                address: '浙江省杭州市滨江区网商路 599号 11111111111111111111111111111111',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
                 female: 'male',
                 listlogs:[
                     '2018-04-19 14:52:49实例开始创建..',
@@ -797,7 +829,7 @@ export default {
                 ],
             }, {
                 date: 1533340800000,
-                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+                name: '王大虎',
                 address: '浙江省杭州市滨江区英飞特 D栋3楼',
                 female: 'male',
                 listlogs:[
@@ -808,7 +840,7 @@ export default {
                 ],
             }, {
                 date: 1533254400000,
-                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
+                name: '天王盖地虎',
                 address: '浙江省杭州市滨江区 西可科技园',
                 female: 'female',
                 listlogs:[
@@ -851,15 +883,16 @@ export default {
 ```
 
 
-### 自定义表头
+#### 自定义表头
 ``` vue
 <template>
     <u-resize-table :data="tdata">
         <u-resize-table-column title="姓名" label="name">
             <template slot="headerTitle">
-                <u-tooltip content="身份证上的姓名">
-                    <span>姓名</span>
-                </u-tooltip>
+                <span>
+                    姓名
+                    <u-tooltip content="身份证上的姓名"></u-tooltip>
+                </span>
             </template>
         </u-resize-table-column>
         <u-resize-table-column title="日期" label="date" type="time"></u-resize-table-column>
@@ -873,17 +906,17 @@ export default {
         return {
             tdata: [{
                 date: 1533427200000,
-                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-                address: '浙江省杭州市滨江区网商路 599号 11111111111111111111111111111111',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
                 female: 'male',
             }, {
                 date: 1533340800000,
-                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+                name: '王大虎',
                 address: '浙江省杭州市滨江区英飞特 D栋3楼',
                 female: 'male',
             }, {
                 date: 1533254400000,
-                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
+                name: '天王盖地虎',
                 address: '浙江省杭州市滨江区 西可科技园',
                 female: 'female',
             }, {
@@ -913,70 +946,7 @@ export default {
 </script>
 ```
 
-### 表格显示/隐藏切换
-``` vue
-<template>
-    <div>
-        <u-button @click="toggle">toggle</u-button>
-        <u-resize-table style="marginTop: 20px;" :data="tdata" :visible="visible">
-            <u-resize-table-column title="姓名" label="name"></u-resize-table-column>
-            <u-resize-table-column title="日期" label="date" type="time"></u-resize-table-column>
-            <u-resize-table-column title="地址" label="address"></u-resize-table-column>
-            <u-resize-table-column title="性别" label="female" :filter="filter"></u-resize-table-column>
-        </u-resize-table>
-    </div>
-</template>
-<script>
-export default {
-    data: function () {
-        return {
-            tdata: [{
-                date: 1533427200000,
-                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-                address: '浙江省杭州市滨江区网商路 599号 11111111111111111111111111111111',
-                female: 'male',
-            }, {
-                date: 1533340800000,
-                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                female: 'male',
-            }, {
-                date: 1533254400000,
-                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
-                address: '浙江省杭州市滨江区 西可科技园',
-                female: 'female',
-            }, {
-                date: 1533168000000,
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                female: 'male',
-            }, {
-                date: 1533081600000,
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-                female: 'female',
-            } ],
-            value: '',
-            visible: false,
-        };
-    },
-    methods: {
-        toggle() {
-            this.visible = !this.visible;
-        },
-        filter(value, row, column) {
-            console.log(value, row, column);
-            if (value === 'male')
-                return '男';
-            else if(value === 'female')
-                return '女';
-        },
-    }
-};
-</script>
-```
-
-### 指定显示行数据表格
+#### 指定显示行数据表格
 
 ``` vue
 <template>
@@ -984,7 +954,7 @@ export default {
         <u-resize-table-column title="日期" label="date"></u-resize-table-column>
         <u-resize-table-column title="姓名" label="name" :formatter="formatter"></u-resize-table-column>
         <u-resize-table-column title="地址" label="address"></u-resize-table-column>
-        <u-resize-table-column title="性别" type="filter" :options="options" :value="value" label="female" ></u-resize-table-column>
+        <u-resize-table-column title="性别" label="female"></u-resize-table-column>
     </u-resize-table>
 </template>
 <script>
@@ -993,17 +963,17 @@ export default {
         return {
             tdata: [{
                 date: '2016-05-02',
-                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-                address: '浙江省杭州市滨江区网商路 599号 11111111111111111111111111111111',
+                name: '王小虎',
+                address: '浙江省杭州市滨江区网商路 599号',
                 female: '男',
             }, {
                 date: '2016-05-04',
-                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+                name: '王大虎',
                 address: '浙江省杭州市滨江区英飞特 D栋3楼',
                 female: '男',
             }, {
                 date: '2016-05-01',
-                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
+                name: '天王盖地虎',
                 address: '浙江省杭州市滨江区 西可科技园',
                 female: '女',
             }, {
@@ -1015,53 +985,8 @@ export default {
                 date: '2016-05-02',
                 name: '王小虎',
                 address: '浙江省杭州市滨江区网商路 599号',
-                female: '男',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                female: '女',
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园',
-                female: '女',
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                female: '女',
-            }, {
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-                female: '男',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                female: '女',
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园',
                 female: '男',
             } ],
-            options: [
-                {
-                    text: '全部',
-                    value: '',
-                },
-                {
-                    text: '男',
-                    value: '男'
-                },
-                {
-                    text: '女',
-                    value: '女'
-                },
-            ],
-            value: ''
         };
     },
     methods: {
@@ -1070,116 +995,6 @@ export default {
                 return '逗比一号';
             else
                 return row.name;
-        },
-        filterMethod(value, columnValue) {
-            if (value === '')
-                return true;
-            return columnValue === value;
-        },
-    }
-};
-</script>
-```
-
-### 指定表格高度
-
-``` vue
-<template>
-    <u-resize-table :data="tdata" max-height="300">
-        <u-resize-table-column title="日期" label="date"></u-resize-table-column>
-        <u-resize-table-column title="姓名" label="name" :formatter="formatter"></u-resize-table-column>
-        <u-resize-table-column title="地址" label="address"></u-resize-table-column>
-        <u-resize-table-column title="性别" type="filter" :options="options" :value="value" label="female" ></u-resize-table-column>
-    </u-resize-table>
-</template>
-<script>
-export default {
-    data: function () {
-        return {
-            tdata: [{
-                date: '2016-05-02',
-                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-                address: '浙江省杭州市滨江区网商路 599号 11111111111111111111111111111111',
-                female: '男',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                female: '男',
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
-                address: '浙江省杭州市滨江区 西可科技园',
-                female: '女',
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                female: '男',
-            }, {
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-                female: '男',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                female: '女',
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园',
-                female: '女',
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                female: '女',
-            }, {
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-                female: '男',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                female: '女',
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园',
-                female: '男',
-            } ],
-            options: [
-                {
-                    text: '全部',
-                    value: '',
-                },
-                {
-                    text: '男',
-                    value: '男'
-                },
-                {
-                    text: '女',
-                    value: '女'
-                },
-            ],
-            value: ''
-        };
-    },
-    methods: {
-        formatter(row, column) {
-            if (row.name === '天王盖地虎')
-                return '逗比一号';
-            else
-                return row.name;
-        },
-        filterMethod(value, columnValue) {
-            if (value === '')
-                return true;
-            return columnValue === value;
         },
     }
 };
