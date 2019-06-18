@@ -131,7 +131,7 @@ export default {
             itemVM.parentVM = undefined;
             this.columns.splice(this.columns.indexOf(itemVM), 1);
         });
-        this.throttleScroll = throttle(this.bodyScroll, 1000);
+        // this.throttleScroll = throttle(this.bodyScroll, 200);
     },
     mounted() {
         if (this.pattern === 'limit')
