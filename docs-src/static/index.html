@@ -7,7 +7,11 @@
 <body>
     <div id="app"><router-view></router-view></div>
     <script>
-    var theme = localStorage.getItem('theme');
+    // @TODO: different library collision
+    var theme = window.theme = '';
+    try {
+        theme = window.theme = localStorage.getItem('theme');
+    } catch (e) {}
     if (!theme)
         theme = 'default';
     window.theme = theme;
