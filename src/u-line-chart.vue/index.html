@@ -25,7 +25,7 @@
         </div>
         <div :class="$style.axis" role="axisx">
             <div v-for="(xLabel, index) in xAxis_.data" :class="$style.label" role="labelx" title="xLabel" :style="{left: 100*index/(xAxis_.data.length - 1)+'%', width: 100/xAxis_.data.length+'%'}">
-                <slot name="xLabelTemplate">{{xLabel}}</slot>
+                <slot name="xLabelTemplate" :item="xLabel" :data="xAxis_.data" :index="index">{{xLabel}}</slot>
             </div>
             <div :class="$style.label" role="label-xName">{{xAxis.name}}</div>
         </div>

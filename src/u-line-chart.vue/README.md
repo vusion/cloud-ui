@@ -58,11 +58,45 @@ export default {
 </script>
 ```
 
+### 自定义X轴显示
+
+``` vue
+<template>
+<u-line-chart border legend :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data" :smooth="smooth">
+	<div slot="titleTemplate">{{title}}</div>
+	<div style="transform: translateY(15px) rotate(45deg);transform-origin: bottom;" slot="xLabelTemplate" slot-scope="scope">{{ scope.item }}</div>
+</u-line-chart>
+</template>
+
+<script>
+export default {
+	data() {
+		return {
+			title: '每星期访问量',
+			xaxis: { key: 'week' },
+			yaxis: { min: 0, name: '个'},
+			series: [{key: 'number'},{key: 'num', hidden: true } ],
+			data: [
+				{ week: '星期一', number: 150, num: 1200 },
+				{ week: '星期二', number: 300, num: 1200 },
+				{ week: '星期三', number: 28, num: undefined },
+				{ week: '星期四', number: 200, num: 2000 },
+				{ week: '星期五', number: 74, num: 740 },
+				{ week: '星期六', number: 532, num:2000 },
+				{ week: '星期日', number: 420 ,num: 5000},
+			],
+			smooth: true,
+		}
+	},
+};
+</script>
+```
+
 ### 多线段形式
 
 ``` vue
 <template>
-<u-line-chart border legend="always" :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data" :smooth="smooth" @click="clickPoint">
+<u-line-chart border legend :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data" :smooth="smooth" @click="clickPoint">
 	<div slot="titleTemplate">{{title}}</div>
 	<span slot="legendTemplate" slot-scope="scope">
 		<template>{{scope.sery.name || scope.sery.key}}</template>
@@ -198,3 +232,7 @@ export default {
 | Slot | Description |
 | ---- | ----------- |
 | legendSuffix | 自定义legend后缀内容 |
+
+| Slot | Description |
+| ---- | ----------- |
+| xLabelTemplate | 自定义X轴内容，作用域插槽，会传入三个参数`item`、`data`和`index`, 其中data是x轴的数据集合，item是当前数据项，index是当前数据项索引 |
