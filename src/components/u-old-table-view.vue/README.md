@@ -1,19 +1,21 @@
 # 表格视图 OldTableView
 
 ## 示例
+
 ### 基本形式
+下面是表格视图组件中的基本用法。
+
+以列的视角对数据进行配置，`title`为列的标题，`label`是数据中作为唯一识别的字段名。
+
+列宽默认会平均分配，可以使用`width`对列宽进行适当调整，支持数值和百分比两种格式。
 ``` vue
 <template>
     <div>
         <u-old-table-view :data="tdata" border>
-            <u-old-table-view-column title="日期" label="date"></u-old-table-view-column>
-            <u-old-table-view-column ellipsis title="姓名" label="name"></u-old-table-view-column>
-            <u-old-table-view-column ellipsis title="地址" label="address" sortable>
-                <template slot-scope="scope">
-                    {{scope.row.address}}
-                </template>
-            </u-old-table-view-column>
-            <u-old-table-view-column title="性别" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-old-table-view-column>
+            <u-old-table-view-column title="序号" label="id"></u-old-table-view-column>
+            <u-old-table-view-column title="姓名" label="name"></u-old-table-view-column>
+            <u-old-table-view-column title="地址" label="address"></u-old-table-view-column>
+            <u-old-table-view-column title="出生日期" label="birthday"></u-old-table-view-column>
         </u-old-table-view>
     </div>
 </template>
@@ -21,66 +23,298 @@
 export default {
     data: function () {
         return {
-            tdata: [{
-                date: '2016-05-02',
-                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-                address: '浙江省杭州市滨江区网商路 599号 11111111111111111111111111111111',
-                female: '男',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                female: '男',
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
-                address: '浙江省杭州市滨江区 西可科技园',
-                female: '女',
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                female: '男',
-            }, {
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-                female: '男',
-            }],
-            options: [
-                {
-                    name: '全部',
-                    value: '',
-                },
-                {
-                    name: '男',
-                    value: '男'
-                },
-                {
-                    name: '女',
-                    value: '女'
-                },
-            ],
-            value: ''
+            tdata: [{ id: 1, name: '张三', address: '浙江省杭州市滨江区网商路599号网易大厦', birthday: '19910528' },
+            { id: 2, name: '小明', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', birthday: '19920914' },
+            { id: 3, name: '李四', address: '浙江省杭州市滨江区秋溢路606号西可科技园', birthday: '19900228' },
+            { id: 4, name: '李华', address: '浙江省杭州市滨江区长河路590号东忠科技园', birthday: '19891210' },
+            { id: 5, name: '王五', address: '浙江省杭州市滨江区网商路599号网易大厦二期', birthday: '19930716' }],
         };
-    },
-    methods: {
-        formatter(row, column) {
-            if (row.name === '天王盖地虎')
-                return '逗比一号';
-            else
-                return row.name;
-        },
-        filterMethod(value, columnValue) {
-            if (value === '')
-                return true;
-            return columnValue === value;
-        },
     },
 };
 </script>
 ```
 
+### 状态
+
+#### 加载中
+给组件设置`loading`属性即可显示加载状态，自定义加载文字传入`loadText`属性
+``` vue
+<template>
+<div>
+    <u-old-table-view :data="tdata" loading load-text="正在加载中…">
+        <u-old-table-view-column title="序号" label="id"></u-old-table-view-column>
+        <u-old-table-view-column title="日期" label="date"></u-old-table-view-column>
+        <u-old-table-view-column title="姓名" label="name"></u-old-table-view-column>
+        <u-old-table-view-column title="出生日期" label="birthday" ></u-old-table-view-column>
+    </u-old-table-view>
+</div>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{ id: 1, name: '张三', address: '浙江省杭州市滨江区网商路599号网易大厦', birthday: '19910528' }],
+        };
+    }
+};
+</script>
+```
+
+#### 空态自定义显示文本
+自定义表格空态显示文案是通过属性`noDataText`或者自定义具名插槽`slot="no-data-text"`
+``` vue
+<template>
+<div>
+    <u-old-table-view :data="tdata" >
+        <u-old-table-view-column title="序号" label="id"></u-old-table-view-column>
+        <u-old-table-view-column title="日期" label="date"></u-old-table-view-column>
+        <u-old-table-view-column title="姓名" label="name"></u-old-table-view-column>
+        <u-old-table-view-column title="出生日期" label="birthday" ></u-old-table-view-column>
+        <div slot="no-data-text">
+            <span style="margin-right:10px">暂无数据,</span>
+            <u-link>请刷新页面</u-link>
+        </div>
+    </u-old-table-view>
+</div>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [],
+        };
+    }
+};
+</script>
+```
+
+### 格式器
+
+在表格的列组件中可以配置`formatter`属性，会自动将该列数据做一个格式化处理，类似于 Vue 的 filter，目前仅支持函数的形式。
+``` vue
+<template>
+    <div>
+        <u-old-table-view :data="tdata" border>
+            <u-old-table-view-column title="序号" label="id"></u-old-table-view-column>
+            <u-old-table-view-column title="姓名" label="name" :formatter="formatter"></u-old-table-view-column>
+            <u-old-table-view-column title="地址" label="address"></u-old-table-view-column>
+            <u-old-table-view-column title="出生日期" label="birthday"></u-old-table-view-column>
+        </u-old-table-view>
+    </div>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{ id: 1, name: '张三', address: '浙江省杭州市滨江区网商路599号网易大厦', birthday: '19910528' },
+            { id: 2, name: '小明', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', birthday: '19920914' },
+            { id: 3, name: '李四', address: '浙江省杭州市滨江区秋溢路606号西可科技园', birthday: '19900228' },
+            { id: 4, name: '李华', address: '浙江省杭州市滨江区长河路590号东忠科技园', birthday: '19891210' },
+            { id: 5, name: '王五', address: '浙江省杭州市滨江区网商路599号网易大厦二期', birthday: '19930716' }],
+        };
+    },
+    methods: {
+        formatter(row, column) {
+            if (row.name === '小明')
+                return '大明';
+            else
+                return row.name;
+        },
+    }
+};
+</script>
+```
+
+### 列插槽
+
+如果需要对数据进行更加自定义的展示，可以使用列的默认插槽，定制想要的格式。
+
+这个插槽为一个作用域插槽，会传入三个参数`row`、`column`。
+
+``` vue
+<template>
+    <div>
+        <u-old-table-view :data="tdata">
+            <u-old-table-view-column title="序号" label="id"></u-old-table-view-column>
+            <u-old-table-view-column title="姓名" label="name"></u-old-table-view-column>
+            <u-old-table-view-column title="地址" label="address"></u-old-table-view-column>
+            <u-old-table-view-column title="操作">
+                <template slot-scope="{row}">
+                    <u-button @click="click(row)">详情</u-button>
+                </template>
+            </u-old-table-view-column>
+        </u-old-table-view>
+        <u-modal :visible.sync="visible">
+            <div>
+                <span>{{current.name}}</span>
+                <span style="margin-left:10px;">{{current.address}}</span>
+            </div>
+        </u-modal>
+    </div>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{ id: 1, name: '张三', address: '浙江省杭州市滨江区网商路599号网易大厦', birthday: '19910528' },
+            { id: 2, name: '小明', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', birthday: '19920914' },
+            { id: 3, name: '李四', address: '浙江省杭州市滨江区秋溢路606号西可科技园', birthday: '19900228' },
+            { id: 4, name: '李华', address: '浙江省杭州市滨江区长河路590号东忠科技园', birthday: '19891210' },
+            { id: 5, name: '王五', address: '浙江省杭州市滨江区网商路599号网易大厦二期', birthday: '19930716' }],
+            current: {},
+            visible: false,
+        };
+    },
+    methods: {
+        click(row) {
+            console.log('click');
+            console.log(row);
+            this.visible = true;
+            this.current = row;
+        },
+    }
+};
+</script>
+```
+
+### 垂直数据过多
+
+#### 表头固定
+
+通过给`<u-old-table-view>`的样式设置`height`或`max-height`属性，可以限制表格高度。在数据较多的情况下，会自动固定表头。
+
+``` vue
+<template>
+    <div>
+        <u-old-table-view :data="tdata" border max-height="400">
+            <u-old-table-view-column title="序号" label="id"></u-old-table-view-column>
+            <u-old-table-view-column title="姓名" label="name"></u-old-table-view-column>
+            <u-old-table-view-column title="地址" label="address"></u-old-table-view-column>
+            <u-old-table-view-column title="出生日期" label="birthday"></u-old-table-view-column>
+        </u-old-table-view>
+    </div>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{ id: 1, name: '张三', address: '浙江省杭州市滨江区网商路599号网易大厦', birthday: '19910528' },
+            { id: 2, name: '小明', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', birthday: '19920914' },
+            { id: 3, name: '李四', address: '浙江省杭州市滨江区秋溢路606号西可科技园', birthday: '19900228' },
+            { id: 4, name: '李华', address: '浙江省杭州市滨江区长河路590号东忠科技园', birthday: '19891210' },
+            { id: 5, name: '王五', address: '浙江省杭州市滨江区网商路599号网易大厦二期', birthday: '19930716' },
+            { id: 6, name: '张三', address: '浙江省杭州市滨江区网商路599号网易大厦', birthday: '19910528' },
+            { id: 7, name: '小明', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', birthday: '19920914' },
+            { id: 8, name: '李四', address: '浙江省杭州市滨江区秋溢路606号西可科技园', birthday: '19900228' },
+            { id: 9, name: '李华', address: '浙江省杭州市滨江区长河路590号东忠科技园', birthday: '19891210' },
+            { id: 10, name: '王五', address: '浙江省杭州市滨江区网商路599号网易大厦二期', birthday: '19930716' },],
+        };
+    },
+};
+</script>
+```
+
+### 水平内容过长
+
+#### 默认多行显示
+
+某些情况下，我们会遇到文字过长的问题，默认会进行多行显示。
+
+``` vue
+<template>
+    <div>
+        <u-old-table-view :data="tdata" border>
+            <u-old-table-view-column title="序号" label="id"></u-old-table-view-column>
+            <u-old-table-view-column title="姓名" label="name"></u-old-table-view-column>
+            <u-old-table-view-column title="地址" label="address"></u-old-table-view-column>
+            <u-old-table-view-column title="出生日期" label="birthday"></u-old-table-view-column>
+        </u-old-table-view>
+    </div>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{ id: 1, name: '这是一个很长很长很长很长很长很长很长很长的名字', address: '浙江省杭州市滨江区网商路599号网易大厦', birthday: '19910528' },
+            { id: 2, name: '小明', address: '浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园', birthday: '19920914' },
+            { id: 3, name: '名字就是起得这么这么这么这么这么这么长', address: '浙江省杭州市滨江区秋溢路606号西可科技园', birthday: '19900228' },
+            { id: 4, name: '李华', address: '浙江省杭州市滨江区长河路590号东忠科技园', birthday: '19891210' },
+            { id: 5, name: '王五', address: '浙江省杭州市滨江区网商路599号网易大厦二期', birthday: '19930716' }],
+        };
+    },
+};
+</script>
+```
+
+#### 单行省略显示
+
+这时可以对列设置`ellipsis`属性，使文本单行省略，鼠标悬浮时会有工具提示。
+
+``` vue
+<template>
+    <div>
+        <u-old-table-view :data="tdata" border>
+            <u-old-table-view-column title="序号" label="id"></u-old-table-view-column>
+            <u-old-table-view-column ellipsis title="姓名" label="name"></u-old-table-view-column>
+            <u-old-table-view-column ellipsis title="地址" label="address"></u-old-table-view-column>
+            <u-old-table-view-column title="出生日期" label="birthday"></u-old-table-view-column>
+        </u-old-table-view>
+    </div>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{ id: 1, name: '这是一个很长很长很长很长很长很长很长很长的名字', address: '浙江省杭州市滨江区网商路599号网易大厦', birthday: '19910528' },
+            { id: 2, name: '小明', address: '浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园', birthday: '19920914' },
+            { id: 3, name: '名字就是起得这么这么这么这么这么这么长', address: '浙江省杭州市滨江区秋溢路606号西可科技园', birthday: '19900228' },
+            { id: 4, name: '李华', address: '浙江省杭州市滨江区长河路590号东忠科技园', birthday: '19891210' },
+            { id: 5, name: '王五', address: '浙江省杭州市滨江区网商路599号网易大厦二期', birthday: '19930716' }],
+        };
+    },
+};
+</script>
+```
+
+#### 横向滚动
+
+有时省略文字并不直观，可以考虑对所以列设置较长的宽度。产生横向滚动。
+
+``` vue
+<template>
+    <div>
+        <u-old-table-view :data="tdata">
+            <u-old-table-view-column title="序号" width="20%" label="id"></u-old-table-view-column>
+            <u-old-table-view-column title="姓名" width="10%" label="name" ></u-old-table-view-column>
+            <u-old-table-view-column title="省份" width="200" label="province"></u-old-table-view-column>
+            <u-old-table-view-column title="城市" width="200" label="city"></u-old-table-view-column>
+            <u-old-table-view-column title="区县" width="200" label="district"></u-old-table-view-column>
+            <u-old-table-view-column title="地址" width="400" label="address"></u-old-table-view-column>
+            <u-old-table-view-column title="出生日期" width="200" label="birthday"></u-old-table-view-column>
+        </u-old-table-view>
+    </div>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{ id: 1, name: '张三', province: '浙江省', city: '杭州市', district: '滨江区', address: '网商路599号网易大厦', birthday: '19910528' },
+            { id: 2, name: '小明', province: '浙江省', city: '杭州市', district: '滨江区', address: '江虹路459号英飞特科技园', birthday: '19920914' },
+            { id: 3, name: '李四', province: '浙江省', city: '杭州市', district: '滨江区', address: '秋溢路606号西可科技园', birthday: '19900228' },
+            { id: 4, name: '李华', province: '浙江省', city: '杭州市', district: '滨江区', address: '长河路590号东忠科技园', birthday: '19891210' },
+            { id: 5, name: '王五', province: '浙江省', city: '杭州市', district: '滨江区', address: '网商路599号网易大厦二期', birthday: '19930716' },
+            { id: 6, name: '张三', province: '浙江省', city: '杭州市', district: '滨江区', address: '网商路599号网易大厦', birthday: '19910528' },
+            { id: 7, name: '小明', province: '浙江省', city: '杭州市', district: '滨江区', address: '江虹路459号英飞特科技园', birthday: '19920914' },
+            { id: 8, name: '李四', province: '浙江省', city: '杭州市', district: '滨江区', address: '秋溢路606号西可科技园', birthday: '19900228' },
+            { id: 9, name: '李华', province: '浙江省', city: '杭州市', district: '滨江区', address: '长河路590号东忠科技园', birthday: '19891210' },
+            { id: 10, name: '王五', province: '浙江省', city: '杭州市', district: '滨江区', address: '网商路599号网易大厦二期', birthday: '19930716' }],
+        };
+    },
+};
+</script>
+```
+
+### 表格数据过多
 
 #### 默认显示limit条行数据
 
@@ -89,19 +323,10 @@ export default {
 <template>
     <div>
         <u-old-table-view :data="tdata" border pattern="limit" :limit="4">
-            <u-old-table-view-column type="expand" default-text="">
-                <template slot="expandContent">
-                    <span>11</span>
-                </template>
-            </u-old-table-view-column>
-            <u-old-table-view-column title="日期" label="date" sortable></u-old-table-view-column>
-            <u-old-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-old-table-view-column>
-            <u-old-table-view-column ellipsis title="地址" label="address" sortable>
-                <template slot-scope="scope">
-                    {{scope.row.address}}
-                </template>
-            </u-old-table-view-column>
-            <u-old-table-view-column title="性别" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-old-table-view-column>
+            <u-old-table-view-column title="序号" label="id"></u-old-table-view-column>
+            <u-old-table-view-column title="姓名" label="name"></u-old-table-view-column>
+            <u-old-table-view-column title="地址" label="address"></u-old-table-view-column>
+            <u-old-table-view-column title="出生日期" label="birthday"></u-old-table-view-column>
         </u-old-table-view>
     </div>
 </template>
@@ -109,100 +334,347 @@ export default {
 export default {
     data: function () {
         return {
-            tdata: [{
-                date: '2016-05-02',
-                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-                address: '浙江省杭州市滨江区网商路 599号 11111111111111111111111111111111',
-                female: '男',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                female: '男',
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
-                address: '浙江省杭州市滨江区 西可科技园',
-                female: '女',
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                female: '男',
-            }, {
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-                female: '男',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                female: '女',
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园',
-                female: '女',
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                female: '女',
-            }, {
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-                female: '男',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                female: '女',
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园',
-                female: '男',
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                female: '女',
-            }],
-            options: [
-                {
-                    name: '全部',
-                    value: '',
-                },
-                {
-                    name: '男',
-                    value: '男'
-                },
-                {
-                    name: '女',
-                    value: '女'
-                },
-            ],
-            value: ''
+            tdata: [{ id: 1, name: '张三', province: '浙江省', city: '杭州市', district: '滨江区', address: '网商路599号网易大厦', birthday: '19910528' },
+            { id: 2, name: '小明', province: '浙江省', city: '杭州市', district: '滨江区', address: '江虹路459号英飞特科技园', birthday: '19920914' },
+            { id: 3, name: '李四', province: '浙江省', city: '杭州市', district: '滨江区', address: '秋溢路606号西可科技园', birthday: '19900228' },
+            { id: 4, name: '李华', province: '浙江省', city: '杭州市', district: '滨江区', address: '长河路590号东忠科技园', birthday: '19891210' },
+            { id: 5, name: '王五', province: '浙江省', city: '杭州市', district: '滨江区', address: '网商路599号网易大厦二期', birthday: '19930716' },
+            { id: 6, name: '张三', province: '浙江省', city: '杭州市', district: '滨江区', address: '网商路599号网易大厦', birthday: '19910528' },
+            { id: 7, name: '小明', province: '浙江省', city: '杭州市', district: '滨江区', address: '江虹路459号英飞特科技园', birthday: '19920914' },
+            { id: 8, name: '李四', province: '浙江省', city: '杭州市', district: '滨江区', address: '秋溢路606号西可科技园', birthday: '19900228' },
+            { id: 9, name: '李华', province: '浙江省', city: '杭州市', district: '滨江区', address: '长河路590号东忠科技园', birthday: '19891210' },
+            { id: 10, name: '王五', province: '浙江省', city: '杭州市', district: '滨江区', address: '网商路599号网易大厦二期', birthday: '19930716' }],
+        };
+    },
+};
+</script>
+```
+
+#### 固定左右列
+
+使用场景：表格列过多
+``` vue
+<template>
+    <div>
+        <u-old-table-view :data="tdata" width="800" border :loading="loading">
+            <u-old-table-view-column width="200" fixed="left" title="序号" label="id"></u-old-table-view-column>
+            <u-old-table-view-column title="姓名" width="200" label="name" ></u-old-table-view-column>
+            <u-old-table-view-column title="省份" width="200" label="province"></u-old-table-view-column>
+            <u-old-table-view-column title="城市" width="200" label="city"></u-old-table-view-column>
+            <u-old-table-view-column title="区县" width="200" label="district"></u-old-table-view-column>
+            <u-old-table-view-column title="地址" width="200" label="address"></u-old-table-view-column>
+            <u-old-table-view-column title="出生日期" width="200" label="address"></u-old-table-view-column>
+            <u-old-table-view-column title="操作" fixed="right" width="150">
+                <template slot-scope="scope">
+                    <u-button @click="click(scope.row)">配置</u-button>
+                </template>
+            </u-old-table-view-column>
+            <div slot="no-data-text">
+                <span style="margin-right:10px">暂无数据,</span>
+                <u-link>请刷新页面</u-link>
+            </div>
+        </u-old-table-view>
+        <u-modal :visible.sync="visible">
+            <div>
+                <span>{{current.name}}</span>
+                <span style="margin-left:10px;">{{current.address}}</span>
+            </div>
+        </u-modal>
+    </div>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{ id: 1, name: '张三', province: '浙江省', city: '杭州市', district: '滨江区', address: '网商路599号网易大厦', birthday: '19910528' },
+            { id: 2, name: '小明', province: '浙江省', city: '杭州市', district: '滨江区', address: '江虹路459号英飞特科技园', birthday: '19920914' },
+            { id: 3, name: '李四', province: '浙江省', city: '杭州市', district: '滨江区', address: '秋溢路606号西可科技园', birthday: '19900228' },
+            { id: 4, name: '李华', province: '浙江省', city: '杭州市', district: '滨江区', address: '长河路590号东忠科技园', birthday: '19891210' },
+            { id: 5, name: '王五', province: '浙江省', city: '杭州市', district: '滨江区', address: '网商路599号网易大厦二期', birthday: '19930716' },
+            { id: 6, name: '张三', province: '浙江省', city: '杭州市', district: '滨江区', address: '网商路599号网易大厦', birthday: '19910528' },
+            { id: 7, name: '小明', province: '浙江省', city: '杭州市', district: '滨江区', address: '江虹路459号英飞特科技园', birthday: '19920914' },
+            { id: 8, name: '李四', province: '浙江省', city: '杭州市', district: '滨江区', address: '秋溢路606号西可科技园', birthday: '19900228' },
+            { id: 9, name: '李华', province: '浙江省', city: '杭州市', district: '滨江区', address: '长河路590号东忠科技园', birthday: '19891210' },
+            { id: 10, name: '王五', province: '浙江省', city: '杭州市', district: '滨江区', address: '网商路599号网易大厦二期', birthday: '19930716' }],
+            current: {},
+            visible: false,
+            show: false,
+            loading: false,
         };
     },
     methods: {
-        formatter(row, column) {
-            if (row.name === '天王盖地虎')
-                return '逗比一号';
-            else
-                return row.name;
-        },
-        filterMethod(value, columnValue) {
-            if (value === '')
-                return true;
-            return columnValue === value;
+        click(row) {
+            console.log('click');
+            console.log(row);
+            this.visible = true;
+            this.current = row;
         },
     }
 };
 </script>
 ```
+
+#### 懒加载方式加载表格数据
+``` vue
+<template>
+    <div>
+        <u-old-table-view :data="tdata" max-height="500" @scroll-end="scrollEnd">
+            <u-old-table-view-column title="序号" label="id"></u-old-table-view-column>
+            <u-old-table-view-column ellipsis title="姓名" label="name"></u-old-table-view-column>
+            <u-old-table-view-column ellipsis title="地址" label="address"></u-old-table-view-column>
+            <u-old-table-view-column title="出生日期" label="birthday"></u-old-table-view-column>
+        </u-old-table-view>
+    </div>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            tdata: [],
+        };
+    },
+    created() {
+        const nameMap = ["张三", "小明", "李四", "李华", "王五"];
+        for(let i=0; i<20; i++) {
+            this.tdata.push({ id: i, name: nameMap[i%5], province: '浙江省', city: '杭州市', district: '滨江区', address: '网商路599号网易大厦', birthday: '19910528' });
+        }
+    },
+    methods: {
+        scrollEnd() {
+            setTimeout(() => {
+                for(let i=0;i<10;i++) {
+                    this.tdata.push({ id: 10, name: '王五', province: '浙江省', city: '杭州市', district: '滨江区', address: '网商路599号网易大厦二期', birthday: '19930716' });
+                }
+            }, 1000);
+        },
+    },
+};
+</script>
+```
+
+#### 虚拟滚动方式加载表格数据
+设置`pattern`属性的值为`'virtual'`, 如果不需要数据进行深拷贝，可以将`dataPattern`属性设置为`'normal'`
+``` vue
+<template>
+    <div>
+        <u-old-table-view :data="tdata" max-height="500" data-pattern="normal" pattern="virtual">
+            <u-old-table-view-column title="序号" label="id"></u-old-table-view-column>
+            <u-old-table-view-column ellipsis title="姓名" label="name"></u-old-table-view-column>
+            <u-old-table-view-column ellipsis title="地址" label="address"></u-old-table-view-column>
+            <u-old-table-view-column title="出生日期" label="birthday"></u-old-table-view-column>
+        </u-old-table-view>
+    </div>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            tdata: [],
+        };
+    },
+    created() {
+        const nameMap = ["张三", "小明", "李四", "李华", "王五"];
+        for(let i=0; i<1000; i++) {
+            this.tdata.push({ id: i, name: nameMap[i%5], province: '浙江省', city: '杭州市', district: '滨江区', address: '网商路599号网易大厦', birthday: '19910528' });
+        }
+    },
+};
+</script>
+```
+
+### 隐藏部分列
+
+在业务中经常出现某一列的显/隐是依据某个变量来的，为了保证列顺序不会出现变更，使用`visible`属性来控制列的显/隐
+``` vue
+<template>
+    <div>
+        <u-checkboxes v-model="checkedList">
+            <u-checkbox label="isShow">日期</u-checkbox>
+            <u-checkbox label="isNameShow">姓名</u-checkbox>
+            <u-checkbox label="isAddressShow">地址</u-checkbox>
+        </u-checkboxes>
+        <u-old-table-view :data="tdata" border max-height="400">
+            <u-old-table-view-column :visible="checkedList.includes('isShow')" label="id">
+                <div slot="headerTitle">
+                    序号
+                </div>
+            </u-old-table-view-column>
+            <u-old-table-view-column ellipsis :visible="checkedList.includes('isNameShow')" title="姓名" label="name"></u-old-table-view-column>
+            <u-old-table-view-column title="地址" :visible="checkedList.includes('isAddressShow')" label="address" width="400px"></u-old-table-view-column>
+        </u-old-table-view>
+    </div>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{ id: 1, name: '张三', address: '浙江省杭州市滨江区网商路599号网易大厦', birthday: '19910528' },
+            { id: 2, name: '小明', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', birthday: '19920914' },
+            { id: 3, name: '李四', address: '浙江省杭州市滨江区秋溢路606号西可科技园', birthday: '19900228' },
+            { id: 4, name: '李华', address: '浙江省杭州市滨江区长河路590号东忠科技园', birthday: '19891210' },
+            { id: 5, name: '王五', address: '浙江省杭州市滨江区网商路599号网易大厦二期', birthday: '19930716' }],
+           checkedList: ['isShow', 'isNameShow', 'isAddressShow'],
+        };
+    },
+};
+</script>
+```
+
+### 特殊列
+
+UTableView 中内置了一些特殊的列，通过设置`type`来开启。
+
+#### 单选列
+
+自定义表格第一列是单选按钮，设置`type='radio'`即可
+``` vue
+<template>
+    <u-linear-layout direction="vertical">
+        <u-old-table-view :data="tdata" show-color radio-value-field="id" :radioValue.sync="radioValue" @radio-change="selectionChange($event)">
+            <u-old-table-view-column type="radio" ellipsis width="56"></u-old-table-view-column>
+            <u-old-table-view-column title="姓名" label="name"></u-old-table-view-column>
+            <u-old-table-view-column title="地址" label="address" ></u-old-table-view-column>
+            <u-old-table-view-column title="出生日期" label="birthday"></u-old-table-view-column>
+        </u-old-table-view>
+    </u-linear-layout>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{ id: 1, name: '张三', address: '浙江省杭州市滨江区网商路599号网易大厦', birthday: '19910528' },
+            { id: 2, name: '小明', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', birthday: '19920914' },
+            { id: 3, name: '李四', address: '浙江省杭州市滨江区秋溢路606号西可科技园', birthday: '19900228' },
+            { id: 4, name: '李华', address: '浙江省杭州市滨江区长河路590号东忠科技园', birthday: '19891210' },
+            { id: 5, name: '王五', address: '浙江省杭州市滨江区网商路599号网易大厦二期', birthday: '19930716' }],
+            allChecked: false,
+            checkedData: [],
+            radioValue: '1',
+        };
+    },
+    watch: {
+        allChecked(newValue) {
+            console.log(newValue);
+        },
+        radioValue(newValue) {
+            console.log(newValue);
+        },
+    },
+    methods: {
+        selectionChange(data) {
+            console.log(data);
+            this.checkedData = data;
+        },
+    }
+};
+</script>
+```
+
+#### 多选列
+
+对于`type`类型为`selection`的表格列，可以控制`checkbox`的选择状态，传入`data`中每个对象中属性`selected`属性表示默认是否处于选中状态，`disabled`表示是否可选择
+
+同时也可在表格列规定`headSelection`属性，来控制列表是否可以全选。
+
+
+``` vue
+<template>
+    <u-linear-layout direction="vertical">
+            <u-button color="primary" style="width:160px;" :disabled="checkedData.length === 0" @click="delData">删除</u-button>
+            <u-old-table-view :data="tdata" @selection-change="selectionChange($event)">
+                <u-old-table-view-column type="selection"></u-old-table-view-column>
+                <u-old-table-view-column title="姓名" label="name" ></u-old-table-view-column>
+                <u-old-table-view-column title="地址" label="address" ></u-old-table-view-column>
+                <u-old-table-view-column title="出生日期" label="birthday"></u-old-table-view-column>
+            </u-old-table-view>
+    </u-linear-layout>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{ id: 1, name: '张三', address: '浙江省杭州市滨江区网商路599号网易大厦', birthday: '19910528' },
+            { id: 2, name: '小明', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', birthday: '19920914' },
+            { id: 3, name: '李四', address: '浙江省杭州市滨江区秋溢路606号西可科技园', birthday: '19900228' },
+            { id: 4, name: '李华', address: '浙江省杭州市滨江区长河路590号东忠科技园', birthday: '19891210' },
+            { id: 5, name: '王五', address: '浙江省杭州市滨江区网商路599号网易大厦二期', birthday: '19930716' }],
+            allChecked: false,
+            checkedData: [],
+        };
+    },
+    watch: {
+        allChecked(newValue) {
+            console.log(newValue);
+        },
+    },
+    methods: {
+        selectionChange(data) {
+            console.log(data);
+            this.checkedData = data;
+        },
+        delData() {
+            let indexs = undefined;
+            this.checkedData.forEach((item) => {
+                this.tdata.some((checked, index) => {
+                    if (item.name === checked.name) {
+                        indexs = index;
+                        return true;
+                    }
+                });
+                if (indexs !== undefined)
+                    this.tdata.splice(indexs, 1);
+            });
+            this.checkedData = [];
+        },
+    }
+};
+</script>
+```
+
+#### 有标题的selection
+
+给`type='selection'`列正常添加`title`属性即可
+
+``` vue
+<template>
+    <u-linear-layout direction="vertical">
+        <u-old-table-view :data="tdata" @selection-change="selectionChange($event)">
+            <u-old-table-view-column type="selection" title="选择" width="100"></u-old-table-view-column>
+            <u-old-table-view-column title="姓名" label="name" ></u-old-table-view-column>
+            <u-old-table-view-column title="地址" label="address" ></u-old-table-view-column>
+            <u-old-table-view-column title="出生日期" label="birthday"></u-old-table-view-column>
+        </u-old-table-view>
+    </u-linear-layout>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            tdata: [{ id: 1, name: '张三', address: '浙江省杭州市滨江区网商路599号网易大厦', birthday: '19910528' },
+            { id: 2, name: '小明', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', birthday: '19920914' },
+            { id: 3, name: '李四', address: '浙江省杭州市滨江区秋溢路606号西可科技园', birthday: '19900228' },
+            { id: 4, name: '李华', address: '浙江省杭州市滨江区长河路590号东忠科技园', birthday: '19891210' },
+            { id: 5, name: '王五', address: '浙江省杭州市滨江区网商路599号网易大厦二期', birthday: '19930716'} ],
+            allChecked: false,
+            checkedData: [],
+        };
+    },
+    watch: {
+        allChecked(newValue) {
+            console.log(newValue);
+        },
+    },
+    methods: {
+        selectionChange(data) {
+            console.log(data);
+            this.checkedData = data;
+        },
+    }
+};
+</script>
+```
+
+### 其他
 
 #### 在u-subtabs中使用表格组件
 ``` vue
@@ -218,9 +690,9 @@ export default {
         </u-subtab>
         <u-subtab title="样式" value="B">
             <u-old-table-view :data="tdata">
-                <u-old-table-view-column label="date">
+                <u-old-table-view-column label="id">
                     <div slot="headerTitle">
-                        日期
+                        序号
                     </div>
                 </u-old-table-view-column>
                 <u-old-table-view-column ellipsis title="姓名" label="name"></u-old-table-view-column>
@@ -233,55 +705,11 @@ export default {
 export default {
     data: function () {
         return {
-            tdata: [{
-                date: '2016-05-02',
-                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-                address: '浙江省杭州市滨江区网商路 599号',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼'
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
-                address: '浙江省杭州市滨江区 西可科技园'
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园'
-            }, {
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼'
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园'
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园'
-            }, {
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼'
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园'
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园'
-            }],
+            tdata: [{ id: 1, name: '张三', address: '浙江省杭州市滨江区网商路599号网易大厦', birthday: '19910528' },
+            { id: 2, name: '小明', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', birthday: '19920914' },
+            { id: 3, name: '李四', address: '浙江省杭州市滨江区秋溢路606号西可科技园', birthday: '19900228' },
+            { id: 4, name: '李华', address: '浙江省杭州市滨江区长河路590号东忠科技园', birthday: '19891210' },
+            { id: 5, name: '王五', address: '浙江省杭州市滨江区网商路599号网易大厦二期', birthday: '19930716'} ],
             list: [
                 {
                     name: 'dash',
@@ -311,102 +739,6 @@ export default {
             ],
         };
     },
-    methods: {
-        formatter(row, column) {
-            if (row.name === '天王盖地虎')
-                return '逗比一号';
-            else
-                return row.name;
-        }
-    }
-};
-</script>
-```
-
-#### 自定义列显/隐
-在业务中经常出现某一列的显/隐是依据某个变量来的，为了保证列顺序不会出现变更，使用`visible`属性来控制列的显/隐
-``` vue
-<template>
-    <div>
-        <u-old-table-view :data="tdata" border max-height="400">
-            <u-old-table-view-column :visible="isShow" label="date">
-                <div slot="headerTitle">
-                    日期
-                </div>
-            </u-old-table-view-column>
-            <u-old-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-old-table-view-column>
-            <u-old-table-view-column title="地址" label="address" width="200px" sortable></u-old-table-view-column>
-        </u-old-table-view>
-        <u-button style="margin-top: 10px;" @click="toggle">toggle</u-button>
-    </div>
-</template>
-<script>
-export default {
-    data: function () {
-        return {
-            tdata: [{
-                date: '2016-05-02',
-                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-                address: '浙江省杭州市滨江区网商路 599号',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼'
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
-                address: '浙江省杭州市滨江区 西可科技园'
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园'
-            }, {
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼'
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园'
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园'
-            }, {
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼'
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园'
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园'
-            }],
-            isShow: false,
-        };
-    },
-    methods: {
-        formatter(row, column) {
-            if (row.name === '天王盖地虎')
-                return '逗比一号';
-            else
-                return row.name;
-        },
-        toggle() {
-            this.isShow = !this.isShow;
-        },
-    }
 };
 </script>
 ```
@@ -417,14 +749,14 @@ export default {
 <template>
     <div>
         <u-old-table-view :data="tdata" border max-height="400">
-            <u-old-table-view-column label="date">
+            <u-old-table-view-column label="id">
                 <div slot="headerTitle">
-                    日期
+                    序号
                 </div>
             </u-old-table-view-column>
-            <u-old-table-view-column ellipsis title="姓名" label="name" :formatter="formatter"></u-old-table-view-column>
+            <u-old-table-view-column ellipsis title="姓名" label="name"></u-old-table-view-column>
             <u-old-table-view-column title="地址" label="address" width="200" sortable></u-old-table-view-column>
-            <u-old-table-view-column title="出生年月" label="date" type="time"></u-old-table-view-column>
+            <u-old-table-view-column title="出生日期" label="birthday"></u-old-table-view-column>
         </u-old-table-view>
     </div>
 </template>
@@ -432,77 +764,13 @@ export default {
 export default {
     data: function () {
         return {
-            tdata: [{
-                date: '2016-05-02',
-                name: '王小虎aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-                address: '浙江省杭州市滨江区网商路 599号',
-                date: 728524800000,
-            }, {
-                date: '2016-05-04',
-                name: '王大虎ssssssssssssssssssssssssssssssssssssssssssssssssssssss',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                date: 696902400000,
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎dddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
-                address: '浙江省杭州市滨江区 西可科技园',
-                date: 665366400000,
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                date: 665366400000,
-            }, {
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-                date: 665366400000,
-            }, {
-                date: '2016-05-04',
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                date: 728524800000,
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园',
-                date: 696902400000,
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                date: 665366400000,
-            }, {
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-                date: 760060800000,
-            }, {
-                date: '2016-05-04',
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                date: 728524800000,
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园',
-                date: 665366400000,
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                date: 760060800000,
-            }],
+            tdata: [{ id: 1, name: '张三', address: '浙江省杭州市滨江区网商路599号网易大厦', birthday: '19910528' },
+            { id: 2, name: '小明', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', birthday: '19920914' },
+            { id: 3, name: '李四', address: '浙江省杭州市滨江区秋溢路606号西可科技园', birthday: '19900228' },
+            { id: 4, name: '李华', address: '浙江省杭州市滨江区长河路590号东忠科技园', birthday: '19891210' },
+            { id: 5, name: '王五', address: '浙江省杭州市滨江区网商路599号网易大厦二期', birthday: '19930716'}],
         };
     },
-    methods: {
-        formatter(row, column) {
-            if (row.name === '天王盖地虎')
-                return '逗比一号';
-            else
-                return row.name;
-        }
-    }
 };
 </script>
 ```
@@ -513,34 +781,23 @@ export default {
 ``` vue
 <template>
     <u-old-table-view :data="tdata" :default-sort="defaultSort" @sort-change="sortChange">
-        <u-old-table-view-column title="日期" label="date" sortable :sort-method="sortMethod"></u-old-table-view-column>
+        <u-old-table-view-column title="序号" label="id"></u-old-table-view-column>
         <u-old-table-view-column title="姓名" label="name"></u-old-table-view-column>
         <u-old-table-view-column title="地址" label="address"></u-old-table-view-column>
+        <u-old-table-view-column title="出生日期" label="birthday" sortable :sort-method="sortMethod"></u-old-table-view-column>
     </u-old-table-view>
 </template>
 <script>
 export default {
     data: function () {
         return {
-            tdata: [{
-                date: '2016-05-02',
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-            }, {
-                date: '2016-05-04',
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼'
-            }, {
-                date: '2016-05-01',
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园'
-            }, {
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园'
-            }],
+            tdata: [{ id: 1, name: '张三', address: '浙江省杭州市滨江区网商路599号网易大厦', birthday: '19910528' },
+            { id: 2, name: '小明', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', birthday: '19920914' },
+            { id: 3, name: '李四', address: '浙江省杭州市滨江区秋溢路606号西可科技园', birthday: '19900228' },
+            { id: 4, name: '李华', address: '浙江省杭州市滨江区长河路590号东忠科技园', birthday: '19891210' },
+            { id: 5, name: '王五', address: '浙江省杭州市滨江区网商路599号网易大厦二期', birthday: '19930716'}],
             defaultSort: {
-                title: '日期',
+                title: '出生日期',
                 order: 'asc',
             },
         };
@@ -557,217 +814,6 @@ export default {
         },
         sortChange(value) {
             console.log(value.column, value.label, value.order);
-        },
-    }
-};
-</script>
-```
-
-#### 删除选中行
-
-对于`type`类型为`selection`的表格列，可以控制`checkbox`的选择状态，传入`data`中每个对象中属性`selected`属性表示默认是否处于选中状态，`disabled`表示是否可选择
-
-同时也可在表格列规定`headSelection`属性，来控制列表是否可以全选。
-
-``` vue
-<template>
-    <u-linear-layout direction="vertical">
-            <u-button color="primary" style="width:160px;" :disabled="checkedData.length === 0" @click="delData">删除</u-button>
-            <u-old-table-view :data="tdata" @selection-change="selectionChange($event)">
-                <u-old-table-view-column type="selection"></u-old-table-view-column>
-                <u-old-table-view-column title="日期" label="date" type="time"></u-old-table-view-column>
-                <u-old-table-view-column title="姓名" label="name" ></u-old-table-view-column>
-                <u-old-table-view-column title="地址" label="address" ></u-old-table-view-column>
-            </u-old-table-view>
-    </u-linear-layout>
-</template>
-<script>
-export default {
-    data: function () {
-        return {
-            tdata: [{
-                date: 1521551897133,
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-                selected: true,
-            }, {
-                date: 1521551897133,
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                disabled: true,
-            }, {
-                date: 1521551897133,
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园'
-            }, {
-                date: 1521551897133,
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                disabled: true,
-            }],
-            allChecked: false,
-            checkedData: [],
-        };
-    },
-    watch: {
-        allChecked(newValue) {
-            console.log(newValue);
-        },
-    },
-    methods: {
-        formatter(row, column) {
-            if (row.name === '天王盖地虎')
-                return '逗比一号';
-            else
-                return row.name;
-        },
-        selectionChange(data) {
-            console.log(data);
-            this.checkedData = data;
-        },
-        delData() {
-            let indexs = undefined;
-            this.checkedData.forEach((item) => {
-                this.tdata.some((checked, index) => {
-                    if (item.name === checked.name) {
-                        indexs = index;
-                        return true;
-                    }
-                });
-                if (indexs !== undefined)
-                    this.tdata.splice(indexs, 1);
-            });
-            this.checkedData = [];
-        },
-    }
-};
-</script>
-```
-
-#### 有标题的selection
-给`type='selection'`列正常添加`title`属性即可
-``` vue
-<template>
-    <u-linear-layout direction="vertical">
-        <u-old-table-view :data="tdata" @selection-change="selectionChange($event)">
-            <u-old-table-view-column type="selection" title="选择" width="100"></u-old-table-view-column>
-            <u-old-table-view-column title="日期" label="date" type="time"></u-old-table-view-column>
-            <u-old-table-view-column title="姓名" label="name" ></u-old-table-view-column>
-            <u-old-table-view-column title="地址" label="address" ></u-old-table-view-column>
-        </u-old-table-view>
-    </u-linear-layout>
-</template>
-<script>
-export default {
-    data: function () {
-        return {
-            tdata: [{
-                date: 1521551897133,
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-                selected: true,
-            }, {
-                date: 1521551897133,
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                disabled: true,
-            }, {
-                date: 1521551897133,
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园'
-            }, {
-                date: 1521551897133,
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                disabled: true,
-            }],
-            allChecked: false,
-            checkedData: [],
-        };
-    },
-    watch: {
-        allChecked(newValue) {
-            console.log(newValue);
-        },
-    },
-    methods: {
-        formatter(row, column) {
-            if (row.name === '天王盖地虎')
-                return '逗比一号';
-            else
-                return row.name;
-        },
-        selectionChange(data) {
-            console.log(data);
-            this.checkedData = data;
-        },
-    }
-};
-</script>
-```
-
-#### 单选
-自定义表格第一列是单选按钮，设置`type='radio'`即可
-``` vue
-<template>
-    <u-linear-layout direction="vertical">
-        <u-old-table-view :data="tdata" show-color radio-value-field="id" :radioValue.sync="radioValue" @radio-change="selectionChange($event)">
-            <u-old-table-view-column type="radio" ellipsis width="56"></u-old-table-view-column>
-            <u-old-table-view-column title="日期" label="date" type="time"></u-old-table-view-column>
-            <u-old-table-view-column title="姓名" label="name" ></u-old-table-view-column>
-            <u-old-table-view-column title="地址" label="address" ></u-old-table-view-column>
-        </u-old-table-view>
-    </u-linear-layout>
-</template>
-<script>
-export default {
-    data: function () {
-        return {
-            tdata: [{
-                date: 1521551897133,
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-                selected: true,
-                id: '1',
-            }, {
-                date: 1521551897133,
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                id: '2',
-            }, {
-                date: 1521551897133,
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园',
-                id: '3',
-            }, {
-                date: 1521551897133,
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                id: '4',
-            }],
-            allChecked: false,
-            checkedData: [],
-            radioValue: '1',
-        };
-    },
-    watch: {
-        allChecked(newValue) {
-            console.log(newValue);
-        },
-        radioValue(newValue) {
-            console.log(newValue);
-        },
-    },
-    methods: {
-        formatter(row, column) {
-            if (row.name === '天王盖地虎')
-                return '逗比一号';
-            else
-                return row.name;
-        },
-        selectionChange(data) {
-            console.log(data);
-            this.checkedData = data;
         },
     }
 };
@@ -792,28 +838,28 @@ export default {
         return {
             tdata: [{
                 date: 1501977600000,
-                name: '王小虎',
+                name: '张三',
                 address: '浙江省杭州市滨江区网商路 599号',
                 female: '男',
                 use: 12,
                 total: 20,
             }, {
                 date: 1502236800000,
-                name: '王大虎',
+                name: '李四',
                 address: '浙江省杭州市滨江区英飞特 D栋3楼',
                 female: '女',
                 use: 12,
                 total: 20,
             }, {
                 date: 1503100800000,
-                name: '天王盖地虎',
+                name: '黎明',
                 address: '浙江省杭州市滨江区 西可科技园',
                 female: '男',
                 use: 12,
                 total: 20,
             }, {
                 date: 1503964800000,
-                name: '小鸡炖蘑菇',
+                name: '万五',
                 address: '浙江省杭州市滨江区 东忠科技园',
                 female: '女',
                 use: 12,
@@ -855,171 +901,6 @@ export default {
         filterChange(data){
             console.log(data);
         }
-    }
-};
-</script>
-```
-#### 作用域插槽方式
-为了满足自定义单元格的内容显示，可以通过作用域插槽的方式，在`u-old-table-view-column`标签内通过`slot-scope="{row}"`来获取当前行内容，自定义单元格内容显示
-``` vue
-<template>
-    <div>
-        <u-old-table-view :data="tdata" v-show="show">
-            <u-old-table-view-column title="日期" width="20%" label="date" sortable :formatter="dateFormat"></u-old-table-view-column>
-            <u-old-table-view-column title="姓名" width="10%" label="name" ></u-old-table-view-column>
-            <u-old-table-view-column title="地址" width="15%" label="address"></u-old-table-view-column>
-            <u-old-table-view-column title="地址" width="10%" label="address"></u-old-table-view-column>
-            <u-old-table-view-column title="地址" width="20%" label="address"></u-old-table-view-column>
-            <u-old-table-view-column title="地址" width="10%" label="address"></u-old-table-view-column>
-            <u-old-table-view-column title="性别" width="15%" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-old-table-view-column>
-            <u-old-table-view-column title="占比" width="200">
-                <template slot-scope="{row}">
-                    <u-button @click="click(row)">配置</u-button>
-                </template>
-            </u-old-table-view-column>
-        </u-old-table-view>
-        <u-modal :visible.sync="visible">
-            <div>
-                <span>{{current.name}}</span>
-                <span style="margin-left:10px;">{{current.address}}</span>
-            </div>
-        </u-modal>
-        <u-button @click="tableShow"> show </u-button>
-    </div>
-</template>
-<script>
-export default {
-    data: function () {
-        return {
-            tdata: [{
-                date: 1501977600000,
-                name: '王小虎',
-                address: '浙江省杭州市滨江区网商路 599号',
-                female: '男',
-                use: 12,
-                total: 20,
-            }, {
-                date: 1502236800000,
-                name: '王大虎',
-                address: '浙江省杭州市滨江区英飞特 D栋3楼',
-                female: '女',
-                use: 12,
-                total: 20,
-            }, {
-                date: 1503100800000,
-                name: '天王盖地虎',
-                address: '浙江省杭州市滨江区 西可科技园',
-                female: '男',
-                use: 12,
-                total: 20,
-            }, {
-                date: 1503964800000,
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园',
-                female: '女',
-                use: 12,
-                total: 20,
-            }],
-            options: [
-                {
-                    name: '全部',
-                    value: '',
-                },
-                {
-                    name: '男',
-                    value: '男'
-                },
-                {
-                    name: '女',
-                    value: '女'
-                },
-            ],
-            value: '',
-            current: {},
-            visible: false,
-            show: false,
-        };
-    },
-    methods: {
-        filterMethod(value, columnValue) {
-            if (value === '')
-                return true;
-            return columnValue === value;
-        },
-        dateFormat(row) {
-            const value = row.date;
-            const year = new Date(value).getFullYear();
-            let month = new Date(value).getMonth() + 1;
-            month += '';
-            if(month.length === 1)
-                month = '0' + month;
-            const date = new Date(value).getDate();
-            return year + '-' + month + '-' + date;
-        },
-        click(row) {
-            console.log('click');
-            console.log(row);
-            this.visible = true;
-            this.current = row;
-        },
-        tableShow() {
-            this.show = !this.show;
-        }
-    }
-};
-</script>
-```
-
-#### loading 加载中的状态
-给组件设置`loading`属性即可显示加载状态，自定义加载文字传入`loadText`属性
-``` vue
-<template>
-<div>
-    <u-old-table-view :data="tdata" loading load-text="正在加载中…">
-        <u-old-table-view-column title="日期" label="date" sortable></u-old-table-view-column>
-        <u-old-table-view-column title="姓名" label="name"></u-old-table-view-column>
-        <u-old-table-view-column title="地址" label="address" ></u-old-table-view-column>
-    </u-old-table-view>
-</div>
-</template>
-<script>
-export default {
-    data: function () {
-        return {
-            tdata: [{
-                date: '2016-05-03',
-                name: '小鸡炖蘑菇',
-                address: '浙江省杭州市滨江区 东忠科技园'
-            }],
-        };
-    }
-};
-</script>
-```
-
-#### data为空数组自定义显示文本
-自定义表格空态显示文案是通过属性`noDataText`或者自定义具名插槽`slot="no-data-text"`
-``` vue
-<template>
-<div>
-    <u-old-table-view :data="tdata" >
-        <u-old-table-view-column type="selection"></u-old-table-view-column>
-        <u-old-table-view-column title="日期" label="date" sortable></u-old-table-view-column>
-        <u-old-table-view-column title="姓名" label="name"></u-old-table-view-column>
-        <u-old-table-view-column title="地址" label="address" ></u-old-table-view-column>
-        <div slot="no-data-text">
-            <span style="margin-right:10px">暂无数据,</span>
-            <u-link>请刷新页面</u-link>
-        </div>
-    </u-old-table-view>
-</div>
-</template>
-<script>
-export default {
-    data: function () {
-        return {
-            tdata: [],
-        };
     }
 };
 </script>
@@ -1075,28 +956,28 @@ export default {
         return {
             tdata: [{
                 date: 1501977600000,
-                name: '王小虎',
+                name: '李三',
                 address: '浙江省杭州市滨江区网商路 599号',
                 female: '男',
                 use: 12,
                 total: 20,
             }, {
                 date: 1502236800000,
-                name: '王大虎',
+                name: '李四',
                 address: '浙江省杭州市滨江区网商路 599号',
                 female: '女',
                 use: 12,
                 total: 20,
             }, {
                 date: 1503100800000,
-                name: '天王盖地虎',
+                name: '王五',
                 address: '浙江省杭州市滨江区 西可科技园',
                 female: '男',
                 use: 12,
                 total: 20,
             }, {
                 date: 1503964800000,
-                name: '小鸡炖蘑菇',
+                name: '黎明',
                 address: '浙江省杭州市滨江区英飞特 D栋3楼',
                 female: '女',
                 use: 12,
@@ -1240,314 +1121,8 @@ export default {
 </style>
 ```
 
-#### 固定左右列
 
-使用场景：表格列过多
-``` vue
-<template>
-    <div>
-        <u-old-table-view :data="tdata" width="800" border :loading="loading">
-            <u-old-table-view-column width="200" fixed="left" title="日期" label="date" sortable type="time" time-format="YYYY-MM-DD"></u-old-table-view-column>
-            <u-old-table-view-column title="姓名" width="200" label="name" ></u-old-table-view-column>
-            <u-old-table-view-column title="地址" width="200" label="address"></u-old-table-view-column>
-            <u-old-table-view-column title="地址" width="200" label="address"></u-old-table-view-column>
-            <u-old-table-view-column title="地址" width="200" label="address"></u-old-table-view-column>
-            <u-old-table-view-column title="地址" width="200" label="address"></u-old-table-view-column>
-            <u-old-table-view-column title="地址" width="200" label="address"></u-old-table-view-column>
-            <u-old-table-view-column title="性别" width="200" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-old-table-view-column>
-            <u-old-table-view-column title="操作" fixed="right" width="150">
-                <template slot-scope="scope">
-                    <u-button @click="click(scope.row)">配置</u-button>
-                </template>
-            </u-old-table-view-column>
-            <div slot="no-data-text">
-                <span style="margin-right:10px">暂无数据,</span>
-                <u-link>请刷新页面</u-link>
-            </div>
-        </u-old-table-view>
-        <u-modal :visible.sync="visible">
-            <div>
-                <span>{{current.name}}</span>
-                <span style="margin-left:10px;">{{current.address}}</span>
-            </div>
-        </u-modal>
-    </div>
-</template>
-<script>
-export default {
-    data: function () {
-        return {
-            tdata: [],
-            options: [
-                {
-                    name: '全部',
-                    value: '',
-                },
-                {
-                    name: '男',
-                    value: '男'
-                },
-                {
-                    name: '女',
-                    value: '女'
-                },
-            ],
-            value: '',
-            current: {},
-            visible: false,
-            show: false,
-            loading: false,
-        };
-    },
-    created() {
-        this.loading= true;
-        setTimeout(() => {
-            this.loading = false;
-            this.tdata= [
-                {
-                    date: 1501977600000,
-                    name: '王小虎',
-                    address: '浙江省杭州市滨江区网商路 599号',
-                    female: '男',
-                    use: 12,
-                    total: 20,
-                }, {
-                    date: 1502236800000,
-                    name: '王大虎',
-                    address: '浙江省杭州市滨江区',
-                    female: '女',
-                    use: 12,
-                    total: 20,
-                }, {
-                    date: 1503100800000,
-                    name: '天王盖地虎',
-                    address: '浙江省杭州市滨江区 西可科技园',
-                    female: '男',
-                    use: 12,
-                    total: 20,
-                }, {
-                    date: 1503964800000,
-                    name: '小鸡炖蘑菇',
-                    address: '浙江省杭州市滨江区',
-                    female: '女',
-                    use: 12,
-                    total: 20,
-                },
-                {
-                    date: 1503964800000,
-                    name: '小鸡炖蘑菇',
-                    address: '浙江省杭州市滨江区',
-                    female: '女',
-                    use: 12,
-                    total: 20,
-                },
-                {
-                    date: 1503964800000,
-                    name: '小鸡炖蘑菇',
-                    address: '浙江省杭州市滨江区',
-                    female: '女',
-                    use: 12,
-                    total: 20,
-                },
-                {
-                    date: 1503964800000,
-                    name: '小鸡炖蘑菇',
-                    address: '浙江省杭州市滨江区',
-                    female: '女',
-                    use: 12,
-                    total: 20,
-                },
-                {
-                    date: 1503964800000,
-                    name: '小鸡炖蘑菇',
-                    address: '浙江省杭州市滨江区',
-                    female: '女',
-                    use: 12,
-                    total: 20,
-                },
-            ]
-        }, 2000);
-    },
-    methods: {
-        filterMethod(value, columnValue) {
-            if (value === '')
-                return true;
-            return columnValue === value;
-        },
-        dateFormat(row) {
-            const value = row.date;
-            const year = new Date(value).getFullYear();
-            let month = new Date(value).getMonth() + 1;
-            month += '';
-            if(month.length === 1)
-                month = '0' + month;
-            const date = new Date(value).getDate();
-            return year + '-' + month + '-' + date;
-        },
-        click(row) {
-            console.log('click');
-            console.log(row);
-            this.visible = true;
-            this.current = row;
-        },
-        tableShow() {
-            this.show = true;
-        }
-    }
-};
-</script>
-```
-
-#### 懒加载方式加载表格数据
-``` vue
-<template>
-    <div>
-        <u-old-table-view :data="tdata" max-height="500" @scroll-end="scrollEnd">
-            <u-old-table-view-column title="日期" label="date"></u-old-table-view-column>
-            <u-old-table-view-column ellipsis title="姓名" label="name"></u-old-table-view-column>
-            <u-old-table-view-column ellipsis title="地址" label="address" sortable>
-                <template slot-scope="scope">
-                    {{scope.row.address}}
-                </template>
-            </u-old-table-view-column>
-            <u-old-table-view-column title="性别" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-old-table-view-column>
-        </u-old-table-view>
-    </div>
-</template>
-<script>
-export default {
-    data() {
-        return {
-            tdata: [],
-            options: [
-                {
-                    name: '全部',
-                    value: '',
-                },
-                {
-                    name: '男',
-                    value: '男'
-                },
-                {
-                    name: '女',
-                    value: '女'
-                },
-            ],
-            value: ''
-        };
-    },
-    created() {
-        for(let i=0; i<20; i++) {
-            this.tdata.push({
-                date: 1503964800000,
-                name: '令狐冲',
-                address: '浙江省杭州市滨江区',
-                female: '女',
-                use: 12,
-                total: 20,
-            });
-        }
-    },
-    methods: {
-        formatter(row, column) {
-            if (row.name === '天王盖地虎')
-                return '逗比一号';
-            else
-                return row.name;
-        },
-        filterMethod(value, columnValue) {
-            if (value === '')
-                return true;
-            return columnValue === value;
-        },
-        scrollEnd() {
-            setTimeout(() => {
-                for(let i=0;i<10;i++) {
-                    this.tdata.push({
-                        date: 1502236800000,
-                        name: '方世玉',
-                        address: '浙江省杭州市滨江区',
-                        female: '女',
-                        use: 12,
-                        total: 20,
-                    });
-                }
-            }, 1000);
-        },
-    },
-};
-</script>
-```
-
-#### 虚拟滚动方式加载表格数据
-设置`pattern`属性的值为`'virtual'`, 如果不需要数据进行深拷贝，可以将`dataPattern`属性设置为`'normal'`
-``` vue
-<template>
-    <div>
-        <u-old-table-view :data="tdata" max-height="500" data-pattern="normal" pattern="virtual">
-            <u-old-table-view-column title="日期" label="date"></u-old-table-view-column>
-            <u-old-table-view-column ellipsis title="姓名" label="name"></u-old-table-view-column>
-            <u-old-table-view-column ellipsis title="地址" label="address" sortable>
-                <template slot-scope="scope">
-                    {{scope.row.address}}
-                </template>
-            </u-old-table-view-column>
-            <u-old-table-view-column title="性别" label="female" filter :options="options" :value="value" :filter-method="filterMethod"></u-old-table-view-column>
-        </u-old-table-view>
-    </div>
-</template>
-<script>
-export default {
-    data() {
-        return {
-            tdata: [],
-            options: [
-                {
-                    name: '全部',
-                    value: '',
-                },
-                {
-                    name: '男',
-                    value: '男'
-                },
-                {
-                    name: '女',
-                    value: '女'
-                },
-            ],
-            value: ''
-        };
-    },
-    created() {
-        for(let i=0; i<5000; i++) {
-            this.tdata.push({
-                date: 1503964800000,
-                name: '令狐冲' + i,
-                address: '浙江省杭州市滨江区',
-                female: '女',
-                use: 12,
-                total: 20,
-            });
-        }
-    },
-    methods: {
-        formatter(row, column) {
-            if (row.name === '天王盖地虎')
-                return '逗比一号';
-            else
-                return row.name;
-        },
-        filterMethod(value, columnValue) {
-            if (value === '')
-                return true;
-            return columnValue === value;
-        },
-    },
-};
-</script>
-```
-
-## OldTableView API
+## TableView API
 ### Attrs/Props
 
 #### 视图相关属性
@@ -1696,7 +1271,7 @@ export default {
 | ----- | ---- | ----------- |
 | $event.index | Int | 行数据索引 |
 
-## OldTableViewColumn API
+## TableViewColumn API
 ### Props/Attrs
 
 #### 视图相关属性

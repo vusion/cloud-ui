@@ -167,7 +167,7 @@
                 </thead>
             </table>
         </div>
-        <div :class="$style.body" :style="{height: bodyHeight+'px', maxHeight: maxBodyHeight+'px', minHeight: minBodyHeight+'px', overflowX: isXScroll ? 'scroll' : 'visible', overflowY: isYScroll ? 'scroll' : 'visible' }" @scroll="throttleScroll">
+        <div :class="$style.body" :style="{height: bodyHeight+'px', maxHeight: maxBodyHeight+'px', minHeight: minBodyHeight+'px', overflowX: isXScroll ? 'scroll' : 'visible', overflowY: isYScroll ? 'scroll' : 'visible' }" @scroll="bodyScroll">
             <div :style="{height: estimatedTotalHeight}">
                 <div :style="{paddingTop: virtualTop +'px', paddingBottom: virtualBottom + 'px'}">
                     <!-- <div v-if="pattern === 'virtual'" :class="$style.virtual" :style="{height: virtualHeight}"></div> -->
