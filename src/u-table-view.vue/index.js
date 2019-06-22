@@ -2,7 +2,6 @@ import { getStyle, getScrollSize } from '../base/utils/style';
 import { ellipsisTitle } from 'proto-ui.vusion/src/base/directives';
 import { deepCopy } from '../base/utils/index';
 import i18n from './i18n';
-import throttle from 'lodash/throttle';
 
 export default {
     name: 'u-table-view',
