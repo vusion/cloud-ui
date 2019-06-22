@@ -855,4 +855,7 @@ export const UOldTableView = {
     },
 };
 
+export { UOldTableViewCell } from './cell.vue';
+export { UOldTableViewColumn } from './column.vue';
+
 export default UOldTableView;
