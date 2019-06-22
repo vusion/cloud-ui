@@ -3,6 +3,7 @@ import { getStyle, getScrollSize } from '../../utils/style';
 // import { deepCopy } from '../../utils/index';
 import cloneDeep from 'lodash/cloneDeep';
 import i18n from './i18n';
+import { setTimeout } from 'timers';
 
 export const UResizeTable = {
     name: 'u-resize-table',
@@ -102,7 +103,7 @@ export const UResizeTable = {
         else
             this.tdata = this.initTableData();
         window.addEventListener('resize', this.onResize, false);
-        this.$nextTick(() => {
+        setTimeout(() => {
             this.showColumns.forEach((item, index) => {
                 if (!item.digitWidth && item.visible) {
                     item.copyWidth = item.currentWidth = item.digitWidth = parseFloat(getStyle(this.$refs.thColumn[index], 'width'));
@@ -177,7 +178,7 @@ export const UResizeTable = {
             this.handleSize();
         },
         showColumns(newValue) {
-            this.$nextTick(() => {
+            setTimeout(() => {
                 newValue.forEach((item, index) => {
                     if (index === newValue.length - 1 && this.isYScroll)
                         item.copyWidth = item.currentWidth = item.digitWidth = parseFloat(getStyle(this.$refs.thColumn[index], 'width')) - (this.scrollWidth || 0);
@@ -346,7 +347,7 @@ export const UResizeTable = {
             return columnIndex + index;
         },
         handleSize() {
-            this.$nextTick(() => {
+            setTimeout(() => {
                 const headHeight = parseFloat(getStyle(this.$refs.tableHead, 'height')) || 0;
                 const tableHeight = this.$refs.tableBody && this.$refs.tableBody.offsetHeight;
                 this.bodyTableHeight = parseFloat(this.height) - headHeight;
@@ -488,7 +489,7 @@ export const UResizeTable = {
                     item.currentWidth = item.width;
             });
             this.handleSize();
-            this.$nextTick(() => {
+            setTimeout(() => {
                 this.showColumns.forEach((item, index) => {
                     if (index === this.showColumns.length - 1 && this.isYScroll)
                         item.copyWidth = item.currentWidth = item.digitWidth = parseFloat(getStyle(this.$refs.thColumn[index], 'width')) - (this.scrollWidth || 0);

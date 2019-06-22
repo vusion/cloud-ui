@@ -2,7 +2,6 @@ import { getStyle, getScrollSize } from '../../utils/style';
 import { ellipsisTitle } from 'proto-ui.vusion/src/directives';
 import { deepCopy } from '../../utils/index';
 import i18n from './i18n';
-import throttle from 'lodash/throttle';
 import { setTimeout } from 'timers';
 
 export const UOldTableView = {

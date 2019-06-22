@@ -60,7 +60,7 @@ export default {
 </script>
 ```
 
-#### 空态自定义显示文本
+#### 空态
 自定义表格空态显示文案是通过属性`noDataText`或者自定义具名插槽`slot="no-data-text"`
 ``` vue
 <template>
