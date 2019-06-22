@@ -5,4 +5,6 @@ export const UListView = {
     extends: OListView,
 };
 
+export { UListViewItem } from './item.vue';
+
 export default UListView;

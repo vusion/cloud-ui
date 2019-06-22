@@ -4,7 +4,7 @@
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
     <span :class="$style.placeholder">{{ currentValue ? '' : placeholder }}</span><!-- 兼容 IE9 -->
     <input ref="input" :class="$style.input" v-bind="$attrs" :value="currentValue"
-        :placeholder="placeholder" v-focus="autofocus" :readonly="readonly || posternReadonly" :disabled="disabled"
+        :placeholder="placeholder" v-focus="autofocus" :readonly="readonly" :disabled="disabled"
         @input="onInput" @focus="onFocus" @blur="onBlur" v-on="listeners"
         @compositionstart="compositionInputing = true"
         @compositionend="onCompositionEnd">

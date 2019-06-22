@@ -1,4 +1,4 @@
-@import 'proto-ui.vusion/src/u-validator.vue/module.css';
+@extend;
 
 .message {
     position: absolute;

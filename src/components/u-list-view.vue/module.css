@@ -1,4 +1,4 @@
-@import 'proto-ui.vusion/src/u-list-view.vue/module.css';
+@extend;
 
 .root {
     border: 1px solid $brand-secondary;

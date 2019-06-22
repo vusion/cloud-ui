@@ -1,4 +1,4 @@
-import { OValidator } from 'proto-ui.vusion';
+import { UValidator as OValidator } from 'proto-ui.vusion';
 
 export const UValidator = {
     name: 'u-validator',
