@@ -1,0 +1,95 @@
+
+.root {}
+
+.zero {
+    fill: white;
+    stroke: $brand-disabled;
+    stroke-width: 1;
+    stroke-dasharray: 4, 4;
+}
+
+.zero-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 20px;
+    transform: translate(-50%, -50%);
+}
+
+.chart {
+    position: relative;
+    margin: 0 auto;
+}
+
+.svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.item {
+    fill-opacity: 0;
+    stroke: green;
+    stroke-width: 20px;
+    transition: stroke-width $transition-duration-base ease, stroke $transition-duration-base ease;
+}
+
+.item[selected] {
+    stroke-width: 32px;
+}
+
+.circle {
+    fill: white;
+}
+
+.text {
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 30px);
+    text-align: center;
+    width: 60px;
+    height: 50px;
+    line-height: 1;
+    color: #525c60;
+}
+
+.percent, .name {
+    margin: 0;
+}
+
+.percent span {
+    font-size: 26px;
+}
+
+.name {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.label-line {
+    display: none;
+    fill: none;
+    stroke-width: 1px;
+    stroke: #dbdcde;
+}
+
+.label-line[selected] {
+    display: block;
+}
+
+.label {
+    display: none;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+}
+
+.label[selected] {
+    display: block;
+}
+
+.item:nth-of-type(5n+1), .item[color][color="info"] { stroke: $brand-info; }
+.item:nth-of-type(5n+2), .item[color][color="warning"] { stroke: $brand-warning; }
+.item:nth-of-type(5n+3), .item[color][color="success"] { stroke: $brand-success; }
+.item:nth-of-type(5n+4), .item[color][color="error"] { stroke: $brand-error; }
+.item:nth-of-type(5n+5), .item[color][color="primary"] { stroke: $brand-primary; }

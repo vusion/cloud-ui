@@ -1,0 +1,88 @@
+.root {
+    display: inline-block;
+    position: relative;
+    width: 160px;
+    height: 160px;
+    border: 1px solid $border-color-base;
+    border-radius: 100%;
+    overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+.content {
+    position: absolute;
+    z-index: 5;
+    bottom: 40%;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.text {
+    color: #8a8e9e;
+}
+
+.value {
+    font-size: 24px;
+}
+
+.water {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient() */
+    transition: all $transition-duration-base;
+}
+
+.wave {
+    position: absolute;
+    width: 400%;
+    height: 200%;
+    left: -150%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    background: linear-gradient(to top, $brand-info, color-mod($brand-info alpha(0.3)));
+    transition: all $transition-duration-base;
+}
+
+.wave[distance="far"] {
+    left: -125%;
+    animation: wave-reverse 10s 5s ease alternate infinite;
+}
+
+.wave[distance="middle"] {
+    animation: wave 8s 3s ease alternate infinite;
+}
+
+.wave[distance="near"] {
+    left: -175%;
+    animation: wave 6s ease alternate infinite;
+}
+
+@keyframes wave {
+    0%, 100% { transform: skew(0deg, 0deg); }
+    25% { transform: skew(2deg, 2deg); }
+    75% { transform: skew(-2deg, -2deg); }
+}
+
+@keyframes wave-reverse {
+    0%, 100% { transform: skew(0deg, 0deg); }
+    25% { transform: skew(-3deg, -3deg); }
+    75% { transform: skew(3deg, 3deg); }
+}
+
+.root[color="primary"] .wave {
+    background: linear-gradient(to top, $brand-primary, color-mod($brand-primary alpha(0.3)));
+}
+.root[color="info"] .wave {
+    background: linear-gradient(to top, $brand-info, color-mod($brand-info alpha(0.3)));
+}
+.root[color="success"] .wave {
+    background: linear-gradient(to top, $brand-success, color-mod($brand-success alpha(0.3)));
+}
+.root[color="warning"] .wave {
+    background: linear-gradient(to top, $brand-warning, color-mod($brand-warning alpha(0.3)));
+}
+.root[color="error"] .wave {
+    background: linear-gradient(to top, $brand-error, color-mod($brand-error alpha(0.3)));
+}

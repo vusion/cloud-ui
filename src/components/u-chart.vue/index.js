@@ -5,18 +5,14 @@ export const UChart = {
         caption: String,
         series: Array,
         data: Array,
-        border: {
-            type: Boolean,
-            default: false,
-        },
-        legend: {
-            type: [String, Boolean],
-            default: true,
-        },
-        width: String,
-        height: String,
-        titleAlign: { type: String, default: 'center' },
+        border: { type: Boolean, default: false },
+        legend: { type: [Boolean, String], default: false },
+        width: { type: String, default: '100%' }, // @deprecated
+        height: { type: String, default: '450px' }, // @deprecated
+        titleAlignment: { type: String, default: 'center' },
         loading: { type: Boolean, default: false },
+        error: { type: Boolean, default: false },
+        readonly: { type: Boolean, default: false },
         contentStyle: Object,
     },
     data() {

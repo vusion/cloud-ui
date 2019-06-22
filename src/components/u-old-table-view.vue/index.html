@@ -205,7 +205,7 @@
                                             </label>
                                         </span>
                                         <template v-else-if="column.$scopedSlots.default || column.$slots.default">
-                                            <u-old-table-view-cell :row="row" :column="column" :class="$style.ditem" :expanded="expandedColumn && column.type === 'expand'" :role="column.ellipsis" v-ellipsis-title></u-old-table-view-cell>
+                                            <u-table-view-cell :row="row" :column="column" :class="$style.ditem" :expanded="expandedColumn && column.type === 'expand'" :role="column.ellipsis" v-ellipsis-title></u-table-view-cell>
                                         </template>
                                         <span v-else-if="column.formatter" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="column.formatter(row, column, index, cindex)">{{column.formatter(row, column, index, cindex) || defaultText}}</span>
                                         <span v-else-if="column.type === 'time'" :class="$style.ditem" :role="column.ellipsis" v-ellipsis-title="translateTime(row[column.label], column.timeFormat)">{{translateTime(row[column.label], column.timeFormat)}}</span>
@@ -219,7 +219,7 @@
                                 </tr>
                                 <tr :class="$style.btrItem" v-if="row.expanded">
                                     <td :colspan="showColumns.length" :class="$style.btdSpan" :expanded="row.expanded" :border="border" role="center" :hide="isXScroll || border">
-                                        <u-old-table-view-cell :row="row" :column="expandedColumn" expand></u-old-table-view-cell>
+                                        <u-table-view-cell :row="row" :column="expandedColumn" expand></u-table-view-cell>
                                     </td>
                                 </tr>
                             </template>

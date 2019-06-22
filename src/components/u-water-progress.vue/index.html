@@ -1,0 +1,14 @@
+<div :class="$style.root">
+    <div :class="$style.content">
+        <slot name="content">
+            <div :class="$style.text"><slot name="text">{{ text }}</slot></div>
+            <div :class="$style.value"><slot name="value">{{ value }}%</slot></div>
+        </slot>
+    </div>
+    <div :class="$style.water" :style="{ top: (100 - value) + '%' }">
+        <div :class="$style.wave" distance="far"></div>
+        <div :class="$style.wave" distance="middle"></div>
+        <div :class="$style.wave" distance="near"></div>
+    </div>
+    <slot></slot>
+</div>

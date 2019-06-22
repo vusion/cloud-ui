@@ -1,0 +1,28 @@
+@import 'proto-ui.vusion/src/u-transfer.vue/module.css';
+
+.buttons {
+    margin-top: 50px;
+}
+
+.button {
+    border-radius: 100%;
+    border-color: transparent;
+    color: white;
+    background: $brand-primary;
+    transition: all $transition-duration-base;
+}
+
+.button:hover {
+    background: #5d93e6;
+    color: white;
+}
+
+.button:active {
+    background: #5d93e6;
+}
+
+.button[disabled] {
+    color: white;
+    border-color: $border-color-base;
+    background: $brand-disabled-light;
+}

@@ -2,7 +2,7 @@ import { getStyle, getScrollSize } from '../../utils/style';
 import { ellipsisTitle } from 'proto-ui.vusion/src/directives';
 import { deepCopy } from '../../utils/index';
 import i18n from './i18n';
-import { setTimeout } from 'timers';
+import throttle from 'lodash/throttle';
 
 export const UOldTableView = {
     name: 'u-old-table-view',
@@ -131,7 +131,7 @@ export const UOldTableView = {
             itemVM.parentVM = undefined;
             this.columns.splice(this.columns.indexOf(itemVM), 1);
         });
-        // this.throttleScroll = throttle(this.bodyScroll, 1000);
+        // this.throttleScroll = throttle(this.bodyScroll, 200);
     },
     mounted() {
         if (this.pattern === 'limit')
@@ -491,7 +491,7 @@ export const UOldTableView = {
         },
         handleResize() {
             if (this.layout !== 'auto') {
-                setTimeout(() => {
+                this.$nextTick(() => {
                     // 判断是否会出现水平滚动条
                     let parentWidth;
                     parentWidth = this.$el.offsetWidth;
@@ -854,8 +854,5 @@ export const UOldTableView = {
         window.removeEventListener('resize', this.onResize, false);
     },
 };
-
-export { UOldTableViewColumn } from './column.vue';
-export { UOldTableViewCell } from './cell.vue';
 
 export default UOldTableView;

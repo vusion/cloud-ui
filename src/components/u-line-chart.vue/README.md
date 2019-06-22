@@ -109,7 +109,7 @@ export default {
 			title: '每星期访问量',
 			xaxis: { key: 'week' },
 			yaxis: { min: 0, name: '个'},
-			series: [{key: 'number'} ],
+			series: [{key: 'number'},{key: 'num', hidden: true } ],
 			data: [
 				{ week: '星期一', number: 150, num: 1200 },
 				{ week: '星期二', number: 300, num: 1200 },
@@ -130,7 +130,7 @@ export default {
 
 ``` vue
 <template>
-<u-line-chart border legend="always" :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data" :smooth="smooth" @click="clickPoint">
+<u-line-chart border legend :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data" :smooth="smooth" @click="clickPoint">
 	<div slot="titleTemplate">{{title}}</div>
 	<span slot="legendTemplate" slot-scope="scope">
 		<template>{{scope.sery.name || scope.sery.key}}</template>

@@ -93,6 +93,7 @@ export const UResizeTable = {
             itemVM.parentVM = undefined;
             this.itemColumns.splice(this.itemColumns.indexOf(itemVM), 1);
         });
+        // 使用document.body可能会影响对document事件的监听
         document.addEventListener('mousemove', this.onMouseMove, false);
         document.addEventListener('mouseup', this.onMouseUp, false);
     },
@@ -673,8 +674,8 @@ export const UResizeTable = {
     },
     destroyed() {
         window.removeEventListener('resize', this.onResize, false);
-        document.body.removeEventListener('mousemove', this.onMouseMove, false);
-        document.body.removeEventListener('mouseup', this.onMouseUp, false);
+        document.removeEventListener('mousemove', this.onMouseMove, false);
+        document.removeEventListener('mouseup', this.onMouseUp, false);
     },
 };
 

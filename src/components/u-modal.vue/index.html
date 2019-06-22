@@ -1,5 +1,5 @@
-<div :class="$style.root" v-if="currentVisible" :static="static">
-    <div :class="$style.dialog" :style="{width: width+'px'}" :size="size" v-click-outside="handleClose">
+<div :class="$style.root" v-if="currentVisible" :static="static" @click="handleClose">
+    <div :class="$style.dialog" ref="dialog" :style="{ width: width + 'px' }" :size="size">
         <div :class="$style.head">
             <slot name="head">
                 <div v-if="title" :class="$style.title">
@@ -19,8 +19,8 @@
         <div :class="$style.foot" v-if="okButton || cancelButton">
             <slot name="foot">
                 <u-linear-layout>
-                    <u-button :class="$style.button" v-if="okButton" color="primary" @click="ok()">{{okButton}}</u-button>
-                    <u-button :class="$style.button" v-if="cancelButton" @click="cancel()">{{cancelButton}}</u-button>
+                    <u-button :class="$style.button" v-if="okButton" :color="primaryButton === 'okButton' ? 'primary' : ''" :disabled="disableOk" @click="ok()">{{ okButton }}</u-button>
+                    <u-button :class="$style.button" v-if="cancelButton" :color="primaryButton === 'cancelButton' ? 'primary' : ''" :disabled="disableCancel" @click="cancel()">{{ cancelButton }}</u-button>
                 </u-linear-layout>
             </slot>
         </div>

@@ -73,6 +73,18 @@ export default {
 <u-modal title="创建" heading="创建成功" icon="success" visible static></u-modal>
 ```
 
+### 改变主要按钮
+
+``` html
+<u-modal title="标题" visible static primary-button="cancelButton">内容</u-modal>
+```
+
+### 禁用按钮
+
+``` html
+<u-modal title="标题" visible static disable-ok>内容</u-modal>
+```
+
 ### 自定义
 
 ``` html
