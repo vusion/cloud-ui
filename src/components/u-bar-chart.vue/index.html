@@ -23,7 +23,7 @@
         <div v-for="(yLabel,index) in yAxis_.data" :class="$style.line" role="line-x" :style="{bottom: 100*index/(yAxis_.data.length - 1)+'%'}"></div>
     </div>
     <div :class="$style.axis" role="axis-x">
-        <div v-for="(xLabel,index) in xAxis_.data" v-if="(((index+1) % xAxis_.count) === 0)" :class="$style.label"  role="label-x" :wrap="xAxis.count" :title="xLabel" :style="{left: 100*index/xAxis_.data.length+'%', width: 100/xAxis_.data.length+'%'}"><slot name="xLabelTemplate">{{xLabel}}</slot></div>
+        <div v-for="(xLabel,index) in xAxis_.data" v-if="(((index+1) % xAxis_.count) === 0)" :class="$style.label"  role="label-x" :wrap="xAxis.count" :title="xLabel" :style="{left: 100*index/xAxis_.data.length+'%', width: 100/xAxis_.data.length+'%'}"><slot name="xLabelTemplate" :item="xLabel" :data=" xAxis_.data" :index="index">{{xLabel}}</slot></div>
         <div :class="$style.label" role="label-xName">{{xAxis.name}}</div>
     </div>
     <div :class="$style.axis" role="axis-y">
