@@ -7,6 +7,10 @@ $line_border: #eee;
 $line_width: 2px;
 $line_offset: 6px;
 
+.root {
+    overflow-x: hidden;
+}
+
 .wrap {
     height: 100%;
 }

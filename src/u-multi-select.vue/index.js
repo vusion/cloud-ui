@@ -36,10 +36,13 @@ const MultiSelect = {
             default() { return this.$t('selectText'); },
         },
         size: String,
+        // 三种模式 create normal collapseTag 三种模式
         pattern: {
             type: String,
             default: 'normal',
         },
+        collapseTagCount: { type: Number, default: 6 },
+        collapseTagPlaceholder: { type: String, default: '更多' },
     },
     mixins: [Field],
     data() {

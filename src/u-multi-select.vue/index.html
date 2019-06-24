@@ -15,10 +15,21 @@
         <template v-else>
             <span :class="$style.tiptext" v-if="!selFlag">{{ $t('selectText') }}</span>
             <div :class="$style.wraptag" v-else>
-                <div :class="$style.tag" v-for="(selItem, index) in selItems" :key="selItem.value">
-                    <span :class="$style.text">{{selItem[field]}}</span>
-                    <span :class="$style.close" @click.stop="close(index)"></span>
-                </div>
+                <template v-if="pattern === 'collapseTag'">
+                    <div :class="$style.tag" v-for="(selItem, index) in selItems.slice(0, collapseTagCount)" :key="selItem.value">
+                        <span :class="$style.text">{{selItem[field]}}</span>
+                        <span :class="$style.close" @click.stop="close(index)"></span>
+                    </div>
+                    <div :class="$style.tag" v-if="selItems.length > collapseTagCount">
+                        <span :class="$style.text">{{collapseTagPlaceholder}}</span>
+                    </div>
+                </template>
+                <template v-else>
+                    <div :class="$style.tag" v-for="(selItem, index) in selItems" :key="selItem.value">
+                        <span :class="$style.text">{{selItem[field]}}</span>
+                        <span :class="$style.close" @click.stop="close(index)"></span>
+                    </div>
+                </template>
             </div>
             <i :class="$style.icon" :role="open ? 'up':''"></i>
         </template>

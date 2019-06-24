@@ -38,6 +38,47 @@ export default {
 };
 </script>
 ```
+
+### 标签折叠
+设置`pattern='collapseTag'` 选择标签折叠模式，属性`collapse-tag-count` 可指定最多显示的 tag 数量，超出后折叠。属性 `collapse-tag-placeholder` 可以自定义 tag 超出后折叠的显示内容。
+
+``` vue
+<template>
+<u-multi-select pattern="collapseTag" :collapse-tag-count="2" :data="options" v-model="value"></u-multi-select>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value: [],
+            options: [{
+                value: '选项1',
+                text: '黄金糕',
+            }, {
+                value: '选项2',
+                text: '双皮奶'
+            }, {
+                value: '选项3',
+                text: '蚵仔煎'
+            }, {
+                value: '选项4',
+                text: '龙须面'
+            }, {
+                value: '选项5',
+                text: '北京烤鸭',
+            }],
+        };
+    },
+    watch: {
+        value(newValue) {
+            console.log(newValue);
+        }
+    }
+};
+</script>
+```
+
 ### 过滤选项
 
 ``` vue
@@ -253,7 +294,9 @@ export default {
 | filter | Boolean | `false` | 支持输入，搜索匹配项 |
 | filter-method | Function || 自定义输入搜索的方法 |
 | placeholder | String | `'请选择'` | 默认展示的文字，在`filter=true`时生效 |
-| pattern | String | `''normal`| 默认值是normal，如果要实现自主添加需要将值设置为`'create'` |
+| pattern | String | `''normal`| 默认值是normal，如果要实现自主添加需要将值设置为`'create'`，标签折叠模式值为`'collapseTag'` |
+| collapseTagCount | Number | `6` | 指定最多显示的 tag 数量，超出后折叠 |
+| collapseTagPlaceholder | String | `'更多'` | 定义 tag 超出后折叠的显示内容 |
 
 ### Events
 
