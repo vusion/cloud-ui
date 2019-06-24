@@ -238,14 +238,15 @@ const MultiSelect = {
         close(index) {
             const value = this.selItems[index].value;
             let patchIndex = 0;
-            this.optionsData.some((item, index) => {
+            const toggleSet = this.optionsData.some((item, index) => {
                 if (item.value === value) {
                     patchIndex = index;
                     return true;
                 }
                 return false;
             });
-            this.optionsData[patchIndex].selected = !this.optionsData[patchIndex].selected;
+            if (toggleSet)
+                this.optionsData[patchIndex].selected = !this.optionsData[patchIndex].selected;
             this.currentValue.splice(index, 1);
             // 需要重置下optionsData的值
             // 新增模式下删除也需要处理下options中的数据
