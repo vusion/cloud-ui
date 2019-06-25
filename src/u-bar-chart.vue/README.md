@@ -192,6 +192,8 @@ export default {
 | titleAlign | String | `center` | 图表标题的对齐方式，默认是居中，值有:left,center,right |
 | loading | Boolean | `false` | true表示正在加载中，false表示加载完成 |
 | gapSize | String | `'normal'` | 控制柱的宽度，值可以是`mini,small,normal,medium,large,huge`中的任何一个 |
+| grid | Boolean | `true` | 控制网格开关，默认开启网格模式 |
+
 
 ### Events
 

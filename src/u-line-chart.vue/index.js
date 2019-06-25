@@ -30,6 +30,7 @@ export default {
             type: Boolean,
             default: false,
         },
+        grid: { type: Boolean, default: true },
     },
     data() {
         return {
@@ -61,8 +62,8 @@ export default {
             if (!this.$refs)
                 return;
 
-            this.width_ = this.$refs.grid && this.$refs.grid.offsetWidth;
-            this.height_ = this.$refs.grid && this.$refs.grid.offsetHeight;
+            this.width_ = this.$refs.layer && this.$refs.layer.offsetWidth;
+            this.height_ = this.$refs.layer && this.$refs.layer.offsetHeight;
         },
         /**
          * @private

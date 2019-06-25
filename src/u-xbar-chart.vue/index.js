@@ -39,6 +39,7 @@ export default {
         order: { type: String, default: 'desc' },
         loading: { type: Boolean, default: false },
         contentStyle: Object,
+        grid: { type: Boolean, default: true },
     },
     data() {
         return {

@@ -44,6 +44,7 @@ export default {
             type: String,
             default: 'normal',
         },
+        grid: { type: Boolean, default: true },
     },
     data() {
         return {

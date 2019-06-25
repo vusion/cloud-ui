@@ -195,6 +195,7 @@ export default {
 | titleAlign | String | `center` | 图表标题的对齐方式，默认是居中，值有:left,center,right |
 | loading | Boolean | `false` | true表示正在加载中，false表示加载完成 |
 | scatter | Boolean | `false` | 简单散点图 |
+| grid | Boolean | `true` | 控制网格开关，默认开启网格模式 |
 
 ### Events
 
