@@ -18,7 +18,7 @@
         <slot name="legendSuffix"></slot>
     </template>
     <div :class="$style.wrap">
-        <div :class="$style.grid" ref="grid">
+        <div :class="$style.grid" v-if="grid">
             <!--暂时去掉-->
             <!-- <div v-for="(xLablel, index) in xAxis_.data" :class="$style.line" role="y" :style="{left: 100*index/(xAxis_.data.length - 1)+'%'}"></div> -->
             <div v-for="(yLabel, index) in yAxis_.data" :class="$style.line" role='x' :style="{bottom: 100*index/(yAxis_.data.length - 1)+'%'}"></div>
@@ -39,7 +39,7 @@
                 <path :class="$style.line" :d="getD(sery)" />
             </svg>
         </div>
-        <div :class="$style.layer">
+        <div :class="$style.layer" ref="layer">
             <div v-for="(item,index) in currentData" v-if="!item.hidden" :class="$style.piece" :scatter="scatter" :style="{left: 100*index/(currentData.length - 1)+'%', width: 100/(currentData.length - 1)+'%'}">
                 <div v-for="(sery, sindex) in series" @click="pointClick(item, sindex)" v-show="item[sery.key] !== undefined && !sery.hidden && !hideLine.includes(sindex)" :special="item.special && item.special[sery.key]" :class="$style.point" :scatter="scatter" :style="{bottom: 100*(item[sery.key] - yAxis_.min)/(yAxis_.max - yAxis_.min)+'%', borderColor: item.special && item.special[sery.key] && item.special[sery.key].color, background: item.special && item.special[sery.key] && item.special[sery.key].color}">
                     <m-popper :class="$style.popper" trigger="hover">

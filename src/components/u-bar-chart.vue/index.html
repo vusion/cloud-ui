@@ -17,7 +17,7 @@
     <template slot="legendSuffix">
         <slot name="legendSuffix"></slot>
     </template>
-    <div :class="$style.grid">
+    <div :class="$style.grid" v-if="grid">
         <div v-for="(xLabel,index) in xAxis_.data" :class="$style.line" role="line-y" :style="{left: 100*index/xAxis_.data.length+'%'}"></div>
         <div :class="$style.line" role="line-y" style="left: 100%;"></div>
         <div v-for="(yLabel,index) in yAxis_.data" :class="$style.line" role="line-x" :style="{bottom: 100*index/(yAxis_.data.length - 1)+'%'}"></div>

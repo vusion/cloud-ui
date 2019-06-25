@@ -85,6 +85,7 @@ export default {
 | stack | Boolean | false | 线段是否采用堆叠方式，这种方式下series中的对象属性key等于data中标识不同部分的key字段 |
 | titleAlign | String | `center` | 图表标题的对齐方式，默认是居中，值有:left,center,right |
 | loading | Boolean | `false` | true表示正在加载中，false表示加载完成 |
+| grid | Boolean | `true` | 控制网格开关，默认开启网格模式 |
 
 ### Slots
 
