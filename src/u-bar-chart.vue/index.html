@@ -35,9 +35,14 @@
     <div :class="$style.layer">
         <div v-for="(item,index) in data" :class="$style.piece" :style="{left: 100*index/data.length+'%', width: 100/data.length+'%'}">
             <template v-if="!stack" >
-                <template  v-for="sery in series">
+                <template  v-for="(sery, seryIndex) in series">
                     <u-popper :placement="(index < data.length / 2) ? 'right-start' : 'left-start'" :offset="(index < data.length / 2) ? '0 6' : '0 4'" :trigger="trigger">
-                        <div :class="$style.bar" :gap-size="gapSize" @click="barClick(item, index)" :style="{height: 100*(item[sery.key] - yAxis_.min)/yAxis_.max+'%'}"></div>
+                        <template v-if="series.length > 1">
+                            <div :class="[$style.bar, $style.barGroup]" role="bar-static" :gap-size="gapSize" @click="barClick(item, index)" :style="{left: (seryIndex * 100 / (series.length + 1)) + ((seryIndex + 1) * 100 / (series.length + 1) / (series.length)) + '%', width: 100/(series.length + 1)+'%', height: 100*(item[sery.key] - yAxis_.min)/yAxis_.max+'%'}"></div>
+                        </template>
+                        <template v-else>
+                            <div :class="$style.bar" :gap-size="gapSize" @click="barClick(item, index)" :style="{ height: 100*(item[sery.key] - yAxis_.min)/yAxis_.max+'%'}"></div>
+                        </template>
                         <u-chart-tooltip :class="$style.tooltip" role="tooltip-right-top" slot="popper" :sery="sery" :row="item" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
                     </u-popper>
                 </template>
@@ -45,7 +50,7 @@
             <template v-else>
                 <u-popper :placement="(index < data.length / 2) ? 'right-start' : 'left-start'" :offset="(index < data.length / 2) ? '0 6' : '0 4'" :trigger="trigger">
                     <div :class="$style.bar" :gap-size="gapSize" @click="barClick(item, index)" role="bar-stack" :style="{height: 100*(item.total - yAxis_.min)/yAxis_.max+'%'}">
-                        <div v-for="sery in series" :class="$style.bar" role="bar-static" :style="{height: 100*(item[sery.key])/item.total+'%'}" v-if="item[sery.key]"></div>
+                        <div v-for="sery in series" :class="$style.bar" role="bar-static" :style="{height: 100*(item[sery.key])/item.total+'%'}"></div>
                     </div>
                     <u-chart-tooltip :class="$style.tooltip" role="tooltip-right-top" slot="popper" stack :series="series" :row="item" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
                 </u-popper>
