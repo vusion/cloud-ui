@@ -33,14 +33,14 @@ $bar_width: 60px;
 }
 
 .line[role="line-x"] {
-    left: -$line_offset;
+    left: 0;
     right: -1px;
     border-top: 1px solid $line_border;
 }
 
 .line[role="line-y"] {
     top: -1px;
-    bottom: -$line_offset;
+    bottom: 0;
     border-left: 1px solid $line_border;
 }
 
