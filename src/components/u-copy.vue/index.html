@@ -1,0 +1,12 @@
+
+<div :class="$style.root">
+    <div :class="$style.success" v-if="modalType==='popper'" :placement="placement" :show="success?'show':''">
+        <u-status-icon name="success">{{successText}}</u-status-icon>
+    </div>
+    <div @click="copy">
+        <slot>
+            <u-link :disabled="disabled">复制</u-link>
+        </slot>
+    </div>
+</div>
+

@@ -65,5 +65,6 @@ export * from './u-validator-tr.vue';
 export * from './u-validator.vue';
 export * from './u-water-progress.vue';
 export * from './u-xbar-chart.vue';
+export * from './u-copy.vue';
 
 export * from 'proto-ui.vusion/src/components';

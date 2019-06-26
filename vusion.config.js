@@ -81,6 +81,7 @@ module.exports = {
             { group: 'Data', name: 'u-tablets', alias: '药片' },
             { group: 'Data', name: 'u-countup', alias: '数字渐变' },
             { group: 'Data', name: 'u-transfer', alias: '穿梭框' },
+            { group: 'Data', name: 'u-copy', alias: '复制' },
             { group: 'DateTime', name: 'u-calendar', alias: '日历' },
             { group: 'DateTime', name: 'u-date-picker', alias: '日期选择' },
             { group: 'DateTime', name: 'u-time-picker', alias: '时间选择' },
