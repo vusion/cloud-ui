@@ -38,7 +38,7 @@
                 <template  v-for="(sery, seryIndex) in series">
                     <u-popper :placement="(index < data.length / 2) ? 'right-start' : 'left-start'" :offset="(index < data.length / 2) ? '0 6' : '0 4'" :trigger="trigger">
                         <template v-if="series.length > 1">
-                            <div :class="[$style.bar, $style.barGroup]" role="bar-static" :gap-size="gapSize" @click="barClick(item, index)" :style="{left: (seryIndex * 100 / (series.length + 1)) + ((seryIndex + 1) * 100 / (series.length + 1) / (series.length)) + '%', width: 100/(series.length + 1)+'%', height: 100*(item[sery.key] - yAxis_.min)/yAxis_.max+'%'}"></div>
+                            <div :class="[$style.bar, $style.barGroup]" role="bar-static" :gap-size="gapSize" @click="barClick(item, index)" :style="{left: (seryIndex * 100 / (series.length + 1)) + ((seryIndex + 1) * 100 / (series.length + 1) / (series.length + 1)) + '%', width: 100/(series.length + 1)+'%', height: 100*(item[sery.key] - yAxis_.min)/yAxis_.max+'%'}"></div>
                         </template>
                         <template v-else>
                             <div :class="$style.bar" :gap-size="gapSize" @click="barClick(item, index)" :style="{ height: 100*(item[sery.key] - yAxis_.min)/yAxis_.max+'%'}"></div>

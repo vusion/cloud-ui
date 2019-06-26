@@ -89,7 +89,7 @@ export default {
 			xaxis: { key: 'week' },
 			yaxis: { min: 0 },
 			stack: 'stack',
-			series: [{ key: 'rds' }, { key: 'ncr' }, { key: 'nce' }, { key: 'nvm' }, { key: 'nmem' }],
+			series: [{ key: 'rds' }, { key: 'ncr' }],
 			data: [
 				{ week: '星期一', rds: 150, ncr: 0, nce: 50, nvm: 12, nmem:20 },
 	            { week: '星期二', rds: 300, ncr: 340, nce: 20, nvm: 12, nmem:20 },
