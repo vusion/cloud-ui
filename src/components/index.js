@@ -31,6 +31,7 @@ export * from './u-loading.vue';
 export * from './u-logo.vue';
 export * from './u-menu.vue';
 export * from './u-modal.vue';
+export * from './u-multi-select.vue';
 export * from './u-navbar.vue';
 export * from './u-number-input.vue';
 export * from './u-old-table-view.vue';
@@ -65,5 +66,8 @@ export * from './u-validator-tr.vue';
 export * from './u-validator.vue';
 export * from './u-water-progress.vue';
 export * from './u-xbar-chart.vue';
+export * from './u-old-popper.vue';
+export * from './u-old-popup.vue';
+export * from './u-old-tooltip.vue';
 
 export * from 'proto-ui.vusion/src/components';
