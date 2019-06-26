@@ -28,6 +28,36 @@ import 'cloud-ui.vusion/dist/index.css';
 Vue.use(CloudUI); // 全局安装组件库中的组件、指令等
 ```
 
+## Migration
+
+### migrate
+
+替换老代码
+
+``` shell
+migrate ./src
+```
+
+### findExtends
+
+``` shell
+findExtends ./src
+```
+
+查找有多少同名组件
+
+### findByRE
+
+通过正则表达式查找
+
+``` shell
+findByRE ./src '<u-input[\s\S]{0,300}close'
+```
+
+### checkWatcher
+
+查找 watch properties
+
 ## Development
 
 ### Install

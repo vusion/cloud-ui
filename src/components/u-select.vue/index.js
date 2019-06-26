@@ -4,6 +4,7 @@ export const USelect = {
     name: 'u-select',
     extends: OSelect,
     props: {
+        label: { type: String, default: '' },
         ellipsisDirection: { type: String, default: 'ltr' },
     },
 };
