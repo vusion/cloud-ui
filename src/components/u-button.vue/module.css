@@ -96,3 +96,7 @@
     80% { transform: rotate(360deg); }
     100% { transform: rotate(360deg); }
 }
+
+.root:lang(en) {
+    display: inline-block;
+}
