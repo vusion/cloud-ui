@@ -1,0 +1,30 @@
+.root {
+    display: inline-block;
+}
+.label, .colon {
+    display: inline-block;
+}
+.label {
+    text-align: right;
+}
+.root[vertical="top"] .label, .root[vertical="top"] .colon {
+    vertical-align: top;
+}
+.root[vertical="bottom"] .label, .root[vertical="bottom"] .colon {
+    vertical-align: bottom;
+}
+.root[vertical="middle"] .label, .root[vertical="middle"] .colon {
+    vertical-align: middle;
+}
+.label[label-align="left"] {
+    text-align: left;
+}
+.label[label-align="center"] {
+    text-align: center;
+}
+.content {
+    display: inline-block;
+}
+.root[vertical="middle"] .content {
+    vertical-align: middle;
+}

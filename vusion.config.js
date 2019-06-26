@@ -38,6 +38,7 @@ module.exports = {
             // { group: 'Basic', name: 'i-icon', alias: '图标' },
             { group: 'Basic', name: 'u-status-icon', alias: '状态图标' },
             { group: 'Basic', name: 'u-logo', alias: '标识' },
+            { group: 'Basic', name: 'u-key-value', alias: '键值对' },
             { group: 'Layout', name: 'u-linear-layout', alias: '线性布局' },
             { group: 'Layout', name: 'u-grid-layout', alias: '栅格布局' },
             { group: 'Layout', name: 'u-list', alias: '列表' },
