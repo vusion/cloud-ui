@@ -28,7 +28,8 @@ export const UToast = {
             });
         },
     },
-    install: OToast.install,
 };
+
+UToast.install = OToast.install.bind(UToast);
 
 export default UToast;
