@@ -1,0 +1,13 @@
+<div :class="$style.root" :vertical="vertical">
+    <label :class="$style.label" :label-align="labelAlign" :style="{width: labelSize ? `${labelSize}px` : undefined}">
+        <slot name="label">
+            {{label}}
+        </slot>
+    </label>
+    <span :class="$style.colon">：</span>
+    <div :class="$style.content">
+        <slot>
+            {{value}}
+        </slot>
+    </div>
+</div>
