@@ -60,6 +60,7 @@ module.exports = {
             { group: 'Navigation', name: 'u-pagination', alias: '翻页器' },
             { group: 'Navigation', name: 'u-combo-pagination', alias: '复合翻页器' },
             { group: 'Form', name: 'u-form', alias: '表单' },
+            { group: 'Form', name: 'u-validator', alias: '验证器' },
             { group: 'Form', name: 'u-input', alias: '单行输入' },
             { group: 'Form', name: 'u-number-input', alias: '数字输入' },
             { group: 'Form', name: 'u-textarea', alias: '多行输入' },
