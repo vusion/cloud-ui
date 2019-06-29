@@ -1,5 +1,9 @@
 @extend;
 
+.item {
+    text-align: center;
+}
+
 .item[color="info"] {
     background: #00c0ef;
     color: white;

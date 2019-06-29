@@ -4,6 +4,11 @@ body {
     font: 14px/1.6 "Helvetica Neue", Helvetica, Tahoma, Arial, "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
 }
 
+ul[class], ol[class] {
+    list-style: none;
+    padding-left: 0;
+}
+
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;

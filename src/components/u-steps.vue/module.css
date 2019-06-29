@@ -1,5 +1,9 @@
 @extend;
 
+.item {
+    vertical-align: top;
+}
+
 .item-body {
     color: #666;
 }

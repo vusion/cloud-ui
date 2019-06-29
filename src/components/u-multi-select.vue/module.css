@@ -1,0 +1,178 @@
+.root {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    user-select: none;
+}
+.head[disabled] {
+    cursor: not-allowed;
+    background: $brand-disabled;
+    border: 1px solid $brand-disabled;
+    color: #999;
+}
+.head {
+    box-sizing: border-box;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 28px;
+    background: white;
+    color: #555;
+    border: 1px solid #d2d6de;
+    border-radius: 4px;
+    min-height: 34px;
+    line-height: 32px;
+    outline: none;
+}
+.head[role] {
+    padding-right: 10px;
+}
+.tiptext {
+    line-height: 30px;
+}
+.wraptag {
+    /* max-width: 208px; */
+}
+.tag {
+    margin: 0 0 2px 6px;
+    position: relative;
+    top: 1px;
+    background-color: $brand-primary;
+    color: white;
+    display: inline-block;
+    padding: 0 5px;
+    height: 24px;
+    line-height: 22px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+.icon {
+    width: 35px;
+    height: 32px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    text-align: center;
+}
+.icon::after {
+    position: absolute;
+    icon-font: url("../u-icon.vue/icons/keyboard-arrow-down.svg");
+    color: #a5a5a6;
+    font-size: 18px;
+    right: 6px;
+    top: 0;
+    line-height: 32px;
+    transform: rotate(0deg);
+    transition: transform 0.3s;
+}
+.icon[role="up"]::after {
+    transform: rotate(-180deg);
+    transition: transform 0.3s;
+}
+
+.body {
+    margin-top: 2px;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 100;
+}
+.listview {
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 200px;
+    user-select: none;
+    box-sizing: border-box;
+    background: white;
+    color: #555;
+    border-radius: 4px;
+    border: 1px solid #d2d6de;
+    list-style: none;
+    margin: 0;
+}
+.listitem {
+    padding: 0 14px;
+    color: #777;
+    cursor: pointer;
+    position: relative;
+}
+.listitem[divider] {
+    margin: 9px 0;
+    padding: 0;
+    height: 1px;
+    background: #e5e5e5;
+    overflow: hidden;
+    cursor: default;
+}
+.listitem[disabled] {
+    cursor: not-allowed;
+    color: #999;
+}
+.listitem:hover, .listitem[hovered] {
+    background: $hover-color;
+    color: #444;
+}
+.listitem[role="z-sel"] {
+    background: $brand-primary;
+    color: white;
+}
+
+.close {
+    padding-left: 8px;
+    padding-right: 3px;
+}
+.close[class]::before {
+    icon-font: url("../u-icon.vue/icons/close.svg");
+    font-size: 12px;
+}
+.input {
+    border: none;
+    height: 28px;
+    outline: none;
+    margin-left: 5px;
+}
+.text {
+    position: relative;
+    top: -1px;
+}
+.none {
+    padding: 5px 14px;
+    cursor: pointer;
+    position: relative;
+    background: white;
+    color: #555;
+    border-radius: 4px;
+    border: 1px solid #d2d6de;
+    text-align: center;
+}
+.head[size$="small"] {
+    width: 120px;
+}
+.body[size$="small"] { width: 120px; }
+.head[size^="small"] { line-height: 28px; min-height: 30px; }
+.head[size^="small"] .icon { height: 30px; }
+.head[size^="small"] .icon[class]::after { line-height: 28px; }
+.head[size^="small"] .tag {
+    margin: 0 0 0 6px;
+}
+
+.head[size$="normal"] {
+    width: 250px;
+}
+.body[size$="normal"] { width: 250px; }
+
+.head[size$="medium"] { width: 280px; }
+.body[size$="medium"] { width: 280px; }
+.head[size^="medium"] { line-height: 34px; min-height: 36px; }
+
+.head[size$="large"] { width: 440px; }
+.body[size$="large"] { width: 440px; }
+.head[size^="large"] { line-height: 36px; min-height: 38px; }
+
+.head[size$="huge"] { width: 580px; }
+.body[size$="huge"] { width: 580px; }
+.head[size^="huge"] { min-height: 40px; line-height: 38px; }

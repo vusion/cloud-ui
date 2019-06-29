@@ -13,6 +13,10 @@
         <slot name="flag">
             <span v-if="selectedVM && selectedVM.flag !== undefined" :class="$style.flag" :layer="selectedVM && selectedVM.layer" v-tooltip.top="selectedVM && selectedVM.flag"></span>
         </slot>
+        <span :class="$style.label" v-if="label || $slots.label">
+            {{ label }}
+            <slot name="label"></slot>
+        </span>
         <f-render v-if="!multiple && !filterable" :vnode="selectedVM && selectedVM.$slots.default"></f-render>
         <span v-else-if="this.multipleAppearance === 'text'">{{ currentText }}</span>
         <template v-else-if="this.multipleAppearance === 'tags'">

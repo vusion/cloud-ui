@@ -84,8 +84,19 @@
     animation: rotate 1s ease-in-out 0s infinite;
 }
 
+.root[icon="success"]::before {
+    icon-font: url('../u-status-icon.vue/icons/success.svg');
+    vertical-align: -2px;
+    margin-right: 8px;
+    color: white;
+}
+
 @keyframes rotate {
     0% { transform: rotate(0); }
     80% { transform: rotate(360deg); }
     100% { transform: rotate(360deg); }
+}
+
+.root:lang(en) {
+    display: inline-block;
 }
