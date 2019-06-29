@@ -16,10 +16,10 @@
 .root[vertical="middle"] .label, .root[vertical="middle"] .colon {
     vertical-align: middle;
 }
-.label[label-align="left"] {
+.label[alignment="left"] {
     text-align: left;
 }
-.label[label-align="center"] {
+.label[alignment="center"] {
     text-align: center;
 }
 .content {

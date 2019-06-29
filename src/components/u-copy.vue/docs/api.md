@@ -1,4 +1,4 @@
-## UInput
+## UCopy
 ### Props/Attrs
 
 | Prop/Attr | Type | Default | Description |

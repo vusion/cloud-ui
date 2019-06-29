@@ -1,4 +1,4 @@
-# UCopye 复制
+# UCopy 复制
 
 提供复制文本到浏览器剪切板功能
 <u-h2-tabs router>

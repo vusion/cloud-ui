@@ -1,5 +1,5 @@
 <div :class="$style.root" :vertical="vertical">
-    <label :class="$style.label" :label-align="labelAlign" :style="{width: labelSize ? `${labelSize}px` : undefined}">
+    <label :class="$style.label" :alignment="labelAlignment" :style="{width: labelSize ? `${labelSize}px` : undefined}">
         <slot name="label">
             {{label}}
         </slot>

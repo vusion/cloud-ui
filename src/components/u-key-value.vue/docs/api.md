@@ -1,4 +1,4 @@
-## UInput
+## UKeyValue
 ### Props/Attrs
 
 | Prop/Attr | Type | Default | Description |
@@ -7,7 +7,7 @@
 | label | String |  | label显示值 |
 | value | String |  | value显示值 |
 | labelSize | Number |  | 设置label宽度，不填label为自适应 |
-| labelAlign | String | `'right'` | label文字水平对齐方式`'left'`,`'center'`,注意此值仅在设置labelSize后生效 |
+| labelAlignment | String | `'right'` | label文字水平对齐方式`'left'`,`'center'`,注意此值仅在设置labelSize后生效 |
 
 ### Slots
 
