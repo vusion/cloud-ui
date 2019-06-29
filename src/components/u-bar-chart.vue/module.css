@@ -33,14 +33,14 @@ $bar_width: 60px;
 }
 
 .line[role="line-x"] {
-    left: -$line_offset;
+    left: 0;
     right: -1px;
     border-top: 1px solid $line_border;
 }
 
 .line[role="line-y"] {
     top: -1px;
-    bottom: -$line_offset;
+    bottom: 0;
     border-left: 1px solid $line_border;
 }
 
@@ -117,9 +117,16 @@ $bar_width: 60px;
     width: 50%;
     left: 50%;
     margin-left: -25%;
-    background: rgba(91,161,242,0.3);
-    border: $line_width solid rgba(91,161,242,0.6);
+    background: rgba(91, 161, 242, 0.3);
+    border: $line_width solid rgba(91, 161, 242, 0.6);
     border-bottom: none;
+}
+
+.bar.barGroup {
+    margin-left: 0;
+}
+.bar.barGroup[role="bar-static"] {
+    position: absolute;
 }
 
 .bar[gap-size="mini"] {
@@ -160,7 +167,7 @@ $bar_width: 60px;
     line-height: 20px;
     padding: 17px 20px;
     font-size: 12px;
-    background: rgba(71,88,107,0.9);
+    background: rgba(71, 88, 107, 0.9);
     color: white;
     z-index: $z-index-tooltip;
     box-sizing: border-box;
@@ -170,7 +177,7 @@ $bar_width: 60px;
     content: '';
     display: block;
     position: absolute;
-    border: 5px solid rgba(71,88,107,0.9);
+    border: 5px solid rgba(71, 88, 107, 0.9);
 }
 
 .tooltip[x-placement="right-start"]::after {

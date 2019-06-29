@@ -7,3 +7,8 @@
     cursor: not-allowed;
     color: #ccc;
 }
+
+root:lang(en) {
+    display: inline-block;
+    max-width: 100%;
+}

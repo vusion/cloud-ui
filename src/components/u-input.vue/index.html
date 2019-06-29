@@ -7,7 +7,8 @@
         :placeholder="placeholder" v-focus="autofocus" :readonly="readonly" :disabled="disabled"
         @input="onInput" @focus="onFocus" @blur="onBlur" v-on="listeners"
         @compositionstart="compositionInputing = true"
-        @compositionend="onCompositionEnd">
+        @compositionend="onCompositionEnd"
+        :title="currentValue && !disabled ? '' : ($attrs.title || placeholder)">
     <slot></slot>
     <span :class="$style.clearable" v-if="clearable && currentValue" @click.stop="clear"></span>
     <span :class="$style.search" v-if="search" v-show="!clearable || !currentValue || search === 'left'" :alignment="search"></span>

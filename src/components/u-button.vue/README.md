@@ -51,6 +51,7 @@
     <u-button color="primary" icon="create">创建实例</u-button>
     <u-button color="primary" icon="loading">立即创建</u-button>
     <u-button color="primary" icon="loading" disabled>立即创建</u-button>
+    <u-button color="primary" icon="success">立即创建</u-button>
 </u-linear-layout>
 ```
 

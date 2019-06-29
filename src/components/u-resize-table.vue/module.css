@@ -320,3 +320,8 @@
     height: 0;
     background: none;
 }
+
+.bSpan[role]:lang(en) {
+    word-break: break-word;
+    white-space: normal;
+}
