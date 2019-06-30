@@ -8,7 +8,10 @@
     <div id="app"><router-view></router-view></div>
     <script>
     // @TODO: different library collision
-    var theme = window.theme = localStorage.getItem('theme');
+    var theme = window.theme = '';
+    try {
+        theme = window.theme = localStorage.getItem('theme');
+    } catch (e) {}
 
     window.getThemeCSS = (theme) => !theme || theme === 'default' ? 'docs.css' : 'theme-' + theme + '.css';
 
@@ -19,7 +22,7 @@
     document.head.appendChild(linkEl);
     </script>
     
-        <script src="/cloud-ui/docs.js?745a26968a4ab8ac6bca"></script>
+        <script src="/cloud-ui/docs.js?1dc330c64e3e9c617018"></script>
     
 </body>
 </html>
