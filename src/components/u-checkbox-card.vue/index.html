@@ -1,0 +1,21 @@
+<div :class="$style.root" :size="size">
+    <div :class="$style.head">
+        <u-checkbox :disabled="data.length===0" v-model="allChecked">全选</u-checkbox>
+    </div>
+    <div :class="$style.body">
+        <u-checkboxes v-if="data.length > 0" v-model="checkedList">
+            <div v-for="(item, index) in data" :style="{width: column ? `${columnWidth}%`:undefined}" :class="$style.item">
+                <u-checkbox :label="item.value" :disabled="item.disabled" :title="item.text">
+                    <slot :data="item" :index="index">
+                        {{ item.text }}
+                    </slot>
+                </u-checkbox>
+            </div>
+        </u-checkboxes>
+        <div :class="$style.placeholder" v-else>
+            <slot name="placeholder">
+                {{ placeholder }}
+            </slot>
+        </div>
+    </div>
+</div>

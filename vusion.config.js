@@ -66,6 +66,7 @@ module.exports = {
             { group: 'Form', name: 'u-textarea', alias: '多行输入' },
             { group: 'Form', name: 'u-radios', alias: '单选组' },
             { group: 'Form', name: 'u-checkboxes', alias: '多选组' },
+            { group: 'Form', name: 'u-checkbox-card', alias: '多选组合' },
             { group: 'Form', name: 'u-switch', alias: '开关' },
             { group: 'Form', name: 'u-select', alias: '选择框' },
             { group: 'Form', name: 'u-cascade-select', alias: '级联选择' },

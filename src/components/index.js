@@ -8,6 +8,7 @@ export * from './u-cascade-capsules.vue';
 export * from './u-chart-tooltip.vue';
 export * from './u-chart.vue';
 export * from './u-checkboxes.vue';
+export * from './u-checkbox-card.vue';
 export * from './u-circular-progress.vue';
 export * from './u-combo-pagination.vue';
 export * from './u-combo-slider.vue';
