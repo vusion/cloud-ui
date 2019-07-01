@@ -1,0 +1,15 @@
+.root {
+
+}
+
+.head {
+    line-height: 1;
+}
+
+.body {
+    margin-top: 20px;
+}
+
+.root + .root {
+    margin-top: 20px;
+}

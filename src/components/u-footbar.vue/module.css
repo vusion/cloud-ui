@@ -1,0 +1,26 @@
+.root {
+    position: relative;
+}
+.body {
+    position: absolute;
+    padding: 20px 0;
+    bottom: -74px;
+}
+
+.body[position="static"] {
+    position: static;
+}
+
+.body[position="fixed"] {
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    left: $sidebar-width;
+    right: 0;
+    background: #f7f8fa;
+    padding: 20px 40px;
+    color: #333;
+    border: 1px solid #ebf0f5;
+    box-shadow: 0 0 10px 0 rgba(80, 90, 109, 0.16);
+    transition: bottom 0.2s linear;
+}
