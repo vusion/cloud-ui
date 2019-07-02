@@ -1,0 +1,28 @@
+<div :class="$style.root" :border="border" :style="{ width: width, height: height }">
+    <!-- @deprecated: width, height, titleTemplate, captionTemplate, titleAlign, sery.key, sery.name -->
+    <div :class="$style.title" v-if="title || $slots.title || $slots.titleTemplate" :style="{ textAlign: titleAlignment || titleAlign }">
+        <slot name="titleTemplate"><slot name="title">{{ title }}</slot></slot>
+    </div>
+    <u-loading :class="$style.loading" v-if="data === undefined || loading" size="large" display="full"></u-loading>
+    <div v-else-if="data === null || error" :class="$style.empty"></div>
+    <div v-else-if="!data.length" :class="$style.empty"></div>
+    <template v-else>
+        <div :class="$style.caption" v-if="caption || $slots.caption || $slots.captionTemplate">
+            <slot name="captionTemplate"><slot name="caption">{{ caption }}</slot></slot>
+        </div>
+        <div :class="$style.legend" v-if="legend && seriesList.length">
+            <div :class="$style['legend-item']" v-for="(series, index) in seriesList" :key="series.field || series.key"
+                :muted="series.hidden" :title="series.name || series.field || series.key"
+                @mouseover.stop="selectLegendItem(series)" @click.stop="toggleLegendItem(series)">
+                <span :class="$style['legend-item-icon']" :color="series.color" :style="{ background: series.color }"></span>
+                {{ series.name || series.field || series.key }}
+            </div>
+        </div>
+        <div :class="$style.content" :style="contentStyle">
+            <slot></slot>
+        </div>
+        <div :class="$style.operate">
+            <slot name="operate"></slot>
+        </div>
+    </template>
+</div>

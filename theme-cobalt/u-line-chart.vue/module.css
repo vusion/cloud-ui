@@ -1,0 +1,22 @@
+@import '../../src/u-line-chart.vue/module.css';
+
+.elsvg:nth-of-type(5n+1) .line, .elsvg[color][color="info"] .line { stroke: $brand-info; }
+.elsvg:nth-of-type(5n+1) .area, .elsvg[color][color="info"] .area { fill: $brand-info; }
+.elsvg:nth-of-type(5n+2) .line, .elsvg[color][color="warning"] .line { stroke: $brand-warning; }
+.elsvg:nth-of-type(5n+2) .area, .elsvg[color][color="warning"] .area { fill: $brand-warning; }
+.elsvg:nth-of-type(5n+3) .line, .elsvg[color][color="success"] .line { stroke: $brand-success; }
+.elsvg:nth-of-type(5n+3) .area, .elsvg[color][color="success"] .area { fill: $brand-success; }
+.elsvg:nth-of-type(5n+4) .line, .elsvg[color][color="error"] .line { stroke: $brand-error; }
+.elsvg:nth-of-type(5n+4) .area, .elsvg[color][color="error"] .area { fill: $brand-error; }
+.elsvg:nth-of-type(5n+5) .line, .elsvg[color][color="primary"] .line { stroke: $brand-primary; }
+.elsvg:nth-of-type(5n+5) .area, .elsvg[color][color="primary"] .area { fill: $brand-primary; }
+
+.piece .point {
+    background: $brand-info;
+}
+
+.piece .point:nth-of-type(5n+1), .piece .point[color][color="info"] { background: $brand-info; }
+.piece .point:nth-of-type(5n+2), .piece .point[color][color="warning"] { background: $brand-warning; }
+.piece .point:nth-of-type(5n+3), .piece .point[color][color="success"] { background: $brand-success; }
+.piece .point:nth-of-type(5n+4), .piece .point[color][color="error"] { background: $brand-error; }
+.piece .point:nth-of-type(5n+5), .piece .point[color][color="primary"] { background: $brand-primary; }

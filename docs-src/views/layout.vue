@@ -12,6 +12,7 @@
             <u-theme-select-item value="default"><div :class="$style.color"></div>Default</u-theme-select-item>
             <u-theme-select-item value="dark"><div :class="$style.color" color="dark"></div>Dark</u-theme-select-item>
             <u-theme-select-item value="seagreen"><div :class="$style.color" color="seagreen"></div>SeaGreen</u-theme-select-item>
+            <u-theme-select-item value="cobalt"><div :class="$style.color" color="cobalt"></div>cobalt</u-theme-select-item>
         </u-theme-select>
     </u-navbar>
     <div><router-view></router-view></div>
@@ -67,5 +68,10 @@ export default {
 
 .color[color="seagreen"] {
     background: #2cb78e;
+}
+
+/* vusion-ui的 brand-primary值 */
+.color[color="cobalt"] {
+    background: #457cd0;
 }
 </style>

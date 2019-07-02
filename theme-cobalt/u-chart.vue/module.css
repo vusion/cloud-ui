@@ -1,0 +1,114 @@
+@import '../../src/u-chart.vue/module.css';
+
+$m-chart_title_small_height: 30px;
+$m-chart_legend_height: 35px;
+
+.root {
+    height: auto;
+}
+
+.title {
+    position: absolute;
+    z-index: 95;
+    top: calc($m-chart_padding - 5px);
+    left: $m-chart_padding;
+    right: $m-chart_padding;
+    height: $m-chart_tt_height;
+    line-height: $m-chart_tt_height;
+    font-size: 16px;
+}
+
+.caption {
+    position: absolute;
+    top: calc($m-chart_padding + $m-chart_tt_height);
+    left: $m-chart_padding;
+    right: $m-chart_padding;
+    text-align: center;
+}
+
+.title ~ .content {
+    top: 65px;
+}
+
+.legend {
+    bottom: 5px;
+    height: $m-chart_legend_height;
+    line-height: 1.28;
+    left: calc($m-chart_padding - 10px);
+    right: calc($m-chart_padding - 10px);
+}
+
+.legend-item {
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+    margin: 0 1em;
+    max-width: 18%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.legend-item-icon {
+    background: $brand-info;
+    display: inline-block;
+    content: '';
+    width: 10px;
+    height: 10px;
+    vertical-align: text-bottom;
+    margin-right: 4px;
+    position: relative;
+    top: -2px;
+}
+
+.legend-item:nth-of-type(5n+1) .legend-item-icon, .legend-item .legend-item-icon[color][color="info"] { background: $brand-info; }
+.legend-item:nth-of-type(5n+2) .legend-item-icon, .legend-item .legend-item-icon[color][color="warning"] { background: $brand-warning; }
+.legend-item:nth-of-type(5n+3) .legend-item-icon, .legend-item .legend-item-icon[color][color="success"] { background: $brand-success; }
+.legend-item:nth-of-type(5n+4) .legend-item-icon, .legend-item .legend-item-icon[color][color="error"] { background: $brand-error; }
+.legend-item:nth-of-type(5n+5) .legend-item-icon, .legend-item .legend-item-icon[color][color="primary"] { background: $brand-primary; }
+
+.legend-item[muted] {
+    color: $brand-disabled;
+}
+
+.legend-item[muted] .legend-item-icon {
+    background: $brand-disabled;
+}
+
+/* @TODO: border 是否需要更多含义 */
+.root[border] {
+    border: 1px solid $border-color-base;
+}
+
+.operate {
+    position: relative;
+    z-index: 100;
+}
+
+.loading[display="full"][class] {
+    background: white;
+}
+
+/* .empty {
+    width: 100%;
+    height: 100%;
+    background: url('../../src/u-chart.vue/assets/empty.png') center center no-repeat;
+} */
+
+.root[size="small"] {
+    height: 320px !important;
+}
+
+.root[size="small"] .title {
+    height: $m-chart_title_small_height;
+    line-height: $m-chart_title_small_height;
+    font-size: 14px;
+}
+
+.root[size="small"] .title ~ .content {
+    top: 45px;
+}
+
+.root[size="large"] {
+    height: 600px !important;
+}

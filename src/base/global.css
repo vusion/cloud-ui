@@ -49,6 +49,14 @@ $field-border-color: #cbd5dd;
 $field-disabled-color: #bbb;
 $field-selected-color: $brand-primary;
 
+/* Component Base Colors */
+$background-color-base: #f2f3f8;
+$background-color-light: #f2f4fb;
+$color-base: #4c4e58;
+$color-secondary: #777f8c;
+$border-color-base: #dfe4ec;
+$border-color-light: #e5e8ef;
+
 /* Component Base Dimensions */
 $height-base: 34px;
 $border-radius-base: 2px;

@@ -1,0 +1,58 @@
+<u-chart :class="$style.root"
+    :title="title" :series="seriesList" :data="data" :border="border" :legend="legend"
+    :width="width" :height="height" :title-align="titleAlign" :title-alignment="titleAlignment" :loading="loading" :content-style="contentStyle">
+    <template v-if="title || $slots.titleTemplate" slot="titleTemplate">
+        <slot name="titleTemplate">
+            {{title}}
+        </slot>
+    </template>
+    <template slot="captionTemplate" v-if="caption || $slots.captionTemplate">
+        <slot name="captionTemplate">
+            {{caption}}
+        </slot>
+    </template>
+    <div :class="$style.wrap">
+        <div :class="$style.grid">
+            <!-- <div v-for="(xLabel, index) in xAxis_.data" :class="$style.line" role="y" :style="{left: 100*index/(xAxis_.data.length - 1)+'%'}"></div> -->
+            <div v-for="(yLabel, index) in yAxis_.data" :class="$style.line" role='x' :style="{bottom: 100*index/(yAxis_.data.length - 1)+'%'}"></div>
+        </div>
+        <div :class="$style.axis" role="axisx">
+            <div v-for="(xLabel, index) in xAxis_.data" :class="$style.label" role="labelx" title="xLabel" :style="{left: 100*index/(xAxis_.data.length - 1)+'%', width: 100/xAxis_.data.length+'%'}">
+                <slot name="xLabelTemplate">{{xLabel}}</slot>
+            </div>
+            <div :class="$style.label" role="label-xName">{{xAxis.name}}</div>
+        </div>
+        <div :class="$style.axis" role="axisy">
+            <div v-for="(yLabel,index) in yAxis_.data" :class="$style.label" role="labely" title="yLabel" :style="{bottom: 100*index/(yAxis_.data.length - 1)+'%'}">{{format(yLabel)}}</div>
+            <div :class="$style.label" role="label-yName">{{yAxis.name}}{{yAxis.unit}}</div>
+        </div>
+        <div :class="$style.layer" role="layersvg" v-if="!scatter">
+            <svg :class="$style.elsvg" v-for="series in seriesList" v-show="!series.hidden && !series.absent" :color="series.color">
+                <path v-if="fill" :class="$style.area" :d="getD(series, 'area')" />
+                <path :class="$style.line" :d="getD(series)" />
+            </svg>
+        </div>
+        <div :class="$style.layer" ref="layer">
+            <div :class="$style.piece" v-for="(item,index) in currentData" :scatter="scatter" v-if="!item.hidden" :style="{left: 100*index/(currentData.length - 1)+'%', width: 100/(currentData.length - 1)+'%'}">
+                <div :class="$style.point" @click="pointClick(item, index)" :scatter="scatter" v-for="(series, seriesIndex) in seriesList" v-show="item[series.field || series.key] !== undefined && !series.hidden" :color="series.color"
+                    :special="item.special && item.special[series.field || series.key]" :style="{
+                        bottom: 100*(item[series.field || series.key] - yAxis_.min)/(yAxis_.max - yAxis_.min)+'%',
+                        borderColor: item.special && item.special[series.field || series.key] && item.special[series.field || series.key].color,
+                        background: item.special && item.special[series.field || series.key] && item.special[series.field || series.key].color
+                    }">
+                    <div :class="$style.value">{{format(item[series.field || series.key])}}</div>
+                    <u-tooltip v-if="seriesIndex === 0" :disabled="item[series.field || series.key] === undefined" :trigger-element="getTriggerEl" reference="parent" placement="right" :boundaries-element="$el">
+                        <div slot="content">
+                            <slot name="tooltip" :series="series" :row="item" :index="index">
+                                <div v-for="series in seriesList">{{ series.name || series.field || series.key }}: {{ format(item[series.field || series.key]) }}{{yAxis.unit}}</div>
+                            </slot>
+                        </div>
+                    </u-tooltip>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div :class="$style.operate" slot="operate">
+        <slot></slot>
+    </div>
+</u-chart>

@@ -26,4 +26,5 @@ else {
     shell.exec(`vusion build -c "${configPath}" -t default`);
     shell.exec(`vusion build -c "${configPath}" -t dark`);
     shell.exec(`vusion build -c "${configPath}" -t seagreen`);
+    shell.exec(`vusion build -c "${configPath}" -t cobalt`);
 }
