@@ -1,0 +1,25 @@
+<div :class="$style.root"  :size="size">
+    <svg viewBox="0 0 100 100" :class="$style.svg">
+        <!-- 底部轨道 -->
+        <path ref="trail" :class="$style.trail"/>
+        <template v-if="type === 'circle'">
+            <path ref="stroke" :class="$style.stroke"/>
+        </template>
+        <template v-if="type === 'dashboard'">
+            <!-- 分块区间 -->
+            <path v-for="(item, index) in pathSegments" :class="$style.segment" :key="index" 
+                :d="item.d" 
+                :stroke-width="item['stroke-width']"
+                :stroke-linecap="item['stroke-linecap']"
+                :stroke-dasharray="item['stroke-dasharray']"
+                :stroke-dashoffset="item['stroke-dashoffset']"
+                :stroke="item['stroke']"
+            />
+            <!-- 圆弧内部的扇形 -->
+            <path :class="$style.shadowBlock" ref="shadowBlock"/>
+        </template>
+​    </svg>
+    <div :class="$style.text" :size="size">
+        <slot>{{ format(percent) }}</slot>
+    </div>
+</div>

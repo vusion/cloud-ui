@@ -105,6 +105,7 @@ module.exports = {
             { group: 'Effects', name: 'u-carousel', alias: '走马灯' },
             { group: 'Effects', name: 'e-ripple', alias: '波纹' },
             { group: 'Effects', name: 'e-watermark', alias: '水印' },
+            { group: 'Progress & Charts', name: 'u-progress', alias: '进度条' },
             { group: 'Progress & Charts', name: 'u-linear-progress', alias: '线型进度条' },
             { group: 'Progress & Charts', name: 'u-circular-progress', alias: '圆型进度条' },
             { group: 'Progress & Charts', name: 'u-chart', alias: '图表' },

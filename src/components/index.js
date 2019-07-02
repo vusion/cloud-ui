@@ -72,5 +72,6 @@ export * from './u-xbar-chart.vue';
 export * from './u-old-popper.vue';
 export * from './u-old-popup.vue';
 export * from './u-old-tooltip.vue';
+export * from './u-progress.vue';
 
 export * from 'proto-ui.vusion/src/components';

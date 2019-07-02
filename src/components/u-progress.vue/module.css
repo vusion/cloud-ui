@@ -1,0 +1,53 @@
+$size-normal: 100px;
+$size-large: 300px;
+
+.root {
+    position: relative;
+    background: transparent;
+}
+.root[size="normal"] {
+    width: $size-normal;
+    height: $size-normal;
+}
+.root[size="large"] {
+    width: $size-large;
+    height: $size-large;
+}
+.svg {
+    width: 100%;
+    height: 100%;
+}
+.trail {
+    fill-opacity: 0;
+    transition: stroke 0.6s ease, stroke-dasharray 0.6s ease;
+}
+
+.stroke {
+    fill-opacity: 0;
+}
+
+.segment {
+    fill-opacity: 0;
+}
+
+.shadowBlock {
+    fill-opacity: 0;
+    stroke-width: 16;
+    stroke-linecap: butt;
+}
+
+.text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+}
+.text[size="normal"] {
+    line-height: $size-normal;
+}
+.text[size="large"] {
+    line-height: $size-large;
+}
