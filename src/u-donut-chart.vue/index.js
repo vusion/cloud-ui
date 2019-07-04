@@ -6,7 +6,8 @@ export default {
     props: {
         unit: String,
         // showLabels: { type: Boolean, default: false },
-        value: Object,
+        value: String,
+        valueField: { type: String, default: 'name' },
     },
     data() {
         return {
@@ -75,11 +76,9 @@ export default {
                 };
             }
         },
-        setSelectItem(){
-            if(this.value){
-                const item = this.currentData.find((item)=>{
-                    return Object.keys(this.value).every((key)=>item[key] === this.value[key])
-                });
+        setSelectItem() {
+            if (this.value) {
+                const item = this.currentData.find((item) => item[this.valueField] === this.value);
                 this.selectedItem = item;
             }
         },
