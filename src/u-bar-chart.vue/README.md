@@ -162,7 +162,7 @@ export default {
 			title: '6月访问量',
 			xaxis: { key: 'time', count: 4 },
 			yaxis: { min: 0 },
-			series: [{key: 'number', name: '访问量' }, { key: 'rds', name: '实例数' },],
+			series: [{key: 'number', name: '访问量' }, { key: 'rds', name: 'rds 实例数' },],
 			data: [
 				{ time: '2018-06-01', number: 150, rds: 200, },
 				{ time: '2018-06-02', number: 300, rds: 100 },
