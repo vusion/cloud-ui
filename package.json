@@ -10,7 +10,7 @@
   ],
   "main": "./index.js",
   "scripts": {
-    "build": "vusion build && vusion build -C -t dark && vusion build -C -t seagreen",
+    "build": "vusion build && vusion build -C -t dark && vusion build -C -t seagreen && vusion build -C -t cobalt",
     "precommit": "node node_modules/vusion-hooks/precommit"
   },
   "repository": "vusion/cloud-ui",
