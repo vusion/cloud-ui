@@ -6,6 +6,8 @@ export default {
     props: {
         unit: String,
         // showLabels: { type: Boolean, default: false },
+        value: String,
+        valueField: { type: String, default: 'name' },
     },
     data() {
         return {
@@ -72,6 +74,12 @@ export default {
                     left: (this.svgWidth / 2 + (item.label.end.x + 38) * multiple) + 'px',
                     top: (this.svgHeight / 2 + item.label.end.y * multiple - 12) + 'px',
                 };
+            }
+        },
+        setSelectItem() {
+            if (this.value) {
+                const item = this.currentData.find((item) => item[this.valueField] === this.value);
+                this.selectedItem = item;
             }
         },
     },

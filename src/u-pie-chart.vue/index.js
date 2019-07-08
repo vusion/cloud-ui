@@ -50,6 +50,9 @@ export default {
             this.getSize();
             // 其他动态绑定
             this.currentData.forEach((item) => item.d = this.getD(item));
+            if (this.setSelectItem) {
+                this.setSelectItem();
+            }
         },
         getSize() {
             if (this.$el) {

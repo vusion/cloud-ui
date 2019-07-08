@@ -131,3 +131,5 @@ export default {
 | height | Number | `160` | 图表的高度 |
 | tooltip | Boolean | `false` | 是否显示提示工具 |
 | legend | Boolean | `false` | 是否显示图例 |
+| value | String |  | 图表初始选中的值 |
+| valueField | String | `name` | 图表初始选中的值的字段名 |
