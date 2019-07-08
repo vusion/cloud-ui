@@ -143,7 +143,7 @@ export default {
 ```
 
 #### x轴间隔显示
-
+设置`x-axis`中的`count`属性值，可以实现X轴间隔显示，表示X轴每隔count显示一个
 ``` vue
 <template>
 <div>

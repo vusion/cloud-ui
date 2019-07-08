@@ -134,6 +134,9 @@ export const UBarChart = {
                 index,
             });
         },
+        dataSetStyle(seryIndex, sery, item) {
+            return { left: (seryIndex * 100 / (this.series.length + 1)) + ((seryIndex + 1) * 100 / (this.series.length + 1) / (this.series.length + 1)) + '%', width: 100 / (this.series.length + 1) + '%', height: 100 * (item[sery.key] - this.yAxis_.min) / this.yAxis_.max + '%' };
+        },
     },
 };
 

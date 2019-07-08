@@ -37,7 +37,7 @@
             <template v-if="!stack" >
                 <template  v-for="(sery, seryIndex) in series">
                     <template v-if="series.length > 1">
-                        <div :class="[$style.bar, $style.barGroup]" role="bar-static" :gap-size="gapSize" @click="barClick(item, index)" :style="{left: (seryIndex * 100 / (series.length + 1)) + ((seryIndex + 1) * 100 / (series.length + 1) / (series.length + 1)) + '%', width: 100/(series.length + 1)+'%', height: 100*(item[sery.key] - yAxis_.min)/yAxis_.max+'%'}">
+                        <div :class="[$style.bar, $style.barGroup]" role="bar-static" :gap-size="gapSize" @click="barClick(item, index)" :style="dataSetStyle(seryIndex, sery, item)">
                             <m-popper :class="$style.tooltip" :placement="(index < data.length / 2) ? 'right-start' : 'left-start'" :offset="(index < data.length / 2) ? '0 6' : '0 4'" :trigger="trigger">
                                 <u-chart-tooltip role="tooltip-right-top" :sery="sery" :row="item" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
                             </m-popper>
