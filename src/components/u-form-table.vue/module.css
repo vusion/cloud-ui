@@ -1,0 +1,33 @@
+.root {
+    table-layout: fixed;
+    width: 580px;
+}
+
+.root[size="full"] {
+    width: 100%;
+}
+
+.root thead {
+    color: #666;
+    line-height: 40px;
+    border-bottom: 1px solid #e1e8ed;
+}
+
+.root thead th {
+    position: relative;
+    font-weight: normal;
+    text-align: left;
+    height: 48px;
+    font-size: 14px;
+    padding: 0 5px;
+}
+
+.root tbody td {
+    padding: 0;
+    padding-top: 15px;
+    padding-right: 10px;
+}
+
+.root tbody td:last-child {
+    padding-right: 0;
+}

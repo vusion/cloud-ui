@@ -36,7 +36,7 @@
     "countup.js": "^1.9.3",
     "enhanced-resolve": "^4.1.0",
     "lodash": "^4.17.5",
-    "proto-ui.vusion": "~0.4.6-alpha.1",
+    "proto-ui.vusion": "~0.4.6-alpha.2",
     "vue-component-analyzer": "^0.1.4",
     "vusion-utils": "^0.3.3"
   },

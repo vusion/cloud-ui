@@ -20,6 +20,8 @@ export * from './u-date-time-picker.vue';
 export * from './u-desc-list.vue';
 export * from './u-donut-chart.vue';
 export * from './u-form.vue';
+export * from './u-form-table.vue';
+export * from './u-form-table-view.vue';
 export * from './u-footbar.vue';
 export * from './u-icon.vue';
 export * from './u-info-list.vue';

@@ -8,6 +8,7 @@
                                     :href="component.href" :to="component.to ? component.to : '/components/' + component.name" :target="component.target">
                         {{ component.CamelName }}
                         <u-label v-if="component.deprecated" style="background: #6c80a1;">废弃</u-label>
+                        <u-label v-else-if="component.newest" color="primary">新的</u-label>
                         <small v-else :class="$style.alias">{{ component.alias }}</small>
                     </u-sidebar-item>
                 </template>
@@ -16,6 +17,7 @@
                                     :href="component.href" :to="component.to ? component.to : '/components/' + component.name" :target="component.target">
                         {{ component.CamelName }}
                         <u-label v-if="component.deprecated" style="background: #6c80a1;">废弃</u-label>
+                        <u-label v-else-if="component.newest" color="primary">新的</u-label>
                         <small v-else :class="$style.alias">{{ component.alias }}</small>
                     </u-sidebar-item>
                 </u-sidebar-group>
