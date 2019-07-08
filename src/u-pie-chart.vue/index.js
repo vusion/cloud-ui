@@ -8,6 +8,8 @@ export default {
         width: { type: String, default: '100%' },
         height: { type: String, default: '450px' },
         labels: { type: Boolean, default: true },
+        value: null,
+        valueField: { type: String, default: 'name' },
     },
     data() {
         return {
@@ -34,12 +36,16 @@ export default {
             this.currentData = this.handleData(data);
             this.draw();
         },
+        value(value) {
+            this.setSelectedItem();
+        },
     },
     created() {
         window.addEventListener('resize', this.draw);
     },
     mounted() {
         // 必须要用 setTimeout，不然获取不到 svg
+        this.setSelectedItem();
         setTimeout(() => this.draw(), 16);
     },
     destroyed() {
@@ -50,9 +56,6 @@ export default {
             this.getSize();
             // 其他动态绑定
             this.currentData.forEach((item) => item.d = this.getD(item));
-            if (this.setSelectItem) {
-                this.setSelectItem();
-            }
         },
         getSize() {
             if (this.$el) {
@@ -171,6 +174,14 @@ export default {
         },
         onMouseOver(item) {
             this.selectedItem = item;
+            if (this.selectedItem)
+                this.$emit('update:value', this.selectedItem[this.valueField]);
+        },
+        setSelectedItem() {
+            if (this.value !== undefined) {
+                const item = this.currentData.find((item) => item[this.valueField] === this.value);
+                this.selectedItem = item;
+            }
         },
     },
 };

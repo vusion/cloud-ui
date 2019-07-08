@@ -36,6 +36,17 @@
 </u-pie-chart>
 ```
 
+### 选择项
+
+``` html
+<u-pie-chart border legend title="每星期访问量" value="selector2"s :data="[
+    { 'percent': 23, 'name': 'selector1' },
+    { 'percent': 27, 'name': 'selector2' },
+    { 'percent': 12, 'name': 'selector3' },
+    { 'percent': 38, 'name': 'selector4' },
+]"></u-pie-chart>
+```
+
 ## API
 
 ### Attrs/Props
@@ -49,6 +60,8 @@
 | width | String | `100%` | 图表的宽度 |
 | height | String | `480px` | 图表的高度 |
 | titleAlign | String | `center` | 图表标题的对齐方式，默认是居中，值有:left,center,right |
+| value.sync | String |  | 图表选中的值 |
+| valueField | String | `name` | 图表初始选中的值的字段名 |
 
 ### Slot
 
