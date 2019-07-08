@@ -1,0 +1,7 @@
+.root {
+    width: 580px;
+}
+
+.root[size="full"] {
+    width: 100%;
+}

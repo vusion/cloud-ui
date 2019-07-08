@@ -19,6 +19,7 @@ export * from './u-date-picker.vue';
 export * from './u-date-time-picker.vue';
 export * from './u-desc-list.vue';
 export * from './u-donut-chart.vue';
+export * from './u-dynamic-cards.vue';
 export * from './u-form.vue';
 export * from './u-form-table.vue';
 export * from './u-form-table-view.vue';

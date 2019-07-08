@@ -1,0 +1,12 @@
+<u-linear-layout :class="$style.root" direction="vertical">
+    <u-dynamic-card v-for="(item, index) in currentData" :key="index"
+        :item="item"
+        :index="index"
+        :disable-remove="currentData.length <= minCount">
+        <template #mini>
+            <slot name="mini" :item="item" :index="index"></slot>
+        </template>
+        <slot :item="item" :index="index"></slot>
+    </u-dynamic-card>
+    <u-form-table-add-button v-if="dynamic" :disabled="currentData.length >= maxCount" @click="add">{{ addButtonText }}</u-form-table-add-button>
+</u-linear-layout>
