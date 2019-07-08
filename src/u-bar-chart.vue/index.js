@@ -150,5 +150,9 @@ export default {
                 index,
             });
         },
+        dataSetStyle(seryIndex, sery, item) {
+            const gap = (seryIndex === 0) || (seryIndex === (this.series.length - 1)) ? 1 : 0;
+            return { left: (seryIndex * 100 / (this.series.length + 1)) + ((seryIndex + 2) * 100 / (this.series.length + 1) / (this.series.length + 3)) + '%', width: 100 / (this.series.length + 1) + '%', height: 100 * (item[sery.key] - this.yAxis_.min) / this.yAxis_.max + '%' };
+        },
     },
 };
