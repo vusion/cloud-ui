@@ -1,6 +1,6 @@
 <u-chart :class="$style.root" :title="title" :border="border" :legend="legend" readonly :series="currentData" :data="data"
     :width="width" :height="height" @select-series="selectedItem = $event.series">
-    <slot name="title" slot="title"></slot>
+    <slot name="titleTemplate" slot="titleTemplate"></slot>
     <slot name="caption" slot="caption"></slot>
     <svg :class="$style.svg" ref="svg" viewBox="0 0 200 200">
         <g transform="translate(100, 100)" :class="$style.group">
@@ -21,7 +21,7 @@
     </div>
     <div v-else v-for="item in currentData" :class="$style.label"
             :style="getLabelStyle(item)" :selected="item === selectedItem">
-        <slot name="label">{{ item.name }}: {{ item.value }}</slot>
+        <slot name="label" :item="item">{{ item.name }}: {{ item.value }}{{ unit }}</slot>
     </div>
     <div v-if="selectedItem" :class="$style.text">
         <p :class="$style.percent"><span>{{ selectedItem.percentage }}</span>%</p>

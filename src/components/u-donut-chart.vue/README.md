@@ -119,6 +119,37 @@ export default {
 ]"></u-donut-chart>
 ```
 
+### 选择值
+
+```vue
+<template>
+    <u-donut-chart :data="data" :value.sync="selected" legend unit="元"></u-donut-chart>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            selected: '弹性公网IP',
+            data: [
+                { percent: 7, name: '对象存储', value: 7, state: 'nos' },
+                { percent: 5, name: '容器服务', value: 5, state: 'nce' },
+                { percent: 8, name: '云服务器', value: 8, state: 'nvm' },
+                { percent: 10, name: '弹性公网IP', value: 10, state: 'net' },
+                { percent: 9, name: 'RDS', value: 9, state: 'rds' },
+                { percent: 1, name: 'Redis', value: 1, state: 'ncr' },
+                { percent: 20, name: 'Elasticsearch', value: 20, state: 'nes' },
+                { percent: 15, name: '消息队列', value: 15, state: 'nqs' },
+                { percent: 5, name: 'CDN', value: 5, state: 'cdn' },
+                { percent: 12, name: 'DDoS 基础防护', value: 12, state: 'ddos' },
+                { percent: 8, name: 'SSL', value: 8, state: 'ssl' },
+            ],
+        };
+    },
+};
+</script>
+```
+
 ## API
 
 ### Attrs/Props
@@ -131,3 +162,5 @@ export default {
 | height | Number | `160` | 图表的高度 |
 | tooltip | Boolean | `false` | 是否显示提示工具 |
 | legend | Boolean | `false` | 是否显示图例 |
+| value.sync | String |  | 图表选中的值 |
+| valueField | String | `name` | 图表初始选中的值的字段名 |

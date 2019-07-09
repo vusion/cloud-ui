@@ -4,7 +4,6 @@
 | Attr/Prop | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
 | value.sync, v-model | Any | | 当前选择的值 |
-| values.sync | Any | | 多项选择的值 |
 | field | String | `'text'` | 显示文本字段 |
 | data | Array\<{ text, value }\> | | 列表数据 |
 | data-source | Object, Function, DataSource | | 多功能数据源 |

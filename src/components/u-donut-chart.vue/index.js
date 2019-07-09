@@ -6,6 +6,8 @@ export const UDonutChart = {
     props: {
         unit: String,
         // showLabels: { type: Boolean, default: false },
+        // value: null,
+        // valueField: { type: String, default: 'name' },
     },
     data() {
         return {
