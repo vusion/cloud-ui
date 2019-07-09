@@ -78,7 +78,7 @@ $media-sm-max-width: 767px;
 }
 
 .close::before {
-    icon-font: url("../u-icon.vue/icons/close.svg");
+    icon-font: url("../i-icon.vue/icons/close.svg");
     font-size: 14px;
 }
 

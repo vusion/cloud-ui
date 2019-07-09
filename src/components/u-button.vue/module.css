@@ -55,13 +55,13 @@
  * Icon extends
  */
 .root[icon="create"]::before {
-    icon-font: url('../u-icon.vue/icons/create.svg');
+    icon-font: url('../i-icon.vue/icons/create.svg');
     vertical-align: -2px;
     margin-right: 8px;
 }
 
 .root[square][icon="refresh"]::before {
-    icon-font: url('../u-icon.vue/icons/refresh.svg');
+    icon-font: url('../i-icon.vue/icons/refresh.svg');
     vertical-align: -2px;
     color: #9ba4ad;
 }

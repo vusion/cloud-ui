@@ -16,7 +16,7 @@
 }
 
 .root::after {
-    icon-font: url('../u-icon.vue/icons/keyboard-arrow-down.svg');
+    icon-font: url('../i-icon.vue/icons/keyboard-arrow-down.svg');
     color: #a5a5a6;
     font-size: 18px;
     right: 6px;

@@ -43,7 +43,7 @@
 }
 
 .search::before {
-    icon-font: url("../u-icon.vue/icons/search.svg");
+    icon-font: url("../i-icon.vue/icons/search.svg");
     font-size: 16px;
     color: #a7afbb;
 }

@@ -15,7 +15,7 @@
 }
 
 .filter::before {
-    icon-font: url('../u-icon.vue/icons/keyboard-arrow-down.svg');
+    icon-font: url('../i-icon.vue/icons/keyboard-arrow-down.svg');
     position: absolute;
     display: block;
     right: 5px;

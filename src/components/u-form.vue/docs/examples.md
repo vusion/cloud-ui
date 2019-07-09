@@ -374,7 +374,7 @@ export default {
         </span>
         <div slot="description">描述描述</div>
         <u-tooltip content="请输入正确格式的中文汉字" slot="extra" >
-            <u-icon name="alert" size="small"></u-icon>
+            <i-icon name="alert" size="small"></i-icon>
         </u-tooltip>
         <u-input maxlength="4" maxlength-message="不超过4个字符" placeholder="不超过4个字符"></u-input>
     </u-form-item>

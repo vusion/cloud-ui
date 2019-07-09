@@ -13,11 +13,11 @@
 }
 
 .button[role="up"]::before {
-    icon-font: url("../u-icon.vue/icons/keyboard-arrow-up.svg");
+    icon-font: url("../i-icon.vue/icons/keyboard-arrow-up.svg");
 }
 
 .button[role="down"]::before {
-    icon-font: url("../u-icon.vue/icons/keyboard-arrow-down.svg");
+    icon-font: url("../i-icon.vue/icons/keyboard-arrow-down.svg");
 }
 
 .button[class]::before {

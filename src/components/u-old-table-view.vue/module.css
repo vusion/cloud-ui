@@ -303,25 +303,25 @@
 }
 
 .expand[name="right"]::after {
-    icon-font: url("../u-icon.vue/icons/keyboard-arrow-right.svg");
+    icon-font: url("../i-icon.vue/icons/keyboard-arrow-right.svg");
     line-height: 24px;
     vertical-align: -2px;
 }
 
 .expand[name="down"]::after {
-    icon-font: url("../u-icon.vue/icons/keyboard-arrow-down.svg");
+    icon-font: url("../i-icon.vue/icons/keyboard-arrow-down.svg");
     line-height: 24px;
     vertical-align: -2px;
 }
 
 .expand[role="up-down"][name="right"]::after {
-    icon-font: url("../u-icon.vue/icons/angle-down.svg");
+    icon-font: url("../i-icon.vue/icons/angle-down.svg");
     line-height: 24px;
     vertical-align: -2px;
 }
 
 .expand[role="up-down"][name="down"]::after {
-    icon-font: url("../u-icon.vue/icons/angle-up.svg");
+    icon-font: url("../i-icon.vue/icons/angle-up.svg");
     line-height: 24px;
     vertical-align: -2px;
 }

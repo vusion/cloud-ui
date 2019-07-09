@@ -1,5 +1,5 @@
-export const UIcon = {
-    name: 'u-icon',
+export const IIcon = {
+    name: 'i-icon',
     props: {
         name: String,
         size: String,
@@ -7,4 +7,4 @@ export const UIcon = {
     },
 };
 
-export default UIcon;
+export default IIcon;

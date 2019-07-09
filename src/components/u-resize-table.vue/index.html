@@ -41,8 +41,8 @@
                                     <u-old-table-view-cell :class="[$style.ditem, $style.sortText]" :column="column" text></u-old-table-view-cell>
                                 </template>
                                 <span :class="$style.wrapicon">
-                                    <u-icon :class="$style.icon" name="arrow-up" v-if="defaultSort.order === 'asc' && defaultSort.title === column.title" :role="defaultSort.title === column.title"></u-icon>
-                                    <u-icon :class="$style.icon" name="arrow-down" v-else :role="defaultSort.title === column.title"></u-icon>
+                                    <i-icon :class="$style.icon" name="arrow-up" v-if="defaultSort.order === 'asc' && defaultSort.title === column.title" :role="defaultSort.title === column.title"></i-icon>
+                                    <i-icon :class="$style.icon" name="arrow-down" v-else :role="defaultSort.title === column.title"></i-icon>
                                 </span>
                             </template>
                         </div>
