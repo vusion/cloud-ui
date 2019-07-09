@@ -118,11 +118,11 @@ export default {
 
 ### 多选模式
 
-通过`multiple`属性开启多选模式。在多选模式下，需要用`values`属性进行绑定，不支持`v-model`，只能用`:values.sync`进行双向绑定。
+通过`multiple`属性开启多选模式。绑定`value`属性，可以用`v-model`或`:value.sync`。
 
 ``` vue
 <template>
-<u-select multiple :values.sync="values">
+<u-select multiple v-model="values">
     <u-select-item value="cup">水杯</u-select-item>
     <u-select-item value="coffee">咖啡</u-select-item>
     <u-select-item value="nut">坚果</u-select-item>

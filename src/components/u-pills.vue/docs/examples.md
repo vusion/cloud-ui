@@ -54,10 +54,10 @@
 
 ### 多项选择
 
-多选绑定`values`属性时，不能用`v-model`，只能用`:values.sync`。
+绑定`value`属性，可以用`v-model`或`:value.sync`。
 
 ``` html
-<u-pills value="C" multiple>
+<u-pills :value="['A', 'C']" multiple>
     <u-pill value="A">Apple</u-pill>
     <u-pill value="B">Banana</u-pill>
     <u-pill value="C">Cake</u-pill>

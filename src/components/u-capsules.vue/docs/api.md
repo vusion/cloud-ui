@@ -4,7 +4,6 @@
 | Prop/Attr | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
 | value.sync, v-model | Any | | 当前选择的值 |
-| values.sync | Any | | 多项选择的值 |
 | auto-select | Boolean | `false` | 是否自动选择第一个非禁用的项 |
 | cancelable | Boolean | `false` | 是否可以取消选择 |
 | multiple | Boolean | `false` | 是否可以多选 |
@@ -64,8 +63,8 @@
 | $event.selected | Boolean | 选中还是取消 |
 | $event.item | Boolean | 该选中项相关对象 |
 | $event.itemVM | Boolean | 该选中项子组件 |
-| $event.values | Array | 改变后的值 |
-| $event.oldValues | Array | 旧的值 |
+| $event.value | Array | 改变后的值 |
+| $event.oldValue | Array | 旧的值 |
 | $event.items | Array\<Object\> | 所有选中项相关对象的数组 |
 | $event.oldItems | Array\<Object\> | 旧的所有选中项相关对象的数组 |
 | $event.itemVMs | Array\<UCapsule\> | 所有选中项子组件的数组 |
@@ -92,7 +91,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.values | Array | 所有选中项的值 |
+| $event.value | Array | 所有选中项的值 |
 | $event.items | Array\<Object\> | 所有选中项相关对象的数组 |
 | $event.itemVMs | Array\<UCapsule\> | 所有选中项子组件的数组 |
 | senderVM | UCapsules | 发送事件实例 |
