@@ -8,7 +8,15 @@
     color: #ccc;
 }
 
-root:lang(en) {
+.root[color="light"] {
+    color: #6eadff;
+}
+
+.root[color="white"] {
+    color: white;
+}
+
+.root:lang(en) {
     display: inline-block;
     max-width: 100%;
 }
