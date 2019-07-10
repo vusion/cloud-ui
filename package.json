@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.4.3-alpha.4",
+  "version": "0.4.3-alpha.5",
   "author": "Rainfore <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -36,7 +36,7 @@
     "countup.js": "^1.9.3",
     "enhanced-resolve": "^4.1.0",
     "lodash": "^4.17.5",
-    "proto-ui.vusion": "~0.4.6-alpha.4",
+    "proto-ui.vusion": "~0.4.6-alpha.5",
     "vue-component-analyzer": "^0.1.4",
     "vusion-utils": "^0.3.3"
   },
