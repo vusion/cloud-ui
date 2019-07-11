@@ -202,13 +202,16 @@ export const UTimePicker = {
             // minTime && time < minTime && minTime，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的时间
             return (minTime && time < minTime && minTime) || (maxTime && time > maxTime && maxTime);
         },
-        changeHour(hour) {
+        changeHour(hour, senderVM) {
+            hour = senderVM.formattedValue;
             this.showTime = hour + ':' + (this.minute < 10 ? '0' + this.minute : this.minute) + ':' + (this.second < 10 ? '0' + this.second : this.second);
         },
-        changeMinute(minute) {
+        changeMinute(minute, senderVM) {
+            minute = senderVM.formattedValue;
             this.showTime = (this.hour < 10 ? '0' + this.hour : this.hour) + ':' + minute + ':' + (this.second < 10 ? '0' + this.second : this.second);
         },
-        changeSecond(second) {
+        changeSecond(second, senderVM) {
+            second = senderVM.formattedValue;
             this.showTime = (this.hour < 10 ? '0' + this.hour : this.hour) + ':' + (this.minute < 10 ? '0' + this.minute : this.minute) + ':' + second;
         },
     },

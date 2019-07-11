@@ -35,6 +35,7 @@ export default {
 	},
     methods: {
         change(time) {
+            this.time = time;
             console.log(time);
         },
     },
