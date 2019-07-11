@@ -9,6 +9,7 @@ export const UChart = {
         legend: { type: [Boolean, String], default: false },
         width: { type: String, default: '100%' }, // @deprecated
         height: { type: String, default: '450px' }, // @deprecated
+        titleAlign: { type: String, default: 'center' }, // @deprecated
         titleAlignment: { type: String, default: 'center' },
         loading: { type: Boolean, default: false },
         error: { type: Boolean, default: false },

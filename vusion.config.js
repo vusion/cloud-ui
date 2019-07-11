@@ -117,6 +117,7 @@ module.exports = {
             { group: 'Progress & Charts', name: 'u-xbar-chart', alias: '水平柱状图' },
             { group: 'Progress & Charts', name: 'u-line-chart', alias: '线状图' },
             { group: 'Progress & Charts', name: 'u-pie-chart', alias: '饼状图' },
+            { group: 'Progress & Charts', name: 'u-donut-chart', alias: '甜圈图' },
             { group: 'Mixins & Functional', name: 'm-emitter', alias: '发送器' },
             { group: 'Mixins & Functional', name: 'm-pub-sub', alias: '发布订阅模式' },
             { group: 'Mixins & Functional', name: 'm-parent', alias: '父子模式' },
