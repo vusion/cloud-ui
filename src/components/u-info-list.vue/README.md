@@ -92,6 +92,10 @@
 
 插入文本或HTML。
 
+#### label
+
+用于自定义 label 内容。
+
 ## InfoListGroup API
 
 ### Props/Attrs

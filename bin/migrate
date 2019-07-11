@@ -45,8 +45,8 @@ files.forEach((file) => {
     // 编译即可发现
     if (file.includes('src-vue/components')) {
         content = content
-            .replace(/\bText\b/g, 'UText')
-            .replace(/\bLink\b/g, 'ULink')
+            // .replace(/\bText\b/g, 'UText')
+            // .replace(/\bLink\b/g, 'ULink')
             .replace(/\bButton\b/g, 'UButton')
             .replace(/\bBadge\b/g, 'UBadge')
             .replace(/\bLabel\b/g, 'ULabel')
@@ -168,8 +168,8 @@ files.forEach((file) => {
             .replace(/\bLineChart\b/g, 'ULineChart')
             .replace(/\bPieChart\b/g, 'UPieChart')
             .replace(/\bEmitter\b/g, 'MEmitter')
-            .replace(/\bField\b/g, 'MField')
-            .replace(/\bValidator\b/g, 'UValidator');
+            .replace(/\bField\b/g, 'MField');
+        // .replace(/\bValidator\b/g, 'UValidator');
         // .replace(/\bPubSub\b/g, 'MPubSub')
         // .replace(/\bParent\b/g, 'MParent')
         // .replace(/\bGroup\b/g, 'MGroup')
@@ -194,8 +194,8 @@ files.forEach((file) => {
         .replace(/\bLineChart\b/g, 'ULineChart')
         .replace(/\bDatePicker\b/g, 'UDatePicker')
         .replace(/\bEmitter\b/g, 'MEmitter')
-        .replace(/\bField\b/g, 'MField')
-        .replace(/\bValidator\b/g, 'UValidator');
+        .replace(/\bField\b/g, 'MField');
+    // .replace(/\bValidator\b/g, 'UValidator');
 
     content = content
         .replace(/<u-icon(\s+|>)/g, '<i-icon$1').replace(/<\/u-icon>/g, '</i-icon>')
