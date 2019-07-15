@@ -27,6 +27,7 @@ export * from './u-footbar.vue';
 export * from './u-icon.vue';
 export * from './u-info-list.vue';
 export * from './u-input.vue';
+export * from './u-search-input.vue';
 export * from './u-key-value.vue';
 export * from './u-label.vue';
 export * from './u-lightbox.vue';

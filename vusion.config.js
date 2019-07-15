@@ -67,6 +67,7 @@ module.exports = {
             { group: 'Form', name: 'u-form-table-view', alias: '表单表格视图', newest: true },
             { group: 'Form', name: 'u-dynamic-cards', alias: '动态卡片', newest: true },
             { group: 'Form', name: 'u-input', alias: '单行输入' },
+            { group: 'Form', name: 'u-search-input', alias: '输入补全' },
             { group: 'Form', name: 'u-number-input', alias: '数字输入' },
             { group: 'Form', name: 'u-textarea', alias: '多行输入' },
             { group: 'Form', name: 'u-radios', alias: '单选组' },

@@ -1,0 +1,51 @@
+
+.root {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    background: white;
+    z-index: 10;
+    border-left: 1px solid $border-color-base;
+    border-right: 1px solid $border-color-base;
+    border-bottom: 1px solid $border-color-base;
+}
+.root .list {
+    max-height: 197px;
+    overflow-y: auto;
+    line-height: 25px;
+    padding-left: 0;
+    margin: 0;
+}
+.root .item {
+    text-align: left;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-bottom: 1px solid $border-color-base;
+    background: white;
+    overflow: hidden;
+    word-wrap: normal;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    color: #666;
+}
+.root .item:last-child {
+    border-bottom: none;
+}
+.root .item:hover {
+    background: $hover-color;
+}
+.root .item[select] {
+    background: $hover-color;
+}
+.groupHeader {
+    color: $brand-primary;
+    margin: 0;
+    padding: 5px 10px;
+    padding-top: 10px;
+    border-top: 1px solid $border-color-base;
+    /* border-bottom: 1px solid $border-color-base; */
+}
+.group .item {
+    padding-left: 15px;
+}

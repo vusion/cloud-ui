@@ -1,0 +1,9 @@
+.root {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+}
+.poper {
+    position: absolute;
+    width: 100%;
+}

@@ -1,0 +1,14 @@
+<div :class="$style.root">
+    <u-input :class="$style.input" ref="input" @keydown.enter="select" @keydown.up="up" @keydown.down="down" @focus="focus(keyWord)" @blur="inputBlur" v-model="keyWord" v-bind="$attrs">
+    </u-input>
+    <div :class="$style.poper">
+        <u-search-input-list v-if="showSearch" @select="onSelect" :offset="offset" ref="list" :list="resultList">
+            <template slot="header" slot-scope="scope">
+                <slot name="header" v-bind="scope"></slot>
+            </template>
+            <template slot-scope="scope">
+                <slot v-bind="scope"></slot>
+            </template>
+        </u-search-input-list>
+    </div>
+</div>

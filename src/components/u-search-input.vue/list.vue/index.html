@@ -1,0 +1,29 @@
+<div :style="{left: offset + 'px'}" :class="$style.root">
+    <template v-if="haveGroups">
+        <div :class="$style.group" v-for="(group, groupIndex) in groups" :key="`group-${groupIndex}`">
+            <div>
+                <slot name="header" :group="group" :index="groupIndex" :groups="groups">
+                    <p :class="$style.groupHeader">
+                        {{ group.title }}
+                    </p>
+                </slot>
+            </div>
+            <ul :class="$style.list">
+                <li :class="$style.item" :title="item.text" v-for="(item, index) in group.children" :key="`search-item-${item.$$index}`" @click="select(item.$$index)" :select="item.$$index===selected">
+                    <slot :list="selectList" :selected="item.$$index===selected"  :index="item.$$index" :item="item">
+                        {{ item.text }}
+                    </slot>
+                </li>
+            </ul>
+        </div>
+    </template>
+    <template v-else>
+        <ul :class="$style.list">
+            <li :class="$style.item" :title="item.text" v-for="(item, index) in selectList" :key="`search-item-${index}`" @click="select(index)" :select="index===selected">
+                <slot :list="selectList" :selected="index===selected"  :index="index" :item="item">
+                    {{ item.text }}
+                </slot>
+            </li>
+        </ul>
+    </template>
+</div>
