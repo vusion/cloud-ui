@@ -21,6 +21,10 @@ const SECOND_MAX = 59;
 export const UTimePicker = {
     name: 'u-time-picker',
     props: {
+        minUnit: {
+            type: String,
+            default: 'second',
+        },
         time: {
             type: String,
             default: '00:00:00',
@@ -66,7 +70,7 @@ export const UTimePicker = {
             const isOutOfRange = this.isOutOfRange(this.showTime);
             if (isOutOfRange)
                 this.showTime = isOutOfRange;
-            return this.showTime.split(':')[2] / 1;
+            return this.minUnit === 'second' ? this.showTime.split(':')[2] / 1 : 0;
         },
         sphourmin() {
             return this.minTime.split(':')[0] / 1;
@@ -204,15 +208,23 @@ export const UTimePicker = {
         },
         changeHour(hour, senderVM) {
             hour = senderVM.formattedValue;
-            this.showTime = hour + ':' + (this.minute < 10 ? '0' + this.minute : this.minute) + ':' + (this.second < 10 ? '0' + this.second : this.second);
+            this.showTime = this.getTime(hour, this.minute, this.second);
         },
         changeMinute(minute, senderVM) {
             minute = senderVM.formattedValue;
-            this.showTime = (this.hour < 10 ? '0' + this.hour : this.hour) + ':' + minute + ':' + (this.second < 10 ? '0' + this.second : this.second);
+            this.showTime = this.getTime(this.hour, minute, this.second);
         },
         changeSecond(second, senderVM) {
             second = senderVM.formattedValue;
-            this.showTime = (this.hour < 10 ? '0' + this.hour : this.hour) + ':' + (this.minute < 10 ? '0' + this.minute : this.minute) + ':' + second;
+            this.showTime = this.getTime(this.hour, this.minute, second);
+        },
+        getTime(hour, minute, second) {
+            return this.minUnit === 'second' ? `${this.getNumberString(hour)}:${this.getNumberString(minute)}:${this.getNumberString(second)}` : `${this.getNumberString(hour)}:${this.getNumberString(minute)}`;
+        },
+        getNumberString(value) {
+            value = +value;
+            value = value < 10 ? '0' + value : value;
+            return value;
         },
     },
 };
