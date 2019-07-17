@@ -118,6 +118,7 @@ export default {
             virtualBottom: 0,
             startIndex: 0,
             estimatedTotalHeight: undefined,
+            isDiffScrollWidth: false,
         };
     },
     directives: { ellipsisTitle },
@@ -265,7 +266,7 @@ export default {
                 this.fixedRightWidth -= this.scrollWidth;
             }
         },
-        visible(newValue) {
+        visible() {
             this.handleResize();
         },
         loading(newVal) {
@@ -494,6 +495,8 @@ export default {
                     // 判断是否会出现水平滚动条
                     let parentWidth;
                     parentWidth = this.$el.offsetWidth;
+                    // 需要初始化 isDiffScrollWidth 参数
+                    this.isDiffScrollWidth = false;
                     let tableWidth = this.$refs.body && this.$refs.body.offsetWidth;
                     if (parentWidth === 0) {
                         // 初始表格是隐藏的需要特殊处理的，此时上面两个值默认是0
@@ -532,18 +535,16 @@ export default {
                             });
                         }
                     }
-
-                    // 全部是数值的情况 并且和是小于当前的总宽度 特殊情况
-                    let isAutoWidthChange = false;
-                    if (valueColumns.length === this.showColumns.length) {
-                        let sumWidth = 0;
-                        this.showColumns.forEach((item) => {
-                            sumWidth += parseFloat(item.currentWidth);
-                        });
-                        if (tableWidth > 0 && sumWidth < tableWidth)
-                            isAutoWidthChange = true;
-                    }
-
+                    // // 全部是数值的情况 并且和是小于当前的总宽度 特殊情况
+                    // let isAutoWidthChange = false;
+                    // if (valueColumns.length === this.showColumns.length) {
+                    //     let sumWidth = 0;
+                    //     this.showColumns.forEach((item) => {
+                    //         sumWidth += parseFloat(item.currentWidth);
+                    //     });
+                    //     if (tableWidth > 0 && sumWidth < tableWidth)
+                    //         isAutoWidthChange = true;
+                    // }
                     let percentWidthSum = 0;
                     percentColumns.forEach((item) => {
                         const width = parseFloat(item.copyWidth) * parentWidth / 100;
@@ -566,8 +567,10 @@ export default {
                         this.tableWidth = this.showColumns.map((cell) => {
                             if ((cell.copyWidth + '').indexOf('%') !== -1)
                                 return parseFloat(cell.copyWidth) * parentWidth / 100;
-                            else
+                            else {
+                                cell.currentWidth = parseFloat(cell.copyWidth);
                                 return parseFloat(cell.currentWidth);
+                            }
                         }).reduce((a, b) => a + b, 0);
                     } else if (getStyle(this.$el, 'width') === 'auto') {
                         let parentNode = this.$el.parentNode;
@@ -621,24 +624,27 @@ export default {
 
                     // 在点击排序和过滤的时候 不需要再减去一次滚动条的宽度
                     // 处理有滚动条的情况下 宽度问题
-                    let diffCurrentWidth = parseFloat(this.tableWidth);
+                    // let diffCurrentWidth = parseFloat(this.tableWidth);
                     this.showColumns.forEach((item, index) => {
                         // 存储item.currentWidth可能变化前的值，是由于如果出现水平滚动条，会导致item.currentWidth的值发生变化，
                         // 这时候，组成tbody的表格对应的col最后一个的宽度应该是本身宽度减去滚动条的宽度，不然会导致对不齐的问题出现
-                        diffCurrentWidth = Math.abs(diffCurrentWidth - parseFloat(item.currentWidth));
-                        if (index === this.showColumns.length - 1 && diffCurrentWidth > 1 && !isAutoWidthChange){
-                            this.columnsWidth.push(parseFloat(item.currentWidth) + this.scrollWidth);
-                        } else
+                        // diffCurrentWidth = Math.abs(diffCurrentWidth - parseFloat(item.currentWidth));
+                        // if (index === this.showColumns.length - 1 && this.isDiffScrollWidth){
+                        //     this.columnsWidth.push(parseFloat(item.currentWidth) + this.scrollWidth);
+                        // } else
                             this.columnsWidth.push(item.currentWidth);
-                        if (this.height && index === (this.showColumns.length - 1) && this.isYScroll && diffCurrentWidth < 0.001) {
+                        // if (index !== this.showColumns.length - 1)
+                        if (this.height && index === (this.showColumns.length - 1) && this.isYScroll && !this.isDiffScrollWidth) {
                             item.currentWidth = parseFloat(item.currentWidth) - this.scrollWidth;
                             item.fixedWidth = item.currentWidth;
                             // this.scrollDiff = true;
+                            this.isDiffScrollWidth = true;
                         }
-                        if (this.maxHeight && index === (this.showColumns.length - 1) && this.isYScroll && diffCurrentWidth < 0.001) {
+                        if (this.maxHeight && index === (this.showColumns.length - 1) && this.isYScroll && !this.isDiffScrollWidth) {
                             item.currentWidth = parseFloat(item.currentWidth) - this.scrollWidth;
                             item.fixedWidth = item.currentWidth;
                             // this.scrollDiff = true;
+                            this.isDiffScrollWidth = true;
                         }
                     });
                 });
@@ -791,7 +797,6 @@ export default {
                     this.virtualTop = this.startIndex * this.estimatedItemHeight;
                     this.virtualBottom = this.estimatedTotalHeight > this.virtualTop ? parseFloat(this.estimatedTotalHeight) - this.virtualTop : 0;
                     this.tdata = this.copyTdata.slice(this.startIndex, endIndex);
-                    console.log(this.startIndex, distanceItem, endIndex, this.virtualBottom);
                 } else {
                     // 懒加载模式加载表格数据
                     if (scrollTop + clientHeight >= scrollHeight) {
