@@ -118,7 +118,6 @@ export default {
             virtualBottom: 0,
             startIndex: 0,
             estimatedTotalHeight: undefined,
-            isDiffScrollWidth: false,
         };
     },
     directives: { ellipsisTitle },
@@ -495,8 +494,6 @@ export default {
                     // 判断是否会出现水平滚动条
                     let parentWidth;
                     parentWidth = this.$el.offsetWidth;
-                    // 需要初始化 isDiffScrollWidth 参数
-                    this.isDiffScrollWidth = false;
                     let tableWidth = this.$refs.body && this.$refs.body.offsetWidth;
                     if (parentWidth === 0) {
                         // 初始表格是隐藏的需要特殊处理的，此时上面两个值默认是0
@@ -632,19 +629,17 @@ export default {
                         // if (index === this.showColumns.length - 1 && this.isDiffScrollWidth){
                         //     this.columnsWidth.push(parseFloat(item.currentWidth) + this.scrollWidth);
                         // } else
-                            this.columnsWidth.push(item.currentWidth);
+                        this.columnsWidth.push(item.currentWidth);
                         // if (index !== this.showColumns.length - 1)
-                        if (this.height && index === (this.showColumns.length - 1) && this.isYScroll && !this.isDiffScrollWidth) {
+                        if (this.height && index === (this.showColumns.length - 1) && this.isYScroll) {
                             item.currentWidth = parseFloat(item.currentWidth) - this.scrollWidth;
                             item.fixedWidth = item.currentWidth;
                             // this.scrollDiff = true;
-                            this.isDiffScrollWidth = true;
                         }
-                        if (this.maxHeight && index === (this.showColumns.length - 1) && this.isYScroll && !this.isDiffScrollWidth) {
+                        if (this.maxHeight && index === (this.showColumns.length - 1) && this.isYScroll) {
                             item.currentWidth = parseFloat(item.currentWidth) - this.scrollWidth;
                             item.fixedWidth = item.currentWidth;
                             // this.scrollDiff = true;
-                            this.isDiffScrollWidth = true;
                         }
                     });
                 });
