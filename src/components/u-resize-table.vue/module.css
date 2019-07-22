@@ -98,6 +98,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    vertical-align: middle;
 }
 
 .titleText[icon] {
@@ -170,25 +171,6 @@
 .sortText {
     max-width: calc(100% - 28px);
 }
-/* 排序图标样式 */
-.wrapicon {
-    display: inline-block;
-    height: 20px;
-    margin-left: 4px;
-    margin-top: -20px;
-    vertical-align: middle;
-    cursor: pointer;
-    position: relative;
-}
-
-.icon::before {
-    font-size: 14px !important;
-    color: #d3d8e0;
-}
-
-.icon[role]::before {
-    color: #67aaf5;
-}
 
 .filterText {
     max-width: calc(100% - 28px);
@@ -223,14 +205,6 @@
     color: white;
 }
 
-.traingle {
-    display: inline-block;
-    border: 5px solid transparent;
-    border-top-color: #9dabc2;
-    position: relative;
-    left: 5px;
-    top: -14px;
-}
 .popper {
     width: 100%;
     z-index: 1065;
@@ -324,4 +298,62 @@
 .bSpan[role]:lang(en) {
     word-break: break-word;
     white-space: normal;
+}
+
+
+/* 修改排序样式 */
+.sort {
+    position: relative;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    color: $brand-disabled;
+    cursor: $cursor-pointer;
+}
+
+.sort::before {
+    position: absolute;
+    left: 0;
+    top: -3px;
+    line-height: 1;
+    icon-font: url('proto-ui.vusion/src/components/i-icon.vue/assets/arrow-up.svg');
+}
+
+.sort::after {
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    line-height: 1;
+    icon-font: url('proto-ui.vusion/src/components/i-icon.vue/assets/arrow-down.svg');
+}
+
+.sort[sorting][order="asc"]::before {
+    color: $brand-primary;
+}
+
+.sort[sorting][order="desc"]::after {
+    color: $brand-primary;
+}
+
+/* 修改filter样式 */
+
+.filter {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.filter::before {
+    icon-font: url('../i-icon.vue/icons/keyboard-arrow-down.svg');
+    position: absolute;
+    display: block;
+    right: 15px;
+    line-height: 46px;
+    font-size: 18px;
+    color: #9dabc2;
 }
