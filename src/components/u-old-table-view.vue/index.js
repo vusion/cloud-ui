@@ -491,7 +491,7 @@ export const UOldTableView = {
         },
         handleResize() {
             if (this.layout !== 'auto') {
-                this.$nextTick(() => {
+                setTimeout(() => {
                     // 判断是否会出现水平滚动条
                     let parentWidth;
                     parentWidth = this.$el.offsetWidth;
@@ -567,8 +567,10 @@ export const UOldTableView = {
                         this.tableWidth = this.showColumns.map((cell) => {
                             if ((cell.copyWidth + '').indexOf('%') !== -1)
                                 return parseFloat(cell.copyWidth) * parentWidth / 100;
-                            else
+                            else{
+                                cell.currentWidth = parseFloat(cell.copyWidth);
                                 return parseFloat(cell.currentWidth);
+                            }
                         }).reduce((a, b) => a + b, 0);
                     } else if (getStyle(this.$el, 'width') === 'auto') {
                         let parentNode = this.$el.parentNode;
@@ -622,24 +624,17 @@ export const UOldTableView = {
 
                     // 在点击排序和过滤的时候 不需要再减去一次滚动条的宽度
                     // 处理有滚动条的情况下 宽度问题
-                    let diffCurrentWidth = parseFloat(this.tableWidth);
                     this.showColumns.forEach((item, index) => {
                         // 存储item.currentWidth可能变化前的值，是由于如果出现水平滚动条，会导致item.currentWidth的值发生变化，
                         // 这时候，组成tbody的表格对应的col最后一个的宽度应该是本身宽度减去滚动条的宽度，不然会导致对不齐的问题出现
-                        diffCurrentWidth = Math.abs(diffCurrentWidth - parseFloat(item.currentWidth));
-                        if (index === this.showColumns.length - 1 && diffCurrentWidth > 1 && !isAutoWidthChange){
-                            this.columnsWidth.push(parseFloat(item.currentWidth) + this.scrollWidth);
-                        } else
-                            this.columnsWidth.push(item.currentWidth);
-                        if (this.height && index === (this.showColumns.length - 1) && this.isYScroll && diffCurrentWidth < 0.001) {
+                        this.columnsWidth.push(item.currentWidth);
+                        if (this.height && index === (this.showColumns.length - 1) && this.isYScroll) {
                             item.currentWidth = parseFloat(item.currentWidth) - this.scrollWidth;
                             item.fixedWidth = item.currentWidth;
-                            // this.scrollDiff = true;
                         }
-                        if (this.maxHeight && index === (this.showColumns.length - 1) && this.isYScroll && diffCurrentWidth < 0.001) {
+                        if (this.maxHeight && index === (this.showColumns.length - 1) && this.isYScroll) {
                             item.currentWidth = parseFloat(item.currentWidth) - this.scrollWidth;
                             item.fixedWidth = item.currentWidth;
-                            // this.scrollDiff = true;
                         }
                     });
                 });

@@ -21,7 +21,7 @@
                         <template v-else-if="column.filter">
                            <div :class="$style.filtertitle" :role="column.filter">
                                <span :class="$style.titleitem">{{column.title}}</span>
-                               <div :class="$style.traingle"></div>
+                               <div :class="$style.filter"></div>
                                <m-popper :class="$style.popper" trigger="click" ref="popper" :placement="column.placement" append-to="body">
                                    <div :style="{width: columnsWidth[index] + 'px'}">
                                        <div :class="$style.option" :direction="column.optionsDirection" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value" v-ellipsis-title>{{option.name}}</div>
@@ -30,10 +30,7 @@
                            </div>
                         </template>
                         <template v-if="column.sortable">
-                            <span :class="$style.wrapicon">
-                                <i-icon :class="$style.icon" name="arrow-up" v-if="currentSort.order === 'asc' && currentSort.title === column.title" :role="currentSort.title === column.title"></i-icon>
-                                <i-icon :class="$style.icon" name="arrow-down" v-else :role="currentSort.title === column.title"></i-icon>
-                            </span>
+                            <span :class="$style.sort" :sorting="currentSort.title === column.title" :order="currentSort.order" @click="handleSort(currentSort.order, column)"></span>
                         </template>
                     </th>
                 </tr>
@@ -147,7 +144,7 @@
                             <template v-else-if="column.filter">
                                <div :class="$style.filtertitle" :role="column.filter">
                                    <span :class="$style.titleitem">{{column.title}}</span>
-                                   <div :class="$style.traingle"></div>
+                                   <div :class="$style.filter"></div>
                                    <m-popper :class="$style.popper" trigger="click" ref="popper" :placement="column.placement" append-to="body">
                                        <div :style="{width: columnsWidth[index] + 'px'}">
                                            <div :class="$style.option" :direction="column.optionsDirection" v-for="option in column.options" @click.stop="select(option, column, index)" :role="column.selectValue === option.value" v-ellipsis-title>{{option.name}}</div>
@@ -156,11 +153,7 @@
                                </div>
                             </template>
                             <template v-if="column.sortable">
-                                <span :class="$style.wrapicon">
-                                    <i-icon :class="$style.icon" name="arrow-up" v-if="currentSort.order === 'asc' && currentSort.title === column.title" :role="currentSort.title === column.title"
-                                        @click.native="handleSort('asc', column)"></i-icon>
-                                    <i-icon :class="$style.icon" name="arrow-down" v-else :role="currentSort.title === column.title" @click.native="handleSort('desc', column)"></i-icon>
-                                </span>
+                                <span :class="$style.sort" :sorting="currentSort.title === column.title" :order="currentSort.order" @click="handleSort(currentSort.order, column)"></span>
                             </template>
                         </th>
                     </tr>
@@ -295,11 +288,7 @@
                                    </div>
                                 </template>
                                 <template v-if="column.sortable">
-                                    <span :class="$style.wrapicon">
-                                        <i-icon :class="$style.icon" name="arrow-up" v-if="currentSort.order === 'asc' && currentSort.title === column.title" :role="currentSort.title === column.title"
-                                            @click.native="handleSort('asc', column)"></i-icon>
-                                        <i-icon :class="$style.icon" name="arrow-down" v-else :role="currentSort.title === column.title" @click.native="handleSort('desc', column)"></i-icon>
-                                    </span>
+                                    <span :class="$style.sort" :sorting="currentSort.title === column.title" :order="currentSort.order" @click="handleSort(currentSort.order, column)"></span>
                                 </template>
                             </th>
                         </tr>
@@ -394,11 +383,7 @@
                                     </div>
                                 </template>
                                 <template v-if="column.sortable">
-                                    <span :class="$style.wrapicon">
-                                        <i-icon :class="$style.icon" name="arrow-up" v-if="currentSort.order === 'asc' && currentSort.title === column.title" :role="currentSort.title === column.title"
-                                            @click.native="handleSort('asc', column)"></i-icon>
-                                        <i-icon :class="$style.icon" name="arrow-down" v-else :role="currentSort.title === column.title" @click.native="handleSort('desc', column)"></i-icon>
-                                    </span>
+                                    <span :class="$style.sort" :sorting="currentSort.title === column.title" :order="currentSort.order" @click="handleSort(currentSort.order, column)"></span>
                                 </template>
                             </th>
                         </tr>
