@@ -64,10 +64,13 @@
 }
 
 .hthItem::after {
-    content: ' |';
+    content: '';
     position: absolute;
     right: 0;
-    top: 13px;
+    top: 4px;
+    width: 1px;
+    bottom: 4px;
+    border-right: 1px solid #dfe4ec;
 }
 
 .hthItem[move]::after {
@@ -76,6 +79,7 @@
 
 .hthItem:last-child::after {
     content: '';
+    display: none;
 }
 
 .hthItem[role] {
@@ -107,7 +111,6 @@
 
 .carve {
     width: 20px;
-    cursor: url('../../assets/images/move_icon.png'), w-resize;
     height: 46px;
     line-height: 46px;
     text-align: center;
@@ -115,6 +118,7 @@
     position: absolute;
     top: 0;
     right: 0;
+    cursor: col-resize;
 }
 
 .btd {
