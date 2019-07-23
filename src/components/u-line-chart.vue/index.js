@@ -282,6 +282,12 @@ export const ULineChart = {
         getPercent(item) {
             return 100 * (this.yAxis_.max - this.getTopOne(item)) / (this.yAxis_.max - this.yAxis_.min);
         },
+        getTriggerEl(referenceEl) {
+            return referenceEl.parentElement;
+        },
+        findFirstVisibleSeryIndex(item) {
+            return this.series.findIndex((sery, index) => item[sery.key] !== undefined && !sery.hidden && !this.hideLine.includes(index));
+        },
         pointClick(item, index) {
             this.$emit('click', {
                 data: item,

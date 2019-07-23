@@ -334,6 +334,7 @@ $line_offset: 6px;
     margin-bottom: -3px;
     margin-left: -3px;
     display: none;
+    white-space: nowrap;
 }
 
 .point[scatter] {

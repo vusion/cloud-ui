@@ -42,9 +42,13 @@
         <div :class="$style.layer" ref="layer">
             <div v-for="(item,index) in currentData" v-if="!item.hidden" :class="$style.piece" :scatter="scatter" :style="{left: 100*index/(currentData.length - 1)+'%', width: 100/(currentData.length - 1)+'%'}">
                 <div v-for="(sery, sindex) in series" @click="pointClick(item, sindex)" v-show="item[sery.key] !== undefined && !sery.hidden && !hideLine.includes(sindex)" :special="item.special && item.special[sery.key]" :class="$style.point" :scatter="scatter" :style="{bottom: 100*(item[sery.key] - yAxis_.min)/(yAxis_.max - yAxis_.min)+'%', borderColor: item.special && item.special[sery.key] && item.special[sery.key].color, background: item.special && item.special[sery.key] && item.special[sery.key].color}">
-                    <m-popper :class="$style.popper" trigger="hover">
-                        <u-chart-tooltip :class="$style['u-tooltip']" :role="'u-tooltip-'+(index >= currentData.length/2 ? 'left' : 'right')+'-'+(getPercent(item) < 50 ? 'top' : 'bottom')" :style="{top: getPercent(item)+'%'}" :sery="sery" :row="item" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
-                    </m-popper>
+                    <u-tooltip v-if="sindex === findFirstVisibleSeryIndex(item)" trigger="hover" :trigger-element="getTriggerEl" append-to="reference"
+                        :placement="(index >= currentData.length/2 ? 'left' : 'right')">
+                        <!-- @TODO: 靠上靠下排序时，offset 总是排不对
+                              + '-' + (getPercent(item) < 50 ? 'start' : 'end')"
+                        :offset="getPercent(item) < 50 ? '-10px,0' : '-10px,0'" -->
+                        <div v-for="sery in series">{{sery.name || sery.key}}: {{format(item[sery.key])}}</div>
+                    </u-tooltip>
                 </div>
             </div>
         </div>
