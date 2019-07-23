@@ -23,3 +23,16 @@
     font-size: 18px;
     color: #9dabc2;
 }
+
+.expander {
+    line-height: 26px;
+    vertical-align: -2px;
+}
+
+.expander::before {
+    icon-font: url('../i-icon.vue/icons/square-down.svg');
+}
+
+.expand-td {
+    /* transition: $transition-duration height ease-in-out, $transition-duration padding-top ease-in-out, $transition-duration padding-bottom ease-in-out; */
+}
