@@ -15,7 +15,7 @@
     icon-font: url("./icons/waiting.svg");
     color: #a2b0b7;
 }
-.icon[name="pause"]::before {
+.icon[name="paused"]::before, .icon[name="pause"]::before {
     icon-font: url("./icons/pause.svg");
     color: #ff867f;
 }
@@ -27,7 +27,7 @@
     icon-font: url("./icons/error.svg");
     color: #ff867f;
 }
-.icon[name="mount"]::before {
+.icon[name="mounted"]::before, .icon[name="mount"]::before {
     icon-font: url("./icons/mount.svg");
     color: #3ad0af;
 }
@@ -35,7 +35,7 @@
     icon-font: url("./icons/end.svg");
     color: #a2b0b7;
 }
-.icon[name="expire"]::before {
+.icon[name="expired"]::before, .icon[name="expire"]::before {
     icon-font: url("./icons/expire.svg");
     color: #a2b0b7;
 }
