@@ -94,3 +94,9 @@ export default {
 ### Attrs/Props
 | Attr/Prop | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
+
+### Slots
+
+#### (default)
+
+在表格中插入`<thead>`、`<tbody>`、`<tr>`、`<th>`、`<td>`标签。
