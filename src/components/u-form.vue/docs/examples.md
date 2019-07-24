@@ -119,7 +119,7 @@
 
 ## 数据收集与提交
 
-推荐将各表单控件的数据使用`v-model`绑定，统一收集到`data`中的`model`对象里。
+推荐将各表单控件使用`v-model`绑定的数据，统一收集到`data`里的`model`对象中。
 
 ``` vue
 <template>
@@ -160,7 +160,7 @@
         <u-textarea v-model="model.description" size="huge"></u-textarea>
     </u-form-item>
     <u-form-item>
-        <u-button color="primary">立即创建</u-button>
+        <u-button color="primary" @click="submit()">立即创建</u-button>
     </u-form-item>
 </u-form>
 </template>
@@ -178,6 +178,12 @@ export default {
                 description: '',
             },
         };
+    },
+    methods: {
+        submit() {
+            console.log(this.model);
+            this.$toast.show('提交成功！');
+        },
     },
 };
 </script>
@@ -200,7 +206,7 @@ export default {
         <u-input v-model.number="model.port" size="huge normal" maxlength="5" placeholder="1150-65535"></u-input>
     </u-form-item>
     <u-form-item>
-        <u-button color="primary">立即创建</u-button>
+        <u-button color="primary" @click="submit()">立即创建</u-button>
     </u-form-item>
 </u-form>
 </template>
@@ -213,6 +219,12 @@ export default {
                 port: 3306,
             },
         };
+    },
+    methods: {
+        submit() {
+            console.log(this.model);
+            this.$toast.show('提交成功！');
+        },
     },
 };
 </script>

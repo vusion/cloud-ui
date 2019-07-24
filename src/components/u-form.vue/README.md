@@ -10,7 +10,7 @@
 
 #### 验证器 UValidator
 
-实现基础的嵌套验证功能和原子化验证功能，包含提示样式。
+实现了基础的嵌套验证功能和原子化验证功能，包含提示样式。
 
 #### 表单项 UFormItem
 
@@ -21,6 +21,10 @@
 MField 作为各种表单域（表单控件）的基类，用于触发 UValidator（或 UFormItem）的验证功能。
 
 比如常见的：`<u-input>`、`<u-select>`、`<u-radios>`、`<u-date-picker>`都属于这一类。
+
+#### 复杂动态验证组件
+
+如：`<u-form-table-view>`和`<u-dynamic-cards>`
 
 <u-h2-tabs router>
     <u-h2-tab title="基础示例" to="/components/u-form/examples"></u-h2-tab>

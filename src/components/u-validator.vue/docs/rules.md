@@ -147,7 +147,7 @@
 以字母、数字或"_"组成。
 
 ``` html
-<u-validator label="名称" rules="^azAZ09-$">
+<u-validator label="名称" rules="^azAZ09_$">
     <u-input placeholder="以字母、数字或'_'组成"></u-input>
 </u-validator>
 ```
