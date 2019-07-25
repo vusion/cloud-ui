@@ -5,7 +5,7 @@
     <span :class="$style.placeholder">{{ currentValue ? '' : placeholder }}</span><!-- 兼容 IE9 -->
     <input ref="input" :class="$style.input" v-bind="$attrs" :value="currentValue"
         :placeholder="placeholder" v-focus="autofocus" :readonly="readonly" :disabled="disabled"
-        @input="onInput" @focus="onFocus" @blur="onBlur" v-on="listeners"
+        @input="onInput" @focus="onFocus" @blur="onBlur" @keypress="onKeypress" v-on="listeners"
         @compositionstart="compositionInputing = true"
         @compositionend="onCompositionEnd"
         :title="currentValue && !disabled ? '' : ($attrs.title || placeholder)">
