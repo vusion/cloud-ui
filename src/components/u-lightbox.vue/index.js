@@ -133,6 +133,8 @@ export const ULightbox = {
     destroyed() {
         if (this.$el && this.$el.parentNode === document.body)
             document.body.removeChild(this.$el);
+        if (this.currentVisible)
+            document.removeEventListener('keydown', this.escPress);
     },
     methods: {
         // 显示灯箱

@@ -141,8 +141,10 @@ export const UOldTableView = {
         // this.copyTdata = this.initTableData();
         this.handleResize();
         window.addEventListener('resize', this.onResize, false);
-        if (this.xScroll)
+        if (this.xScroll) {
+            this.addMousewheel = true;
             document.addEventListener('mousewheel', this.onMouseWheel, false);
+        }
     },
     computed: {
         fixedLeftColumns() {
@@ -847,6 +849,8 @@ export const UOldTableView = {
     },
     destroyed() {
         window.removeEventListener('resize', this.onResize, false);
+        if (this.addMousewheel)
+            document.removeEventListener('mousewheel', this.onMouseWheel, false);
     },
 };
 

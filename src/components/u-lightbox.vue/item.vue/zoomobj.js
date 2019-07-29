@@ -12,6 +12,7 @@ class Zoom {
         this.img = img;
         this.wrapper = wrapper;
         this.settings = Object.assign(options, defaults);
+        this.loadWrap = this.load.bind(this);
         // Do nothing in IE8
         if (typeof window.getComputedStyle !== 'function')
             return;
@@ -19,8 +20,14 @@ class Zoom {
         if (this.img.complete)
             this.load();
 
-        this.img.addEventListener('load', this.load.bind(this));
+        this.img.addEventListener('load', this.loadWrap);
     }
+
+    destroyed() {
+        if (this.img)
+            this.img.removeEventListener('load', this.loadWrap);
+    }
+
     load() {
         if (this.img.src === this.cachedDataUrl)
             return;
@@ -37,6 +44,7 @@ class Zoom {
             this.wrapper.onwheel = this.onwheel.bind(this);
         this.wrapper.onmousedown = this.draggable.bind(this);
     }
+
     // 重置为初始值
     reset() {
         this.wrapper.style.width = this.initWidth + 'px';
@@ -44,6 +52,7 @@ class Zoom {
         this.wrapper.style.left = (window.innerWidth - this.initWidth) / 2 + 'px';
         this.wrapper.style.top = (window.innerHeight - this.initHeight) / 2 + 'px';
     }
+
     // 缩放图片
     zoom(zoomin = true, e = {}) {
         // 设置不可缩放返回
@@ -78,12 +87,15 @@ class Zoom {
         this.wrapper.style.left = this.wrapper.left + 'px';
         this.wrapper.style.top = this.wrapper.top + 'px';
     }
+
     zoomin() {
         this.zoom();
     }
+
     zoomout() {
         this.zoom(false);
     }
+
     // 滚轮事件
     onwheel(e) {
         let deltaY = 0;
