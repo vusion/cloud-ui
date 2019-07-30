@@ -5,4 +5,9 @@ export default {
     props: {
         size: { type: String, default: 'normal' },
     },
+    methods: {
+        onMouseleave(event) {
+            this.$emit('mouseleave', event);
+        },
+    },
 };

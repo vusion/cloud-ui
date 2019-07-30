@@ -45,6 +45,12 @@ export default {
             percent_: undefined,
             currentData: this.getCurrentData(),
             hideLine: [], // 最小值自定义会出现导致某些线段不能显示，这个时候需要特殊处理
+            tooltipReference: 'parent',
+            tooltipOpen: false,
+            currentItem: {},
+            currentIndex: -1,
+            isChartLeave: true,
+            tooltipPlacement: 'right',
         };
     },
     created() {
@@ -287,6 +293,48 @@ export default {
                 data: item,
                 index,
             });
+        },
+        getTriggerEl(referenceEl) {
+            return referenceEl.parentElement;
+        },
+        onMouseenter(index) {
+            const count = this.series.length;
+            this.currentIndex = index;
+            this.currentItem = this.currentData[index];
+            let diff = null;
+            const isPointExist = this.series.some((series, index) => {
+                // 修复数据为0不显示tooltip的bug
+                if (this.currentItem && (this.currentItem[series.field || series.key] !== undefined || this.currentItem[series.field || series.key] !== null)) {
+                    diff = index;
+                    return true;
+                } else
+                    return false;
+            });
+            // 处理tooltip的位置
+            if (index !== this.currentData.length - 1)
+                this.tooltipPlacement = 'right';
+            else
+                this.tooltipPlacement = 'left';
+            // 需要特殊处理下 数据点不存在的情况
+            if (!isPointExist) {
+                this.tooltipOpen = false;
+                return false;
+            } else {
+                this.$nextTick(() => {
+                    if (!this.isChartLeave) {
+                        this.tooltipReference = this.$refs.point[index * count + diff];
+                        this.tooltipOpen = true;
+                    } else
+                        this.tooltipOpen = false;
+                });
+            }
+        },
+        onMouseleave(event) {
+            if (event && this.$refs.tooltip && this.$refs.tooltip.$refs.popperEl.contains(event.relatedTarget))
+                return false;
+            this.tooltipOpen = false;
+            this.currentIndex = -1;
+            this.currentItem = {};
         },
     },
     destroyed() {

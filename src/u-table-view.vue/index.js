@@ -140,8 +140,8 @@ export default {
         // this.copyTdata = this.initTableData();
         this.handleResize();
         window.addEventListener('resize', this.onResize, false);
-        if (this.xScroll)
-            document.addEventListener('mousewheel', this.onMouseWheel, false);
+        // if (this.xScroll)
+        //     document.addEventListener('mousewheel', this.onMouseWheel, false);
     },
     computed: {
         fixedLeftColumns() {
@@ -725,29 +725,29 @@ export default {
             value = '' + value;
             return value.length <= 1 ? '0' + value : value;
         },
-        onMouseWheel(e) {
-            const direction = e.wheelDelta / 120 > 0 ? -1 : 1;
-            const parentWidth = this.$refs.root.offsetWidth;
-            const tableWidth = this.$refs.body.offsetWidth;
-            const diffWidth = tableWidth - parentWidth;
-            if (tableWidth > parentWidth && this.over) {
-                e.preventDefault();
-                if (this.$refs.body.parentNode.scrollLeft >= diffWidth && direction === 1)
-                    this.$refs.body.parentNode.scrollLeft = diffWidth;
-                else if (this.$refs.body.parentNode.scrollLeft < 0 && direction === -1)
-                    this.$refs.body.parentNode.scrollLeft = 0;
-                else if (direction === -1)
-                    this.$refs.body.parentNode.scrollLeft += -50;
-                else
-                    this.$refs.body.parentNode.scrollLeft += 50;
-            }
-        },
-        mouseenter() {
-            this.over = true;
-        },
-        mouseleave() {
-            this.over = false;
-        },
+        // onMouseWheel(e) {
+        //     const direction = e.wheelDelta / 120 > 0 ? -1 : 1;
+        //     const parentWidth = this.$refs.root.offsetWidth;
+        //     const tableWidth = this.$refs.body.offsetWidth;
+        //     const diffWidth = tableWidth - parentWidth;
+        //     if (tableWidth > parentWidth && this.over) {
+        //         e.preventDefault();
+        //         if (this.$refs.body.parentNode.scrollLeft >= diffWidth && direction === 1)
+        //             this.$refs.body.parentNode.scrollLeft = diffWidth;
+        //         else if (this.$refs.body.parentNode.scrollLeft < 0 && direction === -1)
+        //             this.$refs.body.parentNode.scrollLeft = 0;
+        //         else if (direction === -1)
+        //             this.$refs.body.parentNode.scrollLeft += -50;
+        //         else
+        //             this.$refs.body.parentNode.scrollLeft += 50;
+        //     }
+        // },
+        // mouseenter() {
+        //     this.over = true;
+        // },
+        // mouseleave() {
+        //     this.over = false;
+        // },
         toggleExpand(index) {
             if (this.expandPattern === 'toggle') {
                 this.tdata.forEach((item, kindex) => {
@@ -803,33 +803,37 @@ export default {
             }
         },
         fixmouseenter(value) {
-            if (value === -1) {
-                this.fixedHover = true;
-                this.$emit('mouseenter', {
-                    index: 0,
-                });
-            } else {
-                const obj = this.tdata[value];
-                obj.hover = true;
-                this.tdata.splice(value, 1, obj);
-                this.$emit('mouseenter', {
-                    index: value,
-                });
+            if (this.fixedLeftColumns.length > 0 || this.fixedRightColumns.length > 0) {
+                if (value === -1) {
+                    this.fixedHover = true;
+                    this.$emit('mouseenter', {
+                        index: 0,
+                    });
+                } else {
+                    const obj = this.tdata[value];
+                    obj.hover = true;
+                    this.tdata.splice(value, 1, obj);
+                    this.$emit('mouseenter', {
+                        index: value,
+                    });
+                }
             }
         },
         fixmouseleave(value) {
-            if (value === -1) {
-                this.fixedHover = false;
-                this.$emit('mouseleave', {
-                    index: 0,
-                });
-            } else {
-                const obj = this.tdata[value];
-                obj.hover = false;
-                this.tdata.splice(value, 1, obj);
-                this.$emit('mouseleave', {
-                    index: value,
-                });
+            if (this.fixedLeftColumns.length > 0 || this.fixedRightColumns.length > 0) {
+                if (value === -1) {
+                    this.fixedHover = false;
+                    this.$emit('mouseleave', {
+                        index: 0,
+                    });
+                } else {
+                    const obj = this.tdata[value];
+                    obj.hover = false;
+                    this.tdata.splice(value, 1, obj);
+                    this.$emit('mouseleave', {
+                        index: value,
+                    });
+                }
             }
         },
         showAll() {
