@@ -95,7 +95,7 @@ export const UOldTableView = {
             fixedMinTableHeight: undefined,
             bodyWidth: undefined, // 当出现垂直滚动条的时候，需要减去滚动条的宽度，确保不会出现水平滚动条
             scrollWidth: undefined,
-            over: false, // 当mouseover在表格时，此值为true
+            // over: false, // 当mouseover在表格时，此值为true
             fixedHeight: [], // 当fixed时表格行的高度值
             fixedLeftWidth: null, // fixed 时表格左部分宽度和的值
             rightColumns: [], // fixed值是right时需要重构columns顺序
@@ -141,8 +141,8 @@ export const UOldTableView = {
         // this.copyTdata = this.initTableData();
         this.handleResize();
         window.addEventListener('resize', this.onResize, false);
-        if (this.xScroll)
-            document.addEventListener('mousewheel', this.onMouseWheel, false);
+        // if (this.xScroll)
+        //     document.addEventListener('mousewheel', this.onMouseWheel, false);
     },
     computed: {
         fixedLeftColumns() {
@@ -720,29 +720,29 @@ export const UOldTableView = {
             value = '' + value;
             return value.length <= 1 ? '0' + value : value;
         },
-        onMouseWheel(e) {
-            const direction = e.wheelDelta / 120 > 0 ? -1 : 1;
-            const parentWidth = this.$refs.root.offsetWidth;
-            const tableWidth = this.$refs.body.offsetWidth;
-            const diffWidth = tableWidth - parentWidth;
-            if (tableWidth > parentWidth && this.over) {
-                e.preventDefault();
-                if (this.$refs.body.parentNode.scrollLeft >= diffWidth && direction === 1)
-                    this.$refs.body.parentNode.scrollLeft = diffWidth;
-                else if (this.$refs.body.parentNode.scrollLeft < 0 && direction === -1)
-                    this.$refs.body.parentNode.scrollLeft = 0;
-                else if (direction === -1)
-                    this.$refs.body.parentNode.scrollLeft += -50;
-                else
-                    this.$refs.body.parentNode.scrollLeft += 50;
-            }
-        },
-        mouseenter() {
-            this.over = true;
-        },
-        mouseleave() {
-            this.over = false;
-        },
+        // onMouseWheel(e) {
+        //     const direction = e.wheelDelta / 120 > 0 ? -1 : 1;
+        //     const parentWidth = this.$refs.root.offsetWidth;
+        //     const tableWidth = this.$refs.body.offsetWidth;
+        //     const diffWidth = tableWidth - parentWidth;
+        //     if (tableWidth > parentWidth && this.over) {
+        //         e.preventDefault();
+        //         if (this.$refs.body.parentNode.scrollLeft >= diffWidth && direction === 1)
+        //             this.$refs.body.parentNode.scrollLeft = diffWidth;
+        //         else if (this.$refs.body.parentNode.scrollLeft < 0 && direction === -1)
+        //             this.$refs.body.parentNode.scrollLeft = 0;
+        //         else if (direction === -1)
+        //             this.$refs.body.parentNode.scrollLeft += -50;
+        //         else
+        //             this.$refs.body.parentNode.scrollLeft += 50;
+        //     }
+        // },
+        // mouseenter() {
+        //     this.over = true;
+        // },
+        // mouseleave() {
+        //     this.over = false;
+        // },
         toggleExpand(index) {
             if (this.expandPattern === 'toggle') {
                 this.tdata.forEach((item, kindex) => {
@@ -799,33 +799,37 @@ export const UOldTableView = {
             }
         },
         fixmouseenter(value) {
-            if (value === -1) {
-                this.fixedHover = true;
-                this.$emit('mouseenter', {
-                    index: 0,
-                });
-            } else {
-                const obj = this.tdata[value];
-                obj.hover = true;
-                this.tdata.splice(value, 1, obj);
-                this.$emit('mouseenter', {
-                    index: value,
-                });
+            if (this.fixedLeftColumns.length > 0 || this.fixedRightColumns.length > 0) {
+                if (value === -1) {
+                    this.fixedHover = true;
+                    this.$emit('mouseenter', {
+                        index: 0,
+                    });
+                } else {
+                    const obj = this.tdata[value];
+                    obj.hover = true;
+                    this.tdata.splice(value, 1, obj);
+                    this.$emit('mouseenter', {
+                        index: value,
+                    });
+                }
             }
         },
         fixmouseleave(value) {
-            if (value === -1) {
-                this.fixedHover = false;
-                this.$emit('mouseleave', {
-                    index: 0,
-                });
-            } else {
-                const obj = this.tdata[value];
-                obj.hover = false;
-                this.tdata.splice(value, 1, obj);
-                this.$emit('mouseleave', {
-                    index: value,
-                });
+            if (this.fixedLeftColumns.length > 0 || this.fixedRightColumns.length > 0) {
+                if (value === -1) {
+                    this.fixedHover = false;
+                    this.$emit('mouseleave', {
+                        index: 0,
+                    });
+                } else {
+                    const obj = this.tdata[value];
+                    obj.hover = false;
+                    this.tdata.splice(value, 1, obj);
+                    this.$emit('mouseleave', {
+                        index: value,
+                    });
+                }
             }
         },
         showAll() {
