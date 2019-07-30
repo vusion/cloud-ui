@@ -315,7 +315,7 @@ export const ULineChart = {
                     return false;
             });
             // 处理tooltip的位置
-            if (index !== this.currentData.length - 1)
+            if (index < this.currentData.length / 2)
                 this.tooltipPlacement = 'right';
             else
                 this.tooltipPlacement = 'left';

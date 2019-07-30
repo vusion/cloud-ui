@@ -63,7 +63,7 @@ export default {
 <template>
 <u-line-chart border legend :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data" :smooth="smooth">
 	<div slot="tooltip" slot-scope="scope">
-		<div v-for="sery in series">{{ sery.name || sery.field || sery.key }}: {{ scope.row[sery.field || sery.key] }}{{yaxis.unit}}</div>
+		<div v-for="sery in series">{{ sery.name || sery.field || sery.key }}: {{ scope.item[sery.field || sery.key] }}{{yaxis.unit}}</div>
 	</div>
 </u-line-chart>
 </template>

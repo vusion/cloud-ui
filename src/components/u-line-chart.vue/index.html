@@ -40,7 +40,8 @@
             </svg>
         </div>
         <div :class="$style.layer" ref="layer" @mouseenter="isChartLeave = false" @mouseleave="isChartLeave = true">
-            <div v-for="(item,index) in currentData" :hover="currentIndex === index" v-if="!item.hidden" :class="$style.piece" :scatter="scatter" :style="{left: 100*index/(currentData.length - 1)+'%', width: 100/(currentData.length - 1)+'%'}" @mouseenter="onMouseenter(index)" @mouseleave="onMouseleave">
+            <!-- 此处point 需要用v-show替换v-if解决tooltip特殊情况异常问题 -->
+            <div v-for="(item,index) in currentData" :hover="currentIndex === index" v-show="!item.hidden" :class="$style.piece" :scatter="scatter" :style="{left: 100*index/(currentData.length - 1)+'%', width: 100/(currentData.length - 1)+'%'}" @mouseenter="onMouseenter(index)" @mouseleave="onMouseleave">
                 <div v-for="(sery, sindex) in series" @click="pointClick(item, sindex)" v-show="item[sery.key] !== undefined && !sery.hidden && !hideLine.includes(sindex)" :special="item.special && item.special[sery.key]" ref="point" :class="$style.point" :scatter="scatter" :style="{bottom: 100*(item[sery.key] - yAxis_.min)/(yAxis_.max - yAxis_.min)+'%', borderColor: item.special && item.special[sery.key] && item.special[sery.key].color, background: item.special && item.special[sery.key] && item.special[sery.key].color}"></div>
             </div>
         </div>
@@ -50,7 +51,7 @@
     </div>
     <u-tooltip ref="tooltip" :opened.sync="tooltipOpen" trigger="manual" :trigger-element="getTriggerEl" :reference="tooltipReference" :placement="tooltipPlacement" :boundaries-element="$el" @mouseleave="onMouseleave">
         <div>
-            <slot name="tooltip" :row="currentItem" :index="currentIndex">
+            <slot name="tooltip" :item="currentItem" :index="currentIndex">
                 <div v-for="sery in series">{{ sery.name || sery.field || sery.key }}: {{ format(currentItem[sery.field || sery.key]) }}{{yAxis.unit}}</div>
             </slot>
         </div>
