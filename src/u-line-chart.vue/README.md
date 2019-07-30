@@ -98,7 +98,7 @@ export default {
 <template>
 <u-line-chart border legend :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data" :smooth="smooth">
 	<div slot="tooltip" slot-scope="scope">
-		<div v-for="sery in series" v-if="scope.row[sery.key]">{{ sery.key }}: {{ scope.row[sery.key] }}</div>
+		<div v-for="sery in series" v-if="scope.row[sery.key]">{{ sery.key }}: {{ scope.item[sery.key] }}</div>
 	</div>
 </u-line-chart>
 </template>
@@ -247,7 +247,7 @@ export default {
 
 | Slot | Description |
 | ---- | ----------- |
-| tooltip | 自定义tooltip内容，作用域插槽，其中`row`表示当前点的数据，`index`表示当前点的索引 |
+| tooltip | 自定义tooltip内容，作用域插槽，其中`item`表示当前点的数据，`index`表示当前点的索引 |
 
 | Slot | Description |
 | ---- | ----------- |

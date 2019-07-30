@@ -40,13 +40,8 @@
             </svg>
         </div>
         <div :class="$style.layer" ref="layer" @mouseenter="isChartLeave = false" @mouseleave="isChartLeave = true">
-            <div v-for="(item,index) in currentData" :hover="currentIndex === index" v-if="!item.hidden" :class="$style.piece" :scatter="scatter" :style="{left: 100*index/(currentData.length - 1)+'%', width: 100/(currentData.length - 1)+'%'}" @mouseenter="onMouseenter(index)" @mouseleave="onMouseleave">
+            <div v-for="(item,index) in currentData" :hover="currentIndex === index" v-show="!item.hidden" :class="$style.piece" :scatter="scatter" :style="{left: 100*index/(currentData.length - 1)+'%', width: 100/(currentData.length - 1)+'%'}" @mouseenter="onMouseenter(index)" @mouseleave="onMouseleave">
                 <div v-for="(sery, index) in series" @click="pointClick(item, index)" v-show="item[sery.key] !== undefined && !sery.hidden && !hideLine.includes(index)" :special="item.special && item.special[sery.key]" :class="$style.point" ref="point" :scatter="scatter" :style="{bottom: 100*(item[sery.key] - yAxis_.min)/(yAxis_.max - yAxis_.min)+'%', borderColor: item.special && item.special[sery.key] && item.special[sery.key].color, background: item.special && item.special[sery.key] && item.special[sery.key].color}"></div>
-                <!-- <div :class="$style['u-tooltip']" :role="'u-tooltip-'+(index >= currentData.length/2 ? 'left' : 'right')+'-'+(getPercent(item) < 50 ? 'top' : 'bottom')" :style="{top: getPercent(item)+'%'}">
-                    <slot :name="'tooltipTemplate'+index">
-                        <div v-for="sery in series">{{sery.name || sery.key}}: {{format(item[sery.key])}}</div>
-                    </slot>
-                </div> -->
             </div>
         </div>
     </div>
@@ -55,7 +50,7 @@
     </div>
     <u-tooltip ref="tooltip" :open.sync="tooltipOpen" trigger="manual" :trigger-element="getTriggerEl" :reference="tooltipReference" :placement="tooltipPlacement" :boundaries-element="$el" @mouseleave="onMouseleave">
         <div slot="content">
-            <slot name="tooltip" :row="currentItem" :index="currentIndex">
+            <slot name="tooltip" :item="currentItem" :index="currentIndex">
                 <div v-for="sery in series">{{ sery.name || sery.field || sery.key }}: {{ format(currentItem[sery.field || sery.key]) }}{{yAxis.unit}}</div>
             </slot>
         </div>
