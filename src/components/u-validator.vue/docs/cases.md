@@ -64,3 +64,25 @@ export default {
 };
 </script>
 ```
+
+### 复合验证，循环报错
+
+``` vue
+<template>
+<u-form-item label="用户名" rules="usernameBase | unique(...existingList)">
+    <u-input maxlength="12" placeholder="4-12个字符"></u-input>
+</u-form-item>
+</template>
+<script>
+export default {
+    rules: {
+        usernameBase: 'required | ^azAZ | ^azAZ09-$ | usernameBase | minLength(4)',
+    },
+    data() {
+        return {
+            existingList: ['abcd', 'aaaa', 'ABCD'],
+        };
+    },
+};
+</script>
+```

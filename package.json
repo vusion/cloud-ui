@@ -33,6 +33,7 @@
     "cloud-ui"
   ],
   "dependencies": {
+    "atom-validator": "^0.1.3",
     "countup.js": "^1.9.3",
     "enhanced-resolve": "^4.1.0",
     "lodash": "^4.17.5",
