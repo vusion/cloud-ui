@@ -1,0 +1,31 @@
+@import '../../src/u-sidebar-item.vue/module.css';
+
+.root {
+    composes: item from '../u-sidebar.vue/module.css';
+    height: 44px;
+    line-height: 44px;
+    padding-left: 20px;
+    color: $color-base;
+    transition: all $transition-duration-base;
+}
+
+.root:hover {
+    color: $brand-primary;
+}
+
+.root[selected] {
+    color: $brand-primary;
+    background: color-mod($brand-primary alpha(0.1));
+    border-right: 4px solid $brand-primary;
+}
+
+.root[disabled] {
+    cursor: $cursor-not-allowed;
+    background: transparent;
+    color: #586475;
+}
+
+.root[selected][disabled] {
+    background: transparent;
+    border-right: none;
+}

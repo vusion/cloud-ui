@@ -1,0 +1,30 @@
+@import '../../src/u-sidebar-group.vue/module.css';
+
+.head {
+    composes: group_head from '../u-sidebar.vue/module.css';
+    color: #8191a9;
+    height: 40px;
+    line-height: 40px;
+}
+
+.expander {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    transition: transform $transition-duration;
+}
+
+.expander::after {
+    icon-font: url('i-line-awesome.vue/assets/angle-right.svg');
+}
+
+.expander[expanded] {
+    transform: rotate(90deg);
+}
+
+.body {
+    composes: group_body from '../u-sidebar.vue/module.css';
+    background: #ebeff5;
+    transition: $transition-duration height ease-in-out, $transition-duration padding-top ease-in-out, $transition-duration padding-bottom ease-in-out;
+}
+

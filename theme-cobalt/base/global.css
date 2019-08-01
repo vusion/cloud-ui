@@ -1,4 +1,12 @@
 @import '../../src/base/global.css';
 
-$brand-primary: #4a89e8;
-$sidebar-background-color: #294265;
+$sidebar-background-color: #f6f7fb;
+$brand-disabled: #c4ccd8;
+
+/* Brand Colors */
+$brand-primary: #457cd0;
+$brand-secondary: #dfe4ec; /* #575962; */
+$brand-info: #36a3f7;
+$brand-success: #34bfa3;
+$brand-warning: #ffb518;
+$brand-error: #f34f69;

@@ -47,13 +47,13 @@ export default {
                 return h('div', [
                     this.vnode ? this.vnode({
                         row: this.row,
-                    }) : this.row.map((sery) => h('div', (sery.name || sery.key) + ': ' + sery.percent + '%')),
+                    }) : this.row.map((sery) => h('div', (sery.name || sery.key) + ': ' + (sery.percent || sery.percentage) + '%')),
                 ]);
             } else {
                 return h('div', [
                     this.vnode ? this.vnode({
                         row: this.row,
-                    }) : ((this.row.name || this.row.key) + ': ' + this.row.percent + '%'),
+                    }) : ((this.row.name || this.row.key) + ': ' + (this.row.percent || this.row.percentage) + '%'),
                 ]);
             }
         } else if (this.type === 'text') {
@@ -67,7 +67,7 @@ export default {
                 this.vnode ? this.vnode({
                     sery: this.sery,
                     index: this.percent,
-                }) : (this.sery.name || this.sery.key),
+                }) : (this.sery.name || this.sery.field || this.sery.key),
             ]);
         }
     },

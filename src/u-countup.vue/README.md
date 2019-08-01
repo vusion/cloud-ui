@@ -73,7 +73,7 @@ export default{
             duration: 2,
             isEasing: true,
             isPause: false,
-            // autoStart: false,
+            autoStart: false,
         };
     },
     methods: {

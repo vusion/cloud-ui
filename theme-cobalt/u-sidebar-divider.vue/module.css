@@ -1,0 +1,6 @@
+@import '../../src/u-sidebar-divider.vue/module.css';
+
+.root {
+    composes: divider from '../u-sidebar.vue/module.css';
+    background: #dae0ea;
+}

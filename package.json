@@ -35,7 +35,8 @@
     "countup.js": "^1.9.3",
     "lodash": "^4.17.5",
     "proto-ui.vusion": "~0.3.56",
-    "vusion-utils": "^0.2.4"
+    "vusion-utils": "^0.2.4",
+    "i-line-awesome.vue": "^1.0.2"
   },
   "devDependencies": {
     "@vusion/md-vue-loader": "^1.0.0",
