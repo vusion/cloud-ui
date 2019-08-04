@@ -30,6 +30,7 @@ export const ULightboxItem = {
         this.$watch('isCurrent', (value) => {
             value && this.resetImg();
         });
+        this.resetImgWrap = this.resetImg.bind(this);
         this.$on('rotate', this.rotate);
     },
     mounted() {
@@ -42,10 +43,12 @@ export const ULightboxItem = {
         if (this.img.complete)
             this.resetImg();
 
-        this.img.addEventListener('load', this.resetImg.bind(this));
+        this.img.addEventListener('load', this.resetImgWrap);
     },
     destroyed() {
         this.dispatch(this.$options.parentName, 'remove-item-vm', this);
+        if (this.img)
+            this.img.removeEventListener('load', this.resetImgWrap);
     },
     methods: {
         animationEnd() {
@@ -78,6 +81,7 @@ export const ULightboxItem = {
                     });
                 }
             } else if (this.zoomImg) {
+                this.zoomImg.destroyed();
                 this.zoomImg = null;
                 this.$off('zoom');
             }
