@@ -132,7 +132,7 @@
 
 ### 自定义
 
-#### pattern(re: RegExp) <u-label>blur</u-label>
+#### pattern(re: RegExp) <u-label>input+blur</u-label>
 
 根据正则表达式来判断。
 

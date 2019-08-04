@@ -33,7 +33,7 @@ export const UDynamicCard = {
         },
         collapse() {
             this.parentVM.collapse(this.index);
-            this.validate();
+            this.validate().catch(() => undefined);
         },
         remove() {
             this.parentVM.remove(this.index);

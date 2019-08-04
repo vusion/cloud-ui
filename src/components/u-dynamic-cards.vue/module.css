@@ -1,5 +1,9 @@
 .root {
-    width: 580px;
+    width: 680px;
+}
+
+.root[size="large"] {
+    width: 800px;
 }
 
 .root[size="full"] {

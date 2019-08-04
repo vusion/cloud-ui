@@ -74,6 +74,14 @@ export default {
 </u-linear-layout>
 ```
 
+#### 为空禁用
+
+有时在没有数据的情况下，不希望用户进行选择。使用`empty-disabled`属性自动禁用掉这种情况。
+
+``` html
+<u-select value="nut" empty-disabled placeholder="暂无选项"></u-select>
+```
+
 ### 分隔符
 
 ``` html

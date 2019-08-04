@@ -4,14 +4,17 @@
     background: white;
 }
 
-.root td {
-    color: #999;
-}
-
-.root th, .root td {
+.root th {
     position: relative;
     line-height: 20px;
     padding: 13px 6px 13px 10px;
+}
+
+.root td {
+    position: relative;
+    line-height: 20px;
+    color: #999;
+    padding: 14px 6px 14px 10px;
 }
 
 .root thead tr {

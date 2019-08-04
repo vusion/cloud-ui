@@ -3,7 +3,7 @@
         :item="item"
         :index="index"
         :disable-remove="currentData.length <= minCount">
-        <template #mini>
+        <template slot="mini">
             <slot name="mini" :item="item" :index="index"></slot>
         </template>
         <slot :item="item" :index="index"></slot>

@@ -1,6 +1,6 @@
-<div :class="$style.root" :readonly="readonly" :disabled="disabled"
+<div :class="$style.root" :readonly="readonly" :disabled="currentDisabled"
     :clearable="clearable && !!currentText" :multiple="multiple" :multiple-tags="multiple && this.multipleAppearance === 'tags'"
-    :tabindex="readonly || disabled ? '' : 0"
+    :tabindex="readonly || currentDisabled ? '' : 0"
     @click="focus"
     @keydown.up.prevent="$refs.popper.currentOpened ? shift(-1) : open()"
     @keydown.down.prevent="$refs.popper.currentOpened ? shift(+1) : open()"
@@ -36,7 +36,7 @@
                 </span>
             </template>
         </template>
-        <u-input v-if="filterable" :class="$style.input" ref="input" :readonly="readonly" :disabled="disabled"
+        <u-input v-if="filterable" :class="$style.input" ref="input" :readonly="readonly" :disabled="currentDisabled"
             :placeholder="multiple && selectedVMs.length ? '' : placeholder" :filterable="filterable" :multiple-tags="multiple && this.multipleAppearance === 'tags'"
             :value="filterable ? filterText : currentText" @input="onInput" @focus="onFocus" @blur="onBlur"
             @keydown.enter.stop="onInputEnter" @keydown.delete.stop="onInputDelete"
@@ -44,7 +44,7 @@
         </u-input>
     </div>
     <span v-if="clearable && !!currentText" :class="$style.clearable" @click="clear"></span>
-    <m-popper :class="$style.popper" ref="popper" append-to="reference" :disabled="readonly || disabled"
+    <m-popper :class="$style.popper" ref="popper" append-to="reference" :disabled="readonly || currentDisabled"
         @update:opened="$emit('update:opened', $event, this)"
         @before-open="$emit('before-open', $event, this)"
         @before-close="$emit('before-close', $event, this)"
