@@ -63,7 +63,7 @@ export default {
 <template>
 <u-line-chart border legend :x-axis="xaxis" :y-axis="yaxis" :series="series" :data="data" :smooth="smooth">
 	<div slot="tooltip" slot-scope="scope">
-		{{ scope.row[scope.sery.key]}}
+		<div v-for="sery in series">{{ sery.name || sery.field || sery.key }}: {{ scope.item[sery.field || sery.key] }}{{yaxis.unit}}</div>
 	</div>
 </u-line-chart>
 </template>
@@ -148,7 +148,7 @@ export default {
 			title: '每星期访问量',
 			xaxis: { key: 'week' },
 			yaxis: { min: 0, name: '个'},
-			series: [{key: 'number'},{key: 'num', } ],
+			series: [{key: 'number'},{key: 'num' } ],
 			data: [
 				{ week: '星期一', number: 150, num: 1200 },
 				{ week: '星期二', number: 300, num: 1200 },

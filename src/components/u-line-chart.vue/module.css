@@ -227,7 +227,7 @@ $line_offset: 6px;
     border-left: 1px solid transparent;
 }
 
-.piece::before {
+.piece:not(:first-child)::before {
     content: '';
     position: absolute;
     top: 0;
@@ -240,78 +240,7 @@ $line_offset: 6px;
     z-index: $z-index-tooltip;
 }
 
-.u-tooltip {
-    border-radius: 2px;
-    position: absolute;
-    text-align: initial;
-    white-space: nowrap;
-    line-height: 20px;
-    padding: 17px 20px;
-    font-size: 12px;
-    background: rgba(71, 88, 107, 0.9);
-    color: white;
-    margin-top: -16px;
-    box-sizing: border-box;
-}
-
-.u-tooltip::after {
-    content: '';
-    display: block;
-    position: absolute;
-    border: 5px solid rgba(71, 88, 107, 0.9);
-}
-
-.u-tooltip[role="u-tooltip-right-top"] {
-    margin-left: 8px;
-}
-
-.u-tooltip[role="u-tooltip-right-top"]::after {
-    top: 10px;
-    left: -5px;
-    border-left: none;
-    border-top-color: transparent;
-    border-bottom-color: transparent;
-}
-
-.u-tooltip[role="u-tooltip-right-bottom"] {
-    margin-left: 8px;
-}
-
-.u-tooltip[role="u-tooltip-right-bottom"]::after {
-    top: 10px;
-    left: -5px;
-    border-left: none;
-    border-top-color: transparent;
-    border-bottom-color: transparent;
-}
-
-.u-tooltip[role="u-tooltip-left-top"] {
-    margin-right: 10px;
-    right: 100%;
-}
-
-.u-tooltip[role="u-tooltip-left-top"]::after {
-    top: 10px;
-    right: -5px;
-    border-right: none;
-    border-top-color: transparent;
-    border-bottom-color: transparent;
-}
-
-.u-tooltip[role="u-tooltip-left-bottom"] {
-    margin-right: 10px;
-    right: 100%;
-}
-
-.u-tooltip[role="u-tooltip-left-bottom"]::after {
-    top: 10px;
-    right: -5px;
-    border-right: none;
-    border-top-color: transparent;
-    border-bottom-color: transparent;
-}
-
-.piece:hover {
+.piece:hover, .piece[hover] {
     border-left: 1px solid rgba(0, 0, 0, 0.2);
 }
 .piece[scatter]:hover {
@@ -353,11 +282,11 @@ $line_offset: 6px;
     background: rgb(97, 218, 198);
 }
 
-.piece:hover .point[scatter] {
+.piece:hover .point[scatter], .piece[hover] .point[scatter] {
     transform: scale(2);
 }
 
-.piece:hover .point {
+.piece:hover .point, .piece[hover] .point {
     display: block;
 }
 
