@@ -308,7 +308,7 @@ export const ULineChart = {
             let diff = null;
             const isPointExist = this.series.some((sery, index) => {
                 // 修复数据为0不显示tooltip的bug
-                if (this.currentItem && (this.currentItem[sery.field || sery.key] !== undefined || this.currentItem[sery.field || sery.key] !== null)) {
+                if (this.currentItem && (this.currentItem[sery.field || sery.key] !== undefined && this.currentItem[sery.field || sery.key] !== null) && !sery.hidden) {
                     diff = index;
                     return true;
                 } else
