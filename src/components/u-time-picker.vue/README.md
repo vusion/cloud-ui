@@ -19,6 +19,28 @@
 ``` html
 <u-time-picker time="15:46:33" min-time="12:30:00" max-time="14:45:00"></u-time-picker>
 ```
+
+### 日期最小单位
+``` vue
+<template>
+    <u-time-picker minUnit="minute" min-time="12:30" max-time="14:45" :time="time" @change="change($event.time)"></u-time-picker>
+</template>
+<script>
+export default {
+	data() {
+		return {
+			time: '13:12',
+		};
+	},
+    methods: {
+        change(time) {
+            this.time = time;
+            console.log(time);
+        },
+    },
+};
+</script>
+```
 ### 方法
 
 ``` vue
@@ -49,6 +71,7 @@ export default {
 | Prop/Attr | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
 | time | String | '00:00' | 当前的时间值 |
+| minUnit | String | 'second' | 最小时间单位`'second'`或者是`'minute'` |
 | minTime | String | '00:00' | 最小时间 |
 | maxTime | String | '23:59' | 最大时间 |
 | autofocus | Boolean | `false` | 是否自动获得焦点 |
