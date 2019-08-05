@@ -443,4 +443,18 @@ export default {
 
 ### 复杂案例
 
-下面这些组件已经集成了 UValidator 的嵌套验证功能，可以去相应文档进行查阅[UFormTableView](../../u-form-table-view)、[UDynamicCards](../../u-dynamic-cards)。
+下面这些组件已经集成了 UValidator 的嵌套验证功能，可以去相应文档进行查阅[UFormTableView](../u-form-table-view)、[UDynamicCards](../u-dynamic-cards)。
+
+## 其它
+
+### 过长提示
+
+通过给表单控件设置`maxlength-message`属性，可以在已输入至最大长度的情况下继续输入时，给用户提示消息。
+
+``` html
+<u-form ref="form">
+    <u-form-item label="用户名">
+        <u-input maxlength="4" maxlength-message="不超过4个字符" placeholder="不超过4个字符"></u-input>
+    </u-form-item>
+</u-form>
+```

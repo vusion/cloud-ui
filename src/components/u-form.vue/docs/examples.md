@@ -117,6 +117,28 @@
 </u-form>
 ```
 
+### 插槽
+
+- 通过`slot="label"`插槽自定义左侧内容
+- 通过`slot="description"`插槽自定义描述内容
+- 通过`slot='extra'`插槽自定义`label`右侧额外内容
+
+``` html
+<u-form ref="form">
+    <u-form-item required layout="block">
+        <span slot="label">
+            用户名
+        </span>
+        <div slot="description">描述描述</div>
+        <i-icon name="alert" size="small" slot="extra">
+            <u-tooltip content="请输入正确格式的中文汉字"></u-tooltip>
+        </i-icon>
+        <u-input maxlength="4" maxlength-message="不超过4个字符" placeholder="不超过4个字符"></u-input>
+    </u-form-item>
+</u-form>
+```
+
+
 ## 数据收集与提交
 
 推荐将各表单控件使用`v-model`绑定的数据，统一收集到`data`里的`model`对象中。
@@ -173,7 +195,7 @@ export default {
                 name: '',
                 spec: '0101',
                 type: 'SSD',
-                port: 3306,
+                port: '',
                 bandwidth: 10,
                 description: '',
             },
@@ -182,7 +204,7 @@ export default {
     methods: {
         submit() {
             console.log(this.model);
-            this.$toast.show('提交成功！');
+            this.$toast.show('没有验证，直接提交成功！');
         },
     },
 };
@@ -216,14 +238,14 @@ export default {
         return {
             model: {
                 timeout: 900000,
-                port: 3306,
+                port: '',
             },
         };
     },
     methods: {
         submit() {
             console.log(this.model);
-            this.$toast.show('提交成功！');
+            this.$toast.show('没有验证，直接提交成功！');
         },
     },
 };
@@ -232,16 +254,22 @@ export default {
 
 ### 表单验证
 
+需要在`<u-form-item>`的`rules`属性添加验证规则，输入和失焦会自动触发验证，点击提交按钮时，需要手动调用 form 的`validate`方法。
+
+可以根据`@validate`事件监听表单的验证状态。
+
+关于验证规则的详细使用，参见 [UValidator](../u-validator)。
+
 ``` vue
 <template>
-<u-form gap="large">
+<u-form ref="form" gap="large">
     <u-form-item label="计费方式" required>
         <u-radios v-model="model.chargeType">
             <u-radio label="0">包年包月</u-radio>
             <u-radio label="1">按量付费</u-radio>
         </u-radios>
     </u-form-item>
-    <u-form-item label="实例名称" required>
+    <u-form-item label="实例名称" required rules="required | ^az | az09$ | ^az09-$ | rangeLength(1,63)">
         <u-input v-model="model.name" size="huge" maxlength="63" placeholder="由1-63个小写字母，数字，中划线组成，以字母开头，字母或数字结尾"></u-input>
     </u-form-item>
     <u-form-item label="规格">
@@ -261,17 +289,17 @@ export default {
             <u-capsule value="HSSD">高性能 SSD 云盘</u-capsule>
         </u-capsules>
     </u-form-item>
-    <u-form-item label="端口号" required>
+    <u-form-item label="端口号" required rules="required | integer | range(1150,65535)">
         <u-input v-model.number="model.port" size="huge normal" maxlength="5" placeholder="1150-65535"></u-input>
     </u-form-item>
     <u-form-item label="公网带宽">
         <u-combo-slider v-model="model.bandwidth" :step="10" unit="Mbps"></u-combo-slider>
     </u-form-item>
-    <u-form-item label="描述" layout="block">
+    <u-form-item label="描述" layout="block" rules="minLength(8)">
         <u-textarea v-model="model.description" size="huge"></u-textarea>
     </u-form-item>
     <u-form-item>
-        <u-button color="primary">立即创建</u-button>
+        <u-button color="primary" @click="submit">立即创建</u-button>
     </u-form-item>
 </u-form>
 </template>
@@ -284,11 +312,18 @@ export default {
                 name: '',
                 spec: '0101',
                 type: 'SSD',
-                port: 3306,
+                port: '',
                 bandwidth: 10,
                 description: '',
             },
         };
+    },
+    methods: {
+        submit() {
+            this.$refs.form.validate()
+                .then(() => this.$toast.show('验证通过，提交成功！'))
+                .catch(() => this.$toast.show('验证失败！'));
+        },
     },
 };
 </script>

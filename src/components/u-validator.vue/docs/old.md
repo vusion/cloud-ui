@@ -265,30 +265,3 @@ export default {
 };
 </script>
 ```
-
-通过给表单控件设置`maxlength-message`属性，可以在已输入至最大长度的情况下继续输入时，给用户提示消息。
-
-``` html
-<u-form ref="form">
-    <u-form-item label="用户名">
-        <u-input maxlength="4" maxlength-message="不超过4个字符" placeholder="不超过4个字符"></u-input>
-    </u-form-item>
-</u-form>
-```
-
-表单控件`u-form-item`支持自定义左边显示内容，通过传入`slot='label'`、`slot='description'` 插槽来实现`label`, `description`属性所实现的功能，此时控件属性`label`, `description`会失效，`slot='extra'`插槽是用来实现插入其他自定义内容。
-
-``` html
-<u-form ref="form">
-    <u-form-item required layout="block">
-        <span slot="label">
-            用户名
-        </span>
-        <div slot="description">描述描述</div>
-        <u-tooltip content="请输入正确格式的中文汉字" slot="extra" >
-            <i-icon name="alert" size="small"></i-icon>
-        </u-tooltip>
-        <u-input maxlength="4" maxlength-message="不超过4个字符" placeholder="不超过4个字符"></u-input>
-    </u-form-item>
-</u-form>
-```
