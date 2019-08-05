@@ -49,7 +49,7 @@
     <div :class="$style.operate" slot="operate">
         <slot></slot>
     </div>
-    <u-tooltip ref="tooltip" :opened.sync="tooltipOpen" trigger="manual" :trigger-element="getTriggerEl" :reference="tooltipReference" :placement="tooltipPlacement" :boundaries-element="$el" @mouseleave="onMouseleave">
+    <u-tooltip ref="tooltip" :opened.sync="tooltipOpened" trigger="manual" :trigger-element="getTriggerEl" :reference="tooltipReference" :placement="tooltipPlacement" :boundaries-element="$el" @mouseleave.native="onMouseleave">
         <div>
             <slot name="tooltip" :item="currentItem" :index="currentIndex">
                 <div v-for="sery in series">{{ sery.name || sery.field || sery.key }}: {{ format(currentItem[sery.field || sery.key]) }}{{yAxis.unit}}</div>

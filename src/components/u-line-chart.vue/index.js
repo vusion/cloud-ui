@@ -46,7 +46,7 @@ export const ULineChart = {
             currentData: this.getCurrentData(),
             hideLine: [], // 最小值自定义会出现导致某些线段不能显示，这个时候需要特殊处理
             tooltipReference: 'parent',
-            tooltipOpen: false,
+            tooltipOpened: false,
             currentItem: {},
             currentIndex: -1,
             isChartLeave: true,
@@ -321,22 +321,22 @@ export const ULineChart = {
                 this.tooltipPlacement = 'left';
             // 需要特殊处理下 数据点不存在的情况
             if (!isPointExist) {
-                this.tooltipOpen = false;
+                this.tooltipOpened = false;
                 return false;
             } else {
                 this.$nextTick(() => {
                     if (!this.isChartLeave) {
                         this.tooltipReference = this.$refs.point[index * count + diff];
-                        this.tooltipOpen = true;
+                        this.tooltipOpened = true;
                     } else
-                        this.tooltipOpen = false;
+                        this.tooltipOpened = false;
                 });
             }
         },
         onMouseleave(event) {
-            if (event && this.$refs.tooltip && this.$refs.tooltip.$refs.popperEl.contains(event.relatedTarget))
+            if (event && this.$refs.tooltip && this.$refs.tooltip.$el.contains(event.relatedTarget))
                 return false;
-            this.tooltipOpen = false;
+            this.tooltipOpened = false;
             this.currentIndex = -1;
             this.currentItem = {};
         },

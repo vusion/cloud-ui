@@ -6,11 +6,6 @@ export const UTooltip = {
     props: {
         size: { type: String, default: 'normal' },
     },
-    methods: {
-        onMouseleave(event) {
-            this.$emit('mouseleave', event);
-        },
-    },
 };
 
 export default UTooltip;
