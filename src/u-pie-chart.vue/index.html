@@ -7,7 +7,7 @@
             <template v-if="zero">
                 <u-popper trigger="hover" placement="right-start" offset="0 10" follow-cursor>
                     <circle :class="$style.zero" cx="0" cy="0" :r="RADIUS"></circle>
-                    <u-chart-tooltip :percent="0" :class="$style.tooltip" slot="popper" type="piechart" :row="data" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
+                    <u-chart-tooltip :percent="0" :class="$style.tooltip" slot="popper" type="piechart" :row="currentData" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
                 </u-popper>
             </template>
             <g v-if="!zero">
@@ -35,7 +35,7 @@
     <div v-if="zero" :class="$style['zero-text']">
         <u-popper trigger="hover" placement="right-start" offset="0 10" follow-cursor>
             <div>0%</div>
-            <u-chart-tooltip :percent='0' :class="$style.tooltip" slot="popper" type="piechart" :row="data" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
+            <u-chart-tooltip :percent='0' :class="$style.tooltip" slot="popper" type="piechart" :row="currentData" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
         </u-popper>
     </div>
     <template v-else>

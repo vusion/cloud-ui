@@ -7,6 +7,10 @@
     line-height: 40px;
 }
 
+.head:hover {
+    color: #9dabc2;
+}
+
 .expander {
     width: 40px;
     height: 40px;
@@ -20,6 +24,10 @@
 
 .expander[expanded] {
     transform: rotate(90deg);
+}
+
+.expander[expanded]::after {
+    icon-font: url('i-line-awesome.vue/assets/angle-right.svg');
 }
 
 .body {
