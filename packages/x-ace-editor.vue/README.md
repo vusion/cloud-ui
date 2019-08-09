@@ -1,7 +1,34 @@
 # XAceEditor
 
+## 安装
+
+### NPM 安装
+
+``` shell
+npm i --save-dev @cloud-ui/x-ace-editor.vue
+```
+
+### 引入
+
+``` js
+import Vue from 'vue';
+import XAceEditor from '@cloud-ui/x-ace-editor.vue';
+
+Vue.component('x-ace-editor', XAceEditor);
+```
+
+或
+
+``` js
+import Vue from 'vue';
+import { install } from 'vusion-utils';
+import XAceEditor from '@cloud-ui/x-ace-editor.vue';
+
+install(Vue, { XAceEditor });
+```
+
 ## 示例
-### 基本形式
+### 基本用法
 
 ``` html
 <x-ace-editor></x-ace-editor>
@@ -14,8 +41,8 @@
 <x-ace-editor v-model="value" lang="json"></x-ace-editor>
 </template>
 <script>
+import 'brace';
 import 'brace/mode/json';
-import 'brace/theme/monokai';
 
 export default {
     data() {

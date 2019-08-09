@@ -58,8 +58,7 @@
     "stylelint": "^9.3.0",
     "stylelint-config-vusion": "^1.1.2",
     "vue": "^2.6.10",
-    "vusion-hooks": "^0.2.2",
-    "x-ace-editor.vue": "^0.1.0"
+    "vusion-hooks": "^0.2.2"
   },
   "peerDependencies": {
     "vue": "^2.6.10"
