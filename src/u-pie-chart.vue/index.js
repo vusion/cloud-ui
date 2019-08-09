@@ -68,8 +68,12 @@ export default {
                 this.currentHeight = this.$el.offsetHeight;
             }
             if (this.$refs.svg) {
-                this.svgWidth = this.$refs.svg.clientWidth;
-                this.svgHeight = this.$refs.svg.clientHeight;
+                const rect = this.$refs.svg.getBoundingClientRect();
+                this.svgWidth = rect.width;
+                this.svgHeight = rect.height;
+                // @note: clientWidth & clientHeight are NOT standard and NOT supported in Firefox.
+                // this.svgWidth = this.$refs.svg.clientWidth;
+                // this.svgHeight = this.$refs.svg.clientHeight;
                 this.svgSize = Math.min(this.svgWidth, this.svgHeight);
             }
         },

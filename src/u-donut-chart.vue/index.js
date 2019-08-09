@@ -63,11 +63,8 @@ export default {
         },
         getLabelStyle(item) {
             // 解决首次加载 this.svgSize为0的情况
-            if (this.$refs.svg && !this.svgWidth) {
-                this.svgWidth = this.$refs.svg.clientWidth;
-                this.svgHeight = this.$refs.svg.clientHeight;
-                this.svgSize = Math.min(this.svgWidth, this.svgHeight);
-            }
+            if (this.$refs.svg && !this.svgWidth)
+                this.getSize();
 
             const multiple = this.svgSize / 200;
 
