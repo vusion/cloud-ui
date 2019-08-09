@@ -38,10 +38,8 @@
   "dependencies": {
     "countup.js": "^1.9.3",
     "lodash": "^4.17.5",
-    "proto-ui.vusion": "~0.4.6",
-    "resize-detector": "^0.2.0",
-    "vue-component-analyzer": "^0.1.4",
-    "vusion-utils": "^0.3.3"
+    "proto-ui.vusion": "~0.4.8",
+    "vusion-utils": "^0.4.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.6",
