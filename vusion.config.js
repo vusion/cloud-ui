@@ -21,7 +21,8 @@ module.exports = {
         github: 'https://github.com/vusion/cloud-ui#next',
         package: pkg,
         navbar: [
-            { text: '组件', to: '/components' },
+            { text: '核心组件', to: '/components' },
+            { text: '三方组件', to: '/vendor' },
         ],
         components: [
             { group: 'Guide', name: 'quickstart', alias: '快速开始', path: './docs/views/guide/quickstart.md' },
@@ -134,6 +135,13 @@ module.exports = {
             { group: 'Mixins & Functional', name: 'f-render', alias: '渲染器' },
             { group: 'Mixins & Functional', name: 'f-slot', alias: '快捷插槽' },
             { group: 'Mixins & Functional', name: 'f-forbidden', alias: '禁用' },
+        ],
+        vendor: [
+            { group: 'Charts', name: 'x-echarts', alias: '百度图表' },
+            // { name: 'x-ace-editor', alias: '代码编辑器' },
+            { group: 'Icon Set', name: 'i-font-awesome', path: 'i-font-awesome.vue/README.md' },
+            { group: 'Icon Set', name: 'i-line-awesome', path: 'i-line-awesome.vue/README.md' },
+            { group: 'Icon Set', name: 'Others', alias: '其它图标库', href: 'https://vusion.github.io/icon-sets/components/i-font-awesome', target: '_blank' },
         ],
         blocks: [],
         directives: [

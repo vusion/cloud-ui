@@ -1,7 +1,8 @@
-import XAceEditor from 'x-ace-editor.vue';
+import OAceEditor from 'x-ace-editor.vue';
 
-export default {
+export const XAceEditor = {
     name: 'x-ace-editor',
+    extends: OAceEditor,
     props: {
         options: {
             type: Object,
@@ -12,5 +13,6 @@ export default {
             },
         },
     },
-    mixins: [XAceEditor],
 };
+
+export default XAceEditor;
