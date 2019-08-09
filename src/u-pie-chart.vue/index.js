@@ -32,9 +32,14 @@ export default {
         },
     },
     watch: {
-        data(data) {
-            this.currentData = this.handleData(data);
-            this.draw();
+        data: {
+            deep: true,
+            handler(data) {
+                // 解决数组内对象值发生变化的情况 需要重置selectedItem
+                this.selectedItem = null;
+                this.currentData = this.handleData(data);
+                this.draw();
+            },
         },
         value(value) {
             this.setSelectedItem();
