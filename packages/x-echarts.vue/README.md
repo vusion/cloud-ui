@@ -1,6 +1,5 @@
 # XEcharts
 
-
 [![NPM Version](http://img.shields.io/npm/v/@cloud-ui/x-echarts.vue.svg?style=flat-square)](http://npmjs.org/package/@cloud-ui/x-echarts.vue)
 [![Echarts Version](http://img.shields.io/npm/v/echarts.svg?label=echarts&style=flat-square)](http://npmjs.org/package/echarts)
 

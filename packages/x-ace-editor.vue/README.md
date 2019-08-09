@@ -1,5 +1,8 @@
 # XAceEditor
 
+[![NPM Version](http://img.shields.io/npm/v/@cloud-ui/x-echarts.vue.svg?style=flat-square)](http://npmjs.org/package/@cloud-ui/x-echarts.vue)
+[![Ace Version](https://img.shields.io/badge/ace-v1.2.9-blue?style=flat-square)](http://npmjs.org/package/brace)
+
 ## 安装
 
 ### NPM 安装
