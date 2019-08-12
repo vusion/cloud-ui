@@ -5,7 +5,7 @@ export default {
     extends: PieChart,
     props: {
         unit: String,
-        // showLabels: { type: Boolean, default: false },
+        // labels: { type: Boolean, default: true },
         // value: null,
         // valueField: { type: String, default: 'name' },
     },

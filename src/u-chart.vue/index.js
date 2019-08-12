@@ -7,6 +7,7 @@ export default {
         data: Array,
         border: { type: Boolean, default: false },
         legend: { type: [Boolean, String], default: false },
+        legendPlacement: { type: String, default: 'bottom' },
         width: { type: String, default: '100%' }, // @deprecated
         height: { type: String, default: '450px' }, // @deprecated
         titleAlign: { type: String, default: 'center' },
