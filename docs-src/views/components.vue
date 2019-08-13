@@ -20,6 +20,7 @@
                     <u-sidebar-item exact to="/components/u-grid-layout">栅格布局 <small>GridLayout</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-desc-list">描述列表 <small>DescList</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-info-list">详情列表 <small>InfoList</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-form-table">表单表格 <small>FormTable</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group title="Navigation">
                     <u-sidebar-item exact to="/components/u-navbar">导航栏 <small>Navbar</small></u-sidebar-item>
@@ -38,6 +39,7 @@
                 <u-sidebar-group title="Form">
                     <u-sidebar-item exact to="/components/u-form">表单 <small>Form</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-validator">验证器 <small>Validator</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-dynamic-cards">动态卡片 <small>DynamicCards</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-input">单行输入 <small>Input</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-number-input">数字输入 <small>NumberInput</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-radios">单选组 <small>Radios</small></u-sidebar-item>

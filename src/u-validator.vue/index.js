@@ -1,6 +1,9 @@
-import { Validator } from 'proto-ui.vusion';
+import { Validator as OValidator } from 'proto-ui.vusion';
 
-export default {
+export const UValidator = {
     name: 'u-validator',
-    extends: Validator,
+    extends: OValidator,
+    install: OValidator.install,
 };
+
+export default UValidator;

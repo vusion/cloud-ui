@@ -1,0 +1,42 @@
+.root {
+    font-size: 14px;
+    width: 100%;
+    padding: 0 30px;
+    margin: 0;
+    overflow: visible;
+    text-transform: none;
+    text-decoration: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    background: #fbfcfc;
+    border: 1px solid #e1e8ed;
+    color: #5494db;
+    outline: none;
+}
+
+.root::before {
+    content: '+ ';
+}
+
+.root:hover {
+    color: #67aaf5;
+    text-decoration: none;
+    border: 1px solid #e1e8ed;
+    box-shadow: 0 0 8px rgba(13, 4, 8, 0.1);
+}
+
+.root[disabled] {
+    background: white;
+    color: #ccc;
+    border: 1px solid #ddd;
+}
+
+.root[disabled]:hover {
+    box-shadow: 0 0 0 transparent;
+    cursor: not-allowed;
+}
