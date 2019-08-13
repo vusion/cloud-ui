@@ -7,20 +7,20 @@ const spawn = require('child_process').spawn;
 
 program
     .option('-o, --output <output>', 'output path')
-    .option('-f, --focus', 'focus build')
-    .option('--css [css]', 'global css path')
+    .option('-f, --force', 'force build')
+    .option('--global-css [css]', 'global css path')
     .option('-c, --config [config]', 'vusion config')
     .parse(process.argv);
 
 const root = process.cwd();
-let clodUI = path.resolve(root, './node_modules/cloud-ui.vusion');
-if (!fs.existsSync(clodUI)) {
-    clodUI = path.resolve(__dirname, '../');
+let cloudUI = path.resolve(root, './node_modules/cloud-ui.vusion');
+if (!fs.existsSync(cloudUI)) {
+    cloudUI = path.resolve(__dirname, '../');
 }
 const protoUI = path.resolve(root, './node_modules/proto-ui.vusion');
-const clodUIVersion = require(path.join(clodUI, './package.json')).version;
+const cloudUIVersion = require(path.join(cloudUI, './package.json')).version;
 const protoUIVersion = require(path.join(protoUI, './package.json')).version;
-const version = `${clodUIVersion}-${protoUIVersion}`;
+const version = `${cloudUIVersion}-${protoUIVersion}`;
 if (!program.output) {
     throw new Error('must have a output');
 }
@@ -29,10 +29,10 @@ const cachePath = path.join(root, program.output, '.version');
 if (fs.existsSync(cachePath)) {
     isCached = fs.readFileSync(cachePath).toString() === version;
 }
-if (program.focus || !isCached) {
+if (program.force || !isCached) {
     let globalCSSPath = '';
-    if (program.css) {
-        globalCSSPath = path.join(root, program.css);
+    if (program.globalCss) {
+        globalCSSPath = path.join(root, program.globalCss);
     }
     const output = path.join(root, program.output);
     const entryPath = path.join(__dirname, '../src/index.js');
@@ -42,12 +42,12 @@ if (program.focus || !isCached) {
     });
     vusion.on('close', (code) => {
         if (code !== 0)
-            console.log(`vusion process exited with code ${code}`);
+            console.info(`vusion process exited with code ${code}`);
         else {
             fs.writeFileSync(cachePath, version);
-            console.log('done.');
+            console.info('done.');
         }
     });
 } else if (isCached) {
-    console.log('done.(from cache)');
+    console.info('done.(from cache)');
 }
