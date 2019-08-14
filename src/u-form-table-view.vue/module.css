@@ -1,0 +1,9 @@
+@extend;
+
+.root {
+    width: 580px;
+}
+
+.add-button {
+    margin-top: 15px;
+}

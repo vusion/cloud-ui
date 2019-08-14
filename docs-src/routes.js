@@ -105,6 +105,11 @@ export default [
                 { path: 'cases', component: () => import('../src/u-validator.vue/docs/cases.md') },
                 { path: 'api', component: () => import('../src/u-validator.vue/docs/api.md') },
             ] },
+            { path: 'u-form-table-view', component: () => import('proto-ui.vusion/src/u-form-table-view.vue/README.md'), children: [
+                { path: '', redirect: 'examples' },
+                { path: 'examples', component: () => import('proto-ui.vusion/src/u-form-table-view.vue/docs/examples.md') },
+                { path: 'api', component: () => import('proto-ui.vusion/src/u-form-table-view.vue/docs/api.md') },
+            ] },
             { path: 'u-dynamic-cards', component: () => import('../src/u-dynamic-cards.vue/README.md'), children: [
                 { path: '', redirect: 'examples' },
                 { path: 'examples', component: () => import('../src/u-dynamic-cards.vue/docs/examples.md') },

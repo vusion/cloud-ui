@@ -39,6 +39,7 @@
                 <u-sidebar-group title="Form">
                     <u-sidebar-item exact to="/components/u-form">表单 <small>Form</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-validator">验证器 <small>Validator</small></u-sidebar-item>
+                    <u-sidebar-item exact to="/components/u-form-table-view">表单表格视图 <small>FormTableView</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-dynamic-cards">动态卡片 <small>DynamicCards</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-input">单行输入 <small>Input</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-number-input">数字输入 <small>NumberInput</small></u-sidebar-item>
