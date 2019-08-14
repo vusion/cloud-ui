@@ -13,7 +13,7 @@
         theme = window.theme = localStorage.getItem('theme');
     } catch (e) {}
 
-    window.getThemeCSS = (theme) => !theme || theme === 'default' ? 'docs.css' : 'theme-' + theme + '.css';
+    window.getThemeCSS = (theme) => !theme || theme === 'default' ? 'docs.css' : 'docs-theme-' + theme + '.css';
 
     var linkEl = document.createElement('link');
     linkEl.id = 'theme-css';
