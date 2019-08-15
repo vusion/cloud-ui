@@ -9,7 +9,8 @@ program
     .option('-o, --output <output>', 'output path')
     .option('-f, --force', 'force build')
     .option('--global-css [css]', 'global css path')
-    .option('-c, --config [config]', 'vusion config')
+    .option('-c, --config [config]', 'vusion cli config,eg: "theme=dark no-clean"')
+    .option('-t, --theme [theme]', 'cloud ui theme')
     .parse(process.argv);
 
 const root = process.cwd();
@@ -35,8 +36,14 @@ if (program.force || !isCached) {
         globalCSSPath = path.join(root, program.globalCss);
     }
     const output = path.join(root, program.output);
-    const entryPath = path.join(__dirname, '../src/index.js');
-    const vusion = spawn('npx', `vusion-ui-build ${program.config || ''} -c ./vusion.ui.config.js -o ${output} --global-css ${globalCSSPath} -e ${entryPath}`.split(' ').filter((i) => i), {
+    const entryPath = path.join(__dirname, `../${program.theme ? `theme-${program.theme}` : 'index'}/index.js`);
+    let config = '';
+    if (program.config) {
+        config = program.config.split(' ').filter((i) => i).map((item) => {
+            return '--' + item.split('=').join(' ');
+        }).join(' ');
+    }
+    const vusion = spawn('npx', `vusion-ui-build ${config} -c ./vusion.ui.config.js -o ${output} --global-css ${globalCSSPath} -e ${entryPath}`.split(' ').filter((i) => i), {
         cwd: path.join(__dirname, '../'),
         stdio: 'inherit',
     });
