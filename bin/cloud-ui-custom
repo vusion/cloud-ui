@@ -36,7 +36,7 @@ if (program.force || !isCached) {
         globalCSSPath = path.join(root, program.globalCss);
     }
     const output = path.join(root, program.output);
-    const entryPath = path.join(__dirname, `../${program.theme ? `theme-${program.theme}` : 'index'}/index.js`);
+    const entryPath = path.join(__dirname, `../${program.theme ? `theme-${program.theme}` : 'src'}/index.js`);
     let config = '';
     if (program.config) {
         config = program.config.split(' ').filter((i) => i).map((item) => {
