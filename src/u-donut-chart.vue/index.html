@@ -1,7 +1,15 @@
-<u-chart :class="$style.root" :title="title" :border="border" :legend="legend" readonly :series="currentData" :data="data"
+<u-chart :class="$style.root" :title="title" :border="border" :legend="legend" :legend-placement="legendPlacement" readonly :series="currentData" :data="data"
     :width="width" :height="height" @select-series="selectedItem = $event.series">
     <slot name="titleTemplate" slot="titleTemplate"></slot>
     <slot name="caption" slot="caption"></slot>
+    <template slot="legendTemplate" slot-scope="scope">
+        <slot name="legendTemplate" :sery="scope.sery" :index="scope.index">
+            {{scope.sery.name || scope.sery.key}}
+        </slot>
+    </template>
+    <template slot="legendSuffix">
+        <slot name="legendSuffix"></slot>
+    </template>
     <svg :class="$style.svg" ref="svg" viewBox="0 0 200 200">
         <g transform="translate(100, 100)" :class="$style.group">
             <circle v-if="zero" :class="$style.zero" cx="0" cy="0" :r="RADIUS"></circle>
@@ -10,7 +18,7 @@
                         :color="item.color" :style="{ stroke: item.color }"
                         :d="item.d" @mouseover="onMouseOver(item)" />
             </g>
-            <g v-if="!zero">
+            <g v-if="!zero && labels">
                 <path v-for="item in currentData" :class="$style['label-line']" :d="item.label.d" :selected="item === selectedItem" />
             </g>
             <circle cx="0" cy="0" :r="RADIUS * 0.75" :class="$style.circle" />
@@ -19,7 +27,7 @@
     <div v-if="zero" :class="$style['zero-text']">
         <!-- <div>0%</div> -->
     </div>
-    <div v-else v-for="item in currentData" :class="$style.label"
+    <div v-else-if="labels" v-for="item in currentData" :class="$style.label"
             :style="getLabelStyle(item)" :selected="item === selectedItem">
         <slot name="label" :item="item">{{ item.name }}: {{ item.value }}{{ unit }}</slot>
     </div>

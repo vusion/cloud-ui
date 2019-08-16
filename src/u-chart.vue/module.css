@@ -1,6 +1,8 @@
 $m-chart_padding: 15px;
 $m-chart_tt_height: 40px;
 $m-chart_legend_height: 20px;
+$legend-width: 40%;
+
 .root {
     position: relative;
     box-sizing: border-box;
@@ -56,6 +58,32 @@ $m-chart_legend_height: 20px;
 
 .root[empty] {
     background: url("../assets/images/nodata.png") no-repeat center center;
+}
+
+.root[legend-placement="right"] .content {
+    right: calc($legend-width + $m-chart_padding * 2);
+    bottom: $m-chart_padding;
+}
+
+.root[legend-placement="right"] .legend {
+    width: $legend-width;
+    right: $m-chart_padding;
+    left: auto;
+    top: 50%;
+    height: auto;
+    bottom: auto;
+    transform: translateY(-50%);
+}
+
+.root[legend-placement="right"] .item {
+    display: block;
+    max-width: none;
+    text-align: left;
+    margin-right: 0;
+}
+
+.root[legend-placement="right"] .item:not(:last-child) {
+    margin-bottom: 10px;
 }
 
 .ittitle {
