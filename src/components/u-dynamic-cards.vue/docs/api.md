@@ -7,7 +7,7 @@
 | Prop/Attr | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
 | data | Array | | 数据 |
-| dynamic | Boolean | `false` | 是否可以动态添加/删除项 |
+| dynamic | Boolean | `true` | 是否可以动态添加/删除项 |
 | get-default-item | Function | | 传入获取默认项的方法 |
 | initial-add | Boolean | `true` | 是否自动补充项，如果初始时`data`中的项目数少于`min-count` |
 | min-count | Number | `1` | 最小项目数 |

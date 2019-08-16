@@ -1,8 +1,8 @@
-<div :class="$style.root" :label-size="currentLabelSize" :distance="parentVM && parentVM.extraSlots ? 'extra' : ''">
+<div :class="$style.root" :label-size="currentLabelSize" :distance="rootVM && rootVM.extraSlots ? 'extra' : ''">
     <label :class="$style.label" :required="currentRequired" v-show="label || title || currentLabelSize !== 'auto'">
         <slot name="label">{{ label || title }}</slot>
     </label>
-    <span :class="$style.extra" v-if="parentVM && parentVM.extraSlots">
+    <span :class="$style.extra" v-if="!hideSlots && rootVM && rootVM.extraSlots">
         <slot name="extra"></slot>
     </span>
     <div :class="$style.field">
@@ -12,9 +12,9 @@
         </div>
         <div :class="$style.wrap">
             <slot></slot>
-            <span v-if="currentMessage" :class="$style.message" :color="color">
-                <slot name="message">{{ currentMessage }}</slot>
-            </span>
+            <span v-if="color === 'focus' && currentMessage" :class="$style.message" color="focus"><slot name="message">{{ currentMessage }}</slot></span>
+            <span v-else-if="currentMessage" :class="$style.message" :color="color"><slot name="message">{{ currentMessage }}</slot></span>
+            <span v-else-if="bubble && !mutedMessage && touched && !valid && firstError" :class="$style.message" color="error">{{ firstError }}</span>
         </div>
     </div>
 </div>
