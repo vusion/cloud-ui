@@ -5,6 +5,7 @@ export const UFormItem = {
     extends: OFormItem,
     props: {
         description: String,
+        hideSlots: { type: Boolean, default: false },
     },
 };
 
