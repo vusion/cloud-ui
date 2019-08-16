@@ -91,7 +91,7 @@ export default [
             { path: 'u-slider', component: () => import('proto-ui.vusion/src/u-slider.vue/README.md') },
             { path: 'u-combo-slider', component: () => import('../src/u-combo-slider.vue/README.md') },
             { path: 'u-field', component: Empty },
-            { path: 'u-form-item', component: () => import('../src/u-form.vue/item.vue/README.md') },
+            { path: 'u-form-item', component: () => import('../src/u-form-item.vue/README.md') },
             { path: 'u-form', component: () => import('../src/u-form.vue/README.md'), children: [
                 { path: '', redirect: 'examples' },
                 { path: 'examples', component: () => import('../src/u-form.vue/docs/examples.md') },
@@ -158,6 +158,7 @@ export default [
             /* Extension */
             { path: 'x-ace-editor', component: () => import('x-ace-editor.vue/README.md') },
             /* Mixin & Utils */
+            { path: 'm-dynamic', component: () => import('proto-ui.vusion/src/m-dynamic.vue/README.md') },
             { path: 'u-emitter', component: () => import('proto-ui.vusion/src/u-emitter.vue/README.md') },
             { path: 'u-router-item', component: () => import('proto-ui.vusion/src/u-router-item.vue/README.md') },
             { path: 'u-collapse-transition', component: () => import('proto-ui.vusion/src/u-collapse-transition.vue/README.md') },

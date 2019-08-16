@@ -1,17 +1,17 @@
 @import 'proto-ui.vusion/src/u-form.vue/module.css';
 
-.root[gap="large"][layout="block"] .item:not(:last-child) {
+.root[gap="large"][layout="block"] > *:not(:last-child) {
     margin-bottom: 30px;
 }
 
-.root[gap="large"][layout="inline"] .item:not(:last-child) {
+.root[gap="large"][layout="inline"] > *:not(:last-child) {
     margin-right: 30px;
 }
 
-.root[gap="small"][layout="block"] .item:not(:last-child) {
+.root[gap="small"][layout="block"] > *:not(:last-child) {
     margin-bottom: 10px;
 }
 
-.root[gap="small"][layout="inline"] .item:not(:last-child) {
+.root[gap="small"][layout="inline"] > *:not(:last-child) {
     margin-right: 10px;
 }

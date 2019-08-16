@@ -106,6 +106,7 @@
                     <u-sidebar-item exact to="/components/x-ace-editor">代码编辑器 <small>XAceEditor</small></u-sidebar-item>
                 </u-sidebar-group>
                 <u-sidebar-group v-if="advanced" title="Mixin & Utils">
+                    <u-sidebar-item exact to="/components/m-dynamic">动态列表 <small>Dragger</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-emitter">触发器 <small>Emitter</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-router-item">路由项 <small>RouterItem</small></u-sidebar-item>
                     <u-sidebar-item exact to="/components/u-draggable">拖拽 <small>Draggable</small></u-sidebar-item>

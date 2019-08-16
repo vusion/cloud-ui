@@ -36,7 +36,7 @@ import DonutChart from './u-donut-chart.vue';
 import DynamicCards from './u-dynamic-cards.vue';
 import DynamicCard from './u-dynamic-cards.vue/dynamic-card.vue';
 import Form from './u-form.vue';
-import FormItem from './u-form.vue/item.vue';
+import FormItem from './u-form-item.vue';
 import FormTable from './u-form-table.vue';
 import Icon from './u-icon.vue';
 import InfoList from './u-info-list.vue';

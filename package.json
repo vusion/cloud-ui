@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.3.85",
+  "version": "0.3.85-beta.3",
   "author": "Rainfore <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -33,9 +33,10 @@
   ],
   "dependencies": {
     "countup.js": "^1.9.3",
-    "i-line-awesome.vue": "^1.0.2",
     "lodash": "^4.17.5",
-    "vusion-utils": "^0.2.4"
+    "proto-ui.vusion": "~0.3.56",
+    "vusion-utils": "^0.2.4",
+    "i-line-awesome.vue": "^1.0.2"
   },
   "devDependencies": {
     "@vusion/md-vue-loader": "^1.0.0",
