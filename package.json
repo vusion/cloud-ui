@@ -13,10 +13,12 @@
   },
   "main": "./index.js",
   "scripts": {
-    "bd": "vue-cli-service build",
+    "build": "vue-cli-service library-build",
+    "build-raw": "vue-cli-service library-build --vusion-mode raw",
     "doc": "vue-cli-service doc",
-    "build": "vusion build && vusion build -C -t seagreen && vusion build -C -t dark",
-    "doc-build": "vusion doc-build && vusion doc-build -C -t seagreen && vusion doc-build -C -t dark",
+    "doc-build": "vue-cli-service doc-build",
+    "build-all": "vusion build && vusion build -C -t seagreen && vusion build -C -t dark",
+    "doc-build-all": "vusion doc-build && vusion doc-build -C -t seagreen && vusion doc-build -C -t dark",
     "precommit": "node node_modules/vusion-hooks/precommit"
   },
   "repository": "vusion/cloud-ui",
@@ -60,7 +62,7 @@
     "stylelint": "^9.3.0",
     "stylelint-config-vusion": "^1.1.2",
     "vue": "^2.6.10",
-    "vue-cli-plugin-vusion": "^0.5.1",
+    "vue-cli-plugin-vusion": "^0.5.3",
     "vue-template-compiler": "^2.6.10",
     "vusion-hooks": "^0.2.2"
   },
