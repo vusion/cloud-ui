@@ -1,11 +1,13 @@
-import Form from 'proto-ui.vusion/src/u-form.vue';
+import { Form as OForm } from 'proto-ui.vusion';
 
-export default {
+export const UForm = {
     name: 'u-form',
-    mixins: [Form],
+    extends: OForm,
     computed: {
         extraSlots() {
             return this.validatorVMs.some((itemVM) => itemVM.$slots.extra);
         },
     },
 };
+
+export default UForm;

@@ -1,0 +1,11 @@
+.root {
+    width: 680px;
+}
+
+.root[size="large"] {
+    width: 800px;
+}
+
+.root[size="full"] {
+    width: 100%;
+}

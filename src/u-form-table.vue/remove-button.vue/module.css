@@ -1,0 +1,19 @@
+.root {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 0;
+    font-size: 40px;
+    color: #ff867f;
+    height: 40px;
+    line-height: 40px;
+}
+
+.root[disabled] {
+    color: #ddd;
+    cursor: not-allowed;
+}
+
+.root::before {
+    icon-font: url('./assets/icon.svg');
+}

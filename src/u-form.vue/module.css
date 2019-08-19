@@ -15,19 +15,3 @@
 .root[gap="small"][layout="inline"] > *:not(:last-child) {
     margin-right: 10px;
 }
-
-.root[gap="large"][layout="block"] [class^="u-form-item_"][distance]:not(:last-child) {
-    margin-bottom: 30px;
-}
-
-.root[gap="large"][layout="inline"] [class^="u-form-item_"][distance]:not(:last-child) {
-    margin-right: 30px;
-}
-
-.root[gap="small"][layout="block"] [class^="u-form-item_"][distance]:not(:last-child) {
-    margin-bottom: 10px;
-}
-
-.root[gap="small"][layout="inline"] [class^="u-form-item_"][distance]:not(:last-child) {
-    margin-right: 10px;
-}

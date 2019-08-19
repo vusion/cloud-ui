@@ -1,0 +1,63 @@
+.root {
+    display: block;
+    position: relative;
+    padding: 45px 15px 35px;
+    border: 1px solid #e1e8ed;
+}
+
+.root[mini]:hover {
+    box-shadow: 0 0 10px 0 rgb(80, 90, 109, 0.16);
+    cursor: pointer;
+}
+
+.root[mini] {
+    padding: 0 15px;
+}
+
+.root[noborder] {
+    border: 0;
+    padding: 0;
+}
+
+.mini {
+    padding: 13px 5px 13px 10px;
+}
+
+.mini-text {
+    margin-left: 10px;
+    display: inline-block;
+    line-height: 30px;
+    max-width: calc(100% - 80px);
+    overflow: hidden;
+    word-wrap: normal;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.actions {
+    position: absolute;
+    top: 13px;
+    right: 20px;
+}
+
+.desc {
+    display: inline-block;
+    max-width: 680px;
+    color: #999;
+    padding-bottom: 10px;
+}
+
+.textWrap {
+    float: right;
+    line-height: 30px;
+}
+
+.error {
+    display: inline-block;
+    margin-right: 40px;
+    color: #ff867f;
+}
+
+.more {
+    margin-left: 45px;
+}

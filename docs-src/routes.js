@@ -61,6 +61,7 @@ export default [
             { path: 'u-grid-layout', component: () => import('proto-ui.vusion/src/u-grid-layout.vue/README.md') },
             { path: 'u-desc-list', component: () => import('../src/u-desc-list.vue/README.md') },
             { path: 'u-info-list', component: () => import('../src/u-info-list.vue/README.md') },
+            { path: 'u-form-table', component: () => import('../src/u-form-table.vue/README.md') },
             /* Navigation */
             { path: 'u-navbar', component: () => import('../src/u-navbar.vue/README.md') },
             { path: 'u-sidebar', component: () => import('../src/u-sidebar.vue/README.md') },
@@ -91,8 +92,29 @@ export default [
             { path: 'u-combo-slider', component: () => import('../src/u-combo-slider.vue/README.md') },
             { path: 'u-field', component: Empty },
             { path: 'u-form-item', component: () => import('../src/u-form-item.vue/README.md') },
-            { path: 'u-form', component: () => import('../src/u-form.vue/README.md') },
-            { path: 'u-validator', component: () => import('proto-ui.vusion/src/u-validator.vue/README.md') },
+            { path: 'u-form', component: () => import('../src/u-form.vue/README.md'), children: [
+                { path: '', redirect: 'examples' },
+                { path: 'examples', component: () => import('../src/u-form.vue/docs/examples.md') },
+                { path: 'api', component: () => import('../src/u-form.vue/docs/api.md') },
+            ] },
+            { path: 'u-validator', component: () => import('../src/u-validator.vue/README.md'), children: [
+                { path: '', redirect: 'examples' },
+                { path: 'examples', component: () => import('../src/u-validator.vue/docs/examples.md') },
+                { path: 'rules', component: () => import('../src/u-validator.vue/docs/rules.md') },
+                { path: 'old', component: () => import('../src/u-validator.vue/docs/old.md') },
+                { path: 'cases', component: () => import('../src/u-validator.vue/docs/cases.md') },
+                { path: 'api', component: () => import('../src/u-validator.vue/docs/api.md') },
+            ] },
+            { path: 'u-form-table-view', component: () => import('proto-ui.vusion/src/u-form-table-view.vue/README.md'), children: [
+                { path: '', redirect: 'examples' },
+                { path: 'examples', component: () => import('proto-ui.vusion/src/u-form-table-view.vue/docs/examples.md') },
+                { path: 'api', component: () => import('proto-ui.vusion/src/u-form-table-view.vue/docs/api.md') },
+            ] },
+            { path: 'u-dynamic-cards', component: () => import('../src/u-dynamic-cards.vue/README.md'), children: [
+                { path: '', redirect: 'examples' },
+                { path: 'examples', component: () => import('../src/u-dynamic-cards.vue/docs/examples.md') },
+                { path: 'api', component: () => import('../src/u-dynamic-cards.vue/docs/api.md') },
+            ] },
             { path: 'u-uploader', component: () => import('proto-ui.vusion/src/u-uploader.vue/README.md') },
             /* Data */
             { path: 'u-list-view', component: () => import('proto-ui.vusion/src/u-list-view.vue/README.md') },
@@ -136,6 +158,7 @@ export default [
             /* Extension */
             { path: 'x-ace-editor', component: () => import('x-ace-editor.vue/README.md') },
             /* Mixin & Utils */
+            { path: 'm-dynamic', component: () => import('proto-ui.vusion/src/m-dynamic.vue/README.md') },
             { path: 'u-emitter', component: () => import('proto-ui.vusion/src/u-emitter.vue/README.md') },
             { path: 'u-router-item', component: () => import('proto-ui.vusion/src/u-router-item.vue/README.md') },
             { path: 'u-collapse-transition', component: () => import('proto-ui.vusion/src/u-collapse-transition.vue/README.md') },

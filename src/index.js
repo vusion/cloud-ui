@@ -33,8 +33,11 @@ import DescList from './u-desc-list.vue';
 import DescListGroup from './u-desc-list-group.vue';
 import DescListItem from './u-desc-list-item.vue';
 import DonutChart from './u-donut-chart.vue';
+import DynamicCards from './u-dynamic-cards.vue';
+import DynamicCard from './u-dynamic-cards.vue/dynamic-card.vue';
 import Form from './u-form.vue';
 import FormItem from './u-form-item.vue';
+import FormTable from './u-form-table.vue';
 import Icon from './u-icon.vue';
 import InfoList from './u-info-list.vue';
 import InfoListGroup from './u-info-list-group.vue';
@@ -142,8 +145,11 @@ export {
     DescListGroup,
     DescListItem,
     DonutChart,
+    DynamicCards,
+    DynamicCard,
     Form,
     FormItem,
+    FormTable,
     Icon,
     InfoList,
     InfoListGroup,
