@@ -1,9 +1,12 @@
-import FormItem from 'proto-ui.vusion/src/u-form-item.vue';
+import { FormItem as OFormItem } from 'proto-ui.vusion';
 
-export default {
+export const UFormItem = {
     name: 'u-form-item',
-    mixins: [FormItem],
+    extends: OFormItem,
     props: {
         description: String,
+        hideSlots: { type: Boolean, default: false },
     },
 };
+
+export default UFormItem;
