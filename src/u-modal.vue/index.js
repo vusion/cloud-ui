@@ -77,14 +77,14 @@ const Modal = {
             if (this.disableOk)
                 return;
 
-            this.$emit('ok', undefined, this);
+            this.$emit('ok');
             this.close(true);
         },
         cancel() {
             if (this.disableCancel)
                 return;
 
-            this.$emit('cancel', undefined, this);
+            this.$emit('cancel');
             this.close(false);
         },
         escPress(event) {
