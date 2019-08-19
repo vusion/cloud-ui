@@ -38,6 +38,10 @@ import DynamicCard from './u-dynamic-cards.vue/dynamic-card.vue';
 import Form from './u-form.vue';
 import FormItem from './u-form-item.vue';
 import FormTable from './u-form-table.vue';
+import FormTableAddButton from './u-form-table.vue/add-button.vue';
+import FormTableRemoveButton from './u-form-table.vue/remove-button.vue';
+import FormTableView from './u-form-table-view.vue';
+import FormTableViewRow from './u-form-table-view.vue/row.vue';
 import Icon from './u-icon.vue';
 import InfoList from './u-info-list.vue';
 import InfoListGroup from './u-info-list-group.vue';
@@ -150,6 +154,10 @@ export {
     Form,
     FormItem,
     FormTable,
+    FormTableAddButton,
+    FormTableRemoveButton,
+    FormTableView,
+    FormTableViewRow,
     Icon,
     InfoList,
     InfoListGroup,
