@@ -13,8 +13,12 @@
   },
   "main": "./index.js",
   "scripts": {
-    "build": "vusion build && vusion build -C -t seagreen && vusion build -C -t dark",
-    "doc-build": "vusion doc-build && vusion doc-build -C -t seagreen && vusion doc-build -C -t dark",
+    "build": "vue-cli-service library-build",
+    "build-raw": "vue-cli-service library-build --vusion-mode raw",
+    "doc": "vue-cli-service doc",
+    "doc-build": "vue-cli-service doc-build",
+    "build-all": "vue-cli-service library-build && vue-cli-service library-build --no-clean --theme seagreen && vue-cli-service library-build --no-clean --theme dark",
+    "doc-build-all": "vue-cli-service doc-build && vue-cli-service doc-build --no-clean --theme seagreen && vue-cli-service doc-build --no-clean --theme dark",
     "precommit": "node node_modules/vusion-hooks/precommit"
   },
   "repository": "vusion/cloud-ui",
@@ -42,9 +46,10 @@
     "vusion-utils": "^0.4.0"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.6",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-stage-2": "^6.24.1",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.5.5",
+    "@vue/cli-plugin-babel": "^3.10.0",
+    "@vue/cli-service": "^3.10.0",
     "commander": "^2.20.0",
     "eslint": "^4.19.1",
     "eslint-config-vusion": "^2.1.1",
@@ -56,6 +61,8 @@
     "stylelint": "^9.3.0",
     "stylelint-config-vusion": "^1.1.2",
     "vue": "^2.6.10",
+    "vue-cli-plugin-vusion": "^0.5.3",
+    "vue-template-compiler": "^2.6.10",
     "vusion-hooks": "^0.2.2"
   },
   "peerDependencies": {
