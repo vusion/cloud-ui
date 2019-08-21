@@ -146,21 +146,85 @@
 
 ### 相等或包含判断
 
-#### equals(arg: any) <u-label>blur</u-label>
+#### is(arg: any) <u-label>blur</u-label>
 
-必须与参数相等。
+必须与参数相同，使用`===`比较。
 
 - `arg`：用于判断的值
 
 ``` html
-<u-validator label="猜一猜" rules="equals('abc')">
+<u-validator label="猜一猜" rules="is('abc')">
     <u-input placeholder="必须与'abc'相同"></u-input>
 </u-validator>
 ```
 
 ``` html
-<u-validator label="个数" rules="equals(10) @bi">
-    <u-number-input></u-number-input>
+<u-validator label="个数" rules="is(3) @bi">
+    <u-number-input placeholder="必须与3相等"></u-number-input>
+</u-validator>
+```
+
+#### isNot(arg: any) <u-label>blur</u-label>
+
+必须与参数不同，使用`===`比较。
+
+- `arg`：用于判断的值
+
+``` html
+<u-validator label="猜一猜" rules="isNot('abc')">
+    <u-input placeholder="必须与'abc'不同"></u-input>
+</u-validator>
+```
+
+``` html
+<u-validator label="个数" rules="isNot(3) @bi">
+    <u-number-input placeholder="必须不等于3"></u-number-input>
+</u-validator>
+```
+
+#### equals(arg: any) <u-label>blur</u-label>
+
+必须与参数相等，除了数值，也可以比较数组和对象，使用的是[lodash.isEqual](https://www.lodashjs.com/docs/latest#_isequalvalue-other)。
+
+- `arg`：用于判断的值
+
+``` html
+<u-validator label="猜一猜" rules="equals('abc')">
+    <u-input placeholder="必须等于'abc'"></u-input>
+</u-validator>
+```
+
+``` html
+<u-validator label="列表" rules="equals(['水杯', '坚果']) @bi">
+    <u-checkboxes>
+        <u-checkbox label="水杯">水杯</u-checkbox>
+        <u-checkbox label="坚果">坚果</u-checkbox>
+        <u-checkbox label="毛巾">毛巾</u-checkbox>
+        <u-checkbox label="沙发">沙发</u-checkbox>
+    </u-checkboxes>
+</u-validator>
+```
+
+#### notEquals(arg: any) <u-label>blur</u-label>
+
+必须与参数不等，除了数值，也可以比较数组和对象，使用的是[lodash.isEqual](https://www.lodashjs.com/docs/latest#_isequalvalue-other)。
+
+- `arg`：用于判断的值
+
+``` html
+<u-validator label="猜一猜" rules="notEquals('abc')">
+    <u-input placeholder="必须不等于'abc'"></u-input>
+</u-validator>
+```
+
+``` html
+<u-validator label="列表" rules="notEquals(['水杯', '坚果']) @bi">
+    <u-checkboxes>
+        <u-checkbox label="水杯">水杯</u-checkbox>
+        <u-checkbox label="坚果">坚果</u-checkbox>
+        <u-checkbox label="毛巾">毛巾</u-checkbox>
+        <u-checkbox label="沙发">沙发</u-checkbox>
+    </u-checkboxes>
 </u-validator>
 ```
 
@@ -304,7 +368,7 @@ export default {
 ``` vue
 <template>
 <u-validator label="端口" rules="number">
-    <u-input v-model.number="value" placeholder="必须为数字类型"></u-input>
+    <u-input v-model="value" placeholder="必须为数字类型"></u-input>
 </u-validator>
 </template>
 <script>
@@ -435,12 +499,12 @@ export default {
 </u-validator>
 ```
 
-#### alphaNumeric
+#### alphaNum
 
 是否只能为字母或数字（a-zA-Z0-9）。
 
 ``` html
-<u-validator label="名称" rules="alpha">
+<u-validator label="名称" rules="alphaNum">
     <u-input placeholder="必须为字母或数字"></u-input>
 </u-validator>
 ```
