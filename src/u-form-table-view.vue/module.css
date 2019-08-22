@@ -1,4 +1,4 @@
-@extend;
+@import 'proto-ui.vusion/src/u-form-table-view.vue/module.css';
 
 .root {
     width: 580px;
