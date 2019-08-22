@@ -8,6 +8,9 @@
     "ChenWeiYuan123 <360411956@qq.com>",
     "zou-xinhua <m15616168428@163.com>"
   ],
+  "bin": {
+    "cloud-ui-custom": "bin/cloud-ui-custom"
+  },
   "main": "./index.js",
   "scripts": {
     "build": "vusion build && vusion build -C -t dark && vusion build -C -t seagreen && vusion build -C -t cobalt",
@@ -34,7 +37,7 @@
   "dependencies": {
     "countup.js": "^1.9.3",
     "lodash": "^4.17.5",
-    "proto-ui.vusion": "~0.3.56",
+    "proto-ui.vusion": "~0.3.60",
     "vusion-utils": "^0.2.4",
     "i-line-awesome.vue": "^1.0.2"
   },

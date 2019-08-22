@@ -1,5 +1,5 @@
 <div :class="$style.root" :disabled="disabled">
-    <div :class="$style.head" :selected="selected" @click="parentVM.expandTrigger === 'click' && toggle()">
+    <div :class="$style.head" :selected="selected" @click="parentVM.expandTrigger === 'click' && toggle()" :title="title">
          <div :class="$style.title">
             <slot name="title">{{ title }}</slot>
         </div>
