@@ -673,6 +673,12 @@ export default {
         showLimit() {
             this.tdata = this.tdata.slice(0, this.limit);
         },
+        rowClick(row, index) {
+            this.$emit('row-click', {
+                data: row,
+                index,
+            });
+        },
     },
     destroyed() {
         window.removeEventListener('resize', this.onResize, false);
