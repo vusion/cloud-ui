@@ -13,6 +13,7 @@
 | validating-options | Object | | 验证辅助对象。在 Rule 的 `validate` 方法中使用 |
 | validating-value | Any | | 临时修改验证值 |
 | validating-process | Function | | 验证前对值进行预处理 |
+| manual | Boolean | `false` | 是否采取手动验证。如果为`true`，则 UValidator 将不会在监听到子组件的`input`、`change`和`blur`事件后进行相应的验证。 |
 
 ### Computed
 
