@@ -1,0 +1,313 @@
+.root {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+}
+.root[type="searchInput"] {
+    width: 500px;
+    min-height: 36px;
+}
+.unitField {
+    position: relative;
+    width: 578px;
+    min-height: 116px;
+    max-height: 184px;
+    border: 1px solid #e1e8ed;
+    padding: 2px;
+    font-size: 0;
+    overflow-y: auto;
+}
+.root[type="searchInput"] .unitField {
+    min-height: 36px;
+    width: 500px;
+    z-index: 1;
+    position: absolute;
+    max-height: 150px;
+    background-color: #fff;
+    /* overflow: hidden; */
+    /* clossall */
+    padding-right: 30px;
+}
+.root[type="searchInput"] .unitField::-webkit-scrollbar {
+    width: 0 !important;
+}
+.root[type="searchInput"] .unitField[hasMore] {
+    padding-right: 100px;
+}
+.searchIcon {
+    float: left;
+    margin-top: 3px;
+    margin-left: 5px;
+    color: #b4b4b4;
+}
+.unitFieldDisabled {
+    position: relative;
+    width: 578px;
+    min-height: 116px;
+    max-height: 184px;
+    border: 1px solid #e1e8ed;
+    padding: 2px;
+    font-size: 0;
+    overflow-y: auto;
+    background: $brand-disabled;
+}
+.root[type="searchInput"] .unitFieldDisabled {
+    min-height: 36px;
+}
+.placeholder {
+    position: absolute;
+    padding: 10px;
+    font-size: 14px;
+    color: #999;
+    top: 0px;
+}
+.root[type="searchInput"] .placeholder{
+    padding: 5px;
+    padding-left: 30px;
+}
+.more {
+    display: inline-block;
+    vertical-align: middle;
+    width: 4px;
+    height: 4px;
+    margin-left: 4px;
+    border-radius: 4px;
+    background: #c9cfd8;
+    font-style: normal;
+}
+
+.unit {
+    /* @extend .f-toe; */
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    $line-height: 24px;
+    max-width: 558px;
+    margin: 10px 0 0 10px;
+    padding: 0 30px 0 10px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: #666;
+    background-color: #eef2f7;
+    word-break: break-all;
+}
+.root[type="searchInput"] .unit {
+    margin-top: 8px;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+    line-height: 1.8;
+}
+.hasMore {
+    position: absolute;
+    top: -3px;
+    right: 24px;
+}
+.unit:hover {
+    background-color: #e6ecf4;
+}
+
+.unitFocus {
+    background-color: #e6ecf4;
+}
+
+.close {
+    position: absolute;
+    right: 8px;
+    top: 6px;
+    content: "";
+    width: 10px;
+    height: 10px;
+    line-height: 10px;
+    color: #c9cfd8;
+    cursor: pointer;
+
+&:hover {
+     color: #9da5b4;
+ }
+}
+.closeAll {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    color: #c9cfd8;
+    background-color: #eef2f7;
+    font-size: 14px;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    line-height: 1;
+    border-radius: 50%;
+}
+.closeAll:hover {
+    color: #9da5b4;
+    cursor: pointer;
+}
+.root input, .root textarea {
+    box-sizing: border-box;
+    margin: 10px 0 0 10px;
+    padding: 0 10px;
+    border-radius: 12px;
+    color: #666;
+    border-color: transparent;
+    line-height: 24px;
+    vertical-align: top;
+    font-size: 14px;
+    outline: 0;
+}
+.root[type="searchInput"] input, .root[type="searchInput"] textarea {
+    height: 25px !important;
+    margin-top: 8px;
+}
+
+.textarea[class] {
+    box-sizing: border-box;
+    border-color: transparent;
+    outline: 0;
+    line-height: 30px;
+    min-height: 0;
+}
+
+.textarea[class][focus] {
+    border-color: #e1e8ed;
+}
+
+.textarea[class] textarea{
+    margin: 0
+}
+
+.textareaFocus[class] {
+    box-sizing: border-box;
+    margin: 5px 0 0 5px;
+    border: 1px dashed #e1e8ed;
+    border-radius: 12px;
+    line-height: 30px;
+    min-height: 0;
+}
+
+.textareaFocus[class] textarea{
+    margin: 0
+}
+
+.textareaError[class] {
+    box-sizing: border-box;
+    margin: 5px 0 0 5px;
+    border-radius: 12px;
+    line-height: 30px;
+    border-style: solid;
+    border-color: red;
+    min-height: 0;
+}
+
+.textareaError[class][focus] {
+    border-color: red;
+}
+
+.input[class] {
+    box-sizing: border-box;
+    line-height: 40px;
+    width: 145px;
+    border: 1px dashed #e1e8ed;
+    border-radius: 12px;
+    margin: 0 0 0 5px;
+    height: 26px;
+}
+
+.input[class] input{
+    margin: 0;
+}
+
+.inputError[class] {
+    box-sizing: border-box;
+    line-height: 40px;
+    width: 145px;
+    border: 1px solid red;
+    border-radius: 12px;
+    margin: 0 0 0 5px;
+    height: 26px;
+}
+
+.inputError[class] input{
+    margin: 0;
+}
+
+.root input:disabled{
+    background-color: #fff;
+}
+
+.root textarea {
+    overflow-y: hidden;
+    resize: none;
+}
+
+.root textarea:disabled{
+    background-color: #fff;
+}
+
+
+.root input.inputError, .root textarea.textareaError {
+    border-style: solid;
+    border-color: red;
+}
+.inputWrapper {
+    margin-left: 25px;
+    margin-top: -5px;
+    margin-bottom: 4px;
+}
+.root[type="searchInput"] .inputWrapper {
+    margin-bottom: 0px;
+}
+.msg {
+    position: absolute;
+    right: 0;
+    top: -25px;
+    font-size: 14px;
+}
+
+.tipError {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    padding: 0 10px;
+    line-height: 26px;
+    font-size: 12px;
+    display: block;
+    margin: 3px 10px;
+    white-space: nowrap;
+    background-color: #ff867f;
+    color: #fff;
+}
+
+.root[placement="bottom"] .tipError {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    padding: 0 10px;
+    line-height: 26px;
+    font-size: 12px;
+    display: block;
+    margin: 0;
+    white-space: nowrap;
+    background-color: #ff867f;
+    color: #fff;
+}
+/* 不提示错误 弹窗提示 */
+.root[type="searchInput"] .tipError {
+    visibility: hidden;
+}
+.root[placement="bottom"] .tipError:after {
+    display: none;
+}
+.tipError:after {
+    content: '';
+    position: absolute;
+    right: 100%;
+    top: 8px;
+    width: 0;
+    height: 0;
+    border-top: 4px solid transparent;
+    border-right: 4px solid #ff867f;
+    border-bottom: 4px solid transparent;
+}

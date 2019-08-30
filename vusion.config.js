@@ -70,6 +70,7 @@ module.exports = {
             { group: 'Form', name: 'u-input', alias: '单行输入' },
             { group: 'Form', name: 'u-number-input', alias: '数字输入' },
             { group: 'Form', name: 'u-textarea', alias: '多行输入' },
+            { group: 'Form', name: 'u-chips', alias: '卡片输入', newest: true, path: './src/components/u-chips.vue/README.md' },
             { group: 'Form', name: 'u-radios', alias: '单选组' },
             { group: 'Form', name: 'u-checkboxes', alias: '多选组' },
             { group: 'Form', name: 'u-checkbox-card', alias: '多选卡片', newest: true },

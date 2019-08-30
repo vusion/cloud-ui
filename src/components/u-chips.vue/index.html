@@ -1,0 +1,47 @@
+<div :class="$style.root" :placement="placement" :type="type">
+    <div :class="$style.tipError" v-show="!!errMessage && validationMode==='old'" color="error"><i-icon size="small" name="angle-left" ></i-icon>{{errMessage}}</div>
+    <div :class="$style.unitField" @click="onFieldClick" :style="{maxHeight: maxHeight + 'px'}" v-if="!disabled" ref="box" :hasMore="hasMore">
+        <!-- searchInput 类型前有搜索框 -->
+        <i-icon name="search" size="small" v-if="type === 'searchInput'" :class="$style.searchIcon"></i-icon>
+        <!-- 展示生成好的项 -->
+        <div :class="type==='searchInput' ? $style.inputWrapper : ''" ref="wrapper">
+            <template v-for="(item, index) in list">
+                <!-- 编辑的输入框 -->
+                <u-validator v-if="modifying && current === index" :rules="textRules" ref="modifyValidator" :manual="true" @validate="catchValidation" muted="message">
+                    <u-input :disabled="asyncChecking" type="text" v-model="modifyItem" ref="cpModifyInput" @keydown.native="onModifyKeydown" @blur="onModifyBlur" @input="onModifyInput" :class="!!errMessage ? $style.inputError : $style.input">
+                    </u-input>
+                </u-validator>
+                <div :class="[$style.unit, current === index ? $style.unitFocus : '']" @click="onFocus(index, $event)"
+                     @dblclick="onDBLClick(index, $event)" :title="item">{{item}}
+                    <span :class="$style.close" @click="deleteItem(index)">&#215;</span>
+                </div>
+            </template>
+            <!-- 添加新项的输入框和验证器 -->
+            <u-validator :rules="textRules" ref="textValidator" :manual="true" @validate="catchValidation" muted="message">
+                <u-textarea resize="none" :disabled="asyncChecking" :style="{ height: height + 'px', width: width + 'px' }" :class="[focus ? $style.textareaFocus : $style.textarea, !!errMessage && !modifying ? $style.textareaError : $style.textarea]"
+                            ref="cpInput" type="text" @blur="onInputBlur" @focus="onInputFocus" @keydown.native="onKeydown"
+                            @input="onAddInput" v-model="item">
+                </u-textarea>
+            </u-validator>
+        </div>
+        <div v-if="hasMore" :class="[$style.unit, $style.hasMore]" :style="{right: morePosRight+'px'}" ref="moreTag">
+            <i :class="$style.more"></i>
+            <i :class="$style.more"></i>
+            <i :class="$style.more"></i>
+        </div>
+        <!-- input框类型有×按钮 -->
+        <span v-if="type==='searchInput' && list && list.length > 0" :class="$style.closeAll" @click="deleteAll">&#215;</span>
+
+        <!-- 因为修改最后一项生成项，list已经没有了对应的项了(这个有必要吗？直接利用上面的textarea作为最后一项的编辑项即可？) -->
+        <!--<u-validator v-if="modifying && current === list.length" ref="modifyValidator" validatingProcess="interval">
+            <u-input :disabled="asyncChecking"  type="text" v-model="modifyItem" ref="cpModifyInput" @keydown="onModifyKeydown" @blur="onModifyBlur"
+                 :class="!!errMessage ? $style.inputError : ''">
+            </u-input>
+        </u-validator>-->
+
+        <!-- placeholder展示 -->
+        <div v-if="!focus && !list.length && !errMessage && !asyncChecking && !item && !modifyItem" :class="$style.placeholder">{{placeholder}}</div>
+        <u-validator :rules="emptyRule" ref="countValidator" @validate="catchValidation" muted="message" :manual="true"></u-validator>
+    </div>
+    <div v-else :class="$style.unitFieldDisabled" > </div>
+</div>
