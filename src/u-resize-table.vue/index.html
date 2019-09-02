@@ -77,10 +77,10 @@
                     </tr>
                 </template>
                 <template v-else v-for="(item, index) in tdata">
-                    <tr @click="rowClick(item,index)" :class="[$style.btrItem, rowClsName(index)]">
+                    <tr @click="rowClick(item,index, $event)" :class="[$style.btrItem, rowClsName(index)]">
                         <td v-for="(column, cindex) in showColumns"  :class="$style.btd" :border="border">
                             <span v-if="column.type === 'selection'">
-                                <u-checkbox v-model="item.selected" :disabled="item.disabled" @check="changeSelect(item)" />
+                                <u-checkbox v-model="item.selected" :disabled="item.disabled" @click.native.stop="changeSelect(item)" />
                             </span>
                             <template v-else-if="column.$scopedSlots.default || column.$slots.default">
                                 <u-table-view-cell :row="item" :column="column" :class="$style.bSpan" :role="column.currentEllipsis" v-ellipsis-title></u-table-view-cell>
