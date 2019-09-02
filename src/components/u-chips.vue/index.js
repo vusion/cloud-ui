@@ -10,7 +10,6 @@ export const UChips =  {
         // 校验通过，执行callback();校验失败，执行callback(new Error())
         rules: [Array , String], // 关于输入内容的校验规则
         listRules: [Array, String], // 关于是否允许为空，是否出现重复以及最大数量的规则
-        noSpace: Boolean, // 是否使用空格作为分隔符，如果true，则不使用空格作为分隔符。
         disabled: Boolean,
         placement: String, // 老的错误提示的显示位置
         allowEmpty: {
@@ -18,10 +17,17 @@ export const UChips =  {
             default: true,
         }, // 老的验证体系下，关于是否允许为空的属性
         error: String, // 老的验证体系下，空值时的错误提示
-        value: Array, // chips数组内容
+        value: {
+            type: Array,
+            default: () => []
+        }, // chips数组内容
         modifyValue: String, // 保持出错记录需要传递该值
         modifyValueIndex: Number,
         type: String, // 云服务器名称搜索的type为 searchInput
+        separators: {
+            type: String,
+            default: 'all'
+        }
     },
     data() {
         return {
@@ -29,7 +35,6 @@ export const UChips =  {
             item: '',
             modifyItem: '',
             current: -1,
-            max: 3,
             modifying: false,
             errMessage: '',
             focus: false,
@@ -150,7 +155,6 @@ export const UChips =  {
             return rules;
         },
         textRules() {
-            console.log(this.formatListRules());
             return this.formatListRules();
         },
         /**
@@ -170,10 +174,15 @@ export const UChips =  {
             } else {
                 return 'new';
             }
+        },
+        noSpace() {
+            return this.separators === 'comma' ? true: false;
+        },
+        noComma() {
+            return this.separators === 'space' ? true: false;
         }
     },
     created() {
-        console.log(this.$parent);
         window.addEventListener('keydown', this.onDocKeydown, false);
         if (this.type === 'searchInput')
             window.addEventListener('mousedown', this.onDocMousedown, false);
@@ -204,7 +213,7 @@ export const UChips =  {
                 rules = this.listRules || [];
             }
             let newRules = rules.map(rule => {
-                if (rule.indexOf('noDuplicated') > -1) {
+                if (rule.indexOf('noDuplicates') > -1) {
                     return {
                         trigger: 'blur', validate: (value, rule, options) => {
                             if (this.list.indexOf(value) > -1) {
@@ -245,7 +254,6 @@ export const UChips =  {
          */
         catchValidation(event) {
             this.errMessage = event.firstError;
-            console.log(this.errMessage);
             this.emitValidate(event.value);
         },
 
@@ -383,7 +391,7 @@ export const UChips =  {
                 this.$refs.cpInput.focus();
             }
             // 空格键 生成项 回车键
-            if ((event.which === 32 || event.which === 188 || (this.type === 'searchInput' && event.which === 13))) {
+            if ((event.which === 32 && !this.noSpace) || (event.which === 188 && !this.noComma) || (this.type === 'searchInput' && event.which === 13)) {
                 // 生成项(满足相关要求)
                 event.preventDefault();
                 if (this.$refs.cpInput.$refs.input === document.activeElement && item) {
@@ -402,7 +410,7 @@ export const UChips =  {
          * 针对以空格连接的字符串的一次性粘贴处理入口 + 手动触发input类型的检验事件
          */
         onAddInput() {
-            if (!this.item.endsWith(' ') && this.item.includes(' ')) {
+            if ((!this.item.endsWith(' ') && this.item.includes(' ') && !this.noSpace) || (!this.item.endsWith(',') && this.item.includes(',') && !this.noComma)) {
                 this.generate(this.item, false, 'textValidator');
                 this.$refs.cpInput.focus();
             } else {
@@ -455,7 +463,7 @@ export const UChips =  {
                 event.preventDefault();
 
             // 空格键  生成项
-            if (event.which === 32 || event.which === 188 || (this.type === 'searchInput' && event.which === 13)) { // searchInput 回车键添加项
+            if ((event.which === 32 && !this.noSpace) || (event.which === 188 && !this.noComma) || (this.type === 'searchInput' && event.which === 13)) { // searchInput 回车键添加项
                 // 生成项(满足相关要求)
                 event.preventDefault();
                 if (this.getCpModifyInput().$refs.input === document.activeElement && modifyItem) {
@@ -540,20 +548,19 @@ export const UChips =  {
                 return;
             }
 
-            const hasSpace = !this.noSpace && item.indexOf(' ') !== -1;
-            const hasComma = ~item.indexOf(',');
             // 单次生成多个项的数组
             // arrIndex是数组中出错的项的索引
             // str为生成项之外的错误部分的字符
             let itemArr = [];
             let arrIndex = 0;
-            if (hasSpace && hasComma)
+            if (!this.noSpace && !this.noComma)
                 item = item.replace(/,/g, ' ');
-            if (!hasSpace && !hasComma)
-                itemArr = [item];
+            if (this.noSpace)
+                itemArr = item.split(',');
             else
-                itemArr = item.split(hasSpace ? ' ' : ',').filter((item) => item);
+                itemArr = item.split(' ');
 
+            console.log(itemArr);
             if (this.async)
                 return this.asyncGenerate(item, isModify, itemArr);
 

@@ -2,6 +2,7 @@
     display: inline-block;
     position: relative;
     vertical-align: middle;
+    margin-bottom: 10px;
 }
 .root[type="searchInput"] {
     width: 500px;
@@ -168,6 +169,8 @@
     outline: 0;
     line-height: 30px;
     min-height: 0;
+    border-radius: 12px;
+    margin: 5px 0 0 5px;
 }
 
 .textarea[class][focus] {

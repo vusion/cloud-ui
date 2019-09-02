@@ -43,5 +43,9 @@
         <div v-if="!focus && !list.length && !errMessage && !asyncChecking && !item && !modifyItem" :class="$style.placeholder">{{placeholder}}</div>
         <u-validator :rules="emptyRule" ref="countValidator" @validate="catchValidation" muted="message" :manual="true"></u-validator>
     </div>
-    <div v-else :class="$style.unitFieldDisabled" > </div>
+    <div v-else :class="$style.unitFieldDisabled" >
+        <div :class="$style.placeholder">
+            {{placeholder}}
+        </div>
+    </div>
 </div>
