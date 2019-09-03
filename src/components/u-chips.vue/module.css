@@ -93,7 +93,7 @@
     word-break: break-all;
 }
 .root[type="searchInput"] .unit {
-    margin-top: 8px;
+    margin-top: 6px;
     max-width: 150px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -103,9 +103,9 @@
 }
 .hasMore {
     position: absolute;
-    top: -3px;
+    top: -1px;
     right: 24px;
-}
+}vu
 .unit:hover {
     background-color: #e6ecf4;
 }
@@ -163,6 +163,7 @@
     margin-top: 8px;
 }
 
+/*新增输入框-默认*/
 .textarea[class] {
     box-sizing: border-box;
     border-color: transparent;
@@ -173,21 +174,13 @@
     margin: 5px 0 0 5px;
 }
 
+/*新增输入框-点击*/
 .textarea[class][focus] {
-    border-color: #e1e8ed;
+    border: 1px dashed #e1e8ed;
 }
 
 .textarea[class] textarea{
     margin: 0
-}
-
-.textareaFocus[class] {
-    box-sizing: border-box;
-    margin: 5px 0 0 5px;
-    border: 1px dashed #e1e8ed;
-    border-radius: 12px;
-    line-height: 30px;
-    min-height: 0;
 }
 
 .textareaFocus[class] textarea{
@@ -200,15 +193,25 @@
     border-radius: 12px;
     line-height: 30px;
     border-style: solid;
-    border-color: red;
+    border-color:#ff867f;
     min-height: 0;
 }
 
 .textareaError[class][focus] {
-    border-color: red;
+    border-color:#ff867f;
 }
 
 .input[class] {
+    box-sizing: border-box;
+    line-height: 40px;
+    width: 145px;
+    border: 1px dashed #e1e8ed;
+    border-radius: 12px;
+    margin: 0 0 0 5px;
+    height: 26px;
+}
+
+.input[class][focus] {
     box-sizing: border-box;
     line-height: 40px;
     width: 145px;
@@ -222,11 +225,11 @@
     margin: 0;
 }
 
-.inputError[class] {
+.inputError[class][focus] {
     box-sizing: border-box;
     line-height: 40px;
     width: 145px;
-    border: 1px solid red;
+    border: 1px solid #ff867f;
     border-radius: 12px;
     margin: 0 0 0 5px;
     height: 26px;
@@ -252,13 +255,15 @@
 
 .root input.inputError, .root textarea.textareaError {
     border-style: solid;
-    border-color: red;
+    border-color: #ff867f;
 }
 .inputWrapper {
     margin-left: 25px;
-    margin-top: -5px;
+    margin-top: -3px;
     margin-bottom: 4px;
 }
+
+
 .root[type="searchInput"] .inputWrapper {
     margin-bottom: 0px;
 }

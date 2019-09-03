@@ -176,10 +176,14 @@ export const UChips =  {
             }
         },
         noSpace() {
-            return this.separators === 'comma' ? true: false;
+            if (this.type === 'searchInput') {
+                return true;
+            } else return this.separators === 'comma' ? true: false;
         },
         noComma() {
-            return this.separators === 'space' ? true: false;
+            if (this.type === 'searchInput') {
+                return true;
+            } else return this.separators === 'space' ? true: false;
         }
     },
     created() {
@@ -553,14 +557,22 @@ export const UChips =  {
             // str为生成项之外的错误部分的字符
             let itemArr = [];
             let arrIndex = 0;
+            /**
+             * 当逗号和空格均可作为分隔符时，则将逗号转化为空格，一并处理
+             */
             if (!this.noSpace && !this.noComma)
                 item = item.replace(/,/g, ' ');
-            if (this.noSpace)
+            /**
+             * 分隔符允许逗号，不允许空格。
+             */
+            if (this.noSpace && !this.noComma)
                 itemArr = item.split(',');
-            else
-                itemArr = item.split(' ');
-
-            console.log(itemArr);
+            /**
+             * searchInput模式下
+             */
+            else if (this.noComma && this.noSpace) {
+                itemArr = [item];
+            } else itemArr = item.split(' '); //
             if (this.async)
                 return this.asyncGenerate(item, isModify, itemArr);
 
@@ -587,6 +599,7 @@ export const UChips =  {
                     } else {
                         this.modifyItem = itemArr.join(' ');
                         this.$refs.cpModifyInput.currentValue = this.modifyItem;
+                        this.$refs.cpModifyInput.color = 'error';
                         this.getCpModifyInput().focus();
                     }
                 });

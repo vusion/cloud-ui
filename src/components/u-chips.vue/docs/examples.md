@@ -86,3 +86,24 @@ export default {
 </u-linear-layout>
 ```
 
+### searchInput
+
+当`type='searchInput'`时，呈现为搜索框形式。
+
+``` vue
+<template>
+<u-linear-layout>
+    <u-chips v-model="value"  placeholder="多个搜索条件用回车分隔" type="searchInput" list-rules="maxLength(6)"></u-chips>
+</u-linear-layout>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value: [],
+        };
+    },
+};
+</script>
+```
