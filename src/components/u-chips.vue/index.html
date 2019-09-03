@@ -1,5 +1,5 @@
 <div :class="$style.root" :placement="placement" :type="type">
-    <div :class="$style.tipError" v-show="!!errMessage && (validationMode==='old' || type==='searchInput')" color="error"><i-icon size="small" name="angle-left" ></i-icon>{{errMessage}}</div>
+    <div :class="$style.tipError" v-show="!!errMessage && validationMode==='old'" color="error"><i-icon size="small" name="angle-left" ></i-icon>{{errMessage}}</div>
     <div :class="$style.unitField" @click="onFieldClick" :style="{maxHeight: maxHeight + 'px'}" v-if="!disabled" ref="box" :hasMore="hasMore">
         <!-- searchInput 类型前有搜索框 -->
         <i-icon name="search" size="small" v-if="type === 'searchInput'" :class="$style.searchIcon"></i-icon>
