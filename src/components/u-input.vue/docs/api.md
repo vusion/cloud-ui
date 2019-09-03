@@ -28,12 +28,11 @@
 
 #### @input
 
-输入时触发。
+生成新chip时触发。
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event | String | 输入框的值 |
-| senderVM | UInput | 发送事件实例 |
+| $event | Array | 输入框当前的chip数组 |
 
 #### @change
 

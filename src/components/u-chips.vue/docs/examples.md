@@ -14,7 +14,6 @@
 <template>
 <u-linear-layout>
     <u-chips v-model="value"  placeholder="请输入日期"></u-chips>
-    <u-chips :value.sync="value" placeholder="请输入日期"></u-chips>
 </u-linear-layout>
 </template>
 
@@ -51,12 +50,22 @@ export default {
 
 通过`rules`属性，定义输入字符串的验证规则。具体的规则写法与`<u-validator>`中的写法一致。
 
-``` html
+``` vue
+<template>
 <u-linear-layout>
-    <u-validator>
-        <u-chips placeholder="请输入IP地址" rules="ip"></u-chips>
-    </u-validator>
+    <u-chips v-model="value"  placeholder="请输入IP地址" rules="ip"></u-chips>
 </u-linear-layout>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value: [],
+        };
+    },
+};
+</script>
 ```
 
 ### 数量验证与重复值检测

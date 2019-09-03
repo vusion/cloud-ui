@@ -333,7 +333,6 @@ export const UChips =  {
             // backspace(win) == deleteItem(mac)
             if (event.which === 8) {
                 list.splice(current, 1);
-                this.$emit('input', this.list);
                 current = -1;
                 this.$refs.cpInput.focus();
             }
@@ -524,7 +523,6 @@ export const UChips =  {
             this.current = index;
             // 在list当中去除当前的编辑项
             this.list.splice(index, 1);
-            this.$emit('input', this.list);
             this.$nextTick(() => {
                 index === this.list.length ? this.$refs.cpInput.focus() : this.getCpModifyInput().focus();
             });
@@ -618,7 +616,6 @@ export const UChips =  {
                             // 创建新生成项
                         } else
                             this.list.push(itm);
-                        this.$emit('input', this.list);
                         arrIndex = index + 1;
                         return true;
                     }
@@ -646,7 +643,6 @@ export const UChips =  {
                     //let countValidation = this.$refs.countValidator.validate('blur');
                     await Promise.all([valueValidation]).then(res => {
                         isModify ? this.list.splice(this.current, 0 ,itemArr[i]) : this.list.push(itemArr[i]);
-                        this.$emit('input', this.list);
                     })
                 } catch (e) {
                     throw (i);
@@ -675,7 +671,6 @@ export const UChips =  {
                                 this.list.splice(this.current, 0, itm);
                             } else
                                 this.list.push(itm);
-                            this.$emit('input', this.list);
                             arrIndex = index + 1;
                         }
                     }));
@@ -760,7 +755,6 @@ export const UChips =  {
             if (this.asyncChecking)
                 return;
             this.list.splice(index, 1);
-            this.$emit('input', this.list);
             const item = this.modifying ? this.modifyItem : this.item;
             if (this.validationMode === 'new') {
                 if (this.modifying) {
@@ -800,7 +794,7 @@ export const UChips =  {
 
         emitValidate(value) {
             this.$emit('validate', {
-                isValid: !!this.errMessage,
+                isValid: !this.errMessage,
                 errMessage: this.errMessage,
                 value,
                 current: this.current === -1 ? this.list.length : this.current,
@@ -825,7 +819,6 @@ export const UChips =  {
         deleteAll() {
             this.list = [];
             this.hasMore = false;
-            this.$emit('input', this.list);
         },
         computeMorePositon() { // 计算更多的位置
             this.$nextTick(() => {
