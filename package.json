@@ -13,13 +13,11 @@
   },
   "main": "./index.js",
   "scripts": {
-    "build": "vue-cli-service library-build",
-    "build-raw": "vue-cli-service library-build --vusion-mode raw",
     "doc": "vue-cli-service doc",
-    "doc-build": "vue-cli-service doc-build",
-    "build-all": "vue-cli-service library-build && vue-cli-service library-build --no-clean --theme seagreen && vue-cli-service library-build --no-clean --theme dark",
-    "doc-build-all": "vue-cli-service doc-build && vue-cli-service doc-build --no-clean --theme seagreen && vue-cli-service doc-build --no-clean --theme dark",
-    "precommit": "node node_modules/vusion-hooks/precommit"
+    "doc-build": "vue-cli-service doc-build && vue-cli-service doc-build --no-clean --theme seagreen && vue-cli-service doc-build --no-clean --theme dark",
+    "build": "vue-cli-service library-build && vue-cli-service library-build --no-clean --theme seagreen && vue-cli-service library-build --no-clean --theme dark",
+    "build-raw": "vue-cli-service library-build --vusion-mode raw",
+    "lint": "vue-cli-service lint"
   },
   "repository": "vusion/cloud-ui",
   "homepage": "http://vusion.github.io/cloud-ui",
@@ -42,7 +40,7 @@
   "dependencies": {
     "countup.js": "^1.9.3",
     "lodash": "^4.17.5",
-    "proto-ui.vusion": "^0.4.14",
+    "proto-ui.vusion": "^0.4.15",
     "vusion-utils": "^0.4.4"
   },
   "devDependencies": {
