@@ -470,7 +470,7 @@ export const UChips =  {
                 // 生成项(满足相关要求)
                 event.preventDefault();
                 if (this.getCpModifyInput().$refs.input === document.activeElement && modifyItem) {
-                    this.getCpModifyInput().blur();
+                    this.generate(this.modifyItem, true, `modifyValidator`, 'key');
                     if (!this.errMessage && !this.async && this.validationMode === 'old')
                         this.$refs.cpInput.focus();
                 }
@@ -481,7 +481,7 @@ export const UChips =  {
             if (event.which === 9 && modifyItem !== '') {
                 event.preventDefault();
                 //this.generate(modifyItem, true);
-                this.getCpModifyInput().blur();
+                this.generate(this.modifyItem, true, `modifyValidator`, 'key');
             }
 
             // backspace(win) == deleteItem(mac)
@@ -532,8 +532,9 @@ export const UChips =  {
          * @param {string} item - 生成项的内容
          * @param {boolean} [isModify=false] - 是否是编辑已生成项
          * @param {string} validator - 将值传入的目标验证器
+         * @param {string} trigger - 触发生成的方式。仅在修改时用以区别。
          */
-        generate(item, isModify = false, validator) {
+        generate(item, isModify = false, validator, trigger = 'blur') {
             if (this.type === 'searchInput' && /^\s*$/.test(item))
                 return;
             // item == false，说明item为空字符串或空格组成的字符串
@@ -581,11 +582,14 @@ export const UChips =  {
                 this.validateQueue(itemArr, isModify, validator).then(res => {
                     /**
                      * 新增状态下和修改状态下，数组的操作方式有所不同，但验证方式是相同的。
+                     * 当当前的所有输入内容都通过验证后，应当将对应validator中的value属性同步恢复为空。
                      */
                     if (!isModify) {
+                        this.$refs.textValidator.value = '';
                         this.item = '';
                         this.$refs.cpInput.currentValue = this.item;
                     } else {
+                        this.$refs.modifyValidator[0].value = '';
                         this.$refs.cpModifyInput.currentValue = this.modifyItem = '';
                         this.$refs.cpInput.focus();
                     }
@@ -598,6 +602,7 @@ export const UChips =  {
                         this.modifyItem = itemArr.join(' ');
                         this.$refs.cpModifyInput.currentValue = this.modifyItem;
                         this.$refs.cpModifyInput.color = 'error';
+                        if (trigger === 'key')
                         this.getCpModifyInput().focus();
                     }
                 });

@@ -118,3 +118,45 @@ export default {
 };
 </script>
 ```
+
+### 表单提交
+
+由于现在`<u-chips>`的验证由`<u-validator>`完成，所以可以作为`<u-form-item>`中的表单子组件，在表单提交时与其它内容一起验证
+
+``` vue
+<template>
+<u-form ref="form" gap="large">
+    <u-form-item required label="用户名" rules="alphaNum | required">
+        <u-input v-model="name" placeholder="请输入用户名"></u-input>
+    </u-form-item>
+    <u-form-item required label="密码" rules="alphaNum | required">
+         <u-input v-model="password" placeholder="请输入密码" type="password"></u-input>
+    </u-form-item>
+    <u-form-item required label="白名单" layout="block" :bubble="true">
+         <u-chips v-model="list"  placeholder="请输入IP地址，最多三个" rules="ip" list-rules="notEmpty | maxLength(3) | noDuplicates"></u-chips>
+    </u-form-item>
+    <u-form-item>
+         <u-button color="primary" @click="submit">立即创建</u-button>
+    </u-form-item>
+</u-form>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            name: 'csr123',
+            password: 'csr123',
+            list: [],
+        };
+    },
+    methods: {
+        submit() {
+            this.$refs.form.validate()
+             .then(() => this.$toast.show('验证通过，提交成功！'))
+             .catch(() => this.$toast.show('验证失败！'));
+            },
+        },
+};
+</script>
+```

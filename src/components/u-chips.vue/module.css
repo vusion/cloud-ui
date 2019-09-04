@@ -225,7 +225,7 @@
     margin: 0;
 }
 
-.inputError[class][focus] {
+.inputError[class] {
     box-sizing: border-box;
     line-height: 40px;
     width: 145px;
@@ -233,6 +233,10 @@
     border-radius: 12px;
     margin: 0 0 0 5px;
     height: 26px;
+}
+
+.inputError[class][focus] {
+    border: 1px solid #ff867f;
 }
 
 .inputError[class] input{
