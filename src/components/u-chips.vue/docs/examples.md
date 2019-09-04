@@ -53,7 +53,9 @@ export default {
 ``` vue
 <template>
 <u-linear-layout>
-    <u-chips v-model="value"  placeholder="请输入IP地址" rules="ip"></u-chips>
+    <u-validator>
+        <u-chips v-model="value"  placeholder="请输入IP地址" rules="ip"></u-chips>
+    </u-validator>
 </u-linear-layout>
 </template>
 
