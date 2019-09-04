@@ -31,6 +31,10 @@
     background: none;
 }
 
+.button:active {
+    background: none;
+}
+
 .button[disabled] {
     cursor: not-allowed;
     opacity: 0.65;

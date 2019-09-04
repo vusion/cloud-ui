@@ -28,7 +28,7 @@ export const UComboSlider = {
             }
         },
         onInput(value, type) {
-            this.currentValue = this.fix(value);
+            this.currentValue = value;
             this.$emit('input', value);
             this.$emit('update:value', value);
             if (type) {
