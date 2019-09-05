@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.4.9",
+  "version": "0.4.10",
   "author": "Rainfore <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -13,13 +13,11 @@
   },
   "main": "./index.js",
   "scripts": {
-    "build": "vue-cli-service library-build",
-    "build-raw": "vue-cli-service library-build --vusion-mode raw",
     "doc": "vue-cli-service doc",
-    "doc-build": "vue-cli-service doc-build",
-    "build-all": "vue-cli-service library-build && vue-cli-service library-build --no-clean --theme seagreen && vue-cli-service library-build --no-clean --theme dark",
-    "doc-build-all": "vue-cli-service doc-build && vue-cli-service doc-build --no-clean --theme seagreen && vue-cli-service doc-build --no-clean --theme dark",
-    "precommit": "node node_modules/vusion-hooks/precommit"
+    "doc-build": "vue-cli-service doc-build && vue-cli-service doc-build --no-clean --theme seagreen && vue-cli-service doc-build --no-clean --theme dark",
+    "build": "vue-cli-service library-build && vue-cli-service library-build --no-clean --theme seagreen && vue-cli-service library-build --no-clean --theme dark",
+    "build-raw": "vue-cli-service library-build --vusion-mode raw",
+    "lint": "vue-cli-service lint"
   },
   "repository": "vusion/cloud-ui",
   "homepage": "http://vusion.github.io/cloud-ui",
@@ -42,7 +40,7 @@
   "dependencies": {
     "countup.js": "^1.9.3",
     "lodash": "^4.17.5",
-    "proto-ui.vusion": "^0.4.14",
+    "proto-ui.vusion": "^0.4.15",
     "vusion-utils": "^0.4.4"
   },
   "devDependencies": {
@@ -53,19 +51,24 @@
     "eslint": "^4.19.1",
     "eslint-config-vusion": "^2.1.1",
     "highlight.js": "^9.12.0",
-    "husky": "^0.13.3",
+    "husky": "^3.0.4",
     "i-font-awesome.vue": "^5.2.0",
     "i-line-awesome.vue": "^1.0.2",
     "shelljs": "^0.7.8",
     "stylelint": "^9.3.0",
     "stylelint-config-vusion": "^1.1.2",
     "vue": "^2.6.10",
-    "vue-cli-plugin-vusion": "^0.5.6",
+    "vue-cli-plugin-vusion": "^0.5.11",
     "vue-template-compiler": "^2.6.10",
-    "vusion-hooks": "^0.2.2"
+    "vusion-hooks": "^0.3.0"
   },
   "peerDependencies": {
     "vue": "^2.6.10",
     "vusion-utils": "^0.4.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "node node_modules/vusion-hooks/pre-commit"
+    }
   }
 }

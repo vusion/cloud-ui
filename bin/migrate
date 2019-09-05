@@ -216,6 +216,22 @@ files.forEach((file) => {
         .replace(/<u-dragger(\s+|>)/g, '<f-dragger$1').replace(/<\/u-dragger>/g, '</f-dragger>')
         .replace(/<u-render(\s+|>)/g, '<f-render$1').replace(/<\/u-render>/g, '</f-render>')
         .replace(/<u-forbidden(\s+|>)/g, '<f-forbidden$1').replace(/<\/u-forbidden>/g, '</f-forbidden>')
+        .replace(/<u-input\s+(.*?)close\b/g, '<u-input $1clearable')
+        .replace(/<u-input\s+(.*?)@reset\b/g, '<u-input $1@clear')
+        .replace(/<u-modal\s+(.*?)@ok="([a-zA-Z0-9]+)"/g, (m, $1, $2) => {
+            const cap = new RegExp($2 + '\\([a-zA-Z0-9]+.*?\\)\\s*\\{').exec(content);
+            if (cap)
+                return `<u-modal ${$1}@ok="${$2}()"`;
+            else
+                return m;
+        })
+        .replace(/<u-modal\s+(.*?)@cancel="([a-zA-Z0-9]+)"/g, (m, $1, $2) => {
+            const cap = new RegExp($2 + '\\([a-zA-Z0-9]+.*?\\)\\s*\\{').exec(content);
+            if (cap)
+                return `<u-modal ${$1}@cancel="${$2}()"`;
+            else
+                return m;
+        })
 
         // 编译即可发现
         .replace(/(src|cloud-ui)\/components\/u-desc-list-group\.vue/g, '$1/components/u-desc-list.vue/group.vue')

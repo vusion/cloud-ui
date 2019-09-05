@@ -68,17 +68,17 @@
 </u-grid-layout>
 ```
 
-### 错误修复时机
+### 同步时机
 
-用`fixOn`属性可以设置输入框错误在失焦时修复（默认）还是在输入时修复。
+用`sync-on`属性可以设置输入后何时同步值到`<u-slider>`组件中。
 
 ``` html
 <u-grid-layout>
-    <u-grid-layout-column :span="8">
+    <u-grid-layout-column :span="6">
         <u-combo-slider :value="20" :precision="10" :step="20"></u-combo-slider>
     </u-grid-layout-column>
-    <u-grid-layout-column :span="8">
-        <u-combo-slider :value="20" :precision="10" :step="20" fix-on="input"></u-combo-slider>
+    <u-grid-layout-column :span="6">
+        <u-combo-slider :value="20" :precision="10" :step="20" sync-on="blur"></u-combo-slider>
     </u-grid-layout-column>
 </u-grid-layout>
 ```
@@ -118,7 +118,7 @@
 | precision | Number | `1` | 精度，表示数字要保留的最小单位，整数、小数均可 |
 | range | Array | `[]` | 进一步对`value`限制，通常传入一个数组，第一个值表示范围开始值，第二个值表示范围的结束值。 |
 | formatter | String, Object |  | 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。 |
-| fix-on | String | `'blur'` | 错误修复时机。可选值：`'input'`表示在输入时修复，`'blur'`表示在失焦时修复 |
+| sync-on | String | `'input'` | 输入后何时同步值到`<u-slider>`组件中。可选值：`'input'`表示在输入时同步，`'blur'`表示在失焦时同步 |
 | hide-buttons | Boolean | `true` | 是否隐藏按钮 |
 | readonly | Boolean | `false` | 是否只读 |
 | disabled | Boolean | `false` | 是否禁用 |
@@ -169,3 +169,11 @@
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event.value | Number | 改变后的值 |
+
+### ARIA and Keyboard
+
+| Key | Description |
+| ----- | ----------- |
+| <kbd>↑</kbd> | 按`step`量增加值 |
+| <kbd>↓</kbd> | 按`step`量减小值 |
+| <kbd>Enter</kbd> | 自动修复为合法的值，并且应用更改 |
