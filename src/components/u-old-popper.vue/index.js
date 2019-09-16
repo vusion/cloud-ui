@@ -102,19 +102,24 @@ export const UOldPopper = {
         const referenceEl = this.getReferenceEl();
         const popperEl = this.childVM.$el;
         const triggerEl = this.getTriggerEl(referenceEl);
+        const timers = this.timers = [];
 
         // 绑定事件
         const offEvents = this.offEvents = [];
         if (this.followCursor)
             offEvents.push(event.on(document.body, 'mousemove', this.onMouseMove));
-        let timer = null;
+
         if (this.trigger === 'click')
             offEvents.push(event.on(triggerEl, 'click', () => this.toggle()));
         else if (this.trigger === 'hover') {
             offEvents.push(event.on(triggerEl, 'mouseenter', (e) => {
-                clearTimeout(timer);
-                timer = null;
-                setTimeout(() => {
+                clearTimeout(timers[1]);
+                timers[1] = null;
+                if (timers[0]) {
+                    clearTimeout(timers[0]);
+                }
+                timers[0] = setTimeout(() => {
+                    timers[0] = null;
                     this.toggle(true);
                     // 页面有滚动条的时候，会出现滚动到 reference 的元素上。这时会触发 mouseenter 事件，需要重新设置 reference 的位置。
                     this.mouseEnterEvent = e;
@@ -122,14 +127,18 @@ export const UOldPopper = {
             }));
             if (this.hideDelay) {
                 offEvents.push(event.on(popperEl, 'mouseenter', () => {
-                    clearTimeout(timer);
-                    timer = null;
+                    clearTimeout(timers[1]);
+                    timers[1] = null;
                 }));
             }
             offEvents.push(event.on(document, 'mouseover', (e) => {
                 // !referenceEl.contains(e.target) && !popperEl.contains(e.target) && this.toggle(false);
-                if (this.currentOpen && !timer && !triggerEl.contains(e.target) && !popperEl.contains(e.target))
-                    timer = setTimeout(() => this.toggle(false), this.hideDelay);
+                if (this.currentOpen && !timers[1] && !triggerEl.contains(e.target) && !popperEl.contains(e.target)) {
+                    if (timers[1]) {
+                        clearTimeout(timers[1]);
+                    }
+                    timers[1] = setTimeout(() => this.toggle(false), this.hideDelay);
+                }
             }));
         } else if (this.trigger === 'double-click')
             offEvents.push(event.on(triggerEl, 'dblclick', () => this.toggle()));
@@ -156,6 +165,9 @@ export const UOldPopper = {
         this.childVM = this.childVM && this.childVM.$destroy();
         // 取消绑定事件
         this.offEvents.forEach((off) => off());
+        this.timers.forEach((timer) => {
+            clearTimeout(timer);
+        });
     },
     methods: {
         getOptions() {
