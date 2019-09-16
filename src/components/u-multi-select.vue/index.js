@@ -69,6 +69,11 @@ export const UMultiSelect = {
             copyOptionsData: this.initOptionsData(this.value),
         };
     },
+    destroyed() {
+        if (this.timer) {
+            clearTimeout(this.timer);
+        }
+    },
     computed: {
         selItems() {
             const selItem = [];
@@ -381,7 +386,7 @@ export const UMultiSelect = {
                 else
                     parentEl.scrollTop = selectedEl.offsetTop + selectedEl.offsetHeight - parentEl.clientHeight;
                 if (selectedIndex === this.optionsData.length - 1) {
-                    setTimeout(() => parentEl.scrollTop = parentEl.scrollHeight - parentEl.clientHeight, 200);
+                    this.timer = setTimeout(() => parentEl.scrollTop = parentEl.scrollHeight - parentEl.clientHeight, 200);
                 }
             }
             if (parentEl.scrollTop > selectedEl.offsetTop)
