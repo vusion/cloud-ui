@@ -310,6 +310,17 @@ export default {
             this.currentIndex = -1;
             this.currentItem = {};
         },
+        isAlonePoint(item, sery, index) {
+            const dataItem = item[sery.key];
+            const len = this.currentData.length;
+            if (!dataItem)
+                return false;
+            const prevItem = index > 0 ? this.currentData[index - 1][sery.key] : undefined;
+            const nextItem = index < (len - 2) ? this.currentData[index + 1][sery.key] : undefined;
+            if ((prevItem === undefined || prevItem === null) && (nextItem === undefined || nextItem === null))
+                return true;
+            return false;
+        },
     },
     destroyed() {
         window.removeEventListener('resize', this._onResize, false);

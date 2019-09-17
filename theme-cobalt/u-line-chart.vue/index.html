@@ -18,7 +18,7 @@
         </div>
         <div :class="$style.axis" role="axisx">
             <div v-for="(xLabel, index) in xAxis_.data" :class="$style.label" role="labelx" title="xLabel" :style="{left: 100*index/(xAxis_.data.length - 1)+'%', width: 100/xAxis_.data.length+'%'}">
-                <slot name="xLabelTemplate">{{xLabel}}</slot>
+                <slot name="xLabelTemplate" :item="xLabel" :data="xAxis_.data" :index="index">{{xLabel}}</slot>
             </div>
             <div :class="$style.label" role="label-xName">{{xAxis.name}}</div>
         </div>
@@ -34,7 +34,7 @@
         </div>
         <div :class="$style.layer" ref="layer" @mouseenter="isChartLeave = false" @mouseleave="isChartLeave = true">
             <div :class="$style.piece" v-for="(item,index) in currentData" :scatter="scatter" :hover="currentIndex === index" v-show="!item.hidden" :style="{left: 100*index/(currentData.length - 1)+'%', width: 100 / (currentData.length - 1)+'%'}" @mouseenter="onMouseenter(index)" @mouseleave="onMouseleave">
-                <div :class="$style.point" ref="point" @click="pointClick(item, index)" :scatter="scatter" v-for="(series, seriesIndex) in seriesList" v-show="item[series.field || series.key] !== undefined && !series.hidden" :color="series.color"
+                <div :class="$style.point" ref="point" @click="pointClick(item, index)" :scatter="scatter || isAlonePoint(item, series, index)" v-for="(series, seriesIndex) in seriesList" v-show="item[series.field || series.key] !== undefined && !series.hidden" :color="series.color"
                     :special="item.special && item.special[series.field || series.key]" :style="{
                         bottom: 100*(item[series.field || series.key] - yAxis_.min)/(yAxis_.max - yAxis_.min)+'%',
                         borderColor: item.special && item.special[series.field || series.key] && item.special[series.field || series.key].color,
