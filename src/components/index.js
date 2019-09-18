@@ -1,5 +1,6 @@
 export * from './i-icon.vue';
 export * from './u-actions.vue';
+export * from './u-avatar.vue';
 export * from './u-bar-chart.vue';
 export * from './u-block.vue';
 export * from './u-button.vue';

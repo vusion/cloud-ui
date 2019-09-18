@@ -22,7 +22,9 @@ module.exports = {
         package: pkg,
         navbar: [
             { text: '核心组件', to: '/components' },
-            { text: '三方组件', to: '/vendor' },
+            { text: '三方组件', to: '/vendors' },
+            { text: '指令和工具', to: '/misc' },
+            { text: '布局', to: '/layouts' },
         ],
         components: [
             { group: 'Guide', name: 'quickstart', alias: '快速开始', path: './docs/views/guide/quickstart.md' },
@@ -33,8 +35,9 @@ module.exports = {
             { group: 'Basic', name: 'u-text', alias: '文本' },
             { group: 'Basic', name: 'u-link', alias: '链接' },
             { group: 'Basic', name: 'u-button', alias: '按钮' },
-            { group: 'Basic', name: 'u-badge', alias: '徽章' },
             { group: 'Basic', name: 'u-label', alias: '标签' },
+            { group: 'Basic', name: 'u-badge', alias: '徽章' },
+            { group: 'Basic', name: 'u-avatar', alias: '头像' },
             { group: 'Basic', name: 'u-actions', alias: '操作项' },
             // { group: 'Basic', name: 'i-icon', alias: '图标' },
             { group: 'Basic', name: 'u-status-icon', alias: '状态图标' },
@@ -136,7 +139,7 @@ module.exports = {
             { group: 'Mixins & Functional', name: 'f-slot', alias: '快捷插槽' },
             { group: 'Mixins & Functional', name: 'f-forbidden', alias: '禁用' },
         ],
-        vendor: [
+        vendors: [
             { group: 'Editors', name: 'x-ace-editor', alias: '代码编辑器' },
             { group: 'Charts', name: 'x-echarts', alias: '百度图表' },
             { group: 'Icon Set', name: 'i-font-awesome', path: 'i-font-awesome.vue/README.md' },
@@ -146,16 +149,23 @@ module.exports = {
         blocks: [],
         directives: [
             { group: 'Directive', name: 'v-repeat-click' },
-            { group: 'Directive', name: 'v-click-outside' },
+            // { group: 'Directive', name: 'v-click-outside' },
             { group: 'Directive', name: 'v-ellipsis-title' },
             { group: 'Directive', name: 'v-focus' },
         ],
         filters: [],
-        // utils: [
-        //     { group: 'Utils', name: 'DataSource', alias: '数据源' },
-        //     { group: 'Utils', name: 'Formatters', alias: '格式器' },
-        //     { group: 'Utils', name: 'dom', alias: 'DOM 相关' },
-        //     { group: 'Utils', name: 'edit', alias: '编辑相关' },
-        // ],
+        utils: [
+            // { group: 'Utils', name: 'DataSource', alias: '数据源' },
+            // { group: 'Utils', name: 'Formatters', alias: '格式器' },
+            { group: 'Utils', name: 'dom', alias: 'DOM 相关' },
+            { group: 'Utils', name: 'edit', alias: '编辑相关' },
+        ],
+        layouts: [
+            { group: 'Scene', name: 'l-dashboard', alias: '仪表盘布局' },
+            { group: 'Scene', name: 'l-document', alias: '文档布局' },
+            { group: 'Scene', name: 'l-page', alias: '通用页面布局' },
+            { group: 'Scene', name: 'l-side-main', alias: '左侧栏固定布局' },
+            { group: 'Router', name: 'l-wrapper', alias: '透传页' },
+        ],
     },
 };

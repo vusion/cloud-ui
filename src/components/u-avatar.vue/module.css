@@ -1,0 +1,36 @@
+@extend;
+
+.root {
+    width: 44px;
+    height: 44px;
+    background-image: url('./assets/avatar.png?sprite=avatars');
+}
+
+.root[size="huge"] {
+    width: 88px;
+    height: 88px;
+}
+
+.root[type="1"] {
+    background-image: url('./assets/avatar-1.png?sprite=avatars');
+}
+
+.root[type="2"] {
+    background-image: url('./assets/avatar-2.png?sprite=avatars');
+}
+
+.root[type="3"] {
+    background-image: url('./assets/avatar-3.png?sprite=avatars');
+}
+
+.root[type="4"] {
+    background-image: url('./assets/avatar-4.png?sprite=avatars');
+}
+
+.root[type="5"] {
+    background-image: url('./assets/avatar-5.png?sprite=avatars');
+}
+
+.root[type="6"] {
+    background-image: url('./assets/avatar-6.png?sprite=avatars');
+}

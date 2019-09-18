@@ -42,7 +42,7 @@
   "dependencies": {
     "countup.js": "^1.9.3",
     "lodash": "^4.17.5",
-    "proto-ui.vusion": "^0.4.15",
+    "proto-ui.vusion": "^0.4.20",
     "vusion-utils": "^0.4.4"
   },
   "devDependencies": {
@@ -60,7 +60,7 @@
     "stylelint": "^9.3.0",
     "stylelint-config-vusion": "^1.1.2",
     "vue": "^2.6.10",
-    "vue-cli-plugin-vusion": "^0.5.11",
+    "vue-cli-plugin-vusion": "^0.5.13",
     "vue-template-compiler": "^2.6.10",
     "vusion-hooks": "^0.3.0"
   },
