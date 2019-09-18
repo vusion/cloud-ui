@@ -17,6 +17,8 @@
     "doc-build": "vue-cli-service doc-build && vue-cli-service doc-build --no-clean --theme seagreen && vue-cli-service doc-build --no-clean --theme dark",
     "build": "vue-cli-service library-build && vue-cli-service library-build --no-clean --theme seagreen && vue-cli-service library-build --no-clean --theme dark",
     "build-raw": "vue-cli-service library-build --vusion-mode raw",
+    "doc-build:all": "vue-cli-service doc-build  --theme dark,seagreen",
+    "build:all": "vue-cli-service library-build  --theme dark,seagreen",
     "lint": "vue-cli-service lint"
   },
   "repository": "vusion/cloud-ui",
