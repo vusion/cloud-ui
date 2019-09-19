@@ -1,7 +1,7 @@
 # Well
 
 ## 示例
-### 基本形式
+### 基本用法
 
 ``` html
 <u-water-progress :value="36"></u-water-progress>

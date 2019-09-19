@@ -102,6 +102,7 @@ module.exports = {
             { group: 'Popper', name: 'm-popper', alias: '弹出层' },
             { group: 'Popper', name: 'u-popup', alias: '弹出框' },
             { group: 'Popper', name: 'u-tooltip', alias: '工具提示' },
+            { group: 'Popper', name: 'u-icon-tooltip', alias: '图标提示' },
             { group: 'Popper', name: 'u-old-popper', alias: '弹出层', deprecated: true },
             { group: 'Popper', name: 'u-old-popup', alias: '弹出框', deprecated: true },
             { group: 'Popper', name: 'u-old-tooltip', alias: '工具提示', deprecated: true },

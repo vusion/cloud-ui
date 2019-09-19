@@ -1,7 +1,7 @@
 # UDescList 描述列表
 
 ## 示例
-### 基本形式
+### 基本用法
 
 ``` html
 <u-desc-list>

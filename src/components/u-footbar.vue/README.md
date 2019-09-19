@@ -1,7 +1,7 @@
 # UFootbar 底部栏
 
 ## 示例
-### 基本形式
+### 基本用法
 
 ``` vue
 <template>

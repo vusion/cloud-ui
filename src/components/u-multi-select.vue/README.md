@@ -1,7 +1,7 @@
 # 多项选择框 MultiSelect
 
 ## 示例
-### 基本形式
+### 基本用法
 ``` vue
 <template>
 <u-multi-select :data="options" v-model="value"></u-multi-select>
