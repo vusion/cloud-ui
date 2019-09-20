@@ -2,7 +2,7 @@ import { getStyle, getScrollSize } from '../../utils/style';
 import { ellipsisTitle } from 'proto-ui.vusion/src/directives';
 import { deepCopy } from '../../utils/index';
 import i18n from './i18n';
-import throttle from 'lodash/throttle';
+// import throttle from 'lodash/throttle';
 
 export const UOldTableView = {
     name: 'u-old-table-view',
@@ -496,7 +496,10 @@ export const UOldTableView = {
         },
         handleResize() {
             if (this.layout !== 'auto') {
-                setTimeout(() => {
+                if (this.timer) {
+                    clearTimeout(this.timer);
+                }
+                this.timer = setTimeout(() => {
                     // 判断是否会出现水平滚动条
                     let parentWidth;
                     parentWidth = this.$el.offsetWidth;
@@ -855,6 +858,9 @@ export const UOldTableView = {
         },
     },
     destroyed() {
+        if (this.timer) {
+            clearTimeout(this.timer);
+        }
         window.removeEventListener('resize', this.onResize, false);
 //         if (this.addMousewheel)
 //             document.removeEventListener('mousewheel', this.onMouseWheel, false);

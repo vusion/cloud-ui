@@ -3,7 +3,6 @@ import { getStyle, getScrollSize } from '../../utils/style';
 // import { deepCopy } from '../../utils/index';
 import cloneDeep from 'lodash/cloneDeep';
 import i18n from './i18n';
-import { setTimeout } from 'timers';
 
 export const UResizeTable = {
     name: 'u-resize-table',
@@ -85,6 +84,7 @@ export const UResizeTable = {
     },
     directives: { ellipsisTitle },
     created() {
+        this.timers = [];
         this.$on('add-item-vm', (itemVM) => {
             itemVM.parentVM = this;
             this.itemColumns.push(itemVM);
@@ -104,7 +104,7 @@ export const UResizeTable = {
         else
             this.tdata = this.initTableData();
         window.addEventListener('resize', this.onResize, false);
-        setTimeout(() => {
+        this.timers[0] = setTimeout(() => {
             this.showColumns.forEach((item, index) => {
                 if (!item.digitWidth && item.visible) {
                     item.copyWidth = item.currentWidth = item.digitWidth = parseFloat(getStyle(this.$refs.thColumn[index], 'width'));
@@ -179,7 +179,7 @@ export const UResizeTable = {
             this.handleSize();
         },
         showColumns(newValue) {
-            setTimeout(() => {
+            this.timers[1] = setTimeout(() => {
                 newValue.forEach((item, index) => {
                     if (index === newValue.length - 1 && this.isYScroll)
                         item.copyWidth = item.currentWidth = item.digitWidth = parseFloat(getStyle(this.$refs.thColumn[index], 'width')) - (this.scrollWidth || 0);
@@ -348,7 +348,8 @@ export const UResizeTable = {
             return columnIndex + index;
         },
         handleSize() {
-            setTimeout(() => {
+            clearTimeout(this.timers[2]);
+            this.timers[2] = setTimeout(() => {
                 const headHeight = parseFloat(getStyle(this.$refs.tableHead, 'height')) || 0;
                 const tableHeight = this.$refs.tableBody && this.$refs.tableBody.offsetHeight;
                 this.bodyTableHeight = parseFloat(this.height) - headHeight;
@@ -490,7 +491,7 @@ export const UResizeTable = {
                     item.currentWidth = item.width;
             });
             this.handleSize();
-            setTimeout(() => {
+            this.timers[3] = setTimeout(() => {
                 this.showColumns.forEach((item, index) => {
                     if (index === this.showColumns.length - 1 && this.isYScroll)
                         item.copyWidth = item.currentWidth = item.digitWidth = parseFloat(getStyle(this.$refs.thColumn[index], 'width')) - (this.scrollWidth || 0);
@@ -673,6 +674,9 @@ export const UResizeTable = {
         },
     },
     destroyed() {
+        this.timers.forEach((timer) => {
+            clearTimeout(timer);
+        });
         window.removeEventListener('resize', this.onResize, false);
         document.removeEventListener('mousemove', this.onMouseMove, false);
         document.removeEventListener('mouseup', this.onMouseUp, false);
