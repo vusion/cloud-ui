@@ -1,14 +1,14 @@
 /**
  * Created by th3ee on 2019/8/29.
  */
-export const UChips =  {
+export const UChips = {
     name: 'u-chips',
     props: {
         placeholder: String,
         // 异步校验
         // [{ type: 'async', trigger: 'blur', message: '', validator(rule, value, callback){}]
         // 校验通过，执行callback();校验失败，执行callback(new Error())
-        rules: [Array , String], // 关于输入内容的校验规则
+        rules: [Array, String], // 关于输入内容的校验规则
         listRules: [Array, String], // 关于是否允许为空，是否出现重复以及最大数量的规则
         disabled: Boolean,
         placement: String, // 老的错误提示的显示位置
@@ -19,15 +19,15 @@ export const UChips =  {
         error: String, // 老的验证体系下，空值时的错误提示
         value: {
             type: Array,
-            default: () => []
+            default: () => [],
         }, // chips数组内容
         modifyValue: String, // 保持出错记录需要传递该值
         modifyValueIndex: Number,
         type: String, // 云服务器名称搜索的type为 searchInput
         separators: {
             type: String,
-            default: 'all'
-        }
+            default: 'all',
+        },
     },
     data() {
         return {
@@ -143,14 +143,16 @@ export const UChips =  {
          * @returns {Array}
          */
         emptyRule() {
-            let rules = [];
+            const rules = [];
             if (!this.listRules) {
                 return [];
             }
             if (!this.allowEmpty || this.listRules.indexOf('notEmpty') > -1) {
-                rules.push({required: true, trigger: 'blur', validate: (value, rule, options) => {
-                    return (!this.list.length && !this.item) ? (this.error ? this.error : '至少填入一项') : true;}
-                })
+                rules.push(
+                    { required: true, trigger: 'blur', validate: (value, rule, options) => {
+                        const errorMsg = this.error ? this.error : '至少填入一项';
+                        return (!this.list.length && !this.item) ? errorMsg : true;
+                    } });
             }
             return rules;
         },
@@ -163,12 +165,8 @@ export const UChips =  {
          */
         validationMode() {
             if (Array.isArray(this.rules)) {
-                const oldRules = this.rules.filter(oldRule => {
-                    if ((oldRule.type === 'is' || oldRule.type === 'isNot' || oldRule.type === 'method') && oldRule.options) {
-                        return oldRule;
-                    }
-                });
-                return oldRules.length > 0 ? 'old': 'new';
+                const oldRules = this.rules.filter((oldRule) => ((oldRule.type === 'is' || oldRule.type === 'isNot' || oldRule.type === 'method') && oldRule.options));
+                return oldRules.length > 0 ? 'old' : 'new';
             } else if (typeof this.rules === 'string') {
                 return 'new';
             } else {
@@ -178,13 +176,15 @@ export const UChips =  {
         noSpace() {
             if (this.type === 'searchInput') {
                 return true;
-            } else return this.separators === 'comma' ? true: false;
+            } else
+                return this.separators === 'comma';
         },
         noComma() {
             if (this.type === 'searchInput') {
                 return true;
-            } else return this.separators === 'space' ? true: false;
-        }
+            } else
+                return this.separators === 'space';
+        },
     },
     created() {
         window.addEventListener('keydown', this.onDocKeydown, false);
@@ -216,17 +216,16 @@ export const UChips =  {
             } else {
                 rules = this.listRules || [];
             }
-            let newRules = rules.map(rule => {
+            let newRules = rules.map((rule) => {
                 if (rule.indexOf('noDuplicates') > -1) {
                     return {
                         trigger: 'blur', validate: (value, rule, options) => {
                             if (this.list.indexOf(value) > -1) {
                                 return rule.message ? rule.message : '该输入项已经存在';
                             }
-                        }
-                    }
-                }
-                if (rule.indexOf('maxLength') > -1) {
+                        },
+                    };
+                } else if (rule.indexOf('maxLength') > -1) {
                     let length = 999;
                     rule.replace(/\d+/g, ($1) => {
                         length = parseInt($1);
@@ -236,14 +235,13 @@ export const UChips =  {
                             if (this.list.length === length && value) {
                                 return rule.message ? rule.message : `已经达到输入上限${length}`;
                             }
-                        }
-                    }
-                }
-                if (rule.indexOf('notEmpty') > -1) {
+                        },
+                    };
+                } else {
                     return false;
                 }
             });
-            newRules = newRules.filter(rule => rule);
+            newRules = newRules.filter((rule) => rule);
             if (typeof this.rules === 'string') {
                 return newRules.length === 0 ? this.rules : [this.rules, ...newRules];
             } else if (Array.isArray(this.rules)) {
@@ -304,8 +302,8 @@ export const UChips =  {
                     this.item = list.splice(current, 1)[0];
                     this.$nextTick(() => {
                         this.$refs.cpInput.focus();
-                    })
-                }  else {
+                    });
+                } else {
                     this.modifyItem = list.splice(current, 1)[0];
                     this.$nextTick(() => {
                         this.getCpModifyInput().focus();
@@ -480,7 +478,6 @@ export const UChips =  {
             // 当input内容为空，恢复tab的默认操作
             if (event.which === 9 && modifyItem !== '') {
                 event.preventDefault();
-                //this.generate(modifyItem, true);
                 this.generate(this.modifyItem, true, `modifyValidator`, 'key');
             }
 
@@ -571,7 +568,8 @@ export const UChips =  {
              */
             else if (this.noComma && this.noSpace) {
                 itemArr = [item];
-            } else itemArr = item.split(' '); //
+            } else
+                itemArr = item.split(' '); //
             if (this.async)
                 return this.asyncGenerate(item, isModify, itemArr);
 
@@ -579,7 +577,7 @@ export const UChips =  {
              * 对规则模式进行校验，如果是老规则模式，走u-chips原始校验方法。如果是新规则，走u-chips新校验方法。
              */
             if (this.validationMode === 'new') {
-                this.validateQueue(itemArr, isModify, validator).then(res => {
+                this.validateQueue(itemArr, isModify, validator).then((res) => {
                     /**
                      * 新增状态下和修改状态下，数组的操作方式有所不同，但验证方式是相同的。
                      * 当当前的所有输入内容都通过验证后，应当将对应validator中的value属性同步恢复为空。
@@ -593,7 +591,7 @@ export const UChips =  {
                         this.$refs.cpModifyInput.currentValue = this.modifyItem = '';
                         this.$refs.cpInput.focus();
                     }
-                }).catch(e => {
+                }).catch((e) => {
                     itemArr.splice(0, e);
                     if (!isModify) {
                         this.item = itemArr.join(' ');
@@ -603,17 +601,15 @@ export const UChips =  {
                         this.$refs.cpModifyInput.currentValue = this.modifyItem;
                         this.$refs.cpModifyInput.color = 'error';
                         if (trigger === 'key')
-                        this.getCpModifyInput().focus();
+                            this.getCpModifyInput().focus();
                     }
                 });
             } else {
                 itemArr.every((itm, index) => {
                     this.validate(itm, 'input+blur');
-                    if (this.errMessage)
-                    {
+                    if (this.errMessage) {
                         return false;
-                    }
-                    else {
+                    } else {
                         // 编辑生成项
                         if (isModify) {
                             // 只有正确输入的情况下，才需要先删除之前的项
@@ -630,7 +626,6 @@ export const UChips =  {
                 const str = itemArr.join(' ');
                 isModify ? (this.modifyItem = str) : (this.item = str);
             }
-
         },
         /**
          * 用于检验输入字符的函数，将各个分割后的字符转为按序的promise进行验证
@@ -640,15 +635,16 @@ export const UChips =  {
          * @returns {Promise.<string>}
          */
         async validateQueue(itemArr, isModify, validator) {
-            const targetValidator = Array.isArray(this.$refs[validator]) ? this.$refs[validator][0] :  this.$refs[validator];
-            for (let i = 0 ;i < itemArr.length; i++) {
+            const targetValidator = Array.isArray(this.$refs[validator]) ? this.$refs[validator][0] : this.$refs[validator];
+            for (let i = 0; i < itemArr.length; i++) {
                 try {
                     targetValidator.value = itemArr[i];
-                    let valueValidation = targetValidator.validate('blur');
-                    //let countValidation = this.$refs.countValidator.validate('blur');
-                    await Promise.all([valueValidation]).then(res => {
-                        isModify ? this.list.splice(this.current, 0 ,itemArr[i]) : this.list.push(itemArr[i]);
-                    })
+                    const valueValidation = targetValidator.validate('blur');
+                    // let countValidation = this.$refs.countValidator.validate('blur');
+                    // eslint-disable-next-line no-await-in-loop
+                    await Promise.all([valueValidation]).then((res) => {
+                        isModify ? this.list.splice(this.current, 0, itemArr[i]) : this.list.push(itemArr[i]);
+                    });
                 } catch (e) {
                     throw (i);
                 }
@@ -763,13 +759,13 @@ export const UChips =  {
             const item = this.modifying ? this.modifyItem : this.item;
             if (this.validationMode === 'new') {
                 if (this.modifying) {
-                    this.$refs.modifyValidator[0].validate('input').catch(e => {
+                    this.$refs.modifyValidator[0].validate('input').catch((e) => {
                         throw e;
-                    })
+                    });
                 } else {
-                    this.$refs.textValidator.validate('input').catch(e => {
+                    this.$refs.textValidator.validate('input').catch((e) => {
                         throw e;
-                    })
+                    });
                 }
             } else
                 this.validate(item, 'input+blur');
@@ -811,9 +807,7 @@ export const UChips =  {
          */
         emptyValidate(value = '') {
             if (this.validationMode === 'new') {
-                this.$refs.countValidator.validate('blur').then(res => {
-                }).catch(e => {
-                });
+                this.$refs.countValidator.validate('blur');
             } else {
                 if (!this.allowEmpty && !this.list.length) {
                     this.errMessage = this.error;
