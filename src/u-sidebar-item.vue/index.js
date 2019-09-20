@@ -5,7 +5,13 @@ export default {
     mixins: [SidebarItem],
     methods: {
         watchActive(active) {
-            active && this.groupVM && this.groupVM.toggle(true, this.parentVM.particular);
+            if (active) {
+                let groupVM = this.groupVM;
+                while (groupVM) {
+                    groupVM.toggle && groupVM.toggle(true, this.parentVM.particular);
+                    groupVM = groupVM.parentVM;
+                }
+            }
         },
     },
 };
