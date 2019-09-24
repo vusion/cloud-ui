@@ -54,6 +54,9 @@ export const UCalendar = {
                 this.showDate = new Date(date);
             },
         },
+        formatDate() {
+            return new Date(this.transformDate(this.date));
+        },
         showMonth: {
             get() {
                 const date = this.transformDate(this.showDate);
