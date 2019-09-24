@@ -1,5 +1,5 @@
 <div :class="$style.header">
-    <input :class="$style.input" :placeholder="placeholder" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}"  @change="onInput($event)">
+    <input :class="$style.input" :placeholder="placeholder" @click.stop="$refs.popper.toggle(true)" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}"  @change="onInput($event)">
     <span v-if="showDate && reset" :class="[$style.wrap, $style.close]" @click.stop="resetValue">
         <i :class="[$style.icon, $style.closeIcon]"></i>
     </span>
