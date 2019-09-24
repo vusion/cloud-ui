@@ -4,21 +4,23 @@ $tooltip-arrow-offset: 16px;
 
 .root {
     position: relative;
-    padding: 8px 12px;
-    background: $tooltip-background-color;
     color: white;
     font-size: 12px;
-    border-radius: 2px;
     z-index: $z-index-popper;
 }
-
+.inner {
+    position: relative;
+    padding: 8px 12px;
+    background: $tooltip-background-color;
+    border-radius: 2px;
+}
 .arrow {
     display: block;
     position: absolute;
     border: $tooltip-arrow-size solid transparent;
 }
 
-.root[x-placement^="top"] { margin-bottom: $tooltip-arrow-size; }
+.root[x-placement^="top"] .inner { margin-bottom: $tooltip-arrow-size; }
 .root[x-placement^="top"] .arrow {
     bottom: -$tooltip-arrow-size;
     margin-left: -$tooltip-arrow-size;
@@ -32,7 +34,7 @@ $tooltip-arrow-offset: 16px;
     margin-right: -$tooltip-arrow-size;
 }
 
-.root[x-placement^="bottom"] { margin-top: $tooltip-arrow-size; }
+.root[x-placement^="bottom"] .inner { margin-top: $tooltip-arrow-size; }
 .root[x-placement^="bottom"] .arrow {
     top: -$tooltip-arrow-size;
     margin-left: -$tooltip-arrow-size;
@@ -46,7 +48,7 @@ $tooltip-arrow-offset: 16px;
     margin-right: -$tooltip-arrow-size;
 }
 
-.root[x-placement^="left"] { margin-right: $tooltip-arrow-size; }
+.root[x-placement^="left"] .inner { margin-right: $tooltip-arrow-size; }
 .root[x-placement^="left"] .arrow {
     right: -$tooltip-arrow-size;
     margin-top: -$tooltip-arrow-size;
@@ -60,7 +62,7 @@ $tooltip-arrow-offset: 16px;
     margin-bottom: -$tooltip-arrow-size;
 }
 
-.root[x-placement^="right"] { margin-left: $tooltip-arrow-size; }
+.root[x-placement^="right"] .inner { margin-left: $tooltip-arrow-size; }
 .root[x-placement^="right"] .arrow {
     left: -$tooltip-arrow-size;
     margin-top: -$tooltip-arrow-size;
@@ -115,7 +117,7 @@ $tooltip-arrow-offset: 16px;
     max-height: none;
 }
 
-.root ::-webkit-scrollbar-thumb {
+.inner ::-webkit-scrollbar-thumb {
     border-radius: 3px;
     background: #9da8b3;
 }
