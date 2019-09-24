@@ -191,6 +191,10 @@ export const UDatePicker = {
         },
         format,
         transformDate,
+        closeCalendar() {
+            if (this.showDate)
+                this.$refs.calendar.updateShowDate(this.showDate);
+        },
         returnTime(date) {
             if (!date)
                 return;

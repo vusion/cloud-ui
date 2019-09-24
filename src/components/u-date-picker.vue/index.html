@@ -3,9 +3,9 @@
     <span v-if="showDate && reset" :class="[$style.wrap, $style.close]" @click.stop="resetValue">
         <i :class="[$style.icon, $style.closeIcon]"></i>
     </span>
-    <m-popper :class="$style.popper" ref="popper" appendTo="reference" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)">
+    <m-popper :class="$style.popper" ref="popper" appendTo="reference" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="closeCalendar">
         <div :class="$style.body" @click.stop>
-            <u-calendar :minDate="minDate" :year-diff="yearDiff" :year-add="yearAdd" :maxDate="maxDate" :date="showDate" @select="select($event.date)"/>
+            <u-calendar ref="calendar" :minDate="minDate" :year-diff="yearDiff" :year-add="yearAdd" :maxDate="maxDate" :date="showDate" @select="select($event.date)"/>
         </div>
     </m-popper>
 </div>
