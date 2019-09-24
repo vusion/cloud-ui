@@ -158,6 +158,9 @@ export default {
 ```
 
 #### 指定偏移距离
+
+`trigger="hover"` 不能和 `offset`（设置过长的垂直高度）同时使用（参见例2）。
+
 ``` html
 <u-linear-layout>
     <u-button>hover（默认）
@@ -165,6 +168,9 @@ export default {
     </u-button>
     <u-button>hover（默认）
         <u-tooltip offset="10% 10px" content="Tooltip" trigger="hover"></u-tooltip>
+    </u-button>
+    <u-button>click（默认）
+        <u-tooltip offset="10% 10px" content="Tooltip" trigger="click"></u-tooltip>
     </u-button>
 </u-linear-layout>
 ```
