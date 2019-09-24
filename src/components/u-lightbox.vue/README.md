@@ -8,7 +8,7 @@
 <template>
 <div>
     <u-lightbox :visible.sync="visible" :closeButton="true">
-        <u-lightbox-item title="图片预览"><img src="/cloud-ui/images/1.jpg" /></u-lightbox-item>
+        <u-lightbox-item title="图片预览"><img :src="src" /></u-lightbox-item>
     </u-lightbox>
     <u-linear-layout>
         <u-button @click="visible = true">Open Lightbox</u-button>
@@ -20,6 +20,7 @@ export default {
     data() {
         return {
             visible: false,
+            src: require('@/components/u-lightbox.vue/assets/2.jpg'),
         };
     },
 };
@@ -35,7 +36,7 @@ export default {
         <u-lightbox-item v-for="(image, index) in images" :key="index" :value="index" :title="image.title"><img :src="image.src" /></u-lightbox-item>
     </u-lightbox>
     <u-linear-layout>
-        <img style="width: 300px;" v-for="(image, index) in images" :src="image.src"  @click="showLightbox(index)"/>
+        <img style="height: 60px;width:60px" v-for="(image, index) in images" :src="image.src"  @click="showLightbox(index)"/>
     </u-linear-layout>
 </div>
 </template>
@@ -44,7 +45,7 @@ export default {
     data() {
         return {
             visible: false,
-            images: [{src:'/cloud-ui/images/1.jpg', title:'图片1'}, {src:'/cloud-ui/images/2.jpg', title: '图片2'}],
+            images: [{src:require('@/components/u-lightbox.vue/assets/1.jpg'), title:'图片1'}, {src:require('@/components/u-lightbox.vue/assets/2.jpg'), title: '图片2'}],
             showItem: 0,
         };
     },
