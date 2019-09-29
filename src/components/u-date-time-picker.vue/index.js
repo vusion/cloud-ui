@@ -70,6 +70,18 @@ export const UDateTimePicker = {
         spMaxTime() {
             return this.format(this.currentMaxDate, 'HH:mm:ss');
         },
+        disabledNow() {
+            const date = new Date();
+            const { minDate, currentMaxDate } = this;
+            let disabled = false;
+            if (minDate) {
+                disabled = date < this.transformDate(minDate);
+            }
+            if (!disabled && currentMaxDate) {
+                disabled = date > this.transformDate(currentMaxDate);
+            }
+            return disabled;
+        },
     },
     directives: {
         clickOutside,
@@ -200,15 +212,21 @@ export const UDateTimePicker = {
          */
         onInput($event) {
             const value = $event.target.value;
+            this.updateDate(value);
+        },
+        updateDate(value) {
             let date = value ? new Date(value) : null;
 
             if (date !== null && date.toString() !== 'Invalid Date') {
-                date = this.isOutOfRange(date) ? this.isOutOfRange(date) : date;
+                date = this.isOutOfRange(date) || date;
                 this.dateTime = this.format(date, 'yyyy-MM-dd HH:mm:ss');
             } else {
                 this.$refs.input.value = '';
                 this.dateTime = '';
             }
+        },
+        setDateNow() {
+            this.updateDate(new Date());
         },
         /**
          * @method isOutOfRange(date) 是否超出规定的日期时间范围
