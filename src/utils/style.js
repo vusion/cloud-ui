@@ -95,3 +95,12 @@ export const getScrollSize = function () {
 
     return widthContained - widthScroll;
 };
+
+export function checkIntoView(elm, parentScrollElm) {
+    const rect = elm.getBoundingClientRect();
+    const viewHeight = getSize(parentScrollElm).height;
+    const parentTop = parentScrollElm.getBoundingClientRect().top;
+    const top = rect.top - parentTop;
+    const bottom = rect.bottom - parentTop;
+    return bottom >= 0 && top - viewHeight < 0;
+}
