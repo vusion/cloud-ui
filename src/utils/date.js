@@ -6,15 +6,25 @@ export const format = function format(value, type) {
         return str.padStart(2, '0');
     };
     const maps = {
-        yyyy(date) { return date.getFullYear(); },
+        yyyy(date) {
+            if (process.env.NODE_ENV === 'development') {
+                console.warn('use YYYY instead of yyyy in YYYY-MM-DD');
+            }
+            return date.getFullYear();
+        },
         YYYY(date) { return date.getFullYear(); },
         MM(date) { return fix(date.getMonth() + 1); },
-        dd(date) { return fix(date.getDate()); },
+        dd(date) {
+            if (process.env.NODE_ENV === 'development') {
+                console.warn('use DD instead of dd in YYYY-MM-DD');
+            }
+            return fix(date.getDate());
+        },
         DD(date) { return fix(date.getDate()); },
         HH(date) { return fix(date.getHours()); },
         mm(date) { return fix(date.getMinutes()); },
         ss(date) { return fix(date.getSeconds()); },
-    }; // 后续禁止使用 yyyy dd，根据通用规范含义表达不对
+    };
     const trunk = new RegExp(Object.keys(maps).join('|'), 'g');
     type = type || 'YYYY-MM-DD HH:mm';
     if (typeof value === 'string')
