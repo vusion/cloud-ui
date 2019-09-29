@@ -1,5 +1,6 @@
 const MS_OF_DAY = 24 * 3600 * 1000;
 import i18n from './i18n';
+import { format, transformDate } from '../../utils/date';
 
 export const UCalendar = {
     name: 'u-calendar',
@@ -126,26 +127,7 @@ export const UCalendar = {
         // 月份发生变化需要监听 会影响日的选择
     },
     filters: {
-        format(value, type) {
-            if (!value)
-                return '';
-            const fix = (str) => {
-                str = '' + (String(str) || '');
-                return str.length <= 1 ? '0' + str : str;
-            };
-            const maps = {
-                yyyy(date) { return date.getFullYear(); },
-                MM(date) { return fix(date.getMonth() + 1); },
-                dd(date) { return fix(date.getDate()); },
-                HH(date) { return fix(date.getHours()); },
-                mm(date) { return fix(date.getMinutes()); },
-                ss(date) { return fix(date.getSeconds()); },
-            };
-            const trunk = new RegExp(Object.keys(maps).join('|'), 'g');
-            type = type || 'yyyy-MM-dd HH:mm';
-            value = new Date(value);
-            return type.replace(trunk, (capture) => maps[capture] ? maps[capture](value) : '');
-        },
+        format,
     },
     created() {
         this.update();
@@ -348,20 +330,7 @@ export const UCalendar = {
             // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期
             return (minDate && date < minDate && minDate) || (maxDate && date > maxDate && maxDate);
         },
-        transformDate(date) {
-            if (!date)
-                return;
-            if (typeof date === 'string')
-                return new Date(date.replace(/-/g, '/'));
-            else if (typeof date === 'number')
-                return new Date(date);
-            else if (typeof date === 'object')
-                return date;
-        },
-        fix(str) {
-            str = '' + (String(str) || '');
-            return str.length <= 1 ? '0' + str : str;
-        },
+        transformDate,
     },
 };
 
