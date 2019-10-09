@@ -9,7 +9,7 @@
                         {{ camelName ? material.CamelName : material.name }}
                         <u-label v-if="material.deprecated" style="background: #6c80a1;">废弃</u-label>
                         <small v-else :class="$style.alias">{{ material.alias }}</small>
-                        <u-label v-if="material.newest" color="primary">新的</u-label>
+                        <u-label v-if="material.newest" color="primary">NEW</u-label>
                     </u-sidebar-item>
                 </template>
                 <u-sidebar-group v-else :key="group.name" :title="group.name">
@@ -18,7 +18,7 @@
                         {{ camelName ? material.CamelName : material.name }}
                         <u-label v-if="material.deprecated" style="background: #6c80a1;">废弃</u-label>
                         <small v-else :class="$style.alias">{{ material.alias }}</small>
-                        &nbsp;<u-label v-if="material.newest" color="primary">新的</u-label>
+                        &nbsp;<u-label v-if="material.newest" color="primary">NEW</u-label>
                     </u-sidebar-item>
                 </u-sidebar-group>
             </template>

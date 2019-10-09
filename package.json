@@ -8,17 +8,12 @@
     "ChenWeiYuan123 <360411956@qq.com>",
     "zou-xinhua <m15616168428@163.com>"
   ],
-  "bin": {
-    "cloud-ui-custom": "bin/cloud-ui-custom"
-  },
   "main": "./index.js",
   "scripts": {
-    "doc": "vue-cli-service doc",
-    "doc-build": "vue-cli-service doc-build && vue-cli-service doc-build --no-clean --theme seagreen && vue-cli-service doc-build --no-clean --theme dark",
-    "build": "vue-cli-service library-build && vue-cli-service library-build --no-clean --theme seagreen && vue-cli-service library-build --no-clean --theme dark",
+    "doc": "vue-cli-service doc --port 9001",
+    "doc-build": "vue-cli-service doc-build --theme dark,seagreen",
+    "build": "vue-cli-service library-build --theme dark,seagreen",
     "build-raw": "vue-cli-service library-build --vusion-mode raw",
-    "doc-build:all": "vue-cli-service doc-build  --theme dark,seagreen",
-    "build:all": "vue-cli-service library-build  --theme dark,seagreen",
     "lint": "vue-cli-service lint"
   },
   "repository": "vusion/cloud-ui",
@@ -60,7 +55,7 @@
     "stylelint": "^9.3.0",
     "stylelint-config-vusion": "^1.1.2",
     "vue": "^2.6.10",
-    "vue-cli-plugin-vusion": "^0.5.13",
+    "vue-cli-plugin-vusion": "^0.6.0",
     "vue-template-compiler": "^2.6.10",
     "vusion-hooks": "^0.3.0"
   },
