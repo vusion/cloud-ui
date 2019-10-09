@@ -1,9 +1,0 @@
-@hook;
-
-.root {
-    color: #9dabc2;
-}
-
-.root[selected] {
-    background: #1c324f;
-}

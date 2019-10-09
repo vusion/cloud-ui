@@ -2,3 +2,12 @@
 
 $brand-primary: #2cb78e;
 $sidebar-background-color: #f0f6fa;
+
+/* Sidebar */
+$sidebar-item-default-background: #e2e6f7;
+$sidebar-item-selected-background: $brand-primary;
+$sidebar-item-disabled-color: #cdcdcd;
+$sidebar-item-hover-color: $brand-primary;
+$sidebar-group-head-hover-color: $brand-primary;
+$sidebar-group-head-selected-color: $brand-primary;
+$sidebar-divider-background: #ccc;

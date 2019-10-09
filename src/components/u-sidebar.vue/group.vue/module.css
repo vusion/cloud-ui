@@ -30,8 +30,11 @@
 }
 
 .head:hover {
-    color: white;
+    color: $sidebar-group-head-hover-color;
     /* background-color: #dde8f0; */
+}
+.head[selected] {
+    color: $sidebar-group-head-selected-color;
 }
 
 /* @TODO: replace by icon-font */

@@ -2,3 +2,10 @@
 
 $brand-primary: #4a89e8;
 $sidebar-background-color: #294265;
+
+/* Sidebar */
+$sidebar-item-default-color: #9dabc2;
+$sidebar-item-selected-background: #1c324f;
+$sidebar-group-head-hover-color: $brand-primary;
+$sidebar-group-head-selected-color: $brand-primary;
+$sidebar-divider-background: #374d6e;

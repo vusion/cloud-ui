@@ -155,3 +155,14 @@ $theme-dark-chart-rgba-color9: rgba(135, 206, 232, 0.1);
 
 $theme-dark-chart-color10: rgb(97, 218, 198);
 $theme-dark-chart-rgba-color10: rgba(97, 218, 198, 0.1);
+
+/* Sidebar */
+$sidebar-item-default-color: #8594aa;
+$sidebar-item-default-background: transparent;
+$sidebar-item-selected-background: #252b33;
+$sidebar-item-selected-color: white;
+$sidebar-item-disabled-color: #586475;
+$sidebar-item-hover-color: white;
+$sidebar-group-head-hover-color: white;
+$sidebar-group-head-selected-color: transparent;
+$sidebar-divider-background: #3d4654;
