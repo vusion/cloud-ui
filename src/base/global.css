@@ -137,3 +137,14 @@ $sidebar-item-hover-color: white;
 $sidebar-group-head-hover-color: white;
 $sidebar-group-head-selected-color: transparent;
 $sidebar-divider-background: #3d4654;
+
+/* others */
+$link-default-color: #5494db;
+$navbar-default-background: #343e4f;
+$navbar-select-hover-background: none;
+$navbar-select-focused-background: none;
+$subnav-item-default-color: #666;
+$subnav-item-hover-color: $brand-primary;
+$subnav-item-hover-background: #f6f7f9;
+$subnav-item-selected-color: $brand-primary;
+$subnav-item-selected-background: white;
