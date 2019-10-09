@@ -3,6 +3,10 @@
 $brand-primary: #4a89e8;
 $sidebar-background-color: #294265;
 
+/* theme Chart Colors */
+$theme-chart-background-base: rgb(97, 218, 198);
+$theme-chart-line-area-fill: rgba(97, 218, 198, 0.1);
+
 /* Sidebar */
 $sidebar-item-default-color: #9dabc2;
 $sidebar-item-selected-background: #1c324f;
