@@ -1,6 +1,7 @@
 import { getStyle, getScrollSize } from '../../utils/style';
 import { ellipsisTitle } from 'proto-ui.vusion/src/directives';
 import { deepCopy } from '../../utils/index';
+import { format } from '../../utils/date';
 import i18n from './i18n';
 // import throttle from 'lodash/throttle';
 
@@ -696,37 +697,8 @@ export const UOldTableView = {
         onResize() {
             this.handleResize();
         },
-        translateTime(value, format) {
-            if (!value)
-                return this.defaultText;
-            const self = this;
-            const maps = {
-                YYYY(date) {
-                    return date.getFullYear();
-                },
-                MM(date) {
-                    return self.fixDate(date.getMonth() + 1);
-                },
-                DD(date) {
-                    return self.fixDate(date.getDate());
-                },
-                HH(date) {
-                    return self.fixDate(date.getHours());
-                },
-                mm(date) {
-                    return self.fixDate(date.getMinutes());
-                },
-                ss(date) {
-                    return self.fixDate(date.getSeconds());
-                },
-            };
-            const date = new Date(value);
-            const pattern = new RegExp(Object.keys(maps).join('|'), 'g');
-            return format.replace(pattern, (capture) => maps[capture] ? maps[capture](date) : '');
-        },
-        fixDate(value) {
-            value = '' + value;
-            return value.length <= 1 ? '0' + value : value;
+        translateTime(value, formatType) {
+            return format(value, formatType) || this.defaultText;
         },
         // onMouseWheel(e) {
         //     const direction = e.wheelDelta / 120 > 0 ? -1 : 1;
