@@ -40,6 +40,36 @@ $group_size: 120px;
 .item:nth-child(8) { fill: $theme-chart-color8; }
 .item:nth-child(9) { fill: $theme-chart-color9; }
 .item:nth-child(10) { fill: $theme-chart-color10; }
+.item:nth-child(11) {
+    fill: $theme-chart-color11;
+}
+.item:nth-child(12) {
+    fill: $theme-chart-color12;
+}
+.item:nth-child(13) {
+    fill: $theme-chart-color13;
+}
+.item:nth-child(14) {
+    fill: $theme-chart-color14;
+}
+.item:nth-child(15) {
+    fill: $theme-chart-color15;
+}
+.item:nth-child(16) {
+    fill: $theme-chart-color16;
+}
+.item:nth-child(17) {
+    fill: $theme-chart-color17;
+}
+.item:nth-child(18) {
+    fill: $theme-chart-color18;
+}
+.item:nth-child(19) {
+    fill: $theme-chart-color19;
+}
+.item:nth-child(20) {
+    fill: $theme-chart-color20;
+}
 
 .item[color][color="info"] { fill: $brand-info; }
 .item[color][color="warning"] { fill: $brand-warning; }
