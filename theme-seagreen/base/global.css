@@ -3,6 +3,18 @@
 $brand-primary: #2cb78e;
 $sidebar-background-color: #f0f6fa;
 
+/* Button */
+$button-hover-background: #ebebeb;
+$button-hover-color: #333;
+$button-hover-border-color: #cdcdcd;
+$button-disabled-background: #cbcbcb;
+$button-disabled-color: white;
+$button-disabled-border-color: #cbcbcb;
+$button-primary-hover-background: #3dcca1;
+$button-primary-hover-color: white;
+$button-primary-disabled-background: #cbcbcb;
+$button-primary-disabled-color: $button-primary-color;
+
 /* theme Chart Colors */
 $theme-chart-background-base: rgba(97, 218, 198, 0.6);
 
@@ -65,7 +77,6 @@ $theme-chart-rgba-color19: rgba(92, 208, 133, 0.6);
 
 $theme-chart-color20: rgb(241, 126, 248);
 $theme-chart-rgba-color20: rgba(241, 126, 248, 0.6);
-
 
 /* Sidebar */
 $sidebar-item-default-background: #e2e6f7;

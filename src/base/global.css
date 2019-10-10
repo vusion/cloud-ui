@@ -127,6 +127,22 @@ $theme-chart-rgba-color19: rgba(92, 208, 133, 0.1);
 $theme-chart-color20: rgb(241, 126, 248);
 $theme-chart-rgba-color20: rgba(241, 126, 248, 0.1);
 
+/* Button */
+$button-background: white;
+$button-hover-color: $brand-primary;
+$button-hover-border-color: $brand-primary;
+$button-hover-background: white;
+
+$button-border-radius-base: $border-radius-base;
+$button-primary-disabled-color: white;
+$button-primary-disabled-background: #d9d9d9;
+$button-primary-color: white;
+$button-disabled-color: #ccc;
+$button-disabled-border-color: #ddd;
+$button-disabled-background: white;
+$button-primary-hover-background: #5b96d9;
+$button-primary-hover-color: $button-primary-color;
+
 /* Sidebar */
 $sidebar-item-default-color: #8594aa;
 $sidebar-item-default-background: transparent;
