@@ -142,43 +142,43 @@ $m-chart_legend_height: 20px;
     background: $theme-chart-color10;
 }
 .item:nth-of-type(11)::before {
-    border-color: $theme-chart-color11;
+    background: $theme-chart-color11;
 }
 
 .item:nth-of-type(12)::before {
-    border-color: $theme-chart-color12;
+    background: $theme-chart-color12;
 }
 
 .item:nth-of-type(13)::before {
-    border-color: $theme-chart-color13;
+    background: $theme-chart-color13;
 }
 
 .item:nth-of-type(14)::before {
-    border-color: $theme-chart-color14;
+    background: $theme-chart-color14;
 }
 
 .item:nth-of-type(15)::before {
-    border-color: $theme-chart-color15;
+    background: $theme-chart-color15;
 }
 
 .item:nth-of-type(16)::before {
-    border-color: $theme-chart-color16;
+    background: $theme-chart-color16;
 }
 
 .item:nth-of-type(17)::before {
-    border-color: $theme-chart-color17;
+    background: $theme-chart-color17;
 }
 
 .item:nth-of-type(18)::before {
-    border-color: $theme-chart-color18;
+    background: $theme-chart-color18;
 }
 
 .item:nth-of-type(19)::before {
-    border-color: $theme-chart-color19;
+    background: $theme-chart-color19;
 }
 
 .item:nth-of-type(20)::before {
-    border-color: $theme-chart-color20;
+    background: $theme-chart-color20;
 }
 
 .item[disabled] {
