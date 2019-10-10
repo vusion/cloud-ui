@@ -6,7 +6,7 @@
 
     height: 52px;
     line-height: 52px;
-    color: #9dabc2;
+    color: $sidebar-group-head-color;
     padding-left: 20px;
     transition: color 0.2s;
     position: relative;

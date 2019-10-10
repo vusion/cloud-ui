@@ -145,13 +145,14 @@ $button-primary-hover-color: $button-primary-color;
 
 /* Sidebar */
 $sidebar-item-default-color: #8594aa;
-$sidebar-item-default-background: transparent;
+$sidebar-item-default-background: none;
 $sidebar-item-selected-background: #252b33;
 $sidebar-item-selected-color: white;
 $sidebar-item-disabled-color: #586475;
 $sidebar-item-hover-color: white;
 $sidebar-group-head-hover-color: white;
-$sidebar-group-head-selected-color: transparent;
+$sidebar-group-head-color: #9dabc2;
+$sidebar-group-head-selected-color: $sidebar-group-head-color;
 $sidebar-divider-background: #3d4654;
 
 /* others */
