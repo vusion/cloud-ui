@@ -84,6 +84,13 @@ export const UCalendar = {
             this.showDate = this.transformDate(newValue);
             this.updateFlag = true;
         },
+        yearvisible(yearvisible) {
+            if (yearvisible) {
+                this.$nextTick(() => {
+                    this.$refs.yearList.ensureFocusedInView(true);
+                });
+            }
+        },
         showDate(newValue) {
             // 如果超出日期范围，则设置为范围边界的日期
             const isOutOfRange = this.isOutOfRange(newValue);

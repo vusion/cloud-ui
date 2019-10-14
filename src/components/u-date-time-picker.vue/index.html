@@ -10,7 +10,7 @@
                     <div :class="$style.footer">
                         <u-linear-layout justify="end">
                             <u-button size="small" @click="setDateNow()" :readonly="readonly" :disabled="disabled || disabledNow">{{ $t('now') }}</u-button>
-                            <u-button size="small" @click="toggle(false)" :readonly="readonly" :disabled="disabled">{{ $t('submit') }}</u-button>
+                            <u-button size="small" @click="toggle(false)" color="primary" :readonly="readonly" :disabled="disabled">{{ $t('submit') }}</u-button>
                         </u-linear-layout>
                     </div>
                 </slot>
