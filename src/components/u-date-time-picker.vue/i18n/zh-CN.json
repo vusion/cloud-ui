@@ -1,3 +1,5 @@
 {
-    "selectTimeText": "请选择时间"
+    "selectTimeText": "请选择时间",
+    "now": "此刻",
+    "submit": "确定"
 }
