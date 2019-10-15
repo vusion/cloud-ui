@@ -105,20 +105,21 @@ export const UTimePicker = {
         showTime(newValue) {
             if (!newValue)
                 throw new TypeError('Invalid Time');
-
+            const showTime = newValue;
             // 如果超出时间范围，则设置为范围边界的时间
             const isOutOfRange = this.isOutOfRange(newValue);
             if (isOutOfRange)
                 return this.showTime = isOutOfRange;
 
-            const currentHour = this.showTime.split(':')[0] / 1;
-            const currentMinute = this.showTime.split(':')[1] / 1;
-            // const currentSecond = this.showTime.split(':')[2] / 1;
-            if (this.showTime === this.minTime) {
+            const showTimeArr = showTime.split(':');
+            const currentHour = showTimeArr[0] / 1;
+            const currentMinute = showTimeArr[1] / 1;
+            // const currentSecond = showTimeArr[2] / 1;
+            if (showTime === this.minTime) {
                 this.hourmin = this.sphourmin;
                 this.minutemin = this.spminutemin;
                 this.secondmin = this.spsecondmin;
-            } else if (this.showTime === this.maxTime) {
+            } else if (showTime === this.maxTime) {
                 this.hourmax = this.sphourmax;
                 this.minutemax = this.spminutemax;
                 this.secondmax = this.spsecondmax;
@@ -171,9 +172,10 @@ export const UTimePicker = {
         },
         minTime(newValue, oldValue) {
             if (newValue) {
-                this.hourmin = newValue.split(':')[0] / 1;
-                this.minutemin = newValue.split(':')[1] / 1;
-                this.secondmin = newValue.split(':')[2] / 1;
+                const newValueArr = newValue.split(':');
+                this.hourmin = newValueArr[0] / 1;
+                this.minutemin = newValueArr[1] / 1;
+                this.secondmin = newValueArr[2] / 1;
             } else {
                 this.hourmin = HOUR_MIN;
                 this.minutemin = MINUTE_MIN;
@@ -182,9 +184,10 @@ export const UTimePicker = {
         },
         maxTime(newValue, oldValue) {
             if (newValue) {
-                this.hourmax = newValue.split(':')[0] / 1;
-                this.minutemax = newValue.split(':')[1] / 1;
-                this.secondmax = newValue.split(':')[2] / 1;
+                const newValueArr = newValue.split(':');
+                this.hourmax = newValueArr[0] / 1;
+                this.minutemax = newValueArr[1] / 1;
+                this.secondmax = newValueArr[2] / 1;
             } else {
                 this.hourmax = HOUR_MAX;
                 this.minutemax = MINUTE_MAX;
@@ -219,12 +222,15 @@ export const UTimePicker = {
             this.showTime = this.getTime(this.hour, this.minute, second);
         },
         getTime(hour, minute, second) {
-            return this.minUnit === 'second' ? `${this.getNumberString(hour)}:${this.getNumberString(minute)}:${this.getNumberString(second)}` : `${this.getNumberString(hour)}:${this.getNumberString(minute)}`;
-        },
-        getNumberString(value) {
-            value = +value;
-            value = value < 10 ? '0' + value : value;
-            return value;
+            const fix = (str) => {
+                str = '' + (String(str) || '');
+                return str.padStart(2, '0');
+            };
+            const formatTime = [fix(hour), fix(minute)];
+            if (this.minUnit === 'second') {
+                formatTime.push(fix(second));
+            }
+            return formatTime.join(':');
         },
     },
 };

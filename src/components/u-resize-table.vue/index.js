@@ -1,5 +1,6 @@
 import { ellipsisTitle } from 'proto-ui.vusion/src/directives';
 import { getStyle, getScrollSize } from '../../utils/style';
+import { format } from '../../utils/date';
 // import { deepCopy } from '../../utils/index';
 import cloneDeep from 'lodash/cloneDeep';
 import i18n from './i18n';
@@ -574,36 +575,8 @@ export const UResizeTable = {
                 });
             }
         },
-        translateTime(value, format) {
-            if (!value)
-                return this.defaultText;
-            const maps = {
-                YYYY(date) {
-                    return date.getFullYear();
-                },
-                MM(date) {
-                    return this.fixDate(date.getMonth() + 1);
-                },
-                DD(date) {
-                    return this.fixDate(date.getDate());
-                },
-                HH(date) {
-                    return this.fixDate(date.getHours());
-                },
-                mm(date) {
-                    return this.fixDate(date.getMinutes());
-                },
-                ss(date) {
-                    return this.fixDate(date.getSeconds());
-                },
-            };
-            const date = new Date(value);
-            const pattern = new RegExp(Object.keys(maps).join('|'), 'g');
-            return format.replace(pattern, (capture) => maps[capture] ? maps[capture].apply(this, [date]) : '');
-        },
-        fixDate(value) {
-            value = '' + value;
-            return value.length <= 1 ? '0' + value : value;
+        translateTime(value, formatType) {
+            return format(value, formatType) || this.defaultText;
         },
         showExpandIcon(column, value) {
             if (column.expandStrict) {
