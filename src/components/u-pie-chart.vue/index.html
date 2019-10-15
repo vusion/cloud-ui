@@ -20,7 +20,7 @@
                             <u-chart-tooltip type="piechart" :row="item" :vnode="$scopedSlots.tooltip"></u-chart-tooltip>
                         </m-popper>
                     </circle>
-                    <path v-else :class="$style.item" :d="getD(item)"
+                    <path v-else :class="$style.item" :d="item.d"
                         :color="item.color" :style="{ fill: item.color }"
                         :selected="item === selectedItem" @mouseover="onMouseOver(item)">
                         <m-popper :class="$style.tooltip" trigger="hover" placement="right-start" offset="0 10" follow-cursor>
