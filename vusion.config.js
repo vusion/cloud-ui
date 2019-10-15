@@ -142,6 +142,7 @@ module.exports = {
         ],
         vendors: [
             { group: 'Editors', name: 'x-ace-editor', alias: '代码编辑器' },
+            { group: 'Editors', name: 'x-highlight', alias: '代码高亮', path: 'x-highlight.vue/README.md' },
             { group: 'Charts', name: 'x-echarts', alias: '百度图表' },
             { group: 'Icon Set', name: 'i-font-awesome', path: 'i-font-awesome.vue/README.md' },
             { group: 'Icon Set', name: 'i-line-awesome', path: 'i-line-awesome.vue/README.md' },

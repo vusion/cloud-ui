@@ -1,0 +1,7 @@
+@extend;
+
+.root {
+    width: 16px;
+    height: 16px;
+    line-height: 14px;
+}
