@@ -37,7 +37,7 @@
   "dependencies": {
     "countup.js": "^1.9.3",
     "lodash": "^4.17.5",
-    "proto-ui.vusion": "^0.4.20",
+    "proto-ui.vusion": "^0.4.21",
     "vusion-utils": "^0.4.4"
   },
   "devDependencies": {
