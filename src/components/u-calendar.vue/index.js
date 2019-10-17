@@ -54,6 +54,9 @@ export const UCalendar = {
                 this.showDate = new Date(date);
             },
         },
+        formatDate() {
+            return new Date(this.transformDate(this.date));
+        },
         showMonth: {
             get() {
                 const date = this.transformDate(this.showDate);
@@ -82,8 +85,7 @@ export const UCalendar = {
     },
     watch: {
         date(newValue) {
-            this.showDate = this.transformDate(newValue);
-            this.updateFlag = true;
+            this.updateShowDate(newValue);
         },
         yearvisible(yearvisible) {
             if (yearvisible) {
@@ -140,6 +142,13 @@ export const UCalendar = {
         this.update();
     },
     methods: {
+        updateShowDate(newValue) {
+            const newDate = this.transformDate(newValue);
+            if ((newDate - 0) !== (this.showDate - 0)) {
+                this.showDate = newDate;
+                this.updateFlag = true;
+            }
+        },
         yearSelect(value) {
             this.showYear = value;
             this.yearvisible = false;
