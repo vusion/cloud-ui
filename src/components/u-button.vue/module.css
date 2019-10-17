@@ -39,6 +39,11 @@
 /**
  * Size extends
  */
+.root[size="mini"] {
+    height: 24px;
+    line-height: 24px;
+    padding: 0 8px;
+}
 
 .root[size="small"] {
     height: 30px;
