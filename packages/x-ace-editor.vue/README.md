@@ -67,7 +67,7 @@ export default {
 
 ``` vue
 <template>
-<x-ace-editor v-model="value" lang="json" theme="monokai" themeMode="follow"></x-ace-editor>
+<x-ace-editor v-model="value" lang="json" theme="monokai"></x-ace-editor>
 </template>
 <script>
 import 'brace';
@@ -114,4 +114,4 @@ export default {
 | disabled | Boolean | `false` | 是否禁用 |
 | options | Object |  | 配置项对象 |
 | autofocus | Boolean | `false` | 默认focus状态 |
-| themeMode | String | `no-follow` | `no-follow`、`follow` 两种设置，其中 `no-follow` 对 `ace` 的默认主题做了一定的样式优化，如果不使用默认主题的话，请将此选项设置成 `follow` |
+

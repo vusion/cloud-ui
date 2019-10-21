@@ -1,26 +1,26 @@
 @import 'x-ace-editor.vue/module.css';
 
-.root.customTheme[class] {
+.root:not([theme])[class] {
     border-color: #f5f7f9;
     background-color: #f5f7f9;
     padding-top: 16px;
     font-size: 14px;
 }
 
-.root.customTheme :global(.ace_gutter) {
+.root:not([theme]) :global(.ace_gutter) {
     background-color: #f5f7f9;
     top: 16px;
 }
 
-.root.customTheme :global(.ace_scroller) {
+.root:not([theme]) :global(.ace_scroller) {
     top: 16px;
 }
 
-.root.customTheme :global(.ace_variable) {
+.root:not([theme]) :global(.ace_variable) {
     color: #c27919;
 }
 
-.root.customTheme :global(.ace_marker-layer) :global(.ace_active-line),
-.root.customTheme :global(.ace_gutter-active-line) {
+.root:not([theme]) :global(.ace_marker-layer) :global(.ace_active-line),
+.root:not([theme]) :global(.ace_gutter-active-line) {
     background: #ecf1f6;
 }
