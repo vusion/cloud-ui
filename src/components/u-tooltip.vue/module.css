@@ -18,12 +18,28 @@ $tooltip-arrow-offset: 16px;
     border: $tooltip-arrow-size solid transparent;
 }
 
+/**
+ - 扩大区域鼠标 hover 区域
+ - 保证原来的 .root 可以直接控制样式
+*/
+.root::before {
+    content: '';
+    display: block;
+    position: absolute;
+}
+
 .root[x-placement^="top"] { margin-bottom: $tooltip-arrow-size; }
 .root[x-placement^="top"] .arrow {
     bottom: -$tooltip-arrow-size;
     margin-left: -$tooltip-arrow-size;
     border-width: $tooltip-arrow-size $tooltip-arrow-size 0;
     border-top-color: $tooltip-background-color;
+}
+.root[x-placement^="top"]::before {
+    left: 0;
+    right: 0;
+    height: $tooltip-arrow-size;
+    bottom: -$tooltip-arrow-size;
 }
 .root[x-placement="top-start"] .arrow { left: $tooltip-arrow-offset; }
 .root[x-placement="top"] .arrow { left: 50%; }
@@ -39,6 +55,12 @@ $tooltip-arrow-offset: 16px;
     border-width: 0 $tooltip-arrow-size $tooltip-arrow-size;
     border-bottom-color: $tooltip-background-color;
 }
+.root[x-placement^="bottom"]::before {
+    left: 0;
+    right: 0;
+    height: $tooltip-arrow-size;
+    top: -$tooltip-arrow-size;
+}
 .root[x-placement="bottom-start"] .arrow { left: $tooltip-arrow-offset; }
 .root[x-placement="bottom"] .arrow { left: 50%; }
 .root[x-placement="bottom-end"] .arrow {
@@ -53,6 +75,12 @@ $tooltip-arrow-offset: 16px;
     border-width: $tooltip-arrow-size 0 $tooltip-arrow-size $tooltip-arrow-size;
     border-left-color: $tooltip-background-color;
 }
+.root[x-placement^="left"]::before {
+    top: 0;
+    bottom: 0;
+    width: $tooltip-arrow-size;
+    right: -$tooltip-arrow-size;
+}
 .root[x-placement="left-start"] .arrow { top: $tooltip-arrow-offset; }
 .root[x-placement="left"] .arrow { top: 50%; }
 .root[x-placement="left-end"] .arrow {
@@ -66,6 +94,12 @@ $tooltip-arrow-offset: 16px;
     margin-top: -$tooltip-arrow-size;
     border-width: $tooltip-arrow-size $tooltip-arrow-size $tooltip-arrow-size 0;
     border-right-color: $tooltip-background-color;
+}
+.root[x-placement^="right"]::before {
+    top: 0;
+    bottom: 0;
+    width: $tooltip-arrow-size;
+    right: -$tooltip-arrow-size;
 }
 .root[x-placement="right-start"] .arrow { top: $tooltip-arrow-offset; }
 .root[x-placement="right"] .arrow { top: 50%; }

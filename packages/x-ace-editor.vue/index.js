@@ -12,6 +12,10 @@ export const XAceEditor = {
                 };
             },
         },
+        themeMode: {
+            type: String,
+            default: 'no-follow',
+        },
     },
 };
 
