@@ -40,7 +40,7 @@
 .item[disabled] {
     background: 0 0;
     color: #999;
-    cursor: not-allowed;
+    cursor: $cursor-not-allowed;
 }
 
 .head {
@@ -80,7 +80,7 @@
 .root[disabled] .item {
     background: $field-background;
     color: #999;
-    cursor: not-allowed;
+    cursor: $cursor-not-allowed;
 }
 .root[disabled] .item[sel="sel"] {
     background: #eee;
@@ -147,7 +147,7 @@
     background-color: $brand-primary;
 }
 .listitem[disabled], .listitem[disabled]:hover {
-    cursor: not-allowed;
+    cursor: $cursor-not-allowed;
     background-color: $field-background;
     color: #999;
 }

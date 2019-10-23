@@ -38,5 +38,5 @@
 
 .root[disabled]:hover {
     box-shadow: 0 0 0 transparent;
-    cursor: not-allowed;
+    cursor: $cursor-not-allowed;
 }

@@ -5,7 +5,7 @@
     user-select: none;
 }
 .head[disabled] {
-    cursor: not-allowed;
+    cursor: $cursor-not-allowed;
     background: $brand-disabled;
     border: 1px solid $brand-disabled;
     color: #999;
@@ -109,7 +109,7 @@
     cursor: default;
 }
 .listitem[disabled] {
-    cursor: not-allowed;
+    cursor: $cursor-not-allowed;
     color: #999;
 }
 .listitem:hover, .listitem[hovered] {

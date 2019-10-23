@@ -16,7 +16,7 @@
     outline: none;
 }
 .input[disabled] {
-    cursor: not-allowed;
+    cursor: $cursor-not-allowed;
     background: #eee;
     color: #999;
 }

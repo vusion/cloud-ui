@@ -351,7 +351,7 @@
     border: 1px solid #d7dbe0;
     background-color: #ebf0f5;
     vertical-align: middle;
-    cursor: not-allowed;
+    cursor: $cursor-not-allowed;
     border-radius: 100%;
 }
 

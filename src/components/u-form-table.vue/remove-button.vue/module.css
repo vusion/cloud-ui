@@ -11,7 +11,7 @@
 
 .root[disabled] {
     color: #ddd;
-    cursor: not-allowed;
+    cursor: $cursor-not-allowed;
 }
 
 .root::before {
