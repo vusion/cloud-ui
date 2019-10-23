@@ -12,7 +12,7 @@
 }
 .head {
     box-sizing: border-box;
-    cursor: pointer;
+    cursor: $cursor-pointer;
     padding-left: 10px;
     padding-right: 28px;
     background: white;
@@ -54,7 +54,7 @@
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    cursor: pointer;
+    cursor: $cursor-pointer;
     text-align: center;
 }
 .icon::after {
@@ -97,7 +97,7 @@
 .listitem {
     padding: 0 14px;
     color: #777;
-    cursor: pointer;
+    cursor: $cursor-pointer;
     position: relative;
 }
 .listitem[divider] {
@@ -141,7 +141,7 @@
 }
 .none {
     padding: 5px 14px;
-    cursor: pointer;
+    cursor: $cursor-pointer;
     position: relative;
     background: white;
     color: #555;

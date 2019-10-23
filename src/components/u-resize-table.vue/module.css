@@ -83,7 +83,7 @@
 }
 
 .hthItem[role] {
-    cursor: pointer;
+    cursor: $cursor-pointer;
 }
 
 .hthItem[role]:hover {
@@ -193,7 +193,7 @@
     padding: 3px 14px;
     box-sizing: border-box;
     line-height: 24px;
-    cursor: pointer;
+    cursor: $cursor-pointer;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -238,7 +238,7 @@
     display: inline-block;
     width: 14px;
     height: 14px;
-    cursor: pointer;
+    cursor: $cursor-pointer;
 }
 
 .expand[name="right"]::after {

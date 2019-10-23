@@ -38,7 +38,7 @@
 }
 
 .close {
-    cursor: pointer;
+    cursor: $cursor-pointer;
 }
 
 .icon {

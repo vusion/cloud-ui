@@ -1,5 +1,5 @@
 .root {
-    cursor: pointer;
+    cursor: $cursor-pointer;
     display: inline-block;
     margin-right: 15px;
     padding: 0 15px;

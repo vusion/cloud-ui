@@ -13,7 +13,7 @@
     height: 6px;
     background: #e6e6e6;
     overflow: initial;
-    cursor: pointer;
+    cursor: $cursor-pointer;
 }
 
 .track::before {
@@ -58,7 +58,7 @@
     width: 14px;
     height: 24px;
     border-radius: 2px;
-    cursor: pointer;
+    cursor: $cursor-pointer;
 }
 
 .handle::before {

@@ -14,7 +14,7 @@
     height: 30px;
     line-height: 30px;
     margin: 1px;
-    cursor: pointer;
+    cursor: $cursor-pointer;
     display: inline-block;
     text-align: center;
     border-radius: 50%;
@@ -96,7 +96,7 @@
     position: relative;
     display: inline-block;
     border: 1px solid $field-background;
-    cursor: pointer;
+    cursor: $cursor-pointer;
     box-sizing: border-box;
 }
 
@@ -136,7 +136,7 @@
     line-height: 30px;
     border-radius: 50%;
     text-align: center;
-    cursor: pointer;
+    cursor: $cursor-pointer;
 }
 .listitem[role] {
     background-color: $brand-primary;
@@ -163,7 +163,7 @@
     display: inline-block;
     position: relative;
     border: 1px solid $field-background;
-    cursor: pointer;
+    cursor: $cursor-pointer;
     box-sizing: border-box;
 }
 .textMonth {

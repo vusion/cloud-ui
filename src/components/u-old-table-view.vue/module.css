@@ -59,7 +59,7 @@
 }
 
 .hthSpan[role] {
-    cursor: pointer;
+    cursor: $cursor-pointer;
 }
 
 .hthSpan[role]:hover {
@@ -189,7 +189,7 @@
     padding: 3px 14px;
     box-sizing: border-box;
     line-height: 24px;
-    cursor: pointer;
+    cursor: $cursor-pointer;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -281,7 +281,7 @@
     display: inline-block;
     width: 14px;
     height: 14px;
-    cursor: pointer;
+    cursor: $cursor-pointer;
 }
 
 .expand[name="right"]::after {

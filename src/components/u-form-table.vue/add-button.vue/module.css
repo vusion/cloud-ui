@@ -6,7 +6,7 @@
     overflow: visible;
     text-transform: none;
     text-decoration: none;
-    cursor: pointer;
+    cursor: $cursor-pointer;
     box-sizing: border-box;
     display: inline-block;
     vertical-align: middle;

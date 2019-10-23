@@ -1,7 +1,7 @@
 .root {
     display: block;
     position: relative;
-    cursor: pointer;
+    cursor: $cursor-pointer;
     margin-bottom: 0;
     font-size: 40px;
     color: #ff867f;
