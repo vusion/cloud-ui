@@ -1,26 +1,21 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.4.10",
+  "version": "0.4.11",
   "author": "Rainfore <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
     "ChenWeiYuan123 <360411956@qq.com>",
     "zou-xinhua <m15616168428@163.com>"
   ],
-  "bin": {
-    "cloud-ui-custom": "bin/cloud-ui-custom"
-  },
   "main": "./index.js",
   "scripts": {
-    "doc": "vue-cli-service doc",
-    "doc-build": "vue-cli-service doc-build && vue-cli-service doc-build --no-clean --theme seagreen && vue-cli-service doc-build --no-clean --theme dark",
-    "build": "vue-cli-service library-build && vue-cli-service library-build --no-clean --theme seagreen && vue-cli-service library-build --no-clean --theme dark",
+    "doc": "vue-cli-service doc --port 9001",
+    "doc-build": "vue-cli-service doc-build --theme default,dark,seagreen",
+    "build": "vue-cli-service library-build --theme default,dark,seagreen",
     "build-raw": "vue-cli-service library-build --vusion-mode raw",
-    "doc-build:all": "vue-cli-service doc-build  --theme dark,seagreen",
-    "build:default": "vue-cli-service library-build",
-    "build:all": "vue-cli-service library-build  --theme default,dark,seagreen",
-    "build:theme": "vue-cli-service library-build  --theme dark,seagreen",
+    "build:base": "vue-cli-service library-build",
+    "build:theme": "vue-cli-service library-build --theme dark,seagreen",
     "lint": "vue-cli-service lint"
   },
   "repository": "vusion/cloud-ui",
@@ -44,7 +39,7 @@
   "dependencies": {
     "countup.js": "^1.9.3",
     "lodash": "^4.17.5",
-    "proto-ui.vusion": "^0.4.15",
+    "proto-ui.vusion": "^0.4.22",
     "vusion-utils": "^0.4.4"
   },
   "devDependencies": {
@@ -62,9 +57,10 @@
     "stylelint": "^9.3.0",
     "stylelint-config-vusion": "^1.1.2",
     "vue": "^2.6.10",
-    "vue-cli-plugin-vusion": "^0.5.11",
+    "vue-cli-plugin-vusion": "^0.6.1",
     "vue-template-compiler": "^2.6.10",
-    "vusion-hooks": "^0.3.0"
+    "vusion-hooks": "^0.3.0",
+    "x-highlight.vue": "^0.4.1"
   },
   "peerDependencies": {
     "vue": "^2.6.10",

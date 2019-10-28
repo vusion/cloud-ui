@@ -1,8 +1,9 @@
 import Calendar from '../u-calendar.vue';
-const MS_OF_DAY = 24 * 3600 * 1000;
 import { clickOutside } from '../../directives';
+import { format, transformDate } from '../../utils/date';
 import Field from 'proto-ui.vusion/src/components/m-field.vue';
 import i18n from './i18n';
+const MS_OF_DAY = 24 * 3600 * 1000;
 
 /**
  * @class DatePicker
@@ -57,7 +58,7 @@ export const UDatePicker = {
     },
     data() {
         return {
-            showDate: this.format(this.date, 'yyyy-MM-dd'),
+            showDate: this.format(this.date, 'YYYY-MM-DD'),
             lastDate: '',
         };
     },
@@ -75,7 +76,7 @@ export const UDatePicker = {
     directives: { clickOutside },
     watch: {
         date(newValue) {
-            this.showDate = this.format(newValue, 'yyyy-MM-dd');
+            this.showDate = this.format(newValue, 'YYYY-MM-DD');
         },
         showDate(newValue) {
             /**
@@ -84,29 +85,22 @@ export const UDatePicker = {
              * @property {number} date 改变后的日期 返回格式为日期对象
              */
             const showDate = this.returnTime(newValue);
+            const newDate = showDate ? new Date(showDate.replace(/-/g, '/')) : '';
 
-            this.$emit('update:date', showDate ? new Date(showDate.replace(/-/g, '/')) : '');
+            this.$emit('update:date', newDate);
 
             this.$emit('change', {
                 sender: this,
-                date: showDate ? new Date(showDate.replace(/-/g, '/')) : '',
+                date: newDate,
             });
 
-            this.$emit('input', showDate ? new Date(showDate.replace(/-/g, '/')) : '');
+            this.$emit('input', newDate);
         },
         minDate(newValue) {
-            if (!newValue)
-                return;
-
-            if (newValue === 'Invalid Date' || newValue === 'NaN')
-                throw new TypeError('Invalid Date');
+            return this.checkDate(newValue);
         },
         maxDate(newValue) {
-            if (!newValue)
-                return;
-
-            if (newValue === 'Invalid Date' || newValue === 'NaN')
-                throw new TypeError('Invalid Date');
+            return this.checkDate(newValue);
         },
     },
     computed: {
@@ -118,6 +112,13 @@ export const UDatePicker = {
         },
     },
     methods: {
+        checkDate(date) {
+            if (!date)
+                return;
+
+            if (date === 'Invalid Date' || date === 'NaN')
+                throw new TypeError('Invalid Date');
+        },
         /**
          * @method select(date) 选择一个日期
          * @public
@@ -128,7 +129,7 @@ export const UDatePicker = {
             if (this.readonly || this.disabled || this.isOutOfRange(date))
                 return;
 
-            this.showDate = this.format(date, 'yyyy-MM-dd');
+            this.showDate = this.format(date, 'YYYY-MM-DD');
 
             const showDate = this.returnTime(this.showDate);
 
@@ -154,13 +155,14 @@ export const UDatePicker = {
             const value = $event.target.value;
             let date = value ? new Date(value.replace(/-/g, '/')) : null;
             this.lastDate = this.showDate;
-            this.showDate = '';
+            let showDate = '';
             if (date !== null && date.toString() !== 'Invalid Date') {
-                date = this.isOutOfRange(date) ? this.isOutOfRange(date) : date;
+                date = this.isOutOfRange(date) || date;
                 // 此处有坑 需要特殊处理 由于改成最小值 再次输入不合法的值会变成最小值 认为没有发生变化
-                this.showDate = this.format(date, 'yyyy-MM-dd');
+                showDate = this.format(date, 'YYYY-MM-DD');
             } else
-                this.showDate = this.$refs.input.value = this.format(this.lastDate, 'yyyy-MM-dd');
+                showDate = this.$refs.input.value = this.format(this.lastDate, 'YYYY-MM-DD');
+            this.showDate = showDate;
         },
         /**
          * @method isOutOfRange(date) 是否超出规定的日期范围
@@ -187,37 +189,11 @@ export const UDatePicker = {
         onToggle($event) {
             this.$emit('toggle', $event);
         },
-        format(value, type) {
-            if (!value)
-                return undefined;
-            const fix = (str) => {
-                str = '' + (String(str) || '');
-                return str.length <= 1 ? '0' + str : str;
-            };
-            const maps = {
-                yyyy(date) { return date.getFullYear(); },
-                MM(date) { return fix(date.getMonth() + 1); },
-                dd(date) { return fix(date.getDate()); },
-                HH(date) { return fix(date.getHours()); },
-                mm(date) { return fix(date.getMinutes()); },
-                ss(date) { return fix(date.getSeconds()); },
-            };
-            const trunk = new RegExp(Object.keys(maps).join('|'), 'g');
-            type = type || 'yyyy-MM-dd HH:mm';
-
-            if (typeof value === 'string')
-                value = value.replace(/-/g, '/');
-
-            value = new Date(value);
-            return type.replace(trunk, (capture) => maps[capture] ? maps[capture](value) : '');
-        },
-        transformDate(date) {
-            if (typeof date === 'string')
-                return new Date(date.replace(/-/g, '/'));
-            else if (typeof date === 'number')
-                return new Date(date);
-            else if (typeof date === 'object')
-                return date;
+        format,
+        transformDate,
+        closeCalendar() {
+            if (this.showDate)
+                this.$refs.calendar.updateShowDate(this.showDate);
         },
         returnTime(date) {
             if (!date)

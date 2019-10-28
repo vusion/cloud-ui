@@ -1,7 +1,7 @@
 # UCountUp 数字渐变
 
 ## 示例
-### 基本形式
+### 基本用法
 
 ``` html
 <u-countup :end="100"></u-countup>

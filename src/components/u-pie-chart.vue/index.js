@@ -12,9 +12,10 @@ export const UPieChart = {
         valueField: { type: String, default: 'name' },
     },
     data() {
+        const RADIUS = 60;
         return {
-            RADIUS: 60,
-            currentData: this.handleData(this.data),
+            RADIUS,
+            currentData: this.handleData(this.data, RADIUS),
             selectedItem: undefined,
             currentWidth: 0,
             currentHeight: 0,
@@ -54,8 +55,6 @@ export const UPieChart = {
     methods: {
         draw() {
             this.getSize();
-            // 其他动态绑定
-            this.currentData.forEach((item) => item.d = this.getD(item));
         },
         getSize() {
             if (this.$el) {
@@ -72,7 +71,8 @@ export const UPieChart = {
                 this.svgSize = Math.min(this.svgWidth, this.svgHeight);
             }
         },
-        handleData(data) {
+        handleData(data, RADIUS) {
+            RADIUS = RADIUS || this.RADIUS;
             // 保证内部始终为 Array
             if (!data)
                 return [];
@@ -103,19 +103,18 @@ export const UPieChart = {
 
                 item.accumulatedPercentage = accumulatedPercentage;
                 accumulatedPercentage += item.percentage;
-
+                item.d = this.getD(item, RADIUS);
                 return item;
             });
         },
         getPosition(percentage, length) {
             percentage = percentage || 0;
-            length = length || this.RADIUS;
             const arc = Math.PI * 2 * percentage * 0.01;
             return { x: length * Math.sin(arc), y: -length * Math.cos(arc) };
         },
-        getD(item) {
-            const start = this.getPosition(item.accumulatedPercentage);
-            const end = this.getPosition(item.accumulatedPercentage + item.percentage);
+        getD(item, RADIUS) {
+            const start = this.getPosition(item.accumulatedPercentage, RADIUS);
+            const end = this.getPosition(item.accumulatedPercentage + item.percentage, RADIUS);
 
             // GetLabelPosition
             const norm = Math.sqrt((start.x + end.x) * (start.x + end.x) + (start.y + end.y) * (start.y + end.y));
@@ -126,21 +125,21 @@ export const UPieChart = {
             }
 
             item.label = {
-                start: { x: this.RADIUS * 1.025 * point.x, y: this.RADIUS * 1.025 * point.y },
-                end: { x: this.RADIUS * 1.15 * point.x, y: this.RADIUS * 1.15 * point.y },
+                start: { x: RADIUS * 1.025 * point.x, y: RADIUS * 1.025 * point.y },
+                end: { x: RADIUS * 1.15 * point.x, y: RADIUS * 1.15 * point.y },
                 direction: point.x < 0 ? 'left' : 'right',
             };
 
             item.label.d = `
                 M ${item.label.start.x},${item.label.start.y}
                 L ${item.label.end.x},${item.label.end.y}
-                h ${item.label.direction === 'right' ? this.RADIUS * 0.3 : -this.RADIUS * 0.3}
+                h ${item.label.direction === 'right' ? RADIUS * 0.3 : -RADIUS * 0.3}
             `.trim();
 
             let d = '';
             d += 'M ';
             d += start.x + ',' + start.y;
-            d += ' A ' + this.RADIUS + ',' + this.RADIUS + ' 0 ';
+            d += ' A ' + RADIUS + ',' + RADIUS + ' 0 ';
             d += item.percentage > 50 ? 1 : 0;
             d += ' 1 ';
             d += end.x + ',' + end.y;
@@ -162,19 +161,6 @@ export const UPieChart = {
                     top: (this.svgHeight / 2 + item.label.end.y * multiple - 10) + 'px',
                 };
             }
-        },
-        getTextStyle(item) {
-            const middle = this.getPosition(item.accumulatedPercentage + item.percentage / 2);
-            const height = this.currentHeight;
-            middle.x *= height / 100 / 2;
-            middle.y *= height / 100 / 2;
-
-            const result = [
-                'margin-left: ' + (middle.x) + 'px',
-                'margin-top: ' + (middle.y) + 'px',
-            ];
-
-            return result.join('; ');
         },
         onMouseOver(item) {
             this.selectedItem = item;

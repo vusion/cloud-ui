@@ -1,4 +1,5 @@
 import { clickOutside } from '../../directives';
+import { format, transformDate } from '../../utils/date';
 import Field from 'proto-ui.vusion/src/components/m-field.vue';
 import i18n from './i18n';
 /**
@@ -44,7 +45,7 @@ export const UDateTimePicker = {
     mixins: [Field],
     data() {
         return {
-            dateTime: this.format(this.date, 'yyyy-MM-dd HH:mm:ss'),
+            dateTime: this.format(this.date, 'YYYY-MM-DD HH:mm:ss'),
             open: false,
             minTime: undefined,
             maxTime: undefined,
@@ -56,19 +57,31 @@ export const UDateTimePicker = {
             return this.format(this.dateTime, 'HH:mm:ss');
         },
         showDate() {
-            return this.format(this.dateTime, 'yyyy-MM-dd');
+            return this.format(this.dateTime, 'YYYY-MM-DD');
         },
         minCalendarDate() {
-            return this.format(this.minDate, 'yyyy-MM-dd');
+            return this.format(this.minDate, 'YYYY-MM-DD');
         },
         maxCalendarDate() {
-            return this.format(this.currentMaxDate, 'yyyy-MM-dd');
+            return this.format(this.currentMaxDate, 'YYYY-MM-DD');
         },
         spMinTime() {
             return this.format(this.minDate, 'HH:mm:ss');
         },
         spMaxTime() {
             return this.format(this.currentMaxDate, 'HH:mm:ss');
+        },
+        disabledNow() {
+            const date = new Date();
+            const { minDate, currentMaxDate } = this;
+            let disabled = false;
+            if (minDate) {
+                disabled = date < this.transformDate(minDate);
+            }
+            if (!disabled && currentMaxDate) {
+                disabled = date > this.transformDate(currentMaxDate);
+            }
+            return disabled;
         },
     },
     directives: {
@@ -80,7 +93,7 @@ export const UDateTimePicker = {
     },
     watch: {
         date(newValue) {
-            this.dateTime = this.format(newValue, 'yyyy-MM-dd HH:mm:ss');
+            this.dateTime = this.format(newValue, 'YYYY-MM-DD HH:mm:ss');
         },
         dateTime(newValue) {
             // 字符类型自动转为日期类型
@@ -92,7 +105,7 @@ export const UDateTimePicker = {
             if (newValue) {
                 const isOutOfRange = this.isOutOfRange(newValue);
                 if (isOutOfRange)
-                    newValue = this.format(isOutOfRange, 'yyyy-MM-dd HH:mm:ss');
+                    newValue = this.format(isOutOfRange, 'YYYY-MM-DD HH:mm:ss');
             }
 
             this.$emit('update:date', newValue ? new Date(newValue.replace(/-/g, '/')).getTime() : '');
@@ -140,7 +153,7 @@ export const UDateTimePicker = {
             date.setHours(time[0]);
             date.setMinutes(time[1]);
             date.setSeconds(time[2]);
-            const datetime = this.format(date, 'yyyy-MM-dd');
+            const datetime = this.format(date, 'YYYY-MM-DD');
             const dtime = this.format(date, 'HH:mm:ss');
             if (datetime === this.minCalendarDate && datetime === this.maxCalendarDate) {
                 this.minTime = this.spMinTime;
@@ -164,7 +177,7 @@ export const UDateTimePicker = {
                 this.maxTime = undefined;
             }
             // if (datetime === this.minCalendarDate || datetime === this.maxCalendarDate)
-            this.dateTime = this.format(date, 'yyyy-MM-dd HH:mm:ss');
+            this.dateTime = this.format(date, 'YYYY-MM-DD HH:mm:ss');
 
             this.$emit('select', {
                 sender: this,
@@ -185,7 +198,7 @@ export const UDateTimePicker = {
             date.setHours(time[0]);
             date.setMinutes(time[1]);
             date.setSeconds(time[2]);
-            this.dateTime = this.format(date, 'yyyy-MM-dd HH:mm:ss');
+            this.dateTime = this.format(date, 'YYYY-MM-DD HH:mm:ss');
 
             this.$emit('select', {
                 sender: this,
@@ -200,15 +213,21 @@ export const UDateTimePicker = {
          */
         onInput($event) {
             const value = $event.target.value;
+            this.updateDate(value);
+        },
+        updateDate(value) {
             let date = value ? new Date(value) : null;
 
             if (date !== null && date.toString() !== 'Invalid Date') {
-                date = this.isOutOfRange(date) ? this.isOutOfRange(date) : date;
-                this.dateTime = this.format(date, 'yyyy-MM-dd HH:mm:ss');
+                date = this.isOutOfRange(date) || date;
+                this.dateTime = this.format(date, 'YYYY-MM-DD HH:mm:ss');
             } else {
                 this.$refs.input.value = '';
                 this.dateTime = '';
             }
+        },
+        setDateNow() {
+            this.updateDate(new Date());
         },
         /**
          * @method isOutOfRange(date) 是否超出规定的日期时间范围
@@ -224,44 +243,14 @@ export const UDateTimePicker = {
             // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期时间。
             return (minDate && date < minDate && minDate) || (maxDate && date > maxDate && maxDate);
         },
-        format(value, type) {
-            if (!value)
-                return;
-            const fix = (str) => {
-                str = '' + (String(str) || '');
-                return str.length <= 1 ? '0' + str : str;
-            };
-            const maps = {
-                yyyy(date) { return date.getFullYear(); },
-                MM(date) { return fix(date.getMonth() + 1); },
-                dd(date) { return fix(date.getDate()); },
-                HH(date) { return fix(date.getHours()); },
-                mm(date) { return fix(date.getMinutes()); },
-                ss(date) { return fix(date.getSeconds()); },
-            };
-            const trunk = new RegExp(Object.keys(maps).join('|'), 'g');
-            type = type || 'yyyy-MM-dd HH:mm';
-            if (typeof value === 'string')
-                value = value.replace(/-/g, '/');
-            value = new Date(value);
-            if (value.toString() === 'Invalid Date')
-                return;
-            return type.replace(trunk, (capture) => maps[capture] ? maps[capture](value) : '');
-        },
         toggle(value) {
             if (this.readonly)
                 this.open = false;
             else
                 this.open = value;
         },
-        transformDate(date) {
-            if (typeof date === 'string')
-                return new Date(date.replace(/-/g, '/'));
-            else if (typeof date === 'number')
-                return new Date(date);
-            else if (typeof date === 'object')
-                return date;
-        },
+        format,
+        transformDate,
         handleClose() {
             this.open = false;
         },

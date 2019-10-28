@@ -1,7 +1,7 @@
 # 环状图 DonutChart
 
 ## 示例
-### 基本形式
+### 基本用法
 
 ``` html
 <u-donut-chart :data="[3, 6, 5, 4, 2]"></u-donut-chart>

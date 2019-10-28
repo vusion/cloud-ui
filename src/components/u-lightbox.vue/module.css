@@ -94,6 +94,9 @@ $height: 64px;
 }
 
 .operation {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
     color: rgba(255, 255, 255, 0.7);
     font-size: 60px;
     height: 60px;
@@ -102,7 +105,6 @@ $height: 64px;
     border-radius: 30px;
     user-select: none;
     overflow: hidden;
-    display: inline-block;
 }
 
 .operation > li {

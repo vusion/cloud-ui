@@ -1,7 +1,7 @@
 # UButton 按钮
 
 ## 示例
-### 基本形式
+### 基本用法
 
 ``` html
 <u-button>设 置</u-button>

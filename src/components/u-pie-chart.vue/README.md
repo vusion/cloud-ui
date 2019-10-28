@@ -1,7 +1,7 @@
 # UPieChart 饼图
 
 ## 示例
-### 基本形式
+### 基本用法
 
 ``` html
 <u-pie-chart border legend title="每星期访问量" :data="[

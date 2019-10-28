@@ -1,3 +1,5 @@
 {
-  "selectTimeText": "Please select time"
+  "selectTimeText": "Please select time",
+  "now": "now",
+  "submit": "submit"
 }

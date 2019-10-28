@@ -5,4 +5,5 @@ export const URadios = {
     extends: ORadios,
 };
 
+export { URadio } from './radio.vue';
 export default URadios;

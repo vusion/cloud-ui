@@ -1,5 +1,6 @@
 export * from './i-icon.vue';
 export * from './u-actions.vue';
+export * from './u-avatar.vue';
 export * from './u-bar-chart.vue';
 export * from './u-block.vue';
 export * from './u-button.vue';
@@ -9,6 +10,7 @@ export * from './u-cascade-capsules.vue';
 export * from './u-chart-tooltip.vue';
 export * from './u-chart.vue';
 export * from './u-checkbox-card.vue';
+export * from './u-checkbox.vue';
 export * from './u-checkboxes.vue';
 export * from './u-circular-progress.vue';
 export * from './u-combo-pagination.vue';

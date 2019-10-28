@@ -1,7 +1,7 @@
 # IIcon 图标
 
 ## 示例
-### 基本形式
+### 基本用法
 
 ``` html
 <u-linear-layout>

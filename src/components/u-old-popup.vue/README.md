@@ -3,7 +3,7 @@
 弹出层的设计思路请参阅[设计思路——弹出层系列](/ui-design/popper)。
 
 ## 示例
-### 基本形式
+### 基本用法
 
 ``` html
 <u-linear-layout>

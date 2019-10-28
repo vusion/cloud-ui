@@ -2,7 +2,7 @@
 
 ## 示例
 
-### 基本形式
+### 基本用法
 
 ``` html
 <u-linear-layout>
@@ -29,6 +29,15 @@
 <u-date-time-picker date="2017-05-12 8:00:00" min-date="2017-01-10 07:00:00" max-date="2017-12-12 07:00:00"></u-date-time-picker>
 ```
 
+### 自定义底部
+``` html
+<u-date-time-picker>
+    <div slot="footer" style="padding: 15px 0 5px;text-align:center">
+        插入文本或  HTML 至日期组件底部
+    </div>
+</u-date-time-picker>
+```
+
 ### 方法
 ``` vue
 <template>
@@ -37,11 +46,11 @@
 
 <script>
 export default {
-	data() {
-		return {
-			date: '2017-12-01 20:12:12',
-		};
-	},
+    data() {
+        return {
+            date: '2017-12-01 20:12:12',
+        };
+    },
     methods: {
         change(time) {
             console.log(time);
@@ -68,6 +77,12 @@ export default {
 | readonly | Boolean | `false` | 是否只读 |
 | yearDiff | String, Number | `3` | 最小可选年份值为当前年减去此值 |
 | yearAdd | String, Number | `1` | 最大可选年份值为当前年加上此值 |
+
+### Slots
+
+#### (footer)
+
+插入文本或  HTML 至日期组件底部
 
 ### Events
 

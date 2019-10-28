@@ -1,6 +1,6 @@
 # XAceEditor
 
-[![NPM Version](http://img.shields.io/npm/v/@cloud-ui/x-echarts.vue.svg?style=flat-square)](http://npmjs.org/package/@cloud-ui/x-echarts.vue)
+[![NPM Version](http://img.shields.io/npm/v/@cloud-ui/x-ace-editor.vue.svg?style=flat-square)](http://npmjs.org/package/@cloud-ui/x-ace-editor.vue)
 [![Ace Version](https://img.shields.io/badge/ace-v1.2.9-blue?style=flat-square)](http://npmjs.org/package/brace)
 
 ## 安装
@@ -63,10 +63,43 @@ export default {
 </script>
 ```
 
+### 设置主题
+
+``` vue
+<template>
+<x-ace-editor v-model="value" lang="json" theme="monokai"></x-ace-editor>
+</template>
+<script>
+import 'brace';
+import 'brace/mode/json';
+import 'brace/theme/monokai';
+
+export default {
+    data() {
+        return {
+            value:
+`{
+    "name": "Alice",
+    "age": 24,
+    "phone": "18612345678"
+}
+`,
+        };
+    },
+}
+</script>
+```
+
 ### 禁用
 
 ``` html
 <x-ace-editor value="var i = 0;" disabled></x-ace-editor>
+```
+
+### 只读
+
+``` html
+<x-ace-editor value="var i = 0;" readonly></x-ace-editor>
 ```
 
 ## API
@@ -81,3 +114,4 @@ export default {
 | disabled | Boolean | `false` | 是否禁用 |
 | options | Object |  | 配置项对象 |
 | autofocus | Boolean | `false` | 默认focus状态 |
+
