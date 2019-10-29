@@ -1,5 +1,5 @@
 .root {
-    cursor: pointer;
+    cursor: $cursor-pointer;
     display: inline-block;
     position: relative;
     z-index: 1;
@@ -62,7 +62,7 @@
     z-index: 0;
     color: #d6d6d6;
     border-color: #c2ddfb;
-    cursor: not-allowed;
+    cursor: $cursor-not-allowed;
 }
 
 .root[selected][disabled] {

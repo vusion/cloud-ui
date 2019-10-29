@@ -1,5 +1,5 @@
 .root {
-    cursor: pointer;
+    cursor: $cursor-pointer;
     display: inline-block;
     height: 30px;
     line-height: 28px;
@@ -25,7 +25,7 @@
 }
 
 .root[disabled] {
-    cursor: not-allowed;
+    cursor: $cursor-not-allowed;
     color: $field-border-color;
     border-color: $field-border-color;
 }

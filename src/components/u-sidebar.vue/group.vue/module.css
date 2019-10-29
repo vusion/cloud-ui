@@ -2,7 +2,7 @@
 
 .head {
     display: block;
-    cursor: pointer;
+    cursor: $cursor-pointer;
 
     height: 52px;
     line-height: 52px;

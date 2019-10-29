@@ -14,7 +14,7 @@
     height: 30px;
     line-height: 30px;
     margin: 1px;
-    cursor: pointer;
+    cursor: $cursor-pointer;
     display: inline-block;
     text-align: center;
     border-radius: 50%;
@@ -40,7 +40,7 @@
 .item[disabled] {
     background: 0 0;
     color: #999;
-    cursor: not-allowed;
+    cursor: $cursor-not-allowed;
 }
 
 .head {
@@ -80,7 +80,7 @@
 .root[disabled] .item {
     background: $field-background;
     color: #999;
-    cursor: not-allowed;
+    cursor: $cursor-not-allowed;
 }
 .root[disabled] .item[sel="sel"] {
     background: #eee;
@@ -96,7 +96,7 @@
     position: relative;
     display: inline-block;
     border: 1px solid $field-background;
-    cursor: pointer;
+    cursor: $cursor-pointer;
     box-sizing: border-box;
 }
 
@@ -136,7 +136,7 @@
     line-height: 30px;
     border-radius: 50%;
     text-align: center;
-    cursor: pointer;
+    cursor: $cursor-pointer;
 }
 .listitem[role] {
     background-color: $brand-primary;
@@ -147,7 +147,7 @@
     background-color: $brand-primary;
 }
 .listitem[disabled], .listitem[disabled]:hover {
-    cursor: not-allowed;
+    cursor: $cursor-not-allowed;
     background-color: $field-background;
     color: #999;
 }
@@ -163,7 +163,7 @@
     display: inline-block;
     position: relative;
     border: 1px solid $field-background;
-    cursor: pointer;
+    cursor: $cursor-pointer;
     box-sizing: border-box;
 }
 .textMonth {

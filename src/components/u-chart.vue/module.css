@@ -79,7 +79,7 @@ $m-chart_legend_height: 20px;
 
 .item {
     display: inline-block;
-    cursor: pointer;
+    cursor: $cursor-pointer;
     user-select: none;
     margin-right: 2em;
     vertical-align: middle;

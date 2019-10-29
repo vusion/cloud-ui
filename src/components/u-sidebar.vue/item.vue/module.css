@@ -2,7 +2,7 @@
 
 .root {
     display: block;
-    cursor: pointer;
+    cursor: $cursor-pointer;
     height: 54px;
     line-height: 54px;
     padding-left: 30px;

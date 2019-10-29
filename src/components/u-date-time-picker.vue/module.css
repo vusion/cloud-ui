@@ -24,7 +24,7 @@
     min-width: 160px;
 }
 .input[disabled] {
-    cursor: not-allowed;
+    cursor: $cursor-not-allowed;
     background: #eee;
     color: #999;
 }
