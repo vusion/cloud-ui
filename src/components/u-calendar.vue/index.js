@@ -34,6 +34,7 @@ export const UCalendar = {
             yearCol: this.getYearCol(),
             yearvisible: false,
             monthvisible: false,
+            selectedDate: new Date(this.transformDate(this.date)),
             monthTextList: [this.$t('January'), this.$t('February'), this.$t('March'), this.$t('April'), this.$t('May'), this.$t('June'), this.$t('July'), this.$t('August'), this.$t('September'), this.$t('October'), this.$t('November'), this.$t('December')],
         };
     },
@@ -53,9 +54,6 @@ export const UCalendar = {
                 this.updateFlag = true;
                 this.showDate = new Date(date);
             },
-        },
-        formatDate() {
-            return new Date(this.transformDate(this.date));
         },
         showMonth: {
             get() {
@@ -86,6 +84,7 @@ export const UCalendar = {
     watch: {
         date(newValue) {
             this.updateShowDate(newValue);
+            this.selectedDate = new Date(this.transformDate(newValue));
         },
         yearvisible(yearvisible) {
             if (yearvisible) {
@@ -318,6 +317,7 @@ export const UCalendar = {
                 this.updateFlag = true;
 
             this.showDate = new Date(date);
+            this.selectedDate = new Date(this.transformDate(date));
 
             /**
              * @event select 选择某一个日期时触发
