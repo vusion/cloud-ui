@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.4.11",
+  "version": "0.4.12",
   "author": "Rainfore <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -14,8 +14,6 @@
     "doc-build": "vue-cli-service doc-build --theme default,dark,seagreen",
     "build": "vue-cli-service library-build --theme default,dark,seagreen",
     "build-raw": "vue-cli-service library-build --vusion-mode raw",
-    "build:base": "vue-cli-service library-build",
-    "build:theme": "vue-cli-service library-build --theme dark,seagreen",
     "lint": "vue-cli-service lint"
   },
   "repository": "vusion/cloud-ui",
@@ -39,7 +37,7 @@
   "dependencies": {
     "countup.js": "^1.9.3",
     "lodash": "^4.17.5",
-    "proto-ui.vusion": "^0.4.22",
+    "proto-ui.vusion": "^0.4.24",
     "vusion-utils": "^0.4.4"
   },
   "devDependencies": {
@@ -57,7 +55,7 @@
     "stylelint": "^9.3.0",
     "stylelint-config-vusion": "^1.1.2",
     "vue": "^2.6.10",
-    "vue-cli-plugin-vusion": "^0.6.1",
+    "vue-cli-plugin-vusion": "^0.6.2",
     "vue-template-compiler": "^2.6.10",
     "vusion-hooks": "^0.3.0",
     "x-highlight.vue": "^0.4.1"

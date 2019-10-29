@@ -1,1 +1,5 @@
 @extend;
+
+.root {
+    margin-left: 0;
+}
