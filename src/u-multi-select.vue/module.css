@@ -13,18 +13,19 @@
 .head {
     box-sizing: border-box;
     cursor: pointer;
-    padding-left: 10px;
+    padding-left: 4px;
     padding-right: 28px;
     background: white;
     color: #555;
-    border: 1px solid #d2d6de;
+    border: 1px solid $border-color-base;
     border-radius: 4px;
     min-height: 34px;
     line-height: 32px;
     outline: none;
+    max-width: 100%;
 }
 .head[role] {
-    padding-right: 10px;
+    padding-right: 4px;
 }
 .tiptext {
     line-height: 30px;
@@ -33,7 +34,8 @@
     /* max-width: 208px; */
 }
 .tag {
-    margin: 0 0 2px 6px;
+    margin-bottom: 4px;
+    margin-right: 4px;
     position: relative;
     top: 1px;
     background-color: $brand-primary;
@@ -76,6 +78,7 @@
 .body {
     margin-top: 2px;
     width: 100%;
+    max-width: 100%;
     position: absolute;
     top: 100%;
     left: 0;
@@ -90,7 +93,7 @@
     background: white;
     color: #555;
     border-radius: 4px;
-    border: 1px solid #d2d6de;
+    border: 1px solid $border-color-base;
     list-style: none;
     margin: 0;
 }
@@ -133,7 +136,7 @@
     border: none;
     height: 28px;
     outline: none;
-    margin-left: 5px;
+    margin-left: 2px;
 }
 .text {
     position: relative;
@@ -146,9 +149,21 @@
     background: white;
     color: #555;
     border-radius: 4px;
-    border: 1px solid #d2d6de;
+    border: 1px solid $border-color-base;
     text-align: center;
 }
+
+.head[size$="mini"] {
+    width: 80px;
+}
+.body[size$="mini"] { width: 80px; }
+.head[size^="mini"] { line-height: 26px; min-height: 28px; }
+.head[size^="mini"] .icon { height: 28px; }
+.head[size^="mini"] .icon[class]::after { line-height: 26px; }
+.head[size^="mini"] .tag {
+    margin: 0 0 0 2px;
+}
+
 .head[size$="small"] {
     width: 120px;
 }
@@ -157,13 +172,13 @@
 .head[size^="small"] .icon { height: 30px; }
 .head[size^="small"] .icon[class]::after { line-height: 28px; }
 .head[size^="small"] .tag {
-    margin: 0 0 0 6px;
+    margin: 0 0 0 4px;
 }
 
 .head[size$="normal"] {
-    width: 250px;
+    width: 160px;
 }
-.body[size$="normal"] { width: 250px; }
+.body[size$="normal"] { width: 160px; }
 
 .head[size$="medium"] { width: 280px; }
 .body[size$="medium"] { width: 280px; }

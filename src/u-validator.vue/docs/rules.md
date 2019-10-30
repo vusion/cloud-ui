@@ -146,21 +146,85 @@
 
 ### 相等或包含判断
 
-#### equals(arg: any) <u-label>blur</u-label>
+#### is(arg: any) <u-label>blur</u-label>
 
-必须与参数相等。
+必须与参数相同，使用`===`比较。
 
 - `arg`：用于判断的值
 
 ``` html
-<u-validator label="猜一猜" rules="equals('abc')">
+<u-validator label="猜一猜" rules="is('abc')">
     <u-input placeholder="必须与'abc'相同"></u-input>
 </u-validator>
 ```
 
 ``` html
-<u-validator label="个数" rules="equals(10) @bi">
-    <u-number-input></u-number-input>
+<u-validator label="个数" rules="is(3) @bi">
+    <u-number-input placeholder="必须与3相等"></u-number-input>
+</u-validator>
+```
+
+#### isNot(arg: any) <u-label>blur</u-label>
+
+必须与参数不同，使用`===`比较。
+
+- `arg`：用于判断的值
+
+``` html
+<u-validator label="猜一猜" rules="isNot('abc')">
+    <u-input placeholder="必须与'abc'不同"></u-input>
+</u-validator>
+```
+
+``` html
+<u-validator label="个数" rules="isNot(3) @bi">
+    <u-number-input placeholder="必须不等于3"></u-number-input>
+</u-validator>
+```
+
+#### equals(arg: any) <u-label>blur</u-label>
+
+必须与参数相等，除了数值，也可以比较数组和对象，使用的是[lodash.isEqual](https://www.lodashjs.com/docs/latest#_isequalvalue-other)。
+
+- `arg`：用于判断的值
+
+``` html
+<u-validator label="猜一猜" rules="equals('abc')">
+    <u-input placeholder="必须等于'abc'"></u-input>
+</u-validator>
+```
+
+``` html
+<u-validator label="列表" rules="equals(['水杯', '坚果']) @bi">
+    <u-checkboxes>
+        <u-checkbox label="水杯">水杯</u-checkbox>
+        <u-checkbox label="坚果">坚果</u-checkbox>
+        <u-checkbox label="毛巾">毛巾</u-checkbox>
+        <u-checkbox label="沙发">沙发</u-checkbox>
+    </u-checkboxes>
+</u-validator>
+```
+
+#### notEquals(arg: any) <u-label>blur</u-label>
+
+必须与参数不等，除了数值，也可以比较数组和对象，使用的是[lodash.isEqual](https://www.lodashjs.com/docs/latest#_isequalvalue-other)。
+
+- `arg`：用于判断的值
+
+``` html
+<u-validator label="猜一猜" rules="notEquals('abc')">
+    <u-input placeholder="必须不等于'abc'"></u-input>
+</u-validator>
+```
+
+``` html
+<u-validator label="列表" rules="notEquals(['水杯', '坚果']) @bi">
+    <u-checkboxes>
+        <u-checkbox label="水杯">水杯</u-checkbox>
+        <u-checkbox label="坚果">坚果</u-checkbox>
+        <u-checkbox label="毛巾">毛巾</u-checkbox>
+        <u-checkbox label="沙发">沙发</u-checkbox>
+    </u-checkboxes>
 </u-validator>
 ```
 
@@ -277,6 +341,22 @@ export default {
 </script>
 ```
 
+#### noDuplicates(arg: any[]) <u-label>input</u-label>
+
+接受一个数组作为参数，验证数组中是否存在重复项。
+
+``` html
+<u-validator label="选项" rules="noDuplicates">
+    <u-select multiple>
+        <u-select-item value="cup">水杯</u-select-item>
+        <u-select-item value="coffee">咖啡</u-select-item>
+        <u-select-item value="cup">水杯</u-select-item>
+        <u-select-item value="coffee">咖啡</u-select-item>
+        <u-select-item value="towel">毛巾</u-select-item>
+    </u-select>
+</u-validator>
+```
+
 ### 类型判断
 
 #### string <u-label>input+blur</u-label>
@@ -304,7 +384,7 @@ export default {
 ``` vue
 <template>
 <u-validator label="端口" rules="number">
-    <u-input v-model.number="value" placeholder="必须为数字类型"></u-input>
+    <u-input v-model="value" placeholder="必须为数字类型"></u-input>
 </u-validator>
 </template>
 <script>
@@ -423,7 +503,7 @@ export default {
 </u-validator>
 ```
 
-### 各种字符串判断
+### 字母、数字、中划线、下划线判断
 
 #### alpha
 
@@ -435,43 +515,64 @@ export default {
 </u-validator>
 ```
 
-#### alphaNumeric
+#### alphaNum
 
 是否只能为字母或数字（a-zA-Z0-9）。
 
 ``` html
-<u-validator label="名称" rules="alpha">
+<u-validator label="名称" rules="alphaNum">
     <u-input placeholder="必须为字母或数字"></u-input>
 </u-validator>
 ```
 
-#### email <u-label>blur</u-label>
 
-必须为正确的邮箱。
+#### alphaDash <u-label>input+blur</u-label>
+
+必须由字母或下划线组成。
 
 ``` html
-<u-validator label="邮箱" rules="email">
-    <u-input placeholder="请输入正确的邮箱"></u-input>
+<u-validator label="名称" rules="alphaDash">
+    <u-input placeholder="以字母、下划线组成"></u-input>
 </u-validator>
 ```
 
-#### ip <u-label>blur</u-label>
+#### alphaNumDash <u-label>input+blur</u-label>
 
-必须为正确的 IP。
+必须由字母、数字或下划线组成。
 
 ``` html
-<u-validator label="IP" rules="ip">
-    <u-input placeholder="请输入正确的 IP"></u-input>
+<u-validator label="名称" rules="alphaNumDash">
+    <u-input placeholder="以字母、数字或下划线组成"></u-input>
 </u-validator>
 ```
 
-#### port <u-label>blur</u-label>
+#### alphaSpaces <u-label>input+blur</u-label>
 
-必须为正确的端口。
+必须由字母或空格组成。
 
 ``` html
-<u-validator label="端口" rules="port">
-    <u-input placeholder="请输入正确的端口"></u-input>
+<u-validator label="名称" rules="alphaSpaces">
+    <u-input placeholder="以字母或空格组成"></u-input>
+</u-validator>
+```
+
+#### lowerCase <u-label>input+blur</u-label>
+
+不能出现大写字母。
+
+``` html
+<u-validator label="名称" rules="lowerCase">
+    <u-input placeholder="不能出现大写字母"></u-input>
+</u-validator>
+```
+
+#### upperCase <u-label>input+blur</u-label>
+
+不能出现小写字母。
+
+``` html
+<u-validator label="名称" rules="upperCase">
+    <u-input placeholder="不能出现小写字母"></u-input>
 </u-validator>
 ```
 
@@ -652,5 +753,336 @@ export default {
 ``` html
 <u-validator label="名称" rules="without__">
     <u-input placeholder="不能连续出现下划线"></u-input>
+</u-validator>
+```
+
+### 特定场景判断
+
+#### email <u-label>blur</u-label>
+
+必须为正确的邮箱。
+
+``` html
+<u-validator label="邮箱" rules="email">
+    <u-input placeholder="请输入正确的邮箱"></u-input>
+</u-validator>
+```
+
+#### ip <u-label>blur</u-label>
+
+必须为正确的 IP。
+
+``` html
+<u-validator label="IP" rules="ip">
+    <u-input placeholder="请输入正确的 IP"></u-input>
+</u-validator>
+```
+
+#### port <u-label>blur</u-label>
+
+必须为正确的端口。
+
+``` html
+<u-validator label="端口" rules="port">
+    <u-input placeholder="请输入正确的端口"></u-input>
+</u-validator>
+```
+
+#### halfWidth <u-label>input+blur</u-label>
+
+需要输入半角字符。
+
+``` html
+<u-validator label="名称" rules="halfWidth">
+    <u-input placeholder="需要输入半角字符"></u-input>
+</u-validator>
+```
+
+#### fullWidth <u-label>input+blur</u-label>
+
+必须输入全角字符。
+
+``` html
+<u-validator label="名称" rules="fullWidth">
+    <u-input placeholder="请输入全角字符"></u-input>
+</u-validator>
+```
+
+#### ascii <u-label>input+blur</u-label>
+
+必须输入ascii字符。
+
+``` html
+<u-validator label="名称" rules="ascii">
+    <u-input placeholder="请输入ascii字符"></u-input>
+</u-validator>
+```
+
+#### base64 <u-label>blur</u-label>
+
+必须输入base64编码。
+
+``` html
+<u-validator label="名称" rules="base64">
+    <u-input placeholder="请输入base64编码"></u-input>
+</u-validator>
+```
+
+#### byteLength(min: number, max: number) <u-label>input+blur</u-label>
+
+输入字符串的字节长度范围限制。
+
+- `min`：最小字节长度
+- `max`：最大字节长度
+
+``` html
+<u-validator label="名称" rules="byteLength(0, 21)">
+    <u-input placeholder="请输入八个汉字"></u-input>
+</u-validator>
+```
+
+#### dataURI <u-label>blur</u-label>
+
+必须输入dataURI编码。
+
+``` html
+<u-validator label="编码" rules="dataURI">
+    <u-input placeholder="请输入dataURI编码"></u-input>
+</u-validator>
+```
+
+#### divisibleBy(divisor: number) <u-label>blur</u-label>
+
+输入数字能否被相应除数整除。
+
+- `divisor`：除数
+
+``` html
+<u-validator label="名称" rules="divisibleBy(3)">
+    <u-input placeholder="请输入3的倍数"></u-input>
+</u-validator>
+```
+
+#### hash(algorithm: string) <u-label>blur</u-label>
+
+输入编码是否符合指定哈希算法。
+
+- `algorithm`：算法名称，支持`md4`、`md5`、`sha1`、`sha256`、`sha384`、`sha512`、`ripemd128`、`ripemd160`、`tiger128`、`tiger160`、`tiger192`、`crc32`以及`crc32b`
+
+``` html
+<u-validator label="编码" rules="hash('md4')">
+    <u-input placeholder="请输入哈希编码"></u-input>
+</u-validator>
+```
+
+#### md5 <u-label>blur</u-label>
+
+输入编码是否符合md5算法。
+
+``` html
+<u-validator label="编码" rules="md5">
+    <u-input placeholder="请输入md5编码"></u-input>
+</u-validator>
+```
+
+#### hex <u-label>blur</u-label>
+
+输入数字是否是十六进制。
+
+``` html
+<u-validator label="十六进制数" rules="hex">
+    <u-input placeholder="请输入十六进制数"></u-input>
+</u-validator>
+```
+
+#### hexColor <u-label>blur</u-label>
+
+输入字符串是否是十六进制颜色码。
+
+``` html
+<u-validator label="颜色" rules="hexColor">
+    <u-input placeholder="请输入颜色"></u-input>
+</u-validator>
+```
+
+#### creditCard <u-label>blur</u-label>
+
+输入信用卡号码是否合法。
+
+``` html
+<u-validator label="信用卡号" rules="creditCard">
+    <u-input placeholder="请输入信用卡号"></u-input>
+</u-validator>
+```
+
+#### fqdn <u-label>blur</u-label>
+
+输入全限定域名是否合法。
+
+``` html
+<u-validator label="FQDN" rules="fqdn">
+    <u-input placeholder="请输入全限定域名"></u-input>
+</u-validator>
+```
+
+#### ipOrFQDN <u-label>blur</u-label>
+
+输入内容是否为一个合法IP或全限定域名。
+
+``` html
+<u-validator label="IP或FQDN" rules="ipOrFQDN">
+    <u-input placeholder="请输入IP或全限定域名"></u-input>
+</u-validator>
+```
+
+#### isbn(version: number) <u-label>blur</u-label>
+
+输入内容是否为一个合法的国际标准书号(ISBN)。
+
+- `version`：ISBN版本，接受`10`或`13`
+
+``` html
+<u-validator label="ISBN" rules="isbn(10)">
+    <u-input placeholder="请输入ISBN编号"></u-input>
+</u-validator>
+```
+
+#### issn <u-label>blur</u-label>
+
+输入内容是否为一个合法的国际标准连续出版物号(ISSN)。
+
+``` html
+<u-validator label="ISSN" rules="issn">
+    <u-input placeholder="请输入ISSN编号"></u-input>
+</u-validator>
+```
+
+#### isin <u-label>blur</u-label>
+
+输入内容是否为一个合法的国际证券识别码(ISIN)。
+
+``` html
+<u-validator label="ISIN" rules="isin">
+    <u-input placeholder="请输入ISIN编号"></u-input>
+</u-validator>
+```
+
+#### iso8601(strict: boolean) <u-label>blur</u-label>
+
+输入内容是否为合法的ISO8601日期。
+
+- `strict`: 是否检测闰年日期。如果`strict`的值为`true`，则`2019-02-29`这样的日期属于非法日期
+
+``` html
+<u-validator label="日期" rules="iso8601(true)">
+    <u-input placeholder="请输入日期"></u-input>
+</u-validator>
+```
+
+#### iso31661Alpha2 <u-label>blur</u-label>
+
+输入内容是否为合法的ISO 3166-1 Alpha-2国家代码。
+
+``` html
+<u-validator label="代码" rules="iso31661Alpha2">
+    <u-input placeholder="请输入国家代码"></u-input>
+</u-validator>
+```
+
+#### iso31661Alpha3 <u-label>blur</u-label>
+
+输入内容是否为合法的ISO 3166-1 Alpha-3国家代码。
+
+``` html
+<u-validator label="代码" rules="iso31661Alpha3">
+    <u-input placeholder="请输入国家代码"></u-input>
+</u-validator>
+```
+
+#### json <u-label>input+blur</u-label>
+
+输入字符串是否可以被解析为JSON格式。
+
+``` html
+<u-validator label="JSON" rules="json">
+    <u-input placeholder="请输入JSON字符串"></u-input>
+</u-validator>
+```
+
+#### jwt <u-label>blur</u-label>
+
+输入字符串是否为合法的JSON Web Token。
+
+``` html
+<u-validator label="JWT" rules="jwt">
+    <u-input placeholder="请输入JWT"></u-input>
+</u-validator>
+```
+
+#### latLong <u-label>blur</u-label>
+
+输入字符串是否为合法的经纬度坐标。
+
+``` html
+<u-validator label="经纬度" rules="latLong">
+    <u-input placeholder="请输入坐标"></u-input>
+</u-validator>
+```
+
+#### mobile (locale?: any[], strict?: boolean) <u-label>blur</u-label>
+
+输入内容是否为合法的手机号。
+
+- `locale`：所在地区，例如`zh-CN`、`ja-JP`等。可以是一个字符串或数组。如果不填，则尝试自动匹配所有地区。
+
+- `strict`：是否检验国家代号。如果为`true`，则必须以`+`和国家代码开头。
+
+``` html
+<u-validator label="手机" rules="mobile('zh-CN')">
+    <u-input placeholder="请输入手机号码"></u-input>
+</u-validator>
+```
+
+#### mongoId <u-label>blur</u-label>
+
+输入字符串是否为合法的MongoDB对象ID。
+
+``` html
+<u-validator label="ID" rules="mongoId">
+    <u-input placeholder="请输入mongoDB的对象ID"></u-input>
+</u-validator>
+```
+
+#### postalCode(locale: string) <u-label>blur</u-label>
+
+输入字符串是否为合法的邮政编码。
+
+- `locale`：所在地区。例如`CH`、`JP`等。
+
+``` html
+<u-validator label="postalID" rules="postalCode('JP')">
+    <u-input placeholder="请输入邮政编码"></u-input>
+</u-validator>
+```
+
+#### uuid(version?: number) <u-label>blur</u-label>
+
+输入字符串是否为合法的UUID。
+
+- `version`：采用的UUID版本。接受`3`、`4`和`5`。如果不填，则尝试自动匹配所有版本。
+
+``` html
+<u-validator label="UUID" rules="uuid(3)">
+    <u-input placeholder="请输入UUID"></u-input>
+</u-validator>
+```
+
+#### chinese <u-label>input+blur</u-label>
+
+输入字符串是否为合法的中文内容。
+
+``` html
+<u-validator label="姓名" rules="chinese">
+    <u-input placeholder="请输入姓名"></u-input>
 </u-validator>
 ```

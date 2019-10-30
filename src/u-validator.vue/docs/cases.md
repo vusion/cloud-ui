@@ -65,22 +65,23 @@ export default {
 </script>
 ```
 
-### 复合验证，循环报错
+### 找不到变量应该报错出来
 
 ``` vue
 <template>
-<u-form-item label="用户名" rules="usernameBase | unique(...existingList)">
-    <u-input maxlength="12" placeholder="4-12个字符"></u-input>
-</u-form-item>
+<u-validator label="端口" rules="required | min(something)">
+    <u-input></u-input>
+</u-validator>
 </template>
 <script>
 export default {
-    rules: {
-        usernameBase: 'required | ^azAZ | ^azAZ09-$ | usernameBase | minLength(4)',
-    },
     data() {
         return {
-            existingList: ['abcd', 'aaaa', 'ABCD'],
+            some: {
+                object: {
+                    number: 20,
+                },
+            },
         };
     },
 };

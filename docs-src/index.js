@@ -50,6 +50,7 @@ const Components = Object.assign({}, Library, {
 import { install } from 'vusion-utils';
 install(Components, Vue);
 
+import 'proto-ui.vusion/src/base/base.css';
 import '../src/base/index.css';
 import './common/base.css';
 
