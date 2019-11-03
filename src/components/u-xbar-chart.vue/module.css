@@ -229,3 +229,43 @@ $bar_width: 60px;
     border-color: $theme-chart-color10;
     background: $theme-chart-rgba-color10;
 }
+.bar[role='bar-static']:nth-of-type(11) {
+    border-color: $theme-chart-color11;
+    background: $theme-chart-rgba-color11;
+}
+.bar[role='bar-static']:nth-of-type(12) {
+    border-color: $theme-chart-color12;
+    background: $theme-chart-rgba-color12;
+}
+.bar[role='bar-static']:nth-of-type(13) {
+    border-color: $theme-chart-color13;
+    background: $theme-chart-rgba-color13;
+}
+.bar[role='bar-static']:nth-of-type(14) {
+    border-color: $theme-chart-color14;
+    background: $theme-chart-rgba-color14;
+}
+.bar[role='bar-static']:nth-of-type(15) {
+    border-color: $theme-chart-color15;
+    background: $theme-chart-rgba-color15;
+}
+.bar[role='bar-static']:nth-of-type(16) {
+    border-color: $theme-chart-color16;
+    background: $theme-chart-rgba-color16;
+}
+.bar[role='bar-static']:nth-of-type(17) {
+    border-color: $theme-chart-color17;
+    background: $theme-chart-rgba-color17;
+}
+.bar[role='bar-static']:nth-of-type(18) {
+    border-color: $theme-chart-color18;
+    background: $theme-chart-rgba-color18;
+}
+.bar[role='bar-static']:nth-of-type(19) {
+    border-color: $theme-chart-color19;
+    background: $theme-chart-rgba-color19;
+}
+.bar[role='bar-static']:nth-of-type(20) {
+    border-color: $theme-chart-color20;
+    background: $theme-chart-rgba-color20;
+}
