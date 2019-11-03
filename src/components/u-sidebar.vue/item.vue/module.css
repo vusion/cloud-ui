@@ -6,24 +6,25 @@
     height: 54px;
     line-height: 54px;
     padding-left: 30px;
-    color: #8594aa;
+    color: $sidebar-item-default-color;
+    background: $sidebar-item-default-background;
     transition: all $transition-duration;
 }
 
 .root:hover {
-    color: white;
+    color: $sidebar-item-hover-color;
 }
 
 .root[selected] {
-    color: white;
-    background: #252b33;
+    color: $sidebar-item-selected-color;
+    background: $sidebar-item-selected-background;
     border-right: 4px solid $brand-primary;
 }
 
 .root[disabled] {
     cursor: $cursor-not-allowed;
     background: $sidebar-background-color;
-    color: #586475;
+    color: $sidebar-item-disabled-color;
 }
 
 .root[selected][disabled] {

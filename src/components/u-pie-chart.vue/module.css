@@ -29,11 +29,23 @@ $group_size: 120px;
     opacity: 0.8;
 }
 
-.item:nth-of-type(5n+1), .item[color][color="info"] { fill: $brand-info; }
-.item:nth-of-type(5n+2), .item[color][color="warning"] { fill: $brand-warning; }
-.item:nth-of-type(5n+3), .item[color][color="success"] { fill: $brand-success; }
-.item:nth-of-type(5n+4), .item[color][color="error"] { fill: $brand-error; }
-.item:nth-of-type(5n+5), .item[color][color="primary"] { fill: $brand-primary; }
+
+.item:nth-child(1) { fill: $theme-chart-color1; }
+.item:nth-child(2) { fill: $theme-chart-color2; }
+.item:nth-child(3) { fill: $theme-chart-color3; }
+.item:nth-child(4) { fill: $theme-chart-color4; }
+.item:nth-child(5) { fill: $theme-chart-color5; }
+.item:nth-child(6) { fill: $theme-chart-color6; }
+.item:nth-child(7) { fill: $theme-chart-color7; }
+.item:nth-child(8) { fill: $theme-chart-color8; }
+.item:nth-child(9) { fill: $theme-chart-color9; }
+.item:nth-child(10) { fill: $theme-chart-color10; }
+
+.item[color][color="info"] { fill: $brand-info; }
+.item[color][color="warning"] { fill: $brand-warning; }
+.item[color][color="success"] { fill: $brand-success; }
+.item[color][color="error"] { fill: $brand-error; }
+.item[color][color="primary"] { fill: $brand-primary; }
 
 .label-line {
     display: none;

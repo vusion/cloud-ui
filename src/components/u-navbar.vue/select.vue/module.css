@@ -25,3 +25,11 @@
     background: #343e4f;
     border: none;
 }
+
+.root:hover {
+    background: $navbar-select-hover-background;
+}
+
+.root[focused] {
+    background: $navbar-select-focused-background;
+}

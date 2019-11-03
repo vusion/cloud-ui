@@ -4,16 +4,24 @@
     border-color: #cdcdcd;
     color: #333;
     padding: 0 30px;
+    border-radius: $button-border-radius-base;
+    background: $button-background;
 }
 
+.root:hover {
+    color: $button-hover-color;
+    border-color: $button-hover-border-color;
+    background: $button-hover-background;
+}
 .root:active {
     background-color: white;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .root[disabled] {
-    color: #ccc;
-    border-color: #ddd;
+    background: $button-disabled-background;
+    color: $button-disabled-color;
+    border-color: $button-disabled-border-color;
     box-shadow: none;
 }
 
@@ -23,17 +31,19 @@
 
 .root[color="primary"] {
     background: $brand-primary;
-    color: white;
+    color: $button-primary-color;
     border: none;
     line-height: 34px;
 }
 
 .root[color="primary"]:hover {
-    background: #5b96d9;
+    background: $button-primary-hover-background;
+    color: $button-primary-hover-color;
 }
 
 .root[color="primary"][disabled] {
-    background: #d9d9d9;
+    color: $button-primary-disabled-color;
+    background: $button-primary-disabled-background;
 }
 
 /**

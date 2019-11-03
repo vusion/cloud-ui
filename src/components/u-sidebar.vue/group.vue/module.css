@@ -6,7 +6,7 @@
 
     height: 52px;
     line-height: 52px;
-    color: #9dabc2;
+    color: $sidebar-group-head-color;
     padding-left: 20px;
     transition: color 0.2s;
     position: relative;
@@ -30,8 +30,11 @@
 }
 
 .head:hover {
-    color: white;
+    color: $sidebar-group-head-hover-color;
     /* background-color: #dde8f0; */
+}
+.head[selected] {
+    color: $sidebar-group-head-selected-color;
 }
 
 /* @TODO: replace by icon-font */

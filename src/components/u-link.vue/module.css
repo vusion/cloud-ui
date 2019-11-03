@@ -1,7 +1,7 @@
 @extend;
 
 .root {
-    color: #5494db;
+    color: $link-default-color;
 }
 .root[disabled] {
     cursor: $cursor-not-allowed;

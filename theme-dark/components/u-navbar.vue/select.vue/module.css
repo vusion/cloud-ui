@@ -1,9 +1,0 @@
-@hook;
-
-.root:hover {
-    background: #17263c;
-}
-
-.root[focused] {
-    background: #17263c;
-}
