@@ -14,7 +14,8 @@
     "doc-build": "vue-cli-service doc-build --theme default,dark,seagreen",
     "build": "vue-cli-service library-build --theme default,dark,seagreen",
     "build-raw": "vue-cli-service library-build --vusion-mode raw",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "prepublishOnly": "npm run build && git add ."
   },
   "repository": "vusion/cloud-ui",
   "homepage": "http://vusion.github.io/cloud-ui",

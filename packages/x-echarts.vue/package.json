@@ -16,17 +16,28 @@
     "ui",
     "charts"
   ],
-  "tags": [
-    "cloud",
-    "extension",
-    "ui",
-    "charts"
-  ],
+  "scripts": {
+    "doc": "vue-cli-service doc --port 9090",
+    "doc-build": "vue-cli-service doc-build",
+    "prepublishOnly": "npm run doc-build"
+  },
   "dependencies": {
     "echarts": "^4.2.1",
     "vue-echarts": "^4.0.3"
   },
+  "devDependencies": {
+    "@vue/cli-service": "^3.10.0",
+    "vue": "^2.6.10",
+    "vue-cli-plugin-vusion": "^0.6.2",
+    "vue-router": "^3.1.3",
+    "vue-template-compiler": "^2.6.10",
+    "cloud-ui.vusion": "^0.4.12"
+  },
   "peerDependencies": {
-    "vue": "^2.5.0"
+    "vue": "^2.5.0",
+    "cloud-ui.vusion": "^0.4.12"
+  },
+  "vusion": {
+    "type": "component"
   }
 }
