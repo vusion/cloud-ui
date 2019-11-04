@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.4.1",
+  "version": "0.4.13",
   "author": "Rainfore <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -38,8 +38,8 @@
   "dependencies": {
     "countup.js": "^1.9.3",
     "lodash": "^4.17.5",
-    "proto-ui.vusion": "^0.4.24",
-    "vusion-utils": "^0.4.4"
+    "proto-ui.vusion": "^0.4.25",
+    "vusion-utils": "^0.4.5"
   },
   "devDependencies": {
     "@vue/babel-preset-app": "^3.10.0",
@@ -56,14 +56,14 @@
     "stylelint": "^9.3.0",
     "stylelint-config-vusion": "^1.1.2",
     "vue": "^2.6.10",
-    "vue-cli-plugin-vusion": "^0.6.2",
+    "vue-cli-plugin-vusion": "^0.6.3",
     "vue-template-compiler": "^2.6.10",
     "vusion-hooks": "^0.3.0",
     "x-highlight.vue": "^0.4.1"
   },
   "peerDependencies": {
     "vue": "^2.6.10",
-    "vusion-utils": "^0.4.4"
+    "vusion-utils": "^0.4.5"
   },
   "husky": {
     "hooks": {
