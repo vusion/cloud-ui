@@ -15,8 +15,8 @@ export const UDonutChart = {
         };
     },
     methods: {
-        getD(item) {
-            const actualRadius = this.RADIUS * 5 / 6;
+        getD(item, RADIUS) {
+            const actualRadius = RADIUS * 5 / 6;
 
             const margin = 2 / Math.PI;
             const start = this.getPosition(item.accumulatedPercentage, actualRadius);
@@ -37,15 +37,15 @@ export const UDonutChart = {
             }
 
             item.label = {
-                start: { x: this.RADIUS * 1.125 * point.x, y: this.RADIUS * 1.125 * point.y },
-                end: { x: this.RADIUS * 1.3 * point.x, y: this.RADIUS * 1.3 * point.y },
+                start: { x: RADIUS * 1.125 * point.x, y: RADIUS * 1.125 * point.y },
+                end: { x: RADIUS * 1.3 * point.x, y: RADIUS * 1.3 * point.y },
                 direction: point.x < 0 ? 'left' : 'right',
             };
 
             item.label.d = `
                 M ${item.label.start.x},${item.label.start.y}
                 L ${item.label.end.x},${item.label.end.y}
-                h ${item.label.direction === 'right' ? this.RADIUS * 0.6 : -this.RADIUS * 0.6}
+                h ${item.label.direction === 'right' ? RADIUS * 0.6 : -RADIUS * 0.6}
             `.trim();
 
             let d = '';
