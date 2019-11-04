@@ -144,8 +144,8 @@ $button-primary-hover-background: #5b96d9;
 $button-primary-hover-color: $button-primary-color;
 
 /* Sidebar */
-$sidebar-item-default-color: #8594aa;
-$sidebar-item-default-background: none;
+$sidebar-item-color: #8594aa;
+$sidebar-item-background: none;
 $sidebar-item-selected-background: #252b33;
 $sidebar-item-selected-color: white;
 $sidebar-item-disabled-color: #586475;
@@ -156,11 +156,11 @@ $sidebar-group-head-selected-color: $sidebar-group-head-color;
 $sidebar-divider-background: #3d4654;
 
 /* others */
-$link-default-color: #5494db;
-$navbar-default-background: #343e4f;
+$link-color: #5494db;
+$navbar-background: #343e4f;
 $navbar-select-hover-background: none;
 $navbar-select-focused-background: none;
-$subnav-item-default-color: #666;
+$subnav-item-color: #666;
 $subnav-item-hover-color: $brand-primary;
 $subnav-item-hover-background: #f6f7f9;
 $subnav-item-selected-color: $brand-primary;

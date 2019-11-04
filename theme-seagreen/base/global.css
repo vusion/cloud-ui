@@ -79,7 +79,7 @@ $theme-chart-color20: rgb(241, 126, 248);
 $theme-chart-rgba-color20: rgba(241, 126, 248, 0.6);
 
 /* Sidebar */
-$sidebar-item-default-background: #e2e6f7;
+$sidebar-item-background: #e2e6f7;
 $sidebar-item-selected-background: $brand-primary;
 $sidebar-item-disabled-color: #cdcdcd;
 $sidebar-item-hover-color: $brand-primary;

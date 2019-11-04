@@ -2,7 +2,7 @@
     display: inline-block;
     cursor: $cursor-pointer;
     user-select: none;
-    color: $subnav-item-default-color;
+    color: $subnav-item-color;
     padding: 0 20px;
     transition: color 0.2s;
 }

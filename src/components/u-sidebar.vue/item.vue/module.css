@@ -6,8 +6,8 @@
     height: 54px;
     line-height: 54px;
     padding-left: 30px;
-    color: $sidebar-item-default-color;
-    background: $sidebar-item-default-background;
+    color: $sidebar-item-color;
+    background: $sidebar-item-background;
     transition: all $transition-duration;
 }
 
