@@ -1,15 +1,15 @@
 @extend;
 
-.sizer[class] {
+.sizer {
     height: 30px;
     line-height: 28px;
 }
 
-.sizer[class] .item {
+.sizer .item {
     line-height: 28px;
 }
 
-.jumper[class] {
+.jumper {
     height: 30px;
     line-height: 28px;
 }

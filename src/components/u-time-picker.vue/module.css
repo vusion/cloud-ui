@@ -1,7 +1,7 @@
 .root {
     display: inline-block;
 }
-.item[class] {
+.item {
     width: 50px;
     height: 34px;
 }

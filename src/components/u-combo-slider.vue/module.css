@@ -6,7 +6,7 @@
     vertical-align: -20px;
 }
 
-.slider[class] {
+.slider {
     display: inline-block;
     width: 100%;
 }
@@ -15,7 +15,7 @@
     margin: 0 7px;
 }
 
-.input[class] {
+.input {
     width: 50px;
     margin-left: 10px;
     margin-right: 0.5em;
