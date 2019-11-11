@@ -12,7 +12,7 @@
   "scripts": {
     "doc": "vue-cli-service doc --port 9001",
     "doc-build": "vue-cli-service doc-build --theme default,dark,seagreen",
-    "build": "vue-cli-service library-build --theme default,dark,seagreen",
+    "build": "vue-cli-service library-build --apply-theme --theme default,dark,seagreen",
     "build-raw": "vue-cli-service library-build --vusion-mode raw",
     "lint": "vue-cli-service lint",
     "prepublishOnly": "npm run build && git add ."
