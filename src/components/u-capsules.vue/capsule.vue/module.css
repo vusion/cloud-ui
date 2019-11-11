@@ -1,32 +1,32 @@
 .root {
-    cursor: $cursor-pointer;
+    cursor: var(--cursor-pointer);
     display: inline-block;
     position: relative;
     z-index: 1;
     height: 30px;
     line-height: 28px;
-    font-size: $font-size-base;
+    font-size: var(--font-size-base);
     text-align: center;
     padding: 0 16px;
     margin-right: -1px;
     background: white;
     color: #666;
-    border: 1px solid $brand-primary;
+    border: 1px solid var(--brand-primary);
 }
 
 .root:first-child {
-    border-top-left-radius: $border-radius-base;
-    border-bottom-left-radius: $border-radius-base;
+    border-top-left-radius: var(--border-radius-base);
+    border-bottom-left-radius: var(--border-radius-base);
 }
 
 .root:last-child {
-    border-top-right-radius: $border-radius-base;
-    border-bottom-right-radius: $border-radius-base;
+    border-top-right-radius: var(--border-radius-base);
+    border-bottom-right-radius: var(--border-radius-base);
 }
 
 .root[selected] {
     position: relative;
-    background: $brand-primary;
+    background: var(--brand-primary);
     color: white;
 }
 
@@ -62,7 +62,7 @@
     z-index: 0;
     color: #d6d6d6;
     border-color: #c2ddfb;
-    cursor: $cursor-not-allowed;
+    cursor: var(--cursor-not-allowed);
 }
 
 .root[selected][disabled] {

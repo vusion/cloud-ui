@@ -1,7 +1,7 @@
 .root {
     display: block;
     position: relative;
-    cursor: $cursor-pointer;
+    cursor: var(--cursor-pointer);
     margin-bottom: 0;
     font-size: 40px;
     color: #ff867f;
@@ -11,7 +11,7 @@
 
 .root[disabled] {
     color: #ddd;
-    cursor: $cursor-not-allowed;
+    cursor: var(--cursor-not-allowed);
 }
 
 .root::before {

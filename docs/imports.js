@@ -1,4 +1,4 @@
-export * from '../packages/x-ace-editor.vue';
+// export * from '../packages/x-ace-editor.vue';
 export * from '../packages/x-echarts.vue';
 export * from 'x-highlight.vue';
 

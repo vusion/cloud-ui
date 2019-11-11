@@ -2,7 +2,7 @@
 
 .root {
     color: white;
-    line-height: $navbar-height;
+    line-height: var(--navbar-height);
 }
 
 .root::after {

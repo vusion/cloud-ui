@@ -1,18 +1,18 @@
 .root {
     display: inline-block;
-    cursor: $cursor-pointer;
+    cursor: var(--cursor-pointer);
     user-select: none;
-    color: $subnav-item-color;
+    color: var(--subnav-item-color);
     padding: 0 20px;
     transition: color 0.2s;
 }
 
 .root:hover {
-    color: $subnav-item-hover-color;
-    background: $subnav-item-hover-background;
+    color: var(--subnav-item-hover-color);
+    background: var(--subnav-item-hover-background);
 }
 
 .root[selected] {
-    color: $subnav-item-selected-color;
-    background: $subnav-item-selected-background;
+    color: var(--subnav-item-selected-color);
+    background: var(--subnav-item-selected-background);
 }

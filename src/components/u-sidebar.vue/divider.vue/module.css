@@ -3,5 +3,5 @@
 .root {
     margin: 0 8px;
     height: 1px;
-    background: $sidebar-divider-background;
+    background: var(--sidebar-divider-background);
 }

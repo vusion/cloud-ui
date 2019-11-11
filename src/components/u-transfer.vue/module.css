@@ -8,8 +8,8 @@
     border-radius: 100%;
     border-color: transparent;
     color: white;
-    background: $brand-primary;
-    transition: all $transition-duration-base;
+    background: var(--brand-primary);
+    transition: all var(--transition-duration-base);
 }
 
 .button:hover {
@@ -23,6 +23,6 @@
 
 .button[disabled] {
     color: white;
-    border-color: $border-color-base;
-    background: $brand-disabled-light;
+    border-color: var(--border-color-base);
+    background: var(--brand-disabled-light);
 }

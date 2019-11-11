@@ -48,7 +48,7 @@ export default {
 .side {
     position: fixed;
     width: 210px;
-    top: $navbar-height;
+    top: var(--navbar-height);
     bottom: 0;
     overflow: hidden;
 }

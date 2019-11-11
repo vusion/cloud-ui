@@ -2,7 +2,7 @@
 
 .root {
     background: none;
-    line-height: $navbar-height;
+    line-height: var(--navbar-height);
 }
 
 .root::after {
@@ -27,9 +27,9 @@
 }
 
 .root:hover {
-    background: $navbar-select-hover-background;
+    background: var(--navbar-select-hover-background);
 }
 
 .root[focused] {
-    background: $navbar-select-focused-background;
+    background: var(--navbar-select-focused-background);
 }

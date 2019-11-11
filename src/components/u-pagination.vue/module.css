@@ -1,7 +1,5 @@
 @extend;
 
-$item_size: 30px;
-
 .root {
     text-align: right;
 }
@@ -9,41 +7,41 @@ $item_size: 30px;
 .item {
     padding: 0;
     min-width: auto;
-    width: $item_size;
-    height: $item_size;
+    width: var(--pagination-item-size);
+    height: var(--pagination-item-size);
     line-height: 28px;
     background: white;
     color: #555;
     border: 1px solid #ccc;
     margin-left: -1px;
-    cursor: $cursor-pointer;
+    cursor: var(--cursor-pointer);
 }
 
 .item:hover {
     background: #eee;
-    color: $brand-primary;
+    color: var(--brand-primary);
 }
 
 .item[selected] {
     position: relative;
-    background: $brand-primary;
+    background: var(--brand-primary);
     color: white;
-    border-color: $brand-primary;
+    border-color: var(--brand-primary);
 }
 
 .item[disabled] {
     background: none;
-    color: $field-disabled-color;
+    color: var(--field-disabled-color);
     border-color: #dedede;
 }
 
 .item[role="prev"] {
-    border-radius: $border-radius-base 0 0 $border-radius-base;
+    border-radius: var(--border-radius-base) 0 0 var(--border-radius-base);
     color: #999;
 }
 
 .item[role="next"] {
-    border-radius: 0 $border-radius-base $border-radius-base 0;
+    border-radius: 0 var(--border-radius-base) var(--border-radius-base) 0;
     color: #999;
 }
 
@@ -55,7 +53,7 @@ $item_size: 30px;
 
 .root[disabled] .item {
     background: none;
-    color: $field-disabled-color;
+    color: var(--field-disabled-color);
 }
 
 .root[disabled] .item[selected] {

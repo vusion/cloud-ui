@@ -2,7 +2,7 @@
 
 .radio {
     background: white;
-    border: 1px solid $border-color-base;
+    border: 1px solid var(--border-color-base);
     vertical-align: middle;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .item[passed] .radio {
-    border-color: $brand-primary;
+    border-color: var(--brand-primary);
 }
 
 .item[passed] .radio::before {
@@ -43,7 +43,7 @@
 
 .item[selected] .radio {
     background: white;
-    border: 1px solid $border-color-base;
+    border: 1px solid var(--border-color-base);
 }
 
 .item[selected] .radio::before {
@@ -52,5 +52,5 @@
     width: 10px;
     height: 10px;
     border-radius: 100px;
-    background: $brand-primary;
+    background: var(--brand-primary);
 }

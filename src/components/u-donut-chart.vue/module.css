@@ -3,7 +3,7 @@
 
 .zero {
     fill: white;
-    stroke: $brand-disabled;
+    stroke: var(--brand-disabled);
     stroke-width: 1;
     stroke-dasharray: 4, 4;
 }
@@ -31,7 +31,7 @@
     fill-opacity: 0;
     stroke: green;
     stroke-width: 20px;
-    transition: stroke-width $transition-duration-base ease, stroke $transition-duration-base ease;
+    transition: stroke-width var(--transition-duration-base) ease, stroke var(--transition-duration-base) ease;
 }
 
 .item[selected] {
@@ -88,74 +88,74 @@
     display: block;
 }
 .item:nth-of-type(1) {
-    stroke: $theme-chart-color1;
+    stroke: var(--theme-chart-color1);
 }
 
 .item:nth-of-type(2) {
-    stroke: $theme-chart-color2;
+    stroke: var(--theme-chart-color2);
 }
 
 .item:nth-of-type(3) {
-    stroke: $theme-chart-color3;
+    stroke: var(--theme-chart-color3);
 }
 
 .item:nth-of-type(4) {
-    stroke: $theme-chart-color4;
+    stroke: var(--theme-chart-color4);
 }
 
 .item:nth-of-type(5) {
-    stroke: $theme-chart-color5;
+    stroke: var(--theme-chart-color5);
 }
 
 .item:nth-of-type(6) {
-    stroke: $theme-chart-color6;
+    stroke: var(--theme-chart-color6);
 }
 
 .item:nth-of-type(7) {
-    stroke: $theme-chart-color7;
+    stroke: var(--theme-chart-color7);
 }
 
 .item:nth-of-type(8) {
-    stroke: $theme-chart-color8;
+    stroke: var(--theme-chart-color8);
 }
 .item:nth-of-type(9) {
-    stroke: $theme-chart-color9;
+    stroke: var(--theme-chart-color9);
 }
 .item:nth-of-type(10) {
-    stroke: $theme-chart-color10;
+    stroke: var(--theme-chart-color10);
 }
 .item:nth-of-type(11) {
-    stroke: $theme-chart-color11;
+    stroke: var(--theme-chart-color11);
 }
 .item:nth-of-type(12) {
-    stroke: $theme-chart-color12;
+    stroke: var(--theme-chart-color12);
 }
 .item:nth-of-type(13) {
-    stroke: $theme-chart-color13;
+    stroke: var(--theme-chart-color13);
 }
 .item:nth-of-type(14) {
-    stroke: $theme-chart-color14;
+    stroke: var(--theme-chart-color14);
 }
 .item:nth-of-type(15) {
-    stroke: $theme-chart-color15;
+    stroke: var(--theme-chart-color15);
 }
 .item:nth-of-type(16) {
-    stroke: $theme-chart-color16;
+    stroke: var(--theme-chart-color16);
 }
 .item:nth-of-type(17) {
-    stroke: $theme-chart-color17;
+    stroke: var(--theme-chart-color17);
 }
 .item:nth-of-type(18) {
-    stroke: $theme-chart-color18;
+    stroke: var(--theme-chart-color18);
 }
 .item:nth-of-type(19) {
-    stroke: $theme-chart-color19;
+    stroke: var(--theme-chart-color19);
 }
 .item:nth-of-type(20) {
-    stroke: $theme-chart-color20;
+    stroke: var(--theme-chart-color20);
 }
-.item[color][color="info"] { stroke: $brand-info; }
-.item[color][color="warning"] { stroke: $brand-warning; }
-.item[color][color="success"] { stroke: $brand-success; }
-.item[color][color="error"] { stroke: $brand-error; }
-.item[color][color="primary"] { stroke: $brand-primary; }
+.item[color][color="info"] { stroke: var(--brand-info); }
+.item[color][color="warning"] { stroke: var(--brand-warning); }
+.item[color][color="success"] { stroke: var(--brand-success); }
+.item[color][color="error"] { stroke: var(--brand-error); }
+.item[color][color="primary"] { stroke: var(--brand-primary); }

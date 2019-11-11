@@ -14,7 +14,7 @@
     line-height: 18px;
     font-size: 12px;
     color: #999;
-    background-color: $brand-secondary;
+    background-color: var(--brand-secondary);
 }
 
 .title {
@@ -25,11 +25,11 @@
 .item::before {
     top: 12px;
     height: 1px;
-    background-color: $brand-secondary;
+    background-color: var(--brand-secondary);
 }
 
 .item[disabled] .item-body {
-    color: $field-disabled-color;
+    color: var(--field-disabled-color);
 }
 
 .body {

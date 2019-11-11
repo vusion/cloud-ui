@@ -2,7 +2,7 @@
     width: 238px;
     padding: 4px;
     /* text-align: center; */
-    background: $field-background;
+    background: var(--field-background);
     color: #555;
     border: 1px solid #d2d6de;
     border-radius: 4px;
@@ -14,7 +14,7 @@
     height: 30px;
     line-height: 30px;
     margin: 1px;
-    cursor: $cursor-pointer;
+    cursor: var(--cursor-pointer);
     display: inline-block;
     text-align: center;
     border-radius: 50%;
@@ -23,14 +23,14 @@
     color: #f99;
 }
 .item:hover {
-    background: $hover-color;
+    background: var(--hover-color);
     color: #444;
-    border-color: $brand-primary;
+    border-color: var(--brand-primary);
 }
 
 .item[sel="sel"] {
-    background: $brand-primary;
-    color: $field-background;
+    background: var(--brand-primary);
+    color: var(--field-background);
 }
 
 .item[role="muted"] {
@@ -40,7 +40,7 @@
 .item[disabled] {
     background: 0 0;
     color: #999;
-    cursor: $cursor-not-allowed;
+    cursor: var(--cursor-not-allowed);
 }
 
 .head {
@@ -78,9 +78,9 @@
     font-weight: 700;
 }
 .root[disabled] .item {
-    background: $field-background;
+    background: var(--field-background);
     color: #999;
-    cursor: $cursor-not-allowed;
+    cursor: var(--cursor-not-allowed);
 }
 .root[disabled] .item[sel="sel"] {
     background: #eee;
@@ -95,8 +95,8 @@
     padding: 7px 10px 0;
     position: relative;
     display: inline-block;
-    border: 1px solid $field-background;
-    cursor: $cursor-pointer;
+    border: 1px solid var(--field-background);
+    cursor: var(--cursor-pointer);
     box-sizing: border-box;
 }
 
@@ -136,23 +136,23 @@
     line-height: 30px;
     border-radius: 50%;
     text-align: center;
-    cursor: $cursor-pointer;
+    cursor: var(--cursor-pointer);
 }
 .listitem[role] {
-    background-color: $brand-primary;
-    color: $field-background;
+    background-color: var(--brand-primary);
+    color: var(--field-background);
     border-radius: 50%;
 }
 .listitem[role]:hover {
-    background-color: $brand-primary;
+    background-color: var(--brand-primary);
 }
 .listitem[disabled], .listitem[disabled]:hover {
-    cursor: $cursor-not-allowed;
-    background-color: $field-background;
+    cursor: var(--cursor-not-allowed);
+    background-color: var(--field-background);
     color: #999;
 }
 .listitem:hover {
-    background: $hover-color;
+    background: var(--hover-color);
 }
 .month {
     float: right;
@@ -162,8 +162,8 @@
     padding-right: 0;
     display: inline-block;
     position: relative;
-    border: 1px solid $field-background;
-    cursor: $cursor-pointer;
+    border: 1px solid var(--field-background);
+    cursor: var(--cursor-pointer);
     box-sizing: border-box;
 }
 .textMonth {

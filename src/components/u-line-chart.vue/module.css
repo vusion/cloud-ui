@@ -1,14 +1,13 @@
-$axis-y_width: 40px;
-$axis-x_height: 30px;
-$axis_border: #ccc;
-$axis-y_offset: 10px;
-$axis-x_offset: 6px;
-$line_border: #eee;
-$line_width: 2px;
-$line_offset: 6px;
-
 /* 处理x轴数据很少的特殊情况 */
 .root {
+    --axis-y_width: 40px;
+    --axis-x_height: 30px;
+    --axis_border: #ccc;
+    --axis-y_offset: 10px;
+    --axis-x_offset: 6px;
+    --line_border: #eee;
+    --line_width: 2px;
+    --line_offset: 6px;
     overflow-x: hidden;
 }
 
@@ -18,18 +17,18 @@ $line_offset: 6px;
 
 .grid {
     position: absolute;
-    bottom: $axis-x_height;
+    bottom: var(--axis-x_height);
     top: 15px;
-    left: $axis-y_width;
+    left: var(--axis-y_width);
     right: 20px;
     font-size: 0;
 }
 
 .layer {
     position: absolute;
-    bottom: $axis-x_height;
+    bottom: var(--axis-x_height);
     top: 15px;
-    left: $axis-y_width;
+    left: var(--axis-y_width);
     right: 20px;
     font-size: 0;
 }
@@ -37,19 +36,19 @@ $line_offset: 6px;
 .line {
     position: absolute;
     fill-opacity: 0;
-    stroke-width: $line_width;
+    stroke-width: var(--line_width);
 }
 
 .line[role="x"] {
     left: 0;
     right: -1px;
-    border-top: 1px solid $line_border;
+    border-top: 1px solid var(--line_border);
 }
 
 .line[role="y"] {
     top: -1px;
-    bottom: -$line_offset;
-    border-left: 1px solid $line_border;
+    bottom: calc(-1 * var(--line_offset));
+    border-left: 1px solid var(--line_border);
 }
 
 .axis {
@@ -58,19 +57,19 @@ $line_offset: 6px;
 }
 
 .axis[role="axisx"] {
-    left: $axis-y_width;
+    left: var(--axis-y_width);
     right: 19px;
     bottom: 1px;
-    height: $axis-x_height;
-    border-top: 1px solid $axis_border;
+    height: var(--axis-x_height);
+    border-top: 1px solid var(--axis_border);
 }
 
 .axis[role="axisy"] {
     left: 0;
     top: 14px;
-    bottom: $axis-x_height;
-    width: $axis-y_width;
-    /* border-right: 1px solid $axis_border; */
+    bottom: var(--axis-x_height);
+    width: var(--axis-y_width);
+    /* border-right: 1px solid var(--axis_border); */
 }
 
 .label {
@@ -92,7 +91,7 @@ $line_offset: 6px;
 }
 
 .label[role="labelx"] {
-    top: $axis-x_offset;
+    top: var(--axis-x_offset);
     bottom: 0;
     transform: translateX(-50%);
     text-align: center;
@@ -100,7 +99,7 @@ $line_offset: 6px;
 
 .label[role="labely"] {
     left: 0;
-    right: $axis-y_offset;
+    right: var(--axis-y_offset);
     transform: translateY(50%);
     text-align: right;
 }
@@ -140,164 +139,164 @@ $line_offset: 6px;
 }
 
 .layer .elsvg .area {
-    fill: $theme-chart-line-area-fill;
+    fill: var(--theme-chart-line-area-fill);
 }
 
 .layer .elsvg:nth-of-type(1) .line {
-    stroke: $theme-chart-color1;
+    stroke: var(--theme-chart-color1);
 }
 
 .layer .elsvg:nth-of-type(1) .area {
-    fill: $theme-chart-rgba-color1;
+    fill: var(--theme-chart-rgba-color1);
 }
 
 .layer .elsvg:nth-of-type(2) .line {
-    stroke: $theme-chart-color2;
+    stroke: var(--theme-chart-color2);
 }
 
 .layer .elsvg:nth-of-type(2) .area {
-    fill: $theme-chart-rgba-color2;
+    fill: var(--theme-chart-rgba-color2);
 }
 
 .layer .elsvg:nth-of-type(3) .line {
-    stroke: $theme-chart-color3;
+    stroke: var(--theme-chart-color3);
 }
 
 .layer .elsvg:nth-of-type(3) .area {
-    fill: $theme-chart-rgba-color3;
+    fill: var(--theme-chart-rgba-color3);
 }
 
 .layer .elsvg:nth-of-type(4) .line {
-    stroke: $theme-chart-color4;
+    stroke: var(--theme-chart-color4);
 }
 
 .layer .elsvg:nth-of-type(4) .area {
-    fill: $theme-chart-rgba-color4;
+    fill: var(--theme-chart-rgba-color4);
 }
 
 .layer .elsvg:nth-of-type(5) .line {
-    stroke: $theme-chart-color5;
+    stroke: var(--theme-chart-color5);
 }
 
 .layer .elsvg:nth-of-type(5) .area {
-    fill: $theme-chart-rgba-color5;
+    fill: var(--theme-chart-rgba-color5);
 }
 
 .layer .elsvg:nth-of-type(6) .line {
-    stroke: $theme-chart-color6;
+    stroke: var(--theme-chart-color6);
 }
 
 .layer .elsvg:nth-of-type(6) .area {
-    fill: $theme-chart-rgba-color6;
+    fill: var(--theme-chart-rgba-color6);
 }
 .layer .elsvg:nth-of-type(7) .line {
-    stroke: $theme-chart-color7;
+    stroke: var(--theme-chart-color7);
 }
 
 .layer .elsvg:nth-of-type(7) .area {
-    fill: $theme-chart-rgba-color7;
+    fill: var(--theme-chart-rgba-color7);
 }
 
 .layer .elsvg:nth-of-type(8) .line {
-    stroke: $theme-chart-color8;
+    stroke: var(--theme-chart-color8);
 }
 
 .layer .elsvg:nth-of-type(8) .area {
-    fill: $theme-chart-rgba-color8;
+    fill: var(--theme-chart-rgba-color8);
 }
 .layer .elsvg:nth-of-type(9) .line {
-    stroke: $theme-chart-color9;
+    stroke: var(--theme-chart-color9);
 }
 
 .layer .elsvg:nth-of-type(9) .area {
-    fill: $theme-chart-rgba-color9;
+    fill: var(--theme-chart-rgba-color9);
 }
 
 .layer .elsvg:nth-of-type(10) .line {
-    stroke: $theme-chart-color10;
+    stroke: var(--theme-chart-color10);
 }
 .layer .elsvg:nth-of-type(10) .area {
-    fill: $theme-chart-rgba-color10;
+    fill: var(--theme-chart-rgba-color10);
 }
 
 .layer .elsvg:nth-of-type(11) .line {
-    stroke: $theme-chart-color11;
+    stroke: var(--theme-chart-color11);
 }
 
 .layer .elsvg:nth-of-type(11) .area {
-    fill: $theme-chart-rgba-color11;
+    fill: var(--theme-chart-rgba-color11);
 }
 
 .layer .elsvg:nth-of-type(12) .line {
-    stroke: $theme-chart-color12;
+    stroke: var(--theme-chart-color12);
 }
 
 .layer .elsvg:nth-of-type(12) .area {
-    fill: $theme-chart-rgba-color12;
+    fill: var(--theme-chart-rgba-color12);
 }
 
 .layer .elsvg:nth-of-type(13) .line {
-    stroke: $theme-chart-color13;
+    stroke: var(--theme-chart-color13);
 }
 
 .layer .elsvg:nth-of-type(13) .area {
-    fill: $theme-chart-rgba-color13;
+    fill: var(--theme-chart-rgba-color13);
 }
 
 .layer .elsvg:nth-of-type(14) .line {
-    stroke: $theme-chart-color14;
+    stroke: var(--theme-chart-color14);
 }
 
 .layer .elsvg:nth-of-type(14) .area {
-    fill: $theme-chart-rgba-color14;
+    fill: var(--theme-chart-rgba-color14);
 }
 
 .layer .elsvg:nth-of-type(15) .line {
-    stroke: $theme-chart-color15;
+    stroke: var(--theme-chart-color15);
 }
 
 .layer .elsvg:nth-of-type(15) .area {
-    fill: $theme-chart-rgba-color15;
+    fill: var(--theme-chart-rgba-color15);
 }
 
 .layer .elsvg:nth-of-type(16) .line {
-    stroke: $theme-chart-color16;
+    stroke: var(--theme-chart-color16);
 }
 
 .layer .elsvg:nth-of-type(16) .area {
-    fill: $theme-chart-rgba-color16;
+    fill: var(--theme-chart-rgba-color16);
 }
 
 .layer .elsvg:nth-of-type(17) .line {
-    stroke: $theme-chart-color17;
+    stroke: var(--theme-chart-color17);
 }
 
 .layer .elsvg:nth-of-type(17) .area {
-    fill: $theme-chart-rgba-color17;
+    fill: var(--theme-chart-rgba-color17);
 }
 
 .layer .elsvg:nth-of-type(18) .line {
-    stroke: $theme-chart-color18;
+    stroke: var(--theme-chart-color18);
 }
 
 .layer .elsvg:nth-of-type(18) .area {
-    fill: $theme-chart-rgba-color18;
+    fill: var(--theme-chart-rgba-color18);
 }
 
 .layer .elsvg:nth-of-type(19) .line {
-    stroke: $theme-chart-color19;
+    stroke: var(--theme-chart-color19);
 }
 
 .layer .elsvg:nth-of-type(19) .area {
-    fill: $theme-chart-rgba-color19;
+    fill: var(--theme-chart-rgba-color19);
 }
 
 .layer .elsvg:nth-of-type(20) .line {
-    stroke: $theme-chart-color20;
+    stroke: var(--theme-chart-color20);
 }
 
 .layer .elsvg:nth-of-type(20) .area {
-    fill: $theme-chart-rgba-color20;
+    fill: var(--theme-chart-rgba-color20);
 }
 .piece {
     position: absolute;
@@ -316,7 +315,7 @@ $line_offset: 6px;
 }
 
 .popper {
-    z-index: $z-index-tooltip;
+    z-index: var(--z-index-tooltip);
 }
 
 .piece:hover, .piece[hover] {
@@ -370,101 +369,101 @@ $line_offset: 6px;
 }
 
 .piece .point:nth-of-type(1) {
-    border-color: $theme-chart-color1;
-    background: $theme-chart-color1;
+    border-color: var(--theme-chart-color1);
+    background: var(--theme-chart-color1);
 }
 
 .piece .point:nth-of-type(2) {
-    border-color: $theme-chart-color2;
-    background: $theme-chart-color2;
+    border-color: var(--theme-chart-color2);
+    background: var(--theme-chart-color2);
 }
 
 .piece .point:nth-of-type(3) {
-    border-color: $theme-chart-color3;
-    background: $theme-chart-color3;
+    border-color: var(--theme-chart-color3);
+    background: var(--theme-chart-color3);
 }
 
 .piece .point:nth-of-type(4) {
-    border-color: $theme-chart-color4;
-    background: $theme-chart-color4;
+    border-color: var(--theme-chart-color4);
+    background: var(--theme-chart-color4);
 }
 
 .piece .point:nth-of-type(5) {
-    border-color: $theme-chart-color5;
-    background: $theme-chart-color5;
+    border-color: var(--theme-chart-color5);
+    background: var(--theme-chart-color5);
 }
 
 .piece .point:nth-of-type(6) {
-    border-color: $theme-chart-color6;
-    background: $theme-chart-color6;
+    border-color: var(--theme-chart-color6);
+    background: var(--theme-chart-color6);
 }
 
 .piece .point:nth-of-type(7) {
-    border-color: $theme-chart-color7;
-    background: $theme-chart-color7;
+    border-color: var(--theme-chart-color7);
+    background: var(--theme-chart-color7);
 }
 
 .piece .point:nth-of-type(8) {
-    border-color: $theme-chart-color8;
-    background: $theme-chart-color8;
+    border-color: var(--theme-chart-color8);
+    background: var(--theme-chart-color8);
 }
 .piece .point:nth-of-type(9) {
-    border-color: $theme-chart-color9;
-    background: $theme-chart-color9;
+    border-color: var(--theme-chart-color9);
+    background: var(--theme-chart-color9);
 }
 .piece .point:nth-of-type(10) {
-    border-color: $theme-chart-color10;
-    background: $theme-chart-color10;
+    border-color: var(--theme-chart-color10);
+    background: var(--theme-chart-color10);
 }
 
 .piece .point:nth-of-type(11) {
-    border-color: $theme-chart-color11;
-    background: $theme-chart-color11;
+    border-color: var(--theme-chart-color11);
+    background: var(--theme-chart-color11);
 }
 
 .piece .point:nth-of-type(12) {
-    border-color: $theme-chart-color12;
-    background: $theme-chart-color12;
+    border-color: var(--theme-chart-color12);
+    background: var(--theme-chart-color12);
 }
 
 .piece .point:nth-of-type(13) {
-    border-color: $theme-chart-color13;
-    background: $theme-chart-color13;
+    border-color: var(--theme-chart-color13);
+    background: var(--theme-chart-color13);
 }
 
 .piece .point:nth-of-type(14) {
-    border-color: $theme-chart-color14;
-    background: $theme-chart-color14;
+    border-color: var(--theme-chart-color14);
+    background: var(--theme-chart-color14);
 }
 
 .piece .point:nth-of-type(15) {
-    border-color: $theme-chart-color15;
-    background: $theme-chart-color15;
+    border-color: var(--theme-chart-color15);
+    background: var(--theme-chart-color15);
 }
 
 .piece .point:nth-of-type(16) {
-    border-color: $theme-chart-color16;
-    background: $theme-chart-color16;
+    border-color: var(--theme-chart-color16);
+    background: var(--theme-chart-color16);
 }
 
 .piece .point:nth-of-type(17) {
-    border-color: $theme-chart-color17;
-    background: $theme-chart-color17;
+    border-color: var(--theme-chart-color17);
+    background: var(--theme-chart-color17);
 }
 
 .piece .point:nth-of-type(18) {
-    border-color: $theme-chart-color18;
-    background: $theme-chart-color18;
+    border-color: var(--theme-chart-color18);
+    background: var(--theme-chart-color18);
 }
 
 .piece .point:nth-of-type(19) {
-    border-color: $theme-chart-color19;
-    background: $theme-chart-color19;
+    border-color: var(--theme-chart-color19);
+    background: var(--theme-chart-color19);
 }
 
 .piece .point:nth-of-type(20) {
-    border-color: $theme-chart-color20;
-    background: $theme-chart-color20;
+    border-color: var(--theme-chart-color20);
+    background: var(--theme-chart-color20);
 }
 
 .piece .point[special][class] {

@@ -5,5 +5,5 @@
 }
 
 .root:focus {
-    outline: $focus-outline;
+    outline: var(--focus-outline);
 }

@@ -6,7 +6,7 @@
     overflow: visible;
     text-transform: none;
     text-decoration: none;
-    cursor: $cursor-pointer;
+    cursor: var(--cursor-pointer);
     box-sizing: border-box;
     display: inline-block;
     vertical-align: middle;
@@ -38,5 +38,5 @@
 
 .root[disabled]:hover {
     box-shadow: 0 0 0 transparent;
-    cursor: $cursor-not-allowed;
+    cursor: var(--cursor-not-allowed);
 }

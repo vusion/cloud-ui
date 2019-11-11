@@ -13,7 +13,7 @@
     height: 6px;
     background: #e6e6e6;
     overflow: initial;
-    cursor: $cursor-pointer;
+    cursor: var(--cursor-pointer);
 }
 
 .track::before {
@@ -22,7 +22,7 @@
     width: 7px;
     left: -7px;
     height: 100%;
-    background: $brand-primary;
+    background: var(--brand-primary);
 }
 
 .track::after {
@@ -35,7 +35,7 @@
 }
 
 .root[disabled] .track::before {
-    background: $brand-disabled;
+    background: var(--brand-disabled);
 }
 
 .bound {
@@ -58,7 +58,7 @@
     width: 14px;
     height: 24px;
     border-radius: 2px;
-    cursor: $cursor-pointer;
+    cursor: var(--cursor-pointer);
 }
 
 .handle::before {

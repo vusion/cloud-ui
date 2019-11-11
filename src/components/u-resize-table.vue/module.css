@@ -83,7 +83,7 @@
 }
 
 .hthItem[role] {
-    cursor: $cursor-pointer;
+    cursor: var(--cursor-pointer);
 }
 
 .hthItem[role]:hover {
@@ -193,7 +193,7 @@
     padding: 3px 14px;
     box-sizing: border-box;
     line-height: 24px;
-    cursor: $cursor-pointer;
+    cursor: var(--cursor-pointer);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -205,7 +205,7 @@
 }
 
 .option[role] {
-    background: $brand-primary;
+    background: var(--brand-primary);
     color: white;
 }
 
@@ -238,7 +238,7 @@
     display: inline-block;
     width: 14px;
     height: 14px;
-    cursor: $cursor-pointer;
+    cursor: var(--cursor-pointer);
 }
 
 .expand[name="right"]::after {
@@ -312,8 +312,8 @@
     width: 1em;
     height: 1em;
     vertical-align: middle;
-    color: $brand-disabled;
-    cursor: $cursor-pointer;
+    color: var(--brand-disabled);
+    cursor: var(--cursor-pointer);
 }
 
 .sort::before {
@@ -333,11 +333,11 @@
 }
 
 .sort[sorting][order="asc"]::before {
-    color: $brand-primary;
+    color: var(--brand-primary);
 }
 
 .sort[sorting][order="desc"]::after {
-    color: $brand-primary;
+    color: var(--brand-primary);
 }
 
 /* 修改filter样式 */

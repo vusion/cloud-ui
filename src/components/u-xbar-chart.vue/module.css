@@ -1,18 +1,17 @@
-$axis-y_width: 40px;
-$axis-x_height: 30px;
-$axis_border: #ccc;
-$axis-y_offset: 10px;
-$axis-x_offset: 6px;
-$line_border: #eee;
-$line_width: 2px;
-$line_offset: 6px;
-$bar_width: 60px;
-
 .root {
+    --axis-y_width: 40px;
+    --axis-x_height: 30px;
+    --axis_border: #ccc;
+    --axis-y_offset: 10px;
+    --axis-x_offset: 6px;
+    --line_border: #eee;
+    --line_width: 2px;
+    --line_offset: 6px;
+    --bar_width: 60px;
 }
 .grid {
     position: absolute;
-    bottom: $axis-x_height;
+    bottom: var(--axis-x_height);
     top: 15px;
     left: 100px;
     right: 20px;
@@ -20,7 +19,7 @@ $bar_width: 60px;
 }
 .layer {
     position: absolute;
-    bottom: $axis-x_height;
+    bottom: var(--axis-x_height);
     top: 15px;
     left: 100px;
     right: 20px;
@@ -35,13 +34,13 @@ $bar_width: 60px;
 .line[role='line-x'] {
     left: 0;
     right: -1px;
-    border-top: 1px solid $line_border;
+    border-top: 1px solid var(--line_border);
 }
 
 .line[role='line-y'] {
     top: -1px;
     bottom: 0;
-    border-left: 1px solid $line_border;
+    border-left: 1px solid var(--line_border);
 }
 
 .axis {
@@ -53,16 +52,16 @@ $bar_width: 60px;
     left: 100px;
     right: 19px;
     bottom: 0;
-    height: $axis-x_height;
-    border-top: 1px solid $axis_border;
+    height: var(--axis-x_height);
+    border-top: 1px solid var(--axis_border);
 }
 
 .axis[role='axis-y'] {
     left: 0;
     top: 14px;
-    bottom: $axis-x_height;
+    bottom: var(--axis-x_height);
     width: 100px;
-    border-right: 1px solid $axis_border;
+    border-right: 1px solid var(--axis_border);
 }
 .xlabel {
     position: relative;
@@ -82,7 +81,7 @@ $bar_width: 60px;
 }
 
 .label[role='label-x'] {
-    top: $axis-x_offset;
+    top: var(--axis-x_offset);
     bottom: 0;
     text-align: left;
     width: 40px;
@@ -90,7 +89,7 @@ $bar_width: 60px;
 
 .label[role='label-y'] {
     left: 0;
-    right: $axis-y_offset;
+    right: var(--axis-y_offset);
     text-align: right;
 }
 
@@ -116,11 +115,11 @@ $bar_width: 60px;
     position: absolute;
     box-sizing: border-box;
     bottom: 0;
-    width: $bar_width;
+    width: var(--bar_width);
     left: 0;
     margin-left: 0;
     background: rgba(91, 161, 242, 0.3);
-    border: $line_width solid rgba(91, 161, 242, 0.6);
+    border: var(--line_width) solid rgba(91, 161, 242, 0.6);
     border-left: none;
     top: 50%;
     transform: translateY(-50%);
@@ -136,7 +135,7 @@ $bar_width: 60px;
     font-size: 12px;
     background: rgba(71, 88, 107, 0.9);
     color: white;
-    z-index: $z-index-tooltip;
+    z-index: var(--z-index-tooltip);
     box-sizing: border-box;
 }
 
@@ -181,91 +180,91 @@ $bar_width: 60px;
 }
 
 .bar[role='bar-static']:nth-of-type(1) {
-    border-color: $theme-chart-color1;
-    background: $theme-chart-rgba-color1;
+    border-color: var(--theme-chart-color1);
+    background: var(--theme-chart-rgba-color1);
 }
 
 .bar[role='bar-static']:nth-of-type(2) {
-    border-color: $theme-chart-color2;
-    background: $theme-chart-rgba-color2;
+    border-color: var(--theme-chart-color2);
+    background: var(--theme-chart-rgba-color2);
 }
 
 .bar[role='bar-static']:nth-of-type(3) {
-    border-color: $theme-chart-color3;
-    background: $theme-chart-rgba-color3;
+    border-color: var(--theme-chart-color3);
+    background: var(--theme-chart-rgba-color3);
 }
 
 .bar[role='bar-static']:nth-of-type(4) {
-    border-color: $theme-chart-color4;
-    background: $theme-chart-rgba-color4;
+    border-color: var(--theme-chart-color4);
+    background: var(--theme-chart-rgba-color4);
 }
 
 .bar[role='bar-static']:nth-of-type(5) {
-    border-color: $theme-chart-color5;
-    background: $theme-chart-rgba-color5;
+    border-color: var(--theme-chart-color5);
+    background: var(--theme-chart-rgba-color5);
 }
 
 .bar[role='bar-static']:nth-of-type(6) {
-    border-color: $theme-chart-color6;
-    background: $theme-chart-rgba-color6;
+    border-color: var(--theme-chart-color6);
+    background: var(--theme-chart-rgba-color6);
 }
 
 .bar[role='bar-static']:nth-of-type(7) {
-    border-color: $theme-chart-color7;
-    background: $theme-chart-rgba-color7;
+    border-color: var(--theme-chart-color7);
+    background: var(--theme-chart-rgba-color7);
 }
 
 .bar[role='bar-static']:nth-of-type(8) {
-    border-color: $theme-chart-color8;
-    background: $theme-chart-rgba-color8;
+    border-color: var(--theme-chart-color8);
+    background: var(--theme-chart-rgba-color8);
 }
 
 .bar[role='bar-static']:nth-of-type(9) {
-    border-color: $theme-chart-color9;
-    background: $theme-chart-rgba-color9;
+    border-color: var(--theme-chart-color9);
+    background: var(--theme-chart-rgba-color9);
 }
 
 .bar[role='bar-static']:nth-of-type(10) {
-    border-color: $theme-chart-color10;
-    background: $theme-chart-rgba-color10;
+    border-color: var(--theme-chart-color10);
+    background: var(--theme-chart-rgba-color10);
 }
 .bar[role='bar-static']:nth-of-type(11) {
-    border-color: $theme-chart-color11;
-    background: $theme-chart-rgba-color11;
+    border-color: var(--theme-chart-color11);
+    background: var(--theme-chart-rgba-color11);
 }
 .bar[role='bar-static']:nth-of-type(12) {
-    border-color: $theme-chart-color12;
-    background: $theme-chart-rgba-color12;
+    border-color: var(--theme-chart-color12);
+    background: var(--theme-chart-rgba-color12);
 }
 .bar[role='bar-static']:nth-of-type(13) {
-    border-color: $theme-chart-color13;
-    background: $theme-chart-rgba-color13;
+    border-color: var(--theme-chart-color13);
+    background: var(--theme-chart-rgba-color13);
 }
 .bar[role='bar-static']:nth-of-type(14) {
-    border-color: $theme-chart-color14;
-    background: $theme-chart-rgba-color14;
+    border-color: var(--theme-chart-color14);
+    background: var(--theme-chart-rgba-color14);
 }
 .bar[role='bar-static']:nth-of-type(15) {
-    border-color: $theme-chart-color15;
-    background: $theme-chart-rgba-color15;
+    border-color: var(--theme-chart-color15);
+    background: var(--theme-chart-rgba-color15);
 }
 .bar[role='bar-static']:nth-of-type(16) {
-    border-color: $theme-chart-color16;
-    background: $theme-chart-rgba-color16;
+    border-color: var(--theme-chart-color16);
+    background: var(--theme-chart-rgba-color16);
 }
 .bar[role='bar-static']:nth-of-type(17) {
-    border-color: $theme-chart-color17;
-    background: $theme-chart-rgba-color17;
+    border-color: var(--theme-chart-color17);
+    background: var(--theme-chart-rgba-color17);
 }
 .bar[role='bar-static']:nth-of-type(18) {
-    border-color: $theme-chart-color18;
-    background: $theme-chart-rgba-color18;
+    border-color: var(--theme-chart-color18);
+    background: var(--theme-chart-rgba-color18);
 }
 .bar[role='bar-static']:nth-of-type(19) {
-    border-color: $theme-chart-color19;
-    background: $theme-chart-rgba-color19;
+    border-color: var(--theme-chart-color19);
+    background: var(--theme-chart-rgba-color19);
 }
 .bar[role='bar-static']:nth-of-type(20) {
-    border-color: $theme-chart-color20;
-    background: $theme-chart-rgba-color20;
+    border-color: var(--theme-chart-color20);
+    background: var(--theme-chart-rgba-color20);
 }

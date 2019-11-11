@@ -3,7 +3,7 @@
     height: 64px;
     /* display: flex;
     justify-content: space-between; */
-    background: $navbar-background;
+    background: var(--navbar-background);
 }
 
 .left {

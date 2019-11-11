@@ -5,14 +5,14 @@
     user-select: none;
 }
 .head[disabled] {
-    cursor: $cursor-not-allowed;
-    background: $brand-disabled;
-    border: 1px solid $brand-disabled;
+    cursor: var(--cursor-not-allowed);
+    background: var(--brand-disabled);
+    border: 1px solid var(--brand-disabled);
     color: #999;
 }
 .head {
     box-sizing: border-box;
-    cursor: $cursor-pointer;
+    cursor: var(--cursor-pointer);
     padding-left: 10px;
     padding-right: 28px;
     background: white;
@@ -36,7 +36,7 @@
     margin: 0 0 2px 6px;
     position: relative;
     top: 1px;
-    background-color: $brand-primary;
+    background-color: var(--brand-primary);
     color: white;
     display: inline-block;
     padding: 0 5px;
@@ -54,7 +54,7 @@
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    cursor: $cursor-pointer;
+    cursor: var(--cursor-pointer);
     text-align: center;
 }
 .icon::after {
@@ -97,7 +97,7 @@
 .listitem {
     padding: 0 14px;
     color: #777;
-    cursor: $cursor-pointer;
+    cursor: var(--cursor-pointer);
     position: relative;
 }
 .listitem[divider] {
@@ -109,15 +109,15 @@
     cursor: default;
 }
 .listitem[disabled] {
-    cursor: $cursor-not-allowed;
+    cursor: var(--cursor-not-allowed);
     color: #999;
 }
 .listitem:hover, .listitem[hovered] {
-    background: $hover-color;
+    background: var(--hover-color);
     color: #444;
 }
 .listitem[role="z-sel"] {
-    background: $brand-primary;
+    background: var(--brand-primary);
     color: white;
 }
 
@@ -141,7 +141,7 @@
 }
 .none {
     padding: 5px 14px;
-    cursor: $cursor-pointer;
+    cursor: var(--cursor-pointer);
     position: relative;
     background: white;
     color: #555;

@@ -34,5 +34,5 @@
 }
 
 .expand-td {
-    /* transition: $transition-duration height ease-in-out, $transition-duration padding-top ease-in-out, $transition-duration padding-bottom ease-in-out; */
+    /* transition: var(--transition-duration) height ease-in-out, var(--transition-duration) padding-top ease-in-out, var(--transition-duration) padding-bottom ease-in-out; */
 }

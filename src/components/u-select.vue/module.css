@@ -1,18 +1,18 @@
 @extend;
 
 .root {
-    height: $height-base;
+    height: var(--height-base);
     line-height: 32px;
     padding-left: 14px;
     padding-right: 20px;
     background: white;
     color: #555;
-    border: 1px solid $brand-secondary;
-    border-radius: $border-radius-base;
+    border: 1px solid var(--brand-secondary);
+    border-radius: var(--border-radius-base);
 }
 
 .root:focus {
-    border-color: $brand-secondary;
+    border-color: var(--brand-secondary);
 }
 
 .root::after {
@@ -25,9 +25,9 @@
 }
 
 .root[disabled] {
-    cursor: $cursor-not-allowed;
-    background: $brand-disabled;
-    border: 1px solid $brand-disabled;
+    cursor: var(--cursor-not-allowed);
+    background: var(--brand-disabled);
+    border: 1px solid var(--brand-disabled);
     color: #999;
 }
 
@@ -50,8 +50,8 @@
     max-height: 194px;
     overflow: auto;
     background: white;
-    border: 1px solid $brand-secondary;
-    border-radius: $border-radius-base;
+    border: 1px solid var(--brand-secondary);
+    border-radius: var(--border-radius-base);
     z-index: 1065;
 }
 
@@ -73,7 +73,7 @@
 
 .root[size$="normal"] { width: 160px; padding: 0 10px; }
 .root[size$="normal"] .item { padding: 0 10px; }
-.root[size^="normal"] { height: $height-base; line-height: 32px; }
+.root[size^="normal"] { height: var(--height-base); line-height: 32px; }
 .root[size^="normal"] .popper { max-height: 192px; }
 .root[size^="normal"] .item { line-height: 32px; }
 

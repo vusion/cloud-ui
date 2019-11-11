@@ -64,16 +64,16 @@ export default {
     top: 0;
     right: 0;
     left: 0;
-    height: $navbar-height;
+    height: var(--navbar-height);
     /* background: #1c2b41; */
     background: white;
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
-    z-index: $z-index-layout;
+    z-index: var(--z-index-layout);
 }
 
 .body {
     /* min-height: calc(100vh - 134px); */
-    margin-top: $navbar-height;
+    margin-top: var(--navbar-height);
 }
 
 .foot {

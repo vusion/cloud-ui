@@ -1,9 +1,7 @@
 @extend;
 
-$tabs-border: #e0e6ed;
-
 .head {
-    border-bottom: 1px solid $tabs-border;
+    border-bottom: 1px solid var(--tabs-border-color);
     height: auto;
 }
 
@@ -19,9 +17,9 @@ $tabs-border: #e0e6ed;
 
 .item[selected] {
     background: white;
-    color: $brand-primary;
-    border-color: $tabs-border;
-    border-top: 2px solid $brand-primary;
+    color: var(--brand-primary);
+    border-color: var(--tabs-border-color);
+    border-top: 2px solid var(--brand-primary);
 }
 
 .item[disabled] {

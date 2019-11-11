@@ -1,9 +1,7 @@
 @extend;
 
-$tabs-border: #e0e6ed;
-
 .head {
-    border-bottom: 1px solid $tabs-border;
+    border-bottom: 1px solid var(--subtabs-border-color);
 }
 
 .item {
@@ -16,8 +14,8 @@ $tabs-border: #e0e6ed;
 
 .item[selected] {
     background: white;
-    color: $brand-primary;
-    border-color: $tabs-border;
+    color: var(--brand-primary);
+    border-color: var(--subtabs-border-color);
     border-radius: 5px 5px 0 0;
 }
 

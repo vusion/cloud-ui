@@ -15,7 +15,7 @@
 }
 
 .root[selected] {
-    background: $brand-primary;
+    background: var(--brand-primary);
 }
 
 .root[disabled] {

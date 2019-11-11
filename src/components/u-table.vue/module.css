@@ -76,25 +76,25 @@
 }
 
 /* .root[striped] tbody tr:nth-of-type(even) {
-    background: $background-color-light;
+    background: var(--background-color-light);
 } */
 
 .root tbody > tr[color="light"] {
-    background: $background-color-light;
+    background: var(--background-color-light);
 }
 
 .root tbody > tr[color="normal"] {
-    background: $background-color-base;
+    background: var(--background-color-base);
 }
 
 .root tbody > tr[color="dark"] {
-    background: $background-color-dark;
+    background: var(--background-color-dark);
 }
 
 .root tbody > tr[color="primary"] {
-    background: color-mod($brand-primary alpha(0.2));
+    background: --table-row-primary-background;
 }
 
 .root tbody > tr[color="error"] {
-    background: color-mod($brand-error alpha(0.2));
+    background: --table-row-error-background;
 }

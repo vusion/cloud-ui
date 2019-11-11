@@ -1,10 +1,10 @@
 @extend;
 
 .root {
-    color: $link-color;
+    color: var(--link-color);
 }
 .root[disabled] {
-    cursor: $cursor-not-allowed;
+    cursor: var(--cursor-not-allowed);
     color: #ccc;
 }
 

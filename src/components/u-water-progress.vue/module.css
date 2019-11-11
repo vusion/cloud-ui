@@ -1,9 +1,15 @@
 .root {
+    --water-progress-info-color: rgba(54, 163, 247, 0.3);
+    --water-progress-primary-color: rgba(103, 170, 245, 0.3);
+    --water-progress-success-color: rgba(58, 208, 175, 0.3);
+    --water-progress-warning-color: rgba(255, 161, 54, 0.3);
+    --water-progress-error-color: rgba(255, 138, 122, 0.3);
+
     display: inline-block;
     position: relative;
     width: 160px;
     height: 160px;
-    border: 1px solid $border-color-base;
+    border: 1px solid var(--border-color-base);
     border-radius: 100%;
     overflow: hidden;
     -webkit-mask-image: -webkit-radial-gradient(white, black);
@@ -31,7 +37,7 @@
     width: 100%;
     height: 100%;
     /* background: linear-gradient() */
-    transition: all $transition-duration-base;
+    transition: all var(--transition-duration-base);
 }
 
 .wave {
@@ -41,8 +47,8 @@
     left: -150%;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
-    background: linear-gradient(to top, $brand-info, color-mod($brand-info alpha(0.3)));
-    transition: all $transition-duration-base;
+    background: linear-gradient(to top, var(--brand-info), --water-progress-info-color);
+    transition: all var(--transition-duration-base);
 }
 
 .wave[distance="far"] {
@@ -72,17 +78,17 @@
 }
 
 .root[color="primary"] .wave {
-    background: linear-gradient(to top, $brand-primary, color-mod($brand-primary alpha(0.3)));
+    background: linear-gradient(to top, var(--brand-primary), --water-progress-primary-color));
 }
 .root[color="info"] .wave {
-    background: linear-gradient(to top, $brand-info, color-mod($brand-info alpha(0.3)));
+    background: linear-gradient(to top, var(--brand-info), --water-progress-info-color));
 }
 .root[color="success"] .wave {
-    background: linear-gradient(to top, $brand-success, color-mod($brand-success alpha(0.3)));
+    background: linear-gradient(to top, var(--brand-success), --water-progress-success-color));
 }
 .root[color="warning"] .wave {
-    background: linear-gradient(to top, $brand-warning, color-mod($brand-warning alpha(0.3)));
+    background: linear-gradient(to top, var(--brand-warning), --water-progress-warning-color));
 }
 .root[color="error"] .wave {
-    background: linear-gradient(to top, $brand-error, color-mod($brand-error alpha(0.3)));
+    background: linear-gradient(to top, var(--brand-error), --water-progress-error-color));
 }

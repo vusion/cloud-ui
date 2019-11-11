@@ -13,7 +13,7 @@
 }
 
 .root[with-text][checked] .button {
-    left: calc(54px - $button-size - 2px);
+    left: calc(54px - var(--button-size) - 2px);
 }
 
 .root[with-text] .text::before {

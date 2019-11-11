@@ -1,6 +1,3 @@
-$brand-default: #f4f4f4;
-$media-sm-max-width: 767px;
-
 .root {
     position: fixed;
     top: 0;
@@ -57,7 +54,7 @@ $media-sm-max-width: 767px;
 .head {
     position: relative;
     padding: 15px;
-    border-bottom: 1px solid $brand-default;
+    border-bottom: 1px solid #f4f4f4;
 }
 
 .title {
@@ -139,7 +136,7 @@ $media-sm-max-width: 767px;
     text-align: center;
 }
 
-@media (max-width: $media-sm-max-width) {
+@media (max-width: var(--media-small-max-width)) {
     .dialog {
         width: auto;
         margin: 10px;
@@ -148,6 +145,6 @@ $media-sm-max-width: 767px;
 
 .root[static] {
     position: static;
-    padding: $margin-base;
+    padding: var(--margin-base);
 }
 

@@ -1,6 +1,6 @@
-$group_size: 120px;
-
-.root {}
+.root {
+    --group_size: 120px;
+}
 
 .svg {
     width: 100%;
@@ -10,12 +10,12 @@ $group_size: 120px;
 }
 
 .group {
-    width: $group_size;
-    height: $group_size;
+    width: var(--group_size);
+    height: var(--group_size);
 }
 
 .item {
-    fill: $brand-info;
+    fill: var(--brand-info);
     stroke: white;
     stroke-width: 1px;
     transition: opacity 0.2s ease;
@@ -30,58 +30,58 @@ $group_size: 120px;
 }
 
 
-.item:nth-child(1) { fill: $theme-chart-color1; }
-.item:nth-child(2) { fill: $theme-chart-color2; }
-.item:nth-child(3) { fill: $theme-chart-color3; }
-.item:nth-child(4) { fill: $theme-chart-color4; }
-.item:nth-child(5) { fill: $theme-chart-color5; }
-.item:nth-child(6) { fill: $theme-chart-color6; }
-.item:nth-child(7) { fill: $theme-chart-color7; }
-.item:nth-child(8) { fill: $theme-chart-color8; }
-.item:nth-child(9) { fill: $theme-chart-color9; }
-.item:nth-child(10) { fill: $theme-chart-color10; }
+.item:nth-child(1) { fill: var(--theme-chart-color1); }
+.item:nth-child(2) { fill: var(--theme-chart-color2); }
+.item:nth-child(3) { fill: var(--theme-chart-color3); }
+.item:nth-child(4) { fill: var(--theme-chart-color4); }
+.item:nth-child(5) { fill: var(--theme-chart-color5); }
+.item:nth-child(6) { fill: var(--theme-chart-color6); }
+.item:nth-child(7) { fill: var(--theme-chart-color7); }
+.item:nth-child(8) { fill: var(--theme-chart-color8); }
+.item:nth-child(9) { fill: var(--theme-chart-color9); }
+.item:nth-child(10) { fill: var(--theme-chart-color10); }
 .item:nth-child(11) {
-    fill: $theme-chart-color11;
+    fill: var(--theme-chart-color11);
 }
 .item:nth-child(12) {
-    fill: $theme-chart-color12;
+    fill: var(--theme-chart-color12);
 }
 .item:nth-child(13) {
-    fill: $theme-chart-color13;
+    fill: var(--theme-chart-color13);
 }
 .item:nth-child(14) {
-    fill: $theme-chart-color14;
+    fill: var(--theme-chart-color14);
 }
 .item:nth-child(15) {
-    fill: $theme-chart-color15;
+    fill: var(--theme-chart-color15);
 }
 .item:nth-child(16) {
-    fill: $theme-chart-color16;
+    fill: var(--theme-chart-color16);
 }
 .item:nth-child(17) {
-    fill: $theme-chart-color17;
+    fill: var(--theme-chart-color17);
 }
 .item:nth-child(18) {
-    fill: $theme-chart-color18;
+    fill: var(--theme-chart-color18);
 }
 .item:nth-child(19) {
-    fill: $theme-chart-color19;
+    fill: var(--theme-chart-color19);
 }
 .item:nth-child(20) {
-    fill: $theme-chart-color20;
+    fill: var(--theme-chart-color20);
 }
 
-.item[color][color="info"] { fill: $brand-info; }
-.item[color][color="warning"] { fill: $brand-warning; }
-.item[color][color="success"] { fill: $brand-success; }
-.item[color][color="error"] { fill: $brand-error; }
-.item[color][color="primary"] { fill: $brand-primary; }
+.item[color][color="info"] { fill: var(--brand-info); }
+.item[color][color="warning"] { fill: var(--brand-warning); }
+.item[color][color="success"] { fill: var(--brand-success); }
+.item[color][color="error"] { fill: var(--brand-error); }
+.item[color][color="primary"] { fill: var(--brand-primary); }
 
 .label-line {
     display: none;
     fill: none;
     stroke-width: 1px;
-    stroke: $border-color-base;
+    stroke: var(--border-color-base);
 }
 
 .label-line[selected] {
@@ -112,7 +112,7 @@ $group_size: 120px;
 
 .zero {
     fill: white;
-    stroke: $brand-disabled;
+    stroke: var(--brand-disabled);
     stroke-width: 1;
     stroke-dasharray: 4, 4;
 }

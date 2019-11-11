@@ -21,21 +21,21 @@
 }
 
 .root[selected] {
-    background: $brand-primary;
+    background: var(--brand-primary);
     color: white;
 }
 
 .root[disabled] {
     /* @Private */
-    cursor: $cursor-not-allowed;
+    cursor: var(--cursor-not-allowed);
     background: none;
     color: #999;
 }
 
 .root[selected][disabled] {
-    background: $gray-lighter;
+    background: var(--gray-lighter);
 }
 
 .root + .root {
-    border-top: 1px solid $brand-secondary;
+    border-top: 1px solid var(--brand-secondary);
 }

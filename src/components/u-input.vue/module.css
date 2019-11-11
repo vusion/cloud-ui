@@ -3,9 +3,9 @@
 .root {
     padding: 0 10px;
     color: #666;
-    border-color: $brand-secondary;
+    border-color: var(--brand-secondary);
     border-radius: 3px;
-    transition: border-color $transition-duration;
+    transition: border-color var(--transition-duration);
 }
 
 .placeholder, .input::placeholder {
@@ -19,7 +19,7 @@
 }
 
 .root[disabled] {
-    background-color: $brand-disabled;
+    background-color: var(--brand-disabled);
     color: #999;
 }
 
@@ -63,7 +63,7 @@
 /* .input[size^="small"][close] { padding-right: 30px; } */
 
 .root[size$="normal"] { width: 160px; padding: 0 10px; }
-.root[size^="normal"] { height: $height-base; line-height: 32px; }
+.root[size^="normal"] { height: var(--height-base); line-height: 32px; }
 /* .root[size^="normal"][close] { padding-right: 30px; } */
 
 .root[size$="medium"] { width: 280px; padding: 0 10px; }

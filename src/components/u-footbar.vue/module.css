@@ -15,7 +15,7 @@
     position: fixed;
     z-index: 100;
     bottom: 0;
-    left: $sidebar-width;
+    left: var(--sidebar-width);
     right: 0;
     background: #f7f8fa;
     padding: 20px 40px;

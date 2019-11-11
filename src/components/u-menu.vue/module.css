@@ -4,5 +4,5 @@
 
     /* @Public */
     background: white;
-    border: 1px solid $brand-secondary;
+    border: 1px solid var(--brand-secondary);
 }

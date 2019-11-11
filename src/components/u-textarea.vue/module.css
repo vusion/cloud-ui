@@ -5,12 +5,12 @@
     width: 160px;
     height: 80px;
     line-height: inherit;
-    min-height: $height-base;
+    min-height: var(--height-base);
     padding: 5px 10px;
     color: #666;
-    border-color: $brand-secondary;
+    border-color: var(--brand-secondary);
     border-radius: 3px;
-    transition: border-color $transition-duration;
+    transition: border-color var(--transition-duration);
 }
 
 .input::placeholder {
@@ -24,7 +24,7 @@
 }
 
 .root[disabled] {
-    background-color: $brand-disabled;
+    background-color: var(--brand-disabled);
 }
 
 .root[color="error"] {

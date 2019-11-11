@@ -4,14 +4,14 @@
     border-color: #cdcdcd;
     color: #333;
     padding: 0 30px;
-    border-radius: $button-border-radius-base;
-    background: $button-background;
+    border-radius: var(--button-border-radius-base);
+    background: var(--button-background);
 }
 
 .root:hover {
-    color: $button-hover-color;
-    border-color: $button-hover-border-color;
-    background: $button-hover-background;
+    color: var(--button-hover-color);
+    border-color: var(--button-hover-border-color);
+    background: var(--button-hover-background);
 }
 .root:active {
     background-color: white;
@@ -19,9 +19,9 @@
 }
 
 .root[disabled] {
-    background: $button-disabled-background;
-    color: $button-disabled-color;
-    border-color: $button-disabled-border-color;
+    background: var(--button-disabled-background);
+    color: var(--button-disabled-color);
+    border-color: var(--button-disabled-border-color);
     box-shadow: none;
 }
 
@@ -30,20 +30,20 @@
  */
 
 .root[color="primary"] {
-    background: $brand-primary;
-    color: $button-primary-color;
+    background: var(--brand-primary);
+    color: var(--button-primary-color);
     border: none;
     line-height: 34px;
 }
 
 .root[color="primary"]:hover {
-    background: $button-primary-hover-background;
-    color: $button-primary-hover-color;
+    background: var(--button-primary-hover-background);
+    color: var(--button-primary-hover-color);
 }
 
 .root[color="primary"][disabled] {
-    color: $button-primary-disabled-color;
-    background: $button-primary-disabled-background;
+    color: var(--button-primary-disabled-color);
+    background: var(--button-primary-disabled-background);
 }
 
 /**
@@ -62,7 +62,7 @@
 }
 
 .root[square] {
-    width: $height-base;
+    width: var(--height-base);
     padding: 0;
 }
 
@@ -82,7 +82,7 @@
 }
 
 .root[square][icon="refresh"]:hover::before {
-    color: $brand-primary;
+    color: var(--brand-primary);
 }
 
 .root[icon="loading"]::before {

@@ -1,0 +1,251 @@
+:root {
+    /* Brand Colors */
+    --brand-primary: #67aaf5;
+    --brand-secondary: #e1e8ed;
+    --brand-info: #36a3f7;
+    --brand-success: #3ad0af;
+    --brand-warning: #ffa136;
+    --brand-error: #ff8a7a;
+    --brand-disabled: #cddae9;
+    --brand-disabled-light: #e7eaef;
+    --hover-color: #f4f4f4;
+
+    /* Gray Colors */
+    --gray-darkest: #333;
+    --gray-darker: #666;
+    --gray-dark: #999;
+    --gray-base: #aaa;
+    --gray-light: #ccc;
+    --gray-lighter: #ddd;
+    --gray-lightest: #eee;
+
+    /* Component Base Colors */
+    --background-color-light: #f7f8fc;
+    --background-color-base: #f2f3f8;
+    --background-color-dark: #ebedf5;
+    --color-base: #565b61;
+    --border-color-base: #dfe4ec;
+
+    /* Spacing Dimensions */
+    --margin-small: 10px;
+    --margin-base: 20px;
+    --margin-large: 30px;
+
+    /* Component Base Dimensions */
+    --border-width-base: 1px;
+    --width-base: 160px;
+    --height-base: 34px;
+    --border-radius-base: 2px;
+    --line-height-base: 1.6;
+    --font-size-base: 14px;
+
+    /* Specific Dimensions */
+    --navbar-height: 64px;
+    --sidebar-width: 180px;
+
+    /* Field Colors */
+    --field-background: white;
+    --field-color: #666;
+    --field-border-color: #cbd5dd;
+    --field-disabled-color: #bbb;
+    --field-selected-color: var(--brand-primary);
+
+    /* Animation Durations */
+    --transition-duration: 0.2s;
+
+    /* Fonts */
+    /* stylelint-disable value-keyword-case */
+    --font-family-zh-CN: "Helvetica Neue", helvetica, tahoma, arial, "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+    --font-family-code: menlo, consolas, monaco, monospace;
+
+    --media-small-max-width: 767px;
+
+    /* Z-Index */
+    --z-index-loading: 9000;
+    --z-index-toast: 8000;
+    --z-index-tooltip: 7010;
+    --z-index-popper: 7000;
+    --z-index-modal: 5000;
+    --z-index-plugin: 2000;
+    --z-index-layout: 100;
+    --z-index-base: 1;
+
+    /* Component Action Hints */
+    --cursor-pointer: pointer;
+    --cursor-not-allowed: not-allowed;
+    --focus-outline: none;
+
+    /* Transition Duration */
+    --transition-duration-base: 0;
+
+    --checkbox-size: 18px;
+    --radio-size: 18px;
+
+    --circular-progress-size-base: 100px;
+    --circular-progress-font-size-base: 18px;
+
+    --linear-progress-height-base: 12px;
+
+    --pagination-item-size: 30px;
+
+    --tooltip-background-color: rgba(71, 88, 107, 0.9);
+    --tooltip-arrow-size: 6px;
+    --tooltip-arrow-offset: 16px;
+
+    --popup-background-color: white;
+    --popup-background-head-color: white;
+    --popup-border-color: var(--border-color-base);
+    --popup-arrow-size: 8px;
+    --popup-outer-arrow-size: calc(var(--popup-arrow-size) + 1px);
+    --popup-arrow-offset: 16px;
+
+    --switch-height: 22px;
+    --switch-button-size: 18px;
+
+    --toast-margin: 30px;
+
+    /* Table */
+    --table-row-primary-background: rgba(103, 170, 245, 0.2);
+    --table-row-error-background: rgb(255, 138, 122, 0.2);
+
+    /* --------- */
+
+    /* Product Colors */
+    --product-nms: #30c5db;
+    --product-nms-light: #1ba9bf;
+    --product-ncv: #67aaf5;
+    --product-ncv-light: #5a95d7;
+    --product-nce: #86bbe7;
+    --product-nce-light: #76a4cb;
+    --product-nse: #87cee8;
+    --product-nse-light: #77b5cc;
+    --product-nlb: #67c5f5;
+    --product-nlb-light: #5cb1db;
+    --product-rep: #4ec9ab;
+    --product-rep-light: #45b095;
+    --product-rds: #94cd4e;
+    --product-rds-light: #81b344;
+    --product-ncr: #9e9cf6;
+    --product-ncr-light: #8c8adb;
+    --product-nos: #89aaf7;
+    --product-nos-light: #7b99de;
+    --product-cdn: #8ad199;
+    --product-cdn-light: #79b886;
+    --product-net: #61dac6;
+    --product-net-light: #61dac6;
+    --product-mongo: #96dce6;
+    --product-mongo-light: #84c1ca;
+    --product-nqs: #86d651;
+    --product-nqs-light: #78c049;
+    --product-snat: #c69cf6;
+    --product-snat-light: #b28cdd;
+
+    /* theme Chart Colors */
+    --theme-chart-background-base: rgba(97, 218, 198, 0.6);
+    --theme-chart-line-area-fill: rgba(97, 218, 198, 0.3);
+    --theme-chart-color1: rgb(103, 170, 245);
+    --theme-chart-rgba-color1: rgba(103, 170, 245, 0.1);
+
+    --theme-chart-color2: rgb(255, 174, 60);
+    --theme-chart-rgba-color2: rgba(255, 174, 60, 0.1);
+
+    --theme-chart-color3: rgb(78, 201, 171);
+    --theme-chart-rgba-color3: rgba(78, 201, 171, 0.1);
+
+    --theme-chart-color4: rgb(245, 131, 122);
+    --theme-chart-rgba-color4: rgba(245, 131, 122, 0.1);
+
+    --theme-chart-color5: rgb(158, 156, 246);
+    --theme-chart-rgba-color5: rgba(158, 156, 246, 0.1);
+
+    --theme-chart-color6: rgb(30, 192, 216);
+    --theme-chart-rgba-color6: rgba(30, 192, 216, 0.1);
+
+    --theme-chart-color7: rgb(138, 205, 78);
+    --theme-chart-rgba-color7: rgba(138, 205, 78, 0.1);
+
+    --theme-chart-color8: rgb(237, 139, 204);
+    --theme-chart-rgba-color8: rgba(237, 139, 204, 0.1);
+
+    --theme-chart-color9: rgb(135, 206, 232);
+    --theme-chart-rgba-color9: rgba(135, 206, 232, 0.1);
+
+    --theme-chart-color10: rgb(97, 218, 198);
+    --theme-chart-rgba-color10: rgba(97, 218, 198, 0.1);
+
+    --theme-chart-color11: rgb(198, 156, 246);
+    --theme-chart-rgba-color11: rgba(198, 156, 246, 0.1);
+
+    --theme-chart-color12: rgb(137, 170, 247);
+    --theme-chart-rgba-color12: rgba(137, 170, 247, 0.1);
+
+    --theme-chart-color13: rgb(251, 155, 108);
+    --theme-chart-rgba-color13: rgba(251, 155, 108, 0.1);
+
+    --theme-chart-color14: rgb(103, 170, 245);
+    --theme-chart-rgba-color14: rgba(103, 170, 245, 0.1);
+
+    --theme-chart-color15: rgb(134, 187, 231);
+    --theme-chart-rgba-color15: rgba(134, 187, 231, 0.1);
+
+    --theme-chart-color16: rgb(245, 196, 80);
+    --theme-chart-rgba-color16: rgba(245, 196, 80, 0.1);
+
+    --theme-chart-color17: rgb(135, 206, 232);
+    --theme-chart-rgba-color17: rgba(135, 206, 232, 0.1);
+
+    --theme-chart-color18: rgb(239, 216, 22);
+    --theme-chart-rgba-color18: rgba(239, 216, 22, 0.1);
+
+    --theme-chart-color19: rgb(92, 208, 133);
+    --theme-chart-rgba-color19: rgba(92, 208, 133, 0.1);
+
+    --theme-chart-color20: rgb(241, 126, 248);
+    --theme-chart-rgba-color20: rgba(241, 126, 248, 0.1);
+
+    /* Button */
+    --button-background: white;
+    --button-hover-color: var(--brand-primary);
+    --button-hover-border-color: var(--brand-primary);
+    --button-hover-background: white;
+
+    --button-border-radius-base: var(--border-radius-base);
+    --button-primary-disabled-color: white;
+    --button-primary-disabled-background: #d9d9d9;
+    --button-primary-color: white;
+    --button-disabled-color: #ccc;
+    --button-disabled-border-color: #ddd;
+    --button-disabled-background: white;
+    --button-primary-hover-background: #5b96d9;
+    --button-primary-hover-color: var(--button-primary-color);
+
+    /* Sidebar */
+    --sidebar-background-color: #2b333f;
+    --sidebar-item-color: #8594aa;
+    --sidebar-item-background: none;
+    --sidebar-item-selected-background: #252b33;
+    --sidebar-item-selected-color: white;
+    --sidebar-item-disabled-color: #586475;
+    --sidebar-item-hover-color: white;
+    --sidebar-group-head-hover-color: white;
+    --sidebar-group-head-color: #9dabc2;
+    --sidebar-group-head-selected-color: var(--sidebar-group-head-color);
+    --sidebar-divider-background: #3d4654;
+
+    /* others */
+    --link-color: #5494db;
+    --navbar-background: #343e4f;
+    --navbar-select-hover-background: none;
+    --navbar-select-focused-background: none;
+    --subnav-item-color: #666;
+    --subnav-item-hover-color: var(--brand-primary);
+    --subnav-item-hover-background: #f6f7f9;
+    --subnav-item-selected-color: var(--brand-primary);
+    --subnav-item-selected-background: white;
+
+    --tabs-border-color: #e0e6ed;
+    --subtabs-border-color: #e0e6ed;
+
+    --lightbox-head-height: 64px;
+}
+
