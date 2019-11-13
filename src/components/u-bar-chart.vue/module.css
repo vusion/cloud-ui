@@ -1,29 +1,32 @@
-.root {
-    --axis-y_width: 40px;
-    --axis-x_height: 30px;
-    --axis_border: #ccc;
-    --axis-y_offset: 10px;
-    --axis-x_offset: 6px;
-    --line_border: #eee;
-    --line_width: 2px;
-    --line_offset: 6px;
-    --bar_width: 60px;
+/* @deprecated */
+:root {
+    --bar-chart-axis-y_width: 40px;
+    --bar-chart-axis-x_height: 30px;
+    --bar-chart-axis_border: #ccc;
+    --bar-chart-axis-y_offset: 10px;
+    --bar-chart-axis-x_offset: 6px;
+    --bar-chart-line_border: #eee;
+    --bar-chart-line_width: 2px;
+    --bar-chart-line_offset: 6px;
+    --bar-chart-bar_width: 60px;
 }
+
+.root {}
 
 .grid {
     position: absolute;
-    bottom: var(--axis-x_height);
+    bottom: var(--bar-chart-axis-x_height);
     top: 15px;
-    left: var(--axis-y_width);
+    left: var(--bar-chart-axis-y_width);
     right: 20px;
     font-size: 0;
 }
 
 .layer {
     position: absolute;
-    bottom: var(--axis-x_height);
+    bottom: var(--bar-chart-axis-x_height);
     top: 15px;
-    left: var(--axis-y_width);
+    left: var(--bar-chart-axis-y_width);
     right: 20px;
     font-size: 0;
     z-index: 10;
@@ -36,13 +39,13 @@
 .line[role="line-x"] {
     left: 0;
     right: -1px;
-    border-top: 1px solid var(--line_border);
+    border-top: 1px solid var(--bar-chart-line_border);
 }
 
 .line[role="line-y"] {
     top: -1px;
     bottom: 0;
-    border-left: 1px solid var(--line_border);
+    border-left: 1px solid var(--bar-chart-line_border);
 }
 
 .axis {
@@ -51,19 +54,19 @@
 }
 
 .axis[role="axis-x"] {
-    left: var(--axis-y_width);
+    left: var(--bar-chart-axis-y_width);
     right: 19px;
     bottom: 0;
-    height: var(--axis-x_height);
-    border-top: 1px solid var(--axis_border);
+    height: var(--bar-chart-axis-x_height);
+    border-top: 1px solid var(--bar-chart-axis_border);
 }
 
 .axis[role="axis-y"] {
     left: 0;
     top: 14px;
-    bottom: var(--axis-x_height);
-    width: var(--axis-y_width);
-    border-right: 1px solid var(--axis_border);
+    bottom: var(--bar-chart-axis-x_height);
+    width: var(--bar-chart-axis-y_width);
+    border-right: 1px solid var(--bar-chart-axis_border);
 }
 
 .label {
@@ -72,7 +75,7 @@
 }
 
 .label[role="label-x"] {
-    top: var(--axis-x_offset);
+    top: var(--bar-chart-axis-x_offset);
     bottom: 0;
     text-align: center;
 }
@@ -84,7 +87,7 @@
 
 .label[role="label-y"] {
     left: 0;
-    right: var(--axis-y_offset);
+    right: var(--bar-chart-axis-y_offset);
     -webkit-transform: translateY(50%);
     -moz-transform: translateY(50%);
     -ms-transform: translateY(50%);
@@ -119,7 +122,7 @@
     left: 50%;
     margin-left: -25%;
     background: rgba(91, 161, 242, 0.3);
-    border: var(--line_width) solid rgba(91, 161, 242, 0.6);
+    border: var(--bar-chart-line_width) solid rgba(91, 161, 242, 0.6);
     border-bottom: none;
 }
 

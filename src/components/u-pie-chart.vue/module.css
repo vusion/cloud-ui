@@ -1,6 +1,8 @@
-.root {
-    --group_size: 120px;
+:root {
+    --pie-chart-group_size: 120px;
 }
+
+.root {}
 
 .svg {
     width: 100%;
@@ -10,8 +12,8 @@
 }
 
 .group {
-    width: var(--group_size);
-    height: var(--group_size);
+    width: var(--pie-chart-group_size);
+    height: var(--pie-chart-group_size);
 }
 
 .item {

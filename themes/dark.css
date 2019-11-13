@@ -1,4 +1,4 @@
-@import '../src/base/theme.css';
+@import '../src/styles/theme.css';
 
 :root {
     --brand-primary: #4a89e8;

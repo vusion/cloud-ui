@@ -1,10 +1,12 @@
-.root {
+:root {
     --water-progress-info-color: rgba(54, 163, 247, 0.3);
     --water-progress-primary-color: rgba(103, 170, 245, 0.3);
     --water-progress-success-color: rgba(58, 208, 175, 0.3);
     --water-progress-warning-color: rgba(255, 161, 54, 0.3);
     --water-progress-error-color: rgba(255, 138, 122, 0.3);
+}
 
+.root {
     display: inline-block;
     position: relative;
     width: 160px;

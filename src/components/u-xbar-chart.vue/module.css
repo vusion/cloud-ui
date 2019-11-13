@@ -1,17 +1,20 @@
-.root {
-    --axis-y_width: 40px;
-    --axis-x_height: 30px;
-    --axis_border: #ccc;
-    --axis-y_offset: 10px;
-    --axis-x_offset: 6px;
-    --line_border: #eee;
-    --line_width: 2px;
-    --line_offset: 6px;
-    --bar_width: 60px;
+:root {
+    --xbar-chart-axis-y_width: 40px;
+    --xbar-chart-axis-x_height: 30px;
+    --xbar-chart-axis_border: #ccc;
+    --xbar-chart-axis-y_offset: 10px;
+    --xbar-chart-axis-x_offset: 6px;
+    --xbar-chart-line_border: #eee;
+    --xbar-chart-line_width: 2px;
+    --xbar-chart-line_offset: 6px;
+    --xbar-chart-bar_width: 60px;
 }
+
+.root {}
+
 .grid {
     position: absolute;
-    bottom: var(--axis-x_height);
+    bottom: var(--xbar-chart-axis-x_height);
     top: 15px;
     left: 100px;
     right: 20px;
@@ -19,7 +22,7 @@
 }
 .layer {
     position: absolute;
-    bottom: var(--axis-x_height);
+    bottom: var(--xbar-chart-axis-x_height);
     top: 15px;
     left: 100px;
     right: 20px;
@@ -34,13 +37,13 @@
 .line[role='line-x'] {
     left: 0;
     right: -1px;
-    border-top: 1px solid var(--line_border);
+    border-top: 1px solid var(--xbar-chart-line_border);
 }
 
 .line[role='line-y'] {
     top: -1px;
     bottom: 0;
-    border-left: 1px solid var(--line_border);
+    border-left: 1px solid var(--xbar-chart-line_border);
 }
 
 .axis {
@@ -52,16 +55,16 @@
     left: 100px;
     right: 19px;
     bottom: 0;
-    height: var(--axis-x_height);
-    border-top: 1px solid var(--axis_border);
+    height: var(--xbar-chart-axis-x_height);
+    border-top: 1px solid var(--xbar-chart-axis_border);
 }
 
 .axis[role='axis-y'] {
     left: 0;
     top: 14px;
-    bottom: var(--axis-x_height);
+    bottom: var(--xbar-chart-axis-x_height);
     width: 100px;
-    border-right: 1px solid var(--axis_border);
+    border-right: 1px solid var(--xbar-chart-axis_border);
 }
 .xlabel {
     position: relative;
@@ -81,7 +84,7 @@
 }
 
 .label[role='label-x'] {
-    top: var(--axis-x_offset);
+    top: var(--xbar-chart-axis-x_offset);
     bottom: 0;
     text-align: left;
     width: 40px;
@@ -89,7 +92,7 @@
 
 .label[role='label-y'] {
     left: 0;
-    right: var(--axis-y_offset);
+    right: var(--xbar-chart-axis-y_offset);
     text-align: right;
 }
 
@@ -115,11 +118,11 @@
     position: absolute;
     box-sizing: border-box;
     bottom: 0;
-    width: var(--bar_width);
+    width: var(--xbar-chart-bar_width);
     left: 0;
     margin-left: 0;
     background: rgba(91, 161, 242, 0.3);
-    border: var(--line_width) solid rgba(91, 161, 242, 0.6);
+    border: var(--xbar-chart-line_width) solid rgba(91, 161, 242, 0.6);
     border-left: none;
     top: 50%;
     transform: translateY(-50%);

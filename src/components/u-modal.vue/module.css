@@ -136,7 +136,7 @@
     text-align: center;
 }
 
-@media (max-width: var(--media-small-max-width)) {
+@media (--small-window) {
     .dialog {
         width: auto;
         margin: 10px;

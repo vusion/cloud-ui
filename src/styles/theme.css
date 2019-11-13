@@ -58,8 +58,6 @@
     --font-family-zh-CN: "Helvetica Neue", helvetica, tahoma, arial, "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
     --font-family-code: menlo, consolas, monaco, monospace;
 
-    --media-small-max-width: 767px;
-
     /* Z-Index */
     --z-index-loading: 9000;
     --z-index-toast: 8000;
@@ -249,3 +247,4 @@
     --lightbox-head-height: 64px;
 }
 
+@custom-media --small-window (max-width: 767px);
