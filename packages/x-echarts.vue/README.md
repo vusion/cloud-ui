@@ -41,7 +41,7 @@ install(Vue, { XEcharts });
 
 ``` vue
 <template>
-<x-echarts :options="options" autoresize></x-echarts>
+<x-echarts :options="options"></x-echarts>
 </template>
 <script>
 export default {
@@ -83,7 +83,7 @@ export default {
 
 ``` vue
 <template>
-<x-echarts :options="options" autoresize></x-echarts>
+<x-echarts :options="options"></x-echarts>
 </template>
 <script>
 export default {
@@ -137,7 +137,7 @@ export default {
 
 ``` vue
 <template>
-<x-echarts border :options="options" autoresize></x-echarts>
+<x-echarts border :options="options"></x-echarts>
 </template>
 <script>
 export default {
@@ -207,7 +207,7 @@ export default {
 
 ``` vue
 <template>
-<x-echarts border :options="options" autoresize style="width: 420px; height: 240px;"></x-echarts>
+<x-echarts border :options="options" style="width: 420px; height: 240px;"></x-echarts>
 </template>
 <script>
 export default {
@@ -283,7 +283,7 @@ export default {
 | options | Object |  | ECharts 实例的数据。修改这个 prop 会触发 ECharts 实例的 `setOption` 方法。如果直接修改 `options` 绑定的数据而对象引用保持不变，`setOption` 方法调用时将带有参数 `notMerge: false`。否则，如果为 `options` 绑定一个新的对象，`setOption` 方法调用时则将带有参数 `notMerge: true`。 |
 | theme | String | | 设置主题 |
 | group | String | | 实例的分组，会自动绑定到 ECharts 组件的同名属性上。 |
-| autoresize | Boolean | `false` | 指定 ECharts 实例在组件根元素尺寸变化时是否需要自动进行重绘。 |
+| autoresize | Boolean | `true` | 指定 ECharts 实例在组件根元素尺寸变化时是否需要自动进行重绘。 |
 | manual-update | Boolean | `false` | 在性能敏感（数据量很大）的场景下，我们最好对于 `options` prop 绕过 Vue 的响应式系统。当将 `manual-update` prop 指定为 `true` 且不传入 `options` prop 时，数据将不会被监听。然后，你需要用 `ref` 获取组件实例以后手动调用 `mergeOptions` 方法来更新图表。 |
 | border | Boolean | `false` | 是否添加边框 |
 

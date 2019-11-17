@@ -5,14 +5,6 @@ module.exports = {
     type: 'library',
     name: 'cloud-ui',
     CamelName: 'CloudUI',
-    uglifyJS: true,
-    extractCSS: true,
-    sourceMap: true,
-    webpackDevServer: {
-        historyApiFallback: {
-            index: '/cloud-ui/',
-        },
-    },
     docs: {
         title: 'Cloud UI 组件库',
         logo: '组件库',

@@ -6,6 +6,7 @@ export const XEcharts = {
     extends: VueEcharts,
     props: {
         theme: { type: [String, Object], default: 'cloud-ui' },
+        autoresize: { type: Boolean, default: true },
     },
 };
 

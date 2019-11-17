@@ -1,7 +1,7 @@
 {
   "name": "@cloud-ui/x-echarts.vue",
   "description": "Cloud UI - ECharts",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "author": "wt911122",
   "main": "./index.js",
   "repository": "vusion/cloud-ui",
