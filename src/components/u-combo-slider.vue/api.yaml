@@ -1,0 +1,101 @@
+- name: u-combo-slider
+  attrs:
+    - name: value.sync, v-model
+      type: number
+      default: 0
+      description: 滑块的值
+    - name: min
+      type: number
+      default: 0
+      description: 最小值
+    - name: max
+      type: number
+      default: 0
+      description: 最大值
+    - name: step
+      type: number
+      default: 1
+      description: 间隔。`0`表示连续
+    - name: precision
+      type: number
+      default: 1
+      description: 精度，表示数字要保留的最小单位，整数、小数均可
+    - name: range
+      type: Array
+      default: []
+      description: 进一步对`value`限制，通常传入一个数组，第一个值表示范围开始值，第二个值表示范围的结束值。
+    - name: formatter
+      type: string, object
+      default: null
+      description: 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。
+    - name: sync-on
+      type: string
+      default: input
+      description: 输入后何时同步值到`<u-slider>`组件中。可选值：`'input'`表示在输入时同步，`'blur'`表示在失焦时同步
+    - name: hide-buttons
+      type: boolean
+      default: true
+      description: 是否隐藏按钮
+    - name: readonly
+      type: boolean
+      default: false
+      description: 是否只读
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用
+    - name: unit
+      type: string
+      default: null
+      description: 单位
+    - name: tip
+      type: string
+      default: null
+      description: 提示
+  events:
+    - name: "@input"
+      description: 滑块的值改变时触发
+      params:
+        - name: $event
+          type: number
+          description: 滑块的值
+    - name: "@slide"
+      description: 拖动滑块时触发
+      params:
+        - name: $event.value
+          type: number
+          description: 滑块的值
+        - name: $event.oldValue
+          type: number
+          description: 旧的值
+        - name: $event.percent
+          type: number
+          description: 滑块位置所在的百分比
+    - name: "@change"
+      description: 滑块的值改变后触发
+      params:
+        - name: $event.value
+          type: number
+          description: 改变后的值
+        - name: $event.oldValue
+          type: number
+          description: 旧的值
+    - name: "@number-input"
+      description: 改变数字输入框的值后触发
+      params:
+        - name: $event.value
+          type: number
+          description: 改变后滑块的值
+    - name: "@slide-end"
+      description: 拖动滑块结束后触发
+      params:
+        - name: $event.value
+          type: number
+          description: 改变后的值
+  aria:
+    - key: ↑
+      description: 按`step`量增加值
+    - key: ↓
+      description: 按`step`量减小值
+    - key: Enter
+      description: 自动修复为合法的值，并且应用更改

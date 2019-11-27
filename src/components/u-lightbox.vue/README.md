@@ -80,9 +80,9 @@ export default {
 
 ### Slots
 
-| Slot | Description |
-| ---- | ----------- |
-| (default) | 灯箱内容 |
+#### (default)
+
+灯箱内容。
 
 ### Events
 

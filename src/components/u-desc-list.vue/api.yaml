@@ -1,0 +1,36 @@
+- name: desc-list
+  title: 描述列表
+  attrs:
+    - name: label-size
+      type: string
+      default: normal
+      description: 标签大小。可选值：`small`、`normal`、`large`、`huge`
+  slots:
+    - name: default
+      description: 插入`<u-desc-list-item>`或`<u-desc-list-group>`子组件。
+- name: desc-list-item
+  attrs:
+    - name: label
+      type: string
+      default: null
+      description: 标签
+    - name: label-size
+      type: string
+      default: null
+      description: 标签大小。可选值：`small`、`normal`、`large`、`huge`
+  slots:
+    - name: default
+      description: 插入文本或HTML。
+- name: desc-list-group
+  attrs:
+    - name: title
+      type: string
+      default: null
+      description: 标题
+    - name: label-size
+      type: string
+      default: null
+      description: 标签大小。 可选值：`small`、`normal`、`large`、`huge`
+  slots:
+    - name: default
+      description: 插入`<u-desc-list-item>`子组件

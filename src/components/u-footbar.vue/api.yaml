@@ -1,0 +1,6 @@
+- name: u-footbar
+  attrs:
+    - name: position
+      type: string
+      default: null
+      description: 显示的位置。

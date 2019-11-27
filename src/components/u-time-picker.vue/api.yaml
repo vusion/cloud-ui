@@ -1,0 +1,41 @@
+- name: time-picker
+  attrs:
+    - name: time
+      type: string
+      default: 00:00
+      description: 当前的时间值
+    - name: minUnit
+      type: string
+      default: second
+      description: 最小时间单位`'second'`或者是`'minute'`
+    - name: minTime
+      type: string
+      default: 00:00
+      description: 最小时间
+    - name: maxTime
+      type: string
+      default: 23:59
+      description: 最大时间
+    - name: autofocus
+      type: boolean
+      default: false
+      description: 是否自动获得焦点
+    - name: readonly
+      type: boolean
+      default: false
+      description: 是否只读
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用
+    - name: visible
+      type: boolean
+      default: true
+      description: 是否显示
+  events:
+    - name: "@change"
+      description: 时间改变时触发
+      params:
+        - name: time
+          type: object
+          description: 改变后的时间

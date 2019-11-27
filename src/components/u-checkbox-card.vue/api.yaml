@@ -1,0 +1,50 @@
+- name: u-checkbox-card
+  title: 多选卡片
+  attrs:
+    - name: data
+      type: array
+      default: []
+      description: 可供选择的数据
+    - name: value.sync, v-model
+      type: Array
+      default: null
+      description: 被选中数据
+    - name: placeholder
+      type: string
+      default: null
+      description: 没有数据时的占位显示
+    - name: size
+      type: string
+      default: normal
+      description: 卡片尺寸
+    - name: column
+      type: number
+      default: null
+      description: 一行固定多少个选择项，如果不传则固定单项宽度为158px，每行个数自适应行宽
+  slots:
+    - name: default
+      description: 插入  HTML或 `Component`, 可展示额外内容。
+    - name: placeholder
+      description: 空数据占位显示内容
+  events:
+    - name: "@input"
+      description: 输入时触发。
+      params:
+        - name: $event
+          type: string
+          description: 输入框的值
+        - name: senderVM
+          type: UInput
+          description: 发送事件实例
+    - name: "@change"
+      description: 值变化时触发。（注意：与原生事件不同）
+      params:
+        - name: $event.value
+          type: string
+          description: 改变后的值
+        - name: $event.oldValue
+          type: string
+          description: 旧的值
+        - name: senderVM
+          type: UInput
+          description: 发送事件实例

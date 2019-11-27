@@ -1,0 +1,51 @@
+- name: info-list
+  attrs:
+    - name: column
+      type: string
+      default: 3
+      description: 列数。可选值：`1`、`2`、`3`、`4`
+    - name: label-size
+      type: string
+      default: auto
+      description: 标签大小。可选值：`small`、`normal`、`large`、`auto`
+  slots:
+    - name: default
+      description: 插入`<u-info-list-item>`或`<u-info-list-group>`子组件。
+- name: info-list-item
+  attrs:
+    - name: label
+      type: string
+      default: null
+      description: 标签
+    - name: column
+      type: string
+      default: null
+      description: 列数。可选值：`1`、`2`、`3`、`4`
+    - name: label-size
+      type: string
+      default: auto
+      description: 标签大小。可选值：`small`、`normal`、`large`、`auto`
+    - name: ellipsis
+      type: boolean
+      default: false
+      description: 是否换行，默认换行，值为`true`则开启不换行，超出部分显示为省略号
+  slots:
+    - name: default
+      description: 插入文本或HTML。
+    - name: label
+      description: 用于自定义 label 内容。
+- name: info-list-group
+  attrs:
+    - name: title
+      type: string
+      default: null
+      description: 标题
+    - name: label-size
+      type: string
+      default: auto
+      description: 标签大小。可选值：`small`、`normal`、`large`、`auto`
+  slots:
+    - name: default
+      description: 插入`<u-info-list-item>`子组件
+    - name: operate
+      description: 自定义副标题。

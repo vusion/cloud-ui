@@ -1,0 +1,4 @@
+- name: u-label
+  slots:
+    - name: default
+      description: 在插槽中插入文本或HTML。

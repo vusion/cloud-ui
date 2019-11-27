@@ -1,0 +1,280 @@
+- name: u-select
+  attrs:
+    - name: value.sync, v-model
+      type: any
+      default: null
+      description: 当前选择的值
+    - name: field
+      type: string
+      default: text
+      description: 显示文本字段
+    - name: data
+      type: Array<{ text, value }>
+      default: null
+      description: 列表数据
+    - name: data-source
+      type: object, Function, DataSource
+      default: null
+      description: 多功能数据源
+    - name: cancelable
+      type: boolean
+      default: false
+      description: 是否可以取消选择
+    - name: multiple
+      type: boolean
+      default: false
+      description: 是否可以多选
+    - name: placeholder
+      type: boolean
+      default: 请选择
+      description: 选择框的占位符
+    - name: loading-text
+      type: string
+      default: 加载中...
+      description: 加载时的文字。使用分页加载时才会出现
+    - name: empty-text
+      type: string
+      default: 加载中...
+      description: 没有匹配时的文字
+    - name: initial-load
+      type: boolean
+      default: true
+      description: 是否在初始时立即加载
+    - name: pageable
+      type: boolean
+      default: false
+      description: 是否需要分页
+    - name: page-size
+      type: number
+      default: 50
+      description: 分页大小
+    - name: remote-paging
+      type: boolean
+      default: false
+      description: 是否使用后端分页
+    - name: clearable
+      type: boolean
+      default: false
+      description: 是否有清除按钮
+    - name: filterable
+      type: boolean
+      default: false
+      description: 是否使用输入框进行过滤
+    - name: match-method
+      type: string, Function
+      default: includes
+      description: 过滤时的匹配方法
+    - name: case-sensitive
+      type: string, Function
+      default: includes
+      description: 过滤时大小写是否敏感
+    - name: remote-filtering
+      type: boolean
+      default: false
+      description: 是否使用后端过滤
+    - name: auto-complete
+      type: boolean
+      default: false
+      description: 是否开启自动补充模式，用于增加列表中没有的项
+    - name: readonly
+      type: boolean
+      default: false
+      description: 是否只读
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用
+    - name: opened.sync
+      type: boolean
+      default: false
+      description: 弹出/关闭状态
+    - name: ellipsisDirection
+      type: string
+      default: ltr
+      description: 控制文本省略方向，其值和原生`css`属性`'direction'`值保持一致
+    - name: size
+      type: string
+      default: normal normal
+      description: "控制宽高属性，第一个值表示高度属性，第二值表示宽度，可选值:
+        `mini`,`small`,`normal`,`medium`,`large`,`huge`,`full`,可以互相组合"
+  slots:
+    - name: default
+      description: 插入`<u-select-item>`、`<u-select-divider>`或`<u-select-group>`子组件。
+  events:
+    - name: "@before-select"
+      description: 选择某一项前触发
+      params:
+        - name: $event.value
+          type: any
+          description: 选择项的值
+        - name: $event.oldValue
+          type: any
+          description: 旧的值
+        - name: $event.item
+          type: object
+          description: 选择项相关对象
+        - name: $event.itemVM
+          type: SelectItem
+          description: 选择项子组件
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止选择流程
+        - name: senderVM
+          type: USelect
+          description: 发送事件实例
+    - name: "@input"
+      description: 选择某一项时触发
+      params:
+        - name: $event
+          type: any
+          description: 选择项的值
+        - name: senderVM
+          type: USelect
+          description: 发送事件实例
+    - name: "@select"
+      description: 选择某一项时触发
+      params:
+        - name: $event.value
+          type: any
+          description: 改变后的值
+        - name: $event.oldValue
+          type: any
+          description: 旧的值
+        - name: $event.item
+          type: object
+          description: 选择项相关对象
+        - name: $event.itemVM
+          type: SelectItem
+          description: 选择项子组件
+        - name: senderVM
+          type: USelect
+          description: 发送事件实例
+    - name: "@before-open"
+      description: 弹出前触发。
+      params:
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止弹出流程
+        - name: senderVM
+          type: USelect
+          description: 发送事件实例
+    - name: "@open"
+      description: 弹出时触发。
+      params:
+        - name: $event
+          type: ""
+          description: 空
+        - name: senderVM
+          type: USelect
+          description: 发送事件实例
+    - name: "@before-close"
+      description: 隐藏前触发。
+      params:
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止隐藏流程
+        - name: senderVM
+          type: USelect
+          description: 发送事件实例
+    - name: "@close"
+      description: 隐藏时触发。
+      params:
+        - name: $event
+          type: ""
+          description: 空
+        - name: senderVM
+          type: USelect
+          description: 发送事件实例
+    - name: "@before-toggle"
+      description: "@deprecated"
+      params: []
+    - name: "@toggle"
+      description: "@deprecated"
+      params: []
+    - name: "@before-load"
+      description: 加载前触发
+      params:
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止加载流程
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
+    - name: "@load"
+      description: 加载时触发
+      params:
+        - name: $event
+          type: ""
+          description: 空
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
+  methods:
+    - name: open()
+      description: 弹出选择框。
+      params: []
+    - name: close()
+      description: 关闭选择框。
+      params: []
+    - name: toggle(opened?)
+      description: 切换弹出/关闭状态。
+      params:
+        - name: opened?
+          type: boolean
+          description: 可选。弹出/关闭状态
+    - name: load()
+      description: 带缓存地加载
+      params: []
+    - name: reload()
+      description: 清除缓存，重新加载
+      params: []
+- name: u-select-item
+  attrs:
+    - name: value
+      type: any
+      default: null
+      description: 此项的值
+    - name: disabled
+      type: boolean
+      default: false
+      description: 禁用此项
+    - name: item
+      type: object
+      default: null
+      description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
+  slots:
+    - name: default
+      description: 插入文本或 HTML。
+  events:
+    - name: "@before-select"
+      description: 选择此项前触发
+      params:
+        - name: $event.value
+          type: any
+          description: 此项的值
+        - name: $event.item
+          type: object
+          description: 此项的相关对象
+        - name: $event.itemVM
+          type: SelectItem
+          description: 此组件
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止选择流程
+        - name: senderVM
+          type: USelectItem
+          description: 发送事件实例
+- name: u-select-group
+  attrs:
+    - name: title
+      type: string
+      default: null
+      description: 显示的标题
+  slots:
+    - name: default
+      description: 插入`<u-select-item>`或`<u-select-divider>`子组件。
+    - name: title
+      description: 自定义标题文本。
+    - name: extra
+      description: 在右侧可以附加内容。
+- name: u-select-divider

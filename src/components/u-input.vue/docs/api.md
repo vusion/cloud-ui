@@ -127,10 +127,3 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-
-#### reset()
-
-重置输入框。
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |

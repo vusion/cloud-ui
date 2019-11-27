@@ -1,0 +1,46 @@
+- name: calendar
+  attrs:
+    - name: date
+      type: Date,string
+      default: TODAY
+      description: 当前选择的日期
+    - name: min-date
+      type: Date,string
+      default: null
+      description: 最小日期，如果为空则不限制
+    - name: max-date
+      type: Date,string
+      default: text
+      description: 最大日期，如果为空则不限制
+    - name: year-diff
+      type: string,number
+      default: 3
+      description: 当前年份往前展示的年数，例：当前为`2018`年，则从`2015`年开始展示
+    - name: year-add
+      type: string,number
+      default: 1
+      description: 当前年份往后展示的年数，例：当前为`2018`年，则展示至`2019`年
+    - name: readonly
+      type: boolean
+      default: false
+      description: 是否只读
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用
+  slots:
+    - name: default
+      description: 插入文本或  HTML 至日期组件底部
+  events:
+    - name: "@change"
+      description: 日期改变时触发
+      params:
+        - name: date
+          type: object
+          description: 改变后的日期
+    - name: "@select"
+      description: 选择某一个日期时触发
+      params:
+        - name: date
+          type: object
+          description: 当前选择的日期

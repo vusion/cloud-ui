@@ -1,0 +1,139 @@
+- name: u-input
+  attrs:
+    - name: type
+      type: string
+      default: text
+      description: 输入框的类型，目前支持两种：`'text'`和`'password'`
+    - name: value.sync, v-model
+      type: string
+      default: null
+      description: 输入框的值
+    - name: default-value.sync, v-model
+      type: string
+      default: null
+      description: 默认值。即 reset 方法恢复的值。
+    - name: clearable
+      type: boolean
+      default: null
+      description: 是否可清空。开启并在输入框有内容时会显示清空按钮。
+    - name: placeholder
+      type: string
+      default: null
+      description: 原生属性。对 IE9 做了兼容。
+    - name: minlength
+      type: number
+      default: null
+      description: 原生属性
+    - name: maxlength
+      type: number
+      default: null
+      description: 原生属性
+    - name: spellcheck
+      type: boolean
+      default: null
+      description: 原生属性
+    - name: autofocus
+      type: boolean
+      default: null
+      description: 是否自动获取焦点
+    - name: readonly
+      type: boolean
+      default: false
+      description: 是否只读
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用
+    - name: size
+      type: string
+      default: normal
+      description: 大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`,
+        `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式
+    - name: search
+      type: string
+      default: null
+      description: 搜索标志，支持位置自定义，默认搜索标志在最右边，值为`left`即表示搜索标志在左边
+    - name: maxlengthMessage
+      type: string
+      default: null
+      description: "\b\b输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效"
+  slots:
+    - name: default
+      description: 插入  HTML或 `Component`, 可展示额外内容。
+  events:
+    - name: "@input"
+      description: 输入时触发。
+      params:
+        - name: $event
+          type: string
+          description: 输入框的值
+        - name: senderVM
+          type: UInput
+          description: 发送事件实例
+    - name: "@change"
+      description: 值变化时触发。（注意：与原生事件不同）
+      params:
+        - name: $event.value
+          type: string
+          description: 改变后的值
+        - name: $event.oldValue
+          type: string
+          description: 旧的值
+        - name: senderVM
+          type: UInput
+          description: 发送事件实例
+    - name: "@focus"
+      description: 获得焦点时触发。
+      params:
+        - name: $event
+          type: FocusEvent
+          description: 原生事件对象
+        - name: senderVM
+          type: UInput
+          description: 发送事件实例
+    - name: "@blur"
+      description: 失去焦点时触发。
+      params:
+        - name: $event
+          type: FocusEvent
+          description: 原生事件对象
+        - name: senderVM
+          type: UInput
+          description: 发送事件实例
+    - name: "@before-clear"
+      description: 清空前触发。
+      params:
+        - name: $event.value
+          type: string
+          description: 清空后的值
+        - name: $event.oldValue
+          type: string
+          description: 待清空的值
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止清空流程
+        - name: senderVM
+          type: UInput
+          description: 发送事件实例
+    - name: "@clear"
+      description: 清空时触发。
+      params:
+        - name: $event.value
+          type: string
+          description: 清空后的值
+        - name: $event.oldValue
+          type: string
+          description: 旧的值
+        - name: senderVM
+          type: UInput
+          description: 发送事件实例
+  methods:
+    - name: focus()
+      description: 让输入框获取焦点。
+      params: []
+    - name: blur()
+      description: 让输入框失去焦点。
+      params: []
+    - name: clear()
+      description: 清空输入框。
+      params: []

@@ -1,6 +1,3 @@
-# UActions 操作项
-
-## 示例
 ### 基本用法
 
 `'u-action'`实际使用组件`'u-link'`进行渲染，所以具备`'u-link'`的所有功能，不需要再其内部使用`'u-link'`组件实现跳转等功能
@@ -35,39 +32,3 @@
     </u-actions>
 </u-linear-layout>
 ```
-
-
-## UActions API
-### Attrs/Props
-
-| Attr/Prop | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| maxCount | Number | 3 | 一列最多显示链接个数 |
-| menuTitle | String | '更多' | 菜单标题 |
-| placement | String | `'bottom-end'`| 菜单的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',` 'left-end'`, `'right-start'`, `'right-end'` |
-
-### Slots
-
-#### (default)
-
-插入`<u-action>`子组件。
-
-## UAction API
-
-属性全部透传。
-
-### Attrs/Props
-
-| Attr/Prop | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| hidden | Boolean | `false` | 自定义显示/隐藏条件 |
-
-### Events
-
-#### @click
-
-点击此项时触发，与原生 click 事件不同的是，它只会在非禁用状态下触发。
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| $event | MouseEvent | 鼠标事件对象 |

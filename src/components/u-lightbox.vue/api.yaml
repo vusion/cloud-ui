@@ -1,0 +1,79 @@
+- name: u-lightbox
+  title: 灯箱
+  attrs:
+    - Prop: visible.sync
+      type: boolean
+      default: false
+      description: 是否显示
+    - Prop: maskClose
+      type: boolean
+      default: true
+      description: 点击遮罩层关闭灯箱
+    - Prop: closeButton
+      type: boolean
+      default: false
+      description: 是否显示关闭按钮
+    - Prop: loop
+      type: boolean
+      default: false
+      description: 是否可循环播放灯箱内容
+    - Prop: animation
+      type: string
+      default: null
+      description: 动画（可选fade/zoom-out）
+    - Prop: value.sync, v-model
+      type: "`any`"
+      default: null
+      description: 当前选择的值
+    - Prop: zoomable
+      type: boolean
+      default: true
+      description: 灯箱是否开启缩放功能（只有当灯箱内容为图片时有效）
+    - Prop: zoomButton
+      type: boolean
+      default: true
+      description: 是否显示缩放按钮（只有当zoomable为true时有效）
+    - Prop: zoomWheel
+      type: boolean
+      default: true
+      description: 是否允许滚动鼠标缩放（只有当zoomable为true时有效）
+    - Prop: zoomMax
+      type: Integer/string
+      default: 5
+      description: 设置最大放大宽度：类型为Integer时，表示灯箱最多放大次数。类型为String时，可以设置单位为px或者%。
+    - Prop: zoomMin
+      type: Integer/string
+      default: -5
+      description: 设置最小宽度：同上
+    - Prop: zoomRadio
+      type: number
+      default: 0.1
+      description: 每次放大缩小的比例
+  slots:
+    - name: default
+      description: 灯箱内容。
+  events:
+    - name: "@open"
+      description: 打开时触发
+      params: []
+    - name: "@before-close"
+      description: 关闭前触发
+      params:
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止关闭流程
+    - name: "@close"
+      description: 关闭时触发
+      params: []
+    - name: "@rotate"
+      description: 旋转时触发
+      params:
+        - name: direction
+          type: string
+          description: "`left`或`right`"
+    - name: "@zoom"
+      description: 缩放时触发
+      params:
+        - name: direction
+          type: string
+          description: "`in`放大或`out`缩小"

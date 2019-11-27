@@ -1,0 +1,80 @@
+- name: u-button
+  title: 按钮
+  labels: [UI 组件, 路由链接, 行内展示]
+  attrs:
+    - name: href
+      type: string
+      default: null
+      description: 链接地址
+    - name: target
+      type: string
+      default: null
+      description: （原生属性）
+    - name: to
+      type: string, Location
+      default: null
+      description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
+    - name: replace
+      type: boolean
+      default: false
+      description: 需要
+        vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history
+        `记录。
+    - name: append
+      type: boolean
+      default: false
+      description: 需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。
+    - name: color
+      type: string
+      default: null
+      description: 颜色扩展。可选值：`'primary'`或不填
+    - name: size
+      type: string
+      default: null
+      description: 大小扩展。可选值：`'small'`或不填
+    - name: square
+      type: boolean
+      default: false
+      description: 是否显示为正方形
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用。禁用后不会响应`click`事件。
+    - name: display
+      type: string
+      default: inline
+      description: 展示方式。可选值：`'inline'`, `'block'`
+  slots:
+    - name: default
+      description: 插入文本或HTML。
+  events:
+    - name: $listeners
+      description: 监听所有`<a>`元素的事件。
+      params: []
+    - name: "@before-navigate"
+      description: 使用router相关属性切换路由前触发
+      params:
+        - name: $event.to
+          type: string,  Location
+          description: "`to`属性的值"
+        - name: $event.replace
+          type: boolean
+          description: "`replace`属性的值"
+        - name: $event.append
+          type: boolean
+          description: "`append`属性的值"
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止切换流程
+    - name: "@navigate"
+      description: 使用router相关属性切换路由时触发
+      params:
+        - name: $event.to
+          type: string,  Location
+          description: "`to`属性的值"
+        - name: $event.replace
+          type: boolean
+          description: "`replace`属性的值"
+        - name: $event.append
+          type: boolean
+          description: "`append`属性的值"

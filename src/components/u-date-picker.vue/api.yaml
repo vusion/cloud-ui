@@ -1,0 +1,77 @@
+- name: date-picker
+  title: 日期选择
+  attrs:
+    - name: width
+      type: string, number
+      default: 160
+      description: 输入框宽度
+    - name: date.sync
+      type: string,number,Date
+      default: null
+      description: 初始日期值
+    - name: minDate
+      type: string,number,Date
+      default: null
+      description: 最小日期
+    - name: maxDate
+      type: string,number,Date
+      default: null
+      description: 最大日期
+    - name: readonly
+      type: boolean
+      default: false
+      description: 是否只读
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用
+    - name: autofocus
+      type: boolean
+      default: false
+      description: 文本框默认处于focus
+    - name: placeholder
+      type: string
+      default: 请输入
+      description: 文本框默认提示
+    - name: alignment
+      type: string
+      default: left
+      description: 日历弹窗对其方式，可选值：`left`, `right`
+    - name: time
+      type: string, number
+      default: start
+      description: "设置返回的日期的时分秒值，可选值为`start`,表示时分秒是0:00:00,`morning`:时分秒为8:00:00,`end`:表示时\
+        分秒为: 23:59:59, 输入整数表示对应的整数时刻，例如输入9代表时分秒为9:00:00,自定义时分秒请输入对应格式的字符串即可"
+    - name: yeadDiff
+      type: string, number
+      default: 3
+      description: 当前年份前几年
+    - name: yearAdd
+      type: string, number
+      default: 1
+      description: 当前年份后几年
+  events:
+    - name: "@input"
+      description: 值变化时触发 (表单验证可以检测到其值得变化)
+      params:
+        - name: $event
+          type: Date
+          description: 改变后的日期值
+    - name: "@change"
+      description: 值变化时触发
+      params:
+        - name: $event.date
+          type: Date
+          description: 改变后的日期值
+    - name: "@select"
+      description: 选择日期时触发
+      params:
+        - name: $event.date
+          type: Date
+          description: 选择后的日期值
+    - name: "@toggle"
+      description: 弹出/隐藏时触发
+      params:
+        - name: $event.open
+          type: boolean
+          description: 弹出/隐藏状态

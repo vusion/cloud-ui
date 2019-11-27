@@ -1,0 +1,4 @@
+- name: u-table
+  slots:
+    - name: default
+      description: 在表格中插入`<thead>`、`<tbody>`、`<tr>`、`<th>`、`<td>`标签。

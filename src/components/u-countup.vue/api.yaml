@@ -1,0 +1,100 @@
+- name: count-up
+  title: 数字渐变
+  attrs:
+    - name: start
+      type: number
+      default: 0
+      description: 渐变开始数值
+    - name: end
+      type: number
+      default: null
+      description: 渐变结束数值
+    - name: duration
+      type: number
+      default: 2
+      description: 渐变时间间隔，时间单位为秒
+    - name: isEasing
+      type: boolean
+      default: false
+      description: 是否使用 动画函数`easingFn`处理数据
+    - name: isGroup
+      type: boolean
+      default: false
+      description: 是否分组，默认分组分隔符`'separator'`属性值为`','`
+    - name: separator
+      type: string
+      default: ","
+      description: 分组分隔符
+    - name: decimals
+      type: number
+      default: 0
+      description: 小数点后几位
+    - name: easingFn
+      type: Function
+      default: easeOutExpo
+      description: 自定义渐变动画，默认使用 `Robert Penner's easeOutExpo`函数
+    - name: simplify
+      type: boolean
+      default: false
+      description: 是否使用自定义单位简化数据
+    - name: unit
+      type: Array
+      default: [[3, 'K+'], [6, 'M+'], [9, 'G+']]
+      description: 配合`'simplify'`属性使用的自定义单位
+    - name: prefix
+      type: string
+      default: ""
+      description: 前缀内容
+    - name: suffix
+      type: string
+      default: ""
+      description: 后缀内容
+    - name: endCallback
+      type: Function
+      default: null
+      description: 渐变结束后的回调函数
+    - name: autoStart
+      type: boolean
+      default: false
+      description: 是否开启渐变
+  slots:
+    - name: default
+      description: 插入文本或 HTML。
+  events:
+    - name: "@update"
+      description: 更新渐变结束
+      params:
+        - name: $event
+          type: number
+          description: 最新结束值
+    - name: "@reset"
+      description: 重置
+      params:
+        - name: $event
+          type: number
+          description: 初始值
+    - name: "@pauseResume"
+      description: 切换渐变
+      params:
+        - name: "-"
+          type: "-"
+          description: "-"
+  methods:
+    - name: update(value)
+      description: 更新渐变结束值
+      params:
+        - name: value
+          type: number
+          description: 最新结束值
+    - name: reset()
+      description: 重置
+      params:
+        - name: "-"
+          type: "-"
+          description: "-"
+    - name: pauseResume()
+      description: 切换渐变
+      params:
+        - name: "-"
+          type: "-"
+          description: "-"

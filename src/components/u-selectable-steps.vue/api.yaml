@@ -1,0 +1,69 @@
+- name: selectable-steps
+  attrs:
+    - name: value.sync, v-model
+      type: number
+      default: 0
+      description: 当前步骤数
+    - name: readonly
+      type: boolean
+      default: false
+      description: 是否只读。非只读的情况下可以选择
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用
+  slots:
+    - name: default
+      description: 插入`<u-step>`子组件。
+  events:
+    - name: "@before-select"
+      description: 选择某一步骤前触发
+      params:
+        - name: value
+          type: any
+          description: 选中步骤的值
+        - name: oldValue
+          type: any
+          description: 旧的值
+        - name: itemVM
+          type: SelectableStep
+          description: 选中步骤实例
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止选择流程
+    - name: "@select"
+      description: 选择某一步骤时触发
+      params:
+        - name: value
+          type: any
+          description: 选中步骤的值
+        - name: oldValue
+          type: any
+          description: 旧的值
+        - name: itemVM
+          type: SelectableStep
+          description: 选中步骤实例
+    - name: "@change"
+      description: 步骤数改变后触发
+      params:
+        - name: value
+          type: number
+          description: 当前步骤数
+        - name: oldValue
+          type: number
+          description: 旧的步骤数
+- name: selectable-step
+  attrs:
+    - name: title
+      type: string
+      default: null
+      description: 步骤名
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用此标签页
+  slots:
+    - name: default
+      description: 插入文本或 HTML。
+    - name: title
+      description: 自定义标题文本。

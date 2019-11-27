@@ -133,14 +133,29 @@ export default {
 
 ### Slots
 
-| Slot | Description |
-| ---- | ----------- |
-| title | 弹窗标题自定义 |
-| head | 弹窗头部自定义 |
-| body | 弹窗中部自定义 |
-| foot | 弹窗尾部自定义 |
-| heading | 弹框小标题自定义 |
-| (default) | 弹窗内容自定义 |
+#### title
+
+弹窗标题自定义
+
+#### head
+
+弹窗头部自定义
+
+#### body
+
+弹窗中部自定义
+
+#### foot
+
+弹窗尾部自定义
+
+#### heading
+
+弹框小标题自定义
+
+#### (default)
+
+弹窗内容自定义
 
 ### Events
 

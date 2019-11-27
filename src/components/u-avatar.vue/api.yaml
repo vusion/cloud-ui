@@ -1,0 +1,21 @@
+- name: u-avatar
+  title: 头像
+  labels: [UI 组件, 行内展示]
+  description: 顶部导航栏或页面中局部使用的用户头像。
+  attrs:
+    - name: type
+      type: string
+      default: "0"
+      description: 头像类型。请参考上面的示例
+    - name: shape
+      type: string
+      default: circle
+      description: 形状。可选值：`circle`, `square` 两种类型
+    - name: size
+      type: string
+      default: normal
+      description: "头像大小。可选值：`'mini'`、`'small'`、`'normal'`、`'large'`、`'huge'`。如需自定义大小，可以直接\
+        设置`style=\"width: 40px; height: 40px;\"`"
+  slots:
+    - name: default
+      description: 添加自定义图片或内容。

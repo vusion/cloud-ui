@@ -42,9 +42,7 @@
 
 #### @select
 
-选择某一项时触发
-
-单选模式中：
+选择某一项时触发。单选模式中：
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
@@ -56,7 +54,9 @@
 | $event.oldVM | UTablet | 旧的选择项子组件 |
 | senderVM | UTablets | 发送事件实例 |
 
-多选模式中：
+#### @select
+
+选择某一项时触发。多选模式中：
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
@@ -73,9 +73,7 @@
 
 #### @change
 
-选择值改变时触发
-
-单选模式中：
+选择值改变时触发。单选模式中：
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
@@ -87,7 +85,9 @@
 | $event.oldVM | UTablet | 旧的选择项子组件 |
 | senderVM | UTablets | 发送事件实例 |
 
-多选模式中：
+#### @change
+
+选择值改变时触发。多选模式中：
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |

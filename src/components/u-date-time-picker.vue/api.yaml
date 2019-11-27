@@ -1,0 +1,54 @@
+- name: date-time-picker
+  attrs:
+    - name: date.sync
+      type: string, number, Date
+      default: null
+      description: 显示的日期值
+    - name: minDate
+      type: string, number, Date
+      default: null
+      description: 最小日期值
+    - name: maxDate
+      type: string, number, Date
+      default: null
+      description: 最大日期值
+    - name: placeholder
+      type: string
+      default: 请选择时间
+      description: 默认提示语
+    - name: autofocus
+      type: boolean
+      default: false
+      description: 是否默认处于focus状态
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用
+    - name: readonly
+      type: boolean
+      default: false
+      description: 是否只读
+    - name: yearDiff
+      type: string, number
+      default: 3
+      description: 最小可选年份值为当前年减去此值
+    - name: yearAdd
+      type: string, number
+      default: 1
+      description: 最大可选年份值为当前年加上此值
+  slots:
+    - name: (footer)
+      description: 插入文本或  HTML 至日期组件底部
+  events:
+    - name: "@select"
+      description: 日期值发生变化触发
+      params:
+        - name: $event.date
+          type: number
+          description: 选择项的值，默认返回时间戳
+    - name: "@change"
+      description: 选择新时间触发
+      params:
+        - name: $event.date
+          type: number
+          description: 选择项的值，默认返回时间戳

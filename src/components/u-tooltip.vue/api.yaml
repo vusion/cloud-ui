@@ -1,0 +1,73 @@
+- name: u-tooltip
+  title: 工具提示
+  attrs:
+    - name: content
+      type: string
+      default: 提示内容
+      description: 提示内容
+    - name: open.sync
+      type: boolean
+      default: false
+      description: 弹出/隐藏状态
+    - name: trigger
+      type: string
+      default: click
+      description: 工具提示的触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`,
+        `'manual'`
+    - name: placement
+      type: string
+      default: bottom
+      description: 工具提示的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`,
+        `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',`
+        'left-end'`, `'right-start'`, `'right-end'`
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用
+    - name: size
+      type: string
+      default: normal
+      description: 大小扩展，支持一个值： `'small'`, `'normal'`, `'large'`,
+        `'auto'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式
+    - name: hide-delay
+      type: number
+      default: 0
+      description: 提示内容消失延迟时间，单位是 ms
+    - name: offset
+      type: string
+      default: "0"
+      description: 弹出层偏移，如：`'10'`, `'10px 10px'`, `'10% 10%'`, 第一个值表示水平偏移，第二个值表示垂直位移,
+        默认单位是`px`
+    - name: follow-cursor
+      type: boolean, number, object
+      default: false
+      description: 是否跟随鼠标
+  slots:
+    - name: default
+      description: 触发节点，该 `slot` 只能插入一个节点。`Tooltip` 除了会给该节点绑定触发事件，不会对它做任何事情。
+    - name: popper
+      description: 自定义整个弹出层。
+    - name: body
+      description: 自定义滚动区域。
+    - name: content
+      description: 自定义内容文本。
+  events:
+    - name: "@before-toggle"
+      description: 弹出/隐藏前触发
+      params:
+        - name: $event.open
+          type: boolean
+          description: 弹出/隐藏状态
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止弹出/隐藏流程
+    - name: "@toggle"
+      description: 弹出/隐藏时触发
+      params:
+        - name: $event.open
+          type: boolean
+          description: 弹出/隐藏状态
+  methods:
+    - name: update()
+      description: 更新 popper 实例
+      params: []

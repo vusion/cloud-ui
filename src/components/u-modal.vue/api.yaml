@@ -1,0 +1,115 @@
+- name: u-modal
+  title: 弹窗
+  attrs:
+    - name: title
+      type: string
+      default: 提示
+      description: 弹窗的标题
+    - name: content
+      type: string
+      default: 提示内容
+      description: 弹窗的内容
+    - name: heading
+      type: string
+      default: 提示内容
+      description: 弹窗的内容
+    - name: visible.sync
+      type: boolean
+      default: false
+      description: 是否显示
+    - name: ok-button
+      type: string
+      default: 确定
+      description: 确定按钮文本，如果为空则不显示
+    - name: cancel-button
+      type: string
+      default: 取消
+      description: 取消按钮文本，如果为空则不显示
+    - name: size
+      type: string
+      default: normal
+      description: 弹框的尺寸
+    - name: icon
+      type: string
+      default: ""
+      description: 提示图标, 可选值：`success`, `warning`, `error`
+    - name: static
+      type: boolean
+      default: false
+      description: 是否嵌入页面显示
+    - name: mask-closable
+      type: boolean
+      default: false
+      description: 是否点击遮罩时关闭弹窗
+  slots:
+    - name: title
+      description: 弹窗标题自定义
+    - name: head
+      description: 弹窗头部自定义
+    - name: body
+      description: 弹窗中部自定义
+    - name: foot
+      description: 弹窗尾部自定义
+    - name: heading
+      description: 弹框小标题自定义
+    - name: default
+      description: 弹窗内容自定义
+  events:
+    - name: "@open"
+      description: 打开弹窗时触发
+      params:
+        - name: senderVM
+          type: UModal
+          description: 发送事件实例
+    - name: "@ok"
+      description: 确定时触发
+      params:
+        - name: senderVM
+          type: UModal
+          description: 发送事件实例
+    - name: "@cancel"
+      description: 取消时触发
+      params:
+        - name: senderVM
+          type: UModal
+          description: 发送事件实例
+    - name: "@before-close"
+      description: 关闭弹窗前触发
+      params:
+        - name: $event.ok
+          type: boolean
+          description: 是否确定
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止关闭流程
+        - name: senderVM
+          type: UModal
+          description: 发送事件实例
+    - name: "@close"
+      description: 关闭弹窗时触发
+      params:
+        - name: $event.ok
+          type: boolean
+          description: 是否确定
+        - name: senderVM
+          type: UModal
+          description: 发送事件实例
+  methods:
+    - name: alert(content, title)
+      description: 打开只有确定按钮的消息提示
+      params:
+        - name: content
+          type: string
+          description: 提示内容
+        - name: title
+          type: string
+          description: 提示标题
+    - name: confirm(content, title)
+      description: 打开有确定和取消按钮的消息提示
+      params:
+        - name: content
+          type: string
+          description: 提示内容
+        - name: title
+          type: string
+          description: 提示标题

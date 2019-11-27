@@ -1,0 +1,19 @@
+- name: u-linear-progress
+  attrs:
+    - name: percent
+      type: number
+      default: 0
+      description: 百分比
+    - name: size
+      type: string
+      default: normal
+      description: 高度扩展，值有`'small'`, `'normal'`, `'large'`, `'huge'`四个值
+    - name: range
+      type: Array
+      default:
+        - 0
+        - 100
+      description: 百分比范围限制
+  slots:
+    - name: default
+      description: 插入文本或HTML。

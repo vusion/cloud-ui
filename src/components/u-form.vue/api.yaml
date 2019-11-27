@@ -1,0 +1,194 @@
+- name: u-form
+  attrs:
+    - name: model
+      type: object
+      default: null
+      description: 表单数据模型
+    - name: rules
+      type: object
+      default: null
+      description: 表单所有域的验证规则，已废弃，推荐在各`<u-form-item>`中自行添加 rules。
+    - name: layout
+      type: string
+      default: block
+      description: 表单布局方式。可选值：`block`、`inline`。
+    - name: label-size
+      type: string
+      default: normal
+      description: 标签大小。可选值：`small`、`normal`、`large`。
+  computed:
+    - name: touched
+      type: boolean
+      default: null
+      description: 用户是否触碰
+    - name: dirty
+      type: boolean
+      default: null
+      description: 用户是否修改值
+    - name: valid
+      type: boolean
+      default: null
+      description: 验证是否通过
+    - name: firstError
+      type: string
+      default: null
+      description: 第一个错误提示消息
+  slots:
+    - name: default
+      description: 插入`<u-form-item>`子组件。
+  events:
+    - name: "@validate"
+      description: 验证时触发
+      params:
+        - name: $event.valid
+          type: boolean
+          description: 验证是否通过
+        - name: $event.touched
+          type: boolean
+          description: 用户是否触碰
+        - name: $event.dirty
+          type: boolean
+          description: 用户是否修改值
+        - name: $event.firstError
+          type: string
+          description: 第一个错误提示消息
+        - name: senderVM
+          type: UValidator
+          description: 发送事件实例
+  methods:
+    - name: validate(trigger, muted)
+      description: 手动验证。
+      params:
+        - name: trigger
+          type: string
+          default: submit
+          description: 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。
+        - name: muted
+          type: boolean
+          default: false
+          description: 是否验证后无提示
+    - name: validateItem(name, trigger, slient)
+      description: 验证表单中的某一项，已废弃。表单中的项是嵌套的，用 name 层级较深，而且可能有重名。
+      params:
+        - name: name
+          type: string
+          default: null
+          description: 表单项的 name
+        - name: trigger
+          type: string
+          default: submit
+          description: 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。
+        - name: muted
+          type: boolean
+          default: false
+          description: 是否验证后无提示
+- name: form-item
+  attrs:
+    - name: name
+      type: string
+      default: null
+      description: 表单项名称。已废弃
+    - name: label
+      type: string
+      default: null
+      description: 标签。用于左侧显示，同时用于提示消息的合成
+    - name: label-size
+      type: string
+      default: normal
+      description: 单独设置表单项的标签大小
+    - name: field-size
+      type: string
+      default: normal
+      description: 单独设置表单项的内容大小。可选值：`'full'`
+    - name: required
+      type: boolean
+      default: false
+      description: 是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。
+    - name: message
+      type: string
+      default: null
+      description: 默认提示消息
+    - name: muted
+      type: string
+      default: null
+      description: 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示
+    - name: description
+      type: string
+      default: null
+      description: 添加描述内容
+    - name: placement
+      type: string
+      default: null
+      description: 值为`'bottom'`时提示信息在底部显示，改变提示信息显示位置
+    - name: layout
+      type: string
+      default: null
+      description: "\b\b\b布局方式，可选值：`'block'`"
+    - name: "**Validation Props/Attrs**"
+      type: ""
+      default: null
+      description: ""
+    - name: rules
+      type: string, Array
+      default: null
+      description: 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型
+    - name: ignore-validation
+      type: boolean
+      default: false
+      description: 忽略验证
+    - name: ignore-rules
+      type: boolean
+      default: false
+      description: 忽略验证规则。已废弃，同`ignore-validation`
+    - name: validating-options
+      type: object
+      default: null
+      description: 验证辅助对象。在 Rule 的 `validate` 方法中使用
+    - name: validating-value
+      type: any
+      default: null
+      description: 临时修改验证值
+    - name: validating-process
+      type: Function
+      default: null
+      description: 验证前对值进行预处理
+  slots:
+    - name: default
+      description: 插入文本或 HTML。
+    - name: label
+      description: 插入自定义标签标题，代替`label`属性。
+    - name: description
+      description: 插入自定义描述内容，代替`description`属性。
+    - name: extra
+      description: 自定义标签右侧额外内容。
+  events:
+    - name: "@validate"
+      description: 对于第一个 Field 或者所有子 UValidator：
+      params:
+        - name: $event.valid
+          type: boolean
+          description: 验证是否通过
+        - name: $event.touched
+          type: boolean
+          description: 用户是否触碰
+        - name: $event.dirty
+          type: boolean
+          description: 用户是否修改值
+        - name: $event.firstError
+          type: string
+          description: 第一个错误提示消息
+        - name: senderVM
+          type: UValidator
+          description: 发送事件实例
+  methods:
+    - name: validate(trigger, muted)
+      description: 验证此表单项。
+      params:
+        - name: trigger
+          type: string
+          default: submit
+          description: 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。
+        - name: muted
+          type: boolean
+          default: false
+          description: 是否验证后无提示

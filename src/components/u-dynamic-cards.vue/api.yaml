@@ -1,0 +1,194 @@
+- name: u-dynamic-cards
+  attrs:
+    - name: data
+      type: Array
+      default: null
+      description: 数据
+    - name: dynamic
+      type: boolean
+      default: true
+      description: 是否可以动态添加/删除项
+    - name: get-default-item
+      type: Function
+      default: null
+      description: 传入获取默认项的方法
+    - name: initial-add
+      type: boolean
+      default: true
+      description: 是否自动补充项，如果初始时`data`中的项目数少于`min-count`
+    - name: min-count
+      type: number
+      default: 1
+      description: 最小项目数
+    - name: max-count
+      type: number
+      default: .inf
+      description: 最大项目数
+    - name: text-field
+      type: string
+      default: title
+      description: 用于 mini 显示的字段
+    - name: index.sync
+      type: number
+      default: 0
+      description: 当前展开项的索引
+    - name: add-button-text
+      type: string
+      default: 添加
+      description: 添加按钮的文本
+    - name: mini-formatter
+      type: Function
+      default: null
+      description: mini 显示时的格式器
+  computed:
+    - name: touched
+      type: boolean
+      default: null
+      description: 用户是否触碰
+    - name: dirty
+      type: boolean
+      default: null
+      description: 用户是否修改值
+    - name: valid
+      type: boolean
+      default: null
+      description: 验证是否通过
+    - name: firstError
+      type: string
+      default: null
+      description: 第一个错误提示消息
+  slots:
+    - name: default
+      description: 展开区域的内容
+      props:
+        - name: item
+          type: object
+          default: null
+          description: 项目
+        - name: index
+          type: number
+          default: null
+          description: 索引
+    - name: mini
+      description: 收起时 mini 显示区的内容
+      props:
+        - name: item
+          type: object
+          default: null
+          description: 项目
+        - name: index
+          type: number
+          default: null
+          description: 索引
+  events:
+    - name: "@before-add"
+      description: 添加前触发
+      params:
+        - name: $event.item
+          type: any
+          description: 添加的项
+        - name: $event.index
+          type: number
+          description: 添加的索引
+        - name: $event.data
+          type: Array
+          description: 当前数据
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止添加流程
+        - name: senderVM
+          type: UDynamicCards
+          description: 发送事件实例
+    - name: "@add"
+      description: 添加时触发
+      params:
+        - name: $event.item
+          type: any
+          description: 添加的项
+        - name: $event.index
+          type: number
+          description: 添加的索引
+        - name: $event.data
+          type: Array
+          description: 当前数据
+        - name: senderVM
+          type: UDynamicCards
+          description: 发送事件实例
+    - name: "@before-remove"
+      description: 删除前触发
+      params:
+        - name: $event.item
+          type: any
+          description: 删除的项
+        - name: $event.index
+          type: number
+          description: 删除的索引
+        - name: $event.data
+          type: Array
+          description: 当前数据
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止删除流程
+        - name: senderVM
+          type: UDynamicCards
+          description: 发送事件实例
+    - name: "@remove"
+      description: 删除时触发
+      params:
+        - name: $event.item
+          type: any
+          description: 删除的项
+        - name: $event.index
+          type: number
+          description: 删除的索引
+        - name: $event.data
+          type: Array
+          description: 当前数据
+        - name: senderVM
+          type: UDynamicCards
+          description: 发送事件实例
+    - name: "@splice"
+      description: 数量变更（添加/删除）时触发
+      params:
+        - name: $event.item
+          type: any
+          description: 变更的项
+        - name: $event.index
+          type: number
+          description: 变更的索引
+        - name: $event.data
+          type: Array
+          description: 当前数据
+        - name: senderVM
+          type: UDynamicCards
+          description: 发送事件实例
+    - name: "@validate"
+      description: 对于第一个 Field 或者所有子 UValidator：
+      params:
+        - name: $event.valid
+          type: boolean
+          description: 验证是否通过
+        - name: $event.touched
+          type: boolean
+          description: 用户是否触碰
+        - name: $event.dirty
+          type: boolean
+          description: 用户是否修改值
+        - name: $event.firstError
+          type: string
+          description: 第一个错误提示消息
+        - name: senderVM
+          type: UDynamicCards
+          description: 发送事件实例
+  methods:
+    - name: validate(trigger, muted)
+      description: 手动验证。
+      params:
+        - name: trigger
+          type: string
+          default: submit
+          description: 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。
+        - name: muted
+          type: boolean
+          default: false
+          description: 是否验证后无提示

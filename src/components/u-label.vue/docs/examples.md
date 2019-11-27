@@ -1,6 +1,3 @@
-# ULabel 标签
-
-## 示例
 ### 基本用法
 
 ``` html
@@ -12,10 +9,3 @@
     <u-label color="error">Error</u-label>
 </u-linear-layout>
 ```
-
-## API
-### Slots
-
-#### (default)
-
-在插槽中插入文本或HTML。
