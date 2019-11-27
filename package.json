@@ -39,7 +39,7 @@
     "i-line-awesome.vue": "^1.0.2",
     "lodash": "^4.17.5",
     "proto-ui.vusion": "~0.3.66",
-    "vusion-utils": "^0.2.6"
+    "vusion-utils": "^0.2.7"
   },
   "devDependencies": {
     "@vusion/md-vue-loader": "^1.0.0",
