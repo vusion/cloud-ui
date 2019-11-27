@@ -2,27 +2,11 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>组件库 - 网易云</title>
-</head>
+    <title>Vusion 组件库</title>
+<link href="/cloud-ui/css/docs.css?842b710f050b1df9fe60" rel="stylesheet"><link href="/cloud-ui/css/docs-theme-dark.css?842b710f050b1df9fe60" rel="stylesheet"><link href="/cloud-ui/css/docs-theme-seagreen.css?842b710f050b1df9fe60" rel="stylesheet"></head>
 <body>
-    <div id="app"><router-view></router-view></div>
-    <script>
-    // @TODO: different library collision
-    var theme = window.theme = '';
-    try {
-        theme = window.theme = localStorage.getItem('theme');
-    } catch (e) {}
-
-    window.getThemeCSS = (theme) => !theme || theme === 'default' ? 'docs.css' : 'docs-theme-' + theme + '.css';
-
-    var linkEl = document.createElement('link');
-    linkEl.id = 'theme-css';
-    linkEl.rel = 'stylesheet';
-    linkEl.href = '/cloud-ui/css/' + getThemeCSS(theme);
-    document.head.appendChild(linkEl);
-    </script>
-    
-        <script src="/cloud-ui/js/docs.466f7eb7.js?d780d04ccbb4fffa8de7"></script>
-    
-</body>
+    <div id="app">
+        <router-view></router-view>
+    </div>
+<script type="text/javascript" src="/cloud-ui/js/docs.997fc528.js?842b710f050b1df9fe60"></script></body>
 </html>
