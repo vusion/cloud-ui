@@ -1,4 +1,5 @@
 - name: selectable-steps
+  title: 可选步骤条
   attrs:
     - name: value.sync, v-model
       type: number
@@ -16,7 +17,7 @@
     - name: default
       description: 插入`<u-step>`子组件。
   events:
-    - name: "@before-select"
+    - name: before-select
       description: 选择某一步骤前触发
       params:
         - name: value
@@ -31,7 +32,7 @@
         - name: $event.preventDefault
           type: Function
           description: 阻止选择流程
-    - name: "@select"
+    - name: select
       description: 选择某一步骤时触发
       params:
         - name: value
@@ -43,7 +44,7 @@
         - name: itemVM
           type: SelectableStep
           description: 选中步骤实例
-    - name: "@change"
+    - name: change
       description: 步骤数改变后触发
       params:
         - name: value

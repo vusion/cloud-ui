@@ -1,3 +1,5 @@
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
 # ULightbox 灯箱
 
 ## 示例
@@ -60,23 +62,22 @@ export default {
 ```
 
 ## API
+### Props/Attrs
 
-### Attrs/Props
-
-| Prop | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| visible.sync | Boolean | `false` | 是否显示 |
-| maskClose | Boolean | `true` | 点击遮罩层关闭灯箱 |
-| closeButton | Boolean | `false` | 是否显示关闭按钮 |
-| loop | Boolean | `false` | 是否可循环播放灯箱内容 |
-| animation | String |  | 动画（可选fade/zoom-out） |
-| value.sync, v-model | `Any` | | 当前选择的值 |
-| zoomable | Boolean | `true` | 灯箱是否开启缩放功能（只有当灯箱内容为图片时有效） |
-| zoomButton | Boolean | `true` | 是否显示缩放按钮（只有当zoomable为true时有效） |
-| zoomWheel | Boolean | `true` | 是否允许滚动鼠标缩放（只有当zoomable为true时有效） |
-| zoomMax | Integer/String | `5` | 设置最大放大宽度：类型为Integer时，表示灯箱最多放大次数。类型为String时，可以设置单位为px或者%。 |
-| zoomMin | Integer/String | `-5` | 设置最小宽度：同上 |
-| zoomRadio | Number | `0.1` | 每次放大缩小的比例 |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| undefined | boolean |  | `false` | 是否显示 |
+| undefined | boolean |  | `true` | 点击遮罩层关闭灯箱 |
+| undefined | boolean |  | `false` | 是否显示关闭按钮 |
+| undefined | boolean |  | `false` | 是否可循环播放灯箱内容 |
+| undefined | string |  |  | 动画（可选fade/zoom-out） |
+| undefined | `any` |  |  | 当前选择的值 |
+| undefined | boolean |  | `true` | 灯箱是否开启缩放功能（只有当灯箱内容为图片时有效） |
+| undefined | boolean |  | `true` | 是否显示缩放按钮（只有当zoomable为true时有效） |
+| undefined | boolean |  | `true` | 是否允许滚动鼠标缩放（只有当zoomable为true时有效） |
+| undefined | Integer/string |  | `5` | 设置最大放大宽度：类型为Integer时，表示灯箱最多放大次数。类型为String时，可以设置单位为px或者%。 |
+| undefined | Integer/string |  | `-5` | 设置最小宽度：同上 |
+| undefined | number |  | `0.1` | 每次放大缩小的比例 |
 
 ### Slots
 
@@ -114,7 +115,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| direction | String | `left`或`right` |
+| direction | string | `left`或`right` |
 
 #### @zoom
 
@@ -122,4 +123,4 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| direction | String | `in`放大或`out`缩小 |
+| direction | string | `in`放大或`out`缩小 |

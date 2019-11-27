@@ -1,4 +1,5 @@
 - name: loading
+  title: 加载中
   attrs:
     - name: size
       type: string

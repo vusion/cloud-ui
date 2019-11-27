@@ -1,4 +1,5 @@
 - name: u-footbar
+  title: 底部栏
   attrs:
     - name: position
       type: string

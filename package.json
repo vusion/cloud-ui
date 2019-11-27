@@ -10,12 +10,13 @@
   ],
   "main": "./index.js",
   "scripts": {
-    "doc": "vue-cli-service doc --port 9001",
-    "doc-build": "vue-cli-service doc-build --theme default,dark,seagreen",
+    "dev": "vue-cli-service doc --port 9001",
     "build": "vue-cli-service library-build --apply-theme --theme default,dark,seagreen",
-    "build-raw": "vue-cli-service library-build --vusion-mode raw",
+    "build:raw": "vue-cli-service library-build --vusion-mode raw",
+    "build:docs": "vue-cli-service doc-build --theme default,dark,seagreen",
     "lint": "vue-cli-service lint",
-    "prepublishOnly": "npm run build && git add ."
+    "prepublishOnly": "npm run build && vusion readme && vusion vetur && git add .",
+    "ghpages": "npm run build:docs && vusion ghpages"
   },
   "repository": "vusion/cloud-ui",
   "homepage": "http://vusion.github.io/cloud-ui",
@@ -38,8 +39,8 @@
   "dependencies": {
     "countup.js": "^1.9.3",
     "lodash": "^4.17.5",
-    "proto-ui.vusion": "^0.6.2",
-    "vusion-utils": "^0.4.6"
+    "proto-ui.vusion": "^0.6.3",
+    "vusion-utils": "^0.4.7"
   },
   "devDependencies": {
     "@vue/babel-preset-app": "^3.10.0",
@@ -48,22 +49,18 @@
     "commander": "^2.20.0",
     "eslint": "^4.19.1",
     "eslint-config-vusion": "^2.1.1",
-    "highlight.js": "^9.12.0",
     "husky": "^3.0.4",
-    "i-font-awesome.vue": "^5.2.0",
-    "i-line-awesome.vue": "^1.0.2",
     "shelljs": "^0.7.8",
     "stylelint": "^9.3.0",
     "stylelint-config-vusion": "^1.1.2",
     "vue": "^2.6.10",
-    "vue-cli-plugin-vusion": "^0.8.4",
+    "vue-cli-plugin-vusion": "^0.8.5",
     "vue-template-compiler": "^2.6.10",
-    "vusion-hooks": "^0.3.0",
-    "x-highlight.vue": "^0.4.1"
+    "vusion-hooks": "^0.3.0"
   },
   "peerDependencies": {
     "vue": "^2.6.10",
-    "vusion-utils": "^0.4.6"
+    "vusion-utils": "^0.4.7"
   },
   "husky": {
     "hooks": {

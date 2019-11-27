@@ -1,7 +1,10 @@
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
 # UCopy 复制
 
 提供复制文本到浏览器剪切板功能
 
+## 示例
 ### 基本用法
 
 
@@ -99,18 +102,17 @@ toast弹窗
 ```
 
 
-
-## UCopy
+## API
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| value | String | | 需要复制的值 |
-| placement | String | `'bottom'` | popper提示框位置，`'top'` `'right'` `'left'` |
-| successText | String | `'已复制'` | 复制成功提示文本 |
-| disabled | Boolean | `false` | 是否禁止复制 |
-| hideDelay | Number | `3000` | popper提示框影藏消失时间 |
-| modalType | String | `'popper'` | 复制提示弹窗类型`'popper'` `'toast'` `'none'` |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| value | string |  |  | 需要复制的值 |
+| placement | string |  | `'bottom'` | popper提示框位置，`'top'` `'right'` `'left'` |
+| success-text | string |  | `'已复制'` | 复制成功提示文本 |
+| disabled | boolean |  | `false` | 是否禁止复制 |
+| hide-delay | number |  | `3000` | popper提示框影藏消失时间 |
+| modal-type | string |  | `'popper'` | 复制提示弹窗类型`'popper'` `'toast'` `'none'` |
 
 ### Slots
 
@@ -126,5 +128,4 @@ toast弹窗
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event | String | 复制的内容 |
-
+| $event | string | 复制的内容 |

@@ -1,4 +1,5 @@
 - name: u-key-value
+  title: 键值对
   description: 最基本的键值对显示
   attrs:
     - name: vertical

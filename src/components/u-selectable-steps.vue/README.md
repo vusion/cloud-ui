@@ -1,4 +1,6 @@
-# USelectableSteps 可选步骤条
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
+# SelectableSteps 可选步骤条
 
 ## 示例
 ### 基本用法
@@ -56,11 +58,12 @@
 
 ## SelectableSteps API
 ### Props/Attrs
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| value.sync, v-model | Number | `0` | 当前步骤数 |
-| readonly | Boolean | `false` | 是否只读。非只读的情况下可以选择 |
-| disabled | Boolean | `false` | 是否禁用 |
+
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| value.sync, v-model | number |  | `0` | 当前步骤数 |
+| readonly | boolean |  | `false` | 是否只读。非只读的情况下可以选择 |
+| disabled | boolean |  | `false` | 是否禁用 |
 
 ### Slots
 
@@ -76,8 +79,8 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| value | Any | 选中步骤的值 |
-| oldValue | Any | 旧的值 |
+| value | any | 选中步骤的值 |
+| oldValue | any | 旧的值 |
 | itemVM | SelectableStep | 选中步骤实例 |
 | $event.preventDefault | Function | 阻止选择流程 |
 
@@ -87,8 +90,8 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| value | Any | 选中步骤的值 |
-| oldValue | Any | 旧的值 |
+| value | any | 选中步骤的值 |
+| oldValue | any | 旧的值 |
 | itemVM | SelectableStep | 选中步骤实例 |
 
 #### @change
@@ -97,16 +100,16 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| value | Number | 当前步骤数 |
-| oldValue | Number | 旧的步骤数 |
-
+| value | number | 当前步骤数 |
+| oldValue | number | 旧的步骤数 |
 
 ## SelectableStep API
 ### Props/Attrs
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| title | String |  | 步骤名 |
-| disabled | Boolean | `false` | 是否禁用此标签页 |
+
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| title | string |  |  | 步骤名 |
+| disabled | boolean |  | `false` | 是否禁用此标签页 |
 
 ### Slots
 

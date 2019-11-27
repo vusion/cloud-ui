@@ -1,3 +1,5 @@
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
 # UModal 弹窗
 
 ## 示例
@@ -116,20 +118,20 @@ export default {
 ```
 
 ## API
-### Attrs/Props
+### Props/Attrs
 
-| Attr/Prop | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| title | String | `'提示'` | 弹窗的标题 |
-| content | String | `'提示内容'` | 弹窗的内容 |
-| heading | String | `'提示内容'` | 弹窗的内容 |
-| visible.sync | Boolean | `false` | 是否显示 |
-| ok-button | String | `'确定'` | 确定按钮文本，如果为空则不显示 |
-| cancel-button | String | `'取消'` | 取消按钮文本，如果为空则不显示 |
-| size | String | `'normal'` | 弹框的尺寸 |
-| icon | String | `''` | 提示图标, 可选值：`success`, `warning`, `error` |
-| static | Boolean | `false` | 是否嵌入页面显示 |
-| mask-closable | Boolean | `false` | 是否点击遮罩时关闭弹窗 |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| title | string |  | `'提示'` | 弹窗的标题 |
+| content | string |  | `'提示内容'` | 弹窗的内容 |
+| heading | string |  | `'提示内容'` | 弹窗的内容 |
+| visible.sync | boolean |  | `false` | 是否显示 |
+| ok-button | string |  | `'确定'` | 确定按钮文本，如果为空则不显示 |
+| cancel-button | string |  | `'取消'` | 取消按钮文本，如果为空则不显示 |
+| size | string |  | `'normal'` | 弹框的尺寸 |
+| icon | string |  | `''` | 提示图标, 可选值：`success`, `warning`, `error` |
+| static | boolean |  | `false` | 是否嵌入页面显示 |
+| mask-closable | boolean |  | `false` | 是否点击遮罩时关闭弹窗 |
 
 ### Slots
 
@@ -189,7 +191,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.ok | Boolean | 是否确定 |
+| $event.ok | boolean | 是否确定 |
 | $event.preventDefault | Function | 阻止关闭流程 |
 | senderVM | UModal | 发送事件实例 |
 
@@ -199,25 +201,25 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.ok | Boolean | 是否确定 |
+| $event.ok | boolean | 是否确定 |
 | senderVM | UModal | 发送事件实例 |
 
-### Static Methods
+### Methods
 
 #### alert(content, title)
 
 打开只有确定按钮的消息提示
 
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| content | String | 提示内容 |
-| title | String | 提示标题 |
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
+| content | string |  | 提示内容 |
+| title | string |  | 提示标题 |
 
 #### confirm(content, title)
 
 打开有确定和取消按钮的消息提示
 
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| content | String | 提示内容 |
-| title | String | 提示标题 |
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
+| content | string |  | 提示内容 |
+| title | string |  | 提示标题 |

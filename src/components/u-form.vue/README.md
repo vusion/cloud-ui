@@ -1,6 +1,6 @@
-# UForm 表单
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-具有数据收集、校验和提交功能的表单，包含输入框、选择框、复选框、单选框等元素。
+# UForm
 
 ### 相关组件
 
@@ -26,6 +26,7 @@ MField 作为各种表单域（表单控件）的基类，用于触发 UValidato
 
 如：`<u-form-table-view>`和`<u-dynamic-cards>`
 
+## 示例
 ## 表单布局
 ### 基本用法
 
@@ -357,26 +358,24 @@ export default {
 </script>
 ```
 
-## UForm
+## UForm API
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| model | Object | | 表单数据模型 |
-| rules | Object | | 表单所有域的验证规则，已废弃，推荐在各`<u-form-item>`中自行添加 rules。 |
-| layout | String | `block` | 表单布局方式。可选值：`block`、`inline`。 |
-| label-size | String | `normal` | 标签大小。可选值：`small`、`normal`、`large`。 |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| model | object |  |  | 表单数据模型 |
+| rules | object |  |  | 表单所有域的验证规则，已废弃，推荐在各`<u-form-item>`中自行添加 rules。 |
+| layout | string |  | `'block'` | 表单布局方式。可选值：`block`、`inline`。 |
+| label-size | string |  | `'normal'` | 标签大小。可选值：`small`、`normal`、`large`。 |
 
 ### Computed
 
-对于表单内所有项：
-
-| Computed | Type | Default | Description |
-| -------- | ---- | ------- | ----------- |
-| touched | Boolean | | 用户是否触碰 |
-| dirty | Boolean | | 用户是否修改值 |
-| valid | Boolean | | 验证是否通过 |
-| firstError | String | | 第一个错误提示消息 |
+| Computed | Type | Description |
+| -------- | ---- | ----------- |
+| touched | boolean | 用户是否触碰 |
+| dirty | boolean | 用户是否修改值 |
+| valid | boolean | 验证是否通过 |
+| firstError | string | 第一个错误提示消息 |
 
 ### Slots
 
@@ -392,10 +391,10 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.valid | Boolean | 验证是否通过 |
-| $event.touched | Boolean | 用户是否触碰 |
-| $event.dirty | Boolean | 用户是否修改值 |
-| $event.firstError | String | 第一个错误提示消息 |
+| $event.valid | boolean | 验证是否通过 |
+| $event.touched | boolean | 用户是否触碰 |
+| $event.dirty | boolean | 用户是否修改值 |
+| $event.firstError | string | 第一个错误提示消息 |
 | senderVM | UValidator | 发送事件实例 |
 
 ### Methods
@@ -406,9 +405,8 @@ export default {
 
 | Param | Type | Default | Description |
 | ----- | ---- | ------- | ----------- |
-| trigger | String | `'submit'` | 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。 |
-| muted | Boolean | `false` | 是否验证后无提示 |
-
+| trigger | string | `'submit'` | 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。 |
+| muted | boolean | `false` | 是否验证后无提示 |
 
 #### validateItem(name, trigger, slient)
 
@@ -416,32 +414,32 @@ export default {
 
 | Param | Type | Default | Description |
 | ----- | ---- | ------- | ----------- |
-| name | String | | 表单项的 name |
-| trigger | String | `submit` | 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。 |
-| muted | Boolean | `false` | 是否验证后无提示 |
+| name | string |  | 表单项的 name |
+| trigger | string | `'submit'` | 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。 |
+| muted | boolean | `false` | 是否验证后无提示 |
 
 ## FormItem API
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| name | String | | 表单项名称。已废弃 |
-| label | String | | 标签。用于左侧显示，同时用于提示消息的合成 |
-| label-size | String | `'normal'` | 单独设置表单项的标签大小 |
-| field-size | String | `'normal'` | 单独设置表单项的内容大小。可选值：`'full'` |
-| required | Boolean | `false` | 是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。 |
-| message | String | | 默认提示消息 |
-| muted | String | | 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示 |
-| description | String | | 添加描述内容 |
-| placement | String | | 值为`'bottom'`时提示信息在底部显示，改变提示信息显示位置 |
-| layout | String |  | 布局方式，可选值：`'block'` |
-| **Validation Props/Attrs** |
-| rules | String, Array | | 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型 |
-| ignore-validation | Boolean | `false` | 忽略验证 |
-| ignore-rules | Boolean | `false` | 忽略验证规则。已废弃，同`ignore-validation` |
-| validating-options | Object | | 验证辅助对象。在 Rule 的 `validate` 方法中使用 |
-| validating-value | Any | | 临时修改验证值 |
-| validating-process | Function | | 验证前对值进行预处理 |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| name | string |  |  | 表单项名称。已废弃 |
+| label | string |  |  | 标签。用于左侧显示，同时用于提示消息的合成 |
+| label-size | string |  | `'normal'` | 单独设置表单项的标签大小 |
+| field-size | string |  | `'normal'` | 单独设置表单项的内容大小。可选值：`'full'` |
+| required | boolean |  | `false` | 是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。 |
+| message | string |  |  | 默认提示消息 |
+| muted | string |  |  | 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示 |
+| description | string |  |  | 添加描述内容 |
+| placement | string |  |  | 值为`'bottom'`时提示信息在底部显示，改变提示信息显示位置 |
+| layout | string |  |  | 布局方式，可选值：`'block'` |
+| **Validation Props/Attrs** |  |  |  |  |
+| rules | string, Array |  |  | 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型 |
+| ignore-validation | boolean |  | `false` | 忽略验证 |
+| ignore-rules | boolean |  | `false` | 忽略验证规则。已废弃，同`ignore-validation` |
+| validating-options | object |  |  | 验证辅助对象。在 Rule 的 `validate` 方法中使用 |
+| validating-value | any |  |  | 临时修改验证值 |
+| validating-process | Function |  |  | 验证前对值进行预处理 |
 
 ### Slots
 
@@ -465,16 +463,14 @@ export default {
 
 #### @validate
 
-验证时触发，或内部验证时冒泡触发
-
 对于第一个 Field 或者所有子 UValidator：
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.valid | Boolean | 验证是否通过 |
-| $event.touched | Boolean | 用户是否触碰 |
-| $event.dirty | Boolean | 用户是否修改值 |
-| $event.firstError | String | 第一个错误提示消息 |
+| $event.valid | boolean | 验证是否通过 |
+| $event.touched | boolean | 用户是否触碰 |
+| $event.dirty | boolean | 用户是否修改值 |
+| $event.firstError | string | 第一个错误提示消息 |
 | senderVM | UValidator | 发送事件实例 |
 
 ### Methods
@@ -485,5 +481,5 @@ export default {
 
 | Param | Type | Default | Description |
 | ----- | ---- | ------- | ----------- |
-| trigger | String | `'submit'` | 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。 |
-| muted | Boolean | `false` | 是否验证后无提示 |
+| trigger | string | `'submit'` | 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。 |
+| muted | boolean | `false` | 是否验证后无提示 |

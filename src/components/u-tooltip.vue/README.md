@@ -1,5 +1,8 @@
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
 # UTooltip 工具提示
 
+## 示例
 ### 基本用法
 
 ``` html
@@ -315,21 +318,20 @@ export default {
 </script>
 ```
 
-
 ## API
-### Attrs/Props
+### Props/Attrs
 
-| Attr/Prop | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| content | String | `'提示内容'` | 提示内容 |
-| open.sync | Boolean | `false` | 弹出/隐藏状态 |
-| trigger | String | `'click'` | 工具提示的触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`, `'manual'` |
-| placement | String | `'bottom'` | 工具提示的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',` 'left-end'`, `'right-start'`, `'right-end'` |
-| disabled | Boolean | `false` | 是否禁用 |
-| size | String | `'normal'` | 大小扩展，支持一个值： `'small'`, `'normal'`, `'large'`, `'auto'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式 |
-| hide-delay | Number | `0` | 提示内容消失延迟时间，单位是 ms |
-| offset | String | `'0'` | 弹出层偏移，如：`'10'`, `'10px 10px'`, `'10% 10%'`, 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px` |
-| follow-cursor | Boolean, Number, Object | `false` | 是否跟随鼠标 |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| content | string |  | `'提示内容'` | 提示内容 |
+| open.sync | boolean |  | `false` | 弹出/隐藏状态 |
+| trigger | string |  | `'click'` | 工具提示的触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`, `'manual'` |
+| placement | string |  | `'bottom'` | 工具提示的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',` 'left-end'`, `'right-start'`, `'right-end'` |
+| disabled | boolean |  | `false` | 是否禁用 |
+| size | string |  | `'normal'` | 大小扩展，支持一个值： `'small'`, `'normal'`, `'large'`, `'auto'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式 |
+| hide-delay | number |  | `0` | 提示内容消失延迟时间，单位是 ms |
+| offset | string |  | `'0'` | 弹出层偏移，如：`'10'`, `'10px 10px'`, `'10% 10%'`, 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px` |
+| follow-cursor | boolean, number, object |  | `false` | 是否跟随鼠标 |
 
 ### Slots
 
@@ -357,7 +359,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.open | Boolean | 弹出/隐藏状态 |
+| $event.open | boolean | 弹出/隐藏状态 |
 | $event.preventDefault | Function | 阻止弹出/隐藏流程 |
 
 #### @toggle
@@ -366,10 +368,13 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.open | Boolean | 弹出/隐藏状态 |
+| $event.open | boolean | 弹出/隐藏状态 |
 
 ### Methods
 
 #### update()
 
 更新 popper 实例
+
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |

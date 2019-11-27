@@ -27,7 +27,7 @@
     - name: placeholder
       description: 空数据占位显示内容
   events:
-    - name: "@input"
+    - name: input
       description: 输入时触发。
       params:
         - name: $event
@@ -36,7 +36,7 @@
         - name: senderVM
           type: UInput
           description: 发送事件实例
-    - name: "@change"
+    - name: change
       description: 值变化时触发。（注意：与原生事件不同）
       params:
         - name: $event.value

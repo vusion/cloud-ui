@@ -1,4 +1,5 @@
 - name: u-linear-progress
+  title: 线型进度条
   attrs:
     - name: percent
       type: number

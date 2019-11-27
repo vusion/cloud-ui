@@ -1,3 +1,5 @@
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
 # USwitch 开关
 
 ## 示例
@@ -35,12 +37,12 @@ export default {
 ## API
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| value | `Boolean` | `false` | 开关状态 |
-| readonly | `Boolean` | `false` | 是否只读 |
-| disabled | `Boolean` | `false` | 是否禁用 |
-| with-text | `Boolean` | `false` | 是否显示开关`ON`和`OFF`文字 |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| value | boolean |  | `false` | 开关状态 |
+| readonly | boolean |  | `false` | 是否只读 |
+| disabled | boolean |  | `false` | 是否禁用 |
+| with-text | boolean |  | `false` | 是否显示开关`ON`和`OFF`文字 |
 
 ### Slots
 
@@ -56,9 +58,9 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.value | `Boolean` | 开关状态 |
-| $event.oldValue | `Boolean` | 旧的开关状态 |
-| $event.preventDefault | `Function` | 阻止切换流程 |
+| $event.value | boolean | 开关状态 |
+| $event.oldValue | boolean | 旧的开关状态 |
+| $event.preventDefault | Function | 阻止切换流程 |
 
 #### @input
 
@@ -66,7 +68,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event | `Boolean` | 切换后的开关状态 |
+| $event | boolean | 切换后的开关状态 |
 
 #### @toggle
 
@@ -74,8 +76,8 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.value | `Boolean` | 开关状态 |
-| $event.oldValue | `Boolean` | 旧的开关状态 |
+| $event.value | boolean | 开关状态 |
+| $event.oldValue | boolean | 旧的开关状态 |
 
 #### @change
 
@@ -83,5 +85,5 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.value | `Boolean` | 开关状态 |
-| $event.oldValue | `Boolean` | 旧的开关状态 |
+| $event.value | boolean | 开关状态 |
+| $event.oldValue | boolean | 旧的开关状态 |

@@ -1,12 +1,10 @@
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
 # UKeyValue 键值对
 
-<u-linear-layout gap="small">
-    <u-label>UI 组件</u-label>
-    <!-- <u-label>输入型</u-label> -->
-    <u-label>基础类</u-label>
-    <u-label>键值对</u-label>
-</u-linear-layout>
+最基本的键值对显示
 
+## 示例
 ### 基本用法
 
 最基本的键值对显示
@@ -112,17 +110,16 @@ label垂直对齐方式，默认按照 baseline，提供top，middle与bottom三
 ```
 
 
-
-## UKeyValue
+## API
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| vertical | String | `'baseline'` | label与value对齐方式`'top'`,`'middle'`,`'bottom'` |
-| label | String |  | label显示值 |
-| value | String |  | value显示值 |
-| labelSize | Number |  | 设置label宽度，不填label为自适应 |
-| labelAlignment | String | `'right'` | label文字水平对齐方式`'left'`,`'center'`,注意此值仅在设置labelSize后生效 |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| vertical | string |  | `'baseline'` | label与value对齐方式`'top'`,`'middle'`,`'bottom'` |
+| label | string |  |  | label显示值 |
+| value | string |  |  | value显示值 |
+| labelSize | number |  |  | 设置label宽度，不填label为自适应 |
+| labelAlignment | string |  | `'right'` | label文字水平对齐方式`'left'`,`'center'`,注意此值仅在设置labelSize后生效 |
 
 ### Slots
 

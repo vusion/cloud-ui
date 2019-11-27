@@ -1,4 +1,5 @@
 - name: time-picker
+  title: 时间选择
   attrs:
     - name: time
       type: string
@@ -33,7 +34,7 @@
       default: true
       description: 是否显示
   events:
-    - name: "@change"
+    - name: change
       description: 时间改变时触发
       params:
         - name: time

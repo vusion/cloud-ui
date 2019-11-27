@@ -1,4 +1,5 @@
 - name: info-list
+  title: 详情列表
   attrs:
     - name: column
       type: string

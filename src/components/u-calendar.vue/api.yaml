@@ -1,4 +1,5 @@
 - name: calendar
+  title: 日历
   attrs:
     - name: date
       type: Date,string
@@ -32,13 +33,13 @@
     - name: default
       description: 插入文本或  HTML 至日期组件底部
   events:
-    - name: "@change"
+    - name: change
       description: 日期改变时触发
       params:
         - name: date
           type: object
           description: 改变后的日期
-    - name: "@select"
+    - name: select
       description: 选择某一个日期时触发
       params:
         - name: date

@@ -1,3 +1,5 @@
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
 # ULink 链接
 
 ## 示例
@@ -59,15 +61,15 @@
 ## API
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| href | String |  | 链接地址 |
-| target | String |  | （原生属性） |
-| to | String, Location |  | 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
-| replace | Boolean | `false` | 需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
-| append | Boolean | `false` | 需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。 |
-| disabled | Boolean | `false` | 是否禁用。禁用后不会响应`click`事件。 |
-| display | String | `'inline'` | 展示方式。可选值：`'inline'`, `'block'` |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| href | string |  |  | 链接地址 |
+| target | string |  |  | （原生属性） |
+| to | string, Location |  |  | 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
+| replace | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
+| append | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。 |
+| disabled | boolean |  | `false` | 是否禁用。禁用后不会响应`click`事件。 |
+| display | string |  | `'inline'` | 展示方式。可选值：`'inline'`, `'block'` |
 
 ### Slots
 
@@ -77,9 +79,12 @@
 
 ### Events
 
-#### $listeners
+#### @$listeners
 
 监听所有`<a>`元素的事件。
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
 
 #### @click
 
@@ -95,9 +100,9 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.to | String, Location | `to`属性的值 |
-| $event.replace | Boolean | `replace`属性的值 |
-| $event.append | Boolean | `append`属性的值 |
+| $event.to | string, Location | `to`属性的值 |
+| $event.replace | boolean | `replace`属性的值 |
+| $event.append | boolean | `append`属性的值 |
 | $event.preventDefault | Function | 阻止切换流程 |
 
 #### @navigate
@@ -106,6 +111,6 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.to | String, Location | `to`属性的值 |
-| $event.replace | Boolean | `replace`属性的值 |
-| $event.append | Boolean | `append`属性的值 |
+| $event.to | string, Location | `to`属性的值 |
+| $event.replace | boolean | `replace`属性的值 |
+| $event.append | boolean | `append`属性的值 |

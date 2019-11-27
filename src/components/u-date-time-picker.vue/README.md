@@ -1,7 +1,8 @@
-# UDateTimePicker 日期时间选择
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
+# DateTimePicker 日期时间选择
 
 ## 示例
-
 ### 基本用法
 
 ``` html
@@ -63,20 +64,20 @@ export default {
 </script>
 ```
 
-## DateTimePicker API
+## API
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| date.sync | String, Number, Date | | 显示的日期值 |
-| minDate | String, Number, Date | | 最小日期值 |
-| maxDate | String, Number, Date | | 最大日期值 |
-| placeholder | String | `请选择时间` | 默认提示语 |
-| autofocus | Boolean | `false` | 是否默认处于focus状态 |
-| disabled | Boolean | `false` | 是否禁用 |
-| readonly | Boolean | `false` | 是否只读 |
-| yearDiff | String, Number | `3` | 最小可选年份值为当前年减去此值 |
-| yearAdd | String, Number | `1` | 最大可选年份值为当前年加上此值 |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| date.sync | string, number, Date |  |  | 显示的日期值 |
+| minDate | string, number, Date |  |  | 最小日期值 |
+| maxDate | string, number, Date |  |  | 最大日期值 |
+| placeholder | string |  | `'请选择时间'` | 默认提示语 |
+| autofocus | boolean |  | `false` | 是否默认处于focus状态 |
+| disabled | boolean |  | `false` | 是否禁用 |
+| readonly | boolean |  | `false` | 是否只读 |
+| yearDiff | string, number |  | `3` | 最小可选年份值为当前年减去此值 |
+| yearAdd | string, number |  | `1` | 最大可选年份值为当前年加上此值 |
 
 ### Slots
 
@@ -92,7 +93,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.date | Number | 选择项的值，默认返回时间戳 |
+| $event.date | number | 选择项的值，默认返回时间戳 |
 
 #### @change
 
@@ -100,4 +101,4 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.date | Number | 选择项的值，默认返回时间戳 |
+| $event.date | number | 选择项的值，默认返回时间戳 |

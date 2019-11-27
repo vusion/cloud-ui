@@ -1,6 +1,8 @@
 - name: u-validator
   title: 验证器
   description: 实现了基础的嵌套验证功能和原子化验证功能，包含提示样式。常用于嵌套验证时使用，或用于派生一些较复杂的组件。
+  docs:
+    rules: 内置规则
   attrs:
     - name: name
       type: string
@@ -68,7 +70,7 @@
     - name: default
       description: 插入继承了 MField 的组件，或子 UValidator，或其他 HTML 和文本。
   events:
-    - name: "@validate"
+    - name: validate
       description: 对于第一个 Field 或者所有子 UValidator：
       params:
         - name: $event.valid

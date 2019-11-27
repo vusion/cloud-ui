@@ -37,7 +37,7 @@
     - name: default
       description: 插入`<u-form-item>`子组件。
   events:
-    - name: "@validate"
+    - name: validate
       description: 验证时触发
       params:
         - name: $event.valid
@@ -162,7 +162,7 @@
     - name: extra
       description: 自定义标签右侧额外内容。
   events:
-    - name: "@validate"
+    - name: validate
       description: 对于第一个 Field 或者所有子 UValidator：
       params:
         - name: $event.valid

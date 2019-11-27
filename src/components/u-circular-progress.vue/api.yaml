@@ -1,4 +1,5 @@
 - name: u-circular-progress
+  title: 圆形进度条
   attrs:
     - name: percent
       type: number

@@ -1,4 +1,5 @@
 - name: u-switch
+  title: 开关
   attrs:
     - name: value
       type: boolean
@@ -20,7 +21,7 @@
     - name: default
       description: 插入文本或 HTML。
   events:
-    - name: "@before-toggle"
+    - name: before-toggle
       description: 切换开关状态前触发
       params:
         - name: $event.value
@@ -32,13 +33,13 @@
         - name: $event.preventDefault
           type: Function
           description: 阻止切换流程
-    - name: "@input"
+    - name: input
       description: 切换开关状态时触发
       params:
         - name: $event
           type: boolean
           description: 切换后的开关状态
-    - name: "@toggle"
+    - name: toggle
       description: 切换开关状态时触发
       params:
         - name: $event.value
@@ -47,7 +48,7 @@
         - name: $event.oldValue
           type: boolean
           description: 旧的开关状态
-    - name: "@change"
+    - name: change
       description: 开关状态改变时触发
       params:
         - name: $event.value

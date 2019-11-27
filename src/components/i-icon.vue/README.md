@@ -1,4 +1,8 @@
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
 # IIcon 图标
+
+**图标组件**, **行内展示**
 
 ## 示例
 ### 基本用法
@@ -23,3 +27,10 @@
     <i-icon name="close">close</i-icon>
 </u-linear-layout>
 ```
+
+## API
+### Props/Attrs
+
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| name | string |  |  | 图标名称 |

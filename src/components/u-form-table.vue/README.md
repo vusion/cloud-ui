@@ -1,4 +1,6 @@
-# 表格表单
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
+# UFormTable 表格表单
 
 在表单中使用的表格，本组件主要实现基本样式，方便在特殊场景下扩展。如果需要快速使用动态数据、表单验证等功能，请使用 [UFormTableView](../u-form-table-view)。
 
@@ -109,11 +111,7 @@ export default {
 </script>
 ```
 
-## FormTable API
-### Attrs/Props
-| Attr/Prop | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-
+## API
 ### Slots
 
 #### (default)

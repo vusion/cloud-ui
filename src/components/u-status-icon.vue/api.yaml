@@ -1,4 +1,5 @@
 - name: u-status-icon
+  title: 状态图标
   attrs:
     - name: name
       type: string

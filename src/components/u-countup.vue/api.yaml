@@ -61,24 +61,20 @@
     - name: default
       description: 插入文本或 HTML。
   events:
-    - name: "@update"
+    - name: update
       description: 更新渐变结束
       params:
         - name: $event
           type: number
           description: 最新结束值
-    - name: "@reset"
+    - name: reset
       description: 重置
       params:
         - name: $event
           type: number
           description: 初始值
-    - name: "@pauseResume"
+    - name: pauseResume
       description: 切换渐变
-      params:
-        - name: "-"
-          type: "-"
-          description: "-"
   methods:
     - name: update(value)
       description: 更新渐变结束值
@@ -88,13 +84,5 @@
           description: 最新结束值
     - name: reset()
       description: 重置
-      params:
-        - name: "-"
-          type: "-"
-          description: "-"
     - name: pauseResume()
       description: 切换渐变
-      params:
-        - name: "-"
-          type: "-"
-          description: "-"

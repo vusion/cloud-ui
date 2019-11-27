@@ -1,9 +1,10 @@
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
 # UValidator 验证器
 
-实现了基础的嵌套验证功能和原子化验证功能，包含提示样式。
+实现了基础的嵌套验证功能和原子化验证功能，包含提示样式。常用于嵌套验证时使用，或用于派生一些较复杂的组件。
 
-常用于嵌套验证时使用，或用于派生一些较复杂的组件。
-
+## 基础示例
 ## 验证规则
 
 验证规则（Rule）通过验证器（或表单项）的`rules`属性设置，可以用简写格式（字符串）或完整格式（数组）书写，推荐尽量使用简写格式。
@@ -465,6 +466,7 @@ export default {
 </u-form>
 ```
 
+## 内置规则
 ### 空值判断
 
 #### required <u-label>blur</u-label>
@@ -1554,33 +1556,31 @@ export default {
 </u-validator>
 ```
 
-## UValidator
+## API
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| name | String | | 表单项名称。已废弃 |
-| label | String | | 标签。在 UValidator 用于提示消息的合成，在 UFormItem 等其他组件用于显示标签 |
-| rules | String, Array | | 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型 |
-| message | String | | 默认提示消息 |
-| muted | String | | 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示 |
-| ignore-validation | Boolean | `false` | 忽略验证 |
-| ignore-rules | Boolean | `false` | 忽略验证规则。已废弃，同`ignore-validation` |
-| validating-options | Object | | 验证辅助对象。在 Rule 的 `validate` 方法中使用 |
-| validating-value | Any | | 临时修改验证值 |
-| validating-process | Function | | 验证前对值进行预处理 |
-| manual | Boolean | `false` | 是否采取手动验证。如果为`true`，则 UValidator 将不会在监听到子组件的`input`、`change`和`blur`事件后进行相应的验证。 |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| name | string |  |  | 表单项名称。已废弃 |
+| label | string |  |  | 标签。在 UValidator 用于提示消息的合成，在 UFormItem 等其他组件用于显示标签 |
+| rules | string, Array |  |  | 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型 |
+| message | string |  |  | 默认提示消息 |
+| muted | string |  |  | 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示 |
+| ignore-validation | boolean |  | `false` | 忽略验证 |
+| ignore-rules | boolean |  | `false` | 忽略验证规则。已废弃，同`ignore-validation` |
+| validating-options | object |  |  | 验证辅助对象。在 Rule 的 `validate` 方法中使用 |
+| validating-value | any |  |  | 临时修改验证值 |
+| validating-process | Function |  |  | 验证前对值进行预处理 |
+| manual | boolean |  | `false` | 是否采取手动验证。如果为`true`，则 UValidator 将不会在监听到子组件的`input`、`change`和`blur`事件后进行相应的验证。 |
 
 ### Computed
 
-对于第一个 Field 或者所有子 UValidator：
-
-| Computed | Type | Default | Description |
-| -------- | ---- | ------- | ----------- |
-| touched | Boolean | | 用户是否触碰 |
-| dirty | Boolean | | 用户是否修改值 |
-| valid | Boolean | | 验证是否通过 |
-| firstError | String | | 第一个错误提示消息 |
+| Computed | Type | Description |
+| -------- | ---- | ----------- |
+| touched | boolean | 用户是否触碰 |
+| dirty | boolean | 用户是否修改值 |
+| valid | boolean | 验证是否通过 |
+| firstError | string | 第一个错误提示消息 |
 
 ### Slots
 
@@ -1592,16 +1592,14 @@ export default {
 
 #### @validate
 
-验证时触发，或内部验证时冒泡触发
-
 对于第一个 Field 或者所有子 UValidator：
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.valid | Boolean | 验证是否通过 |
-| $event.touched | Boolean | 用户是否触碰 |
-| $event.dirty | Boolean | 用户是否修改值 |
-| $event.firstError | String | 第一个错误提示消息 |
+| $event.valid | boolean | 验证是否通过 |
+| $event.touched | boolean | 用户是否触碰 |
+| $event.dirty | boolean | 用户是否修改值 |
+| $event.firstError | string | 第一个错误提示消息 |
 | senderVM | UValidator | 发送事件实例 |
 
 ### Methods
@@ -1612,5 +1610,5 @@ export default {
 
 | Param | Type | Default | Description |
 | ----- | ---- | ------- | ----------- |
-| trigger | String | `'submit'` | 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。 |
-| muted | Boolean | `false` | 是否验证后无提示 |
+| trigger | string | `'submit'` | 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。 |
+| muted | boolean | `false` | 是否验证后无提示 |

@@ -52,7 +52,7 @@
     - name: content
       description: 自定义内容文本。
   events:
-    - name: "@before-toggle"
+    - name: before-toggle
       description: 弹出/隐藏前触发
       params:
         - name: $event.open
@@ -61,7 +61,7 @@
         - name: $event.preventDefault
           type: Function
           description: 阻止弹出/隐藏流程
-    - name: "@toggle"
+    - name: toggle
       description: 弹出/隐藏时触发
       params:
         - name: $event.open

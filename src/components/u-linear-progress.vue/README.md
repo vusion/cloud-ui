@@ -1,3 +1,5 @@
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
 # ULinearProgress 线型进度条
 
 ## 示例
@@ -41,11 +43,11 @@
 ## API
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| percent | Number | `0` | 百分比 |
-| size | String | `'normal'` | 高度扩展，值有`'small'`, `'normal'`, `'large'`, `'huge'`四个值 |
-| range | Array | `[0, 100]` | 百分比范围限制 |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| percent | number |  | `0` | 百分比 |
+| size | string |  | `'normal'` | 高度扩展，值有`'small'`, `'normal'`, `'large'`, `'huge'`四个值 |
+| range | Array |  | `[0, 100]` | 百分比范围限制 |
 
 ### Slots
 

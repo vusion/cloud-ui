@@ -51,7 +51,7 @@
     - name: $listeners
       description: 监听所有`<a>`元素的事件。
       params: []
-    - name: "@before-navigate"
+    - name: before-navigate
       description: 使用router相关属性切换路由前触发
       params:
         - name: $event.to
@@ -66,7 +66,7 @@
         - name: $event.preventDefault
           type: Function
           description: 阻止切换流程
-    - name: "@navigate"
+    - name: navigate
       description: 使用router相关属性切换路由时触发
       params:
         - name: $event.to

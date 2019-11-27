@@ -1,4 +1,6 @@
-# UCalendar 日历
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
+# Calendar 日历
 
 ## 示例
 ### 基本用法
@@ -30,18 +32,18 @@
 </u-linear-layout>
 ```
 
-## Calendar API
+## API
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| date | Date/String | TODAY | 当前选择的日期 |
-| minDate | Date/String | | 最小日期，如果为空则不限制 |
-| maxDate | Date/String | `'text'` | 最大日期，如果为空则不限制 |
-| yearDiff | String/Number | `3` | 当前年份往前展示的年数，例：当前为`2018`年，则从`2015`年开始展示 |
-| yearAdd | String/Number | `1` | 当前年份往后展示的年数，例：当前为`2018`年，则展示至`2019`年 |
-| readonly | Boolean | `false` | 是否只读 |
-| disabled | Boolean | `false` | 是否禁用 |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| date | Date,string |  | `'TODAY'` | 当前选择的日期 |
+| min-date | Date,string |  |  | 最小日期，如果为空则不限制 |
+| max-date | Date,string |  | `'text'` | 最大日期，如果为空则不限制 |
+| year-diff | string,number |  | `3` | 当前年份往前展示的年数，例：当前为`2018`年，则从`2015`年开始展示 |
+| year-add | string,number |  | `1` | 当前年份往后展示的年数，例：当前为`2018`年，则展示至`2019`年 |
+| readonly | boolean |  | `false` | 是否只读 |
+| disabled | boolean |  | `false` | 是否禁用 |
 
 ### Slots
 
@@ -57,7 +59,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| date | Object | 改变后的日期 |
+| date | object | 改变后的日期 |
 
 #### @select
 
@@ -65,4 +67,4 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| date | Object | 当前选择的日期 |
+| date | object | 当前选择的日期 |

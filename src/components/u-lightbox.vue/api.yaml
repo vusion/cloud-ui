@@ -53,25 +53,25 @@
     - name: default
       description: 灯箱内容。
   events:
-    - name: "@open"
+    - name: open
       description: 打开时触发
       params: []
-    - name: "@before-close"
+    - name: before-close
       description: 关闭前触发
       params:
         - name: $event.preventDefault
           type: Function
           description: 阻止关闭流程
-    - name: "@close"
+    - name: close
       description: 关闭时触发
       params: []
-    - name: "@rotate"
+    - name: rotate
       description: 旋转时触发
       params:
         - name: direction
           type: string
           description: "`left`或`right`"
-    - name: "@zoom"
+    - name: zoom
       description: 缩放时触发
       params:
         - name: direction

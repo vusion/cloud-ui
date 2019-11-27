@@ -1,4 +1,6 @@
 - name: u-input
+  title: 单行输入
+  labels: ['UI 组件', '输入型', '表单类', '行内展示']
   attrs:
     - name: type
       type: string
@@ -61,7 +63,7 @@
     - name: default
       description: 插入  HTML或 `Component`, 可展示额外内容。
   events:
-    - name: "@input"
+    - name: input
       description: 输入时触发。
       params:
         - name: $event
@@ -70,7 +72,7 @@
         - name: senderVM
           type: UInput
           description: 发送事件实例
-    - name: "@change"
+    - name: change
       description: 值变化时触发。（注意：与原生事件不同）
       params:
         - name: $event.value
@@ -82,7 +84,7 @@
         - name: senderVM
           type: UInput
           description: 发送事件实例
-    - name: "@focus"
+    - name: focus
       description: 获得焦点时触发。
       params:
         - name: $event
@@ -91,7 +93,7 @@
         - name: senderVM
           type: UInput
           description: 发送事件实例
-    - name: "@blur"
+    - name: blur
       description: 失去焦点时触发。
       params:
         - name: $event
@@ -100,7 +102,7 @@
         - name: senderVM
           type: UInput
           description: 发送事件实例
-    - name: "@before-clear"
+    - name: before-clear
       description: 清空前触发。
       params:
         - name: $event.value
@@ -115,7 +117,7 @@
         - name: senderVM
           type: UInput
           description: 发送事件实例
-    - name: "@clear"
+    - name: clear
       description: 清空时触发。
       params:
         - name: $event.value

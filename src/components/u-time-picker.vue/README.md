@@ -1,4 +1,6 @@
-# UTimePicker 时间选择
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
+# TimePicker 时间选择
 
 ## 示例
 ### 基本用法
@@ -65,19 +67,19 @@ export default {
 </script>
 ```
 
-## TimePicker API
+## API
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| time | String | '00:00' | 当前的时间值 |
-| minUnit | String | 'second' | 最小时间单位`'second'`或者是`'minute'` |
-| minTime | String | '00:00' | 最小时间 |
-| maxTime | String | '23:59' | 最大时间 |
-| autofocus | Boolean | `false` | 是否自动获得焦点 |
-| readonly | Boolean | `false` | 是否只读 |
-| disabled | Boolean | `false` | 是否禁用 |
-| visible | Boolean | `true` | 是否显示 |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| time | string |  | `'00:00'` | 当前的时间值 |
+| minUnit | string |  | `'second'` | 最小时间单位`'second'`或者是`'minute'` |
+| minTime | string |  | `'00:00'` | 最小时间 |
+| maxTime | string |  | `'23:59'` | 最大时间 |
+| autofocus | boolean |  | `false` | 是否自动获得焦点 |
+| readonly | boolean |  | `false` | 是否只读 |
+| disabled | boolean |  | `false` | 是否禁用 |
+| visible | boolean |  | `true` | 是否显示 |
 
 ### Events
 
@@ -87,4 +89,4 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| time | Object | 改变后的时间 |
+| time | object | 改变后的时间 |

@@ -1,5 +1,8 @@
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
 # UPills 药丸
 
+## 示例
 ### 基本用法
 
 ``` html
@@ -66,19 +69,18 @@
 </u-pills>
 ```
 
-
-## UPills
+## UPills API
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| data | Array\<{ text, value }\> | | Data书写方式中的数据列表 |
-| value.sync, v-model | Any | | 当前选择的值 |
-| field | String | `'text'` | 显示文本字段 |
-| cancelable | Boolean | `false` | 是否可以取消选择 |
-| multiple | Boolean | `false` | 是否可以多选 |
-| readonly | Boolean | `false` | 是否只读 |
-| disabled | Boolean | `false` | 是否禁用 |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| data | Array\<{ text, value }\> |  |  | Data书写方式中的数据列表 |
+| value.sync, v-model | any |  |  | 当前选择的值 |
+| field | string |  | `'text'` | 显示文本字段 |
+| cancelable | boolean |  | `false` | 是否可以取消选择 |
+| multiple | boolean |  | `false` | 是否可以多选 |
+| readonly | boolean |  | `false` | 是否只读 |
+| disabled | boolean |  | `false` | 是否禁用 |
 
 ### Slots
 
@@ -94,9 +96,9 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.value | Any | 选择项的值 |
-| $event.oldValue | Any | 旧的值 |
-| $event.item | Object | 选择项相关对象 |
+| $event.value | any | 选择项的值 |
+| $event.oldValue | any | 旧的值 |
+| $event.item | object | 选择项相关对象 |
 | $event.itemVM | ListViewItem | 选择项子组件 |
 | $event.preventDefault | Function | 阻止选择流程 |
 
@@ -106,7 +108,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event | Any | 选择项的值 |
+| $event | any | 选择项的值 |
 
 #### @select
 
@@ -114,21 +116,21 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.value | Any | 改变后的值 |
-| $event.oldValue | Any | 旧的值 |
-| $event.item | Object | 单选模式中，选择项相关对象 |
-| $event.itemVM | ListViewItem |  单选模式中，选择项子组件 |
-| $event.items | Array\<Object\> | 多选模式中，所有选中项相关对象的数组 |
+| $event.value | any | 改变后的值 |
+| $event.oldValue | any | 旧的值 |
+| $event.item | object | 单选模式中，选择项相关对象 |
+| $event.itemVM | ListViewItem | 单选模式中，选择项子组件 |
+| $event.items | Array\<object\> | 多选模式中，所有选中项相关对象的数组 |
 | $event.itemVMs | Array\<ListViewItem\> | 多选模式中，所有选中项子组件的数组 |
 
-## UPill
+## UPill API
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| value | Any | | 此项的值 |
-| disabled | Boolean | `false` | 禁用此项 |
-| item | Object | | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| value | any |  |  | 此项的值 |
+| disabled | boolean |  | `false` | 禁用此项 |
+| item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
 
 ### Slots
 
@@ -144,7 +146,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.value | Any | 此项的值 |
-| $event.item | Object | 此项的相关对象 |
+| $event.value | any | 此项的值 |
+| $event.item | object | 此项的相关对象 |
 | $event.itemVM | ListViewItem | 此组件 |
 | $event.preventDefault | Function | 阻止选择流程 |

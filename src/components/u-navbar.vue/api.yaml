@@ -1,5 +1,6 @@
 - name: u-navbar
-  descrpition: 通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。
+  title: 导航条
+  description: 通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。
   attrs:
     - name: router
       type: boolean
@@ -21,7 +22,7 @@
     - name: default
       description: 插入`<u-navbar-item>`或`<u-navbar-divider>`子组件。
   events:
-    - name: "@before-select"
+    - name: before-select
       description: 选择某一项前触发
       params:
         - name: $event.value
@@ -39,13 +40,13 @@
         - name: $event.preventDefault
           type: Function
           description: 阻止选择流程
-    - name: "@input"
+    - name: input
       description: 选择某一项时触发
       params:
         - name: $event
           type: any
           description: 选择项的值
-    - name: "@select"
+    - name: select
       description: 选择某一项时触发
       params:
         - name: $event.value
@@ -100,7 +101,7 @@
     - name: default
       description: 插入文本或HTML。
   events:
-    - name: "@before-select"
+    - name: before-select
       description: 选择此项前触发
       params:
         - name: $event.value
@@ -115,7 +116,7 @@
         - name: $event.preventDefault
           type: Function
           description: 阻止选择流程
-    - name: "@before-navigate"
+    - name: before-navigate
       description: 使用router相关属性切换路由前触发
       params:
         - name: $event.to
@@ -130,7 +131,7 @@
         - name: $event.preventDefault
           type: Function
           description: 阻止切换流程
-    - name: "@navigate"
+    - name: navigate
       description: 使用router相关属性切换路由时触发
       params:
         - name: $event.to

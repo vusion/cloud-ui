@@ -1,3 +1,5 @@
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
 # UActions 操作项
 
 ## 示例
@@ -36,15 +38,14 @@
 </u-linear-layout>
 ```
 
-
 ## UActions API
-### Attrs/Props
+### Props/Attrs
 
-| Attr/Prop | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| maxCount | Number | 3 | 一列最多显示链接个数 |
-| menuTitle | String | '更多' | 菜单标题 |
-| placement | String | `'bottom-end'`| 菜单的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',` 'left-end'`, `'right-start'`, `'right-end'` |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| max-count | number |  | `3` | 一列最多显示链接个数 |
+| menu-title | string |  | `'更多'` | 菜单标题 |
+| placement | string |  | `'bottom-end'` | 菜单的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',` 'left-end'`, `'right-start'`, `'right-end'` |
 
 ### Slots
 
@@ -53,14 +54,12 @@
 插入`<u-action>`子组件。
 
 ## UAction API
+### Props/Attrs
 
-属性全部透传。
-
-### Attrs/Props
-
-| Attr/Prop | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| hidden | Boolean | `false` | 自定义显示/隐藏条件 |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| hidden | boolean |  | `false` | 自定义显示/隐藏条件 |
+| 其余属性透传 |  |  |  | undefined |
 
 ### Events
 

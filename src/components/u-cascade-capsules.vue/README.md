@@ -1,7 +1,8 @@
-# UCascadeCapsules 级联胶囊
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
+# CascadeCapsules 级联胶囊
 
 ## 示例
-
 ### 基本用法
 
 ``` html
@@ -299,21 +300,21 @@ export default {
 </u-cascade-capsules>
 ```
 
-## CascadeCapsules API
+## API
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| data | Array\<{ text, value }\> | | 数据列表 |
-| value.sync, v-model | Any | | 当前选择的值 |
-| labelSize | String |  | label的大小，可选值：`'small'`, `'large'` |
-| categories | Array\<{ label, key, tip }\> | | 多级分类，其中`label`为标签名，`tip`为该标签的提示 |
-| autoSelect | Boolean | `true` | 是否可自动选择 |
-| converter | String, Object | `'join'` | value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value，`'join.number'`与`join`类似，只是会考虑它为数字的情况。也可以用`:`修改分隔符，类似 Vue 的指令参数，`'last-value'`表示以最后一项的值作为 value。也可以传入一个包含 { get, set } 的一个对象 |
-| field | String | `'text'` | 显示文本字段 |
-| cancelable | Boolean | `false` | 是否可以取消选择 |
-| readonly | Boolean | `false` | 是否只读 |
-| disabled | Boolean | `false` | 是否禁用 |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| data | Array\<{ text, value }\> |  |  | 数据列表 |
+| value.sync, v-model | any |  |  | 当前选择的值 |
+| labelSize | string |  |  | label的大小，可选值：`'small'`, `'large'` |
+| categories | Array\<{ label, key, tip }\> |  |  | 多级分类，其中`label`为标签名，`tip`为该标签的提示 |
+| auto-select | boolean |  | `true` | 是否可自动选择 |
+| converter | string, object |  | `'join'` | value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value，`'join.number'`与`join`类似，只是会考虑它为数字的情况。也可以用`:`修改分隔符，类似 Vue 的指令参数，`'last-value'`表示以最后一项的值作为 value。也可以传入一个包含 { get, set } 的一个对象 |
+| field | string |  | `'text'` | 显示文本字段 |
+| cancelable | boolean |  | `false` | 是否可以取消选择 |
+| readonly | boolean |  | `false` | 是否只读 |
+| disabled | boolean |  | `false` | 是否禁用 |
 
 ### Events
 
@@ -323,7 +324,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event | Any | 选择项的值 |
+| $event | any | 选择项的值 |
 
 #### @select
 
@@ -331,10 +332,10 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.level | Number | 选择的层级 |
-| $event.value | Any | 改变后的值 |
+| $event.level | number | 选择的层级 |
+| $event.value | any | 改变后的值 |
 | $event.values | Array | 改变后每项值的数组 |
-| $event.item | Object | 选择项相关对象 |
+| $event.item | object | 选择项相关对象 |
 | $event.itemVM | ListViewItem | 选择项子组件 |
 
 #### @change
@@ -343,7 +344,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.value | Any | 改变后的值 |
-| $event.oldValue | Any | 旧的值 |
+| $event.value | any | 改变后的值 |
+| $event.oldValue | any | 旧的值 |
 | $event.values | Array | 改变后每项值的数组 |
 | $event.oldValues | Array | 旧的每项值的数组 |

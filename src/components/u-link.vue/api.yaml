@@ -1,4 +1,5 @@
 - name: u-link
+  title: 链接
   attrs:
     - name: href
       type: string
@@ -37,13 +38,13 @@
     - name: $listeners
       description: 监听所有`<a>`元素的事件。
       params: []
-    - name: "@click"
+    - name: click
       description: 点击链接时触发，与原生 click 事件不同的是，它只会在非禁用状态下触发。
       params:
         - name: $event
           type: MouseEvent
           description: 鼠标事件对象
-    - name: "@before-navigate"
+    - name: before-navigate
       description: 使用router相关属性切换路由前触发
       params:
         - name: $event.to
@@ -58,7 +59,7 @@
         - name: $event.preventDefault
           type: Function
           description: 阻止切换流程
-    - name: "@navigate"
+    - name: navigate
       description: 使用router相关属性切换路由时触发
       params:
         - name: $event.to

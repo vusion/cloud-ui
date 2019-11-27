@@ -1,4 +1,7 @@
 - name: u-textarea
+  title: 多行输入
+  labels: ['UI 组件', '表单类', '行内展示']
+  description: 多行输入组件，在原生`<textarea>`控件基础上进行了一些功能扩展。
   attrs:
     - name: value
       type: string
@@ -49,7 +52,7 @@
       default: none
       description: 是否可以调整大小。可选值：`'none'`、`'both'`、`'horizontal'`、`'vertical'`
   events:
-    - name: "@input"
+    - name: input
       description: 输入时触发。
       params:
         - name: $event
@@ -58,7 +61,7 @@
         - name: senderVM
           type: UTextarea
           description: 发送事件实例
-    - name: "@change"
+    - name: change
       description: 值变化时触发。（注意：与原生事件不同）
       params:
         - name: $event.value
@@ -70,7 +73,7 @@
         - name: senderVM
           type: UTextarea
           description: 发送事件实例
-    - name: "@focus"
+    - name: focus
       description: 获得焦点时触发。
       params:
         - name: $event
@@ -79,7 +82,7 @@
         - name: senderVM
           type: UTextarea
           description: 发送事件实例
-    - name: "@blur"
+    - name: blur
       description: 失去焦点时触发。
       params:
         - name: $event
@@ -88,7 +91,7 @@
         - name: senderVM
           type: UTextarea
           description: 发送事件实例
-    - name: "@before-clear"
+    - name: before-clear
       description: 清空前触发。
       params:
         - name: $event.value
@@ -103,7 +106,7 @@
         - name: senderVM
           type: UTextarea
           description: 发送事件实例
-    - name: "@clear"
+    - name: clear
       description: 清空时触发。
       params:
         - name: $event.value

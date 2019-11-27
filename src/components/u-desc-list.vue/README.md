@@ -1,4 +1,6 @@
-# UDescList 描述列表
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
+# DescList 描述列表
 
 ## 示例
 ### 基本用法
@@ -22,13 +24,11 @@
 ```
 
 ## DescList API
-
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| label-size | String | `normal` | 标签大小。可选值：`small`、`normal`、`large`、`huge` |
-
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| label-size | string |  | `'normal'` | 标签大小。可选值：`small`、`normal`、`large`、`huge` |
 
 ### Slots
 
@@ -37,13 +37,12 @@
 插入`<u-desc-list-item>`或`<u-desc-list-group>`子组件。
 
 ## DescListItem API
-
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| label | String | | 标签 |
-| label-size | String | | 标签大小。可选值：`small`、`normal`、`large`、`huge` |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| label | string |  |  | 标签 |
+| label-size | string |  |  | 标签大小。可选值：`small`、`normal`、`large`、`huge` |
 
 ### Slots
 
@@ -52,13 +51,12 @@
 插入文本或HTML。
 
 ## DescListGroup API
-
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| title | String | | 标题 |
-| label-size | String | | 标签大小。 可选值：`small`、`normal`、`large`、`huge` |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| title | string |  |  | 标题 |
+| label-size | string |  |  | 标签大小。 可选值：`small`、`normal`、`large`、`huge` |
 
 ### Slots
 

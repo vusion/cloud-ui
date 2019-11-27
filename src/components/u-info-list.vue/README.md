@@ -1,4 +1,6 @@
-# UInfoList 详情列表
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
+# InfoList 详情列表
 
 ## 示例
 ### 基本用法
@@ -61,13 +63,12 @@
 ```
 
 ## InfoList API
-
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| column | String | `3` | 列数。可选值：`1`、`2`、`3`、`4` |
-| label-size | String | `auto` | 标签大小。可选值：`small`、`normal`、`large`、`auto` |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| column | string |  | `3` | 列数。可选值：`1`、`2`、`3`、`4` |
+| label-size | string |  | `'auto'` | 标签大小。可选值：`small`、`normal`、`large`、`auto` |
 
 ### Slots
 
@@ -76,15 +77,14 @@
 插入`<u-info-list-item>`或`<u-info-list-group>`子组件。
 
 ## InfoListItem API
-
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| label | String | | 标签 |
-| column | String | | 列数。可选值：`1`、`2`、`3`、`4` |
-| label-size | String | `auto` | 标签大小。可选值：`small`、`normal`、`large`、`auto` |
-| ellipsis | Boolean | `false` | 是否换行，默认换行，值为`true`则开启不换行，超出部分显示为省略号 |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| label | string |  |  | 标签 |
+| column | string |  |  | 列数。可选值：`1`、`2`、`3`、`4` |
+| label-size | string |  | `'auto'` | 标签大小。可选值：`small`、`normal`、`large`、`auto` |
+| ellipsis | boolean |  | `false` | 是否换行，默认换行，值为`true`则开启不换行，超出部分显示为省略号 |
 
 ### Slots
 
@@ -97,13 +97,12 @@
 用于自定义 label 内容。
 
 ## InfoListGroup API
-
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| title | String | | 标题 |
-| label-size | String | `auto` | 标签大小。可选值：`small`、`normal`、`large`、`auto` |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| title | string |  |  | 标题 |
+| label-size | string |  | `'auto'` | 标签大小。可选值：`small`、`normal`、`large`、`auto` |
 
 ### Slots
 

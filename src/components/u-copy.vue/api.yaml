@@ -30,7 +30,7 @@
     - name: default
       description: 插入  HTML或 `Component`, 可展示额外内容。
   events:
-    - name: "@copy"
+    - name: copy
       description: 内容复制成功后触发
       params:
         - name: $event

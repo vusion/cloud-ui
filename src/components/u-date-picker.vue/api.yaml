@@ -51,25 +51,25 @@
       default: 1
       description: 当前年份后几年
   events:
-    - name: "@input"
+    - name: input
       description: 值变化时触发 (表单验证可以检测到其值得变化)
       params:
         - name: $event
           type: Date
           description: 改变后的日期值
-    - name: "@change"
+    - name: change
       description: 值变化时触发
       params:
         - name: $event.date
           type: Date
           description: 改变后的日期值
-    - name: "@select"
+    - name: select
       description: 选择日期时触发
       params:
         - name: $event.date
           type: Date
           description: 选择后的日期值
-    - name: "@toggle"
+    - name: toggle
       description: 弹出/隐藏时触发
       params:
         - name: $event.open

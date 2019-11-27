@@ -1,4 +1,6 @@
-# UDatePicker 日期选择
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
+# DatePicker 日期选择
 
 ## 示例
 ### 基本用法
@@ -71,27 +73,24 @@ export default {
 };
 </script>
 ```
-## DatePicker API
-### Attrs/Props
 
-| Attr/Prop | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| width | String, Number | `160` | 输入框宽度 |
-| date.sync | String,Number,Date | | 初始日期值 |
-| minDate | String,Number,Date | | 最小日期 |
-| maxDate | String,Number,Date | | 最大日期 |
-| readonly | Boolean | `false` | 是否只读 |
-| disabled | Boolean | `false` | 是否禁用 |
-| autofocus | Boolean | `false` | 文本框默认处于focus |
-| placeholder | String | `请输入` | 文本框默认提示 |
-| alignment | String | `left` | 日历弹窗对其方式，可选值：`left`, `right` |
-| time | String, Number | `start` | 设置返回的日期的时分秒值，可选值为`start`,表示时分秒是0:00:00,`morning`:时分秒为8:00:00,`end`:表示时分秒为: 23:59:59, 输入整数表示对应的整数时刻，例如输入9代表时分秒为9:00:00,自定义时分秒请输入对应格式的字符串即可 |
-| yeadDiff | String, Number | `3` | 当前年份前几年 |
-| yearAdd | String, Number | `1` | 当前年份后几年 |
+## API
+### Props/Attrs
 
-<!-- ### Slots
-
-#### (default) -->
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| width | string, number |  | `160` | 输入框宽度 |
+| date.sync | string,number,Date |  |  | 初始日期值 |
+| minDate | string,number,Date |  |  | 最小日期 |
+| maxDate | string,number,Date |  |  | 最大日期 |
+| readonly | boolean |  | `false` | 是否只读 |
+| disabled | boolean |  | `false` | 是否禁用 |
+| autofocus | boolean |  | `false` | 文本框默认处于focus |
+| placeholder | string |  | `'请输入'` | 文本框默认提示 |
+| alignment | string |  | `'left'` | 日历弹窗对其方式，可选值：`left`, `right` |
+| time | string, number |  | `'start'` | 设置返回的日期的时分秒值，可选值为`start`,表示时分秒是0:00:00,`morning`:时分秒为8:00:00,`end`:表示时分秒为: 23:59:59, 输入整数表示对应的整数时刻，例如输入9代表时分秒为9:00:00,自定义时分秒请输入对应格式的字符串即可 |
+| yeadDiff | string, number |  | `3` | 当前年份前几年 |
+| yearAdd | string, number |  | `1` | 当前年份后几年 |
 
 ### Events
 
@@ -125,4 +124,4 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.open | Boolean | 弹出/隐藏状态 |
+| $event.open | boolean | 弹出/隐藏状态 |

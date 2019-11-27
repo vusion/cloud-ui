@@ -1,3 +1,5 @@
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
 # UStatusIcon 状态图标
 
 ## 示例
@@ -24,7 +26,7 @@
 ## API
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| name | String | `` | 对应图标的name， |
-| size | Number, String | `24` | 图标对应的font-size值大小 |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| name | string |  |  | 对应图标的name， |
+| size | number, string |  | `24` | 图标对应的font-size值大小 |

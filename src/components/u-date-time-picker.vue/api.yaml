@@ -1,4 +1,5 @@
 - name: date-time-picker
+  title: 日期时间选择
   attrs:
     - name: date.sync
       type: string, number, Date
@@ -40,13 +41,13 @@
     - name: (footer)
       description: 插入文本或  HTML 至日期组件底部
   events:
-    - name: "@select"
+    - name: select
       description: 日期值发生变化触发
       params:
         - name: $event.date
           type: number
           description: 选择项的值，默认返回时间戳
-    - name: "@change"
+    - name: change
       description: 选择新时间触发
       params:
         - name: $event.date

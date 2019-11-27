@@ -1,4 +1,5 @@
 - name: u-capsules
+  title: 胶囊
   attrs:
     - name: value.sync, v-model
       type: any

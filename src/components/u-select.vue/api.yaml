@@ -1,8 +1,9 @@
 - name: u-select
   title: 选择框
+  labels: [UI 组件, 表单类, 行内展示]
   description: 下拉选择框，支持支持单选、多选、搜索等功能，用于代替原生的选择框。
   docs:
-    - data: 数据相关
+    data: 数据相关
   attrs:
     - name: value.sync, v-model
       type: any
@@ -105,7 +106,7 @@
     - name: default
       description: 插入`<u-select-item>`、`<u-select-divider>`或`<u-select-group>`子组件。
   events:
-    - name: "@before-select"
+    - name: before-select
       description: 选择某一项前触发
       params:
         - name: $event.value
@@ -126,7 +127,7 @@
         - name: senderVM
           type: USelect
           description: 发送事件实例
-    - name: "@input"
+    - name: input
       description: 选择某一项时触发
       params:
         - name: $event
@@ -135,8 +136,8 @@
         - name: senderVM
           type: USelect
           description: 发送事件实例
-    - name: "@select"
-      description: 选择某一项时触发
+    - name: select
+      description: 选择某一项时触发。单选模式中：
       params:
         - name: $event.value
           type: any
@@ -147,13 +148,91 @@
         - name: $event.item
           type: object
           description: 选择项相关对象
+        - name: $event.oldItem
+          type: object
+          description: 旧的选择项相关对象
         - name: $event.itemVM
-          type: SelectItem
+          type: USelectItem
           description: 选择项子组件
+        - name: $event.oldVM
+          type: USelectItem
+          description: 旧的选择项子组件
         - name: senderVM
           type: USelect
           description: 发送事件实例
-    - name: "@before-open"
+    - name: select
+      description: 选择某一项时触发。多选模式中：
+      params:
+        - name: $event.selected
+          type: boolean
+          description: 选中还是取消
+        - name: $event.item
+          type: boolean
+          description: 该选中项相关对象
+        - name: $event.itemVM
+          type: boolean
+          description: 该选中项子组件
+        - name: $event.value
+          type: Array
+          description: 改变后的值
+        - name: $event.oldValue
+          type: Array
+          description: 旧的值
+        - name: $event.items
+          type: Array<object>
+          description: 所有选中项相关对象的数组
+        - name: $event.oldItems
+          type: Array<object>
+          description: 旧的所有选中项相关对象的数组
+        - name: $event.itemVMs
+          type: Array<USelectItem>
+          description: 所有选中项子组件的数组
+        - name: $event.oldVMs
+          type: Array<USelectItem>
+          description: 旧的所有选中项子组件的数组
+        - name: senderVM
+          type: USelect
+          description: 发送事件实例
+    - name: change
+      description: 选择值改变时触发。单选模式中：
+      params:
+        - name: $event.value
+          type: any
+          description: 选择项的值
+        - name: $event.oldValue
+          type: any
+          description: 旧的值
+        - name: $event.item
+          type: object
+          description: 选择项相关对象
+        - name: $event.oldItem
+          type: object
+          description: 旧的选择项相关对象
+        - name: $event.itemVM
+          type: USelectItem
+          description: 选择项子组件
+        - name: $event.oldVM
+          type: USelectItem
+          description: 旧的选择项子组件
+        - name: senderVM
+          type: USelect
+          description: 发送事件实例
+    - name: change
+      description: 选择值改变时触发。多选模式中：
+      params:
+        - name: $event.value
+          type: Array
+          description: 所有选中项的值
+        - name: $event.items
+          type: Array<object>
+          description: 所有选中项相关对象的数组
+        - name: $event.itemVMs
+          type: Array<USelectItem>
+          description: 所有选中项子组件的数组
+        - name: senderVM
+          type: USelect
+          description: 发送事件实例
+    - name: before-open
       description: 弹出前触发。
       params:
         - name: $event.preventDefault
@@ -162,7 +241,7 @@
         - name: senderVM
           type: USelect
           description: 发送事件实例
-    - name: "@open"
+    - name: open
       description: 弹出时触发。
       params:
         - name: $event
@@ -171,7 +250,7 @@
         - name: senderVM
           type: USelect
           description: 发送事件实例
-    - name: "@before-close"
+    - name: before-close
       description: 隐藏前触发。
       params:
         - name: $event.preventDefault
@@ -180,7 +259,7 @@
         - name: senderVM
           type: USelect
           description: 发送事件实例
-    - name: "@close"
+    - name: close
       description: 隐藏时触发。
       params:
         - name: $event
@@ -189,13 +268,13 @@
         - name: senderVM
           type: USelect
           description: 发送事件实例
-    - name: "@before-toggle"
-      description: "@deprecated"
+    - name: before-toggle
+      description: '@deprecated'
       params: []
-    - name: "@toggle"
-      description: "@deprecated"
+    - name: toggle
+      description: '@deprecated'
       params: []
-    - name: "@before-load"
+    - name: before-load
       description: 加载前触发
       params:
         - name: $event.preventDefault
@@ -204,7 +283,7 @@
         - name: senderVM
           type: UTableView
           description: 发送事件实例
-    - name: "@load"
+    - name: load
       description: 加载时触发
       params:
         - name: $event
@@ -250,7 +329,7 @@
     - name: default
       description: 插入文本或 HTML。
   events:
-    - name: "@before-select"
+    - name: before-select
       description: 选择此项前触发
       params:
         - name: $event.value

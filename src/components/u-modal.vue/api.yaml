@@ -55,25 +55,25 @@
     - name: default
       description: 弹窗内容自定义
   events:
-    - name: "@open"
+    - name: open
       description: 打开弹窗时触发
       params:
         - name: senderVM
           type: UModal
           description: 发送事件实例
-    - name: "@ok"
+    - name: ok
       description: 确定时触发
       params:
         - name: senderVM
           type: UModal
           description: 发送事件实例
-    - name: "@cancel"
+    - name: cancel
       description: 取消时触发
       params:
         - name: senderVM
           type: UModal
           description: 发送事件实例
-    - name: "@before-close"
+    - name: before-close
       description: 关闭弹窗前触发
       params:
         - name: $event.ok
@@ -85,7 +85,7 @@
         - name: senderVM
           type: UModal
           description: 发送事件实例
-    - name: "@close"
+    - name: close
       description: 关闭弹窗时触发
       params:
         - name: $event.ok

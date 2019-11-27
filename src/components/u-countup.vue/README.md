@@ -1,4 +1,6 @@
-# UCountUp 数字渐变
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
+
+# CountUp 数字渐变
 
 ## 示例
 ### 基本用法
@@ -121,26 +123,25 @@ export default{
 </script>
 ```
 
-
-## CountUp API
+## API
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| start | Number | `0` | 渐变开始数值 |
-| end | Number |  | 渐变结束数值 |
-| duration | Number | `2` | 渐变时间间隔，时间单位为秒 |
-| isEasing | Boolean | `false` | 是否使用 动画函数`easingFn`处理数据 |
-| isGroup | Boolean | `false` | 是否分组，默认分组分隔符`'separator'`属性值为`','` |
-| separator | String | `','` | 分组分隔符 |
-| decimals | Number | `0` | 小数点后几位 |
-| easingFn | Function | `'easeOutExpo'` | 自定义渐变动画，默认使用 `Robert Penner's easeOutExpo`函数 |
-| simplify | Boolean | `false` | 是否使用自定义单位简化数据 |
-| unit | Array | `[[3, 'K+'], [6, 'M+'], [9, 'G+']]` | 配合`'simplify'`属性使用的自定义单位 |
-| prefix | String | `''` | 前缀内容 |
-| suffix | String | `''` | 后缀内容 |
-| endCallback | Function | `` | 渐变结束后的回调函数 |
-| autoStart | Boolean | `false` | 是否开启渐变 |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| start | number |  | `0` | 渐变开始数值 |
+| end | number |  |  | 渐变结束数值 |
+| duration | number |  | `2` | 渐变时间间隔，时间单位为秒 |
+| isEasing | boolean |  | `false` | 是否使用 动画函数`easingFn`处理数据 |
+| isGroup | boolean |  | `false` | 是否分组，默认分组分隔符`'separator'`属性值为`','` |
+| separator | string |  | `','` | 分组分隔符 |
+| decimals | number |  | `0` | 小数点后几位 |
+| easingFn | Function |  | `'easeOutExpo'` | 自定义渐变动画，默认使用 `Robert Penner's easeOutExpo`函数 |
+| simplify | boolean |  | `false` | 是否使用自定义单位简化数据 |
+| unit | Array |  | `[3,K+, 6,M+, 9,G+]` | 配合`'simplify'`属性使用的自定义单位 |
+| prefix | string |  | `''` | 前缀内容 |
+| suffix | string |  | `''` | 后缀内容 |
+| endCallback | Function |  |  | 渐变结束后的回调函数 |
+| autoStart | boolean |  | `false` | 是否开启渐变 |
 
 ### Slots
 
@@ -156,7 +157,7 @@ export default{
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event | Number | 最新结束值 |
+| $event | number | 最新结束值 |
 
 #### @reset
 
@@ -164,16 +165,11 @@ export default{
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event | Number | 初始值 |
+| $event | number | 初始值 |
 
 #### @pauseResume
 
 切换渐变
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| - | - | - |
-
 
 ### Methods
 
@@ -181,23 +177,14 @@ export default{
 
 更新渐变结束值
 
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| value | Number | 最新结束值 |
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
+| value | number |  | 最新结束值 |
 
 #### reset()
 
 重置
 
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| - | -| - |
-
 #### pauseResume()
 
 切换渐变
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| - | - | - |
-

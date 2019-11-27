@@ -1,8 +1,8 @@
-# UAvatar9 头像
+<!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-<s-component-labels :labels="[
-    'UI 组件', '行内展示',
-]"></s-component-labels>
+# UAvatar 头像
+
+**UI 组件**, **行内展示**
 
 顶部导航栏或页面中局部使用的用户头像。
 
@@ -113,14 +113,13 @@
 ```
 
 ## API
-
 ### Props/Attrs
 
-| Prop/Attr | Type | Default | Description |
-| --------- | ---- | ------- | ----------- |
-| type | String | `'0'` | 头像类型。请参考上面的示例 |
-| shape | String | `'circle'` | 形状。可选值：`circle`, `square` 两种类型 |
-| size | String | `'normal'` | 头像大小。可选值：`'mini'`、`'small'`、`'normal'`、`'large'`、`'huge'`。如需自定义大小，可以直接设置`style="width: 40px; height: 40px;"` |
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| type | string |  | `'0'` | 头像类型。请参考上面的示例 |
+| shape | string |  | `'circle'` | 形状。可选值：`circle`, `square` 两种类型 |
+| size | string |  | `'normal'` | 头像大小。可选值：`'mini'`、`'small'`、`'normal'`、`'large'`、`'huge'`。如需自定义大小，可以直接设置`style="width: 40px; height: 40px;"` |
 
 ### Slots
 
