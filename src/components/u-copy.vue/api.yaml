@@ -1,4 +1,5 @@
 - name: u-copy
+  title: 复制
   description: 提供复制文本到浏览器剪切板功能
   attrs:
     - name: value
