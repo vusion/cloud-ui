@@ -1,9 +1,0 @@
-.root {
-    width: 600px;
-    height: 400px;
-}
-
-.root[border] {
-    border: 1px solid var(--border-color-base);
-    padding: 15px;
-}

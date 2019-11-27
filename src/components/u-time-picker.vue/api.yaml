@@ -1,4 +1,4 @@
-- name: time-picker
+- name: u-time-picker
   title: 时间选择
   attrs:
     - name: time

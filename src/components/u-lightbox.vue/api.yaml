@@ -1,51 +1,51 @@
 - name: u-lightbox
   title: 灯箱
   attrs:
-    - Prop: visible.sync
+    - name: visible.sync
       type: boolean
       default: false
       description: 是否显示
-    - Prop: maskClose
+    - name: maskClose
       type: boolean
       default: true
       description: 点击遮罩层关闭灯箱
-    - Prop: closeButton
+    - name: closeButton
       type: boolean
       default: false
       description: 是否显示关闭按钮
-    - Prop: loop
+    - name: loop
       type: boolean
       default: false
       description: 是否可循环播放灯箱内容
-    - Prop: animation
+    - name: animation
       type: string
       default: null
       description: 动画（可选fade/zoom-out）
-    - Prop: value.sync, v-model
+    - name: value.sync, v-model
       type: "`any`"
       default: null
       description: 当前选择的值
-    - Prop: zoomable
+    - name: zoomable
       type: boolean
       default: true
       description: 灯箱是否开启缩放功能（只有当灯箱内容为图片时有效）
-    - Prop: zoomButton
+    - name: zoomButton
       type: boolean
       default: true
       description: 是否显示缩放按钮（只有当zoomable为true时有效）
-    - Prop: zoomWheel
+    - name: zoomWheel
       type: boolean
       default: true
       description: 是否允许滚动鼠标缩放（只有当zoomable为true时有效）
-    - Prop: zoomMax
+    - name: zoomMax
       type: Integer/string
       default: 5
       description: 设置最大放大宽度：类型为Integer时，表示灯箱最多放大次数。类型为String时，可以设置单位为px或者%。
-    - Prop: zoomMin
+    - name: zoomMin
       type: Integer/string
       default: -5
       description: 设置最小宽度：同上
-    - Prop: zoomRadio
+    - name: zoomRadio
       type: number
       default: 0.1
       description: 每次放大缩小的比例

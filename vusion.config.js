@@ -132,14 +132,14 @@ module.exports = {
             { group: 'Mixins & Functional', name: 'f-slot', alias: '快捷插槽' },
             { group: 'Mixins & Functional', name: 'f-forbidden', alias: '禁用' },
         ],
-        vendors: [
-            { group: 'Editors', name: 'x-ace-editor', alias: '代码编辑器' },
-            { group: 'Editors', name: 'x-highlight', alias: '代码高亮', path: 'x-highlight.vue/README.md' },
-            { group: 'Charts', name: 'x-echarts', alias: '百度图表' },
-            { group: 'Icon Set', name: 'i-font-awesome', path: 'i-font-awesome.vue/README.md' },
-            { group: 'Icon Set', name: 'i-line-awesome', path: 'i-line-awesome.vue/README.md' },
-            { group: 'Icon Set', name: 'Others', alias: '其它图标库', href: 'https://vusion.github.io/icon-sets/components/i-font-awesome', target: '_blank' },
-        ],
+        // vendors: [
+        //     { group: 'Editors', name: 'x-ace-editor', alias: '代码编辑器' },
+        //     { group: 'Editors', name: 'x-highlight', alias: '代码高亮', path: 'x-highlight.vue/README.md' },
+        //     { group: 'Charts', name: 'x-echarts', alias: '百度图表' },
+        //     { group: 'Icon Set', name: 'i-font-awesome', path: 'i-font-awesome.vue/README.md' },
+        //     { group: 'Icon Set', name: 'i-line-awesome', path: 'i-line-awesome.vue/README.md' },
+        //     { group: 'Icon Set', name: 'Others', alias: '其它图标库', href: 'https://vusion.github.io/icon-sets/components/i-font-awesome', target: '_blank' },
+        // ],
         blocks: [],
         directives: [
             { group: 'Directive', name: 'v-repeat-click' },

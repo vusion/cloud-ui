@@ -1,11 +1,3 @@
-// export * from '../packages/x-ace-editor.vue';
-export * from '../packages/x-echarts.vue';
-export * from 'x-highlight.vue';
-
-import IFontAwesome from 'i-font-awesome.vue';
-import ILineAwesome from 'i-line-awesome.vue';
-
-export { IFontAwesome, ILineAwesome };
 window.message = {
     route: '',
 };
@@ -19,5 +11,5 @@ try {
         window.top.postMessage('loaded', '*');
     }
 } catch (error) {
-    console.log(error);
+    console.error(error);
 }

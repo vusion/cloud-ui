@@ -1,4 +1,4 @@
-- name: date-time-picker
+- name: u-date-time-picker
   title: 日期时间选择
   attrs:
     - name: date.sync

@@ -1,0 +1,1613 @@
+{
+  "u-logo": {
+    "attributes": [],
+    "description": "常见的网站标识。该组件作为一个示例，业务中请自行拓展。"
+  },
+  "e-ripple": {
+    "attributes": [
+      "color"
+    ],
+    "description": "波纹，插入到需要添加波纹的元素或组件内部"
+  },
+  "e-watermark": {
+    "attributes": [
+      "text",
+      "image",
+      "opacity"
+    ]
+  },
+  "f-collapse-transition": {
+    "attributes": []
+  },
+  "f-draggable": {
+    "attributes": [
+      "value",
+      "transfer",
+      "immediate",
+      "disabled",
+      "constraint"
+    ]
+  },
+  "f-dragger": {
+    "attributes": [
+      "axis",
+      "grid",
+      "range",
+      "range-mode",
+      "value",
+      "transfer",
+      "immediate",
+      "disabled"
+    ]
+  },
+  "f-droppable": {
+    "attributes": [
+      "disabled"
+    ]
+  },
+  "f-forbidden": {
+    "attributes": [
+      "contextmenu",
+      "select",
+      "copy",
+      "save-key",
+      "devtools-key",
+      "senderVM"
+    ],
+    "description": "禁用浏览器的一些默认功能和快捷键。"
+  },
+  "f-render": {
+    "attributes": [
+      "vnode"
+    ]
+  },
+  "f-slot": {
+    "attributes": [
+      "vm",
+      "name",
+      "props",
+      "catchError"
+    ]
+  },
+  "i-icon": {
+    "attributes": [
+      "name"
+    ]
+  },
+  "m-complex": {
+    "attributes": [
+      "value",
+      "auto-select",
+      "cancelable",
+      "multiple",
+      "readonly",
+      "disabled"
+    ],
+    "description": "一个组件中，通过`multiple`属性切换单选还是多选的模式。",
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "m-complex-item"
+    ]
+  },
+  "m-complex-item": {
+    "attributes": [
+      "value",
+      "selected",
+      "disabled",
+      "item"
+    ]
+  },
+  "m-dynamic": {
+    "attributes": [
+      "data",
+      "dynamic",
+      "get-default-item",
+      "initial-add",
+      "min-count",
+      "max-count"
+    ]
+  },
+  "m-emitter": {
+    "attributes": [],
+    "description": "该 Mixin 集成了一些发送事件相关的方法。继承之后直接使用方法即可。"
+  },
+  "m-field": {
+    "attributes": []
+  },
+  "m-group-parent": {
+    "attributes": [
+      "collapsible",
+      "accordion",
+      "expand-trigger"
+    ],
+    "description": "在父子组件的模式中，有时会遇到对子组件进行分组和折叠场景。MGroup 对这种模式进行了抽象，用于快速开发和代码借鉴。",
+    "subtags": [
+      "m-group",
+      "m-child"
+    ]
+  },
+  "m-group": {
+    "attributes": [
+      "title",
+      "collapsible",
+      "expanded",
+      "disabled"
+    ]
+  },
+  "m-child": {
+    "attributes": []
+  },
+  "m-multiplex": {
+    "attributes": [
+      "value",
+      "readonly",
+      "disabled"
+    ],
+    "description": "常见的多选模式。",
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "m-multiplex-item"
+    ]
+  },
+  "m-multiplex-item": {
+    "attributes": [
+      "value",
+      "selected",
+      "disabled",
+      "item"
+    ]
+  },
+  "m-parent": {
+    "attributes": [],
+    "subtags": [
+      "m-child"
+    ]
+  },
+  "m-popper": {
+    "attributes": [
+      "opened",
+      "trigger",
+      "reference",
+      "placement",
+      "hover-delay",
+      "hide-delay",
+      "append-to",
+      "boundaries-element",
+      "escape-with-reference",
+      "follow-cursor",
+      "offset",
+      "options",
+      "disabled"
+    ]
+  },
+  "m-publisher": {
+    "attributes": [],
+    "subtags": [
+      "m-subscriber"
+    ]
+  },
+  "m-subscriber": {
+    "attributes": []
+  },
+  "m-root": {
+    "attributes": [],
+    "subtags": [
+      "m-node"
+    ]
+  },
+  "m-node": {
+    "attributes": []
+  },
+  "m-singlex": {
+    "attributes": [
+      "value",
+      "auto-select",
+      "cancelable",
+      "router",
+      "readonly",
+      "disabled"
+    ],
+    "description": "常见的单项选择模式，用于快速派生出像`<u-navbar>`、`<u-tabs>`这样的组件。",
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "m-singlex-item"
+    ]
+  },
+  "m-singlex-item": {
+    "attributes": [
+      "value",
+      "disabled",
+      "item"
+    ]
+  },
+  "u-article": {
+    "attributes": []
+  },
+  "u-avatar": {
+    "attributes": [
+      "type",
+      "shape",
+      "size"
+    ],
+    "description": "顶部导航栏或页面中局部使用的用户头像。"
+  },
+  "u-badge": {
+    "attributes": [
+      "value",
+      "max",
+      "corner",
+      "dot"
+    ]
+  },
+  "u-block": {
+    "attributes": []
+  },
+  "u-button": {
+    "attributes": [
+      "href",
+      "target",
+      "to",
+      "replace",
+      "append",
+      "color",
+      "size",
+      "square",
+      "disabled",
+      "display"
+    ]
+  },
+  "u-carousel": {
+    "attributes": [
+      "value",
+      "autoplay",
+      "loop",
+      "interval",
+      "direction",
+      "animation"
+    ],
+    "subtags": [
+      "u-carousel-item"
+    ]
+  },
+  "u-carousel-item": {
+    "attributes": [
+      "title",
+      "value"
+    ]
+  },
+  "u-cascade-select": {
+    "attributes": [
+      "data",
+      "value",
+      "categories",
+      "hide-empty",
+      "converter",
+      "field",
+      "readonly",
+      "disabled"
+    ],
+    "defaults": [
+      "v-model"
+    ]
+  },
+  "u-checkbox": {
+    "attributes": [
+      "value",
+      "label",
+      "readonly",
+      "disabled"
+    ],
+    "defaults": [
+      "v-model"
+    ]
+  },
+  "u-checkboxes": {
+    "attributes": [
+      "value",
+      "min",
+      "max",
+      "readonly",
+      "disabled"
+    ],
+    "subtags": [
+      "u-checkbox"
+    ]
+  },
+  "u-circular-progress": {
+    "attributes": [
+      "percent",
+      "rule"
+    ]
+  },
+  "u-collapse": {
+    "attributes": [
+      "accordion",
+      "expand-trigger",
+      "disabled"
+    ],
+    "subtags": [
+      "u-collapse-item"
+    ]
+  },
+  "u-collapse-item": {
+    "attributes": [
+      "title",
+      "expanded",
+      "disabled"
+    ]
+  },
+  "u-combo-pagination": {
+    "attributes": [
+      "page",
+      "page-size",
+      "page-size-options",
+      "total",
+      "side",
+      "around",
+      "readonly",
+      "disabled",
+      "show-total",
+      "show-sizer",
+      "show-jumper"
+    ],
+    "description": "在 UPagination 的基础上，添加了显示总页数、切换每页大小、页面跳转等功能。"
+  },
+  "u-combo-slider": {
+    "attributes": [
+      "value",
+      "min",
+      "max",
+      "step",
+      "precision",
+      "range",
+      "formatter",
+      "sync-on",
+      "hide-buttons",
+      "readonly",
+      "disabled",
+      "unit",
+      "tip"
+    ],
+    "defaults": [
+      "v-model"
+    ]
+  },
+  "u-crumb": {
+    "attributes": [
+      "无"
+    ],
+    "subtags": [
+      "u-crumb-item"
+    ]
+  },
+  "u-crumb-item": {
+    "attributes": [
+      "type",
+      "href",
+      "target",
+      "to",
+      "replace",
+      "append",
+      "disabled"
+    ]
+  },
+  "u-drawer": {
+    "attributes": [
+      "visible",
+      "title",
+      "okButton",
+      "cancelButton",
+      "size",
+      "static",
+      "maskClosable"
+    ]
+  },
+  "u-form-table-view": {
+    "attributes": [
+      "border",
+      "data",
+      "dynamic",
+      "get-default-item",
+      "initial-add",
+      "min-count",
+      "max-count"
+    ],
+    "description": "本组件用于在表单中使用表单验证、动态数据等复杂功能。",
+    "subtags": [
+      "u-form-table-view-column"
+    ]
+  },
+  "u-form-table-view-column": {
+    "attributes": [
+      "title",
+      "field",
+      "width",
+      "ellipsis",
+      "formatter",
+      "hidden",
+      "start-index",
+      "label",
+      "muted",
+      "rules",
+      "ignore-validation",
+      "ignore-rules",
+      "validating-options",
+      "validating-value",
+      "validating-process"
+    ]
+  },
+  "u-form-table": {
+    "attributes": [],
+    "description": "在表单中使用的表格，本组件主要实现基本样式，方便在特殊场景下扩展。如果需要快速使用动态数据、表单验证等功能，请使用 [UFormTableView](../u-form-table-view)。"
+  },
+  "u-form": {
+    "attributes": [
+      "model",
+      "rules",
+      "layout",
+      "label-size"
+    ],
+    "subtags": [
+      "form-item"
+    ]
+  },
+  "u-form-item": {
+    "attributes": [
+      "name",
+      "label",
+      "label-size",
+      "field-size",
+      "required",
+      "message",
+      "muted",
+      "description",
+      "placement",
+      "layout",
+      "rules",
+      "ignore-validation",
+      "ignore-rules",
+      "validating-options",
+      "validating-value",
+      "validating-process"
+    ]
+  },
+  "u-grid-layout": {
+    "attributes": [
+      "gap"
+    ],
+    "subtags": [
+      "u-grid-layout-row",
+      "u-grid-layout-column"
+    ]
+  },
+  "u-grid-layout-row": {
+    "attributes": [
+      "repeat",
+      "type",
+      "justify",
+      "alignment"
+    ]
+  },
+  "u-grid-layout-column": {
+    "attributes": [
+      "span",
+      "offset",
+      "pull",
+      "push",
+      "media-huge",
+      "media-large",
+      "media-medium",
+      "media-small",
+      "media-mini"
+    ]
+  },
+  "u-icon-tooltip": {
+    "attributes": [
+      "type",
+      "size",
+      "opened",
+      "trigger",
+      "placement",
+      "hide-delay",
+      "offset",
+      "follow-cursor",
+      "disabled"
+    ],
+    "description": "图标与`<u-tooltip>`的组合。"
+  },
+  "u-input": {
+    "attributes": [
+      "type",
+      "value",
+      "default-value",
+      "clearable",
+      "placeholder",
+      "minlength",
+      "maxlength",
+      "spellcheck",
+      "autofocus",
+      "readonly",
+      "disabled",
+      "size",
+      "search",
+      "maxlengthMessage"
+    ],
+    "defaults": [
+      "v-model"
+    ]
+  },
+  "u-label": {
+    "attributes": []
+  },
+  "u-linear-layout": {
+    "attributes": [
+      "direction",
+      "gap",
+      "display",
+      "layout",
+      "type",
+      "justify",
+      "alignment"
+    ]
+  },
+  "u-linear-progress": {
+    "attributes": [
+      "percent",
+      "size",
+      "range"
+    ]
+  },
+  "u-link": {
+    "attributes": [
+      "href",
+      "target",
+      "to",
+      "replace",
+      "append",
+      "disabled",
+      "display"
+    ]
+  },
+  "u-list-view": {
+    "attributes": [
+      "value",
+      "field",
+      "data",
+      "data-source",
+      "cancelable",
+      "multiple",
+      "collapsible",
+      "accordion",
+      "expand-trigger",
+      "loading-text",
+      "initial-load",
+      "pageable",
+      "page-size",
+      "remote-paging",
+      "readonly",
+      "disabled"
+    ],
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "u-list-view-item",
+      "u-list-view-group",
+      "u-list-view-divider"
+    ]
+  },
+  "u-list-view-item": {
+    "attributes": [
+      "value",
+      "disabled",
+      "item"
+    ]
+  },
+  "u-list-view-group": {
+    "attributes": [
+      "title",
+      "collapsible",
+      "expanded",
+      "disabled"
+    ]
+  },
+  "u-list-view-divider": {
+    "attributes": []
+  },
+  "u-list": {
+    "attributes": [
+      "type",
+      "line",
+      "striped",
+      "hover"
+    ],
+    "description": "对列表样式做了简单的修饰。如果需要选择、分页等更多的功能，请使用 [UListView](../u-list-view)。",
+    "subtags": [
+      "u-list-item"
+    ]
+  },
+  "u-list-item": {
+    "attributes": []
+  },
+  "u-loading": {
+    "attributes": [
+      "size",
+      "display"
+    ]
+  },
+  "u-menu": {
+    "attributes": [
+      "router",
+      "value",
+      "collapsible",
+      "accordion",
+      "expand-trigger",
+      "readonly",
+      "disabled"
+    ],
+    "description": "菜单组件支持路由、触发关闭、多级菜单等功能。",
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "u-menu-item",
+      "u-menu-group",
+      "u-menu-divider"
+    ]
+  },
+  "u-menu-item": {
+    "attributes": [
+      "value",
+      "disabled",
+      "item",
+      "href",
+      "target",
+      "to",
+      "replace",
+      "exact"
+    ]
+  },
+  "u-menu-group": {
+    "attributes": [
+      "title"
+    ]
+  },
+  "u-menu-divider": {
+    "attributes": []
+  },
+  "u-modal": {
+    "attributes": [
+      "title",
+      "content",
+      "heading",
+      "visible",
+      "ok-button",
+      "cancel-button",
+      "size",
+      "icon",
+      "static",
+      "mask-closable"
+    ]
+  },
+  "u-navbar": {
+    "attributes": [
+      "router",
+      "value",
+      "readonly",
+      "disabled"
+    ],
+    "description": "通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。",
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "u-navbar-item",
+      "u-navbar-divider"
+    ]
+  },
+  "u-navbar-item": {
+    "attributes": [
+      "value",
+      "disabled",
+      "item",
+      "href",
+      "target",
+      "to",
+      "replace",
+      "exact"
+    ]
+  },
+  "u-navbar-divider": {
+    "attributes": []
+  },
+  "u-navbar-dropdown": {
+    "attributes": [
+      "trigger",
+      "placement",
+      "disabled"
+    ]
+  },
+  "u-navbar-menu、-u-navbar-menu-group、-u-navbar-menu-item、-u-navbar-menu-divider": {
+    "attributes": []
+  },
+  "u-navbar-select、-u-navbar-select-group、-u-navbar-select-item、-u-navbar-select-divider": {
+    "attributes": []
+  },
+  "u-number-input": {
+    "attributes": [
+      "value",
+      "min",
+      "max",
+      "step",
+      "precision",
+      "formatter",
+      "placeholder",
+      "autofocus",
+      "hide-buttons",
+      "readonly",
+      "disabled",
+      "size"
+    ],
+    "defaults": [
+      "v-model"
+    ]
+  },
+  "u-pagination": {
+    "attributes": [
+      "page",
+      "total",
+      "side",
+      "around",
+      "readonly",
+      "disabled"
+    ]
+  },
+  "u-popup": {
+    "attributes": [
+      "title",
+      "opened",
+      "trigger",
+      "placement",
+      "hideDelay",
+      "offset",
+      "follow-cursor",
+      "disabled",
+      "merge-borders"
+    ]
+  },
+  "u-radios": {
+    "attributes": [
+      "value",
+      "readonly",
+      "disabled"
+    ],
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "u-radio"
+    ]
+  },
+  "u-radio": {
+    "attributes": [
+      "label",
+      "readonly",
+      "disabled"
+    ]
+  },
+  "u-region-select": {
+    "attributes": [
+      "data",
+      "value",
+      "categories",
+      "hide-empty",
+      "converter",
+      "field",
+      "readonly",
+      "disabled"
+    ],
+    "description": "该组件从 UCascadeSelect 继承，仅填充了中国的行政区数据，其他功能与 UCascadeSelect 相同。",
+    "defaults": [
+      "v-model"
+    ]
+  },
+  "u-sample": {
+    "attributes": [
+      "color"
+    ]
+  },
+  "u-select": {
+    "attributes": [
+      "value",
+      "field",
+      "data",
+      "data-source",
+      "cancelable",
+      "multiple",
+      "placeholder",
+      "loading-text",
+      "empty-text",
+      "initial-load",
+      "pageable",
+      "page-size",
+      "remote-paging",
+      "clearable",
+      "filterable",
+      "match-method",
+      "case-sensitive",
+      "remote-filtering",
+      "auto-complete",
+      "readonly",
+      "disabled",
+      "opened",
+      "ellipsisDirection",
+      "size"
+    ],
+    "description": "下拉选择框，支持支持单选、多选、搜索等功能，用于代替原生的选择框。",
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "u-select-item",
+      "u-select-group",
+      "u-select-divider"
+    ]
+  },
+  "u-select-item": {
+    "attributes": [
+      "value",
+      "disabled",
+      "item"
+    ]
+  },
+  "u-select-group": {
+    "attributes": [
+      "title"
+    ]
+  },
+  "u-select-divider": {
+    "attributes": []
+  },
+  "u-sidebar": {
+    "attributes": [
+      "router",
+      "value",
+      "collapsible",
+      "accordion",
+      "expand-trigger",
+      "readonly",
+      "disabled"
+    ],
+    "description": "通常用于页面左侧的导航栏。",
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "u-sidebar-item",
+      "u-sidebar-group",
+      "u-sidebar-divider"
+    ]
+  },
+  "u-sidebar-item": {
+    "attributes": [
+      "value",
+      "disabled",
+      "item",
+      "href",
+      "target",
+      "to",
+      "replace",
+      "exact"
+    ]
+  },
+  "u-sidebar-group": {
+    "attributes": [
+      "title",
+      "collapsible",
+      "expanded",
+      "disabled"
+    ]
+  },
+  "u-sidebar-divider": {
+    "attributes": []
+  },
+  "u-slider": {
+    "attributes": [
+      "value",
+      "min",
+      "max",
+      "step",
+      "precision",
+      "range",
+      "readonly",
+      "disabled"
+    ],
+    "defaults": [
+      "v-model"
+    ]
+  },
+  "u-spinner": {
+    "attributes": [],
+    "description": "与文字大小相同，一般在行内直接使用。"
+  },
+  "u-steps": {
+    "attributes": [
+      "value",
+      "readonly",
+      "disabled"
+    ],
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "u-step"
+    ]
+  },
+  "u-step": {
+    "attributes": [
+      "title",
+      "disabled"
+    ]
+  },
+  "u-switch": {
+    "attributes": [
+      "value",
+      "readonly",
+      "disabled",
+      "with-text"
+    ]
+  },
+  "u-table-view": {
+    "attributes": [
+      "title",
+      "title-alignment",
+      "border",
+      "line",
+      "striped",
+      "hover",
+      "show-head",
+      "loading",
+      "loading-text",
+      "error",
+      "error-text",
+      "empty-text",
+      "data",
+      "data-source",
+      "initial-load",
+      "pageable",
+      "page-size",
+      "page-size-options",
+      "show-total",
+      "show-sizer",
+      "show-jumper",
+      "sorting",
+      "default-order",
+      "filtering",
+      "remote-paging",
+      "remote-sorting",
+      "remote-filtering",
+      "value-field",
+      "value",
+      "values",
+      "selectable",
+      "cancelable",
+      "readonly",
+      "disabled",
+      "accordion",
+      "resizable",
+      "resize-remaining"
+    ],
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "u-table-view-column"
+    ]
+  },
+  "u-table-view-column": {
+    "attributes": [
+      "title",
+      "field",
+      "width",
+      "ellipsis",
+      "formatter",
+      "-",
+      "sortable",
+      "default-order",
+      "filters",
+      "hidden",
+      "type",
+      "start-index"
+    ]
+  },
+  "u-table": {
+    "attributes": []
+  },
+  "u-tabs": {
+    "attributes": [
+      "value",
+      "readonly",
+      "disabled",
+      "closable",
+      "router"
+    ],
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "u-tab"
+    ]
+  },
+  "u-tab": {
+    "attributes": [
+      "title",
+      "value",
+      "disabled",
+      "href",
+      "target",
+      "to",
+      "replace",
+      "exact"
+    ]
+  },
+  "u-text": {
+    "attributes": [
+      "size",
+      "color",
+      "display",
+      "wrap"
+    ],
+    "description": "用于在业务中临时快速调整文本大小、颜色等特性。不建议在封装基础组件时使用。"
+  },
+  "u-textarea": {
+    "attributes": [
+      "value",
+      "value",
+      "default-value",
+      "clearable",
+      "placeholder",
+      "minlength",
+      "maxlength",
+      "spellcheck",
+      "autofocus",
+      "readonly",
+      "disabled",
+      "resize"
+    ],
+    "description": "多行输入组件，在原生`<textarea>`控件基础上进行了一些功能扩展。",
+    "defaults": [
+      "v-model"
+    ]
+  },
+  "u-toast": {
+    "attributes": [
+      "position",
+      "duration",
+      "single",
+      "text",
+      "color",
+      "closable"
+    ]
+  },
+  "u-tooltip": {
+    "attributes": [
+      "content",
+      "open",
+      "trigger",
+      "placement",
+      "disabled",
+      "size",
+      "hide-delay",
+      "offset",
+      "follow-cursor"
+    ]
+  },
+  "u-transfer": {
+    "attributes": [
+      "source",
+      "target",
+      "readonly",
+      "disabled"
+    ]
+  },
+  "u-tree-view": {
+    "attributes": [
+      "data",
+      "value",
+      "field",
+      "cancelable",
+      "checkable",
+      "accordion",
+      "expand-trigger",
+      "readonly",
+      "disabled"
+    ],
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "u-tree-view-node"
+    ]
+  },
+  "u-tree-view-node": {
+    "attributes": [
+      "value",
+      "expanded",
+      "checked",
+      "disabled",
+      "node"
+    ]
+  },
+  "u-uploader": {
+    "attributes": [
+      "url",
+      "data-type",
+      "data",
+      "name",
+      "extensions",
+      "max-size",
+      "disabled"
+    ]
+  },
+  "u-validator": {
+    "attributes": [
+      "name",
+      "label",
+      "rules",
+      "message",
+      "muted",
+      "ignore-validation",
+      "ignore-rules",
+      "validating-options",
+      "validating-value",
+      "validating-process",
+      "manual"
+    ],
+    "description": "实现了基础的嵌套验证功能和原子化验证功能，包含提示样式。常用于嵌套验证时使用，或用于派生一些较复杂的组件。"
+  },
+  "l-dashboard": {
+    "attributes": [],
+    "description": "常见中后台系统中的顶部栏和左侧栏固定的仪表盘布局。"
+  },
+  "l-document": {
+    "attributes": [],
+    "description": "常见文档网站中顶部栏和左侧栏固定的布局，如本文档页。"
+  },
+  "l-page": {
+    "attributes": [],
+    "description": "只有顶部栏和底部栏的通用页面布局。",
+    "subtags": [
+      "l-page-center",
+      "l-page-section"
+    ]
+  },
+  "l-page-center": {
+    "attributes": [
+      "size"
+    ]
+  },
+  "l-page-section": {
+    "attributes": []
+  },
+  "l-side-main": {
+    "attributes": []
+  },
+  "l-wrapper": {
+    "attributes": []
+  },
+  "u-actions": {
+    "attributes": [
+      "max-count",
+      "menu-title",
+      "placement"
+    ],
+    "subtags": [
+      "u-action"
+    ]
+  },
+  "u-action": {
+    "attributes": [
+      "hidden",
+      "其余属性透传"
+    ]
+  },
+  "calendar": {
+    "attributes": [
+      "date",
+      "min-date",
+      "max-date",
+      "year-diff",
+      "year-add",
+      "readonly",
+      "disabled"
+    ]
+  },
+  "u-capsules": {
+    "attributes": [
+      "value",
+      "auto-select",
+      "cancelable",
+      "multiple",
+      "readonly",
+      "disabled"
+    ],
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "u-capsule",
+      "u-capsule-group"
+    ]
+  },
+  "u-capsule": {
+    "attributes": [
+      "value",
+      "size",
+      "selected",
+      "disabled",
+      "label",
+      "flag",
+      "item"
+    ]
+  },
+  "u-capsule-group": {
+    "attributes": []
+  },
+  "cascade-capsules": {
+    "attributes": [
+      "data",
+      "value",
+      "labelSize",
+      "categories",
+      "auto-select",
+      "converter",
+      "field",
+      "cancelable",
+      "readonly",
+      "disabled"
+    ],
+    "defaults": [
+      "v-model"
+    ]
+  },
+  "u-checkbox-card": {
+    "attributes": [
+      "data",
+      "value",
+      "placeholder",
+      "size",
+      "column"
+    ],
+    "defaults": [
+      "v-model"
+    ]
+  },
+  "u-copy": {
+    "attributes": [
+      "value",
+      "placement",
+      "success-text",
+      "disabled",
+      "hide-delay",
+      "modal-type"
+    ],
+    "description": "提供复制文本到浏览器剪切板功能"
+  },
+  "count-up": {
+    "attributes": [
+      "start",
+      "end",
+      "duration",
+      "isEasing",
+      "isGroup",
+      "separator",
+      "decimals",
+      "easingFn",
+      "simplify",
+      "unit",
+      "prefix",
+      "suffix",
+      "endCallback",
+      "autoStart"
+    ]
+  },
+  "date-picker": {
+    "attributes": [
+      "width",
+      "date",
+      "minDate",
+      "maxDate",
+      "readonly",
+      "disabled",
+      "autofocus",
+      "placeholder",
+      "alignment",
+      "time",
+      "yeadDiff",
+      "yearAdd"
+    ]
+  },
+  "u-date-time-picker": {
+    "attributes": [
+      "date",
+      "minDate",
+      "maxDate",
+      "placeholder",
+      "autofocus",
+      "disabled",
+      "readonly",
+      "yearDiff",
+      "yearAdd"
+    ]
+  },
+  "desc-list": {
+    "attributes": [
+      "label-size"
+    ],
+    "subtags": [
+      "desc-list-item",
+      "desc-list-group"
+    ]
+  },
+  "desc-list-item": {
+    "attributes": [
+      "label",
+      "label-size"
+    ]
+  },
+  "desc-list-group": {
+    "attributes": [
+      "title",
+      "label-size"
+    ]
+  },
+  "u-dynamic-cards": {
+    "attributes": [
+      "data",
+      "dynamic",
+      "get-default-item",
+      "initial-add",
+      "min-count",
+      "max-count",
+      "text-field",
+      "index",
+      "add-button-text",
+      "mini-formatter"
+    ]
+  },
+  "u-footbar": {
+    "attributes": [
+      "position"
+    ]
+  },
+  "form-item": {
+    "attributes": [
+      "name",
+      "label",
+      "label-size",
+      "field-size",
+      "required",
+      "message",
+      "muted",
+      "description",
+      "placement",
+      "layout",
+      "rules",
+      "ignore-validation",
+      "ignore-rules",
+      "validating-options",
+      "validating-value",
+      "validating-process"
+    ]
+  },
+  "info-list": {
+    "attributes": [
+      "column",
+      "label-size"
+    ],
+    "subtags": [
+      "info-list-item",
+      "info-list-group"
+    ]
+  },
+  "info-list-item": {
+    "attributes": [
+      "label",
+      "column",
+      "label-size",
+      "ellipsis"
+    ]
+  },
+  "info-list-group": {
+    "attributes": [
+      "title",
+      "label-size"
+    ]
+  },
+  "u-key-value": {
+    "attributes": [
+      "vertical",
+      "label",
+      "value",
+      "labelSize",
+      "labelAlignment"
+    ],
+    "description": "最基本的键值对显示"
+  },
+  "u-lightbox": {
+    "attributes": [
+      "visible",
+      "maskClose",
+      "closeButton",
+      "loop",
+      "animation",
+      "value",
+      "zoomable",
+      "zoomButton",
+      "zoomWheel",
+      "zoomMax",
+      "zoomMin",
+      "zoomRadio"
+    ],
+    "defaults": [
+      "v-model"
+    ]
+  },
+  "loading": {
+    "attributes": [
+      "size"
+    ]
+  },
+  "u-pills": {
+    "attributes": [
+      "data",
+      "value",
+      "field",
+      "cancelable",
+      "multiple",
+      "readonly",
+      "disabled"
+    ],
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "u-pill"
+    ]
+  },
+  "u-pill": {
+    "attributes": [
+      "value",
+      "disabled",
+      "item"
+    ]
+  },
+  "selectable-steps": {
+    "attributes": [
+      "value",
+      "readonly",
+      "disabled"
+    ],
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "selectable-step"
+    ]
+  },
+  "selectable-step": {
+    "attributes": [
+      "title",
+      "disabled"
+    ]
+  },
+  "u-status-icon": {
+    "attributes": [
+      "name",
+      "size"
+    ]
+  },
+  "subnav": {
+    "attributes": [
+      "router",
+      "value",
+      "readonly",
+      "disabled",
+      "usage"
+    ],
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "subnav-item",
+      "subnav-divider"
+    ]
+  },
+  "subnav-item": {
+    "attributes": [
+      "value",
+      "disabled",
+      "item",
+      "href",
+      "target",
+      "to",
+      "replace",
+      "exact"
+    ]
+  },
+  "subnav-divider": {
+    "attributes": []
+  },
+  "u-subtabs": {
+    "attributes": [
+      "value",
+      "readonly",
+      "disabled",
+      "closable",
+      "router"
+    ],
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "u-subtab"
+    ]
+  },
+  "u-subtab": {
+    "attributes": [
+      "title",
+      "value",
+      "disabled",
+      "href",
+      "target",
+      "to",
+      "replace",
+      "exact"
+    ]
+  },
+  "u-summary-card": {
+    "attributes": []
+  },
+  "u-tablets": {
+    "attributes": [
+      "value",
+      "auto-select",
+      "cancelable",
+      "multiple",
+      "readonly",
+      "disabled"
+    ],
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "u-tablet"
+    ]
+  },
+  "u-tablet": {
+    "attributes": [
+      "value",
+      "selected",
+      "disabled",
+      "item"
+    ]
+  },
+  "u-time-picker": {
+    "attributes": [
+      "time",
+      "minUnit",
+      "minTime",
+      "maxTime",
+      "autofocus",
+      "readonly",
+      "disabled",
+      "visible"
+    ]
+  }
+}
