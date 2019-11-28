@@ -35,11 +35,19 @@ const base = 'https://vusion.dev';
 export default {
     data() {
         return {
+            message: window.message,
             logo: this.$docs.logo,
             navbar: this.$docs.navbar,
             github: this.$docs.github,
             theme: (process.env.NODE_ENV === 'development' ? this.$docs.theme : window.theme) || 'default',
         };
+    },
+    watch: {
+        'message.route'(route) {
+            if (route) {
+                this.$router.replace(route);
+            }
+        },
     },
     methods: {
         onSelectTheme($event) {
