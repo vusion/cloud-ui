@@ -6,8 +6,9 @@
                 <u-logo slot="left">{{ logo }}</u-logo>
                 <u-navbar-item v-for="item in navbar" :key="item.text" :to="item.to" :href="item.href" :target="item.target">{{ item.text }}</u-navbar-item>
                 <div slot="right" style="margin-right: 10px;">
-                    <u-navbar-select style="vertical-align: top;" value="0.4.x"
+                    <u-navbar-select style="vertical-align: top;" value="0.6.x"
                         @select="onSelectVersion">
+                        <u-navbar-select-item value="0.6.x">0.6.x</u-navbar-select-item>
                         <u-navbar-select-item value="0.4.x">0.4.x</u-navbar-select-item>
                         <u-navbar-select-item value="0.3.x">0.3.x</u-navbar-select-item>
                     </u-navbar-select>
@@ -64,7 +65,9 @@ export default {
             linkEl.href = linkEl.href.slice(0, index + 1) + window.getThemeCSS($event.value);
         },
         onSelectVersion($event) {
-            if ($event.value)
+            if ($event.value === '0.4.x')
+                window.location = base + '/cloud-ui/';
+            else if ($event.value)
                 window.location = base + '/cloud-ui@' + $event.value + '/';
         },
     },
