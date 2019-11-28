@@ -45,7 +45,14 @@ export default {
     watch: {
         'message.route'(route) {
             if (route) {
-                this.$router.replace(route);
+                if (!this.ready) {
+                    this.ready = true;
+                    this.$router.onReady(() => {
+                        this.$router.replace(this.message.route);
+                    });
+                } else {
+                    this.$router.replace(this.message.route);
+                }
             }
         },
     },
