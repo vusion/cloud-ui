@@ -1,6 +1,6 @@
 <template>
-<div :class="$style.root">
-    <header :class="$style.head">
+<div :class="[$style.root, message.singleton ? 'singleton' : '']">
+    <header :class="$style.head" v-if="!message.singleton">
         <div :class="$style.wrap">
             <u-navbar>
                 <u-logo slot="left">{{ logo }}</u-logo>
@@ -32,11 +32,11 @@
 
 <script>
 const base = 'https://vusion.dev';
-
+import message from '../message';
 export default {
     data() {
         return {
-            message: window.message,
+            message,
             logo: this.$docs.logo,
             navbar: this.$docs.navbar,
             github: this.$docs.github,
@@ -52,7 +52,7 @@ export default {
                         this.$router.replace(this.message.route);
                     });
                 } else {
-                    this.$router.replace(this.message.route);
+                    this.$router.replace(route);
                 }
             }
         },
@@ -88,15 +88,16 @@ export default {
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
     z-index: var(--z-index-layout);
 }
+:global(.singleton) .head {
+    display: none;
+}
 
 .body {
     /* min-height: calc(100vh - 134px); */
     margin-top: var(--navbar-height);
 }
-
-.foot {
-    height: 70px;
-    background: #34383b;
+:global(.singleton) .body {
+    margin-top: 0;
 }
 
 .wrap {

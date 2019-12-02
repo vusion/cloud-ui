@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root">
-    <div :class="$style.side">
+    <div :class="$style.side" v-if="!message.singleton">
         <u-sidebar :class="$style.sidebar" size="small">
             <template v-for="group in groups">
                 <template v-if="!group.name">
@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import message from '../message';
 export default {
     name: 's-materials-view',
     props: {
@@ -40,6 +41,11 @@ export default {
         groups: Array,
         camelName: { type: Boolean, default: true },
         sidebarSize: String,
+    },
+    data() {
+        return {
+            message,
+        };
     },
 };
 </script>
@@ -52,7 +58,9 @@ export default {
     bottom: 0;
     overflow: hidden;
 }
-
+:global(.singleton) .side {
+    display: none;
+}
 .sidebar[class] {
     padding: 36px 0;
 }
@@ -65,7 +73,9 @@ export default {
     margin-left: 240px;
     max-width: 1010px;
 }
-
+:global(.singleton) .main {
+    margin: 0 auto;
+}
 .content {
     padding: 30px 50px 50px;
 }

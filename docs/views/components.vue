@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root">
-    <div :class="$style.side">
+    <div :class="$style.side" v-if="!message.singleton">
         <u-sidebar :class="$style.sidebar" size="small">
             <u-checkbox :class="$style.checkbox" v-model="showDeprecated">显示废弃组件</u-checkbox>
             <template v-for="group in groups">
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import message from '../message';
 export default {
     name: 's-materials-view',
     props: {
@@ -43,6 +44,7 @@ export default {
     },
     data() {
         return {
+            message,
             groups: this.$docs.componentsGroups,
             showDeprecated: false,
         };
@@ -58,7 +60,9 @@ export default {
     bottom: 0;
     overflow: hidden;
 }
-
+:global(.singleton) .side {
+    display: none;
+}
 .sidebar[class] {
     padding: 36px 0;
 }
@@ -82,6 +86,9 @@ export default {
 .main {
     margin-left: 240px;
     max-width: 1010px;
+}
+:global(.singleton) .main {
+    margin: 0 auto;
 }
 
 .content {
