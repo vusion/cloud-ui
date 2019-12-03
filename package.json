@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "author": "Rainfore <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -39,7 +39,7 @@
   "dependencies": {
     "countup.js": "^1.9.3",
     "lodash": "^4.17.5",
-    "proto-ui.vusion": "^0.6.3",
+    "proto-ui.vusion": "^0.6.4",
     "vusion-utils": "^0.4.7"
   },
   "devDependencies": {

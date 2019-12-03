@@ -2026,10 +2026,6 @@
     "type": "string",
     "description": "输入框的值"
   },
-  "u-textarea/default-value": {
-    "type": "string",
-    "description": "默认值。即 reset 方法恢复的值。"
-  },
   "u-textarea/clearable": {
     "type": "boolean",
     "description": "是否可清空。开启并在输入框有内容时会显示清空按钮。"
@@ -3113,6 +3109,10 @@
   "u-tablet/item": {
     "type": "object",
     "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
+  },
+  "u-textarea/default-value": {
+    "type": "string",
+    "description": "默认值。即 reset 方法恢复的值。"
   },
   "u-time-picker/time": {
     "type": "string",
