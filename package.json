@@ -66,5 +66,9 @@
     "hooks": {
       "pre-commit": "node node_modules/vusion-hooks/pre-commit"
     }
+  },
+  "vetur": {
+    "tags": "./vetur/tags.json",
+    "attributes": "./vetur/attributes.json"
   }
 }
