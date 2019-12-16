@@ -1,5 +1,5 @@
 @extend;
 
 .root {
-    background: #cad4e4;
+    background: var(--block-background);
 }

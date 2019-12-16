@@ -1,28 +1,11 @@
 @extend;
 
-.buttons {
-    margin-top: 50px;
-}
 
 .button {
     border-radius: 100%;
-    border-color: transparent;
-    color: white;
-    background: var(--brand-primary);
     transition: all var(--transition-duration-base);
 }
 
 .button:hover {
-    background: #5d93e6;
-    color: white;
-}
-
-.button:active {
-    background: #5d93e6;
-}
-
-.button[disabled] {
-    color: white;
-    border-color: var(--border-color-base);
-    background: var(--brand-disabled-light);
+    background: var(--transfer-button-background-hover);
 }

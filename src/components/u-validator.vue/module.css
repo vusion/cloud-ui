@@ -5,8 +5,6 @@
     left: 100%;
     top: 0;
     display: none;
-    margin-left: 10px;
-    padding: 0 10px;
     line-height: 26px;
     font-size: 12px;
 }
@@ -40,8 +38,6 @@
     top: 50%;
     transform: translateY(-50%);
     white-space: nowrap;
-    background-color: #ff867f;
-    color: white;
 }
 
 .message[color="error"]::before {

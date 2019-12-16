@@ -1,14 +1,7 @@
 @extend;
 
 .root {
-    width: 44px;
-    height: 44px;
     background-image: url('./assets/avatar.png?sprite=avatars');
-}
-
-.root[size="huge"] {
-    width: 88px;
-    height: 88px;
 }
 
 .root[type="1"] {

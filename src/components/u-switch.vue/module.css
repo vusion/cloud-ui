@@ -1,13 +1,5 @@
 @extend;
 
-.root {
-    transition: background 0.2s;
-}
-
-.button {
-    transition: all 0.2s;
-}
-
 .root[with-text] {
     width: 54px;
 }

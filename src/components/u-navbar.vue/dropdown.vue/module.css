@@ -2,7 +2,6 @@
 
 .root {
     color: white;
-    line-height: var(--navbar-height);
 }
 
 .root::after {

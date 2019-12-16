@@ -9,27 +9,19 @@
 }
 
 .radio {
-    width: 18px;
-    height: 18px;
-    line-height: 18px;
+    line-height: var(--steps-item-radio-size);
     font-size: 12px;
     color: #999;
-    background-color: var(--brand-secondary);
 }
 
 .title {
     padding-top: 4px;
-    line-height: 18px;
+    line-height: var(--steps-item-radio-size);
 }
 
 .item::before {
     top: 12px;
     height: 1px;
-    background-color: var(--brand-secondary);
-}
-
-.item[disabled] .item-body {
-    color: var(--field-disabled-color);
 }
 
 .body {

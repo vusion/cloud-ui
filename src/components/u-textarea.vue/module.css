@@ -2,11 +2,6 @@
 
 .root {
     max-width: 100%;
-    width: 160px;
-    height: 80px;
-    line-height: inherit;
-    min-height: var(--height-base);
-    padding: 5px 10px;
     color: #666;
     border-color: var(--brand-secondary);
     border-radius: 3px;

@@ -1,19 +1,11 @@
 @extend;
 
-.root {
-    color: var(--link-color);
-}
-.root[disabled] {
-    cursor: var(--cursor-not-allowed);
-    color: #ccc;
-}
-
 .root[color="light"] {
-    color: #6eadff;
+    color: var(--link-color-light);
 }
 
 .root[color="white"] {
-    color: white;
+    color: var(--link-color-white);
 }
 
 .root:lang(en) {

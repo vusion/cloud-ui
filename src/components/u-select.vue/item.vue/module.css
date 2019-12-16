@@ -10,9 +10,6 @@
     white-space: nowrap;
 }
 
-.root:hover {
-    background: #f5f7fa;
-}
 
 .root[selected] {
     background: var(--brand-primary);

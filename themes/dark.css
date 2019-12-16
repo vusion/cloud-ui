@@ -5,13 +5,8 @@
     --sidebar-background-color: #294265;
 
     /* Button */
-    --button-disabled-background: white;
-    --button-disabled-color: #ccc;
-    --button-disabled-border-color: #ddd;
     --button-primary-hover-background: #6098eb;
     --button-primary-hover-color: white;
-    --button-primary-disabled-background: #d9d9d9;
-    --button-primary-disabled-color: white;
 
     /* theme Chart Colors */
     --theme-chart-background-base: rgb(97, 218, 198);
@@ -19,7 +14,6 @@
 
     /* Sidebar */
     --sidebar-item-color: #9dabc2;
-    --sidebar-item-selected-background: #1c324f;
     --sidebar-group-head-hover-color: var(--brand-primary);
     --sidebar-group-head-selected-color: var(--brand-primary);
     --sidebar-divider-background: #374d6e;
@@ -34,4 +28,10 @@
     --subnav-item-hover-background: #f6f7f9;
     --subnav-item-selected-color: var(--brand-primary);
     --subnav-item-selected-background: white;
+
+    --transfer-button-background: #4a89e8;
+    --sidebar-background: #294265;
+    --sidebar-item-background-disabled: #294265;
+    --sidebar-item-background-selected-disabled: #294265;
+    --sidebar-item-background-color-selected: #1c324f;
 }

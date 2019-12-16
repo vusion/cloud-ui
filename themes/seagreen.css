@@ -5,12 +5,12 @@
     --sidebar-background-color: #f0f6fa;
 
     /* Button */
-    --button-hover-background: #ebebeb;
-    --button-hover-color: #333;
-    --button-hover-border-color: #cdcdcd;
-    --button-disabled-background: #cbcbcb;
-    --button-disabled-color: white;
-    --button-disabled-border-color: #cbcbcb;
+    --button-background-hover: #ebebeb;
+    --button-color-hover: #333;
+    --button-border-color-hover: #cdcdcd;
+    --button-background-disabled: #cbcbcb;
+    --button-color-disabled: white;
+    --button-border-color-disabled: #cbcbcb;
     --button-primary-hover-background: #3dcca1;
     --button-primary-hover-color: white;
     --button-primary-disabled-background: #cbcbcb;
@@ -83,9 +83,16 @@
     --sidebar-item-background: #e2e6f7;
     --sidebar-item-selected-background: var(--brand-primary);
     --sidebar-item-disabled-color: #cdcdcd;
-    --sidebar-item-hover-color: var(--brand-primary);
+    --sidebar-item-color-hover: var(--brand-primary);
     --sidebar-group-head-hover-color: var(--brand-primary);
     --sidebar-group-head-selected-color: var(--brand-primary);
     --sidebar-divider-background: #ccc;
+
+    --transfer-button-background: #2cb78e;
+    --sidebar-background: #f0f6fa;
+    --sidebar-item-background-disabled: #f0f6fa;
+    --sidebar-item-background-selected-disabled: #f0f6fa;
+    --sidebar-item-background-color-selected: #2cb78e;
+    --sidebar-item-color-disabled: #cdcdcd;
 }
 

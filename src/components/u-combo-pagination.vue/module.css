@@ -1,15 +1,15 @@
 @extend;
 
 .sizer {
-    height: 30px;
-    line-height: 28px;
+    height: var(--combo-pagination-height);
+    line-height: var(--combo-pagination-line-height);
 }
 
 .sizer .item {
-    line-height: 28px;
+    line-height: var(--combo-pagination-line-height);
 }
 
 .jumper {
-    height: 30px;
-    line-height: 28px;
+    height: var(--combo-pagination-height);
+    line-height: var(--combo-pagination-line-height);
 }
