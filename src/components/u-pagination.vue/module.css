@@ -8,30 +8,22 @@
     padding: 0;
     min-width: auto;
     width: var(--pagination-item-size);
-    height: var(--pagination-item-size);
-    line-height: 28px;
-    background: white;
-    color: #555;
+    line-height: calc(var(--pagination-item-size) - 1px * 2);
     border: 1px solid #ccc;
     margin-left: -1px;
-    cursor: var(--cursor-pointer);
 }
 
 .item:hover {
     background: #eee;
-    color: var(--brand-primary);
 }
 
 .item[selected] {
     position: relative;
-    background: var(--brand-primary);
-    color: white;
     border-color: var(--brand-primary);
 }
 
 .item[disabled] {
     background: none;
-    color: var(--field-disabled-color);
     border-color: #dedede;
 }
 
@@ -46,16 +38,9 @@
 }
 
 .item[role="blank"] {
-    background: none;
     border: none;
-    color: #555;
 }
 
 .root[disabled] .item {
     background: none;
-    color: var(--field-disabled-color);
-}
-
-.root[disabled] .item[selected] {
-    background: white;
 }

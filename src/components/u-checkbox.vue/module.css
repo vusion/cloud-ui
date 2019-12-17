@@ -1,5 +1,5 @@
 @extend;
 
 .box {
-    border-radius: 3px;
+    border-radius: var(--checkbox-border-radius);
 }

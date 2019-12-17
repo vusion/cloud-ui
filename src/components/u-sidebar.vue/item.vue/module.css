@@ -1,33 +1,15 @@
 @extend;
 
 .root {
-    display: block;
-    cursor: var(--cursor-pointer);
-    height: 54px;
-    line-height: 54px;
-    padding-left: 30px;
     color: var(--sidebar-item-color);
     background: var(--sidebar-item-background);
     transition: all var(--transition-duration);
 }
 
-.root:hover {
-    color: var(--sidebar-item-hover-color);
-}
-
 .root[selected] {
-    color: var(--sidebar-item-selected-color);
-    background: var(--sidebar-item-selected-background);
     border-right: 4px solid var(--brand-primary);
 }
 
-.root[disabled] {
-    cursor: var(--cursor-not-allowed);
-    background: var(--sidebar-background-color);
-    color: var(--sidebar-item-disabled-color);
-}
-
 .root[selected][disabled] {
-    background: var(--sidebar-background-color);
     border-right: none;
 }

@@ -2,7 +2,6 @@
 
 .root {
     background: none;
-    line-height: var(--navbar-height);
 }
 
 .root::after {

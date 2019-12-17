@@ -1,23 +1,18 @@
 @extend;
 
-.track {
-    height: 4px;
-    line-height: 4px;
-}
-
 .track[size="small"] {
-    height: 2px;
-    line-height: 2px;
+    height: var(--linear-progress-height-small);
+    line-height: var(--linear-progress-height-small);
 }
 
 .track[size="large"] {
-    height: 8px;
-    line-height: 8px;
+    height: var(--linear-progress-height-large);
+    line-height: var(--linear-progress-height-large);
 }
 
 .track[size="huge"] {
-    height: 12px;
-    line-height: 12px;
+    height: var(--linear-progress-height-huge);
+    line-height: var(--linear-progress-height-huge);
 }
 .trail {
     position: relative;

@@ -1,29 +1,7 @@
 @extend;
 
-.head {
-    border-bottom: 1px solid var(--tabs-border-color);
-    height: auto;
-}
-
-.item {
-    height: 36px;
-    line-height: 34px;
-    padding: 0 30px;
-}
-
-.item:hover {
-    background: #f6f7f9;
-}
-
 .item[selected] {
-    background: white;
-    color: var(--brand-primary);
-    border-color: var(--tabs-border-color);
     border-top: 2px solid var(--brand-primary);
-}
-
-.item[disabled] {
-    background: white;
 }
 
 .body {

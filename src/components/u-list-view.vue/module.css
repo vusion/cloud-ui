@@ -1,12 +1,7 @@
 @extend;
 
 .root {
-    border: 1px solid var(--brand-secondary);
     border-radius: var(--border-radius-base);
-}
-
-.root:focus {
-    border-color: var(--brand-secondary);
 }
 
 .root[disabled] {

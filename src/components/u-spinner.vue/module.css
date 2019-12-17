@@ -1,9 +1,5 @@
 @extend;
 
-.root {
-    animation-duration: 1s;
-}
-
 .root::before {
     icon-font: url('./assets/refresh.svg');
 }

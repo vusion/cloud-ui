@@ -1,3 +1,4 @@
+@import "proto-ui.vusion/src/styles/theme.css";
 :root {
     /* Brand Colors */
     --brand-primary: #67aaf5;
@@ -81,8 +82,8 @@
 
     --circular-progress-size-base: 100px;
     --circular-progress-font-size-base: 18px;
+    --circular-progress-text-line-height: normal;
 
-    --linear-progress-height-base: 12px;
 
     --pagination-item-size: 30px;
 
@@ -201,50 +202,246 @@
     --theme-chart-color20: rgb(241, 126, 248);
     --theme-chart-rgba-color20: rgba(241, 126, 248, 0.1);
 
-    /* Button */
-    --button-background: white;
-    --button-hover-color: var(--brand-primary);
-    --button-hover-border-color: var(--brand-primary);
-    --button-hover-background: white;
-
-    --button-border-radius-base: var(--border-radius-base);
-    --button-primary-disabled-color: white;
-    --button-primary-disabled-background: #d9d9d9;
-    --button-primary-color: white;
-    --button-disabled-color: #ccc;
-    --button-disabled-border-color: #ddd;
-    --button-disabled-background: white;
-    --button-primary-hover-background: #5b96d9;
-    --button-primary-hover-color: var(--button-primary-color);
-
     /* Sidebar */
-    --sidebar-background-color: #2b333f;
+    --sidebar-background: #2b333f;
+    --sidebar-item-background-disabled: #2b333f;
+    --sidebar-item-background-selected-disabled: #2b333f;
     --sidebar-item-color: #8594aa;
     --sidebar-item-background: none;
-    --sidebar-item-selected-background: #252b33;
-    --sidebar-item-selected-color: white;
-    --sidebar-item-disabled-color: #586475;
-    --sidebar-item-hover-color: white;
+    --sidebar-item-background-color-selected: #252b33;
+    --sidebar-item-color-selected: white;
+    --sidebar-item-color-disabled: #586475;
+    --sidebar-item-color-hover: white;
     --sidebar-group-head-hover-color: white;
     --sidebar-group-head-color: #9dabc2;
-    --sidebar-group-head-selected-color: var(--sidebar-group-head-color);
+    --sidebar-group-head-selected-color: #9dabc2;
     --sidebar-divider-background: #3d4654;
+    --sidebar-item-height: 54px;
+    --sidebar-item-padding-left: 30px;
 
     /* others */
     --link-color: #5494db;
+    --link-color-disabled: #ccc;
     --navbar-background: #343e4f;
     --navbar-select-hover-background: none;
     --navbar-select-focused-background: none;
+
     --subnav-item-color: #666;
     --subnav-item-hover-color: var(--brand-primary);
     --subnav-item-hover-background: #f6f7f9;
     --subnav-item-selected-color: var(--brand-primary);
     --subnav-item-selected-background: white;
 
-    --tabs-border-color: #e0e6ed;
+
     --subtabs-border-color: #e0e6ed;
 
     --lightbox-head-height: 64px;
+
+    /* Text */
+    --text-secondary-color: var(--text-secondary-color);
+    --text-disabled-color: #ccc;
+
+    /* Link */
+    --link-color-light: #6eadff;
+    --link-color-white: white;
+
+    /* Button */
+    --button-background: white;
+    --button-height: 34px;
+
+    --button-border-radius-base: var(--border-radius-base);
+    --button-primary-disabled-color: white;
+    --button-primary-disabled-background: #d9d9d9;
+    --button-primary-color: white;
+    --button-primary-hover-background: #5b96d9;
+    --button-primary-hover-color: var(--button-primary-color);
+
+    --button-color: #333;
+    --button-padding-y: 0;
+    --button-padding-x: 30px;
+    --button-border-color: #cdcdcd;
+    --button-color-hover: var(--brand-primary);
+    --button-border-color-hover: var(--brand-primary);
+    --button-background-active: white;
+    --button-background-hover: white;
+    --button-background-disabled: white;
+    --button-color-disabled: #ccc;
+    --button-border-color-disabled: #ddd;
+    --button-box-shadow-active: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+
+    --button-height-min: 24px;
+    --button-padding-min: 0 8px;
+    --button-height-small: 30px;
+    --button-padding-small: 0 10px;
+    --button-width-square: var(--height-base);
+    --button-color-square-refresh: #9ba4ad;
+    --button-color-square-refresh-hover: var(--brand-primary);
+
+    --button-width-loading: 18px;
+    --button-height-loading: 18px;
+    --button-animation-loading: rotate 1s ease-in-out 0s infinite;
+
+    /* Label */
+    --label-padding-x: 8px;
+    --label-padding-y: 3px;
+    --label-background: #cad4e4;
+    --label-color: white;
+    --label-background-success: #76b86e;
+    --label-background-warning: #ffa136;
+    --label-background-error: #ff8a7a;
+
+    /* Avatar */
+    --avatar-size: 44px;
+    --avatar-size-huge: 88px;
+
+    /* Status-icon */
+    --status-icon-margin-right: 8px;
+    --status-icon-color: #333;
+
+    /* Table */
+    --table-background: white;
+
+    /* Block */
+    --block-background: #cad4e4;
+
+    /* Checkbox */
+    --checkbox-border-radius: 3px;
+    --checkboxes-item-margin-right: 80px;
+
+    /* Circular-progress */
+
+    --combo-pagination-height: 30px;
+    --combo-pagination-line-height: calc(var(--combo-pagination-height) - var(--border-width-base) * 2);
+
+    --combo-slider-slider-width: 160px;
+    --combo-slider-input-width: 60px;
+    --combo-slider-input-left: 10px;
+
+    --form-item-label-space: 10px;
+    --form-required-color: red;
+    --form-message-margin-left: 10px;
+    --form-message-padding: 0 10px;
+    --form-message-background-error: #ff867f;
+    --form-message-color-error: white;
+
+    --form-item-label-width: 120px;
+
+    --input-padding: 0 10px;
+    --input-border-color: #e1e8ed;
+    --input-border-radius: 3px;
+    --input-placeholder-color: #999;
+    --input-clearable-color: #a7afbb;
+    --input-border-color-focus: #8ebee9;
+
+    --input-background-disabled: #cddae9;
+    --input-border-color-error: #ff867f;
+
+    --linear-progress-height-base: 4px;
+    --linear-progress-height-small: 2px;
+    --linear-progress-height-large: 8px;
+    --linear-progress-height-huge: 12px;
+
+    --list-view-item-hover-background: #f5f7fa;
+    --list-view-item-selected-background: var(--brand-primary);
+    --list-view-item-disabled-background: none;
+    --list-view-item-disabled-color: #ccc;
+    --list-view-border-color: #e1e8ed;
+    --list-view-border-color-focus: #e1e8ed;
+    --menu-item-sub-space-x: 34px;
+    --menu-item-sub-space-y: 34px;
+
+    --navbar-divider-margin: 0 30px 0 0;
+    --navbar-dropdown-padding: 0 30px 0 10px;
+
+    --navbar-item-nolast-margin-right: 34px;
+    --navbar-item-color-hover: white;
+    --navbar-item-color-selected: white;
+
+    --number-input-background: none;
+    --number-input-background-hover: none;
+    --number-input-background-active: none;
+    --number-input-background-disabled: none;
+    --number-input-background-readonly: none;
+    --number-input-background-disabled: none;
+
+    --pagination-item-color: #555;
+    --pagination-item-background: white;
+    --pagination-item-color-hover: var(--brand-primary);
+    --pagination-item-background-selected: var(--brand-primary);
+    --pagination-item-color-selected: white;
+    --pagination-item-color-disabled: #bbb;
+    --pagination-item-background-blank: none;
+    --pagination-item-color-blank: #555;
+    --pagination-item-background-disabled-selected: white;
+
+    --radios-item-margin-right: 80px;
+
+    --select-item-hover: #f5f7fa;
+    --select-tags-padding: 2px 26px 2px 4px;
+
+    --select-height: var(--height-base);
+    --select-border-width: 1px;
+    --select-border-color: #e1e8ed;
+    --select-background: white;
+    --select-pading-right: 20px;
+    --select-pading: 0 var(--select-pading-right) 0 14px;
+    --select-arrow-color: #a5a5a6;
+    --select-background-disabled: #cddae9;
+    --select-popper-border-color: #dfe4ec;
+    --select-popper-background: white;
+    --select-popper-max-height: 180px;
+
+    --sidebar-divider-margin: 0 8px;
+
+    --slider-body-padding: 9px 0;
+    --slider-track-height: 6px;
+    --slider-track-background: #e6e6e6;
+    --slider-bound-background: url("../assets/images/stripe.png") repeat-x;
+    --slider-handle-width: 14px;
+    --slider-handle-height: 24px;
+
+    --spinner-animation: spin 1s infinite linear;
+
+    --steps-item-radio-background: #e1e8ed;
+    --steps-item-radio-size: 18px;
+    --steps-item-disabled-color: #bbb;
+    --switch-transition: background-color 0.2s;
+    --switch-button-transition: all 0.2s;
+
+    --tabs-head-height: auto;
+    --tabs-border-color: #e0e6ed;
+    --tabs-item-height: 36px;
+    --tabs-item-padding: 0 30px;
+    --tabs-item-background-hover: #f6f7f9;
+    --tabs-item-background-selected: white;
+    --tabs-item-color-selected: var(--brand-primary);
+    --tabs-item-border-color-selected: #e0e6ed;
+    --tabs-item-background-disabled: white;
+
+    --textarea-width: 160px;
+    --textarea-height: 80px;
+    --textarea-min-height: var(--height-base);
+    --textarea-padding: 5px 10px;
+
+    --tooltip-padding: 8px 12px;
+
+    --transfer-button-color: white;
+    --transfer-button-border-color: rgba(0, 0, 0, 0);
+    --transfer-button-background: #67aaf5;
+
+    --transfer-button-color-hover: white;
+    --transfer-button-background-hover: #5d93e6;
+    --transfer-button-background-color-active: #5d93e6;
+    --transfer-button-color-disabled: white;
+    --transfer-button-border-color-disabled: #dfe4ec;
+    --transfer-button-background-color-disabled: var(--brand-disabled-light);
+
+    --validator-message-margin-left: 10px;
+    --validator-message-padding: 0 10px;
+    --validator-message-background-error: #ff867f;
+    --validator-message-color-error: white;
+
+    --carousel-control-space: 20px;
 }
 
 @custom-media --small-window (max-width: 767px);

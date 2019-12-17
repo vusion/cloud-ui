@@ -7,13 +7,11 @@
 .label {
     color: #999;
     text-align: right;
-    padding-right: 10px;
     position: relative;
 }
 
 .label[required]::after {
     content: '*';
-    color: red;
     position: absolute;
     right: 2px;
     height: 12px;
@@ -26,8 +24,6 @@
     left: 100%;
     top: 0;
     display: none;
-    margin-left: 10px;
-    padding: 0 10px;
     line-height: 26px;
     font-size: 12px;
 }
@@ -61,8 +57,6 @@
     top: 50%;
     transform: translateY(-50%);
     white-space: nowrap;
-    background-color: #ff867f;
-    color: white;
 }
 
 .message[color="error"]::before {
@@ -101,9 +95,10 @@
 .root[label-size$="small"] > .label { width: 80px; padding-right: 10px; }
 .root[label-size$="small"] > .label::after { right: 2px; }
 .root[label-size$="small"] > .field { max-width: calc(100% - 80px); }
-.root[label-size$="normal"] > .label { width: 120px; padding-right: 20px; }
+
+.root[label-size$="normal"] > .label { padding-right: 20px; }
 .root[label-size$="normal"] > .label::after { right: 12px; }
-.root[label-size$="normal"] > .field { max-width: calc(100% - 120px); }
+
 .root[label-size$="large"] > .label { width: 160px; padding-right: 20px; }
 .root[label-size$="large"] > .label::after { right: 12px; }
 .root[label-size$="large"] > .field { max-width: calc(100% - 160px); }
@@ -147,16 +142,6 @@
 }
 .root[distance="extra"][label-size$="large"] > .field {
     max-width: calc(100% - 190px);
-}
-
-.root[layout="none"] {
-    display: inline-block;
-}
-.root[layout="none"] > .label {
-    display: none;
-}
-.root[layout="none"] > .field {
-    max-width: none;
 }
 
 .root div[class^="u-form-table-view"] {

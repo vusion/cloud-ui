@@ -1,10 +1,5 @@
 @extend;
 
-.root {
-    height: 100%;
-    overflow: auto;
-    background: var(--sidebar-background-color);
-}
 
 .root[size="small"] .group_head {
     height: 32px;

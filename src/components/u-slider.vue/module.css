@@ -6,12 +6,9 @@
 
 .body {
     height: 24px;
-    padding: 9px 0;
 }
 
 .track {
-    height: 6px;
-    background: #e6e6e6;
     overflow: initial;
     cursor: var(--cursor-pointer);
 }
@@ -39,7 +36,6 @@
 }
 
 .bound {
-    background: url("../../assets/images/stripe.png") repeat-x;
     box-sizing: content-box;
 }
 
@@ -54,9 +50,6 @@
 }
 
 .handle {
-    margin-left: -7px;
-    width: 14px;
-    height: 24px;
     border-radius: 2px;
     cursor: var(--cursor-pointer);
 }

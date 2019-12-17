@@ -1,21 +1,17 @@
 @extend;
 
 .root {
-    padding: 3px 8px;
-    font-size: 12px;
-    border-radius: 2px;
-    background: #cad4e4;
-    color: white;
+    color: var(--label-color);
 }
 
 .root[color="success"] {
-    background: #76b86e;
+    background: var(--label-background-success);
 }
 
 .root[color="warning"] {
-    background: #ffa136;
+    background: var(--label-background-warning);
 }
 
 .root[color="error"] {
-    background: #ff8a7a;
+    background: var(--label-background-error);
 }

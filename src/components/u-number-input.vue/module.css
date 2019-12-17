@@ -1,9 +1,5 @@
 @extend;
 
-.button {
-    background: none;
-}
-
 .button[role="up"] {
     top: 2px;
 }
@@ -27,18 +23,8 @@
     color: #989898;
 }
 
-.button:hover {
-    background: none;
-}
-
-.button:active {
-    background: none;
-}
-
 .button[disabled] {
-    cursor: var(--cursor-not-allowed);
     opacity: 0.65;
-    background: none;
 }
 
 .button[class]:hover::before {
@@ -48,13 +34,6 @@
 .button[disabled]:hover::before {
     color: #989898;
 }
-
-.root[readonly] .button {
-    background: none;
-    cursor: default;
-}
-
-.root[disabled] .button { background: none; }
 
 .root[readonly] .button:hover::before { color: #989898; }
 

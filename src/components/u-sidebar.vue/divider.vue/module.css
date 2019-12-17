@@ -1,7 +1,2 @@
 @extend;
 
-.root {
-    margin: 0 8px;
-    height: 1px;
-    background: var(--sidebar-divider-background);
-}

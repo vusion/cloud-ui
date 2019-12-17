@@ -1,10 +1,10 @@
 .root {
-    color: #333;
+    color: var(--status-icon-color);
 }
 
 .icon::before {
     vertical-align: middle;
-    margin-right: 8px;
+    margin-right: var(--status-icon-margin-right);
 }
 
 .icon[name="success"]::before {
