@@ -40,9 +40,9 @@
  * Size extends
  */
 .root[size="mini"] {
-    height: var(--button-height-min);
-    line-height: var(--button-height-min);
-    padding: var(--button-padding-min);
+    height: var(--button-height-mini);
+    line-height: var(--button-height-mini);
+    padding: var(--button-padding-mini);
 }
 
 .root[size="small"] {

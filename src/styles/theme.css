@@ -84,7 +84,6 @@
     --circular-progress-font-size-base: 18px;
     --circular-progress-text-line-height: normal;
 
-
     --pagination-item-size: 30px;
 
     --tooltip-background-color: rgba(71, 88, 107, 0.9);
@@ -232,7 +231,6 @@
     --subnav-item-selected-color: var(--brand-primary);
     --subnav-item-selected-background: white;
 
-
     --subtabs-border-color: #e0e6ed;
 
     --lightbox-head-height: 64px;
@@ -257,7 +255,7 @@
     --button-primary-hover-color: var(--button-primary-color);
 
     --button-color: #333;
-    --button-padding-y: 0;
+    --button-padding-y: 0px;
     --button-padding-x: 30px;
     --button-border-color: #cdcdcd;
     --button-color-hover: var(--brand-primary);
@@ -269,8 +267,8 @@
     --button-border-color-disabled: #ddd;
     --button-box-shadow-active: inset 0 1px 3px rgba(0, 0, 0, 0.2);
 
-    --button-height-min: 24px;
-    --button-padding-min: 0 8px;
+    --button-height-mini: 24px;
+    --button-padding-mini: 0 8px;
     --button-height-small: 30px;
     --button-padding-small: 0 10px;
     --button-width-square: var(--height-base);
@@ -353,7 +351,7 @@
     --navbar-divider-margin: 0 30px 0 0;
     --navbar-dropdown-padding: 0 30px 0 10px;
 
-    --navbar-item-nolast-margin-right: 34px;
+    --navbar-item-space: 34px;
     --navbar-item-color-hover: white;
     --navbar-item-color-selected: white;
 
@@ -383,8 +381,8 @@
     --select-border-width: 1px;
     --select-border-color: #e1e8ed;
     --select-background: white;
-    --select-pading-right: 20px;
-    --select-pading: 0 var(--select-pading-right) 0 14px;
+    --select-padding-right: 20px;
+    --select-padding: 0 var(--select-padding-right) 0 14px;
     --select-arrow-color: #a5a5a6;
     --select-background-disabled: #cddae9;
     --select-popper-border-color: #dfe4ec;

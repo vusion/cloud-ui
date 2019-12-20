@@ -1,3 +1,6 @@
 {
-  "extends": "stylelint-config-vusion"
+  "extends": "stylelint-config-vusion",
+  "rules": {
+    "length-zero-no-unit": null
+  }
 }
