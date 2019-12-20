@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "author": "Rainfore <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -39,7 +39,7 @@
   "dependencies": {
     "countup.js": "^1.9.3",
     "lodash": "^4.17.5",
-    "proto-ui.vusion": "^0.6.4",
+    "proto-ui.vusion": "^0.6.5",
     "vusion-utils": "^0.4.7"
   },
   "devDependencies": {
@@ -54,7 +54,7 @@
     "stylelint": "^9.3.0",
     "stylelint-config-vusion": "^1.1.2",
     "vue": "^2.6.10",
-    "vue-cli-plugin-vusion": "^0.8.5",
+    "vue-cli-plugin-vusion": "^0.8.6",
     "vue-template-compiler": "^2.6.10",
     "vusion-hooks": "^0.3.0"
   },
