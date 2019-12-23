@@ -27,11 +27,52 @@ $group_size: 120px;
     opacity: 0.8;
 }
 
-.item:nth-of-type(5n+1), .item[color][color="info"] { fill: $brand-info; }
-.item:nth-of-type(5n+2), .item[color][color="warning"] { fill: $brand-warning; }
-.item:nth-of-type(5n+3), .item[color][color="success"] { fill: $brand-success; }
-.item:nth-of-type(5n+4), .item[color][color="error"] { fill: $brand-error; }
-.item:nth-of-type(5n+5), .item[color][color="primary"] { fill: $brand-primary; }
+.item:nth-child(1) { fill: $theme-chart-color1; }
+.item:nth-child(2) { fill: $theme-chart-color2; }
+.item:nth-child(3) { fill: $theme-chart-color3; }
+.item:nth-child(4) { fill: $theme-chart-color4; }
+.item:nth-child(5) { fill: $theme-chart-color5; }
+.item:nth-child(6) { fill: $theme-chart-color6; }
+.item:nth-child(7) { fill: $theme-chart-color7; }
+.item:nth-child(8) { fill: $theme-chart-color8; }
+.item:nth-child(9) { fill: $theme-chart-color9; }
+.item:nth-child(10) { fill: $theme-chart-color10; }
+.item:nth-child(11) {
+    fill: $theme-chart-color11;
+}
+.item:nth-child(12) {
+    fill: $theme-chart-color12;
+}
+.item:nth-child(13) {
+    fill: $theme-chart-color13;
+}
+.item:nth-child(14) {
+    fill: $theme-chart-color14;
+}
+.item:nth-child(15) {
+    fill: $theme-chart-color15;
+}
+.item:nth-child(16) {
+    fill: $theme-chart-color16;
+}
+.item:nth-child(17) {
+    fill: $theme-chart-color17;
+}
+.item:nth-child(18) {
+    fill: $theme-chart-color18;
+}
+.item:nth-child(19) {
+    fill: $theme-chart-color19;
+}
+.item:nth-child(20) {
+    fill: $theme-chart-color20;
+}
+
+.item[color][color="info"] { fill: $brand-info; }
+.item[color][color="warning"] { fill: $brand-warning; }
+.item[color][color="success"] { fill: $brand-success; }
+.item[color][color="error"] { fill: $brand-error; }
+.item[color][color="primary"] { fill: $brand-primary; }
 
 .label-line {
     display: none;
@@ -107,14 +148,3 @@ $group_size: 120px;
     border-top-color: transparent;
     border-bottom-color: transparent;
 }
-
-.root .item:nth-child(1) { fill: $theme-dark-chart-color1; }
-.root .item:nth-child(2) { fill: $theme-dark-chart-color2; }
-.root .item:nth-child(3) { fill: $theme-dark-chart-color3; }
-.root .item:nth-child(4) { fill: $theme-dark-chart-color4; }
-.root .item:nth-child(5) { fill: $theme-dark-chart-color5; }
-.root .item:nth-child(6) { fill: $theme-dark-chart-color6; }
-.root .item:nth-child(7) { fill: $theme-dark-chart-color7; }
-.root .item:nth-child(8) { fill: $theme-dark-chart-color8; }
-.root .item:nth-child(9) { fill: $theme-dark-chart-color9; }
-.root .item:nth-child(10) { fill: $theme-dark-chart-color10; }
