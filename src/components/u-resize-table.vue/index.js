@@ -311,12 +311,14 @@ export const UResizeTable = {
             }
         },
         onMouseUp(e) {
-            // 释放
-            this.pauseEvent(e);
-            this.isDown = false;
-            this.currentIndex = undefined;
-            this.initPoint.pageX = undefined;
-            this.currentDiff.offsetX = undefined;
+            if (this.isDown && this.currentIndex !== undefined) {
+                // 释放
+                this.pauseEvent(e);
+                this.isDown = false;
+                this.currentIndex = undefined;
+                this.initPoint.pageX = undefined;
+                this.currentDiff.offsetX = undefined;
+            }
         },
         pauseEvent(e) {
             if (e.stopPropagation)
