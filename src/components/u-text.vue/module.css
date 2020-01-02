@@ -3,3 +3,15 @@
 .root[color="secondary"] {
     color: #999;
 }
+
+.root[color="success"] {
+    color: #4ec9ab;
+}
+
+.root[color="warning"] {
+    color: #ffc000;
+}
+
+.root[color="disabled"] {
+    color: #ccc;
+}

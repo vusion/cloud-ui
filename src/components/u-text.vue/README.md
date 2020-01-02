@@ -22,6 +22,8 @@
     <u-text>默认颜色</u-text>
     <u-text color="primary">主要文本</u-text>
     <u-text color="secondary">二级文本</u-text>
+    <u-text color="success">成功文本</u-text>
+    <u-text color="warning">警告文本</u-text>
     <u-text color="error">错误文本</u-text>
     <u-text color="disabled">禁默文本</u-text>
 </u-linear-layout>
