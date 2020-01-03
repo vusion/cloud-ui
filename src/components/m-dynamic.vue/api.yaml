@@ -1,0 +1,113 @@
+- name: m-dynamic
+  title: 动态列表
+  mixins: m-emitter
+  attrs:
+    - name: data
+      type: Array
+      default: null
+      description: 数据
+    - name: dynamic
+      type: boolean
+      default: true
+      description: 是否可以动态添加/删除项
+    - name: get-default-item
+      type: Function
+      default: null
+      description: 传入获取默认项的方法
+    - name: initial-add
+      type: boolean
+      default: true
+      description: 是否自动补充项，如果初始时`data`中的项目数少于`min-count`
+    - name: min-count
+      type: number
+      default: 1
+      description: 最小项目数
+    - name: max-count
+      type: number
+      default: .inf
+      description: 最大项目数
+  slots:
+    - name: default
+      description: 添加文本或 HTML。
+  events:
+    - name: before-add
+      description: 添加前触发
+      params:
+        - name: $event.item
+          type: any
+          description: 添加的项
+        - name: $event.index
+          type: number
+          description: 添加的索引
+        - name: $event.data
+          type: Array
+          description: 当前数据
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止添加流程
+        - name: senderVM
+          type: MDynamic
+          description: 发送事件实例
+    - name: add
+      description: 添加时触发
+      params:
+        - name: $event.item
+          type: any
+          description: 添加的项
+        - name: $event.index
+          type: number
+          description: 添加的索引
+        - name: $event.data
+          type: Array
+          description: 当前数据
+        - name: senderVM
+          type: MDynamic
+          description: 发送事件实例
+    - name: before-remove
+      description: 删除前触发
+      params:
+        - name: $event.item
+          type: any
+          description: 删除的项
+        - name: $event.index
+          type: number
+          description: 删除的索引
+        - name: $event.data
+          type: Array
+          description: 当前数据
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止删除流程
+        - name: senderVM
+          type: MDynamic
+          description: 发送事件实例
+    - name: remove
+      description: 删除时触发
+      params:
+        - name: $event.item
+          type: any
+          description: 删除的项
+        - name: $event.index
+          type: number
+          description: 删除的索引
+        - name: $event.data
+          type: Array
+          description: 当前数据
+        - name: senderVM
+          type: MDynamic
+          description: 发送事件实例
+    - name: splice
+      description: 数量变更（添加/删除）时触发
+      params:
+        - name: $event.item
+          type: any
+          description: 变更的项
+        - name: $event.index
+          type: number
+          description: 变更的索引
+        - name: $event.data
+          type: Array
+          description: 当前数据
+        - name: senderVM
+          type: MDynamic
+          description: 发送事件实例

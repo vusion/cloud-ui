@@ -1,0 +1,29 @@
+.root {
+    display: block;
+    position: absolute;
+    z-index: 9000;
+    background-color: var(--ripple-background-color);
+    border-radius: 100%;
+    width: var(--ripple-size);
+    height: var(--ripple-size);
+    margin-left: calc(var(--ripple-size) / -2);
+    margin-top: calc(var(--ripple-size) / -2);
+    transform: scale(0);
+    cursor: var(--cursor-pointer);
+    pointer-events: none;
+}
+
+.root[color="light"] {
+    background-color: var(--ripple-light-background-color);
+}
+
+.root[animated] {
+    transition: var(--ripple-transition);
+    transform: scale(12);
+    background-color: transparent;
+}
+
+.reference {
+    position: relative !important;
+    overflow: hidden !important;
+}

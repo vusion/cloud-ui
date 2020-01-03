@@ -1,0 +1,33 @@
+.root {
+    /* @Private */
+    display: inline-block;
+    cursor: var(--cursor-pointer);
+
+    /* @Public */
+    padding: 4px 12px;
+}
+
+.root:hover {
+    background: var(--background-color-base);
+}
+
+.root[readonly] {
+    cursor: default;
+    background: none;
+}
+
+.root[selected] {
+    background: var(--brand-primary);
+    color: var(--color-white);
+}
+
+.root[disabled] {
+    /* @Private */
+    cursor: var(--cursor-not-allowed);
+    background: none;
+    color: var(--brand-disabled);
+}
+
+.root[selected][disabled] {
+    background: var(--brand-disabled-light);
+}

@@ -1,0 +1,189 @@
+- name: f-dragger
+  title: 拖拽器
+  attrs:
+    - name: axis
+      type: string
+      default: both
+      description: 拖拽时移动路径的约束轴向。可选值：`both`表示可以在任意方向上移动、`horizontal`表示限制在水平方向上移动、`vertical`表示限制在垂直方向上移动。
+    - name: grid
+      type: object
+      default: "{ x: 0, y: 0 }"
+      description: f拖拽时移动路径的约束网格。值为一个{x,y}格式的对象，表示水平方向和垂直方向网格的大小。
+    - name: range
+      type: string, object
+      default: null
+      description: 拖拽范围。值可以为一个{left,top,right,bottom}格式的对象，表示代理元素移动的上下左右边界。当值为`offset-parent`，代理元素限制在offsetParent中移动，仅适用于`position`为`absolute`的情况。
+    - name: range-mode
+      type: string
+      default: inside
+      description: 拖拽范围模式。可选值：`inside`表示在拖拽范围内侧移动，`center`表示在拖拽范围边缘及内侧移动，`outside`表示在拖拽范围外侧及内侧移动。
+    - name: value
+      type: any
+      default: null
+      description: 需要传递的值
+    - name: transfer
+      type: string, Element
+      default: self
+      description: 拖拽时的移动元素。可选值：`'clone'`表示拖拽时拖起自身的一个拷贝，`'self'`表示拖拽时拖起自身，也可以直接传入一个元素，或者用slot来设置。
+    - name: immediate
+      type: boolean
+      default: false
+      description: 是否在鼠标按下时立即拖拽。默认为`false`，是为了防止鼠标单击等事件频繁触发拖拽操作。
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用
+  slots:
+    - name: default
+      description: 插入需要拖拽的元素，仅一个。
+    - name: transfer
+      description: 自定义的移动元素。
+  events:
+    - name: dragstart
+      description: 拖拽开始时触发
+      params:
+        - name: $event.originVM
+          type: VueComponent
+          description: 拖拽源，为当前的`<f-draggable>`
+        - name: $event.sourceEl
+          type: Element
+          description: 拖拽起始元素
+        - name: $event.transferEl
+          type: Element
+          description: 拖拽移动元素
+        - name: $event.value
+          type: any
+          description: 需要传递的值
+        - name: $event.screenX
+          type: number
+          description: 鼠标指针相对于屏幕的水平坐标
+        - name: $event.screenY
+          type: number
+          description: 鼠标指针相对于屏幕的垂直坐标
+        - name: $event.clientX
+          type: number
+          description: 鼠标指针相对于浏览器的水平坐标
+        - name: $event.clientY
+          type: number
+          description: 鼠标指针相对于浏览器的垂直坐标
+        - name: $event.pageX
+          type: number
+          description: 鼠标指针相对于页面的水平坐标
+        - name: $event.pageY
+          type: number
+          description: 鼠标指针相对于页面的垂直坐标
+        - name: $event.startX
+          type: number
+          description: 拖拽开始时鼠标指针的水平坐标
+        - name: $event.startY
+          type: number
+          description: 拖拽开始时鼠标指针的垂直坐标
+        - name: $event.dragX
+          type: number
+          description: 拖拽时鼠标指针相对于起始坐标的水平位移
+        - name: $event.dragY
+          type: number
+          description: 拖拽时鼠标指针相对于起始坐标的垂直位移
+        - name: $event.startLeft
+          type: number
+          description: 拖拽开始时代理元素的left值
+        - name: $event.startTop
+          type: number
+          description: 拖拽开始时代理元素的top值
+        - name: $event.left
+          type: number
+          description: 拖拽时代理元素的left值
+        - name: $event.top
+          type: number
+          description: 拖拽时代理元素的top值
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止拖拽流程
+        - name: senderVM
+          type: FDragger
+          description: 发送事件实例
+    - name: drag
+      description: 正在拖拽时触发
+      params:
+        - name: $event.originVM
+          type: VueComponent
+          description: 拖拽源，为当前的`<f-draggable>`
+        - name: $event.sourceEl
+          type: Element
+          description: 拖拽起始元素
+        - name: $event.transferEl
+          type: Element
+          description: 拖拽移动元素
+        - name: $event.value
+          type: any
+          description: 需要传递的值
+        - name: $event.screenX
+          type: number
+          description: 鼠标指针相对于屏幕的水平坐标
+        - name: $event.screenY
+          type: number
+          description: 鼠标指针相对于屏幕的垂直坐标
+        - name: $event.clientX
+          type: number
+          description: 鼠标指针相对于浏览器的水平坐标
+        - name: $event.clientY
+          type: number
+          description: 鼠标指针相对于浏览器的垂直坐标
+        - name: $event.pageX
+          type: number
+          description: 鼠标指针相对于页面的水平坐标
+        - name: $event.pageY
+          type: number
+          description: 鼠标指针相对于页面的垂直坐标
+        - name: $event.startX
+          type: number
+          description: 拖拽开始时鼠标指针的水平坐标
+        - name: $event.startY
+          type: number
+          description: 拖拽开始时鼠标指针的垂直坐标
+        - name: $event.dragX
+          type: number
+          description: 拖拽时鼠标指针相对于起始坐标的水平位移
+        - name: $event.dragY
+          type: number
+          description: 拖拽时鼠标指针相对于起始坐标的垂直位移
+        - name: $event.startLeft
+          type: number
+          description: 拖拽开始时代理元素的left值
+        - name: $event.startTop
+          type: number
+          description: 拖拽开始时代理元素的top值
+        - name: $event.left
+          type: number
+          description: 拖拽时代理元素的left值
+        - name: $event.top
+          type: number
+          description: 拖拽时代理元素的top值
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止拖拽流程
+        - name: senderVM
+          type: FDragger
+          description: 发送事件实例
+    - name: dragend
+      description: 拖拽结束时触发
+      params:
+        - name: $event.originVM
+          type: VueComponent
+          description: 拖拽源，为当前的`<f-draggable>`
+        - name: $event.sourceEl
+          type: Element
+          description: 拖拽起始元素
+        - name: $event.transferEl
+          type: Element
+          description: 拖拽移动元素
+        - name: $event.value
+          type: any
+          description: 需要传递的值
+        - name: senderVM
+          type: FDragger
+          description: 发送事件实例
+  methods:
+    - name: cancel()
+      description: 取消拖拽。
+      params: []
