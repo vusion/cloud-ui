@@ -200,6 +200,31 @@ export default {
 </script>
 ```
 
+### 可以重复
+
+设置`duplicated`属性可以让选项重复。
+
+``` vue
+<template>
+<u-select multiple duplicated v-model="values">
+    <u-select-item value="cup">水杯</u-select-item>
+    <u-select-item value="coffee">咖啡</u-select-item>
+    <u-select-item value="nut">坚果</u-select-item>
+    <u-select-item value="towel">毛巾</u-select-item>
+    <u-select-item value="sofa">沙发</u-select-item>
+</u-select>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            values: ['nut', 'towel', 'nut'],
+        };
+    },
+};
+</script>
+```
+
 ### Flag
 
 ``` html
