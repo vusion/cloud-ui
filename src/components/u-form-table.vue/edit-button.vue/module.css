@@ -1,0 +1,13 @@
+.root {}
+
+.root[disabled] {
+    cursor: var(--cursor-not-allowed);
+    color: var(--brand-disabled);
+}
+
+.root::before {
+    font-size: var(--form-table-button-font-size);
+    display: inline-block;
+    vertical-align: middle;
+    icon-font: url('../../i-icon.vue/assets/edit.svg');
+}

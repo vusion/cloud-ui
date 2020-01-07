@@ -1,0 +1,341 @@
+- name: u-list-view
+  title: 列表视图
+  docs:
+    data: 数据相关
+  attrs:
+    - name: value.sync, v-model
+      type: any
+      default: null
+      description: 当前选择的值
+    - name: field
+      type: string
+      default: text
+      description: 显示文本字段
+    - name: data
+      type: Array<{ text, value }>
+      default: null
+      description: 列表数据
+    - name: data-source
+      type: object, Function, DataSource
+      default: null
+      description: 多功能数据源
+    - name: cancelable
+      type: boolean
+      default: false
+      description: 是否可以取消选择
+    - name: multiple
+      type: boolean
+      default: false
+      description: 是否可以多选
+    - name: collapsible
+      type: boolean
+      default: false
+      description: 分组是否可以折叠
+    - name: accordion
+      type: boolean
+      default: false
+      description: 是否每次只会展开一个分组
+    - name: expand-trigger
+      type: string
+      default: click
+      description: 展开/折叠的触发方式。可选值：`'click'`表示整行点击均可触发、`'click-expander'`表示仅点击小箭头时触发
+    - name: loading-text
+      type: string
+      default: 加载中...
+      description: 加载时的文字。使用分页加载时才会出现
+    - name: initial-load
+      type: boolean
+      default: true
+      description: 是否在初始时立即加载
+    - name: pageable
+      type: boolean
+      default: false
+      description: 是否需要分页
+    - name: page-size
+      type: number
+      default: 50
+      description: 分页大小
+    - name: remote-paging
+      type: number
+      default: false
+      description: 是否使用后端分页
+    - name: readonly
+      type: boolean
+      default: false
+      description: 是否只读
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用
+  slots:
+    - name: default
+      description: 插入`<u-list-view-item>`、`<u-list-view-divider>`或`<u-list-view-group>`子组件。
+  events:
+    - name: before-select
+      description: 选择某一项前触发
+      params:
+        - name: $event.value
+          type: any
+          description: 选择项的值
+        - name: $event.oldValue
+          type: any
+          description: 旧的值
+        - name: $event.item
+          type: object
+          description: 选择项相关对象
+        - name: $event.itemVM
+          type: UListViewItem
+          description: 选择项子组件
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止选择流程
+        - name: senderVM
+          type: UListView
+          description: 发送事件实例
+    - name: input
+      description: 选择某一项时触发
+      params:
+        - name: $event
+          type: any
+          description: 选择项的值
+        - name: senderVM
+          type: UListView
+          description: 发送事件实例
+    - name: select
+      description: 选择某一项时触发。单选模式中：
+      params:
+        - name: $event.value
+          type: any
+          description: 改变后的值
+        - name: $event.oldValue
+          type: any
+          description: 旧的值
+        - name: $event.item
+          type: object
+          description: 选择项相关对象
+        - name: $event.oldItem
+          type: object
+          description: 旧的选择项相关对象
+        - name: $event.itemVM
+          type: UListViewItem
+          description: 选择项子组件
+        - name: $event.oldVM
+          type: UListViewItem
+          description: 旧的选择项子组件
+        - name: senderVM
+          type: UListView
+          description: 发送事件实例
+    - name: select
+      description: 选择某一项时触发。多选模式中：
+      params:
+        - name: $event.selected
+          type: boolean
+          description: 选中还是取消
+        - name: $event.item
+          type: boolean
+          description: 该选中项相关对象
+        - name: $event.itemVM
+          type: boolean
+          description: 该选中项子组件
+        - name: $event.value
+          type: Array
+          description: 改变后的值
+        - name: $event.oldValue
+          type: Array
+          description: 旧的值
+        - name: $event.items
+          type: Array<object>
+          description: 所有选中项相关对象的数组
+        - name: $event.oldItems
+          type: Array<object>
+          description: 旧的所有选中项相关对象的数组
+        - name: $event.itemVMs
+          type: Array<UListViewItem>
+          description: 所有选中项子组件的数组
+        - name: $event.oldVMs
+          type: Array<UListViewItem>
+          description: 旧的所有选中项子组件的数组
+        - name: senderVM
+          type: UListView
+          description: 发送事件实例
+    - name: change
+      description: 选择值改变时触发。单选模式中：
+      params:
+        - name: $event.value
+          type: any
+          description: 选择项的值
+        - name: $event.oldValue
+          type: any
+          description: 旧的值
+        - name: $event.item
+          type: object
+          description: 选择项相关对象
+        - name: $event.oldItem
+          type: object
+          description: 旧的选择项相关对象
+        - name: $event.itemVM
+          type: UListViewItem
+          description: 选择项子组件
+        - name: $event.oldVM
+          type: UListViewItem
+          description: 旧的选择项子组件
+        - name: senderVM
+          type: UListView
+          description: 发送事件实例
+    - name: change
+      description: 选择值改变时触发。多选模式中：
+      params:
+        - name: $event.value
+          type: Array
+          description: 所有选中项的值
+        - name: $event.items
+          type: Array<object>
+          description: 所有选中项相关对象的数组
+        - name: $event.itemVMs
+          type: Array<UListViewItem>
+          description: 所有选中项子组件的数组
+        - name: senderVM
+          type: UListView
+          description: 发送事件实例
+    - name: before-load
+      description: 加载前触发
+      params:
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止加载流程
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
+    - name: load
+      description: 加载时触发
+      params:
+        - name: $event
+          type: ""
+          description: 空
+        - name: senderVM
+          type: UTableView
+          description: 发送事件实例
+    - name: toggle
+      description: 展开/折叠某分组时触发
+      params:
+        - name: $event.expanded
+          type: boolean
+          description: 展开/折叠状态
+        - name: $event.groupVM
+          type: UListViewGroup
+          description: 分组组件
+        - name: senderVM
+          type: UListView
+          description: 发送事件实例
+  methods:
+    - name: toggleAll(expanded)
+      description: 展开/折叠所有分组
+      params:
+        - name: expanded
+          type: boolean
+          description: 展开/折叠
+    - name: load()
+      description: 带缓存地加载
+      params: []
+    - name: reload()
+      description: 清除缓存，重新加载
+      params: []
+- name: u-list-view-item
+  attrs:
+    - name: value
+      type: any
+      default: null
+      description: 此项的值
+    - name: disabled
+      type: boolean
+      default: false
+      description: 禁用此项
+    - name: item
+      type: object
+      default: null
+      description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
+  slots:
+    - name: default
+      description: 插入文本或 HTML。
+  events:
+    - name: click
+      description: 点击此项时触发，与原生 click 事件不同的是，它只会在非只读和禁用的情况下触发。
+      params:
+        - name: $event
+          type: MouseEvent
+          description: 鼠标事件对象
+        - name: senderVM
+          type: UListView
+          description: 发送事件实例
+    - name: before-select
+      description: 选择此项前触发
+      params:
+        - name: $event.value
+          type: any
+          description: 此项的值
+        - name: $event.item
+          type: object
+          description: 此项的相关对象
+        - name: $event.itemVM
+          type: UListViewItem
+          description: 此组件
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止选择流程
+        - name: senderVM
+          type: UListView
+          description: 发送事件实例
+- name: u-list-view-group
+  attrs:
+    - name: title
+      type: string
+      default: null
+      description: 显示的标题
+    - name: collapsible
+      type: boolean
+      default: null
+      description: "`false`"
+    - name: expanded.sync
+      type: boolean
+      default: false
+      description: 展开/折叠状态
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用。禁用时无法展开/折叠
+  slots:
+    - name: default
+      description: 插入`<u-list-view-item>`或`<u-list-view-divider>`子组件。
+    - name: title
+      description: 自定义标题文本。
+    - name: extra
+      description: 在右侧可以附加内容。
+  events:
+    - name: before-toggle
+      description: 展开/折叠此分组前触发
+      params:
+        - name: $event.expanded
+          type: boolean
+          description: 展开/折叠状态
+        - name: $event.groupVM
+          type: UListViewGroup
+          description: 分组组件
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止展开/折叠流程
+        - name: senderVM
+          type: UListView
+          description: 发送事件实例
+    - name: toggle
+      description: 展开/折叠某分组时触发
+      params:
+        - name: $event.expanded
+          type: boolean
+          description: 展开/折叠状态
+        - name: $event.groupVM
+          type: UListViewGroup
+          description: 分组组件
+        - name: senderVM
+          type: UListView
+          description: 发送事件实例
+- name: u-list-view-divider

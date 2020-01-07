@@ -1,0 +1,18 @@
+<u-linear-layout :class="$style.root" gap="small">
+    <span v-if="showTotal" :class="$style.total">{{ $t('total', { totalItems }) }}</span>
+    <u-select v-if="showSizer" :class="$style.sizer" :value="pageSize" @select="onSelectPageSize">
+        <u-select-item v-for="pageSize in pageSizeOptions" :key="pageSize" :value="pageSize">
+            {{ pageSize }} {{ $t('pageSizeUnit') }}
+        </u-select-item>
+    </u-select>
+    <u-pagination display="inline"
+        :total="currentTotalPage" :page="currentPage" :side="side" :around="around" :readonly="readonly" :disabled="disabled"
+        @change="onChange($event.page, $event.oldPage)">
+    </u-pagination>
+    <span v-if="showJumper">{{ $t('goto') }}
+        <u-number-input :class="$style.jumper" :value="currentPage"
+            :min="1" :max="currentTotalPage" hide-buttons
+            @change="onChange($event.value, $event.oldValue)">
+        </u-number-input>
+        {{ $t('pageUnit') }}</span>
+</u-linear-layout>

@@ -1,6 +1,8 @@
-@extend;
+.root {}
 
 .sizer {
+    text-align: left;
+    width: var(--combo-pagination-sizer-width);
     height: var(--combo-pagination-height);
     line-height: var(--combo-pagination-line-height);
 }
@@ -10,6 +12,7 @@
 }
 
 .jumper {
+    width: var(--combo-pagination-jumper-width);
     height: var(--combo-pagination-height);
     line-height: var(--combo-pagination-line-height);
 }

@@ -1,7 +1,43 @@
-@extend;
-
 .root {
-    width: 16px;
-    height: 16px;
-    line-height: 14px;
+    user-select: none;
+    cursor: var(--cursor-pointer);
+}
+
+.root:focus {
+    outline: var(--focus-outline);
+}
+
+.root[disabled] {
+    cursor: var(--cursor-not-allowed);
+    color: var(--brand-disabled);
+}
+
+.radio {
+    display: inline-block;
+    width: var(--radio-size);
+    height: var(--radio-size);
+    border-radius: 100px;
+    line-height: calc(var(--radio-size) - 2px);
+    background: white;
+    border: 1px solid var(--border-color-base);
+    margin-right: 5px;
+    text-align: center;
+}
+
+.radio::before {
+    display: inline-block;
+    content: '✓';
+    width: 10px;
+    height: 10px;
+    border-radius: 100px;
+    color: transparent;
+    overflow: hidden;
+}
+
+.radio[selected]::before {
+    background: var(--brand-primary);
+}
+
+.radio[disabled] {
+    background: var(--background-color-base);
 }

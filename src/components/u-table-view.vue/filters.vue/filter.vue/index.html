@@ -1,0 +1,7 @@
+<div :class="$style.root"
+    :selected="parentVM.multiple ? currentSelected : isSelected"
+    :disabled="disabled || parentVM.disabled"
+    @click="select"
+    v-ellipsis-title>
+    <slot></slot>
+</div>

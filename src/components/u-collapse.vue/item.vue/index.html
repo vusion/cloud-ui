@@ -1,0 +1,17 @@
+<div :class="$style.root" :disabled="disabled">
+    <div :class="$style.head" @click="parentVM.expandTrigger === 'click' && toggle()">
+        <div :class="$style.title">
+            <slot name="title">{{ title }}</slot>
+        </div>
+        <span :class="$style.expander"
+            :expanded="currentExpanded"
+            @click="parentVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"
+        ></span>
+        <span :class="$style.extra"><slot name="extra"></slot></span>
+    </div>
+    <f-collapse-transition>
+        <div :class="$style.body" v-show="currentExpanded">
+            <slot></slot>
+        </div>
+    </f-collapse-transition>
+</div>

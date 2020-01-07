@@ -1,5 +1,6 @@
 - name: u-link
   title: 链接
+  labels: [UI 组件, 路由链接, 行内展示]
   attrs:
     - name: href
       type: string
@@ -44,6 +45,9 @@
         - name: $event
           type: MouseEvent
           description: 鼠标事件对象
+        - name: senderVM
+          type: Vue
+          description: 发送事件实例
     - name: before-navigate
       description: 使用router相关属性切换路由前触发
       params:
@@ -59,6 +63,9 @@
         - name: $event.preventDefault
           type: Function
           description: 阻止切换流程
+        - name: senderVM
+          type: Vue
+          description: 发送事件实例
     - name: navigate
       description: 使用router相关属性切换路由时触发
       params:
@@ -71,3 +78,6 @@
         - name: $event.append
           type: boolean
           description: "`append`属性的值"
+        - name: senderVM
+          type: Vue
+          description: 发送事件实例

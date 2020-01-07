@@ -1,0 +1,9 @@
+- name: l-side-main
+  title: 左侧栏固定布局
+  slots:
+    - name: default
+      description: 主内容区。
+    - name: side
+      description: 设置左侧栏内容。
+    - name: main
+      description: 重置中间区域内容。包裹在主内容区外。

@@ -1,4 +1,50 @@
-@extend;
+.root {}
+
+.root[display="inline"] { /* As default */ }
+
+.root[display="block"] {
+    display: block;
+}
+
+.root[size="small"] {
+    font-size: var(--text-font-size-small);
+}
+
+.root[size="normal"] { /* As default */ }
+
+.root[size="large"] {
+    font-size: var(--text-font-size-large);
+}
+
+.root[color="default"] { /* As default */ }
+
+.root[color="primary"] {
+    color: var(--text-color-primary);
+}
+
+.root[color="error"] {
+    color: var(--text-color-error);
+}
+
+.root[color="disabled"] {
+    color: var(--text-color-disabled);
+}
+
+.root[wrap="ellipsis"] {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.root[wrap="break"] {
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+.root[wrap="nowrap"] {
+    white-space: nowrap;
+}
 
 .root[color="secondary"] {
     color: #999;

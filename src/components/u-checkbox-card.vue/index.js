@@ -1,5 +1,5 @@
 // import i18n from '@/utils/i18n';
-import { MField } from 'proto-ui.vusion';
+import { MField } from '../m-field.vue';
 
 export const UCheckboxCard = {
     name: 'u-checkbox-card',

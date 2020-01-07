@@ -1,0 +1,7 @@
+<tr :class="$style.root">
+    <slot></slot>
+    <td :class="$style['last-td']">
+        <slot name="last-td"></slot>
+        <span v-if="!mutedMessage && touched && !valid && firstError" :class="$style.message" color="error">{{ firstError }}</span>
+    </td>
+</tr>

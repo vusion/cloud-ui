@@ -39,8 +39,11 @@
   "dependencies": {
     "countup.js": "^1.9.3",
     "lodash": "^4.17.5",
-    "proto-ui.vusion": "^0.6.5",
-    "vusion-utils": "^0.4.7"
+    "vusion-utils": "^0.4.7",
+    "@vusion/popper.js": "^1.14.1",
+    "atom-validator": "^0.2.3",
+    "normalize.css": "^7.0.0",
+    "vusion-async-validator": "^1.8.8"
   },
   "devDependencies": {
     "@vue/babel-preset-app": "^3.10.0",
@@ -53,6 +56,8 @@
     "shelljs": "^0.7.8",
     "stylelint": "^9.3.0",
     "stylelint-config-vusion": "^1.1.2",
+    "sinon": "^4.2.2",
+    "vue-router": "^3.1.3",
     "vue": "^2.6.10",
     "vue-cli-plugin-vusion": "^0.8.6",
     "vue-template-compiler": "^2.6.10",

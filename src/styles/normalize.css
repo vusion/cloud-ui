@@ -1,0 +1,27 @@
+@import 'normalize.css/normalize.css';
+
+/**
+ * 1. Change from `box-sizing: content-box` so that `width` is not affected by `padding` or `border`.
+ * 2. Change the default font family in all browsers.
+ */
+
+html {
+    box-sizing: border-box; /* 1 */
+    font-family: sans-serif; /* 2 */
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit; /* 1 */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+}

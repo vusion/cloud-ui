@@ -1,4 +1,192 @@
-@extend;
+.root {
+    display: inline-block;
+    position: relative;
+    user-select: none;
+    max-width: 100%;
+    cursor: var(--cursor-pointer);
+    width: var(--select-width);
+    height: var(--select-height);
+    line-height: calc(var(--select-height) - var(--select-border-width) * 2);
+    padding: var(--select-padding);
+    background: var(--select-background);
+    border: var(--select-border-width) solid var(--select-border-color);
+}
+
+.root:focus {
+    outline: var(--focus-outline);
+}
+
+.baseline {
+    visibility: hidden;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.placeholder {
+    color: var(--select-placeholder-color);
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: inherit;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.clearable::before {
+    display: block;
+    position: absolute;
+    right: 8px;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    line-height: 1;
+    height: 1em;
+    margin: auto;
+    icon-font: url('../i-icon.vue/assets/close-solid.svg');
+    cursor: var(--cursor-pointer);
+    color: #a7afbb;
+}
+
+.root[filterable] {
+    cursor: text;
+}
+
+.root::after {
+    position: absolute;
+    icon-font: url('../i-icon.vue/assets/arrow-down.svg');
+    right: 8px;
+    top: 0;
+    bottom: 0;
+    line-height: 1;
+    height: 1em;
+    margin: auto;
+    color: var(--select-arrow-color);
+}
+.root[opend]::after {
+    icon-font: url('../i-icon.vue/assets/arrow-up.svg');
+}
+
+.root[clearable]::after {
+    display: none;
+}
+
+.root[readonly] {
+    cursor: default;
+}
+
+.root[disabled] {
+    cursor: var(--cursor-not-allowed);
+    background: var(--select-background-disabled);
+}
+
+.text {
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: top;
+}
+
+.root[multiple-tags] {
+    height: auto;
+    padding: var(--select-tags-padding);
+    line-height: var(--select-tags-line-height);
+}
+
+.root[multiple-tags] .text[tags-overflow="visible"] {
+    overflow: visible;
+    white-space: normal;
+}
+
+.tag {
+    display: inline-block;
+    padding: var(--select-tag-padding);
+    font-size: var(--font-size-small);
+    line-height: var(--select-tag-line-height);
+    vertical-align: 1px;
+    background: var(--select-tag-background);
+}
+
+.tag:not(:last-child) {
+    margin-right: var(--select-tag-margin-x);
+}
+
+.tag-remove {
+    margin-left: var(--select-tag-margin-x);
+    color: var(--select-tag-remove-color);
+}
+
+.tag-remove::before {
+    icon-font: url('../i-icon.vue/assets/close.svg');
+    vertical-align: -2px;
+}
+
+.tag-remove:hover {
+    color: var(--select-tag-remove-color-hover);
+}
+
+.input {
+    position: absolute;
+    border: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.input[multiple-tags][filterable] {
+    position: relative;
+    display: inline-block;
+    width: var(--select-tags-filterable-width);
+    line-height: var(--select-tags-line-height);
+    padding: 0;
+}
+
+.popper {
+    position: absolute;
+    box-sizing: content-box;
+    width: 100%;
+    line-height: var(--select-popper-line-height);
+    max-height: var(--select-popper-max-height);
+    overflow: auto;
+    background: var(--select-popper-background);
+    border: 1px solid var(--select-popper-border-color);
+    z-index: var(--z-index-popper);
+}
+
+.status {
+    color: var(--select-status-color);
+    text-align: center;
+}
+
+.root[size="normal"] { /* As default */ }
+
+.root[size="small"] {
+    width: var(--select-small-width);
+    height: var(--select-small-height);
+    line-height: calc(var(--select-small-height) - var(--select-border-width) * 2);
+}
+
+.root[size="small"] .text {
+    line-height: calc(var(--select-small-height) - var(--select-border-width) * 2);
+}
+
+.root[size="small"]::after {
+    line-height: calc(var(--select-small-height) - var(--select-border-width) * 4);
+}
+
+.root[size="small"] .popper {
+    line-height: var(--select-small-popper-line-height);
+}
+
+.root[size="large"] {
+    width: var(--select-large-width);
+    height: var(--select-large-height);
+    line-height: calc(var(--select-large-height) - var(--select-border-width) * 2);
+}
 
 .root {
     color: #555;

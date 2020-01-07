@@ -1,8 +1,10 @@
-import { USidebarGroup as OSidebarGroup } from 'proto-ui.vusion';
+import { MGroup } from '../../m-group.vue';
 
 export const USidebarGroup = {
     name: 'u-sidebar-group',
-    extends: OSidebarGroup,
+    parentName: 'u-sidebar',
+    childName: 'u-sidebar-item',
+    extends: MGroup,
     computed: {
         selected() {
             return this.itemVMs.some((item) => item.active);

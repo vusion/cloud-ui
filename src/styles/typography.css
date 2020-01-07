@@ -1,0 +1,72 @@
+@import './normalize.css';
+
+body {
+    color: var(--color-base);
+    font: 14px/1.6 var(--font-family-zh-CN);
+    -webkit-font-smoothing: antialiased;
+}
+
+h6 {
+    margin: 1em 0;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--hr-border-color);
+}
+
+blockquote {
+    margin-left: 0;
+    margin-right: 0;
+    padding: var(--blockquote-padding);
+    border-left: 4px solid var(--border-color-base);
+}
+
+ul, ol {
+    padding-left: var(--ulol-padding-left);
+}
+
+dt {
+    font-weight: var(--font-weight-bold);
+}
+
+dd {
+    margin-left: 0;
+}
+
+pre {
+    tab-size: var(--tab-size);
+    /* Contain overflow in all browsers. */
+    overflow: auto;
+    background: var(--background-color-light);
+    border-radius: var(--border-radius-base);
+    padding: var(--code-padding-y) var(--code-padding-x);
+    font-size: var(--pre-font-size);
+    font-family: var(--pre-font-family);
+}
+
+code {
+    padding: var(--code-padding-y) var(--code-padding-x);
+    font-size: var(--code-font-size);
+    font-family: var(--font-family-code);
+    background: var(--code-background);
+    color: var(--code-color);
+}
+
+pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+    color: inherit;
+    /* white-space: pre-wrap; */
+}
+
+kbd {
+    padding: var(--kbd-padding-y) var(--kbd-padding-x);
+    font-size: var(--kbd-font-size);
+    background: var(--kbd-background);
+    border-radius: var(--kbd-border-radius);
+    box-shadow: var(--kbd-box-shadow);
+}

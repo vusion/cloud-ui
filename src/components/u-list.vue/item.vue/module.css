@@ -1,0 +1,4 @@
+.root {
+    list-style: inherit;
+    padding: var(--list-item-padding);
+}

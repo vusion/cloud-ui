@@ -46,7 +46,7 @@
       description: 展示方式。可选值：`'inline'`, `'block'`
   slots:
     - name: default
-      description: 插入文本或HTML。
+      description: 插入文本或 HTML。
   events:
     - name: $listeners
       description: 监听所有`<a>`元素的事件。
@@ -55,7 +55,7 @@
       description: 使用router相关属性切换路由前触发
       params:
         - name: $event.to
-          type: string,  Location
+          type: string, Location
           description: "`to`属性的值"
         - name: $event.replace
           type: boolean
@@ -66,11 +66,14 @@
         - name: $event.preventDefault
           type: Function
           description: 阻止切换流程
+        - name: senderVM
+          type: UButton
+          description: 发送事件实例
     - name: navigate
       description: 使用router相关属性切换路由时触发
       params:
         - name: $event.to
-          type: string,  Location
+          type: string, Location
           description: "`to`属性的值"
         - name: $event.replace
           type: boolean
@@ -78,3 +81,6 @@
         - name: $event.append
           type: boolean
           description: "`append`属性的值"
+        - name: senderVM
+          type: UButton
+          description: 发送事件实例

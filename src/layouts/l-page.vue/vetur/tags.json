@@ -1,0 +1,18 @@
+{
+  "l-page": {
+    "attributes": [],
+    "description": "只有顶部栏和底部栏的通用页面布局。",
+    "subtags": [
+      "l-page-center",
+      "l-page-section"
+    ]
+  },
+  "l-page-center": {
+    "attributes": [
+      "size"
+    ]
+  },
+  "l-page-section": {
+    "attributes": []
+  }
+}

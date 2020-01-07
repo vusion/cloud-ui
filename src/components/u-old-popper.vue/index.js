@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Popper from '@vusion/popper.js';
-import event from 'proto-ui.vusion/src/utils/event';
+import event from '../../utils/event';
 
 /**
  * @TODO: <u-popper> 套在外面的书写方式往往会影响原有模板结构，考虑一个 break change，

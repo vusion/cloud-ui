@@ -1,8 +1,9 @@
+@extend;
+
 .root {
     /* @Private */
     user-select: none;
 
-    /* @Public */
-    background: white;
-    border: 1px solid var(--brand-secondary);
+    background: var(--menu-background);
+    border: 1px solid var(--menu-border-color);
 }

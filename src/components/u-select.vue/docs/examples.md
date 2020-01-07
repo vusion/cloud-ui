@@ -126,7 +126,7 @@ export default {
 
 ### 多选模式
 
-通过`multiple`属性开启多选模式。绑定`value`属性，可以用`v-model`或`:value.sync`。
+通过`multiple`属性开启多选模式。可以使用`v-model`或`:value.sync`两种方式进行双向绑定。
 
 ``` vue
 <template>

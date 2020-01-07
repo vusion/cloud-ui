@@ -1,6 +1,6 @@
 import { clickOutside } from '../../directives';
 import { format, transformDate } from '../../utils/date';
-import Field from 'proto-ui.vusion/src/components/m-field.vue';
+import MField from '../m-field.vue';
 import i18n from './i18n';
 /**
  * @class DateTimePicker
@@ -42,7 +42,7 @@ export const UDateTimePicker = {
             default: 1,
         },
     },
-    mixins: [Field],
+    mixins: [MField],
     data() {
         return {
             dateTime: this.format(this.date, 'YYYY-MM-DD HH:mm:ss'),

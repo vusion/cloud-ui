@@ -1,4 +1,4 @@
-import { UCascadeSelect } from 'proto-ui.vusion';
+import { UCascadeSelect } from '../u-cascade-select.vue';
 
 export const UCascadeCapsules = {
     name: 'u-cascade-capsules',

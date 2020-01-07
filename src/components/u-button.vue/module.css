@@ -1,17 +1,60 @@
-@extend;
-
 .root {
+    /* Correct inability to style clickable `input` types in iOS. */
+    -webkit-appearance: none;
+    /* Remove margins in Chrome, Safari and Opera. */
+    margin: 0;
+    /* Remove borders for `button`. */
+    border: none;
+    /* Address `overflow` set to `hidden` in IE+. */
+    overflow: visible;
+    /* Correct `font` properties not being inherited for `button`. */
+    font: inherit;
+    /* Address inconsistent `text-transform` inheritance which is only inherit in Firefox and IE. */
+    text-transform: none;
+    /* Required for `a`. */
+    text-decoration: none;
+    /* Use pointer cursor at any time. */
+    cursor: var(--cursor-pointer);
+    /* Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214 */
+    background: none;
+    /* Others */
+    display: inline-block;
+    text-align: center;
+    padding: var(--button-padding-y) var(--button-padding-x);
+    height: var(--button-height);
+    line-height: calc(var(--button-height) - var(--button-border-width) * 2 - var(--button-padding-y) * 2);
+    /* stylelint-disable declaration-block-no-duplicate-properties */
+    background: var(--button-background);
+    color: var(--button-color);
+    border: var(--button-border-width) solid var(--button-border-color);
     border-radius: var(--button-border-radius-base);
 }
 
 .root:hover {
+    /* Required for `a` elements */
+    text-decoration: none;
+    color: var(--button-color-hover);
     background: var(--button-background-hover);
+    border-color: var(--button-border-color-hover);
 }
+
+.root:focus {
+    /* Remove default focus style */
+    outline: var(--focus-outline);
+    /* Required for `a` elements */
+    text-decoration: none;
+}
+
 .root:active {
+    background: var(--button-background-active);
     box-shadow: var(--button-box-shadow-active);
 }
 
 .root[disabled] {
+    cursor: var(--cursor-not-allowed);
+    background: var(--button-background-disabled);
+    border-color: var(--button-border-color-disabled);
+    color: var(--button-color-disabled);
     box-shadow: none;
 }
 
@@ -86,7 +129,7 @@
     border: 2px solid currentColor;
     border-top-color: transparent;
     border-radius: var(--button-height-loading);
-    animation: var(--button-animation-loading);
+    animation: rotate var(--button-loading-animation-duration) ease-in-out 0s infinite;
 }
 
 .root[icon="success"]::before {
@@ -100,6 +143,11 @@
     0% { transform: rotate(0); }
     80% { transform: rotate(360deg); }
     100% { transform: rotate(360deg); }
+}
+
+.root[display="block"] {
+    display: block;
+    width: auto;
 }
 
 .root:lang(en) {

@@ -1,0 +1,25 @@
+.root {}
+
+.side {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: var(--navbar-height);
+    width: var(--sidebar-width);
+}
+
+.main {
+    margin-left: var(--sidebar-width);
+}
+
+.content {
+    padding: 30px 50px 50px;
+}
+
+.root[demo] .side {
+    position: absolute;
+}
+
+.root[demo] .main {
+    position: absolute;
+}

@@ -2,7 +2,7 @@
 
 # USelect 选择框
 
-**UI 组件**, **表单类**, **行内展示**
+**UI 组件**, **表单控件**, **行内展示**
 
 下拉选择框，支持支持单选、多选、搜索等功能，用于代替原生的选择框。
 
@@ -135,7 +135,7 @@ export default {
 
 ### 多选模式
 
-通过`multiple`属性开启多选模式。绑定`value`属性，可以用`v-model`或`:value.sync`。
+通过`multiple`属性开启多选模式。可以使用`v-model`或`:value.sync`两种方式进行双向绑定。
 
 ``` vue
 <template>
@@ -200,151 +200,6 @@ export default {
 </script>
 ```
 
-### Flag
-
-``` html
-<u-select value="C">
-    <u-select-item value="A">苹果</u-select-item>
-    <u-select-item value="B" flag>香蕉</u-select-item>
-    <u-select-item value="C" flag="默认选项">蛋糕</u-select-item>
-</u-select>
-```
-
-### Label
-
-``` html
-<u-select value="C" label="CPU">
-    <u-select-item value="A">1核</u-select-item>
-    <u-select-item value="B">2核</u-select-item>
-    <u-select-item value="C">4核</u-select-item>
-</u-select>
-```
-
-### Layer
-
-``` html
-<u-select value="C">
-    <u-select-item value="A">苹果</u-select-item>
-    <u-select-item value="B" flag layer="high">香蕉</u-select-item>
-    <u-select-item value="C" flag="默认选项" layer="high">蛋糕</u-select-item>
-</u-select>
-```
-
-### 大小扩展
-
-``` html
-<u-linear-layout direction="vertical">
-    <u-linear-layout>
-        <u-select size="mini" placeholder="mini">
-            <u-select-item>苹果</u-select-item>
-            <u-select-item>香蕉</u-select-item>
-            <u-select-item>蛋糕</u-select-item>
-        </u-select>
-        <u-select size="mini small" placeholder="mini small">
-            <u-select-item>苹果</u-select-item>
-            <u-select-item>香蕉</u-select-item>
-            <u-select-item>蛋糕</u-select-item>
-        </u-select>
-        <u-select size="mini normal" placeholder="mini normal">
-            <u-select-item>苹果</u-select-item>
-            <u-select-item>香蕉</u-select-item>
-            <u-select-item>蛋糕</u-select-item>
-        </u-select>
-        <u-select size="mini medium" placeholder="mini medium">
-            <u-select-item>苹果</u-select-item>
-            <u-select-item>香蕉</u-select-item>
-            <u-select-item>蛋糕</u-select-item>
-        </u-select>
-    </u-linear-layout>
-    <u-linear-layout>
-        <u-select size="small mini" placeholder="small mini">
-            <u-select-item>苹果</u-select-item>
-            <u-select-item>香蕉</u-select-item>
-            <u-select-item>蛋糕</u-select-item>
-        </u-select>
-        <u-select size="small" placeholder="small">
-            <u-select-item>苹果</u-select-item>
-            <u-select-item>香蕉</u-select-item>
-            <u-select-item>蛋糕</u-select-item>
-        </u-select>
-        <u-select size="small normal" placeholder="small normal">
-            <u-select-item>苹果</u-select-item>
-            <u-select-item>香蕉</u-select-item>
-            <u-select-item>蛋糕</u-select-item>
-        </u-select>
-        <u-select size="small medium" placeholder="small medium">
-            <u-select-item>苹果</u-select-item>
-            <u-select-item>香蕉</u-select-item>
-            <u-select-item>蛋糕</u-select-item>
-        </u-select>
-    </u-linear-layout>
-    <u-linear-layout>
-        <u-select size="normal mini" placeholder="normal mini">
-            <u-select-item>苹果</u-select-item>
-            <u-select-item>香蕉</u-select-item>
-            <u-select-item>蛋糕</u-select-item>
-        </u-select>
-        <u-select size="normal small" placeholder="normal small">
-            <u-select-item>苹果</u-select-item>
-            <u-select-item>香蕉</u-select-item>
-            <u-select-item>蛋糕</u-select-item>
-        </u-select>
-        <u-select size="normal" placeholder="normal">
-            <u-select-item>苹果</u-select-item>
-            <u-select-item>香蕉</u-select-item>
-            <u-select-item>蛋糕</u-select-item>
-        </u-select>
-        <u-select size="normal medium" placeholder="normal medium">
-            <u-select-item>苹果</u-select-item>
-            <u-select-item>香蕉</u-select-item>
-            <u-select-item>蛋糕</u-select-item>
-        </u-select>
-    </u-linear-layout>
-    <u-linear-layout>
-        <u-select size="medium mini" placeholder="medium mini">
-            <u-select-item>苹果</u-select-item>
-            <u-select-item>香蕉</u-select-item>
-            <u-select-item>蛋糕</u-select-item>
-        </u-select>
-        <u-select size="medium small" placeholder="medium small">
-            <u-select-item>苹果</u-select-item>
-            <u-select-item>香蕉</u-select-item>
-            <u-select-item>蛋糕</u-select-item>
-        </u-select>
-        <u-select size="medium normal" placeholder="medium normal">
-            <u-select-item>苹果</u-select-item>
-            <u-select-item>香蕉</u-select-item>
-            <u-select-item>蛋糕</u-select-item>
-        </u-select>
-        <u-select size="medium" placeholder="medium">
-            <u-select-item>苹果</u-select-item>
-            <u-select-item>香蕉</u-select-item>
-            <u-select-item>蛋糕</u-select-item>
-        </u-select>
-    </u-linear-layout>
-    <u-linear-layout>
-        <u-select size="large" placeholder="large">
-            <u-select-item>苹果</u-select-item>
-            <u-select-item>香蕉</u-select-item>
-            <u-select-item>蛋糕</u-select-item>
-        </u-select>
-    </u-linear-layout>
-    <u-linear-layout>
-        <u-select size="huge" placeholder="huge">
-            <u-select-item>苹果</u-select-item>
-            <u-select-item>香蕉</u-select-item>
-            <u-select-item>蛋糕</u-select-item>
-        </u-select>
-    </u-linear-layout>
-    <u-linear-layout>
-        <u-select size="huge full" placeholder="huge full">
-            <u-select-item>苹果</u-select-item>
-            <u-select-item>香蕉</u-select-item>
-            <u-select-item>蛋糕</u-select-item>
-        </u-select>
-    </u-linear-layout>
-</u-linear-layout>
-```
 
 ## 数据相关
 ### 数据和数据源
@@ -487,7 +342,7 @@ export default {
 <template>
 <u-linear-layout>
     <u-select :data="data" filterable clearable placeholder="前端过滤"></u-select>
-    <u-select multiple :data="data" filterable clearable placeholder="后端过滤（多选）" style="width: 240px"></u-select>
+    <u-select multiple :data="data" filterable clearable placeholder="前端过滤（多选）" style="width: 240px"></u-select>
 </u-linear-layout>
 </template>
 
@@ -665,6 +520,7 @@ export default {
 | placeholder | boolean |  | `'请选择'` | 选择框的占位符 |
 | loading-text | string |  | `'加载中...'` | 加载时的文字。使用分页加载时才会出现 |
 | empty-text | string |  | `'加载中...'` | 没有匹配时的文字 |
+| empty-disabled | boolean |  | `false` | 没有数据时，自动禁用 |
 | initial-load | boolean |  | `true` | 是否在初始时立即加载 |
 | pageable | boolean |  | `false` | 是否需要分页 |
 | page-size | number |  | `50` | 分页大小 |
@@ -678,8 +534,6 @@ export default {
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | opened.sync | boolean |  | `false` | 弹出/关闭状态 |
-| ellipsisDirection | string |  | `'ltr'` | 控制文本省略方向，其值和原生`css`属性`'direction'`值保持一致 |
-| size | string |  | `'normal normal'` | 控制宽高属性，第一个值表示高度属性，第二值表示宽度，可选值: `mini`,`small`,`normal`,`medium`,`large`,`huge`,`full`,可以互相组合 |
 
 ### Slots
 

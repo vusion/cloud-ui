@@ -1,4 +1,7 @@
 - name: u-form
+  title: 表单
+  description: 具有数据收集、校验和提交功能的表单，包含输入框、选择框、复选框、单选框等元素。
+  labels: [UI 组件, 表单验证器, 块级展示]
   attrs:
     - name: model
       type: object
@@ -82,7 +85,7 @@
           type: boolean
           default: false
           description: 是否验证后无提示
-- name: form-item
+- name: u-form-item
   attrs:
     - name: name
       type: string

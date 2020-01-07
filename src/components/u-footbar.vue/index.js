@@ -1,4 +1,4 @@
-import event from 'proto-ui.vusion/src/utils/event';
+import event from '../../utils/event';
 import throttle from 'lodash/throttle';
 
 export const UFootbar = {

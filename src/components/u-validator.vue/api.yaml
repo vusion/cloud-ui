@@ -1,5 +1,6 @@
 - name: u-validator
   title: 验证器
+  labels: [UI 组件, 表单验证器, 行内展示]
   description: 实现了基础的嵌套验证功能和原子化验证功能，包含提示样式。常用于嵌套验证时使用，或用于派生一些较复杂的组件。
   docs:
     rules: 内置规则

@@ -1,11 +1,66 @@
-@extend;
+.listView {
+    display: inline-block;
+    width: var(--transfer-width);
+    height: var(--transfer-height);
+}
 
+.buttons {
+    display: inline-block;
+    vertical-align: top;
+    margin: var(--transfer-button-space);
+    margin-top: calc(var(--transfer-height) / 2 - (var(--transfer-button-size) + var(--border-width-base) * 2) - var(--transfer-button-space) / 2);
+}
 
 .button {
+    display: block;
+    text-align: center;
+    width: var(--transfer-button-size);
+    height: var(--transfer-button-size);
+    line-height: calc(var(--transfer-button-size) - var(--border-width-base) * 2);
+    background: var(--transfer-button-background);
+    color: var(--transfer-button-color);
+    border: var(--border-width-base) solid var(--transfer-button-border-color);
     border-radius: 100%;
     transition: all var(--transition-duration-base);
 }
 
+.button:not(:last-child) {
+    margin-bottom: var(--transfer-button-space);
+}
+
 .button:hover {
+    /* Required for `a` elements */
+    text-decoration: none;
     background: var(--transfer-button-background-hover);
+    color: var(--transfer-button-color-hover);
+    border-color: var(--transfer-button-border-color-hover);
+}
+
+.button:focus {
+    /* Remove default focus style */
+    outline: var(--focus-outline);
+    /* Required for `a` elements */
+    text-decoration: none;
+}
+
+.button:active {
+    background: var(--transfer-button-background-color-active);
+}
+
+.button[disabled] {
+    /* @Private */
+    cursor: var(--cursor-not-allowed);
+
+    /* @Public */
+    background: var(--transfer-button-background-color-disabled);
+    border-color: var(--transfer-button-border-color-disabled);
+    color: var(--transfer-button-color-disabled);
+}
+
+.button[role="reverse"]::before {
+    content: '❮';
+}
+
+.button[role="forward"]::after {
+    content: '❯';
 }

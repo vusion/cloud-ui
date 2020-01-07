@@ -1,0 +1,3 @@
+- name: u-article
+  title: 文章
+  labels: [UI 组件, 块级展示]

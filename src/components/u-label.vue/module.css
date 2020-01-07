@@ -1,7 +1,14 @@
-@extend;
-
 .root {
+    padding: var(--label-padding-y) var(--label-padding-x);
+    font-size: var(--label-font-size);
+    background: var(--label-background);
     color: var(--label-color);
+    border-radius: var(--border-radius-base);
+}
+
+.root[color="primary"] {
+    color: var(--label-color-primary);
+    background: var(--label-background-primary);
 }
 
 .root[color="success"] {

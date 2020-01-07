@@ -1,0 +1,83 @@
+- name: u-carousel
+  title: 幻灯片
+  attrs:
+    - name: value.sync
+      type: any
+      default: null
+      description: 播放位置
+    - name: autoplay
+      type: boolean
+      default: true
+      description: 是否自动播放
+    - name: loop
+      type: boolean
+      default: true
+      description: 是否循环播放，即首尾连接
+    - name: interval
+      type: number
+      default: 4000
+      description: 幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换
+    - name: direction
+      type: string
+      default: right
+      description: 幻灯片播放方向
+    - name: animation
+      type: string
+      default: null
+      description: 幻灯片过渡动画
+    # - name: router
+    #   type: boolean
+    #   default: false
+    #   description: 是否根据vue-router来控制选择播放至哪个位置
+  slots:
+    - name: default
+      description: 插入`<u-carousel-item>`子组件。
+  events:
+    - name: before-select
+      description: 选择某一页前触发
+      params:
+        - name: $event.value
+          type: any
+          description: 选中项的值
+        - name: $event.oldValue
+          type: any
+          description: 旧的值
+        - name: $event.itemVM
+          type: UCarouselItem
+          description: 选中项实例
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止选择流程
+        - name: senderVM
+          type: UCarousel
+          description: 发送事件实例
+    - name: select
+      description: 选择某一页时触发
+      params:
+        - name: $event.value
+          type: any
+          description: 选中项的值
+        - name: $event.oldValue
+          type: any
+          description: 旧的值
+        - name: $event.itemVM
+          type: UCarouselItem
+          description: 选中项实例
+        - name: senderVM
+          type: UCarousel
+          description: 发送事件实例
+- name: u-carousel-item
+  attrs:
+    - name: title
+      type: string
+      default: null
+      description: 该项的标题
+    - name: value
+      type: any
+      default: null
+      description: 该项的值
+  slots:
+    - name: default
+      description: 插入文本或 HTML。
+    - name: title
+      description: 自定义标题文本。

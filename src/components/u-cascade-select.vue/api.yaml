@@ -1,0 +1,87 @@
+- name: u-cascade-select
+  title: 级联选择
+  labels: [UI 组件, 表单控件, 块级展示]
+  attrs:
+    - name: data
+      type: Array<{ text, value }>
+      default: null
+      description: 数据列表
+    - name: value.sync, v-model
+      type: any
+      default: null
+      description: 当前选择的值
+    - name: categories
+      type: Array<{ label, key, placeholder }>
+      default: null
+      description: 多级分类
+    - name: hide-empty
+      type: boolean
+      default: false
+      description: 是否隐藏空列表
+    - name: converter
+      type: string, object
+      default: join
+      description: value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成
+        value，`'join.number'`与`join`类似，只是会考虑它为数字的情况。也可以用`:`修改分隔符，类似 Vue
+        的指令参数，`'last-value'`表示以最后一项的值作为 value。也可以传入一个包含 { get, set } 的一个对象
+    - name: field
+      type: string
+      default: text
+      description: 显示文本字段
+    - name: readonly
+      type: boolean
+      default: false
+      description: 是否只读
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用
+  events:
+    - name: input
+      description: 选择某一项时触发
+      params:
+        - name: $event
+          type: any
+          description: 选择项的值
+        - name: senderVM
+          type: UCascadeSelect
+          description: 发送事件实例
+    - name: select
+      description: 选择某一项时触发
+      params:
+        - name: $event.level
+          type: number
+          description: 选择的层级
+        - name: $event.value
+          type: any
+          description: 改变后的值
+        - name: $event.values
+          type: Array
+          description: 改变后每项值的数组
+        - name: $event.item
+          type: object
+          description: 选择项相关对象
+        - name: $event.itemVM
+          type: ListViewItem
+          description: 选择项子组件
+        - name: senderVM
+          type: UCascadeSelect
+          description: 发送事件实例
+    - name: change
+      description: 选择值改变时触发
+      params:
+        - name: $event.value
+          type: any
+          description: 改变后的值
+        - name: $event.oldValue
+          type: any
+          description: 旧的值
+        - name: $event.values
+          type: Array
+          description: 改变后每项值的数组
+        - name: $event.oldValues
+          type: Array
+          description: 旧的每项值的数组
+        - name: senderVM
+          type: UCascadeSelect
+          description: 发送事件实例

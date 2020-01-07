@@ -1,7 +1,58 @@
-@extend;
+.root {
+    position: fixed;
+    z-index: var(--z-index-toast);
+    top: var(--toast-top);
+    left: var(--toast-margin);
+    width: var(--toast-width);
+}
+
+.root[position='top-center'], .root[position='bottom-center'] {
+    left: 50%;
+    margin-left: calc(var(--toast-width) / -2);
+}
+
+.root[position='bottom-center'], .root[position='bottom-left'], .root[position='bottom-right'] {
+    top: auto;
+    bottom: var(--toast-margin);
+}
+
+.root[position='top-right'], .root[position='bottom-right'] {
+    left: auto;
+    right: var(--toast-margin);
+}
+
+.root[position='top-left'], .root[position='bottom-left'] {
+    left: var(--toast-margin);
+    right: auto;
+}
+
+.root[position='top-left'], .root[position='top-center'], .root[position='top-right'] {
+    top: var(--toast-top);
+    bottom: auto;
+}
+
+.root[position="static"] {
+    position: static;
+    width: auto;
+}
 
 .item {
+    margin-bottom: var(--toast-item-space);
+    padding: var(--toast-item-padding);
+    background: var(--toast-background-color);
+    color: var(--toast-item-color);
     text-align: center;
+}
+
+.close {
+    float: right;
+    color: var(--toast-close-color);
+}
+
+.close::before {
+    content: '×';
+    font-size: var(--toast-close-font-size);
+    line-height: 0.8;
 }
 
 .item[color="info"] {

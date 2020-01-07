@@ -1,1 +1,39 @@
-@extend;
+.root {
+    /* @Private */
+    cursor: var(--cursor-pointer);
+
+    /* @Public */
+    padding: var(--list-view-item-padding);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.root:hover {
+    background: var(--list-view-item-hover-background);
+}
+
+.root[readonly] {
+    cursor: default;
+    background: var(--list-view-item-readonly-background);
+}
+
+.root[focused] {
+    background: var(--list-view-item-focused-background);
+}
+
+.root[selected] {
+    background: var(--list-view-item-selected-background);
+    color: var(--list-view-item-selected-color);
+}
+
+.root[disabled] {
+    /* @Private */
+    cursor: var(--cursor-not-allowed);
+    background: var(--list-view-item-disabled-background);
+    color: var(--list-view-item-disabled-color);
+}
+
+.root[selected][disabled] {
+    background: var(--list-view-item-selected-disabled-background);
+}

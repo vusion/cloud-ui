@@ -1,0 +1,18 @@
+.root {
+    display: inline-block;
+    line-height: 1;
+    color: var(--icon-tooltip-color);
+}
+
+.root::before {
+    vertical-align: -2px;
+    icon-font: url('./assets/info.svg');
+}
+
+.root[type="help"]::before {
+    icon-font: url('./assets/help.svg');
+}
+
+.root[type="detail"]::before {
+    icon-font: url('./assets/detail.svg');
+}

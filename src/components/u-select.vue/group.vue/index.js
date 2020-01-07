@@ -1,8 +1,9 @@
-import { USelectGroup as OSelectGroup } from 'proto-ui.vusion';
+import { UListViewGroup } from '../../u-list-view.vue';
 
 export const USelectGroup = {
     name: 'u-select-group',
-    extends: OSelectGroup,
+    parentName: 'u-select',
+    extends: UListViewGroup,
 };
 
 export default USelectGroup;

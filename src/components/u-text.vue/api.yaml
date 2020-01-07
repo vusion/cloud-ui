@@ -1,6 +1,7 @@
 - name: u-text
   title: 文本
-  description: 用于在业务中临时快速调整文本大小、颜色等特性。不建议在封装基础组件时使用。
+  labels: [UI 组件, 行内展示]
+  description: 用于在业务中临时快速地调整文本大小、颜色等特性。不建议在封装基础组件时使用。
   attrs:
     - name: size
       type: string
@@ -16,5 +17,5 @@
       description: 展示方式。可选值：`'inline'`, `'block'`
     - name: wrap
       type: string
-      default: false
+      default: normal
       description: 换行方式。可选值：`'normal'`表示默认方式，`'ellipsis'`表示多余的文本省略，`'break'`表示强制换行且英文自动添加换行符，`'nowrap'`表示始终不换行。

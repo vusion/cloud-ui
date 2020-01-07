@@ -1,0 +1,97 @@
+- name: u-icon-tooltip
+  title: 图标提示
+  description: 图标与`<u-tooltip>`的组合。
+  labels: [UI 组件, 弹出层, 行内展示]
+  attrs:
+    - name: type
+      type: string
+      default: info
+      description: 图标类型。可选值：`'info'`, `'help'`, `'detail'`
+    - name: size
+      type: string
+      default: normal
+      description: 提示大小。可选值：`'mini'`, `'normal'`, `'large'`
+    - name: opened.sync
+      type: boolean
+      default: false
+      description: 弹出/关闭状态
+    - name: trigger
+      type: string
+      default: hover
+      description: 工具提示的触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`,
+        `'manual'`
+    - name: placement
+      type: string
+      default: bottom
+      description: 工具提示的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`,
+        `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',`
+        'left-end'`, `'right-start'`, `'right-end'`
+    - name: hide-delay
+      type: number
+      default: 0
+      description: 提示内容消失延迟时间，单位是 ms
+    - name: offset
+      type: string
+      default: "0"
+      description: 弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px`
+    - name: follow-cursor
+      type: boolean, number, object
+      default: false
+      description: 是否跟随鼠标
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用
+  slots:
+    - name: default
+      description: 插入需要弹出的内容。
+  events:
+    - name: before-open
+      description: 弹出前触发。
+      params:
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止弹出流程
+        - name: senderVM
+          type: UTooltip
+          description: 发送事件实例
+    - name: open
+      description: 弹出时触发。
+      params:
+        - name: $event
+          type: ""
+          description: 空
+        - name: senderVM
+          type: UTooltip
+          description: 发送事件实例
+    - name: before-close
+      description: 隐藏前触发。
+      params:
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止隐藏流程
+        - name: senderVM
+          type: UTooltip
+          description: 发送事件实例
+    - name: close
+      description: 隐藏时触发。
+      params:
+        - name: $event
+          type: ""
+          description: 空
+        - name: senderVM
+          type: UTooltip
+          description: 发送事件实例
+    - name: before-toggle
+      description: "@deprecated"
+      params: []
+    - name: toggle
+      description: "@deprecated"
+      params: []
+  methods:
+    - name: open()
+      description: 弹出实例。
+      params: []
+    - name: close()
+      description: 关闭实例。
+      params: []

@@ -1,8 +1,8 @@
-import { UFormTableRemoveButton as OFormTableRemoveButton } from 'proto-ui.vusion';
+import UButton from '../../u-button.vue';
 
 export const UFormTableRemoveButton = {
     name: 'u-form-table-remove-button',
-    extends: OFormTableRemoveButton,
+    extends: UButton,
 };
 
 export default UFormTableRemoveButton;

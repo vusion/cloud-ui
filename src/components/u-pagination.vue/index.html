@@ -1,0 +1,9 @@
+<nav :class="$style.root" :disabled="disabled">
+    <a :class="$style.item" role="prev" :disabled="currentPage <= 1" @click="select(currentPage - 1)"></a>
+    <template v-for="page in pages">
+        <a v-if="page" :class="$style.item" :selected="currentPage === page" @click="select(page)">{{ page }}</a>
+        <a v-else :class="$style.item" role="blank">...</a>
+    </template>
+    <a :class="$style.item" role="next" :disabled="currentPage >= total" @click="select(currentPage + 1)"></a>
+    <slot></slot>
+</nav>

@@ -1,4 +1,4 @@
-import { MEmitter } from 'proto-ui.vusion';
+import { MEmitter } from '../../m-emitter.vue';
 import Zoom from './zoomobj.js';
 
 export const ULightboxItem = {

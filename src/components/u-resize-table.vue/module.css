@@ -321,7 +321,7 @@
     left: 0;
     top: -3px;
     line-height: 1;
-    icon-font: url('proto-ui.vusion/src/components/i-icon.vue/assets/arrow-up.svg');
+    icon-font: url('../i-icon.vue/assets/arrow-up.svg');
 }
 
 .sort::after {
@@ -329,7 +329,7 @@
     left: 0;
     bottom: -4px;
     line-height: 1;
-    icon-font: url('proto-ui.vusion/src/components/i-icon.vue/assets/arrow-down.svg');
+    icon-font: url('../i-icon.vue/assets/arrow-down.svg');
 }
 
 .sort[sorting][order="asc"]::before {

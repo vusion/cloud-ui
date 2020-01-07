@@ -1,3 +1,53 @@
+.root {}
+
+.root[name="arrow-up"]::before {
+    icon-font: url('./assets/arrow-up.svg');
+}
+
+.root[name="arrow-down"]::before {
+    icon-font: url('./assets/arrow-down.svg');
+}
+
+.root[name="arrow-left"]::before {
+    icon-font: url('./assets/arrow-left.svg');
+}
+
+.root[name="arrow-right"]::before {
+    icon-font: url('./assets/arrow-right.svg');
+}
+
+.root[name="angle-up"]::before {
+    icon-font: url('./assets/angle-up.svg');
+}
+
+.root[name="angle-down"]::before {
+    icon-font: url('./assets/angle-down.svg');
+}
+
+.root[name="angle-left"]::before {
+    icon-font: url('./assets/angle-left.svg');
+}
+
+.root[name="angle-right"]::before {
+    icon-font: url('./assets/angle-right.svg');
+}
+
+.root[name="close"]::before {
+    icon-font: url('./assets/close.svg');
+}
+
+.root[name="close-solid"]::before {
+    icon-font: url('./assets/close-solid.svg');
+}
+
+.root[name="filter"]::before {
+    icon-font: url('./assets/filter.svg');
+}
+
+.root[name="github"]::before {
+    icon-font: url('./assets/github.svg');
+}
+
 .root[name="area"]::before {
     icon-font: url("./icons/area.svg");
 }

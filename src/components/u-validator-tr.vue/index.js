@@ -1,8 +1,8 @@
-import { UValidatorTr as OValidatorTr } from 'proto-ui.vusion';
+import UValidator from '../u-validator.vue';
 
 export const UValidatorTr = {
     name: 'u-validator-tr',
-    extends: OValidatorTr,
+    extends: UValidator,
 };
 
 export default UValidatorTr;

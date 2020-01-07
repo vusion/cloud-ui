@@ -2,6 +2,8 @@
 
 # ULink 链接
 
+**UI 组件**, **路由链接**, **行内展示**
+
 ## 示例
 ### 基本用法
 
@@ -21,30 +23,7 @@
 
 ``` html
 <u-link href="https://vusion.github.io" target="_blank">href</u-link>&nbsp;
-<u-link to="/proto-ui/u-button">router</u-link>
-```
-
-### 颜色扩展
-
-``` html
-<u-link href="#">
-    默认颜色
-    <u-tooltip>
-        <u-link href="#">默认颜色</u-link>
-    </u-tooltip>
-</u-link>
-<u-link href="#" color="light">
-    浅色
-    <u-tooltip>
-        <u-link href="#" color="light">浅色</u-link>
-    </u-tooltip>
-</u-link>
-<u-link href="#" color="white" style="background: #a7afbb;">
-    白色
-    <u-tooltip>
-        <u-link href="#" color="white">白色</u-link>
-    </u-tooltip>
-</u-link>
+<u-link to="/cloud-ui/u-button">router</u-link>
 ```
 
 ### 展示方式
@@ -93,6 +72,7 @@
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event | MouseEvent | 鼠标事件对象 |
+| senderVM | Vue | 发送事件实例 |
 
 #### @before-navigate
 
@@ -104,6 +84,7 @@
 | $event.replace | boolean | `replace`属性的值 |
 | $event.append | boolean | `append`属性的值 |
 | $event.preventDefault | Function | 阻止切换流程 |
+| senderVM | Vue | 发送事件实例 |
 
 #### @navigate
 
@@ -114,3 +95,4 @@
 | $event.to | string, Location | `to`属性的值 |
 | $event.replace | boolean | `replace`属性的值 |
 | $event.append | boolean | `append`属性的值 |
+| senderVM | Vue | 发送事件实例 |

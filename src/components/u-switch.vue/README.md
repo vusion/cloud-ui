@@ -2,6 +2,8 @@
 
 # USwitch 开关
 
+**UI 组件**, **表单控件**, **行内展示**
+
 ## 示例
 ### 基本用法
 
@@ -9,7 +11,7 @@
 <u-switch></u-switch>
 ```
 
-### Value绑定
+### Value 绑定
 
 ``` vue
 <template>
@@ -24,11 +26,10 @@ export default {
 </script>
 ```
 
-### 基本状态、只读和禁用
+### 只读和禁用
 
 ``` html
 <u-linear-layout>
-    <u-switch with-text></u-switch>
     <u-switch readonly></u-switch>
     <u-switch disabled></u-switch>
 </u-linear-layout>
@@ -42,13 +43,16 @@ export default {
 | value | boolean |  | `false` | 开关状态 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
-| with-text | boolean |  | `false` | 是否显示开关`ON`和`OFF`文字 |
 
 ### Slots
 
 #### (default)
 
-插入文本或 HTML。
+
+
+#### undefined
+
+插入文本或HTML
 
 ### Events
 
@@ -61,6 +65,7 @@ export default {
 | $event.value | boolean | 开关状态 |
 | $event.oldValue | boolean | 旧的开关状态 |
 | $event.preventDefault | Function | 阻止切换流程 |
+| senderVM | USwitch | 发送事件实例 |
 
 #### @input
 
@@ -69,6 +74,25 @@ export default {
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event | boolean | 切换后的开关状态 |
+| senderVM | USwitch | 发送事件实例 |
+
+#### @on
+
+开关打开时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event |  | 无 |
+| senderVM | USwitch | 发送事件实例 |
+
+#### @off
+
+开关关闭时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event |  | 无 |
+| senderVM | USwitch | 发送事件实例 |
 
 #### @toggle
 
@@ -78,6 +102,7 @@ export default {
 | ----- | ---- | ----------- |
 | $event.value | boolean | 开关状态 |
 | $event.oldValue | boolean | 旧的开关状态 |
+| senderVM | USwitch | 发送事件实例 |
 
 #### @change
 
@@ -87,3 +112,4 @@ export default {
 | ----- | ---- | ----------- |
 | $event.value | boolean | 开关状态 |
 | $event.oldValue | boolean | 旧的开关状态 |
+| senderVM | USwitch | 发送事件实例 |

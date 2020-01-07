@@ -86,3 +86,26 @@ export default {
 };
 </script>
 ```
+
+### 找不到变量应该报错出来
+
+``` vue
+<template>
+<u-validator label="端口" rules="required | min(something)">
+    <u-input></u-input>
+</u-validator>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            some: {
+                object: {
+                    number: 20,
+                },
+            },
+        };
+    },
+};
+</script>
+```

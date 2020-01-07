@@ -1,0 +1,89 @@
+- name: u-grid-layout
+  title: 栅格布局
+  labels: [布局组件, 块级展示]
+  attrs:
+    - name: gap
+      type: string
+      default: normal
+      description: "栅格之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。可选值: `'none'`, `'small'`, `'normal'`,
+        `'large'`"
+  slots:
+    - name: default
+      description: 插入`<u-grid-layout-row>`或`<u-grid-layout-column>`子组件。
+- name: u-grid-layout-row
+  attrs:
+    - name: repeat
+      type: number
+      default: 12
+      description: 划分的栅格数
+    - name: type
+      type: string
+      default: null
+      description: 布局模式。可选值：`'flex'`或不填
+    - name: justify
+      type: string
+      default: start
+      description: flex布局模式的水平分布方式，可选值：`'start'`, `'center'`, `'end'`, `'space-between'`,
+        `'space-around'`
+    - name: alignment
+      type: string
+      default: stretch
+      description: flex布局模式的垂直对齐方式，可选值：`'start'`, `'center'`, `'end'`, `'baseline'`,
+        `'stretch'`
+  slots:
+    - name: default
+      description: 插入`<u-grid-layout-column>`子组件。
+- name: u-grid-layout-column
+  attrs:
+    - name: span
+      type: number
+      default: 1
+      description: 列跨越的栅格数
+    - name: offset
+      type: number
+      default: null
+      description: 列左边偏移的栅格数
+    - name: pull
+      type: number
+      default: null
+      description: 列向左移动栅格数
+    - name: push
+      type: number
+      default: null
+      description: 列向右移动栅格数
+    - name: media-huge
+      type: number
+      default: null
+      description: 响应式布局`<=1440px`的列跨越栅格数
+    - name: media-large
+      type: number
+      default: null
+      description: 响应式布局`<=1200px`的列跨越栅格数
+    - name: media-medium
+      type: number
+      default: null
+      description: 响应式布局`<=960px`的列跨越栅格数
+    - name: media-small
+      type: number
+      default: null
+      description: 响应式布局`<=768px`的列跨越栅格数
+    - name: media-mini
+      type: number
+      default: null
+      description: 响应式布局`<=480px`的列跨越栅格数
+  slots:
+    - name: default
+      description: 插入需要布局的元素。
+  events:
+    - name: responsive
+      description: 响应式布局引发栅格变化时触发
+      params:
+        - name: $event.span
+          type: number
+          description: 列跨越的栅格数
+        - name: $event.oldSpan
+          type: number
+          description: 旧的列跨越的栅格数
+        - name: senderVM
+          type: Vue
+          description: 发送事件实例

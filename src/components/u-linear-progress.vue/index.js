@@ -1,9 +1,7 @@
-import { ULinearProgress as OLinearProgress } from 'proto-ui.vusion';
-
 export const ULinearProgress = {
     name: 'u-linear-progress',
-    extends: OLinearProgress,
     props: {
+        percent: { type: Number, default: 0 },
         range: {
             type: Array,
             default() {

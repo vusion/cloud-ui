@@ -1,7 +1,7 @@
 const pkg = require('./package.json');
 
 module.exports = {
-    version: '>=0.8.5',
+    version: '>=0.10.0',
     type: 'library',
     name: 'cloud-ui',
     CamelName: 'CloudUI',
@@ -10,7 +10,7 @@ module.exports = {
         logo: '组件库',
         mode: 'history',
         base: '/cloud-ui/',
-        github: 'https://github.com/vusion/cloud-ui#next',
+        github: 'https://github.com/vusion/cloud-ui',
         package: pkg,
         navbar: [
             { text: '核心组件', to: '/components' },
@@ -19,10 +19,10 @@ module.exports = {
         ],
         components: [
             { group: 'Guide', name: 'quickstart', alias: '快速开始', path: './docs/views/guide/quickstart.md' },
-            { group: 'Guide', name: 'pattern', alias: '设计模式', path: 'proto-ui.vusion/docs/views/guide/pattern.md' },
+            { group: 'Guide', name: 'pattern', alias: '设计模式', path: './docs/views/guide/pattern.md' },
             { group: 'Guide', name: 'changelog', alias: '更新日志', href: 'https://github.com/vusion/cloud-ui/releases', target: '_blank' },
             { group: 'Guide', name: 'theme', alias: '主题', path: 'library/styles/theme.md' },
-            { group: 'Basic', name: 'typography', alias: '排版', path: 'proto-ui.vusion/src/styles/typography.md' },
+            { group: 'Basic', name: 'typography', alias: '排版', path: './src/styles/typography.md' },
             { group: 'Basic', name: 'u-text', alias: '文本' },
             { group: 'Basic', name: 'u-link', alias: '链接' },
             { group: 'Basic', name: 'u-button', alias: '按钮' },

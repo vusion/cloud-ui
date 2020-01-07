@@ -1,4 +1,4 @@
-import { MEmitter } from 'proto-ui.vusion';
+import { MEmitter } from '../../m-emitter.vue';
 
 export const UOldTableViewColumn = {
     name: 'u-old-table-view-column',

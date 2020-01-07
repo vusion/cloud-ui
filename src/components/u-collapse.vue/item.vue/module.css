@@ -1,0 +1,42 @@
+.root {
+    position: relative;
+}
+
+.head {
+    user-select: none;
+    cursor: var(--cursor-pointer);
+    padding: var(--collapse-head-padding);
+    background: var(--collapse-head-background);
+    overflow: hidden;
+}
+
+.body {
+    /* transition: 0.3s height ease-in-out, 0.3s padding-top ease-in-out, 0.3s padding-bottom ease-in-out; */
+}
+
+.expander {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    width: var(--collapse-expander-size);
+    height: var(--collapse-expander-size);
+    line-height: var(--collapse-expander-size);
+    text-align: center;
+}
+
+.expander::before {
+    content: '▸';
+}
+
+.expander[expanded]::before {
+    content: '▾';
+}
+
+.root[disabled] .expander {
+    color: var(--collapse-disabled-expander-color);
+}
+
+.extra {
+    float: right;
+}

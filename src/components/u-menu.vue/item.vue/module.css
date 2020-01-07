@@ -1,8 +1,13 @@
 @extend;
 
 .root {
+    display: block;
+    position: relative;
+    z-index: 1;
+    overflow: visible;
     padding: 6px 15px;
-    padding-right: 34px;
+    padding-right: var(--menu-item-sub-space-x);
+    white-space: nowrap;
 }
 
 .root:hover {
@@ -32,4 +37,29 @@
 
 .root + .root {
     border-top: 1px solid var(--brand-secondary);
+}
+
+.root[has-sub]::after {
+    display: inline-block;
+    content: '▸';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: var(--menu-item-sub-space-x);
+    height: var(--menu-item-sub-space-y);
+    line-height: var(--menu-item-sub-space-y);
+    text-align: center;
+}
+
+.sub {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    margin-left: 1px;
+    margin-top: -1px;
+}
+
+.root:hover > .sub {
+    display: block;
 }

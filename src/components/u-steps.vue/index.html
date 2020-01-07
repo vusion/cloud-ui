@@ -10,7 +10,7 @@
             :style="{ width: itemWidth }">
             <div :class="$style['item-body']" @click="select(itemVM)">
                 <span :class="$style.radio"></span>
-                <span :class="$style.title"><f-render :vnode="itemVM.$slots.title">{{ itemVM.title }}</f-render></span>
+                <span :class="$style.title"><f-slot :vm="itemVM" name="title">{{ itemVM.title }}</f-slot></span>
             </div>
         </a>
     </nav>

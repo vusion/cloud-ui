@@ -1,4 +1,86 @@
-@extend;
+.root {
+    user-select: none;
+    cursor: default;
+    padding: 0;
+    vertical-align: 1px;
+}
+
+.item {
+    display: inline-block;
+    text-decoration: none;
+
+    padding: var(--pagination-item-padding);
+    min-width: var(--pagination-item-size);
+    height: var(--pagination-item-size);
+    line-height: var(--pagination-item-size);
+    font-size: var(--font-size-small);
+    text-align: center;
+    background: var(--pagination-item-background);
+    color: var(--pagination-item-color);
+    cursor: var(--cursor-pointer);
+}
+
+.item:hover {
+    color: var(--pagination-item-color-hover);
+}
+
+.item[selected] {
+    background: var(--pagination-item-background-selected);
+    color: var(--pagination-item-color-selected);
+}
+
+.item[disabled] {
+    cursor: var(--cursor-not-allowed);
+    color: var(--pagination-item-color-disabled);
+}
+
+.item[role="prev"] {
+    font-size: var(--font-size-large);
+    padding: 0 4px;
+    vertical-align: top;
+}
+
+.item[role="prev"]::before {
+    icon-font: url('../i-icon.vue/assets/angle-left.svg');
+}
+
+.item[role="next"] {
+    font-size: var(--font-size-large);
+    padding: 0 4px;
+    vertical-align: top;
+}
+
+.item[role="next"]::before {
+    icon-font: url('../i-icon.vue/assets/angle-right.svg');
+}
+
+.item[role="blank"] {
+    background: var(--pagination-item-background-blank);
+    color: var(--pagination-item-color-blank);
+    cursor: initial;
+}
+
+.root[disabled] {
+    cursor: var(--cursor-not-allowed);
+}
+
+.root[disabled] .item {
+    color: var(--pagination-item-color-disabled);
+    cursor: var(--cursor-not-allowed);
+}
+
+.root[disabled] .item[role="blank"] {
+    color: var(--pagination-item-blank-color-disabled);
+    cursor: initial;
+}
+
+.root[disabled] .item[selected] {
+    background: var(--pagination-item-background-disabled-selected);
+}
+
+.root[display="inline"] {
+    display: inline-block;
+}
 
 .root {
     text-align: right;

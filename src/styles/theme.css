@@ -1,5 +1,11 @@
-@import "proto-ui.vusion/src/styles/theme.css";
 :root {
+    /**
+     * Global Variables
+     */
+    /* Color */
+    --color-white: white;
+    --color-black: black;
+
     /* Brand Colors */
     --brand-primary: #67aaf5;
     --brand-secondary: #e1e8ed;
@@ -10,6 +16,7 @@
     --brand-disabled: #cddae9;
     --brand-disabled-light: #e7eaef;
     --hover-color: #f4f4f4;
+    --brand-tip-color: #a7afbb;
 
     /* Gray Colors */
     --gray-darkest: #333;
@@ -23,6 +30,7 @@
     /* Component Base Colors */
     --background-color-light: #f7f8fc;
     --background-color-base: #f2f3f8;
+    --background-color-default: white;
     --background-color-dark: #ebedf5;
     --color-base: #565b61;
     --border-color-base: #dfe4ec;
@@ -40,24 +48,20 @@
     --line-height-base: 1.6;
     --font-size-base: 14px;
 
-    /* Specific Dimensions */
-    --navbar-height: 64px;
-    --sidebar-width: 180px;
-
-    /* Field Colors */
-    --field-background: white;
-    --field-color: #666;
-    --field-border-color: #cbd5dd;
-    --field-disabled-color: #bbb;
-    --field-selected-color: var(--brand-primary);
-
-    /* Animation Durations */
-    --transition-duration: 0.2s;
-
     /* Fonts */
     /* stylelint-disable value-keyword-case */
     --font-family-zh-CN: "Helvetica Neue", helvetica, tahoma, arial, "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
     --font-family-code: menlo, consolas, monaco, monospace;
+    --tab-size: 4;
+    --font-size-base: 14px;
+    --font-size-small: calc(var(--font-size-base) * (12 / 14));
+    --font-size-large: calc(var(--font-size-base) * (16 / 14));
+    --font-size-huge: calc(var(--font-size-base) * (24 / 14));
+    --font-weight-lighter: lighter;
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+    --font-weight-bolder: bolder;
 
     /* Z-Index */
     --z-index-loading: 9000;
@@ -76,6 +80,546 @@
 
     /* Transition Duration */
     --transition-duration-base: 0;
+
+    /**
+     * Components Variables
+     */
+    /* Typography */
+    --hr-border-color: var(--border-color-base);
+    --blockquote-padding: 8px 16px;
+    --ulol-padding-left: 20px;
+    --pre-font-size: var(--code-font-size);
+    --pre-font-family: var(--font-family-code);
+    --pre-padding-y: 5px;
+    --pre-padding-x: 10px;
+    --code-padding-y: 3px;
+    --code-padding-x: 0;
+    --code-background: var(--background-color-light);
+    --code-color: #e0276e;
+    --code-font-size: var(--font-size-small);
+
+    --kbd-padding-y: 1px;
+    --kbd-padding-x: 3px;
+    --kbd-font-size: var(--font-size-small);
+    --kbd-background: var(--background-color-base);
+    --kbd-border-radius: var(--border-radius-base);
+    --kbd-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+
+    /* Text */
+    --text-font-size-large: calc(var(--font-size-base) * (18 / 14));
+    --text-font-size-small: var(--font-size-small);
+    --text-color-disabled: var(--brand-disabled);
+    --text-color-primary: var(--brand-primary);
+    --text-color-error: var(--brand-error);
+    --text-color-disabled: var(--brand-disabled);
+
+    /* Link */
+    --link-color: var(--brand-primary);
+    --link-color-disabled: var(--brand-disabled);
+
+    /* Button */
+    --button-height: var(--height-base);
+    --button-padding-x: 12px;
+    --button-padding-y: 0px;
+    --button-border-width: var(--border-width-base);
+    --button-background: var(--background-color-default);
+    --button-background-disabled: var(--background-color-default);
+    --button-color-disabled: var(--brand-disabled);
+    --button-border-color-disabled: var(--border-color-base);
+    --button-background-active: var(--background-color-base);
+    --button-color: var(--color-base);
+    --button-border-color: var(--border-color-base);
+    --button-color-hover: var(--brand-primary);
+    --button-border-color-hover: var(--brand-primary);
+
+    /* Label */
+    --label-padding-x: 6px;
+    --label-padding-y: 2px;
+    --label-color-primary: var(--background-color-default);
+    --label-background: var(--background-color-base);
+    --label-background-primary: var(--brand-primary);
+    --label-font-size: var(--font-size-small);
+
+    /* Badge */
+    --badge-background: var(--brand-error);
+    --badge-color: var(--background-color-default);
+    --badge-value-line-height: 18px;
+    --badge-dot-size: 6px;
+
+    /* Avatar */
+    --avatar-size: 48px;
+    --avatar-size-mini: 16px;
+    --avatar-size-small: 32px;
+    --avatar-size-large: 64px;
+    --avatar-size-huge: 108px;
+
+    /* Logo */
+    --logo-width: var(--sidebar-width);
+    --logo-height: var(--navbar-height);
+
+    /* Grid Layout */
+    --grid-layout-margin-small: calc(var(--margin-small) / 2);
+    --grid-layout-margin-large: calc(var(--margin-large) / 2);
+    --grid-layout-margin-base: calc(var(--margin-base) / 2);
+
+    /* List */
+    --list-style: none;
+    --list-item-border-bottom: 1px solid var(--border-color-base);
+    --list-item-background-striped: var(--background-color-light);
+    --list-item-background-hover: var(--background-color-base);
+    --list-item-padding: 6px 8px;
+
+    /* Table */
+    --table-row-primary-background: rgba(69, 124, 208, 0.2);
+    --table-row-error-background: rgba(242, 45, 78, 0.2);
+    --table-row-dark-background: var(--background-color-dark);
+    --table-row-base-background: var(--background-color-base);
+    --table-row-light-background: var(--background-color-light);
+    --table-row-hover-background: var(--background-color-base);
+    --table-row-striped-background: var(--background-color-light);
+    --table-caption-color: #6a6f75;
+    --table-border-color: var(--border-color-base);
+    --table-border-width: 1px;
+
+    /* Form Table */
+    --form-table-button-font-size: var(--font-size-huge);
+
+    /* Article */
+    --article-table-font-size: calc(var(--font-size-base) * (13 / 14));
+    --h1-font-size: calc(var(--font-size-base) * (24 / 14));
+    --h2-font-size: calc(var(--font-size-base) * (20 / 14));
+    --h3-font-size: calc(var(--font-size-base) * (18 / 14));
+    --h4-font-size: calc(var(--font-size-base) * (16 / 14));
+    --h5-font-size: calc(var(--font-size-base) * (14 / 14));
+    --h6-font-size: calc(var(--font-size-base) * (12 / 14));
+
+    /* Collapse */
+    --collapse-head-background: var(--background-color-dark);
+    --collapse-disabled-expander-color: var(--brand-disabled);
+    --collapse-expander-size: 26px;
+    --collapse-head-padding: 2px 4px;
+    --collapse-border: 1px solid var(--border-color-base);
+
+    /* Navbar */
+    --navbar-height: 64px;
+    --navbar-space-x: 40px;
+    --navbar-background-inverse: var(--navbar-background-inverse);
+    --navbar-divider-margin: 0 30px;
+    --navbar-divider-height: 20px;
+    --navbar-divider-background: #ddd;
+    --navbar-dropdown-padding: 0 30px 0 10px;
+    --navbar-dropdown-color-disabled: var(--brand-disabled);
+    --navbar-dropdown-nolast-margin-right: 30px;
+    --navbar-dropdown-popper-line-height: var(--line-height-base);
+    --navbar-dropdown-popper-font-size: var(--font-size-base);
+    --navbar-item-padding: 0 10px;
+    --navbar-item-font-size: var(--font-size-large);
+    --navbar-item-color-hover: var(--brand-primary);
+    --navbar-item-color-selected: var(--brand-primary);
+    --navbar-item-color-disabled: var(--brand-disabled);
+    --navbar-item-color-inverse: var(--color-white);
+    --navbar-item-space: 30px;
+    --navbar-select-width: 90px;
+    --navbar-select-padding-left: 10px;
+    --navbar-select-padding-right: 30px;
+    --navbar-select-font-size: var(--font-size-large);
+
+    /* Sidebar */
+    --sidebar-width: 180px;
+    --sidebar-background: var(--background-color-base);
+    --sidebar-item-height: 34px;
+    --sidebar-item-line-height: var(--sidebar-item-height);
+    --sidebar-item-padding-left: 20px;
+    --sidebar-item-color-hover: var(--brand-primary);
+    --sidebar-item-color-selected: var(--color-white);
+    --sidebar-item-background-selected: var(--brand-primary);
+    --sidebar-item-color-disabled: var(--brand-disabled);
+    --sidebar-item-background-disabled: none;
+    --sidebar-item-background-selected-disabled: var(--brand-disabled-light);
+    --sidebar-divider-margin-y: 9px;
+    --sidebar-divider-background: var(--border-color-base);
+    --sidebar-disabled-expander-color: var(--brand-disabled);
+    --sidebar-expander-size: 26px;
+    --sidebar-group-head-line-height: 40px;
+    --sidebar-group-head-color: var(--brand-tip-color);
+    --sidebar-group-head-padding-left: 20px;
+
+    /* Menu */
+    --menu-background: var(--color-white);
+    --menu-border-color: var(--border-color-base);
+    --menu-item-sub-space-x: 30px;
+    --menu-item-sub-space-y: 30px;
+    --menu-divider-background: var(--border-color-base);
+    --menu-divider-margin: 9px 0;
+    --menu-divider-height: 1px;
+
+    /* Tabs */
+    --tabs-head-height: 32px;
+    --tabs-border-color: var(--border-color-base);
+    --tabs-item-height: 30px;
+    --tabs-item-border-width: 1px;
+    --tabs-item-padding: 0 20px;
+    --tabs-item-background-hover: var(--background-color-base);
+    --tabs-item-background-selected: var(--color-white);
+    --tabs-item-color-selected: var(--brand-primary);
+    --tabs-item-border-color-selected: var(--border-color-base);
+    --tabs-item-background-disabled: none;
+    --tabs-item-background-selected-disabled: var(--color-white);
+    --tabs-item-color-disabled: var(--brand-disabled);
+
+    /* Steps */
+    --steps-item-width: 200px;
+    --steps-item-disabled-color: var(--brand-disabled);
+    --steps-item-radio-background: var(--background-color-base);
+    --steps-item-radio-size: 10px;
+    --steps-item-passed-background-color: var(--brand-primary);
+    --steps-item-passed-radio-color: var(--color-white);
+
+    /* Crumb */
+    --crumb-link-color: var(--brand-primary);
+    --crumb-disabled-color: var(--brand-disabled);
+    --crumb-margin: 0 5px;
+
+    /* Pagination */
+    --pagination-item-size: 32px;
+    --pagination-item-padding: 0 10px;
+    --pagination-item-color-hover: var(--brand-primary);
+    --pagination-item-color-selected: var(--color-white);
+    --pagination-item-color-disabled: var(--brand-disabled);
+    --pagination-item-background-disabled-selected: var(--brand-disabled-light);
+    --pagination-item-background-selected: var(--brand-primary);
+    --pagination-item-background-blank: none;
+    --pagination-item-background: var(--background-color-base);
+    --pagination-item-color: var(--color-base);
+    --pagination-item-color-blank: var(--color-base);
+    --pagination-item-blank-color-disabled: var(--brand-disabled);
+
+    /* Combo Pagination */
+    --combo-pagination-sizer-width: 100px;
+    --combo-pagination-jumper-width: 50px;
+
+    /* Block */
+    --block-background: var(--border-color-base);
+
+    /* Form */
+    --form-item-space: 20px;
+    --form-inline-item-space: 20px;
+    --form-item-label-space: 5px;
+    --form-required-color: var(--brand-error);
+    --form-message-background-error: var(--brand-error);
+    --form-message-background: var(--background-color-base);
+    --form-message-padding: 0 5px;
+    --form-message-margin-left: 5px;
+    --form-message-color-error: var(--color-white);
+    --form-item-label-width: 80px;
+
+    /* Validator */
+    --validator-message-padding: 0 5px;
+    --validator-message-margin-left: 5px;
+    --validator-message-background: var(--background-color-base);
+    --validator-message-background-error: var(--brand-error);
+    --validator-message-color-error: var(--color-white);
+
+    /* Input */
+    --input-background-disabled: var(--brand-disabled-light);
+    --input-border-color-error: var(--brand-error);
+    --input-border-color-focus: var(--brand-primary);
+    --input-placeholder-color: var(--brand-tip-color);
+    --input-clearable-color: var(--brand-tip-color);
+    --input-width: var(--width-base);
+    --input-height: var(--height-base);
+    --input-padding: 0 8px;
+    --input-border-width: 1px;
+    --input-background: var(--color-white);
+    --input-border-color: var(--border-color-base);
+    --input-border-radius: var(--border-radius-base);
+
+    /* Textarea */
+    --textarea-width: 320px;
+    --textarea-width-mini: var(--width-base);
+    --textarea-height: 120px;
+    --textarea-min-height: var(--height-base);
+    --textarea-padding: 4px 8px;
+
+    /* Number Input */
+    --number-input-height: 14px;
+    --number-input-line-height: var(--number-input-height);
+    --number-input-padding: 0 4px;
+    --number-input-background: var(--background-color-base);
+    --number-input-background-hover: var(--background-color-dark);
+    --number-input-background-active: var(--number-input-background-hover);
+    --number-input-background-disabled: var(--background-color-base);
+    --number-input-background-readonly: var(--background-color-base);
+    --number-input-color-disabled: var(--brand-disabled);
+
+    /* Checkboxes */
+    --checkboxes-item-margin-right: 40px;
+    --checkbox-size: 18px;
+
+    /* Radios */
+    --radios-item-margin-right: 40px;
+    --radio-size: 18px;
+
+    /* Switch */
+    --switch-height: 22px;
+    --switch-button-size: 18px;
+    --switch-button-background: var(--color-white);
+    --switch-button-transition: all 0.3s;
+    --switch-button-radius: 100px;
+    --switch-background: var(--border-color-base);
+    --switch-background-checked: var(--brand-primary);
+    --switch-background-disabled: var(--background-color-base);
+    --switch-color: var(--color-white);
+    --switch-transition: background-color 0.3s;
+    --switch-width: 44px;
+    --switch-width-wide: 54px;
+    --switch-border-radius: 100px;
+    --switch-text-margin: 0 5px;
+    --switch-button-space: 2px;
+
+    /* Select */
+    --select-border-width: 1px;
+    --select-border-color: var(--border-color-base);
+    --select-item-hover: none;
+    --select-large-width: 260px;
+    --select-large-height: 36px;
+    --select-small-width: 120px;
+    --select-small-height: 30px;
+    --select-small-popper-line-height: 1.6;
+    --select-popper-line-height: 1.6;
+    --select-width: var(--width-base);
+    --select-height: var(--height-base);
+    --select-padding-right: 26px;
+    --select-padding: 0 var(--select-padding-right) 0 8px;
+    --select-background: var(--color-white);
+    --select-background-disabled: var(--brand-disabled-light);
+    --select-placeholder-color: var(--brand-tip-color);
+    --select-arrow-color: var(--brand-tip-color);
+    --select-tags-padding-y: 2px;
+    --select-tags-padding: var(--select-tags-padding-y) var(--select-padding-right)  var(--select-tags-padding-y) 4px;
+    --select-tags-line-height: 26px;
+    --select-tags-filterable-width: 40px;
+    --select-tag-line-height: calc(var(--select-tags-line-height) - var(--select-tags-padding-y) * 2);
+    --select-tag-background: var(--background-color-base);
+    --select-tag-padding: 0 6px;
+    --select-tag-margin-x: 4px;
+    --select-tag-remove-color: var(--brand-tip-color);
+    --select-tag-remove-color-hover: var(--color-base);
+    --select-popper-border-color: var(--border-color-base);
+    --select-popper-background: var(--color-white);
+    --select-popper-max-height: 180px;
+    --select-status-color: var(--gray-dark);
+
+    /* Slider */
+    --slider-body-margin: 0 10px;
+    --slider-body-padding: 6px 0;
+    --slider-track-background: var(--background-color-base);
+    --slider-trail-background: var(--brand-primary);
+    --slider-trail-background-disabled: var(--brand-disabled);
+    --slider-track-height: 8px;
+    --slider-bound-background: rgba(255, 255, 255, 0.4);
+    --slider-handle-background: var(--color-white);
+    --slider-handle-width: 20px;
+    --slider-handle-height: 20px;
+    --slider-handle-size: 100px;
+    --slider-handle-border: 1px solid #ddd;
+
+    /* Combo Slider */
+    --combo-slider-slider-width: 160px;
+    --combo-slider-input-width: 60px;
+    --combo-slider-input-left: 10px;
+
+    /* List View */
+    --list-view-background: var(--color-white);
+    --list-view-border-color: var(--border-color-base);
+    --list-view-border-color-focus: var(--brand-primary);
+    --list-view-status-color: var(--gray-dark);
+    --list-view-divider-margin: 9px 0;
+    --list-view-divider-background: var(--border-color-base);
+    --list-view-group-head-padding: 2px 4px;
+    --list-view-group-expander-size: 26px;
+    --list-view-item-padding: 4px 12px;
+    --list-view-item-hover-background: var(--background-color-base);
+    --list-view-item-readonly-background: none;
+    --list-view-item-focused-background: var(--background-color-base);
+    --list-view-item-selected-background: var(--brand-primary);
+    --list-view-item-selected-color: var(--color-white);
+    --list-view-item-disabled-color: var(--brand-disabled);
+    --list-view-item-disabled-background: none;
+    --list-view-group-head-background: #ebedf5;
+    --list-view-item-selected-disabled-background: var(--brand-disabled-light);
+
+    /* Tree View */
+    --tree-view-background: var(--color-white);
+    --tree-view-node-margin-left: 20px;
+    --tree-view-node-expander-size: 30px;
+    --tree-view-node-text-padding: 4px 12px;
+    --tree-view-node-background-active: var(--background-color-base);
+    --tree-view-node-background-selected: var(--brand-primary);
+    --tree-view-node-selected-text-color: var(--color-white);
+    --tree-view-node-selected-expander-color: var(--color-white);
+    --tree-view-node-disabled-color: var(--brand-disabled);
+    --tree-view-node-background-readonly: none;
+    --tree-view-node-background-disabled: none;
+    --tree-view-node-background-selected-disabled: var(--brand-disabled-light);
+
+    /* Table View */
+    --table-view-table-shadow: 2px 0 6px -2px rgba(0, 0, 0, 0.2);
+    --table-view-table-right-shadow: -2px 0 6px -2px rgba(0, 0, 0, 0.2);
+    --table-view-filter-background: var(--color-white);
+    --table-view-filter-max-height: 180px;
+    --table-view-filter-line-height: 1.6;
+    --table-view-title-space: 10px;
+    --table-view-table-background: var(--color-white);
+    --table-view-sort-color: var(--brand-disabled);
+    --table-view-sort-size: 1em;
+    --table-view-sort-color-active: var(--brand-primary);
+    --table-view-expander-size: 26px;
+    --table-view-row-selected-background: #d7e5fb;
+    --table-view-pagination-space: var(--margin-base);
+
+    /* Transfer */
+    --transfer-height: 182px;
+    --transfer-width: var(--width-base);
+    --transfer-button-size: var(--height-base);
+    --transfer-button-space: 10px;
+    --transfer-button-background: var(--color-white);
+    --transfer-button-color: var(--color-base);
+    --transfer-button-color-hover: var(--brand-primary);
+    --transfer-button-border-color-hover: var(--brand-primary);
+    --transfer-button-background-color-active: var(--background-color-base);
+    --transfer-button-color-disabled: var(--brand-disabled);
+    --transfer-button-background-color-disabled: var(--color-white);
+    --transfer-button-border-color-disabled: var(--brand-disabled);
+    --transfer-button-border-color: var(--border-color-base);
+
+    /* Popup */
+    --popup-padding: 6px 10px;
+    --popup-background-color: var(--color-white);
+    --popup-background-head-color: var(--color-white);
+    --popup-border-color: var(--border-color-base);
+    --popup-arrow-size: 8px;
+    --popup-outer-arrow-size: calc(var(--popup-arrow-size) + 1px);
+    --popup-arrow-offset: 16px;
+
+    /* Tooltip */
+    --tooltip-background-color: #333;
+    --tooltip-arrow-size: 5px;
+    --tooltip-arrow-offset: 10px;
+    --tooltip-color: var(--color-white);
+    --tooltip-padding: 4px 8px;
+
+    /* Icon Tooltip */
+    --icon-tooltip-color: #bac2cf;
+
+    /* Loading */
+    --loading-font-size-small: var(--font-size-base);
+    --loading-font-size-base: calc(var(--font-size-base) * (24 / 14));
+    --loading-font-size-large: calc(var(--font-size-base) * (40 / 14));
+    --loading-color: var(--brand-disabled);
+    --loading-full-background: rgba(255, 255, 255, 0.8);
+    --loading-fullWindow-background: rgba(255, 255, 255, 0.6);
+
+    /* Carousel */
+    --carousel-button-font-size: 50px;
+    --carousel-width: 700px;
+    --carousel-height: 420px;
+    --carousel-nav-bottom: 20px;
+    --carousel-nav-item-width: 30px;
+    --carousel-nav-item-height: 3px;
+    --carousel-nav-item-padding: 4px;
+    --carousel-nav-item-background-color: rgba(255, 255, 255, 0.5);
+    --carousel-nav-item-background-color-hover: var(--color-white);
+    --carousel-control-color: rgba(255, 255, 255, 0.6);
+    --carousel-control-color-hover: var(--color-white);
+    --carousel-control-space: 20px;
+    --carousel-control-transition: all 0.3s;
+
+    /* Uploader */
+    --uploader-input-font-size: 100px;
+
+    /* Linear Progress */
+    --linear-progress-track-background: var(--background-color-base);
+    --linear-progress-height-base: 12px;
+    --linear-progress-trail-background: var(--brand-primary);
+    --linear-progress-trail-transition: width 0.6s ease;
+    --linear-progress-trail-font-size: var(--font-size-small);
+    --linear-progress-trail-color: var(--color-white);
+
+    /* Circular Progress */
+    --circular-progress-size-base: 100px;
+    --circular-progress-stroke-width: 6px;
+    --circular-progress-track-stroke: var(--background-color-base);
+    --circular-progress-trail-stroke: var(--brand-primary);
+    --circular-progress-trail-transition: stroke 0.6s ease, stroke-dasharray 0.6s ease;
+    --circular-progress-text-color: var(--gray-darker);
+    --circular-progress-text-font-size: var(--font-size-base);
+    --circular-progress-font-size-base: calc(var(--font-size-base) * (18 / 14));
+    --circular-progress-text-line-height: var(--circular-progress-size-base);
+
+    /* Ripple */
+    --ripple-transition: transform 1s, background-color 1s;
+    --ripple-light-background-color: rgba(255, 255, 255, 0.2);
+    --ripple-background-color: rgba(0, 0, 0, 0.2);
+    --ripple-size: 100px;
+
+    /* Group */
+    --group-head-padding: 2px 4px;
+    --group-head-background: var(--background-color-dark);
+    --group-expander-size: 26px;
+    --group-disabled-expander-color: var(--brand-disabled);
+
+    /* Spinner */
+    --spinner-animation-duration: 1.5s;
+
+    /* Toast */
+    --toast-margin: 30px;
+    --toast-width: 300px;
+    --toast-top: 90px;
+    --toast-close-font-size: 18px;
+    --toast-close-color: var(--color-white);
+    --toast-item-color: var(--color-white);
+    --toast-item-padding: 10px;
+    --toast-item-space: 10px;
+    --toast-background-color: rgba(0, 0, 0, 0.6);
+
+    /* Drawer */
+    --drawer-width: 240px;
+    --drawer-background: var(--color-white);
+    --drawer-wrap-background: rgba(0, 0, 0, 0.6);
+    --drawer-width-small: 160px;
+    --drawer-width-large: 400px;
+    --drawer-close-size: 15px;
+    --drawer-close-color: var(--gray-light);
+    --drawer-close-color-hover: var(--gray-dark);
+    --drawer-body-padding: 15px;
+    --drawer-head-padding: 15px;
+    --drawer-padding-padding: 15px;
+    --drawer-foot-padding: 20px 15px;
+    --drawer-static-padding: var(--margin-base);
+
+    /* Modal */
+    --modal-dialog-width: 400px;
+    --modal-dialog-width-small: 300px;
+    --modal-dialog-width-large: 600px;
+    --modal-close-size: 15px;
+    --modal-close-color: var(--gray-light);
+    --modal-close-color-hover: var(--gray-dark);
+    --modal-head-padding: 15px;
+    --modal-static-padding: var(--margin-base);
+    --modal-body-padding: 15px;
+    --modal-padding-padding: 15px;
+    --modal-foot-padding: 20px 15px;
+
+    /* Field Colors */
+    --field-background: white;
+    --field-color: #666;
+    --field-border-color: #cbd5dd;
+    --field-disabled-color: #bbb;
+    --field-selected-color: var(--brand-primary);
+
+    /* Animation Durations */
+    --transition-duration: 0.2s;
 
     --checkbox-size: 18px;
     --radio-size: 18px;
@@ -277,7 +821,7 @@
 
     --button-width-loading: 18px;
     --button-height-loading: 18px;
-    --button-animation-loading: rotate 1s ease-in-out 0s infinite;
+    --button-loading-animation-duration: 1s;
 
     /* Label */
     --label-padding-x: 8px;

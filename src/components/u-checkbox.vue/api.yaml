@@ -1,0 +1,31 @@
+- name: u-checkbox
+  title: 多选框
+  attrs:
+    - name: value
+      type: boolean, null
+      default: false
+      description: Checked status. `null` means indeterminate status.
+    - name: readonly
+      type: boolean
+      default: false
+      description: Readonly
+    - name: disabled
+      type: boolean
+      default: false
+      description: Disabled
+  events:
+    - name: input
+      description: Emit when checking.
+      params:
+        - Property: value
+          type: boolean, null
+          description: Checked value
+    - name: change
+      description: Emit when change value.
+      params:
+        - Property: newValue
+          type: boolean, null
+          description: New value
+        - Property: oldValue
+          type: boolean, null
+          description: Old value

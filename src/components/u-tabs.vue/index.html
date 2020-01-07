@@ -1,0 +1,18 @@
+<div :class="$style.root" :disabled="disabled">
+    <nav :class="$style.head">
+        <a :class="$style.item"
+            v-for="itemVM in itemVMs"
+            :title="itemVM.title"
+            :selected="router ? itemVM.active : itemVM === selectedVM"
+            :disabled="itemVM.disabled || disabled"
+            v-show="!itemVM.hidden"
+            @click="select(itemVM)">
+            <span :class="$style.title"><f-slot :vm="itemVM" name="title">{{ itemVM.title }}</f-slot></span>
+            <span v-if="closable" :class="$style.close" @click.stop="close(itemVM)"></span>
+        </a>
+        <span :class="$style.extra"><slot name="extra"></slot></span>
+    </nav>
+    <div :class="$style.body">
+        <slot></slot>
+    </div>
+</div>

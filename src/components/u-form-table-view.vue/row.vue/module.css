@@ -1,4 +1,4 @@
-@import '../../u-validator.vue/module.css';
+@extend;
 
 .root {
     display: table-row;
@@ -10,5 +10,7 @@
 }
 
 .message {
+    position: absolute;
+    white-space: nowrap;
     margin-top: 8px;
 }

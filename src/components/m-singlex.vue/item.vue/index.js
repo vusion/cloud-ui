@@ -30,7 +30,7 @@ export const MSinglexItem = {
                 return;
 
             if (!this.$router)
-                return console.warn('[proto-ui] Use `<m-router-item>` but cannot find vue router.');
+                return console.warn('[cloud-ui] Use `<m-router-item>` but cannot find vue router.');
 
             const current = this.$route;
             const target = this.$router.resolve(this.to).route;

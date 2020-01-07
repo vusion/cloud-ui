@@ -1,11 +1,40 @@
-@extend;
-
 .root {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    cursor: var(--cursor-pointer);
+    height: var(--navbar-height);
+    line-height: var(--navbar-height);
+    border: none;
+    padding: var(--navbar-dropdown-padding);
+    font-size: var(--font-size-large);
     color: white;
 }
 
+.root:not(:last-child) {
+    margin-right: var(--navbar-item-space);
+}
+
 .root::after {
-    icon-font: url('proto-ui.vusion/src/components/i-icon.vue/assets/angle-down.svg');
+    position: absolute;
+    icon-font: url('../../i-icon.vue/assets/arrow-down.svg');
+    font-size: var(--navbar-dropdown-popper-font-size);
+    right: 10px;
+    top: 0;
+    line-height: var(--navbar-height);
+    icon-font: url('../../i-icon.vue/assets/angle-down.svg');
     font-size: 18px;
     right: 5px;
+}
+
+.popper {
+    background: white;
+    font-size: var(--navbar-dropdown-popper-font-size);
+    width: 100%;
+    line-height: var(--navbar-dropdown-popper-line-height);
+}
+
+.root[disabled] {
+    cursor: var(--cursor-not-allowed);
+    color: var(--navbar-dropdown-color-disabled);
 }

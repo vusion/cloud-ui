@@ -1,9 +1,14 @@
-.root {}
+.root {
+    position: relative;
+}
 
 .head {
     display: block;
     cursor: var(--cursor-pointer);
-
+    font-weight: var(--font-weight-bold);
+    color: var(--sidebar-group-head-color);
+    padding-left: var(--sidebar-group-head-padding-left);
+    line-height: var(--sidebar-group-head-line-height);
     height: 52px;
     line-height: 52px;
     color: var(--sidebar-group-head-color);
@@ -12,21 +17,40 @@
     position: relative;
 }
 
+.text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 .expander {
     position: absolute;
     right: 0;
     top: 0;
     z-index: 1;
+    width: var(--sidebar-expander-size);
+    height: var(--sidebar-expander-size);
+    line-height: var(--sidebar-group-head-line-height);
+    text-align: center;
     width: 52px;
     height: 52px;
     line-height: 51px;
-    text-align: center;
 }
 
-/* @TODO: replace by icon-font */
-.expander::after {
+.expander::before {
     content: '▸';
-    font-size: 16px;
+}
+
+.expander[expanded]::before {
+    content: '▾';
+}
+
+.root[disabled] {
+    cursor: var(--cursor-not-allowed);
+}
+
+.root[disabled] .expander {
+    color: var(--sidebar-disabled-expander-color);
 }
 
 .head:hover {

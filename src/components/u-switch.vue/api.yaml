@@ -1,5 +1,6 @@
 - name: u-switch
   title: 开关
+  labels: [UI 组件, 表单控件, 行内展示]
   attrs:
     - name: value
       type: boolean
@@ -19,7 +20,7 @@
       description: 是否显示开关`ON`和`OFF`文字
   slots:
     - name: default
-      description: 插入文本或 HTML。
+    - description: 插入文本或HTML
   events:
     - name: before-toggle
       description: 切换开关状态前触发
@@ -33,12 +34,36 @@
         - name: $event.preventDefault
           type: Function
           description: 阻止切换流程
+        - name: senderVM
+          type: USwitch
+          description: 发送事件实例
     - name: input
       description: 切换开关状态时触发
       params:
         - name: $event
           type: boolean
           description: 切换后的开关状态
+        - name: senderVM
+          type: USwitch
+          description: 发送事件实例
+    - name: on
+      description: 开关打开时触发
+      params:
+        - name: $event
+          type: ""
+          description: 无
+        - name: senderVM
+          type: USwitch
+          description: 发送事件实例
+    - name: off
+      description: 开关关闭时触发
+      params:
+        - name: $event
+          type: ""
+          description: 无
+        - name: senderVM
+          type: USwitch
+          description: 发送事件实例
     - name: toggle
       description: 切换开关状态时触发
       params:
@@ -48,6 +73,9 @@
         - name: $event.oldValue
           type: boolean
           description: 旧的开关状态
+        - name: senderVM
+          type: USwitch
+          description: 发送事件实例
     - name: change
       description: 开关状态改变时触发
       params:
@@ -57,3 +85,6 @@
         - name: $event.oldValue
           type: boolean
           description: 旧的开关状态
+        - name: senderVM
+          type: USwitch
+          description: 发送事件实例
