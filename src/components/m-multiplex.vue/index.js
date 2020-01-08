@@ -83,7 +83,7 @@ export const MMultiplex = {
         watchSelectedChange(selectedVM) {
             if (!this.keepOrder) {
                 const index = this.selectedVMs.indexOf(selectedVM);
-                if (selectedVM.currentSelected && !~index)
+                if (selectedVM.currentSelected && (!~index || this.duplicated))
                     this.selectedVMs.push(selectedVM);
                 else if (!selectedVM.currentSelected && ~index)
                     this.selectedVMs.splice(index, 1);
@@ -95,13 +95,18 @@ export const MMultiplex = {
             if (this.readonly || this.disabled || !itemVM || itemVM.disabled)
                 return;
 
-            // Method overloading
-            if (selected === undefined)
-                selected = !itemVM.currentSelected;
+            if (!this.duplicated) {
+                // Method overloading
+                if (selected === undefined)
+                    selected = !itemVM.currentSelected;
 
-            // Prevent replication
-            if (itemVM.currentSelected === selected)
-                return;
+                // Prevent replication
+                if (itemVM.currentSelected === selected)
+                    return;
+            } else {
+                if (selected === undefined)
+                    selected = true;
+            }
 
             const oldValue = this.value;
             const oldVMs = this.selectedVMs;

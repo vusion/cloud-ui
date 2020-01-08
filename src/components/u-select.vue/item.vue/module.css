@@ -18,6 +18,15 @@
     background: var(--brand-primary);
 }
 
+.root[duplicated] {
+    color: inherit;
+    background: none;
+}
+
+.root[duplicated]:hover {
+    background: var(--select-item-hover);
+}
+
 .root[disabled] {
     color: #ccc;
     background: none;

@@ -21,7 +21,7 @@
         <span v-else-if="this.multipleAppearance === 'text'">{{ currentText }}</span>
         <template v-else-if="this.multipleAppearance === 'tags'">
             <template v-if="tagsOverflow === 'hidden' || tagsOverflow === 'visible'">
-                <span :class="$style.tag" v-for="itemVM in selectedVMs" :key="itemVM.value">
+                <span :class="$style.tag" v-for="(itemVM, index) in selectedVMs" :key="duplicated ? itemVM.value + '_' + index : itemVM.value">
                     <span :class="$style['tag-text']">{{ itemVM.currentText }}</span>
                     <span :class="$style['tag-remove']" @click.stop="select(itemVM, false)"></span>
                 </span>
@@ -57,7 +57,7 @@
         <template v-if="currentData">
             <component :is="ChildComponent" v-if="currentData"
                 v-for="(item, index) in currentData"
-                :key="filterable ? item.value + index : item.value"
+                :key="filterable ? item.value + '_' + index : item.value"
                 :value="item.value"
                 :disabled="item.disabled || disabled"
                 :item="item"

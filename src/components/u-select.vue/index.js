@@ -18,6 +18,7 @@ export const USelect = {
         // @inherit: cancelable: { type: Boolean, default: false },
         // @inherit: multiple: { type: Boolean, default: false },
         // @inherit: keepOrder: { type: Boolean, default: false },
+        duplicated: { type: Boolean, default: false },
         multipleAppearance: { type: String, default: 'tags' },
         tagsOverflow: { type: String, default: 'visible' },
         autoSelect: { type: Boolean, default: false },

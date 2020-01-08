@@ -1,5 +1,6 @@
 <div :class="$style.root"
     :selected="parentVM.multiple ? currentSelected : isSelected"
+    :duplicated="parentVM.duplicated"
     :focused="isFocused"
     :readonly="parentVM.readonly"
     :disabled="disabled || parentVM.disabled"
