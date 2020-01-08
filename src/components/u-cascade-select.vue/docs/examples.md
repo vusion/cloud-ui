@@ -294,7 +294,7 @@ export default {
 ### 大小扩展
 
 ``` html
-<u-cascade-select size="large" :categories="[
+<u-cascade-select size="medium" :categories="[
     { label: '学科门类' },
     { label: '一级学科' },
     { label: '二级学科' },

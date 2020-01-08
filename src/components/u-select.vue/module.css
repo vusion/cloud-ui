@@ -55,8 +55,9 @@
 
 .root::after {
     position: absolute;
-    icon-font: url('../i-icon.vue/assets/arrow-down.svg');
-    right: 8px;
+    icon-font: url('../i-icon.vue/icons/keyboard-arrow-down.svg');
+    font-size: 18px;
+    right: 6px;
     top: 0;
     bottom: 0;
     line-height: 1;
@@ -65,7 +66,7 @@
     color: var(--select-arrow-color);
 }
 .root[opend]::after {
-    icon-font: url('../i-icon.vue/assets/arrow-up.svg');
+    transform: rotate(180deg);
 }
 
 .root[clearable]::after {
@@ -162,7 +163,7 @@
     text-align: center;
 }
 
-.root[size="normal"] { /* As default */ }
+.root[size="normal"] { /* By default */ }
 
 .root[size="small"] {
     width: var(--select-small-width);
@@ -195,14 +196,6 @@
 
 .root:focus {
     border-color: var(--brand-secondary);
-}
-
-.root::after {
-    icon-font: url('../i-icon.vue/icons/keyboard-arrow-down.svg');
-    font-size: 18px;
-    right: 6px;
-    top: 0;
-    line-height: 1;
 }
 
 .root[disabled] {

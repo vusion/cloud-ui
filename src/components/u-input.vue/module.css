@@ -73,7 +73,7 @@
     border-color: var(--input-border-color-focus);
 }
 
-.root[color="default"] { /* As default */ }
+.root[color="default"] { /* By default */ }
 
 .root[color="error"] {
     border-color: var(--input-border-color-error);
@@ -84,9 +84,9 @@
     background: var(--input-background-disabled);
 }
 
-.root[size="normal"] { /* As default */ }
+.root[size="normal"] { /* By default */ }
 
-.root[display="inline"] { /* As default */ }
+.root[display="inline"] { /* By default */ }
 
 .root[display="block"] {
     display: block;

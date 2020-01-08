@@ -8,11 +8,8 @@
     font-weight: var(--font-weight-bold);
     color: var(--sidebar-group-head-color);
     padding-left: var(--sidebar-group-head-padding-left);
-    line-height: var(--sidebar-group-head-line-height);
-    height: 52px;
-    line-height: 52px;
-    color: var(--sidebar-group-head-color);
-    padding-left: 20px;
+    height: var(--sidebar-group-head-height);
+    line-height: var(--sidebar-group-head-height);
     transition: color 0.2s;
     position: relative;
 }
@@ -30,19 +27,8 @@
     z-index: 1;
     width: var(--sidebar-expander-size);
     height: var(--sidebar-expander-size);
-    line-height: var(--sidebar-group-head-line-height);
+    line-height: var(--sidebar-group-head-height);
     text-align: center;
-    width: 52px;
-    height: 52px;
-    line-height: 51px;
-}
-
-.expander::before {
-    content: '▸';
-}
-
-.expander[expanded]::before {
-    content: '▾';
 }
 
 .root[disabled] {

@@ -85,7 +85,7 @@
     <u-navbar-item to="/components">组件</u-navbar-item>
     <u-navbar-item>概念</u-navbar-item>
     <u-navbar-item disabled>指令</u-navbar-item>
-    <u-navbar-item slot="right" href="https://github.com/vusion/cloud-ui" target="_blank"><i-icon name="github" style="font-size: 24px;"></i-icon></u-navbar-item>
+    <u-navbar-item slot="right" href="https://github.com/vusion/cloud-ui" target="_blank"><i-icon name="github"></i-icon></u-navbar-item>
 </u-navbar>
 ```
 
@@ -100,21 +100,21 @@
         <u-navbar-item>指南</u-navbar-item>
         <u-navbar-item>概念</u-navbar-item>
         <u-navbar-item to="/cloud-ui">组件</u-navbar-item>
-        <u-navbar-item slot="right" href="https://github.com/vusion/cloud-ui" target="_blank"><i-icon name="github" style="font-size: 24px;"></i-icon></u-navbar-item>
+        <u-navbar-item slot="right" href="https://github.com/vusion/cloud-ui" target="_blank"><i-icon name="github"></i-icon></u-navbar-item>
     </u-navbar>
     <u-navbar alignment="center">
         <u-logo slot="left"></u-logo>
         <u-navbar-item>指南</u-navbar-item>
         <u-navbar-item>概念</u-navbar-item>
         <u-navbar-item to="/cloud-ui">组件</u-navbar-item>
-        <u-navbar-item slot="right" href="https://github.com/vusion/cloud-ui" target="_blank"><i-icon name="github" style="font-size: 24px;"></i-icon></u-navbar-item>
+        <u-navbar-item slot="right" href="https://github.com/vusion/cloud-ui" target="_blank"><i-icon name="github"></i-icon></u-navbar-item>
     </u-navbar>
     <u-navbar alignment="right">
         <u-logo slot="left"></u-logo>
         <u-navbar-item>指南</u-navbar-item>
         <u-navbar-item>概念</u-navbar-item>
         <u-navbar-item to="/cloud-ui">组件</u-navbar-item>
-        <u-navbar-item slot="right" href="https://github.com/vusion/cloud-ui" target="_blank"><i-icon name="github" style="font-size: 24px;"></i-icon></u-navbar-item>
+        <u-navbar-item slot="right" href="https://github.com/vusion/cloud-ui" target="_blank"><i-icon name="github"></i-icon></u-navbar-item>
     </u-navbar>
 </u-linear-layout>
 ```

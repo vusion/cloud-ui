@@ -5,6 +5,8 @@
     <u-text size="small">小号文本</u-text>
     <u-text size="normal">正常文本</u-text>
     <u-text size="large">大号文本</u-text>
+    <u-text size="huge">特大号文本</u-text>
+    <u-text style="font-size: 26px;">自定义大小</u-text>
 </u-linear-layout>
 ```
 
@@ -15,6 +17,8 @@
     <u-text>默认颜色</u-text>
     <u-text color="primary">主要文本</u-text>
     <u-text color="secondary">二级文本</u-text>
+    <u-text color="success">成功文本</u-text>
+    <u-text color="warning">警告文本</u-text>
     <u-text color="error">错误文本</u-text>
     <u-text color="disabled">禁默文本</u-text>
 </u-linear-layout>
