@@ -1,0 +1,118 @@
+- name: u-uploader
+  title: 文件上传
+  labels: [UI 组件, 表单控件, 行内展示]
+  attrs:
+    - name: url
+      type: string
+      default: null
+      description: 上传文件路径
+    - name: data-type
+      type: string
+      default: json
+      description: 接收数据类型。可选值：`text`、`xml`、`json`
+    - name: data
+      type: object
+      default: null
+      description: 附加数据
+    - name: name
+      type: string
+      default: file
+      description: 上传文件的名称，后端一般需要这个字段
+    - name: extensions
+      type: string, Array
+      default: ""
+      description: 可上传的扩展名。默认为空，表示可上传任意文件类型的文件。可以为字符串，多个扩展名用`,`隔开，如：`'png,jpg,gif'`；也可以为数组，如：`['png',
+        'jpg', 'gif']`
+    - name: max-size
+      type: string, number
+      default: .inf
+      description: 可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB`
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用
+  slots:
+    - name: default
+      description: 插入文本或HTML。
+  events:
+    - name: before-send
+      description: 发送前触发
+      params:
+        - name: $event.data
+          type: object
+          description: 进度相关信息
+        - name: $event.xhr
+          type: XMLHttpRequest
+          description: 发送前的 XMLHttpRequest 对象
+        - name: $event.formData
+          type: FormData
+          description: 用于发送的数据对象
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止上传流程
+        - name: senderVM
+          type: UUploader
+          description: 发送事件对象
+    - name: send
+      description: 刚发送时触发
+      params:
+        - name: $event.data
+          type: object
+          description: 进度相关信息
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止上传流程
+        - name: senderVM
+          type: UUploader
+          description: 发送事件对象
+    - name: progress
+      description: 发送进度改变时触发，在上传进度条时使用
+      params:
+        - name: $event.data
+          type: object
+          description: 进度相关信息
+        - name: senderVM
+          type: UUploader
+          description: 发送事件对象
+    - name: complete
+      description: 上传完成时触发
+      params:
+        - name: $event.xml
+          type: string
+          description: 服务器回传信息
+        - name: senderVM
+          type: UUploader
+          description: 发送事件对象
+    - name: success
+      description: 上传成功时触发
+      params:
+        - name: $event.data
+          type: object
+          description: 服务器回传信息对象
+        - name: $event.file
+          type: object
+          description: 上传文件信息，不包含文件主体内容
+        - name: senderVM
+          type: UUploader
+          description: 发送事件对象
+    - name: error
+      description: 上传报错时触发
+      params:
+        - name: $event.name
+          type: string
+          description: 错误名
+        - name: $event.message
+          type: string
+          description: 错误描述
+        - name: $event.extensions
+          type: string
+          description: 限制类型
+        - name: $event.maxSize
+          type: number
+          description: 限制大小
+        - name: $event.size
+          type: number
+          description: 当前大小
+        - name: senderVM
+          type: UUploader
+          description: 发送事件对象

@@ -7,3 +7,7 @@
 .root:hover {
     background: #142236;
 }
+
+.root + .root {
+    border-top: none;
+}

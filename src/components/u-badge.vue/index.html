@@ -1,0 +1,4 @@
+<div :class="$style.root">
+    <slot></slot>
+    <span :class="$style.value" v-if="currentValue">{{ currentValue }}</span>
+</div>

@@ -1,4 +1,60 @@
-@extend;
+.root {}
+
+.button {
+    user-select: none;
+    position: absolute;
+    right: 1px;
+    height: var(--number-input-height);
+    line-height: var(--number-input-line-height);
+    padding: var(--number-input-padding);
+    cursor: var(--cursor-pointer);
+    background: var(--number-input-background);
+}
+
+.button:hover {
+    background: var(--number-input-background-hover);
+}
+
+.button:focus {
+    outline: var(--focus-outline);
+}
+
+.button:active {
+    background: var(--number-input-background-active);
+}
+
+.button[role="up"] {
+    top: 1px;
+}
+
+.button[role="up"]::before {
+    icon-font: url('../i-icon.vue/assets/arrow-up.svg');
+}
+
+.button[role="down"] {
+    bottom: 1px;
+}
+
+.button[role="down"]::before {
+    icon-font: url('../i-icon.vue/assets/arrow-down.svg');
+}
+
+.button[disabled] {
+    background: var(--number-input-background-disabled);
+    color: var(--number-input-color-disabled);
+    cursor: var(--cursor-not-allowed);
+}
+
+.root[readonly] .button {
+    background: var(--number-input-background-readonly);
+    cursor: default;
+}
+
+.root[disabled] .button {
+    background: var(--number-input-background-disabled);
+    color: var(--number-input-color-disabled);
+    cursor: var(--cursor-not-allowed);
+}
 
 .button[role="up"] {
     top: 2px;

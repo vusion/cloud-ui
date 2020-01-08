@@ -1,0 +1,27 @@
+.root {
+    display: inline;
+}
+
+.root:not(:last-child)::after {
+    content: '>';
+    margin: var(--crumb-margin);
+    vertical-align: 1px;
+}
+
+.link {
+    color: var(--crumb-link-color);
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.text {
+    color: inherit;
+    cursor: default;
+}
+
+.disabled {
+    color: var(--crumb-disabled-color);
+    cursor: default;
+}

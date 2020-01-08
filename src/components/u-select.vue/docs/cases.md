@@ -1,3 +1,4 @@
+
 ## 单选模式
 
 ### 基本用法
@@ -310,7 +311,43 @@ export default {
 
 ## 过滤模式
 
-### 可过滤
+### 选项初始值
+
+``` vue
+<template>
+<u-linear-layout>
+    <u-select v-model="value" :data="list" filterable clearable placeholder="前端过滤"></u-select>
+</u-linear-layout>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value: undefined,
+            list: [],
+        };
+    },
+    created() {
+        this.getList();
+    },
+    methods: {
+        getList() {
+            return new Promise((res, rej) => {
+                setTimeout(() => {
+                    const data = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New hampshire', 'New jersey', 'New mexico', 'New york', 'North carolina', 'North dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode island', 'South carolina', 'South dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West virginia', 'Wisconsin', 'Wyoming'].map((text) => ({ text, value: text }));
+
+                    res(data);
+                }, 100);
+            }).then((result) => {
+                this.list = result;
+                this.value = 'Washington';
+            });
+        },
+    },
+};
+</script>
+```
 
 ### 匹配方式
 
@@ -375,6 +412,140 @@ export default {
             this.reverse = true;
             this.$refs.select.reload();
         },
+    },
+};
+</script>
+```
+
+## 其他问题
+
+### 列表切换
+
+#### Tag 方式
+
+``` vue
+<template>
+<u-linear-layout>
+    <u-select v-if="!list.length" placeholder="暂无可选的项" disabled></u-select>
+    <u-select v-else v-model="value">
+        <u-select-item v-for="item in list" :key="item.value" :value="item.value">{{ item.text }}</u-select-item>
+    </u-select>
+    <u-button @click="switchList">切换</u-button>
+</u-linear-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            value: undefined,
+            list: [],
+            list1: ['A', 'B', 'C'].map((value) => ({ text: value + value, value })),
+            list2: ['D', 'E', 'F', 'G'].map((value) => ({ text: value + value, value })),
+        };
+    },
+    methods: {
+        switchList() {
+            if (!this.list.length)
+                this.list = this.list1;
+            else if (this.list === this.list1)
+                this.list = this.list2;
+            else
+                this.list = [];
+        },
+    },
+};
+</script>
+```
+
+#### Data 方式
+
+``` vue
+<template>
+<u-linear-layout>
+    <u-select v-if="!list.length" placeholder="暂无可选的项" disabled></u-select>
+    <u-select v-else v-model="value" :data="list"></u-select>
+    <u-button @click="switchList">切换</u-button>
+</u-linear-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            value: undefined,
+            list: [],
+            list1: ['A', 'B', 'C'].map((value) => ({ text: value + value, value })),
+            list2: ['D', 'E', 'F', 'G'].map((value) => ({ text: value + value, value })),
+        };
+    },
+    methods: {
+        switchList() {
+            if (!this.list.length)
+                this.list = this.list1;
+            else if (this.list === this.list1)
+                this.list = this.list2;
+            else
+                this.list = [];
+        },
+    },
+};
+</script>
+```
+
+### 列表与 value 同时改变的问题
+
+``` vue
+<template>
+<div>
+    <u-linear-layout direction="vertical">
+        <u-linear-layout>
+            <u-text size="normal">可用区</u-text>
+            <u-radios v-model="selectedAz">
+                <u-radio label="azA">可用区A</u-radio>
+                <u-radio label="azB">可用区B</u-radio>
+            </u-radios>
+        </u-linear-layout>
+        <u-linear-layout>
+            <u-text size="normal">网络{{ selectedVpc }}</u-text>
+            <u-select v-model="selectedVpc">
+                <u-select-item v-for="item in vpcOptions" :key="item.value" :value="item.value">A {{ item.text }}</u-select-item>
+            </u-select>
+        </u-linear-layout>
+    </u-linear-layout>
+</div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            azMap: {
+                azA: [
+                    { text: 'classic', value: 'classic' },
+                    { text: 'defaultVPC', value: 'defaultVPC' },
+                ],
+                azB: [
+                    { text: 'devVPC', value: 'devVPC' },
+                    { text: 'onlineVPC', value: 'onlineVPC' },
+                ],
+            },
+            vpcOptions: [],
+            selectedAz: 'azA',
+            selectedVpc: 'classic',
+        };
+    },
+    watch: {
+        selectedAz(value) {
+            this.vpcOptions = this.azMap[value];
+            if (this.vpcOptions.length > 0) {
+                this.selectedVpc = this.vpcOptions[0].value;
+            }
+        },
+    },
+    created() {
+        this.vpcOptions = this.azMap[this.selectedAz];
+        if (this.vpcOptions.length > 0) {
+            this.selectedVpc = this.vpcOptions[0].value;
+        }
     },
 };
 </script>

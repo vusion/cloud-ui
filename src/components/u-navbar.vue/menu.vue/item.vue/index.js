@@ -1,8 +1,10 @@
-import { UNavbarMenuItem as ONavbarMenuItem } from 'proto-ui.vusion';
+import { UMenuItem } from '../../../u-menu.vue';
 
 export const UNavbarMenuItem = {
     name: 'u-navbar-menu-item',
-    extends: ONavbarMenuItem,
+    parentName: 'u-navbar-menu',
+    groupName: 'u-navbar-menu-group',
+    extends: UMenuItem,
 };
 
 export default UNavbarMenuItem;

@@ -1,5 +1,10 @@
-@extend;
-
 .root {
+    position: absolute;
+    line-height: var(--table-view-filter-line-height);
+    max-height: var(--table-view-filter-max-height);
+    overflow: auto;
+    background: var(--table-view-filter-background);
+    border: 1px solid var(--border-color-base);
+    z-index: var(--z-index-popper);
     width: 100%;
 }

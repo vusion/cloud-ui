@@ -1,17 +1,69 @@
-@extend;
+.root {}
+
+.root[display="inline"] {
+    /* By default */
+}
+
+.root[display="block"] {
+    display: block;
+}
+
+.root[size="small"] {
+    font-size: var(--text-font-size-small);
+}
+
+.root[size="normal"] {
+    /* By default */
+}
+
+.root[size="large"] {
+    font-size: var(--text-font-size-large);
+}
+
+.root[size="huge"] {
+    font-size: var(--text-font-size-huge);
+}
+
+.root[color="default"] {
+    /* By default */
+}
+
+.root[color="primary"] {
+    color: var(--text-color-primary);
+}
 
 .root[color="secondary"] {
-    color: #999;
+    color: var(--text-color-secondary);
 }
 
 .root[color="success"] {
-    color: #4ec9ab;
+    color: var(--text-color-success);
 }
 
 .root[color="warning"] {
-    color: #ffc000;
+    color: var(--text-color-warning);
+}
+
+.root[color="error"] {
+    color: var(--text-color-error);
 }
 
 .root[color="disabled"] {
-    color: #ccc;
+    color: var(--text-color-disabled);
+}
+
+.root[wrap="ellipsis"] {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.root[wrap="break"] {
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+.root[wrap="nowrap"] {
+    white-space: nowrap;
 }

@@ -1,0 +1,13 @@
+{
+  "l-page-center/size": {
+    "type": "enum",
+    "options": [
+      "mini",
+      "small",
+      "normal",
+      "large",
+      "huge"
+    ],
+    "description": "宽度大小。"
+  }
+}

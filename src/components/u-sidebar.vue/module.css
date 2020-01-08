@@ -1,5 +1,9 @@
-@extend;
-
+.root {
+    user-select: none;
+    background: var(--sidebar-background);
+    height: 100%;
+    overflow: auto;
+}
 
 .root[size="small"] .group_head {
     height: 32px;

@@ -1,10 +1,10 @@
-@extend;
-
 .root {
     position: relative;
 }
 
 .label {
+    display: inline-block;
+    padding-right: var(--form-item-label-space);
     color: #999;
     text-align: right;
     position: relative;
@@ -12,11 +12,17 @@
 
 .label[required]::after {
     content: '*';
+    color: var(--form-required-color);
     position: absolute;
     right: 2px;
     height: 12px;
     line-height: 12px;
     top: 7px;
+}
+
+.field {
+    display: inline-block;
+    position: relative;
 }
 
 .message {
@@ -26,6 +32,9 @@
     display: none;
     line-height: 26px;
     font-size: 12px;
+    margin-left: var(--form-message-margin-left);
+    padding: var(--form-message-padding);
+    background: var(--form-message-background);
 }
 
 .message[color="focus"] {
@@ -57,6 +66,8 @@
     top: 50%;
     transform: translateY(-50%);
     white-space: nowrap;
+    background: var(--form-message-background-error);
+    color: var(--form-message-color-error);
 }
 
 .message[color="error"]::before {
@@ -81,6 +92,10 @@
 }
 
 .root[placement="bottom"] .message {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-left: 0;
     transform: translateY(0);
 }
 
@@ -90,6 +105,27 @@
 
 .root[placement="bottom"] .message[color="error"] {
     transform: none;
+}
+
+.root[label-size$="normal"] > .label { width: var(--form-item-label-width); }
+.root[label-size$="normal"] > .field { max-width: calc(100% - var(--form-item-label-width)); }
+
+.root[field-size="full"] > .field {
+    width: 100%;
+}
+
+.root[layout="block"] > .field {
+    vertical-align: top;
+}
+
+.root[layout="none"] {
+    display: inline-block;
+}
+.root[layout="none"] > .label {
+    display: none;
+}
+.root[layout="none"] > .field {
+    max-width: none;
 }
 
 .root[label-size$="small"] > .label { width: 80px; padding-right: 10px; }

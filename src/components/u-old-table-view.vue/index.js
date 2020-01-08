@@ -1,5 +1,5 @@
 import { getStyle, getScrollSize } from '../../utils/style';
-import { ellipsisTitle } from 'proto-ui.vusion/src/directives';
+import { ellipsisTitle } from '../../directives';
 import { deepCopy } from '../../utils/index';
 import { format } from '../../utils/date';
 import i18n from './i18n';

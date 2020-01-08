@@ -1,0 +1,16 @@
+.root {
+    margin: 0;
+    list-style: var(--list-style);
+}
+
+.root[line] .item:not(:last-child) {
+    border-bottom: var(--list-item-border-bottom);
+}
+
+.root[striped] .item:nth-of-type(odd) {
+    background: var(--list-item-background-striped);
+}
+
+.root[hover] .item:hover {
+    background: var(--list-item-background-hover);
+}

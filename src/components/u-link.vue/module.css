@@ -1,4 +1,10 @@
-@extend;
+.root {
+    color: var(--link-color);
+}
+
+.root:hover {
+    text-decoration: underline;
+}
 
 .root[color="light"] {
     color: var(--link-color-light);
@@ -6,6 +12,16 @@
 
 .root[color="white"] {
     color: var(--link-color-white);
+}
+
+.root[disabled] {
+    cursor: var(--cursor-not-allowed);
+    color: var(--link-color-disabled);
+    text-decoration: none;
+}
+
+.root[display="block"] {
+    display: block;
 }
 
 .root:lang(en) {

@@ -1,15 +1,36 @@
-@extend;
-
 .root {
+    display: block;
+    cursor: var(--cursor-pointer);
+    height: var(--sidebar-item-height);
+    line-height: var(--sidebar-item-line-height);
+    padding-left: var(--sidebar-item-padding-left);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     color: var(--sidebar-item-color);
     background: var(--sidebar-item-background);
     transition: all var(--transition-duration);
 }
 
+.root:hover {
+    color: var(--sidebar-item-color-hover);
+}
+
+.root[readonly] {
+    cursor: default;
+}
+
 .root[selected] {
-    border-right: 4px solid var(--brand-primary);
+    background: var(--sidebar-item-background-selected);
+    color: var(--sidebar-item-color-selected);
+}
+
+.root[disabled] {
+    cursor: var(--cursor-not-allowed);
+    background: var(--sidebar-item-background-disabled);
+    color: var(--sidebar-item-color-disabled);
 }
 
 .root[selected][disabled] {
-    border-right: none;
+    background: var(--sidebar-item-background-selected-disabled);
 }

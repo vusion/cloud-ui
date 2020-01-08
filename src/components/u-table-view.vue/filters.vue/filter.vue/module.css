@@ -1,0 +1,6 @@
+@extend;
+
+.root {
+    display: block;
+    white-space: nowrap;
+}

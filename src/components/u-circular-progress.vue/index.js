@@ -1,26 +1,18 @@
-import { UCircularProgress } from 'proto-ui.vusion';
-
-export const UCircularSpecificProgress = {
-    name: 'u-circular-specific-progress',
-    extends: UCircularProgress,
+export const UCircularProgress = {
+    name: 'u-circular-progress',
     props: {
-        rule: {
-            type: Object,
-            default() {
-                return {
-                    value: -1,
-                };
-            },
-        },
+        percent: { type: Number, default: 0 },
+    },
+    data() {
+        return {
+            radius: 45,
+        };
     },
     computed: {
-        stroke() {
-            if (!this.rule.color)
-                return '';
-            else if (this.percent - this.rule.value > 0)
-                return this.rule.color;
+        strokeDasharray() {
+            return 2 * Math.PI * this.radius * this.percent * 0.01 + 'px 1000px';
         },
     },
 };
 
-export default UCircularSpecificProgress;
+export default UCircularProgress;

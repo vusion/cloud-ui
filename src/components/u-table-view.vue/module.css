@@ -1,37 +1,164 @@
-@extend;
+.root {
+    position: relative;
+    /* 不能加这句，会使分页器的 Select 无法显示！ overflow: hidden; */
+}
 
-.head-title[sortable]:hover, .head-title[filterable]:hover {
-    background: #eef2f8;
+.title {
+    text-align: center;
+    margin-bottom: var(--table-view-title-space);
+}
+
+.table {
+    overflow-x: auto;
+}
+
+.table[position="left"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    background: var(--table-view-table-background);
+}
+
+.table[position="left"][shadow] {
+    box-shadow: var(--table-view-table-shadow);
+}
+
+.table[position="right"] {
+    position: absolute;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+    background: var(--table-view-table-background);
+}
+
+.table[position="right"][shadow] {
+    box-shadow: var(--table-view-table-right-shadow);
+}
+
+.table[position="right"] > * {
+    float: right;
+}
+
+.head {
+    width: 100%;
+}
+
+.head-title {
+    position: relative;
+}
+
+.extra {
+    float: right;
+}
+
+.body {
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.center {
+    text-align: center;
+}
+
+.sort {
+    position: relative;
+    display: inline-block;
+    width: var(--table-view-sort-size);
+    height: var(--table-view-sort-size);
+    vertical-align: -1px;
+    color: var(--table-view-sort-color);
+    cursor: var(--cursor-pointer);
+}
+
+.sort::before {
+    position: absolute;
+    left: 0;
+    top: -3px;
+    line-height: 1;
+    icon-font: url('../i-icon.vue/assets/arrow-up.svg');
+}
+
+.sort::after {
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    line-height: 1;
+    icon-font: url('../i-icon.vue/assets/arrow-down.svg');
+}
+
+.sort[sorting][order="asc"]::before {
+    color: var(--table-view-sort-color-active);
+}
+
+.sort[sorting][order="desc"]::after {
+    color: var(--table-view-sort-color-active);
 }
 
 .filter {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0;
-    padding: 0;
+    float: right;
+    cursor: var(--cursor-pointer);
+    padding-bottom: 6px;
+    margin-bottom: -6px;
 }
 
 .filter::before {
-    icon-font: url('../i-icon.vue/icons/keyboard-arrow-down.svg');
-    position: absolute;
-    display: block;
-    right: 5px;
-    line-height: 46px;
-    font-size: 18px;
-    color: #9dabc2;
-}
-
-.expander {
+    icon-font: url('../i-icon.vue/assets/filter.svg');
+    color: var(--brand-disabled);
+    font-size: var(--font-size-small);
     vertical-align: -2px;
 }
 
-.expander::before {
-    icon-font: url('../i-icon.vue/icons/square-down.svg');
+.resizer {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    right: -3px;
+    z-index: 1;
+    cursor: col-resize;
+    padding: 2px;
+    background: var(--border-color-base) content-box;
+    width: 5px;
 }
 
-.expand-td {
-    /* transition: var(--transition-duration) height ease-in-out, var(--transition-duration) padding-top ease-in-out, var(--transition-duration) padding-bottom ease-in-out; */
+.cell {
+    position: relative;
+    white-space: normal;
+    word-break: break-all;
+    /* 解决在火狐浏览器下英文换行显示问题 */
+    word-wrap: break-word;
+}
+
+.cell[ellipsis] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.pagination {
+    text-align: right;
+    margin-top: var(--table-view-pagination-space);
+}
+
+.row[selected] {
+    background: var(--table-view-row-selected-background) !important;
+}
+
+.expander {
+    user-select: none;
+    display: inline-block;
+    width: var(--table-view-expander-size);
+    height: var(--table-view-expander-size);
+    line-height: var(--table-view-expander-size);
+    text-align: center;
+    transform: rotate(-180deg);
+}
+
+.expander::before {
+    content: '▾';
+}
+
+.expander[expanded] {
+    transform: rotate(0);
 }

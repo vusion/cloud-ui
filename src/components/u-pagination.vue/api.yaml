@@ -1,0 +1,68 @@
+- name: u-pagination
+  title: 分页
+  labels: [UI 组件, 块级展示]
+  attrs:
+    - name: page.sync
+      type: number
+      default: 1
+      description: 当前页码
+    - name: total
+      type: number
+      default: 11
+      description: 总页数
+    - name: side
+      type: number
+      default: 2
+      description: 当页数多时，两边恒定显示的数量
+    - name: around
+      type: number
+      default: 5
+      description: 当页数多时，中间恒定显示的数量
+    - name: readonly
+      type: boolean
+      default: false
+      description: 是否只读
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用
+  events:
+    - name: before-select
+      description: 选择分页前触发
+      params:
+        - name: $event.page
+          type: number
+          description: 选择的页码
+        - name: $event.oldPage
+          type: number
+          description: 旧的页码
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止选择流程
+        - name: senderVM
+          type: UPagination
+          description: 发送事件实例
+    - name: select
+      description: 选择分页时触发
+      params:
+        - name: $event.page
+          type: number
+          description: 选择的页码
+        - name: $event.oldPage
+          type: number
+          description: 旧的页码
+        - name: senderVM
+          type: UPagination
+          description: 发送事件实例
+    - name: change
+      description: 页码改变时触发
+      params:
+        - name: $event.page
+          type: number
+          description: 当前页码
+        - name: $event.oldPage
+          type: number
+          description: 旧的页码
+        - name: senderVM
+          type: UPagination
+          description: 发送事件实例

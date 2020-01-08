@@ -1,4 +1,4 @@
-import { UListViewItem } from 'proto-ui.vusion';
+import { UListViewItem } from '../../u-list-view.vue';
 
 export const UPill = {
     name: 'u-pill',

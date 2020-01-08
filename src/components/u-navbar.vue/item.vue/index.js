@@ -1,8 +1,9 @@
-import { UNavbarItem as ONavbarItem } from 'proto-ui.vusion';
+import { MSinglexItem } from '../../m-singlex.vue';
 
 export const UNavbarItem = {
     name: 'u-navbar-item',
-    extends: ONavbarItem,
+    parentName: 'u-navbar',
+    extends: MSinglexItem,
 };
 
 export default UNavbarItem;

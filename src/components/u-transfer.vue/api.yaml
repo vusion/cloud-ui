@@ -1,0 +1,58 @@
+- name: u-transfer
+  title: 穿梭框
+  attrs:
+    - name: source
+      type: Array<{ text, value }>
+      default: null
+      description: 原数据列表
+    - name: target
+      type: Array<{ text, value }>
+      default: null
+      description: 目标数据列表
+    - name: readonly
+      type: boolean
+      default: false
+      description: 是否只读
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用
+  slots:
+    - name: default
+  events:
+    - name: transfer
+      description: 数据转移时触发
+      params:
+        - name: $event.source
+          type: Array<{ text, value }>
+          description: 原数据列表
+        - name: $event.target
+          type: Array<{ text, value }>
+          description: 目标数据列表
+        - name: $event.transfer
+          type: Array<{ text, value }>
+          description: 移动的项
+        - name: $event.transferValues
+          type: Array
+          description: 移动项的值
+        - name: senderVM
+          type: Vue
+          description: 发送事件实例
+    - name: change
+      description: 数据改变时触发
+      params:
+        - name: $event.source
+          type: Array<{ text, value }>
+          description: 原数据列表
+        - name: $event.target
+          type: Array<{ text, value }>
+          description: 目标数据列表
+        - name: $event.transfer
+          type: Array<{ text, value }>
+          description: 移动的项
+        - name: $event.transferValues
+          type: Array
+          description: 移动项的值
+        - name: senderVM
+          type: Vue
+          description: 发送事件实例

@@ -1,4 +1,4 @@
-import { UTabs } from 'proto-ui.vusion';
+import { UTabs } from '../u-tabs.vue';
 
 export const USubtabs = {
     name: 'u-subtabs',

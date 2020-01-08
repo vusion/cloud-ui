@@ -1,0 +1,5 @@
+.root {
+    /* @Private */
+    user-select: none;
+    position: relative;
+}

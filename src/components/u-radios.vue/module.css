@@ -1,5 +1,5 @@
-@extend;
+.root {}
 
 .root > *:not(:last-child) {
-    margin-right: 80px;
+    margin-right: var(--radios-item-margin-right);
 }

@@ -20,6 +20,7 @@
 }
 
 .root::before {
+    font-size: var(--form-table-button-font-size);
     content: '+ ';
 }
 
@@ -34,6 +35,8 @@
     background: white;
     color: #ccc;
     border: 1px solid #ddd;
+    cursor: var(--cursor-not-allowed);
+    color: var(--brand-disabled);
 }
 
 .root[disabled]:hover {

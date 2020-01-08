@@ -17,7 +17,7 @@
                         <u-navbar-select-item value="dark"><div :class="$style.color" color="dark"></div>Dark</u-navbar-select-item>
                         <u-navbar-select-item value="seagreen"><div :class="$style.color" color="seagreen"></div>SeaGreen</u-navbar-select-item>
                     </u-navbar-select>
-                    <u-navbar-item :href="github" target="_blank"><i-icon name="github" style="font-size: 24px;"></i-icon></u-navbar-item>
+                    <u-navbar-item :href="github" target="_blank"><i-icon name="github"></i-icon></u-navbar-item>
                 </div>
             </u-navbar>
         </div>

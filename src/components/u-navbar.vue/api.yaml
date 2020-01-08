@@ -1,15 +1,20 @@
 - name: u-navbar
   title: 导航条
+  labels: [UI 组件, 路由链接, 块级展示]
   description: 通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。
   attrs:
     - name: router
       type: boolean
       default: true
-      description: 是否根据vue-router来控制选择哪一项
+      description: 是否根据 vue-router 来控制选择项
     - name: value.sync, v-model
       type: any
       default: null
       description: 当前选择的值
+    - name: field
+      type: string
+      default: text
+      description: 显示文本字段
     - name: readonly
       type: boolean
       default: false
@@ -20,8 +25,21 @@
       description: 是否禁用
   slots:
     - name: default
-      description: 插入`<u-navbar-item>`或`<u-navbar-divider>`子组件。
+      description: 中部区域，可插入`<u-navbar-item>`、`<u-navbar-divider>`等子组件，或其他 HTML。
+    - name: left
+      description: 左部区域。
+    - name: right
+      description: 右部区域。
   events:
+    - name: click
+      description: 点击此项时触发，与原生 click 事件不同的是，它只会在非只读和禁用的情况下触发。
+      params:
+        - name: $event
+          type: MouseEvent
+          description: 鼠标事件对象
+        - name: senderVM
+          type: Vue
+          description: 发送事件实例
     - name: before-select
       description: 选择某一项前触发
       params:
@@ -35,17 +53,23 @@
           type: object
           description: 选择项相关对象
         - name: $event.itemVM
-          type: UNavbarItem
+          type: NavbarItem
           description: 选择项子组件
         - name: $event.preventDefault
           type: Function
           description: 阻止选择流程
+        - name: senderVM
+          type: Vue
+          description: 发送事件实例
     - name: input
       description: 选择某一项时触发
       params:
         - name: $event
           type: any
           description: 选择项的值
+        - name: senderVM
+          type: Vue
+          description: 发送事件实例
     - name: select
       description: 选择某一项时触发
       params:
@@ -57,10 +81,43 @@
           description: 旧的值
         - name: $event.item
           type: object
-          description: 单选模式中，选择项相关对象
+          description: 选择项相关对象
+        - name: $event.oldItem
+          type: object
+          description: 旧的选择项相关对象
         - name: $event.itemVM
           type: UNavbarItem
-          description: 单选模式中，选择项子组件
+          description: 选择项子组件
+        - name: $event.oldVM
+          type: UNavbarItem
+          description: 旧的选择项子组件
+        - name: senderVM
+          type: Vue
+          description: 发送事件实例
+    - name: change
+      description: 选择值改变时触发
+      params:
+        - name: $event.value
+          type: any
+          description: 选择项的值
+        - name: $event.oldValue
+          type: any
+          description: 旧的值
+        - name: $event.item
+          type: object
+          description: 选择项相关对象
+        - name: $event.oldItem
+          type: object
+          description: 旧的选择项相关对象
+        - name: $event.itemVM
+          type: UNavbarItem
+          description: 选择项子组件
+        - name: $event.oldVM
+          type: UNavbarItem
+          description: 旧的选择项子组件
+        - name: senderVM
+          type: UNavbar
+          description: 发送事件实例
 - name: u-navbar-item
   attrs:
     - name: value
@@ -84,7 +141,7 @@
       default: null
       description: 打开方式
     - name: to
-      type: string,  Location
+      type: string, Location
       default: null
       description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
     - name: replace
@@ -99,7 +156,7 @@
       description: 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
   slots:
     - name: default
-      description: 插入文本或HTML。
+      description: 插入文本或 HTML。
   events:
     - name: before-select
       description: 选择此项前触发
@@ -116,11 +173,14 @@
         - name: $event.preventDefault
           type: Function
           description: 阻止选择流程
+        - name: senderVM
+          type: Vue
+          description: 发送事件实例
     - name: before-navigate
       description: 使用router相关属性切换路由前触发
       params:
         - name: $event.to
-          type: string,  Location
+          type: string, Location
           description: "`to`属性的值"
         - name: $event.replace
           type: boolean
@@ -131,11 +191,14 @@
         - name: $event.preventDefault
           type: Function
           description: 阻止切换流程
+        - name: senderVM
+          type: Vue
+          description: 发送事件实例
     - name: navigate
       description: 使用router相关属性切换路由时触发
       params:
         - name: $event.to
-          type: string,  Location
+          type: string, Location
           description: "`to`属性的值"
         - name: $event.replace
           type: boolean
@@ -143,4 +206,26 @@
         - name: $event.exact
           type: boolean
           description: "`exact`属性的值"
+        - name: senderVM
+          type: Vue
+          description: 发送事件实例
 - name: u-navbar-divider
+- name: u-navbar-dropdown
+  attrs:
+    - name: trigger
+      type: string
+      default: hover
+      description: 触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`,
+        `'manual'`
+    - name: placement
+      type: string
+      default: bottom
+      description: 弹出方位。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`,
+        `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',`
+        'left-end'`, `'right-start'`, `'right-end'`
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用
+- name: u-navbar-menu、-u-navbar-menu-group、-u-navbar-menu-item、-u-navbar-menu-divider
+- name: u-navbar-select、-u-navbar-select-group、-u-navbar-select-item、-u-navbar-select-divider

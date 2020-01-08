@@ -1,0 +1,20 @@
+.root {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.root[size="huge"] {
+    width: 1440px;
+}
+
+.root[size="large"] {
+    width: 1180px;
+}
+
+.root[size="small"] {
+    width: 768px;
+}
+
+.root[size="mini"] {
+    width: 640px;
+}

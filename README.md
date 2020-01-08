@@ -93,7 +93,7 @@ npm run doc-build
 
 ## Changelog
 
-See [Releases](https://github.com/vusion/proto-ui/releases)
+See [Releases](https://github.com/vusion/cloud-ui/releases)
 
 ## Contributing
 

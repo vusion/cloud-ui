@@ -16,7 +16,7 @@
 <u-subnav>
     <u-subnav-item>指南</u-subnav-item>
     <u-subnav-item>概念</u-subnav-item>
-    <u-subnav-item to="/proto-ui">组件</u-subnav-item>
+    <u-subnav-item to="/cloud-ui">组件</u-subnav-item>
 </u-subnav>
 ```
 
@@ -37,12 +37,12 @@
     <u-subnav disabled>
         <u-subnav-item>指南</u-subnav-item>
         <u-subnav-item>概念</u-subnav-item>
-        <u-subnav-item to="/proto-ui">组件</u-subnav-item>
+        <u-subnav-item to="/cloud-ui">组件</u-subnav-item>
     </u-subnav>
     <u-subnav>
         <u-subnav-item>指南</u-subnav-item>
         <u-subnav-item disabled>概念</u-subnav-item>
-        <u-subnav-item to="/proto-ui">组件</u-subnav-item>
+        <u-subnav-item to="/cloud-ui">组件</u-subnav-item>
     </u-subnav>
 </u-linear-layout>
 ```
@@ -55,7 +55,7 @@
     <u-subnav-item>概念</u-subnav-item>
     <u-subnav-item>配置</u-subnav-item>
     <u-subnav-divider></u-subnav-divider>
-    <u-subnav-item to="/proto-ui">组件</u-subnav-item>
+    <u-subnav-item to="/cloud-ui">组件</u-subnav-item>
     <u-subnav-item to="/libraries">组件库</u-subnav-item>
 </u-subnav>
 ```

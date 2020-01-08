@@ -1,0 +1,23 @@
+- name: u-badge
+  title: 徽章
+  labels: [UI 组件, 行内展示]
+  attrs:
+    - name: value
+      type: number, string
+      default: null
+      description: 显示的值
+    - name: max
+      type: number
+      default: null
+      description: 最大值，超过最大值会显示为`max+`的形式，要求`value`是 `Number`类型。
+    - name: corner
+      type: boolean
+      default: false
+      description: 是否插入到右上角
+    - name: dot
+      type: boolean
+      default: false
+      description: 是否显示为小圆点
+  slots:
+    - name: default
+      description: 插入需要附加徽章的元素。

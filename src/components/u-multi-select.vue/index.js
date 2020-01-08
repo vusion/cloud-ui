@@ -1,4 +1,4 @@
-import { MField } from 'proto-ui.vusion';
+import { MField } from '../m-field.vue';
 import { deepCopy } from '../../utils';
 import cloneDeep from 'lodash/cloneDeep';
 import i18n from './i18n';

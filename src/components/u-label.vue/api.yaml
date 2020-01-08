@@ -1,5 +1,6 @@
 - name: u-label
   title: 标签
+  labels: [UI 组件, 行内展示]
   slots:
     - name: default
       description: 在插槽中插入文本或HTML。

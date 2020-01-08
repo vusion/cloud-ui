@@ -138,7 +138,7 @@ export default {
 <template>
 <u-linear-layout>
     <u-select :data="data" filterable clearable placeholder="前端过滤"></u-select>
-    <u-select multiple :data="data" filterable clearable placeholder="后端过滤（多选）" style="width: 240px"></u-select>
+    <u-select multiple :data="data" filterable clearable placeholder="前端过滤（多选）" style="width: 240px"></u-select>
 </u-linear-layout>
 </template>
 

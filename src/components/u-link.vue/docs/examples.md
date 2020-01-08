@@ -16,7 +16,7 @@
 
 ``` html
 <u-link href="https://vusion.github.io" target="_blank">href</u-link>&nbsp;
-<u-link to="/proto-ui/u-button">router</u-link>
+<u-link to="/cloud-ui/u-button">router</u-link>
 ```
 
 ### 颜色扩展

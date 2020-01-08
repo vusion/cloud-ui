@@ -4,23 +4,23 @@
   "version": "0.1.0",
   "author": "Rainfore <rainforest92@126.com>",
   "main": "./index.js",
-  "repository": "vusion/proto-ui",
+  "repository": "vusion/cloud-ui",
   "homepage": "http://vusion.github.io",
   "bugs": {
-    "url": "http://github.com/vusion/proto-ui/issues"
+    "url": "http://github.com/vusion/cloud-ui/issues"
   },
   "license": "MIT",
   "keywords": [
     "vusion",
     "proto",
     "ui",
-    "proto-ui"
+    "cloud-ui"
   ],
   "tags": [
     "vusion",
     "proto",
     "ui",
-    "proto-ui"
+    "cloud-ui"
   ],
   "peerDependencies": {
     "vue": "^2.4.0"

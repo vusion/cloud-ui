@@ -1,0 +1,121 @@
+- name: u-number-input
+  title: 数字输入
+  labels: [UI 组件, 表单控件, 行内展示]
+  attrs:
+    - name: value.sync, v-model
+      type: number
+      default: 0
+      description: 输入框的值
+    - name: min
+      type: number
+      default: -.inf
+      description: 最小值
+    - name: max
+      type: number
+      default: .inf
+      description: 最大值
+    - name: step
+      type: number
+      default: 1
+      description: 间隔，表示点击按钮或按上下键所增加或减少的量
+    - name: precision
+      type: number
+      default: 1
+      description: 精度，表示数字要保留的最小单位，整数、小数均可
+    - name: formatter
+      type: string, object
+      default: null
+      description: 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。
+    - name: placeholder
+      type: string
+      default: null
+      description: 原生属性
+    - name: autofocus
+      type: boolean
+      default: null
+      description: 原生属性
+    - name: hide-buttons
+      type: boolean
+      default: false
+      description: 是否隐藏按钮
+    - name: readonly
+      type: boolean
+      default: false
+      description: 是否只读
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用
+    - name: size
+      type: string
+      default: normal
+      description: 大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`,
+        `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式
+  events:
+    - name: input
+      description: 输入时触发
+      params:
+        - name: $event
+          type: string
+          description: 输入框的值
+        - name: senderVM
+          type: UNumberInput
+          description: 发送事件实例
+    - name: validate
+      description: 输入验证时触发
+      params:
+        - name: $event.rawValue
+          type: string
+          description: 用户输入的原始值
+        - name: $event.value
+          type: number
+          description: 验证修复的值
+        - name: $event.valid
+          type: boolean
+          description: 原始值是否合法
+        - name: senderVM
+          type: UNumberInput
+          description: 发送事件实例
+    - name: change
+      description: 值变化时触发（与原生事件不同）
+      params:
+        - name: $event.value
+          type: number
+          description: 改变后的值
+        - name: $event.oldValue
+          type: number
+          description: 旧的值
+        - name: $event.formattedValue
+          type: string
+          description: 格式化后的值
+        - name: $event.valid
+          type: boolean
+          description: 改变后的值是否合法
+        - name: senderVM
+          type: UNumberInput
+          description: 发送事件实例
+    - name: focus
+      description: 获得焦点时触发
+      params:
+        - name: $event
+          type: string
+          description: 原生事件对象
+        - name: senderVM
+          type: UNumberInput
+          description: 发送事件实例
+    - name: blur
+      description: 失去焦点时触发
+      params:
+        - name: $event
+          type: string
+          description: 原生事件对象
+        - name: senderVM
+          type: UNumberInput
+          description: 发送事件实例
+  aria:
+    - key: ↑
+      description: 按`step`量增加值
+    - key: ↓
+      description: 按`step`量减小值
+    - key: Enter
+      description: 自动修复为合法的值，并且应用更改

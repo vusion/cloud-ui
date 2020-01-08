@@ -1,9 +1,15 @@
-@extend;
-
 .root {
     width: 580px;
 }
 
+.last-column {
+    width: 0;
+}
+
+.last-column[dynamic] {
+    width: 40px;
+}
+
 .add-button {
-    margin-top: 15px;
+    margin-top: var(--margin-small);
 }

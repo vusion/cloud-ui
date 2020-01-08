@@ -1,0 +1,77 @@
+- name: u-toast
+  title: 吐司提示
+  attrs:
+    - name: position
+      type: string
+      default: top-center
+      description: 显示的位置，可选值：`'top-center'`, `'top-left'`, `'top-right'`,
+        `'bottom-center'`, `'bottom-left'`, `'bottom-right'`, `static`
+    - name: duration
+      type: number
+      default: 2000
+      description: 提示停留的时间。`0`表示常驻。
+    - name: single
+      type: boolean
+      default: false
+      description: 多个提示会合并为一个
+    - name: text
+      type: string
+      default: ""
+      description: 默认提示内容
+    - name: color
+      type: string
+      default: default
+      description: 提示的颜色
+    - name: closable
+      type: boolean
+      default: false
+      description: 是否可以关闭提示
+  events:
+    - name: open
+      description: 弹出提示时触发
+      params:
+        - name: $event.text
+          type: string
+          description: 提示的内容
+        - name: $event.color
+          type: string
+          description: 提示的颜色
+        - name: $event.duration
+          type: number
+          description: 提示停留的时间
+        - name: senderVM
+          type: UToast
+          description: 发送事件实例
+    - name: before-close
+      description: 关闭提示前触发
+      params:
+        - name: $event.text
+          type: string
+          description: 提示的内容
+        - name: $event.color
+          type: string
+          description: 提示的颜色
+        - name: $event.duration
+          type: number
+          description: 提示停留的时间
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止关闭流程
+        - name: senderVM
+          type: UToast
+          description: 发送事件实例
+    - name: close
+      description: 关闭提示时触发
+      params:
+        - name: $event.text
+          type: string
+          description: 提示的内容
+        - name: $event.color
+          type: string
+          description: 提示的颜色
+        - name: $event.duration
+          type: number
+          description: 提示停留的时间
+        - name: senderVM
+          type: UToast
+          description: 发送事件实例

@@ -1,9 +1,61 @@
-@extend;
+.root {}
+
+.head {
+    user-select: none;
+    height: var(--tabs-head-height);
+    border-bottom: 1px solid var(--tabs-border-color);
+}
+
+.item {
+    cursor: var(--cursor-pointer);
+    display: inline-block;
+    box-sizing: content-box;
+
+    height: var(--tabs-item-height);
+    line-height: calc(var(--tabs-item-height) - var(--tabs-item-border-width) * 2);
+    padding: var(--tabs-item-padding);
+
+    border: var(--tabs-item-border-width) solid transparent;
+    border-bottom: none;
+    margin-bottom: -1px;
+}
+
+.item:hover {
+    background: var(--tabs-item-background-hover);
+}
 
 .item[selected] {
+    background: var(--tabs-item-background-selected);
+    border-color: var(--tabs-item-border-color-selected);
+    color: var(--tabs-item-color-selected);
+    border-bottom-color: transparent;
+    padding-bottom: 1px;
     border-top: 2px solid var(--brand-primary);
+}
+
+.item[disabled] {
+    background: var(--tabs-item-background-disabled);
+    color: var(--tabs-item-color-disabled);
+    cursor: var(--cursor-not-allowed);
+}
+
+.item[selected][disabled] {
+    background: var(--tabs-item-background-selected-disabled);
+}
+
+.close::before {
+    display: inline-block;
+    content: '✕';
+}
+
+.close:hover {
+    color: #666;
 }
 
 .body {
     margin-top: 20px;
+}
+
+.extra {
+    float: right;
 }

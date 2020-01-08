@@ -1,7 +1,7 @@
 import Calendar from '../u-calendar.vue';
 import { clickOutside } from '../../directives';
 import { format, transformDate } from '../../utils/date';
-import Field from 'proto-ui.vusion/src/components/m-field.vue';
+import MField from '../m-field.vue';
 import i18n from './i18n';
 const MS_OF_DAY = 24 * 3600 * 1000;
 
@@ -62,7 +62,7 @@ export const UDatePicker = {
             lastDate: '',
         };
     },
-    mixins: [Field],
+    mixins: [MField],
     created() {
         if (this.minDate && this.maxDate) {
             const minDate = new Date(this.minDate);

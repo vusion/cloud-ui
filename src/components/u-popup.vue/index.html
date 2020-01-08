@@ -1,0 +1,20 @@
+<div :class="$style.root" :merge-borders="mergeBorders" v-show="currentOpened">
+    <span :class="$style.arrow"></span><!-- popper在某些场景下可以移动该元素 -->
+    <slot name="root">
+        <div :class="$style.head" v-if="title || $slots.head || $slots.title">
+            <slot name="head">
+                <div :class="$style.title">
+                    <slot name="title">{{ title }}</slot>
+                </div>
+            </slot>
+        </div>
+        <div :class="$style.body" v-if="content || $slots.body || $slots.default">
+            <slot name="body">
+                <slot>{{ content }}</slot>
+            </slot>
+        </div>
+        <div :class="$style.foot" v-if="$slots.foot">
+            <slot name="foot"></slot>
+        </div>
+    </slot>
+</div>

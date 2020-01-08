@@ -1,0 +1,76 @@
+.root {
+    margin: calc(var(--grid-layout-margin-base) * -1);
+}
+
+.root .column {
+    padding: var(--grid-layout-margin-base);
+}
+
+.root::before,
+.root::after {
+    display: block;
+    content: '.';
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+
+.root[gap^="none"] {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.root[gap^="none"] .column {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.root[gap$="none"] {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.root[gap$="none"] .column {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.root[gap^="small"] {
+    margin-top: calc(var(--grid-layout-margin-small) * -1);
+    margin-bottom: calc(var(--grid-layout-margin-small) * -1);
+}
+
+.root[gap^="small"] .column {
+    padding-top: var(--grid-layout-margin-small);
+    padding-bottom: var(--grid-layout-margin-small);
+}
+
+.root[gap$="small"] {
+    margin-left: calc(var(--grid-layout-margin-small) * -1);
+    margin-right: calc(var(--grid-layout-margin-small) * -1);
+}
+
+.root[gap$="small"] .column {
+    padding-left: var(--grid-layout-margin-small);
+    padding-right: var(--grid-layout-margin-small);
+}
+
+.root[gap^="large"] {
+    margin-top: calc(var(--grid-layout-margin-large) * -1);
+    margin-bottom: calc(var(--grid-layout-margin-large) * -1);
+}
+
+.root[gap^="large"] .column {
+    padding-top: var(--grid-layout-margin-large);
+    padding-bottom: var(--grid-layout-margin-large);
+}
+
+.root[gap$="large"] {
+    margin-left: calc(var(--grid-layout-margin-large) * -1);
+    margin-right: calc(var(--grid-layout-margin-large) * -1);
+}
+
+.root[gap$="large"] .column {
+    padding-left: var(--grid-layout-margin-large);
+    padding-right: var(--grid-layout-margin-large);
+}

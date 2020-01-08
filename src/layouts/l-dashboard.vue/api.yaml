@@ -1,0 +1,12 @@
+- name: l-dashboard
+  title: 仪表盘布局
+  description: 常见中后台系统中的顶部栏和左侧栏固定的仪表盘布局。
+  slots:
+    - name: default
+      description: 主内容区。
+    - name: head
+      description: 设置顶部内容。
+    - name: side
+      description: 设置左侧栏内容。
+    - name: main
+      description: 重置中间区域内容。包裹在主内容区外。

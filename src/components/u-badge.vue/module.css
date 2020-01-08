@@ -1,0 +1,36 @@
+.root {
+    position: relative;
+    display: inline-block;
+}
+
+.value {
+    display: inline-block;
+    text-align: center;
+    line-height: var(--badge-value-line-height);
+    min-width: var(--badge-value-line-height);
+    font-size: var(--font-size-small);
+    padding: 0 6px;
+    border-radius: 100px;
+    background: var(--badge-background);
+    color: var(--badge-color);
+}
+
+.root[corner] {
+    line-height: 1; /* 防止外面的 line-height 影响 */
+}
+
+.root[corner] .value {
+    position: absolute;
+    transform: translateX(50%);
+    right: 0;
+    top: calc(var(--badge-value-line-height) / -2);
+}
+
+.root[dot] .value {
+    width: var(--badge-dot-size);
+    height: var(--badge-dot-size);
+    font-size: 0;
+    min-width: auto;
+    padding: 0;
+    top: calc(var(--badge-dot-size) / -2);
+}

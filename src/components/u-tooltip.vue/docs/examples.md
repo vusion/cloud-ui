@@ -157,24 +157,6 @@ export default {
 </u-linear-layout>
 ```
 
-#### 指定偏移距离
-
-`trigger="hover"` 不能和 `offset`（设置过长的垂直高度）同时使用（参见例2）。
-
-``` html
-<u-linear-layout>
-    <u-button>hover（默认）
-        <u-tooltip offset="10" content="Tooltip" trigger="hover"></u-tooltip>
-    </u-button>
-    <u-button>hover（默认）
-        <u-tooltip offset="10% 10px" content="Tooltip" trigger="hover"></u-tooltip>
-    </u-button>
-    <u-button>click（默认）
-        <u-tooltip offset="10% 10px" content="Tooltip" trigger="click"></u-tooltip>
-    </u-button>
-</u-linear-layout>
-```
-
 #### 跟随鼠标
 
 将`'follow-cursor'`属性设置为`true`可以跟随鼠标。也可以传一个数字或对象调整位置偏移。

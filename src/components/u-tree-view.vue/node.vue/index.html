@@ -1,0 +1,46 @@
+<div :class="$style.root" v-show="!hidden">
+    <div :class="$style.item" :selected="selected"
+        :readonly="rootVM.readonly"
+        :disabled="currentDisabled"
+        :tabindex="disabled || rootVM.readonly || rootVM.disabled ? '' : 0"
+        @click="select(), rootVM.expandTrigger === 'click' && toggle()"
+        @keyup.enter="select()"
+        @keyup.left="toggle(false)"
+        @keyup.right="toggle(true)">
+        <div :class="$style.back"></div>
+        <div :class="$style.expander" v-if="data || nodeVMs.length"
+            :expanded="currentExpanded"
+            @click="rootVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"></div>
+        <div :class="$style.text">
+            <u-checkbox v-if="rootVM.checkable" :value="currentChecked" :disabled="currentDisabled" @check="check($event.value)" @click.native.stop></u-checkbox>
+            <u-tree-view-text
+                :data="data"
+                :text="text"
+                :value="value"
+                :expanded="currentExpanded"
+                :checked="currentChecked"
+                :disabled="currentDisabled"
+                :node="node"
+            ></u-tree-view-text>
+        </div>
+    </div>
+    <f-collapse-transition>
+        <div :class="$style.sub" v-show="currentExpanded">
+            <template v-if="data">
+                <u-tree-view-node
+                    v-for="node in data"
+                    :text="node[rootVM.field]"
+                    :key="node.key"
+                    :value="node.value"
+                    :expanded.sync="node.expanded"
+                    :checked.sync="node.checked"
+                    :disabled="node.disabled"
+                    :hidden="node.hidden"
+                    :data="node.children"
+                    :node="node"
+                ></u-tree-view-node>
+            </template>
+            <slot></slot>
+        </div>
+    </f-collapse-transition>
+</div>

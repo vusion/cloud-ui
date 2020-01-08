@@ -1,4 +1,7 @@
-@extend;
+.root {
+    display: inline-block;
+    position: relative;
+}
 
 .message {
     position: absolute;
@@ -7,6 +10,9 @@
     display: none;
     line-height: 26px;
     font-size: 12px;
+    margin-left: var(--validator-message-margin-left);
+    padding: var(--validator-message-padding);
+    background: var(--validator-message-background);
 }
 
 .message[color="focus"] {
@@ -38,6 +44,8 @@
     top: 50%;
     transform: translateY(-50%);
     white-space: nowrap;
+    background: var(--validator-message-background-error);
+    color: var(--validator-message-color-error);
 }
 
 .message[color="error"]::before {
@@ -62,6 +70,10 @@
 }
 
 .root[placement="bottom"] .message {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-left: 0;
     transform: translateY(0);
 }
 
@@ -71,4 +83,8 @@
 
 .root[placement="bottom"] .message[color="error"] {
     transform: none;
+}
+
+.root[display="block"] {
+    display: block;
 }

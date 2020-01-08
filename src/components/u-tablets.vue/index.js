@@ -1,4 +1,4 @@
-import { UListView } from 'proto-ui.vusion';
+import { UListView } from '../u-list-view.vue';
 
 export const UTablets = {
     name: 'u-tablets',

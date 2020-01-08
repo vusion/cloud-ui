@@ -1,8 +1,10 @@
-import { UNavbarSelectItem as ONavbarSelectItem } from 'proto-ui.vusion';
+import { USelectItem } from '../../../u-select.vue';
 
 export const UNavbarSelectItem = {
     name: 'u-navbar-select-item',
-    extends: ONavbarSelectItem,
+    parentName: 'u-navbar-select',
+    groupName: 'u-navbar-select-group',
+    extends: USelectItem,
 };
 
 export default UNavbarSelectItem;

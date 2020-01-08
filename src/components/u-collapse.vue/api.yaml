@@ -1,0 +1,85 @@
+- name: u-collapse
+  title: 折叠面板
+  labels: [UI 组件, 块级展示]
+  attrs:
+    - name: accordion
+      type: boolean
+      default: false
+      description: 是否每次只会展开一个面板
+    - name: expand-trigger
+      type: string
+      default: click
+      description: 展开/折叠的触发方式。可选值：`'click'`表示整行点击均可触发、`'click-expander'`表示仅点击小箭头时触发
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用
+  slots:
+    - name: default
+      description: 插入`<u-collapse-item>`子组件。
+  events:
+    - name: toggle
+      description: 展开/折叠某面板时触发
+      params:
+        - name: $event.expanded
+          type: boolean
+          description: 展开/折叠状态
+        - name: $event.itemVM
+          type: UCollapseItem
+          description: 面板组件
+  methods:
+    - name: toggleAll(expanded)
+      description: 展开/折叠所有面板
+      params:
+        - name: expanded
+          type: boolean
+          description: 展开/折叠
+- name: u-collapse-item
+  attrs:
+    - name: title
+      type: string
+      default: null
+      description: 显示的标题
+    - name: expanded.sync
+      type: boolean
+      default: false
+      description: 展开/折叠状态
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用。禁用时无法展开/折叠
+  slots:
+    - name: default
+      description: 插入文本或 HTML。
+    - name: title
+      description: 自定义标题文本。
+    - name: extra
+      description: 在右侧可以附加内容。
+  events:
+    - name: before-toggle
+      description: 展开/折叠此面板前触发
+      params:
+        - name: $event.expanded
+          type: boolean
+          description: 展开/折叠状态
+        - name: $event.itemVM
+          type: UCollapseItem
+          description: 面板组件
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止展开/折叠流程
+        - name: senderVM
+          type: Vue
+          description: 发送事件实例
+    - name: toggle
+      description: 展开/折叠某面板时触发
+      params:
+        - name: $event.expanded
+          type: boolean
+          description: 展开/折叠状态
+        - name: $event.itemVM
+          type: UCollapseItem
+          description: 面板组件
+        - name: senderVM
+          type: Vue
+          description: 发送事件实例

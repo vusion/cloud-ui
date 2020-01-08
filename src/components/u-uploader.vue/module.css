@@ -1,0 +1,27 @@
+.root {
+    display: inline-block;
+}
+
+.iframe, .form {
+    display: none;
+}
+
+/* For IE9 */
+/* stylelint-disable no-duplicate-selectors */
+.root {
+    position: relative\0;
+    overflow: hidden\0;
+}
+
+.form {
+    display: block\0;
+}
+
+.input {
+    position: absolute;
+    top: 0;
+    right: -5px;
+    font-size: var(--uploader-input-font-size);
+    opacity: 0;
+    cursor: var(--cursor-pointer);
+}

@@ -5,18 +5,8 @@
 ## 示例
 ### 基本用法
 
-```html
-<u-circular-specific-progress :percent="10">
-    <div>VCPU</div>
-</u-circular-specific-progress>
-```
-
-### 自定义显示规则
-
-```html
-<u-circular-specific-progress :rule="{ value: 50, color: 'skyblue' }" :percent="60">
-    <div>VCPU</div>
-</u-circular-specific-progress>
+``` html
+<u-circular-progress :percent="36"></u-circular-progress>
 ```
 
 ## API
@@ -25,10 +15,9 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | percent | number |  | `0` | 百分比 |
-| rule | object |  | `[object Object]` | 自定义显示规则，当大于`rule.value`时，颜色由值的`rule.color`属性来决定 |
 
 ### Slots
 
 #### (default)
 
-插入文本或HTML。
+插入文本或 HTML。

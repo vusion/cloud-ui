@@ -1,0 +1,125 @@
+- name: m-popper
+  title: 弹出层
+  attrs:
+    - name: opened.sync
+      type: boolean
+      default: false
+      description: 弹出/关闭状态
+    - name: trigger
+      type: string
+      default: click
+      description: 触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`,
+        `'manual'`
+    - name: reference
+      type: string, HTMLElement, Function
+      default: parent
+      description: 参考元素。可选值：`'parent'`表示父元素，`'prev'`表示上一个元素，`'next'`表示下一个元素。也可以传一个 HTML
+        元素，或用于返回元素的方法
+    - name: placement
+      type: string
+      default: bottom
+      description: 弹出方位。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`,
+        `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',`
+        'left-end'`, `'right-start'`, `'right-end'`
+    - name: hover-delay
+      type: number
+      default: 0
+      description: 当 trigger 为 `'hover'` 时的延迟时间
+    - name: hide-delay
+      type: number
+      default: 0
+      description: 当 trigger 为 `'hover'` 时的隐藏延迟时间
+    - name: append-to
+      type: string
+      default: body
+      description: 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中
+    - name: boundaries-element
+      type: Element, string
+      default: window
+      description: 边际元素。用于定义弹出层的边际，默认为首个滚动的父级元素
+    - name: escape-with-reference
+      type: boolean
+      default: true
+      description: 当触发元素离开边际时，弹出层离开/保留在边际元素内
+    - name: follow-cursor
+      type: boolean, number, object
+      default: false
+      description: 是否跟随鼠标
+    - name: offset
+      type: string
+      default: "0"
+      description: 弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px`
+    - name: options
+      type: object
+      default: null
+      description: 补充 popper.js 的选项
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用
+  slots:
+    - name: default
+      description: 插入需要弹出的内容。
+  events:
+    - name: before-open
+      description: 弹出前触发。
+      params:
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止弹出流程
+        - name: senderVM
+          type: MPopper
+          description: 发送事件实例
+    - name: open
+      description: 弹出时触发。
+      params:
+        - name: $event
+          type: void
+          description: 空
+        - name: senderVM
+          type: MPopper
+          description: 发送事件实例
+    - name: before-close
+      description: 隐藏前触发。
+      params:
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止隐藏流程
+        - name: senderVM
+          type: MPopper
+          description: 发送事件实例
+    - name: close
+      description: 隐藏时触发。
+      params:
+        - name: $event
+          type: void
+          description: 空
+        - name: senderVM
+          type: MPopper
+          description: 发送事件实例
+    - name: before-toggle
+      description: "@deprecated"
+      params: []
+    - name: toggle
+      description: "@deprecated"
+      params: []
+  methods:
+    - name: open()
+      description: 弹出实例。
+      params: []
+    - name: close()
+      description: 关闭实例。
+      params: []
+    - name: toggle(opened?)
+      description: 切换弹出/关闭状态。
+      params:
+        - name: opened?
+          type: boolean
+          description: 可选。弹出/关闭状态
+    - name: update()
+      description: 更新 popper 实例。参考 [Popper.update()](https://popper.js.org/popper-documentation.html#Popper.update)。
+      params: []
+    - name: scheduleUpdate()
+      description: 在下次 UI 渲染时一块更新 popper 实例，比`update()`性能要好。参考
+        [Popper.scheduleUpdate()](https://popper.js.org/popper-documentation.html#Popper.scheduleUpdate)。
+      params: []

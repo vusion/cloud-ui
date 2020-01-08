@@ -1,0 +1,6 @@
+<div :class="$style.root" :position="position">
+    <div :class="$style.item" v-for="item in items" :color="item.color">
+        <slot :item="item">{{ item.text }}</slot>
+        <a :class="$style.close" v-if="closable" @click="close(item)"></a>
+    </div>
+</div>

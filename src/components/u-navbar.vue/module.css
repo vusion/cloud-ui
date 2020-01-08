@@ -1,6 +1,6 @@
 .root {
     user-select: none;
-    height: 64px;
+    height: var(--navbar-height);
     /* display: flex;
     justify-content: space-between; */
     background: var(--navbar-background);
@@ -8,12 +8,11 @@
 
 .left {
     float: left;
-    margin-right: 40px;
+    margin-right: var(--navbar-space-x);
 }
 
 .middle {
-    /* flex: auto; */
-    margin: 0 40px;
+    margin: 0 var(--navbar-space-x);
 }
 
 .root[alignment="center"] .middle {
@@ -26,5 +25,21 @@
 
 .right {
     float: right;
-    margin-left: 40px;
+    margin-left: var(--navbar-space-x);
+}
+
+.root[color="inverse"] {
+    background-color: var(--navbar-background-inverse);
+}
+
+.root[color="inverse"] .item {
+    color: var(--navbar-item-color-inverse);
+}
+
+.root[color="inverse"] .item:hover {
+    color: var(--navbar-item-color-inverse);
+}
+
+.root[color="inverse"] .item[selected] {
+    color: var(--navbar-item-color-inverse);
 }

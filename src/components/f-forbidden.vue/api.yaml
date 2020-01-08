@@ -1,0 +1,74 @@
+- name: f-forbidden
+  title: 禁用
+  description: 禁用浏览器的一些默认功能和快捷键。
+  attrs:
+    - name: contextmenu
+      type: boolean
+      default: false
+      description: 是否禁止弹出右键菜单
+    - name: select
+      type: boolean
+      default: false
+      description: 是否禁止选择文本
+    - name: copy
+      type: boolean
+      default: false
+      description: 是否禁止复制
+    - name: save-key
+      type: boolean
+      default: false
+      description: 是否禁止另存为键
+    - name: devtools-key
+      type: boolean
+      default: false
+      description: 是否禁止开发者工具键
+    - name: senderVM
+      type: FForbidden
+      default: 发送事件实例
+      description: ""
+  events:
+    - name: contextmenu
+      description: 弹出右键菜单时触发
+      params:
+        - name: $event
+          type: MouseEvent
+          description: 鼠标事件对象
+        - name: senderVM
+          type: FForbidden
+          description: 发送事件实例
+    - name: select
+      description: 选择文本时触发
+      params:
+        - name: $event
+          type: FocusEvent
+          description: 聚焦事件对象
+        - name: senderVM
+          type: FForbidden
+          description: 发送事件实例
+    - name: copy
+      description: 复制时触发
+      params:
+        - name: $event
+          type: ClipboardEvent
+          description: 剪贴板事件对象
+        - name: senderVM
+          type: FForbidden
+          description: 发送事件实例
+    - name: save-key
+      description: 按保存键时触发
+      params:
+        - name: $event
+          type: KeyboardEvent
+          description: 键盘事件对象
+        - name: senderVM
+          type: FForbidden
+          description: 发送事件实例
+    - name: devtools-key
+      description: 按开发人员工具键时触发
+      params:
+        - name: $event
+          type: KeyboardEvent
+          description: 键盘事件对象
+        - name: senderVM
+          type: FForbidden
+          description: 发送事件实例

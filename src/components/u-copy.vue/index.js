@@ -1,4 +1,4 @@
-import { copy } from 'proto-ui.vusion/src/utils/edit/clipboard';
+import { copy } from '../../utils/edit/clipboard';
 // import i18n from '@/utils/i18n';
 export const UCopy = {
     name: 'u-copy',

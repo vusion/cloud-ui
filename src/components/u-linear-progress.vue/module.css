@@ -1,4 +1,23 @@
-@extend;
+
+
+.root {}
+
+.track {
+    overflow: hidden;
+    height: var(--linear-progress-height-base);
+    line-height: var(--linear-progress-height-base);
+    background: var(--linear-progress-track-background);
+}
+
+.trail {
+    width: 0;
+    height: 100%;
+    float: left;
+    background: var(--linear-progress-trail-background);
+    font-size: var(--linear-progress-trail-font-size);
+    color: var(--linear-progress-trail-color);
+    transition: var(--linear-progress-trail-transition);
+}
 
 .track[size="small"] {
     height: var(--linear-progress-height-small);

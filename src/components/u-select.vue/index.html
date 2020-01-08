@@ -1,4 +1,4 @@
-<div :class="$style.root" :readonly="readonly" :disabled="currentDisabled"
+<div :class="$style.root" :readonly="readonly" :disabled="currentDisabled" :opend="popperOpened"
     :clearable="clearable && !!currentText" :multiple="multiple" :multiple-tags="multiple && this.multipleAppearance === 'tags'"
     :tabindex="readonly || currentDisabled ? '' : 0"
     @click="focus"
@@ -8,7 +8,7 @@
     @keydown.esc.stop="close(), filterText = ''">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
     <span v-show="!filterText && (multiple ? !selectedVMs.length : !selectedVM)" :class="$style.placeholder">{{ placeholder }}</span>
-    <div :class="$style.text" :tags-overflow="tagsOverflow" v-ellipsis-title :style="{direction: ellipsisDirection}">
+    <div :class="$style.text" v-ellipsis-title :tags-overflow="tagsOverflow" :style="{direction: ellipsisDirection}">
         <!-- @override: 添加了flag功能 -->
         <slot name="flag">
             <span v-if="selectedVM && selectedVM.flag !== undefined" :class="$style.flag" :layer="selectedVM && selectedVM.layer" v-tooltip.top="selectedVM && selectedVM.flag"></span>
@@ -38,7 +38,7 @@
         </template>
         <u-input v-if="filterable" :class="$style.input" ref="input" :readonly="readonly" :disabled="currentDisabled"
             :placeholder="multiple && selectedVMs.length ? '' : placeholder" :filterable="filterable" :multiple-tags="multiple && this.multipleAppearance === 'tags'"
-            :value="filterable ? filterText : currentText" @input="onInput" @focus="onFocus" @blur="onBlur"
+            :value="filterText" @input="onInput" @focus="onFocus" @blur="onBlur"
             @keydown.enter.stop="onInputEnter" @keydown.delete.stop="onInputDelete"
             :style="{ width: multiple && (inputWidth + 'px') }">
         </u-input>
@@ -67,6 +67,4 @@
             <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
         </div>
     </m-popper>
-</u-input>
-
 </div>

@@ -1,8 +1,11 @@
-import { UListViewItem as OListViewItem } from 'proto-ui.vusion';
+import { MComplexItem } from '../../m-complex.vue';
+// import { ellipsisTitle } from '../../../directives';
 
 export const UListViewItem = {
     name: 'u-list-view-item',
-    extends: OListViewItem,
+    parentName: 'u-list-view',
+    groupName: 'u-list-view-group',
+    extends: MComplexItem,
 };
 
 export default UListViewItem;

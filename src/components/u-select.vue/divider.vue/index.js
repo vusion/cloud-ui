@@ -1,9 +1,8 @@
-import { USelectDivider as OSelectDivider } from 'proto-ui.vusion';
+import { UListViewDivider } from '../../u-list-view.vue';
 
 export const USelectDivider = {
     name: 'u-select-divider',
-    extends: OSelectDivider,
+    extends: UListViewDivider,
 };
 
 export default USelectDivider;
-

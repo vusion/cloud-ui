@@ -1,8 +1,8 @@
-import { UFormTableAddButton as OFormTableAddButton } from 'proto-ui.vusion';
+import UButton from '../../u-button.vue';
 
 export const UFormTableAddButton = {
     name: 'u-form-table-add-button',
-    extends: OFormTableAddButton,
+    extends: UButton,
 };
 
 export default UFormTableAddButton;

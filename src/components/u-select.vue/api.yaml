@@ -1,6 +1,6 @@
 - name: u-select
   title: 选择框
-  labels: [UI 组件, 表单类, 行内展示]
+  labels: [UI 组件, 表单控件, 行内展示]
   description: 下拉选择框，支持支持单选、多选、搜索等功能，用于代替原生的选择框。
   docs:
     data: 数据相关
@@ -41,6 +41,10 @@
       type: string
       default: 加载中...
       description: 没有匹配时的文字
+    - name: empty-disabled
+      type: boolean
+      default: false
+      description: 没有数据时，自动禁用
     - name: initial-load
       type: boolean
       default: true
@@ -93,15 +97,6 @@
       type: boolean
       default: false
       description: 弹出/关闭状态
-    - name: ellipsisDirection
-      type: string
-      default: ltr
-      description: 控制文本省略方向，其值和原生`css`属性`'direction'`值保持一致
-    - name: size
-      type: string
-      default: normal normal
-      description: "控制宽高属性，第一个值表示高度属性，第二值表示宽度，可选值:
-        `mini`,`small`,`normal`,`medium`,`large`,`huge`,`full`,可以互相组合"
   slots:
     - name: default
       description: 插入`<u-select-item>`、`<u-select-divider>`或`<u-select-group>`子组件。
@@ -269,10 +264,10 @@
           type: USelect
           description: 发送事件实例
     - name: before-toggle
-      description: '@deprecated'
+      description: "@deprecated"
       params: []
     - name: toggle
-      description: '@deprecated'
+      description: "@deprecated"
       params: []
     - name: before-load
       description: 加载前触发
