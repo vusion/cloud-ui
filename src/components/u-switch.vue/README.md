@@ -26,10 +26,11 @@ export default {
 </script>
 ```
 
-### 只读和禁用
+### 基本状态、只读和禁用
 
 ``` html
 <u-linear-layout>
+    <u-switch with-text></u-switch>
     <u-switch readonly></u-switch>
     <u-switch disabled></u-switch>
 </u-linear-layout>
@@ -43,6 +44,7 @@ export default {
 | value | boolean |  | `false` | 开关状态 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
+| with-text | boolean |  | `false` | 是否显示开关`ON`和`OFF`文字 |
 
 ### Slots
 

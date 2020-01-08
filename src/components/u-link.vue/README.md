@@ -26,6 +26,29 @@
 <u-link to="/cloud-ui/u-button">router</u-link>
 ```
 
+### 颜色扩展
+
+``` html
+<u-link href="#">
+    默认颜色
+    <u-tooltip>
+        <u-link href="#">默认颜色</u-link>
+    </u-tooltip>
+</u-link>
+<u-link href="#" color="light">
+    浅色
+    <u-tooltip>
+        <u-link href="#" color="light">浅色</u-link>
+    </u-tooltip>
+</u-link>
+<u-link href="#" color="white" style="background: #a7afbb;">
+    白色
+    <u-tooltip>
+        <u-link href="#" color="white">白色</u-link>
+    </u-tooltip>
+</u-link>
+```
+
 ### 展示方式
 
 ``` html

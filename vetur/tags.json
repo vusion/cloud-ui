@@ -321,8 +321,7 @@
   },
   "u-circular-progress": {
     "attributes": [
-      "percent",
-      "rule"
+      "percent"
     ]
   },
   "u-collapse": {
@@ -443,7 +442,11 @@
     ]
   },
   "u-form-table": {
-    "attributes": [],
+    "attributes": [
+      "line",
+      "striped",
+      "hover"
+    ],
     "description": "在表单中使用的表格，本组件主要实现基本样式，方便在特殊场景下扩展。如果需要快速使用动态数据、表单验证等功能，请使用 [UFormTableView](../u-form-table-view)。"
   },
   "u-form": {
@@ -453,8 +456,9 @@
       "layout",
       "label-size"
     ],
+    "description": "具有数据收集、校验和提交功能的表单，包含输入框、选择框、复选框、单选框等元素。",
     "subtags": [
-      "form-item"
+      "u-form-item"
     ]
   },
   "u-form-item": {
@@ -538,6 +542,7 @@
       "search",
       "maxlengthMessage"
     ],
+    "description": "基本的表单输入组件，在原生`<input>`控件基础上进行了一些功能扩展。",
     "defaults": [
       "v-model"
     ]
@@ -699,6 +704,7 @@
     "attributes": [
       "router",
       "value",
+      "field",
       "readonly",
       "disabled"
     ],
@@ -708,7 +714,10 @@
     ],
     "subtags": [
       "u-navbar-item",
-      "u-navbar-divider"
+      "u-navbar-divider",
+      "u-navbar-dropdown",
+      "u-navbar-menu、-u-navbar-menu-group、-u-navbar-menu-item、-u-navbar-menu-divider",
+      "u-navbar-select、-u-navbar-select-group、-u-navbar-select-item、-u-navbar-select-divider"
     ]
   },
   "u-navbar-item": {
@@ -833,6 +842,7 @@
       "placeholder",
       "loading-text",
       "empty-text",
+      "empty-disabled",
       "initial-load",
       "pageable",
       "page-size",
@@ -845,9 +855,7 @@
       "auto-complete",
       "readonly",
       "disabled",
-      "opened",
-      "ellipsisDirection",
-      "size"
+      "opened"
     ],
     "description": "下拉选择框，支持支持单选、多选、搜索等功能，用于代替原生的选择框。",
     "defaults": [
@@ -1063,7 +1071,7 @@
       "display",
       "wrap"
     ],
-    "description": "用于在业务中临时快速调整文本大小、颜色等特性。不建议在封装基础组件时使用。"
+    "description": "用于在业务中临时快速地调整文本大小、颜色等特性。不建议在封装基础组件时使用。"
   },
   "u-textarea": {
     "attributes": [
@@ -1097,15 +1105,14 @@
   },
   "u-tooltip": {
     "attributes": [
-      "content",
-      "open",
+      "opened",
       "trigger",
       "placement",
-      "disabled",
-      "size",
       "hide-delay",
       "offset",
-      "follow-cursor"
+      "follow-cursor",
+      "disabled",
+      "size"
     ]
   },
   "u-transfer": {
@@ -1288,6 +1295,12 @@
       "v-model"
     ]
   },
+  "u-circular-specific-progress": {
+    "attributes": [
+      "percent",
+      "rule"
+    ]
+  },
   "u-copy": {
     "attributes": [
       "value",
@@ -1384,26 +1397,6 @@
   "u-footbar": {
     "attributes": [
       "position"
-    ]
-  },
-  "form-item": {
-    "attributes": [
-      "name",
-      "label",
-      "label-size",
-      "field-size",
-      "required",
-      "message",
-      "muted",
-      "description",
-      "placement",
-      "layout",
-      "rules",
-      "ignore-validation",
-      "ignore-rules",
-      "validating-options",
-      "validating-value",
-      "validating-process"
     ]
   },
   "info-list": {

@@ -2,7 +2,9 @@
 
 # UText 文本
 
-用于在业务中临时快速调整文本大小、颜色等特性。不建议在封装基础组件时使用。
+**UI 组件**, **行内展示**
+
+用于在业务中临时快速地调整文本大小、颜色等特性。不建议在封装基础组件时使用。
 
 ## 示例
 ### 大小扩展
@@ -12,6 +14,8 @@
     <u-text size="small">小号文本</u-text>
     <u-text size="normal">正常文本</u-text>
     <u-text size="large">大号文本</u-text>
+    <u-text size="huge">特大号文本</u-text>
+    <u-text style="font-size: 26px;">自定义大小</u-text>
 </u-linear-layout>
 ```
 
@@ -22,6 +26,8 @@
     <u-text>默认颜色</u-text>
     <u-text color="primary">主要文本</u-text>
     <u-text color="secondary">二级文本</u-text>
+    <u-text color="success">成功文本</u-text>
+    <u-text color="warning">警告文本</u-text>
     <u-text color="error">错误文本</u-text>
     <u-text color="disabled">禁默文本</u-text>
 </u-linear-layout>
@@ -56,4 +62,4 @@
 | size | string |  | `'normal'` | 大小扩展。可选值：`'small'`, `'normal'`, `'large'` |
 | color | string |  | `'default'` | 颜色扩展。可选值：`'default'`, `'primary'`, `'error'`, `'disabled'` |
 | display | string |  | `'inline'` | 展示方式。可选值：`'inline'`, `'block'` |
-| wrap | string |  | `false` | 换行方式。可选值：`'normal'`表示默认方式，`'ellipsis'`表示多余的文本省略，`'break'`表示强制换行且英文自动添加换行符，`'nowrap'`表示始终不换行。 |
+| wrap | string |  | `'normal'` | 换行方式。可选值：`'normal'`表示默认方式，`'ellipsis'`表示多余的文本省略，`'break'`表示强制换行且英文自动添加换行符，`'nowrap'`表示始终不换行。 |

@@ -1,6 +1,10 @@
 <!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-# UForm
+# UForm 表单
+
+**UI 组件**, **表单验证器**, **块级展示**
+
+具有数据收集、校验和提交功能的表单，包含输入框、选择框、复选框、单选框等元素。
 
 ### 相关组件
 
@@ -418,7 +422,7 @@ export default {
 | trigger | string | `'submit'` | 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。 |
 | muted | boolean | `false` | 是否验证后无提示 |
 
-## FormItem API
+## UFormItem API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |

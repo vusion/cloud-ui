@@ -246,6 +246,60 @@ export default {
 </u-button>
 ```
 
+### 大小扩展
+
+``` vue
+<template>
+<u-linear-layout>
+        <u-button>small
+            <u-tooltip size="small">{{ content }}</u-tooltip>
+        </u-button>
+        <u-button>normal
+            <u-tooltip>{{ content }}</u-tooltip>
+        </u-button>
+        <u-button>large
+            <u-tooltip size="large">{{ content }}</u-tooltip>
+        </u-button>
+        <u-button>auto
+            <u-tooltip size="auto">{{ content }}</u-tooltip>
+        </u-button>
+</u-linear-layout>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            content: '深蓝的天空中挂着一轮金黄的圆月，下面是海边的沙地，都种着一望无际的碧绿的西瓜。其间有一个十一二岁的少年，项带银圈，手捏一柄钢叉，向一匹猹尽力地刺去。那猹却将身一扭，反从他的胯下逃走了。',
+        };
+    },
+};
+</script>
+```
+
+#### 指令形式
+
+``` vue
+<template>
+<u-linear-layout>
+    <u-button v-tooltip.small="content">small</u-button>
+    <u-button v-tooltip="content">normal</u-button>
+    <u-button v-tooltip.large="content">large</u-button>
+    <u-button v-tooltip.auto="content">auto</u-button>
+</u-linear-layout>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            content: '深蓝的天空中挂着一轮金黄的圆月，下面是海边的沙地，都种着一望无际的碧绿的西瓜。其间有一个十一二岁的少年，项带银圈，手捏一柄钢叉，向一匹猹尽力地刺去。那猹却将身一扭，反从他的胯下逃走了。',
+        };
+    },
+};
+</script>
+```
+
 ## API
 ### Props/Attrs
 
@@ -258,6 +312,7 @@ export default {
 | offset | string |  | `'0'` | 弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px` |
 | follow-cursor | boolean, number, object |  | `false` | 是否跟随鼠标 |
 | disabled | boolean |  | `false` | 是否禁用 |
+| size | string |  | `'normal'` | 大小扩展，支持一个值： `'small'`, `'normal'`, `'large'`, `'auto'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式 |
 
 ### Slots
 
@@ -272,6 +327,10 @@ export default {
 #### body
 
 自定义滚动区域。
+
+#### content
+
+自定义内容文本。
 
 ### Events
 

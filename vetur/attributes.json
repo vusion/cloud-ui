@@ -1268,7 +1268,7 @@
   },
   "u-navbar/router": {
     "type": "boolean",
-    "description": "是否根据vue-router来控制选择哪一项"
+    "description": "是否根据 vue-router 来控制选择项"
   },
   "u-navbar/value": {
     "type": "any",
@@ -1307,7 +1307,7 @@
     "description": "打开方式"
   },
   "u-navbar-item/to": {
-    "type": "string,  Location",
+    "type": "string, Location",
     "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
   },
   "u-navbar-item/replace": {
@@ -2104,7 +2104,7 @@
   },
   "u-tooltip/offset": {
     "type": "string",
-    "description": "弹出层偏移，如：`'10'`, `'10px 10px'`, `'10% 10%'`, 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px`"
+    "description": "弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px`"
   },
   "u-tooltip/follow-cursor": {
     "type": "boolean, number, object",
@@ -2442,7 +2442,11 @@
     "type": "number",
     "description": "一行固定多少个选择项，如果不传则固定单项宽度为158px，每行个数自适应行宽"
   },
-  "u-circular-progress/rule": {
+  "u-circular-specific-progress/percent": {
+    "type": "number",
+    "description": "百分比"
+  },
+  "u-circular-specific-progress/rule": {
     "type": "object",
     "description": "自定义显示规则，当大于`rule.value`时，颜色由值的`rule.color`属性来决定"
   },
@@ -2682,70 +2686,6 @@
     "type": "string",
     "description": "显示的位置。"
   },
-  "form-item/name": {
-    "type": "string",
-    "description": "表单项名称。已废弃"
-  },
-  "form-item/label": {
-    "type": "string",
-    "description": "标签。用于左侧显示，同时用于提示消息的合成"
-  },
-  "form-item/label-size": {
-    "type": "string",
-    "description": "单独设置表单项的标签大小"
-  },
-  "form-item/field-size": {
-    "type": "string",
-    "description": "单独设置表单项的内容大小。可选值：`'full'`"
-  },
-  "form-item/required": {
-    "type": "boolean",
-    "description": "是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。"
-  },
-  "form-item/message": {
-    "type": "string",
-    "description": "默认提示消息"
-  },
-  "form-item/muted": {
-    "type": "string",
-    "description": "验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示"
-  },
-  "form-item/description": {
-    "type": "string",
-    "description": "添加描述内容"
-  },
-  "form-item/placement": {
-    "type": "string",
-    "description": "值为`'bottom'`时提示信息在底部显示，改变提示信息显示位置"
-  },
-  "form-item/layout": {
-    "type": "string",
-    "description": "\b\b\b布局方式，可选值：`'block'`"
-  },
-  "form-item/rules": {
-    "type": "string, Array",
-    "description": "验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型"
-  },
-  "form-item/ignore-validation": {
-    "type": "boolean",
-    "description": "忽略验证"
-  },
-  "form-item/ignore-rules": {
-    "type": "boolean",
-    "description": "忽略验证规则。已废弃，同`ignore-validation`"
-  },
-  "form-item/validating-options": {
-    "type": "object",
-    "description": "验证辅助对象。在 Rule 的 `validate` 方法中使用"
-  },
-  "form-item/validating-value": {
-    "type": "any",
-    "description": "临时修改验证值"
-  },
-  "form-item/validating-process": {
-    "type": "Function",
-    "description": "验证前对值进行预处理"
-  },
   "info-list/column": {
     "type": "string",
     "description": "列数。可选值：`1`、`2`、`3`、`4`"
@@ -2925,14 +2865,6 @@
   "u-pill/item": {
     "type": "object",
     "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
-  },
-  "u-select/ellipsisDirection": {
-    "type": "string",
-    "description": "控制文本省略方向，其值和原生`css`属性`'direction'`值保持一致"
-  },
-  "u-select/size": {
-    "type": "string",
-    "description": "控制宽高属性，第一个值表示高度属性，第二值表示宽度，可选值: `mini`,`small`,`normal`,`medium`,`large`,`huge`,`full`,可以互相组合"
   },
   "selectable-steps/value": {
     "type": "number",
@@ -3145,14 +3077,6 @@
   "u-time-picker/visible": {
     "type": "boolean",
     "description": "是否显示"
-  },
-  "u-tooltip/content": {
-    "type": "string",
-    "description": "提示内容"
-  },
-  "u-tooltip/open": {
-    "type": "boolean",
-    "description": "弹出/隐藏状态"
   },
   "u-tooltip/size": {
     "type": "string",

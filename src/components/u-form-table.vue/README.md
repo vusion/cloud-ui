@@ -9,102 +9,74 @@
 ## 示例
 ### 基本用法
 
-``` html
+``` vue
+<template>
 <u-form-table>
     <thead>
         <tr>
-            <th width="20%">URL</th>
-            <th width="20%">服务</th>
-            <th width="20%">端口</th>
-            <th>描述</th>
+            <th width="170">区域</th>
+            <th width="170">VPC</th>
+            <th width="200">关联描述</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>
-                <u-input></u-input>
-            </td>
-            <td>
-                <u-select>
-                    <u-select-item>ABC</u-select-item>
-                    <u-select-item>DDD</u-select-item>
-                </u-select>
-            </td>
-            <td>
-                <u-input></u-input>
-            </td>
-            <td>
-                <u-input size="full normal"></u-input>
-            </td>
+        <tr v-for="(item, index) in list" :key="index">
+            <td><u-input size="huge full" placeholder="请输入区域" v-model="item.region"></u-input></td>
+            <td><u-select size="huge full" disabled placeholder="暂无可选择的 VPC" v-model="item.vpc"></u-select></td>
+            <td><u-input size="huge full" v-model="item.description" maxlength-message="100字符以内" maxlength="100" placeholder="100字符以内"></u-input></td>
         </tr>
     </tbody>
 </u-form-table>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            list: [{
+                region: '',
+                vpc: '',
+                description: '',
+            }, {
+                region: '',
+                vpc: '',
+                description: '',
+            }],
+        };
+    },
+};
+</script>
 ```
 
-### 在 UForm 中使用
-
-``` html
-<u-form>
-    <u-form-item label="规则" layout="block">
-        <u-form-table>
-            <thead>
-                <tr>
-                    <th width="20%">URL</th>
-                    <th width="20%">服务</th>
-                    <th width="20%">端口</th>
-                    <th>描述</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <u-input></u-input>
-                    </td>
-                    <td>
-                        <u-select>
-                            <u-select-item>ABC</u-select-item>
-                            <u-select-item>DDD</u-select-item>
-                        </u-select>
-                    </td>
-                    <td>
-                        <u-input></u-input>
-                    </td>
-                    <td>
-                        <u-input size="full normal"></u-input>
-                    </td>
-                </tr>
-            </tbody>
-        </u-form-table>
-    </u-form-item>
-</u-form>
-```
-
-### 动态添加表单
+### 动态按钮
 
 ``` vue
 <template>
-<u-linear-layout>
+<u-linear-layout direction="vertical" gap="small">
     <u-form-table>
         <thead>
             <tr>
-                <th width="20%">URL</th>
-                <th width="20%">服务</th>
-                <th width="20%">端口</th>
-                <th>描述</th>
+                <th width="170">区域</th>
+                <th width="170">VPC</th>
+                <th width="200">关联描述</th>
                 <th width="40"></th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="(item, index) in list" :key="index">
-                <td><u-input v-model="item.url"></u-input></td>
-                <td><u-select v-model="item.service"></u-select></td>
-                <td><u-input v-model="item.port"></u-input></td>
-                <td><u-input size="full normal" v-model="item.description"></u-input></td>
-                <td><u-form-table-remove-button></u-form-table-remove-button></td>
+                <td><u-input size="huge full" placeholder="请输入区域" v-model="item.region"></u-input></td>
+                <td><u-select size="huge full" disabled placeholder="暂无可选择的 VPC" v-model="item.vpc"></u-select></td>
+                <td><u-input size="huge full" v-model="item.description" maxlength-message="100字符以内" maxlength="100" placeholder="100字符以内"></u-input></td>
+                <td>
+                    <u-form-table-remove-button @click="removeItem(item)"></u-form-table-remove-button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <u-form-table-add-button @click="addItem">添加项</u-form-table-add-button>
+                </td>
             </tr>
         </tbody>
     </u-form-table>
-    <u-form-table-add-button>添加选项</u-form-table-add-button>
 </u-linear-layout>
 </template>
 <script>
@@ -112,17 +84,30 @@ export default {
     data() {
         return {
             list: [{
-                url: 'xxx',
-                service: 'abc',
-                port: 8000,
+                region: '',
+                vpc: '',
                 description: '',
             }, {
-                url: 'xxx',
-                service: 'abc',
-                port: 8000,
+                region: '',
+                vpc: '',
                 description: '',
             }],
         };
+    },
+    methods: {
+        addItem() {
+            this.list.push({
+                region: '',
+                vpc: '',
+                description: '',
+            });
+        },
+        removeItem(item) {
+            const list = this.list;
+            if (list.includes(item)) {
+                list.splice(list.indexOf(item), 1);
+            }
+        },
     },
 };
 </script>

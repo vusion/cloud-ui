@@ -2,6 +2,8 @@
 
 # UNavbar 导航条
 
+**UI 组件**, **路由链接**, **块级展示**
+
 通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。
 
 ## 示例
@@ -155,8 +157,9 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| router | boolean |  | `true` | 是否根据vue-router来控制选择哪一项 |
+| router | boolean |  | `true` | 是否根据 vue-router 来控制选择项 |
 | value.sync, v-model | any |  |  | 当前选择的值 |
+| field | string |  | `'text'` | 显示文本字段 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
 
@@ -164,9 +167,26 @@
 
 #### (default)
 
-插入`<u-navbar-item>`或`<u-navbar-divider>`子组件。
+中部区域，可插入`<u-navbar-item>`、`<u-navbar-divider>`等子组件，或其他 HTML。
+
+#### left
+
+左部区域。
+
+#### right
+
+右部区域。
 
 ### Events
+
+#### @click
+
+点击此项时触发，与原生 click 事件不同的是，它只会在非只读和禁用的情况下触发。
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | MouseEvent | 鼠标事件对象 |
+| senderVM | Vue | 发送事件实例 |
 
 #### @before-select
 
@@ -177,8 +197,9 @@
 | $event.value | any | 选择项的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择项相关对象 |
-| $event.itemVM | UNavbarItem | 选择项子组件 |
+| $event.itemVM | NavbarItem | 选择项子组件 |
 | $event.preventDefault | Function | 阻止选择流程 |
+| senderVM | Vue | 发送事件实例 |
 
 #### @input
 
@@ -187,6 +208,7 @@
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event | any | 选择项的值 |
+| senderVM | Vue | 发送事件实例 |
 
 #### @select
 
@@ -196,8 +218,25 @@
 | ----- | ---- | ----------- |
 | $event.value | any | 改变后的值 |
 | $event.oldValue | any | 旧的值 |
-| $event.item | object | 单选模式中，选择项相关对象 |
-| $event.itemVM | UNavbarItem | 单选模式中，选择项子组件 |
+| $event.item | object | 选择项相关对象 |
+| $event.oldItem | object | 旧的选择项相关对象 |
+| $event.itemVM | UNavbarItem | 选择项子组件 |
+| $event.oldVM | UNavbarItem | 旧的选择项子组件 |
+| senderVM | Vue | 发送事件实例 |
+
+#### @change
+
+选择值改变时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.value | any | 选择项的值 |
+| $event.oldValue | any | 旧的值 |
+| $event.item | object | 选择项相关对象 |
+| $event.oldItem | object | 旧的选择项相关对象 |
+| $event.itemVM | UNavbarItem | 选择项子组件 |
+| $event.oldVM | UNavbarItem | 旧的选择项子组件 |
+| senderVM | UNavbar | 发送事件实例 |
 
 ## UNavbarItem API
 ### Props/Attrs
@@ -209,7 +248,7 @@
 | item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
 | href | string |  |  | 链接地址 |
 | target | string |  |  | 打开方式 |
-| to | string,  Location |  |  | 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
+| to | string, Location |  |  | 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
 | replace | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
 | exact | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。 |
 
@@ -217,7 +256,7 @@
 
 #### (default)
 
-插入文本或HTML。
+插入文本或 HTML。
 
 ### Events
 
@@ -231,6 +270,7 @@
 | $event.item | object | 此项的相关对象 |
 | $event.itemVM | UNavbarItem | 此组件 |
 | $event.preventDefault | Function | 阻止选择流程 |
+| senderVM | Vue | 发送事件实例 |
 
 #### @before-navigate
 
@@ -238,10 +278,11 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.to | string,  Location | `to`属性的值 |
+| $event.to | string, Location | `to`属性的值 |
 | $event.replace | boolean | `replace`属性的值 |
 | $event.exact | boolean | `exact`属性的值 |
 | $event.preventDefault | Function | 阻止切换流程 |
+| senderVM | Vue | 发送事件实例 |
 
 #### @navigate
 
@@ -249,10 +290,26 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.to | string,  Location | `to`属性的值 |
+| $event.to | string, Location | `to`属性的值 |
 | $event.replace | boolean | `replace`属性的值 |
 | $event.exact | boolean | `exact`属性的值 |
+| senderVM | Vue | 发送事件实例 |
 
 ## UNavbarDivider API
+
+暂无
+## UNavbarDropdown API
+### Props/Attrs
+
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| trigger | string |  | `'hover'` | 触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`, `'manual'` |
+| placement | string |  | `'bottom'` | 弹出方位。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',` 'left-end'`, `'right-start'`, `'right-end'` |
+| disabled | boolean |  | `false` | 是否禁用 |
+
+## UNavbarMenu、UNavbarMenuGroup、UNavbarMenuItem、UNavbarMenuDivider API
+
+暂无
+## UNavbarSelect、UNavbarSelectGroup、UNavbarSelectItem、UNavbarSelectDivider API
 
 暂无
