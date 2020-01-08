@@ -20,7 +20,7 @@
 }
 
 .root::before {
-    font-size: var(--form-table-button-font-size);
+    /* font-size: var(--form-table-button-font-size); */
     content: '+ ';
 }
 

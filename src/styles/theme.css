@@ -301,24 +301,6 @@
     --crumb-disabled-color: var(--brand-disabled);
     --crumb-margin: 0 5px;
 
-    /* Pagination */
-    --pagination-item-size: 32px;
-    --pagination-item-padding: 0 10px;
-    --pagination-item-color-hover: var(--brand-primary);
-    --pagination-item-color-selected: var(--color-white);
-    --pagination-item-color-disabled: var(--brand-disabled);
-    --pagination-item-background-disabled-selected: var(--brand-disabled-light);
-    --pagination-item-background-selected: var(--brand-primary);
-    --pagination-item-background-blank: none;
-    --pagination-item-background: var(--background-color-base);
-    --pagination-item-color: var(--color-base);
-    --pagination-item-color-blank: var(--color-base);
-    --pagination-item-blank-color-disabled: var(--brand-disabled);
-
-    /* Combo Pagination */
-    --combo-pagination-sizer-width: 100px;
-    --combo-pagination-jumper-width: 50px;
-
     /* Block */
     --block-background: var(--border-color-base);
 
@@ -649,8 +631,6 @@
     --circular-progress-font-size-base: 18px;
     --circular-progress-text-line-height: normal;
 
-    --pagination-item-size: 30px;
-
     --tooltip-background-color: rgba(71, 88, 107, 0.9);
     --tooltip-arrow-size: 6px;
     --tooltip-arrow-offset: 16px;
@@ -904,6 +884,20 @@
     --number-input-background-readonly: none;
     --number-input-background-disabled: none;
 
+
+    /* Pagination */
+    --pagination-item-size: 32px;
+    --pagination-item-padding: 0;
+    --pagination-item-color-hover: var(--brand-primary);
+    --pagination-item-color-selected: var(--color-white);
+    --pagination-item-color-disabled: var(--brand-disabled);
+    --pagination-item-background-disabled-selected: var(--brand-disabled-light);
+    --pagination-item-background-selected: var(--brand-primary);
+    --pagination-item-background-blank: none;
+    --pagination-item-background: var(--background-color-base);
+    --pagination-item-color: var(--color-base);
+    --pagination-item-color-blank: var(--color-base);
+    --pagination-item-blank-color-disabled: var(--brand-disabled);
     --pagination-item-color: #555;
     --pagination-item-background: white;
     --pagination-item-color-hover: var(--brand-primary);
@@ -913,6 +907,10 @@
     --pagination-item-background-blank: none;
     --pagination-item-color-blank: #555;
     --pagination-item-background-disabled-selected: white;
+
+    /* Combo Pagination */
+    --combo-pagination-sizer-width: 100px;
+    --combo-pagination-jumper-width: 50px;
 
     --radios-item-margin-right: 80px;
 

@@ -1,3 +1,5 @@
+@extend;
+
 .root {
     width: var(--textarea-width);
     height: var(--textarea-height);
