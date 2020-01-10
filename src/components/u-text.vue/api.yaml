@@ -1,6 +1,6 @@
 - name: u-text
   title: 文本
-  labels: [UI 组件, 行内展示]
+  labels: [行内展示]
   description: 用于在业务中临时快速地调整文本大小、颜色等特性。不建议在封装基础组件时使用。
   attrs:
     - name: size

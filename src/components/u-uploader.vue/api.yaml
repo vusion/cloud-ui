@@ -1,6 +1,6 @@
 - name: u-uploader
   title: 文件上传
-  labels: [UI 组件, 表单控件, 行内展示]
+  labels: [表单控件, 行内展示]
   attrs:
     - name: url
       type: string

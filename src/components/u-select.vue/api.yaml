@@ -1,6 +1,6 @@
 - name: u-select
   title: 选择框
-  labels: [UI 组件, 表单控件, 行内展示]
+  labels: [表单控件, 行内展示]
   description: 下拉选择框，支持支持单选、多选、搜索等功能，用于代替原生的选择框。
   docs:
     data: 数据相关

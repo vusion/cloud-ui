@@ -1,6 +1,6 @@
 - name: u-sidebar
   title: 侧边栏
-  labels: [UI 组件, 路由链接, 块级展示]
+  labels: [路由链接, 块级展示]
   description: 通常用于页面左侧的导航栏。
   attrs:
     - name: router

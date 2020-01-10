@@ -9,7 +9,7 @@
     text-overflow: ellipsis;
     color: var(--sidebar-item-color);
     background: var(--sidebar-item-background);
-    transition: all var(--transition-duration);
+    transition: all varvar(--transition-duration-base);
 }
 
 .root:hover {

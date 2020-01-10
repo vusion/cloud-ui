@@ -1,6 +1,6 @@
 - name: u-input
   title: 单行输入
-  labels: [UI 组件, 表单控件, 行内展示]
+  labels: [表单控件, 行内展示]
   description: 基本的表单输入组件，在原生`<input>`控件基础上进行了一些功能扩展。
   attrs:
     - name: type
