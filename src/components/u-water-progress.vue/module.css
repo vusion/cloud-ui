@@ -49,7 +49,7 @@
     left: -150%;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
-    background: linear-gradient(to top, var(--brand-info), --water-progress-info-color);
+    background: linear-gradient(to top, var(--brand-info), var(--water-progress-info-color));
     transition: all var(--transition-duration-base);
 }
 
@@ -80,17 +80,17 @@
 }
 
 .root[color="primary"] .wave {
-    background: linear-gradient(to top, var(--brand-primary), --water-progress-primary-color));
+    background: linear-gradient(to top, var(--brand-primary), var(--water-progress-primary-color));
 }
 .root[color="info"] .wave {
-    background: linear-gradient(to top, var(--brand-info), --water-progress-info-color));
+    background: linear-gradient(to top, var(--brand-info), var(--water-progress-info-color));
 }
 .root[color="success"] .wave {
-    background: linear-gradient(to top, var(--brand-success), --water-progress-success-color));
+    background: linear-gradient(to top, var(--brand-success), var(--water-progress-success-color));
 }
 .root[color="warning"] .wave {
-    background: linear-gradient(to top, var(--brand-warning), --water-progress-warning-color));
+    background: linear-gradient(to top, var(--brand-warning), var(--water-progress-warning-color));
 }
 .root[color="error"] .wave {
-    background: linear-gradient(to top, var(--brand-error), --water-progress-error-color));
+    background: linear-gradient(to top, var(--brand-error), var(--water-progress-error-color));
 }

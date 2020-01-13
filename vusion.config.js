@@ -114,6 +114,7 @@ module.exports = {
             { group: 'Progress & Charts', name: 'u-line-chart', alias: '线状图', deprecated: true },
             { group: 'Progress & Charts', name: 'u-pie-chart', alias: '饼状图', deprecated: true },
             { group: 'Progress & Charts', name: 'u-donut-chart', alias: '甜圈图', deprecated: true },
+            { group: 'Progress & Charts', name: 'u-water-progress', alias: 'Well', deprecated: true },
             { group: 'Mixins & Functional', name: 'm-dynamic', alias: '动态列表' },
             { group: 'Mixins & Functional', name: 'm-emitter', alias: '发送器' },
             { group: 'Mixins & Functional', name: 'm-pub-sub', alias: '发布订阅模式' },

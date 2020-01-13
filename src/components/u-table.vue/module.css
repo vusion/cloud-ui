@@ -92,9 +92,9 @@
 }
 
 .root tbody > tr[color="primary"] {
-    background: --table-row-primary-background;
+    background: var(--table-row-primary-background);
 }
 
 .root tbody > tr[color="error"] {
-    background: --table-row-error-background;
+    background: var(--table-row-error-background);
 }
