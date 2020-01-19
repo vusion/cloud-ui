@@ -11,7 +11,7 @@
     color: #666;
     border-color: var(--brand-secondary);
     border-radius: 3px;
-    transition: border-color var(--transition-duration);
+    transition: border-color var(--transition-duration-base);
 }
 
 .input {

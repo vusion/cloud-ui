@@ -95,7 +95,7 @@
 
 .root {
     color: #666;
-    transition: border-color var(--transition-duration);
+    transition: border-color var(--transition-duration-base);
 }
 
 .placeholder, .input::placeholder {
