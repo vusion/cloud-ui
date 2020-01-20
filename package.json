@@ -13,6 +13,7 @@
   },
   "main": "./index.js",
   "scripts": {
+    "dev": "./docs-src/dev",
     "build": "vusion build && vusion build -C -t dark && vusion build -C -t seagreen && vusion build -C -t cobalt",
     "precommit": "node node_modules/vusion-hooks/precommit"
   },
@@ -42,8 +43,8 @@
     "vusion-utils": "^0.2.7"
   },
   "devDependencies": {
-    "@vusion/md-vue-loader": "^1.0.0",
     "@vusion/doc-loader": "^0.9.3",
+    "@vusion/md-vue-loader": "^1.0.0",
     "babel-eslint": "^8.2.6",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
@@ -60,6 +61,7 @@
     "stylelint-config-vusion": "^1.0.3",
     "vue": "^2.5.0",
     "vue-router": "^3.0.1",
+    "vusion-cli": "^0.10.0",
     "vusion-hooks": "^0.2.0",
     "x-ace-editor.vue": "^0.1.0"
   },
