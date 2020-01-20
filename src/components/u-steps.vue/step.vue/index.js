@@ -9,7 +9,7 @@ export const UStep = {
     },
     computed: {
         index() {
-            return this.parentVM.itemVMs.indexOf(this);
+            return this.parentVM && this.parentVM.itemVMs.indexOf(this);
         },
     },
 };

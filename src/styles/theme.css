@@ -186,7 +186,7 @@
     --label-padding-x: 6px;
     --label-padding-y: 2px;
     --label-color-primary: white;
-    --label-background: var(--background-color-base);
+    --label-background: #a7b2c4;
     --label-background-primary: var(--brand-primary);
     --label-font-size: var(--font-size-small);
 
