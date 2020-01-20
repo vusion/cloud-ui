@@ -7,7 +7,6 @@
 }
 
 .root[color="primary"] {
-    color: var(--label-color-primary);
     background: var(--label-background-primary);
 }
 

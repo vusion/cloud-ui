@@ -101,7 +101,7 @@
     --pre-padding-y: 5px;
     --pre-padding-x: 10px;
     --code-padding-y: 3px;
-    --code-padding-x: 0;
+    --code-padding-x: 3px;
     --code-background: var(--background-color-light);
     --code-color: #e0276e;
     --code-font-size: var(--font-size-small);
@@ -183,11 +183,14 @@
     --button-loading-animation-duration: 1s;
 
     /* Label */
-    --label-padding-x: 6px;
-    --label-padding-y: 2px;
-    --label-color-primary: white;
+    --label-padding-x: 8px;
+    --label-padding-y: 3px;
+    --label-color: white;
     --label-background: #a7b2c4;
     --label-background-primary: var(--brand-primary);
+    --label-background-success: #76b86e;
+    --label-background-warning: #ffa136;
+    --label-background-error: #ff8a7a;
     --label-font-size: var(--font-size-small);
 
     /* Badge */
@@ -805,16 +808,6 @@
     --subtabs-border-color: #e0e6ed;
 
     --lightbox-head-height: 64px;
-
-
-    /* Label */
-    --label-padding-x: 8px;
-    --label-padding-y: 3px;
-    --label-background: #cad4e4;
-    --label-color: white;
-    --label-background-success: #76b86e;
-    --label-background-warning: #ffa136;
-    --label-background-error: #ff8a7a;
 
     /* Avatar */
     --avatar-size: 44px;

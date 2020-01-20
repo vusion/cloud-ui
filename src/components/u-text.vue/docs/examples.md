@@ -1,4 +1,4 @@
-### 大小扩展
+### 设置尺寸
 
 ``` html
 <u-linear-layout>
@@ -10,7 +10,7 @@
 </u-linear-layout>
 ```
 
-### 颜色扩展
+### 设置颜色
 
 ``` html
 <u-linear-layout>

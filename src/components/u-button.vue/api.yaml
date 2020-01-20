@@ -1,7 +1,7 @@
 - name: u-button
   title: 按钮
   labels: [路由链接, 行内展示]
-  description: 按钮用于触发一个即时操作。
+  description: 用于触发一个即时操作。
   attrs:
     - name: color
       type: enum
