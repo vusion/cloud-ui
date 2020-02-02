@@ -1,9 +1,5 @@
 .root {}
 
-.root[display="inline"] {
-    /* By default */
-}
-
 .root[display="block"] {
     display: block;
 }
@@ -12,20 +8,12 @@
     font-size: var(--text-font-size-small);
 }
 
-.root[size="normal"] {
-    /* By default */
-}
-
 .root[size="large"] {
     font-size: var(--text-font-size-large);
 }
 
 .root[size="huge"] {
     font-size: var(--text-font-size-huge);
-}
-
-.root[color="default"] {
-    /* By default */
 }
 
 .root[color="primary"] {

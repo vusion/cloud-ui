@@ -6,6 +6,12 @@
     text-decoration: underline;
 }
 
+.root:focus {
+    /* Remove default focus style */
+    outline: var(--focus-outline);
+    text-decoration: underline;
+}
+
 .root[color="light"] {
     color: var(--link-color-light);
 }

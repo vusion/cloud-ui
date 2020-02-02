@@ -28,6 +28,11 @@
       type: boolean
       default: false
       description: 是否禁用。禁用后不会响应`click`事件。
+    - name: color
+      type: enum
+      options: [default, light, white]
+      default: default
+      description: 设置颜色。
     - name: display
       type: string
       default: inline
@@ -49,7 +54,7 @@
           type: Vue
           description: 发送事件实例
     - name: before-navigate
-      description: 使用router相关属性切换路由前触发
+      description: 使用 router 相关属性切换路由前触发
       params:
         - name: $event.to
           type: string, Location
@@ -67,7 +72,7 @@
           type: Vue
           description: 发送事件实例
     - name: navigate
-      description: 使用router相关属性切换路由时触发
+      description: 使用 router 相关属性切换路由时触发
       params:
         - name: $event.to
           type: string, Location

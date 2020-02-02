@@ -17,6 +17,11 @@
       type: boolean
       default: false
       description: 是否可关闭。开启时可以通过关闭按钮触发`close`事件，需要自己实现关闭逻辑。
+    - name: display
+      type: enum
+      options: [inline, block]
+      default: inline
+      description: 展示方式。`'inline'`表示行内展示, `'block'`表示块级展示，宽度会充满父元素。
   slots:
     - name: default
       description: 插入文本或 HTML。

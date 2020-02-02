@@ -1,5 +1,7 @@
 ### 设置尺寸
 
+通过`size`属性设置尺寸。
+
 ``` html
 <u-linear-layout>
     <u-text size="small">小号文本</u-text>
@@ -11,6 +13,8 @@
 ```
 
 ### 设置颜色
+
+通过`color`属性设置颜色。
 
 ``` html
 <u-linear-layout>
@@ -24,23 +28,21 @@
 </u-linear-layout>
 ```
 
-### 展示方式
+### 块级展示
+
+使用`display="block"`可以快速将文本宽度充满整行。
 
 ``` html
-<u-text display="block">这是几个</u-text>
-<u-text display="block">块级</u-text>
-<u-text display="block">文本组件</u-text>
-<u-text display="inline">这是几个</u-text>
-<u-text>行内（默认）</u-text>
-<u-text display="inline">文本组件</u-text>
+<u-text color="secondary">行内文本</u-text>与周围其他文字保持在同一行。
+<u-text display="block" color="secondary">块级文本</u-text>宽度充满整行。
 ```
 
 ### 文本换行
 
 ``` html
 <u-linear-layout direction="vertical">
-    <u-text display="block" wrap="ellipsis" style="width: 120px; background: #f2f3f8;">天将降大任于斯人也，必先苦其心志，劳其筋骨，饿其体肤，空乏其身，行拂乱其所为也，所以动心忍性，增益其所不能。</u-text>
-    <u-text display="block" wrap="break" style="width: 120px; background: #f2f3f8;">天将降大任于斯人也，必先苦其心志，劳其筋骨，饿其体肤，空乏其身，行拂乱其所为也，所以动心忍性，增益其所不能。</u-text>
-    <u-text display="block" wrap="nowrap" style="width: 120px; background: #f2f3f8;">天将降大任于斯人也，必先苦其心志，劳其筋骨，饿其体肤，空乏其身，行拂乱其所为也，所以动心忍性，增益其所不能。</u-text>
+    <u-text display="block" wrap="ellipsis" style="width: 200px; background: var(--background-color-base);">围绕应用和微服务打造的一站式 PaaS 平台，帮助用户快速实现易接入、易运维的微服务解决方案。</u-text>
+    <u-text display="block" wrap="break" style="width: 200px; background: var(--background-color-base);">围绕应用和微服务打造的一站式 PaaS 平台，帮助用户快速实现易接入、易运维的微服务解决方案。</u-text>
+    <u-text display="block" wrap="nowrap" style="width: 200px; background: var(--background-color-base);">围绕应用和微服务打造的一站式 PaaS 平台，帮助用户快速实现易接入、易运维的微服务解决方案。</u-text>
 </u-linear-layout>
 ```

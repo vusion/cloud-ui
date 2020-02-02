@@ -1,25 +1,22 @@
 ### 基本用法
 
-``` html
-<u-link href="#">链接</u-link>&nbsp;<u-link href="#">查看详情</u-link>
-```
-
-### 禁用
+除了`<a>`标签基础的`href`和`target`属性，增加了类似`<router-link>`的`to`、`replace`和`append`属性等。
 
 ``` html
-<u-link href="#" disabled>禁用</u-link>
+<u-link href="https://vusion.github.io" target="_blank">普通链接</u-link>&nbsp;<u-link to="/cloud-ui/u-button">路由链接</u-link>
 ```
 
-### 目标
+### 禁用状态
 
-使用`href`和`target`属性，可以直接实现`<a>`元素对应的功能。使用`to`、`replace`和`append`需要引入vue-router，它们与`<router-link>`组件中对应属性的功能相同。
+链接在禁用状态下，不会响应点击事件。
 
 ``` html
-<u-link href="https://vusion.github.io" target="_blank">href</u-link>&nbsp;
-<u-link to="/cloud-ui/u-button">router</u-link>
+<u-link href="https://vusion.github.io" target="_blank" disabled>禁用链接</u-link>
 ```
 
-### 颜色扩展
+### 设置颜色
+
+在深色背景下，可以用`color`属性修改颜色。
 
 ``` html
 <u-link href="#">
@@ -42,13 +39,11 @@
 </u-link>
 ```
 
-### 展示方式
+### 块级展示
+
+使用`display="block"`可以快速将链接宽度充满整行。
 
 ``` html
-<u-link href="#" display="block">这是几个</u-link>
-<u-link href="#" display="block">块级</u-link>
-<u-link href="#" display="block">链接组件</u-link>
-<u-link href="#" display="inline">这是几个</u-link>
-<u-link href="#">行内（默认）</u-link>
-<u-link href="#" display="inline">链接组件</u-link>
+<u-link color="secondary">行内链接</u-link>与周围其他文字保持在同一行。
+<u-link display="block" color="secondary">块级链接</u-link>宽度充满整行。
 ```

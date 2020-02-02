@@ -83,7 +83,7 @@
 
 ### 块级展示
 
-使用`display="block"`可以将按钮宽度充满整个父元素。
+使用`display="block"`可以快速将按钮宽度充满整行。
 
 ``` html
 <u-linear-layout direction="vertical" gap="small">

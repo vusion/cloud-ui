@@ -1,4 +1,5 @@
 .root {
+    display: inline-block;
     padding: var(--label-padding-y) var(--label-padding-x);
     font-size: var(--label-font-size);
     background: var(--label-background);
@@ -65,4 +66,8 @@
 .root[size="huge"] .close {
     padding: var(--label-close-padding-x-huge);
     margin-right: calc(var(--label-close-padding-x-huge) * (-2));
+}
+
+.root[display="block"] {
+    display: block;
 }

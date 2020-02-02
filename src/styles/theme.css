@@ -30,12 +30,13 @@
 
     /* Component Base Colors */
     --background-color-light: #f7f8fc;
-    --background-color-base: #9fafc8;
+    --background-color-base: #e2e7ef;
     --background-color-dark: #ebedf5;
     --color-base: #565b61;
     --border-color-base: #cbd5e5; /* TODO */
 
     /* Spacing Dimensions */
+    --margin-mini: 4px;
     --margin-small: 10px;
     --margin-base: 20px;
     --margin-large: 30px;
@@ -129,8 +130,8 @@
     --text-disabled-color: #ccc;
 
     /* Link */
-    --link-color: #5494db;
-    --link-color-disabled: var(--brand-disabled);
+    --link-color: #4477d0;
+    --link-color-disabled: #b6c4d4;
     --link-color-light: #6eadff;
     --link-color-white: white;
 
@@ -188,16 +189,16 @@
     --label-padding-x: 8px;
     --label-padding-x-large: 12px;
     --label-padding-x-huge: 18px;
-    --label-padding-y: 3px;
-    --label-padding-y-large: 5px;
-    --label-padding-y-huge: 6px;
+    --label-padding-y: 1px;
+    --label-padding-y-large: 2px;
+    --label-padding-y-huge: 3px;
     --label-font-size: var(--font-size-small);
     --label-font-size-large: var(--font-size-small);
     --label-font-size-huge: var(--font-size-base);
     --label-close-padding-x: 3px;
     --label-close-padding-x-large: 5px;
     --label-close-padding-x-huge: 8px;
-    --label-background: #e2e6ed;
+    --label-background: var(--background-color-base);
     --label-background-primary: var(--brand-primary);
     --label-background-success: var(--brand-success);
     --label-background-warning: var(--brand-warning);

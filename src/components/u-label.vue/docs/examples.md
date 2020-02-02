@@ -1,5 +1,7 @@
 ### 基本用法
 
+通过`color`属性设置颜色。
+
 ``` html
 <u-linear-layout gap="small">
     <u-label>Label</u-label>
@@ -38,5 +40,18 @@
     <u-label size="large" color="primary" closable>Large</u-label>
     <u-label size="huge">Huge</u-label>
     <u-label size="huge" color="primary" closable>Huge</u-label>
+</u-linear-layout>
+```
+
+### 块级展示
+
+使用`display="block"`可以快速将文本宽度充满整行。
+
+``` html
+<u-linear-layout direction="vertical" gap="mini" style="width: 120px;">
+    <u-label display="block">日常工作</u-label>
+    <u-label display="block" color="primary">重要任务</u-label>
+    <u-label display="block">质量效率</u-label>
+    <u-label display="block">学习分享</u-label>
 </u-linear-layout>
 ```
