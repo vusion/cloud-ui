@@ -1,5 +1,6 @@
 .root {
     display: inline-block;
+    line-height: var(--line-height-base);
     padding: var(--label-padding-y) var(--label-padding-x);
     font-size: var(--label-font-size);
     background: var(--label-background);

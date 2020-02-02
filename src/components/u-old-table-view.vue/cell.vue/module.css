@@ -1,8 +1,0 @@
-:global(.expand) {
-    max-height: 266px;
-    margin: 0 10px;
-    line-height: 24px;
-    overflow: auto;
-    color: #666;
-    text-align: left;
-}
