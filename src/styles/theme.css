@@ -10,9 +10,9 @@
     --brand-primary: #4988e8;
     --brand-secondary: #e1e8ed;
     --brand-info: #36a3f7;
-    --brand-success: #3ad0af;
+    --brand-success: #57bc5b;
     --brand-warning: #ffa136;
-    --brand-error: #ff8a7a;
+    --brand-error: #fe5a5a;
     --brand-danger: #fe5a5a;
     --brand-disabled: #cddae9;
     --brand-disabled-light: #e7eaef;
@@ -85,6 +85,7 @@
     --focus-outline: none;
 
     /* Transition Duration */
+    --transition-duration-none: 0s;
     --transition-duration-base: 0.2s;
     --transition-duration-fast: 0.1s;
     --transition-duration-slow: 0.4s;
@@ -100,6 +101,7 @@
     --pre-font-family: var(--font-family-code);
     --pre-padding-y: 5px;
     --pre-padding-x: 10px;
+    --code-margin-x: 2px;
     --code-padding-y: 3px;
     --code-padding-x: 3px;
     --code-background: var(--background-color-light);
@@ -184,14 +186,27 @@
 
     /* Label */
     --label-padding-x: 8px;
+    --label-padding-x-large: 12px;
+    --label-padding-x-huge: 18px;
     --label-padding-y: 3px;
-    --label-color: white;
-    --label-background: #a7b2c4;
-    --label-background-primary: var(--brand-primary);
-    --label-background-success: #76b86e;
-    --label-background-warning: #ffa136;
-    --label-background-error: #ff8a7a;
+    --label-padding-y-large: 5px;
+    --label-padding-y-huge: 6px;
     --label-font-size: var(--font-size-small);
+    --label-font-size-large: var(--font-size-small);
+    --label-font-size-huge: var(--font-size-base);
+    --label-close-padding-x: 3px;
+    --label-close-padding-x-large: 5px;
+    --label-close-padding-x-huge: 8px;
+    --label-background: #e2e6ed;
+    --label-background-primary: var(--brand-primary);
+    --label-background-success: var(--brand-success);
+    --label-background-warning: var(--brand-warning);
+    --label-background-error: var(--brand-error);
+    --label-color: inherit;
+    --label-color-primary: white;
+    --label-color-success: white;
+    --label-color-warning: white;
+    --label-color-error: white;
 
     /* Badge */
     --badge-background: var(--brand-error);
@@ -668,9 +683,6 @@
     --field-border-color: #cbd5dd;
     --field-disabled-color: #bbb;
     --field-selected-color: var(--brand-primary);
-
-    /* Animation Durations */
-    --transition-duration: 0.2s;
 
     --checkbox-size: 18px;
     --radio-size: 18px;

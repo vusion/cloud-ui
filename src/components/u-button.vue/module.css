@@ -3,8 +3,6 @@
     -webkit-appearance: none;
     /* Remove margins in Chrome, Safari and Opera. */
     margin: 0;
-    /* Remove borders for `button`. */
-    border: none;
     /* Address `overflow` set to `hidden` in IE+. */
     overflow: visible;
     /* Correct `font` properties not being inherited for `button`. */
@@ -17,14 +15,11 @@
     cursor: var(--cursor-pointer);
     user-select: none;
     /* Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214 */
-    background: none;
-    /* Others */
     display: inline-block;
     text-align: center;
     padding: var(--button-padding-y) var(--button-padding-x);
     height: var(--button-height);
     line-height: calc(var(--button-height) - var(--button-border-width) * 2 - var(--button-padding-y) * 2);
-    /* stylelint-disable declaration-block-no-duplicate-properties */
     background: var(--button-background);
     color: var(--button-color);
     border: var(--button-border-width) solid var(--button-border-color);

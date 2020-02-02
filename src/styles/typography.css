@@ -46,6 +46,7 @@ pre {
 }
 
 code {
+    margin: 0 var(--code-margin-x);
     padding: var(--code-padding-y) var(--code-padding-x);
     font-size: var(--code-font-size);
     font-family: var(--font-family-code);
