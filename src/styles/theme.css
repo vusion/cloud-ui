@@ -125,12 +125,13 @@
     --text-color-success: var(--brand-success);
     --text-color-warning: var(--brand-warning);
     --text-color-error: var(--brand-error);
-    --text-color-disabled: var(--brand-disabled);
-    --text-secondary-color: var(--text-secondary-color);
-    --text-disabled-color: #ccc;
+    --text-color-disabled: #b6c4d4;
 
     /* Link */
     --link-color: #4477d0;
+    --link-color-success: var(--brand-success);
+    --link-color-warning: var(--brand-warning);
+    --link-color-error: var(--brand-error);
     --link-color-disabled: #b6c4d4;
     --link-color-light: #6eadff;
     --link-color-white: white;
