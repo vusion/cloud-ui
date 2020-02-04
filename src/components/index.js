@@ -82,7 +82,6 @@ export * from './u-placeholder.vue';
 export * from './u-popup.vue';
 export * from './u-radios.vue';
 export * from './u-region-select.vue';
-export * from './u-resize-table.vue';
 export * from './u-select.vue';
 export * from './u-selectable-steps.vue';
 export * from './u-sidebar.vue';
