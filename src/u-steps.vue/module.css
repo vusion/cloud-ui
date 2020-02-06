@@ -24,6 +24,12 @@
     background-color: $brand-secondary;
 }
 
+.root[shape-size="large"] .radio {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+}
+
 .item[disabled] .item-body {
     color: $field-disabled-color;
 }

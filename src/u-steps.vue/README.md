@@ -70,6 +70,16 @@
 </u-steps>
 ```
 
+### 图形大小
+
+``` html
+<u-steps :value="1" :readonly="false" shape-size="large">
+    <u-step title="Step1">Content1</u-step>
+    <u-step title="Step2">Content2</u-step>
+    <u-step title="Step3">Content3</u-step>
+</u-steps>
+```
+
 ### 禁用
 
 ``` html
@@ -85,6 +95,7 @@
 | Prop/Attr | Type | Default | Description |
 | --------- | ---- | ------- | ----------- |
 | value.sync, v-model | Number | `0` | 当前步骤数 |
+| shape-size | String | `'normal'` | 图形大小 |
 | readonly | Boolean | `false` | 是否只读。非只读的情况下可以选择 |
 | disabled | Boolean | `false` | 是否禁用 |
 
