@@ -36,6 +36,12 @@
     background: var(--steps-item-radio-background);
 }
 
+.root[shape-size="large"] .radio {
+    width: var(--steps-item-radio-size-large);
+    height: var(--steps-item-radio-size-large);
+    line-height: var(--steps-item-radio-size-large);
+}
+
 .title {
     display: block;
 }

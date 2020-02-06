@@ -295,6 +295,7 @@
     --steps-item-disabled-color: var(--brand-disabled);
     --steps-item-radio-background: var(--background-color-base);
     --steps-item-radio-size: 10px;
+    --steps-item-radio-size-large: 24px;
     --steps-item-passed-background-color: var(--brand-primary);
     --steps-item-passed-radio-color: var(--color-white);
 
