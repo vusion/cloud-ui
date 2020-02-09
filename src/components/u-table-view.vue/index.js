@@ -545,7 +545,7 @@ export const UTableView = {
             this.filter(filtering);
         },
         getFiltersValue(field) {
-            const filtering = this.currentDataSource.filtering;
+            const filtering = this.currentDataSource && this.currentDataSource.filtering;
             if (!filtering)
                 return undefined;
 
