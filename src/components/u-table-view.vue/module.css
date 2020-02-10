@@ -48,6 +48,10 @@
     position: relative;
 }
 
+.head-title[sortable]:hover {
+    background: #eef2f8;
+}
+
 .extra {
     float: right;
 }
@@ -151,14 +155,19 @@
     width: var(--table-view-expander-size);
     height: var(--table-view-expander-size);
     line-height: var(--table-view-expander-size);
+    vertical-align: -2px;
     text-align: center;
     transform: rotate(-180deg);
 }
 
 .expander::before {
-    content: '▾';
+    icon-font: url('../i-icon.vue/icons/square-down.svg');
 }
 
 .expander[expanded] {
     transform: rotate(0);
+}
+
+.expand-td {
+    /* transition: $transition-duration height ease-in-out, $transition-duration padding-top ease-in-out, $transition-duration padding-bottom ease-in-out; */
 }
