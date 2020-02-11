@@ -29,6 +29,19 @@ export const UTextarea = {
             this.$refs.handle.style.left = 'auto';
             this.$refs.handle.style.top = 'auto';
         },
+        autoResize() {
+            const inputEl = this.$refs.input;
+            if (this.autoSize === 'both' || this.autoSize === 'horizontal') {
+                inputEl.style.width = '3px';
+                this.width = inputEl.scrollWidth + (this.$el.offsetWidth - this.$el.clientWidth) + 'px';
+                inputEl.style.width = '';
+            }
+            if (this.autoSize === 'both' || this.autoSize === 'vertical') {
+                inputEl.style.height = '3px';
+                this.height = inputEl.scrollHeight + (this.$el.offsetHeight - this.$el.clientHeight) + 'px';
+                inputEl.style.height = '';
+            }
+        },
     },
 };
 

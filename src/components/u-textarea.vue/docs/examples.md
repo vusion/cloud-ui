@@ -71,7 +71,7 @@ export default {
 </u-linear-layout>
 ```
 
-### 大小扩展
+### 设置大小
 
 ```html
 <u-linear-layout direction="vertical">

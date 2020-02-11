@@ -15,6 +15,7 @@ export const UInput = {
         disabled: { type: Boolean, default: false },
         maxlengthMessage: String,
         search: String,
+        autoSize: { type: String, validator: (value) => ['horizontal', 'vertical', 'both'].includes(value) },
     },
     data() {
         return {
@@ -44,6 +45,10 @@ export const UInput = {
             this.currentColor = color;
         },
     },
+    mounted() {
+        if (this.autoSize)
+            this.autoResize();
+    },
     methods: {
         onKeypress(e) {
             const inputEl = e.target;
@@ -53,6 +58,8 @@ export const UInput = {
             }
         },
         onInput(e) {
+            if (this.autoSize)
+                this.autoResize();
             if (!this.compositionInputing) {
                 if (this.formItemVM && this.maxlengthMessage) {
                     this.formItemVM.color = '';
@@ -109,6 +116,19 @@ export const UInput = {
                 oldValue,
                 value: '',
             }, this);
+        },
+        autoResize() {
+            const inputEl = this.$refs.input;
+            if (this.autoSize === 'both' || this.autoSize === 'horizontal') {
+                inputEl.style.width = '3px';
+                this.$el.style.width = inputEl.scrollWidth + (this.$el.offsetWidth - this.$el.clientWidth) + 'px';
+                inputEl.style.width = '';
+            }
+            if (this.autoSize === 'both' || this.autoSize === 'vertical') {
+                inputEl.style.height = '3px';
+                this.$el.style.height = inputEl.scrollHeight + (this.$el.offsetHeight - this.$el.clientHeight) + 'px';
+                inputEl.style.height = '';
+            }
         },
     },
 };
