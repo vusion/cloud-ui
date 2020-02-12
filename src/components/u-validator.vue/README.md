@@ -869,7 +869,7 @@ export default {
 </script>
 ```
 
-#### numberic(noSymbols?: boolean) <u-label>input+blur</u-label>
+#### numeric(noSymbols?: boolean) <u-label>input+blur</u-label>
 
 必须为数字。与`number`规则不同的是，它不关心是否为 string 或 number 类型，只要为数字即可。
 

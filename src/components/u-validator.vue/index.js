@@ -124,16 +124,22 @@ export const UValidator = {
 
         this.triggerValid = this.realValid = !(this.currentRules && this.currentRules.length);
         this.$on('add-field-vm', (fieldVM) => {
-            // @TODO: 一个`<u-form-item>`中，只注册一个`fieldVM`，其他的忽略
-            if (this.fieldVM)
-                return;
-            this.fieldVM = fieldVM;
-            fieldVM.validatorVM = this;
-            fieldVM.formItemVM = this; // @compat
+            const addField = (vm) => {
+                this.fieldVM = vm;
+                vm.validatorVM = this;
+                vm.formItemVM = this; // @compat
 
-            this.value = fieldVM.value;
-            // 初始化的时候自行验证一次。Fix #23
-            this.validate('submit', true).catch((errors) => errors);
+                this.fieldTouched = false;
+                this.value = vm.value;
+                // 初始化的时候自行验证一次。Fix #23
+                this.validate('submit', true).catch((errors) => errors);
+            };
+
+            // @TODO: 一个`<u-form-item>`中，只注册一个`fieldVM`，其他的忽略
+            if (!this.fieldVM)
+                addField(fieldVM);
+            else // remove 之后再添加的情况
+                this.$nextTick(() => !this.fieldVM && addField(fieldVM));
         });
         this.$on('remove-field-vm', (fieldVM) => {
             this.fieldVM = undefined;
@@ -220,7 +226,7 @@ export const UValidator = {
                         this.firstErrorMessage = this.currentMessage = '';
                         this.color = '';
 
-                        this.onValidate();
+                        this.onValidate(trigger);
                         return Promise.resolve();
                     }
 
@@ -256,7 +262,7 @@ export const UValidator = {
                             this.color = this.state;
                         if (!untouched && this.muted !== 'all' && this.muted !== 'message')
                             this.currentMessage = this.message;
-                        this.onValidate();
+                        this.onValidate(trigger);
                     }).catch((error) => {
                         this.pending = false;
                         this.triggerValid = false;
@@ -269,7 +275,7 @@ export const UValidator = {
                         if (!untouched && this.muted !== 'all' && this.muted !== 'message')
                             this.currentMessage = error;
 
-                        this.onValidate();
+                        this.onValidate(trigger);
                         throw error;
                     });
                 } else {
@@ -280,7 +286,7 @@ export const UValidator = {
                         this.firstErrorMessage = this.currentMessage = '';
                         this.color = '';
 
-                        this.onValidate();
+                        this.onValidate(trigger);
                         // this.dispatch('u-form', 'validate-item-vm', true);
                         return Promise.resolve();
                     }
@@ -315,7 +321,7 @@ export const UValidator = {
                             if (!untouched && this.muted !== 'all' && this.muted !== 'message')
                                 this.currentMessage = errors ? errors[0].message : this.message;
 
-                            this.onValidate();
+                            this.onValidate(trigger);
                             // this.dispatch('u-form', 'validate-item-vm', !errors);
                             errors ? reject(errors) : resolve(); // @TODO
                         });
@@ -323,13 +329,15 @@ export const UValidator = {
                 }
             }
         },
-        onValidate() {
+        onValidate(trigger) {
             const $event = {
+                trigger,
                 valid: this.valid,
                 triggerValid: this.triggerValid,
                 touched: this.touched,
                 dirty: this.dirty,
                 firstError: this.firstError,
+
             };
 
             if (this.currentTarget === 'fieldVM') {
@@ -338,7 +346,7 @@ export const UValidator = {
             }
 
             this.$emit('validate', $event, this);
-            this.parentVM && this.parentVM.debouncedOnValidate();
+            this.parentVM && this.parentVM.debouncedOnValidate(trigger);
         },
     },
 };
