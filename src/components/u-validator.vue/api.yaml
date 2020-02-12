@@ -74,6 +74,9 @@
     - name: validate
       description: 对于第一个 Field 或者所有子 UValidator：
       params:
+        - name: $event.trigger
+          type: enum
+          description: 本次验证的触发方式
         - name: $event.valid
           type: boolean
           description: 验证是否通过
