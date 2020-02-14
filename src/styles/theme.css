@@ -94,6 +94,7 @@
     --pre-font-family: var(--font-family-code);
     --pre-padding-y: 5px;
     --pre-padding-x: 10px;
+    --code-margin-x: 2px;
     --code-padding-y: 3px;
     --code-padding-x: 0;
     --code-background: var(--background-color-light);
@@ -126,18 +127,35 @@
 
     /* Button */
     --button-height: var(--height-base);
-    --button-padding-x: 12px;
+    --button-height-mini: 24px;
+    --button-height-small: 30px;
     --button-padding-y: 0px;
+    --button-padding-x: 30px;
+    --button-padding-x-mini: 8px;
+    --button-padding-x-small: 10px;
     --button-border-width: var(--border-width-base);
-    --button-background: var(--background-color-default);
-    --button-background-disabled: var(--background-color-default);
-    --button-color-disabled: var(--brand-disabled);
-    --button-border-color-disabled: var(--border-color-base);
-    --button-background-active: var(--background-color-base);
-    --button-color: var(--color-base);
-    --button-border-color: var(--border-color-base);
+    --button-border-radius: var(--border-radius-base);
+    --button-background: white;
+    --button-background-hover: white;
+    --button-background-active: white;
+    --button-background-disabled: white;
+    --button-background-primary-hover: #5b96d9;
+    --button-background-primary-disabled: #d9d9d9;
+    --button-color: #333;
     --button-color-hover: var(--brand-primary);
+    --button-color-disabled: #ccc;
+    --button-color-primary: white;
+    --button-color-primary-hover: var(--button-color-primary);
+    --button-color-primary-disabled: white;
+    --button-color-refresh: #9ba4ad;
+    --button-color-refresh-hover: var(--brand-primary);
+    --button-border-color: #cdcdcd;
     --button-border-color-hover: var(--brand-primary);
+    --button-border-color-disabled: #ddd;
+    --button-box-shadow-active: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    --button-loading-size: 18px;
+    --button-height-loading: 18px;
+    --button-loading-animation-duration: 1s;
 
     /* Label */
     --label-padding-x: 6px;
@@ -760,46 +778,6 @@
     --subtabs-border-color: #e0e6ed;
 
     --lightbox-head-height: 64px;
-
-    /* Text */
-    --text-secondary-color: var(--text-secondary-color);
-    --text-disabled-color: #ccc;
-
-    /* Button */
-    --button-background: white;
-    --button-height: 34px;
-
-    --button-border-radius-base: var(--border-radius-base);
-    --button-primary-disabled-color: white;
-    --button-primary-disabled-background: #d9d9d9;
-    --button-primary-color: white;
-    --button-primary-hover-background: #5b96d9;
-    --button-primary-hover-color: var(--button-primary-color);
-
-    --button-color: #333;
-    --button-padding-y: 0px;
-    --button-padding-x: 30px;
-    --button-border-color: #cdcdcd;
-    --button-color-hover: var(--brand-primary);
-    --button-border-color-hover: var(--brand-primary);
-    --button-background-active: white;
-    --button-background-hover: white;
-    --button-background-disabled: white;
-    --button-color-disabled: #ccc;
-    --button-border-color-disabled: #ddd;
-    --button-box-shadow-active: inset 0 1px 3px rgba(0, 0, 0, 0.2);
-
-    --button-height-mini: 24px;
-    --button-padding-mini: 0 8px;
-    --button-height-small: 30px;
-    --button-padding-small: 0 10px;
-    --button-width-square: var(--height-base);
-    --button-color-square-refresh: #9ba4ad;
-    --button-color-square-refresh-hover: var(--brand-primary);
-
-    --button-width-loading: 18px;
-    --button-height-loading: 18px;
-    --button-loading-animation-duration: 1s;
 
     /* Label */
     --label-padding-x: 8px;

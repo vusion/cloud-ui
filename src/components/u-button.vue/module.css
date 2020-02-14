@@ -27,7 +27,7 @@
     background: var(--button-background);
     color: var(--button-color);
     border: var(--button-border-width) solid var(--button-border-color);
-    border-radius: var(--button-border-radius-base);
+    border-radius: var(--button-border-radius);
 }
 
 .root:hover {
@@ -64,19 +64,19 @@
 
 .root[color="primary"] {
     background: var(--brand-primary);
-    color: var(--button-primary-color);
+    color: var(--button-color-primary);
     border: none;
     line-height: var(--button-height);
 }
 
 .root[color="primary"]:hover {
-    background: var(--button-primary-hover-background);
-    color: var(--button-primary-hover-color);
+    background: var(--button-background-primary-hover);
+    color: var(--button-color-primary-hover);
 }
 
 .root[color="primary"][disabled] {
-    color: var(--button-primary-disabled-color);
-    background: var(--button-primary-disabled-background);
+    color: var(--button-color-primary-disabled);
+    background: var(--button-background-primary-disabled);
 }
 
 /**
@@ -85,17 +85,17 @@
 .root[size="mini"] {
     height: var(--button-height-mini);
     line-height: var(--button-height-mini);
-    padding: var(--button-padding-mini);
+    padding: 0 var(--button-padding-x-mini);
 }
 
 .root[size="small"] {
     height: var(--button-height-small);
     line-height: var(--button-height-small);
-    padding: var(--button-padding-small);
+    padding: 0 var(--button-padding-x-small);
 }
 
 .root[square] {
-    width: var(--button-width-square);
+    width: var(--button-height);
     padding: 0;
 }
 
@@ -111,11 +111,11 @@
 .root[square][icon="refresh"]::before {
     icon-font: url('../i-icon.vue/icons/refresh.svg');
     vertical-align: -2px;
-    color: var(--button-color-square-refresh);
+    color: var(--button-color-refresh);
 }
 
 .root[square][icon="refresh"]:hover::before {
-    color: var(--button-color-square-refresh-hover);
+    color: var(--button-color-refresh-hover);
 }
 
 .root[icon="loading"]::before {
@@ -124,11 +124,11 @@
     vertical-align: -4px;
     margin-left: -2px;
     margin-right: 6px;
-    width: var(--button-width-loading);
-    height: var(--button-height-loading);
+    width: var(--button-loading-size);
+    height: var(--button-loading-size);
     border: 2px solid currentColor;
     border-top-color: transparent;
-    border-radius: var(--button-height-loading);
+    border-radius: var(--button-loading-size);
     animation: rotate var(--button-loading-animation-duration) ease-in-out 0s infinite;
 }
 
