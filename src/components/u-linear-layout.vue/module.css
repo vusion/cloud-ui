@@ -21,10 +21,10 @@
 }
 
 .root[direction="horizontal"][gap="shrink"] > *:not(:last-child) {
-    margin-right: -1px;
+    margin-right: var(--space-shrink);
 }
 .root[direction="vertical"][gap="shrink"] > *:not(:last-child) {
-    margin-bottom: -1px;
+    margin-bottom: var(--space-shrink);
 }
 .root[direction="horizontal"][gap="shrink"] > *:hover {
     position: relative;

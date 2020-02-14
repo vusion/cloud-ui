@@ -36,9 +36,10 @@
     --border-color-base: #cbd5e5; /* TODO */
 
     /* Spacing Dimensions */
+    --space-base: 20px;
+    --space-shrink: -1px;
     --space-mini: 4px;
     --space-small: 10px;
-    --space-base: 20px;
     --space-large: 30px;
 
     /* Component Base Dimensions */
@@ -231,17 +232,12 @@
     --logo-width: var(--sidebar-width);
     --logo-height: var(--navbar-height);
 
-    /* Grid Layout */
-    --grid-layout-margin-small: calc(var(--space-small) / 2);
-    --grid-layout-margin-large: calc(var(--space-large) / 2);
-    --grid-layout-margin-base: calc(var(--space-base) / 2);
-
     /* List */
     --list-style: none;
+    --list-item-padding: 6px 8px;
     --list-item-border-bottom: 1px solid var(--border-color-base);
     --list-item-background-striped: var(--background-color-light);
     --list-item-background-hover: var(--background-color-base);
-    --list-item-padding: 6px 8px;
 
     /* Table */
     --table-row-primary-background: rgba(69, 124, 208, 0.2);

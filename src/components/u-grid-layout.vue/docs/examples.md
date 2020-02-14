@@ -90,16 +90,16 @@
 <br>
 <u-grid-layout gap="small normal">
 	<u-grid-layout-row :repeat="4">
-		<u-grid-layout-column :span="1"><u-block>small</u-block></u-grid-layout-column>
-		<u-grid-layout-column :span="1"><u-block>small</u-block></u-grid-layout-column>
-		<u-grid-layout-column :span="1"><u-block>small</u-block></u-grid-layout-column>
-		<u-grid-layout-column :span="1"><u-block>small</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>small normal</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>small normal</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>small normal</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>small normal</u-block></u-grid-layout-column>
 	</u-grid-layout-row>
 	<u-grid-layout-row :repeat="4">
-		<u-grid-layout-column :span="1"><u-block>small</u-block></u-grid-layout-column>
-		<u-grid-layout-column :span="1"><u-block>small</u-block></u-grid-layout-column>
-		<u-grid-layout-column :span="1"><u-block>small</u-block></u-grid-layout-column>
-		<u-grid-layout-column :span="1"><u-block>small</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>small normal</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>small normal</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>small normal</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="1"><u-block>small normal</u-block></u-grid-layout-column>
 	</u-grid-layout-row>
 </u-grid-layout>
 ```
