@@ -6,7 +6,7 @@
 }
 
 .root::before {
-    font-size: var(--form-table-button-font-size);
+    font-size: var(--font-size-huge);
     display: inline-block;
     vertical-align: middle;
     icon-font: url('../../i-icon.vue/assets/edit.svg');
