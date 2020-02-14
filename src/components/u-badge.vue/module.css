@@ -6,8 +6,8 @@
 .value {
     display: inline-block;
     text-align: center;
-    line-height: var(--badge-value-line-height);
-    min-width: var(--badge-value-line-height);
+    line-height: var(--badge-value-size);
+    min-width: var(--badge-value-size);
     font-size: var(--font-size-small);
     padding: 0 6px;
     border-radius: 100px;
@@ -23,7 +23,7 @@
     position: absolute;
     transform: translateX(50%);
     right: 0;
-    top: calc(var(--badge-value-line-height) / -2);
+    top: calc(var(--badge-value-size) / -2);
 }
 
 .root[dot] .value {
