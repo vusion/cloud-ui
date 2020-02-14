@@ -80,21 +80,21 @@
 } */
 
 .root tbody > tr[color="light"] {
-    background: var(--background-color-light);
+    background: var(--table-row-background-light);
 }
 
 .root tbody > tr[color="normal"] {
-    background: var(--background-color-base);
+    background: var(--table-row-background);
 }
 
 .root tbody > tr[color="dark"] {
-    background: var(--background-color-dark);
+    background: var(--table-row-background-dark);
 }
 
 .root tbody > tr[color="primary"] {
-    background: var(--table-row-primary-background);
+    background: var(--table-row-background-primary);
 }
 
 .root tbody > tr[color="error"] {
-    background: var(--table-row-error-background);
+    background: var(--table-row-background-error);
 }

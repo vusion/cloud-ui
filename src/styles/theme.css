@@ -188,6 +188,13 @@
     --avatar-size-large: 64px;
     --avatar-size-huge: 88px;
 
+    /* Status-icon */
+    --status-icon-margin-right: 8px;
+    --status-icon-color: #333;
+
+    /* Block */
+    --block-background: #cad4e4;
+
     /* Logo */
     --logo-width: var(--sidebar-width);
     --logo-height: var(--navbar-height);
@@ -200,19 +207,17 @@
     --list-item-background-hover: var(--background-color-base);
 
     /* Table */
-    --table-row-primary-background: rgba(69, 124, 208, 0.2);
-    --table-row-error-background: rgba(242, 45, 78, 0.2);
-    --table-row-dark-background: var(--background-color-dark);
-    --table-row-base-background: var(--background-color-base);
-    --table-row-light-background: var(--background-color-light);
-    --table-row-hover-background: var(--background-color-base);
-    --table-row-striped-background: var(--background-color-light);
+    --table-background: white;
+    --table-row-background: var(--background-color-base);
+    --table-row-background-hover: var(--background-color-base);
+    --table-row-background-striped: var(--background-color-light);
+    --table-row-background-primary: rgba(103, 170, 245, 0.2);
+    --table-row-background-error: rgb(255, 138, 122, 0.2);
+    --table-row-background-dark: var(--background-color-dark);
+    --table-row-background-light: var(--background-color-light);
     --table-caption-color: #6a6f75;
     --table-border-color: var(--border-color-base);
     --table-border-width: 1px;
-
-    /* Form Table */
-    --form-table-button-font-size: var(--font-size-huge);
 
     /* Article */
     --article-table-font-size: calc(var(--font-size-base) * (13 / 14));
@@ -224,10 +229,10 @@
     --h6-font-size: calc(var(--font-size-base) * (12 / 14));
 
     /* Collapse */
-    --collapse-head-background: var(--background-color-dark);
-    --collapse-disabled-expander-color: var(--brand-disabled);
+    --collapse-item-head-background: var(--background-color-dark);
+    --collapse-item-head-padding: 2px 4px;
     --collapse-expander-size: 26px;
-    --collapse-head-padding: 2px 4px;
+    --collapse-expander-color-disabled: var(--brand-disabled);
     --collapse-border: 1px solid var(--border-color-base);
 
     /* Navbar */
@@ -670,10 +675,6 @@
 
     --toast-margin: 30px;
 
-    /* Table */
-    --table-row-primary-background: rgba(103, 170, 245, 0.2);
-    --table-row-error-background: rgb(255, 138, 122, 0.2);
-
     /* --------- */
 
     /* Product Colors */
@@ -783,16 +784,6 @@
     --subtabs-border-color: #e0e6ed;
 
     --lightbox-head-height: 64px;
-
-    /* Status-icon */
-    --status-icon-margin-right: 8px;
-    --status-icon-color: #333;
-
-    /* Table */
-    --table-background: white;
-
-    /* Block */
-    --block-background: #cad4e4;
 
     /* Checkbox */
     --checkbox-border-radius: 3px;

@@ -5,8 +5,8 @@
 .head {
     user-select: none;
     cursor: var(--cursor-pointer);
-    padding: var(--collapse-head-padding);
-    background: var(--collapse-head-background);
+    padding: var(--collapse-item-head-padding);
+    background: var(--collapse-item-head-background);
     overflow: hidden;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .root[disabled] .expander {
-    color: var(--collapse-disabled-expander-color);
+    color: var(--collapse-expander-color-disabled);
 }
 
 .extra {
