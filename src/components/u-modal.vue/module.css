@@ -145,6 +145,6 @@
 
 .root[static] {
     position: static;
-    padding: var(--margin-base);
+    padding: var(--space-base);
 }
 

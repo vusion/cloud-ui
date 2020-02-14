@@ -36,10 +36,10 @@
     --border-color-base: #cbd5e5; /* TODO */
 
     /* Spacing Dimensions */
-    --margin-mini: 4px;
-    --margin-small: 10px;
-    --margin-base: 20px;
-    --margin-large: 30px;
+    --space-mini: 4px;
+    --space-small: 10px;
+    --space-base: 20px;
+    --space-large: 30px;
 
     /* Component Base Dimensions */
     --border-width-base: 1px;
@@ -232,9 +232,9 @@
     --logo-height: var(--navbar-height);
 
     /* Grid Layout */
-    --grid-layout-margin-small: calc(var(--margin-small) / 2);
-    --grid-layout-margin-large: calc(var(--margin-large) / 2);
-    --grid-layout-margin-base: calc(var(--margin-base) / 2);
+    --grid-layout-margin-small: calc(var(--space-small) / 2);
+    --grid-layout-margin-large: calc(var(--space-large) / 2);
+    --grid-layout-margin-base: calc(var(--space-base) / 2);
 
     /* List */
     --list-style: none;
@@ -548,7 +548,7 @@
     --table-view-sort-color-active: var(--brand-primary);
     --table-view-expander-size: 26px;
     --table-view-row-selected-background: #d7e5fb;
-    --table-view-pagination-space: var(--margin-base);
+    --table-view-pagination-space: var(--space-base);
 
     /* Transfer */
     --transfer-height: 182px;
@@ -668,7 +668,7 @@
     --drawer-head-padding: 15px;
     --drawer-padding-padding: 15px;
     --drawer-foot-padding: 20px 15px;
-    --drawer-static-padding: var(--margin-base);
+    --drawer-static-padding: var(--space-base);
 
     /* Modal */
     --modal-dialog-width: 400px;
@@ -678,7 +678,7 @@
     --modal-close-color: var(--gray-light);
     --modal-close-color-hover: var(--gray-dark);
     --modal-head-padding: 15px;
-    --modal-static-padding: var(--margin-base);
+    --modal-static-padding: var(--space-base);
     --modal-body-padding: 15px;
     --modal-padding-padding: 15px;
     --modal-foot-padding: 20px 15px;
