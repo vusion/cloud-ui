@@ -53,6 +53,10 @@
     --border-radius-base: 2px;
     --border-radius-large: 4px;
     --line-height-base: 1.6;
+    --border-radius-mini: 1px;
+    --border-radius-base: 2px;
+    --border-radius-large: 4px;
+    --line-height-base: 1.6;
     --font-size-base: 14px;
 
     /* Fonts */
@@ -217,11 +221,11 @@
     --badge-dot-size: 6px;
 
     /* Avatar */
-    --avatar-size: 48px;
+    --avatar-size: 44px;
     --avatar-size-mini: 16px;
     --avatar-size-small: 32px;
     --avatar-size-large: 64px;
-    --avatar-size-huge: 108px;
+    --avatar-size-huge: 88px;
 
     /* Logo */
     --logo-width: var(--sidebar-width);
@@ -822,10 +826,6 @@
     --subtabs-border-color: #e0e6ed;
 
     --lightbox-head-height: 64px;
-
-    /* Avatar */
-    --avatar-size: 44px;
-    --avatar-size-huge: 88px;
 
     /* Status-icon */
     --status-icon-margin-right: 8px;
