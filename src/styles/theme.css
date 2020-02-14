@@ -158,12 +158,16 @@
     --button-loading-animation-duration: 1s;
 
     /* Label */
-    --label-padding-x: 6px;
-    --label-padding-y: 2px;
-    --label-color-primary: var(--background-color-default);
-    --label-background: var(--background-color-base);
-    --label-background-primary: var(--brand-primary);
+    --label-padding-x: 8px;
+    --label-padding-y: 3px;
     --label-font-size: var(--font-size-small);
+    --label-background: #cad4e4;
+    --label-background-primary: var(--brand-primary);
+    --label-background-success: #76b86e;
+    --label-background-warning: #ffa136;
+    --label-background-error: #ff8a7a;
+    --label-color: white;
+    --label-color-primary: var(--background-color-default);
 
     /* Badge */
     --badge-background: var(--brand-error);
@@ -778,15 +782,6 @@
     --subtabs-border-color: #e0e6ed;
 
     --lightbox-head-height: 64px;
-
-    /* Label */
-    --label-padding-x: 8px;
-    --label-padding-y: 3px;
-    --label-background: #cad4e4;
-    --label-color: white;
-    --label-background-success: #76b86e;
-    --label-background-warning: #ffa136;
-    --label-background-error: #ff8a7a;
 
     /* Avatar */
     --avatar-size: 44px;
