@@ -14,10 +14,10 @@
 }
 
 .root[direction="horizontal"] > *:not(:last-child) {
-    margin-right: var(--margin-base);
+    margin-right: var(--space-base);
 }
 .root[direction="vertical"] > *:not(:last-child) {
-    margin-bottom: var(--margin-base);
+    margin-bottom: var(--space-base);
 }
 
 .root[direction="horizontal"][gap="shrink"] > *:not(:last-child) {
@@ -38,17 +38,17 @@
 }
 
 .root[direction="horizontal"][gap="small"] > *:not(:last-child) {
-    margin-right: var(--margin-small);
+    margin-right: var(--space-small);
 }
 .root[direction="vertical"][gap="small"] > *:not(:last-child) {
-    margin-bottom: var(--margin-small);
+    margin-bottom: var(--space-small);
 }
 
 .root[direction="horizontal"][gap="large"] > *:not(:last-child) {
-    margin-right: var(--margin-large);
+    margin-right: var(--space-large);
 }
 .root[direction="vertical"][gap="large"] > *:not(:last-child) {
-    margin-bottom: var(--margin-large);
+    margin-bottom: var(--space-large);
 }
 
 /* @deprecated */
