@@ -4,12 +4,12 @@
 
 .root:not(:last-child)::after {
     content: '>';
-    margin: var(--crumb-margin);
+    margin: 0 var(--crumb-space-x);
     vertical-align: 1px;
 }
 
 .link {
-    color: var(--crumb-link-color);
+    color: var(--crumb-color-link);
 }
 
 .link:hover {
@@ -22,6 +22,6 @@
 }
 
 .disabled {
-    color: var(--crumb-disabled-color);
+    color: var(--crumb-color-disabled);
     cursor: default;
 }

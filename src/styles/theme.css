@@ -193,7 +193,7 @@
     --status-icon-color: #333;
 
     /* Block */
-    --block-background: #cad4e4;
+    --block-background: var(--border-color-base);
 
     /* Logo */
     --logo-width: var(--sidebar-width);
@@ -325,32 +325,47 @@
 
     /* Steps */
     --steps-item-width: 200px;
-    --steps-item-disabled-color: var(--brand-disabled);
-    --steps-item-radio-background: var(--background-color-base);
-    --steps-item-radio-size: 10px;
+    --steps-item-color-disabled: #bbb;
+    --steps-item-radio-size: 18px;
     --steps-item-radio-size-large: 24px;
-    --steps-item-passed-background-color: var(--brand-primary);
-    --steps-item-passed-radio-color: var(--color-white);
+    --steps-item-radio-background: #e1e8ed;
+    --steps-item-radio-background-passed: var(--brand-primary);
+    --steps-item-radio-color-passed: var(--color-white);
 
     /* Crumb */
-    --crumb-link-color: var(--brand-primary);
-    --crumb-disabled-color: var(--brand-disabled);
-    --crumb-margin: 0 5px;
+    --crumb-color-link: var(--brand-primary);
+    --crumb-color-disabled: var(--brand-disabled);
+    --crumb-space-x: 5px;
 
-    /* Block */
-    --block-background: var(--border-color-base);
+    /* Pagination */
+    --pagination-item-size: 32px;
+    --pagination-item-padding: 0;
+    --pagination-item-background: white;
+    --pagination-item-background-selected: var(--brand-primary);
+    --pagination-item-background-disabled-selected: white;
+    --pagination-item-background-blank: none;
+    --pagination-item-color: #555;
+    --pagination-item-color-hover: var(--brand-primary);
+    --pagination-item-color-selected: white;
+    --pagination-item-color-disabled: #bbb;
+    --pagination-item-color-blank: #555;
+    --pagination-item-color-blank-disabled: var(--brand-disabled);
+
+    /* Combo Pagination */
+    --combo-pagination-height: 30px;
+    --combo-pagination-line-height: calc(var(--combo-pagination-height) - var(--border-width-base) * 2);
+    --combo-pagination-sizer-width: 100px;
+    --combo-pagination-jumper-width: 50px;
 
     /* Form */
-    --form-item-space: 20px;
-    --form-inline-item-space: 20px;
-    --form-item-label-space: 5px;
-    --form-required-color: var(--brand-error);
-    --form-message-background-error: var(--brand-error);
-    --form-message-background: var(--background-color-base);
-    --form-message-padding: 0 5px;
-    --form-message-margin-left: 5px;
-    --form-message-color-error: var(--color-white);
+    --form-item-label-padding-right: 5px;
     --form-item-label-width: 80px;
+    --form-required-color: var(--brand-error);
+    --form-message-margin-left: 5px;
+    --form-message-padding: 0 5px;
+    --form-message-background: var(--background-color-base);
+    --form-message-background-error: var(--brand-error);
+    --form-message-color-error: var(--color-white);
 
     /* Validator */
     --validator-message-padding: 0 5px;
@@ -783,14 +798,11 @@
 
     /* Circular-progress */
 
-    --combo-pagination-height: 30px;
-    --combo-pagination-line-height: calc(var(--combo-pagination-height) - var(--border-width-base) * 2);
-
     --combo-slider-slider-width: 160px;
     --combo-slider-input-width: 60px;
     --combo-slider-input-left: 10px;
 
-    --form-item-label-space: 10px;
+    --form-item-label-padding-right: 10px;
     --form-required-color: red;
     --form-message-margin-left: 10px;
     --form-message-padding: 0 10px;
@@ -828,34 +840,6 @@
     --number-input-background-readonly: none;
     --number-input-background-disabled: none;
 
-
-    /* Pagination */
-    --pagination-item-size: 32px;
-    --pagination-item-padding: 0;
-    --pagination-item-color-hover: var(--brand-primary);
-    --pagination-item-color-selected: var(--color-white);
-    --pagination-item-color-disabled: var(--brand-disabled);
-    --pagination-item-background-disabled-selected: var(--brand-disabled-light);
-    --pagination-item-background-selected: var(--brand-primary);
-    --pagination-item-background-blank: none;
-    --pagination-item-background: var(--background-color-base);
-    --pagination-item-color: var(--color-base);
-    --pagination-item-color-blank: var(--color-base);
-    --pagination-item-blank-color-disabled: var(--brand-disabled);
-    --pagination-item-color: #555;
-    --pagination-item-background: white;
-    --pagination-item-color-hover: var(--brand-primary);
-    --pagination-item-background-selected: var(--brand-primary);
-    --pagination-item-color-selected: white;
-    --pagination-item-color-disabled: #bbb;
-    --pagination-item-background-blank: none;
-    --pagination-item-color-blank: #555;
-    --pagination-item-background-disabled-selected: white;
-
-    /* Combo Pagination */
-    --combo-pagination-sizer-width: 100px;
-    --combo-pagination-jumper-width: 50px;
-
     --radios-item-margin-right: 80px;
 
     --select-item-hover: #f5f7fa;
@@ -882,9 +866,6 @@
 
     --spinner-animation: spin 1s infinite linear;
 
-    --steps-item-radio-background: #e1e8ed;
-    --steps-item-radio-size: 18px;
-    --steps-item-disabled-color: #bbb;
     --switch-transition: background-color 0.2s;
     --switch-button-transition: all 0.2s;
 
