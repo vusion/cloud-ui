@@ -5,5 +5,5 @@
     user-select: none;
 
     background: var(--menu-background);
-    border: 1px solid var(--menu-border-color);
+    border: var(--menu-border-width) solid var(--menu-border-color);
 }

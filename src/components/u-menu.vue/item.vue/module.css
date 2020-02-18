@@ -6,7 +6,7 @@
     z-index: 1;
     overflow: visible;
     padding: 6px 15px;
-    padding-right: var(--menu-item-sub-space-x);
+    padding-right: var(--menu-item-size);
     white-space: nowrap;
 }
 
@@ -35,19 +35,15 @@
     background: var(--gray-lighter);
 }
 
-.root + .root {
-    border-top: 1px solid var(--brand-secondary);
-}
-
 .root[has-sub]::after {
     display: inline-block;
     content: '▸';
     position: absolute;
     right: 0;
     top: 0;
-    width: var(--menu-item-sub-space-x);
-    height: var(--menu-item-sub-space-y);
-    line-height: var(--menu-item-sub-space-y);
+    width: var(--menu-item-size);
+    height: var(--menu-item-size);
+    line-height: var(--menu-item-size);
     text-align: center;
 }
 

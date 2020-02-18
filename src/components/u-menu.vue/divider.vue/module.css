@@ -1,5 +1,5 @@
 .root {
-    margin: var(--menu-divider-margin);
+    margin: var(--menu-divider-margin-y) 0;
     height: var(--menu-divider-height);
     background: var(--menu-divider-background);
 }
