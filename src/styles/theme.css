@@ -290,7 +290,7 @@
     --navbar-item-color-inverse: white;
     --navbar-item-line-transition-duration: 0.5s;
     --navbar-divider-margin: 0 30px 0 0;
-    --navbar-divider-width: 1px;
+    --navbar-divider-width: var(--border-width-base);
     --navbar-divider-height: 20px;
     --navbar-divider-background: #ddd;
     --navbar-dropdown-padding: 0 30px 0 10px;
@@ -325,18 +325,18 @@
     --sidebar-group-head-color-hover: white;
     --sidebar-group-head-color-selected: #9dabc2;
     --sidebar-divider-margin-y: 8px;
-    --sidebar-divider-height: 1px;
+    --sidebar-divider-height: var(--border-width-base);
     --sidebar-divider-background: #3d4654;
     --sidebar-expander-color-disabled: var(--brand-disabled);
 
     /* Menu */
     --menu-background: white;
+    --menu-border-width: var(--border-width-base);
     --menu-border-color: var(--border-color-base);
-    --menu-item-sub-space-x: 30px;
-    --menu-item-sub-space-y: 30px;
+    --menu-item-size: 34px;
     --menu-divider-background: var(--border-color-base);
-    --menu-divider-margin: 9px 0;
-    --menu-divider-height: 1px;
+    --menu-divider-margin-y: 9px;
+    --menu-divider-height: var(--border-width-base);
 
     /* Tabs */
     --tabs-head-height: 32px;
@@ -856,8 +856,6 @@
     --list-view-item-disabled-color: #ccc;
     --list-view-border-color: #e1e8ed;
     --list-view-border-color-focus: #e1e8ed;
-    --menu-item-sub-space-x: 34px;
-    --menu-item-sub-space-y: 34px;
 
     --number-input-background: none;
     --number-input-background-hover: none;
