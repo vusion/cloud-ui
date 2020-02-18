@@ -298,19 +298,30 @@
     --menu-divider-margin-y: 9px;
     --menu-divider-height: var(--border-width-base);
 
+    /* Subnav */
+    --subnav-item-padding-x: 20px;
+    --subnav-item-background-hover: #f6f7f9;
+    --subnav-item-background-selected: white;
+    --subnav-item-color: #666;
+    --subnav-item-color-hover: var(--brand-primary);
+    --subnav-item-color-selected: var(--brand-primary);
+
     /* Tabs */
-    --tabs-head-height: 32px;
-    --tabs-border-color: var(--border-color-base);
-    --tabs-item-height: 30px;
-    --tabs-item-border-width: 1px;
-    --tabs-item-padding: 0 20px;
-    --tabs-item-background-hover: var(--background-color-base);
-    --tabs-item-background-selected: var(--color-white);
-    --tabs-item-color-selected: var(--brand-primary);
-    --tabs-item-border-color-selected: var(--border-color-base);
-    --tabs-item-background-disabled: none;
+    --tabs-head-height: auto;
+    --tabs-border-width: 1px;
+    --tabs-border-color: #e0e6ed;
+    --tabs-item-height: 36px;
+    --tabs-item-padding-x: 30px;
+    --tabs-item-background-hover: #f6f7f9;
+    --tabs-item-background-selected: white;
+    --tabs-item-background-disabled: white;
     --tabs-item-background-selected-disabled: var(--color-white);
+    --tabs-item-color-selected: var(--brand-primary);
     --tabs-item-color-disabled: var(--brand-disabled);
+    --tabs-item-border-color-selected: #e0e6ed;
+
+    /* Subtabs */
+    --subtabs-border-color: #e0e6ed;
 
     /* Steps */
     --steps-item-width: 200px;
@@ -764,14 +775,6 @@
     --theme-chart-color20: rgb(241, 126, 248);
     --theme-chart-rgba-color20: rgba(241, 126, 248, 0.1);
 
-    --subnav-item-color: #666;
-    --subnav-item-hover-color: var(--brand-primary);
-    --subnav-item-hover-background: #f6f7f9;
-    --subnav-item-selected-color: var(--brand-primary);
-    --subnav-item-selected-background: white;
-
-    --subtabs-border-color: #e0e6ed;
-
     --lightbox-head-height: 64px;
 
     /* Checkbox */
@@ -884,16 +887,6 @@
     --steps-item-disabled-color: #bbb;
     --switch-transition: background-color 0.2s;
     --switch-button-transition: all 0.2s;
-
-    --tabs-head-height: auto;
-    --tabs-border-color: #e0e6ed;
-    --tabs-item-height: 36px;
-    --tabs-item-padding: 0 30px;
-    --tabs-item-background-hover: #f6f7f9;
-    --tabs-item-background-selected: white;
-    --tabs-item-color-selected: var(--brand-primary);
-    --tabs-item-border-color-selected: #e0e6ed;
-    --tabs-item-background-disabled: white;
 
     --textarea-width: 160px;
     --textarea-height: 80px;

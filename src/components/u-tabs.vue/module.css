@@ -3,7 +3,7 @@
 .head {
     user-select: none;
     height: var(--tabs-head-height);
-    border-bottom: 1px solid var(--tabs-border-color);
+    border-bottom: var(--tabs-border-width) solid var(--tabs-border-color);
 }
 
 .item {
@@ -12,10 +12,10 @@
     box-sizing: content-box;
 
     height: var(--tabs-item-height);
-    line-height: calc(var(--tabs-item-height) - var(--tabs-item-border-width) * 2);
-    padding: var(--tabs-item-padding);
+    line-height: calc(var(--tabs-item-height) - var(--tabs-border-width) * 2);
+    padding: 0 var(--tabs-item-padding-x);
 
-    border: var(--tabs-item-border-width) solid transparent;
+    border: var(--tabs-border-width) solid transparent;
     border-bottom: none;
     margin-bottom: -1px;
 }
