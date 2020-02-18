@@ -4,7 +4,7 @@
 
 .label {
     display: inline-block;
-    padding-right: var(--form-item-label-space);
+    padding-right: var(--form-item-label-padding-right);
     color: #999;
     text-align: right;
     position: relative;
@@ -107,8 +107,16 @@
     transform: none;
 }
 
-.root[label-size$="normal"] > .label { width: var(--form-item-label-width); }
-.root[label-size$="normal"] > .field { max-width: calc(100% - var(--form-item-label-width)); }
+.root[label-size$="small"] > .label { width: 80px; padding-right: 10px; }
+.root[label-size$="small"] > .label::after { right: 2px; }
+.root[label-size$="small"] > .field { max-width: calc(100% - 80px); }
+
+.root[label-size$="normal"] > .label { width: var(--form-item-label-width); padding-right: 20px; }
+.root[label-size$="normal"] > .field { max-width: calc(100% - var(--form-item-label-width)); right: 12px; }
+
+.root[label-size$="large"] > .label { width: 160px; padding-right: 20px; }
+.root[label-size$="large"] > .label::after { right: 12px; }
+.root[label-size$="large"] > .field { max-width: calc(100% - 160px); }
 
 .root[field-size="full"] > .field {
     width: 100%;
@@ -127,17 +135,6 @@
 .root[layout="none"] > .field {
     max-width: none;
 }
-
-.root[label-size$="small"] > .label { width: 80px; padding-right: 10px; }
-.root[label-size$="small"] > .label::after { right: 2px; }
-.root[label-size$="small"] > .field { max-width: calc(100% - 80px); }
-
-.root[label-size$="normal"] > .label { padding-right: 20px; }
-.root[label-size$="normal"] > .label::after { right: 12px; }
-
-.root[label-size$="large"] > .label { width: 160px; padding-right: 20px; }
-.root[label-size$="large"] > .label::after { right: 12px; }
-.root[label-size$="large"] > .field { max-width: calc(100% - 160px); }
 
 .description {
     color: #999;

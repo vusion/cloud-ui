@@ -5,11 +5,11 @@
 }
 
 .root[layout="inline"] .item:not(:last-child) {
-    margin-right: var(--form-inline-item-space);
+    margin-right: var(--space-base);
 }
 
 .root[layout="block"] .item:not(:last-child) {
-    margin-bottom: var(--form-item-space);
+    margin-bottom: var(--space-base);
 }
 
 .root[layout="inline"]::after {
@@ -21,17 +21,17 @@
 }
 
 .root[gap="large"][layout="block"] .item:not(:last-child) {
-    margin-bottom: 30px;
+    margin-bottom: var(--space-large);
 }
 
 .root[gap="large"][layout="inline"] .item:not(:last-child) {
-    margin-right: 30px;
+    margin-right: var(--space-large);
 }
 
 .root[gap="small"][layout="block"] .item:not(:last-child) {
-    margin-bottom: 10px;
+    margin-bottom: var(--space-small);
 }
 
 .root[gap="small"][layout="inline"] .item:not(:last-child) {
-    margin-right: 10px;
+    margin-right: var(--space-small);
 }

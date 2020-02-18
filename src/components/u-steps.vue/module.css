@@ -8,10 +8,12 @@
     display: inline-block;
     position: relative;
     width: var(--steps-item-width);
+    vertical-align: top;
 }
 
 .item-body {
     display: inline-block;
+    color: #666;
     cursor: var(--cursor-pointer);
     position: relative;
     z-index: 2;
@@ -22,7 +24,7 @@
 }
 
 .item[disabled] .item-body {
-    color: var(--steps-item-disabled-color);
+    color: var(--steps-item-color-disabled);
     cursor: var(--cursor-not-allowed);
 }
 
@@ -31,13 +33,18 @@
     content: '';
     width: var(--steps-item-radio-size);
     height: var(--steps-item-radio-size);
+    line-height: var(--steps-item-radio-size);
+    font-size: 12px;
     border-radius: 100%;
     margin-left: -5px;
     background: var(--steps-item-radio-background);
+    color: #999;
 }
 
 .title {
     display: block;
+    padding-top: 4px;
+    line-height: var(--steps-item-radio-size);
 }
 
 .item::before {
@@ -47,14 +54,14 @@
     position: absolute;
     z-index: 1;
     right: 50%;
-    top: 10px;
+    top: 12px;
+    height: 1px;
     width: 100%;
-    height: 2px;
     background-color: var(--steps-item-radio-background);
 }
 
 .item[passed]::before {
-    background-color: var(--steps-item-passed-background-color);
+    background-color: var(--steps-item-radio-background-passed);
 }
 
 .item:first-child::before {
@@ -62,36 +69,8 @@
 }
 
 .item[passed] .radio {
-    background-color: var(--steps-item-passed-background-color);
-    color: var(--steps-item-passed-radio-color);
-}
-
-.body {
-    margin-top: 10px;
-}
-
-.item {
-    vertical-align: top;
-}
-
-.item-body {
-    color: #666;
-}
-
-.radio {
-    line-height: var(--steps-item-radio-size);
-    font-size: 12px;
-    color: #999;
-}
-
-.title {
-    padding-top: 4px;
-    line-height: var(--steps-item-radio-size);
-}
-
-.item::before {
-    top: 12px;
-    height: 1px;
+    background-color: var(--steps-item-radio-background-passed);
+    color: var(--steps-item-radio-color-passed);
 }
 
 .body {
