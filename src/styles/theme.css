@@ -306,39 +306,28 @@
 
     /* Sidebar */
     --sidebar-width: 180px;
-    --sidebar-background: var(--background-color-base);
-    --sidebar-item-height: 34px;
-    --sidebar-item-line-height: var(--sidebar-item-height);
-    --sidebar-item-padding-left: 20px;
-    --sidebar-item-color-hover: var(--brand-primary);
-    --sidebar-item-color-selected: white;
-    --sidebar-item-background-selected: var(--brand-primary);
-    --sidebar-item-color-disabled: var(--brand-disabled);
-    --sidebar-item-background-disabled: none;
-    --sidebar-item-background-selected-disabled: var(--brand-disabled-light);
-    --sidebar-divider-margin-y: 9px;
-    --sidebar-divider-background: var(--border-color-base);
-    --sidebar-disabled-expander-color: var(--brand-disabled);
-    --sidebar-expander-size: 26px;
-    --sidebar-group-head-height: 52px;
-    --sidebar-group-head-color: var(--brand-tip-color);
-    --sidebar-group-head-padding-left: 20px;
-    /* Sidebar */
     --sidebar-background: #2b333f;
+    --sidebar-item-height: 54px;
+    --sidebar-item-height-small: 32px;
+    --sidebar-item-padding-left: 30px;
+    --sidebar-item-background: none;
+    --sidebar-item-background-selected: #252b33;
     --sidebar-item-background-disabled: #2b333f;
     --sidebar-item-background-selected-disabled: #2b333f;
     --sidebar-item-color: #8594aa;
-    --sidebar-item-background: none;
-    --sidebar-item-background-selected: #252b33;
+    --sidebar-item-color-hover: white;
     --sidebar-item-color-selected: white;
     --sidebar-item-color-disabled: #586475;
-    --sidebar-item-color-hover: white;
-    --sidebar-group-head-hover-color: white;
+    --sidebar-group-head-height: 52px;
+    --sidebar-group-head-padding-left: 20px;
+    --sidebar-group-head-font-weight: var(--font-weight-bold);
     --sidebar-group-head-color: #9dabc2;
-    --sidebar-group-head-selected-color: #9dabc2;
+    --sidebar-group-head-color-hover: white;
+    --sidebar-group-head-color-selected: #9dabc2;
+    --sidebar-divider-margin-y: 8px;
+    --sidebar-divider-height: 1px;
     --sidebar-divider-background: #3d4654;
-    --sidebar-item-height: 54px;
-    --sidebar-item-padding-left: 30px;
+    --sidebar-expander-color-disabled: var(--brand-disabled);
 
     /* Menu */
     --menu-background: white;
@@ -921,8 +910,6 @@
     --select-popper-border-color: #dfe4ec;
     --select-popper-background: white;
     --select-popper-max-height: 180px;
-
-    --sidebar-divider-margin: 0 8px;
 
     --slider-body-padding: 9px 0;
     --slider-track-height: 6px;

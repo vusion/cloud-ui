@@ -2,7 +2,7 @@
     display: block;
     cursor: var(--cursor-pointer);
     height: var(--sidebar-item-height);
-    line-height: var(--sidebar-item-line-height);
+    line-height: var(--sidebar-item-height);
     padding-left: var(--sidebar-item-padding-left);
     overflow: hidden;
     white-space: nowrap;
