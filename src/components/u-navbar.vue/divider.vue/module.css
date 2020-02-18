@@ -1,8 +1,8 @@
 .root {
     display: inline-block;
-    margin: var(--navbar-divider-margin);
+    margin: 0 var(--navbar-divider-margin);
     height: var(--navbar-divider-height);
-    width: 1px;
+    width: var(--navbar-divider-width);
     background: var(--navbar-divider-background);
     vertical-align: -4px;
 }

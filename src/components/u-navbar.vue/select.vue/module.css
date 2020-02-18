@@ -15,15 +15,23 @@
     margin-right: var(--navbar-item-space);
 }
 
+.root:hover {
+    background: var(--navbar-select-hover-background);
+}
+
+.root[focused] {
+    background: var(--navbar-select-focused-background);
+}
+
 .root::before {
-    font-size: var(--navbar-select-font-size);
+    font-size: var(--navbar-item-font-size);
     line-height: var(--navbar-height);
 }
 
 .root::after {
-    line-height: var(--navbar-height);
-    height: auto;
     icon-font: url('../../i-icon.vue/icons/keyboard-arrow-down.svg');
+    height: auto;
+    line-height: var(--navbar-height);
     color: white;
     font-size: 20px;
     right: 6px;
@@ -32,33 +40,16 @@
 
 .placeholder {
     color: white;
-    font-size: var(--navbar-select-font-size);
+    font-size: var(--navbar-item-font-size);
 }
 
 .text {
     color: white;
-    font-size: var(--navbar-select-font-size);
+    font-size: var(--navbar-item-font-size);
     line-height: var(--navbar-height);
-}
-
-
-.root::after {
-    icon-font: url('../../i-icon.vue/icons/keyboard-arrow-down.svg');
-    color: white;
-    font-size: 20px;
-    right: 6px;
-    top: 0;
 }
 
 .popper {
     background: #343e4f;
     border: none;
-}
-
-.root:hover {
-    background: var(--navbar-select-hover-background);
-}
-
-.root[focused] {
-    background: var(--navbar-select-focused-background);
 }

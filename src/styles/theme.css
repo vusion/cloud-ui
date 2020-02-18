@@ -238,26 +238,31 @@
     /* Navbar */
     --navbar-height: 64px;
     --navbar-space-x: 40px;
+    --navbar-background: #343e4f;
     --navbar-background-inverse: var(--navbar-background-inverse);
-    --navbar-divider-margin: 0 30px;
+    --navbar-item-space: 34px;
+    --navbar-item-padding: 0 10px;
+    --navbar-item-font-size: var(--font-size-large);
+    --navbar-item-color: white;
+    --navbar-item-color-hover: white;
+    --navbar-item-color-selected: white;
+    --navbar-item-color-disabled: var(--brand-disabled);
+    --navbar-item-color-inverse: var(--color-white);
+    --navbar-item-line-transition-duration: 0.5s;
+    --navbar-divider-margin: 0 30px 0 0;
+    --navbar-divider-width: 1px;
     --navbar-divider-height: 20px;
     --navbar-divider-background: #ddd;
     --navbar-dropdown-padding: 0 30px 0 10px;
-    --navbar-dropdown-color-disabled: var(--brand-disabled);
-    --navbar-dropdown-nolast-margin-right: 30px;
+    --navbar-dropdown-icon-font-size: 18px;
     --navbar-dropdown-popper-line-height: var(--line-height-base);
     --navbar-dropdown-popper-font-size: var(--font-size-base);
-    --navbar-item-padding: 0 10px;
-    --navbar-item-font-size: var(--font-size-large);
-    --navbar-item-color-hover: var(--brand-primary);
-    --navbar-item-color-selected: var(--brand-primary);
-    --navbar-item-color-disabled: var(--brand-disabled);
-    --navbar-item-color-inverse: var(--color-white);
-    --navbar-item-space: 30px;
+    --navbar-dropdown-color-disabled: var(--brand-disabled);
     --navbar-select-width: 90px;
     --navbar-select-padding-left: 10px;
     --navbar-select-padding-right: 30px;
-    --navbar-select-font-size: var(--font-size-large);
+    --navbar-select-hover-background: none;
+    --navbar-select-focused-background: none;
 
     /* Sidebar */
     --sidebar-width: 180px;
@@ -770,11 +775,6 @@
     --theme-chart-color20: rgb(241, 126, 248);
     --theme-chart-rgba-color20: rgba(241, 126, 248, 0.1);
 
-    /* others */
-    --navbar-background: #343e4f;
-    --navbar-select-hover-background: none;
-    --navbar-select-focused-background: none;
-
     --subnav-item-color: #666;
     --subnav-item-hover-color: var(--brand-primary);
     --subnav-item-hover-background: #f6f7f9;
@@ -830,13 +830,6 @@
     --list-view-border-color-focus: #e1e8ed;
     --menu-item-sub-space-x: 34px;
     --menu-item-sub-space-y: 34px;
-
-    --navbar-divider-margin: 0 30px 0 0;
-    --navbar-dropdown-padding: 0 30px 0 10px;
-
-    --navbar-item-space: 34px;
-    --navbar-item-color-hover: white;
-    --navbar-item-color-selected: white;
 
     --number-input-background: none;
     --number-input-background-hover: none;
