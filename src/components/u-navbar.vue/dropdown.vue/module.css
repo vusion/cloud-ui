@@ -7,7 +7,7 @@
     line-height: var(--navbar-height);
     border: none;
     padding: var(--navbar-dropdown-padding);
-    font-size: var(--font-size-large);
+    font-size: var(--navbar-item-font-size);
     color: white;
 }
 
@@ -17,14 +17,13 @@
 
 .root::after {
     position: absolute;
-    icon-font: url('../../i-icon.vue/assets/arrow-down.svg');
-    font-size: var(--navbar-dropdown-popper-font-size);
-    right: 10px;
-    top: 0;
+    icon-font: url('../../i-icon.vue/icons/keyboard-arrow-down.svg');
+    height: auto;
     line-height: var(--navbar-height);
-    icon-font: url('../../i-icon.vue/assets/angle-down.svg');
-    font-size: 18px;
-    right: 5px;
+    color: white;
+    font-size: 20px;
+    right: 6px;
+    top: 0;
 }
 
 .popper {

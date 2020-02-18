@@ -8,7 +8,7 @@
     padding: var(--navbar-item-padding);
     height: var(--navbar-height);
     line-height: var(--navbar-height);
-    color: white;
+    color: var(--navbar-item-color);
 }
 
 .root:not(:last-child) {
@@ -44,10 +44,14 @@
 }
 
 .root:hover::after {
-    transition: width 0.5s;
+    transition: width var(--navbar-item-line-transition-duration);
     width: 100%;
 }
 
 .root[selected]::after {
     width: 100%;
+}
+
+.root[disabled]::after {
+    display: none;
 }
