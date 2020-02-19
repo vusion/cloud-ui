@@ -1,4 +1,4 @@
-@extend;
+@extends;
 
 .root {
     width: var(--textarea-width);
