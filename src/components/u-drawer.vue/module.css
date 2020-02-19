@@ -48,7 +48,7 @@
 
 .head {
     position: relative;
-    padding: var(--drawer-padding-padding);
+    padding: var(--drawer-head-padding);
     border-bottom: 1px solid var(--gray-lightest);
 }
 

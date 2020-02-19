@@ -4,12 +4,13 @@
 
 .track {
     overflow: hidden;
-    height: var(--linear-progress-height-base);
-    line-height: var(--linear-progress-height-base);
+    height: var(--linear-progress-height);
+    line-height: var(--linear-progress-height);
     background: var(--linear-progress-track-background);
 }
 
 .trail {
+    position: relative;
     width: 0;
     height: 100%;
     float: left;
@@ -32,7 +33,4 @@
 .track[size="huge"] {
     height: var(--linear-progress-height-huge);
     line-height: var(--linear-progress-height-huge);
-}
-.trail {
-    position: relative;
 }

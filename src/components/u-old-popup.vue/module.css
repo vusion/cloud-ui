@@ -1,14 +1,14 @@
 .root {
     position: relative;
     min-width: 140px;
-    background: var(--popup-background-color);
+    background: var(--popup-background);
     border: 1px solid var(--popup-border-color);
     z-index: var(--z-index-popper);
 }
 
 .head {
     padding: 6px 10px;
-    background: var(--popup-background-head-color);
+    background: var(--popup-head-background);
     border-bottom: 1px solid var(--popup-border-color);
 }
 
@@ -43,7 +43,7 @@
     bottom: calc(-1 * var(--popup-arrow-size));
     margin-left: calc(-1 * var(--popup-arrow-size));
     border-width: var(--popup-arrow-size) var(--popup-arrow-size) 0;
-    border-top-color: var(--popup-background-color);
+    border-top-color: var(--popup-background);
 }
 .root[x-placement^="top"] .arrow::before {
     bottom: -1px;
@@ -61,7 +61,7 @@
     top: calc(-1 * var(--popup-arrow-size));
     margin-left: calc(-1 * var(--popup-arrow-size));
     border-width: 0 var(--popup-arrow-size) var(--popup-arrow-size);
-    border-bottom-color: var(--popup-background-color);
+    border-bottom-color: var(--popup-background);
 }
 .root[x-placement^="bottom"] .arrow::before {
     top: -1px;
@@ -79,7 +79,7 @@
     right: calc(-1 * var(--popup-arrow-size));
     margin-top: calc(-1 * var(--popup-arrow-size));
     border-width: var(--popup-arrow-size) 0 var(--popup-arrow-size) var(--popup-arrow-size);
-    border-left-color: var(--popup-background-color);
+    border-left-color: var(--popup-background);
 }
 .root[x-placement^="left"] .arrow::before {
     top: -1px;
@@ -97,7 +97,7 @@
     left: calc(-1 * var(--popup-arrow-size));
     margin-top: calc(-1 * var(--popup-arrow-size));
     border-width: var(--popup-arrow-size) var(--popup-arrow-size) var(--popup-arrow-size) 0;
-    border-right-color: var(--popup-background-color);
+    border-right-color: var(--popup-background);
 }
 .root[x-placement^="right"] .arrow::before {
     top: -1px;

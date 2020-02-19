@@ -28,16 +28,16 @@
     width: var(--carousel-nav-item-width);
     height: var(--carousel-nav-item-height);
     padding: var(--carousel-nav-item-padding);
-    background-color: var(--carousel-nav-item-background-color);
+    background: var(--carousel-nav-item-background);
     background-clip: content-box;
 }
 
 .nav-item:hover {
-    background-color: var(--carousel-nav-item-background-color-hover);
+    background: var(--carousel-nav-item-background-hover);
 }
 
 .nav-item[selected] {
-    background-color: var(--carousel-nav-item-background-color-hover);
+    background: var(--carousel-nav-item-background-hover);
 }
 
 .button {
@@ -45,8 +45,8 @@
     z-index: 100;
     font-size: var(--carousel-button-font-size);
     font-weight: var(--font-weight-bold);
-    color: var(--carousel-control-color);
-    transition: var(--carousel-control-transition);
+    color: var(--carousel-button-color);
+    transition: var(--carousel-button-transition);
     top: 36%;
     display: none;
 }
@@ -54,11 +54,11 @@
     display: block;
 }
 .button:hover {
-    color: var(--carousel-control-color-hover);
+    color: var(--carousel-button-color-hover);
 }
 
 .button[role='prev'] {
-    left: var(--carousel-control-space);
+    left: var(--carousel-button-space);
 }
 
 .button[role='prev']::before {
@@ -66,7 +66,7 @@
 }
 
 .button[role='next'] {
-    right: var(--carousel-control-space);
+    right: var(--carousel-button-space);
 }
 
 .button[role='next']::before {

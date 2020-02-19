@@ -44,7 +44,7 @@
 }
 
 .button:active {
-    background: var(--transfer-button-background-color-active);
+    background: var(--transfer-button-background-active);
 }
 
 .button[disabled] {
@@ -52,7 +52,7 @@
     cursor: var(--cursor-not-allowed);
 
     /* @Public */
-    background: var(--transfer-button-background-color-disabled);
+    background: var(--transfer-button-background-disabled);
     border-color: var(--transfer-button-border-color-disabled);
     color: var(--transfer-button-color-disabled);
 }

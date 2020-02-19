@@ -108,6 +108,7 @@ module.exports = {
             { group: 'Effects', name: 'e-watermark', alias: '水印' },
             { group: 'Progress & Charts', name: 'u-linear-progress', alias: '线型进度条' },
             { group: 'Progress & Charts', name: 'u-circular-progress', alias: '圆型进度条' },
+            { group: 'Progress & Charts', name: 'u-circular-specific-progress', alias: '圆型进度条' },
             { group: 'Progress & Charts', name: 'u-chart', alias: '图表', deprecated: true },
             { group: 'Progress & Charts', name: 'u-bar-chart', alias: '柱状图', deprecated: true },
             { group: 'Progress & Charts', name: 'u-xbar-chart', alias: '水平柱状图', deprecated: true },
