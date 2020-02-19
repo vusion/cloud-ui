@@ -1,16 +1,17 @@
 .root {
-    vertical-align: 1px;
+    vertical-align: -7px;
 }
 
 .body {
     position: relative;
     margin: var(--slider-body-margin);
     padding: var(--slider-body-padding);
+    height: 24px;
 }
 
 .track {
     position: relative;
-    overflow: hidden;
+    cursor: var(--cursor-pointer);
     height: var(--slider-track-height);
     background: var(--slider-track-background);
 }
@@ -22,29 +23,53 @@
 }
 
 .bound {
+    box-sizing: content-box;
     position: absolute;
     background: var(--slider-bound-background);
     height: 100%;
 }
 
 .bound[role="start"] {
-    left: 0;
+    left: -7px;
+    padding-left: 7px;
 }
 
 .bound[role="end"] {
-    right: 0;
+    right: -7px;
+    padding-right: 7px;
 }
 
 .handle {
     position: absolute;
     left: 0;
     top: 0;
+    cursor: var(--cursor-pointer);
     margin-left: calc(var(--slider-handle-width) / -2);
     width: var(--slider-handle-width);
     height: var(--slider-handle-height);
     background: var(--slider-handle-background);
     border: var(--slider-handle-border);
-    border-radius: var(--slider-handle-size);
+    border-radius: 2px;
+}
+
+.handle::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 12px;
+    background-color: #e6e6e6;
+    top: 5px;
+    left: 3px;
+}
+
+.handle::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 12px;
+    background-color: #e6e6e6;
+    top: 5px;
+    right: 3px;
 }
 
 .root[disabled] {
@@ -53,19 +78,6 @@
 
 .root[disabled] .trail {
     background: var(--slider-trail-background-disabled);
-}
-
-.root {
-    vertical-align: -7px;
-}
-
-.body {
-    height: 24px;
-}
-
-.track {
-    overflow: initial;
-    cursor: var(--cursor-pointer);
 }
 
 .track::before {
@@ -88,43 +100,4 @@
 
 .root[disabled] .track::before {
     background: var(--brand-disabled);
-}
-
-.bound {
-    box-sizing: content-box;
-}
-
-.bound[role="start"] {
-    left: -7px;
-    padding-left: 7px;
-}
-
-.bound[role="end"] {
-    right: -7px;
-    padding-right: 7px;
-}
-
-.handle {
-    border-radius: 2px;
-    cursor: var(--cursor-pointer);
-}
-
-.handle::before {
-    content: '';
-    position: absolute;
-    width: 2px;
-    height: 12px;
-    background-color: #e6e6e6;
-    top: 5px;
-    left: 3px;
-}
-
-.handle::after {
-    content: '';
-    position: absolute;
-    width: 2px;
-    height: 12px;
-    background-color: #e6e6e6;
-    top: 5px;
-    right: 3px;
 }

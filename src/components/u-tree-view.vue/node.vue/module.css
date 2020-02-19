@@ -67,17 +67,17 @@
 }
 
 .item[selected] .text {
-    color: var(--tree-view-node-selected-text-color);
+    color: var(--tree-view-node-color-selected);
 }
 
 .item[selected] .expander {
-    color: var(--tree-view-node-selected-expander-color);
+    color: var(--tree-view-node-expander-color-selected);
 }
 
 .item[disabled] {
     /* @Private */
     cursor: var(--cursor-not-allowed);
-    color: var(--tree-view-node-disabled-color);
+    color: var(--tree-view-node-color-disabled);
 }
 
 .item[disabled] .back {

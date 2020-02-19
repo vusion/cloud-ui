@@ -112,7 +112,8 @@
 .root[label-size$="small"] > .field { max-width: calc(100% - 80px); }
 
 .root[label-size$="normal"] > .label { width: var(--form-item-label-width); padding-right: 20px; }
-.root[label-size$="normal"] > .field { max-width: calc(100% - var(--form-item-label-width)); right: 12px; }
+.root[label-size$="normal"] > .label::after { right: 12px; }
+.root[label-size$="normal"] > .field { max-width: calc(100% - var(--form-item-label-width)); }
 
 .root[label-size$="large"] > .label { width: 160px; padding-right: 20px; }
 .root[label-size$="large"] > .label::after { right: 12px; }
