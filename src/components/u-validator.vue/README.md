@@ -1598,6 +1598,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event.trigger | enum | 本次验证的触发方式 |
 | $event.valid | boolean | 验证是否通过 |
 | $event.touched | boolean | 用户是否触碰 |
 | $event.dirty | boolean | 用户是否修改值 |

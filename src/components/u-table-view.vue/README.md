@@ -708,7 +708,7 @@ export default {
     <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
     <u-table-view-column title="地址" field="address"></u-table-view-column>
     <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
-    <u-table-view-column type="expander" title="展开" width="8%">
+    <u-table-view-column type="expander" title="展开" width="12%">
         <span slot="cell" slot-scope="{ item }">{{ item.name }}</span>
         <div slot="expand-content" slot-scope="{ item }">
             <u-list type="disc">
