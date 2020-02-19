@@ -370,7 +370,7 @@
     --steps-item-radio-size-large: 24px;
     --steps-item-radio-background: #e1e8ed;
     --steps-item-radio-background-passed: var(--brand-primary);
-    --steps-item-radio-color-passed: var(--color-white);
+    --steps-item-radio-color-passed: white;
 
     /* Crumb */
     --crumb-color-link: var(--brand-primary);
@@ -407,11 +407,18 @@
     --form-message-background-error: #ff867f;
     --form-message-color-error: white;
 
+    /* Field */
+    --field-background: white;
+    --field-color: #666;
+    --field-color-selected: var(--brand-primary);
+    --field-color-disabled: #bbb;
+    --field-border-color: #cbd5dd;
+
     /* Validator */
-    --validator-message-padding: 0 5px;
-    --validator-message-margin-left: 5px;
+    --validator-message-padding: 0 10px;
+    --validator-message-margin-left: 10px;
     --validator-message-background: var(--background-color-base);
-    --validator-message-background-error: var(--brand-error);
+    --validator-message-background-error: #ff867f;
     --validator-message-color-error: white;
 
     /* Input */
@@ -419,7 +426,7 @@
     --input-height: var(--height-base);
     --input-padding: 0 10px;
     --input-border-width: 1px;
-    --input-background: var(--color-white);
+    --input-background: white;
     --input-background-disabled: #cddae9;
     --input-border-color: #e1e8ed;
     --input-border-color-error: #ff867f;
@@ -459,12 +466,12 @@
     --switch-height: 22px;
     --switch-button-space: 2px;
     --switch-button-size: 18px;
-    --switch-button-background: var(--color-white);
+    --switch-button-background: white;
     --switch-button-radius: 100px;
     --switch-background: var(--border-color-base);
     --switch-background-checked: var(--brand-primary);
     --switch-background-disabled: var(--background-color-base);
-    --switch-color: var(--color-white);
+    --switch-color: white;
     --switch-text-margin: 0 5px;
     --switch-transition: background-color var(--transition-duration-base);
     --switch-button-transition: all var(--transition-duration-base);
@@ -478,12 +485,12 @@
     --select-height-large: 36px;
     --select-padding-right: 20px;
     --select-padding: 0 var(--select-padding-right) 0 14px;
-    --select-background: var(--color-white);
+    --select-background: white;
     --select-background-disabled: #cddae9;
     --select-border-width: 1px;
     --select-border-color: #e1e8ed;
     --select-item-hover: #f5f7fa;
-    --select-popper-max-height: 180px;
+    --select-popper-max-height: 194px;
     --select-popper-line-height: 1.6;
     --select-popper-line-height-small: 1.6;
     --select-placeholder-color: var(--brand-tip-color);
@@ -499,7 +506,7 @@
     --select-tag-remove-color: var(--brand-tip-color);
     --select-tag-remove-color-hover: var(--color-base);
     --select-popper-background: white;
-    --select-popper-border-color: #dfe4ec;
+    --select-popper-border-color: var(--brand-secondary);
     --select-status-color: var(--gray-dark);
 
     /* Slider */
@@ -512,7 +519,7 @@
     --slider-bound-background: url("../assets/images/stripe.png") repeat-x;
     --slider-handle-width: 14px;
     --slider-handle-height: 24px;
-    --slider-handle-background: var(--color-white);
+    --slider-handle-background: white;
     --slider-handle-border: 1px solid #ddd;
 
     /* Combo Slider */
@@ -520,8 +527,11 @@
     --combo-slider-input-width: 50px;
     --combo-slider-input-margin-left: 10px;
 
+    /* Uploader */
+    --uploader-input-font-size: 100px;
+
     /* List View */
-    --list-view-background: var(--color-white);
+    --list-view-background: white;
     --list-view-border-color: #e1e8ed;
     --list-view-border-color-focus: #e1e8ed;
     --list-view-status-color: var(--gray-dark);
@@ -530,7 +540,7 @@
     --list-view-item-background-readonly: none;
     --list-view-item-background-focused: var(--background-color-base);
     --list-view-item-background-selected: var(--brand-primary);
-    --list-view-item-color-selected: var(--color-white);
+    --list-view-item-color-selected: white;
     --list-view-item-color-disabled: #ccc;
     --list-view-item-background-disabled: none;
     --list-view-item-background-selected-disabled: var(--brand-disabled-light);
@@ -547,9 +557,9 @@
     --tree-view-node-text-padding: 4px 12px;
     --tree-view-node-background-active: var(--background-color-base);
     --tree-view-node-background-selected: var(--brand-primary);
-    --tree-view-node-color-selected: var(--color-white);
+    --tree-view-node-color-selected: white;
     --tree-view-node-color-disabled: var(--brand-disabled);
-    --tree-view-node-expander-color-selected: var(--color-white);
+    --tree-view-node-expander-color-selected: white;
     --tree-view-node-background-readonly: none;
     --tree-view-node-background-disabled: none;
     --tree-view-node-background-selected-disabled: var(--brand-disabled-light);
@@ -563,8 +573,8 @@
     --table-view-title-space: 10px;
     --table-view-table-background: white;
     --table-view-sort-color: var(--brand-disabled);
-    --table-view-sort-size: 1em;
     --table-view-sort-color-active: var(--brand-primary);
+    --table-view-sort-size: 1em;
     --table-view-expander-size: 26px;
     --table-view-row-selected-background: #d7e5fb;
     --table-view-pagination-space: var(--space-base);
@@ -574,94 +584,46 @@
     --transfer-width: var(--width-base);
     --transfer-button-size: var(--height-base);
     --transfer-button-space: 10px;
-    --transfer-button-background: white;
-    --transfer-button-color: var(--color-base);
-    --transfer-button-color-hover: var(--brand-primary);
+    --transfer-button-background: #67aaf5;
+    --transfer-button-background-hover: #5d93e6;
+    --transfer-button-background-active: #5d93e6;
+    --transfer-button-background-disabled: var(--brand-disabled-light);
+    --transfer-button-color: white;
+    --transfer-button-color-hover: white;
+    --transfer-button-color-disabled: white;
+    --transfer-button-border-color: rgba(0, 0, 0, 0);
     --transfer-button-border-color-hover: var(--brand-primary);
-    --transfer-button-background-color-active: var(--background-color-base);
-    --transfer-button-color-disabled: var(--brand-disabled);
-    --transfer-button-background-color-disabled: white;
-    --transfer-button-border-color-disabled: var(--brand-disabled);
-    --transfer-button-border-color: var(--border-color-base);
+    --transfer-button-border-color-disabled: #dfe4ec;
 
     /* Popup */
     --popup-padding: 6px 10px;
-    --popup-background-color: white;
-    --popup-background-head-color: white;
-    --popup-border-color: var(--border-color-base);
     --popup-arrow-size: 8px;
-    --popup-outer-arrow-size: calc(var(--popup-arrow-size) + 1px);
     --popup-arrow-offset: 16px;
+    --popup-outer-arrow-size: calc(var(--popup-arrow-size) + 1px);
+    --popup-background: white;
+    --popup-head-background: white;
+    --popup-border-color: var(--border-color-base);
 
     /* Tooltip */
-    --tooltip-background-color: #333;
-    --tooltip-arrow-size: 5px;
-    --tooltip-arrow-offset: 10px;
+    --tooltip-padding: 8px 12px;
+    --tooltip-arrow-size: 6px;
+    --tooltip-arrow-offset: 16px;
+    --tooltip-background-color: rgba(71, 88, 107, 0.9);
     --tooltip-color: white;
-    --tooltip-padding: 4px 8px;
 
     /* Icon Tooltip */
     --icon-tooltip-color: #bac2cf;
 
+    /* Spinner */
+    --spinner-animation-duration: 1.5s;
+
     /* Loading */
+    --loading-font-size: calc(var(--font-size-base) * (24 / 14));
     --loading-font-size-small: var(--font-size-base);
-    --loading-font-size-base: calc(var(--font-size-base) * (24 / 14));
     --loading-font-size-large: calc(var(--font-size-base) * (40 / 14));
     --loading-color: var(--brand-disabled);
     --loading-full-background: rgba(255, 255, 255, 0.8);
     --loading-fullWindow-background: rgba(255, 255, 255, 0.6);
-
-    /* Carousel */
-    --carousel-button-font-size: 50px;
-    --carousel-width: 700px;
-    --carousel-height: 420px;
-    --carousel-nav-bottom: 20px;
-    --carousel-nav-item-width: 30px;
-    --carousel-nav-item-height: 3px;
-    --carousel-nav-item-padding: 4px;
-    --carousel-nav-item-background-color: rgba(255, 255, 255, 0.5);
-    --carousel-nav-item-background-color-hover: white;
-    --carousel-control-color: rgba(255, 255, 255, 0.6);
-    --carousel-control-color-hover: white;
-    --carousel-control-space: 20px;
-    --carousel-control-transition: all 0.3s;
-
-    /* Uploader */
-    --uploader-input-font-size: 100px;
-
-    /* Linear Progress */
-    --linear-progress-track-background: var(--background-color-base);
-    --linear-progress-height-base: 12px;
-    --linear-progress-trail-background: var(--brand-primary);
-    --linear-progress-trail-transition: width 0.6s ease;
-    --linear-progress-trail-font-size: var(--font-size-small);
-    --linear-progress-trail-color: white;
-
-    /* Circular Progress */
-    --circular-progress-size-base: 100px;
-    --circular-progress-stroke-width: 6px;
-    --circular-progress-track-stroke: var(--background-color-base);
-    --circular-progress-trail-stroke: var(--brand-primary);
-    --circular-progress-trail-transition: stroke 0.6s ease, stroke-dasharray 0.6s ease;
-    --circular-progress-text-color: var(--gray-darker);
-    --circular-progress-text-font-size: var(--font-size-base);
-    --circular-progress-font-size-base: calc(var(--font-size-base) * (18 / 14));
-    --circular-progress-text-line-height: var(--circular-progress-size-base);
-
-    /* Ripple */
-    --ripple-transition: transform 1s, background-color 1s;
-    --ripple-light-background-color: rgba(255, 255, 255, 0.2);
-    --ripple-background-color: rgba(0, 0, 0, 0.2);
-    --ripple-size: 100px;
-
-    /* Group */
-    --group-head-padding: 2px 4px;
-    --group-head-background: var(--background-color-dark);
-    --group-expander-size: 26px;
-    --group-disabled-expander-color: var(--brand-disabled);
-
-    /* Spinner */
-    --spinner-animation-duration: 1.5s;
 
     /* Toast */
     --toast-margin: 30px;
@@ -673,21 +635,6 @@
     --toast-item-padding: 10px;
     --toast-item-space: 10px;
     --toast-background-color: rgba(0, 0, 0, 0.6);
-
-    /* Drawer */
-    --drawer-width: 240px;
-    --drawer-background: white;
-    --drawer-wrap-background: rgba(0, 0, 0, 0.6);
-    --drawer-width-small: 160px;
-    --drawer-width-large: 400px;
-    --drawer-close-size: 15px;
-    --drawer-close-color: var(--gray-light);
-    --drawer-close-color-hover: var(--gray-dark);
-    --drawer-body-padding: 15px;
-    --drawer-head-padding: 15px;
-    --drawer-padding-padding: 15px;
-    --drawer-foot-padding: 20px 15px;
-    --drawer-static-padding: var(--space-base);
 
     /* Modal */
     --modal-dialog-width: 400px;
@@ -702,29 +649,71 @@
     --modal-padding-padding: 15px;
     --modal-foot-padding: 20px 15px;
 
-    /* Field Colors */
-    --field-background: white;
-    --field-color: #666;
-    --field-border-color: #cbd5dd;
-    --field-disabled-color: #bbb;
-    --field-selected-color: var(--brand-primary);
+    /* Drawer */
+    --drawer-width: 240px;
+    --drawer-width-small: 160px;
+    --drawer-width-large: 400px;
+    --drawer-wrap-background: rgba(0, 0, 0, 0.6);
+    --drawer-background: white;
+    --drawer-close-size: 15px;
+    --drawer-close-color: var(--gray-light);
+    --drawer-close-color-hover: var(--gray-dark);
+    --drawer-head-padding: 15px;
+    --drawer-body-padding: 15px;
+    --drawer-foot-padding: 20px 15px;
+    --drawer-static-padding: var(--space-base);
 
-    --circular-progress-size-base: 100px;
-    --circular-progress-font-size-base: 18px;
+    /* Lightbox */
+    --lightbox-head-height: 64px;
+
+    /* Carousel */
+    --carousel-width: 700px;
+    --carousel-height: 420px;
+    --carousel-nav-bottom: 20px;
+    --carousel-nav-item-width: 30px;
+    --carousel-nav-item-height: 3px;
+    --carousel-nav-item-padding: 4px;
+    --carousel-nav-item-background: rgba(255, 255, 255, 0.5);
+    --carousel-nav-item-background-hover: white;
+    --carousel-button-space: 20px;
+    --carousel-button-font-size: 50px;
+    --carousel-button-color: rgba(255, 255, 255, 0.6);
+    --carousel-button-color-hover: white;
+    --carousel-button-transition: all 0.3s;
+
+    /* Ripple */
+    --ripple-transition: transform 1s, background-color 1s;
+    --ripple-background: rgba(0, 0, 0, 0.2);
+    --ripple-background-light: rgba(255, 255, 255, 0.2);
+    --ripple-size: 100px;
+
+    /* Linear Progress */
+    --linear-progress-height: 4px;
+    --linear-progress-height-small: 2px;
+    --linear-progress-height-large: 8px;
+    --linear-progress-height-huge: 12px;
+    --linear-progress-track-background: var(--background-color-base);
+    --linear-progress-trail-font-size: var(--font-size-small);
+    --linear-progress-trail-background: var(--brand-primary);
+    --linear-progress-trail-color: white;
+    --linear-progress-trail-transition: width 0.6s ease;
+
+    /* Circular Progress */
+    --circular-progress-size: 100px;
+    --circular-progress-stroke-width: 6px;
+    --circular-progress-track-stroke: var(--background-color-base);
+    --circular-progress-trail-stroke: var(--brand-primary);
+    --circular-progress-trail-transition: stroke 0.6s ease, stroke-dasharray 0.6s ease;
+    --circular-progress-text-color: #999;
+    --circular-progress-font-size: var(--font-size-base);
+    --circular-progress-percent-font-size: 20px;
     --circular-progress-text-line-height: normal;
 
-    --tooltip-background-color: rgba(71, 88, 107, 0.9);
-    --tooltip-arrow-size: 6px;
-    --tooltip-arrow-offset: 16px;
-
-    --popup-background-color: white;
-    --popup-background-head-color: white;
-    --popup-border-color: var(--border-color-base);
-    --popup-arrow-size: 8px;
-    --popup-outer-arrow-size: calc(var(--popup-arrow-size) + 1px);
-    --popup-arrow-offset: 16px;
-
-    --toast-margin: 30px;
+    /* Group */
+    --group-head-padding: 2px 4px;
+    --group-head-background: var(--background-color-dark);
+    --group-expander-size: 26px;
+    --group-expander-color-disabled: var(--brand-disabled);
 
     /* --------- */
 
@@ -820,36 +809,6 @@
 
     --theme-chart-color20: rgb(241, 126, 248);
     --theme-chart-rgba-color20: rgba(241, 126, 248, 0.1);
-
-    --lightbox-head-height: 64px;
-
-    /* Circular-progress */
-    --linear-progress-height-base: 4px;
-    --linear-progress-height-small: 2px;
-    --linear-progress-height-large: 8px;
-    --linear-progress-height-huge: 12px;
-
-    --spinner-animation: spin 1s infinite linear;
-
-    --tooltip-padding: 8px 12px;
-
-    --transfer-button-color: white;
-    --transfer-button-border-color: rgba(0, 0, 0, 0);
-    --transfer-button-background: #67aaf5;
-
-    --transfer-button-color-hover: white;
-    --transfer-button-background-hover: #5d93e6;
-    --transfer-button-background-color-active: #5d93e6;
-    --transfer-button-color-disabled: white;
-    --transfer-button-border-color-disabled: #dfe4ec;
-    --transfer-button-background-color-disabled: var(--brand-disabled-light);
-
-    --validator-message-margin-left: 10px;
-    --validator-message-padding: 0 10px;
-    --validator-message-background-error: #ff867f;
-    --validator-message-color-error: white;
-
-    --carousel-control-space: 20px;
 }
 
 @custom-media --small-window (max-width: 767px);

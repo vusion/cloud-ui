@@ -6,6 +6,12 @@
         </g>
     </svg>
     <div :class="$style.text">
-        <slot>{{ percent + '%' }}</slot>
+        <div :class="$style.percent">{{ percent + '%' }}</div>
+        <slot>{{ content }}</slot>
+    </div>
+    <div :class="$style.foot">
+        <slot name="foot">
+            <slot name="title">{{ title }}</slot>
+        </slot>
     </div>
  </div>

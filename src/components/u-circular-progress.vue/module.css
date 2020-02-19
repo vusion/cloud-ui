@@ -1,8 +1,8 @@
 .root {
     display: inline-block;
     position: relative;
-    width: var(--circular-progress-size-base);
-    height: var(--circular-progress-size-base);
+    width: var(--circular-progress-size);
+    height: var(--circular-progress-size);
 }
 
 .svg {
@@ -25,11 +25,22 @@
 
 .text {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    width: 100%;
     text-align: center;
-    line-height: var(--circular-progress-text-line-height);
-    font-size: var(--circular-progress-text-font-size);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: var(--circular-progress-font-size);
     color: var(--circular-progress-text-color);
+}
+
+.percent {
+    font-size: var(--circular-progress-percent-font-size);
+    color: #999;
+    line-height: 30px;
+}
+
+.foot {
+    text-align: center;
+    color: #999;
+    font-size: 14px;
 }

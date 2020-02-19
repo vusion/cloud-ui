@@ -39,7 +39,10 @@
 }
 .root[x-placement="top-start"] .arrow { left: var(--tooltip-arrow-offset); }
 .root[x-placement="top"] .arrow { left: 50%; }
-.root[x-placement="top-end"] .arrow { right: var(--tooltip-arrow-offset); }
+.root[x-placement="top-end"] .arrow {
+    right: var(--tooltip-arrow-offset);
+    margin-right: calc(-1 * var(--tooltip-arrow-size));
+}
 
 .root[x-placement^="bottom"] { margin-top: var(--tooltip-arrow-size); }
 .root[x-placement^="bottom"] .arrow {
@@ -56,7 +59,10 @@
 }
 .root[x-placement="bottom-start"] .arrow { left: var(--tooltip-arrow-offset); }
 .root[x-placement="bottom"] .arrow { left: 50%; }
-.root[x-placement="bottom-end"] .arrow { right: var(--tooltip-arrow-offset); }
+.root[x-placement="bottom-end"] .arrow {
+    right: var(--tooltip-arrow-offset);
+    margin-right: calc(-1 * var(--tooltip-arrow-size));
+}
 
 .root[x-placement^="left"] { margin-right: var(--tooltip-arrow-size); }
 .root[x-placement^="left"] .arrow {
@@ -73,7 +79,10 @@
 }
 .root[x-placement="left-start"] .arrow { top: var(--tooltip-arrow-offset); }
 .root[x-placement="left"] .arrow { top: 50%; }
-.root[x-placement="left-end"] .arrow { bottom: var(--tooltip-arrow-offset); }
+.root[x-placement="left-end"] .arrow {
+    bottom: var(--tooltip-arrow-offset);
+    margin-bottom: calc(-1 * var(--tooltip-arrow-size));
+}
 
 .root[x-placement^="right"] { margin-left: var(--tooltip-arrow-size); }
 .root[x-placement^="right"] .arrow {
@@ -90,21 +99,8 @@
 }
 .root[x-placement="right-start"] .arrow { top: var(--tooltip-arrow-offset); }
 .root[x-placement="right"] .arrow { top: 50%; }
-.root[x-placement="right-end"] .arrow { bottom: var(--tooltip-arrow-offset); }
-
-.root[x-placement="top-end"] .arrow {
-    margin-right: calc(-1 * var(--tooltip-arrow-size));
-}
-
-.root[x-placement="bottom-end"] .arrow {
-    margin-right: calc(-1 * var(--tooltip-arrow-size));
-}
-
-.root[x-placement="left-end"] .arrow {
-    margin-bottom: calc(-1 * var(--tooltip-arrow-size));
-}
-
 .root[x-placement="right-end"] .arrow {
+    bottom: var(--tooltip-arrow-offset);
     margin-bottom: calc(-1 * var(--tooltip-arrow-size));
 }
 

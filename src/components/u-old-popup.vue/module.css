@@ -7,22 +7,22 @@
 }
 
 .head {
-    padding: var(--popup-padding);
+    padding: 6px 10px;
     background: var(--popup-head-background);
     border-bottom: 1px solid var(--popup-border-color);
 }
 
 .title {
-    font-weight: var(--font-weight-bold);
+    font-weight: bold;
 }
 
 .body {
-    padding: var(--popup-padding);
+    padding: 6px 10px;
 }
 
 .foot {
     border-top: 1px solid var(--popup-border-color);
-    padding: var(--popup-padding);
+    padding: 6px 10px;
 }
 
 .arrow {
@@ -38,16 +38,6 @@
     border: var(--popup-outer-arrow-size) solid transparent;
 }
 
-/**
- - 扩大区域鼠标 hover 区域
- - 保证原来的 .root 可以直接控制样式
-*/
-.root::before {
-    content: '';
-    display: block;
-    position: absolute;
-}
-
 .root[x-placement^="top"] { margin-bottom: var(--popup-arrow-size); }
 .root[x-placement^="top"] .arrow {
     bottom: calc(-1 * var(--popup-arrow-size));
@@ -61,12 +51,6 @@
     margin-left: calc(-1 * var(--popup-arrow-size));
     border-width: var(--popup-outer-arrow-size) var(--popup-outer-arrow-size) 0;
     border-top-color: var(--popup-border-color);
-}
-.root[x-placement^="top"]::before {
-    left: 0;
-    right: 0;
-    height: var(--popup-arrow-size);
-    bottom: calc(-1 * var(--popup-arrow-size));
 }
 .root[x-placement="top-start"] .arrow { left: var(--popup-arrow-offset); }
 .root[x-placement="top"] .arrow { left: 50%; }
@@ -86,12 +70,6 @@
     border-width: 0 var(--popup-outer-arrow-size) var(--popup-outer-arrow-size);
     border-bottom-color: var(--popup-border-color);
 }
-.root[x-placement^="bottom"]::before {
-    left: 0;
-    right: 0;
-    height: var(--popup-arrow-size);
-    top: calc(-1 * var(--popup-arrow-size));
-}
 .root[x-placement="bottom-start"] .arrow { left: var(--popup-arrow-offset); }
 .root[x-placement="bottom"] .arrow { left: 50%; }
 .root[x-placement="bottom-end"] .arrow { right: var(--popup-arrow-offset); }
@@ -110,12 +88,6 @@
     border-width: var(--popup-outer-arrow-size) 0 var(--popup-outer-arrow-size) var(--popup-outer-arrow-size);
     border-left-color: var(--popup-border-color);
 }
-.root[x-placement^="left"]::before {
-    top: 0;
-    bottom: 0;
-    width: var(--popup-arrow-size);
-    right: calc(-1 * var(--popup-arrow-size));
-}
 .root[x-placement="left-start"] .arrow { top: var(--popup-arrow-offset); }
 .root[x-placement="left"] .arrow { top: 50%; }
 .root[x-placement="left-end"] .arrow { bottom: var(--popup-arrow-offset); }
@@ -133,12 +105,6 @@
     margin-top: calc(-1 * var(--popup-arrow-size));
     border-width: var(--popup-outer-arrow-size) var(--popup-outer-arrow-size) var(--popup-outer-arrow-size) 0;
     border-right-color: var(--popup-border-color);
-}
-.root[x-placement^="right"]::before {
-    top: 0;
-    bottom: 0;
-    width: var(--popup-arrow-size);
-    right: calc(-1 * var(--popup-arrow-size));
 }
 .root[x-placement="right-start"] .arrow { top: var(--popup-arrow-offset); }
 .root[x-placement="right"] .arrow { top: 50%; }

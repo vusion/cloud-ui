@@ -37,7 +37,7 @@
 }
 
 .root[disabled] .expander {
-    color: var(--group-disabled-expander-color);
+    color: var(--group-expander-color-disabled);
 }
 
 .extra {

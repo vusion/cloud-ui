@@ -2,6 +2,8 @@ export const UCircularProgress = {
     name: 'u-circular-progress',
     props: {
         percent: { type: Number, default: 0 },
+        title: String,
+        content: String,
     },
     data() {
         return {

@@ -38,6 +38,7 @@ export * from './u-checkbox-card.vue';
 export * from './u-checkbox.vue';
 export * from './u-checkboxes.vue';
 export * from './u-circular-progress.vue';
+export * from './u-circular-specific-progress.vue';
 export * from './u-collapse.vue';
 export * from './u-combo-pagination.vue';
 export * from './u-combo-slider.vue';
