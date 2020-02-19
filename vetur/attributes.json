@@ -335,6 +335,27 @@
     "type": "object",
     "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
   },
+  "u-actions/max-count": {
+    "type": "number",
+    "description": "一列最多显示链接个数"
+  },
+  "u-actions/menu-title": {
+    "type": "string",
+    "description": "菜单标题"
+  },
+  "u-actions/placement": {
+    "type": "string",
+    "description": "菜单的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',` 'left-end'`, `'right-start'`, `'right-end'`"
+  },
+  "u-action/hidden": {
+    "type": "boolean",
+    "description": "自定义显示/隐藏条件"
+  },
+  "u-action/其余属性透传": {},
+  "u-avatar/type": {
+    "type": "string",
+    "description": "头像类型。请参考上面的示例"
+  },
   "u-avatar/shape": {
     "type": "string",
     "description": "形状。可选值：`circle`, `square` 两种类型"
@@ -379,6 +400,18 @@
     "type": "boolean",
     "description": "需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。"
   },
+  "u-button/color": {
+    "type": "string",
+    "description": "颜色扩展。可选值：`'primary'`或不填"
+  },
+  "u-button/size": {
+    "type": "string",
+    "description": "大小扩展。可选值：`'small'`或不填"
+  },
+  "u-button/square": {
+    "type": "boolean",
+    "description": "是否显示为正方形"
+  },
   "u-button/disabled": {
     "type": "boolean",
     "description": "是否禁用。禁用后不会响应`click`事件。"
@@ -386,6 +419,86 @@
   "u-button/display": {
     "type": "string",
     "description": "展示方式。可选值：`'inline'`, `'block'`"
+  },
+  "calendar/date": {
+    "type": "Date,string",
+    "description": "当前选择的日期"
+  },
+  "calendar/min-date": {
+    "type": "Date,string",
+    "description": "最小日期，如果为空则不限制"
+  },
+  "calendar/max-date": {
+    "type": "Date,string",
+    "description": "最大日期，如果为空则不限制"
+  },
+  "calendar/year-diff": {
+    "type": "string,number",
+    "description": "当前年份往前展示的年数，例：当前为`2018`年，则从`2015`年开始展示"
+  },
+  "calendar/year-add": {
+    "type": "string,number",
+    "description": "当前年份往后展示的年数，例：当前为`2018`年，则展示至`2019`年"
+  },
+  "calendar/readonly": {
+    "type": "boolean",
+    "description": "是否只读"
+  },
+  "calendar/disabled": {
+    "type": "boolean",
+    "description": "是否禁用"
+  },
+  "u-capsules/value": {
+    "type": "any",
+    "description": "当前选择的值"
+  },
+  "u-capsules/auto-select": {
+    "type": "boolean",
+    "description": "是否自动选择第一个非禁用的项"
+  },
+  "u-capsules/cancelable": {
+    "type": "boolean",
+    "description": "是否可以取消选择"
+  },
+  "u-capsules/multiple": {
+    "type": "boolean",
+    "description": "是否可以多选"
+  },
+  "u-capsules/readonly": {
+    "type": "boolean",
+    "description": "是否只读"
+  },
+  "u-capsules/disabled": {
+    "type": "boolean",
+    "description": "是否禁用"
+  },
+  "u-capsule/value": {
+    "type": "any",
+    "description": "此项的值"
+  },
+  "u-capsule/size": {
+    "type": "string",
+    "description": "胶囊大小，可选值：`'small'`"
+  },
+  "u-capsule/selected": {
+    "type": "boolean",
+    "description": "是否选中此项"
+  },
+  "u-capsule/disabled": {
+    "type": "boolean",
+    "description": "禁用此项"
+  },
+  "u-capsule/label": {
+    "type": "string",
+    "description": "顶部自定义提示文本"
+  },
+  "u-capsule/flag": {
+    "type": "any",
+    "description": "是否右上角有flag标志"
+  },
+  "u-capsule/item": {
+    "type": "object",
+    "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
   },
   "u-carousel/value": {
     "type": "any",
@@ -419,6 +532,46 @@
     "type": "any",
     "description": "该项的值"
   },
+  "cascade-capsules/data": {
+    "type": "Array<{ text, value }>",
+    "description": "数据列表"
+  },
+  "cascade-capsules/value": {
+    "type": "any",
+    "description": "当前选择的值"
+  },
+  "cascade-capsules/labelSize": {
+    "type": "string",
+    "description": "label的大小，可选值：`'small'`, `'large'`"
+  },
+  "cascade-capsules/categories": {
+    "type": "Array<{ label, key, tip }>",
+    "description": "多级分类，其中`label`为标签名，`tip`为该标签的提示"
+  },
+  "cascade-capsules/auto-select": {
+    "type": "boolean",
+    "description": "是否可自动选择"
+  },
+  "cascade-capsules/converter": {
+    "type": "string, object",
+    "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value，`'join.number'`与`join`类似，只是会考虑它为数字的情况。也可以用`:`修改分隔符，类似 Vue 的指令参数，`'last-value'`表示以最后一项的值作为 value。也可以传入一个包含 { get, set } 的一个对象"
+  },
+  "cascade-capsules/field": {
+    "type": "string",
+    "description": "显示文本字段"
+  },
+  "cascade-capsules/cancelable": {
+    "type": "boolean",
+    "description": "是否可以取消选择"
+  },
+  "cascade-capsules/readonly": {
+    "type": "boolean",
+    "description": "是否只读"
+  },
+  "cascade-capsules/disabled": {
+    "type": "boolean",
+    "description": "是否禁用"
+  },
   "u-cascade-select/data": {
     "type": "Array<{ text, value }>",
     "description": "数据列表"
@@ -450,6 +603,26 @@
   "u-cascade-select/disabled": {
     "type": "boolean",
     "description": "是否禁用"
+  },
+  "u-checkbox-card/data": {
+    "type": "array",
+    "description": "可供选择的数据"
+  },
+  "u-checkbox-card/value": {
+    "type": "Array",
+    "description": "被选中数据"
+  },
+  "u-checkbox-card/placeholder": {
+    "type": "string",
+    "description": "没有数据时的占位显示"
+  },
+  "u-checkbox-card/size": {
+    "type": "string",
+    "description": "卡片尺寸"
+  },
+  "u-checkbox-card/column": {
+    "type": "number",
+    "description": "一行固定多少个选择项，如果不传则固定单项宽度为158px，每行个数自适应行宽"
   },
   "u-checkbox/value": {
     "type": "boolean, null",
@@ -490,6 +663,14 @@
   "u-circular-progress/percent": {
     "type": "number",
     "description": "百分比"
+  },
+  "u-circular-specific-progress/percent": {
+    "type": "number",
+    "description": "百分比"
+  },
+  "u-circular-specific-progress/rule": {
+    "type": "object",
+    "description": "自定义显示规则，当大于`rule.value`时，颜色由值的`rule.color`属性来决定"
   },
   "u-collapse/accordion": {
     "type": "boolean",
@@ -603,6 +784,94 @@
     "type": "boolean",
     "description": "是否禁用"
   },
+  "u-combo-slider/unit": {
+    "type": "string",
+    "description": "单位"
+  },
+  "u-combo-slider/tip": {
+    "type": "string",
+    "description": "提示"
+  },
+  "u-copy/value": {
+    "type": "string",
+    "description": "需要复制的值"
+  },
+  "u-copy/placement": {
+    "type": "string",
+    "description": "popper提示框位置，`'top'` `'right'` `'left'`"
+  },
+  "u-copy/success-text": {
+    "type": "string",
+    "description": "复制成功提示文本"
+  },
+  "u-copy/disabled": {
+    "type": "boolean",
+    "description": "是否禁止复制"
+  },
+  "u-copy/hide-delay": {
+    "type": "number",
+    "description": "popper提示框影藏消失时间"
+  },
+  "u-copy/modal-type": {
+    "type": "string",
+    "description": "复制提示弹窗类型`'popper'` `'toast'` `'none'`"
+  },
+  "count-up/start": {
+    "type": "number",
+    "description": "渐变开始数值"
+  },
+  "count-up/end": {
+    "type": "number",
+    "description": "渐变结束数值"
+  },
+  "count-up/duration": {
+    "type": "number",
+    "description": "渐变时间间隔，时间单位为秒"
+  },
+  "count-up/isEasing": {
+    "type": "boolean",
+    "description": "是否使用 动画函数`easingFn`处理数据"
+  },
+  "count-up/isGroup": {
+    "type": "boolean",
+    "description": "是否分组，默认分组分隔符`'separator'`属性值为`','`"
+  },
+  "count-up/separator": {
+    "type": "string",
+    "description": "分组分隔符"
+  },
+  "count-up/decimals": {
+    "type": "number",
+    "description": "小数点后几位"
+  },
+  "count-up/easingFn": {
+    "type": "Function",
+    "description": "自定义渐变动画，默认使用 `Robert Penner's easeOutExpo`函数"
+  },
+  "count-up/simplify": {
+    "type": "boolean",
+    "description": "是否使用自定义单位简化数据"
+  },
+  "count-up/unit": {
+    "type": "Array",
+    "description": "配合`'simplify'`属性使用的自定义单位"
+  },
+  "count-up/prefix": {
+    "type": "string",
+    "description": "前缀内容"
+  },
+  "count-up/suffix": {
+    "type": "string",
+    "description": "后缀内容"
+  },
+  "count-up/endCallback": {
+    "type": "Function",
+    "description": "渐变结束后的回调函数"
+  },
+  "count-up/autoStart": {
+    "type": "boolean",
+    "description": "是否开启渐变"
+  },
   "u-crumb/无": {
     "type": "",
     "description": ""
@@ -635,6 +904,110 @@
     "type": "boolean",
     "description": "是否不可点击。如果为`true`，则不会响应`click`事件。"
   },
+  "date-picker/width": {
+    "type": "string, number",
+    "description": "输入框宽度"
+  },
+  "date-picker/date": {
+    "type": "string,number,Date",
+    "description": "初始日期值"
+  },
+  "date-picker/minDate": {
+    "type": "string,number,Date",
+    "description": "最小日期"
+  },
+  "date-picker/maxDate": {
+    "type": "string,number,Date",
+    "description": "最大日期"
+  },
+  "date-picker/readonly": {
+    "type": "boolean",
+    "description": "是否只读"
+  },
+  "date-picker/disabled": {
+    "type": "boolean",
+    "description": "是否禁用"
+  },
+  "date-picker/autofocus": {
+    "type": "boolean",
+    "description": "文本框默认处于focus"
+  },
+  "date-picker/placeholder": {
+    "type": "string",
+    "description": "文本框默认提示"
+  },
+  "date-picker/alignment": {
+    "type": "string",
+    "description": "日历弹窗对其方式，可选值：`left`, `right`"
+  },
+  "date-picker/time": {
+    "type": "string, number",
+    "description": "设置返回的日期的时分秒值，可选值为`start`,表示时分秒是0:00:00,`morning`:时分秒为8:00:00,`end`:表示时分秒为: 23:59:59, 输入整数表示对应的整数时刻，例如输入9代表时分秒为9:00:00,自定义时分秒请输入对应格式的字符串即可"
+  },
+  "date-picker/yeadDiff": {
+    "type": "string, number",
+    "description": "当前年份前几年"
+  },
+  "date-picker/yearAdd": {
+    "type": "string, number",
+    "description": "当前年份后几年"
+  },
+  "u-date-time-picker/date": {
+    "type": "string, number, Date",
+    "description": "显示的日期值"
+  },
+  "u-date-time-picker/minDate": {
+    "type": "string, number, Date",
+    "description": "最小日期值"
+  },
+  "u-date-time-picker/maxDate": {
+    "type": "string, number, Date",
+    "description": "最大日期值"
+  },
+  "u-date-time-picker/placeholder": {
+    "type": "string",
+    "description": "默认提示语"
+  },
+  "u-date-time-picker/autofocus": {
+    "type": "boolean",
+    "description": "是否默认处于focus状态"
+  },
+  "u-date-time-picker/disabled": {
+    "type": "boolean",
+    "description": "是否禁用"
+  },
+  "u-date-time-picker/readonly": {
+    "type": "boolean",
+    "description": "是否只读"
+  },
+  "u-date-time-picker/yearDiff": {
+    "type": "string, number",
+    "description": "最小可选年份值为当前年减去此值"
+  },
+  "u-date-time-picker/yearAdd": {
+    "type": "string, number",
+    "description": "最大可选年份值为当前年加上此值"
+  },
+  "desc-list/label-size": {
+    "type": "string",
+    "description": "标签大小。可选值：`small`、`normal`、`large`、`huge`"
+  },
+  "desc-list-item/label": {
+    "type": "string",
+    "description": "标签"
+  },
+  "desc-list-item/label-size": {
+    "type": "string",
+    "description": "标签大小。可选值：`small`、`normal`、`large`、`huge`"
+  },
+  "desc-list-group/title": {
+    "type": "string",
+    "description": "标题"
+  },
+  "desc-list-group/label-size": {
+    "type": "string",
+    "description": "标签大小。 可选值：`small`、`normal`、`large`、`huge`"
+  },
   "u-drawer/visible": {
     "type": "boolean",
     "description": "是否显示"
@@ -662,6 +1035,50 @@
   "u-drawer/maskClosable": {
     "type": "boolean",
     "description": "是否点击遮罩时关闭抽屉"
+  },
+  "u-dynamic-cards/data": {
+    "type": "Array",
+    "description": "数据"
+  },
+  "u-dynamic-cards/dynamic": {
+    "type": "boolean",
+    "description": "是否可以动态添加/删除项"
+  },
+  "u-dynamic-cards/get-default-item": {
+    "type": "Function",
+    "description": "传入获取默认项的方法"
+  },
+  "u-dynamic-cards/initial-add": {
+    "type": "boolean",
+    "description": "是否自动补充项，如果初始时`data`中的项目数少于`min-count`"
+  },
+  "u-dynamic-cards/min-count": {
+    "type": "number",
+    "description": "最小项目数"
+  },
+  "u-dynamic-cards/max-count": {
+    "type": "number",
+    "description": "最大项目数"
+  },
+  "u-dynamic-cards/text-field": {
+    "type": "string",
+    "description": "用于 mini 显示的字段"
+  },
+  "u-dynamic-cards/index": {
+    "type": "number",
+    "description": "当前展开项的索引"
+  },
+  "u-dynamic-cards/add-button-text": {
+    "type": "string",
+    "description": "添加按钮的文本"
+  },
+  "u-dynamic-cards/mini-formatter": {
+    "type": "Function",
+    "description": "mini 显示时的格式器"
+  },
+  "u-footbar/position": {
+    "type": "string",
+    "description": "显示的位置。"
   },
   "u-form-table-view/border": {
     "type": "boolean",
@@ -935,6 +1352,38 @@
     "type": "boolean",
     "description": "是否禁用"
   },
+  "info-list/column": {
+    "type": "string",
+    "description": "列数。可选值：`1`、`2`、`3`、`4`"
+  },
+  "info-list/label-size": {
+    "type": "string",
+    "description": "标签大小。可选值：`small`、`normal`、`large`、`auto`"
+  },
+  "info-list-item/label": {
+    "type": "string",
+    "description": "标签"
+  },
+  "info-list-item/column": {
+    "type": "string",
+    "description": "列数。可选值：`1`、`2`、`3`、`4`"
+  },
+  "info-list-item/label-size": {
+    "type": "string",
+    "description": "标签大小。可选值：`small`、`normal`、`large`、`auto`"
+  },
+  "info-list-item/ellipsis": {
+    "type": "boolean",
+    "description": "是否换行，默认换行，值为`true`则开启不换行，超出部分显示为省略号"
+  },
+  "info-list-group/title": {
+    "type": "string",
+    "description": "标题"
+  },
+  "info-list-group/label-size": {
+    "type": "string",
+    "description": "标签大小。可选值：`small`、`normal`、`large`、`auto`"
+  },
   "u-input/type": {
     "type": "string",
     "description": "输入框的类型，目前支持两种：`'text'`和`'password'`"
@@ -942,6 +1391,10 @@
   "u-input/value": {
     "type": "string",
     "description": "输入框的值"
+  },
+  "u-input/default-value": {
+    "type": "string",
+    "description": "默认值。即 reset 方法恢复的值。"
   },
   "u-input/clearable": {
     "type": "boolean",
@@ -974,6 +1427,86 @@
   "u-input/disabled": {
     "type": "boolean",
     "description": "是否禁用"
+  },
+  "u-input/size": {
+    "type": "string",
+    "description": "大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式"
+  },
+  "u-input/search": {
+    "type": "string",
+    "description": "搜索标志，支持位置自定义，默认搜索标志在最右边，值为`left`即表示搜索标志在左边"
+  },
+  "u-input/maxlengthMessage": {
+    "type": "string",
+    "description": "\b\b输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效"
+  },
+  "u-key-value/vertical": {
+    "type": "string",
+    "description": "label与value对齐方式`'top'`,`'middle'`,`'bottom'`"
+  },
+  "u-key-value/label": {
+    "type": "string",
+    "description": "label显示值"
+  },
+  "u-key-value/value": {
+    "type": "string",
+    "description": "value显示值"
+  },
+  "u-key-value/labelSize": {
+    "type": "number",
+    "description": "设置label宽度，不填label为自适应"
+  },
+  "u-key-value/labelAlignment": {
+    "type": "string",
+    "description": "label文字水平对齐方式`'left'`,`'center'`,注意此值仅在设置labelSize后生效"
+  },
+  "u-lightbox/visible": {
+    "type": "boolean",
+    "description": "是否显示"
+  },
+  "u-lightbox/maskClose": {
+    "type": "boolean",
+    "description": "点击遮罩层关闭灯箱"
+  },
+  "u-lightbox/closeButton": {
+    "type": "boolean",
+    "description": "是否显示关闭按钮"
+  },
+  "u-lightbox/loop": {
+    "type": "boolean",
+    "description": "是否可循环播放灯箱内容"
+  },
+  "u-lightbox/animation": {
+    "type": "string",
+    "description": "动画（可选fade/zoom-out）"
+  },
+  "u-lightbox/value": {
+    "type": "`any`",
+    "description": "当前选择的值"
+  },
+  "u-lightbox/zoomable": {
+    "type": "boolean",
+    "description": "灯箱是否开启缩放功能（只有当灯箱内容为图片时有效）"
+  },
+  "u-lightbox/zoomButton": {
+    "type": "boolean",
+    "description": "是否显示缩放按钮（只有当zoomable为true时有效）"
+  },
+  "u-lightbox/zoomWheel": {
+    "type": "boolean",
+    "description": "是否允许滚动鼠标缩放（只有当zoomable为true时有效）"
+  },
+  "u-lightbox/zoomMax": {
+    "type": "Integer/string",
+    "description": "设置最大放大宽度：类型为Integer时，表示灯箱最多放大次数。类型为String时，可以设置单位为px或者%。"
+  },
+  "u-lightbox/zoomMin": {
+    "type": "Integer/string",
+    "description": "设置最小宽度：同上"
+  },
+  "u-lightbox/zoomRadio": {
+    "type": "number",
+    "description": "每次放大缩小的比例"
   },
   "u-linear-layout/direction": {
     "type": "enum",
@@ -1029,6 +1562,14 @@
   "u-linear-progress/percent": {
     "type": "number",
     "description": "百分比"
+  },
+  "u-linear-progress/size": {
+    "type": "string",
+    "description": "高度扩展，值有`'small'`, `'normal'`, `'large'`, `'huge'`四个值"
+  },
+  "u-linear-progress/range": {
+    "type": "Array",
+    "description": "百分比范围限制"
   },
   "u-link/href": {
     "type": "string",
@@ -1166,13 +1707,9 @@
     "type": "boolean",
     "description": "列表行在悬浮时是否高亮显示"
   },
-  "u-loading/size": {
+  "loading/size": {
     "type": "string",
     "description": "图标的大小。可选值：`'small'`, `'normal'`, `'large'`"
-  },
-  "u-loading/display": {
-    "type": "string",
-    "description": "展示方式。可选值：`'inline'`表示按行内展示，`'block'`表示按块级展示，`'full'`表示填充定位父元素（offsetParent），`'fullWindow'`表示填充整个浏览器"
   },
   "u-menu/router": {
     "type": "boolean",
@@ -1238,13 +1775,21 @@
     "type": "string",
     "description": "显示的标题"
   },
-  "u-modal/visible": {
-    "type": "boolean",
-    "description": "是否显示"
-  },
   "u-modal/title": {
     "type": "string",
     "description": "弹窗的标题"
+  },
+  "u-modal/content": {
+    "type": "string",
+    "description": "弹窗的内容"
+  },
+  "u-modal/heading": {
+    "type": "string",
+    "description": "弹窗的内容"
+  },
+  "u-modal/visible": {
+    "type": "boolean",
+    "description": "是否显示"
   },
   "u-modal/ok-button": {
     "type": "string",
@@ -1257,6 +1802,10 @@
   "u-modal/size": {
     "type": "string",
     "description": "弹框的尺寸"
+  },
+  "u-modal/icon": {
+    "type": "string",
+    "description": "提示图标, 可选值：`success`, `warning`, `error`"
   },
   "u-modal/static": {
     "type": "boolean",
@@ -1402,6 +1951,46 @@
     "type": "boolean",
     "description": "是否禁用"
   },
+  "u-pills/data": {
+    "type": "Array<{ text, value }>",
+    "description": "Data书写方式中的数据列表"
+  },
+  "u-pills/value": {
+    "type": "any",
+    "description": "当前选择的值"
+  },
+  "u-pills/field": {
+    "type": "string",
+    "description": "显示文本字段"
+  },
+  "u-pills/cancelable": {
+    "type": "boolean",
+    "description": "是否可以取消选择"
+  },
+  "u-pills/multiple": {
+    "type": "boolean",
+    "description": "是否可以多选"
+  },
+  "u-pills/readonly": {
+    "type": "boolean",
+    "description": "是否只读"
+  },
+  "u-pills/disabled": {
+    "type": "boolean",
+    "description": "是否禁用"
+  },
+  "u-pill/value": {
+    "type": "any",
+    "description": "此项的值"
+  },
+  "u-pill/disabled": {
+    "type": "boolean",
+    "description": "禁用此项"
+  },
+  "u-pill/item": {
+    "type": "object",
+    "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
+  },
   "u-popup/title": {
     "type": "string",
     "description": "弹出框标题"
@@ -1493,10 +2082,6 @@
   "u-region-select/disabled": {
     "type": "boolean",
     "description": "是否禁用"
-  },
-  "u-sample/color": {
-    "type": "string",
-    "description": "Try 'primary'"
   },
   "u-select/value": {
     "type": "any",
@@ -1606,6 +2191,26 @@
     "type": "string",
     "description": "显示的标题"
   },
+  "selectable-steps/value": {
+    "type": "number",
+    "description": "当前步骤数"
+  },
+  "selectable-steps/readonly": {
+    "type": "boolean",
+    "description": "是否只读。非只读的情况下可以选择"
+  },
+  "selectable-steps/disabled": {
+    "type": "boolean",
+    "description": "是否禁用"
+  },
+  "selectable-step/title": {
+    "type": "string",
+    "description": "步骤名"
+  },
+  "selectable-step/disabled": {
+    "type": "boolean",
+    "description": "是否禁用此标签页"
+  },
   "u-sidebar/router": {
     "type": "boolean",
     "description": "是否根据vue-router来控制选择哪一项"
@@ -1714,6 +2319,14 @@
     "type": "boolean",
     "description": "是否禁用"
   },
+  "u-status-icon/name": {
+    "type": "string",
+    "description": "对应图标的name，"
+  },
+  "u-status-icon/size": {
+    "type": "number, string",
+    "description": "图标对应的font-size值大小"
+  },
   "u-steps/value": {
     "type": "number",
     "description": "当前步骤数"
@@ -1734,6 +2347,110 @@
     "type": "boolean",
     "description": "是否禁用此标签页"
   },
+  "subnav/router": {
+    "type": "boolean",
+    "description": "是否根据vue-router来控制选择哪一项"
+  },
+  "subnav/value": {
+    "type": "any",
+    "description": "当前选择的值"
+  },
+  "subnav/readonly": {
+    "type": "boolean",
+    "description": "是否只读"
+  },
+  "subnav/disabled": {
+    "type": "boolean",
+    "description": "是否禁用"
+  },
+  "subnav/usage": {
+    "type": "string",
+    "description": "值为 `'tabs'`间距向上移动`'10px'`"
+  },
+  "subnav-item/value": {
+    "type": "any",
+    "description": "此项的值"
+  },
+  "subnav-item/disabled": {
+    "type": "boolean",
+    "description": "禁用此项"
+  },
+  "subnav-item/item": {
+    "type": "object",
+    "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
+  },
+  "subnav-item/href": {
+    "type": "string",
+    "description": "链接地址"
+  },
+  "subnav-item/target": {
+    "type": "string",
+    "description": "打开方式"
+  },
+  "subnav-item/to": {
+    "type": "string,  Location",
+    "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
+  },
+  "subnav-item/replace": {
+    "type": "boolean",
+    "description": "需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。"
+  },
+  "subnav-item/exact": {
+    "type": "boolean",
+    "description": "需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。"
+  },
+  "u-subtabs/value": {
+    "type": "any",
+    "description": "选中标签页的值"
+  },
+  "u-subtabs/readonly": {
+    "type": "boolean",
+    "description": "是否只读"
+  },
+  "u-subtabs/disabled": {
+    "type": "boolean",
+    "description": "是否禁用"
+  },
+  "u-subtabs/closable": {
+    "type": "boolean",
+    "description": "是否可以关闭"
+  },
+  "u-subtabs/router": {
+    "type": "boolean",
+    "description": "是否根据 vue-router 来控制选择哪个标签页"
+  },
+  "u-subtab/title": {
+    "type": "string",
+    "description": "标签页标题"
+  },
+  "u-subtab/value": {
+    "type": "any",
+    "description": "标签页的值"
+  },
+  "u-subtab/disabled": {
+    "type": "boolean",
+    "description": "是否禁用此标签页"
+  },
+  "u-subtab/href": {
+    "type": "string",
+    "description": "链接地址"
+  },
+  "u-subtab/target": {
+    "type": "string",
+    "description": "打开方式"
+  },
+  "u-subtab/to": {
+    "type": "string, Location",
+    "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
+  },
+  "u-subtab/replace": {
+    "type": "boolean",
+    "description": "需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。"
+  },
+  "u-subtab/exact": {
+    "type": "boolean",
+    "description": "需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。"
+  },
   "u-switch/value": {
     "type": "boolean",
     "description": "开关状态"
@@ -1745,6 +2462,10 @@
   "u-switch/disabled": {
     "type": "boolean",
     "description": "是否禁用"
+  },
+  "u-switch/with-text": {
+    "type": "boolean",
+    "description": "是否显示开关`ON`和`OFF`文字"
   },
   "u-table-view/title": {
     "type": "string",
@@ -1942,17 +2663,45 @@
     "type": "number",
     "description": "当`type=\"index\"`时的起始序号"
   },
-  "u-table/line": {
-    "type": "boolean",
-    "description": "单元格之间是否显示分隔线条"
+  "u-tablets/value": {
+    "type": "any",
+    "description": "当前选择的值"
   },
-  "u-table/striped": {
+  "u-tablets/auto-select": {
     "type": "boolean",
-    "description": "表格行是否按斑马线条纹显示"
+    "description": "是否自动选择第一个非禁用的项"
   },
-  "u-table/hover": {
+  "u-tablets/cancelable": {
     "type": "boolean",
-    "description": "表格行在悬浮时是否高亮显示"
+    "description": "是否可以取消选择"
+  },
+  "u-tablets/multiple": {
+    "type": "boolean",
+    "description": "是否可以多选"
+  },
+  "u-tablets/readonly": {
+    "type": "boolean",
+    "description": "是否只读"
+  },
+  "u-tablets/disabled": {
+    "type": "boolean",
+    "description": "是否禁用"
+  },
+  "u-tablet/value": {
+    "type": "any",
+    "description": "此项的值"
+  },
+  "u-tablet/selected": {
+    "type": "boolean",
+    "description": "是否选中此项"
+  },
+  "u-tablet/disabled": {
+    "type": "boolean",
+    "description": "禁用此项"
+  },
+  "u-tablet/item": {
+    "type": "object",
+    "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
   },
   "u-tabs/value": {
     "type": "any",
@@ -2026,6 +2775,10 @@
     "type": "string",
     "description": "输入框的值"
   },
+  "u-textarea/default-value": {
+    "type": "string",
+    "description": "默认值。即 reset 方法恢复的值。"
+  },
   "u-textarea/clearable": {
     "type": "boolean",
     "description": "是否可清空。开启并在输入框有内容时会显示清空按钮。"
@@ -2061,6 +2814,38 @@
   "u-textarea/resize": {
     "type": "string",
     "description": "是否可以调整大小。可选值：`'none'`、`'both'`、`'horizontal'`、`'vertical'`"
+  },
+  "u-time-picker/time": {
+    "type": "string",
+    "description": "当前的时间值"
+  },
+  "u-time-picker/minUnit": {
+    "type": "string",
+    "description": "最小时间单位`'second'`或者是`'minute'`"
+  },
+  "u-time-picker/minTime": {
+    "type": "string",
+    "description": "最小时间"
+  },
+  "u-time-picker/maxTime": {
+    "type": "string",
+    "description": "最大时间"
+  },
+  "u-time-picker/autofocus": {
+    "type": "boolean",
+    "description": "是否自动获得焦点"
+  },
+  "u-time-picker/readonly": {
+    "type": "boolean",
+    "description": "是否只读"
+  },
+  "u-time-picker/disabled": {
+    "type": "boolean",
+    "description": "是否禁用"
+  },
+  "u-time-picker/visible": {
+    "type": "boolean",
+    "description": "是否显示"
   },
   "u-toast/position": {
     "type": "string",
@@ -2113,6 +2898,10 @@
   "u-tooltip/disabled": {
     "type": "boolean",
     "description": "是否禁用"
+  },
+  "u-tooltip/size": {
+    "type": "string",
+    "description": "大小扩展，支持一个值： `'small'`, `'normal'`, `'large'`, `'auto'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式"
   },
   "u-transfer/source": {
     "type": "Array<{ text, value }>",
@@ -2268,818 +3057,5 @@
       "huge"
     ],
     "description": "宽度大小。"
-  },
-  "u-actions/max-count": {
-    "type": "number",
-    "description": "一列最多显示链接个数"
-  },
-  "u-actions/menu-title": {
-    "type": "string",
-    "description": "菜单标题"
-  },
-  "u-actions/placement": {
-    "type": "string",
-    "description": "菜单的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',` 'left-end'`, `'right-start'`, `'right-end'`"
-  },
-  "u-action/hidden": {
-    "type": "boolean",
-    "description": "自定义显示/隐藏条件"
-  },
-  "u-action/其余属性透传": {},
-  "u-avatar/type": {
-    "type": "string",
-    "description": "头像类型。请参考上面的示例"
-  },
-  "u-button/color": {
-    "type": "string",
-    "description": "颜色扩展。可选值：`'primary'`或不填"
-  },
-  "u-button/size": {
-    "type": "string",
-    "description": "大小扩展。可选值：`'small'`或不填"
-  },
-  "u-button/square": {
-    "type": "boolean",
-    "description": "是否显示为正方形"
-  },
-  "calendar/date": {
-    "type": "Date,string",
-    "description": "当前选择的日期"
-  },
-  "calendar/min-date": {
-    "type": "Date,string",
-    "description": "最小日期，如果为空则不限制"
-  },
-  "calendar/max-date": {
-    "type": "Date,string",
-    "description": "最大日期，如果为空则不限制"
-  },
-  "calendar/year-diff": {
-    "type": "string,number",
-    "description": "当前年份往前展示的年数，例：当前为`2018`年，则从`2015`年开始展示"
-  },
-  "calendar/year-add": {
-    "type": "string,number",
-    "description": "当前年份往后展示的年数，例：当前为`2018`年，则展示至`2019`年"
-  },
-  "calendar/readonly": {
-    "type": "boolean",
-    "description": "是否只读"
-  },
-  "calendar/disabled": {
-    "type": "boolean",
-    "description": "是否禁用"
-  },
-  "u-capsules/value": {
-    "type": "any",
-    "description": "当前选择的值"
-  },
-  "u-capsules/auto-select": {
-    "type": "boolean",
-    "description": "是否自动选择第一个非禁用的项"
-  },
-  "u-capsules/cancelable": {
-    "type": "boolean",
-    "description": "是否可以取消选择"
-  },
-  "u-capsules/multiple": {
-    "type": "boolean",
-    "description": "是否可以多选"
-  },
-  "u-capsules/readonly": {
-    "type": "boolean",
-    "description": "是否只读"
-  },
-  "u-capsules/disabled": {
-    "type": "boolean",
-    "description": "是否禁用"
-  },
-  "u-capsule/value": {
-    "type": "any",
-    "description": "此项的值"
-  },
-  "u-capsule/size": {
-    "type": "string",
-    "description": "胶囊大小，可选值：`'small'`"
-  },
-  "u-capsule/selected": {
-    "type": "boolean",
-    "description": "是否选中此项"
-  },
-  "u-capsule/disabled": {
-    "type": "boolean",
-    "description": "禁用此项"
-  },
-  "u-capsule/label": {
-    "type": "string",
-    "description": "顶部自定义提示文本"
-  },
-  "u-capsule/flag": {
-    "type": "any",
-    "description": "是否右上角有flag标志"
-  },
-  "u-capsule/item": {
-    "type": "object",
-    "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
-  },
-  "cascade-capsules/data": {
-    "type": "Array<{ text, value }>",
-    "description": "数据列表"
-  },
-  "cascade-capsules/value": {
-    "type": "any",
-    "description": "当前选择的值"
-  },
-  "cascade-capsules/labelSize": {
-    "type": "string",
-    "description": "label的大小，可选值：`'small'`, `'large'`"
-  },
-  "cascade-capsules/categories": {
-    "type": "Array<{ label, key, tip }>",
-    "description": "多级分类，其中`label`为标签名，`tip`为该标签的提示"
-  },
-  "cascade-capsules/auto-select": {
-    "type": "boolean",
-    "description": "是否可自动选择"
-  },
-  "cascade-capsules/converter": {
-    "type": "string, object",
-    "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value，`'join.number'`与`join`类似，只是会考虑它为数字的情况。也可以用`:`修改分隔符，类似 Vue 的指令参数，`'last-value'`表示以最后一项的值作为 value。也可以传入一个包含 { get, set } 的一个对象"
-  },
-  "cascade-capsules/field": {
-    "type": "string",
-    "description": "显示文本字段"
-  },
-  "cascade-capsules/cancelable": {
-    "type": "boolean",
-    "description": "是否可以取消选择"
-  },
-  "cascade-capsules/readonly": {
-    "type": "boolean",
-    "description": "是否只读"
-  },
-  "cascade-capsules/disabled": {
-    "type": "boolean",
-    "description": "是否禁用"
-  },
-  "u-checkbox-card/data": {
-    "type": "array",
-    "description": "可供选择的数据"
-  },
-  "u-checkbox-card/value": {
-    "type": "Array",
-    "description": "被选中数据"
-  },
-  "u-checkbox-card/placeholder": {
-    "type": "string",
-    "description": "没有数据时的占位显示"
-  },
-  "u-checkbox-card/size": {
-    "type": "string",
-    "description": "卡片尺寸"
-  },
-  "u-checkbox-card/column": {
-    "type": "number",
-    "description": "一行固定多少个选择项，如果不传则固定单项宽度为158px，每行个数自适应行宽"
-  },
-  "u-circular-specific-progress/percent": {
-    "type": "number",
-    "description": "百分比"
-  },
-  "u-circular-specific-progress/rule": {
-    "type": "object",
-    "description": "自定义显示规则，当大于`rule.value`时，颜色由值的`rule.color`属性来决定"
-  },
-  "u-combo-slider/unit": {
-    "type": "string",
-    "description": "单位"
-  },
-  "u-combo-slider/tip": {
-    "type": "string",
-    "description": "提示"
-  },
-  "u-copy/value": {
-    "type": "string",
-    "description": "需要复制的值"
-  },
-  "u-copy/placement": {
-    "type": "string",
-    "description": "popper提示框位置，`'top'` `'right'` `'left'`"
-  },
-  "u-copy/success-text": {
-    "type": "string",
-    "description": "复制成功提示文本"
-  },
-  "u-copy/disabled": {
-    "type": "boolean",
-    "description": "是否禁止复制"
-  },
-  "u-copy/hide-delay": {
-    "type": "number",
-    "description": "popper提示框影藏消失时间"
-  },
-  "u-copy/modal-type": {
-    "type": "string",
-    "description": "复制提示弹窗类型`'popper'` `'toast'` `'none'`"
-  },
-  "count-up/start": {
-    "type": "number",
-    "description": "渐变开始数值"
-  },
-  "count-up/end": {
-    "type": "number",
-    "description": "渐变结束数值"
-  },
-  "count-up/duration": {
-    "type": "number",
-    "description": "渐变时间间隔，时间单位为秒"
-  },
-  "count-up/isEasing": {
-    "type": "boolean",
-    "description": "是否使用 动画函数`easingFn`处理数据"
-  },
-  "count-up/isGroup": {
-    "type": "boolean",
-    "description": "是否分组，默认分组分隔符`'separator'`属性值为`','`"
-  },
-  "count-up/separator": {
-    "type": "string",
-    "description": "分组分隔符"
-  },
-  "count-up/decimals": {
-    "type": "number",
-    "description": "小数点后几位"
-  },
-  "count-up/easingFn": {
-    "type": "Function",
-    "description": "自定义渐变动画，默认使用 `Robert Penner's easeOutExpo`函数"
-  },
-  "count-up/simplify": {
-    "type": "boolean",
-    "description": "是否使用自定义单位简化数据"
-  },
-  "count-up/unit": {
-    "type": "Array",
-    "description": "配合`'simplify'`属性使用的自定义单位"
-  },
-  "count-up/prefix": {
-    "type": "string",
-    "description": "前缀内容"
-  },
-  "count-up/suffix": {
-    "type": "string",
-    "description": "后缀内容"
-  },
-  "count-up/endCallback": {
-    "type": "Function",
-    "description": "渐变结束后的回调函数"
-  },
-  "count-up/autoStart": {
-    "type": "boolean",
-    "description": "是否开启渐变"
-  },
-  "date-picker/width": {
-    "type": "string, number",
-    "description": "输入框宽度"
-  },
-  "date-picker/date": {
-    "type": "string,number,Date",
-    "description": "初始日期值"
-  },
-  "date-picker/minDate": {
-    "type": "string,number,Date",
-    "description": "最小日期"
-  },
-  "date-picker/maxDate": {
-    "type": "string,number,Date",
-    "description": "最大日期"
-  },
-  "date-picker/readonly": {
-    "type": "boolean",
-    "description": "是否只读"
-  },
-  "date-picker/disabled": {
-    "type": "boolean",
-    "description": "是否禁用"
-  },
-  "date-picker/autofocus": {
-    "type": "boolean",
-    "description": "文本框默认处于focus"
-  },
-  "date-picker/placeholder": {
-    "type": "string",
-    "description": "文本框默认提示"
-  },
-  "date-picker/alignment": {
-    "type": "string",
-    "description": "日历弹窗对其方式，可选值：`left`, `right`"
-  },
-  "date-picker/time": {
-    "type": "string, number",
-    "description": "设置返回的日期的时分秒值，可选值为`start`,表示时分秒是0:00:00,`morning`:时分秒为8:00:00,`end`:表示时分秒为: 23:59:59, 输入整数表示对应的整数时刻，例如输入9代表时分秒为9:00:00,自定义时分秒请输入对应格式的字符串即可"
-  },
-  "date-picker/yeadDiff": {
-    "type": "string, number",
-    "description": "当前年份前几年"
-  },
-  "date-picker/yearAdd": {
-    "type": "string, number",
-    "description": "当前年份后几年"
-  },
-  "u-date-time-picker/date": {
-    "type": "string, number, Date",
-    "description": "显示的日期值"
-  },
-  "u-date-time-picker/minDate": {
-    "type": "string, number, Date",
-    "description": "最小日期值"
-  },
-  "u-date-time-picker/maxDate": {
-    "type": "string, number, Date",
-    "description": "最大日期值"
-  },
-  "u-date-time-picker/placeholder": {
-    "type": "string",
-    "description": "默认提示语"
-  },
-  "u-date-time-picker/autofocus": {
-    "type": "boolean",
-    "description": "是否默认处于focus状态"
-  },
-  "u-date-time-picker/disabled": {
-    "type": "boolean",
-    "description": "是否禁用"
-  },
-  "u-date-time-picker/readonly": {
-    "type": "boolean",
-    "description": "是否只读"
-  },
-  "u-date-time-picker/yearDiff": {
-    "type": "string, number",
-    "description": "最小可选年份值为当前年减去此值"
-  },
-  "u-date-time-picker/yearAdd": {
-    "type": "string, number",
-    "description": "最大可选年份值为当前年加上此值"
-  },
-  "desc-list/label-size": {
-    "type": "string",
-    "description": "标签大小。可选值：`small`、`normal`、`large`、`huge`"
-  },
-  "desc-list-item/label": {
-    "type": "string",
-    "description": "标签"
-  },
-  "desc-list-item/label-size": {
-    "type": "string",
-    "description": "标签大小。可选值：`small`、`normal`、`large`、`huge`"
-  },
-  "desc-list-group/title": {
-    "type": "string",
-    "description": "标题"
-  },
-  "desc-list-group/label-size": {
-    "type": "string",
-    "description": "标签大小。 可选值：`small`、`normal`、`large`、`huge`"
-  },
-  "u-dynamic-cards/data": {
-    "type": "Array",
-    "description": "数据"
-  },
-  "u-dynamic-cards/dynamic": {
-    "type": "boolean",
-    "description": "是否可以动态添加/删除项"
-  },
-  "u-dynamic-cards/get-default-item": {
-    "type": "Function",
-    "description": "传入获取默认项的方法"
-  },
-  "u-dynamic-cards/initial-add": {
-    "type": "boolean",
-    "description": "是否自动补充项，如果初始时`data`中的项目数少于`min-count`"
-  },
-  "u-dynamic-cards/min-count": {
-    "type": "number",
-    "description": "最小项目数"
-  },
-  "u-dynamic-cards/max-count": {
-    "type": "number",
-    "description": "最大项目数"
-  },
-  "u-dynamic-cards/text-field": {
-    "type": "string",
-    "description": "用于 mini 显示的字段"
-  },
-  "u-dynamic-cards/index": {
-    "type": "number",
-    "description": "当前展开项的索引"
-  },
-  "u-dynamic-cards/add-button-text": {
-    "type": "string",
-    "description": "添加按钮的文本"
-  },
-  "u-dynamic-cards/mini-formatter": {
-    "type": "Function",
-    "description": "mini 显示时的格式器"
-  },
-  "u-footbar/position": {
-    "type": "string",
-    "description": "显示的位置。"
-  },
-  "info-list/column": {
-    "type": "string",
-    "description": "列数。可选值：`1`、`2`、`3`、`4`"
-  },
-  "info-list/label-size": {
-    "type": "string",
-    "description": "标签大小。可选值：`small`、`normal`、`large`、`auto`"
-  },
-  "info-list-item/label": {
-    "type": "string",
-    "description": "标签"
-  },
-  "info-list-item/column": {
-    "type": "string",
-    "description": "列数。可选值：`1`、`2`、`3`、`4`"
-  },
-  "info-list-item/label-size": {
-    "type": "string",
-    "description": "标签大小。可选值：`small`、`normal`、`large`、`auto`"
-  },
-  "info-list-item/ellipsis": {
-    "type": "boolean",
-    "description": "是否换行，默认换行，值为`true`则开启不换行，超出部分显示为省略号"
-  },
-  "info-list-group/title": {
-    "type": "string",
-    "description": "标题"
-  },
-  "info-list-group/label-size": {
-    "type": "string",
-    "description": "标签大小。可选值：`small`、`normal`、`large`、`auto`"
-  },
-  "u-input/default-value": {
-    "type": "string",
-    "description": "默认值。即 reset 方法恢复的值。"
-  },
-  "u-input/size": {
-    "type": "string",
-    "description": "大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式"
-  },
-  "u-input/search": {
-    "type": "string",
-    "description": "搜索标志，支持位置自定义，默认搜索标志在最右边，值为`left`即表示搜索标志在左边"
-  },
-  "u-input/maxlengthMessage": {
-    "type": "string",
-    "description": "\b\b输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效"
-  },
-  "u-key-value/vertical": {
-    "type": "string",
-    "description": "label与value对齐方式`'top'`,`'middle'`,`'bottom'`"
-  },
-  "u-key-value/label": {
-    "type": "string",
-    "description": "label显示值"
-  },
-  "u-key-value/value": {
-    "type": "string",
-    "description": "value显示值"
-  },
-  "u-key-value/labelSize": {
-    "type": "number",
-    "description": "设置label宽度，不填label为自适应"
-  },
-  "u-key-value/labelAlignment": {
-    "type": "string",
-    "description": "label文字水平对齐方式`'left'`,`'center'`,注意此值仅在设置labelSize后生效"
-  },
-  "u-lightbox/visible": {
-    "type": "boolean",
-    "description": "是否显示"
-  },
-  "u-lightbox/maskClose": {
-    "type": "boolean",
-    "description": "点击遮罩层关闭灯箱"
-  },
-  "u-lightbox/closeButton": {
-    "type": "boolean",
-    "description": "是否显示关闭按钮"
-  },
-  "u-lightbox/loop": {
-    "type": "boolean",
-    "description": "是否可循环播放灯箱内容"
-  },
-  "u-lightbox/animation": {
-    "type": "string",
-    "description": "动画（可选fade/zoom-out）"
-  },
-  "u-lightbox/value": {
-    "type": "`any`",
-    "description": "当前选择的值"
-  },
-  "u-lightbox/zoomable": {
-    "type": "boolean",
-    "description": "灯箱是否开启缩放功能（只有当灯箱内容为图片时有效）"
-  },
-  "u-lightbox/zoomButton": {
-    "type": "boolean",
-    "description": "是否显示缩放按钮（只有当zoomable为true时有效）"
-  },
-  "u-lightbox/zoomWheel": {
-    "type": "boolean",
-    "description": "是否允许滚动鼠标缩放（只有当zoomable为true时有效）"
-  },
-  "u-lightbox/zoomMax": {
-    "type": "Integer/string",
-    "description": "设置最大放大宽度：类型为Integer时，表示灯箱最多放大次数。类型为String时，可以设置单位为px或者%。"
-  },
-  "u-lightbox/zoomMin": {
-    "type": "Integer/string",
-    "description": "设置最小宽度：同上"
-  },
-  "u-lightbox/zoomRadio": {
-    "type": "number",
-    "description": "每次放大缩小的比例"
-  },
-  "u-linear-progress/size": {
-    "type": "string",
-    "description": "高度扩展，值有`'small'`, `'normal'`, `'large'`, `'huge'`四个值"
-  },
-  "u-linear-progress/range": {
-    "type": "Array",
-    "description": "百分比范围限制"
-  },
-  "loading/size": {
-    "type": "string",
-    "description": "图标的大小。可选值：`'small'`, `'normal'`, `'large'`"
-  },
-  "u-modal/content": {
-    "type": "string",
-    "description": "弹窗的内容"
-  },
-  "u-modal/heading": {
-    "type": "string",
-    "description": "弹窗的内容"
-  },
-  "u-modal/icon": {
-    "type": "string",
-    "description": "提示图标, 可选值：`success`, `warning`, `error`"
-  },
-  "u-pills/data": {
-    "type": "Array<{ text, value }>",
-    "description": "Data书写方式中的数据列表"
-  },
-  "u-pills/value": {
-    "type": "any",
-    "description": "当前选择的值"
-  },
-  "u-pills/field": {
-    "type": "string",
-    "description": "显示文本字段"
-  },
-  "u-pills/cancelable": {
-    "type": "boolean",
-    "description": "是否可以取消选择"
-  },
-  "u-pills/multiple": {
-    "type": "boolean",
-    "description": "是否可以多选"
-  },
-  "u-pills/readonly": {
-    "type": "boolean",
-    "description": "是否只读"
-  },
-  "u-pills/disabled": {
-    "type": "boolean",
-    "description": "是否禁用"
-  },
-  "u-pill/value": {
-    "type": "any",
-    "description": "此项的值"
-  },
-  "u-pill/disabled": {
-    "type": "boolean",
-    "description": "禁用此项"
-  },
-  "u-pill/item": {
-    "type": "object",
-    "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
-  },
-  "selectable-steps/value": {
-    "type": "number",
-    "description": "当前步骤数"
-  },
-  "selectable-steps/readonly": {
-    "type": "boolean",
-    "description": "是否只读。非只读的情况下可以选择"
-  },
-  "selectable-steps/disabled": {
-    "type": "boolean",
-    "description": "是否禁用"
-  },
-  "selectable-step/title": {
-    "type": "string",
-    "description": "步骤名"
-  },
-  "selectable-step/disabled": {
-    "type": "boolean",
-    "description": "是否禁用此标签页"
-  },
-  "u-status-icon/name": {
-    "type": "string",
-    "description": "对应图标的name，"
-  },
-  "u-status-icon/size": {
-    "type": "number, string",
-    "description": "图标对应的font-size值大小"
-  },
-  "subnav/router": {
-    "type": "boolean",
-    "description": "是否根据vue-router来控制选择哪一项"
-  },
-  "subnav/value": {
-    "type": "any",
-    "description": "当前选择的值"
-  },
-  "subnav/readonly": {
-    "type": "boolean",
-    "description": "是否只读"
-  },
-  "subnav/disabled": {
-    "type": "boolean",
-    "description": "是否禁用"
-  },
-  "subnav/usage": {
-    "type": "string",
-    "description": "值为 `'tabs'`间距向上移动`'10px'`"
-  },
-  "subnav-item/value": {
-    "type": "any",
-    "description": "此项的值"
-  },
-  "subnav-item/disabled": {
-    "type": "boolean",
-    "description": "禁用此项"
-  },
-  "subnav-item/item": {
-    "type": "object",
-    "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
-  },
-  "subnav-item/href": {
-    "type": "string",
-    "description": "链接地址"
-  },
-  "subnav-item/target": {
-    "type": "string",
-    "description": "打开方式"
-  },
-  "subnav-item/to": {
-    "type": "string,  Location",
-    "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
-  },
-  "subnav-item/replace": {
-    "type": "boolean",
-    "description": "需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。"
-  },
-  "subnav-item/exact": {
-    "type": "boolean",
-    "description": "需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。"
-  },
-  "u-subtabs/value": {
-    "type": "any",
-    "description": "选中标签页的值"
-  },
-  "u-subtabs/readonly": {
-    "type": "boolean",
-    "description": "是否只读"
-  },
-  "u-subtabs/disabled": {
-    "type": "boolean",
-    "description": "是否禁用"
-  },
-  "u-subtabs/closable": {
-    "type": "boolean",
-    "description": "是否可以关闭"
-  },
-  "u-subtabs/router": {
-    "type": "boolean",
-    "description": "是否根据 vue-router 来控制选择哪个标签页"
-  },
-  "u-subtab/title": {
-    "type": "string",
-    "description": "标签页标题"
-  },
-  "u-subtab/value": {
-    "type": "any",
-    "description": "标签页的值"
-  },
-  "u-subtab/disabled": {
-    "type": "boolean",
-    "description": "是否禁用此标签页"
-  },
-  "u-subtab/href": {
-    "type": "string",
-    "description": "链接地址"
-  },
-  "u-subtab/target": {
-    "type": "string",
-    "description": "打开方式"
-  },
-  "u-subtab/to": {
-    "type": "string, Location",
-    "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
-  },
-  "u-subtab/replace": {
-    "type": "boolean",
-    "description": "需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。"
-  },
-  "u-subtab/exact": {
-    "type": "boolean",
-    "description": "需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。"
-  },
-  "u-switch/with-text": {
-    "type": "boolean",
-    "description": "是否显示开关`ON`和`OFF`文字"
-  },
-  "u-tablets/value": {
-    "type": "any",
-    "description": "当前选择的值"
-  },
-  "u-tablets/auto-select": {
-    "type": "boolean",
-    "description": "是否自动选择第一个非禁用的项"
-  },
-  "u-tablets/cancelable": {
-    "type": "boolean",
-    "description": "是否可以取消选择"
-  },
-  "u-tablets/multiple": {
-    "type": "boolean",
-    "description": "是否可以多选"
-  },
-  "u-tablets/readonly": {
-    "type": "boolean",
-    "description": "是否只读"
-  },
-  "u-tablets/disabled": {
-    "type": "boolean",
-    "description": "是否禁用"
-  },
-  "u-tablet/value": {
-    "type": "any",
-    "description": "此项的值"
-  },
-  "u-tablet/selected": {
-    "type": "boolean",
-    "description": "是否选中此项"
-  },
-  "u-tablet/disabled": {
-    "type": "boolean",
-    "description": "禁用此项"
-  },
-  "u-tablet/item": {
-    "type": "object",
-    "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
-  },
-  "u-textarea/default-value": {
-    "type": "string",
-    "description": "默认值。即 reset 方法恢复的值。"
-  },
-  "u-time-picker/time": {
-    "type": "string",
-    "description": "当前的时间值"
-  },
-  "u-time-picker/minUnit": {
-    "type": "string",
-    "description": "最小时间单位`'second'`或者是`'minute'`"
-  },
-  "u-time-picker/minTime": {
-    "type": "string",
-    "description": "最小时间"
-  },
-  "u-time-picker/maxTime": {
-    "type": "string",
-    "description": "最大时间"
-  },
-  "u-time-picker/autofocus": {
-    "type": "boolean",
-    "description": "是否自动获得焦点"
-  },
-  "u-time-picker/readonly": {
-    "type": "boolean",
-    "description": "是否只读"
-  },
-  "u-time-picker/disabled": {
-    "type": "boolean",
-    "description": "是否禁用"
-  },
-  "u-time-picker/visible": {
-    "type": "boolean",
-    "description": "是否显示"
-  },
-  "u-tooltip/size": {
-    "type": "string",
-    "description": "大小扩展，支持一个值： `'small'`, `'normal'`, `'large'`, `'auto'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式"
   }
 }

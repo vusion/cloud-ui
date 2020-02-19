@@ -1,8 +1,4 @@
 {
-  "u-logo": {
-    "attributes": [],
-    "description": "常见的网站标识。该组件作为一个示例，业务中请自行拓展。"
-  },
   "e-ripple": {
     "attributes": [
       "color"
@@ -226,6 +222,22 @@
       "item"
     ]
   },
+  "u-actions": {
+    "attributes": [
+      "max-count",
+      "menu-title",
+      "placement"
+    ],
+    "subtags": [
+      "u-action"
+    ]
+  },
+  "u-action": {
+    "attributes": [
+      "hidden",
+      "其余属性透传"
+    ]
+  },
   "u-article": {
     "attributes": []
   },
@@ -262,6 +274,48 @@
       "display"
     ]
   },
+  "calendar": {
+    "attributes": [
+      "date",
+      "min-date",
+      "max-date",
+      "year-diff",
+      "year-add",
+      "readonly",
+      "disabled"
+    ]
+  },
+  "u-capsules": {
+    "attributes": [
+      "value",
+      "auto-select",
+      "cancelable",
+      "multiple",
+      "readonly",
+      "disabled"
+    ],
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "u-capsule",
+      "u-capsule-group"
+    ]
+  },
+  "u-capsule": {
+    "attributes": [
+      "value",
+      "size",
+      "selected",
+      "disabled",
+      "label",
+      "flag",
+      "item"
+    ]
+  },
+  "u-capsule-group": {
+    "attributes": []
+  },
   "u-carousel": {
     "attributes": [
       "value",
@@ -281,6 +335,23 @@
       "value"
     ]
   },
+  "cascade-capsules": {
+    "attributes": [
+      "data",
+      "value",
+      "labelSize",
+      "categories",
+      "auto-select",
+      "converter",
+      "field",
+      "cancelable",
+      "readonly",
+      "disabled"
+    ],
+    "defaults": [
+      "v-model"
+    ]
+  },
   "u-cascade-select": {
     "attributes": [
       "data",
@@ -291,6 +362,18 @@
       "field",
       "readonly",
       "disabled"
+    ],
+    "defaults": [
+      "v-model"
+    ]
+  },
+  "u-checkbox-card": {
+    "attributes": [
+      "data",
+      "value",
+      "placeholder",
+      "size",
+      "column"
     ],
     "defaults": [
       "v-model"
@@ -322,6 +405,12 @@
   "u-circular-progress": {
     "attributes": [
       "percent"
+    ]
+  },
+  "u-circular-specific-progress": {
+    "attributes": [
+      "percent",
+      "rule"
     ]
   },
   "u-collapse": {
@@ -377,6 +466,35 @@
       "v-model"
     ]
   },
+  "u-copy": {
+    "attributes": [
+      "value",
+      "placement",
+      "success-text",
+      "disabled",
+      "hide-delay",
+      "modal-type"
+    ],
+    "description": "提供复制文本到浏览器剪切板功能"
+  },
+  "count-up": {
+    "attributes": [
+      "start",
+      "end",
+      "duration",
+      "isEasing",
+      "isGroup",
+      "separator",
+      "decimals",
+      "easingFn",
+      "simplify",
+      "unit",
+      "prefix",
+      "suffix",
+      "endCallback",
+      "autoStart"
+    ]
+  },
   "u-crumb": {
     "attributes": [
       "无"
@@ -396,6 +514,56 @@
       "disabled"
     ]
   },
+  "date-picker": {
+    "attributes": [
+      "width",
+      "date",
+      "minDate",
+      "maxDate",
+      "readonly",
+      "disabled",
+      "autofocus",
+      "placeholder",
+      "alignment",
+      "time",
+      "yeadDiff",
+      "yearAdd"
+    ]
+  },
+  "u-date-time-picker": {
+    "attributes": [
+      "date",
+      "minDate",
+      "maxDate",
+      "placeholder",
+      "autofocus",
+      "disabled",
+      "readonly",
+      "yearDiff",
+      "yearAdd"
+    ]
+  },
+  "desc-list": {
+    "attributes": [
+      "label-size"
+    ],
+    "subtags": [
+      "desc-list-item",
+      "desc-list-group"
+    ]
+  },
+  "desc-list-item": {
+    "attributes": [
+      "label",
+      "label-size"
+    ]
+  },
+  "desc-list-group": {
+    "attributes": [
+      "title",
+      "label-size"
+    ]
+  },
   "u-drawer": {
     "attributes": [
       "visible",
@@ -405,6 +573,25 @@
       "size",
       "static",
       "maskClosable"
+    ]
+  },
+  "u-dynamic-cards": {
+    "attributes": [
+      "data",
+      "dynamic",
+      "get-default-item",
+      "initial-add",
+      "min-count",
+      "max-count",
+      "text-field",
+      "index",
+      "add-button-text",
+      "mini-formatter"
+    ]
+  },
+  "u-footbar": {
+    "attributes": [
+      "position"
     ]
   },
   "u-form-table-view": {
@@ -525,6 +712,30 @@
     ],
     "description": "图标与`<u-tooltip>`的组合。"
   },
+  "info-list": {
+    "attributes": [
+      "column",
+      "label-size"
+    ],
+    "subtags": [
+      "info-list-item",
+      "info-list-group"
+    ]
+  },
+  "info-list-item": {
+    "attributes": [
+      "label",
+      "column",
+      "label-size",
+      "ellipsis"
+    ]
+  },
+  "info-list-group": {
+    "attributes": [
+      "title",
+      "label-size"
+    ]
+  },
   "u-input": {
     "attributes": [
       "type",
@@ -547,8 +758,37 @@
       "v-model"
     ]
   },
+  "u-key-value": {
+    "attributes": [
+      "vertical",
+      "label",
+      "value",
+      "labelSize",
+      "labelAlignment"
+    ],
+    "description": "最基本的键值对显示"
+  },
   "u-label": {
     "attributes": []
+  },
+  "u-lightbox": {
+    "attributes": [
+      "visible",
+      "maskClose",
+      "closeButton",
+      "loop",
+      "animation",
+      "value",
+      "zoomable",
+      "zoomButton",
+      "zoomWheel",
+      "zoomMax",
+      "zoomMin",
+      "zoomRadio"
+    ],
+    "defaults": [
+      "v-model"
+    ]
   },
   "u-linear-layout": {
     "attributes": [
@@ -640,10 +880,9 @@
   "u-list-item": {
     "attributes": []
   },
-  "u-loading": {
+  "loading": {
     "attributes": [
-      "size",
-      "display"
+      "size"
     ]
   },
   "u-menu": {
@@ -777,6 +1016,30 @@
       "disabled"
     ]
   },
+  "u-pills": {
+    "attributes": [
+      "data",
+      "value",
+      "field",
+      "cancelable",
+      "multiple",
+      "readonly",
+      "disabled"
+    ],
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "u-pill"
+    ]
+  },
+  "u-pill": {
+    "attributes": [
+      "value",
+      "disabled",
+      "item"
+    ]
+  },
   "u-popup": {
     "attributes": [
       "title",
@@ -824,11 +1087,6 @@
     "description": "该组件从 UCascadeSelect 继承，仅填充了中国的行政区数据，其他功能与 UCascadeSelect 相同。",
     "defaults": [
       "v-model"
-    ]
-  },
-  "u-sample": {
-    "attributes": [
-      "color"
     ]
   },
   "u-select": {
@@ -881,6 +1139,25 @@
   },
   "u-select-divider": {
     "attributes": []
+  },
+  "selectable-steps": {
+    "attributes": [
+      "value",
+      "readonly",
+      "disabled"
+    ],
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "selectable-step"
+    ]
+  },
+  "selectable-step": {
+    "attributes": [
+      "title",
+      "disabled"
+    ]
   },
   "u-sidebar": {
     "attributes": [
@@ -944,6 +1221,12 @@
     "attributes": [],
     "description": "与文字大小相同，一般在行内直接使用。"
   },
+  "u-status-icon": {
+    "attributes": [
+      "name",
+      "size"
+    ]
+  },
   "u-steps": {
     "attributes": [
       "value",
@@ -962,6 +1245,67 @@
       "title",
       "disabled"
     ]
+  },
+  "subnav": {
+    "attributes": [
+      "router",
+      "value",
+      "readonly",
+      "disabled",
+      "usage"
+    ],
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "subnav-item",
+      "subnav-divider"
+    ]
+  },
+  "subnav-item": {
+    "attributes": [
+      "value",
+      "disabled",
+      "item",
+      "href",
+      "target",
+      "to",
+      "replace",
+      "exact"
+    ]
+  },
+  "subnav-divider": {
+    "attributes": []
+  },
+  "u-subtabs": {
+    "attributes": [
+      "value",
+      "readonly",
+      "disabled",
+      "closable",
+      "router"
+    ],
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "u-subtab"
+    ]
+  },
+  "u-subtab": {
+    "attributes": [
+      "title",
+      "value",
+      "disabled",
+      "href",
+      "target",
+      "to",
+      "replace",
+      "exact"
+    ]
+  },
+  "u-summary-card": {
+    "attributes": []
   },
   "u-switch": {
     "attributes": [
@@ -1037,6 +1381,30 @@
   "u-table": {
     "attributes": []
   },
+  "u-tablets": {
+    "attributes": [
+      "value",
+      "auto-select",
+      "cancelable",
+      "multiple",
+      "readonly",
+      "disabled"
+    ],
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "u-tablet"
+    ]
+  },
+  "u-tablet": {
+    "attributes": [
+      "value",
+      "selected",
+      "disabled",
+      "item"
+    ]
+  },
   "u-tabs": {
     "attributes": [
       "value",
@@ -1091,6 +1459,18 @@
     "description": "多行输入组件，在原生`<textarea>`控件基础上进行了一些功能扩展。",
     "defaults": [
       "v-model"
+    ]
+  },
+  "u-time-picker": {
+    "attributes": [
+      "time",
+      "minUnit",
+      "minTime",
+      "maxTime",
+      "autofocus",
+      "readonly",
+      "disabled",
+      "visible"
     ]
   },
   "u-toast": {
@@ -1207,400 +1587,5 @@
   },
   "l-wrapper": {
     "attributes": []
-  },
-  "u-actions": {
-    "attributes": [
-      "max-count",
-      "menu-title",
-      "placement"
-    ],
-    "subtags": [
-      "u-action"
-    ]
-  },
-  "u-action": {
-    "attributes": [
-      "hidden",
-      "其余属性透传"
-    ]
-  },
-  "calendar": {
-    "attributes": [
-      "date",
-      "min-date",
-      "max-date",
-      "year-diff",
-      "year-add",
-      "readonly",
-      "disabled"
-    ]
-  },
-  "u-capsules": {
-    "attributes": [
-      "value",
-      "auto-select",
-      "cancelable",
-      "multiple",
-      "readonly",
-      "disabled"
-    ],
-    "defaults": [
-      "v-model"
-    ],
-    "subtags": [
-      "u-capsule",
-      "u-capsule-group"
-    ]
-  },
-  "u-capsule": {
-    "attributes": [
-      "value",
-      "size",
-      "selected",
-      "disabled",
-      "label",
-      "flag",
-      "item"
-    ]
-  },
-  "u-capsule-group": {
-    "attributes": []
-  },
-  "cascade-capsules": {
-    "attributes": [
-      "data",
-      "value",
-      "labelSize",
-      "categories",
-      "auto-select",
-      "converter",
-      "field",
-      "cancelable",
-      "readonly",
-      "disabled"
-    ],
-    "defaults": [
-      "v-model"
-    ]
-  },
-  "u-checkbox-card": {
-    "attributes": [
-      "data",
-      "value",
-      "placeholder",
-      "size",
-      "column"
-    ],
-    "defaults": [
-      "v-model"
-    ]
-  },
-  "u-circular-specific-progress": {
-    "attributes": [
-      "percent",
-      "rule"
-    ]
-  },
-  "u-copy": {
-    "attributes": [
-      "value",
-      "placement",
-      "success-text",
-      "disabled",
-      "hide-delay",
-      "modal-type"
-    ],
-    "description": "提供复制文本到浏览器剪切板功能"
-  },
-  "count-up": {
-    "attributes": [
-      "start",
-      "end",
-      "duration",
-      "isEasing",
-      "isGroup",
-      "separator",
-      "decimals",
-      "easingFn",
-      "simplify",
-      "unit",
-      "prefix",
-      "suffix",
-      "endCallback",
-      "autoStart"
-    ]
-  },
-  "date-picker": {
-    "attributes": [
-      "width",
-      "date",
-      "minDate",
-      "maxDate",
-      "readonly",
-      "disabled",
-      "autofocus",
-      "placeholder",
-      "alignment",
-      "time",
-      "yeadDiff",
-      "yearAdd"
-    ]
-  },
-  "u-date-time-picker": {
-    "attributes": [
-      "date",
-      "minDate",
-      "maxDate",
-      "placeholder",
-      "autofocus",
-      "disabled",
-      "readonly",
-      "yearDiff",
-      "yearAdd"
-    ]
-  },
-  "desc-list": {
-    "attributes": [
-      "label-size"
-    ],
-    "subtags": [
-      "desc-list-item",
-      "desc-list-group"
-    ]
-  },
-  "desc-list-item": {
-    "attributes": [
-      "label",
-      "label-size"
-    ]
-  },
-  "desc-list-group": {
-    "attributes": [
-      "title",
-      "label-size"
-    ]
-  },
-  "u-dynamic-cards": {
-    "attributes": [
-      "data",
-      "dynamic",
-      "get-default-item",
-      "initial-add",
-      "min-count",
-      "max-count",
-      "text-field",
-      "index",
-      "add-button-text",
-      "mini-formatter"
-    ]
-  },
-  "u-footbar": {
-    "attributes": [
-      "position"
-    ]
-  },
-  "info-list": {
-    "attributes": [
-      "column",
-      "label-size"
-    ],
-    "subtags": [
-      "info-list-item",
-      "info-list-group"
-    ]
-  },
-  "info-list-item": {
-    "attributes": [
-      "label",
-      "column",
-      "label-size",
-      "ellipsis"
-    ]
-  },
-  "info-list-group": {
-    "attributes": [
-      "title",
-      "label-size"
-    ]
-  },
-  "u-key-value": {
-    "attributes": [
-      "vertical",
-      "label",
-      "value",
-      "labelSize",
-      "labelAlignment"
-    ],
-    "description": "最基本的键值对显示"
-  },
-  "u-lightbox": {
-    "attributes": [
-      "visible",
-      "maskClose",
-      "closeButton",
-      "loop",
-      "animation",
-      "value",
-      "zoomable",
-      "zoomButton",
-      "zoomWheel",
-      "zoomMax",
-      "zoomMin",
-      "zoomRadio"
-    ],
-    "defaults": [
-      "v-model"
-    ]
-  },
-  "loading": {
-    "attributes": [
-      "size"
-    ]
-  },
-  "u-pills": {
-    "attributes": [
-      "data",
-      "value",
-      "field",
-      "cancelable",
-      "multiple",
-      "readonly",
-      "disabled"
-    ],
-    "defaults": [
-      "v-model"
-    ],
-    "subtags": [
-      "u-pill"
-    ]
-  },
-  "u-pill": {
-    "attributes": [
-      "value",
-      "disabled",
-      "item"
-    ]
-  },
-  "selectable-steps": {
-    "attributes": [
-      "value",
-      "readonly",
-      "disabled"
-    ],
-    "defaults": [
-      "v-model"
-    ],
-    "subtags": [
-      "selectable-step"
-    ]
-  },
-  "selectable-step": {
-    "attributes": [
-      "title",
-      "disabled"
-    ]
-  },
-  "u-status-icon": {
-    "attributes": [
-      "name",
-      "size"
-    ]
-  },
-  "subnav": {
-    "attributes": [
-      "router",
-      "value",
-      "readonly",
-      "disabled",
-      "usage"
-    ],
-    "defaults": [
-      "v-model"
-    ],
-    "subtags": [
-      "subnav-item",
-      "subnav-divider"
-    ]
-  },
-  "subnav-item": {
-    "attributes": [
-      "value",
-      "disabled",
-      "item",
-      "href",
-      "target",
-      "to",
-      "replace",
-      "exact"
-    ]
-  },
-  "subnav-divider": {
-    "attributes": []
-  },
-  "u-subtabs": {
-    "attributes": [
-      "value",
-      "readonly",
-      "disabled",
-      "closable",
-      "router"
-    ],
-    "defaults": [
-      "v-model"
-    ],
-    "subtags": [
-      "u-subtab"
-    ]
-  },
-  "u-subtab": {
-    "attributes": [
-      "title",
-      "value",
-      "disabled",
-      "href",
-      "target",
-      "to",
-      "replace",
-      "exact"
-    ]
-  },
-  "u-summary-card": {
-    "attributes": []
-  },
-  "u-tablets": {
-    "attributes": [
-      "value",
-      "auto-select",
-      "cancelable",
-      "multiple",
-      "readonly",
-      "disabled"
-    ],
-    "defaults": [
-      "v-model"
-    ],
-    "subtags": [
-      "u-tablet"
-    ]
-  },
-  "u-tablet": {
-    "attributes": [
-      "value",
-      "selected",
-      "disabled",
-      "item"
-    ]
-  },
-  "u-time-picker": {
-    "attributes": [
-      "time",
-      "minUnit",
-      "minTime",
-      "maxTime",
-      "autofocus",
-      "readonly",
-      "disabled",
-      "visible"
-    ]
   }
 }
