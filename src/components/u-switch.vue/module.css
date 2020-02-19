@@ -7,7 +7,7 @@
     user-select: none;
     cursor: var(--cursor-pointer);
     width: var(--switch-width);
-    border-radius: var(--switch-border-radius);
+    border-radius: 100px;
     background: var(--switch-background);
     color: var(--switch-color);
     transition: var(--switch-transition);

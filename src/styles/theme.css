@@ -398,14 +398,14 @@
     --combo-pagination-jumper-width: 50px;
 
     /* Form */
-    --form-item-label-padding-right: 5px;
-    --form-item-label-width: 80px;
-    --form-required-color: var(--brand-error);
-    --form-message-margin-left: 5px;
-    --form-message-padding: 0 5px;
+    --form-item-label-padding-right: 10px;
+    --form-item-label-width: 120px;
+    --form-required-color: red;
+    --form-message-margin-left: 10px;
+    --form-message-padding: 0 10px;
     --form-message-background: var(--background-color-base);
-    --form-message-background-error: var(--brand-error);
-    --form-message-color-error: var(--color-white);
+    --form-message-background-error: #ff867f;
+    --form-message-color-error: white;
 
     /* Validator */
     --validator-message-padding: 0 5px;
@@ -415,82 +415,81 @@
     --validator-message-color-error: white;
 
     /* Input */
-    --input-background-disabled: var(--brand-disabled-light);
-    --input-border-color-error: var(--brand-error);
-    --input-border-color-focus: var(--brand-primary);
-    --input-placeholder-color: var(--brand-tip-color);
-    --input-clearable-color: var(--brand-tip-color);
     --input-width: var(--width-base);
     --input-height: var(--height-base);
-    --input-padding: 0 8px;
+    --input-padding: 0 10px;
     --input-border-width: 1px;
-    --input-background: white;
-    --input-border-color: var(--border-color-base);
-    --input-border-radius: var(--border-radius-base);
+    --input-background: var(--color-white);
+    --input-background-disabled: #cddae9;
+    --input-border-color: #e1e8ed;
+    --input-border-color-error: #ff867f;
+    --input-border-color-focus: #8ebee9;
+    --input-placeholder-color: #999;
+    --input-clearable-color: #a7afbb;
+    --input-border-radius: 3px;
 
     /* Textarea */
-    --textarea-width: 320px;
+    --textarea-width: 160px;
     --textarea-width-mini: var(--width-base);
-    --textarea-height: 120px;
+    --textarea-height: 80px;
     --textarea-min-height: var(--height-base);
-    --textarea-padding: 4px 8px;
+    --textarea-padding: 5px 10px;
 
     /* Number Input */
     --number-input-height: 14px;
-    --number-input-line-height: var(--number-input-height);
     --number-input-padding: 0 4px;
-    --number-input-background: var(--background-color-base);
-    --number-input-background-hover: var(--background-color-dark);
-    --number-input-background-active: var(--number-input-background-hover);
-    --number-input-background-disabled: var(--background-color-base);
-    --number-input-background-readonly: var(--background-color-base);
-    --number-input-color-disabled: var(--brand-disabled);
+    --number-input-button-background: none;
+    --number-input-button-background-hover: none;
+    --number-input-button-background-active: none;
+    --number-input-button-background-disabled: none;
+    --number-input-button-color-disabled: var(--brand-disabled);
 
-    /* Checkboxes */
-    --checkboxes-item-margin-right: 40px;
-    --checkbox-size: 18px;
-
-    /* Radios */
-    --radios-item-margin-right: 40px;
+    /* Radio */
+    --radio-space-x: 80px;
     --radio-size: 18px;
 
+    /* Checkbox */
+    --checkbox-space-x: 80px;
+    --checkbox-size: 18px;
+    --checkbox-border-radius: 3px;
+
     /* Switch */
+    --switch-width: 44px;
+    --switch-width-wide: 54px;
     --switch-height: 22px;
+    --switch-button-space: 2px;
     --switch-button-size: 18px;
-    --switch-button-background: white;
-    --switch-button-transition: all 0.3s;
+    --switch-button-background: var(--color-white);
     --switch-button-radius: 100px;
     --switch-background: var(--border-color-base);
     --switch-background-checked: var(--brand-primary);
     --switch-background-disabled: var(--background-color-base);
-    --switch-color: white;
-    --switch-transition: background-color 0.3s;
-    --switch-width: 44px;
-    --switch-width-wide: 54px;
-    --switch-border-radius: 100px;
+    --switch-color: var(--color-white);
     --switch-text-margin: 0 5px;
-    --switch-button-space: 2px;
+    --switch-transition: background-color var(--transition-duration-base);
+    --switch-button-transition: all var(--transition-duration-base);
 
     /* Select */
-    --select-border-width: 1px;
-    --select-border-color: var(--border-color-base);
-    --select-item-hover: none;
-    --select-large-width: 260px;
-    --select-large-height: 36px;
-    --select-small-width: 120px;
-    --select-small-height: 30px;
-    --select-small-popper-line-height: 1.6;
-    --select-popper-line-height: 1.6;
     --select-width: var(--width-base);
+    --select-width-small: 120px;
+    --select-width-large: 260px;
     --select-height: var(--height-base);
-    --select-padding-right: 26px;
-    --select-padding: 0 var(--select-padding-right) 0 8px;
-    --select-background: white;
-    --select-background-disabled: var(--brand-disabled-light);
+    --select-height-small: 30px;
+    --select-height-large: 36px;
+    --select-padding-right: 20px;
+    --select-padding: 0 var(--select-padding-right) 0 14px;
+    --select-background: var(--color-white);
+    --select-background-disabled: #cddae9;
+    --select-border-width: 1px;
+    --select-border-color: #e1e8ed;
+    --select-item-hover: #f5f7fa;
+    --select-popper-max-height: 180px;
+    --select-popper-line-height: 1.6;
+    --select-popper-line-height-small: 1.6;
     --select-placeholder-color: var(--brand-tip-color);
-    --select-arrow-color: var(--brand-tip-color);
+    --select-arrow-color: #a5a5a6;
     --select-tags-padding-y: 2px;
-    --select-tags-padding: var(--select-tags-padding-y) var(--select-padding-right)  var(--select-tags-padding-y) 4px;
+    --select-tags-padding: 2px 26px 2px 4px;
     --select-tags-line-height: 26px;
     --select-tags-filterable-width: 40px;
     --select-tag-line-height: calc(var(--select-tags-line-height) - var(--select-tags-padding-y) * 2);
@@ -499,49 +498,47 @@
     --select-tag-margin-x: 4px;
     --select-tag-remove-color: var(--brand-tip-color);
     --select-tag-remove-color-hover: var(--color-base);
-    --select-popper-border-color: var(--border-color-base);
     --select-popper-background: white;
-    --select-popper-max-height: 180px;
+    --select-popper-border-color: #dfe4ec;
     --select-status-color: var(--gray-dark);
 
     /* Slider */
     --slider-body-margin: 0 10px;
-    --slider-body-padding: 6px 0;
-    --slider-track-background: var(--background-color-base);
+    --slider-body-padding: 9px 0;
+    --slider-track-height: 6px;
+    --slider-track-background: #e6e6e6;
     --slider-trail-background: var(--brand-primary);
     --slider-trail-background-disabled: var(--brand-disabled);
-    --slider-track-height: 8px;
-    --slider-bound-background: rgba(255, 255, 255, 0.4);
-    --slider-handle-background: white;
-    --slider-handle-width: 20px;
-    --slider-handle-height: 20px;
-    --slider-handle-size: 100px;
+    --slider-bound-background: url("../assets/images/stripe.png") repeat-x;
+    --slider-handle-width: 14px;
+    --slider-handle-height: 24px;
+    --slider-handle-background: var(--color-white);
     --slider-handle-border: 1px solid #ddd;
 
     /* Combo Slider */
-    --combo-slider-slider-width: 160px;
-    --combo-slider-input-width: 60px;
-    --combo-slider-input-left: 10px;
+    --combo-slider-slider-width: 100%;
+    --combo-slider-input-width: 50px;
+    --combo-slider-input-margin-left: 10px;
 
     /* List View */
-    --list-view-background: white;
-    --list-view-border-color: var(--border-color-base);
-    --list-view-border-color-focus: var(--brand-primary);
+    --list-view-background: var(--color-white);
+    --list-view-border-color: #e1e8ed;
+    --list-view-border-color-focus: #e1e8ed;
     --list-view-status-color: var(--gray-dark);
+    --list-view-item-padding: 4px 12px;
+    --list-view-item-background-hover: #f5f7fa;
+    --list-view-item-background-readonly: none;
+    --list-view-item-background-focused: var(--background-color-base);
+    --list-view-item-background-selected: var(--brand-primary);
+    --list-view-item-color-selected: var(--color-white);
+    --list-view-item-color-disabled: #ccc;
+    --list-view-item-background-disabled: none;
+    --list-view-item-background-selected-disabled: var(--brand-disabled-light);
     --list-view-divider-margin: 9px 0;
     --list-view-divider-background: var(--border-color-base);
     --list-view-group-head-padding: 2px 4px;
-    --list-view-group-expander-size: 26px;
-    --list-view-item-padding: 4px 12px;
-    --list-view-item-hover-background: var(--background-color-base);
-    --list-view-item-readonly-background: none;
-    --list-view-item-focused-background: var(--background-color-base);
-    --list-view-item-selected-background: var(--brand-primary);
-    --list-view-item-selected-color: white;
-    --list-view-item-disabled-color: var(--brand-disabled);
-    --list-view-item-disabled-background: none;
     --list-view-group-head-background: #ebedf5;
-    --list-view-item-selected-disabled-background: var(--brand-disabled-light);
+    --list-view-group-expander-size: 26px;
 
     /* Tree View */
     --tree-view-background: white;
@@ -550,9 +547,9 @@
     --tree-view-node-text-padding: 4px 12px;
     --tree-view-node-background-active: var(--background-color-base);
     --tree-view-node-background-selected: var(--brand-primary);
-    --tree-view-node-selected-text-color: white;
-    --tree-view-node-selected-expander-color: white;
-    --tree-view-node-disabled-color: var(--brand-disabled);
+    --tree-view-node-color-selected: var(--color-white);
+    --tree-view-node-color-disabled: var(--brand-disabled);
+    --tree-view-node-expander-color-selected: var(--color-white);
     --tree-view-node-background-readonly: none;
     --tree-view-node-background-disabled: none;
     --tree-view-node-background-selected-disabled: var(--brand-disabled-light);
@@ -712,9 +709,6 @@
     --field-disabled-color: #bbb;
     --field-selected-color: var(--brand-primary);
 
-    --checkbox-size: 18px;
-    --radio-size: 18px;
-
     --circular-progress-size-base: 100px;
     --circular-progress-font-size-base: 18px;
     --circular-progress-text-line-height: normal;
@@ -729,9 +723,6 @@
     --popup-arrow-size: 8px;
     --popup-outer-arrow-size: calc(var(--popup-arrow-size) + 1px);
     --popup-arrow-offset: 16px;
-
-    --switch-height: 22px;
-    --switch-button-size: 18px;
 
     --toast-margin: 30px;
 
@@ -832,87 +823,13 @@
 
     --lightbox-head-height: 64px;
 
-    /* Checkbox */
-    --checkbox-border-radius: 3px;
-    --checkboxes-item-margin-right: 80px;
-
     /* Circular-progress */
-
-    --combo-slider-slider-width: 160px;
-    --combo-slider-input-width: 60px;
-    --combo-slider-input-left: 10px;
-
-    --form-item-label-padding-right: 10px;
-    --form-required-color: red;
-    --form-message-margin-left: 10px;
-    --form-message-padding: 0 10px;
-    --form-message-background-error: #ff867f;
-    --form-message-color-error: white;
-
-    --form-item-label-width: 120px;
-
-    --input-padding: 0 10px;
-    --input-border-color: #e1e8ed;
-    --input-border-radius: 3px;
-    --input-placeholder-color: #999;
-    --input-clearable-color: #a7afbb;
-    --input-border-color-focus: #8ebee9;
-
-    --input-background-disabled: #cddae9;
-    --input-border-color-error: #ff867f;
-
     --linear-progress-height-base: 4px;
     --linear-progress-height-small: 2px;
     --linear-progress-height-large: 8px;
     --linear-progress-height-huge: 12px;
 
-    --list-view-item-hover-background: #f5f7fa;
-    --list-view-item-selected-background: var(--brand-primary);
-    --list-view-item-disabled-background: none;
-    --list-view-item-disabled-color: #ccc;
-    --list-view-border-color: #e1e8ed;
-    --list-view-border-color-focus: #e1e8ed;
-
-    --number-input-background: none;
-    --number-input-background-hover: none;
-    --number-input-background-active: none;
-    --number-input-background-disabled: none;
-    --number-input-background-readonly: none;
-    --number-input-background-disabled: none;
-
-    --radios-item-margin-right: 80px;
-
-    --select-item-hover: #f5f7fa;
-    --select-tags-padding: 2px 26px 2px 4px;
-
-    --select-height: var(--height-base);
-    --select-border-width: 1px;
-    --select-border-color: #e1e8ed;
-    --select-background: white;
-    --select-padding-right: 20px;
-    --select-padding: 0 var(--select-padding-right) 0 14px;
-    --select-arrow-color: #a5a5a6;
-    --select-background-disabled: #cddae9;
-    --select-popper-border-color: #dfe4ec;
-    --select-popper-background: white;
-    --select-popper-max-height: 180px;
-
-    --slider-body-padding: 9px 0;
-    --slider-track-height: 6px;
-    --slider-track-background: #e6e6e6;
-    --slider-bound-background: url("../assets/images/stripe.png") repeat-x;
-    --slider-handle-width: 14px;
-    --slider-handle-height: 24px;
-
     --spinner-animation: spin 1s infinite linear;
-
-    --switch-transition: background-color 0.2s;
-    --switch-button-transition: all 0.2s;
-
-    --textarea-width: 160px;
-    --textarea-height: 80px;
-    --textarea-min-height: var(--height-base);
-    --textarea-padding: 5px 10px;
 
     --tooltip-padding: 8px 12px;
 

@@ -5,14 +5,14 @@
     position: absolute;
     right: 1px;
     height: var(--number-input-height);
-    line-height: var(--number-input-line-height);
+    line-height: var(--number-input-height);
     padding: var(--number-input-padding);
     cursor: var(--cursor-pointer);
-    background: var(--number-input-background);
+    background: var(--number-input-button-background);
 }
 
 .button:hover {
-    background: var(--number-input-background-hover);
+    background: var(--number-input-button-background-hover);
 }
 
 .button:focus {
@@ -20,40 +20,7 @@
 }
 
 .button:active {
-    background: var(--number-input-background-active);
-}
-
-.button[role="up"] {
-    top: 1px;
-}
-
-.button[role="up"]::before {
-    icon-font: url('../i-icon.vue/assets/arrow-up.svg');
-}
-
-.button[role="down"] {
-    bottom: 1px;
-}
-
-.button[role="down"]::before {
-    icon-font: url('../i-icon.vue/assets/arrow-down.svg');
-}
-
-.button[disabled] {
-    background: var(--number-input-background-disabled);
-    color: var(--number-input-color-disabled);
-    cursor: var(--cursor-not-allowed);
-}
-
-.root[readonly] .button {
-    background: var(--number-input-background-readonly);
-    cursor: default;
-}
-
-.root[disabled] .button {
-    background: var(--number-input-background-disabled);
-    color: var(--number-input-color-disabled);
-    cursor: var(--cursor-not-allowed);
+    background: var(--number-input-button-background-active);
 }
 
 .button[role="up"] {
@@ -72,18 +39,14 @@
     icon-font: url("../i-icon.vue/icons/keyboard-arrow-down.svg");
 }
 
-.button[class]::before {
+.button::before {
     width: 1em;
     display: inline-block;
     font-size: 16px;
     color: #989898;
 }
 
-.button[disabled] {
-    opacity: 0.65;
-}
-
-.button[class]:hover::before {
+.button:hover::before {
     color: var(--brand-primary);
 }
 
@@ -94,3 +57,21 @@
 .root[readonly] .button:hover::before { color: #989898; }
 
 .root[disabled] .button:hover::before { color: #989898; }
+
+.button[disabled] {
+    background: var(--number-input-button-background-disabled);
+    color: var(--number-input-button-color-disabled);
+    cursor: var(--cursor-not-allowed);
+    opacity: 0.65;
+}
+
+.root[readonly] .button {
+    background: var(--number-input-button-background);
+    cursor: default;
+}
+
+.root[disabled] .button {
+    background: var(--number-input-button-background-disabled);
+    color: var(--number-input-button-color-disabled);
+    cursor: var(--cursor-not-allowed);
+}

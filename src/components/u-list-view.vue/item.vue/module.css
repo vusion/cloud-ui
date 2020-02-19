@@ -10,30 +10,30 @@
 }
 
 .root:hover {
-    background: var(--list-view-item-hover-background);
+    background: var(--list-view-item-background-hover);
 }
 
 .root[readonly] {
     cursor: default;
-    background: var(--list-view-item-readonly-background);
+    background: var(--list-view-item-background-readonly);
 }
 
 .root[focused] {
-    background: var(--list-view-item-focused-background);
+    background: var(--list-view-item-background-focused);
 }
 
 .root[selected] {
-    background: var(--list-view-item-selected-background);
-    color: var(--list-view-item-selected-color);
+    background: var(--list-view-item-background-selected);
+    color: var(--list-view-item-color-selected);
 }
 
 .root[disabled] {
     /* @Private */
     cursor: var(--cursor-not-allowed);
-    background: var(--list-view-item-disabled-background);
-    color: var(--list-view-item-disabled-color);
+    background: var(--list-view-item-background-disabled);
+    color: var(--list-view-item-color-disabled);
 }
 
 .root[selected][disabled] {
-    background: var(--list-view-item-selected-disabled-background);
+    background: var(--list-view-item-background-selected-disabled);
 }
