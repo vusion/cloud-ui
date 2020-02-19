@@ -14,7 +14,7 @@ module.exports = {
         package: pkg,
         navbar: [
             { text: '设计语言', to: '/design' },
-            { text: '核心组件', to: '/components' },
+            { text: '基础组件', to: '/components' },
             { text: '指令和工具', to: '/misc' },
             { text: '布局', to: '/layouts' },
         ],
