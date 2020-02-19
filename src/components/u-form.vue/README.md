@@ -163,9 +163,7 @@ MField 作为各种表单域（表单控件）的基类，用于触发 UValidato
             用户名
         </span>
         <div slot="description">描述描述</div>
-        <i-icon name="alert" size="small" slot="extra">
-            <u-tooltip content="请输入正确格式的中文汉字"></u-tooltip>
-        </i-icon>
+        <u-icon-tooltip slot="extra" content="请输入正确格式的中文汉字"></u-icon-tooltip>
         <u-input maxlength="4" maxlength-message="不超过4个字符" placeholder="不超过4个字符"></u-input>
     </u-form-item>
 </u-form>
@@ -395,6 +393,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event.trigger | enum | 本次验证的触发方式 |
 | $event.valid | boolean | 验证是否通过 |
 | $event.touched | boolean | 用户是否触碰 |
 | $event.dirty | boolean | 用户是否修改值 |

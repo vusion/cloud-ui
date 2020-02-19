@@ -58,6 +58,32 @@
 </u-steps>
 ```
 
+### 工具提示
+
+设置`tooltip`属性或`tooltip`插槽，可以添加工具提示。
+
+``` html
+<u-steps :value="1" :readonly="false">
+    <u-step tooltip="使用属性添加工具提示"></u-step>
+    <u-step>
+        <div slot="tooltip">使用 Slot 添加工具提示</div>
+    </u-step>
+    <u-step>
+        <div slot="tooltip">使用 Slot 添加工具提示</div>
+    </u-step>
+</u-steps>
+```
+
+### 图形大小
+
+``` html
+<u-steps :value="1" :readonly="false" shape-size="large">
+    <u-step title="Step1">Content1</u-step>
+    <u-step title="Step2">Content2</u-step>
+    <u-step title="Step3">Content3</u-step>
+</u-steps>
+```
+
 ### 禁用
 
 ``` html
