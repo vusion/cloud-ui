@@ -1,4 +1,7 @@
+import { MEmitter } from '../m-emitter.vue';
+
 import i18n from './i18n';
+import ajax from './ajax';
 
 const SIZE_UNITS = {
     kB: 1024,
@@ -9,36 +12,165 @@ const SIZE_UNITS = {
 
 export const UUploader = {
     name: 'u-uploader',
+    mixins: [MEmitter],
     i18n,
     props: {
-        url: String,
+        value: { type: Array, default: () => [] },
+        url: { type: String, required: true },
+        name: { type: String, default: 'file' },
+        accept: String,
+        headers: { type: Object, default: () => ({}) },
+        multiple: { type: Boolean, default: false },
+        directory: { type: Boolean, default: false },
         dataType: { type: String, default: 'json' },
         data: { type: Object, default: () => ({}) },
-        name: { type: String, default: 'file' },
         extensions: { type: [String, Array], default: '' },
         maxSize: { type: [String, Number], default: Infinity },
+        autoUpload: { type: Boolean, default: true },
+        showFileList: { type: Boolean, default: true },
         disabled: { type: Boolean, default: false },
     },
     data() {
         return {
+            currentValue: this.value,
             contentType: 'multipart/form-data',
             sending: false,
             file: {},
-            tempId: new Date().getTime(),
+            iframeName: 'iframe-' + new Date().getTime(),
         };
     },
+    watch: {
+        value(value) {
+            this.currentValue = this.value;
+        },
+        currentValue: {
+            immediate: true,
+            handler(currentValue, oldValue) {
+                this.$emit('change', {
+                    value: currentValue,
+                    oldValue,
+                }, this);
+            },
+        },
+    },
     methods: {
-        /**
-         * @method upload() 弹出文件对话框并且上传文件
-         * @public
-         * @return {void}
-         */
-        upload() {
+        select() {
             if (this.disabled || this.sending)
                 return;
 
             this.$refs.file.value = '';
             this.$refs.file.click();
+        },
+        onChange(e) {
+            const fileEl = e.target;
+
+            let files = fileEl.files;
+            if (!files && fileEl.value) { // 老版浏览器不支持 files
+                const arr = fileEl.value.split(/[\\/]/g);
+                files = [{
+                    name: arr[arr.length - 1],
+                    size: 0,
+                }];
+            }
+
+            if (!files)
+                return;
+
+            this.uploadFiles(files);
+        },
+        uploadFiles(files) {
+            files = Array.from(files);
+            if (!this.multiple)
+                files = files.slice(0, 1);
+            if (files.length === 0)
+                return;
+
+            files.forEach((file) => {
+                this.upload(file);
+            });
+        },
+        upload(file) {
+            if (this.$emitPrevent('before-upload', {
+                file,
+            }, this))
+                return;
+
+            // check format
+            // if (this.format.length) {
+            //     const _file_format = file.name.split('.').pop().toLocaleLowerCase();
+            //     const checked = this.format.some(item => item.toLocaleLowerCase() === _file_format);
+            //     if (!checked) {
+            //         this.onFormatError(file, this.fileList);
+            //         return false;
+            //     }
+            // }
+
+            // check maxSize
+            // if (this.maxSize) {
+            //     if (file.size > this.maxSize * 1024) {
+            //         this.onExceededSize(file, this.fileList);
+            //         return false;
+            //     }
+            // }
+
+            if (this.autoUpload) {
+                this.post(file);
+            }
+        },
+        post(file) {
+            const item = {
+                uid: file.uid !== undefined ? file.uid : Date.now() + this.currentValue.length,
+                status: 'uploading',
+                name: file.name,
+                size: file.size,
+                percent: 0,
+                showProgress: true,
+            };
+            if (!this.multiple)
+                this.currentValue.splice(0, this.currentValue.length);
+            this.currentValue.push(item);
+
+            const xhr = ajax({
+                url: this.url,
+                headers: this.headers,
+                withCredentials: this.withCredentials,
+                file,
+                data: this.data,
+                filename: this.name,
+                onProgress: (e) => {
+                    item.percent = e.percent;
+
+                    this.$emit('progress', {
+                        e, file, item, xhr,
+                    }, this);
+                },
+                onSuccess: (res) => {
+                    item.status = 'success';
+                    item.response = res;
+
+                    this.$emit('success', {
+                        res,
+                        file,
+                        item,
+                        xhr,
+                    }, this);
+                    setTimeout(() => {
+                        item.showProgress = false;
+                    }, 1000);
+                },
+                onError: (e, res) => {
+                    // const fileList = this.fileList;
+                    item.status = 'error';
+                    // fileList.splice(fileList.indexOf(_file), 1);
+                    this.$emit('error', {
+                        e,
+                        res,
+                        file,
+                        item,
+                        xhr,
+                    }, this);
+                },
+            });
         },
         /**
          * @method checkExtensions(file) 检查扩展名
@@ -114,107 +246,77 @@ export const UUploader = {
 
             return false;
         },
-        /**
-         * @method submit() 提交表单
-         * @private
-         * @return {void}
-         */
-        submit() {
-            const file = this.$refs.file.files ? this.$refs.file.files[0] : {
-                name: this.$refs.file.value,
-                size: 0,
-            };
+        // submit() {
+        //     // if (!file || !file.name || !this.checkExtensions(file) || !this.checkSize(file))
+        //     //     return;
 
-            if (!file || !file.name || !this.checkExtensions(file) || !this.checkSize(file))
-                return;
+        //     const fileName = file.name;
+        //     this.file = {
+        //         name: fileName,
+        //         extName: fileName.includes('.') ? fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length).toLowerCase() : undefined,
+        //         size: file.size,
+        //     };
 
-            const fileName = file.name;
-            this.file = {
-                name: fileName,
-                extName: fileName.includes('.') ? fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length).toLowerCase() : undefined,
-                size: file.size,
-            };
+        //     if (typeof FormData === 'undefined') { // IE9 不支持 XHR2 相关功能
+        //         let cancel = false;
+        //         this.$emit('before-send', {
+        //             data: this.data,
+        //             file,
+        //             files,
+        //             preventDefault: () => cancel = true,
+        //         }, this);
+        //         if (cancel)
+        //             return;
 
-            if (typeof FormData === 'undefined') { // IE9 不支持 XHR2 相关功能
-                /**
-                 * @event sending 发送前触发
-                 * @property {object} data 待发送的数据
-                 */
-                let cancel = false;
-                this.$emit('before-send', {
-                    data: this.data,
-                    file,
-                    files: this.$refs.file.files,
-                    preventDefault: () => cancel = true,
-                }, this);
-                if (cancel)
-                    return;
+        //         this.sending = true;
+        //         this.$refs.form.submit();
+        //     } else {
+        //         const formData = new FormData(this.$refs.form);
 
-                this.sending = true;
-                this.$refs.form.submit();
-            } else {
-                const xhr = new XMLHttpRequest();
-                const formData = new FormData(this.$refs.form);
+        //         xhr.onreadystatechange = () => {
+        //             if (xhr.readyState === 4) {
+        //                 if (xhr.status === 200)
+        //                     this.onLoad(xhr.responseText, xhr.responseXML);
+        //                 else {
+        //                     if (!this.sending)
+        //                         return;
+        //                     this.sending = false;
+        //                     this.file = null;
+        //                     this.$emit('error', {
+        //                         name: 'ResponseError',
+        //                         message: 'No responseText!',
+        //                         xhr,
+        //                     }, this);
+        //                 }
+        //             }
+        //         };
 
-                xhr.open('POST', this.url);
-                xhr.upload.onprogress = function (e) {
-                    if (e.lengthComputable) {
-                        /**
-                        * @event progress 发送中触发
-                        * @property {object} data 待发送的数据
-                        */
-                        this.$emit('progress', {
-                            loaded: e.loaded,
-                            total: e.total,
-                            xhr,
-                        }, this);
-                    }
-                }.bind(this);
+        //         /**
+        //          * @event sending 发送前触发
+        //          * @property {object} data 待发送的数据
+        //          */
+        //         let cancel = false;
+        //         this.$emit('before-send', {
+        //             data: this.data,
+        //             file,
+        //             files: this.$refs.file.files,
+        //             xhr,
+        //             formData,
+        //             preventDefault: () => cancel = true,
+        //         }, this);
+        //         if (cancel)
+        //             return;
 
-                xhr.onreadystatechange = () => {
-                    if (xhr.readyState === 4) {
-                        if (xhr.status === 200)
-                            this.onLoad(xhr.responseText, xhr.responseXML);
-                        else {
-                            if (!this.sending)
-                                return;
-                            this.sending = false;
-                            this.file = null;
-                            this.$emit('error', {
-                                name: 'ResponseError',
-                                message: 'No responseText!',
-                                xhr,
-                            }, this);
-                        }
-                    }
-                };
+        //         this.sending = true;
+        //         xhr.send(formData);
+        //     }
 
-                /**
-                 * @event sending 发送前触发
-                 * @property {object} data 待发送的数据
-                 */
-                let cancel = false;
-                this.$emit('before-send', {
-                    data: this.data,
-                    file,
-                    files: this.$refs.file.files,
-                    xhr,
-                    formData,
-                    preventDefault: () => cancel = true,
-                }, this);
-                if (cancel)
-                    return;
-
-                this.sending = true;
-                xhr.send(formData);
-            }
-
-            this.$emit('send', {
-                data: this.data,
-                file,
-                files: this.$refs.file.files,
-            }, this);
-        },
+        //     this.$emit('send', {
+        //         data: this.data,
+        //         file,
+        //         files: this.$refs.file.files,
+        //     }, this);
+        // },
         /**
          * @method onLoad() 接收数据回调
          * @private
@@ -300,6 +402,39 @@ export const UUploader = {
                 //     return eval(xml.responseText);
             } else
                 return xml.responseText;
+        },
+        remove(index) {
+            const item = this.currentValue[index];
+            if (!item)
+                return;
+
+            if (this.$emitPrevent('before-remove', {
+                oldValue: this.currentValue,
+                item,
+                index,
+            }, this))
+                return;
+
+            this.currentValue.splice(index, 1);
+
+            this.$emit('remove', {
+                value: this.currentValue,
+                item,
+                index,
+            }, this);
+        },
+        clear() {
+            const oldValue = this.currentValue;
+            const value = [];
+
+            if (this.$emitPrevent('before-clear', { oldValue, value }, this))
+                return;
+
+            this.currentValue = value;
+            this.$emit('input', value, this);
+            this.$emit('update:value', value, this);
+
+            this.$emit('clear', { oldValue, value }, this);
         },
     },
 };

@@ -1,7 +1,14 @@
 - name: u-uploader
   title: 文件上传
+  description: 通过点击或者拖拽上传文件。
   labels: [表单控件, 行内展示]
   attrs:
+    - name: value
+      type: Array
+      model: true
+      sync: true
+      default: '[]'
+      description: 当前文件列表
     - name: url
       type: string
       default: null
@@ -116,3 +123,8 @@
         - name: senderVM
           type: UUploader
           description: 发送事件对象
+  methods:
+    - name: select
+      description: 选择文件上传
+      params: []
+

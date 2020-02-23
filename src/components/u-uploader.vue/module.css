@@ -1,4 +1,8 @@
 .root {
+    display: block;
+}
+
+.button {
     display: inline-block;
 }
 
@@ -17,11 +21,69 @@
     display: block\0;
 }
 
-.input {
+.file {
     position: absolute;
     top: 0;
     right: -5px;
-    font-size: var(--uploader-input-font-size);
+    font-size: 100px;
     opacity: 0;
     cursor: var(--cursor-pointer);
+}
+
+.item {
+    cursor: default;
+    margin-top: var(--uploader-list-margin-top);
+    padding: var(--uploader-item-padding);
+    background: var(--uploader-item-background);
+    border-radius: var(--uploader-item-border-radius);
+    transition: all var(--transition-duration-base);
+}
+
+.item::before {
+    icon-font: url('./assets/attachment.svg');
+    float: left;
+    margin-right: 3px;
+    color: var(--uploader-item-icon-color);
+}
+
+.item + .item {
+    margin-top: var(--uploader-item-space);
+}
+
+.item:hover {
+    background: var(--uploader-item-background-hover);
+}
+
+.link {
+    color: var(--uploader-link-color);
+    cursor: var(--cursor-pointer);
+}
+
+.item:hover .link {
+    color: var(--uploader-link-color-hover);
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.remove {
+    display: none;
+    float: right;
+    line-height: 1;
+    margin-top: 4px;
+    cursor: var(--cursor-pointer);
+    opacity: 0.5;
+}
+
+.item:hover .remove {
+    display: block;
+}
+
+.remove:hover {
+    opacity: 1;
+}
+
+.remove::before {
+    icon-font: url('../i-icon.vue/assets/close.svg');
 }

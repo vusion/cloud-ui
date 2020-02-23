@@ -29,9 +29,12 @@
     --gray-lightest: #eee;
 
     /* Component Base Colors */
-    --background-color-light: #f7f8fc;
-    --background-color-base: #e2e7ef;
+    --background-color-lighter: #f7f8fc;
+    --background-color-light: #f2f3f8;
+    --background-color-base: #f5f7fa;
     --background-color-dark: #ebedf5;
+    --background-color-darker: #e2e7ef;
+    --color-light: #a0a3a5;
     --color-base: #565b61;
     --border-color-base: #cbd5e5; /* TODO */
 
@@ -110,7 +113,7 @@
     --code-margin-x: 2px;
     --code-padding-y: 3px;
     --code-padding-x: 3px;
-    --code-background: var(--background-color-light);
+    --code-background: var(--background-color-lighter);
     --code-color: #e0276e;
     --code-font-size: var(--font-size-small);
 
@@ -243,18 +246,18 @@
     --list-style: none;
     --list-item-padding: 6px 8px;
     --list-item-border-bottom: 1px solid var(--border-color-base);
-    --list-item-background-striped: var(--background-color-light);
+    --list-item-background-striped: var(--background-color-lighter);
     --list-item-background-hover: var(--background-color-base);
 
     /* Table */
     --table-background: white;
     --table-row-background: var(--background-color-base);
     --table-row-background-hover: var(--background-color-base);
-    --table-row-background-striped: var(--background-color-light);
+    --table-row-background-striped: var(--background-color-lighter);
     --table-row-background-primary: rgba(103, 170, 245, 0.2);
     --table-row-background-error: rgb(255, 138, 122, 0.2);
     --table-row-background-dark: var(--background-color-dark);
-    --table-row-background-light: var(--background-color-light);
+    --table-row-background-light: var(--background-color-lighter);
     --table-caption-color: #6a6f75;
     --table-border-color: var(--border-color-base);
     --table-border-width: 1px;
@@ -528,7 +531,16 @@
     --combo-slider-input-margin-left: 10px;
 
     /* Uploader */
-    --uploader-input-font-size: 100px;
+    --uploader-list-margin-top: 6px;
+    --uploader-item-space: 2px;
+    --uploader-item-padding: 4px;
+    --uploader-item-line-height: 1.8;
+    --uploader-item-border-radius: var(--border-radius-base);
+    --uploader-item-background: transparent;
+    --uploader-item-background-hover: var(--background-color-base);
+    --uploader-item-icon-color: var(--color-light);
+    --uploader-link-color: inherit;
+    --uploader-link-color-hover: var(--link-color);
 
     /* List View */
     --list-view-background: white;

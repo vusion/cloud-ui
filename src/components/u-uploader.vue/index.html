@@ -1,11 +1,18 @@
 <div :class="$style.root">
-    <div @click="upload()">
+    <div :class="$style.button" @click="select()">
         <slot></slot>
     </div>
-    <form :class="$style.form" ref="form" method="POST" :action="url" :target="'iframe'+ tempId" :enctype="contentType">
+    <form :class="$style.form" ref="form" method="POST" :action="url" :target="iframeName" :enctype="contentType">
         <!-- IE需要重置input[type=file] -->
-        <input :class="$style.input" ref="file" v-if="!sending" type="file" :name="name" @change="submit()"/>
-        <input v-for="key in Object.keys(data)" type="hidden" :name="key" :value="data[key]"/>
+        <input :class="$style.file" ref="file" v-if="!sending" type="file" :name="name" :accept="accept" :multiple="multiple" @change="onChange">
+        <input v-for="key in Object.keys(data)" type="hidden" :name="key" :value="data[key]">
     </form>
-    <iframe :class="$style.iframe" ref="iframe" :name="'iframe'+ tempId" @load="onLoad()"></iframe>
+    <iframe :class="$style.iframe" ref="iframe" :name="iframeName" @load="onLoad()"></iframe>
+    <div :class="$style.list" v-if="showFileList">
+        <div :class="$style.item" v-for="(item, index) in currentValue" :key="index">
+            <a :class="$style.link" :href="item.url" target="_blank">{{ item.name }}</a>
+            <span :class="$style.remove" @click="remove(index)"></span>
+            <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
+        </div>
+    </div>
 </div>

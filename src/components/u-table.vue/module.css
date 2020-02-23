@@ -76,7 +76,7 @@
 }
 
 /* .root[striped] tbody tr:nth-of-type(even) {
-    background: var(--background-color-light);
+    background: var(--background-color-lighter);
 } */
 
 .root tbody > tr[color="light"] {

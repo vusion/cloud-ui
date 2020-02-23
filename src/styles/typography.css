@@ -42,7 +42,7 @@ pre {
     tab-size: var(--tab-size);
     /* Contain overflow in all browsers. */
     overflow: auto;
-    background: var(--background-color-light);
+    background: var(--background-color-lighter);
     border-radius: var(--border-radius-base);
     padding: var(--code-padding-y) var(--code-padding-x);
     font-size: var(--pre-font-size);
