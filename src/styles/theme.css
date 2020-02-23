@@ -56,12 +56,6 @@
     --border-radius-mini: 1px;
     --border-radius-base: 2px;
     --border-radius-large: 4px;
-    --line-height-base: 1.6;
-    --border-radius-mini: 1px;
-    --border-radius-base: 2px;
-    --border-radius-large: 4px;
-    --line-height-base: 1.6;
-    --font-size-base: 14px;
 
     /* Fonts */
     /* stylelint-disable value-keyword-case */
@@ -77,6 +71,7 @@
     --font-weight-normal: 400;
     --font-weight-bold: 700;
     --font-weight-bolder: bolder;
+    --line-height-base: 1.6;
 
     /* Z-Index */
     --z-index-loading: 9000;
@@ -541,6 +536,9 @@
     --uploader-item-icon-color: var(--color-light);
     --uploader-link-color: inherit;
     --uploader-link-color-hover: var(--link-color);
+    --uploader-card-border-radius: var(--border-radius-large);
+    --uploader-card-space: 8px;
+    --uploader-mask-background: rgba(0, 0, 0, 0.6);
 
     /* List View */
     --list-view-background: white;

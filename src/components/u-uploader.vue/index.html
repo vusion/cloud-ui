@@ -1,18 +1,30 @@
 <div :class="$style.root">
-    <div :class="$style.button" @click="select()">
+    <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" @change="onChange">
+    <div v-if="listType !== 'card'" :class="$style.select" @click="select()">
         <slot></slot>
     </div>
-    <form :class="$style.form" ref="form" method="POST" :action="url" :target="iframeName" :enctype="contentType">
-        <!-- IE需要重置input[type=file] -->
-        <input :class="$style.file" ref="file" v-if="!sending" type="file" :name="name" :accept="accept" :multiple="multiple" @change="onChange">
-        <input v-for="key in Object.keys(data)" type="hidden" :name="key" :value="data[key]">
-    </form>
-    <iframe :class="$style.iframe" ref="iframe" :name="iframeName" @load="onLoad()"></iframe>
-    <div :class="$style.list" v-if="showFileList">
-        <div :class="$style.item" v-for="(item, index) in currentValue" :key="index">
-            <a :class="$style.link" :href="item.url" target="_blank">{{ item.name }}</a>
-            <span :class="$style.remove" @click="remove(index)"></span>
-            <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
-        </div>
+    <div :class="$style.list" v-if="showFileList" :list-type="listType">
+        <template v-if="listType !== 'card'">
+            <div :class="$style.item" v-for="(item, index) in currentValue" :key="index">
+                <div :class="$style.thumb"><img v-if="listType === 'image'" :src="item.thumb || item.url"></div>
+                <a :class="$style.link" :href="item.url" target="_blank">{{ item.name }}</a>
+                <span :class="$style.remove" @click="remove(index)"></span>
+                <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
+            </div>
+        </template>
+        <template v-else>
+            <div :class="$style.card" v-for="(item, index) in currentValue" :key="index" @click="!multiple && select()">
+                <div :class="$style.thumb"><img :src="item.thumb || item.url"></div>
+                <div :class="$style.mask" :multiple="multiple" :show-progress="item.showProgress">
+                    <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
+                    <div v-show="multiple" :class="$style.buttons">
+                        <span :class="$style.button" role="preview" @click="onPreview(item)"></span>
+                        <a :class="$style.button" :href="item.url" target="_blank" role="download"></a>
+                        <span :class="$style.button" role="remove" @click="remove(index)"></span>
+                    </div>
+                </div>
+            </div>
+            <div v-if="multiple || currentValue.length === 0" :class="$style.card" role="select" @click="select()"></div>
+        </template>
     </div>
 </div>

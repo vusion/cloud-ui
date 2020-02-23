@@ -11,8 +11,14 @@
       description: 当前文件列表
     - name: url
       type: string
-      default: null
-      description: 上传文件路径
+      required: true
+      default:
+      description: 上传的地址
+    - name: name
+      type: string
+      default: file
+      description: 上传的文件字段名，后端需要这个字段获取
+    - name: headers
     - name: data-type
       type: string
       default: json
@@ -21,15 +27,15 @@
       type: object
       default: null
       description: 附加数据
-    - name: name
-      type: string
-      default: file
-      description: 上传文件的名称，后端一般需要这个字段
     - name: extensions
       type: string, Array
       default: ""
       description: 可上传的扩展名。默认为空，表示可上传任意文件类型的文件。可以为字符串，多个扩展名用`,`隔开，如：`'png,jpg,gif'`；也可以为数组，如：`['png',
         'jpg', 'gif']`
+    - name: limit
+      type: number
+      default: .inf
+      description: 列表数量
     - name: max-size
       type: string, number
       default: .inf

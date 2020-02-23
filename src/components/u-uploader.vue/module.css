@@ -2,7 +2,7 @@
     display: block;
 }
 
-.button {
+.select {
     display: inline-block;
 }
 
@@ -39,11 +39,28 @@
     transition: all var(--transition-duration-base);
 }
 
-.item::before {
+.thumb {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.list[list-type="text"] .thumb::before {
     icon-font: url('./assets/attachment.svg');
     float: left;
     margin-right: 3px;
     color: var(--uploader-item-icon-color);
+}
+
+.list[list-type="image"] .item {
+    border: 1px solid var(--border-color-base);
+}
+
+.list[list-type="image"] .thumb {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    overflow: hidden;
+    margin-right: 4px;
 }
 
 .item + .item {
@@ -71,6 +88,7 @@
     display: none;
     float: right;
     line-height: 1;
+    font-size: 16px;
     margin-top: 4px;
     cursor: var(--cursor-pointer);
     opacity: 0.5;
@@ -86,4 +104,117 @@
 
 .remove::before {
     icon-font: url('../i-icon.vue/assets/close.svg');
+}
+
+.list[list-type="image"] .remove {
+    margin-top: 2px;
+}
+
+.list[list-type="card"] {
+    margin: calc(var(--uploader-card-space) / (-2));
+}
+
+.card {
+    position: relative;
+    display: inline-block;
+    width: 128px;
+    height: 128px;
+    border: 1px solid var(--border-color-base);
+    border-radius: var(--uploader-card-border-radius);
+    margin: calc(var(--uploader-card-space) / 2);
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.card[role="select"] {
+    cursor: var(--cursor-pointer);
+    text-align: center;
+    line-height: 128px;
+    border-style: dashed;
+    transition: all var(--transition-duration-base);
+    background: var(--background-color-lighter);
+    vertical-align: bottom;
+}
+
+.card[role="select"]::before {
+    color: var(--border-color-base);
+    icon-font: url('./assets/add.svg');
+    font-size: 42px;
+}
+
+.card[role="select"]:hover {
+    border-color: var(--brand-primary);
+}
+
+.mask {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--uploader-mask-background);
+    opacity: 0;
+    transition: opacity var(--transition-duration-slow);
+}
+
+.mask:hover, .mask[show-progress] {
+    opacity: 1;
+}
+
+.mask:not([multiple]) {
+    cursor: var(--cursor-pointer);
+    text-align: center;
+    line-height: 128px;
+}
+
+.mask:not([multiple])::before {
+    color: rgba(255, 255, 255, 0.6);
+    icon-font: url('./assets/add.svg');
+    font-size: 42px;
+}
+
+.card .progress {
+    position: absolute;
+    top: 65%;
+    width: 72%;
+    left: 14%;
+}
+
+.card .progress > div {
+    background: rgba(0, 0, 0, 0.5);
+    height: 6px;
+    border-radius: 100px;
+}
+
+.buttons {
+    position: absolute;
+    font-size: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button {
+    cursor: var(--cursor-pointer);
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.button + .button {
+    margin-left: 8px;
+}
+
+.button:hover {
+    color: white;
+}
+
+.button[role="preview"]::before {
+    icon-font: url('./assets/eye.svg');
+}
+
+.button[role="download"]::before {
+    icon-font: url('./assets/download.svg');
+}
+
+.button[role="remove"]::before {
+    icon-font: url('./assets/trashcan.svg');
 }

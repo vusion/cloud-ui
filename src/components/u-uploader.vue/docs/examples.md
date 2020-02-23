@@ -5,7 +5,7 @@
 ``` vue
 <template>
 <u-uploader v-model="files" url="http://localhost:7000/api/library/upload">
-    <u-button>Upload</u-button>
+    <u-button color="primary">Upload</u-button>
 </u-uploader>
 </template>
 <script>
@@ -28,7 +28,7 @@ export default {
 ``` vue
 <template>
 <u-uploader v-model="files" multiple url="http://localhost:7000/api/library/upload">
-    <u-button>Upload</u-button>
+    <u-button color="primary">Upload</u-button>
 </u-uploader>
 </template>
 <script>
@@ -37,16 +37,14 @@ export default {
         return {
             files: [{
                 uid: '1',
-                name: 'xxx.png',
-                status: 'done',
-                response: 'Server Error 500', // custom error message to show
-                url: 'http://www.baidu.com/xxx.png',
+                name: 'bullseye.png',
+                status: 'success',
+                url: 'http://d.lanrentuku.com/down/png/1904/food-icons-const/big_breakfast.png',
             }, {
                 uid: '2',
-                name: 'xxx2.png',
+                name: 'big_breakfast.png',
                 status: 'success',
-                response: 'Server Error 500', // custom error message to show
-                url: 'http://www.baidu.com/xxx.png',
+                url: 'http://d.lanrentuku.com/down/png/1904/food-icons-const/big_breakfast.png',
             }],
         };
     },
@@ -54,26 +52,99 @@ export default {
 </script>
 ```
 
-### 文件类型限制
+### 列表类型
 
-``` html
-<u-uploader url="http://localhost:7000/api/library/upload" extensions="jpg,gif,png">
-    <u-button>upload</u-button>
+通过`list-type`设置列表类型。
+
+#### 图片列表
+
+``` vue
+<template>
+<u-uploader v-model="files" multiple list-type="image"
+    accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
+    url="http://localhost:7000/api/library/upload">
+    <u-button color="primary">Upload</u-button>
 </u-uploader>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            files: [{
+                uid: '1',
+                name: 'bullseye.png',
+                status: 'success',
+                url: 'http://d.lanrentuku.com/down/png/1307/flat-jewels/bullseye.png',
+            }, {
+                uid: '2',
+                name: 'big_breakfast.png',
+                status: 'success',
+                url: 'http://d.lanrentuku.com/down/png/1904/food-icons-const/big_breakfast.png',
+            }],
+        };
+    },
+};
+</script>
 ```
 
-### 文件大小限制
+#### 卡片列表
 
-``` html
-<u-uploader url="http://localhost:7000/api/library/upload" max-size="10kB">
-    <u-button>upload</u-button>
+``` vue
+<template>
+<u-uploader v-model="files" multiple list-type="card"
+    accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
+    url="http://localhost:7000/api/library/upload">
+    <u-button color="primary">Upload</u-button>
 </u-uploader>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            files: [{
+                uid: '1',
+                name: 'bullseye.png',
+                status: 'success',
+                url: 'http://d.lanrentuku.com/down/png/1307/flat-jewels/bullseye.png',
+            }, {
+                uid: '2',
+                name: 'big_breakfast.png',
+                status: 'success',
+                url: 'http://d.lanrentuku.com/down/png/1904/food-icons-const/big_breakfast.png',
+            }],
+        };
+    },
+};
+</script>
 ```
 
-### 禁用
+#### 单文件卡片
+
+不使用`multiple`属性时，仅会显示一个卡片。可以用于头像上传、身份证上传等场景。
+
+``` vue
+<template>
+<u-uploader v-model="files" list-type="card"
+    accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
+    url="http://localhost:7000/api/library/upload">
+    <u-button color="primary">Upload</u-button>
+</u-uploader>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            files: [],
+        };
+    },
+};
+</script>
+```
+
+### 禁用状态
 
 ``` html
 <u-uploader url="http://localhost:7000/api/library/upload" disabled>
-    <u-button disabled>upload</u-button>
+    <u-button color="primary" disabled>Upload</u-button>
 </u-uploader>
 ```
