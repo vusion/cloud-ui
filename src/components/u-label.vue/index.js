@@ -3,12 +3,15 @@ import MEmitter from '../m-emitter.vue';
 export const ULabel = {
     name: 'u-label',
     mixins: [MEmitter],
+    props: {
+        removable: { type: Boolean, default: false },
+    },
     methods: {
-        close() {
-            if (this.$emitPrevent('before-close', null, this))
+        remove() {
+            if (this.$emitPrevent('before-remove', null, this))
                 return;
 
-            this.$emit('close', null, this);
+            this.$emit('remove', null, this);
         },
     },
 };

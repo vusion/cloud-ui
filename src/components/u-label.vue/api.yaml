@@ -13,10 +13,10 @@
       options: [normal, large, huge]
       default: normal
       description: 设置尺寸。
-    - name: closable
+    - name: removable
       type: boolean
       default: false
-      description: 是否可关闭。开启时可以通过关闭按钮触发`close`事件，需要自己实现关闭逻辑。
+      description: 是否可删除。开启时可以通过删除按钮触发`remove`事件，需要自己实现删除逻辑。
     - name: display
       type: enum
       options: [inline, block]
@@ -29,17 +29,17 @@
     - name: $listeners
       description: 监听所有`<span>`元素的事件。
       params: []
-    - name: before-close
-      description: 关闭前触发
+    - name: before-remove
+      description: 删除前触发
       params:
         - name: $event.preventDefault
           type: Function
-          description: 阻止关闭流程
+          description: 阻止删除流程
         - name: senderVM
           type: ULabel
           description: 发送事件实例
-    - name: close
-      description: 关闭时触发
+    - name: remove
+      description: 删除时触发
       params:
         - name: $event
           type: 'null'

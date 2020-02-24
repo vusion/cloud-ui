@@ -13,19 +13,19 @@
 </u-linear-layout>
 ```
 
-### 可关闭标签
+### 可删除标签
 
-添加属性`closable`可以关闭标签。
+添加属性`removable`可以删除标签。
 
-点击关闭标签时，会触发`close`事件，需要自己实现关闭逻辑。
+点击删除标签时，会触发`remove`事件，需要自己实现删除逻辑。
 
 ``` html
 <u-linear-layout gap="small">
-    <u-label closable>Label</u-label>
-    <u-label closable color="primary">Primary</u-label>
-    <u-label closable color="success">Success</u-label>
-    <u-label closable color="warning">Warning</u-label>
-    <u-label closable color="error">Error</u-label>
+    <u-label removable>Label</u-label>
+    <u-label removable color="primary">Primary</u-label>
+    <u-label removable color="success">Success</u-label>
+    <u-label removable color="warning">Warning</u-label>
+    <u-label removable color="error">Error</u-label>
 </u-linear-layout>
 ```
 
@@ -37,9 +37,9 @@
 <u-linear-layout gap="small">
     <u-label>Normal</u-label>
     <u-label size="large">Large</u-label>
-    <u-label size="large" color="primary" closable>Large</u-label>
+    <u-label size="large" color="primary" removable>Large</u-label>
     <u-label size="huge">Huge</u-label>
-    <u-label size="huge" color="primary" closable>Huge</u-label>
+    <u-label size="huge" color="primary" removable>Huge</u-label>
 </u-linear-layout>
 ```
 

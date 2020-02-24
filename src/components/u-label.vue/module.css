@@ -8,23 +8,19 @@
     border-radius: var(--border-radius-base);
 }
 
-.close {
-    display: none;
+.remove {
+    display: inline;
     cursor: var(--cursor-pointer);
     opacity: 0.7;
+    padding: var(--label-remove-padding-x);
+    margin-right: calc(var(--label-remove-padding-x) * (-2));
 }
 
-.close:hover {
+.remove:hover {
     opacity: 1;
 }
 
-.root[closable] .close {
-    display: inline;
-    padding: var(--label-close-padding-x);
-    margin-right: calc(var(--label-close-padding-x) * (-2));
-}
-
-.close::before {
+.remove::before {
     vertical-align: -2px;
     icon-font: url('../i-icon.vue/assets/close.svg');
 }
@@ -54,9 +50,9 @@
     font-size: var(--label-font-size-large);
 }
 
-.root[size="large"] .close {
-    padding: var(--label-close-padding-x-large);
-    margin-right: calc(var(--label-close-padding-x-large) * (-2));
+.root[size="large"] .remove {
+    padding: var(--label-remove-padding-x-large);
+    margin-right: calc(var(--label-remove-padding-x-large) * (-2));
 }
 
 .root[size="huge"] {
@@ -64,9 +60,9 @@
     font-size: var(--label-font-size-huge);
 }
 
-.root[size="huge"] .close {
-    padding: var(--label-close-padding-x-huge);
-    margin-right: calc(var(--label-close-padding-x-huge) * (-2));
+.root[size="huge"] .remove {
+    padding: var(--label-remove-padding-x-huge);
+    margin-right: calc(var(--label-remove-padding-x-huge) * (-2));
 }
 
 .root[display="block"] {
