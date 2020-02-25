@@ -18,6 +18,8 @@ export default {
             }
         },
         onInput(e) {
+            if (this.autoSize)
+                this.autoResize();
             if (!this.compositionInputing) {
                 if (this.formItemVM && this.maxlengthMessage) {
                     this.formItemVM.color = '';
