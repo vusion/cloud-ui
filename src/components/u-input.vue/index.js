@@ -54,13 +54,20 @@ export const UInput = {
         },
         onInput(e) {
             if (!this.compositionInputing) {
+                const $event = {
+                    oldValue: this.currentValue,
+                    value: e.target.value,
+                };
+                if (this.$emitPrevent('before-input', $event, this))
+                    return;
+
                 if (this.formItemVM && this.maxlengthMessage) {
                     this.formItemVM.color = '';
                     this.formItemVM.currentMessage = '';
                 }
-                this.currentValue = e.target.value;
-                this.$emit('input', this.currentValue);
-                this.$emit('update:value', this.currentValue);
+                this.currentValue = $event.value;
+                this.$emit('input', $event.value, this);
+                this.$emit('update:value', $event.value, this);
             }
         },
         onFocus(e) {
@@ -72,12 +79,20 @@ export const UInput = {
             this.$emit('blur', e, this);
         },
         onCompositionEnd(e) {
-            // 中文输入的时候，会先触发onInput事件，再触发此事件，导致不能捕捉到中文输入
-            // 因此需要特殊处理，此时compositionInputing值为true
+            // 中文输入的时候，会先触发 onInput 事件，再触发此事件，导致不能捕捉到中文输入
+            // 因此需要特殊处理，此时 compositionInputing 值为 true
             this.compositionInputing = false;
-            this.currentValue = e.target.value;
-            this.$emit('input', this.currentValue, this);
-            this.$emit('update:value', this.currentValue, this);
+
+            const $event = {
+                oldValue: this.currentValue,
+                value: e.target.value,
+            };
+            if (this.$emitPrevent('before-input', $event, this))
+                return;
+
+            this.currentValue = $event.value;
+            this.$emit('input', $event.value, this);
+            this.$emit('update:value', $event.value, this);
         },
         focus() {
             this.$refs.input.focus();
@@ -89,26 +104,22 @@ export const UInput = {
             if (this.readonly || this.disabled)
                 return;
 
-            const oldValue = this.currentValue;
-
-            let cancel = false;
-            this.$emit('before-clear', {
-                oldValue,
+            const $event = {
+                oldValue: this.currentValue,
                 value: '',
-                preventDefault: () => cancel = true,
-            });
-            if (cancel)
+            };
+
+            if (this.$emitPrevent('before-clear', $event, this))
+                return;
+            if (this.$emitPrevent('before-input', $event, this))
                 return;
 
-            this.currentValue = '';
-            this.$emit('input', '', this);
-            this.$emit('update:value', '', this);
+            this.currentValue = $event.value;
+            this.$emit('input', $event.value, this);
+            this.$emit('update:value', $event.value, this);
             this.focus();
 
-            this.$emit('clear', {
-                oldValue,
-                value: '',
-            }, this);
+            this.$emit('clear', $event, this);
         },
     },
 };
