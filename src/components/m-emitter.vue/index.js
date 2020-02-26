@@ -56,9 +56,9 @@ export const MEmitter = {
         },
         $emitPrevent(name, $event, senderVM, ...args) {
             let cancel = false;
-            this.$emit(name, Object.assign({
+            this.$emit(name, Object.assign($event || {}, {
                 preventDefault: () => cancel = true,
-            }, $event), senderVM, ...args);
+            }), senderVM, ...args);
             return cancel;
         },
     },
