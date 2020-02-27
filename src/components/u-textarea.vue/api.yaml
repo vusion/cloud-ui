@@ -52,6 +52,21 @@
       default: none
       description: 是否可以调整大小。可选值：`'none'`、`'both'`、`'horizontal'`、`'vertical'`
   events:
+    - name: before-input
+      description: 输入前触发。可以在这个阶段阻止输入，或者修改输入的值 $event.value
+      params:
+        - name: $event.oldValue
+          type: string
+          description: 旧的值
+        - name: $event.value
+          type: string
+          description: 输入框的值
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止输入流程
+        - name: senderVM
+          type: UInput
+          description: 发送事件实例
     - name: input
       description: 输入时触发。
       params:

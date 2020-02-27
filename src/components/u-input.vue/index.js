@@ -38,11 +38,15 @@ export const UInput = {
             this.currentValue = value;
         },
         currentValue(value, oldValue) {
+            this.autoSize && this.autoResize();
             this.$emit('change', { value, oldValue }, this);
         },
         color(color) {
             this.currentColor = color;
         },
+    },
+    mounted() {
+        this.autoSize && this.autoResize();
     },
     methods: {
         onKeypress(e) {
