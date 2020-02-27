@@ -39,6 +39,7 @@ export const UInput = {
             this.currentValue = value;
         },
         currentValue(value, oldValue) {
+            this.autoSize && this.autoResize();
             this.$emit('change', { value, oldValue }, this);
         },
         color(color) {
@@ -46,8 +47,7 @@ export const UInput = {
         },
     },
     mounted() {
-        if (this.autoSize)
-            this.autoResize();
+        this.autoSize && this.autoResize();
     },
     methods: {
         onKeypress(e) {
