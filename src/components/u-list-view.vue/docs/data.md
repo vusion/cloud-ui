@@ -15,7 +15,7 @@ export default {
     data() {
         // 构造数量较多的 100 条数据
         let data = [];
-        for (let i = 1; i <= 100; i++)
+        for (let i = 1; i <= 100000; i++)
             data.push('item' + i);
         data = data.map((text) => ({ text, value: text }));
 
