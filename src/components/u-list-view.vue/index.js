@@ -1,6 +1,7 @@
 import { MComplex } from '../m-complex.vue';
 import { MGroupParent } from '../m-group.vue';
 import MField from '../m-field.vue';
+import FVirtualList from '../f-virtual-list.vue';
 import DataSource from '../../utils/DataSource';
 import debounce from 'lodash/debounce';
 
@@ -8,7 +9,7 @@ export const UListView = {
     name: 'u-list-view',
     groupName: 'u-list-view-group',
     childName: 'u-list-view-item',
-    mixins: [MComplex, MGroupParent, MField],
+    mixins: [MComplex, MGroupParent, MField, FVirtualList],
     props: {
         // @inherit: value: null,
         // @inherit: value: Array,
@@ -27,6 +28,10 @@ export const UListView = {
         pageable: { type: Boolean, default: false },
         pageSize: { type: Number, default: 50 },
         remotePaging: { type: Boolean, default: false },
+        // @inherit: virtualCount: { type: Number, default: 60 },
+        // @inherit: throttle: { type: Number, default: 60 },
+        listKey: { type: String, default: 'currentData' },
+
     },
     data() {
         return {
@@ -38,6 +43,9 @@ export const UListView = {
             // @inherit: currentMultiple: this.multiple,
             currentDataSource: undefined,
             loading: false,
+            // virtualIndex: 0,
+            // virtualTop: 0,
+            // virtualBottom: 0,
         };
     },
     computed: {
@@ -233,6 +241,8 @@ export const UListView = {
             this.load();
         },
         onScroll(e) {
+            this.throttledVirtualScroll(e);
+
             if (!this.pageable)
                 return;
 

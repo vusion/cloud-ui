@@ -7,6 +7,7 @@ export * from './f-droppable.vue';
 export * from './f-forbidden.vue';
 export * from './f-render.vue';
 export * from './f-slot.vue';
+export * from './f-virtual-list.vue';
 export * from './i-icon.vue';
 export * from './m-complex.vue';
 export * from './m-debug.vue';
