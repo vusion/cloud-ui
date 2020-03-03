@@ -43,3 +43,7 @@
 .root[color="inverse"] .item[selected] {
     color: var(--navbar-item-color-inverse);
 }
+
+.root .item + .divider {
+    margin-left: 0;
+}

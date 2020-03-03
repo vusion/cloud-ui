@@ -1,6 +1,6 @@
 .root {
     display: inline-block;
-    margin: 0 var(--navbar-divider-margin);
+    margin: 0 var(--navbar-item-space);
     height: var(--navbar-divider-height);
     width: var(--navbar-divider-width);
     background: var(--navbar-divider-background);
