@@ -123,6 +123,30 @@
     "type": "boolean",
     "description": "是否捕获异常，防止报错终止整体渲染"
   },
+  "f-virtual-list/list": {
+    "type": "Array<Object>",
+    "description": "含有全部数据的列表。用于获取渲染的长度和位置等信息。"
+  },
+  "f-virtual-list/item-height": {
+    "type": "number",
+    "description": "默认可以不填，会自动计算和缓存每个列表项的高度，用于处理列表项高度不确定的情形。如果每个列表项的高度是个固定值，可以设置该属性，能够减少由获取高度产生的性能开销。"
+  },
+  "f-virtual-list/virtual-count": {
+    "type": "number",
+    "description": "虚拟列表实际渲染的节点数。该数字不宜过大，一般在 200 以内为好。"
+  },
+  "f-virtual-list/throttle": {
+    "type": "number",
+    "description": "滚动截流的毫秒数。在该时间内最多更新一次虚拟列表。"
+  },
+  "f-virtual-list/tag-name": {
+    "type": "string",
+    "description": "设置列表容器的标签名"
+  },
+  "f-virtual-list/list-key": {
+    "type": "string",
+    "description": "列表的键。一般用于 mixin 方式，修改全部数据的列表来源。"
+  },
   "i-icon/name": {
     "type": "string",
     "description": "图标名称"
