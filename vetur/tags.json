@@ -65,6 +65,17 @@
       "catchError"
     ]
   },
+  "f-virtual-list": {
+    "attributes": [
+      "list",
+      "item-height",
+      "virtual-count",
+      "throttle",
+      "tag-name",
+      "list-key"
+    ],
+    "description": "用于提升大数据量列表的性能。支持自动计算列表项高度。"
+  },
   "i-icon": {
     "attributes": [
       "name"
@@ -1501,7 +1512,8 @@
       "target",
       "readonly",
       "disabled"
-    ]
+    ],
+    "description": "双栏穿梭选择框，常用于将多个项目从一边移动到另一边。"
   },
   "u-tree-view": {
     "attributes": [

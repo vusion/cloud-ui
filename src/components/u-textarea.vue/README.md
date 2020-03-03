@@ -123,6 +123,17 @@ export default {
 
 ### Events
 
+#### @before-input
+
+输入前触发。可以在这个阶段阻止输入，或者修改输入的值 $event.value
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event.oldValue | string | 旧的值 |
+| $event.value | string | 输入框的值 |
+| $event.preventDefault | Function | 阻止输入流程 |
+| senderVM | UInput | 发送事件实例 |
+
 #### @input
 
 输入时触发。
