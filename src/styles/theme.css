@@ -249,7 +249,6 @@
     --navbar-item-color-disabled: var(--brand-disabled);
     --navbar-item-color-inverse: white;
     --navbar-item-line-transition-duration: 0.5s;
-    --navbar-divider-margin: 0 30px 0 0;
     --navbar-divider-width: var(--border-width-base);
     --navbar-divider-height: 20px;
     --navbar-divider-background: #ddd;
@@ -771,4 +770,8 @@
     --theme-chart-rgba-color20: rgba(241, 126, 248, 0.1);
 }
 
+@custom-media --mini-window (max-width: 479px);
 @custom-media --small-window (max-width: 767px);
+@custom-media --medium-window (max-width: 959px);
+@custom-media --large-window (max-width: 1179px);
+@custom-media --huge-window (max-width: 1439px);
