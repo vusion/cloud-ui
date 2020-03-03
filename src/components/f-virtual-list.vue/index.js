@@ -23,6 +23,9 @@ export const FVirtualList = {
             return list && list.slice(this.virtualIndex, this.virtualIndex + this.virtualCount);
         },
         virtualSlot() {
+            // 给该 computed 添加一个依赖 list
+            // eslint-disable-next-line no-unused-vars
+            const list = this[this.listKey];
             return this.$slots.default && this.$slots.default.slice(this.virtualIndex, this.virtualIndex + this.virtualCount);
         },
     },
