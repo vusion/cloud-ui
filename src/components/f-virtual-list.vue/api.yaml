@@ -16,6 +16,7 @@
       description: 虚拟列表实际渲染的节点数。该数字不宜过大，一般在 200 以内为好。
     - name: throttle
       type: number
+      default: 60
       description: 滚动截流的毫秒数。在该时间内最多更新一次虚拟列表。
     - name: tag-name
       type: string
