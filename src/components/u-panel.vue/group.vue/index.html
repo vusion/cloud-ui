@@ -1,0 +1,8 @@
+<div :class="$style.root">
+    <div :class="$style.head" v-if="title">
+        {{ title }}
+    </div>
+    <div :class="$style.body">
+        <slot></slot>
+    </div>
+</div>

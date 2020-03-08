@@ -8,7 +8,7 @@
 }
 
 .root:hover {
-    background: var(--background-color-base);
+    background: var(--background-color-light);
 }
 
 .root[readonly] {

@@ -1,0 +1,9 @@
+- name: u-skeleton
+  title: 骨架屏
+  description: 加载内容时的占位图形。
+  attrs:
+    - name: paragraph
+      type: boolean | number
+      default: true
+      description: 默认为 3 行。可以修改行数，或者设置`false`关闭段落显示。
+
