@@ -1,7 +1,7 @@
 .root {
     padding: 5px;
     background: var(--block-background);
-    color: white;
+    color: var(--color-light);
     text-align: center;
     overflow: hidden;
 }

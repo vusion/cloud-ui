@@ -29,11 +29,13 @@
     --gray-lightest: #eee;
 
     /* Component Base Colors */
-    --background-color-light: #f7f8fc;
-    --background-color-base: #e2e7ef;
-    --background-color-dark: #ebedf5;
-    --color-base: #565b61;
-    --border-color-base: #cbd5e5; /* TODO */
+    --background-color-light: #f2f3f8; /* 选择框的 hover 颜色 */
+    --background-color-base: #eef2f7; /* 标签、薯条等组件默认颜色 */
+    --background-color-dark: #d0dbe7;
+    --color-base: #565b61; /* 默认字体颜色 */
+    --color-light: #92989d; /* 次级字体颜色 */
+    --border-color-light: #dfe5f1; /* 面板等容器类型的边框颜色 */
+    --border-color-base: #cbd5e5; /* 按钮、输入框等小组件的边框颜色 */
 
     /* Spacing Dimensions */
     --space-base: 20px;
@@ -53,18 +55,16 @@
     --border-radius-mini: 1px;
     --border-radius-base: 2px;
     --border-radius-large: 4px;
-    --line-height-base: 1.6;
     --border-radius-mini: 1px;
     --border-radius-base: 2px;
     --border-radius-large: 4px;
-    --line-height-base: 1.6;
-    --font-size-base: 14px;
 
     /* Fonts */
     /* stylelint-disable value-keyword-case */
     --font-family-zh-CN: "Helvetica Neue", helvetica, tahoma, arial, "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
     --font-family-code: menlo, consolas, monaco, monospace;
     --tab-size: 4;
+    --line-height-base: 1.6;
     --font-size-base: 14px;
     --font-size-small: calc(var(--font-size-base) * (12 / 14));
     --font-size-large: calc(var(--font-size-base) * (16 / 14));
@@ -94,7 +94,7 @@
     --transition-duration-none: 0s;
     --transition-duration-base: 0.2s;
     --transition-duration-fast: 0.1s;
-    --transition-duration-slow: 0.4s;
+    --transition-duration-slow: 0.3s;
 
     /**
      * Components Variables
@@ -126,7 +126,7 @@
     --text-font-size-large: calc(var(--font-size-base) * (18 / 14));
     --text-font-size-huge: calc(var(--font-size-base) * (22 / 14));
     --text-color-primary: var(--brand-primary);
-    --text-color-secondary: #999;
+    --text-color-secondary: var(--color-light);
     --text-color-success: var(--brand-success);
     --text-color-warning: var(--brand-warning);
     --text-color-error: var(--brand-error);
@@ -233,7 +233,7 @@
     --status-icon-color: #333;
 
     /* Block */
-    --block-background: var(--border-color-base);
+    --block-background: var(--background-color-base);
 
     /* Logo */
     --logo-width: var(--sidebar-width);
@@ -244,12 +244,12 @@
     --list-item-padding: 6px 8px;
     --list-item-border-bottom: 1px solid var(--border-color-base);
     --list-item-background-striped: var(--background-color-light);
-    --list-item-background-hover: var(--background-color-base);
+    --list-item-background-hover: var(--background-color-light);
 
     /* Table */
     --table-background: white;
     --table-row-background: var(--background-color-base);
-    --table-row-background-hover: var(--background-color-base);
+    --table-row-background-hover: var(--background-color-light);
     --table-row-background-striped: var(--background-color-light);
     --table-row-background-primary: rgba(103, 170, 245, 0.2);
     --table-row-background-error: rgb(255, 138, 122, 0.2);
@@ -488,7 +488,7 @@
     --select-background-disabled: #cddae9;
     --select-border-width: 1px;
     --select-border-color: #e1e8ed;
-    --select-item-hover: #f5f7fa;
+    --select-item-hover: var(--background-color-light);
     --select-popper-max-height: 194px;
     --select-popper-line-height: 1.6;
     --select-popper-line-height-small: 1.6;
@@ -535,9 +535,9 @@
     --list-view-border-color-focus: #e1e8ed;
     --list-view-status-color: var(--gray-dark);
     --list-view-item-padding: 4px 12px;
-    --list-view-item-background-hover: #f5f7fa;
+    --list-view-item-background-hover: var(--background-color-light);
     --list-view-item-background-readonly: none;
-    --list-view-item-background-focused: var(--background-color-base);
+    --list-view-item-background-focused: var(--background-color-light);
     --list-view-item-background-selected: var(--brand-primary);
     --list-view-item-color-selected: white;
     --list-view-item-color-disabled: #ccc;
@@ -664,6 +664,11 @@
 
     /* Lightbox */
     --lightbox-head-height: 64px;
+
+    /* Skeleton */
+    --skeleton-background: var(--background-color-base);
+    --skeleton-title-width: 36%;
+    --skeleton-paragraph-width: 72%;
 
     /* Carousel */
     --carousel-width: 700px;
