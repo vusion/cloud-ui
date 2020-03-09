@@ -250,7 +250,7 @@
     --navbar-height: 64px;
     --navbar-space-x: 40px;
     --navbar-background: #343e4f;
-    --navbar-background-inverse: var(--navbar-background-inverse);
+    --navbar-background-inverse: var(--brand-primary);
     --navbar-item-space: 34px;
     --navbar-item-padding: 0 10px;
     --navbar-item-font-size: var(--font-size-large);
