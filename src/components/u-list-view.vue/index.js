@@ -15,7 +15,7 @@ export const UListView = {
         // @inherit: value: Array,
         field: { type: String, default: 'text' },
         data: Array,
-        dataSource: [DataSource, Function, Object],
+        dataSource: [DataSource, Function, Object, Array],
         // @inherit: cancelable: { type: Boolean, default: false },
         // @inherit: multiple: { type: Boolean, default: false },
         // @inherit: collapsible: { type: Boolean, default: false },

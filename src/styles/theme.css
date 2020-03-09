@@ -2,9 +2,6 @@
     /**
      * Global Variables
      */
-    /* Color */
-    --color-white: white;
-    --color-black: black;
 
     /* Brand Colors */
     --brand-primary: #67aaf5;
@@ -13,12 +10,14 @@
     --brand-success: #3ad0af;
     --brand-warning: #ffa136;
     --brand-error: #ff8a7a;
-    --brand-disabled: #cddae9;
+    --brand-disabled: #cddae9; /* 选择框的禁用背景 */
     --brand-disabled-light: #e7eaef;
     --hover-color: #f4f4f4;
     --brand-tip-color: #a7afbb;
 
     /* Gray Colors */
+    --color-white: white;
+    --color-black: black;
     --gray-darkest: #333;
     --gray-darker: #666;
     --gray-dark: #999;
@@ -28,36 +27,48 @@
     --gray-lightest: #eee;
 
     /* Component Base Colors */
-    --background-color-light: #f7f8fc;
-    --background-color-base: #f2f3f8;
+    --background-color-light: #f7f8fc; /* 选择框的 hover 颜色 */
+    --background-color-base: #f2f3f8; /* 标签、薯条等组件默认颜色 */
     --background-color-dark: #ebedf5;
-    --color-base: #565b61;
-    --border-color-base: #dfe4ec;
+    --color-light: #92989d; /* 次级字体颜色 */
+    --color-base: #565b61; /* 默认字体颜色 */
+    --border-color-light: #dfe4ec; /* 面板等容器类型的边框颜色 */
+    --border-color-base: #dfe4ec; /* 按钮、输入框等小组件的边框颜色 */
 
     /* Spacing Dimensions */
-
-    --space-base: 20px;
     --space-shrink: -1px;
+    --space-mini: 4px;
+    --space-base: 20px;
     --space-small: 10px;
     --space-large: 30px;
 
     /* Component Base Dimensions */
     --border-width-base: 1px;
-    --width-base: 160px;
-    --height-base: 34px;
-    --border-radius-base: 2px;
-    --line-height-base: 1.6;
+    --width-mini: 80px;
+    --width-small: 120px;
+    --width-base: 160px; /* 以输入框、选择框为基准的尺寸 */
+    --width-medium: 280px;
+    --width-large: 440px;
+    --width-huge: 580px;
+    --height-mini: 24px;
+    --height-small: 30px;
+    --height-base: 34px; /* 以输入框、选择框为基准的尺寸 */
+    --height-medium: 36px;
+    --height-large: 40px;
+    --height-huge: 48px;
     --border-radius-mini: 1px;
     --border-radius-base: 2px;
     --border-radius-large: 4px;
-    --line-height-base: 1.6;
-    --font-size-base: 14px;
+    --border-radius-mini: 1px;
+    --border-radius-base: 2px;
+    --border-radius-large: 4px;
 
     /* Fonts */
     /* stylelint-disable value-keyword-case */
     --font-family-zh-CN: "Helvetica Neue", helvetica, tahoma, arial, "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
     --font-family-code: menlo, consolas, monaco, monospace;
     --tab-size: 4;
+    --line-height-base: 1.6;
     --font-size-base: 14px;
     --font-size-small: calc(var(--font-size-base) * (12 / 14));
     --font-size-large: calc(var(--font-size-base) * (16 / 14));
@@ -382,11 +393,28 @@
 
     /* Input */
     --input-width: var(--width-base);
+    --input-width-mini: var(--width-mini);
+    --input-width-small: var(--width-small);
+    --input-width-medium: var(--width-medium);
+    --input-width-large: var(--width-large);
+    --input-width-huge: var(--width-huge);
     --input-height: var(--height-base);
-    --input-padding: 0 10px;
+    --input-height-mini: var(--height-mini);
+    --input-height-small: var(--height-small);
+    --input-height-medium: var(--height-medium);
+    --input-height-large: var(--height-large);
+    --input-height-huge: var(--height-huge);
+    --input-padding-x: 10px;
+    --input-padding-x-mini: 6px;
+    --input-padding-x-small: 8px;
+    --input-padding-x-medium: 10px;
+    --input-padding-x-large: 10px;
+    --input-padding-x-huge: 10px;
+    --input-padding-x-full: 10px;
     --input-border-width: 1px;
     --input-background: white;
     --input-background-disabled: #cddae9;
+    --input-color: #666;
     --input-border-color: #e1e8ed;
     --input-border-color-error: #ff867f;
     --input-border-color-focus: #8ebee9;
@@ -437,23 +465,37 @@
 
     /* Select */
     --select-width: var(--width-base);
-    --select-width-small: 120px;
-    --select-width-large: 260px;
+    --select-width-mini: var(--width-mini);
+    --select-width-small: var(--width-small);
+    --select-width-medium: var(--width-medium);
+    --select-width-large: var(--width-large);
+    --select-width-huge: var(--width-huge);
     --select-height: var(--height-base);
-    --select-height-small: 30px;
-    --select-height-large: 36px;
-    --select-padding-right: 20px;
-    --select-padding: 0 var(--select-padding-right) 0 14px;
+    --select-height-mini: var(--height-mini);
+    --select-height-small: var(--height-small);
+    --select-height-medium: var(--height-medium);
+    --select-height-large: var(--height-large);
+    --select-height-huge: var(--height-huge);
+    --select-padding-x: 10px;
+    --select-padding-x-mini: 6px;
+    --select-padding-x-small: 8px;
+    --select-padding-x-medium: 10px;
+    --select-padding-x-large: 10px;
+    --select-padding-x-huge: 10px;
+    --select-padding-x-full: 10px;
     --select-background: white;
-    --select-background-disabled: #cddae9;
-    --select-border-width: 1px;
-    --select-border-color: #e1e8ed;
-    --select-item-hover: #f5f7fa;
+    --select-background-disabled: var(--brand-disabled);
+    --select-border-width: var(--border-width-base);
+    --select-border-color: var(--border-color-base);
+    --select-color: #555;
+    --select-item-hover: var(--background-color-light);
     --select-popper-max-height: 194px;
     --select-popper-line-height: 1.6;
     --select-popper-line-height-small: 1.6;
     --select-placeholder-color: var(--brand-tip-color);
     --select-arrow-color: #a5a5a6;
+    --select-arrow-size: 18px;
+    --select-arrow-right-ratio: 0.6;
     --select-tags-padding-y: 2px;
     --select-tags-padding: 2px 26px 2px 4px;
     --select-tags-line-height: 26px;

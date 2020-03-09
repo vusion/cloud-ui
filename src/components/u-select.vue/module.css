@@ -7,10 +7,11 @@
     width: var(--select-width);
     height: var(--select-height);
     line-height: calc(var(--select-height) - var(--select-border-width) * 2);
-    padding: var(--select-padding);
+    padding: 0 var(--select-padding-x);
+    padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x));
     background: var(--select-background);
     border: var(--select-border-width) solid var(--select-border-color);
-    color: #555;
+    color: var(--select-color);
     border-radius: var(--border-radius-base);
 }
 
@@ -59,17 +60,18 @@
 .root::after {
     position: absolute;
     icon-font: url('../i-icon.vue/icons/keyboard-arrow-down.svg');
-    font-size: 18px;
-    right: 6px;
+    font-size: var(--select-arrow-size);
+    right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x));
     top: 0;
     bottom: 0;
-    line-height: 1;
+    line-height: 1.2;
     height: 1em;
     margin: auto;
     color: var(--select-arrow-color);
+    transition: transform var(--transition-duration-base);
 }
 .root[opened]::after {
-    transform: rotate(180deg);
+    transform: rotate(-180deg);
 }
 
 .root[clearable]::after {
@@ -172,75 +174,10 @@
     text-align: center;
 }
 
-.root[size="normal"] { /* By default */ }
-
-.root[size="small"] {
-    width: var(--select-width-small);
-    height: var(--select-height-small);
-    line-height: calc(var(--select-height-small) - var(--select-border-width) * 2);
-}
-
-.root[size="small"] .text {
-    line-height: calc(var(--select-height-small) - var(--select-border-width) * 2);
-}
-
-.root[size="small"]::after {
-    line-height: calc(var(--select-height-small) - var(--select-border-width) * 4);
-}
-
-.root[size="small"] .popper {
-    line-height: var(--select-popper-line-height-small);
-}
-
-.root[size="large"] {
-    width: var(--select-width-large);
-    height: var(--select-height-large);
-    line-height: calc(var(--select-height-large) - var(--select-border-width) * 2);
-}
-
 .label {
     padding-right: 10px;
     color: #999;
 }
-
-.root[size$="mini"] { width: 80px; padding: 0 6px; }
-.root[size$="mini"] .item { padding: 0 6px; }
-.root[size^="mini"] { height: 28px; line-height: 26px; }
-.root[size^="mini"] .popper { max-height: 156px; }
-.root[size^="mini"] .item { line-height: 26px; }
-
-.root[size$="small"] { width: 120px; padding: 0 8px; }
-.root[size$="small"] .item { padding: 0 8px; }
-.root[size^="small"] { height: 30px; line-height: 28px; }
-.root[size^="small"] .popper { max-height: 168px; }
-.root[size^="small"] .item { line-height: 28px; }
-
-.root[size$="normal"] { width: 160px; padding: 0 10px; }
-.root[size$="normal"] .item { padding: 0 10px; }
-.root[size^="normal"] { height: var(--height-base); line-height: 32px; }
-.root[size^="normal"] .popper { max-height: 192px; }
-.root[size^="normal"] .item { line-height: 32px; }
-
-.root[size$="medium"] { width: 280px; padding: 0 10px; }
-.root[size$="medium"] .item { padding: 0 10px; }
-.root[size^="medium"] { height: 36px; line-height: 34px; }
-.root[size^="medium"] .popper { max-height: 204px; }
-.root[size^="medium"] .item { line-height: 34px; }
-
-.root[size$="large"] { width: 440px; padding: 0 10px; }
-.root[size$="large"] .item { padding: 0 10px; }
-.root[size^="large"] { height: 38px; line-height: 36px; }
-.root[size^="large"] .popper { max-height: 216px; }
-.root[size^="large"] .item { line-height: 36px; }
-
-.root[size$="huge"] { width: 580px; padding: 0 10px; }
-.root[size$="huge"] .item { padding: 0 10px; }
-.root[size^="huge"] { height: 40px; line-height: 38px; }
-.root[size^="huge"] .popper { max-height: 228px; }
-.root[size^="huge"] .item { line-height: 38px; }
-
-.root[size$="full"] { width: 100%; padding: 0 10px; }
-.root[size^="full"] { height: 100%; }
 
 .flag {
     position: absolute;
@@ -256,3 +193,49 @@
     border: none;
     background-image: url("../../assets/images/high.png");
 }
+
+.root[size$="mini"] { width: var(--select-width-mini); padding: 0 var(--select-padding-x-mini); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-mini)); }
+.root[size$="mini"] .item { padding: 0 var(--select-padding-x-mini); }
+.root[size$="mini"]::after { right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x-mini)); }
+.root[size^="mini"] { height: var(--select-height-mini); line-height: calc(var(--select-height-mini) - var(--select-border-width) * 2); }
+.root[size^="mini"] .item { line-height: calc(var(--select-height-mini) - var(--select-border-width) * 2); }
+.root[size^="mini"] .popper { max-height: calc(6 * calc(var(--select-height-mini) - var(--select-border-width) * 2)); }
+
+.root[size$="small"] { width: var(--select-width-small); padding: 0 var(--select-padding-x-small); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-small)); }
+.root[size$="small"] .item { padding: 0 var(--select-padding-x-small); }
+.root[size$="small"]::after { right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x-small)); }
+.root[size^="small"] { height: var(--select-height-small); line-height: calc(var(--select-height-small) - var(--select-border-width) * 2); }
+.root[size^="small"] .item { line-height: calc(var(--select-height-small) - var(--select-border-width) * 2); }
+.root[size^="small"] .popper { max-height: calc(6 * calc(var(--select-height-small) - var(--select-border-width) * 2)); }
+
+.root[size$="normal"] { width: var(--select-width); padding: 0 var(--select-padding-x); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x)); }
+.root[size$="normal"] .item { padding: 0 var(--select-padding-x); }
+.root[size$="normal"]::after { right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x)); }
+.root[size^="normal"] { height: var(--select-height); line-height: calc(var(--select-height) - var(--select-border-width) * 2); }
+.root[size^="normal"] .item { line-height: calc(var(--select-height) - var(--select-border-width) * 2); }
+.root[size^="normal"] .popper { max-height: calc(6 * calc(var(--select-height) - var(--select-border-width) * 2)); }
+
+.root[size$="medium"] { width: var(--select-width-medium); padding: 0 var(--select-padding-x-medium); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-medium)); }
+.root[size$="medium"] .item { padding: 0 var(--select-padding-x-medium); }
+.root[size$="medium"]::after { right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x-medium)); }
+.root[size^="medium"] { height: var(--select-height-medium); line-height: calc(var(--select-height-medium) - var(--select-border-width) * 2); }
+.root[size^="medium"] .item { line-height: calc(var(--select-height-medium) - var(--select-border-width) * 2); }
+.root[size^="medium"] .popper { max-height: calc(6 * calc(var(--select-height-medium) - var(--select-border-width) * 2)); }
+
+.root[size$="large"] { width: var(--select-width-large); padding: 0 var(--select-padding-x-large); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-large)); }
+.root[size$="large"] .item { padding: 0 var(--select-padding-x-large); }
+.root[size$="large"]::after { right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x-large)); }
+.root[size^="large"] { height: var(--select-height-large); line-height: calc(var(--select-height-large) - var(--select-border-width) * 2); }
+.root[size^="large"] .item { line-height: calc(var(--select-height-large) - var(--select-border-width) * 2); }
+.root[size^="large"] .popper { max-height: calc(6 * calc(var(--select-height-large) - var(--select-border-width) * 2)); }
+
+.root[size$="huge"] { width: var(--select-width-huge); padding: 0 var(--select-padding-x-huge); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-huge)); }
+.root[size$="huge"] .item { padding: 0 var(--select-padding-x-huge); }
+.root[size$="huge"]::after { right: calc(var(--select-arrow-right-ratio) * var(--select-padding-x-huge)); }
+.root[size^="huge"] { height: var(--select-height-huge); line-height: calc(var(--select-height-huge) - var(--select-border-width) * 2); }
+.root[size^="huge"] .item { line-height: calc(var(--select-height-huge) - var(--select-border-width) * 2); }
+.root[size^="huge"] .popper { max-height: calc(6 * calc(var(--select-height-huge) - var(--select-border-width) * 2)); }
+
+.root[size$="full"] { width: 100%; padding: 0 var(--select-padding-x-full); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-full)); }
+.root[size$="full"] .item { padding: 0 var(--select-padding-x-full); }
+.root[size^="full"] { height: 100%; }

@@ -4,13 +4,13 @@
     max-width: 100%; /* 防止表格等小的地方超出区域 */
     width: var(--input-width);
     height: var(--input-height);
-    padding: var(--input-padding);
+    padding: 0 var(--input-padding-x);
     line-height: calc(var(--input-height) - var(--input-border-width) * 2);
     background: var(--input-background);
     border: var(--input-border-width) solid var(--input-border-color);
     border-radius: var(--input-border-radius);
     cursor: text;
-    color: #666;
+    color: var(--input-color);
     transition: border-color var(--transition-duration-base);
 }
 
@@ -125,23 +125,23 @@
     top: 0;
 }
 
-.root[size$="mini"] { width: 80px; padding: 0 6px; }
-.root[size^="mini"] { height: 28px; line-height: 26px; }
+.root[size$="mini"] { width: var(--input-width-mini); padding: 0 var(--input-padding-x-mini); }
+.root[size^="mini"] { height: var(--input-height-mini); line-height: calc(var(--input-height-mini) - var(--input-border-width) * 2); }
 
-.root[size$="small"] { width: 120px; padding: 0 8px; }
-.root[size^="small"] { height: 30px; line-height: 28px; }
+.root[size$="small"] { width: var(--input-width-small); padding: 0 var(--input-padding-x-small); }
+.root[size^="small"] { height: var(--input-height-small); line-height: calc(var(--input-height-small) - var(--input-border-width) * 2); }
 
-.root[size$="normal"] { width: 160px; padding: 0 10px; }
-.root[size^="normal"] { height: var(--height-base); line-height: 32px; }
+.root[size$="normal"] { width: var(--input-width); padding: 0 var(--input-padding-x); }
+.root[size^="normal"] { height: var(--input-height); line-height: calc(var(--input-height) - var(--input-border-width) * 2); }
 
-.root[size$="medium"] { width: 280px; padding: 0 10px; }
-.root[size^="medium"] { height: 36px; line-height: 34px; }
+.root[size$="medium"] { width: var(--input-width-medium); padding: 0 var(--input-padding-x-medium); }
+.root[size^="medium"] { height: var(--input-height-medium); line-height: calc(var(--input-height-medium) - var(--input-border-width) * 2); }
 
-.root[size$="large"] { width: 440px; padding: 0 10px; }
-.root[size^="large"] { height: 38px; line-height: 36px; }
+.root[size$="large"] { width: var(--input-width-large); padding: 0 var(--input-padding-x-large); }
+.root[size^="large"] { height: var(--input-height-large); line-height: calc(var(--input-height-large) - var(--input-border-width) * 2); }
 
-.root[size$="huge"] { width: 580px; padding: 0 10px; }
-.root[size^="huge"] { height: 40px; line-height: 38px; }
+.root[size$="huge"] { width: var(--input-width-huge); padding: 0 var(--input-padding-x-huge); }
+.root[size^="huge"] { height: var(--input-height-huge); line-height: calc(var(--input-height-huge) - var(--input-border-width) * 2); }
 
-.root[size$="full"] { width: 100%; padding: 0 10px; }
+.root[size$="full"] { width: 100%; padding: 0 var(--input-padding-x-full); }
 .root[size^="full"] { height: 100%; }
