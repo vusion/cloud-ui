@@ -1,0 +1,8 @@
+<li v-if="matched" :class="$style.root"
+    :selected="selected || currentSelected"
+    :readonly="parentVM.readonly"
+    :disabled="disabled || parentVM.disabled"
+    @click="select"
+    v-ellipsis-title>
+    <slot></slot>
+</li>

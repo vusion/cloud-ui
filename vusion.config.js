@@ -73,6 +73,7 @@ module.exports = {
             { group: 'Form', name: 'u-cascade-select', alias: '级联选择' },
             { group: 'Form', name: 'u-region-select', alias: '地区选择' },
             { group: 'Form', name: 'u-multi-select', alias: '多项选择框', deprecated: true },
+            { group: 'Form', name: 'u-old-suggest', alias: '自动提示', deprecated: true },
             { group: 'Form', name: 'u-slider', alias: '滑块' },
             { group: 'Form', name: 'u-combo-slider', alias: '复合滑块' },
             { group: 'Form', name: 'u-uploader', alias: '文件上传' },

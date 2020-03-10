@@ -1,0 +1,23 @@
+<u-old-popper ref="popper" :disabled="readonly || disabled" @toggle="onToggle($event)" append-to="reference">
+    <u-input :class="$style.root" ref="input" :readonly="readonly" :disabled="disabled" :color="color" :size="size"
+        :value="currentText" @input="onInput" @blur="onBlur"
+        @keydown.prevent.up="$refs.popper.currentOpen ? shift(-1) : toggle(true)"
+        @keydown.prevent.down="$refs.popper.currentOpen ? shift(+1) : toggle(true)"
+        @keydown.stop.enter="$refs.popper.currentOpen && select(selectedVM)"
+        @keydown.stop.esc="toggle(false)"
+        v-bind="$attrs"></u-input>
+    <ul :class="$style.popper" slot="popper" :size="size" @click.stop @scroll.stop="onScroll">
+        <slot></slot>
+        <component :is="ChildComponent" v-if="currentData"
+        v-for="item in currentData"
+        :key="item.value"
+        :value="item.value"
+        :disabled="item.disabled || disabled"
+        :item="item"
+        >{{ item[field] }}</component>
+        <div :class="$style.status" status="loading" v-if="loading">
+            <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
+        </div>
+        <div :class="$style.status" status="empty" v-else-if="!matchedVMs.length">{{ emptyText }}</div>
+    </ul>
+</u-old-popper>

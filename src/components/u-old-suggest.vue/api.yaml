@@ -1,0 +1,125 @@
+- name: u-old-suggest
+  attrs:
+    - name: value.sync, v-model
+      type: any
+      default: null
+      description: 当前选择的值
+    - name: field
+      type: string
+      default: text
+      description: 显示文本字段
+    - name: data
+      type: Array<{ text, value }>
+      default: null
+      description: Data书写方式中的数据列表
+    - name: data-source
+      type: DataSource, Function
+      default: null
+      description: 多功能数据源
+    - name: readonly
+      type: boolean
+      default: false
+      description: 是否只读
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁用
+    - name: match-method
+      type: string, Function
+      default: includes
+      description: 匹配方式。可选值：`includes`表示包含即可，`startsWith`表示只匹配开头，`endsWith`表示只匹配结尾。也可以传一个方法
+    - name: case-sensitive
+      type: boolean
+      default: false
+      description: 是否区分大小写，默认不区分大小写
+    - name: strict
+      type: boolean
+      default: false
+      description: 是否为严格模式。当为严格模式时，`value`属性必须为一个选项的值，或者为空
+    - name: size
+      type: string
+      default: normal normal
+      description: "控制宽高属性，第一个值表示高度属性，第二值表示宽度，可选值:
+        `mini`,`small`,`normal`,`medium`,`large`,`huge`,`full`,可以互相组合"
+  slots:
+    - name: default
+      description: 插入`<u-old-suggest-item>`子组件。
+  events:
+    - name: before-select
+      description: 选择某一项前触发
+      params:
+        - name: $event.value
+          type: any
+          description: 选择项的值
+        - name: $event.oldValue
+          type: any
+          description: 旧的值
+        - name: $event.item
+          type: object
+          description: 选择项相关对象
+        - name: $event.itemVM
+          type: SuggestItem
+          description: 选择项子组件
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止选择流程
+    - name: input
+      description: 选择某一项时触发
+      params:
+        - name: $event
+          type: any
+          description: 选择项的值
+    - name: select
+      description: 选择某一项时触发
+      params:
+        - name: $event.value
+          type: any
+          description: 改变后的值
+        - name: $event.oldValue
+          type: any
+          description: 旧的值
+        - name: $event.item
+          type: object
+          description: 选择项相关对象
+        - name: $event.itemVM
+          type: SuggestItem
+          description: 选择项子组件
+    - name: toggle
+      description: 展开/收起选择框时触发
+      params:
+        - name: $event.open
+          type: boolean
+          description: 展开/收起状态
+- name: u-old-suggest-item
+  attrs:
+    - name: value
+      type: any
+      default: null
+      description: 此项的值
+    - name: disabled
+      type: boolean
+      default: false
+      description: 禁用此项
+    - name: item
+      type: object
+      default: null
+      description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
+  slots:
+    - name: default
+      description: 插入文本或 HTML。
+  events:
+    - name: before-select
+      description: 选择此项前触发
+      params:
+        - name: $event.value
+          type: any
+          description: 此项的值
+        - name: $event.item
+          type: object
+          description: 此项的相关对象
+        - name: $event.itemVM
+          type: SelectItem
+          description: 此组件
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止选择流程

@@ -79,6 +79,7 @@ export * from './u-navbar.vue';
 export * from './u-number-input.vue';
 export * from './u-old-popper.vue';
 export * from './u-old-popup.vue';
+export * from './u-old-suggest.vue';
 export * from './u-old-table-view.vue';
 export * from './u-old-tooltip.vue';
 export * from './u-pagination.vue';
