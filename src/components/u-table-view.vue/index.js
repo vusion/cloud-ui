@@ -22,7 +22,7 @@ export const UTableView = {
 
         // formatter: { type: [String, Function], default: 'text' },
         initialLoad: { type: Boolean, default: true },
-        pageable: { type: Boolean, default: false },
+        pageable: { type: [Boolean, String], default: false },
         pageSize: { type: Number, default: 20 },
         pageNumber: { type: Number, default: 1 },
         pageSizeOptions: { type: Array, default() { return [10, 20, 50]; } },
@@ -169,6 +169,7 @@ export const UTableView = {
             this.page(number);
         });
 
+        this.debouncedLoad = debounce(this.load, 300);
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
         this.initialLoad && this.load();
 
@@ -236,7 +237,7 @@ export const UTableView = {
         },
         getDataSourceOptions() {
             return {
-                viewMode: 'page',
+                viewMode: this.pageable === 'scroll' || this.pageable === 'button' ? 'more' : 'page',
                 paging: this.paging,
                 sorting: this.sorting,
                 filtering: this.filtering,
@@ -472,8 +473,18 @@ export const UTableView = {
         },
         onBodyScroll(e) {
             this.debouncedSyncBodyScroll(e.target.scrollTop, e.target);
+
+            // this.throttledVirtualScroll(e);
+
+            if (!this.pageable === 'scroll')
+                return;
+
+            const el = e.target;
+            if (el.scrollHeight === el.scrollTop + el.clientHeight
+                && this.currentDataSource && this.currentDataSource.hasMore())
+                this.debouncedLoad(true);
         },
-        load() {
+        load(more) {
             const dataSource = this.currentDataSource;
             if (!dataSource)
                 return;
@@ -482,16 +493,21 @@ export const UTableView = {
 
             this.currentLoading = true;
             this.currentError = false;
-            dataSource.load().then((data) => {
+            dataSource[more ? 'loadMore' : 'load']().then((data) => {
                 // 防止同步数据使页面抖动
                 // setTimeout(() => this.currentData = data);
                 this.currentLoading = false;
-                if (this.currentDataSource.paging && this.currentDataSource.paging.number > this.currentDataSource.totalPage)
-                    this.page(1);
+                if (this.pageable === 'scroll' || this.pageable === 'button') {
+                    this.$emit('load', undefined, this);
+                    return data;
+                } else {
+                    if (this.currentDataSource.paging && this.currentDataSource.paging.number > this.currentDataSource.totalPage)
+                        this.page(1);
 
-                this.handleResize();
-                this.$emit('load', undefined, this);
-                return data;
+                    this.handleResize();
+                    this.$emit('load', undefined, this);
+                    return data;
+                }
             }).catch(() => {
                 this.currentLoading = false;
                 this.currentError = true;

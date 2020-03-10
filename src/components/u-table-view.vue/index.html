@@ -55,7 +55,7 @@
                             <slot name="error">{{ errorText }}</slot>
                         </td>
                     </tr>
-                    <tr v-else-if="currentData === undefined || currentLoading">
+                    <tr v-else-if="(currentData === undefined || currentLoading) && pageable !== 'scroll' && pageable !== 'button'">
                         <td :class="$style.center" :colspan="visibleColumnVMs.length">
                             <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
                         </td>
@@ -94,11 +94,26 @@
                             </f-collapse-transition>
                         </tr>
                     </template>
+                    <tr v-if="currentLoading && (pageable === 'scroll' || pageable === 'button')">
+                        <td :class="$style.center" :colspan="visibleColumnVMs.length">
+                            <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
+                        </td>
+                    </tr>
+                    <tr v-if="pageable === 'button' && currentDataSource.hasMore() && !currentLoading">
+                        <td :class="$style.center" :colspan="visibleColumnVMs.length">
+                            <u-link @click="load(true)">{{ $t('loadMore') }}</u-link>
+                        </td>
+                    </tr>
+                    <tr v-if="(pageable === 'scroll' || pageable === 'button') && !currentDataSource.hasMore()">
+                        <td :class="$style.center" :colspan="visibleColumnVMs.length">
+                            {{ $t('noMore') }}
+                        </td>
+                    </tr>
                 </tbody>
             </u-table>
         </div>
     </div>
-    <u-combo-pagination :class="$style.pagination" v-if="pageable"
+    <u-combo-pagination :class="$style.pagination" v-if="pageable === true || pageable === 'pagination'"
         :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
         :page-size="currentDataSource.paging.size" :page-size-options="pageSizeOptions" :show-total="showTotal" :show-sizer="showSizer" :show-jumper="showJumper"
         @change="page($event.page)" @change-page-size="page(currentDataSource.paging.number, $event.pageSize)">
