@@ -1,4 +1,3 @@
-export * from './e-ripple.vue';
 export * from './e-watermark.vue';
 export * from './f-collapse-transition.vue';
 export * from './f-draggable.vue';
@@ -61,7 +60,6 @@ export * from './u-grid-layout.vue';
 export * from './u-icon-tooltip.vue';
 export * from './u-info-list.vue';
 export * from './u-input.vue';
-export * from './u-key-value.vue';
 export * from './u-label.vue';
 export * from './u-lightbox.vue';
 export * from './u-line-chart.vue';
