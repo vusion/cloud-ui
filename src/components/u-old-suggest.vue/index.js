@@ -7,7 +7,7 @@ export const UOldSuggest = {
     extends: ListView,
     i18n,
     props: {
-        value: { type: String, default: '' },
+        value: { type: [String, Number], default: '' },
         color: String,
         size: String,
         matchMethod: { type: [String, Function], default: 'includes' },

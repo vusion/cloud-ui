@@ -40,7 +40,12 @@ files.forEach((file) => {
         .replace(/src\/components\/u-tooltip\.vue/g, 'src/components/u-old-tooltip.vue')
 
         .replace(/<u-link-list(\s+|>)/g, '<u-actions$1').replace(/<\/u-link-list>/g, '</u-actions>')
-        .replace(/<u-link-list-item(\s+|>)/g, '<u-action$1').replace(/<\/u-link-list-item>/g, '</u-action>');
+        .replace(/<u-link-list-item(\s+|>)/g, '<u-action$1').replace(/<\/u-link-list-item>/g, '</u-action>')
+
+        .replace(/<u-suggest(\s+|>)/g, '<u-old-suggest$1').replace(/<\/u-suggest>/g, '</u-old-suggest>')
+        .replace(/<u-suggest-item(\s+|>)/g, '<u-old-suggest-item$1').replace(/<\/u-suggest-item>/g, '</u-old-suggest-item>')
+        .replace(/src\/components\/u-suggest\.vue/g, 'src/components/u-old-suggest.vue')
+        .replace(/src\/components\/u-suggest-item\.vue/g, 'src/components/u-old-suggest.vue/column.vue');
 
     // 编译即可发现
     if (file.includes('src-vue/components')) {
@@ -118,6 +123,8 @@ files.forEach((file) => {
             .replace(/\bCascadeSelect\b/g, 'UCascadeSelect')
             .replace(/\bRegionSelect\b/g, 'URegionSelect')
             .replace(/\bMultiSelect\b/g, 'UMultiSelect')
+            .replace(/\bSuggest\b/g, 'UOldSuggest')
+            .replace(/\bSuggestItem\b/g, 'UOldSuggestItem')
             .replace(/\bSlider\b/g, 'USlider')
             .replace(/\bComboSlider\b/g, 'UComboSlider')
             .replace(/\bUploader\b/g, 'UUploader')

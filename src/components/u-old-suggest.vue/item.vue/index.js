@@ -5,7 +5,7 @@ export const UOldSuggestItem = {
     parentName: 'u-old-suggest',
     extends: ListViewItem,
     props: {
-        value: { type: String, default: '' },
+        value: { type: [String, Number], default: '' },
     },
     computed: {
         innerText() {
