@@ -1,6 +1,6 @@
 - name: u-navbar
   title: 导航条
-  labels: [UI 组件, 路由链接, 块级展示]
+  labels: [路由链接, 块级展示]
   description: 通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。
   attrs:
     - name: router

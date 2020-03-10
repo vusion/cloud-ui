@@ -1,6 +1,6 @@
 - name: u-collapse
   title: 折叠面板
-  labels: [UI 组件, 块级展示]
+  labels: [块级展示]
   attrs:
     - name: accordion
       type: boolean

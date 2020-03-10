@@ -1,6 +1,6 @@
 - name: u-avatar
   title: 头像
-  labels: [UI 组件, 行内展示]
+  labels: [行内展示]
   description: 顶部导航栏或页面中局部使用的用户头像。
   attrs:
     - name: type

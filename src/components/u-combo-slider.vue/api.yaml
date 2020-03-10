@@ -1,6 +1,6 @@
 - name: u-combo-slider
   title: 复合滑块
-  labels: [UI 组件, 表单控件, 块级展示]
+  labels: [表单控件, 块级展示]
   attrs:
     - name: value.sync, v-model
       type: number

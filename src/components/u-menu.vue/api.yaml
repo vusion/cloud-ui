@@ -1,6 +1,6 @@
 - name: u-menu
   title: 菜单
-  labels: [UI 组件, 路由链接, 块级展示]
+  labels: [路由链接, 块级展示]
   description: 菜单组件支持路由、触发关闭、多级菜单等功能。
   attrs:
     - name: router

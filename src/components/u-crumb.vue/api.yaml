@@ -1,6 +1,6 @@
 - name: u-crumb
   title: 面包屑
-  labels: [UI 组件, 路由链接, 块级展示]
+  labels: [路由链接, 块级展示]
   attrs:
     - name: 无
       type: ""
