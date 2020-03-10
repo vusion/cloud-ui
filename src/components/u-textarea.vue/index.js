@@ -17,7 +17,7 @@ export const UTextarea = {
     },
     methods: {
         onDragStart() {
-            const size = getSize(this.$refs.root);
+            const size = getSize(this.$el);
             this.startWidth = size.width;
             this.startHeight = size.height;
         },
