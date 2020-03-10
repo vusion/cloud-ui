@@ -57,9 +57,9 @@ export const UGridLayoutColumn = {
         },
     },
     methods: {
-        getPercent(numerator, denominator) {
-            denominator = denominator || this.parentVM.repeat;
-            return numerator / denominator * 100 + '%';
+        getPercent(span, repeat) {
+            repeat = repeat || this.$parent.repeat || this.$parent.$parent.repeat;
+            return span / repeat * 100 + '%';
         },
         onResize() {
             const stack = this.stack;

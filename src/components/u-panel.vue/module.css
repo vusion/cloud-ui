@@ -1,7 +1,7 @@
 .root {
-    background: white;
-    box-shadow: 0px 2px 10px hsla(216, 10%, 28%, 0.05);
-    border: 1px solid var(--border-color-light);
+    background: var(--panel-background);
+    box-shadow: 0px 2px 10px rgba(64, 69, 78, 0.05);
+    border: var(--panel-border-width) solid var(--border-color-light);
     transition: box-shadow var(--transition-duration-base);
 }
 
@@ -11,24 +11,24 @@
 
 .head {
     position: relative;
-    padding: 20px;
+    padding: var(--panel-head-padding);
     padding-top: 15px;
     padding-bottom: 0;
 }
 
 .title {
     margin: 0;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: var(--panel-title-font-size);
+    font-weight: var(--panel-title-font-weight);
 }
 
 .extra {
     position: absolute;
-    right: 20px;
+    right: var(--panel-head-padding);
     top: 15px;
 }
 
 .body {
     clear: both;
-    padding: 20px;
+    padding: var(--panel-body-padding);
 }

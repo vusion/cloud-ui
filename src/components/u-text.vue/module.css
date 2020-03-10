@@ -12,8 +12,8 @@
     font-size: var(--text-font-size-small);
 }
 
-.root[size="normal"] {
-    /* By default */
+.root[size="normal"] { /* 父级字号不是默认大小时，该值有用的 */
+    font-size: var(--text-font-size);
 }
 
 .root[size="large"] {
@@ -22,6 +22,14 @@
 
 .root[size="huge"] {
     font-size: var(--text-font-size-huge);
+}
+
+.root[weight="normal"] {
+    font-weight: normal;
+}
+
+.root[weight="bold"] {
+    font-weight: bold;
 }
 
 .root[color="default"] {

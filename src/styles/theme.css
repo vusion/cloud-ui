@@ -126,6 +126,7 @@
     --kbd-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 
     /* Text */
+    --text-font-size: var(--font-size-base);
     --text-font-size-small: var(--font-size-small);
     --text-font-size-large: calc(var(--font-size-base) * (18 / 14));
     --text-font-size-huge: calc(var(--font-size-base) * (22 / 14));
@@ -238,6 +239,15 @@
     --h4-font-size: calc(var(--font-size-base) * (16 / 14));
     --h5-font-size: calc(var(--font-size-base) * (14 / 14));
     --h6-font-size: calc(var(--font-size-base) * (12 / 14));
+
+    /* Panel */
+    --panel-border-width: 1px;
+    --panel-background: white;
+    --panel-border-color: var(--border-color-light);
+    --panel-head-padding: var(--space-base);
+    --panel-body-padding: var(--space-base);
+    --panel-title-font-size: 18px;
+    --panel-title-font-weight: bold;
 
     /* Collapse */
     --collapse-item-head-background: var(--background-color-dark);
