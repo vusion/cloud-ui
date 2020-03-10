@@ -55,12 +55,10 @@
     --height-base: 34px; /* 以输入框、选择框为基准的尺寸 */
     --height-medium: 36px;
     --height-large: 40px;
-    --height-huge: 48px;
+    --height-huge: 42px;
     --border-radius-mini: 1px;
     --border-radius-base: 2px;
-    --border-radius-large: 4px;
-    --border-radius-mini: 1px;
-    --border-radius-base: 2px;
+    --border-radius-medium: 3px;
     --border-radius-large: 4px;
 
     /* Fonts */
@@ -358,7 +356,7 @@
     --crumb-space-x: 5px;
 
     /* Pagination */
-    --pagination-item-size: 32px;
+    --pagination-item-size: var(--height-small);
     --pagination-item-padding: 0;
     --pagination-item-background: white;
     --pagination-item-background-selected: var(--brand-primary);
@@ -370,9 +368,10 @@
     --pagination-item-color-disabled: #bbb;
     --pagination-item-color-blank: #555;
     --pagination-item-color-blank-disabled: var(--brand-disabled);
+    --pagination-item-border-color: var(--border-color-base);
 
     /* Combo Pagination */
-    --combo-pagination-height: 30px;
+    --combo-pagination-height: var(--height-small);
     --combo-pagination-line-height: calc(var(--combo-pagination-height) - var(--border-width-base) * 2);
     --combo-pagination-sizer-width: 100px;
     --combo-pagination-jumper-width: 50px;
@@ -425,7 +424,7 @@
     --input-background: white;
     --input-background-disabled: #cddae9;
     --input-color: #666;
-    --input-border-color: #e1e8ed;
+    --input-border-color: var(--border-color-base);
     --input-border-color-error: #ff867f;
     --input-border-color-focus: #8ebee9;
     --input-placeholder-color: #999;
@@ -433,11 +432,20 @@
     --input-border-radius: 3px;
 
     /* Textarea */
-    --textarea-width: 160px;
-    --textarea-width-mini: var(--width-base);
+    --textarea-width: var(--width-base);
+    --textarea-width-medium: var(--width-medium);
+    --textarea-width-large: var(--width-large);
+    --textarea-width-huge: var(--width-huge);
+    --textarea-min-width: var(--width-base);
     --textarea-height: 80px;
+    --textarea-height-medium: 100px;
+    --textarea-height-large: 120px;
+    --textarea-height-huge: 200px;
     --textarea-min-height: var(--height-base);
+    --textarea-border-radius: var(--border-radius-medium);
     --textarea-padding: 5px 10px;
+    --textarea-color: #666;
+    --textarea-border-color: var(--border-color-base);
 
     /* Number Input */
     --number-input-height: 14px;

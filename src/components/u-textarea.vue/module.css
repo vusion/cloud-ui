@@ -3,14 +3,14 @@
 .root {
     width: var(--textarea-width);
     height: var(--textarea-height);
-    min-width: var(--textarea-width-mini);
+    min-width: var(--textarea-min-width);
     min-height: var(--textarea-min-height);
     padding: var(--textarea-padding);
     line-height: inherit;
     max-width: 100%;
-    color: #666;
-    border-color: var(--brand-secondary);
-    border-radius: 3px;
+    color: var(--textarea-color);
+    border-color: var(--textarea-border-color);
+    border-radius: var(--textarea-border-radius);
     transition: border-color var(--transition-duration-base);
 }
 
@@ -62,17 +62,17 @@
     border-color: #ff867f;
 }
 
-.root[size$="normal"] { width: 160px; }
-.root[size^="normal"] { height: 80px; }
+.root[size$="normal"] { width: var(--textarea-width); }
+.root[size^="normal"] { height: var(--textarea-height); }
 
-.root[size$="medium"] { width: 280px; }
-.root[size^="medium"] { height: 100px; }
+.root[size$="medium"] { width: var(--textarea-width-medium); }
+.root[size^="medium"] { height: var(--textarea-height-medium); }
 
-.root[size$="large"] { width: 440px; }
-.root[size^="large"] { height: 120px; }
+.root[size$="large"] { width: var(--textarea-width-large); }
+.root[size^="large"] { height: var(--textarea-height-large); }
 
-.root[size$="huge"] { width: 580px; }
-.root[size^="huge"] { height: 200px; }
+.root[size$="huge"] { width: var(--textarea-width-huge); }
+.root[size^="huge"] { height: var(--textarea-height-huge); }
 
 .root[size$="full"] { width: 100%; }
 .root[size^="full"] { height: 100%; }
