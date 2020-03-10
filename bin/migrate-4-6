@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+const shelljs = require('shelljs');
+
+const include = /\.vue$|\.css$/;
+const root = process.argv[2];
+let files = [];
+files = files.concat(shelljs.ls('-RA', path.join(process.cwd(), root)).stdout.split('\n').filter((root) => include.test(root)).map((filePath) => path.join(process.cwd(), root, filePath)).filter((root) => fs.statSync(root).isFile()));
+
+files.forEach((file) => {
+    let content = fs.readFileSync(file).toString();
+
+    let styleStartIndex = 0;
+    if (file.endsWith('vue'))
+        styleStartIndex = content.search('<style');
+    if (styleStartIndex === -1)
+        return;
+
+    content = content
+        .replace(/\$([a-zA-Z0-9-_]+)([:;\s])/g, (m, $1, $2, index) => {
+            if (index < styleStartIndex)
+                return m;
+
+            if ($2 === ':')
+                return `--${$1}:`;
+            else
+                return `var(--${$1})${$2}`;
+        });
+
+    fs.writeFileSync(file, content);
+});

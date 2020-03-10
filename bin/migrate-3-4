@@ -232,6 +232,7 @@ files.forEach((file) => {
             else
                 return m;
         })
+        .replace(/<u-select\s+(auto-select\s+)?/g, '<u-select auto-select ')
 
         // 编译即可发现
         .replace(/(src|cloud-ui)\/components\/u-desc-list-group\.vue/g, '$1/components/u-desc-list.vue/group.vue')
