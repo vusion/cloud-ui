@@ -1465,7 +1465,8 @@
       "readonly",
       "disabled",
       "closable",
-      "router"
+      "router",
+      "show-scroll-buttons"
     ],
     "defaults": [
       "v-model"

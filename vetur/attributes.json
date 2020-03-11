@@ -2803,6 +2803,15 @@
     "type": "boolean",
     "description": "是否根据 vue-router 来控制选择哪个标签页"
   },
+  "u-tabs/show-scroll-buttons": {
+    "type": "enum | boolean",
+    "options": [
+      "never",
+      "auto",
+      "always"
+    ],
+    "description": "是否显示标签滚动左右箭头按钮。`'auto'`表示有滚动的情况下显示，`‘always'`表示始终显示，`'never'`表示始终不显示。"
+  },
   "u-tab/title": {
     "type": "string",
     "description": "标签页标题"
