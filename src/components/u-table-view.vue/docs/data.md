@@ -197,7 +197,7 @@ export default {
 
 ``` vue
 <template>
-<u-table-view striped :data-source="load" pageable="scroll" :page-size="10" remote-paging style="max-height: 300px;">
+<u-table-view striped :data-source="load" pageable="scroll" :page-size="10" remote-paging style="height: 300px;">
     <u-table-view-column title="用户名" field="name" width="15%"></u-table-view-column>
     <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
     <u-table-view-column title="地址" field="address"></u-table-view-column>
@@ -230,10 +230,8 @@ export default {
             // 这里使用 Promise 和 setTimeout 模拟一个后端请求
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
-                    resolve({
-                        total: remoteData.length,
-                        data: remoteData.slice(paging.offset, paging.offset + paging.limit),
-                    });
+                    // 在不知道总数的情况下，组件也可以判断
+                    resolve(remoteData.slice(paging.offset, paging.offset + paging.limit));
                 }, 400);
             });
         },
@@ -281,10 +279,8 @@ export default {
             // 这里使用 Promise 和 setTimeout 模拟一个后端请求
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
-                    resolve({
-                        total: remoteData.length,
-                        data: remoteData.slice(paging.offset, paging.offset + paging.limit),
-                    });
+                    // 在不知道总数的情况下，组件也可以判断
+                    resolve(remoteData.slice(paging.offset, paging.offset + paging.limit));
                 }, 400);
             });
         },

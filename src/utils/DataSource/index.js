@@ -248,8 +248,10 @@ const VueDataSource = Vue.extend({
 
                 if (!this.remotePaging) { // 没有后端分页，认为是全部数据
                     if (result instanceof Array) { // 只返回数组，没有 total 字段
-                        this.originTotal = result.length;
-                        this.data = this._process(result);
+                        if (!result.length)
+                            this.originTotal = result.length;
+                        else
+                            this.data = this._process(result);
                     } else if (result instanceof Object) { // 返回 { total, data }
                         this.originTotal = result.total;
                         this.data = this._process(result.data);
@@ -261,10 +263,9 @@ const VueDataSource = Vue.extend({
                     let partialData;
 
                     if (result instanceof Array) { // 只返回数组，没有 total 字段
-                        if (!result.length) // 没有数据了，则记录下总数
+                        partialData = this._process(result);
+                        if (!result.length) // 没有数据了，则表示最后一次加载，记录下总数
                             this.originTotal = this.data.length;
-                        else
-                            partialData = this._process(result);
                     } else if (result instanceof Object) { // 返回 { total, data }
                         this.originTotal = result.total;
                         partialData = this._process(result.data);
