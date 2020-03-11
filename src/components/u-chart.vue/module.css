@@ -1,7 +1,8 @@
 :root {
-    --chart_padding: 15px;
+    --chart-padding: 15px;
     --chart_tt_height: 40px;
-    --chart_legend_height: 20px;
+    --chart-legend-height: 20px;
+    --chart-legend-width: 40%;
 }
 
 .root {
@@ -12,10 +13,10 @@
 
 .content {
     position: absolute;
-    top: var(--chart_padding);
-    left: var(--chart_padding);
-    right: var(--chart_padding);
-    bottom: var(--chart_padding);
+    top: var(--chart-padding);
+    left: var(--chart-padding);
+    right: var(--chart-padding);
+    bottom: var(--chart-padding);
 }
 
 .ittitle ~ .content {
@@ -36,11 +37,11 @@
 
 .legend {
     position: absolute;
-    bottom: var(--chart_padding);
-    height: var(--chart_legend_height);
-    line-height: var(--chart_legend_height);
-    left: var(--chart_padding);
-    right: var(--chart_padding);
+    bottom: var(--chart-padding);
+    height: var(--chart-legend-height);
+    line-height: var(--chart-legend-height);
+    left: var(--chart-padding);
+    right: var(--chart-padding);
     font-size: 12px;
     text-align: center;
 }
@@ -61,12 +62,38 @@
     background: url("../../assets/images/nodata.png") no-repeat center center;
 }
 
+.root[legend-placement="right"] .content {
+    right: calc(var(--chart-legend-width) + var(--chart-padding) * 2);
+    bottom: var(--chart-padding);
+}
+
+.root[legend-placement="right"] .legend {
+    width: var(--chart-legend-width);
+    right: var(--chart-padding);
+    left: auto;
+    top: 50%;
+    height: auto;
+    bottom: auto;
+    transform: translateY(-50%);
+}
+
+.root[legend-placement="right"] .item {
+    display: block;
+    max-width: none;
+    text-align: left;
+    margin-right: 0;
+}
+
+.root[legend-placement="right"] .item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
 .ittitle {
     position: absolute;
     z-index: 95;
-    top: var(--chart_padding);
-    left: var(--chart_padding);
-    right: var(--chart_padding);
+    top: var(--chart-padding);
+    left: var(--chart-padding);
+    right: var(--chart-padding);
     height: var(--chart_tt_height);
     line-height: var(--chart_tt_height);
     font-size: 16px;
@@ -74,9 +101,9 @@
 
 /* .caption {
     position: absolute;
-    top: calc(var(--chart_padding) + var(--chart_tt_height));
-    left: var(--chart_padding);
-    right: var(--chart_padding);
+    top: calc(var(--chart-padding) + var(--chart_tt_height));
+    left: var(--chart-padding);
+    right: var(--chart-padding);
     text-align: center;
 } */
 
