@@ -1,6 +1,6 @@
 <div :class="$style.root" ref="element" v-click-outside="handleClose">
     <div :class="$style.head">
-        <input :class="$style.input" :placeholder="placeholder" :value="dateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}"
+        <input :class="$style.input" :placeholder="placeholder" :value="dateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
             @focus="toggle(true)" @change="onInput($event)">
     </div>
     <div :class="$style.body" v-show="open">

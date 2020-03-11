@@ -1,4 +1,4 @@
-<u-old-popper ref="popper" :class="$style.root" :disabled="disabled" appendTo="reference" :placement="placement" @toggle="onToggle($event)" :options="options" :style="{width: size ? '':width+'px'}">
+<u-old-popper ref="popper" :class="$style.root" :disabled="disabled" appendTo="reference" :placement="placement" @toggle="onToggle($event)" :options="options">
     <div :class="$style.head" :disabled="disabled" :role="filter" :size="size" @click.stop="focus"
     :tabindex="readonly || disabled ? '' : 0" @keydown.prevent.up="$refs.popper.currentOpen ? shift(-1) : toggle(true)"
     @keydown.prevent.down="$refs.popper.currentOpen ? shift(+1) : toggle(true)"
@@ -34,7 +34,7 @@
             <i :class="$style.icon" :role="open ? 'up':''"></i>
         </template>
     </div>
-    <div :class="$style.body" slot="popper" :size="size" :style="{width: size ? '':width+'px'}">
+    <div :class="$style.body" slot="popper" :size="size">
         <ul :class="$style.listview" v-if="optionsData.length>0" ref="listView">
             <li :class="$style.listitem" ref="listItem" v-for="(item,index) in optionsData" v-if="!item.hidden" :key="index" :disabled="item.disabled" :role="item.selected ? 'z-sel':''" :hovered="item.hovered" @click.stop="select($event,index)">
                 <!-- <span :class="$style.listcontent">{{item[field]}}</span> -->

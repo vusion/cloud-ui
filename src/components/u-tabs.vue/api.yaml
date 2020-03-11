@@ -26,7 +26,7 @@
       type: enum | boolean
       options: ['never', 'auto', 'always']
       default: 'auto'
-      description: 是否显示标签滚动左右箭头按钮。'auto'表示有滚动的情况下显示，‘always'表示始终显示，'never'表示始终不显示。
+      description: 是否显示标签滚动左右箭头按钮。`'auto'`表示有滚动的情况下显示，`‘always'`表示始终显示，`'never'`表示始终不显示。
   slots:
     - name: default
       description: 插入`<u-tab>`子组件。

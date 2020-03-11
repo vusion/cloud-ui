@@ -35,7 +35,7 @@ export const UMultiSelect = {
             type: String,
             default() { return this.$t('selectText'); },
         },
-        size: String,
+        size: { type: String, default: 'normal' },
         // 三种模式 create normal collapseTag 三种模式
         pattern: {
             type: String,

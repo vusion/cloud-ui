@@ -1,6 +1,7 @@
 .root[class] {
     padding: 0 12px;
     padding-right: 26px;
+    max-width: 100%; /* 防止表格等小的地方超出区域 */
 }
 
 .root::after {
@@ -38,15 +39,20 @@
 .root::after {
     position: absolute;
     icon-font: url('../i-icon.vue/icons/keyboard-arrow-down.svg');
-    color: #a5a5a6;
+    color: var(--select-arrow-color);
     font-size: 18px;
     right: 6px;
     top: 0;
     line-height: inherit;
+    transition: transform var(--transition-duration-base);
+}
+
+.root[opened]::after {
+    transform: rotate(-180deg);
 }
 
 .root[class]:focus {
-    border-color: var(--brand-secondary);
+    border-color: var(--border-color-base);
 }
 
 .root[disabled] {
@@ -61,7 +67,7 @@
     max-height: 194px;
     overflow: auto;
     background: white;
-    border: 1px solid var(--brand-secondary);
+    border: 1px solid var(--border-color-base);
     border-radius: var(--border-radius-base);
     z-index: 1065;
 }

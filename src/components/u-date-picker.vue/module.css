@@ -7,7 +7,7 @@
     margin: 0;
     padding: 0 12px;
     vertical-align: middle;
-    border: 1px solid var(--brand-secondary);
+    border: 1px solid var(--border-color-base);
     color: #555;
     background: var(--field-background);
     border-radius: 3px;
@@ -19,6 +19,13 @@
     cursor: var(--cursor-not-allowed);
     background: #eee;
     color: #999;
+}
+
+.placeholder, .input::placeholder {
+    /* Removes placeholder transparency in Firefox. */
+    opacity: 1;
+    font-size: inherit;
+    color: var(--input-placeholder-color);
 }
 
 .body {

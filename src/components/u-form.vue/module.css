@@ -35,3 +35,5 @@
 .root[gap="small"][layout="inline"] .item:not(:last-child) {
     margin-right: var(--space-small);
 }
+
+.root[gap="small"][layout="inline"] .item > .item_label { padding-right: 10px; }
