@@ -647,6 +647,13 @@ export const UResizeTable = {
         showLimit() {
             this.tdata = this.tdata.slice(0, this.limit);
         },
+        rowClick(row, index, event) {
+            this.$emit('row-click', {
+                data: row,
+                index,
+                event,
+            });
+        },
     },
     destroyed() {
         this.timers.forEach((timer) => {
