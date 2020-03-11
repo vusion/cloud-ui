@@ -123,3 +123,54 @@ export function checkIntoView(elm, parentScrollElm) {
     const bottom = rect.bottom - parentTop;
     return bottom >= 0 && top - viewHeight < 0;
 }
+
+// scrollTop animation
+export function scrollTo(el, options, endCallback) {
+    if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = (
+            window.webkitRequestAnimationFrame
+            || window.mozRequestAnimationFrame
+            || window.msRequestAnimationFrame
+            || function (cb) {
+                return window.setTimeout(cb, 1000 / 60);
+            }
+        );
+    }
+
+    const startX = el.scrollLeft;
+    const startY = el.scrollTop;
+    if (options.left === undefined)
+        options.left = startX;
+    if (options.top === undefined)
+        options.top = startY;
+    if (options.duration === undefined)
+        options.duration = 400;
+
+    const diffX = Math.abs(options.left - startX);
+    const diffY = Math.abs(options.top - startY);
+    const stepX = Math.ceil(diffX / options.duration * 50);
+    const stepY = Math.ceil(diffY / options.duration * 50);
+
+    function scroll(startX, endX, startY, endY) {
+        if (startX === endX && startY === endY) {
+            return endCallback && endCallback();
+        }
+
+        let posX = (startX + stepX > endX) ? endX : startX + stepX;
+        if (startX > endX)
+            posX = (startX - stepX < endX) ? endX : startX - stepX;
+
+        let posY = (startY + stepY > endY) ? endY : startY + stepY;
+        if (startY > endY)
+            posY = (startY - stepY < endY) ? endY : startY - stepY;
+
+        if (el === window)
+            window.scrollTo(posX, posY);
+        else {
+            el.scrollLeft = posX;
+            el.scrollTop = posY;
+        }
+        window.requestAnimationFrame(() => scroll(posX, endX, posY, endY));
+    }
+    scroll(startX, options.left, startY, options.top);
+}

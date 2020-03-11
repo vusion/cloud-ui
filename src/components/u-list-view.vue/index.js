@@ -25,7 +25,7 @@ export const UListView = {
         // @inherit: disabled: { type: Boolean, default: false },
         loadingText: { type: String, default: '加载中...' },
         initialLoad: { type: Boolean, default: true },
-        pageable: { type: Boolean, default: false },
+        pageable: { type: [Boolean, String], default: false },
         pageSize: { type: Number, default: 50 },
         remotePaging: { type: Boolean, default: false },
         // @inherit: virtualCount: { type: Number, default: 60 },

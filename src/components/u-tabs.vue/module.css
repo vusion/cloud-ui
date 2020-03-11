@@ -6,6 +6,70 @@
     border-bottom: var(--tabs-border-width) solid var(--tabs-border-color);
 }
 
+.extra {
+    float: right;
+    margin-left: 5px;
+    line-height: calc(var(--tabs-item-height) - var(--tabs-border-width) * 2);
+}
+
+.nav {
+    position: relative;
+    overflow: hidden;
+    height: 39px;
+    margin-bottom: -1px;
+}
+
+.scroll-view {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.scroll {
+    white-space: nowrap;
+}
+
+.prev, .next {
+    position: absolute;
+    display: none;
+    cursor: pointer;
+    height: var(--tabs-item-height);
+    width: var(--tabs-item-height);
+    line-height: var(--tabs-item-height);
+    text-align: center;
+    font-size: 22px;
+    top: 0;
+    color: rgba(0, 0, 0, 0.25);
+    transition: color var(--transition-duration-base);
+}
+
+.prev:hover, .next:hover {
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.prev::before {
+    icon-font: url('../i-icon.vue/assets/angle-left.svg');
+}
+
+.next::before {
+    icon-font: url('../i-icon.vue/assets/angle-right.svg');
+}
+
+.nav[scrollable] .scroll-view {
+    margin: 0 var(--tabs-item-height);
+}
+
+.nav[scrollable] .prev, .nav[scrollable] .next {
+    display: block;
+}
+
 .item {
     cursor: var(--cursor-pointer);
     display: inline-block;
@@ -17,7 +81,6 @@
 
     border: var(--tabs-border-width) solid transparent;
     border-bottom: none;
-    margin-bottom: -1px;
 }
 
 .item:hover {
@@ -54,8 +117,4 @@
 
 .body {
     margin-top: 20px;
-}
-
-.extra {
-    float: right;
 }

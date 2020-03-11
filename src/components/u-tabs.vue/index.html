@@ -1,17 +1,25 @@
 <div :class="$style.root" :disabled="disabled">
-    <nav :class="$style.head">
-        <a :class="$style.item"
-            v-for="itemVM in itemVMs"
-            :title="itemVM.title"
-            :selected="router ? itemVM.active : itemVM === selectedVM"
-            :disabled="itemVM.disabled || disabled"
-            v-show="!itemVM.hidden"
-            @click="select(itemVM)">
-            <span :class="$style.title"><f-slot :vm="itemVM" name="title">{{ itemVM.title }}</f-slot></span>
-            <span v-if="closable" :class="$style.close" @click.stop="close(itemVM)"></span>
-        </a>
+    <div :class="$style.head">
         <span :class="$style.extra"><slot name="extra"></slot></span>
-    </nav>
+        <nav :class="$style.nav" :scrollable="showScrollButtons === 'always' || (showScrollButtons === 'auto' && scrollable)">
+            <span :class="$style.prev" @click="scrollPrev"></span>
+            <div ref="scrollView" :class="$style['scroll-view']">
+                <div :class="$style.scroll">
+                    <a :class="$style.item"
+                        v-for="itemVM in itemVMs"
+                        :title="itemVM.title"
+                        :selected="router ? itemVM.active : itemVM === selectedVM"
+                        :disabled="itemVM.disabled || disabled"
+                        v-show="!itemVM.hidden"
+                        @click="select(itemVM)">
+                        <span :class="$style.title"><f-slot :vm="itemVM" name="title">{{ itemVM.title }}</f-slot></span>
+                        <span v-if="closable" :class="$style.close" @click.stop="close(itemVM)"></span>
+                    </a>
+                </div>
+            </div>
+            <span :class="$style.next" @click="scrollNext"></span>
+        </nav>
+    </div>
     <div :class="$style.body">
         <slot></slot>
     </div>
