@@ -2,28 +2,113 @@
 
 # USelect 选择框
 
-**UI 组件**, **表单控件**, **行内展示**
+**表单控件**, **行内展示**
 
-下拉选择框，支持支持单选、多选、搜索等功能，用于代替原生的选择框。
+下拉选择框，支持单选、多选、搜索等功能，用于代替原生的选择框。
 
 ## 基础示例
 ### 基本用法
 
-默认为单选模式。可以通过`placeholder`属性设置占位符。
+默认为单选模式，通过`placeholder`属性设置初始占位符。添加选择项支持两种书写方式：
+
+#### tag 方式
+
+在有少量静态数据的时候，推荐使用这种方式。
 
 ``` html
 <u-linear-layout>
     <u-select>
-        <u-select-item>水杯</u-select-item>
-        <u-select-item>咖啡</u-select-item>
-        <u-select-item>坚果</u-select-item>
+        <u-select-item value="java">Java</u-select-item>
+        <u-select-item value="python">Python</u-select-item>
+        <u-select-item value="nodejs">Node.js</u-select-item>
+        <u-select-item value="go">Go</u-select-item>
+        <u-select-item value=".net">.NET</u-select-item>
+        <u-select-item value="php">PHP</u-select-item>
     </u-select>
     <u-select placeholder="设置占位符">
-        <u-select-item>水杯</u-select-item>
-        <u-select-item>咖啡</u-select-item>
-        <u-select-item>坚果</u-select-item>
+        <u-select-item value="java">Java</u-select-item>
+        <u-select-item value="python">Python</u-select-item>
+        <u-select-item value="nodejs">Node.js</u-select-item>
+        <u-select-item value="go">Go</u-select-item>
+        <u-select-item value=".net">.NET</u-select-item>
+        <u-select-item value="php">PHP</u-select-item>
     </u-select>
 </u-linear-layout>
+```
+
+#### data-source 方式
+
+在有较大量数据或者后端请求数据的时候，推荐使用这种方式。
+
+``` vue
+<template>
+<u-linear-layout>
+    <u-select :data-source="data"></u-select>
+    <u-select :data-source="data" placeholder="设置占位符"></u-select>
+</u-linear-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            data: [
+                { text: 'Batch', value: 'bat' },
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'CSS', value: 'css' },
+                { text: 'Clojure', value: 'clojure' },
+                { text: 'CoffeeScript', value: 'coffeescript' },
+                { text: 'Coq', value: 'coq' },
+                { text: 'Diff', value: 'diff' },
+                { text: 'Dockerfile', value: 'dockerfile' },
+                { text: 'F#', value: 'fshape' },
+                { text: 'Go', value: 'go' },
+                { text: 'Groovy', value: 'groovy' },
+                { text: 'HLSL', value: 'hlsl' },
+                { text: 'HTML', value: 'html' },
+                { text: 'Handlebars', value: 'Handlebars' },
+                { text: 'Ignore', value: 'ignore' },
+                { text: 'Ini', value: 'ini' },
+                { text: 'JSON', value: 'json' },
+                { text: 'Java', value: 'java' },
+                { text: 'JavaScript', value: 'javascript' },
+                { text: 'Jinja', value: 'jinja' },
+                { text: 'Jupyter', value: 'jupyter' },
+                { text: 'Less', value: 'less' },
+                { text: 'Log', value: 'log' },
+                { text: 'Lua', value: 'lua' },
+                { text: 'Makefile', value: 'makefile' },
+                { text: 'Markdown', value: 'markdown' },
+                { text: 'Objective-C', value: 'objective-c' },
+                { text: 'Objective-C++', value: 'objective-cpp' },
+                { text: 'PHP', value: 'php' },
+                { text: 'Perl', value: 'perl' },
+                { text: 'PowerShell', value: 'powershell' },
+                { text: 'Properties', value: 'properties' },
+                { text: 'Pug', value: 'jade' },
+                { text: 'Python', value: 'python' },
+                { text: 'R', value: 'r' },
+                { text: 'Razor', value: 'razor' },
+                { text: 'Ruby', value: 'ruby' },
+                { text: 'Rust', value: 'rust' },
+                { text: 'SCSS', value: 'scss' },
+                { text: 'SQL', value: 'sql' },
+                { text: 'SVG', value: 'svg' },
+                { text: 'Shaderlab', value: 'shaderlab' },
+                { text: 'Shell Script', value: 'shellscript' },
+                { text: 'Swift', value: 'swift' },
+                { text: 'TypeScript', value: 'typescript' },
+                { text: 'Visual Basic', value: 'vb' },
+                { text: 'Vue', value: 'vue' },
+                { text: 'XML', value: 'xml' },
+                { text: 'XSL', value: 'xsl' },
+                { text: 'YAML', value: 'yaml' },
+            ],
+        };
+    },
+};
+</script>
 ```
 
 ### 双向绑定
@@ -33,20 +118,10 @@
 ``` vue
 <template>
 <u-linear-layout>
-    <u-select v-model="value">
-        <u-select-item value="cup">水杯</u-select-item>
-        <u-select-item value="coffee">咖啡</u-select-item>
-        <u-select-item value="nut">坚果</u-select-item>
-        <u-select-item value="towel">毛巾</u-select-item>
-        <u-select-item value="sofa">沙发</u-select-item>
+    <u-select v-model="value" placeholder="v-model">
+        <u-select-item v-for="item in list" :key="item.value" :value="item.value">{{ item.text }}</u-select-item>
     </u-select>
-    <u-select :value.sync="value">
-        <u-select-item value="cup">水杯</u-select-item>
-        <u-select-item value="coffee">咖啡</u-select-item>
-        <u-select-item value="nut">坚果</u-select-item>
-        <u-select-item value="towel">毛巾</u-select-item>
-        <u-select-item value="sofa">沙发</u-select-item>
-    </u-select>
+    <u-select :value.sync="value" :data="list" placeholder=":value.sync"></u-select>
 </u-linear-layout>
 </template>
 
@@ -55,21 +130,24 @@ export default {
     data() {
         return {
             value: 'towel',
+            list: [
+                { text: 'Java', value: 'java' },
+                { text: 'Python', value: 'python' },
+                { text: 'Node.js', value: 'nodejs' },
+                { text: 'Go', value: 'go' },
+                { text: '.NET', value: '.net' },
+                { text: 'PHP', value: 'php' },
+            ],
         };
     },
 };
 </script>
 ```
 
-### 只读、禁用、禁用某一项
+### 禁用状态、禁用某一项
 
 ``` html
 <u-linear-layout>
-    <u-select value="nut" readonly>
-        <u-select-item value="cup">水杯</u-select-item>
-        <u-select-item value="coffee">咖啡</u-select-item>
-        <u-select-item value="nut">坚果</u-select-item>
-    </u-select>
     <u-select value="nut" disabled>
         <u-select-item value="cup">水杯</u-select-item>
         <u-select-item value="coffee">咖啡</u-select-item>

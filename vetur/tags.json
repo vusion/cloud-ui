@@ -1017,6 +1017,33 @@
       "v-model"
     ]
   },
+  "u-old-suggest": {
+    "attributes": [
+      "value",
+      "field",
+      "data",
+      "data-source",
+      "readonly",
+      "disabled",
+      "match-method",
+      "case-sensitive",
+      "strict",
+      "size"
+    ],
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "u-old-suggest-item"
+    ]
+  },
+  "u-old-suggest-item": {
+    "attributes": [
+      "value",
+      "disabled",
+      "item"
+    ]
+  },
   "u-pagination": {
     "attributes": [
       "page",
@@ -1026,6 +1053,16 @@
       "readonly",
       "disabled"
     ]
+  },
+  "u-panel": {
+    "attributes": [],
+    "description": "用于快速布局",
+    "subtags": [
+      "u-panel-group"
+    ]
+  },
+  "u-panel-group": {
+    "attributes": []
   },
   "u-pills": {
     "attributes": [
@@ -1126,7 +1163,7 @@
       "disabled",
       "opened"
     ],
-    "description": "下拉选择框，支持支持单选、多选、搜索等功能，用于代替原生的选择框。",
+    "description": "下拉选择框，支持单选、多选、搜索等功能，用于代替原生的选择框。",
     "defaults": [
       "v-model"
     ],
@@ -1212,6 +1249,12 @@
   },
   "u-sidebar-divider": {
     "attributes": []
+  },
+  "u-skeleton": {
+    "attributes": [
+      "paragraph"
+    ],
+    "description": "加载内容时的占位图形。"
   },
   "u-slider": {
     "attributes": [

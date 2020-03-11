@@ -1951,6 +1951,58 @@
     "type": "string",
     "description": "大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式"
   },
+  "u-old-suggest/value": {
+    "type": "any",
+    "description": "当前选择的值"
+  },
+  "u-old-suggest/field": {
+    "type": "string",
+    "description": "显示文本字段"
+  },
+  "u-old-suggest/data": {
+    "type": "Array<{ text, value }>",
+    "description": "Data书写方式中的数据列表"
+  },
+  "u-old-suggest/data-source": {
+    "type": "DataSource, Function",
+    "description": "多功能数据源"
+  },
+  "u-old-suggest/readonly": {
+    "type": "boolean",
+    "description": "是否只读"
+  },
+  "u-old-suggest/disabled": {
+    "type": "boolean",
+    "description": "是否禁用"
+  },
+  "u-old-suggest/match-method": {
+    "type": "string, Function",
+    "description": "匹配方式。可选值：`includes`表示包含即可，`startsWith`表示只匹配开头，`endsWith`表示只匹配结尾。也可以传一个方法"
+  },
+  "u-old-suggest/case-sensitive": {
+    "type": "boolean",
+    "description": "是否区分大小写，默认不区分大小写"
+  },
+  "u-old-suggest/strict": {
+    "type": "boolean",
+    "description": "是否为严格模式。当为严格模式时，`value`属性必须为一个选项的值，或者为空"
+  },
+  "u-old-suggest/size": {
+    "type": "string",
+    "description": "控制宽高属性，第一个值表示高度属性，第二值表示宽度，可选值: `mini`,`small`,`normal`,`medium`,`large`,`huge`,`full`,可以互相组合"
+  },
+  "u-old-suggest-item/value": {
+    "type": "any",
+    "description": "此项的值"
+  },
+  "u-old-suggest-item/disabled": {
+    "type": "boolean",
+    "description": "禁用此项"
+  },
+  "u-old-suggest-item/item": {
+    "type": "object",
+    "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
+  },
   "u-pagination/page": {
     "type": "number",
     "description": "当前页码"
@@ -2310,6 +2362,10 @@
   "u-sidebar-group/disabled": {
     "type": "boolean",
     "description": "是否禁用。禁用时无法展开/折叠"
+  },
+  "u-skeleton/paragraph": {
+    "type": "boolean | number",
+    "description": "默认为 3 行。可以修改行数，或者设置`false`关闭段落显示。"
   },
   "u-slider/value": {
     "type": "number",

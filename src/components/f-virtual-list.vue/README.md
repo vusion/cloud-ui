@@ -59,7 +59,7 @@ export default {
 }
 
 .item[even] {
-    background: var(--background-color-dark);
+    background: var(--background-color-base);
 }
 
 .line {
@@ -109,7 +109,7 @@ export default {
 }
 
 .item[even] {
-    background: var(--background-color-dark);
+    background: var(--background-color-base);
 }
 
 .line {
