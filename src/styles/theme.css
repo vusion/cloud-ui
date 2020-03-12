@@ -32,8 +32,8 @@
     --background-color-light: #f2f3f8; /* 选择框的 hover 颜色 */
     --background-color-base: #eef2f7; /* 标签、薯条等组件默认颜色 */
     --background-color-dark: #d0dbe7;
-    --color-base: #565b61; /* 默认字体颜色 */
     --color-light: #92989d; /* 次级字体颜色 */
+    --color-base: #565b61; /* 默认字体颜色 */
     --border-color-light: #dfe5f1; /* 面板等容器类型的边框颜色 */
     --border-color-base: #cbd5e5; /* 按钮、输入框等小组件的边框颜色 */
 
@@ -122,6 +122,7 @@
     --kbd-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 
     /* Text */
+    --text-font-size: var(--font-size-base);
     --text-font-size-small: var(--font-size-small);
     --text-font-size-large: calc(var(--font-size-base) * (18 / 14));
     --text-font-size-huge: calc(var(--font-size-base) * (22 / 14));

@@ -4,6 +4,10 @@
     font-size: var(--text-font-size-small);
 }
 
+.root[size="normal"] { /* 父级字号不是默认大小时，该值有用的 */
+    font-size: var(--text-font-size);
+}
+
 .root[size="large"] {
     font-size: var(--text-font-size-large);
 }
