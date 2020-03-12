@@ -99,7 +99,7 @@
 
 #### @before-navigate
 
-使用router相关属性切换路由前触发
+使用 router 相关属性切换路由前触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |

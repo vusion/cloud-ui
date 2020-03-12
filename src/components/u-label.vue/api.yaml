@@ -1,6 +1,49 @@
 - name: u-label
   title: 标签
   labels: [行内展示]
+  description: 对事物进行标记和分类。
+  attrs:
+    - name: color
+      type: enum
+      options: [default, primary, success, warning, error]
+      default: default
+      description: 设置颜色。
+    - name: size
+      type: enum
+      options: [normal, large, huge]
+      default: normal
+      description: 设置尺寸。
+    - name: removable
+      type: boolean
+      default: false
+      description: 是否可删除。开启时可以通过删除按钮触发`remove`事件，需要自己实现删除逻辑。
+    - name: display
+      type: enum
+      options: [inline, block]
+      default: inline
+      description: 展示方式。`'inline'`表示行内展示, `'block'`表示块级展示，宽度会充满父元素。
   slots:
     - name: default
-      description: 在插槽中插入文本或HTML。
+      description: 插入文本或 HTML。
+  events:
+    - name: $listeners
+      description: 监听所有`<span>`元素的事件。
+      params: []
+    - name: before-remove
+      description: 删除前触发
+      params:
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止删除流程
+        - name: senderVM
+          type: ULabel
+          description: 发送事件实例
+    - name: remove
+      description: 删除时触发
+      params:
+        - name: $event
+          type: 'null'
+          description: 无参数
+        - name: senderVM
+          type: ULabel
+          description: 发送事件实例

@@ -67,11 +67,6 @@
     "vue": "^2.6.10",
     "vusion-utils": "^0.4.7"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "node node_modules/vusion-hooks/pre-commit"
-    }
-  },
   "vetur": {
     "tags": "./vetur/tags.json",
     "attributes": "./vetur/attributes.json"

@@ -1,21 +1,32 @@
 - name: u-text
   title: 文本
   labels: [行内展示]
-  description: 用于在业务中临时快速地调整文本大小、颜色等特性。不建议在封装基础组件时使用。
+  description: 用于在业务中快速调整文本尺寸、颜色等特性。
   attrs:
-    - name: size
-      type: string
-      default: normal
-      description: 大小扩展。可选值：`'small'`, `'normal'`, `'large'`
     - name: color
-      type: string
+      type: enum
+      options: [default, primary, secondary, success, warning, error, disabled]
       default: default
-      description: 颜色扩展。可选值：`'default'`, `'primary'`, `'error'`, `'disabled'`
+      description: 设置颜色。
+    - name: size
+      type: enum
+      options: [small, normal, large, huge]
+      default: normal
+      description: 设置尺寸。
     - name: display
       type: string
+      options: [inline, block]
       default: inline
-      description: 展示方式。可选值：`'inline'`, `'block'`
+      description: 展示方式。
     - name: wrap
       type: string
+      options: [normal, ellipsis, break, nowrap]
       default: normal
-      description: 换行方式。可选值：`'normal'`表示默认方式，`'ellipsis'`表示多余的文本省略，`'break'`表示强制换行且英文自动添加换行符，`'nowrap'`表示始终不换行。
+      description: 换行方式。`'normal'`表示默认方式，`'ellipsis'`表示多余的文本省略，`'break'`表示强制换行且英文自动添加换行符，`'nowrap'`表示始终不换行。
+  slots:
+    - name: default
+      description: 插入文本或 HTML。
+  events:
+    - name: $listeners
+      description: 监听所有`<a>`元素的事件。
+      params: []

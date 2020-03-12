@@ -1054,6 +1054,7 @@
       "disabled"
     ]
   },
+<<<<<<< HEAD
   "u-panel": {
     "attributes": [],
     "description": "用于快速布局",
@@ -1065,6 +1066,33 @@
     "attributes": []
   },
   "u-pills": {
+    "attributes": [
+      "data",
+      "value",
+      "field",
+      "cancelable",
+      "multiple",
+      "readonly",
+      "disabled"
+    ],
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "u-pill"
+    ]
+  },
+  "u-pill": {
+    "attributes": [
+      "value",
+      "disabled",
+      "item"
+    ]
+  },
+  "u-popup": {
+=======
+  "u-pills": {
+>>>>>>> origin/v0.9.x
     "attributes": [
       "data",
       "value",

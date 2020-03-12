@@ -37,6 +37,13 @@
     margin-bottom: 0;
 }
 
+.root[direction="horizontal"][gap="mini"] > *:not(:last-child) {
+    margin-right: var(--space-mini);
+}
+.root[direction="vertical"][gap="mini"] > *:not(:last-child) {
+    margin-bottom: var(--space-mini);
+}
+
 .root[direction="horizontal"][gap="small"] > *:not(:last-child) {
     margin-right: var(--space-small);
 }

@@ -6,6 +6,24 @@
     text-decoration: underline;
 }
 
+.root:focus {
+    /* Remove default focus style */
+    outline: var(--focus-outline);
+    text-decoration: underline;
+}
+
+.root[color="success"] {
+    color: var(--link-color-success);
+}
+
+.root[color="warning"] {
+    color: var(--link-color-warning);
+}
+
+.root[color="error"] {
+    color: var(--link-color-error);
+}
+
 .root[color="light"] {
     color: var(--link-color-light);
 }

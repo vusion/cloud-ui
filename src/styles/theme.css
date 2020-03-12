@@ -4,12 +4,13 @@
      */
 
     /* Brand Colors */
-    --brand-primary: #67aaf5;
+    --brand-primary: #4a89e8;
     --brand-secondary: #dfe4ec;
     --brand-info: #36a3f7;
-    --brand-success: #3ad0af;
+    --brand-success: #57bc5b;
     --brand-warning: #ffa136;
     --brand-error: #ff8a7a;
+    --brand-danger: #fe5a5a;
     --brand-disabled: #cddae9; /* 选择框的禁用背景 */
     --brand-disabled-light: #e7eaef;
     --hover-color: #f4f4f4;
@@ -111,7 +112,7 @@
     --pre-padding-x: 10px;
     --code-margin-x: 2px;
     --code-padding-y: 3px;
-    --code-padding-x: 0;
+    --code-padding-x: 3px;
     --code-background: var(--background-color-light);
     --code-color: #e0276e;
     --code-font-size: var(--font-size-small);
@@ -133,57 +134,90 @@
     --text-color-success: var(--brand-success);
     --text-color-warning: var(--brand-warning);
     --text-color-error: var(--brand-error);
-    --text-color-disabled: var(--brand-disabled);
+    --text-color-disabled: #b6c4d4;
 
     /* Link */
-    --link-color: #5494db;
-    --link-color-disabled: var(--brand-disabled);
+    --link-color: #4477d0;
+    --link-color-success: var(--brand-success);
+    --link-color-warning: var(--brand-warning);
+    --link-color-error: var(--brand-error);
+    --link-color-disabled: #b6c4d4;
     --link-color-light: #6eadff;
     --link-color-white: white;
 
     /* Button */
     --button-height: var(--height-base);
-    --button-height-mini: 24px;
-    --button-height-small: 30px;
+    --button-height-mini: var(--height-mini);
+    --button-height-small: var(--height-small);
+    --button-height-large: var(--height-large);
+    --button-height-huge: var(--height-huge);
     --button-padding-y: 0px;
     --button-padding-x: 30px;
     --button-padding-x-mini: 8px;
-    --button-padding-x-small: 10px;
+    --button-padding-x-small: 12px;
+    --button-padding-x-large: 50px;
+    --button-padding-x-huge: 64px;
+    --button-font-size: inherit;
+    --button-font-size-mini: var(--font-size-small);
+    --button-font-size-small: inherit;
+    --button-font-size-large: var(--font-size-large);
+    --button-font-size-huge: var(--font-size-huge);
     --button-border-width: var(--border-width-base);
     --button-border-radius: var(--border-radius-base);
     --button-background: white;
     --button-background-hover: white;
     --button-background-active: white;
     --button-background-disabled: white;
-    --button-background-primary-hover: #5b96d9;
-    --button-background-primary-disabled: #d9d9d9;
-    --button-color: #333;
+    --button-background-primary: var(--brand-primary);
+    --button-background-primary-hover: #6098eb;
+    --button-background-primary-disabled: var(--brand-disabled);
+    --button-background-danger: var(--brand-danger);
+    --button-background-danger-hover: #fe7373;
+    --button-background-danger-disabled: var(--brand-disabled);
+    --button-color: var(--color-base);
     --button-color-hover: var(--brand-primary);
-    --button-color-disabled: #ccc;
+    --button-color-disabled: var(--brand-disabled);
     --button-color-primary: white;
     --button-color-primary-hover: var(--button-color-primary);
     --button-color-primary-disabled: white;
-    --button-color-refresh: #9ba4ad;
-    --button-color-refresh-hover: var(--brand-primary);
-    --button-border-color: #cdcdcd;
+    --button-color-danger: white;
+    --button-color-danger-hover: var(--button-color-danger);
+    --button-color-danger-disabled: white;
+    --button-border-color: var(--border-color-base);
     --button-border-color-hover: var(--brand-primary);
-    --button-border-color-disabled: #ddd;
+    --button-border-color-disabled: var(--border-color-base);
+    --button-box-shadow-focus: 0 0 0 2px rgba(80, 139, 233, 0.2);
+    --button-box-shadow-focus-primary: var(--button-box-shadow-focus);
+    --button-box-shadow-focus-danger: 0 0 0 2px rgba(254, 90, 90, 0.2);
     --button-box-shadow-active: inset 0 1px 3px rgba(0, 0, 0, 0.2);
     --button-loading-size: 18px;
+    --button-loading-width: 2px;
     --button-height-loading: 18px;
     --button-loading-animation-duration: 1s;
 
     /* Label */
     --label-padding-x: 8px;
-    --label-padding-y: 3px;
+    --label-padding-x-large: 12px;
+    --label-padding-x-huge: 18px;
+    --label-padding-y: 1px;
+    --label-padding-y-large: 2px;
+    --label-padding-y-huge: 3px;
     --label-font-size: var(--font-size-small);
-    --label-background: #cad4e4;
+    --label-font-size-large: var(--font-size-small);
+    --label-font-size-huge: var(--font-size-base);
+    --label-remove-padding-x: 3px;
+    --label-remove-padding-x-large: 5px;
+    --label-remove-padding-x-huge: 8px;
+    --label-background: var(--background-color-base);
     --label-background-primary: var(--brand-primary);
-    --label-background-success: #76b86e;
-    --label-background-warning: #ffa136;
-    --label-background-error: #ff8a7a;
-    --label-color: white;
+    --label-background-success: var(--brand-success);
+    --label-background-warning: var(--brand-warning);
+    --label-background-error: var(--brand-error);
+    --label-color: inherit;
     --label-color-primary: white;
+    --label-color-success: white;
+    --label-color-warning: white;
+    --label-color-error: white;
 
     /* Badge */
     --badge-background: var(--brand-error);
@@ -259,7 +293,7 @@
     --navbar-space-x: 40px;
     --navbar-background: #343e4f;
     --navbar-background-inverse: var(--brand-primary);
-    --navbar-item-space: 34px;
+    --navbar-item-space: 30px;
     --navbar-item-padding: 0 10px;
     --navbar-item-font-size: var(--font-size-large);
     --navbar-item-color: white;

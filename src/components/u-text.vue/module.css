@@ -1,13 +1,5 @@
 .root {}
 
-.root[display="inline"] {
-    /* By default */
-}
-
-.root[display="block"] {
-    display: block;
-}
-
 .root[size="small"] {
     font-size: var(--text-font-size-small);
 }
@@ -74,4 +66,8 @@
 
 .root[wrap="nowrap"] {
     white-space: nowrap;
+}
+
+.root[display="block"] {
+    display: block;
 }
