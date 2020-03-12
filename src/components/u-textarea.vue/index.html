@@ -9,7 +9,7 @@
         @compositionend="onCompositionEnd"></textarea>
     <slot></slot>
     <span v-if="clearable && currentValue" :class="$style.clearable" @click.stop="clear"></span>
-    <f-dragger @dragstart="onDragStart" @drag="onDrag" :disabled="readonly || disabled">
+    <f-dragger @dragstart="onDragStart" @drag="onDrag">
         <div ref="handle" :class="$style.handle" v-show="resize !== 'none'"></div>
     </f-dragger>
 </div>
