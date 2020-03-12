@@ -266,8 +266,11 @@ const VueDataSource = Vue.extend({
                         partialData = this._process(result);
                         if (!result.length) // 没有数据了，则表示最后一次加载，记录下总数
                             this.originTotal = this.data.length;
-                    } else if (result instanceof Object) { // 返回 { total, data }
-                        this.originTotal = result.total;
+                    } else if (result instanceof Object) { // 返回 { total: boolean, data: Array<item> } 或 { last: boolean, data: Array<item> }
+                        if (result.total !== undefined)
+                            this.originTotal = result.total;
+                        else if (result.last)
+                            this.originTotal = this.data.length;
                         partialData = this._process(result.data);
                     } // 否则什么都不做
 
