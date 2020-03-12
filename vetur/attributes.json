@@ -404,13 +404,71 @@
     "type": "boolean",
     "description": "是否显示为小圆点"
   },
+  "u-button/color": {
+    "type": "enum",
+    "options": [
+      "default",
+      "primary",
+      "danger"
+    ],
+    "description": "设置颜色。`'primary'`表示主按钮，`'danger'`表示危险按钮。"
+  },
+  "u-button/dashed": {
+    "type": "boolean",
+    "description": "边框是否为虚线。"
+  },
+  "u-button/size": {
+    "type": "enum",
+    "options": [
+      "mini",
+      "small",
+      "normal",
+      "large"
+    ],
+    "description": "设置尺寸。"
+  },
+  "u-button/shape": {
+    "type": "enum",
+    "options": [
+      "default",
+      "square",
+      "round",
+      "circle"
+    ],
+    "description": "设置形状。选项分别为默认、圆角、方形、圆形。"
+  },
+  "u-button/disabled": {
+    "type": "boolean",
+    "description": "是否禁用。禁用后不会响应点击事件。"
+  },
+  "u-button/display": {
+    "type": "enum",
+    "options": [
+      "inline",
+      "block"
+    ],
+    "description": "展示方式。`'inline'`表示行内展示, `'block'`表示块级展示，宽度会充满父元素。"
+  },
+  "u-button/icon": {
+    "type": "string",
+    "options": [
+      "refresh",
+      "create",
+      "success"
+    ],
+    "description": "设置图标。【待扩充】"
+  },
+  "u-button/loading": {
+    "type": "boolean",
+    "description": "是否为加载中。"
+  },
   "u-button/href": {
     "type": "string",
     "description": "链接地址"
   },
   "u-button/target": {
     "type": "string",
-    "description": "（原生属性）"
+    "description": "（原生属性）。比如设置`_blank`，会打开新的空白页。"
   },
   "u-button/to": {
     "type": "string, Location",
@@ -423,26 +481,6 @@
   "u-button/append": {
     "type": "boolean",
     "description": "需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。"
-  },
-  "u-button/color": {
-    "type": "string",
-    "description": "颜色扩展。可选值：`'primary'`或不填"
-  },
-  "u-button/size": {
-    "type": "string",
-    "description": "大小扩展。可选值：`'small'`或不填"
-  },
-  "u-button/square": {
-    "type": "boolean",
-    "description": "是否显示为正方形"
-  },
-  "u-button/disabled": {
-    "type": "boolean",
-    "description": "是否禁用。禁用后不会响应`click`事件。"
-  },
-  "u-button/display": {
-    "type": "string",
-    "description": "展示方式。可选值：`'inline'`, `'block'`"
   },
   "calendar/date": {
     "type": "Date,string",
@@ -1484,6 +1522,38 @@
     "type": "string",
     "description": "label文字水平对齐方式`'left'`,`'center'`,注意此值仅在设置labelSize后生效"
   },
+  "u-label/color": {
+    "type": "enum",
+    "options": [
+      "default",
+      "primary",
+      "success",
+      "warning",
+      "error"
+    ],
+    "description": "设置颜色。"
+  },
+  "u-label/size": {
+    "type": "enum",
+    "options": [
+      "normal",
+      "large",
+      "huge"
+    ],
+    "description": "设置尺寸。"
+  },
+  "u-label/removable": {
+    "type": "boolean",
+    "description": "是否可删除。开启时可以通过删除按钮触发`remove`事件，需要自己实现删除逻辑。"
+  },
+  "u-label/display": {
+    "type": "enum",
+    "options": [
+      "inline",
+      "block"
+    ],
+    "description": "展示方式。`'inline'`表示行内展示, `'block'`表示块级展示，宽度会充满父元素。"
+  },
   "u-lightbox/visible": {
     "type": "boolean",
     "description": "是否显示"
@@ -1618,6 +1688,17 @@
   "u-link/disabled": {
     "type": "boolean",
     "description": "是否禁用。禁用后不会响应`click`事件。"
+  },
+  "u-link/color": {
+    "type": "enum",
+    "options": [
+      "default",
+      "light",
+      "success",
+      "warning",
+      "error"
+    ],
+    "description": "设置颜色。"
   },
   "u-link/display": {
     "type": "string",
@@ -2428,7 +2509,6 @@
     "description": "是否禁用此标签页"
   },
   "subnav/router": {
-<<<<<<< HEAD
     "type": "boolean",
     "description": "是否根据vue-router来控制选择哪一项"
   },
@@ -2445,120 +2525,6 @@
     "description": "是否禁用"
   },
   "subnav/usage": {
-    "type": "string",
-    "description": "值为 `'tabs'`间距向上移动`'10px'`"
-  },
-  "subnav-item/value": {
-    "type": "any",
-    "description": "此项的值"
-  },
-  "subnav-item/disabled": {
-    "type": "boolean",
-    "description": "禁用此项"
-  },
-  "subnav-item/item": {
-    "type": "object",
-    "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
-  },
-  "subnav-item/href": {
-    "type": "string",
-    "description": "链接地址"
-  },
-  "subnav-item/target": {
-    "type": "string",
-    "description": "打开方式"
-  },
-  "subnav-item/to": {
-    "type": "string,  Location",
-    "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
-  },
-  "subnav-item/replace": {
-    "type": "boolean",
-    "description": "需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。"
-  },
-  "subnav-item/exact": {
-    "type": "boolean",
-    "description": "需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。"
-  },
-  "u-subtabs/value": {
-    "type": "any",
-    "description": "选中标签页的值"
-  },
-  "u-subtabs/readonly": {
-    "type": "boolean",
-    "description": "是否只读"
-  },
-  "u-subtabs/disabled": {
-    "type": "boolean",
-    "description": "是否禁用"
-  },
-  "u-subtabs/closable": {
-    "type": "boolean",
-    "description": "是否可以关闭"
-  },
-  "u-subtabs/router": {
-    "type": "boolean",
-    "description": "是否根据 vue-router 来控制选择哪个标签页"
-  },
-  "u-subtab/title": {
-    "type": "string",
-    "description": "标签页标题"
-  },
-  "u-subtab/value": {
-    "type": "any",
-    "description": "标签页的值"
-  },
-  "u-subtab/disabled": {
-    "type": "boolean",
-    "description": "是否禁用此标签页"
-  },
-  "u-subtab/href": {
-    "type": "string",
-    "description": "链接地址"
-  },
-  "u-subtab/target": {
-    "type": "string",
-    "description": "打开方式"
-  },
-  "u-subtab/to": {
-    "type": "string, Location",
-    "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
-  },
-  "u-subtab/replace": {
-    "type": "boolean",
-    "description": "需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。"
-  },
-  "u-subtab/exact": {
-    "type": "boolean",
-    "description": "需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。"
-  },
-  "u-switch/value": {
-=======
->>>>>>> origin/v0.9.x
-    "type": "boolean",
-    "description": "是否根据vue-router来控制选择哪一项"
-  },
-  "subnav/value": {
-    "type": "any",
-    "description": "当前选择的值"
-  },
-  "subnav/readonly": {
-    "type": "boolean",
-    "description": "是否只读"
-  },
-  "subnav/disabled": {
-    "type": "boolean",
-    "description": "是否禁用"
-  },
-<<<<<<< HEAD
-  "u-switch/with-text": {
-    "type": "boolean",
-    "description": "是否显示开关`ON`和`OFF`文字"
-  },
-  "u-table-view/title": {
-=======
-  "subnav/usage": {
->>>>>>> origin/v0.9.x
     "type": "string",
     "description": "值为 `'tabs'`间距向上移动`'10px'`"
   },
@@ -2959,21 +2925,46 @@
     "type": "boolean",
     "description": "需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。"
   },
-  "u-text/size": {
-    "type": "string",
-    "description": "大小扩展。可选值：`'small'`, `'normal'`, `'large'`"
-  },
   "u-text/color": {
-    "type": "string",
-    "description": "颜色扩展。可选值：`'default'`, `'primary'`, `'error'`, `'disabled'`"
+    "type": "enum",
+    "options": [
+      "default",
+      "primary",
+      "secondary",
+      "success",
+      "warning",
+      "error",
+      "disabled"
+    ],
+    "description": "设置颜色。"
+  },
+  "u-text/size": {
+    "type": "enum",
+    "options": [
+      "small",
+      "normal",
+      "large",
+      "huge"
+    ],
+    "description": "设置尺寸。"
   },
   "u-text/display": {
     "type": "string",
-    "description": "展示方式。可选值：`'inline'`, `'block'`"
+    "options": [
+      "inline",
+      "block"
+    ],
+    "description": "展示方式。"
   },
   "u-text/wrap": {
     "type": "string",
-    "description": "换行方式。可选值：`'normal'`表示默认方式，`'ellipsis'`表示多余的文本省略，`'break'`表示强制换行且英文自动添加换行符，`'nowrap'`表示始终不换行。"
+    "options": [
+      "normal",
+      "ellipsis",
+      "break",
+      "nowrap"
+    ],
+    "description": "换行方式。`'normal'`表示默认方式，`'ellipsis'`表示多余的文本省略，`'break'`表示强制换行且英文自动添加换行符，`'nowrap'`表示始终不换行。"
   },
   "u-textarea/value": {
     "type": "string",

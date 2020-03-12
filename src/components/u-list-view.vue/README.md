@@ -5,7 +5,7 @@
 ## 基础示例
 ### 基本用法
 
-``` html
+``` html {width: 31.8%}
 <u-list-view>
     <u-list-view-item>水杯</u-list-view-item>
     <u-list-view-item>坚果</u-list-view-item>
@@ -16,7 +16,7 @@
 
 ### 选项值
 
-``` html
+``` html {width: 31.8%}
 <u-list-view value="towel">
     <u-list-view-item value="cup">水杯</u-list-view-item>
     <u-list-view-item value="nut">坚果</u-list-view-item>
@@ -58,7 +58,7 @@
 
 ### 分隔符
 
-``` html
+``` html {width: 31.8%}
 <u-list-view value="nut">
     <u-list-view-item value="cup">水杯</u-list-view-item>
     <u-list-view-item value="toothbrush">牙刷</u-list-view-item>
@@ -161,7 +161,7 @@
 
 尝试在同一个选项上点击两次。
 
-``` html
+``` html {width: 31.8%}
 <u-list-view value="towel" cancelable>
     <u-list-view-item value="cup">水杯</u-list-view-item>
     <u-list-view-item value="nut">坚果</u-list-view-item>
@@ -174,7 +174,7 @@
 
 可以使用`v-model`或`:value.sync`两种方式进行双向绑定。
 
-``` vue
+``` vue {width: 31.8%}
 <template>
 <u-list-view multiple v-model="values">
     <u-list-view-item value="cup">水杯</u-list-view-item>

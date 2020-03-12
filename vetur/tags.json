@@ -273,17 +273,21 @@
   },
   "u-button": {
     "attributes": [
+      "color",
+      "dashed",
+      "size",
+      "shape",
+      "disabled",
+      "display",
+      "icon",
+      "loading",
       "href",
       "target",
       "to",
       "replace",
-      "append",
-      "color",
-      "size",
-      "square",
-      "disabled",
-      "display"
-    ]
+      "append"
+    ],
+    "description": "用于触发一个即时操作。"
   },
   "calendar": {
     "attributes": [
@@ -780,7 +784,13 @@
     "description": "最基本的键值对显示"
   },
   "u-label": {
-    "attributes": []
+    "attributes": [
+      "color",
+      "size",
+      "removable",
+      "display"
+    ],
+    "description": "对事物进行标记和分类。"
   },
   "u-lightbox": {
     "attributes": [
@@ -827,8 +837,10 @@
       "replace",
       "append",
       "disabled",
+      "color",
       "display"
-    ]
+    ],
+    "description": "文字超链接。"
   },
   "u-list-view": {
     "attributes": [
@@ -1054,7 +1066,6 @@
       "disabled"
     ]
   },
-<<<<<<< HEAD
   "u-panel": {
     "attributes": [],
     "description": "用于快速布局",
@@ -1066,33 +1077,6 @@
     "attributes": []
   },
   "u-pills": {
-    "attributes": [
-      "data",
-      "value",
-      "field",
-      "cancelable",
-      "multiple",
-      "readonly",
-      "disabled"
-    ],
-    "defaults": [
-      "v-model"
-    ],
-    "subtags": [
-      "u-pill"
-    ]
-  },
-  "u-pill": {
-    "attributes": [
-      "value",
-      "disabled",
-      "item"
-    ]
-  },
-  "u-popup": {
-=======
-  "u-pills": {
->>>>>>> origin/v0.9.x
     "attributes": [
       "data",
       "value",
@@ -1517,12 +1501,12 @@
   },
   "u-text": {
     "attributes": [
-      "size",
       "color",
+      "size",
       "display",
       "wrap"
     ],
-    "description": "用于在业务中临时快速地调整文本大小、颜色等特性。不建议在封装基础组件时使用。"
+    "description": "用于在业务中快速调整文本尺寸、颜色等特性。"
   },
   "u-textarea": {
     "attributes": [
