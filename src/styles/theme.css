@@ -559,7 +559,7 @@
     --select-tag-remove-color: var(--color-lighter);
     --select-tag-remove-color-hover: var(--color-base);
     --select-popper-background: white;
-    --select-popper-border-color: var(--brand-secondary);
+    --select-popper-border-color: var(--border-color-base);
     --select-status-color: var(--gray-dark);
 
     /* Slider */

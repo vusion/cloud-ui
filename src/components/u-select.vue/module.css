@@ -17,7 +17,6 @@
 
 .root:focus {
     outline: var(--focus-outline);
-    border-color: var(--brand-secondary);
 }
 
 .baseline {

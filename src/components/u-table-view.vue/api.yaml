@@ -161,7 +161,7 @@
       description: 是否可以调整列宽
     - name: resize-remaining
       type: boolean
-      default: sequence
+      default: average
       description: 调整列宽效果。可选值：`sequence`表示保持总宽不变，优先后一列弥补宽度；`average`表示保持总宽不变，后面所有列平均弥补宽度；`none`表示不做任何处理，表格宽度变化。
   slots:
     - name: default

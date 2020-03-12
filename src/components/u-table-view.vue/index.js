@@ -47,7 +47,7 @@ export const UTableView = {
         /* Others */
         accordion: { type: Boolean, default: false },
         resizable: { type: Boolean, default: false },
-        resizeRemaining: { type: String, default: 'sequence' },
+        resizeRemaining: { type: String, default: 'average' },
         showHead: { type: Boolean, default: true },
     },
     data() {

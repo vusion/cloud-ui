@@ -381,12 +381,12 @@ export default {
 
 开启`resizable`属性，可以调整列宽。
 
-根据`resize-remaining`属性，调整列宽有三种效果。`sequence`表示保持总宽不变，优先后一列弥补宽度；`average`表示保持总宽不变，后面所有列平均弥补宽度；`none`表示不做任何处理，表格宽度变化。
+根据`resize-remaining`属性，调整列宽有三种效果。`average`表示保持总宽不变，后面所有列平均弥补宽度；`sequence`表示保持总宽不变，优先后一列弥补宽度；`none`表示不做任何处理，表格宽度变化。
 
-#### sequence
+#### average
 
 ``` html
-<u-table-view resizable line="horizontal" striped :data="[
+<u-table-view resizable resize-remaining="average" line="horizontal" striped :data="[
     { name: '这是一个很长很长很长很长很长很长很长很长的名字', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000 },
     { name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 },
     { name: '名字就是起得这么这么这么这么这么这么长', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
@@ -400,10 +400,10 @@ export default {
 </u-table-view>
 ```
 
-#### average
+#### sequence
 
 ``` html
-<u-table-view resizable resize-remaining="average" line="horizontal" striped :data="[
+<u-table-view resizable line="horizontal" striped :data="[
     { name: '这是一个很长很长很长很长很长很长很长很长的名字', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000 },
     { name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 },
     { name: '名字就是起得这么这么这么这么这么这么长', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
