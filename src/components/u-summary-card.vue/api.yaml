@@ -1,4 +1,0 @@
-- name: u-summary-card
-  title: 摘要卡片
-  slots:
-    - name: default
