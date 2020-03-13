@@ -8,10 +8,14 @@
 
 .root > h2 {
     font-size: var(--h2-font-size);
-    margin: 40px 0;
-    line-height: 44px;
-    color: #767a80;
-    border-bottom: 3px solid #f2f3f8;
+    margin: 40px 0 20px;
+    line-height: 40px;
+    color: #a0a9b8;
+    border-bottom: 2px solid #eeeff1;
+}
+
+.root > h2 + h3 {
+    margin-top: 20px;
 }
 
 .root > h3 {
