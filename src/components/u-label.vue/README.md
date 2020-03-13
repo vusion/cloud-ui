@@ -18,7 +18,7 @@
     <u-label color="success">Success</u-label>
     <u-label color="warning">Warning</u-label>
     <u-label color="error">Error</u-label>
-    <u-label style="background: #c461fb;">Custom</u-label>
+    <u-label style="background: #c461fb; color: white;">Custom</u-label>
 </u-linear-layout>
 ```
 
