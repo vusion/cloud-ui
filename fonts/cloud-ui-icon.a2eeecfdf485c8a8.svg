@@ -283,11 +283,11 @@
     <glyph glyph-name="share-1"
       unicode="&#x73;&#x68;&#x61;&#x72;&#x65;"
       horiz-adv-x="1000" d="M254 392A149.5 149.5 0 0 0 0 500A150 150 0 0 0 254 608L701 831.5A150 150 0 1 0 746 742L299 518.5A151.5 151.5 0 0 0 299 481.5L746 258A149.5 149.5 0 0 0 1000 150A150 150 0 1 0 701 168.5L254 392z" />
-    <glyph glyph-name="angle-down-1"
+    <glyph glyph-name="square-down"
       unicode="&#xF12F;"
       horiz-adv-x="1000" d="M900 75H100A50 50 0 0 0 50 125V875A50 50 0 0 0 100 925H900A50 50 0 0 0 950 875V125A50 50 0 0 0 900 75zM900 875H100V125H900V875zM300 625H700L500 375z" />
-    <glyph glyph-name="angle-down-1-1"
-      unicode="&#x61;&#x6E;&#x67;&#x6C;&#x65;&#x2D;&#x64;&#x6F;&#x77;&#x6E;&#x2D;&#x31;"
+    <glyph glyph-name="square-down-1"
+      unicode="&#x73;&#x71;&#x75;&#x61;&#x72;&#x65;&#x2D;&#x64;&#x6F;&#x77;&#x6E;"
       horiz-adv-x="1000" d="M900 75H100A50 50 0 0 0 50 125V875A50 50 0 0 0 100 925H900A50 50 0 0 0 950 875V125A50 50 0 0 0 900 75zM900 875H100V125H900V875zM300 625H700L500 375z" />
     <glyph glyph-name="log"
       unicode="&#xF130;"
