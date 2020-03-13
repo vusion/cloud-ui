@@ -27,7 +27,7 @@
     --gray-lightest: #eee;
 
     /* Component Base Colors */
-    --background-color-light: #f2f3f8; /* 选择框的 hover 颜色 */
+    --background-color-light: #f7f8fc; /* 选择框的 hover 颜色 */
     --background-color-base: #eef2f7; /* 标签、薯条等组件默认颜色 */
     --background-color-dark: #d0dbe7;
     --color-lighter: #a7afbb; /* Placeholder 字体颜色 */
