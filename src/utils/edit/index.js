@@ -1,2 +1,2 @@
-export * from './select';
-export * from './clipboard';
+export { select } from './select';
+export { copy } from './clipboard';
