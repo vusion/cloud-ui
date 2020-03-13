@@ -9,7 +9,7 @@
     --brand-info: #36a3f7;
     --brand-success: #57bc5b;
     --brand-warning: #ffa136;
-    --brand-error: #ff8a7a;
+    --brand-error: #fe5a5a;
     --brand-danger: #fe5a5a;
     --brand-disabled: #cddae9; /* 选择框的禁用背景 */
     --brand-disabled-light: #e7eaef;
@@ -213,7 +213,7 @@
     --label-background-success: var(--brand-success);
     --label-background-warning: var(--brand-warning);
     --label-background-error: var(--brand-error);
-    --label-color: inherit;
+    --label-color: #646a70;
     --label-color-primary: white;
     --label-color-success: white;
     --label-color-warning: white;
