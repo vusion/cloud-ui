@@ -10,7 +10,7 @@
 .root thead {
     color: #666;
     line-height: 40px;
-    border-bottom: 1px solid #e1e8ed;
+    border-bottom: 1px solid var(--border-color-base);
 }
 
 .root thead th {

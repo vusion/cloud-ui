@@ -81,7 +81,7 @@
 }
 
 .htrItem {
-    background-color: #f5f7fa;
+    background-color: var(--background-color-light);
     background-clip: padding-box;
     border-bottom: 1px solid #ebf0f5;
 }

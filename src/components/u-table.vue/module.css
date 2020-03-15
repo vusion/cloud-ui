@@ -13,13 +13,13 @@
 .root td {
     position: relative;
     line-height: 20px;
-    color: #999;
+    color: var(--table-td-color);
     padding: 14px 6px 14px 10px;
 }
 
 .root thead tr {
-    background-color: #f5f7fa;
-    border-bottom: 1px solid #ebf0f5;
+    background-color: var(--table-head-background);
+    border-bottom: 1px solid var(--table-border-color);
     background-clip: padding-box;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .root tbody tr {
-    border-top: 1px solid #ebf0f5;
+    border-top: 1px solid var(--table-border-color);
 }
 
 .root tbody > tr:first-child {
@@ -37,7 +37,7 @@
 }
 
 .root tbody > tr:last-child {
-    border-bottom: 1px solid #ebf0f5;
+    border-bottom: 1px solid var(--table-border-color);
 }
 
 .root tbody > tr:hover > td::before {
@@ -71,8 +71,8 @@
 }
 
 .root[line="both"] th, .root[line="both"] td {
-    border-left: 1px solid #ebf0f5;
-    border-right: 1px solid #ebf0f5;
+    border-left: 1px solid var(--table-border-color);
+    border-right: 1px solid var(--table-border-color);
 }
 
 /* .root[striped] tbody tr:nth-of-type(even) {

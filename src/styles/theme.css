@@ -27,14 +27,16 @@
     --gray-lightest: #eee;
 
     /* Component Base Colors */
-    --background-color-light: #f7f8fc; /* 选择框的 hover 颜色 */
+    --background-color-lighter: #f7f8fc; /* 选择框的 hover 颜色 */
+    --background-color-light: #f5f7fa; /* 表格等组件标题栏颜色 */
     --background-color-base: #eef2f7; /* 标签、薯条等组件默认颜色 */
     --background-color-dark: #d0dbe7;
     --color-lighter: #a7afbb; /* Placeholder 字体颜色 */
     --color-light: #92989d; /* 次级字体颜色 */
     --color-base: #565b61; /* 默认字体颜色 */
-    --border-color-light: #dfe5f1; /* 面板等容器类型的边框颜色 */
-    --border-color-base: #cbd5e5; /* 按钮、输入框等小组件的边框颜色 */
+    --border-color-light: #dfe4ec; /* 面板等容器类型的边框颜色 */
+    --border-color-base: #dfe4ec; /* 输入框等小组件的边框颜色 */
+    --border-color-dark: #cbd5e5; /* 按钮等小组件的边框颜色 */
 
     /* Spacing Dimensions */
     --space-shrink: -1px;
@@ -113,7 +115,7 @@
     --code-margin-x: 2px;
     --code-padding-y: 3px;
     --code-padding-x: 3px;
-    --code-background: var(--background-color-light);
+    --code-background: var(--background-color-lighter);
     --code-color: #e0276e;
     --code-font-size: var(--font-size-small);
 
@@ -183,9 +185,9 @@
     --button-color-danger: white;
     --button-color-danger-hover: var(--button-color-danger);
     --button-color-danger-disabled: white;
-    --button-border-color: var(--border-color-base);
+    --button-border-color: var(--border-color-dark);
     --button-border-color-hover: var(--brand-primary);
-    --button-border-color-disabled: var(--border-color-base);
+    --button-border-color-disabled: var(--border-color-dark);
     --button-box-shadow-focus: 0 0 0 2px rgba(80, 139, 233, 0.2);
     --button-box-shadow-focus-primary: var(--button-box-shadow-focus);
     --button-box-shadow-focus-danger: 0 0 0 2px rgba(254, 90, 90, 0.2);
@@ -247,21 +249,23 @@
     --list-style: none;
     --list-item-padding: 6px 8px;
     --list-item-border-bottom: 1px solid var(--border-color-base);
-    --list-item-background-striped: var(--background-color-light);
-    --list-item-background-hover: var(--background-color-light);
+    --list-item-background-striped: var(--background-color-lighter);
+    --list-item-background-hover: var(--background-color-lighter);
 
     /* Table */
     --table-background: white;
+    --table-head-background: var(--background-color-light);
     --table-row-background: var(--background-color-base);
-    --table-row-background-hover: var(--background-color-light);
-    --table-row-background-striped: var(--background-color-light);
+    --table-row-background-hover: var(--background-color-lighter);
+    --table-row-background-striped: var(--background-color-lighter);
     --table-row-background-primary: rgba(103, 170, 245, 0.2);
     --table-row-background-error: rgb(255, 138, 122, 0.2);
     --table-row-background-dark: var(--background-color-dark);
-    --table-row-background-light: var(--background-color-light);
+    --table-row-background-light: var(--background-color-lighter);
     --table-caption-color: #6a6f75;
-    --table-border-color: var(--border-color-base);
+    --table-border-color: var(--border-color-light);
     --table-border-width: 1px;
+    --table-td-color: var(--color-light);
 
     /* Article */
     --article-table-font-size: calc(var(--font-size-base) * (13 / 14));
@@ -380,7 +384,7 @@
     --steps-item-color-disabled: #bbb;
     --steps-item-radio-size: 18px;
     --steps-item-radio-size-large: 24px;
-    --steps-item-radio-background: #e1e8ed;
+    --steps-item-radio-background: var(--border-color-base);
     --steps-item-radio-background-passed: var(--brand-primary);
     --steps-item-radio-color-passed: white;
 
@@ -417,7 +421,7 @@
     --form-message-margin-left: 10px;
     --form-message-padding: 0 10px;
     --form-message-background: var(--background-color-base);
-    --form-message-background-error: #ff867f;
+    --form-message-background-error: var(--brand-error);
     --form-message-color-error: white;
 
     /* Field */
@@ -431,7 +435,7 @@
     --validator-message-padding: 0 10px;
     --validator-message-margin-left: 10px;
     --validator-message-background: var(--background-color-base);
-    --validator-message-background-error: #ff867f;
+    --validator-message-background-error: var(--brand-error);
     --validator-message-color-error: white;
 
     /* Input */
@@ -457,10 +461,10 @@
     --input-border-width: 1px;
     --input-background: white;
     --input-background-disabled: #cddae9;
-    --input-color: #666;
+    --input-color: var(--color-base);
     --input-border-color: var(--border-color-base);
-    --input-border-color-error: #ff867f;
-    --input-border-color-focus: #8ebee9;
+    --input-border-color-error: var(--brand-error);
+    --input-border-color-focus: #81abe9;
     --input-placeholder-color: var(--color-lighter);
     --input-clearable-color: #a7afbb;
     --input-border-radius: 3px;
@@ -478,7 +482,7 @@
     --textarea-min-height: var(--height-base);
     --textarea-border-radius: var(--border-radius-medium);
     --textarea-padding: 5px 10px;
-    --textarea-color: #666;
+    --textarea-color: var(--color-base);
     --textarea-border-color: var(--border-color-base);
 
     /* Number Input */
@@ -540,7 +544,7 @@
     --select-border-width: var(--border-width-base);
     --select-border-color: var(--border-color-base);
     --select-color: #555;
-    --select-item-hover: var(--background-color-light);
+    --select-item-hover: var(--background-color-lighter);
     --select-popper-max-height: 194px;
     --select-popper-line-height: 1.6;
     --select-popper-line-height-small: 1.6;
@@ -585,13 +589,13 @@
 
     /* List View */
     --list-view-background: white;
-    --list-view-border-color: #e1e8ed;
-    --list-view-border-color-focus: #e1e8ed;
+    --list-view-border-color: var(--border-color-base);
+    --list-view-border-color-focus: var(--border-color-base);
     --list-view-status-color: var(--gray-dark);
     --list-view-item-padding: 4px 12px;
-    --list-view-item-background-hover: var(--background-color-light);
+    --list-view-item-background-hover: var(--background-color-lighter);
     --list-view-item-background-readonly: none;
-    --list-view-item-background-focused: var(--background-color-light);
+    --list-view-item-background-focused: var(--background-color-lighter);
     --list-view-item-background-selected: var(--brand-primary);
     --list-view-item-color-selected: white;
     --list-view-item-color-disabled: #ccc;

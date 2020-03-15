@@ -2,7 +2,7 @@
     max-width: 100%;
     width: 515px;
     max-height: 360px;
-    border: 1px solid #e1e8ed;
+    border: 1px solid var(--border-color-base);
 }
 .root[size="small"] {
     width: 180px;
@@ -20,7 +20,7 @@
     padding: 5px 10px;
     height: 41px;
     line-height: 30px;
-    border-bottom: 1px solid #e1e8ed;
+    border-bottom: 1px solid var(--border-color-base);
     background-color: #eef2f5;
 }
 .body {

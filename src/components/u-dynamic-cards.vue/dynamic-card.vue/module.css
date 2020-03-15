@@ -2,7 +2,7 @@
     display: block;
     position: relative;
     padding: 45px 15px 35px;
-    border: 1px solid #e1e8ed;
+    border: 1px solid var(--border-color-base);
 }
 
 .root[mini]:hover {

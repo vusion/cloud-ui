@@ -52,7 +52,7 @@
     width: 18px;
     height: 18px;
     line-height: 18px;
-    background: #f5f7fa;
+    background: var(--background-color-light);
     border-radius: 100%;
     display: inline-block;
 }
