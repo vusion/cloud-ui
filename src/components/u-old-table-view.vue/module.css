@@ -137,7 +137,7 @@
     width: auto;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: #999;
+    color: var(--color-light);
 }
 .btdSpan[border] {
     border-left: 1px solid #ebf0f5;
@@ -328,7 +328,7 @@
 }
 
 .radioLabel[disabled] {
-    color: #999;
+    color: var(--color-light);
     cursor: var(--cursor-not-allowed);
 }
 

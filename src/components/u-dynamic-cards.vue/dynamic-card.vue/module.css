@@ -43,7 +43,7 @@
 .desc {
     display: inline-block;
     max-width: 680px;
-    color: #999;
+    color: var(--color-light);
     padding-bottom: 10px;
 }
 

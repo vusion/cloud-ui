@@ -86,7 +86,7 @@
 .root[disabled] {
     cursor: var(--cursor-not-allowed);
     background: var(--input-background-disabled);
-    color: #999;
+    color: var(--color-light);
 }
 
 .root[size="normal"] { /* By default */ }

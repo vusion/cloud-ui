@@ -18,7 +18,7 @@
     margin-right: 30px;
     text-align: right;
     line-height: 30px;
-    color: #999;
+    color: var(--color-light);
 }
 
 .root[label-size$="small"] .label { width: 60px; }
@@ -30,7 +30,7 @@
     float: left;
     max-width: calc(100% - 80px - 30px);
     line-height: 30px;
-    color: #333;
+    color: var(--color-base);
 }
 
 .root[label-size$="small"] .value {

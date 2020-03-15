@@ -130,7 +130,7 @@
     width: auto;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: #999;
+    color: var(--color-light);
 }
 .btd[role="center"] {
     text-align: center;

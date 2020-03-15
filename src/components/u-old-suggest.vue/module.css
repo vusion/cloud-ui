@@ -59,7 +59,7 @@
     cursor: not-allowed;
     background: var(--brand-disabled);
     border: 1px solid var(--brand-disabled);
-    color: #999;
+    color: var(--color-light);
 }
 
 .popper {

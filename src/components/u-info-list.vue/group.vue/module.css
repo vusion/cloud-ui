@@ -8,7 +8,7 @@
     margin: 0;
     height: 30px;
     line-height: 30px;
-    color: #333;
+    color: var(--color-base);
     background-color: var(--background-color-light);
     border-bottom: 1px solid var(--border-color-base);
 }

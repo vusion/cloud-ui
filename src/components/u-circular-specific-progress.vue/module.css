@@ -14,18 +14,18 @@
 
 .percent {
     font-size: 20px;
-    color: #999;
+    color: var(--color-light);
     line-height: 30px;
 }
 
 .self {
     font-size: 14px;
-    color: #999;
+    color: var(--color-light);
 }
 
 .footer {
     text-align: center;
-    color: #999;
+    color: var(--color-light);
     font-size: 14px;
 }
 

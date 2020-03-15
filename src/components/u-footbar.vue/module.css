@@ -19,7 +19,7 @@
     right: 0;
     background: #f7f8fa;
     padding: 20px 40px;
-    color: #333;
+    color: var(--color-base);
     border: 1px solid #ebf0f5;
     box-shadow: 0 0 10px 0 rgba(80, 90, 109, 0.16);
     transition: bottom 0.2s linear;

@@ -28,7 +28,7 @@
     /* @Private */
     cursor: var(--cursor-not-allowed);
     background: none;
-    color: #999;
+    color: var(--color-light);
 }
 
 .root[selected][disabled] {
