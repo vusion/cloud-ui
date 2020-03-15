@@ -4,6 +4,7 @@
     @keydown.prevent.down="shift(+1)">
     <div v-show="showHead" :class="$style.head">
         <slot name="head">
+            <u-checkbox v-if="multiple" :value="allChecked" @check="checkAll($event.value)"></u-checkbox>
             <span :class="$style.title">{{ title }}</span>
             <div :class="$style.extra">
                 <span v-if="multiple">{{ selectedVMs.length }} / {{ currentDataSource && currentDataSource.total }}</span>
@@ -22,7 +23,8 @@
                 :value="item[valueField]"
                 :disabled="item.disabled || disabled"
                 :item="item"
-            >{{ item[field || textField] }}</component>
+            ><slot name="text" :item="item" :text="item[textField]" :value="item[valueField]" :disabled="item.disabled || disabled">{{ item[field || textField] }}</slot>
+            </component>
         </div>
         <div :class="$style.status" status="loading" v-if="loading">
             <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>

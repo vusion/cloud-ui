@@ -97,10 +97,7 @@ const VueDataSource = Vue.extend({
             return this.paging ? this.paging.size : Infinity;
         },
         total() {
-            if (this.remotePaging)
-                return this.originTotal === Infinity ? this.data.length : this.originTotal;
-            else
-                return this.arrangedData.length;
+            return this.originTotal === Infinity ? this.data.length : this.originTotal;
         },
         totalPage() {
             if (!this.paging)

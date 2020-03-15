@@ -36,6 +36,7 @@ export const UListView = {
         pageSize: { type: Number, default: 50 },
         remotePaging: { type: Boolean, default: false },
         remoteFiltering: { type: Boolean, default: false },
+        virtual: { type: Boolean, default: false },
         // @inherit: virtualCount: { type: Number, default: 60 },
         // @inherit: throttle: { type: Number, default: 60 },
         listKey: { type: String, default: 'currentData' },
@@ -80,6 +81,24 @@ export const UListView = {
                     caseInsensitive: !this.caseSensitive,
                 },
             };
+        },
+        allChecked() {
+            if (!this.currentDataSource)
+                return;
+
+            // 仅显示当前页的选中项
+            let checkedLength = 0;
+            this.itemVMs.forEach((itemVM) => {
+                if (itemVM.currentSelected)
+                    checkedLength++;
+            });
+
+            if (checkedLength === 0)
+                return false;
+            else if (checkedLength === this.currentData.length)
+                return true;
+            else
+                return null;
         },
     },
     watch: {
@@ -291,6 +310,32 @@ export const UListView = {
 
             this.filterText = value;
             this.fastLoad(false, true);
+        },
+        checkAll(checked) {
+            // Check if enabled
+            if (this.readonly || this.disabled)
+                return;
+
+            // const oldValues = this.values ? Array.from(this.values) : this.values;
+            this.itemVMs.forEach((itemVM) => {
+                if (itemVM.disabled)
+                    return;
+
+                if (checked && !this.selectedVMs.includes(itemVM)) {
+                    itemVM.currentSelected = true;
+                    this.selectedVMs.push(itemVM);
+                } else if (!checked && this.selectedVMs.includes(itemVM)) {
+                    itemVM.currentSelected = false;
+                    this.selectedVMs.splice(this.selectedVMs.indexOf(itemVM), 1);
+                }
+            });
+
+            // this.$emit('update:values', this.currentValues, this);
+            // this.$emit('check', {
+            //     values: this.currentValues,
+            //     oldValues,
+            //     checked,
+            // }, this);
         },
     },
 };
