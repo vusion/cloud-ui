@@ -120,7 +120,7 @@ export default {
 export default {
     data() {
         return {
-            value: 'towel',
+            value: '',
             list: [
                 { text: 'Java', value: 'java' },
                 { text: 'Python', value: 'python' },

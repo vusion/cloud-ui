@@ -13,7 +13,9 @@ export const UListView = {
     props: {
         // @inherit: value: null,
         // @inherit: value: Array,
-        field: { type: String, default: 'text' },
+        field: String,
+        textField: { type: String, default: 'text' },
+        valueField: { type: String, default: 'value' },
         data: Array,
         dataSource: [DataSource, Function, Object, Array],
         // @inherit: cancelable: { type: Boolean, default: false },
@@ -23,15 +25,23 @@ export const UListView = {
         // @inherit: expandTrigger: { type: String, default: 'click' },
         // @inherit: readonly: { type: Boolean, default: false },
         // @inherit: disabled: { type: Boolean, default: false },
+        placeholder: { type: String, default: '请输入' },
+        clearable: { type: Boolean, default: false },
+        filterable: { type: Boolean, default: false },
+        matchMethod: { type: [String, Function], default: 'includes' },
+        caseSensitive: { type: Boolean, default: false },
         loadingText: { type: String, default: '加载中...' },
         initialLoad: { type: Boolean, default: true },
         pageable: { type: [Boolean, String], default: false },
         pageSize: { type: Number, default: 50 },
         remotePaging: { type: Boolean, default: false },
+        remoteFiltering: { type: Boolean, default: false },
         // @inherit: virtualCount: { type: Number, default: 60 },
         // @inherit: throttle: { type: Number, default: 60 },
         listKey: { type: String, default: 'currentData' },
-
+        showHead: { type: Boolean, default: false },
+        title: { type: String, default: '列表' },
+        showFoot: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -46,6 +56,7 @@ export const UListView = {
             // virtualIndex: 0,
             // virtualTop: 0,
             // virtualBottom: 0,
+            filterText: '', // 过滤文本，只有 input 时会改变它
         };
     },
     computed: {
@@ -60,6 +71,15 @@ export const UListView = {
                 return paging;
             } else
                 return undefined;
+        },
+        filtering() {
+            return {
+                [this.field || this.textField]: {
+                    operator: this.matchMethod,
+                    value: this.filterText,
+                    caseInsensitive: !this.caseSensitive,
+                },
+            };
         },
     },
     watch: {
@@ -147,7 +167,7 @@ export const UListView = {
                         this.$emit('shift', {
                             selectedIndex,
                             selectedVM: itemVM,
-                            value: itemVM.value,
+                            value: itemVM[this.valueField],
                         }, this);
                         this.ensureFocusedInView();
                         break;
@@ -163,7 +183,7 @@ export const UListView = {
                         this.$emit('shift', {
                             selectedIndex,
                             selectedVM: itemVM,
-                            value: itemVM.value,
+                            value: itemVM[this.valueField],
                         }, this);
                         this.ensureFocusedInView();
                         break;
@@ -202,7 +222,7 @@ export const UListView = {
                 for (let i = 0; i < this.selectedVMs.length; i++) {
                     const oldVM = this.selectedVMs[i];
                     if (!this.itemVMs.includes(oldVM)) {
-                        const selectedVM = this.itemVMs.find((itemVM) => itemVM.value === oldVM.value);
+                        const selectedVM = this.itemVMs.find((itemVM) => itemVM[this.valueField] === oldVM[this.valueField]);
                         if (selectedVM) {
                             this.selectedVMs[i] = selectedVM;
                             selectedVM.currentSelected = true;
@@ -211,12 +231,16 @@ export const UListView = {
                 }
             } else {
                 if (this.selectedVM && !this.itemVMs.includes(this.selectedVM)) {
-                    const selectedVM = this.itemVMs.find((itemVM) => itemVM.value === this.selectedVM.value);
+                    const selectedVM = this.itemVMs.find((itemVM) => itemVM[this.valueField] === this.selectedVM[this.valueField]);
                     if (selectedVM)
                         this.selectedVM = selectedVM;
                 }
             }
             // MComplex.watch.itemVMs.handler.call(this, this.itemVMs);
+        },
+        fastLoad(more, keep) {
+            this.currentDataSource.filter(this.filtering);
+            return this.currentDataSource.mustRemote() ? this.debouncedLoad(more, keep) : this.load(more, keep);
         },
         load(more) {
             const dataSource = this.currentDataSource;
@@ -250,6 +274,13 @@ export const UListView = {
             if (el.scrollHeight === el.scrollTop + el.clientHeight
                 && this.currentDataSource && this.currentDataSource.hasMore())
                 this.debouncedLoad(true);
+        },
+        onInput(value) {
+            if (this.$emitPrevent('before-filter', { filterText: value }, this))
+                return;
+
+            this.filterText = value;
+            this.fastLoad(false, true);
         },
     },
 };

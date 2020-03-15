@@ -11,9 +11,10 @@
     --brand-warning: #ffa136;
     --brand-error: #fe5a5a;
     --brand-danger: #fe5a5a;
-    --brand-disabled: #cdd9e9; /* 选择框的禁用背景 */
-    --brand-disabled-light: #e7eaef;
-    --hover-color: #f4f4f4;
+    --brand-disabled-light: #e5e9ef; /* 选择且禁用的背景 */
+    --brand-disabled: #cdd9e9; /* 输入框、选择框的禁用背景 */
+    --brand-disabled-dark: #b6c0d0; /* 禁用文本的颜色 */
+    --brand-disabled-darker: #9aa2af;
 
     /* Gray Colors */
     --color-white: white;
@@ -136,14 +137,14 @@
     --text-color-success: var(--brand-success);
     --text-color-warning: var(--brand-warning);
     --text-color-error: var(--brand-error);
-    --text-color-disabled: #b6c4d4;
+    --text-color-disabled: var(--brand-disabled-dark);
 
     /* Link */
     --link-color: #4477d0;
     --link-color-success: var(--brand-success);
     --link-color-warning: var(--brand-warning);
     --link-color-error: var(--brand-error);
-    --link-color-disabled: #b6c4d4;
+    --link-color-disabled: var(--brand-disabled-dark);
     --link-color-light: #6eadff;
     --link-color-white: white;
 
@@ -544,7 +545,7 @@
     --select-border-width: var(--border-width-base);
     --select-border-color: var(--border-color-base);
     --select-color: var(--color-base);
-    --select-color-disabled: var(--color-light);
+    --select-color-disabled: var(--brand-disabled-dark);
     --select-item-hover: var(--background-color-lighter);
     --select-popper-max-height: 194px;
     --select-popper-line-height: 1.6;
@@ -589,17 +590,24 @@
     --uploader-input-font-size: 100px;
 
     /* List View */
-    --list-view-background: white;
+    --list-view-head-background: var(--background-color-base);
+    --list-view-body-background: white;
+    --list-view-body-background-disabled: white;
+    --list-view-foot-background: white;
     --list-view-border-color: var(--border-color-base);
     --list-view-border-color-focus: var(--border-color-base);
+    --list-view-border-color-disabled: var(--brand-disabled);
     --list-view-status-color: var(--gray-dark);
+    --list-view-head-padding: 8px 12px;
+    --list-view-foot-padding: 8px 12px;
     --list-view-item-padding: 4px 12px;
+    --list-view-height: calc(30px * 8 + var(--border-width-base) * 2);
     --list-view-item-background-hover: var(--background-color-lighter);
     --list-view-item-background-readonly: none;
     --list-view-item-background-focused: var(--background-color-lighter);
     --list-view-item-background-selected: var(--brand-primary);
     --list-view-item-color-selected: white;
-    --list-view-item-color-disabled: #ccc;
+    --list-view-item-color-disabled: var(--brand-disabled-dark);
     --list-view-item-background-disabled: none;
     --list-view-item-background-selected-disabled: var(--brand-disabled-light);
     --list-view-divider-margin: 9px 0;
@@ -607,6 +615,7 @@
     --list-view-group-head-padding: 2px 4px;
     --list-view-group-head-background: #ebedf5;
     --list-view-group-expander-size: 26px;
+    --list-view-filter-margin: 5px;
 
     /* Tree View */
     --tree-view-background: white;
@@ -645,7 +654,7 @@
     --transfer-button-background: #67aaf5;
     --transfer-button-background-hover: #5d93e6;
     --transfer-button-background-active: #5d93e6;
-    --transfer-button-background-disabled: var(--brand-disabled-light);
+    --transfer-button-background-disabled: var(--brand-disabled-dark);
     --transfer-button-color: white;
     --transfer-button-color-hover: white;
     --transfer-button-color-disabled: white;

@@ -1,189 +1,955 @@
 ### 基本用法
 
-``` html {width: 31.8%}
-<u-list-view>
-    <u-list-view-item>水杯</u-list-view-item>
-    <u-list-view-item>坚果</u-list-view-item>
-    <u-list-view-item>毛巾</u-list-view-item>
-    <u-list-view-item>沙发</u-list-view-item>
-</u-list-view>
+默认为单选模式，使用`v-model`双向绑定值。使用`data-source`属性添加数据，有两种方式：
+
+#### data-source 数组
+
+直接向`data-source`属性中传入`Array<Item>`格式的数组，每个`Item`为这样格式的对象`{ text: string, value: any, disabled: boolean, ... }`。
+
+``` vue
+<template>
+    <u-grid-layout :repeat="3">
+        <u-grid-layout-column>
+            <u-list-view v-model="value" :data-source="list"></u-list-view>
+        </u-grid-layout-column>
+        <u-grid-layout-column :span="2">
+            <div :class="$style.result">选择的语言为：{{ value }}</div>
+        </u-grid-layout-column>
+    </u-grid-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            value: 'cpp',
+            list: [
+                { text: 'Batch', value: 'bat' },
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'CSS', value: 'css' },
+                { text: 'Clojure', value: 'clojure' },
+                { text: 'CoffeeScript', value: 'coffeescript' },
+                { text: 'Coq', value: 'coq' },
+                { text: 'Diff', value: 'diff' },
+                { text: 'Dockerfile', value: 'dockerfile' },
+                { text: 'F#', value: 'fshape' },
+                { text: 'Go', value: 'go' },
+                { text: 'Groovy', value: 'groovy' },
+                { text: 'HLSL', value: 'hlsl' },
+                { text: 'HTML', value: 'html' },
+                { text: 'Handlebars', value: 'Handlebars' },
+                { text: 'Ignore', value: 'ignore' },
+                { text: 'Ini', value: 'ini' },
+                { text: 'JSON', value: 'json' },
+                { text: 'Java', value: 'java' },
+                { text: 'JavaScript', value: 'javascript' },
+                { text: 'Jinja', value: 'jinja' },
+                { text: 'Jupyter', value: 'jupyter' },
+                { text: 'Less', value: 'less' },
+                { text: 'Log', value: 'log' },
+                { text: 'Lua', value: 'lua' },
+                { text: 'Makefile', value: 'makefile' },
+                { text: 'Markdown', value: 'markdown' },
+                { text: 'Objective-C', value: 'objective-c' },
+                { text: 'Objective-C++', value: 'objective-cpp' },
+                { text: 'PHP', value: 'php' },
+                { text: 'Perl', value: 'perl' },
+                { text: 'PowerShell', value: 'powershell' },
+                { text: 'Properties', value: 'properties' },
+                { text: 'Pug', value: 'jade' },
+                { text: 'Python', value: 'python' },
+                { text: 'R', value: 'r' },
+                { text: 'Razor', value: 'razor' },
+                { text: 'Ruby', value: 'ruby' },
+                { text: 'Rust', value: 'rust' },
+                { text: 'SCSS', value: 'scss' },
+                { text: 'SQL', value: 'sql' },
+                { text: 'SVG', value: 'svg' },
+                { text: 'Shaderlab', value: 'shaderlab' },
+                { text: 'Shell Script', value: 'shellscript' },
+                { text: 'Swift', value: 'swift' },
+                { text: 'TypeScript', value: 'typescript' },
+                { text: 'Visual Basic', value: 'vb' },
+                { text: 'Vue', value: 'vue' },
+                { text: 'XML', value: 'xml' },
+                { text: 'XSL', value: 'xsl' },
+                { text: 'YAML', value: 'yaml' },
+            ],
+        };
+    },
+};
+</script>
+<style module>
+.result {
+    height: var(--list-view-height);
+    padding: var(--list-view-item-padding);
+    border: var(--border-width-base) solid var(--border-color-base);
+    color: var(--color-light);
+}
+</style>
 ```
 
-### 选项值
+#### data-source 函数
 
-``` html {width: 31.8%}
-<u-list-view value="towel">
-    <u-list-view-item value="cup">水杯</u-list-view-item>
-    <u-list-view-item value="nut">坚果</u-list-view-item>
-    <u-list-view-item value="towel">毛巾</u-list-view-item>
-    <u-list-view-item value="sofa">沙发</u-list-view-item>
-</u-list-view>
+向`data-source`属性中传入一个加载函数，这种方式会自动处理 loading 加载、error 错误等效果。
+
+加载函数的格式是这样的`(params) => Promise<Array<Item>>`。组件会给加载函数提供分页过滤等参数，要求返回一个 Promise。
+
+``` vue
+<template>
+    <u-grid-layout :repeat="3">
+        <u-grid-layout-column>
+            <u-list-view v-model="value" :data-source="load"></u-list-view>
+        </u-grid-layout-column>
+        <u-grid-layout-column :span="2">
+            <div :class="$style.result">选择的语言为：{{ value }}</div>
+        </u-grid-layout-column>
+    </u-grid-layout>
+</template>
+<script>
+// 模拟后端请求
+const mockRequest = (data, timeout = 400) => new Promise((res, rej) => setTimeout(() => res(data), timeout));
+// 模拟数据服务
+const mockService = {
+    load() {
+        return mockRequest([
+            { text: 'Batch', value: 'bat' },
+            { text: 'C', value: 'c' },
+            { text: 'C#', value: 'csharp' },
+            { text: 'C++', value: 'cpp' },
+            { text: 'CSS', value: 'css' },
+            { text: 'Clojure', value: 'clojure' },
+            { text: 'CoffeeScript', value: 'coffeescript' },
+            { text: 'Coq', value: 'coq' },
+            { text: 'Diff', value: 'diff' },
+            { text: 'Dockerfile', value: 'dockerfile' },
+            { text: 'F#', value: 'fshape' },
+            { text: 'Go', value: 'go' },
+            { text: 'Groovy', value: 'groovy' },
+            { text: 'HLSL', value: 'hlsl' },
+            { text: 'HTML', value: 'html' },
+            { text: 'Handlebars', value: 'Handlebars' },
+            { text: 'Ignore', value: 'ignore' },
+            { text: 'Ini', value: 'ini' },
+            { text: 'JSON', value: 'json' },
+            { text: 'Java', value: 'java' },
+            { text: 'JavaScript', value: 'javascript' },
+            { text: 'Jinja', value: 'jinja' },
+            { text: 'Jupyter', value: 'jupyter' },
+            { text: 'Less', value: 'less' },
+            { text: 'Log', value: 'log' },
+            { text: 'Lua', value: 'lua' },
+            { text: 'Makefile', value: 'makefile' },
+            { text: 'Markdown', value: 'markdown' },
+            { text: 'Objective-C', value: 'objective-c' },
+            { text: 'Objective-C++', value: 'objective-cpp' },
+            { text: 'PHP', value: 'php' },
+            { text: 'Perl', value: 'perl' },
+            { text: 'PowerShell', value: 'powershell' },
+            { text: 'Properties', value: 'properties' },
+            { text: 'Pug', value: 'jade' },
+            { text: 'Python', value: 'python' },
+            { text: 'R', value: 'r' },
+            { text: 'Razor', value: 'razor' },
+            { text: 'Ruby', value: 'ruby' },
+            { text: 'Rust', value: 'rust' },
+            { text: 'SCSS', value: 'scss' },
+            { text: 'SQL', value: 'sql' },
+            { text: 'SVG', value: 'svg' },
+            { text: 'Shaderlab', value: 'shaderlab' },
+            { text: 'Shell Script', value: 'shellscript' },
+            { text: 'Swift', value: 'swift' },
+            { text: 'TypeScript', value: 'typescript' },
+            { text: 'Visual Basic', value: 'vb' },
+            { text: 'Vue', value: 'vue' },
+            { text: 'XML', value: 'xml' },
+            { text: 'XSL', value: 'xsl' },
+            { text: 'YAML', value: 'yaml' },
+        ]);
+    },
+};
+
+export default {
+    data() {
+        return {
+            value: 'cpp',
+        };
+    },
+    methods: {
+        load() {
+            return mockService.load();
+        },
+    }
+};
+</script>
+<style module>
+.result {
+    height: var(--list-view-height);
+    padding: var(--list-view-item-padding);
+    border: var(--border-width-base) solid var(--border-color-base);
+    color: var(--color-light);
+}
+</style>
 ```
 
-### 只读、禁用、禁用某一项
+#### 指定选项字段名
 
-``` html
-<u-grid-layout>
-    <u-grid-layout-column :span="4">
-        <u-list-view value="towel" readonly>
-            <u-list-view-item value="cup">水杯</u-list-view-item>
-            <u-list-view-item value="nut">坚果</u-list-view-item>
-            <u-list-view-item value="towel">毛巾</u-list-view-item>
-            <u-list-view-item value="sofa">沙发</u-list-view-item>
-        </u-list-view>
+如果你的数据中选项文本和值的字段不一定叫`'text'`和`'value'`，可以通过`text-field`和`value-field`两个属性快速指定。
+
+``` vue
+<template>
+    <u-grid-layout :repeat="3">
+        <u-grid-layout-column>
+            <u-list-view v-model="value" :data-source="list" text-field="name" value-field="name"></u-list-view>
+        </u-grid-layout-column>
+        <u-grid-layout-column :span="2">
+            <div :class="$style.result">选择的语言为：{{ value }}</div>
+        </u-grid-layout-column>
+    </u-grid-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            value: 'C++',
+            list: [
+                { name: 'Batch' },
+                { name: 'C' },
+                { name: 'C#' },
+                { name: 'C++' },
+                { name: 'CSS' },
+                { name: 'Clojure' },
+                { name: 'CoffeeScript' },
+                { name: 'Coq' },
+                { name: 'Diff' },
+                { name: 'Dockerfile' },
+                { name: 'F#' },
+                { name: 'Go' },
+                { name: 'Groovy' },
+                { name: 'HLSL' },
+                { name: 'HTML' },
+                { name: 'Handlebars' },
+                { name: 'Ignore' },
+                { name: 'Ini' },
+                { name: 'JSON' },
+                { name: 'Java' },
+                { name: 'JavaScript' },
+                { name: 'Jinja' },
+                { name: 'Jupyter' },
+                { name: 'Less' },
+                { name: 'Log' },
+                { name: 'Lua' },
+                { name: 'Makefile' },
+                { name: 'Markdown' },
+                { name: 'Objective-C' },
+                { name: 'Objective-C++' },
+                { name: 'PHP' },
+                { name: 'Perl' },
+                { name: 'PowerShell' },
+                { name: 'Properties' },
+                { name: 'Pug' },
+                { name: 'Python' },
+                { name: 'R' },
+                { name: 'Razor' },
+                { name: 'Ruby' },
+                { name: 'Rust' },
+                { name: 'SCSS' },
+                { name: 'SQL' },
+                { name: 'SVG' },
+                { name: 'Shaderlab' },
+                { name: 'Shell Script' },
+                { name: 'Swift' },
+                { name: 'TypeScript' },
+                { name: 'Visual Basic' },
+                { name: 'Vue' },
+                { name: 'XML' },
+                { name: 'XSL' },
+                { name: 'YAML' },
+            ],
+        };
+    },
+};
+</script>
+<style module>
+.result {
+    height: var(--list-view-height);
+    padding: var(--list-view-item-padding);
+    border: var(--border-width-base) solid var(--border-color-base);
+    color: var(--color-light);
+}
+</style>
+```
+
+### 只读状态、禁用状态、禁用某一项
+
+使用`disabled`属性禁用整个组件。在 item 对象中添加`disabled: true` 可以禁用掉对应选项。
+
+``` vue
+<template>
+<u-grid-layout :repeat="3">
+    <u-grid-layout-column>
+        <u-list-view v-model="value" :data-source="list" readonly></u-list-view>
     </u-grid-layout-column>
-    <u-grid-layout-column :span="4">
-        <u-list-view value="towel" disabled>
-            <u-list-view-item value="cup">水杯</u-list-view-item>
-            <u-list-view-item value="nut">坚果</u-list-view-item>
-            <u-list-view-item value="towel">毛巾</u-list-view-item>
-            <u-list-view-item value="sofa">沙发</u-list-view-item>
-        </u-list-view>
+    <u-grid-layout-column>
+        <u-list-view v-model="value" :data-source="list" disabled></u-list-view>
     </u-grid-layout-column>
-    <u-grid-layout-column :span="4">
-        <u-list-view value="towel">
-            <u-list-view-item value="cup">水杯</u-list-view-item>
-            <u-list-view-item value="nut" disabled>坚果</u-list-view-item>
-            <u-list-view-item value="towel">毛巾</u-list-view-item>
-            <u-list-view-item value="sofa">沙发</u-list-view-item>
-        </u-list-view>
+    <u-grid-layout-column>
+        <u-list-view v-model="value" :data-source="list"></u-list-view>
     </u-grid-layout-column>
 </u-grid-layout>
-```
-
-### 分隔符
-
-``` html {width: 31.8%}
-<u-list-view value="nut">
-    <u-list-view-item value="cup">水杯</u-list-view-item>
-    <u-list-view-item value="toothbrush">牙刷</u-list-view-item>
-    <u-list-view-divider></u-list-view-divider>
-    <u-list-view-item value="nut">坚果</u-list-view-item>
-    <u-list-view-item value="towel">毛巾</u-list-view-item>
-    <u-list-view-item value="sofa">沙发</u-list-view-item>
-</u-list-view>
-```
-
-### 分组
-
-``` html
-<u-grid-layout>
-    <u-grid-layout-row>
-        <u-grid-layout-column :span="4">
-            <p>默认，无折叠功能</p>
-            <u-list-view>
-                <u-list-view-group title="洗具">
-                    <u-list-view-item>毛巾</u-list-view-item>
-                    <u-list-view-item>牙刷</u-list-view-item>
-                </u-list-view-group>
-                <u-list-view-group title="杯具">
-                    <u-list-view-item>牙缸</u-list-view-item>
-                    <u-list-view-item>水杯</u-list-view-item>
-                </u-list-view-group>
-                <u-list-view-group title="餐具">
-                    <u-list-view-item>筷子</u-list-view-item>
-                    <u-list-view-item>碗</u-list-view-item>
-                </u-list-view-group>
-            </u-list-view>
-        </u-grid-layout-column>
-        <u-grid-layout-column :span="4">
-            <p>开启折叠功能</p>
-            <u-list-view collapsible>
-                <u-list-view-group title="洗具">
-                    <u-list-view-item>毛巾</u-list-view-item>
-                    <u-list-view-item>牙刷</u-list-view-item>
-                </u-list-view-group>
-                <u-list-view-group title="杯具" expanded disabled>
-                    <u-list-view-item>牙缸</u-list-view-item>
-                    <u-list-view-item>水杯</u-list-view-item>
-                </u-list-view-group>
-                <u-list-view-group title="餐具" :collapsible="false">
-                    <u-list-view-item>筷子</u-list-view-item>
-                    <u-list-view-item>碗</u-list-view-item>
-                </u-list-view-group>
-            </u-list-view>
-        </u-grid-layout-column>
-        <u-grid-layout-column :span="4">
-            <p>手风琴模式</p>
-            <u-list-view collapsible accordion value="cup">
-                <u-list-view-group title="洗具">
-                    <u-list-view-item value="towel">毛巾</u-list-view-item>
-                    <u-list-view-item value="toothbrush">牙刷</u-list-view-item>
-                </u-list-view-group>
-                <u-list-view-group title="杯具">
-                    <u-list-view-item value="toothcup">牙缸</u-list-view-item>
-                    <u-list-view-item value="cup">水杯</u-list-view-item>
-                </u-list-view-group>
-                <u-list-view-group title="餐具">
-                    <u-list-view-item value="chopsticks">筷子</u-list-view-item>
-                    <u-list-view-item value="bowl">碗</u-list-view-item>
-                </u-list-view-group>
-            </u-list-view>
-        </u-grid-layout-column>
-    </u-grid-layout-row>
-    <u-grid-layout-row>
-        <u-grid-layout-column :span="4">
-            <p>触发方式：整行点击均可触发（默认）</p>
-            <u-list-view collapsible expand-trigger="click">
-                <u-list-view-group title="洗具">
-                    <u-list-view-item>毛巾</u-list-view-item>
-                    <u-list-view-item>牙刷</u-list-view-item>
-                </u-list-view-group>
-                <u-list-view-group title="杯具">
-                    <u-list-view-item>牙缸</u-list-view-item>
-                    <u-list-view-item>水杯</u-list-view-item>
-                </u-list-view-group>
-            </u-list-view>
-        </u-grid-layout-column>
-        <u-grid-layout-column :span="4">
-            <p>触发方式：仅点击小箭头时触发</p>
-            <u-list-view collapsible expand-trigger="click-expander">
-                <u-list-view-group title="洗具">
-                    <u-list-view-item>毛巾</u-list-view-item>
-                    <u-list-view-item>牙刷</u-list-view-item>
-                </u-list-view-group>
-                <u-list-view-group title="杯具">
-                    <u-list-view-item>牙缸</u-list-view-item>
-                    <u-list-view-item>水杯</u-list-view-item>
-                </u-list-view-group>
-            </u-list-view>
-        </u-grid-layout-column>
-    </u-grid-layout-row>
-</u-grid-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            value: 'nodejs',
+            list: [
+                { text: 'Java', value: 'java' },
+                { text: 'Node.js', value: 'nodejs' },
+                { text: 'Go', value: 'go' },
+                { text: 'Python', value: 'python' },
+                { text: 'Ruby', value: 'ruby', disabled: true },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'PHP', value: 'php', disabled: true },
+            ],
+        };
+    },
+};
+</script>
 ```
 
 ### 可取消
 
+在单选模式中，设置`cancelable`属性，可以取消已选择的项。
+
 尝试在同一个选项上点击两次。
 
-``` html {width: 31.8%}
-<u-list-view value="towel" cancelable>
-    <u-list-view-item value="cup">水杯</u-list-view-item>
-    <u-list-view-item value="nut">坚果</u-list-view-item>
-    <u-list-view-item value="towel">毛巾</u-list-view-item>
-    <u-list-view-item value="sofa">沙发</u-list-view-item>
-</u-list-view>
+``` vue
+<template>
+<u-grid-layout :repeat="3">
+    <u-grid-layout-column>
+        <u-list-view v-model="value" :data-source="list" cancelable></u-list-view>
+    </u-grid-layout-column>
+    <u-grid-layout-column :span="2">
+        <div :class="$style.result">选择的语言为：{{ value }}</div>
+    </u-grid-layout-column>
+</u-grid-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            value: 'nodejs',
+            list: [
+                { text: 'Java', value: 'java' },
+                { text: 'Node.js', value: 'nodejs' },
+                { text: 'Go', value: 'go' },
+                { text: 'Python', value: 'python' },
+                { text: 'Ruby', value: 'ruby', disabled: true },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'PHP', value: 'php', disabled: true },
+            ],
+        };
+    },
+};
+</script>
+<style module>
+.result {
+    height: var(--list-view-height);
+    padding: var(--list-view-item-padding);
+    border: var(--border-width-base) solid var(--border-color-base);
+    color: var(--color-light);
+}
+</style>
 ```
 
 ### 多项选择
 
-可以使用`v-model`或`:value.sync`两种方式进行双向绑定。
+使用`multiple`属性开启多选模式。注意：此时`v-model`双向绑定的类型为一个数组`Array<any>`。
 
-``` vue {width: 31.8%}
+``` vue
 <template>
-<u-list-view multiple v-model="values">
-    <u-list-view-item value="cup">水杯</u-list-view-item>
-    <u-list-view-item value="nut">坚果</u-list-view-item>
-    <u-list-view-item value="towel">毛巾</u-list-view-item>
-    <u-list-view-item value="sofa">沙发</u-list-view-item>
-</u-list-view>
+<u-grid-layout :repeat="3">
+    <u-grid-layout-column>
+        <u-list-view multiple title="多选列表" :data-source="list"></u-list-view>
+    </u-grid-layout-column>
+</u-grid-layout>
 </template>
-
 <script>
 export default {
     data() {
-        return { values: ['nut', 'towel'] };
+        return {
+            list: [
+                { text: 'Batch', value: 'bat' },
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'CSS', value: 'css' },
+                { text: 'Clojure', value: 'clojure' },
+                { text: 'CoffeeScript', value: 'coffeescript' },
+                { text: 'Coq', value: 'coq' },
+                { text: 'Diff', value: 'diff' },
+                { text: 'Dockerfile', value: 'dockerfile' },
+                { text: 'F#', value: 'fshape' },
+                { text: 'Go', value: 'go' },
+                { text: 'Groovy', value: 'groovy' },
+                { text: 'HLSL', value: 'hlsl' },
+                { text: 'HTML', value: 'html' },
+                { text: 'Handlebars', value: 'Handlebars' },
+                { text: 'Ignore', value: 'ignore' },
+                { text: 'Ini', value: 'ini' },
+                { text: 'JSON', value: 'json' },
+                { text: 'Java', value: 'java' },
+                { text: 'JavaScript', value: 'javascript' },
+                { text: 'Jinja', value: 'jinja' },
+                { text: 'Jupyter', value: 'jupyter' },
+                { text: 'Less', value: 'less' },
+                { text: 'Log', value: 'log' },
+                { text: 'Lua', value: 'lua' },
+                { text: 'Makefile', value: 'makefile' },
+                { text: 'Markdown', value: 'markdown' },
+                { text: 'Objective-C', value: 'objective-c' },
+                { text: 'Objective-C++', value: 'objective-cpp' },
+                { text: 'PHP', value: 'php' },
+                { text: 'Perl', value: 'perl' },
+                { text: 'PowerShell', value: 'powershell' },
+                { text: 'Properties', value: 'properties' },
+                { text: 'Pug', value: 'jade' },
+                { text: 'Python', value: 'python' },
+                { text: 'R', value: 'r' },
+                { text: 'Razor', value: 'razor' },
+                { text: 'Ruby', value: 'ruby' },
+                { text: 'Rust', value: 'rust' },
+                { text: 'SCSS', value: 'scss' },
+                { text: 'SQL', value: 'sql' },
+                { text: 'SVG', value: 'svg' },
+                { text: 'Shaderlab', value: 'shaderlab' },
+                { text: 'Shell Script', value: 'shellscript' },
+                { text: 'Swift', value: 'swift' },
+                { text: 'TypeScript', value: 'typescript' },
+                { text: 'Visual Basic', value: 'vb' },
+                { text: 'Vue', value: 'vue' },
+                { text: 'XML', value: 'xml' },
+                { text: 'XSL', value: 'xsl' },
+                { text: 'YAML', value: 'yaml' },
+            ],
+        };
     },
 };
 </script>
+```
+
+### 添加头部
+
+使用`show-head`属性可以添加头部，使用`title`属性修改列表标题。
+
+``` vue
+<template>
+<u-grid-layout :repeat="3">
+    <u-grid-layout-column>
+        <u-list-view show-head title="单选列表" :data-source="data"></u-list-view>
+    </u-grid-layout-column>
+    <u-grid-layout-column>
+        <u-list-view multiple show-head title="多选列表" :data-source="data"></u-list-view>
+    </u-grid-layout-column>
+</u-grid-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            data: [
+                { text: 'Batch', value: 'bat' },
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'CSS', value: 'css' },
+                { text: 'Clojure', value: 'clojure' },
+                { text: 'CoffeeScript', value: 'coffeescript' },
+                { text: 'Coq', value: 'coq' },
+                { text: 'Diff', value: 'diff' },
+                { text: 'Dockerfile', value: 'dockerfile' },
+                { text: 'F#', value: 'fshape' },
+                { text: 'Go', value: 'go' },
+                { text: 'Groovy', value: 'groovy' },
+                { text: 'HLSL', value: 'hlsl' },
+                { text: 'HTML', value: 'html' },
+                { text: 'Handlebars', value: 'Handlebars' },
+                { text: 'Ignore', value: 'ignore' },
+                { text: 'Ini', value: 'ini' },
+                { text: 'JSON', value: 'json' },
+                { text: 'Java', value: 'java' },
+                { text: 'JavaScript', value: 'javascript' },
+                { text: 'Jinja', value: 'jinja' },
+                { text: 'Jupyter', value: 'jupyter' },
+                { text: 'Less', value: 'less' },
+                { text: 'Log', value: 'log' },
+                { text: 'Lua', value: 'lua' },
+                { text: 'Makefile', value: 'makefile' },
+                { text: 'Markdown', value: 'markdown' },
+                { text: 'Objective-C', value: 'objective-c' },
+                { text: 'Objective-C++', value: 'objective-cpp' },
+                { text: 'PHP', value: 'php' },
+                { text: 'Perl', value: 'perl' },
+                { text: 'PowerShell', value: 'powershell' },
+                { text: 'Properties', value: 'properties' },
+                { text: 'Pug', value: 'jade' },
+                { text: 'Python', value: 'python' },
+                { text: 'R', value: 'r' },
+                { text: 'Razor', value: 'razor' },
+                { text: 'Ruby', value: 'ruby' },
+                { text: 'Rust', value: 'rust' },
+                { text: 'SCSS', value: 'scss' },
+                { text: 'SQL', value: 'sql' },
+                { text: 'SVG', value: 'svg' },
+                { text: 'Shaderlab', value: 'shaderlab' },
+                { text: 'Shell Script', value: 'shellscript' },
+                { text: 'Swift', value: 'swift' },
+                { text: 'TypeScript', value: 'typescript' },
+                { text: 'Visual Basic', value: 'vb' },
+                { text: 'Vue', value: 'vue' },
+                { text: 'XML', value: 'xml' },
+                { text: 'XSL', value: 'xsl' },
+                { text: 'YAML', value: 'yaml' },
+            ],
+        };
+    },
+};
+</script>
+```
+
+### 添加尾部
+
+``` vue
+<template>
+<u-grid-layout :repeat="3">
+    <u-grid-layout-column>
+        <u-list-view show-head show-foot title="单选列表" :data-source="data">
+            <div slot="foot">
+                <u-button size="small">操作</u-button>
+            </div>
+        </u-list-view>
+    </u-grid-layout-column>
+    <u-grid-layout-column>
+        <u-list-view multiple show-head show-foot title="多选列表" :data-source="data">
+            <div slot="foot">
+                <u-button size="small">操作</u-button>
+            </div>
+        </u-list-view>
+    </u-grid-layout-column>
+</u-grid-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            data: [
+                { text: 'Batch', value: 'bat' },
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'CSS', value: 'css' },
+                { text: 'Clojure', value: 'clojure' },
+                { text: 'CoffeeScript', value: 'coffeescript' },
+                { text: 'Coq', value: 'coq' },
+                { text: 'Diff', value: 'diff' },
+                { text: 'Dockerfile', value: 'dockerfile' },
+                { text: 'F#', value: 'fshape' },
+                { text: 'Go', value: 'go' },
+                { text: 'Groovy', value: 'groovy' },
+                { text: 'HLSL', value: 'hlsl' },
+                { text: 'HTML', value: 'html' },
+                { text: 'Handlebars', value: 'Handlebars' },
+                { text: 'Ignore', value: 'ignore' },
+                { text: 'Ini', value: 'ini' },
+                { text: 'JSON', value: 'json' },
+                { text: 'Java', value: 'java' },
+                { text: 'JavaScript', value: 'javascript' },
+                { text: 'Jinja', value: 'jinja' },
+                { text: 'Jupyter', value: 'jupyter' },
+                { text: 'Less', value: 'less' },
+                { text: 'Log', value: 'log' },
+                { text: 'Lua', value: 'lua' },
+                { text: 'Makefile', value: 'makefile' },
+                { text: 'Markdown', value: 'markdown' },
+                { text: 'Objective-C', value: 'objective-c' },
+                { text: 'Objective-C++', value: 'objective-cpp' },
+                { text: 'PHP', value: 'php' },
+                { text: 'Perl', value: 'perl' },
+                { text: 'PowerShell', value: 'powershell' },
+                { text: 'Properties', value: 'properties' },
+                { text: 'Pug', value: 'jade' },
+                { text: 'Python', value: 'python' },
+                { text: 'R', value: 'r' },
+                { text: 'Razor', value: 'razor' },
+                { text: 'Ruby', value: 'ruby' },
+                { text: 'Rust', value: 'rust' },
+                { text: 'SCSS', value: 'scss' },
+                { text: 'SQL', value: 'sql' },
+                { text: 'SVG', value: 'svg' },
+                { text: 'Shaderlab', value: 'shaderlab' },
+                { text: 'Shell Script', value: 'shellscript' },
+                { text: 'Swift', value: 'swift' },
+                { text: 'TypeScript', value: 'typescript' },
+                { text: 'Visual Basic', value: 'vb' },
+                { text: 'Vue', value: 'vue' },
+                { text: 'XML', value: 'xml' },
+                { text: 'XSL', value: 'xsl' },
+                { text: 'YAML', value: 'yaml' },
+            ],
+        };
+    },
+};
+</script>
+```
+
+### 过滤（搜索、筛选）
+
+#### 前端过滤
+
+如果数据本身为前端数据或是从后端一次性拿过来的，设置`filterable`属性即可开启过滤功能。用于快速查找选项。
+
+``` vue
+<template>
+<u-grid-layout :repeat="3">
+    <u-grid-layout-column>
+        <u-list-view show-head title="单选列表" :data-source="data" filterable></u-list-view>
+    </u-grid-layout-column>
+    <u-grid-layout-column>
+        <u-list-view multiple show-head title="多选列表" :data-source="data" filterable></u-list-view>
+    </u-grid-layout-column>
+</u-grid-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            data: [
+                { text: 'Batch', value: 'bat' },
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'CSS', value: 'css' },
+                { text: 'Clojure', value: 'clojure' },
+                { text: 'CoffeeScript', value: 'coffeescript' },
+                { text: 'Coq', value: 'coq' },
+                { text: 'Diff', value: 'diff' },
+                { text: 'Dockerfile', value: 'dockerfile' },
+                { text: 'F#', value: 'fshape' },
+                { text: 'Go', value: 'go' },
+                { text: 'Groovy', value: 'groovy' },
+                { text: 'HLSL', value: 'hlsl' },
+                { text: 'HTML', value: 'html' },
+                { text: 'Handlebars', value: 'Handlebars' },
+                { text: 'Ignore', value: 'ignore' },
+                { text: 'Ini', value: 'ini' },
+                { text: 'JSON', value: 'json' },
+                { text: 'Java', value: 'java' },
+                { text: 'JavaScript', value: 'javascript' },
+                { text: 'Jinja', value: 'jinja' },
+                { text: 'Jupyter', value: 'jupyter' },
+                { text: 'Less', value: 'less' },
+                { text: 'Log', value: 'log' },
+                { text: 'Lua', value: 'lua' },
+                { text: 'Makefile', value: 'makefile' },
+                { text: 'Markdown', value: 'markdown' },
+                { text: 'Objective-C', value: 'objective-c' },
+                { text: 'Objective-C++', value: 'objective-cpp' },
+                { text: 'PHP', value: 'php' },
+                { text: 'Perl', value: 'perl' },
+                { text: 'PowerShell', value: 'powershell' },
+                { text: 'Properties', value: 'properties' },
+                { text: 'Pug', value: 'jade' },
+                { text: 'Python', value: 'python' },
+                { text: 'R', value: 'r' },
+                { text: 'Razor', value: 'razor' },
+                { text: 'Ruby', value: 'ruby' },
+                { text: 'Rust', value: 'rust' },
+                { text: 'SCSS', value: 'scss' },
+                { text: 'SQL', value: 'sql' },
+                { text: 'SVG', value: 'svg' },
+                { text: 'Shaderlab', value: 'shaderlab' },
+                { text: 'Shell Script', value: 'shellscript' },
+                { text: 'Swift', value: 'swift' },
+                { text: 'TypeScript', value: 'typescript' },
+                { text: 'Visual Basic', value: 'vb' },
+                { text: 'Vue', value: 'vue' },
+                { text: 'XML', value: 'xml' },
+                { text: 'XSL', value: 'xsl' },
+                { text: 'YAML', value: 'yaml' },
+            ],
+        };
+    },
+};
+</script>
+```
+
+#### 匹配方式
+
+在`match-method`属性中可以配置字符串的匹配方式，常见的有`includes`、`startsWith`、`endsWith`，也可以传一个函数。
+
+``` vue
+<template>
+<u-grid-layout :repeat="3">
+    <u-grid-layout-column>
+        <u-list-view :data="data" filterable match-method="includes" placeholder="包括即可（默认）"></u-list-view>
+    </u-grid-layout-column>
+    <u-grid-layout-column>
+        <u-list-view :data="data" filterable match-method="startsWith" placeholder="只匹配开头"></u-list-view>
+    </u-grid-layout-column>
+    <u-grid-layout-column>
+        <u-list-view :data="data" filterable match-method="endsWith" placeholder="只匹配结尾"></u-list-view>
+    </u-grid-layout-column>
+</u-grid-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            data: [
+                { text: 'Batch', value: 'bat' },
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'CSS', value: 'css' },
+                { text: 'Clojure', value: 'clojure' },
+                { text: 'CoffeeScript', value: 'coffeescript' },
+                { text: 'Coq', value: 'coq' },
+                { text: 'Diff', value: 'diff' },
+                { text: 'Dockerfile', value: 'dockerfile' },
+                { text: 'F#', value: 'fshape' },
+                { text: 'Go', value: 'go' },
+                { text: 'Groovy', value: 'groovy' },
+                { text: 'HLSL', value: 'hlsl' },
+                { text: 'HTML', value: 'html' },
+                { text: 'Handlebars', value: 'Handlebars' },
+                { text: 'Ignore', value: 'ignore' },
+                { text: 'Ini', value: 'ini' },
+                { text: 'JSON', value: 'json' },
+                { text: 'Java', value: 'java' },
+                { text: 'JavaScript', value: 'javascript' },
+                { text: 'Jinja', value: 'jinja' },
+                { text: 'Jupyter', value: 'jupyter' },
+                { text: 'Less', value: 'less' },
+                { text: 'Log', value: 'log' },
+                { text: 'Lua', value: 'lua' },
+                { text: 'Makefile', value: 'makefile' },
+                { text: 'Markdown', value: 'markdown' },
+                { text: 'Objective-C', value: 'objective-c' },
+                { text: 'Objective-C++', value: 'objective-cpp' },
+                { text: 'PHP', value: 'php' },
+                { text: 'Perl', value: 'perl' },
+                { text: 'PowerShell', value: 'powershell' },
+                { text: 'Properties', value: 'properties' },
+                { text: 'Pug', value: 'jade' },
+                { text: 'Python', value: 'python' },
+                { text: 'R', value: 'r' },
+                { text: 'Razor', value: 'razor' },
+                { text: 'Ruby', value: 'ruby' },
+                { text: 'Rust', value: 'rust' },
+                { text: 'SCSS', value: 'scss' },
+                { text: 'SQL', value: 'sql' },
+                { text: 'SVG', value: 'svg' },
+                { text: 'Shaderlab', value: 'shaderlab' },
+                { text: 'Shell Script', value: 'shellscript' },
+                { text: 'Swift', value: 'swift' },
+                { text: 'TypeScript', value: 'typescript' },
+                { text: 'Visual Basic', value: 'vb' },
+                { text: 'Vue', value: 'vue' },
+                { text: 'XML', value: 'xml' },
+                { text: 'XSL', value: 'xsl' },
+                { text: 'YAML', value: 'yaml' },
+            ],
+        };
+    },
+};
+</script>
+```
+
+#### 区分大小写
+
+默认不区分大小写，可用`case-sensitive`属性开启。
+
+``` vue
+<template>
+<u-grid-layout :repeat="3">
+    <u-grid-layout-column>
+        <u-list-view :data="data" filterable placeholder="不区分大小写（默认）"></u-list-view>
+    </u-grid-layout-column>
+    <u-grid-layout-column>
+        <u-list-view :data="data" filterable case-sensitive placeholder="区分大小写"></u-list-view>
+    </u-grid-layout-column>
+</u-grid-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            data: [
+                { text: 'Batch', value: 'bat' },
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'CSS', value: 'css' },
+                { text: 'Clojure', value: 'clojure' },
+                { text: 'CoffeeScript', value: 'coffeescript' },
+                { text: 'Coq', value: 'coq' },
+                { text: 'Diff', value: 'diff' },
+                { text: 'Dockerfile', value: 'dockerfile' },
+                { text: 'F#', value: 'fshape' },
+                { text: 'Go', value: 'go' },
+                { text: 'Groovy', value: 'groovy' },
+                { text: 'HLSL', value: 'hlsl' },
+                { text: 'HTML', value: 'html' },
+                { text: 'Handlebars', value: 'Handlebars' },
+                { text: 'Ignore', value: 'ignore' },
+                { text: 'Ini', value: 'ini' },
+                { text: 'JSON', value: 'json' },
+                { text: 'Java', value: 'java' },
+                { text: 'JavaScript', value: 'javascript' },
+                { text: 'Jinja', value: 'jinja' },
+                { text: 'Jupyter', value: 'jupyter' },
+                { text: 'Less', value: 'less' },
+                { text: 'Log', value: 'log' },
+                { text: 'Lua', value: 'lua' },
+                { text: 'Makefile', value: 'makefile' },
+                { text: 'Markdown', value: 'markdown' },
+                { text: 'Objective-C', value: 'objective-c' },
+                { text: 'Objective-C++', value: 'objective-cpp' },
+                { text: 'PHP', value: 'php' },
+                { text: 'Perl', value: 'perl' },
+                { text: 'PowerShell', value: 'powershell' },
+                { text: 'Properties', value: 'properties' },
+                { text: 'Pug', value: 'jade' },
+                { text: 'Python', value: 'python' },
+                { text: 'R', value: 'r' },
+                { text: 'Razor', value: 'razor' },
+                { text: 'Ruby', value: 'ruby' },
+                { text: 'Rust', value: 'rust' },
+                { text: 'SCSS', value: 'scss' },
+                { text: 'SQL', value: 'sql' },
+                { text: 'SVG', value: 'svg' },
+                { text: 'Shaderlab', value: 'shaderlab' },
+                { text: 'Shell Script', value: 'shellscript' },
+                { text: 'Swift', value: 'swift' },
+                { text: 'TypeScript', value: 'typescript' },
+                { text: 'Visual Basic', value: 'vb' },
+                { text: 'Vue', value: 'vue' },
+                { text: 'XML', value: 'xml' },
+                { text: 'XSL', value: 'xsl' },
+                { text: 'YAML', value: 'yaml' },
+            ],
+        };
+    },
+};
+</script>
+```
+
+### 后端过滤
+
+如果需要通过后端接口进行过滤，在开启`filterable`属性的基础上，还要开启`remote-filtering`属性。
+
+这时需要用前面提到的 data-source 函数的方式传入数据。
+
+加载函数的格式是这样的`(params) => Promise<Array<Item>>`。组件会给加载函数提供过滤等参数，要求返回一个 Promise。
+
+``` vue
+<template>
+    <u-grid-layout :repeat="3">
+        <u-grid-layout-column>
+            <u-list-view v-model="value" :data-source="load" filterable remote-filtering></u-list-view>
+        </u-grid-layout-column>
+        <u-grid-layout-column :span="2">
+            <div :class="$style.result">选择的语言为：{{ value }}</div>
+        </u-grid-layout-column>
+    </u-grid-layout>
+</template>
+<script>
+// 模拟后端请求
+const mockRequest = (data, timeout = 400) => new Promise((res, rej) => setTimeout(() => res(data), timeout));
+// 模拟数据服务
+const mockService = {
+    loadPartial(keyword) {
+        // 在这里模拟了一个后端过滤数据的请求
+        return mockRequest([
+            { text: 'Batch', value: 'bat' },
+            { text: 'C', value: 'c' },
+            { text: 'C#', value: 'csharp' },
+            { text: 'C++', value: 'cpp' },
+            { text: 'CSS', value: 'css' },
+            { text: 'Clojure', value: 'clojure' },
+            { text: 'CoffeeScript', value: 'coffeescript' },
+            { text: 'Coq', value: 'coq' },
+            { text: 'Diff', value: 'diff' },
+            { text: 'Dockerfile', value: 'dockerfile' },
+            { text: 'F#', value: 'fshape' },
+            { text: 'Go', value: 'go' },
+            { text: 'Groovy', value: 'groovy' },
+            { text: 'HLSL', value: 'hlsl' },
+            { text: 'HTML', value: 'html' },
+            { text: 'Handlebars', value: 'Handlebars' },
+            { text: 'Ignore', value: 'ignore' },
+            { text: 'Ini', value: 'ini' },
+            { text: 'JSON', value: 'json' },
+            { text: 'Java', value: 'java' },
+            { text: 'JavaScript', value: 'javascript' },
+            { text: 'Jinja', value: 'jinja' },
+            { text: 'Jupyter', value: 'jupyter' },
+            { text: 'Less', value: 'less' },
+            { text: 'Log', value: 'log' },
+            { text: 'Lua', value: 'lua' },
+            { text: 'Makefile', value: 'makefile' },
+            { text: 'Markdown', value: 'markdown' },
+            { text: 'Objective-C', value: 'objective-c' },
+            { text: 'Objective-C++', value: 'objective-cpp' },
+            { text: 'PHP', value: 'php' },
+            { text: 'Perl', value: 'perl' },
+            { text: 'PowerShell', value: 'powershell' },
+            { text: 'Properties', value: 'properties' },
+            { text: 'Pug', value: 'jade' },
+            { text: 'Python', value: 'python' },
+            { text: 'R', value: 'r' },
+            { text: 'Razor', value: 'razor' },
+            { text: 'Ruby', value: 'ruby' },
+            { text: 'Rust', value: 'rust' },
+            { text: 'SCSS', value: 'scss' },
+            { text: 'SQL', value: 'sql' },
+            { text: 'SVG', value: 'svg' },
+            { text: 'Shaderlab', value: 'shaderlab' },
+            { text: 'Shell Script', value: 'shellscript' },
+            { text: 'Swift', value: 'swift' },
+            { text: 'TypeScript', value: 'typescript' },
+            { text: 'Visual Basic', value: 'vb' },
+            { text: 'Vue', value: 'vue' },
+            { text: 'XML', value: 'xml' },
+            { text: 'XSL', value: 'xsl' },
+            { text: 'YAML', value: 'yaml' },
+        ].filter((item) => item.text.includes(keyword)));
+    },
+};
+
+export default {
+    data() {
+        return {
+            value: 'cpp',
+        };
+    },
+    methods: {
+        load({ filtering }) {
+            return mockService.loadPartial(filtering.text);
+        },
+    }
+};
+</script>
+<style module>
+.result {
+    height: var(--list-view-height);
+    padding: var(--list-view-item-padding);
+    border: var(--border-width-base) solid var(--border-color-base);
+    color: var(--color-light);
+}
+</style>
 ```

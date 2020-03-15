@@ -1,13 +1,9 @@
 .root {
-    /* @Private */
-    user-select: none;
-    overflow: auto;
-    position: relative;
-
-    /* @Public */
-    background: var(--list-view-background);
+    display: flex;
+    flex-direction: column;
     border: 1px solid var(--list-view-border-color);
     border-radius: var(--border-radius-base);
+    height: var(--list-view-height);
 }
 
 .root:focus {
@@ -21,7 +17,38 @@
 }
 
 .root[disabled] {
-    background: var(--brand-disabled);
-    border: 1px solid var(--brand-disabled);
-    color: #999;
+    border: 1px solid var(--list-view-border-color-disabled);
+}
+
+.head {
+    background: var(--list-view-head-background);
+    padding: var(--list-view-head-padding);
+    border-bottom: 1px solid var(--list-view-border-color);
+}
+
+.extra {
+    float: right;
+    color: var(--color-light);
+}
+
+.body {
+    user-select: none;
+    overflow: auto;
+    position: relative;
+    background: var(--list-view-body-background);
+}
+
+.root[disabled] .body {
+    background: var(--list-view-background-disabled);
+}
+
+.foot {
+    background: var(--list-view-foot-background);
+    padding: var(--list-view-foot-padding);
+    border-top: 1px solid var(--list-view-border-color);
+}
+
+.filter[class][class] {
+    margin: var(--list-view-filter-margin);
+    width: calc(100% - var(--list-view-filter-margin) * 2);
 }

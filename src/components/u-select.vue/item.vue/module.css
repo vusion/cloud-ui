@@ -37,7 +37,7 @@
     top: 0;
     left: 0;
     border: 7px solid;
-    border-color: var(--brand-success) transparent transparent var(--brand-success);
+    border-color: #4ec9ab transparent transparent #4ec9ab;
 }
 
 .flag[layer="high"] {

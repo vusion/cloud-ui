@@ -106,6 +106,36 @@
     padding-right: 30px;
 }
 
+.prefix, .suffix {
+    display: block;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+.prefix {
+    left: 8px;
+}
+
+.suffix {
+    right: 8px;
+}
+
+.root[prefix] .input {
+    padding-left: 30px;
+}
+
+.root[clearable] .input, .root[suffix] .input {
+    padding-right: 30px;
+}
+
+.prefix[name="search"]::before, .suffix[name="search"]::before {
+    icon-font: url("cloud-ui.vusion/src/components/i-icon.vue/icons/search.svg");
+    font-size: 16px;
+    color: #a7afbb;
+}
+
+/* @deprecated */
 .search {
     display: block;
     position: absolute;
@@ -113,12 +143,14 @@
     top: 0;
 }
 
+/* @deprecated */
 .search::before {
     icon-font: url("../i-icon.vue/icons/search.svg");
     font-size: 16px;
     color: #a7afbb;
 }
 
+/* @deprecated */
 .search[alignment="left"] {
     right: auto;
     left: 8px;
