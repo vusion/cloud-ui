@@ -28,7 +28,7 @@
 }
 
 .root[disabled] {
-    color: #ccc;
+    color: var(--select-color-disabled);
     background: none;
 }
 
@@ -37,7 +37,7 @@
     top: 0;
     left: 0;
     border: 7px solid;
-    border-color: #4ec9ab transparent transparent #4ec9ab;
+    border-color: var(--brand-success) transparent transparent var(--brand-success);
 }
 
 .flag[layer="high"] {

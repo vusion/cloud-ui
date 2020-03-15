@@ -84,7 +84,7 @@
 .root[disabled] {
     cursor: var(--cursor-not-allowed);
     background: var(--select-background-disabled);
-    color: #999;
+    color: var(--select-color-disabled);
     border: 1px solid var(--brand-disabled);
 }
 
@@ -175,7 +175,7 @@
 
 .label {
     padding-right: 10px;
-    color: #999;
+    color: var(--select-color-disabled);
 }
 
 .flag {
