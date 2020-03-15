@@ -88,8 +88,8 @@ export const FVirtualList = {
 
             // eslint-disable-next-line yoda
             // 该方法容易出现白屏。有截流了问题不大。
-            // if (this.virtualCount / 3 <= currentIndex - this.virtualIndex && currentIndex - this.virtualIndex < this.virtualCount * 2 / 3)
-            //     return;
+            if (this.virtualCount / 3 <= currentIndex - this.virtualIndex && currentIndex - this.virtualIndex < this.virtualCount * 2 / 3)
+                return;
 
             let virtualTop = 0;
             let virtualBottom = 0;
@@ -109,6 +109,12 @@ export const FVirtualList = {
             // Vue 应该是对渲染做了优化，为了减少在高频滚动时出现白屏的问题，需要强制更新
             this.$nextTick(() => {
                 this.$forceUpdate();
+                this.$emit('virtual-scroll', {
+                    virtualIndex,
+                    virtualCount: this.virtualCount,
+                    virtualTop,
+                    virtualBottom,
+                }, this);
             });
         },
     },

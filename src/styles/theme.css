@@ -39,7 +39,7 @@
     --border-color-base: #dfe4ec; /* 输入框等小组件的边框颜色 */
     --border-color-dark: #cbd5e5; /* 按钮等小组件的边框颜色 */
 
-    /* Spacing Dimensions */
+    /* Space Dimensions */
     --space-shrink: -1px;
     --space-mini: 4px;
     --space-base: 20px;
@@ -566,7 +566,7 @@
     --select-tag-remove-color-hover: var(--color-base);
     --select-popper-background: white;
     --select-popper-border-color: var(--border-color-base);
-    --select-status-color: var(--gray-dark);
+    --select-status-color: var(--color-light);
 
     /* Slider */
     --slider-body-margin: 0 10px;
@@ -597,7 +597,7 @@
     --list-view-border-color: var(--border-color-base);
     --list-view-border-color-focus: var(--border-color-base);
     --list-view-border-color-disabled: var(--brand-disabled);
-    --list-view-status-color: var(--gray-dark);
+    --list-view-status-color: var(--color-light);
     --list-view-head-padding: 8px 12px;
     --list-view-foot-padding: 8px 12px;
     --list-view-item-padding: 4px 12px;
@@ -709,7 +709,7 @@
     --modal-dialog-width-large: 600px;
     --modal-close-size: 15px;
     --modal-close-color: var(--gray-light);
-    --modal-close-color-hover: var(--gray-dark);
+    --modal-close-color-hover: var(--color-light);
     --modal-head-padding: 15px;
     --modal-static-padding: var(--space-base);
     --modal-body-padding: 15px;
@@ -724,7 +724,7 @@
     --drawer-background: white;
     --drawer-close-size: 15px;
     --drawer-close-color: var(--gray-light);
-    --drawer-close-color-hover: var(--gray-dark);
+    --drawer-close-color-hover: var(--color-light);
     --drawer-head-padding: 15px;
     --drawer-body-padding: 15px;
     --drawer-foot-padding: 20px 15px;

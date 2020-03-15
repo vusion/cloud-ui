@@ -111,6 +111,9 @@ export const UListView = {
                 MComplex.watch.itemVMs.handler.call(this, this.itemVMs);
             });
         }
+        this.$on('virtual-scroll', () => {
+            this.ensureSelectedInItemVMs();
+        });
     },
     methods: {
         handleData() {
@@ -122,13 +125,17 @@ export const UListView = {
             });
         },
         getExtraParams() {
-            return undefined;
+            return {
+                filterText: this.filterText,
+            };
         },
         getDataSourceOptions() {
             return {
                 viewMode: 'more',
                 paging: this.paging,
                 remotePaging: this.remotePaging,
+                filtering: this.filtering,
+                remoteFiltering: this.remoteFiltering,
                 getExtraParams: this.getExtraParams,
             };
         },
@@ -217,6 +224,9 @@ export const UListView = {
             if (parentEl.scrollTop > focusedEl.offsetTop)
                 parentEl.scrollTop = focusedEl.offsetTop;
         },
+        /**
+         * 保证选择项是 itemVMs 中的。由于切换分页、虚拟列表等会将内部组件节点干掉重新渲染，于是需要这个函数。
+         */
         ensureSelectedInItemVMs() {
             if (this.multiple) {
                 for (let i = 0; i < this.selectedVMs.length; i++) {

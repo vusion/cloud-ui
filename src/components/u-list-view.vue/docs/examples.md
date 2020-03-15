@@ -109,7 +109,7 @@ export default {
 </template>
 <script>
 // 模拟后端请求
-const mockRequest = (data, timeout = 400) => new Promise((res, rej) => setTimeout(() => res(data), timeout));
+const mockRequest = (data, timeout = 300) => new Promise((res, rej) => setTimeout(() => res(data), timeout));
 // 模拟数据服务
 const mockService = {
     load() {
@@ -374,7 +374,7 @@ export default {
 <template>
 <u-grid-layout :repeat="3">
     <u-grid-layout-column>
-        <u-list-view multiple title="多选列表" :data-source="list"></u-list-view>
+        <u-list-view multiple v-model="values" title="多选列表" :data-source="list"></u-list-view>
     </u-grid-layout-column>
 </u-grid-layout>
 </template>
@@ -382,6 +382,7 @@ export default {
 export default {
     data() {
         return {
+            values: ['c', 'cpp'],
             list: [
                 { text: 'Batch', value: 'bat' },
                 { text: 'C', value: 'c' },
@@ -450,10 +451,10 @@ export default {
 <template>
 <u-grid-layout :repeat="3">
     <u-grid-layout-column>
-        <u-list-view show-head title="单选列表" :data-source="data"></u-list-view>
+        <u-list-view show-head title="单选列表" :data-source="list"></u-list-view>
     </u-grid-layout-column>
     <u-grid-layout-column>
-        <u-list-view multiple show-head title="多选列表" :data-source="data"></u-list-view>
+        <u-list-view multiple show-head title="多选列表" :data-source="list"></u-list-view>
     </u-grid-layout-column>
 </u-grid-layout>
 </template>
@@ -461,7 +462,7 @@ export default {
 export default {
     data() {
         return {
-            data: [
+            list: [
                 { text: 'Batch', value: 'bat' },
                 { text: 'C', value: 'c' },
                 { text: 'C#', value: 'csharp' },
@@ -616,10 +617,10 @@ export default {
 <template>
 <u-grid-layout :repeat="3">
     <u-grid-layout-column>
-        <u-list-view show-head title="单选列表" :data-source="data" filterable></u-list-view>
+        <u-list-view show-head title="单选列表" v-model="value" :data-source="list" filterable></u-list-view>
     </u-grid-layout-column>
     <u-grid-layout-column>
-        <u-list-view multiple show-head title="多选列表" :data-source="data" filterable></u-list-view>
+        <u-list-view multiple show-head title="多选列表" v-model="values" :data-source="list" filterable></u-list-view>
     </u-grid-layout-column>
 </u-grid-layout>
 </template>
@@ -627,7 +628,9 @@ export default {
 export default {
     data() {
         return {
-            data: [
+            value: 'css',
+            values: ['c', 'cpp'],
+            list: [
                 { text: 'Batch', value: 'bat' },
                 { text: 'C', value: 'c' },
                 { text: 'C#', value: 'csharp' },
@@ -695,13 +698,13 @@ export default {
 <template>
 <u-grid-layout :repeat="3">
     <u-grid-layout-column>
-        <u-list-view :data="data" filterable match-method="includes" placeholder="包括即可（默认）"></u-list-view>
+        <u-list-view :data="list" filterable match-method="includes" placeholder="包括即可（默认）"></u-list-view>
     </u-grid-layout-column>
     <u-grid-layout-column>
-        <u-list-view :data="data" filterable match-method="startsWith" placeholder="只匹配开头"></u-list-view>
+        <u-list-view :data="list" filterable match-method="startsWith" placeholder="只匹配开头"></u-list-view>
     </u-grid-layout-column>
     <u-grid-layout-column>
-        <u-list-view :data="data" filterable match-method="endsWith" placeholder="只匹配结尾"></u-list-view>
+        <u-list-view :data="list" filterable match-method="endsWith" placeholder="只匹配结尾"></u-list-view>
     </u-grid-layout-column>
 </u-grid-layout>
 </template>
@@ -709,7 +712,7 @@ export default {
 export default {
     data() {
         return {
-            data: [
+            list: [
                 { text: 'Batch', value: 'bat' },
                 { text: 'C', value: 'c' },
                 { text: 'C#', value: 'csharp' },
@@ -777,10 +780,10 @@ export default {
 <template>
 <u-grid-layout :repeat="3">
     <u-grid-layout-column>
-        <u-list-view :data="data" filterable placeholder="不区分大小写（默认）"></u-list-view>
+        <u-list-view :data="list" filterable placeholder="不区分大小写（默认）"></u-list-view>
     </u-grid-layout-column>
     <u-grid-layout-column>
-        <u-list-view :data="data" filterable case-sensitive placeholder="区分大小写"></u-list-view>
+        <u-list-view :data="list" filterable case-sensitive placeholder="区分大小写"></u-list-view>
     </u-grid-layout-column>
 </u-grid-layout>
 </template>
@@ -788,7 +791,7 @@ export default {
 export default {
     data() {
         return {
-            data: [
+            list: [
                 { text: 'Batch', value: 'bat' },
                 { text: 'C', value: 'c' },
                 { text: 'C#', value: 'csharp' },
@@ -852,24 +855,24 @@ export default {
 
 如果需要通过后端接口进行过滤，在开启`filterable`属性的基础上，还要开启`remote-filtering`属性。
 
-这时需要用前面提到的 data-source 函数的方式传入数据。
+这时需要用最前面提到的 data-source 函数的方式传入数据。
 
-加载函数的格式是这样的`(params) => Promise<Array<Item>>`。组件会给加载函数提供过滤等参数，要求返回一个 Promise。
+加载函数的格式是这样的`({ filterText: string }) => Promise<Array<Item>>`。组件会给加载函数提供过滤输入框中的文本，要求返回一个 Promise。
 
 ``` vue
 <template>
     <u-grid-layout :repeat="3">
         <u-grid-layout-column>
-            <u-list-view v-model="value" :data-source="load" filterable remote-filtering></u-list-view>
+            <u-list-view show-head title="单选列表" v-model="value" :data-source="load" filterable remote-filtering></u-list-view>
         </u-grid-layout-column>
-        <u-grid-layout-column :span="2">
-            <div :class="$style.result">选择的语言为：{{ value }}</div>
+        <u-grid-layout-column>
+            <u-list-view multiple show-head title="多选列表" v-model="values" :data-source="load" filterable remote-filtering></u-list-view>
         </u-grid-layout-column>
     </u-grid-layout>
 </template>
 <script>
 // 模拟后端请求
-const mockRequest = (data, timeout = 400) => new Promise((res, rej) => setTimeout(() => res(data), timeout));
+const mockRequest = (data, timeout = 300) => new Promise((res, rej) => setTimeout(() => res(data), timeout));
 // 模拟数据服务
 const mockService = {
     loadPartial(keyword) {
@@ -934,12 +937,13 @@ const mockService = {
 export default {
     data() {
         return {
-            value: 'cpp',
+            value: 'css',
+            values: ['c', 'cpp'],
         };
     },
     methods: {
-        load({ filtering }) {
-            return mockService.loadPartial(filtering.text);
+        load({ filterText }) {
+            return mockService.loadPartial(filterText);
         },
     }
 };

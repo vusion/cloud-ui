@@ -59,3 +59,25 @@
         - name: senderVM
           type: FVirtualList
           description: 发送事件实例
+    - name: virtual-scroll
+      description: 每次处理更新虚拟滚动时触发
+      params:
+        - name: virtualIndex
+          type: number
+          default: 0
+          description: 实际渲染的首个列表项索引
+        - name: virtualCount
+          type: number
+          default: 60
+          description: 虚拟列表实际渲染的节点数
+        - name: virtualTop
+          type: number
+          default: 0
+          description: 虚拟的顶部高度
+        - name: virtualBottom
+          type: number
+          default: 0
+          description: 虚拟的底部高度
+        - name: senderVM
+          type: FVirtualList
+          description: 发送事件实例
