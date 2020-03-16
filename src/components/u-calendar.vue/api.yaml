@@ -1,4 +1,4 @@
-- name: calendar
+- name: u-calendar
   title: 日历
   attrs:
     - name: date

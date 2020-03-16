@@ -1,4 +1,4 @@
-- name: cascade-capsules
+- name: u-cascade-capsules
   title: 级联胶囊
   attrs:
     - name: data
