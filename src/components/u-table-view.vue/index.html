@@ -50,7 +50,7 @@
                     <col v-for="columnVM in visibleColumnVMs" :width="columnVM.computedWidth"></col>
                 </colgroup>
                 <tbody>
-                    <template v-if="(!currentLoading && !currentError || pageable === 'scroll' || pageable === 'button') && currentData && currentData.length">
+                    <template v-if="(!currentLoading && !currentError || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
                         <template v-for="(item, rowIndex) in currentData">
                             <tr :key="rowIndex" :class="$style.row" :color="item.rowColor" :selected="selectable && selectedItem === item" @click="selectable && select(item)">
                                 <td :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title>
@@ -91,12 +91,12 @@
                             <slot name="error">{{ errorText }}</slot>
                         </td>
                     </tr>
-                    <tr v-else-if="pageable === 'button' && currentDataSource.hasMore()">
+                    <tr v-else-if="pageable === 'load-more' && currentDataSource.hasMore()">
                         <td :class="$style.center" :colspan="visibleColumnVMs.length">
                             <u-link @click="load(true)">{{ $t('loadMore') }}</u-link>
                         </td>
                     </tr>
-                    <tr v-else-if="(pageable === 'scroll' || pageable === 'button') && !currentDataSource.hasMore()">
+                    <tr v-else-if="(pageable === 'auto-more' || pageable === 'load-more') && !currentDataSource.hasMore()">
                         <td :class="$style.center" :colspan="visibleColumnVMs.length">
                             {{ $t('noMore') }}
                         </td>

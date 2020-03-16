@@ -57,6 +57,9 @@ export const FVirtualList = {
             this.$emit('scroll', e, this);
         },
         handleVirtualScroll(e) {
+            if (!this.virtual)
+                return;
+
             const listEl = e.target;
             const virtualEl = this.$refs.virtual;
             const list = this[this.listKey];

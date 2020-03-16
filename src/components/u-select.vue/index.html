@@ -63,7 +63,7 @@
                 :item="item"
             >{{ item[field] }}</component>
         </template>
-        <div :class="$style.status" status="loading" v-if="loading">
+        <div :class="$style.status" status="loading" v-if="currentLoading">
             <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
         </div>
     </m-popper>

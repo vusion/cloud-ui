@@ -19,6 +19,7 @@
         <div ref="virtual" v-if="currentData" :style="{ paddingTop: virtualTop + 'px', paddingBottom: virtualBottom + 'px' }">
             <component :is="ChildComponent"
                 v-for="item in virtualList"
+                v-if="item"
                 :key="item[valueField]"
                 :value="item[valueField]"
                 :disabled="item.disabled || disabled"
@@ -26,14 +27,14 @@
             ><slot name="text" :item="item" :text="item[textField]" :value="item[valueField]" :disabled="item.disabled || disabled">{{ item[field || textField] }}</slot>
             </component>
         </div>
-        <div :class="$style.status" status="loading" v-if="loading">
+        <div :class="$style.status" status="loading" v-if="currentLoading">
             <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
         </div>
-        <div :class="$style.status" v-if="pageable === 'button'">
+        <div :class="$style.status" v-else-if="pageable === 'load-more'">
             <u-link @click="load(true)">{{ $t('loadMore') }}</u-link>
         </div>
     </div>
-    <div v-show="showFoot || pageable === 'pagination'" :class="$style.foot">
+    <div v-show="showFoot || pageable === true || pageable === 'pagination'" :class="$style.foot">
         <slot name="foot"></slot>
         <u-combo-pagination :class="$style.pagination" v-if="pageable === true || pageable === 'pagination'"
             :total-items="currentDataSource.total" :page="currentDataSource.paging.number"

@@ -237,7 +237,7 @@ export const UTableView = {
         },
         getDataSourceOptions() {
             return {
-                viewMode: this.pageable === 'scroll' || this.pageable === 'button' ? 'more' : 'page',
+                viewMode: this.pageable === 'load-more' || this.pageable === 'auto-more' ? 'more' : 'page',
                 paging: this.paging,
                 sorting: this.sorting,
                 filtering: this.filtering,
@@ -476,7 +476,7 @@ export const UTableView = {
 
             // this.throttledVirtualScroll(e);
 
-            if (!this.pageable === 'scroll')
+            if (!this.pageable === 'auto-more')
                 return;
 
             const el = e.target;
@@ -497,12 +497,12 @@ export const UTableView = {
                 // 防止同步数据使页面抖动
                 // setTimeout(() => this.currentData = data);
                 this.currentLoading = false;
-                if (this.pageable === 'scroll' || this.pageable === 'button') {
+                if (this.pageable === 'load-more' || this.pageable === 'auto-more') {
                     this.$emit('load', undefined, this);
                     return data;
                 } else {
                     if (this.currentDataSource.paging && this.currentDataSource.paging.number > this.currentDataSource.totalPage)
-                        this.page(1);
+                        this.page(1); // 数据发生变更时，回归到第 1 页
 
                     this.handleResize();
                     this.$emit('load', undefined, this);

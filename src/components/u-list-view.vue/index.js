@@ -55,7 +55,7 @@ export const UListView = {
             // @inherit: selectedVMs: undefined,
             // @inherit: currentMultiple: this.multiple,
             currentDataSource: undefined,
-            loading: false,
+            currentLoading: false,
             // virtualIndex: 0,
             // virtualTop: 0,
             // virtualBottom: 0,
@@ -152,7 +152,7 @@ export const UListView = {
         },
         getDataSourceOptions() {
             return {
-                viewMode: this.pageable === 'scroll' || this.pageable === 'button' ? 'more' : 'page',
+                viewMode: this.pageable === 'load-more' || this.pageable === 'auto-more' ? 'more' : 'page',
                 paging: this.paging,
                 remotePaging: this.remotePaging,
                 filtering: this.filtering,
@@ -173,7 +173,7 @@ export const UListView = {
                     const result = dataSource(params);
 
                     if (result instanceof Promise)
-                        return result.catch(() => this.loading = false);
+                        return result.catch(() => this.currentLoading = false);
                     else if (result instanceof Array)
                         return Promise.resolve(result);
                     else
@@ -237,7 +237,7 @@ export const UListView = {
                 else
                     parentEl.scrollTop = focusedEl.offsetTop + focusedEl.offsetHeight - parentEl.clientHeight;
                 if (selectedIndex === this.itemVMs.length - 1) {
-                    this.pageable && this.debouncedLoad(true);
+                    this.pageable === 'auto-more' && this.debouncedLoad(true);
                     // 保证显示加载中，但又不是全部数据
                     this.$nextTick(() => parentEl.scrollTop = parentEl.scrollHeight - parentEl.clientHeight);
                 }
@@ -277,28 +277,23 @@ export const UListView = {
             const dataSource = this.currentDataSource;
             if (!dataSource)
                 return;
-            if (this.loading)
+            if (this.currentLoading)
                 return Promise.resolve();
             if (this.$emitPrevent('before-load', undefined, this))
                 return;
 
-            this.loading = true;
+            this.currentLoading = true;
             return dataSource[more ? 'loadMore' : 'load']().then((data) => {
-                this.loading = false;
+                this.currentLoading = false;
                 if (this.pageable === true || this.pageable === 'pagination') {
                     if (this.currentDataSource.paging && this.currentDataSource.paging.number > this.currentDataSource.totalPage)
-                        this.page(1);
-
-                    this.ensureSelectedInItemVMs();
-                    this.$emit('load', undefined, this);
-                    return data;
-                } else {
-                    this.ensureSelectedInItemVMs();
-
-                    this.$emit('load', undefined, this);
-                    return data;
+                        this.page(1); // 数据发生变更时，回归到第 1 页
                 }
-            }).catch(() => this.loading = false);
+
+                this.ensureSelectedInItemVMs();
+                this.$emit('load', undefined, this);
+                return data;
+            }).catch(() => this.currentLoading = false);
         },
         reload() {
             this.currentDataSource.clearLocalData();
@@ -325,7 +320,7 @@ export const UListView = {
         onScroll(e) {
             this.throttledVirtualScroll(e);
 
-            if (this.pageable !== 'scroll')
+            if (this.pageable !== 'auto-more')
                 return;
 
             const el = e.target;

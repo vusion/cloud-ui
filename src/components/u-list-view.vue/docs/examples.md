@@ -92,9 +92,15 @@ export default {
 
 #### data-source 函数
 
-向`data-source`属性中传入一个加载函数，这种方式会自动处理 loading 加载、error 错误等效果。
+向`data-source`属性中传入一个加载函数，这种方式会自带 loading 加载、error 错误等效果，并且之后的后端分页、过滤（搜索）等功能均需要采用这种传入数据的方式。
 
-加载函数的格式是这样的`(params) => Promise<Array<Item>>`。组件会给加载函数提供分页过滤等参数，要求返回一个 Promise。
+加载函数的格式是这样的
+
+``` ts
+(params) => Promise<Array<Item> | { data: Array<Item>, total: number } | { data: Array<Item>, last: boolean }>
+```
+
+组件会给加载函数提供过滤（搜索）、分页、加载更多等参数，要求返回一个如上的 Promise。
 
 ``` vue
 <template>
@@ -951,6 +957,8 @@ export default {
 
 加载函数的格式是这样的`({ filterText: string }) => Promise<Array<Item>>`。组件会给加载函数提供过滤输入框中的文本，要求返回一个 Promise。
 
+可以看下面的示例，在数据栏中`result`为最新一次模拟请求的返回数据。
+
 ``` vue
 <template>
     <u-grid-layout :repeat="3">
@@ -1031,11 +1039,13 @@ export default {
         return {
             value: 'css',
             values: ['c', 'cpp'],
+            result: undefined,
         };
     },
     methods: {
         load({ filterText }) {
-            return mockService.loadPartial(filterText);
+            return mockService.loadPartial(filterText)
+                .then((result) => this.result = result); // 这句只是在 Demo 中打印一下数据，方便查看
         },
     }
 };
@@ -1050,20 +1060,20 @@ export default {
 </style>
 ```
 
-### 分页与加载更多
+### 分页
 
-#### 加载更多
+#### 前端分页
 
-如果数据本身为前端数据或是从后端一次性拿过来的，设置`pageable`属性即可开启分页功能。可以用`page-size`属性修改分页大小。
+如果数据本身为前端数据或是从后端一次性拿过来的，设置`pageable`或`pageable="pagination"`即可开启分页功能，用`page-size`属性修改分页大小。
 
 ``` vue
 <template>
 <u-grid-layout :repeat="3">
     <u-grid-layout-column>
-        <u-list-view show-head title="单选列表" v-model="value" :data-source="list" pageable></u-list-view>
+        <u-list-view show-head title="单选列表" v-model="value" :data-source="list" pageable :page-size="10"></u-list-view>
     </u-grid-layout-column>
     <u-grid-layout-column>
-        <u-list-view multiple show-head title="多选列表" v-model="values" :data-source="list" pageable></u-list-view>
+        <u-list-view multiple show-head title="多选列表" v-model="values" :data-source="list" pageable="pagination" :page-size="10"></u-list-view>
     </u-grid-layout-column>
 </u-grid-layout>
 </template>
@@ -1072,14 +1082,13 @@ export default {
     data() {
         // 构造数量较多的 500 条数据
         let list = [];
-        for (let i = 1; i <= 500; i++)
+        for (let i = 1; i <= 100; i++)
             list.push('item' + i);
         list = list.map((text) => ({ text, value: text }));
 
-
         return {
-            value: 'css',
-            values: ['c', 'cpp'],
+            value: undefined,
+            values: [],
             list,
         };
     },
@@ -1087,21 +1096,18 @@ export default {
 </script>
 ```
 
-#### 分页器
+#### 加载更多
 
-设置`pageable="pagination"`属性即可开启分页功能。
+设置`pageable="load-more"`可开启手动点击加载更多功能，设置`pageable="auto-more"`可开启滚动自动加载更多功能。
 
 ``` vue
 <template>
 <u-grid-layout :repeat="3">
     <u-grid-layout-column>
-        <u-list-view show-head title="单选列表" v-model="value" :data-source="list" pageable="pagination"></u-list-view>
+        <u-list-view multiple show-head title="手动点击加载更多" v-model="values" :data-source="list" pageable="load-more"></u-list-view>
     </u-grid-layout-column>
     <u-grid-layout-column>
-        <u-list-view multiple show-head title="多选列表" v-model="values" :data-source="list" pageable="scroll"></u-list-view>
-    </u-grid-layout-column>
-    <u-grid-layout-column>
-        <u-list-view multiple show-head title="多选列表" v-model="values" :data-source="list" pageable="button"></u-list-view>
+        <u-list-view multiple show-head title="滚动自动加载更多" v-model="values" :data-source="list" pageable="auto-more"></u-list-view>
     </u-grid-layout-column>
 </u-grid-layout>
 </template>
@@ -1116,10 +1122,103 @@ export default {
 
 
         return {
-            value: 'css',
-            values: ['c', 'cpp'],
+            value: undefined,
+            values: [],
             list,
         };
+    },
+};
+</script>
+```
+
+### 后端分页与加载更多
+
+如果需要通过后端接口进行分页或加载更多，在开启`pageable`属性的基础上，还要开启`remote-paging`属性。
+
+这时需要用最前面提到的 data-source 函数的方式传入数据。
+
+加载函数的格式是这样的：
+
+``` ts
+({ paging: {
+    size: number, // 每页大小
+    number: number, // 页数。从1开始计
+    offset: number, // 偏移量：(number - 1) * size
+    limit: number, // 同 size
+} }) => Promise<Array<Item> | { data: Array<Item>, total: number } | { data: Array<Item>, last: boolean }>
+```
+
+组件会给加载函数提供分页器或加载位置的参数，要求返回如上的一个 Promise。翻页是否到底，如果 Promise 的结果为：
+
+- `{ data: Array<Item>, total: number }`，根据 total 数值判断是否翻到最底部
+- `{ data: Array<Item>, last: boolean }`，根据 last 布尔值判断是否为最后一次
+- `Array<Item>`，则根据数组为空判断为最后一次
+
+可以看下面的示例，在数据栏中`result?`为最新一次模拟请求的返回数据。
+
+``` vue
+<template>
+<u-grid-layout :repeat="3">
+   <u-grid-layout-column>
+        <u-list-view multiple show-head title="分页，返回带 total" :data-source="load1" pageable remote-paging :page-size="10"></u-list-view>
+    </u-grid-layout-column>
+    <u-grid-layout-column>
+        <u-list-view multiple show-head title="点击加载更多，返回带 last" :data-source="load2" pageable="load-more" remote-paging></u-list-view>
+    </u-grid-layout-column>
+    <u-grid-layout-column>
+        <u-list-view multiple show-head title="滚动加载更多，只返回数组" :data-source="load3" pageable="auto-more" remote-paging></u-list-view>
+    </u-grid-layout-column>
+</u-grid-layout>
+</template>
+<script>
+// 模拟后端请求
+const mockRequest = (data, timeout = 300) => new Promise((res, rej) => setTimeout(() => res(data), timeout));
+// 模拟构造数量较多的 500 条远程数据
+let mockData = [];
+const total = 500;
+for (let i = 1; i <= total; i++)
+    mockData.push('item' + i);
+mockData = mockData.map((text) => ({ text, value: text }));
+// 模拟数据服务
+const mockService = {
+    loadWithTotal(offset, limit) {
+        return mockRequest({
+            total,
+            data: mockData.slice(offset, offset + limit),
+        });
+    },
+    loadWithLast(offset, limit) {
+        return mockRequest({
+            last: offset + limit >= mockData.length,
+            data: mockData.slice(offset, offset + limit),
+        });
+    },
+    loadOnlyArray(offset, limit) {
+        return mockRequest(mockData.slice(offset, offset + limit));
+    },
+};
+
+export default {
+    data() {
+        return {
+            result1: undefined,
+            result2: undefined,
+            result3: undefined,
+        };
+    },
+    methods: {
+        load1({ paging }) {
+            return mockService.loadWithTotal(paging.offset, paging.limit)
+                .then((result1) => this.result1 = result1); // 这句只是在 Demo 中打印一下数据，方便查看
+        },
+        load2({ paging }) {
+            return mockService.loadWithLast(paging.offset, paging.limit)
+                .then((result2) => this.result2 = result2); // 这句只是在 Demo 中打印一下数据，方便查看
+        },
+        load3({ paging }) {
+            return mockService.loadOnlyArray(paging.offset, paging.limit)
+                .then((result3) => this.result3 = result3); // 这句只是在 Demo 中打印一下数据，方便查看
+        },
     },
 };
 </script>
