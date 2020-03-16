@@ -14,7 +14,7 @@
     <u-input v-if="filterable" :class="$style.filter" :readonly="readonly" :disabled="disabled" :placeholder="placeholder" size="small" suffix="search"
         :value="filterText" @input="onInput">
     </u-input>
-    <div :class="$style.body" @scroll.stop="onScroll">
+    <div ref="body" :class="$style.body" @scroll.stop="onScroll">
         <slot></slot>
         <div ref="virtual" v-if="currentData" :style="{ paddingTop: virtualTop + 'px', paddingBottom: virtualBottom + 'px' }">
             <component :is="ChildComponent"
@@ -37,7 +37,7 @@
         <slot name="foot"></slot>
         <u-combo-pagination :class="$style.pagination" v-if="pageable === true || pageable === 'pagination'"
             :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
-            :page-size="currentDataSource.paging.size" :around="1"
+            :page-size="currentDataSource.paging.size" :side="1" :around="3"
             @change="page($event.page)">
         </u-combo-pagination>
     </div>

@@ -14,6 +14,7 @@
 .status {
     color: var(--list-view-status-color);
     text-align: center;
+    padding: var(--list-view-item-padding);
 }
 
 .root[disabled] {
@@ -52,4 +53,9 @@
 .filter[class][class] {
     margin: var(--list-view-filter-margin);
     width: calc(100% - var(--list-view-filter-margin) * 2);
+}
+
+.pagination {
+    text-align: center;
+    margin: 0 -12px;
 }

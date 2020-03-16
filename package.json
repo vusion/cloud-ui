@@ -37,13 +37,14 @@
     "cloud-ui"
   ],
   "dependencies": {
-    "countup.js": "^1.9.3",
-    "lodash": "^4.17.5",
-    "vusion-utils": "^0.4.7",
     "@vusion/popper.js": "^1.14.1",
     "atom-validator": "^0.2.3",
+    "countup.js": "^1.9.3",
+    "lodash": "^4.17.5",
+    "markdown-it-table-of-contents": "^0.4.4",
     "normalize.css": "^7.0.0",
-    "vusion-async-validator": "^1.8.8"
+    "vusion-async-validator": "^1.8.8",
+    "vusion-utils": "^0.4.7"
   },
   "devDependencies": {
     "@vue/babel-preset-app": "^3.10.0",

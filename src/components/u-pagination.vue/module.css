@@ -25,7 +25,7 @@
 
 .item:hover {
     color: var(--pagination-item-color-hover);
-    background: #eee;
+    background: var(--pagination-item-background-hover);
     position: relative;
     /* border-color: var(--brand-primary); */
 }

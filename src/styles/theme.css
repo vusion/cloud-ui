@@ -398,14 +398,15 @@
     --pagination-item-size: var(--height-small);
     --pagination-item-padding: 0;
     --pagination-item-background: white;
+    --pagination-item-background-hover: var(--background-color-lighter);
     --pagination-item-background-selected: var(--brand-primary);
     --pagination-item-background-disabled-selected: white;
     --pagination-item-background-blank: none;
-    --pagination-item-color: #555;
+    --pagination-item-color: var(--color-base);
     --pagination-item-color-hover: var(--brand-primary);
     --pagination-item-color-selected: white;
     --pagination-item-color-disabled: #bbb;
-    --pagination-item-color-blank: #555;
+    --pagination-item-color-blank: var(--color-base);
     --pagination-item-color-blank-disabled: var(--brand-disabled);
     --pagination-item-border-color: var(--border-color-base);
 

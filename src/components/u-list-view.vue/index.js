@@ -292,7 +292,7 @@ export const UListView = {
                     this.ensureSelectedInItemVMs();
                     this.$emit('load', undefined, this);
                     return data;
-                } else { // if (this.pageable === 'scroll' || this.pageable === 'button') {
+                } else {
                     this.ensureSelectedInItemVMs();
 
                     this.$emit('load', undefined, this);
@@ -325,7 +325,7 @@ export const UListView = {
         onScroll(e) {
             this.throttledVirtualScroll(e);
 
-            if (!this.pageable === 'scroll')
+            if (this.pageable !== 'scroll')
                 return;
 
             const el = e.target;
