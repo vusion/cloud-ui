@@ -4,12 +4,14 @@ import MField from '../m-field.vue';
 import FVirtualList from '../f-virtual-list.vue';
 import DataSource from '../../utils/DataSource';
 import debounce from 'lodash/debounce';
+import i18n from './i18n';
 
 export const UListView = {
     name: 'u-list-view',
     groupName: 'u-list-view-group',
     childName: 'u-list-view-item',
     mixins: [MComplex, MGroupParent, MField, FVirtualList],
+    i18n,
     props: {
         // @inherit: value: null,
         // @inherit: value: Array,
@@ -30,7 +32,7 @@ export const UListView = {
         filterable: { type: Boolean, default: false },
         matchMethod: { type: [String, Function], default: 'includes' },
         caseSensitive: { type: Boolean, default: false },
-        loadingText: { type: String, default: '加载中...' },
+        loadingText: { type: String, default() { return this.$t('loading'); } },
         initialLoad: { type: Boolean, default: true },
         pageable: { type: [Boolean, String], default: false },
         pageSize: { type: Number, default: 50 },
@@ -150,7 +152,7 @@ export const UListView = {
         },
         getDataSourceOptions() {
             return {
-                viewMode: 'more',
+                viewMode: this.pageable === 'scroll' || this.pageable === 'button' ? 'more' : 'page',
                 paging: this.paging,
                 remotePaging: this.remotePaging,
                 filtering: this.filtering,
@@ -283,20 +285,47 @@ export const UListView = {
             this.loading = true;
             return dataSource[more ? 'loadMore' : 'load']().then((data) => {
                 this.loading = false;
-                this.ensureSelectedInItemVMs();
+                if (this.pageable === true || this.pageable === 'pagination') {
+                    if (this.currentDataSource.paging && this.currentDataSource.paging.number > this.currentDataSource.totalPage)
+                        this.page(1);
 
-                this.$emit('load', undefined, this);
-                return data;
+                    this.ensureSelectedInItemVMs();
+                    this.$emit('load', undefined, this);
+                    return data;
+                } else { // if (this.pageable === 'scroll' || this.pageable === 'button') {
+                    this.ensureSelectedInItemVMs();
+
+                    this.$emit('load', undefined, this);
+                    return data;
+                }
             }).catch(() => this.loading = false);
         },
         reload() {
             this.currentDataSource.clearLocalData();
             this.load();
         },
+        page(number, size) {
+            if (size === undefined)
+                size = this.currentDataSource.paging.size;
+
+            const paging = {
+                size,
+                oldSize: this.currentDataSource.paging.size,
+                number,
+                oldNumber: this.currentDataSource.paging.number,
+            };
+            if (this.$emitPrevent('before-page', paging, this))
+                return;
+
+            this.currentDataSource.page(paging);
+            this.load();
+            this.$emit('page', paging, this);
+            this.$emit('update:page-number', number, this);
+        },
         onScroll(e) {
             this.throttledVirtualScroll(e);
 
-            if (!this.pageable)
+            if (!this.pageable === 'scroll')
                 return;
 
             const el = e.target;

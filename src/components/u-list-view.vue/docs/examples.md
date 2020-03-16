@@ -1049,3 +1049,78 @@ export default {
 }
 </style>
 ```
+
+### 分页与加载更多
+
+#### 加载更多
+
+如果数据本身为前端数据或是从后端一次性拿过来的，设置`pageable`属性即可开启分页功能。可以用`page-size`属性修改分页大小。
+
+``` vue
+<template>
+<u-grid-layout :repeat="3">
+    <u-grid-layout-column>
+        <u-list-view show-head title="单选列表" v-model="value" :data-source="list" pageable></u-list-view>
+    </u-grid-layout-column>
+    <u-grid-layout-column>
+        <u-list-view multiple show-head title="多选列表" v-model="values" :data-source="list" pageable></u-list-view>
+    </u-grid-layout-column>
+</u-grid-layout>
+</template>
+<script>
+export default {
+    data() {
+        // 构造数量较多的 500 条数据
+        let list = [];
+        for (let i = 1; i <= 500; i++)
+            list.push('item' + i);
+        list = list.map((text) => ({ text, value: text }));
+
+
+        return {
+            value: 'css',
+            values: ['c', 'cpp'],
+            list,
+        };
+    },
+};
+</script>
+```
+
+#### 分页器
+
+设置`pageable="pagination"`属性即可开启分页功能。
+
+``` vue
+<template>
+<u-grid-layout :repeat="3">
+    <u-grid-layout-column>
+        <u-list-view show-head title="单选列表" v-model="value" :data-source="list" pageable="pagination"></u-list-view>
+    </u-grid-layout-column>
+    <u-grid-layout-column>
+        <u-list-view multiple show-head title="多选列表" v-model="values" :data-source="list" pageable="scroll"></u-list-view>
+    </u-grid-layout-column>
+    <u-grid-layout-column>
+        <u-list-view multiple show-head title="多选列表" v-model="values" :data-source="list" pageable="button"></u-list-view>
+    </u-grid-layout-column>
+</u-grid-layout>
+</template>
+<script>
+export default {
+    data() {
+        // 构造数量较多的 500 条数据
+        let list = [];
+        for (let i = 1; i <= 500; i++)
+            list.push('item' + i);
+        list = list.map((text) => ({ text, value: text }));
+
+
+        return {
+            value: 'css',
+            values: ['c', 'cpp'],
+            list,
+        };
+    },
+};
+</script>
+```
