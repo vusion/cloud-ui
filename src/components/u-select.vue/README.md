@@ -13,7 +13,7 @@
 
 #### tag 方式
 
-在有少量静态数据的时候，推荐使用这种方式。
+使用`<u-select-item>`组件添加。在有少量静态数据的时候，推荐使用这种方式。
 
 ``` html
 <u-linear-layout>
@@ -38,7 +38,7 @@
 
 #### data-source 方式
 
-在有较大量数据或者后端请求数据的时候，推荐使用这种方式。
+使用`data-source`属性添加。在有较大量数据或者后端请求数据的时候，推荐使用这种方式。
 
 ``` vue
 <template>
@@ -129,7 +129,7 @@ export default {
 export default {
     data() {
         return {
-            value: 'towel',
+            value: '',
             list: [
                 { text: 'Java', value: 'java' },
                 { text: 'Python', value: 'python' },
@@ -506,7 +506,7 @@ export default {
 
 在`data-source`属性中传入`load`方法，用于接收完整的后端数据。
 
-`load`方法要求返回一个`Promise<Array<Item>>`或`Promise<{ data: Array<Item>, total: Number }>`的格式。该会在组件初始化时会被调用一次，如果不需要可以将`initial-load`属性设置为`false`。
+`load`方法要求返回一个`Promise<Array<Item>>`或`Promise<{ data: Array<Item>, total: number }>`的格式。该会在组件初始化时会被调用一次，如果不需要可以将`initial-load`属性设置为`false`。
 
 开启`pageable`属性时可以进行前端分页。
 
@@ -541,14 +541,14 @@ export default {
 
 ``` js
 params.paging = {
-    size: Number, // 每页大小
-    number: Number, // 页数。从1开始计
-    offset: Number, // 偏移量：(number - 1) * size
-    limit: Number, // 同 size
+    size: number, // 每页大小
+    number: number, // 页数。从1开始计
+    offset: number, // 偏移量：(number - 1) * size
+    limit: number, // 同 size
 }
 ```
 
-要求返回一个`Promise<Array<Item>>`或`Promise<{ data: Array<Item>, total: Number }>`的格式。翻页是否到底，根据`total`字段判断，如果没有则根据最后一次数组为空判断。
+要求返回一个`Promise<Array<Item>>`或`Promise<{ data: Array<Item>, total: number }>`的格式。翻页是否到底，根据`total`字段判断，如果没有则根据最后一次数组为空判断。
 
 ``` vue
 <template>
@@ -579,8 +579,7 @@ export default {
 </script>
 ```
 
-
-### 过滤
+### 过滤（搜索）
 
 #### 前端过滤
 
