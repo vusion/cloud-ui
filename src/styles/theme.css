@@ -10,6 +10,7 @@
     --brand-success: #57bc5b;
     --brand-warning: #ffa136;
     --brand-error: #fe5a5a;
+    --brand-error-light: #ff7777;
     --brand-danger: #fe5a5a;
     --brand-disabled-light: #e5e9ef; /* 选择且禁用的背景 */
     --brand-disabled: #cdd9e9; /* 输入框、选择框的禁用背景 */
@@ -423,12 +424,12 @@
     --form-message-margin-left: 10px;
     --form-message-padding: 0 10px;
     --form-message-background: var(--background-color-base);
-    --form-message-background-error: var(--brand-error);
+    --form-message-background-error: var(--brand-error-light);
     --form-message-color-error: white;
 
     /* Field */
     --field-background: white;
-    --field-color: #666;
+    --field-color: var(--color-light);
     --field-color-selected: var(--brand-primary);
     --field-color-disabled: #bbb;
     --field-border-color: #cbd5dd;
@@ -437,7 +438,7 @@
     --validator-message-padding: 0 10px;
     --validator-message-margin-left: 10px;
     --validator-message-background: var(--background-color-base);
-    --validator-message-background-error: var(--brand-error);
+    --validator-message-background-error: var(--brand-error-light);
     --validator-message-color-error: white;
 
     /* Input */
@@ -573,14 +574,14 @@
     --slider-body-margin: 0 10px;
     --slider-body-padding: 9px 0;
     --slider-track-height: 6px;
-    --slider-track-background: #e6e6e6;
+    --slider-track-background: var(--background-color-base);
     --slider-trail-background: var(--brand-primary);
     --slider-trail-background-disabled: var(--brand-disabled);
     --slider-bound-background: url("../assets/images/stripe.png") repeat-x;
     --slider-handle-width: 14px;
     --slider-handle-height: 24px;
     --slider-handle-background: white;
-    --slider-handle-border: 1px solid #ddd;
+    --slider-handle-border: 1px solid var(--border-color-dark);
 
     /* Combo Slider */
     --combo-slider-slider-width: 100%;
