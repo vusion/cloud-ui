@@ -391,7 +391,7 @@ export default {
 #### average
 
 ``` html
-<u-table-view resizable resize-remaining="average" line="horizontal" striped :data="[
+<u-table-view resizable line="horizontal" striped :data="[
     { name: '这是一个很长很长很长很长很长很长很长很长的名字', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000 },
     { name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 },
     { name: '名字就是起得这么这么这么这么这么这么长', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
@@ -408,7 +408,7 @@ export default {
 #### sequence
 
 ``` html
-<u-table-view resizable line="horizontal" striped :data="[
+<u-table-view resizable resize-remaining="sequence" line="horizontal" striped :data="[
     { name: '这是一个很长很长很长很长很长很长很长很长的名字', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000 },
     { name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 },
     { name: '名字就是起得这么这么这么这么这么这么长', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
@@ -936,11 +936,11 @@ export default {
 
 #### 滚动加载更多
 
-通过设置`pageable="scroll"`，可以用滚动加载更多代替翻页器。
+通过设置`pageable="auto-more"`，可以用滚动加载更多代替翻页器。
 
 ``` vue
 <template>
-<u-table-view striped :data-source="load" pageable="scroll" :page-size="10" remote-paging style="height: 300px;">
+<u-table-view striped :data-source="load" pageable="auto-more" :page-size="10" remote-paging style="height: 300px;">
     <u-table-view-column title="用户名" field="name" width="15%"></u-table-view-column>
     <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
     <u-table-view-column title="地址" field="address"></u-table-view-column>
@@ -983,13 +983,13 @@ export default {
 </script>
 ```
 
-#### 加载更多按钮
+#### 手动加载更多
 
-通过设置`pageable="button"`，可以用加载更多按钮代替翻页器。
+通过设置`pageable="load-more"`，可以用加载更多按钮代替翻页器。
 
 ``` vue
 <template>
-<u-table-view striped :data-source="load" pageable="button" :page-size="10" remote-paging>
+<u-table-view striped :data-source="load" pageable="load-more" :page-size="10" remote-paging>
     <u-table-view-column title="用户名" field="name" width="15%"></u-table-view-column>
     <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
     <u-table-view-column title="地址" field="address"></u-table-view-column>
