@@ -24,10 +24,14 @@
       type: boolean
       default: false
       description: 是否显示头部
-    - name: title
+    - name: source-title
       type: string
       default: 列表
-      description: 列表标题
+      description: 左侧列表标题
+    - name: target-title
+      type: string
+      default: 列表
+      description: 右侧列表标题
     - name: show-foot
       type: boolean
       default: false
@@ -87,7 +91,7 @@
           type: Array
           description: 移动项的值
         - name: senderVM
-          type: Vue
+          type: UTransfer
           description: 发送事件实例
     - name: change
       description: 数据改变时触发
@@ -105,5 +109,5 @@
           type: Array
           description: 移动项的值
         - name: senderVM
-          type: Vue
+          type: UTransfer
           description: 发送事件实例

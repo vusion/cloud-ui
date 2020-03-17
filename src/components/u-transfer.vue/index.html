@@ -17,8 +17,8 @@
         </template>
     </u-list-view>
     <div :class="$style.buttons">
-        <span :class="$style.button" role="reverse" :disabled="!targetValues.length" @click="reverse"></span>
-        <span :class="$style.button" role="forward" :disabled="!sourceValues.length" @click="forward"></span>
+        <span :class="$style.button" role="reverse" :disabled="!targetValues.length" @click="reverse()"></span>
+        <span :class="$style.button" role="forward" :disabled="!sourceValues.length" @click="forward()"></span>
     </div>
     <u-list-view :class="$style.listView" multiple :data="target" v-model="targetValues"
         :textField="textField"

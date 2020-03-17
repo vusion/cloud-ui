@@ -26,18 +26,20 @@ export const UTransfer = {
         };
     },
     methods: {
-        reverse() {
+        transfer(direction = 'forward', values) {
+            const [from, to] = direction === 'forward' ? [this.source, this.target] : [this.target, this.source];
+
             const transfer = [];
-            for (let i = 0; i < this.target.length; i++) {
-                const item = this.target[i];
-                if (this.targetValues.includes(item.value)) {
-                    this.target.splice(i--, 1);
-                    this.source.push(item);
+            for (let i = 0; i < from.length; i++) {
+                const item = from[i];
+                if (values.includes(item[this.valueField])) {
+                    from.splice(i--, 1);
+                    to.push(item);
                     transfer.push(item);
                 }
             }
-            const transferValues = Array.from(this.targetValues);
-            this.targetValues = [];
+            const transferValues = Array.from(values);
+            values.splice(0, values.length);
             this.$emit('transfer', {
                 source: this.source,
                 target: this.target,
@@ -51,30 +53,11 @@ export const UTransfer = {
                 transferValues,
             }, this);
         },
-        forward() {
-            const transfer = [];
-            for (let i = 0; i < this.source.length; i++) {
-                const item = this.source[i];
-                if (this.sourceValues.includes(item.value)) {
-                    this.source.splice(i--, 1);
-                    this.target.push(item);
-                    transfer.push(item);
-                }
-            }
-            const transferValues = Array.from(this.sourceValues);
-            this.sourceValues = [];
-            this.$emit('transfer', {
-                source: this.source,
-                target: this.target,
-                transfer,
-                transferValues,
-            }, this);
-            this.$emit('change', {
-                source: this.source,
-                target: this.target,
-                transfer,
-                transferValues,
-            }, this);
+        forward(values) {
+            this.transfer('forward', values || this.sourceValues);
+        },
+        reverse(values) {
+            this.transfer('reverse', values || this.targetValues);
         },
     },
 };
