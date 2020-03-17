@@ -1,4 +1,4 @@
-- name: desc-list
+- name: u-desc-list
   title: 描述列表
   attrs:
     - name: label-size
@@ -8,7 +8,7 @@
   slots:
     - name: default
       description: 插入`<u-desc-list-item>`或`<u-desc-list-group>`子组件。
-- name: desc-list-item
+- name: u-desc-list-item
   attrs:
     - name: label
       type: string
@@ -21,7 +21,7 @@
   slots:
     - name: default
       description: 插入文本或HTML。
-- name: desc-list-group
+- name: u-desc-list-group
   attrs:
     - name: title
       type: string

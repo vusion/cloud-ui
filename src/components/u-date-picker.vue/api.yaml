@@ -1,4 +1,4 @@
-- name: date-picker
+- name: u-date-picker
   title: 日期选择
   attrs:
     - name: width
