@@ -4,12 +4,62 @@
   attrs:
     - name: source
       type: Array<{ text, value }>
+      sync: true
       default: null
       description: 原数据列表
     - name: target
       type: Array<{ text, value }>
+      sync: true
       default: null
       description: 目标数据列表
+    - name: text-field
+      type: string
+      default: text
+      description: 选项文本的字段名
+    - name: value-field
+      type: string
+      default: value
+      description: 选项值的字段名
+    - name: show-head
+      type: boolean
+      default: false
+      description: 是否显示头部
+    - name: title
+      type: string
+      default: 列表
+      description: 列表标题
+    - name: show-foot
+      type: boolean
+      default: false
+      description: 是否显示尾部
+    - name: filterable
+      type: boolean
+      default: false
+      description: 是否可以过滤（搜索），开启将会显示搜索框。
+    - name: placeholder
+      type: string
+      default: 请输入
+      description: 搜索框的占位符
+    - name: clearable
+      type: boolean
+      default: false
+      description: 搜索框是否有清除按钮
+    - name: match-method
+      type: string, Function
+      default: includes
+      description: 过滤时的匹配方法
+    - name: case-sensitive
+      type: string, Function
+      default: includes
+      description: 过滤时大小写是否敏感
+    - name: pageable
+      type: boolean
+      default: false
+      description: 是否需要分页
+    - name: page-size
+      type: number
+      default: 50
+      description: 分页大小
     - name: readonly
       type: boolean
       default: false

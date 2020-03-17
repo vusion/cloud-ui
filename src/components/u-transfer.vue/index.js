@@ -1,8 +1,23 @@
+import UListView from '../u-list-view.vue';
+
 export const UTransfer = {
     name: 'u-transfer',
     props: {
         source: { type: Array, default: () => [] },
         target: { type: Array, default: () => [] },
+        textField: UListView.props.textField,
+        valueField: UListView.props.valueField,
+        showHead: UListView.props.showHead,
+        sourceTitle: { type: String, default: '列表' },
+        targetTitle: { type: String, default: '列表' },
+        showFoot: UListView.props.showFoot,
+        filterable: UListView.props.filterable,
+        placeholder: UListView.props.placeholder,
+        clearable: UListView.props.clearable,
+        matchMethod: UListView.props.matchMethod,
+        caseSensitive: UListView.props.caseSensitive,
+        pageable: UListView.props.pageable,
+        pageSize: UListView.props.pageSize,
     },
     data() {
         return {

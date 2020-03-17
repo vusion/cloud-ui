@@ -1,5 +1,8 @@
+.root {
+    display: flex;
+}
+
 .listView {
-    display: inline-block;
     width: var(--transfer-width);
     height: var(--transfer-height);
 }
