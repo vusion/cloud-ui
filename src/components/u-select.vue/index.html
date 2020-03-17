@@ -55,13 +55,15 @@
         @click.stop @scroll.stop="onScroll">
         <slot></slot>
         <template v-if="currentData">
-            <component :is="ChildComponent" v-if="currentData"
+            <component :is="ChildComponent"
                 v-for="(item, index) in currentData"
-                :key="filterable ? item.value + '_' + index : item.value"
-                :value="item.value"
+                v-if="item"
+                :key="filterable ? item[valueField] + '_' + index : item[valueField]"
+                :value="item[valueField]"
                 :disabled="item.disabled || disabled"
-                :item="item"
-            >{{ item[field] }}</component>
+                :item="item">
+            <slot name="text" :item="item" :text="item[field || textField]" :value="item[valueField]" :disabled="item.disabled || disabled">{{ item[field || textField] }}</slot>
+            </component>
         </template>
         <div :class="$style.status" status="loading" v-if="currentLoading">
             <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>

@@ -1,3 +1,7 @@
 {
-    "emptyText": "No matching data"
+    "loading": "Loading...",
+    "error": "Failed to load. Please try again",
+    "empty": "No matching data",
+    "loadMore": "Load more",
+    "noMore": "No more items"
 }

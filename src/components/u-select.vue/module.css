@@ -171,6 +171,7 @@
 .status {
     color: var(--select-status-color);
     text-align: center;
+    padding: var(--list-view-item-padding);
 }
 
 .label {

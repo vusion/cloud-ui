@@ -6,6 +6,7 @@ export const USelect = {
     name: 'u-select',
     childName: 'u-select-item',
     groupName: 'u-select-group',
+    isSelect: true,
     extends: UListView,
     i18n,
     directives: { ellipsisTitle },
@@ -69,7 +70,7 @@ export const USelect = {
         },
         filtering() {
             return {
-                [this.field]: {
+                [this.field || this.textField]: {
                     operator: this.matchMethod,
                     value: this.filterText,
                     caseInsensitive: !this.caseSensitive,
@@ -93,7 +94,8 @@ export const USelect = {
         });
         this.$watch('selectedVMs', (selectedVMs) => {
             this.currentText = selectedVMs.map((itemVM) => itemVM.currentText).join(', ');
-            this.$refs.popper.currentOpened && this.$refs.popper.scheduleUpdate();
+            const popperVM = this.$refs.popper;
+            popperVM && popperVM.currentOpened && popperVM.scheduleUpdate();
         });
         this.$on('select', ($event) => {
             if (!this.multiple)

@@ -237,7 +237,7 @@ export const UListView = {
                 else
                     parentEl.scrollTop = focusedEl.offsetTop + focusedEl.offsetHeight - parentEl.clientHeight;
                 if (selectedIndex === this.itemVMs.length - 1) {
-                    this.pageable === 'auto-more' && this.debouncedLoad(true);
+                    (this.pageable === 'auto-more' || (this.$options.isSelect && this.pageable)) && this.debouncedLoad(true);
                     // 保证显示加载中，但又不是全部数据
                     this.$nextTick(() => parentEl.scrollTop = parentEl.scrollHeight - parentEl.clientHeight);
                 }
@@ -320,7 +320,7 @@ export const UListView = {
         onScroll(e) {
             this.throttledVirtualScroll(e);
 
-            if (this.pageable !== 'auto-more')
+            if (!(this.pageable === 'auto-more' || (this.pageable === true && this.$options.isSelect)))
                 return;
 
             const el = e.target;

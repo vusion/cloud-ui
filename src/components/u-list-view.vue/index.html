@@ -24,7 +24,7 @@
                 :value="item[valueField]"
                 :disabled="item.disabled || disabled"
                 :item="item"
-            ><slot name="text" :item="item" :text="item[textField]" :value="item[valueField]" :disabled="item.disabled || disabled">{{ item[field || textField] }}</slot>
+            ><slot name="text" :item="item" :text="item[field || textField]" :value="item[valueField]" :disabled="item.disabled || disabled">{{ item[field || textField] }}</slot>
             </component>
         </div>
         <div :class="$style.status" status="loading" v-if="currentLoading">
