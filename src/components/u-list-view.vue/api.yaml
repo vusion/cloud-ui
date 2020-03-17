@@ -99,6 +99,10 @@
       type: boolean
       default: false
       description: 是否禁用
+    - name: size
+      type: enum
+      options: [normal, large, huge, auto, full]
+      description: 设置尺寸。五种宽高的自由组合。
   slots:
     - name: default
       description: 插入文本或 HTML

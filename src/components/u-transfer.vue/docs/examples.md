@@ -48,6 +48,56 @@ export default {
 </script>
 ```
 
+### 添加头部
+
+使用`show-head`属性可以添加头部，使用`source-title`和`target-title`属性修改列表标题。
+
+``` vue
+<template>
+<u-transfer :source="source" :target="target" show-head source-title="左列表" target-title="右列表"></u-transfer>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            source: [
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'Coq', value: 'coq' },
+                { text: 'Go', value: 'go' },
+                { text: 'Handlebars', value: 'Handlebars' },
+                { text: 'JSON', value: 'json' },
+                { text: 'Java', value: 'java' },
+                { text: 'Makefile', value: 'makefile' },
+                { text: 'Markdown', value: 'markdown' },
+                { text: 'Objective-C', value: 'objective-c' },
+                { text: 'Objective-C++', value: 'objective-cpp' },
+                { text: 'PHP', value: 'php' },
+                { text: 'Perl', value: 'perl' },
+                { text: 'PowerShell', value: 'powershell' },
+                { text: 'Python', value: 'python' },
+                { text: 'Ruby', value: 'ruby' },
+                { text: 'SQL', value: 'sql' },
+                { text: 'SVG', value: 'svg' },
+                { text: 'Shell Script', value: 'shellscript' },
+                { text: 'Swift', value: 'swift' },
+                { text: 'Visual Basic', value: 'vb' },
+                { text: 'XML', value: 'xml' },
+                { text: 'YAML', value: 'yaml' },
+            ],
+            target: [
+                { text: 'CSS', value: 'css' },
+                { text: 'HTML', value: 'html' },
+                { text: 'JavaScript', value: 'javascript' },
+                { text: 'Vue', value: 'vue' },
+            ],
+        };
+    },
+};
+</script>
+```
+
 ### 指定选项字段名
 
 如果你的数据中选项文本和值的字段不一定叫`'text'`和`'value'`，可以通过`text-field`和`value-field`两个属性快速指定。
@@ -101,10 +151,11 @@ export default {
 
 ### 禁用某一项
 
+在 item 对象中添加`disabled: true` 可以禁用掉对应选项。
+
 ``` vue
 <template>
-<u-transfer :source="source" :target="target">
-</u-transfer>
+<u-transfer :source="source" :target="target"></u-transfer>
 </template>
 <script>
 export default {
@@ -139,56 +190,6 @@ export default {
             target: [
                 { text: 'CSS', value: 'css', disabled: true },
                 { text: 'HTML', value: 'html', disabled: true },
-                { text: 'JavaScript', value: 'javascript' },
-                { text: 'Vue', value: 'vue' },
-            ],
-        };
-    },
-};
-</script>
-```
-
-### 添加头部
-
-使用`show-head`属性可以添加头部，使用`source-title`和`target-title`属性修改列表标题。
-
-``` vue
-<template>
-<u-transfer :source="source" :target="target" show-head source-title="左列表" target-title="右列表"></u-transfer>
-</template>
-<script>
-export default {
-    data() {
-        return {
-            source: [
-                { text: 'C', value: 'c' },
-                { text: 'C#', value: 'csharp' },
-                { text: 'C++', value: 'cpp' },
-                { text: 'Coq', value: 'coq' },
-                { text: 'Go', value: 'go' },
-                { text: 'Handlebars', value: 'Handlebars' },
-                { text: 'JSON', value: 'json' },
-                { text: 'Java', value: 'java' },
-                { text: 'Makefile', value: 'makefile' },
-                { text: 'Markdown', value: 'markdown' },
-                { text: 'Objective-C', value: 'objective-c' },
-                { text: 'Objective-C++', value: 'objective-cpp' },
-                { text: 'PHP', value: 'php' },
-                { text: 'Perl', value: 'perl' },
-                { text: 'PowerShell', value: 'powershell' },
-                { text: 'Python', value: 'python' },
-                { text: 'Ruby', value: 'ruby' },
-                { text: 'SQL', value: 'sql' },
-                { text: 'SVG', value: 'svg' },
-                { text: 'Shell Script', value: 'shellscript' },
-                { text: 'Swift', value: 'swift' },
-                { text: 'Visual Basic', value: 'vb' },
-                { text: 'XML', value: 'xml' },
-                { text: 'YAML', value: 'yaml' },
-            ],
-            target: [
-                { text: 'CSS', value: 'css' },
-                { text: 'HTML', value: 'html' },
                 { text: 'JavaScript', value: 'javascript' },
                 { text: 'Vue', value: 'vue' },
             ],
@@ -255,6 +256,105 @@ export default {
 }
 </style>
 `` -->
+
+<!-- ### 表单验证
+
+`` vue
+<template>
+<u-form-item label="选择开发语言" required>
+    <u-transfer :source="source" :target="target"></u-transfer>
+</u-form-item>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            source: [
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'CSS', value: 'css', disabled: true },
+                { text: 'Coq', value: 'coq', disabled: true },
+                { text: 'Go', value: 'go' },
+                { text: 'HTML', value: 'html', disabled: true },
+                { text: 'Handlebars', value: 'Handlebars', disabled: true },
+                { text: 'JSON', value: 'json' },
+                { text: 'Java', value: 'java' },
+                { text: 'JavaScript', value: 'javascript' },
+                { text: 'Makefile', value: 'makefile' },
+                { text: 'Markdown', value: 'markdown' },
+                { text: 'Objective-C', value: 'objective-c' },
+                { text: 'Objective-C++', value: 'objective-cpp' },
+                { text: 'PHP', value: 'php' },
+                { text: 'Perl', value: 'perl' },
+                { text: 'PowerShell', value: 'powershell' },
+                { text: 'Python', value: 'python' },
+                { text: 'Ruby', value: 'ruby' },
+                { text: 'SQL', value: 'sql' },
+                { text: 'SVG', value: 'svg' },
+                { text: 'Shell Script', value: 'shellscript' },
+                { text: 'Swift', value: 'swift' },
+                { text: 'Visual Basic', value: 'vb' },
+                { text: 'Vue', value: 'vue' },
+                { text: 'XML', value: 'xml' },
+                { text: 'YAML', value: 'yaml' },
+            ],
+            target: [],
+        };
+    },
+};
+</script>
+``-->
+
+### 修改尺寸
+
+通过`size`属性设置`normal`、`large`、`huge`、`full`、`auto`几种尺寸，宽高可以自由组合。
+
+``` vue
+<template>
+<u-transfer size="large" :source="source" :target="target"></u-transfer>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            source: [
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'Coq', value: 'coq', disabled: true },
+                { text: 'Go', value: 'go' },
+                { text: 'Handlebars', value: 'Handlebars', disabled: true },
+                { text: 'JSON', value: 'json' },
+                { text: 'Java', value: 'java' },
+                { text: 'Makefile', value: 'makefile' },
+                { text: 'Markdown', value: 'markdown' },
+                { text: 'Objective-C', value: 'objective-c' },
+                { text: 'Objective-C++', value: 'objective-cpp' },
+                { text: 'PHP', value: 'php' },
+                { text: 'Perl', value: 'perl' },
+                { text: 'PowerShell', value: 'powershell' },
+                { text: 'Python', value: 'python' },
+                { text: 'Ruby', value: 'ruby' },
+                { text: 'SQL', value: 'sql' },
+                { text: 'SVG', value: 'svg' },
+                { text: 'Shell Script', value: 'shellscript' },
+                { text: 'Swift', value: 'swift' },
+                { text: 'Visual Basic', value: 'vb' },
+                { text: 'XML', value: 'xml' },
+                { text: 'YAML', value: 'yaml' },
+            ],
+            target: [
+                { text: 'CSS', value: 'css', disabled: true },
+                { text: 'HTML', value: 'html', disabled: true },
+                { text: 'JavaScript', value: 'javascript' },
+                { text: 'Vue', value: 'vue' },
+            ],
+        };
+    },
+};
+</script>
+```
 
 ### 过滤（搜索）
 
@@ -470,9 +570,11 @@ export default {
 
 ### 综合示例
 
+下面是一个使用了修改尺寸、添加头部、过滤（搜索）、分页功能的综合示例。
+
 ``` vue
 <template>
-<u-transfer :source="source" :target="target" show-head filterable pageable :page-size="10"></u-transfer>
+<u-transfer size="large" :source="source" :target="target" show-head filterable pageable :page-size="20"></u-transfer>
 </template>
 <script>
 export default {

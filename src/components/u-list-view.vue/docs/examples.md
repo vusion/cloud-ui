@@ -92,7 +92,7 @@ export default {
 
 #### data-source 函数
 
-向`data-source`属性中传入一个加载函数，这种方式会自带 loading 加载、error 错误等效果，并且之后的后端分页、过滤（搜索）等功能均需要采用这种传入数据的方式。
+向`data-source`属性中传入一个加载函数，这种方式会自带 loading 加载、error 错误等效果，并且在下文中后端分页、过滤（搜索）等功能均需要采用这种传入数据的方式。
 
 加载函数的格式是这样的
 
@@ -703,9 +703,118 @@ export default {
 </style>
 ```
 
-### 过滤（搜索、筛选）
+### 表单验证
 
-#### 前端过滤
+``` vue
+<template>
+<u-form-item label="选择语言" required rules="required | minLength(2) | maxLength(5)">
+    <u-list-view multiple v-model="values" :data-source="list" show-head title="语言列表"></u-list-view>
+</u-form-item>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            values: [],
+            list: [
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'CSS', value: 'css', disabled: true },
+                { text: 'Coq', value: 'coq', disabled: true },
+                { text: 'Go', value: 'go' },
+                { text: 'HTML', value: 'html', disabled: true },
+                { text: 'Handlebars', value: 'Handlebars', disabled: true },
+                { text: 'JSON', value: 'json' },
+                { text: 'Java', value: 'java' },
+                { text: 'JavaScript', value: 'javascript' },
+                { text: 'Makefile', value: 'makefile' },
+                { text: 'Markdown', value: 'markdown' },
+                { text: 'Objective-C', value: 'objective-c' },
+                { text: 'Objective-C++', value: 'objective-cpp' },
+                { text: 'PHP', value: 'php' },
+                { text: 'Perl', value: 'perl' },
+                { text: 'PowerShell', value: 'powershell' },
+                { text: 'Python', value: 'python' },
+                { text: 'Ruby', value: 'ruby' },
+                { text: 'SQL', value: 'sql' },
+                { text: 'SVG', value: 'svg' },
+                { text: 'Shell Script', value: 'shellscript' },
+                { text: 'Swift', value: 'swift' },
+                { text: 'Visual Basic', value: 'vb' },
+                { text: 'Vue', value: 'vue' },
+                { text: 'XML', value: 'xml' },
+                { text: 'YAML', value: 'yaml' },
+            ],
+        };
+    },
+};
+</script>
+```
+
+### 修改尺寸
+
+通过`size`属性设置`normal`、`large`、`huge`、`full`、`auto`几种尺寸，宽高可以自由组合。
+
+如果以上几种预设不能满足，也可以直接添加`style="width: 200px; height: 600px;"`来设置。
+
+``` vue
+<template>
+<u-grid-layout :repeat="3">
+    <u-grid-layout-column>
+        <u-list-view show-head title="normal" :data-source="list"></u-list-view>
+    </u-grid-layout-column>
+    <u-grid-layout-column>
+        <u-list-view show-head size="large" title="large" :data-source="list"></u-list-view>
+    </u-grid-layout-column>
+    <u-grid-layout-column>
+        <u-list-view show-head size="auto" title="auto" :data-source="list"></u-list-view>
+    </u-grid-layout-column>
+</u-grid-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            list: [
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'CSS', value: 'css', disabled: true },
+                { text: 'Coq', value: 'coq', disabled: true },
+                { text: 'Go', value: 'go' },
+                { text: 'HTML', value: 'html', disabled: true },
+                { text: 'Handlebars', value: 'Handlebars', disabled: true },
+                { text: 'JSON', value: 'json' },
+                { text: 'Java', value: 'java' },
+                { text: 'JavaScript', value: 'javascript' },
+                { text: 'Makefile', value: 'makefile' },
+                { text: 'Markdown', value: 'markdown' },
+                { text: 'Objective-C', value: 'objective-c' },
+                { text: 'Objective-C++', value: 'objective-cpp' },
+                { text: 'PHP', value: 'php' },
+                { text: 'Perl', value: 'perl' },
+                { text: 'PowerShell', value: 'powershell' },
+                { text: 'Python', value: 'python' },
+                { text: 'Ruby', value: 'ruby' },
+                { text: 'SQL', value: 'sql' },
+                { text: 'SVG', value: 'svg' },
+                { text: 'Shell Script', value: 'shellscript' },
+                { text: 'Swift', value: 'swift' },
+                { text: 'Visual Basic', value: 'vb' },
+                { text: 'Vue', value: 'vue' },
+                { text: 'XML', value: 'xml' },
+                { text: 'YAML', value: 'yaml' },
+            ],
+        };
+    },
+};
+</script>
+```
+
+### 过滤（搜索）
+
+#### 前端过滤（搜索）
 
 如果数据本身为前端数据或是从后端一次性拿过来的，设置`filterable`属性即可开启过滤功能。用于快速查找选项。
 
@@ -947,7 +1056,7 @@ export default {
 </script>
 ```
 
-### 后端过滤
+### 后端过滤（搜索）
 
 如果需要通过后端接口进行过滤，在开启`filterable`属性的基础上，还要开启`remote-filtering`属性。
 
