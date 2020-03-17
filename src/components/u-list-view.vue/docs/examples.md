@@ -532,14 +532,14 @@ export default {
 <template>
 <u-grid-layout :repeat="3">
     <u-grid-layout-column>
-        <u-list-view show-head show-foot title="单选列表" :data-source="data">
+        <u-list-view show-head show-foot title="单选列表" :data-source="list">
             <div slot="foot">
                 <u-button size="small">操作</u-button>
             </div>
         </u-list-view>
     </u-grid-layout-column>
     <u-grid-layout-column>
-        <u-list-view multiple show-head show-foot title="多选列表" :data-source="data">
+        <u-list-view multiple show-head show-foot title="多选列表" :data-source="list">
             <div slot="foot">
                 <u-button size="small">操作</u-button>
             </div>
@@ -551,7 +551,7 @@ export default {
 export default {
     data() {
         return {
-            data: [
+            list: [
                 { text: 'Batch', value: 'bat' },
                 { text: 'C', value: 'c' },
                 { text: 'C#', value: 'csharp' },
@@ -617,18 +617,18 @@ export default {
 <template>
 <u-grid-layout :repeat="3">
     <u-grid-layout-column>
-        <u-list-view show-head title="单选列表" :data-source="data">
+        <u-list-view show-head title="单选列表" :data-source="list">
             <template #text="{ item }">
                 <h3 :class="$style.title">{{ item.text }}</h3>
-                <u-text wrap="ellipsis">{{ (item.text + ' ').repeat(5) }}</u-text>
+                <u-text wrap="ellipsis">{{ item.text + ' is a specfic language with some features that ...' }}</u-text>
             </template>
         </u-list-view>
     </u-grid-layout-column>
     <u-grid-layout-column>
-        <u-list-view multiple show-head title="多选列表" :data-source="data">
+        <u-list-view multiple show-head title="多选列表" :data-source="list">
             <template #text="{ item }">
                 <h3 :class="$style.title">{{ item.text }}</h3>
-                <u-text wrap="ellipsis">{{ (item.text + ' ').repeat(5) }}</u-text>
+                <u-text wrap="ellipsis">{{ item.text + ' is a specfic language with some features that ...' }}</u-text>
             </template>
         </u-list-view>
     </u-grid-layout-column>
@@ -638,7 +638,7 @@ export default {
 export default {
     data() {
         return {
-            data: [
+            list: [
                 { text: 'Batch', value: 'bat' },
                 { text: 'C', value: 'c' },
                 { text: 'C#', value: 'csharp' },
@@ -953,7 +953,7 @@ export default {
 
 这时需要用最前面提到的 data-source 函数的方式传入数据。
 
-加载函数的格式是这样的`({ filterText: string }) => Promise<Array<Item>>`。组件会给加载函数提供过滤输入框中的文本，要求返回一个 Promise。
+加载函数的格式是这样的`({ filterText: string }) => Promise<Array<Item | { data: Array<Item>, total: number } | { data: Array<Item>, last: boolean }>>`。组件会给加载函数提供过滤输入框中的文本，要求返回一个 Promise。
 
 可以看下面的示例，在数据栏中`result`为最新一次模拟请求的返回数据。
 
@@ -971,64 +971,69 @@ export default {
 <script>
 // 模拟后端请求
 const mockRequest = (data, timeout = 300) => new Promise((res, rej) => setTimeout(() => res(data), timeout));
+// 模拟后端数据
+const mockData = [
+    { text: 'Batch', value: 'bat' },
+    { text: 'C', value: 'c' },
+    { text: 'C#', value: 'csharp' },
+    { text: 'C++', value: 'cpp' },
+    { text: 'CSS', value: 'css' },
+    { text: 'Clojure', value: 'clojure' },
+    { text: 'CoffeeScript', value: 'coffeescript' },
+    { text: 'Coq', value: 'coq' },
+    { text: 'Diff', value: 'diff' },
+    { text: 'Dockerfile', value: 'dockerfile' },
+    { text: 'F#', value: 'fshape' },
+    { text: 'Go', value: 'go' },
+    { text: 'Groovy', value: 'groovy' },
+    { text: 'HLSL', value: 'hlsl' },
+    { text: 'HTML', value: 'html' },
+    { text: 'Handlebars', value: 'Handlebars' },
+    { text: 'Ignore', value: 'ignore' },
+    { text: 'Ini', value: 'ini' },
+    { text: 'JSON', value: 'json' },
+    { text: 'Java', value: 'java' },
+    { text: 'JavaScript', value: 'javascript' },
+    { text: 'Jinja', value: 'jinja' },
+    { text: 'Jupyter', value: 'jupyter' },
+    { text: 'Less', value: 'less' },
+    { text: 'Log', value: 'log' },
+    { text: 'Lua', value: 'lua' },
+    { text: 'Makefile', value: 'makefile' },
+    { text: 'Markdown', value: 'markdown' },
+    { text: 'Objective-C', value: 'objective-c' },
+    { text: 'Objective-C++', value: 'objective-cpp' },
+    { text: 'PHP', value: 'php' },
+    { text: 'Perl', value: 'perl' },
+    { text: 'PowerShell', value: 'powershell' },
+    { text: 'Properties', value: 'properties' },
+    { text: 'Pug', value: 'jade' },
+    { text: 'Python', value: 'python' },
+    { text: 'R', value: 'r' },
+    { text: 'Razor', value: 'razor' },
+    { text: 'Ruby', value: 'ruby' },
+    { text: 'Rust', value: 'rust' },
+    { text: 'SCSS', value: 'scss' },
+    { text: 'SQL', value: 'sql' },
+    { text: 'SVG', value: 'svg' },
+    { text: 'Shaderlab', value: 'shaderlab' },
+    { text: 'Shell Script', value: 'shellscript' },
+    { text: 'Swift', value: 'swift' },
+    { text: 'TypeScript', value: 'typescript' },
+    { text: 'Visual Basic', value: 'vb' },
+    { text: 'Vue', value: 'vue' },
+    { text: 'XML', value: 'xml' },
+    { text: 'XSL', value: 'xsl' },
+    { text: 'YAML', value: 'yaml' },
+];
 // 模拟数据服务
 const mockService = {
     loadPartial(keyword) {
         // 在这里模拟了一个后端过滤数据的请求
-        return mockRequest([
-            { text: 'Batch', value: 'bat' },
-            { text: 'C', value: 'c' },
-            { text: 'C#', value: 'csharp' },
-            { text: 'C++', value: 'cpp' },
-            { text: 'CSS', value: 'css' },
-            { text: 'Clojure', value: 'clojure' },
-            { text: 'CoffeeScript', value: 'coffeescript' },
-            { text: 'Coq', value: 'coq' },
-            { text: 'Diff', value: 'diff' },
-            { text: 'Dockerfile', value: 'dockerfile' },
-            { text: 'F#', value: 'fshape' },
-            { text: 'Go', value: 'go' },
-            { text: 'Groovy', value: 'groovy' },
-            { text: 'HLSL', value: 'hlsl' },
-            { text: 'HTML', value: 'html' },
-            { text: 'Handlebars', value: 'Handlebars' },
-            { text: 'Ignore', value: 'ignore' },
-            { text: 'Ini', value: 'ini' },
-            { text: 'JSON', value: 'json' },
-            { text: 'Java', value: 'java' },
-            { text: 'JavaScript', value: 'javascript' },
-            { text: 'Jinja', value: 'jinja' },
-            { text: 'Jupyter', value: 'jupyter' },
-            { text: 'Less', value: 'less' },
-            { text: 'Log', value: 'log' },
-            { text: 'Lua', value: 'lua' },
-            { text: 'Makefile', value: 'makefile' },
-            { text: 'Markdown', value: 'markdown' },
-            { text: 'Objective-C', value: 'objective-c' },
-            { text: 'Objective-C++', value: 'objective-cpp' },
-            { text: 'PHP', value: 'php' },
-            { text: 'Perl', value: 'perl' },
-            { text: 'PowerShell', value: 'powershell' },
-            { text: 'Properties', value: 'properties' },
-            { text: 'Pug', value: 'jade' },
-            { text: 'Python', value: 'python' },
-            { text: 'R', value: 'r' },
-            { text: 'Razor', value: 'razor' },
-            { text: 'Ruby', value: 'ruby' },
-            { text: 'Rust', value: 'rust' },
-            { text: 'SCSS', value: 'scss' },
-            { text: 'SQL', value: 'sql' },
-            { text: 'SVG', value: 'svg' },
-            { text: 'Shaderlab', value: 'shaderlab' },
-            { text: 'Shell Script', value: 'shellscript' },
-            { text: 'Swift', value: 'swift' },
-            { text: 'TypeScript', value: 'typescript' },
-            { text: 'Visual Basic', value: 'vb' },
-            { text: 'Vue', value: 'vue' },
-            { text: 'XML', value: 'xml' },
-            { text: 'XSL', value: 'xsl' },
-            { text: 'YAML', value: 'yaml' },
-        ].filter((item) => item.text.includes(keyword)));
+        return mockRequest({
+            total: mockData.length,
+            data: mockData.filter((item) => item.text.includes(keyword)),
+        });
     },
 };
 

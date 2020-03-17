@@ -7,7 +7,7 @@
             <u-checkbox v-if="multiple" :value="allChecked" @check="checkAll($event.value)"></u-checkbox>
             <span :class="$style.title">{{ title }}</span>
             <div :class="$style.extra">
-                <span v-if="multiple">{{ selectedVMs.length }} / {{ currentDataSource && currentDataSource.total }}</span>
+                <span v-if="multiple">{{ selectedVMs.length }}{{ currentDataSource && currentDataSource.originTotal !== Infinity ? ' / ' + currentDataSource.originTotal : '' }}</span>
             </div>
         </slot>
     </div>
