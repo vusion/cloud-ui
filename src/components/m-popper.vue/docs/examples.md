@@ -84,80 +84,80 @@ export default {
 
 ``` html
 <u-linear-layout direction="vertical">
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="text-align: center; margin-bottom: 10px;">
+        <u-button style="margin: 6px">
             top-start
             <m-popper placement="top-start">
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             top
             <m-popper placement="top">
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             top-end
             <m-popper placement="top-end">
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="float: left; width: 200px; text-align: right; margin-bottom: 10px;">
+        <u-button style="margin: 6px">
             left-start
             <m-popper placement="left-start">
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             left
             <m-popper placement="left">
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             left-end
             <m-popper placement="left-end">
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="float: right; width: 200px; margin-bottom: 10px;">
+        <u-button style="margin: 6px">
             right-start
             <m-popper placement="right-start">
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             right
             <m-popper placement="right">
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             right-end
             <m-popper placement="right-end">
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="clear: both; text-align: center">
+        <u-button style="margin: 6px">
             bottom-start
             <m-popper placement="bottom-start">
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             bottom
             <m-popper placement="bottom">
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             bottom-end
             <m-popper placement="bottom-end">
                 <u-block>popper</u-block>
@@ -173,87 +173,87 @@ export default {
 
 ``` html
 <u-linear-layout direction="vertical">
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="text-align: center; margin-bottom: 10px;">
+        <u-button style="margin: 6px">
             top-start
             <m-popper trigger="hover" placement="top-start" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             top
             <m-popper trigger="hover" placement="top" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             top-end
             <m-popper trigger="hover" placement="top-end" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="float: left; width: 200px; text-align: right; margin-bottom: 10px;">
+        <u-button style="margin: 6px">
             left-start
             <m-popper trigger="hover" placement="left-start" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             left
             <m-popper trigger="hover" placement="left" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             left-end
             <m-popper trigger="hover" placement="left-end" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="float: right; width: 200px; margin-bottom: 10px;">
+        <u-button style="margin: 6px">
             right-start
             <m-popper trigger="hover" placement="right-start" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             right
             <m-popper trigger="hover" placement="right" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             right-end
             <m-popper trigger="hover" placement="right-end" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="clear: both; text-align: center">
+        <u-button style="margin: 6px">
             bottom-start
             <m-popper trigger="hover" placement="bottom-start" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             bottom
             <m-popper trigger="hover" placement="bottom" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             bottom-end
             <m-popper trigger="hover" placement="bottom-end" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
+    <u-linear-layout style="text-align: center">
         <u-button>
             custom
             <m-popper trigger="hover" placement="bottom-start" :follow-cursor="50">

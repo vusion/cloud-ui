@@ -113,58 +113,58 @@ export default {
 
 ``` html
 <u-linear-layout direction="vertical">
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="text-align: center; margin-bottom: 10px;">
+        <u-button style="margin: 6px">
             top-start
             <u-popup placement="top-start">Popup</u-popup>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             top
             <u-popup placement="top">Popup</u-popup>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             top-end
             <u-popup placement="top-end">Popup</u-popup>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="float: left; width: 200px; text-align: right; margin-bottom: 10px;">
+        <u-button style="margin: 6px">
             left-start
             <u-popup placement="left-start">Popup</u-popup>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             left
             <u-popup placement="left">Popup</u-popup>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             left-end
             <u-popup placement="left-end">Popup</u-popup>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="float: right; width: 200px; margin-bottom: 10px;">
+        <u-button style="margin: 6px">
             right-start
             <u-popup placement="right-start">Popup</u-popup>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             right
             <u-popup placement="right">Popup</u-popup>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             right-end
             <u-popup placement="right-end">Popup</u-popup>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="clear: both; text-align: center">
+        <u-button style="margin: 6px">
             bottom-start
             <u-popup placement="bottom-start">Popup</u-popup>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             bottom
             <u-popup placement="bottom">Popup</u-popup>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             bottom-end
             <u-popup placement="bottom-end">Popup</u-popup>
         </u-button>
@@ -178,58 +178,58 @@ export default {
 
 ``` html
 <u-linear-layout direction="vertical">
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="text-align: center; margin-bottom: 10px;">
+        <u-button style="margin: 6px">
             top-start
             <u-popup placement="top-start" follow-cursor>Popup</u-popup>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             top
             <u-popup placement="top" follow-cursor>Popup</u-popup>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             top-end
             <u-popup placement="top-end" follow-cursor>Popup</u-popup>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="float: left; width: 200px; text-align: right; margin-bottom: 10px;">
+        <u-button style="margin: 6px">
             left-start
             <u-popup placement="left-start" follow-cursor>Popup</u-popup>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             left
             <u-popup placement="left" follow-cursor>Popup</u-popup>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             left-end
             <u-popup placement="left-end" follow-cursor>Popup</u-popup>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="float: right; width: 200px; margin-bottom: 10px;">
+        <u-button style="margin: 6px">
             right-start
             <u-popup placement="right-start" follow-cursor>Popup</u-popup>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             right
             <u-popup placement="right" follow-cursor>Popup</u-popup>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             right-end
             <u-popup placement="right-end" follow-cursor>Popup</u-popup>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="clear: both; text-align: center">
+        <u-button style="margin: 6px">
             bottom-start
             <u-popup placement="bottom-start" follow-cursor>Popup</u-popup>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             bottom
             <u-popup placement="bottom" follow-cursor>Popup</u-popup>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             bottom-end
             <u-popup placement="bottom-end" follow-cursor>Popup</u-popup>
         </u-button>

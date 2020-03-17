@@ -71,58 +71,58 @@ export default {
 
 ``` html
 <u-linear-layout direction="vertical">
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="text-align: center; margin-bottom: 10px;">
+        <u-button style="margin: 6px">
             top-start
             <u-tooltip placement="top-start">Tooltip</u-tooltip>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             top
             <u-tooltip placement="top">Tooltip</u-tooltip>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             top-end
             <u-tooltip placement="top-end">Tooltip</u-tooltip>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="float: left; width: 200px; text-align: right; margin-bottom: 10px;">
+        <u-button style="margin: 6px">
             left-start
             <u-tooltip placement="left-start">Tooltip</u-tooltip>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             left
             <u-tooltip placement="left">Tooltip</u-tooltip>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             left-end
             <u-tooltip placement="left-end">Tooltip</u-tooltip>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="float: right; width: 200px; margin-bottom: 10px;">
+        <u-button style="margin: 6px">
             right-start
             <u-tooltip placement="right-start">Tooltip</u-tooltip>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             right
             <u-tooltip placement="right">Tooltip</u-tooltip>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             right-end
             <u-tooltip placement="right-end">Tooltip</u-tooltip>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="clear: both; text-align: center">
+        <u-button style="margin: 6px">
             bottom-start
             <u-tooltip placement="bottom-start">Tooltip</u-tooltip>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             bottom
             <u-tooltip placement="bottom">Tooltip</u-tooltip>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             bottom-end
             <u-tooltip placement="bottom-end">Tooltip</u-tooltip>
         </u-button>
@@ -134,25 +134,25 @@ export default {
 
 ``` html
 <u-linear-layout direction="vertical">
-    <u-linear-layout>
-        <u-button v-tooltip.top-start="'Tooltip'">top-start</u-button>
-        <u-button v-tooltip.top="'Tooltip'">top</u-button>
-        <u-button v-tooltip.top-end="'Tooltip'">top-end</u-button>
+    <u-linear-layout style="text-align: center; margin-bottom: 10px;">
+        <u-button style="margin: 6px" v-tooltip.top-start="'Tooltip'">top-start</u-button>
+        <u-button style="margin: 6px" v-tooltip.top="'Tooltip'">top</u-button>
+        <u-button style="margin: 6px" v-tooltip.top-end="'Tooltip'">top-end</u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button v-tooltip.left-start="'Tooltip'">left-start</u-button>
-        <u-button v-tooltip.left="'Tooltip'">left</u-button>
-        <u-button v-tooltip.left-end="'Tooltip'">left-end</u-button>
+    <u-linear-layout style="float: left; width: 200px; text-align: right; margin-bottom: 10px;">
+        <u-button style="margin: 6px" v-tooltip.left-start="'Tooltip'">left-start</u-button>
+        <u-button style="margin: 6px" v-tooltip.left="'Tooltip'">left</u-button>
+        <u-button style="margin: 6px" v-tooltip.left-end="'Tooltip'">left-end</u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button v-tooltip.right-start="'Tooltip'">right-start</u-button>
-        <u-button v-tooltip.right="'Tooltip'">right</u-button>
-        <u-button v-tooltip.right-end="'Tooltip'">right-end</u-button>
+    <u-linear-layout style="float: right; width: 200px; margin-bottom: 10px;">
+        <u-button style="margin: 6px" v-tooltip.right-start="'Tooltip'">right-start</u-button>
+        <u-button style="margin: 6px" v-tooltip.right="'Tooltip'">right</u-button>
+        <u-button style="margin: 6px" v-tooltip.right-end="'Tooltip'">right-end</u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button v-tooltip.bottom-start="'Tooltip'">bottom-start</u-button>
-        <u-button v-tooltip.bottom="'Tooltip'">bottom</u-button>
-        <u-button v-tooltip.bottom-end="'Tooltip'">bottom-end</u-button>
+    <u-linear-layout style="clear: both; text-align: center">
+        <u-button style="margin: 6px" v-tooltip.bottom-start="'Tooltip'">bottom-start</u-button>
+        <u-button style="margin: 6px" v-tooltip.bottom="'Tooltip'">bottom</u-button>
+        <u-button style="margin: 6px" v-tooltip.bottom-end="'Tooltip'">bottom-end</u-button>
     </u-linear-layout>
 </u-linear-layout>
 ```
@@ -163,58 +163,58 @@ export default {
 
 ``` html
 <u-linear-layout direction="vertical">
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="text-align: center; margin-bottom: 10px;">
+        <u-button style="margin: 6px">
             top-start
             <u-tooltip placement="top-start" follow-cursor>Tooltip</u-tooltip>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             top
             <u-tooltip placement="top" follow-cursor>Tooltip</u-tooltip>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             top-end
             <u-tooltip placement="top-end" follow-cursor>Tooltip</u-tooltip>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="float: left; width: 200px; text-align: right; margin-bottom: 10px;">
+        <u-button style="margin: 6px">
             left-start
             <u-tooltip placement="left-start" follow-cursor>Tooltip</u-tooltip>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             left
             <u-tooltip placement="left" follow-cursor>Tooltip</u-tooltip>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             left-end
             <u-tooltip placement="left-end" follow-cursor>Tooltip</u-tooltip>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="float: right; width: 200px; margin-bottom: 10px;">
+        <u-button style="margin: 6px">
             right-start
             <u-tooltip placement="right-start" follow-cursor>Tooltip</u-tooltip>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             right
             <u-tooltip placement="right" follow-cursor>Tooltip</u-tooltip>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             right-end
             <u-tooltip placement="right-end" follow-cursor>Tooltip</u-tooltip>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button>
+    <u-linear-layout style="clear: both; text-align: center">
+        <u-button style="margin: 6px">
             bottom-start
             <u-tooltip placement="bottom-start" follow-cursor>Tooltip</u-tooltip>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             bottom
             <u-tooltip placement="bottom" follow-cursor>Tooltip</u-tooltip>
         </u-button>
-        <u-button>
+        <u-button style="margin: 6px">
             bottom-end
             <u-tooltip placement="bottom-end" follow-cursor>Tooltip</u-tooltip>
         </u-button>
