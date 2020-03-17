@@ -340,26 +340,33 @@ export const UListView = {
             if (this.readonly || this.disabled)
                 return;
 
-            // const oldValues = this.values ? Array.from(this.values) : this.values;
+            const selectedVMs = this.selectedVMs;
+            const oldValue = selectedVMs.map((itemVM) => itemVM.value);
             this.itemVMs.forEach((itemVM) => {
                 if (itemVM.disabled)
                     return;
 
-                if (checked && !this.selectedVMs.includes(itemVM)) {
+                if (checked && !selectedVMs.includes(itemVM)) {
                     itemVM.currentSelected = true;
-                    this.selectedVMs.push(itemVM);
-                } else if (!checked && this.selectedVMs.includes(itemVM)) {
+                    selectedVMs.push(itemVM);
+                    itemVM.$emit('update:selected', itemVM.currentSelected);
+                } else if (!checked && selectedVMs.includes(itemVM)) {
                     itemVM.currentSelected = false;
-                    this.selectedVMs.splice(this.selectedVMs.indexOf(itemVM), 1);
+                    selectedVMs.splice(selectedVMs.indexOf(itemVM), 1);
+                    itemVM.$emit('update:selected', itemVM.currentSelected);
                 }
             });
 
-            // this.$emit('update:values', this.currentValues, this);
-            // this.$emit('check', {
-            //     values: this.currentValues,
-            //     oldValues,
-            //     checked,
-            // }, this);
+            const value = selectedVMs.map((itemVM) => itemVM.value);
+
+            this.$emit('input', value, this);
+            this.$emit('update:value', value, this);
+
+            this.$emit('checkAll', {
+                value,
+                oldValue,
+                checked,
+            }, this);
         },
     },
 };

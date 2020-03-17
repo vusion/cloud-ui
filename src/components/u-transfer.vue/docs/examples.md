@@ -40,7 +40,6 @@ export default {
                 { text: 'CSS', value: 'css' },
                 { text: 'HTML', value: 'html' },
                 { text: 'JavaScript', value: 'javascript' },
-                { text: 'TypeScript', value: 'typescript' },
                 { text: 'Vue', value: 'vue' },
             ],
         };
@@ -141,7 +140,6 @@ export default {
                 { text: 'CSS', value: 'css', disabled: true },
                 { text: 'HTML', value: 'html', disabled: true },
                 { text: 'JavaScript', value: 'javascript' },
-                { text: 'TypeScript', value: 'typescript' },
                 { text: 'Vue', value: 'vue' },
             ],
         };
@@ -192,7 +190,6 @@ export default {
                 { text: 'CSS', value: 'css' },
                 { text: 'HTML', value: 'html' },
                 { text: 'JavaScript', value: 'javascript' },
-                { text: 'TypeScript', value: 'typescript' },
                 { text: 'Vue', value: 'vue' },
             ],
         };
@@ -246,7 +243,6 @@ export default {
                 { text: 'CSS', value: 'css' },
                 { text: 'HTML', value: 'html' },
                 { text: 'JavaScript', value: 'javascript' },
-                { text: 'TypeScript', value: 'typescript' },
                 { text: 'Vue', value: 'vue' },
             ],
         };
@@ -302,7 +298,6 @@ export default {
                 { text: 'CSS', value: 'css' },
                 { text: 'HTML', value: 'html' },
                 { text: 'JavaScript', value: 'javascript' },
-                { text: 'TypeScript', value: 'typescript' },
                 { text: 'Vue', value: 'vue' },
             ],
         };
@@ -356,7 +351,6 @@ export default {
                 { text: 'CSS', value: 'css' },
                 { text: 'HTML', value: 'html' },
                 { text: 'JavaScript', value: 'javascript' },
-                { text: 'TypeScript', value: 'typescript' },
                 { text: 'Vue', value: 'vue' },
             ],
         };
@@ -410,7 +404,6 @@ export default {
                 { text: 'CSS', value: 'css' },
                 { text: 'HTML', value: 'html' },
                 { text: 'JavaScript', value: 'javascript' },
-                { text: 'TypeScript', value: 'typescript' },
                 { text: 'Vue', value: 'vue' },
             ],
         };
@@ -465,6 +458,30 @@ export default {
             list.push('item' + i);
         list = list.map((text) => ({ text, value: text }));
 
+
+        return {
+            source: list,
+            target: [],
+        };
+    },
+};
+</script>
+```
+
+### 综合示例
+
+``` vue
+<template>
+<u-transfer :source="source" :target="target" show-head filterable pageable :page-size="10"></u-transfer>
+</template>
+<script>
+export default {
+    data() {
+        // 构造数量较多的 500 条数据
+        let list = [];
+        for (let i = 1; i <= 100; i++)
+            list.push('item' + i);
+        list = list.map((text) => ({ text, value: text }));
 
         return {
             source: list,

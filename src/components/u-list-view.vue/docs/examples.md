@@ -317,7 +317,6 @@ export default {
                 { text: 'Python', value: 'python' },
                 { text: 'Ruby', value: 'ruby', disabled: true },
                 { text: 'C#', value: 'csharp' },
-                { text: 'C++', value: 'cpp' },
                 { text: 'PHP', value: 'php', disabled: true },
             ],
         };
@@ -355,7 +354,6 @@ export default {
                 { text: 'Python', value: 'python' },
                 { text: 'Ruby', value: 'ruby', disabled: true },
                 { text: 'C#', value: 'csharp' },
-                { text: 'C++', value: 'cpp' },
                 { text: 'PHP', value: 'php', disabled: true },
             ],
         };

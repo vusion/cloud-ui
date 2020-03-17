@@ -602,7 +602,7 @@
     --list-view-head-padding: 8px 12px;
     --list-view-foot-padding: 8px 12px;
     --list-view-item-padding: 4px 12px;
-    --list-view-height: calc(30px * 8 + var(--border-width-base) * 2);
+    --list-view-height: calc(30px * 10 + var(--border-width-base) * 2);
     --list-view-item-background-hover: var(--background-color-lighter);
     --list-view-item-background-readonly: none;
     --list-view-item-background-focused: var(--background-color-lighter);

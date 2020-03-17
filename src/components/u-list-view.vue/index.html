@@ -11,7 +11,7 @@
             </div>
         </slot>
     </div>
-    <u-input v-if="filterable" :class="$style.filter" :readonly="readonly" :disabled="disabled" :placeholder="placeholder" size="small" suffix="search"
+    <u-input v-if="filterable" :class="$style.filter" :disabled="disabled" :placeholder="placeholder" size="small" suffix="search" :clearable="clearable"
         :value="filterText" @input="onInput">
     </u-input>
     <div ref="body" :class="$style.body" @scroll.stop="onScroll">
@@ -30,13 +30,14 @@
         <div :class="$style.status" status="loading" v-if="currentLoading">
             <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
         </div>
-        <div :class="$style.status" v-else-if="pageable === 'load-more'">
+        <div :class="$style.status" v-else-if="pageable === 'load-more' && currentDataSource.hasMore()">
             <u-link @click="load(true)">{{ $t('loadMore') }}</u-link>
         </div>
     </div>
     <div v-show="showFoot || pageable === true || pageable === 'pagination'" :class="$style.foot">
         <slot name="foot"></slot>
         <u-combo-pagination :class="$style.pagination" v-if="pageable === true || pageable === 'pagination'"
+            :style="{ visibility: currentDataSource.total > currentDataSource.paging.size ? '' : 'hidden' }"
             :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
             :page-size="currentDataSource.paging.size" :side="1" :around="3"
             @change="page($event.page)">
