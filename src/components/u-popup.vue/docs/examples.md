@@ -127,7 +127,7 @@ export default {
             <u-popup placement="top-end">Popup</u-popup>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout direction="vertical" justify="center" gap="small" style="width: 150px; float: left">
+    <u-linear-layout direction="vertical" justify="center" style="width: 150px; float: left">
         <u-button>
             左上
             <u-popup placement="left-start">Popup</u-popup>
@@ -141,7 +141,7 @@ export default {
             <u-popup placement="left-end">Popup</u-popup>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout direction="vertical" justify="center" gap="small" style="width: 150px; float: right">
+    <u-linear-layout direction="vertical" justify="center" style="width: 150px; float: right">
         <u-button>
             右上
             <u-popup placement="right-start">Popup</u-popup>
@@ -192,7 +192,7 @@ export default {
             <u-popup placement="top-end" follow-cursor>Popup</u-popup>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout direction="vertical" justify="center" gap="small" style="width: 150px; float: left">
+    <u-linear-layout direction="vertical" justify="center" style="width: 150px; float: left">
         <u-button>
             左上
             <u-popup placement="left-start" follow-cursor>Popup</u-popup>
@@ -206,7 +206,7 @@ export default {
             <u-popup placement="left-end" follow-cursor>Popup</u-popup>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout direction="vertical" justify="center" gap="small" style="width: 150px; float: right">
+    <u-linear-layout direction="vertical" justify="center" style="width: 150px; float: right">
         <u-button>
             右上
             <u-popup placement="right-start" follow-cursor>Popup</u-popup>

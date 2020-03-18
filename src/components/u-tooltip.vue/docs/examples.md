@@ -85,7 +85,7 @@ export default {
             <u-tooltip placement="top-end">Tooltip</u-tooltip>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout direction="vertical" gap="small" justify="center" style="width: 150px; float: left">
+    <u-linear-layout direction="vertical" justify="center" style="width: 150px; float: left">
         <u-button>
             左上
             <u-tooltip placement="left-start">Tooltip</u-tooltip>
@@ -99,7 +99,7 @@ export default {
             <u-tooltip placement="left-end">Tooltip</u-tooltip>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout direction="vertical" justify="center" gap="small" style="width: 150px; float: right">
+    <u-linear-layout direction="vertical" justify="center" style="width: 150px; float: right">
         <u-button>
             右上
             <u-tooltip placement="right-start">Tooltip</u-tooltip>
@@ -139,12 +139,12 @@ export default {
         <u-button v-tooltip.top="'Tooltip'">上边</u-button>
         <u-button v-tooltip.top-end="'Tooltip'">上右</u-button>
     </u-linear-layout>
-    <u-linear-layout direction="vertical" gap="small" justify="center" style="width: 150px; float: left">
+    <u-linear-layout direction="vertical" justify="center" style="width: 150px; float: left">
         <u-button v-tooltip.left-start="'Tooltip'">左上</u-button>
         <u-button v-tooltip.left="'Tooltip'">左边</u-button>
         <u-button v-tooltip.left-end="'Tooltip'">左下</u-button>
     </u-linear-layout>
-    <u-linear-layout direction="vertical" justify="center" gap="small" style="width: 150px; float: right">
+    <u-linear-layout direction="vertical" justify="center" style="width: 150px; float: right">
         <u-button v-tooltip.right-start="'Tooltip'">右上</u-button>
         <u-button v-tooltip.right="'Tooltip'">右边</u-button>
         <u-button v-tooltip.right-end="'Tooltip'">右下</u-button>
@@ -177,7 +177,7 @@ export default {
             <u-tooltip placement="top-end" follow-cursor>Tooltip</u-tooltip>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout direction="vertical" gap="small" justify="center" style="width: 150px; float: left">
+    <u-linear-layout direction="vertical" justify="center" style="width: 150px; float: left">
         <u-button>
             左上
             <u-tooltip placement="left-start" follow-cursor>Tooltip</u-tooltip>
@@ -191,7 +191,7 @@ export default {
             <u-tooltip placement="left-end" follow-cursor>Tooltip</u-tooltip>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout direction="vertical" justify="center" gap="small" style="width: 150px; float: right">
+    <u-linear-layout direction="vertical" justify="center" style="width: 150px; float: right">
         <u-button>
             右上
             <u-tooltip placement="right-start" follow-cursor>Tooltip</u-tooltip>

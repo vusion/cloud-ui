@@ -104,7 +104,7 @@ export default {
             </m-popper>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout direction="vertical" justify="center" gap="small" style="width: 150px; float: left">
+    <u-linear-layout direction="vertical" justify="center" style="width: 150px; float: left">
         <u-button>
             左上
             <m-popper placement="left-start">
@@ -124,7 +124,7 @@ export default {
             </m-popper>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout direction="vertical" justify="center" gap="small" style="width: 150px; float: right">
+    <u-linear-layout direction="vertical" justify="center" style="width: 150px; float: right">
         <u-button>
             右上
             <m-popper placement="right-start">
@@ -193,7 +193,7 @@ export default {
             </m-popper>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout direction="vertical" gap="small" justify="center" style="width: 150px; float: left">
+    <u-linear-layout direction="vertical" justify="center" style="width: 150px; float: left">
         <u-button>
             左上
             <m-popper trigger="hover" placement="left-start" follow-cursor>
@@ -213,7 +213,7 @@ export default {
             </m-popper>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout direction="vertical" justify="center" gap="small" style="width: 150px; float: right">
+    <u-linear-layout direction="vertical" justify="center" style="width: 150px; float: right">
         <u-button>
             右上
             <m-popper trigger="hover" placement="right-start" follow-cursor>
