@@ -22,7 +22,7 @@ export const MPopper = {
             validator: (value) => /^(top|bottom|left|right)(-start|-end)?$/.test(value),
         },
         hoverDelay: { type: Number, default: 0 },
-        hideDelay: { type: Number, default: 0 },
+        hideDelay: { type: Number, default: 200 },
         appendTo: { type: String, default: 'body', validator: (value) => ['body', 'reference'].includes(value) },
         boundariesElement: { default: 'window' },
         arrowElement: { type: String, default: '[u-arrow]' },
@@ -223,6 +223,15 @@ export const MPopper = {
                     }, this.hoverDelay);
                 }));
                 this.offEvents.push(ev.on(el, 'mouseleave', () => {
+                    this.clearTimers();
+                    this.timers[1] = setTimeout(() => this.close(), this.hideDelay);
+                }));
+                // 对 popper 元素增加事件，当鼠标移动到 popper 上时，元素不消失
+                this.offEvents.push(ev.on(popperEl, 'mouseenter', (e) => {
+                    this.clearTimers();
+                    this.timers[0] = setTimeout(() => this.open(), this.hoverDelay);
+                }));
+                this.offEvents.push(ev.on(popperEl, 'mouseleave', () => {
                     this.clearTimers();
                     this.timers[1] = setTimeout(() => this.close(), this.hideDelay);
                 }));
