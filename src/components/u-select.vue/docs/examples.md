@@ -4,7 +4,7 @@
 
 #### tag 方式
 
-在有少量静态数据的时候，推荐使用这种方式。
+使用`<u-select-item>`组件添加。在有少量静态数据的时候，推荐使用这种方式。
 
 ``` html
 <u-linear-layout>
@@ -29,7 +29,7 @@
 
 #### data-source 方式
 
-在有较大量数据或者后端请求数据的时候，推荐使用这种方式。
+使用`data-source`属性添加。在有较大量数据或者后端请求数据的时候，推荐使用这种方式。
 
 ``` vue
 <template>
@@ -120,7 +120,7 @@ export default {
 export default {
     data() {
         return {
-            value: 'towel',
+            value: '',
             list: [
                 { text: 'Java', value: 'java' },
                 { text: 'Python', value: 'python' },

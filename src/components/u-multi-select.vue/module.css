@@ -9,7 +9,7 @@
     cursor: var(--cursor-not-allowed);
     background: var(--brand-disabled);
     border: 1px solid var(--brand-disabled);
-    color: #999;
+    color: var(--color-light);
 }
 .head {
     box-sizing: border-box;
@@ -114,7 +114,7 @@
 }
 .listitem[disabled] {
     cursor: var(--cursor-not-allowed);
-    color: #999;
+    color: var(--color-light);
 }
 .listitem:hover, .listitem[hovered] {
     background: var(--hover-color);

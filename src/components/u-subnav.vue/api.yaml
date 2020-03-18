@@ -1,4 +1,4 @@
-- name: subnav
+- name: u-subnav
   title: 子导航
   attrs:
     - name: router
@@ -64,7 +64,7 @@
         - name: $event.itemVM
           type: subnavItem
           description: 单选模式中，选择项子组件
-- name: subnav-item
+- name: u-subnav-item
   attrs:
     - name: value
       type: any
@@ -146,4 +146,4 @@
         - name: $event.exact
           type: boolean
           description: "`exact`属性的值"
-- name: subnav-divider
+- name: u-subnav-divider

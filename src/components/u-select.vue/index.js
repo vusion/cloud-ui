@@ -6,6 +6,7 @@ export const USelect = {
     name: 'u-select',
     childName: 'u-select-item',
     groupName: 'u-select-group',
+    isSelect: true,
     extends: UListView,
     i18n,
     directives: { ellipsisTitle },
@@ -50,7 +51,7 @@ export const USelect = {
             focusedVM: undefined,
             // @inherit: currentMultiple: this.multiple,
             // @inherit: currentDataSource: undefined,
-            // @inherit: loading: false,
+            // @inherit: currentLoading: false,
             currentText: '', // 显示文本
             filterText: '', // 过滤文本，只有 input 时会改变它
             preventBlur: false,
@@ -69,7 +70,7 @@ export const USelect = {
         },
         filtering() {
             return {
-                [this.field]: {
+                [this.field || this.textField]: {
                     operator: this.matchMethod,
                     value: this.filterText,
                     caseInsensitive: !this.caseSensitive,
@@ -93,7 +94,8 @@ export const USelect = {
         });
         this.$watch('selectedVMs', (selectedVMs) => {
             this.currentText = selectedVMs.map((itemVM) => itemVM.currentText).join(', ');
-            this.$refs.popper.currentOpened && this.$refs.popper.scheduleUpdate();
+            const popperVM = this.$refs.popper;
+            popperVM && popperVM.currentOpened && popperVM.scheduleUpdate();
         });
         this.$on('select', ($event) => {
             if (!this.multiple)
@@ -195,17 +197,17 @@ export const USelect = {
             const dataSource = this.currentDataSource;
             if (!dataSource)
                 return;
-            if (this.loading)
+            if (this.currentLoading)
                 return Promise.resolve();
             // @TODO: dataSource 的多次 promise 必须串行
             // return this.promiseSequence = this.promiseSequence.then(() => {
-            this.loading = true;
+            this.currentLoading = true;
             return dataSource[more ? 'loadMore' : 'load']().then((data) => {
-                this.loading = false;
+                this.currentLoading = false;
                 this.ensureSelectedInItemVMs();
                 this.$refs.popper.currentOpened && this.$refs.popper.scheduleUpdate();
                 return data;
-            }).catch(() => this.loading = false);
+            }).catch(() => this.currentLoading = false);
             // });
         },
         onFocus() {

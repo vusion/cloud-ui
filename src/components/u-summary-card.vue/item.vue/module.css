@@ -7,7 +7,7 @@
 .label {
     display: inline-block;
     min-width: 6.5em;
-    color: #999;
+    color: var(--color-light);
 }
 
 .content {

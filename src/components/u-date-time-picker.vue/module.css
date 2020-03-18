@@ -37,7 +37,7 @@
 .input[disabled] {
     cursor: var(--cursor-not-allowed);
     background: #eee;
-    color: #999;
+    color: var(--color-light);
 }
 .timePicker {
     /* text-align: center; */

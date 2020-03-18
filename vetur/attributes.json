@@ -131,6 +131,10 @@
     "type": "number",
     "description": "默认可以不填，会自动计算和缓存每个列表项的高度，用于处理列表项高度不确定的情形。如果每个列表项的高度是个固定值，可以设置该属性，能够减少由获取高度产生的性能开销。"
   },
+  "f-virtual-list/virtual": {
+    "type": "boolean",
+    "description": "是否开启虚拟列表"
+  },
   "f-virtual-list/virtual-count": {
     "type": "number",
     "description": "虚拟列表实际渲染的节点数。该数字不宜过大，一般在 200 以内为好。"
@@ -1710,7 +1714,15 @@
   },
   "u-list-view/field": {
     "type": "string",
-    "description": "显示文本字段"
+    "description": "选项文本的字段名"
+  },
+  "u-list-view/text-field": {
+    "type": "string",
+    "description": "选项文本的字段名"
+  },
+  "u-list-view/value-field": {
+    "type": "string",
+    "description": "选项值的字段名"
   },
   "u-list-view/data": {
     "type": "Array<{ text, value }>",
@@ -1728,17 +1740,17 @@
     "type": "boolean",
     "description": "是否可以多选"
   },
-  "u-list-view/collapsible": {
+  "u-list-view/show-head": {
     "type": "boolean",
-    "description": "分组是否可以折叠"
+    "description": "是否显示头部"
   },
-  "u-list-view/accordion": {
-    "type": "boolean",
-    "description": "是否每次只会展开一个分组"
-  },
-  "u-list-view/expand-trigger": {
+  "u-list-view/title": {
     "type": "string",
-    "description": "展开/折叠的触发方式。可选值：`'click'`表示整行点击均可触发、`'click-expander'`表示仅点击小箭头时触发"
+    "description": "列表标题"
+  },
+  "u-list-view/show-foot": {
+    "type": "boolean",
+    "description": "是否显示尾部"
   },
   "u-list-view/loading-text": {
     "type": "string",
@@ -1747,6 +1759,30 @@
   "u-list-view/initial-load": {
     "type": "boolean",
     "description": "是否在初始时立即加载"
+  },
+  "u-list-view/filterable": {
+    "type": "boolean",
+    "description": "是否可以过滤（搜索），开启将会显示搜索框。"
+  },
+  "u-list-view/placeholder": {
+    "type": "string",
+    "description": "搜索框的占位符"
+  },
+  "u-list-view/clearable": {
+    "type": "boolean",
+    "description": "搜索框是否有清除按钮"
+  },
+  "u-list-view/match-method": {
+    "type": "string, Function",
+    "description": "过滤时的匹配方法"
+  },
+  "u-list-view/case-sensitive": {
+    "type": "string, Function",
+    "description": "过滤时大小写是否敏感"
+  },
+  "u-list-view/remote-filtering": {
+    "type": "boolean",
+    "description": "是否使用后端过滤"
   },
   "u-list-view/pageable": {
     "type": "boolean",
@@ -1768,33 +1804,16 @@
     "type": "boolean",
     "description": "是否禁用"
   },
-  "u-list-view-item/value": {
-    "type": "any",
-    "description": "此项的值"
-  },
-  "u-list-view-item/disabled": {
-    "type": "boolean",
-    "description": "禁用此项"
-  },
-  "u-list-view-item/item": {
-    "type": "object",
-    "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
-  },
-  "u-list-view-group/title": {
-    "type": "string",
-    "description": "显示的标题"
-  },
-  "u-list-view-group/collapsible": {
-    "type": "boolean",
-    "description": "`false`"
-  },
-  "u-list-view-group/expanded": {
-    "type": "boolean",
-    "description": "展开/折叠状态"
-  },
-  "u-list-view-group/disabled": {
-    "type": "boolean",
-    "description": "是否禁用。禁用时无法展开/折叠"
+  "u-list-view/size": {
+    "type": "enum",
+    "options": [
+      "normal",
+      "large",
+      "huge",
+      "auto",
+      "full"
+    ],
+    "description": "设置尺寸。五种宽高的自由组合。"
   },
   "u-list/type": {
     "type": "string",
@@ -3105,6 +3124,58 @@
   "u-transfer/target": {
     "type": "Array<{ text, value }>",
     "description": "目标数据列表"
+  },
+  "u-transfer/text-field": {
+    "type": "string",
+    "description": "选项文本的字段名"
+  },
+  "u-transfer/value-field": {
+    "type": "string",
+    "description": "选项值的字段名"
+  },
+  "u-transfer/show-head": {
+    "type": "boolean",
+    "description": "是否显示头部"
+  },
+  "u-transfer/source-title": {
+    "type": "string",
+    "description": "左侧列表标题"
+  },
+  "u-transfer/target-title": {
+    "type": "string",
+    "description": "右侧列表标题"
+  },
+  "u-transfer/show-foot": {
+    "type": "boolean",
+    "description": "是否显示尾部"
+  },
+  "u-transfer/filterable": {
+    "type": "boolean",
+    "description": "是否可以过滤（搜索），开启将会显示搜索框。"
+  },
+  "u-transfer/placeholder": {
+    "type": "string",
+    "description": "搜索框的占位符"
+  },
+  "u-transfer/clearable": {
+    "type": "boolean",
+    "description": "搜索框是否有清除按钮"
+  },
+  "u-transfer/match-method": {
+    "type": "string, Function",
+    "description": "过滤时的匹配方法"
+  },
+  "u-transfer/case-sensitive": {
+    "type": "string, Function",
+    "description": "过滤时大小写是否敏感"
+  },
+  "u-transfer/pageable": {
+    "type": "boolean",
+    "description": "是否需要分页"
+  },
+  "u-transfer/page-size": {
+    "type": "number",
+    "description": "分页大小"
   },
   "u-transfer/readonly": {
     "type": "boolean",

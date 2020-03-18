@@ -38,7 +38,7 @@
     border-radius: 100%;
     margin-left: -5px;
     background: var(--steps-item-radio-background);
-    color: #999;
+    color: var(--color-light);
 }
 
 .root[shape-size="large"] .radio {

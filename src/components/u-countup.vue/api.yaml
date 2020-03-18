@@ -1,4 +1,4 @@
-- name: count-up
+- name: u-count-up
   title: 数字渐变
   attrs:
     - name: start

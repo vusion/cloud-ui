@@ -1,14 +1,15 @@
+.root {
+    display: flex;
+    align-items: center;
+}
+
 .listView {
-    display: inline-block;
     width: var(--transfer-width);
     height: var(--transfer-height);
 }
 
 .buttons {
-    display: inline-block;
-    vertical-align: top;
     margin: var(--transfer-button-space);
-    margin-top: calc(var(--transfer-height) / 2 - (var(--transfer-button-size) + var(--border-width-base) * 2) - var(--transfer-button-space) / 2);
 }
 
 .button {
@@ -64,3 +65,14 @@
 .button[role="forward"]::after {
     content: '❯';
 }
+
+.root[size^="normal"] .listView { height: var(--transfer-height); }
+.root[size^="large"] .listView { height: var(--transfer-height-large); }
+.root[size^="huge"] .listView { height: var(--transfer-height-huge); }
+.root[size^="full"] .listView { height: 100%; }
+.root[size^="auto"] .listView { height: auto; }
+.root[size$="normal"] .listView { width: var(--transfer-width); }
+.root[size$="large"] .listView { width: var(--transfer-width-large); }
+.root[size$="huge"] .listView { width: var(--transfer-width-huge); }
+.root[size$="full"] .listView { width: 100%; }
+.root[size$="auto"] .listView { width: auto; }

@@ -11,9 +11,10 @@
     --brand-warning: #ffa136;
     --brand-error: #fe5a5a;
     --brand-danger: #fe5a5a;
-    --brand-disabled: #cddae9; /* 选择框的禁用背景 */
-    --brand-disabled-light: #e7eaef;
-    --hover-color: #f4f4f4;
+    --brand-disabled-light: #e5e9ef; /* 选择且禁用的背景 */
+    --brand-disabled: #cdd9e9; /* 输入框、选择框的禁用背景 */
+    --brand-disabled-dark: #b6c0d0; /* 禁用文本的颜色 */
+    --brand-disabled-darker: #9aa2af;
 
     /* Gray Colors */
     --color-white: white;
@@ -27,16 +28,18 @@
     --gray-lightest: #eee;
 
     /* Component Base Colors */
-    --background-color-light: #f7f8fc; /* 选择框的 hover 颜色 */
+    --background-color-lighter: #f7f8fc; /* 选择框的 hover 颜色 */
+    --background-color-light: #f5f7fa; /* 表格等组件标题栏颜色 */
     --background-color-base: #eef2f7; /* 标签、薯条等组件默认颜色 */
     --background-color-dark: #d0dbe7;
     --color-lighter: #a7afbb; /* Placeholder 字体颜色 */
     --color-light: #92989d; /* 次级字体颜色 */
     --color-base: #565b61; /* 默认字体颜色 */
-    --border-color-light: #dfe5f1; /* 面板等容器类型的边框颜色 */
-    --border-color-base: #cbd5e5; /* 按钮、输入框等小组件的边框颜色 */
+    --border-color-light: #dfe4ec; /* 面板等容器类型的边框颜色 */
+    --border-color-base: #dfe4ec; /* 输入框等小组件的边框颜色 */
+    --border-color-dark: #cbd5e5; /* 按钮等小组件的边框颜色 */
 
-    /* Spacing Dimensions */
+    /* Space Dimensions */
     --space-shrink: -1px;
     --space-mini: 4px;
     --space-base: 20px;
@@ -113,7 +116,7 @@
     --code-margin-x: 2px;
     --code-padding-y: 3px;
     --code-padding-x: 3px;
-    --code-background: var(--background-color-light);
+    --code-background: var(--background-color-lighter);
     --code-color: #e0276e;
     --code-font-size: var(--font-size-small);
 
@@ -134,14 +137,14 @@
     --text-color-success: var(--brand-success);
     --text-color-warning: var(--brand-warning);
     --text-color-error: var(--brand-error);
-    --text-color-disabled: #b6c4d4;
+    --text-color-disabled: var(--brand-disabled-dark);
 
     /* Link */
     --link-color: #4477d0;
     --link-color-success: var(--brand-success);
     --link-color-warning: var(--brand-warning);
     --link-color-error: var(--brand-error);
-    --link-color-disabled: #b6c4d4;
+    --link-color-disabled: var(--brand-disabled-dark);
     --link-color-light: #6eadff;
     --link-color-white: white;
 
@@ -183,9 +186,9 @@
     --button-color-danger: white;
     --button-color-danger-hover: var(--button-color-danger);
     --button-color-danger-disabled: white;
-    --button-border-color: var(--border-color-base);
+    --button-border-color: var(--border-color-dark);
     --button-border-color-hover: var(--brand-primary);
-    --button-border-color-disabled: var(--border-color-base);
+    --button-border-color-disabled: var(--border-color-dark);
     --button-box-shadow-focus: 0 0 0 2px rgba(80, 139, 233, 0.2);
     --button-box-shadow-focus-primary: var(--button-box-shadow-focus);
     --button-box-shadow-focus-danger: 0 0 0 2px rgba(254, 90, 90, 0.2);
@@ -247,21 +250,23 @@
     --list-style: none;
     --list-item-padding: 6px 8px;
     --list-item-border-bottom: 1px solid var(--border-color-base);
-    --list-item-background-striped: var(--background-color-light);
-    --list-item-background-hover: var(--background-color-light);
+    --list-item-background-striped: var(--background-color-lighter);
+    --list-item-background-hover: var(--background-color-lighter);
 
     /* Table */
     --table-background: white;
+    --table-head-background: var(--background-color-light);
     --table-row-background: var(--background-color-base);
-    --table-row-background-hover: var(--background-color-light);
-    --table-row-background-striped: var(--background-color-light);
+    --table-row-background-hover: var(--background-color-lighter);
+    --table-row-background-striped: var(--background-color-lighter);
     --table-row-background-primary: rgba(103, 170, 245, 0.2);
     --table-row-background-error: rgb(255, 138, 122, 0.2);
     --table-row-background-dark: var(--background-color-dark);
-    --table-row-background-light: var(--background-color-light);
+    --table-row-background-light: var(--background-color-lighter);
     --table-caption-color: #6a6f75;
-    --table-border-color: var(--border-color-base);
+    --table-border-color: var(--border-color-light);
     --table-border-width: 1px;
+    --table-td-color: var(--color-light);
 
     /* Article */
     --article-table-font-size: calc(var(--font-size-base) * (13 / 14));
@@ -380,7 +385,7 @@
     --steps-item-color-disabled: #bbb;
     --steps-item-radio-size: 18px;
     --steps-item-radio-size-large: 24px;
-    --steps-item-radio-background: #e1e8ed;
+    --steps-item-radio-background: var(--border-color-base);
     --steps-item-radio-background-passed: var(--brand-primary);
     --steps-item-radio-color-passed: white;
 
@@ -393,14 +398,15 @@
     --pagination-item-size: var(--height-small);
     --pagination-item-padding: 0;
     --pagination-item-background: white;
+    --pagination-item-background-hover: var(--background-color-lighter);
     --pagination-item-background-selected: var(--brand-primary);
     --pagination-item-background-disabled-selected: white;
     --pagination-item-background-blank: none;
-    --pagination-item-color: #555;
+    --pagination-item-color: var(--color-base);
     --pagination-item-color-hover: var(--brand-primary);
     --pagination-item-color-selected: white;
     --pagination-item-color-disabled: #bbb;
-    --pagination-item-color-blank: #555;
+    --pagination-item-color-blank: var(--color-base);
     --pagination-item-color-blank-disabled: var(--brand-disabled);
     --pagination-item-border-color: var(--border-color-base);
 
@@ -417,7 +423,7 @@
     --form-message-margin-left: 10px;
     --form-message-padding: 0 10px;
     --form-message-background: var(--background-color-base);
-    --form-message-background-error: #ff867f;
+    --form-message-background-error: var(--brand-error);
     --form-message-color-error: white;
 
     /* Field */
@@ -431,7 +437,7 @@
     --validator-message-padding: 0 10px;
     --validator-message-margin-left: 10px;
     --validator-message-background: var(--background-color-base);
-    --validator-message-background-error: #ff867f;
+    --validator-message-background-error: var(--brand-error);
     --validator-message-color-error: white;
 
     /* Input */
@@ -457,10 +463,10 @@
     --input-border-width: 1px;
     --input-background: white;
     --input-background-disabled: #cddae9;
-    --input-color: #666;
+    --input-color: var(--color-base);
     --input-border-color: var(--border-color-base);
-    --input-border-color-error: #ff867f;
-    --input-border-color-focus: #8ebee9;
+    --input-border-color-error: var(--brand-error);
+    --input-border-color-focus: #81abe9;
     --input-placeholder-color: var(--color-lighter);
     --input-clearable-color: #a7afbb;
     --input-border-radius: 3px;
@@ -478,7 +484,7 @@
     --textarea-min-height: var(--height-base);
     --textarea-border-radius: var(--border-radius-medium);
     --textarea-padding: 5px 10px;
-    --textarea-color: #666;
+    --textarea-color: var(--color-base);
     --textarea-border-color: var(--border-color-base);
 
     /* Number Input */
@@ -539,13 +545,14 @@
     --select-background-disabled: var(--brand-disabled);
     --select-border-width: var(--border-width-base);
     --select-border-color: var(--border-color-base);
-    --select-color: #555;
-    --select-item-hover: var(--background-color-light);
+    --select-color: var(--color-base);
+    --select-color-disabled: var(--brand-disabled-dark);
+    --select-item-hover: var(--background-color-lighter);
     --select-popper-max-height: 194px;
     --select-popper-line-height: 1.6;
     --select-popper-line-height-small: 1.6;
     --select-placeholder-color: var(--color-lighter);
-    --select-arrow-color: #a5a5a6;
+    --select-arrow-color: var(--color-light);
     --select-arrow-size: 18px;
     --select-arrow-right-ratio: 0.6;
     --select-tags-padding-y: 2px;
@@ -560,7 +567,7 @@
     --select-tag-remove-color-hover: var(--color-base);
     --select-popper-background: white;
     --select-popper-border-color: var(--border-color-base);
-    --select-status-color: var(--gray-dark);
+    --select-status-color: var(--color-light);
 
     /* Slider */
     --slider-body-margin: 0 10px;
@@ -584,17 +591,29 @@
     --uploader-input-font-size: 100px;
 
     /* List View */
-    --list-view-background: white;
-    --list-view-border-color: #e1e8ed;
-    --list-view-border-color-focus: #e1e8ed;
-    --list-view-status-color: var(--gray-dark);
+    --list-view-width: var(--width-medium);
+    --list-view-width-large: var(--width-large);
+    --list-view-width-huge: var(--width-huge);
+    --list-view-height: calc(30px * 10 + var(--border-width-base) * 2);
+    --list-view-height-large: calc(30px * 18 + var(--border-width-base) * 2);
+    --list-view-height-huge: 80vh;
+    --list-view-head-background: var(--background-color-base);
+    --list-view-body-background: white;
+    --list-view-body-background-disabled: white;
+    --list-view-foot-background: white;
+    --list-view-border-color: var(--border-color-base);
+    --list-view-border-color-focus: var(--border-color-base);
+    --list-view-border-color-disabled: var(--brand-disabled);
+    --list-view-status-color: var(--color-light);
+    --list-view-head-padding: 8px 12px;
+    --list-view-foot-padding: 8px 12px;
     --list-view-item-padding: 4px 12px;
-    --list-view-item-background-hover: var(--background-color-light);
+    --list-view-item-background-hover: var(--background-color-lighter);
     --list-view-item-background-readonly: none;
-    --list-view-item-background-focused: var(--background-color-light);
+    --list-view-item-background-focused: var(--background-color-lighter);
     --list-view-item-background-selected: var(--brand-primary);
     --list-view-item-color-selected: white;
-    --list-view-item-color-disabled: #ccc;
+    --list-view-item-color-disabled: var(--brand-disabled-dark);
     --list-view-item-background-disabled: none;
     --list-view-item-background-selected-disabled: var(--brand-disabled-light);
     --list-view-divider-margin: 9px 0;
@@ -602,6 +621,7 @@
     --list-view-group-head-padding: 2px 4px;
     --list-view-group-head-background: #ebedf5;
     --list-view-group-expander-size: 26px;
+    --list-view-filter-margin: 5px;
 
     /* Tree View */
     --tree-view-background: white;
@@ -633,20 +653,24 @@
     --table-view-pagination-space: var(--space-base);
 
     /* Transfer */
-    --transfer-height: 182px;
-    --transfer-width: var(--width-base);
+    --transfer-height: var(--list-view-height);
+    --transfer-height-large: var(--list-view-height-large);
+    --transfer-height-huge: var(--list-view-height-huge);
+    --transfer-width: var(--width-medium);
+    --transfer-width-large: var(--width-large);
+    --transfer-width-huge: var(--width-huge);
     --transfer-button-size: var(--height-base);
     --transfer-button-space: 10px;
-    --transfer-button-background: #67aaf5;
-    --transfer-button-background-hover: #5d93e6;
-    --transfer-button-background-active: #5d93e6;
-    --transfer-button-background-disabled: var(--brand-disabled-light);
+    --transfer-button-background: var(--button-background-primary);
+    --transfer-button-background-hover: var(--button-background-primary-hover);
+    --transfer-button-background-active: var(--button-background-primary-active);
+    --transfer-button-background-disabled: var(--button-background-primary-disabled);
     --transfer-button-color: white;
     --transfer-button-color-hover: white;
     --transfer-button-color-disabled: white;
-    --transfer-button-border-color: rgba(0, 0, 0, 0);
-    --transfer-button-border-color-hover: var(--brand-primary);
-    --transfer-button-border-color-disabled: #dfe4ec;
+    --transfer-button-border-color: var(--button-background-primar);
+    --transfer-button-border-color-hover: var(--button-background-primar-hover);
+    --transfer-button-border-color-disabled: var(--button-background-primar-disabled);
 
     /* Popup */
     --popup-padding: 6px 10px;
@@ -695,7 +719,7 @@
     --modal-dialog-width-large: 600px;
     --modal-close-size: 15px;
     --modal-close-color: var(--gray-light);
-    --modal-close-color-hover: var(--gray-dark);
+    --modal-close-color-hover: var(--color-light);
     --modal-head-padding: 15px;
     --modal-static-padding: var(--space-base);
     --modal-body-padding: 15px;
@@ -710,7 +734,7 @@
     --drawer-background: white;
     --drawer-close-size: 15px;
     --drawer-close-color: var(--gray-light);
-    --drawer-close-color-hover: var(--gray-dark);
+    --drawer-close-color-hover: var(--color-light);
     --drawer-head-padding: 15px;
     --drawer-body-padding: 15px;
     --drawer-foot-padding: 20px 15px;

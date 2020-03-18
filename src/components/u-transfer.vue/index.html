@@ -1,9 +1,41 @@
 <div :class="$style.root">
-    <u-list-view :class="$style.listView" multiple :data="source" v-model="sourceValues"></u-list-view>
+    <u-list-view :class="$style.listView" multiple :data="source" v-model="sourceValues"
+        :textField="textField"
+        :valueField="valueField"
+        :showHead="showHead"
+        :title="sourceTitle"
+        :showFoot="showFoot"
+        :filterable="filterable"
+        :placeholder="placeholder"
+        :clearable="clearable"
+        :matchMethod="matchMethod"
+        :caseSensitive="caseSensitive"
+        :pageable="pageable"
+        :pageSize="pageSize">
+        <template #text="props">
+            <slot name="text" v-on="props"></slot>
+        </template>
+    </u-list-view>
     <div :class="$style.buttons">
-        <span :class="$style.button" role="reverse" :disabled="!targetValues.length" @click="reverse"></span>
-        <span :class="$style.button" role="forward" :disabled="!sourceValues.length" @click="forward"></span>
+        <span :class="$style.button" role="reverse" :disabled="!targetValues.length" @click="reverse()"></span>
+        <span :class="$style.button" role="forward" :disabled="!sourceValues.length" @click="forward()"></span>
     </div>
-    <u-list-view :class="$style.listView" multiple :data="target" v-model="targetValues"></u-list-view>
+    <u-list-view :class="$style.listView" multiple :data="target" v-model="targetValues"
+        :textField="textField"
+        :valueField="valueField"
+        :showHead="showHead"
+        :title="targetTitle"
+        :showFoot="showFoot"
+        :filterable="filterable"
+        :placeholder="placeholder"
+        :clearable="clearable"
+        :matchMethod="matchMethod"
+        :caseSensitive="caseSensitive"
+        :pageable="pageable"
+        :pageSize="pageSize">
+        <template #text="props">
+            <slot name="text" v-on="props"></slot>
+        </template>
+    </u-list-view>
     <slot></slot>
 </div>

@@ -28,7 +28,7 @@
 }
 
 .root[disabled] {
-    color: #ccc;
+    color: var(--select-color-disabled);
     background: none;
 }
 

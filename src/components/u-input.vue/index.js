@@ -14,6 +14,8 @@ export const UInput = {
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         maxlengthMessage: String,
+        prefix: String,
+        suffix: String,
         search: String,
         autoSize: { type: String, validator: (value) => ['horizontal', 'vertical', 'both'].includes(value) },
     },

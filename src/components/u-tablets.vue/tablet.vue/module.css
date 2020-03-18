@@ -5,7 +5,7 @@
     padding: 0 15px;
     height: 32px;
     line-height: 30px;
-    color: #999;
+    color: var(--color-light);
     background: #f7f8fa;
     border: 1px solid #d7dae0;
     border-radius: var(--border-radius-base);
@@ -18,7 +18,7 @@
 .root[selected] {
     position: relative;
     background-color: #f7fcfe;
-    color: #333;
+    color: var(--color-base);
     border-color: var(--brand-primary);
     box-shadow: inset 0 0 0 1px var(--brand-primary);
 }

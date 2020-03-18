@@ -5,7 +5,7 @@
 .label {
     display: inline-block;
     padding-right: var(--form-item-label-padding-right);
-    color: #999;
+    color: var(--color-light);
     text-align: right;
     position: relative;
 }
@@ -139,7 +139,7 @@
 }
 
 .description {
-    color: #999;
+    color: var(--color-light);
     margin-bottom: 10px;
 }
 

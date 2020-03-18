@@ -15,7 +15,7 @@
 .label {
     display: table-cell;
     padding-right: 20px;
-    color: #999;
+    color: var(--color-light);
 }
 
 .root[label-size$="small"] .label { width: 80px; }

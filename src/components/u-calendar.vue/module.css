@@ -34,12 +34,12 @@
 }
 
 .item[role="muted"] {
-    color: #999;
+    color: var(--color-light);
 }
 
 .item[disabled] {
     background: 0 0;
-    color: #999;
+    color: var(--color-light);
     cursor: var(--cursor-not-allowed);
 }
 
@@ -79,12 +79,12 @@
 }
 .root[disabled] .item {
     background: var(--field-background);
-    color: #999;
+    color: var(--color-light);
     cursor: var(--cursor-not-allowed);
 }
 .root[disabled] .item[sel="sel"] {
     background: #eee;
-    color: #999;
+    color: var(--color-light);
 }
 .day {
     white-space: normal;
@@ -149,7 +149,7 @@
 .listitem[disabled], .listitem[disabled]:hover {
     cursor: var(--cursor-not-allowed);
     background-color: var(--field-background);
-    color: #999;
+    color: var(--color-light);
 }
 .listitem:hover {
     background: var(--hover-color);
@@ -179,5 +179,5 @@
     line-height: 16px;
 }
 .yearitem[disabled] {
-    color: #999;
+    color: var(--color-light);
 }

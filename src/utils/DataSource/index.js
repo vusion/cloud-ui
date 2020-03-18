@@ -96,11 +96,11 @@ const VueDataSource = Vue.extend({
         limit() {
             return this.paging ? this.paging.size : Infinity;
         },
+        /**
+         * 当前的总数，过滤后的分页数目
+         */
         total() {
-            if (this.remotePaging)
-                return this.originTotal === Infinity ? this.data.length : this.originTotal;
-            else
-                return this.arrangedData.length;
+            return this.originTotal === Infinity ? this.data.length : this.originTotal;
         },
         totalPage() {
             if (!this.paging)
@@ -160,7 +160,7 @@ const VueDataSource = Vue.extend({
         clearLocalData() {
             this.data = [];
             this.arrangedData = [];
-            this.originTotal = Infinity;
+            // this.originTotal = Infinity;
             this.arranged = false;
             this.initialLoaded = false;
         },

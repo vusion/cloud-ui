@@ -25,7 +25,7 @@
 
 .item:hover {
     color: var(--pagination-item-color-hover);
-    background: #eee;
+    background: var(--pagination-item-background-hover);
     position: relative;
     /* border-color: var(--brand-primary); */
 }
@@ -46,7 +46,7 @@
     padding: 0 4px;
     vertical-align: top;
     border-radius: var(--border-radius-base) 0 0 var(--border-radius-base);
-    color: #999;
+    color: var(--color-light);
 }
 
 .item[role="prev"]::before {
@@ -58,7 +58,7 @@
     padding: 0 4px;
     vertical-align: top;
     border-radius: 0 var(--border-radius-base) var(--border-radius-base) 0;
-    color: #999;
+    color: var(--color-light);
 }
 
 .item[role="next"]::before {

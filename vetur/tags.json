@@ -69,6 +69,7 @@
     "attributes": [
       "list",
       "item-height",
+      "virtual",
       "virtual-count",
       "throttle",
       "tag-name",
@@ -846,47 +847,34 @@
     "attributes": [
       "value",
       "field",
+      "text-field",
+      "value-field",
       "data",
       "data-source",
       "cancelable",
       "multiple",
-      "collapsible",
-      "accordion",
-      "expand-trigger",
+      "show-head",
+      "title",
+      "show-foot",
       "loading-text",
       "initial-load",
+      "filterable",
+      "placeholder",
+      "clearable",
+      "match-method",
+      "case-sensitive",
+      "remote-filtering",
       "pageable",
       "page-size",
       "remote-paging",
       "readonly",
-      "disabled"
+      "disabled",
+      "size"
     ],
+    "description": "用于列举大量数据的列表框，支持单选、多选、过滤（搜索）、分页等功能。",
     "defaults": [
       "v-model"
-    ],
-    "subtags": [
-      "u-list-view-item",
-      "u-list-view-group",
-      "u-list-view-divider"
     ]
-  },
-  "u-list-view-item": {
-    "attributes": [
-      "value",
-      "disabled",
-      "item"
-    ]
-  },
-  "u-list-view-group": {
-    "attributes": [
-      "title",
-      "collapsible",
-      "expanded",
-      "disabled"
-    ]
-  },
-  "u-list-view-divider": {
-    "attributes": []
   },
   "u-list": {
     "attributes": [
@@ -1566,6 +1554,19 @@
     "attributes": [
       "source",
       "target",
+      "text-field",
+      "value-field",
+      "show-head",
+      "source-title",
+      "target-title",
+      "show-foot",
+      "filterable",
+      "placeholder",
+      "clearable",
+      "match-method",
+      "case-sensitive",
+      "pageable",
+      "page-size",
       "readonly",
       "disabled"
     ],

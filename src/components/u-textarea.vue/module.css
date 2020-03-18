@@ -47,7 +47,7 @@
 .input::placeholder {
     /* Removes placeholder transparency in Firefox. */
     opacity: 1;
-    color: #999;
+    color: var(--color-light);
 }
 
 .root[focus] {

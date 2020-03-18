@@ -193,11 +193,11 @@ export default {
 
 #### 滚动加载更多
 
-通过设置`pageable="scroll"`，可以用滚动加载更多代替翻页器。
+通过设置`pageable="auto-more"`，可以用滚动加载更多代替翻页器。
 
 ``` vue
 <template>
-<u-table-view striped :data-source="load" pageable="scroll" :page-size="10" remote-paging style="height: 300px;">
+<u-table-view striped :data-source="load" pageable="auto-more" :page-size="10" remote-paging style="height: 300px;">
     <u-table-view-column title="用户名" field="name" width="15%"></u-table-view-column>
     <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
     <u-table-view-column title="地址" field="address"></u-table-view-column>
@@ -240,13 +240,13 @@ export default {
 </script>
 ```
 
-#### 加载更多按钮
+#### 手动加载更多
 
-通过设置`pageable="button"`，可以用加载更多按钮代替翻页器。
+通过设置`pageable="load-more"`，可以用加载更多按钮代替翻页器。
 
 ``` vue
 <template>
-<u-table-view striped :data-source="load" pageable="button" :page-size="10" remote-paging>
+<u-table-view striped :data-source="load" pageable="load-more" :page-size="10" remote-paging>
     <u-table-view-column title="用户名" field="name" width="15%"></u-table-view-column>
     <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
     <u-table-view-column title="地址" field="address"></u-table-view-column>

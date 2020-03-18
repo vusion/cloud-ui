@@ -35,12 +35,12 @@
 
 .percent {
     font-size: var(--circular-progress-percent-font-size);
-    color: #999;
+    color: var(--color-light);
     line-height: 30px;
 }
 
 .foot {
     text-align: center;
-    color: #999;
+    color: var(--color-light);
     font-size: 14px;
 }
