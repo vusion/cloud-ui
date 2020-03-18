@@ -83,82 +83,82 @@ export default {
 ### 弹出方位
 
 ``` html
-<u-linear-layout direction="vertical">
-    <u-linear-layout style="text-align: center; margin-bottom: 10px;">
-        <u-button style="margin: 6px">
-            top-start
+<u-linear-layout direction="vertical" style="min-width: 300px; max-width: 600px;">
+    <u-linear-layout justify="center" gap="small">
+        <u-button>
+            上左
             <m-popper placement="top-start">
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button style="margin: 6px">
-            top
+        <u-button>
+            上边
             <m-popper placement="top">
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button style="margin: 6px">
-            top-end
+        <u-button>
+            上右
             <m-popper placement="top-end">
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout style="float: left; width: 200px; text-align: right; margin-bottom: 10px;">
-        <u-button style="margin: 6px">
-            left-start
+    <u-linear-layout direction="vertical" justify="center" gap="small" style="width: 150px; float: left">
+        <u-button>
+            左上
             <m-popper placement="left-start">
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button style="margin: 6px">
-            left
+        <u-button>
+            左边
             <m-popper placement="left">
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button style="margin: 6px">
-            left-end
+        <u-button>
+            左下
             <m-popper placement="left-end">
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout style="float: right; width: 200px; margin-bottom: 10px;">
-        <u-button style="margin: 6px">
-            right-start
+    <u-linear-layout direction="vertical" justify="center" gap="small" style="width: 150px; float: right">
+        <u-button>
+            右上
             <m-popper placement="right-start">
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button style="margin: 6px">
-            right
+        <u-button>
+            右边
             <m-popper placement="right">
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button style="margin: 6px">
-            right-end
+        <u-button>
+            右下
             <m-popper placement="right-end">
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout style="clear: both; text-align: center">
-        <u-button style="margin: 6px">
-            bottom-start
+    <u-linear-layout justify="center" gap="small" style="clear: both;">
+        <u-button>
+            下左
             <m-popper placement="bottom-start">
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button style="margin: 6px">
-            bottom
+        <u-button>
+            下边
             <m-popper placement="bottom">
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button style="margin: 6px">
-            bottom-end
+        <u-button>
+            下右
             <m-popper placement="bottom-end">
                 <u-block>popper</u-block>
             </m-popper>
@@ -172,90 +172,90 @@ export default {
 将`'follow-cursor'`属性设置为`true`可以跟随鼠标。也可以传一个数字或对象调整位置偏移。
 
 ``` html
-<u-linear-layout direction="vertical">
-    <u-linear-layout style="text-align: center; margin-bottom: 10px;">
-        <u-button style="margin: 6px">
-            top-start
+<u-linear-layout direction="vertical" style="min-width: 300px; max-width: 600px;">
+    <u-linear-layout justify="center" gap="small">
+        <u-button>
+            上左
             <m-popper trigger="hover" placement="top-start" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button style="margin: 6px">
-            top
+        <u-button>
+            上边
             <m-popper trigger="hover" placement="top" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button style="margin: 6px">
-            top-end
+        <u-button>
+            上右
             <m-popper trigger="hover" placement="top-end" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout style="float: left; width: 200px; text-align: right; margin-bottom: 10px;">
-        <u-button style="margin: 6px">
-            left-start
+    <u-linear-layout direction="vertical" gap="small" justify="center" style="width: 150px; float: left">
+        <u-button>
+            左上
             <m-popper trigger="hover" placement="left-start" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button style="margin: 6px">
-            left
+        <u-button>
+            左边
             <m-popper trigger="hover" placement="left" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button style="margin: 6px">
-            left-end
+        <u-button>
+            左下
             <m-popper trigger="hover" placement="left-end" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout style="float: right; width: 200px; margin-bottom: 10px;">
-        <u-button style="margin: 6px">
-            right-start
+    <u-linear-layout direction="vertical" justify="center" gap="small" style="width: 150px; float: right">
+        <u-button>
+            右上
             <m-popper trigger="hover" placement="right-start" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button style="margin: 6px">
-            right
+        <u-button>
+            右边
             <m-popper trigger="hover" placement="right" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button style="margin: 6px">
-            right-end
+        <u-button>
+            右下
             <m-popper trigger="hover" placement="right-end" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout style="clear: both; text-align: center">
-        <u-button style="margin: 6px">
-            bottom-start
+    <u-linear-layout justify="center" gap="small" style="clear: both">
+        <u-button>
+            下左
             <m-popper trigger="hover" placement="bottom-start" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button style="margin: 6px">
-            bottom
+        <u-button>
+            下边
             <m-popper trigger="hover" placement="bottom" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
-        <u-button style="margin: 6px">
-            bottom-end
+        <u-button>
+            下右
             <m-popper trigger="hover" placement="bottom-end" follow-cursor>
                 <u-block>popper</u-block>
             </m-popper>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout style="text-align: center">
+    <u-linear-layout justify="center">
         <u-button>
-            custom
+            自定义
             <m-popper trigger="hover" placement="bottom-start" :follow-cursor="50">
                 <u-block>popper</u-block>
             </m-popper>

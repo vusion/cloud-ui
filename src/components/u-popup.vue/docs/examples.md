@@ -112,60 +112,60 @@ export default {
 ### 弹出位置
 
 ``` html
-<u-linear-layout direction="vertical">
-    <u-linear-layout style="text-align: center; margin-bottom: 10px;">
-        <u-button style="margin: 6px">
-            top-start
+<u-linear-layout direction="vertical" style="min-width: 300px; max-width: 600px;">
+    <u-linear-layout justify="center" gap="small">
+        <u-button>
+            上左
             <u-popup placement="top-start">Popup</u-popup>
         </u-button>
-        <u-button style="margin: 6px">
-            top
+        <u-button>
+            上边
             <u-popup placement="top">Popup</u-popup>
         </u-button>
-        <u-button style="margin: 6px">
-            top-end
+        <u-button>
+            上右
             <u-popup placement="top-end">Popup</u-popup>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout style="float: left; width: 200px; text-align: right; margin-bottom: 10px;">
-        <u-button style="margin: 6px">
-            left-start
+    <u-linear-layout direction="vertical" justify="center" gap="small" style="width: 150px; float: left">
+        <u-button>
+            左上
             <u-popup placement="left-start">Popup</u-popup>
         </u-button>
-        <u-button style="margin: 6px">
-            left
+        <u-button>
+            左边
             <u-popup placement="left">Popup</u-popup>
         </u-button>
-        <u-button style="margin: 6px">
-            left-end
+        <u-button>
+            左下
             <u-popup placement="left-end">Popup</u-popup>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout style="float: right; width: 200px; margin-bottom: 10px;">
-        <u-button style="margin: 6px">
-            right-start
+    <u-linear-layout direction="vertical" justify="center" gap="small" style="width: 150px; float: right">
+        <u-button>
+            右上
             <u-popup placement="right-start">Popup</u-popup>
         </u-button>
-        <u-button style="margin: 6px">
-            right
+        <u-button>
+            右边
             <u-popup placement="right">Popup</u-popup>
         </u-button>
-        <u-button style="margin: 6px">
-            right-end
+        <u-button>
+            右下
             <u-popup placement="right-end">Popup</u-popup>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout style="clear: both; text-align: center">
-        <u-button style="margin: 6px">
-            bottom-start
+    <u-linear-layout justify="center" gap="small" style="clear: both;">
+        <u-button>
+            下左
             <u-popup placement="bottom-start">Popup</u-popup>
         </u-button>
-        <u-button style="margin: 6px">
-            bottom
+        <u-button>
+            下边
             <u-popup placement="bottom">Popup</u-popup>
         </u-button>
-        <u-button style="margin: 6px">
-            bottom-end
+        <u-button>
+            下右
             <u-popup placement="bottom-end">Popup</u-popup>
         </u-button>
     </u-linear-layout>
@@ -177,60 +177,60 @@ export default {
 将`'follow-cursor'`属性设置为`true`可以跟随鼠标。也可以传一个数字或对象调整位置偏移。
 
 ``` html
-<u-linear-layout direction="vertical">
-    <u-linear-layout style="text-align: center; margin-bottom: 10px;">
-        <u-button style="margin: 6px">
-            top-start
+<u-linear-layout direction="vertical" style="min-width: 300px; max-width: 600px;">
+    <u-linear-layout justify="center" gap="small">
+        <u-button>
+            上左
             <u-popup placement="top-start" follow-cursor>Popup</u-popup>
         </u-button>
-        <u-button style="margin: 6px">
-            top
+        <u-button>
+            上边
             <u-popup placement="top" follow-cursor>Popup</u-popup>
         </u-button>
-        <u-button style="margin: 6px">
-            top-end
+        <u-button>
+            上右
             <u-popup placement="top-end" follow-cursor>Popup</u-popup>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout style="float: left; width: 200px; text-align: right; margin-bottom: 10px;">
-        <u-button style="margin: 6px">
-            left-start
+    <u-linear-layout direction="vertical" justify="center" gap="small" style="width: 150px; float: left">
+        <u-button>
+            左上
             <u-popup placement="left-start" follow-cursor>Popup</u-popup>
         </u-button>
-        <u-button style="margin: 6px">
-            left
+        <u-button>
+            左边
             <u-popup placement="left" follow-cursor>Popup</u-popup>
         </u-button>
-        <u-button style="margin: 6px">
-            left-end
+        <u-button>
+            左下
             <u-popup placement="left-end" follow-cursor>Popup</u-popup>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout style="float: right; width: 200px; margin-bottom: 10px;">
-        <u-button style="margin: 6px">
-            right-start
+    <u-linear-layout direction="vertical" justify="center" gap="small" style="width: 150px; float: right">
+        <u-button>
+            右上
             <u-popup placement="right-start" follow-cursor>Popup</u-popup>
         </u-button>
-        <u-button style="margin: 6px">
-            right
+        <u-button>
+            右边
             <u-popup placement="right" follow-cursor>Popup</u-popup>
         </u-button>
-        <u-button style="margin: 6px">
-            right-end
+        <u-button>
+            右下
             <u-popup placement="right-end" follow-cursor>Popup</u-popup>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout style="clear: both; text-align: center">
-        <u-button style="margin: 6px">
-            bottom-start
+    <u-linear-layout justify="center" gap="small" style="clear: both;">
+        <u-button>
+            下左
             <u-popup placement="bottom-start" follow-cursor>Popup</u-popup>
         </u-button>
-        <u-button style="margin: 6px">
-            bottom
+        <u-button>
+            下边
             <u-popup placement="bottom" follow-cursor>Popup</u-popup>
         </u-button>
-        <u-button style="margin: 6px">
-            bottom-end
+        <u-button>
+            下右
             <u-popup placement="bottom-end" follow-cursor>Popup</u-popup>
         </u-button>
     </u-linear-layout>
