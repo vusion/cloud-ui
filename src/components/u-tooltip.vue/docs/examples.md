@@ -70,7 +70,7 @@ export default {
 ### 弹出位置
 
 ``` html
-<u-linear-layout direction="vertical" style="min-width: 300px; max-width: 600px;">
+<u-linear-layout direction="vertical" style="min-width: 300px; max-width: 550px;">
     <u-linear-layout justify="center" gap="small">
         <u-button>
             上左
@@ -133,7 +133,7 @@ export default {
 #### 指令形式
 
 ``` html
-<u-linear-layout direction="vertical" style="min-width: 300px; max-width: 600px;">
+<u-linear-layout direction="vertical" style="min-width: 300px; max-width: 550px;">
     <u-linear-layout justify="center" gap="small">
         <u-button v-tooltip.top-start="'Tooltip'">上左</u-button>
         <u-button v-tooltip.top="'Tooltip'">上边</u-button>
@@ -162,7 +162,7 @@ export default {
 将`'follow-cursor'`属性设置为`true`可以跟随鼠标。也可以传一个数字或对象调整位置偏移。
 
 ``` html
-<u-linear-layout direction="vertical" style="min-width: 300px; max-width: 600px;">
+<u-linear-layout direction="vertical" style="min-width: 300px; max-width: 550px;">
     <u-linear-layout justify="center" gap="small">
         <u-button>
             上左
