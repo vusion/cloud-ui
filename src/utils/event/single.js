@@ -42,7 +42,8 @@ export default {
         const eventDataName = initEvent(name, element, type, listener, options);
         token++;
         eventsData[eventDataName].data[token] = data;
-        return () => off(name, element, type, token);
+        const i = token;
+        return () => off(name, element, type, i);
     },
     off,
     getToken() {
