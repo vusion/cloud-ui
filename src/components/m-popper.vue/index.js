@@ -22,7 +22,7 @@ export const MPopper = {
             validator: (value) => /^(top|bottom|left|right)(-start|-end)?$/.test(value),
         },
         hoverDelay: { type: Number, default: 0 },
-        hideDelay: { type: Number, default: 0 },
+        hideDelay: { type: Number, default: 200 },
         appendTo: { type: String, default: 'body', validator: (value) => ['body', 'reference'].includes(value) },
         boundariesElement: { default: 'window' },
         arrowElement: { type: String, default: '[u-arrow]' },
@@ -115,9 +115,7 @@ export const MPopper = {
         this.destroyPopper();
         // 取消绑定事件
         this.offEvents.forEach((off) => off());
-        this.timers.forEach((timer) => {
-            clearTimeout(timer);
-        });
+        this.clearTimers();
     },
     methods: {
         getOptions() {
@@ -217,28 +215,26 @@ export const MPopper = {
                     this.followCursor && this.$nextTick(() => this.updatePositionByCursor(e, el));
                 }));
             else if (event === 'hover') {
-                let timer;
                 this.offEvents.push(ev.on(el, 'mouseenter', (e) => {
-                    timer = clearTimeout(timer);
+                    this.clearTimers();
                     this.timers[0] = setTimeout(() => {
                         this.open();
                         this.followCursor && this.$nextTick(() => this.updatePositionByCursor(e, el));
                     }, this.hoverDelay);
                 }));
-                this.offEvents.push(
-                    single.on('m-popper-proto', {
-                        self: this,
-                        el,
-                        popperEl,
-                        timer,
-                    }, document, 'mousemove', (e, datas) => {
-                        Object.values(datas).forEach(({ el, popperEl, self, timer }) => {
-                            if (self.currentOpened && !timer && !el.contains(e.target) && !popperEl.contains(e.target)) {
-                                self.timers[1] = setTimeout(() => self.close(), self.hideDelay);
-                            }
-                        });
-                    })
-                );
+                this.offEvents.push(ev.on(el, 'mouseleave', () => {
+                    this.clearTimers();
+                    this.timers[1] = setTimeout(() => this.close(), this.hideDelay);
+                }));
+                // 对 popper 元素增加事件，当鼠标移动到 popper 上时，元素不消失
+                this.offEvents.push(ev.on(popperEl, 'mouseenter', (e) => {
+                    this.clearTimers();
+                    this.timers[0] = setTimeout(() => this.open(), this.hoverDelay);
+                }));
+                this.offEvents.push(ev.on(popperEl, 'mouseleave', () => {
+                    this.clearTimers();
+                    this.timers[1] = setTimeout(() => this.close(), this.hideDelay);
+                }));
             } else if (event === 'double-click')
                 this.offEvents.push(ev.on(el, 'dblclick', (e) => {
                     this.toggle();
@@ -376,6 +372,11 @@ export const MPopper = {
             this.$emit('toggle', { opened }, this);
             // @deprecated end
         },
+        clearTimers() {
+            this.timers.forEach((timer) => {
+                clearTimeout(timer);
+            });
+        }
     },
 };
 
