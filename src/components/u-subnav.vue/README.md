@@ -1,6 +1,6 @@
 <!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-# Subnav 子导航
+# USubnav 子导航
 
 ## 示例
 ### 基本用法
@@ -65,7 +65,7 @@
 </u-subnav>
 ```
 
-## Subnav API
+## USubnav API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
@@ -115,7 +115,7 @@
 | $event.item | object | 单选模式中，选择项相关对象 |
 | $event.itemVM | subnavItem | 单选模式中，选择项子组件 |
 
-## SubnavItem API
+## USubnavItem API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
@@ -169,6 +169,6 @@
 | $event.replace | boolean | `replace`属性的值 |
 | $event.exact | boolean | `exact`属性的值 |
 
-## SubnavDivider API
+## USubnavDivider API
 
 暂无

@@ -75,60 +75,60 @@ export default {
 ### 弹出位置
 
 ``` html
-<u-linear-layout direction="vertical">
-    <u-linear-layout>
+<u-linear-layout direction="vertical" style="min-width: 300px; max-width: 550px;">
+    <u-linear-layout justify="center" gap="small">
         <u-button>
-            top-start
+            上左
             <u-tooltip placement="top-start">Tooltip</u-tooltip>
         </u-button>
         <u-button>
-            top
+            上边
             <u-tooltip placement="top">Tooltip</u-tooltip>
         </u-button>
         <u-button>
-            top-end
+            上右
             <u-tooltip placement="top-end">Tooltip</u-tooltip>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
+    <u-linear-layout direction="vertical" justify="center" style="width: 150px; float: left">
         <u-button>
-            left-start
+            左上
             <u-tooltip placement="left-start">Tooltip</u-tooltip>
         </u-button>
         <u-button>
-            left
+            左边
             <u-tooltip placement="left">Tooltip</u-tooltip>
         </u-button>
         <u-button>
-            left-end
+            左下
             <u-tooltip placement="left-end">Tooltip</u-tooltip>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
+    <u-linear-layout direction="vertical" justify="center" style="width: 150px; float: right">
         <u-button>
-            right-start
+            右上
             <u-tooltip placement="right-start">Tooltip</u-tooltip>
         </u-button>
         <u-button>
-            right
+            右边
             <u-tooltip placement="right">Tooltip</u-tooltip>
         </u-button>
         <u-button>
-            right-end
+            右下
             <u-tooltip placement="right-end">Tooltip</u-tooltip>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
+    <u-linear-layout justify="center" gap="small" style="clear: both">
         <u-button>
-            bottom-start
+            下左
             <u-tooltip placement="bottom-start">Tooltip</u-tooltip>
         </u-button>
         <u-button>
-            bottom
+            下边
             <u-tooltip placement="bottom">Tooltip</u-tooltip>
         </u-button>
         <u-button>
-            bottom-end
+            下右
             <u-tooltip placement="bottom-end">Tooltip</u-tooltip>
         </u-button>
     </u-linear-layout>
@@ -138,26 +138,26 @@ export default {
 #### 指令形式
 
 ``` html
-<u-linear-layout direction="vertical">
-    <u-linear-layout>
-        <u-button v-tooltip.top-start="'Tooltip'">top-start</u-button>
-        <u-button v-tooltip.top="'Tooltip'">top</u-button>
-        <u-button v-tooltip.top-end="'Tooltip'">top-end</u-button>
+<u-linear-layout direction="vertical" style="min-width: 300px; max-width: 550px;">
+    <u-linear-layout justify="center" gap="small">
+        <u-button v-tooltip.top-start="'Tooltip'">上左</u-button>
+        <u-button v-tooltip.top="'Tooltip'">上边</u-button>
+        <u-button v-tooltip.top-end="'Tooltip'">上右</u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button v-tooltip.left-start="'Tooltip'">left-start</u-button>
-        <u-button v-tooltip.left="'Tooltip'">left</u-button>
-        <u-button v-tooltip.left-end="'Tooltip'">left-end</u-button>
+    <u-linear-layout direction="vertical" justify="center" style="width: 150px; float: left">
+        <u-button v-tooltip.left-start="'Tooltip'">左上</u-button>
+        <u-button v-tooltip.left="'Tooltip'">左边</u-button>
+        <u-button v-tooltip.left-end="'Tooltip'">左下</u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button v-tooltip.right-start="'Tooltip'">right-start</u-button>
-        <u-button v-tooltip.right="'Tooltip'">right</u-button>
-        <u-button v-tooltip.right-end="'Tooltip'">right-end</u-button>
+    <u-linear-layout direction="vertical" justify="center" style="width: 150px; float: right">
+        <u-button v-tooltip.right-start="'Tooltip'">右上</u-button>
+        <u-button v-tooltip.right="'Tooltip'">右边</u-button>
+        <u-button v-tooltip.right-end="'Tooltip'">右下</u-button>
     </u-linear-layout>
-    <u-linear-layout>
-        <u-button v-tooltip.bottom-start="'Tooltip'">bottom-start</u-button>
-        <u-button v-tooltip.bottom="'Tooltip'">bottom</u-button>
-        <u-button v-tooltip.bottom-end="'Tooltip'">bottom-end</u-button>
+    <u-linear-layout justify="center" gap="small" style="clear: both">
+        <u-button v-tooltip.bottom-start="'Tooltip'">下左</u-button>
+        <u-button v-tooltip.bottom="'Tooltip'">下边</u-button>
+        <u-button v-tooltip.bottom-end="'Tooltip'">下右</u-button>
     </u-linear-layout>
 </u-linear-layout>
 ```
@@ -167,60 +167,60 @@ export default {
 将`'follow-cursor'`属性设置为`true`可以跟随鼠标。也可以传一个数字或对象调整位置偏移。
 
 ``` html
-<u-linear-layout direction="vertical">
-    <u-linear-layout>
+<u-linear-layout direction="vertical" style="min-width: 300px; max-width: 550px;">
+    <u-linear-layout justify="center" gap="small">
         <u-button>
-            top-start
+            上左
             <u-tooltip placement="top-start" follow-cursor>Tooltip</u-tooltip>
         </u-button>
         <u-button>
-            top
+            上边
             <u-tooltip placement="top" follow-cursor>Tooltip</u-tooltip>
         </u-button>
         <u-button>
-            top-end
+            上右
             <u-tooltip placement="top-end" follow-cursor>Tooltip</u-tooltip>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
+    <u-linear-layout direction="vertical" justify="center" style="width: 150px; float: left">
         <u-button>
-            left-start
+            左上
             <u-tooltip placement="left-start" follow-cursor>Tooltip</u-tooltip>
         </u-button>
         <u-button>
-            left
+            左边
             <u-tooltip placement="left" follow-cursor>Tooltip</u-tooltip>
         </u-button>
         <u-button>
-            left-end
+            左下
             <u-tooltip placement="left-end" follow-cursor>Tooltip</u-tooltip>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
+    <u-linear-layout direction="vertical" justify="center" style="width: 150px; float: right">
         <u-button>
-            right-start
+            右上
             <u-tooltip placement="right-start" follow-cursor>Tooltip</u-tooltip>
         </u-button>
         <u-button>
-            right
+            右边
             <u-tooltip placement="right" follow-cursor>Tooltip</u-tooltip>
         </u-button>
         <u-button>
-            right-end
+            右下
             <u-tooltip placement="right-end" follow-cursor>Tooltip</u-tooltip>
         </u-button>
     </u-linear-layout>
-    <u-linear-layout>
+    <u-linear-layout justify="center" gap="small" style="clear: both">
         <u-button>
-            bottom-start
+            下左
             <u-tooltip placement="bottom-start" follow-cursor>Tooltip</u-tooltip>
         </u-button>
         <u-button>
-            bottom
+            下边
             <u-tooltip placement="bottom" follow-cursor>Tooltip</u-tooltip>
         </u-button>
         <u-button>
-            bottom-end
+            下右
             <u-tooltip placement="bottom-end" follow-cursor>Tooltip</u-tooltip>
         </u-button>
     </u-linear-layout>
@@ -308,7 +308,7 @@ export default {
 | opened.sync | boolean |  | `false` | 弹出/关闭状态 |
 | trigger | string |  | `'hover'` | 工具提示的触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`, `'manual'` |
 | placement | string |  | `'bottom'` | 工具提示的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',` 'left-end'`, `'right-start'`, `'right-end'` |
-| hide-delay | number |  | `0` | 提示内容消失延迟时间，单位是 ms |
+| hide-delay | number |  | `200` | 提示内容消失延迟时间，单位是 ms |
 | offset | string |  | `'0'` | 弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px` |
 | follow-cursor | boolean, number, object |  | `false` | 是否跟随鼠标 |
 | disabled | boolean |  | `false` | 是否禁用 |

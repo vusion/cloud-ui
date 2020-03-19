@@ -1,6 +1,6 @@
 <!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-# InfoList 详情列表
+# UInfoList 详情列表
 
 ## 示例
 ### 基本用法
@@ -62,7 +62,7 @@
 </u-info-list>
 ```
 
-## InfoList API
+## UInfoList API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
@@ -76,7 +76,7 @@
 
 插入`<u-info-list-item>`或`<u-info-list-group>`子组件。
 
-## InfoListItem API
+## UInfoListItem API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
@@ -96,7 +96,7 @@
 
 用于自定义 label 内容。
 
-## InfoListGroup API
+## UInfoListGroup API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |

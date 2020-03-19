@@ -290,7 +290,7 @@
     ],
     "description": "用于触发一个即时操作。"
   },
-  "calendar": {
+  "u-calendar": {
     "attributes": [
       "date",
       "min-date",
@@ -351,7 +351,7 @@
       "value"
     ]
   },
-  "cascade-capsules": {
+  "u-cascade-capsules": {
     "attributes": [
       "data",
       "value",
@@ -493,7 +493,7 @@
     ],
     "description": "提供复制文本到浏览器剪切板功能"
   },
-  "count-up": {
+  "u-count-up": {
     "attributes": [
       "start",
       "end",
@@ -530,7 +530,7 @@
       "disabled"
     ]
   },
-  "date-picker": {
+  "u-date-picker": {
     "attributes": [
       "width",
       "date",
@@ -559,22 +559,22 @@
       "yearAdd"
     ]
   },
-  "desc-list": {
+  "u-desc-list": {
     "attributes": [
       "label-size"
     ],
     "subtags": [
-      "desc-list-item",
-      "desc-list-group"
+      "u-desc-list-item",
+      "u-desc-list-group"
     ]
   },
-  "desc-list-item": {
+  "u-desc-list-item": {
     "attributes": [
       "label",
       "label-size"
     ]
   },
-  "desc-list-group": {
+  "u-desc-list-group": {
     "attributes": [
       "title",
       "label-size"
@@ -728,17 +728,17 @@
     ],
     "description": "图标与`<u-tooltip>`的组合。"
   },
-  "info-list": {
+  "u-info-list": {
     "attributes": [
       "column",
       "label-size"
     ],
     "subtags": [
-      "info-list-item",
-      "info-list-group"
+      "u-info-list-item",
+      "u-info-list-group"
     ]
   },
-  "info-list-item": {
+  "u-info-list-item": {
     "attributes": [
       "label",
       "column",
@@ -746,7 +746,7 @@
       "ellipsis"
     ]
   },
-  "info-list-group": {
+  "u-info-list-group": {
     "attributes": [
       "title",
       "label-size"
@@ -1188,7 +1188,7 @@
   "u-select-divider": {
     "attributes": []
   },
-  "selectable-steps": {
+  "u-selectable-steps": {
     "attributes": [
       "value",
       "readonly",
@@ -1198,10 +1198,10 @@
       "v-model"
     ],
     "subtags": [
-      "selectable-step"
+      "u-selectable-step"
     ]
   },
-  "selectable-step": {
+  "u-selectable-step": {
     "attributes": [
       "title",
       "disabled"
@@ -1300,7 +1300,7 @@
       "disabled"
     ]
   },
-  "subnav": {
+  "u-subnav": {
     "attributes": [
       "router",
       "value",
@@ -1312,11 +1312,11 @@
       "v-model"
     ],
     "subtags": [
-      "subnav-item",
-      "subnav-divider"
+      "u-subnav-item",
+      "u-subnav-divider"
     ]
   },
-  "subnav-item": {
+  "u-subnav-item": {
     "attributes": [
       "value",
       "disabled",
@@ -1328,7 +1328,7 @@
       "exact"
     ]
   },
-  "subnav-divider": {
+  "u-subnav-divider": {
     "attributes": []
   },
   "u-subtabs": {

@@ -714,7 +714,7 @@ export default {
 
 ``` vue
 <template>
-<u-form-item label="选择语言" required rules="required | minLength(2) | maxLength(5)">
+<u-form-item label="选择语言" required rules="required | minLength(2) @i | maxLength(5) @i">
     <u-list-view multiple v-model="values" :data-source="list" show-head title="语言列表"></u-list-view>
 </u-form-item>
 </template>
