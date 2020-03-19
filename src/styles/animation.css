@@ -1,12 +1,12 @@
 :global .fade-enter-active, :global .fade-leave-active {
-    transition: opacity 0.5s;
+    transition: opacity var(--transition-duration-base);
 }
 :global .fade-enter, :global .fade-leave-to {
     opacity: 0;
 }
 
 :global .fade-fast-enter-active, :global .fade-fast-leave-active {
-    transition: opacity 0.2s;
+    transition: opacity var(--transition-duration-fast);
 }
 :global .fade-fast-enter, :global .fade-fast-leave-to {
     opacity: 0;
@@ -14,7 +14,7 @@
 
 :global .fly-left-enter-active, :global .fly-left-leave-active {
     transform: translate(0);
-    transition: transform 0.2s;
+    transition: transform var(--transition-duration-base);
 }
 :global .fly-left-enter, :global .fly-left-leave-to {
     transform: translate(-100%);
@@ -22,7 +22,7 @@
 
 :global .fly-right-enter-active, :global .fly-right-leave-active {
     transform: translate(0);
-    transition: transform 0.2s;
+    transition: transform var(--transition-duration-base);
 }
 :global .fly-right-enter, :global .fly-right-leave-to {
     transform: translate(100%);

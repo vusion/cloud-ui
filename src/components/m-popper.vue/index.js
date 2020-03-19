@@ -376,7 +376,7 @@ export const MPopper = {
             this.timers.forEach((timer) => {
                 clearTimeout(timer);
             });
-        }
+        },
     },
 };
 
