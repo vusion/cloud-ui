@@ -28,7 +28,7 @@
         'left-end'`, `'right-start'`, `'right-end'`
     - name: hide-delay
       type: number
-      default: 0
+      default: 200
       description: 提示内容消失延迟时间，单位是 ms
     - name: offset
       type: string
