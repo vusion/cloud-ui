@@ -3,13 +3,15 @@ import UListView from '../u-list-view.vue';
 export const UTransfer = {
     name: 'u-transfer',
     props: {
-        source: { type: Array, default: () => [] },
-        target: { type: Array, default: () => [] },
+        source: Array,
+        target: Array,
         textField: UListView.props.textField,
         valueField: UListView.props.valueField,
         showHead: UListView.props.showHead,
         sourceTitle: { type: String, default: '列表' },
         targetTitle: { type: String, default: '列表' },
+        loading: UListView.props.loading,
+        error: UListView.props.error,
         showFoot: UListView.props.showFoot,
         filterable: UListView.props.filterable,
         placeholder: UListView.props.placeholder,

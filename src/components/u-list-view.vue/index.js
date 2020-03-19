@@ -30,7 +30,11 @@ export const UListView = {
         showHead: { type: Boolean, default: false },
         title: { type: String, default: '列表' },
         showFoot: { type: Boolean, default: false },
+        loading: { type: Boolean, default: false },
         loadingText: { type: String, default() { return this.$t('loading'); } },
+        error: { type: Boolean, default: false },
+        errorText: { type: String, default() { return this.$t('error'); } },
+        emptyText: { type: String, default() { return this.$t('empty'); } },
         initialLoad: { type: Boolean, default: true },
         filterable: { type: Boolean, default: false },
         placeholder: { type: String, default: '请输入' },
@@ -55,7 +59,8 @@ export const UListView = {
             // @inherit: selectedVMs: undefined,
             // @inherit: currentMultiple: this.multiple,
             currentDataSource: undefined,
-            currentLoading: false,
+            currentLoading: this.loading,
+            currentError: this.error,
             // virtualIndex: 0,
             // virtualTop: 0,
             // virtualBottom: 0,
@@ -109,6 +114,12 @@ export const UListView = {
         },
         dataSource(dataSource) {
             this.handleData();
+        },
+        loading(loading) {
+            this.currentLoading = loading;
+        },
+        error(error) {
+            this.currentError = error;
         },
         // paging(paging) {
         //     this.page()

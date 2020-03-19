@@ -111,3 +111,27 @@
         - name: senderVM
           type: UTransfer
           description: 发送事件实例
+  methods:
+    - name: forward
+      description: 从左向右转移数据。
+      params:
+        - name: values
+          type: Array<string>
+          description: 指定转移选项值的列表。如果不填，则为按左列表框选中项值的列表。
+    - name: reverse
+      description: 从右向左转移数据。
+      params:
+        - name: values
+          type: Array<string>
+          description: 指定转移选项值的列表。如果不填，则为按右列表框选中项值的列表。
+    - name: transfer
+      description: 转移指定项的数据。
+      params:
+        - name: direction
+          type: enum
+          options: [forward, reverse]
+          default: forward
+          description: 方向，`forward`表示从左向右，`reverse`表示从右向左。
+        - name: values
+          type: Array<string>
+          description: 指定转移选项值的列表。
