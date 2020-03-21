@@ -7,15 +7,14 @@
     --brand-primary: #4a89e8;
     --brand-secondary: #dfe4ec;
     --brand-info: #36a3f7;
-    --brand-success: #57bc5b;
-    --brand-warning: #ffa136;
-    --brand-error: #fe5a5a;
-    --brand-error-light: #ff7777;
-    --brand-danger: #fe5a5a;
-    --brand-disabled-light: #e5e9ef; /* 选择且禁用的背景 */
-    --brand-disabled: #cdd9e9; /* 输入框、选择框的禁用背景 */
-    --brand-disabled-dark: #b6c0d0; /* 禁用文本的颜色 */
-    --brand-disabled-darker: #9aa2af;
+    --brand-success: #3ad0af;
+    --brand-warning: #ffae3c;
+    --brand-error: #ff5a5a;
+    --brand-error-light: #ff6c6c;
+    --brand-danger: #ff5a5a;
+    --brand-disabled-light: #dee4ed; /* 选择且禁用的背景 */
+    --brand-disabled: #cdd6e4; /* 输入框、选择框的禁用背景 */
+    --brand-disabled-dark: #b2c0d5; /* 禁用文本的颜色 */
 
     /* Gray Colors */
     --color-white: white;
@@ -29,16 +28,17 @@
     --gray-lightest: #eee;
 
     /* Component Base Colors */
-    --background-color-lighter: #f7f8fc; /* 选择框的 hover 颜色 */
-    --background-color-light: #f5f7fa; /* 表格等组件标题栏颜色 */
-    --background-color-base: #eef2f7; /* 标签、薯条等组件默认颜色 */
-    --background-color-dark: #d0dbe7;
-    --color-lighter: #a7afbb; /* Placeholder 字体颜色 */
-    --color-light: #92989d; /* 次级字体颜色 */
-    --color-base: #565b61; /* 默认字体颜色 */
-    --border-color-light: #dfe4ec; /* 面板等容器类型的边框颜色 */
-    --border-color-base: #dfe4ec; /* 输入框等小组件的边框颜色 */
-    --border-color-dark: #cbd5e5; /* 按钮等小组件的边框颜色 */
+    --background-color-lighter: #f4f6f9; /* 选择框的 hover 颜色 */
+    --background-color-light: #f4f6f9; /* 表格等组件标题栏颜色 */
+    --background-color-base: #eef1f6; /* 标签、薯条等组件默认颜色 */
+    --background-color-dark: #e3e8f0;
+    --color-lighter: #b6b9be; /* Placeholder 字体颜色 */
+    --color-light: #93989f; /* 次级字体颜色 */
+    --color-base: #585c63; /* 默认字体颜色 */
+    --color-dark: #363a41; /* 默认字体颜色 */
+    --border-color-light: #dee4ed; /* 面板等容器类型的边框颜色 */
+    --border-color-base: #dee4ed; /* 输入框等小组件的边框颜色 */
+    --border-color-dark: #cdd6e4; /* 按钮等小组件的边框颜色 */
 
     /* Space Dimensions */
     --space-shrink: -1px;
