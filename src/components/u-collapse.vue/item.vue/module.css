@@ -7,30 +7,30 @@
     cursor: var(--cursor-pointer);
     padding: var(--collapse-item-head-padding);
     background: var(--collapse-item-head-background);
+    line-height: var(--collapse-expander-size);
     overflow: hidden;
-}
-
-.body {
-    /* transition: 0.3s height ease-in-out, 0.3s padding-top ease-in-out, 0.3s padding-bottom ease-in-out; */
+    transition: all var(--collapse-transition-duration) ease-in-out;
 }
 
 .expander {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 12px;
+    top: 12px;
     z-index: 1;
     width: var(--collapse-expander-size);
     height: var(--collapse-expander-size);
     line-height: var(--collapse-expander-size);
+    font-size: var(--collapse-expander-font-size);
     text-align: center;
+    transition: transform var(--collapse-transition-duration) ease-in-out;
+}
+
+.expander[expanded] {
+    transform: rotate(90deg);
 }
 
 .expander::before {
     content: '▸';
-}
-
-.expander[expanded]::before {
-    content: '▾';
 }
 
 .root[disabled] .expander {
@@ -39,4 +39,12 @@
 
 .extra {
     float: right;
+}
+
+.wrap .content {
+    padding: var(--collapse-item-head-padding);
+}
+
+:global(.collapse-transition) {
+  transition: var(--collapse-transition-duration) height ease-in-out, var(--collapse-transition-duration) padding-top ease-in-out, var(--collapse-transition-duration) padding-bottom ease-in-out;
 }

@@ -3,15 +3,26 @@
         <div :class="$style.title">
             <slot name="title">{{ title }}</slot>
         </div>
-        <span :class="$style.expander"
+        <span
+            :class="$style.expander"
             :expanded="currentExpanded"
             @click="parentVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"
-        ></span>
+        >
+        </span>
         <span :class="$style.extra"><slot name="extra"></slot></span>
     </div>
-    <f-collapse-transition>
-        <div :class="$style.body" v-show="currentExpanded">
-            <slot></slot>
+    <transition
+        @before-enter="beforeEnter"
+        @enter="enter"
+        @after-enter="afterEnter"
+        @before-leave="beforeLeave"
+        @leave="leave"
+        @after-leave="afterLeave"
+    >
+        <div :class="$style.wrap" v-show="currentExpanded">
+            <div :class="$style.content">
+                <slot></slot>
+            </div>
         </div>
-    </f-collapse-transition>
+    </transition>
 </div>
