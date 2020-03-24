@@ -11,18 +11,11 @@
         </span>
         <span :class="$style.extra"><slot name="extra"></slot></span>
     </div>
-    <transition
-        @before-enter="beforeEnter"
-        @enter="enter"
-        @after-enter="afterEnter"
-        @before-leave="beforeLeave"
-        @leave="leave"
-        @after-leave="afterLeave"
-    >
+    <f-collapse-transition>
         <div :class="$style.wrap" v-show="currentExpanded">
             <div :class="$style.content">
                 <slot></slot>
             </div>
         </div>
-    </transition>
+    </f-collapse-transition>
 </div>

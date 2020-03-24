@@ -41,10 +41,10 @@
     float: right;
 }
 
-.wrap .content {
-    padding: var(--collapse-item-head-padding);
+.wrap {
+  transition: var(--collapse-transition-duration) height ease-in-out, var(--collapse-transition-duration) padding-top ease-in-out, var(--collapse-transition-duration) padding-bottom ease-in-out;
 }
 
-:global(.collapse-transition) {
-  transition: var(--collapse-transition-duration) height ease-in-out, var(--collapse-transition-duration) padding-top ease-in-out, var(--collapse-transition-duration) padding-bottom ease-in-out;
+.wrap .content {
+    padding: var(--collapse-item-head-padding);
 }
