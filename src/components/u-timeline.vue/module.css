@@ -1,0 +1,18 @@
+.root {
+    margin: 0;
+    padding: 0;
+    font-size: var(--font-size-base);
+    list-style: none;
+}
+
+.root li:last-child [uname="tail"] {
+    display: none;
+}
+
+.root[pending="true"] li:nth-last-of-type(2) [uname="content"] {
+    min-height: 48px;
+}
+
+.root[pending="true"] li:nth-last-of-type(2) [uname="tail"] {
+    border-left: var(--timeline-tail-width) dotted var(--timeline-tail-color);
+}
