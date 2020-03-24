@@ -49,6 +49,7 @@ export const UTableView = {
         resizable: { type: Boolean, default: false },
         resizeRemaining: { type: String, default: 'average' },
         showHead: { type: Boolean, default: true },
+        color: String,
     },
     data() {
         return {

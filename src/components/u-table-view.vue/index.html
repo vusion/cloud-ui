@@ -6,7 +6,7 @@
         :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width) }"
         @scroll="onTableScroll" :shadow="(tableMeta.position === 'left' && !scrollXStart) || (tableMeta.position === 'right' && !scrollXEnd)">
         <div v-if="showHead" :class="$style.head" ref="head" :style="{ width: number2Pixel(tableWidth) }">
-            <u-table :class="$style['head-table']" v-bind="$attrs">
+            <u-table :class="$style['head-table']" v-bind="$attrs" :color="color">
                 <colgroup>
                     <col v-for="columnVM in visibleColumnVMs" :width="columnVM.computedWidth"></col>
                 </colgroup>

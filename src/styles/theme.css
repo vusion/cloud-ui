@@ -257,6 +257,7 @@
     /* Table */
     --table-background: white;
     --table-head-background: var(--background-color-light);
+    --table-head-background-light: var(--color-white);
     --table-row-background: var(--background-color-base);
     --table-row-background-hover: var(--background-color-lighter);
     --table-row-background-striped: var(--background-color-lighter);

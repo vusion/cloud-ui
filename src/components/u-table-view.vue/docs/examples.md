@@ -734,3 +734,76 @@ export default {
 </script>
 ```
 
+### 表格里编辑数据
+
+``` vue
+<template>
+<u-table-view :dataSource="load">
+    <u-table-view-column title="用户名" field="name" width="20%"></u-table-view-column>
+    <u-table-view-column title="手机号码" field="phone" width="20%">
+        <div slot="cell" slot-scope="{ item }">
+            <u-validator v-if="item.isEdit" rules="required | phone" placement="bottom" @validate="isValid=$event.valid">
+                <u-input v-model="item.editPhone" :autofocus="true"></u-input>
+            </u-validator>
+            <div v-else>{{ item.phone }}</div>
+        </div>
+    </u-table-view-column>
+    <u-table-view-column title="地址" field="address"></u-table-view-column>
+    <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
+    <u-table-view-column title="操作" width="120">
+        <div slot="cell" slot-scope="{ item }">
+            <u-link v-if="item.isEdit" @click="onClickOk(item)">确定</u-link>
+            <u-link v-else @click="onClickEdit(item)">编辑</u-link>
+            <u-link @click="onClickCancel(item)" style="margin-left:10px;">取消</u-link>
+        </div>
+    </u-table-view-column>
+</u-table-view>
+</template>
+<script>
+export default {
+    rules: {
+        phone: { validate: 'pattern', args: /^\d{11}$/, message: '手机号码格式不正确', trigger: 'blur' },
+    },
+    data(){
+        return {
+            isValid: false,
+        }
+    },
+    methods: {
+        getData(){
+            return Promise.resolve([
+                { id: '07cdcb8ed5e94cec', name: '张三', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000 },
+                { id: '5cd49be8f65c4738', name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 },
+                { id: 'f799a0467c494601', name: '李四', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
+            ]);
+        },
+        load() {
+            return this.getData().then((res)=>{
+                res.forEach((item)=>{
+                    // 需要先赋值isEdit，后续更改isEdit才会响应
+                    item.isEdit = false;
+                    item.editPhone = item.phone;
+                });
+                return res;
+            });
+        },
+        onClickEdit(item) {
+            item.isEdit = true;
+            item.editPhone = item.phone;
+        },
+        onClickCancel(item) {
+            item.isEdit = false;
+        },
+        onClickOk(item) {
+            if(this.isValid){
+                item.phone = item.editPhone;
+                item.isEdit = false;
+            }
+        },
+    }
+};
+</script>
+```
+
+
+
