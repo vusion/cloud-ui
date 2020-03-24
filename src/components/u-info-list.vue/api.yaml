@@ -1,10 +1,10 @@
 - name: u-info-list
   title: 详情列表
   attrs:
-    - name: column
-      type: string
+    - name: repeat
+      type: string,number
       default: 3
-      description: 列数。可选值：`1`、`2`、`3`、`4`
+      description: 划分的列数
     - name: label-size
       type: string
       default: auto
@@ -18,10 +18,10 @@
       type: string
       default: null
       description: 标签
-    - name: column
+    - name: span
       type: string
       default: null
-      description: 列数。可选值：`1`、`2`、`3`、`4`
+      description: 列跨越的列数
     - name: label-size
       type: string
       default: auto

@@ -3,8 +3,9 @@ export const UInfoList = {
     groupName: 'u-info-list-group',
     childName: 'u-info-list-item',
     props: {
-        column: { type: [String, Number], default: 3 },
+        column: [String, Number],
         labelSize: String,
+        repeat: { type: [String, Number], default: 3 },
     },
     data() {
         return {
