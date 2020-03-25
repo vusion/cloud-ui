@@ -2,9 +2,7 @@
     position: relative;
 }
 .body {
-    position: absolute;
     padding: 20px 0;
-    bottom: -74px;
 }
 
 .body[position="static"] {
@@ -22,5 +20,15 @@
     color: var(--color-base);
     border: 1px solid #ebf0f5;
     box-shadow: 0 0 10px 0 rgba(80, 90, 109, 0.16);
-    transition: bottom 0.2s linear;
+    animation: slideInUp .5s both;
+}
+
+@keyframes slideInUp {
+    from {
+      transform: translate3d(0, 100%, 0);
+      visibility: visible;
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
 }

@@ -52,9 +52,10 @@ export const UFootbar = {
         },
         findScrollParent(target) {
             target = target.parentElement;
+            if (!target)
+                return window;
             const styles = window.getComputedStyle(target);
-            if ((target === document.body || target === document.documentElement)
-                || (styles.overflowY === 'auto' || styles.overflowY === 'scroll')) {
+            if (styles.overflowY === 'auto' || styles.overflowY === 'scroll') {
                 return target;
             } else {
                 return this.findScrollParent(target);
