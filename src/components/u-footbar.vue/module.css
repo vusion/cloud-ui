@@ -15,12 +15,12 @@
     bottom: 0;
     left: var(--sidebar-width);
     right: 0;
-    background: #f7f8fa;
+    background: var(--background-color-light);
     padding: 20px 40px;
     color: var(--color-base);
-    border: 1px solid #ebf0f5;
+    border: 1px solid var(--border-color-base);
     box-shadow: 0 0 10px 0 rgba(80, 90, 109, 0.16);
-    animation: slideInUp .5s both;
+    animation: slideInUp var(--transition-duration-slow) both;
 }
 
 @keyframes slideInUp {
