@@ -1,25 +1,51 @@
 @import '../src/styles/theme.css';
 
 :root {
-    --brand-primary: #4a89e8;
-    --sidebar-background-color: #294265;
+    --brand-secondary: #e1e8ed;
+    --brand-success: #3ad0af;
+    --brand-warning: #ffa136;
+    --brand-error: #ff8a7a;
+    --brand-disabled: #cddae9;
+    --brand-disabled-light: #e7eaef;
 
-    /* Button */
-    --button-primary-hover-background: #6098eb;
-    --button-primary-hover-color: white;
+    --background-color-light: #f7f8fc; /* 选择框的 hover 颜色 */
+    --background-color-light: #f5f7fa; /* 表格等组件标题栏颜色 */
+    --background-color-base: #f2f3f8; /* 标签、薯条等组件默认颜色 */
+    --background-color-dark: #ebedf5;
+    --color-lighter: #aaa; /* Placeholder 字体颜色 */
+    --color-light: #999; /* 次级字体颜色 */
+    --color-base: #666; /* 默认字体颜色 */
+    --border-color-light: var(--brand-secondary); /* 面板等容器类型的边框颜色 */
+    --border-color-base: var(--brand-secondary); /* 按钮、输入框等小组件的边框颜色 */
+
+    --label-padding-y: 3px;
+    --label-background: #cad4e4;
+    --label-background-success: #76b86e;
+    --label-background-warning: #ffa136;
+    --label-background-error: #ff8a7a;
+    --label-color: white;
+
+    --navbar-item-space: 34px;
+
+    --input-border-color-focus: #8ebee9;
+    --table-head-background: #f5f7fa;
+    --table-border-color: #ebf0f5;
 
     /* theme Chart Colors */
     --theme-chart-background-base: rgb(97, 218, 198);
     --theme-chart-line-area-fill: rgba(97, 218, 198, 0.1);
 
     /* Sidebar */
+    --sidebar-background: #294265;
     --sidebar-item-color: #9dabc2;
+    --sidebar-item-background-disabled: #294265;
+    --sidebar-item-background-selected-disabled: #294265;
+    --sidebar-item-background-color-selected: #1c324f;
     --sidebar-group-head-hover-color: var(--brand-primary);
     --sidebar-group-head-selected-color: var(--brand-primary);
     --sidebar-divider-background: #374d6e;
 
     /* others */
-    --link-color: #4477d0;
     --navbar-background: #1d2b40;
     --navbar-select-hover-background: #17263c;
     --navbar-select-focused-background: #17263c;
@@ -28,10 +54,4 @@
     --subnav-item-hover-background: #f6f7f9;
     --subnav-item-selected-color: var(--brand-primary);
     --subnav-item-selected-background: white;
-
-    --transfer-button-background: #4a89e8;
-    --sidebar-background: #294265;
-    --sidebar-item-background-disabled: #294265;
-    --sidebar-item-background-selected-disabled: #294265;
-    --sidebar-item-background-color-selected: #1c324f;
 }

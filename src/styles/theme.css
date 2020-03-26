@@ -21,7 +21,6 @@
     --brand-error-light: #ff6c6c;
     --brand-error: #ff5a5a;
     --brand-error-dark: #ff3434;
-    --brand-danger: #ff5a5a;
     --brand-disabled-light: #dee4ed; /* 选择且禁用的背景 */
     --brand-disabled: #cdd6e4; /* 输入框、选择框的禁用背景 */
     --brand-disabled-dark: #b2c0d5; /* 禁用文本的颜色 */
@@ -112,7 +111,7 @@
     --transition-duration-base: 0.2s;
     --transition-duration-fast: 0.1s;
     --transition-duration-slow: 0.3s;
-    --transition-duration-slower: 0.3s;
+    --transition-duration-slower: 0.5s;
 
     /**
      * Components Variables
@@ -184,10 +183,10 @@
     --button-background-active: white;
     --button-background-disabled: white;
     --button-background-primary: var(--brand-primary);
-    --button-background-primary-hover: #6098eb;
+    --button-background-primary-hover: var(--brand-primary-light);
     --button-background-primary-disabled: var(--brand-disabled);
-    --button-background-danger: var(--brand-danger);
-    --button-background-danger-hover: #fe7373;
+    --button-background-danger: var(--brand-error);
+    --button-background-danger-hover: var(--brand-error-light);
     --button-background-danger-disabled: var(--brand-disabled);
     --button-color: var(--color-base);
     --button-color-hover: var(--brand-primary);
