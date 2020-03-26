@@ -761,7 +761,7 @@ export default {
     <u-table-view-column title="用户名" field="name" width="20%"></u-table-view-column>
     <u-table-view-column title="手机号码" field="phone" width="20%">
         <div slot="cell" slot-scope="{ item }">
-            <u-validator v-if="item.isEdit" rules="required | phone" placement="bottom" @validate="isValid=$event.valid">
+            <u-validator v-if="item.editing" rules="required | phone" placement="bottom" @validate="isValid=$event.valid">
                 <u-input v-model="item.editPhone" :autofocus="true"></u-input>
             </u-validator>
             <div v-else>{{ item.phone }}</div>
@@ -771,7 +771,7 @@ export default {
     <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
     <u-table-view-column title="操作" width="120">
         <div slot="cell" slot-scope="{ item }">
-            <u-link v-if="!item.isEdit" @click="onClickEdit(item)">编辑</u-link>
+            <u-link v-if="!item.editing" @click="onClickEdit(item)">编辑</u-link>
             <template v-else>
                 <u-link @click="onClickOk(item)">确定</u-link>
                 <u-link @click="onClickCancel(item)" style="margin-left:10px;">取消</u-link>
@@ -801,24 +801,24 @@ export default {
         load() {
             return this.getData().then((res)=>{
                 res.forEach((item)=>{
-                    // 需要先赋值isEdit，后续更改isEdit才会响应
-                    item.isEdit = false;
+                    // 需要先赋值editing，后续更改editing才会响应
+                    item.editing = false;
                     item.editPhone = item.phone;
                 });
                 return res;
             });
         },
         onClickEdit(item) {
-            item.isEdit = true;
+            item.editing = true;
             item.editPhone = item.phone;
         },
         onClickCancel(item) {
-            item.isEdit = false;
+            item.editing = false;
         },
         onClickOk(item) {
             if(this.isValid){
                 item.phone = item.editPhone;
-                item.isEdit = false;
+                item.editing = false;
             }
         },
     }
