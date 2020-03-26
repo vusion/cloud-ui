@@ -771,9 +771,11 @@ export default {
     <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
     <u-table-view-column title="操作" width="120">
         <div slot="cell" slot-scope="{ item }">
-            <u-link v-if="item.isEdit" @click="onClickOk(item)">确定</u-link>
-            <u-link v-else @click="onClickEdit(item)">编辑</u-link>
-            <u-link @click="onClickCancel(item)" style="margin-left:10px;">取消</u-link>
+            <u-link v-if="!item.isEdit" @click="onClickEdit(item)">编辑</u-link>
+            <template v-else>
+                <u-link @click="onClickOk(item)">确定</u-link>
+                <u-link @click="onClickCancel(item)" style="margin-left:10px;">取消</u-link>
+            </template>
         </div>
     </u-table-view-column>
 </u-table-view>
