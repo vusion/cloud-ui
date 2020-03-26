@@ -75,6 +75,10 @@ export default {
 </script>
 
 <style module>
+:root {
+    --sidebar-width: 210px;
+}
+
 .root {}
 
 .head {

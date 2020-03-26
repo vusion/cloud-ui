@@ -112,6 +112,7 @@
     --transition-duration-base: 0.2s;
     --transition-duration-fast: 0.1s;
     --transition-duration-slow: 0.3s;
+    --transition-duration-slower: 0.3s;
 
     /**
      * Components Variables
