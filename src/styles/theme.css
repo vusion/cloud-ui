@@ -4,13 +4,23 @@
      */
 
     /* Brand Colors */
+    --brand-primary-light: #5e96eb;
     --brand-primary: #4a89e8;
+    --brand-primary-dark: #2c75e4;
     --brand-secondary: #dfe4ec;
     --brand-info: #36a3f7;
-    --brand-success: #3ad0af;
+    --brand-success-light: #4dd3b6;
+    --brand-success: #37cdad;
+    --brand-success-dark: #2eb99b;
+    --brand-normal-light: #97d362;
+    --brand-normal: #8acd4e;
+    --brand-normal-dark: #7ac437;
+    --brand-warning-light: #ffb752;
     --brand-warning: #ffae3c;
-    --brand-error: #ff5a5a;
+    --brand-warning-dark: #ff9f19;
     --brand-error-light: #ff6c6c;
+    --brand-error: #ff5a5a;
+    --brand-error-dark: #ff3434;
     --brand-danger: #ff5a5a;
     --brand-disabled-light: #dee4ed; /* 选择且禁用的背景 */
     --brand-disabled: #cdd6e4; /* 输入框、选择框的禁用背景 */
@@ -215,11 +225,13 @@
     --label-background: var(--background-color-base);
     --label-background-primary: var(--brand-primary);
     --label-background-success: var(--brand-success);
+    --label-background-normal: var(--brand-normal);
     --label-background-warning: var(--brand-warning);
     --label-background-error: var(--brand-error);
     --label-color: #646a70;
     --label-color-primary: white;
     --label-color-success: white;
+    --label-color-normal: white;
     --label-color-warning: white;
     --label-color-error: white;
 

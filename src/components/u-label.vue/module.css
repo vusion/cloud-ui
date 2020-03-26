@@ -35,6 +35,11 @@
     color: var(--label-color-success);
 }
 
+.root[color="normal"] {
+    background: var(--label-background-normal);
+    color: var(--label-color-normal);
+}
+
 .root[color="warning"] {
     background: var(--label-background-warning);
     color: var(--label-color-warning);

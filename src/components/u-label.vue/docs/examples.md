@@ -7,6 +7,7 @@
     <u-label>Label</u-label>
     <u-label color="primary">Primary</u-label>
     <u-label color="success">Success</u-label>
+    <u-label color="normal">Normal</u-label>
     <u-label color="warning">Warning</u-label>
     <u-label color="error">Error</u-label>
     <u-label style="background: #c461fb; color: white;">Custom</u-label>
@@ -24,6 +25,7 @@
     <u-label removable>Label</u-label>
     <u-label removable color="primary">Primary</u-label>
     <u-label removable color="success">Success</u-label>
+    <u-label removable color="normal">Normal</u-label>
     <u-label removable color="warning">Warning</u-label>
     <u-label removable color="error">Error</u-label>
 </u-linear-layout>
