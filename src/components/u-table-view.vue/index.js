@@ -498,17 +498,15 @@ export const UTableView = {
                 // 防止同步数据使页面抖动
                 // setTimeout(() => this.currentData = data);
                 this.currentLoading = false;
-                if (this.pageable === 'load-more' || this.pageable === 'auto-more') {
-                    this.$emit('load', undefined, this);
-                    return data;
-                } else {
+
+                if (this.pageable === true || this.pageable === 'pagination') {
                     if (this.currentDataSource.paging && this.currentDataSource.paging.number > this.currentDataSource.totalPage)
                         this.page(1); // 数据发生变更时，回归到第 1 页
-
-                    this.handleResize();
-                    this.$emit('load', undefined, this);
-                    return data;
                 }
+
+                this.handleResize();
+                this.$emit('load', undefined, this);
+                return data;
             }).catch(() => {
                 this.currentLoading = false;
                 this.currentError = true;
