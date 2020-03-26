@@ -1418,9 +1418,9 @@
     "type": "boolean",
     "description": "是否禁用"
   },
-  "u-info-list/column": {
-    "type": "string",
-    "description": "列数。可选值：`1`、`2`、`3`、`4`"
+  "u-info-list/repeat": {
+    "type": "string,number",
+    "description": "划分的列数"
   },
   "u-info-list/label-size": {
     "type": "string",
@@ -1430,9 +1430,9 @@
     "type": "string",
     "description": "标签"
   },
-  "u-info-list-item/column": {
+  "u-info-list-item/span": {
     "type": "string",
-    "description": "列数。可选值：`1`、`2`、`3`、`4`"
+    "description": "列跨越的列数"
   },
   "u-info-list-item/label-size": {
     "type": "string",

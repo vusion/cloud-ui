@@ -730,7 +730,7 @@
   },
   "u-info-list": {
     "attributes": [
-      "column",
+      "repeat",
       "label-size"
     ],
     "subtags": [
@@ -741,7 +741,7 @@
   "u-info-list-item": {
     "attributes": [
       "label",
-      "column",
+      "span",
       "label-size",
       "ellipsis"
     ]
