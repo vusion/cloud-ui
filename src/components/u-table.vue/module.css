@@ -22,6 +22,9 @@
     border-bottom: 1px solid var(--table-border-color);
     background-clip: padding-box;
 }
+.root[color="light"] thead tr {
+    background-color: var(--table-head-background-light);
+}
 
 .root thead th {
     text-align: left;

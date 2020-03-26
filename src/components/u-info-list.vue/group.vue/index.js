@@ -9,6 +9,7 @@ export const UInfoListGroup = {
         title: String,
         column: [String, Number],
         labelSize: String,
+        repeat: [String, Number],
     },
     data() {
         return {
