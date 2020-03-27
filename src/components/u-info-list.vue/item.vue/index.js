@@ -39,11 +39,11 @@ export const UInfoListItem = {
         this.dispatch(this.$options.parentName, 'remove-item-vm', this);
     },
     methods: {
-        getPercent(span, repeat) {
+        getPercent(span) {
             // 兼容原来的column属性
             if ((this.groupVM && this.groupVM.column) || (this.parentVM && this.parentVM.column))
                 return '';
-            repeat = repeat || this.groupVM.repeat || this.groupVM.$parent.repeat;
+            const repeat = (this.groupVM && this.groupVM.repeat) || (this.parentVM && this.parentVM.repeat) || 3;
             return span / repeat * 100 + '%';
         },
     },

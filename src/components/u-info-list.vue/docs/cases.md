@@ -1,4 +1,4 @@
-### 兼容测试：column属性，group上有column
+### column 分列
 
 ``` html
 <u-info-list column="2">
@@ -26,8 +26,6 @@
     </u-info-list-group>
 </u-info-list>
 ```
-
-### 兼容测试：column属性，group上没有column
 
 ``` html
 <u-info-list>
