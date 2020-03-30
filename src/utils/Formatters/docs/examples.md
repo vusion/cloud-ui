@@ -15,7 +15,7 @@
 </div>
 </template>
 <script>
-import { utils } from 'library';
+import { utils } from 'cloud-ui.vusion';
 
 export default {
     data() {
@@ -46,7 +46,7 @@ export default {
 </div>
 </template>
 <script>
-import { utils } from 'library';
+import { utils } from 'cloud-ui.vusion';
 
 const placeholderFormatter = new utils.PlaceholderFormatter('加载失败');
 
@@ -85,7 +85,7 @@ export default {
 </div>
 </template>
 <script>
-import { utils } from 'library';
+import { utils } from 'cloud-ui.vusion';
 
 export default {
     data() {
@@ -119,7 +119,7 @@ export default {
 </div>
 </template>
 <script>
-import { utils } from 'library';
+import { utils } from 'cloud-ui.vusion';
 
 export default {
     data() {

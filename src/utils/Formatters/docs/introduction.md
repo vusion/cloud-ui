@@ -5,7 +5,7 @@
 </div>
 </template>
 <script>
-import { utils } from 'library';
+import { utils } from 'cloud-ui.vusion';
 
 export default {
     i18n: {
@@ -76,7 +76,7 @@ class SomeFormatter {
 </div>
 </template>
 <script>
-import { utils } from 'library';
+import { utils } from 'cloud-ui.vusion';
 
 export default {
     filters: {

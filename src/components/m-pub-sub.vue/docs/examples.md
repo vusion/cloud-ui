@@ -8,7 +8,7 @@
 <u-button @click="onClick">发布</u-button>
 </template>
 <script>
-import { MPublisher } from '@@';
+import { MPublisher } from 'cloud-ui.vusion';
 
 export default {
     mixins: [MPublisher],
@@ -32,7 +32,7 @@ export default {
 <div :class="$style.root" :style="{ background: received }">{{ String(received) }}</div>
 </template>
 <script>
-import { MSubscriber } from '@@';
+import { MSubscriber } from 'cloud-ui.vusion';
 
 export default {
     mixins: [MSubscriber],
@@ -65,7 +65,7 @@ export default {
 <u-button @click="onClick">发布</u-button>
 </template>
 <script>
-import { MPublisher } from '@@';
+import { MPublisher } from 'cloud-ui.vusion';
 
 export default {
     mixins: [MPublisher],
@@ -91,7 +91,7 @@ export default {
 <div :class="$style.root" :style="{ background: received }">{{ String(received) }}</div>
 </template>
 <script>
-import { MSubscriber } from '@@';
+import { MSubscriber } from 'cloud-ui.vusion';
 
 export default {
     mixins: [MSubscriber],

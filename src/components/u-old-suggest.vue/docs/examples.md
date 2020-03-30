@@ -160,7 +160,7 @@ export default {
 <u-old-suggest placeholder="请输入地名" :data-source="dataSource"></u-old-suggest>
 </template>
 <script>
-import { utils } from 'library';
+import { utils } from 'cloud-ui.vusion';
 
 export default {
     created() {
@@ -193,7 +193,7 @@ export default {
 <u-old-suggest placeholder="请输入 item, info 或 test" :data-source="dataSource"></u-old-suggest>
 </template>
 <script>
-import { utils } from 'library';
+import { utils } from 'cloud-ui.vusion';
 
 export default {
     created() {

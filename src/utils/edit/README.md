@@ -18,7 +18,7 @@
 </div>
 </template>
 <script>
-import { utils } from 'library';
+import { utils } from 'cloud-ui.vusion';
 
 export default {
     data() {
@@ -45,7 +45,7 @@ export default {
 </div>
 </template>
 <script>
-import { utils } from 'library';
+import { utils } from 'cloud-ui.vusion';
 
 export default {
     data() {
@@ -75,7 +75,7 @@ export default {
 <u-button @click="onClick">Copy</u-button>
 </template>
 <script>
-import { utils } from 'library';
+import { utils } from 'cloud-ui.vusion';
 
 export default {
     data() {
