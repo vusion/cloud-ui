@@ -26,7 +26,7 @@ export const UCopy = {
             this.success = copy(this.value);
             if (this.success) {
                 if (this.modalType === 'toast')
-                    this.$toast.show(this.successText);
+                    this.$toast.show(this.successText, this.hideDelay);
                 this.$emit('copy', this.value);
                 clearTimeout(this.timeoutId);
                 this.timeoutId = setTimeout(() => {
