@@ -7,6 +7,8 @@
 
 ### 右上角
 
+使用`corner`属性，设置徽章在右上角。
+
 ``` html
 <u-badge :value="3" corner>
     <u-button>评论</u-button>
