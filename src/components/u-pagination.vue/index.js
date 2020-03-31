@@ -15,6 +15,7 @@ export const UPagination = {
         showTotal: { type: Boolean, default: false },
         showSizer: { type: Boolean, default: false },
         showJumper: { type: Boolean, default: false },
+        simple: { type: Boolean, default: false },
     },
     data() {
         return {

@@ -127,3 +127,21 @@
 .root[display="inline"] {
     display: inline-block;
 }
+
+.simple .jumperwrap{
+    display: inline-block;
+    margin: 0;
+}
+
+.simple .item{
+    border: 0;
+}
+
+.simple .item:hover{
+    background-color: transparent;
+    color: var(--pagination-item-color-hover);
+}
+
+.simple .item[disabled],.simple .item[disabled]:hover{
+    color: var(--pagination-item-color-disabled);
+}
