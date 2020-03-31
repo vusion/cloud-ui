@@ -15,11 +15,23 @@
 <u-pagination :total="11" :page="6" :side="1" :around="3"></u-pagination>
 ```
 
+### 显示总页数、切换每页大小、页面跳转功能
+
+``` html
+<u-linear-layout direction="vertical">
+    <u-pagination :total-items="75" show-total show-sizer show-jumper></u-pagination>
+    <u-pagination :total-items="75" show-total show-sizer show-jumper :pageSize="50"></u-pagination>
+</u-linear-layout>
+```
+
 ### 只读和禁用
 
 ``` html
 <u-linear-layout direction="vertical">
     <u-pagination :total="11" readonly></u-pagination>
+    <u-pagination :total-items="75" show-total show-sizer show-jumper readonly></u-pagination>
     <u-pagination :total="11" disabled></u-pagination>
+    <u-pagination :total-items="75" show-total show-sizer show-jumper disabled></u-pagination>
 </u-linear-layout>
 ```
+

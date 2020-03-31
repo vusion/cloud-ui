@@ -1,9 +1,22 @@
-<nav :class="$style.root" :disabled="disabled">
+<nav :class="$style.root" :disabled="disabled" :readonly="readonly">
+    <span v-if="showTotal" :class="$style.total">{{ $t('total', { totalItems }) }}</span>
+    <u-select v-if="showSizer" :class="$style.sizer" v-model="currentPageSize" :readonly="readonly" :disabled="disabled" @select="onSelectPageSize">
+        <u-select-item v-for="pageSize in pageSizeOptions" :key="pageSize" :value="pageSize">
+            {{ pageSize }} {{ $t('pageSizeUnit') }}
+        </u-select-item>
+    </u-select>
     <a :class="$style.item" role="prev" :disabled="currentPage <= 1" @click="select(currentPage - 1)"></a>
     <template v-for="page in pages">
         <a v-if="page" :class="$style.item" :selected="currentPage === page" @click="select(page)">{{ page }}</a>
         <a v-else :class="$style.item" role="blank">...</a>
     </template>
-    <a :class="$style.item" role="next" :disabled="currentPage >= total" @click="select(currentPage + 1)"></a>
+    <a :class="$style.item" role="next" :disabled="currentPage >= currentTotalPage" @click="select(currentPage + 1)"></a>
     <slot></slot>
+    <span v-if="showJumper" :class="$style.jumperwrap">{{ $t('goto') }}
+        <u-number-input :class="$style.jumper" :value="currentPage"
+            :min="1" :max="currentTotalPage" hide-buttons :readonly="readonly" :disabled="disabled"
+            @change="onChange($event.value, $event.oldValue)">
+        </u-number-input>
+        {{ $t('pageUnit') }}</span>
 </nav>
+
