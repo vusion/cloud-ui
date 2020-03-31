@@ -44,7 +44,7 @@
 .item[role="prev"] {
     font-size: var(--font-size-large);
     padding: 0 4px;
-    vertical-align: top;
+    vertical-align: middle;
     border-radius: var(--border-radius-base) 0 0 var(--border-radius-base);
     color: var(--color-light);
 }
@@ -56,7 +56,7 @@
 .item[role="next"] {
     font-size: var(--font-size-large);
     padding: 0 4px;
-    vertical-align: top;
+    vertical-align: middle;
     border-radius: 0 var(--border-radius-base) var(--border-radius-base) 0;
     color: var(--color-light);
 }
@@ -72,6 +72,37 @@
     border: none;
 }
 
+.itemwrap{
+    display: inline-block;
+    text-decoration: none;
+
+    padding: var(--pagination-item-padding);
+    min-width: var(--pagination-item-size);
+    height: var(--pagination-item-size);
+    line-height: calc(var(--pagination-item-size) - 1px * 2);
+    font-size: var(--font-size-small);
+    text-align: center;
+    vertical-align: middle;
+    margin-left: -1px;
+}
+
+.itemwrap .item{
+    margin-top: -1px;
+}
+
+.itemwrap[disabled], 
+.itemwrap[disabled] .item,
+.itemwrap[disabled] .item:hover,
+.itemwrap[disabled] > a {
+    cursor: var(--cursor-not-allowed);
+    color: var(--pagination-item-color-disabled);
+    background: none;
+}
+
+.itemwrap > [role="text"]{
+    margin: 0 var(--space-small);
+}
+
 .total{
     margin-right: var(--space-small);
 }
@@ -82,7 +113,7 @@
     height: var(--combo-pagination-height);
     line-height: var(--combo-pagination-line-height);
     margin-right: var(--space-small);
-    vertical-align: top;
+    vertical-align: middle;
 }
 
 .sizer .item {
@@ -91,7 +122,7 @@
 
 .jumperwrap{
     margin-left: var(--space-small);
-    vertical-align: top;
+    vertical-align: middle;
 }
 
 .jumper {
@@ -106,7 +137,12 @@
     border-color: #dedede;
 }
 
-.root[disabled] .item, .root[disabled] .total, .root[disabled] .sizer, .root[disabled] .jumperwrap {
+.root[disabled] .item, 
+.root[disabled] .total, 
+.root[disabled] .sizer, 
+.root[disabled] .jumper, 
+.root[disabled] .jumperwrap, 
+.root[disabled] .itemwrap {
     color: var(--pagination-item-color-disabled);
     cursor: var(--cursor-not-allowed);
     background: none;

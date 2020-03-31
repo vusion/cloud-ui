@@ -15,7 +15,22 @@
 <u-pagination :total="11" :page="6" :side="1" :around="3"></u-pagination>
 ```
 
-### 显示总页数
+### 上一页和下一页
+
+修改上一页和下一页，接受 slot 来自定义内容
+
+``` html
+<u-linear-layout direction="vertical">
+    <u-pagination :total="11">
+        <a slot="prev" role="text">Previous</a>
+        <a slot="next" role="text">Next</a>
+    </u-pagination>
+</u-linear-layout>
+```
+
+### 显示总条数
+
+显示总共多少条数据，接受 slot 来自定义内容
 
 ``` html
 <u-linear-layout direction="vertical">
@@ -39,7 +54,7 @@
         show-sizer 
         show-jumper 
         :pageSize="30" 
-        :pageSizeOptions="[10,20,30,40]">
+        :pageSizeOptions="[30,50,100]">
     </u-pagination>
 </u-linear-layout>
 ```
@@ -54,7 +69,8 @@
     <u-pagination :total-items="75" show-total show-sizer show-jumper disabled></u-pagination>
 </u-linear-layout>
 ```
-### 简洁
+
+### 简洁版
 
 设置`simple`属性即可使用简洁版的分页，不支持显示总页数、切换每页大小、页面跳转功能
 
