@@ -1,2 +1,4 @@
 dist/
+dist-theme/
+dist-raw/
 public/

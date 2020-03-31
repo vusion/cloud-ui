@@ -1,4 +1,6 @@
 dist/
+dist-theme/
+dist-raw/
 public/
 cloud-ui/
 docs.bak/
