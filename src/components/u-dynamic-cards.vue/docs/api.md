@@ -1,6 +1,6 @@
 ## UDynamicCards
 
-继承 [MDynamic](../m-dynamic)，[UValidator](../u-validator)。
+继承 [MDynamic](#components/m-dynamic)，[UValidator](#components/u-validator)。
 
 ### Props/Attrs
 

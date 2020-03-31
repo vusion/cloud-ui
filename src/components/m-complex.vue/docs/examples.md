@@ -96,4 +96,4 @@ export default {
 </u-grid-layout>
 ```
 
-其它与 [MSinglex](../m-singlex) 和 [MMultiplex](../m-multiplex) 相同的。
+其它与 [MSinglex](#components/m-singlex) 和 [MMultiplex](#components/m-multiplex) 相同的。
