@@ -1,5 +1,7 @@
 <nav :class="$style.root" :disabled="disabled" :readonly="readonly">
-    <span v-if="showTotal" :class="$style.total">{{ $t('total', { totalItems }) }}</span>
+    <span v-if="showTotal" :class="$style.total">
+        <slot name="totalText" :data="{totalItems,pageSize:currentPageSize,page:currentPage}">{{ $t('total', { totalItems }) }}</slot>
+    </span>
     <u-select v-if="showSizer" :class="$style.sizer" v-model="currentPageSize" :readonly="readonly" :disabled="disabled" @select="onSelectPageSize">
         <u-select-item v-for="pageSize in pageSizeOptions" :key="pageSize" :value="pageSize">
             {{ pageSize }} {{ $t('pageSizeUnit') }}
