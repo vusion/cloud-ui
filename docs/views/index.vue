@@ -56,6 +56,14 @@ export default {
                 }
             }
         },
+        '$route'(route) {
+            this.message.postMessage({
+                type: 'docs:hash',
+                data: {
+                    hash: route.hash,
+                },
+            }, '*');
+        },
     },
     methods: {
         onSelectTheme($event) {

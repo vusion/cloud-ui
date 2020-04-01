@@ -3,6 +3,15 @@ const urlSearchParams = new URLSearchParams(location.search);
 const message = {
     route: '',
     singleton: urlSearchParams.get('singleton'),
+    postMessage(message, targetOrigin) {
+        try {
+            if (window.top !== window && window.top.postMessage) {
+                window.top.postMessage(message, targetOrigin);
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    },
 };
 window.addEventListener('message', (event) => {
     if (window.top !== window && event.source === window.top) {
@@ -17,11 +26,7 @@ window.addEventListener('message', (event) => {
         });
     }
 });
-try {
-    if (window.top !== window && window.top.postMessage) {
-        window.top.postMessage('loaded', '*');
-    }
-} catch (error) {
-    console.error(error);
-}
+message.postMessage({
+    type: 'loaded',
+}, '*');
 export default message;
