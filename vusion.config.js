@@ -8,7 +8,6 @@ module.exports = {
     docs: {
         title: 'Cloud UI 组件库',
         logo: '组件库',
-        mode: 'hash',
         github: 'https://github.com/vusion/cloud-ui',
         package: pkg,
         navbar: [
