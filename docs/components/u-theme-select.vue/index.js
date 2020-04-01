@@ -1,4 +1,4 @@
-import { USelect } from '../../../';
+import { USelect } from 'cloud-ui.vusion';
 
 export const UThemeSelect = {
     name: 'u-theme-select',
