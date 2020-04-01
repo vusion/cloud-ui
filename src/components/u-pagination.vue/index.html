@@ -1,5 +1,5 @@
-<nav :class="$style.root" :disabled="disabled" :readonly="readonly">
-    <div v-if="simple" :class="$style.simple">
+<nav :class="$style.root" :disabled="disabled" :readonly="readonly" :simple="simple">
+    <template v-if="simple">
         <a :class="$style.item" role="prev" :disabled="currentPage <= 1" @click="select(currentPage - 1)"></a>
         <div :class="$style.jumperwrap">
             <u-number-input :class="$style.jumper" :value="currentPage"
@@ -8,7 +8,7 @@
             </u-number-input> / {{currentTotalPage}}
         </div>
         <a :class="$style.item" role="next" :disabled="currentPage >= currentTotalPage" @click="select(currentPage + 1)"></a>
-    </div>
+    </template>
     <template v-else>
         <span v-if="showTotal" :class="$style.total">
             <slot name="totalText" :data="{totalItems,pageSize:currentPageSize,page:currentPage}">{{ $t('total', { totalItems }) }}</slot>
