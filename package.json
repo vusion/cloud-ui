@@ -15,10 +15,12 @@
     "build:theme": "vue-cli-service library-build --dest dist-theme",
     "build:raw": "vue-cli-service library-build --vusion-mode raw --dest dist-raw",
     "build:docs": "vue-cli-service doc-build",
+    "build:doc-entry": "VUE_CLI_SERVICE_CONFIG_PATH=$PWD/vue.config.doc-entry.js vue-cli-service build --output-path dist-doc-entry",
     "lint": "vue-cli-service lint",
     "prepublishOnly": "npm run build && npm run build:theme && npm run build:raw && vusion readme && vusion vetur && git add .",
     "ghpages": "vusion ghpages",
     "deploy": "vusion deploy --framework cloud-ui -v minor",
+    "deploy:doc-entry": "vusion deploy --framework cloud-ui -v minor dist-doc-entry",
     "workflow": "(build & build:theme) && build:docs && npm run deploy"
   },
   "repository": "vusion/cloud-ui",
