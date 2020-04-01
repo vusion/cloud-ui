@@ -1,15 +1,19 @@
 const pkg = require('./package.json');
 
+let publicPath = '';
+if (process.env.DEPLOY_MODE === 'deploy_dist') {
+    publicPath = `https://static-vusion.163yun.com/packages/${pkg.name}@${pkg.version.split('.').slice(0, 2).join('.')}/`;
+}
 module.exports = {
     version: '>=0.10.0',
     type: 'library',
     name: 'cloud-ui',
     CamelName: 'CloudUI',
+    publicPath,
     docs: {
         title: 'Cloud UI 组件库',
         logo: '组件库',
-        mode: 'history',
-        base: '/cloud-ui/',
+        mode: 'hash',
         github: 'https://github.com/vusion/cloud-ui',
         package: pkg,
         navbar: [
