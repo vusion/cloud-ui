@@ -39,6 +39,7 @@
 ```
 
 ### 只读和禁用
+
 ``` html
 <u-grid-layout>
     <u-grid-layout-column :span="6">
@@ -49,3 +50,17 @@
     </u-grid-layout-column>
 </u-grid-layout>
 ```
+
+### 倒序
+
+```html
+<u-grid-layout>
+    <u-grid-layout-column :span="6">
+        <u-slider :value="50" :range="[20, 85]" reverse></u-slider>
+    </u-grid-layout-column>
+    <u-grid-layout-column :span="6">
+        <u-slider :value="40" :step="10" :range="[30]" reverse></u-slider>
+    </u-grid-layout-column>
+</u-grid-layout>
+```
+

@@ -17,6 +17,7 @@ export const UComboSlider = {
         tip: String,
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
+        reverse: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -36,6 +37,10 @@ export const UComboSlider = {
         },
     },
     computed: {
+        scales() {
+            const scales = [this.min, (this.min + this.max) / 2 >> 0, this.max];
+            return this.reverse ? scales.reverse() : scales;
+        },
         numberMin() {
             return Math.max(this.min, this.range[0] === undefined ? -Infinity : this.range[0]);
         },

@@ -4,12 +4,11 @@
         <div :class="$style.tip">{{ tip }}</div>
         <u-slider :class="$style.slider" @mousedown.native="onMousedown" :value="currentValue" @input="onInput" @slide="onSlide"
             :min="min" :max="max" :step="step" :precision="precision" :range="range" :readonly="readonly" :disabled="disabled"
+            :reverse="reverse" 
         ></u-slider>
          <!-- @override: 增加数值显示 -->
         <div :class="$style.scales">
-            <span :class="$style.scale">{{ min }}{{ unit }}</span>
-            <span :class="$style.scale">{{ (min + max) / 2 >> 0 }}{{ unit }}</span>
-            <span :class="$style.scale">{{ max }}{{ unit }}</span>
+            <span :class="$style.scale" v-for="item in scales" :key="item">{{ item }}{{ unit }}</span>
         </div>
     </div>
     <u-number-input :class="$style.input" :value="currentValue" @change="onInput($event.value, 'numberInput')" @validate="onValidate"

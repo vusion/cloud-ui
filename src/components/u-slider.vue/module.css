@@ -16,10 +16,18 @@
     background: var(--slider-track-background);
 }
 
+.root[reverse] .track {
+    background: var(--slider-trail-background);
+}
+
 .trail {
     position: absolute;
     height: 100%;
     background: var(--slider-trail-background);
+}
+
+.root[reverse] .trail {
+    background: var(--slider-track-background);
 }
 
 .bound {
@@ -28,6 +36,7 @@
     background: var(--slider-bound-background);
     height: 100%;
 }
+
 
 .bound[role="start"] {
     left: -7px;
@@ -86,7 +95,11 @@
     width: 7px;
     left: -7px;
     height: 100%;
-    background: var(--brand-primary);
+    background: var(--slider-trail-background);
+}
+
+.root[reverse] .track::before {
+    background: var(--slider-track-background);
 }
 
 .track::after {
@@ -96,6 +109,10 @@
     right: -7px;
     height: 100%;
     background: var(--slider-track-background);
+}
+
+.root[reverse] .track::after {
+    background: var(--slider-trail-background);
 }
 
 .root[disabled] .track::before {
