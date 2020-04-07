@@ -7,8 +7,13 @@ export const ellipsisTitle = {
             // 如果判断已存在`title`属性而不添加`title`的话，会导致`<u-select>`在某些场景下`value`不变`text`变，而`title`不会更新
             const style = window.getComputedStyle(el);
             const title = binding.value || el.innerText;
-            if (style.overflow === 'hidden' && style.textOverflow === 'ellipsis' && style.whiteSpace === 'nowrap' && el.scrollWidth > el.offsetWidth)
+            if (style.overflow === 'hidden' && style.textOverflow === 'ellipsis' && style.whiteSpace === 'nowrap' && el.scrollWidth > el.offsetWidth) {
                 el.setAttribute('title', title);
+            } else if (binding.arg === 'cover' && !!el.getAttribute('title')) {
+                // binding.arg 为 cover 表示需要动态调整 title 的场景
+                // 动态调整场景，不满足切换 title 场景时，删除冗余 title
+                el.removeAttribute('title');
+            }
         };
         el.addEventListener('mouseenter', el.__ellipsisTitleHandler);
     },
