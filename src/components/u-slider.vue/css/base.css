@@ -1,0 +1,59 @@
+.root {}
+
+.body {
+    position: relative;
+}
+
+.track {
+    position: relative;
+    cursor: var(--cursor-pointer);
+    height: var(--slider-track-height);
+    background: var(--slider-track-background);
+}
+
+.trail {
+    position: absolute;
+    height: 100%;
+    background: var(--slider-trail-background);
+}
+
+.bound {
+    box-sizing: content-box;
+    position: absolute;
+    background: var(--slider-bound-background);
+    height: 100%;
+}
+
+.handle {
+    position: absolute;
+    cursor: var(--cursor-pointer);
+    background: var(--slider-handle-background);
+    border: var(--slider-handle-border);
+    border-radius: 2px;
+}
+
+.handle::before {
+    content: '';
+    position: absolute;
+    background-color: var(--slider-track-background);
+}
+
+.handle::after {
+    content: '';
+    position: absolute;
+    background-color: var(--slider-track-background);
+}
+
+.track::before {
+    content: '';
+    position: absolute;
+}
+
+.track::after {
+    content: '';
+    position: absolute;
+}
+
+.root[disabled] {
+    cursor: var(--cursor-not-allowed);
+}

@@ -1,0 +1,102 @@
+.root[vertical] {
+    height: var(--slider-height-vertical);
+}
+
+.root[vertical] .body {
+    height: 100%;
+    margin: var(--slider-body-margin-vertical);
+    padding: var(--slider-body-padding-vertical);
+    width: 24px;
+}
+
+.root[vertical] .bound {
+    width: 100%;
+    background: var(--slider-bound-background-vertical);
+}
+
+.root[vertical] .bound[role="start"] {
+    bottom: -7px;
+    padding-bottom: 7px;
+}
+
+.root[vertical] .bound[role="end"] {
+    top: -7px;
+    padding-top: 7px;
+}
+
+.root[vertical] .track {
+    width: var(--slider-track-width-vertical);
+    height: 100%;
+}
+
+.root[vertical] .track::before {
+    height: 7px;
+    bottom: -7px;
+    width: 100%;
+    background: var(--slider-trail-background);
+}
+
+.root[vertical][reverse] .track::before {
+    background: var(--slider-track-background);
+    z-index: -1;
+}
+
+.root[vertical] .track::after {
+    height: 7px;
+    width: 100%;
+    top: -7px;
+    background: var(--slider-track-background);
+}
+
+.root[vertical][reverse] .track::after {
+    background: var(--slider-trail-background);
+    z-index: -1;
+}
+
+.root[vertical] .trail {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.root[vertical][reverse] .trail {
+    top: 0;
+}
+
+.root[vertical] .handle {
+    margin-top: calc(var(--slider-handle-height-vertical) / -2);
+    height: var(--slider-handle-height-vertical);
+    width: var(--slider-handle-width-vertical);
+    left: 0;
+    bottom: 0;
+}
+
+.root[vertical] .handle::before {
+    height: 2px;
+    width: 12px;
+    left: 5px;
+    top: 3px;
+}
+
+.root[vertical] .handle::after {
+    height: 2px;
+    width: 12px;
+    left: 5px;
+    bottom: 3px;
+}
+
+.root[vertical][disabled]:not([reverse]) .track::before {
+    background: var(--brand-disabled);
+}
+
+.root[vertical][disabled]:not([reverse]) .trail {
+    background: var(--slider-trail-background-disabled);
+}
+
+.root[vertical][reverse][disabled] .track::after {
+    background: var(--brand-disabled);
+}
+
+.root[vertical][reverse][disabled] .trail {
+    background: var(--slider-trail-background-disabled);
+}

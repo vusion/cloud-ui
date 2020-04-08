@@ -113,3 +113,29 @@
     </u-grid-layout-column>
 </u-grid-layout>
 ```
+
+### 垂直
+
+```html
+<u-grid-layout>
+    <u-grid-layout-column :span="6">
+        <u-combo-slider :value="50" :range="[20, 85]" vertical></u-combo-slider>
+    </u-grid-layout-column>
+    <u-grid-layout-column :span="6">
+        <u-combo-slider :value="40" :step="10" :range="[30]" vertical></u-combo-slider>
+    </u-grid-layout-column>
+</u-grid-layout>
+```
+
+### 垂直-倒序
+
+```html
+<u-grid-layout>
+    <u-grid-layout-column :span="6">
+        <u-combo-slider tip="倒序" :value="50" :range="[20, 85]" reverse vertical></u-combo-slider>
+    </u-grid-layout-column>
+    <u-grid-layout-column :span="6">
+        <u-combo-slider tip="倒序" :value="40" :step="10" :range="[30]" reverse vertical></u-combo-slider>
+    </u-grid-layout-column>
+</u-grid-layout>
+```

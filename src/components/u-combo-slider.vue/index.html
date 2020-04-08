@@ -1,14 +1,16 @@
-<div :class="$style.root">
+<div :class="$style.root" :vertical="vertical">
     <div :class="$style.main">
          <!-- @override: 增加提示 tip -->
         <div :class="$style.tip">{{ tip }}</div>
-        <u-slider :class="$style.slider" @mousedown.native="onMousedown" :value="currentValue" @input="onInput" @slide="onSlide"
-            :min="min" :max="max" :step="step" :precision="precision" :range="range" :readonly="readonly" :disabled="disabled"
-            :reverse="reverse" 
-        ></u-slider>
-         <!-- @override: 增加数值显示 -->
-        <div :class="$style.scales">
-            <span :class="$style.scale" v-for="item in scales" :key="item">{{ item }}{{ unit }}</span>
+        <div :class="$style.slider">
+            <u-slider @mousedown.native="onMousedown" :value="currentValue" @input="onInput" @slide="onSlide"
+                :min="min" :max="max" :step="step" :precision="precision" :range="range" :readonly="readonly" :disabled="disabled"
+                :reverse="reverse" :vertical="vertical"
+            ></u-slider>
+            <!-- @override: 增加数值显示 -->
+            <div :class="$style.remarks">
+                <span :class="$style.remark" v-for="item in remarks" :key="item.percent" :style="{[vertical ? 'bottom': 'left']: (!reverse ? item.percent : ( 100 - item.percent)) + '%'}">{{ item.label }}{{ unit }}</span>
+            </div>
         </div>
     </div>
     <u-number-input :class="$style.input" :value="currentValue" @change="onInput($event.value, 'numberInput')" @validate="onValidate"

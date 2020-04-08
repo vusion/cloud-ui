@@ -1,0 +1,90 @@
+.root[horizontal] {
+    vertical-align: -7px;
+}
+
+.root[horizontal] .body {
+    margin: var(--slider-body-margin);
+    padding: var(--slider-body-padding);
+    height: 24px;
+
+}
+
+.root[horizontal] .bound[role="start"] {
+    left: -7px;
+    padding-left: 7px;
+}
+
+.root[horizontal] .bound[role="end"] {
+    right: -7px;
+    padding-right: 7px;
+}
+
+.root[horizontal][reverse] .track {
+    background: var(--slider-trail-background);
+}
+
+.root[horizontal] .track::before {
+    width: 7px;
+    left: -7px;
+    height: 100%;
+    background: var(--slider-trail-background);
+}
+
+.root[horizontal][reverse] .track::before {
+    background: var(--slider-track-background);
+    z-index: -1;
+}
+
+.root[horizontal] .track::after {
+    width: 7px;
+    right: -7px;
+    height: 100%;
+    background: var(--slider-track-background);
+}
+
+.root[horizontal][reverse] .track::after {
+    background: var(--slider-trail-background);
+    z-index: -1;
+}
+
+.root[horizontal][reverse] .trail {
+    background: var(--slider-track-background);
+}
+
+.root[horizontal] .handle {
+    left: 0;
+    top: 0;
+    margin-left: calc(var(--slider-handle-width) / -2);
+    width: var(--slider-handle-width);
+    height: var(--slider-handle-height);
+}
+
+.root[horizontal] .handle::before {
+    width: 2px;
+    height: 12px;
+    top: 5px;
+    left: 3px;
+}
+
+.root[horizontal] .handle::after {
+    width: 2px;
+    height: 12px;
+    top: 5px;
+    right: 3px;
+}
+
+.root[horizontal][disabled]:not([reverse]) .track::before {
+    background: var(--brand-disabled);
+}
+
+.root[horizontal][disabled]:not([reverse]) .trail {
+    background: var(--slider-trail-background-disabled);
+}
+
+.root[horizontal][reverse][disabled] .track::after {
+    background: var(--brand-disabled);
+}
+
+.root[horizontal][reverse][disabled] .track {
+    background: var(--slider-trail-background-disabled);
+}

@@ -1,8 +1,17 @@
 .root {}
 
 .slider {
+    position: relative;
     display: inline-block;
+    
+    padding-bottom: 20px;
+}
+
+.root:not([vertical]) .slider {
     width: var(--combo-slider-slider-width);
+}
+.root[vertical] .slider {
+    height: calc(var(--combo-slider-slider-height) + var(--slider-body-margin-size) * 2);
 }
 
 .input {
@@ -33,22 +42,43 @@
     color: var(--color-light);
 }
 
-.scales {
-    margin: 0 7px;
+.remarks {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 3px;
     font-size: 12px;
     color: var(--color-light);
 }
 
-.scale {
-    display: inline-block;
-    width: 33.333333%;
-    text-align: center;
+.root[vertical] .remarks {
+    top: 0;
+    bottom: 0;
+    margin: 3px 0;
+    left: calc(var(--slider-handle-width-vertical) * 2 + var(--slider-handle-border-size) * 2);
 }
 
-.scale:first-child {
+.remark {
+    position: absolute;
+    text-align: center;
+    display: inline-block;
+}
+
+.root:not([vertical]) .remark {
+    width: auto;
+    transform: translateX(-50%);
+}
+
+.root[vertical] .remark {
+    width: 100%;
+    text-align: left;
+    transform: translateY(50%);
+}
+
+.remark:first-child {
     text-align: left;
 }
 
-.scale:last-child {
+.remark:last-child {
     text-align: right;
 }

@@ -18,6 +18,7 @@ export const UComboSlider = {
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         reverse: { type: Boolean, default: false },
+        vertical: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -37,9 +38,21 @@ export const UComboSlider = {
         },
     },
     computed: {
-        scales() {
-            const scales = [this.min, (this.min + this.max) / 2 >> 0, this.max];
-            return this.reverse ? scales.reverse() : scales;
+        remarks() {
+            const middle = (this.min + this.max) / 2 >> 0;
+            const remarks = [
+                {
+                    percent: 0,
+                    label: this.min,
+                }, {
+                    percent: 50,
+                    label: middle,
+                }, {
+                    percent: 100,
+                    label: this.max,
+                },
+            ];
+            return this.reverse ? remarks.reverse() : remarks;
         },
         numberMin() {
             return Math.max(this.min, this.range[0] === undefined ? -Infinity : this.range[0]);

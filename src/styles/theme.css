@@ -584,20 +584,30 @@
     --select-status-color: var(--color-light);
 
     /* Slider */
-    --slider-body-margin: 0 10px;
+    --slider-body-margin-size: 10px;
+    --slider-body-margin: 0 var(--slider-body-margin-size);
+    --slider-height-vertical: 200px;
+    --slider-body-margin-vertical: var(--slider-body-margin-size) 0;
     --slider-body-padding: 9px 0;
+    --slider-body-padding-vertical: 0 9px;
     --slider-track-height: 6px;
+    --slider-track-width-vertical: 6px;
     --slider-track-background: var(--background-color-base);
     --slider-trail-background: var(--brand-primary);
     --slider-trail-background-disabled: var(--brand-disabled);
     --slider-bound-background: url("../assets/images/stripe.png") repeat-x;
+    --slider-bound-background-vertical: url("../assets/images/stripe.png") repeat-y;
     --slider-handle-width: 14px;
+    --slider-handle-width-vertical: 24px;
     --slider-handle-height: 24px;
+    --slider-handle-height-vertical: 14px;
     --slider-handle-background: white;
-    --slider-handle-border: 1px solid var(--border-color-dark);
+    --slider-handle-border-size: 1px;
+    --slider-handle-border: var(--slider-handle-border-size) solid var(--border-color-dark);
 
     /* Combo Slider */
     --combo-slider-slider-width: 100%;
+    --combo-slider-slider-height: var(--slider-height-vertical);
     --combo-slider-input-width: 50px;
     --combo-slider-input-margin-left: 10px;
 
