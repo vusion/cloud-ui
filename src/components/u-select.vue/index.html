@@ -8,7 +8,7 @@
     @keydown.esc.stop="close(), filterText = ''">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
     <span v-show="!filterText && (multiple ? !selectedVMs.length : !selectedVM)" :class="$style.placeholder">{{ placeholder }}</span>
-    <div :class="$style.text" v-ellipsis-title:cover :tags-overflow="tagsOverflow" :style="{direction: ellipsisDirection}">
+    <div :class="$style.text" v-ellipsis-title :tags-overflow="tagsOverflow" :style="{direction: ellipsisDirection}">
         <!-- @override: 添加了flag功能 -->
         <slot name="flag">
             <span v-if="selectedVM && selectedVM.flag !== undefined" :class="$style.flag" :layer="selectedVM && selectedVM.layer" v-tooltip.top="selectedVM && selectedVM.flag"></span>

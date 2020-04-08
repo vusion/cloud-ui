@@ -9,9 +9,8 @@ export const ellipsisTitle = {
             const title = binding.value || el.innerText;
             if (style.overflow === 'hidden' && style.textOverflow === 'ellipsis' && style.whiteSpace === 'nowrap' && el.scrollWidth > el.offsetWidth) {
                 el.setAttribute('title', title);
-            } else if (binding.arg === 'cover' && !!el.getAttribute('title')) {
-                // binding.arg 为 cover 表示需要动态调整 title 的场景
-                // 动态调整场景，不满足切换 title 场景时，删除冗余 title
+            } else if (el.getAttribute('title')) {
+                // 不满足配置 title 场景时，删除冗余 title
                 el.removeAttribute('title');
             }
         };
