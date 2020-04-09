@@ -30,66 +30,57 @@ Vue.use(CloudUI); // 全局安装组件库中的组件、指令等
 
 ## Migration
 
-### migrate
+### migrate-3-4
 
-替换老代码
-
-``` shell
-migrate ./src
-```
-
-### findExtends
+从 v0.3.x 升级到 v0.4.x
 
 ``` shell
-findExtends ./src
+bin/migrate-3-4 ./src
 ```
 
-查找有多少同名组件
+### migrate-4-6
+
+从 v0.4.x 升级到 v0.6.x
+
+``` shell
+bin/migrate-4-6 ./src
+```
 
 ### findByRE
 
 通过正则表达式查找
 
 ``` shell
-findByRE ./src '<u-input[\s\S]{0,300}close'
+bin/findByRE ./src '<u-input[\s\S]{0,300}close'
 ```
-
-### checkWatcher
-
-查找 watch properties
 
 ## Development
 
-### Install
+### npm install
 
-```
-npm install -g vusion-cli
-npm install
-```
+安装
 
-### Build dist
+### npm run dev
 
-```
-npm run build
-```
+开发
 
-### Develop docs
+### npm run build:docs
 
-``` shell
-vusion doc
-```
+构建文档
 
-如需不同的主题
+需要先`npm run build`和`npm run build:theme`
 
-``` shell
-vusion doc -t dark
-```
+### npm run build:doc-entry
 
-### Build docs
+构建用于物料体系的文档入口。
 
-```
-npm run doc-build
-```
+### npm run deploy
+
+将`public/`下的文档发布到 NOS
+
+### npm run deploy:doc-entry
+
+将`dist-doc-entry/`下的文档入口发布到 NOS
 
 ## Changelog
 

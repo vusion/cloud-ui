@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+
+const vusion = require('vusion-api');
+
+const config = require('../vusion.config.js');
+const components = config.docs.components.filter((component) => !component.href && !component.path && !component.deprecated);
+
+components.forEach((component) => {
+    const command = `vusion deploy --framework cloud-ui -v minor src/components/${component.name}.vue/screenshots`;
+    console.log(command);
+    vusion.cli.execSync(command);
+    vusion.cli.done(component.name + '.vue');
+});

@@ -16,12 +16,14 @@
     "build:raw": "vue-cli-service library-build --vusion-mode raw --dest dist-raw",
     "build:docs": "vue-cli-service doc-build",
     "build:doc-entry": "cross-env VUE_CLI_SERVICE_CONFIG_PATH=$PWD/vue.config.doc-entry.js vue-cli-service build --output-path dist-doc-entry",
+    "screenshot": "node bin/screenshot",
     "lint": "vue-cli-service lint",
     "ghpages": "vusion ghpages",
     "deploy": "vusion deploy --framework cloud-ui -v minor",
+    "deploy:screenshots": "node bin/deploy-screenshots",
     "deploy:doc-entry": "vusion deploy --framework cloud-ui -v minor dist-doc-entry",
     "prepublishOnly": "npm run build && npm run build:theme && npm run build:raw && vusion readme && vusion vetur && git add .",
-    "postpublish": "build:docs && npm run deploy"
+    "postpublish": "build:docs && npm run deploy && vusion ghpages"
   },
   "repository": "vusion/cloud-ui",
   "homepage": "http://vusion.github.io/cloud-ui",
