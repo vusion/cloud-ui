@@ -13,18 +13,22 @@ export const UNumberInput = {
         min: { type: Number, default: -Infinity },
         max: { type: Number, default: Infinity },
         step: { type: Number, default: 1, validator: (step) => step >= 0 },
-        precision: { type: Number, default: 1, validator: (precision) => precision > 0 },
+        precision: { type: Number, default: 1, validator: (precision) => precision >= 0 },
         formatter: { type: [String, Object] },
         hideButtons: { type: Boolean, default: false },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
     },
     data() {
+        // 根据初始值计算 fix 精度
+        const fixedPrecision = this.getFixedPrecision(this.value);
         const data = {
-            currentValue: this.fix(this.value),
+            currentValue: this.fix(this.value, fixedPrecision),
             // 格式化后的 value，与`<input>`中的实际值保持一致
             formattedValue: this.value,
             currentFormatter: undefined,
+            // fix 精度，precision 为 0 时，使用动态精度
+            fixedPrecision,
         };
 
         if (this.formatter instanceof Object)
@@ -50,12 +54,14 @@ export const UNumberInput = {
     },
     watch: {
         value(value, oldValue) {
-            const currentValue = this.currentValue = this.fix(value);
+            // 根据传入的 value 调整 fix 精度
+            const fixedPrecision = this.fixedPrecision = this.getFixedPrecision(value);
+            const currentValue = this.currentValue = this.fix(value, fixedPrecision);
             this.formattedValue = this.currentFormatter.format(currentValue);
         },
     },
     created() {
-        const value = this.fix(this.value);
+        const value = this.currentValue;
         this.$emit('change', {
             value,
             oldValue: undefined,
@@ -64,7 +70,7 @@ export const UNumberInput = {
         }, this);
     },
     methods: {
-        fix(value) {
+        fix(value, fixedPrecision = this.fixedPrecision) {
             // 为空时使用默认值
             if (typeof value === 'string' && value.trim() === '' || value === null)
                 value = this.defaultValue !== undefined ? this.defaultValue : this.currentValue || 0;
@@ -72,12 +78,37 @@ export const UNumberInput = {
                 value = this.currentValue || this.defaultValue || 0;
             value = +value;
             // 精度约束
-            value = Math.round(value / this.precision) * this.precision;
+            value = Math.round(value / fixedPrecision) * fixedPrecision;
             // 最大最小约束
             value = Math.min(Math.max(this.min, value), this.max);
             // 保留小数位数
-            value = +value.toFixed(this.precision < 1 ? -Math.floor(Math.log10(this.precision)) : 0);
+            value = +value.toFixed(fixedPrecision < 1 ? -Math.floor(Math.log10(fixedPrecision)) : 0);
             return value;
+        },
+        /**
+         * 计算动态精度
+         * @param {*} value 输入值
+         */
+        getAutoPrecision(value) {
+            if (value === undefined || this.precision !== 0)
+                return 1;
+            value = +value;
+            // value 合法性校验
+            if (isNaN(value) || value < this.min || value > this.max)
+                return 1;
+            const valueString = value.toString();
+            const dotPosition = valueString.indexOf('.');
+            if (dotPosition === -1)
+                return 1;
+            const numberPrecision = valueString.length - dotPosition - 1;
+            return 1 / Math.pow(10, numberPrecision);
+        },
+        /**
+         * 计算 fix 精度
+         * @param {*} value 输入值
+         */
+        getFixedPrecision(value) {
+            return this.precision === 0 ? this.getAutoPrecision(value) : this.precision;
         },
         isValid(value) {
             if (isNaN(value))
@@ -144,7 +175,9 @@ export const UNumberInput = {
                 return;
 
             const parsedValue = this.currentFormatter.parse(rawValue);
-            const value = this.fix(parsedValue);
+            // 根据输入调整 fix 精度
+            const fixedPrecision = this.fixedPrecision = this.getFixedPrecision(parsedValue);
+            const value = this.fix(parsedValue, fixedPrecision);
             const valid = String(value) === String(parsedValue);
             this.$emit('validate', {
                 valid,
