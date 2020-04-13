@@ -86,6 +86,7 @@ module.exports = {
             { group: 'Data', name: 'u-cascade-capsules', alias: '级联胶囊' },
             { group: 'Data', name: 'u-pills', alias: '药丸' },
             { group: 'Data', name: 'u-tablets', alias: '药片' },
+            { group: 'Data', name: 'u-timeline', alias: '时间线' },
             { group: 'Data', name: 'u-countup', alias: '数字渐变' },
             { group: 'DateTime', name: 'u-calendar', alias: '日历' },
             { group: 'DateTime', name: 'u-date-picker', alias: '日期选择' },
