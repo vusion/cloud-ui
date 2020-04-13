@@ -1,0 +1,29 @@
+- name: u-timeline
+  title: 时间线
+  attrs:
+    - name: alternate
+      type: boolean
+      default: false
+      description: 是否交替展示
+    - name: pending
+      type: boolean
+      default: false
+      description: 是否指定最后一个节点为幽灵节点
+  slots:
+    - name: default
+      description: 插入 `<u-timeline-item>` 子组件
+- name: u-timeline-item
+  attrs:
+    - name: color
+      type: string
+      default: 'primary'
+      description: 指定圆圈颜色 `primary`, `success`, `warning`, `error`，或自定义的色值
+    - name: position
+      type: string
+      default: 'right'
+      description: 指定交替展示时的位置 `left`, `right`，只在 `alternate` 模式下生效
+  slots:
+    - name: default
+      description: 插入文本或 HTML
+    - name: dot
+      description: 自定义图标
