@@ -10,8 +10,10 @@
         <span :class="$style.extra"><slot name="extra"></slot></span>
     </div>
     <f-collapse-transition>
-        <div :class="$style.body" v-show="currentExpanded">
-            <slot></slot>
+        <div :class="$style.wrap" v-show="currentExpanded">
+            <div :class="$style.content">
+                <slot></slot>
+            </div>
         </div>
     </f-collapse-transition>
 </div>
