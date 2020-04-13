@@ -18,6 +18,9 @@
       type: string
       default: 'primary'
       description: 指定圆圈颜色 `primary`, `success`, `warning`, `error`，或自定义的色值
+    - name: label
+      type: string
+      description: 指定展示在另一侧的 `label`
     - name: position
       type: string
       default: 'right'
@@ -27,3 +30,5 @@
       description: 插入文本或 HTML
     - name: dot
       description: 自定义图标
+    - name: label
+      description: 自定义 label
