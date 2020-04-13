@@ -1,8 +1,12 @@
 <li :class="{ [$style.root]: true, [$style.left]: itemPosition === 'left', [$style.right]: itemPosition === 'right' }" :color="color">
+    <div :class="$style.label">
+        <slot name="label" v-if="$slots.label"></slot>
+        {{ !$slots.label ? label : undefined }}
+    </div>
     <div :class="$style.tail" uname="tail"></div>
     <div v-if="!$slots.dot" :class="$style.dot" :style="{ borderColor: /primary|success|warning|error/.test(color) ? undefined : color }"></div>
     <div v-else :class="$style.dotCustom">
-      <slot name="dot"></slot>
+        <slot name="dot"></slot>
     </div>
     <div :class="$style.content" uname="content">
         <slot></slot>

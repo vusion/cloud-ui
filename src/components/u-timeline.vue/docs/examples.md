@@ -18,29 +18,37 @@
 
 ### 修改颜色
 
-``` html
+``` vue
+<template>
 <u-timeline>
     <u-timeline-item color="black">
         <div>black</div>
-        <div style="font-size: var(--font-size-small); color: var(--color-light)">2020-01-20</div>
+        <div :class="$style.time">2020-01-20</div>
     </u-timeline-item>
     <u-timeline-item color="success">
         <div>success</div>
-        <div style="font-size: var(--font-size-small); color: var(--color-light)">2020-01-21</div>
+        <div :class="$style.time">2020-01-21</div>
     </u-timeline-item>
     <u-timeline-item color="warning">
         <div>warning</div>
-        <div style="font-size: var(--font-size-small); color: var(--color-light)">2020-01-21</div>
+        <div :class="$style.time">2020-01-21</div>
     </u-timeline-item>
     <u-timeline-item color="error">
         <div>error</div>
-        <div style="font-size: var(--font-size-small); color: var(--color-light)">2020-01-22</div>
+        <div :class="$style.time">2020-01-22</div>
     </u-timeline-item>
     <u-timeline-item>
         <div>默认颜色: primary</div>
-        <div style="font-size: var(--font-size-small); color: var(--color-light)">2020-01-23</div>
+        <div :class="$style.time">2020-01-23</div>
     </u-timeline-item>
 </u-timeline>
+</template>
+<style module>
+.time {
+    font-size: var(--font-size-small);
+    color: var(--color-light)
+}
+</style>
 ```
 
 ### 自定义图标
@@ -58,6 +66,41 @@
         <div>完成</div>
     </u-timeline-item>
 </u-timeline>
+```
+
+### 使用label单独展示时间
+
+``` vue
+<template>
+<u-timeline>
+    <u-timeline-item label="2020-01-20">
+        服务测试数据1
+        <div :class="$style.sub">这是一段测试文案1</div>
+    </u-timeline-item>
+    <u-timeline-item label="2020-01-21">
+        服务测试数据2
+        <div :class="$style.sub">这是一段测试文案2</div>
+    </u-timeline-item>
+    <u-timeline-item label="2020-01-22">
+        服务测试数据3
+        <div :class="$style.sub">这是一段测试文案3</div>
+    </u-timeline-item>
+    <u-timeline-item label="2020-01-23">
+        服务测试数据4
+        <div :class="$style.sub">这是一段测试文案4</div>
+    </u-timeline-item>
+    <u-timeline-item label="2020-01-24">
+        服务测试数据5
+        <div :class="$style.sub">这是一段测试文案5</div>
+    </u-timeline-item>
+</u-timeline>
+</template>
+<style module>
+.sub {
+    font-size: var(--font-size-small);
+    color: var(--color-light)
+}
+</style>
 ```
 
 ### 交替展示

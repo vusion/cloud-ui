@@ -5,6 +5,9 @@ export const UTimelineItem = {
             type: String,
             default: 'primary',
         },
+        label: {
+            type: String,
+        },
         position: {
             validator(value) {
                 return ['left', 'right'].indexOf(value) !== -1;
@@ -15,7 +18,7 @@ export const UTimelineItem = {
     inject: ['timeline'],
     data() {
         return {
-            itemPosition: this.timeline.alternate ? this.position : undefined,
+            itemPosition: this.timeline.alternate || this.timeline.hasLabel ? this.position : undefined,
         };
     },
 };

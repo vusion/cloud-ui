@@ -90,3 +90,18 @@
     width: calc(50% - 14px);
     text-align: left;
 }
+
+.left .label {
+    position: absolute;
+    top: calc(var(--font-size-base) - var(--font-size-base) * var(--line-height-base) + 1px);
+    left: calc(50% + 14px);
+    width: calc(50% - 14px);
+    text-align: left;
+}
+
+.right .label {
+    position: absolute;
+    top: calc(var(--font-size-base) - var(--font-size-base) * var(--line-height-base) + 1px);
+    width: calc(50% - 12px);
+    text-align: right;
+}
