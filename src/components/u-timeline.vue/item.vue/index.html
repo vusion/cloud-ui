@@ -1,5 +1,5 @@
 <li :class="{ [$style.root]: true, [$style.left]: itemPosition === 'left', [$style.right]: itemPosition === 'right' }" :color="color">
-    <div :class="$style.label">
+    <div :class="$style.label" v-if="itemPosition !== undefined">
         <slot name="label" v-if="$slots.label"></slot>
         {{ !$slots.label ? label : undefined }}
     </div>

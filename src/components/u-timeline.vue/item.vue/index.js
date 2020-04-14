@@ -18,7 +18,7 @@ export const UTimelineItem = {
     inject: ['timeline'],
     data() {
         return {
-            itemPosition: this.timeline.alternate || this.timeline.hasLabel ? this.position : undefined,
+            itemPosition: ['alternate', 'label'].indexOf(this.timeline.mode) !== -1 ? this.position : undefined,
         };
     },
 };

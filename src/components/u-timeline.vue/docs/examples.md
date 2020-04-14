@@ -72,7 +72,7 @@
 
 ``` vue
 <template>
-<u-timeline>
+<u-timeline mode="label">
     <u-timeline-item label="2020-01-20">
         服务测试数据1
         <div :class="$style.sub">这是一段测试文案1</div>
@@ -106,7 +106,7 @@
 ### 交替展示
 
 ``` html
-<u-timeline alternate>
+<u-timeline mode="alternate">
     <u-timeline-item position="left">
         2020-01-20 注册
     </u-timeline-item>

@@ -1,10 +1,11 @@
 - name: u-timeline
   title: 时间线
   attrs:
-    - name: alternate
-      type: boolean
-      default: false
-      description: 是否交替展示
+    - name: mode
+      type: enum
+      options: [default, alternate, label]
+      default: default
+      description: 模式切换。`alternate` 交替展示，`label` 开启 `label` 展示
     - name: pending
       type: boolean
       default: false
@@ -20,15 +21,16 @@
       description: 指定圆圈颜色 `primary`, `success`, `warning`, `error`，或自定义的色值
     - name: label
       type: string
-      description: 指定展示在另一侧的 `label`
+      description: 指定展示在另一侧的 `label`，只在 `label` 模式下生效
     - name: position
-      type: string
+      type: enum
+      options: [left, right]
       default: 'right'
-      description: 指定交替展示时的位置 `left`, `right`，只在 `alternate` 模式下生效
+      description: 指定交替展示时的位置，只在 `alternate` 或 `label` 模式下生效
   slots:
     - name: default
       description: 插入文本或 HTML
     - name: dot
       description: 自定义图标
     - name: label
-      description: 自定义 label
+      description: 自定义 `label` ，只在 `label` 模式下生效
