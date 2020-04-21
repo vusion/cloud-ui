@@ -46,12 +46,12 @@ bin/migrate-3-4 ./src
 bin/migrate-4-6 ./src
 ```
 
-### findByRE
+### find-by-re
 
 通过正则表达式查找
 
 ``` shell
-bin/findByRE ./src '<u-input[\s\S]{0,300}close'
+bin/find-by-re ./src '<u-input[\s\S]{0,300}close'
 ```
 
 ## Development

@@ -52,19 +52,19 @@
     color: var(--text-color-disabled);
 }
 
-.root[wrap="ellipsis"] {
+.root[overflow="ellipsis"], .root[wrap="ellipsis"] {
     display: block;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
-.root[wrap="break"] {
+.root[overflow="break"], .root[wrap="break"] {
     word-wrap: break-word;
     hyphens: auto;
 }
 
-.root[wrap="nowrap"] {
+.root[overflow="nowrap"], .root[wrap="nowrap"] {
     white-space: nowrap;
 }
 

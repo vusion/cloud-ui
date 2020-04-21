@@ -31,7 +31,7 @@
       description: 是否禁用。禁用后不会响应`click`事件。
     - name: color
       type: enum
-      options: [default, light, success, warning, error]
+      options: [default, light, success, warning, danger, error]
       default: default
       description: 设置颜色。
     - name: display

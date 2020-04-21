@@ -21,6 +21,9 @@
     --brand-error-light: #ff6c6c;
     --brand-error: #ff5a5a;
     --brand-error-dark: #ff3434;
+    --brand-danger-light: #ff6c6c;
+    --brand-danger: #ff5a5a;
+    --brand-danger-dark: #ff3434;
     --brand-disabled-light: #dee4ed; /* 选择且禁用的背景 */
     --brand-disabled: #cdd6e4; /* 输入框、选择框的禁用背景 */
     --brand-disabled-dark: #b2c0d5; /* 禁用文本的颜色 */
@@ -155,6 +158,7 @@
     --link-color-success: var(--brand-success);
     --link-color-warning: var(--brand-warning);
     --link-color-error: var(--brand-error);
+    --link-color-danger: var(--brand-danger);
     --link-color-disabled: var(--brand-disabled-dark);
     --link-color-light: #6eadff;
     --link-color-white: white;
@@ -211,17 +215,22 @@
 
     /* Label */
     --label-padding-x: 8px;
+    --label-padding-x-small: 6px;
     --label-padding-x-large: 12px;
     --label-padding-x-huge: 18px;
     --label-padding-y: 1px;
+    --label-padding-y-small: 0px;
     --label-padding-y-large: 2px;
     --label-padding-y-huge: 3px;
+    --label-line-height-small: 18px;
     --label-font-size: var(--font-size-small);
+    --label-font-size-small: var(--font-size-small);
     --label-font-size-large: var(--font-size-small);
     --label-font-size-huge: var(--font-size-base);
     --label-remove-padding-x: 3px;
-    --label-remove-padding-x-large: 5px;
-    --label-remove-padding-x-huge: 8px;
+    --label-remove-padding-x-small: 3px;
+    --label-remove-padding-x-large: 6px;
+    --label-remove-padding-x-huge: 10px;
     --label-background: var(--background-color-base);
     --label-background-primary: var(--brand-primary);
     --label-background-success: var(--brand-success);
