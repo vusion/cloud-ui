@@ -34,3 +34,7 @@
     padding: 0;
     top: calc(var(--badge-dot-size) / -2);
 }
+
+.root[display="block"] {
+    display: block;
+}

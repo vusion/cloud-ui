@@ -1,13 +1,18 @@
-### 基本用法
+### 文字徽章
 
 ``` html
-<p>消息 <u-badge :value="3"></u-badge></p>
 <p>消息 <u-badge value="new"></u-badge></p>
 ```
 
-### 右上角
+### 数字徽章
 
-使用`corner`属性，设置徽章在右上角。
+``` html
+<p>消息 <u-badge :value="3"></u-badge></p>
+```
+
+### 右上角徽章
+
+在右上角设置徽章。
 
 ``` html
 <u-badge :value="3" corner>
@@ -17,7 +22,7 @@
 
 ### 最大值
 
-使用`max`属性限制数字的最大值。
+限制数字的最大值。
 
 ``` html
 <u-badge :value="120" :max="99" corner>
@@ -29,6 +34,11 @@
 
 ``` html
 <p>消息 <u-badge :value="3" dot></u-badge></p>
+```
+
+### 右上角小圆点
+
+``` html
 <p><u-badge :value="3" corner dot>
     <u-button>评论</u-button>
 </u-badge></p>
