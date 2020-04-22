@@ -4,11 +4,13 @@ export const UCopy = {
     name: 'u-copy',
     props: {
         value: String,
-        placement: String,
-        successText: { type: String, default: `已复制` },
+        text: { type: String, default: '复制' },
+        placement: { type: String, default: 'top' },
+        successText: { type: String, default: '已复制' },
         disabled: { type: Boolean, default: false },
         hideDelay: { type: Number, default: 3000 },
-        modalType: { type: String, default: 'popper' }, // 成功后提示方式，none：不提示，popper，toast
+        feedback: { type: String, default: 'tooltip' }, // @deprecated
+        modalType: { type: String, default: 'tooltip' }, // @deprecated
     },
     data() {
         return {
@@ -25,9 +27,11 @@ export const UCopy = {
                 return;
             this.success = copy(this.value);
             if (this.success) {
-                if (this.modalType === 'toast')
+                if (this.feedback === 'toast' || this.modalType === 'toast')
                     this.$toast.show(this.successText, this.hideDelay);
-                this.$emit('copy', this.value);
+                this.$emit('copy', {
+                    value: this.value,
+                }, this);
                 clearTimeout(this.timeoutId);
                 this.timeoutId = setTimeout(() => {
                     this.success = false;

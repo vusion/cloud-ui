@@ -1,38 +1,46 @@
 - name: u-copy
   title: 复制
-  description: 提供复制文本到浏览器剪切板功能
+  description: 复制文本到剪切板。
   attrs:
     - name: value
       type: string
       default: null
       description: 需要复制的值
-    - name: placement
+    - name: text
       type: string
-      default: bottom
-      description: popper 提示框位置，可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',`'left-end'`, `'right-start'`, `'right-end'`
+      default: 复制
+      description: 链接的文本
     - name: success-text
       type: string
       default: 已复制
       description: 复制成功提示文本
-    - name: disabled
-      type: boolean
-      default: false
-      description: 是否禁止复制
+    - name: feedback
+      type: enum
+      options: [tooltip, toast, none]
+      default: tooltip
+      description: 复制提示反馈方式 `'tooltip'`,`'toast'`,`'none'`
+    - name: placement
+      type: string
+      default: top
+      description: tooltip 提示框位置，可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',`'left-end'`, `'right-start'`, `'right-end'`
     - name: hide-delay
       type: number
       default: 3000
       description: 提示框显示时长
-    - name: modal-type
-      type: string
-      default: popper
-      description: 复制提示弹窗类型 `'popper'`,`'toast'`,`'none'`
+    - name: disabled
+      type: boolean
+      default: false
+      description: 是否禁止复制
   slots:
     - name: default
-      description: 插入 HTML 或 `Component`, 可展示额外内容。
+      description: 插入 HTML 或组件，用于修改触发元素。
   events:
     - name: copy
       description: 内容复制成功后触发
       params:
-        - name: $event
+        - name: $event.value
           type: string
-          description: 复制的内容
+          description: 复制的值
+        - name: senderVM
+          type: UCopy
+          description: 事件发送对象
