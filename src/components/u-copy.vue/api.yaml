@@ -9,7 +9,7 @@
     - name: placement
       type: string
       default: bottom
-      description: popper提示框位置，`'top'` `'right'` `'left'`
+      description: popper 提示框位置，可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',`'left-end'`, `'right-start'`, `'right-end'`
     - name: success-text
       type: string
       default: 已复制
@@ -21,14 +21,14 @@
     - name: hide-delay
       type: number
       default: 3000
-      description: popper提示框影藏消失时间
+      description: 提示框显示时长
     - name: modal-type
       type: string
       default: popper
-      description: 复制提示弹窗类型`'popper'` `'toast'` `'none'`
+      description: 复制提示弹窗类型 `'popper'`,`'toast'`,`'none'`
   slots:
     - name: default
-      description: 插入  HTML或 `Component`, 可展示额外内容。
+      description: 插入 HTML 或 `Component`, 可展示额外内容。
   events:
     - name: copy
       description: 内容复制成功后触发
