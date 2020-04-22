@@ -190,6 +190,8 @@ export const USelect = {
             this.$emit('close', $event, this);
         },
         fastLoad(more, keep) {
+            if (!this.currentDataSource)
+                return;
             this.currentDataSource.filter(this.filtering);
             return this.currentDataSource.mustRemote() ? this.debouncedLoad(more, keep) : this.load(more, keep);
         },
@@ -317,6 +319,7 @@ export const USelect = {
                 this.selectedVMs = [];
                 this.filterText = '';
                 this.fastLoad();
+                this.$emit('input', value, this);
                 this.$emit('update:value', value, this);
 
                 this.$emit('clear', {
