@@ -579,7 +579,7 @@
     --select-arrow-size: 18px;
     --select-arrow-right-ratio: 0.6;
     --select-tags-padding-y: 2px;
-    --select-tags-padding: 2px 26px 2px 4px;
+    --select-tags-padding: 3px 26px 3px 5px;
     --select-tags-line-height: 26px;
     --select-tags-filterable-width: 40px;
     --select-tag-line-height: calc(var(--select-tags-line-height) - var(--select-tags-padding-y) * 2);

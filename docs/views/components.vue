@@ -8,18 +8,18 @@
                     <u-sidebar-item v-for="material in group.children" :key="material.name" v-show="!material.deprecated || showDeprecated"
                                     :href="material.href" :to="material.to ? material.to : `/${type}/` + material.name" :target="material.target">
                         {{ camelName ? material.CamelName : material.name }}
-                        <u-label v-if="material.deprecated" style="background: #6c80a1;">废弃</u-label>
+                        <u-label size="small" v-if="material.deprecated" style="background: #6c80a1;">废弃</u-label>
                         <small v-else :class="$style.alias">{{ material.alias }}</small>
-                        <u-label v-if="material.newest" color="primary">NEW</u-label>
+                        <u-label size="small" v-if="material.newest" color="primary">NEW</u-label>
                     </u-sidebar-item>
                 </template>
                 <u-sidebar-group v-else :key="group.name" :title="group.name">
                     <u-sidebar-item v-for="material in group.children" :key="material.name" v-show="!material.deprecated || showDeprecated"
                                     :href="material.href" :to="material.to ? material.to : `/${type}/` + material.name" :target="material.target">
                         {{ camelName ? material.CamelName : material.name }}
-                        <u-label v-if="material.deprecated" style="background: #6c80a1;">废弃</u-label>
+                        <u-label size="small" v-if="material.deprecated" style="background: #6c80a1;">废弃</u-label>
                         <small v-else :class="$style.alias">{{ material.alias }}</small>
-                        &nbsp;<u-label v-if="material.newest" color="primary">NEW</u-label>
+                        &nbsp;<u-label size="small" v-if="material.newest" color="primary">NEW</u-label>
                     </u-sidebar-item>
                 </u-sidebar-group>
             </template>
