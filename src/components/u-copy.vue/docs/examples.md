@@ -149,3 +149,16 @@ toast 弹窗
     </u-copy>
 </u-linear-layout>
 ```
+
+### 指令形式
+
+
+``` html
+<u-linear-layout style="height:100px">
+    <u-button v-copy="'需要 copy 的内容'">复制</u-button>
+    <u-button v-copy.top="'需要 copy 的内容'">复制</u-button>
+    <u-button v-copy.toast="'需要 copy 的内容'">复制</u-button>
+    <u-button v-copy.toast.500="'需要 copy 的内容'">复制</u-button>
+    <u-button v-copy="'需要 copy 的内容'" :disabled="true">复制</u-button>
+</u-linear-layout>
+```

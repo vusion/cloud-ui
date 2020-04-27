@@ -1,7 +1,6 @@
-
 <div :class="$style.root">
     <div :class="$style.tooltipWrap" v-if="modalType==='popper'">
-        <u-tooltip :placement="placement" trigger="manual" 
+        <u-tooltip :placement="placement" trigger="manual"
             :opened.sync="success">
             {{successText}}
         </u-tooltip>
