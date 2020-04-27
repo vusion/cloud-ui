@@ -81,7 +81,7 @@
                             </tr>
                         </template>
                     </template>
-                    <tr v-if="currentData === undefined || currentLoading"><!-- 初次加载与加载更多 loading 合并在一起 -->
+                    <tr v-if="(currentData === undefined && !currentError) || currentLoading"><!-- 初次加载与加载更多 loading 合并在一起 -->
                         <td :class="$style.center" :colspan="visibleColumnVMs.length">
                             <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
                         </td>

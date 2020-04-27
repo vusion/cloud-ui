@@ -823,7 +823,7 @@ export default {
 
 #### 前端过滤（搜索）
 
-如果数据本身为前端数据或是从后端一次性拿过来的，设置`filterable`属性即可开启过滤功能。用于快速查找选项。
+如果数据源本身为前端数据或是从后端一次性拿过来的，设置`filterable`属性即可开启过滤功能。用于快速查找选项。
 
 ``` vue
 <template>
@@ -1183,7 +1183,7 @@ export default {
 
 #### 前端分页
 
-如果数据本身为前端数据或是从后端一次性拿过来的，设置`pageable`或`pageable="pagination"`即可开启分页功能，用`page-size`属性修改分页大小。
+如果数据源本身为前端数据或是从后端一次性拿过来的，设置`pageable`或`pageable="pagination"`即可开启分页功能，用`page-size`属性修改分页大小。
 
 ``` vue
 <template>
@@ -1292,7 +1292,7 @@ export default {
 <script>
 // 模拟后端请求
 const mockRequest = (data, timeout = 300) => new Promise((res, rej) => setTimeout(() => res(data), timeout));
-// 模拟构造数量较多的 500 条远程数据
+// 模拟构造数量较多的 500 条后端数据
 let mockData = [];
 const total = 500;
 for (let i = 1; i <= total; i++)

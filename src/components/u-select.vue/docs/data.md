@@ -63,7 +63,7 @@ export default {
 <u-select :data-source="load" pageable :page-size="20" placeholder="前端分页"></u-select>
 </template>
 <script>
-// 模拟构造远程数据
+// 模拟构造后端数据
 const remoteData = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New hampshire', 'New jersey', 'New mexico', 'New york', 'North carolina', 'North dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode island', 'South carolina', 'South dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West virginia', 'Wisconsin', 'Wyoming'].map((text) => ({ text, value: text }));
 
 export default {
@@ -106,7 +106,7 @@ params.paging = {
 </u-linear-layout>
 </template>
 <script>
-// 模拟构造数量较多的 500 条远程数据
+// 模拟构造数量较多的 500 条后端数据
 let remoteData = [];
 for (let i = 1; i <= 500; i++)
     remoteData.push('item' + i);
@@ -208,7 +208,7 @@ export default {
 <u-select :data-source="load" filterable clearable placeholder="前端过滤"></u-select>
 </template>
 <script>
-// 模拟构造远程数据
+// 模拟构造后端数据
 const remoteData = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New hampshire', 'New jersey', 'New mexico', 'New york', 'North carolina', 'North dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode island', 'South carolina', 'South dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West virginia', 'Wisconsin', 'Wyoming'].map((text) => ({ text, value: text }));
 
 export default {
@@ -248,7 +248,7 @@ export default {
 </u-linear-layout>
 </template>
 <script>
-// 模拟构造数量较多的 500 条远程数据
+// 模拟构造数量较多的 500 条后端数据
 let remoteData = [];
 for (let i = 1; i <= 500; i++) {
     remoteData.push('item' + i);

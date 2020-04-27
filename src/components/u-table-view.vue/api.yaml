@@ -170,7 +170,7 @@
     - name: loading
       description: 自定义加载中。
     - name: error
-      description: 自定义错误。
+      description: 自定义加载错误。
     - name: empty
       description: 自定义空态。
   events:

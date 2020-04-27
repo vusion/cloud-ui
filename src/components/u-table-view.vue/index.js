@@ -72,7 +72,7 @@ export const UTableView = {
     },
     computed: {
         currentData() {
-            return this.currentDataSource && this.currentDataSource.viewData;
+            return this.currentDataSource ? this.currentDataSource.viewData : this.currentDataSource;
         },
         visibleColumnVMs() {
             return this.columnVMs.filter((columnVM) => !columnVM.hidden);
@@ -272,7 +272,7 @@ export const UTableView = {
             } else if (dataSource instanceof Object) {
                 return new DataSource(Object.assign(options, dataSource));
             } else
-                return undefined;
+                return dataSource;
         },
         number2Pixel(value) {
             return isNumber(value) ? value + 'px' : '';
@@ -528,6 +528,7 @@ export const UTableView = {
             };
             if (this.$emitPrevent('before-page', paging, this))
                 return;
+            delete paging.preventDefault;
 
             this.currentDataSource.page(paging);
             this.load();
@@ -549,6 +550,7 @@ export const UTableView = {
             const sorting = { field, order, compare };
             if (this.$emitPrevent('before-sort', sorting, this))
                 return;
+            delete sorting.preventDefault;
 
             this.currentDataSource.sort(sorting);
             this.load();
@@ -573,6 +575,7 @@ export const UTableView = {
         filter(filtering) {
             if (this.$emitPrevent('before-filter', filtering, this))
                 return;
+            delete filtering.preventDefault;
 
             this.currentDataSource.filter(filtering);
             this.load();

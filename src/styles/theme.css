@@ -682,7 +682,7 @@
     --table-view-sort-color-active: var(--brand-primary);
     --table-view-sort-size: 1em;
     --table-view-expander-size: 26px;
-    --table-view-row-selected-background: #d7e5fb;
+    --table-view-row-selected-background: #e4eeff;
     --table-view-pagination-space: var(--space-base);
 
     /* Transfer */
