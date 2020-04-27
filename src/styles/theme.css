@@ -696,14 +696,14 @@
     --transfer-button-space: 10px;
     --transfer-button-background: var(--button-background-primary);
     --transfer-button-background-hover: var(--button-background-primary-hover);
-    --transfer-button-background-active: var(--button-background-primary-active);
+    --transfer-button-background-active: var(--button-background-primary-hover);
     --transfer-button-background-disabled: var(--button-background-primary-disabled);
     --transfer-button-color: white;
     --transfer-button-color-hover: white;
     --transfer-button-color-disabled: white;
-    --transfer-button-border-color: var(--button-background-primar);
-    --transfer-button-border-color-hover: var(--button-background-primar-hover);
-    --transfer-button-border-color-disabled: var(--button-background-primar-disabled);
+    --transfer-button-border-color: var(--button-background-primary);
+    --transfer-button-border-color-hover: var(--button-background-primary-hover);
+    --transfer-button-border-color-disabled: var(--button-background-primary-disabled);
 
     /* Popup */
     --popup-padding: 6px 10px;

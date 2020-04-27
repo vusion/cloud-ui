@@ -43,7 +43,7 @@
 }
 
 .root[disabled] .body {
-    background: var(--list-view-background-disabled);
+    background: var(--list-view-body-background-disabled);
 }
 
 .foot {
