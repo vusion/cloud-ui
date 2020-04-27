@@ -420,6 +420,8 @@
     /* Toc */
     --toc-width: 200px;
     --toc-padding: 5px;
+    --toc-circle-size: 9px;
+    --toc-item-circle-size: 5px;
     --toc-font-size: 14px;
     --toc-background: white;
     --toc-border-width: var(--border-width-base);
