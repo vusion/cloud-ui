@@ -81,27 +81,27 @@
                             </tr>
                         </template>
                     </template>
-                    <tr v-if="(currentData === undefined && !currentError) || currentLoading"><!-- 初次加载与加载更多 loading 合并在一起 -->
+                    <tr key="loading" v-if="(currentData === undefined && !currentError) || currentLoading"><!-- 初次加载与加载更多 loading 合并在一起 -->
                         <td :class="$style.center" :colspan="visibleColumnVMs.length">
                             <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
                         </td>
                     </tr>
-                    <tr v-else-if="currentData === null || currentError">
+                    <tr key="error" v-else-if="currentData === null || currentError">
                         <td :class="$style.center" :colspan="visibleColumnVMs.length">
                             <slot name="error">{{ errorText }}</slot>
                         </td>
                     </tr>
-                    <tr v-else-if="pageable === 'load-more' && currentDataSource.hasMore()">
+                    <tr key="loadMore" v-else-if="pageable === 'load-more' && currentDataSource.hasMore()">
                         <td :class="$style.center" :colspan="visibleColumnVMs.length">
                             <u-link @click="load(true)">{{ $t('loadMore') }}</u-link>
                         </td>
                     </tr>
-                    <tr v-else-if="(pageable === 'auto-more' || pageable === 'load-more') && !currentDataSource.hasMore()">
+                    <tr key="noMore" v-else-if="(pageable === 'auto-more' || pageable === 'load-more') && !currentDataSource.hasMore()">
                         <td :class="$style.center" :colspan="visibleColumnVMs.length">
                             {{ $t('noMore') }}
                         </td>
                     </tr>
-                    <tr v-else-if="!currentData.length">
+                    <tr key="empty" v-else-if="!currentData.length">
                         <td :class="$style.center" :colspan="visibleColumnVMs.length">
                             <slot name="empty">{{ emptyText }}</slot>
                         </td>

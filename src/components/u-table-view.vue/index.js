@@ -477,7 +477,7 @@ export const UTableView = {
 
             // this.throttledVirtualScroll(e);
 
-            if (!this.pageable === 'auto-more')
+            if (this.pageable !== 'auto-more' || this.currentLoading)
                 return;
 
             const el = e.target;
@@ -504,7 +504,8 @@ export const UTableView = {
                         this.page(1); // 数据发生变更时，回归到第 1 页
                 }
 
-                this.handleResize();
+                // auto-more 状态的 resize 会频闪。
+                this.pageable !== 'auto-more' && this.handleResize();
                 this.$emit('load', undefined, this);
                 return data;
             }).catch(() => {

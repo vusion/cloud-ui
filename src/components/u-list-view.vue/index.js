@@ -333,6 +333,8 @@ export const UListView = {
 
             if (!(this.pageable === 'auto-more' || (this.pageable === true && this.$options.isSelect)))
                 return;
+            if (this.currentLoading)
+                return;
 
             const el = e.target;
             if (el.scrollHeight === el.scrollTop + el.clientHeight

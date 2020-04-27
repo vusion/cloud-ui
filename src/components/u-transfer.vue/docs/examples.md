@@ -599,7 +599,7 @@ export default {
 </script>
 ```
 
-### 分页
+### 分页与加载更多
 
 设置`pageable`或`pageable="pagination"`即可开启分页功能，用`page-size`属性修改分页大小。
 
