@@ -111,6 +111,7 @@ export * from './u-text.vue';
 export * from './u-textarea.vue';
 export * from './u-time-picker.vue';
 export * from './u-toast.vue';
+export * from './u-toc.vue';
 export * from './u-tooltip.vue';
 export * from './u-transfer.vue';
 export * from './u-tree-view.vue';

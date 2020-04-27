@@ -70,7 +70,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| router | boolean |  | `true` | 是否根据vue-router来控制选择哪一项 |
+| router | boolean |  | `true` | 是否根据 vue-router 来控制选择哪一项 |
 | value.sync, v-model | any |  |  | 当前选择的值 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |

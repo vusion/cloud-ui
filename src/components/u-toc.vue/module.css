@@ -1,0 +1,35 @@
+.root {
+    position: relative;
+    user-select: none;
+    font-size: var(--toc-font-size);
+    width: var(--toc-width);
+    padding: var(--toc-padding);
+    background: var(--toc-background);
+    border-left: var(--toc-border-width) solid var(--toc-border-color);
+}
+
+.body {
+    margin: 5px -10px;
+    padding: 0 15px;
+    overflow: hidden;
+}
+
+.root::before, .root::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    left: -5px;
+    border: 2px solid var(--toc-border-color);
+    border-radius: 100px;
+    background: white;
+}
+
+.root::before {
+    top: -5px;
+}
+
+.root::after {
+    bottom: -5px;
+}

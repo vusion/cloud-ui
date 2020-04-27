@@ -1,5 +1,6 @@
 - name: u-table-view
   title: 表格视图
+  description: 用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。
   docs:
     data: 数据相关
   attrs:

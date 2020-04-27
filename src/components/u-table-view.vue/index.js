@@ -10,7 +10,7 @@ export const UTableView = {
     i18n,
     props: {
         data: Array,
-        dataSource: [DataSource, Function, Object],
+        dataSource: [DataSource, Function, Object, Array],
         title: String,
         titleAlignment: { type: String, default: 'center' },
         border: { type: Boolean, default: false },

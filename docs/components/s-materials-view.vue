@@ -58,9 +58,11 @@ export default {
     bottom: 0;
     overflow: hidden;
 }
+
 :global(.singleton) .side {
     display: none;
 }
+
 .sidebar[class] {
     padding: 36px 0;
 }
@@ -71,11 +73,13 @@ export default {
 
 .main {
     margin-left: 240px;
-    max-width: 1010px;
+    margin-right: 240px;
 }
+
 :global(.singleton) .main {
-    margin: 0 auto;
+    margin: 0;
 }
+
 .content {
     padding: 30px 50px 50px;
 }

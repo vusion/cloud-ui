@@ -417,6 +417,14 @@
     --crumb-color-disabled: var(--brand-disabled);
     --crumb-space-x: 5px;
 
+    /* Toc */
+    --toc-width: 200px;
+    --toc-padding: 5px;
+    --toc-font-size: 14px;
+    --toc-background: white;
+    --toc-border-width: var(--border-width-base);
+    --toc-border-color: var(--border-color-base);
+
     /* Pagination */
     --pagination-item-size: var(--height-small);
     --pagination-item-padding: 0;

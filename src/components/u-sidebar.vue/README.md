@@ -201,7 +201,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| router | boolean |  | `true` | 是否根据vue-router来控制选择哪一项 |
+| router | boolean |  | `true` | 是否根据 vue-router 来控制选择哪一项 |
 | value.sync, v-model | any |  |  | 当前选择的值 |
 | collapsible | boolean |  | `false` | 分组是否可以折叠 |
 | accordion | boolean |  | `false` | 是否每次只会展开一个分组 |

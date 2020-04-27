@@ -1837,7 +1837,7 @@
   },
   "u-menu/router": {
     "type": "boolean",
-    "description": "是否根据vue-router来控制选择哪一项"
+    "description": "是否根据 vue-router 来控制选择哪一项"
   },
   "u-menu/value": {
     "type": "any",
@@ -2389,7 +2389,7 @@
   },
   "u-sidebar/router": {
     "type": "boolean",
-    "description": "是否根据vue-router来控制选择哪一项"
+    "description": "是否根据 vue-router 来控制选择哪一项"
   },
   "u-sidebar/value": {
     "type": "any",
@@ -2529,7 +2529,7 @@
   },
   "u-subnav/router": {
     "type": "boolean",
-    "description": "是否根据vue-router来控制选择哪一项"
+    "description": "是否根据 vue-router 来控制选择哪一项"
   },
   "u-subnav/value": {
     "type": "any",

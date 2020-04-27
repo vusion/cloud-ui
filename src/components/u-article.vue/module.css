@@ -118,3 +118,14 @@
 .root > table img {
     max-width: none;
 }
+
+.root > [class^="u-toc"] {
+    position: fixed;
+    top: 120px;
+    right: 40px;
+}
+
+.root > [class^="u-toc"] > [class^="u-toc_body"] {
+    overflow: auto;
+    max-height: calc(100vh - 120px - 40px - 10px);
+}
