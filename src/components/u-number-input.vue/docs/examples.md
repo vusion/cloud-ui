@@ -47,6 +47,14 @@ export default {
 </u-linear-layout>
 ```
 
+如果不限精度，则将`precision`设置为`0`即可。
+
+``` html
+<u-linear-layout>
+    <u-number-input :value="6" :precision="0" :step="0.5"></u-number-input>
+</u-linear-layout>
+```
+
 ### 格式化
 
 通常可以用以下字符组成一个格式化字符串：
