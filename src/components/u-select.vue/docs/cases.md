@@ -61,6 +61,39 @@ export default {
 </script>
 ```
 
+### 双向绑定
+
+使用`v-model`或`:value.sync`进行双向绑定。
+
+``` vue
+<template>
+<u-linear-layout>
+    <u-select v-model="value" placeholder="v-model">
+        <u-select-item v-for="item in list" :key="item.value" :value="item.value">{{ item.text }}</u-select-item>
+    </u-select>
+    <u-select :value.sync="value" :data="list" placeholder=":value.sync"></u-select>
+</u-linear-layout>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value: '',
+            list: [
+                { text: 'Java', value: 'java' },
+                { text: 'Python', value: 'python' },
+                { text: 'Node.js', value: 'nodejs' },
+                { text: 'Go', value: 'go' },
+                { text: '.NET', value: '.net' },
+                { text: 'PHP', value: 'php' },
+            ],
+        };
+    },
+};
+</script>
+```
+
 ### 只读、禁用、禁用某一项
 
 ``` html
@@ -122,6 +155,16 @@ export default {
     <u-select-item value="cup">水杯</u-select-item>
     <u-select-item value="coffee">咖啡</u-select-item>
     <u-select-item value="nut">坚果</u-select-item>
+</u-select>
+```
+
+#### Layer
+
+``` html
+<u-select value="C">
+    <u-select-item value="A">苹果</u-select-item>
+    <u-select-item value="B" flag layer="high">香蕉</u-select-item>
+    <u-select-item value="C" flag="默认选项" layer="high">蛋糕</u-select-item>
 </u-select>
 ```
 
@@ -589,3 +632,115 @@ export default {
 };
 </script>
 ```
+
+#### 一次性后端数据，前端过滤
+
+在`data-source`属性中传入`load`方法，用于接收完整的后端数据。
+
+这时开启`filterable`属性可以进行前端过滤。
+
+``` vue
+<template>
+<u-select :data-source="load" filterable clearable placeholder="前端过滤"></u-select>
+</template>
+<script>
+// 模拟构造后端数据
+const remoteData = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New hampshire', 'New jersey', 'New mexico', 'New york', 'North carolina', 'North dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode island', 'South carolina', 'South dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West virginia', 'Wisconsin', 'Wyoming'].map((text) => ({ text, value: text }));
+
+export default {
+    methods: {
+        load() {
+            // 这里使用 Promise 和 setTimeout 模拟一个异步请求
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(remoteData);
+                }, 300);
+            });
+        },
+    },
+};
+</script>
+```
+
+#### 后端过滤，后端分页
+
+如果要使用后端过滤，在`data-source`属性中传入`load`方法的基础上，开启`remote-filtering`功能。
+
+同时可以配合分页使用。
+
+``` vue
+<template>
+<u-linear-layout>
+    <u-select :data-source="load"
+              pageable remote-paging
+              filterable remote-filtering
+              clearable placeholder="后端过滤，后端分页">
+    </u-select>
+    <u-select multiple :data-source="load"
+              pageable remote-paging
+              filterable remote-filtering
+              clearable placeholder="后端过滤，后端分页（多选）"
+              style="width: 240px"></u-select>
+</u-linear-layout>
+</template>
+<script>
+// 模拟构造数量较多的 500 条后端数据
+let remoteData = [];
+for (let i = 1; i <= 500; i++) {
+    remoteData.push('item' + i);
+    remoteData.push('info' + i);
+    remoteData.push('detail' + i);
+}
+remoteData = remoteData.map((text) => ({ text, value: text }));
+
+export default {
+    methods: {
+        load({ filterText, paging }) {
+            const value = filterText.toLowerCase();
+
+            // 这里使用 Promise 和 setTimeout 模拟一个异步请求
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(remoteData.filter((item) => item.value.includes(value))
+                        .slice(paging.offset, paging.offset + paging.limit)
+                    );
+                }, 300);
+            });
+        },
+    },
+};
+</script>
+```
+
+
+#### 一次性后端数据，前端分页
+
+在`data-source`属性中传入`load`方法，用于接收完整的后端数据。
+
+`load`方法要求返回一个`Promise<Array<Item>>`或`Promise<{ data: Array<Item>, total: number }>`的格式。该会在组件初始化时会被调用一次，如果不需要可以将`initial-load`属性设置为`false`。
+
+开启`pageable`属性时可以进行前端分页。
+
+``` vue
+<template>
+<u-select :data-source="load" pageable :page-size="20" placeholder="前端分页"></u-select>
+</template>
+<script>
+// 模拟构造后端数据
+const remoteData = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New hampshire', 'New jersey', 'New mexico', 'New york', 'North carolina', 'North dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode island', 'South carolina', 'South dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West virginia', 'Wisconsin', 'Wyoming'].map((text) => ({ text, value: text }));
+
+export default {
+    methods: {
+        load() {
+            // 这里使用 Promise 和 setTimeout 模拟一个异步请求
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(remoteData);
+                }, 500);
+            });
+        },
+    },
+};
+</script>
+```
+

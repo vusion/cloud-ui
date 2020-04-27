@@ -217,6 +217,37 @@ export default {
 </script>
 ```
 
+#### 一次性后端数据，前端分页
+
+在`data-source`属性中传入`load`方法，用于接收完整的后端数据。
+
+`load`方法要求返回一个`Promise<Array<Item>>`或`Promise<{ data: Array<Item>, total: Number }>`的格式。该会在组件初始化时会被调用一次，如果不需要可以将`initial-load`属性设置为`false`。
+
+开启`pageable`属性时可以进行前端分页。
+
+``` vue
+<template>
+<u-list-view :data-source="load" pageable :page-size="20" style="height: 182px"></u-list-view>
+</template>
+<script>
+// 模拟构造远程数据
+const remoteData = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New hampshire', 'New jersey', 'New mexico', 'New york', 'North carolina', 'North dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode island', 'South carolina', 'South dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West virginia', 'Wisconsin', 'Wyoming'].map((text) => ({ text, value: text }));
+
+export default {
+    methods: {
+        load() {
+            // 这里使用 Promise 和 setTimeout 模拟一个异步请求
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(remoteData);
+                }, 500);
+            });
+        },
+    },
+};
+</script>
+```
+
 #### 多选时验证
 
 ``` vue

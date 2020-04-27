@@ -13,6 +13,14 @@
       type: string
       default: text
       description: 显示文本字段
+    - name: text-field
+      type: string
+      default: text
+      description: 选项文本的字段名
+    - name: value-field
+      type: string
+      default: value
+      description: 选项值的字段名
     - name: data
       type: Array<{ text, value }>
       default: null
