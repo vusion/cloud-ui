@@ -47,11 +47,11 @@ export default {
 </u-linear-layout>
 ```
 
-如果不限精度，则将`precision`设置为`0`即可。
+如果不限精度和间隔，则将`precision`和`step`设置为`0`即可。
 
 ``` html
 <u-linear-layout>
-    <u-number-input :value="6" :precision="0" :step="0.5"></u-number-input>
+    <u-number-input :value="6" :precision="0" :step="0"></u-number-input>
 </u-linear-layout>
 ```
 
