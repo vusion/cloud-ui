@@ -7,6 +7,10 @@
     outline: var(--focus-outline);
 }
 
+.root:focus .box{
+    box-shadow: var(--checkbox-box-shadow-focus);
+}
+
 .root[disabled] {
     cursor: var(--cursor-not-allowed);
     color: var(--brand-disabled);

@@ -513,11 +513,13 @@
     /* Radio */
     --radio-space-x: 80px;
     --radio-size: 18px;
+    --radio-box-shadow-focus: var(--button-box-shadow-focus);
 
     /* Checkbox */
     --checkbox-space-x: 80px;
     --checkbox-size: 18px;
     --checkbox-border-radius: 3px;
+    --checkbox-box-shadow-focus: var(--button-box-shadow-focus);
 
     /* Switch */
     --switch-width: 44px;
@@ -582,6 +584,7 @@
     --select-popper-background: white;
     --select-popper-border-color: var(--border-color-base);
     --select-status-color: var(--color-light);
+    --select-box-shadow-focus: var(--button-box-shadow-focus);
 
     /* Slider */
     --slider-body-margin: 0 10px;

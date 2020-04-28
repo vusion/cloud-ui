@@ -10,6 +10,7 @@ export const UCheckbox = {
         label: null,
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
+        autoFocus: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -33,6 +34,11 @@ export const UCheckbox = {
         currentValue(value, oldValue) {
             this.$emit('change', { value, oldValue });
         },
+    },
+    mounted() {
+        if (this.autoFocus) {
+            this.$el.focus();
+        }
     },
     methods: {
         onFocus(e) {
