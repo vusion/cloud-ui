@@ -92,6 +92,10 @@
       type: boolean
       default: false
       description: 禁用此项
+    - name: autoFocus
+      type: boolean
+      default: false
+      description: 自动获取焦点
   slots:
     - name: default
       description: 插入文本或 HTML。

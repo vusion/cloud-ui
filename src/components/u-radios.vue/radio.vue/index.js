@@ -10,6 +10,7 @@ export const URadio = {
         label: null,
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
+        autoFocus: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -29,6 +30,11 @@ export const URadio = {
         currentDisabled() {
             return this.disabled || this.parentVM && this.parentVM.disabled;
         },
+    },
+    mounted() {
+        if (this.autoFocus) {
+            this.$el.focus();
+        }
     },
     methods: {
         onFocus(e) {

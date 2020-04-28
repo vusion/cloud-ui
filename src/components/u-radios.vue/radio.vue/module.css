@@ -7,6 +7,10 @@
     outline: var(--focus-outline);
 }
 
+.root:focus .radio{
+    box-shadow: var(--radio-box-shadow-focus);
+}
+
 .root[disabled] {
     cursor: var(--cursor-not-allowed);
     color: var(--brand-disabled);
