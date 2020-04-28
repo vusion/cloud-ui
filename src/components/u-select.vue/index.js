@@ -40,6 +40,7 @@ export const USelect = {
         opened: { type: Boolean, default: false },
         label: { type: String, default: '' },
         ellipsisDirection: { type: String, default: 'ltr' },
+        autoFocus: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -111,6 +112,11 @@ export const USelect = {
                 });
             }
         });
+    },
+    mounted() {
+        if (this.autoFocus) {
+            this.$el.focus();
+        }
     },
     methods: {
         getExtraParams() {
@@ -237,6 +243,8 @@ export const USelect = {
                     return this.preventBlur = false;
                 this.selectByText(this.filterText);
             }, 200);
+
+            this.close();
         },
         selectByText(text) {
             if (this.multiple) {
@@ -288,14 +296,14 @@ export const USelect = {
         onEnter() {
             if (this.focusedVM)
                 this.select(this.focusedVM);
-            this.close();
+            this.popperOpened ? this.close() : this.open();
         },
         onInputEnter() {
             if (this.focusedVM)
                 this.select(this.focusedVM);
             else
                 this.selectByText(this.filterText);
-            this.close();
+            this.popperOpened ? this.close() : this.open();
         },
         onInputDelete() {
             if (this.filterable && this.filterText === '') {
@@ -354,6 +362,9 @@ export const USelect = {
         blur() {
             if (this.filterable)
                 this.$refs.input.blur();
+        },
+        onRootBlur() {
+            this.close();
         },
     },
 };

@@ -97,6 +97,10 @@
       type: boolean
       default: false
       description: 弹出/关闭状态
+    - name: autoFocus
+      type: boolean
+      default: false
+      description: 自动获取焦点
   slots:
     - name: default
       description: 插入`<u-select-item>`、`<u-select-divider>`或`<u-select-group>`子组件。
