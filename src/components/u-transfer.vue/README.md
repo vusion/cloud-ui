@@ -2,6 +2,22 @@
 
 # UTransfer 穿梭框
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [添加头部](#添加头部)
+    - [添加 loading](#添加-loading)
+    - [指定选项字段名](#指定选项字段名)
+    - [禁用某一项](#禁用某一项)
+    - [修改尺寸](#修改尺寸)
+    - [过滤（搜索）](#过滤搜索)
+    - [分页与加载更多](#分页与加载更多)
+    - [综合示例](#综合示例)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+    - [Methods](#methods)
+
 双栏穿梭选择框，常用于将多个项目从一边移动到另一边。
 
 ## 示例
@@ -606,7 +622,7 @@ export default {
 </script>
 ```
 
-### 分页
+### 分页与加载更多
 
 设置`pageable`或`pageable="pagination"`即可开启分页功能，用`page-size`属性修改分页大小。
 
@@ -745,7 +761,7 @@ export default {
 | $event.transferValues | Array | 移动项的值 |
 | senderVM | UTransfer | 发送事件实例 |
 
-### Methods
+Methods
 
 #### forward(values)
 
@@ -771,3 +787,4 @@ export default {
 | ----- | ---- | ------- | ----------- |
 | direction | enum | `'forward'` | 方向，`forward`表示从左向右，`reverse`表示从右向左。 |
 | values | Array\<string\> |  | 指定转移选项值的列表。 |
+

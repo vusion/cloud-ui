@@ -2,6 +2,22 @@
 
 # UModal 弹窗
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [快捷方式](#快捷方式)
+    - [Static](#static)
+    - [标题与内容](#标题与内容)
+    - [图标、小标题与描述](#图标-小标题与描述)
+    - [改变主要按钮](#改变主要按钮)
+    - [禁用按钮](#禁用按钮)
+    - [自定义](#自定义)
+    - [大小扩展](#大小扩展)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+    - [Methods](#methods)
+
 ## 示例
 ### 基本用法
 
@@ -204,7 +220,7 @@ export default {
 | $event.ok | boolean | 是否确定 |
 | senderVM | UModal | 发送事件实例 |
 
-### Methods
+Methods
 
 #### alert(content, title)
 
@@ -223,3 +239,4 @@ export default {
 | ----- | ---- | ------- | ----------- |
 | content | string |  | 提示内容 |
 | title | string |  | 提示标题 |
+

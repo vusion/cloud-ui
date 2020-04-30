@@ -2,6 +2,20 @@
 
 # UButton 按钮
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [设置形状](#设置形状)
+    - [禁用状态](#禁用状态)
+    - [设置尺寸](#设置尺寸)
+    - [块级展示](#块级展示)
+    - [图标](#图标)
+    - [加载中](#加载中)
+    - [链接](#链接)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+
 **路由链接**, **行内展示**
 
 用于触发一个即时操作。
@@ -210,3 +224,4 @@ export default {
 | $event.replace | boolean | `replace`属性的值 |
 | $event.append | boolean | `append`属性的值 |
 | senderVM | UButton | 发送事件实例 |
+

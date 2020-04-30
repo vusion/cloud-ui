@@ -2,6 +2,20 @@
 
 # MRoot 根节点模式
 
+- [概述](#undefined)
+    - [用法](#用法)
+- [示例](#示例)
+    - [基本用法](#基本用法)
+- [MRoot API](#mroot-api)
+    - [Options](#options)
+    - [Data](#data)
+    - [Slots](#slots)
+    - [Methods](#methods)
+- [MNode API](#mnode-api)
+    - [Options](#options-2)
+    - [Data](#data-2)
+    - [Slots](#slots-2)
+
 本对 Mixin：MRoot 和 MNode，对常见的类似`<u-tree-view>`和`<u-tree-view-node>`多级组件嵌套的场景进行了抽象，用于快速开发和代码借鉴。
 
 ### 用法
@@ -52,7 +66,7 @@
 
 插入`<m-node>`子组件。
 
-### Methods
+Methods
 
 #### walk(func)
 
@@ -90,3 +104,4 @@
 #### (default)
 
 插入`<m-node>`子组件。
+

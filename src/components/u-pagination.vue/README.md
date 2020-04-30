@@ -2,6 +2,14 @@
 
 # UPagination 分页
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [显示数量](#显示数量)
+    - [只读和禁用](#只读和禁用)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Events](#events)
+
 **块级展示**
 
 ## 示例
@@ -75,3 +83,4 @@
 | $event.page | number | 当前页码 |
 | $event.oldPage | number | 旧的页码 |
 | senderVM | UPagination | 发送事件实例 |
+

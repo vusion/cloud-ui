@@ -2,6 +2,22 @@
 
 # UCheckboxes 多选组
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [双向绑定](#双向绑定)
+    - [只读和禁用](#只读和禁用)
+    - [不确定状态](#不确定状态)
+    - [多选组](#多选组)
+    - [数量限制](#数量限制)
+    - [全选](#全选)
+- [UCheckboxes API](#ucheckboxes-api)
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+- [UCheckbox API](#ucheckbox-api)
+    - [Props/Attrs](#propsattrs-2)
+    - [Slots](#slots-2)
+    - [Events](#events)
+
 **表单控件**, **块级展示**
 
 ## 示例
@@ -218,3 +234,4 @@ export default {
 | $event.value | boolean, null | 选中状态 |
 | $event.oldValue | boolean, null | 旧的选中状态 |
 | senderVM | UCheckbox | 发送事件实例 |
+

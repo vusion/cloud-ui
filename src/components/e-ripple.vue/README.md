@@ -2,6 +2,11 @@
 
 # ERipple 波纹
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+
 **特效组件**
 
 波纹，插入到需要添加波纹的元素或组件内部
@@ -25,3 +30,4 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | color | enum | `'light'`, `'dark'` | `'light'` | 波纹颜色 |
+

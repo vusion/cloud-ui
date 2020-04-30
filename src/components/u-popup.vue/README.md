@@ -2,6 +2,18 @@
 
 # UPopup 弹出框
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [自定义](#自定义)
+    - [触发方式](#触发方式)
+    - [弹出位置](#弹出位置)
+    - [禁用](#禁用)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+    - [Methods](#methods)
+
 ## 示例
 ### 基本用法
 
@@ -344,7 +356,7 @@ export default {
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 
-### Methods
+Methods
 
 #### open()
 
@@ -381,3 +393,4 @@ export default {
 
 | Param | Type | Default | Description |
 | ----- | ---- | ------- | ----------- |
+

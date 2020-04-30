@@ -2,6 +2,19 @@
 
 # UTooltip 工具提示
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [触发方式](#触发方式)
+    - [弹出位置](#弹出位置)
+    - [Hover 时延迟消失](#hover-时延迟消失)
+    - [禁用](#禁用)
+    - [大小扩展](#大小扩展)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+    - [Methods](#methods)
+
 ## 示例
 ### 基本用法
 
@@ -384,7 +397,7 @@ export default {
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 
-### Methods
+Methods
 
 #### open()
 
@@ -421,3 +434,4 @@ export default {
 
 | Param | Type | Default | Description |
 | ----- | ---- | ------- | ----------- |
+

@@ -2,6 +2,18 @@
 
 # URadios 单选组
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [只读、禁用、禁用某一项](#只读-禁用-禁用某一项)
+- [URadios API](#uradios-api)
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+- [URadio API](#uradio-api)
+    - [Props/Attrs](#propsattrs-2)
+    - [Slots](#slots-2)
+    - [Events](#events-2)
+
 **表单控件**, **块级展示**
 
 ## 示例
@@ -129,3 +141,4 @@
 | $event.itemVM | URadio | 此组件 |
 | $event.preventDefault | Function | 阻止选择流程 |
 | senderVM | URadio | 发送事件实例 |
+

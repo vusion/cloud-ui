@@ -2,6 +2,16 @@
 
 # FDraggable 拖拽
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [移动自身](#移动自身)
+    - [自定义移动元素](#自定义移动元素)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+    - [Methods](#methods)
+
 ## 示例
 ### 基本用法
 
@@ -124,7 +134,7 @@
 | $event.value | any | 需要传递的值 |
 | senderVM | FDraggable | 发送事件实例 |
 
-### Methods
+Methods
 
 #### cancel()
 
@@ -132,3 +142,4 @@
 
 | Param | Type | Default | Description |
 | ----- | ---- | ------- | ----------- |
+

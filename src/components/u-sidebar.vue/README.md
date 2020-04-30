@@ -2,6 +2,28 @@
 
 # USidebar 侧边栏
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [只读、禁用、禁用某一项](#只读-禁用-禁用某一项)
+    - [分隔符](#分隔符)
+    - [分组](#分组)
+    - [颜色扩展](#颜色扩展)
+- [USidebar API](#usidebar-api)
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+    - [Methods](#methods)
+- [USidebarItem API](#usidebaritem-api)
+    - [Props/Attrs](#propsattrs-2)
+    - [Slots](#slots-2)
+    - [Events](#events-2)
+- [USidebarGroup API](#usidebargroup-api)
+    - [Props/Attrs](#propsattrs-3)
+    - [Slots](#slots-3)
+    - [Events](#events-3)
+- [USidebarDivider API](#usidebardivider-api)
+
+
 **路由链接**, **块级展示**
 
 通常用于页面左侧的导航栏。
@@ -272,7 +294,7 @@
 | $event.groupVM | USidebarGroup | 分组组件 |
 | senderVM | Vue | 发送事件实例 |
 
-### Methods
+Methods
 
 #### toggleAll(expanded)
 

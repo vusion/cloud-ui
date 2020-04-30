@@ -2,6 +2,19 @@
 
 # MMultiplex 多选模式
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [双向绑定](#双向绑定)
+    - [只读、禁用、禁用某一项](#只读-禁用-禁用某一项)
+- [MMultiplex API](#mmultiplex-api)
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+- [MMultiplexItem API](#mmultiplexitem-api)
+    - [Props/Attrs](#propsattrs-2)
+    - [Slots](#slots-2)
+    - [Events](#events-2)
+
 常见的多选模式。
 
 ## 示例
@@ -223,3 +236,4 @@ export default {
 | $event.itemVM | MMultiplexItem | 此组件 |
 | $event.preventDefault | Function | 阻止选择流程 |
 | senderVM | MMultiplexItem | 发送事件实例 |
+

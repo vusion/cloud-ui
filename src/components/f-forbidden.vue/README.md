@@ -2,6 +2,12 @@
 
 # FForbidden 禁用
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Events](#events)
+
 禁用浏览器的一些默认功能和快捷键。
 
 ## 示例
@@ -71,3 +77,4 @@
 | ----- | ---- | ----------- |
 | $event | KeyboardEvent | 键盘事件对象 |
 | senderVM | FForbidden | 发送事件实例 |
+

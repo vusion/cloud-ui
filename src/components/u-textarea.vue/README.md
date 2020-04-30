@@ -2,6 +2,19 @@
 
 # UTextarea 多行输入
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [双向绑定](#双向绑定)
+    - [只读与禁用](#只读与禁用)
+    - [调整大小](#调整大小)
+    - [可清空](#可清空)
+    - [展示方式](#展示方式)
+    - [设置大小](#设置大小)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Events](#events)
+    - [Methods](#methods)
+
 **UI 组件**, **表单类**, **行内展示**
 
 多行输入组件，在原生`<textarea>`控件基础上进行了一些功能扩展。
@@ -192,7 +205,7 @@ export default {
 | $event.oldValue | string | 旧的值 |
 | senderVM | UTextarea | 发送事件实例 |
 
-### Methods
+Methods
 
 #### focus()
 
@@ -214,3 +227,4 @@ export default {
 
 | Param | Type | Default | Description |
 | ----- | ---- | ------- | ----------- |
+

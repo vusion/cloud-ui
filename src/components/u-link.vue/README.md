@@ -2,6 +2,16 @@
 
 # ULink 链接
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [设置颜色](#设置颜色)
+    - [禁用状态](#禁用状态)
+    - [块级展示](#块级展示)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+
 **路由链接**, **行内展示**
 
 文字超链接。
@@ -12,7 +22,8 @@
 除了`<a>`标签的`href`和`target`基础属性，增加了类似`<router-link>`的`to`、`replace`和`append`属性等。
 
 ``` html
-<u-link href="https://vusion.github.io" target="_blank">普通链接</u-link>&nbsp;<u-link to="/cloud-ui/u-button">路由链接</u-link>
+<u-link href="https://vusion.github.io" target="_blank">普通链接</u-link>&nbsp;
+<u-link to="/components/u-button">路由链接</u-link>
 ```
 
 ### 设置颜色
@@ -28,7 +39,7 @@
 </u-link>&nbsp;
 <u-link color="success">成功链接</u-link>&nbsp;
 <u-link color="warning">警告链接</u-link>&nbsp;
-<u-link color="error">错误链接</u-link>&nbsp;
+<u-link color="danger">危险链接</u-link>&nbsp;
 ```
 
 ### 禁用状态
@@ -59,7 +70,7 @@
 | replace | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
 | append | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。 |
 | disabled | boolean |  | `false` | 是否禁用。禁用后不会响应`click`事件。 |
-| color | enum | `'default'`, `'light'`, `'success'`, `'warning'`, `'error'` | `'default'` | 设置颜色。 |
+| color | enum | `'default'`, `'light'`, `'success'`, `'warning'`, `'danger'`, `'error'` | `'default'` | 设置颜色。 |
 | display | string |  | `'inline'` | 展示方式。可选值：`'inline'`, `'block'` |
 
 ### Slots
@@ -108,3 +119,4 @@
 | $event.replace | boolean | `replace`属性的值 |
 | $event.append | boolean | `append`属性的值 |
 | senderVM | Vue | 发送事件实例 |
+

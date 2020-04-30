@@ -2,6 +2,28 @@
 
 # UMenu 菜单
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [多级菜单](#多级菜单)
+    - [禁用、禁用某一项](#禁用-禁用某一项)
+    - [分隔符](#分隔符)
+    - [分组](#分组)
+- [UMenu API](#umenu-api)
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+    - [Methods](#methods)
+- [UMenuItem API](#umenuitem-api)
+    - [Props/Attrs](#propsattrs-2)
+    - [Slots](#slots-2)
+    - [Events](#events-2)
+- [UMenuGroup API](#umenugroup-api)
+    - [Props/Attrs](#propsattrs-3)
+    - [Slots](#slots-3)
+    - [Events](#events-3)
+- [UMenuDivider API](#umenudivider-api)
+
+
 **路由链接**, **块级展示**
 
 菜单组件支持路由、触发关闭、多级菜单等功能。
@@ -260,7 +282,7 @@
 | $event.expanded | boolean | 展开/折叠状态 |
 | $event.groupVM | UMenuGroup | 分组组件 |
 
-### Methods
+Methods
 
 #### toggleAll(expanded)
 

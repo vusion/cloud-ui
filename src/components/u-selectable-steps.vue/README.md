@@ -2,6 +2,19 @@
 
 # USelectableSteps 可选步骤条
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [自定义标题](#自定义标题)
+    - [宽度自适应](#宽度自适应)
+    - [禁用](#禁用)
+- [USelectableSteps API](#uselectablesteps-api)
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+- [USelectableStep API](#uselectablestep-api)
+    - [Props/Attrs](#propsattrs-2)
+    - [Slots](#slots-2)
+
 ## 示例
 ### 基本用法
 
@@ -120,3 +133,4 @@
 #### title
 
 自定义标题文本。
+

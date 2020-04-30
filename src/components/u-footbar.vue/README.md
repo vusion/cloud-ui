@@ -2,6 +2,12 @@
 
 # UFootbar 底部栏
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [与列表一起使用](#与列表一起使用)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+
 ## 示例
 ### 基本用法
 
@@ -73,3 +79,4 @@ export default {
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | position | string |  |  | 显示的位置。 |
+

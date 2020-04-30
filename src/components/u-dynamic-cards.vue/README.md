@@ -2,6 +2,18 @@
 
 # UDynamicCards 动态卡片
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [限制数量](#限制数量)
+    - [Mini 自定义](#mini-自定义)
+    - [表单验证](#表单验证)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Computed](#computed)
+    - [Slots](#slots)
+    - [Events](#events)
+    - [Methods](#methods)
+
 ## 示例
 ### 基本用法
 
@@ -387,7 +399,7 @@ export default {
 | $event.firstError | string | 第一个错误提示消息 |
 | senderVM | UDynamicCards | 发送事件实例 |
 
-### Methods
+Methods
 
 #### validate(trigger, muted)
 
@@ -397,3 +409,4 @@ export default {
 | ----- | ---- | ------- | ----------- |
 | trigger | string | `'submit'` | 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。 |
 | muted | boolean | `false` | 是否验证后无提示 |
+

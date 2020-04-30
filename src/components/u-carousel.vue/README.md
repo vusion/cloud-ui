@@ -2,6 +2,18 @@
 
 # UCarousel 幻灯片
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [动画](#动画)
+    - [自动播放与循环](#自动播放与循环)
+- [UCarousel API](#ucarousel-api)
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+- [UCarouselItem API](#ucarouselitem-api)
+    - [Props/Attrs](#propsattrs-2)
+    - [Slots](#slots-2)
+
 ## 示例
 ### 基本用法
 
@@ -125,3 +137,4 @@
 #### title
 
 自定义标题文本。
+

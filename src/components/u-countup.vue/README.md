@@ -2,6 +2,16 @@
 
 # UCountUp 数字渐变
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [方法](#方法)
+    - [渐变结束回调函数](#渐变结束回调函数)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+    - [Methods](#methods)
+
 ## 示例
 ### 基本用法
 
@@ -171,7 +181,7 @@ export default{
 
 切换渐变
 
-### Methods
+Methods
 
 #### update(value)
 
@@ -188,3 +198,4 @@ export default{
 #### pauseResume()
 
 切换渐变
+

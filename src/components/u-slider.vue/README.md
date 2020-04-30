@@ -2,6 +2,16 @@
 
 # USlider 滑块
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [最大值和最小值](#最大值和最小值)
+    - [连续和间隔](#连续和间隔)
+    - [范围](#范围)
+    - [只读和禁用](#只读和禁用)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Events](#events)
+
 **表单控件**, **块级展示**
 
 ## 示例
@@ -102,3 +112,4 @@
 | $event.value | number | 改变后的值 |
 | $event.oldValue | number | 旧的值 |
 | senderVM | USlider | 发送事件实例 |
+
