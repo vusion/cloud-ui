@@ -68,6 +68,7 @@ export const UTableView = {
             /* Selection Data */
             selectedItem: undefined,
             currentValues: this.values || [],
+            tableHeight: undefined,
         };
     },
     computed: {
@@ -383,6 +384,11 @@ export const UTableView = {
                         const headHeight = this.$refs.head[0] ? this.$refs.head[0].offsetHeight : 0;
                         this.bodyHeight = rootHeight - titleHeight - headHeight;
                     }
+                }
+
+                // 当root设置了height，设置table的height，避免隐藏列的时候闪烁
+                if (this.$el.style.height !== '' && this.$el.style.height !== 'auto'){
+                    this.tableHeight = this.$el.offsetHeight;
                 }
 
                 this.$emit('resize', undefined, this);
