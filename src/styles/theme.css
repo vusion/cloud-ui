@@ -451,8 +451,15 @@
 
     /* Form */
     --form-item-label-padding-right: 10px;
+    --form-item-label-padding-right-small: 10px;
+    --form-item-label-padding-right-large: 20px;
     --form-item-label-width: 120px;
+    --form-item-label-width-small: 80px;
+    --form-item-label-width-large: 160px;
     --form-required-color: red;
+    --form-required-right: 12px;
+    --form-required-right-small: 2px;
+    --form-required-right-large: 12px;
     --form-message-margin-left: 10px;
     --form-message-padding: 0 10px;
     --form-message-background: var(--background-color-base);
