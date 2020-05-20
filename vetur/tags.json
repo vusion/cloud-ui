@@ -750,6 +750,7 @@
   "u-info-list-group": {
     "attributes": [
       "title",
+      "repeat",
       "label-size"
     ]
   },
@@ -1052,7 +1053,13 @@
       "side",
       "around",
       "readonly",
-      "disabled"
+      "disabled",
+      "total-items",
+      "page-size",
+      "page-size-options",
+      "show-total",
+      "show-sizer",
+      "show-jumper"
     ]
   },
   "u-panel": {

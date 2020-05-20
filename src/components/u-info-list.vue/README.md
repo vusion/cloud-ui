@@ -5,9 +5,9 @@
 - [示例](#示例)
     - [基本用法](#基本用法)
     - [栅格分列](#栅格分列)
-    - [操作](#操作)
+    - [额外插槽](#额外插槽)
     - [与表格结合](#与表格结合)
-    - [隐藏title](#隐藏title)
+    - [隐藏标题行](#隐藏标题行)
 - [UInfoList API](#uinfolist-api)
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
@@ -42,7 +42,9 @@
 
 ### 栅格分列
 
-类似`<u-grid-layout>`组件，使用`repeat`属性来定义栅格列数，用`span`属性来设置列跨越的栅格数。`repeat`默认为`3`列。
+类似`<u-grid-layout>`组件，在`<u-info-list>`或`<u-info-list-group>`组件上使用`repeat`属性来定义栅格列数，用`span`属性来设置列跨越的栅格数。`repeat`默认为`3`列。
+
+下面是两个示例：
 
 ``` html
 <u-info-list>
@@ -87,13 +89,15 @@
 </u-info-list>
 ```
 
-### 操作
+### 额外插槽
+
+对于一些操作项，可以使用`extra`插槽添加在详情列表组的右上角。
 
 ``` html
 <u-info-list>
     <u-info-list-group title="基本信息">
         <template slot="extra">
-            <u-link style="float: right;">设置</u-link>
+            <u-link>设置</u-link>
         </template>
         <u-info-list-item label="VPC名称">defaultVPC</u-info-list-item>
         <u-info-list-item label="UUID">152f36a3cfff4572a3a35</u-info-list-item>
@@ -106,7 +110,7 @@
 
 ### 与表格结合
 
-一般在表格上设置`color="light"`与`u-info-list`风格匹配。
+对于详情列表内部添加的表格，一般设置`color="light"`与`u-info-list`风格更配。
 
 ``` html
 <u-info-list>
@@ -127,9 +131,11 @@
 </u-info-list>
 ```
 
-### 隐藏title
+### 隐藏标题行
 
-不使用`u-info-list-group`
+在弹窗或面板中，可能想要隐藏掉标题行。这时不使用`<u-info-list-group>`组件即可。
+
+下面是两个示例：
 
 ``` html
 <u-panel title="云主机详情">
@@ -155,12 +161,13 @@
     </u-info-list>
 </u-panel>
 ```
+
 ## UInfoList API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| repeat | string,number |  | `3` | 划分的列数 |
+| repeat | string,number |  | `3` | 整个详情列表的划分列数 |
 | label-size | string |  | `'auto'` | 标签大小。可选值：`small`、`normal`、`large`、`auto` |
 
 ### Slots
@@ -195,6 +202,7 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | title | string |  |  | 标题 |
+| repeat | string,number |  | `3` | 当前组范围内的划分列数 |
 | label-size | string |  | `'auto'` | 标签大小。可选值：`small`、`normal`、`large`、`auto` |
 
 ### Slots
@@ -203,7 +211,11 @@
 
 插入`<u-info-list-item>`子组件
 
-#### operate
+#### title
 
-自定义副标题。
+自定义标题。
+
+#### extra
+
+自定义额外操作项。
 
