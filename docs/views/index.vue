@@ -3,7 +3,7 @@
     <header :class="$style.head" v-if="!message.singleton">
         <div :class="$style.wrap">
             <u-navbar>
-                <u-logo slot="left">{{ logo }}</u-logo>
+                <s-logo slot="left">{{ logo }}</s-logo>
                 <u-navbar-item v-for="item in navbar" :key="item.text" :to="item.to" :href="item.href" :target="item.target">{{ item.text }}</u-navbar-item>
                 <div slot="right" style="margin-right: 10px;">
                     <u-navbar-select style="vertical-align: top;" value="0.6.x"

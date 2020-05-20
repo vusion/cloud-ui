@@ -49,7 +49,7 @@
 }
 
 .message[color="error"]::before {
-    icon-font: url('../u-status-icon.vue/icons/warning.svg');
+    icon-font: url('../i-icon.vue/assets/warning.svg');
     color: white;
     font-size: 14px;
     margin-left: -2px;

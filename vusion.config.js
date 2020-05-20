@@ -31,7 +31,6 @@ module.exports = {
             { group: 'Basic', name: 'u-copy', alias: '复制', newest: true, vscode: false },
             { group: 'Basic', name: 'u-actions', alias: '操作项' },
             // { group: 'Basic', name: 'i-icon', alias: '图标' },
-            { group: 'Basic', name: 'u-copy', alias: '复制', newest: true },
             { group: 'Layout', name: 'u-linear-layout', alias: '线性布局', vscode: false },
             { group: 'Layout', name: 'u-grid-layout', alias: '栅格布局', vscode: false },
             { group: 'Layout', name: 'u-list', alias: '列表' },

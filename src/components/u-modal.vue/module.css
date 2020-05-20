@@ -95,21 +95,21 @@
 }
 
 .body[icon="warning"]::before {
-    icon-font: url('../u-status-icon.vue/icons/warning.svg');
+    icon-font: url('../i-icon.vue/assets/warning.svg');
     color: #fbcc3e;
     font-size: 40px;
     line-height: 40px;
 }
 
 .body[icon="success"]::before {
-    icon-font: url('../u-status-icon.vue/icons/success.svg');
+    icon-font: url('../i-icon.vue/assets/success.svg');
     color: #3ad0af;
     font-size: 40px;
     line-height: 40px;
 }
 
 .body[icon="error"]::before {
-    icon-font: url('../u-status-icon.vue/icons/error.svg');
+    icon-font: url('../i-icon.vue/assets/error.svg');
     color: #ff867f;
     font-size: 40px;
     line-height: 40px;

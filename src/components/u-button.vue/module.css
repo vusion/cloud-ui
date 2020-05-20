@@ -194,7 +194,7 @@
 }
 
 .root[icon="success"]::before {
-    icon-font: url('../u-status-icon.vue/icons/success.svg');
+    icon-font: url('../i-icon.vue/assets/success.svg');
     vertical-align: -4px;
     font-size: 18px;
 }
