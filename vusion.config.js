@@ -57,7 +57,6 @@ module.exports = {
             { group: 'Navigation', name: 'u-crumb', alias: '面包屑' },
             { group: 'Navigation', name: 'u-toc', alias: '目录' },
             { group: 'Navigation', name: 'u-pagination', alias: '翻页器' },
-            { group: 'Navigation', name: 'u-combo-pagination', alias: '复合翻页器', vscode: false },
             { group: 'Form', name: 'u-form', alias: '表单' },
             { group: 'Form', name: 'u-validator', alias: '验证器', newest: true },
             { group: 'Form', name: 'u-input', alias: '单行输入' },

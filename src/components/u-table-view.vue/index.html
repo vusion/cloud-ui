@@ -110,10 +110,10 @@
             </u-table>
         </div>
     </div>
-    <u-combo-pagination :class="$style.pagination" v-if="pageable === true || pageable === 'pagination'"
+    <u-pagination :class="$style.pagination" v-if="pageable === true || pageable === 'pagination'"
         :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
         :page-size="currentDataSource.paging.size" :page-size-options="pageSizeOptions" :show-total="showTotal" :show-sizer="showSizer" :show-jumper="showJumper"
         @change="page($event.page)" @change-page-size="page(currentDataSource.paging.number, $event.pageSize)">
-    </u-combo-pagination>
+    </u-pagination>
     <div><slot></slot></div>
 </div>
