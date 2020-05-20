@@ -2,6 +2,26 @@
 
 # UCapsules 胶囊
 
+- [示例](#示例)
+    - [基本样式](#基本样式)
+    - [选择值](#选择值)
+    - [只读、禁用、禁用某一项](#只读-禁用-禁用某一项)
+    - [可取消](#可取消)
+    - [多项选择](#多项选择)
+    - [胶囊组](#胶囊组)
+    - [Flag](#flag)
+    - [标签](#标签)
+- [UCapsules API](#ucapsules-api)
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+- [UCapsule API](#ucapsule-api)
+    - [Props/Attrs](#propsattrs-2)
+    - [Slots](#slots-2)
+    - [Events](#events-2)
+- [UCapsuleGroup API](#ucapsulegroup-api)
+
+
 ## 示例
 ### 基本样式
 

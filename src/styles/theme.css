@@ -4,16 +4,29 @@
      */
 
     /* Brand Colors */
+    --brand-primary-light: #5e96eb;
     --brand-primary: #4a89e8;
+    --brand-primary-dark: #2c75e4;
     --brand-secondary: #dfe4ec;
     --brand-info: #36a3f7;
-    --brand-success: #57bc5b;
-    --brand-warning: #ffa136;
-    --brand-error: #ff8a7a;
-    --brand-danger: #fe5a5a;
-    --brand-disabled: #cddae9; /* 选择框的禁用背景 */
-    --brand-disabled-light: #e7eaef;
-    --hover-color: #f4f4f4;
+    --brand-success-light: #4dd3b6;
+    --brand-success: #37cdad;
+    --brand-success-dark: #2eb99b;
+    --brand-normal-light: #97d362;
+    --brand-normal: #8acd4e;
+    --brand-normal-dark: #7ac437;
+    --brand-warning-light: #ffb752;
+    --brand-warning: #ffae3c;
+    --brand-warning-dark: #ff9f19;
+    --brand-error-light: #ff6c6c;
+    --brand-error: #ff5a5a;
+    --brand-error-dark: #ff3434;
+    --brand-danger-light: #ff6c6c;
+    --brand-danger: #ff5a5a;
+    --brand-danger-dark: #ff3434;
+    --brand-disabled-light: #dee4ed; /* 选择且禁用的背景 */
+    --brand-disabled: #cdd6e4; /* 输入框、选择框的禁用背景 */
+    --brand-disabled-dark: #b2c0d5; /* 禁用文本的颜色 */
 
     /* Gray Colors */
     --color-white: white;
@@ -27,16 +40,19 @@
     --gray-lightest: #eee;
 
     /* Component Base Colors */
-    --background-color-light: #f2f3f8; /* 选择框的 hover 颜色 */
-    --background-color-base: #eef2f7; /* 标签、薯条等组件默认颜色 */
-    --background-color-dark: #d0dbe7;
-    --color-lighter: #a7afbb; /* Placeholder 字体颜色 */
-    --color-light: #92989d; /* 次级字体颜色 */
-    --color-base: #565b61; /* 默认字体颜色 */
-    --border-color-light: #dfe5f1; /* 面板等容器类型的边框颜色 */
-    --border-color-base: #cbd5e5; /* 按钮、输入框等小组件的边框颜色 */
+    --background-color-lighter: #f4f6f9; /* 选择框的 hover 颜色 */
+    --background-color-light: #f4f6f9; /* 表格等组件标题栏颜色 */
+    --background-color-base: #eef1f6; /* 标签、薯条等组件默认颜色 */
+    --background-color-dark: #e3e8f0;
+    --color-lighter: #b6b9be; /* Placeholder 字体颜色 */
+    --color-light: #93989f; /* 次级字体颜色 */
+    --color-base: #585c63; /* 默认字体颜色 */
+    --color-dark: #363a41; /* 默认字体颜色 */
+    --border-color-light: #dee4ed; /* 面板等容器类型的边框颜色 */
+    --border-color-base: #dee4ed; /* 输入框等小组件的边框颜色 */
+    --border-color-dark: #cdd6e4; /* 按钮等小组件的边框颜色 */
 
-    /* Spacing Dimensions */
+    /* Space Dimensions */
     --space-shrink: -1px;
     --space-mini: 4px;
     --space-base: 20px;
@@ -98,6 +114,7 @@
     --transition-duration-base: 0.2s;
     --transition-duration-fast: 0.1s;
     --transition-duration-slow: 0.3s;
+    --transition-duration-slower: 0.5s;
 
     /**
      * Components Variables
@@ -113,7 +130,7 @@
     --code-margin-x: 2px;
     --code-padding-y: 3px;
     --code-padding-x: 3px;
-    --code-background: var(--background-color-light);
+    --code-background: var(--background-color-lighter);
     --code-color: #e0276e;
     --code-font-size: var(--font-size-small);
 
@@ -134,14 +151,15 @@
     --text-color-success: var(--brand-success);
     --text-color-warning: var(--brand-warning);
     --text-color-error: var(--brand-error);
-    --text-color-disabled: #b6c4d4;
+    --text-color-disabled: var(--brand-disabled-dark);
 
     /* Link */
     --link-color: #4477d0;
     --link-color-success: var(--brand-success);
     --link-color-warning: var(--brand-warning);
     --link-color-error: var(--brand-error);
-    --link-color-disabled: #b6c4d4;
+    --link-color-danger: var(--brand-danger);
+    --link-color-disabled: var(--brand-disabled-dark);
     --link-color-light: #6eadff;
     --link-color-white: white;
 
@@ -169,10 +187,10 @@
     --button-background-active: white;
     --button-background-disabled: white;
     --button-background-primary: var(--brand-primary);
-    --button-background-primary-hover: #6098eb;
+    --button-background-primary-hover: var(--brand-primary-light);
     --button-background-primary-disabled: var(--brand-disabled);
-    --button-background-danger: var(--brand-danger);
-    --button-background-danger-hover: #fe7373;
+    --button-background-danger: var(--brand-error);
+    --button-background-danger-hover: var(--brand-error-light);
     --button-background-danger-disabled: var(--brand-disabled);
     --button-color: var(--color-base);
     --button-color-hover: var(--brand-primary);
@@ -183,9 +201,9 @@
     --button-color-danger: white;
     --button-color-danger-hover: var(--button-color-danger);
     --button-color-danger-disabled: white;
-    --button-border-color: var(--border-color-base);
+    --button-border-color: var(--border-color-dark);
     --button-border-color-hover: var(--brand-primary);
-    --button-border-color-disabled: var(--border-color-base);
+    --button-border-color-disabled: var(--border-color-dark);
     --button-box-shadow-focus: 0 0 0 2px rgba(80, 139, 233, 0.2);
     --button-box-shadow-focus-primary: var(--button-box-shadow-focus);
     --button-box-shadow-focus-danger: 0 0 0 2px rgba(254, 90, 90, 0.2);
@@ -197,25 +215,32 @@
 
     /* Label */
     --label-padding-x: 8px;
+    --label-padding-x-small: 6px;
     --label-padding-x-large: 12px;
     --label-padding-x-huge: 18px;
     --label-padding-y: 1px;
+    --label-padding-y-small: 0px;
     --label-padding-y-large: 2px;
     --label-padding-y-huge: 3px;
+    --label-line-height-small: 18px;
     --label-font-size: var(--font-size-small);
+    --label-font-size-small: var(--font-size-small);
     --label-font-size-large: var(--font-size-small);
     --label-font-size-huge: var(--font-size-base);
     --label-remove-padding-x: 3px;
-    --label-remove-padding-x-large: 5px;
-    --label-remove-padding-x-huge: 8px;
+    --label-remove-padding-x-small: 3px;
+    --label-remove-padding-x-large: 6px;
+    --label-remove-padding-x-huge: 10px;
     --label-background: var(--background-color-base);
     --label-background-primary: var(--brand-primary);
     --label-background-success: var(--brand-success);
+    --label-background-normal: var(--brand-normal);
     --label-background-warning: var(--brand-warning);
     --label-background-error: var(--brand-error);
-    --label-color: inherit;
+    --label-color: #646a70;
     --label-color-primary: white;
     --label-color-success: white;
+    --label-color-normal: white;
     --label-color-warning: white;
     --label-color-error: white;
 
@@ -227,7 +252,7 @@
 
     /* Avatar */
     --avatar-size: 44px;
-    --avatar-size-mini: 16px;
+    --avatar-size-mini: 18px;
     --avatar-size-small: 32px;
     --avatar-size-large: 64px;
     --avatar-size-huge: 88px;
@@ -247,21 +272,24 @@
     --list-style: none;
     --list-item-padding: 6px 8px;
     --list-item-border-bottom: 1px solid var(--border-color-base);
-    --list-item-background-striped: var(--background-color-light);
-    --list-item-background-hover: var(--background-color-light);
+    --list-item-background-striped: var(--background-color-lighter);
+    --list-item-background-hover: var(--background-color-lighter);
 
     /* Table */
     --table-background: white;
+    --table-head-background: var(--background-color-light);
+    --table-head-background-light: white;
     --table-row-background: var(--background-color-base);
-    --table-row-background-hover: var(--background-color-light);
-    --table-row-background-striped: var(--background-color-light);
+    --table-row-background-hover: var(--background-color-lighter);
+    --table-row-background-striped: var(--background-color-lighter);
     --table-row-background-primary: rgba(103, 170, 245, 0.2);
     --table-row-background-error: rgb(255, 138, 122, 0.2);
     --table-row-background-dark: var(--background-color-dark);
-    --table-row-background-light: var(--background-color-light);
+    --table-row-background-light: var(--background-color-lighter);
     --table-caption-color: #6a6f75;
-    --table-border-color: var(--border-color-base);
+    --table-border-color: var(--border-color-light);
     --table-border-width: 1px;
+    --table-td-color: var(--color-light);
 
     /* Article */
     --article-table-font-size: calc(var(--font-size-base) * (13 / 14));
@@ -380,7 +408,7 @@
     --steps-item-color-disabled: #bbb;
     --steps-item-radio-size: 18px;
     --steps-item-radio-size-large: 24px;
-    --steps-item-radio-background: #e1e8ed;
+    --steps-item-radio-background: var(--border-color-base);
     --steps-item-radio-background-passed: var(--brand-primary);
     --steps-item-radio-color-passed: white;
 
@@ -389,18 +417,29 @@
     --crumb-color-disabled: var(--brand-disabled);
     --crumb-space-x: 5px;
 
+    /* Toc */
+    --toc-width: 200px;
+    --toc-padding: 5px;
+    --toc-circle-size: 9px;
+    --toc-item-circle-size: 5px;
+    --toc-font-size: 14px;
+    --toc-background: white;
+    --toc-border-width: var(--border-width-base);
+    --toc-border-color: var(--border-color-base);
+
     /* Pagination */
     --pagination-item-size: var(--height-small);
     --pagination-item-padding: 0;
     --pagination-item-background: white;
+    --pagination-item-background-hover: var(--background-color-lighter);
     --pagination-item-background-selected: var(--brand-primary);
     --pagination-item-background-disabled-selected: white;
     --pagination-item-background-blank: none;
-    --pagination-item-color: #555;
+    --pagination-item-color: var(--color-base);
     --pagination-item-color-hover: var(--brand-primary);
     --pagination-item-color-selected: white;
     --pagination-item-color-disabled: #bbb;
-    --pagination-item-color-blank: #555;
+    --pagination-item-color-blank: var(--color-base);
     --pagination-item-color-blank-disabled: var(--brand-disabled);
     --pagination-item-border-color: var(--border-color-base);
 
@@ -412,17 +451,24 @@
 
     /* Form */
     --form-item-label-padding-right: 10px;
+    --form-item-label-padding-right-small: 10px;
+    --form-item-label-padding-right-large: 20px;
     --form-item-label-width: 120px;
+    --form-item-label-width-small: 80px;
+    --form-item-label-width-large: 160px;
     --form-required-color: red;
+    --form-required-right: 12px;
+    --form-required-right-small: 2px;
+    --form-required-right-large: 12px;
     --form-message-margin-left: 10px;
     --form-message-padding: 0 10px;
     --form-message-background: var(--background-color-base);
-    --form-message-background-error: #ff867f;
+    --form-message-background-error: var(--brand-error-light);
     --form-message-color-error: white;
 
     /* Field */
     --field-background: white;
-    --field-color: #666;
+    --field-color: var(--color-light);
     --field-color-selected: var(--brand-primary);
     --field-color-disabled: #bbb;
     --field-border-color: #cbd5dd;
@@ -431,7 +477,7 @@
     --validator-message-padding: 0 10px;
     --validator-message-margin-left: 10px;
     --validator-message-background: var(--background-color-base);
-    --validator-message-background-error: #ff867f;
+    --validator-message-background-error: var(--brand-error-light);
     --validator-message-color-error: white;
 
     /* Input */
@@ -457,10 +503,10 @@
     --input-border-width: 1px;
     --input-background: white;
     --input-background-disabled: #cddae9;
-    --input-color: #666;
+    --input-color: var(--color-base);
     --input-border-color: var(--border-color-base);
-    --input-border-color-error: #ff867f;
-    --input-border-color-focus: #8ebee9;
+    --input-border-color-error: var(--brand-error);
+    --input-border-color-focus: #81abe9;
     --input-placeholder-color: var(--color-lighter);
     --input-clearable-color: #a7afbb;
     --input-border-radius: 3px;
@@ -478,7 +524,7 @@
     --textarea-min-height: var(--height-base);
     --textarea-border-radius: var(--border-radius-medium);
     --textarea-padding: 5px 10px;
-    --textarea-color: #666;
+    --textarea-color: var(--color-base);
     --textarea-border-color: var(--border-color-base);
 
     /* Number Input */
@@ -539,17 +585,18 @@
     --select-background-disabled: var(--brand-disabled);
     --select-border-width: var(--border-width-base);
     --select-border-color: var(--border-color-base);
-    --select-color: #555;
-    --select-item-hover: var(--background-color-light);
+    --select-color: var(--color-base);
+    --select-color-disabled: var(--brand-disabled-dark);
+    --select-item-hover: var(--background-color-lighter);
     --select-popper-max-height: 194px;
     --select-popper-line-height: 1.6;
     --select-popper-line-height-small: 1.6;
     --select-placeholder-color: var(--color-lighter);
-    --select-arrow-color: #a5a5a6;
+    --select-arrow-color: var(--color-light);
     --select-arrow-size: 18px;
     --select-arrow-right-ratio: 0.6;
     --select-tags-padding-y: 2px;
-    --select-tags-padding: 2px 26px 2px 4px;
+    --select-tags-padding: 3px 26px 3px 5px;
     --select-tags-line-height: 26px;
     --select-tags-filterable-width: 40px;
     --select-tag-line-height: calc(var(--select-tags-line-height) - var(--select-tags-padding-y) * 2);
@@ -559,21 +606,21 @@
     --select-tag-remove-color: var(--color-lighter);
     --select-tag-remove-color-hover: var(--color-base);
     --select-popper-background: white;
-    --select-popper-border-color: var(--brand-secondary);
-    --select-status-color: var(--gray-dark);
+    --select-popper-border-color: var(--border-color-base);
+    --select-status-color: var(--color-light);
 
     /* Slider */
     --slider-body-margin: 0 10px;
     --slider-body-padding: 9px 0;
     --slider-track-height: 6px;
-    --slider-track-background: #e6e6e6;
+    --slider-track-background: var(--background-color-base);
     --slider-trail-background: var(--brand-primary);
     --slider-trail-background-disabled: var(--brand-disabled);
     --slider-bound-background: url("../assets/images/stripe.png") repeat-x;
     --slider-handle-width: 14px;
     --slider-handle-height: 24px;
     --slider-handle-background: white;
-    --slider-handle-border: 1px solid #ddd;
+    --slider-handle-border: 1px solid var(--border-color-dark);
 
     /* Combo Slider */
     --combo-slider-slider-width: 100%;
@@ -584,17 +631,29 @@
     --uploader-input-font-size: 100px;
 
     /* List View */
-    --list-view-background: white;
-    --list-view-border-color: #e1e8ed;
-    --list-view-border-color-focus: #e1e8ed;
-    --list-view-status-color: var(--gray-dark);
+    --list-view-width: var(--width-medium);
+    --list-view-width-large: var(--width-large);
+    --list-view-width-huge: var(--width-huge);
+    --list-view-height: calc(30px * 10 + var(--border-width-base) * 2);
+    --list-view-height-large: calc(30px * 18 + var(--border-width-base) * 2);
+    --list-view-height-huge: 80vh;
+    --list-view-head-background: var(--background-color-base);
+    --list-view-body-background: white;
+    --list-view-body-background-disabled: white;
+    --list-view-foot-background: white;
+    --list-view-border-color: var(--border-color-base);
+    --list-view-border-color-focus: var(--border-color-base);
+    --list-view-border-color-disabled: var(--brand-disabled);
+    --list-view-status-color: var(--color-light);
+    --list-view-head-padding: 8px 12px;
+    --list-view-foot-padding: 8px 12px;
     --list-view-item-padding: 4px 12px;
-    --list-view-item-background-hover: var(--background-color-light);
+    --list-view-item-background-hover: var(--background-color-lighter);
     --list-view-item-background-readonly: none;
-    --list-view-item-background-focused: var(--background-color-light);
+    --list-view-item-background-focused: var(--background-color-lighter);
     --list-view-item-background-selected: var(--brand-primary);
     --list-view-item-color-selected: white;
-    --list-view-item-color-disabled: #ccc;
+    --list-view-item-color-disabled: var(--brand-disabled-dark);
     --list-view-item-background-disabled: none;
     --list-view-item-background-selected-disabled: var(--brand-disabled-light);
     --list-view-divider-margin: 9px 0;
@@ -602,6 +661,7 @@
     --list-view-group-head-padding: 2px 4px;
     --list-view-group-head-background: #ebedf5;
     --list-view-group-expander-size: 26px;
+    --list-view-filter-margin: 5px;
 
     /* Tree View */
     --tree-view-background: white;
@@ -629,24 +689,28 @@
     --table-view-sort-color-active: var(--brand-primary);
     --table-view-sort-size: 1em;
     --table-view-expander-size: 26px;
-    --table-view-row-selected-background: #d7e5fb;
+    --table-view-row-selected-background: #e4eeff;
     --table-view-pagination-space: var(--space-base);
 
     /* Transfer */
-    --transfer-height: 182px;
-    --transfer-width: var(--width-base);
+    --transfer-height: var(--list-view-height);
+    --transfer-height-large: var(--list-view-height-large);
+    --transfer-height-huge: var(--list-view-height-huge);
+    --transfer-width: var(--width-medium);
+    --transfer-width-large: var(--width-large);
+    --transfer-width-huge: var(--width-huge);
     --transfer-button-size: var(--height-base);
     --transfer-button-space: 10px;
-    --transfer-button-background: #67aaf5;
-    --transfer-button-background-hover: #5d93e6;
-    --transfer-button-background-active: #5d93e6;
-    --transfer-button-background-disabled: var(--brand-disabled-light);
+    --transfer-button-background: var(--button-background-primary);
+    --transfer-button-background-hover: var(--button-background-primary-hover);
+    --transfer-button-background-active: var(--button-background-primary-hover);
+    --transfer-button-background-disabled: var(--button-background-primary-disabled);
     --transfer-button-color: white;
     --transfer-button-color-hover: white;
     --transfer-button-color-disabled: white;
-    --transfer-button-border-color: rgba(0, 0, 0, 0);
-    --transfer-button-border-color-hover: var(--brand-primary);
-    --transfer-button-border-color-disabled: #dfe4ec;
+    --transfer-button-border-color: var(--button-background-primary);
+    --transfer-button-border-color-hover: var(--button-background-primary-hover);
+    --transfer-button-border-color-disabled: var(--button-background-primary-disabled);
 
     /* Popup */
     --popup-padding: 6px 10px;
@@ -695,7 +759,7 @@
     --modal-dialog-width-large: 600px;
     --modal-close-size: 15px;
     --modal-close-color: var(--gray-light);
-    --modal-close-color-hover: var(--gray-dark);
+    --modal-close-color-hover: var(--color-light);
     --modal-head-padding: 15px;
     --modal-static-padding: var(--space-base);
     --modal-body-padding: 15px;
@@ -710,7 +774,7 @@
     --drawer-background: white;
     --drawer-close-size: 15px;
     --drawer-close-color: var(--gray-light);
-    --drawer-close-color-hover: var(--gray-dark);
+    --drawer-close-color-hover: var(--color-light);
     --drawer-head-padding: 15px;
     --drawer-body-padding: 15px;
     --drawer-foot-padding: 20px 15px;

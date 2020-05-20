@@ -2,6 +2,15 @@
 
 # USwitch 开关
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [Value 绑定](#value-绑定)
+    - [基本状态、只读和禁用](#基本状态-只读和禁用)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+
 **表单控件**, **行内展示**
 
 ## 示例
@@ -115,3 +124,4 @@ export default {
 | $event.value | boolean | 开关状态 |
 | $event.oldValue | boolean | 旧的开关状态 |
 | senderVM | USwitch | 发送事件实例 |
+

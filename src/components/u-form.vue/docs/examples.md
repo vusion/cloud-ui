@@ -256,7 +256,7 @@ export default {
 
 可以根据`@validate`事件监听表单的验证状态。
 
-关于验证规则的详细使用，参见 [UValidator](../u-validator)。
+关于验证规则的详细使用，参见 [UValidator](#components/u-validator)。
 
 ``` vue
 <template>

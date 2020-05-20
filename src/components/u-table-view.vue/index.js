@@ -10,7 +10,7 @@ export const UTableView = {
     i18n,
     props: {
         data: Array,
-        dataSource: [DataSource, Function, Object],
+        dataSource: [DataSource, Function, Object, Array],
         title: String,
         titleAlignment: { type: String, default: 'center' },
         border: { type: Boolean, default: false },
@@ -47,8 +47,9 @@ export const UTableView = {
         /* Others */
         accordion: { type: Boolean, default: false },
         resizable: { type: Boolean, default: false },
-        resizeRemaining: { type: String, default: 'sequence' },
+        resizeRemaining: { type: String, default: 'average' },
         showHead: { type: Boolean, default: true },
+        color: String,
     },
     data() {
         return {
@@ -71,7 +72,7 @@ export const UTableView = {
     },
     computed: {
         currentData() {
-            return this.currentDataSource && this.currentDataSource.viewData;
+            return this.currentDataSource ? this.currentDataSource.viewData : this.currentDataSource;
         },
         visibleColumnVMs() {
             return this.columnVMs.filter((columnVM) => !columnVM.hidden);
@@ -237,7 +238,7 @@ export const UTableView = {
         },
         getDataSourceOptions() {
             return {
-                viewMode: this.pageable === 'scroll' || this.pageable === 'button' ? 'more' : 'page',
+                viewMode: this.pageable === 'load-more' || this.pageable === 'auto-more' ? 'more' : 'page',
                 paging: this.paging,
                 sorting: this.sorting,
                 filtering: this.filtering,
@@ -271,7 +272,7 @@ export const UTableView = {
             } else if (dataSource instanceof Object) {
                 return new DataSource(Object.assign(options, dataSource));
             } else
-                return undefined;
+                return dataSource;
         },
         number2Pixel(value) {
             return isNumber(value) ? value + 'px' : '';
@@ -476,7 +477,7 @@ export const UTableView = {
 
             // this.throttledVirtualScroll(e);
 
-            if (!this.pageable === 'scroll')
+            if (this.pageable !== 'auto-more' || this.currentLoading)
                 return;
 
             const el = e.target;
@@ -497,17 +498,16 @@ export const UTableView = {
                 // 防止同步数据使页面抖动
                 // setTimeout(() => this.currentData = data);
                 this.currentLoading = false;
-                if (this.pageable === 'scroll' || this.pageable === 'button') {
-                    this.$emit('load', undefined, this);
-                    return data;
-                } else {
-                    if (this.currentDataSource.paging && this.currentDataSource.paging.number > this.currentDataSource.totalPage)
-                        this.page(1);
 
-                    this.handleResize();
-                    this.$emit('load', undefined, this);
-                    return data;
+                if (this.pageable === true || this.pageable === 'pagination') {
+                    if (this.currentDataSource.paging && this.currentDataSource.paging.number > this.currentDataSource.totalPage)
+                        this.page(1); // 数据发生变更时，回归到第 1 页
                 }
+
+                // auto-more 状态的 resize 会频闪。
+                this.pageable !== 'auto-more' && this.handleResize();
+                this.$emit('load', undefined, this);
+                return data;
             }).catch(() => {
                 this.currentLoading = false;
                 this.currentError = true;
@@ -529,6 +529,7 @@ export const UTableView = {
             };
             if (this.$emitPrevent('before-page', paging, this))
                 return;
+            delete paging.preventDefault;
 
             this.currentDataSource.page(paging);
             this.load();
@@ -550,6 +551,7 @@ export const UTableView = {
             const sorting = { field, order, compare };
             if (this.$emitPrevent('before-sort', sorting, this))
                 return;
+            delete sorting.preventDefault;
 
             this.currentDataSource.sort(sorting);
             this.load();
@@ -574,6 +576,7 @@ export const UTableView = {
         filter(filtering) {
             if (this.$emitPrevent('before-filter', filtering, this))
                 return;
+            delete filtering.preventDefault;
 
             this.currentDataSource.filter(filtering);
             this.load();

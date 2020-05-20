@@ -2,6 +2,20 @@
 
 # MSinglex 单选模式
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [只读、禁用、禁用某一项](#只读-禁用-禁用某一项)
+    - [可取消](#可取消)
+    - [自动选择](#自动选择)
+- [MSinglex API](#msinglex-api)
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+- [MSinglexItem API](#msinglexitem-api)
+    - [Props/Attrs](#propsattrs-2)
+    - [Slots](#slots-2)
+    - [Events](#events-2)
+
 常见的单项选择模式，用于快速派生出像`<u-navbar>`、`<u-tabs>`这样的组件。
 
 常见的单项选择模式，用于快速派生出像`<u-navbar>`、`<u-tabs>`这样的组件。
@@ -226,3 +240,4 @@ export default {
 | $event.itemVM | MSinglexItem | 此组件 |
 | $event.preventDefault | Function | 阻止选择流程 |
 | senderVM | MSinglexItem | 发送事件实例 |
+

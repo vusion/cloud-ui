@@ -199,7 +199,7 @@
     font-size: 18px;
 }
 
-.root[icon="loading"], /* @deprecated */
+.root[icon="loading"]::before, /* @deprecated */
 .root[loading]::before {
     content: '';
     font: inherit;

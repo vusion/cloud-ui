@@ -18,7 +18,7 @@
 .input[disabled] {
     cursor: var(--cursor-not-allowed);
     background: #eee;
-    color: #999;
+    color: var(--color-light);
 }
 
 .placeholder, .input::placeholder {
@@ -52,13 +52,13 @@
     width: 18px;
     height: 18px;
     line-height: 18px;
-    background: #f5f7fa;
+    background: var(--background-color-light);
     border-radius: 100%;
     display: inline-block;
 }
 
 .closeIcon:hover {
-    color: #999;
+    color: var(--color-light);
     background-color: #ebedef;
 }
 

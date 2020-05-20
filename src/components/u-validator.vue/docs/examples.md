@@ -6,7 +6,7 @@
 
 在一个大的项目中，相同场景的验证规则（包括触发方式和错误提示等）通常会被多次使用。如果将这些规则通过注册好的名称调用，就能减少很多重复的代码。
 
-组件库中已经内置了一些[常见的验证规则](./rules)，也可以自己在项目中注册规则（见下文）。
+组件库中已经内置了一些[常见的验证规则](#/components/u-validator/rules)，也可以自己在项目中注册规则（见下文）。
 
 利用这些已有的规则，能够在`rules`属性上拼接成字符串快速使用。
 
@@ -443,7 +443,7 @@ export default {
 
 ### 复杂案例
 
-下面这些组件已经集成了 UValidator 的嵌套验证功能，可以去相应文档进行查阅[UFormTableView](../u-form-table-view)、[UDynamicCards](../u-dynamic-cards)。
+下面这些组件已经集成了 UValidator 的嵌套验证功能，可以去相应文档进行查阅[UFormTableView](#components/u-form-table-view)、[UDynamicCards](#components/u-dynamic-cards)。
 
 ## 其它
 

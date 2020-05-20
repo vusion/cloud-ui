@@ -56,6 +56,14 @@ export default {
                 }
             }
         },
+        '$route'(route) {
+            this.message.postMessage({
+                type: 'docs:hash',
+                data: {
+                    hash: route.hash,
+                },
+            }, '*');
+        },
     },
     methods: {
         onSelectTheme($event) {
@@ -75,6 +83,10 @@ export default {
 </script>
 
 <style module>
+:root {
+    --sidebar-width: 210px;
+}
+
 .root {}
 
 .head {
@@ -88,6 +100,7 @@ export default {
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
     z-index: var(--z-index-layout);
 }
+
 :global(.singleton) .head {
     display: none;
 }
@@ -96,6 +109,7 @@ export default {
     /* min-height: calc(100vh - 134px); */
     margin-top: var(--navbar-height);
 }
+
 :global(.singleton) .body {
     margin-top: 0;
 }

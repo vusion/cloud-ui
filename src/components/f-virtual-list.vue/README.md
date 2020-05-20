@@ -2,6 +2,16 @@
 
 # FVirtualList 虚拟列表
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [设置高度](#设置高度)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Data](#data)
+    - [Computed](#computed)
+    - [Slots](#slots)
+    - [Events](#events)
+
 用于提升大数据量列表的性能。支持自动计算列表项高度。
 
 ## 示例
@@ -127,6 +137,7 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | list | Array\<Object\> |  |  | 含有全部数据的列表。用于获取渲染的长度和位置等信息。 |
 | item-height | number |  |  | 默认可以不填，会自动计算和缓存每个列表项的高度，用于处理列表项高度不确定的情形。如果每个列表项的高度是个固定值，可以设置该属性，能够减少由获取高度产生的性能开销。 |
+| virtual | boolean |  | `true` | 是否开启虚拟列表 |
 | virtual-count | number |  | `60` | 虚拟列表实际渲染的节点数。该数字不宜过大，一般在 200 以内为好。 |
 | throttle | number |  | `60` | 滚动截流的毫秒数。在该时间内最多更新一次虚拟列表。 |
 | tag-name | string |  | `'div'` | 设置列表容器的标签名 |
@@ -163,3 +174,16 @@ export default {
 | ----- | ---- | ----------- |
 | $event | Event | 原生滚动事件对象 |
 | senderVM | FVirtualList | 发送事件实例 |
+
+#### @virtual-scroll
+
+每次处理更新虚拟滚动时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| virtualIndex | number | 实际渲染的首个列表项索引 |
+| virtualCount | number | 虚拟列表实际渲染的节点数 |
+| virtualTop | number | 虚拟的顶部高度 |
+| virtualBottom | number | 虚拟的底部高度 |
+| senderVM | FVirtualList | 发送事件实例 |
+

@@ -109,11 +109,11 @@ export default {
 </u-linear-layout>
 ```
 
-### 搜索图标
+### 添加图标
 
 ```html
 <u-linear-layout>
-    <u-input search="left" clearable size="normal medium" placeholder="1~12位小写字母" autofocus></u-input>
-    <u-input search="right" clearable size="normal medium" placeholder="1~12位小写字母" autofocus></u-input>
+    <u-input prefix="search" clearable size="normal medium" placeholder="1~12位小写字母" autofocus></u-input>
+    <u-input suffix="search" clearable size="normal medium" placeholder="1~12位小写字母" autofocus></u-input>
 </u-linear-layout>
 ```

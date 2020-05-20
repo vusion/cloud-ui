@@ -8,9 +8,9 @@
     margin: 0;
     height: 30px;
     line-height: 30px;
-    color: #333;
-    background-color: #f5f7fa;
-    border-bottom: 1px solid #e1e8ed;
+    color: var(--color-base);
+    background-color: var(--background-color-light);
+    border-bottom: 1px solid var(--border-color-base);
 }
 
 .list {

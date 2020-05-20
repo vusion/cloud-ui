@@ -1,6 +1,18 @@
 <!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-# DescList 描述列表
+# UDescList 描述列表
+
+- [示例](#示例)
+    - [基本用法](#基本用法)
+- [UDescList API](#udesclist-api)
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+- [UDescListItem API](#udesclistitem-api)
+    - [Props/Attrs](#propsattrs-2)
+    - [Slots](#slots-2)
+- [UDescListGroup API](#udesclistgroup-api)
+    - [Props/Attrs](#propsattrs-3)
+    - [Slots](#slots-3)
 
 ## 示例
 ### 基本用法
@@ -23,7 +35,7 @@
 </u-desc-list>
 ```
 
-## DescList API
+## UDescList API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
@@ -36,7 +48,7 @@
 
 插入`<u-desc-list-item>`或`<u-desc-list-group>`子组件。
 
-## DescListItem API
+## UDescListItem API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
@@ -50,7 +62,7 @@
 
 插入文本或HTML。
 
-## DescListGroup API
+## UDescListGroup API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
@@ -63,3 +75,4 @@
 #### (default)
 
 插入`<u-desc-list-item>`子组件
+

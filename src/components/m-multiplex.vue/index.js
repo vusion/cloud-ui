@@ -60,19 +60,28 @@ export const MMultiplex = {
     // },
     methods: {
         watchValue(value) {
-            const selectedVMs = [];
+            let selectedVMs = [];
+            const selectedMap = {};
+            // 对于过滤、分页等功能，需要保留原来的 selectedVMs
+            this.selectedVMs.forEach((selectedVM) => {
+                if (value.includes(selectedVM.value))
+                    selectedMap[selectedVM.value] = selectedVM;
+            });
+
             if (value) {
                 if (!this.keepOrder) {
                     value.forEach((val) => {
                         const itemVM = this.itemVMs.find((itemVM) => itemVM.value === val);
-                        itemVM && selectedVMs.push(itemVM);
+                        if (itemVM)
+                            selectedMap[itemVM.value] = itemVM;
                     });
                 } else {
                     this.itemVMs.forEach((itemVM) => {
                         if (value.includes(itemVM.value))
-                            selectedVMs.push(itemVM);
+                            selectedMap[itemVM.value] = itemVM;
                     });
                 }
+                selectedVMs = Object.values(selectedMap);
                 // 必须单独指定一遍，因为有取消掉的
                 this.itemVMs.forEach((itemVM) => itemVM.currentSelected = value.includes(itemVM.value));
             } else {

@@ -1,4 +1,4 @@
-- name: selectable-steps
+- name: u-selectable-steps
   title: 可选步骤条
   attrs:
     - name: value.sync, v-model
@@ -53,7 +53,7 @@
         - name: oldValue
           type: number
           description: 旧的步骤数
-- name: selectable-step
+- name: u-selectable-step
   attrs:
     - name: title
       type: string

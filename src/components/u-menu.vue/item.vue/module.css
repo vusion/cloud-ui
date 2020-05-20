@@ -11,7 +11,7 @@
 }
 
 .root:hover {
-    background: #f5f7fa;
+    background: var(--background-color-light);
 }
 
 .root[readonly] {
@@ -28,7 +28,7 @@
     /* @Private */
     cursor: var(--cursor-not-allowed);
     background: none;
-    color: #999;
+    color: var(--color-light);
 }
 
 .root[selected][disabled] {

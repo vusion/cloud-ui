@@ -2,6 +2,21 @@
 
 # UInput 单行输入
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [加密](#加密)
+    - [双向绑定](#双向绑定)
+    - [只读和禁用](#只读和禁用)
+    - [可清除](#可清除)
+    - [展示方式](#展示方式)
+    - [大小扩展](#大小扩展)
+    - [添加图标](#添加图标)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+    - [Methods](#methods)
+
 **表单控件**, **行内展示**
 
 基本的表单输入组件，在原生`<input>`控件基础上进行了一些功能扩展。
@@ -118,12 +133,12 @@ export default {
 </u-linear-layout>
 ```
 
-### 搜索图标
+### 添加图标
 
 ```html
 <u-linear-layout>
-    <u-input search="left" clearable size="normal medium" placeholder="1~12位小写字母" autofocus></u-input>
-    <u-input search="right" clearable size="normal medium" placeholder="1~12位小写字母" autofocus></u-input>
+    <u-input prefix="search" clearable size="normal medium" placeholder="1~12位小写字母" autofocus></u-input>
+    <u-input suffix="search" clearable size="normal medium" placeholder="1~12位小写字母" autofocus></u-input>
 </u-linear-layout>
 ```
 
@@ -224,7 +239,7 @@ export default {
 | $event.oldValue | string | 旧的值 |
 | senderVM | UInput | 发送事件实例 |
 
-### Methods
+Methods
 
 #### focus()
 
@@ -246,3 +261,4 @@ export default {
 
 | Param | Type | Default | Description |
 | ----- | ---- | ------- | ----------- |
+

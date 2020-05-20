@@ -2,6 +2,12 @@
 
 # UComboPagination 复合翻页器
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Events](#events)
+
 **块级展示**
 
 在 UPagination 的基础上，添加了显示总页数、切换每页大小、页面跳转等功能。
@@ -53,3 +59,4 @@
 | $event.page | number | 当前页码 |
 | $event.oldPage | number | 旧的页码 |
 | senderVM | UComboPagination | 发送事件实例 |
+

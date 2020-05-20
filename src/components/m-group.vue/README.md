@@ -2,6 +2,25 @@
 
 # MGroupParent 分组模式
 
+- [概述](#undefined)
+    - [用法](#用法)
+- [示例](#示例)
+    - [分组](#分组)
+- [MGroupParent API](#mgroupparent-api)
+    - [Options](#options)
+    - [Props/Attrs](#propsattrs)
+    - [Data](#data)
+    - [Events](#events)
+    - [Methods](#methods)
+- [MGroup API](#mgroup-api)
+    - [Options](#options-2)
+    - [Props/Attrs](#propsattrs-2)
+    - [Data](#data-2)
+    - [Slots](#slots)
+    - [Events](#events-2)
+- [MChild API](#mchild-api)
+    - [Options](#options-3)
+
 在父子组件的模式中，有时会遇到对子组件进行分组和折叠场景。MGroup 对这种模式进行了抽象，用于快速开发和代码借鉴。
 
 ### 用法
@@ -73,7 +92,7 @@
 | $event.groupVM | MGroup | 分组组件 |
 | senderVM | MGroupParent | 发送事件实例 |
 
-### Methods
+Methods
 
 #### toggleAll(expanded)
 
@@ -150,3 +169,4 @@
 | Option | Type | Default | Description |
 | ------ | ---- | ------- | ----------- |
 | groupName | string | `'m-group'` | 分组组件的名称 |
+

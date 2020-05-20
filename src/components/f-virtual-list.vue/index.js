@@ -5,6 +5,7 @@ export const FVirtualList = {
     props: {
         list: Array,
         itemHeight: Number,
+        virtual: { type: Boolean, default: true },
         virtualCount: { type: Number, default: 60 },
         throttle: { type: Number, default: 60 },
         tagName: { type: String, default: 'div' },
@@ -20,13 +21,19 @@ export const FVirtualList = {
     computed: {
         virtualList() {
             const list = this[this.listKey];
-            return list && list.slice(this.virtualIndex, this.virtualIndex + this.virtualCount);
+            if (!this.virtual)
+                return list;
+            else
+                return list && list.slice(this.virtualIndex, this.virtualIndex + this.virtualCount);
         },
         virtualSlot() {
             // 给该 computed 添加一个依赖 list
             // eslint-disable-next-line no-unused-vars
             const list = this[this.listKey];
-            return this.$slots.default && this.$slots.default.slice(this.virtualIndex, this.virtualIndex + this.virtualCount);
+            if (!this.virtual)
+                return this.$slots.default;
+            else
+                return this.$slots.default && this.$slots.default.slice(this.virtualIndex, this.virtualIndex + this.virtualCount);
         },
     },
     created() {
@@ -42,11 +49,17 @@ export const FVirtualList = {
          * @param {*} e - 滚动事件对象
          */
         onScroll(e) {
+            if (!this.virtual)
+                return;
+
             this.throttledVirtualScroll(e);
 
             this.$emit('scroll', e, this);
         },
         handleVirtualScroll(e) {
+            if (!this.virtual)
+                return;
+
             const listEl = e.target;
             const virtualEl = this.$refs.virtual;
             const list = this[this.listKey];
@@ -88,8 +101,8 @@ export const FVirtualList = {
 
             // eslint-disable-next-line yoda
             // 该方法容易出现白屏。有截流了问题不大。
-            // if (this.virtualCount / 3 <= currentIndex - this.virtualIndex && currentIndex - this.virtualIndex < this.virtualCount * 2 / 3)
-            //     return;
+            if (this.virtualCount / 3 <= currentIndex - this.virtualIndex && currentIndex - this.virtualIndex < this.virtualCount * 2 / 3)
+                return;
 
             let virtualTop = 0;
             let virtualBottom = 0;
@@ -109,6 +122,12 @@ export const FVirtualList = {
             // Vue 应该是对渲染做了优化，为了减少在高频滚动时出现白屏的问题，需要强制更新
             this.$nextTick(() => {
                 this.$forceUpdate();
+                this.$emit('virtual-scroll', {
+                    virtualIndex,
+                    virtualCount: this.virtualCount,
+                    virtualTop,
+                    virtualBottom,
+                }, this);
             });
         },
     },

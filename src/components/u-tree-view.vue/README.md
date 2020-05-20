@@ -2,6 +2,26 @@
 
 # UTreeView 树型视图
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [选项值](#选项值)
+    - [只读、禁用、禁用某一项](#只读-禁用-禁用某一项)
+    - [手风琴](#手风琴)
+    - [展开/折叠触发方式](#展开折叠触发方式)
+    - [可取消](#可取消)
+    - [节点显示/隐藏](#节点显示隐藏)
+    - [多选](#多选)
+    - [其他方法](#其他方法)
+- [UTreeView API](#utreeview-api)
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+    - [Methods](#methods)
+- [UTreeViewNode API](#utreeviewnode-api)
+    - [Props/Attrs](#propsattrs-2)
+    - [Slots](#slots-2)
+    - [Events](#events-2)
+
 ## 示例
 ### 基本用法
 
@@ -589,7 +609,7 @@ export default {
 | $event.nodeVM | UTreeViewNode | 节点组件 |
 | senderVM | UTreeView | 发送事件实例 |
 
-### Methods
+Methods
 
 #### walk(func)
 
@@ -688,3 +708,4 @@ export default {
 | $event.node | object | 节点相关对象 |
 | $event.nodeVM | UTreeViewNode | 节点组件 |
 | senderVM | UTreeViewNode | 发送事件实例 |
+

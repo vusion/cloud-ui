@@ -2,6 +2,16 @@
 
 # UCrumb 面包屑
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+- [UCrumb API](#ucrumb-api)
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+- [UCrumbItem API](#ucrumbitem-api)
+    - [Props/Attrs](#propsattrs-2)
+    - [Slots](#slots-2)
+    - [Events](#events)
+
 **路由链接**, **块级展示**
 
 ## 示例
@@ -94,3 +104,4 @@
 | $event.replace | boolean | `replace`属性的值 |
 | $event.append | boolean | `append`属性的值 |
 | senderVM | UCrumb | 发送事件实例 |
+

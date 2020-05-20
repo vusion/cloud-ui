@@ -1,0 +1,178 @@
+.root {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    user-select: none;
+    max-width: 100%; /* 防止表格等小的地方超出区域 */
+}
+.head[disabled] {
+    cursor: var(--cursor-not-allowed);
+    background: var(--brand-disabled);
+    border: 1px solid var(--brand-disabled);
+    color: var(--color-light);
+}
+.head {
+    box-sizing: border-box;
+    cursor: var(--cursor-pointer);
+    padding: 2px 0;
+    padding-left: 5px;
+    padding-right: 23px;
+    background: white;
+    color: #555;
+    border: 1px solid var(--select-border-color);
+    border-radius: var(--border-radius-base);
+    min-height: 34px;
+    line-height: 30px;
+    outline: none;
+}
+.head[role] {
+    padding-right: 10px;
+}
+.tiptext {
+    color: var(--color-lighter);
+    line-height: 30px;
+    margin-left: 5px;
+}
+.wraptag {
+    /* max-width: 208px; */
+}
+.tag {
+    margin: 0 5px 2px 0;
+    position: relative;
+    top: 1px;
+    background-color: var(--brand-primary);
+    color: white;
+    display: inline-block;
+    padding: 0 5px;
+    height: 24px;
+    line-height: 22px;
+    border-radius: var(--border-radius-base);
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+.icon {
+    width: 35px;
+    height: 32px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: var(--cursor-pointer);
+    text-align: center;
+}
+.icon::after {
+    position: absolute;
+    icon-font: url("../i-icon.vue/icons/keyboard-arrow-down.svg");
+    color: #a5a5a6;
+    font-size: 18px;
+    right: 6px;
+    top: 0;
+    line-height: 32px;
+    transform: rotate(0deg);
+    transition: transform 0.3s;
+}
+.icon[role="up"]::after {
+    transform: rotate(-180deg);
+    transition: transform 0.3s;
+}
+
+.body {
+    margin-top: 2px;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 100;
+}
+.listview {
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 200px;
+    user-select: none;
+    box-sizing: border-box;
+    background: white;
+    color: #555;
+    border-radius: var(--border-radius-base);
+    border: 1px solid var(--select-border-color);
+    list-style: none;
+    margin: 0;
+}
+.listitem {
+    padding: 0 14px;
+    color: #777;
+    cursor: var(--cursor-pointer);
+    position: relative;
+}
+.listitem[divider] {
+    margin: 9px 0;
+    padding: 0;
+    height: 1px;
+    background: #e5e5e5;
+    overflow: hidden;
+    cursor: default;
+}
+.listitem[disabled] {
+    cursor: var(--cursor-not-allowed);
+    color: var(--color-light);
+}
+.listitem:hover, .listitem[hovered] {
+    background: var(--background-color-lighter);
+    color: #444;
+}
+.listitem[role="z-sel"] {
+    background: var(--brand-primary);
+    color: white;
+}
+
+.close {
+    padding-left: 8px;
+    padding-right: 3px;
+}
+.close[class]::before {
+    icon-font: url("../i-icon.vue/icons/close.svg");
+    font-size: 12px;
+}
+.input {
+    border: none;
+    height: 28px;
+    outline: none;
+}
+
+.text {
+    position: relative;
+    top: -1px;
+}
+.none {
+    padding: 5px 14px;
+    cursor: var(--cursor-pointer);
+    position: relative;
+    background: white;
+    color: #555;
+    border-radius: var(--border-radius-base);
+    border: 1px solid #d2d6de;
+    text-align: center;
+}
+.head[size$="small"] { width: var(--width-small); }
+.body[size$="small"] { width: var(--width-small); }
+.head[size^="small"] { line-height: 28px; min-height: 30px; }
+.head[size^="small"] .icon { height: 30px; }
+.head[size^="small"] .icon[class]::after { line-height: 28px; }
+.head[size^="small"] .tag {
+    margin: 0 0 0 6px;
+}
+
+.head[size$="normal"] { width: var(--width-base); }
+.body[size$="normal"] { width: var(--width-base); }
+
+.head[size$="medium"] { width: var(--width-medium); }
+.body[size$="medium"] { width: var(--width-medium); }
+.head[size^="medium"] { line-height: 36px; min-height: 34px; }
+
+.head[size$="large"] { width: var(--width-large); }
+.body[size$="large"] { width: var(--width-large); }
+.head[size^="large"] { line-height: 40px; min-height: 38px; }
+
+.head[size$="huge"] { width: var(--width-huge); }
+.body[size$="huge"] { width: var(--width-huge); }
+.head[size^="huge"] { min-height: 40px; line-height: 38px; }

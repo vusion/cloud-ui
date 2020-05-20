@@ -1,6 +1,17 @@
 <!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-# DatePicker 日期选择
+# UDatePicker 日期选择
+
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [自动对焦](#自动对焦)
+    - [弹窗对其方式](#弹窗对其方式)
+    - [最大值和最小值](#最大值和最小值)
+    - [只读和禁用](#只读和禁用)
+    - [方法](#方法)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Events](#events)
 
 ## 示例
 ### 基本用法
@@ -125,3 +136,4 @@ export default {
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event.open | boolean | 弹出/隐藏状态 |
+

@@ -1,8 +1,8 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.6.9",
-  "author": "Rainfore <rainforest92@126.com>",
+  "version": "0.6.15",
+  "author": "Forrest <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
     "ChenWeiYuan123 <360411956@qq.com>",
@@ -12,11 +12,18 @@
   "scripts": {
     "dev": "vue-cli-service doc --port 9001",
     "build": "vue-cli-service library-build --apply-theme --theme default,dark,seagreen",
-    "build:raw": "vue-cli-service library-build --vusion-mode raw",
-    "build:docs": "vue-cli-service doc-build --theme default,dark,seagreen",
+    "build:theme": "vue-cli-service library-build --dest dist-theme",
+    "build:raw": "vue-cli-service library-build --vusion-mode raw --dest dist-raw",
+    "build:docs": "vue-cli-service doc-build",
+    "build:doc-entry": "cross-env VUE_CLI_SERVICE_CONFIG_PATH=$PWD/vue.config.doc-entry.js vue-cli-service build --output-path dist-doc-entry",
+    "screenshot": "node bin/screenshot",
     "lint": "vue-cli-service lint",
-    "prepublishOnly": "npm run build && vusion readme && vusion vetur && git add .",
-    "ghpages": "npm run build:docs && vusion ghpages"
+    "ghpages": "vusion ghpages",
+    "deploy": "vusion deploy --framework cloud-ui -v minor",
+    "deploy:screenshots": "node bin/deploy-screenshots",
+    "deploy:doc-entry": "vusion deploy --framework cloud-ui -v minor dist-doc-entry",
+    "prepublishOnly": "npm run build && npm run build:theme && npm run build:raw && vusion readme && vusion vetur && git add .",
+    "postpublish": "npm run build:docs && npm run deploy && vusion ghpages"
   },
   "repository": "vusion/cloud-ui",
   "homepage": "http://vusion.github.io/cloud-ui",
@@ -37,35 +44,37 @@
     "cloud-ui"
   ],
   "dependencies": {
+    "@vusion/popper.js": "^1.14.1",
+    "@vusion/validator": "^0.2.4",
     "countup.js": "^1.9.3",
     "lodash": "^4.17.5",
-    "vusion-utils": "^0.4.7",
-    "@vusion/popper.js": "^1.14.1",
-    "atom-validator": "^0.2.3",
     "normalize.css": "^7.0.0",
-    "vusion-async-validator": "^1.8.8"
+    "vusion-async-validator": "^1.8.8",
+    "vusion-utils": "^0.4.8"
   },
   "devDependencies": {
-    "@vue/babel-preset-app": "^3.10.0",
-    "@vue/cli-plugin-babel": "^3.10.0",
-    "@vue/cli-service": "^3.10.0",
+    "@vue/cli-plugin-babel": "^4.3.0",
+    "@vue/cli-service": "^4.3.0",
     "commander": "^2.20.0",
-    "eslint": "^4.19.1",
+    "core-js": "^3.6.5",
+    "cross-env": "^7.0.2",
+    "eslint": "^6.7.2",
     "eslint-config-vusion": "^2.1.1",
     "husky": "^3.0.4",
     "shelljs": "^0.7.8",
+    "sinon": "^4.2.2",
     "stylelint": "^9.3.0",
     "stylelint-config-vusion": "^1.1.2",
-    "sinon": "^4.2.2",
-    "vue-router": "^3.1.3",
     "vue": "^2.6.10",
-    "vue-cli-plugin-vusion": "^0.9.3",
+    "vue-cli-plugin-vusion": "^0.9.13",
+    "vue-i18n": "^8.15.5",
+    "vue-router": "^3.1.3",
     "vue-template-compiler": "^2.6.10",
     "vusion-hooks": "^0.3.0"
   },
   "peerDependencies": {
     "vue": "^2.6.10",
-    "vusion-utils": "^0.4.7"
+    "vusion-utils": "^0.4.8"
   },
   "vetur": {
     "tags": "./vetur/tags.json",

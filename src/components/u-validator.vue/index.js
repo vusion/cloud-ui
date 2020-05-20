@@ -1,14 +1,14 @@
 import MEmitter from '../m-emitter.vue';
 import Validator from 'vusion-async-validator';
-import { AtomValidator } from 'atom-validator';
-import VueAtomValidator from 'atom-validator/VuePlugin';
+import VusionValidator from '@vusion/validator';
+import VueVusionValidator from '@vusion/validator/VuePlugin';
 import debounce from 'lodash/debounce';
 
 export const UValidator = {
     name: 'u-validator',
     isValidator: true,
     install(Vue) {
-        Vue.use(VueAtomValidator, {
+        Vue.use(VueVusionValidator, {
             locale: Vue.i18n && Vue.i18n.locale,
         });
     },
@@ -96,13 +96,13 @@ export const UValidator = {
     watch: {
         currentRules() {
             const context = this.$vnode.context;
-            this.validator = new AtomValidator(context.$options.validators, context.$options.rules, this.currentRules, context);
+            this.validator = new VusionValidator(context.$options.validators, context.$options.rules, this.currentRules, context);
             this.validate('submit', !this.touched).catch((errors) => errors);
         },
     },
     created() {
         const context = this.$vnode.context;
-        this.validator = new AtomValidator(context.$options.validators, context.$options.rules, this.currentRules, context);
+        this.validator = new VusionValidator(context.$options.validators, context.$options.rules, this.currentRules, context);
         // this.debouncedValidate = debounce(this.validate, 50, { leading: false, trailing: true });
         this.debouncedOnValidate = debounce(this.onValidate, 50, { leading: true, trailing: true });
 

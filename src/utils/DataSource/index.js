@@ -96,11 +96,11 @@ const VueDataSource = Vue.extend({
         limit() {
             return this.paging ? this.paging.size : Infinity;
         },
+        /**
+         * 当前的总数，过滤后的分页数目
+         */
         total() {
-            if (this.remotePaging)
-                return this.originTotal === Infinity ? this.data.length : this.originTotal;
-            else
-                return this.arrangedData.length;
+            return this.originTotal === Infinity ? this.data.length : this.originTotal;
         },
         totalPage() {
             if (!this.paging)
@@ -160,12 +160,12 @@ const VueDataSource = Vue.extend({
         clearLocalData() {
             this.data = [];
             this.arrangedData = [];
-            this.originTotal = Infinity;
+            // this.originTotal = Infinity;
             this.arranged = false;
             this.initialLoaded = false;
         },
         mustRemote(offset, newOffset) {
-            return !this.hasAllRemoteData(offset, newOffset) // 没有全部的远程数据
+            return !this.hasAllRemoteData(offset, newOffset) // 没有全部的后端数据
             || (this.params.hasOwnProperty('filtering') && this.remoteFiltering)
             || (this.params.hasOwnProperty('sorting') && this.remoteSorting);
         },
@@ -179,7 +179,7 @@ const VueDataSource = Vue.extend({
             return offset < this.prependedData.length + this.originTotal;
         },
         /**
-         * 是否还有远程数据
+         * 是否还有后端数据
          * @param {Number} offset - 位置
          */
         hasAllRemoteData(offset, newOffset) {
@@ -266,8 +266,11 @@ const VueDataSource = Vue.extend({
                         partialData = this._process(result);
                         if (!result.length) // 没有数据了，则表示最后一次加载，记录下总数
                             this.originTotal = this.data.length;
-                    } else if (result instanceof Object) { // 返回 { total, data }
-                        this.originTotal = result.total;
+                    } else if (result instanceof Object) { // 返回 { total: boolean, data: Array<item> } 或 { last: boolean, data: Array<item> }
+                        if (result.total !== undefined)
+                            this.originTotal = result.total;
+                        else if (result.last)
+                            this.originTotal = this.data.length;
                         partialData = this._process(result.data);
                     } // 否则什么都不做
 

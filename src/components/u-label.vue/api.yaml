@@ -10,7 +10,7 @@
       description: 设置颜色。
     - name: size
       type: enum
-      options: [normal, large, huge]
+      options: [small, normal, large, huge]
       default: normal
       description: 设置尺寸。
     - name: removable

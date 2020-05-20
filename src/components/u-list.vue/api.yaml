@@ -1,7 +1,7 @@
 - name: u-list
   title: 列表
   labels: [块级展示]
-  description: 对列表样式做了简单的修饰。如果需要选择、分页等更多的功能，请使用 [UListView](../u-list-view)。
+  description: 对列表样式做了简单的修饰。如果需要选择、分页等更多的功能，请使用 [UListView](#components/u-list-view)。
   attrs:
     - name: type
       type: string

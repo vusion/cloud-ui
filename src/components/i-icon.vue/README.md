@@ -2,6 +2,12 @@
 
 # IIcon 图标
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [所有图标](#所有图标)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+
 **图标组件**, **行内展示**
 
 ## 示例
@@ -49,3 +55,4 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | name | string |  |  | 图标名称 |
+

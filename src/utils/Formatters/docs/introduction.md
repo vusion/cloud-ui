@@ -1,3 +1,43 @@
+``` vue
+<template>
+<div>
+    <div>当前日期为：{{ $n(100, 'currency', 'zh-CN') }}</div>
+</div>
+</template>
+<script>
+import { utils } from 'cloud-ui.vusion';
+
+export default {
+    i18n: {
+        locale: 'zh-CN', // 设置地区
+        messages: {
+            cn: {
+                car: 'car | cars',
+                message: {
+                    hello: 'hello world',
+                },
+            },
+            ja: {
+                message: {
+                    hello: 'こんにちは、世界',
+                },
+            },
+        },
+    },
+    filters: {
+        date: utils.dateFormatter.format,
+    },
+    data() {
+        return {
+            now: new Date(),
+        };
+    },
+};
+</script>
+```
+
+
+
 格式器的一般形式是一个包含`format(value, ...settings)`方法的类。
 
 ``` js
@@ -36,7 +76,7 @@ class SomeFormatter {
 </div>
 </template>
 <script>
-import { utils } from 'library';
+import { utils } from 'cloud-ui.vusion';
 
 export default {
     filters: {

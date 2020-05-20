@@ -1,3 +1,5 @@
-<div :class="$style.root" v-show="currentOpened" v-on="$listeners">
-    <slot></slot>
-</div>
+<transition name="fade">
+    <div :class="$style.root" v-show="currentOpened" v-on="$listeners">
+        <slot></slot>
+    </div>
+</transition>

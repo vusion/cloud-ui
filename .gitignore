@@ -2,6 +2,12 @@
 node_modules
 npm-debug.log
 
+dist/
+dist-theme/
+dist-raw/
+dist-doc-entry/
+screenshots/
+
 public/
 /cloud-ui/
 

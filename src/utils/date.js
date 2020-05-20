@@ -27,7 +27,7 @@ export const format = function format(value, type) {
     };
     const trunk = new RegExp(Object.keys(maps).join('|'), 'g');
     type = type || 'YYYY-MM-DD HH:mm';
-    if (typeof value === 'string')
+    if (typeof value === 'string' && !value.includes('T'))
         value = value.replace(/-/g, '/');
     value = new Date(value);
     if (value.toString() === 'Invalid Date')

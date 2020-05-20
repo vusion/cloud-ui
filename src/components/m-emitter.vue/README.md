@@ -2,6 +2,11 @@
 
 # MEmitter 发送器
 
+- [示例](#示例)
+
+- [API]()
+    - [Methods](#methods)
+
 该 Mixin 集成了一些发送事件相关的方法。继承之后直接使用方法即可。
 
 ## 示例
@@ -10,7 +15,7 @@
 <div>这个例子中，该组件给上级添加了蓝色阴影。</div>
 </template>
 <script>
-import { MEmitter } from '@@';
+import { MEmitter } from 'cloud-ui.vusion';
 
 export default {
     mixins: [MEmitter],
@@ -29,7 +34,7 @@ export default {
 ```
 
 ## API
-### Methods
+Methods
 
 #### $contact(condition, callback)
 
@@ -70,3 +75,4 @@ export default {
 | $event | object |  | 事件对象 |
 | senderVM | Vue |  | 发送事件的组件实例 |
 | ...args | Array\<any\> |  | 其他参数 |
+

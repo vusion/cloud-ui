@@ -1,96 +1,158 @@
 ### 基本用法
 
+通过`value`设置需要复制的文本。通过`text`设置链接的文本。
 
 ``` html
-<div style="height:100px">
-    <u-copy value="需要copy的内容"></u-copy>
-</div>
+<u-copy value="需要 copy 的内容"></u-copy>&nbsp;
+<u-copy value="密钥内容 ef709de9" text="复制密钥"></u-copy>
 ```
 
-### 自定义复制触发
+### 触发元素
+
+在默认插槽中更换触发元素。
 
 ``` html
-<div style="height:100px">
-    <u-copy value="需要copy的内容">
-        <u-button>复制</u-button>
-    </u-copy>
-</div>
+<u-copy value="需要 copy 的内容">
+    <u-button>复制</u-button>
+</u-copy>
 ```
 
-### 自定义提示内容
+### 提示内容
+
+通过`success-text`属性设置复制成功的提示内容。
 
 ``` html
-<div style="height:100px">
-    <u-copy value="需要copy的内容" successText="当前项已复制成功">
-        <u-button>复制</u-button>
-    </u-copy>
-</div>
-```
-### 复制提示类型
-
-无提示
-``` html
-<div style="height:100px">
-    <u-copy value="需要copy的内容" modal-type="none">
-        <u-link>复制</u-link>
-    </u-copy>
-</div>
-```
-toast弹窗
-``` html
-<div style="height:100px">
-    <u-copy value="需要copy的内容" modal-type="toast">
-        <u-link>复制</u-link>
-    </u-copy>
-</div>
+<u-copy value="需要 copy 的内容" success-text="当前项已复制成功">
+    <u-button>复制</u-button>
+</u-copy>
 ```
 
-### 复制提示位置（仅modal-type为popper时生效）
+### 提示方式
+
+通过`feedback`属性设置复制成功的反馈方式。
+
+#### tooltip (默认)
 
 ``` html
-<u-linear-layout style="height:100px">
-    <u-copy value="需要copy的内容" placement="right">
-        <u-button>提示靠右</u-button>
+<u-copy value="需要 copy 的内容">
+    <u-link>复制</u-link>
+</u-copy>
+```
+
+#### toast
+
+``` html
+<u-copy value="需要 copy 的内容" feedback="toast">
+    <u-link>复制</u-link>
+</u-copy>
+```
+
+#### 不提示
+
+``` html
+<u-copy value="需要 copy 的内容" feedback="none">
+    <u-link>复制</u-link>
+</u-copy>
+```
+
+### 提示位置
+
+设置 tooltip 的提示位置。仅在`feedback`为`tooltip`的情况下生效。
+
+``` html
+<u-linear-layout direction="vertical" style="min-width: 300px; max-width: 550px;">
+    <u-linear-layout justify="center" gap="small">
+        <u-copy value="需要 copy 的内容" placement="top-start">
+            <u-button>上左</u-button>
+        </u-copy>
+        <u-copy value="需要 copy 的内容" placement="top">
+            <u-button>上边</u-button>
+        </u-copy>
+        <u-copy value="需要 copy 的内容" placement="top-end">
+            <u-button>上右</u-button>
+        </u-copy>
+    </u-linear-layout>
+    <u-linear-layout direction="vertical" justify="center" style="width: 150px; float: left;">
+        <u-copy value="需要 copy 的内容" placement="left-start">
+            <u-button>左上</u-button>
+        </u-copy>
+        <u-copy value="需要 copy 的内容" placement="left">
+            <u-button>左边</u-button>
+        </u-copy>
+        <u-copy value="需要 copy 的内容" placement="left-end">
+            <u-button>左下</u-button>
+        </u-copy>
+    </u-linear-layout>
+    <u-linear-layout direction="vertical" justify="center" style="width: 150px; float: right;">
+        <u-copy value="需要 copy 的内容" placement="right-start">
+            <u-button>右上</u-button>
+        </u-copy>
+        <u-copy value="需要 copy 的内容" placement="right">
+            <u-button>右边</u-button>
+        </u-copy>
+        <u-copy value="需要 copy 的内容" placement="right-end">
+            <u-button>右下</u-button>
+        </u-copy>
+    </u-linear-layout>
+    <u-linear-layout justify="center" gap="small" style="clear: both;">
+        <u-copy value="需要 copy 的内容" placement="bottom-start">
+            <u-button>下左</u-button>
+        </u-copy>
+        <u-copy value="需要 copy 的内容" placement="bottom">
+            <u-button>下边</u-button>
+        </u-copy>
+        <u-copy value="需要 copy 的内容" placement="bottom-end">
+            <u-button>下右</u-button>
+        </u-copy>
+    </u-linear-layout>
+</u-linear-layout>
+```
+
+### 提示时长
+
+通过`hide-delay`属性设置提示时长。
+
+#### tooltip 弹框
+
+``` html
+<u-linear-layout>
+    <u-copy value="需要 copy 的内容" :hide-delay="500">
+        <u-button>500毫秒</u-button>
     </u-copy>
-    <u-copy value="需要copy的内容" placement="left">
-        <u-button>提示靠左</u-button>
+    <u-copy value="需要 copy 的内容" :hide-delay="2000">
+        <u-button>2秒</u-button>
     </u-copy>
-    <u-copy value="需要copy的内容" placement="top">
-        <u-button>提示靠上</u-button>
+    <u-copy value="需要 copy 的内容" :hide-delay="4000">
+        <u-button>4秒</u-button>
     </u-copy>
 </u-linear-layout>
 ```
 
-
-### 复制提示显示时间（仅modal-type为popper时生效）
+#### toast 提示
 
 ``` html
-<u-linear-layout style="height:100px">
-    <u-copy value="需要copy的内容" :hideDelay="500">
-        <u-button>延时500毫秒</u-button>
+<u-linear-layout>
+    <u-copy value="需要 copy 的内容" :hide-delay="500" feedback="toast">
+        <u-button>500毫秒</u-button>
     </u-copy>
-    <u-copy value="需要copy的内容" :hideDelay="2000">
-        <u-button>延时2秒</u-button>
+    <u-copy value="需要 copy 的内容" :hide-delay="2000" feedback="toast">
+        <u-button>2秒</u-button>
     </u-copy>
-    <u-copy value="需要copy的内容" :hideDelay="4000">
-        <u-button>延时4秒</u-button>
+    <u-copy value="需要 copy 的内容" :hide-delay="4000" feedback="toast">
+        <u-button>4秒</u-button>
     </u-copy>
 </u-linear-layout>
 ```
 
-### 禁止复制
+### 禁用状态
 
-禁止复制仅针对功能，如果是自定义的触发元素需要自己添加禁止状态
+通过`disabled`属性禁用复制功能，仅针对复制组件本身。通过插槽设置的触发元素需要自己添加禁用状态。
+
 ``` html
-<u-linear-layout style="height:100px">
-    <u-copy value="需要copy的内容" :disabled="true" :hideDelay="500">
-        <u-button :disabled="true">复制</u-button>
-    </u-copy>
-    <u-copy value="需要copy的内容" :disabled="true" :hideDelay="2000">
-    </u-copy>
-     <u-copy value="需要copy的内容" :disabled="true" :hideDelay="2000">
-        <u-link :disabled="true">复制</u-link>
+<u-linear-layout>
+    <u-copy value="需要 copy 的内容" disabled></u-copy>
+    <u-copy value="需要 copy 的内容" disabled>
+        <u-button disabled>复制</u-button>
     </u-copy>
 </u-linear-layout>
 ```
-

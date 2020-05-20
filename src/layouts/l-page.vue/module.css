@@ -20,7 +20,7 @@
 }
 
 .body {
-    margin-top: var(--navbar-height);
+    padding-top: var(--navbar-height);
 }
 
 .foot {

@@ -17,7 +17,6 @@
 
 .root:focus {
     outline: var(--focus-outline);
-    border-color: var(--brand-secondary);
 }
 
 .baseline {
@@ -85,7 +84,7 @@
 .root[disabled] {
     cursor: var(--cursor-not-allowed);
     background: var(--select-background-disabled);
-    color: #999;
+    color: var(--select-color-disabled);
     border: 1px solid var(--brand-disabled);
 }
 
@@ -172,11 +171,12 @@
 .status {
     color: var(--select-status-color);
     text-align: center;
+    padding: var(--list-view-item-padding);
 }
 
 .label {
     padding-right: 10px;
-    color: #999;
+    color: var(--select-color-disabled);
 }
 
 .flag {

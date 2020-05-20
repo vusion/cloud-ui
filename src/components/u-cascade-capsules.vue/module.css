@@ -1,7 +1,7 @@
 .label {
     display: inline-block;
     width: 60px;
-    color: #999;
+    color: var(--color-light);
     margin-top: 4px;
 }
 
@@ -20,5 +20,5 @@
 
 .tip {
     margin-left: 20px;
-    color: #999;
+    color: var(--color-light);
 }

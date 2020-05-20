@@ -2,6 +2,20 @@
 
 # UCollapse 折叠面板
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [手风琴模式](#手风琴模式)
+    - [触发方式](#触发方式)
+- [UCollapse API](#ucollapse-api)
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+    - [Methods](#methods)
+- [UCollapseItem API](#ucollapseitem-api)
+    - [Props/Attrs](#propsattrs-2)
+    - [Slots](#slots-2)
+    - [Events](#events-2)
+
 **块级展示**
 
 ## 示例
@@ -69,7 +83,7 @@
 | $event.expanded | boolean | 展开/折叠状态 |
 | $event.itemVM | UCollapseItem | 面板组件 |
 
-### Methods
+Methods
 
 #### toggleAll(expanded)
 
@@ -124,3 +138,4 @@
 | $event.expanded | boolean | 展开/折叠状态 |
 | $event.itemVM | UCollapseItem | 面板组件 |
 | senderVM | Vue | 发送事件实例 |
+

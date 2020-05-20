@@ -23,7 +23,8 @@ blockquote {
     margin-left: 0;
     margin-right: 0;
     padding: var(--blockquote-padding);
-    border-left: 4px solid var(--border-color-base);
+    border-left: 4px solid var(--brand-primary);
+    background: var(--background-color-light);
 }
 
 ul, ol {

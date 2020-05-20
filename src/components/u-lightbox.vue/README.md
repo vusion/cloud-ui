@@ -2,6 +2,13 @@
 
 # ULightbox 灯箱
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+
 ## 示例
 ### 基本用法
 #### 灯箱包含单个元素
@@ -124,3 +131,4 @@ export default {
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | direction | string | `in`放大或`out`缩小 |
+

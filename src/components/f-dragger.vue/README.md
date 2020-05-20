@@ -2,6 +2,18 @@
 
 # FDragger 拖拽器
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [轴向约束](#轴向约束)
+    - [网格约束](#网格约束)
+    - [范围约束](#范围约束)
+    - [范围约束模式](#范围约束模式)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+    - [Methods](#methods)
+
 ## 示例
 ### 基本用法
 
@@ -199,7 +211,7 @@
 | $event.value | any | 需要传递的值 |
 | senderVM | FDragger | 发送事件实例 |
 
-### Methods
+Methods
 
 #### cancel()
 
@@ -207,3 +219,4 @@
 
 | Param | Type | Default | Description |
 | ----- | ---- | ------- | ----------- |
+

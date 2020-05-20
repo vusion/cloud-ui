@@ -2,6 +2,28 @@
 
 # UMenu 菜单
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [多级菜单](#多级菜单)
+    - [禁用、禁用某一项](#禁用-禁用某一项)
+    - [分隔符](#分隔符)
+    - [分组](#分组)
+- [UMenu API](#umenu-api)
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+    - [Methods](#methods)
+- [UMenuItem API](#umenuitem-api)
+    - [Props/Attrs](#propsattrs-2)
+    - [Slots](#slots-2)
+    - [Events](#events-2)
+- [UMenuGroup API](#umenugroup-api)
+    - [Props/Attrs](#propsattrs-3)
+    - [Slots](#slots-3)
+    - [Events](#events-3)
+- [UMenuDivider API](#umenudivider-api)
+
+
 **路由链接**, **块级展示**
 
 菜单组件支持路由、触发关闭、多级菜单等功能。
@@ -201,7 +223,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| router | boolean |  | `true` | 是否根据vue-router来控制选择哪一项 |
+| router | boolean |  | `true` | 是否根据 vue-router 来控制选择哪一项 |
 | value.sync, v-model | any |  |  | 当前选择的值 |
 | collapsible | boolean |  | `false` | 分组是否可以折叠 |
 | accordion | boolean |  | `false` | 是否每次只会展开一个分组 |
@@ -260,7 +282,7 @@
 | $event.expanded | boolean | 展开/折叠状态 |
 | $event.groupVM | UMenuGroup | 分组组件 |
 
-### Methods
+Methods
 
 #### toggleAll(expanded)
 

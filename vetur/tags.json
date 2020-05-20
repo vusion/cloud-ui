@@ -69,6 +69,7 @@
     "attributes": [
       "list",
       "item-height",
+      "virtual",
       "virtual-count",
       "throttle",
       "tag-name",
@@ -289,7 +290,7 @@
     ],
     "description": "用于触发一个即时操作。"
   },
-  "calendar": {
+  "u-calendar": {
     "attributes": [
       "date",
       "min-date",
@@ -350,7 +351,7 @@
       "value"
     ]
   },
-  "cascade-capsules": {
+  "u-cascade-capsules": {
     "attributes": [
       "data",
       "value",
@@ -484,15 +485,16 @@
   "u-copy": {
     "attributes": [
       "value",
-      "placement",
+      "text",
       "success-text",
-      "disabled",
+      "feedback",
+      "placement",
       "hide-delay",
-      "modal-type"
+      "disabled"
     ],
-    "description": "提供复制文本到浏览器剪切板功能"
+    "description": "复制文本到剪切板。"
   },
-  "count-up": {
+  "u-count-up": {
     "attributes": [
       "start",
       "end",
@@ -529,7 +531,7 @@
       "disabled"
     ]
   },
-  "date-picker": {
+  "u-date-picker": {
     "attributes": [
       "width",
       "date",
@@ -558,22 +560,22 @@
       "yearAdd"
     ]
   },
-  "desc-list": {
+  "u-desc-list": {
     "attributes": [
       "label-size"
     ],
     "subtags": [
-      "desc-list-item",
-      "desc-list-group"
+      "u-desc-list-item",
+      "u-desc-list-group"
     ]
   },
-  "desc-list-item": {
+  "u-desc-list-item": {
     "attributes": [
       "label",
       "label-size"
     ]
   },
-  "desc-list-group": {
+  "u-desc-list-group": {
     "attributes": [
       "title",
       "label-size"
@@ -649,7 +651,7 @@
       "striped",
       "hover"
     ],
-    "description": "在表单中使用的表格，本组件主要实现基本样式，方便在特殊场景下扩展。如果需要快速使用动态数据、表单验证等功能，请使用 [UFormTableView](../u-form-table-view)。"
+    "description": "在表单中使用的表格，本组件主要实现基本样式，方便在特殊场景下扩展。如果需要快速使用动态数据、表单验证等功能，请使用 [UFormTableView](#components/u-form-table-view)。"
   },
   "u-form": {
     "attributes": [
@@ -727,25 +729,25 @@
     ],
     "description": "图标与`<u-tooltip>`的组合。"
   },
-  "info-list": {
+  "u-info-list": {
     "attributes": [
-      "column",
+      "repeat",
       "label-size"
     ],
     "subtags": [
-      "info-list-item",
-      "info-list-group"
+      "u-info-list-item",
+      "u-info-list-group"
     ]
   },
-  "info-list-item": {
+  "u-info-list-item": {
     "attributes": [
       "label",
-      "column",
+      "span",
       "label-size",
       "ellipsis"
     ]
   },
-  "info-list-group": {
+  "u-info-list-group": {
     "attributes": [
       "title",
       "label-size"
@@ -846,47 +848,34 @@
     "attributes": [
       "value",
       "field",
+      "text-field",
+      "value-field",
       "data",
       "data-source",
       "cancelable",
       "multiple",
-      "collapsible",
-      "accordion",
-      "expand-trigger",
+      "show-head",
+      "title",
+      "show-foot",
       "loading-text",
       "initial-load",
+      "filterable",
+      "placeholder",
+      "clearable",
+      "match-method",
+      "case-sensitive",
+      "remote-filtering",
       "pageable",
       "page-size",
       "remote-paging",
       "readonly",
-      "disabled"
+      "disabled",
+      "size"
     ],
+    "description": "用于列举大量数据的列表框，支持单选、多选、过滤（搜索）、分页等功能。",
     "defaults": [
       "v-model"
-    ],
-    "subtags": [
-      "u-list-view-item",
-      "u-list-view-group",
-      "u-list-view-divider"
     ]
-  },
-  "u-list-view-item": {
-    "attributes": [
-      "value",
-      "disabled",
-      "item"
-    ]
-  },
-  "u-list-view-group": {
-    "attributes": [
-      "title",
-      "collapsible",
-      "expanded",
-      "disabled"
-    ]
-  },
-  "u-list-view-divider": {
-    "attributes": []
   },
   "u-list": {
     "attributes": [
@@ -895,7 +884,7 @@
       "striped",
       "hover"
     ],
-    "description": "对列表样式做了简单的修饰。如果需要选择、分页等更多的功能，请使用 [UListView](../u-list-view)。",
+    "description": "对列表样式做了简单的修饰。如果需要选择、分页等更多的功能，请使用 [UListView](#components/u-list-view)。",
     "subtags": [
       "u-list-item"
     ]
@@ -1153,6 +1142,8 @@
     "attributes": [
       "value",
       "field",
+      "text-field",
+      "value-field",
       "data",
       "data-source",
       "cancelable",
@@ -1200,7 +1191,7 @@
   "u-select-divider": {
     "attributes": []
   },
-  "selectable-steps": {
+  "u-selectable-steps": {
     "attributes": [
       "value",
       "readonly",
@@ -1210,10 +1201,10 @@
       "v-model"
     ],
     "subtags": [
-      "selectable-step"
+      "u-selectable-step"
     ]
   },
-  "selectable-step": {
+  "u-selectable-step": {
     "attributes": [
       "title",
       "disabled"
@@ -1312,7 +1303,7 @@
       "disabled"
     ]
   },
-  "subnav": {
+  "u-subnav": {
     "attributes": [
       "router",
       "value",
@@ -1324,11 +1315,11 @@
       "v-model"
     ],
     "subtags": [
-      "subnav-item",
-      "subnav-divider"
+      "u-subnav-item",
+      "u-subnav-divider"
     ]
   },
-  "subnav-item": {
+  "u-subnav-item": {
     "attributes": [
       "value",
       "disabled",
@@ -1340,7 +1331,7 @@
       "exact"
     ]
   },
-  "subnav-divider": {
+  "u-subnav-divider": {
     "attributes": []
   },
   "u-subtabs": {
@@ -1421,6 +1412,7 @@
       "resizable",
       "resize-remaining"
     ],
+    "description": "用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。",
     "defaults": [
       "v-model"
     ],
@@ -1504,7 +1496,7 @@
       "color",
       "size",
       "display",
-      "wrap"
+      "overflow"
     ],
     "description": "用于在业务中快速调整文本尺寸、颜色等特性。"
   },
@@ -1550,6 +1542,33 @@
       "closable"
     ]
   },
+  "u-toc": {
+    "attributes": [
+      "router",
+      "value"
+    ],
+    "description": "用于展示文档的目录，支持路由监听、多级目录等功能。",
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "u-toc-item"
+    ]
+  },
+  "u-toc-item": {
+    "attributes": [
+      "label",
+      "value",
+      "disabled",
+      "item",
+      "href",
+      "target",
+      "to",
+      "replace",
+      "exact",
+      "exact"
+    ]
+  },
   "u-tooltip": {
     "attributes": [
       "opened",
@@ -1566,6 +1585,19 @@
     "attributes": [
       "source",
       "target",
+      "text-field",
+      "value-field",
+      "show-head",
+      "source-title",
+      "target-title",
+      "show-foot",
+      "filterable",
+      "placeholder",
+      "clearable",
+      "match-method",
+      "case-sensitive",
+      "pageable",
+      "page-size",
       "readonly",
       "disabled"
     ],

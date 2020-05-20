@@ -2,6 +2,16 @@
 
 # MPublisher 发布订阅模式
 
+- [示例](#示例)
+    - [使用方法](#使用方法)
+    - [使用 Option](#使用-option)
+- [MPublisher API](#mpublisher-api)
+    - [Options](#options)
+    - [Methods](#methods)
+- [MSubscriber API](#msubscriber-api)
+    - [Options](#options-2)
+    - [Methods](#methods-2)
+
 在 Vue 原生的功能中，不管是`$emit`和`$on`，还是`provide`和`inject`，在组件间传递变量都有些局限，特别是在两个不相关的组件之间。
 
 本组件包含了两个 Mixins：MPublisher 和 MSubscriber，用于在任意两个组件之间通过发布订阅模式传递数据。
@@ -23,7 +33,7 @@
 <u-button @click="onClick">发布</u-button>
 </template>
 <script>
-import { MPublisher } from '@@';
+import { MPublisher } from 'cloud-ui.vusion';
 
 export default {
     mixins: [MPublisher],
@@ -47,7 +57,7 @@ export default {
 <div :class="$style.root" :style="{ background: received }">{{ String(received) }}</div>
 </template>
 <script>
-import { MSubscriber } from '@@';
+import { MSubscriber } from 'cloud-ui.vusion';
 
 export default {
     mixins: [MSubscriber],
@@ -80,7 +90,7 @@ export default {
 <u-button @click="onClick">发布</u-button>
 </template>
 <script>
-import { MPublisher } from '@@';
+import { MPublisher } from 'cloud-ui.vusion';
 
 export default {
     mixins: [MPublisher],
@@ -106,7 +116,7 @@ export default {
 <div :class="$style.root" :style="{ background: received }">{{ String(received) }}</div>
 </template>
 <script>
-import { MSubscriber } from '@@';
+import { MSubscriber } from 'cloud-ui.vusion';
 
 export default {
     mixins: [MSubscriber],
@@ -137,7 +147,7 @@ export default {
 | ------ | ---- | ------- | ----------- |
 | publish | { \[prop: string\]: string \| Function \| object } |  | 键为需要发布的主题，值为需要监听的表达式或函数。值也可以为一个对象`{ expOrFn: String \| Function, deep: Boolean, immediate: Boolean }`，`deep`和`immediate`与官方`watch`中的意义相同。 |
 
-### Methods
+Methods
 
 #### $publish(topic, data)
 
@@ -163,7 +173,7 @@ export default {
 | ------ | ---- | ------- | ----------- |
 | subscribe | { \[prop: string\]: string \| Function \| object } |  | 键为需要订阅的主题，值为订阅时执行的方法。值也可以为一个对象`{ handler: String \| Function, once: Boolean }`，`once`开启，则只订阅一次。 |
 
-### Methods
+Methods
 
 #### $subscribe(topic, func)
 
@@ -182,3 +192,4 @@ export default {
 | ----- | ---- | ------- | ----------- |
 | topic | string |  | 话题名称 |
 | func | Function |  | 订阅方法 |
+

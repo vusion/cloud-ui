@@ -2,6 +2,27 @@
 
 # UForm 表单
 
+- [概述](#undefined)
+    - [相关组件](#相关组件)
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [行内](#行内)
+    - [栅格布局](#栅格布局)
+    - [插槽](#插槽)
+    - [数据转换](#数据转换)
+    - [表单验证](#表单验证)
+- [UForm API](#uform-api)
+    - [Props/Attrs](#propsattrs)
+    - [Computed](#computed)
+    - [Slots](#slots)
+    - [Events](#events)
+    - [Methods](#methods)
+- [UFormItem API](#uformitem-api)
+    - [Props/Attrs](#propsattrs-2)
+    - [Slots](#slots-2)
+    - [Events](#events-2)
+    - [Methods](#methods-2)
+
 **表单验证器**, **块级展示**
 
 具有数据收集、校验和提交功能的表单，包含输入框、选择框、复选框、单选框等元素。
@@ -289,7 +310,7 @@ export default {
 
 可以根据`@validate`事件监听表单的验证状态。
 
-关于验证规则的详细使用，参见 [UValidator](../u-validator)。
+关于验证规则的详细使用，参见 [UValidator](#components/u-validator)。
 
 ``` vue
 <template>
@@ -400,7 +421,7 @@ export default {
 | $event.firstError | string | 第一个错误提示消息 |
 | senderVM | UValidator | 发送事件实例 |
 
-### Methods
+Methods
 
 #### validate(trigger, muted)
 
@@ -476,7 +497,7 @@ export default {
 | $event.firstError | string | 第一个错误提示消息 |
 | senderVM | UValidator | 发送事件实例 |
 
-### Methods
+Methods
 
 #### validate(trigger, muted)
 
@@ -486,3 +507,4 @@ export default {
 | ----- | ---- | ------- | ----------- |
 | trigger | string | `'submit'` | 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。 |
 | muted | boolean | `false` | 是否验证后无提示 |
+

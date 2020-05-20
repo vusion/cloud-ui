@@ -1,6 +1,19 @@
 <!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-# SelectableSteps 可选步骤条
+# USelectableSteps 可选步骤条
+
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [自定义标题](#自定义标题)
+    - [宽度自适应](#宽度自适应)
+    - [禁用](#禁用)
+- [USelectableSteps API](#uselectablesteps-api)
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+- [USelectableStep API](#uselectablestep-api)
+    - [Props/Attrs](#propsattrs-2)
+    - [Slots](#slots-2)
 
 ## 示例
 ### 基本用法
@@ -56,7 +69,7 @@
 </u-selectable-steps>
 ```
 
-## SelectableSteps API
+## USelectableSteps API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
@@ -103,7 +116,7 @@
 | value | number | 当前步骤数 |
 | oldValue | number | 旧的步骤数 |
 
-## SelectableStep API
+## USelectableStep API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
@@ -120,3 +133,4 @@
 #### title
 
 自定义标题文本。
+

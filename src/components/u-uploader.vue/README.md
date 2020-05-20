@@ -2,6 +2,16 @@
 
 # UUploader 文件上传
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [文件类型限制](#文件类型限制)
+    - [文件大小限制](#文件大小限制)
+    - [禁用](#禁用)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+
 **表单控件**, **行内展示**
 
 ## 示例
@@ -122,3 +132,4 @@
 | $event.maxSize | number | 限制大小 |
 | $event.size | number | 当前大小 |
 | senderVM | UUploader | 发送事件对象 |
+

@@ -2,37 +2,3 @@
     display: inline-block;
     position: relative;
 }
-.success {
-    position: absolute;
-    top: 100%;
-    word-break: keep-all;
-    left: 50%;
-    background: white;
-    padding: 5px;
-    line-height: 20px;
-    transform: translate(-50%, 0);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1000;
-}
-.success[show="show"] {
-    opacity: 1;
-    z-index: 1000;
-}
-.success[placement="right"] {
-    top: 50%;
-    transform: translate(0, -50%);
-    left: 100%;
-}
-.success[placement="top"] {
-    bottom: 100%;
-    transform: translate(-50%, 0);
-    left: 50%;
-    top: inherit;
-}
-.success[placement="left"] {
-    top: 50%;
-    transform: translate(0%, -50%);
-    right: 100%;
-    left: inherit;
-}

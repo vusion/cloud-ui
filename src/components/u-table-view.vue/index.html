@@ -6,7 +6,7 @@
         :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width) }"
         @scroll="onTableScroll" :shadow="(tableMeta.position === 'left' && !scrollXStart) || (tableMeta.position === 'right' && !scrollXEnd)">
         <div v-if="showHead" :class="$style.head" ref="head" :style="{ width: number2Pixel(tableWidth) }">
-            <u-table :class="$style['head-table']" v-bind="$attrs">
+            <u-table :class="$style['head-table']" v-bind="$attrs" :color="color">
                 <colgroup>
                     <col v-for="columnVM in visibleColumnVMs" :width="columnVM.computedWidth"></col>
                 </colgroup>
@@ -50,63 +50,60 @@
                     <col v-for="columnVM in visibleColumnVMs" :width="columnVM.computedWidth"></col>
                 </colgroup>
                 <tbody>
-                    <tr v-if="currentData === null || currentError">
+                    <template v-if="(!currentLoading && !currentError || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
+                        <template v-for="(item, rowIndex) in currentData">
+                            <tr :key="rowIndex" :class="$style.row" :color="item.rowColor" :selected="selectable && selectedItem === item" @click="selectable && select(item)">
+                                <td :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title>
+                                    <!-- type === 'index' -->
+                                    <span v-if="columnVM.type === 'index'">{{ columnVM.startIndex + rowIndex }}</span>
+                                    <!-- type === 'radio' -->
+                                    <span v-if="columnVM.type === 'radio'">
+                                        <u-radio :value="selectedItem === item" :disabled="item.disabled" @click.native="select(item)"></u-radio>
+                                    </span>
+                                    <!-- type === 'checkbox' -->
+                                    <span v-if="columnVM.type === 'checkbox'">
+                                        <u-checkbox :value="item.checked" :label="item[valueField]" :disabled="item.disabled" @check="check(item, $event.value)"></u-checkbox>
+                                    </span>
+                                    <!-- type === 'expander' -->
+                                    <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click="toggleExpanded(item)"></span>
+                                    <!-- Normal text -->
+                                    <f-slot name="cell" :vm="columnVM" :props="{ item, value: item[columnVM.field], columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                        <span v-if="columnVM.field">{{ columnVM.currentFormatter.format(item[columnVM.field]) }}</span>
+                                    </f-slot>
+                                </td>
+                            </tr>
+                            <tr :class="$style['expand-content']" v-if="expanderColumnVM && item.expanded">
+                                <f-collapse-transition>
+                                    <td :colspan="visibleColumnVMs.length" :class="$style['expand-td']" v-show="item.expanded">
+                                        <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: item[expanderColumnVM.field], columnVM: expanderColumnVM, rowIndex, index: rowIndex }"></f-slot>
+                                    </td>
+                                </f-collapse-transition>
+                            </tr>
+                        </template>
+                    </template>
+                    <tr key="loading" v-if="(currentData === undefined && !currentError) || currentLoading"><!-- 初次加载与加载更多 loading 合并在一起 -->
+                        <td :class="$style.center" :colspan="visibleColumnVMs.length">
+                            <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
+                        </td>
+                    </tr>
+                    <tr key="error" v-else-if="currentData === null || currentError">
                         <td :class="$style.center" :colspan="visibleColumnVMs.length">
                             <slot name="error">{{ errorText }}</slot>
                         </td>
                     </tr>
-                    <tr v-else-if="(currentData === undefined || currentLoading) && pageable !== 'scroll' && pageable !== 'button'">
-                        <td :class="$style.center" :colspan="visibleColumnVMs.length">
-                            <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
-                        </td>
-                    </tr>
-                    <tr v-else-if="!currentData.length">
-                        <td :class="$style.center" :colspan="visibleColumnVMs.length">
-                            <slot name="empty">{{ emptyText }}</slot>
-                        </td>
-                    </tr>
-                    <template v-else v-for="(item, rowIndex) in currentData">
-                        <tr :key="rowIndex" :class="$style.row" :color="item.rowColor" :selected="selectable && selectedItem === item" @click="selectable && select(item)">
-                            <td :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title>
-                                <!-- type === 'index' -->
-                                <span v-if="columnVM.type === 'index'">{{ columnVM.startIndex + rowIndex }}</span>
-                                <!-- type === 'radio' -->
-                                <span v-if="columnVM.type === 'radio'">
-                                    <u-radio :value="selectedItem === item" :disabled="item.disabled" @click.native="select(item)"></u-radio>
-                                </span>
-                                <!-- type === 'checkbox' -->
-                                <span v-if="columnVM.type === 'checkbox'">
-                                    <u-checkbox :value="item.checked" :label="item[valueField]" :disabled="item.disabled" @check="check(item, $event.value)"></u-checkbox>
-                                </span>
-                                <!-- type === 'expander' -->
-                                <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click="toggleExpanded(item)"></span>
-                                <!-- Normal text -->
-                                <f-slot name="cell" :vm="columnVM" :props="{ item, value: item[columnVM.field], columnVM, rowIndex, columnIndex, index: rowIndex }">
-                                    <span v-if="columnVM.field">{{ columnVM.currentFormatter.format(item[columnVM.field]) }}</span>
-                                </f-slot>
-                            </td>
-                        </tr>
-                        <tr :class="$style['expand-content']" v-if="expanderColumnVM && item.expanded">
-                            <f-collapse-transition>
-                                <td :colspan="visibleColumnVMs.length" :class="$style['expand-td']" v-show="item.expanded">
-                                    <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: item[expanderColumnVM.field], columnVM: expanderColumnVM, rowIndex, index: rowIndex }"></f-slot>
-                                </td>
-                            </f-collapse-transition>
-                        </tr>
-                    </template>
-                    <tr v-if="currentLoading && (pageable === 'scroll' || pageable === 'button')">
-                        <td :class="$style.center" :colspan="visibleColumnVMs.length">
-                            <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
-                        </td>
-                    </tr>
-                    <tr v-if="pageable === 'button' && currentDataSource.hasMore() && !currentLoading">
+                    <tr key="loadMore" v-else-if="pageable === 'load-more' && currentDataSource.hasMore()">
                         <td :class="$style.center" :colspan="visibleColumnVMs.length">
                             <u-link @click="load(true)">{{ $t('loadMore') }}</u-link>
                         </td>
                     </tr>
-                    <tr v-if="(pageable === 'scroll' || pageable === 'button') && !currentDataSource.hasMore()">
+                    <tr key="noMore" v-else-if="(pageable === 'auto-more' || pageable === 'load-more') && !currentDataSource.hasMore()">
                         <td :class="$style.center" :colspan="visibleColumnVMs.length">
                             {{ $t('noMore') }}
+                        </td>
+                    </tr>
+                    <tr key="empty" v-else-if="!currentData.length">
+                        <td :class="$style.center" :colspan="visibleColumnVMs.length">
+                            <slot name="empty">{{ emptyText }}</slot>
                         </td>
                     </tr>
                 </tbody>

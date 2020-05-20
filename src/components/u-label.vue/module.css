@@ -6,6 +6,7 @@
     background: var(--label-background);
     color: var(--label-color);
     border-radius: var(--border-radius-base);
+    white-space: nowrap;
 }
 
 .remove {
@@ -35,6 +36,11 @@
     color: var(--label-color-success);
 }
 
+.root[color="normal"] {
+    background: var(--label-background-normal);
+    color: var(--label-color-normal);
+}
+
 .root[color="warning"] {
     background: var(--label-background-warning);
     color: var(--label-color-warning);
@@ -43,6 +49,17 @@
 .root[color="error"] {
     background: var(--label-background-error);
     color: var(--label-color-error);
+}
+
+.root[size="small"] {
+    padding: var(--label-padding-y-small) var(--label-padding-x-small);
+    font-size: var(--label-font-size-small);
+    line-height: var(--label-line-height-small);
+}
+
+.root[size="small"] .remove {
+    padding: var(--label-remove-padding-x-small);
+    margin-right: calc(var(--label-remove-padding-x-small) * (-2));
 }
 
 .root[size="large"] {

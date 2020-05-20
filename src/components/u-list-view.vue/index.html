@@ -1,20 +1,56 @@
 <div :class="$style.root" :readonly="readonly" :disabled="disabled"
     :tabindex="readonly || disabled ? '' : 0"
     @keydown.prevent.up="shift(-1)"
-    @keydown.prevent.down="shift(+1)"
-    @scroll.stop="onScroll">
-    <!-- <div :class="$style.body"></div> -->
-    <slot></slot>
-    <div ref="virtual" v-if="currentData" :style="{ paddingTop: virtualTop + 'px', paddingBottom: virtualBottom + 'px' }">
-        <component :is="ChildComponent"
-            v-for="item in virtualList"
-            :key="item.value"
-            :value="item.value"
-            :disabled="item.disabled || disabled"
-            :item="item"
-        >{{ item[field] }}</component>
+    @keydown.prevent.down="shift(+1)">
+    <div v-show="showHead" :class="$style.head">
+        <slot name="head">
+            <u-checkbox v-if="multiple" :value="allChecked" @check="checkAll($event.value)"></u-checkbox>
+            <span :class="$style.title">{{ title }}</span>
+            <div :class="$style.extra">
+                <span v-if="multiple">{{ selectedVMs.length }}{{ currentDataSource && currentDataSource.originTotal !== Infinity ? ' / ' + currentDataSource.originTotal : '' }}</span>
+            </div>
+        </slot>
     </div>
-    <div :class="$style.status" status="loading" v-if="loading">
-        <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
+    <u-input v-if="filterable" :class="$style.filter" :disabled="disabled" :placeholder="placeholder" size="small" suffix="search" :clearable="clearable"
+        :value="filterText" @input="onInput">
+    </u-input>
+    <div ref="body" :class="$style.body" @scroll.stop="onScroll">
+        <slot></slot>
+        <div ref="virtual" v-if="(!currentLoading && !currentError || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length"
+            :style="{ paddingTop: virtualTop + 'px', paddingBottom: virtualBottom + 'px' }">
+            <component :is="ChildComponent"
+                v-for="item in virtualList"
+                v-if="item"
+                :key="item[valueField]"
+                :value="item[valueField]"
+                :disabled="item.disabled || disabled"
+                :item="item"
+            ><slot name="text" :item="item" :text="item[field || textField]" :value="item[valueField]" :disabled="item.disabled || disabled">{{ item[field || textField] }}</slot>
+            </component>
+        </div>
+        <div :class="$style.status" status="loading" v-if="currentLoading">
+            <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
+        </div>
+        <div :class="$style.status" status="error" v-else-if="currentData === null || currentError">
+            <slot name="error">{{ errorText }}</slot>
+        </div>
+        <div :class="$style.status" v-else-if="pageable === 'load-more' && currentDataSource.hasMore()">
+            <u-link @click="load(true)">{{ $t('loadMore') }}</u-link>
+        </div>
+        <div :class="$style.status" v-else-if="(pageable === 'auto-more' || pageable === 'load-more') && !currentDataSource.hasMore()">
+            {{ $t('noMore') }}
+        </div>
+        <div :class="$style.status" v-else-if="currentData && !currentData.length">
+            <slot name="empty">{{ emptyText }}</slot>
+        </div>
+    </div>
+    <div v-show="showFoot || pageable === true || pageable === 'pagination'" :class="$style.foot">
+        <slot name="foot"></slot>
+        <u-combo-pagination :class="$style.pagination" v-if="pageable === true || pageable === 'pagination'"
+            :style="{ visibility: currentDataSource.total > currentDataSource.paging.size ? '' : 'hidden' }"
+            :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
+            :page-size="currentDataSource.paging.size" :side="1" :around="3"
+            @change="page($event.page)">
+        </u-combo-pagination>
     </div>
 </div>

@@ -14,7 +14,7 @@
     height: 40px;
     line-height: 40px;
     background: #fbfcfc;
-    border: 1px solid #e1e8ed;
+    border: 1px solid var(--border-color-base);
     color: #5494db;
     outline: none;
 }
@@ -27,7 +27,7 @@
 .root:hover {
     color: #67aaf5;
     text-decoration: none;
-    border: 1px solid #e1e8ed;
+    border: 1px solid var(--border-color-base);
     box-shadow: 0 0 8px rgba(13, 4, 8, 0.1);
 }
 

@@ -2,6 +2,16 @@
 
 # UTimePicker 时间选择
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [只读和禁用](#只读和禁用)
+    - [日期范围](#日期范围)
+    - [日期最小单位](#日期最小单位)
+    - [方法](#方法)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Events](#events)
+
 ## 示例
 ### 基本用法
 
@@ -90,3 +100,4 @@ export default {
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | time | object | 改变后的时间 |
+
