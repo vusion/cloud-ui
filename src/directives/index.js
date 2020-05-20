@@ -6,5 +6,6 @@ export * from './v-link';
 export * from './v-ellipsis-title';
 
 import tooltip from '../components/u-tooltip.vue/v-tooltip';
+import copy from '../components/u-copy.vue/v-copy';
 
-export { tooltip };
+export { tooltip, copy };

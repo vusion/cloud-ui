@@ -1,5 +1,5 @@
 - name: u-pagination
-  title: 分页
+  title: 翻页器
   labels: [块级展示]
   attrs:
     - name: page.sync
@@ -26,6 +26,32 @@
       type: boolean
       default: false
       description: 是否禁用
+    - name: total-items
+      type: number
+      description: 总条数
+    - name: page-size.sync
+      type: number
+      default: 20
+      description: 每页条数
+    - name: page-size-options
+      type: Array
+      default:
+        - 10
+        - 20
+        - 50
+      description: 每页条数选项列表
+    - name: show-total
+      type: boolean
+      default: false
+      description: 是否显示总条目数
+    - name: show-sizer
+      type: boolean
+      default: false
+      description: 是否显示切换每页条数选项
+    - name: show-jumper
+      type: boolean
+      default: false
+      description: 是否显示页面跳转输入框
   events:
     - name: before-select
       description: 选择分页前触发
@@ -63,6 +89,18 @@
         - name: $event.oldPage
           type: number
           description: 旧的页码
+        - name: senderVM
+          type: UPagination
+          description: 发送事件实例
+    - name: change-page-size
+      description: 每页条数改变时触发
+      params:
+        - name: $event.pageSize
+          type: number
+          description: 当前每页条数
+        - name: $event.oldPageSize
+          type: number
+          description: 旧的每页条数
         - name: senderVM
           type: UPagination
           description: 发送事件实例

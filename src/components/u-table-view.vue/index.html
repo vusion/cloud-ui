@@ -3,7 +3,7 @@
         <slot name="title">{{ title }}</slot>
     </div>
     <div :class="$style.table" v-for="tableMeta in tableMetaList" :key="tableMeta.position" :position="tableMeta.position"
-        :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width) }"
+        :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width), height: number2Pixel(tableHeight)}"
         @scroll="onTableScroll" :shadow="(tableMeta.position === 'left' && !scrollXStart) || (tableMeta.position === 'right' && !scrollXEnd)">
         <div v-if="showHead" :class="$style.head" ref="head" :style="{ width: number2Pixel(tableWidth) }">
             <u-table :class="$style['head-table']" v-bind="$attrs" :color="color">
@@ -110,10 +110,10 @@
             </u-table>
         </div>
     </div>
-    <u-combo-pagination :class="$style.pagination" v-if="pageable === true || pageable === 'pagination'"
+    <u-pagination :class="$style.pagination" v-if="pageable === true || pageable === 'pagination'"
         :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
         :page-size="currentDataSource.paging.size" :page-size-options="pageSizeOptions" :show-total="showTotal" :show-sizer="showSizer" :show-jumper="showJumper"
         @change="page($event.page)" @change-page-size="page(currentDataSource.paging.number, $event.pageSize)">
-    </u-combo-pagination>
+    </u-pagination>
     <div><slot></slot></div>
 </div>

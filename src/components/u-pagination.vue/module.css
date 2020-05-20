@@ -21,6 +21,8 @@
     cursor: var(--cursor-pointer);
     border: 1px solid var(--pagination-item-border-color);
     margin-left: -1px;
+
+    vertical-align: middle;
 }
 
 .item:hover {
@@ -44,7 +46,6 @@
 .item[role="prev"] {
     font-size: var(--font-size-large);
     padding: 0 4px;
-    vertical-align: top;
     border-radius: var(--border-radius-base) 0 0 var(--border-radius-base);
     color: var(--color-light);
 }
@@ -56,7 +57,6 @@
 .item[role="next"] {
     font-size: var(--font-size-large);
     padding: 0 4px;
-    vertical-align: top;
     border-radius: 0 var(--border-radius-base) var(--border-radius-base) 0;
     color: var(--color-light);
 }
@@ -72,13 +72,64 @@
     border: none;
 }
 
+.item-wrap {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.item-wrap[disabled],
+.item-wrap[disabled] .item,
+.item-wrap[disabled] .item:hover,
+.item-wrap[disabled] > a {
+    cursor: var(--cursor-not-allowed);
+    color: var(--pagination-item-color-disabled);
+    background: none;
+}
+
+.item-wrap > [role="text"]{
+    margin: 0 var(--space-small);
+}
+
+.total {
+    margin-right: var(--space-small);
+}
+
+.sizer {
+    text-align: left;
+    width: var(--combo-pagination-sizer-width);
+    height: var(--combo-pagination-height);
+    line-height: var(--combo-pagination-line-height);
+    margin-right: var(--space-small);
+    vertical-align: top;
+}
+
+.sizer .item {
+    line-height: var(--combo-pagination-line-height);
+}
+
+.jumper-wrap {
+    margin-left: var(--space-small);
+    vertical-align: middle;
+}
+
+.jumper {
+    width: var(--combo-pagination-jumper-width);
+    height: var(--combo-pagination-height);
+    line-height: var(--combo-pagination-line-height);
+}
+
 .root[disabled] {
     cursor: var(--cursor-not-allowed);
     background: none;
     border-color: #dedede;
 }
 
-.root[disabled] .item {
+.root[disabled] .item,
+.root[disabled] .total,
+.root[disabled] .sizer,
+.root[disabled] .jumper,
+.root[disabled] .jumper-wrap,
+.root[disabled] .item-wrap {
     color: var(--pagination-item-color-disabled);
     cursor: var(--cursor-not-allowed);
     background: none;
@@ -92,7 +143,29 @@
 .root[disabled] .item[selected] {
     background: var(--pagination-item-background-disabled-selected);
 }
+.root[readonly] .item {
+    cursor: default;
+}
 
 .root[display="inline"] {
     display: inline-block;
+}
+
+.root[simple] .jumper-wrap {
+    display: inline-block;
+    margin: 0;
+}
+
+.root[simple] .item {
+    border: 0;
+}
+
+.root[simple] .item:hover {
+    background-color: transparent;
+    color: var(--pagination-item-color-hover);
+}
+
+.root[simple][disabled] .item,
+.root[simple][disabled] .item:hover {
+    color: var(--pagination-item-color-disabled);
 }
