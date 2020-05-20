@@ -12,17 +12,15 @@ const directive = {
             placement: 'bottom',
             successText: '已复制',
             disabled: false,
-            hideDelay: 3000,
-            modalType: 'popper',
+            hideDelay: +binding.arg || 3000,
+            feedback: 'tooltip',
         };
 
         Object.keys(binding.modifiers).forEach((key) => {
             if (/^(top|bottom|left|right)(-start|-end)?$/.test(key))
                 data.placement = key;
-            if (/^(popper|toast)?$/.test(key))
-                data.modalType = key;
-            if (/^\d+$/.test(key))
-                data.hideDelay = key;
+            if (/^(tooltip|toast)?$/.test(key))
+                data.feedback = key;
         });
 
         return data;
@@ -42,12 +40,12 @@ const directive = {
 
         el.onClick = () => {
             const disabled = el.getAttribute('disabled');
-            const data = el['v-copy'];
-            if (disabled)
+            if (disabled !== null)
                 return;
+            const data = el['v-copy'];
             const success = copy(data.value);
             if (success) {
-                if (data.modalType === 'toast') {
+                if (data.feedback === 'toast') {
                     Vue.prototype.$toast.show(data.successText, data.hideDelay);
                 } else {
                     el.tooltipVM.open();
