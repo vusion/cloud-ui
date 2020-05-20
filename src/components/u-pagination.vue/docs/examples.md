@@ -36,7 +36,7 @@
 <u-linear-layout direction="vertical">
     <u-pagination :total-items="75" show-total></u-pagination>
     <u-pagination :total-items="75" show-total>
-        <template slot="totalText" slot-scope="{ data }">
+        <template slot="total" slot-scope="{ data }">
             {{ (data.page - 1)*data.pageSize + 1}}-{{ data.page*data.pageSize}}条，共{{data.totalItems}}条
         </template>
     </u-pagination>
@@ -48,12 +48,12 @@
 ``` html
 <u-linear-layout direction="vertical">
     <u-pagination :total-items="75" show-total show-sizer show-jumper></u-pagination>
-    <u-pagination 
-        :total-items="75" 
-        show-total 
-        show-sizer 
-        show-jumper 
-        :pageSize="30" 
+    <u-pagination
+        :total-items="75"
+        show-total
+        show-sizer
+        show-jumper
+        :pageSize="30"
         :pageSizeOptions="[30,50,100]">
     </u-pagination>
 </u-linear-layout>

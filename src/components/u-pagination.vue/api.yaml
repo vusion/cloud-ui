@@ -1,5 +1,5 @@
 - name: u-pagination
-  title: 分页
+  title: 翻页器
   labels: [块级展示]
   attrs:
     - name: page.sync

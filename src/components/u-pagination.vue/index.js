@@ -1,4 +1,5 @@
 import i18n from './i18n';
+
 export const UPagination = {
     name: 'u-pagination',
     i18n,
@@ -104,8 +105,8 @@ export const UPagination = {
         onChange(page, oldPage) {
             if (this.readonly || this.disabled)
                 return;
-            if (page === oldPage)
-                return;
+            // if (page === oldPage)
+            //     return;
 
             this.currentPage = page;
         },
