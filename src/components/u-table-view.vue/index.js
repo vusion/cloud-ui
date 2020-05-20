@@ -68,6 +68,7 @@ export const UTableView = {
             /* Selection Data */
             selectedItem: undefined,
             currentValues: this.values || [],
+            tableHeight: undefined,
         };
     },
     computed: {
@@ -173,11 +174,6 @@ export const UTableView = {
         this.debouncedLoad = debounce(this.load, 300);
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
         this.initialLoad && this.load();
-
-        this.debouncedSyncBodyScroll = debounce(this.syncBodyScroll, 40, {
-            leading: true,
-            trailing: true,
-        });
     },
     mounted() {
         if (this.data)
@@ -390,6 +386,11 @@ export const UTableView = {
                     }
                 }
 
+                // 当root设置了height，设置table的height，避免隐藏列的时候闪烁
+                if (this.$el.style.height !== '' && this.$el.style.height !== 'auto'){
+                    this.tableHeight = this.$el.offsetHeight;
+                }
+
                 this.$emit('resize', undefined, this);
             });
         },
@@ -473,7 +474,7 @@ export const UTableView = {
             this.$refs.body[2] && this.$refs.body[2] !== target && (this.$refs.body[2].scrollTop = scrollTop);
         },
         onBodyScroll(e) {
-            this.debouncedSyncBodyScroll(e.target.scrollTop, e.target);
+            this.syncBodyScroll(e.target.scrollTop, e.target);
 
             // this.throttledVirtualScroll(e);
 

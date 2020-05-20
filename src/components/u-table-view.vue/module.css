@@ -10,6 +10,8 @@
 
 .table {
     overflow-x: auto;
+    overflow-y: hidden;
+    max-height: inherit;
 }
 
 .table[position="left"] {
