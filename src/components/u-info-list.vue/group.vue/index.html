@@ -1,9 +1,9 @@
 <div :class="$style.root">
-    <div :class="$style.title">
-        {{ title }}
-        <slot name="extra"></slot>
+    <div :class="$style.head">
+        <div :class="$style.title"><slot name="title">{{ title }}</slot></div>
+        <div :class="$style.extra"><slot name="extra"></slot></div>
     </div>
-    <div :class="$style.list">
+    <div :class="$style.body">
         <slot></slot>
     </div>
 </div>

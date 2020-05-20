@@ -2,9 +2,9 @@
   title: 详情列表
   attrs:
     - name: repeat
-      type: string,number
+      type: [string, number]
       default: 3
-      description: 划分的列数
+      description: 整个详情列表的划分列数
     - name: label-size
       type: string
       default: auto
@@ -41,6 +41,10 @@
       type: string
       default: null
       description: 标题
+    - name: repeat
+      type: [string, number]
+      default: 3
+      description: 当前组范围内的划分列数
     - name: label-size
       type: string
       default: auto
@@ -48,5 +52,7 @@
   slots:
     - name: default
       description: 插入`<u-info-list-item>`子组件
-    - name: operate
-      description: 自定义副标题。
+    - name: title
+      description: 自定义标题。
+    - name: extra
+      description: 自定义额外操作项。
