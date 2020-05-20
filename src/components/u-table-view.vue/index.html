@@ -3,7 +3,7 @@
         <slot name="title">{{ title }}</slot>
     </div>
     <div :class="$style.table" v-for="tableMeta in tableMetaList" :key="tableMeta.position" :position="tableMeta.position"
-        :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width),height: number2Pixel(tableHeight)}"
+        :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width), height: number2Pixel(tableHeight)}"
         @scroll="onTableScroll" :shadow="(tableMeta.position === 'left' && !scrollXStart) || (tableMeta.position === 'right' && !scrollXEnd)">
         <div v-if="showHead" :class="$style.head" ref="head" :style="{ width: number2Pixel(tableWidth) }">
             <u-table :class="$style['head-table']" v-bind="$attrs" :color="color">

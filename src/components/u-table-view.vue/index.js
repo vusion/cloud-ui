@@ -386,10 +386,9 @@ export const UTableView = {
                     }
                 }
 
-                // 当root设置了height，设置table的height，避免隐藏列的时候闪烁
-                if (this.$el.style.height !== '' && this.$el.style.height !== 'auto'){
+                // 当 root 设置了 height，设置 table 的 height，避免隐藏列时的闪烁
+                if (this.$el.style.height !== '' && this.$el.style.height !== 'auto')
                     this.tableHeight = this.$el.offsetHeight;
-                }
 
                 this.$emit('resize', undefined, this);
             });
