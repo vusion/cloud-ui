@@ -2,6 +2,19 @@
 
 # MComplex 复合模式
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [选项值](#选项值)
+    - [只读、禁用、禁用某一项](#只读-禁用-禁用某一项)
+- [MComplex API](#mcomplex-api)
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+- [MComplexItem API](#mcomplexitem-api)
+    - [Props/Attrs](#propsattrs-2)
+    - [Slots](#slots-2)
+    - [Events](#events-2)
+
 一个组件中，通过`multiple`属性切换单选还是多选的模式。
 
 ## 示例
@@ -103,7 +116,7 @@ export default {
 </u-grid-layout>
 ```
 
-其它与 [MSinglex](../m-singlex) 和 [MMultiplex](../m-multiplex) 相同的。
+其它与 [MSinglex](#components/m-singlex) 和 [MMultiplex](#components/m-multiplex) 相同的。
 
 ## MComplex API
 ### Props/Attrs
@@ -241,3 +254,4 @@ export default {
 | $event.itemVM | MComplexItem | 此组件 |
 | $event.preventDefault | Function | 阻止选择流程 |
 | senderVM | MComplexItem | 发送事件实例 |
+

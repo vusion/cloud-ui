@@ -165,7 +165,7 @@ const VueDataSource = Vue.extend({
             this.initialLoaded = false;
         },
         mustRemote(offset, newOffset) {
-            return !this.hasAllRemoteData(offset, newOffset) // 没有全部的远程数据
+            return !this.hasAllRemoteData(offset, newOffset) // 没有全部的后端数据
             || (this.params.hasOwnProperty('filtering') && this.remoteFiltering)
             || (this.params.hasOwnProperty('sorting') && this.remoteSorting);
         },
@@ -179,7 +179,7 @@ const VueDataSource = Vue.extend({
             return offset < this.prependedData.length + this.originTotal;
         },
         /**
-         * 是否还有远程数据
+         * 是否还有后端数据
          * @param {Number} offset - 位置
          */
         hasAllRemoteData(offset, newOffset) {

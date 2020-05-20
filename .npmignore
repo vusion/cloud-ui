@@ -6,6 +6,7 @@ npm-debug.log
 # dist-theme/
 # dist-raw/
 # dist-doc-entry/
+# screenshots/
 
 public/
 /cloud-ui/

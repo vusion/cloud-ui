@@ -23,7 +23,7 @@
     color: #f99;
 }
 .item:hover {
-    background: var(--hover-color);
+    background: var(--background-color-lighter);
     color: #444;
     border-color: var(--brand-primary);
 }
@@ -152,7 +152,7 @@
     color: var(--color-light);
 }
 .listitem:hover {
-    background: var(--hover-color);
+    background: var(--background-color-lighter);
 }
 .month {
     float: right;

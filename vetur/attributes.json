@@ -862,25 +862,34 @@
     "type": "string",
     "description": "需要复制的值"
   },
-  "u-copy/placement": {
+  "u-copy/text": {
     "type": "string",
-    "description": "popper提示框位置，`'top'` `'right'` `'left'`"
+    "description": "链接的文本"
   },
   "u-copy/success-text": {
     "type": "string",
     "description": "复制成功提示文本"
   },
-  "u-copy/disabled": {
-    "type": "boolean",
-    "description": "是否禁止复制"
+  "u-copy/feedback": {
+    "type": "enum",
+    "options": [
+      "tooltip",
+      "toast",
+      "none"
+    ],
+    "description": "复制提示反馈方式 `'tooltip'`,`'toast'`,`'none'`"
+  },
+  "u-copy/placement": {
+    "type": "string",
+    "description": "tooltip 提示框位置，可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',`'left-end'`, `'right-start'`, `'right-end'`"
   },
   "u-copy/hide-delay": {
     "type": "number",
-    "description": "popper提示框影藏消失时间"
+    "description": "提示框显示时长"
   },
-  "u-copy/modal-type": {
-    "type": "string",
-    "description": "复制提示弹窗类型`'popper'` `'toast'` `'none'`"
+  "u-copy/disabled": {
+    "type": "boolean",
+    "description": "是否禁止复制"
   },
   "u-count-up/start": {
     "type": "number",
@@ -1540,6 +1549,7 @@
   "u-label/size": {
     "type": "enum",
     "options": [
+      "small",
       "normal",
       "large",
       "huge"
@@ -1700,6 +1710,7 @@
       "light",
       "success",
       "warning",
+      "danger",
       "error"
     ],
     "description": "设置颜色。"
@@ -1837,7 +1848,7 @@
   },
   "u-menu/router": {
     "type": "boolean",
-    "description": "是否根据vue-router来控制选择哪一项"
+    "description": "是否根据 vue-router 来控制选择哪一项"
   },
   "u-menu/value": {
     "type": "any",
@@ -2267,6 +2278,14 @@
     "type": "string",
     "description": "显示文本字段"
   },
+  "u-select/text-field": {
+    "type": "string",
+    "description": "选项文本的字段名"
+  },
+  "u-select/value-field": {
+    "type": "string",
+    "description": "选项值的字段名"
+  },
   "u-select/data": {
     "type": "Array<{ text, value }>",
     "description": "列表数据"
@@ -2389,7 +2408,7 @@
   },
   "u-sidebar/router": {
     "type": "boolean",
-    "description": "是否根据vue-router来控制选择哪一项"
+    "description": "是否根据 vue-router 来控制选择哪一项"
   },
   "u-sidebar/value": {
     "type": "any",
@@ -2529,7 +2548,7 @@
   },
   "u-subnav/router": {
     "type": "boolean",
-    "description": "是否根据vue-router来控制选择哪一项"
+    "description": "是否根据 vue-router 来控制选择哪一项"
   },
   "u-subnav/value": {
     "type": "any",
@@ -2975,7 +2994,7 @@
     ],
     "description": "展示方式。"
   },
-  "u-text/wrap": {
+  "u-text/overflow": {
     "type": "string",
     "options": [
       "normal",
@@ -2983,7 +3002,7 @@
       "break",
       "nowrap"
     ],
-    "description": "换行方式。`'normal'`表示默认方式，`'ellipsis'`表示多余的文本省略，`'break'`表示强制换行且英文自动添加换行符，`'nowrap'`表示始终不换行。"
+    "description": "文本过长的处理方式。`'normal'`表示默认方式，`'ellipsis'`表示多余的文本省略，`'break'`表示强制换行且英文自动添加换行符，`'nowrap'`表示始终不换行。"
   },
   "u-textarea/value": {
     "type": "string",
@@ -3084,6 +3103,50 @@
   "u-toast/closable": {
     "type": "boolean",
     "description": "是否可以关闭提示"
+  },
+  "u-toc/router": {
+    "type": "boolean",
+    "description": "是否根据 vue-router 来控制选择哪一项"
+  },
+  "u-toc/value": {
+    "type": "any",
+    "description": "当前选择的值"
+  },
+  "u-toc-item/label": {
+    "type": "string",
+    "description": "此项显示的文本"
+  },
+  "u-toc-item/value": {
+    "type": "any",
+    "description": "此项的值"
+  },
+  "u-toc-item/disabled": {
+    "type": "boolean",
+    "description": "禁用此项"
+  },
+  "u-toc-item/item": {
+    "type": "object",
+    "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
+  },
+  "u-toc-item/href": {
+    "type": "string",
+    "description": "链接地址"
+  },
+  "u-toc-item/target": {
+    "type": "string",
+    "description": "打开方式"
+  },
+  "u-toc-item/to": {
+    "type": "string, Location",
+    "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
+  },
+  "u-toc-item/replace": {
+    "type": "boolean",
+    "description": "需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。"
+  },
+  "u-toc-item/exact": {
+    "type": "boolean",
+    "description": "需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。"
   },
   "u-tooltip/opened": {
     "type": "boolean",

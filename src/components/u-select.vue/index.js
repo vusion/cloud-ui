@@ -13,7 +13,9 @@ export const USelect = {
     props: {
         // @inherit: value: { type: String, default: '' },
         // @inherit: value: Array,
-        // @inherit: field: { type: String, default: 'text' },
+        // @inherit: field: String,
+        // @inherit: textField: { type: String, default: 'text' },
+        // @inherit: valueField: { type: String, default: 'value' },
         // @inherit: data: Array,
         // @inherit: dataSource: [DataSource, Function, Object],
         // @inherit: cancelable: { type: Boolean, default: false },

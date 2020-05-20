@@ -2,6 +2,15 @@
 
 # UCascadeCapsules 级联胶囊
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [值转换器](#值转换器)
+    - [自动选择](#自动选择)
+    - [可取消](#可取消)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Events](#events)
+
 ## 示例
 ### 基本用法
 
@@ -348,3 +357,4 @@ export default {
 | $event.oldValue | any | 旧的值 |
 | $event.values | Array | 改变后每项值的数组 |
 | $event.oldValues | Array | 旧的每项值的数组 |
+

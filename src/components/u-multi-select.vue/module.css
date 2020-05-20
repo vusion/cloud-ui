@@ -117,7 +117,7 @@
     color: var(--color-light);
 }
 .listitem:hover, .listitem[hovered] {
-    background: var(--hover-color);
+    background: var(--background-color-lighter);
     color: #444;
 }
 .listitem[role="z-sel"] {

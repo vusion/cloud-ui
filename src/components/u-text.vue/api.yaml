@@ -18,15 +18,15 @@
       options: [inline, block]
       default: inline
       description: 展示方式。
-    - name: wrap
+    - name: overflow
       type: string
       options: [normal, ellipsis, break, nowrap]
       default: normal
-      description: 换行方式。`'normal'`表示默认方式，`'ellipsis'`表示多余的文本省略，`'break'`表示强制换行且英文自动添加换行符，`'nowrap'`表示始终不换行。
+      description: 文本过长的处理方式。`'normal'`表示默认方式，`'ellipsis'`表示多余的文本省略，`'break'`表示强制换行且英文自动添加换行符，`'nowrap'`表示始终不换行。
   slots:
     - name: default
       description: 插入文本或 HTML。
   events:
     - name: $listeners
-      description: 监听所有`<a>`元素的事件。
+      description: 监听所有`<span>`元素的事件。
       params: []

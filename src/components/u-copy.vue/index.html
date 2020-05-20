@@ -1,14 +1,10 @@
 <div :class="$style.root">
-    <div :class="$style.tooltipWrap" v-if="modalType==='popper'">
-        <u-tooltip :placement="placement" trigger="manual"
-            :opened.sync="success">
-            {{successText}}
-        </u-tooltip>
-    </div>
     <div @click="copy">
         <slot>
-            <u-link :disabled="disabled">复制</u-link>
+            <u-link :disabled="disabled">{{ text }}</u-link>
         </slot>
     </div>
+    <u-tooltip v-if="feedback === 'tooltip' || modalType === 'popper'" :placement="placement" trigger="manual" :opened.sync="success">
+        {{ successText }}
+    </u-tooltip>
 </div>
-

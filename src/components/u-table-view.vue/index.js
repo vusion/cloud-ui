@@ -10,7 +10,7 @@ export const UTableView = {
     i18n,
     props: {
         data: Array,
-        dataSource: [DataSource, Function, Object],
+        dataSource: [DataSource, Function, Object, Array],
         title: String,
         titleAlignment: { type: String, default: 'center' },
         border: { type: Boolean, default: false },
@@ -68,11 +68,12 @@ export const UTableView = {
             /* Selection Data */
             selectedItem: undefined,
             currentValues: this.values || [],
+            tableHeight: undefined,
         };
     },
     computed: {
         currentData() {
-            return this.currentDataSource && this.currentDataSource.viewData;
+            return this.currentDataSource ? this.currentDataSource.viewData : this.currentDataSource;
         },
         visibleColumnVMs() {
             return this.columnVMs.filter((columnVM) => !columnVM.hidden);
@@ -173,11 +174,6 @@ export const UTableView = {
         this.debouncedLoad = debounce(this.load, 300);
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
         this.initialLoad && this.load();
-
-        this.debouncedSyncBodyScroll = debounce(this.syncBodyScroll, 40, {
-            leading: true,
-            trailing: true,
-        });
     },
     mounted() {
         if (this.data)
@@ -272,7 +268,7 @@ export const UTableView = {
             } else if (dataSource instanceof Object) {
                 return new DataSource(Object.assign(options, dataSource));
             } else
-                return undefined;
+                return dataSource;
         },
         number2Pixel(value) {
             return isNumber(value) ? value + 'px' : '';
@@ -390,6 +386,11 @@ export const UTableView = {
                     }
                 }
 
+                // 当root设置了height，设置table的height，避免隐藏列的时候闪烁
+                if (this.$el.style.height !== '' && this.$el.style.height !== 'auto'){
+                    this.tableHeight = this.$el.offsetHeight;
+                }
+
                 this.$emit('resize', undefined, this);
             });
         },
@@ -473,11 +474,11 @@ export const UTableView = {
             this.$refs.body[2] && this.$refs.body[2] !== target && (this.$refs.body[2].scrollTop = scrollTop);
         },
         onBodyScroll(e) {
-            this.debouncedSyncBodyScroll(e.target.scrollTop, e.target);
+            this.syncBodyScroll(e.target.scrollTop, e.target);
 
             // this.throttledVirtualScroll(e);
 
-            if (!this.pageable === 'auto-more')
+            if (this.pageable !== 'auto-more' || this.currentLoading)
                 return;
 
             const el = e.target;
@@ -504,7 +505,8 @@ export const UTableView = {
                         this.page(1); // 数据发生变更时，回归到第 1 页
                 }
 
-                this.handleResize();
+                // auto-more 状态的 resize 会频闪。
+                this.pageable !== 'auto-more' && this.handleResize();
                 this.$emit('load', undefined, this);
                 return data;
             }).catch(() => {
@@ -528,6 +530,7 @@ export const UTableView = {
             };
             if (this.$emitPrevent('before-page', paging, this))
                 return;
+            delete paging.preventDefault;
 
             this.currentDataSource.page(paging);
             this.load();
@@ -549,6 +552,7 @@ export const UTableView = {
             const sorting = { field, order, compare };
             if (this.$emitPrevent('before-sort', sorting, this))
                 return;
+            delete sorting.preventDefault;
 
             this.currentDataSource.sort(sorting);
             this.load();
@@ -573,6 +577,7 @@ export const UTableView = {
         filter(filtering) {
             if (this.$emitPrevent('before-filter', filtering, this))
                 return;
+            delete filtering.preventDefault;
 
             this.currentDataSource.filter(filtering);
             this.load();

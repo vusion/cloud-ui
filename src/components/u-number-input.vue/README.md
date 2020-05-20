@@ -2,6 +2,18 @@
 
 # UNumberInput 数字输入
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [双向绑定](#双向绑定)
+    - [最大值和最小值](#最大值和最小值)
+    - [精度与间隔](#精度与间隔)
+    - [格式化](#格式化)
+    - [只读和禁用](#只读和禁用)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Events](#events)
+    - [ARIA and Keyboard](#aria-and-keyboard)
+
 **表单控件**, **行内展示**
 
 ## 示例
@@ -51,6 +63,14 @@ export default {
     <u-number-input :value="6" :precision="0.1" :step="0.5"></u-number-input>
     <u-number-input :value="5" :precision="5" :step="10"></u-number-input>
     <u-number-input :value="6" :step="10"></u-number-input>
+</u-linear-layout>
+```
+
+如果不限精度和间隔，则将`precision`和`step`设置为`0`即可。
+
+``` html
+<u-linear-layout>
+    <u-number-input :value="6" :precision="0" :step="0"></u-number-input>
 </u-linear-layout>
 ```
 
@@ -159,3 +179,4 @@ export default {
 | <kdb>↑</kdb> | 按`step`量增加值 |
 | <kdb>↓</kdb> | 按`step`量减小值 |
 | <kdb>Enter</kdb> | 自动修复为合法的值，并且应用更改 |
+

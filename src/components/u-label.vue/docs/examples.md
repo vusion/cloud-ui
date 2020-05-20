@@ -33,11 +33,14 @@
 
 ### 设置尺寸
 
-标签有正常、中、大三种尺寸，通过`size`属性设置。
+标签有小、正常、中、大四种尺寸，通过`size`属性设置。
 
 ``` html
 <u-linear-layout gap="small">
+    <u-label size="small">Small</u-label>
+    <u-label size="small" color="primary" removable>Small</u-label>
     <u-label>Normal</u-label>
+    <u-label color="primary" removable>Normal</u-label>
     <u-label size="large">Large</u-label>
     <u-label size="large" color="primary" removable>Large</u-label>
     <u-label size="huge">Huge</u-label>

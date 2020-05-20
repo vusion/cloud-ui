@@ -2,6 +2,16 @@
 
 # ULabel 标签
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [可删除标签](#可删除标签)
+    - [设置尺寸](#设置尺寸)
+    - [块级展示](#块级展示)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+
 **行内展示**
 
 对事物进行标记和分类。
@@ -42,11 +52,14 @@
 
 ### 设置尺寸
 
-标签有正常、中、大三种尺寸，通过`size`属性设置。
+标签有小、正常、中、大四种尺寸，通过`size`属性设置。
 
 ``` html
 <u-linear-layout gap="small">
+    <u-label size="small">Small</u-label>
+    <u-label size="small" color="primary" removable>Small</u-label>
     <u-label>Normal</u-label>
+    <u-label color="primary" removable>Normal</u-label>
     <u-label size="large">Large</u-label>
     <u-label size="large" color="primary" removable>Large</u-label>
     <u-label size="huge">Huge</u-label>
@@ -73,7 +86,7 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | color | enum | `'default'`, `'primary'`, `'success'`, `'warning'`, `'error'` | `'default'` | 设置颜色。 |
-| size | enum | `'normal'`, `'large'`, `'huge'` | `'normal'` | 设置尺寸。 |
+| size | enum | `'small'`, `'normal'`, `'large'`, `'huge'` | `'normal'` | 设置尺寸。 |
 | removable | boolean |  | `false` | 是否可删除。开启时可以通过删除按钮触发`remove`事件，需要自己实现删除逻辑。 |
 | display | enum | `'inline'`, `'block'` | `'inline'` | 展示方式。`'inline'`表示行内展示, `'block'`表示块级展示，宽度会充满父元素。 |
 
@@ -109,3 +122,4 @@
 | ----- | ---- | ----------- |
 | $event | null | 无参数 |
 | senderVM | ULabel | 发送事件实例 |
+

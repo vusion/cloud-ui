@@ -2,6 +2,14 @@
 
 # FDroppable 放置
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+    - [Methods](#methods)
+
 ## 示例
 ### 基本用法
 
@@ -173,7 +181,7 @@ export default {
 | $event.preventDefault | Function | 阻止拖拽流程 |
 | senderVM | FDroppable | 发送事件实例 |
 
-### Methods
+Methods
 
 #### cancel()
 
@@ -181,3 +189,4 @@ export default {
 
 | Param | Type | Default | Description |
 | ----- | ---- | ------- | ----------- |
+

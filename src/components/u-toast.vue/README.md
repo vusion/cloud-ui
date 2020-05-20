@@ -2,6 +2,18 @@
 
 # UToast 吐司提示
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [快捷方式](#快捷方式)
+    - [位置扩展](#位置扩展)
+    - [嵌入文档流](#嵌入文档流)
+    - [可关闭](#可关闭)
+    - [提示停留时间](#提示停留时间)
+    - [始终显示一条](#始终显示一条)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Events](#events)
+
 ## 示例
 ### 基本用法
 
@@ -169,3 +181,4 @@ export default {
 | $event.color | string | 提示的颜色 |
 | $event.duration | number | 提示停留的时间 |
 | senderVM | UToast | 发送事件实例 |
+

@@ -2,6 +2,12 @@
 
 # Loading 加载中
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [大小扩展](#大小扩展)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+
 ## 示例
 ### 基本用法
 ```html
@@ -24,3 +30,4 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | size | string |  | `'normal'` | 图标的大小。可选值：`'small'`, `'normal'`, `'large'` |
+

@@ -3,7 +3,8 @@
 除了`<a>`标签的`href`和`target`基础属性，增加了类似`<router-link>`的`to`、`replace`和`append`属性等。
 
 ``` html
-<u-link href="https://vusion.github.io" target="_blank">普通链接</u-link>&nbsp;<u-link to="/cloud-ui/u-button">路由链接</u-link>
+<u-link href="https://vusion.github.io" target="_blank">普通链接</u-link>&nbsp;
+<u-link to="/components/u-button">路由链接</u-link>
 ```
 
 ### 设置颜色
@@ -19,7 +20,7 @@
 </u-link>&nbsp;
 <u-link color="success">成功链接</u-link>&nbsp;
 <u-link color="warning">警告链接</u-link>&nbsp;
-<u-link color="error">错误链接</u-link>&nbsp;
+<u-link color="danger">危险链接</u-link>&nbsp;
 ```
 
 ### 禁用状态

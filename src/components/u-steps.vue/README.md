@@ -2,6 +2,22 @@
 
 # USteps 步骤条
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [自定义标题](#自定义标题)
+    - [宽度自适应](#宽度自适应)
+    - [可选择](#可选择)
+    - [工具提示](#工具提示)
+    - [图形大小](#图形大小)
+    - [禁用](#禁用)
+- [USteps API](#usteps-api)
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+- [UStep API](#ustep-api)
+    - [Props/Attrs](#propsattrs-2)
+    - [Slots](#slots-2)
+
 **块级展示**
 
 ## 示例
@@ -153,3 +169,4 @@
 #### title
 
 自定义标题文本。
+

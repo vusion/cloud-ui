@@ -2,6 +2,16 @@
 
 # UAvatar 头像
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [大小扩展](#大小扩展)
+    - [自定义图片](#自定义图片)
+    - [配合 UBadge 使用](#配合-ubadge-使用)
+    - [配合 UNavbar 使用](#配合-unavbar-使用)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+
 **行内展示**
 
 顶部导航栏或页面中局部使用的用户头像。
@@ -43,14 +53,6 @@
 
 ```html
 <u-badge :value="3" corner dot>
-    <u-avatar></u-avatar>
-</u-badge>
-<br/><br/>
-<u-badge :value="3" corner dot>
-    <u-avatar></u-avatar>
-</u-badge>
-<br/><br/>
-<u-badge :value="120" :max="99" corner>
     <u-avatar></u-avatar>
 </u-badge>
 <br/><br/>
@@ -126,3 +128,4 @@
 #### (default)
 
 添加自定义图片或内容。
+

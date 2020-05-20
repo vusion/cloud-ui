@@ -2,6 +2,11 @@
 
 # EWatermark 水印
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+
 ## 示例
 ### 基本用法
 
@@ -17,3 +22,4 @@
 | text | string |  | `''` | 水印文本 |
 | image | CanvasImageSource |  |  | 水印图案。如果没有，则默认按文本绘制 |
 | opacity | number |  | `0.1` | 透明度 |
+

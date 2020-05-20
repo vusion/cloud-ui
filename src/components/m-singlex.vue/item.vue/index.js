@@ -15,6 +15,7 @@ export const MSinglexItem = {
         disabled: { type: Boolean, default: false },
         item: Object,
         exact: { type: Boolean, default: false },
+        exactHash: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -38,7 +39,9 @@ export const MSinglexItem = {
             const targetPath = (target.redirectedFrom ? this.$router.resolve(target.redirectedFrom).location.path : target.path).replace(trailingSlashRE, '/');
             // @TODO: 是否要检查 query 的包含关系
 
-            return this.exact ? currentPath === targetPath : currentPath.startsWith(targetPath);
+            const exact = this.exact ? currentPath === targetPath : currentPath.startsWith(targetPath);
+            const exactHash = this.exactHash ? current.hash === target.hash : current.hash.startsWith(target.hash);
+            return exact && exactHash;
         },
     },
     methods: {

@@ -2,6 +2,21 @@
 
 # USubnav 子导航
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [只读、禁用、禁用某一项](#只读-禁用-禁用某一项)
+    - [分隔符](#分隔符)
+- [USubnav API](#usubnav-api)
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+- [USubnavItem API](#usubnavitem-api)
+    - [Props/Attrs](#propsattrs-2)
+    - [Slots](#slots-2)
+    - [Events](#events-2)
+- [USubnavDivider API](#usubnavdivider-api)
+
+
 ## 示例
 ### 基本用法
 
@@ -70,7 +85,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| router | boolean |  | `true` | 是否根据vue-router来控制选择哪一项 |
+| router | boolean |  | `true` | 是否根据 vue-router 来控制选择哪一项 |
 | value.sync, v-model | any |  |  | 当前选择的值 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |

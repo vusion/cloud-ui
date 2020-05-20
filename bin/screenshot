@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const vusion = require('vusion-api');
+
+const config = require('../vusion.config.js');
+const components = config.docs.components.filter((component) => !component.href && !component.path && !component.deprecated);
+
+components.forEach((component) => {
+    const hasBlocks = fs.existsSync(`src/components/${component.name}.vue/docs/blocks.md`);
+    vusion.cli.execSync(`rm -rf src/components/${component.name}.vue/screenshots`);
+    const command = `vusion screenshot public/index.html#/components/${component.name}/${hasBlocks ? 'blocks' : 'examples'} --code-example --smart-crop -o src/components/${component.name}.vue/screenshots/0.png`;
+    console.info('  Screenshoting... ' + component.name + '.vue');
+    console.log(command);
+    vusion.cli.execSync(command);
+});

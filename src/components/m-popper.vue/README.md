@@ -2,6 +2,18 @@
 
 # MPopper 弹出层
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [触发方式](#触发方式)
+    - [弹出方位](#弹出方位)
+    - [跟随鼠标](#跟随鼠标)
+    - [禁用](#禁用)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+    - [Methods](#methods)
+
 ## 示例
 ### 基本用法
 
@@ -357,7 +369,7 @@ export default {
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 
-### Methods
+Methods
 
 #### open()
 
@@ -394,3 +406,4 @@ export default {
 
 | Param | Type | Default | Description |
 | ----- | ---- | ------- | ----------- |
+

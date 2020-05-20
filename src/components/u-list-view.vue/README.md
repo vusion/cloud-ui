@@ -2,6 +2,26 @@
 
 # UListView 列表视图
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [只读状态、禁用状态、禁用某一项](#只读状态-禁用状态-禁用某一项)
+    - [可取消](#可取消)
+    - [多项选择](#多项选择)
+    - [添加头部](#添加头部)
+    - [添加尾部](#添加尾部)
+    - [自定义内容](#自定义内容)
+    - [表单验证](#表单验证)
+    - [修改尺寸](#修改尺寸)
+    - [过滤（搜索）](#过滤搜索)
+    - [后端过滤（搜索）](#后端过滤搜索)
+    - [前端分页与加载更多](#前端分页与加载更多)
+    - [后端分页与加载更多](#后端分页与加载更多)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+    - [Methods](#methods)
+
 用于列举大量数据的列表框，支持单选、多选、过滤（搜索）、分页等功能。
 
 ## 示例
@@ -99,7 +119,7 @@ export default {
 
 #### data-source 函数
 
-向`data-source`属性中传入一个加载函数，这种方式会自带 loading 加载、error 错误等效果，并且在下文中后端分页、过滤（搜索）等功能均需要采用这种传入数据的方式。
+向`data-source`属性中传入一个加载函数，这种方式会自带 loading 加载、error 错误等效果，并且在下文中的前后端分页、过滤（搜索）等功能均需要采用这种传入数据的方式。
 
 加载函数的格式是这样的
 
@@ -823,7 +843,7 @@ export default {
 
 #### 前端过滤（搜索）
 
-如果数据本身为前端数据或是从后端一次性拿过来的，设置`filterable`属性即可开启过滤功能。用于快速查找选项。
+如果数据源本身为前端数据或是从后端一次性拿过来的，设置`filterable`属性即可开启过滤功能。用于快速查找选项。
 
 ``` vue
 <template>
@@ -1179,11 +1199,11 @@ export default {
 </style>
 ```
 
-### 分页
+### 前端分页与加载更多
 
 #### 前端分页
 
-如果数据本身为前端数据或是从后端一次性拿过来的，设置`pageable`或`pageable="pagination"`即可开启分页功能，用`page-size`属性修改分页大小。
+如果数据源本身为前端数据或是从后端一次性拿过来的，设置`pageable`或`pageable="pagination"`即可开启分页功能，用`page-size`属性修改分页大小。
 
 ``` vue
 <template>
@@ -1239,7 +1259,6 @@ export default {
             list.push('item' + i);
         list = list.map((text) => ({ text, value: text }));
 
-
         return {
             value: undefined,
             values: [],
@@ -1292,17 +1311,19 @@ export default {
 <script>
 // 模拟后端请求
 const mockRequest = (data, timeout = 300) => new Promise((res, rej) => setTimeout(() => res(data), timeout));
-// 模拟构造数量较多的 500 条远程数据
-let mockData = [];
-const total = 500;
-for (let i = 1; i <= total; i++)
-    mockData.push('item' + i);
-mockData = mockData.map((text) => ({ text, value: text }));
+// 模拟构造数量较多的 500 条后端数据
+const mockData = (() => {
+    let mockData = [];
+    const total = 500;
+    for (let i = 1; i <= total; i++)
+        mockData.push('item' + i);
+    return mockData.map((text) => ({ text, value: text }));
+})();
 // 模拟数据服务
 const mockService = {
     loadWithTotal(offset, limit) {
         return mockRequest({
-            total,
+            total: mockData.length,
             data: mockData.slice(offset, offset + limit),
         });
     },
@@ -1482,7 +1503,7 @@ export default {
 | $event |  | 空 |
 | senderVM | UTableView | 发送事件实例 |
 
-### Methods
+Methods
 
 #### load()
 
@@ -1497,3 +1518,4 @@ export default {
 
 | Param | Type | Default | Description |
 | ----- | ---- | ------- | ----------- |
+

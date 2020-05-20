@@ -2,6 +2,16 @@
 
 # UIconTooltip 图标提示
 
+- [示例](#示例)
+    - [基本用法](#基本用法)
+    - [切换类型](#切换类型)
+    - [弹出位置](#弹出位置)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
+    - [Methods](#methods)
+
 **弹出层**, **行内展示**
 
 图标与`<u-tooltip>`的组合。
@@ -119,7 +129,7 @@
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 
-### Methods
+Methods
 
 #### open()
 
@@ -134,3 +144,4 @@
 
 | Param | Type | Default | Description |
 | ----- | ---- | ------- | ----------- |
+

@@ -2,6 +2,15 @@
 
 # UCheckbox 多选框
 
+- [示例](#示例)
+    - [Basic](#basic)
+    - [v-model](#v-model)
+    - [Disabled](#disabled)
+    - [Indeterminate](#indeterminate)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Events](#events)
+
 ## 示例
 ### Basic
 
@@ -68,3 +77,4 @@ Emit when change value.
 | ----- | ---- | ----------- |
 | undefined | boolean, null | New value |
 | undefined | boolean, null | Old value |
+

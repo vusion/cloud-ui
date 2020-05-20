@@ -2,6 +2,31 @@
 
 # UValidator 验证器
 
+- [基础示例](#基础示例)
+    - [简写格式](#简写格式)
+    - [完整格式](#完整格式)
+    - [混合编写](#混合编写)
+    - [动态验证](#动态验证)
+    - [注册验证规则](#注册验证规则)
+    - [复合验证规则](#复合验证规则)
+    - [单行嵌套](#单行嵌套)
+    - [复杂案例](#复杂案例)
+    - [过长提示](#过长提示)
+- [内置规则](#内置规则)
+    - [空值判断](#空值判断)
+    - [范围判断](#范围判断)
+    - [自定义](#自定义)
+    - [相等或包含判断](#相等或包含判断)
+    - [类型判断](#类型判断)
+    - [字母、数字、中划线、下划线判断](#字母-数字-中划线-下划线判断)
+    - [特定场景判断](#特定场景判断)
+- [API]()
+    - [Props/Attrs](#propsattrs)
+    - [Computed](#computed)
+    - [Slots](#slots)
+    - [Events](#events)
+    - [Methods](#methods)
+
 **表单验证器**, **行内展示**
 
 实现了基础的嵌套验证功能和原子化验证功能，包含提示样式。常用于嵌套验证时使用，或用于派生一些较复杂的组件。
@@ -15,7 +40,7 @@
 
 在一个大的项目中，相同场景的验证规则（包括触发方式和错误提示等）通常会被多次使用。如果将这些规则通过注册好的名称调用，就能减少很多重复的代码。
 
-组件库中已经内置了一些[常见的验证规则](./rules)，也可以自己在项目中注册规则（见下文）。
+组件库中已经内置了一些[常见的验证规则](#/components/u-validator/rules)，也可以自己在项目中注册规则（见下文）。
 
 利用这些已有的规则，能够在`rules`属性上拼接成字符串快速使用。
 
@@ -452,7 +477,7 @@ export default {
 
 ### 复杂案例
 
-下面这些组件已经集成了 UValidator 的嵌套验证功能，可以去相应文档进行查阅[UFormTableView](../u-form-table-view)、[UDynamicCards](../u-dynamic-cards)。
+下面这些组件已经集成了 UValidator 的嵌套验证功能，可以去相应文档进行查阅[UFormTableView](#components/u-form-table-view)、[UDynamicCards](#components/u-dynamic-cards)。
 
 ## 其它
 
@@ -1605,7 +1630,7 @@ export default {
 | $event.firstError | string | 第一个错误提示消息 |
 | senderVM | UValidator | 发送事件实例 |
 
-### Methods
+Methods
 
 #### validate(trigger, muted)
 
@@ -1615,3 +1640,4 @@ export default {
 | ----- | ---- | ------- | ----------- |
 | trigger | string | `'submit'` | 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。 |
 | muted | boolean | `false` | 是否验证后无提示 |
+

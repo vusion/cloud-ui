@@ -24,6 +24,10 @@
     color: var(--link-color-error);
 }
 
+.root[color="danger"] {
+    color: var(--link-color-danger);
+}
+
 .root[color="light"] {
     color: var(--link-color-light);
 }

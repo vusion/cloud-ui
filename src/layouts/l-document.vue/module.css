@@ -20,7 +20,7 @@
 }
 
 .main {
-    margin-top: var(--navbar-height);
+    padding-top: var(--navbar-height);
     margin-left: var(--sidebar-width);
     max-width: 1010px;
 }

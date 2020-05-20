@@ -485,13 +485,14 @@
   "u-copy": {
     "attributes": [
       "value",
-      "placement",
+      "text",
       "success-text",
-      "disabled",
+      "feedback",
+      "placement",
       "hide-delay",
-      "modal-type"
+      "disabled"
     ],
-    "description": "提供复制文本到浏览器剪切板功能"
+    "description": "复制文本到剪切板。"
   },
   "u-count-up": {
     "attributes": [
@@ -650,7 +651,7 @@
       "striped",
       "hover"
     ],
-    "description": "在表单中使用的表格，本组件主要实现基本样式，方便在特殊场景下扩展。如果需要快速使用动态数据、表单验证等功能，请使用 [UFormTableView](../u-form-table-view)。"
+    "description": "在表单中使用的表格，本组件主要实现基本样式，方便在特殊场景下扩展。如果需要快速使用动态数据、表单验证等功能，请使用 [UFormTableView](#components/u-form-table-view)。"
   },
   "u-form": {
     "attributes": [
@@ -883,7 +884,7 @@
       "striped",
       "hover"
     ],
-    "description": "对列表样式做了简单的修饰。如果需要选择、分页等更多的功能，请使用 [UListView](../u-list-view)。",
+    "description": "对列表样式做了简单的修饰。如果需要选择、分页等更多的功能，请使用 [UListView](#components/u-list-view)。",
     "subtags": [
       "u-list-item"
     ]
@@ -1141,6 +1142,8 @@
     "attributes": [
       "value",
       "field",
+      "text-field",
+      "value-field",
       "data",
       "data-source",
       "cancelable",
@@ -1409,6 +1412,7 @@
       "resizable",
       "resize-remaining"
     ],
+    "description": "用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。",
     "defaults": [
       "v-model"
     ],
@@ -1492,7 +1496,7 @@
       "color",
       "size",
       "display",
-      "wrap"
+      "overflow"
     ],
     "description": "用于在业务中快速调整文本尺寸、颜色等特性。"
   },
@@ -1536,6 +1540,33 @@
       "text",
       "color",
       "closable"
+    ]
+  },
+  "u-toc": {
+    "attributes": [
+      "router",
+      "value"
+    ],
+    "description": "用于展示文档的目录，支持路由监听、多级目录等功能。",
+    "defaults": [
+      "v-model"
+    ],
+    "subtags": [
+      "u-toc-item"
+    ]
+  },
+  "u-toc-item": {
+    "attributes": [
+      "label",
+      "value",
+      "disabled",
+      "item",
+      "href",
+      "target",
+      "to",
+      "replace",
+      "exact",
+      "exact"
     ]
   },
   "u-tooltip": {

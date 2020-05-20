@@ -74,12 +74,20 @@
 }
 
 .root[line="both"] th, .root[line="both"] td {
-    border-left: 1px solid var(--table-border-color);
-    border-right: 1px solid var(--table-border-color);
+    border: 1px solid var(--table-border-color);
 }
 
-/* .root[striped] tbody tr:nth-of-type(even) {
-    background: var(--background-color-light);
+.root[line="both"] th, .root[line="both"] thead tr {
+    border-bottom: none;
+}
+
+/* 下一个大版本放开 */
+/* .root[striped] thead tr {
+    border-top: 1px solid var(--table-border-color);
+}
+
+.root[striped] tbody tr:nth-of-type(even) {
+    background: var(--table-row-background-striped);
 } */
 
 .root tbody > tr[color="light"] {

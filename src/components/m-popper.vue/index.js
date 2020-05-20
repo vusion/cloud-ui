@@ -47,6 +47,7 @@ export const MPopper = {
             // popper: undefined,
             // 在出现滚动条的时候 需要特殊处理下
             offEvents: [],
+            destroyTimer: null,
         };
     },
     computed: {
@@ -84,11 +85,12 @@ export const MPopper = {
         },
         currentOpened(currentOpened) {
             // 不直接用样式的显隐，而是用 popper 的 create 和 destroy，是因为 popper 有可能是从不同的地方触发的，reference 对象会变
+            this.destroyTimer = clearTimeout(this.destroyTimer);
             if (currentOpened) {
                 this.createPopper();
                 this.$emit('open', undefined, this);
             } else {
-                this.destroyPopper();
+                this.delayDestroyPopper();
                 this.$emit('close', undefined, this);
             }
         },
@@ -98,6 +100,7 @@ export const MPopper = {
             * 解决方法：暂时在 popper.js 文档中未找到理想的解决方案，采取先删除 popper，再新创建 popper 的方法修复位置问题，
             * 后面需要研究下 popper.js 的源码
             */
+            this.destroyTimer = clearTimeout(this.destroyTimer);
             this.destroyPopper();
             this.referenceEl = this.getReferenceEl();
             this.createPopper();
@@ -112,6 +115,7 @@ export const MPopper = {
         this.currentOpened && this.createPopper();
     },
     beforeDestroy() {
+        this.destroyTimer = clearTimeout(this.destroyTimer);
         this.destroyPopper();
         // 取消绑定事件
         this.offEvents.forEach((off) => off());
@@ -288,6 +292,12 @@ export const MPopper = {
             this.popper && this.popper.destroy();
             this.popper = undefined;
         },
+        /**
+         * 添加延时 DOM 销毁操作，保障动画效果
+         */
+        delayDestroyPopper() {
+            this.destroyTimer = setTimeout(() => this.destroyPopper(), this.hideDelay);
+        },
         updatePositionByCursor(e, el) {
             // @TODO: 两种 offset 属性有些冗余
             if (e.target !== el || !this.popper)
@@ -373,8 +383,8 @@ export const MPopper = {
             // @deprecated end
         },
         clearTimers() {
-            this.timers.forEach((timer) => {
-                clearTimeout(timer);
+            this.timers.forEach((timer, index) => {
+                this.timers[index] = clearTimeout(timer);
             });
         },
     },

@@ -2,6 +2,19 @@
 
 # MParent 父子模式
 
+- [概述](#undefined)
+    - [用法](#用法)
+- [示例](#示例)
+    - [基本用法](#基本用法)
+- [MParent API](#mparent-api)
+    - [Options](#options)
+    - [Data](#data)
+    - [Slots](#slots)
+- [MChild API](#mchild-api)
+    - [Options](#options-2)
+    - [Data](#data-2)
+    - [Slots](#slots-2)
+
 本对 Mixin：MParent 和 MChild，对常见的类似`<u-tabs>`和`<u-tab>`一对嵌套父子组件的场景进行了抽象，用于快速开发和代码借鉴。
 
 ### 用法
@@ -59,3 +72,4 @@
 #### (default)
 
 插入文本或 HTML。
+

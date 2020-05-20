@@ -4,7 +4,7 @@
     - name: router
       type: boolean
       default: true
-      description: 是否根据vue-router来控制选择哪一项
+      description: 是否根据 vue-router 来控制选择哪一项
     - name: value.sync, v-model
       type: any
       default: null
