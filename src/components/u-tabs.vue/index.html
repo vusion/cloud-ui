@@ -11,7 +11,7 @@
                         :selected="router ? itemVM.active : itemVM === selectedVM"
                         :disabled="itemVM.disabled || disabled"
                         v-show="!itemVM.hidden"
-                        @click="select(itemVM)">
+                        @click="onClick(itemVM, $event)">
                         <span :class="$style.title"><f-slot :vm="itemVM" name="title">{{ itemVM.title }}</f-slot></span>
                         <span v-if="closable" :class="$style.close" @click.stop="close(itemVM)"></span>
                     </a>
