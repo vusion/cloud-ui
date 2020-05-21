@@ -5,7 +5,6 @@
 }
 
 .root::before {
-    vertical-align: -2px;
     icon-font: url('./assets/info.svg');
 }
 

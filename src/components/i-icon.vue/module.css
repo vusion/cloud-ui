@@ -142,16 +142,15 @@
 
 .root[size="small"]::before {
     font-size: 14px;
-    vertical-align: -2px;
 }
 
 .root::before {
     font-size: 24px;
-    vertical-align: -7px;
+    vertical-align: -5px;
     margin-right: 6px;
 }
 
 .root[size="large"]::before {
     font-size: 32px;
-    vertical-align: -12px;
+    vertical-align: -10px;
 }

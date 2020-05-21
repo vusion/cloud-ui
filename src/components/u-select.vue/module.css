@@ -130,7 +130,6 @@
 
 .tag-remove::before {
     icon-font: url('../i-icon.vue/assets/close.svg');
-    vertical-align: -2px;
 }
 
 .tag-remove:hover {

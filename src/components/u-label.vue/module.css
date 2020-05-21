@@ -22,7 +22,6 @@
 }
 
 .remove::before {
-    vertical-align: -2px;
     icon-font: url('../i-icon.vue/assets/close.svg');
 }
 

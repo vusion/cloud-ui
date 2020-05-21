@@ -9,5 +9,4 @@
 
 .root::before {
     icon-font: url('./assets/refresh.svg');
-    vertical-align: -2px;
 }
