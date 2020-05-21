@@ -1428,8 +1428,11 @@
     "description": "是否禁用"
   },
   "u-info-list/repeat": {
-    "type": "string,number",
-    "description": "划分的列数"
+    "type": [
+      "string",
+      "number"
+    ],
+    "description": "整个详情列表的划分列数"
   },
   "u-info-list/label-size": {
     "type": "string",
@@ -1454,6 +1457,13 @@
   "u-info-list-group/title": {
     "type": "string",
     "description": "标题"
+  },
+  "u-info-list-group/repeat": {
+    "type": [
+      "string",
+      "number"
+    ],
+    "description": "当前组范围内的划分列数"
   },
   "u-info-list-group/label-size": {
     "type": "string",
@@ -2137,6 +2147,30 @@
   "u-pagination/disabled": {
     "type": "boolean",
     "description": "是否禁用"
+  },
+  "u-pagination/total-items": {
+    "type": "number",
+    "description": "总条数"
+  },
+  "u-pagination/page-size": {
+    "type": "number",
+    "description": "每页条数"
+  },
+  "u-pagination/page-size-options": {
+    "type": "Array",
+    "description": "每页条数选项列表"
+  },
+  "u-pagination/show-total": {
+    "type": "boolean",
+    "description": "是否显示总条目数"
+  },
+  "u-pagination/show-sizer": {
+    "type": "boolean",
+    "description": "是否显示切换每页条数选项"
+  },
+  "u-pagination/show-jumper": {
+    "type": "boolean",
+    "description": "是否显示页面跳转输入框"
   },
   "u-pills/data": {
     "type": "Array<{ text, value }>",

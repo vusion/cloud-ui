@@ -23,12 +23,30 @@ export const UTabs = {
             });
         },
     },
-    created() {
-        this.$on('select', ($event) => {
-            this.router && $event.itemVM.navigate();
-        });
-    },
     methods: {
+        onClick(itemVM, e) {
+            this.select(itemVM); // 为了兼容
+            if (this.router) {
+                if (itemVM.disabled)
+                    return e.preventDefault();
+
+                itemVM.$emit('click', e, itemVM);
+
+                if (itemVM.target !== '_self')
+                    return;
+
+                // 使用`to`的时候走`$router`，否则走原生
+                if (itemVM.href === undefined) {
+                    // 使用浏览器的一些快捷键时，走原生
+                    // @TODO: 考虑使用快捷键抛出事件，阻止流程的需求
+                    if (e.ctrlKey || e.shiftKey || e.metaKey || e.altKey)
+                        return;
+
+                    e.preventDefault();
+                    itemVM.navigate();
+                }
+            }
+        },
         close(itemVM) {
             if (this.readonly || this.disabled || itemVM.disabled)
                 return;

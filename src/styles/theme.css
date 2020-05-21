@@ -316,7 +316,7 @@
     --collapse-expander-color-disabled: var(--brand-disabled);
     --collapse-border: 1px solid var(--border-color-base);
     --collapse-expander-font-size: 18px;
-    --collapse-item-body-padding: 16px;
+    --collapse-item-content-padding: 16px;
     --collapse-transition-duration: 0.2s;
 
     /* Navbar */

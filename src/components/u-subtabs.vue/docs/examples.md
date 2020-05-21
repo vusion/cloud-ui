@@ -65,9 +65,9 @@
 
 ``` html
 <u-subtabs router>
-    <u-subtab title="Button" to="u-button"></u-subtab>
-    <u-subtab title="Checkbox" to="u-checkbox"></u-subtab>
-    <u-subtab title="Tabs" to="u-subtabs"></u-subtab>
+    <u-subtab title="Button" to="/components/u-button"></u-subtab>
+    <u-subtab title="Checkbox" to="/components/u-checkbox"></u-subtab>
+    <u-subtab title="Tabs" to="/components/u-subtabs"></u-subtab>
 </u-subtabs>
 ```
 
