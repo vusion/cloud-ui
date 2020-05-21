@@ -730,14 +730,6 @@
     "type": "number",
     "description": "百分比"
   },
-  "u-circular-specific-progress/percent": {
-    "type": "number",
-    "description": "百分比"
-  },
-  "u-circular-specific-progress/rule": {
-    "type": "object",
-    "description": "自定义显示规则，当大于`rule.value`时，颜色由值的`rule.color`属性来决定"
-  },
   "u-collapse/accordion": {
     "type": "boolean",
     "description": "是否每次只会展开一个面板"
@@ -761,50 +753,6 @@
   "u-collapse-item/disabled": {
     "type": "boolean",
     "description": "是否禁用。禁用时无法展开/折叠"
-  },
-  "u-combo-pagination/page": {
-    "type": "number",
-    "description": "当前页码"
-  },
-  "u-combo-pagination/page-size": {
-    "type": "number",
-    "description": "每页大小"
-  },
-  "u-combo-pagination/page-size-options": {
-    "type": "Array",
-    "description": "每页大小选项列表"
-  },
-  "u-combo-pagination/total": {
-    "type": "number",
-    "description": "总页数"
-  },
-  "u-combo-pagination/side": {
-    "type": "number",
-    "description": "当页数多时，两边恒定显示的数量"
-  },
-  "u-combo-pagination/around": {
-    "type": "number",
-    "description": "当页数多时，中间恒定显示的数量"
-  },
-  "u-combo-pagination/readonly": {
-    "type": "boolean",
-    "description": "是否只读"
-  },
-  "u-combo-pagination/disabled": {
-    "type": "boolean",
-    "description": "是否禁用"
-  },
-  "u-combo-pagination/show-total": {
-    "type": "boolean",
-    "description": "是否显示总条目数"
-  },
-  "u-combo-pagination/show-sizer": {
-    "type": "boolean",
-    "description": "是否显示切换每页大小选项"
-  },
-  "u-combo-pagination/show-jumper": {
-    "type": "boolean",
-    "description": "是否显示页面跳转输入框"
   },
   "u-combo-slider/value": {
     "type": "number",
@@ -1525,26 +1473,6 @@
     "type": "string",
     "description": "\b\b输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效"
   },
-  "u-key-value/vertical": {
-    "type": "string",
-    "description": "label与value对齐方式`'top'`,`'middle'`,`'bottom'`"
-  },
-  "u-key-value/label": {
-    "type": "string",
-    "description": "label显示值"
-  },
-  "u-key-value/value": {
-    "type": "string",
-    "description": "value显示值"
-  },
-  "u-key-value/labelSize": {
-    "type": "number",
-    "description": "设置label宽度，不填label为自适应"
-  },
-  "u-key-value/labelAlignment": {
-    "type": "string",
-    "description": "label文字水平对齐方式`'left'`,`'center'`,注意此值仅在设置labelSize后生效"
-  },
   "u-label/color": {
     "type": "enum",
     "options": [
@@ -2072,58 +2000,6 @@
     "type": "string",
     "description": "大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式"
   },
-  "u-old-suggest/value": {
-    "type": "any",
-    "description": "当前选择的值"
-  },
-  "u-old-suggest/field": {
-    "type": "string",
-    "description": "显示文本字段"
-  },
-  "u-old-suggest/data": {
-    "type": "Array<{ text, value }>",
-    "description": "Data书写方式中的数据列表"
-  },
-  "u-old-suggest/data-source": {
-    "type": "DataSource, Function",
-    "description": "多功能数据源"
-  },
-  "u-old-suggest/readonly": {
-    "type": "boolean",
-    "description": "是否只读"
-  },
-  "u-old-suggest/disabled": {
-    "type": "boolean",
-    "description": "是否禁用"
-  },
-  "u-old-suggest/match-method": {
-    "type": "string, Function",
-    "description": "匹配方式。可选值：`includes`表示包含即可，`startsWith`表示只匹配开头，`endsWith`表示只匹配结尾。也可以传一个方法"
-  },
-  "u-old-suggest/case-sensitive": {
-    "type": "boolean",
-    "description": "是否区分大小写，默认不区分大小写"
-  },
-  "u-old-suggest/strict": {
-    "type": "boolean",
-    "description": "是否为严格模式。当为严格模式时，`value`属性必须为一个选项的值，或者为空"
-  },
-  "u-old-suggest/size": {
-    "type": "string",
-    "description": "控制宽高属性，第一个值表示高度属性，第二值表示宽度，可选值: `mini`,`small`,`normal`,`medium`,`large`,`huge`,`full`,可以互相组合"
-  },
-  "u-old-suggest-item/value": {
-    "type": "any",
-    "description": "此项的值"
-  },
-  "u-old-suggest-item/disabled": {
-    "type": "boolean",
-    "description": "禁用此项"
-  },
-  "u-old-suggest-item/item": {
-    "type": "object",
-    "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
-  },
   "u-pagination/page": {
     "type": "number",
     "description": "当前页码"
@@ -2551,14 +2427,6 @@
   "u-slider/disabled": {
     "type": "boolean",
     "description": "是否禁用"
-  },
-  "u-status-icon/name": {
-    "type": "string",
-    "description": "对应图标的name，"
-  },
-  "u-status-icon/size": {
-    "type": "number, string",
-    "description": "图标对应的font-size值大小"
   },
   "u-steps/value": {
     "type": "number",

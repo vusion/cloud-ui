@@ -423,12 +423,6 @@
       "percent"
     ]
   },
-  "u-circular-specific-progress": {
-    "attributes": [
-      "percent",
-      "rule"
-    ]
-  },
   "u-collapse": {
     "attributes": [
       "accordion",
@@ -445,22 +439,6 @@
       "expanded",
       "disabled"
     ]
-  },
-  "u-combo-pagination": {
-    "attributes": [
-      "page",
-      "page-size",
-      "page-size-options",
-      "total",
-      "side",
-      "around",
-      "readonly",
-      "disabled",
-      "show-total",
-      "show-sizer",
-      "show-jumper"
-    ],
-    "description": "在 UPagination 的基础上，添加了显示总页数、切换每页大小、页面跳转等功能。"
   },
   "u-combo-slider": {
     "attributes": [
@@ -776,16 +754,6 @@
       "v-model"
     ]
   },
-  "u-key-value": {
-    "attributes": [
-      "vertical",
-      "label",
-      "value",
-      "labelSize",
-      "labelAlignment"
-    ],
-    "description": "最基本的键值对显示"
-  },
   "u-label": {
     "attributes": [
       "color",
@@ -1017,33 +985,6 @@
     ],
     "defaults": [
       "v-model"
-    ]
-  },
-  "u-old-suggest": {
-    "attributes": [
-      "value",
-      "field",
-      "data",
-      "data-source",
-      "readonly",
-      "disabled",
-      "match-method",
-      "case-sensitive",
-      "strict",
-      "size"
-    ],
-    "defaults": [
-      "v-model"
-    ],
-    "subtags": [
-      "u-old-suggest-item"
-    ]
-  },
-  "u-old-suggest-item": {
-    "attributes": [
-      "value",
-      "disabled",
-      "item"
     ]
   },
   "u-pagination": {
@@ -1285,12 +1226,6 @@
     "attributes": [],
     "description": "与文字大小相同，一般在行内直接使用。"
   },
-  "u-status-icon": {
-    "attributes": [
-      "name",
-      "size"
-    ]
-  },
   "u-steps": {
     "attributes": [
       "value",
@@ -1367,9 +1302,6 @@
       "replace",
       "exact"
     ]
-  },
-  "u-summary-card": {
-    "attributes": []
   },
   "u-switch": {
     "attributes": [
