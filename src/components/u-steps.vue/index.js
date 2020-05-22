@@ -24,7 +24,7 @@ export const USteps = {
         },
     },
     computed: {
-        itemWidth() {
+        currentItemWidth() {
             if (this.size === 'auto')
                 return (1 / this.itemVMs.length) * 100 + '%';
             else
