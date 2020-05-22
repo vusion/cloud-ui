@@ -11,6 +11,9 @@
       type: string
       default: click
       description: 展开/折叠的触发方式。可选值：`'click'`表示整行点击均可触发、`'click-expander'`表示仅点击小箭头时触发
+    - name: appear
+      type: enum
+      options: [default, simple]
     - name: disabled
       type: boolean
       default: false

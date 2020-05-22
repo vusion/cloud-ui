@@ -7,6 +7,7 @@ export const UCollapse = {
     props: {
         accordion: { type: Boolean, default: false },
         expandTrigger: { type: String, default: 'click' },
+        appear: String,
         disabled: { type: Boolean, default: false },
     },
     data() {

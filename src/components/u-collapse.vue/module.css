@@ -1,3 +1,29 @@
 .root {
-    border: var(--collapse-border);
+    border: var(--collapse-border-width) solid var(--collapse-border-color);
+    border-radius: var(--collapse-border-radius);
+}
+
+.root[appear="simple"] {
+    border: none;
+    border-top: var(--collapse-border-width) solid var(--collapse-border-color);
+    border-bottom: var(--collapse-border-width) solid var(--collapse-border-color);
+}
+
+.root[appear="simple"] .item_head {
+    background: transparent;
+    /* border-top: var(--collapse-border-width) solid var(--collapse-border-color); */
+}
+
+.root[appear="simple"] .item_body {
+    border-top: none;
+}
+
+.root[size="small"] .item_head {
+    padding: var(--collapse-item-head-padding-small);
+}
+
+.root[size="small"] .item_expander {
+    width: var(--collapse-item-expander-size-small);
+    height: var(--collapse-item-expander-size-small);
+    line-height: var(--collapse-item-expander-size-small);
 }

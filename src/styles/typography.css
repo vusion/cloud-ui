@@ -1,6 +1,7 @@
 @import './normalize.css';
 
 body {
+    background-color: var(--background-color-default);
     color: var(--color-base);
     font: 14px/1.6 var(--font-family-zh-CN);
     -webkit-font-smoothing: antialiased;

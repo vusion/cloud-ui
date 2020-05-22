@@ -2,39 +2,51 @@
     position: relative;
 }
 
+.root + .root {
+    border-top: var(--collapse-border-width) solid var(--collapse-border-color);
+}
+
 .head {
     user-select: none;
-    cursor: var(--cursor-pointer);
     padding: var(--collapse-item-head-padding);
     background: var(--collapse-item-head-background);
-    line-height: var(--collapse-expander-size);
     overflow: hidden;
-    transition: all var(--collapse-transition-duration) ease-in-out;
+}
+
+.head[expand-trigger="click"] {
+    cursor: var(--cursor-pointer);
 }
 
 .expander {
     position: absolute;
-    right: 12px;
-    top: 12px;
+    left: 0;
+    top: 0;
     z-index: 1;
-    width: var(--collapse-expander-size);
-    height: var(--collapse-expander-size);
-    line-height: var(--collapse-expander-size);
-    font-size: var(--collapse-expander-font-size);
+    width: var(--collapse-item-expander-size);
+    height: var(--collapse-item-expander-size);
+    line-height: var(--collapse-item-expander-size);
+    font-size: var(--collapse-item-expander-font-size);
+    color: var(--collapse-item-expander-color);
+    cursor: var(--cursor-pointer);
     text-align: center;
     transition: transform var(--collapse-transition-duration) ease-in-out;
 }
 
 .expander::before {
-    content: '▸';
+    icon-font: url('i-material-design.vue/assets/filled/keyboard_arrow_right.svg');
 }
 
 .expander[expanded] {
     transform: rotate(90deg);
 }
 
+.root[disabled] .head {
+    cursor: var(--cursor-not-allowed);
+    color: var(--collapse-item-head-color-disabled);
+}
+
 .root[disabled] .expander {
-    color: var(--collapse-expander-color-disabled);
+    color: var(--collapse-item-expander-color-disabled);
 }
 
 .extra {
@@ -42,6 +54,7 @@
 }
 
 .body {
+    border-top: var(--collapse-border-width) solid var(--collapse-border-color);
     transition: var(--collapse-transition-duration) height ease-in-out, var(--collapse-transition-duration) padding-top ease-in-out, var(--collapse-transition-duration) padding-bottom ease-in-out;
 }
 

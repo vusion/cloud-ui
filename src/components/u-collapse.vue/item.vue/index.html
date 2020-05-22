@@ -1,8 +1,8 @@
 <div :class="$style.root" :disabled="disabled">
-    <div :class="$style.head" @click="parentVM.expandTrigger === 'click' && toggle()">
-        <div :class="$style.title">
+    <div :class="$style.head" :expand-trigger="parentVM.expandTrigger" @click="parentVM.expandTrigger === 'click' && toggle()">
+        <span :class="$style.title">
             <slot name="title">{{ title }}</slot>
-        </div>
+        </span>
         <span :class="$style.expander"
             :expanded="currentExpanded"
             @click="parentVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"
