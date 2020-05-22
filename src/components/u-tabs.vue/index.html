@@ -1,4 +1,4 @@
-<div :class="$style.root" :disabled="disabled" :appear="appear">
+<div :class="$style.root" :disabled="disabled" :appear="appear" :size="size">
     <div :class="$style.head">
         <span :class="$style.extra"><slot name="extra"></slot></span>
         <nav :class="$style.nav" :scrollable="showScrollButtons === 'always' || (showScrollButtons === 'auto' && scrollable)">
@@ -11,6 +11,8 @@
                         :selected="router ? itemVM.active : itemVM === selectedVM"
                         :disabled="itemVM.disabled || disabled"
                         v-show="!itemVM.hidden"
+                        :style="{ width: currentItemWidth }"
+                        :width-fixed="!!currentItemWidth"
                         @click="onClick(itemVM, $event)">
                         <span :class="$style.title"><f-slot :vm="itemVM" name="title">{{ itemVM.title }}</f-slot></span>
                         <span v-if="closable" :class="$style.close" @click.stop="close(itemVM)"></span>

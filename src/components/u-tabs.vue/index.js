@@ -10,7 +10,9 @@ export const UTabs = {
         closable: { type: Boolean, default: false },
         router: { type: Boolean, default: false },
         showScrollButtons: { type: [String, Boolean], default: 'auto' },
-        appear: { type: String, default: 'text' },
+        appear: { type: String, default: 'square' },
+        size: { type: String, default: 'normal' },
+        itemWidth: { type: String, default: 'auto' },
     },
     data() {
         return {
@@ -22,6 +24,16 @@ export const UTabs = {
             this.$nextTick(() => {
                 this.scrollable = this.$refs.scrollView.scrollWidth > this.$refs.scrollView.clientWidth;
             });
+        },
+    },
+    computed: {
+        currentItemWidth() {
+            if (this.itemWidth === 'full')
+                return (1 / this.itemVMs.length) * 100 + '%';
+            else if (this.itemWidth === 'auto')
+                return undefined;
+            else
+                return this.itemWidth;
         },
     },
     methods: {

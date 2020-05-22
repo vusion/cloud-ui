@@ -33,6 +33,11 @@
       options: [square, round, card, line, text, capsule]
       default: tab
       description: 标签显示的外观
+    - name: size
+      type: enum
+      options: [normal, small, mini]
+      default: normal
+      description: 标签尺寸
   slots:
     - name: default
       description: 插入`<u-tab>`子组件。
