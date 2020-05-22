@@ -436,28 +436,36 @@
 
     /* Subnav */
     --subnav-item-padding-x: 20px;
-    --subnav-item-background-hover: #f6f7f9;
+    --subnav-item-background-hover: var(--background-color-lighter);
     --subnav-item-background-selected: white;
     --subnav-item-color: #666;
     --subnav-item-color-hover: var(--brand-primary);
     --subnav-item-color-selected: var(--brand-primary);
 
     /* Tabs */
-    --tabs-head-height: auto;
     --tabs-border-width: 1px;
-    --tabs-border-color: #e0e6ed;
+    --tabs-border-color: var(--border-color-light);
     --tabs-item-height: 36px;
+    --tabs-item-height-small: 30px;
+    --tabs-item-height-mini: 24px;
     --tabs-item-padding-x: 30px;
-    --tabs-item-background-hover: #f6f7f9;
+    --tabs-item-padding-x-small: 24px;
+    --tabs-item-padding-x-mini: 20px;
+    --tabs-item-background-hover: var(--background-color-lighter);
     --tabs-item-background-selected: white;
+    --tabs-item-background-selected-capsule: none;
     --tabs-item-background-disabled: white;
     --tabs-item-background-selected-disabled: white;
+    --tabs-item-color: inherit;
+    --tabs-item-color-hover: var(--brand-primary);
     --tabs-item-color-selected: var(--brand-primary);
+    --tabs-item-color-selected-capsule: var(--brand-primary);
     --tabs-item-color-disabled: var(--brand-disabled);
-    --tabs-item-border-color-selected: #e0e6ed;
+    --tabs-item-border-color-selected: var(--border-color-light);
+    --tabs-item-border-color-selected-capsule: var(--brand-primary);
 
     /* Subtabs */
-    --subtabs-border-color: #e0e6ed;
+    --subtabs-border-color: var(--border-color-light);
 
     /* Steps */
     --steps-item-width: 200px;
