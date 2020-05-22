@@ -10,6 +10,7 @@ export const UTabs = {
         closable: { type: Boolean, default: false },
         router: { type: Boolean, default: false },
         showScrollButtons: { type: [String, Boolean], default: 'auto' },
+        appear: { type: String, default: 'text' },
     },
     data() {
         return {

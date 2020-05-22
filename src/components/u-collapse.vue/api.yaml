@@ -1,7 +1,7 @@
 - name: u-collapse
   title: 折叠面板
-  description: 可以折叠/展开的内容区域。
   labels: [块级展示]
+  description: 可以折叠/展开的内容区域。
   attrs:
     - name: accordion
       type: boolean

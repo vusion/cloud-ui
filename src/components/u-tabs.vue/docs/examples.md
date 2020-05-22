@@ -18,14 +18,19 @@
 </u-tabs>
 ```
 
+### 形状
+
+``` html
+<u-tabs value="B" shape="round">
+    <u-tab title="模板" value="A">模板内容</u-tab>
+    <u-tab title="样式" value="B">样式内容</u-tab>
+    <u-tab title="逻辑" value="C">逻辑内容</u-tab>
+</u-tabs>
+```
+
 ### 只读和禁用
 
 ``` html
-<u-tabs readonly>
-    <u-tab title="模板">模板内容</u-tab>
-    <u-tab title="样式">样式内容</u-tab>
-    <u-tab title="逻辑">逻辑内容</u-tab>
-</u-tabs>
 <u-tabs disabled>
     <u-tab title="模板">模板内容</u-tab>
     <u-tab title="样式">样式内容</u-tab>

@@ -1,4 +1,4 @@
-<div :class="$style.root" :disabled="disabled">
+<div :class="$style.root" :disabled="disabled" :appear="appear">
     <div :class="$style.head">
         <span :class="$style.extra"><slot name="extra"></slot></span>
         <nav :class="$style.nav" :scrollable="showScrollButtons === 'always' || (showScrollButtons === 'auto' && scrollable)">
