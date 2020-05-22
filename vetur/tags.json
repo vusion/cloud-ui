@@ -1248,64 +1248,6 @@
       "disabled"
     ]
   },
-  "u-subnav": {
-    "attributes": [
-      "router",
-      "value",
-      "readonly",
-      "disabled",
-      "usage"
-    ],
-    "defaults": [
-      "v-model"
-    ],
-    "subtags": [
-      "u-subnav-item",
-      "u-subnav-divider"
-    ]
-  },
-  "u-subnav-item": {
-    "attributes": [
-      "value",
-      "disabled",
-      "item",
-      "href",
-      "target",
-      "to",
-      "replace",
-      "exact"
-    ]
-  },
-  "u-subnav-divider": {
-    "attributes": []
-  },
-  "u-subtabs": {
-    "attributes": [
-      "value",
-      "readonly",
-      "disabled",
-      "closable",
-      "router"
-    ],
-    "defaults": [
-      "v-model"
-    ],
-    "subtags": [
-      "u-subtab"
-    ]
-  },
-  "u-subtab": {
-    "attributes": [
-      "title",
-      "value",
-      "disabled",
-      "href",
-      "target",
-      "to",
-      "replace",
-      "exact"
-    ]
-  },
   "u-switch": {
     "attributes": [
       "value",
