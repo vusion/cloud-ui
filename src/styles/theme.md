@@ -1,8 +1,12 @@
 # 主题方案
 
+Cloud UI 推荐使用以下色彩和尺寸等方案作为设计和开发规范，以保证页面和组件之间的视觉一致。
+
 ## 色彩
 
 ### 主色
+
+Cloud UI 主要的品牌颜色是沉稳、专业的蓝色。
 
 <u-grid-layout>
     <u-grid-layout-row :repeat="3">
@@ -21,6 +25,8 @@
 </u-grid-layout>
 
 ### 辅助色
+
+除了主色外的场景色，需要在不同的场景中使用，如成功、警告和失败等。
 
 <u-grid-layout>
     <u-grid-layout-row :repeat="3">
@@ -94,6 +100,8 @@
 </u-grid-layout>
 
 ### 中性色
+
+中性色常用于背景、边框、文本和阴影等。通过运用不同的中性色，来表现层次结构。
 
 <u-grid-layout>
     <u-grid-layout-row :repeat="3">
