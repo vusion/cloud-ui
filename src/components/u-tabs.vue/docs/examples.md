@@ -1,14 +1,6 @@
 ### 基本用法
 
-``` html
-<u-tabs>
-    <u-tab title="模板">模板内容</u-tab>
-    <u-tab title="样式">样式内容</u-tab>
-    <u-tab title="逻辑">逻辑内容</u-tab>
-</u-tabs>
-```
-
-### Value
+#### 使用 value 控制
 
 ``` html
 <u-tabs value="B">
@@ -18,17 +10,69 @@
 </u-tabs>
 ```
 
-### 形状
+### 路由
 
 ``` html
-<u-tabs value="B" shape="round">
-    <u-tab title="模板" value="A">模板内容</u-tab>
-    <u-tab title="样式" value="B">样式内容</u-tab>
-    <u-tab title="逻辑" value="C">逻辑内容</u-tab>
+<u-tabs router>
+    <u-tab title="Button" to="/components/u-button"></u-tab>
+    <u-tab title="Input" to="/components/u-input"></u-tab>
+    <u-tab title="Tabs" to="/components/u-tabs"></u-tab>
 </u-tabs>
 ```
 
-### 只读和禁用
+### 外观
+
+#### 方形卡片（默认）
+
+``` html
+<u-tabs appear="square">
+    <u-tab title="模板">模板内容</u-tab>
+    <u-tab title="样式">样式内容</u-tab>
+    <u-tab title="逻辑">逻辑内容</u-tab>
+</u-tabs>
+```
+
+#### 圆形卡片（默认）
+
+``` html
+<u-tabs appear="round" size="small">
+    <u-tab title="模板">模板内容</u-tab>
+    <u-tab title="样式">样式内容</u-tab>
+    <u-tab title="逻辑">逻辑内容</u-tab>
+</u-tabs>
+```
+
+#### 线条导航
+
+``` html
+<u-tabs appear="line">
+    <u-tab title="模板">模板内容</u-tab>
+    <u-tab title="样式">样式内容</u-tab>
+    <u-tab title="逻辑">逻辑内容</u-tab>
+</u-tabs>
+```
+
+#### 胶囊导航
+
+``` html
+<u-tabs appear="capsule">
+    <u-tab title="模板">模板内容</u-tab>
+    <u-tab title="样式">样式内容</u-tab>
+    <u-tab title="逻辑">逻辑内容</u-tab>
+</u-tabs>
+```
+
+#### 文本形态
+
+``` html
+<u-tabs appear="text" size="mini">
+    <u-tab title="模板">模板内容</u-tab>
+    <u-tab title="样式">样式内容</u-tab>
+    <u-tab title="逻辑">逻辑内容</u-tab>
+</u-tabs>
+```
+
+### 禁用状态
 
 ``` html
 <u-tabs disabled>
@@ -80,16 +124,6 @@ export default {
     },
 };
 </script>
-```
-
-### 路由
-
-``` html
-<u-tabs router>
-    <u-tab title="Button" to="/components/u-button"></u-tab>
-    <u-tab title="Input" to="/components/u-input"></u-tab>
-    <u-tab title="Tabs" to="/components/u-tabs"></u-tab>
-</u-tabs>
 ```
 
 ### 插槽扩展

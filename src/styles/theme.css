@@ -445,17 +445,19 @@
     /* Tabs */
     --tabs-border-width: 1px;
     --tabs-border-color: var(--border-color-light);
+    --tabs-head-background: none;
     --tabs-item-height: 36px;
     --tabs-item-height-small: 30px;
     --tabs-item-height-mini: 24px;
     --tabs-item-padding-x: 30px;
     --tabs-item-padding-x-small: 24px;
     --tabs-item-padding-x-mini: 20px;
+    --tabs-item-line-width: 2px;
     --tabs-item-background-hover: var(--background-color-lighter);
-    --tabs-item-background-selected: white;
+    --tabs-item-background-selected: var(--background-color-default);
     --tabs-item-background-selected-capsule: none;
-    --tabs-item-background-disabled: white;
-    --tabs-item-background-selected-disabled: white;
+    --tabs-item-background-disabled: var(--background-color-default);
+    --tabs-item-background-selected-disabled: var(--background-color-default);
     --tabs-item-color: inherit;
     --tabs-item-color-hover: var(--brand-primary);
     --tabs-item-color-selected: var(--brand-primary);
@@ -463,6 +465,10 @@
     --tabs-item-color-disabled: var(--brand-disabled);
     --tabs-item-border-color-selected: var(--border-color-light);
     --tabs-item-border-color-selected-capsule: var(--brand-primary);
+    --tabs-item-border-radius-round: 5px;
+    --tabs-body-space: var(--space-base);
+    --tabs-body-space-small: var(--space-base-small);
+    --tabs-body-space-mini: var(--space-base-mini);
 
     /* Subtabs */
     --subtabs-border-color: var(--border-color-light);
