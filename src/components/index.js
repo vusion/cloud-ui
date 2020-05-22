@@ -81,8 +81,6 @@ export * from './u-skeleton.vue';
 export * from './u-slider.vue';
 export * from './u-spinner.vue';
 export * from './u-steps.vue';
-export * from './u-subnav.vue';
-export * from './u-subtabs.vue';
 export * from './u-switch.vue';
 export * from './u-table-view.vue';
 export * from './u-table.vue';
