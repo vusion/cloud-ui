@@ -4,11 +4,11 @@
 
 - [示例](#示例)
     - [基本用法](#基本用法)
-    - [Value](#value)
-    - [只读和禁用](#只读和禁用)
+    - [路由](#路由)
+    - [外观](#外观)
+    - [禁用状态](#禁用状态)
     - [可关闭](#可关闭)
     - [标签页较多的情形](#标签页较多的情形)
-    - [路由](#路由)
     - [插槽扩展](#插槽扩展)
 - [UTabs API](#utabs-api)
     - [Props/Attrs](#propsattrs)
@@ -20,18 +20,12 @@
 
 **路由链接**, **块级展示**
 
+选项卡切换组件，常用于平级区域大块内容的的收纳和展现。
+
 ## 示例
 ### 基本用法
 
-``` html
-<u-tabs>
-    <u-tab title="模板">模板内容</u-tab>
-    <u-tab title="样式">样式内容</u-tab>
-    <u-tab title="逻辑">逻辑内容</u-tab>
-</u-tabs>
-```
-
-### Value
+#### 使用 value 控制
 
 ``` html
 <u-tabs value="B">
@@ -41,14 +35,71 @@
 </u-tabs>
 ```
 
-### 只读和禁用
+### 路由
 
 ``` html
-<u-tabs readonly>
+<u-tabs router>
+    <u-tab title="Button" to="/components/u-button"></u-tab>
+    <u-tab title="Input" to="/components/u-input"></u-tab>
+    <u-tab title="Tabs" to="/components/u-tabs"></u-tab>
+</u-tabs>
+```
+
+### 外观
+
+#### 方形卡片（默认）
+
+``` html
+<u-tabs appear="square">
     <u-tab title="模板">模板内容</u-tab>
     <u-tab title="样式">样式内容</u-tab>
     <u-tab title="逻辑">逻辑内容</u-tab>
 </u-tabs>
+```
+
+#### 圆形卡片（默认）
+
+``` html
+<u-tabs appear="round" size="small">
+    <u-tab title="模板">模板内容</u-tab>
+    <u-tab title="样式">样式内容</u-tab>
+    <u-tab title="逻辑">逻辑内容</u-tab>
+</u-tabs>
+```
+
+#### 线条导航
+
+``` html
+<u-tabs appear="line">
+    <u-tab title="模板">模板内容</u-tab>
+    <u-tab title="样式">样式内容</u-tab>
+    <u-tab title="逻辑">逻辑内容</u-tab>
+</u-tabs>
+```
+
+#### 胶囊导航
+
+``` html
+<u-tabs appear="capsule">
+    <u-tab title="模板">模板内容</u-tab>
+    <u-tab title="样式">样式内容</u-tab>
+    <u-tab title="逻辑">逻辑内容</u-tab>
+</u-tabs>
+```
+
+#### 文本形态
+
+``` html
+<u-tabs appear="text" size="mini">
+    <u-tab title="模板">模板内容</u-tab>
+    <u-tab title="样式">样式内容</u-tab>
+    <u-tab title="逻辑">逻辑内容</u-tab>
+</u-tabs>
+```
+
+### 禁用状态
+
+``` html
 <u-tabs disabled>
     <u-tab title="模板">模板内容</u-tab>
     <u-tab title="样式">样式内容</u-tab>
@@ -100,16 +151,6 @@ export default {
 </script>
 ```
 
-### 路由
-
-``` html
-<u-tabs router>
-    <u-tab title="Button" to="/components/u-button"></u-tab>
-    <u-tab title="Input" to="/components/u-input"></u-tab>
-    <u-tab title="Tabs" to="/components/u-tabs"></u-tab>
-</u-tabs>
-```
-
 ### 插槽扩展
 
 - 在`<u-tabs>`上可以使用`extra`插槽，在右侧添加额外的内容；
@@ -146,6 +187,8 @@ export default {
 | closable | boolean |  | `false` | 是否可以关闭 |
 | router | boolean |  | `false` | 是否根据 vue-router 来控制选择哪个标签页 |
 | show-scroll-buttons | enum \| boolean | `'never'`, `'auto'`, `'always'` | `'auto'` | 是否显示标签滚动左右箭头按钮。`'auto'`表示有滚动的情况下显示，`‘always'`表示始终显示，`'never'`表示始终不显示。 |
+| appear | enum | `'square'`, `'round'`, `'card'`, `'line'`, `'text'`, `'capsule'` | `'tab'` | 标签显示的外观 |
+| size | enum | `'normal'`, `'small'`, `'mini'` | `'normal'` | 标签尺寸 |
 
 ### Slots
 

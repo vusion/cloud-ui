@@ -746,6 +746,13 @@
     "type": "string",
     "description": "展开/折叠的触发方式。可选值：`'click'`表示整行点击均可触发、`'click-expander'`表示仅点击小箭头时触发"
   },
+  "u-collapse/appear": {
+    "type": "enum",
+    "options": [
+      "default",
+      "simple"
+    ]
+  },
   "u-collapse/disabled": {
     "type": "boolean",
     "description": "是否禁用"
@@ -1698,7 +1705,7 @@
     "description": "（原生属性）"
   },
   "u-link/to": {
-    "type": "string, Location",
+    "type": "string | Location",
     "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
   },
   "u-link/replace": {
@@ -2964,6 +2971,27 @@
       "always"
     ],
     "description": "是否显示标签滚动左右箭头按钮。`'auto'`表示有滚动的情况下显示，`‘always'`表示始终显示，`'never'`表示始终不显示。"
+  },
+  "u-tabs/appear": {
+    "type": "enum",
+    "options": [
+      "square",
+      "round",
+      "card",
+      "line",
+      "text",
+      "capsule"
+    ],
+    "description": "标签显示的外观"
+  },
+  "u-tabs/size": {
+    "type": "enum",
+    "options": [
+      "normal",
+      "small",
+      "mini"
+    ],
+    "description": "标签尺寸"
   },
   "u-tab/title": {
     "type": "string",

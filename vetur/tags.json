@@ -267,7 +267,8 @@
       "max",
       "corner",
       "dot"
-    ]
+    ],
+    "description": "用于显示消息条数和提醒用户处理的角标。"
   },
   "u-block": {
     "attributes": []
@@ -433,8 +434,10 @@
     "attributes": [
       "accordion",
       "expand-trigger",
+      "appear",
       "disabled"
     ],
+    "description": "可以折叠/展开的内容区域。",
     "subtags": [
       "u-collapse-item"
     ]
@@ -1477,8 +1480,11 @@
       "disabled",
       "closable",
       "router",
-      "show-scroll-buttons"
+      "show-scroll-buttons",
+      "appear",
+      "size"
     ],
+    "description": "选项卡切换组件，常用于平级区域大块内容的的收纳和展现。",
     "defaults": [
       "v-model"
     ],

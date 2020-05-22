@@ -5,7 +5,11 @@
 - [示例](#示例)
     - [基本用法](#基本用法)
     - [手风琴模式](#手风琴模式)
+    - [面板嵌套](#面板嵌套)
+    - [使用插槽](#使用插槽)
+    - [简洁模式](#简洁模式)
     - [触发方式](#触发方式)
+    - [设置尺寸](#设置尺寸)
 - [UCollapse API](#ucollapse-api)
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
@@ -17,6 +21,8 @@
     - [Events](#events-2)
 
 **块级展示**
+
+可以折叠/展开的内容区域。
 
 ## 示例
 ### 基本用法
@@ -39,6 +45,58 @@
 </u-collapse>
 ```
 
+### 面板嵌套
+
+折叠面板可以进行嵌套。
+
+``` html
+<u-collapse>
+    <u-collapse-item title="面板1">Content1</u-collapse-item>
+    <u-collapse-item title="面板2" expanded>
+        <u-collapse>
+            <u-collapse-item title="面板1">Content1</u-collapse-item>
+            <u-collapse-item title="面板2" expanded>Content2</u-collapse-item>
+            <u-collapse-item title="面板3">Content3</u-collapse-item>
+        </u-collapse>
+    </u-collapse-item>
+    <u-collapse-item title="面板3">Content3</u-collapse-item>
+</u-collapse>
+```
+
+### 使用插槽
+
+``` html
+<u-collapse>
+    <u-collapse-item title="面板1">
+        <u-link slot="extra">设置</u-link>
+        Content1
+    </u-collapse-item>
+    <u-collapse-item title="面板2" expanded>
+        <u-collapse>
+            <u-collapse-item title="面板1">Content1</u-collapse-item>
+            <u-collapse-item title="面板2" expanded>Content2</u-collapse-item>
+            <u-collapse-item title="面板3">Content3</u-collapse-item>
+        </u-collapse>
+    </u-collapse-item>
+    <u-collapse-item title="面板3">Content3</u-collapse-item>
+</u-collapse>
+```
+
+### 简洁模式
+
+``` html
+<u-collapse appear="simple">
+    <u-collapse-item title="面板1">
+        <u-link slot="extra">设置</u-link>
+        Content1
+    </u-collapse-item>
+    <u-collapse-item title="面板2" expanded>
+        Content2
+    </u-collapse-item>
+    <u-collapse-item title="面板3">Content3</u-collapse-item>
+</u-collapse>
+```
+
 ### 触发方式
 
 #### 整行点击均可触发（默认）
@@ -57,6 +115,16 @@
     <u-collapse-item title="面板3">Content3</u-collapse-item>
 </u-collapse>
 
+### 设置尺寸
+
+``` html
+<u-collapse size="small">
+    <u-collapse-item title="面板1">Content1</u-collapse-item>
+    <u-collapse-item title="面板2" expanded>Content2</u-collapse-item>
+    <u-collapse-item title="面板3" disabled>Content3</u-collapse-item>
+</u-collapse>
+```
+
 ## UCollapse API
 ### Props/Attrs
 
@@ -64,6 +132,7 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | accordion | boolean |  | `false` | 是否每次只会展开一个面板 |
 | expand-trigger | string |  | `'click'` | 展开/折叠的触发方式。可选值：`'click'`表示整行点击均可触发、`'click-expander'`表示仅点击小箭头时触发 |
+| appear | enum | `'default'`, `'simple'` |  | undefined |
 | disabled | boolean |  | `false` | 是否禁用 |
 
 ### Slots
