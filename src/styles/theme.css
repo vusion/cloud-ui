@@ -85,6 +85,7 @@
     --gray-lightest: #eee;
 
     /* Component Base Colors */
+    --background-color-default: white; /* body 默认的背景 */
     --background-color-lighter: #f4f6f9; /* 选择框的 hover 颜色 */
     --background-color-light: #f4f6f9; /* 表格等组件标题栏颜色 */
     --background-color-base: #eef1f6; /* 标签、薯条等组件默认颜色 */
@@ -322,9 +323,9 @@
     --list-item-background-hover: var(--background-color-lighter);
 
     /* Table */
-    --table-background: white;
+    --table-background: var(--background-color-default);
     --table-head-background: var(--background-color-light);
-    --table-head-background-light: white;
+    --table-head-background-light: var(--background-color-default);
     --table-row-background: var(--background-color-base);
     --table-row-background-hover: var(--background-color-lighter);
     --table-row-background-striped: var(--background-color-lighter);
@@ -348,7 +349,7 @@
 
     /* Panel */
     --panel-border-width: 1px;
-    --panel-background: white;
+    --panel-background: var(--background-color-default);
     --panel-border-color: var(--border-color-light);
     --panel-head-padding: var(--space-base);
     --panel-body-padding: var(--space-base);
@@ -356,14 +357,20 @@
     --panel-title-font-weight: bold;
 
     /* Collapse */
-    --collapse-item-head-background: var(--background-color-base);
-    --collapse-item-head-padding: 12px 16px;
-    --collapse-expander-size: 26px;
-    --collapse-expander-color-disabled: var(--brand-disabled);
-    --collapse-border: 1px solid var(--border-color-base);
-    --collapse-expander-font-size: 18px;
-    --collapse-item-content-padding: 16px;
-    --collapse-transition-duration: 0.2s;
+    --collapse-border-width: var(--border-width-base);
+    --collapse-border-color: var(--border-color-base);
+    --collapse-border-radius: var(--border-radius-base);
+    --collapse-item-head-background: var(--background-color-light);
+    --collapse-item-head-color-disabled: var(--brand-disabled-dark);
+    --collapse-item-head-padding: 10px 20px 10px 40px;
+    --collapse-item-head-padding-small: 6px 8px 6px 32px;
+    --collapse-item-expander-size: 42px;
+    --collapse-item-expander-size-small: 34px;
+    --collapse-item-expander-color: var(--color-light);
+    --collapse-item-expander-color-disabled: var(--brand-disabled-dark);
+    --collapse-item-expander-font-size: 18px;
+    --collapse-item-content-padding: 20px;
+    --collapse-transition-duration: var(--transition-duration-base);
 
     /* Navbar */
     --navbar-height: 64px;
@@ -472,7 +479,7 @@
     --toc-circle-size: 9px;
     --toc-item-circle-size: 5px;
     --toc-font-size: 14px;
-    --toc-background: white;
+    --toc-background: transparent;
     --toc-border-width: var(--border-width-base);
     --toc-border-color: var(--border-color-base);
 
@@ -549,8 +556,8 @@
     --input-padding-x-large: 10px;
     --input-padding-x-huge: 10px;
     --input-padding-x-full: 10px;
-    --input-border-width: 1px;
-    --input-background: white;
+    --input-border-width: var(--border-width-base);
+    --input-background: var(--background-color-default);
     --input-background-disabled: #cddae9;
     --input-color: var(--color-base);
     --input-border-color: var(--border-color-base);
@@ -630,7 +637,7 @@
     --select-padding-x-large: 10px;
     --select-padding-x-huge: 10px;
     --select-padding-x-full: 10px;
-    --select-background: white;
+    --select-background:  var(--background-color-default);
     --select-background-disabled: var(--brand-disabled);
     --select-border-width: var(--border-width-base);
     --select-border-color: var(--border-color-base);
