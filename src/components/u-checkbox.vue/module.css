@@ -17,7 +17,7 @@
     width: var(--checkbox-size);
     height: var(--checkbox-size);
     line-height: calc(var(--checkbox-size) - 2px);
-    background: white;
+    background: var(--checkbox-background);
     border: 1px solid var(--border-color-base);
     border-radius: var(--checkbox-border-radius);
     margin-right: 5px;

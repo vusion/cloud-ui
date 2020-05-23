@@ -18,7 +18,7 @@
     height: var(--radio-size);
     border-radius: 100px;
     line-height: calc(var(--radio-size) - 2px);
-    background: white;
+    background: var(--radio-background);
     border: 1px solid var(--border-color-base);
     margin-right: 5px;
     text-align: center;

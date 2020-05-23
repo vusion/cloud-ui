@@ -521,9 +521,11 @@
 
     /* Form */
     --form-item-label-padding-right: 20px;
+    --form-item-label-padding-right-mini: 10px;
     --form-item-label-padding-right-small: 10px;
     --form-item-label-padding-right-large: 20px;
     --form-item-label-width: 120px;
+    --form-item-label-width-mini: 50px;
     --form-item-label-width-small: 80px;
     --form-item-label-width-large: 160px;
     --form-required-color: red;
@@ -609,11 +611,13 @@
     /* Radio */
     --radio-space-x: 80px;
     --radio-size: 18px;
+    --radio-background: var(--background-color-default);
 
     /* Checkbox */
     --checkbox-space-x: 80px;
     --checkbox-size: 18px;
     --checkbox-border-radius: 3px;
+    --checkbox-background: var(--background-color-default);
 
     /* Switch */
     --switch-width: 44px;
@@ -827,6 +831,7 @@
     --modal-dialog-width: 400px;
     --modal-dialog-width-small: 300px;
     --modal-dialog-width-large: 600px;
+    --modal-dialog-background: white;
     --modal-close-size: 15px;
     --modal-close-color: var(--gray-light);
     --modal-close-color-hover: var(--color-light);
@@ -835,6 +840,7 @@
     --modal-body-padding: 15px;
     --modal-padding-padding: 15px;
     --modal-foot-padding: 20px 15px;
+    --modal-border-color: var(--border-color-base);
 
     /* Drawer */
     --drawer-width: 240px;
