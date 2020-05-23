@@ -679,7 +679,7 @@
     --select-tag-margin-x: 4px;
     --select-tag-remove-color: var(--color-lighter);
     --select-tag-remove-color-hover: var(--color-base);
-    --select-popper-background: white;
+    --select-popper-background: var(--background-color-default);
     --select-popper-border-color: var(--border-color-base);
     --select-status-color: var(--color-light);
 
