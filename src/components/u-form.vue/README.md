@@ -389,7 +389,7 @@ export default {
 | model | object |  |  | 表单数据模型 |
 | rules | object |  |  | 表单所有域的验证规则，已废弃，推荐在各`<u-form-item>`中自行添加 rules。 |
 | layout | string |  | `'block'` | 表单布局方式。可选值：`block`、`inline`。 |
-| label-size | string |  | `'normal'` | 标签大小。可选值：`small`、`normal`、`large`。 |
+| label-size | enum | `'mini'`, `'small'`, `'normal'`, `'large'` | `'normal'` | 标签大小。可选值：`mini`、`small`、`normal`、`large`。 |
 
 ### Computed
 

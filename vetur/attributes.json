@@ -1223,8 +1223,14 @@
     "description": "表单布局方式。可选值：`block`、`inline`。"
   },
   "u-form/label-size": {
-    "type": "string",
-    "description": "标签大小。可选值：`small`、`normal`、`large`。"
+    "type": "enum",
+    "options": [
+      "mini",
+      "small",
+      "normal",
+      "large"
+    ],
+    "description": "标签大小。可选值：`mini`、`small`、`normal`、`large`。"
   },
   "u-form-item/name": {
     "type": "string",
