@@ -27,7 +27,7 @@
     display: inline-block;
     vertical-align: middle;
     text-align: left;
-    background: white;
+    background: var(--modal-dialog-background);
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
@@ -54,7 +54,7 @@
 .head {
     position: relative;
     padding: 15px;
-    border-bottom: 1px solid #f4f4f4;
+    border-bottom: 1px solid var(--modal-border-color);
 }
 
 .title {

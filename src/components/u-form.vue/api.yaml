@@ -16,9 +16,10 @@
       default: block
       description: 表单布局方式。可选值：`block`、`inline`。
     - name: label-size
-      type: string
+      type: enum
+      options: [mini, small, normal, large]
       default: normal
-      description: 标签大小。可选值：`small`、`normal`、`large`。
+      description: 标签大小。可选值：`mini`、`small`、`normal`、`large`。
   computed:
     - name: touched
       type: boolean

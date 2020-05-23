@@ -27,3 +27,37 @@
     height: var(--collapse-item-expander-size-small);
     line-height: var(--collapse-item-expander-size-small);
 }
+
+.root[display="full"] {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.root[display="filled"] {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.root[display="filled"] .item {
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+
+.root[display="filled"] .item[expanded] {
+    flex: auto;
+}
+
+.root[display="filled"] .item_head {
+    flex: none;
+}
+
+.root[display="filled"] .item_body {
+    flex: auto;
+    overflow: auto;
+}

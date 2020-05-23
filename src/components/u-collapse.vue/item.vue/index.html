@@ -1,4 +1,4 @@
-<div :class="$style.root" :disabled="disabled">
+<div :class="$style.root" :disabled="disabled" :expanded="currentExpanded">
     <div :class="$style.head" :expand-trigger="parentVM.expandTrigger" @click="parentVM.expandTrigger === 'click' && toggle()">
         <span :class="$style.title">
             <slot name="title">{{ title }}</slot>
@@ -11,9 +11,11 @@
     </div>
     <f-collapse-transition>
         <div :class="$style.body" v-show="currentExpanded">
-            <div :class="$style.content">
-                <slot></slot>
-            </div>
+            <slot name="body">
+                <div :class="$style.content">
+                    <slot></slot>
+                </div>
+            </slot>
         </div>
     </f-collapse-transition>
 </div>

@@ -108,6 +108,10 @@
     transform: none;
 }
 
+.root[label-size$="mini"] > .label { width: var(--form-item-label-width-mini); padding-right: var(--form-item-label-padding-right-mini); }
+.root[label-size$="mini"] > .label::after { right: var(--form-required-right-mini); }
+.root[label-size$="mini"] > .field { max-width: calc(100% - var(--form-item-label-width-mini)); }
+
 .root[label-size$="small"] > .label { width: var(--form-item-label-width-small); padding-right: var(--form-item-label-padding-right-small); }
 .root[label-size$="small"] > .label::after { right: var(--form-required-right-small); }
 .root[label-size$="small"] > .field { max-width: calc(100% - var(--form-item-label-width-small)); }
