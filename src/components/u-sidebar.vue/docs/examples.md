@@ -6,7 +6,7 @@
 <u-sidebar style="width: 200px;">
     <u-sidebar-item>指南</u-sidebar-item>
     <u-sidebar-item>概念</u-sidebar-item>
-    <u-sidebar-item to="/cloud-ui">组件</u-sidebar-item>
+    <u-sidebar-item to="/cloud-ui" activeRule="/components">组件</u-sidebar-item>
 </u-sidebar>
 ```
 

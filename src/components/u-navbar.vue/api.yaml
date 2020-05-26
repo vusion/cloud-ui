@@ -154,6 +154,9 @@
       type: boolean
       default: false
       description: 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
+    - name: activeRule
+      type: string, Function
+      description: 需要 vue-router。如果值为 string，当前路由前缀匹配该值才高亮显示。如果值为 Function 时，会将 `to.path` 传递给该函数，由该函数的返回值决定是否高亮显示。
   slots:
     - name: default
       description: 插入文本或 HTML。

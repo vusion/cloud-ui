@@ -16,6 +16,7 @@ export const MSinglexItem = {
         item: Object,
         exact: { type: Boolean, default: false },
         exactHash: { type: Boolean, default: false },
+        activeRule: [String, Function],
     },
     data() {
         return {
@@ -38,10 +39,17 @@ export const MSinglexItem = {
             const currentPath = current.path.replace(trailingSlashRE, '/');
             const targetPath = (target.redirectedFrom ? this.$router.resolve(target.redirectedFrom).location.path : target.path).replace(trailingSlashRE, '/');
             // @TODO: 是否要检查 query 的包含关系
-
-            const exact = this.exact ? currentPath === targetPath : currentPath.startsWith(targetPath);
-            const exactHash = this.exactHash ? current.hash === target.hash : current.hash.startsWith(target.hash);
-            return exact && exactHash;
+            let active = false;
+            if (!this.activeRule) {
+                const exact = this.exact ? currentPath === targetPath : currentPath.startsWith(targetPath);
+                const exactHash = this.exactHash ? current.hash === target.hash : current.hash.startsWith(target.hash);
+                active = exact && exactHash;
+            } else if (typeof this.activeRule === 'string') {
+                active = (currentPath.indexOf(this.activeRule) === 0);
+            } else {
+                active = this.activeRule(targetPath);
+            }
+            return active;
         },
     },
     methods: {
