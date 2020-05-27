@@ -24,23 +24,21 @@
             ></u-tree-view-text>
         </div>
     </div>
-    <f-collapse-transition>
-        <div :class="$style.sub" v-show="currentExpanded">
-            <template v-if="data">
-                <u-tree-view-node
-                    v-for="node in data"
-                    :text="node[rootVM.field]"
-                    :key="node.key"
-                    :value="node.value"
-                    :expanded.sync="node.expanded"
-                    :checked.sync="node.checked"
-                    :disabled="node.disabled"
-                    :hidden="node.hidden"
-                    :data="node.children"
-                    :node="node"
-                ></u-tree-view-node>
-            </template>
-            <slot></slot>
-        </div>
-    </f-collapse-transition>
+    <div :class="$style.sub" v-show="currentExpanded">
+        <template v-if="data">
+            <u-tree-view-node
+                v-for="node in data"
+                :text="node[rootVM.field || rootVM.textField]"
+                :key="node[rootVM.valueField]"
+                :value="node[rootVM.valueField]"
+                :expanded.sync="node.expanded"
+                :checked.sync="node.checked"
+                :disabled="node.disabled"
+                :hidden="node.hidden"
+                :data="node.children"
+                :node="node"
+            ></u-tree-view-node>
+        </template>
+        <slot></slot>
+    </div>
 </div>
