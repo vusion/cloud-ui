@@ -28,11 +28,13 @@ export const MNode = {
     },
     destroyed() {
         this.$contact(this.$options.rootName, (rootVM) => {
-            rootVM.nodeVMs.splice(rootVM.nodeVMs.indexOf(this), 1);
+            const index = rootVM.nodeVMs.indexOf(this);
+            ~index && rootVM.nodeVMs.splice(index, 1);
             this.rootVM = undefined;
         });
         this.$contact(this.$options.name, (parentVM) => {
-            parentVM.nodeVMs.splice(parentVM.nodeVMs.indexOf(this), 1);
+            const index = parentVM.nodeVMs.indexOf(this);
+            ~index && parentVM.nodeVMs.splice(index, 1);
             this.rootVM = undefined;
             this.parentVM = undefined;
         });

@@ -2,9 +2,9 @@
     <template v-if="data">
         <component :is="ChildComponent"
             v-for="node in data"
-            :text="node[field]"
-            :key="node.key"
-            :value="node.value"
+            :text="node[field || textField]"
+            :key="node[valueField]"
+            :value="node[valueField]"
             :expanded.sync="node.expanded"
             :checked.sync="node.checked"
             :disabled="node.disabled"

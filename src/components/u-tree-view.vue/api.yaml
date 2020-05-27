@@ -9,10 +9,14 @@
       type: any
       default: null
       description: 当前选择的值
-    - name: field
+    - name: text-field
       type: string
       default: text
-      description: 显示文本字段
+      description: 选项文本的字段名
+    - name: value-field
+      type: string
+      default: value
+      description: 选项值的字段名
     - name: cancelable
       type: boolean
       default: false
