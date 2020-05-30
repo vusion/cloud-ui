@@ -7,10 +7,10 @@
 - [UDescList API](#udesclist-api)
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
-- [UDescListItem API](#udesclistitem-api)
+- [UDescListGroup API](#udesclistgroup-api)
     - [Props/Attrs](#propsattrs-2)
     - [Slots](#slots-2)
-- [UDescListGroup API](#udesclistgroup-api)
+- [UDescListItem API](#udesclistitem-api)
     - [Props/Attrs](#propsattrs-3)
     - [Slots](#slots-3)
 
@@ -40,7 +40,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| label-size | string |  | `'normal'` | 标签大小。可选值：`small`、`normal`、`large`、`huge` |
+| label-size | enum | `'small'`, `'normal'`, `'large'`, `'huge'` | `'normal'` | 描述列表所有项的标签大小。 |
 
 ### Slots
 
@@ -48,31 +48,31 @@
 
 插入`<u-desc-list-item>`或`<u-desc-list-group>`子组件。
 
-## UDescListItem API
-### Props/Attrs
-
-| Prop/Attr | Type | Options | Default | Description |
-| --------- | ---- | ------- | ------- | ----------- |
-| label | string |  |  | 标签 |
-| label-size | string |  |  | 标签大小。可选值：`small`、`normal`、`large`、`huge` |
-
-### Slots
-
-#### (default)
-
-插入文本或HTML。
-
 ## UDescListGroup API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| title | string |  |  | 标题 |
-| label-size | string |  |  | 标签大小。 可选值：`small`、`normal`、`large`、`huge` |
+| title | string |  |  | undefined |
+| label-size | enum | `'small'`, `'normal'`, `'large'`, `'huge'` |  | 该组下面所有项的标签大小。 |
 
 ### Slots
 
 #### (default)
 
 插入`<u-desc-list-item>`子组件
+
+## UDescListItem API
+### Props/Attrs
+
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| label | string |  |  | undefined |
+| label-size | enum | `'small'`, `'normal'`, `'large'`, `'huge'` |  | 该项的标签大小。 |
+
+### Slots
+
+#### (default)
+
+插入文本或HTML。
 

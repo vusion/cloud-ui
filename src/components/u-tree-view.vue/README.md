@@ -517,7 +517,8 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | data | Array\<{ text, value }\> |  |  | Data书写方式中的数据列表 |
 | value.sync, v-model | any |  |  | 当前选择的值 |
-| field | string |  | `'text'` | 显示文本字段 |
+| text-field | string |  | `'text'` | 选项文本的字段名 |
+| value-field | string |  | `'value'` | 选项值的字段名 |
 | cancelable | boolean |  | `false` | 是否可以取消选择 |
 | checkable | boolean |  | `false` | 是否可以选中/取消 |
 | accordion | boolean |  | `false` | 是否每次只会展开一个分组 |

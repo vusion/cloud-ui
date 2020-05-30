@@ -372,18 +372,6 @@
         - name: senderVM
           type: UTableView
           description: 发送事件实例
-    - name: change
-      description: 选择值改变时触发。多选模式中：
-      params:
-        - name: $event.values
-          type: Array
-          description: 改变后的值
-        - name: $event.oldValues
-          type: any
-          description: 旧的值
-        - name: senderVM
-          type: UTableView
-          description: 发送事件实例
     - name: resize
       description: 调整列宽时触发
       params:

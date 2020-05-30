@@ -7,14 +7,12 @@
       type: string
       default: text
       description: 输入框的类型，目前支持两种：`'text'`和`'password'`
-    - name: value.sync, v-model
+    - name: value
       type: string
+      model: true
+      sync: true
       default: null
       description: 输入框的值
-    - name: default-value.sync, v-model
-      type: string
-      default: null
-      description: 默认值。即 reset 方法恢复的值。
     - name: clearable
       type: boolean
       default: null

@@ -546,19 +546,19 @@
       "label-size"
     ],
     "subtags": [
-      "u-desc-list-item",
-      "u-desc-list-group"
-    ]
-  },
-  "u-desc-list-item": {
-    "attributes": [
-      "label",
-      "label-size"
+      "u-desc-list-group",
+      "u-desc-list-item"
     ]
   },
   "u-desc-list-group": {
     "attributes": [
       "title",
+      "label-size"
+    ]
+  },
+  "u-desc-list-item": {
+    "attributes": [
+      "label",
       "label-size"
     ]
   },
@@ -1494,7 +1494,8 @@
     "attributes": [
       "data",
       "value",
-      "field",
+      "text-field",
+      "value-field",
       "cancelable",
       "checkable",
       "accordion",

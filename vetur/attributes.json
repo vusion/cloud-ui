@@ -1019,24 +1019,40 @@
     "description": "最大可选年份值为当前年加上此值"
   },
   "u-desc-list/label-size": {
-    "type": "string",
-    "description": "标签大小。可选值：`small`、`normal`、`large`、`huge`"
-  },
-  "u-desc-list-item/label": {
-    "type": "string",
-    "description": "标签"
-  },
-  "u-desc-list-item/label-size": {
-    "type": "string",
-    "description": "标签大小。可选值：`small`、`normal`、`large`、`huge`"
+    "type": "enum",
+    "options": [
+      "small",
+      "normal",
+      "large",
+      "huge"
+    ],
+    "description": "描述列表所有项的标签大小。"
   },
   "u-desc-list-group/title": {
-    "type": "string",
-    "description": "标题"
+    "type": "string"
   },
   "u-desc-list-group/label-size": {
-    "type": "string",
-    "description": "标签大小。 可选值：`small`、`normal`、`large`、`huge`"
+    "type": "enum",
+    "options": [
+      "small",
+      "normal",
+      "large",
+      "huge"
+    ],
+    "description": "该组下面所有项的标签大小。"
+  },
+  "u-desc-list-item/label": {
+    "type": "string"
+  },
+  "u-desc-list-item/label-size": {
+    "type": "enum",
+    "options": [
+      "small",
+      "normal",
+      "large",
+      "huge"
+    ],
+    "description": "该项的标签大小。"
   },
   "u-drawer/visible": {
     "type": "boolean",
@@ -3088,9 +3104,13 @@
     "type": "any",
     "description": "当前选择的值"
   },
-  "u-tree-view/field": {
+  "u-tree-view/text-field": {
     "type": "string",
-    "description": "显示文本字段"
+    "description": "选项文本的字段名"
+  },
+  "u-tree-view/value-field": {
+    "type": "string",
+    "description": "选项值的字段名"
   },
   "u-tree-view/cancelable": {
     "type": "boolean",

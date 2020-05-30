@@ -4,53 +4,69 @@
   description: 用于触发一个即时操作。
   attrs:
     - name: color
+      title: 颜色
       type: enum
       options: [default, primary, danger]
       default: default
       description: 设置颜色。`'primary'`表示主按钮，`'danger'`表示危险按钮。
     - name: dashed
+      title: 虚线边框
       type: boolean
       default: false
       description: 边框是否为虚线。
     - name: size
+      title: 尺寸
       type: enum
       options: [mini, small, normal, large]
       default: normal
       description: 设置尺寸。
     - name: shape
+      title: 形状
       type: enum
       options: [default, square, round, circle]
       default: false
       description: 设置形状。选项分别为默认、圆角、方形、圆形。
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
       description: 是否禁用。禁用后不会响应点击事件。
     - name: display
+      title: 展示方式
       type: enum
       options: [inline, block]
       default: inline
-      description: 展示方式。`'inline'`表示行内展示, `'block'`表示块级展示，宽度会充满父元素。
+      description: 展示方式。`'inline'`表示行内展示，`'block'`表示块级展示，宽度会充满父元素。
     - name: icon
-      type: string
+      title: 图标
+      type: enum
       options: [refresh, create, success]
-      default:
-      description: 设置图标。【待扩充】
+      description: 设置图标。
     - name: loading
+      title: 加载中
       type: boolean
       default: false
       description: 是否为加载中。
     - name: href
+      title: 链接
       type: string
-      default:
       description: 链接地址
     - name: target
-      type: string
-      default:
-      description: （原生属性）。比如设置`_blank`，会打开新的空白页。
+      title: 打开方式
+      type: enum
+      options:
+        - name: 新标签页 (_blank)
+          value: _blank
+        - name: 当前窗口 (_self)
+          value: _self
+        - name: 父级窗口 (_parent)
+          value: _parent
+        - name: 顶级窗口 (_top)
+          value: _top
+      description: （原生属性）。比如设置`_blank`，会在新标签页中打开。
     - name: to
+      title: 路由链接
       type: string, Location
-      default:
       description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
     - name: replace
       type: boolean
@@ -64,10 +80,12 @@
       description: 需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。
   slots:
     - name: default
+      title: 默认
       description: 插入文本或 HTML。
       accept-type: [text, inline]
   events:
     - name: $listeners
+      kind: trigger
       description: 监听所有`<a>`元素的事件。
       params: []
     - name: before-navigate
