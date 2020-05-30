@@ -1981,16 +1981,6 @@ export default {
 | $event.oldItem | object | 旧的选择行相关对象 |
 | senderVM | UTableView | 发送事件实例 |
 
-#### @change
-
-选择值改变时触发。多选模式中：
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| $event.values | Array | 改变后的值 |
-| $event.oldValues | any | 旧的值 |
-| senderVM | UTableView | 发送事件实例 |
-
 #### @resize
 
 调整列宽时触发

@@ -178,11 +178,11 @@ export default {
 | size | enum | `'mini'`, `'small'`, `'normal'`, `'large'` | `'normal'` | 设置尺寸。 |
 | shape | enum | `'default'`, `'square'`, `'round'`, `'circle'` | `false` | 设置形状。选项分别为默认、圆角、方形、圆形。 |
 | disabled | boolean |  | `false` | 是否禁用。禁用后不会响应点击事件。 |
-| display | enum | `'inline'`, `'block'` | `'inline'` | 展示方式。`'inline'`表示行内展示, `'block'`表示块级展示，宽度会充满父元素。 |
-| icon | string | `'refresh'`, `'create'`, `'success'` |  | 设置图标。【待扩充】 |
+| display | enum | `'inline'`, `'block'` | `'inline'` | 展示方式。`'inline'`表示行内展示，`'block'`表示块级展示，宽度会充满父元素。 |
+| icon | enum | `'refresh'`, `'create'`, `'success'` |  | 设置图标。 |
 | loading | boolean |  | `false` | 是否为加载中。 |
 | href | string |  |  | 链接地址 |
-| target | string |  |  | （原生属性）。比如设置`_blank`，会打开新的空白页。 |
+| target | enum | `[object Object]`, `[object Object]`, `[object Object]`, `[object Object]` |  | （原生属性）。比如设置`_blank`，会在新标签页中打开。 |
 | to | string, Location |  |  | 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
 | replace | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
 | append | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。 |

@@ -451,16 +451,16 @@
       "inline",
       "block"
     ],
-    "description": "展示方式。`'inline'`表示行内展示, `'block'`表示块级展示，宽度会充满父元素。"
+    "description": "展示方式。`'inline'`表示行内展示，`'block'`表示块级展示，宽度会充满父元素。"
   },
   "u-button/icon": {
-    "type": "string",
+    "type": "enum",
     "options": [
       "refresh",
       "create",
       "success"
     ],
-    "description": "设置图标。【待扩充】"
+    "description": "设置图标。"
   },
   "u-button/loading": {
     "type": "boolean",
@@ -471,8 +471,26 @@
     "description": "链接地址"
   },
   "u-button/target": {
-    "type": "string",
-    "description": "（原生属性）。比如设置`_blank`，会打开新的空白页。"
+    "type": "enum",
+    "options": [
+      {
+        "name": "新标签页 (_blank)",
+        "value": "_blank"
+      },
+      {
+        "name": "当前窗口 (_self)",
+        "value": "_self"
+      },
+      {
+        "name": "父级窗口 (_parent)",
+        "value": "_parent"
+      },
+      {
+        "name": "顶级窗口 (_top)",
+        "value": "_top"
+      }
+    ],
+    "description": "（原生属性）。比如设置`_blank`，会在新标签页中打开。"
   },
   "u-button/to": {
     "type": "string, Location",
@@ -1453,10 +1471,6 @@
   "u-input/value": {
     "type": "string",
     "description": "输入框的值"
-  },
-  "u-input/default-value": {
-    "type": "string",
-    "description": "默认值。即 reset 方法恢复的值。"
   },
   "u-input/clearable": {
     "type": "boolean",

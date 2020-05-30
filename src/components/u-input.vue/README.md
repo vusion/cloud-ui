@@ -149,7 +149,6 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | type | string |  | `'text'` | 输入框的类型，目前支持两种：`'text'`和`'password'` |
 | value.sync, v-model | string |  |  | 输入框的值 |
-| default-value.sync, v-model | string |  |  | 默认值。即 reset 方法恢复的值。 |
 | clearable | boolean |  |  | 是否可清空。开启并在输入框有内容时会显示清空按钮。 |
 | placeholder | string |  |  | 原生属性。对 IE9 做了兼容。 |
 | minlength | number |  |  | 原生属性 |

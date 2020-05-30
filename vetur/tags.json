@@ -739,7 +739,6 @@
     "attributes": [
       "type",
       "value",
-      "default-value",
       "clearable",
       "placeholder",
       "minlength",
@@ -752,10 +751,7 @@
       "search",
       "maxlengthMessage"
     ],
-    "description": "基本的表单输入组件，在原生`<input>`控件基础上进行了一些功能扩展。",
-    "defaults": [
-      "v-model"
-    ]
+    "description": "基本的表单输入组件，在原生`<input>`控件基础上进行了一些功能扩展。"
   },
   "u-label": {
     "attributes": [
