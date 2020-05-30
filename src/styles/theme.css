@@ -364,12 +364,15 @@
     --collapse-item-head-color-disabled: var(--brand-disabled-dark);
     --collapse-item-head-padding: 10px 20px 10px 40px;
     --collapse-item-head-padding-small: 6px 8px 6px 32px;
+    --collapse-item-head-padding-mini: 4px 8px 4px 28px;
     --collapse-item-expander-size: 42px;
     --collapse-item-expander-size-small: 34px;
+    --collapse-item-expander-size-mini: 28px;
     --collapse-item-expander-color: var(--color-light);
     --collapse-item-expander-color-disabled: var(--brand-disabled-dark);
     --collapse-item-expander-font-size: 18px;
     --collapse-item-content-padding: 20px;
+    --collapse-item-content-padding-mini: 10px;
     --collapse-transition-duration: var(--transition-duration-base);
 
     /* Navbar */
@@ -430,6 +433,7 @@
     --menu-border-width: var(--border-width-base);
     --menu-border-color: var(--border-color-base);
     --menu-item-size: 34px;
+    --menu-item-color: inherit;
     --menu-divider-background: var(--border-color-base);
     --menu-divider-margin-y: 9px;
     --menu-divider-height: var(--border-width-base);
@@ -741,7 +745,9 @@
     --tree-view-background: white;
     --tree-view-node-margin-left: 20px;
     --tree-view-node-expander-size: 30px;
+    --tree-view-node-expander-size-mini: 28px;
     --tree-view-node-text-padding: 4px 12px;
+    --tree-view-node-text-padding–mini: 4px 8px;
     --tree-view-node-background-active: var(--background-color-base);
     --tree-view-node-background-selected: var(--brand-primary);
     --tree-view-node-color-selected: white;

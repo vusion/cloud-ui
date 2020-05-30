@@ -10,6 +10,9 @@ export const UFormTableView = {
         border: { type: Boolean, default: false },
         dynamic: { type: Boolean, default: false },
         validateOnAdd: { type: Boolean, default: true },
+        size: String,
+        showAddButton: { type: Boolean, default: true },
+        muted: String,
     },
     data() {
         return {

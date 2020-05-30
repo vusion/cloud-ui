@@ -29,7 +29,6 @@
             <u-tree-view-node
                 v-for="node in data"
                 :text="node[rootVM.field || rootVM.textField]"
-                :key="node[rootVM.valueField]"
                 :value="node[rootVM.valueField]"
                 :expanded.sync="node.expanded"
                 :checked.sync="node.checked"

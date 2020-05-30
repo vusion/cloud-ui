@@ -2,6 +2,10 @@
     width: 580px;
 }
 
+.root[size="mini"] {
+    width: auto;
+}
+
 .last-column {
     width: 0;
 }
@@ -12,4 +16,8 @@
 
 .add-button {
     margin-top: var(--space-small);
+}
+
+.root[size="mini"] {
+    width: auto;
 }

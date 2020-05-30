@@ -28,6 +28,22 @@
     line-height: var(--collapse-item-expander-size-small);
 }
 
+.root[size="mini"] .item_head {
+    padding: var(--collapse-item-head-padding-mini);
+}
+
+.root[size="mini"] .item_expander {
+    width: var(--collapse-item-expander-size-mini);
+    height: var(--collapse-item-expander-size-mini);
+    line-height: var(--collapse-item-expander-size-mini);
+}
+
+
+.root[size="mini"] .item_content {
+    padding: var(--collapse-item-content-padding-mini);
+}
+
+
 .root[display="full"] {
     width: 100%;
     height: 100%;

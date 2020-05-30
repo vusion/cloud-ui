@@ -6,3 +6,18 @@
     background: var(--tree-view-background);
     border: 1px solid var(--border-color-base);
 }
+
+.root[size="mini"] .node_expander {
+    width: var(--tree-view-node-expander-size-mini);
+    height: var(--tree-view-node-expander-size-mini);
+    line-height: var(--tree-view-node-expander-size-mini);
+}
+
+.root[size="mini"] .node_text {
+    padding: var(--tree-view-node-text-padding–mini);
+}
+
+.root[display="full"] {
+    width: 100%;
+    height: 100%;
+}

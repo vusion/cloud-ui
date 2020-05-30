@@ -3,7 +3,6 @@
         <component :is="ChildComponent"
             v-for="node in data"
             :text="node[field || textField]"
-            :key="node[valueField]"
             :value="node[valueField]"
             :expanded.sync="node.expanded"
             :checked.sync="node.checked"

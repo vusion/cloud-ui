@@ -65,6 +65,7 @@
   slots:
     - name: default
       description: 插入文本或 HTML。
+      accept-type: [text, inline]
   events:
     - name: $listeners
       description: 监听所有`<a>`元素的事件。

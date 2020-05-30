@@ -1,5 +1,5 @@
-<div :class="$style.root" direction="vertical" gap="small">
-    <u-form-table :class="$style.table" v-bind="$attrs">
+<div :class="$style.root" direction="vertical" gap="small" :size="size">
+    <u-form-table :class="$style.table" :size="size" v-bind="$attrs">
         <thead><tr>
             <th v-for="(columnVM, columnIndex) in columnVMs"
                 :width="columnVM.width">
@@ -10,7 +10,7 @@
             <th :class="$style['last-column']" :dynamic="dynamic"></th>
         </tr></thead>
         <tbody>
-            <u-form-table-view-row :class="$style.row" v-for="(item, rowIndex) in currentData" :key="rowIndex">
+            <u-form-table-view-row :class="$style.row" v-for="(item, rowIndex) in currentData" :key="rowIndex" :muted="muted">
                 <td :class="$style.cell" v-for="(columnVM, columnIndex) in columnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title>
                     <u-validator display="block" :label="columnVM.title" :action="columnVM.action"
                         :rules="columnVM.rules" :muted="columnVM.muted"
@@ -30,6 +30,6 @@
             </u-form-table-view-row>
         </tbody>
     </u-form-table>
-    <u-form-table-add-button :class="$style['add-button']" v-if="dynamic" @click="add()" :disabled="currentData.length >= maxCount">{{ $t('add') }}</u-form-table-add-button>
+    <u-form-table-add-button :class="$style['add-button']" v-if="showAddButton && dynamic" @click="add()" :disabled="currentData.length >= maxCount">{{ $t('add') }}</u-form-table-add-button>
     <slot></slot>
 </div>

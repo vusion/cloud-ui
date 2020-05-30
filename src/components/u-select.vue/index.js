@@ -348,6 +348,7 @@ export const USelect = {
             }
 
             this.focus();
+            this.close();
         },
         focus() {
             if (this.filterable)
