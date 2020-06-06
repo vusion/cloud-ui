@@ -20,9 +20,13 @@ export const UTabs = {
         };
     },
     watch: {
-        itemVMs() {
+        itemVMs(itemVMs) {
             this.$nextTick(() => {
                 this.scrollable = this.$refs.scrollView.scrollWidth > this.$refs.scrollView.clientWidth;
+
+                this.$refs.item.forEach((itemEl, index) => {
+                    itemEl.__vue__ = itemVMs[index];
+                });
             });
         },
     },

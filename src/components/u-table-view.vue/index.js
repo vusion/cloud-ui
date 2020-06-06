@@ -11,16 +11,6 @@ export const UTableView = {
     props: {
         data: Array,
         dataSource: [DataSource, Function, Object, Array],
-        title: String,
-        titleAlignment: { type: String, default: 'center' },
-        border: { type: Boolean, default: false },
-        loading: { type: Boolean, default: false },
-        loadingText: { type: String, default() { return this.$t('loading'); } },
-        error: { type: Boolean, default: false },
-        errorText: { type: String, default() { return this.$t('error'); } },
-        emptyText: { type: String, default() { return this.$t('empty'); } },
-
-        // formatter: { type: [String, Function], default: 'text' },
         initialLoad: { type: Boolean, default: true },
         pageable: { type: [Boolean, String], default: false },
         pageSize: { type: Number, default: 20 },
@@ -36,6 +26,17 @@ export const UTableView = {
         remotePaging: { type: Boolean, default: false },
         remoteSorting: { type: Boolean, default: false },
         remoteFiltering: { type: Boolean, default: false },
+
+        title: String,
+        titleAlignment: { type: String, default: 'center' },
+        border: { type: Boolean, default: false },
+        loading: { type: Boolean, default: false },
+        loadingText: { type: String, default() { return this.$t('loading'); } },
+        error: { type: Boolean, default: false },
+        errorText: { type: String, default() { return this.$t('error'); } },
+        emptyText: { type: String, default() { return this.$t('empty'); } },
+
+        // formatter: { type: [String, Function], default: 'text' },
         /* Selection Props */
         valueField: String,
         value: null,
@@ -227,6 +228,7 @@ export const UTableView = {
             if (typeof this.data === 'function' || (this.data instanceof Object && !Array.isArray(this.data)))
                 throw new Error(`[cloud-ui] Don't assign a function or object to 'data' prop. Try to use 'data-source' prop.`);
             this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
+            this.initialLoad && this.load();
             this.handleResize();
         },
         getExtraParams() {

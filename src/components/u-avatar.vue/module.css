@@ -5,8 +5,9 @@
     width: var(--avatar-size);
     height: var(--avatar-size);
     border-radius: 50%;
-    vertical-align: middle;
     overflow: hidden;
+    vertical-align: middle;
+    margin-bottom: 2px;
 }
 
 .root > img {

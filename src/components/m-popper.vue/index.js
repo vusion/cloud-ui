@@ -22,7 +22,7 @@ export const MPopper = {
             validator: (value) => /^(top|bottom|left|right)(-start|-end)?$/.test(value),
         },
         hoverDelay: { type: Number, default: 0 },
-        hideDelay: { type: Number, default: 200 },
+        hideDelay: { type: Number, default: 100 },
         appendTo: { type: String, default: 'body', validator: (value) => ['body', 'reference'].includes(value) },
         boundariesElement: { default: 'window' },
         arrowElement: { type: String, default: '[u-arrow]' },

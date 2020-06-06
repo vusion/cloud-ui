@@ -5,7 +5,7 @@
             <span :class="$style.prev" @click="scrollPrev"></span>
             <div ref="scrollView" :class="$style['scroll-view']">
                 <div :class="$style.scroll">
-                    <a :class="$style.item"
+                    <a :class="$style.item" ref="item"
                         v-for="itemVM in itemVMs"
                         :href="itemVM.currentHref" :target="itemVM.target" :title="itemVM.title"
                         :selected="router ? itemVM.active : itemVM === selectedVM"

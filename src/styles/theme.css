@@ -460,7 +460,7 @@
     --tabs-item-background-hover: var(--background-color-lighter);
     --tabs-item-background-selected: var(--background-color-default);
     --tabs-item-background-selected-capsule: none;
-    --tabs-item-background-disabled: var(--background-color-default);
+    --tabs-item-background-disabled: transparent;
     --tabs-item-background-selected-disabled: var(--background-color-default);
     --tabs-item-color: inherit;
     --tabs-item-color-hover: var(--brand-primary);

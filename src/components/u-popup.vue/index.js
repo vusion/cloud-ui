@@ -11,7 +11,7 @@ export const UPopup = {
         // @inherit: placement: { type: String, default: 'bottom-start' },
         // @inherit: reference: HTMLElement, // 为了方便生成指令
         // @inherit: followCursor: { type: [Boolean, Number, Object], default: false },
-        // @inherit: hideDelay: { type: Number, default: 200 },
+        // @inherit: hideDelay: { type: Number, default: 100 },
         // @inherit: offset: { type: String, default: '0' },
         disabled: { type: Boolean, default: false },
         mergeBorders: { type: Boolean, default: true },
