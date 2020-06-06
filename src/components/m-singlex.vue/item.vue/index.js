@@ -35,12 +35,14 @@ export const MSinglexItem = {
 
             const current = this.$route;
             const target = this.$router.resolve(this.to).route;
-            const currentPath = current.path.replace(trailingSlashRE, '/');
-            const targetPath = (target.redirectedFrom ? this.$router.resolve(target.redirectedFrom).location.path : target.path).replace(trailingSlashRE, '/');
+            const currentPath = decodeURI(current.path.replace(trailingSlashRE, '/'));
+            const targetPath = decodeURI((target.redirectedFrom ? this.$router.resolve(target.redirectedFrom).location.path : target.path).replace(trailingSlashRE, '/'));
             // @TODO: 是否要检查 query 的包含关系
 
+            const currentHash = decodeURI(current.hash);
+            const targetHash = decodeURI(target.hash);
             const exact = this.exact ? currentPath === targetPath : currentPath.startsWith(targetPath);
-            const exactHash = this.exactHash ? current.hash === target.hash : current.hash.startsWith(target.hash);
+            const exactHash = this.exactHash ? currentHash === targetHash : currentHash.startsWith(targetHash);
             return exact && exactHash;
         },
     },
