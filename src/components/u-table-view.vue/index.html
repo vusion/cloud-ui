@@ -11,7 +11,9 @@
                     <col v-for="columnVM in visibleColumnVMs" :width="columnVM.computedWidth"></col>
                 </colgroup>
                 <thead><tr>
-                    <th :class="$style['head-title']" v-for="(columnVM, columnIndex) in visibleColumnVMs"
+                    <th ref="th" :class="$style['head-title']" v-for="(columnVM, columnIndex) in visibleColumnVMs"
+                        :vusion-scope-id="columnVM.$options._scopeId"
+                        :vusion-node-path="columnVM.$attrs['vusion-node-path']"
                         :sortable="columnVM.sortable && sortTrigger === 'head'" :filterable="!!columnVM.filters" @click="columnVM.sortable && sortTrigger === 'head' && onClickSort(columnVM)">
                         <!-- type === 'checkbox' -->
                         <span v-if="columnVM.type === 'checkbox'">

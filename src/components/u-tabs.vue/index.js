@@ -24,7 +24,7 @@ export const UTabs = {
             this.$nextTick(() => {
                 this.scrollable = this.$refs.scrollView.scrollWidth > this.$refs.scrollView.clientWidth;
 
-                this.$refs.item.forEach((itemEl, index) => {
+                this.$refs.item && this.$refs.item.forEach((itemEl, index) => {
                     itemEl.__vue__ = itemVMs[index];
                 });
             });

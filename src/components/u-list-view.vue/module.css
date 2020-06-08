@@ -1,6 +1,7 @@
 .root {
     display: flex;
     flex-direction: column;
+    background: var(--list-view-body-background);
     border: 1px solid var(--list-view-border-color);
     border-radius: var(--border-radius-base);
     height: var(--list-view-height);

@@ -2,6 +2,8 @@
     <nav :class="$style.head">
         <a :class="$style.item"
             v-for="(itemVM, index) in itemVMs"
+            :vusion-scope-id="itemVM.$options._scopeId"
+            :vusion-node-path="itemVM.$attrs['vusion-node-path']"
             :passed="selectedVM && index <= selectedVM.index"
             :selected="selectedVM && index === selectedVM.index"
             :disabled="itemVM.disabled || disabled"

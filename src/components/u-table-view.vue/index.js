@@ -165,6 +165,13 @@ export const UTableView = {
                 oldValues,
             });
         },
+        columnVMs(columnVMs) {
+            this.$nextTick(() => {
+                this.$refs.th && this.$refs.th.forEach((thEl, index) => {
+                    thEl.__vue__ = columnVMs[index];
+                });
+            });
+        },
     },
     created() {
         // @TODO: this.pageNumber
@@ -183,6 +190,9 @@ export const UTableView = {
         this.watchValues(this.values);
         this.handleResize();
         window.addEventListener('resize', this.handleResize);
+    },
+    updated() {
+        this.handleResize();
     },
     destroyed() {
         window.removeEventListener('resize', this.handleResize);

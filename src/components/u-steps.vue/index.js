@@ -20,6 +20,10 @@ export const USteps = {
                 const value = this.selectedVM ? this.selectedVM.index : this.value;
                 this.selectedVM = undefined;
                 this.watchValue(value);
+
+                this.$refs.item && this.$refs.item.forEach((itemEl, index) => {
+                    itemEl.__vue__ = itemVMs[index];
+                });
             },
         },
     },

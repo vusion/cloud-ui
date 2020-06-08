@@ -19,6 +19,15 @@ export const UFormTableView = {
             columnVMs: [],
         };
     },
+    watch: {
+        columnVMs(columnVMs) {
+            this.$nextTick(() => {
+                this.$refs.th && this.$refs.th.forEach((thEl, index) => {
+                    thEl.__vue__ = columnVMs[index];
+                });
+            });
+        },
+    },
     created() {
         if (this.validateOnAdd)
             this.$on('add', () => this.validate().catch(() => ''));

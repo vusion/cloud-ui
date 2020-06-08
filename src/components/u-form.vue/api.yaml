@@ -5,11 +5,10 @@
   attrs:
     - name: model
       type: object
-      default: null
       description: 表单数据模型
     - name: rules
       type: object
-      default: null
+      deprecated: true
       description: 表单所有域的验证规则，已废弃，推荐在各`<u-form-item>`中自行添加 rules。
     - name: layout
       type: string
@@ -90,6 +89,7 @@
           default: false
           description: 是否验证后无提示
 - name: u-form-item
+  title: 表单项
   attrs:
     - name: name
       type: string

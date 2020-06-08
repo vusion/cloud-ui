@@ -1,50 +1,67 @@
 - name: u-tabs
-  title: 标签页
+  title: 选项卡
   labels: [路由链接, 块级展示]
   description: 选项卡切换组件，常用于平级区域大块内容的的收纳和展现。
   attrs:
-    - name: value.sync, v-model
-      type: any
-      default: null
-      description: 选中标签页的值
-    - name: readonly
-      type: boolean
-      default: false
-      description: 是否只读
-    - name: disabled
-      type: boolean
-      default: false
-      description: 是否禁用
-    - name: closable
-      type: boolean
-      default: false
-      description: 是否可以关闭
     - name: router
+      title: 绑定路由
       type: boolean
       default: false
-      description: 是否根据 vue-router 来控制选择哪个标签页
+      description: 是否根据 vue-router 来控制选择哪个标签页。
+    - name: value
+      title: 选择值
+      model: true
+      sync: true
+      type: any
+      description: 选中标签页的值。
+    - name: readonly
+      title: 只读
+      type: boolean
+      default: false
+      description: 是否只读。
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 是否禁用。
+    - name: closable
+      title: 可关闭
+      type: boolean
+      default: false
+      description: 是否可以关闭。
     - name: show-scroll-buttons
+      title: 显示滚动按钮
       type: enum | boolean
       options: ['never', 'auto', 'always']
       default: 'auto'
       description: 是否显示标签滚动左右箭头按钮。`'auto'`表示有滚动的情况下显示，`‘always'`表示始终显示，`'never'`表示始终不显示。
     - name: appear
+      title: 展示外观
       type: enum
       options: [square, round, card, line, text, capsule]
       default: tab
-      description: 标签显示的外观
+      description: 标签展示的外观
     - name: size
+      title: 标签尺寸
       type: enum
       options: [normal, small, mini]
       default: normal
       description: 标签尺寸
   slots:
     - name: default
+      title: 默认
       description: 插入`<u-tab>`子组件。
+      accept-type: all
+      recommanded:
+        - name: u-tab
+          snippet: '<u-tab title="标签页"></u-tab>'
     - name: extra
-      description: 在标签右侧可以附加组件。
+      title: 右侧附加
+      description: 在标签右侧可以附加的组件。
+      accept-type: all
   events:
     - name: before-select
+      title: 选择前
       description: 选择某一页前触发
       params:
         - name: $event.value
@@ -66,7 +83,8 @@
           type: UTabs
           description: 发送事件实例
     - name: select
-      description: 选择某一页时触发
+      title: 选择后
+      description: 选择某一页后触发
       params:
         - name: $event.value
           type: any
@@ -84,6 +102,7 @@
           type: UTabs
           description: 发送事件实例
     - name: before-close
+      title: 关闭前
       description: 关闭某一页前触发
       params:
         - name: $event.value
@@ -102,7 +121,8 @@
           type: UTabs
           description: 发送事件实例
     - name: close
-      description: 关闭某一页时触发
+      title: 关闭后
+      description: 关闭某一页后触发
       params:
         - name: $event.value
           type: any
@@ -120,43 +140,61 @@
           type: UTabs
           description: 发送事件实例
 - name: u-tab
+  title: 标签页
   attrs:
     - name: title
+      title: 标题
       type: string
-      default: null
-      description: 标签页标题
+      description: 标签页标题。
     - name: value
+      title: 值
       type: any
-      default: null
-      description: 标签页的值
+      description: 标签页的值。
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
-      description: 是否禁用此标签页
+      description: 是否禁用此标签页。
     - name: href
+      title: 链接
       type: string
-      default: null
       description: 链接地址
     - name: target
-      type: string
-      default: null
-      description: 打开方式
+      title: 打开方式
+      type: enum
+      options:
+        - name: 新标签页 (_blank)
+          value: _blank
+        - name: 当前窗口 (_self)
+          value: _self
+        - name: 父级窗口 (_parent)
+          value: _parent
+        - name: 顶级窗口 (_top)
+          value: _top
+      description: （原生属性）。比如设置`_blank`，会在新标签页中打开。
     - name: to
+      title: 路由链接
       type: string, Location
-      default: null
-      description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
+      description: 需要 router 为 true，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
     - name: replace
       type: boolean
       default: false
       description: 需要
-        vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history
+        router 为 true，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history
         `记录。
-    - name: exact
+    - name: append
       type: boolean
       default: false
-      description: 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
+      description: 需要 router 为 true，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。
+    - name: exact
+      title: 精确匹配
+      type: boolean
+      default: false
+      description: 需要 router 为 true，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
   slots:
     - name: default
+      title: 默认
       description: 插入文本或 HTML。
     - name: title
+      title: 标题自定义
       description: 自定义标题文本。

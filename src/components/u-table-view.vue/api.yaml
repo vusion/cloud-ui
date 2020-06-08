@@ -232,7 +232,9 @@
       title: 默认
       description: 在表格中插入`<u-table-view-column>`子组件。
       accept-type: all
-      recommanded: [u-table-view-column]
+      recommanded:
+        - name: u-table-view-column
+          snippet: '<u-table-view-column title="表格列"></u-table-view-column>'
     - name: loading
       title: 加载中内容
       description: 自定义加载中内容。

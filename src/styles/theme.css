@@ -716,9 +716,9 @@
     --list-view-height-large: calc(30px * 18 + var(--border-width-base) * 2);
     --list-view-height-huge: 80vh;
     --list-view-head-background: var(--background-color-base);
-    --list-view-body-background: white;
-    --list-view-body-background-disabled: white;
-    --list-view-foot-background: white;
+    --list-view-body-background: var(--background-color-default);
+    --list-view-body-background-disabled: var(--background-color-default);
+    --list-view-foot-background: var(--background-color-default);
     --list-view-border-color: var(--border-color-base);
     --list-view-border-color-focus: var(--border-color-base);
     --list-view-border-color-disabled: var(--brand-disabled);
