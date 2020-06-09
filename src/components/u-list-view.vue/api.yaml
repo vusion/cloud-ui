@@ -106,7 +106,7 @@
   slots:
     - name: default
       description: 插入文本或 HTML
-    - name: text
+    - name: item
       description: 自定义选项的结构和样式
   events:
     - name: before-select

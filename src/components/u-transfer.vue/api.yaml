@@ -74,6 +74,9 @@
       description: 是否禁用
   slots:
     - name: default
+      description: 插入文本或 HTML
+    - name: item
+      description: 自定义选项的结构和样式
   events:
     - name: transfer
       description: 数据转移时触发

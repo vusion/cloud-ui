@@ -14,8 +14,8 @@
         :caseSensitive="caseSensitive"
         :pageable="pageable"
         :pageSize="pageSize">
-        <template #text="props">
-            <slot name="text" v-on="props"></slot>
+        <template #item="props">
+            <slot name="item" v-bind="props"></slot>
         </template>
     </u-list-view>
     <div :class="$style.buttons">
@@ -37,8 +37,8 @@
         :caseSensitive="caseSensitive"
         :pageable="pageable"
         :pageSize="pageSize">
-        <template #text="props">
-            <slot name="text" v-on="props"></slot>
+        <template #item="props">
+            <slot name="item" v-bind="props"></slot>
         </template>
     </u-list-view>
     <slot></slot>
