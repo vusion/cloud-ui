@@ -645,7 +645,7 @@ export default {
 <u-grid-layout :repeat="3">
     <u-grid-layout-column>
         <u-list-view show-head title="单选列表" :data-source="list">
-            <template #text="{ item }">
+            <template #item="{ item }">
                 <h3 :class="$style.title">{{ item.text }}</h3>
                 <u-text wrap="ellipsis">{{ item.text + ' is a specfic language with some features that ...' }}</u-text>
             </template>
@@ -653,7 +653,7 @@ export default {
     </u-grid-layout-column>
     <u-grid-layout-column>
         <u-list-view multiple show-head title="多选列表" :data-source="list">
-            <template #text="{ item }">
+            <template #item="{ item }">
                 <h3 :class="$style.title">{{ item.text }}</h3>
                 <u-text wrap="ellipsis">{{ item.text + ' is a specfic language with some features that ...' }}</u-text>
             </template>
@@ -1401,7 +1401,7 @@ export default {
 
 插入文本或 HTML
 
-#### text
+#### item
 
 自定义选项的结构和样式
 

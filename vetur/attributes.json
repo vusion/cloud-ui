@@ -1264,7 +1264,7 @@
       "normal",
       "large"
     ],
-    "description": "标签大小。可选值：`mini`、`small`、`normal`、`large`。"
+    "description": "标签宽度。可选值：`mini`、`small`、`normal`、`large`。"
   },
   "u-form-item/name": {
     "type": "string",
@@ -2507,201 +2507,221 @@
     "type": "boolean",
     "description": "是否显示开关`ON`和`OFF`文字"
   },
-  "u-table-view/title": {
-    "type": "string",
-    "description": "表格标题"
-  },
-  "u-table-view/title-alignment": {
-    "type": "string",
-    "description": "表格标题对齐方式"
-  },
-  "u-table-view/border": {
-    "type": "boolean",
-    "description": "是否显示边框"
-  },
-  "u-table-view/line": {
-    "type": "boolean",
-    "description": "单元格之间是否显示分隔线条"
-  },
-  "u-table-view/striped": {
-    "type": "boolean",
-    "description": "表格行是否按斑马线条纹显示"
-  },
-  "u-table-view/hover": {
-    "type": "boolean",
-    "description": "表格行在悬浮时是否高亮显示"
-  },
-  "u-table-view/show-head": {
-    "type": "boolean",
-    "description": "是否显示表格头部"
-  },
-  "u-table-view/loading": {
-    "type": "boolean",
-    "description": "手动设置是否正在加载中"
-  },
-  "u-table-view/loading-text": {
-    "type": "string",
-    "description": "正在加载中的文字"
-  },
-  "u-table-view/error": {
-    "type": "boolean",
-    "description": "手动设置是否加载失败"
-  },
-  "u-table-view/error-text": {
-    "type": "string",
-    "description": "加载失败时的文字"
-  },
-  "u-table-view/empty-text": {
-    "type": "string",
-    "description": "暂无数据时的文字"
-  },
-  "u-table-view/data": {
-    "type": "Array<{ [field]: string, ... }>",
-    "description": "表格数据"
-  },
   "u-table-view/data-source": {
-    "type": "object, Function, DataSource",
-    "description": "多功能数据源"
+    "type": "Array<Item> | Function | object | DataSource",
+    "description": "表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise，详见文档示例。"
   },
   "u-table-view/initial-load": {
     "type": "boolean",
-    "description": "是否在初始时立即加载"
+    "description": "是否在初始时立即加载。"
   },
   "u-table-view/pageable": {
     "type": "boolean",
-    "description": "是否需要分页"
+    "description": "是否需要分页。"
   },
   "u-table-view/page-size": {
     "type": "number",
-    "description": "分页大小"
+    "description": "分页大小。"
+  },
+  "u-table-view/page-number": {
+    "type": "number",
+    "description": "当面页数。"
   },
   "u-table-view/page-size-options": {
-    "type": "Array",
-    "description": "每页大小选项列表"
+    "type": "Array<number>",
+    "description": "分页大小的选项列表。"
   },
   "u-table-view/show-total": {
     "type": "boolean",
-    "description": "是否显示总条目数"
+    "description": "是否显示总条目数。"
   },
   "u-table-view/show-sizer": {
     "type": "boolean",
-    "description": "是否显示切换每页大小选项"
+    "description": "是否显示切换分页大小选项。"
   },
   "u-table-view/show-jumper": {
     "type": "boolean",
-    "description": "是否显示页面跳转输入框"
+    "description": "是否显示页面跳转输入框。"
   },
   "u-table-view/sorting": {
-    "type": "object<{ field: string, order: string, compare: Function }>",
-    "description": "当前排序字段和顺序"
+    "type": "{ field: string, order: string, compare: Function }",
+    "description": "当前排序的字段和顺序。"
   },
   "u-table-view/default-order": {
-    "type": "string",
-    "description": "所有列首次点击时的排序顺序"
+    "type": "enum",
+    "options": [
+      "asc",
+      "desc"
+    ],
+    "description": "所有列首次点击时的排序顺序。"
   },
   "u-table-view/filtering": {
     "type": "object",
-    "description": "过滤项"
+    "description": "筛选参数。"
   },
   "u-table-view/remote-paging": {
     "type": "boolean",
-    "description": "是否使用后端分页"
+    "description": "是否使用后端分页。"
   },
   "u-table-view/remote-sorting": {
     "type": "boolean",
-    "description": "是否使用后端排序"
+    "description": "是否使用后端排序。"
   },
   "u-table-view/remote-filtering": {
     "type": "boolean",
-    "description": "是否使用后端过滤"
+    "description": "是否使用后端筛选"
+  },
+  "u-table-view/title": {
+    "type": "string",
+    "description": "表格标题。"
+  },
+  "u-table-view/title-alignment": {
+    "type": "enum",
+    "options": [
+      "left",
+      "center",
+      "right"
+    ],
+    "description": "表格标题的对齐方式。"
+  },
+  "u-table-view/border": {
+    "type": "boolean",
+    "description": "是否显示边框。"
+  },
+  "u-table-view/line": {
+    "type": "boolean",
+    "description": "单元格之间是否显示分隔线条。"
+  },
+  "u-table-view/striped": {
+    "type": "boolean",
+    "description": "表格行是否按斑马线条纹显示。"
+  },
+  "u-table-view/hover": {
+    "type": "boolean",
+    "description": "表格行在悬浮时是否高亮显示。"
+  },
+  "u-table-view/show-head": {
+    "type": "boolean",
+    "description": "是否显示表格头部。"
+  },
+  "u-table-view/loading": {
+    "type": "boolean",
+    "description": "手动设置是否正在加载中。"
+  },
+  "u-table-view/loading-text": {
+    "type": "string",
+    "description": "正在加载中的文字。"
+  },
+  "u-table-view/error": {
+    "type": "boolean",
+    "description": "手动设置是否加载失败。"
+  },
+  "u-table-view/error-text": {
+    "type": "string",
+    "description": "加载失败时的文字。"
+  },
+  "u-table-view/empty-text": {
+    "type": "string",
+    "description": "暂无数据时的文字。"
   },
   "u-table-view/value-field": {
     "type": "string",
-    "description": "在单选和多选操作中，指定数据唯一值的字段"
+    "description": "在单选和多选操作中，指定数据唯一值的字段。"
   },
   "u-table-view/value": {
     "type": "any",
-    "description": "当前选择的值"
+    "description": "单项选择的值。"
   },
   "u-table-view/values": {
     "type": "Array",
-    "description": "多项选择的值"
+    "description": "多项选择的值。"
   },
   "u-table-view/selectable": {
     "type": "boolean",
-    "description": "是否可以选择行"
+    "description": "是否可以单选行。"
   },
   "u-table-view/cancelable": {
     "type": "boolean",
-    "description": "是否可以取消选择"
+    "description": "是否可以取消选择。"
   },
   "u-table-view/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": "是否只读。"
   },
   "u-table-view/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": "是否禁用。"
   },
   "u-table-view/accordion": {
     "type": "boolean",
-    "description": "在有`expander`列的情况下，展开一行的同时，是否收起其它行"
+    "description": "在有`expander`列的情况下，展开一行的同时，是否收起其它行。"
   },
   "u-table-view/resizable": {
     "type": "boolean",
-    "description": "是否可以调整列宽"
+    "description": "是否可以调整列宽。"
   },
   "u-table-view/resize-remaining": {
-    "type": "boolean",
-    "description": "调整列宽效果。可选值：`sequence`表示保持总宽不变，优先后一列弥补宽度；`average`表示保持总宽不变，后面所有列平均弥补宽度；`none`表示不做任何处理，表格宽度变化。"
+    "type": "enum",
+    "options": [
+      "sequence",
+      "average",
+      "none"
+    ],
+    "description": "调整列宽时如何处理剩余大小。可选值：`sequence`表示保持总宽不变，优先后一列弥补宽度；`average`表示保持总宽不变，后面所有列平均弥补宽度；`none`表示不做任何处理，表格宽度变化。"
   },
   "u-table-view-column/title": {
     "type": "string",
-    "description": "列标题"
+    "description": "列标题。"
   },
   "u-table-view-column/field": {
     "type": "string",
-    "description": "data 中的字段名"
+    "description": "data 项中的字段名。"
   },
   "u-table-view-column/width": {
-    "type": "string, number",
-    "description": "给列指定宽度，可以为数字或百分比"
+    "type": "string | number",
+    "description": "给列指定宽度，可以为数字或百分比。"
   },
   "u-table-view-column/ellipsis": {
     "type": "boolean",
-    "description": "是否省略显示。默认文字超出时会换行"
+    "description": "是否省略显示。默认文字超出时会换行。"
   },
   "u-table-view-column/formatter": {
-    "type": "string, object, Function, Formatter",
-    "description": "格式器"
-  },
-  "u-table-view-column/-": {
-    "type": "",
-    "description": ""
+    "type": "string | object | Function | Formatter",
+    "description": "格式器。"
   },
   "u-table-view-column/sortable": {
     "type": "boolean",
-    "description": "该列是否可以排序"
+    "description": "该列是否可以排序。"
   },
   "u-table-view-column/default-order": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "asc",
+      "desc"
+    ],
     "description": "该列首次点击时的排序顺序"
   },
   "u-table-view-column/filters": {
     "type": "Array<{ text: string, value: any }>",
-    "description": "该列首次点击时的排序顺序"
+    "description": "筛选项的参数"
   },
   "u-table-view-column/hidden": {
     "type": "boolean",
-    "description": "是否隐藏"
+    "description": "是否隐藏该列。"
   },
   "u-table-view-column/type": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "index",
+      "radio",
+      "checkbox",
+      "expander"
+    ],
     "description": "列类型。可选值：`index`表示序号列，`radio`表示单选列，`checkbox`表示多选列，`expander`表示展开列。"
   },
   "u-table-view-column/start-index": {
     "type": "number",
-    "description": "当`type=\"index\"`时的起始序号"
+    "description": "当`type=\"index\"`时的起始序号。"
   },
   "u-tablets/value": {
     "type": "any",
@@ -2743,25 +2763,25 @@
     "type": "object",
     "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
   },
+  "u-tabs/router": {
+    "type": "boolean",
+    "description": "是否根据 vue-router 来控制选择哪个标签页。"
+  },
   "u-tabs/value": {
     "type": "any",
-    "description": "选中标签页的值"
+    "description": "选中标签页的值。"
   },
   "u-tabs/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": "是否只读。"
   },
   "u-tabs/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": "是否禁用。"
   },
   "u-tabs/closable": {
     "type": "boolean",
-    "description": "是否可以关闭"
-  },
-  "u-tabs/router": {
-    "type": "boolean",
-    "description": "是否根据 vue-router 来控制选择哪个标签页"
+    "description": "是否可以关闭。"
   },
   "u-tabs/show-scroll-buttons": {
     "type": "enum | boolean",
@@ -2782,7 +2802,7 @@
       "text",
       "capsule"
     ],
-    "description": "标签显示的外观"
+    "description": "标签展示的外观"
   },
   "u-tabs/size": {
     "type": "enum",
@@ -2795,35 +2815,57 @@
   },
   "u-tab/title": {
     "type": "string",
-    "description": "标签页标题"
+    "description": "标签页标题。"
   },
   "u-tab/value": {
     "type": "any",
-    "description": "标签页的值"
+    "description": "标签页的值。"
   },
   "u-tab/disabled": {
     "type": "boolean",
-    "description": "是否禁用此标签页"
+    "description": "是否禁用此标签页。"
   },
   "u-tab/href": {
     "type": "string",
     "description": "链接地址"
   },
   "u-tab/target": {
-    "type": "string",
-    "description": "打开方式"
+    "type": "enum",
+    "options": [
+      {
+        "name": "新标签页 (_blank)",
+        "value": "_blank"
+      },
+      {
+        "name": "当前窗口 (_self)",
+        "value": "_self"
+      },
+      {
+        "name": "父级窗口 (_parent)",
+        "value": "_parent"
+      },
+      {
+        "name": "顶级窗口 (_top)",
+        "value": "_top"
+      }
+    ],
+    "description": "（原生属性）。比如设置`_blank`，会在新标签页中打开。"
   },
   "u-tab/to": {
     "type": "string, Location",
-    "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
+    "description": "需要 router 为 true，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
   },
   "u-tab/replace": {
     "type": "boolean",
-    "description": "需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。"
+    "description": "需要 router 为 true，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。"
+  },
+  "u-tab/append": {
+    "type": "boolean",
+    "description": "需要 router 为 true，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。"
   },
   "u-tab/exact": {
     "type": "boolean",
-    "description": "需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。"
+    "description": "需要 router 为 true，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。"
   },
   "u-text/color": {
     "type": "enum",

@@ -129,8 +129,8 @@
       description: 是否禁用
     - name: opened
       title: '弹出/关闭状态'
-      type: boolean
       sync: true
+      type: boolean
       default: false
       description: 弹出/关闭状态
   slots:

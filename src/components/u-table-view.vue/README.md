@@ -1,8 +1,8 @@
 <!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-# UTableView 表格视图
+# UTableView 数据表格
 
-- [基础示例](#基础示例)
+- [示例](#示例)
     - [基本用法](#基本用法)
     - [格式器](#格式器)
     - [列插槽](#列插槽)
@@ -28,9 +28,11 @@
     - [Props/Attrs](#propsattrs-2)
     - [Slots](#slots-2)
 
+**数据源**, **块级展示**
+
 用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。
 
-## 基础示例
+## 示例
 基础示例中展示了如何初步地在表格视图组件中配置数据、修饰样式，以及如何处理数据过多的情况。
 
 ### 基本用法
@@ -1776,46 +1778,43 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| title | string |  |  | 表格标题 |
-| title-alignment | string |  | `'center'` | 表格标题对齐方式 |
-| border | boolean |  |  | 是否显示边框 |
-| line | boolean |  | `false` | 单元格之间是否显示分隔线条 |
-| striped | boolean |  | `false` | 表格行是否按斑马线条纹显示 |
-| hover | boolean |  | `false` | 表格行在悬浮时是否高亮显示 |
-| show-head | boolean |  | `true` | 是否显示表格头部 |
-| loading | boolean |  |  | 手动设置是否正在加载中 |
-| loading-text | string |  | `'正在加载中'` | 正在加载中的文字 |
-| error | boolean |  |  | 手动设置是否加载失败 |
-| error-text | string |  | `'加载失败，请重试'` | 加载失败时的文字 |
-| empty-text | string |  | `'暂无数据'` | 暂无数据时的文字 |
-| **Data Props/Attrs** |  |  |  |  |
-| data | Array\<{ \[field\]: string, ... }\> |  |  | 表格数据 |
-| data-source | object, Function, DataSource |  |  | 多功能数据源 |
-| initial-load | boolean |  | `true` | 是否在初始时立即加载 |
-| pageable | boolean |  | `false` | 是否需要分页 |
-| page-size.sync | number |  | `20` | 分页大小 |
-| page-size-options | Array |  | `[10, 20, 50]` | 每页大小选项列表 |
-| show-total | boolean |  | `false` | 是否显示总条目数 |
-| show-sizer | boolean |  | `false` | 是否显示切换每页大小选项 |
-| show-jumper | boolean |  | `false` | 是否显示页面跳转输入框 |
-| sorting.sync | object\<{ field: string, order: string, compare: Function }\> |  | `'{ field: undefined, order: 'desc' }'` | 当前排序字段和顺序 |
-| default-order | string |  | `'asc'` | 所有列首次点击时的排序顺序 |
-| filtering.sync | object |  |  | 过滤项 |
-| remote-paging | boolean |  | `false` | 是否使用后端分页 |
-| remote-sorting | boolean |  | `false` | 是否使用后端排序 |
-| remote-filtering | boolean |  | `false` | 是否使用后端过滤 |
-| **Selection Props/Attrs** |  |  |  |  |
-| value-field | string |  |  | 在单选和多选操作中，指定数据唯一值的字段 |
-| value.sync, v-model | any |  |  | 当前选择的值 |
-| values.sync | Array |  |  | 多项选择的值 |
-| selectable | boolean |  | `false` | 是否可以选择行 |
-| cancelable | boolean |  | `false` | 是否可以取消选择 |
-| readonly | boolean |  | `false` | 是否只读 |
-| disabled | boolean |  | `false` | 是否禁用 |
-| **Other Props/Attrs** |  |  |  |  |
-| accordion | boolean |  | `false` | 在有`expander`列的情况下，展开一行的同时，是否收起其它行 |
-| resizable | boolean |  | `false` | 是否可以调整列宽 |
-| resize-remaining | boolean |  | `'average'` | 调整列宽效果。可选值：`sequence`表示保持总宽不变，优先后一列弥补宽度；`average`表示保持总宽不变，后面所有列平均弥补宽度；`none`表示不做任何处理，表格宽度变化。 |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise，详见文档示例。 |
+| initial-load | boolean |  | `true` | 是否在初始时立即加载。 |
+| pageable | boolean |  | `false` | 是否需要分页。 |
+| page-size.sync | number |  | `20` | 分页大小。 |
+| page-number.sync | number |  | `1` | 当面页数。 |
+| page-size-options | Array\<number\> |  | `[10, 20, 50]` | 分页大小的选项列表。 |
+| show-total | boolean |  | `false` | 是否显示总条目数。 |
+| show-sizer | boolean |  | `false` | 是否显示切换分页大小选项。 |
+| show-jumper | boolean |  | `false` | 是否显示页面跳转输入框。 |
+| sorting.sync | { field: string, order: string, compare: Function } |  | `'{ field: undefined, order: 'desc' }'` | 当前排序的字段和顺序。 |
+| default-order | enum | `'asc'`, `'desc'` | `'asc'` | 所有列首次点击时的排序顺序。 |
+| filtering.sync | object |  |  | 筛选参数。 |
+| remote-paging | boolean |  | `false` | 是否使用后端分页。 |
+| remote-sorting | boolean |  | `false` | 是否使用后端排序。 |
+| remote-filtering | boolean |  | `false` | 是否使用后端筛选 |
+| title | string |  |  | 表格标题。 |
+| title-alignment | enum | `'left'`, `'center'`, `'right'` | `'center'` | 表格标题的对齐方式。 |
+| border | boolean |  | `false` | 是否显示边框。 |
+| line | boolean |  | `false` | 单元格之间是否显示分隔线条。 |
+| striped | boolean |  | `false` | 表格行是否按斑马线条纹显示。 |
+| hover | boolean |  | `false` | 表格行在悬浮时是否高亮显示。 |
+| show-head | boolean |  | `true` | 是否显示表格头部。 |
+| loading | boolean |  |  | 手动设置是否正在加载中。 |
+| loading-text | string |  | `'正在加载中'` | 正在加载中的文字。 |
+| error | boolean |  |  | 手动设置是否加载失败。 |
+| error-text | string |  | `'加载失败，请重试'` | 加载失败时的文字。 |
+| empty-text | string |  | `'暂无数据'` | 暂无数据时的文字。 |
+| value-field | string |  |  | 在单选和多选操作中，指定数据唯一值的字段。 |
+| value.sync, v-model | any |  |  | 单项选择的值。 |
+| values.sync | Array |  |  | 多项选择的值。 |
+| selectable | boolean |  | `false` | 是否可以单选行。 |
+| cancelable | boolean |  | `false` | 是否可以取消选择。 |
+| readonly | boolean |  | `false` | 是否只读。 |
+| disabled | boolean |  | `false` | 是否禁用。 |
+| accordion | boolean |  | `false` | 在有`expander`列的情况下，展开一行的同时，是否收起其它行。 |
+| resizable | boolean |  | `false` | 是否可以调整列宽。 |
+| resize-remaining | enum | `'sequence'`, `'average'`, `'none'` | `'average'` | 调整列宽时如何处理剩余大小。可选值：`sequence`表示保持总宽不变，优先后一列弥补宽度；`average`表示保持总宽不变，后面所有列平均弥补宽度；`none`表示不做任何处理，表格宽度变化。 |
 
 ### Slots
 
@@ -1825,15 +1824,15 @@ export default {
 
 #### loading
 
-自定义加载中。
+自定义加载中内容。
 
 #### error
 
-自定义加载错误。
+自定义加载错误内容。
 
 #### empty
 
-自定义空态。
+自定义暂无数据内容。
 
 ### Events
 
@@ -1848,11 +1847,11 @@ export default {
 
 #### @load
 
-加载时触发
+加载后触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event |  | 空 |
+| $event | null | 无 |
 | senderVM | UTableView | 发送事件实例 |
 
 #### @before-page
@@ -1862,7 +1861,7 @@ export default {
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event.size | number | 分页大小 |
-| $event.oldSize | number | 分页大小 |
+| $event.oldSize | number | 旧的分页大小 |
 | $event.number | number | 当前页数 |
 | $event.oldNumber | number | 旧的页数 |
 | $event.preventDefault | Function | 阻止切换分页流程 |
@@ -1886,15 +1885,15 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.field | string | 排序顺序 |
-| $event.order | string | 排序字段 |
+| $event.field | string | 排序字段 |
+| $event.order | string | 排序顺序 |
 | $event.compare | Function | 排序比较函数 |
 | $event.preventDefault | Function | 阻止排序流程 |
 | senderVM | UTableView | 发送事件实例 |
 
 #### @sort
 
-排序时触发
+排序后触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
@@ -1905,21 +1904,21 @@ export default {
 
 #### @before-filter
 
-过滤前触发
+筛选前触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.field | object | 过滤筛选对象 |
-| $event.preventDefault | Function | 阻止过滤流程 |
+| $event | object | 筛选参数对象 |
+| $event.preventDefault | Function | 阻止筛选流程 |
 | senderVM | UTableView | 发送事件实例 |
 
 #### @filter
 
-过滤时触发
+筛选后触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event | object | 过滤筛选对象 |
+| $event | object | 筛选参数对象 |
 | senderVM | UTableView | 发送事件实例 |
 
 #### @before-select
@@ -1937,7 +1936,7 @@ export default {
 
 #### @input
 
-选择某一项时触发
+选择某一项后触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
@@ -1946,7 +1945,7 @@ export default {
 
 #### @select
 
-选择某一项时触发
+选择某一项后触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
@@ -1959,7 +1958,7 @@ export default {
 
 #### @check
 
-多选模式中，选中节点时触发
+多选模式中，选中节点后触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
@@ -1971,7 +1970,7 @@ export default {
 
 #### @change
 
-选择值改变时触发。单选模式中：
+单选或多选值改变后触发。
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
@@ -1983,7 +1982,7 @@ export default {
 
 #### @resize
 
-调整列宽时触发
+调整列宽后触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
@@ -2013,36 +2012,35 @@ Methods
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| title | string |  |  | 列标题 |
-| field | string |  |  | data 中的字段名 |
-| width | string, number |  |  | 给列指定宽度，可以为数字或百分比 |
-| ellipsis | boolean |  | `false` | 是否省略显示。默认文字超出时会换行 |
-| formatter | string, object, Function, Formatter |  | `'placeholder'` | 格式器 |
-| - |  |  |  |  |
-| sortable | boolean |  | `false` | 该列是否可以排序 |
-| default-order | string |  | `'asc'` | 该列首次点击时的排序顺序 |
-| filters | Array\<{ text: string, value: any }\> |  | `'asc'` | 该列首次点击时的排序顺序 |
-| hidden | boolean |  | `false` | 是否隐藏 |
-| type | string |  |  | 列类型。可选值：`index`表示序号列，`radio`表示单选列，`checkbox`表示多选列，`expander`表示展开列。 |
-| start-index | number |  | `1` | 当`type="index"`时的起始序号 |
+| title | string |  |  | 列标题。 |
+| field | string |  |  | data 项中的字段名。 |
+| width | string \| number |  |  | 给列指定宽度，可以为数字或百分比。 |
+| ellipsis | boolean |  | `false` | 是否省略显示。默认文字超出时会换行。 |
+| formatter | string \| object \| Function \| Formatter |  | `'placeholder'` | 格式器。 |
+| sortable | boolean |  | `false` | 该列是否可以排序。 |
+| default-order | enum | `'asc'`, `'desc'` | `'asc'` | 该列首次点击时的排序顺序 |
+| filters | Array\<{ text: string, value: any }\> |  |  | 筛选项的参数 |
+| hidden | boolean |  | `false` | 是否隐藏该列。 |
+| type | enum | `'index'`, `'radio'`, `'checkbox'`, `'expander'` |  | 列类型。可选值：`index`表示序号列，`radio`表示单选列，`checkbox`表示多选列，`expander`表示展开列。 |
+| start-index | number |  | `1` | 当`type="index"`时的起始序号。 |
 
 ### Slots
 
 #### (default)
 
-在表格列中插入`<u-table-view-filters>`子组件。
+
 
 #### cell
 
-对单元格数据展示进行自定义。
+对单元格的数据展示进行自定义。
 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
-| item | object | 循环中的当前项 |
-| value | any | item 中 field 字段对应的值 |
-| columnVM | string | 该列组件实例 |
-| rowIndex | number | 行的索引 |
-| columnIndex | number | 列的索引 |
+| item | object | 循环中的当前项。 |
+| value | any | item 中 field 字段对应的值。 |
+| columnVM | string | 该列组件实例。 |
+| rowIndex | number | 行的索引。 |
+| columnIndex | number | 列的索引。 |
 
 #### title
 
@@ -2050,17 +2048,18 @@ Methods
 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
-| columnVM | string | 该列组件实例 |
-| columnIndex | number | 列的索引 |
+| columnVM | string | 该列组件实例。 |
+| columnIndex | number | 列的索引。 |
 
 #### expand-content
 
-展开列的内容
+展开列的内容。
 
 | Prop | Type | Description |
 | ---- | ---- | ----------- |
-| item | object | 循环中的当前项 |
-| value | any | item 中 field 字段对应的值 |
-| columnVM | string | 该列组件实例 |
-| rowIndex | number | 行的索引 |
+| item | object | 循环中的当前项。 |
+| value | any | item 中 field 字段对应的值。 |
+| columnVM | string | 展开列组件实例。 |
+| rowIndex | number | 行的索引。 |
+| columnIndex | number | 展开列的索引。 |
 

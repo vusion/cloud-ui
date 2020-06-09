@@ -1,6 +1,6 @@
 <!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-# UTabs 标签页
+# UTabs 选项卡
 
 - [示例](#示例)
     - [基本用法](#基本用法)
@@ -181,13 +181,13 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value.sync, v-model | any |  |  | 选中标签页的值 |
-| readonly | boolean |  | `false` | 是否只读 |
-| disabled | boolean |  | `false` | 是否禁用 |
-| closable | boolean |  | `false` | 是否可以关闭 |
-| router | boolean |  | `false` | 是否根据 vue-router 来控制选择哪个标签页 |
+| router | boolean |  | `false` | 是否根据 vue-router 来控制选择哪个标签页。 |
+| value.sync, v-model | any |  |  | 选中标签页的值。 |
+| readonly | boolean |  | `false` | 是否只读。 |
+| disabled | boolean |  | `false` | 是否禁用。 |
+| closable | boolean |  | `false` | 是否可以关闭。 |
 | show-scroll-buttons | enum \| boolean | `'never'`, `'auto'`, `'always'` | `'auto'` | 是否显示标签滚动左右箭头按钮。`'auto'`表示有滚动的情况下显示，`‘always'`表示始终显示，`'never'`表示始终不显示。 |
-| appear | enum | `'square'`, `'round'`, `'card'`, `'line'`, `'text'`, `'capsule'` | `'tab'` | 标签显示的外观 |
+| appear | enum | `'square'`, `'round'`, `'card'`, `'line'`, `'text'`, `'capsule'` | `'tab'` | 标签展示的外观 |
 | size | enum | `'normal'`, `'small'`, `'mini'` | `'normal'` | 标签尺寸 |
 
 ### Slots
@@ -198,7 +198,7 @@ export default {
 
 #### extra
 
-在标签右侧可以附加组件。
+在标签右侧可以附加的组件。
 
 ### Events
 
@@ -217,7 +217,7 @@ export default {
 
 #### @select
 
-选择某一页时触发
+选择某一页后触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
@@ -241,7 +241,7 @@ export default {
 
 #### @close
 
-关闭某一页时触发
+关闭某一页后触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
@@ -256,14 +256,15 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| title | string |  |  | 标签页标题 |
-| value | any |  |  | 标签页的值 |
-| disabled | boolean |  | `false` | 是否禁用此标签页 |
+| title | string |  |  | 标签页标题。 |
+| value | any |  |  | 标签页的值。 |
+| disabled | boolean |  | `false` | 是否禁用此标签页。 |
 | href | string |  |  | 链接地址 |
-| target | string |  |  | 打开方式 |
-| to | string, Location |  |  | 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
-| replace | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
-| exact | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。 |
+| target | enum | `[object Object]`, `[object Object]`, `[object Object]`, `[object Object]` |  | （原生属性）。比如设置`_blank`，会在新标签页中打开。 |
+| to | string, Location |  |  | 需要 router 为 true，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
+| replace | boolean |  | `false` | 需要 router 为 true，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
+| append | boolean |  | `false` | 需要 router 为 true，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。 |
+| exact | boolean |  | `false` | 需要 router 为 true，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。 |
 
 ### Slots
 

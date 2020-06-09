@@ -1114,9 +1114,6 @@
       "opened"
     ],
     "description": "下拉选择框，支持单选、多选、搜索等功能，用于代替原生的选择框。",
-    "defaults": [
-      "v-model"
-    ],
     "subtags": [
       "u-select-item",
       "u-select-group",
@@ -1254,6 +1251,21 @@
   },
   "u-table-view": {
     "attributes": [
+      "data-source",
+      "initial-load",
+      "pageable",
+      "page-size",
+      "page-number",
+      "page-size-options",
+      "show-total",
+      "show-sizer",
+      "show-jumper",
+      "sorting",
+      "default-order",
+      "filtering",
+      "remote-paging",
+      "remote-sorting",
+      "remote-filtering",
       "title",
       "title-alignment",
       "border",
@@ -1266,21 +1278,6 @@
       "error",
       "error-text",
       "empty-text",
-      "data",
-      "data-source",
-      "initial-load",
-      "pageable",
-      "page-size",
-      "page-size-options",
-      "show-total",
-      "show-sizer",
-      "show-jumper",
-      "sorting",
-      "default-order",
-      "filtering",
-      "remote-paging",
-      "remote-sorting",
-      "remote-filtering",
       "value-field",
       "value",
       "values",
@@ -1293,9 +1290,6 @@
       "resize-remaining"
     ],
     "description": "用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。",
-    "defaults": [
-      "v-model"
-    ],
     "subtags": [
       "u-table-view-column"
     ]
@@ -1307,7 +1301,6 @@
       "width",
       "ellipsis",
       "formatter",
-      "-",
       "sortable",
       "default-order",
       "filters",
@@ -1345,19 +1338,16 @@
   },
   "u-tabs": {
     "attributes": [
+      "router",
       "value",
       "readonly",
       "disabled",
       "closable",
-      "router",
       "show-scroll-buttons",
       "appear",
       "size"
     ],
     "description": "选项卡切换组件，常用于平级区域大块内容的的收纳和展现。",
-    "defaults": [
-      "v-model"
-    ],
     "subtags": [
       "u-tab"
     ]
@@ -1371,6 +1361,7 @@
       "target",
       "to",
       "replace",
+      "append",
       "exact"
     ]
   },

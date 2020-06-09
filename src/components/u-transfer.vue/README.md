@@ -8,6 +8,7 @@
     - [添加 loading](#添加-loading)
     - [指定选项字段名](#指定选项字段名)
     - [禁用某一项](#禁用某一项)
+    - [自定义内容](#自定义内容)
     - [修改尺寸](#修改尺寸)
     - [过滤（搜索）](#过滤搜索)
     - [分页与加载更多](#分页与加载更多)
@@ -309,14 +310,14 @@ export default {
 </script>
 ```
 
-<!-- ### 自定义内容
+### 自定义内容
 
-`` vue
+``` vue
 <template>
 <u-transfer :source="source" :target="target" show-head>
-    <template #text="{ item }">
+    <template #item="{ item }">
         <h3 :class="$style.title">{{ item.text }}</h3>
-        <u-text wrap="ellipsis">{{ (item.text + ' ').repeat(5) }}</u-text>
+        <u-text wrap="ellipsis">{{ item.text + ' is a specfic language with some features that ...' }}</u-text>
     </template>
 </u-transfer>
 </template>
@@ -365,7 +366,7 @@ export default {
     margin: 0;
 }
 </style>
-`` -->
+```
 
 <!-- ### 表单验证
 
@@ -733,7 +734,11 @@ export default {
 
 #### (default)
 
+插入文本或 HTML
 
+#### item
+
+自定义选项的结构和样式
 
 ### Events
 
