@@ -55,8 +55,14 @@
     - name: default
       description: 弹窗内容自定义
   events:
+    - name: before-open
+      description: 打开弹窗前触发
+      params:
+        - name: senderVM
+          type: UModal
+          description: 发送事件实例
     - name: open
-      description: 打开弹窗时触发
+      description: 打开弹窗后触发
       params:
         - name: senderVM
           type: UModal

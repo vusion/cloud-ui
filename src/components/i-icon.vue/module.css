@@ -59,6 +59,15 @@
     vertical-align: -8px;
 }
 
+.root[hover] {
+    cursor: pointer;
+    transition: color var(--transition-duration-fast);
+}
+
+.root[hover]:hover {
+    color: var(--brand-primary);
+}
+
 .root[color="primary"] {
     color: var(--brand-primary);
 }
@@ -93,6 +102,10 @@
 
 .root[size="small"] {
     font-size: 12px;
+}
+
+.root[size="normal"] {
+    font-size: 14px;
 }
 
 .root[size="medium"] {

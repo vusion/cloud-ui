@@ -6,7 +6,7 @@
     <span v-if="prefix" :class="$style.prefix" :name="prefix"><slot name="prefix"></slot></span>
     <input ref="input" :class="$style.input" v-bind="$attrs" :value="currentValue"
         :placeholder="placeholder" v-focus="autofocus" :readonly="readonly" :disabled="disabled"
-        @input="onInput" @focus="onFocus" @blur="onBlur" @keypress="onKeypress" v-on="listeners"
+        @input="onInput" @focus="onFocus" @blur="onBlur" @keypress="onKeypress" @keyup="onKeyup" v-on="listeners"
         @compositionstart="compositionInputing = true"
         @compositionend="onCompositionEnd"
         :title="currentValue && !disabled ? '' : ($attrs.title || placeholder)">

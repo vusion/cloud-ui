@@ -30,7 +30,7 @@ export const UInput = {
     computed: {
         listeners() {
             const listeners = Object.assign({}, this.$listeners);
-            ['input', 'change', 'focus', 'blur', 'update:value'].forEach((prop) => {
+            ['input', 'change', 'focus', 'blur', 'update:value', 'keyup'].forEach((prop) => {
                 delete listeners[prop];
             });
             return listeners;
@@ -58,6 +58,9 @@ export const UInput = {
                 this.formItemVM.color = 'error';
                 this.formItemVM.currentMessage = this.maxlengthMessage;
             }
+        },
+        onKeyup(e) {
+            this.$emit('keyup', e, this);
         },
         onInput(e) {
             if (this.autoSize)

@@ -504,15 +504,15 @@
     /* Pagination */
     --pagination-item-size: var(--height-small);
     --pagination-item-padding: 0;
-    --pagination-item-background: white;
+    --pagination-item-background: var(--background-color-default);
     --pagination-item-background-hover: var(--background-color-lighter);
     --pagination-item-background-selected: var(--brand-primary);
-    --pagination-item-background-disabled-selected: white;
+    --pagination-item-background-disabled-selected: var(--background-color-default);
     --pagination-item-background-blank: none;
     --pagination-item-color: var(--color-base);
     --pagination-item-color-hover: var(--brand-primary);
-    --pagination-item-color-selected: white;
-    --pagination-item-color-disabled: #bbb;
+    --pagination-item-color-selected: var(--background-color-default);
+    --pagination-item-color-disabled: var(--brand-disabled);
     --pagination-item-color-blank: var(--color-base);
     --pagination-item-color-blank-disabled: var(--brand-disabled);
     --pagination-item-border-color: var(--border-color-base);

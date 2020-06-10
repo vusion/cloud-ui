@@ -1,9 +1,11 @@
 import Vue from 'vue';
 import { clickOutside } from '../../directives';
 import i18n from './i18n';
+import MEmitter from '../m-emitter.vue';
 
 export const UModal = {
     name: 'u-modal',
+    mixins: [MEmitter],
     i18n,
     props: {
         visible: { type: Boolean, default: false },
@@ -51,6 +53,9 @@ export const UModal = {
     },
     methods: {
         open() {
+            if (this.$emitPrevent('before-open', {}, this))
+                return;
+
             if (!this.$el) {
                 const el = document.createElement('div');
                 this.$mount(el);
@@ -60,12 +65,9 @@ export const UModal = {
             this.$emit('open');
         },
         close(ok) {
-            let cancel = false;
-            this.$emit('before-close', {
+            if (this.$emitPrevent('before-close', {
                 ok,
-                preventDefault: () => cancel = true,
-            }, this);
-            if (cancel)
+            }, this))
                 return;
 
             this.currentVisible = false;
