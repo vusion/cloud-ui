@@ -177,9 +177,17 @@ export default {
 
 ### Events
 
+#### @before-open
+
+打开弹窗前触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| senderVM | UModal | 发送事件实例 |
+
 #### @open
 
-打开弹窗时触发
+打开弹窗后触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |

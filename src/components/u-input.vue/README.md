@@ -147,7 +147,7 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| type | string |  | `'text'` | 输入框的类型，目前支持两种：`'text'`和`'password'` |
+| type | enum | `'text'`, `'password'` | `'text'` | 输入框的类型，目前支持两种：`'text'`和`'password'` |
 | value.sync, v-model | string |  |  | 输入框的值 |
 | clearable | boolean |  |  | 是否可清空。开启并在输入框有内容时会显示清空按钮。 |
 | placeholder | string |  |  | 原生属性。对 IE9 做了兼容。 |
@@ -165,7 +165,7 @@ export default {
 
 #### (default)
 
-插入  HTML或 `Component`, 可展示额外内容。
+插入 HTML 或 `Component`, 可展示额外内容。
 
 ### Events
 
@@ -230,7 +230,7 @@ export default {
 
 #### @clear
 
-清空时触发。
+清空后触发。
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |

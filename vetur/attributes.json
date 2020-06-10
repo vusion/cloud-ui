@@ -1465,7 +1465,11 @@
     "description": "标签大小。可选值：`small`、`normal`、`large`、`auto`"
   },
   "u-input/type": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "text",
+      "password"
+    ],
     "description": "输入框的类型，目前支持两种：`'text'`和`'password'`"
   },
   "u-input/value": {

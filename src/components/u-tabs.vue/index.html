@@ -7,7 +7,7 @@
                 <div :class="$style.scroll">
                     <a :class="$style.item" ref="item"
                         v-for="itemVM in itemVMs"
-                        :vusion-scope-id="itemVM.$options._scopeId"
+                        :vusion-scope-id="itemVM.$attrs['vusion-scope-id']"
                         :vusion-node-path="itemVM.$attrs['vusion-node-path']"
                         :href="itemVM.currentHref" :target="itemVM.target" :title="itemVM.title"
                         :selected="router ? itemVM.active : itemVM === selectedVM"

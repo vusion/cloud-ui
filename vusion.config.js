@@ -21,7 +21,7 @@ module.exports = {
             { group: 'Guide', name: 'pattern', alias: '设计模式', path: './docs/views/guide/pattern.md' },
             { group: 'Guide', name: 'changelog', alias: '更新日志', href: 'https://github.com/vusion/cloud-ui/releases', target: '_blank' },
             { group: 'Guide', name: 'theme', alias: '主题', path: 'library/styles/theme.md' },
-            { group: 'Basic', name: 'typography', alias: '排版', path: './src/styles/typography.md' },
+            { group: 'Basic', name: 'u-base', alias: '基础' },
             { group: 'Basic', name: 'u-text', alias: '文本' },
             { group: 'Basic', name: 'u-link', alias: '链接' },
             { group: 'Basic', name: 'u-button', alias: '按钮' },
