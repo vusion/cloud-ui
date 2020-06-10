@@ -84,6 +84,11 @@ export const USelect = {
         filterText(filterText) {
             this.inputWidth = filterText.length * 12 + 20;
         },
+        opened(opened) {
+            if (opened === this.popperOpened)
+                return;
+            this.toggle(opened);
+        }
     },
     created() {
         this.$watch('selectedVM', (selectedVM, oldVM) => {
@@ -113,6 +118,9 @@ export const USelect = {
                 });
             }
         });
+    },
+    mounted() {
+        this.toggle(this.opened);
     },
     methods: {
         getExtraParams() {
@@ -185,11 +193,13 @@ export const USelect = {
                 setTimeout(() => this.ensureFocusedInView(true));
 
             this.$emit('open', $event, this);
+            this.$emit('update:opened', true);
         },
         onClose($event) {
             this.popperOpened = false;
             this.focusedVM = undefined;
             this.$emit('close', $event, this);
+            this.$emit('update:opened', false);
         },
         fastLoad(more, keep) {
             if (!this.currentDataSource)

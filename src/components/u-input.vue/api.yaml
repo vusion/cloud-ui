@@ -4,78 +4,73 @@
   description: 基本的表单输入组件，在原生`<input>`控件基础上进行了一些功能扩展。
   attrs:
     - name: type
-      title: '类型'
-      type: string
+      title: 类型
+      type: enum
+      options: [text, password]
       default: text
       description: 输入框的类型，目前支持两种：`'text'`和`'password'`
     - name: value
-      title: '值'
+      title: 值
       type: string
       model: true
       sync: true
-      default: null
       description: 输入框的值
     - name: clearable
-      title: '清空'
+      title: 清空
       type: boolean
-      default: null
       description: 是否可清空。开启并在输入框有内容时会显示清空按钮。
     - name: placeholder
-      title: '占位符'
+      title: 占位符
       type: string
-      default: null
       description: 原生属性。对 IE9 做了兼容。
     - name: minlength
-      title: '最小长度'
+      title: 最小长度
       type: number
-      default: null
       description: 原生属性
     - name: maxlength
-      title: '最大长度'
+      title: 最大长度
       type: number
-      default: null
       description: 原生属性
     - name: spellcheck
-      title: '拼写检查'
+      title: 拼写检查
       type: boolean
-      default: null
       description: 原生属性
     - name: autofocus
-      title: '自动获取焦点'
+      title: 自动获取焦点
       type: boolean
-      default: null
       description: 是否自动获取焦点
     - name: readonly
-      title: '只读'
+      title: 只读
       type: boolean
       default: false
       description: 是否只读
     - name: disabled
-      title: '禁用'
+      title: 禁用
       type: boolean
       default: false
       description: 是否禁用
     - name: size
-      title: '大小'
+      title: 大小
       type: string
       default: normal
       description: 大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`,
         `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式
     - name: search
-      title: '搜索标志'
+      title: 搜索标志
       type: string
       default: null
       description: 搜索标志，支持位置自定义，默认搜索标志在最右边，值为`left`即表示搜索标志在左边
     - name: maxlengthMessage
-      title: '长度上限提示'
+      title: 长度上限提示
       type: string
       default: null
       description: "\b\b输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效"
   slots:
     - name: default
-      description: 插入  HTML或 `Component`, 可展示额外内容。
+      description: 插入 HTML 或 `Component`, 可展示额外内容。
   events:
     - name: before-input
+      title: 输入前
       description: 输入前触发。可以在这个阶段阻止输入，或者修改输入的值 $event.value
       params:
         - name: $event.oldValue
@@ -91,6 +86,7 @@
           type: UInput
           description: 发送事件实例
     - name: input
+      title: 输入时
       description: 输入时触发。
       params:
         - name: $event
@@ -100,6 +96,7 @@
           type: UInput
           description: 发送事件实例
     - name: change
+      title: 改变后
       description: 值变化时触发。（注意：与原生事件不同）
       params:
         - name: $event.value
@@ -112,6 +109,7 @@
           type: UInput
           description: 发送事件实例
     - name: focus
+      title: 获得焦点
       description: 获得焦点时触发。
       params:
         - name: $event
@@ -121,6 +119,7 @@
           type: UInput
           description: 发送事件实例
     - name: blur
+      title: 失去焦点
       description: 失去焦点时触发。
       params:
         - name: $event
@@ -130,6 +129,7 @@
           type: UInput
           description: 发送事件实例
     - name: before-clear
+      title: 清空前
       description: 清空前触发。
       params:
         - name: $event.value
@@ -145,7 +145,8 @@
           type: UInput
           description: 发送事件实例
     - name: clear
-      description: 清空时触发。
+      title: 清空后
+      description: 清空后触发。
       params:
         - name: $event.value
           type: string

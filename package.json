@@ -56,6 +56,7 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.3.0",
     "@vue/cli-service": "^4.3.0",
+    "@vusion/mock": "^0.1.0",
     "commander": "^2.20.0",
     "core-js": "^3.6.5",
     "cross-env": "^7.0.2",
