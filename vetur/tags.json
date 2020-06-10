@@ -270,6 +270,10 @@
     ],
     "description": "用于显示消息条数和提醒用户处理的角标。"
   },
+  "u-base": {
+    "attributes": [],
+    "description": "Cloud UI 在 Normalize.css 的基础上，对元素做了基础的排版。"
+  },
   "u-block": {
     "attributes": []
   },
