@@ -2,7 +2,7 @@
     <u-form-table :class="$style.table" :size="size" v-bind="$attrs">
         <thead><tr>
             <th ref="th" v-for="(columnVM, columnIndex) in columnVMs"
-                :vusion-scope-id="columnVM.$attrs['vusion-scope-id']"
+                :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                 :vusion-node-path="columnVM.$attrs['vusion-node-path']"
                 :width="columnVM.width">
                 <f-slot name="title" :vm="columnVM" :props="{ columnVM, columnIndex }">

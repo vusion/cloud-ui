@@ -89,6 +89,7 @@
       description: 监听所有`<a>`元素的事件。
       params: []
     - name: before-navigate
+      title: 切换路由前
       description: 使用 router 相关属性切换路由前触发
       params:
         - name: $event.to
@@ -107,7 +108,8 @@
           type: UButton
           description: 发送事件实例
     - name: navigate
-      description: 使用 router 相关属性切换路由时触发
+      title: 切换路由后
+      description: 使用 router 相关属性切换路由后触发
       params:
         - name: $event.to
           type: string, Location

@@ -3,17 +3,32 @@
   labels: [路由链接, 行内展示]
   description: 文字超链接。
   attrs:
+    - name: color
+      title: 颜色
+      type: enum
+      options: [default, light, success, warning, danger, error]
+      default: default
+      description: 设置颜色。
     - name: href
+      title: 链接
       type: string
-      default: null
       description: 链接地址
     - name: target
-      type: string
-      default: null
-      description: （原生属性）
+      title: 打开方式
+      type: enum
+      options:
+        - name: 新标签页 (_blank)
+          value: _blank
+        - name: 当前窗口 (_self)
+          value: _self
+        - name: 父级窗口 (_parent)
+          value: _parent
+        - name: 顶级窗口 (_top)
+          value: _top
+      description: （原生属性）。比如设置`_blank`，会在新标签页中打开。
     - name: to
-      type: string | Location
-      default: null
+      title: 路由链接
+      type: string, Location
       description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
     - name: replace
       type: boolean
@@ -26,35 +41,28 @@
       default: false
       description: 需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
-      description: 是否禁用。禁用后不会响应`click`事件。
-    - name: color
-      type: enum
-      options: [default, light, success, warning, danger, error]
-      default: default
-      description: 设置颜色。
+      description: 是否禁用。禁用后不会响应点击事件。
     - name: display
-      type: string
+      title: 展示方式
+      type: enum
+      options: [inline, block]
       default: inline
-      description: 展示方式。可选值：`'inline'`, `'block'`
+      description: 展示方式。`'inline'`表示行内展示，`'block'`表示块级展示，宽度会充满父元素。
   slots:
     - name: default
+      title: 默认
       description: 插入文本或 HTML。
+      accept-type: [text, inline]
   events:
     - name: $listeners
+      kind: trigger
       description: 监听所有`<a>`元素的事件。
       params: []
-    - name: click
-      description: 点击链接时触发，与原生 click 事件不同的是，它只会在非禁用状态下触发。
-      params:
-        - name: $event
-          type: MouseEvent
-          description: 鼠标事件对象
-        - name: senderVM
-          type: Vue
-          description: 发送事件实例
     - name: before-navigate
+      title: 切换路由前
       description: 使用 router 相关属性切换路由前触发
       params:
         - name: $event.to
@@ -70,10 +78,11 @@
           type: Function
           description: 阻止切换流程
         - name: senderVM
-          type: Vue
+          type: ULink
           description: 发送事件实例
     - name: navigate
-      description: 使用 router 相关属性切换路由时触发
+      title: 切换路由后
+      description: 使用 router 相关属性切换路由后触发
       params:
         - name: $event.to
           type: string, Location
@@ -85,5 +94,5 @@
           type: boolean
           description: "`append`属性的值"
         - name: senderVM
-          type: Vue
+          type: ULink
           description: 发送事件实例

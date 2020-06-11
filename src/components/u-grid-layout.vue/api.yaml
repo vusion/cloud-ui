@@ -3,6 +3,7 @@
   labels: [布局组件, 块级展示]
   attrs:
     - name: gap
+      title: 间隔
       type: string
       default: normal
       description: "栅格之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。可选值: `'none'`, `'small'`, `'normal'`,
@@ -11,22 +12,27 @@
     - name: default
       description: 插入`<u-grid-layout-row>`或`<u-grid-layout-column>`子组件。
 - name: u-grid-layout-row
+  title: 栅格行
   attrs:
     - name: repeat
+      title: 栅格数
       type: number
       default: 12
       description: 划分的栅格数
     - name: type
-      type: string
-      default: null
+      title: 类型
+      type: enum
+      options: [default, flex]
       description: 布局模式。可选值：`'flex'`或不填
     - name: justify
-      type: string
+      type: enum
+      options: [start, center, end, space-between, space-around]
       default: start
       description: flex布局模式的水平分布方式，可选值：`'start'`, `'center'`, `'end'`, `'space-between'`,
         `'space-around'`
     - name: alignment
-      type: string
+      type: enum
+      options: [start, center, end, baseline, stretch]
       default: stretch
       description: flex布局模式的垂直对齐方式，可选值：`'start'`, `'center'`, `'end'`, `'baseline'`,
         `'stretch'`
@@ -34,48 +40,51 @@
     - name: default
       description: 插入`<u-grid-layout-column>`子组件。
 - name: u-grid-layout-column
+  title: 栅格列
   attrs:
     - name: span
+      title: 占据数
       type: number
       default: 1
-      description: 列跨越的栅格数
+      description: 列占据的栅格数
     - name: offset
+      title: 偏移数
       type: number
-      default: null
       description: 列左边偏移的栅格数
     - name: pull
+      title: 左移动数
       type: number
-      default: null
       description: 列向左移动栅格数
     - name: push
+      title: 右移动数
       type: number
-      default: null
       description: 列向右移动栅格数
     - name: media-huge
+      title: 响应很大屏
       type: number
-      default: null
       description: 响应式布局`<=1440px`的列跨越栅格数
     - name: media-large
+      title: 响应大屏
       type: number
-      default: null
       description: 响应式布局`<=1200px`的列跨越栅格数
     - name: media-medium
+      title: 响应中屏
       type: number
-      default: null
       description: 响应式布局`<=960px`的列跨越栅格数
     - name: media-small
+      title: 响应小屏
       type: number
-      default: null
       description: 响应式布局`<=768px`的列跨越栅格数
     - name: media-mini
+      title: 响应迷你屏
       type: number
-      default: null
       description: 响应式布局`<=480px`的列跨越栅格数
   slots:
     - name: default
       description: 插入需要布局的元素。
   events:
     - name: responsive
+      title: 响应窗口变化时
       description: 响应式布局引发栅格变化时触发
       params:
         - name: $event.span

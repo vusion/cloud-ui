@@ -14,9 +14,17 @@
       description: 表单所有域的验证规则，已废弃，推荐在各`<u-form-item>`中自行添加 rules。
     - name: layout
       title: 表单布局
-      type: string
+      type: enum
+      options: [block, inline]
       default: block
       description: 表单布局方式。可选值：`block`、`inline`。
+    - name: gap
+      title: 间隔
+      type: enum
+      options: [none, small, normal, large]
+      default: normal
+      description: "表单项之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。可选值: `'none'`, `'small'`, `'normal'`,
+        `'large'`"
     - name: label-size
       title: 标签宽度
       type: enum
@@ -51,6 +59,7 @@
       recommanded: [u-form-item]
   events:
     - name: validate
+      title: 验证后
       description: 验证时触发
       params:
         - name: $event.trigger
@@ -102,84 +111,100 @@
   title: 表单项
   attrs:
     - name: name
+      title: 字段名称
+      deprecated: true
       type: string
       default: null
       description: 表单项名称。已废弃
     - name: label
+      title: 标签名
       type: string
-      default: null
-      description: 标签。用于左侧显示，同时用于提示消息的合成
+      description: 标签名。用于左侧显示，同时用于提示消息的合成。
     - name: label-size
-      type: string
+      title: 标签大小
+      type: enum
+      options: [mini, small, normal, large]
       default: normal
-      description: 单独设置表单项的标签大小
+      description: 单独设置表单项的标签大小。
     - name: field-size
-      type: string
-      default: normal
+      title: 字段大小
+      type: enum
+      options: [mini, small, normal, large]
       description: 单独设置表单项的内容大小。可选值：`'full'`
     - name: required
+      title: 必填标记
       type: boolean
       default: false
       description: 是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。
     - name: message
+      title: 提示消息
       type: string
-      default: null
       description: 默认提示消息
     - name: muted
-      type: string
-      default: null
+      title: 验证是否静默
+      type: enum
+      default: none
+      options: [none, message, all]
       description: 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示
     - name: description
+      title: 描述内容
       type: string
-      default: null
       description: 添加描述内容
     - name: placement
-      type: string
-      default: null
+      title: 提示信息位置
+      type: enum
+      options: [right, bottom]
+      default: right
       description: 值为`'bottom'`时提示信息在底部显示，改变提示信息显示位置
     - name: layout
-      type: string
-      default: null
-      description: "\b\b\b布局方式，可选值：`'block'`"
-    - name: "**Validation Props/Attrs**"
-      type: ""
-      default: null
-      description: ""
+      title: 布局方式
+      type: enum
+      options: [block, inline]
+      default: inline
+      description: 布局方式。
     - name: rules
-      type: string, Array
-      default: null
+      title: 验证规则
+      type: string | Array
       description: 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型
     - name: ignore-validation
+      title: 忽略验证
       type: boolean
       default: false
       description: 忽略验证
     - name: ignore-rules
+      title: 忽略验证规则
+      deprecated: true
       type: boolean
       default: false
       description: 忽略验证规则。已废弃，同`ignore-validation`
     - name: validating-options
+      title: 验证辅助对象
       type: object
-      default: null
       description: 验证辅助对象。在 Rule 的 `validate` 方法中使用
     - name: validating-value
+      title: 修改验证值
       type: any
-      default: null
       description: 临时修改验证值
     - name: validating-process
+      title: 验证前预处理
       type: Function
-      default: null
       description: 验证前对值进行预处理
   slots:
     - name: default
+      title: 默认
       description: 插入文本或 HTML。
     - name: label
-      description: 插入自定义标签标题，代替`label`属性。
+      title: 标签自定义
+      description: 插入自定义标签，代替`label`属性。
     - name: description
+      title: 描述自定义
       description: 插入自定义描述内容，代替`description`属性。
     - name: extra
+      title: 附加内容
       description: 自定义标签右侧额外内容。
   events:
     - name: validate
+      title: 验证后
       description: 对于第一个 Field 或者所有子 UValidator：
       params:
         - name: $event.valid

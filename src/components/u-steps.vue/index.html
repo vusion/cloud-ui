@@ -2,7 +2,7 @@
     <nav :class="$style.head">
         <a :class="$style.item"
             v-for="(itemVM, index) in itemVMs"
-            :vusion-scope-id="itemVM.$attrs['vusion-scope-id']"
+            :vusion-scope-id="itemVM.$vnode.context.$options._scopeId"
             :vusion-node-path="itemVM.$attrs['vusion-node-path']"
             :passed="selectedVM && index <= selectedVM.index"
             :selected="selectedVM && index === selectedVM.index"

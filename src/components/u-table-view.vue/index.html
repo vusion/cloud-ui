@@ -12,7 +12,7 @@
                 </colgroup>
                 <thead><tr>
                     <th ref="th" :class="$style['head-title']" v-for="(columnVM, columnIndex) in visibleColumnVMs"
-                        :vusion-scope-id="columnVM.$attrs['vusion-scope-id']"
+                        :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                         :vusion-node-path="columnVM.$attrs['vusion-node-path']"
                         :sortable="columnVM.sortable && sortTrigger === 'head'" :filterable="!!columnVM.filters" @click="columnVM.sortable && sortTrigger === 'head' && onClickSort(columnVM)">
                         <!-- type === 'checkbox' -->

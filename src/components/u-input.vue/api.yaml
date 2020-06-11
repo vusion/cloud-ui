@@ -16,9 +16,9 @@
       sync: true
       description: 输入框的值
     - name: clearable
-      title: 清空
+      title: 清空按钮
       type: boolean
-      description: 是否可清空。开启并在输入框有内容时会显示清空按钮。
+      description: 开启并在输入框有内容时会显示清空按钮。
     - name: placeholder
       title: 占位符
       type: string
@@ -50,16 +50,11 @@
       default: false
       description: 是否禁用
     - name: size
-      title: 大小
+      title: 尺寸
       type: string
       default: normal
       description: 大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`,
         `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式
-    - name: search
-      title: 搜索标志
-      type: string
-      default: null
-      description: 搜索标志，支持位置自定义，默认搜索标志在最右边，值为`left`即表示搜索标志在左边
     - name: maxlengthMessage
       title: 长度上限提示
       type: string
@@ -67,6 +62,7 @@
       description: "\b\b输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效"
   slots:
     - name: default
+      title: 默认
       description: 插入 HTML 或 `Component`, 可展示额外内容。
   events:
     - name: before-input
