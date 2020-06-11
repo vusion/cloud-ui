@@ -149,7 +149,7 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | type | enum | `'text'`, `'password'` | `'text'` | 输入框的类型，目前支持两种：`'text'`和`'password'` |
 | value.sync, v-model | string |  |  | 输入框的值 |
-| clearable | boolean |  |  | 是否可清空。开启并在输入框有内容时会显示清空按钮。 |
+| clearable | boolean |  |  | 开启并在输入框有内容时会显示清空按钮。 |
 | placeholder | string |  |  | 原生属性。对 IE9 做了兼容。 |
 | minlength | number |  |  | 原生属性 |
 | maxlength | number |  |  | 原生属性 |
@@ -158,7 +158,6 @@ export default {
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | size | string |  | `'normal'` | 大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式 |
-| search | string |  |  | 搜索标志，支持位置自定义，默认搜索标志在最右边，值为`left`即表示搜索标志在左边 |
 | maxlengthMessage | string |  |  | 输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效 |
 
 ### Slots

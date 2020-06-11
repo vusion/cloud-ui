@@ -388,7 +388,8 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | model | object |  |  | 表单数据模型 |
 | rules | object |  |  | 表单所有域的验证规则，已废弃，推荐在各`<u-form-item>`中自行添加 rules。 |
-| layout | string |  | `'block'` | 表单布局方式。可选值：`block`、`inline`。 |
+| layout | enum | `'block'`, `'inline'` | `'block'` | 表单布局方式。可选值：`block`、`inline`。 |
+| gap | enum | `'none'`, `'small'`, `'normal'`, `'large'` | `'normal'` | 表单项之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。可选值: `'none'`, `'small'`, `'normal'`, `'large'` |
 | label-size | enum | `'mini'`, `'small'`, `'normal'`, `'large'` | `'normal'` | 标签宽度。可选值：`mini`、`small`、`normal`、`large`。 |
 
 ### Computed
@@ -448,17 +449,16 @@ Methods
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | name | string |  |  | 表单项名称。已废弃 |
-| label | string |  |  | 标签。用于左侧显示，同时用于提示消息的合成 |
-| label-size | string |  | `'normal'` | 单独设置表单项的标签大小 |
-| field-size | string |  | `'normal'` | 单独设置表单项的内容大小。可选值：`'full'` |
+| label | string |  |  | 标签名。用于左侧显示，同时用于提示消息的合成。 |
+| label-size | enum | `'mini'`, `'small'`, `'normal'`, `'large'` | `'normal'` | 单独设置表单项的标签大小。 |
+| field-size | enum | `'mini'`, `'small'`, `'normal'`, `'large'` |  | 单独设置表单项的内容大小。可选值：`'full'` |
 | required | boolean |  | `false` | 是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。 |
 | message | string |  |  | 默认提示消息 |
-| muted | string |  |  | 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示 |
+| muted | enum | `'none'`, `'message'`, `'all'` | `'none'` | 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示 |
 | description | string |  |  | 添加描述内容 |
-| placement | string |  |  | 值为`'bottom'`时提示信息在底部显示，改变提示信息显示位置 |
-| layout | string |  |  | 布局方式，可选值：`'block'` |
-| **Validation Props/Attrs** |  |  |  |  |
-| rules | string, Array |  |  | 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型 |
+| placement | enum | `'right'`, `'bottom'` | `'right'` | 值为`'bottom'`时提示信息在底部显示，改变提示信息显示位置 |
+| layout | enum | `'block'`, `'inline'` | `'inline'` | 布局方式。 |
+| rules | string \| Array |  |  | 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型 |
 | ignore-validation | boolean |  | `false` | 忽略验证 |
 | ignore-rules | boolean |  | `false` | 忽略验证规则。已废弃，同`ignore-validation` |
 | validating-options | object |  |  | 验证辅助对象。在 Rule 的 `validate` 方法中使用 |
@@ -473,7 +473,7 @@ Methods
 
 #### label
 
-插入自定义标签标题，代替`label`属性。
+插入自定义标签，代替`label`属性。
 
 #### description
 

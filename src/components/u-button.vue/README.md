@@ -216,7 +216,7 @@ export default {
 
 #### @navigate
 
-使用 router 相关属性切换路由时触发
+使用 router 相关属性切换路由后触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |

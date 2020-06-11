@@ -261,9 +261,9 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | repeat | number |  | `12` | 划分的栅格数 |
-| type | string |  |  | 布局模式。可选值：`'flex'`或不填 |
-| justify | string |  | `'start'` | flex布局模式的水平分布方式，可选值：`'start'`, `'center'`, `'end'`, `'space-between'`, `'space-around'` |
-| alignment | string |  | `'stretch'` | flex布局模式的垂直对齐方式，可选值：`'start'`, `'center'`, `'end'`, `'baseline'`, `'stretch'` |
+| type | enum | `'default'`, `'flex'` |  | 布局模式。可选值：`'flex'`或不填 |
+| justify | enum | `'start'`, `'center'`, `'end'`, `'space-between'`, `'space-around'` | `'start'` | flex布局模式的水平分布方式，可选值：`'start'`, `'center'`, `'end'`, `'space-between'`, `'space-around'` |
+| alignment | enum | `'start'`, `'center'`, `'end'`, `'baseline'`, `'stretch'` | `'stretch'` | flex布局模式的垂直对齐方式，可选值：`'start'`, `'center'`, `'end'`, `'baseline'`, `'stretch'` |
 
 ### Slots
 
@@ -276,7 +276,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| span | number |  | `1` | 列跨越的栅格数 |
+| span | number |  | `1` | 列占据的栅格数 |
 | offset | number |  |  | 列左边偏移的栅格数 |
 | pull | number |  |  | 列向左移动栅格数 |
 | push | number |  |  | 列向右移动栅格数 |

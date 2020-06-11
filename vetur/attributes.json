@@ -1253,8 +1253,22 @@
     "description": "表单所有域的验证规则，已废弃，推荐在各`<u-form-item>`中自行添加 rules。"
   },
   "u-form/layout": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "block",
+      "inline"
+    ],
     "description": "表单布局方式。可选值：`block`、`inline`。"
+  },
+  "u-form/gap": {
+    "type": "enum",
+    "options": [
+      "none",
+      "small",
+      "normal",
+      "large"
+    ],
+    "description": "表单项之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。可选值: `'none'`, `'small'`, `'normal'`, `'large'`"
   },
   "u-form/label-size": {
     "type": "enum",
@@ -1272,14 +1286,26 @@
   },
   "u-form-item/label": {
     "type": "string",
-    "description": "标签。用于左侧显示，同时用于提示消息的合成"
+    "description": "标签名。用于左侧显示，同时用于提示消息的合成。"
   },
   "u-form-item/label-size": {
-    "type": "string",
-    "description": "单独设置表单项的标签大小"
+    "type": "enum",
+    "options": [
+      "mini",
+      "small",
+      "normal",
+      "large"
+    ],
+    "description": "单独设置表单项的标签大小。"
   },
   "u-form-item/field-size": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "mini",
+      "small",
+      "normal",
+      "large"
+    ],
     "description": "单独设置表单项的内容大小。可选值：`'full'`"
   },
   "u-form-item/required": {
@@ -1291,7 +1317,12 @@
     "description": "默认提示消息"
   },
   "u-form-item/muted": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "none",
+      "message",
+      "all"
+    ],
     "description": "验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示"
   },
   "u-form-item/description": {
@@ -1299,15 +1330,23 @@
     "description": "添加描述内容"
   },
   "u-form-item/placement": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "right",
+      "bottom"
+    ],
     "description": "值为`'bottom'`时提示信息在底部显示，改变提示信息显示位置"
   },
   "u-form-item/layout": {
-    "type": "string",
-    "description": "\b\b\b布局方式，可选值：`'block'`"
+    "type": "enum",
+    "options": [
+      "block",
+      "inline"
+    ],
+    "description": "布局方式。"
   },
   "u-form-item/rules": {
-    "type": "string, Array",
+    "type": "string | Array",
     "description": "验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型"
   },
   "u-form-item/ignore-validation": {
@@ -1339,20 +1378,38 @@
     "description": "划分的栅格数"
   },
   "u-grid-layout-row/type": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "default",
+      "flex"
+    ],
     "description": "布局模式。可选值：`'flex'`或不填"
   },
   "u-grid-layout-row/justify": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "start",
+      "center",
+      "end",
+      "space-between",
+      "space-around"
+    ],
     "description": "flex布局模式的水平分布方式，可选值：`'start'`, `'center'`, `'end'`, `'space-between'`, `'space-around'`"
   },
   "u-grid-layout-row/alignment": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "start",
+      "center",
+      "end",
+      "baseline",
+      "stretch"
+    ],
     "description": "flex布局模式的垂直对齐方式，可选值：`'start'`, `'center'`, `'end'`, `'baseline'`, `'stretch'`"
   },
   "u-grid-layout-column/span": {
     "type": "number",
-    "description": "列跨越的栅格数"
+    "description": "列占据的栅格数"
   },
   "u-grid-layout-column/offset": {
     "type": "number",
@@ -1478,7 +1535,7 @@
   },
   "u-input/clearable": {
     "type": "boolean",
-    "description": "是否可清空。开启并在输入框有内容时会显示清空按钮。"
+    "description": "开启并在输入框有内容时会显示清空按钮。"
   },
   "u-input/placeholder": {
     "type": "string",
@@ -1511,10 +1568,6 @@
   "u-input/size": {
     "type": "string",
     "description": "大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式"
-  },
-  "u-input/search": {
-    "type": "string",
-    "description": "搜索标志，支持位置自定义，默认搜索标志在最右边，值为`left`即表示搜索标志在左边"
   },
   "u-input/maxlengthMessage": {
     "type": "string",
@@ -1664,30 +1717,6 @@
     "type": "Array",
     "description": "百分比范围限制"
   },
-  "u-link/href": {
-    "type": "string",
-    "description": "链接地址"
-  },
-  "u-link/target": {
-    "type": "string",
-    "description": "（原生属性）"
-  },
-  "u-link/to": {
-    "type": "string | Location",
-    "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
-  },
-  "u-link/replace": {
-    "type": "boolean",
-    "description": "需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。"
-  },
-  "u-link/append": {
-    "type": "boolean",
-    "description": "需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。"
-  },
-  "u-link/disabled": {
-    "type": "boolean",
-    "description": "是否禁用。禁用后不会响应`click`事件。"
-  },
   "u-link/color": {
     "type": "enum",
     "options": [
@@ -1700,9 +1729,55 @@
     ],
     "description": "设置颜色。"
   },
-  "u-link/display": {
+  "u-link/href": {
     "type": "string",
-    "description": "展示方式。可选值：`'inline'`, `'block'`"
+    "description": "链接地址"
+  },
+  "u-link/target": {
+    "type": "enum",
+    "options": [
+      {
+        "name": "新标签页 (_blank)",
+        "value": "_blank"
+      },
+      {
+        "name": "当前窗口 (_self)",
+        "value": "_self"
+      },
+      {
+        "name": "父级窗口 (_parent)",
+        "value": "_parent"
+      },
+      {
+        "name": "顶级窗口 (_top)",
+        "value": "_top"
+      }
+    ],
+    "description": "（原生属性）。比如设置`_blank`，会在新标签页中打开。"
+  },
+  "u-link/to": {
+    "type": "string, Location",
+    "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
+  },
+  "u-link/replace": {
+    "type": "boolean",
+    "description": "需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。"
+  },
+  "u-link/append": {
+    "type": "boolean",
+    "description": "需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。"
+  },
+  "u-link/disabled": {
+    "type": "boolean",
+    "description": "是否禁用。禁用后不会响应点击事件。"
+  },
+  "u-link/display": {
+    "type": "enum",
+    "options": [
+      "inline",
+      "block"
+    ],
+    "description": "展示方式。`'inline'`表示行内展示，`'block'`表示块级展示，宽度会充满父元素。"
   },
   "u-list-view/value": {
     "type": "any",
@@ -2231,89 +2306,81 @@
     "type": "any",
     "description": "当前选择的值"
   },
-  "u-select/field": {
-    "type": "string",
-    "description": "显示文本字段"
-  },
   "u-select/text-field": {
     "type": "string",
-    "description": "选项文本的字段名"
+    "description": "选项文本的字段名。"
   },
   "u-select/value-field": {
     "type": "string",
-    "description": "选项值的字段名"
-  },
-  "u-select/data": {
-    "type": "Array<{ text, value }>",
-    "description": "列表数据"
+    "description": "选项值的字段名。"
   },
   "u-select/data-source": {
-    "type": "object, Function, DataSource",
-    "description": "多功能数据源"
+    "type": "Array<Item> | Function | object | DataSource",
+    "description": "选择框的数据源。数组方式表示直接的数据，函数需要返回一个 Promise，详见文档示例。"
   },
   "u-select/cancelable": {
     "type": "boolean",
-    "description": "是否可以取消选择"
+    "description": "是否可以取消选择。"
   },
   "u-select/multiple": {
     "type": "boolean",
-    "description": "是否可以多选"
+    "description": "是否可以多选。"
   },
   "u-select/placeholder": {
-    "type": "boolean",
-    "description": "选择框的占位符"
+    "type": "string",
+    "description": "选择框的占位符。"
   },
   "u-select/loading-text": {
     "type": "string",
-    "description": "加载时的文字。使用分页加载时才会出现"
+    "description": "正在加载中的文字。使用分页加载时才会出现。"
   },
   "u-select/empty-text": {
     "type": "string",
-    "description": "没有匹配时的文字"
+    "description": "暂无数据时的文字。"
   },
   "u-select/empty-disabled": {
     "type": "boolean",
-    "description": "没有数据时，自动禁用"
+    "description": "没有数据时，自动禁用。"
   },
   "u-select/initial-load": {
     "type": "boolean",
-    "description": "是否在初始时立即加载"
+    "description": "是否在初始时立即加载。"
   },
   "u-select/pageable": {
     "type": "boolean",
-    "description": "是否需要分页"
+    "description": "是否需要分页。"
   },
   "u-select/page-size": {
     "type": "number",
-    "description": "分页大小"
+    "description": "分页大小。"
   },
   "u-select/remote-paging": {
     "type": "boolean",
-    "description": "是否使用后端分页"
+    "description": "是否使用后端分页。"
   },
   "u-select/clearable": {
     "type": "boolean",
-    "description": "是否有清除按钮"
+    "description": "是否有清除按钮。"
   },
   "u-select/filterable": {
     "type": "boolean",
-    "description": "是否使用输入框进行过滤"
+    "description": "是否使用输入框进行过滤。"
   },
   "u-select/match-method": {
-    "type": "string, Function",
-    "description": "过滤时的匹配方法"
+    "type": "string | Function",
+    "description": "过滤时的匹配方法。"
   },
   "u-select/case-sensitive": {
-    "type": "string, Function",
+    "type": "string | Function",
     "description": "过滤时大小写是否敏感"
   },
   "u-select/remote-filtering": {
     "type": "boolean",
-    "description": "是否使用后端过滤"
+    "description": "是否使用后端过滤。"
   },
   "u-select/auto-complete": {
     "type": "boolean",
-    "description": "是否开启自动补充模式，用于增加列表中没有的项"
+    "description": "是否开启自动补充模式，用于增加列表中没有的项。"
   },
   "u-select/readonly": {
     "type": "boolean",
@@ -2323,21 +2390,25 @@
     "type": "boolean",
     "description": "是否禁用"
   },
+  "u-select/size": {
+    "type": "string",
+    "description": "大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式"
+  },
   "u-select/opened": {
     "type": "boolean",
-    "description": "弹出/关闭状态"
+    "description": "切换弹出/关闭状态"
   },
   "u-select-item/value": {
     "type": "any",
-    "description": "此项的值"
+    "description": "此项的值。"
   },
   "u-select-item/disabled": {
     "type": "boolean",
-    "description": "禁用此项"
+    "description": "禁用此项。"
   },
   "u-select-item/item": {
     "type": "object",
-    "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
+    "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发。"
   },
   "u-select-group/title": {
     "type": "string",

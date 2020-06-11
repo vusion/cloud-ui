@@ -643,6 +643,7 @@
       "model",
       "rules",
       "layout",
+      "gap",
       "label-size"
     ],
     "description": "具有数据收集、校验和提交功能的表单，包含输入框、选择框、复选框、单选框等元素。",
@@ -752,7 +753,6 @@
       "readonly",
       "disabled",
       "size",
-      "search",
       "maxlengthMessage"
     ],
     "description": "基本的表单输入组件，在原生`<input>`控件基础上进行了一些功能扩展。"
@@ -805,13 +805,13 @@
   },
   "u-link": {
     "attributes": [
+      "color",
       "href",
       "target",
       "to",
       "replace",
       "append",
       "disabled",
-      "color",
       "display"
     ],
     "description": "文字超链接。"
@@ -1092,10 +1092,8 @@
   "u-select": {
     "attributes": [
       "value",
-      "field",
       "text-field",
       "value-field",
-      "data",
       "data-source",
       "cancelable",
       "multiple",
@@ -1115,6 +1113,7 @@
       "auto-complete",
       "readonly",
       "disabled",
+      "size",
       "opened"
     ],
     "description": "下拉选择框，支持单选、多选、搜索等功能，用于代替原生的选择框。",

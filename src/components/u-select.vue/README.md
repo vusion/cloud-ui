@@ -2,7 +2,7 @@
 
 # USelect 选择框
 
-- [基础示例](#基础示例)
+- [示例](#示例)
     - [基本用法](#基本用法)
     - [禁用状态、禁用某一项](#禁用状态-禁用某一项)
     - [分隔符](#分隔符)
@@ -37,7 +37,7 @@
 
 下拉选择框，支持单选、多选、搜索等功能，用于代替原生的选择框。
 
-## 基础示例
+## 示例
 ### 基本用法
 
 默认为单选模式，通过`placeholder`属性设置初始占位符，使用`v-model`双向绑定值。
@@ -1213,30 +1213,29 @@ export default {
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value.sync, v-model | any |  |  | 当前选择的值 |
-| field | string |  | `'text'` | 显示文本字段 |
-| text-field | string |  | `'text'` | 选项文本的字段名 |
-| value-field | string |  | `'value'` | 选项值的字段名 |
-| data | Array\<{ text, value }\> |  |  | 列表数据 |
-| data-source | object, Function, DataSource |  |  | 多功能数据源 |
-| cancelable | boolean |  | `false` | 是否可以取消选择 |
-| multiple | boolean |  | `false` | 是否可以多选 |
-| placeholder | boolean |  | `'请选择'` | 选择框的占位符 |
-| loading-text | string |  | `'加载中...'` | 加载时的文字。使用分页加载时才会出现 |
-| empty-text | string |  | `'加载中...'` | 没有匹配时的文字 |
-| empty-disabled | boolean |  | `false` | 没有数据时，自动禁用 |
-| initial-load | boolean |  | `true` | 是否在初始时立即加载 |
-| pageable | boolean |  | `false` | 是否需要分页 |
-| page-size | number |  | `50` | 分页大小 |
-| remote-paging | boolean |  | `false` | 是否使用后端分页 |
-| clearable | boolean |  | `false` | 是否有清除按钮 |
-| filterable | boolean |  | `false` | 是否使用输入框进行过滤 |
-| match-method | string, Function |  | `'includes'` | 过滤时的匹配方法 |
-| case-sensitive | string, Function |  | `'includes'` | 过滤时大小写是否敏感 |
-| remote-filtering | boolean |  | `false` | 是否使用后端过滤 |
-| auto-complete | boolean |  | `false` | 是否开启自动补充模式，用于增加列表中没有的项 |
+| text-field | string |  | `'text'` | 选项文本的字段名。 |
+| value-field | string |  | `'value'` | 选项值的字段名。 |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 选择框的数据源。数组方式表示直接的数据，函数需要返回一个 Promise，详见文档示例。 |
+| cancelable | boolean |  | `false` | 是否可以取消选择。 |
+| multiple | boolean |  | `false` | 是否可以多选。 |
+| placeholder | string |  | `'请选择'` | 选择框的占位符。 |
+| loading-text | string |  | `'加载中...'` | 正在加载中的文字。使用分页加载时才会出现。 |
+| empty-text | string |  | `'暂无数据'` | 暂无数据时的文字。 |
+| empty-disabled | boolean |  | `false` | 没有数据时，自动禁用。 |
+| initial-load | boolean |  | `true` | 是否在初始时立即加载。 |
+| pageable | boolean |  | `false` | 是否需要分页。 |
+| page-size.sync | number |  | `50` | 分页大小。 |
+| remote-paging | boolean |  | `false` | 是否使用后端分页。 |
+| clearable | boolean |  | `false` | 是否有清除按钮。 |
+| filterable | boolean |  | `false` | 是否使用输入框进行过滤。 |
+| match-method | string \| Function |  | `'includes'` | 过滤时的匹配方法。 |
+| case-sensitive | string \| Function |  | `'includes'` | 过滤时大小写是否敏感 |
+| remote-filtering | boolean |  | `false` | 是否使用后端过滤。 |
+| auto-complete | boolean |  | `false` | 是否开启自动补充模式，用于增加列表中没有的项。 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
-| opened.sync | boolean |  | `false` | 弹出/关闭状态 |
+| size | string |  | `'normal'` | 大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式 |
+| opened.sync | boolean |  | `false` | 切换弹出/关闭状态 |
 
 ### Slots
 
@@ -1248,7 +1247,7 @@ export default {
 
 #### @before-select
 
-选择某一项前触发
+选择某一项前触发。
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
@@ -1270,7 +1269,7 @@ export default {
 
 #### @select
 
-选择某一项时触发。单选模式中：
+选择某一项后触发。单选模式中：
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
@@ -1280,23 +1279,6 @@ export default {
 | $event.oldItem | object | 旧的选择项相关对象 |
 | $event.itemVM | USelectItem | 选择项子组件 |
 | $event.oldVM | USelectItem | 旧的选择项子组件 |
-| senderVM | USelect | 发送事件实例 |
-
-#### @select
-
-选择某一项时触发。多选模式中：
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| $event.selected | boolean | 选中还是取消 |
-| $event.item | boolean | 该选中项相关对象 |
-| $event.itemVM | boolean | 该选中项子组件 |
-| $event.value | Array | 改变后的值 |
-| $event.oldValue | Array | 旧的值 |
-| $event.items | Array\<object\> | 所有选中项相关对象的数组 |
-| $event.oldItems | Array\<object\> | 旧的所有选中项相关对象的数组 |
-| $event.itemVMs | Array\<USelectItem\> | 所有选中项子组件的数组 |
-| $event.oldVMs | Array\<USelectItem\> | 旧的所有选中项子组件的数组 |
 | senderVM | USelect | 发送事件实例 |
 
 #### @change
@@ -1313,17 +1295,6 @@ export default {
 | $event.oldVM | USelectItem | 旧的选择项子组件 |
 | senderVM | USelect | 发送事件实例 |
 
-#### @change
-
-选择值改变时触发。多选模式中：
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| $event.value | Array | 所有选中项的值 |
-| $event.items | Array\<object\> | 所有选中项相关对象的数组 |
-| $event.itemVMs | Array\<USelectItem\> | 所有选中项子组件的数组 |
-| senderVM | USelect | 发送事件实例 |
-
 #### @before-open
 
 弹出前触发。
@@ -1335,7 +1306,7 @@ export default {
 
 #### @open
 
-弹出时触发。
+弹出后触发。
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
@@ -1344,35 +1315,21 @@ export default {
 
 #### @before-close
 
-隐藏前触发。
+关闭前触发。
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.preventDefault | Function | 阻止隐藏流程 |
+| $event.preventDefault | Function | 阻止关闭流程 |
 | senderVM | USelect | 发送事件实例 |
 
 #### @close
 
-隐藏时触发。
+关闭时触发。
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event |  | 空 |
 | senderVM | USelect | 发送事件实例 |
-
-#### @before-toggle
-
-@deprecated
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-
-#### @toggle
-
-@deprecated
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
 
 #### @before-load
 
@@ -1381,16 +1338,16 @@ export default {
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event.preventDefault | Function | 阻止加载流程 |
-| senderVM | UTableView | 发送事件实例 |
+| senderVM | USelect | 发送事件实例 |
 
 #### @load
 
-加载时触发
+加载后触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event |  | 空 |
-| senderVM | UTableView | 发送事件实例 |
+| senderVM | USelect | 发送事件实例 |
 
 Methods
 
@@ -1435,9 +1392,9 @@ Methods
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value | any |  |  | 此项的值 |
-| disabled | boolean |  | `false` | 禁用此项 |
-| item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
+| value | any |  |  | 此项的值。 |
+| disabled | boolean |  | `false` | 禁用此项。 |
+| item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发。 |
 
 ### Slots
 
