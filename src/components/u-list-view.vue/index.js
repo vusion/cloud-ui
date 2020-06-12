@@ -188,7 +188,7 @@ export const UListView = {
                     else if (result instanceof Array)
                         return Promise.resolve(result);
                     else
-                        throw new TypeError('Wrong type of `dataSource.fetch` result!');
+                        return Promise.resolve(result);
                 };
                 return new DataSource(options);
             } else if (dataSource instanceof Object) {

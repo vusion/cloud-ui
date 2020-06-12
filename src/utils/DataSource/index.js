@@ -160,7 +160,7 @@ const VueDataSource = Vue.extend({
         clearLocalData() {
             this.data = [];
             this.arrangedData = [];
-            // this.originTotal = Infinity;
+            this.originTotal = Infinity; // originTotal 必须清空，否则空列表不会更新
             this.arranged = false;
             this.initialLoaded = false;
         },

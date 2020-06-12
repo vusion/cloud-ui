@@ -274,7 +274,7 @@ export const UTableView = {
                     else if (result instanceof Array)
                         return Promise.resolve(result);
                     else
-                        throw new TypeError('Wrong type of `dataSource.load` result!');
+                        return Promise.resolve(result);
                 };
                 return new DataSource(options);
             } else if (dataSource instanceof Object) {
