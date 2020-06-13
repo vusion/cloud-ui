@@ -483,9 +483,9 @@ export const UTableView = {
             this.scrollXEnd = e.target.scrollLeft >= e.target.scrollWidth - e.target.clientWidth;
         },
         syncBodyScroll(scrollTop, target) {
-            this.$refs.body[0] && this.$refs.body[0] !== target && (this.$refs.body[0].scrollTop = scrollTop);
-            this.$refs.body[1] && this.$refs.body[1] !== target && (this.$refs.body[1].scrollTop = scrollTop);
-            this.$refs.body[2] && this.$refs.body[2] !== target && (this.$refs.body[2].scrollTop = scrollTop);
+            const tables = [this.$refs.body[0], this.$refs.body[1], this.$refs.body[2]];
+            const tasks = tables.map((node) => node && node !== target && (node.scrollTop = scrollTop));
+            Promise.all(tasks);
         },
         onBodyScroll(e) {
             this.syncBodyScroll(e.target.scrollTop, e.target);
