@@ -172,6 +172,9 @@ export const UTableView = {
                 });
             });
         },
+        visibleColumnVMs() {
+            this.handleResize();
+        },
     },
     created() {
         // @TODO: this.pageNumber
@@ -190,9 +193,6 @@ export const UTableView = {
         this.watchValues(this.values);
         this.handleResize();
         window.addEventListener('resize', this.handleResize);
-    },
-    updated() {
-        this.handleResize();
     },
     destroyed() {
         window.removeEventListener('resize', this.handleResize);
@@ -354,6 +354,9 @@ export const UTableView = {
                 if (remainingWidth > 0 && noWidthColumnVMs.length) {
                     const averageWidth = remainingWidth / noWidthColumnVMs.length;
                     noWidthColumnVMs.forEach((columnVM) => columnVM.computedWidth = averageWidth);
+                } else if(remainingWidth>0 && valueWidthSum !== 0) {
+                    const averageWidth = remainingWidth / valueColumnVMs.length;
+                    valueColumnVMs.forEach((columnVM) => columnVM.computedWidth = columnVM.computedWidth + averageWidth);
                 }
 
                 // 如果所有列均有值，则总宽度有超出的可能。否则总宽度为根节点的宽度。
