@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root" :disabled="disabled">
     <div :class="$style.title"><slot name="title">{{ title }}</slot></div>
-    <m-popper :class="$style.popper" :trigger="trigger" :placement="placement" :disabled="disabled" append-to="reference">
+    <m-popper :class="$style.popper" :opened.sync="opened" :trigger="trigger" :placement="placement" :disabled="disabled" append-to="reference">
         <slot></slot>
     </m-popper>
 </div>
@@ -20,6 +20,7 @@ export default {
             validator: (value) =>
                 /^(top|bottom|left|right)(-start|-end)?$/.test(value),
         },
+        opened: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
     },
 };

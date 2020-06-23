@@ -12,5 +12,10 @@ export default {
 <style module>
 @extends '../../u-menu.vue/index.css';
 
-.root {}
+.root {
+    background: var(--navbar-menu-item-background);
+    color: var(--navbar-menu-item-color);
+    border-color: var(--navbar-menu-border-color);
+    box-shadow: var(--navbar-menu-box-shadow);
+}
 </style>

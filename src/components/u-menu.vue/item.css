@@ -21,8 +21,7 @@
 }
 
 .root[selected] {
-    background: var(--brand-primary);
-    color: white;
+    color: var(--brand-primary);
 }
 
 .root[disabled] {

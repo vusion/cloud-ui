@@ -14,5 +14,15 @@ export default {
 
 .root {
     padding: var(--navbar-select-item-padding);
+    color: var(--navbar-select-item-color);
+}
+
+.root:hover {
+    background: var(--navbar-select-item-background-hover);
+}
+
+.root[focused] {
+    background: var(--navbar-select-item-background-hover);
+
 }
 </style>

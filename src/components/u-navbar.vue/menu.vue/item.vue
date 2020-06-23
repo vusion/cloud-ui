@@ -14,5 +14,17 @@ export default {
 
 .root {
     padding: var(--navbar-menu-item-padding);
+    color: var(--navbar-menu-item-color);
 }
+
+.root:hover {
+    background: var(--navbar-menu-item-background-hover);
+    color: var(--navbar-menu-item-color-hover);
+}
+
+.root + .root {
+    border-top: none;
+}
+</style>
+
 </style>

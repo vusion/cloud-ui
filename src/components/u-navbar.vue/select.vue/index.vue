@@ -63,5 +63,8 @@ export default {
 
 .popper {
     margin-top: 3px;
+    box-shadow: var(--navbar-select-box-shadow);
+    background: var(--navbar-select-item-background);
+    border: none;
 }
 </style>

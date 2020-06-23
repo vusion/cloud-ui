@@ -418,12 +418,25 @@
     --navbar-dropdown-popper-font-size: var(--font-size-base);
     --navbar-dropdown-color-disabled: var(--brand-disabled);
     --navbar-menu-item-padding: 7px 18px;
+    --navbar-menu-item-background: #232d3e;
+    --navbar-menu-item-background-hover: #141d2b;
+    --navbar-menu-item-color: inherit;
+    --navbar-menu-item-color-hover: inherit;
+    --navbar-menu-border-color: #232d3e;
+    --navbar-menu-divider-background: var(--list-view-divider-background);
+    --navbar-menu-box-shadow: 0 0 6px rgba(47, 53, 58, 0.3);
     --navbar-select-width: 90px;
     --navbar-select-padding-left: 10px;
     --navbar-select-padding-right: 30px;
     --navbar-select-hover-background: none;
     --navbar-select-focused-background: none;
     --navbar-select-item-padding: 2px 18px;
+    --navbar-select-item-color: white;
+    --navbar-select-item-background: #232d3e;
+    --navbar-select-item-background-hover: #141d2b;
+    --navbar-select-item-background-selected: white;
+    --navbar-select-divider-background: var(--list-view-divider-background);
+    --navbar-select-box-shadow: 0 0 6px rgba(47, 53, 58, 0.3);
 
     /* Sidebar */
     --sidebar-width: 180px;

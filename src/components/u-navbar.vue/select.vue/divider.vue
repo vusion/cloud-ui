@@ -7,3 +7,11 @@ export default {
     extends: USelectDivider,
 };
 </script>
+
+<style module>
+.root {
+    margin: var(--list-view-divider-margin);
+    height: 1px;
+    background: var(--navbar-select-divider-background);
+}
+</style>

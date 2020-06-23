@@ -7,3 +7,11 @@ export default {
     extends: UMenuDivider,
 };
 </script>
+
+<style module>
+.root {
+    margin: var(--list-view-divider-margin);
+    height: 1px;
+    background: var(--navbar-menu-divider-background);
+}
+</style>
