@@ -105,6 +105,7 @@
     --space-base: 20px;
     --space-small: 10px;
     --space-large: 30px;
+    --space-huge: 40px;
 
     /* Component Base Dimensions */
     --border-width-base: 1px;
@@ -321,6 +322,16 @@
     --list-item-border-bottom: 1px solid var(--border-color-base);
     --list-item-background-striped: var(--background-color-lighter);
     --list-item-background-hover: var(--background-color-lighter);
+
+    /* DescList */
+    --desc-list-item-label-padding-right: 20px;
+    --desc-list-item-label-padding-right-mini: 10px;
+    --desc-list-item-label-padding-right-small: 10px;
+    --desc-list-item-label-padding-right-large: 20px;
+    --desc-list-item-label-width: 85px;
+    --desc-list-item-label-width-mini: 40px;
+    --desc-list-item-label-width-small: 60px;
+    --desc-list-item-label-width-large: 120px;
 
     /* Table */
     --table-background: var(--background-color-default);

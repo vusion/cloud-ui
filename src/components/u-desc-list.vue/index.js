@@ -3,6 +3,7 @@ export const UDescList = {
     groupName: 'u-desc-list-group',
     childName: 'u-desc-list-item',
     props: {
+        layout: { type: String, default: 'block' },
         labelSize: { type: String, default: 'normal' },
     },
     data() {

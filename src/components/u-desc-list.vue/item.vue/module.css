@@ -1,10 +1,10 @@
-.root:not(:first-child) {
-    margin-top: 24px;
+.root {
+    position: relative;
 }
 
 .root::before, .root::after {
     display: table;
-    content: "";
+    content: '';
     line-height: 0;
 }
 
@@ -15,30 +15,33 @@
 .label {
     display: block;
     float: left;
-    margin-right: 30px;
+    padding-right: var(--desc-list-item-label-padding-right);
     text-align: right;
-    line-height: 30px;
     color: var(--color-light);
 }
 
-.root[label-size$="small"] .label { width: 60px; }
-.root[label-size$="normal"] .label { width: 80px; }
-.root[label-size$="large"] .label { width: 100px; }
-.root[label-size$="huge"] .label { width: 120px; }
+.root[label-size$="auto"] .label { width: auto; padding-right: 1em; }
+.root[label-size$="mini"] .label { width: var(--desc-list-item-label-width-mini); }
+.root[label-size$="small"] .label { width: var(--desc-list-item-label-width-small); }
+.root[label-size$="normal"] .label { width: var(--desc-list-item-label-width); }
+.root[label-size$="large"] .label { width: var(--desc-list-item-label-width-large); }
 
 .value {
     float: left;
-    max-width: calc(100% - 80px - 30px);
-    line-height: 30px;
+    max-width: calc(100% - var(--desc-list-item-label-width) - 30px);
     color: var(--color-base);
 }
 
+.root[label-size$="mini"] .value {
+    max-width: calc(100% - var(--desc-list-item-label-width-mini) - 30px);
+}
+
 .root[label-size$="small"] .value {
-    max-width: calc(100% - 60px - 30px);
+    max-width: calc(100% - var(--desc-list-item-label-width-small) - 30px);
 }
 
 .root[label-size$="large"] .value {
-    max-width: calc(100% - 100px - 30px);
+    max-width: calc(100% - var(--desc-list-item-label-width-large) - 30px);
 }
 
 .root[label-size$="huge"] .value {
