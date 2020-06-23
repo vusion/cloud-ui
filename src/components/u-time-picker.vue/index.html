@@ -1,7 +1,0 @@
-<span :class="$style.root">
-	<u-number-input :class="$style.item" :min="hourmin" :max="hourmax" formatter="00" fix-on="input" :value="hour" :readonly="readonly" :disabled="disabled" :autofocus="autofocus" @input="changeHour"/>
-	<span :class="$style.dot">:</span>
-	<u-number-input :class="$style.item" :min="minutemin" :max="minutemax" formatter="00" fix-on="input" :value="minute" :readonly="readonly" :disabled="disabled" @input="changeMinute"/>
-	<span v-if="minUnit==='second'" :class="$style.dot">:</span>
-	<u-number-input v-if="minUnit==='second'" :class="$style.item" :min="secondmin" :max="secondmax" formatter="00" fix-on="input" :value="second" :readonly="readonly" :disabled="disabled" @input="changeSecond"/>
-</span>

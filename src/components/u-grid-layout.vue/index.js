@@ -1,11 +1,11 @@
-export const UGridLayout = {
-    name: 'u-grid-layout',
-    props: {
-        repeat: { type: Number, default: 12 },
-    },
-};
+import UGridLayout from './index.vue';
+import UGridLayoutColumn from './column.vue';
+import UGridLayoutRow from './row.vue';
 
-export { UGridLayoutRow } from './row.vue';
-export { UGridLayoutColumn } from './column.vue';
+export {
+    UGridLayout,
+    UGridLayoutColumn,
+    UGridLayoutRow,
+};
 
 export default UGridLayout;

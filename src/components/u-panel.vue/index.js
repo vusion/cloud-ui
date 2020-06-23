@@ -1,10 +1,9 @@
-export const UPanel = {
-    name: 'u-panel',
-    props: {
-        title: { type: String, default: '提示' },
-        content: String,
-    },
+import UPanel from './index.vue';
+import UPanelGroup from './group.vue';
+
+export {
+    UPanel,
+    UPanelGroup,
 };
 
-export { UPanelGroup } from './group.vue';
 export default UPanel;

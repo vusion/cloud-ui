@@ -1,16 +1,9 @@
-import { MParent } from '../m-parent.vue';
+import UCrumb from './index.vue';
+import UCrumbItem from './item.vue';
 
-export const UCrumb = {
-    name: 'u-crumb',
-    childName: 'u-crumb-item',
-    mixins: [MParent],
-    data() {
-        return {
-            // @inherit: itemVMs: [],
-        };
-    },
+export {
+    UCrumb,
+    UCrumbItem,
 };
-
-export { UCrumbItem } from './item.vue';
 
 export default UCrumb;

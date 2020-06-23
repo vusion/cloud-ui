@@ -1,11 +1,9 @@
-import { UListView } from '../u-list-view.vue';
+import UPills from './index.vue';
+import UPill from './pill.vue';
 
-export const UPills = {
-    name: 'u-pills',
-    childName: 'u-pill',
-    extends: UListView,
+export {
+    UPills,
+    UPill,
 };
-
-export { UPill } from './pill.vue';
 
 export default UPills;

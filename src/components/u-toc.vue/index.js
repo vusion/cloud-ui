@@ -1,19 +1,9 @@
-import MSinglex from '../m-singlex.vue';
+import UToc from './index.vue';
+import UTocItem from './item.vue';
 
-export const UToc = {
-    name: 'u-toc',
-    childName: 'u-toc-item',
-    extends: MSinglex,
-    props: {
-        router: { type: Boolean, default: true },
-    },
-    data() {
-        return {
-            parentVM: undefined,
-        };
-    }
+export {
+    UToc,
+    UTocItem,
 };
-
-export { UTocItem } from './item.vue';
 
 export default UToc;

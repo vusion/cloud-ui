@@ -1,4 +1,0 @@
-<div :class="$style.root">
-    <slot></slot>
-    <span v-if="!mutedMessage && touched && !valid && firstError" :class="$style.message" color="error">{{ firstError }}</span>
-</div>

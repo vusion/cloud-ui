@@ -1,14 +1,13 @@
-import UMenu from '../../u-menu.vue';
+import UNavbarMenu from './index.vue';
+import UNavbarMenuDivider from './divider.vue';
+import UNavbarMenuGroup from './group.vue';
+import UNavbarMenuItem from './item.vue';
 
-export const UNavbarMenu = {
-    name: 'u-navbar-menu',
-    groupName: 'u-navbar-menu-group',
-    childName: 'u-navbar-menu-item',
-    extends: UMenu,
+export {
+    UNavbarMenu,
+    UNavbarMenuDivider,
+    UNavbarMenuGroup,
+    UNavbarMenuItem,
 };
-
-export { UNavbarMenuItem } from './item.vue';
-export { UNavbarMenuGroup } from './group.vue';
-export { UNavbarMenuDivider } from './divider.vue';
 
 export default UNavbarMenu;

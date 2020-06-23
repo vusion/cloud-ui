@@ -1,15 +1,9 @@
-export const MParent = {
-    name: 'm-parent',
-    groupName: 'm-group',
-    childName: 'm-child',
-    data() {
-        return {
-            groupVMs: [],
-            itemVMs: [],
-        };
-    },
-};
+import MParent from './index.vue';
+import MChild from './m-child.vue';
 
-export { MChild } from './m-child.vue';
+export {
+    MParent,
+    MChild,
+};
 
 export default MParent;

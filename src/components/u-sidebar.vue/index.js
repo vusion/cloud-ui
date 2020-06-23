@@ -1,22 +1,13 @@
-import MSinglex from '../m-singlex.vue';
-import { MGroupParent } from '../m-group.vue';
+import USidebar from './index.vue';
+import USidebarDivider from './divider.vue';
+import USidebarGroup from './group.vue';
+import USidebarItem from './item.vue';
 
-export const USidebar = {
-    name: 'u-sidebar',
-    groupName: 'u-sidebar-group',
-    childName: 'u-sidebar-item',
-    mixins: [MSinglex, MGroupParent],
-    props: {
-        router: { type: Boolean, default: true },
-        particular: { type: Boolean, default: false },
-    },
-    created() {
-        this.$on('select', ({ itemVM }) => this.router && itemVM.navigate());
-    },
+export {
+    USidebar,
+    USidebarDivider,
+    USidebarGroup,
+    USidebarItem,
 };
-
-export { USidebarItem } from './item.vue';
-export { USidebarGroup } from './group.vue';
-export { USidebarDivider } from './divider.vue';
 
 export default USidebar;

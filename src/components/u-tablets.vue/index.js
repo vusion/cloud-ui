@@ -1,11 +1,9 @@
-import { UListView } from '../u-list-view.vue';
+import UTablets from './index.vue';
+import UTablet from './tablet.vue';
 
-export const UTablets = {
-    name: 'u-tablets',
-    childName: 'u-tablet',
-    extends: UListView,
+export {
+    UTablets,
+    UTablet,
 };
-
-export { UTablet } from './tablet.vue';
 
 export default UTablets;

@@ -1,14 +1,13 @@
-import { USelect } from '../../u-select.vue';
+import UNavbarSelect from './index.vue';
+import UNavbarSelectDivider from './divider.vue';
+import UNavbarSelectGroup from './group.vue';
+import UNavbarSelectItem from './item.vue';
 
-export const UNavbarSelect = {
-    name: 'u-navbar-select',
-    groupName: 'u-navbar-select-group',
-    childName: 'u-navbar-select-item',
-    extends: USelect,
+export {
+    UNavbarSelect,
+    UNavbarSelectDivider,
+    UNavbarSelectGroup,
+    UNavbarSelectItem,
 };
-
-export { UNavbarSelectItem } from './item.vue';
-export { UNavbarSelectGroup } from './group.vue';
-export { UNavbarSelectDivider } from './divider.vue';
 
 export default UNavbarSelect;

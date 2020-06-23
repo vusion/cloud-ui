@@ -1,7 +1,0 @@
-.root {
-    display: inline-block;
-}
-
-.root + .root {
-    margin-left: 20px;
-}

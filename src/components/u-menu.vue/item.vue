@@ -1,0 +1,105 @@
+<template>
+<a :class="$style.root" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
+    :href="currentHref" :target="target" @click="parentVM.router ? onClick($event) : select($event)" v-on="listeners"
+    v-ellipsis-title :has-sub="!!$slots.sub">
+    <slot></slot>
+    <div :class="$style.sub">
+        <slot name="sub"></slot>
+    </div>
+</a>
+</template>
+
+<script>
+import { MSinglexItem } from '../m-singlex.vue';
+
+export default {
+    name: 'u-menu-item',
+    parentName: 'u-menu',
+    groupName: 'u-menu-group',
+    extends: MSinglexItem,
+    computed: {
+        listeners() {
+            const listeners = Object.assign({}, this.$listeners);
+            delete listeners.click;
+            return listeners;
+        },
+    },
+    watch: {
+        active(active) {
+            this.watchActive(active);
+        },
+    },
+    mounted() {
+        this.watchActive(this.active);
+    },
+    methods: {
+        watchActive(active) {
+            // active && this.groupVM && this.groupVM.toggle(true);
+        },
+    },
+};
+</script>
+
+<style module>
+.root {
+    display: block;
+    position: relative;
+    cursor: var(--cursor-pointer);
+    z-index: 1;
+    overflow: visible;
+    padding: 6px 15px;
+    padding-right: var(--menu-item-size);
+    color: var(--menu-item-color);
+    white-space: nowrap;
+}
+
+.root:hover {
+    background: var(--background-color-light);
+}
+
+.root[readonly] {
+    cursor: default;
+    background: none;
+}
+
+.root[selected] {
+    background: var(--brand-primary);
+    color: white;
+}
+
+.root[disabled] {
+    /* @Private */
+    cursor: var(--cursor-not-allowed);
+    background: none;
+    color: var(--color-light);
+}
+
+.root[selected][disabled] {
+    background: var(--gray-lighter);
+}
+
+.root[has-sub]::after {
+    display: inline-block;
+    content: '▸';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: var(--menu-item-size);
+    height: var(--menu-item-size);
+    line-height: var(--menu-item-size);
+    text-align: center;
+}
+
+.sub {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    margin-left: 1px;
+    margin-top: -1px;
+}
+
+.root:hover > .sub {
+    display: block;
+}
+</style>

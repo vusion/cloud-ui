@@ -1,5 +1,0 @@
-.root {}
-
-.root > *:not(:last-child) {
-    margin-right: var(--checkbox-space-x);
-}

@@ -1,14 +1,9 @@
-import { MParent } from '../m-parent.vue';
+import UList from './index.vue';
+import UListItem from './item.vue';
 
-export const UList = {
-    name: 'u-list',
-    childName: 'u-list-item',
-    mixins: [MParent],
-    props: {
-        type: String,
-    },
+export {
+    UList,
+    UListItem,
 };
-
-export { UListItem } from './item.vue';
 
 export default UList;

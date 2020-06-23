@@ -1,12 +1,11 @@
-import { UListView } from '../u-list-view.vue';
+import UCapsules from './index.vue';
+import UCapsule from './capsule.vue';
+import UCapsulesGroup from './group.vue';
 
-export const UCapsules = {
-    name: 'u-capsules',
-    childName: 'u-capsule',
-    extends: UListView,
+export {
+    UCapsules,
+    UCapsule,
+    UCapsulesGroup,
 };
-
-export { UCapsule } from './capsule.vue';
-export { UCapsulesGroup } from './group.vue';
 
 export default UCapsules;
