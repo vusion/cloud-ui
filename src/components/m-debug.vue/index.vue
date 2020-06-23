@@ -9,7 +9,9 @@ export default {
         },
     },
     beforeCreate() {
-        if (!debugInstance) debugInstance = this;
+        /* eslint-disable consistent-this */
+        if (!debugInstance)
+            debugInstance = this;
     },
     destroyed() {
         debugInstance = undefined;

@@ -55,16 +55,16 @@ export default {
     computed: {
         currentRequired() {
             return (
-                this.required ||
-                (Array.isArray(this.currentRules) &&
-                    this.currentRules.some((rule) => rule.required))
+                this.required
+                || (Array.isArray(this.currentRules)
+                    && this.currentRules.some((rule) => rule.required))
             );
         },
         currentLabelSize() {
             return (
-                this.labelSize ||
-                (this.rootVM && this.rootVM.labelSize) ||
-                'auto'
+                this.labelSize
+                || (this.rootVM && this.rootVM.labelSize)
+                || 'auto'
             );
         },
     },

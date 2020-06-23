@@ -1,12 +1,12 @@
 <template>
 <div :class="$style.header">
-    <input :class="$style.input" :placeholder="placeholder" @click.stop="$refs.popper.toggle(true)" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}"  @change="onInput($event)">
+    <input :class="$style.input" :placeholder="placeholder" @click.stop="$refs.popper.toggle(true)" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}" @change="onInput($event)">
     <span v-if="showDate && reset" :class="[$style.wrap, $style.close]" @click.stop="resetValue">
         <i :class="[$style.icon, $style.closeIcon]"></i>
     </span>
-    <m-popper :class="$style.popper" ref="popper" appendTo="reference" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="closeCalendar">
+    <m-popper :class="$style.popper" ref="popper" append-to="reference" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="closeCalendar">
         <div :class="$style.body" @click.stop>
-            <u-calendar ref="calendar" :minDate="minDate" :year-diff="yearDiff" :year-add="yearAdd" :maxDate="maxDate" :date="showDate" @select="select($event.date)"/>
+            <u-calendar ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="showDate" @select="select($event.date)"></u-calendar>
         </div>
     </m-popper>
 </div>
@@ -36,6 +36,8 @@ const MS_OF_DAY = 24 * 3600 * 1000;
 export default {
     name: 'u-date-picker',
     i18n,
+    directives: { clickOutside },
+    mixins: [MField],
     props: {
         date: [String, Number, Date],
         minDate: [String, Number, Date],
@@ -65,7 +67,36 @@ export default {
     data() {
         return { showDate: this.format(this.date, 'YYYY-MM-DD'), lastDate: '' };
     },
-    mixins: [MField],
+    computed: {
+        placement() {
+            if (this.alignment === 'left')
+                return 'bottom-start';
+            else if (this.alignment === 'right')
+                return 'bottom-end';
+        },
+    },
+    watch: {
+        date(newValue) {
+            this.showDate = this.format(newValue, 'YYYY-MM-DD');
+        },
+        showDate(newValue) {
+            /**
+             * @event change 日期改变时触发
+             * @property {object} sender 事件发送对象
+             * @property {number} date 改变后的日期 返回格式为日期对象
+             */ const showDate = this.returnTime(newValue);
+            const newDate = showDate ? new Date(showDate.replace(/-/g, '/')) : '';
+            this.$emit('update:date', newDate);
+            this.$emit('change', { sender: this, date: newDate });
+            this.$emit('input', newDate);
+        },
+        minDate(newValue) {
+            return this.checkDate(newValue);
+        },
+        maxDate(newValue) {
+            return this.checkDate(newValue);
+        },
+    },
     created() {
         if (this.minDate && this.maxDate) {
             const minDate = new Date(this.minDate);
@@ -78,40 +109,10 @@ export default {
             this.showDate ? new Date(this.showDate.replace(/-/g, '/')) : '',
         ); // document.addEventListener('click', this.fadeOut, false);
     },
-    directives: { clickOutside },
-    watch: {
-        date(newValue) {
-            this.showDate = this.format(newValue, 'YYYY-MM-DD');
-        },
-        showDate(newValue) {
-            /**
-             * @event change 日期改变时触发
-             * @property {object} sender 事件发送对象
-             * @property {number} date 改变后的日期 返回格式为日期对象
-             */ const showDate = this.returnTime(newValue);
-            const newDate = showDate
-                ? new Date(showDate.replace(/-/g, '/'))
-                : '';
-            this.$emit('update:date', newDate);
-            this.$emit('change', { sender: this, date: newDate });
-            this.$emit('input', newDate);
-        },
-        minDate(newValue) {
-            return this.checkDate(newValue);
-        },
-        maxDate(newValue) {
-            return this.checkDate(newValue);
-        },
-    },
-    computed: {
-        placement() {
-            if (this.alignment === 'left') return 'bottom-start';
-            else if (this.alignment === 'right') return 'bottom-end';
-        },
-    },
     methods: {
         checkDate(date) {
-            if (!date) return;
+            if (!date)
+                return;
             if (date === 'Invalid Date' || date === 'NaN')
                 throw new TypeError('Invalid Date');
         },
@@ -166,8 +167,8 @@ export default {
             minDate = minDate && minDate.setHours(0, 0, 0, 0);
             maxDate = maxDate && maxDate.setHours(0, 0, 0, 0); // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期。
             return (
-                (minDate && date < minDate && minDate) ||
-                (maxDate && date > maxDate && maxDate)
+                (minDate && date < minDate && minDate)
+                || (maxDate && date > maxDate && maxDate)
             );
         },
         /**
@@ -184,7 +185,8 @@ export default {
                 this.$refs.calendar.updateShowDate(this.showDate);
         },
         returnTime(date) {
-            if (!date) return;
+            if (!date)
+                return;
             let time;
             if (this.time === 'start') {
                 // 0:00:00
@@ -197,7 +199,8 @@ export default {
                 time = '23:59:59';
             } else if (typeof this.time === 'number') {
                 // 具体的时分秒
-                if (this.time < 0) throw new Error(this.$t('integerTip'));
+                if (this.time < 0)
+                    throw new Error(this.$t('integerTip'));
                 time = this.time < 24 ? this.time + ':00:00' : '23:59:59';
             } else {
                 if (!/^[0-9]{1,2}:[0-9]{1,2}:[0-9]{1,2}$/.test(this.time))

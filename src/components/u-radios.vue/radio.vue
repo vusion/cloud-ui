@@ -34,9 +34,7 @@ export default {
             return listeners;
         },
         selected() {
-            return this.parentVM
-                ? this.parentVM.selectedVM === this
-                : this.value;
+            return this.parentVM ? this.parentVM.selectedVM === this : this.value;
         },
         currentDisabled() {
             return this.disabled || (this.parentVM && this.parentVM.disabled);
@@ -50,10 +48,11 @@ export default {
             this.$emit('blur', e, this);
         },
         select() {
-            if (this.readonly || this.disabled) return;
+            if (this.readonly || this.disabled)
+                return;
             if (
-                this.parentVM &&
-                (this.parentVM.readonly || this.parentVM.disabled)
+                this.parentVM
+                && (this.parentVM.readonly || this.parentVM.disabled)
             )
                 return;
             let cancel = false;
@@ -66,7 +65,8 @@ export default {
                 },
                 this,
             );
-            if (cancel) return;
+            if (cancel)
+                return;
             this.parentVM && this.parentVM.select(this);
         },
     },

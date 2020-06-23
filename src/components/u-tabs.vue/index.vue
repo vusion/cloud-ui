@@ -51,34 +51,38 @@ export default {
     data() {
         return { scrollable: false };
     },
-    watch: {
-        itemVMs(itemVMs) {
-            this.$nextTick(() => {
-                this.scrollable =
-                    this.$refs.scrollView.scrollWidth >
-                    this.$refs.scrollView.clientWidth;
-                this.$refs.item &&
-                    this.$refs.item.forEach((itemEl, index) => {
-                        itemEl.__vue__ = itemVMs[index];
-                    });
-            });
-        },
-    },
     computed: {
         currentItemWidth() {
             if (this.itemWidth === 'full')
                 return (1 / this.itemVMs.length) * 100 + '%';
-            else if (this.itemWidth === 'auto') return undefined;
-            else return this.itemWidth;
+            else if (this.itemWidth === 'auto')
+                return undefined;
+            else
+                return this.itemWidth;
+        },
+    },
+    watch: {
+        itemVMs(itemVMs) {
+            this.$nextTick(() => {
+                this.scrollable
+                    = this.$refs.scrollView.scrollWidth
+                        > this.$refs.scrollView.clientWidth;
+                this.$refs.item
+                    && this.$refs.item.forEach((itemEl, index) => {
+                        itemEl.__vue__ = itemVMs[index];
+                    });
+            });
         },
     },
     methods: {
         onClick(itemVM, e) {
             this.select(itemVM); // 为了兼容
             if (this.router) {
-                if (itemVM.disabled) return e.preventDefault();
+                if (itemVM.disabled)
+                    return e.preventDefault();
                 itemVM.$emit('click', e, itemVM);
-                if (itemVM.target !== '_self') return; // 使用`to`的时候走`$router`，否则走原生
+                if (itemVM.target !== '_self')
+                    return; // 使用`to`的时候走`$router`，否则走原生
                 if (itemVM.href === undefined) {
                     // 使用浏览器的一些快捷键时，走原生
                     // @TODO: 考虑使用快捷键抛出事件，阻止流程的需求
@@ -90,7 +94,8 @@ export default {
             }
         },
         close(itemVM) {
-            if (this.readonly || this.disabled || itemVM.disabled) return;
+            if (this.readonly || this.disabled || itemVM.disabled)
+                return;
             const oldValue = this.value;
             let cancel = false;
             this.$emit(
@@ -103,7 +108,8 @@ export default {
                 },
                 this,
             );
-            if (cancel) return;
+            if (cancel)
+                return;
             itemVM.parentVM = undefined;
             const index = this.itemVMs.indexOf(itemVM);
             this.itemVMs.splice(index, 1);
@@ -118,10 +124,11 @@ export default {
                 },
                 this,
             );
-            if (cancel) return;
+            if (cancel)
+                return;
             if (this.selectedVM === itemVM) {
-                this.selectedVM =
-                    this.itemVMs[index] || this.itemVMs[index - 1];
+                this.selectedVM
+                    = this.itemVMs[index] || this.itemVMs[index - 1];
                 const value = this.selectedVM && this.selectedVM.value;
                 this.$emit('input', value, this);
                 this.$emit('update:value', value, this);
@@ -136,8 +143,8 @@ export default {
                     const itemEl = children[i];
                     accWidth += itemEl.offsetWidth;
                     if (
-                        accWidth + itemEl.offsetWidth >
-                        scrollViewEl.scrollLeft - scrollViewEl.clientWidth
+                        accWidth + itemEl.offsetWidth
+                        > scrollViewEl.scrollLeft - scrollViewEl.clientWidth
                     )
                         break;
                 }
@@ -151,8 +158,8 @@ export default {
             for (let i = 0; i < children.length; i++) {
                 const itemEl = children[i];
                 if (
-                    accWidth + itemEl.offsetWidth >
-                    scrollViewEl.scrollLeft + scrollViewEl.clientWidth
+                    accWidth + itemEl.offsetWidth
+                    > scrollViewEl.scrollLeft + scrollViewEl.clientWidth
                 )
                     break;
                 accWidth += itemEl.offsetWidth;
@@ -358,7 +365,6 @@ export default {
 .root[appear="line"] .item[selected] {
     color: var(--brand-primary);
 }
-
 
 .root[appear="line"] .item::after {
     display: block;

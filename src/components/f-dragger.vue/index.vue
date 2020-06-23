@@ -26,11 +26,12 @@ export default {
     methods: {
         getRange(transferEl) {
             let range;
-            if (typeof this.range === 'object') range = this.range;
+            if (typeof this.range === 'object')
+                range = this.range;
             else if (this.range === 'offset-parent') {
                 if (
-                    window.getComputedStyle(transferEl, 'position') !==
-                    'absolute'
+                    window.getComputedStyle(transferEl, 'position')
+                    !== 'absolute'
                 )
                     transferEl.style.position = 'absolute';
                 const offsetParent = transferEl.offsetParent;
@@ -53,8 +54,8 @@ export default {
                     range.right = range.left + range.width;
                     range.bottom = range.top + range.height;
                 } else if (
-                    range.right !== undefined &&
-                    range.bottom !== undefined
+                    range.right !== undefined
+                    && range.bottom !== undefined
                 ) {
                     range.width = range.right - range.left;
                     range.height = range.bottom - range.top;
@@ -67,8 +68,10 @@ export default {
             // 获取初始的left和top值
             let style = transferEl ? window.getComputedStyle(transferEl) : {};
             style = { left: style.left, top: style.top };
-            if (!style.left || style.left === 'auto') style.left = '0px';
-            if (!style.top || style.top === 'auto') style.top = '0px';
+            if (!style.left || style.left === 'auto')
+                style.left = '0px';
+            if (!style.top || style.top === 'auto')
+                style.top = '0px';
             style.left = +style.left.slice(0, -2);
             style.top = +style.top.slice(0, -2);
             if (transferEl) {
@@ -77,8 +80,8 @@ export default {
                 if (this.axis === 'both' || this.axis === 'horizontal') {
                     if (
                         !(
-                            rect.left <= e.clientX &&
-                            e.clientX < rect.left + rect.width
+                            rect.left <= e.clientX
+                            && e.clientX < rect.left + rect.width
                         )
                     )
                         style.left += e.clientX - rect.left - rect.width / 2;
@@ -86,8 +89,8 @@ export default {
                 if (this.axis === 'both' || this.axis === 'vertical') {
                     if (
                         !(
-                            rect.top <= e.clientY &&
-                            e.clientY < rect.top + rect.height
+                            rect.top <= e.clientY
+                            && e.clientY < rect.top + rect.height
                         )
                     )
                         style.top += e.clientY - rect.top - rect.height / 2;
@@ -157,8 +160,10 @@ export default {
             const grid = this.grid;
             grid.x && (next.left = Math.round(next.left / grid.x) * grid.x);
             grid.y && (next.top = Math.round(next.top / grid.y) * grid.y); // 轴向约束
-            if (this.axis === 'vertical') next.left = params.startLeft;
-            if (this.axis === 'horizontal') next.top = params.startTop;
+            if (this.axis === 'vertical')
+                next.left = params.startLeft;
+            if (this.axis === 'horizontal')
+                next.top = params.startTop;
             return next;
         },
     },

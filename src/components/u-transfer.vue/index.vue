@@ -1,20 +1,20 @@
 <template>
 <div :class="$style.root">
     <u-list-view :class="$style.listView" multiple :data-source="source" v-model="sourceValues"
-        :textField="textField"
-        :valueField="valueField"
-        :showHead="showHead"
+        :text-field="textField"
+        :value-field="valueField"
+        :show-head="showHead"
         :title="sourceTitle"
-        :showFoot="showFoot"
+        :show-foot="showFoot"
         :loading="loading"
         :error="error"
         :filterable="filterable"
         :placeholder="placeholder"
         :clearable="clearable"
-        :matchMethod="matchMethod"
-        :caseSensitive="caseSensitive"
+        :match-method="matchMethod"
+        :case-sensitive="caseSensitive"
         :pageable="pageable"
-        :pageSize="pageSize">
+        :page-size="pageSize">
         <template #item="props">
             <slot name="item" v-bind="props"></slot>
         </template>
@@ -24,20 +24,20 @@
         <span :class="$style.button" role="forward" :disabled="!sourceValues.length" @click="forward()"></span>
     </div>
     <u-list-view :class="$style.listView" multiple :data-source="target" v-model="targetValues"
-        :textField="textField"
-        :valueField="valueField"
-        :showHead="showHead"
+        :text-field="textField"
+        :value-field="valueField"
+        :show-head="showHead"
         :title="targetTitle"
-        :showFoot="showFoot"
+        :show-foot="showFoot"
         :loading="loading"
         :error="error"
         :filterable="filterable"
         :placeholder="placeholder"
         :clearable="clearable"
-        :matchMethod="matchMethod"
-        :caseSensitive="caseSensitive"
+        :match-method="matchMethod"
+        :case-sensitive="caseSensitive"
         :pageable="pageable"
-        :pageSize="pageSize">
+        :page-size="pageSize">
         <template #item="props">
             <slot name="item" v-bind="props"></slot>
         </template>
@@ -75,10 +75,8 @@ export default {
     },
     methods: {
         transfer(direction = 'forward', values) {
-            const [from, to] =
-                direction === 'forward'
-                    ? [this.source, this.target]
-                    : [this.target, this.source];
+            const [from, to]
+                = direction === 'forward' ? [this.source, this.target] : [this.target, this.source];
             const transfer = [];
             for (let i = 0; i < from.length; i++) {
                 const item = from[i];

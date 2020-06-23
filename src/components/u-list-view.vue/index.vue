@@ -148,7 +148,8 @@ export default {
                 paging.size = this.pageSize;
                 paging.number = paging.number || 1;
                 return paging;
-            } else return undefined;
+            } else
+                return undefined;
         },
         filtering() {
             return {
@@ -160,14 +161,19 @@ export default {
             };
         },
         allChecked() {
-            if (!this.currentDataSource) return; // 仅显示当前页的选中项
+            if (!this.currentDataSource)
+                return; // 仅显示当前页的选中项
             let checkedLength = 0;
             this.itemVMs.forEach((itemVM) => {
-                if (itemVM.currentSelected) checkedLength++;
+                if (itemVM.currentSelected)
+                    checkedLength++;
             });
-            if (checkedLength === 0) return false;
-            else if (checkedLength === this.currentData.length) return true;
-            else return null;
+            if (checkedLength === 0)
+                return false;
+            else if (checkedLength === this.currentData.length)
+                return true;
+            else
+                return null;
         },
     },
     watch: {
@@ -188,7 +194,8 @@ export default {
         itemVMs: {
             override: true,
             handler(itemVMs, oldVMs) {
-                if (this.data || this.dataSource) return;
+                if (this.data || this.dataSource)
+                    return;
                 MComplex.watch.itemVMs.handler.call(this, itemVMs, oldVMs);
             },
         },
@@ -214,8 +221,8 @@ export default {
             this.currentDataSource = this.normalizeDataSource(
                 this.dataSource || this.data,
             );
-            this.initialLoad &&
-                this.load().then(() => {
+            this.initialLoad
+                && this.load().then(() => {
                     // 更新列表之后，原来的选择可能已不存在，这里暂存然后重新查找一遍
                     MComplex.watch.itemVMs.handler.call(this, this.itemVMs);
                 });
@@ -225,11 +232,7 @@ export default {
         },
         getDataSourceOptions() {
             return {
-                viewMode:
-                    this.pageable === 'load-more' ||
-                    this.pageable === 'auto-more'
-                        ? 'more'
-                        : 'page',
+                viewMode: this.pageable === 'load-more' || this.pageable === 'auto-more' ? 'more' : 'page',
                 paging: this.paging,
                 remotePaging: this.remotePaging,
                 filtering: this.filtering,
@@ -239,7 +242,8 @@ export default {
         },
         normalizeDataSource(dataSource) {
             const options = this.getDataSourceOptions();
-            if (dataSource instanceof DataSource) return dataSource;
+            if (dataSource instanceof DataSource)
+                return dataSource;
             else if (dataSource instanceof Array) {
                 options.data = Array.from(dataSource);
                 return new DataSource(options);
@@ -252,12 +256,14 @@ export default {
                         );
                     else if (result instanceof Array)
                         return Promise.resolve(result);
-                    else return Promise.resolve(result);
+                    else
+                        return Promise.resolve(result);
                 };
                 return new DataSource(options);
             } else if (dataSource instanceof Object) {
                 return new DataSource(Object.assign(options, dataSource));
-            } else return undefined;
+            } else
+                return undefined;
         },
         shift(count) {
             let selectedIndex = this.itemVMs.indexOf(this.selectedVM);
@@ -284,7 +290,8 @@ export default {
                     }
                 }
             } else if (count < 0) {
-                if (selectedIndex === -1) selectedIndex = this.itemVMs.length;
+                if (selectedIndex === -1)
+                    selectedIndex = this.itemVMs.length;
                 for (let i = selectedIndex + count; i >= 0; i--) {
                     const itemVM = this.itemVMs[i];
                     if (!itemVM.disabled) {
@@ -306,34 +313,37 @@ export default {
         },
         ensureFocusedInView(natural) {
             const focusedVM = this.focusedVM || this.selectedVM;
-            if (!focusedVM) return;
+            if (!focusedVM)
+                return;
             const focusedEl = focusedVM.$el;
-            if (!focusedEl) return;
+            if (!focusedEl)
+                return;
             const parentEl = focusedEl.parentElement;
-            if (!parentEl) return;
+            if (!parentEl)
+                return;
             const selectedIndex = this.itemVMs.indexOf(focusedVM);
             if (
-                parentEl.scrollTop <
-                focusedEl.offsetTop +
-                    focusedEl.offsetHeight -
-                    parentEl.clientHeight
+                parentEl.scrollTop
+                < focusedEl.offsetTop
+                + focusedEl.offsetHeight
+                - parentEl.clientHeight
             ) {
                 if (natural)
-                    parentEl.scrollTop =
-                        focusedEl.offsetTop - focusedEl.offsetHeight;
+                    parentEl.scrollTop
+                        = focusedEl.offsetTop - focusedEl.offsetHeight;
                 else
-                    parentEl.scrollTop =
-                        focusedEl.offsetTop +
-                        focusedEl.offsetHeight -
-                        parentEl.clientHeight;
+                    parentEl.scrollTop
+                        = focusedEl.offsetTop
+                            + focusedEl.offsetHeight
+                            - parentEl.clientHeight;
                 if (selectedIndex === this.itemVMs.length - 1) {
-                    (this.pageable === 'auto-more' ||
-                        (this.$options.isSelect && this.pageable)) &&
-                        this.debouncedLoad(true); // 保证显示加载中，但又不是全部数据
+                    (this.pageable === 'auto-more'
+                        || (this.$options.isSelect && this.pageable))
+                        && this.debouncedLoad(true); // 保证显示加载中，但又不是全部数据
                     this.$nextTick(
                         () =>
-                            (parentEl.scrollTop =
-                                parentEl.scrollHeight - parentEl.clientHeight),
+                            (parentEl.scrollTop
+                                = parentEl.scrollHeight - parentEl.clientHeight),
                     );
                 }
             }
@@ -349,8 +359,8 @@ export default {
                     if (!this.itemVMs.includes(oldVM)) {
                         const selectedVM = this.itemVMs.find(
                             (itemVM) =>
-                                itemVM[this.valueField] ===
-                                oldVM[this.valueField],
+                                itemVM[this.valueField]
+                                === oldVM[this.valueField],
                         );
                         if (selectedVM) {
                             this.selectedVMs[i] = selectedVM;
@@ -359,42 +369,41 @@ export default {
                     }
                 }
             } else {
-                if (
-                    this.selectedVM &&
-                    !this.itemVMs.includes(this.selectedVM)
-                ) {
+                if (this.selectedVM && !this.itemVMs.includes(this.selectedVM)) {
                     const selectedVM = this.itemVMs.find(
                         (itemVM) =>
-                            itemVM[this.valueField] ===
-                            this.selectedVM[this.valueField],
+                            itemVM[this.valueField]
+                            === this.selectedVM[this.valueField],
                     );
-                    if (selectedVM) this.selectedVM = selectedVM;
+                    if (selectedVM)
+                        this.selectedVM = selectedVM;
                 }
             } // MComplex.watch.itemVMs.handler.call(this, this.itemVMs);
         },
         fastLoad(more, keep) {
             this.currentDataSource.filter(this.filtering);
-            return this.currentDataSource.mustRemote()
-                ? this.debouncedLoad(more, keep)
-                : this.load(more, keep);
+            return this.currentDataSource.mustRemote() ? this.debouncedLoad(more, keep) : this.load(more, keep);
         },
         load(more) {
             const dataSource = this.currentDataSource;
-            if (!dataSource) return;
-            if (this.currentLoading) return Promise.resolve();
-            if (this.$emitPrevent('before-load', undefined, this)) return;
+            if (!dataSource)
+                return;
+            if (this.currentLoading)
+                return Promise.resolve();
+            if (this.$emitPrevent('before-load', undefined, this))
+                return;
             this.currentLoading = true;
             return dataSource[more ? 'loadMore' : 'load']()
                 .then((data) => {
                     this.currentLoading = false;
                     if (
-                        this.pageable === true ||
-                        this.pageable === 'pagination'
+                        this.pageable === true
+                        || this.pageable === 'pagination'
                     ) {
                         if (
-                            this.currentDataSource.paging &&
-                            this.currentDataSource.paging.number >
-                                this.currentDataSource.totalPage
+                            this.currentDataSource.paging
+                            && this.currentDataSource.paging.number
+                                > this.currentDataSource.totalPage
                         )
                             this.page(1); // 数据发生变更时，回归到第 1 页
                     }
@@ -409,14 +418,16 @@ export default {
             this.load();
         },
         page(number, size) {
-            if (size === undefined) size = this.currentDataSource.paging.size;
+            if (size === undefined)
+                size = this.currentDataSource.paging.size;
             const paging = {
                 size,
                 oldSize: this.currentDataSource.paging.size,
                 number,
                 oldNumber: this.currentDataSource.paging.number,
             };
-            if (this.$emitPrevent('before-page', paging, this)) return;
+            if (this.$emitPrevent('before-page', paging, this))
+                return;
             this.currentDataSource.page(paging);
             this.load();
             this.$emit('page', paging, this);
@@ -426,17 +437,18 @@ export default {
             this.throttledVirtualScroll(e);
             if (
                 !(
-                    this.pageable === 'auto-more' ||
-                    (this.pageable === true && this.$options.isSelect)
+                    this.pageable === 'auto-more'
+                    || (this.pageable === true && this.$options.isSelect)
                 )
             )
                 return;
-            if (this.currentLoading) return;
+            if (this.currentLoading)
+                return;
             const el = e.target;
             if (
-                el.scrollHeight === el.scrollTop + el.clientHeight &&
-                this.currentDataSource &&
-                this.currentDataSource.hasMore()
+                el.scrollHeight === el.scrollTop + el.clientHeight
+                && this.currentDataSource
+                && this.currentDataSource.hasMore()
             )
                 this.debouncedLoad(true);
         },
@@ -448,11 +460,13 @@ export default {
         },
         checkAll(checked) {
             // Check if enabled
-            if (this.readonly || this.disabled) return;
+            if (this.readonly || this.disabled)
+                return;
             const selectedVMs = this.selectedVMs;
             const oldValue = selectedVMs.map((itemVM) => itemVM.value);
             this.itemVMs.forEach((itemVM) => {
-                if (itemVM.disabled) return;
+                if (itemVM.disabled)
+                    return;
                 if (checked && !selectedVMs.includes(itemVM)) {
                     itemVM.currentSelected = true;
                     selectedVMs.push(itemVM);

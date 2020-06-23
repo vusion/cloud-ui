@@ -29,7 +29,6 @@ export default {
 
 <style module>
 
-
 .root {}
 
 .track {

@@ -23,12 +23,14 @@ export default {
     created() {
         const needCount = this.minCount - this.currentData.length;
         if (this.initialAdd && needCount > 0) {
-            for (let i = 0; i < needCount; i++) this.add();
+            for (let i = 0; i < needCount; i++)
+                this.add();
         }
     },
     methods: {
         add() {
-            if (this.currentData.length >= this.maxCount) return;
+            if (this.currentData.length >= this.maxCount)
+                return;
             const item = this.getDefaultItem ? this.getDefaultItem() : {};
             const index = this.currentData.length;
             if (
@@ -44,7 +46,8 @@ export default {
             this.$emit('splice', { item, index, data: this.currentData }, this);
         },
         remove(index) {
-            if (this.currentData.length <= this.minCount) return;
+            if (this.currentData.length <= this.minCount)
+                return;
             const item = this.currentData[index];
             if (
                 this.$emitPrevent(

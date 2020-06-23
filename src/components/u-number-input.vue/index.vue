@@ -18,8 +18,8 @@ import { noopFormatter, NumberFormatter } from '../../utils/Formatters';
 
 export default {
     name: 'u-number-input',
-    mixins: [MField],
     directives: { repeatClick },
+    mixins: [MField],
     props: {
         // String 类型是为了验证抛出
         value: { type: [Number, String], default: 0 },
@@ -51,7 +51,8 @@ export default {
             data.currentFormatter = this.formatter;
         else if (typeof this.formatter === 'string')
             data.currentFormatter = new NumberFormatter(this.formatter);
-        else data.currentFormatter = noopFormatter; // 初始值需要在最小值和最大值范围之内
+        else
+            data.currentFormatter = noopFormatter; // 初始值需要在最小值和最大值范围之内
         data.formattedValue = data.currentFormatter.format(data.currentValue);
         return data;
     },
@@ -96,13 +97,11 @@ export default {
         fix(value, precision = this.currentPrecision) {
             // 为空时使用默认值
             if (
-                (typeof value === 'string' && value.trim() === '') ||
-                value === null
+                (typeof value === 'string' && value.trim() === '')
+                || value === null
             )
-                value =
-                    this.defaultValue !== undefined
-                        ? this.defaultValue
-                        : this.currentValue || 0;
+                value
+                    = this.defaultValue !== undefined ? this.defaultValue : this.currentValue || 0;
             else if (isNaN(value))
                 value = this.currentValue || this.defaultValue || 0;
             value = +value; // 精度约束
@@ -118,13 +117,11 @@ export default {
          * @param {*} value 输入值
          */ computePrecision(value) {
             if (
-                (typeof value === 'string' && value.trim() === '') ||
-                value === null
+                (typeof value === 'string' && value.trim() === '')
+                || value === null
             )
-                value =
-                    this.defaultValue !== undefined
-                        ? this.defaultValue
-                        : this.currentValue || 0;
+                value
+                    = this.defaultValue !== undefined ? this.defaultValue : this.currentValue || 0;
             else if (isNaN(value))
                 value = this.currentValue || this.defaultValue || 0;
             const arr = String(value).split('.');
@@ -134,20 +131,21 @@ export default {
          * 计算 fix 精度
          * @param {*} value 输入值
          */ getCurrentPrecision(value) {
-            return this.precision === 0
-                ? this.computePrecision(value)
-                : this.precision;
+            return this.precision === 0 ? this.computePrecision(value) : this.precision;
         },
         isValid(value) {
-            if (isNaN(value)) return false;
-            if (value < this.min || value > this.max) return false;
+            if (isNaN(value))
+                return false;
+            if (value < this.min || value > this.max)
+                return false;
             return String(this.fix(value)) === String(value);
         },
         /**
          * 单纯输入
          * @param {*} value 输入值
          */ input(value) {
-            if (this.readonly || this.disabled) return;
+            if (this.readonly || this.disabled)
+return;
             value = this.fix(value);
             const oldValue = this.currentValue;
             this.currentValue = value;
@@ -179,7 +177,8 @@ export default {
                 },
                 this,
             );
-            if (cancel) return;
+            if (cancel)
+return;
             this.input(value);
             this.$emit(
                 'adjust',
@@ -192,21 +191,16 @@ export default {
             );
         },
         increase() {
-            const step =
-                this.step === 0
-                    ? this.computePrecision(this.currentValue)
-                    : this.step;
+            const step = this.step === 0 ? this.computePrecision(this.currentValue) : this.step;
             this.adjust(+this.currentValue + step);
         },
         decrease() {
-            const step =
-                this.step === 0
-                    ? this.computePrecision(this.currentValue)
-                    : this.step;
+            const step = this.step === 0 ? this.computePrecision(this.currentValue) : this.step;
             this.adjust(+this.currentValue - step);
         },
         onInput(rawValue) {
-            if (this.readonly || this.disabled) return;
+            if (this.readonly || this.disabled)
+                return;
             const parsedValue = this.currentFormatter.parse(rawValue); // 根据输入调整 fix 精度
             const currentPrecision = (this.currentPrecision = this.getCurrentPrecision(
                 parsedValue,

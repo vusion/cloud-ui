@@ -33,17 +33,17 @@ export default {
     computed: {
         currentColumn() {
             return (
-                (this.groupVM && this.groupVM.column) ||
-                (this.parentVM && this.parentVM.column) ||
-                'auto'
+                (this.groupVM && this.groupVM.column)
+                || (this.parentVM && this.parentVM.column)
+                || 'auto'
             );
         },
         currentLabelSize() {
             return (
-                this.labelSize ||
-                (this.groupVM && this.groupVM.labelSize) ||
-                (this.parentVM && this.parentVM.labelSize) ||
-                'auto'
+                this.labelSize
+                || (this.groupVM && this.groupVM.labelSize)
+                || (this.parentVM && this.parentVM.labelSize)
+                || 'auto'
             );
         },
         responsiveStyle() {
@@ -63,14 +63,14 @@ export default {
         getPercent(span) {
             // 兼容原来的column属性
             if (
-                (this.groupVM && this.groupVM.column) ||
-                (this.parentVM && this.parentVM.column)
+                (this.groupVM && this.groupVM.column)
+                || (this.parentVM && this.parentVM.column)
             )
                 return '';
-            const repeat =
-                (this.groupVM && this.groupVM.repeat) ||
-                (this.parentVM && this.parentVM.repeat) ||
-                3;
+            const repeat
+                = (this.groupVM && this.groupVM.repeat)
+                    || (this.parentVM && this.parentVM.repeat)
+                    || 3;
             return (span / repeat) * 100 + '%';
         },
     },

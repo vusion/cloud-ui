@@ -43,7 +43,7 @@ export default { name: 'u-form-table' };
 }
 
 .root[size="mini"] {
-    width: auto;   
+    width: auto;
 }
 
 .root[size="mini"] thead {

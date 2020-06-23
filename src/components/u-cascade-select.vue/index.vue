@@ -57,22 +57,24 @@ export default {
                 set: (value) => {
                     const values = [];
                     const findValues = (list, level) => {
-                        if (!list || level >= this.categories.length) return;
+                        if (!list || level >= this.categories.length)
+                            return;
                         for (let i = 0; i < list.length; i++) {
                             const item = list[i];
                             values.push(item.value);
                             if (
-                                level === this.categories.length - 1 &&
-                                item.value === value
+                                level === this.categories.length - 1
+                                && item.value === value
                             )
                                 // 最后一个元素，且值相等，则找到路径
                                 return true;
                             else if (
-                                item.children &&
-                                findValues(item.children, level + 1)
+                                item.children
+                                && findValues(item.children, level + 1)
                             )
                                 return true;
-                            else values.pop();
+                            else
+                                values.pop();
                         }
                     };
                     findValues(this.currentData, 0);
@@ -81,7 +83,8 @@ export default {
             };
         } else if (this.converter.startsWith('join')) {
             const m = this.converter.match(/^join(\.number)?(:.+)?$/);
-            if (!m) throw new Error('converter format error');
+            if (!m)
+                throw new Error('converter format error');
             const number = !!m[1];
             const sep = m[2] ? m[2].slice(1) : ',';
             data.currentConverter = {
@@ -149,44 +152,45 @@ export default {
             if (list && list.length) {
                 item = list.find(
                     (item) =>
-                        (item.exist === undefined || !!item.exist === true) &&
-                        !item.disabled &&
-                        item.value === value,
+                        (item.exist === undefined || !!item.exist === true)
+                        && !item.disabled
+                        && item.value === value,
                 ); // 当找不到与 value 对应的 item 时
                 // 如果设置了自动选择，并且没有设置 placeholder 的情况下
                 // 自动选择第一个显示并且非禁用的项
                 if (
-                    !item &&
-                    this.autoSelect &&
-                    this.categories[level].placeholder === undefined
+                    !item
+                    && this.autoSelect
+                    && this.categories[level].placeholder === undefined
                 ) {
                     let index = 0;
                     for (let i = 0; i < list.length; i++) {
                         const item = list[i]; // 自动过滤禁用与不存在的项
                         if (
                             !(
-                                item.exist === undefined ||
-                                !!item.exist === true
-                            ) ||
-                            item.disabled
+                                item.exist === undefined
+                                || !!item.exist === true
+                            )
+                            || item.disabled
                         )
                             continue;
                         index = i;
                         if (
-                            isNumber(value) &&
-                            isNumber(item.value) &&
-                            value > item.value
+                            isNumber(value)
+                            && isNumber(item.value)
+                            && value > item.value
                         )
                             continue;
-                        else break;
+                        else
+break;
                     }
                     item = list[index];
                 }
             }
             if (item) {
                 this.values.splice(level, 1, item.value); // 继续处理下一级
-                level < this.categories.length &&
-                    this.setList(item.children, level + 1);
+                level < this.categories.length
+                    && this.setList(item.children, level + 1);
             } else {
                 this.values.splice(level, this.values.length);
             }

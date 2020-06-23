@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" :style="[commonStyle, responsiveStyle]">
-  <slot></slot>
+    <slot></slot>
 </div>
 </template>
 
@@ -29,13 +29,6 @@ export default {
     data() {
         return { parentVM: this.$parent, currentSpan: this.span };
     },
-    created() {
-        window.addEventListener('resize', this.onResize);
-        this.onResize();
-    },
-    destroyed() {
-        window.removeEventListener('resize', this.onResize);
-    },
     computed: {
         stack() {
             return breakpoints
@@ -53,9 +46,7 @@ export default {
             return { right, left, marginLeft };
         },
         responsiveStyle() {
-            const width = this.currentSpan
-                ? this.getPercent(this.currentSpan)
-                : 'auto';
+            const width = this.currentSpan ? this.getPercent(this.currentSpan) : 'auto';
             return { width };
         },
     },
@@ -64,15 +55,23 @@ export default {
             this.$emit('responsive', { span, oldSpan }, this);
         },
     },
+    created() {
+        window.addEventListener('resize', this.onResize);
+        this.onResize();
+    },
+    destroyed() {
+        window.removeEventListener('resize', this.onResize);
+    },
     methods: {
         getPercent(span, repeat) {
-            repeat =
-                repeat || this.$parent.repeat || this.$parent.$parent.repeat;
+            repeat
+                = repeat || this.$parent.repeat || this.$parent.$parent.repeat;
             return (span / repeat) * 100 + '%';
         },
         onResize() {
             const stack = this.stack;
-            if (!stack.length) return;
+            if (!stack.length)
+                return;
             let span = this.span;
             const width = window.innerWidth;
             stack.forEach((point, index) => {

@@ -22,9 +22,7 @@ export default {
         },
         selected() {
             if (this.parentVM)
-                return this.parentVM.router
-                    ? this.active
-                    : this.parentVM.selectedVM === this;
+                return this.parentVM.router ? this.active : this.parentVM.selectedVM === this;
         },
     },
     methods: {

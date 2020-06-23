@@ -58,12 +58,13 @@ export default {
             };
         } else if (typeof this.formatter === 'function') {
             data.currentFormatter = { format: this.formatter };
-        } else data.currentFormatter = placeholderFormatter;
+        } else
+            data.currentFormatter = placeholderFormatter;
         return data;
     },
     created() {
-        !this.parentVM &&
-            this.$contact(this.$options.parentName, (parentVM) => {
+        !this.parentVM
+            && this.$contact(this.$options.parentName, (parentVM) => {
                 this.parentVM = parentVM;
                 parentVM.columnVMs.push(this);
             });

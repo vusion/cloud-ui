@@ -1,8 +1,10 @@
 <script>
-const broadcast = function(condition, eventName, ...args) {
+const broadcast = function (condition, eventName, ...args) {
     this.$children.forEach(($child) => {
-        if (condition($child)) $child.$emit(eventName, ...args);
-        else broadcast.apply($child, [condition, eventName].concat(args));
+        if (condition($child))
+            $child.$emit(eventName, ...args);
+        else
+            broadcast.apply($child, [condition, eventName].concat(args));
     });
 };
 
@@ -17,7 +19,8 @@ export default {
                 condition = ($parent) => $parent.$options.name === name;
             }
             let $parent = this.$parent || this.$root;
-            while ($parent && !condition($parent)) $parent = $parent.$parent;
+            while ($parent && !condition($parent))
+$parent = $parent.$parent;
             $parent && $parent.$emit(eventName, ...args);
         },
         /**
@@ -41,7 +44,8 @@ export default {
                 condition = ($parent) => $parent.$options.name === name;
             }
             let $parent = this.$parent || this.$root;
-            while ($parent && !condition($parent)) $parent = $parent.$parent;
+            while ($parent && !condition($parent))
+$parent = $parent.$parent;
             $parent && callback($parent);
         },
         $emitPrevent(name, $event, senderVM, ...args) {

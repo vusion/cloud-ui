@@ -24,10 +24,10 @@ export default {
     computed: {
         currentLabelSize() {
             return (
-                this.labelSize ||
-                (this.groupVM && this.groupVM.labelSize) ||
-                (this.parentVM && this.parentVM.labelSize) ||
-                'auto'
+                this.labelSize
+                || (this.groupVM && this.groupVM.labelSize)
+                || (this.parentVM && this.parentVM.labelSize)
+                || 'auto'
             );
         },
     },

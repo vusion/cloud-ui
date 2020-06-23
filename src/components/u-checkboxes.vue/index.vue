@@ -22,9 +22,6 @@ export default {
     data() {
         return { currentValue: this.value, itemVMs: [] };
     },
-    mounted() {
-        this.watchValue(this.value);
-    },
     watch: {
         value(value) {
             this.watchValue(value);
@@ -35,6 +32,9 @@ export default {
         itemVMs() {
             this.watchValue(this.value);
         },
+    },
+    mounted() {
+        this.watchValue(this.value);
     },
     methods: {
         watchValue(value) {
@@ -53,7 +53,8 @@ export default {
             }
         },
         canCheck($event) {
-            if (this.readonly || this.disabled) return false;
+            if (this.readonly || this.disabled)
+                return false;
             const value = $event.value;
             const label = $event.itemVM.label;
             if (value && !this.currentValue.includes(label)) {

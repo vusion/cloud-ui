@@ -14,8 +14,8 @@ export default {
     name: 'm-multiplex-item',
     parentName: 'm-multiplex',
     groupName: 'm-multiplex-group',
-    mixins: [MChild],
     directives: { ellipsisTitle },
+    mixins: [MChild],
     props: {
         value: null,
         selected: { type: Boolean, default: false },
@@ -36,9 +36,9 @@ export default {
     methods: {
         select(e) {
             if (
-                this.disabled ||
-                this.parentVM.readonly ||
-                this.parentVM.disabled
+                this.disabled
+                || this.parentVM.readonly
+                || this.parentVM.disabled
             )
                 return;
             this.$emit('click', e, this);
@@ -53,7 +53,8 @@ export default {
                 },
                 this,
             );
-            if (cancel) return;
+            if (cancel)
+                return;
             this.parentVM.select(this);
         },
     },

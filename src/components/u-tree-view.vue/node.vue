@@ -77,9 +77,9 @@ export default {
         },
         currentDisabled() {
             return (
-                this.disabled ||
-                this.rootVM.disabled ||
-                (this.parentVM && this.parentVM.currentDisabled)
+                this.disabled
+                || this.rootVM.disabled
+                || (this.parentVM && this.parentVM.currentDisabled)
             );
         },
     },
@@ -95,7 +95,8 @@ export default {
 
     methods: {
         select() {
-            if (this.currentDisabled || this.rootVM.readonly) return;
+            if (this.currentDisabled || this.rootVM.readonly)
+                return;
 
             let cancel = false;
             this.$emit(
@@ -108,18 +109,22 @@ export default {
                 },
                 this,
             );
-            if (cancel) return;
+            if (cancel)
+                return;
 
             this.rootVM.select(this);
         },
         toggle(expanded) {
-            if (this.currentDisabled || this.rootVM.readonly) return;
+            if (this.currentDisabled || this.rootVM.readonly)
+                return;
 
             const oldExpanded = this.currentExpanded;
 
-            if (expanded === undefined) expanded = !this.currentExpanded;
+            if (expanded === undefined)
+                expanded = !this.currentExpanded;
 
-            if (expanded === oldExpanded) return;
+            if (expanded === oldExpanded)
+                return;
 
             let cancel = false;
             this.$emit(
@@ -132,7 +137,8 @@ export default {
                 },
                 this,
             );
-            if (cancel) return;
+            if (cancel)
+                return;
 
             this.currentExpanded = expanded;
             this.$emit('update:expanded', expanded, this);
@@ -163,9 +169,9 @@ export default {
             this.$emit('update:checked', checked, this);
 
             if (
-                checked &&
-                !this.rootVM.currentValues.includes(this.value) &&
-                !this.nodeVMs.length
+                checked
+                && !this.rootVM.currentValues.includes(this.value)
+                && !this.nodeVMs.length
             )
                 this.rootVM.currentValues.push(this.value);
             else if (!checked && this.rootVM.currentValues.includes(this.value))
@@ -177,8 +183,8 @@ export default {
             // down
             if (direction.includes('down')) {
                 this.nodeVMs.forEach((nodeVM) => {
-                    !nodeVM.currentDisabled &&
-                        nodeVM.checkRecursively(checked, 'down');
+                    !nodeVM.currentDisabled
+                        && nodeVM.checkRecursively(checked, 'down');
                 });
             }
 
@@ -187,14 +193,18 @@ export default {
             if (direction.includes('up') && parentVM) {
                 let count = 0;
                 parentVM.nodeVMs.forEach((nodeVM) => {
-                    if (nodeVM.currentChecked) count++;
-                    else if (nodeVM.currentChecked === null) count += 0.5;
+                    if (nodeVM.currentChecked)
+                        count++;
+                    else if (nodeVM.currentChecked === null)
+                        count += 0.5;
                 });
 
-                if (count === 0) parentVM.checkRecursively(false, 'up');
+                if (count === 0)
+                    parentVM.checkRecursively(false, 'up');
                 else if (count === parentVM.nodeVMs.length)
                     parentVM.checkRecursively(true, 'up');
-                else parentVM.checkRecursively(null, 'up');
+                else
+                    parentVM.checkRecursively(null, 'up');
             }
         },
         check(checked) {

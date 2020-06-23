@@ -61,8 +61,8 @@ export default {
     watch: {
         columnVMs(columnVMs) {
             this.$nextTick(() => {
-                this.$refs.th &&
-                    this.$refs.th.forEach((thEl, index) => {
+                this.$refs.th
+                    && this.$refs.th.forEach((thEl, index) => {
                         thEl.__vue__ = columnVMs[index];
                     });
             });

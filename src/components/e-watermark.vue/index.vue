@@ -26,6 +26,14 @@ export default {
             ],
         },
     },
+    computed: {
+        markWidth() {
+            return this.markSize * Math.sqrt(3) * 2;
+        },
+        markHeight() {
+            return this.markSize * 2;
+        },
+    },
     watch: {
         text() {
             this.clearTimeout();
@@ -34,14 +42,6 @@ export default {
                 this.redrawMark();
                 this.redraw();
             }, 100);
-        },
-    },
-    computed: {
-        markWidth() {
-            return this.markSize * Math.sqrt(3) * 2;
-        },
-        markHeight() {
-            return this.markSize * 2;
         },
     },
     created() {
@@ -89,12 +89,10 @@ export default {
             const windowHeight = window.innerHeight;
             const windowWidth = window.innerWidth;
             const isFirstPaint = !this.lastRectangle;
-            this.lastRectangle = isFirstPaint
-                ? { windowWidth: 0, windowHeight: 0 }
-                : this.lastRectangle;
+            this.lastRectangle = isFirstPaint ? { windowWidth: 0, windowHeight: 0 } : this.lastRectangle;
             if (
-                windowHeight > this.lastRectangle.windowHeight ||
-                windowWidth > this.lastRectangle.windowWidth
+                windowHeight > this.lastRectangle.windowHeight
+                || windowWidth > this.lastRectangle.windowWidth
             ) {
                 this.lastRectangle = {
                     windowWidth: Math.max(
@@ -143,7 +141,6 @@ export default {
 .root[display="full"] {
     position: absolute;
 }
-
 
 .mark {
     display: none;

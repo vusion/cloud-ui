@@ -2,27 +2,27 @@
 <div :class="$style.root" :disabled="disabled">
     <div :class="$style.head">
         <div :class="$style.year">
-            <span :class="$style.textYear">{{showYear}}{{ $t('year') }}</span>
-            <m-popper trigger="click" :opened.sync="yearvisible" appendTo="reference">
-                <div :class="$style.yearList" @click.stop >
+            <span :class="$style.textYear">{{ showYear }}{{ $t('year') }}</span>
+            <m-popper trigger="click" :opened.sync="yearvisible" append-to="reference">
+                <div :class="$style.yearList" @click.stop>
                     <u-list-view :class="$style.yearListInner" ref="yearList" :value="showYear" @select="yearSelect($event.value)">
-                        <u-list-view-item :class="$style.yearitem" v-for="(year, index) in yearCol" :key="index" :value="year.value" :disabled="year.disabled">{{year.value}}{{ $t('year') }}</u-list-view-item>
+                        <u-list-view-item :class="$style.yearitem" v-for="(year, index) in yearCol" :key="index" :value="year.value" :disabled="year.disabled">{{ year.value }}{{ $t('year') }}</u-list-view-item>
                     </u-list-view>
                 </div>
             </m-popper>
         </div>
         <div :class="$style.month">
-            <span :class="$style.textMonth">{{monthTextList[showMonth - 1]}}{{ $t('month') }}</span>
-            <m-popper trigger="click" placement="bottom-end" :opened.sync="monthvisible" appendTo="reference">
+            <span :class="$style.textMonth">{{ monthTextList[showMonth - 1] }}{{ $t('month') }}</span>
+            <m-popper trigger="click" placement="bottom-end" :opened.sync="monthvisible" append-to="reference">
                 <ul :class="$style.monthList">
-                    <li :class="$style.listitem" v-for="(month, mindex) in monthCol" :role="month.value === showMonth" :disabled="month.disabled" @click.stop="monthSelect(month, mindex)">{{monthTextList[month.value - 1]}}</li>
+                    <li :class="$style.listitem" v-for="(month, mindex) in monthCol" :role="month.value === showMonth" :disabled="month.disabled" @click.stop="monthSelect(month, mindex)">{{ monthTextList[month.value - 1] }}</li>
                 </ul>
             </m-popper>
         </div>
     </div>
     <div :class="$style.content">
         <div :class="$style.week"><span :class="$style.dayitem" role="week">{{ $t('Sunday') }}</span><span :class="$style.dayitem">{{ $t('Monday') }}</span><span :class="$style.dayitem">{{ $t('Tuesday') }}</span><span :class="$style.dayitem">{{ $t('Wednesday') }}</span><span :class="$style.dayitem">{{ $t('Thursday') }}</span><span :class="$style.dayitem">{{ $t('Friday') }}</span><span :class="$style.dayitem" role="week">{{ $t('Saturday') }}</span></div>
-        <div :class="$style.day"><span v-for="day in days_" :class="$style.item" :sel="selectedDate.toDateString() === day.toDateString() ? 'sel' : ''" :disabled="!!isOutOfRange(day)" :role="showDate.getMonth() !== day.getMonth() ? 'muted': ''" @click.stop="select(day)">{{day | format('dd')}}</span></div>
+        <div :class="$style.day"><span v-for="day in days_" :class="$style.item" :sel="selectedDate.toDateString() === day.toDateString() ? 'sel' : ''" :disabled="!!isOutOfRange(day)" :role="showDate.getMonth() !== day.getMonth() ? 'muted': ''" @click.stop="select(day)">{{ day | format('dd') }}</span></div>
         <slot></slot>
     </div>
 </div>
@@ -33,21 +33,22 @@ const MS_OF_DAY = 24 * 3600 * 1000;
 import i18n from './i18n';
 import { format, transformDate } from '../../utils/date';
 
-const DateRangeError = function(minDate, maxDate) {
+const DateRangeError = function (minDate, maxDate) {
     this.name = 'DateRangeError';
-    this.message =
-        'Wrong Date Range where `minDate` is ' +
-        minDate +
-        ' and `maxDate` is ' +
-        maxDate +
-        '!';
+    this.message
+        = 'Wrong Date Range where `minDate` is '
+            + minDate
+            + ' and `maxDate` is '
+            + maxDate
+            + '!';
 };
 DateRangeError.prototype = Object.create(RangeError.prototype);
-UCalendar.DateRangeError = DateRangeError.prototype.constructor = DateRangeError;
+DateRangeError.prototype.constructor = DateRangeError;
 
 export default {
     name: 'u-calendar',
     i18n,
+    filters: { format },
     props: {
         date: {
             type: [String, Number, Date],
@@ -98,7 +99,8 @@ export default {
                 const date = this.showDate;
                 const oldMonth = date.getMonth();
                 date.setFullYear(value);
-                if (date.getMonth() !== oldMonth) date.setDate(0);
+                if (date.getMonth() !== oldMonth)
+                    date.setDate(0);
                 this.updateFlag = true;
                 this.showDate = new Date(date);
             },
@@ -168,7 +170,6 @@ export default {
             this.monthCol = this.getMonthCol(newValue + '');
         }, // 月份发生变化需要监听 会影响日的选择
     },
-    filters: { format },
     created() {
         this.update();
     },
@@ -204,9 +205,12 @@ export default {
             const yearmax = currentYear + parseInt(this.yearAdd);
             for (let i = yearmin; i <= yearmax; i++) {
                 const obj = { value: i };
-                if (minDate && i < minDate) obj.disabled = true;
-                else if (maxDate && i > maxDate) obj.disabled = true;
-                else obj.disabled = false;
+                if (minDate && i < minDate)
+                    obj.disabled = true;
+                else if (maxDate && i > maxDate)
+                    obj.disabled = true;
+                else
+                    obj.disabled = false;
                 yearcol.push(obj);
             }
             return yearcol;
@@ -236,9 +240,12 @@ export default {
                 const obj = { value: i };
                 const dateFormat = currentYear + '/' + i;
                 const dateTime = new Date(dateFormat).getTime();
-                if (minDate && dateTime < minDate) obj.disabled = true;
-                else if (maxDate && dateTime > maxDate) obj.disabled = true;
-                else obj.disabled = false;
+                if (minDate && dateTime < minDate)
+                    obj.disabled = true;
+                else if (maxDate && dateTime > maxDate)
+                    obj.disabled = true;
+                else
+                    obj.disabled = false;
                 monthcol.push(obj);
             }
             return monthcol;
@@ -260,8 +267,8 @@ export default {
             nfirst.setMonth(month + 1);
             nfirst.setDate(1);
             const nfirstTime = +nfirst;
-            const lastTime =
-                nfirstTime + (((7 - nfirst.getDay()) % 7) - 1) * MS_OF_DAY;
+            const lastTime
+                = nfirstTime + (((7 - nfirst.getDay()) % 7) - 1) * MS_OF_DAY;
             let num = -mfirst.getDay();
             let tmpTime;
             let tmp;
@@ -277,12 +284,15 @@ export default {
          * @param  {number=0} year 加/减的年份
          * @return {void}
          */ addYear(year) {
-            if (this.readonly || this.disabled || !year) return;
-            if (isNaN(year)) throw new TypeError(year + ' is not a number!');
+            if (this.readonly || this.disabled || !year)
+return;
+            if (isNaN(year))
+throw new TypeError(year + ' is not a number!');
             const date = this.showDate;
             const oldMonth = date.getMonth();
             date.setFullYear(date.getFullYear() + year);
-            if (date.getMonth() !== oldMonth) date.setDate(0);
+            if (date.getMonth() !== oldMonth)
+date.setDate(0);
             this.updateFlag = true;
             this.showDate = new Date(date);
         },
@@ -292,12 +302,15 @@ export default {
          * @param  {number=0} month 加/减的月份
          * @return {void}
          */ addMonth(month) {
-            if (this.readonly || this.disabled || !month) return;
-            if (isNaN(month)) throw new TypeError(month + ' is not a number!');
+            if (this.readonly || this.disabled || !month)
+return;
+            if (isNaN(month))
+throw new TypeError(month + ' is not a number!');
             const date = this.showDate;
             const correctMonth = date.getMonth() + month;
             date.setMonth(correctMonth); // 如果跳月，则置为上一个月
-            if ((date.getMonth() - correctMonth) % 12) date.setDate(0);
+            if ((date.getMonth() - correctMonth) % 12)
+date.setDate(0);
             this.updateFlag = true;
             this.showDate = new Date(date);
         },
@@ -310,7 +323,8 @@ export default {
             if (this.readonly || this.disabled || this.isOutOfRange(date))
                 return;
             const _month = date.getMonth() + 1;
-            if (this.showMonth !== _month) this.updateFlag = true;
+            if (this.showMonth !== _month)
+this.updateFlag = true;
             this.showDate = new Date(date);
             this.selectedDate = new Date(this.transformDate(date));
             /**
@@ -330,8 +344,8 @@ export default {
             minDate = minDate && minDate.setHours(0, 0, 0, 0);
             maxDate = maxDate && maxDate.setHours(0, 0, 0, 0); // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期
             return (
-                (minDate && date < minDate && minDate) ||
-                (maxDate && date > maxDate && maxDate)
+                (minDate && date < minDate && minDate)
+                || (maxDate && date > maxDate && maxDate)
             );
         },
         transformDate,

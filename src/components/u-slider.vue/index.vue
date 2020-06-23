@@ -50,31 +50,12 @@ export default {
             handleEl: undefined,
         };
     },
-    watch: {
-        value(value) {
-            this.currentValue = value;
-            this.handleEl.style.left = this.percent + '%';
-        },
-        currentValue(value, oldValue) {
-            value = +value;
-            this.$emit('change', { value, oldValue }, this);
-        },
-        range(range) {
-            this.currentRange = this.normalizeRange(range);
-        },
-        min(value) {
-            this.handleEl.style.left = this.percent + '%';
-        },
-        max(value) {
-            this.handleEl.style.left = this.percent + '%';
-        },
-    },
     computed: {
         percent: {
             get() {
                 return (
-                    ((this.currentValue - this.min) / (this.max - this.min)) *
-                    100
+                    ((this.currentValue - this.min) / (this.max - this.min))
+                    * 100
                 );
             },
             set(percent) {
@@ -95,6 +76,25 @@ export default {
             return ((this.max - end) / (this.max - this.min)) * 100;
         },
     },
+    watch: {
+        value(value) {
+            this.currentValue = value;
+            this.handleEl.style.left = this.percent + '%';
+        },
+        currentValue(value, oldValue) {
+            value = +value;
+            this.$emit('change', { value, oldValue }, this);
+        },
+        range(range) {
+            this.currentRange = this.normalizeRange(range);
+        },
+        min(value) {
+            this.handleEl.style.left = this.percent + '%';
+        },
+        max(value) {
+            this.handleEl.style.left = this.percent + '%';
+        },
+    },
     mounted() {
         this.handleEl = this.$refs.handle;
         this.handleEl.style.left = this.percent + '%';
@@ -102,8 +102,10 @@ export default {
     methods: {
         normalizeRange(range) {
             range = Array.from(range);
-            if (range[0] === undefined) range[0] = -Infinity;
-            if (range[1] === undefined) range[1] = Infinity;
+            if (range[0] === undefined)
+                range[0] = -Infinity;
+            if (range[1] === undefined)
+                range[1] = Infinity;
             return range;
         },
         fix(value) {
@@ -120,8 +122,8 @@ export default {
             return value;
         },
         onDragStart($event) {
-            this.grid.x =
-                (this.step / (this.max - this.min)) * $event.range.width;
+            this.grid.x
+                = (this.step / (this.max - this.min)) * $event.range.width;
             const oldValue = this.currentValue;
             this.percent = ($event.left / $event.range.width) * 100;
             const percent = this.percent;

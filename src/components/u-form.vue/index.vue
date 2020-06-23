@@ -30,6 +30,21 @@ export default {
             return this.validatorVMs.some((itemVM) => itemVM.$slots.extra);
         },
     },
+    watch: {
+        model: {
+            handler(val) {
+                if (this.comparedModel) {
+                    // @TODO: 考虑到 @change 事件是基于子组件的 @change 事件的，所以 @modify 命名分开
+                    this.$emit(
+                        'modify',
+                        { modified: this.deepCompare(val, this.comparedModel) },
+                        this,
+                    );
+                }
+            },
+            deep: true,
+        },
+    },
     created() {
         this.$on('add-item-vm', (itemVM) => {
             itemVM.parentVM = this;
@@ -48,21 +63,6 @@ export default {
             );
         });
     },
-    watch: {
-        model: {
-            handler(val) {
-                if (this.comparedModel) {
-                    // @TODO: 考虑到 @change 事件是基于子组件的 @change 事件的，所以 @modify 命名分开
-                    this.$emit(
-                        'modify',
-                        { modified: this.deepCompare(val, this.comparedModel) },
-                        this,
-                    );
-                }
-            },
-            deep: true,
-        },
-    },
     methods: {
         validate(trigger = 'submit', untouched = false) {
             if (typeof trigger === 'boolean') {
@@ -78,12 +78,14 @@ export default {
                             .catch((errors) => errors),
                     ),
             ).then((results) => {
-                if (results.some((result) => !!result)) throw results;
+                if (results.some((result) => !!result))
+                    throw results;
             }); // return Validator.methods.validate.call(this, trigger, untouched);
         },
         validateItem(name, trigger = 'submit', silent = false) {
             const itemVM = this.itemVMs.find((itemVM) => itemVM.name === name);
-            if (itemVM) return itemVM.validate(trigger, silent);
+            if (itemVM)
+                return itemVM.validate(trigger, silent);
         },
         getState() {
             console.warn(
@@ -100,8 +102,8 @@ export default {
             let state = 'success';
             this.itemVMs.forEach((itemVM) => {
                 if (
-                    itemVM.currentRules &&
-                    STATE_LEVEL[itemVM.state] > STATE_LEVEL[state]
+                    itemVM.currentRules
+                    && STATE_LEVEL[itemVM.state] > STATE_LEVEL[state]
                 )
                     state = itemVM.state;
             });
@@ -111,18 +113,20 @@ export default {
             this.comparedModel = cloneDeep(this.model);
         },
         deepCompare(o = {}, compare) {
-            if (!compare) return false;
+            if (!compare)
+                return false;
             if (typeof o === 'object' && o !== null) {
                 if (Array.isArray(o))
                     return (
-                        o.length !== compare.length ||
-                        o.some((m, i) => this.deepCompare(m, compare[i]))
+                        o.length !== compare.length
+                        || o.some((m, i) => this.deepCompare(m, compare[i]))
                     );
                 else
                     return Object.keys(o).some((key) =>
                         this.deepCompare(o[key], compare[key]),
                     );
-            } else return o !== compare;
+            } else
+                return o !== compare;
         },
     },
 };

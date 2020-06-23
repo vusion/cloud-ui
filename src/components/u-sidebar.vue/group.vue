@@ -34,21 +34,24 @@ export default {
     methods: {
         toggle(expanded, mode) {
             if (
-                this.disabled ||
-                this.parentVM.readonly ||
-                this.parentVM.disabled
+                this.disabled
+                || this.parentVM.readonly
+                || this.parentVM.disabled
             )
                 return;
             const oldExpanded = this.currentExpanded;
-            if (expanded === undefined) expanded = !this.currentExpanded;
-            if (expanded === oldExpanded && !mode) return;
+            if (expanded === undefined)
+                expanded = !this.currentExpanded;
+            if (expanded === oldExpanded && !mode)
+                return;
             let cancel = false;
             this.$emit('before-toggle', {
                 expanded,
                 groupVM: this,
                 preventDefault: () => (cancel = true),
             });
-            if (cancel) return;
+            if (cancel)
+                return;
             this.currentExpanded = expanded;
             this.$emit('update:expanded', expanded);
             if (this.parentVM.accordion || mode) {

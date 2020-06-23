@@ -16,17 +16,17 @@ export default {
         return { parentVM: undefined, groupVM: undefined };
     },
     created() {
-        !this.parentVM &&
-            this.$contact(this.$options.parentName, (parentVM) => {
+        !this.parentVM
+            && this.$contact(this.$options.parentName, (parentVM) => {
                 this.parentVM = parentVM;
-                const index = parentVM.$slots.default
-                    ? parentVM.$slots.default.indexOf(this.$vnode)
-                    : -1;
-                if (~index) parentVM.itemVMs.splice(index, 0, this);
-                else parentVM.itemVMs.push(this);
+                const index = parentVM.$slots.default ? parentVM.$slots.default.indexOf(this.$vnode) : -1;
+                if (~index)
+                    parentVM.itemVMs.splice(index, 0, this);
+                else
+                    parentVM.itemVMs.push(this);
             });
-        !this.groupVM &&
-            this.$contact(this.$options.groupName, (groupVM) => {
+        !this.groupVM
+            && this.$contact(this.$options.groupName, (groupVM) => {
                 this.groupVM = groupVM;
                 groupVM.itemVMs.push(this);
             });

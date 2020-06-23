@@ -36,7 +36,7 @@ describe('Tabs, Tab', () => {
                         value: 'A',
                     };
                 },
-            }
+            },
         );
 
         const tabs = vm.$refs.tabs;

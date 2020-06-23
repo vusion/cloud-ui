@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root">
-	<slot></slot>
+    <slot></slot>
 </div>
 </template>
 

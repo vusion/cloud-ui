@@ -33,15 +33,18 @@ export default {
         },
     },
     mounted() {
-        if (this.position !== 'static') document.body.appendChild(this.$el);
+        if (this.position !== 'static')
+            document.body.appendChild(this.$el);
     },
     destroyed() {
         this.clearItemsQueue();
-        if (this.position !== 'static') document.body.removeChild(this.$el);
+        if (this.position !== 'static')
+            document.body.removeChild(this.$el);
     },
     methods: {
         show(text, duration, color) {
-            if (!this.$el) this.$mount(document.createElement('div')); // Vue 加载完成后，触发某一事件后，先执行methods，再执行watch方法，会导致标签显示异常
+            if (!this.$el)
+                this.$mount(document.createElement('div')); // Vue 加载完成后，触发某一事件后，先执行methods，再执行watch方法，会导致标签显示异常
             this.$nextTick(() => {
                 this.open({
                     text: text || this.text,
@@ -81,7 +84,8 @@ export default {
                 Object.assign({ preventDefault: () => (cancel = true) }, item),
                 this,
             );
-            if (cancel) return;
+            if (cancel)
+                return;
             const index = this.items.indexOf(item);
             ~index && this.items.splice(index, 1);
             this.$emit('close', item, this);
@@ -114,7 +118,8 @@ export default {
     },
     install(Vue, id) {
         const Ctor = Vue.component(id);
-        if (!Ctor) return;
+        if (!Ctor)
+            return;
         const toast = (Vue.prototype.$toast = this.toast = new Ctor());
         const METHODS = [
             'show',

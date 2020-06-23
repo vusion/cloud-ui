@@ -26,17 +26,20 @@ export default {
     },
     methods: {
         onContextMenu(e) {
-            if (!this.contextmenu) return;
+            if (!this.contextmenu)
+                return;
             e.preventDefault();
             this.$emit('contextmenu', e, this);
         },
         onSelectStart(e) {
-            if (!this.select) return;
+            if (!this.select)
+                return;
             e.preventDefault();
             this.$emit('select', e, this);
         },
         onCopy(e) {
-            if (!this.copy) return;
+            if (!this.copy)
+                return;
             e.preventDefault();
             this.$emit('copy', e, this);
         },
@@ -52,8 +55,8 @@ export default {
             if (this.devtoolsKey) {
                 // (isMac ? Cmd + Option : Ctrl + Shift) + (I || J)
                 if (
-                    (isMac ? e.metaKey && e.altKey : e.ctrlKey && e.shiftKey) &&
-                    (e.keyCode === 73 || e.keyCode === 74)
+                    (isMac ? e.metaKey && e.altKey : e.ctrlKey && e.shiftKey)
+                    && (e.keyCode === 73 || e.keyCode === 74)
                 ) {
                     e.preventDefault();
                     this.$emit('devtools-key', e, this);

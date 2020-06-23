@@ -19,14 +19,14 @@ export default {
         return { nodeVMs: [], rootVM: undefined, parentVM: undefined };
     },
     created() {
-        !this.parentVM &&
-            this.$contact(this.$options.name, (parentVM) => {
+        !this.parentVM
+            && this.$contact(this.$options.name, (parentVM) => {
                 this.parentVM = parentVM;
                 this.rootVM = parentVM.rootVM;
                 parentVM.nodeVMs.push(this);
             }); // 顺序不能换
-        !this.parentVM &&
-            this.$contact(this.$options.rootName, (rootVM) => {
+        !this.parentVM
+            && this.$contact(this.$options.rootName, (rootVM) => {
                 this.rootVM = rootVM;
                 rootVM.nodeVMs.push(this);
             });

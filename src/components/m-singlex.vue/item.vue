@@ -18,8 +18,8 @@ export default {
     name: 'm-singlex-item',
     parentName: 'm-singlex',
     groupName: 'm-singlex-group',
-    mixins: [MChild, ULink],
     directives: { ellipsisTitle },
+    mixins: [MChild, ULink],
     props: {
         value: null,
         disabled: { type: Boolean, default: false },
@@ -37,7 +37,8 @@ export default {
             return this.parentVM && this.parentVM.selectedVM === this;
         },
         active() {
-            if (this.to === undefined) return;
+            if (this.to === undefined)
+                return;
             if (!this.$router)
                 return console.warn(
                     '[cloud-ui] Use `<m-router-item>` but cannot find vue router.',
@@ -45,34 +46,27 @@ export default {
             const current = this.$route;
             const target = this.$router.resolve(this.to).route;
             const currentPath = current.path.replace(trailingSlashRE, '/');
-            const targetPath = (target.redirectedFrom
-                ? this.$router.resolve(target.redirectedFrom).location.path
-                : target.path
-            ).replace(trailingSlashRE, '/'); // @TODO: 是否要检查 query 的包含关系
-            const exact = this.exact
-                ? currentPath === targetPath
-                : currentPath.startsWith(targetPath);
-            const exactHash = this.exactHash
-                ? current.hash === target.hash
-                : current.hash.startsWith(target.hash);
+            const targetPath = (target.redirectedFrom ? this.$router.resolve(target.redirectedFrom).location.path : target.path).replace(trailingSlashRE, '/'); // @TODO: 是否要检查 query 的包含关系
+            const exact = this.exact ? currentPath === targetPath : currentPath.startsWith(targetPath);
+            const exactHash = this.exactHash ? current.hash === target.hash : current.hash.startsWith(target.hash);
             return exact && exactHash;
         },
     },
     methods: {
         onClick(e) {
             if (
-                this.disabled ||
-                this.parentVM.readonly ||
-                this.parentVM.disabled
+                this.disabled
+                || this.parentVM.readonly
+                || this.parentVM.disabled
             )
                 return e.preventDefault();
             ULink.methods.onClick.call(this, e);
         },
         select(e) {
             if (
-                this.disabled ||
-                this.parentVM.readonly ||
-                this.parentVM.disabled
+                this.disabled
+                || this.parentVM.readonly
+                || this.parentVM.disabled
             )
                 return;
             this.$emit('click', e, this);
@@ -87,7 +81,8 @@ export default {
                 },
                 this,
             );
-            if (cancel) return;
+            if (cancel)
+                return;
             this.parentVM.select(this);
         },
     },

@@ -47,19 +47,13 @@ export default {
         itemVMs: {
             override: true,
             handler(itemVMs, oldVMs) {
-                (this.currentMultiple
-                    ? MMultiplex
-                    : MSinglex
-                ).watch.itemVMs.call(this, itemVMs, oldVMs);
+                (this.currentMultiple ? MMultiplex : MSinglex).watch.itemVMs.call(this, itemVMs, oldVMs);
             },
         },
     },
     methods: {
         watchValue(value) {
-            (this.currentMultiple
-                ? MMultiplex
-                : MSinglex
-            ).methods.watchValue.call(this, value);
+            (this.currentMultiple ? MMultiplex : MSinglex).methods.watchValue.call(this, value);
         },
         select(itemVM, selected) {
             (this.currentMultiple ? MMultiplex : MSinglex).methods.select.call(

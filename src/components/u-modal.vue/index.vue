@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" v-if="currentVisible" :static="static" @click="handleClose">
+<div :class="$style.root" v-if="currentVisible" :static="this.static" @click="handleClose">
     <div :class="$style.dialog" ref="dialog" :style="{ width: width + 'px' }" :size="size">
         <div :class="$style.head">
             <slot name="head">
@@ -35,30 +35,9 @@ import { clickOutside } from '../../directives';
 import i18n from './i18n';
 import MEmitter from '../m-emitter.vue';
 
-UModal.alert = (content, title) => {
-    const Ctor = UModal._Ctor[0];
-    new Ctor({
-        propsData: { content, title, cancelButton: '' },
-    }).open();
-};
-
-UModal.confirm = (content, title) =>
-    new Promise((resolve, reject) => {
-        const Ctor = UModal._Ctor[0];
-        const instance = new Ctor({
-            propsData: { content, title },
-        });
-
-        instance.$on('ok', () => resolve());
-        instance.$on('cancel', () => reject());
-        instance.open();
-    });
-
-Vue.prototype.$alert = UModal.alert;
-Vue.prototype.$confirm = UModal.confirm;
-
-export default {
+export const UModal = {
     name: 'u-modal',
+    directives: { clickOutside },
     mixins: [MEmitter],
     i18n,
     props: {
@@ -95,19 +74,21 @@ export default {
     data() {
         return { currentVisible: this.visible };
     },
-    directives: { clickOutside },
     watch: {
         visible(visible) {
             this.currentVisible = visible;
         },
         currentVisible(visible) {
-            if (visible) document.addEventListener('keydown', this.escPress);
+            if (visible)
+                document.addEventListener('keydown', this.escPress);
             // 按esc退出弹框
-            else document.removeEventListener('keydown', this.escPress);
+            else
+                document.removeEventListener('keydown', this.escPress);
         },
     },
     mounted() {
-        if (this.$el && !this.static) document.body.appendChild(this.$el);
+        if (this.$el && !this.static)
+            document.body.appendChild(this.$el);
     },
     destroyed() {
         if (this.$el && this.$el.parentNode === document.body)
@@ -117,7 +98,8 @@ export default {
     },
     methods: {
         open() {
-            if (this.$emitPrevent('before-open', {}, this)) return;
+            if (this.$emitPrevent('before-open', {}, this))
+                return;
             if (!this.$el) {
                 const el = document.createElement('div');
                 this.$mount(el);
@@ -127,31 +109,56 @@ export default {
             this.$emit('open');
         },
         close(ok) {
-            if (this.$emitPrevent('before-close', { ok }, this)) return;
+            if (this.$emitPrevent('before-close', { ok }, this))
+                return;
             this.currentVisible = false;
             this.$emit('update:visible', false);
             this.$emit('close', { ok }, this);
         },
         ok() {
-            if (this.disableOk) return;
+            if (this.disableOk)
+                return;
             this.$emit('ok', undefined, this);
             this.close(true);
         },
         cancel() {
-            if (this.disableCancel) return;
+            if (this.disableCancel)
+                return;
             this.$emit('cancel', undefined, this);
             this.close(false);
         },
         escPress(event) {
-            if (event.keyCode === 27) this.cancel();
+            if (event.keyCode === 27)
+                this.cancel();
         },
         handleClose(e) {
-            if (!this.$refs.dialog) return false;
+            if (!this.$refs.dialog)
+                return false;
             if (this.maskClose && !this.$refs.dialog.contains(e.target))
                 this.close();
         },
     },
 };
+
+Vue.prototype.$alert = (content, title) => {
+    const Ctor = UModal._Ctor[0];
+    new Ctor({
+        propsData: { content, title, cancelButton: '' },
+    }).open();
+};
+Vue.prototype.$confirm = (content, title) =>
+    new Promise((resolve, reject) => {
+        const Ctor = UModal._Ctor[0];
+        const instance = new Ctor({
+            propsData: { content, title },
+        });
+
+        instance.$on('ok', () => resolve());
+        instance.$on('cancel', () => reject());
+        instance.open();
+    });
+
+export default UModal;
 </script>
 
 <style module>

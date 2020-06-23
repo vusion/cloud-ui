@@ -1,10 +1,10 @@
 <template>
 <span :class="$style.root">
-	<u-number-input :class="$style.item" :min="hourmin" :max="hourmax" formatter="00" fix-on="input" :value="hour" :readonly="readonly" :disabled="disabled" :autofocus="autofocus" @input="changeHour"/>
-	<span :class="$style.dot">:</span>
-	<u-number-input :class="$style.item" :min="minutemin" :max="minutemax" formatter="00" fix-on="input" :value="minute" :readonly="readonly" :disabled="disabled" @input="changeMinute"/>
-	<span v-if="minUnit==='second'" :class="$style.dot">:</span>
-	<u-number-input v-if="minUnit==='second'" :class="$style.item" :min="secondmin" :max="secondmax" formatter="00" fix-on="input" :value="second" :readonly="readonly" :disabled="disabled" @input="changeSecond"/>
+    <u-number-input :class="$style.item" :min="hourmin" :max="hourmax" formatter="00" fix-on="input" :value="hour" :readonly="readonly" :disabled="disabled" :autofocus="autofocus" @input="changeHour"></u-number-input>
+    <span :class="$style.dot">:</span>
+    <u-number-input :class="$style.item" :min="minutemin" :max="minutemax" formatter="00" fix-on="input" :value="minute" :readonly="readonly" :disabled="disabled" @input="changeMinute"></u-number-input>
+    <span v-if="minUnit==='second'" :class="$style.dot">:</span>
+    <u-number-input v-if="minUnit==='second'" :class="$style.item" :min="secondmin" :max="secondmax" formatter="00" fix-on="input" :value="second" :readonly="readonly" :disabled="disabled" @input="changeSecond"></u-number-input>
 </span>
 </template>
 
@@ -30,18 +30,18 @@ const SECOND_MAX = 59;
  * @param {string=''}               options.data.class               => 补充class
  */
 
-const TimeRangeError = function(minTime, maxTime) {
+const TimeRangeError = function (minTime, maxTime) {
     this.name = 'TimeRangeError';
-    this.message =
-        'Wrong Time Range where `minTime` is ' +
-        minTime +
-        ' and `maxTime` is ' +
-        maxTime +
-        '!';
+    this.message
+        = 'Wrong Time Range where `minTime` is '
+            + minTime
+            + ' and `maxTime` is '
+            + maxTime
+            + '!';
 };
 
 TimeRangeError.prototype = Object.create(Error.prototype);
-UTimePicker.TimeRangeError = TimeRangeError.prototype.constructor = TimeRangeError;
+TimeRangeError.prototype.constructor = TimeRangeError;
 
 export default {
     name: 'u-time-picker',
@@ -57,9 +57,7 @@ export default {
     },
     data() {
         return {
-            showTime: this.isOutOfRange(this.time)
-                ? this.isOutOfRange(this.time)
-                : this.time,
+            showTime: this.isOutOfRange(this.time) ? this.isOutOfRange(this.time) : this.time,
             hourmin: HOUR_MIN,
             hourmax: HOUR_MAX,
             minutemin: MINUTE_MIN,
@@ -71,20 +69,21 @@ export default {
     computed: {
         hour() {
             const isOutOfRange = this.isOutOfRange(this.showTime);
-            if (isOutOfRange) this.showTime = isOutOfRange;
+            if (isOutOfRange)
+                this.showTime = isOutOfRange;
             return this.showTime.split(':')[0] / 1;
         },
         minute() {
             const isOutOfRange = this.isOutOfRange(this.showTime);
-            if (isOutOfRange) this.showTime = isOutOfRange;
+            if (isOutOfRange)
+                this.showTime = isOutOfRange;
             return this.showTime.split(':')[1] / 1;
         },
         second() {
             const isOutOfRange = this.isOutOfRange(this.showTime);
-            if (isOutOfRange) this.showTime = isOutOfRange;
-            return this.minUnit === 'second'
-                ? this.showTime.split(':')[2] / 1
-                : 0;
+            if (isOutOfRange)
+                this.showTime = isOutOfRange;
+            return this.minUnit === 'second' ? this.showTime.split(':')[2] / 1 : 0;
         },
         sphourmin() {
             return this.minTime.split(':')[0] / 1;
@@ -107,16 +106,20 @@ export default {
     },
     watch: {
         time(newValue) {
-            if (!newValue) throw new TypeError('Invalid Time'); // 如果超出时间范围，则设置为范围边界的时间
+            if (!newValue)
+                throw new TypeError('Invalid Time'); // 如果超出时间范围，则设置为范围边界的时间
             const isOutOfRange = this.isOutOfRange(newValue);
-            if (isOutOfRange) return (this.showTime = isOutOfRange);
+            if (isOutOfRange)
+                return (this.showTime = isOutOfRange);
             this.showTime = newValue;
         },
         showTime(newValue) {
-            if (!newValue) throw new TypeError('Invalid Time');
+            if (!newValue)
+                throw new TypeError('Invalid Time');
             const showTime = newValue; // 如果超出时间范围，则设置为范围边界的时间
             const isOutOfRange = this.isOutOfRange(newValue);
-            if (isOutOfRange) return (this.showTime = isOutOfRange);
+            if (isOutOfRange)
+                return (this.showTime = isOutOfRange);
             const showTimeArr = showTime.split(':');
             const currentHour = showTimeArr[0] / 1;
             const currentMinute = showTimeArr[1] / 1; // const currentSecond = showTimeArr[2] / 1;
@@ -205,8 +208,8 @@ export default {
             const minTime = this.minTime;
             const maxTime = this.maxTime; // minTime && time < minTime && minTime，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的时间
             return (
-                (minTime && time < minTime && minTime) ||
-                (maxTime && time > maxTime && maxTime)
+                (minTime && time < minTime && minTime)
+                || (maxTime && time > maxTime && maxTime)
             );
         },
         changeHour(hour, senderVM) {

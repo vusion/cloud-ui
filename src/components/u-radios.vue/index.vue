@@ -49,15 +49,18 @@ export default {
     },
     methods: {
         watchValue(value) {
-            if (this.selectedVM && this.selectedVM.label === value) return;
-            if (value === undefined) this.selectedVM = undefined;
+            if (this.selectedVM && this.selectedVM.label === value)
+                return;
+            if (value === undefined)
+                this.selectedVM = undefined;
             else
                 this.selectedVM = this.itemVMs.find(
                     (itemVM) => itemVM.label === value,
                 );
         },
         select(itemVM) {
-            if (this.readonly || this.disabled) return;
+            if (this.readonly || this.disabled)
+                return;
             const oldValue = this.value;
             let cancel = false;
             this.$emit(
@@ -70,10 +73,12 @@ export default {
                 },
                 this,
             );
-            if (cancel) return;
+            if (cancel)
+                return;
             if (this.cancelable && this.selectedVM === itemVM)
                 this.selectedVM = undefined;
-            else this.selectedVM = itemVM;
+            else
+                this.selectedVM = itemVM;
             const value = this.selectedVM && this.selectedVM.label;
             this.$emit('input', value, this);
             this.$emit('update:value', value, this);

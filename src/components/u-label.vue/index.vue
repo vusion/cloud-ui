@@ -14,7 +14,8 @@ export default {
     props: { removable: { type: Boolean, default: false } },
     methods: {
         remove() {
-            if (this.$emitPrevent('before-remove', null, this)) return;
+            if (this.$emitPrevent('before-remove', null, this))
+                return;
             this.$emit('remove', null, this);
         },
     },

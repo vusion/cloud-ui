@@ -17,9 +17,7 @@ export default {
                     },
                     enter(el) {
                         old.overflow = el.style.overflow;
-                        el.style.height = el.scrollHeight
-                            ? el.scrollHeight + 'px'
-                            : '';
+                        el.style.height = el.scrollHeight ? el.scrollHeight + 'px' : '';
                         el.style.paddingTop = old.paddingTop;
                         el.style.paddingBottom = old.paddingBottom;
                         el.style.overflow = 'hidden';

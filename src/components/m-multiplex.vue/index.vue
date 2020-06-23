@@ -70,7 +70,8 @@ export default {
                         const itemVM = this.itemVMs.find(
                             (itemVM) => itemVM.value === val,
                         );
-                        if (itemVM) selectedMap[itemVM.value] = itemVM;
+                        if (itemVM)
+                            selectedMap[itemVM.value] = itemVM;
                     });
                 } else {
                     this.itemVMs.forEach((itemVM) => {
@@ -109,10 +110,13 @@ export default {
                 return;
             if (!this.duplicated) {
                 // Method overloading
-                if (selected === undefined) selected = !itemVM.currentSelected; // Prevent replication
-                if (itemVM.currentSelected === selected) return;
+                if (selected === undefined)
+                    selected = !itemVM.currentSelected; // Prevent replication
+                if (itemVM.currentSelected === selected)
+                    return;
             } else {
-                if (selected === undefined) selected = true;
+                if (selected === undefined)
+                    selected = true;
             }
             const oldValue = this.value;
             const oldVMs = this.selectedVMs;

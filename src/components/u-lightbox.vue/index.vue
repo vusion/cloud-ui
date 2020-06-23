@@ -35,7 +35,8 @@ export default {
         zoomMin: {
             default: '100px',
             validator: (value) => {
-                if (typeof value === 'number') return value === value >> 0;
+                if (typeof value === 'number')
+                    return value === value >> 0;
                 else if (typeof value === 'string')
                     return /^(\d+\.?\d*)([%px]+)$/.test(value);
                 return false;
@@ -44,7 +45,8 @@ export default {
         zoomMax: {
             default: '2000px',
             validator: (value) => {
-                if (typeof value === 'number') return value === value >> 0;
+                if (typeof value === 'number')
+                    return value === value >> 0;
                 else if (typeof value === 'string')
                     return /^(\d+\.?\d*)([%px]+)$/.test(value);
                 return false;
@@ -78,18 +80,23 @@ export default {
             return this.itemVMs.length > 1;
         },
         hasPrev() {
-            if (this.loop) return true;
-            else if (this.current === 0) return false;
+            if (this.loop)
+                return true;
+            else if (this.current === 0)
+                return false;
             return true;
         },
         hasNext() {
-            if (this.loop) return true;
-            else if (this.current === this.itemVMs.length - 1) return false;
+            if (this.loop)
+                return true;
+            else if (this.current === this.itemVMs.length - 1)
+                return false;
             return true;
         },
         canOp() {
             // item的动画结束才可以进行下次点击操作
-            if (this.animationNum === 0) return true;
+            if (this.animationNum === 0)
+                return true;
             return this.allAnimationEnd;
         },
         title() {
@@ -110,18 +117,20 @@ export default {
             }
         },
         currentVisible(visible) {
-            if (visible) document.addEventListener('keydown', this.escPress);
+            if (visible)
+                document.addEventListener('keydown', this.escPress);
             // 按esc退出弹框
-            else document.removeEventListener('keydown', this.escPress);
+            else
+                document.removeEventListener('keydown', this.escPress);
         },
         current(current) {
             this.animationEndNum = 0;
             this.allAnimationEnd = false;
             this.watchValue(current);
-            this.itemVMs &&
-                this.itemVMs[current] &&
-                this.itemVMs[current].zoomImg &&
-                this.itemVMs[current].zoomImg.reset(); // 显示图片变化，恢复初始大小
+            this.itemVMs
+                && this.itemVMs[current]
+                && this.itemVMs[current].zoomImg
+                && this.itemVMs[current].zoomImg.reset(); // 显示图片变化，恢复初始大小
         },
         value(value) {
             this.watchValue(value);
@@ -144,15 +153,16 @@ export default {
                 this.animationEndNum += 1;
                 if (this.animationEndNum >= this.animationNum)
                     this.allAnimationEnd = true;
-            } // 初始动画结束
-            else this.allAnimationEnd = true;
+            } else
+                this.allAnimationEnd = true;
         });
         this.initWidth = this._computeInit();
         this.initHeight = this._computeInit('h');
     },
     mounted() {
         this.watchValue(this.value);
-        if (this.$el && !this.static) document.body.appendChild(this.$el);
+        if (this.$el && !this.static)
+            document.body.appendChild(this.$el);
     },
     destroyed() {
         if (this.$el && this.$el.parentNode === document.body)
@@ -172,20 +182,23 @@ export default {
             this.$emit('before-close', {
                 preventDefault: () => (cancel = true),
             });
-            if (cancel) return;
+            if (cancel)
+                return;
             this.currentVisible = false;
             this.selectedVM = undefined;
             this.$emit('update:visible', this.currentVisible);
             this.$emit('close');
         },
         prev() {
-            if (!this.canOp || !this.hasPrev) return;
+            if (!this.canOp || !this.hasPrev)
+                return;
             this.start = -1;
             const length = this.itemVMs.length;
             this.current = (this.current - 1 + length) % length;
         },
         next() {
-            if (!this.canOp || !this.hasNext) return;
+            if (!this.canOp || !this.hasNext)
+                return;
             this.start = -1;
             const length = this.itemVMs.length;
             this.current = (this.current + 1) % length;
@@ -194,20 +207,22 @@ export default {
             this.selectedVM.$emit('rotate', direction);
         },
         zoom(operation) {
-            if (!this.zoomable) return;
+            if (!this.zoomable)
+                return;
             this.selectedVM.$emit('zoom', operation);
         }, // 计算初始显示最大宽高
         _computeInit(type = 'w') {
-            return type === 'w'
-                ? window.innerWidth * this.initWidthRadio
-                : window.innerHeight * this.initHeightRadio;
+            return type === 'w' ? window.innerWidth * this.initWidthRadio : window.innerHeight * this.initHeightRadio;
         },
         escPress(event) {
-            if (event.keyCode === 27) this.close();
+            if (event.keyCode === 27)
+                this.close();
         },
         watchValue(value) {
-            if (this.selectedVM && this.selectedVM.value === value) return;
-            if (!value) this.selectedVM = this.itemVMs[0];
+            if (this.selectedVM && this.selectedVM.value === value)
+                return;
+            if (!value)
+                this.selectedVM = this.itemVMs[0];
             else
                 this.selectedVM = this.itemVMs.find(
                     (itemVM) => itemVM.value === value,

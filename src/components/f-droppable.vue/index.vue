@@ -8,7 +8,8 @@ export default {
             type: [String, HTMLElement, Function],
             default: 'self',
             validator: (value) => {
-                if (typeof value !== 'string') return true;
+                if (typeof value !== 'string')
+                    return true;
                 else
                     return [
                         'self',
@@ -21,9 +22,6 @@ export default {
             },
         },
         disabled: { type: Boolean, default: false },
-    },
-    render() {
-        return this.$slots.default && this.$slots.default[0];
     },
     data() {
         return { targetEl: undefined };
@@ -46,21 +44,24 @@ export default {
     methods: {
         watchDisabled(disabled) {
             if (disabled)
-                this.targetEl.removeAttribute &&
-                    this.targetEl.removeAttribute('droppable');
+                this.targetEl.removeAttribute
+                    && this.targetEl.removeAttribute('droppable');
             else
-                this.targetEl.setAttribute &&
-                    this.targetEl.setAttribute('droppable', 'droppable');
+                this.targetEl.setAttribute
+                    && this.targetEl.setAttribute('droppable', 'droppable');
         },
         getTargetEl() {
-            if (this.target instanceof HTMLElement) return this.target;
+            if (this.target instanceof HTMLElement)
+                return this.target;
             else if (this.target instanceof Function)
                 return this.target(this.$el);
             else if (this.$el) {
-                if (this.target === 'self') return this.$el;
+                if (this.target === 'self')
+                    return this.$el;
                 else if (this.target === 'parent')
                     return this.$el.parentElement;
-                else if (this.target === '$parent') return this.$parent.$el;
+                else if (this.target === '$parent')
+                    return this.$parent.$el;
                 else if (this.target === 'offset-parent')
                     return this.$el.offsetParent;
                 else if (this.target === 'context-parent') {
@@ -69,8 +70,8 @@ export default {
                         return this.$el.parentElement; // Vue 的 vnode.parent 没有连接起来，需要自己找，不知道有没有更好的方法
                     let parentVNode = this.$parent._vnode;
                     while (
-                        parentVNode &&
-                        !parentVNode.children.includes(this.$vnode)
+                        parentVNode
+                        && !parentVNode.children.includes(this.$vnode)
                     )
                         parentVNode = parentVNode.children.find((child) =>
                             child.elm.contains(this.$el),
@@ -79,8 +80,8 @@ export default {
                         return parentVNode.elm; // 否则，找第一个上下文一致的组件
                     let parentVM = this.$parent;
                     while (
-                        parentVM &&
-                        parentVM.$vnode.context !== this.$vnode.context
+                        parentVM
+                        && parentVM.$vnode.context !== this.$vnode.context
                     )
                         parentVM = parentVM.$parent;
                     return parentVM.$el;
@@ -107,7 +108,8 @@ export default {
                 ),
                 this,
             );
-            if (cancel) return originVM.cancel();
+            if (cancel)
+                return originVM.cancel();
         },
         dragLeave(originVM) {
             const targetEl = this.targetEl;
@@ -126,7 +128,8 @@ export default {
                 ),
                 this,
             );
-            if (cancel) return originVM.cancel();
+            if (cancel)
+                return originVM.cancel();
         },
         dragOver(originVM) {
             const targetEl = this.targetEl;
@@ -147,7 +150,8 @@ export default {
                 ),
                 this,
             );
-            if (cancel) return originVM.cancel();
+            if (cancel)
+                return originVM.cancel();
         },
         drop(originVM) {
             const targetEl = this.targetEl;
@@ -168,6 +172,9 @@ export default {
                 this,
             );
         },
+    },
+    render() {
+        return this.$slots.default && this.$slots.default[0];
     },
 };
 </script>

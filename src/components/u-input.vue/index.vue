@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :readonly="readonly" :disabled="disabled" :color="currentColor || this.formItemVM && this.formItemVM.color"
+<div :class="$style.root" :readonly="readonly" :disabled="disabled" :color="currentColor || formItemVM && formItemVM.color"
     :focus="focused" :clearable="clearable && currentValue" :prefix="prefix" :suffix="suffix" :search="search"
     @click.self="!focused && focus()">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
@@ -24,8 +24,8 @@ import { focus } from '../../directives';
 
 export default {
     name: 'u-input',
-    mixins: [MField],
     directives: { focus },
+    mixins: [MField],
     props: {
         value: [String, Number],
         color: String,
@@ -87,9 +87,9 @@ export default {
         onKeypress(e) {
             const inputEl = e.target;
             if (
-                this.formItemVM &&
-                this.maxlengthMessage &&
-                inputEl.value.length === inputEl.maxLength
+                this.formItemVM
+                && this.maxlengthMessage
+                && inputEl.value.length === inputEl.maxLength
             ) {
                 this.formItemVM.color = 'error';
                 this.formItemVM.currentMessage = this.maxlengthMessage;
@@ -99,13 +99,15 @@ export default {
             this.$emit('keyup', e, this);
         },
         onInput(e) {
-            if (this.autoSize) this.autoResize();
+            if (this.autoSize)
+                this.autoResize();
             if (!this.compositionInputing) {
                 const $event = {
                     oldValue: this.currentValue,
                     value: e.target.value,
                 };
-                if (this.$emitPrevent('before-input', $event, this)) return;
+                if (this.$emitPrevent('before-input', $event, this))
+                    return;
                 if (this.formItemVM && this.maxlengthMessage) {
                     this.formItemVM.color = '';
                     this.formItemVM.currentMessage = '';
@@ -131,7 +133,8 @@ export default {
                 oldValue: this.currentValue,
                 value: e.target.value,
             };
-            if (this.$emitPrevent('before-input', $event, this)) return;
+            if (this.$emitPrevent('before-input', $event, this))
+                return;
             this.currentValue = $event.value;
             this.$emit('input', $event.value, this);
             this.$emit('update:value', $event.value, this);
@@ -143,10 +146,13 @@ export default {
             this.$refs.input.blur();
         },
         clear() {
-            if (this.readonly || this.disabled) return;
+            if (this.readonly || this.disabled)
+                return;
             const $event = { oldValue: this.currentValue, value: '' };
-            if (this.$emitPrevent('before-clear', $event, this)) return;
-            if (this.$emitPrevent('before-input', $event, this)) return;
+            if (this.$emitPrevent('before-clear', $event, this))
+                return;
+            if (this.$emitPrevent('before-input', $event, this))
+                return;
             this.currentValue = $event.value;
             this.$emit('input', $event.value, this);
             this.$emit('update:value', $event.value, this);
@@ -157,18 +163,18 @@ export default {
             const inputEl = this.$refs.input;
             if (this.autoSize === 'both' || this.autoSize === 'horizontal') {
                 inputEl.style.width = '3px';
-                this.$el.style.width =
-                    inputEl.scrollWidth +
-                    (this.$el.offsetWidth - this.$el.clientWidth) +
-                    'px';
+                this.$el.style.width
+                    = inputEl.scrollWidth
+                        + (this.$el.offsetWidth - this.$el.clientWidth)
+                        + 'px';
                 inputEl.style.width = '';
             }
             if (this.autoSize === 'both' || this.autoSize === 'vertical') {
                 inputEl.style.height = '3px';
-                this.$el.style.height =
-                    inputEl.scrollHeight +
-                    (this.$el.offsetHeight - this.$el.clientHeight) +
-                    'px';
+                this.$el.style.height
+                    = inputEl.scrollHeight
+                        + (this.$el.offsetHeight - this.$el.clientHeight)
+                        + 'px';
                 inputEl.style.height = '';
             }
         },

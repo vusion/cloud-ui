@@ -27,7 +27,8 @@ export default {
             type: [String, HTMLElement, Function],
             default: 'context-parent',
             validator: (value) => {
-                if (typeof value !== 'string') return true;
+                if (typeof value !== 'string')
+                    return true;
                 else
                     return [
                         'parent',
@@ -51,7 +52,7 @@ export default {
             default: 'body',
             validator: (value) => ['body', 'reference'].includes(value),
         },
-        boundariesElement: { default: 'window' },
+        boundariesElement: { type: String, default: 'window' },
         arrowElement: { type: String, default: '[u-arrow]' },
         escapeWithReference: { type: Boolean, default: true },
         followCursor: { type: [Boolean, Number, Object], default: false },
@@ -77,7 +78,8 @@ export default {
     },
     computed: {
         currentFollowCursor() {
-            if (typeof this.followCursor === 'object') return this.followCursor;
+            if (typeof this.followCursor === 'object')
+                return this.followCursor;
             else {
                 let followCursor;
                 if (typeof this.followCursor === 'boolean')
@@ -94,15 +96,15 @@ export default {
                 if (this.placement === 'top' || this.placement === 'bottom')
                     followCursor.offsetX = 0;
                 if (
-                    this.placement === 'top-end' ||
-                    this.placement === 'bottom-end'
+                    this.placement === 'top-end'
+                    || this.placement === 'bottom-end'
                 )
                     followCursor.offsetX = -followCursor.offsetX;
                 if (this.placement === 'left' || this.placement === 'right')
                     followCursor.offsetY = 0;
                 if (
-                    this.placement === 'left-end' ||
-                    this.placement === 'right-end'
+                    this.placement === 'left-end'
+                    || this.placement === 'right-end'
                 )
                     followCursor.offsetY = -followCursor.offsetY;
                 return followCursor;
@@ -164,20 +166,23 @@ export default {
             return options;
         },
         getReferenceEl() {
-            if (this.reference instanceof HTMLElement) return this.reference;
+            if (this.reference instanceof HTMLElement)
+                return this.reference;
             else if (this.reference instanceof Function)
                 return this.reference(this.$el);
             else if (this.$el) {
-                if (this.reference === 'parent') return this.$el.parentElement;
-                else if (this.reference === '$parent') return this.$parent.$el;
+                if (this.reference === 'parent')
+                    return this.$el.parentElement;
+                else if (this.reference === '$parent')
+                    return this.$parent.$el;
                 else if (this.reference === 'context-parent') {
                     // 求上下文中的 parent
                     if (this.$parent === this.$vnode.context)
                         return this.$el.parentElement; // Vue 的 vnode.parent 没有连接起来，需要自己找，不知道有没有更好的方法
                     let parentVNode = this.$parent._vnode;
                     while (
-                        parentVNode &&
-                        !parentVNode.children.includes(this.$vnode)
+                        parentVNode
+                        && !parentVNode.children.includes(this.$vnode)
                     )
                         parentVNode = parentVNode.children.find((child) =>
                             child.elm.contains(this.$el),
@@ -186,8 +191,8 @@ export default {
                         return parentVNode.elm; // 否则，找第一个上下文一致的组件
                     let parentVM = this.$parent;
                     while (
-                        parentVM &&
-                        parentVM.$vnode.context !== this.$vnode.context
+                        parentVM
+                        && parentVM.$vnode.context !== this.$vnode.context
                     )
                         parentVM = parentVM.$parent;
                     return parentVM.$el;
@@ -198,7 +203,8 @@ export default {
             }
         },
         getTriggerEl(referenceEl) {
-            if (this.triggerElement === 'reference') return referenceEl;
+            if (this.triggerElement === 'reference')
+                return referenceEl;
             else if (this.triggerElement instanceof HTMLElement)
                 return this.triggerElement;
             else if (this.triggerElement instanceof Function)
@@ -212,8 +218,8 @@ export default {
             event = arr[0];
             this.triggers.push({ el, event }); // 收集 setTimeout
             this.timers = this.timers || []; // 绑定事件
-            this.followCursor &&
-                this.offEvents.push(
+            this.followCursor
+                && this.offEvents.push(
                     single.on(
                         'm-popper-proto',
                         { el, self: this },
@@ -229,11 +235,13 @@ export default {
             if (event === 'click')
                 this.offEvents.push(
                     ev.on(el, 'click', (e) => {
-                        if (arr[1] === 'stop') e.stopPropagation();
-                        else if (arr[1] === 'prevent') e.preventDefault();
+                        if (arr[1] === 'stop')
+e.stopPropagation();
+                        else if (arr[1] === 'prevent')
+e.preventDefault();
                         this.toggle();
-                        this.followCursor &&
-                            this.$nextTick(() =>
+                        this.followCursor
+                            && this.$nextTick(() =>
                                 this.updatePositionByCursor(e, el),
                             );
                     }),
@@ -244,8 +252,8 @@ export default {
                         this.clearTimers();
                         this.timers[0] = setTimeout(() => {
                             this.open();
-                            this.followCursor &&
-                                this.$nextTick(() =>
+                            this.followCursor
+                                && this.$nextTick(() =>
                                     this.updatePositionByCursor(e, el),
                                 );
                         }, this.hoverDelay);
@@ -282,8 +290,8 @@ export default {
                 this.offEvents.push(
                     ev.on(el, 'dblclick', (e) => {
                         this.toggle();
-                        this.followCursor &&
-                            this.$nextTick(() =>
+                        this.followCursor
+                            && this.$nextTick(() =>
                                 this.updatePositionByCursor(e, el),
                             );
                     }),
@@ -293,8 +301,8 @@ export default {
                     ev.on(el, 'contextmenu', (e) => {
                         e.preventDefault();
                         this.toggle();
-                        this.followCursor &&
-                            this.$nextTick(() =>
+                        this.followCursor
+                            && this.$nextTick(() =>
                                 this.updatePositionByCursor(e, el),
                             );
                     }),
@@ -309,9 +317,9 @@ export default {
                     (e, datas) => {
                         Object.values(datas).forEach(
                             ({ el, popperEl, self }) => {
-                                !el.contains(e.target) &&
-                                    !popperEl.contains(e.target) &&
-                                    self.close();
+                                !el.contains(e.target)
+                                    && !popperEl.contains(e.target)
+                                    && self.close();
                             },
                         );
                     },
@@ -321,7 +329,8 @@ export default {
         createPopper() {
             const referenceEl = this.referenceEl;
             const popperEl = this.$el;
-            if (this.appendTo === 'body') document.body.appendChild(popperEl);
+            if (this.appendTo === 'body')
+                document.body.appendChild(popperEl);
             else if (this.appendTo === 'reference')
                 referenceEl.appendChild(popperEl);
             const options = this.getOptions();
@@ -337,11 +346,11 @@ export default {
             const referenceEl = this.referenceEl;
             const popperEl = this.$el;
             if (this.appendTo === 'body')
-                popperEl.parentElement === document.body &&
-                    document.body.removeChild(popperEl);
+                popperEl.parentElement === document.body
+                    && document.body.removeChild(popperEl);
             else if (this.appendTo === 'reference')
-                popperEl.parentElement === referenceEl &&
-                    referenceEl.removeChild(popperEl);
+                popperEl.parentElement === referenceEl
+                    && referenceEl.removeChild(popperEl);
             this.popper && this.popper.destroy();
             this.popper = undefined;
         },
@@ -355,7 +364,8 @@ export default {
         },
         updatePositionByCursor(e, el) {
             // @TODO: 两种 offset 属性有些冗余
-            if (e.target !== el || !this.popper) return;
+            if (e.target !== el || !this.popper)
+                return;
             const top = e.clientY + this.currentFollowCursor.offsetY;
             const left = e.clientX + this.currentFollowCursor.offsetX;
             const right = e.clientX + this.currentFollowCursor.offsetX;
@@ -376,29 +386,39 @@ export default {
         },
         open() {
             // Check if enabled
-            if (this.disabled) return; // Prevent replication
-            if (this.currentOpened) return; // Emit a `before-` event with preventDefault()
-            if (this.$emitPrevent('before-open', undefined, this)) return; // Assign and sync `opened`
+            if (this.disabled)
+                return; // Prevent replication
+            if (this.currentOpened)
+                return; // Emit a `before-` event with preventDefault()
+            if (this.$emitPrevent('before-open', undefined, this))
+                return; // Assign and sync `opened`
             this.currentOpened = true;
             this.$emit('update:opened', true, this); // Emit `after-` events
             // this.$emit('open', undefined, this);
         },
         close() {
             // Check if enabled
-            if (this.disabled) return; // Prevent replication
-            if (!this.currentOpened) return; // Emit a `before-` event with preventDefault()
-            if (this.$emitPrevent('before-close', undefined, this)) return; // Assign and sync `opened`
+            if (this.disabled)
+                return; // Prevent replication
+            if (!this.currentOpened)
+                return; // Emit a `before-` event with preventDefault()
+            if (this.$emitPrevent('before-close', undefined, this))
+                return; // Assign and sync `opened`
             this.currentOpened = false;
             this.$emit('update:opened', false, this); // Emit `after-` events
             // this.$emit('close', undefined, this);
         },
         toggle(opened) {
             // Method overloading
-            if (opened === undefined) opened = !this.currentOpened; // @deprecated start
-            if (this.disabled) return;
+            if (opened === undefined)
+                opened = !this.currentOpened; // @deprecated start
+            if (this.disabled)
+                return;
             const oldOpened = this.currentOpened;
-            if (opened === oldOpened) return;
-            if (this.$emitPrevent('before-toggle', { opened }, this)) return;
+            if (opened === oldOpened)
+                return;
+            if (this.$emitPrevent('before-toggle', { opened }, this))
+                return;
             opened ? this.open() : this.close();
             this.$emit('toggle', { opened }, this); // @deprecated end
         },

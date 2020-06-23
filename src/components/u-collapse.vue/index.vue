@@ -86,11 +86,9 @@ export default {
     line-height: var(--collapse-item-expander-size-mini);
 }
 
-
 .root[size="mini"] .item_content {
     padding: var(--collapse-item-content-padding-mini);
 }
-
 
 .root[display="full"] {
     width: 100%;
@@ -111,7 +109,6 @@ export default {
     flex-direction: column;
     overflow: hidden;
 }
-
 
 .root[display="filled"] .item[expanded] {
     flex: auto;

@@ -22,8 +22,10 @@ export default {
                 disabled: this.disabled,
                 node: this.node,
             });
-        } else if (rootVM.$slots.text) return rootVM.$slots.text[0];
-        else return h('span', this.text);
+        } else if (rootVM.$slots.text)
+            return rootVM.$slots.text[0];
+        else
+            return h('span', this.text);
     },
 };
 </script>

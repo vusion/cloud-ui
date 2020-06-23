@@ -19,6 +19,8 @@ import Zoom from './zoomobj.js';
 export default {
     name: 'u-lightbox-item',
     parentName: 'u-lightbox',
+
+    mixins: [MEmitter],
     props: {
         title: { type: String, default: '' },
         value: {
@@ -28,7 +30,13 @@ export default {
         },
     },
 
-    mixins: [MEmitter],
+    data() {
+        return {
+            options: {},
+            zoomImg: null,
+            current: 0,
+        };
+    },
     computed: {
         isStart() {
             return this === this.parentVM.itemVMs[0];
@@ -36,14 +44,6 @@ export default {
         isCurrent() {
             return this === this.parentVM.selectedVM;
         },
-    },
-
-    data() {
-        return {
-            options: {},
-            zoomImg: null,
-            current: 0,
-        };
     },
     created() {
         this.dispatch(this.$options.parentName, 'add-item-vm', this);
@@ -56,20 +56,23 @@ export default {
     },
     mounted() {
         this.wrapper = this.$refs.wrapper;
-        if (!this.wrapper || !this.wrapper.children) return;
+        if (!this.wrapper || !this.wrapper.children)
+            return;
         this.img = Array.prototype.filter.call(
             this.wrapper.children,
             (ele) => ele.nodeName.toLowerCase() === 'img',
         )[0];
 
         // 图片设置最大宽高
-        if (this.img.complete) this.resetImg();
+        if (this.img.complete)
+            this.resetImg();
 
         this.img.addEventListener('load', this.resetImgWrap);
     },
     destroyed() {
         this.dispatch(this.$options.parentName, 'remove-item-vm', this);
-        if (this.img) this.img.removeEventListener('load', this.resetImgWrap);
+        if (this.img)
+            this.img.removeEventListener('load', this.resetImgWrap);
     },
     methods: {
         animationEnd() {
@@ -79,8 +82,10 @@ export default {
             this.isCurrent && event.stopPropagation();
         },
         rotate(direction) {
-            if (direction === 'right') this.current = (this.current + 90) % 360;
-            else this.current = (this.current - 90) % 360;
+            if (direction === 'right')
+                this.current = (this.current + 90) % 360;
+            else
+                this.current = (this.current - 90) % 360;
             this.img.style.transform = 'rotate(' + this.current + 'deg)';
         },
         initZoomImg() {
@@ -88,9 +93,9 @@ export default {
             if (this.parentVM.zoomable) {
                 const tempOptions = this.initOptions();
                 if (
-                    JSON.stringify(tempOptions) !==
-                        JSON.stringify(this.options) ||
-                    this.zoomImg === null
+                    JSON.stringify(tempOptions)
+                    !== JSON.stringify(this.options)
+                    || this.zoomImg === null
                 ) {
                     // 如果配置发生修改，则重新生成zooImg
                     this.options = tempOptions;
@@ -102,8 +107,10 @@ export default {
                     );
                     // 缩放事件
                     this.$on('zoom', (operation) => {
-                        if (operation === 'in') this.zoomImg.zoomin();
-                        else this.zoomImg.zoomout();
+                        if (operation === 'in')
+                            this.zoomImg.zoomin();
+                        else
+                            this.zoomImg.zoomout();
                     });
                 }
             } else if (this.zoomImg) {
@@ -114,7 +121,8 @@ export default {
         },
         // 按照图片原比例，将img的宽高设置为初始宽高范围
         resetImg() {
-            if (!this.img) return;
+            if (!this.img)
+                return;
 
             const initWidth = this.parentVM.initWidth;
             const initHeight = this.parentVM.initHeight;
@@ -148,9 +156,7 @@ export default {
             // 计算放大/缩小后最大宽高
             const _computeMax = (val, op = 1) => {
                 const multi = 1 + options.zoom;
-                return typeof val === 'number'
-                    ? this.img.width * Math.pow(multi, val)
-                    : _stringToNum(val);
+                return typeof val === 'number' ? this.img.width * Math.pow(multi, val) : _stringToNum(val);
             };
             options.zoom = this.parentVM.zoomRadio;
             options.MaxZoomin = _computeMax(this.parentVM.zoomMax);

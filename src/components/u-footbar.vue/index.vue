@@ -36,8 +36,8 @@ export default {
         event.off(this.currentScrollParent, 'scroll', this.cb);
     },
     mounted() {
-        this.currentScrollParent =
-            this.scrollParent || this.findScrollParent(this.$el);
+        this.currentScrollParent
+            = this.scrollParent || this.findScrollParent(this.$el);
     },
     methods: {
         setAutoBar() {
@@ -52,10 +52,10 @@ export default {
             event.on(this.currentScrollParent, 'scroll', this.cb);
         },
         checkPos(currentElem, cntHeight = 0) {
-            const viewPortHeight =
-                window.innerHeight ||
-                document.documentElement.clientHeight ||
-                document.body.clientHeight;
+            const viewPortHeight
+                = window.innerHeight
+                    || document.documentElement.clientHeight
+                    || document.body.clientHeight;
             const elemOffset = currentElem.getBoundingClientRect();
             if (elemOffset.top < viewPortHeight - cntHeight / 2) {
                 this.currentPosition = 'auto';
@@ -65,7 +65,8 @@ export default {
         },
         findScrollParent(target) {
             target = target.parentElement;
-            if (!target) return window;
+            if (!target)
+                return window;
             const styles = window.getComputedStyle(target);
             if (styles.overflowY === 'auto' || styles.overflowY === 'scroll') {
                 return target;

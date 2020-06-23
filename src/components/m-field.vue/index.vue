@@ -14,10 +14,10 @@ export default {
     created() {
         this.dispatch(
             ($parent) =>
-                ($parent.$options.name &&
-                    $parent.$options.name.startsWith('u-form-item')) ||
-                $parent.$options.isField ||
-                $parent.$options.isValidator,
+                ($parent.$options.name
+                    && $parent.$options.name.startsWith('u-form-item'))
+                || $parent.$options.isField
+                || $parent.$options.isValidator,
             'add-field-vm',
             this,
         );

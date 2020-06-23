@@ -91,14 +91,6 @@ export default {
     data() {
         return { currentPage: this.page, currentPageSize: this.pageSize };
     },
-    watch: {
-        page(page) {
-            this.currentPage = page;
-        },
-        currentPage(page, oldPage) {
-            this.$emit('change', { page, oldPage }, this);
-        },
-    },
     computed: {
         pages() {
             const pages = [];
@@ -120,15 +112,17 @@ export default {
             let page = 1;
             while (page <= this.currentTotalPage) {
                 if (
-                    page <= this.side ||
-                    (page >= start && page <= end) ||
-                    page > this.currentTotalPage - this.side
+                    page <= this.side
+                    || (page >= start && page <= end)
+                    || page > this.currentTotalPage - this.side
                 )
                     pages.push(page);
                 else {
                     pages.push(undefined);
-                    if (page < start) page = start - 1;
-                    if (page > end) page = this.currentTotalPage - this.side;
+                    if (page < start)
+                        page = start - 1;
+                    if (page > end)
+                        page = this.currentTotalPage - this.side;
                 }
                 page++;
             }
@@ -137,16 +131,26 @@ export default {
         currentTotalPage() {
             if (this.totalItems)
                 return Math.ceil(this.totalItems / this.currentPageSize);
-            else return this.total;
+            else
+                return this.total;
+        },
+    },
+    watch: {
+        page(page) {
+            this.currentPage = page;
+        },
+        currentPage(page, oldPage) {
+            this.$emit('change', { page, oldPage }, this);
         },
     },
     methods: {
         select(page) {
-            if (this.readonly || this.disabled) return;
+            if (this.readonly || this.disabled)
+                return;
             if (
-                page < 1 ||
-                page > this.currentTotalPage ||
-                page === this.currentPage
+                page < 1
+                || page > this.currentTotalPage
+                || page === this.currentPage
             )
                 return;
             const oldPage = this.currentPage;
@@ -156,18 +160,21 @@ export default {
                 { page, oldPage, preventDefault: () => (cancel = true) },
                 this,
             );
-            if (cancel) return;
+            if (cancel)
+                return;
             this.currentPage = page;
             this.$emit('update:page', page, this);
             this.$emit('select', { page, oldPage }, this);
         },
         onChange(page, oldPage) {
-            if (this.readonly || this.disabled) return; // if (page === oldPage)
+            if (this.readonly || this.disabled)
+                return; // if (page === oldPage)
             //     return;
             this.currentPage = page;
         },
         onSelectPageSize($event) {
-            if (this.readonly || this.disabled) return;
+            if (this.readonly || this.disabled)
+                return;
             this.$emit('update:page-size', $event.value, this);
             this.$emit(
                 'change-page-size',

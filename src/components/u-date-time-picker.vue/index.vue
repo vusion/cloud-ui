@@ -6,7 +6,7 @@
     </div>
     <div :class="$style.body" v-show="open">
         <u-calendar :readonly="readonly" :year-diff="yearDiff" :year-add="yearAdd" :min-date="minCalendarDate" :max-date="maxCalendarDate" :date="showDate" @select="outRangeDateTime($event.date, showTime)">
-            <u-time-picker :class="$style.timePicker" :readonly="readonly" :time="showTime" width="50" :min-time="minTime" :max-time="maxTime" @change="outRangeDateTime(showDate, $event.time)" />
+            <u-time-picker :class="$style.timePicker" :readonly="readonly" :time="showTime" width="50" :min-time="minTime" :max-time="maxTime" @change="outRangeDateTime(showDate, $event.time)"></u-time-picker>
                 <slot name="footer">
                     <div :class="$style.footer">
                         <u-linear-layout justify="end">
@@ -43,6 +43,8 @@ import i18n from './i18n';
 export default {
     name: 'u-date-time-picker',
     i18n,
+    directives: { clickOutside },
+    mixins: [MField],
     props: {
         disabled: { type: Boolean, default: false },
         placeholder: {
@@ -60,7 +62,6 @@ export default {
         yearDiff: { type: [String, Number], default: 3 },
         yearAdd: { type: [String, Number], default: 1 },
     },
-    mixins: [MField],
     data() {
         return {
             dateTime: this.format(this.date, 'YYYY-MM-DD HH:mm:ss'),
@@ -102,14 +103,6 @@ export default {
             return disabled;
         },
     },
-    directives: { clickOutside },
-    created() {
-        // vue中的watch的immediate的执行时间是比created生命周期函数执行时间还早 所以导致u-field无法捕获
-        this.$emit(
-            'input',
-            this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : '',
-        );
-    },
     watch: {
         date(newValue) {
             this.dateTime = this.format(newValue, 'YYYY-MM-DD HH:mm:ss');
@@ -123,24 +116,16 @@ export default {
                 if (isOutOfRange)
                     newValue = this.format(isOutOfRange, 'YYYY-MM-DD HH:mm:ss');
             }
-            this.$emit(
-                'update:date',
-                newValue ? new Date(newValue.replace(/-/g, '/')).getTime() : '',
-            );
+            this.$emit('update:date', newValue ? new Date(newValue.replace(/-/g, '/')).getTime() : '');
             /**
              * @event change 日期时间改变时触发
              * @property {object} sender 事件发送对象
              * @property {object} date 改变后的日期时间
              */ this.$emit('change', {
                 sender: this,
-                date: newValue
-                    ? new Date(newValue.replace(/-/g, '/')).getTime()
-                    : '',
+                date: newValue ? new Date(newValue.replace(/-/g, '/')).getTime() : '',
             }); // 方便u-field组件捕获到其值
-            this.$emit(
-                'input',
-                newValue ? new Date(newValue.replace(/-/g, '/')) : '',
-            );
+            this.$emit('input', newValue ? new Date(newValue.replace(/-/g, '/')) : '');
         },
         maxDate(value) {
             this.currentMaxDate = this.getMaxDate(value);
@@ -149,14 +134,23 @@ export default {
             this.currentMaxDate = this.getMaxDate();
         },
     },
+    created() {
+        // vue中的watch的immediate的执行时间是比created生命周期函数执行时间还早 所以导致u-field无法捕获
+        this.$emit(
+            'input',
+            this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : '',
+        );
+    },
     methods: {
         /**
          * @method outRangeDateTime(date, time) 修改日期为最大日期或最小日期
          * @private
          * @return {void}
          */ outRangeDateTime(date, time) {
-            if (!time) time = '00:00:00';
-            if (date) date = new Date(date);
+            if (!time)
+time = '00:00:00';
+            if (date)
+date = new Date(date);
             else {
                 this.$emit('select', { sender: this, date: '' });
                 return;
@@ -168,8 +162,8 @@ export default {
             const datetime = this.format(date, 'YYYY-MM-DD');
             const dtime = this.format(date, 'HH:mm:ss');
             if (
-                datetime === this.minCalendarDate &&
-                datetime === this.maxCalendarDate
+                datetime === this.minCalendarDate
+                && datetime === this.maxCalendarDate
             ) {
                 this.minTime = this.spMinTime;
                 this.maxTime = this.spMaxTime;
@@ -178,16 +172,16 @@ export default {
             else if (datetime === this.maxCalendarDate)
                 this.maxTime = this.spMaxTime;
             else if (
-                datetime === this.minCalendarDate &&
-                dtime < this.spMinTime
+                datetime === this.minCalendarDate
+                && dtime < this.spMinTime
             ) {
                 const spMinTime = this.spMinTime.split(':');
                 date.setHours(spMinTime[0]);
                 date.setMinutes(spMinTime[1]);
                 date.setSeconds(spMinTime[2]);
             } else if (
-                datetime === this.maxCalendarDate &&
-                dtime > this.spMaxTime
+                datetime === this.maxCalendarDate
+                && dtime > this.spMaxTime
             ) {
                 const spMaxTime = this.spMaxTime.split(':');
                 date.setHours(spMaxTime[0]);
@@ -208,7 +202,8 @@ export default {
          * @private
          * @return {void}
          */ onDateTimeChange(date, time) {
-            if (!time) time = '00:00:00';
+            if (!time)
+time = '00:00:00';
             date = new Date(date);
             time = time.split(':');
             date.setHours(time[0]);
@@ -252,13 +247,15 @@ export default {
             const minDate = this.transformDate(this.minDate);
             const maxDate = this.transformDate(this.currentMaxDate); // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期时间。
             return (
-                (minDate && date < minDate && minDate) ||
-                (maxDate && date > maxDate && maxDate)
+                (minDate && date < minDate && minDate)
+                || (maxDate && date > maxDate && maxDate)
             );
         },
         toggle(value) {
-            if (this.readonly) this.open = false;
-            else this.open = value;
+            if (this.readonly)
+this.open = false;
+            else
+this.open = value;
         },
         format,
         transformDate,
@@ -269,8 +266,10 @@ export default {
             value = value || this.maxDate;
             const minTime = new Date(this.minDate).getTime();
             const maxTime = new Date(value).getTime();
-            if (maxTime < minTime) return this.minDate;
-            else return this.maxDate;
+            if (maxTime < minTime)
+return this.minDate;
+            else
+return this.maxDate;
         },
     },
 };

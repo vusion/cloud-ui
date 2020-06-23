@@ -27,7 +27,8 @@ export default {
     },
     created() {
         this.$on('select', () => {
-            if (!this.multiple) this.close();
+            if (!this.multiple)
+                this.close();
         });
     },
     methods: {

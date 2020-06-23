@@ -49,12 +49,13 @@ export default {
             this.$emit('blur', e);
         },
         check() {
-            if (this.readonly || this.disabled) return;
+            if (this.readonly || this.disabled)
+                return;
             const oldValue = this.currentValue;
             const value = !this.currentValue;
             if (
-                this.parentVM &&
-                !this.parentVM.canCheck({
+                this.parentVM
+                && !this.parentVM.canCheck({
                     value,
                     oldValue,
                     label: this.label,
@@ -69,13 +70,14 @@ export default {
                 label: this.label,
                 preventDefault: () => (cancel = true),
             });
-            if (cancel) return;
+            if (cancel)
+                return;
             this.currentValue = value;
             this.$emit('input', value);
             this.$emit('update:value', value);
             this.$emit('check', { value, oldValue });
-            this.parentVM &&
-                this.parentVM.onCheck({
+            this.parentVM
+                && this.parentVM.onCheck({
                     value,
                     oldValue,
                     label: this.label,

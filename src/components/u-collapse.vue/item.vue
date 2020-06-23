@@ -47,9 +47,12 @@ export default {
     },
     methods: {
         expand() {
-            if (this.disabled || this.parentVM.disabled) return;
-            if (this.currentExpanded) return;
-            if (this.$emitPrevent('before-expand', {}, this)) return;
+            if (this.disabled || this.parentVM.disabled)
+                return;
+            if (this.currentExpanded)
+                return;
+            if (this.$emitPrevent('before-expand', {}, this))
+                return;
             this.currentExpanded = true;
             this.$emit('update:expanded', true, this);
             if (this.parentVM.accordion) {
@@ -62,16 +65,20 @@ export default {
             this.parentVM.onItemExpand(this);
         },
         collapse() {
-            if (this.disabled || this.parentVM.disabled) return;
-            if (!this.currentExpanded) return;
-            if (this.$emitPrevent('before-collapse', {}, this)) return;
+            if (this.disabled || this.parentVM.disabled)
+                return;
+            if (!this.currentExpanded)
+                return;
+            if (this.$emitPrevent('before-collapse', {}, this))
+                return;
             this.currentExpanded = false;
             this.$emit('update:expanded', false, this);
             this.$emit('collapse', {}, this);
             this.parentVM.onItemCollapse(this);
         },
         toggle(expanded) {
-            if (expanded === undefined) expanded = !this.currentExpanded;
+            if (expanded === undefined)
+                expanded = !this.currentExpanded;
             expanded ? this.expand() : this.collapse();
         },
     },

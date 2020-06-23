@@ -36,7 +36,8 @@ export default {
         selectedVM(selectedVM, oldVM) {
             const value = selectedVM ? selectedVM.value : undefined;
             const oldValue = oldVM ? oldVM.value : undefined;
-            if (value === oldValue) return;
+            if (value === oldValue)
+                return;
             this.$emit(
                 'change',
                 {
@@ -54,9 +55,7 @@ export default {
             if (!itemVMs.includes(this.selectedVM)) {
                 if (!this.router) {
                     // 更新列表之后，原来的选择可能已不存在，这里暂存然后重新查找一遍
-                    const value = this.selectedVM
-                        ? this.selectedVM.value
-                        : this.value;
+                    const value = this.selectedVM ? this.selectedVM.value : this.value;
                     this.selectedVM = undefined;
                     this.watchValue(value);
                 } else {
@@ -78,17 +77,18 @@ export default {
                 return;
             if (value === undefined) {
                 if (this.autoSelect)
-                    this.selectedVM =
-                        this.itemVMs.find((itemVM) => !itemVM.disabled) ||
-                        undefined;
-                else this.selectedVM = undefined;
+                    this.selectedVM
+                        = this.itemVMs.find((itemVM) => !itemVM.disabled)
+                            || undefined;
+                else
+                    this.selectedVM = undefined;
             } else {
                 this.selectedVM = this.itemVMs.find(
                     (itemVM) => itemVM.value === value,
                 );
-                this.selectedVM &&
-                    this.selectedVM.groupVM &&
-                    this.selectedVM.groupVM.toggle(true);
+                this.selectedVM
+                    && this.selectedVM.groupVM
+                    && this.selectedVM.groupVM.toggle(true);
             }
         },
         select(itemVM, cancelable) {
@@ -97,8 +97,10 @@ export default {
                 return; // Prevent replication
             const oldValue = this.value;
             const oldVM = this.selectedVM;
-            if (cancelable === undefined) cancelable = this.cancelable;
-            if (!cancelable && !this.router && itemVM === oldVM) return; // Emit a `before-` event with preventDefault()
+            if (cancelable === undefined)
+                cancelable = this.cancelable;
+            if (!cancelable && !this.router && itemVM === oldVM)
+                return; // Emit a `before-` event with preventDefault()
             if (
                 this.$emitPrevent(
                     'before-select',
@@ -114,8 +116,10 @@ export default {
                 )
             )
                 return;
-            if (cancelable && itemVM === oldVM) this.selectedVM = undefined;
-            else this.selectedVM = itemVM; // Assign and sync `value`
+            if (cancelable && itemVM === oldVM)
+                this.selectedVM = undefined;
+            else
+                this.selectedVM = itemVM; // Assign and sync `value`
             const value = this.selectedVM && this.selectedVM.value;
             const selectedItem = this.selectedVM && this.selectedVM.item;
             this.$emit('input', value, this);

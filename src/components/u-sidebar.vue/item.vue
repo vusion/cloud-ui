@@ -17,11 +17,12 @@ export default {
     },
     methods: {
         watchActive(active) {
-            if (!active) return;
+            if (!active)
+                return;
             let groupVM = this.groupVM;
             while (groupVM) {
-                groupVM.toggle &&
-                    groupVM.toggle(true, this.parentVM.particular);
+                groupVM.toggle
+                    && groupVM.toggle(true, this.parentVM.particular);
                 groupVM = groupVM.parentVM;
             }
             if (!isElementInView(this.$el, this.parentVM.$el, 'vertical'))

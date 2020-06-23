@@ -17,11 +17,15 @@ export default {
             try {
                 return scopedSlot(props);
             } catch (e) {
-                if (catchError) return h('div', e.message || e);
-                else throw e;
+                if (catchError)
+                    return h('div', e.message || e);
+                else
+                    throw e;
             }
-        } else if (slot) return slot;
-        else return context.children;
+        } else if (slot)
+            return slot;
+        else
+            return context.children;
     },
 };
 </script>

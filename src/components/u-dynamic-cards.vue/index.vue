@@ -46,8 +46,8 @@ export default {
             this.currentIndex = index;
         });
         this.$on('remove', ({ index }) => {
-            this.currentIndex =
-                index === this.currentData.length ? index - 1 : index;
+            this.currentIndex
+                = index === this.currentData.length ? index - 1 : index;
         });
     },
     methods: {

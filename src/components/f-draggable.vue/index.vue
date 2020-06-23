@@ -10,7 +10,8 @@ export default {
             type: [String, HTMLElement, Function],
             default: 'self',
             validator: (value) => {
-                if (typeof value !== 'string') return true;
+                if (typeof value !== 'string')
+                    return true;
                 else
                     return [
                         'self',
@@ -27,16 +28,15 @@ export default {
             type: [String, HTMLElement],
             default: 'clone',
             validator: (value) => {
-                if (typeof value !== 'string') return true;
-                else return ['self', 'parent', 'clone'].includes(value);
+                if (typeof value !== 'string')
+                    return true;
+                else
+                    return ['self', 'parent', 'clone'].includes(value);
             },
         },
         immediate: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         constraint: Function,
-    },
-    render(h) {
-        return this.$slots.default ? this.$slots.default[0] : h('div');
     },
     data() {
         return { sourceEl: undefined };
@@ -66,28 +66,31 @@ export default {
         this.childVM.$forceUpdate();
     },
     beforeDestroy() {
-        this.sourceEl &&
-            this.sourceEl.removeEventListener('mousedown', this.onMouseDown);
+        this.sourceEl
+            && this.sourceEl.removeEventListener('mousedown', this.onMouseDown);
         this.childVM = this.childVM && this.childVM.$destroy();
     },
     methods: {
         watchDisabled(disabled) {
             if (disabled)
-                this.sourceEl.removeAttribute &&
-                    this.sourceEl.removeAttribute('draggable');
+                this.sourceEl.removeAttribute
+                    && this.sourceEl.removeAttribute('draggable');
             else
-                this.sourceEl.setAttribute &&
-                    this.sourceEl.setAttribute('draggable', 'draggable');
+                this.sourceEl.setAttribute
+                    && this.sourceEl.setAttribute('draggable', 'draggable');
         },
         getSourceEl() {
-            if (this.source instanceof HTMLElement) return this.source;
+            if (this.source instanceof HTMLElement)
+                return this.source;
             else if (this.source instanceof Function)
                 return this.source(this.$el);
             else if (this.$el) {
-                if (this.source === 'self') return this.$el;
+                if (this.source === 'self')
+                    return this.$el;
                 else if (this.source === 'parent')
                     return this.$el.parentElement;
-                else if (this.source === '$parent') return this.$parent.$el;
+                else if (this.source === '$parent')
+                    return this.$parent.$el;
                 else if (this.source === 'offset-parent')
                     return this.$el.offsetParent;
                 else if (this.source === 'context-parent') {
@@ -96,8 +99,8 @@ export default {
                         return this.$el.parentElement; // Vue 的 vnode.parent 没有连接起来，需要自己找，不知道有没有更好的方法
                     let parentVNode = this.$parent._vnode;
                     while (
-                        parentVNode &&
-                        !parentVNode.children.includes(this.$vnode)
+                        parentVNode
+                        && !parentVNode.children.includes(this.$vnode)
                     )
                         parentVNode = parentVNode.children.find((child) =>
                             child.elm.contains(this.$el),
@@ -106,8 +109,8 @@ export default {
                         return parentVNode.elm; // 否则，找第一个上下文一致的组件
                     let parentVM = this.$parent;
                     while (
-                        parentVM &&
-                        parentVM.$vnode.context !== this.$vnode.context
+                        parentVM
+                        && parentVM.$vnode.context !== this.$vnode.context
                     )
                         parentVM = parentVM.$parent;
                     return parentVM.$el;
@@ -120,11 +123,14 @@ export default {
         getTransferEl() {
             let transferEl;
             const sourceEl = this.sourceEl;
-            if (this.$slots.transfer) transferEl = this.childVM.$el;
+            if (this.$slots.transfer)
+                transferEl = this.childVM.$el;
             else if (this.transfer instanceof HTMLElement)
                 transferEl = this.transfer;
-            else if (this.transfer === 'self') transferEl = this.$el;
-            else if (this.transfer === 'source') transferEl = sourceEl;
+            else if (this.transfer === 'self')
+                transferEl = this.$el;
+            else if (this.transfer === 'source')
+                transferEl = sourceEl;
             else if (this.transfer === 'clone')
                 transferEl = sourceEl.cloneNode(true);
             if (this.$slots.transfer || this.transfer === 'clone') {
@@ -150,7 +156,8 @@ export default {
             transfer.style.display = '';
         },
         onMouseDown(e) {
-            if (this.disabled) return;
+            if (this.disabled)
+                return;
             e.preventDefault();
             Object.assign(manager, {
                 screenX: e.screenX,
@@ -180,17 +187,17 @@ export default {
                 dragX: e.clientX - manager.startX,
                 dragY: e.clientY - manager.startY,
             });
-            manager.dragging === false
-                ? this.onMouseMoveStart(e)
-                : this.onMouseMoving(e);
+            manager.dragging === false ? this.onMouseMoveStart(e) : this.onMouseMoving(e);
         },
         onMouseMoveStart(e, override) {
             const transferEl = this.getTransferEl(); // 代理元素的位置从MouseMoveStart开始算，这样在MouseDown中也可以预先处理位置
             // 获取初始的left和top值
             let style = transferEl ? window.getComputedStyle(transferEl) : {};
             style = { left: style.left, top: style.top };
-            if (!style.left || style.left === 'auto') style.left = '0px';
-            if (!style.top || style.top === 'auto') style.top = '0px';
+            if (!style.left || style.left === 'auto')
+                style.left = '0px';
+            if (!style.top || style.top === 'auto')
+                style.top = '0px';
             style.left = +style.left.slice(0, -2);
             style.top = +style.top.slice(0, -2);
             Object.assign(manager, {
@@ -215,13 +222,15 @@ export default {
             manager.left = next.left;
             manager.top = next.top;
             this.drag();
-            if (!manager.dragging) return; // for Droppable
+            if (!manager.dragging)
+                return; // for Droppable
             let pointEl = null;
             if (manager.transferEl) {
                 manager.transferEl.style.display = 'none';
                 pointEl = document.elementFromPoint(e.clientX, e.clientY);
                 manager.transferEl.style.display = '';
-            } else pointEl = document.elementFromPoint(e.clientX, e.clientY);
+            } else
+                pointEl = document.elementFromPoint(e.clientX, e.clientY);
             let pointDroppable = null; // while (pointEl) {
             pointDroppable = manager.droppables.find(
                 (droppable) => droppable.$el && droppable.$el.contains(pointEl),
@@ -232,7 +241,8 @@ export default {
             // }
             if (manager.droppable !== pointDroppable) {
                 manager.droppable && manager.droppable.dragLeave(this);
-                if (!manager.dragging) return;
+                if (!manager.dragging)
+                    return;
                 pointDroppable && pointDroppable.dragEnter(this);
                 manager.droppable = pointDroppable;
             } // dragEnter之后也要dragOver
@@ -279,8 +289,8 @@ export default {
         dragStart() {
             const sourceEl = this.sourceEl;
             sourceEl.setAttribute('draggable-source', 'draggable-source');
-            manager.transferEl &&
-                manager.transferEl.setAttribute(
+            manager.transferEl
+                && manager.transferEl.setAttribute(
                     'draggable-transfer',
                     'draggable-transfer',
                 );
@@ -297,7 +307,8 @@ export default {
                 ),
                 this,
             );
-            if (cancel) return this.cancel();
+            if (cancel)
+                return this.cancel();
         },
         drag() {
             this.$emit(
@@ -325,6 +336,9 @@ export default {
                 manager.transferEl.removeAttribute('draggable-transfer');
             }
         },
+    },
+    render(h) {
+        return this.$slots.default ? this.$slots.default[0] : h('div');
     },
 };
 </script>

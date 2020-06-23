@@ -75,12 +75,14 @@ export default {
             clearTimeout(this.timer);
             const length = this.itemVMs.length;
             const index = this.selectedIndex + 1;
-            if (!this.loop && index >= length) return;
+            if (!this.loop && index >= length)
+                return;
             this.selectedIndex = index % length;
             this.play();
         },
         play() {
-            if (!this.autoplay) return;
+            if (!this.autoplay)
+                return;
             this.timer = setTimeout(() => {
                 this.next();
             }, this.interval);

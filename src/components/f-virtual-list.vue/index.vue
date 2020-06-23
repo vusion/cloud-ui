@@ -26,11 +26,12 @@ export default {
     computed: {
         virtualList() {
             const list = this[this.listKey];
-            if (!this.virtual) return list;
+            if (!this.virtual)
+                return list;
             else
                 return (
-                    list &&
-                    list.slice(
+                    list
+                    && list.slice(
                         this.virtualIndex,
                         this.virtualIndex + this.virtualCount,
                     )
@@ -40,11 +41,12 @@ export default {
             // 给该 computed 添加一个依赖 list
             // eslint-disable-next-line no-unused-vars
             const list = this[this.listKey];
-            if (!this.virtual) return this.$slots.default;
+            if (!this.virtual)
+                return this.$slots.default;
             else
                 return (
-                    this.$slots.default &&
-                    this.$slots.default.slice(
+                    this.$slots.default
+                    && this.$slots.default.slice(
                         this.virtualIndex,
                         this.virtualIndex + this.virtualCount,
                     )
@@ -65,34 +67,40 @@ export default {
          * @override
          * @param {*} e - 滚动事件对象
          */ onScroll(e) {
-            if (!this.virtual) return;
+            if (!this.virtual)
+return;
             this.throttledVirtualScroll(e);
             this.$emit('scroll', e, this);
         },
         handleVirtualScroll(e) {
-            if (!this.virtual) return;
+            if (!this.virtual)
+return;
             const listEl = e.target;
             const virtualEl = this.$refs.virtual;
             const list = this[this.listKey];
-            if (!virtualEl || !list) return; // 缓存当前可见 DOM 节点的高度
+            if (!virtualEl || !list)
+return; // 缓存当前可见 DOM 节点的高度
             if (this.itemHeight === undefined) {
                 const children = Array.from(virtualEl.children);
                 children.forEach((childEl, index) => {
                     const item = list[this.virtualIndex + index];
                     if (
-                        item &&
-                        item.height === undefined &&
-                        item._cacheHeight === undefined
+                        item
+                        && item.height === undefined
+                        && item._cacheHeight === undefined
                     )
                         item._cacheHeight = item.height || childEl.offsetHeight;
                 });
             }
             const getHeight = (item) => {
-                if (this.itemHeight !== undefined) return this.itemHeight;
-                else if (item.height !== undefined) return item.height;
+                if (this.itemHeight !== undefined)
+return this.itemHeight;
+                else if (item.height !== undefined)
+return item.height;
                 else if (item._cacheHeight !== undefined)
                     return item._cacheHeight;
-                else return 0;
+                else
+return 0;
             };
             const scrollTop = listEl.scrollTop;
             let accHeight = 0;
@@ -101,7 +109,8 @@ export default {
             for (currentIndex = 0; currentIndex < list.length; currentIndex++) {
                 const item = list[currentIndex];
                 accHeight += getHeight(item);
-                if (accHeight > scrollTop) break;
+                if (accHeight > scrollTop)
+break;
             }
             virtualIndex = Math.max(
                 0,
@@ -109,8 +118,8 @@ export default {
             ); // eslint-disable-next-line yoda
             // 该方法容易出现白屏。有截流了问题不大。
             if (
-                this.virtualCount / 3 <= currentIndex - this.virtualIndex &&
-                currentIndex - this.virtualIndex < (this.virtualCount * 2) / 3
+                this.virtualCount / 3 <= currentIndex - this.virtualIndex
+                && currentIndex - this.virtualIndex < (this.virtualCount * 2) / 3
             )
                 return;
             let virtualTop = 0;

@@ -89,8 +89,10 @@ export default {
     },
     methods: {
         watchValue(value) {
-            if (this.selectedVM && this.selectedVM.value === value) return;
-            if (value === undefined) this.selectedVM = undefined;
+            if (this.selectedVM && this.selectedVM.value === value)
+                return;
+            if (value === undefined)
+                this.selectedVM = undefined;
             else {
                 this.selectedVM = this.find((nodeVM) => nodeVM.value === value);
                 if (this.selectedVM) {
@@ -106,7 +108,8 @@ export default {
             if (values) {
                 this.currentValues = values;
                 this.walk((nodeVM) => {
-                    if (values.includes(nodeVM.value)) nodeVM.check(true);
+                    if (values.includes(nodeVM.value))
+                        nodeVM.check(true);
                 });
             } else {
                 const values = [];
@@ -118,7 +121,8 @@ export default {
             }
         },
         select(nodeVM) {
-            if (this.readonly || this.disabled) return;
+            if (this.readonly || this.disabled)
+                return;
             const oldValue = this.value;
             const oldVM = this.selectedVM;
             let cancel = false;
@@ -135,10 +139,12 @@ export default {
                 },
                 this,
             );
-            if (cancel) return;
+            if (cancel)
+                return;
             if (this.cancelable && this.selectedVM === nodeVM)
                 this.selectedVM = undefined;
-            else this.selectedVM = nodeVM;
+            else
+                this.selectedVM = nodeVM;
             const value = this.selectedVM && this.selectedVM.value;
             const node = this.selectedVM && this.selectedVM.node;
             this.$emit('input', value, this);

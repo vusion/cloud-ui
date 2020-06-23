@@ -41,11 +41,10 @@ export default {
     },
     computed: {
         currentCollapsible() {
-            if (this.collapsible !== undefined) return this.collapsible;
+            if (this.collapsible !== undefined)
+                return this.collapsible;
             else if (this.parentVM)
-                return this.parentVM.currentCollapsible !== undefined
-                    ? this.parentVM.currentCollapsible
-                    : this.parentVM.collapsible;
+                return this.parentVM.currentCollapsible !== undefined ? this.parentVM.currentCollapsible : this.parentVM.collapsible;
         },
         expandTrigger() {
             return this.parentVM ? this.parentVM.expandTrigger : 'click';
@@ -59,8 +58,8 @@ export default {
     created() {
         this.$contact(
             ($parent) =>
-                $parent.$options.name === this.$options.parentName ||
-                $parent.$options.name === this.$options.name,
+                $parent.$options.name === this.$options.parentName
+                || $parent.$options.name === this.$options.name,
             (parentVM) => {
                 this.parentVM = parentVM;
                 parentVM.groupVMs.push(this);
@@ -70,8 +69,8 @@ export default {
     destroyed() {
         this.$contact(
             ($parent) =>
-                $parent.$options.name === this.$options.parentName ||
-                $parent.$options.name === this.$options.name,
+                $parent.$options.name === this.$options.parentName
+                || $parent.$options.name === this.$options.name,
             (parentVM) => {
                 parentVM.groupVMs.splice(parentVM.groupVMs.indexOf(this), 1);
                 this.parentVM = undefined;
@@ -81,14 +80,16 @@ export default {
     methods: {
         toggle(expanded) {
             if (
-                this.disabled ||
-                this.parentVM.readonly ||
-                this.parentVM.disabled
+                this.disabled
+                || this.parentVM.readonly
+                || this.parentVM.disabled
             )
                 return;
             const oldExpanded = this.currentExpanded;
-            if (expanded === undefined) expanded = !this.currentExpanded;
-            if (expanded === oldExpanded) return;
+            if (expanded === undefined)
+                expanded = !this.currentExpanded;
+            if (expanded === oldExpanded)
+                return;
             let cancel = false;
             this.$emit(
                 'before-toggle',
@@ -99,7 +100,8 @@ export default {
                 },
                 this,
             );
-            if (cancel) return;
+            if (cancel)
+                return;
             this.currentExpanded = expanded;
             this.$emit('update:expanded', expanded, this);
             if (this.parentVM.accordion) {

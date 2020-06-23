@@ -53,6 +53,26 @@ export default {
     data() {
         return { unitText: '' };
     },
+    watch: {
+        end(newValue) {
+            let endVal = 0;
+            if (this.simplify) {
+                const res = this.transformValue(newValue);
+                endVal = res.val;
+                this.unitText = res.unit;
+            } else {
+                endVal = newValue;
+            }
+            if (this.autoStart)
+                this.counter.update(endVal);
+        },
+        autoStart(newValue) {
+            if (newValue) {
+                this.counter.start(this.endCallback); // 暂不支持change方法 需要重构下
+                // this.$emit('change', this.counter.frameVal);
+            }
+        },
+    },
     mounted() {
         this.$nextTick(() => {
             let end = 0;
@@ -84,25 +104,6 @@ export default {
             }
         });
     },
-    watch: {
-        end(newValue) {
-            let endVal = 0;
-            if (this.simplify) {
-                const res = this.transformValue(newValue);
-                endVal = res.val;
-                this.unitText = res.unit;
-            } else {
-                endVal = newValue;
-            }
-            if (this.autoStart) this.counter.update(endVal);
-        },
-        autoStart(newValue) {
-            if (newValue) {
-                this.counter.start(this.endCallback); // 暂不支持change方法 需要重构下
-                // this.$emit('change', this.counter.frameVal);
-            }
-        },
-    },
     methods: {
         transformValue(val) {
             let endVal = 0;
@@ -113,8 +114,8 @@ export default {
             } else {
                 for (let i = 1; i < len; i++) {
                     if (
-                        val >= Math.pow(10, this.unit[i - 1][0]) &&
-                        val < Math.pow(10, this.unit[i][0])
+                        val >= Math.pow(10, this.unit[i - 1][0])
+                        && val < Math.pow(10, this.unit[i][0])
                     ) {
                         endVal = parseInt(
                             val / Math.pow(10, this.unit[i - 1][0]),

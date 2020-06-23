@@ -35,7 +35,8 @@ export default {
     },
     methods: {
         copy() {
-            if (this.disabled) return;
+            if (this.disabled)
+                return;
             this.success = copy(this.value);
             if (this.success) {
                 if (this.feedback === 'toast' || this.modalType === 'toast')

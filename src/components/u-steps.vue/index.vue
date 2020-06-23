@@ -39,43 +39,43 @@ export default {
         size: String,
         counter: { type: Boolean, default: true },
     },
+    computed: {
+        currentItemWidth() {
+            if (this.size === 'auto')
+                return (1 / this.itemVMs.length) * 100 + '%';
+            else
+                return undefined;
+        },
+    },
     watch: {
         // This method just run once after pushing many itemVMs
         itemVMs: {
             override: true,
-            handler() {
+            handler(itemVMs) {
                 // 更新列表之后，原来的选择可以已不存在，这里暂存然后重新查找一遍
-                const value = this.selectedVM
-                    ? this.selectedVM.index
-                    : this.value;
+                const value = this.selectedVM ? this.selectedVM.index : this.value;
                 this.selectedVM = undefined;
                 this.watchValue(value);
-                this.$refs.item &&
-                    this.$refs.item.forEach((itemEl, index) => {
+                this.$refs.item
+                    && this.$refs.item.forEach((itemEl, index) => {
                         itemEl.__vue__ = itemVMs[index];
                     });
             },
         },
     },
-    computed: {
-        currentItemWidth() {
-            if (this.size === 'auto')
-                return (1 / this.itemVMs.length) * 100 + '%';
-            else return undefined;
-        },
-    },
     methods: {
         watchValue(value) {
-            if (this.selectedVM && this.selectedVM.index === value) return;
+            if (this.selectedVM && this.selectedVM.index === value)
+                return;
             if (value === undefined)
                 this.selectedVM = this.autoSelect ? this.itemVMs[0] : undefined;
             else {
                 this.selectedVM = this.itemVMs.find(
                     (itemVM) => itemVM.index === value,
                 );
-                this.selectedVM &&
-                    this.selectedVM.groupVM &&
-                    this.selectedVM.groupVM.toggle(true);
+                this.selectedVM
+                    && this.selectedVM.groupVM
+                    && this.selectedVM.groupVM.toggle(true);
             }
         },
         select(itemVM) {
@@ -97,7 +97,8 @@ export default {
                 return;
             if (this.cancelable && this.selectedVM === itemVM)
                 this.selectedVM = undefined;
-            else this.selectedVM = itemVM;
+            else
+                this.selectedVM = itemVM;
             const value = this.selectedVM && this.selectedVM.index;
             const item = this.selectedVM && this.selectedVM.item;
             this.$emit('input', value, this);

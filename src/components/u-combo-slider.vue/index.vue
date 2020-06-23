@@ -58,14 +58,6 @@ export default {
     data() {
         return { currentValue: this.value, isMousedown: false };
     },
-    watch: {
-        value(value) {
-            this.currentValue = value;
-        },
-        currentValue(currentValue, oldValue) {
-            this.$emit('change', { value: currentValue, oldValue }, this);
-        },
-    },
     computed: {
         numberMin() {
             return Math.max(
@@ -80,6 +72,14 @@ export default {
             );
         },
     },
+    watch: {
+        value(value) {
+            this.currentValue = value;
+        },
+        currentValue(currentValue, oldValue) {
+            this.$emit('change', { value: currentValue, oldValue }, this);
+        },
+    },
     created() {
         document.body.addEventListener('mouseup', this.onMouseup, false);
     },
@@ -88,9 +88,11 @@ export default {
     },
     methods: {
         onValidate($event) {
-            if (this.syncOn === 'blur') return;
+            if (this.syncOn === 'blur')
+                return;
             const value = $event.value; // 最小值的情况不同步，不然会显得很怪异
-            if (!$event.valid && value === this.min) return;
+            if (!$event.valid && value === this.min)
+                return;
             this.currentValue = value;
             this.$emit('input', value, this);
             this.$emit('update:value', value, this);

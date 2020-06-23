@@ -5,8 +5,8 @@
     </div>
     <form :class="$style.form" ref="form" method="POST" :action="url" :target="'iframe'+ tempId" :enctype="contentType">
         <!-- IE需要重置input[type=file] -->
-        <input :class="$style.input" ref="file" v-if="!sending" type="file" :name="name" @change="submit()"/>
-        <input v-for="key in Object.keys(data)" type="hidden" :name="key" :value="data[key]"/>
+        <input :class="$style.input" ref="file" v-if="!sending" type="file" :name="name" @change="submit()">
+        <input v-for="key in Object.keys(data)" type="hidden" :name="key" :value="data[key]">
     </form>
     <iframe :class="$style.iframe" ref="iframe" :name="'iframe'+ tempId" @load="onLoad()"></iframe>
 </div>
@@ -48,7 +48,8 @@ export default {
          * @public
          * @return {void}
          */ upload() {
-            if (this.disabled || this.sending) return;
+            if (this.disabled || this.sending)
+return;
             this.$refs.file.value = '';
             this.$refs.file.click();
         },
@@ -58,7 +59,8 @@ export default {
          * @param  {File} file 文件对象
          * @return {boolean} 返回是否通过验证
          */ checkExtensions(file) {
-            if (!this.extensions) return true;
+            if (!this.extensions)
+return true;
             const fileName = file.name;
             const extName = fileName
                 .substring(fileName.lastIndexOf('.') + 1, fileName.length)
@@ -66,7 +68,8 @@ export default {
             let extensions = this.extensions;
             if (typeof extensions === 'string')
                 extensions = extensions.split(',');
-            if (extensions.includes(extName)) return true;
+            if (extensions.includes(extName))
+return true;
             /**
              * @event error 上传错误时触发
              * @property {object} name ExtensionError
@@ -91,15 +94,19 @@ export default {
          * @param  {File} file 文件对象
          * @return {boolean} 返回是否通过验证
          */ checkSize(file) {
-            if (this.maxSize === Infinity) return true;
+            if (this.maxSize === Infinity)
+return true;
             let maxSize;
-            if (!isNaN(this.maxSize)) maxSize = +this.maxSize;
+            if (!isNaN(this.maxSize))
+maxSize = +this.maxSize;
             else {
                 const unit = this.maxSize.slice(-2);
-                if (!SIZE_UNITS[unit]) throw new Error('Unknown unit!');
+                if (!SIZE_UNITS[unit])
+throw new Error('Unknown unit!');
                 maxSize = this.maxSize.slice(0, -2) * SIZE_UNITS[unit];
             }
-            if (file.size <= maxSize) return true;
+            if (file.size <= maxSize)
+return true;
             /**
              * @event error 上传错误时触发
              * @property {object} name SizeError
@@ -123,27 +130,18 @@ export default {
          * @private
          * @return {void}
          */ submit() {
-            const file = this.$refs.file.files
-                ? this.$refs.file.files[0]
-                : { name: this.$refs.file.value, size: 0 };
+            const file = this.$refs.file.files ? this.$refs.file.files[0] : { name: this.$refs.file.value, size: 0 };
             if (
-                !file ||
-                !file.name ||
-                !this.checkExtensions(file) ||
-                !this.checkSize(file)
+                !file
+                || !file.name
+                || !this.checkExtensions(file)
+                || !this.checkSize(file)
             )
                 return;
             const fileName = file.name;
             this.file = {
                 name: fileName,
-                extName: fileName.includes('.')
-                    ? fileName
-                          .substring(
-                              fileName.lastIndexOf('.') + 1,
-                              fileName.length,
-                          )
-                          .toLowerCase()
-                    : undefined,
+                extName: fileName.includes('.') ? fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length).toLowerCase() : undefined,
                 size: file.size,
             };
             if (typeof FormData === 'undefined') {
@@ -162,14 +160,15 @@ export default {
                     },
                     this,
                 );
-                if (cancel) return;
+                if (cancel)
+return;
                 this.sending = true;
                 this.$refs.form.submit();
             } else {
                 const xhr = new XMLHttpRequest();
                 const formData = new FormData(this.$refs.form);
                 xhr.open('POST', this.url);
-                xhr.upload.onprogress = function(e) {
+                xhr.upload.onprogress = function (e) {
                     if (e.lengthComputable) {
                         /**
                          * @event progress 发送中触发
@@ -186,7 +185,8 @@ export default {
                         if (xhr.status === 200)
                             this.onLoad(xhr.responseText, xhr.responseXML);
                         else {
-                            if (!this.sending) return;
+                            if (!this.sending)
+return;
                             this.sending = false;
                             this.file = null;
                             this.$emit(
@@ -217,7 +217,8 @@ export default {
                     },
                     this,
                 );
-                if (cancel) return;
+                if (cancel)
+return;
                 this.sending = true;
                 xhr.send(formData);
             }
@@ -234,7 +235,8 @@ export default {
          */ onLoad(responseText, responseXML) {
             const $iframe = this.$refs.iframe;
             const file = this.file;
-            if (!this.sending) return;
+            if (!this.sending)
+return;
             this.sending = false;
             this.file = null;
             const xml = {};
@@ -244,20 +246,12 @@ export default {
                 xml.responseXML = responseXML;
             } else {
                 if ($iframe.contentWindow) {
-                    xml.responseText = $iframe.contentWindow.document.body
-                        ? $iframe.contentWindow.document.body.innerText
-                        : null;
-                    xml.responseXML = $iframe.contentWindow.document.XMLDocument
-                        ? $iframe.contentWindow.document.XMLDocument
-                        : $iframe.contentWindow.document;
+                    xml.responseText = $iframe.contentWindow.document.body ? $iframe.contentWindow.document.body.innerText : null;
+                    xml.responseXML = $iframe.contentWindow.document.XMLDocument ? $iframe.contentWindow.document.XMLDocument : $iframe.contentWindow.document;
                 } else if ($iframe.contentDocument) {
-                    xml.responseText = $iframe.contentDocument.document.body
-                        ? $iframe.contentDocument.document.body.innerText
-                        : null;
+                    xml.responseText = $iframe.contentDocument.document.body ? $iframe.contentDocument.document.body.innerText : null;
                     xml.responseXML = $iframe.contentDocument.document
-                        .XMLDocument
-                        ? $iframe.contentDocument.document.XMLDocument
-                        : $iframe.contentDocument.document;
+                        .XMLDocument ? $iframe.contentDocument.document.XMLDocument : $iframe.contentDocument.document;
                 }
             }
             if (!xml.responseText) {
@@ -291,8 +285,10 @@ export default {
          * @param  {object} type 数据类型
          * @return {object|string} 解析后的数据
          */ parseData(xml, type) {
-            if (type === 'text') return xml.responseText;
-            else if (type === 'xml') return xml.responseXML;
+            if (type === 'text')
+return xml.responseText;
+            else if (type === 'xml')
+return xml.responseXML;
             else if (type === 'json') {
                 let data = xml.responseText;
                 try {
@@ -301,7 +297,8 @@ export default {
                 return data; // danger，暂时不开启
                 // } else if (type === 'script')
                 //     return eval(xml.responseText);
-            } else return xml.responseText;
+            } else
+return xml.responseText;
         },
     },
 };

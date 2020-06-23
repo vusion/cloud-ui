@@ -2,7 +2,7 @@
 <div :class="$style.root" :size="size">
     <svg :class="$style.svg" viewBox="0 0 40 40">
         <g transform="translate(20, 20) scale(-1,1) rotate(-90)">
-            <circle :class="$style.circle" cx="0" cy="0" r="18"></circle>
+            <circle :class="$style.circle" cx="0" cy="0" r="18" />
         </g>
     </svg>
 </div>

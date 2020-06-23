@@ -15,8 +15,8 @@ export default {
     name: 'm-complex-item',
     parentName: 'm-complex',
     groupName: 'm-complex-group',
-    mixins: [MSinglexItem, MMultiplexItem],
-    directives: { ellipsisTitle }, // props: {
+    directives: { ellipsisTitle },
+    mixins: [MSinglexItem, MMultiplexItem], // props: {
     //     @inherit: value: null,
     //     @inherit: selected: { type: Boolean, default: false },
     //     @inherit: disabled: { type: Boolean, default: false },

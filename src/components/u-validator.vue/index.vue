@@ -59,10 +59,10 @@ export default {
     computed: {
         currentRules() {
             return (
-                this.rules ||
-                (this.rootVM &&
-                    this.rootVM.rules &&
-                    this.rootVM.rules[this.name])
+                this.rules
+                || (this.rootVM
+                    && this.rootVM.rules
+                    && this.rootVM.rules[this.name])
             );
         },
         currentTarget() {
@@ -75,21 +75,24 @@ export default {
                 return this.validatorVMs.some(
                     (validatorVM) => validatorVM.touched,
                 );
-            else return this.fieldTouched;
+            else
+                return this.fieldTouched;
         },
         dirty() {
             if (this.currentTarget === 'validatorVMs')
                 return this.validatorVMs.some(
                     (validatorVM) => validatorVM.dirty,
                 );
-            else return this.value !== this.oldValue;
+            else
+                return this.value !== this.oldValue;
         },
         valid() {
             if (this.currentTarget === 'validatorVMs')
                 return this.validatorVMs.every(
                     (validatorVM) => validatorVM.valid,
                 );
-            else return this.realValid;
+            else
+                return this.realValid;
         },
         firstError() {
             if (this.currentTarget === 'validatorVMs') {
@@ -98,7 +101,8 @@ export default {
                         validatorVM.touched && validatorVM.firstError,
                 );
                 return validatorVM ? validatorVM.firstError : undefined;
-            } else return this.fieldTouched && this.firstErrorMessage;
+            } else
+                return this.fieldTouched && this.firstErrorMessage;
         },
         mutedMessage() {
             return this.muted === 'all' || this.muted === 'message';
@@ -159,9 +163,11 @@ export default {
                 this.value = vm.value; // 初始化的时候自行验证一次。Fix #23
                 this.validate('submit', true).catch((errors) => errors);
             }; // @TODO: 一个`<u-form-item>`中，只注册一个`fieldVM`，其他的忽略
-            if (!this.fieldVM) addField(fieldVM);
+            if (!this.fieldVM)
+                addField(fieldVM);
             // remove 之后再添加的情况
-            else this.$nextTick(() => !this.fieldVM && addField(fieldVM));
+            else
+                this.$nextTick(() => !this.fieldVM && addField(fieldVM));
         });
         this.$on('remove-field-vm', (fieldVM) => {
             this.fieldVM = undefined;
@@ -183,7 +189,8 @@ export default {
     },
     methods: {
         onUpdate(value) {
-            if (this.currentTarget === 'validatorVMs') return;
+            if (this.currentTarget === 'validatorVMs')
+                return;
             this.hasUpdateEvent = true;
             this.value = value; // 在没有触碰前，走 @update 事件；在触碰后，走 @input 事件
             if (!this.fieldTouched)
@@ -192,8 +199,10 @@ export default {
                 );
         },
         onInput(value) {
-            if (this.currentTarget === 'validatorVMs' || this.manual) return;
-            if (!this.fieldTouched) this.fieldTouched = true;
+            if (this.currentTarget === 'validatorVMs' || this.manual)
+                return;
+            if (!this.fieldTouched)
+                this.fieldTouched = true;
             this.inputing = true;
             this.value = value; // 处理输入法输入的问题
             this.$nextTick(() => {
@@ -202,20 +211,25 @@ export default {
             });
         },
         onChange($event) {
-            if (this.currentTarget === 'validatorVMs' || this.manual) return;
-            if (!this.fieldTouched) this.oldValue = $event.value;
+            if (this.currentTarget === 'validatorVMs' || this.manual)
+                return;
+            if (!this.fieldTouched)
+                this.oldValue = $event.value;
             this.value = $event.value; // @compat: 以后推荐使用 @update & @input 事件
             if (!this.hasUpdateEvent && !this.inputing)
                 this.validate('submit', true).catch((errors) => errors);
         },
         onFocus() {
-            if (this.currentTarget === 'validatorVMs') return;
+            if (this.currentTarget === 'validatorVMs')
+                return;
             this.color = 'focus';
             this.currentMessage = this.message;
         },
         onBlur() {
-            if (this.currentTarget === 'validatorVMs' || this.manual) return;
-            if (!this.fieldTouched) this.fieldTouched = true;
+            if (this.currentTarget === 'validatorVMs' || this.manual)
+                return;
+            if (!this.fieldTouched)
+                this.fieldTouched = true;
             this.color = this.state = '';
             this.$nextTick(() =>
                 this.validate('blur').catch((errors) => errors),
@@ -230,14 +244,15 @@ export default {
                             .catch((errors) => errors),
                     ),
                 ).then((results) => {
-                    if (results.some((result) => !!result)) throw results;
+                    if (results.some((result) => !!result))
+                        throw results;
                 });
             } else {
                 let rules = this.currentRules; // 新版
                 if (
-                    typeof rules === 'string' ||
-                    (Array.isArray(rules) &&
-                        rules.some(
+                    typeof rules === 'string'
+                    || (Array.isArray(rules)
+                        && rules.some(
                             (rule) => typeof rule === 'string' || rule.validate,
                         ))
                 ) {
@@ -251,19 +266,20 @@ export default {
                     }
                     this.pending = true;
                     this.state = 'validating';
-                    if (!untouched) this.fieldTouched = true;
+                    if (!untouched)
+                        this.fieldTouched = true;
                     if (
-                        untouched ||
-                        this.muted === 'all' ||
-                        this.muted === 'color'
+                        untouched
+                        || this.muted === 'all'
+                        || this.muted === 'color'
                     )
                         this.color = this.currentMessage = '';
-                    else this.color = this.state;
-                    if (trigger === 'submit') trigger = '';
+                    else
+                        this.color = this.state;
+                    if (trigger === 'submit')
+                        trigger = '';
                     const value = this.validatingProcess(
-                        this.validatingValue === undefined
-                            ? this.value
-                            : this.validatingValue,
+                        this.validatingValue === undefined ? this.value : this.validatingValue,
                     );
                     return this.validator
                         .validate(
@@ -284,15 +300,15 @@ export default {
                             this.state = 'success';
                             this.firstErrorMessage = '';
                             if (
-                                !untouched &&
-                                this.muted !== 'all' &&
-                                this.muted !== 'color'
+                                !untouched
+                                && this.muted !== 'all'
+                                && this.muted !== 'color'
                             )
                                 this.color = this.state;
                             if (
-                                !untouched &&
-                                this.muted !== 'all' &&
-                                this.muted !== 'message'
+                                !untouched
+                                && this.muted !== 'all'
+                                && this.muted !== 'message'
                             )
                                 this.currentMessage = this.message;
                             this.onValidate(trigger);
@@ -304,15 +320,15 @@ export default {
                             this.state = 'error';
                             this.firstErrorMessage = error;
                             if (
-                                !untouched &&
-                                this.muted !== 'all' &&
-                                this.muted !== 'color'
+                                !untouched
+                                && this.muted !== 'all'
+                                && this.muted !== 'color'
                             )
                                 this.color = this.state;
                             if (
-                                !untouched &&
-                                this.muted !== 'all' &&
-                                this.muted !== 'message'
+                                !untouched
+                                && this.muted !== 'all'
+                                && this.muted !== 'message'
                             )
                                 this.currentMessage = error;
                             this.onValidate(trigger);
@@ -321,18 +337,18 @@ export default {
                 } else {
                     this.triggerValid = true;
                     this.realValid = true;
-                    rules =
-                        rules &&
-                        rules
-                            .filter((item) => !item.ignore)
-                            .filter((rule) =>
-                                (rule.trigger + '+submit').includes(trigger),
-                            );
+                    rules
+                        = rules
+                            && rules
+                                .filter((item) => !item.ignore)
+                                .filter((rule) =>
+                                    (rule.trigger + '+submit').includes(trigger),
+                                );
                     if (
-                        this.ignoreRules ||
-                        this.ignoreValidation ||
-                        !rules ||
-                        !rules.length
+                        this.ignoreRules
+                        || this.ignoreValidation
+                        || !rules
+                        || !rules.length
                     ) {
                         this.firstErrorMessage = this.currentMessage = '';
                         this.color = '';
@@ -341,21 +357,21 @@ export default {
                     }
                     this.pending = true;
                     this.state = 'validating';
-                    if (!untouched) this.fieldTouched = true;
+                    if (!untouched)
+                        this.fieldTouched = true;
                     if (
-                        untouched ||
-                        this.muted === 'all' ||
-                        this.muted === 'color'
+                        untouched
+                        || this.muted === 'all'
+                        || this.muted === 'color'
                     )
                         this.color = this.currentMessage = '';
-                    else this.color = this.state;
+                    else
+                        this.color = this.state;
                     const name = this.name || 'field';
                     const validator = new Validator({ [name]: rules });
                     return new Promise((resolve, reject) => {
                         const value = this.validatingProcess(
-                            this.validatingValue === undefined
-                                ? this.value
-                                : this.validatingValue,
+                            this.validatingValue === undefined ? this.value : this.validatingValue,
                         );
                         const fields = { [name]: value };
                         validator.validate(
@@ -368,26 +384,20 @@ export default {
                                 this.pending = false;
                                 this.triggerValid = !errors;
                                 this.realValid = this.triggerValid; // @TODO
-                                this.state = this.triggerValid
-                                    ? 'success'
-                                    : 'error';
-                                this.firstErrorMessage = errors
-                                    ? errors[0].message
-                                    : '';
+                                this.state = this.triggerValid ? 'success' : 'error';
+                                this.firstErrorMessage = errors ? errors[0].message : '';
                                 if (
-                                    !untouched &&
-                                    this.muted !== 'all' &&
-                                    this.muted !== 'color'
+                                    !untouched
+                                    && this.muted !== 'all'
+                                    && this.muted !== 'color'
                                 )
                                     this.color = this.state;
                                 if (
-                                    !untouched &&
-                                    this.muted !== 'all' &&
-                                    this.muted !== 'message'
+                                    !untouched
+                                    && this.muted !== 'all'
+                                    && this.muted !== 'message'
                                 )
-                                    this.currentMessage = errors
-                                        ? errors[0].message
-                                        : this.message;
+                                    this.currentMessage = errors ? errors[0].message : this.message;
                                 this.onValidate(trigger); // this.dispatch('u-form', 'validate-item-vm', !errors);
                                 errors ? reject(errors) : resolve(); // @TODO
                             },

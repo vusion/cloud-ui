@@ -83,9 +83,9 @@ export default {
     childName: 'u-select-item',
     groupName: 'u-select-group',
     isSelect: true,
+    directives: { ellipsisTitle },
     extends: UListView,
     i18n,
-    directives: { ellipsisTitle },
     props: {
         // @inherit: value: { type: String, default: '' },
         // @inherit: value: Array,
@@ -141,12 +141,12 @@ export default {
     },
     computed: {
         currentDisabled() {
-            if (this.disabled) return true;
+            if (this.disabled)
+                return true;
             else if (this.emptyDisabled)
-                return this.currentData
-                    ? !this.currentData.length
-                    : !this.itemVMs.length;
-            else return false;
+                return this.currentData ? !this.currentData.length : !this.itemVMs.length;
+            else
+                return false;
         },
         filtering() {
             return {
@@ -163,26 +163,23 @@ export default {
             this.inputWidth = filterText.length * 12 + 20;
         },
         opened(opened) {
-            if (opened === this.popperOpened) return;
+            if (opened === this.popperOpened)
+                return;
             this.toggle(opened);
         },
     },
     created() {
         this.$watch('selectedVM', (selectedVM, oldVM) => {
             if (
-                selectedVM &&
-                oldVM &&
-                selectedVM.currentText === oldVM.currentText
+                selectedVM
+                && oldVM
+                && selectedVM.currentText === oldVM.currentText
             )
                 return;
             if (this.filterable)
-                this.filterText = this.selectedVM
-                    ? this.selectedVM.currentText
-                    : '';
+                this.filterText = this.selectedVM ? this.selectedVM.currentText : '';
             else
-                this.currentText = this.selectedVM
-                    ? this.selectedVM.currentText
-                    : '';
+                this.currentText = this.selectedVM ? this.selectedVM.currentText : '';
         });
         this.$watch('selectedVMs', (selectedVMs) => {
             this.currentText = selectedVMs
@@ -192,11 +189,10 @@ export default {
             popperVM && popperVM.currentOpened && popperVM.scheduleUpdate();
         });
         this.$on('select', ($event) => {
-            if (!this.multiple) this.close();
+            if (!this.multiple)
+                this.close();
             if (this.filterable) {
-                this.filterText = this.selectedVM
-                    ? this.selectedVM.currentText
-                    : '';
+                this.filterText = this.selectedVM ? this.selectedVM.currentText : '';
                 setTimeout(() => {
                     this.$refs.input.focus();
                     setTimeout(() => {
@@ -254,7 +250,8 @@ export default {
                     }
                 }
             } else if (count < 0) {
-                if (focusedIndex === -1) focusedIndex = this.itemVMs.length;
+                if (focusedIndex === -1)
+                    focusedIndex = this.itemVMs.length;
                 for (let i = focusedIndex + count; i >= 0; i--) {
                     const itemVM = this.itemVMs[i];
                     if (!itemVM.disabled) {
@@ -290,7 +287,8 @@ export default {
                     this.ensureFocusedInView(true);
                     this.$refs.input.focus();
                 });
-            } else setTimeout(() => this.ensureFocusedInView(true));
+            } else
+                setTimeout(() => this.ensureFocusedInView(true));
             this.$emit('open', $event, this);
             this.$emit('update:opened', true);
         },
@@ -301,24 +299,25 @@ export default {
             this.$emit('update:opened', false);
         },
         fastLoad(more, keep) {
-            if (!this.currentDataSource) return;
+            if (!this.currentDataSource)
+                return;
             this.currentDataSource.filter(this.filtering);
-            return this.currentDataSource.mustRemote()
-                ? this.debouncedLoad(more, keep)
-                : this.load(more, keep);
+            return this.currentDataSource.mustRemote() ? this.debouncedLoad(more, keep) : this.load(more, keep);
         },
         load(more, keep) {
             const dataSource = this.currentDataSource;
-            if (!dataSource) return;
-            if (this.currentLoading) return Promise.resolve(); // @TODO: dataSource 的多次 promise 必须串行
+            if (!dataSource)
+                return;
+            if (this.currentLoading)
+                return Promise.resolve(); // @TODO: dataSource 的多次 promise 必须串行
             // return this.promiseSequence = this.promiseSequence.then(() => {
             this.currentLoading = true;
             return dataSource[more ? 'loadMore' : 'load']()
                 .then((data) => {
                     this.currentLoading = false;
                     this.ensureSelectedInItemVMs();
-                    this.$refs.popper.currentOpened &&
-                        this.$refs.popper.scheduleUpdate();
+                    this.$refs.popper.currentOpened
+                        && this.$refs.popper.scheduleUpdate();
                     return data;
                 })
                 .catch(() => (this.currentLoading = false)); // });
@@ -327,7 +326,8 @@ export default {
             // @disabled
         },
         onInput(value) {
-            if (!this.filterable) return;
+            if (!this.filterable)
+                return;
             this.currentText = value; // value.split(',')
             if (this.$emitPrevent('before-filter', { filterText: value }, this))
                 return;
@@ -336,9 +336,11 @@ export default {
             this.open();
         },
         onBlur() {
-            if (!this.filterable) return; // 这边必须要用 setTimeout，$nextTick 也不行，需要保证在 @select 之后完成
+            if (!this.filterable)
+                return; // 这边必须要用 setTimeout，$nextTick 也不行，需要保证在 @select 之后完成
             setTimeout(() => {
-                if (this.preventBlur) return (this.preventBlur = false);
+                if (this.preventBlur)
+                    return (this.preventBlur = false);
                 this.selectByText(this.filterText);
             }, 200);
         },
@@ -368,7 +370,8 @@ export default {
                 }
             } else {
                 const oldVM = this.selectedVM;
-                if (!oldVM && !text) return;
+                if (!oldVM && !text)
+                    return;
                 else if (oldVM && text === oldVM.currentText)
                     return this.ensureSelectedInItemVMs();
                 const selectedVM = this.itemVMs.find(
@@ -384,24 +387,29 @@ export default {
                         this.filterText = oldVM ? oldVM.currentText : '';
                         this.fastLoad(); // ensure
                     }
-                } else this.select(selectedVM, false);
+                } else
+                    this.select(selectedVM, false);
             }
         },
         prependItem(text) {
             this.currentDataSource.prepend({ text, value: text });
         },
         onEnter() {
-            if (this.focusedVM) this.select(this.focusedVM);
+            if (this.focusedVM)
+                this.select(this.focusedVM);
             this.close();
         },
         onInputEnter() {
-            if (this.focusedVM) this.select(this.focusedVM);
-            else this.selectByText(this.filterText);
+            if (this.focusedVM)
+                this.select(this.focusedVM);
+            else
+                this.selectByText(this.filterText);
             this.close();
         },
         onInputDelete() {
             if (this.filterable && this.filterText === '') {
-                if (!this.selectedVMs.length) return;
+                if (!this.selectedVMs.length)
+                    return;
                 const lastItemVM = this.selectedVMs[
                     this.selectedVMs.length - 1
                 ];
@@ -444,10 +452,12 @@ export default {
             this.close();
         },
         focus() {
-            if (this.filterable) this.$refs.input.focus();
+            if (this.filterable)
+                this.$refs.input.focus();
         },
         blur() {
-            if (this.filterable) this.$refs.input.blur();
+            if (this.filterable)
+                this.$refs.input.blur();
         },
     },
 };
