@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style module>
-@import '../u-steps.vue/module.css';
+@extends '../u-steps.vue/index.css';
 
 .radio {
     background: white;

@@ -10,7 +10,7 @@ export default {
 </script>
 
 <style module>
-@extends;
+@extends '../../u-menu.vue/index.css';
 
 .root {
     background: #343e4f;

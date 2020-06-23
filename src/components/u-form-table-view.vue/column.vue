@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { MEmitter } from '../m-emitter.vue';
+import MEmitter from '../m-emitter.vue';
 // import UValidator from '../../u-validator.vue'; 这里不直接继承了，只是把属性抄一下
 import {
     Formatter,

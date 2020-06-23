@@ -13,7 +13,7 @@ if (argv._[0]) {
 }
 
 components.forEach((component) => {
-    const command = `vusion transform -d src/components/${component.name}.vue`;
+    const command = `vusion transform --temp src/components/${component.name}.vue`;
     console.info(command);
     vusion.cli.execSync(command);
 });

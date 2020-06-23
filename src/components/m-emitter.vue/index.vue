@@ -11,32 +11,22 @@ const broadcast = function (condition, eventName, ...args) {
 export default {
     name: 'm-emitter',
     methods: {
-        /**
-         * @deprecated
-         */ dispatch(condition, eventName, ...args) {
+        $dispatch(condition, eventName, ...args) {
             if (typeof condition === 'string') {
                 const name = condition;
                 condition = ($parent) => $parent.$options.name === name;
             }
             let $parent = this.$parent || this.$root;
             while ($parent && !condition($parent))
-$parent = $parent.$parent;
+                $parent = $parent.$parent;
             $parent && $parent.$emit(eventName, ...args);
         },
-        /**
-         * @deprecated
-         */ broadcast(condition, eventName, ...args) {
+        $broadcast(condition, eventName, ...args) {
             if (typeof condition === 'string') {
                 const name = condition;
                 condition = ($child) => $child.$options.name === name;
             }
             broadcast.apply(this, [condition, eventName].concat(args));
-        },
-        $dispatch(...args) {
-            this.dispatch(...args);
-        },
-        $broadcast(...args) {
-            this.broadcast(...args);
         },
         $contact(condition, callback) {
             if (typeof condition === 'string') {
@@ -45,7 +35,7 @@ $parent = $parent.$parent;
             }
             let $parent = this.$parent || this.$root;
             while ($parent && !condition($parent))
-$parent = $parent.$parent;
+                $parent = $parent.$parent;
             $parent && callback($parent);
         },
         $emitPrevent(name, $event, senderVM, ...args) {

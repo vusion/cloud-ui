@@ -72,7 +72,7 @@ export default {
 </script>
 
 <style module>
-@extends;
+@extends '../u-input.vue/index.css';
 
 .root {
     width: var(--textarea-width);

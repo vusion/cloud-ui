@@ -10,7 +10,7 @@ export default {
 </script>
 
 <style module>
-@extends;
+@extends '../../u-select.vue/index.css';
 
 .root {
     background: none;

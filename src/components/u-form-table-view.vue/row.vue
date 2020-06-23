@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style module>
-@extends;
+@extends '../u-validator.vue/index.css';
 
 .root {
     display: table-row;

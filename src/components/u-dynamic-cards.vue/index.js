@@ -1,9 +1,9 @@
 import UDynamicCards from './index.vue';
-import UDynamicCardsDynamicCard from './dynamic-card.vue';
+import UDynamicCard from './dynamic-card.vue';
 
 export {
     UDynamicCards,
-    UDynamicCardsDynamicCard,
+    UDynamicCard,
 };
 
 export default UDynamicCards;

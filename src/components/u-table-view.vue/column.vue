@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { MEmitter } from '../m-emitter.vue';
+import MEmitter from '../m-emitter.vue';
 import {
     Formatter,
     parseFormatters,

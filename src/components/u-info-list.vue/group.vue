@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { MEmitter } from '../m-emitter.vue';
+import MEmitter from '../m-emitter.vue';
 
 export default {
     name: 'u-info-list-group',
@@ -36,10 +36,10 @@ export default {
             itemVM.groupVM = undefined;
             this.itemVMs.splice(this.itemVMs.indexOf(itemVM), 1);
         });
-        this.dispatch(this.$options.parentName, 'add-group-vm', this);
+        this.$dispatch(this.$options.parentName, 'add-group-vm', this);
     },
     destroyed() {
-        this.dispatch(this.$options.parentName, 'remove-group-vm', this);
+        this.$dispatch(this.$options.parentName, 'remove-group-vm', this);
     },
 };
 </script>

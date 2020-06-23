@@ -1,7 +1,8 @@
 <template>
 <div :class="$style.root">
     <slot></slot>
-</div></template>
+</div>
+</template>
 
 <script>
 export default {
@@ -36,3 +37,7 @@ export default {
     },
 };
 </script>
+
+<style module>
+.root {}
+</style>

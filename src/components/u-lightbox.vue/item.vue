@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { MEmitter } from '../m-emitter.vue';
+import MEmitter from '../m-emitter.vue';
 import Zoom from './zoomobj.js';
 
 export default {
@@ -46,7 +46,7 @@ export default {
         },
     },
     created() {
-        this.dispatch(this.$options.parentName, 'add-item-vm', this);
+        this.$dispatch(this.$options.parentName, 'add-item-vm', this);
         this.animation = this.parentVM.animation;
         this.$watch('isCurrent', (value) => {
             value && this.resetImg();
@@ -70,13 +70,13 @@ export default {
         this.img.addEventListener('load', this.resetImgWrap);
     },
     destroyed() {
-        this.dispatch(this.$options.parentName, 'remove-item-vm', this);
+        this.$dispatch(this.$options.parentName, 'remove-item-vm', this);
         if (this.img)
             this.img.removeEventListener('load', this.resetImgWrap);
     },
     methods: {
         animationEnd() {
-            this.dispatch(this.$options.parentName, 'u-lightbox-item-end', 1);
+            this.$dispatch(this.$options.parentName, 'u-lightbox-item-end', 1);
         },
         stop(event) {
             this.isCurrent && event.stopPropagation();

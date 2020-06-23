@@ -24,7 +24,7 @@
 
 <script>
 // import i18n from '@/utils/i18n';
-import { MField } from '../m-field.vue';
+import MField from '../m-field.vue';
 
 export default {
     name: 'u-checkbox-card',

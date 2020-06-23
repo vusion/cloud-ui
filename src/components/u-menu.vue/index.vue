@@ -26,13 +26,4 @@ export default {
 };
 </script>
 
-<style module>
-.root {
-    /* @Private */
-    user-select: none;
-    position: relative;
-
-    background: var(--menu-background);
-    border: var(--menu-border-width) solid var(--menu-border-color);
-}
-</style>
+<style module src="./index.css"></style>

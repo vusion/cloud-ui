@@ -12,7 +12,7 @@ export default {
         };
     },
     created() {
-        this.dispatch(
+        this.$dispatch(
             ($parent) =>
                 ($parent.$options.name
                     && $parent.$options.name.startsWith('u-form-item'))

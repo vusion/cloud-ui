@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { UValidator } from '../u-validator.vue';
+import UValidator from '../u-validator.vue';
 import i18n from './i18n';
 
 export default {

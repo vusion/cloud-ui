@@ -383,9 +383,7 @@ export default {
         },
         getDataSourceOptions() {
             return {
-                viewMode:
-                    this.pageable === 'load-more'
-                    || this.pageable === 'auto-more' ? 'more' : 'page',
+                viewMode: this.pageable === 'load-more' || this.pageable === 'auto-more' ? 'more' : 'page',
                 paging: this.paging,
                 sorting: this.sorting,
                 filtering: this.filtering,
@@ -620,26 +618,25 @@ export default {
                     }
                 }
             } else if (this.resizeRemaining === 'average') {
-                /* eslint-disable no-inner-declarations */ function distributeInAverage(
-                                                               columnVMs,
-                                                           ) {
-                                                               const averageWidth = remainingWidth / columnVMs.length;
-                                                               const wideColumnVMs = [];
-                                                               columnVMs.forEach((columnVM) => {
-                                                                   if (columnVM.computedWidth - averageWidth >= minWidth) {
-                                                                       columnVM.currentWidth = columnVM.computedWidth -= averageWidth;
-                                                                       remainingWidth -= averageWidth;
-                                                                       wideColumnVMs.push(columnVM);
-                                                                   } else {
-                                                                       remainingWidth -= columnVM.computedWidth - minWidth;
-                                                                       columnVM.currentWidth = columnVM.computedWidth = minWidth;
-                                                                   }
-                                                               });
-                                                               if (Math.abs(remainingWidth) >= 1 && wideColumnVMs.length)
-                                                                   distributeInAverage(wideColumnVMs);
-                                                           }
-                                                           distributeInAverage(this.visibleColumnVMs.slice(index + 1));
-                                                           columnVM.currentWidth = columnVM.computedWidth -= remainingWidth;
+                /* eslint-disable no-inner-declarations */
+                function distributeInAverage(columnVMs) {
+                    const averageWidth = remainingWidth / columnVMs.length;
+                    const wideColumnVMs = [];
+                    columnVMs.forEach((columnVM) => {
+                        if (columnVM.computedWidth - averageWidth >= minWidth) {
+                            columnVM.currentWidth = columnVM.computedWidth -= averageWidth;
+                            remainingWidth -= averageWidth;
+                            wideColumnVMs.push(columnVM);
+                        } else {
+                            remainingWidth -= columnVM.computedWidth - minWidth;
+                            columnVM.currentWidth = columnVM.computedWidth = minWidth;
+                        }
+                    });
+                    if (Math.abs(remainingWidth) >= 1 && wideColumnVMs.length)
+                        distributeInAverage(wideColumnVMs);
+                }
+                distributeInAverage(this.visibleColumnVMs.slice(index + 1));
+                columnVM.currentWidth = columnVM.computedWidth -= remainingWidth;
             }
             $event.transferEl.style.left = '';
         },

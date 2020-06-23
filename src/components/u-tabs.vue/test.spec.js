@@ -1,7 +1,7 @@
 import { createVMFromTemplate } from '~/test/utils';
 
 import Vue from 'vue';
-import { installComponents } from 'vusion-utils';
+import { installComponents } from '@vusion/utils';
 import * as Components from '../index';
 import sinon from 'sinon';
 

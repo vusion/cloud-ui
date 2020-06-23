@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { UCascadeSelect } from '../u-cascade-select.vue';
+import UCascadeSelect from '../u-cascade-select.vue';
 
 export default {
     name: 'u-cascade-capsules',

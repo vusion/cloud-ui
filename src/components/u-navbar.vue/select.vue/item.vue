@@ -10,7 +10,7 @@ export default {
 </script>
 
 <style module>
-@extends;
+@extends '../../u-select.vue/item.css';
 
 .root {
     padding: 6px 12px;

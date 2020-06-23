@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { MEmitter } from '../m-emitter.vue';
+import MEmitter from '../m-emitter.vue';
 
 export default {
     name: 'u-desc-list-item',
@@ -32,12 +32,12 @@ export default {
         },
     },
     created() {
-        this.dispatch(this.$options.groupName, 'add-item-vm', this);
-        this.dispatch(this.$options.parentName, 'add-item-vm', this);
+        this.$dispatch(this.$options.groupName, 'add-item-vm', this);
+        this.$dispatch(this.$options.parentName, 'add-item-vm', this);
     },
     destroyed() {
-        this.dispatch(this.$options.groupName, 'remove-item-vm', this);
-        this.dispatch(this.$options.parentName, 'remove-item-vm', this);
+        this.$dispatch(this.$options.groupName, 'remove-item-vm', this);
+        this.$dispatch(this.$options.parentName, 'remove-item-vm', this);
     },
 };
 </script>

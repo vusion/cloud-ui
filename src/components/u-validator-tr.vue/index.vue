@@ -15,7 +15,7 @@ export default { name: 'u-validator-tr', extends: UValidator };
 </script>
 
 <style module>
-@import '../u-validator.vue/module.css';
+@extends '../u-validator.vue/index.css';
 
 .root {
     display: table-row;

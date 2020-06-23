@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { MComplexItem } from '../../m-complex.vue';
+import { MComplexItem } from '../m-complex.vue';
 
 export default {
     name: 'u-table-view-filter',
@@ -19,7 +19,43 @@ export default {
 </script>
 
 <style module>
-@extends;
+.root {
+    /* @Private */
+    display: inline-block;
+    cursor: var(--cursor-pointer);
+
+    /* @Public */
+    padding: 4px 12px;
+}
+
+.root:hover {
+    background: var(--background-color-light);
+}
+
+.root[readonly] {
+    cursor: default;
+    background: none;
+}
+
+.root[focused] {
+    background: var(--background-color-light);
+}
+
+.root[selected] {
+    background: var(--brand-primary);
+    color: var(--color-white);
+}
+
+.root[disabled] {
+    /* @Private */
+    cursor: var(--cursor-not-allowed);
+    background: none;
+    color: var(--brand-disabled);
+}
+
+.root[selected][disabled] {
+    background: var(--brand-disabled-light);
+}
 
 .root {
     display: block;
