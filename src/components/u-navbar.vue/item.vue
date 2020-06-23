@@ -19,7 +19,9 @@ export default {
     padding: var(--navbar-item-padding);
     height: var(--navbar-height);
     line-height: var(--navbar-height);
+    background: var(--navbar-item-background);
     color: var(--navbar-item-color);
+    transition: var(--transition-duration-base);
 }
 
 .root:not(:last-child) {
@@ -27,6 +29,7 @@ export default {
 }
 
 .root:hover {
+    background: var(--navbar-item-background-hover);
     color: var(--navbar-item-color-hover);
 }
 
@@ -35,6 +38,7 @@ export default {
 }
 
 .root[selected] {
+    background: var(--navbar-item-background-selected);
     color: var(--navbar-item-color-selected);
 }
 
@@ -47,11 +51,11 @@ export default {
     content: '';
     position: absolute;
     bottom: 0;
-    height: 3px;
+    height: var(--navbar-item-line-height);
     width: 0;
     left: 50%;
     transform: translateX(-50%);
-    background-color: currentColor;
+    background-color: var(--navbar-item-line-background);
 }
 
 .root:hover::after {

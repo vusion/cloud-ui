@@ -62,7 +62,6 @@ export default {
 }
 
 .popper {
-    background: #343e4f;
-    border: none;
+    margin-top: 3px;
 }
 </style>

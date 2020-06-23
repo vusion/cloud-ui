@@ -59,6 +59,7 @@ export default {
     font-size: var(--navbar-dropdown-popper-font-size);
     width: 100%;
     line-height: var(--navbar-dropdown-popper-line-height);
+    padding-top: 3px;
 }
 
 .root[disabled] {

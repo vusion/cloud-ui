@@ -58,6 +58,7 @@ export default {
 .root[selected] {
     background: var(--sidebar-item-background-selected);
     color: var(--sidebar-item-color-selected);
+    border-right: var(--sidebar-item-border-right-width) solid var(--sidebar-item-border-right-color);
 }
 
 .root[disabled] {

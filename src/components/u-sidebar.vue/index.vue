@@ -37,4 +37,8 @@ export default {
     height: var(--sidebar-item-height-small);
     line-height: var(--sidebar-item-height-small);
 }
+
+.root[size="small"] .item[selected] {
+    border-right-width: var(--sidebar-item-border-right-width-small);
+}
 </style>

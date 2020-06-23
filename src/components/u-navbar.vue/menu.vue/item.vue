@@ -13,14 +13,6 @@ export default {
 @extends '../../u-menu.vue/item.css';
 
 .root {
-    padding: 6px 12px;
-}
-
-.root:hover {
-    background: #142236;
-}
-
-.root + .root {
-    border-top: none;
+    padding: var(--navbar-menu-item-padding);
 }
 </style>

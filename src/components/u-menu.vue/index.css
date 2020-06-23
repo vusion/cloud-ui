@@ -5,4 +5,5 @@
 
     background: var(--menu-background);
     border: var(--menu-border-width) solid var(--menu-border-color);
+    box-shadow: var(--menu-box-shadow);
 }

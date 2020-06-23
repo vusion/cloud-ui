@@ -165,6 +165,7 @@
     z-index: var(--z-index-popper);
     margin-top: 1px;
     border-radius: var(--border-radius-base);
+    box-shadow: var(--select-popper-box-shadow);
 }
 
 .status {

@@ -12,8 +12,5 @@ export default {
 <style module>
 @extends '../../u-menu.vue/index.css';
 
-.root {
-    background: #343e4f;
-    border: none;
-}
+.root {}
 </style>

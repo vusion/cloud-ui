@@ -5,7 +5,7 @@
     cursor: var(--cursor-pointer);
     z-index: 1;
     overflow: visible;
-    padding: 6px 15px;
+    padding: var(--menu-item-padding);
     padding-right: var(--menu-item-size);
     color: var(--menu-item-color);
     white-space: nowrap;

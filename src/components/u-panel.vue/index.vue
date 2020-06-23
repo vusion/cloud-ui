@@ -37,7 +37,7 @@ export default {
 }
 
 .root:hover {
-    box-shadow: 0px 2px 15px rgba(64, 69, 78, 0.15);
+    box-shadow: var(--panel-box-shadow);
 }
 
 .head {

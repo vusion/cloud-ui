@@ -13,15 +13,6 @@ export default {
 @extends '../../u-select.vue/item.css';
 
 .root {
-    padding: 6px 12px;
-    color: white;
-}
-
-.root:hover {
-    background: #142236;
-}
-
-.root[focused] {
-    background: #142236;
+    padding: var(--navbar-select-item-padding);
 }
 </style>

@@ -142,6 +142,9 @@
     --font-weight-bold: 700;
     --font-weight-bolder: bolder;
 
+    --box-shadow-base: 0 0 8px rgba(151, 164, 175, .3);
+    --box-shadow-large: 0px 2px 15px rgba(64, 69, 78, 0.15);
+
     /* Z-Index */
     --z-index-loading: 9000;
     --z-index-toast: 8000;
@@ -362,6 +365,7 @@
     --panel-border-width: 1px;
     --panel-background: var(--background-color-default);
     --panel-border-color: var(--border-color-light);
+    --panel-box-shadow: var(--box-shadow-large);
     --panel-head-padding: var(--space-base);
     --panel-body-padding: var(--space-base);
     --panel-title-font-size: 18px;
@@ -394,12 +398,17 @@
     --navbar-item-space: 30px;
     --navbar-item-padding: 0 10px;
     --navbar-item-font-size: var(--font-size-large);
+    --navbar-item-background: transparent;
+    --navbar-item-background-hover: transparent;
+    --navbar-item-background-selected: transparent;
     --navbar-item-color: white;
     --navbar-item-color-hover: white;
     --navbar-item-color-selected: white;
     --navbar-item-color-disabled: var(--brand-disabled);
     --navbar-item-color-inverse: white;
     --navbar-item-line-transition-duration: 0.5s;
+    --navbar-item-line-background: currentColor;
+    --navbar-item-line-height: 3px;
     --navbar-divider-width: var(--border-width-base);
     --navbar-divider-height: 20px;
     --navbar-divider-background: #ddd;
@@ -408,11 +417,13 @@
     --navbar-dropdown-popper-line-height: var(--line-height-base);
     --navbar-dropdown-popper-font-size: var(--font-size-base);
     --navbar-dropdown-color-disabled: var(--brand-disabled);
+    --navbar-menu-item-padding: 7px 18px;
     --navbar-select-width: 90px;
     --navbar-select-padding-left: 10px;
     --navbar-select-padding-right: 30px;
     --navbar-select-hover-background: none;
     --navbar-select-focused-background: none;
+    --navbar-select-item-padding: 2px 18px;
 
     /* Sidebar */
     --sidebar-width: 180px;
@@ -428,6 +439,9 @@
     --sidebar-item-color-hover: white;
     --sidebar-item-color-selected: white;
     --sidebar-item-color-disabled: #586475;
+    --sidebar-item-border-right-width: 4px;
+    --sidebar-item-border-right-width-small: 3px;
+    --sidebar-item-border-right-color: var(--brand-primary);
     --sidebar-group-head-height: 52px;
     --sidebar-group-head-padding-left: 20px;
     --sidebar-group-head-font-weight: var(--font-weight-bold);
@@ -443,8 +457,10 @@
     --menu-background: white;
     --menu-border-width: var(--border-width-base);
     --menu-border-color: var(--border-color-base);
-    --menu-item-size: 34px;
-    --menu-item-color: inherit;
+    --menu-box-shadow: var(--box-shadow-base);
+    --menu-item-padding: 5px 15px;
+    --menu-item-size: 32px;
+    --menu-item-color: var(--color-base);
     --menu-divider-background: var(--border-color-base);
     --menu-divider-margin-y: 9px;
     --menu-divider-height: var(--border-width-base);
@@ -453,7 +469,7 @@
     --subnav-item-padding-x: 20px;
     --subnav-item-background-hover: var(--background-color-lighter);
     --subnav-item-background-selected: white;
-    --subnav-item-color: #666;
+    --subnav-item-color: var(--color-base);
     --subnav-item-color-hover: var(--brand-primary);
     --subnav-item-color-selected: var(--brand-primary);
 
@@ -680,6 +696,7 @@
     --select-popper-max-height: 194px;
     --select-popper-line-height: 1.6;
     --select-popper-line-height-small: 1.6;
+    --select-popper-box-shadow: var(--box-shadow-base);
     --select-placeholder-color: var(--color-lighter);
     --select-arrow-color: var(--color-light);
     --select-arrow-size: 18px;
@@ -809,14 +826,15 @@
     --popup-arrow-offset: 16px;
     --popup-outer-arrow-size: calc(var(--popup-arrow-size) + 1px);
     --popup-background: white;
+    --popup-box-shadow: var(--box-shadow-base);
     --popup-head-background: white;
     --popup-border-color: var(--border-color-base);
 
     /* Tooltip */
-    --tooltip-padding: 8px 12px;
+    --tooltip-padding: 8px 10px;
     --tooltip-arrow-size: 6px;
     --tooltip-arrow-offset: 16px;
-    --tooltip-background-color: hsla(212, 24%, 30%, 0.75);
+    --tooltip-background: rgba(71,88,107,.9);
     --tooltip-color: white;
 
     /* Icon Tooltip */

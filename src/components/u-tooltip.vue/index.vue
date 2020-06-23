@@ -41,7 +41,7 @@ export default {
 .root {
     position: relative;
     padding: var(--tooltip-padding);
-    background: var(--tooltip-background-color);
+    background: var(--tooltip-background);
     color: var(--tooltip-color);
     font-size: var(--font-size-small);
     z-index: var(--z-index-tooltip);
@@ -69,7 +69,7 @@ export default {
     bottom: calc(-1 * var(--tooltip-arrow-size));
     margin-left: calc(-1 * var(--tooltip-arrow-size));
     border-width: var(--tooltip-arrow-size) var(--tooltip-arrow-size) 0;
-    border-top-color: var(--tooltip-background-color);
+    border-top-color: var(--tooltip-background);
 }
 .root[x-placement^="top"]::before {
     left: 0;
@@ -89,7 +89,7 @@ export default {
     top: calc(-1 * var(--tooltip-arrow-size));
     margin-left: calc(-1 * var(--tooltip-arrow-size));
     border-width: 0 var(--tooltip-arrow-size) var(--tooltip-arrow-size);
-    border-bottom-color: var(--tooltip-background-color);
+    border-bottom-color: var(--tooltip-background);
 }
 .root[x-placement^="bottom"]::before {
     left: 0;
@@ -109,7 +109,7 @@ export default {
     right: calc(-1 * var(--tooltip-arrow-size));
     margin-top: calc(-1 * var(--tooltip-arrow-size));
     border-width: var(--tooltip-arrow-size) 0 var(--tooltip-arrow-size) var(--tooltip-arrow-size);
-    border-left-color: var(--tooltip-background-color);
+    border-left-color: var(--tooltip-background);
 }
 .root[x-placement^="left"]::before {
     top: 0;
@@ -129,7 +129,7 @@ export default {
     left: calc(-1 * var(--tooltip-arrow-size));
     margin-top: calc(-1 * var(--tooltip-arrow-size));
     border-width: var(--tooltip-arrow-size) var(--tooltip-arrow-size) var(--tooltip-arrow-size) 0;
-    border-right-color: var(--tooltip-background-color);
+    border-right-color: var(--tooltip-background);
 }
 .root[x-placement^="right"]::before {
     top: 0;

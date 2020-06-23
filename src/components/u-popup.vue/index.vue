@@ -50,6 +50,7 @@ export default {
     min-width: 140px;
     background: var(--popup-background);
     border: 1px solid var(--popup-border-color);
+    box-shadow: var(--popup-box-shadow);
     z-index: var(--z-index-popper);
 }
 
