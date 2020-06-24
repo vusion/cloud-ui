@@ -564,6 +564,14 @@
     --combo-pagination-jumper-width: 50px;
 
     /* Form */
+    --form-group-head-padding: 6px 20px;
+    --form-group-head-line-height: 30px;
+    --form-group-head-background: var(--background-color-light);
+    --form-group-head-color: var(--color-base);
+    --form-group-head-border-color: var(--border-color-base);
+    --form-group-head-border-width: 1px;
+    --form-group-body-padding-y: 30px;
+    --form-group-space: 20px;
     --form-item-label-padding-right: 20px;
     --form-item-label-padding-right-mini: 10px;
     --form-item-label-padding-right-small: 10px;

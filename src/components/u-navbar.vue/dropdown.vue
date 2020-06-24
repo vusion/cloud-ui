@@ -1,7 +1,8 @@
 <template>
 <div :class="$style.root" :disabled="disabled">
     <div :class="$style.title"><slot name="title">{{ title }}</slot></div>
-    <m-popper :class="$style.popper" :opened.sync="opened" :trigger="trigger" :placement="placement" :disabled="disabled" append-to="reference">
+    <m-popper :class="$style.popper" :trigger="trigger" :placement="placement" :disabled="disabled" append-to="reference"
+        :opened="opened" @update:opened="$emit('update:opened', $event)">
         <slot></slot>
     </m-popper>
 </div>

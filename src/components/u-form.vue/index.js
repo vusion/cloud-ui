@@ -1,11 +1,11 @@
 import UForm from './index.vue';
 import UFormItem from './item.vue';
-import UFormSample from './sample.vue';
+import UFormGroup from './group.vue';
 
 export {
     UForm,
     UFormItem,
-    UFormSample,
+    UFormGroup,
 };
 
 export default UForm;
