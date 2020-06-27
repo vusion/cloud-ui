@@ -1,7 +1,13 @@
-.root {}
+.root {
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+}
 
 .head {
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     left: 0;
@@ -11,15 +17,8 @@
     z-index: var(--z-index-layout);
 }
 
-.main {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    top: var(--navbar-height);
-    left: var(--sidebar-width);
-}
-
 .body {
+    position: relative;
     padding-top: var(--navbar-height);
 }
 
@@ -30,8 +29,4 @@
 
 .foot:empty {
     display: none;
-}
-
-.root[demo] .head {
-    position: absolute;
 }
