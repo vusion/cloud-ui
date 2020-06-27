@@ -1,7 +1,13 @@
-.root {}
+.root {
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+}
 
 .head {
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     left: 0;
@@ -12,7 +18,7 @@
 }
 
 .side {
-    position: fixed;
+    position: absolute;
     left: 0;
     bottom: 0;
     top: var(--navbar-height);
@@ -20,15 +26,13 @@
 }
 
 .main {
+    position: relative;
     padding-top: var(--navbar-height);
     margin-left: var(--sidebar-width);
     max-width: 1010px;
 }
 
 .content {
+    position: relative;
     padding: 30px 50px 50px;
-}
-
-.root[demo] .head, .root[demo] .side, .root[demo] .main {
-    position: absolute;
 }
