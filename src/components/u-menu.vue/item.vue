@@ -1,6 +1,6 @@
 <template>
 <a :class="$style.root"
-    :selected="parentVM.router ? active : isSelected" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
+    :selected="parentVM.router && active" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
     :href="currentHref" :target="target" @click="parentVM.router ? onClick($event) : select($event)" v-on="listeners"
     v-ellipsis-title :has-sub="!!$slots.sub">
     <slot></slot>
