@@ -1,5 +1,7 @@
-export const LDocument = {
-    name: 'l-document',
+import LDocument from './index.vue';
+
+export {
+    LDocument,
 };
 
 export default LDocument;

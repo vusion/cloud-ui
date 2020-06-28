@@ -1,5 +1,7 @@
-export const LWrapper = {
-    name: 'l-wrapper',
+import LWrapper from './index.vue';
+
+export {
+    LWrapper,
 };
 
 export default LWrapper;

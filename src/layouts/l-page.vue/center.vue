@@ -1,3 +1,12 @@
+<template>
+<div :class="$style.root"><slot></slot></div>
+</template>
+
+<script>
+export default { name: 'l-page-center' };
+</script>
+
+<style module>
 .root {
     width: 960px;
     margin: 0 auto;
@@ -18,3 +27,4 @@
 .root[size="mini"] {
     width: 640px;
 }
+</style>

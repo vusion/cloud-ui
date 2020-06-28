@@ -1,3 +1,26 @@
+<template>
+<div :class="$style.root">
+    <header :class="$style.head">
+        <slot name="head"></slot>
+    </header>
+    <aside :class="$style.side">
+        <slot name="side"></slot>
+    </aside>
+    <main :class="$style.main">
+        <slot name="main">
+            <div :class="$style.content">
+                <slot></slot>
+            </div>
+        </slot>
+    </main>
+</div>
+</template>
+
+<script>
+export default { name: 'l-dashboard' };
+</script>
+
+<style module>
 .root {
     position: relative;
     left: 0;
@@ -39,3 +62,4 @@
     min-width: 1110px;
     padding: 40px;
 }
+</style>

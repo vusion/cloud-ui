@@ -1,5 +1,7 @@
-export const LDashboard = {
-    name: 'l-dashboard',
+import LDashboard from './index.vue';
+
+export {
+    LDashboard,
 };
 
 export default LDashboard;

@@ -1,3 +1,22 @@
+<template>
+<div :class="$style.root">
+    <header :class="$style.head">
+        <slot name="head"></slot>
+    </header>
+    <div :class="$style.body">
+        <slot></slot>
+    </div>
+    <footer :class="$style.foot">
+        <slot name="foot"></slot>
+    </footer>
+</div>
+</template>
+
+<script>
+export default { name: 'l-page' };
+</script>
+
+<style module>
 .root {
     position: relative;
     left: 0;
@@ -30,3 +49,4 @@
 .foot:empty {
     display: none;
 }
+</style>

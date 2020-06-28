@@ -1,8 +1,11 @@
-export const LPage = {
-    name: 'l-page',
-};
+import LPage from './index.vue';
+import LPageCenter from './center.vue';
+import LPageSection from './section.vue';
 
-export { LPageCenter } from './center.vue';
-export { LPageSection } from './section.vue';
+export {
+    LPage,
+    LPageCenter,
+    LPageSection,
+};
 
 export default LPage;

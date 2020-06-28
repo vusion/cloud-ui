@@ -1,5 +1,7 @@
-export const LSideMain = {
-    name: 'l-side-main',
+import LSideMain from './index.vue';
+
+export {
+    LSideMain,
 };
 
 export default LSideMain;

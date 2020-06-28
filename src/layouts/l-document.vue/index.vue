@@ -1,3 +1,26 @@
+<template>
+<div :class="$style.root">
+    <header :class="$style.head">
+        <slot name="head"></slot>
+    </header>
+    <aside :class="$style.side">
+        <slot name="side"></slot>
+    </aside>
+    <main :class="$style.main">
+        <slot name="main">
+            <div :class="$style.content">
+                <slot></slot>
+            </div>
+        </slot>
+    </main>
+</div>
+</template>
+
+<script>
+export default { name: 'l-document' };
+</script>
+
+<style module>
 .root {
     position: relative;
     left: 0;
@@ -36,3 +59,4 @@
     position: relative;
     padding: 30px 50px 50px;
 }
+</style>

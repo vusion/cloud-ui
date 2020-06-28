@@ -4,7 +4,7 @@
 <div style="position: relative; z-index: 1; height: 500px; overflow: hidden;">
     <l-document demo>
         <u-navbar slot="head">
-            <u-logo slot="left">演示</u-logo>
+            <s-logo slot="left">演示</s-logo>
             <u-navbar-item href="/">首页</u-navbar-item>
             <u-navbar-item href="https://vusion.github.io" target="_blank">Vusion</u-navbar-item>
             <u-navbar-item href="https://github.com/vusion/cloud-ui" target="_blank">组件库</u-navbar-item>

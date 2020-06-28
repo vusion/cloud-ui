@@ -1,3 +1,18 @@
+<template>
+<div :class="$style.root">
+    <a :class="$style.icon" v-bind="$attrs"></a>
+    <span v-if="$slots.default" :class="$style.divider"></span>
+    <span v-if="$slots.default" :class="$style.sub">
+        <slot></slot>
+    </span>
+</div>
+</template>
+
+<script>
+export default { name: 's-logo' };
+</script>
+
+<style module>
 .root {
     /* display: flex;
     align-items: center; */
@@ -27,3 +42,4 @@
     color: white;
     vertical-align: -1px;
 }
+</style>
