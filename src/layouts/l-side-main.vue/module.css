@@ -10,7 +10,7 @@
     position: absolute;
     left: 0;
     bottom: 0;
-    top: var(--navbar-height);
+    top: 0;
     width: var(--sidebar-width);
 }
 
