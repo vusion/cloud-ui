@@ -13,3 +13,9 @@
 ``` html
 <u-skeleton :paragraph="5"></u-skeleton>
 ```
+
+### 图片类型
+
+``` html { width: 50% }
+<u-skeleton type="image"></u-skeleton>
+```

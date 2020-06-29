@@ -2,6 +2,11 @@
   title: 骨架屏
   description: 加载内容时的占位图形。
   attrs:
+    - name: type
+      type: enum
+      options: [paragraph, image]
+      default: paragraph
+      description: 骨架屏类型
     - name: paragraph
       type: boolean | number
       default: true

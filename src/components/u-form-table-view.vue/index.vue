@@ -80,6 +80,10 @@ export default {
     width: 580px;
 }
 
+.root[size="full"] {
+    width: 100%;
+}
+
 .root[size="mini"] {
     width: auto;
 }

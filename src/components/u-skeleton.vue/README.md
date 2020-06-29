@@ -5,6 +5,7 @@
 - [示例](#示例)
     - [基本用法](#基本用法)
     - [修改段落行数](#修改段落行数)
+    - [图片类型](#图片类型)
 - [API]()
     - [Props/Attrs](#propsattrs)
 
@@ -27,10 +28,16 @@
 <u-skeleton :paragraph="5"></u-skeleton>
 ```
 
+### 图片类型
+
+``` html { width: 50% }
+<u-skeleton type="image"></u-skeleton>
+```
 ## API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| type | enum | `'paragraph'`, `'image'` | `'paragraph'` | 骨架屏类型 |
 | paragraph | boolean \| number |  | `true` | 默认为 3 行。可以修改行数，或者设置`false`关闭段落显示。 |
 

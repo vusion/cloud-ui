@@ -2510,6 +2510,14 @@
     "type": "boolean",
     "description": "是否禁用。禁用时无法展开/折叠"
   },
+  "u-skeleton/type": {
+    "type": "enum",
+    "options": [
+      "paragraph",
+      "image"
+    ],
+    "description": "骨架屏类型"
+  },
   "u-skeleton/paragraph": {
     "type": "boolean | number",
     "description": "默认为 3 行。可以修改行数，或者设置`false`关闭段落显示。"
