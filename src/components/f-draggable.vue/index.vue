@@ -47,9 +47,11 @@ export default {
         },
     },
     mounted() {
-        this.sourceEl = this.getSourceEl(); // 虽然 Vue 中一般子组件比父组件先 mounted，
+        this.sourceEl = this.getSourceEl();
+        // 虽然 Vue 中一般子组件比父组件先 mounted，
         // 但这里必须放到 mounted。不然可能在 v-if 的情况下出不来。。
-        /* eslint-disable consistent-this */ const parentVM = this;
+        // eslint-disable-next-line consistent-this
+        const parentVM = this;
         this.childVM = new Vue({
             name: 'f-draggable-child',
             parent: parentVM,
@@ -66,18 +68,15 @@ export default {
         this.childVM.$forceUpdate();
     },
     beforeDestroy() {
-        this.sourceEl
-            && this.sourceEl.removeEventListener('mousedown', this.onMouseDown);
+        this.sourceEl && this.sourceEl.removeEventListener('mousedown', this.onMouseDown);
         this.childVM = this.childVM && this.childVM.$destroy();
     },
     methods: {
         watchDisabled(disabled) {
             if (disabled)
-                this.sourceEl.removeAttribute
-                    && this.sourceEl.removeAttribute('draggable');
+                this.sourceEl && this.sourceEl.removeAttribute && this.sourceEl.removeAttribute('draggable');
             else
-                this.sourceEl.setAttribute
-                    && this.sourceEl.setAttribute('draggable', 'draggable');
+                this.sourceEl && this.sourceEl.setAttribute && this.sourceEl.setAttribute('draggable', 'draggable');
         },
         getSourceEl() {
             if (this.source instanceof HTMLElement)

@@ -8,7 +8,7 @@
         </div>
         <f-dragger :disabled="readonly || disabled" immediate
             axis="horizontal" :grid="grid"
-            source="offset-parent" range="offset-parent" range-mode="center"
+            source="parent" range="offset-parent" range-mode="center"
             @dragstart="onDragStart($event)"
             @drag="onDrag($event)">
             <div :class="$style.handle" ref="handle"></div>

@@ -42,8 +42,7 @@ export default {
         placement: {
             type: String,
             default: 'bottom-start',
-            validator: (value) =>
-                /^(top|bottom|left|right)(-start|-end)?$/.test(value),
+            validator: (value) => /^(top|bottom|left|right)(-start|-end)?$/.test(value),
         },
         hoverDelay: { type: Number, default: 0 },
         hideDelay: { type: Number, default: 100 },
@@ -95,17 +94,11 @@ export default {
                     followCursor.offsetX = -followCursor.offsetX;
                 if (this.placement === 'top' || this.placement === 'bottom')
                     followCursor.offsetX = 0;
-                if (
-                    this.placement === 'top-end'
-                    || this.placement === 'bottom-end'
-                )
+                if (this.placement === 'top-end' || this.placement === 'bottom-end')
                     followCursor.offsetX = -followCursor.offsetX;
                 if (this.placement === 'left' || this.placement === 'right')
                     followCursor.offsetY = 0;
-                if (
-                    this.placement === 'left-end'
-                    || this.placement === 'right-end'
-                )
+                if (this.placement === 'left-end' || this.placement === 'right-end')
                     followCursor.offsetY = -followCursor.offsetY;
                 return followCursor;
             }
@@ -131,7 +124,8 @@ export default {
              * 问题：现在的 popper 不支持动态改变 reference，导致 popper 的位置显示有问题
              * 解决方法：暂时在 popper.js 文档中未找到理想的解决方案，采取先删除 popper，再新创建 popper 的方法修复位置问题，
              * 后面需要研究下 popper.js 的源码
-             */ this.destroyTimer = clearTimeout(this.destroyTimer);
+             */
+            this.destroyTimer = clearTimeout(this.destroyTimer);
             this.destroyPopper();
             this.referenceEl = this.getReferenceEl();
             this.createPopper();
@@ -146,7 +140,8 @@ export default {
     },
     beforeDestroy() {
         this.destroyTimer = clearTimeout(this.destroyTimer);
-        this.destroyPopper(); // 取消绑定事件
+        this.destroyPopper();
+        // 取消绑定事件
         this.offEvents.forEach((off) => off());
         this.clearTimers();
     },
@@ -154,7 +149,8 @@ export default {
         getOptions() {
             const options = Object.assign({}, this.options, {
                 placement: this.placement,
-            }); // 自定义options 传入offset值情况
+            });
+            // 自定义options 传入offset值情况
             if (!options.modifiers.offset && this.offset) {
                 options.modifiers.offset = { offset: this.offset };
             }
@@ -212,119 +208,65 @@ export default {
         },
         /**
          * 添加触发器时，绑定事件
-         */ addTrigger(el, event) {
+         */
+        addTrigger(el, event) {
             const popperEl = this.$el; // @TODO: support directives
             const arr = event.split('.');
             event = arr[0];
             this.triggers.push({ el, event }); // 收集 setTimeout
             this.timers = this.timers || []; // 绑定事件
-            this.followCursor
-                && this.offEvents.push(
-                    single.on(
-                        'm-popper-proto',
-                        { el, self: this },
-                        document,
-                        'mousemove',
-                        (e, datas) => {
-                            Object.values(datas).forEach(({ el, self }) => {
-                                self.updatePositionByCursor(e, el);
-                            });
-                        },
-                    ),
-                );
-            if (event === 'click')
-                this.offEvents.push(
-                    ev.on(el, 'click', (e) => {
-                        if (arr[1] === 'stop')
-e.stopPropagation();
-                        else if (arr[1] === 'prevent')
-e.preventDefault();
-                        this.toggle();
-                        this.followCursor
-                            && this.$nextTick(() =>
-                                this.updatePositionByCursor(e, el),
-                            );
-                    }),
-                );
-            else if (event === 'hover') {
-                this.offEvents.push(
-                    ev.on(el, 'mouseenter', (e) => {
-                        this.clearTimers();
-                        this.timers[0] = setTimeout(() => {
-                            this.open();
-                            this.followCursor
-                                && this.$nextTick(() =>
-                                    this.updatePositionByCursor(e, el),
-                                );
-                        }, this.hoverDelay);
-                    }),
-                );
-                this.offEvents.push(
-                    ev.on(el, 'mouseleave', () => {
-                        this.clearTimers();
-                        this.timers[1] = setTimeout(
-                            () => this.close(),
-                            this.hideDelay,
-                        );
-                    }),
-                ); // 对 popper 元素增加事件，当鼠标移动到 popper 上时，元素不消失
-                this.offEvents.push(
-                    ev.on(popperEl, 'mouseenter', (e) => {
-                        this.clearTimers();
-                        this.timers[0] = setTimeout(
-                            () => this.open(),
-                            this.hoverDelay,
-                        );
-                    }),
-                );
-                this.offEvents.push(
-                    ev.on(popperEl, 'mouseleave', () => {
-                        this.clearTimers();
-                        this.timers[1] = setTimeout(
-                            () => this.close(),
-                            this.hideDelay,
-                        );
-                    }),
-                );
-            } else if (event === 'double-click')
-                this.offEvents.push(
-                    ev.on(el, 'dblclick', (e) => {
-                        this.toggle();
-                        this.followCursor
-                            && this.$nextTick(() =>
-                                this.updatePositionByCursor(e, el),
-                            );
-                    }),
-                );
-            else if (event === 'right-click') {
-                this.offEvents.push(
-                    ev.on(el, 'contextmenu', (e) => {
-                        e.preventDefault();
-                        this.toggle();
-                        this.followCursor
-                            && this.$nextTick(() =>
-                                this.updatePositionByCursor(e, el),
-                            );
-                    }),
-                );
-            } // @TODO: 有没有必要搞 focus-in
-            this.offEvents.push(
-                single.on(
-                    'm-popper-proto',
-                    { el, popperEl, self: this },
-                    document,
-                    'mousedown',
-                    (e, datas) => {
-                        Object.values(datas).forEach(
-                            ({ el, popperEl, self }) => {
-                                !el.contains(e.target)
-                                    && !popperEl.contains(e.target)
-                                    && self.close();
-                            },
-                        );
-                    },
-                ),
+            this.followCursor && this.offEvents.push(
+                single.on('m-popper-proto', { el, self: this }, document, 'mousemove', (e, datas) => {
+                    Object.values(datas).forEach(({ el, self }) => {
+                        self.updatePositionByCursor(e, el);
+                    });
+                }),
             );
+            if (event === 'click')
+                this.offEvents.push(ev.on(el, 'click', (e) => {
+                    if (arr[1] === 'stop')
+                        e.stopPropagation();
+                    else if (arr[1] === 'prevent')
+                        e.preventDefault();
+                    this.toggle();
+                    this.followCursor && this.$nextTick(() => this.updatePositionByCursor(e, el));
+                }));
+            else if (event === 'hover') {
+                this.offEvents.push(ev.on(el, 'mouseenter', (e) => {
+                    this.clearTimers();
+                    this.timers[0] = setTimeout(() => {
+                        this.open();
+                        this.followCursor && this.$nextTick(() => this.updatePositionByCursor(e, el));
+                    }, this.hoverDelay);
+                }));
+                this.offEvents.push(ev.on(el, 'mouseleave', () => {
+                    this.clearTimers();
+                    this.timers[1] = setTimeout(() => this.close(), this.hideDelay);
+                }));
+                // 对 popper 元素增加事件，当鼠标移动到 popper 上时，元素不消失
+                this.offEvents.push(ev.on(popperEl, 'mouseenter', (e) => {
+                    this.clearTimers();
+                    this.timers[0] = setTimeout(() => this.open(), this.hoverDelay);
+                }));
+                this.offEvents.push(ev.on(popperEl, 'mouseleave', () => {
+                    this.clearTimers();
+                    this.timers[1] = setTimeout(() => this.close(), this.hideDelay);
+                }));
+            } else if (event === 'double-click')
+                this.offEvents.push(ev.on(el, 'dblclick', (e) => {
+                    this.toggle();
+                    this.followCursor && this.$nextTick(() => this.updatePositionByCursor(e, el));
+                }));
+            else if (event === 'right-click') {
+                this.offEvents.push(ev.on(el, 'contextmenu', (e) => {
+                    e.preventDefault();
+                    this.toggle();
+                    this.followCursor && this.$nextTick(() => this.updatePositionByCursor(e, el));
+                }));
+            } // @TODO: 有没有必要搞 focus-in
+            this.offEvents.push(single.on('m-popper-proto', { el, popperEl, self: this }, document, 'mousedown', (e, datas) => {
+                Object.values(datas).forEach(({ el, popperEl, self }) => !el.contains(e.target) && !popperEl.contains(e.target) && self.close());
+            }));
         },
         createPopper() {
             const referenceEl = this.referenceEl;
@@ -346,21 +288,17 @@ e.preventDefault();
             const referenceEl = this.referenceEl;
             const popperEl = this.$el;
             if (this.appendTo === 'body')
-                popperEl.parentElement === document.body
-                    && document.body.removeChild(popperEl);
+                popperEl.parentElement === document.body && document.body.removeChild(popperEl);
             else if (this.appendTo === 'reference')
-                popperEl.parentElement === referenceEl
-                    && referenceEl.removeChild(popperEl);
+                popperEl.parentElement === referenceEl && referenceEl.removeChild(popperEl);
             this.popper && this.popper.destroy();
             this.popper = undefined;
         },
         /**
          * 添加延时 DOM 销毁操作，保障动画效果
-         */ delayDestroyPopper() {
-            this.destroyTimer = setTimeout(
-                () => this.destroyPopper(),
-                this.hideDelay,
-            );
+         */
+        delayDestroyPopper() {
+            this.destroyTimer = setTimeout(() => this.destroyPopper(), this.hideDelay);
         },
         updatePositionByCursor(e, el) {
             // @TODO: 两种 offset 属性有些冗余
