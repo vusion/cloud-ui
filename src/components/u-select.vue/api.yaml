@@ -129,12 +129,17 @@
   slots:
     - name: default
       description: 插入`<u-select-item>`、`<u-select-divider>`或`<u-select-group>`子组件。
-      accept-type: all
+      accept-type: recommanded
       recommanded:
         - name: u-select-item
+          title: 选项
           snippet: '<u-select-item>选项</u-select-item>'
         - name: u-select-group
+          title: 分组
+          snippet: '<u-select-group title="分组"><u-select-item>选项</u-select-item></u-select-group>'
         - name: u-select-divider
+          title: 分隔线
+          snippet: '<u-select-divider></u-select-divider>'
   events:
     - name: before-select
       title: 选择前
@@ -345,6 +350,10 @@
     - name: default
       title: 默认
       description: 插入`<u-select-item>`或`<u-select-divider>`子组件。
+      recommanded:
+        - name: u-select-item
+          title: 选项
+          snippet: '<u-select-item>选项</u-select-item>'
     - name: title
       title: 标题
       description: 自定义标题文本。

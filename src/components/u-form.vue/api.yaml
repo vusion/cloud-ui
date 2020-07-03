@@ -55,8 +55,11 @@
   slots:
     - name: default
       description: 插入`<u-form-item>`子组件。
-      accept-type: all
-      recommanded: [u-form-item]
+      accept-type: recommanded
+      recommanded: 
+        - name: u-form-item
+          title: 表单项
+          snippet: '<u-form-item label="表单项"></u-form-item>'
   events:
     - name: validate
       title: 验证后
@@ -193,6 +196,10 @@
     - name: default
       title: 默认
       description: 插入文本或 HTML。
+      recommanded:
+        - name: u-input
+          title: 单行输入框
+          snippet: '<u-input></u-input>'
     - name: label
       title: 标签自定义
       description: 插入自定义标签，代替`label`属性。

@@ -51,9 +51,10 @@
     - name: default
       title: 默认
       description: 插入`<u-tab>`子组件。
-      accept-type: all
+      accept-type: recommanded
       recommanded:
         - name: u-tab
+          title: 选项
           snippet: '<u-tab title="标签页"></u-tab>'
     - name: extra
       title: 右侧附加

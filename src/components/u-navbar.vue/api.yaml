@@ -26,6 +26,14 @@
   slots:
     - name: default
       description: 中部区域，可插入`<u-navbar-item>`、`<u-navbar-divider>`等子组件，或其他 HTML。
+      accept-type: recommanded
+      recommanded: 
+        - name: u-navbar-item
+          title: 导航项
+          snippet: '<u-navbar-item>导航项</u-navbar-item>'
+        - name: u-navbar-divider
+          title: 分隔线
+          snippet: '<u-navbar-divider></u-navbar-divider>'
     - name: left
       description: 左部区域。
     - name: right

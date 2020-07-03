@@ -10,8 +10,14 @@
   slots:
     - name: default
       description: 插入`<u-desc-list-item>`或`<u-desc-list-group>`子组件。
-      accept-type: all
-      recommanded: [u-desc-list-group, u-desc-list-item]
+      accept-type: recommanded
+      recommanded:
+        - name: u-desc-list-group
+          title: 描述列表组,
+          snippet: '<u-desc-list-group title="描述列表组"><u-desc-list-item label="描述项"></u-desc-list-item></u-desc-list-group>'
+        - name: u-desc-list-item
+          title: 描述项,
+          snippet: '<u-desc-list-item label="描述项"></u-desc-list-item>'
 - name: u-desc-list-group
   accept-parent: [u-desc-list]
   title: 描述列表组
@@ -27,8 +33,11 @@
   slots:
     - name: default
       description: 插入`<u-desc-list-item>`子组件
-      accept-type: all
-      recommanded: [u-desc-list-item]
+      accept-type: recommanded
+      recommanded:
+        - name: u-desc-list-item
+          title: 描述项,
+          snippet: '<u-desc-list-item label="描述项"></u-desc-list-item>'
 - name: u-desc-list-item
   accept-parent: [u-desc-list, u-desc-list-group]
   title: 描述列表项

@@ -231,9 +231,10 @@
     - name: default
       title: 默认
       description: 在表格中插入`<u-table-view-column>`子组件。
-      accept-type: all
+      accept-type: recommanded
       recommanded:
         - name: u-table-view-column
+          title: 表格列
           snippet: '<u-table-view-column title="表格列"></u-table-view-column>'
     - name: loading
       title: 加载中内容
