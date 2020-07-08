@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" ref="root" :border="border">
-    <div v-if="title" :class="$style.title" ref="title" :style="{ textAlign: titleAlignment }">
+    <div v-if="title" :class="$style.title" ref="title" :style="{ textAlign: titleAlignment }" vusion-slot-name="title">
         <slot name="title">{{ title }}</slot>
     </div>
     <div :class="$style.table" v-for="tableMeta in tableMetaList" :key="tableMeta.position" :position="tableMeta.position"
@@ -23,7 +23,7 @@
                         <!-- Normal title -->
                         <template>
                             <f-slot name="title" :vm="columnVM" :props="{ columnVM, columnIndex }">
-                                <span>{{ columnVM.title }}</span>
+                                <span vusion-slot-name="title" :class="$style.columnTitle">{{ columnVM.title }}</span>
                             </f-slot>
                         </template>
                         <!-- Sortable -->
@@ -71,13 +71,13 @@
                                     <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click="toggleExpanded(item)"></span>
                                     <!-- Normal text -->
                                     <f-slot name="cell" :vm="columnVM" :props="{ item, value: item[columnVM.field], columnVM, rowIndex, columnIndex, index: rowIndex }">
-                                        <span v-if="columnVM.field">{{ columnVM.currentFormatter.format(item[columnVM.field]) }}</span>
+                                        <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style.columnField">{{ columnVM.currentFormatter.format(item[columnVM.field]) }}</span>
                                     </f-slot>
                                 </td>
                             </tr>
                             <tr :class="$style['expand-content']" v-if="expanderColumnVM && item.expanded">
                                 <f-collapse-transition>
-                                    <td :colspan="visibleColumnVMs.length" :class="$style['expand-td']" v-show="item.expanded">
+                                    <td :colspan="visibleColumnVMs.length" :class="$style['expand-td']" v-show="item.expanded" vusion-slot-name="expand-content">
                                         <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: item[expanderColumnVM.field], columnVM: expanderColumnVM, rowIndex, index: rowIndex }"></f-slot>
                                     </td>
                                 </f-collapse-transition>
@@ -85,12 +85,12 @@
                         </template>
                     </template>
                     <tr key="loading" v-if="(currentData === undefined && !currentError) || currentLoading"><!-- 初次加载与加载更多 loading 合并在一起 -->
-                        <td :class="$style.center" :colspan="visibleColumnVMs.length">
+                        <td :class="$style.center" :colspan="visibleColumnVMs.length" vusion-slot-name="loading">
                             <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
                         </td>
                     </tr>
                     <tr key="error" v-else-if="currentData === null || currentError">
-                        <td :class="$style.center" :colspan="visibleColumnVMs.length">
+                        <td :class="$style.center" :colspan="visibleColumnVMs.length" vusion-slot-name="error">
                             <slot name="error">{{ errorText }}</slot>
                         </td>
                     </tr>
@@ -105,7 +105,7 @@
                         </td>
                     </tr>
                     <tr key="empty" v-else-if="!currentData.length">
-                        <td :class="$style.center" :colspan="visibleColumnVMs.length">
+                        <td :class="$style.center" :colspan="visibleColumnVMs.length" vusion-slot-name="empty">
                             <slot name="empty">{{ emptyText }}</slot>
                         </td>
                     </tr>
@@ -1119,4 +1119,6 @@ export default {
 .expand-td {
     /* transition: $transition-duration height ease-in-out, $transition-duration padding-top ease-in-out, $transition-duration padding-bottom ease-in-out; */
 }
+.columnTitle{}
+.columnField{}
 </style>

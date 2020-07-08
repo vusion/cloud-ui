@@ -539,6 +539,11 @@
     - name: default
       title: 默认
       accept-type: all
+      recommanded:
+        - name: cellSlot
+          title: 表格列
+          snippet: '<template #cell="{ item }"></template>'
+          type: slot
     - name: cell
       description: 对单元格的数据展示进行自定义。
       props:
@@ -562,9 +567,20 @@
           title: 列索引
           type: number
           description: 列的索引。
+      accept-type: all
+      recommanded:
+        - name: cellSlot
+          title: 表格列
+          snippet: '<template #cell="{ item }"></template>'
+          type: slot
     - name: title
       title: 标题
       accept-type: all
+      recommanded:
+        - name: cellSlot
+          title: 列表达式
+          snippet: '<template #cell="{ item }"></template>'
+          type: slot
       description: 对标题进行自定义。
       props:
         - name: columnVM
