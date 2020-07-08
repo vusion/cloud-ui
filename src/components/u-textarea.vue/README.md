@@ -12,6 +12,7 @@
     - [设置大小](#设置大小)
 - [API]()
     - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
     - [Events](#events)
     - [Methods](#methods)
 
@@ -133,6 +134,12 @@ export default {
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | resize | string |  | `'none'` | 是否可以调整大小。可选值：`'none'`、`'both'`、`'horizontal'`、`'vertical'` |
+
+### Slots
+
+#### (default)
+
+插入 HTML 或 `Component`, 可展示额外内容。
 
 ### Events
 

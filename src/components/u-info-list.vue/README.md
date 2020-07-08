@@ -168,7 +168,7 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | repeat | string,number |  | `3` | 整个详情列表的划分列数 |
-| label-size | string |  | `'auto'` | 标签大小。可选值：`small`、`normal`、`large`、`auto` |
+| label-size | enum | `'small'`, `'normal'`, `'large'`, `'auto'` | `'auto'` | 详情列表所有项的标签大小。 |
 
 ### Slots
 
@@ -182,8 +182,8 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | label | string |  |  | 标签 |
-| span | string |  |  | 列跨越的列数 |
-| label-size | string |  | `'auto'` | 标签大小。可选值：`small`、`normal`、`large`、`auto` |
+| span | string |  |  | 列跨越的格数 |
+| label-size | enum | `'small'`, `'normal'`, `'large'`, `'auto'` | `'auto'` | 标签大小。 |
 | ellipsis | boolean |  | `false` | 是否换行，默认换行，值为`true`则开启不换行，超出部分显示为省略号 |
 
 ### Slots
@@ -203,7 +203,7 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | title | string |  |  | 标题 |
 | repeat | string,number |  | `3` | 当前组范围内的划分列数 |
-| label-size | string |  | `'auto'` | 标签大小。可选值：`small`、`normal`、`large`、`auto` |
+| label-size | enum | `'small'`, `'normal'`, `'large'`, `'auto'` | `'auto'` | 当前组所有项的标签大小。 |
 
 ### Slots
 

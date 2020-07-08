@@ -1487,8 +1487,14 @@
     "description": "整个详情列表的划分列数"
   },
   "u-info-list/label-size": {
-    "type": "string",
-    "description": "标签大小。可选值：`small`、`normal`、`large`、`auto`"
+    "type": "enum",
+    "options": [
+      "small",
+      "normal",
+      "large",
+      "auto"
+    ],
+    "description": "详情列表所有项的标签大小。"
   },
   "u-info-list-item/label": {
     "type": "string",
@@ -1496,11 +1502,17 @@
   },
   "u-info-list-item/span": {
     "type": "string",
-    "description": "列跨越的列数"
+    "description": "列跨越的格数"
   },
   "u-info-list-item/label-size": {
-    "type": "string",
-    "description": "标签大小。可选值：`small`、`normal`、`large`、`auto`"
+    "type": "enum",
+    "options": [
+      "small",
+      "normal",
+      "large",
+      "auto"
+    ],
+    "description": "标签大小。"
   },
   "u-info-list-item/ellipsis": {
     "type": "boolean",
@@ -1518,8 +1530,14 @@
     "description": "当前组范围内的划分列数"
   },
   "u-info-list-group/label-size": {
-    "type": "string",
-    "description": "标签大小。可选值：`small`、`normal`、`large`、`auto`"
+    "type": "enum",
+    "options": [
+      "small",
+      "normal",
+      "large",
+      "auto"
+    ],
+    "description": "当前组所有项的标签大小。"
   },
   "u-input/type": {
     "type": "enum",

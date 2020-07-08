@@ -2,57 +2,71 @@
   title: 详情列表
   attrs:
     - name: repeat
+      title: 列数
       type: [string, number]
       default: 3
       description: 整个详情列表的划分列数
     - name: label-size
-      type: string
+      title: 标签大小
+      type: enum
+      options: [small, normal, large, auto]
       default: auto
-      description: 标签大小。可选值：`small`、`normal`、`large`、`auto`
+      description: 详情列表所有项的标签大小。
   slots:
     - name: default
+      title: 默认
       description: 插入`<u-info-list-item>`或`<u-info-list-group>`子组件。
 - name: u-info-list-item
   attrs:
     - name: label
+      title: 标签
       type: string
-      default: null
       description: 标签
     - name: span
+      title: 占据数
       type: string
-      default: null
-      description: 列跨越的列数
+      description: 列跨越的格数
     - name: label-size
-      type: string
+      type: enum
+      options: [small, normal, large, auto]
       default: auto
-      description: 标签大小。可选值：`small`、`normal`、`large`、`auto`
+      description: 标签大小。
     - name: ellipsis
+      title: 是否换行
       type: boolean
       default: false
       description: 是否换行，默认换行，值为`true`则开启不换行，超出部分显示为省略号
   slots:
     - name: default
+      title: 默认
       description: 插入文本或HTML。
     - name: label
+      title: 自定义标签内容
       description: 用于自定义 label 内容。
 - name: u-info-list-group
   attrs:
     - name: title
+      title: 标签
       type: string
-      default: null
       description: 标题
     - name: repeat
+      title: 列数
       type: [string, number]
       default: 3
       description: 当前组范围内的划分列数
     - name: label-size
-      type: string
+      title: 标签大小
+      type: enum
+      options: [small, normal, large, auto]
       default: auto
-      description: 标签大小。可选值：`small`、`normal`、`large`、`auto`
+      description: 当前组所有项的标签大小。
   slots:
     - name: default
+      title: 默认
       description: 插入`<u-info-list-item>`子组件
     - name: title
+      title: 自定义标题
       description: 自定义标题。
     - name: extra
+      title: 自定义额外操作项
       description: 自定义额外操作项。

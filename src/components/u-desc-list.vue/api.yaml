@@ -52,5 +52,6 @@
       description: 该项的标签大小。
   slots:
     - name: default
+      title: 默认
       description: 插入文本或HTML。
       accept-type: all
