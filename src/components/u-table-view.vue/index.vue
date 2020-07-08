@@ -56,7 +56,9 @@
                     <template v-if="(!currentLoading && !currentError || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
                         <template v-for="(item, rowIndex) in currentData">
                             <tr :key="rowIndex" :class="$style.row" :color="item.rowColor" :selected="selectable && selectedItem === item" @click="selectable && select(item)">
-                                <td :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title>
+                                <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title
+                                :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
+                                :vusion-node-path="columnVM.$attrs['vusion-node-path']">
                                     <!-- type === 'index' -->
                                     <span v-if="columnVM.type === 'index'">{{ columnVM.startIndex + rowIndex }}</span>
                                     <!-- type === 'radio' -->
@@ -210,6 +212,13 @@ export default {
     },
     computed: {
         currentData() {
+            setTimeout(()=>{
+                this.$refs.td
+                    && this.$refs.td.forEach((tdEl, index) => {
+                        const length = this.columnVMs.length;
+                        tdEl.__vue__ = this.columnVMs[index % length];
+                    });
+            });
             return this.currentDataSource ? this.currentDataSource.viewData : this.currentDataSource;
         },
         visibleColumnVMs() {
