@@ -129,6 +129,7 @@
           type: boolean
           description: 展开/折叠
 - name: u-sidebar-item
+  title: 导航项
   attrs:
     - name: value
       type: any
@@ -220,6 +221,7 @@
           type: Vue
           description: 发送事件实例
 - name: u-sidebar-group
+  title: 导航分组
   attrs:
     - name: title
       type: string
@@ -281,3 +283,4 @@
           type: Vue
           description: 发送事件实例
 - name: u-sidebar-divider
+  title: 分隔线

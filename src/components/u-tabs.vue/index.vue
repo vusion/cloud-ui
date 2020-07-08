@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root" :disabled="disabled" :appear="appear" :size="size">
     <div :class="$style.head">
-        <span :class="$style.extra"><slot name="extra"></slot></span>
+        <span :class="$style.extra" vusion-slot-name="extra"><slot name="extra"></slot></span>
         <nav :class="$style.nav" :scrollable="showScrollButtons === 'always' || (showScrollButtons === 'auto' && scrollable)">
             <span :class="$style.prev" @click="scrollPrev"></span>
             <div ref="scrollView" :class="$style['scroll-view']">
@@ -17,7 +17,7 @@
                         :style="{ width: currentItemWidth }"
                         :width-fixed="!!currentItemWidth"
                         @click="onClick(itemVM, $event)">
-                        <span :class="$style.title"><f-slot :vm="itemVM" name="title">{{ itemVM.title }}</f-slot></span>
+                        <span :class="$style.title" vusion-slot-name="title"><f-slot :vm="itemVM" name="title">{{ itemVM.title }}</f-slot></span>
                         <span v-if="closable" :class="$style.close" @click.stop="close(itemVM)"></span>
                     </a>
                 </div>

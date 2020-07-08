@@ -1,14 +1,14 @@
 <template>
 <div :class="$style.root" :disabled="disabled">
     <div :class="$style.head" :selected="selected" @click="parentVM.expandTrigger === 'click' && toggle()" :title="title">
-        <div :class="$style.title">
+        <div :class="$style.title" vusion-slot-name="title">
             <slot name="title">{{ title }}</slot>
         </div>
         <span v-if="currentCollapsible" :class="$style.expander"
             :expanded="currentExpanded"
             @click="parentVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"
         ></span>
-        <span :class="$style.extra"><slot name="extra"></slot></span>
+        <span :class="$style.extra" vusion-slot-name="extra"><slot name="extra"></slot></span>
     </div>
     <f-collapse-transition>
         <div :class="$style.body" v-show="currentCollapsible ? currentExpanded : true">
@@ -137,4 +137,10 @@ export default {
 }
 
 .body {}
+.title {}
+.extra {
+    position: absolute;
+    right: 5px;
+    top: 0;
+}
 </style>
