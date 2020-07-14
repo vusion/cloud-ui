@@ -2,38 +2,47 @@
   title: 工具提示
   attrs:
     - name: opened.sync
+      title: 弹出关闭状态
       type: boolean
       default: false
       description: 弹出/关闭状态
     - name: trigger
+      title: 触发方式
       type: string
       default: hover
       description: 工具提示的触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`,
         `'manual'`
     - name: placement
+      title: 弹出方向
       type: string
       default: bottom
       description: 工具提示的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`,
         `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',`
         'left-end'`, `'right-start'`, `'right-end'`
     - name: hide-delay
+      title: 延迟时间
       type: number
       default: 200
       description: 提示内容消失延迟时间，单位是 ms
     - name: offset
+      title: 弹出层偏移
       type: string
       default: "0"
       description: 弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px`
     - name: follow-cursor
+      title: 跟随鼠标
       type: boolean, number, object
       default: false
       description: 是否跟随鼠标
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
       description: 是否禁用
     - name: size
-      type: string
+      title: 尺寸
+      type: size
+      options: [small, normal, large]
       default: normal
       description: 大小扩展，支持一个值： `'small'`, `'normal'`, `'large'`,
         `'auto'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式
@@ -48,6 +57,7 @@
       description: 自定义内容文本。
   events:
     - name: before-open
+      title: 弹出前
       description: 弹出前触发。
       params:
         - name: $event.preventDefault
@@ -57,6 +67,7 @@
           type: UTooltip
           description: 发送事件实例
     - name: open
+      title: 弹出后
       description: 弹出时触发。
       params:
         - name: $event
@@ -66,6 +77,7 @@
           type: UTooltip
           description: 发送事件实例
     - name: before-close
+      title: 关闭前
       description: 隐藏前触发。
       params:
         - name: $event.preventDefault
@@ -75,6 +87,7 @@
           type: UTooltip
           description: 发送事件实例
     - name: close
+      title: 关闭后
       description: 隐藏时触发。
       params:
         - name: $event
@@ -84,9 +97,11 @@
           type: UTooltip
           description: 发送事件实例
     - name: before-toggle
+      title: 弹出关闭前
       description: "@deprecated"
       params: []
     - name: toggle
+      title: 弹出关闭后
       description: "@deprecated"
       params: []
   methods:

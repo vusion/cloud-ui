@@ -3,72 +3,89 @@
   description: 双栏穿梭选择框，常用于将多个项目从一边移动到另一边。
   attrs:
     - name: source
+      title: 原数据列表
       type: Array<{ text, value }>
       sync: true
       default: null
       description: 原数据列表
     - name: target
+      title: 目标数据列表
       type: Array<{ text, value }>
       sync: true
       default: null
       description: 目标数据列表
     - name: text-field
+      title: 文本字段
       type: string
       default: text
       description: 选项文本的字段名
     - name: value-field
+      title: 值字段
       type: string
       default: value
       description: 选项值的字段名
     - name: show-head
+      title: 显示头部
       type: boolean
       default: false
       description: 是否显示头部
     - name: source-title
+      title: 左侧列表标题
       type: string
       default: 列表
       description: 左侧列表标题
     - name: target-title
+      title: 右侧列表标题
       type: string
       default: 列表
       description: 右侧列表标题
     - name: show-foot
+      title: 显示尾部
       type: boolean
       default: false
       description: 是否显示尾部
     - name: filterable
+      title: 过滤
       type: boolean
       default: false
       description: 是否可以过滤（搜索），开启将会显示搜索框。
     - name: placeholder
+      title: 占位符
       type: string
       default: 请输入
       description: 搜索框的占位符
     - name: clearable
+      title: 清除
       type: boolean
       default: false
       description: 搜索框是否有清除按钮
     - name: match-method
+      title: 过滤匹配方法
       type: string, Function
       default: includes
       description: 过滤时的匹配方法
     - name: case-sensitive
+      title: 大小写敏感
       type: string, Function
       default: includes
       description: 过滤时大小写是否敏感
     - name: pageable
+      title: 分页
       type: boolean
       default: false
       description: 是否需要分页
     - name: page-size
+      title: 分页大小
       type: number
       default: 50
       description: 分页大小
     - name: readonly
+      title: 只读
       type: boolean
       default: false
       description: 是否只读
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
       description: 是否禁用
@@ -79,6 +96,7 @@
       description: 自定义选项的结构和样式
   events:
     - name: transfer
+      title: 数据转移时
       description: 数据转移时触发
       params:
         - name: $event.source
@@ -97,6 +115,7 @@
           type: UTransfer
           description: 发送事件实例
     - name: change
+      title: 改变后
       description: 数据改变时触发
       params:
         - name: $event.source

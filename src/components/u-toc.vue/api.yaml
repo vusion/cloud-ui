@@ -4,10 +4,12 @@
   description: 用于展示文档的目录，支持路由监听、多级目录等功能。
   attrs:
     - name: router
+      title: 绑定路由
       type: boolean
       default: true
       description: 是否根据 vue-router 来控制选择哪一项
     - name: value.sync, v-model
+      title: 值
       type: any
       default: null
       description: 当前选择的值
@@ -16,6 +18,7 @@
       description: 插入`<u-toc-item>`子组件。
   events:
     - name: before-select
+      title: 选择前
       description: 选择某一项前触发
       params:
         - name: $event.value
@@ -37,6 +40,7 @@
           type: UToc
           description: 发送事件实例
     - name: input
+      title: 输入时
       description: 选择某一项时触发
       params:
         - name: $event
@@ -46,6 +50,7 @@
           type: UToc
           description: 发送事件实例
     - name: select
+      title: 选择后
       description: 选择某一项时触发
       params:
         - name: $event.value
@@ -72,44 +77,54 @@
 - name: u-toc-item
   attrs:
     - name: label
+      title: 标签
       type: string
       default: null
       description: 此项显示的文本
     - name: value
+      title: 值
       type: any
       default: null
       description: 此项的值
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
       description: 禁用此项
     - name: item
+      title: 相关对象
       type: object
       default: null
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
     - name: href
+      title: 链接地址
       type: string
       default: null
       description: 链接地址
     - name: target
+      title: 打开方式
       type: string
       default: null
       description: 打开方式
     - name: to
+      title: 目标地址
       type: string, Location
       default: null
       description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
     - name: replace
+      title: 替换
       type: boolean
       default: false
       description: 需要
         vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history
         `记录。
     - name: exact
+      title: 精确匹配
       type: boolean
       default: true
       description: 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
     - name: exact
+      title: 精确匹配
       type: boolean
       default: true
       description: 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
@@ -118,6 +133,7 @@
       description: 插入`<u-toc-item>`子组件。
   events:
     - name: click
+      title: 点击
       description: 点击此项时触发，与原生 click 事件不同的是，它只会在非只读和禁用的情况下触发。
       params:
         - name: $event
@@ -127,6 +143,7 @@
           type: UTocItem
           description: 发送事件实例
     - name: before-select
+      title: 选择前
       description: 选择此项前触发
       params:
         - name: $event.value
@@ -145,6 +162,7 @@
           type: UTocItem
           description: 发送事件实例
     - name: before-navigate
+      title: 导航前
       description: 使用 router 相关属性切换路由前触发
       params:
         - name: $event.to
@@ -163,6 +181,7 @@
           type: UTocItem
           description: 发送事件实例
     - name: navigate
+      title: 导航后
       description: 使用router相关属性切换路由时触发
       params:
         - name: $event.to

@@ -4,21 +4,25 @@
   description: 用于在业务中快速调整文本尺寸、颜色等特性。
   attrs:
     - name: color
+      title: 颜色
       type: enum
       options: [default, primary, secondary, success, warning, error, disabled]
       default: default
       description: 设置颜色。
     - name: size
+      title: 尺寸
       type: enum
       options: [small, normal, large, huge]
       default: normal
       description: 设置尺寸。
     - name: display
+      title: 展示方式
       type: string
       options: [inline, block]
       default: inline
       description: 展示方式。
     - name: overflow
+      title: 隐藏处理
       type: string
       options: [normal, ellipsis, break, nowrap]
       default: normal

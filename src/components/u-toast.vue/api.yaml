@@ -2,32 +2,39 @@
   title: 吐司提示
   attrs:
     - name: position
+      title: 位置
       type: string
       default: top-center
       description: 显示的位置，可选值：`'top-center'`, `'top-left'`, `'top-right'`,
         `'bottom-center'`, `'bottom-left'`, `'bottom-right'`, `static`
     - name: duration
+      title: 停留时间
       type: number
       default: 2000
       description: 提示停留的时间。`0`表示常驻。
     - name: single
+      title: 合并
       type: boolean
       default: false
       description: 多个提示会合并为一个
     - name: text
+      title: 提示内容
       type: string
       default: ""
       description: 默认提示内容
     - name: color
+      title: 颜色
       type: string
       default: default
       description: 提示的颜色
     - name: closable
+      title: 关闭提示
       type: boolean
       default: false
       description: 是否可以关闭提示
   events:
     - name: open
+      title: 弹出后
       description: 弹出提示时触发
       params:
         - name: $event.text
@@ -43,6 +50,7 @@
           type: UToast
           description: 发送事件实例
     - name: before-close
+      title: 关闭前
       description: 关闭提示前触发
       params:
         - name: $event.text
@@ -61,6 +69,7 @@
           type: UToast
           description: 发送事件实例
     - name: close
+      title: 关闭后
       description: 关闭提示时触发
       params:
         - name: $event.text

@@ -3,14 +3,17 @@
   labels: [块级展示]
   attrs:
     - name: value.sync, v-model
+      title: 值
       type: number
       default: 0
       description: 当前步骤数
     - name: readonly
+      title: 只读
       type: boolean
       default: false
       description: 是否只读。非只读的情况下可以选择
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
       description: 是否禁用
@@ -19,6 +22,7 @@
       description: 插入`<u-step>`子组件。
   events:
     - name: before-select
+      title: 选择前
       description: 选择某一步骤前触发
       params:
         - name: $event.value
@@ -40,6 +44,7 @@
           type: USteps
           description: 发送事件实例
     - name: select
+      title: 选择后
       description: 选择某一步骤时触发
       params:
         - name: $event.value
@@ -60,6 +65,7 @@
 - name: u-step
   attrs:
     - name: title
+      title: 标题
       type: string
       default: null
       description: 步骤名

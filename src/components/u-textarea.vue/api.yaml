@@ -4,50 +4,62 @@
   description: 多行输入组件，在原生`<textarea>`控件基础上进行了一些功能扩展。
   attrs:
     - name: value
+      title: 值
       type: string
       default: null
       description: 输入框的值
     - name: value.sync, v-model
+      title: 值同步
       type: string
       default: null
       description: 输入框的值
     - name: default-value.sync, v-model
+      title: 默认值
       type: string
       default: null
       description: 默认值。即 reset 方法恢复的值。
     - name: clearable
+      title: 清空
       type: boolean
       default: null
       description: 是否可清空。开启并在输入框有内容时会显示清空按钮。
     - name: placeholder
+      title: 占位符
       type: string
       default: null
       description: 原生属性。对 IE9 做了兼容。
     - name: minlength
+      title: 最小长度
       type: number
       default: null
       description: 原生属性
     - name: maxlength
+      title: 最大长度
       type: number
       default: null
       description: 原生属性
     - name: spellcheck
+      title: 拼写检查
       type: boolean
       default: null
       description: 原生属性
     - name: autofocus
+      title: 自动聚焦
       type: boolean
       default: null
       description: 是否自动获取焦点
     - name: readonly
+      title: 只读
       type: boolean
       default: false
       description: 是否只读
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
       description: 是否禁用
     - name: resize
+      title: 调整大小
       type: string
       default: none
       description: 是否可以调整大小。可选值：`'none'`、`'both'`、`'horizontal'`、`'vertical'`
@@ -58,6 +70,7 @@
       quick-add: never
   events:
     - name: before-input
+      title: 输入前
       description: 输入前触发。可以在这个阶段阻止输入，或者修改输入的值 $event.value
       params:
         - name: $event.oldValue
@@ -73,6 +86,7 @@
           type: UInput
           description: 发送事件实例
     - name: input
+      title: 输入时
       description: 输入时触发。
       params:
         - name: $event
@@ -82,6 +96,7 @@
           type: UTextarea
           description: 发送事件实例
     - name: change
+      title: 改变后
       description: 值变化时触发。（注意：与原生事件不同）
       params:
         - name: $event.value
@@ -94,6 +109,7 @@
           type: UTextarea
           description: 发送事件实例
     - name: focus
+      title: 聚焦后
       description: 获得焦点时触发。
       params:
         - name: $event
@@ -103,6 +119,7 @@
           type: UTextarea
           description: 发送事件实例
     - name: blur
+      title: 失焦后
       description: 失去焦点时触发。
       params:
         - name: $event
@@ -112,6 +129,7 @@
           type: UTextarea
           description: 发送事件实例
     - name: before-clear
+      title: 清空前
       description: 清空前触发。
       params:
         - name: $event.value
@@ -127,6 +145,7 @@
           type: UTextarea
           description: 发送事件实例
     - name: clear
+      title: 清空后
       description: 清空时触发。
       params:
         - name: $event.value

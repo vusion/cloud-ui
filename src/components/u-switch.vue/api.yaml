@@ -3,18 +3,22 @@
   labels: [表单控件, 行内展示]
   attrs:
     - name: value
+      title: 值
       type: boolean
       default: false
       description: 开关状态
     - name: readonly
+      title: 只读
       type: boolean
       default: false
       description: 是否只读
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
       description: 是否禁用
     - name: with-text
+      title: 显示开关文字
       type: boolean
       default: false
       description: 是否显示开关`ON`和`OFF`文字
@@ -23,6 +27,7 @@
     - description: 插入文本或HTML
   events:
     - name: before-toggle
+      title: 切换状态前
       description: 切换开关状态前触发
       params:
         - name: $event.value
@@ -38,6 +43,7 @@
           type: USwitch
           description: 发送事件实例
     - name: input
+      title: 输入时
       description: 切换开关状态时触发
       params:
         - name: $event
@@ -47,6 +53,7 @@
           type: USwitch
           description: 发送事件实例
     - name: on
+      title: 打开时
       description: 开关打开时触发
       params:
         - name: $event
@@ -56,6 +63,7 @@
           type: USwitch
           description: 发送事件实例
     - name: off
+      title: 关闭时
       description: 开关关闭时触发
       params:
         - name: $event
@@ -65,6 +73,7 @@
           type: USwitch
           description: 发送事件实例
     - name: toggle
+      title: 切换状态后
       description: 切换开关状态时触发
       params:
         - name: $event.value
@@ -77,6 +86,7 @@
           type: USwitch
           description: 发送事件实例
     - name: change
+      title: 改变后
       description: 开关状态改变时触发
       params:
         - name: $event.value
