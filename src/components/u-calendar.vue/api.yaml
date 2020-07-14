@@ -2,30 +2,37 @@
   title: 日历
   attrs:
     - name: date
+      title: 日期
       type: Date,string
       default: TODAY
       description: 当前选择的日期
     - name: min-date
+      title: 最小日期
       type: Date,string
       default: null
       description: 最小日期，如果为空则不限制
     - name: max-date
+      title: 最大日期
       type: Date,string
       default: text
       description: 最大日期，如果为空则不限制
     - name: year-diff
+      title: 前展示年份
       type: string,number
       default: 3
       description: 当前年份往前展示的年数，例：当前为`2018`年，则从`2015`年开始展示
     - name: year-add
+      title: 后展示年份
       type: string,number
       default: 1
       description: 当前年份往后展示的年数，例：当前为`2018`年，则展示至`2019`年
     - name: readonly
+      title: 只读
       type: boolean
       default: false
       description: 是否只读
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
       description: 是否禁用
@@ -34,12 +41,14 @@
       description: 插入文本或  HTML 至日期组件底部
   events:
     - name: change
+      title: 改变后
       description: 日期改变时触发
       params:
         - name: date
           type: object
           description: 改变后的日期
     - name: select
+      title: 选择后
       description: 选择某一个日期时触发
       params:
         - name: date

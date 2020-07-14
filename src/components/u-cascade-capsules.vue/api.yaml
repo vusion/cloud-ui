@@ -2,55 +2,67 @@
   title: 级联胶囊
   attrs:
     - name: data
+      title: 数据
       type: Array<{ text, value }>
       default: null
       description: 数据列表
     - name: value.sync, v-model
+      title: 值
       type: any
       default: null
       description: 当前选择的值
     - name: labelSize
+      title: 标签尺寸
       type: string
       default: null
       description: label的大小，可选值：`'small'`, `'large'`
     - name: categories
+      title: 多级分类
       type: Array<{ label, key, tip }>
       default: null
       description: 多级分类，其中`label`为标签名，`tip`为该标签的提示
     - name: auto-select
+      title: 自动选中
       type: boolean
       default: true
       description: 是否可自动选择
     - name: converter
+      title: 转换器
       type: string, object
       default: join
       description: value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成
         value，`'join.number'`与`join`类似，只是会考虑它为数字的情况。也可以用`:`修改分隔符，类似 Vue
         的指令参数，`'last-value'`表示以最后一项的值作为 value。也可以传入一个包含 { get, set } 的一个对象
     - name: field
+      title: 字段
       type: string
       default: text
       description: 显示文本字段
     - name: cancelable
+      title: 取消
       type: boolean
       default: false
       description: 是否可以取消选择
     - name: readonly
+      title: 只读
       type: boolean
       default: false
       description: 是否只读
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
       description: 是否禁用
   events:
     - name: input
+      title: 输入时
       description: 选择某一项时触发
       params:
         - name: $event
           type: any
           description: 选择项的值
     - name: select
+      title: 选择后
       description: 选择某一项时触发
       params:
         - name: $event.level
@@ -69,6 +81,7 @@
           type: ListViewItem
           description: 选择项子组件
     - name: change
+      title: 改变后
       description: 选择值改变时触发
       params:
         - name: $event.value

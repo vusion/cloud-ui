@@ -3,22 +3,27 @@
   labels: [表单控件, 块级展示]
   attrs:
     - name: value
+      title: 值
       type: Array
       default: []
       description: 多选组的选中项
     - name: min
+      title: 选中最小数
       type: number
       default: 0
       description: 可以勾选多选框的最小数量
     - name: max
+      title: 选中最大数
       type: number
       default: .inf
       description: 可以勾选多选框的最大数量
     - name: readonly
+      title: 只读
       type: boolean
       default: false
       description: 是否只读
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
       description: 是否禁用
@@ -28,18 +33,22 @@
 - name: u-checkbox
   attrs:
     - name: value.sync, v-model
+      title: 值
       type: boolean, null
       default: false
       description: 选中状态，`null`表示不确定状态
     - name: label
+      title: 标签
       type: any
       default: null
       description: 多选框标签。用于关联多选组的值
     - name: readonly
+      title: 只读
       type: boolean
       default: false
       description: 是否只读
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
       description: 是否禁用
@@ -48,6 +57,7 @@
       description: 插入文本或 HTML。
   events:
     - name: before-check
+      title: 选中前
       description: 切换选中状态前触发
       params:
         - name: $event.value
@@ -63,6 +73,7 @@
           type: UCheckbox
           description: 发送事件实例
     - name: input
+      title: 输入时
       description: 切换选中状态时触发
       params:
         - name: $event
@@ -72,6 +83,7 @@
           type: UCheckbox
           description: 发送事件实例
     - name: check
+      title: 选中后
       description: 切换选中状态时触发
       params:
         - name: $event.value
@@ -87,6 +99,7 @@
           type: UCheckbox
           description: 发送事件实例
     - name: change
+      title: 改变后
       description: 选中状态改变时触发
       params:
         - name: $event.value

@@ -2,42 +2,52 @@
   title: 弹窗
   attrs:
     - name: title
+      title: 值
       type: string
       default: 提示
       description: 弹窗的标题
     - name: content
+      title: 内容
       type: string
       default: 提示内容
       description: 弹窗的内容
     - name: heading
+      title: 内容头部
       type: string
       default: 提示内容
       description: 弹窗的内容
     - name: visible.sync
+      title: 是否显示
       type: boolean
       default: false
       description: 是否显示
     - name: ok-button
+      title: 确定按钮
       type: string
       default: 确定
       description: 确定按钮文本，如果为空则不显示
     - name: cancel-button
+      title: 取消按钮
       type: string
       default: 取消
       description: 取消按钮文本，如果为空则不显示
     - name: size
+      title: 尺寸
       type: string
       default: normal
       description: 弹框的尺寸
     - name: icon
+      title: 提示图标
       type: string
       default: ""
       description: 提示图标, 可选值：`success`, `warning`, `error`
     - name: static
+      title: 嵌入页面显示
       type: boolean
       default: false
       description: 是否嵌入页面显示
     - name: mask-closable
+      title: 点击遮罩关闭
       type: boolean
       default: false
       description: 是否点击遮罩时关闭弹窗
@@ -56,30 +66,35 @@
       description: 弹窗内容自定义
   events:
     - name: before-open
+      title: 打开前
       description: 打开弹窗前触发
       params:
         - name: senderVM
           type: UModal
           description: 发送事件实例
     - name: open
+      title: 打开后
       description: 打开弹窗后触发
       params:
         - name: senderVM
           type: UModal
           description: 发送事件实例
     - name: ok
+      title: 确定时
       description: 确定时触发
       params:
         - name: senderVM
           type: UModal
           description: 发送事件实例
     - name: cancel
+      title: 取消时
       description: 取消时触发
       params:
         - name: senderVM
           type: UModal
           description: 发送事件实例
     - name: before-close
+      title: 关闭前
       description: 关闭弹窗前触发
       params:
         - name: $event.ok
@@ -92,6 +107,7 @@
           type: UModal
           description: 发送事件实例
     - name: close
+      title: 关闭后
       description: 关闭弹窗时触发
       params:
         - name: $event.ok

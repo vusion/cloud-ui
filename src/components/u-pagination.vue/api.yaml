@@ -3,37 +3,46 @@
   labels: [块级展示]
   attrs:
     - name: page.sync
+      title: 当前页码
       type: number
       default: 1
       description: 当前页码
     - name: total
+      title: 总页数
       type: number
       default: 11
       description: 总页数
     - name: side
+      title: 两边显示的数量
       type: number
       default: 2
       description: 当页数多时，两边恒定显示的数量
     - name: around
+      title: 中间显示的数量
       type: number
       default: 5
       description: 当页数多时，中间恒定显示的数量
     - name: readonly
+      title: 只读
       type: boolean
       default: false
       description: 是否只读
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
       description: 是否禁用
     - name: total-items
+      title: 总条数
       type: number
       description: 总条数
     - name: page-size.sync
+      title: 每条页数
       type: number
       default: 20
       description: 每页条数
     - name: page-size-options
+      title: 条数选项列表
       type: Array
       default:
         - 10
@@ -41,19 +50,23 @@
         - 50
       description: 每页条数选项列表
     - name: show-total
+      title: 总条数
       type: boolean
       default: false
       description: 是否显示总条目数
     - name: show-sizer
+      title: 切换条数选项
       type: boolean
       default: false
       description: 是否显示切换每页条数选项
     - name: show-jumper
+      title: 跳转输入框
       type: boolean
       default: false
       description: 是否显示页面跳转输入框
   events:
     - name: before-select
+      title: 选择前
       description: 选择分页前触发
       params:
         - name: $event.page
@@ -69,6 +82,7 @@
           type: UPagination
           description: 发送事件实例
     - name: select
+      title: 选择后
       description: 选择分页时触发
       params:
         - name: $event.page
@@ -81,6 +95,7 @@
           type: UPagination
           description: 发送事件实例
     - name: change
+      title: 改变后
       description: 页码改变时触发
       params:
         - name: $event.page
@@ -93,6 +108,7 @@
           type: UPagination
           description: 发送事件实例
     - name: change-page-size
+      title: 条数改变后
       description: 每页条数改变时触发
       params:
         - name: $event.pageSize

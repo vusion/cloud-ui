@@ -3,14 +3,17 @@
   labels: [表单控件, 块级展示]
   attrs:
     - name: value.sync, v-model
+      title: 值
       type: any
       default: null
       description: 当前选择的值
     - name: readonly
+      title: 只读
       type: boolean
       default: false
       description: 是否只读
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
       description: 是否禁用
@@ -19,6 +22,7 @@
       description: 插入`<u-radio>`子组件。
   events:
     - name: before-select
+      title: 选择前
       description: 选择某一项前触发
       params:
         - name: $event.value
@@ -37,6 +41,7 @@
           type: URadios
           description: 发送事件实例
     - name: input
+      title: 输入时
       description: 选择某一项时触发
       params:
         - name: $event
@@ -46,6 +51,7 @@
           type: URadios
           description: 发送事件实例
     - name: select
+      title: 选择后
       description: 选择某一项时触发
       params:
         - name: $event.value
@@ -61,6 +67,7 @@
           type: URadios
           description: 发送事件实例
     - name: change
+      title: 改变后
       description: 选择值改变时触发
       params:
         - name: $event.value
@@ -81,14 +88,17 @@
 - name: u-radio
   attrs:
     - name: label
+      title: 标签
       type: any
       default: null
       description: 单选框标签。用于关联单选组的值
     - name: readonly
+      title: 只读
       type: boolean
       default: false
       description: 禁用只读
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
       description: 禁用此项
@@ -97,6 +107,7 @@
       description: 插入文本或 HTML。
   events:
     - name: before-select
+      title: 选择前
       description: 选择此项前触发
       params:
         - name: $event.label

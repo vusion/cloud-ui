@@ -2,26 +2,32 @@
   title: 幻灯片
   attrs:
     - name: value.sync
+      title: 值
       type: any
       default: null
       description: 播放位置
     - name: autoplay
+      title: 自动播放
       type: boolean
       default: true
       description: 是否自动播放
     - name: loop
+      title: 循环播放
       type: boolean
       default: true
       description: 是否循环播放，即首尾连接
     - name: interval
+      title: 切换时间
       type: number
       default: 4000
       description: 幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换
     - name: direction
+      title: 播放方向
       type: string
       default: right
       description: 幻灯片播放方向
     - name: animation
+      title: 过度动画
       type: string
       default: null
       description: 幻灯片过渡动画
@@ -34,6 +40,7 @@
       description: 插入`<u-carousel-item>`子组件。
   events:
     - name: before-select
+      title: 选择前
       description: 选择某一页前触发
       params:
         - name: $event.value
@@ -52,6 +59,7 @@
           type: UCarousel
           description: 发送事件实例
     - name: select
+      title: 选择后
       description: 选择某一页时触发
       params:
         - name: $event.value
@@ -69,10 +77,12 @@
 - name: u-carousel-item
   attrs:
     - name: title
+      title: 标题
       type: string
       default: null
       description: 该项的标题
     - name: value
+      title: 值
       type: any
       default: null
       description: 该项的值

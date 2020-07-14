@@ -2,25 +2,30 @@
   title: 多选框
   attrs:
     - name: value
+      title: 值
       type: boolean, null
       default: false
       description: Checked status. `null` means indeterminate status.
     - name: readonly
+      title: 只读
       type: boolean
       default: false
       description: Readonly
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
       description: Disabled
   events:
     - name: input
+      title: 输入时
       description: Emit when checking.
       params:
         - Property: value
           type: boolean, null
           description: Checked value
     - name: change
+      title: 改变后
       description: Emit when change value.
       params:
         - Property: newValue

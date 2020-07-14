@@ -2,41 +2,52 @@
   title: 弹出框
   attrs:
     - name: title
+      title: 标题
       type: string
       default: 标题
       description: 弹出框标题
     - name: opened.sync
+      title: 弹出关闭状态
       type: boolean
       default: false
       description: 弹出/关闭状态
     - name: trigger
-      type: string
+      title: 触发方式
+      type: enum
+      options: [click, hover, 'right-click', 'double-click']
       default: click
       description: 弹出框的触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`,
         `'manual'`
     - name: placement
-      type: string
+      title: 弹出方向
+      type: enum
+      options: [top, bottom, left, right, 'top-start', 'top-end', 'bottom-start', 'bottom-end', 'left-start', 'left-end', 'right-start', 'right-end']
       default: bottom
       description: 弹出框的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`,
         `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',`
         'left-end'`, `'right-start'`, `'right-end'`
     - name: hideDelay
+      title: 消失延迟时间
       type: number
       default: 0
       description: 提示内容消失延迟时间，单位是`'ms'`
     - name: offset
+      title: 弹出层偏移
       type: string
       default: "0"
       description: 弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px`
     - name: follow-cursor
+      title: 跟随鼠标
       type: boolean, number, object
       default: false
       description: 是否跟随鼠标
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
       description: 是否禁用
     - name: merge-borders
+      title: 合并边框
       type: boolean
       default: true
       description: 是否自动合并内外边框
@@ -55,6 +66,7 @@
       description: 自定义标题文本。
   events:
     - name: before-open
+      title: 弹出前
       description: 弹出前触发。
       params:
         - name: $event.preventDefault
@@ -64,6 +76,7 @@
           type: UPopup
           description: 发送事件实例
     - name: open
+      title: 弹出时
       description: 弹出时触发。
       params:
         - name: $event
@@ -73,6 +86,7 @@
           type: UPopup
           description: 发送事件实例
     - name: before-close
+      title: 隐藏前
       description: 隐藏前触发。
       params:
         - name: $event.preventDefault
@@ -82,6 +96,7 @@
           type: UPopup
           description: 发送事件实例
     - name: close
+      title: 隐藏后
       description: 隐藏时触发。
       params:
         - name: $event
@@ -91,9 +106,11 @@
           type: UPopup
           description: 发送事件实例
     - name: before-toggle
+      title: 展开折叠前
       description: "@deprecated"
       params: []
     - name: toggle
+      title: 展开折叠后
       description: "@deprecated"
       params: []
   methods:

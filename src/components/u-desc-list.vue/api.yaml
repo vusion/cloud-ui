@@ -13,7 +13,7 @@
       accept-type: recommanded
       recommanded:
         - name: u-desc-list-group
-          title: 描述列表组,
+          title: 描述列表组
           snippet: '<u-desc-list-group title="描述列表组"><u-desc-list-item label="描述项"></u-desc-list-item></u-desc-list-group>'
         - name: u-desc-list-item
           title: 描述项,

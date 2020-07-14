@@ -2,18 +2,22 @@
   title: 操作项
   attrs:
     - name: max-count
+      title: 最大个数
       type: number
       default: 3
       description: 一列最多显示链接个数
     - name: menu-title
+      title: 菜单标题
       type: string
       default: 更多
       description: 菜单标题
     - name: placement
-      type: string
+      title: 弹出方向
+      type: enum
+      options: [top, bottom, left, right, 'top-start', 'top-end', 'bottom-start', 'bottom-end', 'left-start', left-end', 'right-start', 'right-end']
       default: bottom-end
       description: 菜单的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`,
-        `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',`
+        `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start',`
         'left-end'`, `'right-start'`, `'right-end'`
   slots:
     - name: default
@@ -21,12 +25,14 @@
 - name: u-action
   attrs:
     - name: hidden
+      title: 隐藏
       type: boolean
       default: false
       description: 自定义显示/隐藏条件
     - name: 其余属性透传
   events:
     - name: click
+      title: 点击
       description: 点击此项时触发，与原生 click 事件不同的是，它只会在非禁用状态下触发。
       params:
         - name: $event
