@@ -4,22 +4,27 @@
   description: 通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。
   attrs:
     - name: router
+      title: 路由
       type: boolean
       default: true
       description: 是否根据 vue-router 来控制选择项
     - name: value.sync, v-model
+      title: 值
       type: any
       default: null
       description: 当前选择的值
     - name: field
+      title: 字段
       type: string
       default: text
       description: 显示文本字段
     - name: readonly
+      title: 只读
       type: boolean
       default: false
       description: 是否只读
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
       description: 是否禁用
@@ -40,6 +45,7 @@
       description: 右部区域。
   events:
     - name: click
+      title: 点击
       description: 点击此项时触发，与原生 click 事件不同的是，它只会在非只读和禁用的情况下触发。
       params:
         - name: $event
@@ -49,6 +55,7 @@
           type: Vue
           description: 发送事件实例
     - name: before-select
+      title: 输入前
       description: 选择某一项前触发
       params:
         - name: $event.value
@@ -70,6 +77,7 @@
           type: Vue
           description: 发送事件实例
     - name: input
+      title: 输入时
       description: 选择某一项时触发
       params:
         - name: $event
@@ -79,6 +87,7 @@
           type: Vue
           description: 发送事件实例
     - name: select
+      title: 选择后
       description: 选择某一项时触发
       params:
         - name: $event.value
@@ -103,6 +112,7 @@
           type: Vue
           description: 发送事件实例
     - name: change
+      title: 改变后
       description: 选择值改变时触发
       params:
         - name: $event.value
@@ -129,36 +139,44 @@
 - name: u-navbar-item
   attrs:
     - name: value
+      title: 值
       type: any
       default: null
       description: 此项的值
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
       description: 禁用此项
     - name: item
+      title: 相关对象
       type: object
       default: null
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
     - name: href
+      title: 链接地址
       type: string
       default: null
       description: 链接地址
     - name: target
+      title: 打开方式
       type: string
       default: null
       description: 打开方式
     - name: to
+      title: 目标地址
       type: string, Location
       default: null
       description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
     - name: replace
+      title: 路由替换
       type: boolean
       default: false
       description: 需要
         vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history
         `记录。
     - name: exact
+      title: 精确匹配
       type: boolean
       default: false
       description: 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
@@ -167,6 +185,7 @@
       description: 插入文本或 HTML。
   events:
     - name: before-select
+      title: 选择前
       description: 选择此项前触发
       params:
         - name: $event.value
@@ -185,6 +204,7 @@
           type: Vue
           description: 发送事件实例
     - name: before-navigate
+      title: 导航前
       description: 使用 router 相关属性切换路由前触发
       params:
         - name: $event.to
@@ -203,6 +223,7 @@
           type: Vue
           description: 发送事件实例
     - name: navigate
+      title: 导航
       description: 使用router相关属性切换路由时触发
       params:
         - name: $event.to
@@ -221,17 +242,20 @@
 - name: u-navbar-dropdown
   attrs:
     - name: trigger
+      title: 触发方式
       type: string
       default: hover
       description: 触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`,
         `'manual'`
     - name: placement
+      title: 弹出位置
       type: string
       default: bottom
       description: 弹出方位。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`,
         `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',`
         'left-end'`, `'right-start'`, `'right-end'`
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
       description: 是否禁用
