@@ -1,10 +1,10 @@
 - name: u-carousel
   title: 幻灯片
   attrs:
-    - name: value.sync
+    - name: value
+      sync: true
       title: 值
       type: any
-      default: null
       description: 播放位置
     - name: autoplay
       title: 自动播放
@@ -29,7 +29,6 @@
     - name: animation
       title: 过度动画
       type: string
-      default: null
       description: 幻灯片过渡动画
     # - name: router
     #   type: boolean
@@ -79,12 +78,10 @@
     - name: title
       title: 标题
       type: string
-      default: null
       description: 该项的标题
     - name: value
       title: 值
       type: any
-      default: null
       description: 该项的值
   slots:
     - name: default

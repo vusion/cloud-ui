@@ -1,20 +1,23 @@
 - name: u-tooltip
   title: 工具提示
   attrs:
-    - name: opened.sync
+    - name: opened
+      sync: true
       title: 弹出关闭状态
       type: boolean
       default: false
       description: 弹出/关闭状态
     - name: trigger
       title: 触发方式
-      type: string
+      type: enum
+      options: [click, hover, right-click, double-click]
       default: hover
       description: 工具提示的触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`,
         `'manual'`
     - name: placement
       title: 弹出方向
-      type: string
+      type: enum
+      options: [top, bottom, left, right, top-start, top-end, bottom-start, bottom-end, left-start, left-end, right-start, right-end]
       default: bottom
       description: 工具提示的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`,
         `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',`

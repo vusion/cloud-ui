@@ -4,14 +4,15 @@
   description: 菜单组件支持路由、触发关闭、多级菜单等功能。
   attrs:
     - name: router
-      title: 路由
+      title: 使用路由
       type: boolean
       default: true
       description: 是否根据 vue-router 来控制选择哪一项
-    - name: value.sync, v-model
+    - name: value
+      model: true
+      sync: true
       title: 值
       type: any
-      default: null
       description: 当前选择的值
     - name: collapsible
       title: 折叠
@@ -115,7 +116,6 @@
     - name: value
       title: 值
       type: any
-      default: null
       description: 此项的值
     - name: disabled
       title: 禁用
@@ -125,25 +125,29 @@
     - name: item
       title: 相关对象
       type: object
-      default: null
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
     - name: href
-      title: 链接地址
+      title: 链接
       type: string
-      default: null
       description: 链接地址
     - name: target
       title: 打开方式
-      type: string
-      default: null
-      description: 打开方式
+      type: enum
+      options:
+        - name: 新标签页 (_blank)
+          value: _blank
+        - name: 当前窗口 (_self)
+          value: _self
+        - name: 父级窗口 (_parent)
+          value: _parent
+        - name: 顶级窗口 (_top)
+          value: _top
+      description: （原生属性）。比如设置`_blank`，会在新标签页中打开。
     - name: to
-      title: 目标地址
+      title: 路由链接
       type: string, Location
-      default: null
       description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
     - name: replace
-      title: 替换
       type: boolean
       default: false
       description: 需要
@@ -227,7 +231,6 @@
     - name: title
       title: 标题
       type: string
-      default: null
       description: 显示的标题
   slots:
     - name: default

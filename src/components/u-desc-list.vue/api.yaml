@@ -36,7 +36,7 @@
       accept-type: recommanded
       recommanded:
         - name: u-desc-list-item
-          title: 描述项,
+          title: 描述项
           snippet: '<u-desc-list-item label="描述项"></u-desc-list-item>'
 - name: u-desc-list-item
   accept-parent: [u-desc-list, u-desc-list-group]

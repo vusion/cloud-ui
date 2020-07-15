@@ -3,16 +3,14 @@
   description: 双栏穿梭选择框，常用于将多个项目从一边移动到另一边。
   attrs:
     - name: source
-      title: 原数据列表
+      title: 原始数据
       type: Array<{ text, value }>
       sync: true
-      default: null
       description: 原数据列表
     - name: target
-      title: 目标数据列表
+      title: 目标数据
       type: Array<{ text, value }>
       sync: true
-      default: null
       description: 目标数据列表
     - name: text-field
       title: 文本字段

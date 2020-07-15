@@ -2,7 +2,8 @@
   title: 翻页器
   labels: [块级展示]
   attrs:
-    - name: page.sync
+    - name: page
+      sync: true
       title: 当前页码
       type: number
       default: 1
@@ -36,7 +37,8 @@
       title: 总条数
       type: number
       description: 总条数
-    - name: page-size.sync
+    - name: page-size
+      sync: true
       title: 每条页数
       type: number
       default: 20

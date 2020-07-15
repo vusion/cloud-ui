@@ -2,7 +2,9 @@
   title: 数字输入
   labels: [表单控件, 行内展示]
   attrs:
-    - name: value.sync, v-model
+    - name: value
+      model: true
+      sync: true
       title: 值
       type: number
       default: 0
@@ -30,17 +32,14 @@
     - name: formatter
       title: 格式化
       type: string, object
-      default: null
       description: 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。
     - name: placeholder
       title: 占位符
       type: string
-      default: null
       description: 原生属性
     - name: autofocus
       title: 自动聚焦
       type: boolean
-      default: null
       description: 原生属性
     - name: hide-buttons
       title: 隐藏按钮

@@ -6,7 +6,9 @@
       type: Array<{ text, value }>
       default: null
       description: Data书写方式中的数据列表
-    - name: value.sync, v-model
+    - name: value
+      model: true
+      sync: true
       title: 值
       type: any
       default: null

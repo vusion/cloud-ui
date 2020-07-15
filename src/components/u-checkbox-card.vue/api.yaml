@@ -6,15 +6,15 @@
       type: array
       default: []
       description: 可供选择的数据
-    - name: value.sync, v-model
+    - name: value
+      model: true
+      sync: true
       title: 值
       type: Array
-      default: null
       description: 被选中数据
     - name: placeholder
       title: 占位符
       type: string
-      default: null
       description: 没有数据时的占位显示
     - name: size
       title: 尺寸
@@ -24,7 +24,6 @@
     - name: column
       title: 列数
       type: number
-      default: null
       description: 一行固定多少个选择项，如果不传则固定单项宽度为158px，每行个数自适应行宽
   slots:
     - name: default

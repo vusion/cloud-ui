@@ -8,27 +8,22 @@
     - name: name
       title: 表单项名称
       type: string
-      default: null
       description: 表单项名称。已废弃
     - name: label
       title: 标签
       type: string
-      default: null
       description: 标签。在 UValidator 用于提示消息的合成，在 UFormItem 等其他组件用于显示标签
     - name: rules
       title: 规则
-      type: string, Array
-      default: null
+      type: string | Array
       description: 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型
     - name: message
       title: 提示信息
       type: string
-      default: null
       description: 默认提示消息
     - name: muted
       title: 静默
       type: string
-      default: null
       description: 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示
     - name: ignore-validation
       title: 忽略验证
@@ -43,17 +38,14 @@
     - name: validating-options
       title: 验证辅助对象
       type: object
-      default: null
       description: 验证辅助对象。在 Rule 的 `validate` 方法中使用
     - name: validating-value
       title: 修改验证值
       type: any
-      default: null
       description: 临时修改验证值
     - name: validating-process
       title: 值预处理
       type: Function
-      default: null
       description: 验证前对值进行预处理
     - name: manual
       title: 手动验证
@@ -65,22 +57,18 @@
     - name: touched
       title: 触碰
       type: boolean
-      default: null
       description: 用户是否触碰
     - name: dirty
       title: 修改值
       type: boolean
-      default: null
       description: 用户是否修改值
     - name: valid
       title: 通过
       type: boolean
-      default: null
       description: 验证是否通过
     - name: firstError
       title: 第一个错误
       type: string
-      default: null
       description: 第一个错误提示消息
   slots:
     - name: default

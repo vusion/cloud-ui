@@ -10,15 +10,15 @@
       default: text
       description: 输入框的类型，目前支持两种：`'text'`和`'password'`
     - name: value
-      title: 值
-      type: string
       model: true
       sync: true
+      title: 值
+      type: string
       description: 输入框的值
     - name: clearable
-      title: 清空按钮
+      title: 清除按钮
       type: boolean
-      description: 开启并在输入框有内容时会显示清空按钮。
+      description: 开启并在输入框有内容时会显示清除按钮。
     - name: placeholder
       title: 占位符
       type: string

@@ -4,24 +4,16 @@
   description: 多行输入组件，在原生`<textarea>`控件基础上进行了一些功能扩展。
   attrs:
     - name: value
+      model: true
+      sync: true
       title: 值
       type: string
       default: null
       description: 输入框的值
-    - name: value.sync, v-model
-      title: 值同步
-      type: string
-      default: null
-      description: 输入框的值
-    - name: default-value.sync, v-model
-      title: 默认值
-      type: string
-      default: null
-      description: 默认值。即 reset 方法恢复的值。
     - name: clearable
       title: 清空
       type: boolean
-      default: null
+      default: false
       description: 是否可清空。开启并在输入框有内容时会显示清空按钮。
     - name: placeholder
       title: 占位符

@@ -4,12 +4,10 @@
     - name: data
       title: 数据
       type: Array<{ text, value }>
-      default: null
       description: Data书写方式中的数据列表
     - name: value.sync, v-model
       title: 值
       type: any
-      default: null
       description: 当前选择的值
     - name: text-field
       title: 文本字段
@@ -211,17 +209,14 @@
     - name: value
       title: 值
       type: any
-      default: null
       description: 此项的值
     - name: expanded.sync
       title: 展开折叠状态
       type: any
-      default: null
       description: 展开/折叠状态
     - name: checked.sync
       title: 选中取消状态
       type: any
-      default: null
       description: 选中/取消状态
     - name: disabled
       title: 禁用
@@ -231,7 +226,6 @@
     - name: node
       title: 相关对象
       type: object
-      default: null
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
   slots:
     - name: default

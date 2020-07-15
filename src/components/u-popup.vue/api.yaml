@@ -6,7 +6,8 @@
       type: string
       default: 标题
       description: 弹出框标题
-    - name: opened.sync
+    - name: opened
+      sync: true
       title: 弹出关闭状态
       type: boolean
       default: false

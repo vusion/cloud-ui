@@ -2,10 +2,11 @@
   title: 单选组
   labels: [表单控件, 块级展示]
   attrs:
-    - name: value.sync, v-model
+    - name: value
+      model: true
+      sync: true
       title: 值
       type: any
-      default: null
       description: 当前选择的值
     - name: readonly
       title: 只读
@@ -90,7 +91,6 @@
     - name: label
       title: 标签
       type: any
-      default: null
       description: 单选框标签。用于关联单选组的值
     - name: readonly
       title: 只读

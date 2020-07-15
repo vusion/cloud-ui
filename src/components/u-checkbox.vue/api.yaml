@@ -3,9 +3,9 @@
   attrs:
     - name: value
       title: 值
-      type: boolean, null
+      type: boolean | null
       default: false
-      description: Checked status. `null` means indeterminate status.
+      description: Checked status. `null`表示不确定状态.
     - name: readonly
       title: 只读
       type: boolean
@@ -19,18 +19,18 @@
   events:
     - name: input
       title: 输入时
-      description: Emit when checking.
+      description: 切换时触发
       params:
         - Property: value
           type: boolean, null
-          description: Checked value
+          description: 选中状态
     - name: change
       title: 改变后
-      description: Emit when change value.
+      description: 改变后触发
       params:
-        - Property: newValue
+        - name: newValue
           type: boolean, null
-          description: New value
-        - Property: oldValue
+          description: 新的值
+        - name: oldValue
           type: boolean, null
-          description: Old value
+          description: 旧的值

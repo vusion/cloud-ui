@@ -32,7 +32,9 @@
       description: 插入`<checkbox>`子组件。
 - name: u-checkbox
   attrs:
-    - name: value.sync, v-model
+    - name: value
+      model: true
+      sync: true
       title: 值
       type: boolean, null
       default: false

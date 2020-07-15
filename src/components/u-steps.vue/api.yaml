@@ -2,7 +2,9 @@
   title: 步骤条
   labels: [块级展示]
   attrs:
-    - name: value.sync, v-model
+    - name: value
+      model: true
+      sync: true
       title: 值
       type: number
       default: 0
@@ -67,7 +69,6 @@
     - name: title
       title: 标题
       type: string
-      default: null
       description: 步骤名
     - name: disabled
       type: boolean

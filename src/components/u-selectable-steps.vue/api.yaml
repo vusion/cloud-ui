@@ -1,7 +1,9 @@
 - name: u-selectable-steps
   title: 可选步骤条
   attrs:
-    - name: value.sync, v-model
+    - name: value
+      model: true
+      sync: true
       title: 值
       type: number
       default: 0

@@ -1,10 +1,11 @@
 - name: u-tablets
   title: 药片
   attrs:
-    - name: value.sync, v-model
+    - name: value
+      model: true
+      sync: true
       title: 值
       type: any
-      default: null
       description: 当前选择的值
     - name: auto-select
       title: 自动选择
@@ -172,7 +173,6 @@
     - name: value
       title: 值
       type: any
-      default: null
       description: 此项的值
     - name: selected
       title: 选中项
@@ -187,7 +187,6 @@
     - name: item
       title: 相关对象
       type: object
-      default: null
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
   slots:
     - name: default
