@@ -17,9 +17,9 @@
     - name: size
       title: 尺寸
       type: enum
-      options: [mini, small, normal, large]
+      options: [mini, small, normal, large, huge]
       default: normal
-      description: 设置尺寸。
+      description: 设置尺寸。可选值：`'mini'`、`'small'`、`'normal'`、`'large'`、`'huge'`
     - name: shape
       title: 形状
       type: enum

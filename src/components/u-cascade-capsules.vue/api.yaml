@@ -15,7 +15,7 @@
       description: 当前选择的值
     - name: label-size
       title: 标签尺寸
-      type: string
+      type: enum
       options: [small, normal, large]
       default: normal
       description: label的大小，可选值：`'small'`, `'large'`

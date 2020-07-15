@@ -34,9 +34,10 @@
       description: 取消按钮文本，如果为空则不显示
     - name: size
       title: 尺寸
-      type: string
+      type: enum
+      options: [small, normal, large, huge, auto]
       default: normal
-      description: 弹框的尺寸
+      description: 弹框的尺寸, 可选值：`'small'`, `'normal'`, `'large'`, `'huge'`, `'auto'`, 
     - name: icon
       title: 提示图标
       type: string

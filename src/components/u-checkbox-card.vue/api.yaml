@@ -18,7 +18,8 @@
       description: 没有数据时的占位显示
     - name: size
       title: 尺寸
-      type: string
+      type: enum
+      options: [normal]
       default: normal
       description: 卡片尺寸
     - name: column

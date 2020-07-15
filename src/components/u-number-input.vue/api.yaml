@@ -58,7 +58,7 @@
       description: 是否禁用
     - name: size
       title: 尺寸
-      type: enum
+      type: size
       options: [mini, small, normal, large, huge, full]
       default: normal
       description: 大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`,
