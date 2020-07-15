@@ -372,8 +372,22 @@
     "description": "菜单标题"
   },
   "u-actions/placement": {
-    "type": "string",
-    "description": "菜单的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',` 'left-end'`, `'right-start'`, `'right-end'`"
+    "type": "enum",
+    "options": [
+      "top",
+      "bottom",
+      "left",
+      "right",
+      "top-start",
+      "top-end",
+      "bottom-start",
+      "bottom-end",
+      "left-start",
+      "left-end'",
+      "right-start",
+      "right-end"
+    ],
+    "description": "菜单的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start',` `'left-end'`, `'right-start'`, `'right-end'`"
   },
   "u-action/hidden": {
     "type": "boolean",
@@ -381,19 +395,39 @@
   },
   "u-action/其余属性透传": {},
   "u-avatar/type": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
     "description": "头像类型。请参考上面的示例"
   },
   "u-avatar/shape": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "circle",
+      "square"
+    ],
     "description": "形状。可选值：`circle`, `square` 两种类型"
   },
   "u-avatar/size": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "mini",
+      "small",
+      "normal",
+      "large",
+      "huge"
+    ],
     "description": "头像大小。可选值：`'mini'`、`'small'`、`'normal'`、`'large'`、`'huge'`。如需自定义大小，可以直接设置`style=\"width: 40px; height: 40px;\"`"
   },
   "u-badge/value": {
-    "type": "number, string",
+    "type": "number | string",
     "description": "显示的值"
   },
   "u-badge/max": {
@@ -505,23 +539,23 @@
     "description": "需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。"
   },
   "u-calendar/date": {
-    "type": "Date,string",
+    "type": "Date | string",
     "description": "当前选择的日期"
   },
   "u-calendar/min-date": {
-    "type": "Date,string",
+    "type": "Date | string",
     "description": "最小日期，如果为空则不限制"
   },
   "u-calendar/max-date": {
-    "type": "Date,string",
+    "type": "Date | string",
     "description": "最大日期，如果为空则不限制"
   },
   "u-calendar/year-diff": {
-    "type": "string,number",
+    "type": "string | number",
     "description": "当前年份往前展示的年数，例：当前为`2018`年，则从`2015`年开始展示"
   },
   "u-calendar/year-add": {
-    "type": "string,number",
+    "type": "string | number",
     "description": "当前年份往后展示的年数，例：当前为`2018`年，则展示至`2019`年"
   },
   "u-calendar/readonly": {
@@ -561,7 +595,10 @@
     "description": "此项的值"
   },
   "u-capsule/size": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "small"
+    ],
     "description": "胶囊大小，可选值：`'small'`"
   },
   "u-capsule/selected": {
@@ -624,8 +661,13 @@
     "type": "any",
     "description": "当前选择的值"
   },
-  "u-cascade-capsules/labelSize": {
+  "u-cascade-capsules/label-size": {
     "type": "string",
+    "options": [
+      "small",
+      "normal",
+      "large"
+    ],
     "description": "label的大小，可选值：`'small'`, `'large'`"
   },
   "u-cascade-capsules/categories": {
@@ -637,7 +679,7 @@
     "description": "是否可自动选择"
   },
   "u-cascade-capsules/converter": {
-    "type": "string, object",
+    "type": "string | object",
     "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value，`'join.number'`与`join`类似，只是会考虑它为数字的情况。也可以用`:`修改分隔符，类似 Vue 的指令参数，`'last-value'`表示以最后一项的值作为 value。也可以传入一个包含 { get, set } 的一个对象"
   },
   "u-cascade-capsules/field": {
@@ -673,7 +715,7 @@
     "description": "是否隐藏空列表"
   },
   "u-cascade-select/converter": {
-    "type": "string, object",
+    "type": "string | object",
     "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value，`'join.number'`与`join`类似，只是会考虑它为数字的情况。也可以用`:`修改分隔符，类似 Vue 的指令参数，`'last-value'`表示以最后一项的值作为 value。也可以传入一个包含 { get, set } 的一个对象"
   },
   "u-cascade-select/field": {
@@ -926,6 +968,10 @@
   },
   "u-crumb-item/type": {
     "type": "string",
+    "options": [
+      "link",
+      "text"
+    ],
     "description": "类型。可选值：`'link'`表示链接，可点击，`'text'`只显示为默认颜色文本，不可点。"
   },
   "u-crumb-item/href": {
@@ -933,8 +979,26 @@
     "description": "链接地址"
   },
   "u-crumb-item/target": {
-    "type": "string",
-    "description": "（原生属性）"
+    "type": "enum",
+    "options": [
+      {
+        "name": "新标签页 (_blank)",
+        "value": "_blank"
+      },
+      {
+        "name": "当前窗口 (_self)",
+        "value": "_self"
+      },
+      {
+        "name": "父级窗口 (_parent)",
+        "value": "_parent"
+      },
+      {
+        "name": "顶级窗口 (_top)",
+        "value": "_top"
+      }
+    ],
+    "description": "（原生属性）。比如设置`_blank`，会在新标签页中打开。"
   },
   "u-crumb-item/to": {
     "type": "string, Location",
@@ -1553,7 +1617,7 @@
   },
   "u-input/clearable": {
     "type": "boolean",
-    "description": "开启并在输入框有内容时会显示清空按钮。"
+    "description": "开启并在输入框有内容时会显示清除按钮。"
   },
   "u-input/placeholder": {
     "type": "string",
@@ -1584,7 +1648,15 @@
     "description": "是否禁用"
   },
   "u-input/size": {
-    "type": "string",
+    "type": "size",
+    "options": [
+      "mini",
+      "small",
+      "normal",
+      "large",
+      "huge",
+      "full"
+    ],
     "description": "大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式"
   },
   "u-input/maxlengthMessage": {
@@ -1692,7 +1764,7 @@
     "description": "间隙大小，需自行扩展。"
   },
   "u-linear-layout/display": {
-    "type": "string",
+    "type": "enum",
     "options": [
       "inline",
       "block"
@@ -1700,7 +1772,7 @@
     "description": "展示方式。可选值："
   },
   "u-linear-layout/layout": {
-    "type": "string",
+    "type": "enum",
     "options": [
       "none",
       "inline",
@@ -1709,18 +1781,32 @@
     "description": "布局方式，用于迅速调整子元素或组件的展示方式。"
   },
   "u-linear-layout/type": {
-    "type": "string",
+    "type": "enum",
     "options": [
       "flex"
     ],
     "description": "布局模式。"
   },
   "u-linear-layout/justify": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "start",
+      "center",
+      "end",
+      "space-between",
+      "space-around"
+    ],
     "description": "主轴分布方式。普通模式下可选值：`'start'`, `'center'`, `'end'`, `'space-between'`。flex布局模式下还支持：`'space-around'`。普通模式下的`'space-between'`功能很弱，只支持左右分布。"
   },
   "u-linear-layout/alignment": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "start",
+      "center",
+      "end",
+      "baseline",
+      "stretch"
+    ],
     "description": "flex布局模式下的交叉轴对齐方式，可选值：`'start'`, `'center'`, `'end'`, `'baseline'`, `'stretch'`"
   },
   "u-linear-progress/percent": {
@@ -1969,8 +2055,26 @@
     "description": "链接地址"
   },
   "u-menu-item/target": {
-    "type": "string",
-    "description": "打开方式"
+    "type": "enum",
+    "options": [
+      {
+        "name": "新标签页 (_blank)",
+        "value": "_blank"
+      },
+      {
+        "name": "当前窗口 (_self)",
+        "value": "_self"
+      },
+      {
+        "name": "父级窗口 (_parent)",
+        "value": "_parent"
+      },
+      {
+        "name": "顶级窗口 (_top)",
+        "value": "_top"
+      }
+    ],
+    "description": "（原生属性）。比如设置`_blank`，会在新标签页中打开。"
   },
   "u-menu-item/to": {
     "type": "string, Location",
@@ -2065,8 +2169,26 @@
     "description": "链接地址"
   },
   "u-navbar-item/target": {
-    "type": "string",
-    "description": "打开方式"
+    "type": "enum",
+    "options": [
+      {
+        "name": "新标签页 (_blank)",
+        "value": "_blank"
+      },
+      {
+        "name": "当前窗口 (_self)",
+        "value": "_self"
+      },
+      {
+        "name": "父级窗口 (_parent)",
+        "value": "_parent"
+      },
+      {
+        "name": "顶级窗口 (_top)",
+        "value": "_top"
+      }
+    ],
+    "description": "（原生属性）。比如设置`_blank`，会在新标签页中打开。"
   },
   "u-navbar-item/to": {
     "type": "string, Location",
@@ -2137,7 +2259,15 @@
     "description": "是否禁用"
   },
   "u-number-input/size": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "mini",
+      "small",
+      "normal",
+      "large",
+      "huge",
+      "full"
+    ],
     "description": "大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式"
   },
   "u-pagination/page": {
@@ -2237,11 +2367,31 @@
     "description": "弹出/关闭状态"
   },
   "u-popup/trigger": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "click",
+      "hover",
+      "right-click",
+      "double-click"
+    ],
     "description": "弹出框的触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`, `'manual'`"
   },
   "u-popup/placement": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "top",
+      "bottom",
+      "left",
+      "right",
+      "top-start",
+      "top-end",
+      "bottom-start",
+      "bottom-end",
+      "left-start",
+      "left-end",
+      "right-start",
+      "right-end"
+    ],
     "description": "弹出框的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',` 'left-end'`, `'right-start'`, `'right-end'`"
   },
   "u-popup/hideDelay": {
@@ -2305,7 +2455,7 @@
     "description": "是否隐藏空列表"
   },
   "u-region-select/converter": {
-    "type": "string, object",
+    "type": "string | object",
     "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value，`'join.number'`与`join`类似，只是会考虑它为数字的情况。也可以用`:`修改分隔符，类似 Vue 的指令参数，`'last-value'`表示以最后一项的值作为 value。也可以传入一个包含 { get, set } 的一个对象"
   },
   "u-region-select/field": {
@@ -2470,6 +2620,10 @@
   },
   "u-sidebar/expand-trigger": {
     "type": "string",
+    "options": [
+      "click",
+      "click-expander"
+    ],
     "description": "展开/折叠的触发方式。可选值：`'click'`表示整行点击均可触发、`'click-expander'`表示仅点击小箭头时触发"
   },
   "u-sidebar/readonly": {
@@ -2497,8 +2651,26 @@
     "description": "链接地址"
   },
   "u-sidebar-item/target": {
-    "type": "string",
-    "description": "打开方式"
+    "type": "enum",
+    "options": [
+      {
+        "name": "新标签页 (_blank)",
+        "value": "_blank"
+      },
+      {
+        "name": "当前窗口 (_self)",
+        "value": "_self"
+      },
+      {
+        "name": "父级窗口 (_parent)",
+        "value": "_parent"
+      },
+      {
+        "name": "顶级窗口 (_top)",
+        "value": "_top"
+      }
+    ],
+    "description": "（原生属性）。比如设置`_blank`，会在新标签页中打开。"
   },
   "u-sidebar-item/to": {
     "type": "string, Location",
@@ -3013,10 +3185,6 @@
     "type": "string",
     "description": "输入框的值"
   },
-  "u-textarea/default-value": {
-    "type": "string",
-    "description": "默认值。即 reset 方法恢复的值。"
-  },
   "u-textarea/clearable": {
     "type": "boolean",
     "description": "是否可清空。开启并在输入框有内容时会显示清空按钮。"
@@ -3086,7 +3254,16 @@
     "description": "是否显示"
   },
   "u-toast/position": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "top-center",
+      "top-left",
+      "top-right",
+      "bottom-center",
+      "bottom-left",
+      "bottom-right",
+      "static"
+    ],
     "description": "显示的位置，可选值：`'top-center'`, `'top-left'`, `'top-right'`, `'bottom-center'`, `'bottom-left'`, `'bottom-right'`, `static`"
   },
   "u-toast/duration": {
@@ -3138,8 +3315,26 @@
     "description": "链接地址"
   },
   "u-toc-item/target": {
-    "type": "string",
-    "description": "打开方式"
+    "type": "enum",
+    "options": [
+      {
+        "name": "新标签页 (_blank)",
+        "value": "_blank"
+      },
+      {
+        "name": "当前窗口 (_self)",
+        "value": "_self"
+      },
+      {
+        "name": "父级窗口 (_parent)",
+        "value": "_parent"
+      },
+      {
+        "name": "顶级窗口 (_top)",
+        "value": "_top"
+      }
+    ],
+    "description": "（原生属性）。比如设置`_blank`，会在新标签页中打开。"
   },
   "u-toc-item/to": {
     "type": "string, Location",
@@ -3158,11 +3353,31 @@
     "description": "弹出/关闭状态"
   },
   "u-tooltip/trigger": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "click",
+      "hover",
+      "right-click",
+      "double-click"
+    ],
     "description": "工具提示的触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`, `'manual'`"
   },
   "u-tooltip/placement": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "top",
+      "bottom",
+      "left",
+      "right",
+      "top-start",
+      "top-end",
+      "bottom-start",
+      "bottom-end",
+      "left-start",
+      "left-end",
+      "right-start",
+      "right-end"
+    ],
     "description": "工具提示的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',` 'left-end'`, `'right-start'`, `'right-end'`"
   },
   "u-tooltip/hide-delay": {
@@ -3182,7 +3397,12 @@
     "description": "是否禁用"
   },
   "u-tooltip/size": {
-    "type": "string",
+    "type": "size",
+    "options": [
+      "small",
+      "normal",
+      "large"
+    ],
     "description": "大小扩展，支持一个值： `'small'`, `'normal'`, `'large'`, `'auto'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式"
   },
   "u-transfer/source": {
@@ -3350,7 +3570,7 @@
     "description": "标签。在 UValidator 用于提示消息的合成，在 UFormItem 等其他组件用于显示标签"
   },
   "u-validator/rules": {
-    "type": "string, Array",
+    "type": "string | Array",
     "description": "验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型"
   },
   "u-validator/message": {

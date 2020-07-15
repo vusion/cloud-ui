@@ -270,8 +270,8 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | title | string |  | `'标题'` | 弹出框标题 |
 | opened.sync | boolean |  | `false` | 弹出/关闭状态 |
-| trigger | string |  | `'click'` | 弹出框的触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`, `'manual'` |
-| placement | string |  | `'bottom'` | 弹出框的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',` 'left-end'`, `'right-start'`, `'right-end'` |
+| trigger | enum | `'click'`, `'hover'`, `'right-click'`, `'double-click'` | `'click'` | 弹出框的触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`, `'manual'` |
+| placement | enum | `'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start'`, `'left-end'`, `'right-start'`, `'right-end'` | `'bottom'` | 弹出框的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',` 'left-end'`, `'right-start'`, `'right-end'` |
 | hideDelay | number |  | `0` | 提示内容消失延迟时间，单位是`'ms'` |
 | offset | string |  | `'0'` | 弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px` |
 | follow-cursor | boolean, number, object |  | `false` | 是否跟随鼠标 |

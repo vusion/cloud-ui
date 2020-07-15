@@ -315,9 +315,6 @@
       "readonly",
       "disabled"
     ],
-    "defaults": [
-      "v-model"
-    ],
     "subtags": [
       "u-capsule",
       "u-capsule-group"
@@ -360,7 +357,7 @@
     "attributes": [
       "data",
       "value",
-      "labelSize",
+      "label-size",
       "categories",
       "auto-select",
       "converter",
@@ -368,9 +365,6 @@
       "cancelable",
       "readonly",
       "disabled"
-    ],
-    "defaults": [
-      "v-model"
     ]
   },
   "u-cascade-select": {
@@ -383,9 +377,6 @@
       "field",
       "readonly",
       "disabled"
-    ],
-    "defaults": [
-      "v-model"
     ]
   },
   "u-checkbox-card": {
@@ -395,9 +386,6 @@
       "placeholder",
       "size",
       "column"
-    ],
-    "defaults": [
-      "v-model"
     ]
   },
   "u-checkbox": {
@@ -406,9 +394,6 @@
       "label",
       "readonly",
       "disabled"
-    ],
-    "defaults": [
-      "v-model"
     ]
   },
   "u-checkboxes": {
@@ -880,9 +865,6 @@
       "disabled"
     ],
     "description": "菜单组件支持路由、触发关闭、多级菜单等功能。",
-    "defaults": [
-      "v-model"
-    ],
     "subtags": [
       "u-menu-item",
       "u-menu-group",
@@ -932,9 +914,6 @@
       "disabled"
     ],
     "description": "通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。",
-    "defaults": [
-      "v-model"
-    ],
     "subtags": [
       "u-navbar-item",
       "u-navbar-divider",
@@ -985,9 +964,6 @@
       "readonly",
       "disabled",
       "size"
-    ],
-    "defaults": [
-      "v-model"
     ]
   },
   "u-pagination": {
@@ -1026,9 +1002,6 @@
       "readonly",
       "disabled"
     ],
-    "defaults": [
-      "v-model"
-    ],
     "subtags": [
       "u-pill"
     ]
@@ -1059,9 +1032,6 @@
       "readonly",
       "disabled"
     ],
-    "defaults": [
-      "v-model"
-    ],
     "subtags": [
       "u-radio"
     ]
@@ -1084,10 +1054,7 @@
       "readonly",
       "disabled"
     ],
-    "description": "该组件从 UCascadeSelect 继承，仅填充了中国的行政区数据，其他功能与 UCascadeSelect 相同。",
-    "defaults": [
-      "v-model"
-    ]
+    "description": "该组件从 UCascadeSelect 继承，仅填充了中国的行政区数据，其他功能与 UCascadeSelect 相同。"
   },
   "u-select": {
     "attributes": [
@@ -1144,9 +1111,6 @@
       "readonly",
       "disabled"
     ],
-    "defaults": [
-      "v-model"
-    ],
     "subtags": [
       "u-selectable-step"
     ]
@@ -1168,9 +1132,6 @@
       "disabled"
     ],
     "description": "通常用于页面左侧的导航栏。",
-    "defaults": [
-      "v-model"
-    ],
     "subtags": [
       "u-sidebar-item",
       "u-sidebar-group",
@@ -1231,9 +1192,6 @@
       "value",
       "readonly",
       "disabled"
-    ],
-    "defaults": [
-      "v-model"
     ],
     "subtags": [
       "u-step"
@@ -1325,9 +1283,6 @@
       "readonly",
       "disabled"
     ],
-    "defaults": [
-      "v-model"
-    ],
     "subtags": [
       "u-tablet"
     ]
@@ -1381,8 +1336,6 @@
   "u-textarea": {
     "attributes": [
       "value",
-      "value",
-      "default-value",
       "clearable",
       "placeholder",
       "minlength",
@@ -1393,10 +1346,7 @@
       "disabled",
       "resize"
     ],
-    "description": "多行输入组件，在原生`<textarea>`控件基础上进行了一些功能扩展。",
-    "defaults": [
-      "v-model"
-    ]
+    "description": "多行输入组件，在原生`<textarea>`控件基础上进行了一些功能扩展。"
   },
   "u-time-picker": {
     "attributes": [
@@ -1426,9 +1376,6 @@
       "value"
     ],
     "description": "用于展示文档的目录，支持路由监听、多级目录等功能。",
-    "defaults": [
-      "v-model"
-    ],
     "subtags": [
       "u-toc-item"
     ]

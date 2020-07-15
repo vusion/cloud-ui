@@ -55,7 +55,7 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value | boolean, null |  | `false` | Checked status. `null` means indeterminate status. |
+| value | boolean \| null |  | `false` | Checked status. `null`表示不确定状态. |
 | readonly | boolean |  | `false` | Readonly |
 | disabled | boolean |  | `false` | Disabled |
 
@@ -63,18 +63,18 @@ export default {
 
 #### @input
 
-Emit when checking.
+切换时触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| undefined | boolean, null | Checked value |
+| undefined | boolean, null | 选中状态 |
 
 #### @change
 
-Emit when change value.
+改变后触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| undefined | boolean, null | New value |
-| undefined | boolean, null | Old value |
+| newValue | boolean, null | 新的值 |
+| oldValue | boolean, null | 旧的值 |
 

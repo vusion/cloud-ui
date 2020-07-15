@@ -237,11 +237,11 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | direction | enum | `'horizontal'`, `'vertical'` | `'horizontal'` | 排列方向。 |
 | gap | enum | `'shrink'`, `'none'`, `'small'`, `'normal'`, `'large'` | `'normal'` | 间隙大小，需自行扩展。 |
-| display | string | `'inline'`, `'block'` | `'block'` | 展示方式。可选值： |
-| layout | string | `'none'`, `'inline'`, `'block'` | `'none'` | 布局方式，用于迅速调整子元素或组件的展示方式。 |
-| type | string | `'flex'` |  | 布局模式。 |
-| justify | string |  | `'start'` | 主轴分布方式。普通模式下可选值：`'start'`, `'center'`, `'end'`, `'space-between'`。flex布局模式下还支持：`'space-around'`。普通模式下的`'space-between'`功能很弱，只支持左右分布。 |
-| alignment | string |  | `'stretch'` | flex布局模式下的交叉轴对齐方式，可选值：`'start'`, `'center'`, `'end'`, `'baseline'`, `'stretch'` |
+| display | enum | `'inline'`, `'block'` | `'block'` | 展示方式。可选值： |
+| layout | enum | `'none'`, `'inline'`, `'block'` | `'none'` | 布局方式，用于迅速调整子元素或组件的展示方式。 |
+| type | enum | `'flex'` |  | 布局模式。 |
+| justify | enum | `'start'`, `'center'`, `'end'`, `'space-between'`, `'space-around'` | `'start'` | 主轴分布方式。普通模式下可选值：`'start'`, `'center'`, `'end'`, `'space-between'`。flex布局模式下还支持：`'space-around'`。普通模式下的`'space-between'`功能很弱，只支持左右分布。 |
+| alignment | enum | `'start'`, `'center'`, `'end'`, `'baseline'`, `'stretch'` | `'stretch'` | flex布局模式下的交叉轴对齐方式，可选值：`'start'`, `'center'`, `'end'`, `'baseline'`, `'stretch'` |
 
 ### Slots
 

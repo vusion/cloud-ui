@@ -1590,7 +1590,7 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | name | string |  |  | 表单项名称。已废弃 |
 | label | string |  |  | 标签。在 UValidator 用于提示消息的合成，在 UFormItem 等其他组件用于显示标签 |
-| rules | string, Array |  |  | 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型 |
+| rules | string \| Array |  |  | 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型 |
 | message | string |  |  | 默认提示消息 |
 | muted | string |  |  | 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示 |
 | ignore-validation | boolean |  | `false` | 忽略验证 |

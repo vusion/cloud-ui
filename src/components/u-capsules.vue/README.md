@@ -233,7 +233,7 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value | any |  |  | 此项的值 |
-| size | string |  |  | 胶囊大小，可选值：`'small'` |
+| size | enum | `'small'` |  | 胶囊大小，可选值：`'small'` |
 | selected | boolean |  | `false` | 是否选中此项 |
 | disabled | boolean |  | `false` | 禁用此项 |
 | label | string |  | `''` | 顶部自定义提示文本 |
