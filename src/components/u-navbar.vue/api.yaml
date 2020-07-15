@@ -138,6 +138,7 @@
           type: UNavbar
           description: 发送事件实例
 - name: u-navbar-item
+  title: 导航项
   attrs:
     - name: value
       title: 值
@@ -243,7 +244,9 @@
           type: Vue
           description: 发送事件实例
 - name: u-navbar-divider
+  title: 分隔线
 - name: u-navbar-dropdown
+  title: 下拉菜单
   attrs:
     - name: trigger
       title: 触发方式
