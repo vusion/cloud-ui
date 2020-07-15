@@ -291,8 +291,7 @@ export default UModal;
 }
 
 .content {
-    line-height: 24px;
-    color: #666;
+    color: var(--color-light);
 }
 
 .foot {
