@@ -1,5 +1,7 @@
 ### 基本用法
 
+将需要弹出的内容用`<u-popup>`包裹起来，并插入到触发事件的元素中。
+
 ``` html
 <u-linear-layout>
     <u-button>
@@ -21,6 +23,8 @@
 ```
 
 ### 自定义
+
+通过 root 插槽可以自定义整体内容。
 
 ``` html
 <u-linear-layout>
@@ -66,6 +70,8 @@
 
 ### 触发方式
 
+使用`trigger`属性设置触发方式。
+
 ``` html
 <u-linear-layout>
     <u-button>
@@ -109,7 +115,9 @@ export default {
 </script>
 ```
 
-### 弹出位置
+### 弹出方位
+
+使用`placement`属性控制弹出方位。
 
 ``` html
 <u-linear-layout direction="vertical" style="min-width: 300px; max-width: 550px;">
@@ -174,7 +182,7 @@ export default {
 
 #### 跟随鼠标
 
-将`'follow-cursor'`属性设置为`true`可以跟随鼠标。也可以传一个数字或对象调整位置偏移。
+开启`follow-cursor`属性可以让弹出层跟随鼠标。也可以传一个数字或对象调整位置偏移。
 
 ``` html
 <u-linear-layout direction="vertical" style="min-width: 300px; max-width: 550px;">
@@ -237,7 +245,26 @@ export default {
 </u-linear-layout>
 ```
 
-### 禁用
+### 右键菜单
+
+使用`trigger`和`follow-cursor`两个属性可以很容易的实现右键菜单功能。
+
+``` html
+<u-button>
+    右键菜单
+    <u-popup trigger="right-click" placement="right-start" follow-cursor>
+        <u-menu slot="root" value="3" :router="false">
+            <u-menu-item value="1">指南</u-menu-item>
+            <u-menu-item value="2">概念</u-menu-item>
+            <u-menu-item value="3">组件</u-menu-item>
+        </u-menu>
+    </u-popup>
+</u-button>
+```
+
+### 禁用状态
+
+给弹出框添加`disabled`属性可以禁止弹出效果，但需要手动设置外层元素的状态。
 
 ``` html
 <u-button disabled>

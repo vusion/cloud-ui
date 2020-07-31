@@ -1,5 +1,9 @@
 ### 基本用法
 
+将需要弹出的内容用`<u-tooltip>`包裹起来，并插入到触发事件的元素中。
+
+也可以直接使用指令的方式。
+
 ``` html
 <u-linear-layout>
     <u-button>
@@ -11,6 +15,8 @@
 ```
 
 ### 触发方式
+
+使用`trigger`属性设置触发方式。
 
 ``` html
 <u-linear-layout>
@@ -67,7 +73,9 @@ export default {
 </script>
 ```
 
-### 弹出位置
+### 弹出方位
+
+使用`placement`属性控制弹出方位。
 
 ``` html
 <u-linear-layout direction="vertical" style="min-width: 300px; max-width: 550px;">
@@ -159,7 +167,7 @@ export default {
 
 #### 跟随鼠标
 
-将`'follow-cursor'`属性设置为`true`可以跟随鼠标。也可以传一个数字或对象调整位置偏移。
+开启`follow-cursor`属性可以让弹出层跟随鼠标。也可以传一个数字或对象调整位置偏移。
 
 ``` html
 <u-linear-layout direction="vertical" style="min-width: 300px; max-width: 550px;">
@@ -222,7 +230,9 @@ export default {
 </u-linear-layout>
 ```
 
-### Hover 时延迟消失
+#### 显隐延时
+
+使用`hover-delay`属性和`hide-delay`属性控制显隐的延时。
 
 ``` html
 <u-linear-layout>
@@ -232,7 +242,9 @@ export default {
 </u-linear-layout>
 ```
 
-### 禁用
+### 禁用状态
+
+给工具提示添加`disabled`属性可以禁止弹出效果，但需要手动设置外层元素的状态。
 
 ``` html
 <u-button disabled>
@@ -241,7 +253,7 @@ export default {
 </u-button>
 ```
 
-### 大小扩展
+### 设置尺寸
 
 ``` vue
 <template>

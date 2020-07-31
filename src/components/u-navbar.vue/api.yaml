@@ -1,5 +1,5 @@
 - name: u-navbar
-  title: 导航条
+  title: 导航栏
   labels: [路由链接, 块级展示]
   description: 通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。
   attrs:
@@ -138,7 +138,7 @@
           type: UNavbar
           description: 发送事件实例
 - name: u-navbar-item
-  title: 导航项
+  title: 导航栏项
   attrs:
     - name: value
       title: 值
@@ -244,9 +244,9 @@
           type: Vue
           description: 发送事件实例
 - name: u-navbar-divider
-  title: 分隔线
+  title: 导航栏分割线
 - name: u-navbar-dropdown
-  title: 下拉菜单
+  title: 导航栏下拉菜单
   attrs:
     - name: trigger
       title: 触发方式

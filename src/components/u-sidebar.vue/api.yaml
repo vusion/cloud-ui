@@ -144,7 +144,7 @@
           type: boolean
           description: 展开/折叠
 - name: u-sidebar-item
-  title: 导航项
+  title: 侧边栏项
   attrs:
     - name: value
       title: 值
@@ -252,7 +252,7 @@
           type: Vue
           description: 发送事件实例
 - name: u-sidebar-group
-  title: 导航分组
+  title: 侧边栏分组
   attrs:
     - name: title
       title: 标题
@@ -320,4 +320,4 @@
           type: Vue
           description: 发送事件实例
 - name: u-sidebar-divider
-  title: 分隔线
+  title: 侧边栏分隔线

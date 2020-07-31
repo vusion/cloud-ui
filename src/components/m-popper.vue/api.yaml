@@ -1,40 +1,46 @@
 - name: m-popper
   title: 弹出层
+  description: 弹出层基类，可以直接使用它的弹出效果，或者以继承的方式扩展出常用的弹出组件。如弹出框、工具提示等。
   attrs:
-    - name: opened.sync
+    - name: opened
+      sync: true
+      title: 弹出关闭状态
       type: boolean
       default: false
       description: 弹出/关闭状态
     - name: trigger
-      type: string
+      title: 触发方式
+      type: enum
+      options: [click, hover, right-click, double-click]
       default: click
-      description: 触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`,
-        `'manual'`
+      description: 触发方式。
+    - name: placement
+      title: 弹出方向
+      type: enum
+      options: [top, bottom, left, right, top-start, top-end, bottom-start, bottom-end, left-start, left-end, right-start, right-end]
+      default: bottom
+      description: 弹出方向。
     - name: reference
-      type: string, HTMLElement, Function
+      type: string | HTMLElement | Function
       default: parent
       description: 参考元素。可选值：`'parent'`表示父元素，`'prev'`表示上一个元素，`'next'`表示下一个元素。也可以传一个 HTML
-        元素，或用于返回元素的方法
-    - name: placement
-      type: string
-      default: bottom
-      description: 弹出方位。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`,
-        `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',`
-        'left-end'`, `'right-start'`, `'right-end'`
+        元素，或用于返回元素的方法。
     - name: hover-delay
+      title: 悬浮延迟时间
       type: number
       default: 0
-      description: 当 trigger 为 `'hover'` 时的延迟时间
+      description: 当 trigger 为 `'hover'` 时的延迟时间。
     - name: hide-delay
+      title: 消失延迟时间
       type: number
       default: 200
-      description: 当 trigger 为 `'hover'` 时的隐藏延迟时间
+      description: 当 trigger 为 `'hover'` 时的消失延迟时间，单位是 ms。
     - name: append-to
       type: string
       default: body
       description: 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中
     - name: boundaries-element
-      type: Element, string
+      type: Element | string
       default: window
       description: 边际元素。用于定义弹出层的边际，默认为首个滚动的父级元素
     - name: escape-with-reference
@@ -42,7 +48,7 @@
       default: true
       description: 当触发元素离开边际时，弹出层离开/保留在边际元素内
     - name: follow-cursor
-      type: boolean, number, object
+      type: boolean | number | object
       default: false
       description: 是否跟随鼠标
     - name: offset
@@ -51,7 +57,6 @@
       description: 弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px`
     - name: options
       type: object
-      default: null
       description: 补充 popper.js 的选项
     - name: disabled
       type: boolean
@@ -97,12 +102,6 @@
         - name: senderVM
           type: MPopper
           description: 发送事件实例
-    - name: before-toggle
-      description: "@deprecated"
-      params: []
-    - name: toggle
-      description: "@deprecated"
-      params: []
   methods:
     - name: open()
       description: 弹出实例。

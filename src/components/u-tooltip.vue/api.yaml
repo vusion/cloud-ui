@@ -12,18 +12,15 @@
       type: enum
       options: [click, hover, right-click, double-click]
       default: hover
-      description: 工具提示的触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`,
-        `'manual'`
+      description: 工具提示的触发方式。
     - name: placement
       title: 弹出方向
       type: enum
       options: [top, bottom, left, right, top-start, top-end, bottom-start, bottom-end, left-start, left-end, right-start, right-end]
       default: bottom
-      description: 工具提示的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`,
-        `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',`
-        'left-end'`, `'right-start'`, `'right-end'`
+      description: 工具提示的弹出方向。
     - name: hide-delay
-      title: 延迟时间
+      title: 消失延迟时间
       type: number
       default: 200
       description: 提示内容消失延迟时间，单位是 ms

@@ -82,7 +82,7 @@ export default {
             else {
                 let followCursor;
                 if (typeof this.followCursor === 'boolean')
-                    followCursor = { offsetX: 10, offsetY: 10 };
+                    followCursor = { offsetX: 4, offsetY: 4 };
                 else if (typeof this.followCursor === 'number')
                     followCursor = {
                         offsetX: this.followCursor,
@@ -215,13 +215,13 @@ export default {
             event = arr[0];
             this.triggers.push({ el, event }); // 收集 setTimeout
             this.timers = this.timers || []; // 绑定事件
-            this.followCursor && this.offEvents.push(
-                single.on('m-popper-proto', { el, self: this }, document, 'mousemove', (e, datas) => {
-                    Object.values(datas).forEach(({ el, self }) => {
+            if (this.followCursor && event === 'hover') {
+                this.offEvents.push(single.on('m-popper-proto', { el, self: this }, document, 'mousemove', (e, data) => {
+                    Object.values(data).forEach(({ el, self }) => {
                         self.updatePositionByCursor(e, el);
                     });
-                }),
-            );
+                }));
+            }
             if (event === 'click')
                 this.offEvents.push(ev.on(el, 'click', (e) => {
                     if (arr[1] === 'stop')
@@ -254,18 +254,18 @@ export default {
                 }));
             } else if (event === 'double-click')
                 this.offEvents.push(ev.on(el, 'dblclick', (e) => {
-                    this.toggle();
+                    this.open();
                     this.followCursor && this.$nextTick(() => this.updatePositionByCursor(e, el));
                 }));
             else if (event === 'right-click') {
                 this.offEvents.push(ev.on(el, 'contextmenu', (e) => {
                     e.preventDefault();
-                    this.toggle();
+                    this.open();
                     this.followCursor && this.$nextTick(() => this.updatePositionByCursor(e, el));
                 }));
             } // @TODO: 有没有必要搞 focus-in
-            this.offEvents.push(single.on('m-popper-proto', { el, popperEl, self: this }, document, 'mousedown', (e, datas) => {
-                Object.values(datas).forEach(({ el, popperEl, self }) => !el.contains(e.target) && !popperEl.contains(e.target) && self.close());
+            this.offEvents.push(single.on('m-popper-proto', { el, popperEl, self: this }, document, 'mousedown', (e, data) => {
+                Object.values(data).forEach(({ el, popperEl, self }) => !el.contains(e.target) && !popperEl.contains(e.target) && self.close());
             }));
         },
         createPopper() {
