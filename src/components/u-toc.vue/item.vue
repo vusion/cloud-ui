@@ -42,6 +42,7 @@ export const UTocItem = {
     methods: {
         watchActive(active) {
             // active && this.groupVM && this.groupVM.toggle(true);
+            active && this.parentVM && this.parentVM.setActive(this);
         },
     },
 };

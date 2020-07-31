@@ -33,3 +33,25 @@
 .root::after {
     bottom: calc((var(--toc-circle-size) + 1px) / (-2));
 }
+
+.arrow {
+    position: absolute;
+    width: 10px;
+    height:6px;
+    background: var(--brand-primary);
+    left: -6px;
+    transition: top .15s ease-in-out;
+    z-index: 1;
+}
+
+.arrow:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 3px solid transparent;
+    border-left: 3px solid var(--brand-primary);
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    position: absolute;
+    right: -6px;
+}
