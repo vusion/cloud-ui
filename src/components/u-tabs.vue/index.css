@@ -91,6 +91,7 @@
 }
 
 .root[appear="text"] .item {
+    background: var(--tabs-item-background-text);
     color: var(--tabs-item-color);
 }
 
@@ -105,6 +106,7 @@
 }
 
 .root[appear="capsule"] .item {
+    background: var(--tabs-item-background-capsule);
     margin-right: -1px;
     line-height: calc(var(--tabs-item-height) - var(--tabs-border-width) * 2);
     border: var(--tabs-border-width) solid var(--tabs-border-color);
@@ -285,6 +287,10 @@
     height: var(--tabs-item-height-small);
 }
 
+.root[size="small"][appear="capsule"] .item {
+    line-height: calc(var(--tabs-item-height-small) - var(--tabs-border-width) * 2);
+}
+
 .root[size="mini"] .item {
     line-height: var(--tabs-item-height-mini);
     padding: 0 var(--tabs-item-padding-x-mini);
@@ -293,6 +299,10 @@
 .root[size="mini"][appear="square"] .item,
 .root[size="mini"][appear="round"] .item {
     height: var(--tabs-item-height-mini);
+}
+
+.root[size="mini"][appear="capsule"] .item {
+    line-height: calc(var(--tabs-item-height-mini) - var(--tabs-border-width) * 2);
 }
 
 .item[width-fixed] {
@@ -320,6 +330,6 @@
 
 .root[display="filled"] .body {
     flex: auto;
-    overflow: hidden;
+    overflow: auto;
 }
 .title {}

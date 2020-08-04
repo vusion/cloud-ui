@@ -185,12 +185,18 @@
     --code-color: #e0276e;
     --code-font-size: var(--font-size-small);
 
-    --kbd-padding-y: 1px;
-    --kbd-padding-x: 3px;
+    --kbd-padding-y: 2px;
+    --kbd-padding-x: 4px;
     --kbd-font-size: var(--font-size-small);
     --kbd-background: var(--background-color-base);
+    --kbd-border-width: var(--border-width-base);
+    --kbd-border-color: var(--border-color-dark);
     --kbd-border-radius: var(--border-radius-base);
-    --kbd-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    --kbd-box-shadow: 0 1px 1px rgba(0,0,0,.2), 0 2px 0 0 rgba(255,255,255,.7) inset;
+
+    --scrollbar-size: 6px;
+    --scrollbar-background: rgba(92, 110, 130, 0.6);
+    --scrollbar-border-radius: 3px;
 
     /* Text */
     --text-font-size: var(--font-size-base);
@@ -494,9 +500,11 @@
     --tabs-item-height-small: 30px;
     --tabs-item-height-mini: 24px;
     --tabs-item-padding-x: 30px;
-    --tabs-item-padding-x-small: 24px;
-    --tabs-item-padding-x-mini: 20px;
+    --tabs-item-padding-x-small: 22px;
+    --tabs-item-padding-x-mini: 16px;
     --tabs-item-line-width: 2px;
+    --tabs-item-background-text: none;
+    --tabs-item-background-capsule: none;
     --tabs-item-background-hover: var(--background-color-lighter);
     --tabs-item-background-selected: var(--background-color-default);
     --tabs-item-background-selected-capsule: none;
@@ -511,8 +519,8 @@
     --tabs-item-border-color-selected-capsule: var(--brand-primary);
     --tabs-item-border-radius-round: 5px;
     --tabs-body-space: var(--space-base);
-    --tabs-body-space-small: var(--space-base-small);
-    --tabs-body-space-mini: var(--space-base-mini);
+    --tabs-body-space-small: var(--space-small);
+    --tabs-body-space-mini: var(--space-mini);
 
     /* Subtabs */
     --subtabs-border-color: var(--border-color-light);

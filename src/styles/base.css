@@ -11,8 +11,8 @@ ul[class], ol[class] {
 }
 
 ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: var(--scrollbar-size);
+    height: var(--scrollbar-size);
 }
 
 ::-webkit-scrollbar-track {
@@ -20,8 +20,8 @@ ul[class], ol[class] {
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 3px;
-    background: rgba(92, 110, 130, 0.6);
+    border-radius: var(--scrollbar-border-radius);
+    background: var(--scrollbar-background);
 }
 
 ::-webkit-scrollbar-button,

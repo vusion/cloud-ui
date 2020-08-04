@@ -266,5 +266,5 @@
       type: boolean
       default: false
       description: 是否禁用
-- name: u-navbar-menu、-u-navbar-menu-group、-u-navbar-menu-item、-u-navbar-menu-divider
-- name: u-navbar-select、-u-navbar-select-group、-u-navbar-select-item、-u-navbar-select-divider
+- name: u-navbar-menu、u-navbar-menu-group、u-navbar-menu-item、u-navbar-menu-divider
+- name: u-navbar-select、u-navbar-select-group、u-navbar-select-item、u-navbar-select-divider

@@ -1,7 +1,7 @@
 - name: u-tabs
   title: 选项卡
   labels: [路由链接, 块级展示]
-  description: 选项卡切换组件，常用于平级区域大块内容的的收纳和展现。
+  description: 选项卡切换组件，常用于平级区域大块内容的收纳和展现。
   attrs:
     - name: router
       title: 绑定路由
