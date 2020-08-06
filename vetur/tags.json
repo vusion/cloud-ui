@@ -179,8 +179,8 @@
     "attributes": [
       "opened",
       "trigger",
-      "reference",
       "placement",
+      "reference",
       "hover-delay",
       "hide-delay",
       "append-to",
@@ -190,7 +190,8 @@
       "offset",
       "options",
       "disabled"
-    ]
+    ],
+    "description": "弹出层基类，可以直接使用它的弹出效果，或者以继承的方式扩展出常用的弹出组件。如弹出框、工具提示等。"
   },
   "m-publisher": {
     "attributes": [],
@@ -918,8 +919,8 @@
       "u-navbar-item",
       "u-navbar-divider",
       "u-navbar-dropdown",
-      "u-navbar-menu、-u-navbar-menu-group、-u-navbar-menu-item、-u-navbar-menu-divider",
-      "u-navbar-select、-u-navbar-select-group、-u-navbar-select-item、-u-navbar-select-divider"
+      "u-navbar-menu、u-navbar-menu-group、u-navbar-menu-item、u-navbar-menu-divider",
+      "u-navbar-select、u-navbar-select-group、u-navbar-select-item、u-navbar-select-divider"
     ]
   },
   "u-navbar-item": {
@@ -944,10 +945,10 @@
       "disabled"
     ]
   },
-  "u-navbar-menu、-u-navbar-menu-group、-u-navbar-menu-item、-u-navbar-menu-divider": {
+  "u-navbar-menu、u-navbar-menu-group、u-navbar-menu-item、u-navbar-menu-divider": {
     "attributes": []
   },
-  "u-navbar-select、-u-navbar-select-group、-u-navbar-select-item、-u-navbar-select-divider": {
+  "u-navbar-select、u-navbar-select-group、u-navbar-select-item、u-navbar-select-divider": {
     "attributes": []
   },
   "u-number-input": {
@@ -1019,12 +1020,13 @@
       "opened",
       "trigger",
       "placement",
-      "hideDelay",
+      "hide-delay",
       "offset",
       "follow-cursor",
       "disabled",
       "merge-borders"
-    ]
+    ],
+    "description": "点击/鼠标移入元素，弹出气泡式的卡片浮层。"
   },
   "u-radios": {
     "attributes": [
@@ -1306,7 +1308,7 @@
       "appear",
       "size"
     ],
-    "description": "选项卡切换组件，常用于平级区域大块内容的的收纳和展现。",
+    "description": "选项卡切换组件，常用于平级区域大块内容的收纳和展现。",
     "subtags": [
       "u-tab"
     ]
@@ -1459,14 +1461,18 @@
   },
   "u-uploader": {
     "attributes": [
+      "value",
       "url",
+      "name",
+      "headers",
       "data-type",
       "data",
-      "name",
       "extensions",
+      "limit",
       "max-size",
       "disabled"
-    ]
+    ],
+    "description": "通过点击或者拖拽上传文件。"
   },
   "u-validator": {
     "attributes": [

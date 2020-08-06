@@ -4,48 +4,168 @@
 
 - [示例](#示例)
     - [基本用法](#基本用法)
-    - [文件类型限制](#文件类型限制)
-    - [文件大小限制](#文件大小限制)
-    - [禁用](#禁用)
+    - [多文件上传](#多文件上传)
+    - [列表类型](#列表类型)
+    - [禁用状态](#禁用状态)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
     - [Events](#events)
+    - [Methods](#methods)
 
 **表单控件**, **行内展示**
+
+通过点击或者拖拽上传文件。
 
 ## 示例
 ### 基本用法
 
-``` html
-<u-uploader url="/api/upload">
-    <u-button>upload</u-button>
+下面的例子为单文件上传。
+
+``` vue
+<template>
+<u-uploader v-model="files" url="http://localhost:7000/api/library/upload">
+    <u-button color="primary">Upload</u-button>
 </u-uploader>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            files: [],
+        };
+    },
+}
+</script>
 ```
 
 > 注意：在IE中实现上传功能时，需要将响应头的`Content-Type`设置为`text/plain`或`text/html`，而不能是`application/json`，否则IE会提示用户下载返回的数据。
 
-### 文件类型限制
+### 多文件上传
 
-``` html
-<u-uploader url="/api/upload" extensions="jpg,gif,png">
-    <u-button>upload</u-button>
+设置`multiple`可以选择多个文件，通过`value`属性可以设置已上传的文件。
+
+``` vue
+<template>
+<u-uploader v-model="files" multiple url="http://localhost:7000/api/library/upload">
+    <u-button color="primary">Upload</u-button>
 </u-uploader>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            files: [{
+                uid: '1',
+                name: 'breakfast.png',
+                status: 'success',
+                url: 'https://static-vusion.163yun.com/assets/breakfast.png',
+            }, {
+                uid: '2',
+                name: 'salad.png',
+                status: 'success',
+                url: 'https://static-vusion.163yun.com/assets/salad.png',
+            }],
+        };
+    },
+};
+</script>
 ```
 
-### 文件大小限制
+### 列表类型
 
-``` html
-<u-uploader url="/api/upload" max-size="10kB">
-    <u-button>upload</u-button>
+通过`list-type`设置列表类型。
+
+#### 图片列表
+
+``` vue
+<template>
+<u-uploader v-model="files" multiple list-type="image"
+    accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
+    url="http://localhost:7000/api/library/upload">
+    <u-button color="primary">Upload</u-button>
 </u-uploader>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            files: [{
+                uid: '1',
+                name: 'breakfast.png',
+                status: 'success',
+                url: 'https://static-vusion.163yun.com/assets/breakfast.png',
+            }, {
+                uid: '2',
+                name: 'salad.png',
+                status: 'success',
+                url: 'https://static-vusion.163yun.com/assets/salad.png',
+            }],
+        };
+    },
+};
+</script>
 ```
 
-### 禁用
+#### 卡片列表
+
+``` vue
+<template>
+<u-uploader v-model="files" multiple list-type="card"
+    accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
+    url="http://localhost:7000/api/library/upload">
+    <u-button color="primary">Upload</u-button>
+</u-uploader>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            files: [{
+                uid: '1',
+                name: 'breakfast.png',
+                status: 'success',
+                url: 'https://static-vusion.163yun.com/assets/breakfast.png',
+            }, {
+                uid: '2',
+                name: 'salad.png',
+                status: 'success',
+                url: 'https://static-vusion.163yun.com/assets/salad.png',
+            }],
+        };
+    },
+};
+</script>
+```
+
+#### 单文件卡片
+
+不使用`multiple`属性时，仅会显示一个卡片。可以用于头像上传、身份证上传等场景。
+
+``` vue
+<template>
+<u-uploader v-model="files" list-type="card"
+    accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
+    url="http://localhost:7000/api/library/upload">
+    <u-button color="primary">Upload</u-button>
+</u-uploader>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            files: [],
+        };
+    },
+};
+</script>
+```
+
+### 禁用状态
 
 ``` html
-<u-uploader url="/api/upload" disabled>
-    <u-button disabled>upload</u-button>
+<u-uploader url="http://localhost:7000/api/library/upload" disabled>
+    <u-button color="primary" disabled>Upload</u-button>
 </u-uploader>
 ```
 
@@ -54,11 +174,14 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| url | string |  |  | 上传文件路径 |
+| value.sync, v-model | Array |  | `'\[\]'` | 当前文件列表 |
+| url | string |  |  | 上传的地址 |
+| name | string |  | `'file'` | 上传的文件字段名，后端需要这个字段获取 |
+| headers |  |  |  | undefined |
 | data-type | string |  | `'json'` | 接收数据类型。可选值：`text`、`xml`、`json` |
 | data | object |  |  | 附加数据 |
-| name | string |  | `'file'` | 上传文件的名称，后端一般需要这个字段 |
 | extensions | string, Array |  | `''` | 可上传的扩展名。默认为空，表示可上传任意文件类型的文件。可以为字符串，多个扩展名用`,`隔开，如：`'png,jpg,gif'`；也可以为数组，如：`['png', 'jpg', 'gif']` |
+| limit | number |  | `Infinity` | 列表数量 |
 | max-size | string, number |  | `Infinity` | 可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB` |
 | disabled | boolean |  | `false` | 是否禁用 |
 
@@ -132,4 +255,13 @@
 | $event.maxSize | number | 限制大小 |
 | $event.size | number | 当前大小 |
 | senderVM | UUploader | 发送事件对象 |
+
+Methods
+
+#### select()
+
+选择文件上传
+
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
 

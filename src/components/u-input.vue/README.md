@@ -157,7 +157,7 @@ export default {
 | autofocus | boolean |  |  | 是否自动获取焦点 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
-| size | size | `'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`, `'full'` | `'normal'` | 大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式 |
+| size | size | `'mini'`, `'small'`, `'normal'`, `'medium'`, `'large'`, `'huge'`, `'full'` | `'normal'` | 大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'medium'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式 |
 | maxlengthMessage | string |  |  | 输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效 |
 
 ### Slots

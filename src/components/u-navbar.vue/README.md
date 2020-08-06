@@ -1,6 +1,6 @@
 <!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-# UNavbar 导航条
+# UNavbar 导航栏
 
 - [示例](#示例)
     - [基本用法](#基本用法)
@@ -20,9 +20,9 @@
 
 - [UNavbarDropdown API](#unavbardropdown-api)
     - [Props/Attrs](#propsattrs-3)
-- [UNavbarMenu、UNavbarMenuGroup、UNavbarMenuItem、UNavbarMenuDivider API](#unavbarmenu-unavbarmenugroup-unavbarmenuitem-unavbarmenudivider-api)
+- [UNavbarMenu、uNavbarMenuGroup、uNavbarMenuItem、uNavbarMenuDivider API](#unavbarmenu-unavbarmenugroup-unavbarmenuitem-unavbarmenudivider-api)
 
-- [UNavbarSelect、UNavbarSelectGroup、UNavbarSelectItem、UNavbarSelectDivider API](#unavbarselect-unavbarselectgroup-unavbarselectitem-unavbarselectdivider-api)
+- [UNavbarSelect、uNavbarSelectGroup、uNavbarSelectItem、uNavbarSelectDivider API](#unavbarselect-unavbarselectgroup-unavbarselectitem-unavbarselectdivider-api)
 
 
 **路由链接**, **块级展示**
@@ -330,9 +330,9 @@
 | placement | string |  | `'bottom'` | 弹出方位。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',` 'left-end'`, `'right-start'`, `'right-end'` |
 | disabled | boolean |  | `false` | 是否禁用 |
 
-## UNavbarMenu、UNavbarMenuGroup、UNavbarMenuItem、UNavbarMenuDivider API
+## UNavbarMenu、uNavbarMenuGroup、uNavbarMenuItem、uNavbarMenuDivider API
 
 暂无
-## UNavbarSelect、UNavbarSelectGroup、UNavbarSelectItem、UNavbarSelectDivider API
+## UNavbarSelect、uNavbarSelectGroup、uNavbarSelectItem、uNavbarSelectDivider API
 
 暂无

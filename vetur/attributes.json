@@ -280,31 +280,51 @@
     "description": "弹出/关闭状态"
   },
   "m-popper/trigger": {
-    "type": "string",
-    "description": "触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`, `'manual'`"
-  },
-  "m-popper/reference": {
-    "type": "string, HTMLElement, Function",
-    "description": "参考元素。可选值：`'parent'`表示父元素，`'prev'`表示上一个元素，`'next'`表示下一个元素。也可以传一个 HTML 元素，或用于返回元素的方法"
+    "type": "enum",
+    "options": [
+      "click",
+      "hover",
+      "right-click",
+      "double-click"
+    ],
+    "description": "触发方式。"
   },
   "m-popper/placement": {
-    "type": "string",
-    "description": "弹出方位。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',` 'left-end'`, `'right-start'`, `'right-end'`"
+    "type": "enum",
+    "options": [
+      "top",
+      "bottom",
+      "left",
+      "right",
+      "top-start",
+      "top-end",
+      "bottom-start",
+      "bottom-end",
+      "left-start",
+      "left-end",
+      "right-start",
+      "right-end"
+    ],
+    "description": "弹出方向。"
+  },
+  "m-popper/reference": {
+    "type": "string | HTMLElement | Function",
+    "description": "参考元素。可选值：`'parent'`表示父元素，`'prev'`表示上一个元素，`'next'`表示下一个元素。也可以传一个 HTML 元素，或用于返回元素的方法。"
   },
   "m-popper/hover-delay": {
     "type": "number",
-    "description": "当 trigger 为 `'hover'` 时的延迟时间"
+    "description": "当 trigger 为 `'hover'` 时的延迟时间。"
   },
   "m-popper/hide-delay": {
     "type": "number",
-    "description": "当 trigger 为 `'hover'` 时的隐藏延迟时间"
+    "description": "当 trigger 为 `'hover'` 时的消失延迟时间，单位是 ms。"
   },
   "m-popper/append-to": {
     "type": "string",
     "description": "设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中"
   },
   "m-popper/boundaries-element": {
-    "type": "Element, string",
+    "type": "Element | string",
     "description": "边际元素。用于定义弹出层的边际，默认为首个滚动的父级元素"
   },
   "m-popper/escape-with-reference": {
@@ -312,7 +332,7 @@
     "description": "当触发元素离开边际时，弹出层离开/保留在边际元素内"
   },
   "m-popper/follow-cursor": {
-    "type": "boolean, number, object",
+    "type": "boolean | number | object",
     "description": "是否跟随鼠标"
   },
   "m-popper/offset": {
@@ -461,9 +481,10 @@
       "mini",
       "small",
       "normal",
-      "large"
+      "large",
+      "huge"
     ],
-    "description": "设置尺寸。"
+    "description": "设置尺寸。可选值：`'mini'`、`'small'`、`'normal'`、`'large'`、`'huge'`"
   },
   "u-button/shape": {
     "type": "enum",
@@ -662,7 +683,7 @@
     "description": "当前选择的值"
   },
   "u-cascade-capsules/label-size": {
-    "type": "string",
+    "type": "enum",
     "options": [
       "small",
       "normal",
@@ -743,7 +764,10 @@
     "description": "没有数据时的占位显示"
   },
   "u-checkbox-card/size": {
-    "type": "string",
+    "type": "enum",
+    "options": [
+      "normal"
+    ],
     "description": "卡片尺寸"
   },
   "u-checkbox-card/column": {
@@ -1653,11 +1677,12 @@
       "mini",
       "small",
       "normal",
+      "medium",
       "large",
       "huge",
       "full"
     ],
-    "description": "大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式"
+    "description": "大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'medium'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式"
   },
   "u-input/maxlengthMessage": {
     "type": "string",
@@ -2117,8 +2142,15 @@
     "description": "取消按钮文本，如果为空则不显示"
   },
   "u-modal/size": {
-    "type": "string",
-    "description": "弹框的尺寸"
+    "type": "enum",
+    "options": [
+      "small",
+      "normal",
+      "large",
+      "huge",
+      "auto"
+    ],
+    "description": "弹框的尺寸, 可选值：`'small'`, `'normal'`, `'large'`, `'huge'`, `'auto'`,"
   },
   "u-modal/icon": {
     "type": "string",
@@ -2259,7 +2291,7 @@
     "description": "是否禁用"
   },
   "u-number-input/size": {
-    "type": "enum",
+    "type": "size",
     "options": [
       "mini",
       "small",
@@ -2392,9 +2424,9 @@
       "right-start",
       "right-end"
     ],
-    "description": "弹出框的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',` 'left-end'`, `'right-start'`, `'right-end'`"
+    "description": "弹出框的弹出方向。"
   },
-  "u-popup/hideDelay": {
+  "u-popup/hide-delay": {
     "type": "number",
     "description": "提示内容消失延迟时间，单位是`'ms'`"
   },
@@ -2559,8 +2591,17 @@
     "description": "是否禁用"
   },
   "u-select/size": {
-    "type": "string",
-    "description": "大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式"
+    "type": "size",
+    "options": [
+      "mini",
+      "small",
+      "normal",
+      "medium",
+      "large",
+      "huge",
+      "full"
+    ],
+    "description": "大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'medium'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式"
   },
   "u-select/opened": {
     "type": "boolean",
@@ -3360,7 +3401,7 @@
       "right-click",
       "double-click"
     ],
-    "description": "工具提示的触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`, `'manual'`"
+    "description": "工具提示的触发方式。"
   },
   "u-tooltip/placement": {
     "type": "enum",
@@ -3378,7 +3419,7 @@
       "right-start",
       "right-end"
     ],
-    "description": "工具提示的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',` 'left-end'`, `'right-start'`, `'right-end'`"
+    "description": "工具提示的弹出方向。"
   },
   "u-tooltip/hide-delay": {
     "type": "number",
@@ -3533,10 +3574,19 @@
     "type": "object",
     "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
   },
+  "u-uploader/value": {
+    "type": "Array",
+    "description": "当前文件列表"
+  },
   "u-uploader/url": {
     "type": "string",
-    "description": "上传文件路径"
+    "description": "上传的地址"
   },
+  "u-uploader/name": {
+    "type": "string",
+    "description": "上传的文件字段名，后端需要这个字段获取"
+  },
+  "u-uploader/headers": {},
   "u-uploader/data-type": {
     "type": "string",
     "description": "接收数据类型。可选值：`text`、`xml`、`json`"
@@ -3545,13 +3595,13 @@
     "type": "object",
     "description": "附加数据"
   },
-  "u-uploader/name": {
-    "type": "string",
-    "description": "上传文件的名称，后端一般需要这个字段"
-  },
   "u-uploader/extensions": {
     "type": "string, Array",
     "description": "可上传的扩展名。默认为空，表示可上传任意文件类型的文件。可以为字符串，多个扩展名用`,`隔开，如：`'png,jpg,gif'`；也可以为数组，如：`['png', 'jpg', 'gif']`"
+  },
+  "u-uploader/limit": {
+    "type": "number",
+    "description": "列表数量"
   },
   "u-uploader/max-size": {
     "type": "string, number",

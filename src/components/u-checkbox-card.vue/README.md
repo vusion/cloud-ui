@@ -316,7 +316,7 @@ export default {
 | data | array |  | `[]` | 可供选择的数据 |
 | value.sync, v-model | Array |  |  | 被选中数据 |
 | placeholder | string |  |  | 没有数据时的占位显示 |
-| size | string |  | `'normal'` | 卡片尺寸 |
+| size | enum | `'normal'` | `'normal'` | 卡片尺寸 |
 | column | number |  |  | 一行固定多少个选择项，如果不传则固定单项宽度为158px，每行个数自适应行宽 |
 
 ### Slots

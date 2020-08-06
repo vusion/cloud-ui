@@ -175,7 +175,7 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | color | enum | `'default'`, `'primary'`, `'danger'` | `'default'` | 设置颜色。`'primary'`表示主按钮，`'danger'`表示危险按钮。 |
 | dashed | boolean |  | `false` | 边框是否为虚线。 |
-| size | enum | `'mini'`, `'small'`, `'normal'`, `'large'` | `'normal'` | 设置尺寸。 |
+| size | enum | `'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'` | `'normal'` | 设置尺寸。可选值：`'mini'`、`'small'`、`'normal'`、`'large'`、`'huge'` |
 | shape | enum | `'default'`, `'square'`, `'round'`, `'circle'` | `false` | 设置形状。选项分别为默认、圆角、方形、圆形。 |
 | disabled | boolean |  | `false` | 是否禁用。禁用后不会响应点击事件。 |
 | display | enum | `'inline'`, `'block'` | `'inline'` | 展示方式。`'inline'`表示行内展示，`'block'`表示块级展示，宽度会充满父元素。 |
