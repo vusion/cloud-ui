@@ -1,6 +1,6 @@
 <nav :class="$style.root" :readonly="readonly" :disabled="disabled">
-    <div :class="$style.arrow" :style="{top}"></div>
-    <div :class="$style.body">
+    <div :class="$style.body" ref="body">
+        <div :class="$style.arrow" :style="{top}"></div>
         <slot></slot>
     </div>
 </nav>

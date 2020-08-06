@@ -12,6 +12,7 @@
     margin: var(--toc-padding) -10px;
     padding: 0 calc(10px + var(--toc-padding));
     overflow: hidden;
+    position: relative;
 }
 
 .root::before, .root::after {
@@ -39,7 +40,7 @@
     width: 10px;
     height:6px;
     background: var(--brand-primary);
-    left: -6px;
+    left: -2px;
     transition: top .15s ease-in-out;
     z-index: 1;
 }

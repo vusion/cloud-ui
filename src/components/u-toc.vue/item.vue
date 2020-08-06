@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root">
     <a :class="$style.link"
-        :selected="parentVM.router ? active : isSelected" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
+        :selected="selected" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
         :href="currentHref" :target="target" @click="parentVM.router ? onClick($event) : select($event)" v-on="listeners"
         v-ellipsis-title>
         {{ label }}
@@ -30,6 +30,14 @@ export const UTocItem = {
             delete listeners.click;
             return listeners;
         },
+        selected(){
+            if(this.isSelected && !this.active){
+                return this.isSelected;
+            }else if(!this.isSelected && this.active){
+                return false;
+            }
+            return this.parentVM.router ? this.active : this.isSelected;
+        },
     },
     watch: {
         active(active) {
@@ -42,7 +50,11 @@ export const UTocItem = {
     methods: {
         watchActive(active) {
             // active && this.groupVM && this.groupVM.toggle(true);
-            active && this.parentVM && this.parentVM.setActive(this);
+            if(active && this.parentVM){
+                this.parentVM.setActive(this);
+                this.parentVM.stopScrollCheck(this);
+            }
+
         },
     },
 };
