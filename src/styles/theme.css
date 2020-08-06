@@ -763,7 +763,19 @@
     --combo-slider-input-margin-left: 10px;
 
     /* Uploader */
-    --uploader-input-font-size: 100px;
+    --uploader-list-margin-top: 6px;
+    --uploader-item-space: 2px;
+    --uploader-item-padding: 4px;
+    --uploader-item-line-height: 1.8;
+    --uploader-item-border-radius: var(--border-radius-base);
+    --uploader-item-background: transparent;
+    --uploader-item-background-hover: var(--background-color-base);
+    --uploader-item-icon-color: var(--color-light);
+    --uploader-link-color: inherit;
+    --uploader-link-color-hover: var(--link-color);
+    --uploader-card-border-radius: var(--border-radius-large);
+    --uploader-card-space: 8px;
+    --uploader-mask-background: rgba(0, 0, 0, 0.6);
 
     /* List View */
     --list-view-width: var(--width-medium);

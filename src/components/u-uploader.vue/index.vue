@@ -1,19 +1,41 @@
 <template>
 <div :class="$style.root">
-    <div @click="upload()">
+    <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" @change="onChange">
+    <div v-if="listType !== 'card'" :class="$style.select" @click="select()">
         <slot></slot>
     </div>
-    <form :class="$style.form" ref="form" method="POST" :action="url" :target="'iframe'+ tempId" :enctype="contentType">
-        <!-- IE需要重置input[type=file] -->
-        <input :class="$style.input" ref="file" v-if="!sending" type="file" :name="name" @change="submit()">
-        <input v-for="key in Object.keys(data)" type="hidden" :name="key" :value="data[key]">
-    </form>
-    <iframe :class="$style.iframe" ref="iframe" :name="'iframe'+ tempId" @load="onLoad()"></iframe>
+    <div :class="$style.list" v-if="showFileList" :list-type="listType">
+        <template v-if="listType !== 'card'">
+            <div :class="$style.item" v-for="(item, index) in currentValue" :key="index">
+                <div :class="$style.thumb"><img v-if="listType === 'image'" :src="item.thumb || item.url"></div>
+                <a :class="$style.link" :href="item.url" target="_blank">{{ item.name }}</a>
+                <span :class="$style.remove" @click="remove(index)"></span>
+                <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
+            </div>
+        </template>
+        <template v-else>
+            <div :class="$style.card" v-for="(item, index) in currentValue" :key="index" @click="!multiple && select()">
+                <div :class="$style.thumb"><img :src="item.thumb || item.url"></div>
+                <div :class="$style.mask" :multiple="multiple" :show-progress="item.showProgress">
+                    <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
+                    <div v-show="multiple" :class="$style.buttons">
+                        <span :class="$style.button" role="preview" @click="onPreview(item)"></span>
+                        <a :class="$style.button" :href="item.url" target="_blank" role="download"></a>
+                        <span :class="$style.button" role="remove" @click="remove(index)"></span>
+                    </div>
+                </div>
+            </div>
+            <div v-if="multiple || currentValue.length === 0" :class="$style.card" role="select" @click="select()"></div>
+        </template>
+    </div>
 </div>
 </template>
 
 <script>
+import { MEmitter } from '../m-emitter.vue';
+
 import i18n from './i18n';
+import ajax from './ajax';
 
 const SIZE_UNITS = {
     kB: 1024,
@@ -24,281 +46,264 @@ const SIZE_UNITS = {
 
 export default {
     name: 'u-uploader',
+    mixins: [MEmitter],
     i18n,
     props: {
-        url: String,
-        dataType: { type: String, default: 'json' },
-        data: { type: Object, default: () => ({}) },
+        value: { type: Array, default: () => [] },
+        url: { type: String, required: true },
         name: { type: String, default: 'file' },
+        accept: String,
+        headers: Object,
+        withCredentials: { type: Boolean, default: false },
+        multiple: { type: Boolean, default: false },
+        directory: { type: Boolean, default: false },
+        data: Object,
         extensions: { type: [String, Array], default: '' },
+        limit: { type: Number, default: Infinity },
         maxSize: { type: [String, Number], default: Infinity },
+        listType: { type: String, default: 'text' },
+        autoUpload: { type: Boolean, default: true },
+        showFileList: { type: Boolean, default: true },
         disabled: { type: Boolean, default: false },
     },
     data() {
         return {
+            currentValue: this.value,
             contentType: 'multipart/form-data',
             sending: false,
             file: {},
-            tempId: new Date().getTime(),
+            iframeName: 'iframe-' + new Date().getTime(),
         };
     },
+    watch: {
+        value(value) {
+            this.currentValue = this.value;
+        },
+        currentValue: {
+            immediate: true,
+            handler(currentValue, oldValue) {
+                this.$emit('change', {
+                    value: currentValue,
+                    oldValue,
+                }, this);
+            },
+        },
+    },
     methods: {
-        /**
-         * @method upload() 弹出文件对话框并且上传文件
-         * @public
-         * @return {void}
-         */ upload() {
+        select() {
             if (this.disabled || this.sending)
-return;
+                return;
+
             this.$refs.file.value = '';
             this.$refs.file.click();
+        },
+        onChange(e) {
+            const fileEl = e.target;
+
+            let files = fileEl.files;
+            if (!files && fileEl.value) { // 老版浏览器不支持 files
+                const arr = fileEl.value.split(/[\\/]/g);
+                files = [{
+                    name: arr[arr.length - 1],
+                    size: 0,
+                }];
+            }
+
+            if (!files)
+                return;
+
+            this.uploadFiles(files);
         },
         /**
          * @method checkExtensions(file) 检查扩展名
          * @private
          * @param  {File} file 文件对象
          * @return {boolean} 返回是否通过验证
-         */ checkExtensions(file) {
+         */
+        checkExtensions(file) {
             if (!this.extensions)
-return true;
+                return true;
+
             const fileName = file.name;
-            const extName = fileName
-                .substring(fileName.lastIndexOf('.') + 1, fileName.length)
-                .toLowerCase();
+            const extName = fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length).toLowerCase();
+
             let extensions = this.extensions;
             if (typeof extensions === 'string')
                 extensions = extensions.split(',');
+
             if (extensions.includes(extName))
-return true;
+                return true;
+
             /**
              * @event error 上传错误时触发
              * @property {object} name ExtensionError
              * @property {object} message 错误信息
              * @property {object} extensions 可上传的扩展名
-             */ this.$emit(
-                'error',
-                {
-                    name: 'ExtensionError',
-                    message: this.$t('extensionError', {
-                        extensions: extensions.join(', '),
-                    }),
-                    extensions,
-                },
-                this,
-            );
+             */
+            this.$emit('error', {
+                name: 'ExtensionError',
+                message: this.$t('extensionError', { extensions: extensions.join(', ') }),
+                extensions,
+            }, this);
+
             return false;
         },
-        /**
-         * @method checkSize(file) 检查文件大小
-         * @private
-         * @param  {File} file 文件对象
-         * @return {boolean} 返回是否通过验证
-         */ checkSize(file) {
+        checkSize(file) {
             if (this.maxSize === Infinity)
-return true;
+                return true;
+
             let maxSize;
             if (!isNaN(this.maxSize))
-maxSize = +this.maxSize;
+                maxSize = +this.maxSize;
             else {
                 const unit = this.maxSize.slice(-2);
                 if (!SIZE_UNITS[unit])
-throw new Error('Unknown unit!');
+                    throw new Error(`Unknown unit ${unit} in maxSize ${this.maxSize}!`);
+
                 maxSize = this.maxSize.slice(0, -2) * SIZE_UNITS[unit];
             }
-            if (file.size <= maxSize)
-return true;
-            /**
-             * @event error 上传错误时触发
-             * @property {object} name SizeError
-             * @property {object} message 错误信息
-             * @property {object} maxSize 可上传的最大文件大小
-             * @property {object} size 当前文件大小
-             */ this.$emit(
-                'error',
-                {
-                    name: 'SizeError',
-                    message: '文件大小超出限制！',
+
+            return (file.size || 0) <= maxSize;
+        },
+        uploadFiles(files) {
+            files = Array.from(files);
+            if (!this.multiple)
+                files = files.slice(0, 1);
+            if (files.length === 0)
+                return;
+
+            const count = this.currentValue.length + files.length;
+            if (count > this.limit) {
+                this.$emit('count-exceed', {
+                    files,
+                    value: this.currentValue,
+                    count,
+                    limit: this.limit,
+                    message: `文件数量${count}超出限制 ${this.limit}！`,
+                }, this);
+                return;
+            }
+
+            files.forEach((file) => {
+                this.upload(file);
+            });
+        },
+        upload(file) {
+            if (this.$emitPrevent('before-upload', {
+                file,
+            }, this))
+                return;
+
+            if (!this.checkSize(file)) {
+                this.$emit('size-exceed', {
                     maxSize: this.maxSize,
                     size: file.size,
-                },
-                this,
-            );
-            return false;
-        },
-        /**
-         * @method submit() 提交表单
-         * @private
-         * @return {void}
-         */ submit() {
-            const file = this.$refs.file.files ? this.$refs.file.files[0] : { name: this.$refs.file.value, size: 0 };
-            if (
-                !file
-                || !file.name
-                || !this.checkExtensions(file)
-                || !this.checkSize(file)
-            )
+                    message: `文件${file.name} ${file.size}超出大小${this.maxSize}！`,
+                });
                 return;
-            const fileName = file.name;
-            this.file = {
-                name: fileName,
-                extName: fileName.includes('.') ? fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length).toLowerCase() : undefined,
+            }
+            // check format
+            // if (this.format.length) {
+            //     const _file_format = file.name.split('.').pop().toLocaleLowerCase();
+            //     const checked = this.format.some(item => item.toLocaleLowerCase() === _file_format);
+            //     if (!checked) {
+            //         this.onFormatError(file, this.fileList);
+            //         return false;
+            //     }
+            // }
+
+            const item = {
+                uid: file.uid !== undefined ? file.uid : Date.now() + this.currentValue.length,
+                status: 'uploading',
+                name: file.name,
                 size: file.size,
+                percent: 0,
+                showProgress: true,
             };
-            if (typeof FormData === 'undefined') {
-                // IE9 不支持 XHR2 相关功能
-                /**
-                 * @event sending 发送前触发
-                 * @property {object} data 待发送的数据
-                 */ let cancel = false;
-                this.$emit(
-                    'before-send',
-                    {
-                        data: this.data,
+
+            if (this.listType === 'image' || this.listType === 'card')
+                item.url = URL.createObjectURL(file);
+
+            if (!this.multiple)
+                this.currentValue.splice(0, this.currentValue.length);
+            this.currentValue.push(item);
+
+            if (this.autoUpload)
+                this.post(file, item);
+        },
+        post(file, item) {
+            const xhr = ajax({
+                url: this.url,
+                headers: this.headers,
+                withCredentials: this.withCredentials,
+                file,
+                data: this.data,
+                filename: this.name,
+                onProgress: (e) => {
+                    item.percent = e.percent;
+
+                    this.$emit('progress', {
+                        e, file, item, xhr,
+                    }, this);
+                },
+                onSuccess: (res) => {
+                    item.status = 'success';
+                    item.response = res;
+
+                    this.$emit('success', {
+                        res,
                         file,
-                        files: this.$refs.file.files,
-                        preventDefault: () => (cancel = true),
-                    },
-                    this,
-                );
-                if (cancel)
-return;
-                this.sending = true;
-                this.$refs.form.submit();
-            } else {
-                const xhr = new XMLHttpRequest();
-                const formData = new FormData(this.$refs.form);
-                xhr.open('POST', this.url);
-                xhr.upload.onprogress = function (e) {
-                    if (e.lengthComputable) {
-                        /**
-                         * @event progress 发送中触发
-                         * @property {object} data 待发送的数据
-                         */ this.$emit(
-                            'progress',
-                            { loaded: e.loaded, total: e.total, xhr },
-                            this,
-                        );
-                    }
-                }.bind(this);
-                xhr.onreadystatechange = () => {
-                    if (xhr.readyState === 4) {
-                        if (xhr.status === 200)
-                            this.onLoad(xhr.responseText, xhr.responseXML);
-                        else {
-                            if (!this.sending)
-return;
-                            this.sending = false;
-                            this.file = null;
-                            this.$emit(
-                                'error',
-                                {
-                                    name: 'ResponseError',
-                                    message: 'No responseText!',
-                                    xhr,
-                                },
-                                this,
-                            );
-                        }
-                    }
-                };
-                /**
-                 * @event sending 发送前触发
-                 * @property {object} data 待发送的数据
-                 */ let cancel = false;
-                this.$emit(
-                    'before-send',
-                    {
-                        data: this.data,
-                        file,
-                        files: this.$refs.file.files,
+                        item,
                         xhr,
-                        formData,
-                        preventDefault: () => (cancel = true),
-                    },
-                    this,
-                );
-                if (cancel)
-return;
-                this.sending = true;
-                xhr.send(formData);
-            }
-            this.$emit(
-                'send',
-                { data: this.data, file, files: this.$refs.file.files },
-                this,
-            );
+                    }, this);
+                    setTimeout(() => {
+                        item.showProgress = false;
+                    }, 1000);
+                },
+                onError: (e, res) => {
+                    item.status = 'error';
+                    this.$emit('error', {
+                        e,
+                        res,
+                        file,
+                        item,
+                        xhr,
+                    }, this);
+                },
+            });
         },
-        /**
-         * @method onLoad() 接收数据回调
-         * @private
-         * @return {void}
-         */ onLoad(responseText, responseXML) {
-            const $iframe = this.$refs.iframe;
-            const file = this.file;
-            if (!this.sending)
-return;
-            this.sending = false;
-            this.file = null;
-            const xml = {};
-            if (!!responseText || !!responseXML) {
-                // ajax上传时数据处理
-                xml.responseText = responseText;
-                xml.responseXML = responseXML;
-            } else {
-                if ($iframe.contentWindow) {
-                    xml.responseText = $iframe.contentWindow.document.body ? $iframe.contentWindow.document.body.innerText : null;
-                    xml.responseXML = $iframe.contentWindow.document.XMLDocument ? $iframe.contentWindow.document.XMLDocument : $iframe.contentWindow.document;
-                } else if ($iframe.contentDocument) {
-                    xml.responseText = $iframe.contentDocument.document.body ? $iframe.contentDocument.document.body.innerText : null;
-                    xml.responseXML = $iframe.contentDocument.document
-                        .XMLDocument ? $iframe.contentDocument.document.XMLDocument : $iframe.contentDocument.document;
-                }
-            }
-            if (!xml.responseText) {
-                /**
-                 * @event error 上传错误时触发
-                 * @property {object} name ResponseError
-                 * @property {object} message 错误信息
-                 */ return this.$emit(
-                    'error',
-                    { name: 'ResponseError', message: 'No responseText!', xml },
-                    this,
-                );
-            }
-            /**
-             * @event complete 上传完成时触发
-             * @property {object} xml 返回的xml
-             */ this.$emit('complete', { xml }, this);
-            /**
-             * @event success 上传成功时触发
-             * @property {object} data 返回的数据
-             */ this.$emit(
-                'success',
-                { data: this.parseData(xml, this.dataType), file, xml },
-                this,
-            );
+        onPreview(item) {
+            this.$emit('preview', {
+                item,
+            }, this);
         },
-        /**
-         * @method parseData(xml, type) 解析接收的数据
-         * @private
-         * @param  {object} xml 接收的xml
-         * @param  {object} type 数据类型
-         * @return {object|string} 解析后的数据
-         */ parseData(xml, type) {
-            if (type === 'text')
-return xml.responseText;
-            else if (type === 'xml')
-return xml.responseXML;
-            else if (type === 'json') {
-                let data = xml.responseText;
-                try {
-                    data = JSON.parse(data);
-                } catch (e) {}
-                return data; // danger，暂时不开启
-                // } else if (type === 'script')
-                //     return eval(xml.responseText);
-            } else
-return xml.responseText;
+        remove(index) {
+            const item = this.currentValue[index];
+            if (!item)
+                return;
+
+            if (this.$emitPrevent('before-remove', {
+                oldValue: this.currentValue,
+                item,
+                index,
+            }, this))
+                return;
+
+            this.currentValue.splice(index, 1);
+
+            this.$emit('remove', {
+                value: this.currentValue,
+                item,
+                index,
+            }, this);
+        },
+        clear() {
+            if (this.$emitPrevent('before-clear', { oldValue: this.currentValue }, this))
+                return;
+
+            this.currentValue.splice(0, this.currentValue.length);
+
+            this.$emit('clear', { value: this.currentValue }, this);
         },
     },
 };
@@ -306,6 +311,10 @@ return xml.responseText;
 
 <style module>
 .root {
+    display: block;
+}
+
+.select {
     display: inline-block;
 }
 
@@ -324,12 +333,205 @@ return xml.responseText;
     display: block\0;
 }
 
-.input {
+.file {
     position: absolute;
     top: 0;
     right: -5px;
-    font-size: var(--uploader-input-font-size);
+    font-size: 100px;
     opacity: 0;
     cursor: var(--cursor-pointer);
+}
+
+.item {
+    cursor: default;
+    margin-top: var(--uploader-list-margin-top);
+    padding: var(--uploader-item-padding);
+    background: var(--uploader-item-background);
+    border-radius: var(--uploader-item-border-radius);
+    transition: all var(--transition-duration-base);
+}
+
+.thumb {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.list[list-type="text"] .thumb::before {
+    icon-font: url('./assets/attachment.svg');
+    float: left;
+    margin-right: 3px;
+    color: var(--uploader-item-icon-color);
+}
+
+.list[list-type="image"] .item {
+    border: 1px solid var(--border-color-base);
+}
+
+.list[list-type="image"] .thumb {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    overflow: hidden;
+    margin-right: 4px;
+}
+
+.item + .item {
+    margin-top: var(--uploader-item-space);
+}
+
+.item:hover {
+    background: var(--uploader-item-background-hover);
+}
+
+.link {
+    color: var(--uploader-link-color);
+    cursor: var(--cursor-pointer);
+}
+
+.item:hover .link {
+    color: var(--uploader-link-color-hover);
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.remove {
+    display: none;
+    float: right;
+    line-height: 1;
+    font-size: 16px;
+    margin-top: 4px;
+    cursor: var(--cursor-pointer);
+    opacity: 0.5;
+}
+
+.item:hover .remove {
+    display: block;
+}
+
+.remove:hover {
+    opacity: 1;
+}
+
+.remove::before {
+    icon-font: url('../i-icon.vue/assets/close.svg');
+}
+
+.list[list-type="image"] .remove {
+    margin-top: 2px;
+}
+
+.list[list-type="card"] {
+    margin: calc(var(--uploader-card-space) / (-2));
+}
+
+.card {
+    position: relative;
+    display: inline-block;
+    width: 128px;
+    height: 128px;
+    border: 1px solid var(--border-color-base);
+    border-radius: var(--uploader-card-border-radius);
+    margin: calc(var(--uploader-card-space) / 2);
+    vertical-align: top;
+    overflow: hidden;
+}
+
+.card[role="select"] {
+    cursor: var(--cursor-pointer);
+    text-align: center;
+    line-height: 128px;
+    border-style: dashed;
+    transition: all var(--transition-duration-base);
+    background: var(--background-color-lighter);
+    vertical-align: bottom;
+}
+
+.card[role="select"]::before {
+    color: var(--border-color-base);
+    icon-font: url('./assets/add.svg');
+    font-size: 42px;
+}
+
+.card[role="select"]:hover {
+    border-color: var(--brand-primary);
+}
+
+.card:not(:last-child) {
+    margin-right: var(--uploader-card-space);
+}
+
+.mask {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--uploader-mask-background);
+    opacity: 0;
+    transition: opacity var(--transition-duration-slow);
+}
+
+.mask:hover, .mask[show-progress] {
+    opacity: 1;
+}
+
+.mask:not([multiple]) {
+    cursor: var(--cursor-pointer);
+    text-align: center;
+    line-height: 128px;
+}
+
+/* .mask:not([multiple])::before {
+    color: rgba(255, 255, 255, 0.6);
+    icon-font: url('./assets/add.svg');
+    font-size: 42px;
+} */
+
+.card .progress {
+    position: absolute;
+    top: 65%;
+    width: 72%;
+    left: 14%;
+}
+
+.card .progress > div {
+    background: rgba(0, 0, 0, 0.5);
+    height: 6px;
+    border-radius: 100px;
+}
+
+.buttons {
+    position: absolute;
+    font-size: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button {
+    cursor: var(--cursor-pointer);
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.button + .button {
+    margin-left: 8px;
+}
+
+.button:hover {
+    color: white;
+}
+
+.button[role="preview"]::before {
+    icon-font: url('./assets/eye.svg');
+}
+
+.button[role="download"]::before {
+    icon-font: url('./assets/download.svg');
+}
+
+.button[role="remove"]::before {
+    icon-font: url('./assets/trashcan.svg');
 }
 </style>
