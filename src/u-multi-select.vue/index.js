@@ -405,7 +405,14 @@ const MultiSelect = {
         data(newValue) {
             this.copyOptionsData = this.optionsData = this.initOptionsData(this.value);
         },
-        value(newValue) {
+        value(newValue, oldValue) {
+            if (newValue === oldValue)
+                return;
+            if (newValue && oldValue && newValue.length === oldValue.length) {
+                if (newValue.every((item, index) => item === oldValue[index]))
+                    return;
+            }
+
             this.currentValue = newValue;
             this.selFlag = this.initSelFlag();
             // if (this.filter)
@@ -413,12 +420,13 @@ const MultiSelect = {
             // else
             //     this.optionsData = this.initOptionsData();
         },
-        currentValue(newValue) {
+        currentValue(newValue, oldValue) {
             this.selFlag = this.initSelFlag();
             if (!newValue.length && !this.query)
                 this.optionsData = this.initOptionsData();
             this.$emit('change', {
                 value: newValue,
+                oldValue,
             });
             this.$emit('input', newValue);
         },
