@@ -1,7 +1,10 @@
 <template>
 <div :class="$style.root">
     <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" @change="onChange">
-    <div v-if="listType !== 'card'" :class="$style.select" @click="select()">
+    <div v-if="draggable" :class="$style.draggable" @click="select()">
+        <div><slot>点击或者拖动文件到虚线框内上传</slot></div>
+    </div>
+    <div v-else-if="listType !== 'card'" :class="$style.select" @click="select()">
         <slot></slot>
     </div>
     <div :class="$style.list" v-if="showFileList" :list-type="listType">
@@ -63,6 +66,7 @@ export default {
         maxSize: { type: [String, Number], default: Infinity },
         listType: { type: String, default: 'text' },
         autoUpload: { type: Boolean, default: true },
+        draggable: { type: Boolean, default: false },
         showFileList: { type: Boolean, default: true },
         disabled: { type: Boolean, default: false },
     },
@@ -483,11 +487,11 @@ export default {
     line-height: 128px;
 }
 
-/* .mask:not([multiple])::before {
+.mask:not([multiple])::before {
     color: rgba(255, 255, 255, 0.6);
     icon-font: url('./assets/add.svg');
     font-size: 42px;
-} */
+}
 
 .card .progress {
     position: absolute;
@@ -533,5 +537,23 @@ export default {
 
 .button[role="remove"]::before {
     icon-font: url('./assets/trashcan.svg');
+}
+
+.draggable {
+    cursor: var(--cursor-pointer);
+    text-align: center;
+    border: var(--uploader-draggable-border-width) dashed var(--uploader-draggable-border-color);
+    border-radius: var(--uploader-draggable-border-radius);
+    padding: var(--uploader-draggable-padding);
+    transition: all var(--transition-duration-base);
+}
+
+.draggable:hover {
+    border-color: var(--uploader-draggable-border-color-hover);
+}
+
+.draggable::before {
+    font-size: 32px;
+    icon-font: url('./assets/upload.svg');
 }
 </style>

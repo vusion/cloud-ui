@@ -779,6 +779,11 @@
     --uploader-card-border-radius: var(--border-radius-large);
     --uploader-card-space: 8px;
     --uploader-mask-background: rgba(0, 0, 0, 0.6);
+    --uploader-draggable-border-width: 2px;
+    --uploader-draggable-border-color: var(--border-color-base);
+    --uploader-draggable-border-color-hover: var(--brand-primary);
+    --uploader-draggable-border-radius: var(--border-radius-large);
+    --uploader-draggable-padding: 12px 0 20px;
 
     /* List View */
     --list-view-width: var(--width-medium);

@@ -94,7 +94,6 @@ export default {
 <u-uploader v-model="files" multiple list-type="card"
     accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
     url="http://localhost:7000/api/library/upload">
-    <u-button color="primary">Upload</u-button>
 </u-uploader>
 </template>
 <script>
@@ -127,7 +126,6 @@ export default {
 <u-uploader v-model="files" list-type="card"
     accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
     url="http://localhost:7000/api/library/upload">
-    <u-button color="primary">Upload</u-button>
 </u-uploader>
 </template>
 <script>
@@ -138,6 +136,25 @@ export default {
         };
     },
 };
+</script>
+```
+
+#### 拖拽上传
+
+开启`draggable`属性，可以使用拖拽上传。使用插槽可以自定义文字内容。
+
+``` vue
+<template>
+<u-uploader v-model="files" url="http://localhost:7000/api/library/upload" draggable></u-uploader>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            files: [],
+        };
+    },
+}
 </script>
 ```
 
