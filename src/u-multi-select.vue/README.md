@@ -280,6 +280,45 @@ export default {
 </script>
 ```
 
+### 禁用
+
+``` vue
+<template>
+<u-multi-select :data="options" v-model="value" disabled></u-multi-select>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value: ['选项1', '选项2'],
+            options: [{
+                value: '选项1',
+                text: '黄金糕',
+            }, {
+                value: '选项2',
+                text: '双皮奶'
+            }, {
+                value: '选项3',
+                text: '蚵仔煎'
+            }, {
+                value: '选项4',
+                text: '龙须面'
+            }, {
+                value: '选项5',
+                text: '北京烤鸭',
+            }],
+        };
+    },
+    watch: {
+        value(newValue) {
+            console.log(newValue);
+        }
+    }
+};
+</script>
+```
+
 ## MultiSelect API
 ### Attrs/Props
 

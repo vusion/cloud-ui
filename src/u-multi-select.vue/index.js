@@ -239,6 +239,9 @@ const MultiSelect = {
             return optionsData;
         },
         close(index) {
+            if (this.disabled)
+                return;
+
             const value = this.selItems[index].value;
             let patchIndex = 0;
             const toggleSet = this.optionsData.some((item, index) => {
