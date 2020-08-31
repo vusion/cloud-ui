@@ -17,6 +17,7 @@
 
 .root:focus {
     outline: var(--focus-outline);
+    box-shadow: var(--select-box-shadow-focus);
 }
 
 .baseline {

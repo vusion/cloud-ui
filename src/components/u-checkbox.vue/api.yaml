@@ -16,6 +16,10 @@
       type: boolean
       default: false
       description: Disabled
+    - name: autofocus
+      type: boolean
+      default: false
+      description: 自动获取焦点
   events:
     - name: input
       title: 输入时

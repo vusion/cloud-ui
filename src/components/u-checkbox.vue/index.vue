@@ -20,6 +20,7 @@ export default {
         label: null,
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
+        autofocus: { type: Boolean, default: false },
     },
     data() {
         return { parentVM: undefined, currentValue: this.value };
@@ -40,6 +41,9 @@ export default {
         currentValue(value, oldValue) {
             this.$emit('change', { value, oldValue });
         },
+    },
+    mounted() {
+        this.autofocus && this.$el.focus();
     },
     methods: {
         onFocus(e) {
@@ -96,6 +100,10 @@ export default {
 
 .root:focus {
     outline: var(--focus-outline);
+}
+
+.root:focus .box {
+    box-shadow: var(--checkbox-box-shadow-focus);
 }
 
 .root[disabled] {

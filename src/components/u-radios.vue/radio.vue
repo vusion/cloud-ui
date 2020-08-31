@@ -20,6 +20,7 @@ export default {
         label: null,
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
+        autofocus: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -39,6 +40,9 @@ export default {
         currentDisabled() {
             return this.disabled || (this.parentVM && this.parentVM.disabled);
         },
+    },
+    mounted() {
+        this.autofocus && this.$el.focus();
     },
     methods: {
         onFocus(e) {
@@ -81,6 +85,10 @@ export default {
 
 .root:focus {
     outline: var(--focus-outline);
+}
+
+.root:focus .radio {
+    box-shadow: var(--radio-box-shadow-focus);
 }
 
 .root[disabled] {

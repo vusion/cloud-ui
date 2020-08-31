@@ -6,7 +6,8 @@
     @keydown.up.prevent="$refs.popper.currentOpened ? shift(-1) : open()"
     @keydown.down.prevent="$refs.popper.currentOpened ? shift(+1) : open()"
     @keydown.enter.stop="onEnter"
-    @keydown.esc.stop="close(), filterText = ''">
+    @keydown.esc.stop="close(), filterText = ''"
+    @blur="onRootBlur">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
     <span v-show="!filterText && (multiple ? !selectedVMs.length : !selectedVM)" :class="$style.placeholder">{{ placeholder }}</span>
     <div :class="$style.text" v-ellipsis-title :tags-overflow="tagsOverflow" :style="{direction: ellipsisDirection}">
@@ -97,6 +98,7 @@ export default {
         // @inherit: cancelable: { type: Boolean, default: false },
         // @inherit: multiple: { type: Boolean, default: false },
         // @inherit: keepOrder: { type: Boolean, default: false },
+        autofocus: { type: Boolean, default: false },
         duplicated: { type: Boolean, default: false },
         multipleAppearance: { type: String, default: 'tags' },
         tagsOverflow: { type: String, default: 'visible' },
@@ -207,6 +209,7 @@ export default {
         });
     },
     mounted() {
+        this.autofocus && this.$el.focus();
         this.toggle(this.opened);
     },
     methods: {
@@ -343,6 +346,10 @@ export default {
                     return (this.preventBlur = false);
                 this.selectByText(this.filterText);
             }, 200);
+            this.close();
+        },
+        onRootBlur() {
+            this.close();
         },
         selectByText(text) {
             if (this.multiple) {
@@ -397,14 +404,14 @@ export default {
         onEnter() {
             if (this.focusedVM)
                 this.select(this.focusedVM);
-            this.close();
+            this.popperOpened ? this.close() : this.open();
         },
         onInputEnter() {
             if (this.focusedVM)
                 this.select(this.focusedVM);
             else
                 this.selectByText(this.filterText);
-            this.close();
+            this.popperOpened ? this.close() : this.open();
         },
         onInputDelete() {
             if (this.filterable && this.filterText === '') {
