@@ -18,7 +18,7 @@
 
 <script>
 import UInput from '../u-input.vue';
-import { getSize } from '../../utils/style';
+import { getSize } from '../../utils/dom';
 
 export default {
     name: 'u-textarea',

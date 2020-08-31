@@ -45,10 +45,12 @@ export default {
                 );
             const current = this.$route;
             const target = this.$router.resolve(this.to).route;
-            const currentPath = current.path.replace(trailingSlashRE, '/');
-            const targetPath = (target.redirectedFrom ? this.$router.resolve(target.redirectedFrom).location.path : target.path).replace(trailingSlashRE, '/'); // @TODO: 是否要检查 query 的包含关系
+            const currentPath = decodeURIComponent(current.path.replace(trailingSlashRE, '/'));
+            const targetPath = decodeURIComponent((target.redirectedFrom ? this.$router.resolve(target.redirectedFrom).location.path : target.path).replace(trailingSlashRE, '/')); // @TODO: 是否要检查 query 的包含关系
+            const currentHash = decodeURIComponent(current.hash);
+            const targetHash = decodeURIComponent(target.hash);
             const exact = this.exact ? currentPath === targetPath : currentPath.startsWith(targetPath);
-            const exactHash = this.exactHash ? current.hash === target.hash : current.hash.startsWith(target.hash);
+            const exactHash = this.exactHash ? currentHash === targetHash : currentHash.startsWith(targetHash);
             return exact && exactHash;
         },
     },

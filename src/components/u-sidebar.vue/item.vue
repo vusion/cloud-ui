@@ -1,6 +1,6 @@
 <script>
 import { MSinglexItem } from '../m-singlex.vue';
-import { isElementInView } from '../../utils/style';
+import { isElementInView } from '../../utils/dom';
 
 export default {
     name: 'u-sidebar-item',

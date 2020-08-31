@@ -33,7 +33,7 @@
 
 <script>
 import { MSinglex } from '../m-singlex.vue';
-import { scrollTo } from '../../utils/style';
+import { scrollTo } from '../../utils/dom';
 
 export default {
     name: 'u-tabs',

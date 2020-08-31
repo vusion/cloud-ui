@@ -1,7 +1,7 @@
 - name: u-toc
   title: 目录
   labels: [路由链接, 块级展示]
-  description: 用于展示文档的目录，支持路由监听、多级目录等功能。
+  description: 用于展示文档的目录，支持路由和滚动监听、多级目录等功能。
   attrs:
     - name: router
       title: 绑定路由
@@ -15,6 +15,15 @@
       type: any
       default: null
       description: 当前选择的值
+    - name: scroll-spy
+      title: 滚动监听
+      type: boolean
+      default: true
+      description: 是否监听滚动
+    - name: scroll-parent
+      title: 滚动父元素
+      type: HTMLElement
+      description: 滚动的父级元素
   slots:
     - name: default
       description: 插入`<u-toc-item>`子组件。

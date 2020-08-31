@@ -8,6 +8,7 @@
 
 <script>
 import event from '../../utils/event';
+import { findScrollParent } from '../../utils/dom';
 import throttle from 'lodash/throttle';
 
 export default {
@@ -37,7 +38,7 @@ export default {
     },
     mounted() {
         this.currentScrollParent
-            = this.scrollParent || this.findScrollParent(this.$el);
+            = this.scrollParent || findScrollParent(this.$el);
     },
     methods: {
         setAutoBar() {
@@ -61,17 +62,6 @@ export default {
                 this.currentPosition = 'auto';
             } else {
                 this.currentPosition = 'fixed';
-            }
-        },
-        findScrollParent(target) {
-            target = target.parentElement;
-            if (!target)
-                return window;
-            const styles = window.getComputedStyle(target);
-            if (styles.overflowY === 'auto' || styles.overflowY === 'scroll') {
-                return target;
-            } else {
-                return this.findScrollParent(target);
             }
         },
     },
