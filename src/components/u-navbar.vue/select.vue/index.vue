@@ -27,6 +27,10 @@ export default {
     margin-right: var(--navbar-item-space);
 }
 
+.root:focus {
+    box-shadow: none;
+}
+
 .root:hover {
     background: var(--navbar-select-hover-background);
 }

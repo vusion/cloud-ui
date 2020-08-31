@@ -121,9 +121,6 @@ export default {
     width: 158px;
     padding-right: 20px;
     margin-right: 0 !important;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 .placeholder {
     height: 30px;
