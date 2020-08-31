@@ -23,7 +23,7 @@
                         <!-- Normal title -->
                         <template>
                             <f-slot name="title" :vm="columnVM" :props="{ columnVM, columnIndex }">
-                                <span vusion-slot-name="title" :class="$style.columnTitle">{{ columnVM.title }}</span>
+                                <span vusion-slot-name="title" :class="$style['column-title']">{{ columnVM.title }}</span>
                             </f-slot>
                         </template>
                         <!-- Sortable -->
@@ -31,7 +31,7 @@
                             :sorting="currentSorting && currentSorting.field === columnVM.field" :order="currentSorting && currentSorting.order"
                             @click="sortTrigger === 'icon' && ($event.stopPropagation(), onClickSort(columnVM))"></span>
                         <!-- Filterable -->
-                        <span v-if="columnVM.filters" :class="$style.filter">
+                        <span v-if="columnVM.filters" :class="$style['filter-wrap']">
                             <u-table-view-filters :value="getFiltersValue(columnVM.field)" @select="onSelectFilters(columnVM.field, $event)">
                                 <u-table-view-filter v-for="filter in columnVM.filters" :key="filter.value" :value="filter.value">{{ filter.text }}</u-table-view-filter>
                             </u-table-view-filters>
@@ -73,7 +73,7 @@
                                     <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click="toggleExpanded(item)"></span>
                                     <!-- Normal text -->
                                     <f-slot name="cell" :vm="columnVM" :props="{ item, value: item[columnVM.field], columnVM, rowIndex, columnIndex, index: rowIndex }">
-                                        <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style.columnField">{{ columnVM.currentFormatter.format(item[columnVM.field]) }}</span>
+                                        <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format(item[columnVM.field]) }}</span>
                                     </f-slot>
                                 </td>
                             </tr>
@@ -212,12 +212,11 @@ export default {
     },
     computed: {
         currentData() {
-            setTimeout(()=>{
-                this.$refs.td
-                    && this.$refs.td.forEach((tdEl, index) => {
-                        const length = this.columnVMs.length;
-                        tdEl.__vue__ = this.columnVMs[index % length];
-                    });
+            setTimeout(() => {
+                this.$refs.td && this.$refs.td.forEach((tdEl, index) => {
+                    const length = this.columnVMs.length;
+                    tdEl.__vue__ = this.columnVMs[index % length];
+                });
             });
             return this.currentDataSource ? this.currentDataSource.viewData : this.currentDataSource;
         },
@@ -225,9 +224,7 @@ export default {
             return this.columnVMs.filter((columnVM) => !columnVM.hidden);
         },
         expanderColumnVM() {
-            return this.columnVMs.find(
-                (columnVM) => columnVM.type === 'expander',
-            );
+            return this.columnVMs.find((columnVM) => columnVM.type === 'expander');
         },
         paging() {
             if (this.pageable) {
@@ -284,7 +281,8 @@ export default {
                 this.filter(filtering);
             },
         },
-        /* Selection Watchers */ value(value) {
+        /* Selection Watchers */
+        value(value) {
             this.watchValue(value);
         },
         selectedItem(item, oldItem) {
@@ -302,10 +300,9 @@ export default {
         },
         columnVMs(columnVMs) {
             this.$nextTick(() => {
-                this.$refs.th
-                    && this.$refs.th.forEach((thEl, index) => {
-                        thEl.__vue__ = columnVMs[index];
-                    });
+                this.$refs.th && this.$refs.th.forEach((thEl, index) => {
+                    thEl.__vue__ = columnVMs[index];
+                });
             });
         },
         visibleColumnVMs() {
@@ -342,15 +339,9 @@ export default {
             }
         },
         processData(data) {
-            const selectable = this.visibleColumnVMs.some(
-                (columnVM) => columnVM.type === 'radio',
-            );
-            const checkable = this.visibleColumnVMs.some(
-                (columnVM) => columnVM.type === 'checkbox',
-            );
-            const expandable = this.visibleColumnVMs.some(
-                (columnVM) => columnVM.type === 'expander',
-            );
+            const selectable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'radio');
+            const checkable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'checkbox');
+            const expandable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'expander');
             if (selectable) {
                 data.forEach((item) => {
                     if (!item.hasOwnProperty('disabled'))
@@ -374,16 +365,9 @@ export default {
             return data;
         },
         handleData() {
-            if (
-                typeof this.data === 'function'
-                || (this.data instanceof Object && !Array.isArray(this.data))
-            )
-                throw new Error(
-                    `[cloud-ui] Don't assign a function or object to 'data' prop. Try to use 'data-source' prop.`,
-                );
-            this.currentDataSource = this.normalizeDataSource(
-                this.dataSource || this.data,
-            );
+            if (typeof this.data === 'function' || (this.data instanceof Object && !Array.isArray(this.data)))
+                throw new Error(`[cloud-ui] Don't assign a function or object to 'data' prop. Try to use 'data-source' prop.`);
+            this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
             this.initialLoad && this.load();
             this.handleResize();
         },
@@ -469,74 +453,37 @@ export default {
                     lastIsFixed = columnVM.fixed;
                 }); // 全部都是百分数的情况，按比例缩小
                 if (percentColumnVMs.length === this.visibleColumnVMs.length) {
-                    const sumWidth = percentColumnVMs.reduce(
-                        (prev, columnVM) =>
-                            prev + parseFloat(columnVM.currentWidth),
-                        0,
-                    );
+                    const sumWidth = percentColumnVMs.reduce((prev, columnVM) => prev + parseFloat(columnVM.currentWidth), 0);
                     if (sumWidth !== 100) {
                         percentColumnVMs.forEach((columnVM) => {
-                            columnVM.currentWidth
-                                = (parseFloat(columnVM.currentWidth) / sumWidth)
-                                    * 100
-                                    + '%';
+                            columnVM.currentWidth = (parseFloat(columnVM.currentWidth) / sumWidth) * 100 + '%';
                         });
                     }
                 } // 全部都是数值的情况，按实际大小
-                const percentWidthSum = percentColumnVMs.reduce(
-                    (prev, columnVM) => {
-                        columnVM.computedWidth
-                            = (parseFloat(columnVM.currentWidth) * rootWidth)
-                                / 100;
-                        return prev + columnVM.computedWidth;
-                    },
-                    0,
-                );
-                const valueWidthSum = valueColumnVMs.reduce(
-                    (prev, columnVM) => {
-                        columnVM.computedWidth = parseFloat(
-                            columnVM.currentWidth,
-                        );
-                        return prev + columnVM.computedWidth;
-                    },
-                    0,
-                );
-                const remainingWidth
-                    = rootWidth - percentWidthSum - valueWidthSum;
+                const percentWidthSum = percentColumnVMs.reduce((prev, columnVM) => {
+                    columnVM.computedWidth = (parseFloat(columnVM.currentWidth) * rootWidth) / 100;
+                    return prev + columnVM.computedWidth;
+                }, 0);
+                const valueWidthSum = valueColumnVMs.reduce((prev, columnVM) => {
+                    columnVM.computedWidth = parseFloat(columnVM.currentWidth);
+                    return prev + columnVM.computedWidth;
+                }, 0);
+                const remainingWidth = rootWidth - percentWidthSum - valueWidthSum;
                 if (remainingWidth > 0 && noWidthColumnVMs.length) {
-                    const averageWidth
-                        = remainingWidth / noWidthColumnVMs.length;
-                    noWidthColumnVMs.forEach(
-                        (columnVM) => (columnVM.computedWidth = averageWidth),
-                    );
+                    const averageWidth = remainingWidth / noWidthColumnVMs.length;
+                    noWidthColumnVMs.forEach((columnVM) => columnVM.computedWidth = averageWidth);
                 } else if (remainingWidth > 0 && valueWidthSum !== 0) {
                     const averageWidth = remainingWidth / valueColumnVMs.length;
-                    valueColumnVMs.forEach(
-                        (columnVM) =>
-                            (columnVM.computedWidth
-                                = columnVM.computedWidth + averageWidth),
-                    );
+                    valueColumnVMs.forEach((columnVM) => columnVM.computedWidth = columnVM.computedWidth + averageWidth);
                 } // 如果所有列均有值，则总宽度有超出的可能。否则总宽度为根节点的宽度。
                 let tableWidth = '';
-                if (
-                    this.visibleColumnVMs.every(
-                        (columnVM) => columnVM.currentWidth,
-                    )
-                ) {
-                    tableWidth = this.visibleColumnVMs.reduce(
-                        (prev, columnVM) => {
-                            if (String(columnVM.currentWidth).endsWith('%'))
-                                return (
-                                    prev
-                                    + (parseFloat(columnVM.currentWidth)
-                                        * rootWidth)
-                                    / 100
-                                );
-                            else
-                                return prev + columnVM.computedWidth;
-                        },
-                        0,
-                    );
+                if (this.visibleColumnVMs.every((columnVM) => columnVM.currentWidth)) {
+                    tableWidth = this.visibleColumnVMs.reduce((prev, columnVM) => {
+                        if (String(columnVM.currentWidth).endsWith('%'))
+                            return (prev + (parseFloat(columnVM.currentWidth) * rootWidth) / 100);
+                        else
+                            return prev + columnVM.computedWidth;
+                    }, 0);
                     this.tableWidth = tableWidth;
                 } else
                     this.tableWidth = tableWidth = rootWidth; // @important: Work with overflow-x: hidden to prevent two horizontal scrollbar
@@ -544,37 +491,24 @@ export default {
                 if (fixedLeftCount) {
                     tableMetaList.push({
                         position: 'left',
-                        width: this.visibleColumnVMs
-                            .slice(0, fixedLeftCount)
-                            .reduce(
-                                (prev, columnVM) =>
-                                    prev + columnVM.computedWidth,
-                                0,
-                            ),
+                        width: this.visibleColumnVMs.slice(0, fixedLeftCount)
+                            .reduce((prev, columnVM) => prev + columnVM.computedWidth, 0),
                     });
                 }
                 if (fixedRightCount && tableWidth > rootWidth) {
                     // 表格太短时，不固定右侧列
                     tableMetaList.push({
                         position: 'right',
-                        width: this.visibleColumnVMs
-                            .slice(-fixedRightCount)
-                            .reduce(
-                                (prev, columnVM) =>
-                                    prev + columnVM.computedWidth,
-                                0,
-                            ),
+                        width: this.visibleColumnVMs.slice(-fixedRightCount)
+                            .reduce((prev, columnVM) => prev + columnVM.computedWidth, 0),
                     });
                 }
                 this.tableMetaList = tableMetaList;
                 /**
                  * 根节点高度优先，头部固定，计算身体高度
-                 */ if (
-                    (this.$el.style.height !== ''
-                        && this.$el.style.height !== 'auto')
-                    || (this.$el.style.maxHeight !== ''
-                        && this.$el.style.maxHeight !== 'auto')
-                ) {
+                 */
+                if ((this.$el.style.height !== '' && this.$el.style.height !== 'auto')
+                    || (this.$el.style.maxHeight !== '' && this.$el.style.maxHeight !== 'auto')) {
                     const rootHeight = this.$el.offsetHeight;
                     if (rootHeight) {
                         // 如果使用 v-show 隐藏了，无法计算
@@ -583,10 +517,7 @@ export default {
                         this.bodyHeight = rootHeight - titleHeight - headHeight;
                     }
                 } // 当 root 设置了 height，设置 table 的 height，避免隐藏列时的闪烁
-                if (
-                    this.$el.style.height !== ''
-                    && this.$el.style.height !== 'auto'
-                )
+                if (this.$el.style.height !== '' && this.$el.style.height !== 'auto')
                     this.tableHeight = this.$el.offsetHeight;
                 this.$emit('resize', undefined, this);
             });
@@ -603,14 +534,8 @@ export default {
             let beforeWidth = 0;
             for (let i = 0; i < index; i++)
                 beforeWidth += this.visibleColumnVMs[i].computedWidth;
-            const maxWidth
-                = rootWidth
-                    - beforeWidth
-                    - (this.visibleColumnVMs.length - 1 - index) * minWidth;
-            const width = Math.max(
-                minWidth,
-                Math.min(columnVM.oldWidth + $event.dragX, maxWidth),
-            );
+            const maxWidth = rootWidth - beforeWidth - (this.visibleColumnVMs.length - 1 - index) * minWidth;
+            const width = Math.max(minWidth, Math.min(columnVM.oldWidth + $event.dragX, maxWidth));
             let remainingWidth = width - columnVM.computedWidth;
             columnVM.currentWidth = columnVM.computedWidth = width;
             if (this.resizeRemaining === 'sequence') {
@@ -660,9 +585,7 @@ export default {
         },
         onTableScroll(e) {
             this.scrollXStart = e.target.scrollLeft === 0;
-            this.scrollXEnd
-                = e.target.scrollLeft
-                    >= e.target.scrollWidth - e.target.clientWidth;
+            this.scrollXEnd = e.target.scrollLeft >= e.target.scrollWidth - e.target.clientWidth;
         },
         syncBodyScroll(scrollTop, target) {
             this.$refs.body[0]
@@ -680,11 +603,7 @@ export default {
             if (this.pageable !== 'auto-more' || this.currentLoading)
                 return;
             const el = e.target;
-            if (
-                el.scrollHeight === el.scrollTop + el.clientHeight
-                && this.currentDataSource
-                && this.currentDataSource.hasMore()
-            )
+            if (el.scrollHeight === el.scrollTop + el.clientHeight && this.currentDataSource && this.currentDataSource.hasMore())
                 this.debouncedLoad(true);
         },
         load(more) {
@@ -700,15 +619,8 @@ export default {
                     // 防止同步数据使页面抖动
                     // setTimeout(() => this.currentData = data);
                     this.currentLoading = false;
-                    if (
-                        this.pageable === true
-                        || this.pageable === 'pagination'
-                    ) {
-                        if (
-                            this.currentDataSource.paging
-                            && this.currentDataSource.paging.number
-                                > this.currentDataSource.totalPage
-                        )
+                    if (this.pageable === true || this.pageable === 'pagination') {
+                        if (this.currentDataSource.paging && this.currentDataSource.paging.number > this.currentDataSource.totalPage)
                             this.page(1); // 数据发生变更时，回归到第 1 页
                     } // auto-more 状态的 resize 会频闪。
                     this.pageable !== 'auto-more' && this.handleResize();
@@ -766,13 +678,11 @@ export default {
             this.$emit('update:sorting', sorting, this);
         },
         onSelectFilters(field, $event) {
-            const filtering
-                = $event.value || $event.value === 0 ? { [field]: $event.value } : undefined;
+            const filtering = $event.value || $event.value === 0 ? { [field]: $event.value } : undefined;
             this.filter(filtering);
         },
         getFiltersValue(field) {
-            const filtering
-                = this.currentDataSource && this.currentDataSource.filtering;
+            const filtering = this.currentDataSource && this.currentDataSource.filtering;
             if (!filtering)
                 return undefined;
             const filterField = Object.keys(filtering)[0];
@@ -782,28 +692,27 @@ export default {
                 return filtering[field];
         },
         filter(filtering) {
-            if (this.$emitPrevent('before-filter', filtering, this))
-                return;
-            delete filtering.preventDefault;
+            if (filtering) {
+                if (this.$emitPrevent('before-filter', filtering, this))
+                    return;
+                delete filtering.preventDefault;
+            } else {
+                if (this.$emitPrevent('before-filter', {}, this))
+                    return;
+            }
             this.currentDataSource.filter(filtering);
             this.load();
             this.$emit('filter', filtering, this);
             this.$emit('update:filtering', filtering, this);
         },
-        /* Selection Methods */ watchValue(value) {
-            if (
-                this.selectedItem
-                && this.selectedItem[this.valueField] === value
-            )
+        /* Selection Methods */
+        watchValue(value) {
+            if (this.selectedItem && this.selectedItem[this.valueField] === value)
                 return;
             if (value === undefined)
                 this.selectedItem = undefined;
             else {
-                this.selectedItem
-                    = this.currentData
-                        && this.currentData.find(
-                            (item) => item[this.valueField] === value,
-                        ); // @TODO: Group
+                this.selectedItem = this.currentData && this.currentData.find((item) => item[this.valueField] === value); // @TODO: Group
             }
         },
         watchValues(values) {
@@ -811,20 +720,10 @@ export default {
                 return;
             if (values) {
                 this.currentValues = values;
-                this.currentData
-                    && this.currentData.forEach(
-                        (item) =>
-                            (item.checked = values.includes(
-                                item[this.valueField],
-                            )),
-                    );
+                this.currentData && this.currentData.forEach((item) => (item.checked = values.includes(item[this.valueField])));
             } else {
                 const values = [];
-                this.currentData
-                    && this.currentData.forEach(
-                        (item) =>
-                            item.checked && values.push(item[this.valueField]),
-                    );
+                this.currentData && this.currentData.forEach((item) => item.checked && values.push(item[this.valueField]));
                 this.currentValues = values;
             }
         },
@@ -838,33 +737,22 @@ export default {
                 cancelable = this.cancelable;
             if (!cancelable && item === oldItem)
                 return; // Emit a `before-` event with preventDefault()
-            if (
-                this.$emitPrevent(
-                    'before-select',
-                    { value: item && item.value, oldValue, item, oldItem },
-                    this,
-                )
-            )
+            if (this.$emitPrevent('before-select', { value: item && item.value, oldValue, item, oldItem }, this))
                 return;
             if (cancelable && item === oldItem)
                 this.selectedItem = undefined;
             else
                 this.selectedItem = item; // Assign and sync `value`
-            const value
-                = this.selectedItem && this.selectedItem[this.valueField];
+            const value = this.selectedItem && this.selectedItem[this.valueField];
             this.$emit('input', value, this);
             this.$emit('update:value', value, this); // Emit `after-` events
-            this.$emit(
-                'select',
-                {
-                    value,
-                    oldValue,
-                    selectedItem: this.selectedItem,
-                    item,
-                    oldItem,
-                },
-                this,
-            );
+            this.$emit('select', {
+                value,
+                oldValue,
+                selectedItem: this.selectedItem,
+                item,
+                oldItem,
+            }, this);
         },
         check(item, checked) {
             // Check if enabled
@@ -888,17 +776,10 @@ export default {
                 if (checked && !this.currentValues.includes(label))
                     this.currentValues.push(label);
                 else if (!checked && this.currentValues.includes(label))
-                    this.currentValues.splice(
-                        this.currentValues.indexOf(label),
-                        1,
-                    );
+                    this.currentValues.splice(this.currentValues.indexOf(label), 1);
             }
             this.$emit('update:values', this.currentValues, this);
-            this.$emit(
-                'check',
-                { values: this.currentValues, oldValues, item, checked },
-                this,
-            );
+            this.$emit('check', { values: this.currentValues, oldValues, item, checked }, this);
         },
         checkAll(checked) {
             // Check if enabled
@@ -914,30 +795,17 @@ export default {
                     if (checked && !this.currentValues.includes(label))
                         this.currentValues.push(label);
                     else if (!checked && this.currentValues.includes(label))
-                        this.currentValues.splice(
-                            this.currentValues.indexOf(label),
-                            1,
-                        );
+                        this.currentValues.splice(this.currentValues.indexOf(label), 1);
                 }
             });
             this.$emit('update:values', this.currentValues, this);
-            this.$emit(
-                'check',
-                { values: this.currentValues, oldValues, checked },
-                this,
-            );
+            this.$emit('check', { values: this.currentValues, oldValues, checked }, this);
         },
         toggleExpanded(item, expanded) {
             // Method overloading
             if (expanded === undefined)
                 expanded = !item.expanded; // Emit a `before-` event with preventDefault()
-            if (
-                this.$emitPrevent(
-                    'before-toggle-expanded',
-                    { item, oldExpanded: !expanded, expanded },
-                    this,
-                )
-            )
+            if (this.$emitPrevent('before-toggle-expanded', { item, oldExpanded: !expanded, expanded }, this))
                 return;
             item.expanded = expanded;
             this.$emit('toggle-expanded', { item, expanded }, this);
@@ -1057,14 +925,14 @@ export default {
     color: var(--table-view-sort-color-active);
 }
 
-.filter {
+.filter-wrap {
     float: right;
     cursor: var(--cursor-pointer);
     padding-bottom: 6px;
     margin-bottom: -6px;
 }
 
-.filter::before {
+.filter-wrap::before {
     icon-font: url('../i-icon.vue/assets/filter.svg');
     color: var(--brand-disabled);
     font-size: var(--font-size-small);
@@ -1128,6 +996,8 @@ export default {
 .expand-td {
     /* transition: $transition-duration height ease-in-out, $transition-duration padding-top ease-in-out, $transition-duration padding-bottom ease-in-out; */
 }
-.columnTitle{}
-.columnField{}
+
+.column-title {}
+
+.column-field {}
 </style>
