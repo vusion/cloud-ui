@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" :readonly="readonly" :disabled="currentDisabled" :opened="popperOpened"
-    :clearable="clearable && !!currentText" :multiple="multiple" :multiple-tags="multiple && this.multipleAppearance === 'tags'"
+    :clearable="clearable && !!currentText" :multiple="multiple" :multiple-tags="multiple && multipleAppearance === 'tags'"
     :tabindex="readonly || currentDisabled ? '' : 0"
     @click="focus"
     @keydown.up.prevent="$refs.popper.currentOpened ? shift(-1) : open()"
@@ -20,8 +20,8 @@
             <slot name="label"></slot>
         </span>
         <f-render v-if="!multiple && !filterable" :vnode="selectedVM && selectedVM.$slots.default"></f-render>
-        <span v-else-if="this.multipleAppearance === 'text'">{{ currentText }}</span>
-        <template v-else-if="this.multipleAppearance === 'tags'">
+        <span v-else-if="multipleAppearance === 'text'">{{ currentText }}</span>
+        <template v-else-if="multipleAppearance === 'tags'">
             <template v-if="tagsOverflow === 'hidden' || tagsOverflow === 'visible'">
                 <span :class="$style.tag" v-for="(itemVM, index) in selectedVMs" :key="duplicated ? itemVM.value + '_' + index : itemVM.value">
                     <span :class="$style['tag-text']">{{ itemVM.currentText }}</span>
@@ -172,11 +172,7 @@ export default {
     },
     created() {
         this.$watch('selectedVM', (selectedVM, oldVM) => {
-            if (
-                selectedVM
-                && oldVM
-                && selectedVM.currentText === oldVM.currentText
-            )
+            if (selectedVM && oldVM && selectedVM.currentText === oldVM.currentText)
                 return;
             if (this.filterable)
                 this.filterText = this.selectedVM ? this.selectedVM.currentText : '';

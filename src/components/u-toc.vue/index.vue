@@ -21,7 +21,7 @@ export default {
         router: { type: Boolean, default: true },
         scrollSpy: { type: Boolean, default: true },
         scrollParent: HTMLElement,
-        topBeta: { type: Number, default: 0 }, // 有头部导航栏等遮挡的高度
+        boundaryTop: { type: Number, default: 0 }, // 有头部导航栏等遮挡的高度
     },
     data() {
         return {
@@ -101,7 +101,7 @@ export default {
         isIntoView(element) {
             const viewHeight = window.innerHeight || document.documentElement.clientHeight;
             const { top, bottom } = element.getBoundingClientRect();
-            return top >= this.topBeta && bottom <= viewHeight;
+            return top >= this.boundaryTop && bottom <= viewHeight;
         },
         stopScrollSpy() {
             this.hashChange = true;

@@ -1,7 +1,11 @@
 <template>
 <div :class="$style.root">
     <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" @change="onChange">
-    <div v-if="draggable" :class="$style.draggable" @click="select()">
+    <div v-if="draggable" :class="$style.draggable" :dragover="dragover" @click="select()"
+        @drop.prevent="onDrop"
+        @paste="onPaste"
+        @dragover.prevent="dragover = true"
+        @dragleave.prevent="dragover = false">
         <div><slot>点击或者拖动文件到虚线框内上传</slot></div>
     </div>
     <div v-else-if="listType !== 'card'" :class="$style.select" @click="select()">
@@ -61,12 +65,12 @@ export default {
         multiple: { type: Boolean, default: false },
         directory: { type: Boolean, default: false },
         data: Object,
-        extensions: { type: [String, Array], default: '' },
         limit: { type: Number, default: Infinity },
         maxSize: { type: [String, Number], default: Infinity },
         listType: { type: String, default: 'text' },
         autoUpload: { type: Boolean, default: true },
         draggable: { type: Boolean, default: false },
+        paste: { type: Boolean, default: false },
         showFileList: { type: Boolean, default: true },
         disabled: { type: Boolean, default: false },
     },
@@ -77,6 +81,7 @@ export default {
             sending: false,
             file: {},
             iframeName: 'iframe-' + new Date().getTime(),
+            dragover: false,
         };
     },
     watch: {
@@ -117,40 +122,6 @@ export default {
                 return;
 
             this.uploadFiles(files);
-        },
-        /**
-         * @method checkExtensions(file) 检查扩展名
-         * @private
-         * @param  {File} file 文件对象
-         * @return {boolean} 返回是否通过验证
-         */
-        checkExtensions(file) {
-            if (!this.extensions)
-                return true;
-
-            const fileName = file.name;
-            const extName = fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length).toLowerCase();
-
-            let extensions = this.extensions;
-            if (typeof extensions === 'string')
-                extensions = extensions.split(',');
-
-            if (extensions.includes(extName))
-                return true;
-
-            /**
-             * @event error 上传错误时触发
-             * @property {object} name ExtensionError
-             * @property {object} message 错误信息
-             * @property {object} extensions 可上传的扩展名
-             */
-            this.$emit('error', {
-                name: 'ExtensionError',
-                message: this.$t('extensionError', { extensions: extensions.join(', ') }),
-                extensions,
-            }, this);
-
-            return false;
         },
         checkSize(file) {
             if (this.maxSize === Infinity)
@@ -308,6 +279,19 @@ export default {
             this.currentValue.splice(0, this.currentValue.length);
 
             this.$emit('clear', { value: this.currentValue }, this);
+        },
+        onDrop(e) {
+            this.dragover = false;
+            if (this.disabled)
+                return;
+
+            this.uploadFiles(e.dataTransfer.files);
+        },
+        onPaste(e) {
+            if (this.disabled)
+                return;
+            if (this.paste)
+                this.uploadFiles(e.clipboardData.files);
         },
     },
 };
@@ -542,13 +526,14 @@ export default {
 .draggable {
     cursor: var(--cursor-pointer);
     text-align: center;
+    background: var(--uploader-draggable-background);
     border: var(--uploader-draggable-border-width) dashed var(--uploader-draggable-border-color);
     border-radius: var(--uploader-draggable-border-radius);
     padding: var(--uploader-draggable-padding);
     transition: all var(--transition-duration-base);
 }
 
-.draggable:hover {
+.draggable:hover, .draggable[dragover] {
     border-color: var(--uploader-draggable-border-color-hover);
 }
 

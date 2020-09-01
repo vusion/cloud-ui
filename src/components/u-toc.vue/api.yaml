@@ -24,6 +24,11 @@
       title: 滚动父元素
       type: HTMLElement
       description: 滚动的父级元素
+    - name: boundary-top
+      title: 边界高度
+      type: number
+      default: 0
+      description: 如果有头部导航栏，可以设置边界高度
   slots:
     - name: default
       description: 插入`<u-toc-item>`子组件。
