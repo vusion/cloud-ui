@@ -1,0 +1,39 @@
+- name: u-new-time-picker
+  title: 时间选择器
+  description: 新版时间选择器
+  attrs:
+    - name: value
+      type: string
+      description: 值
+    - name: format
+      title: 展示的时间格式
+      type: string
+      default: 'HH:mm:ss'
+    - name: autofocus
+      title: 自动聚焦
+      type: boolean
+      default: false
+      description: 是否自动获得焦点
+    - name: readonly
+      title: 只读
+      type: boolean
+      default: false
+      description: 是否只读
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 是否禁用
+  slots:
+    - name: default
+      description: 插入文本或 HTML。
+  events:
+    - name: change
+      description: 修改时触发
+      params:
+        - name: $event.value
+          type: string
+          description: 值
+        - name: $event.oldValue
+          type: number
+          description: 旧的值

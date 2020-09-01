@@ -350,6 +350,29 @@ export default {
 <u-select value="nut" empty-disabled placeholder="暂无选项"></u-select>
 ```
 
+#### 自动获取焦点
+
+
+#### autofocus
+
+``` html
+<u-linear-layout>
+    <u-select autofocus>
+        <u-select-item value="java">Java</u-select-item>
+        <u-select-item value="python">Python</u-select-item>
+        <u-select-item value="nodejs">Node.js</u-select-item>
+        <u-select-item value="go">Go</u-select-item>
+        <u-select-item value=".net">.NET</u-select-item>
+        <u-select-item value="php">PHP</u-select-item>
+    </u-select>
+    <u-select>
+        <u-select-item>苹果</u-select-item>
+        <u-select-item>香蕉</u-select-item>
+        <u-select-item>蛋糕</u-select-item>
+    </u-select>
+</u-linear-layout>
+```
+
 ### 分隔符
 
 ``` html
@@ -1206,7 +1229,6 @@ export default {
 };
 </script>
 ```
-
 ## USelect API
 ### Props/Attrs
 
@@ -1236,6 +1258,7 @@ export default {
 | disabled | boolean |  | `false` | 是否禁用 |
 | size | size | `'mini'`, `'small'`, `'normal'`, `'medium'`, `'large'`, `'huge'`, `'full'` | `'normal'` | 大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'medium'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式 |
 | opened.sync | boolean |  | `false` | 切换弹出/关闭状态 |
+| autofocus | boolean |  | `false` | 自动获取焦点 |
 
 ### Slots
 

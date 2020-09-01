@@ -58,6 +58,7 @@ export default {
 | value | boolean \| null |  | `false` | Checked status. `null`表示不确定状态. |
 | readonly | boolean |  | `false` | Readonly |
 | disabled | boolean |  | `false` | Disabled |
+| autofocus | boolean |  | `false` | 自动获取焦点 |
 
 ### Events
 

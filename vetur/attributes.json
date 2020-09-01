@@ -786,6 +786,10 @@
     "type": "boolean",
     "description": "是否禁用"
   },
+  "u-checkbox/autofocus": {
+    "type": "boolean",
+    "description": "自动获取焦点"
+  },
   "u-checkboxes/value": {
     "type": "Array",
     "description": "多选组的选中项"
@@ -2246,6 +2250,25 @@
     "type": "boolean",
     "description": "是否禁用"
   },
+  "u-new-time-picker/value": {
+    "type": "string",
+    "description": "值"
+  },
+  "u-new-time-picker/format": {
+    "type": "string"
+  },
+  "u-new-time-picker/autofocus": {
+    "type": "boolean",
+    "description": "是否自动获得焦点"
+  },
+  "u-new-time-picker/readonly": {
+    "type": "boolean",
+    "description": "是否只读"
+  },
+  "u-new-time-picker/disabled": {
+    "type": "boolean",
+    "description": "是否禁用"
+  },
   "u-number-input/value": {
     "type": "number",
     "description": "输入框的值"
@@ -2470,6 +2493,10 @@
     "type": "boolean",
     "description": "禁用此项"
   },
+  "u-radio/autofocus": {
+    "type": "boolean",
+    "description": "自动获取焦点"
+  },
   "u-region-select/data": {
     "type": "Array<{ text, value }>",
     "description": "数据列表"
@@ -2606,6 +2633,10 @@
   "u-select/opened": {
     "type": "boolean",
     "description": "切换弹出/关闭状态"
+  },
+  "u-select/autofocus": {
+    "type": "boolean",
+    "description": "自动获取焦点"
   },
   "u-select-item/value": {
     "type": "any",
@@ -3335,6 +3366,18 @@
     "type": "any",
     "description": "当前选择的值"
   },
+  "u-toc/scroll-spy": {
+    "type": "boolean",
+    "description": "是否监听滚动"
+  },
+  "u-toc/scroll-parent": {
+    "type": "HTMLElement",
+    "description": "滚动的父级元素"
+  },
+  "u-toc/boundary-top": {
+    "type": "number",
+    "description": "如果有头部导航栏，可以设置边界高度"
+  },
   "u-toc-item/label": {
     "type": "string",
     "description": "此项显示的文本"
@@ -3586,7 +3629,21 @@
     "type": "string",
     "description": "上传的文件字段名，后端需要这个字段获取"
   },
-  "u-uploader/headers": {},
+  "u-uploader/accept": {
+    "type": "string",
+    "description": "接受的上传类型"
+  },
+  "u-uploader/headers": {
+    "type": "Object",
+    "description": "请求 headers"
+  },
+  "u-uploader/with-credentials": {
+    "type": "boolean"
+  },
+  "u-uploader/multiple": {
+    "type": "boolean",
+    "description": "多文件上传"
+  },
   "u-uploader/data-type": {
     "type": "string",
     "description": "接收数据类型。可选值：`text`、`xml`、`json`"
@@ -3601,11 +3658,36 @@
   },
   "u-uploader/limit": {
     "type": "number",
-    "description": "列表数量"
+    "description": "列表数量上限"
   },
   "u-uploader/max-size": {
     "type": "string, number",
     "description": "可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB`"
+  },
+  "u-uploader/list-type": {
+    "type": "enum",
+    "options": [
+      "text",
+      "image",
+      "card"
+    ],
+    "description": "列表展示类型"
+  },
+  "u-uploader/auto-upload": {
+    "type": "boolean",
+    "description": "是否自动上传"
+  },
+  "u-uploader/draggable": {
+    "type": "boolean",
+    "description": "是否可以拖拽上传"
+  },
+  "u-uploader/paste": {
+    "type": "boolean",
+    "description": "是否可以粘贴"
+  },
+  "u-uploader/show-file-list": {
+    "type": "boolean",
+    "description": "是否显示文件列表"
   },
   "u-uploader/disabled": {
     "type": "boolean",

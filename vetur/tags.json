@@ -394,7 +394,8 @@
       "value",
       "label",
       "readonly",
-      "disabled"
+      "disabled",
+      "autofocus"
     ]
   },
   "u-checkboxes": {
@@ -951,6 +952,16 @@
   "u-navbar-select、u-navbar-select-group、u-navbar-select-item、u-navbar-select-divider": {
     "attributes": []
   },
+  "u-new-time-picker": {
+    "attributes": [
+      "value",
+      "format",
+      "autofocus",
+      "readonly",
+      "disabled"
+    ],
+    "description": "新版时间选择器"
+  },
   "u-number-input": {
     "attributes": [
       "value",
@@ -1042,7 +1053,8 @@
     "attributes": [
       "label",
       "readonly",
-      "disabled"
+      "disabled",
+      "autofocus"
     ]
   },
   "u-region-select": {
@@ -1083,7 +1095,8 @@
       "readonly",
       "disabled",
       "size",
-      "opened"
+      "opened",
+      "autofocus"
     ],
     "description": "下拉选择框，支持单选、多选、搜索等功能，用于代替原生的选择框。",
     "subtags": [
@@ -1375,9 +1388,12 @@
   "u-toc": {
     "attributes": [
       "router",
-      "value"
+      "value",
+      "scroll-spy",
+      "scroll-parent",
+      "boundary-top"
     ],
-    "description": "用于展示文档的目录，支持路由监听、多级目录等功能。",
+    "description": "用于展示文档的目录，支持路由和滚动监听、多级目录等功能。",
     "subtags": [
       "u-toc-item"
     ]
@@ -1464,12 +1480,20 @@
       "value",
       "url",
       "name",
+      "accept",
       "headers",
+      "with-credentials",
+      "multiple",
       "data-type",
       "data",
       "extensions",
       "limit",
       "max-size",
+      "list-type",
+      "auto-upload",
+      "draggable",
+      "paste",
+      "show-file-list",
       "disabled"
     ],
     "description": "通过点击或者拖拽上传文件。"

@@ -16,7 +16,7 @@
 
 **路由链接**, **块级展示**
 
-用于展示文档的目录，支持路由监听、多级目录等功能。
+用于展示文档的目录，支持路由和滚动监听、多级目录等功能。
 
 ## 示例
 ### 基本用法
@@ -83,6 +83,9 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | router | boolean |  | `true` | 是否根据 vue-router 来控制选择哪一项 |
 | value.sync, v-model | any |  |  | 当前选择的值 |
+| scroll-spy | boolean |  | `true` | 是否监听滚动 |
+| scroll-parent | HTMLElement |  |  | 滚动的父级元素 |
+| boundary-top | number |  | `0` | 如果有头部导航栏，可以设置边界高度 |
 
 ### Slots
 

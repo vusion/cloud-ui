@@ -10,6 +10,7 @@
     - [多选组](#多选组)
     - [数量限制](#数量限制)
     - [全选](#全选)
+    - [autofocus](#autofocus)
 - [UCheckboxes API](#ucheckboxes-api)
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
@@ -159,6 +160,17 @@ export default {
 </script>
 ```
 
+### autofocus
+
+``` html
+<u-checkboxes>
+    <u-checkbox label="水杯">水杯</u-checkbox>
+    <u-checkbox label="坚果" autofocus>坚果</u-checkbox>
+    <u-checkbox label="毛巾">毛巾</u-checkbox>
+    <u-checkbox label="沙发">沙发</u-checkbox>
+</u-checkboxes>
+```
+
 ## UCheckboxes API
 ### Props/Attrs
 
@@ -185,6 +197,7 @@ export default {
 | label | any |  |  | 多选框标签。用于关联多选组的值 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
+| autofocus | boolean |  | `false` | 自动获取焦点 |
 
 ### Slots
 
