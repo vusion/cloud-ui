@@ -670,15 +670,16 @@
 
     /* Radio */
     --radio-space-x: 80px;
-    --radio-size: 18px;
+    --radio-size: 16px;
     --radio-background: var(--background-color-default);
     --radio-box-shadow-focus: var(--button-box-shadow-focus);
 
     /* Checkbox */
     --checkbox-space-x: 80px;
-    --checkbox-size: 18px;
+    --checkbox-size: 16px;
     --checkbox-border-radius: 3px;
-    --checkbox-background: var(--background-color-default);
+    --checkbox-background: var(--brand-primary);
+    --checkbox-color: var(--background-color-default);
     --checkbox-box-shadow-focus: var(--button-box-shadow-focus);
 
     /* Switch */

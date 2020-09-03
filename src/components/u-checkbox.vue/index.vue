@@ -116,31 +116,46 @@ export default {
     width: var(--checkbox-size);
     height: var(--checkbox-size);
     line-height: calc(var(--checkbox-size) - 2px);
-    background: var(--checkbox-background);
+    background: var(--background-color-default);
     border: 1px solid var(--border-color-base);
     border-radius: var(--checkbox-border-radius);
     margin-right: 5px;
     text-align: center;
+    font-size: var(--font-size-small);
+    transition: all var(--transition-duration-base);
+    vertical-align: 1px;
+}
+
+.box::before {
+    transition: all var(--transition-duration-base);
 }
 
 .box[status="false"]::before {
     icon-font: url('../i-icon.vue/assets/check.svg');
     color: transparent;
-    font-size: var(--font-size-small);
 }
 
+.box[status="true"] {
+    background: var(--checkbox-background);
+    border-color: var(--checkbox-background);
+}
 .box[status="true"]::before {
     icon-font: url('../i-icon.vue/assets/check.svg');
-    color: var(--brand-primary);
-    font-size: var(--font-size-small);
+    color: var(--checkbox-color);
 }
 
+.box[status="null"] {
+    background: var(--checkbox-background);
+    border-color: var(--checkbox-background);
+}
 .box[status="null"]::before {
-    icon-font: url('../i-icon.vue/assets/square.svg');
-    color: var(--brand-primary);
+    icon-font: url('i-material-design.vue/assets/filled/horizontal_rule.svg');
+    color: var(--checkbox-color);
+    font-weight: bold;
 }
 
 .box[disabled] {
+    border-color: var(--border-color-base);
     background: var(--background-color-base);
 }
 </style>

@@ -106,6 +106,7 @@ export default {
     border: 1px solid var(--border-color-base);
     margin-right: 5px;
     text-align: center;
+    transition: all var(--transition-duration-base);
 }
 
 .radio::before {
@@ -118,11 +119,16 @@ export default {
     overflow: hidden;
 }
 
+.radio[selected] {
+    border-color: var(--brand-primary);
+}
+
 .radio[selected]::before {
     background: var(--brand-primary);
 }
 
 .radio[disabled] {
+    border-color: var(--border-color-base);
     background: var(--background-color-base);
 }
 </style>
