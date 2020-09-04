@@ -245,7 +245,7 @@ export default {
                 this.rootVM.onToggle(this, expanded);
             };
 
-            if (expanded && (this.node && !this.$at(this.node, this.childrenField) && !this.node.isLeaf && this.rootVM.currentDataSource.load)) {
+            if (expanded && (this.node && !this.$at(this.node, this.currentChildrenField) && !this.node.isLeaf && this.rootVM.currentDataSource.load)) {
                 this.load().then(() => final());
             } else
                 final();

@@ -311,9 +311,7 @@ export default {
                 return mockRequest([
                     { type: 'page', title: '页面1', isLeaf: true, childrenField: 'children' },
                     { type: 'page', title: '页面2', isLeaf: true, childrenField: 'children' },
-                ]).then((result) => {
-                    this.$set(params.node.front, 'pages', result);
-                });
+                ]);
             }
         },
     },
