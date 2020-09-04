@@ -12,13 +12,13 @@
         @keyup.right="toggle(true)">
         <div :class="$style.background"></div>
         <u-loading v-if="loading" :class="$style.loading" size="small"></u-loading>
-        <div :class="$style.expander" v-else-if="node && node[currentChildrenField] || nodeVMs.length || node && !node[rootVM.isLeafField]"
+        <div :class="$style.expander" v-else-if="node && $at(node, currentChildrenField) || nodeVMs.length || (node && !$at(node, rootVM.isLeafField) && rootVM.currentDataSource && rootVM.currentDataSource.load)"
             :expanded="currentExpanded"
             @click="rootVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"></div>
         <div :class="$style.text">
             <u-checkbox v-if="rootVM.checkable" :value="currentChecked" :disabled="currentDisabled" @check="check($event.value)" @click.native.stop></u-checkbox>
             <f-slot name="text" :vm="currentTextSlotVM" :props="{
-                data: node && node[currentChildrenField],
+                data: node && $at(node, currentChildrenField),
                 text,
                 value,
                 expanded: currentExpanded,
@@ -31,11 +31,11 @@
         </div>
     </div>
     <div :class="$style.sub" v-show="currentExpanded">
-        <template v-if="node && node[currentChildrenField]">
+        <template v-if="node && $at(node, currentChildrenField)">
             <u-tree-view-node
-                v-for="subNode in node[currentChildrenField]"
-                :text="subNode[rootVM.field || rootVM.textField]"
-                :value="subNode[rootVM.valueField]"
+                v-for="subNode in $at(node, currentChildrenField)"
+                :text="$at(subNode, rootVM.field || rootVM.textField)"
+                :value="$at(subNode, rootVM.valueField)"
                 :expanded.sync="subNode.expanded"
                 :checked.sync="subNode.checked"
                 :disabled="subNode.disabled"
@@ -44,11 +44,11 @@
             ></u-tree-view-node>
         </template>
         <template v-if="currentMoreChildrenFields">
-            <template v-for="childrenField in currentMoreChildrenFields" v-if="node && node[childrenField]">
+            <template v-for="childrenField in currentMoreChildrenFields" v-if="node && $at(node,childrenField)">
                 <u-tree-view-node
-                    v-for="subNode in node[childrenField]"
-                    :text="subNode[rootVM.field || rootVM.textField]"
-                    :value="subNode[rootVM.valueField]"
+                    v-for="subNode in $at(node,childrenField)"
+                    :text="$at(subNode, rootVM.field || rootVM.textField)"
+                    :value="$at(subNode, rootVM.valueField)"
                     :expanded.sync="subNode.expanded"
                     :checked.sync="subNode.checked"
                     :disabled="subNode.disabled"
@@ -106,26 +106,28 @@ export default {
         currentChildrenField() {
             if (this.node && this.node.childrenField)
                 return this.node.childrenField;
-            let vm = this;
-            while (vm) {
-                if (vm.childrenField)
-                    return vm.childrenField;
-                vm = vm.parentVM;
-            }
-
-            return 'children';
+            else
+                return this.rootVM.childrenField;
+            // let vm = this;
+            // while (vm) {
+            //     if (vm.childrenField)
+            //         return vm.childrenField;
+            //     vm = vm.parentVM;
+            // }
         },
         currentMoreChildrenFields() {
             if (this.node && this.node.moreChildrenFields)
                 return this.node.moreChildrenFields;
-            let vm = this;
-            while (vm) {
-                if (vm.moreChildrenFields)
-                    return vm.moreChildrenFields;
-                vm = vm.parentVM;
-            }
+            else
+                return this.rootVM.moreChildrenFields;
+            // let vm = this;
+            // while (vm) {
+            //     if (vm.moreChildrenFields)
+            //         return vm.moreChildrenFields;
+            //     vm = vm.parentVM;
+            // }
 
-            return undefined;
+            // return undefined;
         },
         currentTextSlotVM() {
             let vm = this;
@@ -198,6 +200,10 @@ export default {
         toggle(expanded) {
             if (this.currentDisabled || this.rootVM.readonly)
                 return;
+            if (!(this.node && this.$at(this.node, this.currentChildrenField)
+                || this.nodeVMs.length
+                || (this.node && !this.$at(this.node, this.rootVM.isLeafField) && this.rootVM.currentDataSource && this.rootVM.currentDataSource.load)))
+                return;
 
             const oldExpanded = this.currentExpanded;
 
@@ -239,7 +245,7 @@ export default {
                 this.rootVM.onToggle(this, expanded);
             };
 
-            if (expanded && (this.node && !this.node[this.childrenField] && !this.node.isLeaf && this.rootVM.currentDataSource.load)) {
+            if (expanded && (this.node && !this.$at(this.node, this.childrenField) && !this.node.isLeaf && this.rootVM.currentDataSource.load)) {
                 this.load().then(() => final());
             } else
                 final();

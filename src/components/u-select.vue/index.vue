@@ -60,11 +60,11 @@
             <component :is="ChildComponent"
                 v-for="(item, index) in currentData"
                 v-if="item"
-                :key="filterable ? item[valueField] + '_' + index : item[valueField]"
-                :value="item[valueField]"
+                :key="filterable ? $at(item, valueField) + '_' + index : $at(item, valueField)"
+                :value="$at(item, valueField)"
                 :disabled="item.disabled || disabled"
                 :item="item">
-            <slot name="text" :item="item" :text="item[field || textField]" :value="item[valueField]" :disabled="item.disabled || disabled">{{ item[field || textField] }}</slot>
+            <slot name="text" :item="item" :text="$at(item, field || textField)" :value="$at(item, valueField)" :disabled="item.disabled || disabled">{{ $at(item, field || textField) }}</slot>
             </component>
         </template>
         <div :class="$style.status" status="loading" v-if="currentLoading">

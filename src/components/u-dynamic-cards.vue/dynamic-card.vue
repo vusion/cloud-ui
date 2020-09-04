@@ -38,7 +38,7 @@ export default {
     },
     computed: {
         miniText() {
-            const text = this.parentVM.miniFormatter ? this.parentVM.miniFormatter(this.item) : this.item[this.parentVM.textField];
+            const text = this.parentVM.miniFormatter ? this.parentVM.miniFormatter(this.item) : this.$at(this.item, this.parentVM.textField);
             return text || '-';
         },
         expanded() {

@@ -67,20 +67,20 @@
                                     </span>
                                     <!-- type === 'checkbox' -->
                                     <span v-if="columnVM.type === 'checkbox'">
-                                        <u-checkbox :value="item.checked" :label="item[valueField]" :disabled="item.disabled" @check="check(item, $event.value)"></u-checkbox>
+                                        <u-checkbox :value="item.checked" :label="$at(item, valueField)" :disabled="item.disabled" @check="check(item, $event.value)"></u-checkbox>
                                     </span>
                                     <!-- type === 'expander' -->
                                     <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click="toggleExpanded(item)"></span>
                                     <!-- Normal text -->
-                                    <f-slot name="cell" :vm="columnVM" :props="{ item, value: item[columnVM.field], columnVM, rowIndex, columnIndex, index: rowIndex }">
-                                        <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format(item[columnVM.field]) }}</span>
+                                    <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                        <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                     </f-slot>
                                 </td>
                             </tr>
                             <tr :class="$style['expand-content']" v-if="expanderColumnVM && item.expanded">
                                 <f-collapse-transition>
                                     <td :colspan="visibleColumnVMs.length" :class="$style['expand-td']" v-show="item.expanded" vusion-slot-name="expand-content">
-                                        <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: item[expanderColumnVM.field], columnVM: expanderColumnVM, rowIndex, index: rowIndex }"></f-slot>
+                                        <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: $at(item, expanderColumnVM.field), columnVM: expanderColumnVM, rowIndex, index: rowIndex }"></f-slot>
                                     </td>
                                 </f-collapse-transition>
                             </tr>
@@ -286,8 +286,8 @@ export default {
             this.watchValue(value);
         },
         selectedItem(item, oldItem) {
-            const value = item ? item[this.valueField] : undefined;
-            const oldValue = oldItem ? oldItem[this.valueField] : undefined;
+            const value = item ? this.$at(item, this.valueField) : undefined;
+            const oldValue = oldItem ? this.$at(oldItem, this.valueField) : undefined;
             if (value === oldValue)
                 return;
             this.$emit('change', { value, oldValue, item, oldItem }, this);
@@ -689,7 +689,7 @@ export default {
             if (filterField !== field)
                 return undefined;
             else
-                return filtering[field];
+                return this.$at(filtering, field);
         },
         filter(filtering) {
             if (filtering) {
@@ -707,12 +707,12 @@ export default {
         },
         /* Selection Methods */
         watchValue(value) {
-            if (this.selectedItem && this.selectedItem[this.valueField] === value)
+            if (this.selectedItem && this.this.$at(selectedItem, this.valueField) === value)
                 return;
             if (value === undefined)
                 this.selectedItem = undefined;
             else {
-                this.selectedItem = this.currentData && this.currentData.find((item) => item[this.valueField] === value); // @TODO: Group
+                this.selectedItem = this.currentData && this.currentData.find((item) => this.$at(item, this.valueField) === value); // @TODO: Group
             }
         },
         watchValues(values) {
@@ -720,10 +720,10 @@ export default {
                 return;
             if (values) {
                 this.currentValues = values;
-                this.currentData && this.currentData.forEach((item) => (item.checked = values.includes(item[this.valueField])));
+                this.currentData && this.currentData.forEach((item) => (item.checked = values.includes(this.$at(item, this.valueField))));
             } else {
                 const values = [];
-                this.currentData && this.currentData.forEach((item) => item.checked && values.push(item[this.valueField]));
+                this.currentData && this.currentData.forEach((item) => item.checked && values.push(this.$at(item, this.valueField)));
                 this.currentValues = values;
             }
         },
@@ -743,7 +743,7 @@ export default {
                 this.selectedItem = undefined;
             else
                 this.selectedItem = item; // Assign and sync `value`
-            const value = this.selectedItem && this.selectedItem[this.valueField];
+            const value = this.selectedItem && this.this.$at(selectedItem, this.valueField);
             this.$emit('input', value, this);
             this.$emit('update:value', value, this); // Emit `after-` events
             this.$emit('select', {
@@ -772,7 +772,7 @@ export default {
             // Assign and sync `checked`
             item.checked = checked;
             if (this.valueField) {
-                const label = item[this.valueField];
+                const label = this.$at(item, this.valueField);
                 if (checked && !this.currentValues.includes(label))
                     this.currentValues.push(label);
                 else if (!checked && this.currentValues.includes(label))
@@ -791,7 +791,7 @@ export default {
                     return;
                 item.checked = checked;
                 if (this.valueField) {
-                    const label = item[this.valueField];
+                    const label = this.$at(item, this.valueField);
                     if (checked && !this.currentValues.includes(label))
                         this.currentValues.push(label);
                     else if (!checked && this.currentValues.includes(label))

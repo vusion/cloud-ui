@@ -10,7 +10,7 @@
                 :item="item"
                 :label="item.label"
                 :disabled="item.disabled">
-                <slot name="text" :item="item" :level="level">{{ item[field] }}</slot>
+                <slot name="text" :item="item" :level="level">{{ $at(item, field) }}</slot>
             </u-capsule>
         </u-capsules>
         <span :class="$style.tip" v-if="category.tip">{{ category.tip }}</span>

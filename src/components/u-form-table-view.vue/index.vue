@@ -22,8 +22,8 @@
                         :validating-value="columnVM.validatingValue"
                         :validating-process="columnVM.validatingProcess">
                         <span v-if="columnVM.type === 'index'">{{ columnVM.startIndex + rowIndex }}</span>
-                        <f-slot name="cell" :vm="columnVM" :props="{ item, value: item[columnVM.field], columnVM, rowIndex, columnIndex }">
-                            <span>{{ columnVM.currentFormatter.format(item[columnVM.field]) }}</span>
+                        <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex }">
+                            <span>{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                         </f-slot>
                     </u-validator>
                 </td>

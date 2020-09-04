@@ -9,7 +9,7 @@
             :value="item.value"
             :item="item"
             :disabled="item.disabled">
-            <slot name="text" :item="item" :level="level">{{ item[field] }}</slot>
+            <slot name="text" :item="item" :level="level">{{ $at(item, field) }}</slot>
         </u-select-item>
     </u-select>
 </u-linear-layout>

@@ -808,7 +808,7 @@
     --list-view-item-background-hover: var(--background-color-lighter);
     --list-view-item-background-readonly: none;
     --list-view-item-background-focused: var(--background-color-lighter);
-    --list-view-item-background-selected: var(--brand-primary);
+    --list-view-item-background-selected: var(--brand-primary-light);
     --list-view-item-color-selected: white;
     --list-view-item-color-disabled: var(--brand-disabled-dark);
     --list-view-item-background-disabled: none;

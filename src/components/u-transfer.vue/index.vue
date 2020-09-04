@@ -80,7 +80,7 @@ export default {
             const transfer = [];
             for (let i = 0; i < from.length; i++) {
                 const item = from[i];
-                if (values.includes(item[this.valueField])) {
+                if (values.includes(this.$at(item, this.valueField))) {
                     from.splice(i--, 1);
                     to.push(item);
                     transfer.push(item);

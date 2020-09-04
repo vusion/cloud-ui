@@ -4,8 +4,8 @@
     <template v-else-if="currentDataSource">
         <component :is="ChildComponent"
             v-for="node in currentDataSource.data"
-            :text="node[field || textField]"
-            :value="node[valueField]"
+            :text="$at(node, field || textField)"
+            :value="$at(node, valueField)"
             :expanded.sync="node.expanded"
             :checked.sync="node.checked"
             :disabled="node.disabled"
@@ -121,7 +121,7 @@ export default {
                         } else
                             final.data = result;
                     }
-                    if (params.node && !params.node[params.nodeVM.currentChildrenField])
+                    if (params.node && !this.$at(params.node, params.nodeVM.currentChildrenField))
                         self.$set(params.node, self.isLeafField, true);
                 };
             }

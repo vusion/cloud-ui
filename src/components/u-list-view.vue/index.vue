@@ -22,11 +22,11 @@
             <component :is="ChildComponent"
                 v-for="item in virtualList"
                 v-if="item"
-                :key="item[valueField]"
-                :value="item[valueField]"
+                :key="$at(item, valueField)"
+                :value="$at(item, valueField)"
                 :disabled="item.disabled || disabled"
                 :item="item"
-            ><slot name="item" :item="item" :text="item[field || textField]" :value="item[valueField]" :disabled="item.disabled || disabled">{{ item[field || textField] }}</slot>
+            ><slot name="item" :item="item" :text="$at(item, field || textField)" :value="$at(item, valueField)" :disabled="item.disabled || disabled">{{ $at(item, field || textField) }}</slot>
             </component>
         </div>
         <div :class="$style.status" status="loading" v-if="currentLoading">
@@ -277,7 +277,7 @@ export default {
                             {
                                 selectedIndex,
                                 selectedVM: itemVM,
-                                value: itemVM[this.valueField],
+                                value: this.$at(itemVM, this.valueField),
                             },
                             this,
                         );
@@ -297,7 +297,7 @@ export default {
                             {
                                 selectedIndex,
                                 selectedVM: itemVM,
-                                value: itemVM[this.valueField],
+                                value: this.$at(itemVM, this.valueField),
                             },
                             this,
                         );
@@ -348,16 +348,13 @@ export default {
         },
         /**
          * 保证选择项是 itemVMs 中的。由于切换分页、虚拟列表等会将内部组件节点干掉重新渲染，于是需要这个函数。
-         */ ensureSelectedInItemVMs() {
+         */
+        ensureSelectedInItemVMs() {
             if (this.multiple) {
                 for (let i = 0; i < this.selectedVMs.length; i++) {
                     const oldVM = this.selectedVMs[i];
                     if (!this.itemVMs.includes(oldVM)) {
-                        const selectedVM = this.itemVMs.find(
-                            (itemVM) =>
-                                itemVM[this.valueField]
-                                === oldVM[this.valueField],
-                        );
+                        const selectedVM = this.itemVMs.find((itemVM) => this.$at(itemVM, this.valueField) === this.$at(oldVM, this.valueField));
                         if (selectedVM) {
                             this.selectedVMs[i] = selectedVM;
                             selectedVM.currentSelected = true;
@@ -366,11 +363,7 @@ export default {
                 }
             } else {
                 if (this.selectedVM && !this.itemVMs.includes(this.selectedVM)) {
-                    const selectedVM = this.itemVMs.find(
-                        (itemVM) =>
-                            itemVM[this.valueField]
-                            === this.selectedVM[this.valueField],
-                    );
+                    const selectedVM = this.itemVMs.find((itemVM) => this.$at(itemVM, this.valueField) === this.$at(this.selectedVM, this.valueField));
                     if (selectedVM)
                         this.selectedVM = selectedVM;
                 }
