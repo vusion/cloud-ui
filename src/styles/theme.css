@@ -828,7 +828,7 @@
     --tree-view-node-text-padding: 4px 12px;
     --tree-view-node-text-padding–mini: 4px 8px;
     --tree-view-node-background-active: var(--background-color-base);
-    --tree-view-node-background-selected: var(--brand-primary);
+    --tree-view-node-background-selected: var(--brand-primary-light);
     --tree-view-node-color-selected: white;
     --tree-view-node-color-disabled: var(--brand-disabled);
     --tree-view-node-expander-color-selected: white;

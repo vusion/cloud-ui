@@ -4,7 +4,7 @@
 
 #### Tag 方式
 
-``` html
+``` html { width: 30% }
 <u-tree-view>
     <u-tree-view-node text="节点 1">
         <u-tree-view-node text="节点 1.1"></u-tree-view-node>
@@ -25,7 +25,7 @@
 
 #### Data 方式
 
-``` html
+``` html { width: 30% }
 <u-tree-view :data="[
     { text: '节点 1', children: [
         { text: '节点 1.1' },
@@ -48,7 +48,7 @@
 
 Tag 方式很容易自定义模板，而 Data 方式却不好扩展。我们提供了一个名为`text`的作用域插槽，可以很轻松地处理这个问题。
 
-``` html
+``` html { width: 30% }
 <u-tree-view :data="[
     { text: '文件夹1', type: 'directory', children: [
         { text: '文件夹1.1', type: 'directory' },
@@ -78,7 +78,7 @@ Tag 方式很容易自定义模板，而 Data 方式却不好扩展。我们提�
 
 #### Tag 方式
 
-``` html
+``` html { width: 30% }
 <u-tree-view value="1.2">
     <u-tree-view-node text="节点 1" value="1">
         <u-tree-view-node text="节点 1.1" value="1.1"></u-tree-view-node>
@@ -99,7 +99,7 @@ Tag 方式很容易自定义模板，而 Data 方式却不好扩展。我们提�
 
 #### Data 方式
 
-``` html
+``` html { width: 30% }
 <u-tree-view value="1.2" :data="[
     { text: '节点 1', value: '1', children: [
         { text: '节点 1.1', value: '1.1' },
@@ -183,7 +183,7 @@ Tag 方式很容易自定义模板，而 Data 方式却不好扩展。我们提�
 
 #### Data 方式
 
-``` html
+``` html { width: 30% }
 <u-tree-view :data="[
     { text: '节点 1', children: [
         { text: '节点 1.1' },
@@ -202,10 +202,91 @@ Tag 方式很容易自定义模板，而 Data 方式却不好扩展。我们提�
 ]"></u-tree-view>
 ```
 
+### 异步加载
+
+``` vue { width: 30% }
+<template>
+<u-tree-view :data-source="load" text-field="title"></u-tree-view>
+</template>
+<script>
+// 模拟后端请求
+const mockRequest = (data, timeout = 300) => new Promise((res, rej) => setTimeout(() => res(data), timeout));
+
+export default {
+    methods: {
+        load(params) {
+            if (!params.node) {
+                return mockRequest([
+                    { type: 'app', title: '应用1', childrenField: 'services' },
+                    { type: 'app', title: '应用2', childrenField: 'services' },
+                ]);
+            } else if (params.node.type === 'app') {
+                return mockRequest([
+                    { type: 'service', title: '服务1', childrenField: 'pages' },
+                    { type: 'service', title: '服务2', childrenField: 'pages' },
+                    { type: 'service', title: '服务3', childrenField: 'pages' },
+                ]);
+            } else if (params.node.type === 'service') {
+                return mockRequest([
+                    { type: 'page', title: '页面1', isLeaf: true, childrenField: 'children' },
+                    { type: 'page', title: '页面2', isLeaf: true, childrenField: 'children' },
+                ]);
+            }
+        },
+    },
+}
+</script>
+```
+
+### Tag 和 Data 混合
+
+``` vue { width: 30% }
+<template>
+<u-tree-view :data-source="load" text-field="title">
+    <u-tree-view-node v-for="app in apps" v-if="app.subType !== 'other'" :text="app.title" :node="app" children-field="services"></u-tree-view-node>
+</u-tree-view>
+</template>
+<script>
+// 模拟后端请求
+const mockRequest = (data, timeout = 300) => new Promise((res, rej) => setTimeout(() => res(data), timeout));
+
+export default {
+    data() {
+        return {
+            apps: [
+                { type: 'app', title: '应用1' },
+                { type: 'app', title: '应用2' },
+                { type: 'app', title: '应用3', subType: 'other' },
+                { type: 'app', title: '应用4' },
+            ],
+        };
+    },
+    methods: {
+        load(params) {
+            if (params.node.type === 'app') {
+                return mockRequest([
+                    { type: 'service', title: '服务1', childrenField: 'pages' },
+                    { type: 'service', title: '服务2', childrenField: 'pages' },
+                    { type: 'service', title: '服务3', childrenField: 'pages' },
+                ]);
+            } else if (params.node.type === 'service') {
+                return mockRequest([
+                    { type: 'page', title: '页面1' },
+                    { type: 'page', title: '页面2' },
+                ]);
+            } else {
+                return mockRequest();
+            }
+        },
+    },
+}
+</script>
+```
+
 
 ### 手风琴
 
-``` html
+``` html { width: 30% }
 <u-tree-view accordion>
     <u-tree-view-node text="节点 1">
         <u-tree-view-node text="节点 1.1">
@@ -280,7 +361,7 @@ Tag 方式很容易自定义模板，而 Data 方式却不好扩展。我们提�
 
 ### 可取消
 
-``` html
+``` html { width: 30% }
 <u-tree-view cancelable>
     <u-tree-view-node text="节点 1">
         <u-tree-view-node text="节点 1.1"></u-tree-view-node>
@@ -303,7 +384,7 @@ Tag 方式很容易自定义模板，而 Data 方式却不好扩展。我们提�
 
 Tag 方式中可以使用`v-show`，Data 方式中可以使用`hidden`属性
 
-``` html
+``` html { width: 30% }
 <u-tree-view cancelable>
     <u-tree-view-node v-show="false" text="节点1">
         <u-tree-view-node text="节点1.1"></u-tree-view-node>
@@ -328,7 +409,7 @@ Tag 方式中可以使用`v-show`，Data 方式中可以使用`hidden`属性
 
 控制多选有两种方式，一种是设置数据各项的`checked`属性，该属性会与多项选择框进行双向绑定。`disabled`属性可以禁用多项选择框。
 
-``` vue
+``` vue { width: 30% }
 <template>
 <u-tree-view ref="treeView" checkable :data="data"></u-tree-view>
 </template>
@@ -358,7 +439,7 @@ export default {
 
 另一种是通过`:values.sync`对选择值进行双向绑定，该方法要求每项有`value`作为唯一值。`values`只会收集叶子节点的值。
 
-``` vue
+``` vue { width: 30% }
 <template>
 <u-tree-view ref="treeView" checkable :values.sync="values" :data="data"></u-tree-view>
 </template>
@@ -393,7 +474,7 @@ export default {
 
 UTreeView 有针对选中/取消和展开/收起两个操作的统一处理的方法：`checkAll`和`toggleAll`，方便开发者使用。
 
-``` vue
+``` vue { width: 30% }
 <template>
 <u-linear-layout direction="vertical">
     <u-tree-view ref="treeView" checkable :data="data"></u-tree-view>
@@ -441,7 +522,7 @@ export default {
 
 UTreeView 有关于遍历与查找节点的方法：`walk`和`find`，方便开发者使用。
 
-``` vue
+``` vue { width: 30% }
 <template>
 <u-linear-layout direction="vertical">
     <u-tree-view ref="treeView" :data="data"></u-tree-view>

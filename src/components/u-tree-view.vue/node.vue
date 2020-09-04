@@ -5,39 +5,57 @@
         :disabled="currentDisabled"
         :tabindex="disabled || rootVM.readonly || rootVM.disabled ? '' : 0"
         @click="select(), rootVM.expandTrigger === 'click' && toggle()"
+        @dblclick="onDblclick($event)"
+        @contextmenu="onRightClick($event)"
         @keyup.enter="select()"
         @keyup.left="toggle(false)"
         @keyup.right="toggle(true)">
-        <div :class="$style.back"></div>
-        <div :class="$style.expander" v-if="data || nodeVMs.length"
+        <div :class="$style.background"></div>
+        <u-loading v-if="loading" :class="$style.loading" size="small"></u-loading>
+        <div :class="$style.expander" v-else-if="node && node[currentChildrenField] || nodeVMs.length || node && !node[rootVM.isLeafField]"
             :expanded="currentExpanded"
             @click="rootVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"></div>
         <div :class="$style.text">
             <u-checkbox v-if="rootVM.checkable" :value="currentChecked" :disabled="currentDisabled" @check="check($event.value)" @click.native.stop></u-checkbox>
-            <u-tree-view-text
-                :data="data"
-                :text="text"
-                :value="value"
-                :expanded="currentExpanded"
-                :checked="currentChecked"
-                :disabled="currentDisabled"
-                :node="node"
-            ></u-tree-view-text>
+            <f-slot name="text" :vm="currentTextSlotVM" :props="{
+                data: node && node[currentChildrenField],
+                text,
+                value,
+                expanded: currentExpanded,
+                checked: currentChecked,
+                disabled: currentDisabled,
+                node,
+            }">
+                <span>{{ text }}</span>
+            </f-slot>
         </div>
     </div>
     <div :class="$style.sub" v-show="currentExpanded">
-        <template v-if="data">
+        <template v-if="node && node[currentChildrenField]">
             <u-tree-view-node
-                v-for="node in data"
-                :text="node[rootVM.field || rootVM.textField]"
-                :value="node[rootVM.valueField]"
-                :expanded.sync="node.expanded"
-                :checked.sync="node.checked"
-                :disabled="node.disabled"
-                :hidden="node.hidden"
-                :data="node.children"
-                :node="node"
+                v-for="subNode in node[currentChildrenField]"
+                :text="subNode[rootVM.field || rootVM.textField]"
+                :value="subNode[rootVM.valueField]"
+                :expanded.sync="subNode.expanded"
+                :checked.sync="subNode.checked"
+                :disabled="subNode.disabled"
+                :hidden="subNode.hidden"
+                :node="subNode"
             ></u-tree-view-node>
+        </template>
+        <template v-if="currentMoreChildrenFields">
+            <template v-for="childrenField in currentMoreChildrenFields" v-if="node && node[childrenField]">
+                <u-tree-view-node
+                    v-for="subNode in node[childrenField]"
+                    :text="subNode[rootVM.field || rootVM.textField]"
+                    :value="subNode[rootVM.valueField]"
+                    :expanded.sync="subNode.expanded"
+                    :checked.sync="subNode.checked"
+                    :disabled="subNode.disabled"
+                    :hidden="subNode.hidden"
+                    :node="subNode"
+                ></u-tree-view-node>
+            </template>
         </template>
         <slot></slot>
     </div>
@@ -59,11 +77,14 @@ export default {
         checked: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         hidden: { type: Boolean, default: false },
+        childrenField: String,
+        moreChildrenFields: Array,
         node: Object,
     },
 
     data() {
         return {
+            loading: false,
             // @inherit: nodeVMs: [],
             // @inherit: rootVM: undefined,
             // @inherit: parentVM: undefined,
@@ -82,6 +103,40 @@ export default {
                 || (this.parentVM && this.parentVM.currentDisabled)
             );
         },
+        currentChildrenField() {
+            if (this.node && this.node.childrenField)
+                return this.node.childrenField;
+            let vm = this;
+            while (vm) {
+                if (vm.childrenField)
+                    return vm.childrenField;
+                vm = vm.parentVM;
+            }
+
+            return 'children';
+        },
+        currentMoreChildrenFields() {
+            if (this.node && this.node.moreChildrenFields)
+                return this.node.moreChildrenFields;
+            let vm = this;
+            while (vm) {
+                if (vm.moreChildrenFields)
+                    return vm.moreChildrenFields;
+                vm = vm.parentVM;
+            }
+
+            return undefined;
+        },
+        currentTextSlotVM() {
+            let vm = this;
+            while (vm) {
+                if (vm.$scopedSlots.text || vm.$slots.text)
+                    return vm;
+                vm = vm.parentVM;
+            }
+
+            return this.rootVM;
+        },
     },
 
     watch: {
@@ -99,20 +154,46 @@ export default {
                 return;
 
             let cancel = false;
-            this.$emit(
-                'before-select',
-                {
-                    value: this.value,
-                    node: this.node,
-                    nodeVM: this,
-                    preventDefault: () => (cancel = true),
-                },
-                this,
-            );
+            this.$emit('before-select', {
+                value: this.value,
+                node: this.node,
+                nodeVM: this,
+                preventDefault: () => (cancel = true),
+            }, this);
             if (cancel)
                 return;
 
             this.rootVM.select(this);
+        },
+        onDblclick(e) {
+            this.rootVM.$emit('node-dblclick', {
+                value: this.value,
+                node: this.node,
+                nodeVM: this,
+                e,
+            });
+        },
+        onRightClick(e) {
+            this.rootVM.$emit('node-rightclick', {
+                value: this.value,
+                node: this.node,
+                nodeVM: this,
+                e,
+            });
+        },
+        load() {
+            this.loading = true;
+            return this.rootVM.currentDataSource.load({
+                value: this.value,
+                node: this.node,
+                nodeVM: this,
+                childrenField: this.currentChildrenField,
+            }).then(() => {
+                this.loading = false;
+            }).catch(() => this.loading = false);
+        },
+        reload() {
+            this.load();
         },
         toggle(expanded) {
             if (this.currentDisabled || this.rootVM.readonly)
@@ -127,42 +208,41 @@ export default {
                 return;
 
             let cancel = false;
-            this.$emit(
-                'before-toggle',
-                {
-                    expanded,
-                    node: this.node,
-                    nodeVM: this,
-                    preventDefault: () => (cancel = true),
-                },
-                this,
-            );
+            this.$emit('before-toggle', {
+                expanded,
+                node: this.node,
+                nodeVM: this,
+                preventDefault: () => (cancel = true),
+            }, this);
             if (cancel)
                 return;
 
-            this.currentExpanded = expanded;
-            this.$emit('update:expanded', expanded, this);
+            const final = () => {
+                this.currentExpanded = expanded;
+                this.$emit('update:expanded', expanded, this);
 
-            if (this.rootVM.accordion) {
-                (this.parentVM || this.rootVM).nodeVMs.forEach((nodeVM) => {
-                    if (nodeVM !== this) {
-                        nodeVM.currentExpanded = false;
-                        nodeVM.$emit('update:expanded', false);
-                    }
-                });
-            }
+                if (this.rootVM.accordion) {
+                    (this.parentVM || this.rootVM).nodeVMs.forEach((nodeVM) => {
+                        if (nodeVM !== this) {
+                            nodeVM.currentExpanded = false;
+                            nodeVM.$emit('update:expanded', false);
+                        }
+                    });
+                }
 
-            this.$emit(
-                'toggle',
-                {
+                this.$emit('toggle', {
                     expanded,
                     node: this.node,
                     nodeVM: this,
-                },
-                this,
-            );
+                }, this);
 
-            this.rootVM.onToggle(this, expanded);
+                this.rootVM.onToggle(this, expanded);
+            };
+
+            if (expanded && (this.node && !this.node[this.childrenField] && !this.node.isLeaf && this.rootVM.currentDataSource.load)) {
+                this.load().then(() => final());
+            } else
+                final();
         },
         checkRecursively(checked, direction = 'up+down') {
             this.currentChecked = checked;
@@ -241,7 +321,7 @@ export default {
 
 .sub {}
 
-.back {
+.background {
     position: absolute;
     left: -10000px;
     right: -10000px;
@@ -267,6 +347,13 @@ export default {
     content: '▾';
 }
 
+.loading {
+    position: absolute;
+    z-index: 1;
+    margin-top: 7px;
+    margin-left: -16px;
+}
+
 .text {
     position: relative;
     padding: var(--tree-view-node-text-padding);
@@ -275,7 +362,7 @@ export default {
     text-overflow: ellipsis;
 }
 
-.item:hover .back {
+.item:hover .background {
     background: var(--tree-view-node-background-active);
 }
 
@@ -283,7 +370,7 @@ export default {
     outline: var(--focus-outline);
 }
 
-.item:focus .back {
+.item:focus .background {
     background: var(--tree-view-node-background-active);
 }
 
@@ -291,11 +378,11 @@ export default {
     cursor: default;
 }
 
-.item[readonly] .back {
+.item[readonly] .background {
     background: var(--tree-view-node-background-readonly);
 }
 
-.item[selected] .back {
+.item[selected] .background {
     background: var(--tree-view-node-background-selected);
 }
 
@@ -313,11 +400,11 @@ export default {
     color: var(--tree-view-node-color-disabled);
 }
 
-.item[disabled] .back {
+.item[disabled] .background {
     background: var(--tree-view-node-background-disabled);
 }
 
-.item[selected][disabled] .back {
+.item[selected][disabled] .background {
     background: var(--tree-view-node-background-selected-disabled);
 }
 </style>

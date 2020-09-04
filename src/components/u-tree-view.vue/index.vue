@@ -1,15 +1,15 @@
 <template>
 <div :class="$style.root" :readonly="readonly" :disabled="disabled">
-    <template v-if="data">
+    <u-loading v-if="loading" size="small"></u-loading>
+    <template v-else-if="currentDataSource">
         <component :is="ChildComponent"
-            v-for="node in data"
+            v-for="node in currentDataSource.data"
             :text="node[field || textField]"
             :value="node[valueField]"
             :expanded.sync="node.expanded"
             :checked.sync="node.checked"
             :disabled="node.disabled"
             :hidden="node.hidden"
-            :data="node.children"
             :node="node"
         ></component>
     </template>
@@ -30,12 +30,17 @@ export default {
         values: Array,
         field: String,
         data: Array,
+        dataSource: [Array, Object, Function],
         textField: { type: String, default: 'text' },
         valueField: { type: String, default: 'value' },
+        isLeafField: { type: String, default: 'isLeaf' },
+        childrenField: { type: String, default: 'children' },
+        moreChildrenFields: Array,
         cancelable: { type: Boolean, default: false },
         checkable: { type: Boolean, default: false },
         accordion: { type: Boolean, default: false },
         expandTrigger: { type: String, default: 'click' },
+        initialLoad: { type: Boolean, default: true },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
     },
@@ -43,29 +48,33 @@ export default {
         return {
             ChildComponent: this.$options.nodeName, // easy for SubComponent inheriting
             // @inherit: nodeVMs: [],
+            currentDataSource: undefined,
             selectedVM: undefined,
             currentValues: this.values || [],
+            loading: false,
         };
     },
     watch: {
+        data(data) {
+            this.handleData();
+        },
+        dataSource(dataSource) {
+            this.handleData();
+        },
         // It is dynamic to find selected item by value
         // so using watcher is better than computed property.
         value(value, oldValue) {
             this.watchValue(value);
         },
         selectedVM(selectedVM, oldVM) {
-            this.$emit(
-                'change',
-                {
-                    value: selectedVM ? selectedVM.value : undefined,
-                    oldValue: oldVM ? oldVM.value : undefined,
-                    node: selectedVM ? selectedVM.node : undefined,
-                    oldNode: oldVM ? oldVM.node : undefined,
-                    nodeVM: selectedVM,
-                    oldVM,
-                },
-                this,
-            );
+            this.$emit('change', {
+                value: selectedVM ? selectedVM.value : undefined,
+                oldValue: oldVM ? oldVM.value : undefined,
+                node: selectedVM ? selectedVM.node : undefined,
+                oldNode: oldVM ? oldVM.node : undefined,
+                nodeVM: selectedVM,
+                oldVM,
+            }, this);
         },
         values(values) {
             this.watchValues(values);
@@ -81,6 +90,11 @@ export default {
             this.watchValue(this.value);
         },
     },
+    created() {
+        this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
+        if (this.currentDataSource && this.currentDataSource.load && this.initialLoad)
+            this.load();
+    },
     mounted() {
         // Must trigger `value` watcher at mounted hook.
         // If not, nodeVMs have not been pushed.
@@ -88,6 +102,41 @@ export default {
         this.watchValues(this.values);
     },
     methods: {
+        handleData() {
+            this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
+        },
+        normalizeDataSource(dataSource) {
+            const final = {
+                data: [],
+                load: undefined,
+            };
+
+            const self = this;
+            function createLoad(rawLoad) {
+                return async function (params = {}) {
+                    const result = await rawLoad(params);
+                    if (result) {
+                        if (params.node) {
+                            self.$set(params.node, params.nodeVM.currentChildrenField, result);
+                        } else
+                            final.data = result;
+                    }
+                    if (params.node && !params.node[params.nodeVM.currentChildrenField])
+                        self.$set(params.node, self.isLeafField, true);
+                };
+            }
+
+            if (Array.isArray(dataSource))
+                final.data = dataSource;
+            else if (typeof dataSource === 'function') {
+                final.load = createLoad(dataSource);
+            } else if (typeof dataSource === 'object') {
+                final.data = dataSource.data;
+                final.load = dataSource.load && createLoad(dataSource.load);
+            }
+
+            return final;
+        },
         watchValue(value) {
             if (this.selectedVM && this.selectedVM.value === value)
                 return;
@@ -187,6 +236,12 @@ export default {
                     !nodeVM.currentDisabled && nodeVM.checkRecursively(checked),
             );
             this.$emit('check', { checked }, this);
+        },
+        load(params) {
+            this.loading = true;
+            this.currentDataSource.load(params).then(() => {
+                this.loading = false;
+            }).catch(() => this.loading = false);
         },
     },
 };
