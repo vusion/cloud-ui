@@ -90,7 +90,7 @@
 ### 可关闭
 
 ``` html
-<u-tabs closable>
+<u-tabs closable item-width="90px" item-align="left">
     <u-tab title="模板">模板内容</u-tab>
     <u-tab title="样式">样式内容</u-tab>
     <u-tab title="逻辑">逻辑内容</u-tab>

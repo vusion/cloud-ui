@@ -107,6 +107,7 @@ export default {
     margin-right: 5px;
     text-align: center;
     transition: all var(--transition-duration-base);
+    font-size: 14px;
 }
 
 .radio::before {

@@ -1,0 +1,21 @@
+- name: m-modal
+  title: 弹窗 Mixin
+  description: 用于封装弹窗的 Mixin
+  attrs:
+    - name: value
+      type: number
+      default: 0
+      description: 需要传入的值
+  slots:
+    - name: default
+      description: 插入文本或 HTML。
+  events:
+    - name: change
+      description: 修改时触发
+      params:
+        - name: $event.param1
+          type: string
+          description: 参数1
+        - name: $event.param2
+          type: number
+          description: 参数2

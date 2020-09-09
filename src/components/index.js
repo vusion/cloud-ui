@@ -15,6 +15,7 @@ export * from './m-dynamic.vue';
 export * from './m-emitter.vue';
 export * from './m-field.vue';
 export * from './m-group.vue';
+export * from './m-modal.vue';
 export * from './m-multiplex.vue';
 export * from './m-parent.vue';
 export * from './m-popper.vue';

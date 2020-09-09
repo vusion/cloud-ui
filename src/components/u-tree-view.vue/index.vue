@@ -117,12 +117,12 @@ export default {
                     const result = await rawLoad(params);
                     if (result) {
                         if (params.node) {
-                            self.$set(params.node, params.nodeVM.currentChildrenField, result);
+                            self.$setAt(params.node, params.nodeVM.currentChildrenField, result);
                         } else
                             final.data = result;
                     }
                     if (params.node && !this.$at(params.node, params.nodeVM.currentChildrenField))
-                        self.$set(params.node, self.isLeafField, true);
+                        self.$setAt(params.node, self.isLeafField, true);
                 };
             }
 

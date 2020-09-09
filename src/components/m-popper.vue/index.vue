@@ -370,5 +370,7 @@ export default {
 </script>
 
 <style module>
-.root {}
+.root {
+    z-index: 10;
+}
 </style>

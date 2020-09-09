@@ -213,8 +213,8 @@
 }
 
 .close {
-    vertical-align: middle;
-    margin-left: 2px;
+    position: absolute;
+    right: 10px;
 }
 
 .close::before {
@@ -309,6 +309,12 @@
     text-align: center;
     padding-left: 0 !important;
     padding-right: 0 !important;
+}
+
+.item[alignment="left"] {
+    text-align: left;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
 }
 
 .root[display="full"] {

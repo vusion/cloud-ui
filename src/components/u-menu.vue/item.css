@@ -12,7 +12,7 @@
 }
 
 .root:hover {
-    background: var(--background-color-light);
+    background: var(--menu-background-hover);
 }
 
 .root[readonly] {

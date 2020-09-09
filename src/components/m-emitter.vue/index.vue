@@ -36,7 +36,7 @@ export default {
             let $parent = this.$parent || this.$root;
             while ($parent && !condition($parent))
                 $parent = $parent.$parent;
-            $parent && callback($parent);
+            return $parent && callback($parent);
         },
         $emitPrevent(name, $event, senderVM, ...args) {
             let cancel = false;

@@ -25,6 +25,7 @@
                 checked: currentChecked,
                 disabled: currentDisabled,
                 node,
+                parent,
             }">
                 <span>{{ text }}</span>
             </f-slot>
@@ -41,12 +42,13 @@
                 :disabled="subNode.disabled"
                 :hidden="subNode.hidden"
                 :node="subNode"
+                :parent="node"
             ></u-tree-view-node>
         </template>
         <template v-if="currentMoreChildrenFields">
-            <template v-for="childrenField in currentMoreChildrenFields" v-if="node && $at(node,childrenField)">
+            <template v-for="subField in currentMoreChildrenFields" v-if="node && $at(node, subField)">
                 <u-tree-view-node
-                    v-for="subNode in $at(node,childrenField)"
+                    v-for="subNode in $at(node, subField)"
                     :text="$at(subNode, rootVM.field || rootVM.textField)"
                     :value="$at(subNode, rootVM.valueField)"
                     :expanded.sync="subNode.expanded"
@@ -54,6 +56,7 @@
                     :disabled="subNode.disabled"
                     :hidden="subNode.hidden"
                     :node="subNode"
+                    :parent="node"
                 ></u-tree-view-node>
             </template>
         </template>
@@ -80,6 +83,7 @@ export default {
         childrenField: String,
         moreChildrenFields: Array,
         node: Object,
+        parent: Object,
     },
 
     data() {
@@ -104,7 +108,9 @@ export default {
             );
         },
         currentChildrenField() {
-            if (this.node && this.node.childrenField)
+            if (this.childrenField)
+                return this.childrenField;
+            else if (this.node && this.node.childrenField)
                 return this.node.childrenField;
             else
                 return this.rootVM.childrenField;
@@ -116,7 +122,9 @@ export default {
             // }
         },
         currentMoreChildrenFields() {
-            if (this.node && this.node.moreChildrenFields)
+            if (this.moreChildrenFields)
+                return this.moreChildrenFields;
+            else if (this.node && this.node.moreChildrenFields)
                 return this.node.moreChildrenFields;
             else
                 return this.rootVM.moreChildrenFields;
@@ -189,6 +197,7 @@ export default {
                 value: this.value,
                 node: this.node,
                 nodeVM: this,
+                parent: this.parent,
                 childrenField: this.currentChildrenField,
             }).then(() => {
                 this.loading = false;

@@ -16,6 +16,7 @@
                         v-show="!itemVM.hidden"
                         :style="{ width: currentItemWidth }"
                         :width-fixed="!!currentItemWidth"
+                        :alignment="itemAlign"
                         @click="onClick(itemVM, $event)">
                         <span :class="$style.title" vusion-slot-name="title"><f-slot :vm="itemVM" name="title">{{ itemVM.title }}</f-slot></span>
                         <span v-if="closable" :class="$style.close" @click.stop="close(itemVM)"></span>
@@ -47,6 +48,7 @@ export default {
         appear: { type: String, default: 'square' },
         size: { type: String, default: 'normal' },
         itemWidth: { type: String, default: 'auto' },
+        itemAlign: { type: String, default: 'center' },
     },
     data() {
         return { scrollable: false };
@@ -98,32 +100,24 @@ export default {
                 return;
             const oldValue = this.value;
             let cancel = false;
-            this.$emit(
-                'before-close',
-                {
-                    value: itemVM && itemVM.value,
-                    oldValue,
-                    itemVM,
-                    preventDefault: () => (cancel = true),
-                },
-                this,
-            );
+            this.$emit('before-close', {
+                value: itemVM && itemVM.value,
+                oldValue,
+                itemVM,
+                preventDefault: () => (cancel = true),
+            }, this);
             if (cancel)
                 return;
             itemVM.parentVM = undefined;
             const index = this.itemVMs.indexOf(itemVM);
             this.itemVMs.splice(index, 1);
             cancel = false;
-            this.$emit(
-                'close',
-                {
-                    value: itemVM && itemVM.value,
-                    oldValue,
-                    itemVM,
-                    preventDefault: () => (cancel = true),
-                },
-                this,
-            );
+            this.$emit('close', {
+                value: itemVM && itemVM.value,
+                oldValue,
+                itemVM,
+                preventDefault: () => (cancel = true),
+            }, this);
             if (cancel)
                 return;
             if (this.selectedVM === itemVM) {

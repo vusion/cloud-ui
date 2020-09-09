@@ -474,6 +474,7 @@
 
     /* Menu */
     --menu-background: white;
+    --menu-background-hover: var(--background-color-light);
     --menu-border-width: var(--border-width-base);
     --menu-border-color: var(--border-color-base);
     --menu-box-shadow: var(--box-shadow-base);
