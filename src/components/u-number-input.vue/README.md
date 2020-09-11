@@ -176,7 +176,7 @@ export default {
 
 | Key | Description |
 | --- | ----------- |
-| <kbd>↑</kbd> | 按`step`量增加值 |
-| <kbd>↓</kbd> | 按`step`量减小值 |
-| <kbd>Enter</kbd> | 自动修复为合法的值，并且应用更改 |
+| <kdb>↑</kdb> | 按`step`量增加值 |
+| <kdb>↓</kdb> | 按`step`量减小值 |
+| <kdb>Enter</kdb> | 自动修复为合法的值，并且应用更改 |
 

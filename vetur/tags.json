@@ -147,6 +147,12 @@
   "m-child": {
     "attributes": []
   },
+  "m-modal": {
+    "attributes": [
+      "value"
+    ],
+    "description": "用于封装弹窗的 Mixin"
+  },
   "m-multiplex": {
     "attributes": [
       "value",
@@ -1445,6 +1451,12 @@
       "disabled"
     ],
     "description": "双栏穿梭选择框，常用于将多个项目从一边移动到另一边。"
+  },
+  "u-tree-select": {
+    "attributes": [
+      "value"
+    ],
+    "description": "请在这里添加描述"
   },
   "u-tree-view": {
     "attributes": [

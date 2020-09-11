@@ -6,6 +6,7 @@
     - [基本用法](#基本用法)
     - [Value 绑定](#value-绑定)
     - [基本状态、只读和禁用](#基本状态-只读和禁用)
+    - [调整尺寸](#调整尺寸)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
@@ -43,6 +44,21 @@ export default {
     <u-switch readonly></u-switch>
     <u-switch disabled></u-switch>
 </u-linear-layout>
+```
+
+### 调整尺寸
+
+``` vue
+<template>
+<u-switch v-model="value" size="small" style="width: 52px;">{{ value ? 'LIST' : 'LIST' }}</u-switch>
+</template>
+<script>
+export default {
+    data() {
+        return { value: false };
+    },
+};
+</script>
 ```
 
 ## API

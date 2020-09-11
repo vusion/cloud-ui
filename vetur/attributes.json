@@ -247,6 +247,10 @@
     "type": "boolean",
     "description": "是否禁用。禁用时无法展开/折叠"
   },
+  "m-modal/value": {
+    "type": "number",
+    "description": "需要传入的值"
+  },
   "m-multiplex/value": {
     "type": "Array",
     "description": "所有选中项的值"
@@ -3556,6 +3560,10 @@
   "u-transfer/disabled": {
     "type": "boolean",
     "description": "是否禁用"
+  },
+  "u-tree-select/value": {
+    "type": "number",
+    "description": "需要传入的值"
   },
   "u-tree-view/data": {
     "type": "Array<{ text, value }>",
