@@ -95,6 +95,7 @@ export * from './u-toc.vue';
 export * from './u-tooltip.vue';
 export * from './u-transfer.vue';
 export * from './u-tree-view.vue';
+export * from './u-tree-select.vue';
 export * from './u-uploader.vue';
 export * from './u-validator-tr.vue';
 export * from './u-validator.vue';

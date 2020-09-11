@@ -28,3 +28,18 @@ export default {
     <u-switch disabled></u-switch>
 </u-linear-layout>
 ```
+
+### 调整尺寸
+
+``` vue
+<template>
+<u-switch v-model="value" size="small" style="width: 52px;">{{ value ? 'LIST' : 'LIST' }}</u-switch>
+</template>
+<script>
+export default {
+    data() {
+        return { value: false };
+    },
+};
+</script>
+```

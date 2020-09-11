@@ -100,7 +100,10 @@ export default {
     margin-top: var(--space-small);
 }
 
-.root[size="mini"] {
-    width: auto;
+.root[size="mini"] .add-button {
+    height: var(--button-height-mini);
+    line-height: calc(var(--button-height-mini) - var(--button-border-width) * 2 - var(--button-padding-y) * 2);
+    padding: 0 var(--button-padding-x-mini);
+    font-size: var(--button-font-size-mini);
 }
 </style>

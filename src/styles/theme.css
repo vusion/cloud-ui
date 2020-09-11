@@ -685,10 +685,13 @@
 
     /* Switch */
     --switch-width: 44px;
+    --switch-width-small: 40px;
     --switch-width-wide: 54px;
     --switch-height: 22px;
+    --switch-height-small: 18px;
     --switch-button-space: 2px;
     --switch-button-size: 18px;
+    --switch-button-size-small: 14px;
     --switch-button-background: white;
     --switch-button-radius: 100px;
     --switch-background: var(--border-color-base);

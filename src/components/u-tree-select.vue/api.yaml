@@ -1,0 +1,21 @@
+- name: u-tree-select
+  title: 树型选择框
+  description: 请在这里添加描述
+  attrs:
+    - name: value
+      type: number
+      default: 0
+      description: 需要传入的值
+  slots:
+    - name: default
+      description: 插入文本或 HTML。
+  events:
+    - name: change
+      description: 修改时触发
+      params:
+        - name: $event.param1
+          type: string
+          description: 参数1
+        - name: $event.param2
+          type: number
+          description: 参数2

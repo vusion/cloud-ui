@@ -1,4 +1,6 @@
-.root {}
+.root {
+    font-style: normal;
+}
 
 .root[name="arrow-up"]::before {
     icon-font: url('./assets/arrow-up.svg');
@@ -96,7 +98,8 @@
     color: var(--brand-assist);
 }
 
-.root[color="disabled"] {
+.root[disabled][class], .root[color="disabled"][class] {
+    cursor: var(--cursor-disabled);
     color: var(--brand-disabled);
 }
 

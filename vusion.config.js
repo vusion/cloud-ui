@@ -61,6 +61,7 @@ module.exports = {
             { group: 'Form', name: 'u-checkbox-card', alias: '多选卡片', newest: true },
             { group: 'Form', name: 'u-switch', alias: '开关' },
             { group: 'Form', name: 'u-select', alias: '选择框' },
+            { group: 'Form', name: 'u-tree-select', alias: '树型选择框' },
             { group: 'Form', name: 'u-cascade-select', alias: '级联选择' },
             { group: 'Form', name: 'u-region-select', alias: '地区选择' },
             { group: 'Form', name: 'u-slider', alias: '滑块' },

@@ -111,7 +111,7 @@ export default {
 }
 
 .root[checked] .button {
-    left: calc(var(--switch-width) - var(--switch-button-size) - var(--switch-button-space));
+    left: calc(100% - var(--switch-button-size) - var(--switch-button-space));
 }
 
 .root[checked] .text {
@@ -120,10 +120,6 @@ export default {
 
 .root[width="wide"] {
     width: var(--switch-width-wide);
-}
-
-.root[width="wide"][checked] .button {
-    left: calc(var(--switch-width-wide) - var(--switch-button-size) - var(--switch-button-space));
 }
 
 .root[disabled] {
@@ -145,5 +141,21 @@ export default {
 
 .root[with-text][checked] .text::before {
     content: 'ON';
+}
+
+.root[size="small"] {
+    line-height: var(--switch-height-small);
+    height: var(--switch-height-small);
+    width: var(--switch-width-small);
+}
+
+.root[size="small"] .button {
+    top: calc((var(--switch-height-small) - var(--switch-button-size-small)) / 2);
+    width: var(--switch-button-size-small);
+    height: var(--switch-button-size-small);
+}
+
+.root[size="small"][checked] .button {
+    left: calc(100% - var(--switch-button-size-small) - var(--switch-button-space));
 }
 </style>
