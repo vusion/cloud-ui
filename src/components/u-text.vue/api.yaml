@@ -1,35 +1,71 @@
 - name: u-text
   title: 文本
-  labels: [行内展示]
-  description: 用于在业务中快速调整文本尺寸、颜色等特性。
+  icon: text
+  labels: [Display]
+  description: 用于展示纯文字
   attrs:
     - name: color
       title: 颜色
-      type: enum
-      options: [default, primary, secondary, success, warning, error, disabled]
+      type: string
+      options: 
+        - value: default
+          title: 默认
+        - value: primary
+          title: 主要色
+        - value: secondary
+          title: 辅助色
+        - value: success
+          title: 成功色
+        - value: warning
+          title: 警告色
+        - value: error
+          title: 错误色
+        - value: disabled
+          title: 禁用色
       default: default
-      description: 设置颜色。
+      description: 设置颜色
     - name: size
       title: 尺寸
-      type: enum
-      options: [small, normal, large, huge]
+      type: string
+      options:
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+        - value: large
+          title: 大
+        - value: huge
+          title: 巨大
       default: normal
-      description: 设置尺寸。
+      description: 尺寸设置
     - name: display
       title: 展示方式
       type: string
-      options: [inline, block]
+      options:
+        - value: inline
+          title: 行内
+        - value: block
+          title: 块级
       default: inline
-      description: 展示方式。
+      description: 展示方式
     - name: overflow
       title: 隐藏处理
       type: string
-      options: [normal, ellipsis, break, nowrap]
+      options:
+        - value: normal
+          title: 默认不处理
+        - value: ellipsis
+          title: 多余的文本省略
+        - value: break
+          title: 强制换行且英文自动添加换行符
+        - value: nowrap
+          title: 始终不换行
       default: normal
-      description: 文本过长的处理方式。`'normal'`表示默认方式，`'ellipsis'`表示多余的文本省略，`'break'`表示强制换行且英文自动添加换行符，`'nowrap'`表示始终不换行。
+      description: 文本过长的处理方式
   slots:
-    - name: default
-      description: 插入文本或 HTML。
+      - name: default
+        description: 文字内容
+        title: 内容
   events:
     - name: $listeners
       description: 监听所有`<span>`元素的事件。

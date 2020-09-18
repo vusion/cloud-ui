@@ -1,12 +1,17 @@
 - name: u-date-picker
   title: 日期选择
+  icon: date-picker
+  description: 日期选择器
+  labels:
+    - Selector
   attrs:
     - name: width
       type: string, number
       default: 160
       description: 输入框宽度
-    - name: date.sync
+    - name: date
       type: string,number,Date
+      sync: true
       default: null
       description: 初始日期值
     - name: minDate
@@ -29,27 +34,32 @@
       type: boolean
       default: false
       description: 文本框默认处于focus
+      advanced: true
     - name: placeholder
       type: string
       default: 请输入
       description: 文本框默认提示
     - name: alignment
       type: string
+      options:
+        - value: left
+          title: 左对齐
+        - value: right
+          title: 右对齐
       default: left
-      description: 日历弹窗对其方式，可选值：`left`, `right`
+      description: 日历弹窗对其方式
     - name: time
       type: string, number
-      default: start
-      description: "设置返回的日期的时分秒值，可选值为`start`,表示时分秒是0:00:00,`morning`:时分秒为8:00:00,`end`:表示时\
-        分秒为: 23:59:59, 输入整数表示对应的整数时刻，例如输入9代表时分秒为9:00:00,自定义时分秒请输入对应格式的字符串即可"
+      default: '0:00:00'
+      description: "输入对应格式的字符串（8:00:00）即可"
     - name: yeadDiff
       type: string, number
       default: 3
-      description: 当前年份前几年
+      description: 最小可选年份值为当前年减去此值
     - name: yearAdd
       type: string, number
       default: 1
-      description: 当前年份后几年
+      description: 最大可选年份值为当前年加上此值
   events:
     - name: input
       description: 值变化时触发 (表单验证可以检测到其值得变化)
@@ -71,6 +81,7 @@
           description: 选择后的日期值
     - name: toggle
       description: 弹出/隐藏时触发
+      advanced: true
       params:
         - name: $event.open
           type: boolean

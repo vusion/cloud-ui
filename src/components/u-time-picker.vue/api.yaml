@@ -1,5 +1,9 @@
 - name: u-time-picker
   title: 时间选择
+  icon: time-picker
+  description: 时间选择器
+  labels:
+    - Selector
   attrs:
     - name: time
       title: 值
@@ -9,8 +13,13 @@
     - name: minUnit
       title: 最小单位
       type: string
+      options: 
+        - value: second
+          title: 秒
+        - value: minute
+          title: 分
       default: second
-      description: 最小时间单位`'second'`或者是`'minute'`
+      description: 最小时间单位
     - name: minTime
       title: 最小时间
       type: string
@@ -26,6 +35,7 @@
       type: boolean
       default: false
       description: 是否自动获得焦点
+      advanced: true
     - name: readonly
       title: 只读
       type: boolean

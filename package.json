@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.9.17",
+  "version": "0.11.0",
   "author": "Forrest <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -19,11 +19,12 @@
     "screenshot": "node bin/screenshot",
     "lint": "eslint --fix --ext .js,.vue src && stylelint --fix ./src/**/*.css",
     "ghpages": "vusion ghpages",
-    "deploy": "vusion deploy --framework cloud-ui.vusion@0.9 -v minor",
+    "lcap": "node ./scripts/lcap",
+    "deploy": "vusion deploy --framework cloud-ui.vusion@0.11 -v minor",
     "deploy:screenshots": "node bin/deploy-screenshots",
     "deploy:doc-entry": "vusion deploy --framework cloud-ui -v minor dist-doc-entry",
     "prepublishOnly": "npm run build && npm run build:theme && npm run build:raw && vusion readme && vusion vetur && git add .",
-    "postpublish": "npm run build:docs && npm run deploy && vusion ghpages"
+    "postpublish": "npm run build:docs && npm run deploy && npm run lcap && vusion ghpages"
   },
   "repository": "vusion/cloud-ui",
   "homepage": "http://vusion.github.io/cloud-ui",
@@ -48,9 +49,14 @@
     "@vusion/utils": "^0.4.9",
     "@vusion/validator": "^0.2.4",
     "countup.js": "^1.9.3",
+    "dompurify": "^2.0.14",
+    "fs-extra": "^9.0.1",
     "i-material-design.vue": "^5.1.0",
+    "js-yaml": "^3.14.0",
     "lodash": "^4.17.5",
     "normalize.css": "^7.0.0",
+    "vusion": "file:../vusion",
+    "vusion-api": "file:../vusion-api",
     "vusion-async-validator": "^1.8.8"
   },
   "devDependencies": {

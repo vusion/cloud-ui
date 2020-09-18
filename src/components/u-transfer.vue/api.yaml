@@ -1,4 +1,7 @@
 - name: u-transfer
+  icon: transfer
+  labels: 
+    - Selector
   title: 穿梭框
   description: 双栏穿梭选择框，常用于将多个项目从一边移动到另一边。
   attrs:
@@ -61,22 +64,25 @@
       title: 过滤匹配方法
       type: string, Function
       default: includes
+      advanced: true
       description: 过滤时的匹配方法
     - name: case-sensitive
       title: 大小写敏感
-      type: string, Function
-      default: includes
+      type: boolean
+      default: false
       description: 过滤时大小写是否敏感
     - name: pageable
       title: 分页
       type: boolean
       default: false
       description: 是否需要分页
+      advanced: true
     - name: page-size
       title: 分页大小
       type: number
       default: 50
       description: 分页大小
+      advanced: true
     - name: readonly
       title: 只读
       type: boolean
@@ -148,10 +154,14 @@
       description: 转移指定项的数据。
       params:
         - name: direction
-          type: enum
-          options: [forward, reverse]
+          type: string
+          options: 
+            - value: forward
+              title: 从左向右
+            - value: reverse
+              title: 从右向左
           default: forward
-          description: 方向，`forward`表示从左向右，`reverse`表示从右向左。
+          description: 方向
         - name: values
           type: Array<string>
           description: 指定转移选项值的列表。

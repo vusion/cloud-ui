@@ -1,36 +1,60 @@
 - name: u-label
   title: 标签
-  labels: [行内展示]
-  description: 对事物进行标记和分类。
+  icon: label
+  labels: [Display]
+  description: 用于展示状态、标签、分类等
   attrs:
     - name: color
-      type: enum
-      options: [default, primary, success, warning, error]
+      type: string
+      options: 
+        - value: default
+          title: 默认
+        - value: primary
+          title: 主要色
+        - value: success
+          title: 成功色
+        - value: warning
+          title: 警告色
+        - value: error
+          title: 错误色
       default: default
-      description: 设置颜色。
+      description: 设置颜色
     - name: size
-      type: enum
-      options: [small, normal, large, huge]
+      type: string
+      options: 
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+        - value: large
+          title: 大
+        - value: huge
+          title: 巨大
       default: normal
-      description: 设置尺寸。
+      description: 设置尺寸
     - name: removable
       type: boolean
       default: false
-      description: 是否可删除。开启时可以通过删除按钮触发`remove`事件，需要自己实现删除逻辑。
+      description: 是否显示删除图标
     - name: display
-      type: enum
-      options: [inline, block]
+      type: string
+      options: 
+        - value: inline
+          title: 行内
+        - value: block
+          title: 块级
       default: inline
-      description: 展示方式。`'inline'`表示行内展示, `'block'`表示块级展示，宽度会充满父元素。
+      description: 展示方式
   slots:
     - name: default
-      description: 插入文本或 HTML。
+      description: 状态
   events:
     - name: $listeners
       description: 监听所有`<span>`元素的事件。
       params: []
     - name: before-remove
       description: 删除前触发
+      advanced: true
       params:
         - name: $event.preventDefault
           type: Function

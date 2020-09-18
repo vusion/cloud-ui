@@ -1,0 +1,17 @@
+- name: u-iframe
+  title: iframe
+  icon: iframe
+  labels: [Container]
+  description: 用于嵌入其他网页
+  attrs:
+    - name: src
+      title: 网页地址
+      type: string
+      default: ''
+      description: 嵌入网页的地址
+  slots: false
+  events:
+    - name: load
+      title: 加载完成
+      description: 网页加载完成时触发
+      params: []

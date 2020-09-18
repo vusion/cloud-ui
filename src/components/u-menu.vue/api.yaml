@@ -132,17 +132,19 @@
       description: 链接地址
     - name: target
       title: 打开方式
-      type: enum
+      type: string
       options:
-        - name: 新标签页 (_blank)
-          value: _blank
-        - name: 当前窗口 (_self)
-          value: _self
-        - name: 父级窗口 (_parent)
-          value: _parent
-        - name: 顶级窗口 (_top)
-          value: _top
-      description: （原生属性）。比如设置`_blank`，会在新标签页中打开。
+        - value: _blank
+          title: 新标签页
+        - value: _self
+          title: 当前窗口
+        - value: _parent
+          title: 父级窗口
+          advanced: true
+        - value: _top
+          title: 顶级窗口
+          advanced: true
+      description: 链接打开方式
     - name: to
       title: 路由链接
       type: string, Location
@@ -212,6 +214,7 @@
           description: 发送事件实例
     - name: navigate
       title: 导航
+      advanced: true
       description: 使用router相关属性切换路由时触发
       params:
         - name: $event.to

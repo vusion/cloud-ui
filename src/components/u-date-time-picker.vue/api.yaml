@@ -1,7 +1,12 @@
 - name: u-date-time-picker
   title: 日期时间选择
+  icon: date-time-picker
+  description: 日期时间选择器
+  labels:
+    - Selector
   attrs:
-    - name: date.sync
+    - name: date
+      sync: true
       type: string, number, Date
       default: null
       description: 显示的日期值
@@ -21,6 +26,7 @@
       type: boolean
       default: false
       description: 是否默认处于focus状态
+      advanced: true
     - name: disabled
       type: boolean
       default: false
@@ -39,7 +45,8 @@
       description: 最大可选年份值为当前年加上此值
   slots:
     - name: (footer)
-      description: 插入文本或  HTML 至日期组件底部
+      description: 日期组件底部扩展
+      advanced: true
   events:
     - name: select
       description: 日期值发生变化触发

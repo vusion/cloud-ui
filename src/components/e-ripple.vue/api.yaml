@@ -4,7 +4,11 @@
   description: 波纹，插入到需要添加波纹的元素或组件内部
   attrs:
     - name: color
-      type: enum
-      options: [light, dark]
+      type: string
+      options:
+        - name: 浅色
+          value: light
+        - name: 深色
+          value: dark
       default: light
       description: 波纹颜色

@@ -1,12 +1,14 @@
 - name: u-navbar
   title: 导航栏
-  labels: [路由链接, 块级展示]
+  icon: navbar
+  labels: [Layout]
   description: 通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。
   attrs:
     - name: router
       title: 使用路由
       type: boolean
       default: true
+      advanced: true
       description: 是否根据 vue-router 来控制选择项
     - name: value
       model: true
@@ -31,22 +33,22 @@
       description: 是否禁用
   slots:
     - name: default
-      description: 中部区域，可插入`<u-navbar-item>`、`<u-navbar-divider>`等子组件，或其他 HTML。
-      accept-type: recommanded
-      recommanded: 
+      description: 链接区域
+      support: 
         - name: u-navbar-item
-          title: 导航项
+          title: 添加导航项
           snippet: '<u-navbar-item>导航项</u-navbar-item>'
         - name: u-navbar-divider
-          title: 分隔线
+          title: 添加分隔线
           snippet: '<u-navbar-divider></u-navbar-divider>'
     - name: left
-      description: 左部区域。
+      description: 左部区域，一般放置 logo 等
     - name: right
-      description: 右部区域。
+      description: 右部区域，一般放置用户个人信息等
   events:
     - name: click
       title: 点击
+      advanced: true
       description: 点击此项时触发，与原生 click 事件不同的是，它只会在非只读和禁用的情况下触发。
       params:
         - name: $event
@@ -56,6 +58,7 @@
           type: Vue
           description: 发送事件实例
     - name: before-select
+      advanced: true
       title: 输入前
       description: 选择某一项前触发
       params:
@@ -78,6 +81,7 @@
           type: Vue
           description: 发送事件实例
     - name: input
+      advanced: true
       title: 输入时
       description: 选择某一项时触发
       params:
@@ -115,6 +119,7 @@
     - name: change
       title: 改变后
       description: 选择值改变时触发
+      advanced: true
       params:
         - name: $event.value
           type: any
@@ -152,6 +157,7 @@
     - name: item
       title: 相关对象
       type: object
+      advanced: true
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
     - name: href
       title: 链接
@@ -159,30 +165,35 @@
       description: 链接地址
     - name: target
       title: 打开方式
-      type: enum
+      type: string
       options:
-        - name: 新标签页 (_blank)
-          value: _blank
-        - name: 当前窗口 (_self)
-          value: _self
-        - name: 父级窗口 (_parent)
-          value: _parent
-        - name: 顶级窗口 (_top)
-          value: _top
-      description: （原生属性）。比如设置`_blank`，会在新标签页中打开。
+        - value: _blank
+          title: 新标签页
+        - value: _self
+          title: 当前窗口
+        - value: _parent
+          title: 父级窗口
+          advanced: true
+        - value: _top
+          title: 顶级窗口
+          advanced: true
+      description: 链接跳转方式
     - name: to
       title: 路由链接
       type: string, Location
+      advanced: true
       description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
     - name: replace
       type: boolean
       default: false
+      advanced: true
       description: 需要
         vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history
         `记录。
     - name: exact
       title: 精确匹配
       type: boolean
+      advanced: true
       default: false
       description: 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
   slots:
@@ -192,6 +203,7 @@
     - name: before-select
       title: 选择前
       description: 选择此项前触发
+      advanced: true
       params:
         - name: $event.value
           type: any
@@ -210,6 +222,7 @@
           description: 发送事件实例
     - name: before-navigate
       title: 导航前
+      advanced: true
       description: 使用 router 相关属性切换路由前触发
       params:
         - name: $event.to
@@ -229,6 +242,7 @@
           description: 发送事件实例
     - name: navigate
       title: 导航
+      advanced: true
       description: 使用router相关属性切换路由时触发
       params:
         - name: $event.to
@@ -251,16 +265,49 @@
     - name: trigger
       title: 触发方式
       type: string
+      options: 
+        - value: click
+          title: 点击
+        - value: hover
+          title: 悬浮
+        - value: right-click
+          title: 右击
+        - value: double-click
+          title: 双击
+        - value: manual
+          title: 手动
       default: hover
-      description: 触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`,
-        `'manual'`
+      description: 触发方式
     - name: placement
       title: 弹出位置
       type: string
+      options:
+        - value: top
+          name: 上
+        - value: bottom
+          name: 下
+        - value: left
+          name: 左
+        - value: right
+          name: 右
+        - value: top-start
+          name: 上左
+        - value: top-end
+          name: 上右
+        - value: bottom-start
+          name: 下左
+        - value: bottom-end
+          name: 下右
+        - value: left-start
+          name: 左上
+        - value: left-end
+          name: 左下
+        - value: right-start
+          name: 右上
+        - value: right-end
+          name: 右下
       default: bottom
-      description: 弹出方位。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`,
-        `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',`
-        'left-end'`, `'right-start'`, `'right-end'`
+      description: 弹出方位
     - name: disabled
       title: 禁用
       type: boolean

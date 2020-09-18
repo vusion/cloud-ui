@@ -1,5 +1,9 @@
 - name: u-capsules
   title: 胶囊
+  icon: capsules
+  description: 多项中选择一项
+  labels:
+    - Form
   attrs:
     - name: value
       model: true
@@ -36,10 +40,19 @@
   slots:
     - name: default
       description: 插入`<u-capsule>`或`<u-capsules-group>`子组件。
+      support: 
+        - name: u-capsule
+          title: 子选项
+          snippet: '<u-capsule>选项</u-capsule>'
+        - name: u-capsules-group
+          advanced: true
+          title: 子选项组
+          snippet: '<u-capsule-group></u-capsule-group>'
   events:
     - name: before-select
       title: 选择前
       description: 选择某一项前触发
+      advanced: true
       params:
         - name: $event.value
           type: any
@@ -177,9 +190,13 @@
       description: 此项的值
     - name: size
       title: 尺寸
-      type: enum
-      options: [small]
-      description: 胶囊大小，可选值：`'small'`
+      type: string
+      options: 
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+      description: 胶囊大小
     - name: selected
       title: 选中项
       type: boolean
@@ -220,6 +237,7 @@
     - name: before-select
       title: 选择前
       description: 选择此项前触发
+      advanced: true
       params:
         - name: $event.value
           type: any

@@ -1,8 +1,10 @@
 - name: i-icon
   title: 图标
-  labels: [图标组件, 行内展示]
+  labels: [Display]
+  description: 自定义图标
   attrs:
     - name: name
       type: string
       default: null
       description: 图标名称
+      options: ["area", "portrait", "left", "right", "arrow-down", "arrow-up", "refresh", "search", "alert", "logout", "dropdown", "down", "up", "chart-refresh", "chart-zoom", "close"]

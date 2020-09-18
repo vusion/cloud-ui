@@ -39,7 +39,7 @@
 ### 右上角小圆点
 
 ``` html
-<p><u-badge :value="3" corner dot>
+<u-badge :value="3" corner dot>
     <u-button>评论</u-button>
-</u-badge></p>
+</u-badge>
 ```

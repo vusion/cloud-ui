@@ -1,50 +1,62 @@
 - name: u-crumb
   title: 面包屑
-  labels: [路由链接, 块级展示]
+  labels: [Layout]
+  description: 导航指引
+  icon: crumb
   attrs:
-    - name: 无
-      type: ""
-      description: ""
   slots:
     - name: default
       description: 插入`<u-crumb-item>`子组件。
+      support:
+        - name: u-crumb-item
+          title: 面包屑选项
+          snippet: <u-crumb-item>面包屑</u-crumb-item>
 - name: u-crumb-item
   attrs:
     - name: type
       title: 类型
       type: string
-      options: [link, text]
+      options:
+        - value: link
+          title: 链接
+        - value: text
+          title: 显示为默认颜色文本，不可点
       default: link
-      description: 类型。可选值：`'link'`表示链接，可点击，`'text'`只显示为默认颜色文本，不可点。
+      description: 类型
     - name: href
       title: 链接
       type: string
       description: 链接地址
     - name: target
       title: 打开方式
-      type: enum
+      type: string
       options:
-        - name: 新标签页 (_blank)
-          value: _blank
-        - name: 当前窗口 (_self)
-          value: _self
-        - name: 父级窗口 (_parent)
-          value: _parent
-        - name: 顶级窗口 (_top)
-          value: _top
-      description: （原生属性）。比如设置`_blank`，会在新标签页中打开。
+        - value: _blank
+          title: 新标签页
+        - value: _self
+          title: 当前窗口
+        - value: _parent
+          title: 父级窗口
+          advanced: true
+        - value: _top
+          title: 顶级窗口
+          advanced: true
+      description: 链接打开方式
     - name: to
       title: 路由链接
       type: string, Location
+      advanced: true
       description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
     - name: replace
       type: boolean
+      advanced: true
       default: false
       description: 需要
         vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history
         `记录。
     - name: append
       type: boolean
+      advanced: true
       default: false
       description: 需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。
     - name: disabled
@@ -59,6 +71,7 @@
     - name: $listeners
       description: 监听所有`<a>`元素的事件。
       params: []
+      advanced: true
     - name: click
       title: 点击
       description: 点击链接时触发，与原生 click 事件不同的是，它只会在非禁用状态下触发。
@@ -71,6 +84,7 @@
           description: 发送事件实例
     - name: before-navigate
       title: 导航前
+      advanced: true
       description: 使用 router 相关属性切换路由前触发
       params:
         - name: $event.to
@@ -90,6 +104,7 @@
           description: 发送事件实例
     - name: navigate
       title: 导航
+      advanced: true
       description: 使用router相关属性切换路由时触发
       params:
         - name: $event.to

@@ -1,7 +1,8 @@
 - name: u-select
+  icon: select
   title: 选择框
-  labels: [表单控件, 行内展示]
-  description: 下拉选择框，支持单选、多选、搜索等功能，用于代替原生的选择框。
+  labels: [Form]
+  description: 下拉选择框，支持单选、多选、搜索等功能
   attrs:
     - name: value
       title: 选择值
@@ -61,6 +62,7 @@
     - name: pageable
       title: 可分页
       type: boolean
+      advanced: true
       default: false
       description: 是否需要分页。
     - name: page-size
@@ -68,10 +70,12 @@
       type: number
       sync: true
       default: 50
+      advanced: true
       description: 分页大小。
     - name: remote-paging
       title: 后端分页
       type: boolean
+      advanced: true
       default: false
       description: 是否使用后端分页。
     - name: clearable
@@ -89,14 +93,17 @@
       type: string | Function
       default: includes
       description: 过滤时的匹配方法。
+      advanced: true
     - name: case-sensitive
       title: 大小写敏感
       type: string | Function
       default: includes
       description: 过滤时大小写是否敏感
+      advanced: true
     - name: remote-filtering
       title: 后端过滤
       type: boolean
+      advanced: true
       default: false
       description: 是否使用后端过滤。
     - name: auto-complete
@@ -116,11 +123,26 @@
       description: 是否禁用
     - name: size
       title: 尺寸
-      type: size
-      options: [mini, small, normal, medium, large, huge, full]
+      type: string
+      options:
+        - value: full
+          title: 占满
+        - value: huge
+          title: 巨大
+        - value: large
+          title: 大
+        - value: medium
+          title: 中型
+        - value: normal
+          title: 正常
+        - value: small
+          title: 小
+        - value: mini
+          title: 迷你
       default: normal
-      description: 大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'medium'`, `'large'`, `'huge'`,
-        `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式
+      multi: true
+      maxSelect: 2
+      description: 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度
     - name: opened
       title: 弹出状态
       sync: true
@@ -134,8 +156,7 @@
   slots:
     - name: default
       description: 插入`<u-select-item>`、`<u-select-divider>`或`<u-select-group>`子组件。
-      accept-type: recommanded
-      recommanded:
+      support:
         - name: u-select-item
           title: 选项
           snippet: '<u-select-item>选项</u-select-item>'
@@ -149,6 +170,7 @@
     - name: before-select
       title: 选择前
       description: 选择某一项前触发。
+      advanced: true
       params:
         - name: $event.value
           type: any
@@ -230,6 +252,7 @@
     - name: before-open
       title: 弹出前
       description: 弹出前触发。
+      advanced: true
       params:
         - name: $event.preventDefault
           type: Function
@@ -248,6 +271,7 @@
           type: USelect
           description: 发送事件实例
     - name: before-close
+      advanced: true
       title: 关闭前
       description: 关闭前触发。
       params:
@@ -270,6 +294,7 @@
     - name: before-load
       title: 加载前
       description: 加载前触发
+      advanced: true
       params:
         - name: $event.preventDefault
           type: Function
@@ -329,6 +354,7 @@
     - name: before-select
       title: 选择前
       description: 选择此项前触发
+      advanced: true
       params:
         - name: $event.value
           type: any
@@ -355,14 +381,17 @@
     - name: default
       title: 默认
       description: 插入`<u-select-item>`或`<u-select-divider>`子组件。
-      recommanded:
+      support:
         - name: u-select-item
           title: 选项
           snippet: '<u-select-item>选项</u-select-item>'
     - name: title
       title: 标题
       description: 自定义标题文本。
+      advanced: true
     - name: extra
       title: 附加内容
       description: 在右侧可以附加内容。
+      advanced: true
 - name: u-select-divider
+  title: 分隔线

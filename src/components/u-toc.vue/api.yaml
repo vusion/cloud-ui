@@ -120,15 +120,17 @@
       title: 打开方式
       type: enum
       options:
-        - name: 新标签页 (_blank)
+        - title: 新标签页
           value: _blank
-        - name: 当前窗口 (_self)
+        - title: 当前窗口 
           value: _self
-        - name: 父级窗口 (_parent)
+        - title: 父级窗口
           value: _parent
-        - name: 顶级窗口 (_top)
+          advanced: true
+        - title: 顶级窗口
           value: _top
-      description: （原生属性）。比如设置`_blank`，会在新标签页中打开。
+          advanced: true
+      description: 链接打开方式
     - name: to
       title: 路由链接
       type: string, Location

@@ -73,7 +73,8 @@
       type: boolean
       default: null
       description: "`false`"
-    - name: expanded.sync
+    - name: expanded
+      sync: true
       type: boolean
       default: false
       description: 展开/折叠状态

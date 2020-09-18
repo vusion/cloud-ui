@@ -1,4 +1,6 @@
 - name: u-modal
+  icon: modal
+  labels: [Feedback]
   title: 弹窗
   attrs:
     - name: title
@@ -34,20 +36,39 @@
       description: 取消按钮文本，如果为空则不显示
     - name: size
       title: 尺寸
-      type: enum
-      options: [small, normal, large, huge, auto]
+      type: string
+      options:
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+        - value: large
+          title: 大
+        - value: huge
+          title: 巨大
+        - value: auto
+          title: 自适应
       default: normal
-      description: 弹框的尺寸, 可选值：`'small'`, `'normal'`, `'large'`, `'huge'`, `'auto'`, 
+      description: 弹框的尺寸
     - name: icon
       title: 提示图标
       type: string
+      options:
+        - value: success
+          title: 成功
+        - value: warning
+          title: 警告
+        - value: error
+          title: 错误
       default: ""
-      description: 提示图标, 可选值：`success`, `warning`, `error`
+      description: 提示图标
+      advanced: true
     - name: static
       title: 嵌入页面显示
       type: boolean
       default: false
       description: 是否嵌入页面显示
+      advanced: true
     - name: mask-closable
       title: 点击遮罩关闭
       type: boolean
@@ -70,6 +91,7 @@
     - name: before-open
       title: 打开前
       description: 打开弹窗前触发
+      advanced: true
       params:
         - name: senderVM
           type: UModal
@@ -98,6 +120,7 @@
     - name: before-close
       title: 关闭前
       description: 关闭弹窗前触发
+      advanced: true
       params:
         - name: $event.ok
           type: boolean

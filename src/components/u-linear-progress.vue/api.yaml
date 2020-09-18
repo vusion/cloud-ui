@@ -1,20 +1,33 @@
 - name: u-linear-progress
   title: 线型进度条
+  icon: linear-progress
+  description: 以线条的形式描述当前进度
+  labels:
+    - chart
   attrs:
     - name: percent
       type: number
       default: 0
-      description: 百分比
+      description: 百分比，0-100 之间的数字
     - name: size
       type: string
+      options:
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+        - value: large
+          title: 大
+        - value: huge
+          title: 巨大
       default: normal
-      description: 高度扩展，值有`'small'`, `'normal'`, `'large'`, `'huge'`四个值
+      description: 高度扩展
     - name: range
-      type: Array
-      default:
-        - 0
-        - 100
+      type: array<number>
+      default: [0, 100]
       description: 百分比范围限制
+      advanced: true
   slots:
     - name: default
       description: 插入文本或HTML。
+      advanced: true

@@ -1,14 +1,19 @@
 - name: u-input
+  icon: input
   title: 单行输入
-  labels: [表单控件, 行内展示]
-  description: 基本的表单输入组件，在原生`<input>`控件基础上进行了一些功能扩展。
+  labels: [Form]
+  description: 基本的表单输入组件
   attrs:
     - name: type
       title: 类型
-      type: enum
-      options: [text, password]
+      type: string
+      options:
+        - value: text
+          title: 文本
+        - value: password
+          title: 密码
       default: text
-      description: 输入框的类型，目前支持两种：`'text'`和`'password'`
+      description: 输入框的类型
     - name: value
       model: true
       sync: true
@@ -22,23 +27,25 @@
     - name: placeholder
       title: 占位符
       type: string
-      description: 原生属性。对 IE9 做了兼容。
+      description: 原生属性
     - name: minlength
       title: 最小长度
       type: number
-      description: 原生属性
+      description: 最小输入长度
     - name: maxlength
       title: 最大长度
       type: number
-      description: 原生属性
+      description: 最大输入长度
     - name: spellcheck
       title: 拼写检查
       type: boolean
       description: 原生属性
+      advanced: true
     - name: autofocus
       title: 自动获取焦点
       type: boolean
       description: 是否自动获取焦点
+      advanced: true
     - name: readonly
       title: 只读
       type: boolean
@@ -51,11 +58,26 @@
       description: 是否禁用
     - name: size
       title: 尺寸
-      type: size
-      options: [mini, small, normal, medium, large, huge, full]
+      type: string
+      options:
+        - value: full
+          title: 占满
+        - value: huge
+          title: 巨大
+        - value: large
+          title: 大
+        - value: medium
+          title: 中型
+        - value: normal
+          title: 正常
+        - value: small
+          title: 小
+        - value: mini
+          title: 迷你
       default: normal
-      description: 大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'medium'`, `'large'`, `'huge'`,
-        `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式
+      multi: true
+      maxSelect: 2
+      description: 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度
     - name: maxlengthMessage
       title: 长度上限提示
       type: string
@@ -63,12 +85,14 @@
       description: "\b\b输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效"
   slots:
     - name: default
+      advanced: true
       title: 默认
       description: 插入 HTML 或 `Component`, 可展示额外内容。
       quick-add: never
   events:
     - name: before-input
       title: 输入前
+      advanced: true
       description: 输入前触发。可以在这个阶段阻止输入，或者修改输入的值 $event.value
       params:
         - name: $event.oldValue
@@ -129,6 +153,7 @@
     - name: before-clear
       title: 清空前
       description: 清空前触发。
+      advanced: true
       params:
         - name: $event.value
           type: string

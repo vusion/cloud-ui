@@ -1,7 +1,8 @@
 - name: u-textarea
   title: 多行输入
-  labels: ['UI 组件', '表单类', '行内展示']
-  description: 多行输入组件，在原生`<textarea>`控件基础上进行了一些功能扩展。
+  icon: textarea
+  labels: [Form]
+  description: 多行输入组件
   attrs:
     - name: value
       model: true
@@ -19,7 +20,7 @@
       title: 占位符
       type: string
       default: null
-      description: 原生属性。对 IE9 做了兼容。
+      description: 为空时提示内容
     - name: minlength
       title: 最小长度
       type: number
@@ -40,6 +41,7 @@
       type: boolean
       default: null
       description: 是否自动获取焦点
+      advanced: true
     - name: readonly
       title: 只读
       type: boolean
@@ -53,17 +55,27 @@
     - name: resize
       title: 调整大小
       type: string
+      options:
+        - value: none
+          title: 不可调整
+        - value: both
+          title: 可调整
+        - value: horizontal
+          title: 水平可调整
+        - value: vertical
+          title: 竖直可调整
       default: none
-      description: 是否可以调整大小。可选值：`'none'`、`'both'`、`'horizontal'`、`'vertical'`
+      description: 是否可以调整大小
   slots:
     - name: default
       title: 默认
       description: 插入 HTML 或 `Component`, 可展示额外内容。
-      quick-add: never
+      advanced: true
   events:
     - name: before-input
       title: 输入前
       description: 输入前触发。可以在这个阶段阻止输入，或者修改输入的值 $event.value
+      advanced: true
       params:
         - name: $event.oldValue
           type: string
@@ -103,6 +115,7 @@
     - name: focus
       title: 聚焦后
       description: 获得焦点时触发。
+      advanced: true
       params:
         - name: $event
           type: FocusEvent
@@ -113,6 +126,7 @@
     - name: blur
       title: 失焦后
       description: 失去焦点时触发。
+      advanced: true
       params:
         - name: $event
           type: FocusEvent
@@ -121,6 +135,7 @@
           type: UTextarea
           description: 发送事件实例
     - name: before-clear
+      advanced: true
       title: 清空前
       description: 清空前触发。
       params:
@@ -153,9 +168,12 @@
     - name: focus()
       description: 让输入框获取焦点。
       params: []
+      advanced: true
     - name: blur()
       description: 让输入框失去焦点。
       params: []
+      advanced: true
     - name: clear()
       description: 清空输入框。
       params: []
+      advanced: true

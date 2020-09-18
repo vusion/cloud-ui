@@ -1,13 +1,28 @@
 - name: u-toast
+  icon: toast
   title: 吐司提示
+  labels: [Feedback]
   attrs:
     - name: position
       title: 位置
-      type: enum
-      options: [top-center, top-left, top-right, bottom-center, bottom-left, bottom-right, static]
+      type: string
+      options: 
+        - value: top-center
+          name: 上中
+        - value: top-left
+          name: 上左
+        - value: top-right
+          name: 上右
+        - value: bottom-center
+          name: 下中
+        - value: bottom-left
+          name: 下左
+        - value: bottom-right
+          name: 下右
+        - value: static
+          name: 静态
       default: top-center
-      description: 显示的位置，可选值：`'top-center'`, `'top-left'`, `'top-right'`,
-        `'bottom-center'`, `'bottom-left'`, `'bottom-right'`, `static`
+      description: 显示的位置
     - name: duration
       title: 停留时间
       type: number
@@ -17,6 +32,7 @@
       title: 合并
       type: boolean
       default: false
+      advanced: true
       description: 多个提示会合并为一个
     - name: text
       title: 提示内容
@@ -26,6 +42,15 @@
     - name: color
       title: 颜色
       type: string
+      options:
+        - value: info
+          title: 信息提示
+        - value: success
+          title: 成功信息提示
+        - value: warning
+          title: 警告信息提示
+        - value: error
+          title: 错误信息提示
       default: default
       description: 提示的颜色
     - name: closable
@@ -35,7 +60,7 @@
       description: 是否可以关闭提示
   events:
     - name: open
-      title: 弹出后
+      title: 弹出后事件
       description: 弹出提示时触发
       params:
         - name: $event.text
@@ -53,6 +78,7 @@
     - name: before-close
       title: 关闭前
       description: 关闭提示前触发
+      advanced: true
       params:
         - name: $event.text
           type: string

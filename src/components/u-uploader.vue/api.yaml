@@ -1,7 +1,8 @@
 - name: u-uploader
   title: 文件上传
+  icon: uploader
   description: 通过点击或者拖拽上传文件。
-  labels: [表单控件, 行内展示]
+  labels: [Form]
   attrs:
     - name: value
       type: Array
@@ -35,6 +36,7 @@
     - name: data-type
       type: string
       default: json
+      advanced: true
       description: 接收数据类型。可选值：`text`、`xml`、`json`
     - name: data
       type: object
@@ -55,9 +57,15 @@
       description: 可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB`
     - name: list-type
       title: 列表类型
-      type: enum
-      options: ['text', 'image', 'card']
-      default: 'text'
+      type: string
+      options:
+        - name: 文本
+          value: text
+        - name: 图片
+          value: image
+        - name: 卡片
+          value: card
+      default: text
       description: 列表展示类型
     - name: auto-upload
       title: 是否自动上传

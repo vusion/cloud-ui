@@ -1,6 +1,9 @@
 - name: u-copy
   title: 复制
-  description: 复制文本到剪切板。
+  icon: copy
+  description: 复制文本到剪切板
+  labels:
+    - Effects
   attrs:
     - name: value
       type: string
@@ -9,31 +12,67 @@
     - name: text
       type: string
       default: 复制
-      description: 链接的文本
+      description: 默认显示的文本
+      advanced: true
     - name: success-text
       type: string
       default: 已复制
       description: 复制成功提示文本
+      advanced: true
     - name: feedback
-      type: enum
-      options: [tooltip, toast, none]
+      type: string
+      options: 
+        - value: tooltip
+          title: 工具提示
+        - value: toast
+          title: 弹框提示
+        - value: none
+          title: 无反馈
       default: tooltip
-      description: 复制提示反馈方式 `'tooltip'`,`'toast'`,`'none'`
+      description: 复制提示反馈方式
+      advanced: true
     - name: placement
       type: string
       default: top
-      description: tooltip 提示框位置，可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',`'left-end'`, `'right-start'`, `'right-end'`
+      options:
+        - value: top
+          name: 上
+        - value: bottom
+          name: 下
+        - value: left
+          name: 左
+        - value: right
+          name: 右
+        - value: top-start
+          name: 上左
+        - value: top-end
+          name: 上右
+        - value: bottom-start
+          name: 下左
+        - value: bottom-end
+          name: 下右
+        - value: left-start
+          name: 左上
+        - value: left-end
+          name: 左下
+        - value: right-start
+          name: 右上
+        - value: right-end
+          name: 右下
+      description: tooltip 提示框位置
+      advanced: true
     - name: hide-delay
       type: number
       default: 3000
       description: 提示框显示时长
+      advanced: true
     - name: disabled
       type: boolean
       default: false
       description: 是否禁止复制
   slots:
     - name: default
-      description: 插入 HTML 或组件，用于修改触发元素。
+      description: 修改默认触发元素
   events:
     - name: copy
       description: 内容复制成功后触发

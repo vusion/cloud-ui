@@ -1,6 +1,8 @@
 - name: u-radios
   title: 单选组
-  labels: [表单控件, 块级展示]
+  labels: [Form]
+  icon: radios
+  description: 多项中选择一个时使用
   attrs:
     - name: value
       model: true
@@ -21,10 +23,15 @@
   slots:
     - name: default
       description: 插入`<u-radio>`子组件。
+      support:
+        - name: u-radio
+          title: 单选项
+          snippet: '<u-radio title="步骤 N"></u-radio>'
   events:
     - name: before-select
       title: 选择前
       description: 选择某一项前触发
+      advanced: true
       params:
         - name: $event.value
           type: any
@@ -113,6 +120,7 @@
     - name: before-select
       title: 选择前
       description: 选择此项前触发
+      advanced: true
       params:
         - name: $event.label
           type: any

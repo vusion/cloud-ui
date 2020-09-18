@@ -1,5 +1,9 @@
 - name: u-circular-progress
   title: 圆形进度条
+  icon: circular-progress
+  description: 以圆形的形式描述当前进度
+  labels:
+    - chart
   attrs:
     - name: percent
       type: number
@@ -8,3 +12,4 @@
   slots:
     - name: default
       description: 插入文本或 HTML。
+      advanced: true

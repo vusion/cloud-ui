@@ -1,8 +1,12 @@
 - name: u-combo-slider
   title: 复合滑块
-  labels: [表单控件, 块级展示]
+  icon: slider
+  labels: [Form]
+  description: 滑动选择
   attrs:
-    - name: value.sync, v-model
+    - name: value
+      sync: true
+      model: true
       type: number
       default: 0
       description: 滑块的值
@@ -29,11 +33,17 @@
     - name: formatter
       type: string, object
       default: null
+      advanced: true
       description: 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。
     - name: sync-on
       type: string
+      options:
+        - value: input
+          title: 输入时同步
+        - value: blur
+          title: 失焦时同步
       default: input
-      description: 输入后何时同步值到`<u-slider>`组件中。可选值：`'input'`表示在输入时同步，`'blur'`表示在失焦时同步
+      description: 同步时机
     - name: hide-buttons
       type: boolean
       default: true
@@ -90,6 +100,7 @@
           description: 改变后滑块的值
     - name: slide-end
       description: 拖动滑块结束后触发
+      advanced: true
       params:
         - name: $event.value
           type: number
@@ -97,7 +108,10 @@
   aria:
     - key: ↑
       description: 按`step`量增加值
+      advanced: true
     - key: ↓
       description: 按`step`量减小值
+      advanced: true
     - key: Enter
       description: 自动修复为合法的值，并且应用更改
+      advanced: true

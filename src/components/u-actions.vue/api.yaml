@@ -1,5 +1,9 @@
 - name: u-actions
   title: 操作项
+  icon: actions
+  description: 当待操作项过多时，会自动收纳
+  labels:
+    - Table
   attrs:
     - name: max-count
       title: 最大个数
@@ -13,15 +17,41 @@
       description: 菜单标题
     - name: placement
       title: 弹出方向
-      type: enum
-      options: [top, bottom, left, right, 'top-start', 'top-end', 'bottom-start', 'bottom-end', 'left-start', left-end', 'right-start', 'right-end']
+      type: string
+      options:
+        - value: top
+          name: 上
+        - value: bottom
+          name: 下
+        - value: left
+          name: 左
+        - value: right
+          name: 右
+        - value: top-start
+          name: 上左
+        - value: top-end
+          name: 上右
+        - value: bottom-start
+          name: 下左
+        - value: bottom-end
+          name: 下右
+        - value: left-start
+          name: 左上
+        - value: left-end
+          name: 左下
+        - value: right-start
+          name: 右上
+        - value: right-end
+          name: 右下
       default: bottom-end
-      description: 菜单的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`,
-        `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start',`
-        `'left-end'`, `'right-start'`, `'right-end'`
+      description: 菜单的弹出方向
   slots:
     - name: default
       description: 插入`<u-action>`子组件。
+      support:
+        - name: u-action
+          title: 操作项子组件
+          snippet: '<u-action>操作</u-action>'
 - name: u-action
   attrs:
     - name: hidden

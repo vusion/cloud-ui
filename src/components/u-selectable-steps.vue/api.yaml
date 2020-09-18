@@ -1,5 +1,8 @@
 - name: u-selectable-steps
+  labels: [Selector]
+  icon: steps
   title: 可选步骤条
+  description: 当操作需要分步骤时使用
   attrs:
     - name: value
       model: true
@@ -20,11 +23,17 @@
       description: 是否禁用
   slots:
     - name: default
-      description: 插入`<u-step>`子组件。
+      description: 插入`<u-selectable-step>`子组件。
+      support:
+        - name: u-selectable-step
+          title: 步骤条子组件
+          snippet: '<u-selectable-step title="步骤 N"></u-selectable-step>'
+          
   events:
     - name: before-select
       title: 选择前
       description: 选择某一步骤前触发
+      advanced: true
       params:
         - name: value
           type: any

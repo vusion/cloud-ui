@@ -2,7 +2,9 @@
   title: 列表视图
   description: 用于列举大量数据的列表框，支持单选、多选、过滤（搜索）、分页等功能。
   attrs:
-    - name: value.sync, v-model
+    - name: value
+      sync: true
+      model: true
       type: any
       default: null
       description: 当前选择的值
@@ -72,8 +74,8 @@
       default: includes
       description: 过滤时的匹配方法
     - name: case-sensitive
-      type: string, Function
-      default: includes
+      type: boolean
+      default: false
       description: 过滤时大小写是否敏感
     - name: remote-filtering
       type: boolean
@@ -100,8 +102,18 @@
       default: false
       description: 是否禁用
     - name: size
-      type: enum
-      options: [normal, large, huge, auto, full]
+      type: string
+      options: 
+        - value: normal
+          title: 正常
+        - value: large
+          title: 大
+        - value: huge
+          title: 巨大
+        - value: auto
+          title: 自适应
+        - value: full
+          title: 占满
       description: 设置尺寸。五种宽高的自由组合。
   slots:
     - name: default

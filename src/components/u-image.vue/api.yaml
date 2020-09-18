@@ -1,0 +1,17 @@
+- name: u-image
+  icon: image
+  title: 图片展示
+  labels: [Display]
+  description: 可以用来展示一张图片，支持设置图片地址。
+  attrs:
+    - name: src
+      title: 地址
+      type: string
+      default: ''
+      description: 图片地址
+  slots: false
+  events:
+    - name: load
+      title: 加载完成
+      description: 网页加载完成时触发
+      params: []

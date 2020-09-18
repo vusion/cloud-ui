@@ -1,6 +1,8 @@
 - name: u-pagination
   title: 翻页器
-  labels: [块级展示]
+  icon: pagination
+  labels: [Selector]
+  description: 展示多页列表时使用
   attrs:
     - name: page
       sync: true
@@ -46,10 +48,7 @@
     - name: page-size-options
       title: 条数选项列表
       type: Array
-      default:
-        - 10
-        - 20
-        - 50
+      default: [10, 20, 50]
       description: 每页条数选项列表
     - name: show-total
       title: 总条数
@@ -70,6 +69,7 @@
     - name: before-select
       title: 选择前
       description: 选择分页前触发
+      advanced: true
       params:
         - name: $event.page
           type: number

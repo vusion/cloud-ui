@@ -1,6 +1,7 @@
 - name: u-switch
   title: 开关
-  labels: [表单控件, 行内展示]
+  labels: [Form]
+  icon: switch
   attrs:
     - name: value
       title: 值
@@ -29,6 +30,7 @@
     - name: before-toggle
       title: 切换状态前
       description: 切换开关状态前触发
+      advanced: true
       params:
         - name: $event.value
           type: boolean

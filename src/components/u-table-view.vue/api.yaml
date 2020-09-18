@@ -1,6 +1,7 @@
 - name: u-table-view
   title: 数据表格
-  labels: [数据源, 块级展示]
+  icon: table-view
+  labels: [Table]
   description: 用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。
   attrs:
     - name: data-source
@@ -68,8 +69,12 @@
     - name: default-order
       group: 数据属性
       title: 默认排序顺序
-      type: enum
-      options: [asc, desc]
+      type: string
+      options:
+        - value: asc
+          title: 升序
+        - value: desc
+          title: 倒序
       default: asc
       description: 所有列首次点击时的排序顺序。
     - name: filtering
@@ -104,8 +109,14 @@
     - name: title-alignment
       group: 样式属性
       title: 标题对齐方式
-      type: enum
-      options: [left, center, right]
+      type: string
+      options:
+        - value: left
+          title: 左对齐
+        - value: center
+          title: 居中对齐
+        - value: right
+          title: 右对齐
       default: center
       description: 表格标题的对齐方式。
     - name: border
@@ -223,16 +234,21 @@
     - name: resize-remaining
       group: 其它属性
       title: 调整列宽效果
-      type: enum
-      options: [sequence, average, none]
+      type: string
+      options:
+        - value: sequence
+          title: 保持总宽不变，优先后一列弥补宽度
+        - value: average
+          title: 保持总宽不变，后面所有列平均弥补宽度
+        - value: none
+          title: 不做任何处理，表格宽度变化
       default: average
-      description: 调整列宽时如何处理剩余大小。可选值：`sequence`表示保持总宽不变，优先后一列弥补宽度；`average`表示保持总宽不变，后面所有列平均弥补宽度；`none`表示不做任何处理，表格宽度变化。
+      description: 调整列宽时如何处理剩余大小
   slots:
     - name: default
       title: 默认
       description: 在表格中插入`<u-table-view-column>`子组件。
-      accept-type: recommanded
-      recommanded:
+      support:
         - name: u-table-view-column
           title: 表格列
           snippet: '<u-table-view-column title="表格列"></u-table-view-column>'
@@ -249,6 +265,7 @@
     - name: before-load
       title: 加载前
       description: 加载前触发
+      advanced: true
       params:
         - name: $event.preventDefault
           type: Function
@@ -269,6 +286,7 @@
     - name: before-page
       title: 切换分页前
       description: 切换分页前触发
+      advanced: true
       params:
         - name: $event.size
           type: number
@@ -310,6 +328,7 @@
     - name: before-sort
       title: 排序前
       description: 排序前触发
+      advanced: true
       params:
         - name: $event.field
           type: string
@@ -345,6 +364,7 @@
     - name: before-filter
       title: 筛选前
       description: 筛选前触发
+      advanced: true
       params:
         - name: $event
           type: object
@@ -368,6 +388,7 @@
     - name: before-select
       title: 选择前
       description: 选择某一项前触发
+      advanced: true
       params:
         - name: $event.value
           type: any
@@ -512,8 +533,12 @@
       description: 该列是否可以排序。
     - name: default-order
       title: 默认顺序
-      type: enum
-      options: [asc, desc]
+      type: string
+      options:
+        - value: asc
+          title: 升序
+        - value: desc
+          title: 倒序
       default: asc
       description: 该列首次点击时的排序顺序
     - name: filters
@@ -527,9 +552,17 @@
       description: 是否隐藏该列。
     - name: type
       title: 列类型
-      type: enum
-      options: [index, radio, checkbox, expander]
-      description: 列类型。可选值：`index`表示序号列，`radio`表示单选列，`checkbox`表示多选列，`expander`表示展开列。
+      type: string
+      options:
+        - value: index
+          title: 序号列
+        - value: radio
+          title: 单选列
+        - value: checkbox
+          title: 多选列
+        - value: expander
+          title: 展开列
+      description: 列类型
     - name: start-index
       title: 起始序号
       type: number

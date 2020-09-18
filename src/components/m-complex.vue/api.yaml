@@ -3,8 +3,10 @@
   description: 一个组件中，通过`multiple`属性切换单选还是多选的模式。
   extends: m-singlex, m-multiplex
   attrs:
-    - name: value.sync, v-model
+    - name: value
       type: any
+      sync: true
+      model: true
       default: null
       description: 当前选择的值
     - name: auto-select

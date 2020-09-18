@@ -1,6 +1,7 @@
 - name: u-tabs
+  icon: tabs
   title: 选项卡
-  labels: [路由链接, 块级展示]
+  labels: [Selector]
   description: 选项卡切换组件，常用于平级区域大块内容的收纳和展现。
   attrs:
     - name: router
@@ -8,6 +9,7 @@
       type: boolean
       default: false
       description: 是否根据 vue-router 来控制选择哪个标签页。
+      advanced: true
     - name: value
       title: 选择值
       model: true
@@ -31,39 +33,62 @@
       description: 是否可以关闭。
     - name: show-scroll-buttons
       title: 显示滚动按钮
-      type: enum | boolean
-      options: ['never', 'auto', 'always']
+      type: string
+      options:
+        - value: auto
+          title: 有滚动的情况下显示
+        - value: always
+          title: 始终显示
+        - value: never
+          title: 始终不显示
       default: 'auto'
-      description: 是否显示标签滚动左右箭头按钮。`'auto'`表示有滚动的情况下显示，`‘always'`表示始终显示，`'never'`表示始终不显示。
+      description: 是否显示标签滚动左右箭头按钮
+      advanced: true
     - name: appear
       title: 展示外观
-      type: enum
-      options: [square, round, card, line, text, capsule]
-      default: tab
+      type: string
+      options:
+        - value: square
+          title: 方形卡片
+        - value: round
+          title: 圆角卡片
+        - value: line
+          title: 线条
+        - value: text
+          title: 文本
+        - value: capsule
+          title: 胶囊
+      default: square
       description: 标签展示的外观
     - name: size
       title: 标签尺寸
-      type: enum
-      options: [normal, small, mini]
+      type: string
+      options:
+        - value: normal
+          title: 正常
+        - value: small
+          title: 小
+        - value: mini
+          title: 迷你
       default: normal
       description: 标签尺寸
   slots:
     - name: default
       title: 默认
       description: 插入`<u-tab>`子组件。
-      accept-type: recommanded
-      recommanded:
+      support:
         - name: u-tab
-          title: 选项
-          snippet: '<u-tab title="标签页"></u-tab>'
+          title: 子选项
+          snippet: '<u-tab title="标签页">内容</u-tab>'
     - name: extra
       title: 右侧附加
       description: 在标签右侧可以附加的组件。
-      accept-type: all
+      advanced: true
   events:
     - name: before-select
       title: 选择前
       description: 选择某一页前触发
+      advanced: true
       params:
         - name: $event.value
           type: any
@@ -85,7 +110,7 @@
           description: 发送事件实例
     - name: select
       title: 选择后
-      description: 选择某一页后触发
+      description: 选择某一项后触发
       params:
         - name: $event.value
           type: any
@@ -105,6 +130,7 @@
     - name: before-close
       title: 关闭前
       description: 关闭某一页前触发
+      advanced: true
       params:
         - name: $event.value
           type: any
@@ -162,40 +188,46 @@
       description: 链接地址
     - name: target
       title: 打开方式
-      type: enum
+      type: string
       options:
-        - name: 新标签页 (_blank)
-          value: _blank
-        - name: 当前窗口 (_self)
-          value: _self
-        - name: 父级窗口 (_parent)
-          value: _parent
-        - name: 顶级窗口 (_top)
-          value: _top
-      description: （原生属性）。比如设置`_blank`，会在新标签页中打开。
+        - value: _blank
+          title: 新标签页
+        - value: _self
+          title: 当前窗口
+        - value: _parent
+          title: 父级窗口
+          advanced: true
+        - value: _top
+          title: 顶级窗口
+          advanced: true
+      description: 打开方式
     - name: to
       title: 路由链接
       type: string, Location
+      advanced: true
       description: 需要 router 为 true，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
     - name: replace
       type: boolean
       default: false
+      advanced: true
       description: 需要
         router 为 true，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history
         `记录。
     - name: append
       type: boolean
       default: false
+      advanced: true
       description: 需要 router 为 true，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。
     - name: exact
       title: 精确匹配
       type: boolean
+      advanced: true
       default: false
       description: 需要 router 为 true，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
   slots:
     - name: default
       title: 默认
-      description: 插入文本或 HTML。
+      description: 该 tab 下的内容
     - name: title
-      title: 标题自定义
-      description: 自定义标题文本。
+      title: 标题
+      description: 自定义标题
