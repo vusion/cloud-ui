@@ -12,9 +12,9 @@
     - [Slots](#slots)
     - [Events](#events)
 
-**行内展示**
+**Display**
 
-用于在业务中快速调整文本尺寸、颜色等特性。
+用于展示纯文字
 
 ## 示例
 ### 设置尺寸
@@ -73,16 +73,16 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| color | enum | `'default'`, `'primary'`, `'secondary'`, `'success'`, `'warning'`, `'error'`, `'disabled'` | `'default'` | 设置颜色。 |
-| size | enum | `'small'`, `'normal'`, `'large'`, `'huge'` | `'normal'` | 设置尺寸。 |
-| display | string | `'inline'`, `'block'` | `'inline'` | 展示方式。 |
-| overflow | string | `'normal'`, `'ellipsis'`, `'break'`, `'nowrap'` | `'normal'` | 文本过长的处理方式。`'normal'`表示默认方式，`'ellipsis'`表示多余的文本省略，`'break'`表示强制换行且英文自动添加换行符，`'nowrap'`表示始终不换行。 |
+| color | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 设置颜色 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 尺寸设置 |
+| display | string | `[object Object]`<br/>`[object Object]` | `'inline'` | 展示方式 |
+| overflow | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 文本过长的处理方式 |
 
 ### Slots
 
 #### (default)
 
-插入文本或 HTML。
+文字内容
 
 ### Events
 

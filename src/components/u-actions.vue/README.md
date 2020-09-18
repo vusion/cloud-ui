@@ -12,6 +12,10 @@
     - [Props/Attrs](#propsattrs-2)
     - [Events](#events)
 
+**Table**
+
+当待操作项过多时，会自动收纳
+
 ## 示例
 ### 基本用法
 
@@ -55,7 +59,7 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | max-count | number |  | `3` | 一列最多显示链接个数 |
 | menu-title | string |  | `'更多'` | 菜单标题 |
-| placement | enum | `'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start'`, `'left-end''`, `'right-start'`, `'right-end'` | `'bottom-end'` | 菜单的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start',` `'left-end'`, `'right-start'`, `'right-end'` |
+| placement | string | `'上'` ()<br/>`'下'` ()<br/>`'左'` ()<br/>`'右'` ()<br/>`'上左'` ()<br/>`'上右'` ()<br/>`'下左'` ()<br/>`'下右'` ()<br/>`'左上'` ()<br/>`'左下'` ()<br/>`'右上'` ()<br/>`'右下'` () | `'bottom-end'` | 菜单的弹出方向 |
 
 ### Slots
 

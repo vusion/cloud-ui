@@ -14,7 +14,7 @@
     - [Events](#events)
     - [Methods](#methods)
 
-**表单控件**, **行内展示**
+**Form**
 
 通过点击或者拖拽上传文件。
 
@@ -204,7 +204,7 @@ export default {
 | extensions | string, Array |  | `''` | 可上传的扩展名。默认为空，表示可上传任意文件类型的文件。可以为字符串，多个扩展名用`,`隔开，如：`'png,jpg,gif'`；也可以为数组，如：`['png', 'jpg', 'gif']` |
 | limit | number |  | `Infinity` | 列表数量上限 |
 | max-size | string, number |  | `Infinity` | 可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB` |
-| list-type | enum | `'text'`, `'image'`, `'card'` | `'text'` | 列表展示类型 |
+| list-type | string | `'文本'` ()<br/>`'图片'` ()<br/>`'卡片'` () | `'text'` | 列表展示类型 |
 | auto-upload | boolean |  | `true` | 是否自动上传 |
 | draggable | boolean |  | `false` | 是否可以拖拽上传 |
 | paste | boolean |  | `false` | 是否可以粘贴 |

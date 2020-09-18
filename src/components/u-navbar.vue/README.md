@@ -25,7 +25,7 @@
 - [UNavbarSelect、uNavbarSelectGroup、uNavbarSelectItem、uNavbarSelectDivider API](#unavbarselect-unavbarselectgroup-unavbarselectitem-unavbarselectdivider-api)
 
 
-**路由链接**, **块级展示**
+**Layout**
 
 通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。
 
@@ -190,15 +190,15 @@
 
 #### (default)
 
-中部区域，可插入`<u-navbar-item>`、`<u-navbar-divider>`等子组件，或其他 HTML。
+链接区域
 
 #### left
 
-左部区域。
+左部区域，一般放置 logo 等
 
 #### right
 
-右部区域。
+右部区域，一般放置用户个人信息等
 
 ### Events
 
@@ -270,7 +270,7 @@
 | disabled | boolean |  | `false` | 禁用此项 |
 | item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
 | href | string |  |  | 链接地址 |
-| target | enum | `[object Object]`, `[object Object]`, `[object Object]`, `[object Object]` |  | （原生属性）。比如设置`_blank`，会在新标签页中打开。 |
+| target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 链接跳转方式 |
 | to | string, Location |  |  | 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
 | replace | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
 | exact | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。 |
@@ -326,8 +326,8 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| trigger | string |  | `'hover'` | 触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`, `'manual'` |
-| placement | string |  | `'bottom'` | 弹出方位。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',` 'left-end'`, `'right-start'`, `'right-end'` |
+| trigger | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'hover'` | 触发方式 |
+| placement | string | `'上'` ()<br/>`'下'` ()<br/>`'左'` ()<br/>`'右'` ()<br/>`'上左'` ()<br/>`'上右'` ()<br/>`'下左'` ()<br/>`'下右'` ()<br/>`'左上'` ()<br/>`'左下'` ()<br/>`'右上'` ()<br/>`'右下'` () | `'bottom'` | 弹出方位 |
 | disabled | boolean |  | `false` | 是否禁用 |
 
 ## UNavbarMenu、uNavbarMenuGroup、uNavbarMenuItem、uNavbarMenuDivider API

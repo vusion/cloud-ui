@@ -16,7 +16,7 @@
     - [Slots](#slots)
     - [Events](#events)
 
-**路由链接**, **行内展示**
+**Form**
 
 用于触发一个即时操作。
 
@@ -173,16 +173,16 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| color | enum | `'default'`, `'primary'`, `'danger'` | `'default'` | 设置颜色。`'primary'`表示主按钮，`'danger'`表示危险按钮。 |
+| color | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 设置颜色 |
 | dashed | boolean |  | `false` | 边框是否为虚线。 |
-| size | enum | `'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'` | `'normal'` | 设置尺寸。可选值：`'mini'`、`'small'`、`'normal'`、`'large'`、`'huge'` |
-| shape | enum | `'default'`, `'square'`, `'round'`, `'circle'` | `false` | 设置形状。选项分别为默认、圆角、方形、圆形。 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置尺寸 |
+| shape | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `false` | 设置形状 |
 | disabled | boolean |  | `false` | 是否禁用。禁用后不会响应点击事件。 |
-| display | enum | `'inline'`, `'block'` | `'inline'` | 展示方式。`'inline'`表示行内展示，`'block'`表示块级展示，宽度会充满父元素。 |
-| icon | enum | `'refresh'`, `'create'`, `'success'` |  | 设置图标。 |
+| display | string | `[object Object]`<br/>`[object Object]` | `'inline'` | 展示方式 |
+| icon | string | `'刷新'` ()<br/>`'创建'` ()<br/>`'成功'` () |  | 设置图标。 |
 | loading | boolean |  | `false` | 是否为加载中。 |
 | href | string |  |  | 链接地址 |
-| target | enum | `[object Object]`, `[object Object]`, `[object Object]`, `[object Object]` |  | （原生属性）。比如设置`_blank`，会在新标签页中打开。 |
+| target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 链接打开方式 |
 | to | string, Location |  |  | 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
 | replace | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
 | append | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。 |

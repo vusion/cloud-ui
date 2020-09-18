@@ -15,7 +15,9 @@
     - [Slots](#slots)
     - [Events](#events)
 
-复制文本到剪切板。
+**Effects**
+
+复制文本到剪切板
 
 ## 示例
 ### 基本用法
@@ -238,10 +240,10 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value | string |  |  | 需要复制的值 |
-| text | string |  | `'复制'` | 链接的文本 |
+| text | string |  | `'复制'` | 默认显示的文本 |
 | success-text | string |  | `'已复制'` | 复制成功提示文本 |
-| feedback | enum | `'tooltip'`, `'toast'`, `'none'` | `'tooltip'` | 复制提示反馈方式 `'tooltip'`,`'toast'`,`'none'` |
-| placement | string |  | `'top'` | tooltip 提示框位置，可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',`'left-end'`, `'right-start'`, `'right-end'` |
+| feedback | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'tooltip'` | 复制提示反馈方式 |
+| placement | string | `'上'` ()<br/>`'下'` ()<br/>`'左'` ()<br/>`'右'` ()<br/>`'上左'` ()<br/>`'上右'` ()<br/>`'下左'` ()<br/>`'下右'` ()<br/>`'左上'` ()<br/>`'左下'` ()<br/>`'右上'` ()<br/>`'右下'` () | `'top'` | tooltip 提示框位置 |
 | hide-delay | number |  | `3000` | 提示框显示时长 |
 | disabled | boolean |  | `false` | 是否禁止复制 |
 
@@ -249,7 +251,7 @@
 
 #### (default)
 
-插入 HTML 或组件，用于修改触发元素。
+修改默认触发元素
 
 ### Events
 

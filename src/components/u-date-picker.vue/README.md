@@ -13,6 +13,10 @@
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
 
+**Selector**
+
+日期选择器
+
 ## 示例
 ### 基本用法
 
@@ -98,10 +102,10 @@ export default {
 | disabled | boolean |  | `false` | 是否禁用 |
 | autofocus | boolean |  | `false` | 文本框默认处于focus |
 | placeholder | string |  | `'请输入'` | 文本框默认提示 |
-| alignment | string |  | `'left'` | 日历弹窗对其方式，可选值：`left`, `right` |
-| time | string, number |  | `'start'` | 设置返回的日期的时分秒值，可选值为`start`,表示时分秒是0:00:00,`morning`:时分秒为8:00:00,`end`:表示时分秒为: 23:59:59, 输入整数表示对应的整数时刻，例如输入9代表时分秒为9:00:00,自定义时分秒请输入对应格式的字符串即可 |
-| yeadDiff | string, number |  | `3` | 当前年份前几年 |
-| yearAdd | string, number |  | `1` | 当前年份后几年 |
+| alignment | string | `[object Object]`<br/>`[object Object]` | `'left'` | 日历弹窗对其方式 |
+| time | string, number |  | `'0:00:00'` | 输入对应格式的字符串（8:00:00）即可 |
+| yeadDiff | string, number |  | `3` | 最小可选年份值为当前年减去此值 |
+| yearAdd | string, number |  | `1` | 最大可选年份值为当前年加上此值 |
 
 ### Events
 

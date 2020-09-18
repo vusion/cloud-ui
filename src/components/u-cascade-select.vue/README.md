@@ -12,7 +12,9 @@
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
 
-**表单控件**, **块级展示**
+**Selector**
+
+一次选择多个相关联的项
 
 ## 示例
 ### 基本用法

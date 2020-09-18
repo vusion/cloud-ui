@@ -141,7 +141,7 @@ export default {
 | disabled | boolean |  | `false` | 禁用此项 |
 | item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
 | href | string |  |  | 链接地址 |
-| target | enum | `[object Object]`, `[object Object]`, `[object Object]`, `[object Object]` |  | （原生属性）。比如设置`_blank`，会在新标签页中打开。 |
+| target | enum | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 链接打开方式 |
 | to | string, Location |  |  | 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
 | replace | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
 | exact | boolean |  | `true` | 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。 |

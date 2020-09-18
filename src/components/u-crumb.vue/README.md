@@ -5,14 +5,15 @@
 - [示例](#示例)
     - [基本用法](#基本用法)
 - [UCrumb API](#ucrumb-api)
-    - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
 - [UCrumbItem API](#ucrumbitem-api)
-    - [Props/Attrs](#propsattrs-2)
+    - [Props/Attrs](#propsattrs)
     - [Slots](#slots-2)
     - [Events](#events)
 
-**路由链接**, **块级展示**
+**Layout**
+
+导航指引
 
 ## 示例
 ### 基本用法
@@ -33,12 +34,6 @@
 ```
 
 ## UCrumb API
-### Props/Attrs
-
-| Prop/Attr | Type | Options | Default | Description |
-| --------- | ---- | ------- | ------- | ----------- |
-| 无 |  |  |  |  |
-
 ### Slots
 
 #### (default)
@@ -50,9 +45,9 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| type | string | `'link'`, `'text'` | `'link'` | 类型。可选值：`'link'`表示链接，可点击，`'text'`只显示为默认颜色文本，不可点。 |
+| type | string | `[object Object]`<br/>`[object Object]` | `'link'` | 类型 |
 | href | string |  |  | 链接地址 |
-| target | enum | `[object Object]`, `[object Object]`, `[object Object]`, `[object Object]` |  | （原生属性）。比如设置`_blank`，会在新标签页中打开。 |
+| target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 链接打开方式 |
 | to | string, Location |  |  | 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
 | replace | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
 | append | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。 |

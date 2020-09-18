@@ -14,7 +14,9 @@
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
 
-**块级展示**
+**Selector**
+
+展示多页列表时使用
 
 ## 示例
 ### 基本用法

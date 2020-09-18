@@ -18,6 +18,8 @@
     - [Events](#events)
     - [Methods](#methods)
 
+**Feedback**
+
 ## 示例
 ### 基本用法
 
@@ -144,8 +146,8 @@ export default {
 | visible.sync | boolean |  | `false` | 是否显示 |
 | ok-button | string |  | `'确定'` | 确定按钮文本，如果为空则不显示 |
 | cancel-button | string |  | `'取消'` | 取消按钮文本，如果为空则不显示 |
-| size | enum | `'small'`, `'normal'`, `'large'`, `'huge'`, `'auto'` | `'normal'` | 弹框的尺寸, 可选值：`'small'`, `'normal'`, `'large'`, `'huge'`, `'auto'`, |
-| icon | string |  | `''` | 提示图标, 可选值：`success`, `warning`, `error` |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 弹框的尺寸 |
+| icon | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `''` | 提示图标 |
 | static | boolean |  | `false` | 是否嵌入页面显示 |
 | mask-closable | boolean |  | `false` | 是否点击遮罩时关闭弹窗 |
 

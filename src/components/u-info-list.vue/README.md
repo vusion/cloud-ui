@@ -18,6 +18,8 @@
     - [Props/Attrs](#propsattrs-3)
     - [Slots](#slots-3)
 
+**Display**
+
 ## 示例
 ### 基本用法
 
@@ -167,8 +169,8 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| repeat | string,number |  | `3` | 整个详情列表的划分列数 |
-| label-size | enum | `'small'`, `'normal'`, `'large'`, `'auto'` | `'auto'` | 详情列表所有项的标签大小。 |
+| repeat | number |  | `3` | 整个详情列表的划分列数 |
+| label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` | 详情列表所有项的标签大小。 |
 
 ### Slots
 
@@ -183,8 +185,8 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | label | string |  |  | 标签 |
 | span | string |  |  | 列跨越的格数 |
-| label-size | enum | `'small'`, `'normal'`, `'large'`, `'auto'` | `'auto'` | 标签大小。 |
-| ellipsis | boolean |  | `false` | 是否换行，默认换行，值为`true`则开启不换行，超出部分显示为省略号 |
+| label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` | 标签大小。 |
+| ellipsis | boolean |  | `false` | 是否换行，默认换行 |
 
 ### Slots
 
@@ -202,8 +204,8 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | title | string |  |  | 标题 |
-| repeat | string,number |  | `3` | 当前组范围内的划分列数 |
-| label-size | enum | `'small'`, `'normal'`, `'large'`, `'auto'` | `'auto'` | 当前组所有项的标签大小。 |
+| repeat | number |  | `3` | 当前组范围内的划分列数 |
+| label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` | 当前组所有项的标签大小。 |
 
 ### Slots
 

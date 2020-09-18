@@ -22,6 +22,10 @@
 - [UCapsuleGroup API](#ucapsulegroup-api)
 
 
+**Form**
+
+多项中选择一项
+
 ## 示例
 ### 基本样式
 
@@ -233,7 +237,7 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value | any |  |  | 此项的值 |
-| size | enum | `'small'` |  | 胶囊大小，可选值：`'small'` |
+| size | string | `[object Object]`<br/>`[object Object]` |  | 胶囊大小 |
 | selected | boolean |  | `false` | 是否选中此项 |
 | disabled | boolean |  | `false` | 禁用此项 |
 | label | string |  | `''` | 顶部自定义提示文本 |

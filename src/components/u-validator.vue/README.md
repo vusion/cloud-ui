@@ -27,7 +27,7 @@
     - [Events](#events)
     - [Methods](#methods)
 
-**表单验证器**, **行内展示**
+**Form**
 
 实现了基础的嵌套验证功能和原子化验证功能，包含提示样式。常用于嵌套验证时使用，或用于派生一些较复杂的组件。
 
@@ -1623,7 +1623,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.trigger | enum | 本次验证的触发方式 |
+| $event.trigger | string | 本次验证的触发方式 |
 | $event.valid | boolean | 验证是否通过 |
 | $event.touched | boolean | 用户是否触碰 |
 | $event.dirty | boolean | 用户是否修改值 |

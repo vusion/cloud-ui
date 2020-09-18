@@ -16,9 +16,9 @@
     - [Events](#events)
     - [Methods](#methods)
 
-**UI 组件**, **表单类**, **行内展示**
+**Form**
 
-多行输入组件，在原生`<textarea>`控件基础上进行了一些功能扩展。
+多行输入组件
 
 ## 示例
 ## 示例
@@ -124,14 +124,14 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | value.sync, v-model | string |  |  | 输入框的值 |
 | clearable | boolean |  | `false` | 是否可清空。开启并在输入框有内容时会显示清空按钮。 |
-| placeholder | string |  |  | 原生属性。对 IE9 做了兼容。 |
+| placeholder | string |  |  | 为空时提示内容 |
 | minlength | number |  |  | 原生属性 |
 | maxlength | number |  |  | 原生属性 |
 | spellcheck | boolean |  |  | 原生属性 |
 | autofocus | boolean |  |  | 是否自动获取焦点 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
-| resize | string |  | `'none'` | 是否可以调整大小。可选值：`'none'`、`'both'`、`'horizontal'`、`'vertical'` |
+| resize | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'none'` | 是否可以调整大小 |
 
 ### Slots
 

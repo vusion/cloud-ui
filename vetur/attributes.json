@@ -1,9 +1,15 @@
 {
   "e-ripple/color": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "light",
-      "dark"
+      {
+        "name": "浅色",
+        "value": "light"
+      },
+      {
+        "name": "深色",
+        "value": "dark"
+      }
     ],
     "description": "波纹颜色"
   },
@@ -17,7 +23,7 @@
   },
   "e-watermark/opacity": {
     "type": "number",
-    "description": "透明度"
+    "description": "透明程度, 0-1 之间的小数"
   },
   "f-draggable/value": {
     "type": "any",
@@ -153,6 +159,24 @@
   },
   "i-icon/name": {
     "type": "string",
+    "options": [
+      "area",
+      "portrait",
+      "left",
+      "right",
+      "arrow-down",
+      "arrow-up",
+      "refresh",
+      "search",
+      "alert",
+      "logout",
+      "dropdown",
+      "down",
+      "up",
+      "chart-refresh",
+      "chart-zoom",
+      "close"
+    ],
     "description": "图标名称"
   },
   "m-complex/value": {
@@ -284,30 +308,82 @@
     "description": "弹出/关闭状态"
   },
   "m-popper/trigger": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "click",
-      "hover",
-      "right-click",
-      "double-click"
+      {
+        "value": "click",
+        "title": "点击"
+      },
+      {
+        "value": "hover",
+        "title": "悬浮"
+      },
+      {
+        "value": "right-click",
+        "title": "右击"
+      },
+      {
+        "value": "double-click",
+        "title": "双击"
+      },
+      {
+        "value": "manual",
+        "title": "手动"
+      }
     ],
     "description": "触发方式。"
   },
   "m-popper/placement": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "top",
-      "bottom",
-      "left",
-      "right",
-      "top-start",
-      "top-end",
-      "bottom-start",
-      "bottom-end",
-      "left-start",
-      "left-end",
-      "right-start",
-      "right-end"
+      {
+        "value": "top",
+        "name": "上"
+      },
+      {
+        "value": "bottom",
+        "name": "下"
+      },
+      {
+        "value": "left",
+        "name": "左"
+      },
+      {
+        "value": "right",
+        "name": "右"
+      },
+      {
+        "value": "top-start",
+        "name": "上左"
+      },
+      {
+        "value": "top-end",
+        "name": "上右"
+      },
+      {
+        "value": "bottom-start",
+        "name": "下左"
+      },
+      {
+        "value": "bottom-end",
+        "name": "下右"
+      },
+      {
+        "value": "left-start",
+        "name": "左上"
+      },
+      {
+        "value": "left-end",
+        "name": "左下"
+      },
+      {
+        "value": "right-start",
+        "name": "右上"
+      },
+      {
+        "value": "right-end",
+        "name": "右下"
+      }
     ],
     "description": "弹出方向。"
   },
@@ -396,22 +472,58 @@
     "description": "菜单标题"
   },
   "u-actions/placement": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "top",
-      "bottom",
-      "left",
-      "right",
-      "top-start",
-      "top-end",
-      "bottom-start",
-      "bottom-end",
-      "left-start",
-      "left-end'",
-      "right-start",
-      "right-end"
+      {
+        "value": "top",
+        "name": "上"
+      },
+      {
+        "value": "bottom",
+        "name": "下"
+      },
+      {
+        "value": "left",
+        "name": "左"
+      },
+      {
+        "value": "right",
+        "name": "右"
+      },
+      {
+        "value": "top-start",
+        "name": "上左"
+      },
+      {
+        "value": "top-end",
+        "name": "上右"
+      },
+      {
+        "value": "bottom-start",
+        "name": "下左"
+      },
+      {
+        "value": "bottom-end",
+        "name": "下右"
+      },
+      {
+        "value": "left-start",
+        "name": "左上"
+      },
+      {
+        "value": "left-end",
+        "name": "左下"
+      },
+      {
+        "value": "right-start",
+        "name": "右上"
+      },
+      {
+        "value": "right-end",
+        "name": "右下"
+      }
     ],
-    "description": "菜单的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start',` `'left-end'`, `'right-start'`, `'right-end'`"
+    "description": "菜单的弹出方向"
   },
   "u-action/hidden": {
     "type": "boolean",
@@ -467,57 +579,108 @@
     "description": "是否显示为小圆点"
   },
   "u-button/color": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "default",
-      "primary",
-      "danger"
+      {
+        "value": "default",
+        "title": "主要按钮"
+      },
+      {
+        "value": "primary",
+        "title": "次要按钮"
+      },
+      {
+        "value": "danger",
+        "title": "危险操作按钮"
+      }
     ],
-    "description": "设置颜色。`'primary'`表示主按钮，`'danger'`表示危险按钮。"
+    "description": "设置颜色"
   },
   "u-button/dashed": {
     "type": "boolean",
     "description": "边框是否为虚线。"
   },
   "u-button/size": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "mini",
-      "small",
-      "normal",
-      "large",
-      "huge"
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "mini",
+        "title": "迷你"
+      }
     ],
-    "description": "设置尺寸。可选值：`'mini'`、`'small'`、`'normal'`、`'large'`、`'huge'`"
+    "description": "设置尺寸"
   },
   "u-button/shape": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "default",
-      "square",
-      "round",
-      "circle"
+      {
+        "value": "default",
+        "title": "默认"
+      },
+      {
+        "value": "square",
+        "title": "方形"
+      },
+      {
+        "value": "round",
+        "title": "圆角"
+      },
+      {
+        "value": "circle",
+        "title": "圆形"
+      }
     ],
-    "description": "设置形状。选项分别为默认、圆角、方形、圆形。"
+    "description": "设置形状"
   },
   "u-button/disabled": {
     "type": "boolean",
     "description": "是否禁用。禁用后不会响应点击事件。"
   },
   "u-button/display": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "inline",
-      "block"
+      {
+        "value": "inline",
+        "title": "行内展示"
+      },
+      {
+        "value": "block",
+        "title": "块级展示，宽度会充满父元素"
+      }
     ],
-    "description": "展示方式。`'inline'`表示行内展示，`'block'`表示块级展示，宽度会充满父元素。"
+    "description": "展示方式"
   },
   "u-button/icon": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "refresh",
-      "create",
-      "success"
+      {
+        "value": "refresh",
+        "name": "刷新"
+      },
+      {
+        "value": "create",
+        "name": "创建"
+      },
+      {
+        "value": "success",
+        "name": "成功"
+      }
     ],
     "description": "设置图标。"
   },
@@ -530,26 +693,28 @@
     "description": "链接地址"
   },
   "u-button/target": {
-    "type": "enum",
+    "type": "string",
     "options": [
       {
-        "name": "新标签页 (_blank)",
-        "value": "_blank"
+        "value": "_blank",
+        "title": "新窗口"
       },
       {
-        "name": "当前窗口 (_self)",
-        "value": "_self"
+        "value": "_self",
+        "title": "当前窗口"
       },
       {
-        "name": "父级窗口 (_parent)",
-        "value": "_parent"
+        "value": "_parent",
+        "title": "父级窗口",
+        "advanced": true
       },
       {
-        "name": "顶级窗口 (_top)",
-        "value": "_top"
+        "value": "_top",
+        "title": "顶级窗口",
+        "advanced": true
       }
     ],
-    "description": "（原生属性）。比如设置`_blank`，会在新标签页中打开。"
+    "description": "链接打开方式"
   },
   "u-button/to": {
     "type": "string, Location",
@@ -620,11 +785,18 @@
     "description": "此项的值"
   },
   "u-capsule/size": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "small"
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      }
     ],
-    "description": "胶囊大小，可选值：`'small'`"
+    "description": "胶囊大小"
   },
   "u-capsule/selected": {
     "type": "boolean",
@@ -656,7 +828,7 @@
   },
   "u-carousel/loop": {
     "type": "boolean",
-    "description": "是否循环播放，即首尾连接"
+    "description": "是否循环播放"
   },
   "u-carousel/interval": {
     "type": "number",
@@ -883,7 +1055,17 @@
   },
   "u-combo-slider/sync-on": {
     "type": "string",
-    "description": "输入后何时同步值到`<u-slider>`组件中。可选值：`'input'`表示在输入时同步，`'blur'`表示在失焦时同步"
+    "options": [
+      {
+        "value": "input",
+        "title": "输入时同步"
+      },
+      {
+        "value": "blur",
+        "title": "失焦时同步"
+      }
+    ],
+    "description": "同步时机"
   },
   "u-combo-slider/hide-buttons": {
     "type": "boolean",
@@ -911,24 +1093,83 @@
   },
   "u-copy/text": {
     "type": "string",
-    "description": "链接的文本"
+    "description": "默认显示的文本"
   },
   "u-copy/success-text": {
     "type": "string",
     "description": "复制成功提示文本"
   },
   "u-copy/feedback": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "tooltip",
-      "toast",
-      "none"
+      {
+        "value": "tooltip",
+        "title": "工具提示"
+      },
+      {
+        "value": "toast",
+        "title": "弹框提示"
+      },
+      {
+        "value": "none",
+        "title": "无反馈"
+      }
     ],
-    "description": "复制提示反馈方式 `'tooltip'`,`'toast'`,`'none'`"
+    "description": "复制提示反馈方式"
   },
   "u-copy/placement": {
     "type": "string",
-    "description": "tooltip 提示框位置，可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',`'left-end'`, `'right-start'`, `'right-end'`"
+    "options": [
+      {
+        "value": "top",
+        "name": "上"
+      },
+      {
+        "value": "bottom",
+        "name": "下"
+      },
+      {
+        "value": "left",
+        "name": "左"
+      },
+      {
+        "value": "right",
+        "name": "右"
+      },
+      {
+        "value": "top-start",
+        "name": "上左"
+      },
+      {
+        "value": "top-end",
+        "name": "上右"
+      },
+      {
+        "value": "bottom-start",
+        "name": "下左"
+      },
+      {
+        "value": "bottom-end",
+        "name": "下右"
+      },
+      {
+        "value": "left-start",
+        "name": "左上"
+      },
+      {
+        "value": "left-end",
+        "name": "左下"
+      },
+      {
+        "value": "right-start",
+        "name": "右上"
+      },
+      {
+        "value": "right-end",
+        "name": "右下"
+      }
+    ],
+    "description": "tooltip 提示框位置"
   },
   "u-copy/hide-delay": {
     "type": "number",
@@ -994,43 +1235,47 @@
     "type": "boolean",
     "description": "是否开启渐变"
   },
-  "u-crumb/无": {
-    "type": "",
-    "description": ""
-  },
   "u-crumb-item/type": {
     "type": "string",
     "options": [
-      "link",
-      "text"
+      {
+        "value": "link",
+        "title": "链接"
+      },
+      {
+        "value": "text",
+        "title": "显示为默认颜色文本，不可点"
+      }
     ],
-    "description": "类型。可选值：`'link'`表示链接，可点击，`'text'`只显示为默认颜色文本，不可点。"
+    "description": "类型"
   },
   "u-crumb-item/href": {
     "type": "string",
     "description": "链接地址"
   },
   "u-crumb-item/target": {
-    "type": "enum",
+    "type": "string",
     "options": [
       {
-        "name": "新标签页 (_blank)",
-        "value": "_blank"
+        "value": "_blank",
+        "title": "新标签页"
       },
       {
-        "name": "当前窗口 (_self)",
-        "value": "_self"
+        "value": "_self",
+        "title": "当前窗口"
       },
       {
-        "name": "父级窗口 (_parent)",
-        "value": "_parent"
+        "value": "_parent",
+        "title": "父级窗口",
+        "advanced": true
       },
       {
-        "name": "顶级窗口 (_top)",
-        "value": "_top"
+        "value": "_top",
+        "title": "顶级窗口",
+        "advanced": true
       }
     ],
-    "description": "（原生属性）。比如设置`_blank`，会在新标签页中打开。"
+    "description": "链接打开方式"
   },
   "u-crumb-item/to": {
     "type": "string, Location",
@@ -1082,19 +1327,29 @@
   },
   "u-date-picker/alignment": {
     "type": "string",
-    "description": "日历弹窗对其方式，可选值：`left`, `right`"
+    "options": [
+      {
+        "value": "left",
+        "title": "左对齐"
+      },
+      {
+        "value": "right",
+        "title": "右对齐"
+      }
+    ],
+    "description": "日历弹窗对其方式"
   },
   "u-date-picker/time": {
     "type": "string, number",
-    "description": "设置返回的日期的时分秒值，可选值为`start`,表示时分秒是0:00:00,`morning`:时分秒为8:00:00,`end`:表示时分秒为: 23:59:59, 输入整数表示对应的整数时刻，例如输入9代表时分秒为9:00:00,自定义时分秒请输入对应格式的字符串即可"
+    "description": "输入对应格式的字符串（8:00:00）即可"
   },
   "u-date-picker/yeadDiff": {
     "type": "string, number",
-    "description": "当前年份前几年"
+    "description": "最小可选年份值为当前年减去此值"
   },
   "u-date-picker/yearAdd": {
     "type": "string, number",
-    "description": "当前年份后几年"
+    "description": "最大可选年份值为当前年加上此值"
   },
   "u-date-time-picker/date": {
     "type": "string, number, Date",
@@ -1349,32 +1604,62 @@
     "description": "表单所有域的验证规则，已废弃，推荐在各`<u-form-item>`中自行添加 rules。"
   },
   "u-form/layout": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "block",
-      "inline"
+      {
+        "value": "inline",
+        "title": "行内展示"
+      },
+      {
+        "value": "block",
+        "title": "块级展示，宽度会充满父元素"
+      }
     ],
-    "description": "表单布局方式。可选值：`block`、`inline`。"
+    "description": "表单布局方式"
   },
   "u-form/gap": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "none",
-      "small",
-      "normal",
-      "large"
+      {
+        "value": "none",
+        "title": "无"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      }
     ],
-    "description": "表单项之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。可选值: `'none'`, `'small'`, `'normal'`, `'large'`"
+    "description": "表单项之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。"
   },
   "u-form/label-size": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "mini",
-      "small",
-      "normal",
-      "large"
+      {
+        "value": "mini",
+        "title": "迷你"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      }
     ],
-    "description": "标签宽度。可选值：`mini`、`small`、`normal`、`large`。"
+    "description": "标签宽度。"
   },
   "u-form-item/name": {
     "type": "string",
@@ -1385,24 +1670,48 @@
     "description": "标签名。用于左侧显示，同时用于提示消息的合成。"
   },
   "u-form-item/label-size": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "mini",
-      "small",
-      "normal",
-      "large"
+      {
+        "value": "mini",
+        "title": "迷你"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      }
     ],
     "description": "单独设置表单项的标签大小。"
   },
   "u-form-item/field-size": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "mini",
-      "small",
-      "normal",
-      "large"
+      {
+        "value": "mini",
+        "title": "迷你"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      }
     ],
-    "description": "单独设置表单项的内容大小。可选值：`'full'`"
+    "description": "单独设置表单项的内容大小"
   },
   "u-form-item/required": {
     "type": "boolean",
@@ -1413,31 +1722,51 @@
     "description": "默认提示消息"
   },
   "u-form-item/muted": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "none",
-      "message",
-      "all"
-    ],
-    "description": "验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示"
+      {
+        "value": "message",
+        "title": "只静默消息提示"
+      },
+      {
+        "value": "all",
+        "title": "同时静默消息提示和红框提示"
+      },
+      {
+        "value": "none",
+        "title": "不作处理"
+      }
+    ]
   },
   "u-form-item/description": {
     "type": "string",
     "description": "添加描述内容"
   },
   "u-form-item/placement": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "right",
-      "bottom"
+      {
+        "value": "right",
+        "title": "提示信息在右侧显示"
+      },
+      {
+        "value": "bottom",
+        "title": "提示信息在底部显示"
+      }
     ],
-    "description": "值为`'bottom'`时提示信息在底部显示，改变提示信息显示位置"
+    "description": "改变提示信息显示位置"
   },
   "u-form-item/layout": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "block",
-      "inline"
+      {
+        "value": "inline",
+        "title": "行内"
+      },
+      {
+        "value": "block",
+        "title": "块级"
+      }
     ],
     "description": "布局方式。"
   },
@@ -1467,41 +1796,97 @@
   },
   "u-grid-layout/gap": {
     "type": "string",
-    "description": "栅格之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。可选值: `'none'`, `'small'`, `'normal'`, `'large'`"
+    "options": [
+      {
+        "value": "none",
+        "title": "无"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      }
+    ],
+    "description": "栅格之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）"
   },
   "u-grid-layout-row/repeat": {
     "type": "number",
     "description": "划分的栅格数"
   },
   "u-grid-layout-row/type": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "default",
-      "flex"
+      {
+        "value": "default",
+        "title": "默认类型"
+      },
+      {
+        "value": "flex",
+        "title": "flex"
+      }
     ],
-    "description": "布局模式。可选值：`'flex'`或不填"
+    "description": "布局模式"
   },
   "u-grid-layout-row/justify": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "start",
-      "center",
-      "end",
-      "space-between",
-      "space-around"
+      {
+        "value": "start",
+        "title": "左对齐"
+      },
+      {
+        "value": "center",
+        "title": "居中对齐"
+      },
+      {
+        "value": "end",
+        "title": "右对齐"
+      },
+      {
+        "value": "space-between",
+        "title": "各行之间留有空",
+        "advanced": true
+      },
+      {
+        "value": "space-around",
+        "title": "之前、之间、之后都留有空白",
+        "advanced": true
+      }
     ],
-    "description": "flex布局模式的水平分布方式，可选值：`'start'`, `'center'`, `'end'`, `'space-between'`, `'space-around'`"
+    "description": "内容对齐方式"
   },
   "u-grid-layout-row/alignment": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "start",
-      "center",
-      "end",
-      "baseline",
-      "stretch"
+      {
+        "value": "start",
+        "title": "头对齐"
+      },
+      {
+        "value": "center",
+        "title": "居中对齐"
+      },
+      {
+        "value": "end",
+        "title": "尾对齐"
+      },
+      {
+        "value": "baseline",
+        "title": "基线对齐"
+      },
+      {
+        "value": "stretch",
+        "title": "拉伸子元素充满整个父元素空间"
+      }
     ],
-    "description": "flex布局模式的垂直对齐方式，可选值：`'start'`, `'center'`, `'end'`, `'baseline'`, `'stretch'`"
+    "description": "flex布局模式下的交叉轴对齐方式"
   },
   "u-grid-layout-column/span": {
     "type": "number",
@@ -1539,13 +1924,53 @@
     "type": "number",
     "description": "响应式布局`<=480px`的列跨越栅格数"
   },
+  "u-html/html": {
+    "type": "string",
+    "description": "html 文本内容"
+  },
+  "u-html/security": {
+    "type": "boolean",
+    "description": "过滤不安全的内容"
+  },
+  "u-html/options": {
+    "type": "object",
+    "description": "安全过滤库 dompurify 的配置"
+  },
   "u-icon-tooltip/type": {
     "type": "string",
-    "description": "图标类型。可选值：`'info'`, `'help'`, `'detail'`"
+    "options": [
+      {
+        "value": "info",
+        "title": "信息"
+      },
+      {
+        "value": "help",
+        "title": "帮助"
+      },
+      {
+        "value": "detail",
+        "title": "详情"
+      }
+    ],
+    "description": "图标类型"
   },
   "u-icon-tooltip/size": {
     "type": "string",
-    "description": "提示大小。可选值：`'mini'`, `'normal'`, `'large'`"
+    "options": [
+      {
+        "value": "mini",
+        "title": "迷你"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      }
+    ],
+    "description": "提示大小"
   },
   "u-icon-tooltip/opened": {
     "type": "boolean",
@@ -1553,11 +1978,83 @@
   },
   "u-icon-tooltip/trigger": {
     "type": "string",
-    "description": "工具提示的触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`, `'manual'`"
+    "options": [
+      {
+        "value": "click",
+        "title": "点击"
+      },
+      {
+        "value": "hover",
+        "title": "悬浮"
+      },
+      {
+        "value": "right-click",
+        "title": "右击"
+      },
+      {
+        "value": "double-click",
+        "title": "双击"
+      },
+      {
+        "value": "manual",
+        "title": "手动"
+      }
+    ],
+    "description": "工具提示的触发方式"
   },
   "u-icon-tooltip/placement": {
     "type": "string",
-    "description": "工具提示的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',` 'left-end'`, `'right-start'`, `'right-end'`"
+    "options": [
+      {
+        "value": "top",
+        "name": "上"
+      },
+      {
+        "value": "bottom",
+        "name": "下"
+      },
+      {
+        "value": "left",
+        "name": "左"
+      },
+      {
+        "value": "right",
+        "name": "右"
+      },
+      {
+        "value": "top-start",
+        "name": "上左"
+      },
+      {
+        "value": "top-end",
+        "name": "上右"
+      },
+      {
+        "value": "bottom-start",
+        "name": "下左"
+      },
+      {
+        "value": "bottom-end",
+        "name": "下右"
+      },
+      {
+        "value": "left-start",
+        "name": "左上"
+      },
+      {
+        "value": "left-end",
+        "name": "左下"
+      },
+      {
+        "value": "right-start",
+        "name": "右上"
+      },
+      {
+        "value": "right-end",
+        "name": "右下"
+      }
+    ],
+    "description": "工具提示的弹出方向"
   },
   "u-icon-tooltip/hide-delay": {
     "type": "number",
@@ -1568,27 +2065,44 @@
     "description": "弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px`"
   },
   "u-icon-tooltip/follow-cursor": {
-    "type": "boolean, number, object",
+    "type": "boolean",
     "description": "是否跟随鼠标"
   },
   "u-icon-tooltip/disabled": {
     "type": "boolean",
     "description": "是否禁用"
   },
+  "u-iframe/src": {
+    "type": "string",
+    "description": "嵌入网页的地址"
+  },
+  "u-image/src": {
+    "type": "string",
+    "description": "图片地址"
+  },
   "u-info-list/repeat": {
-    "type": [
-      "string",
-      "number"
-    ],
+    "type": "number",
     "description": "整个详情列表的划分列数"
   },
   "u-info-list/label-size": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "small",
-      "normal",
-      "large",
-      "auto"
+      {
+        "value": "auto",
+        "title": "自适应"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      }
     ],
     "description": "详情列表所有项的标签大小。"
   },
@@ -1601,47 +2115,74 @@
     "description": "列跨越的格数"
   },
   "u-info-list-item/label-size": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "small",
-      "normal",
-      "large",
-      "auto"
+      {
+        "value": "auto",
+        "title": "自适应"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      }
     ],
     "description": "标签大小。"
   },
   "u-info-list-item/ellipsis": {
     "type": "boolean",
-    "description": "是否换行，默认换行，值为`true`则开启不换行，超出部分显示为省略号"
+    "description": "是否换行，默认换行"
   },
   "u-info-list-group/title": {
     "type": "string",
     "description": "标题"
   },
   "u-info-list-group/repeat": {
-    "type": [
-      "string",
-      "number"
-    ],
+    "type": "number",
     "description": "当前组范围内的划分列数"
   },
   "u-info-list-group/label-size": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "small",
-      "normal",
-      "large",
-      "auto"
+      {
+        "value": "auto",
+        "title": "自适应"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      }
     ],
     "description": "当前组所有项的标签大小。"
   },
   "u-input/type": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "text",
-      "password"
+      {
+        "value": "text",
+        "title": "文本"
+      },
+      {
+        "value": "password",
+        "title": "密码"
+      }
     ],
-    "description": "输入框的类型，目前支持两种：`'text'`和`'password'`"
+    "description": "输入框的类型"
   },
   "u-input/value": {
     "type": "string",
@@ -1653,15 +2194,15 @@
   },
   "u-input/placeholder": {
     "type": "string",
-    "description": "原生属性。对 IE9 做了兼容。"
+    "description": "原生属性"
   },
   "u-input/minlength": {
     "type": "number",
-    "description": "原生属性"
+    "description": "最小输入长度"
   },
   "u-input/maxlength": {
     "type": "number",
-    "description": "原生属性"
+    "description": "最大输入长度"
   },
   "u-input/spellcheck": {
     "type": "boolean",
@@ -1680,54 +2221,108 @@
     "description": "是否禁用"
   },
   "u-input/size": {
-    "type": "size",
+    "type": "string",
     "options": [
-      "mini",
-      "small",
-      "normal",
-      "medium",
-      "large",
-      "huge",
-      "full"
+      {
+        "value": "full",
+        "title": "占满"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "medium",
+        "title": "中型"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "mini",
+        "title": "迷你"
+      }
     ],
-    "description": "大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'medium'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式"
+    "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度"
   },
   "u-input/maxlengthMessage": {
     "type": "string",
     "description": "\b\b输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效"
   },
   "u-label/color": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "default",
-      "primary",
-      "success",
-      "warning",
-      "error"
+      {
+        "value": "default",
+        "title": "默认"
+      },
+      {
+        "value": "primary",
+        "title": "主要色"
+      },
+      {
+        "value": "success",
+        "title": "成功色"
+      },
+      {
+        "value": "warning",
+        "title": "警告色"
+      },
+      {
+        "value": "error",
+        "title": "错误色"
+      }
     ],
-    "description": "设置颜色。"
+    "description": "设置颜色"
   },
   "u-label/size": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "small",
-      "normal",
-      "large",
-      "huge"
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      }
     ],
-    "description": "设置尺寸。"
+    "description": "设置尺寸"
   },
   "u-label/removable": {
     "type": "boolean",
-    "description": "是否可删除。开启时可以通过删除按钮触发`remove`事件，需要自己实现删除逻辑。"
+    "description": "是否显示删除图标"
   },
   "u-label/display": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "inline",
-      "block"
+      {
+        "value": "inline",
+        "title": "行内"
+      },
+      {
+        "value": "block",
+        "title": "块级"
+      }
     ],
-    "description": "展示方式。`'inline'`表示行内展示, `'block'`表示块级展示，宽度会充满父元素。"
+    "description": "展示方式"
   },
   "u-lightbox/visible": {
     "type": "boolean",
@@ -1778,119 +2373,229 @@
     "description": "每次放大缩小的比例"
   },
   "u-linear-layout/direction": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "horizontal",
-      "vertical"
+      {
+        "value": "horizontal",
+        "title": "横向排列"
+      },
+      {
+        "value": "vertical",
+        "title": "纵向排列"
+      }
     ],
-    "description": "排列方向。"
+    "description": "排列方向"
   },
   "u-linear-layout/gap": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "shrink",
-      "none",
-      "small",
-      "normal",
-      "large"
+      {
+        "value": "shrink",
+        "title": "收缩",
+        "advanced": true
+      },
+      {
+        "value": "none",
+        "title": "无"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      }
     ],
-    "description": "间隙大小，需自行扩展。"
+    "description": "内容块间隙大小"
   },
   "u-linear-layout/display": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "inline",
-      "block"
+      {
+        "value": "inline",
+        "title": "行内"
+      },
+      {
+        "value": "block",
+        "title": "块级"
+      }
     ],
-    "description": "展示方式。可选值："
+    "description": "展示方式"
   },
   "u-linear-layout/layout": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "none",
-      "inline",
-      "block"
+      {
+        "value": "none",
+        "title": "子元素默认布局"
+      },
+      {
+        "value": "inline",
+        "title": "子元素行内布局"
+      },
+      {
+        "value": "block",
+        "title": "子元素块级布局"
+      }
     ],
-    "description": "布局方式，用于迅速调整子元素或组件的展示方式。"
+    "description": "子元素的展示方式"
   },
   "u-linear-layout/type": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "flex"
+      {
+        "value": "flex",
+        "title": "flex 布局模式"
+      }
     ],
-    "description": "布局模式。"
+    "description": "布局模式"
   },
   "u-linear-layout/justify": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "start",
-      "center",
-      "end",
-      "space-between",
-      "space-around"
+      {
+        "value": "start",
+        "title": "左对齐"
+      },
+      {
+        "value": "center",
+        "title": "居中对齐"
+      },
+      {
+        "value": "end",
+        "title": "右对齐"
+      },
+      {
+        "value": "space-between",
+        "title": "各行之间留有空",
+        "advanced": true
+      },
+      {
+        "value": "space-around",
+        "title": "之前、之间、之后都留有空白",
+        "advanced": true
+      }
     ],
-    "description": "主轴分布方式。普通模式下可选值：`'start'`, `'center'`, `'end'`, `'space-between'`。flex布局模式下还支持：`'space-around'`。普通模式下的`'space-between'`功能很弱，只支持左右分布。"
+    "description": "内容对齐方式"
   },
   "u-linear-layout/alignment": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "start",
-      "center",
-      "end",
-      "baseline",
-      "stretch"
+      {
+        "value": "start",
+        "title": "头对齐"
+      },
+      {
+        "value": "center",
+        "title": "居中对齐"
+      },
+      {
+        "value": "end",
+        "title": "尾对齐"
+      },
+      {
+        "value": "baseline",
+        "title": "基线对齐"
+      },
+      {
+        "value": "stretch",
+        "title": "拉伸子元素充满整个父元素空间"
+      }
     ],
-    "description": "flex布局模式下的交叉轴对齐方式，可选值：`'start'`, `'center'`, `'end'`, `'baseline'`, `'stretch'`"
+    "description": "flex布局模式下的交叉轴对齐方式"
   },
   "u-linear-progress/percent": {
     "type": "number",
-    "description": "百分比"
+    "description": "百分比，0-100 之间的数字"
   },
   "u-linear-progress/size": {
     "type": "string",
-    "description": "高度扩展，值有`'small'`, `'normal'`, `'large'`, `'huge'`四个值"
+    "options": [
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      }
+    ],
+    "description": "高度扩展"
   },
   "u-linear-progress/range": {
-    "type": "Array",
+    "type": "array<number>",
     "description": "百分比范围限制"
   },
   "u-link/color": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "default",
-      "light",
-      "success",
-      "warning",
-      "danger",
-      "error"
+      {
+        "value": "default",
+        "title": "默认"
+      },
+      {
+        "value": "light",
+        "title": "浅色"
+      },
+      {
+        "value": "success",
+        "title": "成功色"
+      },
+      {
+        "value": "warning",
+        "title": "警告色"
+      },
+      {
+        "value": "error",
+        "title": "错误色"
+      },
+      {
+        "value": "danger",
+        "title": "危险色"
+      }
     ],
-    "description": "设置颜色。"
+    "description": "设置颜色"
   },
   "u-link/href": {
     "type": "string",
     "description": "链接地址"
   },
   "u-link/target": {
-    "type": "enum",
+    "type": "string",
     "options": [
       {
-        "name": "新标签页 (_blank)",
-        "value": "_blank"
+        "value": "_blank",
+        "title": "新标签页"
       },
       {
-        "name": "当前窗口 (_self)",
-        "value": "_self"
+        "value": "_self",
+        "title": "当前窗口"
       },
       {
-        "name": "父级窗口 (_parent)",
-        "value": "_parent"
+        "value": "_parent",
+        "title": "父级窗口",
+        "advanced": true
       },
       {
-        "name": "顶级窗口 (_top)",
-        "value": "_top"
+        "value": "_top",
+        "title": "顶级窗口",
+        "advanced": true
       }
     ],
-    "description": "（原生属性）。比如设置`_blank`，会在新标签页中打开。"
+    "description": "链接打开方式"
   },
   "u-link/to": {
     "type": "string, Location",
@@ -1909,12 +2614,18 @@
     "description": "是否禁用。禁用后不会响应点击事件。"
   },
   "u-link/display": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "inline",
-      "block"
+      {
+        "value": "inline",
+        "title": "行内展示"
+      },
+      {
+        "value": "block",
+        "title": "块级展示，宽度会充满父元素"
+      }
     ],
-    "description": "展示方式。`'inline'`表示行内展示，`'block'`表示块级展示，宽度会充满父元素。"
+    "description": "展示方式"
   },
   "u-list-view/value": {
     "type": "any",
@@ -1985,7 +2696,7 @@
     "description": "过滤时的匹配方法"
   },
   "u-list-view/case-sensitive": {
-    "type": "string, Function",
+    "type": "boolean",
     "description": "过滤时大小写是否敏感"
   },
   "u-list-view/remote-filtering": {
@@ -2013,13 +2724,28 @@
     "description": "是否禁用"
   },
   "u-list-view/size": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "normal",
-      "large",
-      "huge",
-      "auto",
-      "full"
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "auto",
+        "title": "自适应"
+      },
+      {
+        "value": "full",
+        "title": "占满"
+      }
     ],
     "description": "设置尺寸。五种宽高的自由组合。"
   },
@@ -2088,26 +2814,28 @@
     "description": "链接地址"
   },
   "u-menu-item/target": {
-    "type": "enum",
+    "type": "string",
     "options": [
       {
-        "name": "新标签页 (_blank)",
-        "value": "_blank"
+        "value": "_blank",
+        "title": "新标签页"
       },
       {
-        "name": "当前窗口 (_self)",
-        "value": "_self"
+        "value": "_self",
+        "title": "当前窗口"
       },
       {
-        "name": "父级窗口 (_parent)",
-        "value": "_parent"
+        "value": "_parent",
+        "title": "父级窗口",
+        "advanced": true
       },
       {
-        "name": "顶级窗口 (_top)",
-        "value": "_top"
+        "value": "_top",
+        "title": "顶级窗口",
+        "advanced": true
       }
     ],
-    "description": "（原生属性）。比如设置`_blank`，会在新标签页中打开。"
+    "description": "链接打开方式"
   },
   "u-menu-item/to": {
     "type": "string, Location",
@@ -2150,19 +2878,48 @@
     "description": "取消按钮文本，如果为空则不显示"
   },
   "u-modal/size": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "small",
-      "normal",
-      "large",
-      "huge",
-      "auto"
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "auto",
+        "title": "自适应"
+      }
     ],
-    "description": "弹框的尺寸, 可选值：`'small'`, `'normal'`, `'large'`, `'huge'`, `'auto'`,"
+    "description": "弹框的尺寸"
   },
   "u-modal/icon": {
     "type": "string",
-    "description": "提示图标, 可选值：`success`, `warning`, `error`"
+    "options": [
+      {
+        "value": "success",
+        "title": "成功"
+      },
+      {
+        "value": "warning",
+        "title": "警告"
+      },
+      {
+        "value": "error",
+        "title": "错误"
+      }
+    ],
+    "description": "提示图标"
   },
   "u-modal/static": {
     "type": "boolean",
@@ -2209,26 +2966,28 @@
     "description": "链接地址"
   },
   "u-navbar-item/target": {
-    "type": "enum",
+    "type": "string",
     "options": [
       {
-        "name": "新标签页 (_blank)",
-        "value": "_blank"
+        "value": "_blank",
+        "title": "新标签页"
       },
       {
-        "name": "当前窗口 (_self)",
-        "value": "_self"
+        "value": "_self",
+        "title": "当前窗口"
       },
       {
-        "name": "父级窗口 (_parent)",
-        "value": "_parent"
+        "value": "_parent",
+        "title": "父级窗口",
+        "advanced": true
       },
       {
-        "name": "顶级窗口 (_top)",
-        "value": "_top"
+        "value": "_top",
+        "title": "顶级窗口",
+        "advanced": true
       }
     ],
-    "description": "（原生属性）。比如设置`_blank`，会在新标签页中打开。"
+    "description": "链接跳转方式"
   },
   "u-navbar-item/to": {
     "type": "string, Location",
@@ -2244,11 +3003,83 @@
   },
   "u-navbar-dropdown/trigger": {
     "type": "string",
-    "description": "触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`, `'manual'`"
+    "options": [
+      {
+        "value": "click",
+        "title": "点击"
+      },
+      {
+        "value": "hover",
+        "title": "悬浮"
+      },
+      {
+        "value": "right-click",
+        "title": "右击"
+      },
+      {
+        "value": "double-click",
+        "title": "双击"
+      },
+      {
+        "value": "manual",
+        "title": "手动"
+      }
+    ],
+    "description": "触发方式"
   },
   "u-navbar-dropdown/placement": {
     "type": "string",
-    "description": "弹出方位。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',` 'left-end'`, `'right-start'`, `'right-end'`"
+    "options": [
+      {
+        "value": "top",
+        "name": "上"
+      },
+      {
+        "value": "bottom",
+        "name": "下"
+      },
+      {
+        "value": "left",
+        "name": "左"
+      },
+      {
+        "value": "right",
+        "name": "右"
+      },
+      {
+        "value": "top-start",
+        "name": "上左"
+      },
+      {
+        "value": "top-end",
+        "name": "上右"
+      },
+      {
+        "value": "bottom-start",
+        "name": "下左"
+      },
+      {
+        "value": "bottom-end",
+        "name": "下右"
+      },
+      {
+        "value": "left-start",
+        "name": "左上"
+      },
+      {
+        "value": "left-end",
+        "name": "左下"
+      },
+      {
+        "value": "right-start",
+        "name": "右上"
+      },
+      {
+        "value": "right-end",
+        "name": "右下"
+      }
+    ],
+    "description": "弹出方位"
   },
   "u-navbar-dropdown/disabled": {
     "type": "boolean",
@@ -2318,16 +3149,38 @@
     "description": "是否禁用"
   },
   "u-number-input/size": {
-    "type": "size",
+    "type": "string",
     "options": [
-      "mini",
-      "small",
-      "normal",
-      "large",
-      "huge",
-      "full"
+      {
+        "value": "full",
+        "title": "占满"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "medium",
+        "title": "中型"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "mini",
+        "title": "迷你"
+      }
     ],
-    "description": "大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式"
+    "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度"
   },
   "u-pagination/page": {
     "type": "number",
@@ -2376,6 +3229,10 @@
   "u-pagination/show-jumper": {
     "type": "boolean",
     "description": "是否显示页面跳转输入框"
+  },
+  "u-panel-group/title": {
+    "type": "string",
+    "description": "面板项的标题"
   },
   "u-pills/data": {
     "type": "Array<{ text, value }>",
@@ -2426,30 +3283,82 @@
     "description": "弹出/关闭状态"
   },
   "u-popup/trigger": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "click",
-      "hover",
-      "right-click",
-      "double-click"
+      {
+        "value": "click",
+        "title": "点击"
+      },
+      {
+        "value": "hover",
+        "title": "悬浮"
+      },
+      {
+        "value": "right-click",
+        "title": "右击"
+      },
+      {
+        "value": "double-click",
+        "title": "双击"
+      },
+      {
+        "value": "manual",
+        "title": "手动"
+      }
     ],
-    "description": "弹出框的触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`, `'manual'`"
+    "description": "弹出框的触发方式"
   },
   "u-popup/placement": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "top",
-      "bottom",
-      "left",
-      "right",
-      "top-start",
-      "top-end",
-      "bottom-start",
-      "bottom-end",
-      "left-start",
-      "left-end",
-      "right-start",
-      "right-end"
+      {
+        "value": "top",
+        "name": "上"
+      },
+      {
+        "value": "bottom",
+        "name": "下"
+      },
+      {
+        "value": "left",
+        "name": "左"
+      },
+      {
+        "value": "right",
+        "name": "右"
+      },
+      {
+        "value": "top-start",
+        "name": "上左"
+      },
+      {
+        "value": "top-end",
+        "name": "上右"
+      },
+      {
+        "value": "bottom-start",
+        "name": "下左"
+      },
+      {
+        "value": "bottom-end",
+        "name": "下右"
+      },
+      {
+        "value": "left-start",
+        "name": "左上"
+      },
+      {
+        "value": "left-end",
+        "name": "左下"
+      },
+      {
+        "value": "right-start",
+        "name": "右上"
+      },
+      {
+        "value": "right-end",
+        "name": "右下"
+      }
     ],
     "description": "弹出框的弹出方向。"
   },
@@ -2462,7 +3371,7 @@
     "description": "弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px`"
   },
   "u-popup/follow-cursor": {
-    "type": "boolean, number, object",
+    "type": "boolean",
     "description": "是否跟随鼠标"
   },
   "u-popup/disabled": {
@@ -2622,17 +3531,38 @@
     "description": "是否禁用"
   },
   "u-select/size": {
-    "type": "size",
+    "type": "string",
     "options": [
-      "mini",
-      "small",
-      "normal",
-      "medium",
-      "large",
-      "huge",
-      "full"
+      {
+        "value": "full",
+        "title": "占满"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "medium",
+        "title": "中型"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "mini",
+        "title": "迷你"
+      }
     ],
-    "description": "大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'medium'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式"
+    "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度"
   },
   "u-select/opened": {
     "type": "boolean",
@@ -2697,10 +3627,16 @@
   "u-sidebar/expand-trigger": {
     "type": "string",
     "options": [
-      "click",
-      "click-expander"
+      {
+        "value": "click",
+        "title": "整行点击均可触发"
+      },
+      {
+        "value": "click-expander",
+        "title": "仅点击小箭头时触发"
+      }
     ],
-    "description": "展开/折叠的触发方式。可选值：`'click'`表示整行点击均可触发、`'click-expander'`表示仅点击小箭头时触发"
+    "description": "展开/折叠的触发方式"
   },
   "u-sidebar/readonly": {
     "type": "boolean",
@@ -2727,26 +3663,28 @@
     "description": "链接地址"
   },
   "u-sidebar-item/target": {
-    "type": "enum",
+    "type": "string",
     "options": [
       {
-        "name": "新标签页 (_blank)",
-        "value": "_blank"
+        "value": "_blank",
+        "title": "新窗口"
       },
       {
-        "name": "当前窗口 (_self)",
-        "value": "_self"
+        "value": "_self",
+        "title": "当前窗口"
       },
       {
-        "name": "父级窗口 (_parent)",
-        "value": "_parent"
+        "value": "_parent",
+        "title": "父级窗口",
+        "advanced": true
       },
       {
-        "name": "顶级窗口 (_top)",
-        "value": "_top"
+        "value": "_top",
+        "title": "顶级窗口",
+        "advanced": true
       }
     ],
-    "description": "（原生属性）。比如设置`_blank`，会在新标签页中打开。"
+    "description": "链接跳转方式"
   },
   "u-sidebar-item/to": {
     "type": "string, Location",
@@ -2766,7 +3704,7 @@
   },
   "u-sidebar-group/collapsible": {
     "type": "boolean",
-    "description": "`false`"
+    "description": "分组是否可以折叠"
   },
   "u-sidebar-group/expanded": {
     "type": "boolean",
@@ -2897,10 +3835,16 @@
     "description": "当前排序的字段和顺序。"
   },
   "u-table-view/default-order": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "asc",
-      "desc"
+      {
+        "value": "asc",
+        "title": "升序"
+      },
+      {
+        "value": "desc",
+        "title": "倒序"
+      }
     ],
     "description": "所有列首次点击时的排序顺序。"
   },
@@ -2925,11 +3869,20 @@
     "description": "表格标题。"
   },
   "u-table-view/title-alignment": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "left",
-      "center",
-      "right"
+      {
+        "value": "left",
+        "title": "左对齐"
+      },
+      {
+        "value": "center",
+        "title": "居中对齐"
+      },
+      {
+        "value": "right",
+        "title": "右对齐"
+      }
     ],
     "description": "表格标题的对齐方式。"
   },
@@ -3010,13 +3963,22 @@
     "description": "是否可以调整列宽。"
   },
   "u-table-view/resize-remaining": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "sequence",
-      "average",
-      "none"
+      {
+        "value": "sequence",
+        "title": "保持总宽不变，优先后一列弥补宽度"
+      },
+      {
+        "value": "average",
+        "title": "保持总宽不变，后面所有列平均弥补宽度"
+      },
+      {
+        "value": "none",
+        "title": "不做任何处理，表格宽度变化"
+      }
     ],
-    "description": "调整列宽时如何处理剩余大小。可选值：`sequence`表示保持总宽不变，优先后一列弥补宽度；`average`表示保持总宽不变，后面所有列平均弥补宽度；`none`表示不做任何处理，表格宽度变化。"
+    "description": "调整列宽时如何处理剩余大小"
   },
   "u-table-view-column/title": {
     "type": "string",
@@ -3043,10 +4005,16 @@
     "description": "该列是否可以排序。"
   },
   "u-table-view-column/default-order": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "asc",
-      "desc"
+      {
+        "value": "asc",
+        "title": "升序"
+      },
+      {
+        "value": "desc",
+        "title": "倒序"
+      }
     ],
     "description": "该列首次点击时的排序顺序"
   },
@@ -3059,14 +4027,26 @@
     "description": "是否隐藏该列。"
   },
   "u-table-view-column/type": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "index",
-      "radio",
-      "checkbox",
-      "expander"
+      {
+        "value": "index",
+        "title": "序号列"
+      },
+      {
+        "value": "radio",
+        "title": "单选列"
+      },
+      {
+        "value": "checkbox",
+        "title": "多选列"
+      },
+      {
+        "value": "expander",
+        "title": "展开列"
+      }
     ],
-    "description": "列类型。可选值：`index`表示序号列，`radio`表示单选列，`checkbox`表示多选列，`expander`表示展开列。"
+    "description": "列类型"
   },
   "u-table-view-column/start-index": {
     "type": "number",
@@ -3133,32 +4113,64 @@
     "description": "是否可以关闭。"
   },
   "u-tabs/show-scroll-buttons": {
-    "type": "enum | boolean",
+    "type": "string",
     "options": [
-      "never",
-      "auto",
-      "always"
+      {
+        "value": "auto",
+        "title": "有滚动的情况下显示"
+      },
+      {
+        "value": "always",
+        "title": "始终显示"
+      },
+      {
+        "value": "never",
+        "title": "始终不显示"
+      }
     ],
-    "description": "是否显示标签滚动左右箭头按钮。`'auto'`表示有滚动的情况下显示，`‘always'`表示始终显示，`'never'`表示始终不显示。"
+    "description": "是否显示标签滚动左右箭头按钮"
   },
   "u-tabs/appear": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "square",
-      "round",
-      "card",
-      "line",
-      "text",
-      "capsule"
+      {
+        "value": "square",
+        "title": "方形卡片"
+      },
+      {
+        "value": "round",
+        "title": "圆角卡片"
+      },
+      {
+        "value": "line",
+        "title": "线条"
+      },
+      {
+        "value": "text",
+        "title": "文本"
+      },
+      {
+        "value": "capsule",
+        "title": "胶囊"
+      }
     ],
     "description": "标签展示的外观"
   },
   "u-tabs/size": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "normal",
-      "small",
-      "mini"
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "mini",
+        "title": "迷你"
+      }
     ],
     "description": "标签尺寸"
   },
@@ -3179,26 +4191,28 @@
     "description": "链接地址"
   },
   "u-tab/target": {
-    "type": "enum",
+    "type": "string",
     "options": [
       {
-        "name": "新标签页 (_blank)",
-        "value": "_blank"
+        "value": "_blank",
+        "title": "新标签页"
       },
       {
-        "name": "当前窗口 (_self)",
-        "value": "_self"
+        "value": "_self",
+        "title": "当前窗口"
       },
       {
-        "name": "父级窗口 (_parent)",
-        "value": "_parent"
+        "value": "_parent",
+        "title": "父级窗口",
+        "advanced": true
       },
       {
-        "name": "顶级窗口 (_top)",
-        "value": "_top"
+        "value": "_top",
+        "title": "顶级窗口",
+        "advanced": true
       }
     ],
-    "description": "（原生属性）。比如设置`_blank`，会在新标签页中打开。"
+    "description": "打开方式"
   },
   "u-tab/to": {
     "type": "string, Location",
@@ -3217,45 +4231,96 @@
     "description": "需要 router 为 true，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。"
   },
   "u-text/color": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "default",
-      "primary",
-      "secondary",
-      "success",
-      "warning",
-      "error",
-      "disabled"
+      {
+        "value": "default",
+        "title": "默认"
+      },
+      {
+        "value": "primary",
+        "title": "主要色"
+      },
+      {
+        "value": "secondary",
+        "title": "辅助色"
+      },
+      {
+        "value": "success",
+        "title": "成功色"
+      },
+      {
+        "value": "warning",
+        "title": "警告色"
+      },
+      {
+        "value": "error",
+        "title": "错误色"
+      },
+      {
+        "value": "disabled",
+        "title": "禁用色"
+      }
     ],
-    "description": "设置颜色。"
+    "description": "设置颜色"
   },
   "u-text/size": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "small",
-      "normal",
-      "large",
-      "huge"
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      }
     ],
-    "description": "设置尺寸。"
+    "description": "尺寸设置"
   },
   "u-text/display": {
     "type": "string",
     "options": [
-      "inline",
-      "block"
+      {
+        "value": "inline",
+        "title": "行内"
+      },
+      {
+        "value": "block",
+        "title": "块级"
+      }
     ],
-    "description": "展示方式。"
+    "description": "展示方式"
   },
   "u-text/overflow": {
     "type": "string",
     "options": [
-      "normal",
-      "ellipsis",
-      "break",
-      "nowrap"
+      {
+        "value": "normal",
+        "title": "默认不处理"
+      },
+      {
+        "value": "ellipsis",
+        "title": "多余的文本省略"
+      },
+      {
+        "value": "break",
+        "title": "强制换行且英文自动添加换行符"
+      },
+      {
+        "value": "nowrap",
+        "title": "始终不换行"
+      }
     ],
-    "description": "文本过长的处理方式。`'normal'`表示默认方式，`'ellipsis'`表示多余的文本省略，`'break'`表示强制换行且英文自动添加换行符，`'nowrap'`表示始终不换行。"
+    "description": "文本过长的处理方式"
   },
   "u-textarea/value": {
     "type": "string",
@@ -3267,7 +4332,7 @@
   },
   "u-textarea/placeholder": {
     "type": "string",
-    "description": "原生属性。对 IE9 做了兼容。"
+    "description": "为空时提示内容"
   },
   "u-textarea/minlength": {
     "type": "number",
@@ -3295,7 +4360,25 @@
   },
   "u-textarea/resize": {
     "type": "string",
-    "description": "是否可以调整大小。可选值：`'none'`、`'both'`、`'horizontal'`、`'vertical'`"
+    "options": [
+      {
+        "value": "none",
+        "title": "不可调整"
+      },
+      {
+        "value": "both",
+        "title": "可调整"
+      },
+      {
+        "value": "horizontal",
+        "title": "水平可调整"
+      },
+      {
+        "value": "vertical",
+        "title": "竖直可调整"
+      }
+    ],
+    "description": "是否可以调整大小"
   },
   "u-time-picker/time": {
     "type": "string",
@@ -3303,7 +4386,17 @@
   },
   "u-time-picker/minUnit": {
     "type": "string",
-    "description": "最小时间单位`'second'`或者是`'minute'`"
+    "options": [
+      {
+        "value": "second",
+        "title": "秒"
+      },
+      {
+        "value": "minute",
+        "title": "分"
+      }
+    ],
+    "description": "最小时间单位"
   },
   "u-time-picker/minTime": {
     "type": "string",
@@ -3330,17 +4423,38 @@
     "description": "是否显示"
   },
   "u-toast/position": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "top-center",
-      "top-left",
-      "top-right",
-      "bottom-center",
-      "bottom-left",
-      "bottom-right",
-      "static"
+      {
+        "value": "top-center",
+        "name": "上中"
+      },
+      {
+        "value": "top-left",
+        "name": "上左"
+      },
+      {
+        "value": "top-right",
+        "name": "上右"
+      },
+      {
+        "value": "bottom-center",
+        "name": "下中"
+      },
+      {
+        "value": "bottom-left",
+        "name": "下左"
+      },
+      {
+        "value": "bottom-right",
+        "name": "下右"
+      },
+      {
+        "value": "static",
+        "name": "静态"
+      }
     ],
-    "description": "显示的位置，可选值：`'top-center'`, `'top-left'`, `'top-right'`, `'bottom-center'`, `'bottom-left'`, `'bottom-right'`, `static`"
+    "description": "显示的位置"
   },
   "u-toast/duration": {
     "type": "number",
@@ -3356,6 +4470,24 @@
   },
   "u-toast/color": {
     "type": "string",
+    "options": [
+      {
+        "value": "info",
+        "title": "信息提示"
+      },
+      {
+        "value": "success",
+        "title": "成功信息提示"
+      },
+      {
+        "value": "warning",
+        "title": "警告信息提示"
+      },
+      {
+        "value": "error",
+        "title": "错误信息提示"
+      }
+    ],
     "description": "提示的颜色"
   },
   "u-toast/closable": {
@@ -3406,23 +4538,25 @@
     "type": "enum",
     "options": [
       {
-        "name": "新标签页 (_blank)",
+        "title": "新标签页",
         "value": "_blank"
       },
       {
-        "name": "当前窗口 (_self)",
+        "title": "当前窗口",
         "value": "_self"
       },
       {
-        "name": "父级窗口 (_parent)",
-        "value": "_parent"
+        "title": "父级窗口",
+        "value": "_parent",
+        "advanced": true
       },
       {
-        "name": "顶级窗口 (_top)",
-        "value": "_top"
+        "title": "顶级窗口",
+        "value": "_top",
+        "advanced": true
       }
     ],
-    "description": "（原生属性）。比如设置`_blank`，会在新标签页中打开。"
+    "description": "链接打开方式"
   },
   "u-toc-item/to": {
     "type": "string, Location",
@@ -3441,30 +4575,82 @@
     "description": "弹出/关闭状态"
   },
   "u-tooltip/trigger": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "click",
-      "hover",
-      "right-click",
-      "double-click"
+      {
+        "value": "click",
+        "title": "点击"
+      },
+      {
+        "value": "hover",
+        "title": "悬浮"
+      },
+      {
+        "value": "right-click",
+        "title": "右击"
+      },
+      {
+        "value": "double-click",
+        "title": "双击"
+      },
+      {
+        "value": "manual",
+        "title": "手动"
+      }
     ],
     "description": "工具提示的触发方式。"
   },
   "u-tooltip/placement": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "top",
-      "bottom",
-      "left",
-      "right",
-      "top-start",
-      "top-end",
-      "bottom-start",
-      "bottom-end",
-      "left-start",
-      "left-end",
-      "right-start",
-      "right-end"
+      {
+        "value": "top",
+        "name": "上"
+      },
+      {
+        "value": "bottom",
+        "name": "下"
+      },
+      {
+        "value": "left",
+        "name": "左"
+      },
+      {
+        "value": "right",
+        "name": "右"
+      },
+      {
+        "value": "top-start",
+        "name": "上左"
+      },
+      {
+        "value": "top-end",
+        "name": "上右"
+      },
+      {
+        "value": "bottom-start",
+        "name": "下左"
+      },
+      {
+        "value": "bottom-end",
+        "name": "下右"
+      },
+      {
+        "value": "left-start",
+        "name": "左上"
+      },
+      {
+        "value": "left-end",
+        "name": "左下"
+      },
+      {
+        "value": "right-start",
+        "name": "右上"
+      },
+      {
+        "value": "right-end",
+        "name": "右下"
+      }
     ],
     "description": "工具提示的弹出方向。"
   },
@@ -3485,13 +4671,26 @@
     "description": "是否禁用"
   },
   "u-tooltip/size": {
-    "type": "size",
+    "type": "string",
     "options": [
-      "small",
-      "normal",
-      "large"
+      {
+        "value": "small",
+        "name": "小型"
+      },
+      {
+        "value": "normal",
+        "name": "正常"
+      },
+      {
+        "value": "large",
+        "name": "大"
+      },
+      {
+        "value": "auto",
+        "name": "自适应"
+      }
     ],
-    "description": "大小扩展，支持一个值： `'small'`, `'normal'`, `'large'`, `'auto'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式"
+    "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度"
   },
   "u-transfer/source": {
     "type": "Array<{ text, value }>",
@@ -3542,7 +4741,7 @@
     "description": "过滤时的匹配方法"
   },
   "u-transfer/case-sensitive": {
-    "type": "string, Function",
+    "type": "boolean",
     "description": "过滤时大小写是否敏感"
   },
   "u-transfer/pageable": {
@@ -3595,7 +4794,17 @@
   },
   "u-tree-view/expand-trigger": {
     "type": "string",
-    "description": "展开/折叠的触发方式。可选值：`'click'`表示整行点击均可触发、`'click-expander'`表示仅点击小箭头时触发"
+    "options": [
+      {
+        "value": "click",
+        "title": "整行点击均可触发"
+      },
+      {
+        "value": "click-expander",
+        "title": "点击小箭头时触发"
+      }
+    ],
+    "description": "展开/折叠的触发方式"
   },
   "u-tree-view/readonly": {
     "type": "boolean",
@@ -3610,11 +4819,11 @@
     "description": "此项的值"
   },
   "u-tree-view-node/expanded": {
-    "type": "any",
+    "type": "boolean",
     "description": "展开/折叠状态"
   },
   "u-tree-view-node/checked": {
-    "type": "any",
+    "type": "boolean",
     "description": "选中/取消状态"
   },
   "u-tree-view-node/disabled": {
@@ -3673,11 +4882,20 @@
     "description": "可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB`"
   },
   "u-uploader/list-type": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "text",
-      "image",
-      "card"
+      {
+        "name": "文本",
+        "value": "text"
+      },
+      {
+        "name": "图片",
+        "value": "image"
+      },
+      {
+        "name": "卡片",
+        "value": "card"
+      }
     ],
     "description": "列表展示类型"
   },
@@ -3746,13 +4964,28 @@
     "description": "是否采取手动验证。如果为`true`，则 UValidator 将不会在监听到子组件的`input`、`change`和`blur`事件后进行相应的验证。"
   },
   "l-page-center/size": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "mini",
-      "small",
-      "normal",
-      "large",
-      "huge"
+      {
+        "value": "mini",
+        "title": "迷你"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      }
     ],
     "description": "宽度大小。"
   }

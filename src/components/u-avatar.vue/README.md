@@ -119,9 +119,9 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| type | enum | `'0'`, `'1'`, `'2'`, `'3'`, `'4'`, `'5'`, `'6'` | `'0'` | 头像类型。请参考上面的示例 |
-| shape | enum | `'circle'`, `'square'` | `'circle'` | 形状。可选值：`circle`, `square` 两种类型 |
-| size | enum | `'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'` | `'normal'` | 头像大小。可选值：`'mini'`、`'small'`、`'normal'`、`'large'`、`'huge'`。如需自定义大小，可以直接设置`style="width: 40px; height: 40px;"` |
+| type | enum | `'0'`<br/>`'1'`<br/>`'2'`<br/>`'3'`<br/>`'4'`<br/>`'5'`<br/>`'6'` | `'0'` | 头像类型。请参考上面的示例 |
+| shape | enum | `'circle'`<br/>`'square'` | `'circle'` | 形状。可选值：`circle`, `square` 两种类型 |
+| size | enum | `'mini'`<br/>`'small'`<br/>`'normal'`<br/>`'large'`<br/>`'huge'` | `'normal'` | 头像大小。可选值：`'mini'`、`'small'`、`'normal'`、`'large'`、`'huge'`。如需自定义大小，可以直接设置`style="width: 40px; height: 40px;"` |
 
 ### Slots
 

@@ -15,6 +15,8 @@
     - [Events](#events)
     - [Methods](#methods)
 
+**Feedback**
+
 点击/鼠标移入元素，弹出气泡式的卡片浮层。
 
 ## 示例
@@ -300,11 +302,11 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | title | string |  | `'标题'` | 弹出框标题 |
 | opened.sync | boolean |  | `false` | 弹出/关闭状态 |
-| trigger | enum | `'click'`, `'hover'`, `'right-click'`, `'double-click'` | `'click'` | 弹出框的触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`, `'manual'` |
-| placement | enum | `'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start'`, `'left-end'`, `'right-start'`, `'right-end'` | `'bottom'` | 弹出框的弹出方向。 |
+| trigger | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'click'` | 弹出框的触发方式 |
+| placement | string | `'上'` ()<br/>`'下'` ()<br/>`'左'` ()<br/>`'右'` ()<br/>`'上左'` ()<br/>`'上右'` ()<br/>`'下左'` ()<br/>`'下右'` ()<br/>`'左上'` ()<br/>`'左下'` ()<br/>`'右上'` ()<br/>`'右下'` () | `'bottom'` | 弹出框的弹出方向。 |
 | hide-delay | number |  | `200` | 提示内容消失延迟时间，单位是`'ms'` |
 | offset | string |  | `'0'` | 弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px` |
-| follow-cursor | boolean, number, object |  | `false` | 是否跟随鼠标 |
+| follow-cursor | boolean |  | `false` | 是否跟随鼠标 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | merge-borders | boolean |  | `true` | 是否自动合并内外边框 |
 

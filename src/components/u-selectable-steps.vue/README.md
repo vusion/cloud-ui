@@ -15,6 +15,10 @@
     - [Props/Attrs](#propsattrs-2)
     - [Slots](#slots-2)
 
+**Selector**
+
+当操作需要分步骤时使用
+
 ## 示例
 ### 基本用法
 
@@ -82,7 +86,7 @@
 
 #### (default)
 
-插入`<u-step>`子组件。
+插入`<u-selectable-step>`子组件。
 
 ### Events
 

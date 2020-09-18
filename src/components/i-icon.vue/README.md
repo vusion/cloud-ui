@@ -8,7 +8,9 @@
 - [API]()
     - [Props/Attrs](#propsattrs)
 
-**图标组件**, **行内展示**
+**Display**
+
+自定义图标
 
 ## 示例
 ### 基本用法
@@ -54,5 +56,5 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| name | string |  |  | 图标名称 |
+| name | string | `'area'`<br/>`'portrait'`<br/>`'left'`<br/>`'right'`<br/>`'arrow-down'`<br/>`'arrow-up'`<br/>`'refresh'`<br/>`'search'`<br/>`'alert'`<br/>`'logout'`<br/>`'dropdown'`<br/>`'down'`<br/>`'up'`<br/>`'chart-refresh'`<br/>`'chart-zoom'`<br/>`'close'` |  | 图标名称 |
 

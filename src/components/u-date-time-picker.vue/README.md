@@ -14,6 +14,10 @@
     - [Slots](#slots)
     - [Events](#events)
 
+**Selector**
+
+日期时间选择器
+
 ## 示例
 ### 基本用法
 
@@ -95,7 +99,7 @@ export default {
 
 #### (footer)
 
-插入文本或  HTML 至日期组件底部
+日期组件底部扩展
 
 ### Events
 

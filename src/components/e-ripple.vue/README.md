@@ -29,5 +29,5 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| color | enum | `'light'`, `'dark'` | `'light'` | 波纹颜色 |
+| color | string | `'浅色'` ()<br/>`'深色'` () | `'light'` | 波纹颜色 |
 

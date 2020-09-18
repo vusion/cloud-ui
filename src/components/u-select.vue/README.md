@@ -33,9 +33,9 @@
 - [USelectDivider API](#uselectdivider-api)
 
 
-**表单控件**, **行内展示**
+**Form**
 
-下拉选择框，支持单选、多选、搜索等功能，用于代替原生的选择框。
+下拉选择框，支持单选、多选、搜索等功能
 
 ## 示例
 ### 基本用法
@@ -1256,7 +1256,7 @@ export default {
 | auto-complete | boolean |  | `false` | 是否开启自动补充模式，用于增加列表中没有的项。 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
-| size | size | `'mini'`, `'small'`, `'normal'`, `'medium'`, `'large'`, `'huge'`, `'full'` | `'normal'` | 大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'medium'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度 |
 | opened.sync | boolean |  | `false` | 切换弹出/关闭状态 |
 | autofocus | boolean |  | `false` | 自动获取焦点 |
 

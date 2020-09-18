@@ -14,7 +14,9 @@
     - [Events](#events)
     - [ARIA and Keyboard](#aria-and-keyboard)
 
-**表单控件**, **行内展示**
+**Form**
+
+输入数字时使用
 
 ## 示例
 ### 基本用法
@@ -118,7 +120,7 @@ export default {
 | hide-buttons | boolean |  | `false` | 是否隐藏按钮 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
-| size | size | `'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`, `'full'` | `'normal'` | 大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度 |
 
 ### Events
 

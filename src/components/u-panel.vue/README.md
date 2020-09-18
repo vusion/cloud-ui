@@ -5,11 +5,11 @@
 - [示例](#示例)
     - [基本用法](#基本用法)
 - [UPanel API](#upanel-api)
-
+    - [Slots](#slots)
 - [UPanelGroup API](#upanelgroup-api)
+    - [Props/Attrs](#propsattrs)
 
-
-**块级展示**
+**Layout**
 
 用于快速布局
 
@@ -34,8 +34,16 @@
 ```
 
 ## UPanel API
+### Slots
 
-暂无
+#### (default)
+
+插入`<u-panel-group>`子组件。
+
 ## UPanelGroup API
+### Props/Attrs
 
-暂无
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| title | string |  |  | 面板项的标题 |
+

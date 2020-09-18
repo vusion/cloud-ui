@@ -10,7 +10,8 @@
       "text",
       "image",
       "opacity"
-    ]
+    ],
+    "description": "在页面显示水印"
   },
   "f-collapse-transition": {
     "attributes": []
@@ -80,7 +81,8 @@
   "i-icon": {
     "attributes": [
       "name"
-    ]
+    ],
+    "description": "自定义图标"
   },
   "m-complex": {
     "attributes": [
@@ -92,9 +94,6 @@
       "disabled"
     ],
     "description": "一个组件中，通过`multiple`属性切换单选还是多选的模式。",
-    "defaults": [
-      "v-model"
-    ],
     "subtags": [
       "m-complex-item"
     ]
@@ -160,9 +159,6 @@
       "disabled"
     ],
     "description": "常见的多选模式。",
-    "defaults": [
-      "v-model"
-    ],
     "subtags": [
       "m-multiplex-item"
     ]
@@ -227,9 +223,6 @@
       "disabled"
     ],
     "description": "常见的单项选择模式，用于快速派生出像`<u-navbar>`、`<u-tabs>`这样的组件。",
-    "defaults": [
-      "v-model"
-    ],
     "subtags": [
       "m-singlex-item"
     ]
@@ -247,6 +240,7 @@
       "menu-title",
       "placement"
     ],
+    "description": "当待操作项过多时，会自动收纳",
     "subtags": [
       "u-action"
     ]
@@ -322,6 +316,7 @@
       "readonly",
       "disabled"
     ],
+    "description": "多项中选择一项",
     "subtags": [
       "u-capsule",
       "u-capsule-group"
@@ -350,6 +345,7 @@
       "direction",
       "animation"
     ],
+    "description": "动态播放内部内容",
     "subtags": [
       "u-carousel-item"
     ]
@@ -384,7 +380,8 @@
       "field",
       "readonly",
       "disabled"
-    ]
+    ],
+    "description": "一次选择多个相关联的项"
   },
   "u-checkbox-card": {
     "attributes": [
@@ -412,6 +409,7 @@
       "readonly",
       "disabled"
     ],
+    "description": "多项中选择多个时使用",
     "subtags": [
       "u-checkbox"
     ]
@@ -419,7 +417,8 @@
   "u-circular-progress": {
     "attributes": [
       "percent"
-    ]
+    ],
+    "description": "以圆形的形式描述当前进度"
   },
   "u-collapse": {
     "attributes": [
@@ -456,9 +455,7 @@
       "unit",
       "tip"
     ],
-    "defaults": [
-      "v-model"
-    ]
+    "description": "滑动选择"
   },
   "u-copy": {
     "attributes": [
@@ -470,7 +467,7 @@
       "hide-delay",
       "disabled"
     ],
-    "description": "复制文本到剪切板。"
+    "description": "复制文本到剪切板"
   },
   "u-count-up": {
     "attributes": [
@@ -491,9 +488,8 @@
     ]
   },
   "u-crumb": {
-    "attributes": [
-      "无"
-    ],
+    "attributes": [],
+    "description": "导航指引",
     "subtags": [
       "u-crumb-item"
     ]
@@ -523,7 +519,8 @@
       "time",
       "yeadDiff",
       "yearAdd"
-    ]
+    ],
+    "description": "日期选择器"
   },
   "u-date-time-picker": {
     "attributes": [
@@ -536,7 +533,8 @@
       "readonly",
       "yearDiff",
       "yearAdd"
-    ]
+    ],
+    "description": "日期时间选择器"
   },
   "u-desc-list": {
     "attributes": [
@@ -587,7 +585,8 @@
   "u-footbar": {
     "attributes": [
       "position"
-    ]
+    ],
+    "description": "底部栏"
   },
   "u-form-table-view": {
     "attributes": [
@@ -629,7 +628,7 @@
       "striped",
       "hover"
     ],
-    "description": "在表单中使用的表格，本组件主要实现基本样式，方便在特殊场景下扩展。如果需要快速使用动态数据、表单验证等功能，请使用 [UFormTableView](#components/u-form-table-view)。"
+    "description": "在表单中使用的表格"
   },
   "u-form": {
     "attributes": [
@@ -668,6 +667,7 @@
     "attributes": [
       "gap"
     ],
+    "description": "内部元素按照一定的规则布局",
     "subtags": [
       "u-grid-layout-row",
       "u-grid-layout-column"
@@ -694,6 +694,14 @@
       "media-mini"
     ]
   },
+  "u-html": {
+    "attributes": [
+      "html",
+      "security",
+      "options"
+    ],
+    "description": "用于添加 html 文本"
+  },
   "u-icon-tooltip": {
     "attributes": [
       "type",
@@ -707,6 +715,18 @@
       "disabled"
     ],
     "description": "图标与`<u-tooltip>`的组合。"
+  },
+  "u-iframe": {
+    "attributes": [
+      "src"
+    ],
+    "description": "用于嵌入其他网页"
+  },
+  "u-image": {
+    "attributes": [
+      "src"
+    ],
+    "description": "可以用来展示一张图片，支持设置图片地址。"
   },
   "u-info-list": {
     "attributes": [
@@ -748,7 +768,7 @@
       "size",
       "maxlengthMessage"
     ],
-    "description": "基本的表单输入组件，在原生`<input>`控件基础上进行了一些功能扩展。"
+    "description": "基本的表单输入组件"
   },
   "u-label": {
     "attributes": [
@@ -757,7 +777,7 @@
       "removable",
       "display"
     ],
-    "description": "对事物进行标记和分类。"
+    "description": "用于展示状态、标签、分类等"
   },
   "u-lightbox": {
     "attributes": [
@@ -787,14 +807,16 @@
       "type",
       "justify",
       "alignment"
-    ]
+    ],
+    "description": "内部元素按照一定的规则布局"
   },
   "u-linear-progress": {
     "attributes": [
       "percent",
       "size",
       "range"
-    ]
+    ],
+    "description": "以线条的形式描述当前进度"
   },
   "u-link": {
     "attributes": [
@@ -807,7 +829,7 @@
       "disabled",
       "display"
     ],
-    "description": "文字超链接。"
+    "description": "文字超链接"
   },
   "u-list-view": {
     "attributes": [
@@ -837,10 +859,7 @@
       "disabled",
       "size"
     ],
-    "description": "用于列举大量数据的列表框，支持单选、多选、过滤（搜索）、分页等功能。",
-    "defaults": [
-      "v-model"
-    ]
+    "description": "用于列举大量数据的列表框，支持单选、多选、过滤（搜索）、分页等功能。"
   },
   "u-list": {
     "attributes": [
@@ -982,7 +1001,8 @@
       "readonly",
       "disabled",
       "size"
-    ]
+    ],
+    "description": "输入数字时使用"
   },
   "u-pagination": {
     "attributes": [
@@ -998,7 +1018,8 @@
       "show-total",
       "show-sizer",
       "show-jumper"
-    ]
+    ],
+    "description": "展示多页列表时使用"
   },
   "u-panel": {
     "attributes": [],
@@ -1008,7 +1029,9 @@
     ]
   },
   "u-panel-group": {
-    "attributes": []
+    "attributes": [
+      "title"
+    ]
   },
   "u-pills": {
     "attributes": [
@@ -1051,6 +1074,7 @@
       "readonly",
       "disabled"
     ],
+    "description": "多项中选择一个时使用",
     "subtags": [
       "u-radio"
     ]
@@ -1075,6 +1099,10 @@
       "disabled"
     ],
     "description": "该组件从 UCascadeSelect 继承，仅填充了中国的行政区数据，其他功能与 UCascadeSelect 相同。"
+  },
+  "u-router-view": {
+    "attributes": [],
+    "description": "放置子页面的容器"
   },
   "u-select": {
     "attributes": [
@@ -1104,7 +1132,7 @@
       "opened",
       "autofocus"
     ],
-    "description": "下拉选择框，支持单选、多选、搜索等功能，用于代替原生的选择框。",
+    "description": "下拉选择框，支持单选、多选、搜索等功能",
     "subtags": [
       "u-select-item",
       "u-select-group",
@@ -1132,6 +1160,7 @@
       "readonly",
       "disabled"
     ],
+    "description": "当操作需要分步骤时使用",
     "subtags": [
       "u-selectable-step"
     ]
@@ -1199,9 +1228,6 @@
       "range",
       "readonly",
       "disabled"
-    ],
-    "defaults": [
-      "v-model"
     ]
   },
   "u-spinner": {
@@ -1352,7 +1378,7 @@
       "display",
       "overflow"
     ],
-    "description": "用于在业务中快速调整文本尺寸、颜色等特性。"
+    "description": "用于展示纯文字"
   },
   "u-textarea": {
     "attributes": [
@@ -1367,7 +1393,7 @@
       "disabled",
       "resize"
     ],
-    "description": "多行输入组件，在原生`<textarea>`控件基础上进行了一些功能扩展。"
+    "description": "多行输入组件"
   },
   "u-time-picker": {
     "attributes": [
@@ -1379,7 +1405,8 @@
       "readonly",
       "disabled",
       "visible"
-    ]
+    ],
+    "description": "时间选择器"
   },
   "u-toast": {
     "attributes": [
@@ -1471,9 +1498,7 @@
       "readonly",
       "disabled"
     ],
-    "defaults": [
-      "v-model"
-    ],
+    "description": "树形选择器",
     "subtags": [
       "u-tree-view-node"
     ]

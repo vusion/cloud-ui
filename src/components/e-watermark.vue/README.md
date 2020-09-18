@@ -7,6 +7,10 @@
 - [API]()
     - [Props/Attrs](#propsattrs)
 
+**Effects**
+
+在页面显示水印
+
 ## 示例
 ### 基本用法
 
@@ -19,7 +23,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| text | string |  | `''` | 水印文本 |
+| text | string |  | `'水印'` | 水印文本 |
 | image | CanvasImageSource |  |  | 水印图案。如果没有，则默认按文本绘制 |
-| opacity | number |  | `0.1` | 透明度 |
+| opacity | number |  | `0.1` | 透明程度, 0-1 之间的小数 |
 

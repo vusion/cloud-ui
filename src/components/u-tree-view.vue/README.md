@@ -25,6 +25,10 @@
     - [Slots](#slots-2)
     - [Events](#events-2)
 
+**Selector**
+
+树形选择器
+
 ## 示例
 ### 基本用法
 
@@ -641,7 +645,7 @@ export default {
 | cancelable | boolean |  | `false` | 是否可以取消选择 |
 | checkable | boolean |  | `false` | 是否可以选中/取消 |
 | accordion | boolean |  | `false` | 是否每次只会展开一个分组 |
-| expand-trigger | string |  | `'click'` | 展开/折叠的触发方式。可选值：`'click'`表示整行点击均可触发、`'click-expander'`表示仅点击小箭头时触发 |
+| expand-trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 展开/折叠的触发方式 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
 
@@ -769,8 +773,8 @@ Methods
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value | any |  |  | 此项的值 |
-| expanded.sync | any |  |  | 展开/折叠状态 |
-| checked.sync | any |  |  | 选中/取消状态 |
+| expanded.sync | boolean |  |  | 展开/折叠状态 |
+| checked.sync | boolean |  |  | 选中/取消状态 |
 | disabled | boolean |  | `false` | 禁用此项 |
 | node | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
 
