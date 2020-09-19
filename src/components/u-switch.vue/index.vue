@@ -1,5 +1,5 @@
 <template>
-<label :class="$style.root" :checked="currentValue" :disabled="disabled" @click="toggle()"
+<label :class="$style.root" :checked="currentValue" :readonly="readonly" :disabled="disabled" @click="toggle()"
     tabindex="0" @keydown.space.prevent @keyup.space.prevent="toggle()"
     @focus="onFocus" @blur="onBlur" v-on="listeners">
     <span :class="$style.button"></span>

@@ -31,7 +31,7 @@ export default {
         color: String,
         placeholder: String,
         clearable: { type: Boolean, default: false },
-        autofocus: { type: Boolean, default: false },
+        autofocus: { type: [Boolean, String], default: false },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         maxlengthMessage: String,
