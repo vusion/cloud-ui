@@ -139,7 +139,7 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| position | enum | `'top-center'`, `'top-left'`, `'top-right'`, `'bottom-center'`, `'bottom-left'`, `'bottom-right'`, `'static'` | `'top-center'` | 显示的位置，可选值：`'top-center'`, `'top-left'`, `'top-right'`, `'bottom-center'`, `'bottom-left'`, `'bottom-right'`, `static` |
+| position | enum | `'top-center'`<br/>`'top-left'`<br/>`'top-right'`<br/>`'bottom-center'`<br/>`'bottom-left'`<br/>`'bottom-right'`<br/>`'static'` | `'top-center'` | 显示的位置，可选值：`'top-center'`, `'top-left'`, `'top-right'`, `'bottom-center'`, `'bottom-left'`, `'bottom-right'`, `static` |
 | duration | number |  | `2000` | 提示停留的时间。`0`表示常驻。 |
 | single | boolean |  | `false` | 多个提示会合并为一个 |
 | text | string |  | `''` | 默认提示内容 |

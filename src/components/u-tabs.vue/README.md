@@ -186,9 +186,9 @@ export default {
 | readonly | boolean |  | `false` | 是否只读。 |
 | disabled | boolean |  | `false` | 是否禁用。 |
 | closable | boolean |  | `false` | 是否可以关闭。 |
-| show-scroll-buttons | enum \| boolean | `'never'`, `'auto'`, `'always'` | `'auto'` | 是否显示标签滚动左右箭头按钮。`'auto'`表示有滚动的情况下显示，`‘always'`表示始终显示，`'never'`表示始终不显示。 |
-| appear | enum | `'square'`, `'round'`, `'card'`, `'line'`, `'text'`, `'capsule'` | `'tab'` | 标签展示的外观 |
-| size | enum | `'normal'`, `'small'`, `'mini'` | `'normal'` | 标签尺寸 |
+| show-scroll-buttons | enum \| boolean | `'never'`<br/>`'auto'`<br/>`'always'` | `'auto'` | 是否显示标签滚动左右箭头按钮。`'auto'`表示有滚动的情况下显示，`‘always'`表示始终显示，`'never'`表示始终不显示。 |
+| appear | enum | `'square'`<br/>`'round'`<br/>`'card'`<br/>`'line'`<br/>`'text'`<br/>`'capsule'` | `'tab'` | 标签展示的外观 |
+| size | enum | `'normal'`<br/>`'small'`<br/>`'mini'` | `'normal'` | 标签尺寸 |
 
 ### Slots
 
@@ -260,7 +260,7 @@ export default {
 | value | any |  |  | 标签页的值。 |
 | disabled | boolean |  | `false` | 是否禁用此标签页。 |
 | href | string |  |  | 链接地址 |
-| target | enum | `[object Object]`, `[object Object]`, `[object Object]`, `[object Object]` |  | （原生属性）。比如设置`_blank`，会在新标签页中打开。 |
+| target | enum | `'新标签页 (_blank)'` ()<br/>`'当前窗口 (_self)'` ()<br/>`'父级窗口 (_parent)'` ()<br/>`'顶级窗口 (_top)'` () |  | （原生属性）。比如设置`_blank`，会在新标签页中打开。 |
 | to | string, Location |  |  | 需要 router 为 true，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
 | replace | boolean |  | `false` | 需要 router 为 true，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
 | append | boolean |  | `false` | 需要 router 为 true，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。 |

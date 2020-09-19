@@ -261,9 +261,9 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | repeat | number |  | `12` | 划分的栅格数 |
-| type | enum | `'default'`, `'flex'` |  | 布局模式。可选值：`'flex'`或不填 |
-| justify | enum | `'start'`, `'center'`, `'end'`, `'space-between'`, `'space-around'` | `'start'` | flex布局模式的水平分布方式，可选值：`'start'`, `'center'`, `'end'`, `'space-between'`, `'space-around'` |
-| alignment | enum | `'start'`, `'center'`, `'end'`, `'baseline'`, `'stretch'` | `'stretch'` | flex布局模式的垂直对齐方式，可选值：`'start'`, `'center'`, `'end'`, `'baseline'`, `'stretch'` |
+| type | enum | `'default'`<br/>`'flex'` |  | 布局模式。可选值：`'flex'`或不填 |
+| justify | enum | `'start'`<br/>`'center'`<br/>`'end'`<br/>`'space-between'`<br/>`'space-around'` | `'start'` | flex布局模式的水平分布方式，可选值：`'start'`, `'center'`, `'end'`, `'space-between'`, `'space-around'` |
+| alignment | enum | `'start'`<br/>`'center'`<br/>`'end'`<br/>`'baseline'`<br/>`'stretch'` | `'stretch'` | flex布局模式的垂直对齐方式，可选值：`'start'`, `'center'`, `'end'`, `'baseline'`, `'stretch'` |
 
 ### Slots
 

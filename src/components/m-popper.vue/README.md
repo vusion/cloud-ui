@@ -326,8 +326,8 @@ export default {
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | opened.sync | boolean |  | `false` | 弹出/关闭状态 |
-| trigger | enum | `'click'`, `'hover'`, `'right-click'`, `'double-click'` | `'click'` | 触发方式。 |
-| placement | enum | `'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start'`, `'left-end'`, `'right-start'`, `'right-end'` | `'bottom'` | 弹出方向。 |
+| trigger | enum | `'click'`<br/>`'hover'`<br/>`'right-click'`<br/>`'double-click'` | `'click'` | 触发方式。 |
+| placement | enum | `'top'`<br/>`'bottom'`<br/>`'left'`<br/>`'right'`<br/>`'top-start'`<br/>`'top-end'`<br/>`'bottom-start'`<br/>`'bottom-end'`<br/>`'left-start'`<br/>`'left-end'`<br/>`'right-start'`<br/>`'right-end'` | `'bottom'` | 弹出方向。 |
 | reference | string \| HTMLElement \| Function |  | `'parent'` | 参考元素。可选值：`'parent'`表示父元素，`'prev'`表示上一个元素，`'next'`表示下一个元素。也可以传一个 HTML 元素，或用于返回元素的方法。 |
 | hover-delay | number |  | `0` | 当 trigger 为 `'hover'` 时的延迟时间。 |
 | hide-delay | number |  | `200` | 当 trigger 为 `'hover'` 时的消失延迟时间，单位是 ms。 |

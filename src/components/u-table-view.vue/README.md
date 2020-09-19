@@ -1788,13 +1788,13 @@ export default {
 | show-sizer | boolean |  | `false` | 是否显示切换分页大小选项。 |
 | show-jumper | boolean |  | `false` | 是否显示页面跳转输入框。 |
 | sorting.sync | { field: string, order: string, compare: Function } |  | `'{ field: undefined, order: 'desc' }'` | 当前排序的字段和顺序。 |
-| default-order | enum | `'asc'`, `'desc'` | `'asc'` | 所有列首次点击时的排序顺序。 |
+| default-order | enum | `'asc'`<br/>`'desc'` | `'asc'` | 所有列首次点击时的排序顺序。 |
 | filtering.sync | object |  |  | 筛选参数。 |
 | remote-paging | boolean |  | `false` | 是否使用后端分页。 |
 | remote-sorting | boolean |  | `false` | 是否使用后端排序。 |
 | remote-filtering | boolean |  | `false` | 是否使用后端筛选 |
 | title | string |  |  | 表格标题。 |
-| title-alignment | enum | `'left'`, `'center'`, `'right'` | `'center'` | 表格标题的对齐方式。 |
+| title-alignment | enum | `'left'`<br/>`'center'`<br/>`'right'` | `'center'` | 表格标题的对齐方式。 |
 | border | boolean |  | `false` | 是否显示边框。 |
 | line | boolean |  | `false` | 单元格之间是否显示分隔线条。 |
 | striped | boolean |  | `false` | 表格行是否按斑马线条纹显示。 |
@@ -1814,7 +1814,7 @@ export default {
 | disabled | boolean |  | `false` | 是否禁用。 |
 | accordion | boolean |  | `false` | 在有`expander`列的情况下，展开一行的同时，是否收起其它行。 |
 | resizable | boolean |  | `false` | 是否可以调整列宽。 |
-| resize-remaining | enum | `'sequence'`, `'average'`, `'none'` | `'average'` | 调整列宽时如何处理剩余大小。可选值：`sequence`表示保持总宽不变，优先后一列弥补宽度；`average`表示保持总宽不变，后面所有列平均弥补宽度；`none`表示不做任何处理，表格宽度变化。 |
+| resize-remaining | enum | `'sequence'`<br/>`'average'`<br/>`'none'` | `'average'` | 调整列宽时如何处理剩余大小。可选值：`sequence`表示保持总宽不变，优先后一列弥补宽度；`average`表示保持总宽不变，后面所有列平均弥补宽度；`none`表示不做任何处理，表格宽度变化。 |
 
 ### Slots
 
@@ -2018,10 +2018,10 @@ Methods
 | ellipsis | boolean |  | `false` | 是否省略显示。默认文字超出时会换行。 |
 | formatter | string \| object \| Function \| Formatter |  | `'placeholder'` | 格式器。 |
 | sortable | boolean |  | `false` | 该列是否可以排序。 |
-| default-order | enum | `'asc'`, `'desc'` | `'asc'` | 该列首次点击时的排序顺序 |
+| default-order | enum | `'asc'`<br/>`'desc'` | `'asc'` | 该列首次点击时的排序顺序 |
 | filters | Array\<{ text: string, value: any }\> |  |  | 筛选项的参数 |
 | hidden | boolean |  | `false` | 是否隐藏该列。 |
-| type | enum | `'index'`, `'radio'`, `'checkbox'`, `'expander'` |  | 列类型。可选值：`index`表示序号列，`radio`表示单选列，`checkbox`表示多选列，`expander`表示展开列。 |
+| type | enum | `'index'`<br/>`'radio'`<br/>`'checkbox'`<br/>`'expander'` |  | 列类型。可选值：`index`表示序号列，`radio`表示单选列，`checkbox`表示多选列，`expander`表示展开列。 |
 | start-index | number |  | `1` | 当`type="index"`时的起始序号。 |
 
 ### Slots

@@ -55,7 +55,7 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | max-count | number |  | `3` | 一列最多显示链接个数 |
 | menu-title | string |  | `'更多'` | 菜单标题 |
-| placement | enum | `'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start'`, `'left-end''`, `'right-start'`, `'right-end'` | `'bottom-end'` | 菜单的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start',` `'left-end'`, `'right-start'`, `'right-end'` |
+| placement | enum | `'top'`<br/>`'bottom'`<br/>`'left'`<br/>`'right'`<br/>`'top-start'`<br/>`'top-end'`<br/>`'bottom-start'`<br/>`'bottom-end'`<br/>`'left-start'`<br/>`'left-end''`<br/>`'right-start'`<br/>`'right-end'` | `'bottom-end'` | 菜单的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start',` `'left-end'`, `'right-start'`, `'right-end'` |
 
 ### Slots
 

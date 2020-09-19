@@ -144,7 +144,7 @@ export default {
 | visible.sync | boolean |  | `false` | 是否显示 |
 | ok-button | string |  | `'确定'` | 确定按钮文本，如果为空则不显示 |
 | cancel-button | string |  | `'取消'` | 取消按钮文本，如果为空则不显示 |
-| size | enum | `'small'`, `'normal'`, `'large'`, `'huge'`, `'auto'` | `'normal'` | 弹框的尺寸, 可选值：`'small'`, `'normal'`, `'large'`, `'huge'`, `'auto'`, |
+| size | enum | `'small'`<br/>`'normal'`<br/>`'large'`<br/>`'huge'`<br/>`'auto'` | `'normal'` | 弹框的尺寸, 可选值：`'small'`, `'normal'`, `'large'`, `'huge'`, `'auto'`, |
 | icon | string |  | `''` | 提示图标, 可选值：`success`, `warning`, `error` |
 | static | boolean |  | `false` | 是否嵌入页面显示 |
 | mask-closable | boolean |  | `false` | 是否点击遮罩时关闭弹窗 |

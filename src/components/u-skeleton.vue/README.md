@@ -38,6 +38,6 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| type | enum | `'paragraph'`, `'image'` | `'paragraph'` | 骨架屏类型 |
+| type | enum | `'paragraph'`<br/>`'image'` | `'paragraph'` | 骨架屏类型 |
 | paragraph | boolean \| number |  | `true` | 默认为 3 行。可以修改行数，或者设置`false`关闭段落显示。 |
 
