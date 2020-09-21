@@ -5,39 +5,21 @@
 也可以直接使用指令的方式。
 
 ``` html
-<u-linear-layout>
-    <u-button>
-        直接插入
-        <u-tooltip>直接插入<u-link>文本</u-link>或<u-link>HTML</u-link></u-tooltip>
-    </u-button>
-    <u-button v-tooltip="'指令中只能插入文本'">指令</u-button>
-</u-linear-layout>
+ <u-button>
+    直接插入
+    <u-tooltip>直接插入<u-link>文本</u-link>或<u-link>HTML</u-link></u-tooltip>
+</u-button>
 ```
 
-### 触发方式-click
+### 触发方式-hover
 
 使用`trigger`属性设置触发方式。
 
 ``` html
 <u-button>
-    click
-    <u-tooltip trigger="click">Tooltip</u-tooltip>
+    hover（默认）
+    <u-tooltip trigger="hover">Tooltip</u-tooltip>
 </u-button>
-<u-linear-layout>
-    <u-button>
-        hover（默认）
-        <u-tooltip trigger="hover">Tooltip</u-tooltip>
-    </u-button>
-
-    <u-button>
-        right-click
-        <u-tooltip trigger="right-click">Tooltip</u-tooltip>
-    </u-button>
-    <u-button>
-        double-click
-        <u-tooltip trigger="double-click">Tooltip</u-tooltip>
-    </u-button>
-</u-linear-layout>
 ```
 
 ### 触发方式-click
@@ -92,7 +74,7 @@
 ``` html
 <u-button>
     上左
-<u-tooltip placement="top-start">Tooltip</u-tooltip>
+    <u-tooltip placement="top-start">Tooltip</u-tooltip>
 </u-button>
 ```
 

@@ -65,10 +65,12 @@ Tag 方式很容易自定义模板，而 Data 方式却不好扩展。我们提�
         { text: '文件3.2', type: 'file' },
     ] },
 ]">
-    <span slot="text" slot-scope="{ node, expanded, text }">
+    <template #test="{ node, expanded, text }">
+        <span >
         {{ node.type === 'directory' ? (expanded ? '📂' : '📁') : '📄' }}
         {{ text }}
     </span>
+    </template>
 </u-tree-view>
 ```
 

@@ -6,7 +6,9 @@
  <u-button>
     使用 slot
     <u-popup>
-        <span slot="title">标题 <u-badge :value="3"></u-badge></span>
+        <template #title>
+            <span>标题 <u-badge :value="3"></u-badge></span>
+        </template>
         <span>使用 <u-link>slot</u-link> 可以添加一些复杂功能</span>
     </u-popup>
 </u-button>
@@ -20,7 +22,9 @@
 <u-button>
     Textarea
     <u-popup>
-        <u-textarea slot="root"></u-textarea>
+        <template #root>
+        <u-textarea ></u-textarea>
+        </template>
     </u-popup>
 </u-button>
 ```
@@ -100,11 +104,14 @@
 <u-button>
     右键菜单
     <u-popup trigger="right-click" placement="right-start" follow-cursor>
-        <u-menu slot="root" value="3" :router="false">
+    <template #root>
+        <u-menu value="3" :router="false">
             <u-menu-item value="1">指南</u-menu-item>
             <u-menu-item value="2">概念</u-menu-item>
             <u-menu-item value="3">组件</u-menu-item>
         </u-menu>
+    </template>
+        
     </u-popup>
 </u-button>
 ```

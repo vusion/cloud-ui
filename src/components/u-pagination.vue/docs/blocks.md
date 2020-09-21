@@ -1,10 +1,7 @@
 ### 基本用法
 
 ``` html
-<u-linear-layout direction="vertical">
-    <u-pagination :total="11"></u-pagination>
-    <u-pagination :total="11" :page="6"></u-pagination>
-</u-linear-layout>
+<u-pagination :total="11" :page="6"></u-pagination>
 ```
 
 ### 显示数量
@@ -22,8 +19,12 @@
 ``` html
 <u-linear-layout direction="vertical">
     <u-pagination :total="11">
-        <a slot="prev" role="text">Previous</a>
-        <a slot="next" role="text">Next</a>
+    <template #prev>
+        <a role="text">Previous</a>
+    </template>
+    <template #next>
+        <a role="text">Next</a>
+    </template>
     </u-pagination>
 </u-linear-layout>
 ```
@@ -35,7 +36,7 @@
 ``` html
 <u-linear-layout direction="vertical">
     <u-pagination :total-items="75" show-total>
-        <template slot="total" slot-scope="{ data }">
+        <template #total="{ data }">
             {{ (data.page - 1)*data.pageSize + 1}}-{{ data.page*data.pageSize}}条，共{{data.totalItems}}条
         </template>
     </u-pagination>

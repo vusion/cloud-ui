@@ -5,9 +5,7 @@
 ``` html
 <u-actions>
         <u-action disabled>设置</u-action>
-        <u-action to="/components/u-navbar">跳转到 Navbar</u-action>
         <u-action>重启</u-action>
         <u-action disabled>保存为镜像</u-action>
-        <u-action to="/components/u-select">跳转到 Select</u-action>
     </u-actions>
 ```

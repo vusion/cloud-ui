@@ -23,9 +23,7 @@
       type: boolean
       default: false
       description: 是否显示开关`ON`和`OFF`文字
-  slots:
-    - name: default
-    - description: 插入文本或HTML
+  slots: false
   events:
     - name: before-toggle
       title: 切换状态前

@@ -87,17 +87,25 @@
 ``` html
 <u-tabs value="1">
     <u-tab value="0">
-        <span slot="title">模板 <u-label>1</u-label></span>
+        <template #title>
+            <span >模板 <u-label>1</u-label></span>
+        </template>
         模板内容
     </u-tab>
     <u-tab value="1">
-        <span slot="title">样式 <u-label>6</u-label></span>
+        <template #title>
+            <span >样式 <u-label>6</u-label></span>
+        </template>
         样式内容
     </u-tab>
     <u-tab value="2">
-        <span slot="title">逻辑 <u-label>3</u-label></span>
+        <template #title>
+            <span >逻辑 <u-label>3</u-label></span>
+        </template>
         逻辑内容
     </u-tab>
-    <u-checkbox slot="extra">全选</u-checkbox>
+    <template #extra>
+        <u-checkbox >全选</u-checkbox>
+    </template>
 </u-tabs>
 ```

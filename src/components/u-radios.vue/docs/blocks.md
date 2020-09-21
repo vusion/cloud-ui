@@ -43,4 +43,3 @@
         <u-radio label="沙发" disabled>沙发</u-radio>
     </u-radios>
 ```
-

@@ -4,12 +4,10 @@
 
 ``` html
 <u-navbar style="background: #4289db;">
-    <u-navbar-item to="/components">组件</u-navbar-item>
-    <u-navbar-item>概念</u-navbar-item>
+    <u-navbar-item href="https://github.com/vusion/cloud-ui">GitHub</u-navbar-item>
     <u-navbar-item disabled>指令</u-navbar-item>
     <u-navbar-divider></u-navbar-divider>
     <u-navbar-item>配置</u-navbar-item>
-    <u-navbar-item href="https://github.com/vusion/cloud-ui">GitHub</u-navbar-item>
 </u-navbar>
 ```
 
@@ -34,11 +32,15 @@
 
 ``` html
 <u-navbar>
-    <s-logo slot="left"></s-logo>
-    <u-navbar-item to="/components">组件</u-navbar-item>
+    <template #left>
+    logo
+    </template>  
+    <u-navbar-item >组件</u-navbar-item>
     <u-navbar-item>概念</u-navbar-item>
     <u-navbar-item disabled>指令</u-navbar-item>
-    <u-navbar-item slot="right" href="https://github.com/vusion/cloud-ui" target="_blank"><i-icon name="github"></i-icon></u-navbar-item>
+    <template #right>
+        <u-navbar-item href="https://github.com/vusion/cloud-ui" target="_blank"><i-icon name="github"></i-icon></u-navbar-item>
+    </template>  
 </u-navbar>
 ```
 
@@ -49,25 +51,36 @@
 ``` html
 <u-linear-layout direction="vertical">
     <u-navbar alignment="left">
-        <s-logo slot="left"></s-logo>
+        <template #left>
+            logo
+        </template>
         <u-navbar-item>指南</u-navbar-item>
         <u-navbar-item>概念</u-navbar-item>
-        <u-navbar-item to="/cloud-ui">组件</u-navbar-item>
-        <u-navbar-item slot="right" href="https://github.com/vusion/cloud-ui" target="_blank"><i-icon name="github"></i-icon></u-navbar-item>
+        <u-navbar-item >组件</u-navbar-item>
+        <template #right>
+            <u-navbar-item href="https://github.com/vusion/cloud-ui" target="_blank"><i-icon name="github"></i-icon></u-navbar-item>
+        </template>  
     </u-navbar>
     <u-navbar alignment="center">
-        <s-logo slot="left"></s-logo>
+        <template #left>
+        logo
+        </template>
         <u-navbar-item>指南</u-navbar-item>
         <u-navbar-item>概念</u-navbar-item>
-        <u-navbar-item to="/cloud-ui">组件</u-navbar-item>
-        <u-navbar-item slot="right" href="https://github.com/vusion/cloud-ui" target="_blank"><i-icon name="github"></i-icon></u-navbar-item>
+        <u-navbar-item >组件</u-navbar-item>
+        <template #right>
+            <u-navbar-item href="https://github.com/vusion/cloud-ui" target="_blank"><i-icon name="github"></i-icon></u-navbar-item>
+        </template>  
     </u-navbar>
     <u-navbar alignment="right">
-        <s-logo slot="left"></s-logo>
+        <template #left>
+        logo
+        </template>
         <u-navbar-item>指南</u-navbar-item>
         <u-navbar-item>概念</u-navbar-item>
-        <u-navbar-item to="/cloud-ui">组件</u-navbar-item>
-        <u-navbar-item slot="right" href="https://github.com/vusion/cloud-ui" target="_blank"><i-icon name="github"></i-icon></u-navbar-item>
+        <template #right>
+            <u-navbar-item href="https://github.com/vusion/cloud-ui" target="_blank"><i-icon name="github"></i-icon></u-navbar-item>
+        </template> 
     </u-navbar>
 </u-linear-layout>
 ```
@@ -78,7 +91,7 @@
 
 ``` html
 <u-navbar>
-    <u-navbar-item to="/components">组件</u-navbar-item>
+    <u-navbar-item >组件</u-navbar-item>
     <u-navbar-item disabled>指令</u-navbar-item>
     <u-navbar-dropdown title="下拉菜单">
         <u-navbar-menu>

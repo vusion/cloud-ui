@@ -946,6 +946,10 @@
     --drawer-foot-padding: 20px 15px;
     --drawer-static-padding: var(--space-base);
 
+    /* Image */
+    --image-width: 128px;
+    --image-height: 128px;
+
     /* Lightbox */
     --lightbox-head-height: 64px;
 

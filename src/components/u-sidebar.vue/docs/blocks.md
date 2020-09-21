@@ -19,7 +19,6 @@
     </u-sidebar-group>
     <u-sidebar-group title="Navigation" expanded disabled>
         <u-sidebar-item>导航栏</u-sidebar-item>
-        <u-sidebar-item to="/cloud-ui/u-sidebar">侧边栏</u-sidebar-item>
         <u-sidebar-item>标签页</u-sidebar-item>
     </u-sidebar-group>
     <u-sidebar-group title="Form" :collapsible="false">
@@ -43,7 +42,6 @@
     </u-sidebar-group>
     <u-sidebar-group title="Navigation">
         <u-sidebar-item>导航栏</u-sidebar-item>
-        <u-sidebar-item to="/cloud-ui/u-sidebar">侧边栏</u-sidebar-item>
         <u-sidebar-item>标签页</u-sidebar-item>
     </u-sidebar-group>
     <u-sidebar-group title="Form">
@@ -66,7 +64,6 @@
     </u-sidebar-group>
     <u-sidebar-group title="Navigation">
         <u-sidebar-item>导航栏</u-sidebar-item>
-        <u-sidebar-item to="/cloud-ui/u-sidebar">侧边栏</u-sidebar-item>
         <u-sidebar-item>标签页</u-sidebar-item>
     </u-sidebar-group>
     <u-sidebar-group title="Form">

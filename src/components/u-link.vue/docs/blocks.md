@@ -4,12 +4,6 @@
 <u-link href="https://vusion.github.io" target="_blank">普通链接</u-link>
 ```
 
-### 路由链接
-
-``` html
-<u-link to="/components/u-button">路由链接</u-link>
-```
-
 ### 成功链接
 
 ``` html

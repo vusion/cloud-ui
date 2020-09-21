@@ -4,7 +4,6 @@
 <u-number-input :value="6"></u-number-input>
 ```
 
-
 ### 最大值和最小值
 
 ``` html

@@ -3,3 +3,4 @@
   icon: router-view
   labels: [Container]
   description: 放置子页面的容器
+  slots: false

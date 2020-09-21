@@ -22,12 +22,12 @@
 ``` html
 <u-info-list :repeat="2">
     <u-info-list-group title="基本信息">
-                <u-info-list-item label="名称">张三</u-info-list-item>
+        <u-info-list-item label="名称">张三</u-info-list-item>
         <u-info-list-item label="ID">152f36a3cfff4572a3a35</u-info-list-item>
         <u-info-list-item label="创建时间">2018-02-22</u-info-list-item>
     </u-info-list-group>
     <u-info-list-group title="基本信息">
-                <u-info-list-item label="名称">张三</u-info-list-item>
+        <u-info-list-item label="名称">张三</u-info-list-item>
         <u-info-list-item label="ID">152f36a3cfff4572a3a35</u-info-list-item>
         <u-info-list-item label="创建时间">2018-02-22</u-info-list-item>
     </u-info-list-group>
@@ -41,7 +41,7 @@
 ``` html
 <u-info-list>
     <u-info-list-group title="基本信息">
-        <template slot="extra">
+        <template #extra>
             <u-link>设置</u-link>
         </template>
         <u-info-list-item label="名称">张三</u-info-list-item>
