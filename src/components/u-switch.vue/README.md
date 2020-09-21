@@ -9,7 +9,6 @@
     - [调整尺寸](#调整尺寸)
 - [API]()
     - [Props/Attrs](#propsattrs)
-    - [Slots](#slots)
     - [Events](#events)
 
 **Form**
@@ -70,16 +69,6 @@ export default {
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | with-text | boolean |  | `false` | 是否显示开关`ON`和`OFF`文字 |
-
-### Slots
-
-#### (default)
-
-
-
-#### undefined
-
-插入文本或HTML
 
 ### Events
 
