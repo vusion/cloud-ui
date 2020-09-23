@@ -2850,8 +2850,8 @@
             "title": "html 文本",
             "description": "用于添加 html 文本",
             "category": "Display",
-            "screenShot": "",
-            "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-html html=\\\"<a href='https://www.163yun.com' target='_blank' >html 元素</a><img src='' onerror='alert(4)'>\\\"></u-html>\\n</template>\\n\"},{\"title\":\"不使用安全过滤\",\"description\":\"\",\"code\":\"<template>\\n<template>\\n<u-html html=\\\"<a href='https://www.163yun.com' target='_blank' >html 元素</a><img src='' onerror='alert(4)'>\\\" :security=\\\"false\\\"></u-html>\\n</template>\\n</template>\\n\"}]",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-html.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-html.vue/screenshots/1.png",
+            "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-html html=\\\"<a href='https://www.163yun.com' target='_blank' >html 元素</a><img src='' onerror='alert(4)'>\\\"></u-html>\\n</template>\\n\"},{\"title\":\"不使用安全过滤\",\"description\":\"\",\"code\":\"<template>\\n<template>\\n<u-html html=\\\"<a href='https://www.163yun.com' target='_blank' >html 元素</a><img src='' onerror='console.log(1)'>\\\" :security=\\\"false\\\"></u-html>\\n</template>\\n</template>\\n\"}]",
             "attrs": [
                 {
                     "name": "html",
@@ -2883,8 +2883,8 @@
         "labels": [
             "Display"
         ],
-        "screenShot": "",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-html html=\\\"<a href='https://www.163yun.com' target='_blank' >html 元素</a><img src='' onerror='alert(4)'>\\\"></u-html>\\n</template>\\n\"},{\"title\":\"不使用安全过滤\",\"description\":\"\",\"code\":\"<template>\\n<template>\\n<u-html html=\\\"<a href='https://www.163yun.com' target='_blank' >html 元素</a><img src='' onerror='alert(4)'>\\\" :security=\\\"false\\\"></u-html>\\n</template>\\n</template>\\n\"}]"
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-html.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-html.vue/screenshots/1.png",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-html html=\\\"<a href='https://www.163yun.com' target='_blank' >html 元素</a><img src='' onerror='alert(4)'>\\\"></u-html>\\n</template>\\n\"},{\"title\":\"不使用安全过滤\",\"description\":\"\",\"code\":\"<template>\\n<template>\\n<u-html html=\\\"<a href='https://www.163yun.com' target='_blank' >html 元素</a><img src='' onerror='console.log(1)'>\\\" :security=\\\"false\\\"></u-html>\\n</template>\\n</template>\\n\"}]"
     },
     {
         "symbol": "u-image",
@@ -4466,8 +4466,8 @@
             "title": "表单",
             "description": "具有数据收集、校验和提交功能的表单，包含输入框、选择框、复选框、单选框等元素。",
             "category": "Form",
-            "screenShot": "",
-            "blocks": "[{\"title\":\"基础表单\",\"description\":\"\",\"code\":\"<template>\\n<u-form gap=\\\"large\\\">\\n    <u-form-item label=\\\"名称\\\" required>\\n        <u-input v-model=\\\"model.name\\\" size=\\\"huge medium\\\" placeholder=\\\"由字母、数字和中划线组成\\\"></u-input>\\n    </u-form-item>\\n    <u-form-item label=\\\"类型\\\" required>\\n        <u-radios v-model=\\\"model.type\\\">\\n            <u-radio label=\\\"A\\\">类型 A</u-radio>\\n            <u-radio label=\\\"B\\\">类型 B</u-radio>\\n        </u-radios>\\n    </u-form-item>\\n    <u-form-item>\\n        <u-button color=\\\"primary\\\" >立即创建</u-button>\\n    </u-form-item>\\n</u-form>\\n</template>\\n\"}]",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-form.vue/screenshots/0.png",
+            "blocks": "[{\"title\":\"基础表单\",\"description\":\"\",\"code\":\"<template>\\n<u-form gap=\\\"large\\\">\\n    <u-form-item label=\\\"名称\\\" required>\\n        <u-input size=\\\"huge medium\\\" placeholder=\\\"由字母、数字和中划线组成\\\"></u-input>\\n    </u-form-item>\\n    <u-form-item label=\\\"类型\\\" required>\\n        <u-radios >\\n            <u-radio label=\\\"A\\\">类型 A</u-radio>\\n            <u-radio label=\\\"B\\\">类型 B</u-radio>\\n        </u-radios>\\n    </u-form-item>\\n    <u-form-item>\\n        <u-button color=\\\"primary\\\" >立即创建</u-button>\\n    </u-form-item>\\n</u-form>\\n</template>\\n\"}]",
             "attrs": [
                 {
                     "name": "model",
@@ -4825,8 +4825,8 @@
         "labels": [
             "Form"
         ],
-        "screenShot": "",
-        "blocks": "[{\"title\":\"基础表单\",\"description\":\"\",\"code\":\"<template>\\n<u-form gap=\\\"large\\\">\\n    <u-form-item label=\\\"名称\\\" required>\\n        <u-input v-model=\\\"model.name\\\" size=\\\"huge medium\\\" placeholder=\\\"由字母、数字和中划线组成\\\"></u-input>\\n    </u-form-item>\\n    <u-form-item label=\\\"类型\\\" required>\\n        <u-radios v-model=\\\"model.type\\\">\\n            <u-radio label=\\\"A\\\">类型 A</u-radio>\\n            <u-radio label=\\\"B\\\">类型 B</u-radio>\\n        </u-radios>\\n    </u-form-item>\\n    <u-form-item>\\n        <u-button color=\\\"primary\\\" >立即创建</u-button>\\n    </u-form-item>\\n</u-form>\\n</template>\\n\"}]"
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-form.vue/screenshots/0.png",
+        "blocks": "[{\"title\":\"基础表单\",\"description\":\"\",\"code\":\"<template>\\n<u-form gap=\\\"large\\\">\\n    <u-form-item label=\\\"名称\\\" required>\\n        <u-input size=\\\"huge medium\\\" placeholder=\\\"由字母、数字和中划线组成\\\"></u-input>\\n    </u-form-item>\\n    <u-form-item label=\\\"类型\\\" required>\\n        <u-radios >\\n            <u-radio label=\\\"A\\\">类型 A</u-radio>\\n            <u-radio label=\\\"B\\\">类型 B</u-radio>\\n        </u-radios>\\n    </u-form-item>\\n    <u-form-item>\\n        <u-button color=\\\"primary\\\" >立即创建</u-button>\\n    </u-form-item>\\n</u-form>\\n</template>\\n\"}]"
     },
     {
         "symbol": "u-button",
@@ -11110,7 +11110,7 @@
             "title": "弹窗",
             "category": "Feedback",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/3.png",
-            "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-modal ref=\\\"modal1\\\" title=\\\"标题\\\">\\n    这是一段文字内容。\\n</u-modal>\\n<u-button @click=\\\"$refs.modal1.currentVisible=true\\\">Modal</u-button>\\n</template>\\n\"},{\"title\":\"改变主要按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-modal title=\\\"标题\\\" ref=\\\"model2\\\"\\n  primary-button=\\\"cancelButton\\\">内容</u-modal>\\n<u-button @click=\\\"$refs.model2.currentVisible=true\\\">Modal</u-button>\\n</template>\\n\"},{\"title\":\"禁用按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-modal title=\\\"标题\\\" ref=\\\"model3\\\" disable-ok>内容</u-modal>\\n<u-button @click=\\\"$refs.model3.currentVisible=true\\\">Modal</u-button>\\n</template>\\n\"},{\"title\":\"自定义\",\"description\":\"\",\"code\":\"<template>\\n<u-modal ref=\\\"model4\\\">\\n    <template #title>\\n        自定义\\n    </template>\\n    <template #body>\\n        内容\\n    </template>\\n    <template #foot>\\n        <u-button color=\\\"primary\\\">关闭</u-button>\\n    </template>\\n</u-modal>\\n<u-button @click=\\\"$refs.model4.currentVisible=true\\\">Modal</u-button>\\n</template>\\n\"}]",
+            "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-modal ref=\\\"modal1\\\" title=\\\"标题\\\" visible>\\n    这是一段文字内容。\\n</u-modal>\\n</template>\\n\"},{\"title\":\"改变主要按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-modal title=\\\"标题\\\" visible\\n  primary-button=\\\"cancelButton\\\">内容</u-modal>\\n</template>\\n\"},{\"title\":\"禁用按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-modal title=\\\"标题\\\" visible disable-ok>内容</u-modal>\\n</template>\\n\"},{\"title\":\"自定义\",\"description\":\"\",\"code\":\"<template>\\n<u-modal visible>\\n    <template #title>\\n        自定义\\n    </template>\\n    <template #body>\\n        内容\\n    </template>\\n    <template #foot>\\n        <u-button color=\\\"primary\\\">关闭</u-button>\\n    </template>\\n</u-modal>\\n</template>\\n\"}]",
             "attrs": [
                 {
                     "name": "title",
@@ -11345,7 +11345,7 @@
             "Feedback"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/3.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-modal ref=\\\"modal1\\\" title=\\\"标题\\\">\\n    这是一段文字内容。\\n</u-modal>\\n<u-button @click=\\\"$refs.modal1.currentVisible=true\\\">Modal</u-button>\\n</template>\\n\"},{\"title\":\"改变主要按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-modal title=\\\"标题\\\" ref=\\\"model2\\\"\\n  primary-button=\\\"cancelButton\\\">内容</u-modal>\\n<u-button @click=\\\"$refs.model2.currentVisible=true\\\">Modal</u-button>\\n</template>\\n\"},{\"title\":\"禁用按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-modal title=\\\"标题\\\" ref=\\\"model3\\\" disable-ok>内容</u-modal>\\n<u-button @click=\\\"$refs.model3.currentVisible=true\\\">Modal</u-button>\\n</template>\\n\"},{\"title\":\"自定义\",\"description\":\"\",\"code\":\"<template>\\n<u-modal ref=\\\"model4\\\">\\n    <template #title>\\n        自定义\\n    </template>\\n    <template #body>\\n        内容\\n    </template>\\n    <template #foot>\\n        <u-button color=\\\"primary\\\">关闭</u-button>\\n    </template>\\n</u-modal>\\n<u-button @click=\\\"$refs.model4.currentVisible=true\\\">Modal</u-button>\\n</template>\\n\"}]"
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-modal ref=\\\"modal1\\\" title=\\\"标题\\\" visible>\\n    这是一段文字内容。\\n</u-modal>\\n</template>\\n\"},{\"title\":\"改变主要按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-modal title=\\\"标题\\\" visible\\n  primary-button=\\\"cancelButton\\\">内容</u-modal>\\n</template>\\n\"},{\"title\":\"禁用按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-modal title=\\\"标题\\\" visible disable-ok>内容</u-modal>\\n</template>\\n\"},{\"title\":\"自定义\",\"description\":\"\",\"code\":\"<template>\\n<u-modal visible>\\n    <template #title>\\n        自定义\\n    </template>\\n    <template #body>\\n        内容\\n    </template>\\n    <template #foot>\\n        <u-button color=\\\"primary\\\">关闭</u-button>\\n    </template>\\n</u-modal>\\n</template>\\n\"}]"
     },
     {
         "symbol": "e-watermark",

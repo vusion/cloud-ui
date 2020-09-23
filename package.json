@@ -19,12 +19,12 @@
     "screenshot": "node bin/screenshot",
     "lint": "eslint --fix --ext .js,.vue src && stylelint --fix ./src/**/*.css",
     "ghpages": "vusion ghpages",
-    "lcap": "node ./scripts/lcap",
+    "lcap": "npm run build:docs && npm run screenshot && npm run deploy:screenshots && node ./scripts/lcap",
     "deploy": "vusion deploy --framework cloud-ui.vusion@0.11 -v minor",
     "deploy:screenshots": "node bin/deploy-screenshots",
     "deploy:doc-entry": "vusion deploy --framework cloud-ui -v minor dist-doc-entry",
     "prepublishOnly": "npm run build && npm run build:theme && npm run build:raw && vusion readme && vusion vetur && git add .",
-    "postpublish": "npm run build:docs && npm run deploy && npm run lcap && vusion ghpages"
+    "postpublish": "npm run build:docs && npm run deploy && vusion ghpages"
   },
   "repository": "vusion/cloud-ui",
   "homepage": "http://vusion.github.io/cloud-ui",
