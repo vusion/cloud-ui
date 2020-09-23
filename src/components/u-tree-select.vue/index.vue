@@ -11,8 +11,14 @@
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
     <span v-show="!filterText && (!($refs.treeView && $refs.treeView.selectedVM))" :class="$style.placeholder">{{ placeholder }}</span>
     <div :class="$style.text" v-ellipsis-title :tags-overflow="tagsOverflow">
-        <!-- <f-render v-if="!multiple && !filterable" :vnode="$refs.treeView && $refs.treeView.selectedVM && $refs.treeView.selectedVM.$slots.text"></f-render> -->
-        <div>{{ $refs.treeView && $refs.treeView.selectedVM && $refs.treeView.selectedVM.text }}</div>
+        <f-slot v-if="$refs.treeView && $refs.treeView.selectedVM" name="text" :vm="this" :props="{
+            text: $refs.treeView.selectedVM.text,
+            node: $refs.treeView.selectedVM.node,
+            parent: $refs.treeView.selectedVM.parent,
+        }">
+            <span>{{ $refs.treeView.selectedVM.text }}</span>
+        </f-slot>
+        <!-- <div>{{ $refs.treeView && $refs.treeView.selectedVM && $refs.treeView.selectedVM.text }}</div> -->
         <span v-if="multipleAppearance === 'text'">{{ currentText }}</span>
         <!-- <template v-else-if="multipleAppearance === 'tags'">
             <template v-if="tagsOverflow === 'hidden' || tagsOverflow === 'visible'">
@@ -70,7 +76,7 @@
             @toggle="$emit('toggle', $event, this)"
             @check="$emit('check', $event, this)"
             >
-            <template #text="props"><slot name="text" v-bind="props"></slot></template>
+            <template #text="props"><slot name="text" v-bind="props">{{ props.text }}</slot></template>
             <slot></slot>
         </u-tree-view>
     </m-popper>
@@ -147,6 +153,7 @@ export default {
     mounted() {
         this.autofocus && this.$el.focus();
         this.toggle(this.opened);
+        setTimeout(() => this.$forceUpdate());
     },
     methods: {
         open() {
