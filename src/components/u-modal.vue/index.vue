@@ -1,6 +1,7 @@
 <template>
 <div :class="$style.root" v-if="currentVisible" :static="this.static" @click="handleClose">
     <div :class="$style.dialog" ref="dialog" :style="{ width: width + 'px' }" :size="size">
+        <slot name="inject"></slot>
         <div :class="$style.head">
             <slot name="head">
                 <div v-if="title" :class="$style.title">
@@ -187,6 +188,7 @@ export default UModal;
 }
 
 .dialog {
+    position: relative;
     width: 400px;
     display: inline-block;
     vertical-align: middle;
