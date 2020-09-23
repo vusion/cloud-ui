@@ -1,31 +1,28 @@
 ### 基本用法
 
 ``` html
-<u-modal ref="modal1" title="标题">
+<u-modal ref="modal1" title="标题" visible>
     这是一段文字内容。
 </u-modal>
-<u-button @click="$refs.modal1.currentVisible=true">Modal</u-button>
 ```
 
 ### 改变主要按钮
 
 ``` html
-<u-modal title="标题" ref="model2"
+<u-modal title="标题" visible
   primary-button="cancelButton">内容</u-modal>
-<u-button @click="$refs.model2.currentVisible=true">Modal</u-button>
 ```
 
 ### 禁用按钮
 
 ``` html
-<u-modal title="标题" ref="model3" disable-ok>内容</u-modal>
-<u-button @click="$refs.model3.currentVisible=true">Modal</u-button>
+<u-modal title="标题" visible disable-ok>内容</u-modal>
 ```
 
 ### 自定义
 
 ``` html
-<u-modal ref="model4">
+<u-modal visible>
     <template #title>
         自定义
     </template>
@@ -36,5 +33,4 @@
         <u-button color="primary">关闭</u-button>
     </template>
 </u-modal>
-<u-button @click="$refs.model4.currentVisible=true">Modal</u-button>
 ```
