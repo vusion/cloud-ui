@@ -14,7 +14,7 @@
     <div :class="$style.list" v-if="showFileList" :list-type="listType">
         <template v-if="listType !== 'card'">
             <div :class="$style.item" v-for="(item, index) in currentValue" :key="index">
-                <div :class="$style.thumb"><img v-if="listType === 'image'" :src="item.thumb || item.url"></div>
+                <div :class="$style.thumb"><img :class="$style.img" v-if="listType === 'image'" :src="item.thumb || item.url"></div>
                 <a :class="$style.link" :href="item.url" target="_blank">{{ item.name }}</a>
                 <span :class="$style.remove" @click="remove(index)"></span>
                 <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
@@ -22,7 +22,7 @@
         </template>
         <template v-else>
             <div :class="$style.card" v-for="(item, index) in currentValue" :key="index" @click="!multiple && select()">
-                <div :class="$style.thumb"><img :src="item.thumb || item.url"></div>
+                <div :class="$style.thumb"><img :class="$style.img" :src="item.thumb || item.url"></div>
                 <div :class="$style.mask" :multiple="multiple" :show-progress="item.showProgress">
                     <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
                     <div v-show="multiple" :class="$style.buttons">
@@ -342,6 +342,10 @@ export default {
 .thumb {
     display: inline-block;
     vertical-align: middle;
+}
+.img {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .list[list-type="text"] .thumb::before {
