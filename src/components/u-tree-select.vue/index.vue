@@ -51,8 +51,8 @@
         @before-close="$emit('before-close', $event, this)"
         @open="onOpen"
         @close="onClose"
-        @click.stop @scroll.stop="onScroll">
-        <u-tree-view ref="treeView" style="border: none; overflow: auto;"
+        @click.stop>
+        <u-tree-view ref="treeView" style="border: none; min-width: 300px;"
             :value="value"
             :values="values"
             :data="data"
