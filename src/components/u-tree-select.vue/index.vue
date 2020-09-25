@@ -11,13 +11,22 @@
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
     <span v-show="!filterText && (!($refs.treeView && $refs.treeView.selectedVM))" :class="$style.placeholder">{{ placeholder }}</span>
     <div :class="$style.text" v-ellipsis-title :tags-overflow="tagsOverflow">
-        <f-slot v-if="$refs.treeView && $refs.treeView.selectedVM" name="text" :vm="this" :props="{
-            text: $refs.treeView.selectedVM.text,
-            node: $refs.treeView.selectedVM.node,
-            parent: $refs.treeView.selectedVM.parent,
-        }">
-            <span>{{ $refs.treeView.selectedVM.text }}</span>
-        </f-slot>
+        <template v-if="$refs.treeView && $refs.treeView.selectedVM">
+            <f-slot v-if="$scopedSlots.selected" name="selected" :vm="this" :props="{
+                text: $refs.treeView.selectedVM.text,
+                node: $refs.treeView.selectedVM.node,
+                parent: $refs.treeView.selectedVM.parent,
+            }">
+                <span>{{ $refs.treeView.selectedVM.text }}</span>
+            </f-slot>
+            <f-slot v-else-if="$scopedSlots.text" name="text" :vm="this" :props="{
+                text: $refs.treeView.selectedVM.text,
+                node: $refs.treeView.selectedVM.node,
+                parent: $refs.treeView.selectedVM.parent,
+            }">
+                <span>{{ $refs.treeView.selectedVM.text }}</span>
+            </f-slot>
+        </template>
         <!-- <div>{{ $refs.treeView && $refs.treeView.selectedVM && $refs.treeView.selectedVM.text }}</div> -->
         <span v-if="multipleAppearance === 'text'">{{ currentText }}</span>
         <!-- <template v-else-if="multipleAppearance === 'tags'">
