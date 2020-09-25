@@ -759,7 +759,7 @@ Methods
 | ----- | ---- | ------- | ----------- |
 | expanded | boolean |  | 展开/折叠 |
 
-#### checkAll(checked)
+#### checkAll(expanded)
 
 选中/取消所有节点
 

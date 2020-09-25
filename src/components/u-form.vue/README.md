@@ -433,7 +433,7 @@ Methods
 | trigger | string | `'submit'` | 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。 |
 | muted | boolean | `false` | 是否验证后无提示 |
 
-#### validateItem(name, trigger, slient)
+#### validateItem(name, trigger, muted)
 
 验证表单中的某一项，已废弃。表单中的项是嵌套的，用 name 层级较深，而且可能有重名。
 
