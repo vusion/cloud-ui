@@ -165,15 +165,15 @@
           type: UTextarea
           description: 发送事件实例
   methods:
-    - name: focus()
+    - name: focus
       description: 让输入框获取焦点。
       params: []
       advanced: true
-    - name: blur()
+    - name: blur
       description: 让输入框失去焦点。
       params: []
       advanced: true
-    - name: clear()
+    - name: clear
       description: 清空输入框。
       params: []
       advanced: true

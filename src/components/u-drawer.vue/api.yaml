@@ -70,7 +70,7 @@
           type: UDrawer
           description: 发送事件实例
   static-methods:
-    - name: alert(content, title)
+    - name: alert
       description: 打开只有确定按钮的抽屉
       params:
         - name: content
@@ -79,7 +79,7 @@
         - name: title
           type: string
           description: 抽屉标题
-    - name: confirm(content, title)
+    - name: confirm
       description: 打开有确定和取消按钮的抽屉
       params:
         - name: content

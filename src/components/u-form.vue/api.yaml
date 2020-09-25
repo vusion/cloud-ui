@@ -106,7 +106,7 @@
           type: UValidator
           description: 发送事件实例
   methods:
-    - name: validate(trigger, muted)
+    - name: validate
       description: 手动验证。
       params:
         - name: trigger
@@ -117,7 +117,7 @@
           type: boolean
           default: false
           description: 是否验证后无提示
-    - name: validateItem(name, trigger, slient)
+    - name: validateItem
       description: 验证表单中的某一项，已废弃。表单中的项是嵌套的，用 name 层级较深，而且可能有重名。
       params:
         - name: name
@@ -279,7 +279,7 @@
           type: UValidator
           description: 发送事件实例
   methods:
-    - name: validate(trigger, muted)
+    - name: validate
       description: 验证此表单项。
       params:
         - name: trigger

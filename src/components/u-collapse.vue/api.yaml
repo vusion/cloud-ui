@@ -32,7 +32,7 @@
           type: UCollapseItem
           description: 面板组件
   methods:
-    - name: toggleAll(expanded)
+    - name: toggleAll
       description: 展开/折叠所有面板
       params:
         - name: expanded

@@ -155,23 +155,23 @@
       description: "@deprecated"
       params: []
   methods:
-    - name: open()
+    - name: open
       description: 弹出实例。
       params: []
-    - name: close()
+    - name: close
       description: 关闭实例。
       params: []
-    - name: toggle(opened?)
+    - name: toggle
       description: 切换弹出/关闭状态。
       params:
         - name: opened?
           type: boolean
           description: 可选。弹出/关闭状态
-    - name: update()
+    - name: update
       description: 更新 popper 实例。参考
         [Popper.update()](https://popper.js.org/popper-documentation.html#Popper.update)。
       params: []
-    - name: scheduleUpdate()
+    - name: scheduleUpdate
       description: 在下次 UI 渲染时一块更新 popper 实例，比`update()`性能要好。参考
         [Popper.scheduleUpdate()](https://popper.js.org/popper-documentation.html#Popper.scheduleUpdate)。
       params: []

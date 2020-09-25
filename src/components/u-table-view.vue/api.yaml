@@ -494,10 +494,10 @@
           type: number
           description: 调整前的宽度
   methods:
-    - name: load()
+    - name: load
       description: 带缓存地加载
       params: []
-    - name: reload()
+    - name: reload
       description: 清除缓存，重新加载
       params: []
 - name: u-table-view-column

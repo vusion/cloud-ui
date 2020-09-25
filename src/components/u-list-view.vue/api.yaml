@@ -266,9 +266,9 @@
           type: UTableView
           description: 发送事件实例
   methods:
-    - name: load()
+    - name: load
       description: 带缓存地加载
       params: []
-    - name: reload()
+    - name: reload
       description: 清除缓存，重新加载
       params: []

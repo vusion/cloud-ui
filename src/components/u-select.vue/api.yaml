@@ -313,22 +313,22 @@
           type: USelect
           description: 发送事件实例
   methods:
-    - name: open()
+    - name: open
       description: 弹出选择框。
       params: []
-    - name: close()
+    - name: close
       description: 关闭选择框。
       params: []
-    - name: toggle(opened?)
+    - name: toggle
       description: 切换弹出/关闭状态。
       params:
         - name: opened?
           type: boolean
           description: 可选。弹出/关闭状态
-    - name: load()
+    - name: load
       description: 带缓存地加载
       params: []
-    - name: reload()
+    - name: reload
       description: 清除缓存，重新加载
       params: []
 - name: u-select-item

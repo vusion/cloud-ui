@@ -185,7 +185,7 @@
           type: UDynamicCards
           description: 发送事件实例
   methods:
-    - name: validate(trigger, muted)
+    - name: validate
       description: 手动验证。
       params:
         - name: trigger

@@ -143,7 +143,7 @@
           type: Vue
           description: 发送事件实例
   methods:
-    - name: toggleAll(expanded)
+    - name: toggleAll
       description: 展开/折叠所有分组
       params:
         - name: expanded

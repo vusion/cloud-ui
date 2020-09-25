@@ -1146,6 +1146,19 @@
                     ]
                 }
             ],
+            "methods": [
+                {
+                    "name": "toggleAll",
+                    "description": "展开/折叠所有分组",
+                    "params": [
+                        {
+                            "name": "expanded",
+                            "type": "boolean",
+                            "description": "展开/折叠"
+                        }
+                    ]
+                }
+            ],
             "events": [
                 {
                     "name": "click",
@@ -3704,6 +3717,18 @@
                     "description": "自定义暂无数据内容。"
                 }
             ],
+            "methods": [
+                {
+                    "name": "load",
+                    "description": "带缓存地加载",
+                    "params": []
+                },
+                {
+                    "name": "reload",
+                    "description": "清除缓存，重新加载",
+                    "params": []
+                }
+            ],
             "events": [
                 {
                     "name": "before-load",
@@ -4559,6 +4584,50 @@
                     ]
                 }
             ],
+            "methods": [
+                {
+                    "name": "validate",
+                    "description": "手动验证。",
+                    "params": [
+                        {
+                            "name": "trigger",
+                            "type": "string",
+                            "default": "submit",
+                            "description": "触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。"
+                        },
+                        {
+                            "name": "muted",
+                            "type": "boolean",
+                            "default": false,
+                            "description": "是否验证后无提示"
+                        }
+                    ]
+                },
+                {
+                    "name": "validateItem",
+                    "description": "验证表单中的某一项，已废弃。表单中的项是嵌套的，用 name 层级较深，而且可能有重名。",
+                    "params": [
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "default": null,
+                            "description": "表单项的 name"
+                        },
+                        {
+                            "name": "trigger",
+                            "type": "string",
+                            "default": "submit",
+                            "description": "触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。"
+                        },
+                        {
+                            "name": "muted",
+                            "type": "boolean",
+                            "default": false,
+                            "description": "是否验证后无提示"
+                        }
+                    ]
+                }
+            ],
             "events": [
                 {
                     "name": "validate",
@@ -5262,6 +5331,23 @@
                     "quick-add": "never"
                 }
             ],
+            "methods": [
+                {
+                    "name": "focus",
+                    "description": "让输入框获取焦点。",
+                    "params": []
+                },
+                {
+                    "name": "blur",
+                    "description": "让输入框失去焦点。",
+                    "params": []
+                },
+                {
+                    "name": "clear",
+                    "description": "清空输入框。",
+                    "params": []
+                }
+            ],
             "events": [
                 {
                     "name": "before-input",
@@ -5783,6 +5869,26 @@
                     "name": "default",
                     "title": "默认",
                     "description": "插入 HTML 或 `Component`, 可展示额外内容。",
+                    "advanced": true
+                }
+            ],
+            "methods": [
+                {
+                    "name": "focus",
+                    "description": "让输入框获取焦点。",
+                    "params": [],
+                    "advanced": true
+                },
+                {
+                    "name": "blur",
+                    "description": "让输入框失去焦点。",
+                    "params": [],
+                    "advanced": true
+                },
+                {
+                    "name": "clear",
+                    "description": "清空输入框。",
+                    "params": [],
                     "advanced": true
                 }
             ],
@@ -7256,6 +7362,39 @@
                     ]
                 }
             ],
+            "methods": [
+                {
+                    "name": "open",
+                    "description": "弹出选择框。",
+                    "params": []
+                },
+                {
+                    "name": "close",
+                    "description": "关闭选择框。",
+                    "params": []
+                },
+                {
+                    "name": "toggle",
+                    "description": "切换弹出/关闭状态。",
+                    "params": [
+                        {
+                            "name": "opened?",
+                            "type": "boolean",
+                            "description": "可选。弹出/关闭状态"
+                        }
+                    ]
+                },
+                {
+                    "name": "load",
+                    "description": "带缓存地加载",
+                    "params": []
+                },
+                {
+                    "name": "reload",
+                    "description": "清除缓存，重新加载",
+                    "params": []
+                }
+            ],
             "events": [
                 {
                     "name": "before-select",
@@ -7950,6 +8089,13 @@
                 {
                     "name": "default",
                     "description": "插入文本 或 HTML。"
+                }
+            ],
+            "methods": [
+                {
+                    "name": "select",
+                    "description": "选择文件上传",
+                    "params": []
                 }
             ],
             "events": [
@@ -9298,6 +9444,56 @@
                     ]
                 }
             ],
+            "methods": [
+                {
+                    "name": "walk",
+                    "advanced": true,
+                    "description": "广度优先遍历树。当`func`函数有返回值时，停止遍历。",
+                    "params": [
+                        {
+                            "name": "func",
+                            "type": "Function",
+                            "description": "遍历的处理函数"
+                        }
+                    ]
+                },
+                {
+                    "name": "find",
+                    "advanced": true,
+                    "description": "查找节点实例。",
+                    "params": [
+                        {
+                            "name": "func",
+                            "type": "Function",
+                            "description": "查找函数。找到第一个返回值为`true`的实例。"
+                        }
+                    ]
+                },
+                {
+                    "name": "toggleAll",
+                    "advanced": true,
+                    "description": "展开/折叠所有节点",
+                    "params": [
+                        {
+                            "name": "expanded",
+                            "type": "boolean",
+                            "description": "展开/折叠"
+                        }
+                    ]
+                },
+                {
+                    "name": "checkAll",
+                    "advanced": true,
+                    "description": "选中/取消所有节点",
+                    "params": [
+                        {
+                            "name": "expanded",
+                            "type": "boolean",
+                            "description": "选中/取消"
+                        }
+                    ]
+                }
+            ],
             "events": [
                 {
                     "name": "before-select",
@@ -9838,6 +10034,57 @@
                 {
                     "name": "item",
                     "description": "自定义选项的结构和样式"
+                }
+            ],
+            "methods": [
+                {
+                    "name": "forward",
+                    "description": "从左向右转移数据。",
+                    "params": [
+                        {
+                            "name": "values",
+                            "type": "Array<string>",
+                            "description": "指定转移选项值的列表。如果不填，则为按左列表框选中项值的列表。"
+                        }
+                    ]
+                },
+                {
+                    "name": "reverse",
+                    "description": "从右向左转移数据。",
+                    "params": [
+                        {
+                            "name": "values",
+                            "type": "Array<string>",
+                            "description": "指定转移选项值的列表。如果不填，则为按右列表框选中项值的列表。"
+                        }
+                    ]
+                },
+                {
+                    "name": "transfer",
+                    "description": "转移指定项的数据。",
+                    "params": [
+                        {
+                            "name": "direction",
+                            "type": "string",
+                            "options": [
+                                {
+                                    "value": "forward",
+                                    "title": "从左向右"
+                                },
+                                {
+                                    "value": "reverse",
+                                    "title": "从右向左"
+                                }
+                            ],
+                            "default": "forward",
+                            "description": "方向"
+                        },
+                        {
+                            "name": "values",
+                            "type": "Array<string>",
+                            "description": "指定转移选项值的列表。"
+                        }
+                    ]
                 }
             ],
             "events": [
@@ -10561,6 +10808,39 @@
                     "description": "自定义标题文本。"
                 }
             ],
+            "methods": [
+                {
+                    "name": "open",
+                    "description": "弹出实例。",
+                    "params": []
+                },
+                {
+                    "name": "close",
+                    "description": "关闭实例。",
+                    "params": []
+                },
+                {
+                    "name": "toggle",
+                    "description": "切换弹出/关闭状态。",
+                    "params": [
+                        {
+                            "name": "opened?",
+                            "type": "boolean",
+                            "description": "可选。弹出/关闭状态"
+                        }
+                    ]
+                },
+                {
+                    "name": "update",
+                    "description": "更新 popper 实例。参考 [Popper.update()](https://popper.js.org/popper-documentation.html#Popper.update)。",
+                    "params": []
+                },
+                {
+                    "name": "scheduleUpdate",
+                    "description": "在下次 UI 渲染时一块更新 popper 实例，比`update()`性能要好。参考 [Popper.scheduleUpdate()](https://popper.js.org/popper-documentation.html#Popper.scheduleUpdate)。",
+                    "params": []
+                }
+            ],
             "events": [
                 {
                     "name": "before-open",
@@ -10820,6 +11100,39 @@
                 {
                     "name": "content",
                     "description": "自定义内容文本。"
+                }
+            ],
+            "methods": [
+                {
+                    "name": "open",
+                    "description": "弹出实例。",
+                    "params": []
+                },
+                {
+                    "name": "close",
+                    "description": "关闭实例。",
+                    "params": []
+                },
+                {
+                    "name": "toggle",
+                    "description": "切换弹出/关闭状态。",
+                    "params": [
+                        {
+                            "name": "opened?",
+                            "type": "boolean",
+                            "description": "可选。弹出/关闭状态"
+                        }
+                    ]
+                },
+                {
+                    "name": "update",
+                    "description": "更新 popper 实例。参考 [Popper.update()](https://popper.js.org/popper-documentation.html#Popper.update)。",
+                    "params": []
+                },
+                {
+                    "name": "scheduleUpdate",
+                    "description": "在下次 UI 渲染时一块更新 popper 实例，比`update()`性能要好。参考 [Popper.scheduleUpdate()](https://popper.js.org/popper-documentation.html#Popper.scheduleUpdate)。",
+                    "params": []
                 }
             ],
             "events": [
@@ -11247,6 +11560,40 @@
                 {
                     "name": "default",
                     "description": "弹窗内容自定义"
+                }
+            ],
+            "methods": [
+                {
+                    "name": "alert",
+                    "description": "打开只有确定按钮的消息提示",
+                    "params": [
+                        {
+                            "name": "content",
+                            "type": "string",
+                            "description": "提示内容"
+                        },
+                        {
+                            "name": "title",
+                            "type": "string",
+                            "description": "提示标题"
+                        }
+                    ]
+                },
+                {
+                    "name": "confirm",
+                    "description": "打开有确定和取消按钮的消息提示",
+                    "params": [
+                        {
+                            "name": "content",
+                            "type": "string",
+                            "description": "提示内容"
+                        },
+                        {
+                            "name": "title",
+                            "type": "string",
+                            "description": "提示标题"
+                        }
+                    ]
                 }
             ],
             "events": [

@@ -196,28 +196,28 @@
           type: UTreeView
           description: 发送事件实例
   methods:
-    - name: walk(func)
+    - name: walk
       advanced: true
       description: 广度优先遍历树。当`func`函数有返回值时，停止遍历。
       params:
         - name: func
           type: Function
           description: 遍历的处理函数
-    - name: find(func)
+    - name: find
       advanced: true
       description: 查找节点实例。
       params:
         - name: func
           type: Function
           description: 查找函数。找到第一个返回值为`true`的实例。
-    - name: toggleAll(expanded)
+    - name: toggleAll
       advanced: true
       description: 展开/折叠所有节点
       params:
         - name: expanded
           type: boolean
           description: 展开/折叠
-    - name: checkAll(checked)
+    - name: checkAll
       advanced: true
       description: 选中/取消所有节点
       params:
