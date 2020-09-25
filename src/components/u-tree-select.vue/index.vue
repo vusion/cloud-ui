@@ -80,6 +80,7 @@
             :disabled="disabled"
             @change="$emit('change', $event, this)"
             @before-select="$emit('before-select', $event, this)"
+            @select="$emit('select', $event, this)"
             @input="$emit('input', $event, this)"
             @update:value="$emit('update:value', $event, this)"
             @toggle="$emit('toggle', $event, this)"
