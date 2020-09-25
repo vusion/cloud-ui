@@ -3,7 +3,7 @@
 下面的例子为单文件上传。
 
 ``` html
-<u-uploader :value="[]" url="http://localhost:7000/api/library/upload">
+<u-uploader :value="[]" url="/gateway/lowcode/api/v1/app/upload">
     <u-button color="primary">Upload</u-button>
 </u-uploader>
 ```
@@ -23,7 +23,7 @@
                 name: 'salad.png',
                 status: 'success',
                 url: 'https://static-vusion.163yun.com/assets/salad.png',
-            }]" multiple url="http://localhost:7000/api/library/upload">
+            }]" multiple url="/gateway/lowcode/api/v1/app/upload">
     <u-button color="primary">Upload</u-button>
 </u-uploader>
 ```
@@ -47,7 +47,7 @@
                 url: 'https://static-vusion.163yun.com/assets/salad.png',
             }]" multiple list-type="image"
     accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
-    url="http://localhost:7000/api/library/upload">
+    url="/gateway/lowcode/api/v1/app/upload">
     <u-button color="primary">Upload</u-button>
 </u-uploader>
 ```
@@ -67,7 +67,7 @@
                 url: 'https://static-vusion.163yun.com/assets/salad.png',
             }]" multiple list-type="card"
     accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
-    url="http://localhost:7000/api/library/upload">
+    url="/gateway/lowcode/api/v1/app/upload">
 </u-uploader>
 ```
 
@@ -78,6 +78,6 @@
 ``` html
 <u-uploader :values="[]" list-type="card"
     accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
-    url="http://localhost:7000/api/library/upload">
+    url="/gateway/lowcode/api/v1/app/upload">
 </u-uploader>
 ```
