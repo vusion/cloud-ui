@@ -96,6 +96,7 @@
       description: 插入文本 或 HTML。
   events:
     - name: before-send
+      title: 发送前
       description: 发送前触发
       params:
         - name: $event.data
@@ -114,6 +115,7 @@
           type: UUploader
           description: 发送事件对象
     - name: send
+      title: 发送时
       description: 刚发送时触发
       params:
         - name: $event.data
@@ -126,6 +128,7 @@
           type: UUploader
           description: 发送事件对象
     - name: progress
+      title: 进度改变时
       description: 发送进度改变时触发，在上传进度条时使用
       params:
         - name: $event.data
@@ -135,6 +138,7 @@
           type: UUploader
           description: 发送事件对象
     - name: complete
+      title: 上传完成时
       description: 上传完成时触发
       params:
         - name: $event.xml
@@ -144,6 +148,7 @@
           type: UUploader
           description: 发送事件对象
     - name: success
+      title: 上传成功时
       description: 上传成功时触发
       params:
         - name: $event.data
@@ -156,6 +161,7 @@
           type: UUploader
           description: 发送事件对象
     - name: error
+      title: 上传错误时
       description: 上传报错时触发
       params:
         - name: $event.name
@@ -178,6 +184,7 @@
           description: 发送事件对象
   methods:
     - name: select
+      title: 选择
       description: 选择文件上传
       params: []
 
