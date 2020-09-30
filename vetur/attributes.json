@@ -2080,6 +2080,32 @@
     "type": "string",
     "description": "图片地址"
   },
+  "u-image/fit": {
+    "type": "string",
+    "options": [
+      {
+        "value": "fill",
+        "title": "图片拉伸完全填充"
+      },
+      {
+        "value": "contain",
+        "title": "图片缩放比例完全填充"
+      },
+      {
+        "value": "cover",
+        "title": "图片按比例尽可能大的填充"
+      },
+      {
+        "value": "none",
+        "title": "图片以原尺寸填充"
+      },
+      {
+        "value": "scale-down",
+        "title": "取 contain、none 中较小的"
+      }
+    ],
+    "description": "图片地址"
+  },
   "u-info-list/repeat": {
     "type": "number",
     "description": "整个详情列表的划分列数"
@@ -2608,6 +2634,10 @@
   "u-link/append": {
     "type": "boolean",
     "description": "需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。"
+  },
+  "u-link/decoration": {
+    "type": "boolean",
+    "description": "是否显示下划线"
   },
   "u-link/disabled": {
     "type": "boolean",

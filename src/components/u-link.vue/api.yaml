@@ -58,6 +58,11 @@
       default: false
       advanced: true
       description: 需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。
+    - name: decoration
+      title: 下划线
+      type: boolean
+      default: true
+      description: 是否显示下划线
     - name: disabled
       title: 禁用
       type: boolean
