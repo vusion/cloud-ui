@@ -1,5 +1,6 @@
 <template>
 <a :class="$style.root" :href="currentHref" :target="target"
+    :noDecoration="!decoration"
     :disabled="disabled" :tabindex="disabled ? -1 : 0"
     @click="onClick" v-on="listeners">
     <slot></slot>
@@ -16,6 +17,7 @@ export default {
         replace: { type: Boolean, default: false },
         append: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
+        decoration: { type: Boolean, default: true },
     },
     computed: {
         /**
@@ -90,7 +92,9 @@ return undefined;
 .root {
     color: var(--link-color);
 }
-
+.root[noDecoration] {
+    text-decoration: none!important;
+}
 .root:hover {
     text-decoration: underline;
 }
