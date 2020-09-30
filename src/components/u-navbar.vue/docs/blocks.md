@@ -33,7 +33,7 @@
 ``` html
 <u-navbar>
     <template #left>
-    logo
+        <u-link :decoration="false" style="line-height:64px;color:#fff;font-size:32px;padding: 0 10px">Logo</u-link>
     </template>  
     <u-navbar-item >组件</u-navbar-item>
     <u-navbar-item>概念</u-navbar-item>
@@ -52,7 +52,7 @@
 <u-linear-layout direction="vertical">
     <u-navbar alignment="left">
         <template #left>
-            logo
+            <u-link :decoration="false" style="line-height:64px;color:#fff;font-size:32px;padding: 0 10px">Logo</u-link>
         </template>
         <u-navbar-item>指南</u-navbar-item>
         <u-navbar-item>概念</u-navbar-item>
@@ -63,7 +63,7 @@
     </u-navbar>
     <u-navbar alignment="center">
         <template #left>
-        logo
+        <u-link :decoration="false" style="line-height:64px;color:#fff;font-size:32px;padding: 0 10px">Logo</u-link>
         </template>
         <u-navbar-item>指南</u-navbar-item>
         <u-navbar-item>概念</u-navbar-item>
@@ -74,7 +74,7 @@
     </u-navbar>
     <u-navbar alignment="right">
         <template #left>
-        logo
+        <u-link :decoration="false" style="line-height:64px;color:#fff;font-size:32px;padding: 0 10px">Logo</u-link>
         </template>
         <u-navbar-item>指南</u-navbar-item>
         <u-navbar-item>概念</u-navbar-item>
