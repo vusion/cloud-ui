@@ -68,3 +68,5 @@
         - name: $event
           type: MouseEvent
           description: 鼠标事件对象
+          schema:
+            $ref: '#/systemTypes/MouseEvent'

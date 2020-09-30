@@ -47,6 +47,8 @@
         - name: date
           type: object
           description: 改变后的日期
+          schema:
+            $ref: '#/basicTypes/DateTime'
     - name: select
       title: 选择后
       description: 选择某一个日期时触发
@@ -54,3 +56,5 @@
         - name: date
           type: object
           description: 当前选择的日期
+          schema:
+            $ref: '#/basicTypes/DateTime'
