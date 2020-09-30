@@ -724,7 +724,8 @@
   },
   "u-image": {
     "attributes": [
-      "src"
+      "src",
+      "fit"
     ],
     "description": "可以用来展示一张图片，支持设置图片地址。"
   },
@@ -826,6 +827,7 @@
       "to",
       "replace",
       "append",
+      "decoration",
       "disabled",
       "display"
     ],
