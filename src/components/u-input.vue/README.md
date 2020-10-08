@@ -174,6 +174,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.oldValue | string | 旧的值 |
 | $event.value | string | 输入框的值 |
 | $event.preventDefault | Function | 阻止输入流程 |
@@ -194,6 +195,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | string | 改变后的值 |
 | $event.oldValue | string | 旧的值 |
 | senderVM | UInput | 发送事件实例 |
@@ -222,6 +224,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | string | 清空后的值 |
 | $event.oldValue | string | 待清空的值 |
 | $event.preventDefault | Function | 阻止清空流程 |
@@ -233,6 +236,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | string | 清空后的值 |
 | $event.oldValue | string | 旧的值 |
 | senderVM | UInput | 发送事件实例 |
