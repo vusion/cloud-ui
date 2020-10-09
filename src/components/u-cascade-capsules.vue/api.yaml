@@ -64,6 +64,8 @@
         - name: $event
           type: any
           description: 选择项的值
+          schema:
+            $ref: '#/basicTypes/String'
     - name: select
       title: 选择后
       description: 选择某一项时触发
