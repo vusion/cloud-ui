@@ -74,6 +74,7 @@ export default {
         },
         currentValue(value, oldValue) {
             this.autoSize && this.autoResize();
+            this.$emit('update', value, this);
             this.$emit('change', { value, oldValue }, this);
         },
         color(color) {
@@ -81,6 +82,7 @@ export default {
         },
     },
     mounted() {
+        this.$emit('update', this.value, this);
         this.autoSize && this.autoResize();
     },
     methods: {
