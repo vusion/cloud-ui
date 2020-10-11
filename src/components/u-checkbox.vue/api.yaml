@@ -28,10 +28,18 @@
         - Property: value
           type: boolean, null
           description: 选中状态
+          name: $event
+          schema:
+            $ref: '#/basicTypes/String'
     - name: change
       title: 改变后
       description: 改变后触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeEvent'
         - name: newValue
           type: boolean, null
           description: 新的值

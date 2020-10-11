@@ -90,6 +90,11 @@
       description: 选择某一页前触发
       advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeEvent'
         - name: $event.value
           type: any
           description: 选中标签页的值
@@ -112,6 +117,11 @@
       title: 选择后
       description: 选择某一项后触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeEvent'
         - name: $event.value
           type: any
           description: 选中标签页的值
@@ -132,6 +142,11 @@
       description: 关闭某一页前触发
       advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeEvent'
         - name: $event.value
           type: any
           description: 待关闭标签页的值
@@ -151,6 +166,11 @@
       title: 关闭后
       description: 关闭某一页后触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeEvent'
         - name: $event.value
           type: any
           description: 关闭的标签页的值

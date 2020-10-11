@@ -51,12 +51,22 @@
     - name: select
       description: 日期值发生变化触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/DateEvent'
         - name: $event.date
           type: number
           description: 选择项的值，默认返回时间戳
     - name: change
       description: 选择新时间触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/DateEvent'
         - name: $event.date
           type: number
           description: 选择项的值，默认返回时间戳

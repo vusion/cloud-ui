@@ -25,6 +25,11 @@
     - name: toggle
       description: 展开/折叠某面板时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/CollapseEvent'
         - name: $event.expanded
           type: boolean
           description: 展开/折叠状态
@@ -63,6 +68,11 @@
     - name: before-toggle
       description: 展开/折叠此面板前触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/CollapseEvent'
         - name: $event.expanded
           type: boolean
           description: 展开/折叠状态
@@ -78,6 +88,11 @@
     - name: toggle
       description: 展开/折叠某面板时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/CollapseEvent'
         - name: $event.expanded
           type: boolean
           description: 展开/折叠状态

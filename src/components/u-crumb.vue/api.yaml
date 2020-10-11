@@ -79,6 +79,8 @@
         - name: $event
           type: MouseEvent
           description: 鼠标事件对象
+          schema:
+            $ref: '#/systemTypes/MouseEvent'
         - name: senderVM
           type: UCrumb
           description: 发送事件实例
@@ -87,6 +89,11 @@
       advanced: true
       description: 使用 router 相关属性切换路由前触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/NavigateEvent'
         - name: $event.to
           type: string, Location
           description: "`to`属性的值"
@@ -107,6 +114,11 @@
       advanced: true
       description: 使用router相关属性切换路由时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/NavigateEvent'
         - name: $event.to
           type: string, Location
           description: "`to`属性的值"

@@ -57,6 +57,8 @@
         - name: $event
           type: any
           description: 选择项的值
+          schema:
+            $ref: '#/basicTypes/String'
         - name: senderVM
           type: UCascadeSelect
           description: 发送事件实例
@@ -64,6 +66,11 @@
       title: 选择后
       description: 选择某一项时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/CascadeCapsulesEvent'
         - name: $event.level
           type: number
           description: 选择的层级
@@ -86,6 +93,11 @@
       title: 改变后
       description: 选择值改变时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeEvent'
         - name: $event.value
           type: any
           description: 改变后的值

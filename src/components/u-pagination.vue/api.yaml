@@ -71,6 +71,11 @@
       description: 选择分页前触发
       advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/PaginationEvent'
         - name: $event.page
           type: number
           description: 选择的页码
@@ -87,6 +92,11 @@
       title: 选择后
       description: 选择分页时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/PaginationEvent'
         - name: $event.page
           type: number
           description: 选择的页码
@@ -100,6 +110,11 @@
       title: 改变后
       description: 页码改变时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/PaginationEvent'
         - name: $event.page
           type: number
           description: 当前页码
@@ -113,6 +128,11 @@
       title: 条数改变后
       description: 每页条数改变时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/PaginationEvent'
         - name: $event.pageSize
           type: number
           description: 当前每页条数

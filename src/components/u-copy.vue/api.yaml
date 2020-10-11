@@ -77,6 +77,11 @@
     - name: copy
       description: 内容复制成功后触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeEvent'
         - name: $event.value
           type: string
           description: 复制的值

@@ -172,6 +172,11 @@
       description: 选择某一项前触发。
       advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeEvent'
         - name: $event.value
           type: any
           description: 选择项的值
@@ -196,6 +201,8 @@
         - name: $event
           type: any
           description: 选择项的值
+          schema:
+            $ref: '#/basicTypes/String'
         - name: senderVM
           type: USelect
           description: 发送事件实例
@@ -203,6 +210,11 @@
       title: 选择后
       description: 选择某一项后触发。单选模式中：
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeEvent'
         - name: $event.value
           type: any
           description: 改变后的值
@@ -228,6 +240,11 @@
       title: 改变后
       description: 选择值改变时触发。单选模式中：
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeEvent'
         - name: $event.value
           type: any
           description: 选择项的值
@@ -254,6 +271,11 @@
       description: 弹出前触发。
       advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/EventTarget'
         - name: $event.preventDefault
           type: Function
           description: 阻止弹出流程
@@ -275,6 +297,11 @@
       title: 关闭前
       description: 关闭前触发。
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/EventTarget'
         - name: $event.preventDefault
           type: Function
           description: 阻止关闭流程
@@ -296,6 +323,11 @@
       description: 加载前触发
       advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/EventTarget'
         - name: $event.preventDefault
           type: Function
           description: 阻止加载流程
@@ -356,6 +388,11 @@
       description: 选择此项前触发
       advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeEvent'
         - name: $event.value
           type: any
           description: 此项的值

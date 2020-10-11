@@ -85,6 +85,11 @@
     - name: before-add
       description: 添加前触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/OperatorItemEvent'
         - name: $event.item
           type: any
           description: 添加的项
@@ -103,6 +108,11 @@
     - name: add
       description: 添加时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/OperatorItemEvent'
         - name: $event.item
           type: any
           description: 添加的项
@@ -118,6 +128,11 @@
     - name: before-remove
       description: 删除前触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/OperatorItemEvent'
         - name: $event.item
           type: any
           description: 删除的项
@@ -136,6 +151,11 @@
     - name: remove
       description: 删除时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/OperatorItemEvent'
         - name: $event.item
           type: any
           description: 删除的项
@@ -151,6 +171,11 @@
     - name: splice
       description: 数量变更（添加/删除）时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/OperatorItemEvent'
         - name: $event.item
           type: any
           description: 变更的项
@@ -166,6 +191,11 @@
     - name: validate
       description: 对于第一个 Field 或者所有子 UValidator：
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ValidateEvent'
         - name: $event.trigger
           type: enum
           description: 本次验证的触发方式
@@ -188,6 +218,11 @@
     - name: validate
       description: 手动验证。
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ValidateEvent'
         - name: trigger
           type: string
           default: submit

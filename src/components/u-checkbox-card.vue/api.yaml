@@ -39,6 +39,8 @@
         - name: $event
           type: string
           description: 输入框的值
+          schema:
+            $ref: '#/basicTypes/String'
         - name: senderVM
           type: UInput
           description: 发送事件实例
@@ -46,6 +48,11 @@
       title: 改变后
       description: 值变化时触发。（注意：与原生事件不同）
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeEvent'
         - name: $event.value
           type: string
           description: 改变后的值

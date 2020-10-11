@@ -46,6 +46,11 @@
       title: 选择前
       description: 选择某一项前触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeEvent'
         - name: $event.value
           type: any
           description: 选择项的值
@@ -68,10 +73,17 @@
         - name: $event
           type: any
           description: 选择项的值
+          schema:
+            $ref: '#/basicTypes/String'
     - name: select
       title: 选择后
       description: 选择某一项时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeEvent'
         - name: $event.value
           type: any
           description: 改变后的值
@@ -115,6 +127,11 @@
       title: 选择前
       description: 选择此项前触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeEvent'
         - name: $event.value
           type: any
           description: 此项的值

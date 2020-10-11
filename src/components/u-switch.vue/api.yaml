@@ -30,6 +30,11 @@
       description: 切换开关状态前触发
       advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeEvent'
         - name: $event.value
           type: boolean
           description: 开关状态
@@ -49,6 +54,8 @@
         - name: $event
           type: boolean
           description: 切换后的开关状态
+          schema:
+            $ref: '#/basicTypes/Boolean'
         - name: senderVM
           type: USwitch
           description: 发送事件实例
@@ -59,6 +66,8 @@
         - name: $event
           type: ""
           description: 无
+          schema:
+            $ref: '#/basicTypes/Boolean'
         - name: senderVM
           type: USwitch
           description: 发送事件实例
@@ -69,6 +78,8 @@
         - name: $event
           type: ""
           description: 无
+          schema:
+            $ref: '#/basicTypes/Boolean'
         - name: senderVM
           type: USwitch
           description: 发送事件实例
@@ -76,6 +87,11 @@
       title: 切换状态后
       description: 切换开关状态时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/CollapseEvent'
         - name: $event.value
           type: boolean
           description: 开关状态
@@ -89,6 +105,11 @@
       title: 改变后
       description: 开关状态改变时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/CollapseEvent'
         - name: $event.value
           type: boolean
           description: 开关状态

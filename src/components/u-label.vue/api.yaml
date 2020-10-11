@@ -56,6 +56,11 @@
       description: 删除前触发
       advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/EventTarget'
         - name: $event.preventDefault
           type: Function
           description: 阻止删除流程

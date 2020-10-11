@@ -67,15 +67,27 @@
         - name: $event
           type: Date
           description: 改变后的日期值
+          schema:
+            $ref: '#/basicTypes/Date'
     - name: change
       description: 值变化时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/DateEvent'
         - name: $event.date
           type: Date
           description: 改变后的日期值
     - name: select
       description: 选择日期时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/DateEvent'
         - name: $event.date
           type: Date
           description: 选择后的日期值
@@ -83,6 +95,11 @@
       description: 弹出/隐藏时触发
       advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/CollapseEvent'
         - name: $event.open
           type: boolean
           description: 弹出/隐藏状态

@@ -89,6 +89,8 @@
         - name: $event
           type: string
           description: 输入框的值
+          schema:
+            $ref: '#/basicTypes/String'
         - name: senderVM
           type: UNumberInput
           description: 发送事件实例
@@ -96,6 +98,11 @@
       title: 验证时
       description: 输入验证时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ValidateEvent'
         - name: $event.rawValue
           type: string
           description: 用户输入的原始值
@@ -112,6 +119,11 @@
       title: 改变后
       description: 值变化时触发（与原生事件不同）
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeEvent'
         - name: $event.value
           type: number
           description: 改变后的值
@@ -134,6 +146,8 @@
         - name: $event
           type: string
           description: 原生事件对象
+          schema:
+            $ref: '#/systemTypes/FocusEvent'
         - name: senderVM
           type: UNumberInput
           description: 发送事件实例
@@ -144,6 +158,8 @@
         - name: $event
           type: string
           description: 原生事件对象
+          schema:
+            $ref: '#/systemTypes/FocusEvent'
         - name: senderVM
           type: UNumberInput
           description: 发送事件实例
