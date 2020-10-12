@@ -31,7 +31,7 @@ export default {
         color: String,
         placeholder: String,
         clearable: { type: Boolean, default: false },
-        autofocus: { type: Boolean, default: false },
+        autofocus: { type: [Boolean, String], default: false },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         maxlengthMessage: String,
@@ -74,6 +74,7 @@ export default {
         },
         currentValue(value, oldValue) {
             this.autoSize && this.autoResize();
+            this.$emit('update', value, this);
             this.$emit('change', { value, oldValue }, this);
         },
         color(color) {
@@ -81,6 +82,7 @@ export default {
         },
     },
     mounted() {
+        this.$emit('update', this.value, this);
         this.autoSize && this.autoResize();
     },
     methods: {

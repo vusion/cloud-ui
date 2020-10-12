@@ -1842,6 +1842,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.preventDefault | Function | 阻止加载流程 |
 | senderVM | UTableView | 发送事件实例 |
 
@@ -1860,6 +1861,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.size | number | 分页大小 |
 | $event.oldSize | number | 旧的分页大小 |
 | $event.number | number | 当前页数 |
@@ -1873,6 +1875,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.size | number | 分页大小 |
 | $event.oldSize | number | 分页大小 |
 | $event.number | number | 当前页数 |
@@ -1885,6 +1888,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.field | string | 排序字段 |
 | $event.order | string | 排序顺序 |
 | $event.compare | Function | 排序比较函数 |
@@ -1897,6 +1901,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.field | string | 排序顺序 |
 | $event.order | string | 排序字段 |
 | $event.compare | Function | 排序比较函数 |
@@ -1927,6 +1932,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选择行的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择行相关对象 |
@@ -1949,6 +1955,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 改变后的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择行相关对象 |
@@ -1962,6 +1969,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.checked | boolean | 选中状态 |
 | $event.values | Array | 选择后的值 |
 | $event.oldValues | Array | 旧的值 |
@@ -1974,6 +1982,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选择行的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择行相关对象 |

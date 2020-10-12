@@ -156,6 +156,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.text | string | 提示的内容 |
 | $event.color | string | 提示的颜色 |
 | $event.duration | number | 提示停留的时间 |
@@ -167,6 +168,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.text | string | 提示的内容 |
 | $event.color | string | 提示的颜色 |
 | $event.duration | number | 提示停留的时间 |
@@ -179,6 +181,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.text | string | 提示的内容 |
 | $event.color | string | 提示的颜色 |
 | $event.duration | number | 提示停留的时间 |

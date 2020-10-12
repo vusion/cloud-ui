@@ -344,6 +344,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.preventDefault | Function | 阻止弹出流程 |
 | senderVM | UPopup | 发送事件实例 |
 
@@ -362,6 +363,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.preventDefault | Function | 阻止隐藏流程 |
 | senderVM | UPopup | 发送事件实例 |
 

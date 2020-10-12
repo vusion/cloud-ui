@@ -77,6 +77,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.param1 | string | 参数1 |
 | $event.param2 | number | 参数2 |
 

@@ -78,6 +78,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | boolean | 开关状态 |
 | $event.oldValue | boolean | 旧的开关状态 |
 | $event.preventDefault | Function | 阻止切换流程 |
@@ -116,6 +117,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | boolean | 开关状态 |
 | $event.oldValue | boolean | 旧的开关状态 |
 | senderVM | USwitch | 发送事件实例 |
@@ -126,6 +128,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | boolean | 开关状态 |
 | $event.oldValue | boolean | 旧的开关状态 |
 | senderVM | USwitch | 发送事件实例 |

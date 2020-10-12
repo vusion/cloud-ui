@@ -188,14 +188,16 @@ export default {
     },
     methods: {
         onUpdate(value) {
-            if (this.currentTarget === 'validatorVMs')
+            if (this.currentTarget === 'validatorVMs' || this.manual)
                 return;
             this.hasUpdateEvent = true;
             this.value = value; // 在没有触碰前，走 @update 事件；在触碰后，走 @input 事件
-            if (!this.fieldTouched)
+            if (!this.fieldTouched) {
+                this.oldValue = value;
                 this.$nextTick(() =>
                     this.validate('submit', true).catch((errors) => errors),
                 );
+            }
         },
         onInput(value) {
             if (this.currentTarget === 'validatorVMs' || this.manual)
@@ -325,27 +327,48 @@ export default {
                 touched: this.touched,
                 dirty: this.dirty,
                 firstError: this.firstError,
+                update: () => this.oldValue = this.value,
             };
             if (this.currentTarget === 'fieldVM') {
                 $event.value = this.value;
                 $event.oldValue = this.oldValue;
             }
             this.$emit('validate', $event, this);
-            if ($event.trigger === 'blur') {
-                if ($event.valid)
-                    this.$emit('blur-valid', $event, this);
-                else
-                    this.$emit('blur-invalid', $event, this);
-            } else if ($event.trigger === 'input') {
-                if ($event.valid)
-                    this.$emit('input-valid', $event, this);
-                else
-                    this.$emit('input-invalid', $event, this);
-            } else if ($event.trigger === 'submit') {
-                if ($event.valid)
-                    this.$emit('submit-valid', $event, this);
-                else
-                    this.$emit('submit-invalid', $event, this);
+            if ($event.touched) {
+                if ($event.trigger === 'blur') {
+                    if ($event.dirty) {
+                        if ($event.valid)
+                            this.$emit('blur-dirty-valid', $event, this);
+                        else
+                            this.$emit('blur-dirty-invalid', $event, this);
+                    }
+                    if ($event.valid)
+                        this.$emit('blur-valid', $event, this);
+                    else
+                        this.$emit('blur-invalid', $event, this);
+                } else if ($event.trigger === 'input') {
+                    if ($event.dirty) {
+                        if ($event.valid)
+                            this.$emit('input-dirty-valid', $event, this);
+                        else
+                            this.$emit('input-dirty-invalid', $event, this);
+                    }
+                    if ($event.valid)
+                        this.$emit('input-valid', $event, this);
+                    else
+                        this.$emit('input-invalid', $event, this);
+                } else if ($event.trigger === 'submit') {
+                    if ($event.dirty) {
+                        if ($event.valid)
+                            this.$emit('submit-dirty-valid', $event, this);
+                        else
+                            this.$emit('submit-dirty-invalid', $event, this);
+                    }
+                    if ($event.valid)
+                        this.$emit('submit-valid', $event, this);
+                    else
+                        this.$emit('submit-invalid', $event, this);
+                }
             }
             this.parentVM && this.parentVM.debouncedOnValidate(trigger);
         },

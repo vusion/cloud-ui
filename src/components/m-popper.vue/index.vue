@@ -254,12 +254,14 @@ export default {
                 }));
             } else if (event === 'double-click')
                 this.offEvents.push(ev.on(el, 'dblclick', (e) => {
+                    e.stopPropagation();
                     this.open();
                     this.followCursor && this.$nextTick(() => this.updatePositionByCursor(e, el));
                 }));
             else if (event === 'right-click') {
                 this.offEvents.push(ev.on(el, 'contextmenu', (e) => {
                     e.preventDefault();
+                    e.stopPropagation();
                     this.open();
                     this.followCursor && this.$nextTick(() => this.updatePositionByCursor(e, el));
                 }));

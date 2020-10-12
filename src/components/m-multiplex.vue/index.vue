@@ -51,11 +51,13 @@ export default {
             // 更新列表之后，原来的选择可能已不存在，这里需要重新查找一遍
             this.watchValue(this.value);
         },
-    }, // mounted() {
-    // Don't need trigger `value` watcher at mounted hook.
-    // Because there's a watcher for itemVMs.
-    // this.watchValue(this.value);
-    // },
+    },
+    mounted() {
+        // Don't need trigger `value` watcher at mounted hook.
+        // Because there's a watcher for itemVMs.
+        // this.watchValue(this.value);
+        this.$emit('update', this.value, this);
+    },
     methods: {
         watchValue(value) {
             let selectedVMs = [];
@@ -143,22 +145,19 @@ export default {
             const value = selectedVMs.map((itemVM) => itemVM.value);
             const selectedItems = selectedVMs.map((itemVM) => itemVM.item);
             this.$emit('input', value, this);
+            this.$emit('update', value, this);
             this.$emit('update:value', value, this);
-            this.$emit(
-                'select',
-                {
-                    selected: itemVM.currentSelected,
-                    item: itemVM.item,
-                    itemVM,
-                    value,
-                    oldValue,
-                    items: selectedItems,
-                    oldItems,
-                    itemVMs: selectedVMs,
-                    oldVMs,
-                },
-                this,
-            );
+            this.$emit('select', {
+                selected: itemVM.currentSelected,
+                item: itemVM.item,
+                itemVM,
+                value,
+                oldValue,
+                items: selectedItems,
+                oldItems,
+                itemVMs: selectedVMs,
+                oldVMs,
+            }, this);
         },
     },
 };

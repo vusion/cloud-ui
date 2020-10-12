@@ -215,6 +215,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | boolean, null | 选中状态 |
 | $event.oldValue | boolean, null | 旧的选中状态 |
 | $event.preventDefault | Function | 阻止切换流程 |
@@ -235,6 +236,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | boolean, null | 选中状态 |
 | $event.oldValue | boolean, null | 旧的选中状态 |
 | $event.label | any | 此选框的标签 |
@@ -246,6 +248,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | boolean, null | 选中状态 |
 | $event.oldValue | boolean, null | 旧的选中状态 |
 | senderVM | UCheckbox | 发送事件实例 |

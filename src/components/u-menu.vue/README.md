@@ -245,6 +245,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选择项的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择项相关对象 |
@@ -265,6 +266,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 改变后的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择项相关对象 |
@@ -279,6 +281,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.expanded | boolean | 展开/折叠状态 |
 | $event.groupVM | UMenuGroup | 分组组件 |
 
@@ -329,6 +332,7 @@ Methods
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 此项的值 |
 | $event.item | object | 此项的相关对象 |
 | $event.itemVM | UMenuItem | 此组件 |
@@ -341,6 +345,7 @@ Methods
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.to | string, Location | `to`属性的值 |
 | $event.replace | boolean | `replace`属性的值 |
 | $event.exact | boolean | `exact`属性的值 |
@@ -353,6 +358,7 @@ Methods
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.to | string, Location | `to`属性的值 |
 | $event.replace | boolean | `replace`属性的值 |
 | $event.exact | boolean | `exact`属性的值 |
@@ -391,6 +397,7 @@ Methods
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.expanded | boolean | 展开/折叠状态 |
 | $event.groupVM | UMenuGroup | 分组组件 |
 | $event.preventDefault | Function | 阻止展开/折叠流程 |
@@ -402,6 +409,7 @@ Methods
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.expanded | boolean | 展开/折叠状态 |
 | $event.groupVM | UMenuGroup | 分组组件 |
 | senderVM | Vue | 发送事件实例 |

@@ -95,6 +95,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.to | string, Location | `to`属性的值 |
 | $event.replace | boolean | `replace`属性的值 |
 | $event.append | boolean | `append`属性的值 |
@@ -107,6 +108,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.to | string, Location | `to`属性的值 |
 | $event.replace | boolean | `replace`属性的值 |
 | $event.append | boolean | `append`属性的值 |

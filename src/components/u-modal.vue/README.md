@@ -232,21 +232,19 @@ export default {
 
 Methods
 
-#### alert(content, title)
+#### open()
 
-打开只有确定按钮的消息提示
+打开弹窗
 
-| Param | Type | Default | Description |
-| ----- | ---- | ------- | ----------- |
-| content | string |  | 提示内容 |
-| title | string |  | 提示标题 |
+#### close()
 
-#### confirm(content, title)
+关闭弹窗
 
-打开有确定和取消按钮的消息提示
+#### ok()
 
-| Param | Type | Default | Description |
-| ----- | ---- | ------- | ----------- |
-| content | string |  | 提示内容 |
-| title | string |  | 提示标题 |
+确定弹窗
+
+#### cancel()
+
+取消弹窗
 

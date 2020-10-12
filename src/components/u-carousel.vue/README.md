@@ -107,6 +107,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选中项的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.itemVM | UCarouselItem | 选中项实例 |
@@ -119,6 +120,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选中项的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.itemVM | UCarouselItem | 选中项实例 |

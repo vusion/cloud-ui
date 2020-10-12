@@ -96,6 +96,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | value | any | 选中步骤的值 |
 | oldValue | any | 旧的值 |
 | itemVM | SelectableStep | 选中步骤实例 |
@@ -107,6 +108,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | value | any | 选中步骤的值 |
 | oldValue | any | 旧的值 |
 | itemVM | SelectableStep | 选中步骤实例 |
@@ -117,6 +119,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | value | number | 当前步骤数 |
 | oldValue | number | 旧的步骤数 |
 

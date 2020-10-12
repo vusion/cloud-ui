@@ -129,6 +129,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.page | number | 选择的页码 |
 | $event.oldPage | number | 旧的页码 |
 | $event.preventDefault | Function | 阻止选择流程 |
@@ -140,6 +141,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.page | number | 选择的页码 |
 | $event.oldPage | number | 旧的页码 |
 | senderVM | UPagination | 发送事件实例 |
@@ -150,6 +152,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.page | number | 当前页码 |
 | $event.oldPage | number | 旧的页码 |
 | senderVM | UPagination | 发送事件实例 |
@@ -160,6 +163,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.pageSize | number | 当前每页条数 |
 | $event.oldPageSize | number | 旧的每页条数 |
 | senderVM | UPagination | 发送事件实例 |

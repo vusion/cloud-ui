@@ -111,6 +111,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.preventDefault | Function | 阻止删除流程 |
 | senderVM | ULabel | 发送事件实例 |
 

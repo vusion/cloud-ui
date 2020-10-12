@@ -415,6 +415,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.trigger | string | 本次验证的触发方式 |
 | $event.valid | boolean | 验证是否通过 |
 | $event.touched | boolean | 用户是否触碰 |

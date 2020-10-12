@@ -93,7 +93,7 @@
       title: 改变后
       description: 选择值改变时触发
       params:
-         - name: $event
+        - name: $event
           type: object
           description: 自定义事件对象
           schema:

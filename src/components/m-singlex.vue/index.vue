@@ -38,18 +38,14 @@ export default {
             const oldValue = oldVM ? oldVM.value : undefined;
             if (value === oldValue)
                 return;
-            this.$emit(
-                'change',
-                {
-                    value,
-                    oldValue,
-                    item: selectedVM ? selectedVM.item : undefined,
-                    oldItem: oldVM && oldVM.item,
-                    itemVM: selectedVM,
-                    oldVM,
-                },
-                this,
-            );
+            this.$emit('change', {
+                value,
+                oldValue,
+                item: selectedVM ? selectedVM.item : undefined,
+                oldItem: oldVM && oldVM.item,
+                itemVM: selectedVM,
+                oldVM,
+            }, this);
         }, // This method just run once after pushing many itemVMs
         itemVMs(itemVMs) {
             if (!itemVMs.includes(this.selectedVM)) {
@@ -65,11 +61,13 @@ export default {
                 }
             }
         },
-    }, // mounted() {
-    // Don't need trigger `value` watcher at mounted hook.
-    // Because there's a watcher for itemVMs.
-    // this.watchValue(this.value);
-    // },
+    },
+    mounted() {
+        // Don't need trigger `value` watcher at mounted hook.
+        // Because there's a watcher for itemVMs.
+        // this.watchValue(this.value);
+        this.$emit('update', this.value, this);
+    },
     methods: {
         watchValue(value) {
             if (this.selectedVM && this.selectedVM.value === value)
@@ -123,21 +121,18 @@ export default {
             const value = this.selectedVM && this.selectedVM.value;
             const selectedItem = this.selectedVM && this.selectedVM.item;
             this.$emit('input', value, this);
+            this.$emit('update', value, this);
             this.$emit('update:value', value, this); // Emit `after-` events
-            this.$emit(
-                'select',
-                {
-                    value,
-                    oldValue,
-                    selectedVM: this.selectedVM,
-                    selectedItem,
-                    itemVM,
-                    item: itemVM && itemVM.item,
-                    oldVM,
-                    oldItem: oldVM && oldVM.item,
-                },
-                this,
-            );
+            this.$emit('select', {
+                value,
+                oldValue,
+                selectedVM: this.selectedVM,
+                selectedItem,
+                itemVM,
+                item: itemVM && itemVM.item,
+                oldVM,
+                oldItem: oldVM && oldVM.item,
+            }, this);
         },
     },
 };

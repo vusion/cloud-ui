@@ -346,6 +346,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | string | 改变后的值 |
 | $event.oldValue | string | 旧的值 |
 | senderVM | UInput | 发送事件实例 |

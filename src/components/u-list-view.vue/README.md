@@ -1413,6 +1413,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选择项的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择项相关对象 |
@@ -1435,6 +1436,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 改变后的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择项相关对象 |
@@ -1449,9 +1451,10 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.selected | boolean | 选中还是取消 |
-| $event.item | boolean | 该选中项相关对象 |
-| $event.itemVM | boolean | 该选中项子组件 |
+| $event.item | object | 该选中项相关对象 |
+| $event.itemVM | object | 该选中项子组件 |
 | $event.value | Array | 改变后的值 |
 | $event.oldValue | Array | 旧的值 |
 | $event.items | Array\<object\> | 所有选中项相关对象的数组 |
@@ -1466,6 +1469,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选择项的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择项相关对象 |
@@ -1480,6 +1484,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | Array | 所有选中项的值 |
 | $event.items | Array\<object\> | 所有选中项相关对象的数组 |
 | $event.itemVMs | Array\<UListViewItem\> | 所有选中项子组件的数组 |
@@ -1491,6 +1496,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.preventDefault | Function | 阻止加载流程 |
 | senderVM | UTableView | 发送事件实例 |
 
