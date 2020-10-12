@@ -243,8 +243,25 @@ const VueDataSource = Vue.extend({
                 filtering: this.filtering,
             }, this._getExtraParams());
 
+            // 支持 JDL
+            if (params.paging) {
+                params.page = params.paging.number;
+                params.size = params.paging.size;
+            }
+            if (params.sorting) {
+                params.sort = sorting.field;
+                params.order = sorting.order;
+            }
+
+
             return this._load(params).then((result) => {
                 this.initialLoaded = true;
+
+                // 支持 JDL
+                if (result instanceof Object && result.totalElements && result.content) {
+                    result.total = result.totalElements;
+                    result.data = result.content;
+                }
 
                 if (!this.remotePaging) { // 没有后端分页，认为是全部数据
                     if (result instanceof Array) { // 只返回数组，没有 total 字段
