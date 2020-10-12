@@ -9,20 +9,20 @@
 ### 改变主要按钮
 
 ``` html
-<u-modal title="标题" visible
+<u-modal ref="modal1" title="标题" visible
   primary-button="cancelButton">内容</u-modal>
 ```
 
 ### 禁用按钮
 
 ``` html
-<u-modal title="标题" visible disable-ok>内容</u-modal>
+<u-modal ref="modal1" title="标题" visible disable-ok>内容</u-modal>
 ```
 
 ### 自定义
 
 ``` html
-<u-modal visible>
+<u-modal ref="modal1" visible>
     <template #title>
         自定义
     </template>
