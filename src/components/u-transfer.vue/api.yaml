@@ -103,6 +103,11 @@
       title: 数据转移时
       description: 数据转移时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/TransferEvent'
         - name: $event.source
           type: Array<{ text, value }>
           description: 原数据列表
@@ -122,6 +127,11 @@
       title: 改变后
       description: 数据改变时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/TransferEvent'
         - name: $event.source
           type: Array<{ text, value }>
           description: 原数据列表

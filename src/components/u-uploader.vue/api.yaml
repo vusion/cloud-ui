@@ -99,6 +99,11 @@
       title: 发送前
       description: 发送前触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/UploadEvent'
         - name: $event.data
           type: object
           description: 进度相关信息
@@ -118,6 +123,11 @@
       title: 发送时
       description: 刚发送时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/UploadEvent'
         - name: $event.data
           type: object
           description: 进度相关信息
@@ -131,6 +141,11 @@
       title: 进度改变时
       description: 发送进度改变时触发，在上传进度条时使用
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/UploadEvent'
         - name: $event.data
           type: object
           description: 进度相关信息
@@ -141,6 +156,11 @@
       title: 上传完成时
       description: 上传完成时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/UploadEvent'
         - name: $event.xml
           type: string
           description: 服务器回传信息
@@ -151,6 +171,11 @@
       title: 上传成功时
       description: 上传成功时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/UploadEvent'
         - name: $event.data
           type: object
           description: 服务器回传信息对象
@@ -164,6 +189,11 @@
       title: 上传错误时
       description: 上传报错时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/UploadErrorEvent'
         - name: $event.name
           type: string
           description: 错误名

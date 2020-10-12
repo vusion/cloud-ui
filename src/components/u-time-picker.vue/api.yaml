@@ -56,6 +56,11 @@
       title: 改变后
       description: 时间改变时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/DateEvent'
         - name: time
           type: object
           description: 改变后的时间

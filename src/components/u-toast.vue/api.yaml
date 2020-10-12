@@ -63,6 +63,11 @@
       title: 弹出后事件
       description: 弹出提示时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/DurationEvent'
         - name: $event.text
           type: string
           description: 提示的内容
@@ -80,6 +85,11 @@
       description: 关闭提示前触发
       advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/DurationEvent'
         - name: $event.text
           type: string
           description: 提示的内容
@@ -99,6 +109,11 @@
       title: 关闭后
       description: 关闭提示时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/DurationEvent'
         - name: $event.text
           type: string
           description: 提示的内容

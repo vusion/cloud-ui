@@ -267,6 +267,11 @@
       description: 加载前触发
       advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/EventTarget'
         - name: $event.preventDefault
           type: Function
           description: 阻止加载流程
@@ -288,6 +293,11 @@
       description: 切换分页前触发
       advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/PaginationEvent'
         - name: $event.size
           type: number
           description: 分页大小
@@ -310,6 +320,11 @@
       title: 切换分页后
       description: 切换分页或改变分页大小时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/PaginationEvent'
         - name: $event.size
           type: number
           description: 分页大小
@@ -330,6 +345,11 @@
       description: 排序前触发
       advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/SortEvent'
         - name: $event.field
           type: string
           description: 排序字段
@@ -349,6 +369,11 @@
       title: 排序后
       description: 排序后触发
       params:
+         - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/SortEvent'
         - name: $event.field
           type: string
           description: 排序顺序
@@ -390,6 +415,11 @@
       description: 选择某一项前触发
       advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeItemEvent'
         - name: $event.value
           type: any
           description: 选择行的值
@@ -421,6 +451,11 @@
       title: 选择后
       description: 选择某一项后触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeItemEvent'
         - name: $event.value
           type: any
           description: 改变后的值
@@ -443,6 +478,11 @@
       title: 多选后
       description: 多选模式中，选中节点后触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/CheckedEvent'
         - name: $event.checked
           type: boolean
           description: 选中状态
@@ -462,6 +502,11 @@
       title: 改变后
       description: 单选或多选值改变后触发。
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeItemEvent'
         - name: $event.value
           type: any
           description: 选择行的值

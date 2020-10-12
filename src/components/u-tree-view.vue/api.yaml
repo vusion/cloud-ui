@@ -73,6 +73,11 @@
       description: 选择某一项前触发
       advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/TreeChangeEvent'
         - name: $event.value
           type: any
           description: 选择项的值
@@ -104,6 +109,8 @@
         - name: $event
           type: any
           description: 选择项的值
+          schema:
+            $ref: '#/basicTypes/String'
         - name: senderVM
           type: UTreeView
           description: 发送事件实例
@@ -111,6 +118,11 @@
       title: 选择后
       description: 选择某一项时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/TreeChangeEvent'
         - name: $event.value
           type: any
           description: 改变后的值
@@ -136,6 +148,11 @@
       title: 改变后
       description: 选择值改变时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/TreeChangeEvent'
         - name: $event.value
           type: any
           description: 选择项的值
@@ -161,6 +178,11 @@
       title: 展开折叠后
       description: 展开/折叠某节点时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/CollapseEvent'
         - name: $event.expanded
           type: boolean
           description: 展开/折叠状态
@@ -177,6 +199,11 @@
       title: 选中取消后
       description: 选中/取消节点时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/CheckedEvent'
         - name: $event.checked
           type: boolean
           description: 选中/取消状态

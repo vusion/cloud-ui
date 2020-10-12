@@ -37,6 +37,11 @@
       title: 选择前
       description: 选择某一项前触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeItemEvent'
         - name: $event.value
           type: any
           description: 选择项的值
@@ -62,6 +67,8 @@
         - name: $event
           type: any
           description: 选择项的值
+          schema:
+            $ref: '#/basicTypes/String'
         - name: senderVM
           type: UToc
           description: 发送事件实例
@@ -69,6 +76,11 @@
       title: 选择后
       description: 选择某一项时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeItemEvent'
         - name: $event.value
           type: any
           description: 改变后的值
@@ -162,6 +174,8 @@
         - name: $event
           type: MouseEvent
           description: 鼠标事件对象
+          schema:
+            $ref: '#/systemTypes/MouseEvent'
         - name: senderVM
           type: UTocItem
           description: 发送事件实例
@@ -169,6 +183,11 @@
       title: 选择前
       description: 选择此项前触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ChangeItemEvent'
         - name: $event.value
           type: any
           description: 此项的值
@@ -188,6 +207,11 @@
       title: 导航前
       description: 使用 router 相关属性切换路由前触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/NavigateEvent'
         - name: $event.to
           type: string, Location
           description: "`to`属性的值"
@@ -207,6 +231,11 @@
       title: 导航后
       description: 使用router相关属性切换路由时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/NavigateEvent'
         - name: $event.to
           type: string, Location
           description: "`to`属性的值"

@@ -68,7 +68,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeEvent'
+            $ref: '#/systemTypes/ChangeItemEvent'
         - name: $event.value
           type: any
           description: 选择项的值
@@ -108,7 +108,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeEvent'
+            $ref: '#/systemTypes/ChangeItemEvent'
         - name: $event.value
           type: any
           description: 改变后的值
@@ -139,7 +139,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeEvent'
+            $ref: '#/systemTypes/ChangeItemEvent'
         - name: $event.value
           type: any
           description: 选择项的值
@@ -228,7 +228,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeEvent'
+            $ref: '#/systemTypes/ChangeItemEvent'
         - name: $event.value
           type: any
           description: 此项的值

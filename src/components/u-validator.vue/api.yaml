@@ -78,6 +78,11 @@
       title: 验证后
       description: 对于第一个 Field 或者所有子 UValidator：
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/ValidateEvent'
         - name: $event.trigger
           type: string
           description: 本次验证的触发方式

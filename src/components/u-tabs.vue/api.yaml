@@ -94,7 +94,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeEvent'
+            $ref: '#/systemTypes/ChangeItemEvent'
         - name: $event.value
           type: any
           description: 选中标签页的值
@@ -121,7 +121,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeEvent'
+            $ref: '#/systemTypes/ChangeItemEvent'
         - name: $event.value
           type: any
           description: 选中标签页的值
@@ -146,7 +146,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeEvent'
+            $ref: '#/systemTypes/ChangeItemEvent'
         - name: $event.value
           type: any
           description: 待关闭标签页的值
@@ -170,7 +170,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeEvent'
+            $ref: '#/systemTypes/ChangeItemEvent'
         - name: $event.value
           type: any
           description: 关闭的标签页的值
