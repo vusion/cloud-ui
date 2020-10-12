@@ -149,6 +149,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.expanded | boolean | 展开/折叠状态 |
 | $event.itemVM | UCollapseItem | 面板组件 |
 
@@ -193,6 +194,7 @@ Methods
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.expanded | boolean | 展开/折叠状态 |
 | $event.itemVM | UCollapseItem | 面板组件 |
 | $event.preventDefault | Function | 阻止展开/折叠流程 |
@@ -204,6 +206,7 @@ Methods
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.expanded | boolean | 展开/折叠状态 |
 | $event.itemVM | UCollapseItem | 面板组件 |
 | senderVM | Vue | 发送事件实例 |

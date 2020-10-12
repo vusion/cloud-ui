@@ -103,5 +103,6 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | time | object | 改变后的时间 |
 

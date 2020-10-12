@@ -82,16 +82,7 @@ export default {
     },
     created() {
         const value = this.currentValue;
-        this.$emit(
-            'change',
-            {
-                value,
-                oldValue: undefined,
-                formattedValue: this.currentFormatter.format(value),
-                valid: this.isValid(value),
-            },
-            this,
-        );
+        this.$emit('update', value, this);
     },
     methods: {
         fix(value, precision = this.currentPrecision) {
@@ -115,7 +106,8 @@ export default {
         /**
          * 根据值计算精度
          * @param {*} value 输入值
-         */ computePrecision(value) {
+         */
+        computePrecision(value) {
             if (
                 (typeof value === 'string' && value.trim() === '')
                 || value === null
@@ -130,7 +122,8 @@ export default {
         /**
          * 计算 fix 精度
          * @param {*} value 输入值
-         */ getCurrentPrecision(value) {
+         */
+        getCurrentPrecision(value) {
             return this.precision === 0 ? this.computePrecision(value) : this.precision;
         },
         isValid(value) {
@@ -143,9 +136,10 @@ export default {
         /**
          * 单纯输入
          * @param {*} value 输入值
-         */ input(value) {
+         */
+        input(value) {
             if (this.readonly || this.disabled)
-return;
+                return;
             value = this.fix(value);
             const oldValue = this.currentValue;
             this.currentValue = value;
@@ -154,6 +148,7 @@ return;
             ));
             this.$refs.input.currentValue = formattedValue;
             this.$emit('input', value, this);
+            this.$emit('update', value, this);
             this.$emit('update:value', value, this);
             this.$emit(
                 'change',
@@ -164,7 +159,8 @@ return;
         /**
          * 按上下按钮发送 adjust 事件
          * @param {*} value
-         */ adjust(value) {
+         */
+        adjust(value) {
             const oldValue = this.currentValue;
             let cancel = false;
             this.$emit(
@@ -178,7 +174,7 @@ return;
                 this,
             );
             if (cancel)
-return;
+                return;
             this.input(value);
             this.$emit(
                 'adjust',

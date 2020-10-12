@@ -95,6 +95,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.level | number | 选择的层级 |
 | $event.value | any | 改变后的值 |
 | $event.values | Array | 改变后每项值的数组 |
@@ -108,6 +109,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 改变后的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.values | Array | 改变后每项值的数组 |

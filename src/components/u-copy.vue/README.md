@@ -261,6 +261,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | string | 复制的值 |
 | senderVM | UCopy | 事件发送对象 |
 

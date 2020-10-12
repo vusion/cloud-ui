@@ -139,6 +139,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.rawValue | string | 用户输入的原始值 |
 | $event.value | number | 验证修复的值 |
 | $event.valid | boolean | 原始值是否合法 |
@@ -150,6 +151,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | number | 改变后的值 |
 | $event.oldValue | number | 旧的值 |
 | $event.formattedValue | string | 格式化后的值 |

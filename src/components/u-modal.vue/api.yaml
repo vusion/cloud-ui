@@ -142,21 +142,11 @@
           type: UModal
           description: 发送事件实例
   methods:
-    - name: alert
-      description: 打开只有确定按钮的消息提示
-      params:
-        - name: content
-          type: string
-          description: 提示内容
-        - name: title
-          type: string
-          description: 提示标题
-    - name: confirm
-      description: 打开有确定和取消按钮的消息提示
-      params:
-        - name: content
-          type: string
-          description: 提示内容
-        - name: title
-          type: string
-          description: 提示标题
+    - name: open
+      description: 打开弹窗
+    - name: close
+      description: 关闭弹窗
+    - name: ok
+      description: 确定弹窗
+    - name: cancel
+      description: 取消弹窗

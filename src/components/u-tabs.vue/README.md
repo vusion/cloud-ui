@@ -208,6 +208,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选中标签页的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.itemVM | UTab | 选中标签页实例 |
@@ -221,6 +222,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选中标签页的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.itemVM | UTab | 选中标签页实例 |
@@ -233,6 +235,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 待关闭标签页的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.itemVM | UTab | 待关闭的标签页实例 |
@@ -245,6 +248,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 关闭的标签页的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.itemVM | UTabs | 关闭的标签页实例 |

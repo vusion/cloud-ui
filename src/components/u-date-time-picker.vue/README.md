@@ -109,6 +109,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.date | number | 选择项的值，默认返回时间戳 |
 
 #### @change
@@ -117,5 +118,6 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.date | number | 选择项的值，默认返回时间戳 |
 

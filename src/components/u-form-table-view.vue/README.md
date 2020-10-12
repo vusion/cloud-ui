@@ -412,6 +412,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.item | any | 添加的项 |
 | $event.index | number | 添加的索引 |
 | $event.data | Array | 当前数据 |
@@ -424,6 +425,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.item | any | 添加的项 |
 | $event.index | number | 添加的索引 |
 | $event.data | Array | 当前数据 |
@@ -435,6 +437,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.item | any | 删除的项 |
 | $event.index | number | 删除的索引 |
 | $event.data | Array | 当前数据 |
@@ -447,6 +450,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.item | any | 删除的项 |
 | $event.index | number | 删除的索引 |
 | $event.data | Array | 当前数据 |
@@ -458,6 +462,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.item | any | 变更的项 |
 | $event.index | number | 变更的索引 |
 | $event.data | Array | 当前数据 |

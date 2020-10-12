@@ -50,6 +50,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | string | 值 |
 | $event.oldValue | number | 旧的值 |
 

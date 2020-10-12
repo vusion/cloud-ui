@@ -123,6 +123,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.date | Date | 改变后的日期值 |
 
 #### @select
@@ -131,6 +132,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.date | Date | 选择后的日期值 |
 
 #### @toggle
@@ -139,5 +141,6 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.open | boolean | 弹出/隐藏状态 |
 

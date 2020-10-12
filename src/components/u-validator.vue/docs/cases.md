@@ -109,3 +109,38 @@ export default {
 };
 </script>
 ```
+
+### 根据 update 来初始化 input 状态
+
+``` vue
+<template>
+<div>
+    <u-validator rules="required | numeric">
+        <u-input v-model="value1"></u-input>
+    </u-validator>
+    <u-validator rules="max(100)">
+        <u-number-input v-model="value2"></u-number-input>
+    </u-validator>
+    <u-validator rules="max(100)">
+        <u-select v-model="value3">
+            <u-select-item value="Item 1">Item 1</u-select-item>
+            <u-select-item value="Item 2">Item 2</u-select-item>
+            <u-select-item value="Item 3">Item 3</u-select-item>
+            <u-select-item value="Item 4">Item 4</u-select-item>
+        </u-select>
+    </u-validator>
+</div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            value1: '123',
+            value2: 123,
+            value3: 'Item 3',
+        };
+    },
+};
+</script>
+```

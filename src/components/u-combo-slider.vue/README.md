@@ -159,6 +159,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | number | 滑块的值 |
 | $event.oldValue | number | 旧的值 |
 | $event.percent | number | 滑块位置所在的百分比 |
@@ -169,6 +170,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | number | 改变后的值 |
 | $event.oldValue | number | 旧的值 |
 

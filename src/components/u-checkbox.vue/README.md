@@ -68,7 +68,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| undefined | boolean, null | 选中状态 |
+| $event | boolean, null | 选中状态 |
 
 #### @change
 
@@ -76,6 +76,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | newValue | boolean, null | 新的值 |
 | oldValue | boolean, null | 旧的值 |
 

@@ -225,6 +225,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.data | object | 进度相关信息 |
 | $event.xhr | XMLHttpRequest | 发送前的 XMLHttpRequest 对象 |
 | $event.formData | FormData | 用于发送的数据对象 |
@@ -237,6 +238,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.data | object | 进度相关信息 |
 | $event.preventDefault | Function | 阻止上传流程 |
 | senderVM | UUploader | 发送事件对象 |
@@ -247,6 +249,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.data | object | 进度相关信息 |
 | senderVM | UUploader | 发送事件对象 |
 
@@ -256,6 +259,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.xml | string | 服务器回传信息 |
 | senderVM | UUploader | 发送事件对象 |
 
@@ -265,6 +269,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.data | object | 服务器回传信息对象 |
 | $event.file | object | 上传文件信息，不包含文件主体内容 |
 | senderVM | UUploader | 发送事件对象 |
@@ -275,6 +280,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.name | string | 错误名 |
 | $event.message | string | 错误描述 |
 | $event.extensions | string | 限制类型 |

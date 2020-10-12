@@ -750,6 +750,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.source | Array\<{ text, value }\> | 原数据列表 |
 | $event.target | Array\<{ text, value }\> | 目标数据列表 |
 | $event.transfer | Array\<{ text, value }\> | 移动的项 |
@@ -762,6 +763,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.source | Array\<{ text, value }\> | 原数据列表 |
 | $event.target | Array\<{ text, value }\> | 目标数据列表 |
 | $event.transfer | Array\<{ text, value }\> | 移动的项 |

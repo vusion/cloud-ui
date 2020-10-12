@@ -663,6 +663,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选择项的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.node | object | 选择项相关对象 |
@@ -687,6 +688,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 改变后的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.node | object | 选择项相关对象 |
@@ -701,6 +703,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选择项的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.node | object | 选择项相关对象 |
@@ -715,6 +718,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.expanded | boolean | 展开/折叠状态 |
 | $event.node | object | 节点相关对象 |
 | $event.nodeVM | UTreeViewNode | 节点组件 |
@@ -726,6 +730,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.checked | boolean | 选中/取消状态 |
 | $event.oldChecked | boolean | 旧的选中/取消状态 |
 | $event.values | Array | 所有选中节点的值 |

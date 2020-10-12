@@ -335,6 +335,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.item | any | 添加的项 |
 | $event.index | number | 添加的索引 |
 | $event.data | Array | 当前数据 |
@@ -347,6 +348,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.item | any | 添加的项 |
 | $event.index | number | 添加的索引 |
 | $event.data | Array | 当前数据 |
@@ -358,6 +360,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.item | any | 删除的项 |
 | $event.index | number | 删除的索引 |
 | $event.data | Array | 当前数据 |
@@ -370,6 +373,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.item | any | 删除的项 |
 | $event.index | number | 删除的索引 |
 | $event.data | Array | 当前数据 |
@@ -381,6 +385,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.item | any | 变更的项 |
 | $event.index | number | 变更的索引 |
 | $event.data | Array | 当前数据 |
@@ -392,6 +397,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.trigger | enum | 本次验证的触发方式 |
 | $event.valid | boolean | 验证是否通过 |
 | $event.touched | boolean | 用户是否触碰 |
@@ -401,12 +407,13 @@ export default {
 
 Methods
 
-#### validate(trigger, muted)
+#### validate($event, trigger, muted)
 
 手动验证。
 
 | Param | Type | Default | Description |
 | ----- | ---- | ------- | ----------- |
+| $event | object |  | 自定义事件对象 |
 | trigger | string | `'submit'` | 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。 |
 | muted | boolean | `false` | 是否验证后无提示 |
 
