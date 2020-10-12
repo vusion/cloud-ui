@@ -341,36 +341,33 @@ export default {
                             this.$emit('blur-dirty-valid', $event, this);
                         else
                             this.$emit('blur-dirty-invalid', $event, this);
-                    } else {
-                        if ($event.valid)
-                            this.$emit('blur-valid', $event, this);
-                        else
-                            this.$emit('blur-invalid', $event, this);
                     }
+                    if ($event.valid)
+                        this.$emit('blur-valid', $event, this);
+                    else
+                        this.$emit('blur-invalid', $event, this);
                 } else if ($event.trigger === 'input') {
                     if ($event.dirty) {
                         if ($event.valid)
                             this.$emit('input-dirty-valid', $event, this);
                         else
                             this.$emit('input-dirty-invalid', $event, this);
-                    } else {
-                        if ($event.valid)
-                            this.$emit('input-valid', $event, this);
-                        else
-                            this.$emit('input-invalid', $event, this);
                     }
+                    if ($event.valid)
+                        this.$emit('input-valid', $event, this);
+                    else
+                        this.$emit('input-invalid', $event, this);
                 } else if ($event.trigger === 'submit') {
                     if ($event.dirty) {
                         if ($event.valid)
                             this.$emit('submit-dirty-valid', $event, this);
                         else
                             this.$emit('submit-dirty-invalid', $event, this);
-                    } else {
-                        if ($event.valid)
-                            this.$emit('submit-valid', $event, this);
-                        else
-                            this.$emit('submit-invalid', $event, this);
                     }
+                    if ($event.valid)
+                        this.$emit('submit-valid', $event, this);
+                    else
+                        this.$emit('submit-invalid', $event, this);
                 }
             }
             this.parentVM && this.parentVM.debouncedOnValidate(trigger);
