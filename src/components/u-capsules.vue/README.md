@@ -20,7 +20,7 @@
     - [Slots](#slots-2)
     - [Events](#events-2)
 - [UCapsuleGroup API](#ucapsulegroup-api)
-
+    - [Slots](#slots-3)
 
 **Form**
 
@@ -280,5 +280,9 @@
 | senderVM | UCapsule | 发送事件实例 |
 
 ## UCapsuleGroup API
+### Slots
 
-暂无
+#### (default)
+
+插入`<u-capsule>`或`<u-capsules-group>`子组件。
+
