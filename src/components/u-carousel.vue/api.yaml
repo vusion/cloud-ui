@@ -99,6 +99,7 @@
           type: UCarousel
           description: 发送事件实例
 - name: u-carousel-item
+  title: 幻灯片选项
   attrs:
     - name: title
       title: 标题

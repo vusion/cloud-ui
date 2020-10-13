@@ -37,6 +37,7 @@
           title: 多选项
           snippet: <u-checkbox>多选</u-checkbox>
 - name: u-checkbox
+  title: 多选项
   attrs:
     - name: value
       model: true
