@@ -209,6 +209,7 @@ export default {
 | draggable | boolean |  | `false` | 是否可以拖拽上传 |
 | paste | boolean |  | `false` | 是否可以粘贴 |
 | show-file-list | boolean |  | `true` | 是否显示文件列表 |
+| converter | string | `'JSON'` () |  | undefined |
 | disabled | boolean |  | `false` | 是否禁用 |
 
 ### Slots

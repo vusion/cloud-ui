@@ -582,11 +582,11 @@
     "type": "string",
     "options": [
       {
-        "value": "default",
+        "value": "primary",
         "title": "主要按钮"
       },
       {
-        "value": "primary",
+        "value": "default",
         "title": "次要按钮"
       },
       {
@@ -4944,6 +4944,15 @@
   "u-uploader/show-file-list": {
     "type": "boolean",
     "description": "是否显示文件列表"
+  },
+  "u-uploader/converter": {
+    "type": "string",
+    "options": [
+      {
+        "name": "JSON",
+        "value": "json"
+      }
+    ]
   },
   "u-uploader/disabled": {
     "type": "boolean",

@@ -1533,6 +1533,7 @@
       "draggable",
       "paste",
       "show-file-list",
+      "converter",
       "disabled"
     ],
     "description": "通过点击或者拖拽上传文件。"

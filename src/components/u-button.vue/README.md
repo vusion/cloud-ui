@@ -16,7 +16,7 @@
     - [Slots](#slots)
     - [Events](#events)
 
-**Form**
+**Display**
 
 用于触发一个即时操作。
 
