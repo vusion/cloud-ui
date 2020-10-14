@@ -56,7 +56,7 @@ export default {
     mixins: [MEmitter],
     i18n,
     props: {
-        value: { type: Array, default: () => [] },
+        value: { type: [Array, String], default: () => [] },
         url: { type: String, required: true },
         name: { type: String, default: 'file' },
         accept: String,
@@ -72,6 +72,7 @@ export default {
         draggable: { type: Boolean, default: false },
         paste: { type: Boolean, default: false },
         showFileList: { type: Boolean, default: true },
+        converter: String,
         disabled: { type: Boolean, default: false },
     },
     data() {
@@ -86,19 +87,35 @@ export default {
     },
     watch: {
         value(value) {
-            this.currentValue = this.value;
+            this.currentValue = this.fromValue(value);
         },
         currentValue: {
             immediate: true,
             handler(currentValue, oldValue) {
+                const value = this.toValue(currentValue);
+
+                this.$emit('input', value);
+                this.$emit('update:value', value);
                 this.$emit('change', {
-                    value: currentValue,
-                    oldValue,
+                    value,
+                    oldValue: this.toValue(oldValue),
                 }, this);
             },
         },
     },
     methods: {
+        fromValue(value) {
+            if (this.converter === 'json')
+                return JSON.parse(value || '[]');
+            else
+                return value;
+        },
+        toValue(value) {
+            if (this.converter === 'json')
+                return JSON.stringify(value);
+            else
+                return value;
+        },
         select() {
             if (this.disabled || this.sending)
                 return;

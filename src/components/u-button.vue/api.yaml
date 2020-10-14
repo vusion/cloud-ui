@@ -1,16 +1,16 @@
 - name: u-button
   title: 按钮
   icon: button
-  labels: [Form]
+  labels: [Display]
   description: 用于触发一个即时操作。
   attrs:
     - name: color
       title: 颜色
       type: string
       options:
-        - value: default
-          title: 主要按钮
         - value: primary
+          title: 主要按钮
+        - value: default
           title: 次要按钮
         - value: danger
           title: 危险操作按钮

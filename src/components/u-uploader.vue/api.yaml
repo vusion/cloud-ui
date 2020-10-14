@@ -87,6 +87,12 @@
       type: boolean
       default: true
       description: 是否显示文件列表
+    - name: converter
+      title: 转换器
+      type: string
+      options:
+        - name: JSON
+          value: json
     - name: disabled
       type: boolean
       default: false

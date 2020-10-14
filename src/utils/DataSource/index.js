@@ -245,7 +245,8 @@ const VueDataSource = Vue.extend({
 
             // 支持 JDL
             if (params.paging) {
-                params.page = params.paging.number;
+                params.page = params.paging.number - 1;
+                params.start = params.paging.offset;
                 params.size = params.paging.size;
             }
             if (params.sorting) {
@@ -291,6 +292,8 @@ const VueDataSource = Vue.extend({
                         partialData = this._process(result.data);
                     } // 否则什么都不做
 
+                    if (limit === Infinity)
+                        throw new Error('You must specify page size');
                     for (let i = 0; i < limit; i++) {
                         const item = partialData[i];
                         if (item)

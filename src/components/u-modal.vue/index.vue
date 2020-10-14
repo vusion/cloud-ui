@@ -206,11 +206,11 @@ export default UModal;
 }
 
 .dialog[size="large"] {
-    width: 600px;
+    width: 640px;
 }
 
 .dialog[size="huge"] {
-    width: 800px;
+    width: 960px;
 }
 
 .dialog[size="auto"] {
