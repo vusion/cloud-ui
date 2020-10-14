@@ -11,6 +11,7 @@ module.exports = [
 
     { group: 'Display', show: true, name: 'u-text', alias: '文本' },
     { group: 'Display', show: true, name: 'u-link', alias: '链接' },
+    { group: 'Display', show: true, name: 'u-button', alias: '按钮' },
     { group: 'Display', show: true, name: 'i-icon', alias: '图标' },
     { group: 'Display', show: true, name: 'u-label', alias: '标签' },
     { group: 'Display', show: true, name: 'u-badge', alias: '徽章' },
@@ -19,12 +20,11 @@ module.exports = [
     { group: 'Display', show: true, name: 'u-html', alias: 'HTML 文本' },
     { group: 'Display', show: true, name: 'u-image', alias: '图片展示' },
 
-    { group: 'Table', show: true, name: 'u-form-table-view', alias: '表单表格', newest: true },
     { group: 'Table', show: true, name: 'u-table-view', alias: '数据表格' },
+    { group: 'Table', show: true, name: 'u-form-table-view', alias: '表单表格', newest: true },
     { group: 'Table', show: true, name: 'u-actions', alias: '操作项' },
 
     { group: 'Form', show: true, name: 'u-form', alias: '表单' },
-    { group: 'Form', show: true, name: 'u-button', alias: '按钮' },
     { group: 'Form', show: true, name: 'u-input', alias: '单行输入' },
     { group: 'Form', show: true, name: 'u-number-input', alias: '数字输入' },
     { group: 'Form', show: true, name: 'u-textarea', alias: '多行输入' },

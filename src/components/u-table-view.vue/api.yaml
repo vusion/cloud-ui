@@ -33,6 +33,8 @@
       title: 当面页数
       sync: true
       type: number
+      schema:
+        $ref: '#/basicTypes/Integer'
       default: 1
       description: 当面页数。
     - name: page-size-options
