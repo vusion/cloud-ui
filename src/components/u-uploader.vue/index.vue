@@ -77,7 +77,7 @@ export default {
     },
     data() {
         return {
-            currentValue: this.value,
+            currentValue: this.fromValue(this.value),
             contentType: 'multipart/form-data',
             sending: false,
             file: {},

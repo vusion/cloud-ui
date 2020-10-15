@@ -3575,7 +3575,7 @@
                     "support": [
                         {
                             "name": "u-info-list-group",
-                            "title": "单选项",
+                            "title": "详情列表组",
                             "snippet": "<u-info-list-group title=\"基本信息\"><u-info-list-item label=\"名称\">张三</u-info-list-item></u-info-list-group>"
                         },
                         {
@@ -3646,7 +3646,7 @@
                         }
                     ],
                     "name": "u-info-list-item",
-                    "title": "详情项"
+                    "title": "详情列表项"
                 },
                 {
                     "attrs": [
@@ -3714,7 +3714,7 @@
                         }
                     ],
                     "name": "u-info-list-group",
-                    "title": "详情组"
+                    "title": "详情列表组"
                 }
             ]
         }

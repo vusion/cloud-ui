@@ -28,13 +28,13 @@
       description: 插入`<u-info-list-item>`或`<u-info-list-group>`子组件。
       support:
         - name: u-info-list-group
-          title: 单选项
+          title: 详情列表组
           snippet: '<u-info-list-group title="基本信息"><u-info-list-item label="名称">张三</u-info-list-item></u-info-list-group>'
         - name: u-info-list-item
           title: 详情列表项
           snippet: '<u-info-list-item label="名称">张三</u-info-list-item>'
 - name: u-info-list-item
-  title: 详情项
+  title: 详情列表项
   attrs:
     - name: label
       title: 标签
@@ -70,7 +70,7 @@
       title: 自定义标签内容
       description: 用于自定义 label 内容。
 - name: u-info-list-group
-  title: 详情组
+  title: 详情列表组
   attrs:
     - name: title
       title: 标签
