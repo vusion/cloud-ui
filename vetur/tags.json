@@ -1375,6 +1375,7 @@
   },
   "u-text": {
     "attributes": [
+      "text",
       "color",
       "size",
       "display",

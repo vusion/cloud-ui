@@ -4260,6 +4260,9 @@
     "type": "boolean",
     "description": "需要 router 为 true，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。"
   },
+  "u-text/text": {
+    "description": "待打印的内容"
+  },
   "u-text/color": {
     "type": "string",
     "options": [

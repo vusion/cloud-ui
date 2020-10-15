@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.11.11",
+  "version": "0.11.12",
   "author": "Forrest <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -55,7 +55,7 @@
     "js-yaml": "^3.14.0",
     "lodash": "^4.17.5",
     "normalize.css": "^7.0.0",
-    "vusion": "^0.12.10",
+    "vusion": "^0.12.13",
     "vusion-api": "^0.6.30",
     "vusion-async-validator": "^1.8.8"
   },
