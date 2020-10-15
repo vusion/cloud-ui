@@ -14,7 +14,7 @@
 
 **Display**
 
-用于展示纯文字
+用于展示文字或表达式
 
 ## 示例
 ### 设置尺寸
@@ -73,7 +73,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| text |  |  |  | 待打印的内容 |
+| text |  |  |  | 文本内容 |
 | color | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 设置颜色 |
 | size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 尺寸设置 |
 | display | string | `[object Object]`<br/>`[object Object]` | `'inline'` | 展示方式 |

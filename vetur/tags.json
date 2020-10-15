@@ -1381,7 +1381,7 @@
       "display",
       "overflow"
     ],
-    "description": "用于展示纯文字"
+    "description": "用于展示文字或表达式"
   },
   "u-textarea": {
     "attributes": [
