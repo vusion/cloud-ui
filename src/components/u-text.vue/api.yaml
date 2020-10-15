@@ -4,6 +4,9 @@
   labels: [Display]
   description: 用于展示纯文字
   attrs:
+    - name: text
+      title: 文本
+      description: 待打印的内容
     - name: color
       title: 颜色
       type: string

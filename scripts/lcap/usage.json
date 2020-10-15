@@ -8,14 +8,14 @@
         "labels": [
             "Container"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-router-view.vue/screenshots/0.png",
+        "screenShot": "",
         "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-router-view ></u-router-view>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-router-view",
             "title": "子页面容器",
             "description": "放置子页面的容器",
             "category": "Container",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-router-view.vue/screenshots/0.png",
+            "screenShot": "",
             "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-router-view ></u-router-view>\\n</template>\\n\"}]",
             "slots": false,
             "children": []
@@ -607,7 +607,10 @@
                         {
                             "name": "$event",
                             "type": "MouseEvent",
-                            "description": "鼠标事件对象"
+                            "description": "鼠标事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/MouseEvent"
+                            }
                         },
                         {
                             "name": "senderVM",
@@ -622,6 +625,14 @@
                     "title": "输入前",
                     "description": "选择某一项前触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "any",
@@ -663,7 +674,10 @@
                         {
                             "name": "$event",
                             "type": "any",
-                            "description": "选择项的值"
+                            "description": "选择项的值",
+                            "schema": {
+                                "$ref": "#/basicTypes/String"
+                            }
                         },
                         {
                             "name": "senderVM",
@@ -677,6 +691,14 @@
                     "title": "选择后",
                     "description": "选择某一项时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "any",
@@ -720,6 +742,14 @@
                     "description": "选择值改变时触发",
                     "advanced": true,
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "any",
@@ -850,6 +880,14 @@
                             "advanced": true,
                             "params": [
                                 {
+                                    "name": "$event",
+                                    "type": "object",
+                                    "description": "自定义事件对象",
+                                    "schema": {
+                                        "$ref": "#/systemTypes/ChangeItemEvent"
+                                    }
+                                },
+                                {
                                     "name": "$event.value",
                                     "type": "any",
                                     "description": "此项的值"
@@ -883,6 +921,14 @@
                             "description": "使用 router 相关属性切换路由前触发",
                             "params": [
                                 {
+                                    "name": "$event",
+                                    "type": "object",
+                                    "description": "自定义事件对象",
+                                    "schema": {
+                                        "$ref": "#/systemTypes/NavigateEvent"
+                                    }
+                                },
+                                {
                                     "name": "$event.to",
                                     "type": "string, Location",
                                     "description": "`to`属性的值"
@@ -915,6 +961,14 @@
                             "advanced": true,
                             "description": "使用router相关属性切换路由时触发",
                             "params": [
+                                {
+                                    "name": "$event",
+                                    "type": "object",
+                                    "description": "自定义事件对象",
+                                    "schema": {
+                                        "$ref": "#/systemTypes/NavigateEvent"
+                                    }
+                                },
                                 {
                                     "name": "$event.to",
                                     "type": "string, Location",
@@ -1166,7 +1220,10 @@
                         {
                             "name": "expanded",
                             "type": "boolean",
-                            "description": "展开/折叠"
+                            "description": "展开/折叠",
+                            "schema": {
+                                "$ref": "#/systemTypes/CollapseEvent"
+                            }
                         }
                     ]
                 }
@@ -1180,7 +1237,10 @@
                         {
                             "name": "$event",
                             "type": "MouseEvent",
-                            "description": "鼠标事件对象"
+                            "description": "鼠标事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/MouseEvent"
+                            }
                         },
                         {
                             "name": "senderVM",
@@ -1195,6 +1255,14 @@
                     "advanced": true,
                     "description": "选择某一项前触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "any",
@@ -1235,7 +1303,10 @@
                         {
                             "name": "$event",
                             "type": "any",
-                            "description": "选择项的值"
+                            "description": "选择项的值",
+                            "schema": {
+                                "$ref": "#/basicTypes/String"
+                            }
                         },
                         {
                             "name": "senderVM",
@@ -1249,6 +1320,14 @@
                     "title": "选择后",
                     "description": "选择某一项时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "any",
@@ -1291,6 +1370,14 @@
                     "title": "展开折叠后",
                     "description": "展开/折叠某分组时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/CollapseEvent"
+                            }
+                        },
                         {
                             "name": "$event.expanded",
                             "type": "boolean",
@@ -1402,6 +1489,14 @@
                             "description": "选择此项前触发",
                             "params": [
                                 {
+                                    "name": "$event",
+                                    "type": "object",
+                                    "description": "自定义事件对象",
+                                    "schema": {
+                                        "$ref": "#/systemTypes/ChangeItemEvent"
+                                    }
+                                },
+                                {
                                     "name": "$event.value",
                                     "type": "any",
                                     "description": "此项的值"
@@ -1435,6 +1530,14 @@
                             "description": "使用 router 相关属性切换路由前触发",
                             "params": [
                                 {
+                                    "name": "$event",
+                                    "type": "object",
+                                    "description": "自定义事件对象",
+                                    "schema": {
+                                        "$ref": "#/systemTypes/NavigateEvent"
+                                    }
+                                },
+                                {
                                     "name": "$event.to",
                                     "type": "string, Location",
                                     "description": "`to`属性的值"
@@ -1467,6 +1570,14 @@
                             "advanced": true,
                             "description": "使用router相关属性切换路由时触发",
                             "params": [
+                                {
+                                    "name": "$event",
+                                    "type": "object",
+                                    "description": "自定义事件对象",
+                                    "schema": {
+                                        "$ref": "#/systemTypes/NavigateEvent"
+                                    }
+                                },
                                 {
                                     "name": "$event.to",
                                     "type": "string, Location",
@@ -1559,6 +1670,14 @@
                             "advanced": true,
                             "params": [
                                 {
+                                    "name": "$event",
+                                    "type": "object",
+                                    "description": "自定义事件对象",
+                                    "schema": {
+                                        "$ref": "#/systemTypes/CollapseEvent"
+                                    }
+                                },
+                                {
                                     "name": "$event.expanded",
                                     "type": "boolean",
                                     "description": "展开/折叠状态"
@@ -1585,6 +1704,14 @@
                             "title": "展开折叠后",
                             "description": "展开/折叠某分组时触发",
                             "params": [
+                                {
+                                    "name": "$event",
+                                    "type": "object",
+                                    "description": "自定义事件对象",
+                                    "schema": {
+                                        "$ref": "#/systemTypes/CollapseEvent"
+                                    }
+                                },
                                 {
                                     "name": "$event.expanded",
                                     "type": "boolean",
@@ -1776,7 +1903,10 @@
                                 {
                                     "name": "$event",
                                     "type": "MouseEvent",
-                                    "description": "鼠标事件对象"
+                                    "description": "鼠标事件对象",
+                                    "schema": {
+                                        "$ref": "#/systemTypes/MouseEvent"
+                                    }
                                 },
                                 {
                                     "name": "senderVM",
@@ -1791,6 +1921,14 @@
                             "advanced": true,
                             "description": "使用 router 相关属性切换路由前触发",
                             "params": [
+                                {
+                                    "name": "$event",
+                                    "type": "object",
+                                    "description": "自定义事件对象",
+                                    "schema": {
+                                        "$ref": "#/systemTypes/NavigateEvent"
+                                    }
+                                },
                                 {
                                     "name": "$event.to",
                                     "type": "string, Location",
@@ -1824,6 +1962,14 @@
                             "advanced": true,
                             "description": "使用router相关属性切换路由时触发",
                             "params": [
+                                {
+                                    "name": "$event",
+                                    "type": "object",
+                                    "description": "自定义事件对象",
+                                    "schema": {
+                                        "$ref": "#/systemTypes/NavigateEvent"
+                                    }
+                                },
                                 {
                                     "name": "$event.to",
                                     "type": "string, Location",
@@ -1909,15 +2055,20 @@
             "Display"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/7.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/8.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/9.png",
-        "blocks": "[{\"title\":\"普通文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text>普通文本</u-text>\\n</template>\\n\"},{\"title\":\"小号文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text size=\\\"small\\\">小号文本</u-text>\\n</template>\\n\"},{\"title\":\"大号文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text size=\\\"large\\\">大号文本</u-text>\\n</template>\\n\"},{\"title\":\"主要文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"primary\\\">主要文本</u-text>\\n</template>\\n\"},{\"title\":\"次要文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"secondary\\\">次要文本</u-text>\\n</template>\\n\"},{\"title\":\"成功文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"success\\\">成功文本</u-text>\\n</template>\\n\"},{\"title\":\"警告文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"warning\\\">警告文本</u-text>\\n</template>\\n\"},{\"title\":\"错误文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"error\\\">错误文本</u-text>\\n</template>\\n\"},{\"title\":\"禁默文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"disabled\\\">禁默文本</u-text>\\n</template>\\n\"},{\"title\":\"文本过长省略\",\"description\":\"\",\"code\":\"<template>\\n<u-text overflow=\\\"ellipsis\\\">文字过长省略过长省略过长省略过长省略过长省略。</u-text>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"普通文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text>普通文本</u-text>\\n</template>\\n\"},{\"title\":\"变量支持\",\"description\":\"\",\"code\":\"<template>\\n<u-text text=\\\"支持变量\\\"></u-text>\\n</template>\\n\"},{\"title\":\"小号文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text size=\\\"small\\\">小号文本</u-text>\\n</template>\\n\"},{\"title\":\"大号文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text size=\\\"large\\\">大号文本</u-text>\\n</template>\\n\"},{\"title\":\"主要文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"primary\\\">主要文本</u-text>\\n</template>\\n\"},{\"title\":\"次要文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"secondary\\\">次要文本</u-text>\\n</template>\\n\"},{\"title\":\"成功文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"success\\\">成功文本</u-text>\\n</template>\\n\"},{\"title\":\"警告文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"warning\\\">警告文本</u-text>\\n</template>\\n\"},{\"title\":\"错误文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"error\\\">错误文本</u-text>\\n</template>\\n\"},{\"title\":\"禁默文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"disabled\\\">禁默文本</u-text>\\n</template>\\n\"},{\"title\":\"文本过长省略\",\"description\":\"\",\"code\":\"<template>\\n<u-text overflow=\\\"ellipsis\\\">文字过长省略过长省略过长省略过长省略过长省略。</u-text>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-text",
             "title": "文本",
             "description": "用于展示纯文字",
             "category": "Display",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/7.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/8.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/9.png",
-            "blocks": "[{\"title\":\"普通文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text>普通文本</u-text>\\n</template>\\n\"},{\"title\":\"小号文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text size=\\\"small\\\">小号文本</u-text>\\n</template>\\n\"},{\"title\":\"大号文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text size=\\\"large\\\">大号文本</u-text>\\n</template>\\n\"},{\"title\":\"主要文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"primary\\\">主要文本</u-text>\\n</template>\\n\"},{\"title\":\"次要文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"secondary\\\">次要文本</u-text>\\n</template>\\n\"},{\"title\":\"成功文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"success\\\">成功文本</u-text>\\n</template>\\n\"},{\"title\":\"警告文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"warning\\\">警告文本</u-text>\\n</template>\\n\"},{\"title\":\"错误文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"error\\\">错误文本</u-text>\\n</template>\\n\"},{\"title\":\"禁默文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"disabled\\\">禁默文本</u-text>\\n</template>\\n\"},{\"title\":\"文本过长省略\",\"description\":\"\",\"code\":\"<template>\\n<u-text overflow=\\\"ellipsis\\\">文字过长省略过长省略过长省略过长省略过长省略。</u-text>\\n</template>\\n\"}]",
+            "blocks": "[{\"title\":\"普通文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text>普通文本</u-text>\\n</template>\\n\"},{\"title\":\"变量支持\",\"description\":\"\",\"code\":\"<template>\\n<u-text text=\\\"支持变量\\\"></u-text>\\n</template>\\n\"},{\"title\":\"小号文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text size=\\\"small\\\">小号文本</u-text>\\n</template>\\n\"},{\"title\":\"大号文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text size=\\\"large\\\">大号文本</u-text>\\n</template>\\n\"},{\"title\":\"主要文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"primary\\\">主要文本</u-text>\\n</template>\\n\"},{\"title\":\"次要文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"secondary\\\">次要文本</u-text>\\n</template>\\n\"},{\"title\":\"成功文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"success\\\">成功文本</u-text>\\n</template>\\n\"},{\"title\":\"警告文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"warning\\\">警告文本</u-text>\\n</template>\\n\"},{\"title\":\"错误文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"error\\\">错误文本</u-text>\\n</template>\\n\"},{\"title\":\"禁默文本\",\"description\":\"\",\"code\":\"<template>\\n<u-text color=\\\"disabled\\\">禁默文本</u-text>\\n</template>\\n\"},{\"title\":\"文本过长省略\",\"description\":\"\",\"code\":\"<template>\\n<u-text overflow=\\\"ellipsis\\\">文字过长省略过长省略过长省略过长省略过长省略。</u-text>\\n</template>\\n\"}]",
             "attrs": [
+                {
+                    "name": "text",
+                    "title": "文本",
+                    "description": "待打印的内容"
+                },
                 {
                     "name": "color",
                     "title": "颜色",
@@ -2198,6 +2349,14 @@
                     "advanced": true,
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/NavigateEvent"
+                            }
+                        },
+                        {
                             "name": "$event.to",
                             "type": "string, Location",
                             "description": "`to`属性的值"
@@ -2230,6 +2389,14 @@
                     "description": "使用 router 相关属性切换路由后触发",
                     "advanced": true,
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/NavigateEvent"
+                            }
+                        },
                         {
                             "name": "$event.to",
                             "type": "string, Location",
@@ -2415,6 +2582,14 @@
                     "advanced": true,
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/EventTarget"
+                            }
+                        },
+                        {
                             "name": "$event.preventDefault",
                             "type": "Function",
                             "description": "阻止删除流程"
@@ -2589,6 +2764,14 @@
                     "advanced": true,
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
+                        {
                             "name": "$event.value",
                             "type": "any",
                             "description": "选中项的值"
@@ -2621,6 +2804,14 @@
                     "description": "选择某一页时触发",
                     "advanced": true,
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "any",
@@ -2673,7 +2864,8 @@
                             "advanced": true
                         }
                     ],
-                    "name": "u-carousel-item"
+                    "name": "u-carousel-item",
+                    "title": "幻灯片选项"
                 }
             ]
         }
@@ -2806,7 +2998,8 @@
                             "description": "用于自定义 label 内容。"
                         }
                     ],
-                    "name": "u-info-list-item"
+                    "name": "u-info-list-item",
+                    "title": "详情项"
                 },
                 {
                     "attrs": [
@@ -2873,7 +3066,8 @@
                             "description": "自定义额外操作项。"
                         }
                     ],
-                    "name": "u-info-list-group"
+                    "name": "u-info-list-group",
+                    "title": "详情组"
                 }
             ]
         }
@@ -3067,6 +3261,14 @@
                     "advanced": true,
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/OperatorItemEvent"
+                            }
+                        },
+                        {
                             "name": "$event.item",
                             "type": "any",
                             "description": "添加的项"
@@ -3098,6 +3300,14 @@
                     "description": "添加时触发",
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/OperatorItemEvent"
+                            }
+                        },
+                        {
                             "name": "$event.item",
                             "type": "any",
                             "description": "添加的项"
@@ -3124,6 +3334,14 @@
                     "description": "删除前触发",
                     "advanced": true,
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/OperatorItemEvent"
+                            }
+                        },
                         {
                             "name": "$event.item",
                             "type": "any",
@@ -3156,6 +3374,14 @@
                     "description": "删除时触发",
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/OperatorItemEvent"
+                            }
+                        },
+                        {
                             "name": "$event.item",
                             "type": "any",
                             "description": "删除的项"
@@ -3181,6 +3407,14 @@
                     "name": "splice",
                     "description": "数量变更（添加/删除）时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/OperatorItemEvent"
+                            }
+                        },
                         {
                             "name": "$event.item",
                             "type": "any",
@@ -3799,6 +4033,14 @@
                     "advanced": true,
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/EventTarget"
+                            }
+                        },
+                        {
                             "name": "$event.preventDefault",
                             "type": "Function",
                             "description": "阻止加载流程"
@@ -3833,6 +4075,14 @@
                     "description": "切换分页前触发",
                     "advanced": true,
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/PaginationEvent"
+                            }
+                        },
                         {
                             "name": "$event.size",
                             "type": "number",
@@ -3871,6 +4121,14 @@
                     "description": "切换分页或改变分页大小时触发",
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/PaginationEvent"
+                            }
+                        },
+                        {
                             "name": "$event.size",
                             "type": "number",
                             "description": "分页大小"
@@ -3904,6 +4162,14 @@
                     "advanced": true,
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/SortEvent"
+                            }
+                        },
+                        {
                             "name": "$event.field",
                             "type": "string",
                             "description": "排序字段"
@@ -3935,6 +4201,14 @@
                     "title": "排序后",
                     "description": "排序后触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/SortEvent"
+                            }
+                        },
                         {
                             "name": "$event.field",
                             "type": "string",
@@ -4004,6 +4278,14 @@
                     "advanced": true,
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
+                        {
                             "name": "$event.value",
                             "type": "any",
                             "description": "选择行的值"
@@ -4057,6 +4339,14 @@
                     "description": "选择某一项后触发",
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
+                        {
                             "name": "$event.value",
                             "type": "any",
                             "description": "改变后的值"
@@ -4094,6 +4384,14 @@
                     "description": "多选模式中，选中节点后触发",
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/CheckedEvent"
+                            }
+                        },
+                        {
                             "name": "$event.checked",
                             "type": "boolean",
                             "description": "选中状态"
@@ -4125,6 +4423,14 @@
                     "title": "改变后",
                     "description": "单选或多选值改变后触发。",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "any",
@@ -4530,7 +4836,10 @@
                                 {
                                     "name": "$event",
                                     "type": "MouseEvent",
-                                    "description": "鼠标事件对象"
+                                    "description": "鼠标事件对象",
+                                    "schema": {
+                                        "$ref": "#/systemTypes/MouseEvent"
+                                    }
                                 }
                             ]
                         }
@@ -4698,6 +5007,14 @@
                     "title": "验证后",
                     "description": "验证时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ValidateEvent"
+                            }
+                        },
                         {
                             "name": "$event.trigger",
                             "type": "string",
@@ -5187,6 +5504,14 @@
                     "description": "使用 router 相关属性切换路由前触发",
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/NavigateEvent"
+                            }
+                        },
+                        {
                             "name": "$event.to",
                             "type": "string, Location",
                             "description": "`to`属性的值"
@@ -5219,6 +5544,14 @@
                     "advanced": true,
                     "description": "使用 router 相关属性切换路由后触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/NavigateEvent"
+                            }
+                        },
                         {
                             "name": "$event.to",
                             "type": "string, Location",
@@ -5422,6 +5755,14 @@
                     "description": "输入前触发。可以在这个阶段阻止输入，或者修改输入的值 $event.value",
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeEvent"
+                            }
+                        },
+                        {
                             "name": "$event.oldValue",
                             "type": "string",
                             "description": "旧的值"
@@ -5466,6 +5807,14 @@
                     "description": "值变化时触发。（注意：与原生事件不同）",
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeEvent"
+                            }
+                        },
+                        {
                             "name": "$event.value",
                             "type": "string",
                             "description": "改变后的值"
@@ -5490,7 +5839,10 @@
                         {
                             "name": "$event",
                             "type": "FocusEvent",
-                            "description": "原生事件对象"
+                            "description": "原生事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/FocusEvent"
+                            }
                         },
                         {
                             "name": "senderVM",
@@ -5507,7 +5859,10 @@
                         {
                             "name": "$event",
                             "type": "FocusEvent",
-                            "description": "原生事件对象"
+                            "description": "原生事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/FocusEvent"
+                            }
                         },
                         {
                             "name": "senderVM",
@@ -5522,6 +5877,14 @@
                     "description": "清空前触发。",
                     "advanced": true,
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "string",
@@ -5549,6 +5912,14 @@
                     "title": "清空后",
                     "description": "清空后触发。",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "string",
@@ -5715,7 +6086,10 @@
                         {
                             "name": "$event",
                             "type": "string",
-                            "description": "输入框的值"
+                            "description": "输入框的值",
+                            "schema": {
+                                "$ref": "#/basicTypes/String"
+                            }
                         },
                         {
                             "name": "senderVM",
@@ -5729,6 +6103,14 @@
                     "title": "验证时",
                     "description": "输入验证时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ValidateEvent"
+                            }
+                        },
                         {
                             "name": "$event.rawValue",
                             "type": "string",
@@ -5756,6 +6138,14 @@
                     "title": "改变后",
                     "description": "值变化时触发（与原生事件不同）",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "number",
@@ -5791,7 +6181,10 @@
                         {
                             "name": "$event",
                             "type": "string",
-                            "description": "原生事件对象"
+                            "description": "原生事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/FocusEvent"
+                            }
                         },
                         {
                             "name": "senderVM",
@@ -5808,7 +6201,10 @@
                         {
                             "name": "$event",
                             "type": "string",
-                            "description": "原生事件对象"
+                            "description": "原生事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/FocusEvent"
+                            }
                         },
                         {
                             "name": "senderVM",
@@ -5968,6 +6364,14 @@
                     "advanced": true,
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeEvent"
+                            }
+                        },
+                        {
                             "name": "$event.oldValue",
                             "type": "string",
                             "description": "旧的值"
@@ -5997,7 +6401,10 @@
                         {
                             "name": "$event",
                             "type": "string",
-                            "description": "输入框的值"
+                            "description": "输入框的值",
+                            "schema": {
+                                "$ref": "#/basicTypes/String"
+                            }
                         },
                         {
                             "name": "senderVM",
@@ -6011,6 +6418,14 @@
                     "title": "改变后",
                     "description": "值变化时触发。（注意：与原生事件不同）",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "string",
@@ -6037,7 +6452,10 @@
                         {
                             "name": "$event",
                             "type": "FocusEvent",
-                            "description": "原生事件对象"
+                            "description": "原生事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/FocusEvent"
+                            }
                         },
                         {
                             "name": "senderVM",
@@ -6054,8 +6472,11 @@
                     "params": [
                         {
                             "name": "$event",
-                            "type": "FocusEvent",
-                            "description": "原生事件对象"
+                            "type": null,
+                            "description": "原生事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/FocusEvent"
+                            }
                         },
                         {
                             "name": "senderVM",
@@ -6070,6 +6491,14 @@
                     "title": "清空前",
                     "description": "清空前触发。",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "string",
@@ -6181,6 +6610,14 @@
                     "advanced": true,
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
+                        {
                             "name": "$event.value",
                             "type": "any",
                             "description": "选择项的值"
@@ -6215,7 +6652,10 @@
                         {
                             "name": "$event",
                             "type": "any",
-                            "description": "选择项的值"
+                            "description": "选择项的值",
+                            "schema": {
+                                "$ref": "#/basicTypes/String"
+                            }
                         },
                         {
                             "name": "senderVM",
@@ -6256,6 +6696,14 @@
                     "title": "改变后",
                     "description": "选择值改变时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "any",
@@ -6327,6 +6775,14 @@
                             "description": "选择此项前触发",
                             "advanced": true,
                             "params": [
+                                {
+                                    "name": "$event",
+                                    "type": "object",
+                                    "description": "自定义事件对象",
+                                    "schema": {
+                                        "$ref": "#/systemTypes/ChangeItemEvent"
+                                    }
+                                },
                                 {
                                     "name": "$event.label",
                                     "type": "any",
@@ -6410,6 +6866,14 @@
                     "advanced": true,
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeEvent"
+                            }
+                        },
+                        {
                             "name": "$event.value",
                             "type": "boolean",
                             "description": "开关状态"
@@ -6439,7 +6903,10 @@
                         {
                             "name": "$event",
                             "type": "boolean",
-                            "description": "切换后的开关状态"
+                            "description": "切换后的开关状态",
+                            "schema": {
+                                "$ref": "#/basicTypes/Boolean"
+                            }
                         },
                         {
                             "name": "senderVM",
@@ -6456,7 +6923,10 @@
                         {
                             "name": "$event",
                             "type": "",
-                            "description": "无"
+                            "description": "无",
+                            "schema": {
+                                "$ref": "#/basicTypes/Boolean"
+                            }
                         },
                         {
                             "name": "senderVM",
@@ -6473,7 +6943,10 @@
                         {
                             "name": "$event",
                             "type": "",
-                            "description": "无"
+                            "description": "无",
+                            "schema": {
+                                "$ref": "#/basicTypes/Boolean"
+                            }
                         },
                         {
                             "name": "senderVM",
@@ -6487,6 +6960,14 @@
                     "title": "切换状态后",
                     "description": "切换开关状态时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/CollapseEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "boolean",
@@ -6509,6 +6990,14 @@
                     "title": "改变后",
                     "description": "开关状态改变时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/CollapseEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "boolean",
@@ -6652,6 +7141,14 @@
                             "advanced": true,
                             "params": [
                                 {
+                                    "name": "$event",
+                                    "type": "object",
+                                    "description": "自定义事件对象",
+                                    "schema": {
+                                        "$ref": "#/systemTypes/ChangeEvent"
+                                    }
+                                },
+                                {
                                     "name": "$event.value",
                                     "type": "boolean, null",
                                     "description": "选中状态"
@@ -6681,7 +7178,10 @@
                                 {
                                     "name": "$event",
                                     "type": "boolean, null",
-                                    "description": "切换后的选中状态"
+                                    "description": "切换后的选中状态",
+                                    "schema": {
+                                        "$ref": "#/basicTypes/Boolean"
+                                    }
                                 },
                                 {
                                     "name": "senderVM",
@@ -6695,6 +7195,14 @@
                             "title": "选中后",
                             "description": "切换选中状态时触发",
                             "params": [
+                                {
+                                    "name": "$event",
+                                    "type": "object",
+                                    "description": "自定义事件对象",
+                                    "schema": {
+                                        "$ref": "#/systemTypes/ChangeEvent"
+                                    }
+                                },
                                 {
                                     "name": "$event.value",
                                     "type": "boolean, null",
@@ -6723,6 +7231,14 @@
                             "description": "选中状态改变时触发",
                             "params": [
                                 {
+                                    "name": "$event",
+                                    "type": "object",
+                                    "description": "自定义事件对象",
+                                    "schema": {
+                                        "$ref": "#/systemTypes/ChangeEvent"
+                                    }
+                                },
+                                {
                                     "name": "$event.value",
                                     "type": "boolean, null",
                                     "description": "选中状态"
@@ -6740,7 +7256,8 @@
                             ]
                         }
                     ],
-                    "name": "u-checkbox"
+                    "name": "u-checkbox",
+                    "title": "多选项"
                 }
             ]
         }
@@ -6836,6 +7353,14 @@
                     "advanced": true,
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
+                        {
                             "name": "$event.value",
                             "type": "any",
                             "description": "选择项的值"
@@ -6875,7 +7400,10 @@
                         {
                             "name": "$event",
                             "type": "any",
-                            "description": "选择项的值"
+                            "description": "选择项的值",
+                            "schema": {
+                                "$ref": "#/basicTypes/String"
+                            }
                         },
                         {
                             "name": "senderVM",
@@ -6889,6 +7417,14 @@
                     "title": "选择后",
                     "description": "选择某一项时触发。单选模式中：",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "any",
@@ -6931,6 +7467,14 @@
                     "title": "选择后",
                     "description": "选择某一项时触发。多选模式中：",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
                         {
                             "name": "$event.selected",
                             "type": "boolean",
@@ -6989,6 +7533,14 @@
                     "description": "选择值改变时触发。单选模式中：",
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
+                        {
                             "name": "$event.value",
                             "type": "any",
                             "description": "选择项的值"
@@ -7030,6 +7582,14 @@
                     "title": "改变后",
                     "description": "选择值改变时触发。多选模式中：",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemsEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "Array",
@@ -7127,7 +7687,10 @@
                                 {
                                     "name": "$event",
                                     "type": "MouseEvent",
-                                    "description": "鼠标事件对象"
+                                    "description": "鼠标事件对象",
+                                    "schema": {
+                                        "$ref": "#/systemTypes/MouseEvent"
+                                    }
                                 },
                                 {
                                     "name": "senderVM",
@@ -7142,6 +7705,14 @@
                             "description": "选择此项前触发",
                             "advanced": true,
                             "params": [
+                                {
+                                    "name": "$event",
+                                    "type": "object",
+                                    "description": "自定义事件对象",
+                                    "schema": {
+                                        "$ref": "#/systemTypes/ChangeItemEvent"
+                                    }
+                                },
                                 {
                                     "name": "$event.value",
                                     "type": "any",
@@ -7170,10 +7741,25 @@
                             ]
                         }
                     ],
-                    "name": "u-capsule"
+                    "name": "u-capsule",
+                    "title": "子选项"
                 },
                 {
-                    "name": "u-capsule-group"
+                    "slots": [
+                        {
+                            "name": "default",
+                            "description": "插入`<u-capsule>`或`<u-capsules-group>`子组件。",
+                            "support": [
+                                {
+                                    "name": "u-capsule",
+                                    "title": "子选项",
+                                    "snippet": "<u-capsule>选项</u-capsule>"
+                                }
+                            ]
+                        }
+                    ],
+                    "name": "u-capsule-group",
+                    "title": "子选项组"
                 }
             ]
         }
@@ -7476,6 +8062,14 @@
                     "advanced": true,
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
+                        {
                             "name": "$event.value",
                             "type": "any",
                             "description": "选择项的值"
@@ -7514,7 +8108,10 @@
                         {
                             "name": "$event",
                             "type": "any",
-                            "description": "选择项的值"
+                            "description": "选择项的值",
+                            "schema": {
+                                "$ref": "#/basicTypes/String"
+                            }
                         },
                         {
                             "name": "senderVM",
@@ -7528,6 +8125,14 @@
                     "title": "选择后",
                     "description": "选择某一项后触发。单选模式中：",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "any",
@@ -7570,6 +8175,14 @@
                     "title": "改变后",
                     "description": "选择值改变时触发。单选模式中：",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "any",
@@ -7614,6 +8227,14 @@
                     "advanced": true,
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/EventTarget"
+                            }
+                        },
+                        {
                             "name": "$event.preventDefault",
                             "type": "Function",
                             "description": "阻止弹出流程"
@@ -7649,6 +8270,14 @@
                     "description": "关闭前触发。",
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/EventTarget"
+                            }
+                        },
+                        {
                             "name": "$event.preventDefault",
                             "type": "Function",
                             "description": "阻止关闭流程"
@@ -7683,6 +8312,14 @@
                     "description": "加载前触发",
                     "advanced": true,
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/EventTarget"
+                            }
+                        },
                         {
                             "name": "$event.preventDefault",
                             "type": "Function",
@@ -7750,6 +8387,14 @@
                             "description": "选择此项前触发",
                             "advanced": true,
                             "params": [
+                                {
+                                    "name": "$event",
+                                    "type": "object",
+                                    "description": "自定义事件对象",
+                                    "schema": {
+                                        "$ref": "#/systemTypes/ChangeItemEvent"
+                                    }
+                                },
                                 {
                                     "name": "$event.value",
                                     "type": "any",
@@ -7943,7 +8588,10 @@
                         {
                             "name": "$event",
                             "type": "number",
-                            "description": "滑块的值"
+                            "description": "滑块的值",
+                            "schema": {
+                                "$ref": "#/basicTypes/Integer"
+                            }
                         }
                     ]
                 },
@@ -7951,6 +8599,14 @@
                     "name": "slide",
                     "description": "拖动滑块时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/SliderEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "number",
@@ -7973,6 +8629,14 @@
                     "description": "滑块的值改变后触发",
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeEvent"
+                            }
+                        },
+                        {
                             "name": "$event.value",
                             "type": "number",
                             "description": "改变后的值"
@@ -7991,7 +8655,10 @@
                         {
                             "name": "$event.value",
                             "type": "number",
-                            "description": "改变后滑块的值"
+                            "description": "改变后滑块的值",
+                            "schema": {
+                                "$ref": "#/basicTypes/Integer"
+                            }
                         }
                     ]
                 },
@@ -8003,7 +8670,10 @@
                         {
                             "name": "$event.value",
                             "type": "number",
-                            "description": "改变后的值"
+                            "description": "改变后的值",
+                            "schema": {
+                                "$ref": "#/basicTypes/Integer"
+                            }
                         }
                     ]
                 }
@@ -8169,6 +8839,7 @@
             "methods": [
                 {
                     "name": "select",
+                    "title": "选择",
                     "description": "选择文件上传",
                     "params": []
                 }
@@ -8176,8 +8847,17 @@
             "events": [
                 {
                     "name": "before-send",
+                    "title": "发送前",
                     "description": "发送前触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/UploadEvent"
+                            }
+                        },
                         {
                             "name": "$event.data",
                             "type": "object",
@@ -8207,8 +8887,17 @@
                 },
                 {
                     "name": "send",
+                    "title": "发送时",
                     "description": "刚发送时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/UploadEvent"
+                            }
+                        },
                         {
                             "name": "$event.data",
                             "type": "object",
@@ -8228,8 +8917,17 @@
                 },
                 {
                     "name": "progress",
+                    "title": "进度改变时",
                     "description": "发送进度改变时触发，在上传进度条时使用",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/UploadEvent"
+                            }
+                        },
                         {
                             "name": "$event.data",
                             "type": "object",
@@ -8244,8 +8942,17 @@
                 },
                 {
                     "name": "complete",
+                    "title": "上传完成时",
                     "description": "上传完成时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/UploadEvent"
+                            }
+                        },
                         {
                             "name": "$event.xml",
                             "type": "string",
@@ -8260,8 +8967,17 @@
                 },
                 {
                     "name": "success",
+                    "title": "上传成功时",
                     "description": "上传成功时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/UploadEvent"
+                            }
+                        },
                         {
                             "name": "$event.data",
                             "type": "object",
@@ -8281,8 +8997,17 @@
                 },
                 {
                     "name": "error",
+                    "title": "上传错误时",
                     "description": "上传报错时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/UploadErrorEvent"
+                            }
+                        },
                         {
                             "name": "$event.name",
                             "type": "string",
@@ -8476,6 +9201,14 @@
                     "advanced": true,
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
+                        {
                             "name": "$event.value",
                             "type": "any",
                             "description": "选中标签页的值"
@@ -8513,6 +9246,14 @@
                     "description": "选择某一项后触发",
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
+                        {
                             "name": "$event.value",
                             "type": "any",
                             "description": "选中标签页的值"
@@ -8546,6 +9287,14 @@
                     "advanced": true,
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
+                        {
                             "name": "$event.value",
                             "type": "any",
                             "description": "待关闭标签页的值"
@@ -8577,6 +9326,14 @@
                     "title": "关闭后",
                     "description": "关闭某一页后触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "any",
@@ -8771,6 +9528,14 @@
                     "advanced": true,
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeEvent"
+                            }
+                        },
+                        {
                             "name": "value",
                             "type": "any",
                             "description": "选中步骤的值"
@@ -8798,6 +9563,14 @@
                     "description": "选择某一步骤时触发",
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeEvent"
+                            }
+                        },
+                        {
                             "name": "value",
                             "type": "any",
                             "description": "选中步骤的值"
@@ -8819,6 +9592,14 @@
                     "title": "改变后",
                     "description": "步骤数改变后触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeEvent"
+                            }
+                        },
                         {
                             "name": "value",
                             "type": "number",
@@ -8981,6 +9762,14 @@
                     "advanced": true,
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/PaginationEvent"
+                            }
+                        },
+                        {
                             "name": "$event.page",
                             "type": "number",
                             "description": "选择的页码"
@@ -9008,6 +9797,14 @@
                     "description": "选择分页时触发",
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/PaginationEvent"
+                            }
+                        },
+                        {
                             "name": "$event.page",
                             "type": "number",
                             "description": "选择的页码"
@@ -9030,6 +9827,14 @@
                     "description": "页码改变时触发",
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/PaginationEvent"
+                            }
+                        },
+                        {
                             "name": "$event.page",
                             "type": "number",
                             "description": "当前页码"
@@ -9051,6 +9856,14 @@
                     "title": "条数改变后",
                     "description": "每页条数改变时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/PaginationEvent"
+                            }
+                        },
                         {
                             "name": "$event.pageSize",
                             "type": "number",
@@ -9160,7 +9973,10 @@
                         {
                             "name": "$event",
                             "type": "any",
-                            "description": "选择项的值"
+                            "description": "选择项的值",
+                            "schema": {
+                                "$ref": "#/basicTypes/String"
+                            }
                         },
                         {
                             "name": "senderVM",
@@ -9174,6 +9990,14 @@
                     "title": "选择后",
                     "description": "选择某一项时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/CascadeCapsulesEvent"
+                            }
+                        },
                         {
                             "name": "$event.level",
                             "type": "number",
@@ -9211,6 +10035,14 @@
                     "title": "改变后",
                     "description": "选择值改变时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "any",
@@ -9330,7 +10162,10 @@
                         {
                             "name": "$event",
                             "type": "any",
-                            "description": "选择项的值"
+                            "description": "选择项的值",
+                            "schema": {
+                                "$ref": "#/basicTypes/String"
+                            }
                         },
                         {
                             "name": "senderVM",
@@ -9344,6 +10179,14 @@
                     "title": "选择后",
                     "description": "选择某一项时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/CascadeCapsulesEvent"
+                            }
+                        },
                         {
                             "name": "$event.level",
                             "type": "number",
@@ -9381,6 +10224,14 @@
                     "title": "改变后",
                     "description": "选择值改变时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/CascadeCapsulesEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "any",
@@ -9583,6 +10434,14 @@
                     "advanced": true,
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/TreeChangeEvent"
+                            }
+                        },
+                        {
                             "name": "$event.value",
                             "type": "any",
                             "description": "选择项的值"
@@ -9632,7 +10491,10 @@
                         {
                             "name": "$event",
                             "type": "any",
-                            "description": "选择项的值"
+                            "description": "选择项的值",
+                            "schema": {
+                                "$ref": "#/basicTypes/String"
+                            }
                         },
                         {
                             "name": "senderVM",
@@ -9646,6 +10508,14 @@
                     "title": "选择后",
                     "description": "选择某一项时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/TreeChangeEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "any",
@@ -9689,6 +10559,14 @@
                     "description": "选择值改变时触发",
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/TreeChangeEvent"
+                            }
+                        },
+                        {
                             "name": "$event.value",
                             "type": "any",
                             "description": "选择项的值"
@@ -9731,6 +10609,14 @@
                     "description": "展开/折叠某节点时触发",
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/CollapseEvent"
+                            }
+                        },
+                        {
                             "name": "$event.expanded",
                             "type": "boolean",
                             "description": "展开/折叠状态"
@@ -9757,6 +10643,14 @@
                     "title": "选中取消后",
                     "description": "选中/取消节点时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/CheckedEvent"
+                            }
+                        },
                         {
                             "name": "$event.checked",
                             "type": "boolean",
@@ -10176,6 +11070,14 @@
                     "description": "数据转移时触发",
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/TransferEvent"
+                            }
+                        },
+                        {
                             "name": "$event.source",
                             "type": "Array<{ text, value }>",
                             "description": "原数据列表"
@@ -10207,6 +11109,14 @@
                     "title": "改变后",
                     "description": "数据改变时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/TransferEvent"
+                            }
+                        },
                         {
                             "name": "$event.source",
                             "type": "Array<{ text, value }>",
@@ -10350,7 +11260,10 @@
                         {
                             "name": "$event",
                             "type": "Date",
-                            "description": "改变后的日期值"
+                            "description": "改变后的日期值",
+                            "schema": {
+                                "$ref": "#/basicTypes/Date"
+                            }
                         }
                     ]
                 },
@@ -10358,6 +11271,14 @@
                     "name": "change",
                     "description": "值变化时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/DateEvent"
+                            }
+                        },
                         {
                             "name": "$event.date",
                             "type": "Date",
@@ -10370,6 +11291,14 @@
                     "description": "选择日期时触发",
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/DateEvent"
+                            }
+                        },
+                        {
                             "name": "$event.date",
                             "type": "Date",
                             "description": "选择后的日期值"
@@ -10381,6 +11310,14 @@
                     "description": "弹出/隐藏时触发",
                     "advanced": true,
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/CollapseEvent"
+                            }
+                        },
                         {
                             "name": "$event.open",
                             "type": "boolean",
@@ -10486,6 +11423,14 @@
                     "description": "时间改变时触发",
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/DateEvent"
+                            }
+                        },
+                        {
                             "name": "time",
                             "type": "object",
                             "description": "改变后的时间"
@@ -10585,6 +11530,14 @@
                     "description": "日期值发生变化触发",
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/DateEvent"
+                            }
+                        },
+                        {
                             "name": "$event.date",
                             "type": "number",
                             "description": "选择项的值，默认返回时间戳"
@@ -10595,6 +11548,14 @@
                     "name": "change",
                     "description": "选择新时间触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/DateEvent"
+                            }
+                        },
                         {
                             "name": "$event.date",
                             "type": "number",
@@ -10937,6 +11898,14 @@
                     "advanced": true,
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/EventTarget"
+                            }
+                        },
+                        {
                             "name": "$event.preventDefault",
                             "type": "Function",
                             "description": "阻止弹出流程"
@@ -10971,6 +11940,14 @@
                     "description": "隐藏前触发。",
                     "advanced": true,
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/EventTarget"
+                            }
+                        },
                         {
                             "name": "$event.preventDefault",
                             "type": "Function",
@@ -11231,6 +12208,14 @@
                     "advanced": true,
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/EventTarget"
+                            }
+                        },
+                        {
                             "name": "$event.preventDefault",
                             "type": "Function",
                             "description": "阻止弹出流程"
@@ -11265,6 +12250,14 @@
                     "description": "隐藏前触发。",
                     "advanced": true,
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/EventTarget"
+                            }
+                        },
                         {
                             "name": "$event.preventDefault",
                             "type": "Function",
@@ -11414,6 +12407,14 @@
                     "description": "弹出提示时触发",
                     "params": [
                         {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/DurationEvent"
+                            }
+                        },
+                        {
                             "name": "$event.text",
                             "type": "string",
                             "description": "提示的内容"
@@ -11441,6 +12442,14 @@
                     "description": "关闭提示前触发",
                     "advanced": true,
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/DurationEvent"
+                            }
+                        },
                         {
                             "name": "$event.text",
                             "type": "string",
@@ -11473,6 +12482,14 @@
                     "title": "关闭后",
                     "description": "关闭提示时触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/DurationEvent"
+                            }
+                        },
                         {
                             "name": "$event.text",
                             "type": "string",
@@ -11508,13 +12525,13 @@
             "Feedback"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/3.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-modal ref=\\\"modal1\\\" title=\\\"标题\\\" visible>\\n    这是一段文字内容。\\n</u-modal>\\n</template>\\n\"},{\"title\":\"改变主要按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-modal title=\\\"标题\\\" visible\\n  primary-button=\\\"cancelButton\\\">内容</u-modal>\\n</template>\\n\"},{\"title\":\"禁用按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-modal title=\\\"标题\\\" visible disable-ok>内容</u-modal>\\n</template>\\n\"},{\"title\":\"自定义\",\"description\":\"\",\"code\":\"<template>\\n<u-modal visible>\\n    <template #title>\\n        自定义\\n    </template>\\n    <template #body>\\n        内容\\n    </template>\\n    <template #foot>\\n        <u-button color=\\\"primary\\\">关闭</u-button>\\n    </template>\\n</u-modal>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-modal ref=\\\"modal1\\\" title=\\\"标题\\\" visible>\\n    这是一段文字内容。\\n</u-modal>\\n</template>\\n\"},{\"title\":\"改变主要按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-modal ref=\\\"modal1\\\" title=\\\"标题\\\" visible\\n  primary-button=\\\"cancelButton\\\">内容</u-modal>\\n</template>\\n\"},{\"title\":\"禁用按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-modal ref=\\\"modal1\\\" title=\\\"标题\\\" visible disable-ok>内容</u-modal>\\n</template>\\n\"},{\"title\":\"自定义\",\"description\":\"\",\"code\":\"<template>\\n<u-modal ref=\\\"modal1\\\" visible>\\n    <template #title>\\n        自定义\\n    </template>\\n    <template #body>\\n        内容\\n    </template>\\n    <template #foot>\\n        <u-button color=\\\"primary\\\">关闭</u-button>\\n    </template>\\n</u-modal>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-modal",
             "title": "弹窗",
             "category": "Feedback",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/3.png",
-            "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-modal ref=\\\"modal1\\\" title=\\\"标题\\\" visible>\\n    这是一段文字内容。\\n</u-modal>\\n</template>\\n\"},{\"title\":\"改变主要按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-modal title=\\\"标题\\\" visible\\n  primary-button=\\\"cancelButton\\\">内容</u-modal>\\n</template>\\n\"},{\"title\":\"禁用按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-modal title=\\\"标题\\\" visible disable-ok>内容</u-modal>\\n</template>\\n\"},{\"title\":\"自定义\",\"description\":\"\",\"code\":\"<template>\\n<u-modal visible>\\n    <template #title>\\n        自定义\\n    </template>\\n    <template #body>\\n        内容\\n    </template>\\n    <template #foot>\\n        <u-button color=\\\"primary\\\">关闭</u-button>\\n    </template>\\n</u-modal>\\n</template>\\n\"}]",
+            "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-modal ref=\\\"modal1\\\" title=\\\"标题\\\" visible>\\n    这是一段文字内容。\\n</u-modal>\\n</template>\\n\"},{\"title\":\"改变主要按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-modal ref=\\\"modal1\\\" title=\\\"标题\\\" visible\\n  primary-button=\\\"cancelButton\\\">内容</u-modal>\\n</template>\\n\"},{\"title\":\"禁用按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-modal ref=\\\"modal1\\\" title=\\\"标题\\\" visible disable-ok>内容</u-modal>\\n</template>\\n\"},{\"title\":\"自定义\",\"description\":\"\",\"code\":\"<template>\\n<u-modal ref=\\\"modal1\\\" visible>\\n    <template #title>\\n        自定义\\n    </template>\\n    <template #body>\\n        内容\\n    </template>\\n    <template #foot>\\n        <u-button color=\\\"primary\\\">关闭</u-button>\\n    </template>\\n</u-modal>\\n</template>\\n\"}]",
             "attrs": [
                 {
                     "name": "title",
@@ -11654,36 +12671,20 @@
             ],
             "methods": [
                 {
-                    "name": "alert",
-                    "description": "打开只有确定按钮的消息提示",
-                    "params": [
-                        {
-                            "name": "content",
-                            "type": "string",
-                            "description": "提示内容"
-                        },
-                        {
-                            "name": "title",
-                            "type": "string",
-                            "description": "提示标题"
-                        }
-                    ]
+                    "name": "open",
+                    "description": "打开弹窗"
                 },
                 {
-                    "name": "confirm",
-                    "description": "打开有确定和取消按钮的消息提示",
-                    "params": [
-                        {
-                            "name": "content",
-                            "type": "string",
-                            "description": "提示内容"
-                        },
-                        {
-                            "name": "title",
-                            "type": "string",
-                            "description": "提示标题"
-                        }
-                    ]
+                    "name": "close",
+                    "description": "关闭弹窗"
+                },
+                {
+                    "name": "ok",
+                    "description": "确定弹窗"
+                },
+                {
+                    "name": "cancel",
+                    "description": "取消弹窗"
                 }
             ],
             "events": [
@@ -11964,6 +12965,14 @@
                     "name": "copy",
                     "description": "内容复制成功后触发",
                     "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeEvent"
+                            }
+                        },
                         {
                             "name": "$event.value",
                             "type": "string",

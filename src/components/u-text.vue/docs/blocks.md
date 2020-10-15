@@ -4,6 +4,12 @@
 <u-text>普通文本</u-text>
 ```
 
+### 变量支持
+
+``` html
+<u-text text="支持变量"></u-text>
+```
+
 ### 小号文本
 
 ``` html

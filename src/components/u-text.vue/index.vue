@@ -1,11 +1,16 @@
 <template>
 <span :class="$style.root" v-on="$listeners">
-    <slot></slot>
+    <slot>{{ text }}</slot>
 </span>
 </template>
 
 <script>
-export default { name: 'u-text' };
+export default {
+    name: 'u-text',
+    props: {
+        text: String,
+    },
+};
 </script>
 
 <style module>
