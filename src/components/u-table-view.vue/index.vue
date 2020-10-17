@@ -627,7 +627,7 @@ export default {
                     this.$emit('load', undefined, this);
                     return data;
                 })
-                .catch(() => {
+                .catch((e) => {
                     this.currentLoading = false;
                     this.currentError = true;
                 });

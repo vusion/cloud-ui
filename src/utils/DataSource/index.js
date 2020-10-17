@@ -259,7 +259,7 @@ const VueDataSource = Vue.extend({
                 this.initialLoaded = true;
 
                 // 支持 JDL
-                if (result instanceof Object && result.totalElements && result.content) {
+                if (result instanceof Object && result.hasOwnProperty('totalElements') && result.hasOwnProperty('content')) {
                     result.total = result.totalElements;
                     result.data = result.content;
                 }

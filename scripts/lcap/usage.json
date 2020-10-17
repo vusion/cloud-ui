@@ -8,14 +8,14 @@
         "labels": [
             "Container"
         ],
-        "screenShot": "",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-router-view.vue/screenshots/0.png",
         "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-router-view ></u-router-view>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-router-view",
             "title": "子页面容器",
             "description": "放置子页面的容器",
             "category": "Container",
-            "screenShot": "",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-router-view.vue/screenshots/0.png",
             "blocks": [
                 {
                     "title": "基本用法",
@@ -81,14 +81,14 @@
         "labels": [
             "Layout"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-linear-layout.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-linear-layout.vue/screenshots/1.png",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-linear-layout.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-linear-layout.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-linear-layout.vue/screenshots/2.png",
         "blocks": "[{\"title\":\"水平排布\",\"description\":\"\",\"code\":\"<template>\\n<u-linear-layout direction=\\\"horizontal\\\">\\n    <u-button>Button</u-button>\\n    <u-button>Button</u-button>\\n</u-linear-layout>\\n</template>\\n\"},{\"title\":\"竖直排布\",\"description\":\"\",\"code\":\"<template>\\n<u-linear-layout direction=\\\"vertical\\\">\\n    <u-panel title=\\\"面板\\\"></u-panel>\\n    <u-panel title=\\\"面板\\\"></u-panel>\\n</u-linear-layout>\\n</template>\\n\"},{\"title\":\"两端对齐\",\"description\":\"\",\"code\":\"<template>\\n<u-linear-layout justify=\\\"space-between\\\">\\n    <u-linear-layout>\\n        <u-button>Button</u-button>\\n        <u-button>Button</u-button>\\n    </u-linear-layout>\\n    <u-linear-layout>\\n        <u-button>Button</u-button>\\n        <u-button>Button</u-button>\\n        <u-button>Button</u-button>\\n    </u-linear-layout>\\n</u-linear-layout>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-linear-layout",
             "title": "线性布局",
             "description": "内部元素按照一定的规则布局",
             "category": "Layout",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-linear-layout.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-linear-layout.vue/screenshots/1.png",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-linear-layout.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-linear-layout.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-linear-layout.vue/screenshots/2.png",
             "blocks": [
                 {
                     "title": "水平排布",
@@ -2169,7 +2169,7 @@
         "name": "文本",
         "icon": "text",
         "depDescription": {},
-        "description": "用于展示纯文字",
+        "description": "用于展示文字或表达式",
         "labels": [
             "Display"
         ],
@@ -2178,7 +2178,7 @@
         "jsonSchema": {
             "name": "u-text",
             "title": "文本",
-            "description": "用于展示纯文字",
+            "description": "用于展示文字或表达式",
             "category": "Display",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/7.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/8.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-text.vue/screenshots/9.png",
             "blocks": [
@@ -2242,7 +2242,7 @@
                 {
                     "name": "text",
                     "title": "文本",
-                    "description": "待打印的内容"
+                    "description": "文本内容"
                 },
                 {
                     "name": "color",
@@ -5563,14 +5563,14 @@
         "labels": [
             "Form"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-form.vue/screenshots/0.png",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-form.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-form.vue/screenshots/1.png",
         "blocks": "[{\"title\":\"基础表单\",\"description\":\"\",\"code\":\"<template>\\n<u-form gap=\\\"large\\\">\\n    <u-form-item label=\\\"名称\\\" required>\\n        <u-input size=\\\"huge medium\\\" placeholder=\\\"由字母、数字和中划线组成\\\"></u-input>\\n    </u-form-item>\\n    <u-form-item label=\\\"类型\\\" required>\\n        <u-radios>\\n            <u-radio label=\\\"A\\\">类型 A</u-radio>\\n            <u-radio label=\\\"B\\\">类型 B</u-radio>\\n        </u-radios>\\n    </u-form-item>\\n    <u-form-item>\\n        <u-button color=\\\"primary\\\">立即创建</u-button>\\n    </u-form-item>\\n</u-form>\\n</template>\\n\"},{\"title\":\"行内表单\",\"description\":\"\",\"code\":\"<template>\\n<u-form layout=\\\"inline\\\" label-size=\\\"auto\\\">\\n    <u-form-item label=\\\"名称\\\">\\n        <u-input placeholder=\\\"请输入名称\\\"></u-input>\\n    </u-form-item>\\n    <u-form-item label=\\\"状态\\\">\\n        <u-select>\\n            <u-select-item>启用</u-select-item>\\n            <u-select-item>禁用</u-select-item>\\n        </u-select>\\n    </u-form-item>\\n    <u-form-item>\\n        <u-button color=\\\"primary\\\">查询</u-button>\\n    </u-form-item>\\n</u-form>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-form",
             "title": "表单",
             "description": "具有数据收集、校验和提交功能的表单，包含输入框、选择框、复选框、单选框等元素。",
             "category": "Form",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-form.vue/screenshots/0.png",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-form.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-form.vue/screenshots/1.png",
             "blocks": [
                 {
                     "title": "基础表单",
@@ -13581,13 +13581,13 @@
         "labels": [
             "Feedback"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/3.png",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/0.png",
         "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-modal ref=\\\"modal1\\\" visible>\\n    <template #title>\\n        <div>自定义</div>\\n    </template>\\n    <template #body>\\n        <div>内容</div>\\n    </template>\\n    <template #foot>\\n        <u-linear-layout>\\n            <u-button color=\\\"primary\\\">确定</u-button>\\n            <u-button>取消</u-button>\\n        </u-linear-layout>\\n    </template>\\n</u-modal>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-modal",
             "title": "弹窗",
             "category": "Feedback",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/3.png",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11/src/components/u-modal.vue/screenshots/0.png",
             "blocks": [
                 {
                     "title": "基本用法",

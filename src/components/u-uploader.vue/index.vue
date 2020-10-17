@@ -56,7 +56,7 @@ export default {
     mixins: [MEmitter],
     i18n,
     props: {
-        value: { type: [Array, String], default: () => [] },
+        value: [Array, String],
         url: { type: String, required: true },
         name: { type: String, default: 'file' },
         accept: String,
@@ -108,7 +108,7 @@ export default {
             if (this.converter === 'json')
                 return JSON.parse(value || '[]');
             else
-                return value;
+                return value || [];
         },
         toValue(value) {
             if (this.converter === 'json')
