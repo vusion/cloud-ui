@@ -106,6 +106,7 @@
           type: URadios
           description: 发送事件实例
 - name: u-radio
+  title: 单选项
   attrs:
     - name: label
       title: 标签

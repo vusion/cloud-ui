@@ -81,6 +81,12 @@
       multi: true
       maxSelect: 2
       description: 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度
+  slots:
+    - name: default
+      advanced: true
+      title: 默认
+      description: 插入 HTML 或 `Component`, 可展示额外内容。
+      quick-add: never
   events:
     - name: input
       title: 输入时
