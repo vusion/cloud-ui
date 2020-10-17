@@ -11,6 +11,7 @@
     - [只读和禁用](#只读和禁用)
 - [API]()
     - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
     - [Events](#events)
     - [ARIA and Keyboard](#aria-and-keyboard)
 
@@ -121,6 +122,12 @@ export default {
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度 |
+
+### Slots
+
+#### (default)
+
+插入 HTML 或 `Component`, 可展示额外内容。
 
 ### Events
 
