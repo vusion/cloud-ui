@@ -70,7 +70,7 @@
 | replace | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
 | append | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。 |
 | disabled | boolean |  | `false` | 是否禁用。禁用后不会响应`click`事件。 |
-| color | enum | `'default'`, `'light'`, `'success'`, `'warning'`, `'danger'`, `'error'` | `'default'` | 设置颜色。 |
+| color | enum | `'default'`<br/>`'light'`<br/>`'success'`<br/>`'warning'`<br/>`'danger'`<br/>`'error'` | `'default'` | 设置颜色。 |
 | display | string |  | `'inline'` | 展示方式。可选值：`'inline'`, `'block'` |
 
 ### Slots

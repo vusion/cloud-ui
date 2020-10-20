@@ -1275,8 +1275,14 @@
     "description": "表单布局方式。可选值：`block`、`inline`。"
   },
   "u-form/label-size": {
-    "type": "string",
-    "description": "标签大小。可选值：`small`、`normal`、`large`。"
+    "type": "enum",
+    "options": [
+      "mini",
+      "small",
+      "normal",
+      "large"
+    ],
+    "description": "标签大小。可选值：`mini`、`small`、`normal`、`large`。"
   },
   "u-form-item/name": {
     "type": "string",
@@ -3318,9 +3324,13 @@
     "type": "any",
     "description": "当前选择的值"
   },
-  "u-tree-view/field": {
+  "u-tree-view/text-field": {
     "type": "string",
-    "description": "显示文本字段"
+    "description": "选项文本的字段名"
+  },
+  "u-tree-view/value-field": {
+    "type": "string",
+    "description": "选项值的字段名"
   },
   "u-tree-view/cancelable": {
     "type": "boolean",

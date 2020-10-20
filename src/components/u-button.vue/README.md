@@ -173,13 +173,13 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| color | enum | `'default'`, `'primary'`, `'danger'` | `'default'` | 设置颜色。`'primary'`表示主按钮，`'danger'`表示危险按钮。 |
+| color | enum | `'default'`<br/>`'primary'`<br/>`'danger'` | `'default'` | 设置颜色。`'primary'`表示主按钮，`'danger'`表示危险按钮。 |
 | dashed | boolean |  | `false` | 边框是否为虚线。 |
-| size | enum | `'mini'`, `'small'`, `'normal'`, `'large'` | `'normal'` | 设置尺寸。 |
-| shape | enum | `'default'`, `'square'`, `'round'`, `'circle'` | `false` | 设置形状。选项分别为默认、圆角、方形、圆形。 |
+| size | enum | `'mini'`<br/>`'small'`<br/>`'normal'`<br/>`'large'` | `'normal'` | 设置尺寸。 |
+| shape | enum | `'default'`<br/>`'square'`<br/>`'round'`<br/>`'circle'` | `false` | 设置形状。选项分别为默认、圆角、方形、圆形。 |
 | disabled | boolean |  | `false` | 是否禁用。禁用后不会响应点击事件。 |
-| display | enum | `'inline'`, `'block'` | `'inline'` | 展示方式。`'inline'`表示行内展示, `'block'`表示块级展示，宽度会充满父元素。 |
-| icon | string | `'refresh'`, `'create'`, `'success'` |  | 设置图标。【待扩充】 |
+| display | enum | `'inline'`<br/>`'block'` | `'inline'` | 展示方式。`'inline'`表示行内展示, `'block'`表示块级展示，宽度会充满父元素。 |
+| icon | string | `'refresh'`<br/>`'create'`<br/>`'success'` |  | 设置图标。【待扩充】 |
 | loading | boolean |  | `false` | 是否为加载中。 |
 | href | string |  |  | 链接地址 |
 | target | string |  |  | （原生属性）。比如设置`_blank`，会打开新的空白页。 |

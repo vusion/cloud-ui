@@ -186,9 +186,9 @@ export default {
 | disabled | boolean |  | `false` | 是否禁用 |
 | closable | boolean |  | `false` | 是否可以关闭 |
 | router | boolean |  | `false` | 是否根据 vue-router 来控制选择哪个标签页 |
-| show-scroll-buttons | enum \| boolean | `'never'`, `'auto'`, `'always'` | `'auto'` | 是否显示标签滚动左右箭头按钮。`'auto'`表示有滚动的情况下显示，`‘always'`表示始终显示，`'never'`表示始终不显示。 |
-| appear | enum | `'square'`, `'round'`, `'card'`, `'line'`, `'text'`, `'capsule'` | `'tab'` | 标签显示的外观 |
-| size | enum | `'normal'`, `'small'`, `'mini'` | `'normal'` | 标签尺寸 |
+| show-scroll-buttons | enum \| boolean | `'never'`<br/>`'auto'`<br/>`'always'` | `'auto'` | 是否显示标签滚动左右箭头按钮。`'auto'`表示有滚动的情况下显示，`‘always'`表示始终显示，`'never'`表示始终不显示。 |
+| appear | enum | `'square'`<br/>`'round'`<br/>`'card'`<br/>`'line'`<br/>`'text'`<br/>`'capsule'` | `'tab'` | 标签显示的外观 |
+| size | enum | `'normal'`<br/>`'small'`<br/>`'mini'` | `'normal'` | 标签尺寸 |
 
 ### Slots
 

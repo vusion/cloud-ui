@@ -240,7 +240,7 @@
 | value | string |  |  | 需要复制的值 |
 | text | string |  | `'复制'` | 链接的文本 |
 | success-text | string |  | `'已复制'` | 复制成功提示文本 |
-| feedback | enum | `'tooltip'`, `'toast'`, `'none'` | `'tooltip'` | 复制提示反馈方式 `'tooltip'`,`'toast'`,`'none'` |
+| feedback | enum | `'tooltip'`<br/>`'toast'`<br/>`'none'` | `'tooltip'` | 复制提示反馈方式 `'tooltip'`,`'toast'`,`'none'` |
 | placement | string |  | `'top'` | tooltip 提示框位置，可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',`'left-end'`, `'right-start'`, `'right-end'` |
 | hide-delay | number |  | `3000` | 提示框显示时长 |
 | disabled | boolean |  | `false` | 是否禁止复制 |

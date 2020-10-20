@@ -1620,7 +1620,8 @@
     "attributes": [
       "data",
       "value",
-      "field",
+      "text-field",
+      "value-field",
       "cancelable",
       "checkable",
       "accordion",

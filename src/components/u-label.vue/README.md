@@ -85,10 +85,10 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| color | enum | `'default'`, `'primary'`, `'success'`, `'warning'`, `'error'` | `'default'` | 设置颜色。 |
-| size | enum | `'small'`, `'normal'`, `'large'`, `'huge'` | `'normal'` | 设置尺寸。 |
+| color | enum | `'default'`<br/>`'primary'`<br/>`'success'`<br/>`'warning'`<br/>`'error'` | `'default'` | 设置颜色。 |
+| size | enum | `'small'`<br/>`'normal'`<br/>`'large'`<br/>`'huge'` | `'normal'` | 设置尺寸。 |
 | removable | boolean |  | `false` | 是否可删除。开启时可以通过删除按钮触发`remove`事件，需要自己实现删除逻辑。 |
-| display | enum | `'inline'`, `'block'` | `'inline'` | 展示方式。`'inline'`表示行内展示, `'block'`表示块级展示，宽度会充满父元素。 |
+| display | enum | `'inline'`<br/>`'block'` | `'inline'` | 展示方式。`'inline'`表示行内展示, `'block'`表示块级展示，宽度会充满父元素。 |
 
 ### Slots
 

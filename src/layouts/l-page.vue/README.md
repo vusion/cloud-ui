@@ -177,7 +177,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| size | enum | `'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'` | `'normal'` | 宽度大小。 |
+| size | enum | `'mini'`<br/>`'small'`<br/>`'normal'`<br/>`'large'`<br/>`'huge'` | `'normal'` | 宽度大小。 |
 
 ### Slots
 
