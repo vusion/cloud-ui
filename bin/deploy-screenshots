@@ -13,9 +13,9 @@ if (argv._[0]) {
 }
 
 const packageJSON = require('../package.json');
-const libInfo = `${packageJSON.name}@${packageJSON.version.split('.').slice(0, 2).join('.')}`;
+const libInfo = `${packageJSON.name}`;
 components.forEach((component) => {
-    const command = `vusion deploy --framework ${libInfo} -v minor src/components/${component.name}.vue/screenshots`;
+    const command = `vusion deploy --framework cloud-ui src/components/${component.name}.vue/screenshots`;
     console.log(command);
     vusion.cli.execSync(command);
     vusion.cli.done(component.name + '.vue');

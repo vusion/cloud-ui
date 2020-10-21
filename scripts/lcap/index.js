@@ -11,7 +11,7 @@ components.forEach((component) => {
     }
 });
 const packageJSON = require('../../package.json');
-const libInfo = `${packageJSON.name}@${packageJSON.version.split('.').slice(0, 2).join('.')}`;
+const libInfo = `${packageJSON.name}@${packageJSON.version}`;
 Object.values(map).forEach((item) => {
     let screenShot = JSON.parse(item.screenShot);
     screenShot = screenShot.map((screen) => `https://static-vusion.163yun.com/packages/${libInfo}/src/components/${item.symbol}.vue/screenshots/${screen}`);
