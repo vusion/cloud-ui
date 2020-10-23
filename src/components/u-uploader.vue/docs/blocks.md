@@ -1,9 +1,9 @@
-### 基本用法
+### 单个按钮
 
 下面的例子为单文件上传。
 
 ``` html
-<u-uploader url="/gateway/lowcode/api/v1/app/upload" converter="json">
+<u-uploader display="inline" url="/gateway/lowcode/api/v1/app/upload" converter="json">
     <u-button color="primary">Upload</u-button>
 </u-uploader>
 ```

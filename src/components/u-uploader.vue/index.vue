@@ -319,6 +319,10 @@ export default {
     display: block;
 }
 
+.root[display="inline"] {
+    display: inline-block;
+}
+
 .select {
     display: inline-block;
 }

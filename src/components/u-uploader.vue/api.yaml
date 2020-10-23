@@ -97,6 +97,16 @@
       type: boolean
       default: false
       description: 是否禁用
+    - name: display
+      title: 展示方式
+      type: string
+      options:
+        - value: inline
+          title: 行内展示
+        - value: block
+          title: 块级展示，宽度会充满父元素
+      default: block
+      description: 展示方式
   slots:
     - name: default
       description: 插入文本 或 HTML。

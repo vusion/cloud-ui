@@ -2376,7 +2376,7 @@
             "Display"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.14/src/components/u-link.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.14/src/components/u-link.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.14/src/components/u-link.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.14/src/components/u-link.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.14/src/components/u-link.vue/screenshots/4.png",
-        "blocks": "[{\"title\":\"普通链接\",\"description\":\"\",\"code\":\"<template>\\n<u-link href=\\\"https://vusion.github.io\\\" target=\\\"_blank\\\">普通链接</u-link>\\n</template>\\n\"},{\"title\":\"成功链接\",\"description\":\"\",\"code\":\"<template>\\n<u-link href=\\\"#\\\" color=\\\"success\\\">成功链接</u-link>\\n</template>\\n\"},{\"title\":\"警告链接\",\"description\":\"\",\"code\":\"<template>\\n<u-link href=\\\"#\\\" color=\\\"warning\\\">警告链接</u-link>\\n</template>\\n\"},{\"title\":\"危险链接\",\"description\":\"\",\"code\":\"<template>\\n<u-link href=\\\"#\\\" color=\\\"danger\\\">危险链接</u-link>\\n</template>\\n\"},{\"title\":\"禁用链接\",\"description\":\"\",\"code\":\"<template>\\n<u-link href=\\\"#\\\" target=\\\"_blank\\\" disabled>禁用链接</u-link>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"普通链接\",\"description\":\"\",\"code\":\"<template>\\n<u-link href=\\\"/\\\" target=\\\"_blank\\\">普通链接</u-link>\\n</template>\\n\"},{\"title\":\"成功链接\",\"description\":\"\",\"code\":\"<template>\\n<u-link href=\\\"#\\\" color=\\\"success\\\">成功链接</u-link>\\n</template>\\n\"},{\"title\":\"警告链接\",\"description\":\"\",\"code\":\"<template>\\n<u-link href=\\\"#\\\" color=\\\"warning\\\">警告链接</u-link>\\n</template>\\n\"},{\"title\":\"危险链接\",\"description\":\"\",\"code\":\"<template>\\n<u-link href=\\\"#\\\" color=\\\"danger\\\">危险链接</u-link>\\n</template>\\n\"},{\"title\":\"禁用链接\",\"description\":\"\",\"code\":\"<template>\\n<u-link href=\\\"#\\\" target=\\\"_blank\\\" disabled>禁用链接</u-link>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-link",
             "title": "链接",
@@ -2387,7 +2387,7 @@
                 {
                     "title": "普通链接",
                     "description": "",
-                    "code": "<template>\n<u-link href=\"https://vusion.github.io\" target=\"_blank\">普通链接</u-link>\n</template>\n"
+                    "code": "<template>\n<u-link href=\"/\" target=\"_blank\">普通链接</u-link>\n</template>\n"
                 },
                 {
                     "title": "成功链接",
@@ -9326,7 +9326,7 @@
             "Form"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.14/src/components/u-uploader.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.14/src/components/u-uploader.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.14/src/components/u-uploader.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.14/src/components/u-uploader.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.14/src/components/u-uploader.vue/screenshots/4.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"下面的例子为单文件上传。\\n\",\"code\":\"<template>\\n<u-uploader url=\\\"/gateway/lowcode/api/v1/app/upload\\\" converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\">Upload</u-button>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"多文件上传\",\"description\":\"设置`multiple`可以选择多个文件，通过`value`属性可以设置已上传的文件。\\n\",\"code\":\"<template>\\n<u-uploader multiple url=\\\"/gateway/lowcode/api/v1/app/upload\\\" converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\">Upload</u-button>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"图片列表\",\"description\":\"\",\"code\":\"<template>\\n<u-uploader multiple list-type=\\\"image\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\">Upload</u-button>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"卡片列表\",\"description\":\"\",\"code\":\"<template>\\n<u-uploader multiple list-type=\\\"card\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\"\\n    converter=\\\"json\\\">\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"单文件卡片\",\"description\":\"不使用`multiple`属性时，仅会显示一个卡片。可以用于头像上传、身份证上传等场景。\\n\",\"code\":\"<template>\\n<u-uploader list-type=\\\"card\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\"\\n    converter=\\\"json\\\">\\n</u-uploader>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"单个按钮\",\"description\":\"下面的例子为单文件上传。\\n\",\"code\":\"<template>\\n<u-uploader display=\\\"inline\\\" url=\\\"/gateway/lowcode/api/v1/app/upload\\\" converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\">Upload</u-button>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"多文件上传\",\"description\":\"设置`multiple`可以选择多个文件，通过`value`属性可以设置已上传的文件。\\n\",\"code\":\"<template>\\n<u-uploader multiple url=\\\"/gateway/lowcode/api/v1/app/upload\\\" converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\">Upload</u-button>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"图片列表\",\"description\":\"\",\"code\":\"<template>\\n<u-uploader multiple list-type=\\\"image\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\">Upload</u-button>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"卡片列表\",\"description\":\"\",\"code\":\"<template>\\n<u-uploader multiple list-type=\\\"card\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\"\\n    converter=\\\"json\\\">\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"单文件卡片\",\"description\":\"不使用`multiple`属性时，仅会显示一个卡片。可以用于头像上传、身份证上传等场景。\\n\",\"code\":\"<template>\\n<u-uploader list-type=\\\"card\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\"\\n    converter=\\\"json\\\">\\n</u-uploader>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-uploader",
             "title": "文件上传",
@@ -9335,9 +9335,9 @@
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.14/src/components/u-uploader.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.14/src/components/u-uploader.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.14/src/components/u-uploader.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.14/src/components/u-uploader.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.14/src/components/u-uploader.vue/screenshots/4.png",
             "blocks": [
                 {
-                    "title": "基本用法",
+                    "title": "单个按钮",
                     "description": "下面的例子为单文件上传。\n",
-                    "code": "<template>\n<u-uploader url=\"/gateway/lowcode/api/v1/app/upload\" converter=\"json\">\n    <u-button color=\"primary\">Upload</u-button>\n</u-uploader>\n</template>\n"
+                    "code": "<template>\n<u-uploader display=\"inline\" url=\"/gateway/lowcode/api/v1/app/upload\" converter=\"json\">\n    <u-button color=\"primary\">Upload</u-button>\n</u-uploader>\n</template>\n"
                 },
                 {
                     "title": "多文件上传",
@@ -9500,6 +9500,23 @@
                     "type": "boolean",
                     "default": false,
                     "description": "是否禁用"
+                },
+                {
+                    "name": "display",
+                    "title": "展示方式",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "inline",
+                            "title": "行内展示"
+                        },
+                        {
+                            "value": "block",
+                            "title": "块级展示，宽度会充满父元素"
+                        }
+                    ],
+                    "default": "block",
+                    "description": "展示方式"
                 }
             ],
             "slots": [
