@@ -1547,7 +1547,8 @@
       "paste",
       "show-file-list",
       "converter",
-      "disabled"
+      "disabled",
+      "display"
     ],
     "description": "通过点击或者拖拽上传文件。"
   },

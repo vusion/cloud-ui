@@ -4967,6 +4967,20 @@
     "type": "boolean",
     "description": "是否禁用"
   },
+  "u-uploader/display": {
+    "type": "string",
+    "options": [
+      {
+        "value": "inline",
+        "title": "行内展示"
+      },
+      {
+        "value": "block",
+        "title": "块级展示，宽度会充满父元素"
+      }
+    ],
+    "description": "展示方式"
+  },
   "u-validator/name": {
     "type": "string",
     "description": "表单项名称。已废弃"

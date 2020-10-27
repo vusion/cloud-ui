@@ -211,6 +211,7 @@ export default {
 | show-file-list | boolean |  | `true` | 是否显示文件列表 |
 | converter | string | `'JSON'` () |  | undefined |
 | disabled | boolean |  | `false` | 是否禁用 |
+| display | string | `[object Object]`<br/>`[object Object]` | `'block'` | 展示方式 |
 
 ### Slots
 
