@@ -1,0 +1,17 @@
+- name: u-if
+  title: 条件渲染
+  icon: if
+  labels: [Container]
+  description: 用于按照条件展示内容
+  attrs:
+    - name: check
+      title: 判断条件
+      description: 判断条件
+      required: true
+  slots:
+      - name: True
+        description: 当判断条件为 true 时显示
+        title: True 渲染项
+      - name: False
+        description: 当判断条件为 false 时显示
+        title: False 渲染项

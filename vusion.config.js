@@ -36,6 +36,7 @@ module.exports = {
             { group: 'Layout', name: 'u-linear-layout', alias: '线性布局', vscode: false },
             { group: 'Layout', name: 'u-grid-layout', alias: '栅格布局', vscode: false },
             { group: 'Container', show: true, name: 'u-for', alias: '循环渲染' },
+            { group: 'Container', show: true, name: 'u-if', alias: '条件渲染' },
             { group: 'Display', name: 'u-list', alias: '列表' },
             { group: 'Display', name: 'u-desc-list', alias: '描述列表' },
             { group: 'Display', name: 'u-info-list', alias: '信息列表' },

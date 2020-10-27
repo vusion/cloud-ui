@@ -722,6 +722,12 @@
     ],
     "description": "图标与`<u-tooltip>`的组合。"
   },
+  "u-if": {
+    "attributes": [
+      "check"
+    ],
+    "description": "用于按照条件展示内容"
+  },
   "u-iframe": {
     "attributes": [
       "src"

@@ -2075,6 +2075,9 @@
     "type": "boolean",
     "description": "是否禁用"
   },
+  "u-if/check": {
+    "description": "判断条件"
+  },
   "u-iframe/src": {
     "type": "string",
     "description": "嵌入网页的地址"
