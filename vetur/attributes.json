@@ -1495,6 +1495,9 @@
     "type": "string",
     "description": "显示的位置。"
   },
+  "u-for/data": {
+    "description": "待渲染数据"
+  },
   "u-form-table-view/border": {
     "type": "boolean",
     "description": "是否有边框"

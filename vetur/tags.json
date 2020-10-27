@@ -588,6 +588,12 @@
     ],
     "description": "底部栏"
   },
+  "u-for": {
+    "attributes": [
+      "data"
+    ],
+    "description": "用于对数组类型的数据结构循环展示"
+  },
   "u-form-table-view": {
     "attributes": [
       "border",
