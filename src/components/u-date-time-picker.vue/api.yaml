@@ -6,9 +6,11 @@
     - Selector
   attrs:
     - name: date
-      sync: true
       type: string, number, Date
+      model: true
+      sync: true
       default: null
+      title: 选择值
       description: 显示的日期值
     - name: minDate
       type: string, number, Date
@@ -43,6 +45,16 @@
       type: string, number
       default: 1
       description: 最大可选年份值为当前年加上此值
+    - name: converter
+      title: 转换器
+      type: string
+      options:
+        - name: JSON
+          value: json
+        - name: Unix 时间戳
+          value: timestamp
+        - name: Date 对象
+          value: date
   slots:
     - name: (footer)
       description: 日期组件底部扩展

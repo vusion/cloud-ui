@@ -1,7 +1,7 @@
 ### 基本用法
 
 ``` html
-  <u-date-time-picker date="2018-08-08"></u-date-time-picker>
+<u-date-time-picker date="2018-08-08"></u-date-time-picker>
 ```
 
 ### 只读

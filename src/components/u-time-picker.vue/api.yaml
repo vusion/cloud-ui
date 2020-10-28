@@ -6,8 +6,10 @@
     - Selector
   attrs:
     - name: time
-      title: 值
+      title: 选择值
       type: string
+      model: true
+      sync: true
       default: 00:00
       description: 当前的时间值
     - name: minUnit

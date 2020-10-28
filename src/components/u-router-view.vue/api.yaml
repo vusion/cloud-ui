@@ -2,5 +2,5 @@
   title: 子页面容器
   icon: router-view
   labels: [Container]
-  description: 放置子页面的容器
+  description: 放置子页面的容器。
   slots: false

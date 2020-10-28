@@ -343,6 +343,8 @@ export default {
 }
 
 .file {
+    display: none;
+    display: block\0;
     position: absolute;
     top: 0;
     right: -5px;

@@ -2,7 +2,7 @@
   title: iframe
   icon: iframe
   labels: [Container]
-  description: 用于嵌入其他网页
+  description: 用于嵌入其他网页。
   attrs:
     - name: src
       title: 网页地址

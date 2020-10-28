@@ -2,8 +2,10 @@
   title: 日历
   attrs:
     - name: date
-      title: 日期
+      title: 选择值
       type: Date | string
+      model: true
+      sync: true
       default: TODAY
       description: 当前选择的日期
     - name: min-date
@@ -38,7 +40,7 @@
       description: 是否禁用
   slots:
     - name: default
-      description: 插入文本或  HTML 至日期组件底部
+      description: 插入文本或 HTML 至日期组件底部
   events:
     - name: change
       title: 改变后

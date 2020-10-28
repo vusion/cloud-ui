@@ -7,7 +7,24 @@
 </u-linear-layout>
 ```
 
-### 自动对焦
+### 选择日期
+
+``` vue
+<template>
+<u-date-time-picker v-model="date"></u-date-time-picker>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            date: '',
+        };
+    },
+};
+</script>
+```
+
+### 自动获取焦点
 ``` html
 <u-date-time-picker date="2018-08-08" autofocus></u-date-time-picker>
 ```

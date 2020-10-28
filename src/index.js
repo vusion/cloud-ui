@@ -9,3 +9,7 @@ import * as utils from './utils';
 export { directives, filters, utils };
 
 export { install } from '@vusion/utils';
+
+import Vue from 'vue';
+Vue.prototype.$env = Vue.prototype.$env || {};
+Vue.prototype.$env.VUE_APP_DESIGNER = String(process.env.VUE_APP_DESIGNER) === 'true';

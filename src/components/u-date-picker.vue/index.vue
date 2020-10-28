@@ -63,6 +63,7 @@ export default {
         yearDiff: { type: [String, Number], default: 3 },
         yearAdd: { type: [String, Number], default: 1 },
         reset: { type: Boolean, default: false },
+        converter: { type: String, default: 'json' },
     },
     data() {
         return { showDate: this.format(this.date, 'YYYY-MM-DD'), lastDate: '' };
@@ -88,7 +89,7 @@ export default {
             const newDate = showDate ? new Date(showDate.replace(/-/g, '/')) : '';
             this.$emit('update:date', newDate);
             this.$emit('change', { sender: this, date: newDate });
-            this.$emit('input', newDate);
+            this.$emit('input', this.toValue(newDate));
         },
         minDate(newValue) {
             return this.checkDate(newValue);
@@ -106,10 +107,20 @@ export default {
         }
         this.$emit(
             'input',
-            this.showDate ? new Date(this.showDate.replace(/-/g, '/')) : '',
+            this.toValue(this.showDate ? new Date(this.showDate.replace(/-/g, '/')) : ''),
         ); // document.addEventListener('click', this.fadeOut, false);
     },
     methods: {
+        toValue(date) {
+            if (!date)
+                return date;
+            if (this.converter === 'json')
+                return date.toJSON();
+            else if (this.converter === 'timestamp')
+                return date.getTime();
+            else
+                return value;
+        },
         checkDate(date) {
             if (!date)
                 return;

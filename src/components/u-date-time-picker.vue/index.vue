@@ -61,6 +61,7 @@ export default {
         width: { type: [String, Number], default: 170 },
         yearDiff: { type: [String, Number], default: 3 },
         yearAdd: { type: [String, Number], default: 1 },
+        converter: { type: String, default: 'json' },
     },
     data() {
         return {
@@ -125,7 +126,7 @@ export default {
                 sender: this,
                 date: newValue ? new Date(newValue.replace(/-/g, '/')).getTime() : '',
             }); // 方便u-field组件捕获到其值
-            this.$emit('input', newValue ? new Date(newValue.replace(/-/g, '/')) : '');
+            this.$emit('input', this.toValue(newValue ? new Date(newValue.replace(/-/g, '/')) : ''));
         },
         maxDate(value) {
             this.currentMaxDate = this.getMaxDate(value);
@@ -138,10 +139,20 @@ export default {
         // vue中的watch的immediate的执行时间是比created生命周期函数执行时间还早 所以导致u-field无法捕获
         this.$emit(
             'input',
-            this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : '',
+            this.toValue(this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : ''),
         );
     },
     methods: {
+        toValue(date) {
+            if (!date)
+                return date;
+            if (this.converter === 'json')
+                return date.toJSON();
+            else if (this.converter === 'timestamp')
+                return date.getTime();
+            else
+                return value;
+        },
         /**
          * @method outRangeDateTime(date, time) 修改日期为最大日期或最小日期
          * @private
