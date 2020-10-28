@@ -304,4 +304,16 @@ export default {
     color: var(--number-input-button-color-disabled);
     cursor: var(--cursor-not-allowed);
 }
+
+.root[size="mini"] {
+    right: -2px;
+}
+
+.button[role="up"] {
+    top: -1px;
+}
+
+.button[role="down"] {
+    bottom: -1px;
+}
 </style>
