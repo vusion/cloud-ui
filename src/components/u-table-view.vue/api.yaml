@@ -9,6 +9,11 @@
       title: 数据源
       type: Array<Item> | Function | object | DataSource
       description: 表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise，详见文档示例。
+    - name: data-schema
+      group: 数据属性
+      title: 数据类型
+      type: schema
+      description: 表格的数据类型，对应表格数据的schema
     - name: initial-load
       group: 数据属性
       title: 初始加载
