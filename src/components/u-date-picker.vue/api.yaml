@@ -14,6 +14,7 @@
       model: true
       sync: true
       default: null
+      title: 选择值
       description: 选择值
     - name: minDate
       type: string,number,Date

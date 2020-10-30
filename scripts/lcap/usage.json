@@ -4,23 +4,23 @@
         "name": "子页面容器",
         "icon": "router-view",
         "depDescription": {},
-        "description": "放置子页面的容器",
+        "description": "放置子页面的容器。",
         "labels": [
             "Container"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.15/src/components/u-router-view.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-router-view ></u-router-view>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-router-view></u-router-view>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-router-view",
             "title": "子页面容器",
-            "description": "放置子页面的容器",
+            "description": "放置子页面的容器。",
             "category": "Container",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.15/src/components/u-router-view.vue/screenshots/0.png",
             "blocks": [
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-router-view ></u-router-view>\n</template>\n"
+                    "code": "<template>\n<u-router-view></u-router-view>\n</template>\n"
                 }
             ],
             "slots": false,
@@ -32,23 +32,23 @@
         "name": "iframe",
         "icon": "iframe",
         "depDescription": {},
-        "description": "用于嵌入其他网页",
+        "description": "用于嵌入其他网页。",
         "labels": [
             "Container"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.15/src/components/u-iframe.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-iframe src=\\\"https://www.163yun.com\\\" style=\\\"width:100%;height:400px;border:1px solid red;\\\"></u-iframe>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-iframe src=\\\"https://www.163yun.com\\\" style=\\\"width: 100%; height: 400px;\\\"></u-iframe>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-iframe",
             "title": "iframe",
-            "description": "用于嵌入其他网页",
+            "description": "用于嵌入其他网页。",
             "category": "Container",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.15/src/components/u-iframe.vue/screenshots/0.png",
             "blocks": [
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-iframe src=\"https://www.163yun.com\" style=\"width:100%;height:400px;border:1px solid red;\"></u-iframe>\n</template>\n"
+                    "code": "<template>\n<u-iframe src=\"https://www.163yun.com\" style=\"width: 100%; height: 400px;\"></u-iframe>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -81,14 +81,14 @@
         "labels": [
             "Container"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.15/src/components/u-for.vue/screenshots/0.png",
+        "screenShot": "",
         "blocks": "[{\"title\":\"基础示例\",\"description\":\"\",\"code\":\"<template>\\n<u-for :data=\\\"[1,2,3]\\\">\\n    <template slot-scope=\\\"{item, index}\\\">\\n        <u-text display=\\\"block\\\" :text=\\\"'序号:' + index + ', 值:' + item\\\"> </u-text>\\n    </template>\\n</u-for>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-for",
             "title": "循环渲染",
             "description": "用于对数组类型的数据结构循环展示",
             "category": "Container",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.15/src/components/u-for.vue/screenshots/0.png",
+            "screenShot": "",
             "blocks": [
                 {
                     "title": "基础示例",
@@ -137,14 +137,14 @@
         "labels": [
             "Container"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.15/src/components/u-if.vue/screenshots/0.png",
+        "screenShot": "",
         "blocks": "[{\"title\":\"基础示例\",\"description\":\"\",\"code\":\"<template>\\n<u-if :check=\\\"true\\\">\\n    <template #True>\\n        <u-text text=\\\"成功\\\"></u-text>\\n    </template>\\n    <template #False>\\n        <u-text text=\\\"失败\\\"></u-text>\\n    </template>\\n</u-if>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-if",
             "title": "条件渲染",
             "description": "用于按照条件展示内容",
             "category": "Container",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.15/src/components/u-if.vue/screenshots/0.png",
+            "screenShot": "",
             "blocks": [
                 {
                     "title": "基础示例",
@@ -4006,6 +4006,13 @@
                     "description": "表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise，详见文档示例。"
                 },
                 {
+                    "name": "data-schema",
+                    "group": "数据属性",
+                    "title": "数据类型",
+                    "type": "schema",
+                    "description": "表格的数据类型，对应表格数据的schema"
+                },
+                {
                     "name": "initial-load",
                     "group": "数据属性",
                     "title": "初始加载",
@@ -6899,6 +6906,33 @@
                     "description": "是否禁用"
                 },
                 {
+                    "name": "size",
+                    "title": "尺寸",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "full",
+                            "title": "占满"
+                        },
+                        {
+                            "value": "huge",
+                            "title": "巨大"
+                        },
+                        {
+                            "value": "large",
+                            "title": "大"
+                        },
+                        {
+                            "value": "medium",
+                            "title": "中型"
+                        },
+                        {
+                            "value": "normal",
+                            "title": "正常"
+                        }
+                    ]
+                },
+                {
                     "name": "resize",
                     "title": "调整大小",
                     "type": "string",
@@ -7355,9 +7389,9 @@
                     "attrs": [
                         {
                             "name": "label",
-                            "title": "标签",
+                            "title": "选项值",
                             "type": "any",
-                            "description": "单选框标签。用于关联单选组的值"
+                            "description": "单选框选项值。"
                         },
                         {
                             "name": "readonly",
@@ -7470,6 +7504,8 @@
             "attrs": [
                 {
                     "name": "value",
+                    "model": true,
+                    "sync": true,
                     "title": "值",
                     "type": "boolean",
                     "default": false,
@@ -7686,6 +7722,8 @@
             "attrs": [
                 {
                     "name": "value",
+                    "model": true,
+                    "sync": true,
                     "title": "值",
                     "type": "Array",
                     "default": [],
@@ -7747,10 +7785,9 @@
                         },
                         {
                             "name": "label",
-                            "title": "标签",
+                            "title": "选项值",
                             "type": "any",
-                            "default": null,
-                            "description": "多选框标签。用于关联多选组的值"
+                            "description": "多选框选项值，只在多选组中使用。"
                         },
                         {
                             "name": "readonly",
@@ -8471,7 +8508,7 @@
             "Form"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.15/src/components/u-select.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"标签选择框\",\"description\":\"\",\"code\":\"<template>\\n<u-select placeholder=\\\"标签选择框\\\">\\n    <u-select-item value=\\\"java\\\">Java</u-select-item>\\n    <u-select-item value=\\\"nodejs\\\">Node.js</u-select-item>\\n</u-select>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"数据选择框\",\"description\":\"\",\"code\":\"<template>\\n<u-select placeholder=\\\"请选择\\\"></u-select>\\n</template>\\n\"},{\"title\":\"标签选择框\",\"description\":\"\",\"code\":\"<template>\\n<u-select placeholder=\\\"请选择\\\">\\n    <u-select-item value=\\\"java\\\">Java</u-select-item>\\n    <u-select-item value=\\\"nodejs\\\">Node.js</u-select-item>\\n</u-select>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-select",
             "title": "选择框",
@@ -8480,9 +8517,14 @@
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.15/src/components/u-select.vue/screenshots/0.png",
             "blocks": [
                 {
+                    "title": "数据选择框",
+                    "description": "",
+                    "code": "<template>\n<u-select placeholder=\"请选择\"></u-select>\n</template>\n"
+                },
+                {
                     "title": "标签选择框",
                     "description": "",
-                    "code": "<template>\n<u-select placeholder=\"标签选择框\">\n    <u-select-item value=\"java\">Java</u-select-item>\n    <u-select-item value=\"nodejs\">Node.js</u-select-item>\n</u-select>\n</template>\n"
+                    "code": "<template>\n<u-select placeholder=\"请选择\">\n    <u-select-item value=\"java\">Java</u-select-item>\n    <u-select-item value=\"nodejs\">Node.js</u-select-item>\n</u-select>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -12187,9 +12229,11 @@
                 {
                     "name": "date",
                     "type": "string,number,Date",
+                    "model": true,
                     "sync": true,
                     "default": null,
-                    "description": "初始日期值"
+                    "title": "选择值",
+                    "description": "选择值"
                 },
                 {
                     "name": "minDate",
@@ -12261,6 +12305,25 @@
                     "type": "string, number",
                     "default": 1,
                     "description": "最大可选年份值为当前年加上此值"
+                },
+                {
+                    "name": "converter",
+                    "title": "转换器",
+                    "type": "string",
+                    "options": [
+                        {
+                            "name": "JSON",
+                            "value": "json"
+                        },
+                        {
+                            "name": "Unix 时间戳",
+                            "value": "timestamp"
+                        },
+                        {
+                            "name": "Date 对象",
+                            "value": "date"
+                        }
+                    ]
                 }
             ],
             "events": [
@@ -12387,8 +12450,10 @@
             "attrs": [
                 {
                     "name": "time",
-                    "title": "值",
+                    "title": "选择值",
                     "type": "string",
+                    "model": true,
+                    "sync": true,
                     "default": "00:00",
                     "description": "当前的时间值"
                 },
@@ -12488,7 +12553,7 @@
             "Selector"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.15/src/components/u-date-time-picker.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.15/src/components/u-date-time-picker.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.15/src/components/u-date-time-picker.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.15/src/components/u-date-time-picker.vue/screenshots/3.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n  <u-date-time-picker date=\\\"2018-08-08\\\"></u-date-time-picker>\\n</template>\\n\"},{\"title\":\"只读\",\"description\":\"\",\"code\":\"<template>\\n   <u-date-time-picker date=\\\"2018-08-08\\\" readonly></u-date-time-picker>\\n</template>\\n\"},{\"title\":\"禁用\",\"description\":\"\",\"code\":\"<template>\\n<u-date-time-picker date=\\\"2018-08-08\\\" disabled></u-date-time-picker>\\n</template>\\n\"},{\"title\":\"最大值和最小值\",\"description\":\"\",\"code\":\"<template>\\n<u-date-time-picker date=\\\"2017-05-12 8:00:00\\\" min-date=\\\"2017-01-10 07:00:00\\\" max-date=\\\"2017-12-12 07:00:00\\\"></u-date-time-picker>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-date-time-picker date=\\\"2018-08-08\\\"></u-date-time-picker>\\n</template>\\n\"},{\"title\":\"只读\",\"description\":\"\",\"code\":\"<template>\\n   <u-date-time-picker date=\\\"2018-08-08\\\" readonly></u-date-time-picker>\\n</template>\\n\"},{\"title\":\"禁用\",\"description\":\"\",\"code\":\"<template>\\n<u-date-time-picker date=\\\"2018-08-08\\\" disabled></u-date-time-picker>\\n</template>\\n\"},{\"title\":\"最大值和最小值\",\"description\":\"\",\"code\":\"<template>\\n<u-date-time-picker date=\\\"2017-05-12 8:00:00\\\" min-date=\\\"2017-01-10 07:00:00\\\" max-date=\\\"2017-12-12 07:00:00\\\"></u-date-time-picker>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-date-time-picker",
             "title": "日期时间选择",
@@ -12499,7 +12564,7 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n  <u-date-time-picker date=\"2018-08-08\"></u-date-time-picker>\n</template>\n"
+                    "code": "<template>\n<u-date-time-picker date=\"2018-08-08\"></u-date-time-picker>\n</template>\n"
                 },
                 {
                     "title": "只读",
@@ -12520,9 +12585,11 @@
             "attrs": [
                 {
                     "name": "date",
-                    "sync": true,
                     "type": "string, number, Date",
+                    "model": true,
+                    "sync": true,
                     "default": null,
+                    "title": "选择值",
                     "description": "显示的日期值"
                 },
                 {
@@ -12573,6 +12640,25 @@
                     "type": "string, number",
                     "default": 1,
                     "description": "最大可选年份值为当前年加上此值"
+                },
+                {
+                    "name": "converter",
+                    "title": "转换器",
+                    "type": "string",
+                    "options": [
+                        {
+                            "name": "JSON",
+                            "value": "json"
+                        },
+                        {
+                            "name": "Unix 时间戳",
+                            "value": "timestamp"
+                        },
+                        {
+                            "name": "Date 对象",
+                            "value": "date"
+                        }
+                    ]
                 }
             ],
             "slots": [

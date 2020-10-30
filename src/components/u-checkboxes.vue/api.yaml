@@ -5,6 +5,8 @@
   description: 多项中选择多个时使用
   attrs:
     - name: value
+      model: true
+      sync: true
       title: 值
       type: Array
       default: []
@@ -47,10 +49,9 @@
       default: false
       description: 选中状态，`null`表示不确定状态
     - name: label
-      title: 标签
+      title: 选项值
       type: any
-      default: null
-      description: 多选框标签。用于关联多选组的值
+      description: 多选框选项值，只在多选组中使用。
     - name: readonly
       title: 只读
       type: boolean

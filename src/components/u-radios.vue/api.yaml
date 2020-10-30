@@ -109,9 +109,9 @@
   title: 单选项
   attrs:
     - name: label
-      title: 标签
+      title: 选项值
       type: any
-      description: 单选框标签。用于关联单选组的值
+      description: 单选框选项值。
     - name: readonly
       title: 只读
       type: boolean

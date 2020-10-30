@@ -52,6 +52,20 @@
       type: boolean
       default: false
       description: 是否禁用
+    - name: size
+      title: 尺寸
+      type: string
+      options:
+        - value: full
+          title: 占满
+        - value: huge
+          title: 巨大
+        - value: large
+          title: 大
+        - value: medium
+          title: 中型
+        - value: normal
+          title: 正常
     - name: resize
       title: 调整大小
       type: string

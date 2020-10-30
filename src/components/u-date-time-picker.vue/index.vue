@@ -117,7 +117,7 @@ export default {
                 if (isOutOfRange)
                     newValue = this.format(isOutOfRange, 'YYYY-MM-DD HH:mm:ss');
             }
-            this.$emit('update:date', newValue ? new Date(newValue.replace(/-/g, '/')).getTime() : '');
+            this.$emit('update:date', this.toValue(newValue ? new Date(newValue.replace(/-/g, '/')) : ''));
             /**
              * @event change 日期时间改变时触发
              * @property {object} sender 事件发送对象

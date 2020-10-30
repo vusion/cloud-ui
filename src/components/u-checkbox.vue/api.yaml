@@ -2,10 +2,16 @@
   title: 多选框
   attrs:
     - name: value
+      model: true
+      sync: true
       title: 值
       type: boolean | null
       default: false
       description: Checked status. `null`表示不确定状态.
+    - name: label
+      title: 选项值
+      type: any
+      description: 多选框选项值，只在多选组中使用。
     - name: readonly
       title: 只读
       type: boolean

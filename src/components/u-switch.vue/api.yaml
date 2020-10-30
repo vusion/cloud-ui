@@ -4,6 +4,8 @@
   icon: switch
   attrs:
     - name: value
+      model: true
+      sync: true
       title: 值
       type: boolean
       default: false
