@@ -93,6 +93,10 @@
       options:
         - name: JSON
           value: json
+    - name: readonly
+      type: boolean
+      default: false
+      description: 是否只读
     - name: disabled
       type: boolean
       default: false

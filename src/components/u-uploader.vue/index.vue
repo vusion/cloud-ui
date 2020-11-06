@@ -26,15 +26,18 @@
                 <div :class="$style.mask" :multiple="multiple" :show-progress="item.showProgress">
                     <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
                     <div v-show="multiple" :class="$style.buttons">
-                        <span :class="$style.button" role="preview" @click="onPreview(item)"></span>
+                        <span :class="$style.button" role="preview" @click="onPreview(item, index)"></span>
                         <a :class="$style.button" :href="item.url" target="_blank" role="download"></a>
-                        <span :class="$style.button" role="remove" @click="remove(index)"></span>
+                        <span v-if="!readonly" :class="$style.button" role="remove" @click="remove(index)"></span>
                     </div>
                 </div>
             </div>
-            <div v-if="multiple || currentValue.length === 0" :class="$style.card" role="select" @click="select()"></div>
+            <div v-if="(multiple || currentValue.length === 0) && !readonly" :class="$style.card" role="select" @click="select()"></div>
         </template>
     </div>
+    <u-lightbox :visible.sync="lightboxVisible" :value="currentIndex" animation="fade">
+        <u-lightbox-item v-for="(item, index) in currentValue" :key="index" :value="index" :title="item.name"><img :src="item.url" /></u-lightbox-item>
+    </u-lightbox>
 </div>
 </template>
 
@@ -73,6 +76,7 @@ export default {
         paste: { type: Boolean, default: false },
         showFileList: { type: Boolean, default: true },
         converter: String,
+        readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
     },
     data() {
@@ -83,6 +87,8 @@ export default {
             file: {},
             iframeName: 'iframe-' + new Date().getTime(),
             dragover: false,
+            lightboxVisible: false,
+            currentIndex: 0,
         };
     },
     watch: {
@@ -117,7 +123,7 @@ export default {
                 return value;
         },
         select() {
-            if (this.disabled || this.sending)
+            if (this.readonly || this.disabled || this.sending)
                 return;
 
             this.$refs.file.value = '';
@@ -221,9 +227,9 @@ export default {
             this.currentValue.push(item);
 
             if (this.autoUpload)
-                this.post(file, item);
+                this.post(file, item, this.currentValue.length - 1);
         },
-        post(file, item) {
+        post(file, item, index) {
             const xhr = ajax({
                 url: this.url,
                 headers: this.headers,
@@ -232,6 +238,7 @@ export default {
                 data: this.data,
                 filename: this.name,
                 onProgress: (e) => {
+                    const item = this.currentValue[index];
                     item.percent = e.percent;
 
                     this.$emit('progress', {
@@ -239,6 +246,7 @@ export default {
                     }, this);
                 },
                 onSuccess: (res) => {
+                    const item = this.currentValue[index];
                     item.status = 'success';
                     item.response = res;
 
@@ -250,9 +258,14 @@ export default {
                     }, this);
                     setTimeout(() => {
                         item.showProgress = false;
+
+                        const value = this.toValue(this.currentValue);
+                        this.$emit('input', value);
+                        this.$emit('update:value', value);
                     }, 1000);
                 },
                 onError: (e, res) => {
+                    const item = this.currentValue[index];
                     item.status = 'error';
                     this.$emit('error', {
                         e,
@@ -261,12 +274,26 @@ export default {
                         item,
                         xhr,
                     }, this);
+
+                    const value = this.toValue(this.currentValue);
+                    this.$emit('input', value);
+                    this.$emit('update:value', value);
                 },
             });
         },
-        onPreview(item) {
+        onPreview(item, index) {
+            if (this.$emitPrevent('before-preview', {
+                item,
+                index,
+            }, this))
+                return;
+
+            this.lightboxVisible = true;
+            this.currentIndex = index;
+
             this.$emit('preview', {
                 item,
+                index,
             }, this);
         },
         remove(index) {
@@ -299,13 +326,13 @@ export default {
         },
         onDrop(e) {
             this.dragover = false;
-            if (this.disabled)
+            if (this.readonly || this.disabled)
                 return;
 
             this.uploadFiles(e.dataTransfer.files);
         },
         onPaste(e) {
-            if (this.disabled)
+            if (this.readonly || this.disabled)
                 return;
             if (this.paste)
                 this.uploadFiles(e.clipboardData.files);
@@ -343,7 +370,7 @@ export default {
 }
 
 .file {
-    display: none;
+    display: inline-block;
     display: block\0;
     position: absolute;
     top: 0;
