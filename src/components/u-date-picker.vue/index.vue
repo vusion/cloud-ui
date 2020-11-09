@@ -111,15 +111,8 @@ export default {
         ); // document.addEventListener('click', this.fadeOut, false);
     },
     methods: {
-        toValue(date) {
-            if (!date)
-                return date;
-            if (this.converter === 'json')
-                return date.toJSON();
-            else if (this.converter === 'timestamp')
-                return date.getTime();
-            else
-                return value;
+        toValue(value) {
+            return value;
         },
         checkDate(date) {
             if (!date)
