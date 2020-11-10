@@ -115,7 +115,7 @@ export default {
             if (!date)
                 return date;
             if (this.converter === 'json')
-                return date.toJSON().split('T')[0];
+                return date.toLocaleDateString().replace(/\//g, '-');
             else if (this.converter === 'timestamp')
                 return date.getTime();
             else
