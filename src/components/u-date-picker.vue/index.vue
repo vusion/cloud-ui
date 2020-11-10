@@ -115,11 +115,11 @@ export default {
             if (!date)
                 return date;
             if (this.converter === 'json')
-                return date.toJSON();
+                return date.toJSON().split('T')[0];
             else if (this.converter === 'timestamp')
                 return date.getTime();
             else
-                return value;
+                return date;
         },
         checkDate(date) {
             if (!date)
@@ -132,7 +132,8 @@ export default {
          * @public
          * @param  {Date=null} date 选择的日期
          * @return {void}
-         */ select(date) {
+         */
+        select(date) {
             if (this.readonly || this.disabled || this.isOutOfRange(date))
                 return;
             this.showDate = this.format(date, 'YYYY-MM-DD');
@@ -141,7 +142,8 @@ export default {
              * @event select 选择某一项时触发
              * @property {object} sender 事件发送对象
              * @property {number} date 当前选择项 返回格式是日期对象
-             */ this.$emit('select', {
+             */
+            this.$emit('select', {
                 sender: this,
                 date: new Date(showDate.replace(/-/g, '/')),
             });
@@ -152,7 +154,8 @@ export default {
          * @private
          * @param  {object} $event
          * @return {void}
-         */ onInput($event) {
+         */
+        onInput($event) {
             const value = $event.target.value;
             let date = value ? new Date(value.replace(/-/g, '/')) : null;
             this.lastDate = this.showDate;
@@ -172,7 +175,8 @@ export default {
          * @public
          * @param {Date} date 待测的日期
          * @return {boolean|Date} date 如果没有超出日期范围，则返回false；如果超出日期范围，则返回范围边界的日期
-         */ isOutOfRange(date) {
+         */
+        isOutOfRange(date) {
             let minDate = this.transformDate(this.minDate);
             let maxDate = this.transformDate(this.maxDate); // 不要直接在$watch中改变`minDate`和`maxDate`的值，因为有时向外绑定时可能不希望改变它们。
             minDate = minDate && minDate.setHours(0, 0, 0, 0);
@@ -186,7 +190,8 @@ export default {
          * @method toggle(flag) 是否显示日历组件
          * @public
          * @param {flag} true 显示 false 隐藏
-         */ onToggle($event) {
+         */
+        onToggle($event) {
             this.$emit('toggle', $event);
         },
         format,

@@ -151,7 +151,7 @@ export default {
             else if (this.converter === 'timestamp')
                 return date.getTime();
             else
-                return value;
+                return date;
         },
         /**
          * @method outRangeDateTime(date, time) 修改日期为最大日期或最小日期
