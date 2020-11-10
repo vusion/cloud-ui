@@ -9472,7 +9472,7 @@
             "Form"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.15/src/components/u-uploader.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.15/src/components/u-uploader.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.15/src/components/u-uploader.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.15/src/components/u-uploader.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.15/src/components/u-uploader.vue/screenshots/4.png",
-        "blocks": "[{\"title\":\"单个按钮\",\"description\":\"下面的例子为单文件上传。\\n\",\"code\":\"<template>\\n<u-uploader display=\\\"inline\\\" url=\\\"/gateway/lowcode/api/v1/app/upload\\\" converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\">Upload</u-button>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"多文件上传\",\"description\":\"设置`multiple`可以选择多个文件，通过`value`属性可以设置已上传的文件。\\n\",\"code\":\"<template>\\n<u-uploader multiple url=\\\"/gateway/lowcode/api/v1/app/upload\\\" converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\">Upload</u-button>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"图片列表\",\"description\":\"\",\"code\":\"<template>\\n<u-uploader multiple list-type=\\\"image\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\">Upload</u-button>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"卡片列表\",\"description\":\"\",\"code\":\"<template>\\n<u-uploader multiple list-type=\\\"card\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\"\\n    converter=\\\"json\\\">\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"单文件卡片\",\"description\":\"不使用`multiple`属性时，仅会显示一个卡片。可以用于头像上传、身份证上传等场景。\\n\",\"code\":\"<template>\\n<u-uploader list-type=\\\"card\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\"\\n    converter=\\\"json\\\">\\n</u-uploader>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"单个按钮\",\"description\":\"下面的例子为单文件上传。\\n\",\"code\":\"<template>\\n<u-uploader display=\\\"inline\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\" url-field=\\\"result\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\">Upload</u-button>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"多文件上传\",\"description\":\"设置`multiple`可以选择多个文件，通过`value`属性可以设置已上传的文件。\\n\",\"code\":\"<template>\\n<u-uploader multiple\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\" url-field=\\\"result\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\">Upload</u-button>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"图片列表\",\"description\":\"\",\"code\":\"<template>\\n<u-uploader multiple list-type=\\\"image\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\" url-field=\\\"result\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\">Upload</u-button>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"卡片列表\",\"description\":\"\",\"code\":\"<template>\\n<u-uploader multiple list-type=\\\"card\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\" url-field=\\\"result\\\"\\n    converter=\\\"json\\\">\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"单文件卡片\",\"description\":\"不使用`multiple`属性时，仅会显示一个卡片。可以用于头像上传、身份证上传等场景。\\n\",\"code\":\"<template>\\n<u-uploader list-type=\\\"card\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\" url-field=\\\"result\\\"\\n    converter=\\\"json\\\">\\n</u-uploader>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-uploader",
             "title": "文件上传",
@@ -9483,27 +9483,27 @@
                 {
                     "title": "单个按钮",
                     "description": "下面的例子为单文件上传。\n",
-                    "code": "<template>\n<u-uploader display=\"inline\" url=\"/gateway/lowcode/api/v1/app/upload\" converter=\"json\">\n    <u-button color=\"primary\">Upload</u-button>\n</u-uploader>\n</template>\n"
+                    "code": "<template>\n<u-uploader display=\"inline\"\n    url=\"/gateway/lowcode/api/v1/app/upload\" url-field=\"result\"\n    converter=\"json\">\n    <u-button color=\"primary\">Upload</u-button>\n</u-uploader>\n</template>\n"
                 },
                 {
                     "title": "多文件上传",
                     "description": "设置`multiple`可以选择多个文件，通过`value`属性可以设置已上传的文件。\n",
-                    "code": "<template>\n<u-uploader multiple url=\"/gateway/lowcode/api/v1/app/upload\" converter=\"json\">\n    <u-button color=\"primary\">Upload</u-button>\n</u-uploader>\n</template>\n"
+                    "code": "<template>\n<u-uploader multiple\n    url=\"/gateway/lowcode/api/v1/app/upload\" url-field=\"result\"\n    converter=\"json\">\n    <u-button color=\"primary\">Upload</u-button>\n</u-uploader>\n</template>\n"
                 },
                 {
                     "title": "图片列表",
                     "description": "",
-                    "code": "<template>\n<u-uploader multiple list-type=\"image\"\n    accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n    url=\"/gateway/lowcode/api/v1/app/upload\"\n    converter=\"json\">\n    <u-button color=\"primary\">Upload</u-button>\n</u-uploader>\n</template>\n"
+                    "code": "<template>\n<u-uploader multiple list-type=\"image\"\n    accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n    url=\"/gateway/lowcode/api/v1/app/upload\" url-field=\"result\"\n    converter=\"json\">\n    <u-button color=\"primary\">Upload</u-button>\n</u-uploader>\n</template>\n"
                 },
                 {
                     "title": "卡片列表",
                     "description": "",
-                    "code": "<template>\n<u-uploader multiple list-type=\"card\"\n    accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n    url=\"/gateway/lowcode/api/v1/app/upload\"\n    converter=\"json\">\n</u-uploader>\n</template>\n"
+                    "code": "<template>\n<u-uploader multiple list-type=\"card\"\n    accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n    url=\"/gateway/lowcode/api/v1/app/upload\" url-field=\"result\"\n    converter=\"json\">\n</u-uploader>\n</template>\n"
                 },
                 {
                     "title": "单文件卡片",
                     "description": "不使用`multiple`属性时，仅会显示一个卡片。可以用于头像上传、身份证上传等场景。\n",
-                    "code": "<template>\n<u-uploader list-type=\"card\"\n    accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n    url=\"/gateway/lowcode/api/v1/app/upload\"\n    converter=\"json\">\n</u-uploader>\n</template>\n"
+                    "code": "<template>\n<u-uploader list-type=\"card\"\n    accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n    url=\"/gateway/lowcode/api/v1/app/upload\" url-field=\"result\"\n    converter=\"json\">\n</u-uploader>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -9601,6 +9601,13 @@
                     ],
                     "default": "text",
                     "description": "列表展示类型"
+                },
+                {
+                    "name": "url-field",
+                    "title": "URL 字段名",
+                    "type": "string",
+                    "default": "url",
+                    "description": "请求返回的 URL 字段名"
                 },
                 {
                     "name": "auto-upload",

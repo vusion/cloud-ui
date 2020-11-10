@@ -71,6 +71,7 @@ export default {
         limit: { type: Number, default: Infinity },
         maxSize: { type: [String, Number], default: Infinity },
         listType: { type: String, default: 'text' },
+        urlField: { type: String, default: 'url' },
         autoUpload: { type: Boolean, default: true },
         draggable: { type: Boolean, default: false },
         paste: { type: Boolean, default: false },
@@ -248,6 +249,8 @@ export default {
                 onSuccess: (res) => {
                     const item = this.currentValue[index];
                     item.status = 'success';
+                    if (res[this.urlField])
+                        item.url = res[this.urlField];
                     item.response = res;
 
                     this.$emit('success', {
@@ -344,6 +347,8 @@ export default {
 <style module>
 .root {
     display: block;
+    position: relative;
+    overflow: hidden;
 }
 
 .root[display="inline"] {
@@ -356,13 +361,6 @@ export default {
 
 .iframe, .form {
     display: none;
-}
-
-/* For IE9 */
-/* stylelint-disable no-duplicate-selectors */
-.root {
-    position: relative\0;
-    overflow: hidden\0;
 }
 
 .form {

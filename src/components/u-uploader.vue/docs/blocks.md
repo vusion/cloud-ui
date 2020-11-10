@@ -3,7 +3,9 @@
 下面的例子为单文件上传。
 
 ``` html
-<u-uploader display="inline" url="/gateway/lowcode/api/v1/app/upload" converter="json">
+<u-uploader display="inline"
+    url="/gateway/lowcode/api/v1/app/upload" url-field="result"
+    converter="json">
     <u-button color="primary">Upload</u-button>
 </u-uploader>
 ```
@@ -13,7 +15,9 @@
 设置`multiple`可以选择多个文件，通过`value`属性可以设置已上传的文件。
 
 ``` html
-<u-uploader multiple url="/gateway/lowcode/api/v1/app/upload" converter="json">
+<u-uploader multiple
+    url="/gateway/lowcode/api/v1/app/upload" url-field="result"
+    converter="json">
     <u-button color="primary">Upload</u-button>
 </u-uploader>
 ```
@@ -23,7 +27,7 @@
 ``` html
 <u-uploader multiple list-type="image"
     accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
-    url="/gateway/lowcode/api/v1/app/upload"
+    url="/gateway/lowcode/api/v1/app/upload" url-field="result"
     converter="json">
     <u-button color="primary">Upload</u-button>
 </u-uploader>
@@ -34,7 +38,7 @@
 ``` html
 <u-uploader multiple list-type="card"
     accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
-    url="/gateway/lowcode/api/v1/app/upload"
+    url="/gateway/lowcode/api/v1/app/upload" url-field="result"
     converter="json">
 </u-uploader>
 ```
@@ -46,7 +50,7 @@
 ``` html
 <u-uploader list-type="card"
     accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
-    url="/gateway/lowcode/api/v1/app/upload"
+    url="/gateway/lowcode/api/v1/app/upload" url-field="result"
     converter="json">
 </u-uploader>
 ```
