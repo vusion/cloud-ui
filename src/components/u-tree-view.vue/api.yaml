@@ -280,6 +280,9 @@
   slots:
     - name: default
       description: 插入文本或 HTML。
+  blocks:
+    - name: 基础示例
+      code: <u-tree-view-node text="节点 1"></u-tree-view-node>
   events:
     - name: before-select
       title: 选择前

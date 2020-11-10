@@ -29,6 +29,7 @@
     - name: target
       title: 打开方式
       type: string
+      default: _self
       options:
         - value: _blank
           title: 新标签页

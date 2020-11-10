@@ -12,6 +12,7 @@
           title: 面包屑选项
           snippet: <u-crumb-item>面包屑</u-crumb-item>
 - name: u-crumb-item
+  title: 面包屑选项
   attrs:
     - name: type
       title: 类型

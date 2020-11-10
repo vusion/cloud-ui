@@ -27,7 +27,7 @@
       title: 切换时间
       type: number
       default: 4000
-      description: 幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换
+      description: 单位：毫秒，幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换
     - name: direction
       title: 播放方向
       type: string

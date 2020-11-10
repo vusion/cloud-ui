@@ -15,10 +15,16 @@
       description: 当前选择的值
     - name: label-size
       title: 标签尺寸
-      type: enum
-      options: [small, normal, large]
+      type: string
+      options: 
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+        - value: large
+          title: 大
       default: normal
-      description: label的大小，可选值：`'small'`, `'large'`
+      description: 标签 的大小
     - name: categories
       title: 多级分类
       type: Array<{ label, key, tip }>
