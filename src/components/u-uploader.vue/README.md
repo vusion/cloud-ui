@@ -187,6 +187,38 @@ export default {
 </u-uploader>
 ```
 
+
+#### 只读
+
+只读可以用于预览图片。
+
+``` vue
+<template>
+<u-uploader v-model="files" readonly multiple list-type="card"
+    accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
+    url="http://localhost:7000/api/library/upload">
+</u-uploader>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            files: [{
+                uid: '1',
+                name: 'breakfast.png',
+                status: 'success',
+                url: 'https://static-vusion.163yun.com/assets/breakfast.png',
+            }, {
+                uid: '2',
+                name: 'salad.png',
+                status: 'success',
+                url: 'https://static-vusion.163yun.com/assets/salad.png',
+            }],
+        };
+    },
+};
+</script>
+```
 ## API
 ### Props/Attrs
 
@@ -205,11 +237,13 @@ export default {
 | limit | number |  | `Infinity` | 列表数量上限 |
 | max-size | string, number |  | `Infinity` | 可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB` |
 | list-type | string | `'文本'` ()<br/>`'图片'` ()<br/>`'卡片'` () | `'text'` | 列表展示类型 |
+| url-field | string |  | `'url'` | 请求返回的 URL 字段名 |
 | auto-upload | boolean |  | `true` | 是否自动上传 |
 | draggable | boolean |  | `false` | 是否可以拖拽上传 |
 | paste | boolean |  | `false` | 是否可以粘贴 |
 | show-file-list | boolean |  | `true` | 是否显示文件列表 |
 | converter | string | `'JSON'` () |  | undefined |
+| readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | display | string | `[object Object]`<br/>`[object Object]` | `'block'` | 展示方式 |
 

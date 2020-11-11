@@ -1779,6 +1779,7 @@ export default {
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise，详见文档示例。 |
+| data-schema | schema |  |  | 表格的数据类型，对应表格数据的schema |
 | initial-load | boolean |  | `true` | 是否在初始时立即加载。 |
 | pageable | boolean |  | `false` | 是否需要分页。 |
 | page-size.sync | number |  | `20` | 分页大小。 |

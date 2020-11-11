@@ -135,7 +135,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| label | any |  |  | 单选框标签。用于关联单选组的值 |
+| label | any |  |  | 单选框选项值。 |
 | readonly | boolean |  | `false` | 禁用只读 |
 | disabled | boolean |  | `false` | 禁用此项 |
 | autofocus | boolean |  | `false` | 自动获取焦点 |

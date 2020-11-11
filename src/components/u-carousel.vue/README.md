@@ -89,7 +89,7 @@
 | value.sync | any |  |  | 播放位置 |
 | autoplay | boolean |  | `true` | 是否自动播放 |
 | loop | boolean |  | `true` | 是否循环播放 |
-| interval | number |  | `4000` | 幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换 |
+| interval | number |  | `4000` | 单位：毫秒，幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换 |
 | direction | string |  | `'right'` | 幻灯片播放方向 |
 | animation | string |  |  | 幻灯片过渡动画 |
 

@@ -9,13 +9,13 @@
 
 **Container**
 
-放置子页面的容器
+放置子页面的容器。
 
 ## 示例
 ### 基本用法
 
 ``` html
-<u-router-view ></u-router-view>
+<u-router-view></u-router-view>
 ```
 
 ## API

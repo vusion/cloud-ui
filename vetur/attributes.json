@@ -832,7 +832,7 @@
   },
   "u-carousel/interval": {
     "type": "number",
-    "description": "幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换"
+    "description": "单位：毫秒，幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换"
   },
   "u-carousel/direction": {
     "type": "string",
@@ -859,13 +859,22 @@
     "description": "当前选择的值"
   },
   "u-cascade-capsules/label-size": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "small",
-      "normal",
-      "large"
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      }
     ],
-    "description": "label的大小，可选值：`'small'`, `'large'`"
+    "description": "标签 的大小"
   },
   "u-cascade-capsules/categories": {
     "type": "Array<{ label, key, tip }>",
@@ -954,6 +963,10 @@
     "type": "boolean, null",
     "description": "选中状态，`null`表示不确定状态"
   },
+  "u-checkbox/label": {
+    "type": "any",
+    "description": "多选框选项值，只在多选组中使用。"
+  },
   "u-checkbox/readonly": {
     "type": "boolean",
     "description": "是否只读"
@@ -985,10 +998,6 @@
   "u-checkboxes/disabled": {
     "type": "boolean",
     "description": "是否禁用"
-  },
-  "u-checkbox/label": {
-    "type": "any",
-    "description": "多选框标签。用于关联多选组的值"
   },
   "u-circular-progress/percent": {
     "type": "number",
@@ -1299,7 +1308,7 @@
   },
   "u-date-picker/date": {
     "type": "string,number,Date",
-    "description": "初始日期值"
+    "description": "选择值"
   },
   "u-date-picker/minDate": {
     "type": "string,number,Date",
@@ -1351,6 +1360,23 @@
     "type": "string, number",
     "description": "最大可选年份值为当前年加上此值"
   },
+  "u-date-picker/converter": {
+    "type": "string",
+    "options": [
+      {
+        "name": "JSON",
+        "value": "json"
+      },
+      {
+        "name": "Unix 时间戳",
+        "value": "timestamp"
+      },
+      {
+        "name": "Date 对象",
+        "value": "date"
+      }
+    ]
+  },
   "u-date-time-picker/date": {
     "type": "string, number, Date",
     "description": "显示的日期值"
@@ -1386,6 +1412,23 @@
   "u-date-time-picker/yearAdd": {
     "type": "string, number",
     "description": "最大可选年份值为当前年加上此值"
+  },
+  "u-date-time-picker/converter": {
+    "type": "string",
+    "options": [
+      {
+        "name": "JSON",
+        "value": "json"
+      },
+      {
+        "name": "Unix 时间戳",
+        "value": "timestamp"
+      },
+      {
+        "name": "Date 对象",
+        "value": "date"
+      }
+    ]
   },
   "u-desc-list/label-size": {
     "type": "enum",
@@ -3432,7 +3475,7 @@
   },
   "u-radio/label": {
     "type": "any",
-    "description": "单选框标签。用于关联单选组的值"
+    "description": "单选框选项值。"
   },
   "u-radio/readonly": {
     "type": "boolean",
@@ -3833,6 +3876,10 @@
   "u-table-view/data-source": {
     "type": "Array<Item> | Function | object | DataSource",
     "description": "表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise，详见文档示例。"
+  },
+  "u-table-view/data-schema": {
+    "type": "schema",
+    "description": "表格的数据类型，对应表格数据的schema"
   },
   "u-table-view/initial-load": {
     "type": "boolean",
@@ -4267,6 +4314,7 @@
     "description": "需要 router 为 true，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。"
   },
   "u-text/text": {
+    "type": "string",
     "description": "文本内容"
   },
   "u-text/color": {
@@ -4396,6 +4444,31 @@
   "u-textarea/disabled": {
     "type": "boolean",
     "description": "是否禁用"
+  },
+  "u-textarea/size": {
+    "type": "string",
+    "options": [
+      {
+        "value": "full",
+        "title": "占满"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "medium",
+        "title": "中型"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      }
+    ]
   },
   "u-textarea/resize": {
     "type": "string",
@@ -4938,6 +5011,10 @@
     ],
     "description": "列表展示类型"
   },
+  "u-uploader/url-field": {
+    "type": "string",
+    "description": "请求返回的 URL 字段名"
+  },
   "u-uploader/auto-upload": {
     "type": "boolean",
     "description": "是否自动上传"
@@ -4962,6 +5039,10 @@
         "value": "json"
       }
     ]
+  },
+  "u-uploader/readonly": {
+    "type": "boolean",
+    "description": "是否只读"
   },
   "u-uploader/disabled": {
     "type": "boolean",

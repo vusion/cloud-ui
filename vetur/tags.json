@@ -518,7 +518,8 @@
       "alignment",
       "time",
       "yeadDiff",
-      "yearAdd"
+      "yearAdd",
+      "converter"
     ],
     "description": "日期选择器"
   },
@@ -532,7 +533,8 @@
       "disabled",
       "readonly",
       "yearDiff",
-      "yearAdd"
+      "yearAdd",
+      "converter"
     ],
     "description": "日期时间选择器"
   },
@@ -732,7 +734,7 @@
     "attributes": [
       "src"
     ],
-    "description": "用于嵌入其他网页"
+    "description": "用于嵌入其他网页。"
   },
   "u-image": {
     "attributes": [
@@ -1116,7 +1118,7 @@
   },
   "u-router-view": {
     "attributes": [],
-    "description": "放置子页面的容器"
+    "description": "放置子页面的容器。"
   },
   "u-select": {
     "attributes": [
@@ -1275,6 +1277,7 @@
   "u-table-view": {
     "attributes": [
       "data-source",
+      "data-schema",
       "initial-load",
       "pageable",
       "page-size",
@@ -1406,6 +1409,7 @@
       "autofocus",
       "readonly",
       "disabled",
+      "size",
       "resize"
     ],
     "description": "多行输入组件"
@@ -1542,11 +1546,13 @@
       "limit",
       "max-size",
       "list-type",
+      "url-field",
       "auto-upload",
       "draggable",
       "paste",
       "show-file-list",
       "converter",
+      "readonly",
       "disabled",
       "display"
     ],

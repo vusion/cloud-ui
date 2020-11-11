@@ -55,7 +55,8 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value | boolean \| null |  | `false` | Checked status. `null`表示不确定状态. |
+| value.sync, v-model | boolean \| null |  | `false` | Checked status. `null`表示不确定状态. |
+| label | any |  |  | 多选框选项值，只在多选组中使用。 |
 | readonly | boolean |  | `false` | Readonly |
 | disabled | boolean |  | `false` | Disabled |
 | autofocus | boolean |  | `false` | 自动获取焦点 |

@@ -4,7 +4,8 @@
 
 - [示例](#示例)
     - [基本用法](#基本用法)
-    - [自动对焦](#自动对焦)
+    - [选择日期](#选择日期)
+    - [自动获取焦点](#自动获取焦点)
     - [只读和禁用](#只读和禁用)
     - [最大值和最小值](#最大值和最小值)
     - [自定义底部](#自定义底部)
@@ -28,7 +29,24 @@
 </u-linear-layout>
 ```
 
-### 自动对焦
+### 选择日期
+
+``` vue
+<template>
+<u-date-time-picker v-model="date"></u-date-time-picker>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            date: '',
+        };
+    },
+};
+</script>
+```
+
+### 自动获取焦点
 ``` html
 <u-date-time-picker date="2018-08-08" autofocus></u-date-time-picker>
 ```
@@ -85,7 +103,7 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| date.sync | string, number, Date |  |  | 显示的日期值 |
+| date.sync, v-model | string, number, Date |  |  | 显示的日期值 |
 | minDate | string, number, Date |  |  | 最小日期值 |
 | maxDate | string, number, Date |  |  | 最大日期值 |
 | placeholder | string |  | `'请选择时间'` | 默认提示语 |
@@ -94,6 +112,7 @@ export default {
 | readonly | boolean |  | `false` | 是否只读 |
 | yearDiff | string, number |  | `3` | 最小可选年份值为当前年减去此值 |
 | yearAdd | string, number |  | `1` | 最大可选年份值为当前年加上此值 |
+| converter | string | `'JSON'` ()<br/>`'Unix 时间戳'` ()<br/>`'Date 对象'` () |  | undefined |
 
 ### Slots
 

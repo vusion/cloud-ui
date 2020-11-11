@@ -178,7 +178,7 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value | Array |  | `[]` | 多选组的选中项 |
+| value.sync, v-model | Array |  | `[]` | 多选组的选中项 |
 | min | number |  | `0` | 可以勾选多选框的最小数量 |
 | max | number |  | `Infinity` | 可以勾选多选框的最大数量 |
 | readonly | boolean |  | `false` | 是否只读 |
@@ -196,7 +196,7 @@ export default {
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value.sync, v-model | boolean, null |  | `false` | 选中状态，`null`表示不确定状态 |
-| label | any |  |  | 多选框标签。用于关联多选组的值 |
+| label | any |  |  | 多选框选项值，只在多选组中使用。 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | autofocus | boolean |  | `false` | 自动获取焦点 |
