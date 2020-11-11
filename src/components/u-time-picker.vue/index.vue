@@ -171,7 +171,10 @@ export default {
              * @event change 时间改变时触发
              * @property {object} sender 事件发送对象
              * @property {object} time 改变后的时间
-             */ this.$emit('change', { sender: this, time: newValue });
+             */
+            this.$emit('input', newValue, this);
+            this.$emit('update:time', newValue, this);
+            this.$emit('change', { time: newValue }, this);
         },
         minTime(newValue, oldValue) {
             if (newValue) {
