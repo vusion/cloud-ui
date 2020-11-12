@@ -1103,6 +1103,14 @@
       "autofocus"
     ]
   },
+  "u-rate": {
+    "attributes": [
+      "value",
+      "max",
+      "readonly"
+    ],
+    "description": "评分组件。"
+  },
   "u-region-select": {
     "attributes": [
       "data",

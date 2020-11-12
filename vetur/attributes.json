@@ -3489,6 +3489,18 @@
     "type": "boolean",
     "description": "自动获取焦点"
   },
+  "u-rate/value": {
+    "type": "number",
+    "description": "评分值"
+  },
+  "u-rate/max": {
+    "type": "number",
+    "description": "最大分数"
+  },
+  "u-rate/readonly": {
+    "type": "boolean",
+    "description": "是否只读"
+  },
   "u-region-select/data": {
     "type": "Array<{ text, value }>",
     "description": "数据列表"
