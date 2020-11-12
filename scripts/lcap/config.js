@@ -35,6 +35,7 @@ module.exports = [
     { group: 'Form', show: true, name: 'u-checkboxes', alias: '多选组' },
     { group: 'Form', show: true, name: 'u-capsules', alias: '胶囊' },
     { group: 'Form', show: true, name: 'u-select', alias: '选择框' },
+    { group: 'Form', show: true, name: 'u-rate', alias: '评分' },
     { group: 'Form', show: true, name: 'u-combo-slider', alias: '复合滑块' },
     { group: 'Form', show: true, name: 'u-uploader', alias: '文件上传' },
 

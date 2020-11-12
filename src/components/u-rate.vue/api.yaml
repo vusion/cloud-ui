@@ -1,0 +1,32 @@
+- name: u-rate
+  title: 评分
+  labels: [Form]
+  icon: rate
+  description: 评分组件。
+  attrs:
+    - name: value
+      type: number
+      model: true
+      sync: true
+      default: 0
+      description: 评分值
+    - name: max
+      type: number
+      default: 5
+      description: 最大分数
+    - name: readonly
+      title: 只读
+      type: boolean
+      default: false
+      description: 是否只读
+  events:
+    - name: change
+      title: 改变后
+      description: 修改时触发
+      params:
+        - name: $event.value
+          type: number
+          description: 改变后的值
+        - name: $event.oldValue
+          type: number
+          description: 旧的值

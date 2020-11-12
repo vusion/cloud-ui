@@ -70,6 +70,7 @@ module.exports = {
             { group: 'Form', name: 'u-tree-select', alias: '树型选择框' },
             { group: 'Form', name: 'u-cascade-select', alias: '级联选择' },
             { group: 'Form', name: 'u-region-select', alias: '地区选择' },
+            { group: 'Form', name: 'u-rate', alias: '评分' },
             { group: 'Form', name: 'u-slider', alias: '滑块' },
             { group: 'Form', name: 'u-combo-slider', alias: '复合滑块' },
             { group: 'Form', name: 'u-uploader', alias: '文件上传' },

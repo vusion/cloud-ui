@@ -9218,6 +9218,75 @@
         }
     },
     {
+        "symbol": "u-rate",
+        "name": "评分",
+        "icon": "rate",
+        "depDescription": {},
+        "description": "评分组件。",
+        "labels": [
+            "Form"
+        ],
+        "screenShot": "",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-rate></u-rate>\\n</template>\\n\"}]",
+        "jsonSchema": {
+            "name": "u-rate",
+            "title": "评分",
+            "description": "评分组件。",
+            "category": "Form",
+            "screenShot": "",
+            "blocks": [
+                {
+                    "title": "基本用法",
+                    "description": "",
+                    "code": "<template>\n<u-rate></u-rate>\n</template>\n"
+                }
+            ],
+            "attrs": [
+                {
+                    "name": "value",
+                    "type": "number",
+                    "model": true,
+                    "sync": true,
+                    "default": 0,
+                    "description": "评分值"
+                },
+                {
+                    "name": "max",
+                    "type": "number",
+                    "default": 5,
+                    "description": "最大分数"
+                },
+                {
+                    "name": "readonly",
+                    "title": "只读",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否只读"
+                }
+            ],
+            "events": [
+                {
+                    "name": "change",
+                    "title": "改变后",
+                    "description": "修改时触发",
+                    "params": [
+                        {
+                            "name": "$event.value",
+                            "type": "number",
+                            "description": "改变后的值"
+                        },
+                        {
+                            "name": "$event.oldValue",
+                            "type": "number",
+                            "description": "旧的值"
+                        }
+                    ]
+                }
+            ],
+            "children": []
+        }
+    },
+    {
         "symbol": "u-combo-slider",
         "name": "复合滑块",
         "icon": "slider",
