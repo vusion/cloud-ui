@@ -102,7 +102,7 @@ export default {
                 this.currentRules,
                 context,
             );
-            this.validate('submit', !this.touched).catch((errors) => errors);
+            this.validate('submit', !this.touched);
         },
     },
     created() {
@@ -139,7 +139,7 @@ export default {
                 vm.formItemVM = this; // @compat
                 this.fieldTouched = false;
                 this.value = vm.value; // 初始化的时候自行验证一次。Fix #23
-                this.validate('submit', true).catch((errors) => errors);
+                this.validate('submit', true);
             }; // @TODO: 一个`<u-form-item>`中，只注册一个`fieldVM`，其他的忽略
             if (!this.fieldVM)
                 addField(fieldVM);
@@ -169,7 +169,7 @@ export default {
             this.value = value; // 在没有触碰前，走 @update 事件；在触碰后，走 @input 事件
             if (!this.fieldTouched) {
                 this.oldValue = value;
-                this.$nextTick(() => this.validate('submit', true).catch((errors) => errors));
+                this.$nextTick(() => this.validate('submit', true));
             }
         },
         onInput(value) {
@@ -180,7 +180,7 @@ export default {
             this.inputing = true;
             this.value = value; // 处理输入法输入的问题
             this.$nextTick(() => {
-                this.validate('input').catch((errors) => errors);
+                this.validate('input');
                 this.inputing = false;
             });
         },
@@ -191,7 +191,7 @@ export default {
                 this.oldValue = $event.value;
             this.value = $event.value; // @compat: 以后推荐使用 @update & @input 事件
             if (!this.hasUpdateEvent && !this.inputing)
-                this.validate('submit', true).catch((errors) => errors);
+                this.validate('submit', true);
         },
         onFocus() {
             if (this.currentTarget === 'validatorVMs')
@@ -205,7 +205,7 @@ export default {
             if (!this.fieldTouched)
                 this.fieldTouched = true;
             this.color = this.state = '';
-            this.$nextTick(() => this.validate('blur').catch((errors) => errors));
+            this.$nextTick(() => this.validate('blur'));
         },
         validate(trigger = 'submit', untouched = false) {
             if (this.currentTarget === 'validatorVMs') {
