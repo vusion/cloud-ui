@@ -1643,26 +1643,28 @@ export default {
         },
         onClickConfirm(item) {
             const tasks = [];
-            const index = this.data.findIndex((temp)=>temp.name === item.name);
-            Object.keys(item).forEach((key)=>{
+            const index = this.data.findIndex((temp) => temp.name === item.name);
+            Object.keys(item).forEach((key) => {
                 const node = this.$refs[`${key}_${index}`];
                 if(node){
                     tasks.push(node.validate());
                 }
             });
-            Promise.all(tasks).then((valid)=>{
-                if(item.adding){
-                    this.onAdd(item);
-                }else{
-                    this.onEdit(item);
+            Promise.all(tasks).then((results) => {
+                if (results.every((result) => result.valid)) {
+                    if(item.adding) {
+                        this.onAdd(item);
+                    } else {
+                        this.onEdit(item);
+                    }
                 }
-            }).catch((e)=>e);
+            });
         },
         onClickDelete(item) {
-            const index = this.data.findIndex((temp)=>temp.id === item.id);
+            const index = this.data.findIndex((temp) => temp.id === item.id);
             this.data.splice(index, 1);
         },
-        add(){
+        add() {
             if(!this.data || this.data[0] && this.data[0].adding)
                 return;
             this.data.push({

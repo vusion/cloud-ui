@@ -55,8 +55,7 @@ export default {
     },
     mounted() {
         // 必须初始化时或在获取数据到时安静验证一次
-        this.$refs.form.validate(true)
-            .catch(() => { /* noop */ });
+        this.$refs.form.validate(true);
 
         // 在获取数据到时如下
         // this.getData().then(...)
@@ -64,10 +63,10 @@ export default {
         //  .catch(() => { /* noop */ });
     },
     methods: {
-        submit() {
-            this.$refs.form.validate()
-                .then(() => alert('提交成功'))
-                .catch(() => { /* noop */ });
+        async submit() {
+            const result = await this.$refs.form.validate();
+            if (result.valid)
+                alert('提交成功');
         },
     },
 };
@@ -131,19 +130,17 @@ export default {
     },
     mounted() {
         // 必须初始化时或在获取数据到时安静验证一次
-        this.$refs.form.validate(true)
-            .catch(() => { /* noop */ });
+        this.$refs.form.validate(true);
 
         // 在获取数据到时如下
         // this.getData().then(...)
-        //  .then(() => this.$refs.form.validate(true))
-        //  .catch(() => { /* noop */ });
+        //  .then(() => this.$refs.form.validate(true));
     },
     methods: {
-        submit() {
-            this.$refs.form.validate()
-                .then(() => alert('提交成功'))
-                .catch(() => { /* noop */ });
+        async submit() {
+            const result = await this.$refs.form.validate();
+            if (result.valid)
+                alert('提交成功');
         },
     },
 };
@@ -289,19 +286,17 @@ export default {
     },
     mounted() {
         // 必须初始化时或在获取数据到时安静验证一次
-        this.$refs.form1.validate(true)
-            .catch(() => { /* noop */ });
+        this.$refs.form1.validate(true);
 
         // 在获取数据到时如下
         // this.getData().then(...)
         //  .then(() => this.$refs.form1.validate(true))
-        //  .catch(() => { /* noop */ });
     },
     methods: {
-        submit() {
-            this.$refs.form1.validate()
-                .then(() => alert('提交成功'))
-                .catch(() => { /* noop */ });
+        async submit() {
+            const result = await this.$refs.form1.validate();
+            if (result.valid)
+                alert('提交成功');
         },
     },
 };

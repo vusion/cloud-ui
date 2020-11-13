@@ -2,26 +2,41 @@
 
 # UForm 表单
 
-- [概述](#undefined)
+- [UForm 表单](#uform-表单)
     - [相关组件](#相关组件)
-- [示例](#示例)
+      - [表单 UForm](#表单-uform)
+      - [验证器 UValidator](#验证器-uvalidator)
+      - [表单项 UFormItem](#表单项-uformitem)
+      - [表单域（表单控件）MField](#表单域表单控件mfield)
+      - [复杂动态验证组件](#复杂动态验证组件)
+  - [示例](#示例)
+  - [表单布局](#表单布局)
     - [基本用法](#基本用法)
     - [行内](#行内)
     - [栅格布局](#栅格布局)
     - [插槽](#插槽)
+  - [数据收集与提交](#数据收集与提交)
     - [数据转换](#数据转换)
     - [表单验证](#表单验证)
-- [UForm API](#uform-api)
+  - [UForm API](#uform-api)
     - [Props/Attrs](#propsattrs)
     - [Computed](#computed)
     - [Slots](#slots)
+      - [(default)](#default)
     - [Events](#events)
-    - [Methods](#methods)
-- [UFormItem API](#uformitem-api)
-    - [Props/Attrs](#propsattrs-2)
-    - [Slots](#slots-2)
-    - [Events](#events-2)
-    - [Methods](#methods-2)
+      - [@validate](#validate)
+      - [validate(trigger, muted)](#validatetrigger-muted)
+      - [validateItem(name, trigger, muted)](#validateitemname-trigger-muted)
+  - [UFormItem API](#uformitem-api)
+    - [Props/Attrs](#propsattrs-1)
+    - [Slots](#slots-1)
+      - [(default)](#default-1)
+      - [label](#label)
+      - [description](#description)
+      - [extra](#extra)
+    - [Events](#events-1)
+      - [@validate](#validate-1)
+      - [validate(trigger, muted)](#validatetrigger-muted-1)
 
 **Form**
 
@@ -371,10 +386,12 @@ export default {
         };
     },
     methods: {
-        submit() {
-            this.$refs.form.validate()
-                .then(() => this.$toast.show('验证通过，提交成功！'))
-                .catch(() => this.$toast.show('验证失败！'));
+        async submit() {
+            const result = await this.$refs.form.validate();
+            if (result.valid)
+                this.$toast.show('验证通过，提交成功！');
+            else
+                this.$toast.show('验证失败！');
         },
     },
 };

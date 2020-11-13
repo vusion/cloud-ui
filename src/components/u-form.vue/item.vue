@@ -76,7 +76,7 @@ export default {
         // },
         // onBlur() {
         //     this.color = this.state = '';
-        //     this.$nextTick(() => this.validate('blur').catch((errors) => errors));
+        //     this.$nextTick(() => this.validate('blur');
         // },
     },
 };

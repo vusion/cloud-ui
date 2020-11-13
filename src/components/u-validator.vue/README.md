@@ -356,7 +356,7 @@ export default {
     },
     watch: {
         'model.protocol'() {
-            this.$nextTick(() => this.$refs.form.validate().catch(() => {}));
+            this.$nextTick(() => this.$refs.form.validate());
         },
     },
 };

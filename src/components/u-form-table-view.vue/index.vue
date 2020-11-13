@@ -70,7 +70,7 @@ export default {
     },
     created() {
         if (this.validateOnAdd)
-            this.$on('add', () => this.validate().catch(() => ''));
+            this.$on('add', () => this.validate());
     },
 };
 </script>

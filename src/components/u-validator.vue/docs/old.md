@@ -141,10 +141,10 @@ export default {
         };
     },
     methods: {
-        submit() {
-            this.$refs.form.validate()
-                .then(() => alert('提交成功'))
-                .catch(() => {});
+        async submit() {
+            const result = await this.$refs.form.validate();
+            if (result.valid)
+                alert('提交成功');
         },
     },
 };
