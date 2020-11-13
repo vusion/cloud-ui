@@ -257,12 +257,18 @@
     - name: label
       title: 标签自定义
       description: 插入自定义标签，代替`label`属性。
+      advanced: true
+      quick-add: never
     - name: description
       title: 描述自定义
       description: 插入自定义描述内容，代替`description`属性。
+      advanced: true
+      quick-add: never
     - name: extra
       title: 附加内容
       description: 自定义标签右侧额外内容。
+      advanced: true
+      quick-add: never
   events:
     - name: validate
       title: 验证后
