@@ -38,6 +38,9 @@ export default {
     i18n,
     directives: { clickOutside },
     mixins: [MField],
+    model: {
+        prop: 'date',
+    },
     props: {
         date: [String, Number, Date],
         minDate: [String, Number, Date],
