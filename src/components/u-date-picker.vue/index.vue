@@ -40,6 +40,7 @@ export default {
     mixins: [MField],
     props: {
         date: [String, Number, Date],
+        value: [String, Number, Date],
         minDate: [String, Number, Date],
         maxDate: [String, Number, Date],
         disabled: { type: Boolean, default: false },
@@ -66,7 +67,8 @@ export default {
         converter: { type: String, default: 'json' },
     },
     data() {
-        return { showDate: this.format(this.date, 'YYYY-MM-DD'), lastDate: '' };
+        const date = this.date || this.value;
+        return { showDate: this.format(date, 'YYYY-MM-DD'), lastDate: '' };
     },
     computed: {
         placement() {
@@ -78,6 +80,9 @@ export default {
     },
     watch: {
         date(newValue) {
+            this.showDate = this.format(newValue, 'YYYY-MM-DD');
+        },
+        value(newValue) {
             this.showDate = this.format(newValue, 'YYYY-MM-DD');
         },
         showDate(newValue) {

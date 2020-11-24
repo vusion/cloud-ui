@@ -2,6 +2,7 @@
 <a :class="$style.root" :href="currentHref" :target="target"
     :noDecoration="!decoration"
     :disabled="disabled" :tabindex="disabled ? -1 : 0"
+    :download="download"
     @click="onClick" v-on="listeners">
     <slot></slot>
 </a>
@@ -18,6 +19,7 @@ export default {
         append: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         decoration: { type: Boolean, default: true },
+        download: { type: Boolean, default: false },
     },
     computed: {
         /**
