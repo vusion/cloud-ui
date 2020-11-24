@@ -555,6 +555,11 @@
 - name: u-table-view-column
   accept-parent: [u-table-view]
   title: 表格列
+  events:
+    - name: $listeners
+      kind: trigger
+      description: 监听所有事件。
+      params: []
   attrs:
     - name: title
       title: 列标题
