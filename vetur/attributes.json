@@ -688,7 +688,25 @@
     "type": "boolean",
     "description": "是否为加载中。"
   },
-  "u-button/href": {
+  "u-button/linkType": {
+    "type": "string",
+    "options": [
+      {
+        "value": "to",
+        "title": "路由链接"
+      },
+      {
+        "value": "href",
+        "title": "普通链接"
+      },
+      {
+        "value": "download",
+        "title": "下载链接"
+      }
+    ],
+    "description": "链接类型"
+  },
+  "u-button/hrefAndTo": {
     "type": "string",
     "description": "链接地址"
   },
@@ -715,10 +733,6 @@
       }
     ],
     "description": "链接打开方式"
-  },
-  "u-button/to": {
-    "type": "string, Location",
-    "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
   },
   "u-button/replace": {
     "type": "boolean",
@@ -1009,14 +1023,31 @@
   },
   "u-collapse/expand-trigger": {
     "type": "string",
-    "description": "展开/折叠的触发方式。可选值：`'click'`表示整行点击均可触发、`'click-expander'`表示仅点击小箭头时触发"
+    "options": [
+      {
+        "value": "click",
+        "title": "整行点击均可触发"
+      },
+      {
+        "value": "click-expander",
+        "title": "仅点击小箭头时触发"
+      }
+    ],
+    "description": "展开/折叠的触发方式"
   },
   "u-collapse/appear": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "default",
-      "simple"
-    ]
+      {
+        "value": "default",
+        "title": "默认模式"
+      },
+      {
+        "value": "simple",
+        "title": "简洁模式"
+      }
+    ],
+    "description": "显示样式"
   },
   "u-collapse/disabled": {
     "type": "boolean",
@@ -2644,7 +2675,25 @@
     ],
     "description": "设置颜色"
   },
-  "u-link/href": {
+  "u-link/linkType": {
+    "type": "string",
+    "options": [
+      {
+        "value": "to",
+        "title": "路由链接"
+      },
+      {
+        "value": "href",
+        "title": "普通链接"
+      },
+      {
+        "value": "download",
+        "title": "下载链接"
+      }
+    ],
+    "description": "链接类型"
+  },
+  "u-link/hrefAndTo": {
     "type": "string",
     "description": "链接地址"
   },
@@ -2671,10 +2720,6 @@
       }
     ],
     "description": "链接打开方式"
-  },
-  "u-link/to": {
-    "type": "string, Location",
-    "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
   },
   "u-link/replace": {
     "type": "boolean",

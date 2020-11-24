@@ -27,6 +27,7 @@
 - [UTableViewColumn API](#utableviewcolumn-api)
     - [Props/Attrs](#propsattrs-2)
     - [Slots](#slots-2)
+    - [Events](#events-2)
 
 **Table**
 
@@ -1661,10 +1662,10 @@ export default {
             });
         },
         onClickDelete(item) {
-            const index = this.data.findIndex((temp) => temp.id === item.id);
+            const index = this.data.findIndex((temp)=>temp.id === item.id);
             this.data.splice(index, 1);
         },
-        add() {
+        add(){
             if(!this.data || this.data[0] && this.data[0].adding)
                 return;
             this.data.push({
@@ -2074,4 +2075,13 @@ Methods
 | columnVM | string | 展开列组件实例。 |
 | rowIndex | number | 行的索引。 |
 | columnIndex | number | 展开列的索引。 |
+
+### Events
+
+#### @$listeners
+
+监听所有事件。
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
 

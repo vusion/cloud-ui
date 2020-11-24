@@ -288,9 +288,9 @@
       "display",
       "icon",
       "loading",
-      "href",
+      "linkType",
+      "hrefAndTo",
       "target",
-      "to",
       "replace",
       "append"
     ],
@@ -836,9 +836,9 @@
   "u-link": {
     "attributes": [
       "color",
-      "href",
+      "linkType",
+      "hrefAndTo",
       "target",
-      "to",
       "replace",
       "append",
       "decoration",

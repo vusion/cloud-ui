@@ -564,7 +564,7 @@ export default {
 </u-validator>
 ```
 
-#### maxLength(min: number) <u-label>blur</u-label>
+#### maxLength(max: number) <u-label>blur</u-label>
 
 不得超过指定的字符数。字符串、数组长度均可比较。
 
@@ -601,7 +601,7 @@ export default {
 </u-validator>
 ```
 
-#### max(min: any) <u-label>blur</u-label>
+#### max(max: any) <u-label>blur</u-label>
 
 不得大于指定的值。数字、字符串、日期比较均可。
 

@@ -20,7 +20,7 @@
     - [Slots](#slots-2)
     - [Events](#events-2)
 
-**块级展示**
+**Layout**
 
 可以折叠/展开的内容区域。
 
@@ -131,8 +131,8 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | accordion | boolean |  | `false` | 是否每次只会展开一个面板 |
-| expand-trigger | string |  | `'click'` | 展开/折叠的触发方式。可选值：`'click'`表示整行点击均可触发、`'click-expander'`表示仅点击小箭头时触发 |
-| appear | enum | `'default'`<br/>`'simple'` |  | undefined |
+| expand-trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 展开/折叠的触发方式 |
+| appear | string | `[object Object]`<br/>`[object Object]` |  | 显示样式 |
 | disabled | boolean |  | `false` | 是否禁用 |
 
 ### Slots
