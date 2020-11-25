@@ -1,6 +1,7 @@
 <template>
 <div :class="$style.root" :readonly="readonly" :disabled="currentDisabled" :opened="popperOpened"
     :clearable="clearable && !!currentText" :multiple="multiple" :multiple-tags="multiple && multipleAppearance === 'tags'"
+    :prefix="prefix" :suffix="suffix"
     :tabindex="readonly || currentDisabled ? '' : 0"
     @click="focus"
     @keydown.up.prevent="$refs.popper.currentOpened ? shift(-1) : open()"
@@ -10,6 +11,7 @@
     @blur="onRootBlur">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
     <span v-show="!filterText && (multiple ? !selectedVMs.length : !selectedVM)" :class="$style.placeholder">{{ placeholder }}</span>
+    <span v-if="prefix" :class="$style.prefix" :name="prefix" @click="$emit('click-prefix', $event, this)"><slot name="prefix"></slot></span>
     <div :class="$style.text" v-ellipsis-title :tags-overflow="tagsOverflow" :style="{direction: ellipsisDirection}">
         <!-- @override: 添加了flag功能 -->
         <slot name="flag">
@@ -45,6 +47,8 @@
             :style="{ width: multiple && (inputWidth + 'px') }">
         </u-input>
     </div>
+    <span v-if="suffix" v-show="!clearable || !currentText" :class="$style.suffix" :name="suffix"
+        @click="$emit('click-suffix', $event, this)"><slot name="suffix"></slot></span>
     <span v-if="clearable && !!currentText" :class="$style.clearable" @click="clear"></span>
     <m-popper :class="$style.popper" ref="popper" append-to="reference" :disabled="readonly || currentDisabled"
         @update:opened="$emit('update:opened', $event, this)"
@@ -121,6 +125,8 @@ export default {
         remoteFiltering: { type: Boolean, default: false },
         autoComplete: { type: Boolean, default: false },
         opened: { type: Boolean, default: false },
+        prefix: String,
+        suffix: String,
         label: { type: String, default: '' },
         ellipsisDirection: { type: String, default: 'ltr' },
     },

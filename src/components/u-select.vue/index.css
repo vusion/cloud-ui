@@ -154,6 +154,40 @@
     padding: 0;
 }
 
+.prefix, .suffix {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    z-index: 1;
+}
+
+.prefix {
+    left: 8px;
+}
+
+.suffix {
+    right: 8px;
+}
+
+.root[prefix] .text {
+    padding-left: 30px;
+}
+
+.root[clearable] .text, .root[suffix] .text {
+    padding-right: 30px;
+}
+
+.root[suffix]::after {
+    display: none;
+}
+
+.prefix[name="search"]::before, .suffix[name="search"]::before {
+    icon-font: url("../i-icon.vue/icons/search.svg");
+    font-size: 16px;
+    color: #a7afbb;
+}
+
 .popper {
     position: absolute;
     box-sizing: content-box;

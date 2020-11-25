@@ -707,7 +707,7 @@ export default {
         },
         /* Selection Methods */
         watchValue(value) {
-            if (this.selectedItem && this.this.$at(selectedItem, this.valueField) === value)
+            if (this.selectedItem && this.$at(this.selectedItem, this.valueField) === value)
                 return;
             if (value === undefined)
                 this.selectedItem = undefined;

@@ -100,3 +100,8 @@
   slots:
     - name: default
       description: 内容
+  events:
+    - name: $listeners
+      kind: trigger
+      description: 监听所有事件。
+      params: []

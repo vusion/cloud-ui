@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :direction="direction">
+<div :class="$style.root" :direction="direction" v-on="$listeners">
     <slot></slot>
 </div>
 </template>

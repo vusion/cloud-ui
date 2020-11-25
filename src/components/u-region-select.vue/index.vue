@@ -20,10 +20,7 @@ export default {
         },
     },
     created() {
-        !this.data
-            && import('./region.json').then(
-                (region) => (this.currentData = region.default),
-            );
+        !this.data && (this.currentData = require('./region.json'));
     },
 };
 </script>

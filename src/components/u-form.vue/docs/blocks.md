@@ -116,83 +116,31 @@
 ```
 
 
-### 栅格布局+分组
+### 行内分组
 
 ``` html
 <u-form layout="inline">
     <u-form-group title="常用条件">
-        <u-grid-layout>
-            <u-grid-layout-row :repeat="3">
-                <u-grid-layout-column>
-                    <u-form-item label="状态">
-                        <u-select auto-select>
-                            <u-select-item>认证中</u-select-item>
-                        </u-select>
-                    </u-form-item>
-                </u-grid-layout-column>
-                <u-grid-layout-column>
-                    <u-form-item label="备案类型">
-                        <u-select auto-select>
-                            <u-select-item>全部</u-select-item>
-                        </u-select>
-                    </u-form-item>
-                </u-grid-layout-column>
-                <u-grid-layout-column>
-                    <u-form-item label="备案号">
-                        <u-input></u-input>
-                    </u-form-item>
-                </u-grid-layout-column>
-            </u-grid-layout-row>
-            <u-grid-layout-row :repeat="3">
-                <u-grid-layout-column>
-                    <u-form-item label="用户名">
-                        <u-input></u-input>
-                    </u-form-item>
-                </u-grid-layout-column>
-                <u-grid-layout-column>
-                    <u-form-item label="单位名称">
-                        <u-input></u-input>
-                    </u-form-item>
-                </u-grid-layout-column>
-            </u-grid-layout-row>
-        </u-grid-layout>
+        <u-form-item label="名称">
+            <u-input placeholder="请输入名称"></u-input>
+        </u-form-item>
+        <u-form-item label="状态">
+            <u-select>
+                <u-select-item>启用</u-select-item>
+                <u-select-item>禁用</u-select-item>
+            </u-select>
+        </u-form-item>
     </u-form-group>
     <u-form-group title="更多条件">
-        <u-grid-layout>
-            <u-grid-layout-row :repeat="3">
-                <u-grid-layout-column>
-                    <u-form-item label="状态">
-                        <u-select auto-select>
-                            <u-select-item>认证中</u-select-item>
-                        </u-select>
-                    </u-form-item>
-                </u-grid-layout-column>
-                <u-grid-layout-column>
-                    <u-form-item label="备案类型">
-                        <u-select auto-select>
-                            <u-select-item>全部</u-select-item>
-                        </u-select>
-                    </u-form-item>
-                </u-grid-layout-column>
-                <u-grid-layout-column>
-                    <u-form-item label="备案号">
-                        <u-input></u-input>
-                    </u-form-item>
-                </u-grid-layout-column>
-            </u-grid-layout-row>
-            <u-grid-layout-row :repeat="3">
-                <u-grid-layout-column>
-                    <u-form-item label="用户名">
-                        <u-input></u-input>
-                    </u-form-item>
-                </u-grid-layout-column>
-                <u-grid-layout-column>
-                    <u-form-item label="单位名称">
-                        <u-input></u-input>
-                    </u-form-item>
-                </u-grid-layout-column>
-            </u-grid-layout-row>
-        </u-grid-layout>
+        <u-form-item label="名称">
+            <u-input placeholder="请输入名称"></u-input>
+        </u-form-item>
+        <u-form-item label="状态">
+            <u-select>
+                <u-select-item>启用</u-select-item>
+                <u-select-item>禁用</u-select-item>
+            </u-select>
+        </u-form-item>
     </u-form-group>
 </u-form>
 ```
@@ -202,78 +150,26 @@
 ``` html
 <u-form layout="inline" collapsible>
     <u-form-group title="常用条件" expanded>
-        <u-grid-layout>
-            <u-grid-layout-row :repeat="3">
-                <u-grid-layout-column>
-                    <u-form-item label="状态">
-                        <u-select auto-select>
-                            <u-select-item>认证中</u-select-item>
-                        </u-select>
-                    </u-form-item>
-                </u-grid-layout-column>
-                <u-grid-layout-column>
-                    <u-form-item label="备案类型">
-                        <u-select auto-select>
-                            <u-select-item>全部</u-select-item>
-                        </u-select>
-                    </u-form-item>
-                </u-grid-layout-column>
-                <u-grid-layout-column>
-                    <u-form-item label="备案号">
-                        <u-input></u-input>
-                    </u-form-item>
-                </u-grid-layout-column>
-            </u-grid-layout-row>
-            <u-grid-layout-row :repeat="3">
-                <u-grid-layout-column>
-                    <u-form-item label="用户名">
-                        <u-input></u-input>
-                    </u-form-item>
-                </u-grid-layout-column>
-                <u-grid-layout-column>
-                    <u-form-item label="单位名称">
-                        <u-input></u-input>
-                    </u-form-item>
-                </u-grid-layout-column>
-            </u-grid-layout-row>
-        </u-grid-layout>
+        <u-form-item label="名称">
+            <u-input placeholder="请输入名称"></u-input>
+        </u-form-item>
+        <u-form-item label="状态">
+            <u-select>
+                <u-select-item>启用</u-select-item>
+                <u-select-item>禁用</u-select-item>
+            </u-select>
+        </u-form-item>
     </u-form-group>
     <u-form-group title="更多条件" expanded>
-        <u-grid-layout>
-            <u-grid-layout-row :repeat="3">
-                <u-grid-layout-column>
-                    <u-form-item label="状态">
-                        <u-select auto-select>
-                            <u-select-item>认证中</u-select-item>
-                        </u-select>
-                    </u-form-item>
-                </u-grid-layout-column>
-                <u-grid-layout-column>
-                    <u-form-item label="备案类型">
-                        <u-select auto-select>
-                            <u-select-item>全部</u-select-item>
-                        </u-select>
-                    </u-form-item>
-                </u-grid-layout-column>
-                <u-grid-layout-column>
-                    <u-form-item label="备案号">
-                        <u-input></u-input>
-                    </u-form-item>
-                </u-grid-layout-column>
-            </u-grid-layout-row>
-            <u-grid-layout-row :repeat="3">
-                <u-grid-layout-column>
-                    <u-form-item label="用户名">
-                        <u-input></u-input>
-                    </u-form-item>
-                </u-grid-layout-column>
-                <u-grid-layout-column>
-                    <u-form-item label="单位名称">
-                        <u-input></u-input>
-                    </u-form-item>
-                </u-grid-layout-column>
-            </u-grid-layout-row>
-        </u-grid-layout>
+        <u-form-item label="名称">
+            <u-input placeholder="请输入名称"></u-input>
+        </u-form-item>
+        <u-form-item label="状态">
+            <u-select>
+                <u-select-item>启用</u-select-item>
+                <u-select-item>禁用</u-select-item>
+            </u-select>
+        </u-form-item>
     </u-form-group>
 </u-form>
 ```

@@ -153,6 +153,18 @@
       type: boolean
       default: false
       description: 自动获取焦点
+    - name: prefix
+      title: 前缀图标
+      type: string
+      options:
+        - value: search
+          title: 搜索
+    - name: suffix
+      title: 后缀图标
+      type: string
+      options:
+        - value: search
+          title: 搜索
   slots:
     - name: default
       description: 插入`<u-select-item>`、`<u-select-divider>`或`<u-select-group>`子组件。
@@ -344,6 +356,24 @@
         - name: senderVM
           type: USelect
           description: 发送事件实例
+    - name: click-prefix
+      title: 点击前缀图标
+      description:  点击前缀图标后触发
+      params:
+        - name: $event
+          type: object
+          description: 鼠标事件对象
+          schema:
+            $ref: '#/systemTypes/MouseEvent'
+    - name: click-suffix
+      title: 点击后缀图标
+      description:  点击后缀图标后触发
+      params:
+        - name: $event
+          type: object
+          description: 鼠标事件对象
+          schema:
+            $ref: '#/systemTypes/MouseEvent'
   methods:
     - name: open
       description: 弹出选择框。
