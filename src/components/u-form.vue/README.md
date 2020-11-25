@@ -22,6 +22,10 @@
     - [Slots](#slots-2)
     - [Events](#events-2)
     - [Methods](#methods-2)
+- [UFormGroup API](#uformgroup-api)
+    - [Props/Attrs](#propsattrs-3)
+    - [Slots](#slots-3)
+    - [Events](#events-3)
 
 **Form**
 
@@ -393,6 +397,9 @@ export default {
 | layout | string | `[object Object]`<br/>`[object Object]` | `'block'` | 表单布局方式 |
 | gap | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 表单项之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。 |
 | label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 标签宽度。 |
+| collapsible | boolean |  | `false` | 分组是否可以折叠 |
+| accordion | boolean |  | `false` | 是否每次只会展开一个分组 |
+| expand-trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 展开/折叠的触发方式 |
 
 ### Computed
 
@@ -510,4 +517,53 @@ Methods
 | ----- | ---- | ------- | ----------- |
 | trigger | string | `'submit'` | 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。 |
 | muted | boolean | `false` | 是否验证后无提示 |
+
+## UFormGroup API
+### Props/Attrs
+
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| title | string |  |  | 显示的标题 |
+| collapsible | boolean |  | `false` | 分组是否可以折叠 |
+| expanded.sync | boolean |  | `false` | 展开/折叠状态 |
+| disabled | boolean |  | `false` | 是否禁用。禁用时无法展开/折叠 |
+
+### Slots
+
+#### (default)
+
+插入`<u-form-item>`或`<u-form-divider>`子组件。
+
+#### title
+
+自定义标题文本。
+
+#### extra
+
+在右侧可以附加内容。
+
+### Events
+
+#### @before-toggle
+
+展开/折叠此分组前触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.expanded | boolean | 展开/折叠状态 |
+| $event.groupVM | UFormGroup | 分组组件 |
+| $event.preventDefault | Function | 阻止展开/折叠流程 |
+| senderVM | Vue | 发送事件实例 |
+
+#### @toggle
+
+展开/折叠某分组时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.expanded | boolean | 展开/折叠状态 |
+| $event.groupVM | UFormGroup | 分组组件 |
+| senderVM | Vue | 发送事件实例 |
 

@@ -1738,6 +1738,28 @@
     ],
     "description": "标签宽度。"
   },
+  "u-form/collapsible": {
+    "type": "boolean",
+    "description": "分组是否可以折叠"
+  },
+  "u-form/accordion": {
+    "type": "boolean",
+    "description": "是否每次只会展开一个分组"
+  },
+  "u-form/expand-trigger": {
+    "type": "string",
+    "options": [
+      {
+        "value": "click",
+        "title": "整行点击均可触发"
+      },
+      {
+        "value": "click-expander",
+        "title": "仅点击小箭头时触发"
+      }
+    ],
+    "description": "展开/折叠的触发方式"
+  },
   "u-form-item/name": {
     "type": "string",
     "description": "表单项名称。已废弃"
@@ -1870,6 +1892,22 @@
   "u-form-item/validating-process": {
     "type": "Function",
     "description": "验证前对值进行预处理"
+  },
+  "u-form-group/title": {
+    "type": "string",
+    "description": "显示的标题"
+  },
+  "u-form-group/collapsible": {
+    "type": "boolean",
+    "description": "分组是否可以折叠"
+  },
+  "u-form-group/expanded": {
+    "type": "boolean",
+    "description": "展开/折叠状态"
+  },
+  "u-form-group/disabled": {
+    "type": "boolean",
+    "description": "是否禁用。禁用时无法展开/折叠"
   },
   "u-grid-layout/gap": {
     "type": "string",
@@ -2363,6 +2401,24 @@
   "u-input/maxlengthMessage": {
     "type": "string",
     "description": "\b\b输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效"
+  },
+  "u-input/prefix": {
+    "type": "string",
+    "options": [
+      {
+        "value": "search",
+        "title": "搜索"
+      }
+    ]
+  },
+  "u-input/suffix": {
+    "type": "string",
+    "options": [
+      {
+        "value": "search",
+        "title": "搜索"
+      }
+    ]
   },
   "u-label/color": {
     "type": "string",

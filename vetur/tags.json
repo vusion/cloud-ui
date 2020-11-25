@@ -644,11 +644,15 @@
       "rules",
       "layout",
       "gap",
-      "label-size"
+      "label-size",
+      "collapsible",
+      "accordion",
+      "expand-trigger"
     ],
     "description": "具有数据收集、校验和提交功能的表单，包含输入框、选择框、复选框、单选框等元素。",
     "subtags": [
-      "u-form-item"
+      "u-form-item",
+      "u-form-group"
     ]
   },
   "u-form-item": {
@@ -669,6 +673,14 @@
       "validating-options",
       "validating-value",
       "validating-process"
+    ]
+  },
+  "u-form-group": {
+    "attributes": [
+      "title",
+      "collapsible",
+      "expanded",
+      "disabled"
     ]
   },
   "u-grid-layout": {
@@ -781,7 +793,9 @@
       "readonly",
       "disabled",
       "size",
-      "maxlengthMessage"
+      "maxlengthMessage",
+      "prefix",
+      "suffix"
     ],
     "description": "基本的表单输入组件"
   },
