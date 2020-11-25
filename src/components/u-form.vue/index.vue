@@ -5,17 +5,20 @@
 </template>
 
 <script>
+import MParent from '../m-parent.vue';
+import MGroupParent from '../m-group.vue/parent.vue';
 import UValidator from '../u-validator.vue';
 import cloneDeep from 'lodash/cloneDeep';
 
 export default {
     name: 'u-form',
-    mixins: [UValidator],
+    mixins: [MParent, MGroupParent, UValidator],
     props: {
         model: Object,
         rules: Object,
         layout: { type: String, default: 'block' },
         labelSize: { type: String, default: 'normal' },
+        collapsible: { type: Boolean, default: false },
     },
     data() {
         return {

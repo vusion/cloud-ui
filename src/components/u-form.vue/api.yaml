@@ -54,6 +54,26 @@
           title: 大
       default: normal
       description: 标签宽度。
+    - name: collapsible
+      title: 是否折叠
+      type: boolean
+      default: false
+      description: 分组是否可以折叠
+    - name: accordion
+      title: 展开分组
+      type: boolean
+      default: false
+      description: 是否每次只会展开一个分组
+    - name: expand-trigger
+      title: 触发方式
+      type: string
+      options: 
+        - value: click
+          title: 整行点击均可触发
+        - value: click-expander
+          title: 仅点击小箭头时触发
+      default: click
+      description: 展开/折叠的触发方式
   computed:
     - name: touched
       title: 触碰
@@ -78,7 +98,10 @@
   slots:
     - name: default
       description: 插入`<u-form-item>`子组件。
-      support: 
+      support:
+        - name: u-form-group
+          title: 导航分组
+          snippet: '<u-form-group title="分组"><u-form-item label="表单项"></u-form-item></u-form-group>'
         - name: u-form-item
           title: 表单项
           snippet: '<u-form-item label="表单项"></u-form-item>'
@@ -301,3 +324,79 @@
           type: boolean
           default: false
           description: 是否验证后无提示
+- name: u-form-group
+  title: 表单分组
+  attrs:
+    - name: title
+      title: 标题
+      type: string
+      default: null
+      description: 显示的标题
+    - name: collapsible
+      title: 是否折叠
+      type: boolean
+      default: false
+      description: 分组是否可以折叠
+    - name: expanded
+      title: 展开折叠状态
+      sync: true
+      type: boolean
+      default: false
+      description: 展开/折叠状态
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 是否禁用。禁用时无法展开/折叠
+  slots:
+    - name: default
+      description: 插入`<u-form-item>`或`<u-form-divider>`子组件。
+      support:
+        - name: u-form-item
+          title: 导航项
+          snippet: '<u-form-item>导航项</u-form-item>'
+    - name: title
+      description: 自定义标题文本。
+    - name: extra
+      description: 在右侧可以附加内容。
+  events:
+    - name: before-toggle
+      title: 展开折叠前
+      description: 展开/折叠此分组前触发
+      advanced: true
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/CollapseEvent'
+        - name: $event.expanded
+          type: boolean
+          description: 展开/折叠状态
+        - name: $event.groupVM
+          type: UFormGroup
+          description: 分组组件
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止展开/折叠流程
+        - name: senderVM
+          type: Vue
+          description: 发送事件实例
+    - name: toggle
+      title: 展开折叠后
+      description: 展开/折叠某分组时触发
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/CollapseEvent'
+        - name: $event.expanded
+          type: boolean
+          description: 展开/折叠状态
+        - name: $event.groupVM
+          type: UFormGroup
+          description: 分组组件
+        - name: senderVM
+          type: Vue
+          description: 发送事件实例

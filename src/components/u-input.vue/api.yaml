@@ -83,6 +83,18 @@
       type: string
       default: null
       description: "\b\b输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效"
+    - name: prefix
+      title: 前缀图标
+      type: string
+      options:
+        - value: search
+          title: 搜索
+    - name: suffix
+      title: 后缀图标
+      type: string
+      options:
+        - value: search
+          title: 搜索
   slots:
     - name: default
       advanced: true
@@ -204,6 +216,24 @@
         - name: senderVM
           type: UInput
           description: 发送事件实例
+    - name: click-prefix
+      title: 点击前缀图标
+      description:  点击前缀图标后触发
+      params:
+        - name: $event
+          type: object
+          description: 鼠标事件对象
+          schema:
+            $ref: '#/systemTypes/MouseEvent'
+    - name: click-suffix
+      title: 点击后缀图标
+      description:  点击后缀图标后触发
+      params:
+        - name: $event
+          type: object
+          description: 鼠标事件对象
+          schema:
+            $ref: '#/systemTypes/MouseEvent'
   methods:
     - name: focus
       description: 让输入框获取焦点。

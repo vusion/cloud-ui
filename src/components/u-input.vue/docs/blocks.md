@@ -11,11 +11,11 @@
 ```
 
 ``` html
-<u-input size="huge" placeholder="大输入框"></u-input>
+<u-input size="medium" placeholder="中等输入框"></u-input>
 ```
 
 ``` html
-<u-input size="medium" placeholder="中等输入框"></u-input>
+<u-input size="huge" placeholder="大输入框"></u-input>
 ```
 
 ``` html
@@ -23,9 +23,9 @@
 ```
 
 ``` html
-<u-input prefix="search" clearable size="normal medium" placeholder="搜索框"></u-input>
+<u-input prefix="search" placeholder="搜索框"></u-input>
 ```
 
 ``` html
-<u-input suffix="search" clearable size="normal medium" placeholder="搜索框"></u-input>
+<u-input suffix="search" placeholder="搜索框"></u-input>
 ```

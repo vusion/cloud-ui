@@ -98,17 +98,14 @@
     width: auto;
 }
 
-.root[search="left"] .input {
-    padding-left: 30px;
-}
-
-.root[clearable] .input, .root[search="right"] .input {
+.root[clearable] .input .input {
     padding-right: 30px;
 }
 
 .prefix, .suffix {
     display: block;
     position: absolute;
+    cursor: pointer;
     top: 0;
     z-index: 1;
 }
@@ -133,28 +130,6 @@
     icon-font: url("../i-icon.vue/icons/search.svg");
     font-size: 16px;
     color: #a7afbb;
-}
-
-/* @deprecated */
-.search {
-    display: block;
-    position: absolute;
-    right: 8px;
-    top: 0;
-}
-
-/* @deprecated */
-.search::before {
-    icon-font: url("../i-icon.vue/icons/search.svg");
-    font-size: 16px;
-    color: #a7afbb;
-}
-
-/* @deprecated */
-.search[alignment="left"] {
-    right: auto;
-    left: 8px;
-    top: 0;
 }
 
 .root[size$="mini"] { width: var(--input-width-mini); padding: 0 var(--input-padding-x-mini); }
