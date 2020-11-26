@@ -12,9 +12,9 @@ export default {
             type: Array,
             default() {
                 return [
-                    { label: this.$t('province') },
-                    { label: this.$t('city') },
-                    { label: this.$t('district') },
+                    { label: this.$t('province'), placeholder: this.$t('placeholder') + this.$t('province') },
+                    { label: this.$t('city'), placeholder: this.$t('placeholder') + this.$t('city') },
+                    { label: this.$t('district'), placeholder: this.$t('placeholder') + this.$t('district') },
                 ];
             },
         },

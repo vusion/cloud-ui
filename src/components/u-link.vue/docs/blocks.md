@@ -1,7 +1,7 @@
 ### 普通链接
 
 ``` html
-<u-link href="/" target="_blank">普通链接</u-link>
+<u-link href="#" target="_blank">普通链接</u-link>
 ```
 
 ### 成功链接

@@ -18,7 +18,7 @@
       default: null
       description: 当前选择的值
     - name: collapsible
-      title: 是否折叠
+      title: 是否可折叠
       type: boolean
       default: false
       description: 分组是否可以折叠
@@ -310,7 +310,7 @@
       default: null
       description: 显示的标题
     - name: collapsible
-      title: 是否折叠
+      title: 是否可折叠
       type: boolean
       default: false
       description: 分组是否可以折叠

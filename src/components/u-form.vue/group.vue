@@ -1,5 +1,5 @@
 <template>
-    <div :class="$style.root" :collapsible="currentCollapsible">
+    <div :class="$style.root" :collapsible="currentCollapsible" :size="currentSize">
         <div :class="$style.head" @click="parentVM.expandTrigger === 'click' && toggle()" :title="title">
             <div :class="$style.title" vusion-slot-name="title">
                 <slot name="title">{{ title }}</slot>
@@ -26,7 +26,14 @@ export default {
     parentName: 'u-form',
     childName: 'u-form-item',
     extends: MGroup,
-    props: {},
+    props: {
+        size: String,
+    },
+    computed: {
+        currentSize() {
+            return this.size || this.parentVM.size;
+        },
+    },
 };
 </script>
 
@@ -104,9 +111,33 @@ export default {
 
 .body {
     padding: var(--form-group-body-padding-y) 0;
+    transition: var(--transition-collapse-base);
 }
 
 .root[appear="header"] .body {
     padding: 0;
+}
+
+.root[size="small"]:not(:last-child) {
+    margin-bottom: var(--form-group-space-small);
+}
+
+.root[size="small"] .head {
+    padding: var(--form-group-head-padding-small);
+    line-height: var(--form-group-head-line-height-small);
+}
+
+.root[size="small"] .body {
+    padding: var(--form-group-body-padding-y-small) 0;
+}
+
+.root[size="small"] .expander {
+    width: var(--collapse-item-expander-size-small);
+    height: var(--collapse-item-expander-size-small);
+    line-height: var(--collapse-item-expander-size-small);
+}
+
+.root[size="small"][collapsible] .head {
+    padding-left: 34px;
 }
 </style>

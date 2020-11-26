@@ -54,8 +54,18 @@
           title: 大
       default: normal
       description: 标签宽度。
+    - name: size
+      title: 表单尺寸
+      type: string
+      options:
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+      default: normal
+      description: 表单尺寸，表单组间隙等
     - name: collapsible
-      title: 是否折叠
+      title: 是否可折叠
       type: boolean
       default: false
       description: 分组是否可以折叠
@@ -333,7 +343,7 @@
       default: null
       description: 显示的标题
     - name: collapsible
-      title: 是否折叠
+      title: 是否可折叠
       type: boolean
       default: false
       description: 分组是否可以折叠

@@ -261,6 +261,10 @@ export default {
         dataSource(dataSource) {
             this.handleData();
         },
+        currentData(currentData) {
+            this.watchValue(this.value);
+            this.watchValues(this.values);
+        },
         loading(loading) {
             this.currentLoading = loading;
             this.handleResize();

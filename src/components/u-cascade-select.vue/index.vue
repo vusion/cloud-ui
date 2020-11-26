@@ -1,8 +1,8 @@
 <template>
-<u-linear-layout :class="$style.root" :layout="layout">
+<u-linear-layout :class="$style.root" :layout="layout" gap="small">
     <u-select v-for="(category, level) in categories" v-if="lists[level] || !hideEmpty" :key="level"
-        :field="field" :readonly="readonly" :disabled="disabled" :placeholder="category.placeholder"
-        v-model="values[level]" @select="onSelect($event, level)"
+        :field="field" :clearable="clearable" :readonly="readonly" :disabled="disabled" :placeholder="category.placeholder"
+        v-model="values[level]" @select="onSelect($event, level)" @clear="onClear($event, level)"
         :size="size">
         <u-select-item v-for="item in lists[level]" v-if="item.exist === undefined || !!item.exist === true"
             :key="item.value"
@@ -31,10 +31,11 @@ export default {
                 return [];
             },
         },
-        autoSelect: { type: Boolean, default: true },
+        autoSelect: { type: Boolean, default: false },
         hideEmpty: { type: Boolean, default: false },
         converter: { type: [String, Object], default: 'join' },
         field: { type: String, default: 'text' },
+        clearable: { type: Boolean, default: true },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         size: String,
@@ -142,7 +143,8 @@ export default {
          * 设置列表
          * @param {Array} list 需要设置的列表
          * @param {Number} level 当前级别
-         */ setList(list, level) {
+         */
+        setList(list, level) {
             // 递归结束条件
             // if (level >= this.categories.length)
             //     return;
@@ -155,14 +157,11 @@ export default {
                         (item.exist === undefined || !!item.exist === true)
                         && !item.disabled
                         && item.value === value,
-                ); // 当找不到与 value 对应的 item 时
+                );
+                // 当找不到与 value 对应的 item 时
                 // 如果设置了自动选择，并且没有设置 placeholder 的情况下
                 // 自动选择第一个显示并且非禁用的项
-                if (
-                    !item
-                    && this.autoSelect
-                    && this.categories[level].placeholder === undefined
-                ) {
+                if (!item && this.autoSelect && this.categories[level].placeholder === undefined) {
                     let index = 0;
                     for (let i = 0; i < list.length; i++) {
                         const item = list[i]; // 自动过滤禁用与不存在的项
@@ -182,7 +181,7 @@ export default {
                         )
                             continue;
                         else
-break;
+                            break;
                     }
                     item = list[index];
                 }
@@ -200,6 +199,24 @@ break;
                 $event.item ? $event.item.children : undefined,
                 level + 1,
             );
+            const value = this.currentConverter.get(this.values);
+            this.$emit('input', value, this);
+            this.$emit('update:value', value, this);
+            this.$emit(
+                'select',
+                {
+                    level,
+                    value,
+                    values: Array.from(this.values),
+                    item: $event.item,
+                    itemVM: $event.itemVM,
+                },
+                this,
+            );
+        },
+        onClear($event, level) {
+            this.setList(undefined, level + 1);
+            this.values.pop();
             const value = this.currentConverter.get(this.values);
             this.$emit('input', value, this);
             this.$emit('update:value', value, this);

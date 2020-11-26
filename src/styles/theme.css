@@ -166,6 +166,7 @@
     --transition-duration-fast: 0.1s;
     --transition-duration-slow: 0.3s;
     --transition-duration-slower: 0.5s;
+    --transition-collapse-base: var(--transition-duration-base) height ease-in-out, var(--transition-duration-base) padding-top ease-in-out, var(--transition-duration-base) padding-bottom ease-in-out;
 
     /**
      * Components Variables
@@ -574,13 +575,17 @@
 
     /* Form */
     --form-group-head-padding: 6px 20px;
+    --form-group-head-padding-small: 5px 20px;
     --form-group-head-line-height: 30px;
+    --form-group-head-line-height-small: 24px;
     --form-group-head-background: var(--background-color-light);
     --form-group-head-color: var(--color-base);
     --form-group-head-border-color: var(--border-color-base);
     --form-group-head-border-width: 1px;
-    --form-group-body-padding-y: 30px;
-    --form-group-space: 20px;
+    --form-group-body-padding-y: var(--space-base);
+    --form-group-body-padding-y-small: var(--space-small);
+    --form-group-space: var(--space-base);
+    --form-group-space-small: var(--space-small);
     --form-item-label-padding-right: 20px;
     --form-item-label-padding-right-mini: 10px;
     --form-item-label-padding-right-small: 10px;

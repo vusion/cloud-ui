@@ -17,6 +17,7 @@ export default {
         model: Object,
         rules: Object,
         layout: { type: String, default: 'block' },
+        size: { type: String, default: 'normal' },
         labelSize: { type: String, default: 'normal' },
         collapsible: { type: Boolean, default: false },
     },

@@ -145,7 +145,7 @@
 </u-form>
 ```
 
-### 栅格布局+折叠分组
+### 折叠分组
 
 ``` html
 <u-form layout="inline" collapsible>
