@@ -397,6 +397,7 @@ export default {
 | layout | string | `[object Object]`<br/>`[object Object]` | `'block'` | 表单布局方式 |
 | gap | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 表单项之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。 |
 | label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 标签宽度。 |
+| size | string | `[object Object]`<br/>`[object Object]` | `'normal'` | 表单尺寸，表单组间隙等 |
 | collapsible | boolean |  | `false` | 分组是否可以折叠 |
 | accordion | boolean |  | `false` | 是否每次只会展开一个分组 |
 | expand-trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 展开/折叠的触发方式 |

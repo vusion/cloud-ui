@@ -645,6 +645,7 @@
       "layout",
       "gap",
       "label-size",
+      "size",
       "collapsible",
       "accordion",
       "expand-trigger"
@@ -1168,7 +1169,9 @@
       "disabled",
       "size",
       "opened",
-      "autofocus"
+      "autofocus",
+      "prefix",
+      "suffix"
     ],
     "description": "下拉选择框，支持单选、多选、搜索等功能",
     "subtags": [

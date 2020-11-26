@@ -1738,6 +1738,20 @@
     ],
     "description": "标签宽度。"
   },
+  "u-form/size": {
+    "type": "string",
+    "options": [
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      }
+    ],
+    "description": "表单尺寸，表单组间隙等"
+  },
   "u-form/collapsible": {
     "type": "boolean",
     "description": "分组是否可以折叠"
@@ -3763,6 +3777,24 @@
   "u-select/autofocus": {
     "type": "boolean",
     "description": "自动获取焦点"
+  },
+  "u-select/prefix": {
+    "type": "string",
+    "options": [
+      {
+        "value": "search",
+        "title": "搜索"
+      }
+    ]
+  },
+  "u-select/suffix": {
+    "type": "string",
+    "options": [
+      {
+        "value": "search",
+        "title": "搜索"
+      }
+    ]
   },
   "u-select-item/value": {
     "type": "any",

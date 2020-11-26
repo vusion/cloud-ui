@@ -1259,6 +1259,8 @@ export default {
 | size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度 |
 | opened.sync | boolean |  | `false` | 切换弹出/关闭状态 |
 | autofocus | boolean |  | `false` | 自动获取焦点 |
+| prefix | string | `[object Object]` |  | undefined |
+| suffix | string | `[object Object]` |  | undefined |
 
 ### Slots
 
@@ -1377,6 +1379,22 @@ export default {
 | ----- | ---- | ----------- |
 | $event |  | 空 |
 | senderVM | USelect | 发送事件实例 |
+
+#### @click-prefix
+
+点击前缀图标后触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 鼠标事件对象 |
+
+#### @click-suffix
+
+点击后缀图标后触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 鼠标事件对象 |
 
 Methods
 

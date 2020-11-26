@@ -22,11 +22,8 @@
 <u-linear-layout justify="space-between">
     <u-linear-layout>
         <u-button>Button</u-button>
-        <u-button>Button</u-button>
     </u-linear-layout>
     <u-linear-layout>
-        <u-button>Button</u-button>
-        <u-button>Button</u-button>
         <u-button>Button</u-button>
     </u-linear-layout>
 </u-linear-layout>
