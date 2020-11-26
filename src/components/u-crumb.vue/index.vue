@@ -1,20 +1,67 @@
 <template>
 <nav :class="$style.root">
-    <slot></slot>
+    <template v-if="auto">
+        <template v-for="item in items">
+            <u-crumb-item v-bind="item" :key="item.title">{{ item.title }}</u-crumb-item>
+        </template>
+    </template>
+    <slot v-else></slot>
 </nav>
 </template>
 
 <script>
-import { MParent } from '../m-parent.vue';
+import isFunction from 'lodash/isFunction';
+import isObject from 'lodash/isObject';
+import MParent from '../m-parent.vue';
 
 export default {
     name: 'u-crumb',
     childName: 'u-crumb-item',
     mixins: [MParent],
+    props: {
+        auto: { type: Boolean, default: false },
+    },
     data() {
         return {
             // @inherit: itemVMs: [],
+            items: [],
         };
+    },
+    watch: {
+        $route: {
+            handler(to, from) {
+                if (to.fullPath === (from && from.fullPath))
+                    return;
+
+                const matched = to.matched || [];
+                const items = [];
+                matched.forEach((route) => {
+                    const meta = Object.assign({}, route.meta, route.components.default.meta);
+                    let crumb = meta.crumb;
+                    if (crumb) {
+                        if (isFunction(crumb))
+                            crumb = crumb(route, to, from);
+                        else if (isObject(crumb))
+                            crumb = Object.assign({}, crumb);
+                        else if (typeof crumb === 'string')
+                            crumb = { title: crumb };
+
+                        if (!crumb.to)
+                            crumb.to = route.path;
+                        if (crumb.to === to.path)
+                            crumb.readonly = true;
+
+                        if (crumb.title)
+                            items.push(crumb);
+                    }
+                });
+                const last = items[items.length - 1];
+                last && (last.readonly = true);
+
+                this.items = items;
+            },
+            immediate: true,
+        },
     },
 };
 </script>

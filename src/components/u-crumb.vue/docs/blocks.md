@@ -1,4 +1,10 @@
-### 基本用法
+### 自动面包屑
+
+``` html
+<u-crumb auto></u-crumb>
+```
+
+### 手动面包屑
 
 ``` html
 <u-crumb>
