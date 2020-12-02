@@ -88,8 +88,8 @@
       title: 链接类型
       type: string
       options: 
-        - value: to
-          title: 路由链接
+        - value: destination
+          title: 页面跳转
         - value: href
           title: 普通链接
         - value: download
