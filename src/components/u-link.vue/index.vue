@@ -1,5 +1,5 @@
 <template>
-<a :class="$style.root" :href="currentHref||destination" :target="target"
+<a :class="$style.root" :href="currentHref" :target="target"
     :noDecoration="!decoration"
     :disabled="disabled" :tabindex="disabled ? -1 : 0"
     :download="download"
@@ -28,6 +28,8 @@ export default {
          */ currentHref() {
             if (this.href !== undefined)
                 return this.href;
+            if (this.destination !== undefined)
+                return this.destination;
             else if (this.$router && this.to !== undefined)
                 return this.$router.resolve(this.to, this.$route, this.append)
                     .href;
