@@ -2252,6 +2252,14 @@
                     "code": "<template>\n<u-panel title=\"服务\">\n    <u-panel-group title=\"当天概览\">\n        概览内容\n    </u-panel-group>\n    <u-panel-group title=\"事务分组\">\n        事务内容\n    </u-panel-group>\n</u-panel>\n</template>\n"
                 }
             ],
+            "attrs": [
+                {
+                    "name": "title",
+                    "title": "标题",
+                    "type": "string",
+                    "description": "面板项的标题"
+                }
+            ],
             "slots": [
                 {
                     "name": "default",
