@@ -21,11 +21,11 @@
             </div>
         </template>
         <template v-else>
-            <div :class="$style.card" v-for="(item, index) in currentValue" :key="index" @click="!multiple && select()">
+            <div :class="$style.card" v-for="(item, index) in currentValue" :key="index" @click="!multiple && !readonly && select()">
                 <div :class="$style.thumb"><img :class="$style.img" :src="item.thumb || item.url"></div>
-                <div :class="$style.mask" :multiple="multiple" :show-progress="item.showProgress">
+                <div :class="$style.mask" :multiple="multiple || readonly" :show-progress="item.showProgress">
                     <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
-                    <div v-show="multiple" :class="$style.buttons">
+                    <div v-show="multiple || readonly" :class="$style.buttons">
                         <span :class="$style.button" role="preview" @click="onPreview(item, index)"></span>
                         <a :class="$style.button" :href="item.url" target="_blank" role="download"></a>
                         <span v-if="!readonly" :class="$style.button" role="remove" @click="remove(index)"></span>
@@ -36,7 +36,7 @@
         </template>
     </div>
     <u-lightbox :visible.sync="lightboxVisible" :value="currentIndex" animation="fade">
-        <u-lightbox-item v-for="(item, index) in currentValue" :key="index" :value="index" :title="item.name"><img :src="item.url" /></u-lightbox-item>
+        <u-lightbox-item v-for="(item, index) in currentValue" :key="index" :value="index" :title="item.name"><img :src="item.url"></u-lightbox-item>
     </u-lightbox>
 </div>
 </template>
