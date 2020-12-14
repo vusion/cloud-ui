@@ -20,18 +20,21 @@ export default {
         disabled: { type: Boolean, default: false },
         decoration: { type: Boolean, default: true },
         download: { type: Boolean, default: false },
+        destination: String,
     },
     computed: {
         /**
          * 使用`to`时，也产生一个链接，尽可能向原生的`<a>`靠近
          */ currentHref() {
             if (this.href !== undefined)
-return this.href;
+                return this.href;
+            if (this.destination !== undefined)
+                return this.destination;
             else if (this.$router && this.to !== undefined)
                 return this.$router.resolve(this.to, this.$route, this.append)
                     .href;
             else
-return undefined;
+                return undefined;
         },
         listeners() {
             const listeners = Object.assign({}, this.$listeners);
@@ -49,14 +52,27 @@ return undefined;
             if (this.href === undefined) {
                 // 使用浏览器的一些快捷键时，走原生
                 // @TODO: 考虑使用快捷键抛出事件，阻止流程的需求
+                let to;
+                if (this.destination) {
+                    // 只处理/a/b形式的链接
+                    const origin = location.origin;
+                    const path = location.href.replace(origin, '').split('/');
+                    const destination = this.destination.replace(origin, '').split('/');
+                    if (path[1] === destination[1]) {
+                        to = '/' + destination.slice(2).join('/');
+                    } else {
+                        return;
+                    }
+                }
                 if (e.ctrlKey || e.shiftKey || e.metaKey || e.altKey)
                     return;
                 e.preventDefault();
-                this.navigate();
+                this.navigate(to);
             }
         },
-        navigate() {
-            if (this.to === undefined)
+        navigate(to) {
+            const currentTo = to || this.to;
+            if (currentTo === undefined)
                 return;
             if (!this.$router)
                 return console.warn('[cloud-ui]', 'Cannot find vue-router.');
@@ -64,7 +80,7 @@ return undefined;
             this.$emit(
                 'before-navigate',
                 {
-                    to: this.to,
+                    to: currentTo,
                     replace: this.replace,
                     append: this.append,
                     preventDefault: () => (cancel = true),
@@ -75,14 +91,14 @@ return undefined;
                 return;
             const $router = this.$router;
             const { location } = $router.resolve(
-                this.to,
+                currentTo,
                 this.$route,
                 this.append,
             );
             this.replace ? $router.replace(location) : $router.push(location);
             this.$emit(
                 'navigate',
-                { to: this.to, replace: this.replace, append: this.append },
+                { to: currentTo, replace: this.replace, append: this.append },
                 this,
             );
         },

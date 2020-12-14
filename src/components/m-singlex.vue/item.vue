@@ -37,14 +37,15 @@ export default {
             return this.parentVM && this.parentVM.selectedVM === this;
         },
         active() {
-            if (this.to === undefined)
+            if (this.to === undefined && this.destination === undefined)
                 return;
             if (!this.$router)
                 return console.warn(
                     '[cloud-ui] Use `<m-router-item>` but cannot find vue router.',
                 );
             const current = this.$route;
-            const target = this.$router.resolve(this.to).route;
+            const to = this.to || this.destination;
+            const target = this.$router.resolve(to).route;
             const currentPath = decodeURIComponent(current.path.replace(trailingSlashRE, '/'));
             const targetPath = decodeURIComponent((target.redirectedFrom ? this.$router.resolve(target.redirectedFrom).location.path : target.path).replace(trailingSlashRE, '/')); // @TODO: 是否要检查 query 的包含关系
             const currentHash = decodeURIComponent(current.hash);
