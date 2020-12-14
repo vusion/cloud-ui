@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" v-show="selected">
+<div :class="$style.root" v-if="selected">
     <slot></slot>
 </div>
 </template>
