@@ -114,13 +114,16 @@ export default {
     position: absolute;
     left: 100%;
     top: 0;
-    z-index: 1;
+    z-index: var(--form-message-z-index);
     display: none;
-    line-height: 26px;
+    line-height: var(--form-message-line-height);
     font-size: 12px;
     margin-left: var(--form-message-margin-left);
+    margin-top: var(--form-message-margin-top);
     padding: var(--form-message-padding);
     background: var(--form-message-background);
+    border-radius: var(--form-message-border-radius);
+    box-shadow: var(--form-message-box-shadow);
 }
 
 .message[color="focus"] {
@@ -154,6 +157,10 @@ export default {
     white-space: nowrap;
     background: var(--form-message-background-error);
     color: var(--form-message-color-error);
+    white-space: var(--form-message-white-space-error);
+    border-radius: var(--form-message-border-radius-error);
+    box-shadow: var(--form-message-box-shadow-error);
+    min-width: var(--form-message-min-width-error);
 }
 
 .message[color="error"]::before {
@@ -181,7 +188,7 @@ export default {
     position: absolute;
     top: 100%;
     left: 0;
-    margin-left: 0;
+    margin-left: var(--form-message-bottom-margin-left);
     transform: translateY(0);
 }
 
