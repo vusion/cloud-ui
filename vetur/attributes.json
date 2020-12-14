@@ -2209,7 +2209,7 @@
     "description": "嵌入网页的地址"
   },
   "u-image/src": {
-    "type": "string",
+    "type": "image",
     "description": "图片地址"
   },
   "u-image/fit": {
@@ -3423,6 +3423,10 @@
   "u-pagination/show-jumper": {
     "type": "boolean",
     "description": "是否显示页面跳转输入框"
+  },
+  "u-panel/title": {
+    "type": "string",
+    "description": "面板项的标题"
   },
   "u-panel-group/title": {
     "type": "string",

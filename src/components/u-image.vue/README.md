@@ -52,7 +52,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| src | string |  | `''` | 图片地址 |
+| src | image |  | `''` | 图片地址 |
 | fit | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'contain'` | 图片地址 |
 
 ### Events

@@ -5,9 +5,10 @@
 - [示例](#示例)
     - [基本用法](#基本用法)
 - [UPanel API](#upanel-api)
+    - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
 - [UPanelGroup API](#upanelgroup-api)
-    - [Props/Attrs](#propsattrs)
+    - [Props/Attrs](#propsattrs-2)
 
 **Layout**
 
@@ -34,6 +35,12 @@
 ```
 
 ## UPanel API
+### Props/Attrs
+
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| title | string |  |  | 面板项的标题 |
+
 ### Slots
 
 #### (default)

@@ -1053,7 +1053,9 @@
     "description": "展示多页列表时使用"
   },
   "u-panel": {
-    "attributes": [],
+    "attributes": [
+      "title"
+    ],
     "description": "用于快速布局",
     "subtags": [
       "u-panel-group"

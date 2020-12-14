@@ -219,6 +219,7 @@ export default {
 };
 </script>
 ```
+
 ## API
 ### Props/Attrs
 
