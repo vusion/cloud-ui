@@ -8,11 +8,15 @@
     left: 100%;
     top: 0;
     display: none;
-    line-height: 26px;
+    line-height: var(--validator-message-line-height);
     font-size: 12px;
     margin-left: var(--validator-message-margin-left);
+    margin-top: var(--validator-message-margin-top);
     padding: var(--validator-message-padding);
     background: var(--validator-message-background);
+    border-radius: var(--validator-message-border-radius);
+    box-shadow: var(--validator-message-box-shadow);
+    z-index: var(--validator-message-z-index);
 }
 
 .message[color="focus"] {
@@ -43,9 +47,12 @@
     display: block;
     top: 50%;
     transform: translateY(-50%);
-    white-space: nowrap;
+    white-space: var(--validator-message-white-space-error);
     background: var(--validator-message-background-error);
     color: var(--validator-message-color-error);
+    border-radius: var(--validator-message-border-radius-error);
+    box-shadow: var(--validator-message-box-shadow-error);
+    min-width: var(--validator-message-min-width-error);
 }
 
 .message[color="error"]::before {
@@ -65,7 +72,7 @@
     width: 0;
     height: 0;
     border-top: 4px solid transparent;
-    border-right: 4px solid #ff867f;
+    border-right: 4px solid var(--validator-message-background-error);
     border-bottom: 4px solid transparent;
 }
 
@@ -73,7 +80,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    margin-left: 0;
+    margin-left: var(--validator-message-bottom-margin-left);
     transform: translateY(0);
 }
 
