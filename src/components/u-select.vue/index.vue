@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" :readonly="readonly" :disabled="currentDisabled" :opened="popperOpened"
-    :clearable="clearable && !!currentText" :multiple="multiple" :multiple-tags="multiple && multipleAppearance === 'tags'"
+    :clearable="clearable && !!(filterable ? filterText : currentText)" :multiple="multiple" :multiple-tags="multiple && multipleAppearance === 'tags'"
     :prefix="prefix" :suffix="suffix"
     :tabindex="readonly || currentDisabled ? '' : 0"
     @click="focus"
@@ -41,15 +41,15 @@
             </template>
         </template>
         <u-input v-if="filterable" :class="$style.input" ref="input" :readonly="readonly" :disabled="currentDisabled"
-            :placeholder="multiple && selectedVMs.length ? '' : placeholder" :filterable="filterable" :multiple-tags="multiple && this.multipleAppearance === 'tags'"
+            :placeholder="multiple && selectedVMs.length ? '' : placeholder" :filterable="filterable" :multiple-tags="multiple && multipleAppearance === 'tags'"
             :value="filterText" @input="onInput" @focus="onFocus" @blur="onBlur"
             @keydown.enter.stop="onInputEnter" @keydown.delete.stop="onInputDelete"
             :style="{ width: multiple && (inputWidth + 'px') }">
         </u-input>
     </div>
-    <span v-if="suffix" v-show="!clearable || !currentText" :class="$style.suffix" :name="suffix"
+    <span v-if="suffix" v-show="!(clearable && !!(filterable ? filterText : currentText))" :class="$style.suffix" :name="suffix"
         @click="$emit('click-suffix', $event, this)"><slot name="suffix"></slot></span>
-    <span v-if="clearable && !!currentText" :class="$style.clearable" @click="clear"></span>
+    <span v-if="clearable && !!(filterable ? filterText : currentText)" :class="$style.clearable" @click="clear"></span>
     <m-popper :class="$style.popper" ref="popper" append-to="reference" :disabled="readonly || currentDisabled"
         @update:opened="$emit('update:opened', $event, this)"
         @before-open="$emit('before-open', $event, this)"
@@ -347,8 +347,8 @@ export default {
                 if (this.preventBlur)
                     return (this.preventBlur = false);
                 this.selectByText(this.filterText);
+                this.close();
             }, 200);
-            this.close();
         },
         onRootBlur() {
             this.close();

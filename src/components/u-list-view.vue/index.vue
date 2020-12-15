@@ -277,7 +277,7 @@ export default {
                             {
                                 selectedIndex,
                                 selectedVM: itemVM,
-                                value: this.$at(itemVM, this.valueField),
+                                value: this.$at(itemVM.item, this.valueField),
                             },
                             this,
                         );
@@ -297,7 +297,7 @@ export default {
                             {
                                 selectedIndex,
                                 selectedVM: itemVM,
-                                value: this.$at(itemVM, this.valueField),
+                                value: this.$at(itemVM.item, this.valueField),
                             },
                             this,
                         );
@@ -318,12 +318,7 @@ export default {
             if (!parentEl)
                 return;
             const selectedIndex = this.itemVMs.indexOf(focusedVM);
-            if (
-                parentEl.scrollTop
-                < focusedEl.offsetTop
-                + focusedEl.offsetHeight
-                - parentEl.clientHeight
-            ) {
+            if (parentEl.scrollTop < focusedEl.offsetTop + focusedEl.offsetHeight - parentEl.clientHeight) {
                 if (natural)
                     parentEl.scrollTop
                         = focusedEl.offsetTop - focusedEl.offsetHeight;
@@ -354,7 +349,7 @@ export default {
                 for (let i = 0; i < this.selectedVMs.length; i++) {
                     const oldVM = this.selectedVMs[i];
                     if (!this.itemVMs.includes(oldVM)) {
-                        const selectedVM = this.itemVMs.find((itemVM) => this.$at(itemVM, this.valueField) === this.$at(oldVM, this.valueField));
+                        const selectedVM = this.itemVMs.find((itemVM) => this.$at(oldVM.item, this.valueField) && this.$at(itemVM.item, this.valueField) === this.$at(oldVM.item, this.valueField));
                         if (selectedVM) {
                             this.selectedVMs[i] = selectedVM;
                             selectedVM.currentSelected = true;
@@ -363,7 +358,7 @@ export default {
                 }
             } else {
                 if (this.selectedVM && !this.itemVMs.includes(this.selectedVM)) {
-                    const selectedVM = this.itemVMs.find((itemVM) => this.$at(itemVM, this.valueField) === this.$at(this.selectedVM, this.valueField));
+                    const selectedVM = this.itemVMs.find((itemVM) => this.$at(this.selectedVM.item, this.valueField) && this.$at(itemVM.item, this.valueField) === this.$at(this.selectedVM.item, this.valueField));
                     if (selectedVM)
                         this.selectedVM = selectedVM;
                 }

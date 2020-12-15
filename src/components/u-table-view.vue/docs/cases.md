@@ -836,7 +836,7 @@ export default {
 </script>
 ```
 
-#### 在 grid-layout 中的布局问题
+#### u-grid-layout 和 u-tabs 中的布局问题
 
 ``` vue
 <template>
@@ -845,7 +845,7 @@ export default {
         <u-grid-layout>
             <u-grid-layout-row :repeat="2">
                 <u-grid-layout-column :span="1">
-                    <u-table-view striped :data="data" pageable :page-size="10">
+                    <u-table-view striped :data="data" pageable :page-size="5">
                         <u-table-view-column title="用户名" field="name" width="15%"></u-table-view-column>
                         <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
                         <u-table-view-column title="地址" field="address"></u-table-view-column>
@@ -853,7 +853,7 @@ export default {
                     </u-table-view>
                 </u-grid-layout-column>
                 <u-grid-layout-column :span="1">
-                    <u-table-view striped :data="data" pageable :page-size="10">
+                    <u-table-view striped :data="data" pageable :page-size="5">
                         <u-table-view-column title="用户名" field="name" width="15%"></u-table-view-column>
                         <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
                         <u-table-view-column title="地址" field="address"></u-table-view-column>
@@ -867,7 +867,7 @@ export default {
         <u-grid-layout>
             <u-grid-layout-row :repeat="2">
                 <u-grid-layout-column :span="1">
-                    <u-table-view striped :data="data" pageable :page-size="10">
+                    <u-table-view striped :data="data" pageable :page-size="5">
                         <u-table-view-column title="用户名" field="name" width="15%"></u-table-view-column>
                         <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
                         <u-table-view-column title="地址" field="address"></u-table-view-column>
@@ -875,7 +875,7 @@ export default {
                     </u-table-view>
                 </u-grid-layout-column>
                 <u-grid-layout-column :span="1">
-                    <u-table-view striped :data="data" pageable :page-size="10">
+                    <u-table-view striped :data="data" pageable :page-size="5">
                         <u-table-view-column title="用户名" field="name" width="15%"></u-table-view-column>
                         <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
                         <u-table-view-column title="地址" field="address"></u-table-view-column>
