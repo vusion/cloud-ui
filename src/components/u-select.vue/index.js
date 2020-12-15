@@ -238,6 +238,7 @@ export const USelect = {
                 if (this.preventBlur)
                     return this.preventBlur = false;
                 this.selectByText(this.filterText);
+                this.close();
             }, 200);
         },
         selectByText(text) {

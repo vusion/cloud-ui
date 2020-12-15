@@ -206,7 +206,7 @@ export const UListView = {
                         this.$emit('shift', {
                             selectedIndex,
                             selectedVM: itemVM,
-                            value: itemVM[this.valueField],
+                            value: itemVM.item && itemVM.item[this.valueField],
                         }, this);
                         this.ensureFocusedInView();
                         break;
@@ -222,7 +222,7 @@ export const UListView = {
                         this.$emit('shift', {
                             selectedIndex,
                             selectedVM: itemVM,
-                            value: itemVM[this.valueField],
+                            value: itemVM.item && itemVM.item[this.valueField],
                         }, this);
                         this.ensureFocusedInView();
                         break;
@@ -264,7 +264,7 @@ export const UListView = {
                 for (let i = 0; i < this.selectedVMs.length; i++) {
                     const oldVM = this.selectedVMs[i];
                     if (!this.itemVMs.includes(oldVM)) {
-                        const selectedVM = this.itemVMs.find((itemVM) => itemVM[this.valueField] === oldVM[this.valueField]);
+                        const selectedVM = this.itemVMs.find((itemVM) => oldVM.item && oldVM.item[this.valueField] && oldVM.item[this.valueField] === itemVM.item[this.valueField]);
                         if (selectedVM) {
                             this.selectedVMs[i] = selectedVM;
                             selectedVM.currentSelected = true;
@@ -273,7 +273,7 @@ export const UListView = {
                 }
             } else {
                 if (this.selectedVM && !this.itemVMs.includes(this.selectedVM)) {
-                    const selectedVM = this.itemVMs.find((itemVM) => itemVM[this.valueField] === this.selectedVM[this.valueField]);
+                    const selectedVM = this.itemVMs.find((itemVM) => this.selectedVM.item && this.selectedVM.item[this.valueField] && this.selectedVM.item[this.valueField] === itemVM.item[this.valueField]);
                     if (selectedVM)
                         this.selectedVM = selectedVM;
                 }

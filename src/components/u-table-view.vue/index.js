@@ -14,9 +14,9 @@ export const UTableView = {
         title: String,
         titleAlignment: { type: String, default: 'center' },
         border: { type: Boolean, default: false },
-        loading: { type: Boolean, default: false },
+        loading: Boolean,
         loadingText: { type: String, default() { return this.$t('loading'); } },
-        error: { type: Boolean, default: false },
+        error: Boolean,
         errorText: { type: String, default() { return this.$t('error'); } },
         emptyText: { type: String, default() { return this.$t('empty'); } },
 
@@ -58,8 +58,9 @@ export const UTableView = {
             bodyHeight: undefined,
             // currentData: this.data && Array.from(this.data),
             currentDataSource: undefined,
-            currentLoading: this.loading,
+            currentLoading: this.loading || false,
             currentError: this.error,
+            currentSorting: this.sorting,
             tableMetaList: [{
                 position: 'static',
             }],
@@ -73,7 +74,7 @@ export const UTableView = {
     },
     computed: {
         currentData() {
-            return this.currentDataSource ? this.currentDataSource.viewData : this.currentDataSource;
+            return this.currentDataSource ? this.currentDataSource.viewData.filter((item) => !!item) : this.currentDataSource;
         },
         visibleColumnVMs() {
             return this.columnVMs.filter((columnVM) => !columnVM.hidden);
@@ -89,9 +90,6 @@ export const UTableView = {
                 return paging;
             } else
                 return undefined;
-        },
-        currentSorting() {
-            return this.currentDataSource.sorting;
         },
         allChecked() {
             if (!this.currentData)
@@ -129,8 +127,13 @@ export const UTableView = {
         sorting: {
             deep: true,
             handler(sorting, oldSorting) {
-                this.sort(sorting);
+                if (sorting.field === oldSorting.field && sorting.order === oldSorting.order)
+                    return;
+                this.sort(sorting.field, sorting.order, sorting.compare);
             },
+        },
+        'currentDataSource.sorting'(sorting) {
+            this.currentSorting = sorting;
         },
         filtering: {
             deep: true,
@@ -236,7 +239,7 @@ export const UTableView = {
             return {
                 viewMode: this.pageable === 'load-more' || this.pageable === 'auto-more' ? 'more' : 'page',
                 paging: this.paging,
-                sorting: this.sorting,
+                sorting: this.currentSorting,
                 filtering: this.filtering,
                 remotePaging: this.remotePaging,
                 remoteSorting: this.remoteSorting,
@@ -492,12 +495,17 @@ export const UTableView = {
             if (this.$emitPrevent('before-load', undefined, this))
                 return;
 
-            this.currentLoading = true;
-            this.currentError = false;
+            const autoStatus = this.loading === undefined;
+            if (autoStatus) {
+                this.currentLoading = true;
+                this.currentError = false;
+            }    
             dataSource[more ? 'loadMore' : 'load']().then((data) => {
                 // 防止同步数据使页面抖动
                 // setTimeout(() => this.currentData = data);
-                this.currentLoading = false;
+                if (autoStatus) {
+                    this.currentLoading = false;
+                }
 
                 if (this.pageable === true || this.pageable === 'pagination') {
                     if (this.currentDataSource.paging && this.currentDataSource.paging.number > this.currentDataSource.totalPage)
@@ -509,8 +517,10 @@ export const UTableView = {
                 this.$emit('load', undefined, this);
                 return data;
             }).catch(() => {
-                this.currentLoading = false;
-                this.currentError = true;
+                if (autoStatus) {
+                    this.currentLoading = false;
+                    this.currentError = true;
+                }
             });
         },
         reload() {
