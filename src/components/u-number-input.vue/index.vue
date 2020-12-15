@@ -305,7 +305,7 @@ export default {
     cursor: var(--cursor-not-allowed);
 }
 
-.root[size="mini"] {
+.root[size="mini"] .button {
     right: -2px;
 }
 
