@@ -114,16 +114,16 @@ export default {
     position: absolute;
     left: 100%;
     top: 0;
-    z-index: var(--form-message-z-index);
+    z-index: var(--validator-message-z-index);
     display: none;
-    line-height: var(--form-message-line-height);
+    line-height: var(--validator-message-line-height);
     font-size: 12px;
-    margin-left: var(--form-message-margin-left);
-    margin-top: var(--form-message-margin-top);
-    padding: var(--form-message-padding);
-    background: var(--form-message-background);
-    border-radius: var(--form-message-border-radius);
-    box-shadow: var(--form-message-box-shadow);
+    margin-left: var(--validator-message-margin-left);
+    margin-top: var(--validator-message-margin-top);
+    padding: var(--validator-message-padding);
+    background: var(--validator-message-background);
+    border-radius: var(--validator-message-border-radius);
+    box-shadow: var(--validator-message-box-shadow);
 }
 
 .message[color="focus"] {
@@ -155,12 +155,12 @@ export default {
     top: 50%;
     transform: translateY(-50%);
     white-space: nowrap;
-    background: var(--form-message-background-error);
-    color: var(--form-message-color-error);
-    white-space: var(--form-message-white-space-error);
-    border-radius: var(--form-message-border-radius-error);
-    box-shadow: var(--form-message-box-shadow-error);
-    min-width: var(--form-message-min-width-error);
+    background: var(--validator-message-background-error);
+    color: var(--validator-message-color-error);
+    white-space: var(--validator-message-white-space);
+    border-radius: var(--validator-message-border-radius);
+    box-shadow: var(--validator-message-box-shadow);
+    min-width: var(--validator-message-min-width);
 }
 
 .message[color="error"]::before {
@@ -180,7 +180,7 @@ export default {
     width: 0;
     height: 0;
     border-top: 4px solid transparent;
-    border-right: 4px solid var(--form-message-background-error);
+    border-right: 4px solid var(--validator-message-background-error);
     border-bottom: 4px solid transparent;
 }
 
@@ -188,7 +188,7 @@ export default {
     position: absolute;
     top: 100%;
     left: 0;
-    margin-left: var(--form-message-bottom-margin-left);
+    margin-left: var(--validator-message-margin-left-bottom);
     transform: translateY(0);
 }
 

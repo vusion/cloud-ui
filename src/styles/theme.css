@@ -593,22 +593,7 @@
     --form-required-right: 12px;
     --form-required-right-small: 2px;
     --form-required-right-large: 12px;
-    --form-message-margin-left: 10px;
-    --form-message-padding: 0 10px;
-    --form-message-background: var(--background-color-base);
-    --form-message-background-error: var(--brand-error-light);
-    --form-message-color-error: white;
-    --form-message-line-height: 26px;
-    --form-message-margin-top: 0;
-    --form-message-z-index: 1;
-    --form-message-border-radius: 0;
-    --form-message-box-shadow: none;
-    --form-message-white-space-error: nowrap;
-    --form-message-border-radius-error: 0;
-    --form-message-box-shadow-error: none;
-    --form-message-bottom-margin-left: 0;
-    --form-message-min-width-error: auto;
-
+ 
     /* Field */
     --field-background: white;
     --field-color: var(--color-light);
@@ -617,21 +602,19 @@
     --field-border-color: #cbd5dd;
 
     /* Validator */
-    --validator-message-padding: var(--form-message-padding);
-    --validator-message-margin-left: var(--form-message-margin-left);
-    --validator-message-margin-top: var(--form-message-margin-top);
-    --validator-message-background: var(--form-message-background);
-    --validator-message-background-error: var(--form-message-background-error);
-    --validator-message-color-error: var(--form-message-color-error);
-    --validator-message-line-height: var(--form-message-line-height);
-    --validator-message-border-radius: var(--form-message-border-radius);
-    --validator-message-box-shadow: var(--form-message-box-shadow);
-    --validator-message-z-index: var(--form-message-z-index);
-    --validator-message-white-space-error: var(--form-message-white-space-error);
-    --validator-message-border-radius-error: var(--form-message-border-radius-error);
-    --validator-message-box-shadow-error: var(--form-message-box-shadow-error);
-    --validator-message-bottom-margin-left: var(--form-message-bottom-margin-left);
-    --validator-message-min-width-error: var(--form-message-min-width-error);
+    --validator-message-margin-left: 10px;
+    --validator-message-margin-left-bottom: 0;
+    --validator-message-margin-top: 0;
+    --validator-message-padding: 0 10px;
+    --validator-message-min-width: auto;
+    --validator-message-background: var(--background-color-base);
+    --validator-message-background-error: var(--brand-error-light);
+    --validator-message-color-error: white;
+    --validator-message-line-height: 26px;
+    --validator-message-z-index: 1;
+    --validator-message-border-radius: 0;
+    --validator-message-box-shadow: none;
+    --validator-message-white-space: nowrap;
 
     /* Input */
     --input-width: var(--width-base);

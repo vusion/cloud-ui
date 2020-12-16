@@ -47,12 +47,12 @@
     display: block;
     top: 50%;
     transform: translateY(-50%);
-    white-space: var(--validator-message-white-space-error);
+    white-space: var(--validator-message-white-space);
     background: var(--validator-message-background-error);
     color: var(--validator-message-color-error);
-    border-radius: var(--validator-message-border-radius-error);
-    box-shadow: var(--validator-message-box-shadow-error);
-    min-width: var(--validator-message-min-width-error);
+    border-radius: var(--validator-message-border-radius);
+    box-shadow: var(--validator-message-box-shadow);
+    min-width: var(--validator-message-min-width);
 }
 
 .message[color="error"]::before {
@@ -80,7 +80,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    margin-left: var(--validator-message-bottom-margin-left);
+    margin-left: var(--validator-message-margin-left-bottom);
     transform: translateY(0);
 }
 
