@@ -15,7 +15,6 @@
     "build": "vue-cli-service library-build --apply-theme --theme default,dark,seagreen",
     "build:theme": "vue-cli-service library-build --dest dist-theme",
     "build:raw": "vue-cli-service library-build --vusion-mode raw --dest dist-raw",
-    "build:designer": "cross-env VUE_APP_DESIGNER=true vue-cli-service library-build --vusion-mode raw --dest dist-designer",
     "build:docs": "vue-cli-service doc-build",
     "build:doc-entry": "cross-env VUE_CLI_SERVICE_CONFIG_PATH=$PWD/vue.config.doc-entry.js vue-cli-service build --output-path dist-doc-entry",
     "screenshot": "node bin/screenshot",
@@ -26,7 +25,7 @@
     "deploy:lcap": "vusion deploy --framework cloud-ui dist-raw",
     "deploy:screenshots": "node bin/deploy-screenshots",
     "deploy:doc-entry": "vusion deploy --framework cloud-ui -v minor dist-doc-entry",
-    "prepublishOnly": "npm run build && npm run build:theme && npm run build:raw && npm run build:designer && vusion readme && vusion vetur && git add .",
+    "prepublishOnly": "npm run build && npm run build:theme && npm run build:raw && vusion readme && vusion vetur && git add .",
     "postpublish": "npm run build:docs && npm run deploy"
   },
   "repository": "vusion/cloud-ui",
