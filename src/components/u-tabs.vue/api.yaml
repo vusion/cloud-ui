@@ -188,6 +188,7 @@
           description: 发送事件实例
 - name: u-tab
   title: 标签页
+  control: button
   attrs:
     - name: title
       title: 标题

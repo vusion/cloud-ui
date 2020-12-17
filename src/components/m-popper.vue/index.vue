@@ -342,6 +342,8 @@ export default {
                 return; // Prevent replication
             if (!this.currentOpened)
                 return; // Emit a `before-` event with preventDefault()
+            if (this.$env.VUE_APP_DESIGNER)
+                return;
             if (this.$emitPrevent('before-close', undefined, this))
                 return; // Assign and sync `opened`
             this.currentOpened = false;

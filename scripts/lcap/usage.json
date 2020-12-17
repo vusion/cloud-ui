@@ -473,6 +473,8 @@
             ],
             "children": [
                 {
+                    "name": "u-grid-layout-row",
+                    "title": "栅格行",
                     "attrs": [
                         {
                             "name": "repeat",
@@ -570,11 +572,11 @@
                                 }
                             ]
                         }
-                    ],
-                    "name": "u-grid-layout-row",
-                    "title": "栅格行"
+                    ]
                 },
                 {
+                    "name": "u-grid-layout-column",
+                    "title": "栅格列",
                     "attrs": [
                         {
                             "name": "span",
@@ -667,9 +669,7 @@
                                 }
                             ]
                         }
-                    ],
-                    "name": "u-grid-layout-column",
-                    "title": "栅格列"
+                    ]
                 }
             ]
         }
@@ -976,6 +976,8 @@
             ],
             "children": [
                 {
+                    "name": "u-navbar-item",
+                    "title": "导航栏项",
                     "attrs": [
                         {
                             "name": "value",
@@ -998,7 +1000,27 @@
                             "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
                         },
                         {
-                            "name": "href",
+                            "name": "linkType",
+                            "title": "链接类型",
+                            "type": "string",
+                            "options": [
+                                {
+                                    "value": "destination",
+                                    "title": "页面跳转"
+                                },
+                                {
+                                    "value": "href",
+                                    "title": "普通链接"
+                                },
+                                {
+                                    "value": "download",
+                                    "title": "下载链接"
+                                }
+                            ],
+                            "description": "链接类型"
+                        },
+                        {
+                            "name": "hrefAndTo",
                             "title": "链接",
                             "type": "string",
                             "description": "链接地址"
@@ -1028,13 +1050,6 @@
                                 }
                             ],
                             "description": "链接跳转方式"
-                        },
-                        {
-                            "name": "to",
-                            "title": "路由链接",
-                            "type": "string, Location",
-                            "advanced": true,
-                            "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
                         },
                         {
                             "name": "replace",
@@ -1177,15 +1192,15 @@
                                 }
                             ]
                         }
-                    ],
-                    "name": "u-navbar-item",
-                    "title": "导航栏项"
+                    ]
                 },
                 {
                     "name": "u-navbar-divider",
                     "title": "导航栏分割线"
                 },
                 {
+                    "name": "u-navbar-dropdown",
+                    "title": "导航栏下拉菜单",
                     "attrs": [
                         {
                             "name": "trigger",
@@ -1280,9 +1295,7 @@
                             "default": false,
                             "description": "是否禁用"
                         }
-                    ],
-                    "name": "u-navbar-dropdown",
-                    "title": "导航栏下拉菜单"
+                    ]
                 },
                 {
                     "name": "u-navbar-menu、u-navbar-menu-group、u-navbar-menu-item、u-navbar-menu-divider"
@@ -1605,6 +1618,8 @@
             ],
             "children": [
                 {
+                    "name": "u-sidebar-item",
+                    "title": "侧边栏项",
                     "attrs": [
                         {
                             "name": "value",
@@ -1628,7 +1643,27 @@
                             "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
                         },
                         {
-                            "name": "href",
+                            "name": "linkType",
+                            "title": "链接类型",
+                            "type": "string",
+                            "options": [
+                                {
+                                    "value": "destination",
+                                    "title": "页面跳转"
+                                },
+                                {
+                                    "value": "href",
+                                    "title": "普通链接"
+                                },
+                                {
+                                    "value": "download",
+                                    "title": "下载链接"
+                                }
+                            ],
+                            "description": "链接类型"
+                        },
+                        {
+                            "name": "hrefAndTo",
                             "title": "链接",
                             "type": "string",
                             "description": "链接地址"
@@ -1658,13 +1693,6 @@
                                 }
                             ],
                             "description": "链接跳转方式"
-                        },
-                        {
-                            "name": "to",
-                            "title": "路由链接",
-                            "type": "string, Location",
-                            "advanced": true,
-                            "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
                         },
                         {
                             "name": "replace",
@@ -1807,11 +1835,11 @@
                                 }
                             ]
                         }
-                    ],
-                    "name": "u-sidebar-item",
-                    "title": "侧边栏项"
+                    ]
                 },
                 {
+                    "name": "u-sidebar-group",
+                    "title": "侧边栏分组",
                     "attrs": [
                         {
                             "name": "title",
@@ -1936,9 +1964,7 @@
                                 }
                             ]
                         }
-                    ],
-                    "name": "u-sidebar-group",
-                    "title": "侧边栏分组"
+                    ]
                 },
                 {
                     "name": "u-sidebar-divider",
@@ -2027,6 +2053,8 @@
             ],
             "children": [
                 {
+                    "name": "u-crumb-item",
+                    "title": "面包屑选项",
                     "attrs": [
                         {
                             "name": "type",
@@ -2046,7 +2074,27 @@
                             "description": "类型"
                         },
                         {
-                            "name": "href",
+                            "name": "linkType",
+                            "title": "链接类型",
+                            "type": "string",
+                            "options": [
+                                {
+                                    "value": "destination",
+                                    "title": "页面跳转"
+                                },
+                                {
+                                    "value": "href",
+                                    "title": "普通链接"
+                                },
+                                {
+                                    "value": "download",
+                                    "title": "下载链接"
+                                }
+                            ],
+                            "description": "链接类型"
+                        },
+                        {
+                            "name": "hrefAndTo",
                             "title": "链接",
                             "type": "string",
                             "description": "链接地址"
@@ -2076,13 +2124,6 @@
                                 }
                             ],
                             "description": "链接打开方式"
-                        },
-                        {
-                            "name": "to",
-                            "title": "路由链接",
-                            "type": "string, Location",
-                            "advanced": true,
-                            "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
                         },
                         {
                             "name": "replace",
@@ -2216,9 +2257,7 @@
                                 }
                             ]
                         }
-                    ],
-                    "name": "u-crumb-item",
-                    "title": "面包屑选项"
+                    ]
                 }
             ]
         }
@@ -2276,6 +2315,7 @@
             ],
             "children": [
                 {
+                    "name": "u-panel-group",
                     "attrs": [
                         {
                             "name": "title",
@@ -2283,8 +2323,7 @@
                             "type": "string",
                             "description": "面板项的标题"
                         }
-                    ],
-                    "name": "u-panel-group"
+                    ]
                 }
             ]
         }
@@ -2432,6 +2471,7 @@
             ],
             "children": [
                 {
+                    "name": "u-collapse-item",
                     "attrs": [
                         {
                             "name": "title",
@@ -2530,8 +2570,7 @@
                                 }
                             ]
                         }
-                    ],
-                    "name": "u-collapse-item"
+                    ]
                 }
             ]
         }
@@ -2823,8 +2862,8 @@
                     "type": "string",
                     "options": [
                         {
-                            "value": "to",
-                            "title": "路由链接"
+                            "value": "destination",
+                            "title": "页面跳转"
                         },
                         {
                             "value": "href",
@@ -3212,8 +3251,8 @@
                     "type": "string",
                     "options": [
                         {
-                            "value": "to",
-                            "title": "路由链接"
+                            "value": "destination",
+                            "title": "页面跳转"
                         },
                         {
                             "value": "href",
@@ -3867,6 +3906,8 @@
             ],
             "children": [
                 {
+                    "name": "u-carousel-item",
+                    "title": "幻灯片选项",
                     "attrs": [
                         {
                             "name": "title",
@@ -3893,9 +3934,7 @@
                             "description": "自定义标题文本。",
                             "advanced": true
                         }
-                    ],
-                    "name": "u-carousel-item",
-                    "title": "幻灯片选项"
+                    ]
                 }
             ]
         }
@@ -3987,6 +4026,8 @@
             ],
             "children": [
                 {
+                    "name": "u-info-list-item",
+                    "title": "详情列表项",
                     "attrs": [
                         {
                             "name": "label",
@@ -4043,11 +4084,11 @@
                             "title": "自定义标签内容",
                             "description": "用于自定义 label 内容。"
                         }
-                    ],
-                    "name": "u-info-list-item",
-                    "title": "详情列表项"
+                    ]
                 },
                 {
+                    "name": "u-info-list-group",
+                    "title": "详情列表组",
                     "attrs": [
                         {
                             "name": "title",
@@ -4111,9 +4152,7 @@
                             "title": "自定义额外操作项",
                             "description": "自定义额外操作项。"
                         }
-                    ],
-                    "name": "u-info-list-group",
-                    "title": "详情列表组"
+                    ]
                 }
             ]
         }
@@ -5146,6 +5185,8 @@
             ],
             "children": [
                 {
+                    "name": "u-table-view-column",
+                    "title": "表格列",
                     "attrs": [
                         {
                             "name": "title",
@@ -5368,9 +5409,7 @@
                             "description": "监听所有事件。",
                             "params": []
                         }
-                    ],
-                    "name": "u-table-view-column",
-                    "title": "表格列"
+                    ]
                 }
             ]
         }
@@ -5635,6 +5674,7 @@
             ],
             "children": [
                 {
+                    "name": "u-form-table-view-column",
                     "attrs": [
                         {
                             "name": "title",
@@ -5816,8 +5856,7 @@
                                 }
                             ]
                         }
-                    ],
-                    "name": "u-form-table-view-column"
+                    ]
                 }
             ]
         }
@@ -5934,6 +5973,7 @@
             ],
             "children": [
                 {
+                    "name": "u-action",
                     "attrs": [
                         {
                             "name": "hidden",
@@ -5962,8 +6002,7 @@
                                 }
                             ]
                         }
-                    ],
-                    "name": "u-action"
+                    ]
                 }
             ]
         }
@@ -6253,6 +6292,8 @@
             ],
             "children": [
                 {
+                    "name": "u-form-item",
+                    "title": "表单项",
                     "attrs": [
                         {
                             "name": "label",
@@ -6475,11 +6516,11 @@
                                 }
                             ]
                         }
-                    ],
-                    "name": "u-form-item",
-                    "title": "表单项"
+                    ]
                 },
                 {
+                    "name": "u-form-group",
+                    "title": "表单分组",
                     "attrs": [
                         {
                             "name": "title",
@@ -6599,9 +6640,7 @@
                                 }
                             ]
                         }
-                    ],
-                    "name": "u-form-group",
-                    "title": "表单分组"
+                    ]
                 }
             ]
         }
@@ -7945,6 +7984,8 @@
             ],
             "children": [
                 {
+                    "name": "u-radio",
+                    "title": "单选项",
                     "attrs": [
                         {
                             "name": "label",
@@ -8016,9 +8057,7 @@
                                 }
                             ]
                         }
-                    ],
-                    "name": "u-radio",
-                    "title": "单选项"
+                    ]
                 }
             ]
         }
@@ -8332,6 +8371,8 @@
             ],
             "children": [
                 {
+                    "name": "u-checkbox",
+                    "title": "多选项",
                     "attrs": [
                         {
                             "name": "value",
@@ -8497,9 +8538,7 @@
                                 }
                             ]
                         }
-                    ],
-                    "name": "u-checkbox",
-                    "title": "多选项"
+                    ]
                 }
             ]
         }
@@ -8908,6 +8947,8 @@
             ],
             "children": [
                 {
+                    "name": "u-capsule",
+                    "title": "子选项",
                     "attrs": [
                         {
                             "name": "value",
@@ -9033,11 +9074,11 @@
                                 }
                             ]
                         }
-                    ],
-                    "name": "u-capsule",
-                    "title": "子选项"
+                    ]
                 },
                 {
+                    "name": "u-capsule-group",
+                    "title": "子选项组",
                     "slots": [
                         {
                             "name": "default",
@@ -9050,9 +9091,7 @@
                                 }
                             ]
                         }
-                    ],
-                    "name": "u-capsule-group",
-                    "title": "子选项组"
+                    ]
                 }
             ]
         }
@@ -9708,6 +9747,7 @@
             ],
             "children": [
                 {
+                    "name": "u-select-item",
                     "attrs": [
                         {
                             "name": "value",
@@ -9778,10 +9818,10 @@
                                 }
                             ]
                         }
-                    ],
-                    "name": "u-select-item"
+                    ]
                 },
                 {
+                    "name": "u-select-group",
                     "attrs": [
                         {
                             "name": "title",
@@ -9815,8 +9855,7 @@
                             "description": "在右侧可以附加内容。",
                             "advanced": true
                         }
-                    ],
-                    "name": "u-select-group"
+                    ]
                 },
                 {
                     "name": "u-select-divider",
@@ -10584,7 +10623,7 @@
             "Selector"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.21/src/components/u-tabs.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.21/src/components/u-tabs.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.21/src/components/u-tabs.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.21/src/components/u-tabs.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.21/src/components/u-tabs.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.21/src/components/u-tabs.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.21/src/components/u-tabs.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.21/src/components/u-tabs.vue/screenshots/7.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.21/src/components/u-tabs.vue/screenshots/8.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs value=\\\"B\\\">\\n    <u-tab title=\\\"模板\\\" value=\\\"A\\\">模板内容</u-tab>\\n    <u-tab title=\\\"样式\\\" value=\\\"B\\\">样式内容</u-tab>\\n    <u-tab title=\\\"逻辑\\\" value=\\\"C\\\">逻辑内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-方形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"square\\\">\\n    <u-tab title=\\\"模板\\\">模板内容</u-tab>\\n    <u-tab title=\\\"样式\\\">样式内容</u-tab>\\n    <u-tab title=\\\"逻辑\\\">逻辑内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-方形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"round\\\" size=\\\"small\\\">\\n    <u-tab title=\\\"模板\\\">模板内容</u-tab>\\n    <u-tab title=\\\"样式\\\">样式内容</u-tab>\\n    <u-tab title=\\\"逻辑\\\">逻辑内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-方形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"line\\\">\\n    <u-tab title=\\\"模板\\\">模板内容</u-tab>\\n    <u-tab title=\\\"样式\\\">样式内容</u-tab>\\n    <u-tab title=\\\"逻辑\\\">逻辑内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-方形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"capsule\\\">\\n    <u-tab title=\\\"模板\\\">模板内容</u-tab>\\n    <u-tab title=\\\"样式\\\">样式内容</u-tab>\\n    <u-tab title=\\\"逻辑\\\">逻辑内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-方形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"text\\\" size=\\\"mini\\\">\\n    <u-tab title=\\\"模板\\\">模板内容</u-tab>\\n    <u-tab title=\\\"样式\\\">样式内容</u-tab>\\n    <u-tab title=\\\"逻辑\\\">逻辑内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"禁用状态\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs disabled>\\n    <u-tab title=\\\"模板\\\">模板内容</u-tab>\\n    <u-tab title=\\\"样式\\\">样式内容</u-tab>\\n    <u-tab title=\\\"逻辑\\\">逻辑内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"可关闭\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs closable item-width=\\\"90px\\\" item-align=\\\"left\\\">\\n    <u-tab title=\\\"模板\\\">模板内容</u-tab>\\n    <u-tab title=\\\"样式\\\">样式内容</u-tab>\\n    <u-tab title=\\\"逻辑\\\">逻辑内容</u-tab>\\n    <u-tab title=\\\"文档\\\">文档内容</u-tab>\\n    <u-tab title=\\\"资源\\\">资源内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"插槽扩展\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs value=\\\"1\\\">\\n    <u-tab value=\\\"0\\\">\\n        <template #title>\\n            <span >模板 <u-label>1</u-label></span>\\n        </template>\\n        模板内容\\n    </u-tab>\\n    <u-tab value=\\\"1\\\">\\n        <template #title>\\n            <span >样式 <u-label>6</u-label></span>\\n        </template>\\n        样式内容\\n    </u-tab>\\n    <u-tab value=\\\"2\\\">\\n        <template #title>\\n            <span >逻辑 <u-label>3</u-label></span>\\n        </template>\\n        逻辑内容\\n    </u-tab>\\n    <template #extra>\\n        <u-checkbox >全选</u-checkbox>\\n    </template>\\n</u-tabs>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs value=\\\"B\\\">\\n    <u-tab title=\\\"选项卡A\\\" value=\\\"A\\\">选项卡 A 的内容</u-tab>\\n    <u-tab title=\\\"选项卡B\\\" value=\\\"B\\\">选项卡 B 的内容</u-tab>\\n    <u-tab title=\\\"选项卡C\\\" value=\\\"C\\\">选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-方形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"square\\\">\\n    <u-tab title=\\\"选项卡A\\\">选项卡 A 的内容</u-tab>\\n    <u-tab title=\\\"选项卡B\\\">选项卡 B 的内容</u-tab>\\n    <u-tab title=\\\"选项卡C\\\">选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-方形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"round\\\" size=\\\"small\\\">\\n    <u-tab title=\\\"选项卡A\\\">选项卡 A 的内容</u-tab>\\n    <u-tab title=\\\"选项卡B\\\">选项卡 B 的内容</u-tab>\\n    <u-tab title=\\\"选项卡C\\\">选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-方形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"line\\\">\\n    <u-tab title=\\\"选项卡A\\\">选项卡 A 的内容</u-tab>\\n    <u-tab title=\\\"选项卡B\\\">选项卡 B 的内容</u-tab>\\n    <u-tab title=\\\"选项卡C\\\">选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-方形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"capsule\\\">\\n    <u-tab title=\\\"选项卡A\\\">选项卡 A 的内容</u-tab>\\n    <u-tab title=\\\"选项卡B\\\">选项卡 B 的内容</u-tab>\\n    <u-tab title=\\\"选项卡C\\\">选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-方形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"text\\\" size=\\\"mini\\\">\\n    <u-tab title=\\\"选项卡A\\\">选项卡 A 的内容</u-tab>\\n    <u-tab title=\\\"选项卡B\\\">选项卡 B 的内容</u-tab>\\n    <u-tab title=\\\"选项卡C\\\">选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-tabs",
             "title": "选项卡",
@@ -10595,47 +10634,32 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-tabs value=\"B\">\n    <u-tab title=\"模板\" value=\"A\">模板内容</u-tab>\n    <u-tab title=\"样式\" value=\"B\">样式内容</u-tab>\n    <u-tab title=\"逻辑\" value=\"C\">逻辑内容</u-tab>\n</u-tabs>\n</template>\n"
+                    "code": "<template>\n<u-tabs value=\"B\">\n    <u-tab title=\"选项卡A\" value=\"A\">选项卡 A 的内容</u-tab>\n    <u-tab title=\"选项卡B\" value=\"B\">选项卡 B 的内容</u-tab>\n    <u-tab title=\"选项卡C\" value=\"C\">选项卡 C 的内容</u-tab>\n</u-tabs>\n</template>\n"
                 },
                 {
                     "title": "外观-方形卡片（默认）",
                     "description": "",
-                    "code": "<template>\n<u-tabs appear=\"square\">\n    <u-tab title=\"模板\">模板内容</u-tab>\n    <u-tab title=\"样式\">样式内容</u-tab>\n    <u-tab title=\"逻辑\">逻辑内容</u-tab>\n</u-tabs>\n</template>\n"
+                    "code": "<template>\n<u-tabs appear=\"square\">\n    <u-tab title=\"选项卡A\">选项卡 A 的内容</u-tab>\n    <u-tab title=\"选项卡B\">选项卡 B 的内容</u-tab>\n    <u-tab title=\"选项卡C\">选项卡 C 的内容</u-tab>\n</u-tabs>\n</template>\n"
                 },
                 {
                     "title": "外观-方形卡片（默认）",
                     "description": "",
-                    "code": "<template>\n<u-tabs appear=\"round\" size=\"small\">\n    <u-tab title=\"模板\">模板内容</u-tab>\n    <u-tab title=\"样式\">样式内容</u-tab>\n    <u-tab title=\"逻辑\">逻辑内容</u-tab>\n</u-tabs>\n</template>\n"
+                    "code": "<template>\n<u-tabs appear=\"round\" size=\"small\">\n    <u-tab title=\"选项卡A\">选项卡 A 的内容</u-tab>\n    <u-tab title=\"选项卡B\">选项卡 B 的内容</u-tab>\n    <u-tab title=\"选项卡C\">选项卡 C 的内容</u-tab>\n</u-tabs>\n</template>\n"
                 },
                 {
                     "title": "外观-方形卡片（默认）",
                     "description": "",
-                    "code": "<template>\n<u-tabs appear=\"line\">\n    <u-tab title=\"模板\">模板内容</u-tab>\n    <u-tab title=\"样式\">样式内容</u-tab>\n    <u-tab title=\"逻辑\">逻辑内容</u-tab>\n</u-tabs>\n</template>\n"
+                    "code": "<template>\n<u-tabs appear=\"line\">\n    <u-tab title=\"选项卡A\">选项卡 A 的内容</u-tab>\n    <u-tab title=\"选项卡B\">选项卡 B 的内容</u-tab>\n    <u-tab title=\"选项卡C\">选项卡 C 的内容</u-tab>\n</u-tabs>\n</template>\n"
                 },
                 {
                     "title": "外观-方形卡片（默认）",
                     "description": "",
-                    "code": "<template>\n<u-tabs appear=\"capsule\">\n    <u-tab title=\"模板\">模板内容</u-tab>\n    <u-tab title=\"样式\">样式内容</u-tab>\n    <u-tab title=\"逻辑\">逻辑内容</u-tab>\n</u-tabs>\n</template>\n"
+                    "code": "<template>\n<u-tabs appear=\"capsule\">\n    <u-tab title=\"选项卡A\">选项卡 A 的内容</u-tab>\n    <u-tab title=\"选项卡B\">选项卡 B 的内容</u-tab>\n    <u-tab title=\"选项卡C\">选项卡 C 的内容</u-tab>\n</u-tabs>\n</template>\n"
                 },
                 {
                     "title": "外观-方形卡片（默认）",
                     "description": "",
-                    "code": "<template>\n<u-tabs appear=\"text\" size=\"mini\">\n    <u-tab title=\"模板\">模板内容</u-tab>\n    <u-tab title=\"样式\">样式内容</u-tab>\n    <u-tab title=\"逻辑\">逻辑内容</u-tab>\n</u-tabs>\n</template>\n"
-                },
-                {
-                    "title": "禁用状态",
-                    "description": "",
-                    "code": "<template>\n<u-tabs disabled>\n    <u-tab title=\"模板\">模板内容</u-tab>\n    <u-tab title=\"样式\">样式内容</u-tab>\n    <u-tab title=\"逻辑\">逻辑内容</u-tab>\n</u-tabs>\n</template>\n"
-                },
-                {
-                    "title": "可关闭",
-                    "description": "",
-                    "code": "<template>\n<u-tabs closable item-width=\"90px\" item-align=\"left\">\n    <u-tab title=\"模板\">模板内容</u-tab>\n    <u-tab title=\"样式\">样式内容</u-tab>\n    <u-tab title=\"逻辑\">逻辑内容</u-tab>\n    <u-tab title=\"文档\">文档内容</u-tab>\n    <u-tab title=\"资源\">资源内容</u-tab>\n</u-tabs>\n</template>\n"
-                },
-                {
-                    "title": "插槽扩展",
-                    "description": "",
-                    "code": "<template>\n<u-tabs value=\"1\">\n    <u-tab value=\"0\">\n        <template #title>\n            <span >模板 <u-label>1</u-label></span>\n        </template>\n        模板内容\n    </u-tab>\n    <u-tab value=\"1\">\n        <template #title>\n            <span >样式 <u-label>6</u-label></span>\n        </template>\n        样式内容\n    </u-tab>\n    <u-tab value=\"2\">\n        <template #title>\n            <span >逻辑 <u-label>3</u-label></span>\n        </template>\n        逻辑内容\n    </u-tab>\n    <template #extra>\n        <u-checkbox >全选</u-checkbox>\n    </template>\n</u-tabs>\n</template>\n"
+                    "code": "<template>\n<u-tabs appear=\"text\" size=\"mini\">\n    <u-tab title=\"选项卡A\">选项卡 A 的内容</u-tab>\n    <u-tab title=\"选项卡B\">选项卡 B 的内容</u-tab>\n    <u-tab title=\"选项卡C\">选项卡 C 的内容</u-tab>\n</u-tabs>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -10940,6 +10964,9 @@
             ],
             "children": [
                 {
+                    "name": "u-tab",
+                    "title": "标签页",
+                    "control": "button",
                     "attrs": [
                         {
                             "name": "title",
@@ -10961,7 +10988,27 @@
                             "description": "是否禁用此标签页。"
                         },
                         {
-                            "name": "href",
+                            "name": "linkType",
+                            "title": "链接类型",
+                            "type": "string",
+                            "options": [
+                                {
+                                    "value": "destination",
+                                    "title": "页面跳转"
+                                },
+                                {
+                                    "value": "href",
+                                    "title": "普通链接"
+                                },
+                                {
+                                    "value": "download",
+                                    "title": "下载链接"
+                                }
+                            ],
+                            "description": "链接类型"
+                        },
+                        {
+                            "name": "hrefAndTo",
                             "title": "链接",
                             "type": "string",
                             "description": "链接地址"
@@ -10991,13 +11038,6 @@
                                 }
                             ],
                             "description": "打开方式"
-                        },
-                        {
-                            "name": "to",
-                            "title": "路由链接",
-                            "type": "string, Location",
-                            "advanced": true,
-                            "description": "需要 router 为 true，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
                         },
                         {
                             "name": "replace",
@@ -11033,9 +11073,7 @@
                             "title": "标题",
                             "description": "自定义标题"
                         }
-                    ],
-                    "name": "u-tab",
-                    "title": "标签页"
+                    ]
                 }
             ]
         }
@@ -11207,6 +11245,7 @@
             ],
             "children": [
                 {
+                    "name": "u-selectable-step",
                     "attrs": [
                         {
                             "name": "title",
@@ -11231,8 +11270,7 @@
                             "name": "title",
                             "description": "自定义标题文本。"
                         }
-                    ],
-                    "name": "u-selectable-step"
+                    ]
                 }
             ]
         }
@@ -12397,6 +12435,7 @@
             ],
             "children": [
                 {
+                    "name": "u-tree-view-node",
                     "attrs": [
                         {
                             "name": "value",
@@ -12565,8 +12604,7 @@
                                 }
                             ]
                         }
-                    ],
-                    "name": "u-tree-view-node"
+                    ]
                 }
             ]
         }
@@ -13897,7 +13935,7 @@
             "Feedback"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.21/src/components/u-tooltip.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.21/src/components/u-tooltip.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.21/src/components/u-tooltip.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.21/src/components/u-tooltip.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.21/src/components/u-tooltip.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.21/src/components/u-tooltip.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.21/src/components/u-tooltip.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.21/src/components/u-tooltip.vue/screenshots/7.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.21/src/components/u-tooltip.vue/screenshots/8.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.21/src/components/u-tooltip.vue/screenshots/9.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"将需要弹出的内容用`<u-tooltip>`包裹起来，并插入到触发事件的元素中。\\n也可以直接使用指令的方式。\\n\",\"code\":\"<template>\\n <u-button>\\n    直接插入\\n    <u-tooltip>直接插入<u-link>文本</u-link>或<u-link>HTML</u-link></u-tooltip>\\n</u-button>\\n</template>\\n\"},{\"title\":\"触发方式-hover\",\"description\":\"使用`trigger`属性设置触发方式。\\n\",\"code\":\"<template>\\n<u-button>\\n    hover（默认）\\n    <u-tooltip trigger=\\\"hover\\\">Tooltip</u-tooltip>\\n</u-button>\\n</template>\\n\"},{\"title\":\"触发方式-click\",\"description\":\"使用`trigger`属性设置触发方式。\\n\",\"code\":\"<template>\\n<u-button>\\n    click\\n    <u-tooltip trigger=\\\"click\\\">Tooltip</u-tooltip>\\n</u-button>\\n\\n</template>\\n\"},{\"title\":\"触发方式-right-click\",\"description\":\"使用`trigger`属性设置触发方式。\\n\",\"code\":\"<template>\\n<u-button>\\n    right-click\\n    <u-tooltip trigger=\\\"right-click\\\">Tooltip</u-tooltip>\\n</u-button>\\n</template>\\n\"},{\"title\":\"触发方式-double-click\",\"description\":\"使用`trigger`属性设置触发方式。\\n\",\"code\":\"<template>\\n<u-button>\\n    double-click\\n    <u-tooltip trigger=\\\"double-click\\\">Tooltip</u-tooltip>\\n</u-button>\\n</template>\\n\"},{\"title\":\"触发方式-double-click\",\"description\":\"也可以手动触发工具提示的弹出/关闭：\\n\",\"code\":\"<template>\\n<u-button @click=\\\"$refs.tooltip.currentOpened=!$refs.tooltip.currentOpened\\\">\\n    <u-tooltip trigger=\\\"manual\\\" ref=\\\"tooltip\\\">Tooltip</u-tooltip>\\n    手动\\n</u-button>\\n</template>\\n\"},{\"title\":\"弹出方位\",\"description\":\"使用`placement`属性控制弹出方位。\\n\",\"code\":\"<template>\\n<u-button>\\n    上左\\n    <u-tooltip placement=\\\"top-start\\\">Tooltip</u-tooltip>\\n</u-button>\\n</template>\\n\"},{\"title\":\"弹出方位\",\"description\":\"开启`follow-cursor`属性可以让弹出层跟随鼠标。也可以传一个数字或对象调整位置偏移。\\n\",\"code\":\"<template>\\n<u-button>\\n    上左\\n    <u-tooltip placement=\\\"top-start\\\" follow-cursor>Tooltip</u-tooltip>\\n</u-button>\\n</template>\\n\"},{\"title\":\"弹出方位\",\"description\":\"使用`hover-delay`属性和`hide-delay`属性控制显隐的延时。\\n\",\"code\":\"<template>\\n<u-button>Hover Delay\\n        <u-tooltip trigger=\\\"hover\\\" :hide-delay=\\\"300\\\">Tooltip</u-tooltip>\\n</u-button>\\n</template>\\n\"},{\"title\":\"禁用状态\",\"description\":\"给工具提示添加`disabled`属性可以禁止弹出效果，但需要手动设置外层元素的状态。\\n\",\"code\":\"<template>\\n<u-button disabled>\\n    disabled\\n    <u-tooltip content=\\\"Tooltip\\\" disabled>disabled</u-tooltip>\\n</u-button>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-tooltip>直接插入文本</u-tooltip>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-tooltip",
             "title": "工具提示",
@@ -13906,53 +13944,8 @@
             "blocks": [
                 {
                     "title": "基本用法",
-                    "description": "将需要弹出的内容用`<u-tooltip>`包裹起来，并插入到触发事件的元素中。\n也可以直接使用指令的方式。\n",
-                    "code": "<template>\n <u-button>\n    直接插入\n    <u-tooltip>直接插入<u-link>文本</u-link>或<u-link>HTML</u-link></u-tooltip>\n</u-button>\n</template>\n"
-                },
-                {
-                    "title": "触发方式-hover",
-                    "description": "使用`trigger`属性设置触发方式。\n",
-                    "code": "<template>\n<u-button>\n    hover（默认）\n    <u-tooltip trigger=\"hover\">Tooltip</u-tooltip>\n</u-button>\n</template>\n"
-                },
-                {
-                    "title": "触发方式-click",
-                    "description": "使用`trigger`属性设置触发方式。\n",
-                    "code": "<template>\n<u-button>\n    click\n    <u-tooltip trigger=\"click\">Tooltip</u-tooltip>\n</u-button>\n\n</template>\n"
-                },
-                {
-                    "title": "触发方式-right-click",
-                    "description": "使用`trigger`属性设置触发方式。\n",
-                    "code": "<template>\n<u-button>\n    right-click\n    <u-tooltip trigger=\"right-click\">Tooltip</u-tooltip>\n</u-button>\n</template>\n"
-                },
-                {
-                    "title": "触发方式-double-click",
-                    "description": "使用`trigger`属性设置触发方式。\n",
-                    "code": "<template>\n<u-button>\n    double-click\n    <u-tooltip trigger=\"double-click\">Tooltip</u-tooltip>\n</u-button>\n</template>\n"
-                },
-                {
-                    "title": "触发方式-double-click",
-                    "description": "也可以手动触发工具提示的弹出/关闭：\n",
-                    "code": "<template>\n<u-button @click=\"$refs.tooltip.currentOpened=!$refs.tooltip.currentOpened\">\n    <u-tooltip trigger=\"manual\" ref=\"tooltip\">Tooltip</u-tooltip>\n    手动\n</u-button>\n</template>\n"
-                },
-                {
-                    "title": "弹出方位",
-                    "description": "使用`placement`属性控制弹出方位。\n",
-                    "code": "<template>\n<u-button>\n    上左\n    <u-tooltip placement=\"top-start\">Tooltip</u-tooltip>\n</u-button>\n</template>\n"
-                },
-                {
-                    "title": "弹出方位",
-                    "description": "开启`follow-cursor`属性可以让弹出层跟随鼠标。也可以传一个数字或对象调整位置偏移。\n",
-                    "code": "<template>\n<u-button>\n    上左\n    <u-tooltip placement=\"top-start\" follow-cursor>Tooltip</u-tooltip>\n</u-button>\n</template>\n"
-                },
-                {
-                    "title": "弹出方位",
-                    "description": "使用`hover-delay`属性和`hide-delay`属性控制显隐的延时。\n",
-                    "code": "<template>\n<u-button>Hover Delay\n        <u-tooltip trigger=\"hover\" :hide-delay=\"300\">Tooltip</u-tooltip>\n</u-button>\n</template>\n"
-                },
-                {
-                    "title": "禁用状态",
-                    "description": "给工具提示添加`disabled`属性可以禁止弹出效果，但需要手动设置外层元素的状态。\n",
-                    "code": "<template>\n<u-button disabled>\n    disabled\n    <u-tooltip content=\"Tooltip\" disabled>disabled</u-tooltip>\n</u-button>\n</template>\n"
+                    "description": "",
+                    "code": "<template>\n<u-tooltip>直接插入文本</u-tooltip>\n</template>\n"
                 }
             ],
             "attrs": [
