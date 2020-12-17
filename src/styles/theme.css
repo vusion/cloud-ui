@@ -603,17 +603,6 @@
     --form-message-background: var(--background-color-base);
     --form-message-background-error: var(--brand-error-light);
     --form-message-color-error: white;
-    --form-message-line-height: 26px;
-    --from-message-margin-top: 0;
-    --form-message-z-index: 1;
-    --form-message-border-radius: 0;
-    --form-box-shadow: none;
-    --form-box-shadow: none;
-    --form-message-white-space-error: nowrap;
-    --form-message-border-radius-error: 0;
-    --form-message-box-shadow-error: none;
-    --form-message-bottom-margin-left: 0;
-    --form-message-min-width-error: auto;
 
     /* Field */
     --field-background: white;
@@ -625,19 +614,9 @@
     /* Validator */
     --validator-message-padding: 0 10px;
     --validator-message-margin-left: 10px;
-    --validator-message-margin-top: 0;
     --validator-message-background: var(--background-color-base);
     --validator-message-background-error: var(--brand-error-light);
     --validator-message-color-error: white;
-    --validator-message-line-height: 26px;
-    --validator-message-border-radius: 0;
-    --validator-message-box-shadow: none;
-    --validator-message-z-index: 1;
-    --validator-message-white-space-error: nowrap;
-    --validator-message-border-radius-error: 0;
-    --validator-message-box-shadow-error: none;
-    --validator-message-bottom-margin-left: 0;
-    --validator-message-min-width-error: auto;
 
     /* Input */
     --input-width: var(--width-base);
