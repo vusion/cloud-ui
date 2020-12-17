@@ -88,8 +88,8 @@ export const UModal = {
         },
     },
     mounted() {
-        // if (this.$el && !this.static)
-        //     document.body.appendChild(this.$el);
+        if (this.$el && !this.static)
+            document.body.appendChild(this.$el);
     },
     destroyed() {
         if (this.$el && this.$el.parentNode === document.body)

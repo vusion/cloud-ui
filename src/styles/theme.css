@@ -598,12 +598,7 @@
     --form-required-right: 12px;
     --form-required-right-small: 2px;
     --form-required-right-large: 12px;
-    --form-message-margin-left: 10px;
-    --form-message-padding: 0 10px;
-    --form-message-background: var(--background-color-base);
-    --form-message-background-error: var(--brand-error-light);
-    --form-message-color-error: white;
-
+ 
     /* Field */
     --field-background: white;
     --field-color: var(--color-light);
@@ -612,11 +607,19 @@
     --field-border-color: #cbd5dd;
 
     /* Validator */
-    --validator-message-padding: 0 10px;
     --validator-message-margin-left: 10px;
+    --validator-message-margin-left-bottom: 0;
+    --validator-message-margin-top: 0;
+    --validator-message-padding: 0 10px;
+    --validator-message-min-width: auto;
     --validator-message-background: var(--background-color-base);
     --validator-message-background-error: var(--brand-error-light);
     --validator-message-color-error: white;
+    --validator-message-line-height: 26px;
+    --validator-message-z-index: 1;
+    --validator-message-border-radius: 0;
+    --validator-message-box-shadow: none;
+    --validator-message-white-space: nowrap;
 
     /* Input */
     --input-width: var(--width-base);
