@@ -497,9 +497,9 @@
   "u-crumb-item": {
     "attributes": [
       "type",
-      "href",
+      "linkType",
+      "hrefAndTo",
       "target",
-      "to",
       "replace",
       "append",
       "disabled"
@@ -934,9 +934,9 @@
       "value",
       "disabled",
       "item",
-      "href",
+      "linkType",
+      "hrefAndTo",
       "target",
-      "to",
       "replace",
       "exact"
     ]
@@ -985,9 +985,9 @@
       "value",
       "disabled",
       "item",
-      "href",
+      "linkType",
+      "hrefAndTo",
       "target",
-      "to",
       "replace",
       "exact"
     ]
@@ -1236,9 +1236,9 @@
       "value",
       "disabled",
       "item",
-      "href",
+      "linkType",
+      "hrefAndTo",
       "target",
-      "to",
       "replace",
       "exact"
     ]
@@ -1407,9 +1407,9 @@
       "title",
       "value",
       "disabled",
-      "href",
+      "linkType",
+      "hrefAndTo",
       "target",
-      "to",
       "replace",
       "append",
       "exact"
@@ -1483,9 +1483,9 @@
       "value",
       "disabled",
       "item",
-      "href",
+      "linkType",
+      "hrefAndTo",
       "target",
-      "to",
       "replace",
       "exact",
       "exact"
