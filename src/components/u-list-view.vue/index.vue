@@ -349,7 +349,7 @@ export default {
                 for (let i = 0; i < this.selectedVMs.length; i++) {
                     const oldVM = this.selectedVMs[i];
                     if (!this.itemVMs.includes(oldVM)) {
-                        const selectedVM = this.itemVMs.find((itemVM) => this.$at(oldVM.item, this.valueField) && this.$at(itemVM.item, this.valueField) === this.$at(oldVM.item, this.valueField));
+                        const selectedVM = this.itemVMs.find((itemVM) => this.$at(oldVM.item, this.valueField) && this.$at(oldVM.item, this.valueField) === this.$at(itemVM.item, this.valueField));
                         if (selectedVM) {
                             this.selectedVMs[i] = selectedVM;
                             selectedVM.currentSelected = true;
@@ -358,7 +358,7 @@ export default {
                 }
             } else {
                 if (this.selectedVM && !this.itemVMs.includes(this.selectedVM)) {
-                    const selectedVM = this.itemVMs.find((itemVM) => this.$at(this.selectedVM.item, this.valueField) && this.$at(itemVM.item, this.valueField) === this.$at(this.selectedVM.item, this.valueField));
+                    const selectedVM = this.itemVMs.find((itemVM) => this.$at(this.selectedVM.item, this.valueField) && this.$at(this.selectedVM.item, this.valueField) === this.$at(itemVM.item, this.valueField));
                     if (selectedVM)
                         this.selectedVM = selectedVM;
                 }
