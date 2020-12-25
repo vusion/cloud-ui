@@ -28,7 +28,7 @@
                     </u-validator>
                 </td>
                 <template slot="last-column" v-if="dynamic">
-                    <u-form-table-remove-button @click="remove(rowIndex)" :disabled="currentData.length <= minCount"></u-form-table-remove-button>
+                    <u-form-table-remove-button @click="remove(rowIndex)" :disabled="currentData.length <= minCount || item.disabled"></u-form-table-remove-button>
                 </template>
             </u-form-table-view-row>
         </tbody>
