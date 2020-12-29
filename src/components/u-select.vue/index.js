@@ -351,6 +351,7 @@ export const USelect = {
             this.focus();
         },
         focus() {
+            this.preventBlur = true;
             if (this.filterable)
                 this.$refs.input.focus();
         },
