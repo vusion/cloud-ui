@@ -739,7 +739,7 @@ export const UTableView = {
             }, this))
                 return;
 
-            item.expanded = expanded;
+            this.$set(item, 'expanded', expanded);
             this.$emit('toggle-expanded', {
                 item,
                 expanded,
