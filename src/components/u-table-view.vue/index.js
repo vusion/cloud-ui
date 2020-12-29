@@ -550,14 +550,19 @@ export const UTableView = {
             let order;
             let sorting = this.currentSorting;
             if (!sorting)
-                sorting = { field: undefined, order: columnVM.defaultOrder || this.defaultOrder };
-            if (sorting.field === columnVM.field)
-                order = sorting.order === 'asc' ? 'desc' : 'asc';
-            else
+                sorting = { field: undefined, order: undefined };
+            if (sorting.field === columnVM.field) {
+                if (sorting.order === (columnVM.defaultOrder || this.defaultOrder))
+                    order = sorting.order === 'asc' ? 'desc' : 'asc';
+                else if (sorting.order === undefined)
+                    order = columnVM.defaultOrder || this.defaultOrder;
+                else
+                    order = undefined;
+            } else
                 order = columnVM.defaultOrder || this.defaultOrder;
-            this.sort(columnVM.field, order, columnVM.sortCompare);
+            this.sort(order && columnVM.field, order, columnVM.sortCompare);
         },
-        sort(field, order = 'asc', compare) {
+        sort(field, order, compare) {
             const sorting = { field, order, compare };
             if (this.$emitPrevent('before-sort', sorting, this))
                 return;
