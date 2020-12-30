@@ -7,6 +7,7 @@ export const USidebar = {
     childName: 'u-sidebar-item',
     mixins: [MSinglex, MGroupParent],
     props: {
+        collapse: { type: Boolean, default: false },
         router: { type: Boolean, default: true },
         particular: { type: Boolean, default: false },
     },

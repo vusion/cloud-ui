@@ -420,6 +420,7 @@
     --sidebar-group-head-color: #9dabc2;
     --sidebar-group-head-color-hover: white;
     --sidebar-group-head-color-selected: #9dabc2;
+    --sidebar-group-popper-margin-left: 2px;
     --sidebar-divider-margin-y: 8px;
     --sidebar-divider-height: var(--border-width-base);
     --sidebar-divider-background: #3d4654;

@@ -64,4 +64,10 @@
     color: var(--sidebar-expander-color-disabled);
 }
 
+.popper {
+    margin-left: var(--sidebar-group-popper-margin-left);
+    width: var(--sidebar-width);
+    background: var(--sidebar-background);
+}
+
 .body {}
