@@ -22,7 +22,7 @@
     "ghpages": "vusion ghpages",
     "lcap": "npm run screenshot && npm run deploy:screenshots && node ./scripts/lcap && npm run deploy:lcap",
     "deploy": "vusion deploy --framework cloud-ui.vusion@0.11 -v minor",
-    "deploy:lcap": "vusion deploy --framework cloud-ui dist-raw",
+    "deploy:lcap": "vusion deploy --framework cloud-ui dist-theme",
     "deploy:screenshots": "node bin/deploy-screenshots",
     "deploy:doc-entry": "vusion deploy --framework cloud-ui -v minor dist-doc-entry",
     "prepublishOnly": "npm run build && npm run build:theme && npm run build:raw && vusion readme && vusion vetur && git add .",
