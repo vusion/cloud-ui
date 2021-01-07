@@ -1,14 +1,17 @@
 <template>
 <div :class="$style.root">
-    <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" @change="onChange">
-    <div v-if="draggable" :class="$style.draggable" :dragover="dragover" @click="select()"
-        @drop.prevent="onDrop"
-        @paste="onPaste"
-        @dragover.prevent="dragover = true"
-        @dragleave.prevent="dragover = false">
-        <div><slot>点击或者拖动文件到虚线框内上传</slot></div>
-    </div>
-    <div v-else-if="listType !== 'card'" :class="$style.select" @click="select()">
+    <template v-if="draggable">
+        <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @change="onChange">
+        <div :class="$style.draggable" :dragover="dragover" @click="select()"
+            @drop.prevent="onDrop"
+            @paste="onPaste"
+            @dragover.prevent="dragover = true"
+            @dragleave.prevent="dragover = false">
+            <div><slot>点击或者拖动文件到虚线框内上传</slot></div>
+        </div>
+    </template>
+    <div v-else-if="listType !== 'card'" :class="$style.select" @click="select(false)">
+        <input :class="[$style.file, $style.filewrap]" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @change="onChange">
         <slot></slot>
     </div>
     <div :class="$style.list" v-if="showFileList" :list-type="listType">
@@ -32,7 +35,9 @@
                     </div>
                 </div>
             </div>
-            <div v-if="(multiple || currentValue.length === 0) && !readonly" :class="$style.card" role="select" @click="select()"></div>
+            <div v-if="(multiple || currentValue.length === 0) && !readonly" :class="$style.card" role="select" @click="select(false)">
+                <input :class="[$style.file, $style.filewrap]" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @change="onChange">
+            </div>
         </template>
     </div>
     <u-lightbox :visible.sync="lightboxVisible" :value="currentIndex" animation="fade">
@@ -123,12 +128,13 @@ export default {
             else
                 return value;
         },
-        select() {
+        select(isClear = true) {
             if (this.readonly || this.disabled || this.sending)
                 return;
-
-            this.$refs.file.value = '';
-            this.$refs.file.click();
+            if (isClear) {
+                this.$refs.file.value = '';
+                this.$refs.file.click();
+            }
         },
         onChange(e) {
             const fileEl = e.target;
@@ -357,6 +363,7 @@ export default {
 
 .select {
     display: inline-block;
+    position: relative;
 }
 
 .iframe, .form {
@@ -376,6 +383,14 @@ export default {
     font-size: 100px;
     opacity: 0;
     cursor: var(--cursor-pointer);
+}
+.file[readonly], .file[disabled]{
+    font-size: 0;
+}
+
+.filewrap{
+    font-size: initial;
+    height: 100%;
 }
 
 .item {
