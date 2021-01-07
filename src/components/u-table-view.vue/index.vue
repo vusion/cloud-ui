@@ -161,7 +161,7 @@ export default {
         title: String,
         titleAlignment: { type: String, default: 'center' },
         border: { type: Boolean, default: false },
-        loading: Boolean,
+        loading: { type: Boolean, default: undefined },
         loadingText: {
             type: String,
             default() {
