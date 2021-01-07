@@ -44,7 +44,12 @@ export default {
                     '[cloud-ui] Use `<m-router-item>` but cannot find vue router.',
                 );
             const current = this.$route;
-            const to = this.to || this.destination;
+            let to = this.to;
+            if (this.destination) {
+                const destination = this.destination.split('/');
+                destination.splice(1, 1);
+                to = destination.join('/');
+            }
             const target = this.$router.resolve(to).route;
             const currentPath = decodeURIComponent(current.path.replace(trailingSlashRE, '/'));
             const targetPath = decodeURIComponent((target.redirectedFrom ? this.$router.resolve(target.redirectedFrom).location.path : target.path).replace(trailingSlashRE, '/')); // @TODO: 是否要检查 query 的包含关系
