@@ -1,17 +1,17 @@
 <template>
 <div :class="$style.root">
     <template v-if="draggable">
-        <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @change="onChange">
         <div :class="$style.draggable" :dragover="dragover" @click="select()"
             @drop.prevent="onDrop"
             @paste="onPaste"
             @dragover.prevent="dragover = true"
             @dragleave.prevent="dragover = false">
+            <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
             <div><slot>点击或者拖动文件到虚线框内上传</slot></div>
         </div>
     </template>
-    <div v-else-if="listType !== 'card'" :class="$style.select" @click="select(false)">
-        <input :class="[$style.file, $style.filewrap]" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @change="onChange">
+    <div v-else-if="listType !== 'card'" :class="$style.select" @click="select()">
+        <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
         <slot></slot>
     </div>
     <div :class="$style.list" v-if="showFileList" :list-type="listType">
@@ -19,7 +19,7 @@
             <div :class="$style.item" v-for="(item, index) in currentValue" :key="index">
                 <div :class="$style.thumb"><img :class="$style.img" v-if="listType === 'image'" :src="item.thumb || item.url"></div>
                 <a :class="$style.link" :href="item.url" target="_blank">{{ item.name }}</a>
-                <span :class="$style.remove" @click="remove(index)"></span>
+                <span v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></span>
                 <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
             </div>
         </template>
@@ -31,12 +31,12 @@
                     <div v-show="multiple || readonly" :class="$style.buttons">
                         <span :class="$style.button" role="preview" @click="onPreview(item, index)"></span>
                         <a :class="$style.button" :href="item.url" target="_blank" role="download"></a>
-                        <span v-if="!readonly" :class="$style.button" role="remove" @click="remove(index)"></span>
+                        <span v-if="!readonly && !disabled" :class="$style.button" role="remove" @click="remove(index)"></span>
                     </div>
                 </div>
             </div>
-            <div v-if="(multiple || currentValue.length === 0) && !readonly" :class="$style.card" role="select" @click="select(false)">
-                <input :class="[$style.file, $style.filewrap]" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @change="onChange">
+            <div v-if="(multiple || currentValue.length === 0) && !readonly" :class="$style.card" role="select" @click="select()">
+                <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
             </div>
         </template>
     </div>
@@ -128,13 +128,12 @@ export default {
             else
                 return value;
         },
-        select(isClear = true) {
+        select() {
             if (this.readonly || this.disabled || this.sending)
                 return;
-            if (isClear) {
-                this.$refs.file.value = '';
-                this.$refs.file.click();
-            }
+
+            this.$refs.file.value = '';
+            this.$refs.file.click();
         },
         onChange(e) {
             const fileEl = e.target;
@@ -364,33 +363,23 @@ export default {
 .select {
     display: inline-block;
     position: relative;
-}
-
-.iframe, .form {
-    display: none;
-}
-
-.form {
-    display: block\0;
+    overflow: hidden\0;
 }
 
 .file {
-    display: inline-block;
+    display: none;
     display: block\0;
     position: absolute;
     top: 0;
-    right: -5px;
-    font-size: 100px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     opacity: 0;
     cursor: var(--cursor-pointer);
 }
-.file[readonly], .file[disabled]{
-    font-size: 0;
-}
 
-.filewrap{
-    font-size: initial;
-    height: 100%;
+.file[readonly], .file[disabled] {
+    display: none;
 }
 
 .item {
@@ -409,6 +398,10 @@ export default {
 .img {
     max-width: 100%;
     max-height: 100%;
+}
+
+.list {
+    min-width: 400px;
 }
 
 .list[list-type="text"] .thumb::before {
@@ -591,6 +584,7 @@ export default {
 }
 
 .draggable {
+    overflow: hidden;
     cursor: var(--cursor-pointer);
     text-align: center;
     background: var(--uploader-draggable-background);
