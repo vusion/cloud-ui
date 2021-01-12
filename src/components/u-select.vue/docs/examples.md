@@ -423,6 +423,61 @@ export default {
 </script>
 ```
 
+值转换器：组件的 value 与 各选择器的 value 的转换器。
+converter值可以为`'join'``'json'`，表示将 values 数组 join 之后变成 value。`'join'`的分隔符可以是`','`,`'|'`等，默认是`','`。
+
+``` vue
+<template>
+<u-select multiple v-model="values" title="多选列表" :data-source="list" converter="join:|"></u-select>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            values: '',
+            list: [
+                { text: 'Java', value: 'java' },
+                { text: 'Node.js', value: 'nodejs' },
+                { text: 'Go', value: 'go' },
+                { text: 'Python', value: 'python' },
+                { text: 'Ruby', value: 'ruby', disabled: true },
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'PHP', value: 'php', disabled: true },
+            ],
+        };
+    },
+};
+</script>
+```
+
+``` vue
+<template>
+<u-select multiple v-model="values" title="多选列表" :data-source="list" converter="json"></u-select>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            values: '[]',
+            list: [
+                { text: 'Java', value: 'java' },
+                { text: 'Node.js', value: 'nodejs' },
+                { text: 'Go', value: 'go' },
+                { text: 'Python', value: 'python' },
+                { text: 'Ruby', value: 'ruby', disabled: true },
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'PHP', value: 'php', disabled: true },
+            ],
+        };
+    },
+};
+</script>
+```
+
 ### Tags 风格
 
 Tags 过多时如何显示。

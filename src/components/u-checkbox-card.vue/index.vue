@@ -25,13 +25,14 @@
 <script>
 // import i18n from '@/utils/i18n';
 import MField from '../m-field.vue';
+import MConverter from '../m-converter.vue';
 
 export default {
     name: 'u-checkbox-card',
-    mixins: [MField],
+    mixins: [MField, MConverter],
     props: {
         data: { type: Array, default: () => [] },
-        value: { type: Array, default: () => [] },
+        value: { type: [Array, String], default: () => [] },
         placeholder: { type: String, default: '暂无数据' },
         size: { type: String, default: 'normal' },
         column: Number,
@@ -68,9 +69,15 @@ export default {
     },
     watch: {
         value(value) {
+            if (this.converter)
+                value = this.currentConverter.set(value);
             this.checkedList = value;
         },
         checkedList(value, oldValue) {
+            if (this.converter) {
+                value = this.currentConverter.get(value);
+                oldValue = this.currentConverter.get(oldValue);
+            }
             this.$emit('update:value', value);
             this.$emit('change', { value, oldValue }, this);
             this.$emit('input', value, this);

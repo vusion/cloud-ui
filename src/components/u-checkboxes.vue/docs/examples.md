@@ -64,6 +64,30 @@ export default {
 </script>
 ```
 
+使用`converter`。
+``` vue
+<template>
+<div>
+    <u-checkboxes v-model="checkedList" converter="join">
+        <u-checkbox label="水杯">水杯</u-checkbox>
+        <u-checkbox label="坚果">坚果</u-checkbox>
+        <u-checkbox label="毛巾">毛巾</u-checkbox>
+        <u-checkbox label="沙发">沙发</u-checkbox>
+    </u-checkboxes>
+    {{ checkedList }}
+</div>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            checkedList: '毛巾,沙发',
+        };
+    },
+};
+</script>
+```
+
 ### 数量限制
 
 使用`min`和`max`属性可以限制选择项的数量。
