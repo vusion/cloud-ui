@@ -123,6 +123,7 @@
       default: false
       description: 禁用此项
     - name: autofocus
+      title: 自动获取焦点
       type: boolean
       default: false
       description: 自动获取焦点

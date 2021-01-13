@@ -6,7 +6,7 @@
     - Selector
   attrs:
     - name: time
-      title: 选择值
+      title: 值
       type: string
       model: true
       sync: true

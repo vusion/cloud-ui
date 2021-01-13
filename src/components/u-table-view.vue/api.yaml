@@ -84,12 +84,12 @@
           title: 倒序
       default: asc
       description: 所有列首次点击时的排序顺序。
-    - name: filtering
-      group: 数据属性
-      title: 筛选参数
-      sync: true
-      type: 'object'
-      description: 筛选参数。
+    # - name: filtering
+    #   group: 数据属性
+    #   title: 筛选参数
+    #   sync: true
+    #   type: 'object'
+    #   description: 筛选参数。
     - name: remote-paging
       group: 数据属性
       title: 后端分页
@@ -102,12 +102,12 @@
       type: boolean
       default: false
       description: 是否使用后端排序。
-    - name: remote-filtering
-      group: 数据属性
-      title: 后端筛选
-      type: boolean
-      default: false
-      description: 是否使用后端筛选
+    # - name: remote-filtering
+    #   group: 数据属性
+    #   title: 后端筛选
+    #   type: boolean
+    #   default: false
+    #   description: 是否使用后端筛选
     - name: title
       group: 样式属性
       title: 表格标题
@@ -156,11 +156,11 @@
       type: boolean
       default: true
       description: 是否显示表格头部。
-    - name: loading
-      group: 状态属性
-      title: 是否加载中
-      type: boolean
-      description: 手动设置是否正在加载中。
+    # - name: loading
+    #   group: 状态属性
+    #   title: 是否加载中
+    #   type: boolean
+    #   description: 手动设置是否正在加载中。
     - name: loading-text
       group: 状态属性
       title: 加载中文字
@@ -578,11 +578,11 @@
       type: boolean
       default: false
       description: 是否省略显示。默认文字超出时会换行。
-    - name: formatter
-      title: 格式器
-      type: string | object | Function | Formatter
-      default: placeholder
-      description: 格式器。
+    # - name: formatter
+    #   title: 格式器
+    #   type: string | object | Function | Formatter
+    #   default: placeholder
+    #   description: 格式器。
     - name: sortable
       title: 可排序
       type: boolean
@@ -598,10 +598,10 @@
           title: 倒序
       default: asc
       description: 该列首次点击时的排序顺序
-    - name: filters
-      title: 筛选项
-      type: "Array<{ text: string, value: any }>"
-      description: 筛选项的参数
+    # - name: filters
+    #   title: 筛选项
+    #   type: "Array<{ text: string, value: any }>"
+    #   description: 筛选项的参数
     - name: hidden
       title: 隐藏该列
       type: boolean

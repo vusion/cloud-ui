@@ -4,14 +4,14 @@
   labels: [Selector]
   description: 选项卡切换组件，常用于平级区域大块内容的收纳和展现。
   attrs:
-    - name: router
-      title: 绑定路由
-      type: boolean
-      default: false
-      description: 是否根据 vue-router 来控制选择哪个标签页。
-      advanced: true
+    # - name: router
+    #   title: 绑定路由
+    #   type: boolean
+    #   default: false
+    #   description: 是否根据 vue-router 来控制选择哪个标签页。
+    #   advanced: true
     - name: value
-      title: 选择值
+      title: 值
       model: true
       sync: true
       type: any
@@ -203,63 +203,63 @@
       type: boolean
       default: false
       description: 是否禁用此标签页。
-    - name: linkType
-      title: 链接类型
-      type: string
-      options: 
-        - value: destination
-          title: 页面跳转
-        - value: href
-          title: 普通链接
-        - value: download
-          title: 下载链接
-      description: 链接类型
+    # - name: linkType
+    #   title: 链接类型
+    #   type: string
+    #   options: 
+    #     - value: destination
+    #       title: 页面跳转
+    #     - value: href
+    #       title: 普通链接
+    #     - value: download
+    #       title: 下载链接
+    #   description: 链接类型
     # - name: href
     #   title: 链接
     #   type: string
     #   description: 链接地址
-    - name: hrefAndTo
-      title: 链接
-      type: string
-      description: 链接地址
-    - name: target
-      title: 打开方式
-      type: string
-      options:
-        - value: _blank
-          title: 新标签页
-        - value: _self
-          title: 当前窗口
-        - value: _parent
-          title: 父级窗口
-          advanced: true
-        - value: _top
-          title: 顶级窗口
-          advanced: true
-      description: 打开方式
+    # - name: hrefAndTo
+    #   title: 链接
+    #   type: string
+    #   description: 链接地址
+    # - name: target
+    #   title: 打开方式
+    #   type: string
+    #   options:
+    #     - value: _blank
+    #       title: 新标签页
+    #     - value: _self
+    #       title: 当前窗口
+    #     - value: _parent
+    #       title: 父级窗口
+    #       advanced: true
+    #     - value: _top
+    #       title: 顶级窗口
+    #       advanced: true
+    #   description: 打开方式
     # - name: to
     #   title: 路由链接
     #   type: string, Location
     #   advanced: true
     #   description: 需要 router 为 true，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
-    - name: replace
-      type: boolean
-      default: false
-      advanced: true
-      description: 需要
-        router 为 true，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history
-        `记录。
-    - name: append
-      type: boolean
-      default: false
-      advanced: true
-      description: 需要 router 为 true，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。
-    - name: exact
-      title: 精确匹配
-      type: boolean
-      advanced: true
-      default: false
-      description: 需要 router 为 true，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
+    # - name: replace
+    #   type: boolean
+    #   default: false
+    #   advanced: true
+    #   description: 需要
+    #     router 为 true，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history
+    #     `记录。
+    # - name: append
+    #   type: boolean
+    #   default: false
+    #   advanced: true
+    #   description: 需要 router 为 true，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。
+    # - name: exact
+    #   title: 精确匹配
+    #   type: boolean
+    #   advanced: true
+    #   default: false
+    #   description: 需要 router 为 true，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
   slots:
     - name: default
       title: 默认

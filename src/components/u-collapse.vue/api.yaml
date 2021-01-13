@@ -5,6 +5,7 @@
   description: 可以折叠/展开的内容区域。
   attrs:
     - name: accordion
+      title: 手风琴模式
       type: boolean
       default: false
       description: 是否每次只会展开一个面板
