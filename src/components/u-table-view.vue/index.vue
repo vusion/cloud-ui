@@ -663,6 +663,12 @@ export default {
             this.currentDataSource.clearLocalData();
             this.load();
         },
+        getFields() {
+            return this.visibleColumnVMs
+                .map((item) => item.field)
+                .filter((item) => !!item)
+                .join(',');
+        },
         page(number, size) {
             if (size === undefined)
                 size = this.currentDataSource.paging.size;

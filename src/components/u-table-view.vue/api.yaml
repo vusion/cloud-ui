@@ -552,6 +552,9 @@
     - name: reload
       description: 清除缓存，重新加载
       params: []
+    - name: getFields
+      description: 获取所有表格列的 field
+      params: []
 - name: u-table-view-column
   accept-parent: [u-table-view]
   title: 表格列
