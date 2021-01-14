@@ -4,13 +4,18 @@
         <div :class="$style.title" vusion-slot-name="title">
             <slot name="title">{{ title }}</slot>
         </div>
-        <span v-if="currentCollapsible" :class="$style.expander"
+        <span v-if="currentCollapsible && !parentVM.collapse" :class="$style.expander"
             :expanded="currentExpanded"
             @click="parentVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"
         ></span>
         <span :class="$style.extra" vusion-slot-name="extra"><slot name="extra"></slot></span>
     </div>
-    <f-collapse-transition>
+    <m-popper :class="$style.popper" reference="$parent" v-if="parentVM.collapse" placement="right-start">
+        <div :class="$style.body">
+            <slot></slot>
+        </div>
+    </m-popper>
+    <f-collapse-transition v-else>
         <div :class="$style.body" v-show="currentCollapsible ? currentExpanded : true">
             <slot></slot>
         </div>
@@ -134,6 +139,12 @@ export default {
 
 .root[disabled] .expander {
     color: var(--sidebar-expander-color-disabled);
+}
+
+.popper {
+    margin-left: var(--sidebar-group-popper-margin-left);
+    width: var(--sidebar-width);
+    background: var(--sidebar-background);
 }
 
 .body {}
