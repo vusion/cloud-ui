@@ -885,6 +885,12 @@
     --timeline-tail-width: 2px;
     --timeline-dot-bgColor: white;
 
+    /* Timeline */
+    --timeline-item-padding-bottom: 20px;
+    --timeline-tail-color: var(--border-color-base);
+    --timeline-tail-width: 2px;
+    --timeline-dot-bgColor: white;
+
     /* Popup */
     --popup-padding: 6px 10px;
     --popup-arrow-size: 8px;
