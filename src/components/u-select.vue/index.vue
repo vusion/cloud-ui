@@ -461,6 +461,7 @@ export default {
             this.close();
         },
         focus() {
+            this.preventBlur = true;
             if (this.filterable)
                 this.$refs.input.focus();
         },
