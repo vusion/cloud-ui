@@ -1381,6 +1381,22 @@
       "visible"
     ]
   },
+  "u-timeline": {
+    "attributes": [
+      "mode",
+      "pending"
+    ],
+    "subtags": [
+      "u-timeline-item"
+    ]
+  },
+  "u-timeline-item": {
+    "attributes": [
+      "color",
+      "label",
+      "position"
+    ]
+  },
   "u-toast": {
     "attributes": [
       "position",

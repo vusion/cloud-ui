@@ -7,6 +7,7 @@
     - [只读、禁用、禁用某一项](#只读-禁用-禁用某一项)
     - [分隔符](#分隔符)
     - [分组](#分组)
+    - [侧边栏折叠](#侧边栏折叠)
     - [颜色扩展](#颜色扩展)
 - [USidebar API](#usidebar-api)
     - [Props/Attrs](#propsattrs)
@@ -187,6 +188,49 @@
         </u-grid-layout-column>
     </u-grid-layout-row>
 </u-grid-layout>
+```
+
+### 侧边栏折叠
+
+``` vue
+<template>
+<u-linear-layout direction="vertical" gap="small">
+    <u-capsules v-model="collapse">
+        <u-capsule :value="false">展开</u-capsule>
+        <u-capsule :value="true">折叠</u-capsule>
+    </u-capsules>
+    <u-sidebar :collapse="collapse" collapsible :style="{ width: collapse ? '64px' : '200px' }">
+        <u-sidebar-group>
+            <div slot="title"><i-icon name="search"></i-icon> <span v-if="!collapse">Basic</span></div>
+            <u-sidebar-item>链接</u-sidebar-item>
+            <u-sidebar-item>按钮</u-sidebar-item>
+            <u-sidebar-item>标签</u-sidebar-item>
+        </u-sidebar-group>
+        <u-sidebar-group title="Navigation">
+            <div slot="title"><i-icon name="portrait"></i-icon> <span v-if="!collapse">Navigation</span></div>
+            <u-sidebar-item>导航栏</u-sidebar-item>
+            <u-sidebar-item to="/cloud-ui/u-sidebar">侧边栏</u-sidebar-item>
+            <u-sidebar-item>标签页</u-sidebar-item>
+        </u-sidebar-group>
+        <u-sidebar-group title="Form">
+            <div slot="title"><i-icon name="apm-alert"></i-icon> <span v-if="!collapse">Form</span></div>
+            <u-sidebar-item>单行输入</u-sidebar-item>
+            <u-sidebar-item>多行输入</u-sidebar-item>
+            <u-sidebar-item>选择框</u-sidebar-item>
+            <u-sidebar-item>表单</u-sidebar-item>
+        </u-sidebar-group>
+    </u-sidebar>
+</u-linear-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            collapse: false,
+        };
+    },
+};
+</script>
 ```
 
 ### 颜色扩展
