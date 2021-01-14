@@ -161,7 +161,7 @@ export default {
         title: String,
         titleAlignment: { type: String, default: 'center' },
         border: { type: Boolean, default: false },
-        loading: Boolean,
+        loading: { type: Boolean, default: undefined },
         loadingText: {
             type: String,
             default() {
@@ -680,17 +680,19 @@ export default {
             let order;
             let sorting = this.currentSorting;
             if (!sorting)
-                sorting = {
-                    field: undefined,
-                    order: columnVM.defaultOrder || this.defaultOrder,
-                };
-            if (sorting.field === columnVM.field)
-                order = sorting.order === 'asc' ? 'desc' : 'asc';
-            else
+                sorting = { field: undefined, order: undefined };
+            if (sorting.field === columnVM.field) {
+                if (sorting.order === (columnVM.defaultOrder || this.defaultOrder))
+                    order = sorting.order === 'asc' ? 'desc' : 'asc';
+                else if (sorting.order === undefined)
+                    order = columnVM.defaultOrder || this.defaultOrder;
+                else
+                    order = undefined;
+            } else
                 order = columnVM.defaultOrder || this.defaultOrder;
-            this.sort(columnVM.field, order, columnVM.sortCompare);
+            this.sort(order && columnVM.field, order, columnVM.sortCompare);
         },
-        sort(field, order = 'asc', compare) {
+        sort(field, order, compare) {
             const sorting = { field, order, compare };
             if (this.$emitPrevent('before-sort', sorting, this))
                 return;
@@ -830,7 +832,7 @@ export default {
                 expanded = !item.expanded; // Emit a `before-` event with preventDefault()
             if (this.$emitPrevent('before-toggle-expanded', { item, oldExpanded: !expanded, expanded }, this))
                 return;
-            item.expanded = expanded;
+            this.$set(item.expanded, expanded);
             this.$emit('toggle-expanded', { item, expanded }, this);
             if (expanded && this.accordion) {
                 this.currentData.forEach((otherItem) => {
