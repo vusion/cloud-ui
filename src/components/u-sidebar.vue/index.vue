@@ -8,6 +8,7 @@ export default {
     childName: 'u-sidebar-item',
     mixins: [MSinglex, MGroupParent],
     props: {
+        collapse: { type: Boolean, default: false },
         router: { type: Boolean, default: true },
         particular: { type: Boolean, default: false },
     },
@@ -23,6 +24,7 @@ export default {
     background: var(--sidebar-background);
     height: 100%;
     overflow: auto;
+    transition: all var(--transition-duration-base);
 }
 
 .root[size="small"] .group_head {
