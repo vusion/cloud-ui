@@ -7,13 +7,14 @@
 <script>
 import { MParent } from '../m-parent.vue';
 import MField from '../m-field.vue';
+import MConverter from '../m-converter.vue';
 
 export default {
     name: 'u-checkboxes',
     childName: 'u-checkbox',
-    mixins: [MParent, MField],
+    mixins: [MParent, MField, MConverter],
     props: {
-        value: Array,
+        value: [Array, String],
         min: { type: Number, default: 0 },
         max: { type: Number, default: Infinity },
         readonly: { type: Boolean, default: false },
@@ -27,6 +28,10 @@ export default {
             this.watchValue(value);
         },
         currentValue(value, oldValue) {
+            if (this.converter) {
+                value = this.currentConverter.get(value);
+                oldValue = this.currentConverter.get(oldValue);
+            }
             this.$emit('change', { value, oldValue });
         },
         itemVMs() {
@@ -39,6 +44,8 @@ export default {
     methods: {
         watchValue(value) {
             if (value) {
+                if (this.converter)
+                    value = this.currentConverter.set(value);
                 this.currentValue = value;
                 this.itemVMs.forEach(
                     (itemVM) =>
@@ -72,10 +79,13 @@ export default {
                 this.currentValue.push(label);
             else if (!value && this.currentValue.includes(label))
                 this.currentValue.splice(this.currentValue.indexOf(label), 1);
-            this.$emit('input', this.currentValue);
-            this.$emit('update:value', this.currentValue);
+            let currentValue = this.currentValue;
+            if (this.converter)
+                currentValue = this.currentConverter.get(currentValue);
+            this.$emit('input', currentValue);
+            this.$emit('update:value', currentValue);
             this.$emit('check', {
-                value: this.currentValue,
+                value: currentValue,
                 itemVM: $event.itemVM,
             });
         },
