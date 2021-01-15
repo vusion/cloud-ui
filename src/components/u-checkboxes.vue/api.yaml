@@ -11,11 +11,12 @@
       type: Array
       default: []
       description: 多选组的选中项
-    # - name: min
-    #   title: 选中最小数
-    #   type: number
-    #   default: 0
-    #   description: 可以勾选多选框的最小数量
+    - name: min
+      title: 选中最小数
+      advanced: true
+      type: number
+      default: 0
+      description: 可以勾选多选框的最小数量
     - name: max
       title: 选中最大数
       type: number

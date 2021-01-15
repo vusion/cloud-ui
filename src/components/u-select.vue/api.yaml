@@ -113,11 +113,12 @@
       advanced: true
       default: false
       description: 是否使用后端过滤。
-    # - name: auto-complete
-    #   title: 自动补全
-    #   type: boolean
-    #   default: false
-    #   description: 是否开启自动补充模式，用于增加列表中没有的项。
+    - name: auto-complete
+      title: 自动补全
+      advanced: true
+      type: boolean
+      default: false
+      description: 是否开启自动补充模式，用于增加列表中没有的项。
     - name: readonly
       title: 只读
       type: boolean

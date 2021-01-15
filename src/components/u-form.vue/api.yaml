@@ -4,10 +4,11 @@
   description: 具有数据收集、校验和提交功能的表单，包含输入框、选择框、复选框、单选框等元素。
   labels: [Form]
   attrs:
-    # - name: model
-    #   title: 数据模型
-    #   type: object
-    #   description: 表单数据模型
+    - name: model
+      title: 数据模型
+      advanced: true
+      type: object
+      description: 表单数据模型
     - name: rules
       title: 验证规则
       type: object
@@ -220,17 +221,18 @@
       title: 提示消息
       type: string
       description: 默认提示消息
-    # - name: muted
-    #   title: 验证是否静默
-    #   type: string
-    #   default: none
-    #   options:
-    #     - value: message
-    #       title: 只静默消息提示
-    #     - value: all
-    #       title: 同时静默消息提示和红框提示
-    #     - value: none
-    #       title: 不作处理
+    - name: muted
+      title: 验证是否静默
+      advanced: true
+      type: string
+      default: none
+      options:
+        - value: message
+          title: 只静默消息提示
+        - value: all
+          title: 同时静默消息提示和红框提示
+        - value: none
+          title: 不作处理
     - name: description
       title: 描述内容
       type: string
@@ -271,18 +273,21 @@
       default: false
       advanced: true
       description: 忽略验证规则。已废弃，同`ignore-validation`
-    # - name: validating-options
-    #   title: 验证辅助对象
-    #   type: object
-    #   description: 验证辅助对象。在 Rule 的 `validate` 方法中使用
-    # - name: validating-value
-    #   title: 修改验证值
-    #   type: any
-    #   description: 临时修改验证值
-    # - name: validating-process
-    #   title: 验证前预处理
-    #   type: Function
-    #   description: 验证前对值进行预处理
+    - name: validating-options
+      title: 验证辅助对象
+      advanced: true
+      type: object
+      description: 验证辅助对象。在 Rule 的 `validate` 方法中使用
+    - name: validating-value
+      title: 修改验证值
+      advanced: true
+      type: any
+      description: 临时修改验证值
+    - name: validating-process
+      title: 验证前预处理
+      advanced: true
+      type: Function
+      description: 验证前对值进行预处理
   slots:
     - name: default
       title: 默认

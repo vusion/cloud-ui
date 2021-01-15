@@ -35,16 +35,17 @@
       type: number
       default: 12
       description: 划分的栅格数
-    # - name: type
-    #   title: 类型
-    #   type: string
-    #   advanced: true
-    #   options: 
-    #     - value: default
-    #       title: 默认类型
-    #     - value: flex
-    #       title: flex
-    #   description: 布局模式
+    - name: type
+      title: 类型
+      advanced: true
+      type: string
+      advanced: true
+      options: 
+        - value: default
+          title: 默认类型
+        - value: flex
+          title: flex
+      description: 布局模式
     - name: justify
       title: 对齐方式
       type: string
@@ -63,22 +64,22 @@
           advanced: true
       default: start
       description: 内容对齐方式
-    # - name: alignment
-    #   type: string
-    #   advanced: true
-    #   options: 
-    #     - value: start
-    #       title: 头对齐
-    #     - value: center
-    #       title: 居中对齐
-    #     - value: end
-    #       title: 尾对齐
-    #     - value: baseline
-    #       title: 基线对齐
-    #     - value: stretch
-    #       title: 拉伸子元素充满整个父元素空间
-    #   default: stretch
-    #   description: flex布局模式下的交叉轴对齐方式
+    - name: alignment
+      type: string
+      advanced: true
+      options: 
+        - value: start
+          title: 头对齐
+        - value: center
+          title: 居中对齐
+        - value: end
+          title: 尾对齐
+        - value: baseline
+          title: 基线对齐
+        - value: stretch
+          title: 拉伸子元素充满整个父元素空间
+      default: stretch
+      description: flex布局模式下的交叉轴对齐方式
   slots:
     - name: default
       description: 插入`<u-grid-layout-column>`子组件。

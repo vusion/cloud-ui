@@ -3,37 +3,42 @@
   labels: [Feedback]
   title: 弹窗
   attrs:
-    # - name: title
-    #   title: 标题
-    #   type: string
-    #   default: 提示
-    #   description: 弹窗的标题
-    # - name: content
-    #   title: 内容
-    #   type: string
-    #   default: 提示内容
-    #   description: 弹窗的内容
-    # - name: heading
-    #   title: 内容头部
-    #   type: string
-    #   default: 提示内容
-    #   description: 弹窗的内容
+    - name: title
+      title: 标题
+      advanced: true
+      type: string
+      default: 提示
+      description: 弹窗的标题
+    - name: content
+      title: 内容
+      advanced: true
+      type: string
+      default: 提示内容
+      description: 弹窗的内容
+    - name: heading
+      title: 内容头部
+      advanced: true
+      type: string
+      default: 提示内容
+      description: 弹窗的内容
     - name: visible
       type: boolean
       sync: true
       title: 是否显示
       default: false
       description: 是否显示
-    # - name: ok-button
-    #   title: 确定按钮
-    #   type: string
-    #   default: 确定
-    #   description: 确定按钮文本，如果为空则不显示
-    # - name: cancel-button
-    #   title: 取消按钮
-    #   type: string
-    #   default: 取消
-    #   description: 取消按钮文本，如果为空则不显示
+    - name: ok-button
+      title: 确定按钮
+      advanced: true
+      type: string
+      default: 确定
+      description: 确定按钮文本，如果为空则不显示
+    - name: cancel-button
+      title: 取消按钮
+      advanced: true
+      type: string
+      default: 取消
+      description: 取消按钮文本，如果为空则不显示
     - name: size
       title: 尺寸
       type: string
@@ -50,25 +55,25 @@
           title: 自适应
       default: normal
       description: 弹框的尺寸
-    # - name: icon
-    #   title: 提示图标
-    #   type: string
-    #   options:
-    #     - value: success
-    #       title: 成功
-    #     - value: warning
-    #       title: 警告
-    #     - value: error
-    #       title: 错误
-    #   default: ""
-    #   description: 提示图标
-    #   advanced: true
-    # - name: static
-    #   title: 嵌入页面显示
-    #   type: boolean
-    #   default: false
-    #   description: 是否嵌入页面显示
-    #   advanced: true
+    - name: icon
+      title: 提示图标
+      type: string
+      options:
+        - value: success
+          title: 成功
+        - value: warning
+          title: 警告
+        - value: error
+          title: 错误
+      default: ""
+      description: 提示图标
+      advanced: true
+    - name: static
+      title: 嵌入页面显示
+      type: boolean
+      default: false
+      description: 是否嵌入页面显示
+      advanced: true
     - name: mask-closable
       title: 点击遮罩关闭
       type: boolean
