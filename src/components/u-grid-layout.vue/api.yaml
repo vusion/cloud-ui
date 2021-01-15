@@ -38,7 +38,6 @@
     - name: type
       title: 类型
       type: string
-      advanced: true
       options: 
         - value: default
           title: 默认类型
