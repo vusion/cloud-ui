@@ -10,7 +10,7 @@
       model: true
       sync: true
       default: null
-      title: 选择值
+      title: 值
       description: 显示的日期值
     - name: minDate
       type: string, number, Date

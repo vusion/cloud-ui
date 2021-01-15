@@ -2,7 +2,7 @@
   title: 日历
   attrs:
     - name: date
-      title: 选择值
+      title: 值
       type: Date | string
       model: true
       sync: true

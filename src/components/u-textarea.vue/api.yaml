@@ -23,6 +23,7 @@
       description: 为空时提示内容
     - name: minlength
       title: 最小长度
+      advanced: true
       type: number
       default: null
       description: 原生属性
@@ -33,11 +34,12 @@
       description: 原生属性
     - name: spellcheck
       title: 拼写检查
+      advanced: true
       type: boolean
       default: null
       description: 原生属性
     - name: autofocus
-      title: 自动聚焦
+      title: 自动获取焦点
       type: boolean
       default: null
       description: 是否自动获取焦点

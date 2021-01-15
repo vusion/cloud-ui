@@ -28,7 +28,7 @@
       default: false
       description: 是否每次只会展开一个分组
     - name: expand-trigger
-      title: 触发方式
+      title: 展开触发方式
       type: string
       options: 
         - value: click
@@ -185,6 +185,7 @@
       description: 禁用此项
     - name: item
       title: 相关对象
+      advanced: true
       type: object
       default: null
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
@@ -222,11 +223,11 @@
           title: 顶级窗口
           advanced: true
       description: 链接跳转方式
-    # - name: to
-    #   title: 路由链接
-    #   type: string, Location
-    #   advanced: true
-    #   description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
+    - name: to
+      title: 路由链接
+      type: string, Location
+      advanced: true
+      description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
     - name: replace
       type: boolean
       default: false

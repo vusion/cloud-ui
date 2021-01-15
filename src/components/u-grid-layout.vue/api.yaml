@@ -37,6 +37,7 @@
       description: 划分的栅格数
     - name: type
       title: 类型
+      advanced: true
       type: string
       advanced: true
       options: 
@@ -46,6 +47,7 @@
           title: flex
       description: 布局模式
     - name: justify
+      title: 对齐方式
       type: string
       options: 
         - value: start

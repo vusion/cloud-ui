@@ -6,6 +6,7 @@
   attrs:
     - name: model
       title: 数据模型
+      advanced: true
       type: object
       description: 表单数据模型
     - name: rules
@@ -75,7 +76,7 @@
       default: false
       description: 是否每次只会展开一个分组
     - name: expand-trigger
-      title: 触发方式
+      title: 展开触发方式
       type: string
       options: 
         - value: click
@@ -222,6 +223,7 @@
       description: 默认提示消息
     - name: muted
       title: 验证是否静默
+      advanced: true
       type: string
       default: none
       options:
@@ -273,14 +275,17 @@
       description: 忽略验证规则。已废弃，同`ignore-validation`
     - name: validating-options
       title: 验证辅助对象
+      advanced: true
       type: object
       description: 验证辅助对象。在 Rule 的 `validate` 方法中使用
     - name: validating-value
       title: 修改验证值
+      advanced: true
       type: any
       description: 临时修改验证值
     - name: validating-process
       title: 验证前预处理
+      advanced: true
       type: Function
       description: 验证前对值进行预处理
   slots:

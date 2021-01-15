@@ -87,6 +87,7 @@
     - name: filtering
       group: 数据属性
       title: 筛选参数
+      advanced: true
       sync: true
       type: 'object'
       description: 筛选参数。
@@ -105,6 +106,7 @@
     - name: remote-filtering
       group: 数据属性
       title: 后端筛选
+      advanced: true
       type: boolean
       default: false
       description: 是否使用后端筛选
@@ -159,6 +161,7 @@
     - name: loading
       group: 状态属性
       title: 是否加载中
+      advanced: true
       type: boolean
       description: 手动设置是否正在加载中。
     - name: loading-text
@@ -583,6 +586,7 @@
       description: 是否省略显示。默认文字超出时会换行。
     - name: formatter
       title: 格式器
+      advanced: true
       type: string | object | Function | Formatter
       default: placeholder
       description: 格式器。
@@ -603,6 +607,7 @@
       description: 该列首次点击时的排序顺序
     - name: filters
       title: 筛选项
+      advanced: true
       type: "Array<{ text: string, value: any }>"
       description: 筛选项的参数
     - name: hidden

@@ -41,7 +41,7 @@
       type: string
       description: 原生属性
     - name: autofocus
-      title: 自动聚焦
+      title: 自动获取焦点
       type: boolean
       description: 原生属性
     - name: hide-buttons

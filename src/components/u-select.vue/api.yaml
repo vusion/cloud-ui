@@ -5,7 +5,7 @@
   description: 下拉选择框，支持单选、多选、搜索等功能
   attrs:
     - name: value
-      title: 选择值
+      title: 值
       type: any
       model: true
       sync: true
@@ -105,7 +105,14 @@
       description: 是否使用输入框进行过滤。
     - name: match-method
       title: 匹配方法
-      type: string | Function
+      type: string
+      options:
+        - value: includes
+          title: 包括
+        - value: startsWith
+          title: 匹配开头
+        - value: endsWith
+          title: 匹配结尾
       default: includes
       description: 过滤时的匹配方法。
       advanced: true
@@ -123,6 +130,7 @@
       description: 是否使用后端过滤。
     - name: auto-complete
       title: 自动补全
+      advanced: true
       type: boolean
       default: false
       description: 是否开启自动补充模式，用于增加列表中没有的项。
@@ -165,6 +173,7 @@
       default: false
       description: 切换弹出/关闭状态
     - name: autofocus
+      title: 自动获取焦点
       type: boolean
       default: false
       description: 自动获取焦点
