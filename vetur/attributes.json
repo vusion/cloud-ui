@@ -734,6 +734,10 @@
     ],
     "description": "链接打开方式"
   },
+  "u-button/to": {
+    "type": "string, Location",
+    "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
+  },
   "u-button/replace": {
     "type": "boolean",
     "description": "需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。"
@@ -900,6 +904,24 @@
   },
   "u-cascade-capsules/converter": {
     "type": "string | object",
+    "options": [
+      {
+        "value": "join",
+        "title": "以','连接"
+      },
+      {
+        "value": "join:|",
+        "title": "以'|'连接"
+      },
+      {
+        "value": "join:;",
+        "title": "以';'连接"
+      },
+      {
+        "value": "json",
+        "title": "json"
+      }
+    ],
     "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value，`'join.number'`与`join`类似，只是会考虑它为数字的情况。也可以用`:`修改分隔符，类似 Vue 的指令参数，`'last-value'`表示以最后一项的值作为 value。也可以传入一个包含 { get, set } 的一个对象"
   },
   "u-cascade-capsules/field": {
@@ -973,6 +995,28 @@
     "type": "number",
     "description": "一行固定多少个选择项，如果不传则固定单项宽度为158px，每行个数自适应行宽"
   },
+  "u-checkbox-card/converter": {
+    "type": "string | object",
+    "options": [
+      {
+        "value": "join",
+        "title": "以','连接"
+      },
+      {
+        "value": "join:|",
+        "title": "以'|'连接"
+      },
+      {
+        "value": "join:;",
+        "title": "以';'连接"
+      },
+      {
+        "value": "json",
+        "title": "json"
+      }
+    ],
+    "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象"
+  },
   "u-checkbox/value": {
     "type": "boolean, null",
     "description": "选中状态，`null`表示不确定状态"
@@ -1012,6 +1056,28 @@
   "u-checkboxes/disabled": {
     "type": "boolean",
     "description": "是否禁用"
+  },
+  "u-checkboxes/converter": {
+    "type": "string | object",
+    "options": [
+      {
+        "value": "join",
+        "title": "以','连接"
+      },
+      {
+        "value": "join:|",
+        "title": "以'|'连接"
+      },
+      {
+        "value": "join:;",
+        "title": "以';'连接"
+      },
+      {
+        "value": "json",
+        "title": "json"
+      }
+    ],
+    "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象"
   },
   "u-circular-progress/percent": {
     "type": "number",
@@ -2805,6 +2871,10 @@
     ],
     "description": "链接打开方式"
   },
+  "u-link/to": {
+    "type": "string, Location",
+    "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
+  },
   "u-link/replace": {
     "type": "boolean",
     "description": "需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。"
@@ -3228,6 +3298,10 @@
       }
     ],
     "description": "链接跳转方式"
+  },
+  "u-navbar-item/to": {
+    "type": "string, Location",
+    "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
   },
   "u-navbar-item/replace": {
     "type": "boolean",
@@ -3718,6 +3792,28 @@
     "type": "boolean",
     "description": "是否可以多选。"
   },
+  "u-select/converter": {
+    "type": "string | object",
+    "options": [
+      {
+        "value": "join",
+        "title": "以','连接"
+      },
+      {
+        "value": "join:|",
+        "title": "以'|'连接"
+      },
+      {
+        "value": "join:;",
+        "title": "以';'连接"
+      },
+      {
+        "value": "json",
+        "title": "json"
+      }
+    ],
+    "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象"
+  },
   "u-select/placeholder": {
     "type": "string",
     "description": "选择框的占位符。"
@@ -3759,7 +3855,21 @@
     "description": "是否使用输入框进行过滤。"
   },
   "u-select/match-method": {
-    "type": "string | Function",
+    "type": "string",
+    "options": [
+      {
+        "value": "includes",
+        "title": "包括"
+      },
+      {
+        "value": "startsWith",
+        "title": "匹配开头"
+      },
+      {
+        "value": "endsWith",
+        "title": "匹配结尾"
+      }
+    ],
     "description": "过滤时的匹配方法。"
   },
   "u-select/case-sensitive": {
@@ -3973,6 +4083,10 @@
       }
     ],
     "description": "链接跳转方式"
+  },
+  "u-sidebar-item/to": {
+    "type": "string, Location",
+    "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
   },
   "u-sidebar-item/replace": {
     "type": "boolean",
@@ -4492,6 +4606,10 @@
     ],
     "description": "链接类型"
   },
+  "u-tab/href": {
+    "type": "string",
+    "description": "链接地址"
+  },
   "u-tab/hrefAndTo": {
     "type": "string",
     "description": "链接地址"
@@ -4519,6 +4637,10 @@
       }
     ],
     "description": "打开方式"
+  },
+  "u-tab/to": {
+    "type": "string, Location",
+    "description": "需要 router 为 true，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
   },
   "u-tab/replace": {
     "type": "boolean",
@@ -5213,10 +5335,6 @@
   "u-uploader/data": {
     "type": "object",
     "description": "附加数据"
-  },
-  "u-uploader/extensions": {
-    "type": "string, Array",
-    "description": "可上传的扩展名。默认为空，表示可上传任意文件类型的文件。可以为字符串，多个扩展名用`,`隔开，如：`'png,jpg,gif'`；也可以为数组，如：`['png', 'jpg', 'gif']`"
   },
   "u-uploader/limit": {
     "type": "number",

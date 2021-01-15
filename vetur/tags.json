@@ -106,6 +106,10 @@
       "item"
     ]
   },
+  "m-converter": {
+    "attributes": [],
+    "description": "该 Mixin 集成了数据转换方式。继承之后直接使用converter方法"
+  },
   "m-dynamic": {
     "attributes": [
       "data",
@@ -291,6 +295,7 @@
       "linkType",
       "hrefAndTo",
       "target",
+      "to",
       "replace",
       "append"
     ],
@@ -389,7 +394,8 @@
       "value",
       "placeholder",
       "size",
-      "column"
+      "column",
+      "converter"
     ]
   },
   "u-checkbox": {
@@ -407,7 +413,8 @@
       "min",
       "max",
       "readonly",
-      "disabled"
+      "disabled",
+      "converter"
     ],
     "description": "多项中选择多个时使用",
     "subtags": [
@@ -854,6 +861,7 @@
       "linkType",
       "hrefAndTo",
       "target",
+      "to",
       "replace",
       "append",
       "decoration",
@@ -988,6 +996,7 @@
       "linkType",
       "hrefAndTo",
       "target",
+      "to",
       "replace",
       "exact"
     ]
@@ -1153,6 +1162,7 @@
       "data-source",
       "cancelable",
       "multiple",
+      "converter",
       "placeholder",
       "loading-text",
       "empty-text",
@@ -1239,6 +1249,7 @@
       "linkType",
       "hrefAndTo",
       "target",
+      "to",
       "replace",
       "exact"
     ]
@@ -1408,8 +1419,10 @@
       "value",
       "disabled",
       "linkType",
+      "href",
       "hrefAndTo",
       "target",
+      "to",
       "replace",
       "append",
       "exact"
@@ -1569,7 +1582,6 @@
       "multiple",
       "data-type",
       "data",
-      "extensions",
       "limit",
       "max-size",
       "list-type",

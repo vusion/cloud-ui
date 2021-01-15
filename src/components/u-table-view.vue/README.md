@@ -2020,6 +2020,13 @@ Methods
 | Param | Type | Default | Description |
 | ----- | ---- | ------- | ----------- |
 
+#### getFields()
+
+获取所有表格列的 field
+
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
+
 ## UTableViewColumn API
 ### Props/Attrs
 

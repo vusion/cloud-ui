@@ -7,6 +7,7 @@
     - [只读、禁用、禁用某一项](#只读-禁用-禁用某一项)
     - [分隔符](#分隔符)
     - [分组](#分组)
+    - [侧边栏折叠](#侧边栏折叠)
     - [颜色扩展](#颜色扩展)
 - [USidebar API](#usidebar-api)
     - [Props/Attrs](#propsattrs)
@@ -189,6 +190,49 @@
 </u-grid-layout>
 ```
 
+### 侧边栏折叠
+
+``` vue
+<template>
+<u-linear-layout direction="vertical" gap="small">
+    <u-capsules v-model="collapse">
+        <u-capsule :value="false">展开</u-capsule>
+        <u-capsule :value="true">折叠</u-capsule>
+    </u-capsules>
+    <u-sidebar :collapse="collapse" collapsible :style="{ width: collapse ? '64px' : '200px' }">
+        <u-sidebar-group>
+            <div slot="title"><i-icon name="search"></i-icon> <span v-if="!collapse">Basic</span></div>
+            <u-sidebar-item>链接</u-sidebar-item>
+            <u-sidebar-item>按钮</u-sidebar-item>
+            <u-sidebar-item>标签</u-sidebar-item>
+        </u-sidebar-group>
+        <u-sidebar-group title="Navigation">
+            <div slot="title"><i-icon name="portrait"></i-icon> <span v-if="!collapse">Navigation</span></div>
+            <u-sidebar-item>导航栏</u-sidebar-item>
+            <u-sidebar-item to="/cloud-ui/u-sidebar">侧边栏</u-sidebar-item>
+            <u-sidebar-item>标签页</u-sidebar-item>
+        </u-sidebar-group>
+        <u-sidebar-group title="Form">
+            <div slot="title"><i-icon name="apm-alert"></i-icon> <span v-if="!collapse">Form</span></div>
+            <u-sidebar-item>单行输入</u-sidebar-item>
+            <u-sidebar-item>多行输入</u-sidebar-item>
+            <u-sidebar-item>选择框</u-sidebar-item>
+            <u-sidebar-item>表单</u-sidebar-item>
+        </u-sidebar-group>
+    </u-sidebar>
+</u-linear-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            collapse: false,
+        };
+    },
+};
+</script>
+```
+
 ### 颜色扩展
 
 ``` html
@@ -318,6 +362,7 @@ Methods
 | linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 链接类型 |
 | hrefAndTo | string |  |  | 链接地址 |
 | target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 链接跳转方式 |
+| to | string, Location |  |  | 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
 | replace | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
 | exact | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。 |
 

@@ -90,6 +90,30 @@ export default {
 </script>
 ```
 
+使用`converter`。
+``` vue
+<template>
+<div>
+    <u-checkboxes v-model="checkedList" converter="join">
+        <u-checkbox label="水杯">水杯</u-checkbox>
+        <u-checkbox label="坚果">坚果</u-checkbox>
+        <u-checkbox label="毛巾">毛巾</u-checkbox>
+        <u-checkbox label="沙发">沙发</u-checkbox>
+    </u-checkboxes>
+    {{ checkedList }}
+</div>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            checkedList: '毛巾,沙发',
+        };
+    },
+};
+</script>
+```
+
 ### 数量限制
 
 使用`min`和`max`属性可以限制选择项的数量。
@@ -183,6 +207,7 @@ export default {
 | max | number |  | `Infinity` | 可以勾选多选框的最大数量 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
+| converter | string \| object | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象 |
 
 ### Slots
 

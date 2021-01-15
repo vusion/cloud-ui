@@ -2,22 +2,11 @@
 
 # MConverter 转换器
 
+- [API]()
+
+
 该 Mixin 集成了数据转换方式。继承之后直接使用converter方法
 
-## 示例
-``` vue
-<script>
-import { MConverter } from 'cloud-ui.vusion';
+## API
 
-export default {
-    mixins: [MConverter],
-    methods: {
-        watchValue(value) {
-            if (this.converter)
-                value = this.currentConverter.set(value);
-            const currentValue = this.currentConverter.get(value);
-        },
-    }
-};
-</script>
-```
+暂无

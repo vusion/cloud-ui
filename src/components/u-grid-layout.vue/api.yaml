@@ -37,7 +37,6 @@
       description: 划分的栅格数
     - name: type
       title: 类型
-      advanced: true
       type: string
       advanced: true
       options: 

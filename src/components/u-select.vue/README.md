@@ -463,6 +463,61 @@ export default {
 </script>
 ```
 
+值转换器：组件的 value 与 各选择器的 value 的转换器。
+converter值可以为`'join'``'json'`，表示将 values 数组 join 之后变成 value。`'join'`的分隔符可以是`','`,`'|'`等，默认是`','`。
+
+``` vue
+<template>
+<u-select multiple v-model="values" title="多选列表" :data-source="list" converter="join:|"></u-select>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            values: '',
+            list: [
+                { text: 'Java', value: 'java' },
+                { text: 'Node.js', value: 'nodejs' },
+                { text: 'Go', value: 'go' },
+                { text: 'Python', value: 'python' },
+                { text: 'Ruby', value: 'ruby', disabled: true },
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'PHP', value: 'php', disabled: true },
+            ],
+        };
+    },
+};
+</script>
+```
+
+``` vue
+<template>
+<u-select multiple v-model="values" title="多选列表" :data-source="list" converter="json"></u-select>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            values: '[]',
+            list: [
+                { text: 'Java', value: 'java' },
+                { text: 'Node.js', value: 'nodejs' },
+                { text: 'Go', value: 'go' },
+                { text: 'Python', value: 'python' },
+                { text: 'Ruby', value: 'ruby', disabled: true },
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'PHP', value: 'php', disabled: true },
+            ],
+        };
+    },
+};
+</script>
+```
+
 ### Tags 风格
 
 Tags 过多时如何显示。
@@ -1240,6 +1295,7 @@ export default {
 | data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 选择框的数据源。数组方式表示直接的数据，函数需要返回一个 Promise，详见文档示例。 |
 | cancelable | boolean |  | `false` | 是否可以取消选择。 |
 | multiple | boolean |  | `false` | 是否可以多选。 |
+| converter | string \| object | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象 |
 | placeholder | string |  | `'请选择'` | 选择框的占位符。 |
 | loading-text | string |  | `'加载中...'` | 正在加载中的文字。使用分页加载时才会出现。 |
 | empty-text | string |  | `'暂无数据'` | 暂无数据时的文字。 |
@@ -1250,7 +1306,7 @@ export default {
 | remote-paging | boolean |  | `false` | 是否使用后端分页。 |
 | clearable | boolean |  | `false` | 是否有清除按钮。 |
 | filterable | boolean |  | `false` | 是否使用输入框进行过滤。 |
-| match-method | string \| Function |  | `'includes'` | 过滤时的匹配方法。 |
+| match-method | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'includes'` | 过滤时的匹配方法。 |
 | case-sensitive | string \| Function |  | `'includes'` | 过滤时大小写是否敏感 |
 | remote-filtering | boolean |  | `false` | 是否使用后端过滤。 |
 | auto-complete | boolean |  | `false` | 是否开启自动补充模式，用于增加列表中没有的项。 |
