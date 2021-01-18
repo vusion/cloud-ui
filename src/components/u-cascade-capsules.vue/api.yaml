@@ -37,7 +37,7 @@
       description: 是否可自动选择
     - name: converter
       title: 转换器
-      type: string | object
+      type: string
       default: join
       description: value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成
         value，`'join.number'`与`join`类似，只是会考虑它为数字的情况。也可以用`:`修改分隔符，类似 Vue
