@@ -43,6 +43,7 @@ export default {
         initialLoad: { type: Boolean, default: true },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
+        checkStrictly: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -163,8 +164,13 @@ export default {
             } else {
                 const values = [];
                 this.walk((nodeVM) => {
-                    if (nodeVM.currentChecked && !nodeVM.nodeVMs.length)
-                        values.push(nodeVM.value);
+                    if (nodeVM.currentChecked) {
+                        if (this.checkStrictly) {
+                            values.push(nodeVM.value);
+                        } else if (!nodeVM.nodeVMs.length) {
+                            values.push(nodeVM.value);
+                        }
+                    }
                 });
                 this.currentValues = values;
             }

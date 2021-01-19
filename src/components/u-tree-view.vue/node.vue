@@ -259,6 +259,20 @@ export default {
             } else
                 final();
         },
+        checkStrictly(checked) {
+            this.currentChecked = checked;
+            this.$emit('update:checked', checked, this);
+            if (
+                checked
+                && !this.rootVM.currentValues.includes(this.value)
+            )
+                this.rootVM.currentValues.push(this.value);
+            else if (!checked && this.rootVM.currentValues.includes(this.value))
+                this.rootVM.currentValues.splice(
+                    this.rootVM.currentValues.indexOf(this.value),
+                    1,
+                );
+        },
         checkRecursively(checked, direction = 'up+down') {
             this.currentChecked = checked;
             this.$emit('update:checked', checked, this);
@@ -305,7 +319,11 @@ export default {
         check(checked) {
             const oldChecked = this.currentChecked;
 
-            this.checkRecursively(checked);
+            if (this.rootVM.checkStrictly) {
+                this.checkStrictly(checked);
+            } else {
+                this.checkRecursively(checked);
+            }
 
             this.$emit(
                 'check',
