@@ -60,7 +60,7 @@
                                 :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                                 :vusion-node-path="columnVM.$attrs['vusion-node-path']">
                                     <!-- type === 'index' -->
-                                    <span v-if="columnVM.type === 'index'">{{ columnVM.startIndex + rowIndex }}</span>
+                                    <span v-if="columnVM.type === 'index'">{{ +columnVM.startIndex + rowIndex }}</span>
                                     <!-- type === 'radio' -->
                                     <span v-if="columnVM.type === 'radio'">
                                         <u-radio :value="selectedItem === item" :disabled="item.disabled" @click.native="select(item)"></u-radio>
