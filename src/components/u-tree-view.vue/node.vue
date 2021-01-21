@@ -259,7 +259,7 @@ export default {
             } else
                 final();
         },
-        checkStrictly(checked) {
+        checkControlled(checked) {
             this.currentChecked = checked;
             this.$emit('update:checked', checked, this);
             if (
@@ -319,8 +319,8 @@ export default {
         check(checked) {
             const oldChecked = this.currentChecked;
 
-            if (this.rootVM.checkStrictly) {
-                this.checkStrictly(checked);
+            if (this.rootVM.checkControlled) {
+                this.checkControlled(checked);
             } else {
                 this.checkRecursively(checked);
             }

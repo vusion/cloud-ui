@@ -43,7 +43,7 @@ export default {
         initialLoad: { type: Boolean, default: true },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
-        checkStrictly: { type: Boolean, default: false },
+        checkControlled: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -165,7 +165,7 @@ export default {
                 const values = [];
                 this.walk((nodeVM) => {
                     if (nodeVM.currentChecked) {
-                        if (this.checkStrictly) {
+                        if (this.checkControlled) {
                             values.push(nodeVM.value);
                         } else if (!nodeVM.nodeVMs.length) {
                             values.push(nodeVM.value);

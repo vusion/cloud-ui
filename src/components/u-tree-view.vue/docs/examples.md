@@ -503,11 +503,11 @@ export default {
 </script>
 ```
 
-通过 `check-strictly` 属性开启节点状态完全受控，父子不关联。
+通过 `check-controlled` 属性开启节点状态完全受控，父子不关联。
 
 ``` vue { width: 30% }
 <template>
-<u-tree-view ref="treeView" check-strictly checkable :values.sync="values" :data="data"></u-tree-view>
+<u-tree-view ref="treeView" check-controlled checkable :values.sync="values" :data="data"></u-tree-view>
 </template>
 <script>
 export default {
