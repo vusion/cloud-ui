@@ -10,6 +10,7 @@
       default: false
       description: 是否每次只会展开一个面板
     - name: expand-trigger
+      title: 展开触发方式
       type: string
       default: click
       options:
@@ -19,6 +20,7 @@
           title: 仅点击小箭头时触发
       description: 展开/折叠的触发方式
     - name: appear
+      title: 显示效果
       type: string
       description: 显示样式
       options:
@@ -27,6 +29,7 @@
         - value: simple
           title: 简洁模式
     - name: disabled
+      title: 禁用展开
       type: boolean
       default: false
       description: 是否禁用
