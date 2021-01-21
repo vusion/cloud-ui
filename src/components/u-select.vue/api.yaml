@@ -56,11 +56,13 @@
       description: 选择框的占位符。
     - name: loading-text
       title: 加载中文字
+      advanced: true
       type: string
       default: 加载中...
       description: 正在加载中的文字。使用分页加载时才会出现。
     - name: empty-text
       title: 暂无数据文字
+      advanced: true
       type: string
       default: 暂无数据
       description: 暂无数据时的文字。
@@ -115,7 +117,6 @@
           title: 匹配结尾
       default: includes
       description: 过滤时的匹配方法。
-      advanced: true
     - name: case-sensitive
       title: 大小写敏感
       type: string | Function
