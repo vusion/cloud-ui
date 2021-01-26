@@ -66,10 +66,10 @@ export default {
             const label = $event.itemVM.label;
             if (value && !this.currentValue.includes(label)) {
                 const length = this.currentValue.length + 1;
-                return length <= this.min || length <= this.max;
+                return length <= this.max;
             } else if (!value && this.currentValue.includes(label)) {
                 const length = this.currentValue.length - 1;
-                return length <= this.min || length <= this.max;
+                return length >= this.min;
             }
         },
         onCheck($event) {
