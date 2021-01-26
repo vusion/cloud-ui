@@ -16,7 +16,7 @@
       description: 最小值
     - name: max
       type: number
-      default: 0
+      default: 100
       description: 最大值
     - name: step
       type: number

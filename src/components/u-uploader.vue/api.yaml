@@ -38,6 +38,7 @@
       default: json
       advanced: true
       description: 接收数据类型。可选值：`text`、`xml`、`json`
+      hidden: true
     - name: data
       type: object
       default: null
@@ -84,6 +85,7 @@
       type: boolean
       default: false
       description: 是否可以粘贴
+      advanced: true
     - name: show-file-list
       title: 是否显示文件列表
       type: boolean

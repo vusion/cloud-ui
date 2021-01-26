@@ -24,6 +24,7 @@
           title: 显示为默认颜色文本，不可点
       default: link
       description: 类型
+      hidden: true
     - name: linkType
       title: 链接类型
       type: string

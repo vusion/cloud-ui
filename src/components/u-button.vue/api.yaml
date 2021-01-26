@@ -107,7 +107,6 @@
     - name: target
       title: 打开方式
       type: string
-      advanced: true
       options:
         - value: _blank
           title: 新窗口

@@ -1,5 +1,5 @@
 ### 基本用法
 
 ``` html
-<i-icon name="area">area</i-icon>
+<i-icon name="area"></i-icon>
 ```

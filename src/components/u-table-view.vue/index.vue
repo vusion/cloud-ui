@@ -60,7 +60,7 @@
                                 :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                                 :vusion-node-path="columnVM.$attrs['vusion-node-path']">
                                     <!-- type === 'index' -->
-                                    <span v-if="columnVM.type === 'index'">{{ columnVM.startIndex + rowIndex }}</span>
+                                    <span v-if="columnVM.type === 'index'">{{ (columnVM.startIndex - 0) + rowIndex }}</span>
                                     <!-- type === 'radio' -->
                                     <span v-if="columnVM.type === 'radio'">
                                         <u-radio :value="selectedItem === item" :disabled="item.disabled" @click.native="select(item)"></u-radio>
@@ -842,7 +842,7 @@ export default {
                 expanded = !item.expanded; // Emit a `before-` event with preventDefault()
             if (this.$emitPrevent('before-toggle-expanded', { item, oldExpanded: !expanded, expanded }, this))
                 return;
-            this.$set(item.expanded, expanded);
+            this.$set(item, 'expanded', expanded);
             this.$emit('toggle-expanded', { item, expanded }, this);
             if (expanded && this.accordion) {
                 this.currentData.forEach((otherItem) => {

@@ -86,6 +86,7 @@
           type: number
           description: 旧的步骤数
 - name: u-selectable-step
+  title: 可选步骤条项
   attrs:
     - name: title
       title: 标题

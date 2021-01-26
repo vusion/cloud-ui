@@ -36,7 +36,7 @@
       default: false
       description: 是否可以选中/取消
     - name: accordion
-      title: 展开分组
+      title: 是否只展开一个分组
       type: boolean
       default: false
       description: 是否每次只会展开一个分组

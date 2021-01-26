@@ -44,7 +44,7 @@
         - value: json
           title: json
     - name: field
-      title: 字段
+      title: 文本字段
       type: string
       default: text
       description: 显示文本字段

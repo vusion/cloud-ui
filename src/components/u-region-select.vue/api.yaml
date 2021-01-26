@@ -8,7 +8,7 @@
       title: 数据
       type: Array<{ text, value }>
       default: 数据
-      description: 数据列表
+      description: 数据列表，当前地区数据集合不满足需求，可以重设此数据
     - name: value
       model: true
       sync: true
@@ -44,7 +44,7 @@
         - value: json
           title: json
     - name: field
-      title: 字段
+      title: 文本字段
       type: string
       default: value
       description: 显示文本字段

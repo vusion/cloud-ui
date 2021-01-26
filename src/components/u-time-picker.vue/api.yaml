@@ -53,6 +53,7 @@
       type: boolean
       default: true
       description: 是否显示
+      hidden: true
   events:
     - name: change
       title: 改变后

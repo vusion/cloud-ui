@@ -67,14 +67,13 @@
           title: 错误
       default: ""
       description: 提示图标
-      advanced: true
     - name: static
       title: 嵌入页面显示
       type: boolean
       default: false
       description: 是否嵌入页面显示
       advanced: true
-    - name: mask-closable
+    - name: mask-close
       title: 点击遮罩关闭
       type: boolean
       default: false

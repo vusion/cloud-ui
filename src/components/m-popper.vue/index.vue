@@ -80,8 +80,8 @@ export default {
             if (typeof this.followCursor === 'object')
                 return this.followCursor;
             else {
-                let followCursor;
-                if (typeof this.followCursor === 'boolean')
+                let followCursor = {};
+                if (typeof this.followCursor === 'boolean' || ['true', 'false'].includes(this.followCursor))
                     followCursor = { offsetX: 4, offsetY: 4 };
                 else if (typeof this.followCursor === 'number')
                     followCursor = {

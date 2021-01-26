@@ -7,5 +7,5 @@
   attrs:
     - name: position
       type: string
-      default: null
+      default: static
       description: 显示的位置。

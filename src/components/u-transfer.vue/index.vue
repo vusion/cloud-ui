@@ -14,6 +14,7 @@
         :match-method="matchMethod"
         :case-sensitive="caseSensitive"
         :pageable="pageable"
+        ref="source"
         :page-size="pageSize">
         <template #item="props">
             <slot name="item" v-bind="props"></slot>
@@ -37,6 +38,7 @@
         :match-method="matchMethod"
         :case-sensitive="caseSensitive"
         :pageable="pageable"
+        ref="target"
         :page-size="pageSize">
         <template #item="props">
             <slot name="item" v-bind="props"></slot>
@@ -88,6 +90,8 @@ export default {
             }
             const transferValues = Array.from(values);
             values.splice(0, values.length);
+            this.$refs.source.handleData();
+            this.$refs.target.handleData();
             this.$emit(
                 'transfer',
                 {

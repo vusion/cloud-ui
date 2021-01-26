@@ -59,7 +59,75 @@
       type: boolean
       default: false
       description: 自定义显示/隐藏条件
-    - name: 其余属性透传
+    - name: color
+      title: 颜色
+      type: string
+      options: 
+        - value: default
+          title: 默认
+        - value: light
+          title: 浅色
+        - value: success
+          title: 成功色
+        - value: warning
+          title: 警告色
+        - value: error
+          title: 错误色
+        - value: danger
+          title: 危险色
+      default: default
+      description: 设置颜色
+    - name: linkType
+      title: 链接类型
+      type: string
+      options: 
+        - value: destination
+          title: 页面跳转
+        - value: href
+          title: 普通链接
+        - value: download
+          title: 下载链接
+      description: 链接类型
+    - name: hrefAndTo
+      title: 链接
+      type: string
+      description: 链接地址
+    - name: target
+      title: 打开方式
+      type: string
+      default: _self
+      options:
+        - value: _blank
+          title: 新标签页
+        - value: _self
+          title: 当前窗口
+        - value: _parent
+          title: 父级窗口
+          advanced: true
+        - value: _top
+          title: 顶级窗口
+          advanced: true
+      description: 链接打开方式
+    - name: decoration
+      title: 下划线
+      type: boolean
+      default: true
+      description: 是否显示下划线
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 是否禁用。禁用后不会响应点击事件。
+    - name: display
+      title: 展示方式
+      type: string
+      options:
+        - value: inline
+          title: 行内展示
+        - value: block
+          title: 块级展示，宽度会充满父元素
+      default: inline
+      description: 展示方式
   events:
     - name: click
       title: 点击

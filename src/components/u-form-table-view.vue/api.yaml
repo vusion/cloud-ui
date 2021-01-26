@@ -7,8 +7,9 @@
   attrs:
     - name: border
       type: boolean
-      default: null
+      default: false
       description: 是否有边框
+      hidden: true
     - name: data
       type: Array
       default: null

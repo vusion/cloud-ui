@@ -40,6 +40,9 @@ export default {
     },
     methods: {
         onMousemove(i, $event) {
+            if (this.readonly) {
+                return false;
+            }
             this.isHover = true;
             this.hoverIndex = i;
         },
@@ -48,6 +51,9 @@ export default {
             this.hoverIndex = -1;
         },
         select(i) {
+            if (this.readonly) {
+                return false;
+            }
             this.currentValue = i;
             this.$emit('input', i, this);
             this.$emit('update:value', i, this);
