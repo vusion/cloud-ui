@@ -28,6 +28,7 @@
       description: 是否禁用。
     - name: closable
       title: 可关闭
+      advanced: true
       type: boolean
       default: false
       description: 是否可以关闭。
