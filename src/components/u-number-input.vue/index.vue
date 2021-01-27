@@ -191,7 +191,7 @@ export default {
             this.adjust(+this.currentValue + (step - 0));
         },
         decrease() {
-            const step = this.step === 0 ? this.computePrecision(this.currentValue) : this.step;
+            const step = this.step === 0 ? this.computePrecision(this.currentValue) : +this.step;
             this.adjust(+this.currentValue - step);
         },
         onInput(rawValue) {

@@ -71,7 +71,7 @@
       default: false
       description: 分组是否可以折叠
     - name: accordion
-      title: 展开分组
+      title: 手风琴模式
       type: boolean
       default: false
       description: 是否每次只会展开一个分组
