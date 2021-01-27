@@ -24,7 +24,6 @@
       description: 设置颜色
     - name: linkType
       title: 链接类型
-      advanced: true
       type: string
       options: 
         - value: destination
