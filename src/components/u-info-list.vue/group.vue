@@ -72,8 +72,7 @@ export default {
 }
 
 .body {
-    display: table;
-    table-layout: fixed;
+    position: relative;
     width: 100%;
 }
 </style>

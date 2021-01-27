@@ -6,7 +6,6 @@
   attrs:
     - name: router
       title: 使用路由
-      advanced: true
       type: boolean
       default: true
       description: 是否根据 vue-router 来控制选择哪一项
@@ -23,7 +22,7 @@
       default: false
       description: 分组是否可以折叠
     - name: accordion
-      title: 展开分组
+      title: 手风琴模式
       type: boolean
       default: false
       description: 是否每次只会展开一个分组

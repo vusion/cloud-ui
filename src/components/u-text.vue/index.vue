@@ -1,6 +1,11 @@
 <template>
 <span :class="$style.root" v-on="$listeners">
-    <slot>{{ text }}</slot>
+    <template v-if="text">
+        {{ text }}
+    </template>
+    <template v-else>
+        <slot></slot>
+    </template>
 </span>
 </template>
 

@@ -8,7 +8,6 @@
       title: 使用路由
       type: boolean
       default: true
-      advanced: true
       description: 是否根据 vue-router 来控制选择项
     - name: value
       model: true
@@ -21,6 +20,7 @@
       type: string
       default: text
       description: 显示文本字段
+      hidden: true
     - name: readonly
       title: 只读
       type: boolean
