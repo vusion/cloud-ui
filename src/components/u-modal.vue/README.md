@@ -12,6 +12,7 @@
     - [禁用按钮](#禁用按钮)
     - [自定义](#自定义)
     - [大小扩展](#大小扩展)
+    - [点击遮罩关闭](#点击遮罩关闭)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
@@ -135,6 +136,12 @@ export default {
 </u-modal>
 ```
 
+### 点击遮罩关闭
+
+``` html
+<u-modal title="标题" visible  :maskClose="true">内容</u-modal>
+```
+
 ## API
 ### Props/Attrs
 
@@ -149,7 +156,7 @@ export default {
 | size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 弹框的尺寸 |
 | icon | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `''` | 提示图标 |
 | static | boolean |  | `false` | 是否嵌入页面显示 |
-| mask-closable | boolean |  | `false` | 是否点击遮罩时关闭弹窗 |
+| mask-close | boolean |  | `false` | 是否点击遮罩时关闭弹窗 |
 
 ### Slots
 

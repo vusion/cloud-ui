@@ -28,6 +28,7 @@
     <u-text size="large">大号文本</u-text>
     <u-text size="huge">特大号文本</u-text>
     <u-text style="font-size: 26px;">自定义大小</u-text>
+    <u-text style="font-size: 26px;" text="属性文本">属性文本占位</u-text>
 </u-linear-layout>
 ```
 

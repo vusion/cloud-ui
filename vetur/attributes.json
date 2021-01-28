@@ -160,22 +160,18 @@
   "i-icon/name": {
     "type": "string",
     "options": [
-      "area",
-      "portrait",
-      "left",
-      "right",
       "arrow-down",
       "arrow-up",
-      "refresh",
-      "search",
-      "alert",
-      "logout",
-      "dropdown",
-      "down",
-      "up",
-      "chart-refresh",
-      "chart-zoom",
-      "close"
+      "arrow-left",
+      "arrow-right",
+      "angle-up",
+      "angle-down",
+      "angle-left",
+      "angle-right",
+      "close",
+      "close-solid",
+      "filter",
+      "github"
     ],
     "description": "图标名称"
   },
@@ -529,7 +525,104 @@
     "type": "boolean",
     "description": "自定义显示/隐藏条件"
   },
-  "u-action/其余属性透传": {},
+  "u-action/color": {
+    "type": "string",
+    "options": [
+      {
+        "value": "default",
+        "title": "默认"
+      },
+      {
+        "value": "light",
+        "title": "浅色"
+      },
+      {
+        "value": "success",
+        "title": "成功色"
+      },
+      {
+        "value": "warning",
+        "title": "警告色"
+      },
+      {
+        "value": "error",
+        "title": "错误色"
+      },
+      {
+        "value": "danger",
+        "title": "危险色"
+      }
+    ],
+    "description": "设置颜色"
+  },
+  "u-action/linkType": {
+    "type": "string",
+    "options": [
+      {
+        "value": "destination",
+        "title": "页面跳转"
+      },
+      {
+        "value": "href",
+        "title": "普通链接"
+      },
+      {
+        "value": "download",
+        "title": "下载链接"
+      }
+    ],
+    "description": "链接类型"
+  },
+  "u-action/hrefAndTo": {
+    "type": "string",
+    "description": "链接地址"
+  },
+  "u-action/target": {
+    "type": "string",
+    "options": [
+      {
+        "value": "_blank",
+        "title": "新标签页"
+      },
+      {
+        "value": "_self",
+        "title": "当前窗口"
+      },
+      {
+        "value": "_parent",
+        "title": "父级窗口",
+        "advanced": true
+      },
+      {
+        "value": "_top",
+        "title": "顶级窗口",
+        "advanced": true
+      }
+    ],
+    "description": "链接打开方式"
+  },
+  "u-action/decoration": {
+    "type": "boolean",
+    "description": "是否显示下划线"
+  },
+  "u-action/disabled": {
+    "type": "boolean",
+    "description": "是否禁用。禁用后不会响应点击事件。"
+  },
+  "u-action/display": {
+    "type": "string",
+    "options": [
+      {
+        "value": "inline",
+        "title": "行内展示"
+      },
+      {
+        "value": "block",
+        "title": "块级展示，宽度会充满父元素"
+      }
+    ],
+    "description": "展示方式"
+  },
   "u-avatar/type": {
     "type": "enum",
     "options": [
@@ -829,7 +922,7 @@
     "description": "顶部自定义提示文本"
   },
   "u-capsule/flag": {
-    "type": "any",
+    "type": "boolean",
     "description": "是否右上角有flag标志"
   },
   "u-capsule/item": {
@@ -903,7 +996,7 @@
     "description": "是否可自动选择"
   },
   "u-cascade-capsules/converter": {
-    "type": "string | object",
+    "type": "string",
     "options": [
       {
         "value": "join",
@@ -957,7 +1050,25 @@
     "description": "是否隐藏空列表"
   },
   "u-cascade-select/converter": {
-    "type": "string | object",
+    "type": "string",
+    "options": [
+      {
+        "value": "join",
+        "title": "以','连接"
+      },
+      {
+        "value": "join:|",
+        "title": "以'|'连接"
+      },
+      {
+        "value": "join:;",
+        "title": "以';'连接"
+      },
+      {
+        "value": "json",
+        "title": "json"
+      }
+    ],
     "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value，`'join.number'`与`join`类似，只是会考虑它为数字的情况。也可以用`:`修改分隔符，类似 Vue 的指令参数，`'last-value'`表示以最后一项的值作为 value。也可以传入一个包含 { get, set } 的一个对象"
   },
   "u-cascade-select/field": {
@@ -996,7 +1107,7 @@
     "description": "一行固定多少个选择项，如果不传则固定单项宽度为158px，每行个数自适应行宽"
   },
   "u-checkbox-card/converter": {
-    "type": "string | object",
+    "type": "string",
     "options": [
       {
         "value": "join",
@@ -1058,7 +1169,7 @@
     "description": "是否禁用"
   },
   "u-checkboxes/converter": {
-    "type": "string | object",
+    "type": "string",
     "options": [
       {
         "value": "join",
@@ -3217,7 +3328,7 @@
     "type": "boolean",
     "description": "是否嵌入页面显示"
   },
-  "u-modal/mask-closable": {
+  "u-modal/mask-close": {
     "type": "boolean",
     "description": "是否点击遮罩时关闭弹窗"
   },
@@ -3738,7 +3849,7 @@
   },
   "u-region-select/data": {
     "type": "Array<{ text, value }>",
-    "description": "数据列表"
+    "description": "数据列表，当前地区数据集合不满足需求，可以重设此数据"
   },
   "u-region-select/value": {
     "type": "any",
@@ -3753,7 +3864,25 @@
     "description": "是否隐藏空列表"
   },
   "u-region-select/converter": {
-    "type": "string | object",
+    "type": "string",
+    "options": [
+      {
+        "value": "join",
+        "title": "以','连接"
+      },
+      {
+        "value": "join:|",
+        "title": "以'|'连接"
+      },
+      {
+        "value": "join:;",
+        "title": "以';'连接"
+      },
+      {
+        "value": "json",
+        "title": "json"
+      }
+    ],
     "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value，`'join.number'`与`join`类似，只是会考虑它为数字的情况。也可以用`:`修改分隔符，类似 Vue 的指令参数，`'last-value'`表示以最后一项的值作为 value。也可以传入一个包含 { get, set } 的一个对象"
   },
   "u-region-select/field": {
@@ -3793,7 +3922,7 @@
     "description": "是否可以多选。"
   },
   "u-select/converter": {
-    "type": "string | object",
+    "type": "string",
     "options": [
       {
         "value": "join",

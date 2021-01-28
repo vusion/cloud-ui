@@ -246,7 +246,7 @@
 | selected | boolean |  | `false` | 是否选中此项 |
 | disabled | boolean |  | `false` | 禁用此项 |
 | label | string |  | `''` | 顶部自定义提示文本 |
-| flag | any |  |  | 是否右上角有flag标志 |
+| flag | boolean |  | `false` | 是否右上角有flag标志 |
 | item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
 
 ### Slots

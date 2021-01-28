@@ -252,7 +252,13 @@
   "u-action": {
     "attributes": [
       "hidden",
-      "其余属性透传"
+      "color",
+      "linkType",
+      "hrefAndTo",
+      "target",
+      "decoration",
+      "disabled",
+      "display"
     ]
   },
   "u-article": {
@@ -968,7 +974,7 @@
       "size",
       "icon",
       "static",
-      "mask-closable"
+      "mask-close"
     ]
   },
   "u-navbar": {

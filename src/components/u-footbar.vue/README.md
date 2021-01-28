@@ -82,5 +82,5 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| position | string |  |  | 显示的位置。 |
+| position | string |  | `'static'` | 显示的位置。 |
 

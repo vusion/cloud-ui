@@ -390,7 +390,7 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| border | boolean |  |  | 是否有边框 |
+| border | boolean |  | `false` | 是否有边框 |
 | data | Array |  |  | 数据 |
 | dynamic | boolean |  | `false` | 是否可以动态添加/删除项 |
 | get-default-item | Function |  |  | 传入获取默认项的方法 |

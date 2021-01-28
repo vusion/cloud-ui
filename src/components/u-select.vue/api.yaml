@@ -61,14 +61,12 @@
       type: string
       default: 加载中...
       description: 正在加载中的文字。使用分页加载时才会出现。
-      advanced: true
     - name: empty-text
       title: 暂无数据文字
       advanced: true
       type: string
       default: 暂无数据
       description: 暂无数据时的文字。
-      advanced: true
     - name: empty-disabled
       title: 为空自动禁用
       type: boolean

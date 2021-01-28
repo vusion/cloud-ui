@@ -56,5 +56,5 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| name | string | `'area'`<br/>`'portrait'`<br/>`'left'`<br/>`'right'`<br/>`'arrow-down'`<br/>`'arrow-up'`<br/>`'refresh'`<br/>`'search'`<br/>`'alert'`<br/>`'logout'`<br/>`'dropdown'`<br/>`'down'`<br/>`'up'`<br/>`'chart-refresh'`<br/>`'chart-zoom'`<br/>`'close'` |  | 图标名称 |
+| name | string | `'arrow-down'`<br/>`'arrow-up'`<br/>`'arrow-left'`<br/>`'arrow-right'`<br/>`'angle-up'`<br/>`'angle-down'`<br/>`'angle-left'`<br/>`'angle-right'`<br/>`'close'`<br/>`'close-solid'`<br/>`'filter'`<br/>`'github'` |  | 图标名称 |
 

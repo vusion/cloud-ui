@@ -73,7 +73,13 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | hidden | boolean |  | `false` | 自定义显示/隐藏条件 |
-| 其余属性透传 |  |  |  | undefined |
+| color | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 设置颜色 |
+| linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 链接类型 |
+| hrefAndTo | string |  |  | 链接地址 |
+| target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_self'` | 链接打开方式 |
+| decoration | boolean |  | `true` | 是否显示下划线 |
+| disabled | boolean |  | `false` | 是否禁用。禁用后不会响应点击事件。 |
+| display | string | `[object Object]`<br/>`[object Object]` | `'inline'` | 展示方式 |
 
 ### Events
 
