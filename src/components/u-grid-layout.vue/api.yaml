@@ -64,6 +64,7 @@
       description: 内容对齐方式
     - name: alignment
       type: string
+      title: 对齐方式
       advanced: true
       options: 
         - value: start

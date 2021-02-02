@@ -8,6 +8,7 @@
       title: 数据
       description: 待渲染数据
       required: true
+      type: array
   slots:
       - name: default
         description: 待循环渲染的项
