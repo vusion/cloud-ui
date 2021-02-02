@@ -59,7 +59,8 @@
     "normalize.css": "^7.0.0",
     "vusion": "^0.12.15",
     "vusion-api": "^0.6.30",
-    "vusion-async-validator": "^1.8.8"
+    "vusion-async-validator": "^1.8.8",
+    "yargs": "^16.2.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.3.0",
@@ -85,8 +86,8 @@
     "vusion-hooks": "^0.3.0"
   },
   "peerDependencies": {
-    "vue": "^2.6.10",
-    "@vusion/utils": "^0.4.9"
+    "@vusion/utils": "^0.4.9",
+    "vue": "^2.6.10"
   },
   "vetur": {
     "tags": "./vetur/tags.json",

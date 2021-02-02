@@ -16,9 +16,9 @@
       title: 标题
       type: string
       description: 面板项的标题
-
 - name: u-panel-group
   advanced: true
+  title: 面板组
   attrs:
     - name: title
       title: 标题

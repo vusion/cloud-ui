@@ -6,6 +6,7 @@
   attrs:
     - name: name
       type: string
+      title: 图标名称
       default: null
       description: 图标名称
       options: ["arrow-down", "arrow-up",  "arrow-left", "arrow-right", "angle-up", "angle-down", "angle-left", "angle-right", "close", "close-solid", "filter", "github"]

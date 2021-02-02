@@ -1,27 +1,26 @@
 - name: u-form-table-view
   icon: table-view
   title: 表格表单视图
-  labels: [Table]
+  labels:
+    - Table
   description: 本组件用于在表单中使用表单验证、动态数据等复杂功能。
   extends: m-dynamic
   attrs:
-    - name: border
-      type: boolean
-      default: false
-      description: 是否有边框
-      hidden: true
     - name: data
       type: Array
       default: null
       description: 数据
+      title: 数据
     - name: dynamic
       type: boolean
       default: false
       description: 是否可以动态添加/删除项
+      title: 动态添加
     - name: get-default-item
       type: Function
       default: null
       description: 传入获取默认项的方法
+      title: 默认项的方法
     - name: initial-add
       type: boolean
       default: true
@@ -157,7 +156,7 @@
       default: null
       description: data 中的字段名
     - name: width
-      type: string, number
+      type: 'string, number'
       default: null
       description: 给列指定宽度，可以为数字或百分比
     - name: ellipsis
@@ -165,7 +164,7 @@
       default: false
       description: 是否省略显示。默认文字超出时会换行
     - name: formatter
-      type: string, object, Function, Formatter
+      type: 'string, object, Function, Formatter'
       default: placeholder
       description: 格式器
     - name: hidden
@@ -176,10 +175,10 @@
       type: number
       default: 1
       description: 当`type="index"`时的起始序号
-    - name: "**Validator Props/Attrs**"
-      type: ""
+    - name: '**Validator Props/Attrs**'
+      type: ''
       default: null
-      description: ""
+      description: ''
     - name: label
       type: string
       default: null
@@ -189,7 +188,7 @@
       default: null
       description: 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示
     - name: rules
-      type: string, Array
+      type: 'string, Array'
       default: null
       description: 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型
     - name: ignore-validation
@@ -203,8 +202,9 @@
     - name: validating-options
       type: object
       default: null
-      description: "验证辅助对象。在 Rule 的 `validate` 方法中使用。表格中会额外将`{ data: currentData, item,
-        rowIndex }`注入"
+      description: >-
+        验证辅助对象。在 Rule 的 `validate` 方法中使用。表格中会额外将`{ data: currentData, item,
+        rowIndex }`注入
     - name: validating-value
       type: any
       default: null

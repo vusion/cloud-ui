@@ -296,7 +296,7 @@
       description: 加载后触发
       params:
         - name: $event
-          type: null
+          type: 'null'
           description: 无
         - name: senderVM
           type: UTableView
@@ -453,6 +453,7 @@
           description: 发送事件实例
     - name: input
       description: 选择某一项后触发
+      title: 选择触发
       params:
         - name: $event
           type: any
@@ -568,7 +569,10 @@
     - name: $listeners
       kind: trigger
       description: 监听所有事件。
-      params: []
+      params: 
+         - name: $event
+           type: trigger
+           description: 自定义事件
   attrs:
     - name: title
       title: 列标题
@@ -639,6 +643,7 @@
   slots:
     - name: default
       title: 默认
+      description: 默认值
       accept-type: all
     - name: cell
       description: 对单元格的数据展示进行自定义。
