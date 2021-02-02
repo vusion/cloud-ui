@@ -24,14 +24,23 @@ components.every((component) => {
             if (args.HELP === 'true') {
                 validate.errors.forEach(errorObject => {
                     /* 辅助寻找必填的缺失的 key */
+                    
+                    const currentPath = errorObject.dataPath.split('/');
+                    const keyTitle = errorObject.params.missingProperty;
+                    // 去掉第一个 ''
+                    currentPath.shift();
+
                     if (errorObject.keyword === 'required') {
-                        const currentPath = errorObject.dataPath.split('/');
-                        const keyTitle = errorObject.params.missingProperty;
-                        // 去掉第一个 ''
-                        currentPath.shift();
                         lodash.set(context, `${currentPath.join('.')}.${keyTitle}`, '');
-                        fs.writeFileSync(targetFile, yaml.safeDump(context));
                     }
+
+                    if (errorObject.keyword === 'oneOf') {
+                        const passingSchemas = errorObject.params.passingSchemas;
+                        // 用于提示需要填充一种结构
+                        lodash.set(context, `${currentPath.join('.')}.oneOf`, yaml.safeDump(passingSchemas));
+                    }
+
+                    fs.writeFileSync(targetFile, yaml.safeDump(context));
                 });
             }
           
