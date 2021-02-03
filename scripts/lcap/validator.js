@@ -8,8 +8,8 @@ const validate = ajv.compile(schema);
 const lodash = require('lodash');
 const components = require('./config');
 const args = require('yargs').argv;
-
 const root = path.join(__dirname, '../../src/components');
+
 components.every((component) => {
     if (component.show) {
         const targetFile = path.join(root, component.name + '.vue', 'api.yaml');

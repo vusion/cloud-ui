@@ -625,6 +625,7 @@
     - name: type
       title: 列类型
       type: string
+      default: index
       options:
         - value: index
           title: 序号列

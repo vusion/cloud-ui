@@ -23,6 +23,7 @@
       title: 显示效果
       type: string
       description: 显示样式
+      default: default
       options:
         - value: default
           title: 默认模式

@@ -105,6 +105,7 @@
     - name: converter
       title: 转换器
       type: string
+      default: json
       options:
         - name: JSON
           value: json

@@ -33,6 +33,7 @@
     - name: linkType
       title: 链接类型
       type: string
+      default: destination
       options: 
         - value: destination
           title: 页面跳转
@@ -52,6 +53,7 @@
     - name: target
       title: 打开方式
       type: string
+      default: _blank
       options:
         - value: _blank
           title: 新标签页

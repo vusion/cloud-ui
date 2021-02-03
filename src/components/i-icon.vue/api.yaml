@@ -7,6 +7,6 @@
     - name: name
       type: string
       title: 图标名称
-      default: null
+      default: "arrow-down"
       description: 图标名称
       options: ["arrow-down", "arrow-up",  "arrow-left", "arrow-right", "angle-up", "angle-down", "angle-left", "angle-right", "close", "close-solid", "filter", "github"]

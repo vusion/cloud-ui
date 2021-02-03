@@ -192,6 +192,7 @@
         - value: download
           title: 下载链接
       description: 链接类型
+      default: destination
     # - name: href
     #   title: 链接
     #   type: string
@@ -214,6 +215,7 @@
         - value: _top
           title: 顶级窗口
           advanced: true
+      default: _blank
       description: 链接跳转方式
     - name: to
       title: 路由链接

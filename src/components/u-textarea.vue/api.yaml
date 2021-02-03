@@ -58,6 +58,7 @@
     - name: size
       title: 尺寸
       type: string
+      default: normal
       options:
         - value: full
           title: 占满

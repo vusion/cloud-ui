@@ -65,7 +65,7 @@
           title: 警告
         - value: error
           title: 错误
-      default: ""
+      default: success
       description: 提示图标
     - name: static
       title: 嵌入页面显示

@@ -208,6 +208,7 @@
     - name: linkType
       title: 链接类型
       type: string
+      default: destination
       options:
         - value: destination
           title: 页面跳转
@@ -230,6 +231,7 @@
       title: 打开方式
       advanced: true
       type: string
+      default: _blank
       options:
         - value: _blank
           title: 新标签页
