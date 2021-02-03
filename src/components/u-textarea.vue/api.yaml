@@ -162,11 +162,13 @@
       advanced: true
       params:
         - name: $event
-          type: null
+          type: Object
+          title: 原生事件对象
           description: 原生事件对象
           schema:
             $ref: '#/systemTypes/FocusEvent'
         - name: senderVM
+          title: 发送事件实例
           type: UTextarea
           description: 发送事件实例
     - name: before-clear

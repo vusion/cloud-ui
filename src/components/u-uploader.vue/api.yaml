@@ -2,7 +2,8 @@
   title: 文件上传
   icon: uploader
   description: 通过点击或者拖拽上传文件。
-  labels: [Form]
+  labels:
+    - Form
   attrs:
     - name: value
       type: Array
@@ -10,24 +11,31 @@
       sync: true
       default: '[]'
       description: 当前文件列表
+      title: 值
     - name: url
       type: string
       required: true
-      default:
+      default: null
       description: 上传的地址
+      title: 上传的地址
     - name: name
       type: string
       default: file
+      title: 上传的文件字段名
       description: 上传的文件字段名，后端需要这个字段获取
     - name: accept
       type: string
+      title: 接受的上传类型
       description: 接受的上传类型
     - name: headers
       type: Object
+      title: 请求 headers
       description: 请求 headers
     - name: with-credentials
       type: boolean
       default: false
+      title: 设置cookie值
+      description: 通过设置 withCredentials 为 true 获得的第三方 cookies，将会依旧享受同源策略
     - name: multiple
       title: 多文件上传
       type: boolean
@@ -35,12 +43,14 @@
       description: 多文件上传
     - name: data-type
       type: string
+      title: 接收数据类型
       default: json
       advanced: true
       description: 接收数据类型。可选值：`text`、`xml`、`json`
       hidden: true
     - name: data
       type: object
+      title: 附加数据
       default: null
       description: 附加数据
     - name: limit
@@ -50,9 +60,10 @@
       description: 列表数量上限
     - name: max-size
       title: 最大文件大小
-      type: string, number
+      type: 'string, number'
       default: .inf
-      description: 可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB`
+      description: >-
+        可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB`
     - name: list-type
       title: 列表类型
       type: string
@@ -97,6 +108,7 @@
       options:
         - name: JSON
           value: json
+      description: 转换器
     - name: readonly
       title: 只读
       type: boolean
@@ -243,4 +255,3 @@
       title: 选择
       description: 选择文件上传
       params: []
-

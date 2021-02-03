@@ -40,6 +40,12 @@ components.every((component) => {
                         lodash.set(context, `${currentPath.join('.')}.oneOf`, yaml.safeDump(passingSchemas));
                     }
 
+                    // 对类型的辅助修正
+                    if (errorObject.keyword === 'type') {
+                        // 用于提示需要填充一种结构
+                        lodash.set(context, `${currentPath.join('.')}`, '/** newType **/');
+                    }
+
                     fs.writeFileSync(targetFile, yaml.safeDump(context));
                 });
             }

@@ -9,8 +9,10 @@
       type: number
       default: 0
       description: 百分比，0-100 之间的数字
+      title: 百分比
     - name: size
       type: string
+      title: 尺寸
       options:
         - value: small
           title: 小
@@ -23,8 +25,11 @@
       default: normal
       description: 高度扩展
     - name: range
+      title: 百分比范围
       type: array<number>
-      default: [0, 100]
+      default:
+        - 0
+        - 100
       description: 百分比范围限制
       advanced: true
   slots:

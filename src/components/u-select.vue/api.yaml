@@ -1,7 +1,8 @@
 - name: u-select
   icon: select
   title: 选择框
-  labels: [Form]
+  labels:
+    - Form
   description: 下拉选择框，支持单选、多选、搜索等功能
   attrs:
     - name: value
@@ -22,7 +23,7 @@
       description: 选项值的字段名。
     - name: data-source
       title: 数据源
-      type:  Array<Item> | Function | object | DataSource
+      type: Array<Item> | Function | object | DataSource
       description: 选择框的数据源。数组方式表示直接的数据，函数需要返回一个 Promise，详见文档示例。
     - name: cancelable
       title: 可取消
@@ -38,15 +39,16 @@
     - name: converter
       title: 转换器
       type: string
-      description: value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成
+      description: >-
+        value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成
         value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象
       bindHide: true
       options:
         - value: join
-          title: 以','连接
-        - value: join:|
+          title: '以'',''连接'
+        - value: 'join:|'
           title: 以'|'连接
-        - value: join:;
+        - value: 'join:;'
           title: 以';'连接
         - value: json
           title: json
@@ -185,9 +187,11 @@
       options:
         - value: search
           title: 搜索
+      description: 前缀图标
     - name: suffix
       title: 后缀图标
       type: string
+      description: 后缀图标
       options:
         - value: search
           title: 搜索
@@ -197,13 +201,15 @@
       support:
         - name: u-select-item
           title: 选项
-          snippet: '<u-select-item>选项</u-select-item>'
+          snippet: <u-select-item>选项</u-select-item>
         - name: u-select-group
           title: 分组
-          snippet: '<u-select-group title="分组"><u-select-item>选项</u-select-item></u-select-group>'
+          snippet: >-
+            <u-select-group
+            title="分组"><u-select-item>选项</u-select-item></u-select-group>
         - name: u-select-divider
           title: 分隔线
-          snippet: '<u-select-divider></u-select-divider>'
+          snippet: <u-select-divider></u-select-divider>
   events:
     - name: before-select
       title: 选择前
@@ -235,14 +241,17 @@
           description: 发送事件实例
     - name: input
       description: 选择某一项时触发
+      title: 选择时
       params:
         - name: $event
           type: any
           description: 选择项的值
+          title: 选择项的值
           schema:
             $ref: '#/basicTypes/String'
         - name: senderVM
           type: USelect
+          title: 发送事件实例
           description: 发送事件实例
     - name: select
       title: 选择后
@@ -325,7 +334,7 @@
       description: 弹出后触发。
       params:
         - name: $event
-          type: ""
+          type: ''
           description: 空
         - name: senderVM
           type: USelect
@@ -351,7 +360,7 @@
       description: 关闭时触发。
       params:
         - name: $event
-          type: ""
+          type: ''
           description: 空
         - name: senderVM
           type: USelect
@@ -377,14 +386,14 @@
       description: 加载后触发
       params:
         - name: $event
-          type: ""
+          type: ''
           description: 空
         - name: senderVM
           type: USelect
           description: 发送事件实例
     - name: click-prefix
       title: 点击前缀图标
-      description:  点击前缀图标后触发
+      description: 点击前缀图标后触发
       params:
         - name: $event
           type: object
@@ -393,7 +402,7 @@
             $ref: '#/systemTypes/MouseEvent'
     - name: click-suffix
       title: 点击后缀图标
-      description:  点击后缀图标后触发
+      description: 点击后缀图标后触发
       params:
         - name: $event
           type: object
@@ -420,6 +429,7 @@
       description: 清除缓存，重新加载
       params: []
 - name: u-select-item
+  title: 选择项
   attrs:
     - name: value
       title: 选项值
@@ -465,11 +475,13 @@
           type: USelectItem
           description: 发送事件实例
 - name: u-select-group
+  title: 选择分组
   attrs:
     - name: title
       type: string
       default: null
       description: 显示的标题
+      title: 标题
   slots:
     - name: default
       title: 默认
@@ -477,7 +489,7 @@
       support:
         - name: u-select-item
           title: 选项
-          snippet: '<u-select-item>选项</u-select-item>'
+          snippet: <u-select-item>选项</u-select-item>
     - name: title
       title: 标题
       description: 自定义标题文本。
