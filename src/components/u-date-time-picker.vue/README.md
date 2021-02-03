@@ -112,7 +112,7 @@ export default {
 | readonly | boolean |  | `false` | 是否只读 |
 | yearDiff | string, number |  | `3` | 最小可选年份值为当前年减去此值 |
 | yearAdd | string, number |  | `1` | 最大可选年份值为当前年加上此值 |
-| converter | string | `'JSON'` ()<br/>`'Unix 时间戳'` ()<br/>`'Date 对象'` () |  | undefined |
+| converter | string | `'JSON'` ()<br/>`'Unix 时间戳'` ()<br/>`'Date 对象'` () |  | 转换器 |
 
 ### Slots
 

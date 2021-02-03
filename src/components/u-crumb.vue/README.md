@@ -5,9 +5,10 @@
 - [示例](#示例)
     - [基本用法](#基本用法)
 - [UCrumb API](#ucrumb-api)
+    - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
 - [UCrumbItem API](#ucrumbitem-api)
-    - [Props/Attrs](#propsattrs)
+    - [Props/Attrs](#propsattrs-2)
     - [Slots](#slots-2)
     - [Events](#events)
 
@@ -34,6 +35,12 @@
 ```
 
 ## UCrumb API
+### Props/Attrs
+
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| auto | boolean |  | `false` | 是否自动根据配置的 items 生成面包屑 |
+
 ### Slots
 
 #### (default)
@@ -67,6 +74,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 
 #### @click
 

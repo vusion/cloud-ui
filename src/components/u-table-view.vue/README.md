@@ -2048,7 +2048,7 @@ Methods
 
 #### (default)
 
-
+默认值
 
 #### cell
 
@@ -2091,4 +2091,5 @@ Methods
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | trigger | 自定义事件 |
 

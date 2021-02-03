@@ -1315,8 +1315,8 @@ export default {
 | size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度 |
 | opened.sync | boolean |  | `false` | 切换弹出/关闭状态 |
 | autofocus | boolean |  | `false` | 自动获取焦点 |
-| prefix | string | `[object Object]` |  | undefined |
-| suffix | string | `[object Object]` |  | undefined |
+| prefix | string | `[object Object]` |  | 前缀图标 |
+| suffix | string | `[object Object]` |  | 后缀图标 |
 
 ### Slots
 
