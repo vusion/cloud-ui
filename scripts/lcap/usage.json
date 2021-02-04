@@ -5622,7 +5622,7 @@
                     "name": "max-count",
                     "type": "number",
                     "title": "最大行数",
-                    "default": null,
+                    "default": 999,
                     "description": "最大项目数"
                 }
             ],
@@ -7440,7 +7440,7 @@
                     "name": "max",
                     "title": "最大值",
                     "type": "number",
-                    "default": null,
+                    "default": 999,
                     "description": "最大值"
                 },
                 {
@@ -8629,7 +8629,7 @@
                     "name": "max",
                     "title": "选中最大数",
                     "type": "number",
-                    "default": null,
+                    "default": 999,
                     "description": "可以勾选多选框的最大数量"
                 },
                 {
@@ -10690,14 +10690,14 @@
                     "name": "limit",
                     "title": "列表数量上限",
                     "type": "number",
-                    "default": null,
+                    "default": 999,
                     "description": "列表数量上限"
                 },
                 {
                     "name": "max-size",
                     "title": "最大文件大小",
                     "type": "string, number",
-                    "default": null,
+                    "default": 999,
                     "description": "可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB`"
                 },
                 {
