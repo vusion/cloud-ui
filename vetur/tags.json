@@ -501,7 +501,9 @@
     ]
   },
   "u-crumb": {
-    "attributes": [],
+    "attributes": [
+      "auto"
+    ],
     "description": "导航指引",
     "subtags": [
       "u-crumb-item"
@@ -611,7 +613,6 @@
   },
   "u-form-table-view": {
     "attributes": [
-      "border",
       "data",
       "dynamic",
       "get-default-item",
@@ -990,8 +991,14 @@
       "u-navbar-item",
       "u-navbar-divider",
       "u-navbar-dropdown",
-      "u-navbar-menu、u-navbar-menu-group、u-navbar-menu-item、u-navbar-menu-divider",
-      "u-navbar-select、u-navbar-select-group、u-navbar-select-item、u-navbar-select-divider"
+      "u-navbar-menu",
+      "u-navbar-menu-group",
+      "u-navbar-menu-item",
+      "u-navbar-menu-divider",
+      "u-navbar-select",
+      "u-navbar-select-group",
+      "u-navbar-select-item",
+      "u-navbar-select-divider"
     ]
   },
   "u-navbar-item": {
@@ -1017,10 +1024,28 @@
       "disabled"
     ]
   },
-  "u-navbar-menu、u-navbar-menu-group、u-navbar-menu-item、u-navbar-menu-divider": {
+  "u-navbar-menu": {
     "attributes": []
   },
-  "u-navbar-select、u-navbar-select-group、u-navbar-select-item、u-navbar-select-divider": {
+  "u-navbar-menu-group": {
+    "attributes": []
+  },
+  "u-navbar-menu-item": {
+    "attributes": []
+  },
+  "u-navbar-menu-divider": {
+    "attributes": []
+  },
+  "u-navbar-select": {
+    "attributes": []
+  },
+  "u-navbar-select-group": {
+    "attributes": []
+  },
+  "u-navbar-select-item": {
+    "attributes": []
+  },
+  "u-navbar-select-divider": {
     "attributes": []
   },
   "u-new-time-picker": {

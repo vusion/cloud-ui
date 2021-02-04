@@ -242,7 +242,7 @@ export default {
 | draggable | boolean |  | `false` | 是否可以拖拽上传 |
 | paste | boolean |  | `false` | 是否可以粘贴 |
 | show-file-list | boolean |  | `true` | 是否显示文件列表 |
-| converter | string | `'JSON'` () |  | 转换器 |
+| converter | string | `'JSON'` () | `'json'` | 转换器 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | display | string | `[object Object]`<br/>`[object Object]` | `'block'` | 展示方式 |

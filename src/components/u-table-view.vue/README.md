@@ -2041,7 +2041,7 @@ Methods
 | default-order | string | `[object Object]`<br/>`[object Object]` | `'asc'` | 该列首次点击时的排序顺序 |
 | filters | Array\<{ text: string, value: any }\> |  |  | 筛选项的参数 |
 | hidden | boolean |  | `false` | 是否隐藏该列。 |
-| type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 列类型 |
+| type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'index'` | 列类型 |
 | start-index | number |  | `1` | 当`type="index"`时的起始序号。 |
 
 ### Slots

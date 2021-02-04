@@ -132,7 +132,7 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | accordion | boolean |  | `false` | 是否每次只会展开一个面板 |
 | expand-trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 展开/折叠的触发方式 |
-| appear | string | `[object Object]`<br/>`[object Object]` |  | 显示样式 |
+| appear | string | `[object Object]`<br/>`[object Object]` | `'default'` | 显示样式 |
 | disabled | boolean |  | `false` | 是否禁用 |
 
 ### Slots

@@ -34,7 +34,7 @@
     - name: max-count
       type: number
       title: 最大行数
-      default: .inf
+      default: 999
       description: 最大项目数
   slots:
     - name: default

@@ -1393,7 +1393,7 @@ export default {
 | remote-paging | number |  | `false` | 是否使用后端分页 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
-| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 设置尺寸。五种宽高的自由组合。 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置尺寸。五种宽高的自由组合。 |
 
 ### Slots
 

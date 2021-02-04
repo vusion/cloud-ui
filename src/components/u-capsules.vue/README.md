@@ -242,7 +242,7 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value | any |  |  | 此项的值 |
-| size | string | `[object Object]`<br/>`[object Object]` |  | 胶囊大小 |
+| size | string | `[object Object]`<br/>`[object Object]` | `'normal'` | 胶囊大小 |
 | selected | boolean |  | `false` | 是否选中此项 |
 | disabled | boolean |  | `false` | 禁用此项 |
 | label | string |  | `''` | 顶部自定义提示文本 |

@@ -133,7 +133,7 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | title | string |  |  | undefined |
-| label-size | enum | `'small'`<br/>`'normal'`<br/>`'large'`<br/>`'huge'` |  | 该组下面所有项的标签大小。 |
+| label-size | enum | `'small'`<br/>`'normal'`<br/>`'large'`<br/>`'huge'` | `'normal'` | 该组下面所有项的标签大小。 |
 
 ### Slots
 
@@ -147,7 +147,7 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | label | string |  |  | undefined |
-| label-size | enum | `'small'`<br/>`'normal'`<br/>`'large'`<br/>`'huge'` |  | 该项的标签大小。 |
+| label-size | enum | `'small'`<br/>`'normal'`<br/>`'large'`<br/>`'huge'` | `'normal'` | 该项的标签大小。 |
 
 ### Slots
 

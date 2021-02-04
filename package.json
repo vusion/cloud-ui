@@ -57,6 +57,7 @@
     "js-yaml": "^3.14.0",
     "lodash": "^4.17.5",
     "normalize.css": "^7.0.0",
+    "serve": "^11.3.2",
     "vusion": "^0.12.15",
     "vusion-api": "^0.6.30",
     "vusion-async-validator": "^1.8.8",

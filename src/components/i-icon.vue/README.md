@@ -56,5 +56,5 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| name | string | `'arrow-down'`<br/>`'arrow-up'`<br/>`'arrow-left'`<br/>`'arrow-right'`<br/>`'angle-up'`<br/>`'angle-down'`<br/>`'angle-left'`<br/>`'angle-right'`<br/>`'close'`<br/>`'close-solid'`<br/>`'filter'`<br/>`'github'` |  | 图标名称 |
+| name | string | `'arrow-down'`<br/>`'arrow-up'`<br/>`'arrow-left'`<br/>`'arrow-right'`<br/>`'angle-up'`<br/>`'angle-down'`<br/>`'angle-left'`<br/>`'angle-right'`<br/>`'close'`<br/>`'close-solid'`<br/>`'filter'`<br/>`'github'` | `'arrow-down'` | 图标名称 |
 
