@@ -257,6 +257,7 @@ export default {
                     if (res[this.urlField])
                         item.url = res[this.urlField];
                     item.response = res;
+                    item.showProgress = false;
 
                     this.$emit('success', {
                         res,
@@ -264,13 +265,10 @@ export default {
                         item,
                         xhr,
                     }, this);
-                    setTimeout(() => {
-                        item.showProgress = false;
 
-                        const value = this.toValue(this.currentValue);
-                        this.$emit('input', value);
-                        this.$emit('update:value', value);
-                    }, 1000);
+                    const value = this.toValue(this.currentValue);
+                    this.$emit('input', value);
+                    this.$emit('update:value', value);
                 },
                 onError: (e, res) => {
                     const item = this.currentValue[index];
