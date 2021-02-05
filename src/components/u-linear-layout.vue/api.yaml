@@ -2,12 +2,13 @@
   title: 线性布局
   description: 内部元素按照一定的规则布局
   icon: linear-layout
-  labels: [Layout]
+  labels:
+    - Layout
   attrs:
     - name: direction
       title: 排列方向
       type: string
-      options: 
+      options:
         - value: horizontal
           title: 横向排列
         - value: vertical
@@ -17,7 +18,7 @@
     - name: gap
       title: 间隙
       type: string
-      options: 
+      options:
         - value: shrink
           title: 收缩
           advanced: true
@@ -34,7 +35,7 @@
     - name: display
       title: 展示方式
       type: string
-      options: 
+      options:
         - value: inline
           title: 行内
         - value: block
@@ -44,7 +45,7 @@
     - name: layout
       title: 子元素布局方式
       type: string
-      options: 
+      options:
         - value: none
           title: 子元素默认布局
         - value: inline
@@ -65,7 +66,7 @@
     - name: justify
       title: 主轴分布方式
       type: string
-      options: 
+      options:
         - value: start
           title: 左对齐
         - value: center
@@ -84,7 +85,7 @@
       title: 纵轴对齐方式
       type: string
       advanced: true
-      options: 
+      options:
         - value: start
           title: 头对齐
         - value: center

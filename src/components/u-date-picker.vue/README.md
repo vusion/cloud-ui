@@ -104,7 +104,7 @@ export default {
 | placeholder | string |  | `'请输入'` | 文本框默认提示 |
 | alignment | string | `[object Object]`<br/>`[object Object]` | `'left'` | 日历弹窗对其方式 |
 | time | string, number |  | `'0:00:00'` | 输入对应格式的字符串（8:00:00）即可 |
-| yeadDiff | string, number |  | `3` | 最小可选年份值为当前年减去此值 |
+| yearDiff | string, number |  | `3` | 最小可选年份值为当前年减去此值 |
 | yearAdd | string, number |  | `1` | 最大可选年份值为当前年加上此值 |
 | converter | string | `'JSON'` ()<br/>`'Unix 时间戳'` ()<br/>`'Date 对象'` () | `'json'` | 转换器，用于转换时间结果 |
 
