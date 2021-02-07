@@ -215,6 +215,7 @@
         - value: large
           title: 大
       description: 单独设置表单项的内容大小
+      default: normal
     - name: required
       title: 必填标记
       type: boolean

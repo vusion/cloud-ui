@@ -33,7 +33,7 @@
         - value: download
           title: 下载链接
       description: 链接类型
-      default: destination
+      default: href
     # - name: href
     #   title: 链接
     #   type: string

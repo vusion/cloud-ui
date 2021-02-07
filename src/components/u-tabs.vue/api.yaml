@@ -208,7 +208,7 @@
     - name: linkType
       title: 链接类型
       type: string
-      default: destination
+      default: href
       options:
         - value: destination
           title: 页面跳转

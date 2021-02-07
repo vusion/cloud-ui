@@ -3,7 +3,12 @@ const yaml = require('js-yaml');
 const schema = require('./schema');
 const path = require('path');
 const fs = require('fs-extra');
-const ajv = new Ajv();
+const ajv = new Ajv({next: true})
+const nextVocabulary = require("ajv/dist/vocabularies/next").default;
+// add support for dependentRequired, dependentSchemas, maxContains and minContains
+
+// const nextVocabulary = require("ajv/dist/vocabularies/next").default
+ajv.addVocabulary(nextVocabulary)
 const validate = ajv.compile(schema);
 const lodash = require('lodash');
 const components = require('./config');
@@ -44,6 +49,11 @@ components.every((component) => {
                     if (errorObject.keyword === 'type') {
                         // 用于提示需要填充一种结构
                         lodash.set(context, `${currentPath.join('.')}`, '/** newType **/');
+                    }
+                    
+                    // 依赖属性，比如有 options，需要设置 default
+                    if (errorObject.keyword === 'dependentRequired') {
+                        lodash.set(context, `${currentPath.join('.')}.${keyTitle}`, '');
                     }
 
                     fs.writeFileSync(targetFile, yaml.safeDump(context));

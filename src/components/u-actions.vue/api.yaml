@@ -88,6 +88,7 @@
           title: 普通链接
         - value: download
           title: 下载链接
+      default: href
       description: 链接类型
     - name: hrefAndTo
       title: 链接
