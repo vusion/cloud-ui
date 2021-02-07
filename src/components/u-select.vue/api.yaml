@@ -188,7 +188,10 @@
       options:
         - value: search
           title: 搜索
+        - value: ''
+          title: 暂无
       description: 前缀图标
+      default: ''
     - name: suffix
       title: 后缀图标
       type: string
@@ -196,6 +199,9 @@
       options:
         - value: search
           title: 搜索
+        - value: ''
+          title: 暂无
+      default: ''
   slots:
     - name: default
       description: 插入`<u-select-item>`、`<u-select-divider>`或`<u-select-group>`子组件。
