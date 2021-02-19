@@ -1,6 +1,6 @@
 - name: u-info-list
   title: 详情列表
-  labels: &ref_0
+  labels:
     - Display
   icon: info-list
   attrs:
@@ -74,8 +74,6 @@
     - name: label
       title: 自定义标签内容
       description: 用于自定义 label 内容。
-  icon: info-list
-  labels: *ref_0
   description: 详情列表项
 - name: u-info-list-group
   title: 详情列表组
@@ -117,6 +115,4 @@
     - name: extra
       title: 自定义额外操作项
       description: 自定义额外操作项。
-  icon: info-list
-  labels: *ref_0
   description: 详情列表组

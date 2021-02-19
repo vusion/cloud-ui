@@ -1,6 +1,6 @@
 - name: u-crumb
   title: 面包屑
-  labels: &ref_0
+  labels:
     - Layout
   description: 导航指引
   icon: crumb
@@ -36,7 +36,7 @@
       type: string
       default: href
       compType: linkTypeSelect
-      options: 
+      options:
         - value: destination
           title: 页面跳转
         - value: href
@@ -156,6 +156,4 @@
         - name: senderVM
           type: UCrumb
           description: 发送事件实例
-  icon: crumb
-  labels: *ref_0
   description: 面包屑选项

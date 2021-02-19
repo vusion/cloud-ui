@@ -1,7 +1,8 @@
 - name: u-html
   title: html 文本
   icon: html
-  labels: [Display]
+  labels:
+    - Display
   description: 用于添加 html 文本
   attrs:
     - name: html

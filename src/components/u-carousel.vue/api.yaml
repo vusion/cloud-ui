@@ -2,7 +2,7 @@
   title: 幻灯片
   icon: carousel
   description: 动态播放内部内容
-  labels: &ref_0
+  labels:
     - Display
   attrs:
     - name: value
@@ -113,6 +113,4 @@
     - name: title
       description: 自定义标题文本。
       advanced: true
-  icon: carousel
-  labels: *ref_0
   description: 幻灯片选项

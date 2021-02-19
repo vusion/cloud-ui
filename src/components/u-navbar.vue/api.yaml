@@ -1,7 +1,7 @@
 - name: u-navbar
   title: 导航栏
   icon: navbar
-  labels: &ref_0
+  labels:
     - Layout
   description: 通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。
   attrs:
@@ -186,7 +186,7 @@
       title: 链接类型
       type: string
       compType: linkTypeSelect
-      options: 
+      options:
         - value: destination
           title: 页面跳转
         - value: href
@@ -313,13 +313,9 @@
         - name: senderVM
           type: Vue
           description: 发送事件实例
-  icon: navbar
-  labels: *ref_0
   description: 导航栏的子项目
 - name: u-navbar-divider
   title: 导航栏分割线
-  icon: navbar
-  labels: *ref_0
   description: 导航栏的分割线
 - name: u-navbar-dropdown
   title: 导航栏下拉菜单
@@ -375,46 +371,28 @@
       type: boolean
       default: false
       description: 是否禁用
-  icon: navbar
-  labels: *ref_0
   description: 导航栏下拉菜单
 - name: u-navbar-menu
   title: 导航菜单
-  icon: navbar
-  labels: *ref_0
   description: 导航菜单
 - name: u-navbar-menu-group
   title: 导航菜单分组
-  icon: navbar
-  labels: *ref_0
   description: 导航菜单分组
 - name: u-navbar-menu-item
   title: 导航菜单子元素
-  icon: navbar
-  labels: *ref_0
   description: 导航菜单子元素
 - name: u-navbar-menu-divider
   title: 导航菜单分割线
-  icon: navbar
-  labels: *ref_0
   description: 导航菜单分割线
 - name: u-navbar-select
   title: 导航选择
-  icon: navbar
-  labels: *ref_0
   description: 导航选择
 - name: u-navbar-select-group
   title: 导航选择分组
-  icon: navbar
-  labels: *ref_0
   description: 导航选择分组
 - name: u-navbar-select-item
   title: 导航选择分组子元素
-  icon: navbar
-  labels: *ref_0
   description: 导航选择分组子元素
 - name: u-navbar-select-divider
   title: 导航选择分割线
-  icon: navbar
-  labels: *ref_0
   description: 导航选择分割线

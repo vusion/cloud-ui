@@ -2,7 +2,8 @@
   title: 徽章
   icon: badge
   description: 用于显示消息条数和提醒用户处理的角标。
-  labels: [Display]
+  labels:
+    - Display
   attrs:
     - name: value
       title: 值

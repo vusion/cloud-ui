@@ -29,6 +29,15 @@ components.every((component) => {
             });
         }
         const valid = validate(context);
+        if (context.length > 1) {
+            context.forEach((item, index) => {
+                if (index > 0) {
+                    delete item.icon;
+                    delete item.labels;
+                }
+            });
+        }
+
         if (!valid) {
             console.log(targetFile, '\n', validate.errors);
             /**
@@ -68,9 +77,12 @@ components.every((component) => {
                     fs.writeFileSync(targetFile, yaml.safeDump(context));
                 });
             }
-
+           
             return false;
         }
+
+        // 验证通过，直接删除子元素的 icon 和 label
+        fs.writeFileSync(targetFile, yaml.safeDump(context));
     }
     return true;
 });

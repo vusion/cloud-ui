@@ -1,6 +1,6 @@
 - name: u-collapse
   title: 折叠面板
-  labels: &ref_0
+  labels:
     - Layout
   icon: collapse
   description: 可以折叠/展开的内容区域。
@@ -130,6 +130,4 @@
         - name: senderVM
           type: Vue
           description: 发送事件实例
-  icon: collapse
-  labels: *ref_0
   description: 折叠子元素

@@ -1,7 +1,7 @@
 - name: u-sidebar
   title: 侧边栏
   icon: sidebar
-  labels: &ref_0
+  labels:
     - Layout
   description: 通常用于页面左侧的导航栏。
   attrs:
@@ -196,7 +196,7 @@
       type: string
       default: href
       compType: linkTypeSelect
-      options: 
+      options:
         - value: destination
           title: 页面跳转
         - value: href
@@ -321,8 +321,6 @@
         - name: senderVM
           type: Vue
           description: 发送事件实例
-  icon: sidebar
-  labels: *ref_0
   description: 侧边栏项
 - name: u-sidebar-group
   title: 侧边栏分组
@@ -403,11 +401,7 @@
         - name: senderVM
           type: Vue
           description: 发送事件实例
-  icon: sidebar
-  labels: *ref_0
   description: 侧边栏分组
 - name: u-sidebar-divider
   title: 侧边栏分隔线
-  icon: sidebar
-  labels: *ref_0
   description: 侧边栏分隔线

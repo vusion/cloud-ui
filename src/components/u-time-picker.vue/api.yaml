@@ -10,12 +10,12 @@
       type: string
       model: true
       sync: true
-      default: 00:00
+      default: '00:00'
       description: 当前的时间值
     - name: minUnit
       title: 最小单位
       type: string
-      options: 
+      options:
         - value: second
           title: 秒
         - value: minute
@@ -25,12 +25,12 @@
     - name: minTime
       title: 最小时间
       type: string
-      default: 00:00
+      default: '00:00'
       description: 最小时间
     - name: maxTime
       title: 最大时间
       type: string
-      default: 23:59
+      default: 1439
       description: 最大时间
     - name: autofocus
       title: 自动聚焦

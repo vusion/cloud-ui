@@ -2,7 +2,7 @@
   title: 表单
   icon: form
   description: 具有数据收集、校验和提交功能的表单，包含输入框、选择框、复选框、单选框等元素。
-  labels: &ref_0
+  labels:
     - Form
   attrs:
     - name: model
@@ -346,8 +346,6 @@
           type: boolean
           default: false
           description: 是否验证后无提示
-  icon: form
-  labels: *ref_0
   description: 表单项
 - name: u-form-group
   title: 表单分组
@@ -425,6 +423,4 @@
         - name: senderVM
           type: Vue
           description: 发送事件实例
-  icon: form
-  labels: *ref_0
   description: 展开折叠前

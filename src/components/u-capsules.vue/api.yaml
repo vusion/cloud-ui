@@ -2,7 +2,7 @@
   title: 胶囊
   icon: capsules
   description: 多项中选择一项
-  labels: &ref_0
+  labels:
     - Form
   attrs:
     - name: value
@@ -292,8 +292,6 @@
         - name: senderVM
           type: UCapsule
           description: 发送事件实例
-  icon: capsules
-  labels: *ref_0
   description: 子选项
 - name: u-capsule-group
   title: 子选项组
@@ -304,6 +302,4 @@
         - name: u-capsule
           title: 子选项
           snippet: <u-capsule>选项</u-capsule>
-  icon: capsules
-  labels: *ref_0
   description: 子选项组
