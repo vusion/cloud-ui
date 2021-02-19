@@ -30,7 +30,7 @@
     - name: maxTime
       title: 最大时间
       type: string
-      default: 1439
+      default: '23:59'
       description: 最大时间
     - name: autofocus
       title: 自动聚焦
