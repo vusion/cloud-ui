@@ -9,6 +9,7 @@
       type: image
       default: ''
       description: 图片地址
+      compType: linkInput
     - name: fit
       title: 填充方式
       type: string

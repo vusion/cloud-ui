@@ -206,6 +206,7 @@
       title: 验证规则
       default: null
       description: 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型
+      compType: validationRulesSelect
     - name: ignore-validation
       type: boolean
       title: 忽略验证

@@ -18,6 +18,7 @@
       default: null
       description: 上传的地址
       title: 上传的地址
+      compType: interfaceSelect
     - name: name
       type: string
       default: file

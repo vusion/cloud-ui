@@ -127,6 +127,7 @@
     - name: linkType
       title: 链接类型
       type: string
+      compType: linkTypeSelect
       default: href
       options: 
         - value: destination
@@ -144,6 +145,7 @@
       title: 链接
       type: string
       description: 链接地址
+      compType: linkHrefInput
     - name: target
       title: 打开方式
       type: enum

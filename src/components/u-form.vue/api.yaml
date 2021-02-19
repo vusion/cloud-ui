@@ -16,6 +16,7 @@
       deprecated: true
       advanced: true
       description: 表单所有域的验证规则，已废弃，推荐在各`<u-form-item>`中自行添加 rules。
+      compType: validationRulesSelect
     - name: layout
       title: 表单布局
       type: string
@@ -266,6 +267,7 @@
       title: 验证规则
       type: string | Array
       description: 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型
+      compType: validationRulesSelect
     - name: ignore-validation
       title: 忽略验证
       type: boolean

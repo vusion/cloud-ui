@@ -14,6 +14,7 @@
       title: 数据类型
       type: schema
       description: 表格的数据类型，对应表格数据的schema
+      compType: dataTypeSelect
     - name: initial-load
       group: 数据属性
       title: 初始加载

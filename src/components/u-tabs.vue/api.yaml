@@ -209,6 +209,7 @@
       title: 链接类型
       type: string
       default: href
+      compType: linkTypeSelect
       options:
         - value: destination
           title: 页面跳转
@@ -227,6 +228,7 @@
       advanced: true
       type: string
       description: 链接地址
+      compType: linkHrefInput
     - name: target
       title: 打开方式
       advanced: true
