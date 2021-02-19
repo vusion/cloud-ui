@@ -46,6 +46,7 @@
       description: 列跨越的格数
     - name: label-size
       type: string
+      title: 标签大小
       options:
         - value: auto
           title: 自适应

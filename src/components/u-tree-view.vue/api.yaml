@@ -7,7 +7,7 @@
   attrs:
     - name: data
       title: 数据
-      type: Array<{ text, value }>
+      type: 'Array<{ text, value }>'
       description: Data书写方式中的数据列表
     - name: value
       sync: true
@@ -43,7 +43,7 @@
     - name: expand-trigger
       title: 触发方式
       type: string
-      options: 
+      options:
         - value: click
           title: 整行点击均可触发
         - value: click-expander
@@ -66,7 +66,7 @@
       support:
         - name: u-tree-view-node
           title: 子节点
-          snippet: '<u-tree-view-node text="节点"></u-tree-view-node>'
+          snippet: <u-tree-view-node text="节点"></u-tree-view-node>
   events:
     - name: before-select
       title: 选择前
@@ -252,6 +252,7 @@
           type: boolean
           description: 选中/取消
 - name: u-tree-view-node
+  title: 组件子元素
   attrs:
     - name: value
       title: 值

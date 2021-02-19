@@ -1,13 +1,13 @@
 - name: u-iframe
   title: iframe
   icon: iframe
-  labels: [Container]
+  labels:
+    - Container
   description: 用于嵌入其他网页。
   attrs:
     - name: src
       title: 网页地址
       type: string
-      default: ''
       description: 嵌入网页的地址
   slots: false
   events:

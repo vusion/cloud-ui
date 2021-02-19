@@ -249,7 +249,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| gap | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 栅格之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔） |
+| gap | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 栅格之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔） |
 
 ### Slots
 
@@ -263,7 +263,7 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | repeat | number |  | `12` | 划分的栅格数 |
-| type | string | `[object Object]`<br/>`[object Object]` |  | 布局模式 |
+| type | string | `[object Object]`<br/>`[object Object]` | `'default'` | 布局模式 |
 | justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` | 内容对齐方式 |
 | alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` | flex布局模式下的交叉轴对齐方式 |
 

@@ -11,6 +11,7 @@
   "main": "./index.js",
   "scripts": {
     "dev": "vue-cli-service doc --port 9001",
+    "validator": "node ./scripts/lcap/validator.js --HELP=true",
     "dev:designer": "cross-env VUE_APP_DESIGNER=true vue-cli-service doc --port 9001",
     "build": "vue-cli-service library-build --apply-theme --theme default,dark,seagreen",
     "build:theme": "vue-cli-service library-build --dest dist-theme",
@@ -59,13 +60,14 @@
     "normalize.css": "^7.0.0",
     "vusion": "^0.12.15",
     "vusion-api": "^0.6.30",
-    "vusion-async-validator": "^1.8.8"
+    "vusion-async-validator": "^1.8.8",
+    "yargs": "^16.2.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.3.0",
     "@vue/cli-service": "^4.3.0",
     "@vusion/mock": "^0.1.1",
-    "ajv": "^7.0.3",
+    "ajv": "^7.0.4",
     "commander": "^2.20.0",
     "core-js": "^3.6.5",
     "cross-env": "^7.0.2",
@@ -85,8 +87,8 @@
     "vusion-hooks": "^0.3.0"
   },
   "peerDependencies": {
-    "vue": "^2.6.10",
-    "@vusion/utils": "^0.4.9"
+    "@vusion/utils": "^0.4.9",
+    "vue": "^2.6.10"
   },
   "vetur": {
     "tags": "./vetur/tags.json",

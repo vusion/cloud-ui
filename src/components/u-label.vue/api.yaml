@@ -6,6 +6,7 @@
   attrs:
     - name: color
       type: string
+      title: 设置颜色
       options: 
         - value: default
           title: 默认
@@ -21,6 +22,7 @@
       description: 设置颜色
     - name: size
       type: string
+      title: 大小
       options: 
         - value: small
           title: 小
@@ -33,11 +35,13 @@
       default: normal
       description: 设置尺寸
     - name: removable
+      title: 是否显示删除图标
       type: boolean
       default: false
       description: 是否显示删除图标
     - name: display
       type: string
+      title: 排列
       options: 
         - value: inline
           title: 行内
@@ -50,10 +54,15 @@
       description: 状态
   events:
     - name: $listeners
+      kind: trigger
       description: 监听所有`<span>`元素的事件。
-      params: []
+      params: 
+        - name: $event
+          type: trigger
+          description: 自定义事件对象
     - name: before-remove
       description: 删除前触发
+      title: 删除前触发
       advanced: true
       params:
         - name: $event
@@ -69,6 +78,7 @@
           description: 发送事件实例
     - name: remove
       description: 删除时触发
+      title: 删除时触发
       params:
         - name: $event
           type: 'null'

@@ -2,11 +2,13 @@
   icon: grid-layout
   title: 栅格布局
   description: 内部元素按照一定的规则布局
-  labels: [Layout]
+  labels:
+    - Layout
   attrs:
     - name: gap
       title: 间隔
       type: string
+      default: normal
       options:
         - value: none
           title: 无
@@ -20,10 +22,15 @@
   slots:
     - name: default
       description: 插入`<u-grid-layout-row>`或`<u-grid-layout-column>`子组件。
-      support: 
+      support:
         - name: u-grid-layout-row
           title: 插入一行
-          snippet: <u-grid-layout-row><u-grid-layout-column :span="6">第一行第一列</u-grid-layout-column><u-grid-layout-column :span="6">第一行第二列</u-grid-layout-column></u-grid-layout-row><u-grid-layout-row><u-grid-layout-column :span="6">第二行第一列</u-grid-layout-column><u-grid-layout-column :span="6">第二行第二列</u-grid-layout-column></u-grid-layout-row>
+          snippet: >-
+            <u-grid-layout-row><u-grid-layout-column
+            :span="6">第一行第一列</u-grid-layout-column><u-grid-layout-column
+            :span="6">第一行第二列</u-grid-layout-column></u-grid-layout-row><u-grid-layout-row><u-grid-layout-column
+            :span="6">第二行第一列</u-grid-layout-column><u-grid-layout-column
+            :span="6">第二行第二列</u-grid-layout-column></u-grid-layout-row>
         - name: u-grid-layout-column
           title: 插入一列
           snippet: <u-grid-layout-column>列内容</u-grid-layout-column>
@@ -35,10 +42,12 @@
       type: number
       default: 12
       description: 划分的栅格数
+      options: ''
     - name: type
       title: 类型
       type: string
-      options: 
+      default: default
+      options:
         - value: default
           title: 默认类型
         - value: flex
@@ -47,7 +56,7 @@
     - name: justify
       title: 对齐方式
       type: string
-      options: 
+      options:
         - value: start
           title: 左对齐
         - value: center
@@ -66,7 +75,7 @@
       type: string
       title: 对齐方式
       advanced: true
-      options: 
+      options:
         - value: start
           title: 头对齐
         - value: center
@@ -82,7 +91,7 @@
   slots:
     - name: default
       description: 插入`<u-grid-layout-column>`子组件。
-      support: 
+      support:
         - name: u-grid-layout-column
           title: 插入一列
           snippet: <u-grid-layout-column>列内容</u-grid-layout-column>

@@ -1,7 +1,8 @@
 - name: u-input
   icon: input
   title: 单行输入
-  labels: [Form]
+  labels:
+    - Form
   description: 基本的表单输入组件
   attrs:
     - name: type
@@ -91,17 +92,25 @@
       options:
         - value: search
           title: 搜索
+        - value: ''
+          title: 暂无
+      description: 前缀图标
+      default: ''
     - name: suffix
       title: 后缀图标
       type: string
       options:
         - value: search
           title: 搜索
+        - value: ''
+          title: 暂无
+      default: ''
+      description: 后缀图标
   slots:
     - name: default
       advanced: true
       title: 默认
-      description: 插入 HTML 或 `Component`, 可展示额外内容。
+      description: '插入 HTML 或 `Component`, 可展示额外内容。'
       quick-add: never
   events:
     - name: before-input
@@ -220,7 +229,7 @@
           description: 发送事件实例
     - name: click-prefix
       title: 点击前缀图标
-      description:  点击前缀图标后触发
+      description: 点击前缀图标后触发
       params:
         - name: $event
           type: object
@@ -229,7 +238,7 @@
             $ref: '#/systemTypes/MouseEvent'
     - name: click-suffix
       title: 点击后缀图标
-      description:  点击后缀图标后触发
+      description: 点击后缀图标后触发
       params:
         - name: $event
           type: object

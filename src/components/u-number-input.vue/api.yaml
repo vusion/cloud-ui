@@ -19,7 +19,7 @@
     - name: max
       title: 最大值
       type: number
-      default: .inf
+      default: 999
       description: 最大值
     - name: step
       title: 间隔

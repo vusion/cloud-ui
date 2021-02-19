@@ -9,3 +9,4 @@
       type: string
       default: static
       description: 显示的位置。
+      title: 显示位置

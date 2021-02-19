@@ -28,7 +28,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| data |  |  |  | 待渲染数据 |
+| data | array |  |  | 待渲染数据 |
 
 ### Slots
 

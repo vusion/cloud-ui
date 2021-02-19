@@ -1452,6 +1452,10 @@
     "type": "boolean",
     "description": "是否开启渐变"
   },
+  "u-crumb/auto": {
+    "type": "boolean",
+    "description": "是否自动根据配置的 items 生成面包屑"
+  },
   "u-crumb-item/type": {
     "type": "string",
     "options": [
@@ -1597,7 +1601,8 @@
         "name": "Date 对象",
         "value": "date"
       }
-    ]
+    ],
+    "description": "转换器，用于转换时间结果"
   },
   "u-date-time-picker/date": {
     "type": "string, number, Date",
@@ -1650,7 +1655,8 @@
         "name": "Date 对象",
         "value": "date"
       }
-    ]
+    ],
+    "description": "转换器"
   },
   "u-desc-list/label-size": {
     "type": "enum",
@@ -1761,11 +1767,8 @@
     "description": "显示的位置。"
   },
   "u-for/data": {
+    "type": "array",
     "description": "待渲染数据"
-  },
-  "u-form-table-view/border": {
-    "type": "boolean",
-    "description": "是否有边框"
   },
   "u-form-table-view/data": {
     "type": "Array",
@@ -2040,7 +2043,8 @@
         "value": "none",
         "title": "不作处理"
       }
-    ]
+    ],
+    "description": "验证是否静默"
   },
   "u-form-item/description": {
     "type": "string",
@@ -2393,6 +2397,7 @@
     "description": "是否禁用"
   },
   "u-if/check": {
+    "type": "boolean",
     "description": "判断条件"
   },
   "u-iframe/src": {
@@ -2614,7 +2619,8 @@
         "value": "search",
         "title": "搜索"
       }
-    ]
+    ],
+    "description": "前缀图标"
   },
   "u-input/suffix": {
     "type": "string",
@@ -2623,7 +2629,8 @@
         "value": "search",
         "title": "搜索"
       }
-    ]
+    ],
+    "description": "后缀图标"
   },
   "u-label/color": {
     "type": "string",
@@ -4070,7 +4077,8 @@
         "value": "search",
         "title": "搜索"
       }
-    ]
+    ],
+    "description": "前缀图标"
   },
   "u-select/suffix": {
     "type": "string",
@@ -4079,7 +4087,8 @@
         "value": "search",
         "title": "搜索"
       }
-    ]
+    ],
+    "description": "后缀图标"
   },
   "u-select-item/value": {
     "type": "any",
@@ -4938,7 +4947,8 @@
         "value": "normal",
         "title": "正常"
       }
-    ]
+    ],
+    "description": "设置尺寸"
   },
   "u-textarea/resize": {
     "type": "string",
@@ -5451,7 +5461,8 @@
     "description": "请求 headers"
   },
   "u-uploader/with-credentials": {
-    "type": "boolean"
+    "type": "boolean",
+    "description": "通过设置 withCredentials 为 true 获得的第三方 cookies，将会依旧享受同源策略"
   },
   "u-uploader/multiple": {
     "type": "boolean",
@@ -5518,7 +5529,8 @@
         "name": "JSON",
         "value": "json"
       }
-    ]
+    ],
+    "description": "转换器"
   },
   "u-uploader/readonly": {
     "type": "boolean",

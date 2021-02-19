@@ -17,7 +17,9 @@ module.exports = {
                 type: 'array',
                 items: {
                     type: 'object',
-                    required: ['name', 'title', 'type', 'description'],
+                    dependentRequired: {
+                        options: ['default'],
+                    },
                     properties: {
                         name: {
                             type: 'string',
@@ -35,8 +37,8 @@ module.exports = {
                             type: 'string',
                             description: '属性描述',
                         },
-                    },
-                },
+                    }
+                }
             },
             slots: {
                 oneOf: [

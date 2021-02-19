@@ -103,6 +103,7 @@
       description: 是否禁用
     - name: size
       type: string
+      default: normal
       options: 
         - value: normal
           title: 正常

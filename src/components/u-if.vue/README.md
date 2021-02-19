@@ -31,15 +31,15 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| check |  |  |  | 判断条件 |
+| check | boolean |  |  | 判断条件 |
 
 ### Slots
 
-#### true
+#### True
 
 当判断条件为 true 时显示
 
-#### false
+#### False
 
 当判断条件为 false 时显示
 

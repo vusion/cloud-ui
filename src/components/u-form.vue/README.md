@@ -465,7 +465,7 @@ Methods
 | field-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 单独设置表单项的内容大小 |
 | required | boolean |  | `false` | 是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。 |
 | message | string |  |  | 默认提示消息 |
-| muted | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'none'` | undefined |
+| muted | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'none'` | 验证是否静默 |
 | description | string |  |  | 添加描述内容 |
 | placement | string | `[object Object]`<br/>`[object Object]` | `'right'` | 改变提示信息显示位置 |
 | layout | string | `[object Object]`<br/>`[object Object]` | `'inline'` | 布局方式。 |

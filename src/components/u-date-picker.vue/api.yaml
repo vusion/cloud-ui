@@ -6,41 +6,48 @@
     - Selector
   attrs:
     - name: width
-      type: string, number
+      type: 'string, number'
       default: 160
       description: 输入框宽度
+      title: 输入框宽度
     - name: date
-      type: string,number,Date
+      type: 'string,number,Date'
       model: true
       sync: true
       default: null
       title: 值
       description: 选择值
     - name: minDate
-      type: string,number,Date
+      type: 'string,number,Date'
       default: null
       description: 最小日期
+      title: 最小日期
     - name: maxDate
-      type: string,number,Date
+      type: 'string,number,Date'
       default: null
       description: 最大日期
+      title: 最大日期
     - name: readonly
       type: boolean
       default: false
+      title: 只读
       description: 是否只读
     - name: disabled
       type: boolean
       default: false
+      title: 禁用
       description: 是否禁用
     - name: autofocus
       type: boolean
       default: false
       description: 文本框默认处于focus
       advanced: true
+      title: 文本框默认处于 focus
     - name: placeholder
       type: string
       default: 请输入
       description: 文本框默认提示
+      title: 文本框默认提示
     - name: alignment
       type: string
       options:
@@ -50,21 +57,26 @@
           title: 右对齐
       default: left
       description: 日历弹窗对其方式
+      title: 日历弹窗对其方式
     - name: time
-      type: string, number
+      type: 'string, number'
       default: '0:00:00'
-      description: "输入对应格式的字符串（8:00:00）即可"
-    - name: yeadDiff
-      type: string, number
+      description: '输入对应格式的字符串（8:00:00）即可'
+      title: 时间格式
+    - name: yearDiff
+      type: 'string, number'
       default: 3
       description: 最小可选年份值为当前年减去此值
+      title: 最小可选年份与当前年份的差值
     - name: yearAdd
-      type: string, number
+      type: 'string, number'
       default: 1
       description: 最大可选年份值为当前年加上此值
+      title: 最大可选年份与当前年份的差值
     - name: converter
       title: 转换器
       type: string
+      default: json
       options:
         - name: JSON
           value: json
@@ -72,28 +84,35 @@
           value: timestamp
         - name: Date 对象
           value: date
+      description: 转换器，用于转换时间结果
   events:
     - name: input
+      title: 值输入时
       description: 值变化时触发 (表单验证可以检测到其值得变化)
       params:
         - name: $event
           type: Date
+          title: 输入后的日期值
           description: 改变后的日期值
           schema:
             $ref: '#/basicTypes/Date'
     - name: change
       description: 值变化时触发
+      title: 值变化时
       params:
         - name: $event
           type: object
+          title: 自定义事件对象
           description: 自定义事件对象
           schema:
             $ref: '#/systemTypes/DateEvent'
         - name: $event.date
           type: Date
+          title: 改变后的日期值
           description: 改变后的日期值
     - name: select
       description: 选择日期时触发
+      title: 选择时
       params:
         - name: $event
           type: object
@@ -105,6 +124,7 @@
           description: 选择后的日期值
     - name: toggle
       description: 弹出/隐藏时触发
+      title: 弹出/隐藏时
       advanced: true
       params:
         - name: $event

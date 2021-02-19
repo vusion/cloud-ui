@@ -72,5 +72,6 @@
         title: 内容
   events:
     - name: $listeners
+      title: 监听事件
       description: 监听所有`<span>`元素的事件。
       params: []

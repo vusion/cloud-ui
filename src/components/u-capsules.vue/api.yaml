@@ -225,6 +225,7 @@
         - value: normal
           title: 正常
       description: 胶囊大小
+      default: normal
     - name: selected
       title: 选中项
       type: boolean

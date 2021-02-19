@@ -34,6 +34,7 @@
   slots:
     - name: default
       description: 链接区域
+      title: 链接区域
       support: 
         - name: u-navbar-item
           title: 添加导航项
@@ -42,8 +43,10 @@
           title: 添加分隔线
           snippet: '<u-navbar-divider></u-navbar-divider>'
     - name: left
+      title: 左部区域
       description: 左部区域，一般放置 logo 等
     - name: right
+      title: 右部区域
       description: 右部区域，一般放置用户个人信息等
   events:
     - name: click
@@ -189,6 +192,7 @@
         - value: download
           title: 下载链接
       description: 链接类型
+      default: href
     # - name: href
     #   title: 链接
     #   type: string
@@ -211,6 +215,7 @@
         - value: _top
           title: 顶级窗口
           advanced: true
+      default: _blank
       description: 链接跳转方式
     - name: to
       title: 路由链接
@@ -233,6 +238,7 @@
       description: 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
   slots:
     - name: default
+      title: 默认值
       description: 插入文本或 HTML。
   events:
     - name: before-select
@@ -364,10 +370,18 @@
       default: false
       description: 是否禁用
 - name: u-navbar-menu
+  title: 导航菜单
 - name: u-navbar-menu-group
+  title: 导航菜单分组
 - name: u-navbar-menu-item
+  title: 导航菜单子元素
 - name: u-navbar-menu-divider
+  title: 导航菜单分割线
 - name: u-navbar-select
+  title: 导航选择
 - name: u-navbar-select-group
+  title: 导航选择分组
 - name: u-navbar-select-item
+  title: 导航选择分组子元素
 - name: u-navbar-select-divider
+  title: 导航选择分割线

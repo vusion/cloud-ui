@@ -6,48 +6,57 @@
     - Selector
   attrs:
     - name: date
-      type: string, number, Date
+      type: 'string, number, Date'
       model: true
       sync: true
       default: null
       title: 值
       description: 显示的日期值
     - name: minDate
-      type: string, number, Date
+      type: 'string, number, Date'
       default: null
       description: 最小日期值
+      title: 最小日期值
     - name: maxDate
-      type: string, number, Date
+      type: 'string, number, Date'
       default: null
       description: 最大日期值
+      title: 最大日期值
     - name: placeholder
       type: string
       default: 请选择时间
       description: 默认提示语
+      title: 默认提示文案
     - name: autofocus
       type: boolean
       default: false
       description: 是否默认处于focus状态
+      title: 自动获焦
       advanced: true
     - name: disabled
       type: boolean
       default: false
+      title: 禁用
       description: 是否禁用
     - name: readonly
       type: boolean
       default: false
+      title: 只读
       description: 是否只读
     - name: yearDiff
-      type: string, number
+      type: 'string, number'
       default: 3
+      title: 最小可选年份到当前年份的差值
       description: 最小可选年份值为当前年减去此值
     - name: yearAdd
-      type: string, number
+      type: 'string, number'
       default: 1
       description: 最大可选年份值为当前年加上此值
+      title: 最大可选年份到当前年份的差值
     - name: converter
       title: 转换器
       type: string
+      default: json
       options:
         - name: JSON
           value: json
@@ -55,6 +64,7 @@
           value: timestamp
         - name: Date 对象
           value: date
+      description: 转换器
   slots:
     - name: (footer)
       description: 日期组件底部扩展
@@ -65,20 +75,26 @@
       params:
         - name: $event
           type: object
+          title: 自定义事件对象
           description: 自定义事件对象
           schema:
             $ref: '#/systemTypes/DateEvent'
         - name: $event.date
           type: number
+          title: 选择项的值
           description: 选择项的值，默认返回时间戳
+      title: 值选择时
     - name: change
       description: 选择新时间触发
+      title: 值变化时
       params:
         - name: $event
           type: object
+          title: 自定义事件对象
           description: 自定义事件对象
           schema:
             $ref: '#/systemTypes/DateEvent'
         - name: $event.date
           type: number
+          title: 选择项的值
           description: 选择项的值，默认返回时间戳

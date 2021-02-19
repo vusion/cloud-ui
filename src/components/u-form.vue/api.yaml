@@ -2,7 +2,8 @@
   title: 表单
   icon: form
   description: 具有数据收集、校验和提交功能的表单，包含输入框、选择框、复选框、单选框等元素。
-  labels: [Form]
+  labels:
+    - Form
   attrs:
     - name: model
       title: 数据模型
@@ -78,7 +79,7 @@
     - name: expand-trigger
       title: 展开触发方式
       type: string
-      options: 
+      options:
         - value: click
           title: 整行点击均可触发
         - value: click-expander
@@ -112,10 +113,12 @@
       support:
         - name: u-form-group
           title: 导航分组
-          snippet: '<u-form-group title="分组"><u-form-item label="表单项"></u-form-item></u-form-group>'
+          snippet: >-
+            <u-form-group title="分组"><u-form-item
+            label="表单项"></u-form-item></u-form-group>
         - name: u-form-item
           title: 表单项
-          snippet: '<u-form-item label="表单项"></u-form-item>'
+          snippet: <u-form-item label="表单项"></u-form-item>
   events:
     - name: validate
       title: 验证后
@@ -212,6 +215,7 @@
         - value: large
           title: 大
       description: 单独设置表单项的内容大小
+      default: normal
     - name: required
       title: 必填标记
       type: boolean
@@ -233,6 +237,7 @@
           title: 同时静默消息提示和红框提示
         - value: none
           title: 不作处理
+      description: 验证是否静默
     - name: description
       title: 描述内容
       type: string
@@ -250,7 +255,7 @@
     - name: layout
       title: 布局方式
       type: string
-      options: 
+      options:
         - value: inline
           title: 行内
         - value: block
@@ -369,7 +374,7 @@
       support:
         - name: u-form-item
           title: 导航项
-          snippet: '<u-form-item>导航项</u-form-item>'
+          snippet: <u-form-item>导航项</u-form-item>
     - name: title
       description: 自定义标题文本。
     - name: extra

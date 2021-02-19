@@ -127,6 +127,7 @@
     - name: linkType
       title: 链接类型
       type: string
+      default: href
       options: 
         - value: destination
           title: 页面跳转
@@ -146,6 +147,7 @@
     - name: target
       title: 打开方式
       type: enum
+      default: _blank
       options:
         - title: 新标签页
           value: _blank
