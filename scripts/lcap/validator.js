@@ -28,6 +28,19 @@ components.every((component) => {
                 }
             });
         }
+
+        // 属性默认值为数字的时候，类型标记为 number
+        context.forEach((contextItem, index) => {
+            if (Object.prototype.toString.call(contextItem.attrs) === '[object Array]') {
+                contextItem.attrs.forEach(attr => {
+                    if (typeof attr.default == 'number') {
+                        // 如果属性的默认值是 number，那么类型标记为 number
+                        attr.type = 'number';
+                    } 
+                })
+            }
+        });
+        
         const valid = validate(context);
         if (context.length > 1) {
             context.forEach((item, index) => {
