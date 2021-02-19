@@ -1,7 +1,7 @@
 - name: u-select
   icon: select
   title: 选择框
-  labels:
+  labels: &ref_0
     - Form
   description: 下拉选择框，支持单选、多选、搜索等功能
   attrs:
@@ -481,6 +481,9 @@
         - name: senderVM
           type: USelectItem
           description: 发送事件实例
+  icon: select
+  labels: *ref_0
+  description: 选择项
 - name: u-select-group
   title: 选择分组
   attrs:
@@ -505,5 +508,11 @@
       title: 附加内容
       description: 在右侧可以附加内容。
       advanced: true
+  icon: select
+  labels: *ref_0
+  description: 选择分组
 - name: u-select-divider
   title: 分隔线
+  icon: select
+  labels: *ref_0
+  description: 分隔线

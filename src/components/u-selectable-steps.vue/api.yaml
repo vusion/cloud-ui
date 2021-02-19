@@ -1,5 +1,5 @@
 - name: u-selectable-steps
-  labels:
+  labels: &ref_0
     - Selector
   icon: steps
   title: 可选步骤条
@@ -103,3 +103,6 @@
       description: 插入文本或 HTML。
     - name: title
       description: 自定义标题文本。
+  icon: steps
+  labels: *ref_0
+  description: 可选步骤条项

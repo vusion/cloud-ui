@@ -2,7 +2,7 @@
   title: 树型视图
   icon: tree-view
   description: 树形选择器
-  labels:
+  labels: &ref_0
     - Selector
   attrs:
     - name: data
@@ -360,3 +360,6 @@
         - name: senderVM
           type: UTreeViewNode
           description: 发送事件实例
+  icon: tree-view
+  labels: *ref_0
+  description: 组件子元素

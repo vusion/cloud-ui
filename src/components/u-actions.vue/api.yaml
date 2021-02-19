@@ -2,7 +2,7 @@
   title: 操作项
   icon: actions
   description: 当待操作项过多时，会自动收纳
-  labels:
+  labels: &ref_0
     - Table
   attrs:
     - name: max-count
@@ -142,3 +142,6 @@
           description: 鼠标事件对象
           schema:
             $ref: '#/systemTypes/MouseEvent'
+  icon: actions
+  labels: *ref_0
+  description: 单个操作项

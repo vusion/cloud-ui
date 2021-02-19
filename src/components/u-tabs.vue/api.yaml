@@ -1,7 +1,7 @@
 - name: u-tabs
   icon: tabs
   title: 选项卡
-  labels:
+  labels: &ref_0
     - Selector
   description: 选项卡切换组件，常用于平级区域大块内容的收纳和展现。
   attrs:
@@ -281,3 +281,6 @@
     - name: title
       title: 标题
       description: 自定义标题
+  icon: tabs
+  labels: *ref_0
+  description: 标签页

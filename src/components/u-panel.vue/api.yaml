@@ -1,7 +1,8 @@
 - name: u-panel
   title: 面板
   icon: panel
-  labels: [Layout]
+  labels: &ref_0
+    - Layout
   description: 用于快速布局
   slots:
     - name: default
@@ -24,3 +25,6 @@
       title: 标题
       type: string
       description: 面板项的标题
+  icon: panel
+  labels: *ref_0
+  description: 面板组

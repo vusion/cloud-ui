@@ -1,6 +1,7 @@
 - name: u-modal
   icon: modal
-  labels: [Feedback]
+  labels:
+    - Feedback
   title: 弹窗
   attrs:
     - name: title
@@ -154,3 +155,4 @@
       description: 确定弹窗
     - name: cancel
       description: 取消弹窗
+  description: 弹窗

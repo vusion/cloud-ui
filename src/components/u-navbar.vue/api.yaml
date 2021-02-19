@@ -1,7 +1,8 @@
 - name: u-navbar
   title: 导航栏
   icon: navbar
-  labels: [Layout]
+  labels: &ref_0
+    - Layout
   description: 通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。
   attrs:
     - name: router
@@ -35,13 +36,13 @@
     - name: default
       description: 链接区域
       title: 链接区域
-      support: 
+      support:
         - name: u-navbar-item
           title: 添加导航项
-          snippet: '<u-navbar-item>导航项</u-navbar-item>'
+          snippet: <u-navbar-item>导航项</u-navbar-item>
         - name: u-navbar-divider
           title: 添加分隔线
-          snippet: '<u-navbar-divider></u-navbar-divider>'
+          snippet: <u-navbar-divider></u-navbar-divider>
     - name: left
       title: 左部区域
       description: 左部区域，一般放置 logo 等
@@ -194,10 +195,6 @@
           title: 下载链接
       description: 链接类型
       default: href
-    # - name: href
-    #   title: 链接
-    #   type: string
-    #   description: 链接地址
     - name: hrefAndTo
       title: 链接
       type: string
@@ -221,7 +218,7 @@
       description: 链接跳转方式
     - name: to
       title: 路由链接
-      type: string, Location
+      type: 'string, Location'
       advanced: true
       description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
     - name: replace
@@ -229,7 +226,8 @@
       title: 替换地址
       default: false
       advanced: true
-      description: 需要
+      description: >-
+        需要
         vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history
         `记录。
     - name: exact
@@ -279,14 +277,14 @@
           schema:
             $ref: '#/systemTypes/NavigateEvent'
         - name: $event.to
-          type: string, Location
-          description: "`to`属性的值"
+          type: 'string, Location'
+          description: '`to`属性的值'
         - name: $event.replace
           type: boolean
-          description: "`replace`属性的值"
+          description: '`replace`属性的值'
         - name: $event.exact
           type: boolean
-          description: "`exact`属性的值"
+          description: '`exact`属性的值'
         - name: $event.preventDefault
           type: Function
           description: 阻止切换流程
@@ -304,26 +302,32 @@
           schema:
             $ref: '#/systemTypes/NavigateEvent'
         - name: $event.to
-          type: string, Location
-          description: "`to`属性的值"
+          type: 'string, Location'
+          description: '`to`属性的值'
         - name: $event.replace
           type: boolean
-          description: "`replace`属性的值"
+          description: '`replace`属性的值'
         - name: $event.exact
           type: boolean
-          description: "`exact`属性的值"
+          description: '`exact`属性的值'
         - name: senderVM
           type: Vue
           description: 发送事件实例
+  icon: navbar
+  labels: *ref_0
+  description: 导航栏的子项目
 - name: u-navbar-divider
   title: 导航栏分割线
+  icon: navbar
+  labels: *ref_0
+  description: 导航栏的分割线
 - name: u-navbar-dropdown
   title: 导航栏下拉菜单
   attrs:
     - name: trigger
       title: 触发方式
       type: string
-      options: 
+      options:
         - value: click
           title: 点击
         - value: hover
@@ -371,19 +375,46 @@
       type: boolean
       default: false
       description: 是否禁用
+  icon: navbar
+  labels: *ref_0
+  description: 导航栏下拉菜单
 - name: u-navbar-menu
   title: 导航菜单
+  icon: navbar
+  labels: *ref_0
+  description: 导航菜单
 - name: u-navbar-menu-group
   title: 导航菜单分组
+  icon: navbar
+  labels: *ref_0
+  description: 导航菜单分组
 - name: u-navbar-menu-item
   title: 导航菜单子元素
+  icon: navbar
+  labels: *ref_0
+  description: 导航菜单子元素
 - name: u-navbar-menu-divider
   title: 导航菜单分割线
+  icon: navbar
+  labels: *ref_0
+  description: 导航菜单分割线
 - name: u-navbar-select
   title: 导航选择
+  icon: navbar
+  labels: *ref_0
+  description: 导航选择
 - name: u-navbar-select-group
   title: 导航选择分组
+  icon: navbar
+  labels: *ref_0
+  description: 导航选择分组
 - name: u-navbar-select-item
   title: 导航选择分组子元素
+  icon: navbar
+  labels: *ref_0
+  description: 导航选择分组子元素
 - name: u-navbar-select-divider
   title: 导航选择分割线
+  icon: navbar
+  labels: *ref_0
+  description: 导航选择分割线
