@@ -3,7 +3,7 @@ module.exports = {
     type: 'array',
     items: {
         type: 'object',
-        required: ['name', 'title'],
+        required: ['name', 'title', 'icon', 'labels', 'description'],
         properties: {
             name: {
                 description: '组件英文名',
@@ -13,6 +13,21 @@ module.exports = {
                 description: '组件中文名',
                 type: 'string',
             },
+            icon: {
+                description: '组件图标',
+                type: 'string',
+            },
+            description: {
+                description: '组件描述',
+                type: 'string',
+            },
+            labels: {
+                description: '组件标签',
+                type: 'array',
+                items: {
+                    type: 'string',
+                },
+            },
             attrs: {
                 type: 'array',
                 items: {
@@ -20,6 +35,7 @@ module.exports = {
                     dependentRequired: {
                         options: ['default'],
                     },
+                    required: ['name', 'title', 'type', 'description'],
                     properties: {
                         name: {
                             type: 'string',
@@ -37,8 +53,25 @@ module.exports = {
                             type: 'string',
                             description: '属性描述',
                         },
-                    }
-                }
+                        options: {
+                            type: 'array',
+                            items: {
+                                type: 'object',
+                                required: ['value', 'title'],
+                                properties: {
+                                    value: {
+                                        type: 'string',
+                                        description: '属性选项值',
+                                    },
+                                    title: {
+                                        type: 'string',
+                                        description: '属性选项名',
+                                    },
+                                },
+                            },
+                        },
+                    },
+                },
             },
             slots: {
                 oneOf: [

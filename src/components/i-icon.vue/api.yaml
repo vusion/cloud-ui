@@ -9,4 +9,28 @@
       title: 图标名称
       default: "arrow-down"
       description: 图标名称
-      options: ["arrow-down", "arrow-up",  "arrow-left", "arrow-right", "angle-up", "angle-down", "angle-left", "angle-right", "close", "close-solid", "filter", "github"]
+      options:
+        - value: arrow-down
+          title: arrow-down
+        - value: arrow-up
+          title: arrow-up
+        - value: arrow-left
+          title: arrow-left
+        - value: arrow-right
+          title: arrow-right
+        - value: angle-up
+          title: angle-up
+        - value: angle-down
+          title: angle-down
+        - value: angle-left
+          title: angle-left
+        - value: angle-right
+          title: angle-right
+        - value: close
+          title: close
+        - value: close-solid
+          title: close-solid
+        - value: filter
+          title: filter
+        - value: github
+          title: github

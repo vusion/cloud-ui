@@ -339,29 +339,29 @@
       type: string
       options:
         - value: top
-          name: 上
+          title: 上
         - value: bottom
-          name: 下
+          title: 下
         - value: left
-          name: 左
+          title: 左
         - value: right
-          name: 右
+          title: 右
         - value: top-start
-          name: 上左
+          title: 上左
         - value: top-end
-          name: 上右
+          title: 上右
         - value: bottom-start
-          name: 下左
+          title: 下左
         - value: bottom-end
-          name: 下右
+          title: 下右
         - value: left-start
-          name: 左上
+          title: 左上
         - value: left-end
-          name: 左下
+          title: 左下
         - value: right-start
-          name: 右上
+          title: 右上
         - value: right-end
-          name: 右下
+          title: 右下
       default: bottom
       description: 弹出方位
     - name: disabled

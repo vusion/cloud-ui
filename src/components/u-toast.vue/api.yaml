@@ -8,19 +8,19 @@
       type: string
       options: 
         - value: top-center
-          name: 上中
+          title: 上中
         - value: top-left
-          name: 上左
+          title: 上左
         - value: top-right
-          name: 上右
+          title: 上右
         - value: bottom-center
-          name: 下中
+          title: 下中
         - value: bottom-left
-          name: 下左
+          title: 下左
         - value: bottom-right
-          name: 下右
+          title: 下右
         - value: static
-          name: 静态
+          title: 静态
       default: top-center
       description: 显示的位置
     - name: duration

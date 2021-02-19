@@ -68,11 +68,11 @@
       title: 列表类型
       type: string
       options:
-        - name: 文本
+        - title: 文本
           value: text
-        - name: 图片
+        - title: 图片
           value: image
-        - name: 卡片
+        - title: 卡片
           value: card
       default: text
       description: 列表展示类型
@@ -107,7 +107,7 @@
       type: string
       default: json
       options:
-        - name: JSON
+        - title: JSON
           value: json
       description: 转换器
     - name: readonly

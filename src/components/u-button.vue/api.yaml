@@ -71,11 +71,11 @@
       type: string
       options:
         - value: refresh
-          name: 刷新
+          title: 刷新
         - value: create
-          name: 创建
+          title: 创建
         - value: success
-          name: 成功
+          title: 成功
       advanced: true
       default: success
       description: 设置图标。

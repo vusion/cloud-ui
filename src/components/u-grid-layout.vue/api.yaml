@@ -36,13 +36,13 @@
           snippet: <u-grid-layout-column>列内容</u-grid-layout-column>
 - name: u-grid-layout-row
   title: 栅格行
+  description: 内部元素行布局
   attrs:
     - name: repeat
       title: 栅格数
       type: number
       default: 12
       description: 划分的栅格数
-      options: ''
     - name: type
       title: 类型
       type: string
@@ -97,6 +97,7 @@
           snippet: <u-grid-layout-column>列内容</u-grid-layout-column>
 - name: u-grid-layout-column
   title: 栅格列
+  description: 内部元素行内列布局
   attrs:
     - name: span
       title: 占据数
