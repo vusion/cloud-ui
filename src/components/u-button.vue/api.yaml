@@ -1,7 +1,8 @@
 - name: u-button
   title: 按钮
   icon: button
-  labels: [Display]
+  labels:
+    - Display
   description: 用于触发一个即时操作。
   attrs:
     - name: color
@@ -89,7 +90,7 @@
       title: 链接类型
       type: string
       compType: linkTypeSelect
-      options: 
+      options:
         - value: destination
           title: 页面跳转
         - value: href
@@ -98,11 +99,6 @@
           title: 下载链接
       description: 链接类型
       default: href
-    # - name: href
-    #   title: 链接
-    #   type: string
-    #   description: 链接地址
-    #   advanced: true
     - name: hrefAndTo
       title: 链接
       type: string
@@ -127,14 +123,15 @@
     - name: to
       title: 路由链接
       advanced: true
-      type: string, Location
+      type: 'string, Location'
       description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
     - name: replace
       type: boolean
       title: 替换
       default: false
       advanced: true
-      description: 需要
+      description: >-
+        需要
         vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history
         `记录。
     - name: append
@@ -163,14 +160,14 @@
           schema:
             $ref: '#/systemTypes/NavigateEvent'
         - name: $event.to
-          type: string, Location
-          description: "`to`属性的值"
+          type: 'string, Location'
+          description: '`to`属性的值'
         - name: $event.replace
           type: boolean
-          description: "`replace`属性的值"
+          description: '`replace`属性的值'
         - name: $event.append
           type: boolean
-          description: "`append`属性的值"
+          description: '`append`属性的值'
         - name: $event.preventDefault
           type: Function
           description: 阻止切换流程
@@ -188,14 +185,14 @@
           schema:
             $ref: '#/systemTypes/NavigateEvent'
         - name: $event.to
-          type: string, Location
-          description: "`to`属性的值"
+          type: 'string, Location'
+          description: '`to`属性的值'
         - name: $event.replace
           type: boolean
-          description: "`replace`属性的值"
+          description: '`replace`属性的值'
         - name: $event.append
           type: boolean
-          description: "`append`属性的值"
+          description: '`append`属性的值'
         - name: senderVM
           type: UButton
           description: 发送事件实例

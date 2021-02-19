@@ -1,18 +1,18 @@
 - name: u-transfer
   icon: transfer
-  labels: 
+  labels:
     - Selector
   title: 穿梭框
   description: 双栏穿梭选择框，常用于将多个项目从一边移动到另一边。
   attrs:
     - name: source
       title: 原始数据
-      type: Array<{ text, value }>
+      type: 'Array<{ text, value }>'
       sync: true
       description: 原数据列表
     - name: target
       title: 目标数据
-      type: Array<{ text, value }>
+      type: 'Array<{ text, value }>'
       sync: true
       description: 目标数据列表
     - name: text-field
@@ -62,7 +62,7 @@
       description: 搜索框是否有清除按钮
     - name: match-method
       title: 过滤匹配方法
-      type: string, Function
+      type: 'string, Function'
       default: includes
       advanced: true
       description: 过滤时的匹配方法
@@ -109,13 +109,13 @@
           schema:
             $ref: '#/systemTypes/TransferEvent'
         - name: $event.source
-          type: Array<{ text, value }>
+          type: 'Array<{ text, value }>'
           description: 原数据列表
         - name: $event.target
-          type: Array<{ text, value }>
+          type: 'Array<{ text, value }>'
           description: 目标数据列表
         - name: $event.transfer
-          type: Array<{ text, value }>
+          type: 'Array<{ text, value }>'
           description: 移动的项
         - name: $event.transferValues
           type: Array
@@ -133,13 +133,13 @@
           schema:
             $ref: '#/systemTypes/TransferEvent'
         - name: $event.source
-          type: Array<{ text, value }>
+          type: 'Array<{ text, value }>'
           description: 原数据列表
         - name: $event.target
-          type: Array<{ text, value }>
+          type: 'Array<{ text, value }>'
           description: 目标数据列表
         - name: $event.transfer
-          type: Array<{ text, value }>
+          type: 'Array<{ text, value }>'
           description: 移动的项
         - name: $event.transferValues
           type: Array
@@ -165,7 +165,7 @@
       params:
         - name: direction
           type: string
-          options: 
+          options:
             - value: forward
               title: 从左向右
             - value: reverse

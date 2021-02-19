@@ -142,3 +142,4 @@
           description: 鼠标事件对象
           schema:
             $ref: '#/systemTypes/MouseEvent'
+  description: 单个操作项

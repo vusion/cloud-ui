@@ -1,12 +1,13 @@
 - name: u-toast
   icon: toast
   title: 吐司提示
-  labels: [Feedback]
+  labels:
+    - Feedback
   attrs:
     - name: position
       title: 位置
       type: string
-      options: 
+      options:
         - value: top-center
           title: 上中
         - value: top-left
@@ -37,7 +38,7 @@
     - name: text
       title: 提示内容
       type: string
-      default: ""
+      default: ''
       description: 默认提示内容
     - name: color
       title: 颜色
@@ -126,3 +127,4 @@
         - name: senderVM
           type: UToast
           description: 发送事件实例
+  description: 吐司提示

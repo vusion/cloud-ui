@@ -1,6 +1,7 @@
 - name: u-info-list
   title: 详情列表
-  labels: [Display]
+  labels:
+    - Display
   icon: info-list
   attrs:
     - name: repeat
@@ -29,10 +30,13 @@
       support:
         - name: u-info-list-group
           title: 详情列表组
-          snippet: '<u-info-list-group title="基本信息"><u-info-list-item label="名称">张三</u-info-list-item></u-info-list-group>'
+          snippet: >-
+            <u-info-list-group title="基本信息"><u-info-list-item
+            label="名称">张三</u-info-list-item></u-info-list-group>
         - name: u-info-list-item
           title: 详情列表项
-          snippet: '<u-info-list-item label="名称">张三</u-info-list-item>'
+          snippet: <u-info-list-item label="名称">张三</u-info-list-item>
+  description: 详情列表
 - name: u-info-list-item
   title: 详情列表项
   attrs:
@@ -70,6 +74,7 @@
     - name: label
       title: 自定义标签内容
       description: 用于自定义 label 内容。
+  description: 详情列表项
 - name: u-info-list-group
   title: 详情列表组
   attrs:
@@ -103,10 +108,11 @@
       support:
         - name: u-info-list-item
           title: 详情列表项
-          snippet: '<u-info-list-item label="名称">张三</u-info-list-item>'
+          snippet: <u-info-list-item label="名称">张三</u-info-list-item>
     - name: title
       title: 自定义标题
       description: 自定义标题。
     - name: extra
       title: 自定义额外操作项
       description: 自定义额外操作项。
+  description: 详情列表组

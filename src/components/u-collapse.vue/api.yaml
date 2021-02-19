@@ -1,6 +1,7 @@
 - name: u-collapse
   title: 折叠面板
-  labels: [Layout]
+  labels:
+    - Layout
   icon: collapse
   description: 可以折叠/展开的内容区域。
   attrs:
@@ -113,7 +114,7 @@
           description: 发送事件实例
     - name: toggle
       description: 展开/折叠某面板时触发
-      title:  展开/折叠某面板时触发
+      title: 展开/折叠某面板时触发
       params:
         - name: $event
           type: object
@@ -129,3 +130,4 @@
         - name: senderVM
           type: Vue
           description: 发送事件实例
+  description: 折叠子元素

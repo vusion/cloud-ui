@@ -481,6 +481,7 @@
         - name: senderVM
           type: USelectItem
           description: 发送事件实例
+  description: 选择项
 - name: u-select-group
   title: 选择分组
   attrs:
@@ -505,5 +506,7 @@
       title: 附加内容
       description: 在右侧可以附加内容。
       advanced: true
+  description: 选择分组
 - name: u-select-divider
   title: 分隔线
+  description: 分隔线

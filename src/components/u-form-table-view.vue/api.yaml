@@ -282,3 +282,4 @@
         - name: columnIndex
           type: number
           description: 列的索引
+  description: 表单列元素

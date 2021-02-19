@@ -281,3 +281,4 @@
     - name: title
       title: 标题
       description: 自定义标题
+  description: 标签页

@@ -1,7 +1,8 @@
 - name: u-image
   icon: image
   title: 图片展示
-  labels: [Display]
+  labels:
+    - Display
   description: 可以用来展示一张图片，支持设置图片地址。
   attrs:
     - name: src
@@ -13,7 +14,7 @@
     - name: fit
       title: 填充方式
       type: string
-      default: 'contain'
+      default: contain
       description: 图片地址
       options:
         - value: fill
