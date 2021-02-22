@@ -6,7 +6,7 @@
     - Selector
   attrs:
     - name: width
-      type: 'string, number'
+      type: number
       default: 160
       description: 输入框宽度
       title: 输入框宽度
@@ -64,12 +64,12 @@
       description: '输入对应格式的字符串（8:00:00）即可'
       title: 时间格式
     - name: yearDiff
-      type: 'string, number'
+      type: number
       default: 3
       description: 最小可选年份值为当前年减去此值
       title: 最小可选年份与当前年份的差值
     - name: yearAdd
-      type: 'string, number'
+      type: number
       default: 1
       description: 最大可选年份值为当前年加上此值
       title: 最大可选年份与当前年份的差值
