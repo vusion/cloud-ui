@@ -37,7 +37,7 @@
 
 .root[has-sub]::after {
     display: inline-block;
-    content: '▸';
+    icon-font: url('i-material-design.vue/assets/filled/arrow_right.svg');
     position: absolute;
     right: 0;
     top: 0;

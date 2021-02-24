@@ -368,16 +368,16 @@ export default {
     height: var(--tree-view-node-expander-size);
     line-height: var(--tree-view-node-expander-size);
     text-align: center;
-    margin-top: -1px;
     margin-left: calc(var(--tree-view-node-margin-left) * -1);
+    transition: transform var(--transition-duration-base);
 }
 
 .expander::before {
-    content: '▸';
+    icon-font: url('i-material-design.vue/assets/filled/arrow_right.svg');
 }
 
-.expander[expanded]::before {
-    content: '▾';
+.expander[expanded] {
+    transform: rotate(90deg);
 }
 
 .loading {
