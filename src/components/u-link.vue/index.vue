@@ -1,9 +1,9 @@
 <template>
 <a :class="$style.root" :href="currentHref" :target="target"
     :noDecoration="!decoration"
-    :disabled="localDisabled" :tabindex="localDisabled ? -1 : 0"
+    :disabled="currentDisabled" :tabindex="currentDisabled ? -1 : 0"
     :download="download"
-    :icon="loading ? 'loading': $attrs.icon"
+    :loading="loading || $attrs.loading"
     @click="onClick" v-on="listeners">
     <slot></slot>
 </a>
@@ -25,21 +25,21 @@ export default {
     },
     data() {
         return {
-            click: this.$listeners.click || function(){},
+            clickEvent: this.$listeners.click || function () { /* noop */ },
             loading: false,
         };
     },
     computed: {
         /**
          * 使用`to`时，也产生一个链接，尽可能向原生的`<a>`靠近
-         */ currentHref() {
+         */
+        currentHref() {
             if (this.href !== undefined)
                 return this.href;
             if (this.destination !== undefined)
                 return this.destination;
             else if (this.$router && this.to !== undefined)
-                return this.$router.resolve(this.to, this.$route, this.append)
-                    .href;
+                return this.$router.resolve(this.to, this.$route, this.append).href;
             else
                 return undefined;
         },
@@ -48,7 +48,7 @@ export default {
             delete listeners.click;
             return listeners;
         },
-        localDisabled() {
+        currentDisabled() {
             return this.disabled || this.loading;
         },
     },
@@ -56,12 +56,13 @@ export default {
         async wrapClick(...args) {
             this.loading = true;
             try {
-                await this.click(...args);
-            } catch {}
-            this.loading = false;
+                await this.clickEvent(...args);
+            } finally {
+                this.loading = false;
+            }
         },
         onClick(e) {
-            if (this.localDisabled)
+            if (this.currentDisabled)
                 return e.preventDefault();
             this.wrapClick(e, this);
             if (this.target !== '_self')
@@ -168,6 +169,18 @@ export default {
     cursor: var(--cursor-not-allowed);
     color: var(--link-color-disabled);
     text-decoration: none;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.root[loading]::before {
+    display: inline-block;
+    icon-font: url('../u-spinner.vue/assets/refresh.svg');
+    margin-right: 4px;
+    animation: spin infinite linear var(--spinner-animation-duration);
 }
 
 .root[display="block"] {
