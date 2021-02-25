@@ -1,8 +1,9 @@
 <template>
 <a :class="$style.root" :href="currentHref" :target="target"
     :noDecoration="!decoration"
-    :disabled="disabled" :tabindex="disabled ? -1 : 0"
+    :disabled="localDisabled" :tabindex="localDisabled ? -1 : 0"
     :download="download"
+    :icon="loading ? 'loading': $attrs.icon"
     @click="onClick" v-on="listeners">
     <slot></slot>
 </a>
@@ -21,6 +22,12 @@ export default {
         decoration: { type: Boolean, default: true },
         download: { type: Boolean, default: false },
         destination: String,
+    },
+    data() {
+        return {
+            click: this.$listeners.click || function(){},
+            loading: false,
+        };
     },
     computed: {
         /**
@@ -41,12 +48,22 @@ export default {
             delete listeners.click;
             return listeners;
         },
+        localDisabled() {
+            return this.disabled || this.loading;
+        },
     },
     methods: {
+        async wrapClick(...args) {
+            this.loading = true;
+            try {
+                await this.click(...args);
+            } catch {}
+            this.loading = false;
+        },
         onClick(e) {
-            if (this.disabled)
+            if (this.localDisabled)
                 return e.preventDefault();
-            this.$emit('click', e, this);
+            this.wrapClick(e, this);
             if (this.target !== '_self')
                 return; // 使用`to`的时候走`$router`，否则走原生
             if (this.href === undefined) {
