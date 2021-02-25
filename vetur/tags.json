@@ -1485,7 +1485,8 @@
       "accordion",
       "expand-trigger",
       "readonly",
-      "disabled"
+      "disabled",
+      "check-controlled"
     ],
     "defaults": [
       "v-model"

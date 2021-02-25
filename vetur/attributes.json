@@ -3634,6 +3634,10 @@
     "type": "boolean",
     "description": "是否禁用"
   },
+  "u-tree-view/check-controlled": {
+    "type": "boolean",
+    "description": "checkable 开启情况下，是否完全受控（父子节点状态不关联）"
+  },
   "u-tree-view-node/value": {
     "type": "any",
     "description": "此项的值"
