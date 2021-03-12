@@ -1,38 +1,40 @@
 - name: u-form-table-view
   icon: table-view
   title: 表格表单视图
-  labels: [Table]
+  labels:
+    - Table
   description: 本组件用于在表单中使用表单验证、动态数据等复杂功能。
   extends: m-dynamic
   attrs:
-    - name: border
-      type: boolean
-      default: false
-      description: 是否有边框
-      hidden: true
     - name: data
       type: Array
       default: null
       description: 数据
+      title: 数据
     - name: dynamic
       type: boolean
       default: false
       description: 是否可以动态添加/删除项
+      title: 动态添加
     - name: get-default-item
       type: Function
       default: null
       description: 传入获取默认项的方法
+      title: 默认项的方法
     - name: initial-add
       type: boolean
       default: true
       description: 是否自动补充项，如果初始时`data`中的项目数少于`min-count`
+      title: 自动补充项
     - name: min-count
       type: number
       default: 1
+      title: 最小行数
       description: 最小项目数
     - name: max-count
       type: number
-      default: .inf
+      title: 最大行数
+      default: 999
       description: 最大项目数
   slots:
     - name: default
@@ -62,6 +64,7 @@
         - name: senderVM
           type: UFormTableView
           description: 发送事件实例
+      title: 添加前触发
     - name: add
       description: 添加时触发
       params:
@@ -82,6 +85,7 @@
         - name: senderVM
           type: UFormTableView
           description: 发送事件实例
+      title: 添加时触发
     - name: before-remove
       description: 删除前触发
       advanced: true
@@ -106,6 +110,7 @@
         - name: senderVM
           type: UFormTableView
           description: 发送事件实例
+      title: 删除前触发
     - name: remove
       description: 删除时触发
       params:
@@ -126,6 +131,7 @@
         - name: senderVM
           type: UFormTableView
           description: 发送事件实例
+      title: 删除时触发
     - name: splice
       description: 数量变更（添加/删除）时触发
       params:
@@ -146,70 +152,85 @@
         - name: senderVM
           type: UFormTableView
           description: 发送事件实例
+      title: 数量变更（添加/删除）时触发
 - name: u-form-table-view-column
+  title: 表单列元素
   attrs:
     - name: title
       type: string
       default: null
       description: 列标题
+      title: 列标题
     - name: field
       type: string
+      title: 区域
       default: null
       description: data 中的字段名
     - name: width
-      type: string, number
+      title: 宽度
+      type: 'string, number'
       default: null
       description: 给列指定宽度，可以为数字或百分比
     - name: ellipsis
       type: boolean
       default: false
       description: 是否省略显示。默认文字超出时会换行
+      title: 省略
     - name: formatter
-      type: string, object, Function, Formatter
+      type: 'string, object, Function, Formatter'
       default: placeholder
       description: 格式器
+      title: 格式器
     - name: hidden
       type: boolean
+      title: 是否隐藏
       default: false
       description: 是否隐藏
     - name: start-index
       type: number
+      title: 起始序号
       default: 1
       description: 当`type="index"`时的起始序号
-    - name: "**Validator Props/Attrs**"
-      type: ""
-      default: null
-      description: ""
     - name: label
       type: string
       default: null
+      title: 标签
       description: 标签。用于提示消息的合成
     - name: muted
       type: string
       default: null
+      title: 静默消息提示
       description: 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示
     - name: rules
-      type: string, Array
+      type: 'string, Array'
+      title: 验证规则
       default: null
       description: 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型
+      compType: validationRulesSelect
     - name: ignore-validation
       type: boolean
+      title: 忽略验证
       default: false
       description: 忽略验证
     - name: ignore-rules
       type: boolean
+      title: 忽略验证规则
       default: false
       description: 忽略验证规则。已废弃，同`ignore-validation`
     - name: validating-options
       type: object
+      title: 验证辅助对象
       default: null
-      description: "验证辅助对象。在 Rule 的 `validate` 方法中使用。表格中会额外将`{ data: currentData, item,
-        rowIndex }`注入"
+      description: >-
+        验证辅助对象。在 Rule 的 `validate` 方法中使用。表格中会额外将`{ data: currentData, item,
+        rowIndex }`注入
     - name: validating-value
       type: any
+      title: 验证值
       default: null
       description: 临时修改验证值
     - name: validating-process
+      title: 验证前对值进行的预处理
       type: Function
       default: null
       description: 验证前对值进行预处理
@@ -261,3 +282,4 @@
         - name: columnIndex
           type: number
           description: 列的索引
+  description: 表单列元素

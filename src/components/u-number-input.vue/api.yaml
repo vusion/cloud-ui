@@ -1,7 +1,8 @@
 - name: u-number-input
   title: 数字输入
   icon: input
-  labels: [Form]
+  labels:
+    - Form
   description: 输入数字时使用
   attrs:
     - name: value
@@ -19,7 +20,7 @@
     - name: max
       title: 最大值
       type: number
-      default: .inf
+      default: 999
       description: 最大值
     - name: step
       title: 间隔
@@ -33,7 +34,7 @@
       description: 精度，表示数字要保留的最小单位，整数、小数均可
     - name: formatter
       title: 格式化
-      type: string, object
+      type: 'string, object'
       advanced: true
       description: 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。
     - name: placeholder
@@ -85,7 +86,7 @@
     - name: default
       advanced: true
       title: 默认
-      description: 插入 HTML 或 `Component`, 可展示额外内容。
+      description: '插入 HTML 或 `Component`, 可展示额外内容。'
       quick-add: never
   events:
     - name: input

@@ -1,7 +1,8 @@
 - name: u-sidebar
   title: 侧边栏
   icon: sidebar
-  labels: [Layout]
+  labels:
+    - Layout
   description: 通常用于页面左侧的导航栏。
   attrs:
     - name: router
@@ -29,7 +30,7 @@
     - name: expand-trigger
       title: 展开触发方式
       type: string
-      options: 
+      options:
         - value: click
           title: 整行点击均可触发
         - value: click-expander
@@ -49,16 +50,18 @@
   slots:
     - name: default
       description: 插入`<u-sidebar-item>`、`<u-sidebar-divider>`或`<u-sidebar-group>`子组件。
-      support: 
+      support:
         - name: u-sidebar-group
           title: 导航分组
-          snippet: '<u-sidebar-group title="分组"><u-sidebar-item>导航项</u-sidebar-item></u-sidebar-group>'
+          snippet: >-
+            <u-sidebar-group
+            title="分组"><u-sidebar-item>导航项</u-sidebar-item></u-sidebar-group>
         - name: u-sidebar-item
           title: 导航项
-          snippet: '<u-sidebar-item>导航项</u-sidebar-item>'
+          snippet: <u-sidebar-item>导航项</u-sidebar-item>
         - name: u-sidebar-divider
           title: 分隔线
-          snippet: '<u-sidebar-divider></u-sidebar-divider>'
+          snippet: <u-sidebar-divider></u-sidebar-divider>
   events:
     - name: click
       title: 点击
@@ -191,7 +194,9 @@
     - name: linkType
       title: 链接类型
       type: string
-      options: 
+      default: href
+      compType: linkTypeSelect
+      options:
         - value: destination
           title: 页面跳转
         - value: href
@@ -199,17 +204,15 @@
         - value: download
           title: 下载链接
       description: 链接类型
-    # - name: href
-    #   title: 链接
-    #   type: string
-    #   description: 链接地址
     - name: hrefAndTo
       title: 链接
       type: string
       description: 链接地址
+      compType: linkHrefInput
     - name: target
       title: 打开方式
       type: string
+      default: _blank
       options:
         - value: _blank
           title: 新窗口
@@ -224,14 +227,16 @@
       description: 链接跳转方式
     - name: to
       title: 路由链接
-      type: string, Location
+      type: 'string, Location'
       advanced: true
       description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
     - name: replace
       type: boolean
+      title: 替换
       default: false
       advanced: true
-      description: 需要
+      description: >-
+        需要
         vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history
         `记录。
     - name: exact
@@ -280,14 +285,14 @@
           schema:
             $ref: '#/systemTypes/NavigateEvent'
         - name: $event.to
-          type: string, Location
-          description: "`to`属性的值"
+          type: 'string, Location'
+          description: '`to`属性的值'
         - name: $event.replace
           type: boolean
-          description: "`replace`属性的值"
+          description: '`replace`属性的值'
         - name: $event.exact
           type: boolean
-          description: "`exact`属性的值"
+          description: '`exact`属性的值'
         - name: $event.preventDefault
           type: Function
           description: 阻止切换流程
@@ -305,17 +310,18 @@
           schema:
             $ref: '#/systemTypes/NavigateEvent'
         - name: $event.to
-          type: string, Location
-          description: "`to`属性的值"
+          type: 'string, Location'
+          description: '`to`属性的值'
         - name: $event.replace
           type: boolean
-          description: "`replace`属性的值"
+          description: '`replace`属性的值'
         - name: $event.exact
           type: boolean
-          description: "`exact`属性的值"
+          description: '`exact`属性的值'
         - name: senderVM
           type: Vue
           description: 发送事件实例
+  description: 侧边栏项
 - name: u-sidebar-group
   title: 侧边栏分组
   attrs:
@@ -346,10 +352,10 @@
       support:
         - name: u-sidebar-item
           title: 导航项
-          snippet: '<u-sidebar-item>导航项</u-sidebar-item>'
+          snippet: <u-sidebar-item>导航项</u-sidebar-item>
         - name: u-sidebar-divider
           title: 分隔线
-          snippet: '<u-sidebar-divider></u-sidebar-divider>'
+          snippet: <u-sidebar-divider></u-sidebar-divider>
     - name: title
       description: 自定义标题文本。
     - name: extra
@@ -395,5 +401,7 @@
         - name: senderVM
           type: Vue
           description: 发送事件实例
+  description: 侧边栏分组
 - name: u-sidebar-divider
   title: 侧边栏分隔线
+  description: 侧边栏分隔线

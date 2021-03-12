@@ -56,7 +56,6 @@
                     "name": "src",
                     "title": "网页地址",
                     "type": "string",
-                    "default": "",
                     "description": "嵌入网页的地址"
                 }
             ],
@@ -101,7 +100,8 @@
                     "name": "data",
                     "title": "数据",
                     "description": "待渲染数据",
-                    "required": true
+                    "required": true,
+                    "type": "array"
                 }
             ],
             "slots": [
@@ -157,17 +157,18 @@
                     "name": "check",
                     "title": "判断条件",
                     "description": "判断条件",
-                    "required": true
+                    "required": true,
+                    "type": "boolean"
                 }
             ],
             "slots": [
                 {
-                    "name": true,
+                    "name": "True",
                     "description": "当判断条件为 true 时显示",
                     "title": "True 渲染项"
                 },
                 {
-                    "name": false,
+                    "name": "False",
                     "description": "当判断条件为 false 时显示",
                     "title": "False 渲染项"
                 }
@@ -432,6 +433,7 @@
                     "name": "gap",
                     "title": "间隔",
                     "type": "string",
+                    "default": "normal",
                     "options": [
                         {
                             "value": "none",
@@ -475,6 +477,7 @@
                 {
                     "name": "u-grid-layout-row",
                     "title": "栅格行",
+                    "description": "内部元素行布局",
                     "attrs": [
                         {
                             "name": "repeat",
@@ -487,6 +490,7 @@
                             "name": "type",
                             "title": "类型",
                             "type": "string",
+                            "default": "default",
                             "options": [
                                 {
                                     "value": "default",
@@ -533,6 +537,7 @@
                         {
                             "name": "alignment",
                             "type": "string",
+                            "title": "对齐方式",
                             "advanced": true,
                             "options": [
                                 {
@@ -577,6 +582,7 @@
                 {
                     "name": "u-grid-layout-column",
                     "title": "栅格列",
+                    "description": "内部元素行内列布局",
                     "attrs": [
                         {
                             "name": "span",
@@ -761,6 +767,7 @@
                 {
                     "name": "default",
                     "description": "链接区域",
+                    "title": "链接区域",
                     "support": [
                         {
                             "name": "u-navbar-item",
@@ -776,10 +783,12 @@
                 },
                 {
                     "name": "left",
+                    "title": "左部区域",
                     "description": "左部区域，一般放置 logo 等"
                 },
                 {
                     "name": "right",
+                    "title": "右部区域",
                     "description": "右部区域，一般放置用户个人信息等"
                 }
             ],
@@ -978,6 +987,7 @@
                 {
                     "name": "u-navbar-item",
                     "title": "导航栏项",
+                    "description": "导航栏的子项目",
                     "attrs": [
                         {
                             "name": "value",
@@ -1003,6 +1013,7 @@
                             "name": "linkType",
                             "title": "链接类型",
                             "type": "string",
+                            "compType": "linkTypeSelect",
                             "options": [
                                 {
                                     "value": "destination",
@@ -1017,13 +1028,15 @@
                                     "title": "下载链接"
                                 }
                             ],
-                            "description": "链接类型"
+                            "description": "链接类型",
+                            "default": "href"
                         },
                         {
                             "name": "hrefAndTo",
                             "title": "链接",
                             "type": "string",
-                            "description": "链接地址"
+                            "description": "链接地址",
+                            "compType": "linkHrefInput"
                         },
                         {
                             "name": "target",
@@ -1049,6 +1062,7 @@
                                     "advanced": true
                                 }
                             ],
+                            "default": "_blank",
                             "description": "链接跳转方式"
                         },
                         {
@@ -1061,6 +1075,7 @@
                         {
                             "name": "replace",
                             "type": "boolean",
+                            "title": "替换地址",
                             "default": false,
                             "advanced": true,
                             "description": "需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。"
@@ -1077,6 +1092,7 @@
                     "slots": [
                         {
                             "name": "default",
+                            "title": "默认值",
                             "description": "插入文本或 HTML。"
                         }
                     ],
@@ -1203,11 +1219,13 @@
                 },
                 {
                     "name": "u-navbar-divider",
-                    "title": "导航栏分割线"
+                    "title": "导航栏分割线",
+                    "description": "导航栏的分割线"
                 },
                 {
                     "name": "u-navbar-dropdown",
                     "title": "导航栏下拉菜单",
+                    "description": "导航栏下拉菜单",
                     "attrs": [
                         {
                             "name": "trigger",
@@ -1245,51 +1263,51 @@
                             "options": [
                                 {
                                     "value": "top",
-                                    "name": "上"
+                                    "title": "上"
                                 },
                                 {
                                     "value": "bottom",
-                                    "name": "下"
+                                    "title": "下"
                                 },
                                 {
                                     "value": "left",
-                                    "name": "左"
+                                    "title": "左"
                                 },
                                 {
                                     "value": "right",
-                                    "name": "右"
+                                    "title": "右"
                                 },
                                 {
                                     "value": "top-start",
-                                    "name": "上左"
+                                    "title": "上左"
                                 },
                                 {
                                     "value": "top-end",
-                                    "name": "上右"
+                                    "title": "上右"
                                 },
                                 {
                                     "value": "bottom-start",
-                                    "name": "下左"
+                                    "title": "下左"
                                 },
                                 {
                                     "value": "bottom-end",
-                                    "name": "下右"
+                                    "title": "下右"
                                 },
                                 {
                                     "value": "left-start",
-                                    "name": "左上"
+                                    "title": "左上"
                                 },
                                 {
                                     "value": "left-end",
-                                    "name": "左下"
+                                    "title": "左下"
                                 },
                                 {
                                     "value": "right-start",
-                                    "name": "右上"
+                                    "title": "右上"
                                 },
                                 {
                                     "value": "right-end",
-                                    "name": "右下"
+                                    "title": "右下"
                                 }
                             ],
                             "default": "bottom",
@@ -1305,10 +1323,44 @@
                     ]
                 },
                 {
-                    "name": "u-navbar-menu、u-navbar-menu-group、u-navbar-menu-item、u-navbar-menu-divider"
+                    "name": "u-navbar-menu",
+                    "title": "导航菜单",
+                    "description": "导航菜单"
                 },
                 {
-                    "name": "u-navbar-select、u-navbar-select-group、u-navbar-select-item、u-navbar-select-divider"
+                    "name": "u-navbar-menu-group",
+                    "title": "导航菜单分组",
+                    "description": "导航菜单分组"
+                },
+                {
+                    "name": "u-navbar-menu-item",
+                    "title": "导航菜单子元素",
+                    "description": "导航菜单子元素"
+                },
+                {
+                    "name": "u-navbar-menu-divider",
+                    "title": "导航菜单分割线",
+                    "description": "导航菜单分割线"
+                },
+                {
+                    "name": "u-navbar-select",
+                    "title": "导航选择",
+                    "description": "导航选择"
+                },
+                {
+                    "name": "u-navbar-select-group",
+                    "title": "导航选择分组",
+                    "description": "导航选择分组"
+                },
+                {
+                    "name": "u-navbar-select-item",
+                    "title": "导航选择分组子元素",
+                    "description": "导航选择分组子元素"
+                },
+                {
+                    "name": "u-navbar-select-divider",
+                    "title": "导航选择分割线",
+                    "description": "导航选择分割线"
                 }
             ]
         }
@@ -1626,6 +1678,7 @@
                 {
                     "name": "u-sidebar-item",
                     "title": "侧边栏项",
+                    "description": "侧边栏项",
                     "attrs": [
                         {
                             "name": "value",
@@ -1653,6 +1706,8 @@
                             "name": "linkType",
                             "title": "链接类型",
                             "type": "string",
+                            "default": "href",
+                            "compType": "linkTypeSelect",
                             "options": [
                                 {
                                     "value": "destination",
@@ -1673,12 +1728,14 @@
                             "name": "hrefAndTo",
                             "title": "链接",
                             "type": "string",
-                            "description": "链接地址"
+                            "description": "链接地址",
+                            "compType": "linkHrefInput"
                         },
                         {
                             "name": "target",
                             "title": "打开方式",
                             "type": "string",
+                            "default": "_blank",
                             "options": [
                                 {
                                     "value": "_blank",
@@ -1711,6 +1768,7 @@
                         {
                             "name": "replace",
                             "type": "boolean",
+                            "title": "替换",
                             "default": false,
                             "advanced": true,
                             "description": "需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。"
@@ -1854,6 +1912,7 @@
                 {
                     "name": "u-sidebar-group",
                     "title": "侧边栏分组",
+                    "description": "侧边栏分组",
                     "attrs": [
                         {
                             "name": "title",
@@ -1982,7 +2041,8 @@
                 },
                 {
                     "name": "u-sidebar-divider",
-                    "title": "侧边栏分隔线"
+                    "title": "侧边栏分隔线",
+                    "description": "侧边栏分隔线"
                 }
             ]
         }
@@ -2016,7 +2076,8 @@
                     "name": "position",
                     "type": "string",
                     "default": "static",
-                    "description": "显示的位置。"
+                    "description": "显示的位置。",
+                    "title": "显示位置"
                 }
             ],
             "children": []
@@ -2051,7 +2112,15 @@
                     "code": "<template>\n<u-crumb>\n    <u-crumb-item to=\"/\">首页</u-crumb-item>\n    <u-crumb-item to=\"/cloud-ui\">原型组件</u-crumb-item>\n    <u-crumb-item disabled>Navigation</u-crumb-item>\n    <u-crumb-item type=\"text\" to=\"/cloud-ui/u-crumb\">面包屑</u-crumb-item>\n</u-crumb>\n</template>\n"
                 }
             ],
-            "attrs": null,
+            "attrs": [
+                {
+                    "name": "auto",
+                    "type": "boolean",
+                    "title": "支持自动",
+                    "default": false,
+                    "description": "是否自动根据配置的 items 生成面包屑"
+                }
+            ],
             "slots": [
                 {
                     "name": "default",
@@ -2069,6 +2138,7 @@
                 {
                     "name": "u-crumb-item",
                     "title": "面包屑选项",
+                    "description": "面包屑选项",
                     "attrs": [
                         {
                             "name": "type",
@@ -2092,6 +2162,8 @@
                             "name": "linkType",
                             "title": "链接类型",
                             "type": "string",
+                            "default": "href",
+                            "compType": "linkTypeSelect",
                             "options": [
                                 {
                                     "value": "destination",
@@ -2112,12 +2184,14 @@
                             "name": "hrefAndTo",
                             "title": "链接",
                             "type": "string",
-                            "description": "链接地址"
+                            "description": "链接地址",
+                            "compType": "linkHrefInput"
                         },
                         {
                             "name": "target",
                             "title": "打开方式",
                             "type": "string",
+                            "default": "_blank",
                             "options": [
                                 {
                                     "value": "_blank",
@@ -2143,6 +2217,7 @@
                         {
                             "name": "replace",
                             "type": "boolean",
+                            "title": "替换",
                             "advanced": true,
                             "default": false,
                             "description": "需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。"
@@ -2150,6 +2225,7 @@
                         {
                             "name": "append",
                             "type": "boolean",
+                            "title": "追加路径",
                             "advanced": true,
                             "default": false,
                             "description": "需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。"
@@ -2171,8 +2247,15 @@
                     "events": [
                         {
                             "name": "$listeners",
+                            "kind": "trigger",
                             "description": "监听所有`<a>`元素的事件。",
-                            "params": [],
+                            "params": [
+                                {
+                                    "name": "$event",
+                                    "type": "object",
+                                    "description": "自定义事件对象"
+                                }
+                            ],
                             "advanced": true
                         },
                         {
@@ -2331,6 +2414,8 @@
             "children": [
                 {
                     "name": "u-panel-group",
+                    "title": "面板组",
+                    "description": "面板组",
                     "attrs": [
                         {
                             "name": "title",
@@ -2417,6 +2502,7 @@
                     "title": "显示效果",
                     "type": "string",
                     "description": "显示样式",
+                    "default": "default",
                     "options": [
                         {
                             "value": "default",
@@ -2466,6 +2552,7 @@
                 {
                     "name": "toggle",
                     "description": "展开/折叠某面板时触发",
+                    "title": "监听\"展开/折叠\"事件",
                     "params": [
                         {
                             "name": "$event",
@@ -2491,22 +2578,27 @@
             "children": [
                 {
                     "name": "u-collapse-item",
+                    "title": "折叠子元素",
+                    "description": "折叠子元素",
                     "attrs": [
                         {
                             "name": "title",
                             "type": "string",
+                            "title": "标题",
                             "default": null,
                             "description": "显示的标题"
                         },
                         {
                             "name": "expanded.sync",
                             "type": "boolean",
+                            "title": "当前\"展开/折叠\"状态",
                             "default": false,
                             "description": "展开/折叠状态"
                         },
                         {
                             "name": "disabled",
                             "type": "boolean",
+                            "title": "是否禁用",
                             "default": false,
                             "description": "是否禁用。禁用时无法展开/折叠"
                         }
@@ -2529,6 +2621,7 @@
                         {
                             "name": "before-toggle",
                             "description": "展开/折叠此面板前触发",
+                            "title": "展开/折叠此面板前触发",
                             "params": [
                                 {
                                     "name": "$event",
@@ -2563,6 +2656,7 @@
                         {
                             "name": "toggle",
                             "description": "展开/折叠某面板时触发",
+                            "title": "展开/折叠某面板时触发",
                             "params": [
                                 {
                                     "name": "$event",
@@ -2790,6 +2884,7 @@
             "events": [
                 {
                     "name": "$listeners",
+                    "title": "监听事件",
                     "description": "监听所有`<span>`元素的事件。",
                     "params": []
                 }
@@ -2879,6 +2974,7 @@
                     "name": "linkType",
                     "title": "链接类型",
                     "type": "string",
+                    "compType": "linkTypeSelect",
                     "options": [
                         {
                             "value": "destination",
@@ -2893,13 +2989,15 @@
                             "title": "下载链接"
                         }
                     ],
-                    "description": "链接类型"
+                    "description": "链接类型",
+                    "default": "href"
                 },
                 {
                     "name": "hrefAndTo",
                     "title": "链接",
                     "type": "string",
-                    "description": "链接地址"
+                    "description": "链接地址",
+                    "compType": "linkHrefInput"
                 },
                 {
                     "name": "target",
@@ -2937,6 +3035,7 @@
                 },
                 {
                     "name": "replace",
+                    "title": "替换",
                     "type": "boolean",
                     "default": false,
                     "description": "需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。",
@@ -2945,6 +3044,7 @@
                 {
                     "name": "append",
                     "type": "boolean",
+                    "title": "追加路径",
                     "default": false,
                     "advanced": true,
                     "description": "需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。"
@@ -3215,7 +3315,7 @@
                             "title": "圆形"
                         }
                     ],
-                    "default": false,
+                    "default": "default",
                     "description": "设置形状"
                 },
                 {
@@ -3249,18 +3349,19 @@
                     "options": [
                         {
                             "value": "refresh",
-                            "name": "刷新"
+                            "title": "刷新"
                         },
                         {
                             "value": "create",
-                            "name": "创建"
+                            "title": "创建"
                         },
                         {
                             "value": "success",
-                            "name": "成功"
+                            "title": "成功"
                         }
                     ],
                     "advanced": true,
+                    "default": "success",
                     "description": "设置图标。"
                 },
                 {
@@ -3275,6 +3376,7 @@
                     "name": "linkType",
                     "title": "链接类型",
                     "type": "string",
+                    "compType": "linkTypeSelect",
                     "options": [
                         {
                             "value": "destination",
@@ -3289,18 +3391,21 @@
                             "title": "下载链接"
                         }
                     ],
-                    "description": "链接类型"
+                    "description": "链接类型",
+                    "default": "href"
                 },
                 {
                     "name": "hrefAndTo",
                     "title": "链接",
                     "type": "string",
-                    "description": "链接地址"
+                    "description": "链接地址",
+                    "compType": "linkHrefInput"
                 },
                 {
                     "name": "target",
                     "title": "打开方式",
                     "type": "string",
+                    "default": "_blank",
                     "options": [
                         {
                             "value": "_blank",
@@ -3333,12 +3438,14 @@
                 {
                     "name": "replace",
                     "type": "boolean",
+                    "title": "替换",
                     "default": false,
                     "advanced": true,
                     "description": "需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。"
                 },
                 {
                     "name": "append",
+                    "title": "追加路径",
                     "type": "boolean",
                     "advanced": true,
                     "default": false,
@@ -3468,21 +3575,58 @@
                 {
                     "name": "name",
                     "type": "string",
-                    "default": null,
+                    "title": "图标名称",
+                    "default": "arrow-down",
                     "description": "图标名称",
                     "options": [
-                        "arrow-down",
-                        "arrow-up",
-                        "arrow-left",
-                        "arrow-right",
-                        "angle-up",
-                        "angle-down",
-                        "angle-left",
-                        "angle-right",
-                        "close",
-                        "close-solid",
-                        "filter",
-                        "github"
+                        {
+                            "value": "arrow-down",
+                            "title": "arrow-down"
+                        },
+                        {
+                            "value": "arrow-up",
+                            "title": "arrow-up"
+                        },
+                        {
+                            "value": "arrow-left",
+                            "title": "arrow-left"
+                        },
+                        {
+                            "value": "arrow-right",
+                            "title": "arrow-right"
+                        },
+                        {
+                            "value": "angle-up",
+                            "title": "angle-up"
+                        },
+                        {
+                            "value": "angle-down",
+                            "title": "angle-down"
+                        },
+                        {
+                            "value": "angle-left",
+                            "title": "angle-left"
+                        },
+                        {
+                            "value": "angle-right",
+                            "title": "angle-right"
+                        },
+                        {
+                            "value": "close",
+                            "title": "close"
+                        },
+                        {
+                            "value": "close-solid",
+                            "title": "close-solid"
+                        },
+                        {
+                            "value": "filter",
+                            "title": "filter"
+                        },
+                        {
+                            "value": "github",
+                            "title": "github"
+                        }
                     ]
                 }
             ],
@@ -3552,6 +3696,7 @@
                 {
                     "name": "color",
                     "type": "string",
+                    "title": "设置颜色",
                     "options": [
                         {
                             "value": "default",
@@ -3580,6 +3725,7 @@
                 {
                     "name": "size",
                     "type": "string",
+                    "title": "大小",
                     "options": [
                         {
                             "value": "small",
@@ -3603,6 +3749,7 @@
                 },
                 {
                     "name": "removable",
+                    "title": "是否显示删除图标",
                     "type": "boolean",
                     "default": false,
                     "description": "是否显示删除图标"
@@ -3610,6 +3757,7 @@
                 {
                     "name": "display",
                     "type": "string",
+                    "title": "排列",
                     "options": [
                         {
                             "value": "inline",
@@ -3633,12 +3781,20 @@
             "events": [
                 {
                     "name": "$listeners",
+                    "kind": "trigger",
                     "description": "监听所有`<span>`元素的事件。",
-                    "params": []
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "trigger",
+                            "description": "自定义事件对象"
+                        }
+                    ]
                 },
                 {
                     "name": "before-remove",
                     "description": "删除前触发",
+                    "title": "删除前触发",
                     "advanced": true,
                     "params": [
                         {
@@ -3664,6 +3820,7 @@
                 {
                     "name": "remove",
                     "description": "删除时触发",
+                    "title": "删除时触发",
                     "params": [
                         {
                             "name": "$event",
@@ -3777,14 +3934,14 @@
         "labels": [
             "Display"
         ],
-        "screenShot": "",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.28/src/components/u-carousel.vue/screenshots/0.png",
         "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-carousel>\\n    <u-carousel-item><u-image style=\\\"width: 100%;height:100%\\\" src=\\\"https://raw.githubusercontent.com/vusion/cloud-ui/master/src/assets/images/1.jpg\\\"></u-image></u-carousel-item>\\n    <u-carousel-item><u-image style=\\\"width: 100%;height:100%\\\" src=\\\"https://raw.githubusercontent.com/vusion/cloud-ui/master/src/assets/images/2.jpg\\\" ></u-image></u-carousel-item>\\n    <u-carousel-item><u-image style=\\\"width: 100%;height:100%\\\" src=\\\"https://raw.githubusercontent.com/vusion/cloud-ui/master/src/assets/images/3.jpg\\\" ></u-image></u-carousel-item>\\n    <u-carousel-item><u-image style=\\\"width: 100%;height:100%\\\" src=\\\"https://raw.githubusercontent.com/vusion/cloud-ui/master/src/assets/images/4.jpg\\\" ></u-image></u-carousel-item>\\n    <u-carousel-item><u-image style=\\\"width: 100%;height:100%\\\" src=\\\"https://raw.githubusercontent.com/vusion/cloud-ui/master/src/assets/images/5.jpg\\\" ></u-image></u-carousel-item>\\n</u-carousel>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-carousel",
             "title": "幻灯片",
             "description": "动态播放内部内容",
             "category": "Display",
-            "screenShot": "",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.28/src/components/u-carousel.vue/screenshots/0.png",
             "blocks": [
                 {
                     "title": "基本用法",
@@ -3936,6 +4093,7 @@
                 {
                     "name": "u-carousel-item",
                     "title": "幻灯片选项",
+                    "description": "幻灯片选项",
                     "attrs": [
                         {
                             "name": "title",
@@ -3972,6 +4130,7 @@
         "name": "详情列表",
         "icon": "info-list",
         "depDescription": {},
+        "description": "详情列表",
         "labels": [
             "Display"
         ],
@@ -3980,6 +4139,7 @@
         "jsonSchema": {
             "name": "u-info-list",
             "title": "详情列表",
+            "description": "详情列表",
             "category": "Display",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.28/src/components/u-info-list.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.28/src/components/u-info-list.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.28/src/components/u-info-list.vue/screenshots/2.png",
             "blocks": [
@@ -4056,6 +4216,7 @@
                 {
                     "name": "u-info-list-item",
                     "title": "详情列表项",
+                    "description": "详情列表项",
                     "attrs": [
                         {
                             "name": "label",
@@ -4072,6 +4233,7 @@
                         {
                             "name": "label-size",
                             "type": "string",
+                            "title": "标签大小",
                             "options": [
                                 {
                                     "value": "auto",
@@ -4117,6 +4279,7 @@
                 {
                     "name": "u-info-list-group",
                     "title": "详情列表组",
+                    "description": "详情列表组",
                     "attrs": [
                         {
                             "name": "title",
@@ -4292,7 +4455,8 @@
                     "title": "地址",
                     "type": "image",
                     "default": "",
-                    "description": "图片地址"
+                    "description": "图片地址",
+                    "compType": "linkInput"
                 },
                 {
                     "name": "fit",
@@ -4373,7 +4537,8 @@
                     "group": "数据属性",
                     "title": "数据类型",
                     "type": "schema",
-                    "description": "表格的数据类型，对应表格数据的schema"
+                    "description": "表格的数据类型，对应表格数据的schema",
+                    "compType": "dataTypeSelect"
                 },
                 {
                     "name": "initial-load",
@@ -4795,7 +4960,7 @@
                     "params": [
                         {
                             "name": "$event",
-                            "type": null,
+                            "type": "null",
                             "description": "无"
                         },
                         {
@@ -5056,6 +5221,7 @@
                 {
                     "name": "input",
                     "description": "选择某一项后触发",
+                    "title": "选择触发",
                     "params": [
                         {
                             "name": "$event",
@@ -5226,6 +5392,7 @@
                 {
                     "name": "u-table-view-column",
                     "title": "表格列",
+                    "description": "表格列",
                     "attrs": [
                         {
                             "name": "title",
@@ -5302,6 +5469,7 @@
                             "name": "type",
                             "title": "列类型",
                             "type": "string",
+                            "default": "index",
                             "options": [
                                 {
                                     "value": "index",
@@ -5334,6 +5502,7 @@
                         {
                             "name": "default",
                             "title": "默认",
+                            "description": "默认值",
                             "accept-type": "all"
                         },
                         {
@@ -5448,7 +5617,13 @@
                             "name": "$listeners",
                             "kind": "trigger",
                             "description": "监听所有事件。",
-                            "params": []
+                            "params": [
+                                {
+                                    "name": "$event",
+                                    "type": "trigger",
+                                    "description": "自定义事件"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -5481,46 +5656,45 @@
             ],
             "attrs": [
                 {
-                    "name": "border",
-                    "type": "boolean",
-                    "default": false,
-                    "description": "是否有边框",
-                    "hidden": true
-                },
-                {
                     "name": "data",
                     "type": "Array",
                     "default": null,
-                    "description": "数据"
+                    "description": "数据",
+                    "title": "数据"
                 },
                 {
                     "name": "dynamic",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否可以动态添加/删除项"
+                    "description": "是否可以动态添加/删除项",
+                    "title": "动态添加"
                 },
                 {
                     "name": "get-default-item",
                     "type": "Function",
                     "default": null,
-                    "description": "传入获取默认项的方法"
+                    "description": "传入获取默认项的方法",
+                    "title": "默认项的方法"
                 },
                 {
                     "name": "initial-add",
                     "type": "boolean",
                     "default": true,
-                    "description": "是否自动补充项，如果初始时`data`中的项目数少于`min-count`"
+                    "description": "是否自动补充项，如果初始时`data`中的项目数少于`min-count`",
+                    "title": "自动补充项"
                 },
                 {
                     "name": "min-count",
                     "type": "number",
                     "default": 1,
+                    "title": "最小行数",
                     "description": "最小项目数"
                 },
                 {
                     "name": "max-count",
                     "type": "number",
-                    "default": null,
+                    "title": "最大行数",
+                    "default": 999,
                     "description": "最大项目数"
                 }
             ],
@@ -5569,7 +5743,8 @@
                             "type": "UFormTableView",
                             "description": "发送事件实例"
                         }
-                    ]
+                    ],
+                    "title": "添加前触发"
                 },
                 {
                     "name": "add",
@@ -5603,7 +5778,8 @@
                             "type": "UFormTableView",
                             "description": "发送事件实例"
                         }
-                    ]
+                    ],
+                    "title": "添加时触发"
                 },
                 {
                     "name": "before-remove",
@@ -5643,7 +5819,8 @@
                             "type": "UFormTableView",
                             "description": "发送事件实例"
                         }
-                    ]
+                    ],
+                    "title": "删除前触发"
                 },
                 {
                     "name": "remove",
@@ -5677,7 +5854,8 @@
                             "type": "UFormTableView",
                             "description": "发送事件实例"
                         }
-                    ]
+                    ],
+                    "title": "删除时触发"
                 },
                 {
                     "name": "splice",
@@ -5711,27 +5889,33 @@
                             "type": "UFormTableView",
                             "description": "发送事件实例"
                         }
-                    ]
+                    ],
+                    "title": "数量变更（添加/删除）时触发"
                 }
             ],
             "children": [
                 {
                     "name": "u-form-table-view-column",
+                    "title": "表单列元素",
+                    "description": "表单列元素",
                     "attrs": [
                         {
                             "name": "title",
                             "type": "string",
                             "default": null,
-                            "description": "列标题"
+                            "description": "列标题",
+                            "title": "列标题"
                         },
                         {
                             "name": "field",
                             "type": "string",
+                            "title": "区域",
                             "default": null,
                             "description": "data 中的字段名"
                         },
                         {
                             "name": "width",
+                            "title": "宽度",
                             "type": "string, number",
                             "default": null,
                             "description": "给列指定宽度，可以为数字或百分比"
@@ -5740,76 +5924,83 @@
                             "name": "ellipsis",
                             "type": "boolean",
                             "default": false,
-                            "description": "是否省略显示。默认文字超出时会换行"
+                            "description": "是否省略显示。默认文字超出时会换行",
+                            "title": "省略"
                         },
                         {
                             "name": "formatter",
                             "type": "string, object, Function, Formatter",
                             "default": "placeholder",
-                            "description": "格式器"
+                            "description": "格式器",
+                            "title": "格式器"
                         },
                         {
                             "name": "hidden",
                             "type": "boolean",
+                            "title": "是否隐藏",
                             "default": false,
                             "description": "是否隐藏"
                         },
                         {
                             "name": "start-index",
                             "type": "number",
+                            "title": "起始序号",
                             "default": 1,
                             "description": "当`type=\"index\"`时的起始序号"
-                        },
-                        {
-                            "name": "**Validator Props/Attrs**",
-                            "type": "",
-                            "default": null,
-                            "description": ""
                         },
                         {
                             "name": "label",
                             "type": "string",
                             "default": null,
+                            "title": "标签",
                             "description": "标签。用于提示消息的合成"
                         },
                         {
                             "name": "muted",
                             "type": "string",
                             "default": null,
+                            "title": "静默消息提示",
                             "description": "验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示"
                         },
                         {
                             "name": "rules",
                             "type": "string, Array",
+                            "title": "验证规则",
                             "default": null,
-                            "description": "验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型"
+                            "description": "验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型",
+                            "compType": "validationRulesSelect"
                         },
                         {
                             "name": "ignore-validation",
                             "type": "boolean",
+                            "title": "忽略验证",
                             "default": false,
                             "description": "忽略验证"
                         },
                         {
                             "name": "ignore-rules",
                             "type": "boolean",
+                            "title": "忽略验证规则",
                             "default": false,
                             "description": "忽略验证规则。已废弃，同`ignore-validation`"
                         },
                         {
                             "name": "validating-options",
                             "type": "object",
+                            "title": "验证辅助对象",
                             "default": null,
                             "description": "验证辅助对象。在 Rule 的 `validate` 方法中使用。表格中会额外将`{ data: currentData, item, rowIndex }`注入"
                         },
                         {
                             "name": "validating-value",
                             "type": "any",
+                            "title": "验证值",
                             "default": null,
                             "description": "临时修改验证值"
                         },
                         {
                             "name": "validating-process",
+                            "title": "验证前对值进行的预处理",
                             "type": "Function",
                             "default": null,
                             "description": "验证前对值进行预处理"
@@ -5949,51 +6140,51 @@
                     "options": [
                         {
                             "value": "top",
-                            "name": "上"
+                            "title": "上"
                         },
                         {
                             "value": "bottom",
-                            "name": "下"
+                            "title": "下"
                         },
                         {
                             "value": "left",
-                            "name": "左"
+                            "title": "左"
                         },
                         {
                             "value": "right",
-                            "name": "右"
+                            "title": "右"
                         },
                         {
                             "value": "top-start",
-                            "name": "上左"
+                            "title": "上左"
                         },
                         {
                             "value": "top-end",
-                            "name": "上右"
+                            "title": "上右"
                         },
                         {
                             "value": "bottom-start",
-                            "name": "下左"
+                            "title": "下左"
                         },
                         {
                             "value": "bottom-end",
-                            "name": "下右"
+                            "title": "下右"
                         },
                         {
                             "value": "left-start",
-                            "name": "左上"
+                            "title": "左上"
                         },
                         {
                             "value": "left-end",
-                            "name": "左下"
+                            "title": "左下"
                         },
                         {
                             "value": "right-start",
-                            "name": "右上"
+                            "title": "右上"
                         },
                         {
                             "value": "right-end",
-                            "name": "右下"
+                            "title": "右下"
                         }
                     ],
                     "default": "bottom-end",
@@ -6016,6 +6207,8 @@
             "children": [
                 {
                     "name": "u-action",
+                    "title": "单个操作项",
+                    "description": "单个操作项",
                     "attrs": [
                         {
                             "name": "hidden",
@@ -6075,13 +6268,16 @@
                                     "title": "下载链接"
                                 }
                             ],
+                            "default": "href",
+                            "compType": "linkTypeSelect",
                             "description": "链接类型"
                         },
                         {
                             "name": "hrefAndTo",
                             "title": "链接",
                             "type": "string",
-                            "description": "链接地址"
+                            "description": "链接地址",
+                            "compType": "linkHrefInput"
                         },
                         {
                             "name": "target",
@@ -6451,6 +6647,7 @@
                 {
                     "name": "u-form-item",
                     "title": "表单项",
+                    "description": "表单项",
                     "attrs": [
                         {
                             "name": "label",
@@ -6505,7 +6702,8 @@
                                     "title": "大"
                                 }
                             ],
-                            "description": "单独设置表单项的内容大小"
+                            "description": "单独设置表单项的内容大小",
+                            "default": "normal"
                         },
                         {
                             "name": "required",
@@ -6539,7 +6737,8 @@
                                     "value": "none",
                                     "title": "不作处理"
                                 }
-                            ]
+                            ],
+                            "description": "验证是否静默"
                         },
                         {
                             "name": "description",
@@ -6585,7 +6784,8 @@
                             "name": "rules",
                             "title": "验证规则",
                             "type": "string | Array",
-                            "description": "验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型"
+                            "description": "验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型",
+                            "compType": "validationRulesSelect"
                         },
                         {
                             "name": "ignore-validation",
@@ -6682,6 +6882,7 @@
                 {
                     "name": "u-form-group",
                     "title": "表单分组",
+                    "description": "展开折叠前",
                     "attrs": [
                         {
                             "name": "title",
@@ -6999,8 +7200,14 @@
                         {
                             "value": "search",
                             "title": "搜索"
+                        },
+                        {
+                            "value": "",
+                            "title": "暂无"
                         }
-                    ]
+                    ],
+                    "description": "前缀图标",
+                    "default": ""
                 },
                 {
                     "name": "suffix",
@@ -7010,8 +7217,14 @@
                         {
                             "value": "search",
                             "title": "搜索"
+                        },
+                        {
+                            "value": "",
+                            "title": "暂无"
                         }
-                    ]
+                    ],
+                    "default": "",
+                    "description": "后缀图标"
                 }
             ],
             "slots": [
@@ -7319,7 +7532,7 @@
                     "name": "max",
                     "title": "最大值",
                     "type": "number",
-                    "default": null,
+                    "default": 999,
                     "description": "最大值"
                 },
                 {
@@ -7672,6 +7885,7 @@
                     "name": "size",
                     "title": "尺寸",
                     "type": "string",
+                    "default": "normal",
                     "options": [
                         {
                             "value": "full",
@@ -7693,7 +7907,8 @@
                             "value": "normal",
                             "title": "正常"
                         }
-                    ]
+                    ],
+                    "description": "设置尺寸"
                 },
                 {
                     "name": "resize",
@@ -7866,7 +8081,8 @@
                     "params": [
                         {
                             "name": "$event",
-                            "type": null,
+                            "type": "Object",
+                            "title": "原生事件对象",
                             "description": "原生事件对象",
                             "schema": {
                                 "$ref": "#/systemTypes/FocusEvent"
@@ -7874,6 +8090,7 @@
                         },
                         {
                             "name": "senderVM",
+                            "title": "发送事件实例",
                             "type": "UTextarea",
                             "description": "发送事件实例"
                         }
@@ -8151,6 +8368,7 @@
                 {
                     "name": "u-radio",
                     "title": "单选项",
+                    "description": "单选项",
                     "attrs": [
                         {
                             "name": "label",
@@ -8233,6 +8451,7 @@
         "name": "开关",
         "icon": "switch",
         "depDescription": {},
+        "description": "开关",
         "labels": [
             "Form"
         ],
@@ -8241,6 +8460,7 @@
         "jsonSchema": {
             "name": "u-switch",
             "title": "开关",
+            "description": "开关",
             "category": "Form",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.28/src/components/u-switch.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.28/src/components/u-switch.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.28/src/components/u-switch.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.28/src/components/u-switch.vue/screenshots/3.png",
             "blocks": [
@@ -8504,7 +8724,7 @@
                     "name": "max",
                     "title": "选中最大数",
                     "type": "number",
-                    "default": null,
+                    "default": 999,
                     "description": "可以勾选多选框的最大数量"
                 },
                 {
@@ -8527,6 +8747,7 @@
                     "type": "string",
                     "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象",
                     "bindHide": true,
+                    "default": "join",
                     "options": [
                         {
                             "value": "join",
@@ -8564,6 +8785,7 @@
                 {
                     "name": "u-checkbox",
                     "title": "多选项",
+                    "description": "多选项",
                     "attrs": [
                         {
                             "name": "value",
@@ -9141,6 +9363,7 @@
                 {
                     "name": "u-capsule",
                     "title": "子选项",
+                    "description": "子选项",
                     "attrs": [
                         {
                             "name": "value",
@@ -9162,7 +9385,8 @@
                                     "title": "正常"
                                 }
                             ],
-                            "description": "胶囊大小"
+                            "description": "胶囊大小",
+                            "default": "normal"
                         },
                         {
                             "name": "selected",
@@ -9273,6 +9497,7 @@
                 {
                     "name": "u-capsule-group",
                     "title": "子选项组",
+                    "description": "子选项组",
                     "slots": [
                         {
                             "name": "default",
@@ -9369,6 +9594,7 @@
                     "type": "string",
                     "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象",
                     "bindHide": true,
+                    "default": "join",
                     "options": [
                         {
                             "value": "join",
@@ -9585,19 +9811,31 @@
                         {
                             "value": "search",
                             "title": "搜索"
+                        },
+                        {
+                            "value": "",
+                            "title": "暂无"
                         }
-                    ]
+                    ],
+                    "description": "前缀图标",
+                    "default": ""
                 },
                 {
                     "name": "suffix",
                     "title": "后缀图标",
                     "type": "string",
+                    "description": "后缀图标",
                     "options": [
                         {
                             "value": "search",
                             "title": "搜索"
+                        },
+                        {
+                            "value": "",
+                            "title": "暂无"
                         }
-                    ]
+                    ],
+                    "default": ""
                 }
             ],
             "slots": [
@@ -9706,11 +9944,13 @@
                 {
                     "name": "input",
                     "description": "选择某一项时触发",
+                    "title": "选择时",
                     "params": [
                         {
                             "name": "$event",
                             "type": "any",
                             "description": "选择项的值",
+                            "title": "选择项的值",
                             "schema": {
                                 "$ref": "#/basicTypes/String"
                             }
@@ -9718,6 +9958,7 @@
                         {
                             "name": "senderVM",
                             "type": "USelect",
+                            "title": "发送事件实例",
                             "description": "发送事件实例"
                         }
                     ]
@@ -9985,6 +10226,8 @@
             "children": [
                 {
                     "name": "u-select-item",
+                    "title": "选择项",
+                    "description": "选择项",
                     "attrs": [
                         {
                             "name": "value",
@@ -10059,12 +10302,15 @@
                 },
                 {
                     "name": "u-select-group",
+                    "title": "选择分组",
+                    "description": "选择分组",
                     "attrs": [
                         {
                             "name": "title",
                             "type": "string",
                             "default": null,
-                            "description": "显示的标题"
+                            "description": "显示的标题",
+                            "title": "标题"
                         }
                     ],
                     "slots": [
@@ -10096,7 +10342,8 @@
                 },
                 {
                     "name": "u-select-divider",
-                    "title": "分隔线"
+                    "title": "分隔线",
+                    "description": "分隔线"
                 }
             ]
         }
@@ -10132,12 +10379,14 @@
                     "model": true,
                     "sync": true,
                     "default": 0,
-                    "description": "评分值"
+                    "description": "评分值",
+                    "title": "评分值"
                 },
                 {
                     "name": "max",
                     "type": "number",
                     "default": 5,
+                    "title": "最大分数",
                     "description": "最大分数"
                 },
                 {
@@ -10231,48 +10480,56 @@
                     "model": true,
                     "type": "number",
                     "default": 0,
-                    "description": "滑块的值"
+                    "description": "滑块的值",
+                    "title": "滑块的值"
                 },
                 {
                     "name": "min",
                     "type": "number",
                     "default": 0,
-                    "description": "最小值"
+                    "description": "最小值",
+                    "title": "最小值"
                 },
                 {
                     "name": "max",
                     "type": "number",
                     "default": 100,
-                    "description": "最大值"
+                    "description": "最大值",
+                    "title": "最大值"
                 },
                 {
                     "name": "step",
                     "type": "number",
                     "default": 1,
+                    "title": "间隔",
                     "description": "间隔。`0`表示连续"
                 },
                 {
                     "name": "precision",
                     "type": "number",
                     "default": 1,
+                    "title": "精度",
                     "description": "精度，表示数字要保留的最小单位，整数、小数均可"
                 },
                 {
                     "name": "range",
                     "type": "Array",
                     "default": [],
+                    "title": "范围",
                     "description": "进一步对`value`限制，通常传入一个数组，第一个值表示范围开始值，第二个值表示范围的结束值。"
                 },
                 {
                     "name": "formatter",
                     "type": "string, object",
                     "default": null,
+                    "title": "格式化",
                     "advanced": true,
                     "description": "格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。"
                 },
                 {
                     "name": "sync-on",
                     "type": "string",
+                    "title": "同步时机",
                     "options": [
                         {
                             "value": "input",
@@ -10289,6 +10546,7 @@
                 {
                     "name": "hide-buttons",
                     "type": "boolean",
+                    "title": "隐藏按钮",
                     "default": true,
                     "description": "是否隐藏按钮"
                 },
@@ -10296,24 +10554,28 @@
                     "name": "readonly",
                     "type": "boolean",
                     "default": false,
+                    "title": "只读",
                     "description": "是否只读"
                 },
                 {
                     "name": "disabled",
                     "type": "boolean",
                     "default": false,
+                    "title": "禁用",
                     "description": "是否禁用"
                 },
                 {
                     "name": "unit",
                     "type": "string",
                     "default": null,
-                    "description": "单位"
+                    "description": "单位",
+                    "title": "单位"
                 },
                 {
                     "name": "tip",
                     "type": "string",
                     "default": null,
+                    "title": "提示",
                     "description": "提示"
                 }
             ],
@@ -10321,11 +10583,13 @@
                 {
                     "name": "input",
                     "description": "滑块的值改变时触发",
+                    "title": "值改变时",
                     "params": [
                         {
                             "name": "$event",
                             "type": "number",
                             "description": "滑块的值",
+                            "title": "滑块的值",
                             "schema": {
                                 "$ref": "#/basicTypes/Integer"
                             }
@@ -10335,6 +10599,7 @@
                 {
                     "name": "slide",
                     "description": "拖动滑块时触发",
+                    "title": "拖动滑块时",
                     "params": [
                         {
                             "name": "$event",
@@ -10364,6 +10629,7 @@
                 {
                     "name": "change",
                     "description": "滑块的值改变后触发",
+                    "title": "值改变后",
                     "params": [
                         {
                             "name": "$event",
@@ -10388,6 +10654,7 @@
                 {
                     "name": "number-input",
                     "description": "改变数字输入框的值后触发",
+                    "title": "改变数字输入框的值后",
                     "params": [
                         {
                             "name": "$event.value",
@@ -10402,6 +10669,7 @@
                 {
                     "name": "slide-end",
                     "description": "拖动滑块结束后触发",
+                    "title": "拖动滑块结束后",
                     "advanced": true,
                     "params": [
                         {
@@ -10469,35 +10737,43 @@
                     "model": true,
                     "sync": true,
                     "default": "[]",
-                    "description": "当前文件列表"
+                    "description": "当前文件列表",
+                    "title": "值"
                 },
                 {
                     "name": "url",
                     "type": "string",
                     "required": true,
                     "default": null,
-                    "description": "上传的地址"
+                    "description": "上传的地址",
+                    "title": "上传的地址",
+                    "compType": "interfaceSelect"
                 },
                 {
                     "name": "name",
                     "type": "string",
                     "default": "file",
+                    "title": "上传的文件字段名",
                     "description": "上传的文件字段名，后端需要这个字段获取"
                 },
                 {
                     "name": "accept",
                     "type": "string",
+                    "title": "接受的上传类型",
                     "description": "接受的上传类型"
                 },
                 {
                     "name": "headers",
                     "type": "Object",
+                    "title": "请求 headers",
                     "description": "请求 headers"
                 },
                 {
                     "name": "with-credentials",
                     "type": "boolean",
-                    "default": false
+                    "default": false,
+                    "title": "设置cookie值",
+                    "description": "通过设置 withCredentials 为 true 获得的第三方 cookies，将会依旧享受同源策略"
                 },
                 {
                     "name": "multiple",
@@ -10509,6 +10785,7 @@
                 {
                     "name": "data-type",
                     "type": "string",
+                    "title": "接收数据类型",
                     "default": "json",
                     "advanced": true,
                     "description": "接收数据类型。可选值：`text`、`xml`、`json`",
@@ -10517,6 +10794,7 @@
                 {
                     "name": "data",
                     "type": "object",
+                    "title": "附加数据",
                     "default": null,
                     "description": "附加数据"
                 },
@@ -10524,14 +10802,14 @@
                     "name": "limit",
                     "title": "列表数量上限",
                     "type": "number",
-                    "default": null,
+                    "default": 999,
                     "description": "列表数量上限"
                 },
                 {
                     "name": "max-size",
                     "title": "最大文件大小",
-                    "type": "string, number",
-                    "default": null,
+                    "type": "string",
+                    "default": "50M",
                     "description": "可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB`"
                 },
                 {
@@ -10540,15 +10818,15 @@
                     "type": "string",
                     "options": [
                         {
-                            "name": "文本",
+                            "title": "文本",
                             "value": "text"
                         },
                         {
-                            "name": "图片",
+                            "title": "图片",
                             "value": "image"
                         },
                         {
-                            "name": "卡片",
+                            "title": "卡片",
                             "value": "card"
                         }
                     ],
@@ -10595,12 +10873,14 @@
                     "name": "converter",
                     "title": "转换器",
                     "type": "string",
+                    "default": "json",
                     "options": [
                         {
-                            "name": "JSON",
+                            "title": "JSON",
                             "value": "json"
                         }
-                    ]
+                    ],
+                    "description": "转换器"
                 },
                 {
                     "name": "readonly",
@@ -11202,6 +11482,7 @@
                 {
                     "name": "u-tab",
                     "title": "标签页",
+                    "description": "标签页",
                     "control": "button",
                     "attrs": [
                         {
@@ -11227,6 +11508,8 @@
                             "name": "linkType",
                             "title": "链接类型",
                             "type": "string",
+                            "default": "href",
+                            "compType": "linkTypeSelect",
                             "options": [
                                 {
                                     "value": "destination",
@@ -11255,13 +11538,15 @@
                             "title": "链接",
                             "advanced": true,
                             "type": "string",
-                            "description": "链接地址"
+                            "description": "链接地址",
+                            "compType": "linkHrefInput"
                         },
                         {
                             "name": "target",
                             "title": "打开方式",
                             "advanced": true,
                             "type": "string",
+                            "default": "_blank",
                             "options": [
                                 {
                                     "value": "_blank",
@@ -11296,13 +11581,15 @@
                             "type": "boolean",
                             "default": false,
                             "advanced": true,
-                            "description": "需要 router 为 true，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。"
+                            "description": "需要 router 为 true，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。",
+                            "title": "替换"
                         },
                         {
                             "name": "append",
                             "type": "boolean",
                             "default": false,
                             "advanced": true,
+                            "title": "追加路径",
                             "description": "需要 router 为 true，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。"
                         },
                         {
@@ -11499,6 +11786,7 @@
                 {
                     "name": "u-selectable-step",
                     "title": "可选步骤条项",
+                    "description": "可选步骤条项",
                     "attrs": [
                         {
                             "name": "title",
@@ -11511,7 +11799,8 @@
                             "name": "disabled",
                             "type": "boolean",
                             "default": false,
-                            "description": "是否禁用此标签页"
+                            "description": "是否禁用此标签页",
+                            "title": "禁用"
                         }
                     ],
                     "slots": [
@@ -12725,6 +13014,8 @@
             "children": [
                 {
                     "name": "u-tree-view-node",
+                    "title": "组件子元素",
+                    "description": "组件子元素",
                     "attrs": [
                         {
                             "name": "value",
@@ -13244,9 +13535,10 @@
             "attrs": [
                 {
                     "name": "width",
-                    "type": "string, number",
+                    "type": "number",
                     "default": 160,
-                    "description": "输入框宽度"
+                    "description": "输入框宽度",
+                    "title": "输入框宽度"
                 },
                 {
                     "name": "date",
@@ -13261,24 +13553,28 @@
                     "name": "minDate",
                     "type": "string,number,Date",
                     "default": null,
-                    "description": "最小日期"
+                    "description": "最小日期",
+                    "title": "最小日期"
                 },
                 {
                     "name": "maxDate",
                     "type": "string,number,Date",
                     "default": null,
-                    "description": "最大日期"
+                    "description": "最大日期",
+                    "title": "最大日期"
                 },
                 {
                     "name": "readonly",
                     "type": "boolean",
                     "default": false,
+                    "title": "只读",
                     "description": "是否只读"
                 },
                 {
                     "name": "disabled",
                     "type": "boolean",
                     "default": false,
+                    "title": "禁用",
                     "description": "是否禁用"
                 },
                 {
@@ -13286,13 +13582,15 @@
                     "type": "boolean",
                     "default": false,
                     "description": "文本框默认处于focus",
-                    "advanced": true
+                    "advanced": true,
+                    "title": "文本框默认处于 focus"
                 },
                 {
                     "name": "placeholder",
                     "type": "string",
                     "default": "请输入",
-                    "description": "文本框默认提示"
+                    "description": "文本框默认提示",
+                    "title": "文本框默认提示"
                 },
                 {
                     "name": "alignment",
@@ -13308,54 +13606,62 @@
                         }
                     ],
                     "default": "left",
-                    "description": "日历弹窗对其方式"
+                    "description": "日历弹窗对其方式",
+                    "title": "日历弹窗对其方式"
                 },
                 {
                     "name": "time",
                     "type": "string, number",
                     "default": "0:00:00",
-                    "description": "输入对应格式的字符串（8:00:00）即可"
+                    "description": "输入对应格式的字符串（8:00:00）即可",
+                    "title": "时间格式"
                 },
                 {
-                    "name": "yeadDiff",
-                    "type": "string, number",
+                    "name": "yearDiff",
+                    "type": "number",
                     "default": 3,
-                    "description": "最小可选年份值为当前年减去此值"
+                    "description": "最小可选年份值为当前年减去此值",
+                    "title": "最小可选年份与当前年份的差值"
                 },
                 {
                     "name": "yearAdd",
-                    "type": "string, number",
+                    "type": "number",
                     "default": 1,
-                    "description": "最大可选年份值为当前年加上此值"
+                    "description": "最大可选年份值为当前年加上此值",
+                    "title": "最大可选年份与当前年份的差值"
                 },
                 {
                     "name": "converter",
                     "title": "转换器",
                     "type": "string",
+                    "default": "json",
                     "options": [
                         {
-                            "name": "JSON",
+                            "title": "JSON",
                             "value": "json"
                         },
                         {
-                            "name": "Unix 时间戳",
+                            "title": "Unix 时间戳",
                             "value": "timestamp"
                         },
                         {
-                            "name": "Date 对象",
+                            "title": "Date 对象",
                             "value": "date"
                         }
-                    ]
+                    ],
+                    "description": "转换器，用于转换时间结果"
                 }
             ],
             "events": [
                 {
                     "name": "input",
+                    "title": "值输入时",
                     "description": "值变化时触发 (表单验证可以检测到其值得变化)",
                     "params": [
                         {
                             "name": "$event",
                             "type": "Date",
+                            "title": "输入后的日期值",
                             "description": "改变后的日期值",
                             "schema": {
                                 "$ref": "#/basicTypes/Date"
@@ -13366,10 +13672,12 @@
                 {
                     "name": "change",
                     "description": "值变化时触发",
+                    "title": "值变化时",
                     "params": [
                         {
                             "name": "$event",
                             "type": "object",
+                            "title": "自定义事件对象",
                             "description": "自定义事件对象",
                             "schema": {
                                 "$ref": "#/systemTypes/DateEvent"
@@ -13378,6 +13686,7 @@
                         {
                             "name": "$event.date",
                             "type": "Date",
+                            "title": "改变后的日期值",
                             "description": "改变后的日期值"
                         }
                     ]
@@ -13385,6 +13694,7 @@
                 {
                     "name": "select",
                     "description": "选择日期时触发",
+                    "title": "选择时",
                     "params": [
                         {
                             "name": "$event",
@@ -13404,6 +13714,7 @@
                 {
                     "name": "toggle",
                     "description": "弹出/隐藏时触发",
+                    "title": "弹出/隐藏时",
                     "advanced": true,
                     "params": [
                         {
@@ -13507,7 +13818,7 @@
                     "name": "maxTime",
                     "title": "最大时间",
                     "type": "string",
-                    "default": 1439,
+                    "default": "23:59",
                     "description": "最大时间"
                 },
                 {
@@ -13619,69 +13930,79 @@
                     "name": "minDate",
                     "type": "string, number, Date",
                     "default": null,
-                    "description": "最小日期值"
+                    "description": "最小日期值",
+                    "title": "最小日期值"
                 },
                 {
                     "name": "maxDate",
                     "type": "string, number, Date",
                     "default": null,
-                    "description": "最大日期值"
+                    "description": "最大日期值",
+                    "title": "最大日期值"
                 },
                 {
                     "name": "placeholder",
                     "type": "string",
                     "default": "请选择时间",
-                    "description": "默认提示语"
+                    "description": "默认提示语",
+                    "title": "默认提示文案"
                 },
                 {
                     "name": "autofocus",
                     "type": "boolean",
                     "default": false,
                     "description": "是否默认处于focus状态",
+                    "title": "自动获焦",
                     "advanced": true
                 },
                 {
                     "name": "disabled",
                     "type": "boolean",
                     "default": false,
+                    "title": "禁用",
                     "description": "是否禁用"
                 },
                 {
                     "name": "readonly",
                     "type": "boolean",
                     "default": false,
+                    "title": "只读",
                     "description": "是否只读"
                 },
                 {
                     "name": "yearDiff",
-                    "type": "string, number",
+                    "type": "number",
                     "default": 3,
+                    "title": "最小可选年份到当前年份的差值",
                     "description": "最小可选年份值为当前年减去此值"
                 },
                 {
                     "name": "yearAdd",
-                    "type": "string, number",
+                    "type": "number",
                     "default": 1,
-                    "description": "最大可选年份值为当前年加上此值"
+                    "description": "最大可选年份值为当前年加上此值",
+                    "title": "最大可选年份到当前年份的差值"
                 },
                 {
                     "name": "converter",
                     "title": "转换器",
                     "type": "string",
+                    "default": "json",
                     "options": [
                         {
-                            "name": "JSON",
+                            "title": "JSON",
                             "value": "json"
                         },
                         {
-                            "name": "Unix 时间戳",
+                            "title": "Unix 时间戳",
                             "value": "timestamp"
                         },
                         {
-                            "name": "Date 对象",
+                            "title": "Date 对象",
                             "value": "date"
                         }
-                    ]
+                    ],
+                    "description": "转换器"
                 }
             ],
             "slots": [
@@ -13699,6 +14020,7 @@
                         {
                             "name": "$event",
                             "type": "object",
+                            "title": "自定义事件对象",
                             "description": "自定义事件对象",
                             "schema": {
                                 "$ref": "#/systemTypes/DateEvent"
@@ -13707,17 +14029,21 @@
                         {
                             "name": "$event.date",
                             "type": "number",
+                            "title": "选择项的值",
                             "description": "选择项的值，默认返回时间戳"
                         }
-                    ]
+                    ],
+                    "title": "值选择时"
                 },
                 {
                     "name": "change",
                     "description": "选择新时间触发",
+                    "title": "值变化时",
                     "params": [
                         {
                             "name": "$event",
                             "type": "object",
+                            "title": "自定义事件对象",
                             "description": "自定义事件对象",
                             "schema": {
                                 "$ref": "#/systemTypes/DateEvent"
@@ -13726,6 +14052,7 @@
                         {
                             "name": "$event.date",
                             "type": "number",
+                            "title": "选择项的值",
                             "description": "选择项的值，默认返回时间戳"
                         }
                     ]
@@ -13768,11 +14095,13 @@
                     "name": "percent",
                     "type": "number",
                     "default": 0,
-                    "description": "百分比，0-100 之间的数字"
+                    "description": "百分比，0-100 之间的数字",
+                    "title": "百分比"
                 },
                 {
                     "name": "size",
                     "type": "string",
+                    "title": "尺寸",
                     "options": [
                         {
                             "value": "small",
@@ -13796,6 +14125,7 @@
                 },
                 {
                     "name": "range",
+                    "title": "百分比范围",
                     "type": "array<number>",
                     "default": [
                         0,
@@ -13844,7 +14174,8 @@
                     "name": "percent",
                     "type": "number",
                     "default": 0,
-                    "description": "百分比"
+                    "description": "百分比",
+                    "title": "百分比"
                 }
             ],
             "slots": [
@@ -13978,51 +14309,51 @@
                     "options": [
                         {
                             "value": "top",
-                            "name": "上"
+                            "title": "上"
                         },
                         {
                             "value": "bottom",
-                            "name": "下"
+                            "title": "下"
                         },
                         {
                             "value": "left",
-                            "name": "左"
+                            "title": "左"
                         },
                         {
                             "value": "right",
-                            "name": "右"
+                            "title": "右"
                         },
                         {
                             "value": "top-start",
-                            "name": "上左"
+                            "title": "上左"
                         },
                         {
                             "value": "top-end",
-                            "name": "上右"
+                            "title": "上右"
                         },
                         {
                             "value": "bottom-start",
-                            "name": "下左"
+                            "title": "下左"
                         },
                         {
                             "value": "bottom-end",
-                            "name": "下右"
+                            "title": "下右"
                         },
                         {
                             "value": "left-start",
-                            "name": "左上"
+                            "title": "左上"
                         },
                         {
                             "value": "left-end",
-                            "name": "左下"
+                            "title": "左下"
                         },
                         {
                             "value": "right-start",
-                            "name": "右上"
+                            "title": "右上"
                         },
                         {
                             "value": "right-end",
-                            "name": "右下"
+                            "title": "右下"
                         }
                     ],
                     "default": "bottom",
@@ -14221,6 +14552,7 @@
         "name": "工具提示",
         "icon": "tooltip",
         "depDescription": {},
+        "description": "工具提示",
         "labels": [
             "Feedback"
         ],
@@ -14229,6 +14561,7 @@
         "jsonSchema": {
             "name": "u-tooltip",
             "title": "工具提示",
+            "description": "工具提示",
             "category": "Feedback",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.28/src/components/u-tooltip.vue/screenshots/0.png",
             "blocks": [
@@ -14283,51 +14616,51 @@
                     "options": [
                         {
                             "value": "top",
-                            "name": "上"
+                            "title": "上"
                         },
                         {
                             "value": "bottom",
-                            "name": "下"
+                            "title": "下"
                         },
                         {
                             "value": "left",
-                            "name": "左"
+                            "title": "左"
                         },
                         {
                             "value": "right",
-                            "name": "右"
+                            "title": "右"
                         },
                         {
                             "value": "top-start",
-                            "name": "上左"
+                            "title": "上左"
                         },
                         {
                             "value": "top-end",
-                            "name": "上右"
+                            "title": "上右"
                         },
                         {
                             "value": "bottom-start",
-                            "name": "下左"
+                            "title": "下左"
                         },
                         {
                             "value": "bottom-end",
-                            "name": "下右"
+                            "title": "下右"
                         },
                         {
                             "value": "left-start",
-                            "name": "左上"
+                            "title": "左上"
                         },
                         {
                             "value": "left-end",
-                            "name": "左下"
+                            "title": "左下"
                         },
                         {
                             "value": "right-start",
-                            "name": "右上"
+                            "title": "右上"
                         },
                         {
                             "value": "right-end",
-                            "name": "右下"
+                            "title": "右下"
                         }
                     ],
                     "default": "bottom",
@@ -14369,19 +14702,19 @@
                     "options": [
                         {
                             "value": "small",
-                            "name": "小型"
+                            "title": "小型"
                         },
                         {
                             "value": "normal",
-                            "name": "正常"
+                            "title": "正常"
                         },
                         {
                             "value": "large",
-                            "name": "大"
+                            "title": "大"
                         },
                         {
                             "value": "auto",
-                            "name": "自适应"
+                            "title": "自适应"
                         }
                     ],
                     "default": "normal",
@@ -14537,6 +14870,7 @@
         "name": "吐司提示",
         "icon": "toast",
         "depDescription": {},
+        "description": "吐司提示",
         "labels": [
             "Feedback"
         ],
@@ -14545,6 +14879,7 @@
         "jsonSchema": {
             "name": "u-toast",
             "title": "吐司提示",
+            "description": "吐司提示",
             "category": "Feedback",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.28/src/components/u-toast.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.28/src/components/u-toast.vue/screenshots/1.png",
             "blocks": [
@@ -14567,31 +14902,31 @@
                     "options": [
                         {
                             "value": "top-center",
-                            "name": "上中"
+                            "title": "上中"
                         },
                         {
                             "value": "top-left",
-                            "name": "上左"
+                            "title": "上左"
                         },
                         {
                             "value": "top-right",
-                            "name": "上右"
+                            "title": "上右"
                         },
                         {
                             "value": "bottom-center",
-                            "name": "下中"
+                            "title": "下中"
                         },
                         {
                             "value": "bottom-left",
-                            "name": "下左"
+                            "title": "下左"
                         },
                         {
                             "value": "bottom-right",
-                            "name": "下右"
+                            "title": "下右"
                         },
                         {
                             "value": "static",
-                            "name": "静态"
+                            "title": "静态"
                         }
                     ],
                     "default": "top-center",
@@ -14773,6 +15108,7 @@
         "name": "弹窗",
         "icon": "modal",
         "depDescription": {},
+        "description": "弹窗",
         "labels": [
             "Feedback"
         ],
@@ -14781,6 +15117,7 @@
         "jsonSchema": {
             "name": "u-modal",
             "title": "弹窗",
+            "description": "弹窗",
             "category": "Feedback",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.28/src/components/u-modal.vue/screenshots/0.png",
             "blocks": [
@@ -14886,7 +15223,7 @@
                             "title": "错误"
                         }
                     ],
-                    "default": "",
+                    "default": "success",
                     "description": "提示图标"
                 },
                 {
@@ -15072,18 +15409,21 @@
                     "name": "text",
                     "type": "string",
                     "default": "水印",
-                    "description": "水印文本"
+                    "description": "水印文本",
+                    "title": "文本"
                 },
                 {
                     "name": "image",
                     "type": "CanvasImageSource",
                     "default": null,
                     "description": "水印图案。如果没有，则默认按文本绘制",
-                    "advanced": true
+                    "advanced": true,
+                    "title": "水印图案"
                 },
                 {
                     "name": "opacity",
                     "type": "number",
+                    "title": "透明程度",
                     "default": 0.1,
                     "description": "透明程度, 0-1 之间的小数"
                 }
@@ -15125,21 +15465,24 @@
                     "name": "value",
                     "type": "string",
                     "default": null,
-                    "description": "需要复制的值"
+                    "description": "需要复制的值",
+                    "title": "需要复制的值"
                 },
                 {
                     "name": "text",
                     "type": "string",
                     "default": "复制",
                     "description": "默认显示的文本",
-                    "advanced": true
+                    "advanced": true,
+                    "title": "默认显示文本"
                 },
                 {
                     "name": "success-text",
                     "type": "string",
                     "default": "已复制",
                     "description": "复制成功提示文本",
-                    "advanced": true
+                    "advanced": true,
+                    "title": "复制成功提示文本"
                 },
                 {
                     "name": "feedback",
@@ -15160,60 +15503,62 @@
                     ],
                     "default": "tooltip",
                     "description": "复制提示反馈方式",
-                    "advanced": true
+                    "advanced": true,
+                    "title": "复制提示反馈方式"
                 },
                 {
                     "name": "placement",
                     "type": "string",
+                    "title": "提示框位置",
                     "default": "top",
                     "options": [
                         {
                             "value": "top",
-                            "name": "上"
+                            "title": "上"
                         },
                         {
                             "value": "bottom",
-                            "name": "下"
+                            "title": "下"
                         },
                         {
                             "value": "left",
-                            "name": "左"
+                            "title": "左"
                         },
                         {
                             "value": "right",
-                            "name": "右"
+                            "title": "右"
                         },
                         {
                             "value": "top-start",
-                            "name": "上左"
+                            "title": "上左"
                         },
                         {
                             "value": "top-end",
-                            "name": "上右"
+                            "title": "上右"
                         },
                         {
                             "value": "bottom-start",
-                            "name": "下左"
+                            "title": "下左"
                         },
                         {
                             "value": "bottom-end",
-                            "name": "下右"
+                            "title": "下右"
                         },
                         {
                             "value": "left-start",
-                            "name": "左上"
+                            "title": "左上"
                         },
                         {
                             "value": "left-end",
-                            "name": "左下"
+                            "title": "左下"
                         },
                         {
                             "value": "right-start",
-                            "name": "右上"
+                            "title": "右上"
                         },
                         {
                             "value": "right-end",
-                            "name": "右下"
+                            "title": "右下"
                         }
                     ],
                     "description": "tooltip 提示框位置",
@@ -15221,6 +15566,7 @@
                 },
                 {
                     "name": "hide-delay",
+                    "title": "提示框显示时长",
                     "type": "number",
                     "default": 3000,
                     "description": "提示框显示时长",
@@ -15230,6 +15576,7 @@
                     "name": "disabled",
                     "type": "boolean",
                     "default": false,
+                    "title": "禁用",
                     "description": "是否禁止复制"
                 }
             ],
@@ -15243,10 +15590,12 @@
                 {
                     "name": "copy",
                     "description": "内容复制成功后触发",
+                    "title": "复制成功后",
                     "params": [
                         {
                             "name": "$event",
                             "type": "object",
+                            "title": "自定义事件对象",
                             "description": "自定义事件对象",
                             "schema": {
                                 "$ref": "#/systemTypes/ChangeEvent"
@@ -15255,11 +15604,13 @@
                         {
                             "name": "$event.value",
                             "type": "string",
-                            "description": "复制的值"
+                            "description": "复制的值",
+                            "title": "复制的值"
                         },
                         {
                             "name": "senderVM",
                             "type": "UCopy",
+                            "title": "事件发送对象",
                             "description": "事件发送对象"
                         }
                     ]

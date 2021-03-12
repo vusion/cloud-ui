@@ -1,7 +1,8 @@
 - name: u-combo-slider
   title: 复合滑块
   icon: slider
-  labels: [Form]
+  labels:
+    - Form
   description: 滑动选择
   attrs:
     - name: value
@@ -10,33 +11,41 @@
       type: number
       default: 0
       description: 滑块的值
+      title: 滑块的值
     - name: min
       type: number
       default: 0
       description: 最小值
+      title: 最小值
     - name: max
       type: number
       default: 100
       description: 最大值
+      title: 最大值
     - name: step
       type: number
       default: 1
+      title: 间隔
       description: 间隔。`0`表示连续
     - name: precision
       type: number
       default: 1
+      title: 精度
       description: 精度，表示数字要保留的最小单位，整数、小数均可
     - name: range
       type: Array
       default: []
+      title: 范围
       description: 进一步对`value`限制，通常传入一个数组，第一个值表示范围开始值，第二个值表示范围的结束值。
     - name: formatter
-      type: string, object
+      type: 'string, object'
       default: null
+      title: 格式化
       advanced: true
       description: 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。
     - name: sync-on
       type: string
+      title: 同步时机
       options:
         - value: input
           title: 输入时同步
@@ -46,35 +55,43 @@
       description: 同步时机
     - name: hide-buttons
       type: boolean
+      title: 隐藏按钮
       default: true
       description: 是否隐藏按钮
     - name: readonly
       type: boolean
       default: false
+      title: 只读
       description: 是否只读
     - name: disabled
       type: boolean
       default: false
+      title: 禁用
       description: 是否禁用
     - name: unit
       type: string
       default: null
       description: 单位
+      title: 单位
     - name: tip
       type: string
       default: null
+      title: 提示
       description: 提示
   events:
     - name: input
       description: 滑块的值改变时触发
+      title: 值改变时
       params:
         - name: $event
           type: number
           description: 滑块的值
+          title: 滑块的值
           schema:
             $ref: '#/basicTypes/Integer'
     - name: slide
       description: 拖动滑块时触发
+      title: 拖动滑块时
       params:
         - name: $event
           type: object
@@ -92,6 +109,7 @@
           description: 滑块位置所在的百分比
     - name: change
       description: 滑块的值改变后触发
+      title: 值改变后
       params:
         - name: $event
           type: object
@@ -106,6 +124,7 @@
           description: 旧的值
     - name: number-input
       description: 改变数字输入框的值后触发
+      title: 改变数字输入框的值后
       params:
         - name: $event.value
           type: number
@@ -114,6 +133,7 @@
             $ref: '#/basicTypes/Integer'
     - name: slide-end
       description: 拖动滑块结束后触发
+      title: 拖动滑块结束后
       advanced: true
       params:
         - name: $event.value

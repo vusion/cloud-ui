@@ -1,7 +1,8 @@
 - name: u-textarea
   title: 多行输入
   icon: textarea
-  labels: [Form]
+  labels:
+    - Form
   description: 多行输入组件
   attrs:
     - name: value
@@ -57,6 +58,7 @@
     - name: size
       title: 尺寸
       type: string
+      default: normal
       options:
         - value: full
           title: 占满
@@ -68,6 +70,7 @@
           title: 中型
         - value: normal
           title: 正常
+      description: 设置尺寸
     - name: resize
       title: 调整大小
       type: string
@@ -85,7 +88,7 @@
   slots:
     - name: default
       title: 默认
-      description: 插入 HTML 或 `Component`, 可展示额外内容。
+      description: '插入 HTML 或 `Component`, 可展示额外内容。'
       advanced: true
       quick-add: never
   events:
@@ -160,11 +163,13 @@
       advanced: true
       params:
         - name: $event
-          type: 
+          type: Object
+          title: 原生事件对象
           description: 原生事件对象
           schema:
             $ref: '#/systemTypes/FocusEvent'
         - name: senderVM
+          title: 发送事件实例
           type: UTextarea
           description: 发送事件实例
     - name: before-clear

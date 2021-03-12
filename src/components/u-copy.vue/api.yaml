@@ -9,19 +9,22 @@
       type: string
       default: null
       description: 需要复制的值
+      title: 需要复制的值
     - name: text
       type: string
       default: 复制
       description: 默认显示的文本
       advanced: true
+      title: 默认显示文本
     - name: success-text
       type: string
       default: 已复制
       description: 复制成功提示文本
       advanced: true
+      title: 复制成功提示文本
     - name: feedback
       type: string
-      options: 
+      options:
         - value: tooltip
           title: 工具提示
         - value: toast
@@ -31,37 +34,40 @@
       default: tooltip
       description: 复制提示反馈方式
       advanced: true
+      title: 复制提示反馈方式
     - name: placement
       type: string
+      title: 提示框位置
       default: top
       options:
         - value: top
-          name: 上
+          title: 上
         - value: bottom
-          name: 下
+          title: 下
         - value: left
-          name: 左
+          title: 左
         - value: right
-          name: 右
+          title: 右
         - value: top-start
-          name: 上左
+          title: 上左
         - value: top-end
-          name: 上右
+          title: 上右
         - value: bottom-start
-          name: 下左
+          title: 下左
         - value: bottom-end
-          name: 下右
+          title: 下右
         - value: left-start
-          name: 左上
+          title: 左上
         - value: left-end
-          name: 左下
+          title: 左下
         - value: right-start
-          name: 右上
+          title: 右上
         - value: right-end
-          name: 右下
+          title: 右下
       description: tooltip 提示框位置
       advanced: true
     - name: hide-delay
+      title: 提示框显示时长
       type: number
       default: 3000
       description: 提示框显示时长
@@ -69,6 +75,7 @@
     - name: disabled
       type: boolean
       default: false
+      title: 禁用
       description: 是否禁止复制
   slots:
     - name: default
@@ -76,15 +83,19 @@
   events:
     - name: copy
       description: 内容复制成功后触发
+      title: 复制成功后
       params:
         - name: $event
           type: object
+          title: 自定义事件对象
           description: 自定义事件对象
           schema:
             $ref: '#/systemTypes/ChangeEvent'
         - name: $event.value
           type: string
           description: 复制的值
+          title: 复制的值
         - name: senderVM
           type: UCopy
+          title: 事件发送对象
           description: 事件发送对象

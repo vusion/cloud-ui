@@ -28,6 +28,7 @@
     - name: label-size
       title: 标签大小
       type: enum
+      default: normal
       options: [small, normal, large, huge]
       description: 该组下面所有项的标签大小。
   slots:
@@ -48,6 +49,7 @@
     - name: label-size
       title: 标签大小
       type: enum
+      default: normal
       options: [small, normal, large, huge]
       description: 该项的标签大小。
   slots:

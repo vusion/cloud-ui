@@ -20,29 +20,29 @@
       type: string
       options:
         - value: top
-          name: 上
+          title: 上
         - value: bottom
-          name: 下
+          title: 下
         - value: left
-          name: 左
+          title: 左
         - value: right
-          name: 右
+          title: 右
         - value: top-start
-          name: 上左
+          title: 上左
         - value: top-end
-          name: 上右
+          title: 上右
         - value: bottom-start
-          name: 下左
+          title: 下左
         - value: bottom-end
-          name: 下右
+          title: 下右
         - value: left-start
-          name: 左上
+          title: 左上
         - value: left-end
-          name: 左下
+          title: 左下
         - value: right-start
-          name: 右上
+          title: 右上
         - value: right-end
-          name: 右下
+          title: 右下
       default: bottom-end
       description: 菜单的弹出方向
   slots:
@@ -51,8 +51,9 @@
       support:
         - name: u-action
           title: 操作项子组件
-          snippet: '<u-action>操作</u-action>'
+          snippet: <u-action>操作</u-action>
 - name: u-action
+  title: 单个操作项
   attrs:
     - name: hidden
       title: 隐藏
@@ -62,7 +63,7 @@
     - name: color
       title: 颜色
       type: string
-      options: 
+      options:
         - value: default
           title: 默认
         - value: light
@@ -80,18 +81,21 @@
     - name: linkType
       title: 链接类型
       type: string
-      options: 
+      options:
         - value: destination
           title: 页面跳转
         - value: href
           title: 普通链接
         - value: download
           title: 下载链接
+      default: href
+      compType: linkTypeSelect
       description: 链接类型
     - name: hrefAndTo
       title: 链接
       type: string
       description: 链接地址
+      compType: linkHrefInput
     - name: target
       title: 打开方式
       type: string
@@ -138,3 +142,4 @@
           description: 鼠标事件对象
           schema:
             $ref: '#/systemTypes/MouseEvent'
+  description: 单个操作项

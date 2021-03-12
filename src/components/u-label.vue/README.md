@@ -104,6 +104,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | trigger | 自定义事件对象 |
 
 #### @before-remove
 

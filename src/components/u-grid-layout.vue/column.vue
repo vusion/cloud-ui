@@ -54,6 +54,9 @@ export default {
         currentSpan(span, oldSpan) {
             this.$emit('responsive', { span, oldSpan }, this);
         },
+        span(span) {
+            this.currentSpan = span;
+        },
     },
     created() {
         window.addEventListener('resize', this.onResize);

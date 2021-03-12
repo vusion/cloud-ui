@@ -1,6 +1,7 @@
 - name: u-rate
   title: 评分
-  labels: [Form]
+  labels:
+    - Form
   icon: rate
   description: 评分组件。
   attrs:
@@ -10,9 +11,11 @@
       sync: true
       default: 0
       description: 评分值
+      title: 评分值
     - name: max
       type: number
       default: 5
+      title: 最大分数
       description: 最大分数
     - name: readonly
       title: 只读

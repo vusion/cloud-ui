@@ -230,7 +230,7 @@ export default {
 | name | string |  | `'file'` | 上传的文件字段名，后端需要这个字段获取 |
 | accept | string |  |  | 接受的上传类型 |
 | headers | Object |  |  | 请求 headers |
-| with-credentials | boolean |  | `false` | undefined |
+| with-credentials | boolean |  | `false` | 通过设置 withCredentials 为 true 获得的第三方 cookies，将会依旧享受同源策略 |
 | multiple | boolean |  | `false` | 多文件上传 |
 | data-type | string |  | `'json'` | 接收数据类型。可选值：`text`、`xml`、`json` |
 | data | object |  |  | 附加数据 |
@@ -242,7 +242,7 @@ export default {
 | draggable | boolean |  | `false` | 是否可以拖拽上传 |
 | paste | boolean |  | `false` | 是否可以粘贴 |
 | show-file-list | boolean |  | `true` | 是否显示文件列表 |
-| converter | string | `'JSON'` () |  | undefined |
+| converter | string | `'JSON'` () | `'json'` | 转换器 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | display | string | `[object Object]`<br/>`[object Object]` | `'block'` | 展示方式 |

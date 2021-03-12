@@ -1,7 +1,8 @@
 - name: u-tooltip
   title: 工具提示
   icon: tooltip
-  labels: [Feedback]
+  labels:
+    - Feedback
   attrs:
     - name: opened
       sync: true
@@ -28,31 +29,31 @@
     - name: placement
       title: 弹出方向
       type: string
-      options: 
+      options:
         - value: top
-          name: 上
+          title: 上
         - value: bottom
-          name: 下
+          title: 下
         - value: left
-          name: 左
+          title: 左
         - value: right
-          name: 右
+          title: 右
         - value: top-start
-          name: 上左
+          title: 上左
         - value: top-end
-          name: 上右
+          title: 上右
         - value: bottom-start
-          name: 下左
+          title: 下左
         - value: bottom-end
-          name: 下右
+          title: 下右
         - value: left-start
-          name: 左上
+          title: 左上
         - value: left-end
-          name: 左下
+          title: 左下
         - value: right-start
-          name: 右上
+          title: 右上
         - value: right-end
-          name: 右下
+          title: 右下
       default: bottom
       description: 工具提示的弹出方向。
     - name: hide-delay
@@ -63,12 +64,12 @@
     - name: offset
       title: 弹出层偏移
       type: string
-      default: "0"
+      default: '0'
       advanced: true
-      description: 弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px`
+      description: '弹出层偏移，如：''10'', ''10px 10px'', ''10% 10%'', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px`'
     - name: follow-cursor
       title: 跟随鼠标
-      type: boolean, number, object
+      type: 'boolean, number, object'
       default: false
       description: 是否跟随鼠标
     - name: disabled
@@ -81,13 +82,13 @@
       type: string
       options:
         - value: small
-          name: 小型
+          title: 小型
         - value: normal
-          name: 正常
+          title: 正常
         - value: large
-          name: 大
+          title: 大
         - value: auto
-          name: 自适应
+          title: 自适应
       default: normal
       multi: true
       maxSelect: 2
@@ -123,7 +124,7 @@
       description: 弹出时触发。
       params:
         - name: $event
-          type: ""
+          type: ''
           description: 空
         - name: senderVM
           type: UTooltip
@@ -149,7 +150,7 @@
       description: 隐藏时触发。
       params:
         - name: $event
-          type: ""
+          type: ''
           description: 空
         - name: senderVM
           type: UTooltip
@@ -157,12 +158,12 @@
     - name: before-toggle
       advanced: true
       title: 弹出关闭前
-      description: "@deprecated"
+      description: '@deprecated'
       params: []
     - name: toggle
       advanced: true
       title: 弹出关闭后
-      description: "@deprecated"
+      description: '@deprecated'
       params: []
   methods:
     - name: open
@@ -178,10 +179,13 @@
           type: boolean
           description: 可选。弹出/关闭状态
     - name: update
-      description: 更新 popper 实例。参考
+      description: >-
+        更新 popper 实例。参考
         [Popper.update()](https://popper.js.org/popper-documentation.html#Popper.update)。
       params: []
     - name: scheduleUpdate
-      description: 在下次 UI 渲染时一块更新 popper 实例，比`update()`性能要好。参考
+      description: >-
+        在下次 UI 渲染时一块更新 popper 实例，比`update()`性能要好。参考
         [Popper.scheduleUpdate()](https://popper.js.org/popper-documentation.html#Popper.scheduleUpdate)。
       params: []
+  description: 工具提示

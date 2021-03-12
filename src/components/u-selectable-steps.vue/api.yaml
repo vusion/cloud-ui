@@ -1,5 +1,6 @@
 - name: u-selectable-steps
-  labels: [Selector]
+  labels:
+    - Selector
   icon: steps
   title: 可选步骤条
   description: 当操作需要分步骤时使用
@@ -27,8 +28,7 @@
       support:
         - name: u-selectable-step
           title: 步骤条子组件
-          snippet: '<u-selectable-step title="步骤 N"></u-selectable-step>'
-          
+          snippet: <u-selectable-step title="步骤 N"></u-selectable-step>
   events:
     - name: before-select
       title: 选择前
@@ -97,8 +97,10 @@
       type: boolean
       default: false
       description: 是否禁用此标签页
+      title: 禁用
   slots:
     - name: default
       description: 插入文本或 HTML。
     - name: title
       description: 自定义标题文本。
+  description: 可选步骤条项

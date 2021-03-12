@@ -148,6 +148,7 @@
     - name: linkType
       title: 链接类型
       type: string
+      compType: linkTypeSelect
       options: 
         - value: destination
           title: 页面跳转
@@ -156,6 +157,7 @@
         - value: download
           title: 下载链接
       description: 链接类型
+      default: href
     # - name: href
     #   title: 链接
     #   type: string
@@ -164,6 +166,7 @@
       title: 链接
       type: string
       description: 链接地址
+      compType: linkHrefInput
     - name: target
       title: 打开方式
       type: string
@@ -178,6 +181,7 @@
         - value: _top
           title: 顶级窗口
           advanced: true
+      default: _blank
       description: 链接打开方式
     # - name: to
     #   title: 路由链接

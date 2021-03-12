@@ -1,7 +1,8 @@
 - name: u-table-view
   title: 数据表格
   icon: table-view
-  labels: [Table]
+  labels:
+    - Table
   description: 用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。
   attrs:
     - name: data-source
@@ -14,6 +15,7 @@
       title: 数据类型
       type: schema
       description: 表格的数据类型，对应表格数据的schema
+      compType: dataTypeSelect
     - name: initial-load
       group: 数据属性
       title: 初始加载
@@ -46,7 +48,10 @@
       group: 数据属性
       title: 分页大小选项
       type: Array<number>
-      default: [10, 20, 50]
+      default:
+        - 10
+        - 20
+        - 50
       description: 分页大小的选项列表。
     - name: show-total
       group: 数据属性
@@ -70,8 +75,8 @@
       group: 数据属性
       title: 排序参数
       sync: true
-      type: "{ field: string, order: string, compare: Function }"
-      default: "{ field: undefined, order: 'desc' }"
+      type: '{ field: string, order: string, compare: Function }'
+      default: '{ field: undefined, order: ''desc'' }'
       description: 当前排序的字段和顺序。
     - name: default-order
       group: 数据属性
@@ -89,7 +94,7 @@
       title: 筛选参数
       advanced: true
       sync: true
-      type: 'object'
+      type: object
       description: 筛选参数。
     - name: remote-paging
       group: 数据属性
@@ -264,7 +269,7 @@
       support:
         - name: u-table-view-column
           title: 表格列
-          snippet: '<u-table-view-column title="表格列"></u-table-view-column>'
+          snippet: <u-table-view-column title="表格列"></u-table-view-column>
     - name: loading
       title: 加载中内容
       description: 自定义加载中内容。
@@ -296,7 +301,7 @@
       description: 加载后触发
       params:
         - name: $event
-          type: null
+          type: 'null'
           description: 无
         - name: senderVM
           type: UTableView
@@ -453,6 +458,7 @@
           description: 发送事件实例
     - name: input
       description: 选择某一项后触发
+      title: 选择触发
       params:
         - name: $event
           type: any
@@ -562,13 +568,17 @@
       description: 获取所有表格列的 field
       params: []
 - name: u-table-view-column
-  accept-parent: [u-table-view]
+  accept-parent:
+    - u-table-view
   title: 表格列
   events:
     - name: $listeners
       kind: trigger
       description: 监听所有事件。
-      params: []
+      params:
+        - name: $event
+          type: trigger
+          description: 自定义事件
   attrs:
     - name: title
       title: 列标题
@@ -611,7 +621,7 @@
     - name: filters
       title: 筛选项
       advanced: true
-      type: "Array<{ text: string, value: any }>"
+      type: 'Array<{ text: string, value: any }>'
       description: 筛选项的参数
     - name: hidden
       title: 隐藏该列
@@ -621,6 +631,7 @@
     - name: type
       title: 列类型
       type: string
+      default: index
       options:
         - value: index
           title: 序号列
@@ -639,6 +650,7 @@
   slots:
     - name: default
       title: 默认
+      description: 默认值
       accept-type: all
     - name: cell
       description: 对单元格的数据展示进行自定义。
@@ -671,7 +683,9 @@
           type: slot
     - name: title
       title: 标题
-      accept-type: [text, inline]
+      accept-type:
+        - text
+        - inline
       description: 对标题进行自定义。
       props:
         - name: columnVM
@@ -707,3 +721,4 @@
           title: 展开列索引
           type: number
           description: 展开列的索引。
+  description: 表格列

@@ -1,6 +1,7 @@
 - name: u-collapse
   title: 折叠面板
-  labels: [Layout]
+  labels:
+    - Layout
   icon: collapse
   description: 可以折叠/展开的内容区域。
   attrs:
@@ -23,6 +24,7 @@
       title: 显示效果
       type: string
       description: 显示样式
+      default: default
       options:
         - value: default
           title: 默认模式
@@ -43,6 +45,7 @@
   events:
     - name: toggle
       description: 展开/折叠某面板时触发
+      title: 监听"展开/折叠"事件
       params:
         - name: $event
           type: object
@@ -63,17 +66,21 @@
           type: boolean
           description: 展开/折叠
 - name: u-collapse-item
+  title: 折叠子元素
   attrs:
     - name: title
       type: string
+      title: 标题
       default: null
       description: 显示的标题
     - name: expanded.sync
       type: boolean
+      title: 当前"展开/折叠"状态
       default: false
       description: 展开/折叠状态
     - name: disabled
       type: boolean
+      title: 是否禁用
       default: false
       description: 是否禁用。禁用时无法展开/折叠
   slots:
@@ -86,6 +93,7 @@
   events:
     - name: before-toggle
       description: 展开/折叠此面板前触发
+      title: 展开/折叠此面板前触发
       params:
         - name: $event
           type: object
@@ -106,6 +114,7 @@
           description: 发送事件实例
     - name: toggle
       description: 展开/折叠某面板时触发
+      title: 展开/折叠某面板时触发
       params:
         - name: $event
           type: object
@@ -121,3 +130,4 @@
         - name: senderVM
           type: Vue
           description: 发送事件实例
+  description: 折叠子元素

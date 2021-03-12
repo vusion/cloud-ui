@@ -39,17 +39,13 @@
       type: string
       description: 幻灯片过渡动画
       advanced: true
-    # - name: router
-    #   type: boolean
-    #   default: false
-    #   description: 是否根据vue-router来控制选择播放至哪个位置
   slots:
     - name: default
       description: 插入`<u-carousel-item>`子组件。
-      support: 
+      support:
         - name: u-carousel-item
           title: 幻灯片子项
-          snippet: '<u-carousel-item>内容</u-carousel-item>'
+          snippet: <u-carousel-item>内容</u-carousel-item>
   events:
     - name: before-select
       title: 选择前
@@ -117,3 +113,4 @@
     - name: title
       description: 自定义标题文本。
       advanced: true
+  description: 幻灯片选项

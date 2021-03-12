@@ -1,7 +1,8 @@
 - name: u-text
   title: 文本
   icon: text
-  labels: [Display]
+  labels:
+    - Display
   description: 用于展示文字或表达式
   attrs:
     - name: text
@@ -11,7 +12,7 @@
     - name: color
       title: 颜色
       type: string
-      options: 
+      options:
         - value: default
           title: 默认
         - value: primary
@@ -67,10 +68,11 @@
       default: normal
       description: 文本过长的处理方式
   slots:
-      - name: default
-        description: 文字内容
-        title: 内容
+    - name: default
+      description: 文字内容
+      title: 内容
   events:
     - name: $listeners
+      title: 监听事件
       description: 监听所有`<span>`元素的事件。
       params: []

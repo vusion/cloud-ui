@@ -1,6 +1,7 @@
 - name: u-switch
   title: 开关
-  labels: [Form]
+  labels:
+    - Form
   icon: switch
   attrs:
     - name: value
@@ -61,24 +62,24 @@
         - name: senderVM
           type: USwitch
           description: 发送事件实例
-    - name: on
+    - name: 'on'
       title: 打开时
       description: 开关打开时触发
       params:
         - name: $event
-          type: ""
+          type: ''
           description: 无
           schema:
             $ref: '#/basicTypes/Boolean'
         - name: senderVM
           type: USwitch
           description: 发送事件实例
-    - name: off
+    - name: 'off'
       title: 关闭时
       description: 开关关闭时触发
       params:
         - name: $event
-          type: ""
+          type: ''
           description: 无
           schema:
             $ref: '#/basicTypes/Boolean'
@@ -121,3 +122,4 @@
         - name: senderVM
           type: USwitch
           description: 发送事件实例
+  description: 开关

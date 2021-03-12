@@ -1,6 +1,7 @@
 - name: u-radios
   title: 单选组
-  labels: [Form]
+  labels:
+    - Form
   icon: radios
   description: 多项中选择一个时使用
   attrs:
@@ -26,7 +27,7 @@
       support:
         - name: u-radio
           title: 单选项
-          snippet: '<u-radio title="步骤 N"></u-radio>'
+          snippet: <u-radio title="步骤 N"></u-radio>
   events:
     - name: before-select
       title: 选择前
@@ -153,3 +154,4 @@
         - name: senderVM
           type: URadio
           description: 发送事件实例
+  description: 单选项

@@ -23,7 +23,7 @@
       description: 最小项目数
     - name: max-count
       type: number
-      default: .inf
+      default: 999
       description: 最大项目数
     - name: text-field
       type: string
