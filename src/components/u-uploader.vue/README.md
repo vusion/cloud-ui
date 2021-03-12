@@ -234,15 +234,15 @@ export default {
 | multiple | boolean |  | `false` | 多文件上传 |
 | data-type | string |  | `'json'` | 接收数据类型。可选值：`text`、`xml`、`json` |
 | data | object |  |  | 附加数据 |
-| limit | number |  | `Infinity` | 列表数量上限 |
-| max-size | string, number |  | `Infinity` | 可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB` |
-| list-type | string | `'文本'` ()<br/>`'图片'` ()<br/>`'卡片'` () | `'text'` | 列表展示类型 |
+| limit | number |  | `999` | 列表数量上限 |
+| max-size | string |  | `'50M'` | 可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB` |
+| list-type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'text'` | 列表展示类型 |
 | url-field | string |  | `'url'` | 请求返回的 URL 字段名 |
 | auto-upload | boolean |  | `true` | 是否自动上传 |
 | draggable | boolean |  | `false` | 是否可以拖拽上传 |
 | paste | boolean |  | `false` | 是否可以粘贴 |
 | show-file-list | boolean |  | `true` | 是否显示文件列表 |
-| converter | string | `'JSON'` () | `'json'` | 转换器 |
+| converter | string | `[object Object]` | `'json'` | 转换器 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | display | string | `[object Object]`<br/>`[object Object]` | `'block'` | 展示方式 |

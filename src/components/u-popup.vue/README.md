@@ -303,7 +303,7 @@ export default {
 | title | string |  | `'标题'` | 弹出框标题 |
 | opened.sync | boolean |  | `false` | 弹出/关闭状态 |
 | trigger | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'click'` | 弹出框的触发方式 |
-| placement | string | `'上'` ()<br/>`'下'` ()<br/>`'左'` ()<br/>`'右'` ()<br/>`'上左'` ()<br/>`'上右'` ()<br/>`'下左'` ()<br/>`'下右'` ()<br/>`'左上'` ()<br/>`'左下'` ()<br/>`'右上'` ()<br/>`'右下'` () | `'bottom'` | 弹出框的弹出方向。 |
+| placement | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'bottom'` | 弹出框的弹出方向。 |
 | hide-delay | number |  | `200` | 提示内容消失延迟时间，单位是`'ms'` |
 | offset | string |  | `'0'` | 弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px` |
 | follow-cursor | boolean |  | `false` | 是否跟随鼠标 |

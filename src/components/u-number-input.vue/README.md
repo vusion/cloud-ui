@@ -112,7 +112,7 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | value.sync, v-model | number |  | `0` | 输入框的值 |
 | min | number |  | `-Infinity` | 最小值 |
-| max | number |  | `Infinity` | 最大值 |
+| max | number |  | `999` | 最大值 |
 | step | number |  | `1` | 间隔，表示点击按钮或按上下键所增加或减少的量 |
 | precision | number |  | `1` | 精度，表示数字要保留的最小单位，整数、小数均可 |
 | formatter | string, object |  |  | 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。 |

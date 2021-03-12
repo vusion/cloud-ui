@@ -142,7 +142,7 @@ export default {
 | value | any |  |  | 此项的值 |
 | disabled | boolean |  | `false` | 禁用此项 |
 | item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
-| linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'destination'` | 链接类型 |
+| linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'href'` | 链接类型 |
 | hrefAndTo | string |  |  | 链接地址 |
 | target | enum | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_blank'` | 链接打开方式 |
 | replace | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |

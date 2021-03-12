@@ -31,7 +31,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| src | string |  | `''` | 嵌入网页的地址 |
+| src | string |  |  | 嵌入网页的地址 |
 
 ### Events
 

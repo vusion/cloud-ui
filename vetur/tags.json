@@ -259,7 +259,8 @@
       "decoration",
       "disabled",
       "display"
-    ]
+    ],
+    "description": "单个操作项"
   },
   "u-article": {
     "attributes": []
@@ -342,10 +343,12 @@
       "label",
       "flag",
       "item"
-    ]
+    ],
+    "description": "子选项"
   },
   "u-capsule-group": {
-    "attributes": []
+    "attributes": [],
+    "description": "子选项组"
   },
   "u-carousel": {
     "attributes": [
@@ -365,7 +368,8 @@
     "attributes": [
       "title",
       "value"
-    ]
+    ],
+    "description": "幻灯片选项"
   },
   "u-cascade-capsules": {
     "attributes": [
@@ -411,7 +415,8 @@
       "readonly",
       "disabled",
       "autofocus"
-    ]
+    ],
+    "description": "多选项"
   },
   "u-checkboxes": {
     "attributes": [
@@ -450,7 +455,8 @@
       "title",
       "expanded",
       "disabled"
-    ]
+    ],
+    "description": "折叠子元素"
   },
   "u-combo-slider": {
     "attributes": [
@@ -518,7 +524,8 @@
       "replace",
       "append",
       "disabled"
-    ]
+    ],
+    "description": "面包屑选项"
   },
   "u-date-picker": {
     "attributes": [
@@ -532,7 +539,7 @@
       "placeholder",
       "alignment",
       "time",
-      "yeadDiff",
+      "yearDiff",
       "yearAdd",
       "converter"
     ],
@@ -642,7 +649,8 @@
       "validating-options",
       "validating-value",
       "validating-process"
-    ]
+    ],
+    "description": "表单列元素"
   },
   "u-form-table": {
     "attributes": [
@@ -688,7 +696,8 @@
       "validating-options",
       "validating-value",
       "validating-process"
-    ]
+    ],
+    "description": "表单项"
   },
   "u-form-group": {
     "attributes": [
@@ -696,7 +705,8 @@
       "collapsible",
       "expanded",
       "disabled"
-    ]
+    ],
+    "description": "展开折叠前"
   },
   "u-grid-layout": {
     "attributes": [
@@ -714,7 +724,8 @@
       "type",
       "justify",
       "alignment"
-    ]
+    ],
+    "description": "内部元素行布局"
   },
   "u-grid-layout-column": {
     "attributes": [
@@ -727,7 +738,8 @@
       "media-medium",
       "media-small",
       "media-mini"
-    ]
+    ],
+    "description": "内部元素行内列布局"
   },
   "u-html": {
     "attributes": [
@@ -775,6 +787,7 @@
       "repeat",
       "label-size"
     ],
+    "description": "详情列表",
     "subtags": [
       "u-info-list-item",
       "u-info-list-group"
@@ -786,14 +799,16 @@
       "span",
       "label-size",
       "ellipsis"
-    ]
+    ],
+    "description": "详情列表项"
   },
   "u-info-list-group": {
     "attributes": [
       "title",
       "repeat",
       "label-size"
-    ]
+    ],
+    "description": "详情列表组"
   },
   "u-input": {
     "attributes": [
@@ -976,7 +991,8 @@
       "icon",
       "static",
       "mask-close"
-    ]
+    ],
+    "description": "弹窗"
   },
   "u-navbar": {
     "attributes": [
@@ -1012,41 +1028,52 @@
       "to",
       "replace",
       "exact"
-    ]
+    ],
+    "description": "导航栏的子项目"
   },
   "u-navbar-divider": {
-    "attributes": []
+    "attributes": [],
+    "description": "导航栏的分割线"
   },
   "u-navbar-dropdown": {
     "attributes": [
       "trigger",
       "placement",
       "disabled"
-    ]
+    ],
+    "description": "导航栏下拉菜单"
   },
   "u-navbar-menu": {
-    "attributes": []
+    "attributes": [],
+    "description": "导航菜单"
   },
   "u-navbar-menu-group": {
-    "attributes": []
+    "attributes": [],
+    "description": "导航菜单分组"
   },
   "u-navbar-menu-item": {
-    "attributes": []
+    "attributes": [],
+    "description": "导航菜单子元素"
   },
   "u-navbar-menu-divider": {
-    "attributes": []
+    "attributes": [],
+    "description": "导航菜单分割线"
   },
   "u-navbar-select": {
-    "attributes": []
+    "attributes": [],
+    "description": "导航选择"
   },
   "u-navbar-select-group": {
-    "attributes": []
+    "attributes": [],
+    "description": "导航选择分组"
   },
   "u-navbar-select-item": {
-    "attributes": []
+    "attributes": [],
+    "description": "导航选择分组子元素"
   },
   "u-navbar-select-divider": {
-    "attributes": []
+    "attributes": [],
+    "description": "导航选择分割线"
   },
   "u-new-time-picker": {
     "attributes": [
@@ -1104,7 +1131,8 @@
   "u-panel-group": {
     "attributes": [
       "title"
-    ]
+    ],
+    "description": "面板组"
   },
   "u-pills": {
     "attributes": [
@@ -1158,7 +1186,8 @@
       "readonly",
       "disabled",
       "autofocus"
-    ]
+    ],
+    "description": "单选项"
   },
   "u-rate": {
     "attributes": [
@@ -1228,15 +1257,18 @@
       "value",
       "disabled",
       "item"
-    ]
+    ],
+    "description": "选择项"
   },
   "u-select-group": {
     "attributes": [
       "title"
-    ]
+    ],
+    "description": "选择分组"
   },
   "u-select-divider": {
-    "attributes": []
+    "attributes": [],
+    "description": "分隔线"
   },
   "u-selectable-steps": {
     "attributes": [
@@ -1253,7 +1285,8 @@
     "attributes": [
       "title",
       "disabled"
-    ]
+    ],
+    "description": "可选步骤条项"
   },
   "u-sidebar": {
     "attributes": [
@@ -1283,7 +1316,8 @@
       "to",
       "replace",
       "exact"
-    ]
+    ],
+    "description": "侧边栏项"
   },
   "u-sidebar-group": {
     "attributes": [
@@ -1291,10 +1325,12 @@
       "collapsible",
       "expanded",
       "disabled"
-    ]
+    ],
+    "description": "侧边栏分组"
   },
   "u-sidebar-divider": {
-    "attributes": []
+    "attributes": [],
+    "description": "侧边栏分隔线"
   },
   "u-skeleton": {
     "attributes": [
@@ -1341,7 +1377,8 @@
       "readonly",
       "disabled",
       "with-text"
-    ]
+    ],
+    "description": "开关"
   },
   "u-table-view": {
     "attributes": [
@@ -1402,7 +1439,8 @@
       "hidden",
       "type",
       "start-index"
-    ]
+    ],
+    "description": "表格列"
   },
   "u-table": {
     "attributes": []
@@ -1457,7 +1495,8 @@
       "replace",
       "append",
       "exact"
-    ]
+    ],
+    "description": "标签页"
   },
   "u-text": {
     "attributes": [
@@ -1506,7 +1545,8 @@
       "text",
       "color",
       "closable"
-    ]
+    ],
+    "description": "吐司提示"
   },
   "u-toc": {
     "attributes": [
@@ -1545,7 +1585,8 @@
       "follow-cursor",
       "disabled",
       "size"
-    ]
+    ],
+    "description": "工具提示"
   },
   "u-transfer": {
     "attributes": [
@@ -1600,7 +1641,8 @@
       "checked",
       "disabled",
       "node"
-    ]
+    ],
+    "description": "组件子元素"
   },
   "u-uploader": {
     "attributes": [

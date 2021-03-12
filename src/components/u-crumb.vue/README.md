@@ -53,7 +53,7 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | type | string | `[object Object]`<br/>`[object Object]` | `'link'` | 类型 |
-| linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'destination'` | 链接类型 |
+| linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'href'` | 链接类型 |
 | hrefAndTo | string |  |  | 链接地址 |
 | target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_blank'` | 链接打开方式 |
 | replace | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |

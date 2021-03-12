@@ -16,6 +16,8 @@
 
 **Feedback**
 
+吐司提示
+
 ## 示例
 ### 基本用法
 
@@ -141,7 +143,7 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| position | string | `'上中'` ()<br/>`'上左'` ()<br/>`'上右'` ()<br/>`'下中'` ()<br/>`'下左'` ()<br/>`'下右'` ()<br/>`'静态'` () | `'top-center'` | 显示的位置 |
+| position | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'top-center'` | 显示的位置 |
 | duration | number |  | `2000` | 提示停留的时间。`0`表示常驻。 |
 | single | boolean |  | `false` | 多个提示会合并为一个 |
 | text | string |  | `''` | 默认提示内容 |

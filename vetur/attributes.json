@@ -160,18 +160,54 @@
   "i-icon/name": {
     "type": "string",
     "options": [
-      "arrow-down",
-      "arrow-up",
-      "arrow-left",
-      "arrow-right",
-      "angle-up",
-      "angle-down",
-      "angle-left",
-      "angle-right",
-      "close",
-      "close-solid",
-      "filter",
-      "github"
+      {
+        "value": "arrow-down",
+        "title": "arrow-down"
+      },
+      {
+        "value": "arrow-up",
+        "title": "arrow-up"
+      },
+      {
+        "value": "arrow-left",
+        "title": "arrow-left"
+      },
+      {
+        "value": "arrow-right",
+        "title": "arrow-right"
+      },
+      {
+        "value": "angle-up",
+        "title": "angle-up"
+      },
+      {
+        "value": "angle-down",
+        "title": "angle-down"
+      },
+      {
+        "value": "angle-left",
+        "title": "angle-left"
+      },
+      {
+        "value": "angle-right",
+        "title": "angle-right"
+      },
+      {
+        "value": "close",
+        "title": "close"
+      },
+      {
+        "value": "close-solid",
+        "title": "close-solid"
+      },
+      {
+        "value": "filter",
+        "title": "filter"
+      },
+      {
+        "value": "github",
+        "title": "github"
+      }
     ],
     "description": "图标名称"
   },
@@ -472,51 +508,51 @@
     "options": [
       {
         "value": "top",
-        "name": "上"
+        "title": "上"
       },
       {
         "value": "bottom",
-        "name": "下"
+        "title": "下"
       },
       {
         "value": "left",
-        "name": "左"
+        "title": "左"
       },
       {
         "value": "right",
-        "name": "右"
+        "title": "右"
       },
       {
         "value": "top-start",
-        "name": "上左"
+        "title": "上左"
       },
       {
         "value": "top-end",
-        "name": "上右"
+        "title": "上右"
       },
       {
         "value": "bottom-start",
-        "name": "下左"
+        "title": "下左"
       },
       {
         "value": "bottom-end",
-        "name": "下右"
+        "title": "下右"
       },
       {
         "value": "left-start",
-        "name": "左上"
+        "title": "左上"
       },
       {
         "value": "left-end",
-        "name": "左下"
+        "title": "左下"
       },
       {
         "value": "right-start",
-        "name": "右上"
+        "title": "右上"
       },
       {
         "value": "right-end",
-        "name": "右下"
+        "title": "右下"
       }
     ],
     "description": "菜单的弹出方向"
@@ -764,15 +800,15 @@
     "options": [
       {
         "value": "refresh",
-        "name": "刷新"
+        "title": "刷新"
       },
       {
         "value": "create",
-        "name": "创建"
+        "title": "创建"
       },
       {
         "value": "success",
-        "name": "成功"
+        "title": "成功"
       }
     ],
     "description": "设置图标。"
@@ -1339,51 +1375,51 @@
     "options": [
       {
         "value": "top",
-        "name": "上"
+        "title": "上"
       },
       {
         "value": "bottom",
-        "name": "下"
+        "title": "下"
       },
       {
         "value": "left",
-        "name": "左"
+        "title": "左"
       },
       {
         "value": "right",
-        "name": "右"
+        "title": "右"
       },
       {
         "value": "top-start",
-        "name": "上左"
+        "title": "上左"
       },
       {
         "value": "top-end",
-        "name": "上右"
+        "title": "上右"
       },
       {
         "value": "bottom-start",
-        "name": "下左"
+        "title": "下左"
       },
       {
         "value": "bottom-end",
-        "name": "下右"
+        "title": "下右"
       },
       {
         "value": "left-start",
-        "name": "左上"
+        "title": "左上"
       },
       {
         "value": "left-end",
-        "name": "左下"
+        "title": "左下"
       },
       {
         "value": "right-start",
-        "name": "右上"
+        "title": "右上"
       },
       {
         "value": "right-end",
-        "name": "右下"
+        "title": "右下"
       }
     ],
     "description": "tooltip 提示框位置"
@@ -1529,7 +1565,7 @@
     "description": "是否不可点击。如果为`true`，则不会响应`click`事件。"
   },
   "u-date-picker/width": {
-    "type": "string, number",
+    "type": "number",
     "description": "输入框宽度"
   },
   "u-date-picker/date": {
@@ -1578,27 +1614,27 @@
     "type": "string, number",
     "description": "输入对应格式的字符串（8:00:00）即可"
   },
-  "u-date-picker/yeadDiff": {
-    "type": "string, number",
+  "u-date-picker/yearDiff": {
+    "type": "number",
     "description": "最小可选年份值为当前年减去此值"
   },
   "u-date-picker/yearAdd": {
-    "type": "string, number",
+    "type": "number",
     "description": "最大可选年份值为当前年加上此值"
   },
   "u-date-picker/converter": {
     "type": "string",
     "options": [
       {
-        "name": "JSON",
+        "title": "JSON",
         "value": "json"
       },
       {
-        "name": "Unix 时间戳",
+        "title": "Unix 时间戳",
         "value": "timestamp"
       },
       {
-        "name": "Date 对象",
+        "title": "Date 对象",
         "value": "date"
       }
     ],
@@ -1633,26 +1669,26 @@
     "description": "是否只读"
   },
   "u-date-time-picker/yearDiff": {
-    "type": "string, number",
+    "type": "number",
     "description": "最小可选年份值为当前年减去此值"
   },
   "u-date-time-picker/yearAdd": {
-    "type": "string, number",
+    "type": "number",
     "description": "最大可选年份值为当前年加上此值"
   },
   "u-date-time-picker/converter": {
     "type": "string",
     "options": [
       {
-        "name": "JSON",
+        "title": "JSON",
         "value": "json"
       },
       {
-        "name": "Unix 时间戳",
+        "title": "Unix 时间戳",
         "value": "timestamp"
       },
       {
-        "name": "Date 对象",
+        "title": "Date 对象",
         "value": "date"
       }
     ],
@@ -2618,6 +2654,10 @@
       {
         "value": "search",
         "title": "搜索"
+      },
+      {
+        "value": "",
+        "title": "暂无"
       }
     ],
     "description": "前缀图标"
@@ -2628,6 +2668,10 @@
       {
         "value": "search",
         "title": "搜索"
+      },
+      {
+        "value": "",
+        "title": "暂无"
       }
     ],
     "description": "后缀图标"
@@ -3460,51 +3504,51 @@
     "options": [
       {
         "value": "top",
-        "name": "上"
+        "title": "上"
       },
       {
         "value": "bottom",
-        "name": "下"
+        "title": "下"
       },
       {
         "value": "left",
-        "name": "左"
+        "title": "左"
       },
       {
         "value": "right",
-        "name": "右"
+        "title": "右"
       },
       {
         "value": "top-start",
-        "name": "上左"
+        "title": "上左"
       },
       {
         "value": "top-end",
-        "name": "上右"
+        "title": "上右"
       },
       {
         "value": "bottom-start",
-        "name": "下左"
+        "title": "下左"
       },
       {
         "value": "bottom-end",
-        "name": "下右"
+        "title": "下右"
       },
       {
         "value": "left-start",
-        "name": "左上"
+        "title": "左上"
       },
       {
         "value": "left-end",
-        "name": "左下"
+        "title": "左下"
       },
       {
         "value": "right-start",
-        "name": "右上"
+        "title": "右上"
       },
       {
         "value": "right-end",
-        "name": "右下"
+        "title": "右下"
       }
     ],
     "description": "弹出方位"
@@ -3745,51 +3789,51 @@
     "options": [
       {
         "value": "top",
-        "name": "上"
+        "title": "上"
       },
       {
         "value": "bottom",
-        "name": "下"
+        "title": "下"
       },
       {
         "value": "left",
-        "name": "左"
+        "title": "左"
       },
       {
         "value": "right",
-        "name": "右"
+        "title": "右"
       },
       {
         "value": "top-start",
-        "name": "上左"
+        "title": "上左"
       },
       {
         "value": "top-end",
-        "name": "上右"
+        "title": "上右"
       },
       {
         "value": "bottom-start",
-        "name": "下左"
+        "title": "下左"
       },
       {
         "value": "bottom-end",
-        "name": "下右"
+        "title": "下右"
       },
       {
         "value": "left-start",
-        "name": "左上"
+        "title": "左上"
       },
       {
         "value": "left-end",
-        "name": "左下"
+        "title": "左下"
       },
       {
         "value": "right-start",
-        "name": "右上"
+        "title": "右上"
       },
       {
         "value": "right-end",
-        "name": "右下"
+        "title": "右下"
       }
     ],
     "description": "弹出框的弹出方向。"
@@ -4076,6 +4120,10 @@
       {
         "value": "search",
         "title": "搜索"
+      },
+      {
+        "value": "",
+        "title": "暂无"
       }
     ],
     "description": "前缀图标"
@@ -4086,6 +4134,10 @@
       {
         "value": "search",
         "title": "搜索"
+      },
+      {
+        "value": "",
+        "title": "暂无"
       }
     ],
     "description": "后缀图标"
@@ -5019,31 +5071,31 @@
     "options": [
       {
         "value": "top-center",
-        "name": "上中"
+        "title": "上中"
       },
       {
         "value": "top-left",
-        "name": "上左"
+        "title": "上左"
       },
       {
         "value": "top-right",
-        "name": "上右"
+        "title": "上右"
       },
       {
         "value": "bottom-center",
-        "name": "下中"
+        "title": "下中"
       },
       {
         "value": "bottom-left",
-        "name": "下左"
+        "title": "下左"
       },
       {
         "value": "bottom-right",
-        "name": "下右"
+        "title": "下右"
       },
       {
         "value": "static",
-        "name": "静态"
+        "title": "静态"
       }
     ],
     "description": "显示的位置"
@@ -5211,51 +5263,51 @@
     "options": [
       {
         "value": "top",
-        "name": "上"
+        "title": "上"
       },
       {
         "value": "bottom",
-        "name": "下"
+        "title": "下"
       },
       {
         "value": "left",
-        "name": "左"
+        "title": "左"
       },
       {
         "value": "right",
-        "name": "右"
+        "title": "右"
       },
       {
         "value": "top-start",
-        "name": "上左"
+        "title": "上左"
       },
       {
         "value": "top-end",
-        "name": "上右"
+        "title": "上右"
       },
       {
         "value": "bottom-start",
-        "name": "下左"
+        "title": "下左"
       },
       {
         "value": "bottom-end",
-        "name": "下右"
+        "title": "下右"
       },
       {
         "value": "left-start",
-        "name": "左上"
+        "title": "左上"
       },
       {
         "value": "left-end",
-        "name": "左下"
+        "title": "左下"
       },
       {
         "value": "right-start",
-        "name": "右上"
+        "title": "右上"
       },
       {
         "value": "right-end",
-        "name": "右下"
+        "title": "右下"
       }
     ],
     "description": "工具提示的弹出方向。"
@@ -5281,19 +5333,19 @@
     "options": [
       {
         "value": "small",
-        "name": "小型"
+        "title": "小型"
       },
       {
         "value": "normal",
-        "name": "正常"
+        "title": "正常"
       },
       {
         "value": "large",
-        "name": "大"
+        "title": "大"
       },
       {
         "value": "auto",
-        "name": "自适应"
+        "title": "自适应"
       }
     ],
     "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度"
@@ -5481,22 +5533,22 @@
     "description": "列表数量上限"
   },
   "u-uploader/max-size": {
-    "type": "string, number",
+    "type": "string",
     "description": "可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB`"
   },
   "u-uploader/list-type": {
     "type": "string",
     "options": [
       {
-        "name": "文本",
+        "title": "文本",
         "value": "text"
       },
       {
-        "name": "图片",
+        "title": "图片",
         "value": "image"
       },
       {
-        "name": "卡片",
+        "title": "卡片",
         "value": "card"
       }
     ],
@@ -5526,7 +5578,7 @@
     "type": "string",
     "options": [
       {
-        "name": "JSON",
+        "title": "JSON",
         "value": "json"
       }
     ],

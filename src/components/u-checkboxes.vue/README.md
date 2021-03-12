@@ -204,7 +204,7 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | value.sync, v-model | Array |  | `[]` | 多选组的选中项 |
 | min | number |  | `0` | 可以勾选多选框的最小数量 |
-| max | number |  | `Infinity` | 可以勾选多选框的最大数量 |
+| max | number |  | `999` | 可以勾选多选框的最大数量 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'join'` | value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象 |

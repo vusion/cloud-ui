@@ -59,7 +59,7 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | max-count | number |  | `3` | 一列最多显示链接个数 |
 | menu-title | string |  | `'更多'` | 菜单标题 |
-| placement | string | `'上'` ()<br/>`'下'` ()<br/>`'左'` ()<br/>`'右'` ()<br/>`'上左'` ()<br/>`'上右'` ()<br/>`'下左'` ()<br/>`'下右'` ()<br/>`'左上'` ()<br/>`'左下'` ()<br/>`'右上'` ()<br/>`'右下'` () | `'bottom-end'` | 菜单的弹出方向 |
+| placement | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'bottom-end'` | 菜单的弹出方向 |
 
 ### Slots
 
@@ -74,7 +74,7 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | hidden | boolean |  | `false` | 自定义显示/隐藏条件 |
 | color | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 设置颜色 |
-| linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 链接类型 |
+| linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'href'` | 链接类型 |
 | hrefAndTo | string |  |  | 链接地址 |
 | target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_self'` | 链接打开方式 |
 | decoration | boolean |  | `true` | 是否显示下划线 |

@@ -243,7 +243,7 @@
 | text | string |  | `'复制'` | 默认显示的文本 |
 | success-text | string |  | `'已复制'` | 复制成功提示文本 |
 | feedback | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'tooltip'` | 复制提示反馈方式 |
-| placement | string | `'上'` ()<br/>`'下'` ()<br/>`'左'` ()<br/>`'右'` ()<br/>`'上左'` ()<br/>`'上右'` ()<br/>`'下左'` ()<br/>`'下右'` ()<br/>`'左上'` ()<br/>`'左下'` ()<br/>`'右上'` ()<br/>`'右下'` () | `'top'` | tooltip 提示框位置 |
+| placement | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'top'` | tooltip 提示框位置 |
 | hide-delay | number |  | `3000` | 提示框显示时长 |
 | disabled | boolean |  | `false` | 是否禁止复制 |
 

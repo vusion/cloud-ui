@@ -462,7 +462,7 @@ Methods
 | name | string |  |  | 表单项名称。已废弃 |
 | label | string |  |  | 标签名。用于左侧显示，同时用于提示消息的合成。 |
 | label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 单独设置表单项的标签大小。 |
-| field-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 单独设置表单项的内容大小 |
+| field-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 单独设置表单项的内容大小 |
 | required | boolean |  | `false` | 是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。 |
 | message | string |  |  | 默认提示消息 |
 | muted | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'none'` | 验证是否静默 |

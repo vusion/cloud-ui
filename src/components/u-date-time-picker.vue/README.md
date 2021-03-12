@@ -110,9 +110,9 @@ export default {
 | autofocus | boolean |  | `false` | 是否默认处于focus状态 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | readonly | boolean |  | `false` | 是否只读 |
-| yearDiff | string, number |  | `3` | 最小可选年份值为当前年减去此值 |
-| yearAdd | string, number |  | `1` | 最大可选年份值为当前年加上此值 |
-| converter | string | `'JSON'` ()<br/>`'Unix 时间戳'` ()<br/>`'Date 对象'` () | `'json'` | 转换器 |
+| yearDiff | number |  | `3` | 最小可选年份值为当前年减去此值 |
+| yearAdd | number |  | `1` | 最大可选年份值为当前年加上此值 |
+| converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'json'` | 转换器 |
 
 ### Slots
 

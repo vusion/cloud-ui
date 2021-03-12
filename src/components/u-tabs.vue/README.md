@@ -263,7 +263,7 @@ export default {
 | title | string |  |  | 标签页标题。 |
 | value | any |  |  | 标签页的值。 |
 | disabled | boolean |  | `false` | 是否禁用此标签页。 |
-| linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'destination'` | 链接类型 |
+| linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'href'` | 链接类型 |
 | href | string |  |  | 链接地址 |
 | hrefAndTo | string |  |  | 链接地址 |
 | target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_blank'` | 打开方式 |
