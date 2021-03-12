@@ -54,7 +54,7 @@ export default {
     },
     watch: {
         $listeners(listeners) {
-            this.click = listeners.click || function(){};
+            this.clickEvent = listeners.click || function () { /* noop */ };
         },
     },
     methods: {
