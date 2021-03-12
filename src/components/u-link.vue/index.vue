@@ -52,6 +52,11 @@ export default {
             return this.disabled || this.loading;
         },
     },
+    watch: {
+        $listeners(listeners) {
+            this.click = listeners.click || function(){};
+        },
+    },
     methods: {
         async wrapClick(...args) {
             this.loading = true;
