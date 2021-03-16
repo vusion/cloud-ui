@@ -342,6 +342,8 @@ export default {
     mounted() {
         if (this.data)
             this.processData(this.data);
+        
+        this.watchCurrentData();
         this.watchValue(this.value);
         this.watchValues(this.values);
         this.handleResize();
@@ -739,6 +741,14 @@ export default {
             this.load();
             this.$emit('filter', filtering, this);
             this.$emit('update:filtering', filtering, this);
+        },
+        watchCurrentData() {
+            this.$watch(() => this.currentData, (currentData) => {
+                if(currentData)
+                    this.processData(currentData);
+            }, {
+                immediate: true,
+            });
         },
         /* Selection Methods */
         watchValue(value) {
