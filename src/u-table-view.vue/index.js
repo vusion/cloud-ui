@@ -574,16 +574,16 @@ export default {
                         let parentNode = this.$el.parentNode;
                         while (getStyle(parentNode, 'width') === 'auto')
                             parentNode = parentNode.parentNode;
-                        this.tableWidth = ''; // parseFloat(getStyle(parentNode, 'width')) + 'px';
+                        this.tableWidth = parseFloat(getStyle(parentNode, 'width')) + 'px';
                     } else
-                        this.tableWidth = ''; // parseFloat(getStyle(this.$el, 'width')) + 'px';
+                        this.tableWidth = parseFloat(getStyle(this.$el, 'width')) + 'px';
                     // 由于百分数可能带来小数点问题，引起浮点数精度问题 典型的0.2+0.1不等于0.3问题，需要特殊处理这里的比较
 
-                    // if (parseFloat(this.tableWidth) - parentWidth <= 0) {
-                    //     this.tableWidth = parentWidth;
-                    //     this.isXScroll = false;
-                    // } else
-                    //     this.isXScroll = Math.abs(parseFloat(this.tableWidth) - parentWidth) > 0.001;
+                    if (parseFloat(this.tableWidth) - parentWidth <= 0) {
+                        this.tableWidth = parentWidth;
+                        this.isXScroll = false;
+                    } else
+                        this.isXScroll = Math.abs(parseFloat(this.tableWidth) - parentWidth) > 0.001;
 
                     this.scrollWidth = getScrollSize();
                     this.titleHeight = parseFloat(getStyle(this.$refs.title, 'height')) || 0;

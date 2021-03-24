@@ -283,7 +283,7 @@ export default {
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata">
+        <u-table-view :data="tdata" width="100%">
             <u-table-view-column title="序号" width="20%" label="id"></u-table-view-column>
             <u-table-view-column title="姓名" width="10%" label="name" ></u-table-view-column>
             <u-table-view-column title="省份" width="200" label="province"></u-table-view-column>
