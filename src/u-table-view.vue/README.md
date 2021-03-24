@@ -356,7 +356,7 @@ export default {
 ``` vue
 <template>
     <div>
-        <u-table-view :data="tdata" width="800" border :loading="loading">
+        <u-table-view :data="tdata" width="800" border :loading="loading" max-height="400">
             <u-table-view-column width="200" fixed="left" title="序号" label="id"></u-table-view-column>
             <u-table-view-column title="姓名" width="200" label="name" ></u-table-view-column>
             <u-table-view-column title="省份" width="200" label="province"></u-table-view-column>
@@ -516,6 +516,75 @@ export default {
            checkedList: ['isShow', 'isNameShow', 'isAddressShow'],
         };
     },
+};
+</script>
+```
+
+#### 隐藏部分列-左右列
+
+``` vue
+<template>
+    <div>
+        <u-checkboxes v-model="checkedList">
+            <u-checkbox label="isShow">日期</u-checkbox>
+            <u-checkbox label="isNameShow">姓名</u-checkbox>
+            <u-checkbox label="isAddressShow">操作</u-checkbox>
+        </u-checkboxes>
+        <u-table-view :data="tdata" width="800" border :loading="loading" max-height="400">
+            <u-table-view-column width="200" fixed="left" title="序号" label="id"></u-table-view-column>
+            <u-table-view-column title="姓名" fixed="left" :visible="checkedList.includes('isNameShow')" width="200" label="name" ></u-table-view-column>
+            <u-table-view-column title="省份" width="200" label="province"></u-table-view-column>
+            <u-table-view-column title="城市" width="200" label="city"></u-table-view-column>
+            <u-table-view-column title="区县" width="200" label="district"></u-table-view-column>
+            <u-table-view-column title="地址" width="200" label="address"></u-table-view-column>
+            <u-table-view-column title="出生日期" width="200" label="address"></u-table-view-column>
+            <u-table-view-column title="操作" :visible="checkedList.includes('isAddressShow')" fixed="right" width="150">
+                <template slot-scope="scope">
+                    <u-button @click="click(scope.row)">配置</u-button>
+                </template>
+            </u-table-view-column>
+            <div slot="no-data-text">
+                <span style="margin-right:10px">暂无数据,</span>
+                <u-link>请刷新页面</u-link>
+            </div>
+        </u-table-view>
+        <u-modal :visible.sync="visible">
+            <div>
+                <span>{{current.name}}</span>
+                <span style="margin-left:10px;">{{current.address}}</span>
+            </div>
+        </u-modal>
+    </div>
+</template>
+<script>
+export default {
+    data: function () {
+        return {
+            checkedList: ['isShow', 'isNameShow', 'isAddressShow'],
+            tdata: [{ id: 1, name: '张三', province: '浙江省', city: '杭州市', district: '滨江区', address: '网商路599号网易大厦', birthday: '19910528' },
+            { id: 2, name: '小明', province: '浙江省', city: '杭州市', district: '滨江区', address: '江虹路459号英飞特科技园', birthday: '19920914' },
+            { id: 3, name: '李四', province: '浙江省', city: '杭州市', district: '滨江区', address: '秋溢路606号西可科技园', birthday: '19900228' },
+            { id: 4, name: '李华', province: '浙江省', city: '杭州市', district: '滨江区', address: '长河路590号东忠科技园', birthday: '19891210' },
+            { id: 5, name: '王五', province: '浙江省', city: '杭州市', district: '滨江区', address: '网商路599号网易大厦二期', birthday: '19930716' },
+            { id: 6, name: '张三', province: '浙江省', city: '杭州市', district: '滨江区', address: '网商路599号网易大厦', birthday: '19910528' },
+            { id: 7, name: '小明', province: '浙江省', city: '杭州市', district: '滨江区', address: '江虹路459号英飞特科技园', birthday: '19920914' },
+            { id: 8, name: '李四', province: '浙江省', city: '杭州市', district: '滨江区', address: '秋溢路606号西可科技园', birthday: '19900228' },
+            { id: 9, name: '李华', province: '浙江省', city: '杭州市', district: '滨江区', address: '长河路590号东忠科技园', birthday: '19891210' },
+            { id: 10, name: '王五', province: '浙江省', city: '杭州市', district: '滨江区', address: '网商路599号网易大厦二期', birthday: '19930716' }],
+            current: {},
+            visible: false,
+            show: false,
+            loading: false,
+        };
+    },
+    methods: {
+        click(row) {
+            console.log('click');
+            console.log(row);
+            this.visible = true;
+            this.current = row;
+        },
+    }
 };
 </script>
 ```
