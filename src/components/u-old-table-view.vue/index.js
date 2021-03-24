@@ -86,6 +86,7 @@ export const UOldTableView = {
             columnsWidth: [],
             currentRadioValue: this.radioValue,
             fixedRightWidth: [],
+            showFixedRight: false,
             copyTdata: [], // tdata的复制版本主要用来过滤
             tableWidth: undefined, // display值为none的时候需要特殊处理这个值
             bodyHeight: undefined,
@@ -599,6 +600,9 @@ export const UOldTableView = {
                     this.scrollWidth = getScrollSize();
                     this.titleHeight = parseFloat(getStyle(this.$refs.title, 'height')) || 0;
                     this.headHeight = parseFloat(getStyle(this.$refs.head, 'height')) || 0;
+                    this.bodyWidth = this.tableWidth;
+                    this.showFixedRight = this.tableWidth > parentWidth;
+
                     const tableHeight = this.$refs.body.offsetHeight;
                     if (this.height && !this.loading && this.data.length) {
                         // this.bodyWidth = parseFloat(this.tableWidth) - this.scrollWidth;
@@ -749,10 +753,11 @@ export const UOldTableView = {
         },
         bodyScroll(e) {
             this.$refs.head.scrollLeft = e.target && e.target.scrollLeft;
-            if (this.fixedLeftColumns.length > 0)
-                this.$refs.lefttable.scrollTop = e.target.scrollTop;
-            if (this.fixedRightColumns.length > 0)
-                this.$refs.righttable.scrollTop = e.target.scrollTop;
+            this.syncBodyScroll(e.target.scrollTop, e.target);
+            // if (this.fixedLeftColumns.length > 0)
+            //     this.$refs.lefttable.scrollTop = e.target.scrollTop;
+            // if (this.fixedRightColumns.length > 0)
+            //     this.$refs.righttable.scrollTop = e.target.scrollTop;
             this.$refs.popper && this.$refs.popper[0] && this.$refs.popper[0].toggle(false);
             if (this.maxSize) {
                 const scrollTop = +e.target.scrollTop;
@@ -777,6 +782,17 @@ export const UOldTableView = {
                     }
                 }
             }
+        },
+        syncBodyScroll(scrollTop, target) {
+            this.$refs.body0
+                && this.$refs.body0 !== target
+                && (this.$refs.body0.scrollTop = scrollTop);
+            this.$refs.lefttable
+                && this.$refs.lefttable !== target
+                && (this.$refs.lefttable.scrollTop = scrollTop);
+            this.$refs.righttable
+                && this.$refs.righttable !== target
+                && (this.$refs.righttable.scrollTop = scrollTop);
         },
         fixmouseenter(value) {
             if (this.fixedLeftColumns.length > 0 || this.fixedRightColumns.length > 0) {

@@ -14,7 +14,7 @@ export const UTableView = {
         title: String,
         titleAlignment: { type: String, default: 'center' },
         border: { type: Boolean, default: false },
-        loading: Boolean,
+        loading: { type: Boolean, default: undefined },
         loadingText: { type: String, default() { return this.$t('loading'); } },
         error: Boolean,
         errorText: { type: String, default() { return this.$t('error'); } },
