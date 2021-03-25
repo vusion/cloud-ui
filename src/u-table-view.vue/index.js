@@ -1,6 +1,7 @@
 import { getStyle, getScrollSize } from '../base/utils/style';
 import { ellipsisTitle } from 'proto-ui.vusion/src/base/directives';
 import { deepCopy } from '../base/utils/index';
+import throttle from 'lodash/throttle';
 import i18n from './i18n';
 
 export default {
@@ -131,7 +132,7 @@ export default {
             itemVM.parentVM = undefined;
             this.columns.splice(this.columns.indexOf(itemVM), 1);
         });
-        // this.throttleScroll = throttle(this.bodyScroll, 200);
+        this.throttledSyncBodyScroll = throttle(this.syncBodyScroll, 100);
     },
     mounted() {
         if (this.pattern === 'limit')
@@ -778,7 +779,7 @@ export default {
         },
         bodyScroll(e) {
             this.$refs.head.scrollLeft = e.target && e.target.scrollLeft;
-            this.syncBodyScroll(e.target.scrollTop, e.target);
+            this.throttledSyncBodyScroll(e.target.scrollTop, e.target);
             // if (this.fixedLeftColumns.length > 0)
             //     this.$refs.lefttable.scrollTop = e.target.scrollTop;
             // if (this.fixedRightColumns.length > 0)

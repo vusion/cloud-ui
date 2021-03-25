@@ -265,8 +265,8 @@
             </div>
         </div>
         <div :class="$style.fixLeft" v-if="fixedLeftColumns.length" :style="{width: fixedLeftWidth + 'px'}">
-            <div :class="$style.header" :role="fixedLeftColumns.length > 0">
-                <table :class="$style.thead" cellspacing="0" cellpadding="0" border="0" :style="{width: tableWidth + 'px', tableLayout: layout}">
+            <div :class="$style.header" :role="fixedLeftColumns.length > 0" :style="{ width: tableWidth + 'px' }">
+                <table :class="$style.thead" cellspacing="0" cellpadding="0" border="0" :style="{tableLayout: layout}">
                     <colgroup>
                         <col v-for="(column, index) in showColumns" :width="columnsWidth[index] || column.currentWidth"></col>
                     </colgroup>
@@ -306,8 +306,8 @@
                     </thead>
                 </table>
             </div>
-            <div :class="$style.body" ref="lefttable" :style="{height: fixedTableHeight ? fixedTableHeight+'px' : '', maxHeight: fixedMaxTableHeight+'px', minHeight: fixedMinTableHeight+'px'}" role="fixed" @scroll="bodyScroll">
-                <table cellspacing="0" cellpadding="0" border="0" :class="$style.tbody" :style="{width: tableWidth + 'px', tableLayout: layout}">
+            <div :class="$style.body" ref="lefttable" :style="{ width: tableWidth + 'px', height: fixedTableHeight ? fixedTableHeight+'px' : '', maxHeight: fixedMaxTableHeight+'px', minHeight: fixedMinTableHeight+'px'}" role="fixed" @scroll="bodyScroll">
+                <table cellspacing="0" cellpadding="0" border="0" :class="$style.tbody" :style="{tableLayout: layout}">
                     <colgroup>
                         <col v-for="(column, index) in showColumns" :width="column.currentWidth || columnsWidth[index]">
                     </colgroup>
@@ -364,8 +364,8 @@
             </div>
         </div>
         <div :class="$style.fixRight" v-if="fixedRightColumns.length && showFixedRight" :style="{width: fixedRightWidth ? fixedRightWidth + 'px' : '', right: isYScroll ? scrollWidth + 'px' : 0 }">
-            <div :class="$style.header" :role="fixedRightColumns.length > 0" :style="{width: isYScroll ? (fixedRightWidth + scrollWidth) + 'px' : '' }">
-                <table :class="$style.thead" cellspacing="0" cellpadding="0" border="0" :style="{width: tableWidth + 'px', tableLayout: layout}">
+            <div :class="$style.header" :role="fixedRightColumns.length > 0" :style="{ width: tableWidth + 'px' }">
+                <table :class="$style.thead" cellspacing="0" cellpadding="0" border="0" :style="{tableLayout: layout}">
                     <colgroup>
                         <col v-for="(column, index) in rightColumns" :width="rightColumnsWidth[index] || column.currentWidth"></col>
                     </colgroup>
@@ -405,8 +405,8 @@
                     </thead>
                 </table>
             </div>
-            <div :class="$style.body" ref="righttable" :style="{height: fixedTableHeight ? fixedTableHeight+'px' : '', maxHeight: fixedMaxTableHeight+'px', minHeight: fixedMinTableHeight+'px'}" role="fixed" @scroll="bodyScroll">
-                <table cellspacing="0" cellpadding="0" border="0" :class="$style.tbody" :style="{width: tableWidth + 'px', tableLayout: layout}">
+            <div :class="$style.body" ref="righttable" :style="{width: tableWidth + 'px', height: fixedTableHeight ? fixedTableHeight+'px' : '', maxHeight: fixedMaxTableHeight+'px', minHeight: fixedMinTableHeight+'px'}" role="fixed" @scroll="bodyScroll">
+                <table cellspacing="0" cellpadding="0" border="0" :class="$style.tbody" :style="{tableLayout: layout}">
                     <colgroup>
                         <col v-for="(column, index) in rightColumns" :width="column.fixedWidth || column.currentWidth || columnsWidth[index]">
                     </colgroup>

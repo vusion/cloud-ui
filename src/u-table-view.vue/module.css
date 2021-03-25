@@ -90,7 +90,8 @@
 
 
 .body[role="fixed"] {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .tbody {
@@ -286,6 +287,7 @@
     right: 0;
     left: auto;
     top: 0;
+    overflow: hidden;
     background: white;
     box-shadow: -2px 0 6px -2px rgba(0, 0, 0, 0.2);
 }
