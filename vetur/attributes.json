@@ -235,6 +235,10 @@
     "type": "boolean",
     "description": "是否禁用"
   },
+  "m-complex-item/text": {
+    "type": "string",
+    "description": "文本内容"
+  },
   "m-complex-item/value": {
     "type": "any",
     "description": "此项的值"
@@ -318,6 +322,10 @@
   "m-multiplex/disabled": {
     "type": "boolean",
     "description": "是否禁用"
+  },
+  "m-multiplex-item/text": {
+    "type": "string",
+    "description": "文本内容"
   },
   "m-multiplex-item/value": {
     "type": "any",
@@ -482,6 +490,10 @@
   "m-singlex/disabled": {
     "type": "boolean",
     "description": "是否禁用"
+  },
+  "m-singlex-item/text": {
+    "type": "string",
+    "description": "文本内容"
   },
   "m-singlex-item/value": {
     "type": "any",
@@ -706,6 +718,10 @@
   "u-badge/dot": {
     "type": "boolean",
     "description": "是否显示为小圆点"
+  },
+  "u-button/text": {
+    "type": "string",
+    "description": "文本内容"
   },
   "u-button/color": {
     "type": "string",
@@ -1163,6 +1179,10 @@
       }
     ],
     "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象"
+  },
+  "u-checkbox/text": {
+    "type": "string",
+    "description": "文本内容"
   },
   "u-checkbox/value": {
     "type": "boolean, null",
@@ -2676,6 +2696,10 @@
     ],
     "description": "后缀图标"
   },
+  "u-label/text": {
+    "type": "string",
+    "description": "文本内容"
+  },
   "u-label/color": {
     "type": "string",
     "options": [
@@ -2957,6 +2981,9 @@
     "type": "array<number>",
     "description": "百分比范围限制"
   },
+  "u-link/text": {
+    "type": "string"
+  },
   "u-link/color": {
     "type": "string",
     "options": [
@@ -3237,6 +3264,10 @@
     "type": "boolean",
     "description": "是否禁用"
   },
+  "u-menu-item/text": {
+    "type": "string",
+    "description": "文本内容"
+  },
   "u-menu-item/value": {
     "type": "any",
     "description": "此项的值"
@@ -3402,6 +3433,10 @@
   "u-navbar/disabled": {
     "type": "boolean",
     "description": "是否禁用"
+  },
+  "u-navbar-item/text": {
+    "type": "string",
+    "description": "文本内容"
   },
   "u-navbar-item/value": {
     "type": "any",
@@ -3870,6 +3905,10 @@
     "type": "boolean",
     "description": "是否禁用"
   },
+  "u-radio/text": {
+    "type": "string",
+    "description": "文本内容"
+  },
   "u-radio/label": {
     "type": "any",
     "description": "单选框选项值。"
@@ -4215,6 +4254,10 @@
   "u-sidebar/disabled": {
     "type": "boolean",
     "description": "是否禁用"
+  },
+  "u-sidebar-item/text": {
+    "type": "string",
+    "description": "文本内容"
   },
   "u-sidebar-item/value": {
     "type": "any",

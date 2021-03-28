@@ -86,7 +86,7 @@ bin/find-by-re ./src '<u-input[\s\S]{0,300}close'
 ## Publish
 
 ```
-npm publish
+vusion publish
 npm run lcap
 ```
 

@@ -135,6 +135,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| text | string |  |  | 文本内容 |
 | label | any |  |  | 单选框选项值。 |
 | readonly | boolean |  | `false` | 禁用只读 |
 | disabled | boolean |  | `false` | 禁用此项 |

@@ -100,6 +100,7 @@
   },
   "m-complex-item": {
     "attributes": [
+      "text",
       "value",
       "selected",
       "disabled",
@@ -169,6 +170,7 @@
   },
   "m-multiplex-item": {
     "attributes": [
+      "text",
       "value",
       "selected",
       "disabled",
@@ -233,6 +235,7 @@
   },
   "m-singlex-item": {
     "attributes": [
+      "text",
       "value",
       "disabled",
       "item"
@@ -291,6 +294,7 @@
   },
   "u-button": {
     "attributes": [
+      "text",
       "color",
       "dashed",
       "size",
@@ -410,6 +414,7 @@
   },
   "u-checkbox": {
     "attributes": [
+      "text",
       "value",
       "label",
       "readonly",
@@ -831,6 +836,7 @@
   },
   "u-label": {
     "attributes": [
+      "text",
       "color",
       "size",
       "removable",
@@ -879,6 +885,7 @@
   },
   "u-link": {
     "attributes": [
+      "text",
       "color",
       "linkType",
       "hrefAndTo",
@@ -961,6 +968,7 @@
   },
   "u-menu-item": {
     "attributes": [
+      "text",
       "value",
       "disabled",
       "item",
@@ -1019,6 +1027,7 @@
   },
   "u-navbar-item": {
     "attributes": [
+      "text",
       "value",
       "disabled",
       "item",
@@ -1182,6 +1191,7 @@
   },
   "u-radio": {
     "attributes": [
+      "text",
       "label",
       "readonly",
       "disabled",
@@ -1307,6 +1317,7 @@
   },
   "u-sidebar-item": {
     "attributes": [
+      "text",
       "value",
       "disabled",
       "item",

@@ -9,7 +9,6 @@
     - [块级展示](#块级展示)
 - [API]()
     - [Props/Attrs](#propsattrs)
-    - [Slots](#slots)
     - [Events](#events)
 
 **Display**
@@ -23,13 +22,13 @@
 
 ``` html
 <u-linear-layout gap="small">
-    <u-label>Label</u-label>
-    <u-label color="primary">Primary</u-label>
-    <u-label color="success">Success</u-label>
-    <u-label color="normal">Normal</u-label>
-    <u-label color="warning">Warning</u-label>
-    <u-label color="error">Error</u-label>
-    <u-label style="background: #c461fb; color: white;">Custom</u-label>
+    <u-label text="Label"></u-label>
+    <u-label color="primary" text="Primary"></u-label>
+    <u-label color="success" text="Success"></u-label>
+    <u-label color="normal" text="Normal"></u-label>
+    <u-label color="warning" text="Warning"></u-label>
+    <u-label color="error" text="Error"></u-label>
+    <u-label style="background: #c461fb; color: white;" text="Custom"></u-label>
 </u-linear-layout>
 ```
 
@@ -41,12 +40,12 @@
 
 ``` html
 <u-linear-layout gap="small">
-    <u-label removable>Label</u-label>
-    <u-label removable color="primary">Primary</u-label>
-    <u-label removable color="success">Success</u-label>
-    <u-label removable color="normal">Normal</u-label>
-    <u-label removable color="warning">Warning</u-label>
-    <u-label removable color="error">Error</u-label>
+    <u-label removable text="Label"></u-label>
+    <u-label removable color="primary" text="Primary"></u-label>
+    <u-label removable color="success" text="Success"></u-label>
+    <u-label removable color="normal" text="Normal"></u-label>
+    <u-label removable color="warning" text="Warning"></u-label>
+    <u-label removable color="error" text="Error"></u-label>
 </u-linear-layout>
 ```
 
@@ -56,14 +55,14 @@
 
 ``` html
 <u-linear-layout gap="small">
-    <u-label size="small">Small</u-label>
-    <u-label size="small" color="primary" removable>Small</u-label>
-    <u-label>Normal</u-label>
-    <u-label color="primary" removable>Normal</u-label>
-    <u-label size="large">Large</u-label>
-    <u-label size="large" color="primary" removable>Large</u-label>
-    <u-label size="huge">Huge</u-label>
-    <u-label size="huge" color="primary" removable>Huge</u-label>
+    <u-label size="small" text="Small"></u-label>
+    <u-label size="small" color="primary" removable text="Small"></u-label>
+    <u-label text="Normal"></u-label>
+    <u-label color="primary" removable text="Normal"></u-label>
+    <u-label size="large" text="Large"></u-label>
+    <u-label size="large" color="primary" removable text="Large"></u-label>
+    <u-label size="huge" text="Huge"></u-label>
+    <u-label size="huge" color="primary" removable text="Huge"></u-label>
 </u-linear-layout>
 ```
 
@@ -73,10 +72,10 @@
 
 ``` html
 <u-linear-layout direction="vertical" gap="mini" style="width: 120px;">
-    <u-label display="block">日常工作</u-label>
-    <u-label display="block" color="primary">重要任务</u-label>
-    <u-label display="block">质量效率</u-label>
-    <u-label display="block">学习分享</u-label>
+    <u-label display="block" text="日常工作"></u-label>
+    <u-label display="block" color="primary" text="重要任务"></u-label>
+    <u-label display="block" text="质量效率"></u-label>
+    <u-label display="block" text="学习分享"></u-label>
 </u-linear-layout>
 ```
 
@@ -85,16 +84,11 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| text | string |  |  | 文本内容 |
 | color | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 设置颜色 |
 | size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置尺寸 |
 | removable | boolean |  | `false` | 是否显示删除图标 |
 | display | string | `[object Object]`<br/>`[object Object]` | `'inline'` | 展示方式 |
-
-### Slots
-
-#### (default)
-
-状态
 
 ### Events
 

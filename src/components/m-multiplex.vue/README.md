@@ -12,7 +12,6 @@
     - [Events](#events)
 - [MMultiplexItem API](#mmultiplexitem-api)
     - [Props/Attrs](#propsattrs-2)
-    - [Slots](#slots-2)
     - [Events](#events-2)
 
 常见的多选模式。
@@ -24,11 +23,11 @@
 
 ``` html
 <m-multiplex>
-    <m-multiplex-item>水杯</m-multiplex-item>
-    <m-multiplex-item>咖啡</m-multiplex-item>
-    <m-multiplex-item disabled>坚果</m-multiplex-item>
-    <m-multiplex-item>毛巾</m-multiplex-item>
-    <m-multiplex-item>沙发</m-multiplex-item>
+    <m-multiplex-item text="水杯"></m-multiplex-item>
+    <m-multiplex-item text="咖啡"></m-multiplex-item>
+    <m-multiplex-item disabled text="坚果"></m-multiplex-item>
+    <m-multiplex-item text="毛巾"></m-multiplex-item>
+    <m-multiplex-item text="沙发"></m-multiplex-item>
 </m-multiplex>
 ```
 
@@ -40,18 +39,18 @@
 <template>
 <u-linear-layout direction="vertical" gap="small">
     <m-multiplex v-model="values">
-        <m-multiplex-item value="cup">水杯</m-multiplex-item>
-        <m-multiplex-item value="coffee">咖啡</m-multiplex-item>
-        <m-multiplex-item value="nut">坚果</m-multiplex-item>
-        <m-multiplex-item value="towel">毛巾</m-multiplex-item>
-        <m-multiplex-item value="sofa">沙发</m-multiplex-item>
+        <m-multiplex-item value="cup" text="水杯"></m-multiplex-item>
+        <m-multiplex-item value="coffee" text="咖啡"></m-multiplex-item>
+        <m-multiplex-item value="nut" text="坚果"></m-multiplex-item>
+        <m-multiplex-item value="towel" text="毛巾"></m-multiplex-item>
+        <m-multiplex-item value="sofa" text="沙发"></m-multiplex-item>
     </m-multiplex>
     <m-multiplex :value.sync="values">
-        <m-multiplex-item value="cup">水杯</m-multiplex-item>
-        <m-multiplex-item value="coffee">咖啡</m-multiplex-item>
-        <m-multiplex-item value="nut">坚果</m-multiplex-item>
-        <m-multiplex-item value="towel">毛巾</m-multiplex-item>
-        <m-multiplex-item value="sofa">沙发</m-multiplex-item>
+        <m-multiplex-item value="cup" text="水杯"></m-multiplex-item>
+        <m-multiplex-item value="coffee" text="咖啡"></m-multiplex-item>
+        <m-multiplex-item value="nut" text="坚果"></m-multiplex-item>
+        <m-multiplex-item value="towel" text="毛巾"></m-multiplex-item>
+        <m-multiplex-item value="sofa" text="沙发"></m-multiplex-item>
     </m-multiplex>
 </u-linear-layout>
 </template>
@@ -74,8 +73,7 @@ export default {
 <template>
 <m-multiplex>
     <m-multiplex-item v-for="item in list"
-        :key="item.value" :value="item.value" :selected.sync="item.selected">
-        {{ item.text }}</m-multiplex-item>
+        :key="item.value" :text="item.text" :value="item.value" :selected.sync="item.selected"></m-multiplex-item>
 </m-multiplex>
 </template>
 <script>
@@ -101,29 +99,29 @@ export default {
 <u-grid-layout>
     <u-grid-layout-column :span="4">
         <m-multiplex :value="['nut', 'towel']" readonly>
-            <m-multiplex-item value="cup">水杯</m-multiplex-item>
-            <m-multiplex-item value="coffee">咖啡</m-multiplex-item>
-            <m-multiplex-item value="nut">坚果</m-multiplex-item>
-            <m-multiplex-item value="towel">毛巾</m-multiplex-item>
-            <m-multiplex-item value="sofa">沙发</m-multiplex-item>
+            <m-multiplex-item value="cup" text="水杯"></m-multiplex-item>
+            <m-multiplex-item value="coffee" text="咖啡"></m-multiplex-item>
+            <m-multiplex-item value="nut" text="坚果"></m-multiplex-item>
+            <m-multiplex-item value="towel" text="毛巾"></m-multiplex-item>
+            <m-multiplex-item value="sofa" text="沙发"></m-multiplex-item>
         </m-multiplex>
     </u-grid-layout-column>
     <u-grid-layout-column :span="4">
         <m-multiplex :value="['nut', 'towel']" disabled>
-            <m-multiplex-item value="cup">水杯</m-multiplex-item>
-            <m-multiplex-item value="coffee">咖啡</m-multiplex-item>
-            <m-multiplex-item value="nut">坚果</m-multiplex-item>
-            <m-multiplex-item value="towel">毛巾</m-multiplex-item>
-            <m-multiplex-item value="sofa">沙发</m-multiplex-item>
+            <m-multiplex-item value="cup" text="水杯"></m-multiplex-item>
+            <m-multiplex-item value="coffee" text="咖啡"></m-multiplex-item>
+            <m-multiplex-item value="nut" text="坚果"></m-multiplex-item>
+            <m-multiplex-item value="towel" text="毛巾"></m-multiplex-item>
+            <m-multiplex-item value="sofa" text="沙发"></m-multiplex-item>
         </m-multiplex>
     </u-grid-layout-column>
     <u-grid-layout-column :span="4">
         <m-multiplex :value="['nut', 'towel']">
-            <m-multiplex-item value="cup">水杯</m-multiplex-item>
-            <m-multiplex-item value="coffee">咖啡</m-multiplex-item>
-            <m-multiplex-item value="nut" disabled>坚果</m-multiplex-item>
-            <m-multiplex-item value="towel" disabled>毛巾</m-multiplex-item>
-            <m-multiplex-item value="sofa">沙发</m-multiplex-item>
+            <m-multiplex-item value="cup" text="水杯"></m-multiplex-item>
+            <m-multiplex-item value="coffee" text="咖啡"></m-multiplex-item>
+            <m-multiplex-item value="nut" disabled text="坚果"></m-multiplex-item>
+            <m-multiplex-item value="towel" disabled text="毛巾"></m-multiplex-item>
+            <m-multiplex-item value="sofa" text="沙发"></m-multiplex-item>
         </m-multiplex>
     </u-grid-layout-column>
 </u-grid-layout>
@@ -203,16 +201,11 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| text | string |  |  | 文本内容 |
 | value | any |  |  | 此项的值 |
 | selected | boolean |  | `false` | 是否选择此项 |
 | disabled | boolean |  | `false` | 禁用此项 |
 | item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
-
-### Slots
-
-#### (default)
-
-插入文本或 HTML。
 
 ### Events
 

@@ -13,7 +13,6 @@
     - [Events](#events)
 - [MSinglexItem API](#msinglexitem-api)
     - [Props/Attrs](#propsattrs-2)
-    - [Slots](#slots-2)
     - [Events](#events-2)
 
 常见的单项选择模式，用于快速派生出像`<u-navbar>`、`<u-tabs>`这样的组件。
@@ -27,11 +26,11 @@
 
 ``` html
 <m-singlex>
-    <m-singlex-item>水杯</m-singlex-item>
-    <m-singlex-item>咖啡</m-singlex-item>
-    <m-singlex-item disabled>坚果</m-singlex-item>
-    <m-singlex-item>毛巾</m-singlex-item>
-    <m-singlex-item>沙发</m-singlex-item>
+    <m-singlex-item text="水杯"></m-singlex-item>
+    <m-singlex-item text="咖啡"></m-singlex-item>
+    <m-singlex-item disabled text="坚果"></m-singlex-item>
+    <m-singlex-item text="毛巾"></m-singlex-item>
+    <m-singlex-item text="沙发"></m-singlex-item>
 </m-singlex>
 ```
 
@@ -43,18 +42,18 @@
 <template>
 <u-linear-layout direction="vertical" gap="small">
     <m-singlex v-model="value">
-        <m-singlex-item value="cup">水杯</m-singlex-item>
-        <m-singlex-item value="coffee">咖啡</m-singlex-item>
-        <m-singlex-item value="nut">坚果</m-singlex-item>
-        <m-singlex-item value="towel">毛巾</m-singlex-item>
-        <m-singlex-item value="sofa">沙发</m-singlex-item>
+        <m-singlex-item value="cup" text="水杯"></m-singlex-item>
+        <m-singlex-item value="coffee" text="咖啡"></m-singlex-item>
+        <m-singlex-item value="nut" text="坚果"></m-singlex-item>
+        <m-singlex-item value="towel" text="毛巾"></m-singlex-item>
+        <m-singlex-item value="sofa" text="沙发"></m-singlex-item>
     </m-singlex>
     <m-singlex :value.sync="value">
-        <m-singlex-item value="cup">水杯</m-singlex-item>
-        <m-singlex-item value="coffee">咖啡</m-singlex-item>
-        <m-singlex-item value="nut">坚果</m-singlex-item>
-        <m-singlex-item value="towel">毛巾</m-singlex-item>
-        <m-singlex-item value="sofa">沙发</m-singlex-item>
+        <m-singlex-item value="cup" text="水杯"></m-singlex-item>
+        <m-singlex-item value="coffee" text="咖啡"></m-singlex-item>
+        <m-singlex-item value="nut" text="坚果"></m-singlex-item>
+        <m-singlex-item value="towel" text="毛巾"></m-singlex-item>
+        <m-singlex-item value="sofa" text="沙发"></m-singlex-item>
     </m-singlex>
 </u-linear-layout>
 </template>
@@ -75,29 +74,29 @@ export default {
 <u-grid-layout>
     <u-grid-layout-column :span="4">
         <m-singlex value="towel" readonly>
-            <m-singlex-item value="cup">水杯</m-singlex-item>
-            <m-singlex-item value="coffee">咖啡</m-singlex-item>
-            <m-singlex-item value="nut">坚果</m-singlex-item>
-            <m-singlex-item value="towel">毛巾</m-singlex-item>
-            <m-singlex-item value="sofa">沙发</m-singlex-item>
+            <m-singlex-item value="cup" text="水杯"></m-singlex-item>
+            <m-singlex-item value="coffee" text="咖啡"></m-singlex-item>
+            <m-singlex-item value="nut" text="坚果"></m-singlex-item>
+            <m-singlex-item value="towel" text="毛巾"></m-singlex-item>
+            <m-singlex-item value="sofa" text="沙发"></m-singlex-item>
         </m-singlex>
     </u-grid-layout-column>
     <u-grid-layout-column :span="4">
         <m-singlex value="towel" disabled>
-            <m-singlex-item value="cup">水杯</m-singlex-item>
-            <m-singlex-item value="coffee">咖啡</m-singlex-item>
-            <m-singlex-item value="nut">坚果</m-singlex-item>
-            <m-singlex-item value="towel">毛巾</m-singlex-item>
-            <m-singlex-item value="sofa">沙发</m-singlex-item>
+            <m-singlex-item value="cup" text="水杯"></m-singlex-item>
+            <m-singlex-item value="coffee" text="咖啡"></m-singlex-item>
+            <m-singlex-item value="nut" text="坚果"></m-singlex-item>
+            <m-singlex-item value="towel" text="毛巾"></m-singlex-item>
+            <m-singlex-item value="sofa" text="沙发"></m-singlex-item>
         </m-singlex>
     </u-grid-layout-column>
     <u-grid-layout-column :span="4">
         <m-singlex value="towel">
-            <m-singlex-item value="cup">水杯</m-singlex-item>
-            <m-singlex-item value="coffee">咖啡</m-singlex-item>
-            <m-singlex-item value="nut" disabled>坚果</m-singlex-item>
-            <m-singlex-item value="towel" disabled>毛巾</m-singlex-item>
-            <m-singlex-item value="sofa">沙发</m-singlex-item>
+            <m-singlex-item value="cup" text="水杯"></m-singlex-item>
+            <m-singlex-item value="coffee" text="咖啡"></m-singlex-item>
+            <m-singlex-item value="nut" disabled text="坚果"></m-singlex-item>
+            <m-singlex-item value="towel" disabled text="毛巾"></m-singlex-item>
+            <m-singlex-item value="sofa" text="沙发"></m-singlex-item>
         </m-singlex>
     </u-grid-layout-column>
 </u-grid-layout>
@@ -109,11 +108,11 @@ export default {
 
 ``` html
 <m-singlex value="towel" cancelable>
-    <m-singlex-item value="cup">水杯</m-singlex-item>
-    <m-singlex-item value="coffee">咖啡</m-singlex-item>
-    <m-singlex-item value="nut" disabled>坚果</m-singlex-item>
-    <m-singlex-item value="towel">毛巾</m-singlex-item>
-    <m-singlex-item value="sofa">沙发</m-singlex-item>
+    <m-singlex-item value="cup" text="水杯"></m-singlex-item>
+    <m-singlex-item value="coffee" text="咖啡"></m-singlex-item>
+    <m-singlex-item value="nut" disabled text="坚果"></m-singlex-item>
+    <m-singlex-item value="towel" text="毛巾"></m-singlex-item>
+    <m-singlex-item value="sofa" text="沙发"></m-singlex-item>
 </m-singlex>
 ```
 
@@ -123,11 +122,11 @@ export default {
 
 ``` html
 <m-singlex auto-select>
-    <m-singlex-item value="cup" disabled>水杯</m-singlex-item>
-    <m-singlex-item value="coffee" disabled>咖啡</m-singlex-item>
-    <m-singlex-item value="nut">坚果</m-singlex-item>
-    <m-singlex-item value="towel">毛巾</m-singlex-item>
-    <m-singlex-item value="sofa">沙发</m-singlex-item>
+    <m-singlex-item value="cup" disabled text="水杯"></m-singlex-item>
+    <m-singlex-item value="coffee" disabled text="咖啡"></m-singlex-item>
+    <m-singlex-item value="nut" text="坚果"></m-singlex-item>
+    <m-singlex-item value="towel" text="毛巾"></m-singlex-item>
+    <m-singlex-item value="sofa" text="沙发"></m-singlex-item>
 </m-singlex>
 ```
 
@@ -208,15 +207,10 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| text | string |  |  | 文本内容 |
 | value | any |  |  | 此项的值 |
 | disabled | boolean |  | `false` | 禁用此项 |
 | item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
-
-### Slots
-
-#### (default)
-
-插入文本或 HTML。
 
 ### Events
 

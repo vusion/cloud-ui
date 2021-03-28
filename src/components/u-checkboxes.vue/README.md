@@ -16,7 +16,6 @@
     - [Slots](#slots)
 - [UCheckbox API](#ucheckbox-api)
     - [Props/Attrs](#propsattrs-2)
-    - [Slots](#slots-2)
     - [Events](#events)
 
 **Form**
@@ -220,17 +219,12 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| text | string |  |  | 文本内容 |
 | value.sync, v-model | boolean, null |  | `false` | 选中状态，`null`表示不确定状态 |
 | label | any |  |  | 多选框选项值，只在多选组中使用。 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | autofocus | boolean |  | `false` | 自动获取焦点 |
-
-### Slots
-
-#### (default)
-
-插入文本或 HTML。
 
 ### Events
 
