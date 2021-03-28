@@ -82,6 +82,16 @@ bin/find-by-re ./src '<u-input[\s\S]{0,300}close'
 
 将`dist-doc-entry/`下的文档入口发布到 NOS
 
+
+## Publish
+
+```
+npm publish
+npm run lcap
+```
+
+usage.json 在低代码平台上登记。
+
 ## Changelog
 
 See [Releases](https://github.com/vusion/cloud-ui/releases)

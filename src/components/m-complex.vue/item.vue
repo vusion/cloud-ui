@@ -2,7 +2,7 @@
 <div :class="$style.root"
     :selected="parentVM.multiple ? currentSelected : isSelected" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
     @click="parentVM.router ? onClick($event) : select($event)" v-ellipsis-title>
-    <slot></slot>
+    <slot>{{ text }}</slot>
 </div>
 </template>
 

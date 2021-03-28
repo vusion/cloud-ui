@@ -67,10 +67,6 @@
           title: 始终不换行
       default: normal
       description: 文本过长的处理方式
-  slots:
-    - name: default
-      description: 文字内容
-      title: 内容
   events:
     - name: $listeners
       title: 监听事件

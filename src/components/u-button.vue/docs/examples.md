@@ -4,10 +4,10 @@
 
 ``` html
 <u-linear-layout>
-    <u-button color="primary">Primary</u-button>
-    <u-button>Default</u-button>
-    <u-button dashed>Dashed</u-button>
-    <u-button color="danger">Danger</u-button>
+    <u-button color="primary" text="Primary"></u-button>
+    <u-button text="Default"></u-button>
+    <u-button dashed text="Dashed"></u-button>
+    <u-button color="danger" text="Danger"></u-button>
 </u-linear-layout>
 ```
 
@@ -17,14 +17,14 @@
 
 ``` html
 <u-linear-layout gap="small">
-    <u-button color="primary">Primary</u-button>
-    <u-button color="primary" shape="round">Round</u-button>
-    <u-button color="primary" shape="square" icon="refresh"></u-button>
-    <u-button color="primary" shape="circle" icon="refresh"></u-button>
-    <u-button>Default</u-button>
-    <u-button shape="round">Round</u-button>
-    <u-button shape="square" icon="refresh"></u-button>
-    <u-button shape="circle" icon="refresh"></u-button>
+    <u-button color="primary" text="Primary"></u-button>
+    <u-button color="primary" shape="round" text="Round"></u-button>
+    <u-button color="primary" shape="square" icon="refres text="">"h</u-button>
+    <u-button color="primary" shape="circle" icon="refres text="">"h</u-button>
+    <u-button text="Default"></u-button>
+    <u-button shape="round" text="Round"></u-button>
+    <u-button shape="square" icon="refres text="">"h</u-button>
+    <u-button shape="circle" icon="refres text="">"h</u-button>
 </u-linear-layout>
 ```
 
@@ -34,10 +34,10 @@
 
 ``` html
 <u-linear-layout>
-    <u-button color="primary" disabled>Primary</u-button>
-    <u-button disabled>Default</u-button>
-    <u-button dashed disabled>Dashed</u-button>
-    <u-button color="danger" disabled>Danger</u-button>
+    <u-button color="primary" disabled text="Primary"></u-button>
+    <u-button disabled text="Default"></u-button>
+    <u-button dashed disabled text="Dashed"></u-button>
+    <u-button color="danger" disabled text="Danger"></u-button>
 </u-linear-layout>
 ```
 
@@ -48,26 +48,26 @@
 ``` html
 <u-linear-layout direction="vertical">
     <u-linear-layout gap="small">
-        <u-button size="mini" color="primary">Primary</u-button>
-        <u-button size="mini" color="primary" shape="round">Round</u-button>
-        <u-button size="mini" shape="square" icon="refresh"></u-button>
-        <u-button size="mini" shape="circle" icon="refresh"></u-button>
+        <u-button size="mini" color="primary" text="Primary"></u-button>
+        <u-button size="mini" color="primary" shape="round" text="Round"></u-button>
+        <u-button size="mini" shape="square" icon="refres text="">"h</u-button>
+        <u-button size="mini" shape="circle" icon="refres text="">"h</u-button>
     </u-linear-layout>
     <u-linear-layout gap="small">
-        <u-button size="small" color="primary">Primary</u-button>
-        <u-button size="small" color="primary" shape="round">Round</u-button>
-        <u-button size="small" shape="square" icon="refresh"></u-button>
-        <u-button size="small" shape="circle" icon="refresh"></u-button>
+        <u-button size="small" color="primary" text="Primary"></u-button>
+        <u-button size="small" color="primary" shape="round" text="Round"></u-button>
+        <u-button size="small" shape="square" icon="refres text="">"h</u-button>
+        <u-button size="small" shape="circle" icon="refres text="">"h</u-button>
     </u-linear-layout>
     <u-linear-layout gap="small">
-        <u-button size="normal" color="primary">Primary</u-button>
-        <u-button size="normal" color="primary" shape="round">Round</u-button>
-        <u-button size="normal" shape="square" icon="refresh"></u-button>
-        <u-button size="normal" shape="circle" icon="refresh"></u-button>
+        <u-button size="normal" color="primary" text="Primary"></u-button>
+        <u-button size="normal" color="primary" shape="round" text="Round"></u-button>
+        <u-button size="normal" shape="square" icon="refres text="">"h</u-button>
+        <u-button size="normal" shape="circle" icon="refres text="">"h</u-button>
     </u-linear-layout>
     <u-linear-layout gap="small">
-        <u-button size="large" color="primary">Primary</u-button>
-        <u-button size="large" color="primary" shape="round">Round</u-button>
+        <u-button size="large" color="primary" text="Primary"></u-button>
+        <u-button size="large" color="primary" shape="round" text="Round"></u-button>
         <u-button size="large" shape="square" icon="refresh"></u-button>
         <u-button size="large" shape="circle" icon="refresh"></u-button>
     </u-linear-layout>
@@ -87,10 +87,10 @@
 
 ``` html
 <u-linear-layout direction="vertical" gap="small">
-    <u-button display="block">Default</u-button>
-    <u-button display="block" color="primary">Primary</u-button>
-    <u-button display="block" dashed>Dashed</u-button>
-    <u-button display="block" color="danger">Danger</u-button>
+    <u-button display="block" text="Default"></u-button>
+    <u-button display="block" color="primary" text="Primary"></u-button>
+    <u-button display="block" dashed text="Dashed"></u-button>
+    <u-button display="block" color="danger" text="Danger"></u-button>
 </u-linear-layout>
 ```
 
@@ -100,9 +100,9 @@
 
 ``` html
 <u-linear-layout>
-    <u-button color="primary" icon="create">创建实例</u-button>
-    <u-button color="primary" icon="create" disabled>创建实例</u-button>
-    <u-button color="primary" icon="success">创建成功</u-button>
+    <u-button color="primary" icon="create" text="创建实例"></u-button>
+    <u-button color="primary" icon="create" disabled text="创建实例"></u-button>
+    <u-button color="primary" icon="success" text="创建成功"></u-button>
     <u-button shape="square" icon="refresh"></u-button>
 </u-linear-layout>
 ```
@@ -114,8 +114,8 @@
 ``` vue
 <template>
 <u-linear-layout>
-    <u-button color="primary" loading>创建实例</u-button>
-    <u-button color="primary" icon="create" loading disabled>创建实例</u-button>
+    <u-button color="primary" loading text="创建实例"></u-button>
+    <u-button color="primary" icon="create" loading disabled text="创建实例"></u-button>
     <u-button color="primary" shape="square" icon="refresh"
         :loading="loading" :disabled="loading"
         @click="loading = true">
@@ -139,8 +139,8 @@ export default {
 
 ``` html
 <u-linear-layout>
-    <u-button color="primary" href="https://vusion.github.io" target="_blank">打开新窗口</u-button>
-    <u-button to="/cloud-ui/components/u-link">路由跳转</u-button>
-    <u-button color="primary" href="https://vusion.github.io" disabled>禁用链接</u-button>
+    <u-button color="primary" href="https://vusion.github.io" target="_blank" text="打开新窗口"></u-button>
+    <u-button to="/cloud-ui/components/u-link" text="路由跳转"></u-button>
+    <u-button color="primary" href="https://vusion.github.io" disabled text="禁用链接"></u-button>
 </u-linear-layout>
 ```

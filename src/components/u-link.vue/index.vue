@@ -5,7 +5,7 @@
     :download="download"
     :loading="loading || $attrs.loading"
     @click="onClick" v-on="listeners">
-    <slot></slot>
+    <slot>{{ text }}</slot>
 </a>
 </template>
 
@@ -13,6 +13,7 @@
 export default {
     name: 'u-link',
     props: {
+        text: String,
         href: String,
         target: { type: String, default: '_self' },
         to: [String, Object],

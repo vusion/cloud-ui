@@ -1,6 +1,10 @@
 - name: u-checkbox
   title: 多选框
   attrs:
+    - name: text
+      type: string
+      title: 文本
+      description: 文本内容
     - name: value
       model: true
       sync: true

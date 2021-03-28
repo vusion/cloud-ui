@@ -109,6 +109,10 @@
 - name: u-radio
   title: 单选项
   attrs:
+    - name: text
+      type: string
+      title: 文本
+      description: 文本内容
     - name: label
       title: 选项值
       type: any

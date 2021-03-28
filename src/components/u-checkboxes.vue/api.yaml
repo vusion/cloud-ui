@@ -59,6 +59,10 @@
 - name: u-checkbox
   title: 多选项
   attrs:
+    - name: text
+      type: string
+      title: 文本
+      description: 文本内容
     - name: value
       model: true
       sync: true
@@ -85,9 +89,6 @@
       type: boolean
       default: false
       description: 自动获取焦点
-  slots:
-    - name: default
-      description: 插入文本或 HTML。
   events:
     - name: before-check
       title: 选中前

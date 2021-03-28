@@ -132,6 +132,10 @@
             $ref: '#/systemTypes/CollapseEvent'
 - name: u-menu-item
   attrs:
+    - name: text
+      type: string
+      title: 文本
+      description: 文本内容
     - name: value
       title: 值
       type: any
@@ -198,9 +202,6 @@
       type: boolean
       default: false
       description: 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
-  slots:
-    - name: default
-      description: 插入文本或 HTML。
   events:
     - name: click
       title: 点击

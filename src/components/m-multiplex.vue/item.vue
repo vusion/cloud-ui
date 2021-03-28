@@ -2,7 +2,7 @@
 <div :class="$style.root"
     :selected="currentSelected" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
     @click="select($event)" v-ellipsis-title>
-    <slot></slot>
+    <slot>{{ text }}</slot>
 </div>
 </template>
 
@@ -17,6 +17,7 @@ export default {
     directives: { ellipsisTitle },
     mixins: [MChild],
     props: {
+        text: String,
         value: null,
         selected: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },

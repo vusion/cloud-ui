@@ -5,6 +5,10 @@
     - Display
   description: 用于触发一个即时操作。
   attrs:
+    - name: text
+      type: string
+      title: 文本
+      description: 文本内容
     - name: color
       title: 颜色
       type: string
@@ -140,10 +144,6 @@
       advanced: true
       default: false
       description: 需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。
-  slots:
-    - name: default
-      title: 默认
-      description: 插入文本或 HTML。
   events:
     - name: $listeners
       kind: trigger

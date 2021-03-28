@@ -3,7 +3,7 @@
     :selected="parentVM.router && active" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
     :href="currentHref" :target="target" @click="parentVM.router ? onClick($event) : select($event)" v-on="listeners"
     v-ellipsis-title :has-sub="!!$slots.sub">
-    <slot></slot>
+    <slot>{{ text }}</slot>
     <div :class="$style.sub">
         <slot name="sub"></slot>
     </div>

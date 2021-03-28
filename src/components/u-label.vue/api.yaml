@@ -5,6 +5,10 @@
     - Display
   description: 用于展示状态、标签、分类等
   attrs:
+    - name: text
+      type: string
+      title: 文本
+      description: 文本内容
     - name: color
       type: string
       title: 设置颜色
@@ -50,9 +54,6 @@
           title: 块级
       default: inline
       description: 展示方式
-  slots:
-    - name: default
-      description: 状态
   events:
     - name: $listeners
       kind: trigger

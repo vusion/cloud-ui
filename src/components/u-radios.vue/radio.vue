@@ -3,7 +3,7 @@
 tabindex="0" @keydown.space.prevent @keyup.space.prevent="select()"
 @focus="onFocus" @blur="onBlur" v-on="listeners">
     <span :class="$style.radio" :selected="selected" :disabled="currentDisabled"></span>
-    <slot></slot>
+    <slot>{{ text }}</slot>
 </label>
 </template>
 
@@ -16,6 +16,7 @@ export default {
     parentName: 'u-radios',
     mixins: [MChild, MField],
     props: {
+        text: String,
         value: { type: Boolean, default: false },
         label: null,
         readonly: { type: Boolean, default: false },

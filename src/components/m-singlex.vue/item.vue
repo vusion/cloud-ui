@@ -3,7 +3,7 @@
     :selected="parentVM.router ? active : isSelected" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
     :href="currentHref" :target="target" @click="parentVM.router ? onClick($event) : select($event)" v-on="listeners"
     v-ellipsis-title>
-    <slot></slot>
+    <slot>{{ text }}</slot>
 </a>
 </template>
 
@@ -21,6 +21,7 @@ export default {
     directives: { ellipsisTitle },
     mixins: [MChild, ULink],
     props: {
+        text: String,
         value: null,
         disabled: { type: Boolean, default: false },
         item: Object,

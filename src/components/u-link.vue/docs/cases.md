@@ -4,7 +4,7 @@
 
 ``` vue
 <template>
-<u-link color="primary" @click="onClick">按钮</u-link>
+<u-link color="primary" @click="onClick" text="按钮"></u-link>
 </template>
 <script>
 export default {

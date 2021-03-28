@@ -175,6 +175,10 @@
 - name: u-sidebar-item
   title: 侧边栏项
   attrs:
+    - name: text
+      type: string
+      title: 文本
+      description: 文本内容
     - name: value
       title: 值
       type: any

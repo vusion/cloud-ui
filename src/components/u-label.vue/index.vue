@@ -1,6 +1,6 @@
 <template>
 <span :class="$style.root" v-on="$listeners">
-    <slot></slot>
+    <slot>{{ text }}</slot>
     <span v-if="removable" :class="$style.remove" @click="remove()"></span>
 </span>
 </template>
@@ -11,7 +11,10 @@ import MEmitter from '../m-emitter.vue';
 export default {
     name: 'u-label',
     mixins: [MEmitter],
-    props: { removable: { type: Boolean, default: false } },
+    props: {
+        text: String,
+        removable: { type: Boolean, default: false },
+    },
     methods: {
         remove() {
             if (this.$emitPrevent('before-remove', null, this))

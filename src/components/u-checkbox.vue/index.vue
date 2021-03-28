@@ -3,7 +3,7 @@
     tabindex="0" @keydown.space.prevent @keyup.space.prevent="check()"
     @focus="onFocus" @blur="onBlur" v-on="listeners">
     <span :class="$style.box" :status="String(currentValue)" :disabled="disabled"></span>
-    <slot></slot>
+    <slot>{{ text }}</slot>
 </label>
 </template>
 
@@ -18,6 +18,7 @@ export default {
     props: {
         value: { type: Boolean, default: false },
         label: null,
+        text: String,
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         autofocus: { type: Boolean, default: false },
