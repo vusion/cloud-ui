@@ -240,10 +240,6 @@
       advanced: true
       default: false
       description: 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
-  slots:
-    - name: default
-      title: 默认值
-      description: 插入文本或 HTML。
   events:
     - name: before-select
       title: 选择前
