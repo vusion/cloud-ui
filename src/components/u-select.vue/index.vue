@@ -6,7 +6,7 @@
     @click="focus"
     @keydown.up.prevent="$refs.popper.currentOpened ? shift(-1) : open()"
     @keydown.down.prevent="$refs.popper.currentOpened ? shift(+1) : open()"
-    @keydown.enter.stop="onEnter"
+    @keydown.enter.stop.prevent="onEnter"
     @keydown.esc.stop="close(), filterText = ''"
     @blur="onRootBlur">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
@@ -43,7 +43,7 @@
         <u-input v-if="filterable" :class="$style.input" ref="input" :readonly="readonly" :disabled="currentDisabled"
             :placeholder="multiple && selectedVMs.length ? '' : placeholder" :filterable="filterable" :multiple-tags="multiple && this.multipleAppearance === 'tags'"
             :value="filterText" @input="onInput" @focus="onFocus" @blur="onBlur"
-            @keydown.enter.stop="onInputEnter" @keydown.delete.stop="onInputDelete"
+            @keydown.enter.stop.prevent="onInputEnter" @keydown.delete.stop="onInputDelete"
             :style="{ width: multiple && (inputWidth + 'px') }">
         </u-input>
     </div>
