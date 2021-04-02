@@ -341,14 +341,14 @@ export default {
             this.open();
         },
         onBlur() {
-            if (!this.filterable)
+            if (!this.filterable || !this.filterText)
                 return; // 这边必须要用 setTimeout，$nextTick 也不行，需要保证在 @select 之后完成
             setTimeout(() => {
                 if (this.preventBlur)
                     return (this.preventBlur = false);
                 this.selectByText(this.filterText);
+                this.close();
             }, 200);
-            this.close();
         },
         onRootBlur() {
             this.close();
