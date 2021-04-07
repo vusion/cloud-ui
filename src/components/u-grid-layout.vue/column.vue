@@ -1,6 +1,7 @@
 <template>
-<div :class="$style.root" :style="[commonStyle, responsiveStyle]">
+<div :class="$style.root" :style="[commonStyle, responsiveStyle]" :empty="empty">
     <slot></slot>
+    <div v-if="empty && $env.VUE_APP_DESIGNER" :class="$style.empty">+</div>
 </div>
 </template>
 
@@ -24,10 +25,10 @@ export default {
         mediaSmall: Number,
         mediaMedium: Number,
         mediaLarge: Number,
-        mediaHuge: Number,
+        mediaHuge: Number
     },
     data() {
-        return { parentVM: this.$parent, currentSpan: this.span };
+        return { parentVM: this.$parent, currentSpan: this.span, empty: true };
     },
     computed: {
         stack() {
@@ -40,9 +41,11 @@ export default {
                 .filter((point) => point.span !== undefined);
         },
         commonStyle() {
+            const children = this.$slots.default || [];
             const left = this.push ? this.getPercent(this.push) : 'auto';
             const right = this.pull ? this.getPercent(this.pull) : 'auto';
             const marginLeft = this.getPercent(this.offset);
+            this.empty = (children.length === 0);
             return { right, left, marginLeft };
         },
         responsiveStyle() {
@@ -91,5 +94,12 @@ export default {
 .root {
     float: left;
     position: relative;
+}
+
+/* 无子元素的时候背景区域添加默认背景色 */
+.root[empty] .empty {
+    background: #F7F8FA;
+    text-align: center;
+    color: #ccc;
 }
 </style>

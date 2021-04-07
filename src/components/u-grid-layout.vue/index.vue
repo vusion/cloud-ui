@@ -88,4 +88,5 @@ export default {
     padding-left: calc(var(--space-large) / 2);
     padding-right: calc(var(--space-large) / 2);
 }
+
 </style>
