@@ -1,6 +1,7 @@
 <template>
-<div :class="$style.root" :style="[commonStyle, responsiveStyle]">
+<div :class="$style.root" :style="[commonStyle, responsiveStyle]" :empty="!$slots.default">
     <slot></slot>
+    <div v-if="(!$slots.default) && $env.VUE_APP_DESIGNER" :class="$style.empty">+</div>
 </div>
 </template>
 
@@ -24,7 +25,7 @@ export default {
         mediaSmall: Number,
         mediaMedium: Number,
         mediaLarge: Number,
-        mediaHuge: Number,
+        mediaHuge: Number
     },
     data() {
         return { parentVM: this.$parent, currentSpan: this.span };
@@ -91,5 +92,12 @@ export default {
 .root {
     float: left;
     position: relative;
+}
+
+/* 无子元素的时候背景区域添加默认背景色 */
+.root[empty] .empty {
+    background: #F7F8FA;
+    text-align: center;
+    color: #ccc;
 }
 </style>
