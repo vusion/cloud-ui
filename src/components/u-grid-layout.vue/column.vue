@@ -1,7 +1,7 @@
 <template>
-<div :class="$style.root" :style="[commonStyle, responsiveStyle]" :empty="empty">
+<div :class="$style.root" :style="[commonStyle, responsiveStyle]" :empty="!$slots.default">
     <slot></slot>
-    <div v-if="empty && $env.VUE_APP_DESIGNER" :class="$style.empty">+</div>
+    <div v-if="(!$slots.default) && $env.VUE_APP_DESIGNER" :class="$style.empty">+</div>
 </div>
 </template>
 
@@ -28,7 +28,7 @@ export default {
         mediaHuge: Number
     },
     data() {
-        return { parentVM: this.$parent, currentSpan: this.span, empty: true };
+        return { parentVM: this.$parent, currentSpan: this.span };
     },
     computed: {
         stack() {
@@ -41,11 +41,9 @@ export default {
                 .filter((point) => point.span !== undefined);
         },
         commonStyle() {
-            const children = this.$slots.default || [];
             const left = this.push ? this.getPercent(this.push) : 'auto';
             const right = this.pull ? this.getPercent(this.pull) : 'auto';
             const marginLeft = this.getPercent(this.offset);
-            this.empty = (children.length === 0);
             return { right, left, marginLeft };
         },
         responsiveStyle() {
