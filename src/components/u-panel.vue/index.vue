@@ -2,7 +2,7 @@
 <div :class="$style.root">
     <div :class="$style.head">
         <slot name="head">
-            <div v-if="title" :class="$style.title">
+            <div v-if="title" :class="$style.title" vusion-slot-name="title">
                 <slot name="title">{{ title }}</slot>
             </div>
             <a :class="$style.close" @click="cancel()"></a>

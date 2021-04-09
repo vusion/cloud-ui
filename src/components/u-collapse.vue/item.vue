@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root" :disabled="disabled" :expanded="currentExpanded">
     <div :class="$style.head" :expand-trigger="parentVM.expandTrigger" @click="parentVM.expandTrigger === 'click' && toggle()">
-        <span :class="$style.title">
+        <span :class="$style.title" vusion-slot-name="title">
             <slot name="title">{{ title }}</slot>
         </span>
         <span :class="$style.expander"

@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root">
-    <div :class="$style.head" v-if="title">
+    <div :class="$style.head" v-if="title" vusion-slot-name="title">
         {{ title }}
     </div>
     <div :class="$style.body">
