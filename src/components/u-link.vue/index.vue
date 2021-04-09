@@ -4,7 +4,8 @@
     :disabled="currentDisabled" :tabindex="currentDisabled ? -1 : 0"
     :download="download"
     :loading="loading || $attrs.loading"
-    @click="onClick" v-on="listeners">
+    @click="onClick" v-on="listeners"
+    vusion-slot-name="text">
     <slot>{{ text }}</slot>
 </a>
 </template>

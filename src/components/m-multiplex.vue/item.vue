@@ -1,7 +1,8 @@
 <template>
 <div :class="$style.root"
     :selected="currentSelected" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
-    @click="select($event)" v-ellipsis-title>
+    @click="select($event)" v-ellipsis-title
+    vusion-slot-name="text">
     <slot>{{ text }}</slot>
 </div>
 </template>

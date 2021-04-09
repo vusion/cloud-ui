@@ -1,5 +1,5 @@
 <template>
-<span :class="$style.root" v-on="$listeners">
+<span :class="$style.root" v-on="$listeners" vusion-slot-name="text">
     <slot>{{ text }}</slot>
 </span>
 </template>

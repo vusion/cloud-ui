@@ -2,7 +2,8 @@
 <a :class="$style.root"
     :selected="parentVM.router ? active : isSelected" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
     :href="currentHref" :target="target" @click="parentVM.router ? onClick($event) : select($event)" v-on="listeners"
-    v-ellipsis-title>
+    v-ellipsis-title
+    vusion-slot-name="text">
     <slot>{{ text }}</slot>
 </a>
 </template>

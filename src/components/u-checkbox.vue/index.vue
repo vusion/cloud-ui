@@ -3,7 +3,7 @@
     tabindex="0" @keydown.space.prevent @keyup.space.prevent="check()"
     @focus="onFocus" @blur="onBlur" v-on="listeners">
     <span :class="$style.box" :status="String(currentValue)" :disabled="disabled"></span>
-    <slot>{{ text }}</slot>
+    <span vusion-slot-name="text"><slot>{{ text }}</slot></span>
 </label>
 </template>
 

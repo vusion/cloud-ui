@@ -3,7 +3,7 @@
 tabindex="0" @keydown.space.prevent @keyup.space.prevent="select()"
 @focus="onFocus" @blur="onBlur" v-on="listeners">
     <span :class="$style.radio" :selected="selected" :disabled="currentDisabled"></span>
-    <slot>{{ text }}</slot>
+    <span vusion-slot-name="text"><slot>{{ text }}</slot></span>
 </label>
 </template>
 
