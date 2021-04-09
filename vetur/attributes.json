@@ -2982,7 +2982,8 @@
     "description": "百分比范围限制"
   },
   "u-link/text": {
-    "type": "string"
+    "type": "string",
+    "description": "文本内容"
   },
   "u-link/color": {
     "type": "string",
