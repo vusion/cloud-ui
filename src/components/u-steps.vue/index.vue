@@ -3,6 +3,7 @@
     <nav :class="$style.head">
         <a :class="$style.item"
             v-for="(itemVM, index) in itemVMs"
+            ref="item"
             :vusion-scope-id="itemVM.$vnode.context.$options._scopeId"
             :vusion-node-path="itemVM.$attrs['vusion-node-path']"
             :passed="selectedVM && index <= selectedVM.index"
@@ -56,10 +57,12 @@ export default {
                 const value = this.selectedVM ? this.selectedVM.index : this.value;
                 this.selectedVM = undefined;
                 this.watchValue(value);
-                this.$refs.item
+                this.$nextTick(() => {
+                    this.$refs.item
                     && this.$refs.item.forEach((itemEl, index) => {
                         itemEl.__vue__ = itemVMs[index];
                     });
+                });
             },
         },
     },

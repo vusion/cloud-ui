@@ -258,6 +258,10 @@
       title: 值
       type: any
       description: 此项的值
+    - name: text
+      title: 文本
+      type: string
+      description: 此项的显示值
     - name: expanded
       title: 展开折叠状态
       sync: true
