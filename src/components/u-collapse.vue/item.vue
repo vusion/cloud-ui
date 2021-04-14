@@ -76,6 +76,9 @@ export default {
             this.$emit('collapse', {}, this);
             this.parentVM.onItemCollapse(this);
         },
+        designerControl() {
+            this.currentExpanded ? this.collapse() : this.expand();
+        },
         toggle(expanded) {
             if (expanded === undefined)
                 expanded = !this.currentExpanded;

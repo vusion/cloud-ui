@@ -285,6 +285,9 @@ export default {
         toggle(opened) {
             this.$refs.popper && this.$refs.popper.toggle(opened);
         },
+        designerControl() {
+            this.toggle();
+        },
         onOpen($event) {
             this.popperOpened = true; // 刚打开时，除非是没有加载，否则保留上次的 filter 过的数据
             if (this.filterable && !this.currentDataSource.initialLoaded) {

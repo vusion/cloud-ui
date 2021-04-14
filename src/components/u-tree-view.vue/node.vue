@@ -206,6 +206,9 @@ export default {
         reload() {
             this.load();
         },
+        designerControl() {
+            this.toggle();
+        },
         toggle(expanded) {
             if (this.currentDisabled || this.rootVM.readonly)
                 return;
