@@ -3527,7 +3527,7 @@
             "Display"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/i-icon.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"arrow-down\\\"></i-icon>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"arrow-up\\\"></i-icon>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"arrow-down\\\"></i-icon>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"arrow-left\\\"></i-icon>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"arrow-right\\\"></i-icon>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"angle-up\\\"></i-icon>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"angle-down\\\"></i-icon>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"angle-left\\\"></i-icon>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"angle-right\\\"></i-icon>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"close\\\"></i-icon>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"close-solid\\\"></i-icon>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"filter\\\"></i-icon>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"github\\\"></i-icon>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "i-icon",
             "title": "图标",
@@ -3538,7 +3538,62 @@
                 {
                     "title": "基本用法",
                     "description": "",
+                    "code": "<template>\n<i-icon name=\"arrow-up\"></i-icon>\n</template>\n"
+                },
+                {
+                    "title": "基本用法",
+                    "description": "",
                     "code": "<template>\n<i-icon name=\"arrow-down\"></i-icon>\n</template>\n"
+                },
+                {
+                    "title": "基本用法",
+                    "description": "",
+                    "code": "<template>\n<i-icon name=\"arrow-left\"></i-icon>\n</template>\n"
+                },
+                {
+                    "title": "基本用法",
+                    "description": "",
+                    "code": "<template>\n<i-icon name=\"arrow-right\"></i-icon>\n</template>\n"
+                },
+                {
+                    "title": "基本用法",
+                    "description": "",
+                    "code": "<template>\n<i-icon name=\"angle-up\"></i-icon>\n</template>\n"
+                },
+                {
+                    "title": "基本用法",
+                    "description": "",
+                    "code": "<template>\n<i-icon name=\"angle-down\"></i-icon>\n</template>\n"
+                },
+                {
+                    "title": "基本用法",
+                    "description": "",
+                    "code": "<template>\n<i-icon name=\"angle-left\"></i-icon>\n</template>\n"
+                },
+                {
+                    "title": "基本用法",
+                    "description": "",
+                    "code": "<template>\n<i-icon name=\"angle-right\"></i-icon>\n</template>\n"
+                },
+                {
+                    "title": "基本用法",
+                    "description": "",
+                    "code": "<template>\n<i-icon name=\"close\"></i-icon>\n</template>\n"
+                },
+                {
+                    "title": "基本用法",
+                    "description": "",
+                    "code": "<template>\n<i-icon name=\"close-solid\"></i-icon>\n</template>\n"
+                },
+                {
+                    "title": "基本用法",
+                    "description": "",
+                    "code": "<template>\n<i-icon name=\"filter\"></i-icon>\n</template>\n"
+                },
+                {
+                    "title": "基本用法",
+                    "description": "",
+                    "code": "<template>\n<i-icon name=\"github\"></i-icon>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -12720,6 +12775,12 @@
                             "description": "此项的值"
                         },
                         {
+                            "name": "text",
+                            "title": "文本",
+                            "type": "string",
+                            "description": "此项的显示值"
+                        },
+                        {
                             "name": "expanded",
                             "title": "展开折叠状态",
                             "sync": true,
@@ -12895,7 +12956,7 @@
             "Selector"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-transfer.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-transfer.vue/screenshots/1.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"向`data-source`属性中传入`Array<Item>`格式的数组，每个`Item`为这样格式的对象`{ text: string, value: any, disabled: boolean, ... }`。\\n\",\"code\":\"<template>\\n<u-transfer show-head source-title=\\\"左列表\\\" target-title=\\\"右列表\\\"\\n:source=\\\"[{ text: 'SQL', value: 'sql' },{ text: 'JSON', value: 'json' },]\\\" :target=\\\"[{ text: 'CSS', value: 'css' },{ text: 'HTML', value: 'html' },{ text: 'JavaScript', value: 'javascript' },{ text: 'Vue', value: 'vue' },]\\\"></u-transfer>\\n</template>\\n\"},{\"title\":\"自定义内容\",\"description\":\"\",\"code\":\"<template>\\n<u-transfer \\n:source=\\\"[{ text: 'SQL', value: 'sql' },{ text: 'JSON', value: 'json' },]\\\" :target=\\\"[{ text: 'CSS', value: 'css' },{ text: 'HTML', value: 'html' },{ text: 'JavaScript', value: 'javascript' },{ text: 'Vue', value: 'vue' },]\\\"\\nshow-head>\\n    <template #item=\\\"{ item }\\\">\\n        <h3 >{{ item.text }}</h3>\\n        <u-text wrap=\\\"ellipsis\\\">{{ item.text + ' is a specfic language with some features that ...' }}</u-text>\\n    </template>\\n</u-transfer>\\n\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"向`data-source`属性中传入`Array<Item>`格式的数组，每个`Item`为这样格式的对象`{ text: string, value: any, disabled: boolean, ... }`。\\n\",\"code\":\"<template>\\n<u-transfer show-head source-title=\\\"左列表\\\" target-title=\\\"右列表\\\"\\n:source=\\\"[{ text: 'SQL', value: 'sql' },{ text: 'JSON', value: 'json' },]\\\" :target=\\\"[{ text: 'CSS', value: 'css' },{ text: 'HTML', value: 'html' },{ text: 'JavaScript', value: 'javascript' },{ text: 'Vue', value: 'vue' },]\\\"></u-transfer>\\n</template>\\n\"},{\"title\":\"自定义内容\",\"description\":\"\",\"code\":\"<template>\\n<u-transfer \\n:source=\\\"[{ text: 'SQL', value: 'sql' },{ text: 'JSON', value: 'json' },]\\\" :target=\\\"[{ text: 'CSS', value: 'css' },{ text: 'HTML', value: 'html' },{ text: 'JavaScript', value: 'javascript' },{ text: 'Vue', value: 'vue' },]\\\"\\nshow-head>\\n    <template #item=\\\"{ item }\\\">\\n        <h3 ><u-text :text=\\\"item.text\\\" wrap=\\\"ellipsis\\\"></u-text></h3>\\n        <div><u-text :text=\\\"item.text\\\" wrap=\\\"ellipsis\\\"></u-text> is a specfic language with some features that ...</div>\\n    </template>\\n</u-transfer>\\n\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-transfer",
             "title": "穿梭框",
@@ -12911,7 +12972,7 @@
                 {
                     "title": "自定义内容",
                     "description": "",
-                    "code": "<template>\n<u-transfer \n:source=\"[{ text: 'SQL', value: 'sql' },{ text: 'JSON', value: 'json' },]\" :target=\"[{ text: 'CSS', value: 'css' },{ text: 'HTML', value: 'html' },{ text: 'JavaScript', value: 'javascript' },{ text: 'Vue', value: 'vue' },]\"\nshow-head>\n    <template #item=\"{ item }\">\n        <h3 >{{ item.text }}</h3>\n        <u-text wrap=\"ellipsis\">{{ item.text + ' is a specfic language with some features that ...' }}</u-text>\n    </template>\n</u-transfer>\n\n</template>\n"
+                    "code": "<template>\n<u-transfer \n:source=\"[{ text: 'SQL', value: 'sql' },{ text: 'JSON', value: 'json' },]\" :target=\"[{ text: 'CSS', value: 'css' },{ text: 'HTML', value: 'html' },{ text: 'JavaScript', value: 'javascript' },{ text: 'Vue', value: 'vue' },]\"\nshow-head>\n    <template #item=\"{ item }\">\n        <h3 ><u-text :text=\"item.text\" wrap=\"ellipsis\"></u-text></h3>\n        <div><u-text :text=\"item.text\" wrap=\"ellipsis\"></u-text> is a specfic language with some features that ...</div>\n    </template>\n</u-transfer>\n\n</template>\n"
                 }
             ],
             "attrs": [
