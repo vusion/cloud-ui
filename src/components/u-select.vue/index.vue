@@ -285,7 +285,7 @@ export default {
         toggle(opened) {
             this.$refs.popper && this.$refs.popper.toggle(opened);
         },
-        designerControl() {
+        designerDbControl() {
             this.toggle();
         },
         onOpen($event) {
