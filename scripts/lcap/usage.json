@@ -4520,7 +4520,7 @@
             "Table"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-table-view.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"普通数据表格\",\"description\":\"\",\"code\":\"<template>\\n<u-table-view :data-source=\\\"[{name: '张三', phone: '13000000000', address: '浙江省杭州市滨江区'}]\\\">\\n    <u-table-view-column title=\\\"用户名\\\" width=\\\"20%\\\">\\n        <template #cell=\\\"{item}\\\">\\n            {{ item.name }}\\n        </template>\\n    </u-table-view-column>\\n    <u-table-view-column title=\\\"手机号码\\\" width=\\\"20%\\\">\\n        <template #cell=\\\"{item}\\\">\\n            {{ item.phone }}\\n        </template>\\n    </u-table-view-column>\\n    <u-table-view-column title=\\\"地址\\\" >\\n        <template #cell=\\\"{item}\\\">\\n            {{ item.address }}\\n        </template>\\n    </u-table-view-column>\\n</u-table-view>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"普通数据表格\",\"description\":\"\",\"code\":\"<template>\\n<u-table-view :data-source=\\\"[{name: '张三', phone: '13000000000', address: '浙江省杭州市滨江区'}]\\\">\\n    <u-table-view-column title=\\\"用户名\\\" width=\\\"20%\\\">\\n        <template #cell=\\\"scope\\\">\\n            {{ scope.item.name }}\\n        </template>\\n    </u-table-view-column>\\n    <u-table-view-column title=\\\"手机号码\\\" width=\\\"20%\\\">\\n        <template #cell=\\\"scope\\\">\\n            {{ scope.item.phone }}\\n        </template>\\n    </u-table-view-column>\\n    <u-table-view-column title=\\\"地址\\\" >\\n        <template #cell=\\\"scope\\\">\\n            {{ scope.item.address }}\\n        </template>\\n    </u-table-view-column>\\n</u-table-view>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-table-view",
             "title": "数据表格",
@@ -4531,7 +4531,7 @@
                 {
                     "title": "普通数据表格",
                     "description": "",
-                    "code": "<template>\n<u-table-view :data-source=\"[{name: '张三', phone: '13000000000', address: '浙江省杭州市滨江区'}]\">\n    <u-table-view-column title=\"用户名\" width=\"20%\">\n        <template #cell=\"{item}\">\n            {{ item.name }}\n        </template>\n    </u-table-view-column>\n    <u-table-view-column title=\"手机号码\" width=\"20%\">\n        <template #cell=\"{item}\">\n            {{ item.phone }}\n        </template>\n    </u-table-view-column>\n    <u-table-view-column title=\"地址\" >\n        <template #cell=\"{item}\">\n            {{ item.address }}\n        </template>\n    </u-table-view-column>\n</u-table-view>\n</template>\n"
+                    "code": "<template>\n<u-table-view :data-source=\"[{name: '张三', phone: '13000000000', address: '浙江省杭州市滨江区'}]\">\n    <u-table-view-column title=\"用户名\" width=\"20%\">\n        <template #cell=\"scope\">\n            {{ scope.item.name }}\n        </template>\n    </u-table-view-column>\n    <u-table-view-column title=\"手机号码\" width=\"20%\">\n        <template #cell=\"scope\">\n            {{ scope.item.phone }}\n        </template>\n    </u-table-view-column>\n    <u-table-view-column title=\"地址\" >\n        <template #cell=\"scope\">\n            {{ scope.item.address }}\n        </template>\n    </u-table-view-column>\n</u-table-view>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -6102,6 +6102,550 @@
                     ]
                 }
             ]
+        }
+    },
+    {
+        "symbol": "u-list-view",
+        "name": "列表视图",
+        "depDescription": {},
+        "description": "用于列举大量数据的列表框，支持单选、多选、过滤（搜索）、分页等功能。",
+        "labels": [
+            "Table"
+        ],
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-list-view.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-list-view.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-list-view.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-list-view.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-list-view.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-list-view.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-list-view.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-list-view.vue/screenshots/7.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-list-view.vue/screenshots/8.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-list-view.vue/screenshots/9.png",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-list-view>\\n    <u-list-view-item>水杯</u-list-view-item>\\n    <u-list-view-item>坚果</u-list-view-item>\\n    <u-list-view-item>毛巾</u-list-view-item>\\n    <u-list-view-item>沙发</u-list-view-item>\\n</u-list-view>\\n</template>\\n\"},{\"title\":\"自定义\",\"description\":\"\",\"code\":\"<template>\\n<u-list-view show-head title=\\\"单选列表\\\" :data-source=\\\"list\\\">\\n\\t\\t<template #item=\\\"scope\\\">\\n\\t\\t\\t\\t<h3 :class=\\\"$style.title\\\"><u-text :text=\\\"scope.item.text\\\"></u-text></h3>\\n\\t\\t\\t\\t<u-text :text=\\\"scope.item.text\\\" wrap=\\\"ellipsis\\\">is a specfic language with some features that ...</u-text>\\n\\t\\t</template>\\n</u-list-view>\\n</template>\\n\"},{\"title\":\"禁用\",\"description\":\"\",\"code\":\"<template>\\n<u-list-view value=\\\"towel\\\" disabled>\\n\\t\\t<u-list-view-item value=\\\"cup\\\">水杯</u-list-view-item>\\n\\t\\t<u-list-view-item value=\\\"nut\\\">坚果</u-list-view-item>\\n\\t\\t<u-list-view-item value=\\\"towel\\\">毛巾</u-list-view-item>\\n\\t\\t<u-list-view-item value=\\\"sofa\\\">沙发</u-list-view-item>\\n</u-list-view>\\n</template>\\n\"},{\"title\":\"分隔符\",\"description\":\"\",\"code\":\"<template>\\n<u-list-view value=\\\"nut\\\">\\n    <u-list-view-item value=\\\"cup\\\">水杯</u-list-view-item>\\n    <u-list-view-item value=\\\"toothbrush\\\">牙刷</u-list-view-item>\\n    <u-list-view-divider></u-list-view-divider>\\n    <u-list-view-item value=\\\"nut\\\">坚果</u-list-view-item>\\n    <u-list-view-item value=\\\"towel\\\">毛巾</u-list-view-item>\\n    <u-list-view-item value=\\\"sofa\\\">沙发</u-list-view-item>\\n</u-list-view>\\n</template>\\n\"},{\"title\":\"分组\",\"description\":\"\",\"code\":\"<template>\\n<u-list-view>\\n\\t\\t<u-list-view-group title=\\\"洗具\\\">\\n\\t\\t\\t\\t<u-list-view-item>毛巾</u-list-view-item>\\n\\t\\t\\t\\t<u-list-view-item>牙刷</u-list-view-item>\\n\\t\\t</u-list-view-group>\\n\\t\\t<u-list-view-group title=\\\"杯具\\\">\\n\\t\\t\\t\\t<u-list-view-item>牙缸</u-list-view-item>\\n\\t\\t\\t\\t<u-list-view-item>水杯</u-list-view-item>\\n\\t\\t</u-list-view-group>\\n\\t\\t<u-list-view-group title=\\\"餐具\\\">\\n\\t\\t\\t\\t<u-list-view-item>筷子</u-list-view-item>\\n\\t\\t\\t\\t<u-list-view-item>碗</u-list-view-item>\\n\\t\\t</u-list-view-group>\\n</u-list-view>\\n</template>\\n\"},{\"title\":\"可取消\",\"description\":\"\",\"code\":\"<template>\\n<u-list-view value=\\\"towel\\\" cancelable>\\n    <u-list-view-item value=\\\"cup\\\">水杯</u-list-view-item>\\n    <u-list-view-item value=\\\"nut\\\">坚果</u-list-view-item>\\n    <u-list-view-item value=\\\"towel\\\">毛巾</u-list-view-item>\\n    <u-list-view-item value=\\\"sofa\\\">沙发</u-list-view-item>\\n</u-list-view>\\n</template>\\n\"}]",
+        "jsonSchema": {
+            "name": "u-list-view",
+            "title": "列表视图",
+            "description": "用于列举大量数据的列表框，支持单选、多选、过滤（搜索）、分页等功能。",
+            "category": "Table",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-list-view.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-list-view.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-list-view.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-list-view.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-list-view.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-list-view.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-list-view.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-list-view.vue/screenshots/7.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-list-view.vue/screenshots/8.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-list-view.vue/screenshots/9.png",
+            "blocks": [
+                {
+                    "title": "基本用法",
+                    "description": "",
+                    "code": "<template>\n<u-list-view>\n    <u-list-view-item>水杯</u-list-view-item>\n    <u-list-view-item>坚果</u-list-view-item>\n    <u-list-view-item>毛巾</u-list-view-item>\n    <u-list-view-item>沙发</u-list-view-item>\n</u-list-view>\n</template>\n"
+                },
+                {
+                    "title": "自定义",
+                    "description": "",
+                    "code": "<template>\n<u-list-view show-head title=\"单选列表\" :data-source=\"list\">\n\t\t<template #item=\"scope\">\n\t\t\t\t<h3 :class=\"$style.title\"><u-text :text=\"scope.item.text\"></u-text></h3>\n\t\t\t\t<u-text :text=\"scope.item.text\" wrap=\"ellipsis\">is a specfic language with some features that ...</u-text>\n\t\t</template>\n</u-list-view>\n</template>\n"
+                },
+                {
+                    "title": "禁用",
+                    "description": "",
+                    "code": "<template>\n<u-list-view value=\"towel\" disabled>\n\t\t<u-list-view-item value=\"cup\">水杯</u-list-view-item>\n\t\t<u-list-view-item value=\"nut\">坚果</u-list-view-item>\n\t\t<u-list-view-item value=\"towel\">毛巾</u-list-view-item>\n\t\t<u-list-view-item value=\"sofa\">沙发</u-list-view-item>\n</u-list-view>\n</template>\n"
+                },
+                {
+                    "title": "分隔符",
+                    "description": "",
+                    "code": "<template>\n<u-list-view value=\"nut\">\n    <u-list-view-item value=\"cup\">水杯</u-list-view-item>\n    <u-list-view-item value=\"toothbrush\">牙刷</u-list-view-item>\n    <u-list-view-divider></u-list-view-divider>\n    <u-list-view-item value=\"nut\">坚果</u-list-view-item>\n    <u-list-view-item value=\"towel\">毛巾</u-list-view-item>\n    <u-list-view-item value=\"sofa\">沙发</u-list-view-item>\n</u-list-view>\n</template>\n"
+                },
+                {
+                    "title": "分组",
+                    "description": "",
+                    "code": "<template>\n<u-list-view>\n\t\t<u-list-view-group title=\"洗具\">\n\t\t\t\t<u-list-view-item>毛巾</u-list-view-item>\n\t\t\t\t<u-list-view-item>牙刷</u-list-view-item>\n\t\t</u-list-view-group>\n\t\t<u-list-view-group title=\"杯具\">\n\t\t\t\t<u-list-view-item>牙缸</u-list-view-item>\n\t\t\t\t<u-list-view-item>水杯</u-list-view-item>\n\t\t</u-list-view-group>\n\t\t<u-list-view-group title=\"餐具\">\n\t\t\t\t<u-list-view-item>筷子</u-list-view-item>\n\t\t\t\t<u-list-view-item>碗</u-list-view-item>\n\t\t</u-list-view-group>\n</u-list-view>\n</template>\n"
+                },
+                {
+                    "title": "可取消",
+                    "description": "",
+                    "code": "<template>\n<u-list-view value=\"towel\" cancelable>\n    <u-list-view-item value=\"cup\">水杯</u-list-view-item>\n    <u-list-view-item value=\"nut\">坚果</u-list-view-item>\n    <u-list-view-item value=\"towel\">毛巾</u-list-view-item>\n    <u-list-view-item value=\"sofa\">沙发</u-list-view-item>\n</u-list-view>\n</template>\n"
+                }
+            ],
+            "attrs": [
+                {
+                    "name": "value",
+                    "sync": true,
+                    "model": true,
+                    "type": "any",
+                    "default": null,
+                    "description": "当前选择的值"
+                },
+                {
+                    "name": "text-field",
+                    "type": "string",
+                    "default": "text",
+                    "description": "选项文本的字段名"
+                },
+                {
+                    "name": "value-field",
+                    "type": "string",
+                    "default": "value",
+                    "description": "选项值的字段名"
+                },
+                {
+                    "name": "data",
+                    "type": "Array<{ text, value }>",
+                    "default": null,
+                    "description": "列表数据"
+                },
+                {
+                    "name": "data-source",
+                    "type": "object, Function, DataSource",
+                    "default": null,
+                    "description": "多功能数据源"
+                },
+                {
+                    "name": "cancelable",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否可以取消选择"
+                },
+                {
+                    "name": "multiple",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否可以多选"
+                },
+                {
+                    "name": "show-head",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否显示头部"
+                },
+                {
+                    "name": "title",
+                    "type": "string",
+                    "default": "列表",
+                    "description": "列表标题"
+                },
+                {
+                    "name": "show-foot",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否显示尾部"
+                },
+                {
+                    "name": "loading-text",
+                    "type": "string",
+                    "default": "加载中...",
+                    "description": "加载时的文字。使用分页加载时才会出现"
+                },
+                {
+                    "name": "initial-load",
+                    "type": "boolean",
+                    "default": true,
+                    "description": "是否在初始时立即加载"
+                },
+                {
+                    "name": "filterable",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否可以过滤（搜索），开启将会显示搜索框。"
+                },
+                {
+                    "name": "placeholder",
+                    "type": "string",
+                    "default": "请输入",
+                    "description": "搜索框的占位符"
+                },
+                {
+                    "name": "clearable",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "搜索框是否有清除按钮"
+                },
+                {
+                    "name": "match-method",
+                    "type": "string, Function",
+                    "default": "includes",
+                    "description": "过滤时的匹配方法"
+                },
+                {
+                    "name": "case-sensitive",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "过滤时大小写是否敏感"
+                },
+                {
+                    "name": "remote-filtering",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否使用后端过滤"
+                },
+                {
+                    "name": "pageable",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否需要分页"
+                },
+                {
+                    "name": "page-size",
+                    "type": "number",
+                    "default": 50,
+                    "description": "分页大小"
+                },
+                {
+                    "name": "remote-paging",
+                    "type": "number",
+                    "default": false,
+                    "description": "是否使用后端分页"
+                },
+                {
+                    "name": "readonly",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否只读"
+                },
+                {
+                    "name": "disabled",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否禁用"
+                },
+                {
+                    "name": "size",
+                    "type": "string",
+                    "default": "normal",
+                    "options": [
+                        {
+                            "value": "normal",
+                            "title": "正常"
+                        },
+                        {
+                            "value": "large",
+                            "title": "大"
+                        },
+                        {
+                            "value": "huge",
+                            "title": "巨大"
+                        },
+                        {
+                            "value": "auto",
+                            "title": "自适应"
+                        },
+                        {
+                            "value": "full",
+                            "title": "占满"
+                        }
+                    ],
+                    "description": "设置尺寸。五种宽高的自由组合。"
+                }
+            ],
+            "slots": [
+                {
+                    "name": "default",
+                    "description": "插入文本或 HTML"
+                },
+                {
+                    "name": "item",
+                    "description": "自定义选项的结构和样式"
+                }
+            ],
+            "methods": [
+                {
+                    "name": "load",
+                    "description": "带缓存地加载",
+                    "params": []
+                },
+                {
+                    "name": "reload",
+                    "description": "清除缓存，重新加载",
+                    "params": []
+                }
+            ],
+            "events": [
+                {
+                    "name": "before-select",
+                    "description": "选择某一项前触发",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.value",
+                            "type": "any",
+                            "description": "选择项的值"
+                        },
+                        {
+                            "name": "$event.oldValue",
+                            "type": "any",
+                            "description": "旧的值"
+                        },
+                        {
+                            "name": "$event.item",
+                            "type": "object",
+                            "description": "选择项相关对象"
+                        },
+                        {
+                            "name": "$event.itemVM",
+                            "type": "UListViewItem",
+                            "description": "选择项子组件"
+                        },
+                        {
+                            "name": "$event.preventDefault",
+                            "type": "Function",
+                            "description": "阻止选择流程"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UListView",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
+                {
+                    "name": "input",
+                    "description": "选择某一项时触发",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "any",
+                            "description": "选择项的值",
+                            "schema": {
+                                "$ref": "#/basicTypes/String"
+                            }
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UListView",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
+                {
+                    "name": "select",
+                    "description": "选择某一项时触发。单选模式中：",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.value",
+                            "type": "any",
+                            "description": "改变后的值"
+                        },
+                        {
+                            "name": "$event.oldValue",
+                            "type": "any",
+                            "description": "旧的值"
+                        },
+                        {
+                            "name": "$event.item",
+                            "type": "object",
+                            "description": "选择项相关对象"
+                        },
+                        {
+                            "name": "$event.oldItem",
+                            "type": "object",
+                            "description": "旧的选择项相关对象"
+                        },
+                        {
+                            "name": "$event.itemVM",
+                            "type": "UListViewItem",
+                            "description": "选择项子组件"
+                        },
+                        {
+                            "name": "$event.oldVM",
+                            "type": "UListViewItem",
+                            "description": "旧的选择项子组件"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UListView",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
+                {
+                    "name": "select",
+                    "description": "选择某一项时触发。多选模式中：",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemsEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.selected",
+                            "type": "boolean",
+                            "description": "选中还是取消"
+                        },
+                        {
+                            "name": "$event.item",
+                            "type": "object",
+                            "description": "该选中项相关对象"
+                        },
+                        {
+                            "name": "$event.itemVM",
+                            "type": "object",
+                            "description": "该选中项子组件"
+                        },
+                        {
+                            "name": "$event.value",
+                            "type": "Array",
+                            "description": "改变后的值"
+                        },
+                        {
+                            "name": "$event.oldValue",
+                            "type": "Array",
+                            "description": "旧的值"
+                        },
+                        {
+                            "name": "$event.items",
+                            "type": "Array<object>",
+                            "description": "所有选中项相关对象的数组"
+                        },
+                        {
+                            "name": "$event.oldItems",
+                            "type": "Array<object>",
+                            "description": "旧的所有选中项相关对象的数组"
+                        },
+                        {
+                            "name": "$event.itemVMs",
+                            "type": "Array<UListViewItem>",
+                            "description": "所有选中项子组件的数组"
+                        },
+                        {
+                            "name": "$event.oldVMs",
+                            "type": "Array<UListViewItem>",
+                            "description": "旧的所有选中项子组件的数组"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UListView",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
+                {
+                    "name": "change",
+                    "description": "选择值改变时触发。单选模式中：",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.value",
+                            "type": "any",
+                            "description": "选择项的值"
+                        },
+                        {
+                            "name": "$event.oldValue",
+                            "type": "any",
+                            "description": "旧的值"
+                        },
+                        {
+                            "name": "$event.item",
+                            "type": "object",
+                            "description": "选择项相关对象"
+                        },
+                        {
+                            "name": "$event.oldItem",
+                            "type": "object",
+                            "description": "旧的选择项相关对象"
+                        },
+                        {
+                            "name": "$event.itemVM",
+                            "type": "UListViewItem",
+                            "description": "选择项子组件"
+                        },
+                        {
+                            "name": "$event.oldVM",
+                            "type": "UListViewItem",
+                            "description": "旧的选择项子组件"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UListView",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
+                {
+                    "name": "change",
+                    "description": "选择值改变时触发。多选模式中：",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.value",
+                            "type": "Array",
+                            "description": "所有选中项的值"
+                        },
+                        {
+                            "name": "$event.items",
+                            "type": "Array<object>",
+                            "description": "所有选中项相关对象的数组"
+                        },
+                        {
+                            "name": "$event.itemVMs",
+                            "type": "Array<UListViewItem>",
+                            "description": "所有选中项子组件的数组"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UListView",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
+                {
+                    "name": "before-load",
+                    "description": "加载前触发",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/EventTarget"
+                            }
+                        },
+                        {
+                            "name": "$event.preventDefault",
+                            "type": "Function",
+                            "description": "阻止加载流程"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UTableView",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
+                {
+                    "name": "load",
+                    "description": "加载时触发",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "",
+                            "description": "空"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UTableView",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                }
+            ],
+            "children": []
         }
     },
     {
@@ -12956,7 +13500,7 @@
             "Selector"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-transfer.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.32/src/components/u-transfer.vue/screenshots/1.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"向`data-source`属性中传入`Array<Item>`格式的数组，每个`Item`为这样格式的对象`{ text: string, value: any, disabled: boolean, ... }`。\\n\",\"code\":\"<template>\\n<u-transfer show-head source-title=\\\"左列表\\\" target-title=\\\"右列表\\\"\\n:source=\\\"[{ text: 'SQL', value: 'sql' },{ text: 'JSON', value: 'json' },]\\\" :target=\\\"[{ text: 'CSS', value: 'css' },{ text: 'HTML', value: 'html' },{ text: 'JavaScript', value: 'javascript' },{ text: 'Vue', value: 'vue' },]\\\"></u-transfer>\\n</template>\\n\"},{\"title\":\"自定义内容\",\"description\":\"\",\"code\":\"<template>\\n<u-transfer \\n:source=\\\"[{ text: 'SQL', value: 'sql' },{ text: 'JSON', value: 'json' },]\\\" :target=\\\"[{ text: 'CSS', value: 'css' },{ text: 'HTML', value: 'html' },{ text: 'JavaScript', value: 'javascript' },{ text: 'Vue', value: 'vue' },]\\\"\\nshow-head>\\n    <template #item=\\\"{ item }\\\">\\n        <h3 ><u-text :text=\\\"item.text\\\" wrap=\\\"ellipsis\\\"></u-text></h3>\\n        <div><u-text :text=\\\"item.text\\\" wrap=\\\"ellipsis\\\"></u-text> is a specfic language with some features that ...</div>\\n    </template>\\n</u-transfer>\\n\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"向`data-source`属性中传入`Array<Item>`格式的数组，每个`Item`为这样格式的对象`{ text: string, value: any, disabled: boolean, ... }`。\\n\",\"code\":\"<template>\\n<u-transfer show-head source-title=\\\"左列表\\\" target-title=\\\"右列表\\\"\\n:source=\\\"[{ text: 'SQL', value: 'sql' },{ text: 'JSON', value: 'json' },]\\\" :target=\\\"[{ text: 'CSS', value: 'css' },{ text: 'HTML', value: 'html' },{ text: 'JavaScript', value: 'javascript' },{ text: 'Vue', value: 'vue' },]\\\"></u-transfer>\\n</template>\\n\"},{\"title\":\"自定义内容\",\"description\":\"\",\"code\":\"<template>\\n<u-transfer \\n:source=\\\"[{ text: 'SQL', value: 'sql' },{ text: 'JSON', value: 'json' },]\\\" :target=\\\"[{ text: 'CSS', value: 'css' },{ text: 'HTML', value: 'html' },{ text: 'JavaScript', value: 'javascript' },{ text: 'Vue', value: 'vue' },]\\\"\\nshow-head>\\n    <template #item=\\\"scope\\\">\\n        <h3 ><u-text :text=\\\"scope.item.text\\\" wrap=\\\"ellipsis\\\"></u-text></h3>\\n        <div><u-text :text=\\\"scope.item.text\\\" wrap=\\\"ellipsis\\\"></u-text> is a specfic language with some features that ...</div>\\n    </template>\\n</u-transfer>\\n\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-transfer",
             "title": "穿梭框",
@@ -12972,7 +13516,7 @@
                 {
                     "title": "自定义内容",
                     "description": "",
-                    "code": "<template>\n<u-transfer \n:source=\"[{ text: 'SQL', value: 'sql' },{ text: 'JSON', value: 'json' },]\" :target=\"[{ text: 'CSS', value: 'css' },{ text: 'HTML', value: 'html' },{ text: 'JavaScript', value: 'javascript' },{ text: 'Vue', value: 'vue' },]\"\nshow-head>\n    <template #item=\"{ item }\">\n        <h3 ><u-text :text=\"item.text\" wrap=\"ellipsis\"></u-text></h3>\n        <div><u-text :text=\"item.text\" wrap=\"ellipsis\"></u-text> is a specfic language with some features that ...</div>\n    </template>\n</u-transfer>\n\n</template>\n"
+                    "code": "<template>\n<u-transfer \n:source=\"[{ text: 'SQL', value: 'sql' },{ text: 'JSON', value: 'json' },]\" :target=\"[{ text: 'CSS', value: 'css' },{ text: 'HTML', value: 'html' },{ text: 'JavaScript', value: 'javascript' },{ text: 'Vue', value: 'vue' },]\"\nshow-head>\n    <template #item=\"scope\">\n        <h3 ><u-text :text=\"scope.item.text\" wrap=\"ellipsis\"></u-text></h3>\n        <div><u-text :text=\"scope.item.text\" wrap=\"ellipsis\"></u-text> is a specfic language with some features that ...</div>\n    </template>\n</u-transfer>\n\n</template>\n"
                 }
             ],
             "attrs": [
