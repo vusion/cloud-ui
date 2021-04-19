@@ -350,6 +350,9 @@ export default {
             this.$emit('update:opened', false, this); // Emit `after-` events
             // this.$emit('close', undefined, this);
         },
+        designerControl() {
+            this.toggle();
+        },
         toggle(opened) {
             // Method overloading
             if (opened === undefined)
