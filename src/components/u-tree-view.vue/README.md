@@ -778,6 +778,7 @@ Methods
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value | any |  |  | 此项的值 |
+| text | string |  |  | 此项的显示值 |
 | expanded.sync | boolean |  |  | 展开/折叠状态 |
 | checked.sync | boolean |  |  | 选中/取消状态 |
 | disabled | boolean |  | `false` | 禁用此项 |

@@ -22,6 +22,8 @@
     - [Events](#events)
     - [Methods](#methods)
 
+**Table**
+
 用于列举大量数据的列表框，支持单选、多选、过滤（搜索）、分页等功能。
 
 ## 示例
