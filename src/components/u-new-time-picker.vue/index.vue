@@ -73,10 +73,12 @@ export default {
         close() {
             this.$refs.popper && this.$refs.popper.close();
         },
+        designerControl() {
+            this.toggle();
+        },
         toggle(opened) {
             this.$refs.popper && this.$refs.popper.toggle(opened);
         },
-
         focus() {
             this.$refs.input.focus();
         },
