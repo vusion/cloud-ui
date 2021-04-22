@@ -5520,6 +5520,10 @@
     "type": "any",
     "description": "此项的值"
   },
+  "u-tree-view-node/text": {
+    "type": "string",
+    "description": "此项的显示值"
+  },
   "u-tree-view-node/expanded": {
     "type": "boolean",
     "description": "展开/折叠状态"

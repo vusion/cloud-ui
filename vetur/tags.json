@@ -1648,6 +1648,7 @@
   "u-tree-view-node": {
     "attributes": [
       "value",
+      "text",
       "expanded",
       "checked",
       "disabled",

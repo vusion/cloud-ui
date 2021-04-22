@@ -1,8 +1,6 @@
 module.exports = [
     { group: 'Container', show: true, name: 'u-router-view', alias: '子页面容器' },
     { group: 'Container', show: true, name: 'u-iframe', alias: 'iFrame' },
-    { group: 'Container', show: true, name: 'u-for', alias: '循环渲染' },
-    { group: 'Container', show: true, name: 'u-if', alias: '条件渲染' },
     { group: 'Layout', show: true, name: 'u-linear-layout', alias: '线性布局', vscode: false },
     { group: 'Layout', show: true, name: 'u-grid-layout', alias: '栅格布局', vscode: false },
     { group: 'Layout', show: true, name: 'u-navbar', alias: '导航栏' },
@@ -56,8 +54,6 @@ module.exports = [
     { group: 'Chart', show: true, name: 'u-circular-progress', alias: '圆型进度条' },
 
     { group: 'Feedback', show: true, name: 'u-popup', alias: '弹出框' },
-    { group: 'Feedback', show: true, name: 'u-tooltip', alias: '工具提示' },
-    { group: 'Feedback', show: true, name: 'u-toast', alias: '吐司提示' },
     { group: 'Feedback', show: true, name: 'u-modal', alias: '弹窗' },
 
     { group: 'Effects', show: true, name: 'e-watermark', alias: '水印' },

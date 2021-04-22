@@ -4,16 +4,6 @@
 <u-time-picker time="15:46:33"></u-time-picker>
 ```
 
-### 只读
-``` html
-    <u-time-picker time="15:46:33" readonly="readonly"></u-time-picker>
-```
-
-### 只读和禁用
-``` html
-    <u-time-picker time="15:46:33" disabled="disabled"></u-time-picker>
-```
-
 ### 日期范围
 ``` html
 <u-time-picker time="15:46:33" min-time="12:30:00" max-time="14:45:00"></u-time-picker>

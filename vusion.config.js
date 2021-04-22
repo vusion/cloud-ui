@@ -143,6 +143,7 @@ module.exports = {
             { group: 'Layout', name: 'l-page', alias: '通用页面布局' },
             { group: 'Layout', name: 'l-side-main', alias: '左侧栏固定布局' },
             { group: 'Layout', name: 'l-wrapper', alias: '透传页' },
+            { group: 'Layout', name: 'l-root', alias: '界面根节点' },
         ],
     },
 };
