@@ -8,14 +8,14 @@
         "labels": [
             "Container"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-router-view.vue/screenshots/0.png",
+        "screenShot": "",
         "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-router-view></u-router-view>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-router-view",
             "title": "子页面容器",
             "description": "放置子页面的容器。",
             "category": "Container",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-router-view.vue/screenshots/0.png",
+            "screenShot": "",
             "blocks": [
                 {
                     "title": "基本用法",
@@ -66,111 +66,6 @@
                     "title": "加载完成",
                     "description": "网页加载完成时触发",
                     "params": []
-                }
-            ],
-            "children": []
-        }
-    },
-    {
-        "symbol": "u-for",
-        "name": "循环渲染",
-        "icon": "for",
-        "depDescription": {},
-        "description": "用于对数组类型的数据结构循环展示",
-        "labels": [
-            "Container"
-        ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-for.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基础示例\",\"description\":\"\",\"code\":\"<template>\\n<u-for :data=\\\"[1,2,3]\\\">\\n    <template slot-scope=\\\"{item, index}\\\">\\n        <u-text display=\\\"block\\\" :text=\\\"'序号:' + index + ', 值:' + item\\\"> </u-text>\\n    </template>\\n</u-for>\\n</template>\\n\"}]",
-        "jsonSchema": {
-            "name": "u-for",
-            "title": "循环渲染",
-            "description": "用于对数组类型的数据结构循环展示",
-            "category": "Container",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-for.vue/screenshots/0.png",
-            "blocks": [
-                {
-                    "title": "基础示例",
-                    "description": "",
-                    "code": "<template>\n<u-for :data=\"[1,2,3]\">\n    <template slot-scope=\"{item, index}\">\n        <u-text display=\"block\" :text=\"'序号:' + index + ', 值:' + item\"> </u-text>\n    </template>\n</u-for>\n</template>\n"
-                }
-            ],
-            "attrs": [
-                {
-                    "name": "data",
-                    "title": "数据",
-                    "description": "待渲染数据",
-                    "required": true,
-                    "type": "array"
-                }
-            ],
-            "slots": [
-                {
-                    "name": "default",
-                    "description": "待循环渲染的项",
-                    "title": "渲染项",
-                    "props": [
-                        {
-                            "name": "item",
-                            "title": "当前项",
-                            "type": "object",
-                            "description": "循环中的当前项。"
-                        },
-                        {
-                            "name": "index",
-                            "title": "列实例",
-                            "type": "string",
-                            "description": "该列组件实例。"
-                        }
-                    ]
-                }
-            ],
-            "children": []
-        }
-    },
-    {
-        "symbol": "u-if",
-        "name": "条件渲染",
-        "icon": "if",
-        "depDescription": {},
-        "description": "用于按照条件展示内容",
-        "labels": [
-            "Container"
-        ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-if.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基础示例\",\"description\":\"\",\"code\":\"<template>\\n<u-if :check=\\\"true\\\">\\n    <template #True>\\n        <u-text text=\\\"成功\\\"></u-text>\\n    </template>\\n    <template #False>\\n        <u-text text=\\\"失败\\\"></u-text>\\n    </template>\\n</u-if>\\n</template>\\n\"}]",
-        "jsonSchema": {
-            "name": "u-if",
-            "title": "条件渲染",
-            "description": "用于按照条件展示内容",
-            "category": "Container",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-if.vue/screenshots/0.png",
-            "blocks": [
-                {
-                    "title": "基础示例",
-                    "description": "",
-                    "code": "<template>\n<u-if :check=\"true\">\n    <template #True>\n        <u-text text=\"成功\"></u-text>\n    </template>\n    <template #False>\n        <u-text text=\"失败\"></u-text>\n    </template>\n</u-if>\n</template>\n"
-                }
-            ],
-            "attrs": [
-                {
-                    "name": "check",
-                    "title": "判断条件",
-                    "description": "判断条件",
-                    "required": true,
-                    "type": "boolean"
-                }
-            ],
-            "slots": [
-                {
-                    "name": "True",
-                    "description": "当判断条件为 true 时显示",
-                    "title": "True 渲染项"
-                },
-                {
-                    "name": "False",
-                    "description": "当判断条件为 false 时显示",
-                    "title": "False 渲染项"
                 }
             ],
             "children": []
@@ -4368,7 +4263,7 @@
             "Display"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-html.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-html.vue/screenshots/1.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-html html=\\\"<a href='https://www.163yun.com' target='_blank' >html 元素</a><img src='' onerror='alert(4)'>\\\"></u-html>\\n</template>\\n\"},{\"title\":\"不使用安全过滤\",\"description\":\"\",\"code\":\"<template>\\n<template>\\n<u-html html=\\\"<a href='https://www.163yun.com' target='_blank' >html 元素</a><img src='' onerror='console.log(1)'>\\\" :security=\\\"false\\\"></u-html>\\n</template>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-html html=\\\"<a href='https://www.163yun.com' target='_blank' >html 元素</a><img src='' onerror='alert(4)'>\\\"></u-html>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-html",
             "title": "html 文本",
@@ -4380,11 +4275,6 @@
                     "title": "基本用法",
                     "description": "",
                     "code": "<template>\n<u-html html=\"<a href='https://www.163yun.com' target='_blank' >html 元素</a><img src='' onerror='alert(4)'>\"></u-html>\n</template>\n"
-                },
-                {
-                    "title": "不使用安全过滤",
-                    "description": "",
-                    "code": "<template>\n<template>\n<u-html html=\"<a href='https://www.163yun.com' target='_blank' >html 元素</a><img src='' onerror='console.log(1)'>\" :security=\"false\"></u-html>\n</template>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -12067,7 +11957,7 @@
             "Selector"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-region-select.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-region-select.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-region-select.vue/screenshots/2.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-region-select></u-region-select>\\n</template>\\n\"},{\"title\":\"默认选项\",\"description\":\"\",\"code\":\"<template>\\n<u-region-select value=\\\"浙江,杭州,滨江区\\\"></u-region-select>\\n</template>\\n\"},{\"title\":\"Placeholder\",\"description\":\"\",\"code\":\"<template>\\n<u-region-select :categories=\\\"[\\n    { label: '省', placeholder: '请选择省份' },\\n    { label: '市', placeholder: '请选择城市' },\\n    { label: '区', placeholder: '请选择县区' },\\n]\\\"></u-region-select>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-region-select></u-region-select>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-region-select",
             "title": "地区选择",
@@ -12079,16 +11969,6 @@
                     "title": "基本用法",
                     "description": "",
                     "code": "<template>\n<u-region-select></u-region-select>\n</template>\n"
-                },
-                {
-                    "title": "默认选项",
-                    "description": "",
-                    "code": "<template>\n<u-region-select value=\"浙江,杭州,滨江区\"></u-region-select>\n</template>\n"
-                },
-                {
-                    "title": "Placeholder",
-                    "description": "",
-                    "code": "<template>\n<u-region-select :categories=\"[\n    { label: '省', placeholder: '请选择省份' },\n    { label: '市', placeholder: '请选择城市' },\n    { label: '区', placeholder: '请选择县区' },\n]\"></u-region-select>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -13255,7 +13135,7 @@
             "Selector"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-date-picker.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-date-picker.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-date-picker.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-date-picker.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-date-picker.vue/screenshots/4.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-date-picker date=\\\"2018-08-08\\\"></u-date-picker>\\n</template>\\n\"},{\"title\":\"\\b\\b弹窗对其方式\",\"description\":\"\",\"code\":\"<template>\\n<u-date-picker placeholder=\\\"请选择日期\\\" alignment=\\\"left\\\"></u-date-picker>\\n\\n</template>\\n\"},{\"title\":\"最大值和最小值\",\"description\":\"\",\"code\":\"<template>\\n<u-date-picker date=\\\"2018-08-08\\\" min-date=\\\"2018-08-06\\\" max-date=\\\"2018-08-18\\\"></u-date-picker>\\n</template>\\n\"},{\"title\":\"只读和禁用\",\"description\":\"\",\"code\":\"<template>\\n    <u-date-picker readonly date=\\\"2018-08-08\\\"></u-date-picker>\\n</template>\\n\"},{\"title\":\"禁用\",\"description\":\"\",\"code\":\"<template>\\n   <u-date-picker disabled date=\\\"2018-08-08\\\"></u-date-picker>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-date-picker date=\\\"2018-08-08\\\"></u-date-picker>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-date-picker",
             "title": "日期选择",
@@ -13267,26 +13147,6 @@
                     "title": "基本用法",
                     "description": "",
                     "code": "<template>\n<u-date-picker date=\"2018-08-08\"></u-date-picker>\n</template>\n"
-                },
-                {
-                    "title": "\b\b弹窗对其方式",
-                    "description": "",
-                    "code": "<template>\n<u-date-picker placeholder=\"请选择日期\" alignment=\"left\"></u-date-picker>\n\n</template>\n"
-                },
-                {
-                    "title": "最大值和最小值",
-                    "description": "",
-                    "code": "<template>\n<u-date-picker date=\"2018-08-08\" min-date=\"2018-08-06\" max-date=\"2018-08-18\"></u-date-picker>\n</template>\n"
-                },
-                {
-                    "title": "只读和禁用",
-                    "description": "",
-                    "code": "<template>\n    <u-date-picker readonly date=\"2018-08-08\"></u-date-picker>\n</template>\n"
-                },
-                {
-                    "title": "禁用",
-                    "description": "",
-                    "code": "<template>\n   <u-date-picker disabled date=\"2018-08-08\"></u-date-picker>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -13503,7 +13363,7 @@
             "Selector"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-time-picker.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-time-picker.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-time-picker.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-time-picker.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-time-picker.vue/screenshots/4.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-time-picker time=\\\"15:46:33\\\"></u-time-picker>\\n</template>\\n\"},{\"title\":\"只读\",\"description\":\"\",\"code\":\"<template>\\n    <u-time-picker time=\\\"15:46:33\\\" readonly=\\\"readonly\\\"></u-time-picker>\\n</template>\\n\"},{\"title\":\"只读和禁用\",\"description\":\"\",\"code\":\"<template>\\n    <u-time-picker time=\\\"15:46:33\\\" disabled=\\\"disabled\\\"></u-time-picker>\\n</template>\\n\"},{\"title\":\"日期范围\",\"description\":\"\",\"code\":\"<template>\\n<u-time-picker time=\\\"15:46:33\\\" min-time=\\\"12:30:00\\\" max-time=\\\"14:45:00\\\"></u-time-picker>\\n</template>\\n\"},{\"title\":\"日期最小单位\",\"description\":\"\",\"code\":\"<template>\\n<u-time-picker minUnit=\\\"minute\\\" min-time=\\\"12:30\\\" max-time=\\\"14:45\\\" :time=\\\"'13:12'\\\"></u-time-picker>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-time-picker time=\\\"15:46:33\\\"></u-time-picker>\\n</template>\\n\"},{\"title\":\"日期范围\",\"description\":\"\",\"code\":\"<template>\\n<u-time-picker time=\\\"15:46:33\\\" min-time=\\\"12:30:00\\\" max-time=\\\"14:45:00\\\"></u-time-picker>\\n</template>\\n\"},{\"title\":\"日期最小单位\",\"description\":\"\",\"code\":\"<template>\\n<u-time-picker minUnit=\\\"minute\\\" min-time=\\\"12:30\\\" max-time=\\\"14:45\\\" :time=\\\"'13:12'\\\"></u-time-picker>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-time-picker",
             "title": "时间选择",
@@ -13515,16 +13375,6 @@
                     "title": "基本用法",
                     "description": "",
                     "code": "<template>\n<u-time-picker time=\"15:46:33\"></u-time-picker>\n</template>\n"
-                },
-                {
-                    "title": "只读",
-                    "description": "",
-                    "code": "<template>\n    <u-time-picker time=\"15:46:33\" readonly=\"readonly\"></u-time-picker>\n</template>\n"
-                },
-                {
-                    "title": "只读和禁用",
-                    "description": "",
-                    "code": "<template>\n    <u-time-picker time=\"15:46:33\" disabled=\"disabled\"></u-time-picker>\n</template>\n"
                 },
                 {
                     "title": "日期范围",
@@ -14296,562 +14146,6 @@
                         {
                             "name": "senderVM",
                             "type": "UPopup",
-                            "description": "发送事件实例"
-                        }
-                    ]
-                }
-            ],
-            "children": []
-        }
-    },
-    {
-        "symbol": "u-tooltip",
-        "name": "工具提示",
-        "icon": "tooltip",
-        "depDescription": {},
-        "description": "工具提示",
-        "labels": [
-            "Feedback"
-        ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-tooltip.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-tooltip>直接插入文本</u-tooltip>\\n</template>\\n\"}]",
-        "jsonSchema": {
-            "name": "u-tooltip",
-            "title": "工具提示",
-            "description": "工具提示",
-            "category": "Feedback",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-tooltip.vue/screenshots/0.png",
-            "blocks": [
-                {
-                    "title": "基本用法",
-                    "description": "",
-                    "code": "<template>\n<u-tooltip>直接插入文本</u-tooltip>\n</template>\n"
-                }
-            ],
-            "attrs": [
-                {
-                    "name": "opened",
-                    "sync": true,
-                    "title": "弹出关闭状态",
-                    "type": "boolean",
-                    "default": false,
-                    "description": "弹出/关闭状态"
-                },
-                {
-                    "name": "trigger",
-                    "title": "触发方式",
-                    "type": "string",
-                    "options": [
-                        {
-                            "value": "click",
-                            "title": "点击"
-                        },
-                        {
-                            "value": "hover",
-                            "title": "悬浮"
-                        },
-                        {
-                            "value": "right-click",
-                            "title": "右击"
-                        },
-                        {
-                            "value": "double-click",
-                            "title": "双击"
-                        },
-                        {
-                            "value": "manual",
-                            "title": "手动"
-                        }
-                    ],
-                    "default": "hover",
-                    "description": "工具提示的触发方式。"
-                },
-                {
-                    "name": "placement",
-                    "title": "弹出方向",
-                    "type": "string",
-                    "options": [
-                        {
-                            "value": "top",
-                            "title": "上"
-                        },
-                        {
-                            "value": "bottom",
-                            "title": "下"
-                        },
-                        {
-                            "value": "left",
-                            "title": "左"
-                        },
-                        {
-                            "value": "right",
-                            "title": "右"
-                        },
-                        {
-                            "value": "top-start",
-                            "title": "上左"
-                        },
-                        {
-                            "value": "top-end",
-                            "title": "上右"
-                        },
-                        {
-                            "value": "bottom-start",
-                            "title": "下左"
-                        },
-                        {
-                            "value": "bottom-end",
-                            "title": "下右"
-                        },
-                        {
-                            "value": "left-start",
-                            "title": "左上"
-                        },
-                        {
-                            "value": "left-end",
-                            "title": "左下"
-                        },
-                        {
-                            "value": "right-start",
-                            "title": "右上"
-                        },
-                        {
-                            "value": "right-end",
-                            "title": "右下"
-                        }
-                    ],
-                    "default": "bottom",
-                    "description": "工具提示的弹出方向。"
-                },
-                {
-                    "name": "hide-delay",
-                    "title": "消失延迟时间",
-                    "type": "number",
-                    "default": 200,
-                    "description": "提示内容消失延迟时间，单位是 ms"
-                },
-                {
-                    "name": "offset",
-                    "title": "弹出层偏移",
-                    "type": "string",
-                    "default": "0",
-                    "advanced": true,
-                    "description": "弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px`"
-                },
-                {
-                    "name": "follow-cursor",
-                    "title": "跟随鼠标",
-                    "type": "boolean, number, object",
-                    "default": false,
-                    "description": "是否跟随鼠标"
-                },
-                {
-                    "name": "disabled",
-                    "title": "禁用",
-                    "type": "boolean",
-                    "default": false,
-                    "description": "是否禁用"
-                },
-                {
-                    "name": "size",
-                    "title": "尺寸",
-                    "type": "string",
-                    "options": [
-                        {
-                            "value": "small",
-                            "title": "小型"
-                        },
-                        {
-                            "value": "normal",
-                            "title": "正常"
-                        },
-                        {
-                            "value": "large",
-                            "title": "大"
-                        },
-                        {
-                            "value": "auto",
-                            "title": "自适应"
-                        }
-                    ],
-                    "default": "normal",
-                    "multi": true,
-                    "maxSelect": 2,
-                    "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度"
-                }
-            ],
-            "slots": [
-                {
-                    "name": "default",
-                    "description": "插入需要弹出的内容。"
-                },
-                {
-                    "name": "popper",
-                    "description": "自定义整个弹出层。"
-                },
-                {
-                    "name": "body",
-                    "description": "自定义滚动区域。"
-                },
-                {
-                    "name": "content",
-                    "description": "自定义内容文本。"
-                }
-            ],
-            "methods": [
-                {
-                    "name": "open",
-                    "description": "弹出实例。",
-                    "params": []
-                },
-                {
-                    "name": "close",
-                    "description": "关闭实例。",
-                    "params": []
-                },
-                {
-                    "name": "toggle",
-                    "description": "切换弹出/关闭状态。",
-                    "params": [
-                        {
-                            "name": "opened?",
-                            "type": "boolean",
-                            "description": "可选。弹出/关闭状态"
-                        }
-                    ]
-                },
-                {
-                    "name": "update",
-                    "description": "更新 popper 实例。参考 [Popper.update()](https://popper.js.org/popper-documentation.html#Popper.update)。",
-                    "params": []
-                },
-                {
-                    "name": "scheduleUpdate",
-                    "description": "在下次 UI 渲染时一块更新 popper 实例，比`update()`性能要好。参考 [Popper.scheduleUpdate()](https://popper.js.org/popper-documentation.html#Popper.scheduleUpdate)。",
-                    "params": []
-                }
-            ],
-            "events": [
-                {
-                    "name": "before-open",
-                    "title": "弹出前",
-                    "description": "弹出前触发。",
-                    "advanced": true,
-                    "params": [
-                        {
-                            "name": "$event",
-                            "type": "object",
-                            "description": "自定义事件对象",
-                            "schema": {
-                                "$ref": "#/systemTypes/EventTarget"
-                            }
-                        },
-                        {
-                            "name": "$event.preventDefault",
-                            "type": "Function",
-                            "description": "阻止弹出流程"
-                        },
-                        {
-                            "name": "senderVM",
-                            "type": "UTooltip",
-                            "description": "发送事件实例"
-                        }
-                    ]
-                },
-                {
-                    "name": "open",
-                    "title": "弹出后",
-                    "description": "弹出时触发。",
-                    "params": [
-                        {
-                            "name": "$event",
-                            "type": "",
-                            "description": "空"
-                        },
-                        {
-                            "name": "senderVM",
-                            "type": "UTooltip",
-                            "description": "发送事件实例"
-                        }
-                    ]
-                },
-                {
-                    "name": "before-close",
-                    "title": "关闭前",
-                    "description": "隐藏前触发。",
-                    "advanced": true,
-                    "params": [
-                        {
-                            "name": "$event",
-                            "type": "object",
-                            "description": "自定义事件对象",
-                            "schema": {
-                                "$ref": "#/systemTypes/EventTarget"
-                            }
-                        },
-                        {
-                            "name": "$event.preventDefault",
-                            "type": "Function",
-                            "description": "阻止隐藏流程"
-                        },
-                        {
-                            "name": "senderVM",
-                            "type": "UTooltip",
-                            "description": "发送事件实例"
-                        }
-                    ]
-                },
-                {
-                    "name": "close",
-                    "title": "关闭后",
-                    "description": "隐藏时触发。",
-                    "params": [
-                        {
-                            "name": "$event",
-                            "type": "",
-                            "description": "空"
-                        },
-                        {
-                            "name": "senderVM",
-                            "type": "UTooltip",
-                            "description": "发送事件实例"
-                        }
-                    ]
-                }
-            ],
-            "children": []
-        }
-    },
-    {
-        "symbol": "u-toast",
-        "name": "吐司提示",
-        "icon": "toast",
-        "depDescription": {},
-        "description": "吐司提示",
-        "labels": [
-            "Feedback"
-        ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-toast.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-toast.vue/screenshots/1.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-button @click=\\\"$refs.toast.show()\\\">组件</u-button>\\n<u-toast ref=\\\"toast\\\" :duration=\\\"2000\\\" position=\\\"top-right\\\">2s</u-toast>\\n</template>\\n\"},{\"title\":\"嵌入文档流可关闭\",\"description\":\"\",\"code\":\"<template>\\n<u-button @click=\\\"$refs.closableToast.show()\\\">Static</u-button>\\n<u-toast ref=\\\"closableToast\\\" position=\\\"static\\\" text=\\\"Closable\\\" :duration=\\\"0\\\" closable></u-toast>\\n</template>\\n\"}]",
-        "jsonSchema": {
-            "name": "u-toast",
-            "title": "吐司提示",
-            "description": "吐司提示",
-            "category": "Feedback",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-toast.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.33/src/components/u-toast.vue/screenshots/1.png",
-            "blocks": [
-                {
-                    "title": "基本用法",
-                    "description": "",
-                    "code": "<template>\n<u-button @click=\"$refs.toast.show()\">组件</u-button>\n<u-toast ref=\"toast\" :duration=\"2000\" position=\"top-right\">2s</u-toast>\n</template>\n"
-                },
-                {
-                    "title": "嵌入文档流可关闭",
-                    "description": "",
-                    "code": "<template>\n<u-button @click=\"$refs.closableToast.show()\">Static</u-button>\n<u-toast ref=\"closableToast\" position=\"static\" text=\"Closable\" :duration=\"0\" closable></u-toast>\n</template>\n"
-                }
-            ],
-            "attrs": [
-                {
-                    "name": "position",
-                    "title": "位置",
-                    "type": "string",
-                    "options": [
-                        {
-                            "value": "top-center",
-                            "title": "上中"
-                        },
-                        {
-                            "value": "top-left",
-                            "title": "上左"
-                        },
-                        {
-                            "value": "top-right",
-                            "title": "上右"
-                        },
-                        {
-                            "value": "bottom-center",
-                            "title": "下中"
-                        },
-                        {
-                            "value": "bottom-left",
-                            "title": "下左"
-                        },
-                        {
-                            "value": "bottom-right",
-                            "title": "下右"
-                        },
-                        {
-                            "value": "static",
-                            "title": "静态"
-                        }
-                    ],
-                    "default": "top-center",
-                    "description": "显示的位置"
-                },
-                {
-                    "name": "duration",
-                    "title": "停留时间",
-                    "type": "number",
-                    "default": 2000,
-                    "description": "提示停留的时间。`0`表示常驻。"
-                },
-                {
-                    "name": "single",
-                    "title": "合并",
-                    "type": "boolean",
-                    "default": false,
-                    "advanced": true,
-                    "description": "多个提示会合并为一个"
-                },
-                {
-                    "name": "text",
-                    "title": "提示内容",
-                    "type": "string",
-                    "default": "",
-                    "description": "默认提示内容"
-                },
-                {
-                    "name": "color",
-                    "title": "颜色",
-                    "type": "string",
-                    "options": [
-                        {
-                            "value": "info",
-                            "title": "信息提示"
-                        },
-                        {
-                            "value": "success",
-                            "title": "成功信息提示"
-                        },
-                        {
-                            "value": "warning",
-                            "title": "警告信息提示"
-                        },
-                        {
-                            "value": "error",
-                            "title": "错误信息提示"
-                        }
-                    ],
-                    "default": "default",
-                    "description": "提示的颜色"
-                },
-                {
-                    "name": "closable",
-                    "title": "关闭提示",
-                    "type": "boolean",
-                    "default": false,
-                    "description": "是否可以关闭提示"
-                }
-            ],
-            "events": [
-                {
-                    "name": "open",
-                    "title": "弹出后事件",
-                    "description": "弹出提示时触发",
-                    "params": [
-                        {
-                            "name": "$event",
-                            "type": "object",
-                            "description": "自定义事件对象",
-                            "schema": {
-                                "$ref": "#/systemTypes/DurationEvent"
-                            }
-                        },
-                        {
-                            "name": "$event.text",
-                            "type": "string",
-                            "description": "提示的内容"
-                        },
-                        {
-                            "name": "$event.color",
-                            "type": "string",
-                            "description": "提示的颜色"
-                        },
-                        {
-                            "name": "$event.duration",
-                            "type": "number",
-                            "description": "提示停留的时间"
-                        },
-                        {
-                            "name": "senderVM",
-                            "type": "UToast",
-                            "description": "发送事件实例"
-                        }
-                    ]
-                },
-                {
-                    "name": "before-close",
-                    "title": "关闭前",
-                    "description": "关闭提示前触发",
-                    "advanced": true,
-                    "params": [
-                        {
-                            "name": "$event",
-                            "type": "object",
-                            "description": "自定义事件对象",
-                            "schema": {
-                                "$ref": "#/systemTypes/DurationEvent"
-                            }
-                        },
-                        {
-                            "name": "$event.text",
-                            "type": "string",
-                            "description": "提示的内容"
-                        },
-                        {
-                            "name": "$event.color",
-                            "type": "string",
-                            "description": "提示的颜色"
-                        },
-                        {
-                            "name": "$event.duration",
-                            "type": "number",
-                            "description": "提示停留的时间"
-                        },
-                        {
-                            "name": "$event.preventDefault",
-                            "type": "Function",
-                            "description": "阻止关闭流程"
-                        },
-                        {
-                            "name": "senderVM",
-                            "type": "UToast",
-                            "description": "发送事件实例"
-                        }
-                    ]
-                },
-                {
-                    "name": "close",
-                    "title": "关闭后",
-                    "description": "关闭提示时触发",
-                    "params": [
-                        {
-                            "name": "$event",
-                            "type": "object",
-                            "description": "自定义事件对象",
-                            "schema": {
-                                "$ref": "#/systemTypes/DurationEvent"
-                            }
-                        },
-                        {
-                            "name": "$event.text",
-                            "type": "string",
-                            "description": "提示的内容"
-                        },
-                        {
-                            "name": "$event.color",
-                            "type": "string",
-                            "description": "提示的颜色"
-                        },
-                        {
-                            "name": "$event.duration",
-                            "type": "number",
-                            "description": "提示停留的时间"
-                        },
-                        {
-                            "name": "senderVM",
-                            "type": "UToast",
                             "description": "发送事件实例"
                         }
                     ]
