@@ -309,11 +309,4 @@ export default {
     right: -2px;
 }
 
-.button[role="up"] {
-    top: -1px;
-}
-
-.button[role="down"] {
-    bottom: -1px;
-}
 </style>
