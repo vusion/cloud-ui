@@ -138,25 +138,38 @@ export const UModal = {
                 this.close();
         },
     },
-};
+    install(Vue, id) {
+        const Ctor = Vue.component(id);
+        Vue.prototype.$alert = (content, title, okButton) =>
+            new Promise((resolve, reject) => {
+                const instance = new Ctor({
+                    propsData: { content, title, okButton, cancelButton: '' },
+                });
 
-Vue.prototype.$alert = (content, title) => {
-    const Ctor = UModal._Ctor[0];
-    new Ctor({
-        propsData: { content, title, cancelButton: '' },
-    }).open();
-};
-Vue.prototype.$confirm = (content, title) =>
-    new Promise((resolve, reject) => {
-        const Ctor = UModal._Ctor[0];
-        const instance = new Ctor({
-            propsData: { content, title },
-        });
+                instance.$on('ok', () => resolve(true));
+            });
+        Vue.prototype.$confirm = (content, title, okButton, cancelButton) =>
+            new Promise((resolve, reject) => {
+                const instance = new Ctor({
+                    propsData: { content, title, okButton, cancelButton },
+                });
 
-        instance.$on('ok', () => resolve());
-        instance.$on('cancel', () => reject());
-        instance.open();
-    });
+                instance.$on('ok', () => resolve(true));
+                instance.$on('cancel', () => reject(false));
+                instance.open();
+            });
+        Vue.prototype.$confirmResult = (content, title, okButton, cancelButton) =>
+            new Promise((resolve, reject) => {
+                const instance = new Ctor({
+                    propsData: { content, title, okButton, cancelButton },
+                });
+
+                instance.$on('ok', () => resolve(true));
+                instance.$on('cancel', () => resolve(false));
+                instance.open();
+            });
+    },
+};
 
 export default UModal;
 </script>
