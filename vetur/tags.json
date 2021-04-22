@@ -1722,6 +1722,10 @@
   "l-page-section": {
     "attributes": []
   },
+  "l-root": {
+    "attributes": [],
+    "description": "默认布局的根节点。"
+  },
   "l-side-main": {
     "attributes": []
   },
