@@ -217,6 +217,17 @@ export default {
                 this,
             );
         },
+        selectAndReveal(value, options) {
+            this.selectedVM = this.find((nodeVM) => nodeVM.value === value);
+            if (this.selectedVM) {
+                let nodeVM = this.selectedVM.parentVM;
+                while (nodeVM !== this.rootVM) {
+                    nodeVM.currentExpanded = true;
+                    nodeVM = nodeVM.parentVM;
+                }
+                setTimeout(() => this.selectedVM.$el?.scrollIntoView(options));
+            }
+        },
         onToggle(nodeVM, expanded) {
             this.$emit('toggle', { expanded, node: nodeVM.node, nodeVM }, this);
         },
