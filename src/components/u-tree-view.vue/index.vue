@@ -225,7 +225,7 @@ export default {
                     nodeVM.currentExpanded = true;
                     nodeVM = nodeVM.parentVM;
                 }
-                setTimeout(() => this.selectedVM.$el?.scrollIntoView(options));
+                setTimeout(() => this.selectedVM.$el && this.selectedVM.$el.scrollIntoView(options));
             }
         },
         onToggle(nodeVM, expanded) {
