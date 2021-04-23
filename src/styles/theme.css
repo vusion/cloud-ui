@@ -814,7 +814,7 @@
     --list-view-foot-padding: 8px 12px;
     --list-view-item-padding: 4px 12px;
     --list-view-item-background-hover: var(--background-color-lighter);
-    --list-view-item-background-readonly: none;
+    /* --list-view-item-background-readonly: none; */
     --list-view-item-background-focused: var(--background-color-lighter);
     --list-view-item-background-selected: var(--brand-primary-light);
     --list-view-item-color-selected: white;
@@ -840,7 +840,7 @@
     --tree-view-node-color-selected: white;
     --tree-view-node-color-disabled: var(--brand-disabled);
     --tree-view-node-expander-color-selected: white;
-    --tree-view-node-background-readonly: none;
+    /* --tree-view-node-background-readonly: none; */
     --tree-view-node-background-disabled: none;
     --tree-view-node-background-selected-disabled: var(--brand-disabled-light);
 
@@ -937,15 +937,16 @@
     --modal-dialog-width: 400px;
     --modal-dialog-width-small: 300px;
     --modal-dialog-width-large: 600px;
+    --modal-dialog-width-huge: 800px;
     --modal-dialog-background: white;
-    --modal-close-size: 15px;
+    --modal-dialog-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    --modal-title-font-size: 14px;
     --modal-close-color: var(--gray-light);
     --modal-close-color-hover: var(--color-light);
     --modal-head-padding: 15px;
     --modal-static-padding: var(--space-base);
-    --modal-body-padding: 15px;
-    --modal-padding-padding: 15px;
-    --modal-foot-padding: 20px 15px;
+    --modal-body-margin: 30px 50px;
+    --modal-foot-margin: 30px 50px;
     --modal-border-color: var(--border-color-base);
 
     /* Drawer */

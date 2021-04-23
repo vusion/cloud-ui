@@ -25,8 +25,8 @@ export const MPublisher = {
         });
     },
     methods: {
-        $publish(topic, data) {
-            return pubsub.publish(topic, data);
+        $publish(topic, ...args) {
+            return pubsub.publish(topic, ...args);
         },
         $unpublish(topic) {
             return pubsub.unpublish(topic);

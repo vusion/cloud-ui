@@ -200,28 +200,28 @@ export default UModal;
 }
 
 .dialog {
-    width: 400px;
+    width: var(--modal-dialog-width);
     display: inline-block;
     vertical-align: middle;
     text-align: left;
     background: var(--modal-dialog-background);
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--modal-dialog-box-shadow);
 }
 
 .dialog[size="small"] {
-    width: 300px;
+    width: var(--modal-dialog-width-small);
 }
 
 .dialog[size="normal"] {
-    width: 400px;
+    width: var(--modal-dialog-width);
 }
 
 .dialog[size="large"] {
-    width: 600px;
+    width: var(--modal-dialog-width-large);
 }
 
 .dialog[size="huge"] {
-    width: 800px;
+    width: var(--modal-dialog-width-huge);
 }
 
 .dialog[size="auto"] {
@@ -230,35 +230,36 @@ export default UModal;
 
 .head {
     position: relative;
-    padding: 15px;
+    padding: var(--modal-head-padding);
     border-bottom: 1px solid var(--modal-border-color);
 }
 
 .title {
     margin: 0;
-    font-size: 14px;
+    font-size: var(--modal-title-font-size);
 }
 
 .close {
     position: absolute;
-    right: 15px;
-    top: 18px;
+    right: var(--modal-title-font-size);
+    top: 50%;
+    transform: translateY(-50%);
     line-height: 1;
-    color: #bbb;
+    color: var(--modal-close-color);
 }
 
 .close:hover {
-    color: #888;
+    color: var(--modal-close-color-hover);
 }
 
 .close::before {
     icon-font: url("../i-icon.vue/icons/close.svg");
-    font-size: 14px;
+    font-size: var(--modal-title-font-size);
 }
 
 .body {
     position: relative;
-    margin: 30px 50px 50px;
+    margin: var(--modal-body-margin);
 }
 
 .body[icon] {
@@ -308,7 +309,7 @@ export default UModal;
 }
 
 .foot {
-    margin: 50px;
+    margin: var(--modal-foot-margin);
     text-align: center;
 }
 

@@ -412,7 +412,7 @@ export default {
 }
 
 .item[readonly] .background {
-    background: var(--tree-view-node-background-readonly);
+    /* background: var(--tree-view-node-background-readonly); */
 }
 
 .item[selected] .background {

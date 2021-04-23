@@ -36,7 +36,7 @@ export default {
 
 .root[readonly] {
     cursor: default !important;
-    background: var(--list-view-item-background-readonly);
+    /* background: var(--list-view-item-background-readonly); */
 }
 
 .root[focused] {

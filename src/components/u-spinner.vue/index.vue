@@ -15,6 +15,7 @@ export default { name: 'u-spinner' };
 }
 .root {
     display: inline-block;
+    line-height: 1;
     animation: spin infinite linear var(--spinner-animation-duration);
 }
 
