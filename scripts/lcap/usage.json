@@ -293,14 +293,14 @@
         "labels": [
             "Layout"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-grid-layout.vue/screenshots/0.png",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-grid-layout.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-grid-layout.vue/screenshots/1.png",
         "blocks": "[{\"title\":\"基本用法\",\"description\":\"定义栅格系统，用`repeat`属性来定义栅格列数，用`span`属性来设置列跨越的栅格数。\\n\",\"code\":\"<template>\\n<u-grid-layout>\\n    <u-grid-layout-row :repeat=\\\"24\\\">\\n        <u-grid-layout-column :span=\\\"2\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"4\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"8\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"10\\\"></u-grid-layout-column>\\n    </u-grid-layout-row>\\n\\t<u-grid-layout-row :repeat=\\\"24\\\">\\n        <u-grid-layout-column :span=\\\"2\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"4\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"8\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"10\\\"></u-grid-layout-column>\\n    </u-grid-layout-row>\\n</u-grid-layout>\\n</template>\\n\"},{\"title\":\"间隙\",\"description\":\"\",\"code\":\"<template>\\n<u-grid-layout gap=\\\"small normal\\\">\\n    <u-grid-layout-row :repeat=\\\"4\\\">\\n        <u-grid-layout-column :span=\\\"1\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"1\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"1\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"1\\\"></u-grid-layout-column>\\n    </u-grid-layout-row>\\n\\t<u-grid-layout-row :repeat=\\\"4\\\">\\n        <u-grid-layout-column :span=\\\"1\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"1\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"1\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"1\\\"></u-grid-layout-column>\\n    </u-grid-layout-row>\\n</u-grid-layout>\\n</template>\\n\"},{\"title\":\"列偏移\",\"description\":\"\",\"code\":\"<template>\\n<u-grid-layout>\\n    <u-grid-layout-row :repeat=\\\"12\\\">\\n        <u-grid-layout-column :span=\\\"4\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"4\\\" :offset=\\\"4\\\"></u-grid-layout-column>\\n    </u-grid-layout-row>\\n    <u-grid-layout-row :repeat=\\\"12\\\">\\n        <u-grid-layout-column :span=\\\"3\\\" :offset=\\\"3\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"3\\\" :offset=\\\"3\\\"></u-grid-layout-column>\\n    </u-grid-layout-row>\\n</u-grid-layout>\\n</template>\\n\"},{\"title\":\"列排序\",\"description\":\"\",\"code\":\"<template>\\n<u-grid-layout>\\n    <u-grid-layout-row :repeat=\\\"10\\\">\\n        <u-grid-layout-column :span=\\\"4\\\" :push=\\\"6\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"6\\\" :pull=\\\"4\\\"></u-grid-layout-column>\\n    </u-grid-layout-row>\\n    <u-grid-layout-row :repeat=\\\"10\\\">\\n        <u-grid-layout-column :span=\\\"2\\\" :push=\\\"8\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"3\\\" :push=\\\"3\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"5\\\" :pull=\\\"5\\\"></u-grid-layout-column>\\n    </u-grid-layout-row>\\n</u-grid-layout>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-grid-layout",
             "title": "栅格布局",
             "description": "内部元素按照一定的规则布局",
             "category": "Layout",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-grid-layout.vue/screenshots/0.png",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-grid-layout.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-grid-layout.vue/screenshots/1.png",
             "blocks": [
                 {
                     "title": "基本用法",
@@ -1971,14 +1971,14 @@
         "labels": [
             "Layout"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-crumb.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-crumb.vue/screenshots/1.png",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-crumb.vue/screenshots/0.png",
         "blocks": "[{\"title\":\"自动面包屑\",\"description\":\"\",\"code\":\"<template>\\n<u-crumb auto></u-crumb>\\n</template>\\n\"},{\"title\":\"手动面包屑\",\"description\":\"\",\"code\":\"<template>\\n<u-crumb>\\n    <u-crumb-item to=\\\"/\\\">首页</u-crumb-item>\\n    <u-crumb-item to=\\\"/cloud-ui\\\">原型组件</u-crumb-item>\\n    <u-crumb-item disabled>Navigation</u-crumb-item>\\n    <u-crumb-item type=\\\"text\\\" to=\\\"/cloud-ui/u-crumb\\\">面包屑</u-crumb-item>\\n</u-crumb>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-crumb",
             "title": "面包屑",
             "description": "导航指引",
             "category": "Layout",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-crumb.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-crumb.vue/screenshots/1.png",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-crumb.vue/screenshots/0.png",
             "blocks": [
                 {
                     "title": "自动面包屑",
@@ -13805,7 +13805,7 @@
             "Feedback"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-popup.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-popup.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-popup.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-popup.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-popup.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-popup.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-popup.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-popup.vue/screenshots/7.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-popup.vue/screenshots/8.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-popup.vue/screenshots/9.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"将需要弹出的内容用`<u-popup>`包裹起来，并插入到触发事件的元素中。\\n\",\"code\":\"<template>\\n <u-button>\\n    使用 slot\\n    <u-popup>\\n        <template #title>\\n            <span>标题 <u-badge :value=\\\"3\\\"></u-badge></span>\\n        </template>\\n        <span>使用 <u-link>slot</u-link> 可以添加一些复杂功能</span>\\n    </u-popup>\\n</u-button>\\n</template>\\n\"},{\"title\":\"自定义\",\"description\":\"通过 root 插槽可以自定义整体内容。\\n\",\"code\":\"<template>\\n<u-button>\\n    Textarea\\n    <u-popup>\\n        <template #root>\\n        <u-textarea ></u-textarea>\\n        </template>\\n    </u-popup>\\n</u-button>\\n</template>\\n\"},{\"title\":\"触发方式-hover\",\"description\":\"使用`trigger`属性设置触发方式。\\n\",\"code\":\"<template>\\n<u-button>\\n    hover\\n    <u-popup trigger=\\\"hover\\\">Popup</u-popup>\\n</u-button>\\n</template>\\n\"},{\"title\":\"触发方式-right-click\",\"description\":\"使用`trigger`属性设置触发方式。\\n\",\"code\":\"<template>\\n<u-button>\\n    right-click\\n    <u-popup trigger=\\\"right-click\\\">Popup</u-popup>\\n</u-button>\\n</template>\\n\"},{\"title\":\"触发方式-double-click\",\"description\":\"使用`trigger`属性设置触发方式。\\n\",\"code\":\"<template>\\n <u-button>\\n    double-click\\n    <u-popup trigger=\\\"double-click\\\">Popup</u-popup>\\n</u-button>\\n</template>\\n\"},{\"title\":\"触发方式-double-click\",\"description\":\"也可以手动触发弹出框的弹出/关闭：\\n\",\"code\":\"<template>\\n<u-button @click=\\\"$refs.popup1.currentOpened=!$refs.popup1.currentOpened\\\">\\n    手动\\n    <u-popup ref=\\\"popup1\\\" trigger=\\\"manual\\\" >Popup</u-popup>\\n</u-button>\\n</template>\\n\"},{\"title\":\"弹出方位\",\"description\":\"使用`placement`属性控制弹出方位。\\n\",\"code\":\"<template>\\n<u-button>\\n    上左\\n    <u-popup placement=\\\"top-start\\\">Popup</u-popup>\\n</u-button>\\n</template>\\n\"},{\"title\":\"弹出方位\",\"description\":\"开启`follow-cursor`属性可以让弹出层跟随鼠标。也可以传一个数字或对象调整位置偏移。\\n\",\"code\":\"<template>\\n<u-button>\\n    上左\\n    <u-popup placement=\\\"top-start\\\" follow-cursor>Popup</u-popup>\\n</u-button>\\n\\n</template>\\n\"},{\"title\":\"右键菜单\",\"description\":\"使用`trigger`和`follow-cursor`两个属性可以很容易的实现右键菜单功能。\\n\",\"code\":\"<template>\\n<u-button>\\n    右键菜单\\n    <u-popup trigger=\\\"right-click\\\" placement=\\\"right-start\\\" follow-cursor>\\n    <template #root>\\n        <u-menu value=\\\"3\\\" :router=\\\"false\\\">\\n            <u-menu-item value=\\\"1\\\">指南</u-menu-item>\\n            <u-menu-item value=\\\"2\\\">概念</u-menu-item>\\n            <u-menu-item value=\\\"3\\\">组件</u-menu-item>\\n        </u-menu>\\n    </template>\\n        \\n    </u-popup>\\n</u-button>\\n</template>\\n\"},{\"title\":\"禁用状态\",\"description\":\"给弹出框添加`disabled`属性可以禁止弹出效果，但需要手动设置外层元素的状态。\\n\",\"code\":\"<template>\\n<u-button disabled>\\n    disabled\\n    <u-popup disabled>Popup</u-popup>\\n</u-button>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"将需要弹出的内容用`<u-popup>`包裹起来，并插入到触发事件的元素中。\\n\",\"code\":\"<template>\\n<u-popup ref=\\\"popup1\\\">\\n    <slot name=\\\"inject\\\"></slot>\\n    <template #title>\\n        <span>标题 <u-badge :value=\\\"3\\\"></u-badge></span>\\n    </template>\\n    <span>使用 <u-link>slot</u-link> 可以添加一些复杂功能</span>\\n</u-popup>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-popup",
             "title": "弹出框",
@@ -13816,52 +13816,7 @@
                 {
                     "title": "基本用法",
                     "description": "将需要弹出的内容用`<u-popup>`包裹起来，并插入到触发事件的元素中。\n",
-                    "code": "<template>\n <u-button>\n    使用 slot\n    <u-popup>\n        <template #title>\n            <span>标题 <u-badge :value=\"3\"></u-badge></span>\n        </template>\n        <span>使用 <u-link>slot</u-link> 可以添加一些复杂功能</span>\n    </u-popup>\n</u-button>\n</template>\n"
-                },
-                {
-                    "title": "自定义",
-                    "description": "通过 root 插槽可以自定义整体内容。\n",
-                    "code": "<template>\n<u-button>\n    Textarea\n    <u-popup>\n        <template #root>\n        <u-textarea ></u-textarea>\n        </template>\n    </u-popup>\n</u-button>\n</template>\n"
-                },
-                {
-                    "title": "触发方式-hover",
-                    "description": "使用`trigger`属性设置触发方式。\n",
-                    "code": "<template>\n<u-button>\n    hover\n    <u-popup trigger=\"hover\">Popup</u-popup>\n</u-button>\n</template>\n"
-                },
-                {
-                    "title": "触发方式-right-click",
-                    "description": "使用`trigger`属性设置触发方式。\n",
-                    "code": "<template>\n<u-button>\n    right-click\n    <u-popup trigger=\"right-click\">Popup</u-popup>\n</u-button>\n</template>\n"
-                },
-                {
-                    "title": "触发方式-double-click",
-                    "description": "使用`trigger`属性设置触发方式。\n",
-                    "code": "<template>\n <u-button>\n    double-click\n    <u-popup trigger=\"double-click\">Popup</u-popup>\n</u-button>\n</template>\n"
-                },
-                {
-                    "title": "触发方式-double-click",
-                    "description": "也可以手动触发弹出框的弹出/关闭：\n",
-                    "code": "<template>\n<u-button @click=\"$refs.popup1.currentOpened=!$refs.popup1.currentOpened\">\n    手动\n    <u-popup ref=\"popup1\" trigger=\"manual\" >Popup</u-popup>\n</u-button>\n</template>\n"
-                },
-                {
-                    "title": "弹出方位",
-                    "description": "使用`placement`属性控制弹出方位。\n",
-                    "code": "<template>\n<u-button>\n    上左\n    <u-popup placement=\"top-start\">Popup</u-popup>\n</u-button>\n</template>\n"
-                },
-                {
-                    "title": "弹出方位",
-                    "description": "开启`follow-cursor`属性可以让弹出层跟随鼠标。也可以传一个数字或对象调整位置偏移。\n",
-                    "code": "<template>\n<u-button>\n    上左\n    <u-popup placement=\"top-start\" follow-cursor>Popup</u-popup>\n</u-button>\n\n</template>\n"
-                },
-                {
-                    "title": "右键菜单",
-                    "description": "使用`trigger`和`follow-cursor`两个属性可以很容易的实现右键菜单功能。\n",
-                    "code": "<template>\n<u-button>\n    右键菜单\n    <u-popup trigger=\"right-click\" placement=\"right-start\" follow-cursor>\n    <template #root>\n        <u-menu value=\"3\" :router=\"false\">\n            <u-menu-item value=\"1\">指南</u-menu-item>\n            <u-menu-item value=\"2\">概念</u-menu-item>\n            <u-menu-item value=\"3\">组件</u-menu-item>\n        </u-menu>\n    </template>\n        \n    </u-popup>\n</u-button>\n</template>\n"
-                },
-                {
-                    "title": "禁用状态",
-                    "description": "给弹出框添加`disabled`属性可以禁止弹出效果，但需要手动设置外层元素的状态。\n",
-                    "code": "<template>\n<u-button disabled>\n    disabled\n    <u-popup disabled>Popup</u-popup>\n</u-button>\n</template>\n"
+                    "code": "<template>\n<u-popup ref=\"popup1\">\n    <slot name=\"inject\"></slot>\n    <template #title>\n        <span>标题 <u-badge :value=\"3\"></u-badge></span>\n    </template>\n    <span>使用 <u-link>slot</u-link> 可以添加一些复杂功能</span>\n</u-popup>\n</template>\n"
                 }
             ],
             "attrs": [
