@@ -293,14 +293,14 @@
         "labels": [
             "Layout"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-grid-layout.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-grid-layout.vue/screenshots/1.png",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-grid-layout.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-grid-layout.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-grid-layout.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-grid-layout.vue/screenshots/3.png",
         "blocks": "[{\"title\":\"基本用法\",\"description\":\"定义栅格系统，用`repeat`属性来定义栅格列数，用`span`属性来设置列跨越的栅格数。\\n\",\"code\":\"<template>\\n<u-grid-layout>\\n    <u-grid-layout-row :repeat=\\\"24\\\">\\n        <u-grid-layout-column :span=\\\"2\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"4\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"8\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"10\\\"></u-grid-layout-column>\\n    </u-grid-layout-row>\\n\\t<u-grid-layout-row :repeat=\\\"24\\\">\\n        <u-grid-layout-column :span=\\\"2\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"4\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"8\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"10\\\"></u-grid-layout-column>\\n    </u-grid-layout-row>\\n</u-grid-layout>\\n</template>\\n\"},{\"title\":\"间隙\",\"description\":\"\",\"code\":\"<template>\\n<u-grid-layout gap=\\\"small normal\\\">\\n    <u-grid-layout-row :repeat=\\\"4\\\">\\n        <u-grid-layout-column :span=\\\"1\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"1\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"1\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"1\\\"></u-grid-layout-column>\\n    </u-grid-layout-row>\\n\\t<u-grid-layout-row :repeat=\\\"4\\\">\\n        <u-grid-layout-column :span=\\\"1\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"1\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"1\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"1\\\"></u-grid-layout-column>\\n    </u-grid-layout-row>\\n</u-grid-layout>\\n</template>\\n\"},{\"title\":\"列偏移\",\"description\":\"\",\"code\":\"<template>\\n<u-grid-layout>\\n    <u-grid-layout-row :repeat=\\\"12\\\">\\n        <u-grid-layout-column :span=\\\"4\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"4\\\" :offset=\\\"4\\\"></u-grid-layout-column>\\n    </u-grid-layout-row>\\n    <u-grid-layout-row :repeat=\\\"12\\\">\\n        <u-grid-layout-column :span=\\\"3\\\" :offset=\\\"3\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"3\\\" :offset=\\\"3\\\"></u-grid-layout-column>\\n    </u-grid-layout-row>\\n</u-grid-layout>\\n</template>\\n\"},{\"title\":\"列排序\",\"description\":\"\",\"code\":\"<template>\\n<u-grid-layout>\\n    <u-grid-layout-row :repeat=\\\"10\\\">\\n        <u-grid-layout-column :span=\\\"4\\\" :push=\\\"6\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"6\\\" :pull=\\\"4\\\"></u-grid-layout-column>\\n    </u-grid-layout-row>\\n    <u-grid-layout-row :repeat=\\\"10\\\">\\n        <u-grid-layout-column :span=\\\"2\\\" :push=\\\"8\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"3\\\" :push=\\\"3\\\"></u-grid-layout-column>\\n        <u-grid-layout-column :span=\\\"5\\\" :pull=\\\"5\\\"></u-grid-layout-column>\\n    </u-grid-layout-row>\\n</u-grid-layout>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-grid-layout",
             "title": "栅格布局",
             "description": "内部元素按照一定的规则布局",
             "category": "Layout",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-grid-layout.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-grid-layout.vue/screenshots/1.png",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-grid-layout.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-grid-layout.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-grid-layout.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-grid-layout.vue/screenshots/3.png",
             "blocks": [
                 {
                     "title": "基本用法",
@@ -1971,14 +1971,14 @@
         "labels": [
             "Layout"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-crumb.vue/screenshots/0.png",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-crumb.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-crumb.vue/screenshots/1.png",
         "blocks": "[{\"title\":\"自动面包屑\",\"description\":\"\",\"code\":\"<template>\\n<u-crumb auto></u-crumb>\\n</template>\\n\"},{\"title\":\"手动面包屑\",\"description\":\"\",\"code\":\"<template>\\n<u-crumb>\\n    <u-crumb-item to=\\\"/\\\">首页</u-crumb-item>\\n    <u-crumb-item to=\\\"/cloud-ui\\\">原型组件</u-crumb-item>\\n    <u-crumb-item disabled>Navigation</u-crumb-item>\\n    <u-crumb-item type=\\\"text\\\" to=\\\"/cloud-ui/u-crumb\\\">面包屑</u-crumb-item>\\n</u-crumb>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-crumb",
             "title": "面包屑",
             "description": "导航指引",
             "category": "Layout",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-crumb.vue/screenshots/0.png",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-crumb.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-crumb.vue/screenshots/1.png",
             "blocks": [
                 {
                     "title": "自动面包屑",
@@ -3421,14 +3421,14 @@
         "labels": [
             "Display"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/i-icon.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/i-icon.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/i-icon.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/i-icon.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/i-icon.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/i-icon.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/i-icon.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/i-icon.vue/screenshots/7.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/i-icon.vue/screenshots/8.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/i-icon.vue/screenshots/9.png",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/i-icon.vue/screenshots/0.png",
         "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"arrow-up\\\"></i-icon>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"arrow-down\\\"></i-icon>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"arrow-left\\\"></i-icon>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"arrow-right\\\"></i-icon>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"angle-up\\\"></i-icon>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"angle-down\\\"></i-icon>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"angle-left\\\"></i-icon>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"angle-right\\\"></i-icon>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"close\\\"></i-icon>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"close-solid\\\"></i-icon>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"filter\\\"></i-icon>\\n</template>\\n\"},{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-icon name=\\\"github\\\"></i-icon>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "i-icon",
             "title": "图标",
             "description": "自定义图标",
             "category": "Display",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/i-icon.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/i-icon.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/i-icon.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/i-icon.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/i-icon.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/i-icon.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/i-icon.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/i-icon.vue/screenshots/7.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/i-icon.vue/screenshots/8.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/i-icon.vue/screenshots/9.png",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/i-icon.vue/screenshots/0.png",
             "blocks": [
                 {
                     "title": "基本用法",
@@ -4262,14 +4262,14 @@
         "labels": [
             "Display"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-html.vue/screenshots/0.png",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-html.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-html.vue/screenshots/1.png",
         "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-html html=\\\"<a href='https://www.163yun.com' target='_blank' >html 元素</a><img src='' onerror='alert(4)'>\\\"></u-html>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-html",
             "title": "html 文本",
             "description": "用于添加 html 文本",
             "category": "Display",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-html.vue/screenshots/0.png",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-html.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-html.vue/screenshots/1.png",
             "blocks": [
                 {
                     "title": "基本用法",
@@ -8037,12 +8037,6 @@
                             "type": "boolean",
                             "default": false,
                             "description": "自动获取焦点"
-                        }
-                    ],
-                    "slots": [
-                        {
-                            "name": "default",
-                            "description": "插入文本或 HTML。"
                         }
                     ],
                     "events": [
@@ -11956,14 +11950,14 @@
         "labels": [
             "Selector"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-region-select.vue/screenshots/0.png",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-region-select.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-region-select.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-region-select.vue/screenshots/2.png",
         "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-region-select></u-region-select>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-region-select",
             "title": "地区选择",
             "description": "该组件从 UCascadeSelect 继承，仅填充了中国的行政区数据，其他功能与 UCascadeSelect 相同。",
             "category": "Selector",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-region-select.vue/screenshots/0.png",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-region-select.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-region-select.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-region-select.vue/screenshots/2.png",
             "blocks": [
                 {
                     "title": "基本用法",
@@ -13134,14 +13128,14 @@
         "labels": [
             "Selector"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-date-picker.vue/screenshots/0.png",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-date-picker.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-date-picker.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-date-picker.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-date-picker.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-date-picker.vue/screenshots/4.png",
         "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-date-picker date=\\\"2018-08-08\\\"></u-date-picker>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-date-picker",
             "title": "日期选择",
             "description": "日期选择器",
             "category": "Selector",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-date-picker.vue/screenshots/0.png",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-date-picker.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-date-picker.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-date-picker.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-date-picker.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-date-picker.vue/screenshots/4.png",
             "blocks": [
                 {
                     "title": "基本用法",
@@ -13362,14 +13356,14 @@
         "labels": [
             "Selector"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-time-picker.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-time-picker.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-time-picker.vue/screenshots/2.png",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-time-picker.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-time-picker.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-time-picker.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-time-picker.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-time-picker.vue/screenshots/4.png",
         "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-time-picker time=\\\"15:46:33\\\"></u-time-picker>\\n</template>\\n\"},{\"title\":\"日期范围\",\"description\":\"\",\"code\":\"<template>\\n<u-time-picker time=\\\"15:46:33\\\" min-time=\\\"12:30:00\\\" max-time=\\\"14:45:00\\\"></u-time-picker>\\n</template>\\n\"},{\"title\":\"日期最小单位\",\"description\":\"\",\"code\":\"<template>\\n<u-time-picker minUnit=\\\"minute\\\" min-time=\\\"12:30\\\" max-time=\\\"14:45\\\" :time=\\\"'13:12'\\\"></u-time-picker>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-time-picker",
             "title": "时间选择",
             "description": "时间选择器",
             "category": "Selector",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-time-picker.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-time-picker.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-time-picker.vue/screenshots/2.png",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-time-picker.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-time-picker.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-time-picker.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-time-picker.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-time-picker.vue/screenshots/4.png",
             "blocks": [
                 {
                     "title": "基本用法",
@@ -13805,7 +13799,7 @@
             "Feedback"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-popup.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-popup.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-popup.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-popup.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-popup.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-popup.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-popup.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-popup.vue/screenshots/7.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-popup.vue/screenshots/8.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.35/src/components/u-popup.vue/screenshots/9.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"将需要弹出的内容用`<u-popup>`包裹起来，并插入到触发事件的元素中。\\n\",\"code\":\"<template>\\n<u-popup ref=\\\"popup1\\\">\\n    <slot name=\\\"inject\\\"></slot>\\n    <template #title>\\n        <span>标题 <u-badge :value=\\\"3\\\"></u-badge></span>\\n    </template>\\n    <span>使用 <u-link>slot</u-link> 可以添加一些复杂功能</span>\\n</u-popup>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"将需要弹出的内容用`<u-popup>`包裹起来，并插入到触发事件的元素中。\\n\",\"code\":\"<template>\\n<u-popup ref=\\\"popup1\\\">\\n    <template #title>\\n        <span>标题 <u-badge :value=\\\"3\\\"></u-badge></span>\\n    </template>\\n    <span>使用 <u-link>slot</u-link> 可以添加一些复杂功能</span>\\n</u-popup>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-popup",
             "title": "弹出框",
@@ -13816,7 +13810,7 @@
                 {
                     "title": "基本用法",
                     "description": "将需要弹出的内容用`<u-popup>`包裹起来，并插入到触发事件的元素中。\n",
-                    "code": "<template>\n<u-popup ref=\"popup1\">\n    <slot name=\"inject\"></slot>\n    <template #title>\n        <span>标题 <u-badge :value=\"3\"></u-badge></span>\n    </template>\n    <span>使用 <u-link>slot</u-link> 可以添加一些复杂功能</span>\n</u-popup>\n</template>\n"
+                    "code": "<template>\n<u-popup ref=\"popup1\">\n    <template #title>\n        <span>标题 <u-badge :value=\"3\"></u-badge></span>\n    </template>\n    <span>使用 <u-link>slot</u-link> 可以添加一些复杂功能</span>\n</u-popup>\n</template>\n"
                 }
             ],
             "attrs": [

@@ -132,9 +132,6 @@
       type: boolean
       default: false
       description: 自动获取焦点
-  slots:
-    - name: default
-      description: 插入文本或 HTML。
   events:
     - name: before-select
       title: 选择前
