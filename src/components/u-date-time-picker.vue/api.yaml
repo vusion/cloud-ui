@@ -33,6 +33,10 @@
       description: 是否默认处于focus状态
       title: 自动获焦
       advanced: true
+    - name: clearable
+      title: 清除按钮
+      type: boolean
+      description: 开启并在输入框有内容时会显示清除按钮。
     - name: disabled
       type: boolean
       default: false

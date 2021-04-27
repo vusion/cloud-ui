@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.header">
     <input :class="$style.input" :placeholder="placeholder" @click.stop="$refs.popper.toggle(true)" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}" @change="onInput($event)">
-    <span v-if="showDate && reset" :class="[$style.wrap, $style.close]" @click.stop="resetValue">
+    <span v-if="showDate && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
         <i :class="[$style.icon, $style.closeIcon]"></i>
     </span>
     <m-popper :class="$style.popper" ref="popper" append-to="reference" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="closeCalendar">
@@ -63,7 +63,7 @@ export default {
         time: { type: [String, Number], default: 'start' },
         yearDiff: { type: [String, Number], default: 3 },
         yearAdd: { type: [String, Number], default: 1 },
-        reset: { type: Boolean, default: false },
+        clearable: { type: Boolean, default: false },
         converter: { type: String, default: 'json' },
     },
     data() {
@@ -230,7 +230,7 @@ export default {
             }
             return date + ' ' + time;
         },
-        resetValue() {
+        clearValue() {
             this.showDate = undefined;
         },
     },

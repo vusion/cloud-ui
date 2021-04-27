@@ -48,6 +48,10 @@
       default: 请输入
       description: 文本框默认提示
       title: 文本框默认提示
+    - name: clearable
+      title: 清除按钮
+      type: boolean
+      description: 开启并在输入框有内容时会显示清除按钮。
     - name: alignment
       type: string
       options:
