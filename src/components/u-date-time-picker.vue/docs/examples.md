@@ -2,7 +2,7 @@
 
 ``` html
 <u-linear-layout>
-    <u-date-time-picker></u-date-time-picker>
+    <u-date-time-picker clearable></u-date-time-picker>
     <u-date-time-picker date="2018-08-08"></u-date-time-picker>
 </u-linear-layout>
 ```

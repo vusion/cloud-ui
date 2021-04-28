@@ -3,6 +3,9 @@
     <div :class="$style.head">
         <input :class="$style.input" :placeholder="placeholder" :value="dateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
             @focus="toggle(true)" @change="onInput($event)">
+         <span v-if="dateTime && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
+            <i :class="[$style.icon, $style.closeIcon]"></i>
+        </span>
     </div>
     <div :class="$style.body" v-show="open">
         <u-calendar :readonly="readonly" :year-diff="yearDiff" :year-add="yearAdd" :min-date="minCalendarDate" :max-date="maxCalendarDate" :date="showDate" @select="outRangeDateTime($event.date, showTime)">
@@ -62,6 +65,7 @@ export default {
         yearDiff: { type: [String, Number], default: 3 },
         yearAdd: { type: [String, Number], default: 1 },
         converter: { type: String, default: 'json' },
+        clearable: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -143,6 +147,9 @@ export default {
         );
     },
     methods: {
+        clearValue() {
+            this.dateTime = undefined;
+        },
         toValue(date) {
             if (!date)
                 return date;
@@ -337,4 +344,39 @@ return this.maxDate;
 .footer {
     padding: 15px 0 5px;
 }
+
+.wrap {
+    position: absolute;
+    text-align: center;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.close {
+    cursor: var(--cursor-pointer);
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    background: var(--background-color-light);
+    border-radius: 100%;
+    display: inline-block;
+}
+
+.closeIcon:hover {
+    color: var(--color-light);
+    background-color: #ebedef;
+}
+
+.closeIcon::before {
+    icon-font: url("../i-icon.vue/icons/close-small.svg");
+    font-size: 16px;
+    color: #b4b4b4;
+    margin-right: 0;
+    vertical-align: middle;
+}
+
 </style>

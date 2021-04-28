@@ -1,6 +1,6 @@
 - name: u-form-table-view
   icon: table-view
-  title: 表格表单视图
+  title: 表格表单
   labels:
     - Table
   description: 本组件用于在表单中使用表单验证、动态数据等复杂功能。
