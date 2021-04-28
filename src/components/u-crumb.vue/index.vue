@@ -13,6 +13,7 @@
 import isFunction from 'lodash/isFunction';
 import isObject from 'lodash/isObject';
 import MParent from '../m-parent.vue';
+import { getRouteComponentOptions } from '../../utils/vue';
 
 export default {
     name: 'u-crumb',
@@ -36,7 +37,9 @@ export default {
                 const matched = to.matched || [];
                 const items = [];
                 matched.forEach((route) => {
-                    const meta = Object.assign({}, route.meta, route.components.default.meta);
+                    const componentOptions = getRouteComponentOptions(route);
+                    const meta = Object.assign({}, route.meta, componentOptions && componentOptions.meta);
+
                     let crumb = meta.crumb;
                     if (crumb) {
                         if (isFunction(crumb))
