@@ -641,6 +641,8 @@
           title: 多选列
         - value: expander
           title: 展开列
+        - value: ''
+          title: 暂无
       description: 列类型
     - name: start-index
       title: 起始序号

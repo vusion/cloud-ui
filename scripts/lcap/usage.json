@@ -1971,14 +1971,14 @@
         "labels": [
             "Layout"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.36/src/components/u-crumb.vue/screenshots/0.png",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.36/src/components/u-crumb.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.36/src/components/u-crumb.vue/screenshots/1.png",
         "blocks": "[{\"title\":\"自动面包屑\",\"description\":\"\",\"code\":\"<template>\\n<u-crumb auto></u-crumb>\\n</template>\\n\"},{\"title\":\"手动面包屑\",\"description\":\"\",\"code\":\"<template>\\n<u-crumb>\\n    <u-crumb-item to=\\\"/\\\">首页</u-crumb-item>\\n    <u-crumb-item to=\\\"/cloud-ui\\\">原型组件</u-crumb-item>\\n    <u-crumb-item disabled>Navigation</u-crumb-item>\\n    <u-crumb-item type=\\\"text\\\" to=\\\"/cloud-ui/u-crumb\\\">面包屑</u-crumb-item>\\n</u-crumb>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-crumb",
             "title": "面包屑",
             "description": "导航指引",
             "category": "Layout",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.36/src/components/u-crumb.vue/screenshots/0.png",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.36/src/components/u-crumb.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.36/src/components/u-crumb.vue/screenshots/1.png",
             "blocks": [
                 {
                     "title": "自动面包屑",
@@ -6091,7 +6091,6 @@
                         }
                     ],
                     "default": "normal",
-                    "multi": true,
                     "maxSelect": 2,
                     "description": "表单项之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。"
                 },
@@ -6780,7 +6779,6 @@
                         }
                     ],
                     "default": "normal",
-                    "multi": true,
                     "maxSelect": 2,
                     "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度"
                 },
@@ -7214,7 +7212,6 @@
                         }
                     ],
                     "default": "normal",
-                    "multi": true,
                     "maxSelect": 2,
                     "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度"
                 }
@@ -9333,7 +9330,6 @@
                         }
                     ],
                     "default": "normal",
-                    "multi": true,
                     "maxSelect": 2,
                     "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度"
                 },
@@ -10544,16 +10540,41 @@
                     ]
                 },
                 {
-                    "name": "complete",
-                    "title": "上传完成时",
-                    "description": "上传完成时触发",
+                    "name": "count-exceed",
+                    "title": "文件数量超额",
+                    "description": "文件数量超额时触发",
                     "params": [
                         {
                             "name": "$event",
                             "type": "object",
                             "description": "自定义事件对象",
                             "schema": {
-                                "$ref": "#/systemTypes/UploadEvent"
+                                "$ref": "#/systemTypes/UploadErrorEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.xml",
+                            "type": "string",
+                            "description": "服务器回传信息"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UUploader",
+                            "description": "发送事件对象"
+                        }
+                    ]
+                },
+                {
+                    "name": "size-exceed",
+                    "title": "文件大小超额",
+                    "description": "文件大小超额时触发",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/UploadErrorEvent"
                             }
                         },
                         {

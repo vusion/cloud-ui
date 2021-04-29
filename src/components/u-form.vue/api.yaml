@@ -40,7 +40,6 @@
         - value: large
           title: 大
       default: normal
-      multi: true
       maxSelect: 2
       description: 表单项之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。
     - name: label-size
