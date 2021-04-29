@@ -1242,6 +1242,10 @@
       {
         "value": "json",
         "title": "json"
+      },
+      {
+        "value": "",
+        "title": "无"
       }
     ],
     "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象"
@@ -1616,6 +1620,10 @@
     "type": "string",
     "description": "文本框默认提示"
   },
+  "u-date-picker/clearable": {
+    "type": "boolean",
+    "description": "开启并在输入框有内容时会显示清除按钮。"
+  },
   "u-date-picker/alignment": {
     "type": "string",
     "options": [
@@ -1679,6 +1687,10 @@
   "u-date-time-picker/autofocus": {
     "type": "boolean",
     "description": "是否默认处于focus状态"
+  },
+  "u-date-time-picker/clearable": {
+    "type": "boolean",
+    "description": "开启并在输入框有内容时会显示清除按钮。"
   },
   "u-date-time-picker/disabled": {
     "type": "boolean",
