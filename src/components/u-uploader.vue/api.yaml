@@ -192,15 +192,30 @@
         - name: senderVM
           type: UUploader
           description: 发送事件对象
-    - name: complete
-      title: 上传完成时
-      description: 上传完成时触发
+    - name: count-exceed
+      title: 文件数量超额
+      description: 文件数量超额时触发
       params:
         - name: $event
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/UploadEvent'
+            $ref: '#/systemTypes/UploadErrorEvent'
+        - name: $event.xml
+          type: string
+          description: 服务器回传信息
+        - name: senderVM
+          type: UUploader
+          description: 发送事件对象
+    - name: size-exceed
+      title: 文件大小超额
+      description: 文件大小超额时触发
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: '#/systemTypes/UploadErrorEvent'
         - name: $event.xml
           type: string
           description: 服务器回传信息
