@@ -34,7 +34,11 @@ export default {
                     set(value) {
                         if (Array.isArray(value))
                             return value;
-                        return JSON.parse(value || '[]');
+                        try {
+                            return JSON.parse(value || '[]');
+                        } catch (err) {
+                            return [];
+                        }
                     },
                 };
             }

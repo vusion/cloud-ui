@@ -118,7 +118,11 @@ export default {
     methods: {
         fromValue(value) {
             if (this.converter === 'json')
-                return JSON.parse(value || '[]');
+                try {
+                    return JSON.parse(value || '[]');
+                } catch (err) {
+                    return [];
+                }
             else
                 return value || [];
         },
