@@ -289,9 +289,19 @@ export default {
 | $event.data | object | 进度相关信息 |
 | senderVM | UUploader | 发送事件对象 |
 
-#### @complete
+#### @count-exceed
 
-上传完成时触发
+文件数量超额时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.xml | string | 服务器回传信息 |
+| senderVM | UUploader | 发送事件对象 |
+
+#### @size-exceed
+
+文件大小超额时触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |

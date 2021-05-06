@@ -12,7 +12,6 @@
     - [Events](#events)
 - [URadio API](#uradio-api)
     - [Props/Attrs](#propsattrs-2)
-    - [Slots](#slots-2)
     - [Events](#events-2)
 
 **Form**
@@ -140,12 +139,6 @@
 | readonly | boolean |  | `false` | 禁用只读 |
 | disabled | boolean |  | `false` | 禁用此项 |
 | autofocus | boolean |  | `false` | 自动获取焦点 |
-
-### Slots
-
-#### (default)
-
-插入文本或 HTML。
 
 ### Events
 
