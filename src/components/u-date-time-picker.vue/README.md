@@ -24,7 +24,7 @@
 
 ``` html
 <u-linear-layout>
-    <u-date-time-picker></u-date-time-picker>
+    <u-date-time-picker clearable></u-date-time-picker>
     <u-date-time-picker date="2018-08-08"></u-date-time-picker>
 </u-linear-layout>
 ```
@@ -108,6 +108,7 @@ export default {
 | maxDate | string, number, Date |  |  | 最大日期值 |
 | placeholder | string |  | `'请选择时间'` | 默认提示语 |
 | autofocus | boolean |  | `false` | 是否默认处于focus状态 |
+| clearable | boolean |  |  | 开启并在输入框有内容时会显示清除按钮。 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | readonly | boolean |  | `false` | 是否只读 |
 | yearDiff | number |  | `3` | 最小可选年份值为当前年减去此值 |
