@@ -50,7 +50,7 @@ export default {
                             crumb = { title: crumb };
 
                         if (!crumb.to)
-                            crumb.to = route.path;
+                            crumb.to = route.path || '/';
                         if (crumb.to === to.path)
                             crumb.readonly = true;
 
