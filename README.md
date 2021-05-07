@@ -83,6 +83,14 @@ bin/find-by-re ./src '<u-input[\s\S]{0,300}close'
 将`dist-doc-entry/`下的文档入口发布到 NOS
 
 
+### upload single screenshot
+
+```sh
+yarn run build:docs
+node bin/screenshot u-button
+npm run deploy:screenshots u-button
+```
+
 ## Publish
 
 ```

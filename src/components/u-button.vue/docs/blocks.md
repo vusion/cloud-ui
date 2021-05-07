@@ -19,7 +19,7 @@
 ### 刷新按钮
 
 ``` html
-<u-button shape="square" icon="refres text="">"h</u-button>
+<u-button shape="square" icon="refresh" text=""></u-button>
 ```
 
 ### 危险按钮
