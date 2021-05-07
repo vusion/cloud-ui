@@ -209,7 +209,8 @@ export default {
             tableMetaList: [{ position: 'static' }],
             scrollXStart: true,
             scrollXEnd: true,
-            /* Selection Data */ selectedItem: undefined,
+            /* Selection Data */
+            selectedItem: undefined,
             currentValues: this.values || [],
             tableHeight: undefined,
         };

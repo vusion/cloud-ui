@@ -26,6 +26,7 @@
       group: 数据属性
       title: 可分页
       type: boolean
+      advanced: true
       default: false
       description: 是否需要分页。
     - name: page-size
