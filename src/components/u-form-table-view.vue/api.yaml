@@ -7,10 +7,10 @@
   extends: m-dynamic
   attrs:
     - name: data
+      title: 数据
       type: Array
       default: null
       description: 数据
-      title: 数据
     - name: dynamic
       type: boolean
       default: false
@@ -172,15 +172,15 @@
       default: null
       description: 给列指定宽度，可以为数字或百分比
     - name: ellipsis
+      title: 省略显示
       type: boolean
       default: false
-      description: 是否省略显示。默认文字超出时会换行
-      title: 省略
+      description: 文字过长是否省略显示。默认文字超出时会换行。
     - name: formatter
       type: 'string, object, Function, Formatter'
+      title: 格式器
       default: placeholder
       description: 格式器
-      title: 格式器
     - name: hidden
       type: boolean
       title: 是否隐藏

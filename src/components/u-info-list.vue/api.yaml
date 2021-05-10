@@ -63,10 +63,10 @@
       default: auto
       description: 标签大小。
     - name: ellipsis
-      title: 是否换行
+      title: 省略显示
       type: boolean
       default: false
-      description: 是否换行，默认换行
+      description: 文字过长是否省略显示。默认文字超出时会换行。
   slots:
     - name: default
       title: 默认
@@ -85,7 +85,6 @@
     - name: repeat
       title: 列数
       type: number
-      default: 3
       description: 当前组范围内的划分列数
     - name: label-size
       title: 标签大小

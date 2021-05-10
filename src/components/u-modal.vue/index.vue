@@ -281,7 +281,7 @@ export default UModal;
     line-height: 40px;
 }
 
-.body[icon] .text {
+.body[icon] > div {
     margin-left: 50px;
 }
 

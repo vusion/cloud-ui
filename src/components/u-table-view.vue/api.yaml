@@ -597,7 +597,7 @@
       title: 省略显示
       type: boolean
       default: false
-      description: 是否省略显示。默认文字超出时会换行。
+      description: 文字过长是否省略显示。默认文字超出时会换行。
     - name: formatter
       title: 格式器
       advanced: true

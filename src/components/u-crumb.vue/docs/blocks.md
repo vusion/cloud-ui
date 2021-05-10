@@ -8,9 +8,8 @@
 
 ``` html
 <u-crumb>
-    <u-crumb-item>首页</u-crumb-item>
-    <u-crumb-item>原型组件</u-crumb-item>
-    <u-crumb-item disabled>Navigation</u-crumb-item>
-    <u-crumb-item type="text">面包屑</u-crumb-item>
+    <u-crumb-item>主页面</u-crumb-item>
+    <u-crumb-item>一级子页面</u-crumb-item>
+    <u-crumb-item>二级子页面</u-crumb-item>
 </u-crumb>
 ```
