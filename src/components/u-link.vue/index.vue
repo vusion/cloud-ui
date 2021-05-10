@@ -71,6 +71,9 @@ export default {
         onClick(e) {
             if (this.currentDisabled)
                 return e.preventDefault();
+            if (!this.href && this.$listeners.click) {
+                e.preventDefault();
+            }
             this.wrapClick(e, this);
             if (this.target !== '_self')
                 return; // 使用`to`的时候走`$router`，否则走原生
