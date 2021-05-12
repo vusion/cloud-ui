@@ -1972,7 +1972,7 @@
             "Layout"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.37/src/components/u-crumb.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.37/src/components/u-crumb.vue/screenshots/1.png",
-        "blocks": "[{\"title\":\"自动面包屑\",\"description\":\"\",\"code\":\"<template>\\n<u-crumb auto></u-crumb>\\n</template>\\n\"},{\"title\":\"手动面包屑\",\"description\":\"\",\"code\":\"<template>\\n<u-crumb>\\n    <u-crumb-item>首页</u-crumb-item>\\n    <u-crumb-item>原型组件</u-crumb-item>\\n    <u-crumb-item disabled>Navigation</u-crumb-item>\\n    <u-crumb-item type=\\\"text\\\">面包屑</u-crumb-item>\\n</u-crumb>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"自动面包屑\",\"description\":\"\",\"code\":\"<template>\\n<u-crumb auto></u-crumb>\\n</template>\\n\"},{\"title\":\"手动面包屑\",\"description\":\"\",\"code\":\"<template>\\n<u-crumb>\\n    <u-crumb-item>主页面</u-crumb-item>\\n    <u-crumb-item>一级子页面</u-crumb-item>\\n    <u-crumb-item>二级子页面</u-crumb-item>\\n</u-crumb>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-crumb",
             "title": "面包屑",
@@ -1988,7 +1988,7 @@
                 {
                     "title": "手动面包屑",
                     "description": "",
-                    "code": "<template>\n<u-crumb>\n    <u-crumb-item>首页</u-crumb-item>\n    <u-crumb-item>原型组件</u-crumb-item>\n    <u-crumb-item disabled>Navigation</u-crumb-item>\n    <u-crumb-item type=\"text\">面包屑</u-crumb-item>\n</u-crumb>\n</template>\n"
+                    "code": "<template>\n<u-crumb>\n    <u-crumb-item>主页面</u-crumb-item>\n    <u-crumb-item>一级子页面</u-crumb-item>\n    <u-crumb-item>二级子页面</u-crumb-item>\n</u-crumb>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -4162,10 +4162,10 @@
                         },
                         {
                             "name": "ellipsis",
-                            "title": "是否换行",
+                            "title": "省略显示",
                             "type": "boolean",
                             "default": false,
-                            "description": "是否换行，默认换行"
+                            "description": "文字过长是否省略显示。默认文字超出时会换行。"
                         }
                     ],
                     "slots": [
@@ -4196,7 +4196,6 @@
                             "name": "repeat",
                             "title": "列数",
                             "type": "number",
-                            "default": 3,
                             "description": "当前组范围内的划分列数"
                         },
                         {
@@ -4453,6 +4452,7 @@
                     "group": "数据属性",
                     "title": "可分页",
                     "type": "boolean",
+                    "advanced": true,
                     "default": false,
                     "description": "是否需要分页。"
                 },
@@ -5317,7 +5317,7 @@
                             "title": "省略显示",
                             "type": "boolean",
                             "default": false,
-                            "description": "是否省略显示。默认文字超出时会换行。"
+                            "description": "文字过长是否省略显示。默认文字超出时会换行。"
                         },
                         {
                             "name": "formatter",
@@ -5557,10 +5557,10 @@
             "attrs": [
                 {
                     "name": "data",
+                    "title": "数据",
                     "type": "Array",
                     "default": null,
-                    "description": "数据",
-                    "title": "数据"
+                    "description": "数据"
                 },
                 {
                     "name": "dynamic",
@@ -5822,17 +5822,17 @@
                         },
                         {
                             "name": "ellipsis",
+                            "title": "省略显示",
                             "type": "boolean",
                             "default": false,
-                            "description": "是否省略显示。默认文字超出时会换行",
-                            "title": "省略"
+                            "description": "文字过长是否省略显示。默认文字超出时会换行。"
                         },
                         {
                             "name": "formatter",
                             "type": "string, object, Function, Formatter",
+                            "title": "格式器",
                             "default": "placeholder",
-                            "description": "格式器",
-                            "title": "格式器"
+                            "description": "格式器"
                         },
                         {
                             "name": "hidden",
@@ -13090,14 +13090,14 @@
                 {
                     "name": "yearDiff",
                     "type": "number",
-                    "default": 3,
+                    "default": 20,
                     "description": "最小可选年份值为当前年减去此值",
                     "title": "最小可选年份与当前年份的差值"
                 },
                 {
                     "name": "yearAdd",
                     "type": "number",
-                    "default": 1,
+                    "default": 20,
                     "description": "最大可选年份值为当前年加上此值",
                     "title": "最大可选年份与当前年份的差值"
                 },
@@ -13439,14 +13439,14 @@
                 {
                     "name": "yearDiff",
                     "type": "number",
-                    "default": 3,
+                    "default": 20,
                     "title": "最小可选年份到当前年份的差值",
                     "description": "最小可选年份值为当前年减去此值"
                 },
                 {
                     "name": "yearAdd",
                     "type": "number",
-                    "default": 1,
+                    "default": 20,
                     "description": "最大可选年份值为当前年加上此值",
                     "title": "最大可选年份到当前年份的差值"
                 },
@@ -13974,7 +13974,7 @@
             "Feedback"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.37/src/components/u-modal.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-modal ref=\\\"modal1\\\" visible>\\n    <template #title>\\n        <div>自定义</div>\\n    </template>\\n    <template #body>\\n        <div>内容</div>\\n    </template>\\n    <template #foot>\\n        <u-linear-layout>\\n            <u-button color=\\\"primary\\\">确定</u-button>\\n            <u-button>取消</u-button>\\n        </u-linear-layout>\\n    </template>\\n</u-modal>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-modal ref=\\\"modal1\\\">\\n    <template #title>\\n        <div>自定义</div>\\n    </template>\\n    <template #body>\\n        <div>内容</div>\\n    </template>\\n    <template #foot>\\n        <u-linear-layout>\\n            <u-button color=\\\"primary\\\">确定</u-button>\\n            <u-button>取消</u-button>\\n        </u-linear-layout>\\n    </template>\\n</u-modal>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-modal",
             "title": "弹窗",
@@ -13985,7 +13985,7 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-modal ref=\"modal1\" visible>\n    <template #title>\n        <div>自定义</div>\n    </template>\n    <template #body>\n        <div>内容</div>\n    </template>\n    <template #foot>\n        <u-linear-layout>\n            <u-button color=\"primary\">确定</u-button>\n            <u-button>取消</u-button>\n        </u-linear-layout>\n    </template>\n</u-modal>\n</template>\n"
+                    "code": "<template>\n<u-modal ref=\"modal1\">\n    <template #title>\n        <div>自定义</div>\n    </template>\n    <template #body>\n        <div>内容</div>\n    </template>\n    <template #foot>\n        <u-linear-layout>\n            <u-button color=\"primary\">确定</u-button>\n            <u-button>取消</u-button>\n        </u-linear-layout>\n    </template>\n</u-modal>\n</template>\n"
                 }
             ],
             "attrs": [

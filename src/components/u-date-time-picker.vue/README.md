@@ -111,8 +111,8 @@ export default {
 | clearable | boolean |  |  | 开启并在输入框有内容时会显示清除按钮。 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | readonly | boolean |  | `false` | 是否只读 |
-| yearDiff | number |  | `3` | 最小可选年份值为当前年减去此值 |
-| yearAdd | number |  | `1` | 最大可选年份值为当前年加上此值 |
+| yearDiff | number |  | `20` | 最小可选年份值为当前年减去此值 |
+| yearAdd | number |  | `20` | 最大可选年份值为当前年加上此值 |
 | converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'json'` | 转换器 |
 
 ### Slots

@@ -105,8 +105,8 @@ export default {
 | clearable | boolean |  |  | 开启并在输入框有内容时会显示清除按钮。 |
 | alignment | string | `[object Object]`<br/>`[object Object]` | `'left'` | 日历弹窗对其方式 |
 | time | string, number |  | `'0:00:00'` | 输入对应格式的字符串（8:00:00）即可 |
-| yearDiff | number |  | `3` | 最小可选年份值为当前年减去此值 |
-| yearAdd | number |  | `1` | 最大可选年份值为当前年加上此值 |
+| yearDiff | number |  | `20` | 最小可选年份值为当前年减去此值 |
+| yearAdd | number |  | `20` | 最大可选年份值为当前年加上此值 |
 | converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'json'` | 转换器，用于转换时间结果 |
 
 ### Events
