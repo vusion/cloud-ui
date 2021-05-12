@@ -65,12 +65,12 @@
       title: 时间格式
     - name: yearDiff
       type: number
-      default: 3
+      default: 20
       description: 最小可选年份值为当前年减去此值
       title: 最小可选年份与当前年份的差值
     - name: yearAdd
       type: number
-      default: 1
+      default: 20
       description: 最大可选年份值为当前年加上此值
       title: 最大可选年份与当前年份的差值
     - name: converter

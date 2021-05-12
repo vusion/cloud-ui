@@ -59,8 +59,8 @@ export default {
         maxDate: [String, Number, Date],
         date: [String, Number, Date],
         width: { type: [String, Number], default: 170 },
-        yearDiff: { type: [String, Number], default: 3 },
-        yearAdd: { type: [String, Number], default: 1 },
+        yearDiff: { type: [String, Number], default: 20 },
+        yearAdd: { type: [String, Number], default: 20 },
         converter: { type: String, default: 'json' },
     },
     data() {
