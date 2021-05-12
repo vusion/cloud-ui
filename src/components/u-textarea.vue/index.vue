@@ -137,16 +137,16 @@ export default {
 }
 
 .root[size$="normal"] { width: var(--textarea-width); }
-.root[size^="normal"] { height: var(--textarea-height); }
+.root[size^="normal"] { height: var(--textarea-height); line-height: inherit; }
 
 .root[size$="medium"] { width: var(--textarea-width-medium); }
-.root[size^="medium"] { height: var(--textarea-height-medium); }
+.root[size^="medium"] { height: var(--textarea-height-medium); line-height: inherit; }
 
 .root[size$="large"] { width: var(--textarea-width-large); }
-.root[size^="large"] { height: var(--textarea-height-large); }
+.root[size^="large"] { height: var(--textarea-height-large); line-height: inherit; }
 
 .root[size$="huge"] { width: var(--textarea-width-huge); }
-.root[size^="huge"] { height: var(--textarea-height-huge); }
+.root[size^="huge"] { height: var(--textarea-height-huge); line-height: inherit; }
 
 .root[size$="full"] { width: 100%; }
 .root[size^="full"] { height: 100%; }
