@@ -91,6 +91,10 @@ node bin/screenshot u-button
 npm run deploy:screenshots u-button
 ```
 
+### 设计图片
+
+存储在 drawings 里面
+
 ## Publish
 
 ```
