@@ -475,7 +475,7 @@ export default {
 | title | string |  |  | 列标题 |
 | field | string |  |  | data 中的字段名 |
 | width | string, number |  |  | 给列指定宽度，可以为数字或百分比 |
-| ellipsis | boolean |  | `false` | 是否省略显示。默认文字超出时会换行 |
+| ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
 | formatter | string, object, Function, Formatter |  | `'placeholder'` | 格式器 |
 | hidden | boolean |  | `false` | 是否隐藏 |
 | start-index | number |  | `1` | 当`type="index"`时的起始序号 |

@@ -2035,7 +2035,7 @@ Methods
 | title | string |  |  | 列标题。 |
 | field | string |  |  | data 项中的字段名。 |
 | width | string \| number |  |  | 给列指定宽度，可以为数字或百分比。 |
-| ellipsis | boolean |  | `false` | 是否省略显示。默认文字超出时会换行。 |
+| ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
 | formatter | string \| object \| Function \| Formatter |  | `'placeholder'` | 格式器。 |
 | sortable | boolean |  | `false` | 该列是否可以排序。 |
 | default-order | string | `[object Object]`<br/>`[object Object]` | `'asc'` | 该列首次点击时的排序顺序 |

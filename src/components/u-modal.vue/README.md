@@ -141,7 +141,7 @@ export default {
 ### 点击遮罩关闭
 
 ``` html
-<u-modal title="标题" visible  :maskClose="true">内容</u-modal>
+<u-modal title="标题" visible static :maskClose="true">内容</u-modal>
 ```
 
 ## API
