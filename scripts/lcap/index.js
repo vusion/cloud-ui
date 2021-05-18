@@ -19,9 +19,9 @@ Object.values(map).forEach((item) => {
 });
 
 Object.values(map).forEach((item) => {
-    let drawingShot = JSON.parse(item.jsonSchema.drawingShot);
-    drawingShot = drawingShot.map((screen) => `https://static-vusion.163yun.com/packages/${libInfo}/src/components/${item.symbol}.vue/drawings/${screen}`);
-    item.jsonSchema.drawingShot = drawingShot.join(',');
+    let drawings = JSON.parse(item.jsonSchema.drawings);
+    drawings = drawings.map((screen) => `https://static-vusion.163yun.com/packages/${libInfo}/src/components/${item.symbol}.vue/drawings/${screen}`);
+    item.jsonSchema.drawings = drawings.join(',');
 });
 
 fs.writeFileSync(path.join(__dirname, './usage.json'), JSON.stringify(map, null, 4));
