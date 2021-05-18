@@ -6,7 +6,7 @@
 </u-panel>
 ```
 
-### 分组
+### 面板分组
 
 ``` html
 <u-panel title="服务">

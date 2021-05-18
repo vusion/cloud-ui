@@ -17,4 +17,11 @@ Object.values(map).forEach((item) => {
     screenShot = screenShot.map((screen) => `https://static-vusion.163yun.com/packages/${libInfo}/src/components/${item.symbol}.vue/screenshots/${screen}`);
     item.jsonSchema.screenShot = item.screenShot = screenShot.join(',');
 });
+
+Object.values(map).forEach((item) => {
+    let drawings = JSON.parse(item.jsonSchema.drawings);
+    drawings = drawings.map((screen) => `https://static-vusion.163yun.com/packages/${libInfo}/src/components/${item.symbol}.vue/drawings/${screen}`);
+    item.jsonSchema.drawings = drawings.join(',');
+});
+
 fs.writeFileSync(path.join(__dirname, './usage.json'), JSON.stringify(map, null, 4));

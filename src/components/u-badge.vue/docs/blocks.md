@@ -1,8 +1,4 @@
-### 文字徽章
 
-``` html
-<u-badge value="new"></u-badge>
-```
 
 ### 数字徽章
 

@@ -8,72 +8,6 @@
 </u-capsules>
 ```
 
-### 选择值
-
-``` html
-<u-capsules value="C">
-    <u-capsule value="A">Apple</u-capsule>
-    <u-capsule value="B">Banana</u-capsule>
-    <u-capsule value="C">Cake</u-capsule>
-</u-capsules>
-```
-
-### 禁用某一项
-
-``` html
-<u-capsules value="C">
-    <u-capsule value="A">Apple</u-capsule>
-    <u-capsule value="B" disabled>Banana</u-capsule>
-    <u-capsule value="C">Cake</u-capsule>
-</u-capsules>
-```
-
-### 只读
-
-``` html
-<u-capsules value="C" readonly>
-    <u-capsule value="A">Apple</u-capsule>
-    <u-capsule value="B">Banana</u-capsule>
-    <u-capsule value="C">Cake</u-capsule>
-</u-capsules>
-
-```
-
-### 禁用
-
-``` html
-<u-capsules value="C" disabled>
-    <u-capsule value="A">Apple</u-capsule>
-    <u-capsule value="B">Banana</u-capsule>
-    <u-capsule value="C">Cake</u-capsule>
-</u-capsules>
-
-```
-
-### 可取消
-
-点击两次同一项，可取消状态
-
-``` html
-<u-capsules value="C" cancelable>
-    <u-capsule value="A">Apple</u-capsule>
-    <u-capsule value="B">Banana</u-capsule>
-    <u-capsule value="C">Cake</u-capsule>
-</u-capsules>
-```
-
-### 多项选择
-
-绑定`value`属性，可以用`v-model`或`:value.sync`。
-
-``` html
-<u-capsules :value="['B', 'C']" multiple>
-    <u-capsule value="A">Apple</u-capsule>
-    <u-capsule value="B">Banana</u-capsule>
-    <u-capsule value="C">Cake</u-capsule>
-</u-capsules>
-```
-
 ### 胶囊组
 
 ``` html
@@ -90,17 +24,6 @@
     </u-capsules-group>
 </u-capsules>
 ```
-
-### Flag
-
-``` html
-<u-capsules>
-    <u-capsule>Apple</u-capsule>
-    <u-capsule flag>Banana</u-capsule>
-    <u-capsule flag="">Cake</u-capsule>
-</u-capsules>
-```
-
 ### 标签
 
 ``` html
