@@ -188,7 +188,7 @@
 | label | string |  |  | 标签 |
 | span | string |  |  | 列跨越的格数 |
 | label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` | 标签大小。 |
-| ellipsis | boolean |  | `false` | 是否换行，默认换行 |
+| ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
 
 ### Slots
 
@@ -206,7 +206,7 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | title | string |  |  | 标题 |
-| repeat | number |  | `3` | 当前组范围内的划分列数 |
+| repeat | number |  |  | 当前组范围内的划分列数 |
 | label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` | 当前组所有项的标签大小。 |
 
 ### Slots

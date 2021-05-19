@@ -1876,7 +1876,7 @@
   },
   "u-form-table-view-column/ellipsis": {
     "type": "boolean",
-    "description": "是否省略显示。默认文字超出时会换行"
+    "description": "文字过长是否省略显示。默认文字超出时会换行。"
   },
   "u-form-table-view-column/formatter": {
     "type": "string, object, Function, Formatter",
@@ -2560,7 +2560,7 @@
   },
   "u-info-list-item/ellipsis": {
     "type": "boolean",
-    "description": "是否换行，默认换行"
+    "description": "文字过长是否省略显示。默认文字超出时会换行。"
   },
   "u-info-list-group/title": {
     "type": "string",
@@ -4642,7 +4642,7 @@
   },
   "u-table-view-column/ellipsis": {
     "type": "boolean",
-    "description": "是否省略显示。默认文字超出时会换行。"
+    "description": "文字过长是否省略显示。默认文字超出时会换行。"
   },
   "u-table-view-column/formatter": {
     "type": "string | object | Function | Formatter",
