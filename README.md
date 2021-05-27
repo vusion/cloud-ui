@@ -28,32 +28,6 @@ import 'cloud-ui.vusion/dist/index.css';
 Vue.use(CloudUI); // 全局安装组件库中的组件、指令等
 ```
 
-## Migration
-
-### migrate-3-4
-
-从 v0.3.x 升级到 v0.4.x
-
-``` shell
-bin/migrate-3-4 ./src
-```
-
-### migrate-4-6
-
-从 v0.4.x 升级到 v0.6.x
-
-``` shell
-bin/migrate-4-6 ./src
-```
-
-### find-by-re
-
-通过正则表达式查找
-
-``` shell
-bin/find-by-re ./src '<u-input[\s\S]{0,300}close'
-```
-
 ## Development
 
 ### npm install
@@ -99,7 +73,6 @@ npm run deploy:screenshots u-button
 
 ```
 vusion publish
-npm run lcap
 ```
 
 usage.json 在低代码平台上登记。
