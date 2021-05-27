@@ -1,6 +1,6 @@
 <!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-# UTaskBox 任务箱
+# UTaskbox 任务箱
 
 - [示例](#示例)
     - [设置分页](#设置分页)
@@ -19,8 +19,8 @@
 
 ``` html
 <u-linear-layout gap="large">
-    <u-task-box :size="5"></u-task-box>
-    <u-task-box :size="10"></u-task-box>
+    <u-taskbox :size="5"></u-taskbox>
+    <u-taskbox :size="10"></u-taskbox>
 </u-linear-layout>
 ```
 

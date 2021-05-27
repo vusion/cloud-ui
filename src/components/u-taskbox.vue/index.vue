@@ -10,7 +10,7 @@
                 <u-list-item v-for="task in tasks" :key="task.id" @click="clickTask(task)">
                     <u-linear-layout type="flex" justify="space-between" alignment="center" :class="$style.line">
                         <span :class="$style.title">{{ task.processDefinitionName || task.name }}</span>
-                        <span :class="$style.time">{{ dateFormater(task.createAt) }}</span>
+                        <span :class="$style.time">{{ dateFormatter(task.createAt) }}</span>
                     </u-linear-layout>
                 </u-list-item>
             </u-list>
@@ -22,7 +22,7 @@
 
 <script>
 export default {
-    name: 'u-task-box',
+    name: 'u-taskbox',
     props: {
         title: {
             type: String,
@@ -72,11 +72,11 @@ export default {
                 body: { assignee: this.assignee },
             });
             const res = await this.$process.getDestinationUrl({
-                path: { id },
+                path: { id, assignee: this.assignee },
             });
             location.href = res.Data;
         },
-        dateFormater(value) {
+        dateFormatter(value) {
             // eslint-disable-next-line new-cap
             return this.$utils ? this.$utils.FormatDateTime(value) : value;
         },

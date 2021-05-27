@@ -1,4 +1,4 @@
-- name: u-task-box
+- name: u-taskbox
   title: 任务箱
   icon: text
   labels:

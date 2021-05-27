@@ -14436,7 +14436,7 @@
         }
     },
     {
-        "symbol": "u-task-box",
+        "symbol": "u-taskbox",
         "name": "任务箱",
         "icon": "text",
         "depDescription": {},
@@ -14444,20 +14444,20 @@
         "labels": [
             "Process"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.38/src/components/u-task-box.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"任务箱\",\"description\":\"\",\"code\":\"<template>\\n<u-task-box></u-task-box>\\n</template>\\n\"}]",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.38/src/components/u-taskbox.vue/screenshots/0.png",
+        "blocks": "[{\"title\":\"任务箱\",\"description\":\"\",\"code\":\"<template>\\n<u-taskbox></u-taskbox>\\n</template>\\n\"}]",
         "jsonSchema": {
-            "name": "u-task-box",
+            "name": "u-taskbox",
             "title": "任务箱",
             "description": "用于展示流程任务箱",
             "category": "Process",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.38/src/components/u-task-box.vue/screenshots/0.png",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.38/src/components/u-taskbox.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
                 {
                     "title": "任务箱",
                     "description": "",
-                    "code": "<template>\n<u-task-box></u-task-box>\n</template>\n"
+                    "code": "<template>\n<u-taskbox></u-taskbox>\n</template>\n"
                 }
             ],
             "attrs": [

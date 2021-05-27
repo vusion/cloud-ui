@@ -4,7 +4,7 @@
 
 ``` html
 <u-linear-layout gap="large">
-    <u-task-box :size="5"></u-task-box>
-    <u-task-box :size="10"></u-task-box>
+    <u-taskbox :size="5"></u-taskbox>
+    <u-taskbox :size="10"></u-taskbox>
 </u-linear-layout>
 ```
