@@ -1,6 +1,6 @@
 - name: u-taskbox
   title: 任务箱
-  icon: text
+  icon: taskbox
   labels:
     - Process
   description: 用于展示流程任务箱
