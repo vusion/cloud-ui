@@ -104,6 +104,7 @@ module.exports = {
             { group: 'Effects', name: 'e-watermark', alias: '水印' },
             { group: 'Progress & Charts', name: 'u-linear-progress', alias: '线型进度条' },
             { group: 'Progress & Charts', name: 'u-circular-progress', alias: '圆型进度条' },
+            { group: 'Process', name: 'u-task-box', alias: '任务箱' },
             { group: 'Mixins & Functional', name: 'm-dynamic', alias: '动态列表', vscode: false },
             { group: 'Mixins & Functional', name: 'm-emitter', alias: '发送器', vscode: false },
             { group: 'Mixins & Functional', name: 'm-pub-sub', alias: '发布订阅模式', vscode: false },
