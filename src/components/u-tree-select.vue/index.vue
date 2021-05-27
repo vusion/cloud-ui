@@ -400,7 +400,7 @@ export default {
 .popper {
     position: absolute;
     box-sizing: content-box;
-    /* width: 100%; */
+    width: 100%;
     line-height: var(--select-popper-line-height);
     max-height: var(--select-popper-max-height);
     overflow: auto;
@@ -485,17 +485,10 @@ export default {
 .root[size^="full"] { height: 100%; }
 
 [theme=light].popper {
-    color: black;
     background: white;
+    color: black;
     border: 1px solid #dee4ed;
-}
-
-[theme=light] [class^="u-select_item"]:hover, [theme=light] [class^="u-select_item"]:focus, [theme=light] [class^="u-select_item"][focused] {
-    background: #f4f6f9;
-}
-
-[theme=light] [class^="u-select_item"][selected] {
-    background: var(--brand-primary);
+    width: auto;
 }
 
 [theme=light] [class^="u-tree-view_node_item"]:hover [class^="u-tree-view_node_background"],
