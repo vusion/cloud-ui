@@ -7,8 +7,13 @@
         <u-linear-layout direction="vertical" :class="$style.content">
             <h3 :class="$style.h3">待处理任务 ({{ total }})</h3>
             <u-list line hover striped>
-                <u-list-item v-for="task in tasks" :key="task.id" @click="clickTask(task)">
-                    <u-linear-layout type="flex" justify="space-between" alignment="center" :class="$style.line">
+                <u-list-item v-for="task in tasks" :key="task.id" @click.native="clickTask(task)">
+                    <u-linear-layout
+                        type="flex"
+                        justify="space-between"
+                        alignment="center"
+                        :class="$style.line"
+                    >
                         <span :class="$style.title">{{ task.processDefinitionName || task.name }}</span>
                         <span :class="$style.time">{{ dateFormatter(task.createAt) }}</span>
                     </u-linear-layout>
@@ -36,7 +41,6 @@ export default {
     data() {
         return {
             active: false,
-            assignee: undefined,
             tasks: [],
             page: 1,
             total: 0,
@@ -44,35 +48,31 @@ export default {
         };
     },
     async created() {
-        const userInfo = await this.$auth && this.$auth.getUserInfo();
-        if (userInfo) {
-            this.assignee = userInfo.UserId;
-        }
         await this.getTasks();
     },
 
     methods: {
         async getTasks() {
-            const { Data = {} } = await this.$process && this.$process.getTasks({
-                query: {
-                    page: this.page - 1,
-                    size: this.size,
-                    assignee: this.assignee,
-                },
-            }) || {};
-            const { content, totalElements = 0, totalPages = 1 } = Data;
-            this.tasks = content;
-            this.total = totalElements;
-            this.totalPages = totalPages;
+            if (this.$process) {
+                const { Data = {} } = await this.$process.getTasks({
+                    query: {
+                        page: this.page - 1,
+                        size: this.size,
+                    },
+                }) || {};
+                const { content, totalElements = 0, totalPages = 1 } = Data;
+                this.tasks = content;
+                this.total = totalElements;
+                this.totalPages = totalPages;
+            }
         },
         async clickTask(task) {
             const { id } = task;
             await this.$process.claimTask({
                 path: { id },
-                body: { assignee: this.assignee },
             });
             const res = await this.$process.getDestinationUrl({
-                path: { id, assignee: this.assignee },
+                path: { id },
             });
             location.href = res.Data;
         },
