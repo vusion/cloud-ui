@@ -46,7 +46,7 @@
         </u-input>
     </div>
     <span v-if="clearable && !!(filterable ? filterText : currentText)" :class="$style.clearable" @click="clear"></span>
-    <m-popper :class="$style.popper" ref="popper" append-to="reference" :disabled="readonly || currentDisabled"
+    <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :theme="theme" :disabled="readonly || currentDisabled"
         @update:opened="$emit('update:opened', $event, this)"
         @before-open="$emit('before-open', $event, this)"
         @before-close="$emit('before-close', $event, this)"
@@ -123,6 +123,12 @@ export default {
         opened: { type: Boolean, default: false },
         label: { type: String, default: '' },
         ellipsisDirection: { type: String, default: 'ltr' },
+        appendTo: {
+            type: String,
+            default: 'reference',
+            validator: (value) => ['body', 'reference'].includes(value),
+        },
+        theme: { type: String, default: '' },
     },
     data() {
         return {

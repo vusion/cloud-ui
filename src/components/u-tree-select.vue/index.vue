@@ -474,4 +474,21 @@ export default {
 .root[size$="full"] { width: 100%; padding: 0 var(--select-padding-x-full); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-full)); }
 .root[size$="full"] .item { padding: 0 var(--select-padding-x-full); }
 .root[size^="full"] { height: 100%; }
+
+[theme=light].popper {
+    background: white;
+    color: black;
+    border: 1px solid #dee4ed;
+    width: auto;
+}
+
+[theme=light] [class^="u-tree-view_node_item"]:hover [class^="u-tree-view_node_background"],
+[theme=light] [class^="u-tree-view_node_item"]:focus [class^="u-tree-view_node_background"],
+[theme=light] [class^="u-tree-view_node_item"][focused] [class^="u-tree-view_node_background"] {
+    background: #f4f6f9;
+}
+
+[theme=light] [class^="u-tree-view_node_item"][selected] [class^="u-tree-view_node_background"] {
+    background: var(--brand-primary);
+}
 </style>
