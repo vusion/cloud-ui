@@ -4900,6 +4900,14 @@
     "type": "boolean",
     "description": "需要 router 为 true，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。"
   },
+  "u-taskbox/size": {
+    "type": "number",
+    "description": "每页条数"
+  },
+  "u-taskbox/title": {
+    "type": "string",
+    "description": "鼠标 hover 在图标上展示文案"
+  },
   "u-text/text": {
     "type": "string",
     "description": "文本内容"

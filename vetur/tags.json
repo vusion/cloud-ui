@@ -1511,6 +1511,13 @@
     ],
     "description": "标签页"
   },
+  "u-taskbox": {
+    "attributes": [
+      "size",
+      "title"
+    ],
+    "description": "用于展示流程任务箱"
+  },
   "u-text": {
     "attributes": [
       "text",

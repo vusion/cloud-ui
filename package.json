@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.11.38",
+  "version": "0.11.39",
   "author": "Forrest <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -21,15 +21,14 @@
     "screenshot": "node bin/screenshot",
     "lint": "eslint --fix --ext .js,.vue src && stylelint --fix ./src/**/*.css",
     "ghpages": "vusion ghpages",
-    "lcapUsage": "npm run deploy:screenshots && node ./scripts/lcap && npm run deploy:lcap",
-    "lcap": "npm run deploy:drawings && node ./scripts/lcap && npm run deploy:lcap",
+    "lcap": "npm run deploy:screenshots && npm run deploy:drawings && node ./scripts/lcap && npm run deploy:lcap",
     "deploy": "vusion deploy --framework cloud-ui.vusion@0.11 -v minor",
     "deploy:lcap": "vusion deploy --framework cloud-ui dist-theme",
     "deploy:screenshots": "node bin/deploy-screenshots",
     "deploy:drawings": "node bin/deploy-drawings",
     "deploy:doc-entry": "vusion deploy --framework cloud-ui -v minor dist-doc-entry",
     "prepublishOnly": "npm run build && npm run build:theme && npm run build:raw && vusion readme && vusion vetur && git add .",
-    "postpublish": "npm run build:docs && npm run deploy && npm run deploy:lcap"
+    "postpublish": "npm run build:docs && npm run deploy && npm run deploy:lcap && npm run lcap"
   },
   "repository": "vusion/cloud-ui",
   "homepage": "http://vusion.github.io/cloud-ui",
