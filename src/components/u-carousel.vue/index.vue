@@ -156,7 +156,7 @@ export default {
 }
 
 .button[role='prev']::before {
-    content: '⟨';
+    content: '\27e8';
 }
 
 .button[role='next'] {
@@ -164,6 +164,6 @@ export default {
 }
 
 .button[role='next']::before {
-    content: '⟩';
+    content: '\27e9';
 }
 </style>

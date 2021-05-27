@@ -122,7 +122,7 @@ export default {
 }
 
 .close::before {
-    content: '×';
+    content: '\00d7';
     font-size: var(--font-size-huge);
     line-height: 0.8;
 }

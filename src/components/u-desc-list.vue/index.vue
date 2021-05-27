@@ -1,7 +1,8 @@
 <template>
 <div :class="$style.root" :layout="layout">
     <slot></slot>
-</div></template>
+</div>
+</template>
 
 <script>
 export default {
@@ -57,7 +58,7 @@ export default {
 
 .root[layout="inline"]::after {
     display: block;
-    content: '.';
+    content: '\002e';
     clear: both;
     height: 0;
     visibility: hidden;

@@ -150,7 +150,7 @@ export default {
     left: 50%;
     bottom: 0;
     color: transparent;
-    content: '•';
+    content: '\2022';
     font-size: 1.2em;
     line-height: 1;
     transform: translateX(-50%);

@@ -53,7 +53,7 @@ export default {
 
 .item[passed] .radio::before {
     font-family: 'Devanagari MT', 'Gujarati MT', monospace;
-    content: '✓';
+    content: '\2713';
     color: white;
 }
 

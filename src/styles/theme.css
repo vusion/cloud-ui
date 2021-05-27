@@ -360,12 +360,14 @@
 
     /* Article */
     --article-table-font-size: calc(var(--font-size-base) * (13 / 14));
-    --h1-font-size: calc(var(--font-size-base) * (24 / 14));
-    --h2-font-size: calc(var(--font-size-base) * (20 / 14));
-    --h3-font-size: calc(var(--font-size-base) * (18 / 14));
-    --h4-font-size: calc(var(--font-size-base) * (16 / 14));
-    --h5-font-size: calc(var(--font-size-base) * (14 / 14));
-    --h6-font-size: calc(var(--font-size-base) * (12 / 14));
+    --article-h1-font-size: calc(var(--font-size-base) * (24 / 14));
+    --article-h2-font-size: calc(var(--font-size-base) * (20 / 14));
+    --article-h3-font-size: calc(var(--font-size-base) * (18 / 14));
+    --article-h4-font-size: calc(var(--font-size-base) * (16 / 14));
+    --article-h5-font-size: calc(var(--font-size-base) * (14 / 14));
+    --article-h6-font-size: calc(var(--font-size-base) * (12 / 14));
+    --article-h2-color: #999fac;
+    --article-h2-border-color: #ebf0f4;
 
     /* Panel */
     --panel-border-width: 1px;
@@ -814,7 +816,7 @@
     --list-view-foot-padding: 8px 12px;
     --list-view-item-padding: 4px 12px;
     --list-view-item-background-hover: var(--background-color-lighter);
-    /* --list-view-item-background-readonly: none; */
+    --list-view-item-background-readonly-initial: none;
     --list-view-item-background-focused: var(--background-color-lighter);
     --list-view-item-background-selected: var(--brand-primary-light);
     --list-view-item-color-selected: white;
@@ -840,7 +842,7 @@
     --tree-view-node-color-selected: white;
     --tree-view-node-color-disabled: var(--brand-disabled);
     --tree-view-node-expander-color-selected: white;
-    /* --tree-view-node-background-readonly: none; */
+    --tree-view-node-background-readonly-initial: none;
     --tree-view-node-background-disabled: none;
     --tree-view-node-background-selected-disabled: var(--brand-disabled-light);
 

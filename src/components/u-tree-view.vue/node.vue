@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root" v-show="!hidden">
     <div :class="$style.item" :selected="selected"
-        :readonly="rootVM.readonly"
+        :readonly="rootVM.readonly" :readonly-mode="rootVM.readonlyMode"
         :disabled="currentDisabled"
         :tabindex="disabled || rootVM.readonly || rootVM.disabled ? '' : 0"
         @click="select(), rootVM.expandTrigger === 'click' && toggle()"
@@ -12,8 +12,9 @@
         @keyup.right="toggle(true)">
         <div :class="$style.background"></div>
         <u-loading v-if="loading" :class="$style.loading" size="small"></u-loading>
-        <div :class="$style.expander" v-else-if="node && $at(node, currentChildrenField) || nodeVMs.length || (node && !$at(node, rootVM.isLeafField) && rootVM.currentDataSource && rootVM.currentDataSource.load)"
-            :expanded="currentExpanded"
+        <div :class="$style.expander"
+            v-else-if="node && $at(node, currentChildrenField) || nodeVMs.length || (node && !$at(node, rootVM.isLeafField) && rootVM.currentDataSource && rootVM.currentDataSource.load)"
+            :expand-trigger="rootVM.expandTrigger" :expanded="currentExpanded"
             @click="rootVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"></div>
         <div :class="$style.text">
             <u-checkbox v-if="rootVM.checkable" :value="currentChecked" :disabled="currentDisabled" @check="check($event.value)" @click.native.stop></u-checkbox>
@@ -207,7 +208,7 @@ export default {
             this.load();
         },
         toggle(expanded) {
-            if (this.currentDisabled || this.rootVM.readonly)
+            if (this.currentDisabled)
                 return;
             if (!(this.node && this.$at(this.node, this.currentChildrenField)
                 || this.nodeVMs.length
@@ -376,6 +377,10 @@ export default {
     icon-font: url('i-material-design.vue/assets/filled/arrow_right.svg');
 }
 
+.expander[expand-trigger="click-expander"] {
+    cursor: pointer;
+}
+
 .expander[expanded] {
     transform: rotate(90deg);
 }
@@ -408,11 +413,11 @@ export default {
 }
 
 .item[readonly] {
-    cursor: default;
+    cursor: initial;
 }
 
-.item[readonly] .background {
-    /* background: var(--tree-view-node-background-readonly); */
+.item[readonly-mode="initial"] .background {
+    background: var(--tree-view-node-background-readonly-initial);
 }
 
 .item[selected] .background {

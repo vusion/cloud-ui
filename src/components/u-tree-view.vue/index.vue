@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :readonly="readonly" :disabled="disabled">
+<div :class="$style.root" :readonly="readonly" :readonly-mode="readonlyMode" :disabled="disabled">
     <u-loading v-if="loading" size="small"></u-loading>
     <template v-else-if="currentDataSource">
         <component :is="ChildComponent"
@@ -42,6 +42,7 @@ export default {
         expandTrigger: { type: String, default: 'click' },
         initialLoad: { type: Boolean, default: true },
         readonly: { type: Boolean, default: false },
+        readonlyMode: String,
         disabled: { type: Boolean, default: false },
         checkControlled: { type: Boolean, default: false },
     },
@@ -272,6 +273,10 @@ export default {
 
     background: var(--tree-view-background);
     border: 1px solid var(--border-color-base);
+}
+
+.root[readonly-mode="initial"] {
+    user-select: initial;
 }
 
 .root[size="mini"] .node_expander {

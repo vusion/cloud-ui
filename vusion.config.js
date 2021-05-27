@@ -136,6 +136,7 @@ module.exports = {
             { group: 'Layout', name: 'l-document', alias: '文档布局' },
             { group: 'Layout', name: 'l-page', alias: '通用页面布局' },
             { group: 'Layout', name: 'l-side-main', alias: '左侧栏固定布局' },
+            { group: 'Layout', name: 'l-left-middle-right', alias: '左中右布局' },
             { group: 'Layout', name: 'l-wrapper', alias: '透传页' },
         ],
     },

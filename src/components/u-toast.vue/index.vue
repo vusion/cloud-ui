@@ -187,7 +187,7 @@ export default {
 }
 
 .close::before {
-    content: '×';
+    content: '\00d7';
     font-size: var(--toast-close-font-size);
     line-height: 0.8;
 }
