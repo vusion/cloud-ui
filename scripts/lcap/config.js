@@ -58,4 +58,6 @@ module.exports = [
 
     { group: 'Effects', show: true, name: 'e-watermark', alias: '水印' },
     { group: 'Effects', show: true, name: 'u-copy', alias: '复制', newest: true, vscode: false },
+
+    { group: 'Process', show: true, name: 'u-taskbox', alias: '任务箱' },
 ];

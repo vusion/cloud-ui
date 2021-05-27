@@ -14434,5 +14434,56 @@
             ],
             "children": []
         }
+    },
+    {
+        "symbol": "u-taskbox",
+        "name": "任务箱",
+        "icon": "text",
+        "depDescription": {},
+        "description": "用于展示流程任务箱",
+        "labels": [
+            "Process"
+        ],
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.38/src/components/u-taskbox.vue/screenshots/0.png",
+        "blocks": "[{\"title\":\"任务箱\",\"description\":\"\",\"code\":\"<template>\\n<u-taskbox></u-taskbox>\\n</template>\\n\"}]",
+        "jsonSchema": {
+            "name": "u-taskbox",
+            "title": "任务箱",
+            "description": "用于展示流程任务箱",
+            "category": "Process",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.38/src/components/u-taskbox.vue/screenshots/0.png",
+            "drawings": "",
+            "blocks": [
+                {
+                    "title": "任务箱",
+                    "description": "",
+                    "code": "<template>\n<u-taskbox></u-taskbox>\n</template>\n"
+                }
+            ],
+            "attrs": [
+                {
+                    "name": "size",
+                    "title": "每页条数",
+                    "type": "number",
+                    "default": 5,
+                    "description": "每页条数"
+                },
+                {
+                    "name": "title",
+                    "type": "string",
+                    "title": "通知",
+                    "description": "鼠标 hover 在图标上展示文案"
+                }
+            ],
+            "events": [
+                {
+                    "name": "$listeners",
+                    "title": "监听事件",
+                    "description": "监听所有`<span>`元素的事件。",
+                    "params": []
+                }
+            ],
+            "children": []
+        }
     }
 ]

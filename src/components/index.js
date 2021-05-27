@@ -106,4 +106,5 @@ export * from './u-validator-tr.vue';
 export * from './u-validator.vue';
 export * from './u-for.vue';
 export * from './u-if.vue';
+export * from './u-taskbox.vue';
 
