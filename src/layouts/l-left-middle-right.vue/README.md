@@ -1,6 +1,6 @@
 <!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-# LSideMain 左侧栏固定布局
+# LLeftMiddleRight 左中右布局
 
 - [示例](#示例)
     - [基本用法](#基本用法)
@@ -19,8 +19,8 @@
 
 ``` html
 <div style="position: relative; z-index: 1; height: 500px; overflow: hidden;">
-    <l-side-main demo>
-        <u-sidebar slot="side">
+    <l-left-middle-right demo>
+        <u-sidebar slot="left">
             <u-sidebar-item>总览</u-sidebar-item>
             <u-sidebar-group title="列表页">
                 <u-sidebar-item>基础列表</u-sidebar-item>
@@ -34,6 +34,22 @@
                 <u-sidebar-item>个人信息</u-sidebar-item>
             </u-sidebar-group>
         </u-sidebar>
+        <u-toc slot="right" style="margin: 20px 0;">
+            <u-toc-item label="基础示例" to="examples">
+                <u-toc-item label="基本用法" :to="{ path: 'examples', hash: '#基本用法' }"></u-toc-item>
+                <u-toc-item label="value" :to="{ path: 'examples', hash: '#value' }"></u-toc-item>
+            </u-toc-item>
+            <u-toc-item label="UToc API" :to="{ path: 'api', hash: '#api' }">
+                <u-toc-item label="Props/Attrs" :to="{ path: 'api', hash: '#propsattrs' }"></u-toc-item>
+                <u-toc-item label="Slots" :to="{ path: 'api', hash: '#slots' }"></u-toc-item>
+                <u-toc-item label="Events" :to="{ path: 'api', hash: '#events' }"></u-toc-item>
+            </u-toc-item>
+            <u-toc-item label="UTocItem API" :to="{ path: 'api', hash: '#api' }">
+                <u-toc-item label="Props/Attrs" :to="{ path: 'api', hash: '#propsattrs' }"></u-toc-item>
+                <u-toc-item label="Slots" :to="{ path: 'api', hash: '#slots' }"></u-toc-item>
+                <u-toc-item label="Events" :to="{ path: 'api', hash: '#events' }"></u-toc-item>
+            </u-toc-item>
+        </u-toc>
         <u-linear-layout direction="vertical">
             <u-crumb>
                 <u-crumb-item to="/">首页</u-crumb-item>
@@ -52,7 +68,7 @@
                 <p>客喜而笑，洗盏更酌。肴核既尽，杯盘狼籍。相与枕藉乎舟中，不知东方之既白。</p>
             </u-article>
         </u-linear-layout>
-    </l-side-main>
+    </l-left-middle-right>
 </div>
 ```
 
@@ -76,8 +92,8 @@
                 </u-navbar-dropdown>
             </div>
         </u-navbar>
-        <l-side-main demo>
-            <u-sidebar slot="side">
+        <l-left-middle-right demo>
+            <u-sidebar slot="left">
                 <u-sidebar-item>总览</u-sidebar-item>
                 <u-sidebar-group title="列表页">
                     <u-sidebar-item>基础列表</u-sidebar-item>
@@ -109,7 +125,7 @@
                     <p>客喜而笑，洗盏更酌。肴核既尽，杯盘狼籍。相与枕藉乎舟中，不知东方之既白。</p>
                 </u-article>
             </u-linear-layout>
-        </l-side-main>
+        </l-left-middle-right>
     </l-page>
 </div>
 ```
@@ -121,11 +137,15 @@
 
 主内容区。
 
-#### side
+#### left
 
 设置左侧栏内容。
 
-#### main
+#### middle
 
 重置中间区域内容。包裹在主内容区外。
+
+#### right
+
+设置右侧栏内容。
 

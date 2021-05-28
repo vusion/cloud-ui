@@ -794,4 +794,3 @@ export default {
 };
 </script>
 ```
-

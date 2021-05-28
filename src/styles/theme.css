@@ -357,6 +357,10 @@
     --table-border-color: var(--border-color-light);
     --table-border-width: 1px;
     --table-td-color: var(--color-light);
+    --table-th-line-height: 20px;
+    --table-th-padding: 13px 6px 13px 10px;
+    --table-td-line-height: 20px;
+    --table-td-padding: 14px 6px 14px 10px;
 
     /* Article */
     --article-table-font-size: calc(var(--font-size-base) * (13 / 14));

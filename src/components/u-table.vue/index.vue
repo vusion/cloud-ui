@@ -17,15 +17,15 @@ export default { name: 'u-table' };
 
 .root th {
     position: relative;
-    line-height: 20px;
-    padding: 13px 6px 13px 10px;
+    line-height: var(--table-th-line-height);
+    padding: var(--table-th-padding);
 }
 
 .root td {
     position: relative;
-    line-height: 20px;
+    line-height: var(--table-td-line-height);
     color: var(--table-td-color);
-    padding: 14px 6px 14px 10px;
+    padding: var(--table-td-padding);
 }
 
 .root thead tr {

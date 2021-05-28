@@ -319,6 +319,12 @@ export default {
                 });
             }
         },
+        /**
+         * 验证结果用 if 判断，不用 try-catch
+         */
+        validateResult(trigger = 'submit', untouched = false) {
+            return this.validate(trigger, untouched).catch((errors) => errors);
+        },
         onValidate(trigger) {
             const $event = {
                 trigger,

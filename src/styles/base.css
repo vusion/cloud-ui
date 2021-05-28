@@ -2,7 +2,7 @@
 @import './animation.css';
 
 body {
-    font: 14px/1.6 "Helvetica Neue", Helvetica, Tahoma, Arial, "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+    font: var(--font-size-base)/var(--line-height-base) "Helvetica Neue", Helvetica, Tahoma, Arial, "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
 }
 
 ul[class], ol[class] {

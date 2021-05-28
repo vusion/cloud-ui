@@ -41,6 +41,8 @@ export default { name: 'l-left-middle-right' };
     position: relative;
     margin-left: var(--sidebar-width);
     margin-right: var(--toc-width);
+    height: 100%;
+    overflow: auto;
 }
 
 .right {
