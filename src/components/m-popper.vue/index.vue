@@ -304,7 +304,7 @@ export default {
         },
         updatePositionByCursor(e, el) {
             // @TODO: 两种 offset 属性有些冗余
-            if (e.target !== el || !this.popper)
+            if (!el.contains(e.target) || !this.popper)
                 return;
             const top = e.clientY + this.currentFollowCursor.offsetY;
             const left = e.clientX + this.currentFollowCursor.offsetX;
