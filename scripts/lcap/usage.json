@@ -14438,7 +14438,7 @@
     {
         "symbol": "u-taskbox",
         "name": "任务箱",
-        "icon": "text",
+        "icon": "taskbox",
         "depDescription": {},
         "description": "用于展示流程任务箱",
         "labels": [
