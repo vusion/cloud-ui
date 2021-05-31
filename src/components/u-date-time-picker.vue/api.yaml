@@ -69,10 +69,6 @@
         - title: Date 对象
           value: date
       description: 转换器
-  slots:
-    - name: (footer)
-      description: 日期组件底部扩展
-      advanced: true
   events:
     - name: select
       description: 日期值发生变化触发
