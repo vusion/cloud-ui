@@ -39,7 +39,7 @@ export default {
             return this.parentVM && this.parentVM.selectedVM === this;
         },
         active() {
-            if (this.to === undefined && this.destination === undefined)
+            if (this.to === undefined && !this.destination)
                 return;
             if (!this.$router)
                 return console.warn(
