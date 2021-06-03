@@ -1750,7 +1750,7 @@
     "description": "动画（可选fade/zoom-out）"
   },
   "u-lightbox/value": {
-    "type": "`any`",
+    "type": "any",
     "description": "当前选择的值"
   },
   "u-lightbox/zoomable": {

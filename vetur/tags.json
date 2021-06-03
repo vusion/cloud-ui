@@ -92,9 +92,6 @@
       "disabled"
     ],
     "description": "一个组件中，通过`multiple`属性切换单选还是多选的模式。",
-    "defaults": [
-      "v-model"
-    ],
     "subtags": [
       "m-complex-item"
     ]
@@ -160,9 +157,6 @@
       "disabled"
     ],
     "description": "常见的多选模式。",
-    "defaults": [
-      "v-model"
-    ],
     "subtags": [
       "m-multiplex-item"
     ]
@@ -227,9 +221,6 @@
       "disabled"
     ],
     "description": "常见的单项选择模式，用于快速派生出像`<u-navbar>`、`<u-tabs>`这样的组件。",
-    "defaults": [
-      "v-model"
-    ],
     "subtags": [
       "m-singlex-item"
     ]
@@ -455,9 +446,6 @@
       "disabled",
       "unit",
       "tip"
-    ],
-    "defaults": [
-      "v-model"
     ]
   },
   "u-copy": {
@@ -773,9 +761,6 @@
       "zoomMax",
       "zoomMin",
       "zoomRadio"
-    ],
-    "defaults": [
-      "v-model"
     ]
   },
   "u-linear-layout": {
@@ -837,10 +822,7 @@
       "disabled",
       "size"
     ],
-    "description": "用于列举大量数据的列表框，支持单选、多选、过滤（搜索）、分页等功能。",
-    "defaults": [
-      "v-model"
-    ]
+    "description": "用于列举大量数据的列表框，支持单选、多选、过滤（搜索）、分页等功能。"
   },
   "u-list": {
     "attributes": [
@@ -1199,14 +1181,20 @@
       "range",
       "readonly",
       "disabled"
-    ],
-    "defaults": [
-      "v-model"
     ]
   },
   "u-spinner": {
     "attributes": [],
     "description": "与文字大小相同，一般在行内直接使用。"
+  },
+  "u-split-layout": {
+    "attributes": [],
+    "subtags": [
+      "u-split-layout-item"
+    ]
+  },
+  "u-split-layout-item": {
+    "attributes": []
   },
   "u-steps": {
     "attributes": [
@@ -1487,9 +1475,6 @@
       "readonly",
       "disabled",
       "check-controlled"
-    ],
-    "defaults": [
-      "v-model"
     ],
     "subtags": [
       "u-tree-view-node"

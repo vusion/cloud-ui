@@ -78,7 +78,7 @@ export default {
 | closeButton | boolean |  | `false` | 是否显示关闭按钮 |
 | loop | boolean |  | `false` | 是否可循环播放灯箱内容 |
 | animation | string |  |  | 动画（可选fade/zoom-out） |
-| value.sync, v-model | `any` |  |  | 当前选择的值 |
+| value.sync, v-model | any |  |  | 当前选择的值 |
 | zoomable | boolean |  | `true` | 灯箱是否开启缩放功能（只有当灯箱内容为图片时有效） |
 | zoomButton | boolean |  | `true` | 是否显示缩放按钮（只有当zoomable为true时有效） |
 | zoomWheel | boolean |  | `true` | 是否允许滚动鼠标缩放（只有当zoomable为true时有效） |
