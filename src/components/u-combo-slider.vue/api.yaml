@@ -1,5 +1,5 @@
 - name: u-combo-slider
-  title: 复合滑块
+  title: 滑块
   icon: slider
   labels:
     - Form

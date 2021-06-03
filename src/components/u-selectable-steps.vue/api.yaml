@@ -1,8 +1,8 @@
 - name: u-selectable-steps
+  title: 步骤条
+  icon: steps
   labels:
     - Selector
-  icon: steps
-  title: 可选步骤条
   description: 当操作需要分步骤时使用
   attrs:
     - name: value
@@ -86,7 +86,7 @@
           type: number
           description: 旧的步骤数
 - name: u-selectable-step
-  title: 可选步骤条项
+  title: 步骤条项
   attrs:
     - name: title
       title: 标题
@@ -103,4 +103,4 @@
       description: 插入文本或 HTML。
     - name: title
       description: 自定义标题文本。
-  description: 可选步骤条项
+  description: 步骤条项

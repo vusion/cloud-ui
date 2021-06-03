@@ -1,6 +1,6 @@
 module.exports = [
     { group: 'Container', show: true, name: 'u-router-view', alias: '子页面容器' },
-    { group: 'Container', show: true, name: 'u-iframe', alias: 'iFrame' },
+    { group: 'Container', show: true, name: 'u-iframe', alias: 'Iframe' },
     { group: 'Layout', show: true, name: 'u-linear-layout', alias: '线性布局', vscode: false },
     { group: 'Layout', show: true, name: 'u-grid-layout', alias: '栅格布局', vscode: false },
     { group: 'Layout', show: true, name: 'u-navbar', alias: '导航栏' },
@@ -35,11 +35,11 @@ module.exports = [
     { group: 'Form', show: true, name: 'u-capsules', alias: '胶囊' },
     { group: 'Form', show: true, name: 'u-select', alias: '选择框' },
     { group: 'Form', show: true, name: 'u-rate', alias: '评分' },
-    { group: 'Form', show: true, name: 'u-combo-slider', alias: '复合滑块' },
+    { group: 'Form', show: true, name: 'u-combo-slider', alias: '滑块' },
     { group: 'Form', show: true, name: 'u-uploader', alias: '文件上传' },
 
     { group: 'Selector', show: true, name: 'u-tabs', alias: '选项卡' },
-    { group: 'Selector', show: true, name: 'u-selectable-steps', alias: '可选步骤条', vscode: false },
+    { group: 'Selector', show: true, name: 'u-selectable-steps', alias: '步骤条', vscode: false },
     { group: 'Selector', show: true, name: 'u-pagination', alias: '翻页器' },
     { group: 'Selector', show: true, name: 'u-cascade-select', alias: '级联选择' },
     { group: 'Selector', show: true, name: 'u-region-select', alias: '地区选择' },
