@@ -4221,59 +4221,6 @@
         }
     },
     {
-        "symbol": "u-html",
-        "name": "html 文本",
-        "icon": "html",
-        "depDescription": {},
-        "description": "用于添加 html 文本",
-        "labels": [
-            "Display"
-        ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.39/src/components/u-html.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-html html=\\\"<a href='https://www.163yun.com' target='_blank' >html 元素</a><img src='' onerror='alert(4)'>\\\"></u-html>\\n</template>\\n\"}]",
-        "jsonSchema": {
-            "name": "u-html",
-            "title": "html 文本",
-            "description": "用于添加 html 文本",
-            "category": "Display",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.39/src/components/u-html.vue/screenshots/0.png",
-            "drawings": "",
-            "blocks": [
-                {
-                    "title": "基本用法",
-                    "description": "",
-                    "code": "<template>\n<u-html html=\"<a href='https://www.163yun.com' target='_blank' >html 元素</a><img src='' onerror='alert(4)'>\"></u-html>\n</template>\n"
-                }
-            ],
-            "attrs": [
-                {
-                    "name": "html",
-                    "title": "内容",
-                    "type": "string",
-                    "default": "",
-                    "description": "html 文本内容"
-                },
-                {
-                    "name": "security",
-                    "title": "安全过滤",
-                    "type": "boolean",
-                    "default": true,
-                    "description": "过滤不安全的内容"
-                },
-                {
-                    "name": "options",
-                    "title": "dompurify 配置",
-                    "type": "object",
-                    "default": "{ \"ADD_ATTR\": [\"target\"] }",
-                    "description": "安全过滤库 dompurify 的配置",
-                    "advanced": true
-                }
-            ],
-            "slots": false,
-            "children": []
-        }
-    },
-    {
         "symbol": "u-image",
         "name": "图片展示",
         "icon": "image",
@@ -14450,6 +14397,12 @@
                     "type": "number",
                     "default": 5,
                     "description": "每页条数"
+                },
+                {
+                    "name": "time",
+                    "type": "number",
+                    "default": 30,
+                    "description": "定时刷新时间间隔 s"
                 },
                 {
                     "name": "title",

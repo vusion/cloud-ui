@@ -10,6 +10,10 @@
       type: number
       default: 5
       description: 每页条数
+    - name: time
+      type: number
+      default: 30
+      description: 定时刷新时间间隔 s
     - name: title
       type: string
       title: 通知

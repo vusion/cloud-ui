@@ -4904,6 +4904,10 @@
     "type": "number",
     "description": "每页条数"
   },
+  "u-taskbox/time": {
+    "type": "number",
+    "description": "定时刷新时间间隔 s"
+  },
   "u-taskbox/title": {
     "type": "string",
     "description": "鼠标 hover 在图标上展示文案"
