@@ -1,9 +1,16 @@
 <template>
-<span :class="{ [$style.root]: true, [$style.active]: active }">
+<span
+    :class="{ [$style.root]: true, [$style.active]: active }"
+    @click="onClick"
+>
     <u-badge corner :value="total">
         <span :class="$style.notice"></span>
     </u-badge>
-    <u-popup placement="bottom">
+    <u-popup
+        trigger="manual"
+        placement="bottom"
+        :opened.sync="opened"
+    >
         <u-linear-layout direction="vertical" :class="$style.content">
             <h3 :class="$style.h3">待处理任务 ({{ total }})</h3>
             <u-list line hover striped>
@@ -14,7 +21,7 @@
                         alignment="center"
                         :class="$style.line"
                     >
-                        <span :class="$style.title">{{ task.processDefinitionName || task.name }}</span>
+                        <span :class="$style.title">{{ task | titleFormatter }}</span>
                         <span :class="$style.time">{{ dateFormatter(task.createAt) }}</span>
                     </u-linear-layout>
                 </u-list-item>
@@ -28,6 +35,13 @@
 <script>
 export default {
     name: 'u-taskbox',
+    filters: {
+        titleFormatter(task) {
+            if (!task.name)
+                return task.processDefinitionName;
+            return `${task.processDefinitionName} - ${task.name}`;
+        },
+    },
     props: {
         title: {
             type: String,
@@ -37,6 +51,13 @@ export default {
             type: Number,
             default: 5,
         },
+        interval: {
+            type: Number,
+            default: 30,
+            validator(value) {
+                return value >= 5;
+            },
+        },
     },
     data() {
         return {
@@ -45,15 +66,20 @@ export default {
             page: 1,
             total: 0,
             totalPages: 1,
+            opened: false,
+            timeout: null,
         };
     },
     async created() {
         await this.getTasks();
     },
-
+    destroyed() {
+        this.clearTime();
+    },
     methods: {
         async getTasks() {
             if (this.$process) {
+                this.setTime();
                 const { Data = {} } = await this.$process.getTasks({
                     query: {
                         page: this.page - 1,
@@ -64,7 +90,15 @@ export default {
                 this.tasks = content;
                 this.total = totalElements;
                 this.totalPages = totalPages;
+                // 刷新时可能数据变化造成分页过大，此时自动调整分页
+                if (this.page > this.totalPages) {
+                    this.page = this.totalPages;
+                }
             }
+        },
+        async onClick() {
+            this.opened = !this.opened;
+            await this.getTasks();
         },
         async clickTask(task) {
             const { id } = task;
@@ -83,6 +117,18 @@ export default {
         changePage({ page }) {
             this.page = page;
             this.getTasks();
+        },
+        setTime() {
+            this.clearTime();
+            if (this.interval >= 5) {
+                this.timeout = setTimeout(this.getTasks, this.interval * 1000);
+            }
+        },
+        clearTime() {
+            if (this.timeout) {
+                clearTimeout(this.timeout);
+                this.timeout = null;
+            }
         },
     },
 };

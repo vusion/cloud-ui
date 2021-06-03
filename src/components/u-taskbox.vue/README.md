@@ -30,6 +30,7 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | size | number |  | `5` | 每页条数 |
+| interval | number |  | `30` | 定时刷新时间间隔 s |
 | title | string |  |  | 鼠标 hover 在图标上展示文案 |
 
 ### Events
