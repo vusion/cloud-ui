@@ -837,8 +837,8 @@
     --list-view-item-background-focused-inverse: var(--background-color-lighter-inverse);
     --list-view-item-background-selected: var(--brand-primary-light);
     --list-view-item-background-selected-inverse: var(--brand-primary-light);
-    --list-view-item-color-selected: var(--background-color-default-inverse);
-    --list-view-item-color-selected-inverse: var(--background-color-default-inverse);
+    --list-view-item-color-selected: white;
+    --list-view-item-color-selected-inverse: white;
     --list-view-item-color-disabled: var(--brand-disabled-dark);
     --list-view-item-color-disabled-inverse: var(--brand-disabled-dark-inverse);
     --list-view-item-background-disabled: none;
@@ -863,12 +863,12 @@
     --tree-view-node-background-active-inverse: var(--background-color-base-inverse);
     --tree-view-node-background-selected: var(--brand-primary-light);
     --tree-view-node-background-selected-inverse: var(--brand-primary-light);
-    --tree-view-node-color-selected: var(--background-color-default-inverse);
-    --tree-view-node-color-selected-inverse: var(--background-color-default-inverse);
+    --tree-view-node-color-selected: white;
+    --tree-view-node-color-selected-inverse: white;
     --tree-view-node-color-disabled: var(--brand-disabled);
     --tree-view-node-color-disabled-inverse: var(--brand-disabled);
-    --tree-view-node-expander-color-selected: var(--background-color-default-inverse);
-    --tree-view-node-expander-color-selected-inverse:var(--background-color-default);
+    --tree-view-node-expander-color-selected: white;
+    --tree-view-node-expander-color-selected-inverse:white;
     --tree-view-node-background-readonly-initial: none;
     --tree-view-node-background-disabled: none;
     --tree-view-node-background-disabled-inverse: none;
