@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :readonly="readonly" :disabled="currentDisabled" :opened="popperOpened"
+<div :class="$style.root" :color="color" :readonly="readonly" :disabled="currentDisabled" :opened="popperOpened"
     :clearable="clearable && !!(filterable ? filterText : currentText)" :multiple="multiple" :multiple-tags="multiple && multipleAppearance === 'tags'"
     :tabindex="readonly || currentDisabled ? '' : 0"
     @click="focus"
@@ -46,7 +46,7 @@
         </u-input>
     </div>
     <span v-if="clearable && !!(filterable ? filterText : currentText)" :class="$style.clearable" @click="clear"></span>
-    <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :theme="theme" :disabled="readonly || currentDisabled"
+    <m-popper :class="$style.popper" ref="popper" :color="color" :append-to="appendTo" :disabled="readonly || currentDisabled"
         @update:opened="$emit('update:opened', $event, this)"
         @before-open="$emit('before-open', $event, this)"
         @before-close="$emit('before-close', $event, this)"
@@ -128,7 +128,7 @@ export default {
             default: 'reference',
             validator: (value) => ['body', 'reference'].includes(value),
         },
-        theme: { type: String, default: '' },
+        color: String,
     },
     data() {
         return {

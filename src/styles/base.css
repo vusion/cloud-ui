@@ -1,12 +1,6 @@
 @import './typography.css';
 @import './animation.css';
 
-body {
-    font-size: var(--font-size-base);
-    line-height: var(--line-height-base);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Tahoma, Arial, 'Noto Sans', 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-}
-
 ul[class], ol[class] {
     list-style: none;
     padding-left: 0;
