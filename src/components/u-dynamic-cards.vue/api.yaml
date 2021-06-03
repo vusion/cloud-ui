@@ -29,8 +29,9 @@
       type: string
       default: title
       description: 用于 mini 显示的字段
-    - name: index.sync
+    - name: index
       type: number
+      sync: true
       default: 0
       description: 当前展开项的索引
     - name: add-button-text

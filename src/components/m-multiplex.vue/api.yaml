@@ -3,8 +3,10 @@
   description: 常见的多选模式。
   extends: m-parent
   attrs:
-    - name: value.sync, v-model
+    - name: value
       type: Array
+      sync: true
+      model: true
       default: null
       description: 所有选中项的值
     - name: readonly

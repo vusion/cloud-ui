@@ -2,8 +2,10 @@
   title: 滑块
   labels: [表单控件, 块级展示]
   attrs:
-    - name: value.sync, v-model
+    - name: value
       type: number
+      sync: true
+      model: true
       default: 0
       description: 滑块的值
     - name: min

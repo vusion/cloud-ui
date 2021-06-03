@@ -1,8 +1,9 @@
 - name: u-lightbox
   title: 灯箱
   attrs:
-    - name: visible.sync
+    - name: visible
       type: boolean
+      sync: true
       default: false
       description: 是否显示
     - name: maskClose
@@ -21,8 +22,10 @@
       type: string
       default: null
       description: 动画（可选fade/zoom-out）
-    - name: value.sync, v-model
-      type: "`any`"
+    - name: value
+      type: any
+      sync: true
+      model: true
       default: null
       description: 当前选择的值
     - name: zoomable

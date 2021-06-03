@@ -11,8 +11,9 @@
       type: string
       default: normal
       description: 提示大小。可选值：`'mini'`, `'normal'`, `'large'`
-    - name: opened.sync
+    - name: opened
       type: boolean
+      sync: true
       default: false
       description: 弹出/关闭状态
     - name: trigger

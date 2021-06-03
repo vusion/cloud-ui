@@ -44,8 +44,9 @@
       type: string
       default: null
       description: 显示的标题
-    - name: expanded.sync
+    - name: expanded
       type: boolean
+      sync: true
       default: false
       description: 展开/折叠状态
     - name: disabled

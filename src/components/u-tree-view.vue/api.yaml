@@ -5,9 +5,11 @@
       title: 数据
       type: Array<{ text, value }>
       description: Data书写方式中的数据列表
-    - name: value.sync, v-model
+    - name: value
       title: 值
       type: any
+      sync: true
+      model: true
       description: 当前选择的值
     - name: text-field
       title: 文本字段
@@ -215,13 +217,15 @@
       title: 值
       type: any
       description: 此项的值
-    - name: expanded.sync
+    - name: expanded
       title: 展开折叠状态
       type: any
+      sync: true
       description: 展开/折叠状态
-    - name: checked.sync
+    - name: checked
       title: 选中取消状态
       type: any
+      sync: true
       description: 选中/取消状态
     - name: disabled
       title: 禁用

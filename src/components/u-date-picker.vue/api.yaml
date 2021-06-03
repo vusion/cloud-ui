@@ -5,8 +5,9 @@
       type: string, number
       default: 160
       description: 输入框宽度
-    - name: date.sync
+    - name: date
       type: string,number,Date
+      sync: true
       default: null
       description: 初始日期值
     - name: minDate
