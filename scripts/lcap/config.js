@@ -18,7 +18,6 @@ module.exports = [
     { group: 'Display', show: true, name: 'u-badge', alias: '徽章' },
     { group: 'Display', show: true, name: 'u-carousel', alias: '走马灯' },
     { group: 'Display', show: true, name: 'u-info-list', alias: '详情列表' },
-    { group: 'Display', show: true, name: 'u-html', alias: 'HTML 文本' },
     { group: 'Display', show: true, name: 'u-image', alias: '图片展示' },
 
     { group: 'Table', show: true, name: 'u-table-view', alias: '数据表格' },
