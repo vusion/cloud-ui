@@ -51,7 +51,7 @@ export default {
             type: Number,
             default: 5,
         },
-        time: {
+        interval: {
             type: Number,
             default: 30,
             validator(value) {
@@ -120,8 +120,8 @@ export default {
         },
         setTime() {
             this.clearTime();
-            if (this.time >= 5) {
-                this.timeout = setTimeout(this.getTasks, this.time * 1000);
+            if (this.interval >= 5) {
+                this.timeout = setTimeout(this.getTasks, this.interval * 1000);
             }
         },
         clearTime() {

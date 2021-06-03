@@ -6,13 +6,14 @@
   description: 用于展示流程任务箱
   attrs:
     - name: size
-      title: 每页条数
       type: number
       default: 5
+      title: 每页条数
       description: 每页条数
-    - name: time
+    - name: interval
       type: number
       default: 30
+      title: 时间间隔 s
       description: 定时刷新时间间隔 s
     - name: title
       type: string

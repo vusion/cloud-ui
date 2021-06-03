@@ -1514,7 +1514,7 @@
   "u-taskbox": {
     "attributes": [
       "size",
-      "time",
+      "interval",
       "title"
     ],
     "description": "用于展示流程任务箱"

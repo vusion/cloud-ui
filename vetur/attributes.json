@@ -4904,7 +4904,7 @@
     "type": "number",
     "description": "每页条数"
   },
-  "u-taskbox/time": {
+  "u-taskbox/interval": {
     "type": "number",
     "description": "定时刷新时间间隔 s"
   },
