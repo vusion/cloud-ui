@@ -249,7 +249,7 @@ const VueDataSource = Vue.extend({
                 params.start = params.paging.offset;
                 params.size = params.paging.size;
             }
-            if (this.sorting) {
+            if (this.sorting && this.sorting.field) {
                 params.sort = [params.sorting.field + ',' + (params.sorting.order || 'asc')];
             }
 
