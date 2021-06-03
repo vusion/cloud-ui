@@ -1,48 +1,73 @@
 - name: u-linear-layout
   title: 线性布局
-  labels: [布局组件, 块级展示]
+  labels:
+    - 布局组件
+    - 块级展示
   attrs:
     - name: direction
       title: 排列方向
       type: enum
-      options: [horizontal, vertical]
+      options:
+        - horizontal
+        - vertical
       default: horizontal
       description: 排列方向。
     - name: gap
       title: 间隙
       type: enum
-      options: [shrink, none, small, normal, large]
+      options:
+        - shrink
+        - none
+        - small
+        - normal
+        - large
       default: normal
       description: 间隙大小，需自行扩展。
     - name: display
       title: 展示方式
       type: enum
-      options: [inline, block]
+      options:
+        - inline
+        - block
       default: block
       description: 展示方式。可选值：
     - name: layout
       title: 布局方式
       type: enum
-      options: [none, inline, block]
+      options:
+        - none
+        - inline
+        - block
       default: none
       description: 布局方式，用于迅速调整子元素或组件的展示方式。
     - name: type
       title: 布局模式
       type: enum
-      options: [flex]
+      options:
+        - flex
       default: null
       description: 布局模式。
     - name: justify
       title: 主轴分布方式
       type: enum
-      options: [start, center, end, 'space-between', 'space-around']
+      options:
+        - start
+        - center
+        - end
+        - space-between
+        - space-around
       default: start
       description: 主轴分布方式。普通模式下可选值：`'start'`, `'center'`, `'end'`,
         `'space-between'`。flex布局模式下还支持：`'space-around'`。普通模式下的`'space-between'`功能很弱，只支持左右分布。
     - name: alignment
       title: 对齐方式
       type: enum
-      options: [start, center, end, baseline, stretch]
+      options:
+        - start
+        - center
+        - end
+        - baseline
+        - stretch
       default: stretch
       description: flex布局模式下的交叉轴对齐方式，可选值：`'start'`, `'center'`, `'end'`, `'baseline'`,
         `'stretch'`

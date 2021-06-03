@@ -149,7 +149,9 @@
       params:
         - name: direction
           type: enum
-          options: [forward, reverse]
+          options:
+            - forward
+            - reverse
           default: forward
           description: 方向，`forward`表示从左向右，`reverse`表示从右向左。
         - name: values

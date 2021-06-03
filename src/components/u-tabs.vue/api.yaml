@@ -1,6 +1,8 @@
 - name: u-tabs
   title: 选项卡
-  labels: [路由链接, 块级展示]
+  labels:
+    - 路由链接
+    - 块级展示
   description: 选项卡切换组件，常用于平级区域大块内容的收纳和展现。
   attrs:
     - name: router
@@ -10,9 +12,9 @@
       description: 是否根据 vue-router 来控制选择哪个标签页。
     - name: value
       title: 选择值
-      model: true
-      sync: true
       type: any
+      sync: true
+      model: true
       description: 选中标签页的值。
     - name: readonly
       title: 只读
@@ -32,19 +34,31 @@
     - name: show-scroll-buttons
       title: 显示滚动按钮
       type: enum | boolean
-      options: ['never', 'auto', 'always']
-      default: 'auto'
+      options:
+        - never
+        - auto
+        - always
+      default: auto
       description: 是否显示标签滚动左右箭头按钮。`'auto'`表示有滚动的情况下显示，`‘always'`表示始终显示，`'never'`表示始终不显示。
     - name: appear
       title: 展示外观
       type: enum
-      options: [square, round, card, line, text, capsule]
+      options:
+        - square
+        - round
+        - card
+        - line
+        - text
+        - capsule
       default: tab
       description: 标签展示的外观
     - name: size
       title: 标签尺寸
       type: enum
-      options: [normal, small, mini]
+      options:
+        - normal
+        - small
+        - mini
       default: normal
       description: 标签尺寸
   slots:
@@ -55,7 +69,7 @@
       recommanded:
         - name: u-tab
           title: 选项
-          snippet: '<u-tab title="标签页"></u-tab>'
+          snippet: <u-tab title="标签页"></u-tab>
     - name: extra
       title: 右侧附加
       description: 在标签右侧可以附加的组件。
@@ -180,13 +194,14 @@
     - name: replace
       type: boolean
       default: false
-      description: 需要
-        router 为 true，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history
+      description: 需要 router 为
+        true，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history
         `记录。
     - name: append
       type: boolean
       default: false
-      description: 需要 router 为 true，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。
+      description: 需要 router 为
+        true，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。
     - name: exact
       title: 精确匹配
       type: boolean

@@ -1,6 +1,8 @@
 - name: u-form-table-view
   title: 表格表单视图
-  labels: [表单验证器, 块级展示]
+  labels:
+    - 表单验证器
+    - 块级展示
   description: 本组件用于在表单中使用表单验证、动态数据等复杂功能。
   extends: m-dynamic
   attrs:
@@ -174,8 +176,8 @@
     - name: validating-options
       type: object
       default: null
-      description: "验证辅助对象。在 Rule 的 `validate` 方法中使用。表格中会额外将`{ data: currentData, item,
-        rowIndex }`注入"
+      description: "验证辅助对象。在 Rule 的 `validate` 方法中使用。表格中会额外将`{ data: currentData,
+        item, rowIndex }`注入"
     - name: validating-value
       type: any
       default: null

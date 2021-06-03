@@ -7,16 +7,19 @@
       default: null
       description: 数据列表
     - name: value
-      model: true
-      sync: true
       title: 值
       type: any
+      sync: true
+      model: true
       default: null
       description: 当前选择的值
     - name: label-size
       title: 标签尺寸
       type: enum
-      options: [small, normal, large]
+      options:
+        - small
+        - normal
+        - large
       default: normal
       description: label的大小，可选值：`'small'`, `'large'`
     - name: categories

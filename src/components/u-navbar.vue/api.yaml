@@ -1,6 +1,8 @@
 - name: u-navbar
   title: 导航栏
-  labels: [路由链接, 块级展示]
+  labels:
+    - 路由链接
+    - 块级展示
   description: 通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。
   attrs:
     - name: router
@@ -9,10 +11,10 @@
       default: true
       description: 是否根据 vue-router 来控制选择项
     - name: value
-      model: true
-      sync: true
       title: 值
       type: any
+      sync: true
+      model: true
       description: 当前选择的值
     - name: field
       title: 字段
@@ -33,13 +35,13 @@
     - name: default
       description: 中部区域，可插入`<u-navbar-item>`、`<u-navbar-divider>`等子组件，或其他 HTML。
       accept-type: recommanded
-      recommanded: 
+      recommanded:
         - name: u-navbar-item
           title: 导航项
-          snippet: '<u-navbar-item>导航项</u-navbar-item>'
+          snippet: <u-navbar-item>导航项</u-navbar-item>
         - name: u-navbar-divider
           title: 分隔线
-          snippet: '<u-navbar-divider></u-navbar-divider>'
+          snippet: <u-navbar-divider></u-navbar-divider>
     - name: left
       description: 左部区域。
     - name: right

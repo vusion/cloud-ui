@@ -8,7 +8,7 @@
     - name: format
       title: 展示的时间格式
       type: string
-      default: 'HH:mm:ss'
+      default: HH:mm:ss
     - name: autofocus
       title: 自动聚焦
       type: boolean

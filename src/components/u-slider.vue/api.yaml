@@ -1,6 +1,8 @@
 - name: u-slider
   title: 滑块
-  labels: [表单控件, 块级展示]
+  labels:
+    - 表单控件
+    - 块级展示
   attrs:
     - name: value
       type: number

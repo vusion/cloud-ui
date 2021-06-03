@@ -2,10 +2,10 @@
   title: 可选步骤条
   attrs:
     - name: value
-      model: true
-      sync: true
       title: 值
       type: number
+      sync: true
+      model: true
       default: 0
       description: 当前步骤数
     - name: readonly

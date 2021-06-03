@@ -1,6 +1,8 @@
 - name: u-crumb
   title: 面包屑
-  labels: [路由链接, 块级展示]
+  labels:
+    - 路由链接
+    - 块级展示
   attrs:
     - name: 无
       type: ""
@@ -13,7 +15,9 @@
     - name: type
       title: 类型
       type: string
-      options: [link, text]
+      options:
+        - link
+        - text
       default: link
       description: 类型。可选值：`'link'`表示链接，可点击，`'text'`只显示为默认颜色文本，不可点。
     - name: href

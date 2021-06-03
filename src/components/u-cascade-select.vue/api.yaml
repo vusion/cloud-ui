@@ -1,6 +1,8 @@
 - name: u-cascade-select
   title: 级联选择
-  labels: [表单控件, 块级展示]
+  labels:
+    - 表单控件
+    - 块级展示
   attrs:
     - name: data
       title: 数据
@@ -8,10 +10,10 @@
       default: null
       description: 数据列表
     - name: value
-      model: true
-      sync: true
       title: 值
       type: any
+      sync: true
+      model: true
       default: null
       description: 当前选择的值
     - name: categories

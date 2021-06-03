@@ -1,11 +1,12 @@
 - name: u-pagination
   title: 翻页器
-  labels: [块级展示]
+  labels:
+    - 块级展示
   attrs:
     - name: page
-      sync: true
       title: 当前页码
       type: number
+      sync: true
       default: 1
       description: 当前页码
     - name: total
@@ -38,9 +39,9 @@
       type: number
       description: 总条数
     - name: page-size
-      sync: true
       title: 每条页数
       type: number
+      sync: true
       default: 20
       description: 每页条数
     - name: page-size-options

@@ -1,7 +1,9 @@
 - name: u-icon-tooltip
   title: 图标提示
   description: 图标与`<u-tooltip>`的组合。
-  labels: [弹出层, 行内展示]
+  labels:
+    - 弹出层
+    - 行内展示
   attrs:
     - name: type
       type: string
@@ -19,14 +21,14 @@
     - name: trigger
       type: string
       default: hover
-      description: 工具提示的触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`,
-        `'manual'`
+      description: 工具提示的触发方式。可选值：`'click'`, `'hover'`, `'right-click'`,
+        `'double-click'`, `'manual'`
     - name: placement
       type: string
       default: bottom
-      description: 工具提示的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`,
-        `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',`
-        'left-end'`, `'right-start'`, `'right-end'`
+      description: 工具提示的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`,
+        `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`,
+        `'left-start`',` 'left-end'`, `'right-start'`, `'right-end'`
     - name: hide-delay
       type: number
       default: 200

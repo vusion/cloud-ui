@@ -2,10 +2,10 @@
   title: 胶囊
   attrs:
     - name: value
-      model: true
-      sync: true
       title: 值
       type: any
+      sync: true
+      model: true
       default: null
       description: 当前选择的值
     - name: auto-select
@@ -178,7 +178,8 @@
     - name: size
       title: 尺寸
       type: enum
-      options: [small]
+      options:
+        - small
       description: 胶囊大小，可选值：`'small'`
     - name: selected
       title: 选中项

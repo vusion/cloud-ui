@@ -4,11 +4,12 @@
   attrs:
     - name: type
       type: enum
-      options: [paragraph, image]
+      options:
+        - paragraph
+        - image
       default: paragraph
       description: 骨架屏类型
     - name: paragraph
       type: boolean | number
       default: true
       description: 默认为 3 行。可以修改行数，或者设置`false`关闭段落显示。
-

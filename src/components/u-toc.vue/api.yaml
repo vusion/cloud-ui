@@ -1,6 +1,8 @@
 - name: u-toc
   title: 目录
-  labels: [路由链接, 块级展示]
+  labels:
+    - 路由链接
+    - 块级展示
   description: 用于展示文档的目录，支持路由和滚动监听、多级目录等功能。
   attrs:
     - name: router
@@ -9,10 +11,10 @@
       default: true
       description: 是否根据 vue-router 来控制选择哪一项
     - name: value
-      model: true
-      sync: true
       title: 值
       type: any
+      sync: true
+      model: true
       default: null
       description: 当前选择的值
     - name: scroll-spy

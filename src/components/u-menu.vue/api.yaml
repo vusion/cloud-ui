@@ -1,6 +1,8 @@
 - name: u-menu
   title: 菜单
-  labels: [路由链接, 块级展示]
+  labels:
+    - 路由链接
+    - 块级展示
   description: 菜单组件支持路由、触发关闭、多级菜单等功能。
   attrs:
     - name: router
@@ -9,10 +11,10 @@
       default: true
       description: 是否根据 vue-router 来控制选择哪一项
     - name: value
-      model: true
-      sync: true
       title: 值
       type: any
+      sync: true
+      model: true
       description: 当前选择的值
     - name: collapsible
       title: 折叠

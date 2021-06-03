@@ -1,7 +1,9 @@
 - name: u-form
   title: 表单
   description: 具有数据收集、校验和提交功能的表单，包含输入框、选择框、复选框、单选框等元素。
-  labels: [表单验证器, 块级展示]
+  labels:
+    - 表单验证器
+    - 块级展示
   attrs:
     - name: model
       title: 数据模型
@@ -10,25 +12,35 @@
     - name: rules
       title: 验证规则
       type: object
-      deprecated: true
       description: 表单所有域的验证规则，已废弃，推荐在各`<u-form-item>`中自行添加 rules。
+      deprecated: true
     - name: layout
       title: 表单布局
       type: enum
-      options: [block, inline]
+      options:
+        - block
+        - inline
       default: block
       description: 表单布局方式。可选值：`block`、`inline`。
     - name: gap
       title: 间隔
       type: enum
-      options: [none, small, normal, large]
+      options:
+        - none
+        - small
+        - normal
+        - large
       default: normal
-      description: "表单项之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。可选值: `'none'`, `'small'`, `'normal'`,
-        `'large'`"
+      description: "表单项之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。可选值: `'none'`, `'small'`,
+        `'normal'`, `'large'`"
     - name: label-size
       title: 标签宽度
       type: enum
-      options: [mini, small, normal, large]
+      options:
+        - mini
+        - small
+        - normal
+        - large
       default: normal
       description: 标签宽度。可选值：`mini`、`small`、`normal`、`large`。
   computed:
@@ -56,10 +68,10 @@
     - name: default
       description: 插入`<u-form-item>`子组件。
       accept-type: recommanded
-      recommanded: 
+      recommanded:
         - name: u-form-item
           title: 表单项
-          snippet: '<u-form-item label="表单项"></u-form-item>'
+          snippet: <u-form-item label="表单项"></u-form-item>
   events:
     - name: validate
       title: 验证后
@@ -115,10 +127,10 @@
   attrs:
     - name: name
       title: 字段名称
-      deprecated: true
       type: string
       default: null
       description: 表单项名称。已废弃
+      deprecated: true
     - name: label
       title: 标签名
       type: string
@@ -126,13 +138,21 @@
     - name: label-size
       title: 标签大小
       type: enum
-      options: [mini, small, normal, large]
+      options:
+        - mini
+        - small
+        - normal
+        - large
       default: normal
       description: 单独设置表单项的标签大小。
     - name: field-size
       title: 字段大小
       type: enum
-      options: [mini, small, normal, large]
+      options:
+        - mini
+        - small
+        - normal
+        - large
       description: 单独设置表单项的内容大小。可选值：`'full'`
     - name: required
       title: 必填标记
@@ -146,8 +166,11 @@
     - name: muted
       title: 验证是否静默
       type: enum
+      options:
+        - none
+        - message
+        - all
       default: none
-      options: [none, message, all]
       description: 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示
     - name: description
       title: 描述内容
@@ -156,13 +179,17 @@
     - name: placement
       title: 提示信息位置
       type: enum
-      options: [right, bottom]
+      options:
+        - right
+        - bottom
       default: right
       description: 值为`'bottom'`时提示信息在底部显示，改变提示信息显示位置
     - name: layout
       title: 布局方式
       type: enum
-      options: [block, inline]
+      options:
+        - block
+        - inline
       default: inline
       description: 布局方式。
     - name: rules
@@ -176,10 +203,10 @@
       description: 忽略验证
     - name: ignore-rules
       title: 忽略验证规则
-      deprecated: true
       type: boolean
       default: false
       description: 忽略验证规则。已废弃，同`ignore-validation`
+      deprecated: true
     - name: validating-options
       title: 验证辅助对象
       type: object
@@ -199,7 +226,7 @@
       recommanded:
         - name: u-input
           title: 单行输入框
-          snippet: '<u-input></u-input>'
+          snippet: <u-input></u-input>
     - name: label
       title: 标签自定义
       description: 插入自定义标签，代替`label`属性。

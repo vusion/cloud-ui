@@ -1,13 +1,16 @@
 - name: u-textarea
   title: 多行输入
-  labels: ['UI 组件', '表单类', '行内展示']
+  labels:
+    - UI 组件
+    - 表单类
+    - 行内展示
   description: 多行输入组件，在原生`<textarea>`控件基础上进行了一些功能扩展。
   attrs:
     - name: value
-      model: true
-      sync: true
       title: 值
       type: string
+      sync: true
+      model: true
       default: null
       description: 输入框的值
     - name: clearable

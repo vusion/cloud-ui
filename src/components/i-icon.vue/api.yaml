@@ -1,6 +1,8 @@
 - name: i-icon
   title: 图标
-  labels: [图标组件, 行内展示]
+  labels:
+    - 图标组件
+    - 行内展示
   attrs:
     - name: name
       type: string

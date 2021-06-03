@@ -7,10 +7,10 @@
       default: []
       description: 可供选择的数据
     - name: value
-      model: true
-      sync: true
       title: 值
       type: Array
+      sync: true
+      model: true
       description: 被选中数据
     - name: placeholder
       title: 占位符
@@ -19,7 +19,8 @@
     - name: size
       title: 尺寸
       type: enum
-      options: [normal]
+      options:
+        - normal
       default: normal
       description: 卡片尺寸
     - name: column

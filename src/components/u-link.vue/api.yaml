@@ -1,12 +1,20 @@
 - name: u-link
   title: 链接
-  labels: [路由链接, 行内展示]
+  labels:
+    - 路由链接
+    - 行内展示
   description: 文字超链接。
   attrs:
     - name: color
       title: 颜色
       type: enum
-      options: [default, light, success, warning, danger, error]
+      options:
+        - default
+        - light
+        - success
+        - warning
+        - danger
+        - error
       default: default
       description: 设置颜色。
     - name: href
@@ -48,14 +56,18 @@
     - name: display
       title: 展示方式
       type: enum
-      options: [inline, block]
+      options:
+        - inline
+        - block
       default: inline
       description: 展示方式。`'inline'`表示行内展示，`'block'`表示块级展示，宽度会充满父元素。
   slots:
     - name: default
       title: 默认
       description: 插入文本或 HTML。
-      accept-type: [text, inline]
+      accept-type:
+        - text
+        - inline
   events:
     - name: $listeners
       kind: trigger

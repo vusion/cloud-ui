@@ -9,10 +9,10 @@
       default: null
       description: 当前选择的值
     - name: field
-      deprecated: true
       type: string
       default: text
       description: 选项文本的字段名
+      deprecated: true
     - name: text-field
       type: string
       default: text
@@ -103,7 +103,12 @@
       description: 是否禁用
     - name: size
       type: enum
-      options: [normal, large, huge, auto, full]
+      options:
+        - normal
+        - large
+        - huge
+        - auto
+        - full
       description: 设置尺寸。五种宽高的自由组合。
   slots:
     - name: default

@@ -1,6 +1,8 @@
 - name: u-region-select
   title: 地区选择
-  labels: [表单控件, 块级展示]
+  labels:
+    - 表单控件
+    - 块级展示
   description: 该组件从 UCascadeSelect 继承，仅填充了中国的行政区数据，其他功能与 UCascadeSelect 相同。
   attrs:
     - name: data
@@ -9,10 +11,10 @@
       default: 数据
       description: 数据列表
     - name: value
-      model: true
-      sync: true
       title: 值
       type: any
+      sync: true
+      model: true
       default: null
       description: 当前选择的值
     - name: categories

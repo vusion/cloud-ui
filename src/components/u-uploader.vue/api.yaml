@@ -1,19 +1,21 @@
 - name: u-uploader
   title: 文件上传
   description: 通过点击或者拖拽上传文件。
-  labels: [表单控件, 行内展示]
+  labels:
+    - 表单控件
+    - 行内展示
   attrs:
     - name: value
       type: Array
-      model: true
       sync: true
-      default: '[]'
+      model: true
+      default: "[]"
       description: 当前文件列表
     - name: url
       type: string
-      required: true
-      default:
+      default: null
       description: 上传的地址
+      required: true
     - name: name
       type: string
       default: file
@@ -56,8 +58,11 @@
     - name: list-type
       title: 列表类型
       type: enum
-      options: ['text', 'image', 'card']
-      default: 'text'
+      options:
+        - text
+        - image
+        - card
+      default: text
       description: 列表展示类型
     - name: auto-upload
       title: 是否自动上传
@@ -172,4 +177,3 @@
     - name: select
       description: 选择文件上传
       params: []
-

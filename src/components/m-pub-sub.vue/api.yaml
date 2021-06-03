@@ -4,8 +4,9 @@
     - name: publish
       type: "{ [prop: string]: string | Function | object }"
       default: null
-      description: "键为需要发布的主题，值为需要监听的表达式或函数。值也可以为一个对象`{ expOrFn: String \\| Function, deep:
-        Boolean, immediate: Boolean }`，`deep`和`immediate`与官方`watch`中的意义相同。"
+      description: "键为需要发布的主题，值为需要监听的表达式或函数。值也可以为一个对象`{ expOrFn: String \\| Function,
+        deep: Boolean, immediate: Boolean
+        }`，`deep`和`immediate`与官方`watch`中的意义相同。"
   methods:
     - name: $publish(topic, data)
       description: 发布话题
@@ -27,8 +28,8 @@
     - name: subscribe
       type: "{ [prop: string]: string | Function | object }"
       default: null
-      description: "键为需要订阅的主题，值为订阅时执行的方法。值也可以为一个对象`{ handler: String \\| Function, once:
-        Boolean }`，`once`开启，则只订阅一次。"
+      description: "键为需要订阅的主题，值为订阅时执行的方法。值也可以为一个对象`{ handler: String \\| Function,
+        once: Boolean }`，`once`开启，则只订阅一次。"
   methods:
     - name: $subscribe(topic, func)
       description: 订阅话题

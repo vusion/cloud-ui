@@ -4,7 +4,14 @@
     - name: position
       title: 位置
       type: enum
-      options: [top-center, top-left, top-right, bottom-center, bottom-left, bottom-right, static]
+      options:
+        - top-center
+        - top-left
+        - top-right
+        - bottom-center
+        - bottom-left
+        - bottom-right
+        - static
       default: top-center
       description: 显示的位置，可选值：`'top-center'`, `'top-left'`, `'top-right'`,
         `'bottom-center'`, `'bottom-left'`, `'bottom-right'`, `static`

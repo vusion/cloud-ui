@@ -14,11 +14,23 @@
     - name: placement
       title: 弹出方向
       type: enum
-      options: [top, bottom, left, right, 'top-start', 'top-end', 'bottom-start', 'bottom-end', 'left-start', left-end', 'right-start', 'right-end']
+      options:
+        - top
+        - bottom
+        - left
+        - right
+        - top-start
+        - top-end
+        - bottom-start
+        - bottom-end
+        - left-start
+        - left-end'
+        - right-start
+        - right-end
       default: bottom-end
-      description: 菜单的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`,
-        `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start',`
-        `'left-end'`, `'right-start'`, `'right-end'`
+      description: 菜单的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`,
+        `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`,
+        `'left-start',` `'left-end'`, `'right-start'`, `'right-end'`
   slots:
     - name: default
       description: 插入`<u-action>`子组件。

@@ -2,9 +2,9 @@
   title: 幻灯片
   attrs:
     - name: value
-      sync: true
       title: 值
       type: any
+      sync: true
       description: 播放位置
     - name: autoplay
       title: 自动播放
@@ -30,10 +30,6 @@
       title: 过度动画
       type: string
       description: 幻灯片过渡动画
-    # - name: router
-    #   type: boolean
-    #   default: false
-    #   description: 是否根据vue-router来控制选择播放至哪个位置
   slots:
     - name: default
       description: 插入`<u-carousel-item>`子组件。

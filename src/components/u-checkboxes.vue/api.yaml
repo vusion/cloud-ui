@@ -1,6 +1,8 @@
 - name: u-checkboxes
   title: 多选组
-  labels: [表单控件, 块级展示]
+  labels:
+    - 表单控件
+    - 块级展示
   attrs:
     - name: value
       title: 值
@@ -33,10 +35,10 @@
 - name: u-checkbox
   attrs:
     - name: value
-      model: true
-      sync: true
       title: 值
       type: boolean, null
+      sync: true
+      model: true
       default: false
       description: 选中状态，`null`表示不确定状态
     - name: label

@@ -1,13 +1,15 @@
 - name: u-grid-layout
   title: 栅格布局
-  labels: [布局组件, 块级展示]
+  labels:
+    - 布局组件
+    - 块级展示
   attrs:
     - name: gap
       title: 间隔
       type: string
       default: normal
-      description: "栅格之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。可选值: `'none'`, `'small'`, `'normal'`,
-        `'large'`"
+      description: "栅格之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。可选值: `'none'`, `'small'`,
+        `'normal'`, `'large'`"
   slots:
     - name: default
       description: 插入`<u-grid-layout-row>`或`<u-grid-layout-column>`子组件。
@@ -22,17 +24,29 @@
     - name: type
       title: 类型
       type: enum
-      options: [default, flex]
+      options:
+        - default
+        - flex
       description: 布局模式。可选值：`'flex'`或不填
     - name: justify
       type: enum
-      options: [start, center, end, space-between, space-around]
+      options:
+        - start
+        - center
+        - end
+        - space-between
+        - space-around
       default: start
-      description: flex布局模式的水平分布方式，可选值：`'start'`, `'center'`, `'end'`, `'space-between'`,
-        `'space-around'`
+      description: flex布局模式的水平分布方式，可选值：`'start'`, `'center'`, `'end'`,
+        `'space-between'`, `'space-around'`
     - name: alignment
       type: enum
-      options: [start, center, end, baseline, stretch]
+      options:
+        - start
+        - center
+        - end
+        - baseline
+        - stretch
       default: stretch
       description: flex布局模式的垂直对齐方式，可选值：`'start'`, `'center'`, `'end'`, `'baseline'`,
         `'stretch'`

@@ -3,28 +3,44 @@
   description: 弹出层基类，可以直接使用它的弹出效果，或者以继承的方式扩展出常用的弹出组件。如弹出框、工具提示等。
   attrs:
     - name: opened
-      sync: true
       title: 弹出关闭状态
       type: boolean
+      sync: true
       default: false
       description: 弹出/关闭状态
     - name: trigger
       title: 触发方式
       type: enum
-      options: [click, hover, right-click, double-click]
+      options:
+        - click
+        - hover
+        - right-click
+        - double-click
       default: click
       description: 触发方式。
     - name: placement
       title: 弹出方向
       type: enum
-      options: [top, bottom, left, right, top-start, top-end, bottom-start, bottom-end, left-start, left-end, right-start, right-end]
+      options:
+        - top
+        - bottom
+        - left
+        - right
+        - top-start
+        - top-end
+        - bottom-start
+        - bottom-end
+        - left-start
+        - left-end
+        - right-start
+        - right-end
       default: bottom
       description: 弹出方向。
     - name: reference
       type: string | HTMLElement | Function
       default: parent
-      description: 参考元素。可选值：`'parent'`表示父元素，`'prev'`表示上一个元素，`'next'`表示下一个元素。也可以传一个 HTML
-        元素，或用于返回元素的方法。
+      description: 参考元素。可选值：`'parent'`表示父元素，`'prev'`表示上一个元素，`'next'`表示下一个元素。也可以传一个
+        HTML 元素，或用于返回元素的方法。
     - name: hover-delay
       title: 悬浮延迟时间
       type: number
@@ -116,7 +132,8 @@
           type: boolean
           description: 可选。弹出/关闭状态
     - name: update()
-      description: 更新 popper 实例。参考 [Popper.update()](https://popper.js.org/popper-documentation.html#Popper.update)。
+      description: 更新 popper 实例。参考
+        [Popper.update()](https://popper.js.org/popper-documentation.html#Popper.update)。
       params: []
     - name: scheduleUpdate()
       description: 在下次 UI 渲染时一块更新 popper 实例，比`update()`性能要好。参考

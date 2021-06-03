@@ -3,7 +3,7 @@
   attrs:
     - name: text
       type: string
-      default: ''
+      default: ""
       description: 水印文本
     - name: image
       type: CanvasImageSource

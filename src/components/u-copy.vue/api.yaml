@@ -16,13 +16,18 @@
       description: 复制成功提示文本
     - name: feedback
       type: enum
-      options: [tooltip, toast, none]
+      options:
+        - tooltip
+        - toast
+        - none
       default: tooltip
       description: 复制提示反馈方式 `'tooltip'`,`'toast'`,`'none'`
     - name: placement
       type: string
       default: top
-      description: tooltip 提示框位置，可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start`',`'left-end'`, `'right-start'`, `'right-end'`
+      description: tooltip 提示框位置，可选值：`'top'`, `'bottom'`, `'left'`, `'right'`,
+        `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`,
+        `'left-start`',`'left-end'`, `'right-start'`, `'right-end'`
     - name: hide-delay
       type: number
       default: 3000

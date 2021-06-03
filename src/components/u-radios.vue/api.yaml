@@ -1,12 +1,14 @@
 - name: u-radios
   title: 单选组
-  labels: [表单控件, 块级展示]
+  labels:
+    - 表单控件
+    - 块级展示
   attrs:
     - name: value
-      model: true
-      sync: true
       title: 值
       type: any
+      sync: true
+      model: true
       description: 当前选择的值
     - name: readonly
       title: 只读

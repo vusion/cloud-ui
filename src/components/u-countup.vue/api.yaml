@@ -39,7 +39,13 @@
       description: 是否使用自定义单位简化数据
     - name: unit
       type: Array
-      default: [[3, 'K+'], [6, 'M+'], [9, 'G+']]
+      default:
+        - - 3
+          - K+
+        - - 6
+          - M+
+        - - 9
+          - G+
       description: 配合`'simplify'`属性使用的自定义单位
     - name: prefix
       type: string

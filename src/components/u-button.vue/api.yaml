@@ -1,12 +1,17 @@
 - name: u-button
   title: 按钮
-  labels: [路由链接, 行内展示]
+  labels:
+    - 路由链接
+    - 行内展示
   description: 用于触发一个即时操作。
   attrs:
     - name: color
       title: 颜色
       type: enum
-      options: [default, primary, danger]
+      options:
+        - default
+        - primary
+        - danger
       default: default
       description: 设置颜色。`'primary'`表示主按钮，`'danger'`表示危险按钮。
     - name: dashed
@@ -17,13 +22,22 @@
     - name: size
       title: 尺寸
       type: enum
-      options: [mini, small, normal, large, huge]
+      options:
+        - mini
+        - small
+        - normal
+        - large
+        - huge
       default: normal
       description: 设置尺寸。可选值：`'mini'`、`'small'`、`'normal'`、`'large'`、`'huge'`
     - name: shape
       title: 形状
       type: enum
-      options: [default, square, round, circle]
+      options:
+        - default
+        - square
+        - round
+        - circle
       default: false
       description: 设置形状。选项分别为默认、圆角、方形、圆形。
     - name: disabled
@@ -34,13 +48,18 @@
     - name: display
       title: 展示方式
       type: enum
-      options: [inline, block]
+      options:
+        - inline
+        - block
       default: inline
       description: 展示方式。`'inline'`表示行内展示，`'block'`表示块级展示，宽度会充满父元素。
     - name: icon
       title: 图标
       type: enum
-      options: [refresh, create, success]
+      options:
+        - refresh
+        - create
+        - success
       description: 设置图标。
     - name: loading
       title: 加载中
@@ -82,7 +101,9 @@
     - name: default
       title: 默认
       description: 插入文本或 HTML。
-      accept-type: [text, inline]
+      accept-type:
+        - text
+        - inline
   events:
     - name: $listeners
       kind: trigger

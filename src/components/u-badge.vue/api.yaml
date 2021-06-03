@@ -1,7 +1,8 @@
 - name: u-badge
   title: 徽章
   description: 用于显示消息条数和提醒用户处理的角标。
-  labels: [行内展示]
+  labels:
+    - 行内展示
   attrs:
     - name: value
       title: 值

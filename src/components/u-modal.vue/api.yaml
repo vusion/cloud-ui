@@ -17,9 +17,9 @@
       default: 提示内容
       description: 弹窗的内容
     - name: visible
+      title: 是否显示
       type: boolean
       sync: true
-      title: 是否显示
       default: false
       description: 是否显示
     - name: ok-button
@@ -35,9 +35,14 @@
     - name: size
       title: 尺寸
       type: enum
-      options: [small, normal, large, huge, auto]
+      options:
+        - small
+        - normal
+        - large
+        - huge
+        - auto
       default: normal
-      description: 弹框的尺寸, 可选值：`'small'`, `'normal'`, `'large'`, `'huge'`, `'auto'`, 
+      description: 弹框的尺寸, 可选值：`'small'`, `'normal'`, `'large'`, `'huge'`, `'auto'`,
     - name: icon
       title: 提示图标
       type: string
