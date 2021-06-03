@@ -5,16 +5,16 @@
     - Table
   attrs:
     - name: value
+      type: any
       sync: true
       model: true
-      type: any
       default: null
       description: 当前选择的值
     - name: field
-      deprecated: true
       type: string
       default: text
       description: 选项文本的字段名
+      deprecated: true
     - name: text-field
       type: string
       default: text
@@ -105,8 +105,7 @@
       description: 是否禁用
     - name: size
       type: string
-      default: normal
-      options: 
+      options:
         - value: normal
           title: 正常
         - value: large
@@ -117,6 +116,7 @@
           title: 自适应
         - value: full
           title: 占满
+      default: normal
       description: 设置尺寸。五种宽高的自由组合。
   slots:
     - name: default
@@ -131,7 +131,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选择项的值
@@ -157,7 +157,7 @@
           type: any
           description: 选择项的值
           schema:
-            $ref: '#/basicTypes/String'
+            $ref: "#/basicTypes/String"
         - name: senderVM
           type: UListView
           description: 发送事件实例
@@ -168,7 +168,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 改变后的值
@@ -197,7 +197,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemsEvent'
+            $ref: "#/systemTypes/ChangeItemsEvent"
         - name: $event.selected
           type: boolean
           description: 选中还是取消
@@ -235,7 +235,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选择项的值
@@ -264,7 +264,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: Array
           description: 所有选中项的值
@@ -284,7 +284,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/EventTarget'
+            $ref: "#/systemTypes/EventTarget"
         - name: $event.preventDefault
           type: Function
           description: 阻止加载流程

@@ -16,8 +16,8 @@
       title: 时间间隔 s
       description: 定时刷新时间间隔 s
     - name: title
-      type: string
       title: 通知
+      type: string
       description: 鼠标 hover 在图标上展示文案
   events:
     - name: $listeners

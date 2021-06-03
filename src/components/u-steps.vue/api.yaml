@@ -1,12 +1,13 @@
 - name: u-steps
   title: 步骤条
-  labels: [块级展示]
+  labels:
+    - 块级展示
   attrs:
     - name: value
-      model: true
-      sync: true
       title: 值
       type: number
+      sync: true
+      model: true
       default: 0
       description: 当前步骤数
     - name: readonly
@@ -31,7 +32,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选中步骤的值
@@ -58,7 +59,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选中步骤的值

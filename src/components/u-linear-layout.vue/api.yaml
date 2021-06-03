@@ -84,7 +84,6 @@
     - name: alignment
       title: 纵轴对齐方式
       type: string
-      advanced: true
       options:
         - value: start
           title: 头对齐
@@ -98,6 +97,7 @@
           title: 拉伸子元素充满整个父元素空间
       default: stretch
       description: flex布局模式下的交叉轴对齐方式
+      advanced: true
   slots:
     - name: default
       description: 内容

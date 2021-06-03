@@ -6,61 +6,60 @@
     - Selector
   attrs:
     - name: date
-      type: 'string, number, Date'
-      model: true
-      sync: true
-      default: null
       title: 值
+      type: string, number, Date
+      sync: true
+      model: true
+      default: null
       description: 显示的日期值
     - name: minDate
-      type: 'string, number, Date'
+      title: 最小日期值
+      type: string, number, Date
       default: null
       description: 最小日期值
-      title: 最小日期值
     - name: maxDate
-      type: 'string, number, Date'
+      title: 最大日期值
+      type: string, number, Date
       default: null
       description: 最大日期值
-      title: 最大日期值
     - name: placeholder
+      title: 默认提示文案
       type: string
       default: 请选择时间
       description: 默认提示语
-      title: 默认提示文案
     - name: autofocus
+      title: 自动获焦
       type: boolean
       default: false
       description: 是否默认处于focus状态
-      title: 自动获焦
       advanced: true
     - name: clearable
       title: 清除按钮
       type: boolean
       description: 开启并在输入框有内容时会显示清除按钮。
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
-      title: 禁用
       description: 是否禁用
     - name: readonly
+      title: 只读
       type: boolean
       default: false
-      title: 只读
       description: 是否只读
     - name: yearDiff
+      title: 最小可选年份到当前年份的差值
       type: number
       default: 20
-      title: 最小可选年份到当前年份的差值
       description: 最小可选年份值为当前年减去此值
     - name: yearAdd
+      title: 最大可选年份到当前年份的差值
       type: number
       default: 20
       description: 最大可选年份值为当前年加上此值
-      title: 最大可选年份到当前年份的差值
     - name: converter
       title: 转换器
       type: string
-      default: json
       options:
         - title: JSON
           value: json
@@ -68,6 +67,7 @@
           value: timestamp
         - title: Date 对象
           value: date
+      default: json
       description: 转换器
   events:
     - name: select
@@ -78,7 +78,7 @@
           title: 自定义事件对象
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/DateEvent'
+            $ref: "#/systemTypes/DateEvent"
         - name: $event.date
           type: number
           title: 选择项的值
@@ -93,7 +93,7 @@
           title: 自定义事件对象
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/DateEvent'
+            $ref: "#/systemTypes/DateEvent"
         - name: $event.date
           type: number
           title: 选择项的值

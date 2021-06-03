@@ -11,10 +11,10 @@
       default: true
       description: 是否根据 vue-router 来控制选择哪一项
     - name: value
-      model: true
-      sync: true
       title: 值
       type: any
+      sync: true
+      model: true
       default: null
       description: 当前选择的值
     - name: collapsible
@@ -53,8 +53,7 @@
       support:
         - name: u-sidebar-group
           title: 导航分组
-          snippet: >-
-            <u-sidebar-group
+          snippet: <u-sidebar-group
             title="分组"><u-sidebar-item>导航项</u-sidebar-item></u-sidebar-group>
         - name: u-sidebar-item
           title: 导航项
@@ -71,7 +70,7 @@
           type: MouseEvent
           description: 鼠标事件对象
           schema:
-            $ref: '#/systemTypes/MouseEvent'
+            $ref: "#/systemTypes/MouseEvent"
         - name: senderVM
           type: Vue
           description: 发送事件实例
@@ -84,7 +83,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选择项的值
@@ -111,7 +110,7 @@
           type: any
           description: 选择项的值
           schema:
-            $ref: '#/basicTypes/String'
+            $ref: "#/basicTypes/String"
         - name: senderVM
           type: Vue
           description: 发送事件实例
@@ -123,7 +122,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 改变后的值
@@ -153,7 +152,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/CollapseEvent'
+            $ref: "#/systemTypes/CollapseEvent"
         - name: $event.expanded
           type: boolean
           description: 展开/折叠状态
@@ -171,13 +170,13 @@
           type: boolean
           description: 展开/折叠
           schema:
-            $ref: '#/systemTypes/CollapseEvent'
+            $ref: "#/systemTypes/CollapseEvent"
 - name: u-sidebar-item
   title: 侧边栏项
   attrs:
     - name: text
-      type: string
       title: 文本
+      type: string
       description: 文本内容
     - name: value
       title: 值
@@ -191,15 +190,13 @@
       description: 禁用此项
     - name: item
       title: 相关对象
-      advanced: true
       type: object
       default: null
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
+      advanced: true
     - name: linkType
       title: 链接类型
       type: string
-      default: href
-      compType: linkTypeSelect
       options:
         - value: destination
           title: 页面跳转
@@ -207,7 +204,9 @@
           title: 普通链接
         - value: download
           title: 下载链接
+      default: href
       description: 链接类型
+      compType: linkTypeSelect
     - name: hrefAndTo
       title: 链接
       type: string
@@ -216,7 +215,6 @@
     - name: target
       title: 打开方式
       type: string
-      default: _blank
       options:
         - value: _blank
           title: 新窗口
@@ -228,27 +226,27 @@
         - value: _top
           title: 顶级窗口
           advanced: true
+      default: _blank
       description: 链接跳转方式
     - name: to
       title: 路由链接
-      type: 'string, Location'
-      advanced: true
+      type: string, Location
       description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
-    - name: replace
-      type: boolean
-      title: 替换
-      default: false
       advanced: true
-      description: >-
-        需要
+    - name: replace
+      title: 替换
+      type: boolean
+      default: false
+      description: 需要
         vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history
         `记录。
+      advanced: true
     - name: exact
       title: 精确匹配
       type: boolean
       default: false
-      advanced: true
       description: 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
+      advanced: true
   events:
     - name: before-select
       title: 选择前
@@ -259,7 +257,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 此项的值
@@ -284,16 +282,16 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/NavigateEvent'
+            $ref: "#/systemTypes/NavigateEvent"
         - name: $event.to
-          type: 'string, Location'
-          description: '`to`属性的值'
+          type: string, Location
+          description: "`to`属性的值"
         - name: $event.replace
           type: boolean
-          description: '`replace`属性的值'
+          description: "`replace`属性的值"
         - name: $event.exact
           type: boolean
-          description: '`exact`属性的值'
+          description: "`exact`属性的值"
         - name: $event.preventDefault
           type: Function
           description: 阻止切换流程
@@ -309,16 +307,16 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/NavigateEvent'
+            $ref: "#/systemTypes/NavigateEvent"
         - name: $event.to
-          type: 'string, Location'
-          description: '`to`属性的值'
+          type: string, Location
+          description: "`to`属性的值"
         - name: $event.replace
           type: boolean
-          description: '`replace`属性的值'
+          description: "`replace`属性的值"
         - name: $event.exact
           type: boolean
-          description: '`exact`属性的值'
+          description: "`exact`属性的值"
         - name: senderVM
           type: Vue
           description: 发送事件实例
@@ -338,8 +336,8 @@
       description: 分组是否可以折叠
     - name: expanded
       title: 展开折叠状态
-      sync: true
       type: boolean
+      sync: true
       default: false
       description: 展开/折叠状态
     - name: disabled
@@ -371,7 +369,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/CollapseEvent'
+            $ref: "#/systemTypes/CollapseEvent"
         - name: $event.expanded
           type: boolean
           description: 展开/折叠状态
@@ -392,7 +390,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/CollapseEvent'
+            $ref: "#/systemTypes/CollapseEvent"
         - name: $event.expanded
           type: boolean
           description: 展开/折叠状态

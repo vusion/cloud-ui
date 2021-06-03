@@ -4,8 +4,8 @@
     - name: date
       title: 值
       type: Date | string
-      model: true
       sync: true
+      model: true
       default: TODAY
       description: 当前选择的日期
     - name: min-date
@@ -50,7 +50,7 @@
           type: object
           description: 改变后的日期
           schema:
-            $ref: '#/basicTypes/DateTime'
+            $ref: "#/basicTypes/DateTime"
     - name: select
       title: 选择后
       description: 选择某一个日期时触发
@@ -59,4 +59,4 @@
           type: object
           description: 当前选择的日期
           schema:
-            $ref: '#/basicTypes/DateTime'
+            $ref: "#/basicTypes/DateTime"

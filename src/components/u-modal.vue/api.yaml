@@ -6,40 +6,40 @@
   attrs:
     - name: title
       title: 标题
-      advanced: true
       type: string
       default: 提示
       description: 弹窗的标题
+      advanced: true
     - name: content
       title: 内容
-      advanced: true
       type: string
       default: 提示内容
       description: 弹窗的内容
+      advanced: true
     - name: heading
       title: 内容头部
-      advanced: true
       type: string
       default: 提示内容
       description: 弹窗的内容
+      advanced: true
     - name: visible
+      title: 是否显示
       type: boolean
       sync: true
-      title: 是否显示
       default: false
       description: 是否显示
     - name: ok-button
       title: 确定按钮
-      advanced: true
       type: string
       default: 确定
       description: 确定按钮文本，如果为空则不显示
+      advanced: true
     - name: cancel-button
       title: 取消按钮
-      advanced: true
       type: string
       default: 取消
       description: 取消按钮文本，如果为空则不显示
+      advanced: true
     - name: size
       title: 尺寸
       type: string

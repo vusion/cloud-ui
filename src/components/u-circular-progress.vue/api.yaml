@@ -6,10 +6,10 @@
     - chart
   attrs:
     - name: percent
+      title: 百分比
       type: number
       default: 0
       description: 百分比
-      title: 百分比
   slots:
     - name: default
       description: 插入文本或 HTML。

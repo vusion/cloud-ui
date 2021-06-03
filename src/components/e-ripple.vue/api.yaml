@@ -1,6 +1,7 @@
 - name: e-ripple
   title: 波纹
-  labels: [特效组件]
+  labels:
+    - 特效组件
   description: 波纹，插入到需要添加波纹的元素或组件内部
   attrs:
     - name: color

@@ -7,12 +7,12 @@
   attrs:
     - name: source
       title: 原始数据
-      type: 'Array<{ text, value }>'
+      type: Array<{ text, value }>
       sync: true
       description: 原数据列表
     - name: target
       title: 目标数据
-      type: 'Array<{ text, value }>'
+      type: Array<{ text, value }>
       sync: true
       description: 目标数据列表
     - name: text-field
@@ -62,10 +62,10 @@
       description: 搜索框是否有清除按钮
     - name: match-method
       title: 过滤匹配方法
-      type: 'string, Function'
+      type: string, Function
       default: includes
-      advanced: true
       description: 过滤时的匹配方法
+      advanced: true
     - name: case-sensitive
       title: 大小写敏感
       type: boolean
@@ -107,15 +107,15 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/TransferEvent'
+            $ref: "#/systemTypes/TransferEvent"
         - name: $event.source
-          type: 'Array<{ text, value }>'
+          type: Array<{ text, value }>
           description: 原数据列表
         - name: $event.target
-          type: 'Array<{ text, value }>'
+          type: Array<{ text, value }>
           description: 目标数据列表
         - name: $event.transfer
-          type: 'Array<{ text, value }>'
+          type: Array<{ text, value }>
           description: 移动的项
         - name: $event.transferValues
           type: Array
@@ -131,15 +131,15 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/TransferEvent'
+            $ref: "#/systemTypes/TransferEvent"
         - name: $event.source
-          type: 'Array<{ text, value }>'
+          type: Array<{ text, value }>
           description: 原数据列表
         - name: $event.target
-          type: 'Array<{ text, value }>'
+          type: Array<{ text, value }>
           description: 目标数据列表
         - name: $event.transfer
-          type: 'Array<{ text, value }>'
+          type: Array<{ text, value }>
           description: 移动的项
         - name: $event.transferValues
           type: Array

@@ -4,10 +4,10 @@
   attrs:
     - name: value
       type: any
-      default: null
-      description: 当前选择的值
       sync: true
       model: true
+      default: null
+      description: 当前选择的值
     - name: auto-select
       type: boolean
       default: false
@@ -119,8 +119,8 @@
 - name: m-singlex-item
   attrs:
     - name: text
-      type: string
       title: 文本
+      type: string
       description: 文本内容
     - name: value
       type: any

@@ -6,10 +6,8 @@
   description: 自定义图标
   attrs:
     - name: name
-      type: string
       title: 图标名称
-      default: arrow-down
-      description: 图标名称
+      type: string
       options:
         - value: arrow-down
           title: arrow-down
@@ -35,3 +33,5 @@
           title: filter
         - value: github
           title: github
+      default: arrow-down
+      description: 图标名称

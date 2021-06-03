@@ -5,10 +5,10 @@
   icon: switch
   attrs:
     - name: value
-      model: true
-      sync: true
       title: 值
       type: boolean
+      sync: true
+      model: true
       default: false
       description: 开关状态
     - name: readonly
@@ -37,7 +37,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeEvent'
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.value
           type: boolean
           description: 开关状态
@@ -58,31 +58,31 @@
           type: boolean
           description: 切换后的开关状态
           schema:
-            $ref: '#/basicTypes/Boolean'
+            $ref: "#/basicTypes/Boolean"
         - name: senderVM
           type: USwitch
           description: 发送事件实例
-    - name: 'on'
+    - name: on
       title: 打开时
       description: 开关打开时触发
       params:
         - name: $event
-          type: ''
+          type: ""
           description: 无
           schema:
-            $ref: '#/basicTypes/Boolean'
+            $ref: "#/basicTypes/Boolean"
         - name: senderVM
           type: USwitch
           description: 发送事件实例
-    - name: 'off'
+    - name: off
       title: 关闭时
       description: 开关关闭时触发
       params:
         - name: $event
-          type: ''
+          type: ""
           description: 无
           schema:
-            $ref: '#/basicTypes/Boolean'
+            $ref: "#/basicTypes/Boolean"
         - name: senderVM
           type: USwitch
           description: 发送事件实例
@@ -94,7 +94,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/CollapseEvent'
+            $ref: "#/systemTypes/CollapseEvent"
         - name: $event.value
           type: boolean
           description: 开关状态
@@ -112,7 +112,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/CollapseEvent'
+            $ref: "#/systemTypes/CollapseEvent"
         - name: $event.value
           type: boolean
           description: 开关状态

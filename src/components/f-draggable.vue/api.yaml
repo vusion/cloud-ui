@@ -7,7 +7,9 @@
       description: 需要传递的值
     - name: transfer
       type: string, Element
-      options: [clone, self]
+      options:
+        - clone
+        - self
       default: clone
       description: 拖拽时的移动元素。可选值：`'clone'`表示拖拽时拖起自身的一个拷贝，`'self'`表示拖拽时拖起自身，也可以直接传入一个元素，或者用slot来设置。
     - name: immediate

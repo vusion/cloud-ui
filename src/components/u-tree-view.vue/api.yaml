@@ -7,13 +7,13 @@
   attrs:
     - name: data
       title: 数据
-      type: 'Array<{ text, value }>'
+      type: Array<{ text, value }>
       description: Data书写方式中的数据列表
     - name: value
-      sync: true
-      model: true
       title: 值
       type: any
+      sync: true
+      model: true
       description: 当前选择的值
     - name: text-field
       title: 文本字段
@@ -77,7 +77,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/TreeChangeEvent'
+            $ref: "#/systemTypes/TreeChangeEvent"
         - name: $event.value
           type: any
           description: 选择项的值
@@ -110,7 +110,7 @@
           type: any
           description: 选择项的值
           schema:
-            $ref: '#/basicTypes/String'
+            $ref: "#/basicTypes/String"
         - name: senderVM
           type: UTreeView
           description: 发送事件实例
@@ -122,7 +122,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/TreeChangeEvent'
+            $ref: "#/systemTypes/TreeChangeEvent"
         - name: $event.value
           type: any
           description: 改变后的值
@@ -152,7 +152,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/TreeChangeEvent'
+            $ref: "#/systemTypes/TreeChangeEvent"
         - name: $event.value
           type: any
           description: 选择项的值
@@ -182,7 +182,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/CollapseEvent'
+            $ref: "#/systemTypes/CollapseEvent"
         - name: $event.expanded
           type: boolean
           description: 展开/折叠状态
@@ -203,7 +203,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/CheckedEvent'
+            $ref: "#/systemTypes/CheckedEvent"
         - name: $event.checked
           type: boolean
           description: 选中/取消状态
@@ -264,13 +264,13 @@
       description: 此项的显示值
     - name: expanded
       title: 展开折叠状态
-      sync: true
       type: boolean
+      sync: true
       description: 展开/折叠状态
     - name: checked
       title: 选中取消状态
-      sync: true
       type: boolean
+      sync: true
       description: 选中/取消状态
     - name: disabled
       title: 禁用
@@ -280,8 +280,8 @@
     - name: node
       title: 相关对象
       type: object
-      advanced: true
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
+      advanced: true
   slots:
     - name: default
       description: 插入文本或 HTML。

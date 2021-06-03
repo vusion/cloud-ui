@@ -13,23 +13,23 @@
     - name: expand-trigger
       title: 展开触发方式
       type: string
-      default: click
       options:
         - value: click
           title: 整行点击均可触发
         - value: click-expander
           title: 仅点击小箭头时触发
+      default: click
       description: 展开/折叠的触发方式
     - name: appear
       title: 显示效果
       type: string
-      description: 显示样式
-      default: default
       options:
         - value: default
           title: 默认模式
         - value: simple
           title: 简洁模式
+      default: default
+      description: 显示样式
     - name: disabled
       title: 禁用展开
       type: boolean
@@ -51,7 +51,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/CollapseEvent'
+            $ref: "#/systemTypes/CollapseEvent"
         - name: $event.expanded
           type: boolean
           description: 展开/折叠状态
@@ -69,19 +69,19 @@
   title: 折叠子元素
   attrs:
     - name: title
-      type: string
       title: 标题
+      type: string
       default: null
       description: 显示的标题
     - name: expande
+      title: 当前"展开/折叠"状态
       type: boolean
       sync: true
-      title: 当前"展开/折叠"状态
       default: false
       description: 展开/折叠状态
     - name: disabled
-      type: boolean
       title: 是否禁用
+      type: boolean
       default: false
       description: 是否禁用。禁用时无法展开/折叠
   slots:
@@ -100,7 +100,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/CollapseEvent'
+            $ref: "#/systemTypes/CollapseEvent"
         - name: $event.expanded
           type: boolean
           description: 展开/折叠状态
@@ -121,7 +121,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/CollapseEvent'
+            $ref: "#/systemTypes/CollapseEvent"
         - name: $event.expanded
           type: boolean
           description: 展开/折叠状态

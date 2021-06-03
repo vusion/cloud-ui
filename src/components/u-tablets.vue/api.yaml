@@ -2,10 +2,10 @@
   title: 药片
   attrs:
     - name: value
-      model: true
-      sync: true
       title: 值
       type: any
+      sync: true
+      model: true
       description: 当前选择的值
     - name: auto-select
       title: 自动选择
@@ -44,7 +44,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选择项的值
@@ -71,7 +71,7 @@
           type: any
           description: 选择项的值
           schema:
-            $ref: '#/basicTypes/String'
+            $ref: "#/basicTypes/String"
         - name: senderVM
           type: UTablets
           description: 发送事件实例
@@ -83,7 +83,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 改变后的值
@@ -113,7 +113,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemsEvent'
+            $ref: "#/systemTypes/ChangeItemsEvent"
         - name: $event.selected
           type: boolean
           description: 选中还是取消
@@ -152,7 +152,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选择项的值
@@ -182,7 +182,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemsEvent'
+            $ref: "#/systemTypes/ChangeItemsEvent"
         - name: $event.value
           type: Array
           description: 所有选中项的值
@@ -227,7 +227,7 @@
           type: MouseEvent
           description: 鼠标事件对象
           schema:
-            $ref: '#/systemTypes/MouseEvent'
+            $ref: "#/systemTypes/MouseEvent"
         - name: senderVM
           type: UTablet
           description: 发送事件实例
@@ -239,7 +239,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 此项的值

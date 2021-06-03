@@ -8,14 +8,12 @@
     - name: src
       title: 地址
       type: image
-      default: ''
+      default: ""
       description: 图片地址
       compType: linkInput
     - name: fit
       title: 填充方式
       type: string
-      default: contain
-      description: 图片地址
       options:
         - value: fill
           title: 图片拉伸完全填充
@@ -27,6 +25,8 @@
           title: 图片以原尺寸填充
         - value: scale-down
           title: 取 contain、none 中较小的
+      default: contain
+      description: 图片地址
   slots: false
   events:
     - name: load

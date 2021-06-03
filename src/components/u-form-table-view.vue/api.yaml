@@ -12,28 +12,28 @@
       default: null
       description: 数据
     - name: dynamic
+      title: 动态添加
       type: boolean
       default: false
       description: 是否可以动态添加/删除项
-      title: 动态添加
     - name: get-default-item
+      title: 默认项的方法
       type: Function
       default: null
       description: 传入获取默认项的方法
-      title: 默认项的方法
     - name: initial-add
+      title: 自动补充项
       type: boolean
       default: true
       description: 是否自动补充项，如果初始时`data`中的项目数少于`min-count`
-      title: 自动补充项
     - name: min-count
+      title: 最小行数
       type: number
       default: 1
-      title: 最小行数
       description: 最小项目数
     - name: max-count
-      type: number
       title: 最大行数
+      type: number
       default: 999
       description: 最大项目数
   slots:
@@ -48,7 +48,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/OperatorItemEvent'
+            $ref: "#/systemTypes/OperatorItemEvent"
         - name: $event.item
           type: any
           description: 添加的项
@@ -72,7 +72,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/OperatorItemEvent'
+            $ref: "#/systemTypes/OperatorItemEvent"
         - name: $event.item
           type: any
           description: 添加的项
@@ -94,7 +94,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/OperatorItemEvent'
+            $ref: "#/systemTypes/OperatorItemEvent"
         - name: $event.item
           type: any
           description: 删除的项
@@ -118,7 +118,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/OperatorItemEvent'
+            $ref: "#/systemTypes/OperatorItemEvent"
         - name: $event.item
           type: any
           description: 删除的项
@@ -139,7 +139,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/OperatorItemEvent'
+            $ref: "#/systemTypes/OperatorItemEvent"
         - name: $event.item
           type: any
           description: 变更的项
@@ -157,18 +157,18 @@
   title: 表单列元素
   attrs:
     - name: title
+      title: 列标题
       type: string
       default: null
       description: 列标题
-      title: 列标题
     - name: field
-      type: string
       title: 区域
+      type: string
       default: null
       description: data 中的字段名
     - name: width
       title: 宽度
-      type: 'string, number'
+      type: string, number
       default: null
       description: 给列指定宽度，可以为数字或百分比
     - name: ellipsis
@@ -177,56 +177,55 @@
       default: false
       description: 文字过长是否省略显示。默认文字超出时会换行。
     - name: formatter
-      type: 'string, object, Function, Formatter'
       title: 格式器
+      type: string, object, Function, Formatter
       default: placeholder
       description: 格式器
     - name: hidden
-      type: boolean
       title: 是否隐藏
+      type: boolean
       default: false
       description: 是否隐藏
     - name: start-index
-      type: number
       title: 起始序号
+      type: number
       default: 1
       description: 当`type="index"`时的起始序号
     - name: label
+      title: 标签
       type: string
       default: null
-      title: 标签
       description: 标签。用于提示消息的合成
     - name: muted
+      title: 静默消息提示
       type: string
       default: null
-      title: 静默消息提示
       description: 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示
     - name: rules
-      type: 'string, Array'
       title: 验证规则
+      type: string, Array
       default: null
       description: 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型
       compType: validationRulesSelect
     - name: ignore-validation
-      type: boolean
       title: 忽略验证
+      type: boolean
       default: false
       description: 忽略验证
     - name: ignore-rules
-      type: boolean
       title: 忽略验证规则
+      type: boolean
       default: false
       description: 忽略验证规则。已废弃，同`ignore-validation`
     - name: validating-options
-      type: object
       title: 验证辅助对象
+      type: object
       default: null
-      description: >-
-        验证辅助对象。在 Rule 的 `validate` 方法中使用。表格中会额外将`{ data: currentData, item,
-        rowIndex }`注入
+      description: "验证辅助对象。在 Rule 的 `validate` 方法中使用。表格中会额外将`{ data: currentData,
+        item, rowIndex }`注入"
     - name: validating-value
-      type: any
       title: 验证值
+      type: any
       default: null
       description: 临时修改验证值
     - name: validating-process

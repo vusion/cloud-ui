@@ -66,7 +66,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/EventTarget'
+            $ref: "#/systemTypes/EventTarget"
         - name: $event.preventDefault
           type: Function
           description: 阻止关闭流程

@@ -6,10 +6,10 @@
   description: 输入数字时使用
   attrs:
     - name: value
-      model: true
-      sync: true
       title: 值
       type: number
+      sync: true
+      model: true
       default: 0
       description: 输入框的值
     - name: min
@@ -34,9 +34,9 @@
       description: 精度，表示数字要保留的最小单位，整数、小数均可
     - name: formatter
       title: 格式化
-      type: 'string, object'
-      advanced: true
+      type: string, object
       description: 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。
+      advanced: true
     - name: placeholder
       title: 占位符
       type: string
@@ -79,14 +79,14 @@
         - value: mini
           title: 迷你
       default: normal
+      description: 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度
       multi: true
       maxSelect: 2
-      description: 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度
   slots:
     - name: default
       advanced: true
       title: 默认
-      description: '插入 HTML 或 `Component`, 可展示额外内容。'
+      description: 插入 HTML 或 `Component`, 可展示额外内容。
       quick-add: never
   events:
     - name: input
@@ -97,7 +97,7 @@
           type: string
           description: 输入框的值
           schema:
-            $ref: '#/basicTypes/String'
+            $ref: "#/basicTypes/String"
         - name: senderVM
           type: UNumberInput
           description: 发送事件实例
@@ -109,7 +109,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ValidateEvent'
+            $ref: "#/systemTypes/ValidateEvent"
         - name: $event.rawValue
           type: string
           description: 用户输入的原始值
@@ -130,7 +130,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeEvent'
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.value
           type: number
           description: 改变后的值
@@ -154,7 +154,7 @@
           type: string
           description: 原生事件对象
           schema:
-            $ref: '#/systemTypes/FocusEvent'
+            $ref: "#/systemTypes/FocusEvent"
         - name: senderVM
           type: UNumberInput
           description: 发送事件实例
@@ -166,7 +166,7 @@
           type: string
           description: 原生事件对象
           schema:
-            $ref: '#/systemTypes/FocusEvent'
+            $ref: "#/systemTypes/FocusEvent"
         - name: senderVM
           type: UNumberInput
           description: 发送事件实例

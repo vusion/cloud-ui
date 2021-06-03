@@ -6,16 +6,16 @@
   description: 评分组件。
   attrs:
     - name: value
+      title: 评分值
       type: number
-      model: true
       sync: true
+      model: true
       default: 0
       description: 评分值
-      title: 评分值
     - name: max
+      title: 最大分数
       type: number
       default: 5
-      title: 最大分数
       description: 最大分数
     - name: readonly
       title: 只读

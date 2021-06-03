@@ -1,6 +1,8 @@
 - name: u-menu
   title: 菜单
-  labels: [路由链接, 块级展示]
+  labels:
+    - 路由链接
+    - 块级展示
   description: 菜单组件支持路由、触发关闭、多级菜单等功能。
   attrs:
     - name: router
@@ -9,10 +11,10 @@
       default: true
       description: 是否根据 vue-router 来控制选择哪一项
     - name: value
-      model: true
-      sync: true
       title: 值
       type: any
+      sync: true
+      model: true
       description: 当前选择的值
     - name: collapsible
       title: 折叠
@@ -51,7 +53,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选择项的值
@@ -75,7 +77,7 @@
           type: any
           description: 选择项的值
           schema:
-            $ref: '#/basicTypes/String'
+            $ref: "#/basicTypes/String"
     - name: select
       title: 选择后
       description: 选择某一项时触发
@@ -84,7 +86,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 改变后的值
@@ -114,7 +116,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/CollapseEvent'
+            $ref: "#/systemTypes/CollapseEvent"
         - name: $event.expanded
           type: boolean
           description: 展开/折叠状态
@@ -129,12 +131,12 @@
           type: boolean
           description: 展开/折叠
           schema:
-            $ref: '#/systemTypes/CollapseEvent'
+            $ref: "#/systemTypes/CollapseEvent"
 - name: u-menu-item
   attrs:
     - name: text
-      type: string
       title: 文本
+      type: string
       description: 文本内容
     - name: value
       title: 值
@@ -152,20 +154,16 @@
     - name: linkType
       title: 链接类型
       type: string
-      compType: linkTypeSelect
-      options: 
+      options:
         - value: destination
           title: 页面跳转
         - value: href
           title: 普通链接
         - value: download
           title: 下载链接
-      description: 链接类型
       default: href
-    # - name: href
-    #   title: 链接
-    #   type: string
-    #   description: 链接地址
+      description: 链接类型
+      compType: linkTypeSelect
     - name: hrefAndTo
       title: 链接
       type: string
@@ -187,10 +185,6 @@
           advanced: true
       default: _blank
       description: 链接打开方式
-    # - name: to
-    #   title: 路由链接
-    #   type: string, Location
-    #   description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
     - name: replace
       type: boolean
       default: false
@@ -211,7 +205,7 @@
           type: MouseEvent
           description: 鼠标事件对象
           schema:
-            $ref: '#/systemTypes/MouseEvent'
+            $ref: "#/systemTypes/MouseEvent"
         - name: senderVM
           type: Vue
           description: 发送事件实例
@@ -223,7 +217,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 此项的值
@@ -247,7 +241,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/NavigateEvent'
+            $ref: "#/systemTypes/NavigateEvent"
         - name: $event.to
           type: string, Location
           description: "`to`属性的值"
@@ -272,7 +266,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/NavigateEvent'
+            $ref: "#/systemTypes/NavigateEvent"
         - name: $event.to
           type: string, Location
           description: "`to`属性的值"
@@ -309,7 +303,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/CollapseEvent'
+            $ref: "#/systemTypes/CollapseEvent"
         - name: $event.expanded
           type: boolean
           description: 展开/折叠状态
@@ -330,7 +324,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/CollapseEvent'
+            $ref: "#/systemTypes/CollapseEvent"
         - name: $event.expanded
           type: boolean
           description: 展开/折叠状态

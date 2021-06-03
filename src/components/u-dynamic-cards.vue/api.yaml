@@ -90,7 +90,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/OperatorItemEvent'
+            $ref: "#/systemTypes/OperatorItemEvent"
         - name: $event.item
           type: any
           description: 添加的项
@@ -113,7 +113,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/OperatorItemEvent'
+            $ref: "#/systemTypes/OperatorItemEvent"
         - name: $event.item
           type: any
           description: 添加的项
@@ -133,7 +133,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/OperatorItemEvent'
+            $ref: "#/systemTypes/OperatorItemEvent"
         - name: $event.item
           type: any
           description: 删除的项
@@ -156,7 +156,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/OperatorItemEvent'
+            $ref: "#/systemTypes/OperatorItemEvent"
         - name: $event.item
           type: any
           description: 删除的项
@@ -176,7 +176,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/OperatorItemEvent'
+            $ref: "#/systemTypes/OperatorItemEvent"
         - name: $event.item
           type: any
           description: 变更的项
@@ -196,7 +196,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ValidateEvent'
+            $ref: "#/systemTypes/ValidateEvent"
         - name: $event.trigger
           type: enum
           description: 本次验证的触发方式
@@ -223,7 +223,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ValidateEvent'
+            $ref: "#/systemTypes/ValidateEvent"
         - name: trigger
           type: string
           default: submit

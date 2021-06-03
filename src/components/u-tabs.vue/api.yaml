@@ -13,9 +13,9 @@
       advanced: true
     - name: value
       title: 值
-      model: true
-      sync: true
       type: any
+      sync: true
+      model: true
       description: 选中标签页的值。
     - name: readonly
       title: 只读
@@ -29,10 +29,10 @@
       description: 是否禁用。
     - name: closable
       title: 可关闭
-      advanced: true
       type: boolean
       default: false
       description: 是否可以关闭。
+      advanced: true
     - name: show-scroll-buttons
       title: 显示滚动按钮
       type: string
@@ -96,7 +96,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选中标签页的值
@@ -123,7 +123,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选中标签页的值
@@ -148,7 +148,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 待关闭标签页的值
@@ -172,7 +172,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 关闭的标签页的值
@@ -208,8 +208,6 @@
     - name: linkType
       title: 链接类型
       type: string
-      default: href
-      compType: linkTypeSelect
       options:
         - value: destination
           title: 页面跳转
@@ -217,23 +215,23 @@
           title: 普通链接
         - value: download
           title: 下载链接
+      default: href
       description: 链接类型
+      compType: linkTypeSelect
     - name: href
       title: 链接
-      advanced: true
       type: string
       description: 链接地址
+      advanced: true
     - name: hrefAndTo
       title: 链接
-      advanced: true
       type: string
       description: 链接地址
+      advanced: true
       compType: linkHrefInput
     - name: target
       title: 打开方式
-      advanced: true
       type: string
-      default: _blank
       options:
         - value: _blank
           title: 新标签页
@@ -245,35 +243,35 @@
         - value: _top
           title: 顶级窗口
           advanced: true
+      default: _blank
       description: 打开方式
+      advanced: true
     - name: to
       title: 路由链接
-      type: 'string, Location'
-      advanced: true
+      type: string, Location
       description: 需要 router 为 true，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
+      advanced: true
     - name: replace
+      title: 替换
       type: boolean
       default: false
-      advanced: true
-      description: >-
-        需要 router 为
+      description: 需要 router 为
         true，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history
         `记录。
-      title: 替换
+      advanced: true
     - name: append
+      title: 追加路径
       type: boolean
       default: false
-      advanced: true
-      title: 追加路径
-      description: >-
-        需要 router 为
+      description: 需要 router 为
         true，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。
+      advanced: true
     - name: exact
       title: 精确匹配
       type: boolean
-      advanced: true
       default: false
       description: 需要 router 为 true，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
+      advanced: true
   slots:
     - name: default
       title: 默认

@@ -89,8 +89,8 @@
         - value: download
           title: 下载链接
       default: href
-      compType: linkTypeSelect
       description: 链接类型
+      compType: linkTypeSelect
     - name: hrefAndTo
       title: 链接
       type: string
@@ -99,7 +99,6 @@
     - name: target
       title: 打开方式
       type: string
-      default: _self
       options:
         - value: _blank
           title: 新标签页
@@ -111,6 +110,7 @@
         - value: _top
           title: 顶级窗口
           advanced: true
+      default: _self
       description: 链接打开方式
     - name: decoration
       title: 下划线
@@ -141,5 +141,5 @@
           type: MouseEvent
           description: 鼠标事件对象
           schema:
-            $ref: '#/systemTypes/MouseEvent'
+            $ref: "#/systemTypes/MouseEvent"
   description: 单个操作项

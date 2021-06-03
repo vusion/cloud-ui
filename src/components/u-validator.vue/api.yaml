@@ -1,6 +1,7 @@
 - name: u-validator
   title: 验证器
-  labels: [Form]
+  labels:
+    - Form
   description: 实现了基础的嵌套验证功能和原子化验证功能，包含提示样式。常用于嵌套验证时使用，或用于派生一些较复杂的组件。
   docs:
     rules: 内置规则
@@ -83,7 +84,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ValidateEvent'
+            $ref: "#/systemTypes/ValidateEvent"
         - name: $event.trigger
           type: string
           description: 本次验证的触发方式

@@ -74,8 +74,8 @@
       default: null
       description: "`false`"
     - name: expanded
-      sync: true
       type: boolean
+      sync: true
       default: false
       description: 展开/折叠状态
     - name: disabled

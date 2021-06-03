@@ -6,7 +6,7 @@
     - Layout
   attrs:
     - name: position
+      title: 显示位置
       type: string
       default: static
       description: 显示的位置。
-      title: 显示位置

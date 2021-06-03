@@ -7,15 +7,15 @@
   attrs:
     - name: model
       title: 数据模型
-      advanced: true
       type: object
       description: 表单数据模型
+      advanced: true
     - name: rules
       title: 验证规则
       type: object
-      deprecated: true
-      advanced: true
       description: 表单所有域的验证规则，已废弃，推荐在各`<u-form-item>`中自行添加 rules。
+      advanced: true
+      deprecated: true
       compType: validationRulesSelect
     - name: layout
       title: 表单布局
@@ -40,9 +40,9 @@
         - value: large
           title: 大
       default: normal
+      description: 表单项之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。
       multi: true
       maxSelect: 2
-      description: 表单项之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。
     - name: label-size
       title: 标签宽度
       type: string
@@ -114,8 +114,7 @@
       support:
         - name: u-form-group
           title: 导航分组
-          snippet: >-
-            <u-form-group title="分组"><u-form-item
+          snippet: <u-form-group title="分组"><u-form-item
             label="表单项"></u-form-item></u-form-group>
         - name: u-form-item
           title: 表单项
@@ -129,7 +128,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ValidateEvent'
+            $ref: "#/systemTypes/ValidateEvent"
         - name: $event.trigger
           type: string
           description: 本次验证的触发方式
@@ -180,11 +179,11 @@
   attrs:
     - name: name
       title: 字段名称
-      deprecated: true
-      advanced: true
       type: string
       default: null
       description: 表单项名称。已废弃
+      advanced: true
+      deprecated: true
     - name: label
       title: 标签名
       type: string
@@ -215,8 +214,8 @@
           title: 正常
         - value: large
           title: 大
-      description: 单独设置表单项的内容大小
       default: normal
+      description: 单独设置表单项的内容大小
     - name: required
       title: 必填标记
       type: boolean
@@ -228,9 +227,7 @@
       description: 默认提示消息
     - name: muted
       title: 验证是否静默
-      advanced: true
       type: string
-      default: none
       options:
         - value: message
           title: 只静默消息提示
@@ -238,7 +235,9 @@
           title: 同时静默消息提示和红框提示
         - value: none
           title: 不作处理
+      default: none
       description: 验证是否静默
+      advanced: true
     - name: description
       title: 描述内容
       type: string
@@ -275,26 +274,26 @@
       description: 忽略验证
     - name: ignore-rules
       title: 忽略验证规则
-      deprecated: true
       type: boolean
       default: false
-      advanced: true
       description: 忽略验证规则。已废弃，同`ignore-validation`
+      advanced: true
+      deprecated: true
     - name: validating-options
       title: 验证辅助对象
-      advanced: true
       type: object
       description: 验证辅助对象。在 Rule 的 `validate` 方法中使用
+      advanced: true
     - name: validating-value
       title: 修改验证值
-      advanced: true
       type: any
       description: 临时修改验证值
+      advanced: true
     - name: validating-process
       title: 验证前预处理
-      advanced: true
       type: Function
       description: 验证前对值进行预处理
+      advanced: true
   slots:
     - name: default
       title: 默认
@@ -362,8 +361,8 @@
       description: 分组是否可以折叠
     - name: expanded
       title: 展开折叠状态
-      sync: true
       type: boolean
+      sync: true
       default: false
       description: 展开/折叠状态
     - name: disabled
@@ -392,7 +391,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/CollapseEvent'
+            $ref: "#/systemTypes/CollapseEvent"
         - name: $event.expanded
           type: boolean
           description: 展开/折叠状态
@@ -413,7 +412,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/CollapseEvent'
+            $ref: "#/systemTypes/CollapseEvent"
         - name: $event.expanded
           type: boolean
           description: 展开/折叠状态

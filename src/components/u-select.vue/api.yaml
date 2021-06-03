@@ -8,8 +8,8 @@
     - name: value
       title: 值
       type: any
-      model: true
       sync: true
+      model: true
       description: 当前选择的值
     - name: text-field
       title: 文本字段名
@@ -39,20 +39,19 @@
     - name: converter
       title: 转换器
       type: string
-      description: >-
-        value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成
-        value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象
-      bindHide: true
-      default: join
       options:
         - value: join
-          title: '以'',''连接'
-        - value: 'join:|'
+          title: 以','连接
+        - value: join:|
           title: 以'|'连接
-        - value: 'join:;'
+        - value: join:;
           title: 以';'连接
         - value: json
           title: json
+      default: join
+      description: value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成
+        value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象
+      bindHide: true
     - name: placeholder
       title: 占位符
       type: string
@@ -60,16 +59,16 @@
       description: 选择框的占位符。
     - name: loading-text
       title: 加载中文字
-      advanced: true
       type: string
       default: 加载中...
       description: 正在加载中的文字。使用分页加载时才会出现。
+      advanced: true
     - name: empty-text
       title: 暂无数据文字
-      advanced: true
       type: string
       default: 暂无数据
       description: 暂无数据时的文字。
+      advanced: true
     - name: empty-disabled
       title: 为空自动禁用
       type: boolean
@@ -83,22 +82,22 @@
     - name: pageable
       title: 可分页
       type: boolean
-      advanced: true
       default: false
       description: 是否需要分页。
+      advanced: true
     - name: page-size
       title: 分页大小
       type: number
       sync: true
       default: 50
-      advanced: true
       description: 分页大小。
+      advanced: true
     - name: remote-paging
       title: 后端分页
       type: boolean
-      advanced: true
       default: false
       description: 是否使用后端分页。
+      advanced: true
     - name: clearable
       title: 清除按钮
       type: boolean
@@ -130,15 +129,15 @@
     - name: remote-filtering
       title: 后端过滤
       type: boolean
-      advanced: true
       default: false
       description: 是否使用后端过滤。
+      advanced: true
     - name: auto-complete
       title: 自动补全
-      advanced: true
       type: boolean
       default: false
       description: 是否开启自动补充模式，用于增加列表中没有的项。
+      advanced: true
     - name: readonly
       title: 只读
       type: boolean
@@ -168,13 +167,13 @@
         - value: mini
           title: 迷你
       default: normal
+      description: 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度
       multi: true
       maxSelect: 2
-      description: 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度
     - name: opened
       title: 弹出状态
-      sync: true
       type: boolean
+      sync: true
       default: false
       description: 切换弹出/关闭状态
     - name: autofocus
@@ -188,20 +187,20 @@
       options:
         - value: search
           title: 搜索
-        - value: ''
+        - value: ""
           title: 暂无
+      default: ""
       description: 前缀图标
-      default: ''
     - name: suffix
       title: 后缀图标
       type: string
-      description: 后缀图标
       options:
         - value: search
           title: 搜索
-        - value: ''
+        - value: ""
           title: 暂无
-      default: ''
+      default: ""
+      description: 后缀图标
   slots:
     - name: default
       description: 插入`<u-select-item>`、`<u-select-divider>`或`<u-select-group>`子组件。
@@ -211,8 +210,7 @@
           snippet: <u-select-item>选项</u-select-item>
         - name: u-select-group
           title: 分组
-          snippet: >-
-            <u-select-group
+          snippet: <u-select-group
             title="分组"><u-select-item>选项</u-select-item></u-select-group>
         - name: u-select-divider
           title: 分隔线
@@ -227,7 +225,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选择项的值
@@ -255,7 +253,7 @@
           description: 选择项的值
           title: 选择项的值
           schema:
-            $ref: '#/basicTypes/String'
+            $ref: "#/basicTypes/String"
         - name: senderVM
           type: USelect
           title: 发送事件实例
@@ -268,7 +266,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 改变后的值
@@ -298,7 +296,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选择项的值
@@ -329,7 +327,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/EventTarget'
+            $ref: "#/systemTypes/EventTarget"
         - name: $event.preventDefault
           type: Function
           description: 阻止弹出流程
@@ -341,7 +339,7 @@
       description: 弹出后触发。
       params:
         - name: $event
-          type: ''
+          type: ""
           description: 空
         - name: senderVM
           type: USelect
@@ -355,7 +353,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/EventTarget'
+            $ref: "#/systemTypes/EventTarget"
         - name: $event.preventDefault
           type: Function
           description: 阻止关闭流程
@@ -367,7 +365,7 @@
       description: 关闭时触发。
       params:
         - name: $event
-          type: ''
+          type: ""
           description: 空
         - name: senderVM
           type: USelect
@@ -381,7 +379,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/EventTarget'
+            $ref: "#/systemTypes/EventTarget"
         - name: $event.preventDefault
           type: Function
           description: 阻止加载流程
@@ -393,7 +391,7 @@
       description: 加载后触发
       params:
         - name: $event
-          type: ''
+          type: ""
           description: 空
         - name: senderVM
           type: USelect
@@ -406,7 +404,7 @@
           type: object
           description: 鼠标事件对象
           schema:
-            $ref: '#/systemTypes/MouseEvent'
+            $ref: "#/systemTypes/MouseEvent"
     - name: click-suffix
       title: 点击后缀图标
       description: 点击后缀图标后触发
@@ -415,7 +413,7 @@
           type: object
           description: 鼠标事件对象
           schema:
-            $ref: '#/systemTypes/MouseEvent'
+            $ref: "#/systemTypes/MouseEvent"
   methods:
     - name: open
       description: 弹出选择框。
@@ -465,7 +463,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 此项的值
@@ -486,10 +484,10 @@
   title: 选择分组
   attrs:
     - name: title
+      title: 标题
       type: string
       default: null
       description: 显示的标题
-      title: 标题
   slots:
     - name: default
       title: 默认

@@ -1,6 +1,7 @@
 - name: u-form-table
   title: 表单表格
-  labels: [Table]
+  labels:
+    - Table
   description: 在表单中使用的表格
   attrs:
     - name: line

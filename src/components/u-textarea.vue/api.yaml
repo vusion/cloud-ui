@@ -6,10 +6,10 @@
   description: 多行输入组件
   attrs:
     - name: value
-      model: true
-      sync: true
       title: 值
       type: string
+      sync: true
+      model: true
       default: null
       description: 输入框的值
     - name: clearable
@@ -24,10 +24,10 @@
       description: 为空时提示内容
     - name: minlength
       title: 最小长度
-      advanced: true
       type: number
       default: null
       description: 原生属性
+      advanced: true
     - name: maxlength
       title: 最大长度
       type: number
@@ -35,10 +35,10 @@
       description: 原生属性
     - name: spellcheck
       title: 拼写检查
-      advanced: true
       type: boolean
       default: null
       description: 原生属性
+      advanced: true
     - name: autofocus
       title: 自动获取焦点
       type: boolean
@@ -58,7 +58,6 @@
     - name: size
       title: 尺寸
       type: string
-      default: normal
       options:
         - value: full
           title: 占满
@@ -70,6 +69,7 @@
           title: 中型
         - value: normal
           title: 正常
+      default: normal
       description: 设置尺寸
     - name: resize
       title: 调整大小
@@ -88,7 +88,7 @@
   slots:
     - name: default
       title: 默认
-      description: '插入 HTML 或 `Component`, 可展示额外内容。'
+      description: 插入 HTML 或 `Component`, 可展示额外内容。
       advanced: true
       quick-add: never
   events:
@@ -101,7 +101,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeEvent'
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.oldValue
           type: string
           description: 旧的值
@@ -122,7 +122,7 @@
           type: string
           description: 输入框的值
           schema:
-            $ref: '#/basicTypes/String'
+            $ref: "#/basicTypes/String"
         - name: senderVM
           type: UTextarea
           description: 发送事件实例
@@ -134,7 +134,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeEvent'
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.value
           type: string
           description: 改变后的值
@@ -153,7 +153,7 @@
           type: FocusEvent
           description: 原生事件对象
           schema:
-            $ref: '#/systemTypes/FocusEvent'
+            $ref: "#/systemTypes/FocusEvent"
         - name: senderVM
           type: UTextarea
           description: 发送事件实例
@@ -167,7 +167,7 @@
           title: 原生事件对象
           description: 原生事件对象
           schema:
-            $ref: '#/systemTypes/FocusEvent'
+            $ref: "#/systemTypes/FocusEvent"
         - name: senderVM
           title: 发送事件实例
           type: UTextarea
@@ -181,7 +181,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeEvent'
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.value
           type: string
           description: 清空后的值

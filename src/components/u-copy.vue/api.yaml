@@ -6,23 +6,24 @@
     - Effects
   attrs:
     - name: value
+      title: 需要复制的值
       type: string
       default: null
       description: 需要复制的值
-      title: 需要复制的值
     - name: text
+      title: 默认显示文本
       type: string
       default: 复制
       description: 默认显示的文本
       advanced: true
-      title: 默认显示文本
     - name: success-text
+      title: 复制成功提示文本
       type: string
       default: 已复制
       description: 复制成功提示文本
       advanced: true
-      title: 复制成功提示文本
     - name: feedback
+      title: 复制提示反馈方式
       type: string
       options:
         - value: tooltip
@@ -34,11 +35,9 @@
       default: tooltip
       description: 复制提示反馈方式
       advanced: true
-      title: 复制提示反馈方式
     - name: placement
-      type: string
       title: 提示框位置
-      default: top
+      type: string
       options:
         - value: top
           title: 上
@@ -64,6 +63,7 @@
           title: 右上
         - value: right-end
           title: 右下
+      default: top
       description: tooltip 提示框位置
       advanced: true
     - name: hide-delay
@@ -73,9 +73,9 @@
       description: 提示框显示时长
       advanced: true
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
-      title: 禁用
       description: 是否禁止复制
   slots:
     - name: default
@@ -90,7 +90,7 @@
           title: 自定义事件对象
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeEvent'
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.value
           type: string
           description: 复制的值

@@ -6,9 +6,9 @@
   description: 展示多页列表时使用
   attrs:
     - name: page
-      sync: true
       title: 当前页码
       type: number
+      sync: true
       default: 1
       description: 当前页码
     - name: total
@@ -41,9 +41,9 @@
       type: number
       description: 总条数
     - name: page-size
-      sync: true
       title: 每条页数
       type: number
+      sync: true
       default: 20
       description: 每页条数
     - name: page-size-options
@@ -79,7 +79,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/PaginationEvent'
+            $ref: "#/systemTypes/PaginationEvent"
         - name: $event.page
           type: number
           description: 选择的页码
@@ -100,7 +100,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/PaginationEvent'
+            $ref: "#/systemTypes/PaginationEvent"
         - name: $event.page
           type: number
           description: 选择的页码
@@ -118,7 +118,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/PaginationEvent'
+            $ref: "#/systemTypes/PaginationEvent"
         - name: $event.page
           type: number
           description: 当前页码
@@ -136,7 +136,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/PaginationEvent'
+            $ref: "#/systemTypes/PaginationEvent"
         - name: $event.pageSize
           type: number
           description: 当前每页条数

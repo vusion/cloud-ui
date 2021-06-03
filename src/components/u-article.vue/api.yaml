@@ -1,3 +1,4 @@
 - name: u-article
   title: 文章
-  labels: [块级展示]
+  labels:
+    - 块级展示

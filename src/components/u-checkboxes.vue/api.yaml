@@ -6,10 +6,10 @@
   description: 多项中选择多个时使用
   attrs:
     - name: value
-      model: true
-      sync: true
       title: 值
       type: Array
+      sync: true
+      model: true
       default: []
       description: 多选组的选中项
     - name: min
@@ -35,22 +35,21 @@
     - name: converter
       title: 转换器
       type: string
-      description: >-
-        value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成
-        value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象
-      bindHide: true
-      default: ''
       options:
         - value: join
-          title: '以'',''连接'
-        - value: 'join:|'
+          title: 以','连接
+        - value: join:|
           title: 以'|'连接
-        - value: 'join:;'
+        - value: join:;
           title: 以';'连接
         - value: json
           title: json
-        - value: ''
+        - value: ""
           title: 无
+      default: ""
+      description: value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成
+        value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象
+      bindHide: true
   slots:
     - name: default
       description: 插入`<checkbox>`子组件。
@@ -62,14 +61,14 @@
   title: 多选项
   attrs:
     - name: text
-      type: string
       title: 文本
+      type: string
       description: 文本内容
     - name: value
-      model: true
-      sync: true
       title: 值
-      type: 'boolean, null'
+      type: boolean, null
+      sync: true
+      model: true
       default: false
       description: 选中状态，`null`表示不确定状态
     - name: label
@@ -101,12 +100,12 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeEvent'
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.value
-          type: 'boolean, null'
+          type: boolean, null
           description: 选中状态
         - name: $event.oldValue
-          type: 'boolean, null'
+          type: boolean, null
           description: 旧的选中状态
         - name: $event.preventDefault
           type: Function
@@ -119,10 +118,10 @@
       description: 切换选中状态时触发
       params:
         - name: $event
-          type: 'boolean, null'
+          type: boolean, null
           description: 切换后的选中状态
           schema:
-            $ref: '#/basicTypes/Boolean'
+            $ref: "#/basicTypes/Boolean"
         - name: senderVM
           type: UCheckbox
           description: 发送事件实例
@@ -134,12 +133,12 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeEvent'
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.value
-          type: 'boolean, null'
+          type: boolean, null
           description: 选中状态
         - name: $event.oldValue
-          type: 'boolean, null'
+          type: boolean, null
           description: 旧的选中状态
         - name: $event.label
           type: any
@@ -155,12 +154,12 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeEvent'
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.value
-          type: 'boolean, null'
+          type: boolean, null
           description: 选中状态
         - name: $event.oldValue
-          type: 'boolean, null'
+          type: boolean, null
           description: 旧的选中状态
         - name: senderVM
           type: UCheckbox

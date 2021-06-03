@@ -11,9 +11,9 @@
       default: 标题
       description: 弹出框标题
     - name: opened
-      sync: true
       title: 弹出关闭状态
       type: boolean
+      sync: true
       default: false
       description: 弹出/关闭状态
     - name: trigger
@@ -70,9 +70,9 @@
     - name: offset
       title: 弹出层偏移
       type: string
-      default: '0'
+      default: "0"
+      description: 弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px`
       advanced: true
-      description: '弹出层偏移，如：''10'', ''10px 10px'', ''10% 10%'', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px`'
     - name: follow-cursor
       title: 跟随鼠标
       type: boolean
@@ -87,8 +87,8 @@
       title: 合并边框
       type: boolean
       default: true
-      advanced: true
       description: 是否自动合并内外边框
+      advanced: true
   slots:
     - name: default
       description: 自定义弹出的内容。
@@ -112,7 +112,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/EventTarget'
+            $ref: "#/systemTypes/EventTarget"
         - name: $event.preventDefault
           type: Function
           description: 阻止弹出流程
@@ -124,7 +124,7 @@
       description: 弹出时触发。
       params:
         - name: $event
-          type: ''
+          type: ""
           description: 空
         - name: senderVM
           type: UPopup
@@ -138,7 +138,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/EventTarget'
+            $ref: "#/systemTypes/EventTarget"
         - name: $event.preventDefault
           type: Function
           description: 阻止隐藏流程
@@ -150,20 +150,20 @@
       description: 隐藏时触发。
       params:
         - name: $event
-          type: ''
+          type: ""
           description: 空
         - name: senderVM
           type: UPopup
           description: 发送事件实例
     - name: before-toggle
       title: 展开折叠前
-      description: '@deprecated'
+      description: "@deprecated"
       advanced: true
       params: []
     - name: toggle
       title: 展开折叠后
       advanced: true
-      description: '@deprecated'
+      description: "@deprecated"
       params: []
   methods:
     - name: open
@@ -179,12 +179,10 @@
           type: boolean
           description: 可选。弹出/关闭状态
     - name: update
-      description: >-
-        更新 popper 实例。参考
+      description: 更新 popper 实例。参考
         [Popper.update()](https://popper.js.org/popper-documentation.html#Popper.update)。
       params: []
     - name: scheduleUpdate
-      description: >-
-        在下次 UI 渲染时一块更新 popper 实例，比`update()`性能要好。参考
+      description: 在下次 UI 渲染时一块更新 popper 实例，比`update()`性能要好。参考
         [Popper.scheduleUpdate()](https://popper.js.org/popper-documentation.html#Popper.scheduleUpdate)。
       params: []

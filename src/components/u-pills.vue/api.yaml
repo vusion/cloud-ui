@@ -7,10 +7,10 @@
       default: null
       description: Data书写方式中的数据列表
     - name: value
-      model: true
-      sync: true
       title: 值
       type: any
+      sync: true
+      model: true
       default: null
       description: 当前选择的值
     - name: field
@@ -50,7 +50,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选择项的值
@@ -74,7 +74,7 @@
           type: any
           description: 选择项的值
           schema:
-            $ref: '#/basicTypes/String'
+            $ref: "#/basicTypes/String"
     - name: select
       title: 选择后
       description: 选择某一项时触发
@@ -83,7 +83,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 改变后的值
@@ -131,7 +131,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 此项的值

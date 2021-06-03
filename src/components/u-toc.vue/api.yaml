@@ -1,6 +1,8 @@
 - name: u-toc
   title: 目录
-  labels: [路由链接, 块级展示]
+  labels:
+    - 路由链接
+    - 块级展示
   description: 用于展示文档的目录，支持路由和滚动监听、多级目录等功能。
   attrs:
     - name: router
@@ -9,10 +11,10 @@
       default: true
       description: 是否根据 vue-router 来控制选择哪一项
     - name: value
-      model: true
-      sync: true
       title: 值
       type: any
+      sync: true
+      model: true
       default: null
       description: 当前选择的值
     - name: scroll-spy
@@ -41,7 +43,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选择项的值
@@ -68,7 +70,7 @@
           type: any
           description: 选择项的值
           schema:
-            $ref: '#/basicTypes/String'
+            $ref: "#/basicTypes/String"
         - name: senderVM
           type: UToc
           description: 发送事件实例
@@ -80,7 +82,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 改变后的值
@@ -127,20 +129,16 @@
     - name: linkType
       title: 链接类型
       type: string
-      compType: linkTypeSelect
-      default: href
-      options: 
+      options:
         - value: destination
           title: 页面跳转
         - value: href
           title: 普通链接
         - value: download
           title: 下载链接
+      default: href
       description: 链接类型
-    # - name: href
-    #   title: 链接
-    #   type: string
-    #   description: 链接地址
+      compType: linkTypeSelect
     - name: hrefAndTo
       title: 链接
       type: string
@@ -149,11 +147,10 @@
     - name: target
       title: 打开方式
       type: enum
-      default: _blank
       options:
         - title: 新标签页
           value: _blank
-        - title: 当前窗口 
+        - title: 当前窗口
           value: _self
         - title: 父级窗口
           value: _parent
@@ -161,11 +158,8 @@
         - title: 顶级窗口
           value: _top
           advanced: true
+      default: _blank
       description: 链接打开方式
-    # - name: to
-    #   title: 路由链接
-    #   type: string, Location
-    #   description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
     - name: replace
       type: boolean
       default: false
@@ -194,7 +188,7 @@
           type: MouseEvent
           description: 鼠标事件对象
           schema:
-            $ref: '#/systemTypes/MouseEvent'
+            $ref: "#/systemTypes/MouseEvent"
         - name: senderVM
           type: UTocItem
           description: 发送事件实例
@@ -206,7 +200,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/ChangeItemEvent'
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 此项的值
@@ -230,7 +224,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/NavigateEvent'
+            $ref: "#/systemTypes/NavigateEvent"
         - name: $event.to
           type: string, Location
           description: "`to`属性的值"
@@ -254,7 +248,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/NavigateEvent'
+            $ref: "#/systemTypes/NavigateEvent"
         - name: $event.to
           type: string, Location
           description: "`to`属性的值"

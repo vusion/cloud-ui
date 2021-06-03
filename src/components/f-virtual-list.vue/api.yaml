@@ -4,11 +4,11 @@
   attrs:
     - name: list
       type: Array<Object>
-      default:
+      default: null
       description: 含有全部数据的列表。用于获取渲染的长度和位置等信息。
     - name: item-height
       type: number
-      default:
+      default: null
       description: 默认可以不填，会自动计算和缓存每个列表项的高度，用于处理列表项高度不确定的情形。如果每个列表项的高度是个固定值，可以设置该属性，能够减少由获取高度产生的性能开销。
     - name: virtual
       type: boolean
@@ -24,11 +24,11 @@
       description: 滚动截流的毫秒数。在该时间内最多更新一次虚拟列表。
     - name: tag-name
       type: string
-      default: 'div'
+      default: div
       description: 设置列表容器的标签名
     - name: list-key
       type: string
-      default: 'list'
+      default: list
       description: 列表的键。一般用于 mixin 方式，修改全部数据的列表来源。
   data:
     - name: virtualIndex

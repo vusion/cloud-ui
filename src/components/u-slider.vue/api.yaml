@@ -1,6 +1,8 @@
 - name: u-slider
   title: 滑块
-  labels: [表单控件, 块级展示]
+  labels:
+    - 表单控件
+    - 块级展示
   attrs:
     - name: value
       type: number
@@ -44,7 +46,7 @@
           type: number
           description: 滑块的值
           schema:
-            $ref: '#/basicTypes/Integer'
+            $ref: "#/basicTypes/Integer"
         - name: senderVM
           type: USlider
           description: 发送事件实例
@@ -55,7 +57,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/SliderEvent'
+            $ref: "#/systemTypes/SliderEvent"
         - name: $event.value
           type: number
           description: 滑块的值
@@ -75,7 +77,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/SliderEvent'
+            $ref: "#/systemTypes/SliderEvent"
         - name: $event.value
           type: number
           description: 改变后的值

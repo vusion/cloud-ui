@@ -8,7 +8,7 @@
     - name: html
       title: 内容
       type: string
-      default: ''
+      default: ""
       description: html 文本内容
     - name: security
       title: 安全过滤

@@ -6,13 +6,13 @@
     - chart
   attrs:
     - name: percent
+      title: 百分比
       type: number
       default: 0
       description: 百分比，0-100 之间的数字
-      title: 百分比
     - name: size
-      type: string
       title: 尺寸
+      type: string
       options:
         - value: small
           title: 小

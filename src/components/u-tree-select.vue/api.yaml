@@ -17,7 +17,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/TreeChangeEvent'
+            $ref: "#/systemTypes/TreeChangeEvent"
         - name: $event.param1
           type: string
           description: 参数1

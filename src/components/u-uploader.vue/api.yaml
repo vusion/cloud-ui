@@ -6,36 +6,36 @@
     - Form
   attrs:
     - name: value
-      type: Array
-      model: true
-      sync: true
-      default: '[]'
-      description: 当前文件列表
       title: 值
+      type: Array
+      sync: true
+      model: true
+      default: "[]"
+      description: 当前文件列表
     - name: url
+      title: 上传的地址
       type: string
-      required: true
       default: null
       description: 上传的地址
-      title: 上传的地址
+      required: true
       compType: interfaceSelect
     - name: name
+      title: 上传的文件字段名
       type: string
       default: file
-      title: 上传的文件字段名
       description: 上传的文件字段名，后端需要这个字段获取
     - name: accept
-      type: string
       title: 接受的上传类型
+      type: string
       description: 接受的上传类型
     - name: headers
-      type: Object
       title: 请求 headers
+      type: Object
       description: 请求 headers
     - name: with-credentials
+      title: 设置cookie值
       type: boolean
       default: false
-      title: 设置cookie值
       description: 通过设置 withCredentials 为 true 获得的第三方 cookies，将会依旧享受同源策略
     - name: multiple
       title: 多文件上传
@@ -43,15 +43,15 @@
       default: false
       description: 多文件上传
     - name: data-type
-      type: string
       title: 接收数据类型
+      type: string
       default: json
-      advanced: true
       description: 接收数据类型。可选值：`text`、`xml`、`json`
+      advanced: true
       hidden: true
     - name: data
-      type: object
       title: 附加数据
+      type: object
       default: null
       description: 附加数据
     - name: limit
@@ -62,9 +62,8 @@
     - name: max-size
       title: 最大文件大小
       type: string
-      default: '50M'
-      description: >-
-        可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB`
+      default: 50M
+      description: 可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB`
     - name: list-type
       title: 列表类型
       type: string
@@ -106,10 +105,10 @@
     - name: converter
       title: 转换器
       type: string
-      default: json
       options:
         - title: JSON
           value: json
+      default: json
       description: 转换器
     - name: readonly
       title: 只读
@@ -143,7 +142,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/UploadEvent'
+            $ref: "#/systemTypes/UploadEvent"
         - name: $event.data
           type: object
           description: 进度相关信息
@@ -167,7 +166,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/UploadEvent'
+            $ref: "#/systemTypes/UploadEvent"
         - name: $event.data
           type: object
           description: 进度相关信息
@@ -185,7 +184,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/UploadEvent'
+            $ref: "#/systemTypes/UploadEvent"
         - name: $event.data
           type: object
           description: 进度相关信息
@@ -200,7 +199,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/UploadErrorEvent'
+            $ref: "#/systemTypes/UploadErrorEvent"
         - name: $event.xml
           type: string
           description: 服务器回传信息
@@ -215,7 +214,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/UploadErrorEvent'
+            $ref: "#/systemTypes/UploadErrorEvent"
         - name: $event.xml
           type: string
           description: 服务器回传信息
@@ -230,7 +229,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/UploadEvent'
+            $ref: "#/systemTypes/UploadEvent"
         - name: $event.data
           type: object
           description: 服务器回传信息对象
@@ -248,7 +247,7 @@
           type: object
           description: 自定义事件对象
           schema:
-            $ref: '#/systemTypes/UploadErrorEvent'
+            $ref: "#/systemTypes/UploadErrorEvent"
         - name: $event.name
           type: string
           description: 错误名

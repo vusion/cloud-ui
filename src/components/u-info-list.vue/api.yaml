@@ -30,8 +30,7 @@
       support:
         - name: u-info-list-group
           title: 详情列表组
-          snippet: >-
-            <u-info-list-group title="基本信息"><u-info-list-item
+          snippet: <u-info-list-group title="基本信息"><u-info-list-item
             label="名称">张三</u-info-list-item></u-info-list-group>
         - name: u-info-list-item
           title: 详情列表项
@@ -49,8 +48,8 @@
       type: string
       description: 列跨越的格数
     - name: label-size
-      type: string
       title: 标签大小
+      type: string
       options:
         - value: auto
           title: 自适应
