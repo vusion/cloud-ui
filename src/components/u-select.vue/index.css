@@ -275,19 +275,40 @@
 .root[size$="full"] .item { padding: 0 var(--select-padding-x-full); }
 .root[size^="full"] { height: 100%; }
 
-[theme=light].popper {
-    background: white;
-    color: black;
-    border: 1px solid #dee4ed;
-    width: auto;
+.root[color="inverse"] {
+    background: var(--select-background-inverse);
+    border-color: var(--select-border-color-inverse);
+    color: var(--select-color-inverse);
 }
 
-[theme=light] [class^="u-select_item"]:hover,
-[theme=light] [class^="u-select_item"]:focus,
-[theme=light] [class^="u-select_item"][focused] {
-    background: #f4f6f9;
+.popper[color="inverse"] {
+    background: var(--select-popper-background-inverse);
+    color: var(--select-popper-color-inverse);
+    border-color: var(--select-popper-border-color-inverse);
 }
 
-[theme=light] [class^="u-select_item"][selected] {
-    background: var(--brand-primary);
+.popper[color="inverse"] .item:hover {
+    background: var(--list-view-item-background-hover-inverse);
+}
+
+.popper[color="inverse"] .item[readonly] {
+    background: var(--list-view-item-background-readonly-inverse);
+}
+
+.popper[color="inverse"] .item[focused] {
+    background: var(--list-view-item-background-focused-inverse);
+}
+
+.popper[color="inverse"] .item[selected] {
+    background: var(--list-view-item-background-selected-inverse);
+    color: var(--list-view-item-color-selected-inverse);
+}
+
+.popper[color="inverse"] .item[disabled] {
+    background: var(--list-view-item-background-disabled-inverse);
+    color: var(--list-view-item-color-disabled-inverse);
+}
+
+.popper[color="inverse"] .item[selected][disabled] {
+    background: var(--list-view-item-background-selected-disabled-inverse);
 }

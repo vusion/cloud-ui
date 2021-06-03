@@ -12,17 +12,17 @@ export default { name: 'u-article' };
 .root {}
 
 .root > h1 {
-    font-size: var(--h1-font-size);
+    font-size: var(--article-h1-font-size);
     line-height: 30px;
     margin-bottom: 60px;
 }
 
 .root > h2 {
-    font-size: var(--h2-font-size);
+    font-size: var(--article-h2-font-size);
     margin: 40px 0 20px;
     line-height: 40px;
-    color: #999fac;
-    border-bottom: 2px solid #ebf0f4;
+    color: var(--article-h2-color);
+    border-bottom: 2px solid var(--article-h2-border-color);
 }
 
 .root > h2 + h3 {
@@ -30,13 +30,13 @@ export default { name: 'u-article' };
 }
 
 .root > h3 {
-    font-size: var(--h3-font-size);
+    font-size: var(--article-h3-font-size);
     margin: 40px 0 20px;
     padding-left: 0;
 }
 
 .root > h4 {
-    font-size: var(--h4-font-size);
+    font-size: var(--article-h4-font-size);
     margin: 25px 0 10px;
 }
 
@@ -54,12 +54,12 @@ export default { name: 'u-article' };
 }
 
 .root > h5 {
-    font-size: var(--h5-font-size);
+    font-size: var(--article-h5-font-size);
     margin: 0.3em 0;
 }
 
 .root > h6 {
-    font-size: var(--h6-font-size);
+    font-size: var(--article-h6-font-size);
 }
 
 .root > h1 > :global(.heading-anchor),

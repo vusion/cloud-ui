@@ -1,0 +1,11 @@
+- name: l-left-middle-right
+  title: 左中右布局
+  slots:
+    - name: default
+      description: 主内容区。
+    - name: left
+      description: 设置左侧栏内容。
+    - name: middle
+      description: 重置中间区域内容。包裹在主内容区外。
+    - name: right
+      description: 设置右侧栏内容。

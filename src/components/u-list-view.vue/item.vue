@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root"
     :selected="parentVM.multiple ? currentSelected : isSelected"
-    :readonly="parentVM.readonly"
+    :readonly="parentVM.readonly" :readonly-mode="parentVM.readonlyMode"
     :disabled="disabled || parentVM.disabled"
     @click="select"
     v-ellipsis-title>
@@ -35,8 +35,11 @@ export default {
 }
 
 .root[readonly] {
-    cursor: default !important;
-    background: var(--list-view-item-background-readonly);
+    cursor: initial !important;
+}
+
+.item[readonly-mode="initial"] .background {
+    background: var(--list-view-item-background-readonly-initial);
 }
 
 .root[focused] {

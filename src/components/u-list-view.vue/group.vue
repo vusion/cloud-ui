@@ -58,14 +58,15 @@ export default {
     height: var(--list-view-group-expander-size);
     line-height: var(--list-view-group-expander-size);
     text-align: center;
+    transition: transform var(--transition-duration-base);
 }
 
 .expander::before {
-    content: '▸';
+    icon-font: url('i-material-design.vue/assets/filled/arrow_right.svg');
 }
 
-.expander[expanded]::before {
-    content: '▾';
+.expander[expanded] {
+    transform: rotate(90deg);
 }
 
 .root[disabled] .expander {

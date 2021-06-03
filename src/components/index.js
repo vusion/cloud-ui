@@ -91,6 +91,7 @@ export * from './u-tabs.vue';
 export * from './u-text.vue';
 export * from './u-textarea.vue';
 export * from './u-time-picker.vue';
+export * from './u-timeline.vue';
 export * from './u-toast.vue';
 export * from './u-toc.vue';
 export * from './u-html.vue';

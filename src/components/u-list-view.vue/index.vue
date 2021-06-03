@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :readonly="readonly" :disabled="disabled"
+<div :class="$style.root" :readonly="readonly" :readonly-mode="readonlyMode" :disabled="disabled"
     :tabindex="readonly || disabled ? '' : 0"
     @keydown.prevent.up="shift(-1)"
     @keydown.prevent.down="shift(+1)">
@@ -85,6 +85,7 @@ export default {
         // @inherit: accordion: { type: Boolean, default: false },
         // @inherit: expandTrigger: { type: String, default: 'click' },
         // @inherit: readonly: { type: Boolean, default: false },
+        readonlyMode: String,
         // @inherit: disabled: { type: Boolean, default: false },
         showHead: { type: Boolean, default: false },
         title: { type: String, default: '列表' },
@@ -217,11 +218,12 @@ export default {
         handleData() {
             // @TODO: undefined or null
             this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
-            this.initialLoad
-                && this.load().then(() => {
+            if (this.currentDataSource && this.initialLoad) {
+                this.load().then(() => {
                     // 更新列表之后，原来的选择可能已不存在，这里暂存然后重新查找一遍
                     MComplex.watch.itemVMs.handler.call(this, this.itemVMs);
                 });
+            }
         },
         getExtraParams() {
             return { filterText: this.filterText };
@@ -514,6 +516,10 @@ export default {
     overflow: auto;
     position: relative;
     background: var(--list-view-body-background);
+}
+
+.root[readonly-mode="initial"] .body {
+    user-select: initial;
 }
 
 .root[disabled] .body {

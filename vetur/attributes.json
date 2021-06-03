@@ -1294,7 +1294,7 @@
     "type": "string",
     "description": "显示的标题"
   },
-  "u-collapse-item/expanded": {
+  "u-collapse-item/expande": {
     "type": "boolean",
     "description": "展开/折叠状态"
   },
@@ -2799,7 +2799,7 @@
     "description": "动画（可选fade/zoom-out）"
   },
   "u-lightbox/value": {
-    "type": "`any`",
+    "type": "any",
     "description": "当前选择的值"
   },
   "u-lightbox/zoomable": {
@@ -5134,6 +5134,35 @@
     "type": "boolean",
     "description": "是否显示"
   },
+  "u-timeline/mode": {
+    "type": "enum",
+    "options": [
+      "default",
+      "alternate",
+      "label"
+    ],
+    "description": "模式切换。`alternate` 交替展示，`label` 开启 `label` 展示"
+  },
+  "u-timeline/pending": {
+    "type": "boolean",
+    "description": "是否指定最后一个节点为幽灵节点"
+  },
+  "u-timeline-item/color": {
+    "type": "string",
+    "description": "指定圆圈颜色 `primary`, `success`, `warning`, `error`，或自定义的色值"
+  },
+  "u-timeline-item/label": {
+    "type": "string",
+    "description": "指定展示在另一侧的 `label`，只在 `label` 模式下生效"
+  },
+  "u-timeline-item/position": {
+    "type": "enum",
+    "options": [
+      "left",
+      "right"
+    ],
+    "description": "指定交替展示时的位置，只在 `alternate` 或 `label` 模式下生效"
+  },
   "u-toast/position": {
     "type": "string",
     "options": [
@@ -5539,6 +5568,10 @@
   "u-tree-view/disabled": {
     "type": "boolean",
     "description": "是否禁用"
+  },
+  "u-tree-view/check-controlled": {
+    "type": "boolean",
+    "description": "checkable 开启情况下，是否完全受控（父子节点状态不关联）"
   },
   "u-tree-view-node/value": {
     "type": "any",

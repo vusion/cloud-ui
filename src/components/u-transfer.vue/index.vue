@@ -185,11 +185,11 @@ export default {
 }
 
 .button[role="reverse"]::before {
-    content: '❮';
+    content: '\276e';
 }
 
 .button[role="forward"]::after {
-    content: '❯';
+    content: '\276f';
 }
 
 .root[size^="normal"] .listView { height: var(--transfer-height); }

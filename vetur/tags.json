@@ -458,7 +458,7 @@
   "u-collapse-item": {
     "attributes": [
       "title",
-      "expanded",
+      "expande",
       "disabled"
     ],
     "description": "折叠子元素"
@@ -860,9 +860,6 @@
       "zoomMax",
       "zoomMin",
       "zoomRadio"
-    ],
-    "defaults": [
-      "v-model"
     ]
   },
   "u-linear-layout": {
@@ -1298,7 +1295,7 @@
       "title",
       "disabled"
     ],
-    "description": "可选步骤条项"
+    "description": "步骤条项"
   },
   "u-sidebar": {
     "attributes": [
@@ -1367,6 +1364,15 @@
   "u-spinner": {
     "attributes": [],
     "description": "与文字大小相同，一般在行内直接使用。"
+  },
+  "u-split-layout": {
+    "attributes": [],
+    "subtags": [
+      "u-split-layout-item"
+    ]
+  },
+  "u-split-layout-item": {
+    "attributes": []
   },
   "u-steps": {
     "attributes": [
@@ -1558,6 +1564,22 @@
     ],
     "description": "时间选择器"
   },
+  "u-timeline": {
+    "attributes": [
+      "mode",
+      "pending"
+    ],
+    "subtags": [
+      "u-timeline-item"
+    ]
+  },
+  "u-timeline-item": {
+    "attributes": [
+      "color",
+      "label",
+      "position"
+    ]
+  },
   "u-toast": {
     "attributes": [
       "position",
@@ -1648,7 +1670,8 @@
       "accordion",
       "expand-trigger",
       "readonly",
-      "disabled"
+      "disabled",
+      "check-controlled"
     ],
     "description": "树形选择器",
     "subtags": [
@@ -1715,6 +1738,9 @@
   "l-document": {
     "attributes": [],
     "description": "常见文档网站中顶部栏和左侧栏固定的布局，如本文档页。"
+  },
+  "l-left-middle-right": {
+    "attributes": []
   },
   "l-page": {
     "attributes": [],

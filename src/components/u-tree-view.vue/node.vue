@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root" v-show="!hidden">
     <div :class="$style.item" :selected="selected"
-        :readonly="rootVM.readonly"
+        :readonly="rootVM.readonly" :readonly-mode="rootVM.readonlyMode"
         :disabled="currentDisabled"
         :tabindex="disabled || rootVM.readonly || rootVM.disabled ? '' : 0"
         @click="select(), rootVM.expandTrigger === 'click' && toggle()"
@@ -12,8 +12,9 @@
         @keyup.right="toggle(true)">
         <div :class="$style.background"></div>
         <u-loading v-if="loading" :class="$style.loading" size="small"></u-loading>
-        <div :class="$style.expander" v-else-if="node && $at(node, currentChildrenField) || nodeVMs.length || (node && !$at(node, rootVM.isLeafField) && rootVM.currentDataSource && rootVM.currentDataSource.load)"
-            :expanded="currentExpanded"
+        <div :class="$style.expander"
+            v-else-if="node && $at(node, currentChildrenField) || nodeVMs.length || (node && !$at(node, rootVM.isLeafField) && rootVM.currentDataSource && rootVM.currentDataSource.load)"
+            :expand-trigger="rootVM.expandTrigger" :expanded="currentExpanded"
             @click="rootVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"></div>
         <div :class="$style.text">
             <u-checkbox v-if="rootVM.checkable" :value="currentChecked" :disabled="currentDisabled" @check="check($event.value)" @click.native.stop></u-checkbox>
@@ -210,7 +211,7 @@ export default {
             this.toggle();
         },
         toggle(expanded) {
-            if (this.currentDisabled || this.rootVM.readonly)
+            if (this.currentDisabled)
                 return;
             if (!(this.node && this.$at(this.node, this.currentChildrenField)
                 || this.nodeVMs.length
@@ -262,6 +263,20 @@ export default {
             } else
                 final();
         },
+        checkControlled(checked) {
+            this.currentChecked = checked;
+            this.$emit('update:checked', checked, this);
+            if (
+                checked
+                && !this.rootVM.currentValues.includes(this.value)
+            )
+                this.rootVM.currentValues.push(this.value);
+            else if (!checked && this.rootVM.currentValues.includes(this.value))
+                this.rootVM.currentValues.splice(
+                    this.rootVM.currentValues.indexOf(this.value),
+                    1,
+                );
+        },
         checkRecursively(checked, direction = 'up+down') {
             this.currentChecked = checked;
             this.$emit('update:checked', checked, this);
@@ -308,7 +323,11 @@ export default {
         check(checked) {
             const oldChecked = this.currentChecked;
 
-            this.checkRecursively(checked);
+            if (this.rootVM.checkControlled) {
+                this.checkControlled(checked);
+            } else {
+                this.checkRecursively(checked);
+            }
 
             this.$emit(
                 'check',
@@ -353,16 +372,20 @@ export default {
     height: var(--tree-view-node-expander-size);
     line-height: var(--tree-view-node-expander-size);
     text-align: center;
-    margin-top: -1px;
     margin-left: calc(var(--tree-view-node-margin-left) * -1);
+    transition: transform var(--transition-duration-base);
 }
 
 .expander::before {
-    content: '▸';
+    icon-font: url('i-material-design.vue/assets/filled/arrow_right.svg');
 }
 
-.expander[expanded]::before {
-    content: '▾';
+.expander[expand-trigger="click-expander"] {
+    cursor: pointer;
+}
+
+.expander[expanded] {
+    transform: rotate(90deg);
 }
 
 .loading {
@@ -393,11 +416,11 @@ export default {
 }
 
 .item[readonly] {
-    cursor: default;
+    cursor: initial;
 }
 
-.item[readonly] .background {
-    background: var(--tree-view-node-background-readonly);
+.item[readonly-mode="initial"] .background {
+    background: var(--tree-view-node-background-readonly-initial);
 }
 
 .item[selected] .background {

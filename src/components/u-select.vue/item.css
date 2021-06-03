@@ -4,6 +4,10 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    position: relative;
+    line-height: 32px;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .root:hover {
@@ -34,36 +38,13 @@
     background: var(--list-view-item-background-selected-disabled);
 }
 
-.root {
-    position: relative;
-    line-height: 32px;
-    padding-top: 0;
-    padding-bottom: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.root:hover {
-    background: var(--select-item-hover);
-}
-
-.root[selected] {
-    background: var(--brand-primary);
-}
-
 .root[duplicated] {
     color: inherit;
     background: none;
 }
 
 .root[duplicated]:hover {
-    background: var(--select-item-hover);
-}
-
-.root[disabled] {
-    color: var(--select-color-disabled);
-    background: none;
+    background: var(--list-view-item-background-hover);
 }
 
 .flag {

@@ -37,6 +37,8 @@ export default { name: 'l-side-main' };
 .main {
     position: relative;
     margin-left: var(--sidebar-width);
+    height: 100%;
+    overflow: auto;
 }
 
 .content {

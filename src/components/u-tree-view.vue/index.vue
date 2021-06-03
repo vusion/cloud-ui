@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :readonly="readonly" :disabled="disabled">
+<div :class="$style.root" :readonly="readonly" :readonly-mode="readonlyMode" :disabled="disabled">
     <u-loading v-if="loading" size="small"></u-loading>
     <template v-else-if="currentDataSource">
         <component :is="ChildComponent"
@@ -42,7 +42,9 @@ export default {
         expandTrigger: { type: String, default: 'click' },
         initialLoad: { type: Boolean, default: true },
         readonly: { type: Boolean, default: false },
+        readonlyMode: String,
         disabled: { type: Boolean, default: false },
+        checkControlled: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -163,8 +165,13 @@ export default {
             } else {
                 const values = [];
                 this.walk((nodeVM) => {
-                    if (nodeVM.currentChecked && !nodeVM.nodeVMs.length)
-                        values.push(nodeVM.value);
+                    if (nodeVM.currentChecked) {
+                        if (this.checkControlled) {
+                            values.push(nodeVM.value);
+                        } else if (!nodeVM.nodeVMs.length) {
+                            values.push(nodeVM.value);
+                        }
+                    }
                 });
                 this.currentValues = values;
             }
@@ -211,6 +218,17 @@ export default {
                 this,
             );
         },
+        selectAndReveal(value, options) {
+            this.selectedVM = this.find((nodeVM) => nodeVM.value === value);
+            if (this.selectedVM) {
+                let nodeVM = this.selectedVM.parentVM;
+                while (nodeVM !== this.rootVM) {
+                    nodeVM.currentExpanded = true;
+                    nodeVM = nodeVM.parentVM;
+                }
+                setTimeout(() => this.selectedVM.$el && this.selectedVM.$el.scrollIntoView(options));
+            }
+        },
         onToggle(nodeVM, expanded) {
             this.$emit('toggle', { expanded, node: nodeVM.node, nodeVM }, this);
         },
@@ -255,6 +273,10 @@ export default {
 
     background: var(--tree-view-background);
     border: 1px solid var(--border-color-base);
+}
+
+.root[readonly-mode="initial"] {
+    user-select: initial;
 }
 
 .root[size="mini"] .node_expander {

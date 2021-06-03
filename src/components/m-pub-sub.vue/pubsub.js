@@ -1,23 +1,23 @@
 const topics = {};
 
 export default {
-    publish(topic, data) {
+    publish(topic, ...args) {
         if (!topics[topic])
             topics[topic] = [];
         else
-            topics[topic].forEach((func) => func(data));
-        // Record the last data
-        topics[topic].lastData = data;
+            topics[topic].forEach((func) => func(...args));
+        // Record the last arguments
+        topics[topic].lastArgs = args;
     },
     unpublish(topic) {
         if (topics[topic])
-            delete topics[topic].lastData;
+            delete topics[topic].lastArgs;
     },
     subscribe(topic, func) {
         if (!topics[topic])
             topics[topic] = [];
-        else if ('lastData' in topics[topic])
-            func(topics[topic].lastData);
+        else if ('lastArgs' in topics[topic])
+            func(...topics[topic].lastArgs);
         topics[topic].push(func);
     },
     unsubscribe(topic, func) {

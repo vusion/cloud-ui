@@ -1,0 +1,107 @@
+.root {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding-bottom: var(--timeline-item-padding-bottom);
+}
+
+.tail {
+    position: absolute;
+    left: 4px;
+    top: 10px;
+    height: calc(100% - 10px);
+    border-left: var(--timeline-tail-width) solid var(--timeline-tail-color);
+}
+
+.dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--timeline-dot-bgColor);
+    border: 2px solid var(--border-color-base);
+    border-radius: 100px;
+}
+
+.root[color="primary"] .dot {
+    color: var(--brand-primary);
+    border-color: var(--brand-primary);
+}
+
+.root[color="success"] .dot, .root[color="done"] .dot {
+    color: var(--brand-success);
+    border-color: var(--brand-success);
+}
+
+.root[color="warning"] .dot, .root[color="doing"] .dot {
+    color: var(--brand-warning);
+    border-color: var(--brand-warning);
+}
+
+.root[color="error"] .dot {
+    color: var(--brand-error);
+    border-color: var(--brand-error);
+}
+
+.dotCustom {
+    position: absolute;
+    top: 5.5px;
+    left: 5px;
+    width: auto;
+    height: auto;
+    margin-top: 0;
+    padding: 3px 1px;
+    line-height: 1;
+    text-align: center;
+    border: 0;
+    border-radius: 0;
+    transform: translate(-50%, -50%);
+}
+
+.content {
+    position: relative;
+    top: calc(var(--font-size-base) - var(--font-size-base) * var(--line-height-base) + 1px);
+    margin: 0 0 0 18px;
+    word-break: break-word;
+}
+
+.left .tail, .left .dot,
+.left .dotCustom,
+.right .tail, .right .dot,
+.right .dotCustom {
+    left: 50%;
+}
+
+.left .dot, .right .dot {
+    margin-left: -4px;
+}
+
+.right .dotCustom {
+    margin-left: 1px;
+}
+
+.left .content {
+    width: calc(50% - 12px);
+    margin: 0;
+    text-align: right;
+}
+
+.right .content {
+    left: calc(50% - 4px);
+    width: calc(50% - 14px);
+    text-align: left;
+}
+
+.left .label {
+    position: absolute;
+    top: calc(var(--font-size-base) - var(--font-size-base) * var(--line-height-base) + 1px);
+    left: calc(50% + 14px);
+    width: calc(50% - 14px);
+    text-align: left;
+}
+
+.right .label {
+    position: absolute;
+    top: calc(var(--font-size-base) - var(--font-size-base) * var(--line-height-base) + 1px);
+    width: calc(50% - 12px);
+    text-align: right;
+}

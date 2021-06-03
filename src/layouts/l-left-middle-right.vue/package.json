@@ -1,0 +1,46 @@
+{
+  "name": "@cloud-ui/l-left-middle-right.vue",
+  "description": "只有左侧栏固定的通用布局",
+  "version": "0.6.1",
+  "author": "Rainfore <rainforest92@126.com>",
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vusion/cloud-ui.git",
+    "directory": "src/layouts/l-left-middle-right.vue"
+  },
+  "homepage": "https://unpkg.com/@cloud-ui/l-left-middle-right.vue@0.6.1/public/index.html",
+  "bugs": "http://github.com/vusion/cloud-ui/issues",
+  "license": "MIT",
+  "keywords": [
+    "proto",
+    "extension",
+    "ui",
+    "layout"
+  ],
+  "scripts": {
+    "dev": "../../../node_modules/.bin/vue-cli-service doc --port 9090",
+    "build:doc": "../../../node_modules/.bin/vue-cli-service doc-build",
+    "screenshot": "vusion screenshot public/index.html --code-example --package",
+    "prepublishOnly": "npm run build:doc && npm run screenshot && vusion readme && vusion vetur && git add ."
+  },
+  "vuePlugins": {
+    "resolveFrom": "../../../"
+  },
+  "peerDependencies": {
+    "vue": "^2.5.0",
+    "cloud-ui.vusion": "^0.6.0"
+  },
+  "vusion": {
+    "type": "component",
+    "title": "左侧栏固定布局",
+    "team": "necfe",
+    "access": "public",
+    "screenshots": [
+      "https://unpkg.com/@cloud-ui/l-left-middle-right.vue@0.6.1/screenshots/0.png",
+      "https://unpkg.com/@cloud-ui/l-left-middle-right.vue@0.6.1/screenshots/1.png"
+    ],
+    "category": "layout",
+    "ui": "cloud-ui.vusion"
+  }
+}

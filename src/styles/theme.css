@@ -4,13 +4,13 @@
      */
 
     /* Brand Colors */
-    --brand-primary-lightest: #ebf2fc;
-    --brand-primary-lighter: #c3d8f7;
-    --brand-primary-light: #5e96eb;
-    --brand-primary: #4a89e8;
-    --brand-primary-dark: #2c75e4;
-    --brand-primary-darker: #1756b5;
-    --brand-primary-darkest: #134897;
+    --brand-primary-lightest: #ebf1ff;
+    --brand-primary-lighter: #c2d6ff;
+    --brand-primary-light: #5b92ff;
+    --brand-primary: #4784ff;
+    --brand-primary-dark: #236cff;
+    --brand-primary-darker: #0048d9;
+    --brand-primary-darkest: #003cb5;
 
     --brand-success-lightest: #e9f9f6;
     --brand-success-lighter: #bceee4;
@@ -86,17 +86,23 @@
 
     /* Component Base Colors */
     --background-color-default: white; /* body 默认的背景 */
+    --background-color-default-inverse: #17181f; /* body 默认的背景 */
     --background-color-lighter: #f4f6f9; /* 选择框的 hover 颜色 */
+    --background-color-lighter-inverse: #33353d; /* 选择框的 hover 颜色 */
     --background-color-light: #f4f6f9; /* 表格等组件标题栏颜色 */
     --background-color-base: #eef1f6; /* 标签、薯条等组件默认颜色 */
+    --background-color-base-inverse: #33353d; /* 标签、薯条等组件默认颜色 */
     --background-color-dark: #e3e8f0;
+    --background-color-dark-inverse: #2e3038;
     --background-color-darker: #d8dfea;
     --color-lighter: #b6b9be; /* Placeholder 字体颜色 */
     --color-light: #93989f; /* 次级字体颜色 */
     --color-base: #585c63; /* 默认字体颜色 */
+    --color-base-inverse: white; /* 默认字体颜色 */
     --color-dark: #363a41; /* 默认字体颜色 */
     --border-color-light: #dee4ed; /* 面板等容器类型的边框颜色 */
     --border-color-base: #dee4ed; /* 输入框等小组件的边框颜色 */
+    --border-color-base-inverse: #212123; /* 输入框等小组件的边框颜色 */
     --border-color-dark: #cdd6e4; /* 按钮等小组件的边框颜色 */
 
     /* Space Dimensions */
@@ -128,7 +134,7 @@
 
     /* Fonts */
     /* stylelint-disable value-keyword-case */
-    --font-family-zh-CN: "Helvetica Neue", helvetica, tahoma, arial, "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+    --font-family-zh-CN: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Tahoma, Arial, 'Noto Sans', 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     --font-family-code: menlo, consolas, monaco, monospace;
     --tab-size: 4;
     --line-height-base: 1.6;
@@ -358,15 +364,21 @@
     --table-border-color: var(--border-color-light);
     --table-border-width: 1px;
     --table-td-color: var(--color-light);
+    --table-th-line-height: 20px;
+    --table-th-padding: 13px 6px 13px 10px;
+    --table-td-line-height: 20px;
+    --table-td-padding: 14px 6px 14px 10px;
 
     /* Article */
     --article-table-font-size: calc(var(--font-size-base) * (13 / 14));
-    --h1-font-size: calc(var(--font-size-base) * (24 / 14));
-    --h2-font-size: calc(var(--font-size-base) * (20 / 14));
-    --h3-font-size: calc(var(--font-size-base) * (18 / 14));
-    --h4-font-size: calc(var(--font-size-base) * (16 / 14));
-    --h5-font-size: calc(var(--font-size-base) * (14 / 14));
-    --h6-font-size: calc(var(--font-size-base) * (12 / 14));
+    --article-h1-font-size: calc(var(--font-size-base) * (24 / 14));
+    --article-h2-font-size: calc(var(--font-size-base) * (20 / 14));
+    --article-h3-font-size: calc(var(--font-size-base) * (18 / 14));
+    --article-h4-font-size: calc(var(--font-size-base) * (16 / 14));
+    --article-h5-font-size: calc(var(--font-size-base) * (14 / 14));
+    --article-h6-font-size: calc(var(--font-size-base) * (12 / 14));
+    --article-h2-color: #999fac;
+    --article-h2-border-color: #ebf0f4;
 
     /* Panel */
     --panel-border-width: 1px;
@@ -731,13 +743,15 @@
     --select-padding-x-large: 10px;
     --select-padding-x-huge: 10px;
     --select-padding-x-full: 10px;
-    --select-background:  var(--background-color-default);
+    --select-background: var(--background-color-default);
+    --select-background-inverse: var(--background-color-default-inverse);
     --select-background-disabled: var(--brand-disabled);
     --select-border-width: var(--border-width-base);
     --select-border-color: var(--border-color-base);
+    --select-border-color-inverse: var(--border-color-base-inverse);
     --select-color: var(--color-base);
+    --select-color-inverse: var(--color-base-inverse);
     --select-color-disabled: var(--brand-disabled-dark);
-    --select-item-hover: var(--background-color-lighter);
     --select-popper-max-height: 194px;
     --select-popper-line-height: 1.6;
     --select-popper-line-height-small: 1.6;
@@ -757,7 +771,10 @@
     --select-tag-remove-color: var(--color-lighter);
     --select-tag-remove-color-hover: var(--color-base);
     --select-popper-background: var(--background-color-default);
+    --select-popper-background-inverse: var(--background-color-default-inverse);
     --select-popper-border-color: var(--border-color-base);
+    --select-popper-border-color-inverse: var(--border-color-base-inverse);
+    --select-popper-color-inverse: var(--color-base-inverse);
     --select-status-color: var(--color-light);
     --select-box-shadow-focus: var(--button-box-shadow-focus);
 
@@ -825,13 +842,20 @@
     --list-view-foot-padding: 8px 12px;
     --list-view-item-padding: 4px 12px;
     --list-view-item-background-hover: var(--background-color-lighter);
-    --list-view-item-background-readonly: none;
+    --list-view-item-background-hover-inverse: var(--background-color-lighter-inverse);
+    --list-view-item-background-readonly-initial: none;
     --list-view-item-background-focused: var(--background-color-lighter);
+    --list-view-item-background-focused-inverse: var(--background-color-lighter-inverse);
     --list-view-item-background-selected: var(--brand-primary-light);
+    --list-view-item-background-selected-inverse: var(--brand-primary-light);
     --list-view-item-color-selected: white;
+    --list-view-item-color-selected-inverse: white;
     --list-view-item-color-disabled: var(--brand-disabled-dark);
+    --list-view-item-color-disabled-inverse: var(--brand-disabled-dark-inverse);
     --list-view-item-background-disabled: none;
+    --list-view-item-background-disabled-inverse: none;
     --list-view-item-background-selected-disabled: var(--brand-disabled-light);
+    --list-view-item-background-selected-disabled-inverse: var(--brand-disabled-light-inverse);
     --list-view-divider-margin: 9px 0;
     --list-view-divider-background: var(--border-color-base);
     --list-view-group-head-padding: 2px 4px;
@@ -847,13 +871,20 @@
     --tree-view-node-text-padding: 4px 12px;
     --tree-view-node-text-padding–mini: 4px 8px;
     --tree-view-node-background-active: var(--background-color-base);
+    --tree-view-node-background-active-inverse: var(--background-color-base-inverse);
     --tree-view-node-background-selected: var(--brand-primary-light);
+    --tree-view-node-background-selected-inverse: var(--brand-primary-light);
     --tree-view-node-color-selected: white;
+    --tree-view-node-color-selected-inverse: white;
     --tree-view-node-color-disabled: var(--brand-disabled);
+    --tree-view-node-color-disabled-inverse: var(--brand-disabled);
     --tree-view-node-expander-color-selected: white;
-    --tree-view-node-background-readonly: none;
+    --tree-view-node-expander-color-selected-inverse:white;
+    --tree-view-node-background-readonly-initial: none;
     --tree-view-node-background-disabled: none;
+    --tree-view-node-background-disabled-inverse: none;
     --tree-view-node-background-selected-disabled: var(--brand-disabled-light);
+    --tree-view-node-background-selected-disabled-inverse: var(--brand-disabled-light-inverse);
 
     /* Table View */
     --table-view-table-shadow: 2px 0 6px -2px rgba(0, 0, 0, 0.2);
@@ -889,6 +920,18 @@
     --transfer-button-border-color: var(--button-background-primary);
     --transfer-button-border-color-hover: var(--button-background-primary-hover);
     --transfer-button-border-color-disabled: var(--button-background-primary-disabled);
+
+    /* Timeline */
+    --timeline-item-padding-bottom: 20px;
+    --timeline-tail-color: var(--border-color-base);
+    --timeline-tail-width: 2px;
+    --timeline-dot-bgColor: white;
+
+    /* Timeline */
+    --timeline-item-padding-bottom: 20px;
+    --timeline-tail-color: var(--border-color-base);
+    --timeline-tail-width: 2px;
+    --timeline-dot-bgColor: white;
 
     /* Popup */
     --popup-padding: 6px 10px;
@@ -936,15 +979,16 @@
     --modal-dialog-width: 400px;
     --modal-dialog-width-small: 300px;
     --modal-dialog-width-large: 600px;
+    --modal-dialog-width-huge: 800px;
     --modal-dialog-background: white;
-    --modal-close-size: 15px;
+    --modal-dialog-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    --modal-title-font-size: 14px;
     --modal-close-color: var(--gray-light);
     --modal-close-color-hover: var(--color-light);
     --modal-head-padding: 15px;
     --modal-static-padding: var(--space-base);
-    --modal-body-padding: 15px;
-    --modal-padding-padding: 15px;
-    --modal-foot-padding: 20px 15px;
+    --modal-body-margin: 30px 50px;
+    --modal-foot-margin: 30px 50px;
     --modal-border-color: var(--border-color-base);
 
     /* Drawer */

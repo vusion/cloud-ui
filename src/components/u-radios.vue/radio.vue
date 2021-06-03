@@ -113,7 +113,7 @@ export default {
 
 .radio::before {
     display: inline-block;
-    content: '✓';
+    content: '\2713';
     width: 10px;
     height: 10px;
     border-radius: 100px;
