@@ -73,8 +73,9 @@
       title: 标题
       default: null
       description: 显示的标题
-    - name: expanded.sync
+    - name: expande
       type: boolean
+      sync: true
       title: 当前"展开/折叠"状态
       default: false
       description: 展开/折叠状态

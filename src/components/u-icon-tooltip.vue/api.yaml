@@ -25,8 +25,9 @@
         - value: large
           title: 大
       description: 提示大小
-    - name: opened.sync
+    - name: opened
       type: boolean
+      sync: true
       default: false
       description: 弹出/关闭状态
     - name: trigger
