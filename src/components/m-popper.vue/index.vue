@@ -304,12 +304,22 @@ export default {
         },
         updatePositionByCursor(e, el) {
             // @TODO: 两种 offset 属性有些冗余
-            if (el !== e.target || !this.popper)
+            if (!el.contains(e.target) || !this.popper)
                 return;
-            const top = e.clientY + this.currentFollowCursor.offsetY;
-            const left = e.clientX + this.currentFollowCursor.offsetX;
-            const right = e.clientX + this.currentFollowCursor.offsetX;
-            const bottom = e.clientY + this.currentFollowCursor.offsetY;
+
+            let referenceLeft = 0;
+            let referenceTop = 0;
+            if(this.appendTo === 'reference') {
+                const rect = el.getBoundingClientRect();
+                referenceLeft = rect.left;
+                referenceTop = rect.top;
+            }
+            
+            const top = e.clientY - referenceTop + this.currentFollowCursor.offsetY;
+            const left = e.clientX - referenceLeft + this.currentFollowCursor.offsetX;
+            const right = e.clientX - referenceLeft + this.currentFollowCursor.offsetX;
+            const bottom = e.clientY - referenceTop + this.currentFollowCursor.offsetY;
+            
             this.popper.reference = {
                 getBoundingClientRect: () => ({
                     width: 0,
