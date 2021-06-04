@@ -20,6 +20,10 @@
 - name: u-crumb-item
   title: 面包屑选项
   attrs:
+    - name: text
+      title: 文本
+      type: string
+      description: 文本内容
     - name: type
       title: 类型
       type: string

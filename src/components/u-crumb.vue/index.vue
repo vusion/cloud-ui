@@ -1,8 +1,13 @@
 <template>
 <nav :class="$style.root">
-    <template v-if="auto">
+    <template v-if="auto && $env.VUE_APP_DESIGNER">
+        <u-crumb-item text="面包屑"></u-crumb-item>
+        <u-crumb-item text="会根据路径"></u-crumb-item>
+        <u-crumb-item text="自动生成"></u-crumb-item>
+    </template>
+    <template v-else-if="auto">
         <template v-for="item in items">
-            <u-crumb-item v-bind="item" :key="item.title">{{ item.title }}</u-crumb-item>
+            <u-crumb-item v-bind="item" :key="item.title" :text="item.title"></u-crumb-item>
         </template>
     </template>
     <slot v-else></slot>
