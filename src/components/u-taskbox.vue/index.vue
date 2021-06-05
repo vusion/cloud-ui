@@ -21,7 +21,7 @@
                         alignment="center"
                         :class="$style.line"
                     >
-                        <span :class="$style.title">{{ task | titleFormatter }}</span>
+                        <span :class="$style.title">{{ task.name || task.processDefinitionName }}</span>
                         <span :class="$style.time">{{ dateFormatter(task.createAt) }}</span>
                     </u-linear-layout>
                 </u-list-item>
@@ -35,13 +35,6 @@
 <script>
 export default {
     name: 'u-taskbox',
-    filters: {
-        titleFormatter(task) {
-            if (!task.name)
-                return task.processDefinitionName;
-            return `${task.processDefinitionName} - ${task.name}`;
-        },
-    },
     props: {
         title: {
             type: String,
