@@ -604,6 +604,11 @@
       default: placeholder
       description: 格式器。
       advanced: true
+    - name: fixed
+      title: 固定列
+      type: boolean
+      default: false
+      description: 该列是否固定。
     - name: sortable
       title: 可排序
       type: boolean
@@ -624,6 +629,11 @@
       type: "Array<{ text: string, value: any }>"
       description: 筛选项的参数
       advanced: true
+    - name: ellipsis
+      title: 省略显示
+      type: boolean
+      default: false
+      description: 文字过长是否省略显示。默认文字超出时会换行。
     - name: hidden
       title: 隐藏该列
       type: boolean
