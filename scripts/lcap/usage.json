@@ -1969,7 +1969,7 @@
             "Layout"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.40/src/components/u-crumb.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.40/src/components/u-crumb.vue/screenshots/1.png",
-        "blocks": "[{\"title\":\"自动面包屑\",\"description\":\"\",\"code\":\"<template>\\n<u-crumb auto></u-crumb>\\n</template>\\n\"},{\"title\":\"手动面包屑\",\"description\":\"\",\"code\":\"<template>\\n<u-crumb>\\n    <u-crumb-item>主页面</u-crumb-item>\\n    <u-crumb-item>一级子页面</u-crumb-item>\\n    <u-crumb-item>二级子页面</u-crumb-item>\\n</u-crumb>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"自动面包屑\",\"description\":\"\",\"code\":\"<template>\\n<u-crumb auto></u-crumb>\\n</template>\\n\"},{\"title\":\"手动面包屑\",\"description\":\"\",\"code\":\"<template>\\n<u-crumb>\\n    <u-crumb-item text=\\\"主页面\\\"></u-crumb-item>\\n    <u-crumb-item text=\\\"一级子页面\\\"></u-crumb-item>\\n    <u-crumb-item text=\\\"二级子页面\\\"></u-crumb-item>\\n</u-crumb>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-crumb",
             "title": "面包屑",
@@ -1986,7 +1986,7 @@
                 {
                     "title": "手动面包屑",
                     "description": "",
-                    "code": "<template>\n<u-crumb>\n    <u-crumb-item>主页面</u-crumb-item>\n    <u-crumb-item>一级子页面</u-crumb-item>\n    <u-crumb-item>二级子页面</u-crumb-item>\n</u-crumb>\n</template>\n"
+                    "code": "<template>\n<u-crumb>\n    <u-crumb-item text=\"主页面\"></u-crumb-item>\n    <u-crumb-item text=\"一级子页面\"></u-crumb-item>\n    <u-crumb-item text=\"二级子页面\"></u-crumb-item>\n</u-crumb>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -2017,6 +2017,12 @@
                     "title": "面包屑选项",
                     "description": "面包屑选项",
                     "attrs": [
+                        {
+                            "name": "text",
+                            "title": "文本",
+                            "type": "string",
+                            "description": "文本内容"
+                        },
                         {
                             "name": "type",
                             "title": "类型",
@@ -2458,7 +2464,7 @@
                             "description": "显示的标题"
                         },
                         {
-                            "name": "expande",
+                            "name": "expanded",
                             "title": "当前\"展开/折叠\"状态",
                             "type": "boolean",
                             "sync": true,

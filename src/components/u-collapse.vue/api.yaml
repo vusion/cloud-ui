@@ -73,7 +73,7 @@
       type: string
       default: null
       description: 显示的标题
-    - name: expande
+    - name: expanded
       title: 当前"展开/折叠"状态
       type: boolean
       sync: true
