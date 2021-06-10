@@ -1272,9 +1272,11 @@
       "width",
       "ellipsis",
       "formatter",
+      "fixed",
       "sortable",
       "default-order",
       "filters",
+      "ellipsis",
       "hidden",
       "type",
       "start-index"

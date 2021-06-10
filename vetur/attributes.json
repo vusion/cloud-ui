@@ -3032,11 +3032,15 @@
   },
   "u-table-view-column/ellipsis": {
     "type": "boolean",
-    "description": "是否省略显示。默认文字超出时会换行。"
+    "description": "文字过长是否省略显示。默认文字超出时会换行。"
   },
   "u-table-view-column/formatter": {
     "type": "string | object | Function | Formatter",
     "description": "格式器。"
+  },
+  "u-table-view-column/fixed": {
+    "type": "boolean",
+    "description": "该列是否固定。"
   },
   "u-table-view-column/sortable": {
     "type": "boolean",

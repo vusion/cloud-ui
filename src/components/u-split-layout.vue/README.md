@@ -4,28 +4,122 @@
 
 - [示例](#示例)
     - [基本用法](#基本用法)
-    - [与 LPage 配合使用](#与-lpage-配合使用)
+    - [调整大小](#调整大小)
 - [USplitLayout API](#usplitlayout-api)
     - [Slots](#slots)
+    - [Events](#events)
 - [USplitLayoutItem API](#usplitlayoutitem-api)
     - [Slots](#slots-2)
 
 ## 示例
 ### 基本用法
 
-
 ``` html
-<u-split-layout style="height: 400px;">
-    <u-split-layout-item>
-        <u-panel>AAA</u-panel>
+<u-split-layout style="width: 600px; height: 400px;">
+    <u-split-layout-item style="background: var(--background-color-base)">
+        <u-panel title="Left"></u-panel>
     </u-split-layout-item>
-    <u-split-layout-item>
-        <u-panel>BBB</u-panel>
+    <u-split-layout-item style="background: var(--background-color-dark)">
+        <u-panel title="Right">Some content</u-panel>
     </u-split-layout-item>
 </u-split-layout>
 ```
 
 ``` html
+<u-split-layout style="width: 600px; height: 400px;">
+    <u-split-layout-item size="25%" style="background: var(--background-color-base)">
+        <u-panel title="Left"></u-panel>
+    </u-split-layout-item>
+    <u-split-layout-item size="25%" style="background: var(--background-color-base)">
+        <u-panel title="Middle"></u-panel>
+    </u-split-layout-item>
+    <u-split-layout-item style="background: var(--background-color-base)">
+        <u-panel title="Right">Some content</u-panel>
+    </u-split-layout-item>
+</u-split-layout>
+```
+
+``` html
+<u-split-layout direction="vertical" style="width: 600px; height: 400px;">
+    <u-split-layout-item style="background: var(--background-color-base)">
+        <u-panel title="Left"></u-panel>
+    </u-split-layout-item>
+    <u-split-layout-item style="background: var(--background-color-dark)">
+        <u-panel title="Right">Some content</u-panel>
+    </u-split-layout-item>
+</u-split-layout>
+```
+
+``` html
+<u-split-layout direction="vertical" style="width: 600px; height: 400px;">
+    <u-split-layout-item size="25%" style="background: var(--background-color-base)">
+        <u-panel title="Left"></u-panel>
+    </u-split-layout-item>
+    <u-split-layout-item size="25%" style="background: var(--background-color-base)">
+        <u-panel title="Middle"></u-panel>
+    </u-split-layout-item>
+    <u-split-layout-item style="background: var(--background-color-base)">
+        <u-panel title="Right">Some content</u-panel>
+    </u-split-layout-item>
+</u-split-layout>
+```
+
+### 调整大小
+
+``` html
+<u-split-layout resizable style="width: 600px; height: 400px;">
+    <u-split-layout-item style="background: var(--background-color-base)">
+        <u-panel title="Left"></u-panel>
+    </u-split-layout-item>
+    <u-split-layout-item style="background: var(--background-color-dark)">
+        <u-panel title="Right">Some content</u-panel>
+    </u-split-layout-item>
+</u-split-layout>
+```
+
+``` html
+<u-split-layout resizable style="width: 600px; height: 400px;">
+    <u-split-layout-item size="25%" style="background: var(--background-color-base)">
+        <u-panel title="Left"></u-panel>
+    </u-split-layout-item>
+    <u-split-layout-item size="25%" style="background: var(--background-color-base)">
+        <u-panel title="Middle"></u-panel>
+    </u-split-layout-item>
+    <u-split-layout-item style="background: var(--background-color-base)">
+        <u-panel title="Right">Some content</u-panel>
+    </u-split-layout-item>
+</u-split-layout>
+```
+
+``` html
+<u-split-layout resizable direction="vertical" style="width: 600px; height: 400px;">
+    <u-split-layout-item style="background: var(--background-color-base)">
+        <u-panel title="Left"></u-panel>
+    </u-split-layout-item>
+    <u-split-layout-item style="background: var(--background-color-dark)">
+        <u-panel title="Right">Some content</u-panel>
+    </u-split-layout-item>
+</u-split-layout>
+```
+
+``` html
+<u-split-layout resizable direction="vertical" style="width: 600px; height: 400px;">
+    <u-split-layout-item size="25%" style="background: var(--background-color-base)">
+        <u-panel title="Left"></u-panel>
+    </u-split-layout-item>
+    <u-split-layout-item size="25%" style="background: var(--background-color-base)">
+        <u-panel title="Middle"></u-panel>
+    </u-split-layout-item>
+    <u-split-layout-item style="background: var(--background-color-base)">
+        <u-panel title="Right">Some content</u-panel>
+    </u-split-layout-item>
+</u-split-layout>
+```
+
+<!-- 
+### test
+
+html
 <u-split-layout>
     <u-split-layout-item>
         <u-sidebar>
@@ -51,7 +145,7 @@
                 <u-crumb-item disabled>Navigation</u-crumb-item>
                 <u-crumb-item to="/cloud-ui/u-crumb" current>面包屑</u-crumb-item>
             </u-crumb>
-            <!--router-view></router-view-->
+
             <u-article>
                 <h1>前赤壁赋</h1>
                 <p>苏轼 公元1082年</p>
@@ -64,11 +158,10 @@
         </u-linear-layout>
     </u-split-layout-item>
 </u-split-layout>
-```
 
 ### 与 LPage 配合使用
 
-``` html
+html
 <div style="position: relative; z-index: 1; height: 500px; overflow: hidden;">
     <l-page demo>
         <u-navbar slot="head">
@@ -108,7 +201,7 @@
                     <u-crumb-item disabled>Navigation</u-crumb-item>
                     <u-crumb-item to="/cloud-ui/u-crumb" current>面包屑</u-crumb-item>
                 </u-crumb>
-                <!--router-view></router-view-->
+
                 <u-article>
                     <h1>前赤壁赋</h1>
                     <p>苏轼 公元1082年</p>
@@ -122,7 +215,7 @@
         </l-side-main>
     </l-page>
 </div>
-```
+ -->
 
 ## USplitLayout API
 ### Slots
@@ -130,6 +223,24 @@
 #### (default)
 
 添加分割布局
+
+### Events
+
+#### @resize
+
+调整大小时触发
+
+#### @drag-start
+
+拖拽前触发
+
+#### @drag
+
+拖拽时触发
+
+#### @drag-end
+
+拖拽后触发
 
 ## USplitLayoutItem API
 ### Slots
