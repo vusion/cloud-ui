@@ -434,6 +434,7 @@ export default {
             this.clearTimeout();
             this.timer = setTimeout(() => {
                 this.timer = undefined;
+
                 let rootWidth = this.$el.offsetWidth;
                 if (!rootWidth) {
                     // 初始表格隐藏时，上面的值为0，需要特殊处理
@@ -441,7 +442,9 @@ export default {
                     while (parentEl && !parentEl.offsetWidth)
                         parentEl = parentEl.parentElement;
                     rootWidth = parentEl ? parentEl.offsetWidth : 0;
-                } // 分别获取有百分比、具体数值和无 width 的列
+                }
+
+                // 分别获取有百分比、具体数值和无 width 的列
                 const percentColumnVMs = [];
                 const valueColumnVMs = [];
                 const noWidthColumnVMs = []; // 统计固定列的数量
@@ -466,7 +469,9 @@ export default {
                             fixedRightCount++;
                     }
                     lastIsFixed = columnVM.fixed;
-                }); // 全部都是百分数的情况，按比例缩小
+                });
+
+                // 全部都是百分数的情况，按比例缩小
                 if (percentColumnVMs.length === this.visibleColumnVMs.length) {
                     const sumWidth = percentColumnVMs.reduce((prev, columnVM) => prev + parseFloat(columnVM.currentWidth), 0);
                     if (sumWidth !== 100) {
@@ -474,7 +479,9 @@ export default {
                             columnVM.currentWidth = (parseFloat(columnVM.currentWidth) / sumWidth) * 100 + '%';
                         });
                     }
-                } // 全部都是数值的情况，按实际大小
+                }
+
+                // 全部都是数值的情况，按实际大小
                 const percentWidthSum = percentColumnVMs.reduce((prev, columnVM) => {
                     columnVM.computedWidth = (parseFloat(columnVM.currentWidth) * rootWidth) / 100;
                     return prev + columnVM.computedWidth;
@@ -483,6 +490,7 @@ export default {
                     columnVM.computedWidth = parseFloat(columnVM.currentWidth);
                     return prev + columnVM.computedWidth;
                 }, 0);
+
                 const remainingWidth = rootWidth - percentWidthSum - valueWidthSum;
                 if (remainingWidth > 0 && noWidthColumnVMs.length) {
                     const averageWidth = remainingWidth / noWidthColumnVMs.length;
@@ -490,7 +498,9 @@ export default {
                 } else if (remainingWidth > 0 && valueWidthSum !== 0) {
                     const averageWidth = remainingWidth / valueColumnVMs.length;
                     valueColumnVMs.forEach((columnVM) => columnVM.computedWidth = columnVM.computedWidth + averageWidth);
-                } // 如果所有列均有值，则总宽度有超出的可能。否则总宽度为根节点的宽度。
+                }
+
+                // 如果所有列均有值，则总宽度有超出的可能。否则总宽度为根节点的宽度。
                 let tableWidth = '';
                 if (this.visibleColumnVMs.every((columnVM) => columnVM.currentWidth)) {
                     tableWidth = this.visibleColumnVMs.reduce((prev, columnVM) => {
@@ -502,6 +512,7 @@ export default {
                     this.tableWidth = tableWidth;
                 } else
                     this.tableWidth = tableWidth = rootWidth; // @important: Work with overflow-x: hidden to prevent two horizontal scrollbar
+
                 const tableMetaList = [this.tableMetaList[0]];
                 if (fixedLeftCount) {
                     tableMetaList.push({
@@ -519,6 +530,7 @@ export default {
                     });
                 }
                 this.tableMetaList = tableMetaList;
+
                 /**
                  * 根节点高度优先，头部固定，计算身体高度
                  */
@@ -531,7 +543,9 @@ export default {
                         const headHeight = this.$refs.head[0] ? this.$refs.head[0].offsetHeight : 0;
                         this.bodyHeight = rootHeight - titleHeight - headHeight;
                     }
-                } // 当 root 设置了 height，设置 table 的 height，避免隐藏列时的闪烁
+                }
+
+                // 当 root 设置了 height，设置 table 的 height，避免隐藏列时的闪烁
                 if (this.$el.style.height !== '' && this.$el.style.height !== 'auto')
                     this.tableHeight = this.$el.offsetHeight;
                 this.$emit('resize', undefined, this);
