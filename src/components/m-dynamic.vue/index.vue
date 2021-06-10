@@ -33,13 +33,7 @@ export default {
                 return;
             const item = this.getDefaultItem ? this.getDefaultItem() : {};
             const index = this.currentData.length;
-            if (
-                this.$emitPrevent(
-                    'before-add',
-                    { item, index, data: this.currentData },
-                    this,
-                )
-            )
+            if (this.$emitPrevent('before-add', { item, index, data: this.currentData }, this))
                 return;
             this.currentData.push(item);
             this.$emit('add', { item, index, data: this.currentData }, this);
@@ -49,13 +43,7 @@ export default {
             if (this.currentData.length <= this.minCount)
                 return;
             const item = this.currentData[index];
-            if (
-                this.$emitPrevent(
-                    'before-remove',
-                    { item, index, data: this.currentData },
-                    this,
-                )
-            )
+            if (this.$emitPrevent('before-remove', { item, index, data: this.currentData }, this))
                 return;
             this.currentData.splice(index, 1);
             this.$emit('remove', { item, index, data: this.currentData }, this);

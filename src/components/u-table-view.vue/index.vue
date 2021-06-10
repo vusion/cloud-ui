@@ -832,7 +832,7 @@ export default {
                 expanded = !item.expanded; // Emit a `before-` event with preventDefault()
             if (this.$emitPrevent('before-toggle-expanded', { item, oldExpanded: !expanded, expanded }, this))
                 return;
-            this.$set(item.expanded, expanded);
+            this.$set(item, 'expanded', expanded);
             this.$emit('toggle-expanded', { item, expanded }, this);
             if (expanded && this.accordion) {
                 this.currentData.forEach((otherItem) => {
