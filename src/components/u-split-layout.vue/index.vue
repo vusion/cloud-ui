@@ -6,6 +6,7 @@
 
 <script>
 import { MParent } from '../m-parent.vue';
+import { addResizeListener, removeResizeListener } from '../../utils/dom';
 
 export default {
     name: 'u-split-layout',
@@ -27,10 +28,10 @@ export default {
     },
     mounted() {
         this.handleResize();
-        window.addEventListener('resize', this.handleResize);
+        addResizeListener(this.$el, this.handleResize);
     },
     destroyed() {
-        window.removeEventListener('resize', this.handleResize);
+        removeResizeListener(this.$el, this.handleResize);
     },
     methods: {
         /**

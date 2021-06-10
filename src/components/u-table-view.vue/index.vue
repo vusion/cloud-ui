@@ -126,6 +126,7 @@
 
 <script>
 import DataSource from '../../utils/DataSource';
+import { addResizeListener, removeResizeListener } from '../../utils/dom';
 import MEmitter from '../m-emitter.vue';
 import debounce from 'lodash/debounce';
 import isNumber from 'lodash/isNumber';
@@ -341,10 +342,10 @@ export default {
         this.watchValue(this.value);
         this.watchValues(this.values);
         this.handleResize();
-        window.addEventListener('resize', this.handleResize);
+        addResizeListener(this.$el, this.handleResize);
     },
     destroyed() {
-        window.removeEventListener('resize', this.handleResize);
+        removeResizeListener(this.$el, this.handleResize);
         this.clearTimeout();
     },
     methods: {

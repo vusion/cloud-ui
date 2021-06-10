@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import { addResizeListener, removeResizeListener } from '../../utils/dom';
+
 const breakpoints = [
     { name: 'Huge', width: 1440 },
     { name: 'Large', width: 1200 },
@@ -56,11 +58,11 @@ export default {
         },
     },
     created() {
-        window.addEventListener('resize', this.onResize);
+        addResizeListener(this.$el, this.onResize);
         this.onResize();
     },
     destroyed() {
-        window.removeEventListener('resize', this.onResize);
+        removeResizeListener(this.$el, this.onResize);
     },
     methods: {
         getPercent(span, repeat) {
