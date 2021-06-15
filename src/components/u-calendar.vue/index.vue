@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" :disabled="disabled">
-    <div :class="$style.head">
+    <div :class="$style.head" v-if="picker !== 'year'">
         <div :class="$style.year">
             <span :class="$style.textYear">{{ showYear }}{{ $t('year') }}</span>
             <m-popper trigger="click" :opened.sync="yearvisible" append-to="reference">
@@ -11,7 +11,7 @@
                 </div>
             </m-popper>
         </div>
-        <div :class="$style.month">
+        <div v-if="picker === 'date' || picker === 'week' || picker === 'time'" :class="$style.month">
             <span :class="$style.textMonth">{{ monthTextList[showMonth - 1] }}{{ $t('month') }}</span>
             <m-popper trigger="click" placement="bottom-end" :opened.sync="monthvisible" append-to="reference">
                 <ul :class="$style.monthList">
@@ -20,9 +20,26 @@
             </m-popper>
         </div>
     </div>
-    <div :class="$style.content">
+    <div v-if="picker === 'year'" :class="$style.content" type="year">
+        <year-page @ok="handlerOk" :pageSize="yearPageSize" :currentTotalPage="currentTotalPage">
+        </year-page>
+        <ul :class="$style.yearBox">
+            <li :class="$style.yearItem" v-for="(year, index) in currentYearList" :role="year.value === showYear" :disabled="year.disabled" @click.stop="yearSelect(year.value, index)">{{ year.value }}</li>
+        </ul>
+    </div>
+    <div v-if="picker === 'quarter'" :class="$style.content" type="quarter">
+            <ul :class="$style.quarterBox">
+                <li :class="$style.quarterItem" v-for="(quarter, mindex) in quarterCol" :role="quarter.value === showMonth" :disabled="quarter.disabled" @click.stop="monthSelect(quarter, mindex)">{{ quarterTextList[quarter.flag - 1] }}{{ $t('quarter') }}</li>
+            </ul>
+        </div>
+    <div v-if="picker === 'month'" :class="$style.content" type="month">
+            <ul :class="$style.monthBox">
+                <li :class="$style.boxItem" v-for="(month, mindex) in monthCol" :role="month.value === showMonth" :disabled="month.disabled" @click.stop="monthSelect(month, mindex)">{{ monthTextList[month.value - 1] }}{{ $t('month') }}</li>
+            </ul>
+        </div>
+    <div :class="$style.content" v-if="picker === 'date' || picker === 'week' || picker === 'time'">
         <div :class="$style.week"><span :class="$style.dayitem" role="week">{{ $t('Sunday') }}</span><span :class="$style.dayitem">{{ $t('Monday') }}</span><span :class="$style.dayitem">{{ $t('Tuesday') }}</span><span :class="$style.dayitem">{{ $t('Wednesday') }}</span><span :class="$style.dayitem">{{ $t('Thursday') }}</span><span :class="$style.dayitem">{{ $t('Friday') }}</span><span :class="$style.dayitem" role="week">{{ $t('Saturday') }}</span></div>
-        <div :class="$style.day"><span v-for="day in days_" :class="$style.item" :sel="selectedDate.toDateString() === day.toDateString() ? 'sel' : ''" :disabled="!!isOutOfRange(day)" :role="showDate.getMonth() !== day.getMonth() ? 'muted': ''" @click.stop="select(day)">{{ day | format('dd') }}</span></div>
+        <div :class="$style.day"><span v-for="day in days_" :class="$style.item" :sel="getSel(day) ? 'sel' : ''" :disabled="!!isOutOfRange(day)" :role="showDate.getMonth() !== day.getMonth() ? 'muted': ''" @click.stop="select(day)">{{ day | format('dd') }}</span></div>
         <slot></slot>
     </div>
 </div>
@@ -32,6 +49,7 @@
 const MS_OF_DAY = 24 * 3600 * 1000;
 import i18n from './i18n';
 import { format, transformDate } from '../../utils/date';
+import YearPage from './yearpage';
 
 const DateRangeError = function (minDate, maxDate) {
     this.name = 'DateRangeError';
@@ -49,6 +67,9 @@ export default {
     name: 'u-calendar',
     i18n,
     filters: { format },
+    components: {
+        YearPage,
+    },
     props: {
         date: {
             type: [String, Number, Date],
@@ -56,23 +77,30 @@ export default {
                 return new Date();
             },
         },
+        /* week, month, year, quarter */
+        picker: { type: String, default: 'date' },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         minDate: [String, Date, Number],
         maxDate: [String, Date, Number],
-        yearDiff: { type: [String, Number], default: 3 },
-        yearAdd: { type: [String, Number], default: 1 },
+        yearDiff: { type: [String, Number], default: 20 },
+        yearAdd: { type: [String, Number], default: 4 },
+        yearPageSize: { type: Number, default: 12 },
     },
     data() {
         return {
+            currentTotalPage: (this.yearDiff + this.yearAdd) / this.yearPageSize,
             days_: [],
             showDate: this.date,
             updateFlag: false,
             monthCol: this.getMonthCol(),
             yearCol: this.getYearCol(),
+            quarterCol: this.getQuarterCol(),
             yearvisible: false,
             monthvisible: false,
+            currentYearList: this.getCurrentYearCol(),
             selectedDate: new Date(this.transformDate(this.date)),
+            quarterTextList: [this.$t('1Q'), this.$t('2Q'), this.$t('3Q'), this.$t('4Q')],
             monthTextList: [
                 this.$t('January'),
                 this.$t('February'),
@@ -174,6 +202,39 @@ export default {
         this.update();
     },
     methods: {
+        handlerOk({ start, limit }) {
+            this.currentYearList = this.getYearCol().splice(start, limit);
+        }, 
+        getCurrentYearCol() {
+            const currentPage = Math.ceil(this.yearDiff / this.yearPageSize);
+            const start = (currentPage - 1) * this.yearPageSize + 1;
+
+            // 计算出今年所在的页，默认显示今年所在的页
+            return this.getYearCol().splice(start, this.yearPageSize);
+        },
+        getSel(day) {
+            // 日选择
+            if (this.picker === 'date') {
+                return this.selectedDate.toDateString() === day.toDateString();
+            }
+            // 周选择，当前所在周都为高亮，并且 this.day 记录为这周的第一天
+            if (this.picker === 'week') {
+                let weekDiff = this.selectedDate.getDay() -1;
+                // 选择的当前周的第一天
+                const tmpTime = this.selectedDate - weekDiff * MS_OF_DAY;
+                const tmp = new Date(tmpTime);
+                const thisWeek = [
+                    tmp.toDateString(), 
+                    new Date(tmpTime + 1 * MS_OF_DAY).toDateString(),
+                    new Date(tmpTime + 2 * MS_OF_DAY).toDateString(),
+                    new Date(tmpTime + 3 * MS_OF_DAY).toDateString(),
+                    new Date(tmpTime + 4 * MS_OF_DAY).toDateString(),
+                    new Date(tmpTime + 5 * MS_OF_DAY).toDateString(),
+                    new Date(tmpTime + 6 * MS_OF_DAY).toDateString(),
+                ];
+                return thisWeek.includes(day.toDateString());
+            }
+        },
         updateShowDate(newValue) {
             const newDate = this.transformDate(newValue);
             if (newDate - 0 !== this.showDate - 0) {
@@ -184,12 +245,64 @@ export default {
         yearSelect(value) {
             this.showYear = value;
             this.yearvisible = false;
+            // 设置为最早的时间
+            const date = this.showDate;
+            date.setMonth(0);
+            date.setDate(1);
+            date.setHours(0, 0, 0, 0);
+            this.selectedDate = date;
+            this.$emit('select', { sender: this, date });
         },
-        monthSelect(month) {
+        monthSelect(month, flag) {
             if (!month.disabled) {
                 this.showMonth = month.value;
                 this.monthvisible = false;
             }
+    
+            if (this.picker === 'month' || this.picker === 'quarter') {
+                const date = this.showDate;
+                date.setDate(1);
+                date.setHours(0, 0, 0, 0);
+                this.selectedDate = date;
+                this.$emit('select', { sender: this, date, flag });
+            }
+        },
+        getQuarterCol(value) {
+            const date = this.transformDate(value || this.date);
+            let minDate = null;
+            let maxDate = null;
+            if (this.minDate) {
+                minDate = this.transformDate(this.minDate);
+                const minYear = minDate.getFullYear();
+                const minMonth = minDate.getMonth();
+                const minFormat = minYear + '/' + (minMonth + 1);
+                minDate = new Date(minFormat).getTime();
+            }
+            if (this.maxDate) {
+                maxDate = this.transformDate(this.maxDate);
+                const maxYear = maxDate.getFullYear();
+                const maxMonth = maxDate.getMonth();
+                const maxFormat = maxYear + '/' + (maxMonth + 1);
+                maxDate = new Date(maxFormat).getTime();
+            }
+            const currentYear = date.getFullYear();
+            const monthcol = []; // const mindate = currentYear - this.yearDiff;
+            // const maxdate = parseInt(currentYear) + parseInt(this.yearAdd);
+            for (let i = 1; i <= 4; i++) {
+                // 季度是间隔三个月
+                const currentMonth = (i - 1) * 3 + 1;
+                const obj = { flag: i, value: currentMonth }; // 标记季度间隔
+                const dateFormat = currentYear + '/' + currentMonth;
+                const dateTime = new Date(dateFormat).getTime();
+                if (minDate && dateTime < minDate)
+                    obj.disabled = true;
+                else if (maxDate && dateTime > maxDate)
+                    obj.disabled = true;
+                else
+                    obj.disabled = false;
+                monthcol.push(obj);
+            }
+            return monthcol;
         },
         getYearCol() {
             const date = this.transformDate(this.date);
@@ -485,6 +598,83 @@ this.updateFlag = true;
     background: white;
     border: 1px solid #ccc;
 }
+
+.monthBox {
+    list-style: none;
+}
+
+.boxItem {
+    width: 33.3%;
+    display: inline-flex;
+    padding: 10px 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.boxItem[role] {
+    background-color: var(--brand-primary);
+    color: var(--field-background);
+}
+.boxItem[role]:hover {
+    background-color: var(--brand-primary);
+}
+
+.boxItem[disabled], .boxItem[disabled]:hover {
+    cursor: var(--cursor-not-allowed);
+    background-color: var(--field-background);
+    color: var(--color-light);
+}
+
+.quarterBox {
+    list-style: none;
+}
+
+.quarterItem {
+    width: 25%;
+    display: inline-flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.quarterItem[role] {
+    background-color: var(--brand-primary);
+    color: var(--field-background);
+}
+.quarterItem[role]:hover {
+    background-color: var(--brand-primary);
+}
+
+.quarterItem[disabled], .quarterItem[disabled]:hover {
+    cursor: var(--cursor-not-allowed);
+    background-color: var(--field-background);
+    color: var(--color-light);
+}
+
+.yearBox {
+    list-style: none;
+}
+
+.yearItem {
+    width: 25%;
+    display: inline-flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.yearItem[role] {
+    background-color: var(--brand-primary);
+    color: var(--field-background);
+}
+.yearItem[role]:hover {
+    background-color: var(--brand-primary);
+}
+
+.yearItem[disabled], .yearItem[disabled]:hover {
+    cursor: var(--cursor-not-allowed);
+    background-color: var(--field-background);
+    color: var(--color-light);
+}
+
 .listitem {
     float: left;
     width: 30px;
@@ -537,4 +727,5 @@ this.updateFlag = true;
 .yearitem[disabled] {
     color: var(--color-light);
 }
+
 </style>

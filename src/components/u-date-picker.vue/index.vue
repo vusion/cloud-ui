@@ -6,7 +6,7 @@
     </span>
     <m-popper :class="$style.popper" ref="popper" append-to="reference" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="closeCalendar">
         <div :class="$style.body" @click.stop>
-            <u-calendar ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="showDate" @select="select($event.date)"></u-calendar>
+            <u-calendar :picker="picker" ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="showDate"  :value="date" @select="select($event.date)"></u-calendar>
         </div>
     </m-popper>
 </div>
@@ -43,6 +43,7 @@ export default {
         value: [String, Number, Date],
         minDate: [String, Number, Date],
         maxDate: [String, Number, Date],
+        picker: { type: String, default: 'date' },
         disabled: { type: Boolean, default: false },
         autofocus: { type: Boolean, default: false },
         readonly: { type: Boolean, default: false },
@@ -68,7 +69,7 @@ export default {
     },
     data() {
         const date = this.date || this.value;
-        return { showDate: this.format(date, 'YYYY-MM-DD'), lastDate: '' };
+        return { showDate: this.format(date, this.getFormatString()), lastDate: '' };
     },
     computed: {
         placement() {
@@ -80,10 +81,10 @@ export default {
     },
     watch: {
         date(newValue) {
-            this.showDate = this.format(newValue, 'YYYY-MM-DD');
+            this.showDate = this.format(newValue, this.getFormatString());
         },
         value(newValue) {
-            this.showDate = this.format(newValue, 'YYYY-MM-DD');
+            this.showDate = this.format(newValue, this.getFormatString());
         },
         showDate(newValue) {
             /**
@@ -91,7 +92,7 @@ export default {
              * @property {object} sender 事件发送对象
              * @property {number} date 改变后的日期 返回格式为日期对象
              */ const showDate = this.returnTime(newValue);
-            const newDate = showDate ? new Date(showDate.replace(/-/g, '/')) : '';
+            const newDate = showDate ? new Date(this.transformDate(showDate)) : '';
             this.$emit('update:date', this.toValue(newDate));
             this.$emit('change', { sender: this, date: newDate });
             this.$emit('input', this.toValue(newDate));
@@ -112,15 +113,36 @@ export default {
         }
         this.$emit(
             'input',
-            this.toValue(this.showDate ? new Date(this.showDate.replace(/-/g, '/')) : ''),
+            this.toValue(this.showDate ? new Date(this.transformDate(this.showDate)) : ''),
         ); // document.addEventListener('click', this.fadeOut, false);
     },
     methods: {
+        getFormatString() {
+            if (this.picker === 'date') {
+                return 'YYYY-MM-DD'
+            }
+
+            if (this.picker === 'year') {
+                return 'YYYY';
+            }
+
+            if (this.picker === 'month') {
+                return 'YYYY-MM';
+            }
+
+            if (this.picker === 'quarter') {
+                return 'YYYY-QQ';
+            }
+
+            return 'YYYY-MM-DD';
+        },
         toValue(date) {
             if (!date)
                 return date;
-            if (this.converter === 'json')
-                return this.format(date, 'YYYY-MM-DD');
+            if (this.converter === 'format')
+                return this.format(date, 'YYYY-MM-DD'); // value 的真实格式
+            else if (this.converter === 'json') 
+                return date.toJSON();
             else if (this.converter === 'timestamp')
                 return date.getTime();
             else
@@ -141,7 +163,7 @@ export default {
         select(date) {
             if (this.readonly || this.disabled || this.isOutOfRange(date))
                 return;
-            this.showDate = this.format(date, 'YYYY-MM-DD');
+            this.showDate = this.format(date, this.getFormatString());
             const showDate = this.returnTime(this.showDate);
             /**
              * @event select 选择某一项时触发
@@ -150,7 +172,7 @@ export default {
              */
             this.$emit('select', {
                 sender: this,
-                date: new Date(showDate.replace(/-/g, '/')),
+                date: new Date(this.transformDate(showDate)),
             });
             this.$refs.popper.toggle(false);
         },
@@ -162,16 +184,16 @@ export default {
          */
         onInput($event) {
             const value = $event.target.value;
-            let date = value ? new Date(value.replace(/-/g, '/')) : null;
+            let date = value ? new Date(this.transformDate(value)) : null;
             this.lastDate = this.showDate;
             let showDate = '';
             if (date !== null && date.toString() !== 'Invalid Date') {
                 date = this.isOutOfRange(date) || date; // 此处有坑 需要特殊处理 由于改成最小值 再次输入不合法的值会变成最小值 认为没有发生变化
-                showDate = this.format(date, 'YYYY-MM-DD');
+                showDate = this.format(date, this.getFormatString());
             } else
                 showDate = this.$refs.input.value = this.format(
                     this.lastDate,
-                    'YYYY-MM-DD',
+                    this.getFormatString(),
                 );
             this.showDate = showDate;
         },

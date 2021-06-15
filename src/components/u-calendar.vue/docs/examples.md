@@ -1,8 +1,34 @@
 ### 基本用法
 
 ``` html
-<u-calendar></u-calendar>
+<u-calendar picker="date"></u-calendar>
 ```
+
+### 周选择组件
+
+``` html
+<u-calendar picker="week"></u-calendar>
+```
+
+### 月选择组件
+
+``` html
+<u-calendar picker="month"></u-calendar>
+```
+
+### 季选择组件
+
+``` html
+<u-calendar picker="quarter"></u-calendar>
+```
+
+
+### 年选择组件
+
+``` html
+<u-calendar picker="year"></u-calendar>
+```
+
 
 ### 只读和禁用
 ``` html

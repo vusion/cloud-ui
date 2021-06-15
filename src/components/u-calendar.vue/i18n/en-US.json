@@ -1,6 +1,11 @@
 {
   "year": " ",
   "month": " ",
+  "1Q": "One",
+  "2Q": "Two",
+  "3Q": "Three",
+  "4Q": "Four",
+  "quarter": "Q",
   "Sunday": "Sun",
   "Monday": "Mon",
   "Tuesday": "Tue",

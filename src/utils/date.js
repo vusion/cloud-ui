@@ -20,6 +20,7 @@ export const format = function format(value, type) {
             }
             return fix(date.getDate());
         },
+        QQ(date) { return `${Math.ceil((date.getMonth() + 1)/3)}Q`},
         DD(date) { return fix(date.getDate()); },
         HH(date) { return fix(date.getHours()); },
         mm(date) { return fix(date.getMinutes()); },
@@ -28,7 +29,7 @@ export const format = function format(value, type) {
     const trunk = new RegExp(Object.keys(maps).join('|'), 'g');
     type = type || 'YYYY-MM-DD HH:mm';
     if (typeof value === 'string' && !value.includes('T'))
-        value = value.replace(/-/g, '/');
+        value = transformDate(value);
     value = new Date(value);
     if (value.toString() === 'Invalid Date')
         return;
@@ -38,8 +39,12 @@ export const format = function format(value, type) {
 export const transformDate = function transformDate(date) {
     if (!date)
         return;
-    if (typeof date === 'string')
+    if (typeof date === 'string') {
+        if (date.includes('Q')) {
+            return new Date(date.replace(/1Q/,'1').replace(/2Q/,'4').replace(/3Q/,'7').replace(/4Q/,'10').replace(/-/g, '/'));
+        }
         return new Date(date.replace(/-/g, '/'));
+    }
     else if (typeof date === 'number')
         return new Date(date);
     else if (typeof date === 'object')
