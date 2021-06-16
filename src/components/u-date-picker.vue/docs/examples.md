@@ -68,3 +68,102 @@ export default {
 };
 </script>
 ```
+
+### 月份选择
+``` vue
+<template>
+<u-date-picker picker="month" time="morning" year-diff="1" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
+</template>
+
+<script>
+export default {
+	data(){
+		return {
+			date: '2018-08-01',
+		}
+	},
+    methods: {
+        change(newVal) {
+            console.log(newVal);
+        },
+        select(newVal) {
+        	console.log(newVal);
+        },
+        toggle(event) {
+        	console.log(event.open);
+        }
+    },
+    watch: {
+        date(newValue) {
+            console.log(newValue);
+        },
+    },
+};
+</script>
+```
+
+### 季度选择
+``` vue
+<template>
+<u-date-picker picker="quarter" time="morning" year-diff="1" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
+</template>
+
+<script>
+export default {
+	data(){
+		return {
+			date: '2018-01-01',
+		}
+	},
+    methods: {
+        change(newVal) {
+            console.log(newVal);
+        },
+        select(newVal) {
+        	console.log(newVal);
+        },
+        toggle(event) {
+        	console.log(event.open);
+        }
+    },
+    watch: {
+        date(newValue) {
+            console.log(newValue);
+        },
+    },
+};
+</script>
+```
+
+### 年份选择
+``` vue
+<template>
+<u-date-picker picker="year" time="morning" year-diff="1" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
+</template>
+
+<script>
+export default {
+	data(){
+		return {
+			date: '2018-01-01',
+		}
+	},
+    methods: {
+        change(newVal) {
+            console.log(newVal);
+        },
+        select(newVal) {
+        	console.log(newVal);
+        },
+        toggle(event) {
+        	console.log(event.open);
+        }
+    },
+    watch: {
+        date(newValue) {
+            console.log(newValue);
+        },
+    },
+};
+</script>
+```
