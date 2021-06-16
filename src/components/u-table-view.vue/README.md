@@ -2037,9 +2037,11 @@ Methods
 | width | string \| number |  |  | 给列指定宽度，可以为数字或百分比。 |
 | ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
 | formatter | string \| object \| Function \| Formatter |  | `'placeholder'` | 格式器。 |
+| fixed | boolean |  | `false` | 该列是否固定。 |
 | sortable | boolean |  | `false` | 该列是否可以排序。 |
 | default-order | string | `[object Object]`<br/>`[object Object]` | `'asc'` | 该列首次点击时的排序顺序 |
 | filters | Array\<{ text: string, value: any }\> |  |  | 筛选项的参数 |
+| ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
 | hidden | boolean |  | `false` | 是否隐藏该列。 |
 | type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'index'` | 列类型 |
 | start-index | number |  | `1` | 当`type="index"`时的起始序号。 |

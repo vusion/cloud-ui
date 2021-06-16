@@ -52,6 +52,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| text | string |  |  | 文本内容 |
 | type | string | `[object Object]`<br/>`[object Object]` | `'link'` | 类型 |
 | linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'href'` | 链接类型 |
 | hrefAndTo | string |  |  | 链接地址 |

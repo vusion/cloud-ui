@@ -9,6 +9,9 @@
     - [最大值和最小值](#最大值和最小值)
     - [只读和禁用](#只读和禁用)
     - [方法](#方法)
+    - [月份选择](#月份选择)
+    - [季度选择](#季度选择)
+    - [年份选择](#年份选择)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
@@ -89,6 +92,105 @@ export default {
 </script>
 ```
 
+### 月份选择
+``` vue
+<template>
+<u-date-picker picker="month" time="morning" year-diff="1" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
+</template>
+
+<script>
+export default {
+	data(){
+		return {
+			date: '2018-08-01',
+		}
+	},
+    methods: {
+        change(newVal) {
+            console.log(newVal);
+        },
+        select(newVal) {
+        	console.log(newVal);
+        },
+        toggle(event) {
+        	console.log(event.open);
+        }
+    },
+    watch: {
+        date(newValue) {
+            console.log(newValue);
+        },
+    },
+};
+</script>
+```
+
+### 季度选择
+``` vue
+<template>
+<u-date-picker picker="quarter" time="morning" year-diff="1" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
+</template>
+
+<script>
+export default {
+	data(){
+		return {
+			date: '2018-01-01',
+		}
+	},
+    methods: {
+        change(newVal) {
+            console.log(newVal);
+        },
+        select(newVal) {
+        	console.log(newVal);
+        },
+        toggle(event) {
+        	console.log(event.open);
+        }
+    },
+    watch: {
+        date(newValue) {
+            console.log(newValue);
+        },
+    },
+};
+</script>
+```
+
+### 年份选择
+``` vue
+<template>
+<u-date-picker picker="year" time="morning" year-diff="1" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
+</template>
+
+<script>
+export default {
+	data(){
+		return {
+			date: '2018-01-01',
+		}
+	},
+    methods: {
+        change(newVal) {
+            console.log(newVal);
+        },
+        select(newVal) {
+        	console.log(newVal);
+        },
+        toggle(event) {
+        	console.log(event.open);
+        }
+    },
+    watch: {
+        date(newValue) {
+            console.log(newValue);
+        },
+    },
+};
+</script>
+```
+
 ## API
 ### Props/Attrs
 
@@ -107,7 +209,8 @@ export default {
 | time | string, number |  | `'0:00:00'` | 输入对应格式的字符串（8:00:00）即可 |
 | yearDiff | number |  | `20` | 最小可选年份值为当前年减去此值 |
 | yearAdd | number |  | `20` | 最大可选年份值为当前年加上此值 |
-| converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'json'` | 转换器，用于转换时间结果 |
+| picker | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'date'` | 用于定义选择的格式 |
+| converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'json'` | 转换器，用于转换时间结果 |
 
 ### Events
 
