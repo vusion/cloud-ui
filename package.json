@@ -27,6 +27,7 @@
     "deploy:screenshots": "node bin/deploy-screenshots",
     "deploy:drawings": "node bin/deploy-drawings",
     "deploy:doc-entry": "vusion deploy --framework cloud-ui -v minor dist-doc-entry",
+    "deploy:inlcap": "lcap deploy dist-theme && node bin/deploy-lcp-images",
     "prepublishOnly": "npm run build && npm run build:theme && npm run build:raw && vusion readme && vusion vetur && git add .",
     "postpublish": "npm run build:docs && npm run deploy && npm run deploy:lcap && npm run lcap"
   },

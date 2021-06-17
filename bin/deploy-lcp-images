@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+const vusion = require('vusion-api');
+
+const argv = require('minimist')(process.argv.slice(2));
+let components;
+
+if (argv._[0]) {
+    components = argv._[0].split(',').map((name) => ({ name }));
+} else {
+    const config = require('../vusion.config.js');
+    components = config.docs.components.filter((component) => !component.href && !component.path && !component.deprecated);
+}
+
+components.forEach((component) => {
+    const command = `lcap deploy src/components/${component.name}.vue/screenshots`;
+    const commandDrawings = `lcap deploy src/components/${component.name}.vue/drawings`;
+    vusion.cli.execSync(command);
+    vusion.cli.execSync(commandDrawings);
+    vusion.cli.done(component.name + '.vue');
+});
