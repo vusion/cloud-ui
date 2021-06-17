@@ -207,11 +207,11 @@
       support:
         - name: u-select-item
           title: 选项
-          snippet: <u-select-item>选项</u-select-item>
+          snippet: <u-select-item text="选项"></u-select-item>
         - name: u-select-group
           title: 分组
           snippet: <u-select-group
-            title="分组"><u-select-item>选项</u-select-item></u-select-group>
+            title="分组"><u-select-item text="选项"></u-select-item></u-select-group>
         - name: u-select-divider
           title: 分隔线
           snippet: <u-select-divider></u-select-divider>
@@ -440,6 +440,10 @@
       title: 选项值
       type: any
       description: 此项的值。
+    - name: text
+      title: 选项文本
+      type: string
+      description: 此项的显示值
     - name: disabled
       title: 禁用此项
       type: boolean
@@ -495,7 +499,7 @@
       support:
         - name: u-select-item
           title: 选项
-          snippet: <u-select-item>选项</u-select-item>
+          snippet: <u-select-item text="选项"></u-select-item>
     - name: title
       title: 标题
       description: 自定义标题文本。
