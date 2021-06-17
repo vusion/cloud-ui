@@ -62,8 +62,8 @@
 ### 方法
 ``` vue
 <template>
-<u-date-picker time="morning" year-diff="1" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
-</template>
+<u-date-picker time="morning" year-diff="1" min-date="2009" max-date="2020" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
+</template>  
 
 <script>
 export default {
@@ -95,7 +95,7 @@ export default {
 ### 月份选择
 ``` vue
 <template>
-<u-date-picker picker="month" time="morning" year-diff="1" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
+<u-date-picker picker="month" time="morning" min-date="2021-3" max-date="2024-5"  year-diff="1" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
 </template>
 
 <script>
@@ -128,7 +128,7 @@ export default {
 ### 季度选择
 ``` vue
 <template>
-<u-date-picker picker="quarter" time="morning" year-diff="1" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
+<u-date-picker picker="quarter" time="morning" min-date="2021-Q3" max-date="2024-5" year-diff="1" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
 </template>
 
 <script>
@@ -161,7 +161,7 @@ export default {
 ### 年份选择
 ``` vue
 <template>
-<u-date-picker picker="year" time="morning" year-diff="1" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
+<u-date-picker min-date="2021" max-date="2024" picker="year" time="morning" clearable year-diff="20" year-add="20" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
 </template>
 
 <script>

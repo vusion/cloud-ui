@@ -4,7 +4,7 @@
         <input :class="$style.input" :placeholder="placeholder" :value="dateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
             @focus="toggle(true)" @change="onInput($event)">
          <span v-if="dateTime && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
-            <i :class="[$style.icon, $style.closeIcon]"></i>
+            <i :class="[$style.closeIcon]"></i>
         </span>
     </div>
     <div :class="$style.body" v-show="open">
@@ -303,7 +303,7 @@ return this.maxDate;
 .input {
     box-sizing: border-box;
     margin: 0;
-    padding: 0 12px;
+    padding: 0 4px;
     vertical-align: middle;
     border: 1px solid var(--border-color-base);
     color: #555;
@@ -357,26 +357,23 @@ return this.maxDate;
     cursor: var(--cursor-pointer);
 }
 
-.icon {
-    width: 18px;
-    height: 18px;
-    line-height: 18px;
-    background: var(--background-color-light);
-    border-radius: 100%;
-    display: inline-block;
-}
-
 .closeIcon:hover {
     color: var(--color-light);
     background-color: #ebedef;
 }
 
 .closeIcon::before {
-    icon-font: url("../i-icon.vue/icons/close-small.svg");
-    font-size: 16px;
-    color: #b4b4b4;
-    margin-right: 0;
-    vertical-align: middle;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    line-height: 1;
+    height: 1em;
+    margin: auto;
+    icon-font: url('../i-icon.vue/assets/close-solid.svg');
+    cursor: var(--cursor-pointer);
+    color: var(--input-clearable-color);
 }
 
 </style>
