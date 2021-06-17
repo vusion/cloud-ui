@@ -88,3 +88,7 @@ See [Contributing Guide](https://github.com/vusion/DOCUMENTATION/issues/8)
 ## License
 
 [MIT](LICENSE)
+
+## Test environment
+
+deploy:inlcap
