@@ -20,7 +20,7 @@ export const format = function format(value, type) {
             }
             return fix(date.getDate());
         },
-        QQ(date) { return `${Math.ceil((date.getMonth() + 1)/3)}Q`},
+        QQ(date) { return `Q${Math.ceil((date.getMonth() + 1)/3)}`},
         DD(date) { return fix(date.getDate()); },
         HH(date) { return fix(date.getHours()); },
         mm(date) { return fix(date.getMinutes()); },
@@ -41,7 +41,7 @@ export const transformDate = function transformDate(date) {
         return;
     if (typeof date === 'string') {
         if (date.includes('Q')) {
-            return new Date(date.replace(/1Q/,'1').replace(/2Q/,'4').replace(/3Q/,'7').replace(/4Q/,'10').replace(/-/g, '/'));
+            return new Date(date.replace(/Q1/,'1').replace(/Q2/,'4').replace(/Q3/,'7').replace(/Q4/,'10').replace(/-/g, '/'));
         }
         return new Date(date.replace(/-/g, '/'));
     }

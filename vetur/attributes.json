@@ -1294,7 +1294,7 @@
     "type": "string",
     "description": "显示的标题"
   },
-  "u-collapse-item/expande": {
+  "u-collapse-item/expanded": {
     "type": "boolean",
     "description": "展开/折叠状态"
   },
@@ -1516,6 +1516,10 @@
     "type": "boolean",
     "description": "是否自动根据配置的 items 生成面包屑"
   },
+  "u-crumb-item/text": {
+    "type": "string",
+    "description": "文本内容"
+  },
   "u-crumb-item/type": {
     "type": "string",
     "options": [
@@ -1650,6 +1654,28 @@
     "type": "number",
     "description": "最大可选年份值为当前年加上此值"
   },
+  "u-date-picker/picker": {
+    "type": "string",
+    "options": [
+      {
+        "title": "日期",
+        "value": "date"
+      },
+      {
+        "title": "年",
+        "value": "year"
+      },
+      {
+        "title": "月",
+        "value": "month"
+      },
+      {
+        "title": "季",
+        "value": "quarter"
+      }
+    ],
+    "description": "用于定义选择的格式"
+  },
   "u-date-picker/converter": {
     "type": "string",
     "options": [
@@ -1664,6 +1690,10 @@
       {
         "title": "Date 对象",
         "value": "date"
+      },
+      {
+        "title": "YYYY-MM-DD",
+        "value": "format"
       }
     ],
     "description": "转换器，用于转换时间结果"
@@ -4647,6 +4677,10 @@
   "u-table-view-column/formatter": {
     "type": "string | object | Function | Formatter",
     "description": "格式器。"
+  },
+  "u-table-view-column/fixed": {
+    "type": "boolean",
+    "description": "该列是否固定。"
   },
   "u-table-view-column/sortable": {
     "type": "boolean",

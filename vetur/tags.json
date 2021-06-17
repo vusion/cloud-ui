@@ -458,7 +458,7 @@
   "u-collapse-item": {
     "attributes": [
       "title",
-      "expande",
+      "expanded",
       "disabled"
     ],
     "description": "折叠子元素"
@@ -522,6 +522,7 @@
   },
   "u-crumb-item": {
     "attributes": [
+      "text",
       "type",
       "linkType",
       "hrefAndTo",
@@ -547,6 +548,7 @@
       "time",
       "yearDiff",
       "yearAdd",
+      "picker",
       "converter"
     ],
     "description": "日期选择器"
@@ -1452,9 +1454,11 @@
       "width",
       "ellipsis",
       "formatter",
+      "fixed",
       "sortable",
       "default-order",
       "filters",
+      "ellipsis",
       "hidden",
       "type",
       "start-index"

@@ -169,7 +169,7 @@ Methods
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | title | string |  |  | 显示的标题 |
-| expande.sync | boolean |  | `false` | 展开/折叠状态 |
+| expanded.sync | boolean |  | `false` | 展开/折叠状态 |
 | disabled | boolean |  | `false` | 是否禁用。禁用时无法展开/折叠 |
 
 ### Slots
