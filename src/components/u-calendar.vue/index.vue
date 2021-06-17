@@ -29,7 +29,7 @@
     </div>
     <div v-if="picker === 'quarter'" :class="$style.content" type="quarter">
             <ul :class="$style.quarterBox">
-                <li :class="$style.quarterItem" v-for="(quarter, mindex) in quarterCol" :role="quarter.value === showMonth" :disabled="quarter.disabled" @click.stop="monthSelect(quarter, mindex)">{{ quarterTextList[quarter.flag - 1] }}{{ $t('quarter') }}</li>
+                <li :class="$style.quarterItem" v-for="(quarter, mindex) in quarterCol" :role="quarter.value === showMonth" :disabled="quarter.disabled" @click.stop="monthSelect(quarter, mindex)">{{ $t('quarter') }}{{ quarterTextList[quarter.flag - 1] }}</li>
             </ul>
         </div>
     <div v-if="picker === 'month'" :class="$style.content" type="month">
@@ -100,7 +100,7 @@ export default {
             monthvisible: false,
             currentYearList: this.getCurrentYearCol(),
             selectedDate: new Date(this.transformDate(this.date)),
-            quarterTextList: [this.$t('1Q'), this.$t('2Q'), this.$t('3Q'), this.$t('4Q')],
+            quarterTextList: [this.$t('Q1'), this.$t('Q2'), this.$t('Q3'), this.$t('Q4')],
             monthTextList: [
                 this.$t('January'),
                 this.$t('February'),
