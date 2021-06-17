@@ -2,7 +2,7 @@
 <div :class="$style.header">
     <input :class="$style.input" :placeholder="placeholder" @click.stop="$refs.popper.toggle(true)" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}" @change="onInput($event)">
     <span v-if="showDate && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
-        <i :class="[$style.icon, $style.closeIcon]"></i>
+        <i :class="[$style.closeIcon]"></i>
     </span>
     <m-popper :class="$style.popper" ref="popper" append-to="reference" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="closeCalendar">
         <div :class="$style.body" @click.stop>
@@ -310,26 +310,23 @@ export default {
     cursor: var(--cursor-pointer);
 }
 
-.icon {
-    width: 18px;
-    height: 18px;
-    line-height: 18px;
-    background: var(--background-color-light);
-    border-radius: 100%;
-    display: inline-block;
-}
-
 .closeIcon:hover {
     color: var(--color-light);
     background-color: #ebedef;
 }
 
 .closeIcon::before {
-    icon-font: url("../i-icon.vue/icons/close-small.svg");
-    font-size: 16px;
-    color: #b4b4b4;
-    margin-right: 0;
-    vertical-align: middle;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    line-height: 1;
+    height: 1em;
+    margin: auto;
+    icon-font: url('../i-icon.vue/assets/close-solid.svg');
+    cursor: var(--cursor-pointer);
+    color: var(--input-clearable-color);
 }
 
 .popper {
