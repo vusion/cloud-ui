@@ -1,8 +1,8 @@
 <template>
 <div :class="$style.root" :disabled="disabled">
-    <div :class="$style.head" v-if="picker !== 'year'">
+    <div :class="$style.head" v-if="picker === 'date' || picker === 'week' || picker === 'time'">
         <div :class="$style.year">
-            <span :class="$style.textYear">{{ showYear }}{{ $t('year') }}</span>
+            <span :class="$style.textYear" >{{ showYear }}{{ $t('year') }}</span>
             <m-popper trigger="click" :opened.sync="yearvisible" append-to="reference">
                 <div :class="$style.yearList" @click.stop>
                     <u-list-view :class="$style.yearListInner" ref="yearList" :value="showYear" @select="yearSelect($event.value)">
@@ -20,23 +20,42 @@
             </m-popper>
         </div>
     </div>
-    <div v-if="picker === 'year'" :class="$style.content" type="year">
-        <year-page @ok="handlerOk" :pageSize="yearPageSize" :currentTotalPage="currentTotalPage">
-        </year-page>
-        <ul :class="$style.yearBox">
-            <li :class="$style.yearItem" v-for="(year, index) in currentYearList" :role="year.value === showYear" :disabled="year.disabled" @click.stop="yearSelect(year.value, index)">{{ year.value }}</li>
-        </ul>
+    <div :class="$style.headCenter" v-if="(picker === 'month' || picker === 'quarter') && currentMode === ''">
+        <a :class="$style.icon" role="prev" :disabled="!this.getYearPrev()" @click="handleYearPrev()"></a>
+        <div :class="$style.yearCenter">
+            <span @click="handlerMode" >{{ showYear }}{{ $t('year') }}</span>
+        </div>
+        <a :class="$style.icon" role="next" :disabled="!this.getYearNext()" @click="handleYearNext()"></a>
     </div>
-    <div v-if="picker === 'quarter'" :class="$style.content" type="quarter">
-            <ul :class="$style.quarterBox">
-                <li :class="$style.quarterItem" v-for="(quarter, mindex) in quarterCol" :role="quarter.value === showMonth" :disabled="quarter.disabled" @click.stop="monthSelect(quarter, mindex)">{{ $t('quarter') }}{{ quarterTextList[quarter.flag - 1] }}</li>
-            </ul>
-        </div>
-    <div v-if="picker === 'month'" :class="$style.content" type="month">
-            <ul :class="$style.monthBox">
-                <li :class="$style.boxItem" v-for="(month, mindex) in monthCol" :role="month.value === showMonth" :disabled="month.disabled" @click.stop="monthSelect(month, mindex)">{{ monthTextList[month.value - 1] }}{{ $t('month') }}</li>
-            </ul>
-        </div>
+    <div v-if="picker === 'year' || currentMode === 'year'" :class="$style.content" type="year">
+        <year-page 
+            :date="showDate"
+            :minDate="minDate"
+            :maxDate="maxDate" 
+            :yearDiff="yearDiff"
+            :yearAdd="yearAdd"
+            @ok="handlerOk" 
+            :showYear="showYear" 
+            :pageSize="yearPageSize" 
+            @select="yearSelect($event)"
+        >
+        </year-page>
+    </div>
+     <div v-if="currentMode === ''">
+        <div v-if="picker === 'quarter'" :class="$style.content" type="quarter">
+                <ul :class="$style.quarterBox">
+                    <li :class="$style.quarterItem" v-for="(quarter, mindex) in quarterCol" :role="quarter.value === showMonth" :disabled="quarter.disabled" @click.stop="monthSelect(quarter, mindex)">{{ $t('quarter') }}{{ quarterTextList[quarter.flag - 1] }}</li>
+                </ul>
+            </div>
+        <div v-if="picker === 'month'" :class="$style.content" type="month">
+                <ul :class="$style.monthBox">
+                    <li :class="$style.boxItem" v-for="(month, mindex) in monthCol" :role="month.value === showMonth" :disabled="month.disabled" @click.stop="monthSelect(month, mindex)">{{ monthTextList[month.value - 1] }}{{ $t('month') }}</li>
+                </ul>
+            </div>
+        
+        
+        
+    </div>
     <div :class="$style.content" v-if="picker === 'date' || picker === 'week' || picker === 'time'">
         <div :class="$style.week"><span :class="$style.dayitem" role="week">{{ $t('Sunday') }}</span><span :class="$style.dayitem">{{ $t('Monday') }}</span><span :class="$style.dayitem">{{ $t('Tuesday') }}</span><span :class="$style.dayitem">{{ $t('Wednesday') }}</span><span :class="$style.dayitem">{{ $t('Thursday') }}</span><span :class="$style.dayitem">{{ $t('Friday') }}</span><span :class="$style.dayitem" role="week">{{ $t('Saturday') }}</span></div>
         <div :class="$style.day"><span v-for="day in days_" :class="$style.item" :sel="getSel(day) ? 'sel' : ''" :disabled="!!isOutOfRange(day)" :role="showDate.getMonth() !== day.getMonth() ? 'muted': ''" @click.stop="select(day)">{{ day | format('dd') }}</span></div>
@@ -88,8 +107,15 @@ export default {
         yearPageSize: { type: Number, default: 12 },
     },
     data() {
+        const date = this.transformDate(this.date);
+        const yearmin = date.getFullYear() - this.yearDiff;
+        const yearmax = date.getFullYear() + parseInt(this.yearAdd);
+
         return {
-            currentTotalPage: (this.yearDiff + this.yearAdd) / this.yearPageSize,
+            /* 目前主要用于 month 和 quarter 切换到 年份选择面板到控制 */
+            currentMode: '',
+            yearmin,
+            yearmax,
             days_: [],
             showDate: this.date,
             updateFlag: false,
@@ -98,7 +124,6 @@ export default {
             quarterCol: this.getQuarterCol(),
             yearvisible: false,
             monthvisible: false,
-            currentYearList: this.getCurrentYearCol(),
             selectedDate: new Date(this.transformDate(this.date)),
             quarterTextList: [this.$t('Q1'), this.$t('Q2'), this.$t('Q3'), this.$t('Q4')],
             monthTextList: [
@@ -202,16 +227,39 @@ export default {
         this.update();
     },
     methods: {
+        getYearPrev() {
+            return this.showYear > this.yearmin;
+        },
+        getYearNext() {
+            return this.showYear < this.yearmax;
+        },
+        handleYearPrev() {
+            this.showYear = this.showYear - 1;
+            // 设置为最早的时间
+            const date = this.showDate;
+            date.setMonth(0);
+            date.setDate(1);
+            date.setHours(0, 0, 0, 0);
+            this.selectedDate = date;
+            this.$emit('select', { sender: this, date });
+        },
+        handleYearNext() {
+            this.showYear = this.showYear + 1;
+            // 设置为最早的时间
+            const date = this.showDate;
+            date.setMonth(0);
+            date.setDate(1);
+            date.setHours(0, 0, 0, 0);
+            this.selectedDate = date;
+            this.$emit('select', { sender: this, date });
+        },
+        handlerMode() {
+            // 切换到年份选择模式
+           this.currentMode = 'year';
+        },
         handlerOk({ start, limit }) {
             this.currentYearList = this.getYearCol().splice(start, limit);
         }, 
-        getCurrentYearCol() {
-            const currentPage = Math.ceil(this.yearDiff / this.yearPageSize);
-            const start = (currentPage - 1) * this.yearPageSize + 1;
-
-            // 计算出今年所在的页，默认显示今年所在的页
-            return this.getYearCol().splice(start, this.yearPageSize);
-        },
         getSel(day) {
             // 日选择
             if (this.picker === 'date') {
@@ -242,7 +290,7 @@ export default {
                 this.updateFlag = true;
             }
         },
-        yearSelect(value) {
+        yearSelect({ value }) {
             this.showYear = value;
             this.yearvisible = false;
             // 设置为最早的时间
@@ -251,6 +299,10 @@ export default {
             date.setDate(1);
             date.setHours(0, 0, 0, 0);
             this.selectedDate = date;
+            if (this.currentMode === 'year') {
+                // 选择年份后模式设置为普通模式
+                this.currentMode = '';
+            }
             this.$emit('select', { sender: this, date });
         },
         monthSelect(month, flag) {
@@ -569,6 +621,16 @@ this.updateFlag = true;
     box-sizing: border-box;
 }
 
+.headCenter {
+    display: flex;
+    line-height: 32px;
+}
+
+.yearCenter {
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
 .yearList {
     z-index: 10;
 }
@@ -604,6 +666,7 @@ this.updateFlag = true;
 }
 
 .boxItem {
+    cursor: pointer;
     width: 33.3%;
     display: inline-flex;
     padding: 10px 0;
@@ -630,6 +693,7 @@ this.updateFlag = true;
 }
 
 .quarterItem {
+    cursor: pointer;
     width: 25%;
     display: inline-flex;
     justify-content: center;
@@ -650,30 +714,6 @@ this.updateFlag = true;
     color: var(--color-light);
 }
 
-.yearBox {
-    list-style: none;
-}
-
-.yearItem {
-    width: 25%;
-    display: inline-flex;
-    justify-content: center;
-    padding: 10px 0;
-}
-
-.yearItem[role] {
-    background-color: var(--brand-primary);
-    color: var(--field-background);
-}
-.yearItem[role]:hover {
-    background-color: var(--brand-primary);
-}
-
-.yearItem[disabled], .yearItem[disabled]:hover {
-    cursor: var(--cursor-not-allowed);
-    background-color: var(--field-background);
-    color: var(--color-light);
-}
 
 .listitem {
     float: left;
@@ -725,6 +765,26 @@ this.updateFlag = true;
     line-height: 16px;
 }
 .yearitem[disabled] {
+    color: var(--color-light);
+}
+
+.icon[role="prev"]::before {
+    icon-font: url('../i-icon.vue/assets/angle-left.svg');
+}
+
+.icon[role="next"]::before {
+    icon-font: url('../i-icon.vue/assets/angle-right.svg');
+}
+.iconBox {
+    display: flex;
+    height: 20px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.iconBox[disabled], .iconBox[disabled]:hover {
+    cursor: var(--cursor-not-allowed);
+    background-color: var(--field-background);
     color: var(--color-light);
 }
 
