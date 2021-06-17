@@ -21,11 +21,20 @@
         </div>
     </div>
     <div v-if="picker === 'year'" :class="$style.content" type="year">
-        <year-page @ok="handlerOk" :pageSize="yearPageSize" :currentTotalPage="currentTotalPage">
+        <year-page 
+            :date="showDate"
+            :minDate="minDate"
+            :maxDate="maxDate" 
+            :yearDiff="yearDiff"
+            :yearAdd="yearAdd"
+            @ok="handlerOk" 
+            :showYear="showYear" 
+            :pageSize="yearPageSize" 
+            :currentTotalPage="currentTotalPage" 
+            :currentYearList="currentYearList" 
+            @select="yearSelect($event)"
+        >
         </year-page>
-        <ul :class="$style.yearBox">
-            <li :class="$style.yearItem" v-for="(year, index) in currentYearList" :role="year.value === showYear" :disabled="year.disabled" @click.stop="yearSelect(year.value, index)">{{ year.value }}</li>
-        </ul>
     </div>
     <div v-if="picker === 'quarter'" :class="$style.content" type="quarter">
             <ul :class="$style.quarterBox">
@@ -242,7 +251,7 @@ export default {
                 this.updateFlag = true;
             }
         },
-        yearSelect(value) {
+        yearSelect({ value }) {
             this.showYear = value;
             this.yearvisible = false;
             // 设置为最早的时间
@@ -650,30 +659,6 @@ this.updateFlag = true;
     color: var(--color-light);
 }
 
-.yearBox {
-    list-style: none;
-}
-
-.yearItem {
-    width: 25%;
-    display: inline-flex;
-    justify-content: center;
-    padding: 10px 0;
-}
-
-.yearItem[role] {
-    background-color: var(--brand-primary);
-    color: var(--field-background);
-}
-.yearItem[role]:hover {
-    background-color: var(--brand-primary);
-}
-
-.yearItem[disabled], .yearItem[disabled]:hover {
-    cursor: var(--cursor-not-allowed);
-    background-color: var(--field-background);
-    color: var(--color-light);
-}
 
 .listitem {
     float: left;
