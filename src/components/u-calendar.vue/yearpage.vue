@@ -1,10 +1,15 @@
 
 <template>
       <div>
-       <div :class="$style.iconBox">
+       <div v-if="currentMode === 'year'"  :class="$style.iconBox">
           <a :class="$style.icon" role="prev" :disabled="!this.getPrev()" @click="handlePrev()"></a>
            <span @click="handleRange()">{{ getCurrentRange() }}</span>
           <a :class="$style.icon" role="next" :disabled="!this.getNext()" @click="handleNext()"></a>
+      </div>
+      <div v-if="currentMode === 'range'"  :class="$style.iconBox">
+          <a  :class="$style.icon" role="prev" :disabled="!this.getPrev()" @click="handleRangePrev()"></a>
+           <span @click="handleRange()">{{ getCurrentRanges() }}</span>
+          <a  :class="$style.icon" role="next" :disabled="!this.getNext()" @click="handleRangeNext()"></a>
       </div>
           <ul v-if="currentMode === 'year'":class="$style.yearBox">
               <li :class="$style.yearItem" v-for="(year, index) in getCurrentList()" :role="year.value === showYear" :disabled="year.disabled" @click.stop="select(year, index)">{{ year.value }}</li>
@@ -57,6 +62,12 @@ export default {
              return this.start >= this.yearmin;
           },
           getNext() {
+            return (this.start + this.pageSize) <= this.yearmax;
+          },
+          getRangePrev() {
+             return this.start >= this.yearmin;
+          },
+          getRangeNext() {
             return (this.start + this.pageSize) <= this.yearmax;
           },
           handleRange() {
@@ -126,32 +137,46 @@ export default {
           getCurrentRange() {
               return `${this.start + 1}-${this.start + 10}`;
           },
+          getCurrentRanges() {
+             return `${this.start + 1}-${this.start + 120}`;
+          },
+          handleRangePrev() {
+              if (!this.getPrev()) {
+                 return;
+              }
+              this.start = this.start - 120; // 移动 12 个范围
+          },
+          handleRangeNext() {
+              if (!this.getNext()) {
+                 return;
+              }
+              // 年份面板的切换
+              this.start = this.start + 120; // 移动 12 个范围
+          },
           handlePrev() {
               if (!this.getPrev()) {
                  return;
               }
-              if (this.currentMode === 'year') {
-                 // 年份面板的切换
-                 this.start = this.start - 10; // 向前移动 10 年
-              }
+              this.start = this.start - 10; // 移动 10 年
           },
           handleNext() {
               if (!this.getNext()) {
                  return;
               }
-              if (this.currentMode === 'year') {
-                 // 年份面板的切换
-                 this.start = this.start + 10; // 向前移动 10 年
-              }
+              // 年份面板的切换
+              this.start = this.start + 10; // 移动 10 年
           },
           handerRangeSelect(range) {
+              if (range.disabled) {
+                 return;
+              }
               // 范围切换
               this.start = range.startyear - 1;
               this.currentMode = 'year';
           },
           select(year, index) {
             if (year.disabled) {
-               return;
+                return;
             }
               this.$emit('select', { value: year.value, index })
           }
@@ -170,9 +195,11 @@ export default {
 }
 .iconBox {
     display: flex;
-    height: 20px;
+    height: 32px;
     justify-content: space-between;
     width: 100%;
+    line-height: 32px;
+    cursor: pointer;
 }
 
 .iconBox[disabled], .iconBox[disabled]:hover {
