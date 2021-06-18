@@ -116,6 +116,7 @@ export default {
                 // 基于当前年份推算当前的面板值
                 for (let i = this.start; i < this.pageSize + this.start; i++) {
                     const obj = { value: i };
+                   
                     if (minDate && i < minDate)
                         obj.disabled = true;
                     else if (maxDate && i > maxDate)

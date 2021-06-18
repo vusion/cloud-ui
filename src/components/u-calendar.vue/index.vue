@@ -52,9 +52,6 @@
                     <li :class="$style.boxItem" v-for="(month, mindex) in monthCol" :role="month.value === showMonth" :disabled="month.disabled" @click.stop="monthSelect(month, mindex)">{{ monthTextList[month.value - 1] }}{{ $t('month') }}</li>
                 </ul>
             </div>
-        
-        
-        
     </div>
     <div :class="$style.content" v-if="picker === 'date' || picker === 'week' || picker === 'time'">
         <div :class="$style.week"><span :class="$style.dayitem" role="week">{{ $t('Sunday') }}</span><span :class="$style.dayitem">{{ $t('Monday') }}</span><span :class="$style.dayitem">{{ $t('Tuesday') }}</span><span :class="$style.dayitem">{{ $t('Wednesday') }}</span><span :class="$style.dayitem">{{ $t('Thursday') }}</span><span :class="$style.dayitem">{{ $t('Friday') }}</span><span :class="$style.dayitem" role="week">{{ $t('Saturday') }}</span></div>
@@ -241,7 +238,6 @@ export default {
             date.setDate(1);
             date.setHours(0, 0, 0, 0);
             this.selectedDate = date;
-            this.$emit('select', { sender: this, date });
         },
         handleYearNext() {
             this.showYear = this.showYear + 1;
@@ -251,7 +247,6 @@ export default {
             date.setDate(1);
             date.setHours(0, 0, 0, 0);
             this.selectedDate = date;
-            this.$emit('select', { sender: this, date });
         },
         handlerMode() {
             // 切换到年份选择模式
