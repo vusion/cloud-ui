@@ -48,7 +48,11 @@ Vue.use(CloudUI); // 全局安装组件库中的组件、指令等
 
 构建用于物料体系的文档入口。
 
-### npm run deploy 发布联调/测试环境
+### npm run deploy:dev 发布联调环境 NOS
+
+将 `dist-theme/` 、 `screenshots` 和 `drawings` 下的文档发布到 NOS
+
+### npm run deploy:test 发布测试环境 NOS
 
 将 `dist-theme/` 、 `screenshots` 和 `drawings` 下的文档发布到 NOS
 

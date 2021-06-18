@@ -27,7 +27,8 @@
     "deploy:screenshots": "node bin/deploy-screenshots",
     "deploy:drawings": "node bin/deploy-drawings",
     "deploy:doc-entry": "vusion deploy --framework cloud-ui -v minor dist-doc-entry",
-    "deploy": "lcap deploy dist-theme && node bin/deploy-lcp-images",
+    "deploy:dev": "lcap deploy dist-theme --platform http://lcp.vusion.top && node bin/deploy-lcp-images --platform=http://lcp.vusion.top",
+    "deploy:test": "lcap deploy dist-theme --platform http://defaulttenant.low-code-fe.qa-ci-lowcode.service.163.org && node bin/deploy-lcp-images --platform=http://defaulttenant.low-code-fe.qa-ci-lowcode.service.163.org",
     "prepublishOnly": "npm run build && npm run build:theme && npm run build:raw && vusion readme && vusion vetur && git add .",
     "postpublish": "npm run build:docs && npm run deploy:online && npm run lcap"
   },
