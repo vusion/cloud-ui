@@ -40,10 +40,14 @@ export const transformDate = function transformDate(date) {
     if (!date)
         return;
     if (typeof date === 'string') {
+        /**
+         * 因为如果时间格式是 json 的字符串 "2021-06-18T07:55:26.914Z"
+         * 不能做 - 的替换，会导致转化失效
+         */
         if (date.includes('Q')) {
-            return new Date(date.replace(/Q1/,'1').replace(/Q2/,'4').replace(/Q3/,'7').replace(/Q4/,'10').replace(/-/g, '/'));
+            return new Date(date.replace(/Q1/,'1').replace(/Q2/,'4').replace(/Q3/,'7').replace(/Q4/,'10'));
         }
-        return new Date(date.replace(/-/g, '/'));
+        return new Date(date);
     }
     else if (typeof date === 'number')
         return new Date(date);
