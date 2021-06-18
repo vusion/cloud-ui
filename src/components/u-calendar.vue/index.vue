@@ -211,13 +211,16 @@ export default {
         minDate(newValue, oldValue) {
             this.monthCol = this.getMonthCol();
             this.yearCol = this.getYearCol();
+            this.quarterCol = this.getQuarterCol();
         },
         maxDate(newValue, oldValue) {
             this.monthCol = this.getMonthCol();
             this.yearCol = this.getYearCol();
+            this.quarterCol = this.getQuarterCol();
         }, // 年份发生变化需要监听 在设置最小值和最大值的情况 会影响月份的选择
         showYear(newValue) {
             this.monthCol = this.getMonthCol(newValue + '');
+            this.quarterCol = this.getQuarterCol();
         }, // 月份发生变化需要监听 会影响日的选择
     },
     created() {
@@ -314,42 +317,36 @@ export default {
                 this.$emit('select', { sender: this, date, flag });
             }
         },
-        getQuarterCol(value) {
-            const date = this.transformDate(value || this.date);
+        getQuarterCol() {
             let minDate = null;
             let maxDate = null;
             if (this.minDate) {
                 minDate = this.transformDate(this.minDate);
-                const minYear = minDate.getFullYear();
-                const minMonth = minDate.getMonth();
-                const minFormat = minYear + '/' + (minMonth + 1);
-                minDate = new Date(minFormat).getTime();
+                minDate = new Date(minDate).getTime();
             }
             if (this.maxDate) {
                 maxDate = this.transformDate(this.maxDate);
-                const maxYear = maxDate.getFullYear();
-                const maxMonth = maxDate.getMonth();
-                const maxFormat = maxYear + '/' + (maxMonth + 1);
-                maxDate = new Date(maxFormat).getTime();
+                maxDate = new Date(maxDate).getTime();
             }
-            const currentYear = date.getFullYear();
-            const monthcol = []; // const mindate = currentYear - this.yearDiff;
-            // const maxdate = parseInt(currentYear) + parseInt(this.yearAdd);
+            // 根据选择面板的当前年份，确认季度列表的样式
+            const currentYear = this.showYear;
+            const quartercol = []; 
             for (let i = 1; i <= 4; i++) {
                 // 季度是间隔三个月
                 const currentMonth = (i - 1) * 3 + 1;
                 const obj = { flag: i, value: currentMonth }; // 标记季度间隔
                 const dateFormat = currentYear + '/' + currentMonth;
                 const dateTime = new Date(dateFormat).getTime();
+
                 if (minDate && dateTime < minDate)
                     obj.disabled = true;
                 else if (maxDate && dateTime > maxDate)
                     obj.disabled = true;
                 else
                     obj.disabled = false;
-                monthcol.push(obj);
+                quartercol.push(obj);
             }
-            return monthcol;
+            return quartercol;
         },
         getYearCol() {
             const date = this.transformDate(this.date);
@@ -379,20 +376,33 @@ export default {
             const date = this.transformDate(value || this.date);
             let minDate = null;
             let maxDate = null;
-            if (this.minDate) {
-                minDate = this.transformDate(this.minDate);
-                const minYear = minDate.getFullYear();
-                const minMonth = minDate.getMonth();
-                const minFormat = minYear + '/' + (minMonth + 1);
-                minDate = new Date(minFormat).getTime();
-            }
-            if (this.maxDate) {
-                maxDate = this.transformDate(this.maxDate);
-                const maxYear = maxDate.getFullYear();
-                const maxMonth = maxDate.getMonth();
-                const maxFormat = maxYear + '/' + (maxMonth + 1);
-                maxDate = new Date(maxFormat).getTime();
-            }
+            if (this.picker === 'month') {
+                // 如果是月份的话，不需要放开有部分超过限制时间的月份
+                if (this.minDate) {
+                    minDate = this.transformDate(this.minDate);
+                    minDate = new Date(minDate).getTime();
+                }
+                if (this.maxDate) {
+                    maxDate = this.transformDate(this.maxDate);
+                    maxDate = new Date(maxDate).getTime();
+                }
+            } else {
+                if (this.minDate) {
+                    minDate = this.transformDate(this.minDate);
+                    const minYear = minDate.getFullYear();
+                    const minMonth = minDate.getMonth();
+                    const minFormat = minYear + '/' + (minMonth + 1);
+                    minDate = new Date(minFormat).getTime();
+                }
+                if (this.maxDate) {
+                    maxDate = this.transformDate(this.maxDate);
+                    const maxYear = maxDate.getFullYear();
+                    const maxMonth = maxDate.getMonth();
+                    const maxFormat = maxYear + '/' + (maxMonth + 1);
+                    maxDate = new Date(maxFormat).getTime();
+                }
+            } 
+
             const currentYear = date.getFullYear();
             const monthcol = []; // const mindate = currentYear - this.yearDiff;
             // const maxdate = parseInt(currentYear) + parseInt(this.yearAdd);
