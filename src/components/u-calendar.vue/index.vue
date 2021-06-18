@@ -5,7 +5,7 @@
             <span :class="$style.textYear" >{{ showYear }}{{ $t('year') }}</span>
             <m-popper trigger="click" :opened.sync="yearvisible" append-to="reference">
                 <div :class="$style.yearList" @click.stop>
-                    <u-list-view :class="$style.yearListInner" ref="yearList" :value="showYear" @select="yearSelect($event.value)">
+                    <u-list-view :class="$style.yearListInner" ref="yearList" :value="showYear" @select="yearSelect($event)">
                         <u-list-view-item :class="$style.yearitem" v-for="(year, index) in yearCol" :key="index" :value="year.value" :disabled="year.disabled">{{ year.value }}{{ $t('year') }}</u-list-view-item>
                     </u-list-view>
                 </div>
