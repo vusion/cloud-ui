@@ -54,3 +54,23 @@ export const transformDate = function transformDate(date) {
     else if (typeof date === 'object')
         return date;
 };
+
+
+/** 自动去掉最大最小时间的尾数 */
+export function ChangeDate(currentDate, picker) {
+    const date = new Date(currentDate);
+   if (picker === 'month' || picker === 'quarter') {
+       date.setDate(1);
+       date.setHours(0, 0, 0, 0);
+       return date;
+   }
+
+   if (picker === 'year') {
+       date.setMonth(0);
+       date.setDate(1);
+       date.setHours(0, 0, 0, 0);
+       return date;
+   }
+
+   return currentDate;
+}
