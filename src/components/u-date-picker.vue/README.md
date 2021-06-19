@@ -62,7 +62,7 @@
 ### 方法
 ``` vue
 <template>
-<u-date-picker time="morning" year-diff="1" min-date="2009" max-date="2020" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
+<u-date-picker min-date="2021-06-18T00:00:00.000Z" time="morning" year-diff="1" max-date="2025" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
 </template>  
 
 <script>
@@ -95,7 +95,7 @@ export default {
 ### 月份选择
 ``` vue
 <template>
-<u-date-picker picker="month" time="morning" min-date="2021-3" max-date="2024-5"  year-diff="1" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
+<u-date-picker min-date="2021-06-18T00:00:00.000Z" picker="month" time="morning" max-date="2024-5"  year-diff="1" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
 </template>
 
 <script>
@@ -128,14 +128,14 @@ export default {
 ### 季度选择
 ``` vue
 <template>
-<u-date-picker picker="quarter" time="morning" min-date="2021-Q3" max-date="2024-5" year-diff="1" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
+<u-date-picker min-date="2021-06-18T00:00:00.000Z" picker="quarter" time="morning" max-date="2024-5" year-diff="1" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
 </template>
 
 <script>
 export default {
 	data(){
 		return {
-			date: '2018-01-01',
+			date: '2021-01-01',
 		}
 	},
     methods: {
@@ -161,7 +161,7 @@ export default {
 ### 年份选择
 ``` vue
 <template>
-<u-date-picker min-date="2021-09-18T07:23:53.056Z" max-date="2024" picker="year" time="morning" clearable year-diff="20" year-add="20" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
+<u-date-picker min-date="2021-07-18T00:00:00.000Z" max-date="2024" picker="year" time="morning" clearable year-diff="20" year-add="20" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
 </template>
 
 <script>
@@ -196,6 +196,7 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| picker | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'date'` | 用于定义选择的格式 |
 | width | number |  | `160` | 输入框宽度 |
 | date.sync, v-model | string,number,Date |  |  | 选择值 |
 | minDate | string,number,Date |  |  | 最小日期 |
@@ -209,7 +210,6 @@ export default {
 | time | string, number |  | `'0:00:00'` | 输入对应格式的字符串（8:00:00）即可 |
 | yearDiff | number |  | `20` | 最小可选年份值为当前年减去此值 |
 | yearAdd | number |  | `20` | 最大可选年份值为当前年加上此值 |
-| picker | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'date'` | 用于定义选择的格式 |
 | converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'json'` | 转换器，用于转换时间结果 |
 
 ### Events

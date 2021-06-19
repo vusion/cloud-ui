@@ -33,6 +33,7 @@ export default {
         showYear: { type: Number },
         yearDiff: { type: [String, Number] },
         yearAdd: { type: [String, Number] },
+        picker: { type: String },
         date: {
             type: [String, Number, Date],
             default() {

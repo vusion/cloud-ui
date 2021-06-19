@@ -12911,6 +12911,31 @@
             ],
             "attrs": [
                 {
+                    "name": "picker",
+                    "title": "格式",
+                    "type": "string",
+                    "options": [
+                        {
+                            "title": "日期",
+                            "value": "date"
+                        },
+                        {
+                            "title": "年",
+                            "value": "year"
+                        },
+                        {
+                            "title": "月",
+                            "value": "month"
+                        },
+                        {
+                            "title": "季",
+                            "value": "quarter"
+                        }
+                    ],
+                    "default": "date",
+                    "description": "用于定义选择的格式"
+                },
+                {
                     "name": "width",
                     "title": "输入框宽度",
                     "type": "number",
@@ -13012,31 +13037,6 @@
                     "type": "number",
                     "default": 20,
                     "description": "最大可选年份值为当前年加上此值"
-                },
-                {
-                    "name": "picker",
-                    "title": "格式",
-                    "type": "string",
-                    "options": [
-                        {
-                            "title": "日期",
-                            "value": "date"
-                        },
-                        {
-                            "title": "年",
-                            "value": "year"
-                        },
-                        {
-                            "title": "月",
-                            "value": "month"
-                        },
-                        {
-                            "title": "季",
-                            "value": "quarter"
-                        }
-                    ],
-                    "default": "date",
-                    "description": "用于定义选择的格式"
                 },
                 {
                     "name": "converter",

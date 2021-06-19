@@ -535,6 +535,7 @@
   },
   "u-date-picker": {
     "attributes": [
+      "picker",
       "width",
       "date",
       "minDate",
@@ -548,7 +549,6 @@
       "time",
       "yearDiff",
       "yearAdd",
-      "picker",
       "converter"
     ],
     "description": "日期选择器"
