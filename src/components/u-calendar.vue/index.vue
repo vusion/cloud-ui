@@ -36,6 +36,7 @@
             :yearAdd="yearAdd"
             @ok="handlerOk" 
             :showYear="showYear" 
+            :picker="picker"
             :pageSize="yearPageSize" 
             @select="yearSelect($event)"
         >
@@ -64,7 +65,7 @@
 <script>
 const MS_OF_DAY = 24 * 3600 * 1000;
 import i18n from './i18n';
-import { format, transformDate } from '../../utils/date';
+import { format, transformDate, ChangeDate } from '../../utils/date';
 import YearPage from './yearpage';
 
 const DateRangeError = function (minDate, maxDate) {
@@ -220,7 +221,7 @@ export default {
         }, // 年份发生变化需要监听 在设置最小值和最大值的情况 会影响月份的选择
         showYear(newValue) {
             this.monthCol = this.getMonthCol(newValue + '');
-            this.quarterCol = this.getQuarterCol();
+            this.quarterCol = this.getQuarterCol(newValue + '');
         }, // 月份发生变化需要监听 会影响日的选择
     },
     created() {
@@ -308,7 +309,7 @@ export default {
                 this.showMonth = month.value;
                 this.monthvisible = false;
             }
-    
+
             if (this.picker === 'month' || this.picker === 'quarter') {
                 const date = this.showDate;
                 date.setDate(1);
@@ -317,19 +318,20 @@ export default {
                 this.$emit('select', { sender: this, date, flag });
             }
         },
-        getQuarterCol() {
+        getQuarterCol(value) {
+            const date = this.transformDate(this.date);
             let minDate = null;
             let maxDate = null;
             if (this.minDate) {
-                minDate = this.transformDate(this.minDate);
+                minDate = ChangeDate(this.transformDate(this.minDate), this.picker);
                 minDate = new Date(minDate).getTime();
             }
             if (this.maxDate) {
-                maxDate = this.transformDate(this.maxDate);
+                maxDate = ChangeDate(this.transformDate(this.maxDate), this.picker);
                 maxDate = new Date(maxDate).getTime();
             }
             // 根据选择面板的当前年份，确认季度列表的样式
-            const currentYear = this.showYear;
+            const currentYear = date.getFullYear();
             const quartercol = []; 
             for (let i = 1; i <= 4; i++) {
                 // 季度是间隔三个月
@@ -353,9 +355,9 @@ export default {
             let minDate = null;
             let maxDate = null;
             if (this.minDate)
-                minDate = this.transformDate(this.minDate).getFullYear();
+                minDate = ChangeDate(this.transformDate(this.minDate).getFullYear(), this.picker);
             if (this.maxDate)
-                maxDate = this.transformDate(this.maxDate).getFullYear();
+                maxDate = ChangeDate(this.transformDate(this.maxDate).getFullYear(), this.picker);
             const currentYear = date.getFullYear();
             const yearcol = [];
             const yearmin = currentYear - this.yearDiff;
@@ -379,11 +381,11 @@ export default {
             if (this.picker === 'month') {
                 // 如果是月份的话，不需要放开有部分超过限制时间的月份
                 if (this.minDate) {
-                    minDate = this.transformDate(this.minDate);
+                    minDate = ChangeDate(this.transformDate(this.minDate), this.picker);
                     minDate = new Date(minDate).getTime();
                 }
                 if (this.maxDate) {
-                    maxDate = this.transformDate(this.maxDate);
+                    maxDate = ChangeDate(this.transformDate(this.maxDate), this.picker);
                     maxDate = new Date(maxDate).getTime();
                 }
             } else {
@@ -509,8 +511,8 @@ this.updateFlag = true;
          * @param {Date} date 待测的日期
          * @return {boolean|Date} date 如果没有超出日期范围，则返回false；如果超出日期范围，则返回范围边界的日期
          */ isOutOfRange(date) {
-            let minDate = this.transformDate(this.minDate);
-            let maxDate = this.transformDate(this.maxDate); // 不要直接在$watch中改变`minDate`和`maxDate`的值，因为有时向外绑定时可能不希望改变它们。
+            let minDate = ChangeDate(this.transformDate(this.minDate), this.picker);
+            let maxDate = ChangeDate(this.transformDate(this.maxDate), this.picker); // 不要直接在$watch中改变`minDate`和`maxDate`的值，因为有时向外绑定时可能不希望改变它们。
             minDate = minDate && minDate.setHours(0, 0, 0, 0);
             maxDate = maxDate && maxDate.setHours(0, 0, 0, 0); // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期
             return (
