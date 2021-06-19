@@ -235,6 +235,15 @@ export default {
             return this.showYear < this.yearmax;
         },
         handleYearPrev() {
+            let minDate = null;
+           
+            if (this.minDate) {
+                minDate = this.transformDate(this.minDate).getFullYear();
+                if (minDate >= this.showYear) {
+                    return;
+                }
+            }
+
             this.showYear = this.showYear - 1;
             // 设置为最早的时间
             const date = this.showDate;
@@ -244,6 +253,14 @@ export default {
             this.selectedDate = date;
         },
         handleYearNext() {
+            let maxDate = null;
+            if (this.maxDate) {
+                maxDate = this.transformDate(this.maxDate).getFullYear();
+                if (maxDate <= this.showYear) {
+                    return;
+                }
+            }
+            
             this.showYear = this.showYear + 1;
             // 设置为最早的时间
             const date = this.showDate;
@@ -319,15 +336,15 @@ export default {
             }
         },
         getQuarterCol(value) {
-            const date = this.transformDate(this.date);
+            const date = this.transformDate(value || this.date);
             let minDate = null;
             let maxDate = null;
             if (this.minDate) {
-                minDate = ChangeDate(this.transformDate(this.minDate), this.picker);
+                minDate = ChangeDate(this.transformDate(this.minDate), this.picker, 'min');
                 minDate = new Date(minDate).getTime();
             }
             if (this.maxDate) {
-                maxDate = ChangeDate(this.transformDate(this.maxDate), this.picker);
+                maxDate = ChangeDate(this.transformDate(this.maxDate), this.picker, 'max');
                 maxDate = new Date(maxDate).getTime();
             }
             // 根据选择面板的当前年份，确认季度列表的样式
@@ -339,6 +356,7 @@ export default {
                 const obj = { flag: i, value: currentMonth }; // 标记季度间隔
                 const dateFormat = currentYear + '/' + currentMonth;
                 const dateTime = new Date(dateFormat).getTime();
+
 
                 if (minDate && dateTime < minDate)
                     obj.disabled = true;
