@@ -105,7 +105,7 @@ export default {
 ### 季度选择
 ``` vue
 <template>
-<u-date-picker min-date="2021-07-18T00:00:00.000Z" picker="quarter" time="morning" max-date="2024-5" year-diff="1" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
+<u-date-picker min-date="2021-06-18T00:00:00.000Z" picker="quarter" time="morning" max-date="2024-5" year-diff="1" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
 </template>
 
 <script>

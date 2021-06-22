@@ -1592,6 +1592,28 @@
     "type": "boolean",
     "description": "是否不可点击。如果为`true`，则不会响应`click`事件。"
   },
+  "u-date-picker/picker": {
+    "type": "string",
+    "options": [
+      {
+        "title": "日期",
+        "value": "date"
+      },
+      {
+        "title": "年",
+        "value": "year"
+      },
+      {
+        "title": "月",
+        "value": "month"
+      },
+      {
+        "title": "季",
+        "value": "quarter"
+      }
+    ],
+    "description": "用于定义选择的格式"
+  },
   "u-date-picker/width": {
     "type": "number",
     "description": "输入框宽度"
@@ -1653,28 +1675,6 @@
   "u-date-picker/yearAdd": {
     "type": "number",
     "description": "最大可选年份值为当前年加上此值"
-  },
-  "u-date-picker/picker": {
-    "type": "string",
-    "options": [
-      {
-        "title": "日期",
-        "value": "date"
-      },
-      {
-        "title": "年",
-        "value": "year"
-      },
-      {
-        "title": "月",
-        "value": "month"
-      },
-      {
-        "title": "季",
-        "value": "quarter"
-      }
-    ],
-    "description": "用于定义选择的格式"
   },
   "u-date-picker/converter": {
     "type": "string",
