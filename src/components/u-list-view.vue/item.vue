@@ -5,7 +5,7 @@
     :disabled="disabled || parentVM.disabled"
     @click="select"
     v-ellipsis-title>
-    <slot></slot>
+    <slot>{{ text }}</slot>
 </div>
 </template>
 
@@ -18,6 +18,7 @@ export default {
     parentName: 'u-list-view',
     groupName: 'u-list-view-group',
     extends: MComplexItem,
+    props: { text: { type: String } },
 };
 </script>
 
