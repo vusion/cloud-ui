@@ -54,7 +54,7 @@
         </u-input> -->
     </div>
     <span v-if="clearable && !!currentText" :class="$style.clearable" @click="clear"></span>
-    <m-popper :placement="placement" :class="$style.popper" ref="popper" :append-to="appendTo" :color="color" :disabled="readonly || currentDisabled"
+    <m-popper :class="$style.popper" ref="popper" :placement="placement" :append-to="appendTo" :color="color" :disabled="readonly || currentDisabled"
         @update:opened="$emit('update:opened', $event, this)"
         @before-open="$emit('before-open', $event, this)"
         @before-close="$emit('before-close', $event, this)"
@@ -127,11 +127,7 @@ export default {
         clearable: { type: Boolean, default: false },
         filterable: { type: Boolean, default: false },
         opened: { type: Boolean, default: false },
-        placement: {
-            type: String,
-            default: 'bottom-start',
-            validator: (value) => /^(top|bottom|left|right)(-start|-end)?$/.test(value),
-        },
+        placement: { type: String, validator: (value) => /^(top|bottom|left|right)(-start|-end)?$/.test(value) },
         appendTo: {
             type: String,
             default: 'reference',
