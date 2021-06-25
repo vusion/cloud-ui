@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.10.2",
+  "version": "0.10.3",
   "author": "Forrest <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -77,8 +77,8 @@
     "vusion-hooks": "^0.3.0"
   },
   "peerDependencies": {
-    "vue": "^2.6.10",
-    "@vusion/utils": "^0.4.9"
+    "@vusion/utils": "^0.4.9",
+    "vue": "^2.6.10"
   },
   "vetur": {
     "tags": "./vetur/tags.json",
