@@ -4,13 +4,13 @@
      */
 
     /* Brand Colors */
-    --brand-primary-lightest: #ebf1ff;
-    --brand-primary-lighter: #c2d6ff;
-    --brand-primary-light: #5b92ff;
-    --brand-primary: #4784ff;
-    --brand-primary-dark: #236cff;
-    --brand-primary-darker: #0048d9;
-    --brand-primary-darkest: #003cb5;
+    --brand-primary-lightest: #e8f1ff;
+    --brand-primary-lighter: #bbd4ff;
+    --brand-primary-light: #4a8cff;
+    --brand-primary: #337eff;
+    --brand-primary-dark: #1168ff;
+    --brand-primary-darker: #004bcc;
+    --brand-primary-darkest: #003eaa;
 
     --brand-success-lightest: #e9f9f6;
     --brand-success-lighter: #bceee4;
@@ -956,12 +956,20 @@
     /* Toast */
     --toast-margin: 30px;
     --toast-width: 300px;
+    --toast-max-width: 320px;
     --toast-top: 90px;
     --toast-close-font-size: 18px;
     --toast-close-color: white;
     --toast-item-color: white;
-    --toast-item-padding: 10px;
+    --toast-item-padding: 8px 16px;
     --toast-item-space: 10px;
+    --toast-item-border-radius: var(--border-radius-large);
+    --toast-item-icon-space: 8px;
+    --toast-item-icon-font-size: 16px;
+    --toast-item-icon-color-info: #4c88ff;
+    --toast-item-icon-color-success: #26bd71;
+    --toast-item-icon-color-warning: #ffaf0f;
+    --toast-item-icon-color-error: #f24957;
     --toast-background-color: rgba(0, 0, 0, 0.6);
 
     /* Modal */
