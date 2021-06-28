@@ -518,6 +518,29 @@ export default {
 </script>
 ```
 
+设置属性text形式
+``` vue
+<template>
+<u-linear-layout>
+    <u-select v-model="values" multiple style="width: 240px">
+        <u-select-item text="Java" value="java"></u-select-item>
+        <u-select-item text="Node.js" value="nodejs"></u-select-item>
+        <u-select-item text="Go" value="go"></u-select-item>
+        <u-select-item text="Python" value="python"></u-select-item>
+    </u-select>
+</u-linear-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            values: ['java', 'nodejs'],
+        };
+    },
+};
+</script>
+```
+
 ### Tags 风格
 
 Tags 过多时如何显示。
@@ -1496,6 +1519,7 @@ Methods
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value | any |  |  | 此项的值。 |
+| text | string |  |  | 此项的显示值 |
 | disabled | boolean |  | `false` | 禁用此项。 |
 | item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发。 |
 

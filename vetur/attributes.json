@@ -4228,6 +4228,10 @@
     "type": "any",
     "description": "此项的值。"
   },
+  "u-select-item/text": {
+    "type": "string",
+    "description": "此项的显示值"
+  },
   "u-select-item/disabled": {
     "type": "boolean",
     "description": "禁用此项。"

@@ -9,7 +9,6 @@
     - [Slots](#slots)
 - [UCrumbItem API](#ucrumbitem-api)
     - [Props/Attrs](#propsattrs-2)
-    - [Slots](#slots-2)
     - [Events](#events)
 
 **Layout**
@@ -60,12 +59,6 @@
 | replace | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
 | append | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。 |
 | disabled | boolean |  | `false` | 是否不可点击。如果为`true`，则不会响应`click`事件。 |
-
-### Slots
-
-#### (default)
-
-插入文本或 HTML。
 
 ### Events
 

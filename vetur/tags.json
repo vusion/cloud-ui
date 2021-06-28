@@ -1266,6 +1266,7 @@
   "u-select-item": {
     "attributes": [
       "value",
+      "text",
       "disabled",
       "item"
     ],
