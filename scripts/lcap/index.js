@@ -14,13 +14,17 @@ const packageJSON = require('../../package.json');
 const libInfo = `${packageJSON.name}@${packageJSON.version}`;
 Object.values(map).forEach((item) => {
     let screenShot = JSON.parse(item.screenShot);
-    screenShot = screenShot.map((screen) => `https://static-vusion.163yun.com/packages/${libInfo}/src/components/${item.symbol}.vue/screenshots/${screen}`);
+    screenShot = screenShot
+        .filter((screen) => !screen.includes('.DS_Store'))
+        .map((screen) => `https://static-vusion.163yun.com/packages/${libInfo}/src/components/${item.symbol}.vue/screenshots/${screen}`);
     item.jsonSchema.screenShot = item.screenShot = screenShot.join(',');
 });
 
 Object.values(map).forEach((item) => {
     let drawings = JSON.parse(item.jsonSchema.drawings);
-    drawings = drawings.map((screen) => `https://static-vusion.163yun.com/packages/${libInfo}/src/components/${item.symbol}.vue/drawings/${screen}`);
+    drawings = drawings
+        .filter((screen) => !screen.includes('.DS_Store'))
+        .map((screen) => `https://static-vusion.163yun.com/packages/${libInfo}/src/components/${item.symbol}.vue/drawings/${screen}`);
     item.jsonSchema.drawings = drawings.join(',');
 });
 

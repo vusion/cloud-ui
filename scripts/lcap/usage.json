@@ -3052,7 +3052,7 @@
             "description": "用于触发一个即时操作。",
             "category": "Display",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.45/src/components/u-button.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.45/src/components/u-button.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.45/src/components/u-button.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.45/src/components/u-button.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.45/src/components/u-button.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.45/src/components/u-button.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.45/src/components/u-button.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.45/src/components/u-button.vue/screenshots/7.png",
-            "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.45/src/components/u-button.vue/drawings/.DS_Store,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.45/src/components/u-button.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.45/src/components/u-button.vue/drawings/1.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.45/src/components/u-button.vue/drawings/2.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.45/src/components/u-button.vue/drawings/3.svg",
+            "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.45/src/components/u-button.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.45/src/components/u-button.vue/drawings/1.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.45/src/components/u-button.vue/drawings/2.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.45/src/components/u-button.vue/drawings/3.svg",
             "blocks": [
                 {
                     "title": "主要按钮",
@@ -9293,12 +9293,12 @@
                         {
                             "name": "u-select-item",
                             "title": "选项",
-                            "snippet": "<u-select-item>选项</u-select-item>"
+                            "snippet": "<u-select-item text=\"选项\"></u-select-item>"
                         },
                         {
                             "name": "u-select-group",
                             "title": "分组",
-                            "snippet": "<u-select-group title=\"分组\"><u-select-item>选项</u-select-item></u-select-group>"
+                            "snippet": "<u-select-group title=\"分组\"><u-select-item text=\"选项\"></u-select-item></u-select-group>"
                         },
                         {
                             "name": "u-select-divider",
@@ -9683,6 +9683,12 @@
                             "description": "此项的值。"
                         },
                         {
+                            "name": "text",
+                            "title": "选项文本",
+                            "type": "string",
+                            "description": "此项的显示值"
+                        },
+                        {
                             "name": "disabled",
                             "title": "禁用此项",
                             "type": "boolean",
@@ -9769,7 +9775,7 @@
                                 {
                                     "name": "u-select-item",
                                     "title": "选项",
-                                    "snippet": "<u-select-item>选项</u-select-item>"
+                                    "snippet": "<u-select-item text=\"选项\"></u-select-item>"
                                 }
                             ]
                         },
