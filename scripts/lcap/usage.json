@@ -2121,12 +2121,6 @@
                             "description": "是否不可点击。如果为`true`，则不会响应`click`事件。"
                         }
                     ],
-                    "slots": [
-                        {
-                            "name": "default",
-                            "description": "插入文本或 HTML。"
-                        }
-                    ],
                     "events": [
                         {
                             "name": "$listeners",
