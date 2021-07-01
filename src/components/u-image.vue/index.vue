@@ -10,7 +10,6 @@
 
 export default {
     name: 'u-image',
-    inheritAttrs: false,
     props: {
         src: {
             type: String,
