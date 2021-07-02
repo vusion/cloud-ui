@@ -50,7 +50,7 @@ export default {
                 this.$mount(document.createElement('div')); // Vue 加载完成后，触发某一事件后，先执行methods，再执行watch方法，会导致标签显示异常
             this.$nextTick(() => {
                 this.open({
-                    text: text || this.text,
+                    text: text || this.text || '',
                     color,
                     duration: duration === undefined ? this.duration : duration,
                     timestamp: +new Date(),
@@ -65,7 +65,7 @@ export default {
                 this.close(this.items[0]);
 
             this.items.push(item);
-            if (item.duration) {
+            if (item.duration || item.duration === Infinity) {
                 setTimeout(() => {
                     this.close(item);
                 }, item.duration);
@@ -177,18 +177,18 @@ export default {
 
 .leave {
     position: absolute;
+    width: 1000px;
 }
 
 .item {
     display: inline-block;
-    white-space: nowrap;
     max-width: var(--toast-max-width);
     margin-bottom: var(--toast-item-space);
     padding: var(--toast-item-padding);
     background: var(--toast-background-color);
     color: var(--toast-item-color);
-    text-align: center;
     border-radius: var(--toast-item-border-radius);
+    text-align: var(--toast-item-icon-text-align);
 }
 
 .close {
@@ -204,11 +204,9 @@ export default {
 
 .item::before {
     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 48%, rgba(255,255,255,0) 48%);
-    margin-right: var(--toast-item-icon-space);
     font-size: var(--toast-item-icon-font-size);
-    float: left;
     line-height: 1;
-    margin-top: 3px;
+    margin: var(--toast-item-icon-margin);
 }
 .item[color="info"] {
     /* background: #00c0ef;

@@ -56,6 +56,7 @@ export default {
         width(width) {
             this.currentWidth = width === undefined ? undefined : width + '';
             this.computedWidth = width === undefined ? undefined : width + '';
+            // this.parentVM.handleResize(); // 暂时不需要，dataSource 会触发此方法
         },
     },
     created() {
