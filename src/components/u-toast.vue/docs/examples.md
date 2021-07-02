@@ -1,22 +1,22 @@
 ### 基本用法
 
 ```html
-<u-button @click="$refs.toast.show()">组件</u-button>
-<u-toast ref="toast">2s</u-toast>
+<u-button @click="$refs.toast.show()">弹出消息</u-button>
+<u-toast ref="toast">这是一条消息</u-toast>
 ```
 
 ### 快捷方式
 
 ``` vue
 <template>
-<u-button @click="show">Toast</u-button>
+<u-button @click="show">弹出消息</u-button>
 </template>
 
 <script>
 export default {
     methods: {
         show() {
-            this.$toast.show('This is a text.');
+            this.$toast.show('这是一条消息');
         },
     },
 };
@@ -48,6 +48,28 @@ export default {
 };
 </script>
 ```
+### 设置颜色
+
+``` vue
+<template>
+<u-linear-layout>
+    <u-button @click="show('info')">Info</u-button>
+    <u-button @click="show('success')">Success</u-button>
+    <u-button @click="show('warning')">Warning</u-button>
+    <u-button @click="show('error')">Error</u-button>
+</u-linear-layout>
+</template>
+
+<script>
+export default {
+    methods: {
+        show(color) {
+            this.$toast[color]('color: ' + color, 0);
+        },
+    },
+};
+</script>
+```
 
 ### 嵌入文档流
 
@@ -69,12 +91,14 @@ export default {
 
 可以通过设置toast的`duration`参数设置所有提示的停留时间，也可以在`show`的时候单独设置该条提示的停留时间，单位为毫秒。
 
+默认为`3000`。
+
 ``` vue
 <template>
 <u-linear-layout>
-    <u-button @click="show(500)">0.5s</u-button>
     <u-button @click="show(1000)">1s</u-button>
-    <u-button @click="show(2000)">2s</u-button>
+    <u-button @click="show(3000)">3s</u-button>
+    <u-button @click="show(10000)">10s</u-button>
     <u-button @click="show(0)">常驻</u-button>
 </u-linear-layout>
 </template>

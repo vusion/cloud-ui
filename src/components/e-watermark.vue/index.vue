@@ -8,6 +8,7 @@
 
 <script>
 import throttle from 'lodash/throttle';
+import { addResizeListener, removeResizeListener } from '../../utils/dom';
 
 export default {
     name: 'e-watermark',
@@ -50,11 +51,11 @@ export default {
     mounted() {
         this.drawMark();
         this.redraw();
-        window.addEventListener('resize', this.redraw);
+        addResizeListener(this.$el, this.redraw);
     },
     destroyed() {
         this.clearTimeout();
-        window.removeEventListener('resize', this.redraw);
+        removeResizeListener(this.$el, this.redraw);
     },
     methods: {
         clearTimeout() {

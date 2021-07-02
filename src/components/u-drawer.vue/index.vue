@@ -1,10 +1,17 @@
 <template>
-<transition name="fade-fast">
-    <div ref="root" :class="$style.root" v-if="currentVisible" :placement="placement"
+<transition
+    enter-active-class="animate__animated animate__fadeIn"
+    leave-active-class="animate__animated animate__fadeOut animate__fast">
+    <div ref="root" :class="$style.root" v-if="currentVisible || animationVisible" :placement="placement"
         @click="maskClosable && cancel()"
         tabindex="1" @keydown.esc="cancel()">
-        <transition :name="'fly-' + placement">
-            <div :class="$style.drawer" v-show="drawerVisible" v-bind="$attrs" v-on="$listeners" @click.stop>
+        <transition
+            :enter-active-class="'placement animate__animated animate__fadeIn' + animatePlacement"
+            :leave-active-class="'placement animate__animated animate__fast animate__fadeOut' + animatePlacement">
+            <div :class="$style.drawer"
+                v-show="currentVisible && animationVisible"
+                v-bind="$attrs" v-on="$listeners"
+                @click.stop>
                 <slot name="drawer">
                     <div :class="$style.head">
                         <slot name="head">
@@ -43,12 +50,17 @@ export default {
         maskClosable: { type: Boolean, default: true },
     },
     data() {
-        return { drawerVisible: this.visible };
+        return { animationVisible: this.visible };
+    },
+    computed: {
+        animatePlacement() {
+            return this.placement.replace(/^[a-z]/, (m) => m.toUpperCase());
+        },
     },
     watch: {
         // @TODO: 为了让两个动画错开的临时解决方案
         currentVisible(currentVisible) {
-            this.$nextTick(() => (this.drawerVisible = currentVisible));
+            this.$nextTick(() => (this.animationVisible = currentVisible));
         },
     },
 };

@@ -11,7 +11,7 @@ module.exports = {
         github: 'https://github.com/vusion/cloud-ui',
         package: pkg,
         navbar: [
-            { text: '设计语言', to: '/design' },
+            // { text: '设计语言', to: '/design' },
             { text: '基础组件', to: '/components' },
             { text: '指令和工具', to: '/misc' },
             { text: '布局', to: '/layouts' },
@@ -35,6 +35,7 @@ module.exports = {
             { group: 'Basic', name: 'i-icon', alias: '图标' },
             { group: 'Layout', name: 'u-linear-layout', alias: '线性布局', vscode: false },
             { group: 'Layout', name: 'u-grid-layout', alias: '栅格布局', vscode: false },
+            { group: 'Layout', name: 'u-split-layout', alias: '分割布局', vscode: false },
             { group: 'Container', show: true, name: 'u-for', alias: '循环渲染' },
             { group: 'Container', show: true, name: 'u-if', alias: '条件渲染' },
             { group: 'Display', name: 'u-list', alias: '列表' },

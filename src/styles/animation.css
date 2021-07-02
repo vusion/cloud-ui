@@ -1,29 +1,178 @@
-.fade-enter-active, .fade-leave-active {
+/* @import 'vue2-animate/dist/vue2-animate.min.css'; */
+@import 'animate.css';
+
+:root {
+    --animate-duration: 0.4s;
+    /* --animate-delay: 1s;
+    --animate-repeat: 1; */
+}
+
+.fade-enter-active,
+.fade-leave-active {
     transition: opacity var(--transition-duration-base);
 }
-.fade-enter, .fade-leave-to {
+
+.fade-enter,
+.fade-leave-to {
     opacity: 0;
 }
 
-.fade-fast-enter-active, .fade-fast-leave-active {
+.fade-fast-enter-active,
+.fade-fast-leave-active {
     transition: opacity var(--transition-duration-fast);
 }
-.fade-fast-enter, .fade-fast-leave-to {
+
+.fade-fast-enter,
+.fade-fast-leave-to {
     opacity: 0;
 }
 
-.fly-left-enter-active, .fly-left-leave-active {
-    transform: translate(0);
-    transition: transform var(--transition-duration-base);
-}
-.fly-left-enter, .fly-left-leave-to {
-    transform: translate(-100%);
+.animate__move {
+    transition: transform var(--animate-duration);
 }
 
-.fly-right-enter-active, .fly-right-leave-active {
-    transform: translate(0);
-    transition: transform var(--transition-duration-base);
+.animate__list-leave-active {
+    position: absolute;
+    width: 1000px;
 }
-.fly-right-enter, .fly-right-leave-to {
-    transform: translate(100%);
+
+/* Fading entrances  */
+@keyframes fadeInDownSmall {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -50%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__fadeInDownSmall {
+    animation-name: fadeInDownSmall;
+}
+
+@keyframes fadeInLeftSmall {
+    from {
+        opacity: 0;
+        transform: translate3d(-50%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__fadeInLeftSmall {
+    animation-name: fadeInLeftSmall;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__fadeInRight {
+    animation-name: fadeInRight;
+}
+
+@keyframes fadeInRightSmall {
+    from {
+        opacity: 0;
+        transform: translate3d(50%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__fadeInRightSmall {
+    animation-name: fadeInRightSmall;
+}
+
+@keyframes fadeInUpSmall {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 50%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate__fadeInUpSmall {
+    animation-name: fadeInUpSmall;
+}
+
+@keyframes fadeOutDownSmall {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        transform: translate3d(0, 50%, 0);
+    }
+}
+
+.animate__fadeOutDownSmall {
+    animation-name: fadeOutDownSmall;
+}
+
+@keyframes fadeOutLeftSmall {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+.animate__fadeOutLeftSmall {
+    animation-name: fadeOutLeftSmall;
+}
+
+@keyframes fadeOutRightSmall {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        transform: translate3d(50%, 0, 0);
+    }
+}
+
+.animate__fadeOutRightSmall {
+    animation-name: fadeOutRightSmall;
+}
+
+@keyframes fadeOutUpSmall {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        transform: translate3d(0, -50%, 0);
+    }
+}
+
+.animate__fadeOutUpSmall {
+    animation-name: fadeOutUpSmall;
 }

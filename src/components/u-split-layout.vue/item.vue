@@ -1,8 +1,14 @@
 <template>
-<div :class="$style.root" :style="{ height }">
+<div :class="$style.root" :direction="parentVM.direction" :style="{
+    width: parentVM.direction === 'horizontal' ? computedSize + 'px' : undefined,
+    height: parentVM.direction === 'vertical' ? computedSize + 'px' : undefined,
+}">
     <slot></slot>
-    <f-dragger v-if="!isLast" axis="vertical" @drag="onDrag">
-        <div :class="$style.splitter"></div>
+    <f-dragger v-if="parentVM.resizable && !isLast" :axis="parentVM.direction"
+        @dragstart="callParent('onResizerDragStart', $event)"
+        @drag="callParent('onResizerDrag', $event)"
+        @dragend="callParent('onResizerDragEnd', $event)">
+        <div :class="$style.splitter" @click.stop></div>
     </f-dragger>
 </div>
 </template>
@@ -15,11 +21,12 @@ export default {
     parentName: 'u-split-layout',
     mixins: [MChild],
     props: {
-
+        size: [String, Number],
     },
     data() {
         return {
-            height: '',
+            currentSize: this.size === undefined ? undefined : this.size + '',
+            computedSize: undefined,
         };
     },
     computed: {
@@ -28,9 +35,15 @@ export default {
             return ~index && index === this.parentVM.itemVMs.length - 1;
         },
     },
+    watch: {
+        size(size) {
+            this.currentSize = size === undefined ? undefined : size + '';
+            this.parentVM.handleResize();
+        },
+    },
     methods: {
-        onDrag($event) {
-            this.height = $event.top + 'px';
+        callParent(methodName, $event) {
+            return this.parentVM[methodName]($event, this);
         },
     },
 };
@@ -38,19 +51,36 @@ export default {
 
 <style module>
 .root {
-    display: table-row;
-    overflow-x: hidden;
-    overflow-y: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.root[direction="horizontal"] {
+    float: left;
+    height: 100%;
 }
 
 .splitter {
     position: absolute;
-    height: 1px;
     background: transparent; /* var(--border-color-base); */
     transition: background var(--transition-duration-base);
+}
+
+.root[direction="horizontal"] .splitter {
+    width: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding: 0 2px;
+    cursor: col-resize;
+}
+
+.root[direction="vertical"] .splitter {
+    height: 0;
+    left: 0;
+    right: 0;
     padding: 2px 0;
-    margin-top: -2px;
-    width: 100%;
+    bottom: 0;
     cursor: row-resize;
     z-index: 10;
 }
