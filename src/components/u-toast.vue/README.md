@@ -82,7 +82,7 @@ export default {
 export default {
     methods: {
         show(color) {
-            this.$toast[color]('color: ' + color, 0);
+            this.$toast[color]('color: ' + color);
         },
     },
 };
