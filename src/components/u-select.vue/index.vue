@@ -47,6 +47,7 @@
     </div>
     <span v-if="clearable && !!(filterable ? filterText : currentText)" :class="$style.clearable" @click="clear"></span>
     <m-popper :class="$style.popper" ref="popper" :color="color" :placement="placement" :append-to="appendTo" :disabled="readonly || currentDisabled"
+        :style="{ width: currentPopperWidth }"
         @update:opened="$emit('update:opened', $event, this)"
         @before-open="$emit('before-open', $event, this)"
         @before-close="$emit('before-close', $event, this)"
@@ -130,6 +131,7 @@ export default {
             validator: (value) => ['body', 'reference'].includes(value),
         },
         color: String,
+        popperWidth: { type: String, default: '' },
     },
     data() {
         return {
@@ -146,6 +148,7 @@ export default {
             preventBlur: false,
             inputWidth: 20,
             popperOpened: false,
+            currentPopperWidth: this.popperWidth || '100%',
         };
     },
     computed: {
@@ -175,6 +178,9 @@ export default {
             if (opened === this.popperOpened)
                 return;
             this.toggle(opened);
+        },
+        appendTo(appendTo) {
+            this.setPopperWidth();
         },
     },
     created() {
@@ -214,6 +220,7 @@ export default {
     mounted() {
         this.autofocus && this.$el.focus();
         this.toggle(this.opened);
+        this.setPopperWidth();
     },
     methods: {
         getExtraParams() {
@@ -469,6 +476,13 @@ export default {
         blur() {
             if (this.filterable)
                 this.$refs.input.blur();
+        },
+        setPopperWidth() {
+            if (this.appendTo === 'body') {
+                this.currentPopperWidth = this.popperWidth ? this.popperWidth : this.$el && (this.$el.offsetWidth + 'px');
+            } else {
+                this.currentPopperWidth = '100%';
+            }
         },
     },
 };
