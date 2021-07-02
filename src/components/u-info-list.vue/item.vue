@@ -52,8 +52,8 @@ export default {
         },
     },
     watch: {
-        span(val) {
-            this.currentSpan = val;
+        span(span) {
+            this.currentSpan = span;
         },
     },
     created() {

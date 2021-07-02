@@ -41,10 +41,8 @@ export default {
         const data = {
             parentVM: undefined,
             filterVM: undefined,
-            currentWidth:
-                this.width === undefined ? undefined : this.width + '',
-            computedWidth:
-                this.width === undefined ? undefined : this.width + '',
+            currentWidth: this.width === undefined ? undefined : this.width + '',
+            computedWidth: this.width === undefined ? undefined : this.width + '',
             currentFormatter: undefined,
         };
         if (typeof this.formatter === 'object')
@@ -63,10 +61,10 @@ export default {
         return data;
     },
     watch: {
-        width(val) {
-            this.currentWidth = val === undefined ? undefined : val + '';
-            this.computedWidth = val === undefined ? undefined : val + '';
-        }
+        width(width) {
+            this.currentWidth = width === undefined ? undefined : width + '';
+            this.computedWidth = width === undefined ? undefined : width + '';
+        },
     },
     created() {
         !this.parentVM
