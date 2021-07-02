@@ -15,6 +15,7 @@ export default {
     margin-right: 15px;
     padding: 0 15px;
     height: 32px;
+    line-height: 30px;
     color: var(--color-light);
     background: #f7f8fa;
     border: 1px solid #d7dae0;
