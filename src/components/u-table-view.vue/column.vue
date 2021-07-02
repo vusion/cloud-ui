@@ -52,6 +52,12 @@ export default {
             data.currentFormatter = placeholderFormatter;
         return data;
     },
+    watch: {
+        width(width) {
+            this.currentWidth = width === undefined ? undefined : width + '';
+            this.computedWidth = width === undefined ? undefined : width + '';
+        },
+    },
     created() {
         !this.parentVM
             && this.$contact(this.$options.parentName, (parentVM) => {

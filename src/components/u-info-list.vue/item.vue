@@ -51,6 +51,11 @@ export default {
             return { width };
         },
     },
+    watch: {
+        span(span) {
+            this.currentSpan = span;
+        },
+    },
     created() {
         this.$dispatch(this.$options.groupName, 'add-item-vm', this);
         this.$dispatch(this.$options.parentName, 'add-item-vm', this);

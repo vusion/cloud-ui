@@ -429,9 +429,16 @@ export default {
         number2Pixel(value) {
             return isNumber(value) ? value + 'px' : '';
         },
+        resetWidthOfVisibleColumnVMs() {
+            this.visibleColumnVMs.forEach((vm) => {
+                vm.currentWidth = vm.width === undefined ? undefined : vm.width + '';
+                vm.computedWidth = vm.width === undefined ? undefined : vm.width + '';
+            });
+        },
         handleResize() {
             this.tableWidth = undefined;
             this.bodyHeight = undefined;
+            this.resetWidthOfVisibleColumnVMs();
             this.clearTimeout();
             this.timer = setTimeout(() => {
                 this.timer = undefined;
