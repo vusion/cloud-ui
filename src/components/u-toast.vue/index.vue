@@ -3,9 +3,11 @@
     move-class="animate__move"
     enter-active-class="animate__animated animate__fadeInUpSmall"
     leave-active-class="animate__animated animate__fadeOutUpSmall fast animate__list-leave-active">
-    <div v-for="item in items" :key="item.timestamp" :class="$style.item" :color="item.color">
-        <slot :item="item">{{ item.text }}</slot>
-        <a :class="$style.close" v-if="closable" @click="close(item)"></a>
+    <div v-for="item in items" :key="item.timestamp" :class="$style['item-wrap']">
+        <div :class="$style.item" :color="item.color">
+            <slot :item="item">{{ item.text }}</slot>
+            <a :class="$style.close" v-if="closable" @click="close(item)"></a>
+        </div>
     </div>
 </transition-group>
 </template>
@@ -132,9 +134,7 @@ export default {
     z-index: var(--z-index-toast);
     top: var(--toast-top);
     left: var(--toast-margin);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    pointer-events: none;
 }
 
 .root[position='top-center'], .root[position='bottom-center'] {
@@ -171,17 +171,18 @@ export default {
     width: auto;
 }
 
-/* .item-wrap {
-    display: inline-block;
-} */
+.item-wrap {
+    display: block;
+    width: 2000px;
+}
 
 .leave {
     position: absolute;
-    width: 1000px;
 }
 
 .item {
     display: inline-block;
+    pointer-events: all;
     max-width: var(--toast-max-width);
     margin-bottom: var(--toast-item-space);
     padding: var(--toast-item-padding);
@@ -205,8 +206,8 @@ export default {
 .item::before {
     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 48%, rgba(255,255,255,0) 48%);
     font-size: var(--toast-item-icon-font-size);
-    line-height: 1;
-    margin: var(--toast-item-icon-margin);
+    vertical-align: var(--toast-item-icon-vertical-align);
+    margin-right: var(--toast-item-icon-margin-right);
 }
 .item[color="info"] {
     /* background: #00c0ef;
