@@ -6,14 +6,9 @@
     <slot></slot>
 </div>
 </template>
-
 <script>
 import MEmitter from '../m-emitter.vue';
-import {
-    Formatter,
-    parseFormatters,
-    placeholderFormatter,
-} from '../../utils/Formatters';
+import { Formatter, parseFormatters, placeholderFormatter } from '../../utils/Formatters';
 
 export default {
     name: 'u-table-view-column',
@@ -31,20 +26,15 @@ export default {
         defaultOrder: String,
         filters: { type: Array },
         ellipsis: { type: Boolean, default: false },
-        formatter: {
-            type: [String, Object, Function, Formatter],
-            default: 'placeholder',
-        },
+        formatter: { type: [String, Object, Function, Formatter], default: 'placeholder' },
         hidden: { type: Boolean, default: false },
     },
     data() {
         const data = {
             parentVM: undefined,
             filterVM: undefined,
-            currentWidth:
-                this.width === undefined ? undefined : this.width + '',
-            computedWidth:
-                this.width === undefined ? undefined : this.width + '',
+            currentWidth: this.width === undefined ? undefined : this.width + '',
+            computedWidth: this.width === undefined ? undefined : this.width + '',
             currentFormatter: undefined,
         };
         if (typeof this.formatter === 'object')
@@ -63,10 +53,11 @@ export default {
         return data;
     },
     watch: {
-        width(val) {
-            this.currentWidth = val === undefined ? undefined : val + '';
-            this.computedWidth = val === undefined ? undefined : val + '';
-        }
+        width(width) {
+            this.currentWidth = width === undefined ? undefined : width + '';
+            this.computedWidth = width === undefined ? undefined : width + '';
+            // this.parentVM.handleResize(); // 暂时不需要，dataSource 会触发此方法
+        },
     },
     created() {
         !this.parentVM

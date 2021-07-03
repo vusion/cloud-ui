@@ -9057,7 +9057,7 @@
                             "title": "json"
                         }
                     ],
-                    "default": "join",
+                    "default": null,
                     "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象",
                     "bindHide": true
                 },
@@ -9100,11 +9100,17 @@
                 },
                 {
                     "name": "pageable",
-                    "title": "可分页",
+                    "title": "分页加载更多",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否需要分页。",
-                    "advanced": true
+                    "description": "是否使用分页功能加载更多。"
+                },
+                {
+                    "name": "remote-paging",
+                    "title": "后端分页",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否使用后端分页。"
                 },
                 {
                     "name": "page-size",
@@ -9113,14 +9119,6 @@
                     "sync": true,
                     "default": 50,
                     "description": "分页大小。",
-                    "advanced": true
-                },
-                {
-                    "name": "remote-paging",
-                    "title": "后端分页",
-                    "type": "boolean",
-                    "default": false,
-                    "description": "是否使用后端分页。",
                     "advanced": true
                 },
                 {
@@ -9135,7 +9133,14 @@
                     "title": "可筛选",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否使用输入框进行过滤。"
+                    "description": "是否使用输入框进行筛选。"
+                },
+                {
+                    "name": "remote-filtering",
+                    "title": "后端筛选",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否使用后端筛选。"
                 },
                 {
                     "name": "match-method",
@@ -9164,14 +9169,6 @@
                     "type": "string | Function",
                     "default": "includes",
                     "description": "过滤时大小写是否敏感",
-                    "advanced": true
-                },
-                {
-                    "name": "remote-filtering",
-                    "title": "后端过滤",
-                    "type": "boolean",
-                    "default": false,
-                    "description": "是否使用后端过滤。",
                     "advanced": true
                 },
                 {
@@ -14024,7 +14021,7 @@
                             "title": "错误"
                         }
                     ],
-                    "default": "success",
+                    "default": null,
                     "description": "提示图标"
                 },
                 {

@@ -3,6 +3,19 @@
   slots:
     - name: default
       description: 添加分割布局
+  events:
+    - name: resize
+      title: 调整大小时
+      description: 调整大小时触发
+    - name: drag-start
+      title: 拖拽前
+      description: 拖拽前触发
+    - name: drag
+      title: 拖拽时
+      description: 拖拽时触发
+    - name: drag-end
+      title: 拖拽后
+      description: 拖拽后触发
 - name: u-split-layout-item
   title: 分割布局项
   slots:

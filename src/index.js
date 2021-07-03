@@ -1,4 +1,5 @@
 import 'baseCSS';
+import 'themeCSS';
 export * from './components';
 export * from './layouts';
 export * from './assist';

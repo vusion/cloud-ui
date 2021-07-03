@@ -202,3 +202,5 @@ export function findScrollParent(el) {
         return findScrollParent(el);
     }
 }
+
+export * from './resize-event';

@@ -32,7 +32,7 @@
             </f-slot>
         </div>
     </div>
-    <div :class="$style.sub" v-show="currentExpanded">
+    <div :class="$style.sub" v-if="rootVM.ifExpanded ? currentExpanded : true" v-show="currentExpanded">
         <template v-if="node && $at(node, currentChildrenField)">
             <u-tree-view-node
                 v-for="subNode in $at(node, currentChildrenField)"
@@ -156,6 +156,10 @@ export default {
         },
         checked(checked) {
             this.currentChecked = checked;
+        },
+        nodeVMs() {
+            this.rootVM.selectedVM = undefined;
+            this.rootVM.watchValue(this.rootVM.value);
         },
     },
 

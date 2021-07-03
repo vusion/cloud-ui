@@ -1,33 +1,43 @@
 <template>
-<div :class="$style.root" v-if="currentVisible" :static="this.static" @click="handleClose">
-    <div :class="$style.dialog" ref="dialog" :style="{ width: width + 'px' }" :size="size">
-        <slot name="inject"></slot>
-        <div :class="$style.head">
-            <slot name="head">
-                <div v-if="title" :class="$style.title">
-                    <slot name="title">{{ title }}</slot>
+<transition v-if="currentVisible || animationVisible"
+    enter-active-class="animate__animated animate__fadeIn"
+    leave-active-class="animate__animated animate__fadeOut animate__fast">
+    <div :class="$style.root" :static="this.static" @click="handleClose">
+        <transition
+            enter-active-class="animate__animated animate__fadeInDownSmall"
+            leave-active-class="animate__animated animate__fadeOutUpSmall animate__fast">
+            <div :class="$style.dialog" ref="dialog"
+                v-show="currentVisible && animationVisible"
+                :style="{ width: width + 'px' }" :size="size">
+                <slot name="inject"></slot>
+                <div :class="$style.head">
+                    <slot name="head">
+                        <div v-if="title" :class="$style.title">
+                            <slot name="title">{{ title }}</slot>
+                        </div>
+                        <a :class="$style.close" @click="cancel()"></a>
+                    </slot>
                 </div>
-                <a :class="$style.close" @click="cancel()"></a>
-            </slot>
-        </div>
-        <div :class="$style.body" :icon="icon">
-            <slot name="body">
-                <div :class="$style.text">
-                    <div :class="$style.heading"><slot name="heading">{{ heading }}</slot></div>
-                    <div :class="$style.content"><slot>{{ content }}</slot></div>
+                <div :class="$style.body" :icon="icon">
+                    <slot name="body">
+                        <div :class="$style.text">
+                            <div :class="$style.heading"><slot name="heading">{{ heading }}</slot></div>
+                            <div :class="$style.content"><slot>{{ content }}</slot></div>
+                        </div>
+                    </slot>
                 </div>
-            </slot>
-        </div>
-        <div :class="$style.foot" v-if="okButton || cancelButton">
-            <slot name="foot">
-                <u-linear-layout>
-                    <u-button :class="$style.button" v-if="okButton" :color="primaryButton === 'okButton' ? 'primary' : ''" :disabled="disableOk" @click="ok()">{{ okButton }}</u-button>
-                    <u-button :class="$style.button" v-if="cancelButton" :color="primaryButton === 'cancelButton' ? 'primary' : ''" :disabled="disableCancel" @click="cancel()">{{ cancelButton }}</u-button>
-                </u-linear-layout>
-            </slot>
-        </div>
+                <div :class="$style.foot" v-if="okButton || cancelButton">
+                    <slot name="foot">
+                        <u-linear-layout>
+                            <u-button :class="$style.button" v-if="okButton" :color="primaryButton === 'okButton' ? 'primary' : ''" :disabled="disableOk" @click="ok()">{{ okButton }}</u-button>
+                            <u-button :class="$style.button" v-if="cancelButton" :color="primaryButton === 'cancelButton' ? 'primary' : ''" :disabled="disableCancel" @click="cancel()">{{ cancelButton }}</u-button>
+                        </u-linear-layout>
+                    </slot>
+                </div>
+            </div>
+        </transition>
     </div>
-</div>
+</transition>
 </template>
 
 <script>
@@ -73,18 +83,25 @@ export const UModal = {
         maskClose: { type: Boolean, default: false },
     },
     data() {
-        return { currentVisible: this.visible };
+        return {
+            currentVisible: this.visible,
+            animationVisible: undefined,
+        };
     },
     watch: {
         visible(visible) {
             this.currentVisible = visible;
         },
-        currentVisible(visible) {
-            if (visible)
-                document.addEventListener('keydown', this.escPress);
-            // 按esc退出弹框
-            else
-                document.removeEventListener('keydown', this.escPress);
+        currentVisible: {
+            immediate: true,
+            handler(visible) {
+                this.$nextTick(() => this.animationVisible = visible);
+                if (visible)
+                    document.addEventListener('keydown', this.escPress);
+                // 按esc退出弹框
+                else
+                    document.removeEventListener('keydown', this.escPress);
+            },
         },
     },
     mounted() {
@@ -148,6 +165,7 @@ export const UModal = {
                 });
 
                 instance.$on('ok', () => resolve(true));
+                instance.open();
             });
         Vue.prototype.$confirm = (content, title, okButton, cancelButton) =>
             new Promise((resolve, reject) => {

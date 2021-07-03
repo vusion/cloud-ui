@@ -40,6 +40,7 @@ export default {
         checkable: { type: Boolean, default: false },
         accordion: { type: Boolean, default: false },
         expandTrigger: { type: String, default: 'click' },
+        ifExpanded: { type: Boolean, default: false },
         initialLoad: { type: Boolean, default: true },
         readonly: { type: Boolean, default: false },
         readonlyMode: String,

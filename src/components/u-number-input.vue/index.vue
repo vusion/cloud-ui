@@ -309,4 +309,11 @@ export default {
     right: -2px;
 }
 
+.root[size="mini"] .button[role="up"] {
+    top: -1px;
+}
+
+.root[size="mini"] .button[role="down"] {
+    bottom: -1px;
+}
 </style>

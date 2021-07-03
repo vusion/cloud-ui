@@ -6,17 +6,17 @@
                 <s-logo slot="left">{{ logo }}</s-logo>
                 <u-navbar-item v-for="item in navbar" :key="item.text" :to="item.to" :href="item.href" :target="item.target">{{ item.text }}</u-navbar-item>
                 <div slot="right" style="margin-right: 10px;">
-                    <u-navbar-select style="vertical-align: top;" value="0.9.x"
+                    <u-navbar-select style="vertical-align: top;" value="0.10.x"
                         @select="onSelectVersion">
-                        <u-navbar-select-item value="0.9.x">0.9.x</u-navbar-select-item>
+                        <u-navbar-select-item value="0.10.x">0.10.x</u-navbar-select-item>
                         <u-navbar-select-item value="0.4.x">0.4.x</u-navbar-select-item>
                         <u-navbar-select-item value="0.3.x">0.3.x</u-navbar-select-item>
                     </u-navbar-select>
-                    <u-navbar-select v-model="theme" @select="onSelectTheme" style="width: 120px;">
+                    <!-- <u-navbar-select v-model="theme" @select="onSelectTheme" style="width: 120px;">
                         <u-navbar-select-item value="default"><div :class="$style.color"></div>Default</u-navbar-select-item>
                         <u-navbar-select-item value="dark"><div :class="$style.color" color="dark"></div>Dark</u-navbar-select-item>
                         <u-navbar-select-item value="seagreen"><div :class="$style.color" color="seagreen"></div>SeaGreen</u-navbar-select-item>
-                    </u-navbar-select>
+                    </u-navbar-select> -->
                     <u-navbar-item :href="github" target="_blank"><i-icon name="github"></i-icon></u-navbar-item>
                 </div>
             </u-navbar>
