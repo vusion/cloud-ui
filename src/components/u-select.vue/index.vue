@@ -481,7 +481,7 @@ export default {
             if (this.appendTo === 'body') {
                 this.currentPopperWidth = this.popperWidth ? this.popperWidth : this.$el && (this.$el.offsetWidth + 'px');
             } else {
-                this.currentPopperWidth = '100%';
+                this.currentPopperWidth = this.popperWidth || '100%';
             }
         },
     },
