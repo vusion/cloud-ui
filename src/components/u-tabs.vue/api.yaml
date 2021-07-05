@@ -75,6 +75,30 @@
       description: 在标签右侧可以附加的组件。
       accept-type: all
   events:
+    - name: click
+      title: 点击事件触发
+      description: 点击某一项后触发
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
+        - name: $event.value
+          type: any
+          description: 选中标签页的值
+        - name: $event.oldValue
+          type: any
+          description: 旧的值
+        - name: $event.itemVM
+          type: UTab
+          description: 选中标签页实例
+        - name: $event.oldVM
+          type: UTab
+          description: 旧的选中标签页实例
+        - name: senderVM
+          type: UTabs
+          description: 发送事件实例
     - name: before-select
       title: 选择前
       description: 选择某一页前触发
