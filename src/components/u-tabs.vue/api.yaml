@@ -76,7 +76,7 @@
       accept-type: all
   events:
     - name: click
-      title: 点击事件触发
+      title: 点击后
       description: 点击某一项后触发
       params:
         - name: $event
@@ -87,15 +87,9 @@
         - name: $event.value
           type: any
           description: 选中标签页的值
-        - name: $event.oldValue
-          type: any
-          description: 旧的值
         - name: $event.itemVM
           type: UTab
           description: 选中标签页实例
-        - name: $event.oldVM
-          type: UTab
-          description: 旧的选中标签页实例
         - name: senderVM
           type: UTabs
           description: 发送事件实例
