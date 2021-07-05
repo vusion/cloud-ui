@@ -52,7 +52,7 @@ export default {
                 this.$mount(document.createElement('div')); // Vue 加载完成后，触发某一事件后，先执行methods，再执行watch方法，会导致标签显示异常
             this.$nextTick(() => {
                 this.open({
-                    text: text || this.text || '',
+                    text: text !== undefined ? text : (this.text || ''),
                     color,
                     duration: duration === undefined ? this.duration : duration,
                     timestamp: +new Date(),
