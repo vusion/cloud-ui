@@ -7,7 +7,7 @@
             enter-active-class="animate__animated animate__fadeInDownSmall"
             leave-active-class="animate__animated animate__fadeOutUpSmall animate__fast">
             <div :class="$style.dialog" ref="dialog"
-                v-show="currentVisible && animationVisible"
+                v-if="currentVisible && animationVisible"
                 :style="{ width: width + 'px' }" :size="size">
                 <div :class="$style.head">
                     <slot name="head">
