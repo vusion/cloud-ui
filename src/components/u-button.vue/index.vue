@@ -215,7 +215,7 @@ export default { name: 'u-button', extends: ULink };
     border: var(--button-loading-width) solid currentColor;
     border-top-color: transparent;
     border-radius: var(--button-loading-size);
-    animation: rotate var(--button-loading-animation-duration) ease-in-out 0s infinite;
+    animation: rotate var(--spinner-animation-duration) ease-in-out var(--spinner-animation-delay) infinite;
 }
 
 .root[icon]:not(:empty)::before, .root[loading]:not(:empty)::before {
@@ -224,7 +224,6 @@ export default { name: 'u-button', extends: ULink };
 
 @keyframes rotate {
     0% { transform: rotate(0); }
-    80% { transform: rotate(360deg); }
     100% { transform: rotate(360deg); }
 }
 

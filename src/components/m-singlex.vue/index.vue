@@ -89,6 +89,21 @@ export default {
                     && this.selectedVM.groupVM.toggle(true);
             }
         },
+        click(itemVM) {
+            // Check if enabled
+            if (this.readonly || this.disabled || (itemVM && itemVM.disabled))
+                return; // Prevent replication
+            // Emit a `click` event
+            const value = this.selectedVM && this.selectedVM.value;
+            const selectedItem = this.selectedVM && this.selectedVM.item;
+            this.$emit('click', {
+                value,
+                selectedVM: this.selectedVM,
+                selectedItem,
+                itemVM,
+                item: itemVM && itemVM.item,
+            }, this);
+        },
         select(itemVM, cancelable) {
             // Check if enabled
             if (this.readonly || this.disabled || (itemVM && itemVM.disabled))
@@ -99,20 +114,14 @@ export default {
                 cancelable = this.cancelable;
             if (!cancelable && !this.router && itemVM === oldVM)
                 return; // Emit a `before-` event with preventDefault()
-            if (
-                this.$emitPrevent(
-                    'before-select',
-                    {
-                        value: itemVM && itemVM.value,
-                        oldValue,
-                        itemVM,
-                        item: itemVM && itemVM.item,
-                        oldVM,
-                        oldItem: oldVM && oldVM.item,
-                    },
-                    this,
-                )
-            )
+            if (this.$emitPrevent('before-select', {
+                value: itemVM && itemVM.value,
+                oldValue,
+                itemVM,
+                item: itemVM && itemVM.item,
+                oldVM,
+                oldItem: oldVM && oldVM.item,
+            }, this))
                 return;
             if (cancelable && itemVM === oldVM)
                 this.selectedVM = undefined;

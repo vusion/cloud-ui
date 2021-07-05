@@ -37,24 +37,18 @@ export default {
     },
     methods: {
         select(e) {
-            if (
-                this.disabled
-                || this.parentVM.readonly
-                || this.parentVM.disabled
-            )
+            if (this.disabled || this.parentVM.readonly || this.parentVM.disabled)
                 return;
             this.$emit('click', e, this);
+            this.parentVM.click(this);
+
             let cancel = false;
-            this.$emit(
-                'before-select',
-                {
-                    value: this.value,
-                    item: this.item,
-                    itemVM: this,
-                    preventDefault: () => (cancel = true),
-                },
-                this,
-            );
+            this.$emit('before-select', {
+                value: this.value,
+                item: this.item,
+                itemVM: this,
+                preventDefault: () => (cancel = true),
+            }, this);
             if (cancel)
                 return;
             this.parentVM.select(this);

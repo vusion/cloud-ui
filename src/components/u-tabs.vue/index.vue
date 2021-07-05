@@ -78,6 +78,7 @@ export default {
     },
     methods: {
         onClick(itemVM, e) {
+            this.click(itemVM);
             this.select(itemVM); // 为了兼容
             if (this.router) {
                 if (itemVM.disabled)

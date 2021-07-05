@@ -9,7 +9,7 @@
             :enter-active-class="'placement animate__animated animate__fadeIn' + animatePlacement"
             :leave-active-class="'placement animate__animated animate__fast animate__fadeOut' + animatePlacement">
             <div :class="$style.drawer"
-                v-show="currentVisible && animationVisible"
+                v-if="currentVisible && animationVisible"
                 v-bind="$attrs" v-on="$listeners"
                 @click.stop>
                 <slot name="drawer">

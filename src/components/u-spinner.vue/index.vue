@@ -9,17 +9,18 @@ export default { name: 'u-spinner' };
 </script>
 
 <style module>
-@keyframes spin {
+@keyframes linear-spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
+
 .root {
     display: inline-block;
     line-height: 1;
-    animation: spin infinite linear var(--spinner-animation-duration);
+    animation: linear-spin var(--spinner-animation-duration) ease-in-out var(--spinner-animation-delay) infinite;
 }
 
 .root::before {
-    icon-font: url('./assets/refresh.svg');
+    icon-font: url('./assets/spinner.svg');
 }
 </style>
