@@ -943,7 +943,8 @@
     --icon-tooltip-color: #bac2cf;
 
     /* Spinner */
-    --spinner-animation-duration: 1.5s;
+    --spinner-animation-duration: 1s;
+    --spinner-animation-delay: 0.15s;
 
     /* Loading */
     --loading-font-size: calc(var(--font-size-base) * (24 / 14));
