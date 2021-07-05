@@ -202,6 +202,17 @@ export default {
 
 ### Events
 
+#### @click
+
+点击某一项后触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.value | any | 选中标签页的值 |
+| $event.itemVM | UTab | 选中标签页实例 |
+| senderVM | UTabs | 发送事件实例 |
+
 #### @before-select
 
 选择某一页前触发
