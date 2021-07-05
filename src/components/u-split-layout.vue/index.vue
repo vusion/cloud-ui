@@ -17,6 +17,7 @@ export default {
             default: 'horizontal',
             validator: (value) => ['horizontal', 'vertical'].includes(value),
         },
+        scale: { type: Number, default: 1 },
         minSize: { type: Number, default: 100 },
         resizable: { type: Boolean, default: false },
         resizeRemaining: { type: String, default: 'sequence' },
@@ -139,7 +140,7 @@ export default {
                 beforeSize += this.itemVMs[i].computedSize;
 
             const maxSize = rootSize - beforeSize - (this.itemVMs.length - 1 - index) * minSize;
-            const size = Math.max(minSize, Math.min(itemVM.oldSize + (this.direction === 'horizontal' ? $event.dragX : $event.dragY), maxSize));
+            const size = Math.max(minSize, Math.min(itemVM.oldSize + (this.direction === 'horizontal' ? $event.dragX : $event.dragY), maxSize)) / this.scale;
 
             let remainingSize = size - itemVM.computedSize;
             itemVM.currentSize = itemVM.computedSize = size;
