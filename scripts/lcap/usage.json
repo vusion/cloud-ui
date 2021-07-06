@@ -10222,7 +10222,7 @@
                     "name": "max-size",
                     "title": "最大文件大小",
                     "type": "string",
-                    "default": "50M",
+                    "default": "50MB",
                     "description": "可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB`"
                 },
                 {
@@ -10749,6 +10749,36 @@
                 }
             ],
             "events": [
+                {
+                    "name": "click",
+                    "title": "点击后",
+                    "description": "点击某一项后触发",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.value",
+                            "type": "any",
+                            "description": "选中标签页的值"
+                        },
+                        {
+                            "name": "$event.itemVM",
+                            "type": "UTab",
+                            "description": "选中标签页实例"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UTabs",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
                 {
                     "name": "before-select",
                     "title": "选择前",
