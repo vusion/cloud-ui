@@ -486,10 +486,13 @@
     --sidebar-expander-color-disabled: var(--brand-disabled);
 
     /* Menu */
+    --menu-padding-y: 0;
     --menu-background: white;
+    --menu-min-width: none;
     --menu-background-hover: var(--background-color-light);
     --menu-border-width: var(--border-width-base);
     --menu-border-color: var(--border-color-base);
+    --menu-border-radius: 0;
     --menu-box-shadow: var(--box-shadow-base);
     --menu-item-padding: 5px 15px;
     --menu-item-size: 32px;
@@ -933,11 +936,13 @@
     --popup-border-color: var(--border-color-base);
 
     /* Tooltip */
-    --tooltip-padding: 8px 10px;
+    --tooltip-padding: 8px 12px;
     --tooltip-arrow-size: 6px;
     --tooltip-arrow-offset: 16px;
-    --tooltip-background: rgba(71,88,107,.9);
+    --tooltip-background: rgba(34, 36, 46, 0.9);
     --tooltip-color: white;
+    --tooltip-border-radius: 4px;
+    --tooltip-box-shadow: 0px 2px 6px rgba(23, 23, 26, 0.1);
 
     /* Icon Tooltip */
     --icon-tooltip-color: #bac2cf;

@@ -314,12 +314,12 @@ export default {
                 referenceLeft = rect.left;
                 referenceTop = rect.top;
             }
-            
+
             const top = e.clientY - referenceTop + this.currentFollowCursor.offsetY;
             const left = e.clientX - referenceLeft + this.currentFollowCursor.offsetX;
             const right = e.clientX - referenceLeft + this.currentFollowCursor.offsetX;
             const bottom = e.clientY - referenceTop + this.currentFollowCursor.offsetY;
-            
+
             this.popper.reference = {
                 getBoundingClientRect: () => ({
                     width: 0,
