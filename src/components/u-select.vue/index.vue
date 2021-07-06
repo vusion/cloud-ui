@@ -359,7 +359,9 @@ export default {
             }, 200);
         },
         onRootBlur() {
-            this.close();
+            setTimeout(() => {
+                this.close();
+            }, 200);
         },
         selectByText(text) {
             if (this.multiple) {
