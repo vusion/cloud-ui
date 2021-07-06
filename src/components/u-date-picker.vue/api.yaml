@@ -11,12 +11,12 @@
       options: 
         - title: 日期
           value: date
-        - title: 年
-          value: year
-        - title: 月
+        - title: 月份
           value: month
-        - title: 季
+        - title: 季度
           value: quarter
+        - title: 年份
+          value: year
       default: date
       description: 用于定义选择的格式
     - name: width
