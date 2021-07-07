@@ -1,19 +1,18 @@
 <template>
- <div :class="$style.root">
-   <slot></slot>
-   <div v-if="!$slots.default" :class="$style.box" :active="active">
-     <u-text :text="text" ></u-text>
-   </div>
- </div>
+<div :class="$style.root">
+    <slot></slot>
+    <div v-if="!$slots.default" :class="$style.box" :active="active">
+        <u-text :text="text"></u-text>
+    </div>
+</div>
 </template>
-
 <script>
-export default { 
+export default {
     name: 'l-root',
     props: {
-       text: String, // 为空界面的提示文字
-       active: Boolean,
-    }
+        text: String, // 为空界面的提示文字
+        active: Boolean,
+    },
 };
 </script>
 <style module>
@@ -37,5 +36,4 @@ export default {
     border: 1px dashed #4E75EC;
     color: #4E75EC;
 }
-
 </style>
