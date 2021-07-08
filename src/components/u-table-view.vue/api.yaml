@@ -572,14 +572,6 @@
   accept-parent:
     - u-table-view
   title: 表格列
-  events:
-    - name: $listeners
-      kind: trigger
-      description: 监听所有事件。
-      params:
-        - name: $event
-          type: trigger
-          description: 自定义事件
   attrs:
     - name: title
       title: 列标题

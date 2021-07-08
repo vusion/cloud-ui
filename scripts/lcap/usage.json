@@ -5444,20 +5444,6 @@
                                 }
                             ]
                         }
-                    ],
-                    "events": [
-                        {
-                            "name": "$listeners",
-                            "kind": "trigger",
-                            "description": "监听所有事件。",
-                            "params": [
-                                {
-                                    "name": "$event",
-                                    "type": "trigger",
-                                    "description": "自定义事件"
-                                }
-                            ]
-                        }
                     ]
                 }
             ]
@@ -14270,7 +14256,7 @@
             "Effects"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.46/src/components/u-copy.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.46/src/components/u-copy.vue/screenshots/1.png",
-        "blocks": "[{\"title\":\"复制按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-copy value=\\\"需要 copy 的内容\\\">\\n    <u-button>复制</u-button>\\n</u-copy>\\n</template>\\n\"},{\"title\":\"复制链接\",\"description\":\"\",\"code\":\"<template>\\n<u-copy value=\\\"需要 copy 的内容\\\">\\n    <u-link disabled=\\\"disabled\\\">复制</u-link>\\n</u-copy>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"复制链接\",\"description\":\"\",\"code\":\"<template>\\n<u-copy value=\\\"需要 copy 的内容\\\">\\n    <u-link text=\\\"复制\\\"></u-link>\\n</u-copy>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-copy",
             "title": "复制",
@@ -14280,14 +14266,9 @@
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.46/src/components/u-copy.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.46/src/components/u-copy.vue/drawings/1.svg",
             "blocks": [
                 {
-                    "title": "复制按钮",
-                    "description": "",
-                    "code": "<template>\n<u-copy value=\"需要 copy 的内容\">\n    <u-button>复制</u-button>\n</u-copy>\n</template>\n"
-                },
-                {
                     "title": "复制链接",
                     "description": "",
-                    "code": "<template>\n<u-copy value=\"需要 copy 的内容\">\n    <u-link disabled=\"disabled\">复制</u-link>\n</u-copy>\n</template>\n"
+                    "code": "<template>\n<u-copy value=\"需要 copy 的内容\">\n    <u-link text=\"复制\"></u-link>\n</u-copy>\n</template>\n"
                 }
             ],
             "attrs": [
