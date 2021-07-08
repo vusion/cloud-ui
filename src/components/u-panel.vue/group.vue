@@ -3,7 +3,7 @@
     <div :class="$style.head" v-if="title" vusion-slot-name="title">
         {{ title }}
     </div>
-    <div :class="$style.body">
+    <div :class="$style.body" vusion-slot-name="default">
         <slot></slot>
     </div>
 </div>
