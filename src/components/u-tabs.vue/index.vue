@@ -26,7 +26,7 @@
             <span :class="$style.next" @click="scrollNext"></span>
         </nav>
     </div>
-    <div :class="$style.body">
+    <div :class="$style.body" vusion-slot-name="default">
         <slot></slot>
     </div>
 </div>
