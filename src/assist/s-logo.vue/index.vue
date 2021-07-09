@@ -14,32 +14,37 @@ export default { name: 's-logo' };
 
 <style module>
 .root {
-    /* display: flex;
-    align-items: center; */
+    width: var(--sidebar-width);
+    height: var(--navbar-height);
+    line-height: var(--navbar-height);
 }
 
 /* Default Logo */
 .root .icon {
     display: inline-block;
-    vertical-align: middle;
-    width: 114px;
-    height: 64px;
-    background: url('./logo-163yun-white.svg') 10px 0 no-repeat;
+    width: 125px;
+    height: 28px;
+    background: url('./logo-lcap-white.svg') 10px 0 no-repeat;
+    vertical-align: -8px;
 }
 
 .root[color="2color"] .icon {
-    background: url('./logo-163yun-2color.svg') 10px 0 no-repeat;
+    background: url('./logo-lcap-2color.svg') 10px 0 no-repeat;
 }
 
 .divider {
-    margin: 0 1em;
-    border-left: 1px solid white;
-    height: 18px;
+    display: inline-block;
+    margin: 0 0.5em;
+    background: white;
+    width: 3px;
+    height: 3px;
+    border-radius: 10px;
+    vertical-align: middle;
 }
 
 .sub {
     font-size: 16px;
     color: white;
-    vertical-align: -1px;
+    vertical-align: middle;
 }
 </style>
