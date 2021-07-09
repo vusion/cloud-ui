@@ -66,7 +66,7 @@
     margin: auto;
     icon-font: url('../i-icon.vue/assets/close-solid.svg');
     cursor: var(--cursor-pointer);
-    color: var(--input-clearable-color);
+    color: var(--input-icon-color);
 }
 
 .input:focus {
@@ -132,7 +132,7 @@
 .prefix[name="search"]::before, .suffix[name="search"]::before {
     icon-font: url("i-material-design.vue/assets/filled/search.svg");
     font-size: 16px;
-    color: white;
+    color: var(--input-icon-color);
 }
 
 /* @deprecated */
@@ -145,9 +145,9 @@
 
 /* @deprecated */
 .search::before {
-    icon-font: url("../i-icon.vue/icons/search.svg");
+    icon-font: url("i-material-design.vue/assets/filled/search.svg");
     font-size: 16px;
-    color: #a7afbb;
+    color: var(--input-icon-color);
 }
 
 /* @deprecated */

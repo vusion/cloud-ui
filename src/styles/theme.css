@@ -660,7 +660,7 @@
     --input-border-color-error: var(--brand-error);
     --input-border-color-focus: #81abe9;
     --input-placeholder-color: var(--color-lighter);
-    --input-clearable-color: #a7afbb;
+    --input-icon-color: #a7afbb;
     --input-border-radius: 3px;
 
     /* Textarea */
