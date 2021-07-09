@@ -57,7 +57,7 @@ export default {
             this.$emit('responsive', { span, oldSpan }, this);
         },
     },
-    created() {
+    mounted() {
         addResizeListener(this.$el, this.onResize);
         this.onResize();
     },
