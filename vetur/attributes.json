@@ -3726,7 +3726,7 @@
     "type": "boolean",
     "description": "是否可以拖拽上传"
   },
-  "u-uploader/paste": {
+  "u-uploader/pastable": {
     "type": "boolean",
     "description": "是否可以粘贴"
   },

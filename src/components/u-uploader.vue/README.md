@@ -6,7 +6,7 @@
     - [基本用法](#基本用法)
     - [多文件上传](#多文件上传)
     - [列表类型](#列表类型)
-    - [拖拽上传](#拖拽上传)
+    - [拖拽和粘贴上传](#拖拽和粘贴上传)
     - [禁用状态](#禁用状态)
 - [API]()
     - [Props/Attrs](#propsattrs)
@@ -160,13 +160,13 @@ export default {
 </script>
 ```
 
-### 拖拽上传
+### 拖拽和粘贴上传
 
-开启`draggable`属性，可以使用拖拽上传。使用插槽可以自定义文字内容。
+开启`draggable`和`pastable`属性，可以使用拖拽上传。使用插槽可以自定义文字内容。
 
 ``` vue
 <template>
-<u-uploader v-model="files" url="http://localhost:7000/api/library/upload" draggable></u-uploader>
+<u-uploader v-model="files" url="http://localhost:7000/api/library/upload" draggable pastable></u-uploader>
 </template>
 <script>
 export default {
@@ -207,7 +207,7 @@ export default {
 | list-type | enum | `'text'`<br/>`'image'`<br/>`'card'` | `'text'` | 列表展示类型 |
 | auto-upload | boolean |  | `true` | 是否自动上传 |
 | draggable | boolean |  | `false` | 是否可以拖拽上传 |
-| paste | boolean |  | `false` | 是否可以粘贴 |
+| pastable | boolean |  | `false` | 是否可以粘贴 |
 | show-file-list | boolean |  | `true` | 是否显示文件列表 |
 | disabled | boolean |  | `false` | 是否禁用 |
 
