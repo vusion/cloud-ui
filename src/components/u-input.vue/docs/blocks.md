@@ -1,3 +1,3 @@
 ``` html
-<u-input placeholder="普通输入框"></u-input>
+<u-input placeholder="请输入"></u-input>
 ```
