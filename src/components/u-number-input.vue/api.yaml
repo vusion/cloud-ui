@@ -15,12 +15,12 @@
     - name: min
       title: 最小值
       type: number
-      default: -.inf
+      default:
       description: 最小值
     - name: max
       title: 最大值
       type: number
-      default: 999
+      default:
       description: 最大值
     - name: step
       title: 间隔
