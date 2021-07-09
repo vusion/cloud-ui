@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root">
     <div :class="$style.title">{{ title }}</div>
-    <div :class="$style.body">
+    <div :class="$style.body" vusion-slot-name="default">
         <slot></slot>
     </div>
 </div>

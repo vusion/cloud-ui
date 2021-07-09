@@ -10,7 +10,7 @@
             <div><slot>点击或者拖动文件到虚线框内上传</slot></div>
         </div>
     </template>
-    <div v-else-if="listType !== 'card'" :class="$style.select" @click="select()">
+    <div v-else-if="listType !== 'card'" :class="$style.select" @click="select()" vusion-slot-name="default">
         <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
         <slot></slot>
     </div>

@@ -11,7 +11,7 @@
             <div :class="$style.extra" vusion-slot-name="extra"><slot name="extra"></slot></div>
         </div>
         <f-collapse-transition>
-            <div :class="$style.body" v-show="currentCollapsible ? currentExpanded : true">
+            <div :class="$style.body" vusion-slot-name="default" v-show="currentCollapsible ? currentExpanded : true">
                 <slot></slot>
             </div>
         </f-collapse-transition>

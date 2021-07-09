@@ -4,7 +4,7 @@
         <div :class="$style.title" vusion-slot-name="title"><slot name="title">{{ title }}</slot></div>
         <div :class="$style.extra" vusion-slot-name="extra"><slot name="extra"></slot></div>
     </div>
-    <div :class="$style.body">
+    <div :class="$style.body" vusion-slot-name="default">
         <slot></slot>
     </div>
 </div>

@@ -15,7 +15,7 @@
     <u-input v-if="filterable" :class="$style.filter" :disabled="disabled" :placeholder="placeholder" size="small" suffix="search" :clearable="clearable"
         :value="filterText" @input="onInput">
     </u-input>
-    <div ref="body" :class="$style.body" @scroll.stop="onScroll">
+    <div ref="body" :class="$style.body" @scroll.stop="onScroll" vusion-slot-name="default">
         <slot></slot>
         <div ref="virtual" v-if="(!currentLoading && !currentError || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length"
             :style="{ paddingTop: virtualTop + 'px', paddingBottom: virtualBottom + 'px' }">

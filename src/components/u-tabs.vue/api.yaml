@@ -279,4 +279,5 @@
     - name: title
       title: 标题
       description: 自定义标题
+  nested: true
   description: 标签页
