@@ -129,7 +129,7 @@
     --height-huge: 40px;
     --border-radius-mini: 1px;
     --border-radius-base: 2px;
-    --border-radius-medium: 3px;
+    --border-radius-medium: 4px;
     --border-radius-large: 4px;
 
     /* Fonts */
@@ -809,7 +809,7 @@
     --uploader-card-space: 8px;
     --uploader-mask-background: rgba(0, 0, 0, 0.6);
     --uploader-draggable-background: var(--background-color-lighter);
-    --uploader-draggable-border-width: 2px;
+    --uploader-draggable-border-width: 1px;
     --uploader-draggable-border-color: var(--border-color-base);
     --uploader-draggable-border-color-hover: var(--brand-primary);
     --uploader-draggable-border-radius: var(--border-radius-large);
@@ -985,15 +985,18 @@
     --modal-dialog-width-small: 300px;
     --modal-dialog-width-large: 600px;
     --modal-dialog-width-huge: 800px;
+    --modal-dialog-border-radius: var(--border-radius-large);
     --modal-dialog-background: white;
     --modal-dialog-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-    --modal-title-font-size: 14px;
+    --modal-title-font-size: var(--font-size-large);
+    --modal-close-right: 15px;
     --modal-close-color: var(--gray-light);
     --modal-close-color-hover: var(--color-light);
     --modal-head-padding: 15px;
     --modal-static-padding: var(--space-base);
     --modal-body-margin: 30px 50px;
-    --modal-foot-margin: 30px 50px;
+    --modal-foot-margin: 0;
+    --modal-foot-padding: 16px;
     --modal-border-color: var(--border-color-base);
 
     /* Drawer */

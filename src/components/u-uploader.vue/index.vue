@@ -1,15 +1,14 @@
 <template>
 <div :class="$style.root">
-    <template v-if="draggable">
-        <div :class="$style.draggable" :dragover="dragover" @click="select()"
-            @drop.prevent="onDrop"
-            @paste="onPaste"
-            @dragover.prevent="dragover = true"
-            @dragleave.prevent="dragover = false">
-            <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
-            <div><slot>点击或者拖动文件到虚线框内上传</slot></div>
-        </div>
-    </template>
+    <div v-if="draggable" :class="$style.draggable" :dragover="dragover" @click="select()"
+        :tabindex="readonly || disabled ? '' : 0"
+        @drop.prevent="onDrop"
+        @paste="onPaste"
+        @dragover.prevent="dragover = true"
+        @dragleave.prevent="dragover = false">
+        <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
+        <div><slot>点击/拖动/粘贴文件到这里</slot></div>
+    </div>
     <div v-else-if="listType !== 'card'" :class="$style.select" @click="select()">
         <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
         <slot></slot>
@@ -35,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div v-if="(multiple || currentValue.length === 0) && !readonly" :class="$style.card" role="select" @click="select()">
+            <div v-if="(multiple || currentValue.length === 0) && !draggable && !readonly" :class="$style.card" role="select" @click="select()">
                 <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
             </div>
         </template>
@@ -79,7 +78,7 @@ export default {
         urlField: { type: String, default: 'url' },
         autoUpload: { type: Boolean, default: true },
         draggable: { type: Boolean, default: false },
-        paste: { type: Boolean, default: false },
+        pastable: { type: Boolean, default: false },
         showFileList: { type: Boolean, default: true },
         converter: String,
         readonly: { type: Boolean, default: false },
@@ -344,7 +343,7 @@ export default {
         onPaste(e) {
             if (this.readonly || this.disabled)
                 return;
-            if (this.paste)
+            if (this.pastable)
                 this.uploadFiles(e.clipboardData.files);
         },
     },
@@ -355,7 +354,6 @@ export default {
 .root {
     display: block;
     position: relative;
-    overflow: hidden;
 }
 
 .root[display="inline"] {
@@ -596,7 +594,10 @@ export default {
     transition: all var(--transition-duration-base);
 }
 
-.draggable:hover, .draggable[dragover] {
+.draggable:focus,
+.draggable:hover,
+.draggable[dragover] {
+    outline: none;
     border-color: var(--uploader-draggable-border-color-hover);
 }
 
