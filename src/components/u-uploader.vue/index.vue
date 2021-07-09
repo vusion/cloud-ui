@@ -1,40 +1,48 @@
 <template>
 <div :class="$style.root">
-    <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" @change="onChange">
-    <div v-if="draggable" :class="$style.draggable" :dragover="dragover" @click="select()"
-        @drop.prevent="onDrop"
-        @paste="onPaste"
-        @dragover.prevent="dragover = true"
-        @dragleave.prevent="dragover = false">
-        <div><slot>点击或者拖动文件到虚线框内上传</slot></div>
-    </div>
+    <template v-if="draggable">
+        <div :class="$style.draggable" :dragover="dragover" @click="select()"
+            @drop.prevent="onDrop"
+            @paste="onPaste"
+            @dragover.prevent="dragover = true"
+            @dragleave.prevent="dragover = false">
+            <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
+            <div><slot>点击或者拖动文件到虚线框内上传</slot></div>
+        </div>
+    </template>
     <div v-else-if="listType !== 'card'" :class="$style.select" @click="select()">
+        <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
         <slot></slot>
     </div>
     <div :class="$style.list" v-if="showFileList" :list-type="listType">
         <template v-if="listType !== 'card'">
             <div :class="$style.item" v-for="(item, index) in currentValue" :key="index">
-                <div :class="$style.thumb"><img v-if="listType === 'image'" :src="item.thumb || item.url"></div>
+                <div :class="$style.thumb"><img :class="$style.img" v-if="listType === 'image'" :src="item.thumb || item.url"></div>
                 <a :class="$style.link" :href="item.url" target="_blank">{{ item.name }}</a>
-                <span :class="$style.remove" @click="remove(index)"></span>
+                <span v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></span>
                 <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
             </div>
         </template>
         <template v-else>
-            <div :class="$style.card" v-for="(item, index) in currentValue" :key="index" @click="!multiple && select()">
-                <div :class="$style.thumb"><img :src="item.thumb || item.url"></div>
-                <div :class="$style.mask" :multiple="multiple" :show-progress="item.showProgress">
+            <div :class="$style.card" v-for="(item, index) in currentValue" :key="index" @click="!multiple && !readonly && select()">
+                <div :class="$style.thumb"><img :class="$style.img" :src="item.thumb || item.url"></div>
+                <div :class="$style.mask" :multiple="multiple || readonly" :show-progress="item.showProgress">
                     <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
-                    <div v-show="multiple" :class="$style.buttons">
-                        <span :class="$style.button" role="preview" @click="onPreview(item)"></span>
+                    <div v-show="multiple || readonly" :class="$style.buttons">
+                        <span :class="$style.button" role="preview" @click="onPreview(item, index)"></span>
                         <a :class="$style.button" :href="item.url" target="_blank" role="download"></a>
-                        <span :class="$style.button" role="remove" @click="remove(index)"></span>
+                        <span v-if="!readonly && !disabled" :class="$style.button" role="remove" @click="remove(index)"></span>
                     </div>
                 </div>
             </div>
-            <div v-if="multiple || currentValue.length === 0" :class="$style.card" role="select" @click="select()"></div>
+            <div v-if="(multiple || currentValue.length === 0) && !readonly" :class="$style.card" role="select" @click="select()">
+                <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
+            </div>
         </template>
     </div>
+    <u-lightbox :visible.sync="lightboxVisible" :value="currentIndex" animation="fade">
+        <u-lightbox-item v-for="(item, index) in currentValue" :key="index" :value="index" :title="item.name"><img :src="item.url"></u-lightbox-item>
+    </u-lightbox>
 </div>
 </template>
 
@@ -56,7 +64,7 @@ export default {
     mixins: [MEmitter],
     i18n,
     props: {
-        value: { type: Array, default: () => [] },
+        value: [Array, String],
         url: { type: String, required: true },
         name: { type: String, default: 'file' },
         accept: String,
@@ -68,39 +76,64 @@ export default {
         limit: { type: Number, default: Infinity },
         maxSize: { type: [String, Number], default: Infinity },
         listType: { type: String, default: 'text' },
+        urlField: { type: String, default: 'url' },
         autoUpload: { type: Boolean, default: true },
         draggable: { type: Boolean, default: false },
         paste: { type: Boolean, default: false },
         showFileList: { type: Boolean, default: true },
+        converter: String,
+        readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
     },
     data() {
         return {
-            currentValue: this.value,
+            currentValue: this.fromValue(this.value),
             contentType: 'multipart/form-data',
             sending: false,
             file: {},
             iframeName: 'iframe-' + new Date().getTime(),
             dragover: false,
+            lightboxVisible: false,
+            currentIndex: 0,
         };
     },
     watch: {
         value(value) {
-            this.currentValue = this.value;
+            this.currentValue = this.fromValue(value);
         },
         currentValue: {
             immediate: true,
             handler(currentValue, oldValue) {
+                const value = this.toValue(currentValue);
+
+                this.$emit('input', value);
+                this.$emit('update:value', value);
                 this.$emit('change', {
-                    value: currentValue,
-                    oldValue,
+                    value,
+                    oldValue: this.toValue(oldValue),
                 }, this);
             },
         },
     },
     methods: {
+        fromValue(value) {
+            if (this.converter === 'json')
+                try {
+                    return JSON.parse(value || '[]');
+                } catch (err) {
+                    return [];
+                }
+            else
+                return value || [];
+        },
+        toValue(value) {
+            if (this.converter === 'json')
+                return JSON.stringify(value);
+            else
+                return value;
+        },
         select() {
-            if (this.disabled || this.sending)
+            if (this.readonly || this.disabled || this.sending)
                 return;
 
             this.$refs.file.value = '';
@@ -204,9 +237,9 @@ export default {
             this.currentValue.push(item);
 
             if (this.autoUpload)
-                this.post(file, item);
+                this.post(file, item, this.currentValue.length - 1);
         },
-        post(file, item) {
+        post(file, item, index) {
             const xhr = ajax({
                 url: this.url,
                 headers: this.headers,
@@ -215,6 +248,7 @@ export default {
                 data: this.data,
                 filename: this.name,
                 onProgress: (e) => {
+                    const item = this.currentValue[index];
                     item.percent = e.percent;
 
                     this.$emit('progress', {
@@ -222,8 +256,12 @@ export default {
                     }, this);
                 },
                 onSuccess: (res) => {
+                    const item = this.currentValue[index];
                     item.status = 'success';
+                    if (res[this.urlField])
+                        item.url = res[this.urlField];
                     item.response = res;
+                    item.showProgress = false;
 
                     this.$emit('success', {
                         res,
@@ -231,11 +269,13 @@ export default {
                         item,
                         xhr,
                     }, this);
-                    setTimeout(() => {
-                        item.showProgress = false;
-                    }, 1000);
+
+                    const value = this.toValue(this.currentValue);
+                    this.$emit('input', value);
+                    this.$emit('update:value', value);
                 },
                 onError: (e, res) => {
+                    const item = this.currentValue[index];
                     item.status = 'error';
                     this.$emit('error', {
                         e,
@@ -244,12 +284,26 @@ export default {
                         item,
                         xhr,
                     }, this);
+
+                    const value = this.toValue(this.currentValue);
+                    this.$emit('input', value);
+                    this.$emit('update:value', value);
                 },
             });
         },
-        onPreview(item) {
+        onPreview(item, index) {
+            if (this.$emitPrevent('before-preview', {
+                item,
+                index,
+            }, this))
+                return;
+
+            this.lightboxVisible = true;
+            this.currentIndex = index;
+
             this.$emit('preview', {
                 item,
+                index,
             }, this);
         },
         remove(index) {
@@ -282,13 +336,13 @@ export default {
         },
         onDrop(e) {
             this.dragover = false;
-            if (this.disabled)
+            if (this.readonly || this.disabled)
                 return;
 
             this.uploadFiles(e.dataTransfer.files);
         },
         onPaste(e) {
-            if (this.disabled)
+            if (this.readonly || this.disabled)
                 return;
             if (this.paste)
                 this.uploadFiles(e.clipboardData.files);
@@ -300,34 +354,34 @@ export default {
 <style module>
 .root {
     display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.root[display="inline"] {
+    display: inline-block;
 }
 
 .select {
     display: inline-block;
-}
-
-.iframe, .form {
-    display: none;
-}
-
-/* For IE9 */
-/* stylelint-disable no-duplicate-selectors */
-.root {
-    position: relative\0;
+    position: relative;
     overflow: hidden\0;
 }
 
-.form {
-    display: block\0;
-}
-
 .file {
+    display: none;
+    display: block\0;
     position: absolute;
     top: 0;
-    right: -5px;
-    font-size: 100px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     opacity: 0;
     cursor: var(--cursor-pointer);
+}
+
+.file[readonly], .file[disabled] {
+    display: none;
 }
 
 .item {
@@ -342,6 +396,14 @@ export default {
 .thumb {
     display: inline-block;
     vertical-align: middle;
+}
+.img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.list {
+    min-width: 400px;
 }
 
 .list[list-type="text"] .thumb::before {
@@ -524,6 +586,7 @@ export default {
 }
 
 .draggable {
+    overflow: hidden;
     cursor: var(--cursor-pointer);
     text-align: center;
     background: var(--uploader-draggable-background);
