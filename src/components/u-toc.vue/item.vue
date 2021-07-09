@@ -6,7 +6,7 @@
         v-ellipsis-title>
         {{ label }}
     </a>
-    <div :class="$style.sub">
+    <div :class="$style.sub" vusion-slot-name="default">
         <slot></slot>
     </div>
 </div>

@@ -11,7 +11,7 @@
         <div :class="$style.description" vusion-slot-name="description">
             <slot name="description">{{ description }}</slot>
         </div>
-        <div :class="$style.wrap">
+        <div :class="$style.wrap" vusion-slot-name="default">
             <slot></slot>
             <span v-if="color === 'focus' && currentMessage" :class="$style.message" color="focus"><slot name="message">{{ currentMessage }}</slot></span>
             <span v-else-if="currentMessage" :class="$style.message" :color="color"><slot name="message">{{ currentMessage }}</slot></span>

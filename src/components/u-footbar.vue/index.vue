@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root">
-    <div :class="$style.body" :position="currentPosition" ref="body">
+    <div :class="$style.body" :position="currentPosition" ref="body" vusion-slot-name="default">
         <slot></slot>
     </div>
 </div>

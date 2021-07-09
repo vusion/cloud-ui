@@ -3,7 +3,7 @@
     <div :class="$style.label" vusion-slot-name="label">
         <slot name="label">{{ label }}</slot>
     </div>
-    <div :class="$style.value" :ellipsis="ellipsis">
+    <div :class="$style.value" :ellipsis="ellipsis" vusion-slot-name="default">
         <slot></slot>
     </div>
 </div>

@@ -13,7 +13,7 @@
     <f-collapse-transition>
         <div :class="$style.body" v-show="currentExpanded">
             <slot name="body">
-                <div :class="$style.content">
+                <div :class="$style.content" vusion-slot-name="default">
                     <slot></slot>
                 </div>
             </slot>
