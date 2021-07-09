@@ -130,9 +130,9 @@
 }
 
 .prefix[name="search"]::before, .suffix[name="search"]::before {
-    icon-font: url("../i-icon.vue/icons/search.svg");
+    icon-font: url("i-material-design.vue/assets/filled/search.svg");
     font-size: 16px;
-    color: #a7afbb;
+    color: white;
 }
 
 /* @deprecated */
