@@ -1208,8 +1208,8 @@
                 },
                 {
                     "name": "u-navbar-menu-item",
-                    "title": "导航菜单子元素",
-                    "description": "导航菜单子元素"
+                    "title": "导航菜单项",
+                    "description": "导航菜单项"
                 },
                 {
                     "name": "u-navbar-menu-divider",
@@ -1228,8 +1228,8 @@
                 },
                 {
                     "name": "u-navbar-select-item",
-                    "title": "导航选择分组子元素",
-                    "description": "导航选择分组子元素"
+                    "title": "导航选择项",
+                    "description": "导航选择项"
                 },
                 {
                     "name": "u-navbar-select-divider",
@@ -2447,8 +2447,8 @@
             "children": [
                 {
                     "name": "u-collapse-item",
-                    "title": "折叠子元素",
-                    "description": "折叠子元素",
+                    "title": "折叠面板项",
+                    "description": "折叠面板项",
                     "attrs": [
                         {
                             "name": "title",
@@ -6563,7 +6563,7 @@
             "Form"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.46/src/components/u-input.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"\",\"description\":\"\",\"code\":\"<template>\\n<u-input placeholder=\\\"普通输入框\\\"></u-input>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"\",\"description\":\"\",\"code\":\"<template>\\n<u-input placeholder=\\\"请输入\\\"></u-input>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-input",
             "title": "单行输入",
@@ -6575,7 +6575,7 @@
                 {
                     "title": "",
                     "description": "",
-                    "code": "<template>\n<u-input placeholder=\"普通输入框\"></u-input>\n</template>\n"
+                    "code": "<template>\n<u-input placeholder=\"请输入\"></u-input>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -7035,7 +7035,7 @@
                     "name": "max",
                     "title": "最大值",
                     "type": "number",
-                    "default": 999,
+                    "default": null,
                     "description": "最大值"
                 },
                 {
@@ -7291,7 +7291,7 @@
             "Form"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.46/src/components/u-textarea.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"大部分属性与`<textarea>`元素一致。\\n\",\"code\":\"<template>\\n<u-textarea placeholder=\\\"Details\\\" autofocus></u-textarea>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"大部分属性与`<textarea>`元素一致。\\n\",\"code\":\"<template>\\n<u-textarea placeholder=\\\"请输入\\\"></u-textarea>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-textarea",
             "title": "多行输入",
@@ -7303,7 +7303,7 @@
                 {
                     "title": "基本用法",
                     "description": "大部分属性与`<textarea>`元素一致。\n",
-                    "code": "<template>\n<u-textarea placeholder=\"Details\" autofocus></u-textarea>\n</template>\n"
+                    "code": "<template>\n<u-textarea placeholder=\"请输入\"></u-textarea>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -12416,8 +12416,8 @@
             "children": [
                 {
                     "name": "u-tree-view-node",
-                    "title": "组件子元素",
-                    "description": "组件子元素",
+                    "title": "树型视图节点",
+                    "description": "树型视图节点",
                     "attrs": [
                         {
                             "name": "value",
@@ -12607,7 +12607,7 @@
             "Selector"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.46/src/components/u-transfer.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.46/src/components/u-transfer.vue/screenshots/1.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"向`data-source`属性中传入`Array<Item>`格式的数组，每个`Item`为这样格式的对象`{ text: string, value: any, disabled: boolean, ... }`。\\n\",\"code\":\"<template>\\n<u-transfer show-head source-title=\\\"左列表\\\" target-title=\\\"右列表\\\"\\n:source=\\\"[{ text: 'SQL', value: 'sql' },{ text: 'JSON', value: 'json' },]\\\" :target=\\\"[{ text: 'CSS', value: 'css' },{ text: 'HTML', value: 'html' },{ text: 'JavaScript', value: 'javascript' },{ text: 'Vue', value: 'vue' },]\\\"></u-transfer>\\n</template>\\n\"},{\"title\":\"自定义内容\",\"description\":\"\",\"code\":\"<template>\\n<u-transfer \\n:source=\\\"[{ text: 'SQL', value: 'sql' },{ text: 'JSON', value: 'json' },]\\\" :target=\\\"[{ text: 'CSS', value: 'css' },{ text: 'HTML', value: 'html' },{ text: 'JavaScript', value: 'javascript' },{ text: 'Vue', value: 'vue' },]\\\"\\nshow-head>\\n    <template #item=\\\"scope\\\">\\n        <h3 ><u-text :text=\\\"scope.item.text\\\" wrap=\\\"ellipsis\\\"></u-text></h3>\\n        <div><u-text :text=\\\"scope.item.text\\\" wrap=\\\"ellipsis\\\"></u-text> is a specfic language with some features that ...</div>\\n    </template>\\n</u-transfer>\\n\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"向`data-source`属性中传入`Array<Item>`格式的数组，每个`Item`为这样格式的对象`{ text: string, value: any, disabled: boolean, ... }`。\\n\",\"code\":\"<template>\\n<u-transfer show-head source-title=\\\"左列表\\\" target-title=\\\"右列表\\\"\\n:source=\\\"[{ text: 'SQL', value: 'sql' },{ text: 'JSON', value: 'json' },]\\\" :target=\\\"[{ text: 'CSS', value: 'css' },{ text: 'HTML', value: 'html' },{ text: 'JavaScript', value: 'javascript' },{ text: 'Vue', value: 'vue' },]\\\"></u-transfer>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-transfer",
             "title": "穿梭框",
@@ -12620,11 +12620,6 @@
                     "title": "基本用法",
                     "description": "向`data-source`属性中传入`Array<Item>`格式的数组，每个`Item`为这样格式的对象`{ text: string, value: any, disabled: boolean, ... }`。\n",
                     "code": "<template>\n<u-transfer show-head source-title=\"左列表\" target-title=\"右列表\"\n:source=\"[{ text: 'SQL', value: 'sql' },{ text: 'JSON', value: 'json' },]\" :target=\"[{ text: 'CSS', value: 'css' },{ text: 'HTML', value: 'html' },{ text: 'JavaScript', value: 'javascript' },{ text: 'Vue', value: 'vue' },]\"></u-transfer>\n</template>\n"
-                },
-                {
-                    "title": "自定义内容",
-                    "description": "",
-                    "code": "<template>\n<u-transfer \n:source=\"[{ text: 'SQL', value: 'sql' },{ text: 'JSON', value: 'json' },]\" :target=\"[{ text: 'CSS', value: 'css' },{ text: 'HTML', value: 'html' },{ text: 'JavaScript', value: 'javascript' },{ text: 'Vue', value: 'vue' },]\"\nshow-head>\n    <template #item=\"scope\">\n        <h3 ><u-text :text=\"scope.item.text\" wrap=\"ellipsis\"></u-text></h3>\n        <div><u-text :text=\"scope.item.text\" wrap=\"ellipsis\"></u-text> is a specfic language with some features that ...</div>\n    </template>\n</u-transfer>\n\n</template>\n"
                 }
             ],
             "attrs": [

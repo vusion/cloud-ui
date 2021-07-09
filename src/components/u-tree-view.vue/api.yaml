@@ -257,7 +257,7 @@
           type: boolean
           description: 选中/取消
 - name: u-tree-view-node
-  title: 组件子元素
+  title: 树型视图节点
   attrs:
     - name: value
       title: 值
@@ -369,4 +369,4 @@
         - name: senderVM
           type: UTreeViewNode
           description: 发送事件实例
-  description: 组件子元素
+  description: 树型视图节点

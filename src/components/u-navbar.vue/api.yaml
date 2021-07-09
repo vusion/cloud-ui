@@ -378,8 +378,8 @@
   title: 导航菜单分组
   description: 导航菜单分组
 - name: u-navbar-menu-item
-  title: 导航菜单子元素
-  description: 导航菜单子元素
+  title: 导航菜单项
+  description: 导航菜单项
 - name: u-navbar-menu-divider
   title: 导航菜单分割线
   description: 导航菜单分割线
@@ -390,8 +390,8 @@
   title: 导航选择分组
   description: 导航选择分组
 - name: u-navbar-select-item
-  title: 导航选择分组子元素
-  description: 导航选择分组子元素
+  title: 导航选择项
+  description: 导航选择项
 - name: u-navbar-select-divider
   title: 导航选择分割线
   description: 导航选择分割线

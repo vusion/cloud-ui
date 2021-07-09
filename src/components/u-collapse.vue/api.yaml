@@ -66,7 +66,7 @@
           type: boolean
           description: 展开/折叠
 - name: u-collapse-item
-  title: 折叠子元素
+  title: 折叠面板项
   attrs:
     - name: title
       title: 标题
@@ -131,4 +131,4 @@
         - name: senderVM
           type: Vue
           description: 发送事件实例
-  description: 折叠子元素
+  description: 折叠面板项
