@@ -139,13 +139,13 @@ export default {
 </script>
 ```
 
-### 拖拽上传
+### 拖拽和粘贴上传
 
-开启`draggable`属性，可以使用拖拽上传。使用插槽可以自定义文字内容。
+开启`draggable`和`pastable`属性，可以使用拖拽上传。使用插槽可以自定义文字内容。
 
 ``` vue
 <template>
-<u-uploader v-model="files" url="/gateway/lowcode/api/v1/app/upload" draggable></u-uploader>
+<u-uploader v-model="files" url="/gateway/lowcode/api/v1/app/upload" draggable pastable></u-uploader>
 </template>
 <script>
 export default {

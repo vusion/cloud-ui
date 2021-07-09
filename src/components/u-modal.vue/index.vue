@@ -225,6 +225,8 @@ export default UModal;
     vertical-align: middle;
     text-align: left;
     background: var(--modal-dialog-background);
+    border: 1px solid var(--modal-border-color);
+    border-radius: var(--modal-dialog-border-radius);
     box-shadow: var(--modal-dialog-box-shadow);
 }
 
@@ -261,7 +263,7 @@ export default UModal;
 
 .close {
     position: absolute;
-    right: var(--modal-title-font-size);
+    right: var(--modal-close-right);
     top: 50%;
     transform: translateY(-50%);
     line-height: 1;
@@ -330,7 +332,9 @@ export default UModal;
 
 .foot {
     margin: var(--modal-foot-margin);
+    padding: var(--modal-foot-padding);
     text-align: center;
+    border-top: 1px solid var(--modal-border-color);
 }
 
 @media (--small-window) {

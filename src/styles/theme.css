@@ -129,7 +129,7 @@
     --height-huge: 40px;
     --border-radius-mini: 1px;
     --border-radius-base: 2px;
-    --border-radius-medium: 3px;
+    --border-radius-medium: 4px;
     --border-radius-large: 4px;
 
     /* Fonts */
@@ -487,10 +487,13 @@
     --sidebar-expander-color-disabled: var(--brand-disabled);
 
     /* Menu */
+    --menu-padding-y: 0;
     --menu-background: white;
+    --menu-min-width: none;
     --menu-background-hover: var(--background-color-light);
     --menu-border-width: var(--border-width-base);
     --menu-border-color: var(--border-color-base);
+    --menu-border-radius: 0;
     --menu-box-shadow: var(--box-shadow-base);
     --menu-item-padding: 5px 15px;
     --menu-item-size: 32px;
@@ -662,7 +665,7 @@
     --input-border-color-error: var(--brand-error);
     --input-border-color-focus: #81abe9;
     --input-placeholder-color: var(--color-lighter);
-    --input-clearable-color: #a7afbb;
+    --input-icon-color: #a7afbb;
     --input-border-radius: 3px;
 
     /* Textarea */
@@ -817,7 +820,7 @@
     --uploader-card-space: 8px;
     --uploader-mask-background: rgba(0, 0, 0, 0.6);
     --uploader-draggable-background: var(--background-color-lighter);
-    --uploader-draggable-border-width: 2px;
+    --uploader-draggable-border-width: 1px;
     --uploader-draggable-border-color: var(--border-color-base);
     --uploader-draggable-border-color-hover: var(--brand-primary);
     --uploader-draggable-border-radius: var(--border-radius-large);
@@ -944,11 +947,13 @@
     --popup-border-color: var(--border-color-base);
 
     /* Tooltip */
-    --tooltip-padding: 8px 10px;
+    --tooltip-padding: 8px 12px;
     --tooltip-arrow-size: 6px;
     --tooltip-arrow-offset: 16px;
-    --tooltip-background: rgba(71,88,107,.9);
+    --tooltip-background: rgba(34, 36, 46, 0.9);
     --tooltip-color: white;
+    --tooltip-border-radius: 4px;
+    --tooltip-box-shadow: 0px 2px 6px rgba(23, 23, 26, 0.1);
 
     /* Icon Tooltip */
     --icon-tooltip-color: #bac2cf;
@@ -991,15 +996,18 @@
     --modal-dialog-width-small: 300px;
     --modal-dialog-width-large: 600px;
     --modal-dialog-width-huge: 800px;
+    --modal-dialog-border-radius: var(--border-radius-large);
     --modal-dialog-background: white;
     --modal-dialog-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-    --modal-title-font-size: 14px;
+    --modal-title-font-size: var(--font-size-large);
+    --modal-close-right: 15px;
     --modal-close-color: var(--gray-light);
     --modal-close-color-hover: var(--color-light);
     --modal-head-padding: 15px;
     --modal-static-padding: var(--space-base);
     --modal-body-margin: 30px 50px;
-    --modal-foot-margin: 30px 50px;
+    --modal-foot-margin: 0;
+    --modal-foot-padding: 16px;
     --modal-border-color: var(--border-color-base);
 
     /* Drawer */

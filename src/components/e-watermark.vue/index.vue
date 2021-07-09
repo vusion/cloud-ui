@@ -89,25 +89,7 @@ export default {
             const canvasEl = this.$refs.canvas;
             const windowHeight = window.innerHeight;
             const windowWidth = window.innerWidth;
-            const isFirstPaint = !this.lastRectangle;
-            this.lastRectangle = isFirstPaint ? { windowWidth: 0, windowHeight: 0 } : this.lastRectangle;
-            if (
-                windowHeight > this.lastRectangle.windowHeight
-                || windowWidth > this.lastRectangle.windowWidth
-            ) {
-                this.lastRectangle = {
-                    windowWidth: Math.max(
-                        windowWidth,
-                        this.lastRectangle.windowWidth,
-                    ),
-                    windowHeight: Math.max(
-                        windowHeight,
-                        this.lastRectangle.windowHeight,
-                    ),
-                };
-            } else if (!isFirstPaint) {
-                return;
-            }
+
             canvasEl.style.width = windowWidth + 'px';
             canvasEl.style.height = windowHeight + 'px';
             const width = (canvasEl.width = windowWidth * 2);

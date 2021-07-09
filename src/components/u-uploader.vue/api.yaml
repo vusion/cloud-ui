@@ -91,7 +91,7 @@
       type: boolean
       default: false
       description: 是否可以拖拽上传
-    - name: paste
+    - name: pastable
       title: 是否可以粘贴
       type: boolean
       default: false

@@ -66,7 +66,7 @@
     margin: auto;
     icon-font: url('../i-icon.vue/assets/close-solid.svg');
     cursor: var(--cursor-pointer);
-    color: var(--input-clearable-color);
+    color: var(--input-icon-color);
 }
 
 .input:focus {
@@ -127,9 +127,9 @@
 }
 
 .prefix[name="search"]::before, .suffix[name="search"]::before {
-    icon-font: url("../i-icon.vue/icons/search.svg");
+    icon-font: url("i-material-design.vue/assets/filled/search.svg");
     font-size: 16px;
-    color: #a7afbb;
+    color: var(--input-icon-color);
 }
 
 .root[size$="mini"] { width: var(--input-width-mini); padding-left: var(--input-padding-x-mini); padding-right: var(--input-padding-x-mini); }

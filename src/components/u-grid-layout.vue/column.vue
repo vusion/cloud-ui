@@ -61,7 +61,7 @@ export default {
             this.currentSpan = span;
         },
     },
-    created() {
+    mounted() {
         addResizeListener(this.$el, this.onResize);
         this.onResize();
     },

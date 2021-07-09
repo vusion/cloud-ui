@@ -45,7 +45,8 @@ export default {
     color: var(--tooltip-color);
     font-size: var(--font-size-small);
     z-index: var(--z-index-tooltip);
-    border-radius: 2px;
+    border-radius: var(--tooltip-border-radius);
+    box-shadow: var(--tooltip-box-shadow);
 }
 
 .arrow {
