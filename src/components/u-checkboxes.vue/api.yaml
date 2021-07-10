@@ -165,3 +165,4 @@
           type: UCheckbox
           description: 发送事件实例
   description: 多选项
+  next: false

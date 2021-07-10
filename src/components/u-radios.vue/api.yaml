@@ -21,6 +21,7 @@
       type: boolean
       default: false
       description: 是否禁用
+  nested: false
   slots:
     - name: default
       description: 插入`<u-radio>`子组件。
@@ -156,3 +157,5 @@
           type: URadio
           description: 发送事件实例
   description: 单选项
+  next: false
+  

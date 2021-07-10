@@ -254,6 +254,7 @@
   slots:
     - name: default
       description: 插入文本或 HTML。
+  next: false
   events:
     - name: click
       title: 点击
