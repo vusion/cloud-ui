@@ -3,7 +3,7 @@
 按钮有四种类型：主按钮、次按钮、虚线按钮、危险按钮。主按钮在同一个操作区域最多出现一次。
 
 ``` html
-<u-linear-layout>
+<u-linear-layout gap="small">
     <u-button color="primary">Primary</u-button>
     <u-button>Default</u-button>
     <u-button dashed>Dashed</u-button>
@@ -99,7 +99,7 @@
 使用`icon`属性添加图标。
 
 ``` html
-<u-linear-layout>
+<u-linear-layout gap="small">
     <u-button color="primary" icon="create">创建实例</u-button>
     <u-button color="primary" icon="create" disabled>创建实例</u-button>
     <u-button color="primary" icon="success">创建成功</u-button>
@@ -113,7 +113,7 @@
 
 ``` vue
 <template>
-<u-linear-layout>
+<u-linear-layout gap="small">
     <u-button color="primary" loading>创建实例</u-button>
     <u-button color="primary" icon="create" loading disabled>创建实例</u-button>
     <u-button color="primary" shape="square" icon="refresh"
@@ -138,7 +138,7 @@ export default {
 在按钮上可以方便添加链接或路由，类似`<router-link>`。具有 href、target、to 等属性。
 
 ``` html
-<u-linear-layout>
+<u-linear-layout gap="small">
     <u-button color="primary" href="https://vusion.github.io" target="_blank">打开新窗口</u-button>
     <u-button to="/cloud-ui/components/u-link">路由跳转</u-button>
     <u-button color="primary" href="https://vusion.github.io" disabled>禁用链接</u-button>

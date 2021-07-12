@@ -127,8 +127,8 @@
     --height-medium: 36px;
     --height-large: 40px;
     --height-huge: 40px;
-    --border-radius-mini: 1px;
-    --border-radius-base: 2px;
+    --border-radius-mini: 2px;
+    --border-radius-base: 4px;
     --border-radius-medium: 4px;
     --border-radius-large: 4px;
 
@@ -989,14 +989,14 @@
     --modal-dialog-background: white;
     --modal-dialog-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     --modal-title-font-size: var(--font-size-large);
-    --modal-close-right: 15px;
+    --modal-close-right: 24px;
     --modal-close-color: var(--gray-light);
     --modal-close-color-hover: var(--color-light);
-    --modal-head-padding: 15px;
+    --modal-head-padding: 13px 24px;
     --modal-static-padding: var(--space-base);
     --modal-body-margin: 30px 50px;
     --modal-foot-margin: 0;
-    --modal-foot-padding: 16px;
+    --modal-foot-padding: 10px 24px;
     --modal-border-color: var(--border-color-base);
 
     /* Drawer */

@@ -26,9 +26,9 @@
                     </div>
                     <div :class="$style.foot" v-if="okButton || cancelButton">
                         <slot name="foot">
-                            <u-linear-layout>
-                                <u-button :class="$style.button" v-if="okButton" color="primary" @click="ok()">{{ okButton }}</u-button>
+                            <u-linear-layout gap="small">
                                 <u-button :class="$style.button" v-if="cancelButton" @click="cancel()">{{ cancelButton }}</u-button>
+                                <u-button :class="$style.button" v-if="okButton" color="primary" @click="ok()">{{ okButton }}</u-button>
                             </u-linear-layout>
                         </slot>
                     </div>

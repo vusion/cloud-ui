@@ -27,7 +27,7 @@ export default {
 
 ``` vue
 <template>
-<u-linear-layout>
+<u-linear-layout gap="small">
     <u-button @click="alert()">Alert</u-button>
     <u-button @click="confirm()">Confirm</u-button>
 </u-linear-layout>

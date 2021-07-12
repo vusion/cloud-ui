@@ -27,9 +27,9 @@
                 </div>
                 <div :class="$style.foot" v-if="okButton || cancelButton">
                     <slot name="foot">
-                        <u-linear-layout>
-                            <u-button :class="$style.button" v-if="okButton" :color="primaryButton === 'okButton' ? 'primary' : ''" :disabled="disableOk" @click="ok()">{{ okButton }}</u-button>
+                        <u-linear-layout gap="small" justify="end">
                             <u-button :class="$style.button" v-if="cancelButton" :color="primaryButton === 'cancelButton' ? 'primary' : ''" :disabled="disableCancel" @click="cancel()">{{ cancelButton }}</u-button>
+                            <u-button :class="$style.button" v-if="okButton" :color="primaryButton === 'okButton' ? 'primary' : ''" :disabled="disableOk" @click="ok()">{{ okButton }}</u-button>
                         </u-linear-layout>
                     </slot>
                 </div>
