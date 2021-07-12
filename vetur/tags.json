@@ -1711,7 +1711,7 @@
       "url-field",
       "auto-upload",
       "draggable",
-      "paste",
+      "pastable",
       "show-file-list",
       "converter",
       "readonly",

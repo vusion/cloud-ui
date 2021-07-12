@@ -6,7 +6,7 @@
     - [基本用法](#基本用法)
     - [多文件上传](#多文件上传)
     - [列表类型](#列表类型)
-    - [拖拽上传](#拖拽上传)
+    - [拖拽和粘贴上传](#拖拽和粘贴上传)
     - [禁用状态](#禁用状态)
 - [API]()
     - [Props/Attrs](#propsattrs)
@@ -160,13 +160,13 @@ export default {
 </script>
 ```
 
-### 拖拽上传
+### 拖拽和粘贴上传
 
-开启`draggable`属性，可以使用拖拽上传。使用插槽可以自定义文字内容。
+开启`draggable`和`pastable`属性，可以使用拖拽上传。使用插槽可以自定义文字内容。
 
 ``` vue
 <template>
-<u-uploader v-model="files" url="/gateway/lowcode/api/v1/app/upload" draggable></u-uploader>
+<u-uploader v-model="files" url="/gateway/lowcode/api/v1/app/upload" draggable pastable></u-uploader>
 </template>
 <script>
 export default {
@@ -235,12 +235,12 @@ export default {
 | data-type | string |  | `'json'` | 接收数据类型。可选值：`text`、`xml`、`json` |
 | data | object |  |  | 附加数据 |
 | limit | number |  | `999` | 列表数量上限 |
-| max-size | string |  | `'50M'` | 可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB` |
+| max-size | string |  | `'50MB'` | 可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB` |
 | list-type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'text'` | 列表展示类型 |
 | url-field | string |  | `'url'` | 请求返回的 URL 字段名 |
 | auto-upload | boolean |  | `true` | 是否自动上传 |
 | draggable | boolean |  | `false` | 是否可以拖拽上传 |
-| paste | boolean |  | `false` | 是否可以粘贴 |
+| pastable | boolean |  | `false` | 是否可以粘贴 |
 | show-file-list | boolean |  | `true` | 是否显示文件列表 |
 | converter | string | `[object Object]` | `'json'` | 转换器 |
 | readonly | boolean |  | `false` | 是否只读 |

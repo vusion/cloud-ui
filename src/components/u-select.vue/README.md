@@ -1318,20 +1318,20 @@ export default {
 | data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 选择框的数据源。数组方式表示直接的数据，函数需要返回一个 Promise，详见文档示例。 |
 | cancelable | boolean |  | `false` | 是否可以取消选择。 |
 | multiple | boolean |  | `false` | 是否可以多选。 |
-| converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'join'` | value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象 |
+| converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象 |
 | placeholder | string |  | `'请选择'` | 选择框的占位符。 |
 | loading-text | string |  | `'加载中...'` | 正在加载中的文字。使用分页加载时才会出现。 |
 | empty-text | string |  | `'暂无数据'` | 暂无数据时的文字。 |
 | empty-disabled | boolean |  | `false` | 没有数据时，自动禁用。 |
 | initial-load | boolean |  | `true` | 是否在初始时立即加载。 |
-| pageable | boolean |  | `false` | 是否需要分页。 |
-| page-size.sync | number |  | `50` | 分页大小。 |
+| pageable | boolean |  | `false` | 是否使用分页功能加载更多。 |
 | remote-paging | boolean |  | `false` | 是否使用后端分页。 |
+| page-size.sync | number |  | `50` | 分页大小。 |
 | clearable | boolean |  | `false` | 是否有清除按钮。 |
-| filterable | boolean |  | `false` | 是否使用输入框进行过滤。 |
+| filterable | boolean |  | `false` | 是否使用输入框进行筛选。 |
+| remote-filtering | boolean |  | `false` | 是否使用后端筛选。 |
 | match-method | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'includes'` | 过滤时的匹配方法。 |
 | case-sensitive | string \| Function |  | `'includes'` | 过滤时大小写是否敏感 |
-| remote-filtering | boolean |  | `false` | 是否使用后端过滤。 |
 | auto-complete | boolean |  | `false` | 是否开启自动补充模式，用于增加列表中没有的项。 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |

@@ -27,7 +27,6 @@
 - [UTableViewColumn API](#utableviewcolumn-api)
     - [Props/Attrs](#propsattrs-2)
     - [Slots](#slots-2)
-    - [Events](#events-2)
 
 **Table**
 
@@ -1999,14 +1998,4 @@ Methods
 | columnVM | string | 展开列组件实例。 |
 | rowIndex | number | 行的索引。 |
 | columnIndex | number | 展开列的索引。 |
-
-### Events
-
-#### @$listeners
-
-监听所有事件。
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| $event | trigger | 自定义事件 |
 
