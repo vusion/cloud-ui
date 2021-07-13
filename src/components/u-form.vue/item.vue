@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" :label-size="currentLabelSize" :distance="rootVM && rootVM.extraSlots ? 'extra' : ''">
-    <label :class="$style.label" :required="currentRequired" v-show="label || title || currentLabelSize !== 'auto'" vusion-slot-name="label">
+    <label ref="label" @focus="onFocusLabel" :class="$style.label" :required="currentRequired" v-show="label || title || currentLabelSize !== 'auto'" vusion-slot-name="label">
         <slot name="label">{{ label || title }}</slot>
     </label>
     <span :class="$style.extra" v-if="!hideSlots && rootVM && rootVM.extraSlots" vusion-slot-name="extra">
@@ -50,6 +50,8 @@ export default {
             // inputing: false,
             // parentVM: undefined,
             // fieldVM: undefined,
+            hasLabelEdited: false,
+            manualUpdateLabel: false,
         };
     },
     computed: {
@@ -69,6 +71,16 @@ export default {
         },
     },
 
+    watch: {
+        label(val) {
+            if(this.hasLabelEdited && val === '')
+                this.manualUpdateLabel = true;
+
+            if(this.manualUpdateLabel && !this.$slots.label)
+                this.$refs.label.textContent = val || this.title;
+        },
+    },
+
     methods: {
         // onFocus() {
         //     this.color = 'focus';
@@ -78,6 +90,10 @@ export default {
         //     this.color = this.state = '';
         //     this.$nextTick(() => this.validate('blur');
         // },
+        onFocusLabel() {
+            if(this.$refs.label?.hasAttribute('contenteditable'))
+                this.hasLabelEdited = true;
+        },
     },
 };
 </script>
