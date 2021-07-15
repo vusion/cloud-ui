@@ -461,7 +461,7 @@
       "expanded",
       "disabled"
     ],
-    "description": "折叠子元素"
+    "description": "折叠面板项"
   },
   "u-combo-slider": {
     "attributes": [
@@ -1063,7 +1063,7 @@
   },
   "u-navbar-menu-item": {
     "attributes": [],
-    "description": "导航菜单子元素"
+    "description": "导航菜单项"
   },
   "u-navbar-menu-divider": {
     "attributes": [],
@@ -1079,7 +1079,7 @@
   },
   "u-navbar-select-item": {
     "attributes": [],
-    "description": "导航选择分组子元素"
+    "description": "导航选择项"
   },
   "u-navbar-select-divider": {
     "attributes": [],
@@ -1240,13 +1240,13 @@
       "empty-disabled",
       "initial-load",
       "pageable",
-      "page-size",
       "remote-paging",
+      "page-size",
       "clearable",
       "filterable",
+      "remote-filtering",
       "match-method",
       "case-sensitive",
-      "remote-filtering",
       "auto-complete",
       "readonly",
       "disabled",
@@ -1692,7 +1692,7 @@
       "disabled",
       "node"
     ],
-    "description": "组件子元素"
+    "description": "树型视图节点"
   },
   "u-uploader": {
     "attributes": [

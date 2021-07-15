@@ -1600,16 +1600,16 @@
         "value": "date"
       },
       {
-        "title": "年",
-        "value": "year"
-      },
-      {
-        "title": "月",
+        "title": "月份",
         "value": "month"
       },
       {
-        "title": "季",
+        "title": "季度",
         "value": "quarter"
+      },
+      {
+        "title": "年份",
+        "value": "year"
       }
     ],
     "description": "用于定义选择的格式"
@@ -4098,15 +4098,15 @@
   },
   "u-select/pageable": {
     "type": "boolean",
-    "description": "是否需要分页。"
-  },
-  "u-select/page-size": {
-    "type": "number",
-    "description": "分页大小。"
+    "description": "是否使用分页功能加载更多。"
   },
   "u-select/remote-paging": {
     "type": "boolean",
     "description": "是否使用后端分页。"
+  },
+  "u-select/page-size": {
+    "type": "number",
+    "description": "分页大小。"
   },
   "u-select/clearable": {
     "type": "boolean",
@@ -4114,7 +4114,11 @@
   },
   "u-select/filterable": {
     "type": "boolean",
-    "description": "是否使用输入框进行过滤。"
+    "description": "是否使用输入框进行筛选。"
+  },
+  "u-select/remote-filtering": {
+    "type": "boolean",
+    "description": "是否使用后端筛选。"
   },
   "u-select/match-method": {
     "type": "string",
@@ -4137,10 +4141,6 @@
   "u-select/case-sensitive": {
     "type": "string | Function",
     "description": "过滤时大小写是否敏感"
-  },
-  "u-select/remote-filtering": {
-    "type": "boolean",
-    "description": "是否使用后端过滤。"
   },
   "u-select/auto-complete": {
     "type": "boolean",
