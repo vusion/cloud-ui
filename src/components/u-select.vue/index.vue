@@ -206,8 +206,12 @@ export default {
             popperVM && popperVM.currentOpened && popperVM.scheduleUpdate();
         });
         this.$on('select', ($event) => {
-            if (!this.multiple)
+            if (!this.multiple) {
                 this.close();
+            } else {
+                this.preventBlur = true;
+            }
+
             if (this.filterable) {
                 this.filterText = this.selectedVM ? this.selectedVM.currentText : '';
                 setTimeout(() => {
@@ -369,8 +373,10 @@ export default {
         },
         onRootBlur() {
             setTimeout(() => {
+                if (this.$refs.input && this.$refs.input.focused || this.preventBlur)
+                    return;
                 this.close();
-            }, 200);
+            }, 100);
         },
         selectByText(text) {
             if (this.multiple) {
