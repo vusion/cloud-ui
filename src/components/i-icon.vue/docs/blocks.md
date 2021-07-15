@@ -36,15 +36,6 @@
 <i-icon name="close"></i-icon>
 ```
 
-
 ``` html
 <i-icon name="close-solid"></i-icon>
-```
-
-``` html
-<i-icon name="filter"></i-icon>
-```
-
-``` html
-<i-icon name="github"></i-icon>
 ```
