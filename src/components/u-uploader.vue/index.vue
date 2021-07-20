@@ -27,10 +27,10 @@
                 <div :class="$style.thumb"><img :class="$style.img" :src="item.thumb || item.url"></div>
                 <div :class="$style.mask" :multiple="multiple || readonly" :show-progress="item.showProgress">
                     <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
-                    <div v-show="multiple || readonly" :class="$style.buttons">
+                    <div :class="$style.buttons">
                         <span :class="$style.button" role="preview" @click="onPreview(item, index)"></span>
                         <a :class="$style.button" :href="item.url" target="_blank" role="download"></a>
-                        <span v-if="!readonly && !disabled" :class="$style.button" role="remove" @click="remove(index)"></span>
+                        <span v-if="!readonly && !disabled" :class="$style.button" role="remove" @click.stop="remove(index)"></span>
                     </div>
                 </div>
             </div>
@@ -525,7 +525,7 @@ export default {
     opacity: 1;
 }
 
-.mask:not([multiple]) {
+/* .mask:not([multiple]) {
     cursor: var(--cursor-pointer);
     text-align: center;
     line-height: 128px;
@@ -535,7 +535,7 @@ export default {
     color: rgba(255, 255, 255, 0.6);
     icon-font: url('./assets/add.svg');
     font-size: 42px;
-}
+} */
 
 .card .progress {
     position: absolute;
