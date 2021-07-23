@@ -379,6 +379,8 @@ export default {
             }, 100);
         },
         selectByText(text) {
+            if (!text)
+                return;
             if (this.multiple) {
                 const oldVMs = this.selectedVMs;
                 const selectedVM = this.itemVMs.find(
