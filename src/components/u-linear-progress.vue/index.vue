@@ -3,7 +3,9 @@
     <div :class="$style.track" v-bind="$attrs">
         <div :class="$style.trail" :style="{ width: percent + '%', left: range[0] + '%', maxWidth}"></div>
     </div>
-    <slot></slot>
+    <div vusion-slot-name="default">
+      <slot></slot>
+    </div>
 </div>
 </template>
 

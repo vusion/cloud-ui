@@ -4,6 +4,8 @@
   labels:
     - Container
   description: 用于嵌入其他网页。
+  next: true
+  nested: false
   attrs:
     - name: src
       title: 网页地址

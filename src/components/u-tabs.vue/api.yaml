@@ -4,6 +4,8 @@
   labels:
     - Selector
   description: 选项卡切换组件，常用于平级区域大块内容的收纳和展现。
+  next: true
+  nested: false
   attrs:
     - name: router
       title: 绑定路由
@@ -209,6 +211,8 @@
 - name: u-tab
   title: 标签页
   control: button
+  next: false
+  nested: true
   attrs:
     - name: title
       title: 标题

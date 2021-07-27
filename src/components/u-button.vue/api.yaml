@@ -4,6 +4,8 @@
   labels:
     - Display
   description: 用于触发一个即时操作。
+  next: true
+  nested: false
   attrs:
     - name: text
       title: 文本

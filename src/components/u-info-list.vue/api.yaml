@@ -3,6 +3,8 @@
   labels:
     - Display
   icon: info-list
+  next: true
+  nested: false
   attrs:
     - name: repeat
       title: 列数
@@ -38,6 +40,8 @@
   description: 详情列表
 - name: u-info-list-item
   title: 详情列表项
+  next: false
+  nested: false
   attrs:
     - name: label
       title: 标签
@@ -76,6 +80,8 @@
   description: 详情列表项
 - name: u-info-list-group
   title: 详情列表组
+  next: false
+  nexted: false
   attrs:
     - name: title
       title: 标签

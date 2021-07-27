@@ -4,6 +4,8 @@
   labels:
     - Display
   description: 自定义图标
+  next: true
+  nested: false
   attrs:
     - name: name
       title: 图标名称

@@ -4,6 +4,8 @@
   description: 通过点击或者拖拽上传文件。
   labels:
     - Form
+  next: true
+  nested: false
   attrs:
     - name: value
       title: 值

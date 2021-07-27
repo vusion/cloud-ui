@@ -4,6 +4,8 @@
     - Layout
   description: 导航指引
   icon: crumb
+  next: true
+  nested: false
   attrs:
     - name: auto
       title: 支持自动
@@ -19,6 +21,8 @@
           snippet: <u-crumb-item>面包屑</u-crumb-item>
 - name: u-crumb-item
   title: 面包屑选项
+  next: false
+  nexted: false
   attrs:
     - name: text
       title: 文本

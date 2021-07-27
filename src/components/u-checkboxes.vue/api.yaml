@@ -4,6 +4,8 @@
     - Form
   icon: checkboxes
   description: 多项中选择多个时使用
+  next: true
+  nested: false
   attrs:
     - name: value
       title: 值
@@ -59,6 +61,8 @@
           snippet: <u-checkbox>多选</u-checkbox>
 - name: u-checkbox
   title: 多选项
+  next: false
+  nested: false
   attrs:
     - name: text
       title: 文本
@@ -165,4 +169,3 @@
           type: UCheckbox
           description: 发送事件实例
   description: 多选项
-  next: false

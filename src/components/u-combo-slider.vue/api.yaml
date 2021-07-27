@@ -4,6 +4,8 @@
   labels:
     - Form
   description: 滑动选择
+  next: true
+  nested: false
   attrs:
     - name: value
       title: 滑块的值

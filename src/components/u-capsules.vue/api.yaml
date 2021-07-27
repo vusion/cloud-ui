@@ -4,6 +4,8 @@
   description: 多项中选择一项
   labels:
     - Form
+  next: true
+  nested: false
   attrs:
     - name: value
       title: 值
@@ -211,6 +213,8 @@
           description: 发送事件实例
 - name: u-capsule
   title: 子选项
+  next: false
+  nested: false
   attrs:
     - name: value
       title: 值
@@ -254,7 +258,6 @@
   slots:
     - name: default
       description: 插入文本或 HTML。
-  next: false
   events:
     - name: click
       title: 点击
@@ -296,6 +299,8 @@
   description: 子选项
 - name: u-capsule-group
   title: 子选项组
+  next: false
+  nested: false
   slots:
     - name: default
       description: 插入`<u-capsule>`或`<u-capsules-group>`子组件。

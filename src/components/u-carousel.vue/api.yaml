@@ -4,6 +4,8 @@
   description: 动态播放内部内容
   labels:
     - Display
+  next: true
+  nexted: false
   attrs:
     - name: value
       title: 值
@@ -96,6 +98,8 @@
           description: 发送事件实例
 - name: u-carousel-item
   title: 幻灯片选项
+  next: false
+  nested: false
   attrs:
     - name: title
       title: 标题

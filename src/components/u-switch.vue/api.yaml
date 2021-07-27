@@ -3,6 +3,8 @@
   labels:
     - Form
   icon: switch
+  next: true
+  nested: false
   attrs:
     - name: value
       title: 值

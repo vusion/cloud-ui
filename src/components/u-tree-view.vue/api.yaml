@@ -4,6 +4,8 @@
   description: 树形选择器
   labels:
     - Selector
+  next: true
+  nested: false
   attrs:
     - name: data
       title: 数据
@@ -258,6 +260,8 @@
           description: 选中/取消
 - name: u-tree-view-node
   title: 树型视图节点
+  next: false
+  nested: false
   attrs:
     - name: value
       title: 值

@@ -18,11 +18,11 @@
                         <a :class="$style.close" @click="cancel()"></a>
                     </slot>
                 </div>
-                <div :class="$style.body" :icon="icon">
+                <div :class="$style.body" :icon="icon" vusion-slot-name="default">
                     <slot name="body">
                         <div :class="$style.text">
                             <div :class="$style.heading"><slot name="heading">{{ heading }}</slot></div>
-                            <div :class="$style.content"><slot>{{ content }}</slot></div>
+                            <div :class="$style.content" ><slot>{{ content }}</slot></div>
                         </div>
                     </slot>
                 </div>

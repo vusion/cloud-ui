@@ -5,6 +5,8 @@
     - Table
   description: 本组件用于在表单中使用表单验证、动态数据等复杂功能。
   extends: m-dynamic
+  next: true
+  nested: false
   attrs:
     - name: data
       title: 数据
@@ -155,6 +157,8 @@
       title: 数量变更（添加/删除）时触发
 - name: u-form-table-view-column
   title: 表单列元素
+  next: false
+  nested: false
   attrs:
     - name: title
       title: 列标题
