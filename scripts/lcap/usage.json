@@ -7658,7 +7658,6 @@
             "title": "单选组",
             "description": "多项中选择一个时使用",
             "category": "Form",
-            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-radios.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
@@ -7840,7 +7839,6 @@
                     "name": "u-radio",
                     "title": "单选项",
                     "description": "单选项",
-                    "next": false,
                     "attrs": [
                         {
                             "name": "text",
@@ -8249,7 +8247,6 @@
                     "name": "u-checkbox",
                     "title": "多选项",
                     "description": "多选项",
-                    "next": false,
                     "attrs": [
                         {
                             "name": "text",
@@ -8794,7 +8791,6 @@
                     "name": "u-capsule",
                     "title": "子选项",
                     "description": "子选项",
-                    "next": false,
                     "attrs": [
                         {
                             "name": "value",
@@ -10933,8 +10929,6 @@
                     "title": "标签页",
                     "description": "标签页",
                     "control": "button",
-                    "next": false,
-                    "nested": true,
                     "attrs": [
                         {
                             "name": "title",
@@ -11239,7 +11233,6 @@
                     "name": "u-selectable-step",
                     "title": "步骤条项",
                     "description": "步骤条项",
-                    "next": false,
                     "attrs": [
                         {
                             "name": "title",

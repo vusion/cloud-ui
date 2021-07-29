@@ -108,4 +108,3 @@
     - name: title
       description: 自定义标题文本。
   description: 步骤条项
-  next: false
