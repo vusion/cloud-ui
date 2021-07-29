@@ -4,6 +4,8 @@
   description: 以线条的形式描述当前进度
   labels:
     - chart
+  next: true
+  nested: false
   attrs:
     - name: percent
       title: 百分比

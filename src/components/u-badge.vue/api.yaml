@@ -4,6 +4,8 @@
   description: 用于显示消息条数和提醒用户处理的角标。
   labels:
     - Display
+  next: true
+  nested: true
   attrs:
     - name: value
       title: 值

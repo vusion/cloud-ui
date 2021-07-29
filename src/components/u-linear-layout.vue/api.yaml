@@ -4,6 +4,8 @@
   icon: linear-layout
   labels:
     - Layout
+  next: true
+  nested: true
   attrs:
     - name: direction
       title: 排列方向

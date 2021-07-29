@@ -4,6 +4,8 @@
   labels:
     - Feedback
   description: 点击/鼠标移入元素，弹出气泡式的卡片浮层。
+  next: true
+  nested: false
   attrs:
     - name: title
       title: 标题

@@ -4,6 +4,8 @@
     - Form
   icon: radios
   description: 多项中选择一个时使用
+  next: true
+  nested: false
   attrs:
     - name: value
       title: 值
@@ -21,7 +23,6 @@
       type: boolean
       default: false
       description: 是否禁用
-  nested: false
   slots:
     - name: default
       description: 插入`<u-radio>`子组件。
@@ -109,6 +110,8 @@
           description: 发送事件实例
 - name: u-radio
   title: 单选项
+  next: false
+  nested: false
   attrs:
     - name: text
       title: 文本
@@ -157,5 +160,4 @@
           type: URadio
           description: 发送事件实例
   description: 单选项
-  next: false
   

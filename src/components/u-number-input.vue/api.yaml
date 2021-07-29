@@ -4,6 +4,8 @@
   labels:
     - Form
   description: 输入数字时使用
+  next: true
+  nested: false
   attrs:
     - name: value
       title: 值

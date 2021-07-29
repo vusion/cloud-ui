@@ -4,6 +4,8 @@
   labels:
     - Selector
   description: 当操作需要分步骤时使用
+  next: true
+  nested: false
   attrs:
     - name: value
       title: 值
@@ -87,6 +89,8 @@
           description: 旧的步骤数
 - name: u-selectable-step
   title: 步骤条项
+  next: false
+  nested: true
   attrs:
     - name: title
       title: 标题

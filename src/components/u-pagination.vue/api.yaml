@@ -4,6 +4,8 @@
   labels:
     - Selector
   description: 展示多页列表时使用
+  next: true
+  nested: false
   attrs:
     - name: page
       title: 当前页码

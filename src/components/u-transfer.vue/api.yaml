@@ -4,6 +4,8 @@
     - Selector
   title: 穿梭框
   description: 双栏穿梭选择框，常用于将多个项目从一边移动到另一边。
+  next: true
+  nested: false
   attrs:
     - name: source
       title: 原始数据

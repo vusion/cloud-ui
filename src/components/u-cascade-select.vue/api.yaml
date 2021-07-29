@@ -4,6 +4,8 @@
   labels:
     - Selector
   description: 一次选择多个相关联的项
+  next: true
+  nested: false
   attrs:
     - name: data
       title: 数据

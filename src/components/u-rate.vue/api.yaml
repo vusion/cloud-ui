@@ -4,6 +4,8 @@
     - Form
   icon: rate
   description: 评分组件。
+  next: true
+  nested: false
   attrs:
     - name: value
       title: 评分值

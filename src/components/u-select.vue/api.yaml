@@ -4,6 +4,8 @@
   labels:
     - Form
   description: 下拉选择框，支持单选、多选、搜索等功能
+  next: true
+  nested: false
   attrs:
     - name: value
       title: 值
@@ -432,6 +434,8 @@
       params: []
 - name: u-select-item
   title: 选择项
+  next: false
+  nested: false
   attrs:
     - name: value
       title: 选项值
@@ -483,6 +487,8 @@
   description: 选择项
 - name: u-select-group
   title: 选择分组
+  next: false
+  nested: false
   attrs:
     - name: title
       title: 标题

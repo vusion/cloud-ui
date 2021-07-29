@@ -3,6 +3,8 @@
   labels:
     - Table
   description: 在表单中使用的表格
+  next: true
+  nested: false
   attrs:
     - name: line
       type: boolean

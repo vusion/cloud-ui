@@ -4,6 +4,8 @@
   description: 具有数据收集、校验和提交功能的表单，包含输入框、选择框、复选框、单选框等元素。
   labels:
     - Form
+  next: true
+  nested: false
   attrs:
     - name: model
       title: 数据模型
@@ -176,6 +178,8 @@
           description: 是否验证后无提示
 - name: u-form-item
   title: 表单项
+  next: false
+  nested: false
   attrs:
     - name: name
       title: 字段名称
@@ -348,6 +352,8 @@
   description: 表单项
 - name: u-form-group
   title: 表单分组
+  next: false
+  nested: false
   attrs:
     - name: title
       title: 标题

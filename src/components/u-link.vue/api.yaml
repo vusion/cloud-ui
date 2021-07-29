@@ -4,6 +4,8 @@
   labels:
     - Display
   description: 文字超链接
+  next: true
+  nested: false
   attrs:
     - name: text
       title: 文本

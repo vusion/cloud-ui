@@ -4,6 +4,8 @@
   labels:
     - Display
   description: 用于展示文字或表达式
+  next: true
+  nested: false
   attrs:
     - name: text
       title: 文本

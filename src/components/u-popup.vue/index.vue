@@ -10,7 +10,7 @@
                     </div>
                 </slot>
             </div>
-            <div :class="$style.body" v-if="content || $slots.body || $slots.default">
+            <div :class="$style.body" v-if="content || $slots.body || $slots.default" vusion-slot-name="default">
                 <slot name="body">
                     <slot>{{ content }}</slot>
                 </slot>

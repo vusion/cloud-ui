@@ -6,7 +6,7 @@
             <circle :class="$style.trail" cx="0" cy="0" :r="radius" :style="{ strokeDasharray }" />
         </g>
     </svg>
-    <div :class="$style.text">
+    <div :class="$style.text" vusion-slot-name="default">
         <div :class="$style.percent">{{ percent + '%' }}</div>
         <slot>{{ content }}</slot>
     </div>
