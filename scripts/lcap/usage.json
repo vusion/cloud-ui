@@ -87,7 +87,7 @@
             "Layout"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-linear-layout.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-linear-layout.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-linear-layout.vue/screenshots/2.png",
-        "blocks": "[{\"title\":\"水平排布\",\"description\":\"\",\"code\":\"<template>\\n<u-linear-layout direction=\\\"horizontal\\\">\\n    <u-button>Button</u-button>\\n    <u-button>Button</u-button>\\n</u-linear-layout>\\n</template>\\n\"},{\"title\":\"竖直排布\",\"description\":\"\",\"code\":\"<template>\\n<u-linear-layout direction=\\\"vertical\\\">\\n    <u-panel title=\\\"面板\\\"></u-panel>\\n    <u-panel title=\\\"面板\\\"></u-panel>\\n</u-linear-layout>\\n</template>\\n\"},{\"title\":\"两端对齐\",\"description\":\"\",\"code\":\"<template>\\n<u-linear-layout justify=\\\"space-between\\\">\\n    <u-linear-layout>\\n        <u-button>Button</u-button>\\n    </u-linear-layout>\\n    <u-linear-layout>\\n        <u-button>Button</u-button>\\n    </u-linear-layout>\\n</u-linear-layout>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"水平排布\",\"description\":\"\",\"code\":\"<template>\\n<u-linear-layout direction=\\\"horizontal\\\">\\n</u-linear-layout>\\n</template>\\n\"},{\"title\":\"竖直排布\",\"description\":\"\",\"code\":\"<template>\\n<u-linear-layout direction=\\\"vertical\\\">\\n    <u-linear-layout>\\n    </u-linear-layout>\\n    <u-linear-layout>\\n    </u-linear-layout>\\n</u-linear-layout>\\n</template>\\n\"},{\"title\":\"两端对齐\",\"description\":\"\",\"code\":\"<template>\\n<u-linear-layout justify=\\\"space-between\\\">\\n    <u-linear-layout>\\n    </u-linear-layout>\\n    <u-linear-layout>\\n    </u-linear-layout>\\n</u-linear-layout>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-linear-layout",
             "title": "线性布局",
@@ -101,17 +101,17 @@
                 {
                     "title": "水平排布",
                     "description": "",
-                    "code": "<template>\n<u-linear-layout direction=\"horizontal\">\n    <u-button>Button</u-button>\n    <u-button>Button</u-button>\n</u-linear-layout>\n</template>\n"
+                    "code": "<template>\n<u-linear-layout direction=\"horizontal\">\n</u-linear-layout>\n</template>\n"
                 },
                 {
                     "title": "竖直排布",
                     "description": "",
-                    "code": "<template>\n<u-linear-layout direction=\"vertical\">\n    <u-panel title=\"面板\"></u-panel>\n    <u-panel title=\"面板\"></u-panel>\n</u-linear-layout>\n</template>\n"
+                    "code": "<template>\n<u-linear-layout direction=\"vertical\">\n    <u-linear-layout>\n    </u-linear-layout>\n    <u-linear-layout>\n    </u-linear-layout>\n</u-linear-layout>\n</template>\n"
                 },
                 {
                     "title": "两端对齐",
                     "description": "",
-                    "code": "<template>\n<u-linear-layout justify=\"space-between\">\n    <u-linear-layout>\n        <u-button>Button</u-button>\n    </u-linear-layout>\n    <u-linear-layout>\n        <u-button>Button</u-button>\n    </u-linear-layout>\n</u-linear-layout>\n</template>\n"
+                    "code": "<template>\n<u-linear-layout justify=\"space-between\">\n    <u-linear-layout>\n    </u-linear-layout>\n    <u-linear-layout>\n    </u-linear-layout>\n</u-linear-layout>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -2318,6 +2318,12 @@
                             "title": "标题",
                             "type": "string",
                             "description": "面板项的标题"
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "name": "default",
+                            "description": "插入默认的元素"
                         }
                     ]
                 }
