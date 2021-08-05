@@ -754,7 +754,7 @@ export default {
         },
         /* Selection Methods */
         watchValue(value) {
-            if (this.selectedItem && this.this.$at(selectedItem, this.valueField) === value)
+            if (this.selectedItem && this.$at(this.selectedItem, this.valueField) === value)
                 return;
             if (value === undefined)
                 this.selectedItem = undefined;
@@ -790,7 +790,7 @@ export default {
                 this.selectedItem = undefined;
             else
                 this.selectedItem = item; // Assign and sync `value`
-            const value = this.selectedItem && this.this.$at(selectedItem, this.valueField);
+            const value = this.selectedItem && this.$at(this.selectedItem, this.valueField);
             this.$emit('input', value, this);
             this.$emit('update:value', value, this); // Emit `after-` events
             this.$emit('select', {
