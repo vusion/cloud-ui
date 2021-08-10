@@ -1,17 +1,17 @@
 <template>
-<div :class="$style.root" :label-size="currentLabelSize" :distance="rootVM && rootVM.extraSlots ? 'extra' : ''">
+<div :class="$style.root" allowChild :label-size="currentLabelSize" :distance="rootVM && rootVM.extraSlots ? 'extra' : ''">
     <label :class="$style.label" :required="currentRequired" v-show="label || title || currentLabelSize !== 'auto'" vusion-slot-name="label">
         <slot name="label">{{ label || title }}</slot>
     </label>
     <span :class="$style.extra" v-if="!hideSlots && rootVM && rootVM.extraSlots" vusion-slot-name="extra">
         <slot name="extra"></slot>
     </span>
-    <div :class="$style.field">
+    <div :class="[$style.field, $env.VUE_APP_DESIGNER ? $style.full : null]">
         <!-- 添加了描述功能 -->
         <div :class="$style.description" vusion-slot-name="description">
             <slot name="description">{{ description }}</slot>
         </div>
-        <div :class="$style.wrap" vusion-slot-name="default">
+        <div :class="[$style.wrap, $env.VUE_APP_DESIGNER ? $style.full : null]" vusion-slot-name="default">
             <slot></slot>
             <span v-if="color === 'focus' && currentMessage" :class="$style.message" color="focus"><slot name="message">{{ currentMessage }}</slot></span>
             <span v-else-if="currentMessage" :class="$style.message" :color="color"><slot name="message">{{ currentMessage }}</slot></span>
@@ -85,6 +85,10 @@ export default {
 <style module>
 .root {
     position: relative;
+}
+
+.full {
+    width: 100%;
 }
 
 .label {

@@ -1,9 +1,12 @@
 <template>
-<div :class="$style.root" :column="currentColumn" :label-size="currentLabelSize" :style="responsiveStyle">
+<div :class="$style.root" :column="currentColumn" allowChild :label-size="currentLabelSize" :style="responsiveStyle">
     <div :class="$style.label" vusion-slot-name="label">
         <slot name="label">{{ label }}</slot>
     </div>
-    <div :class="$style.value" :ellipsis="ellipsis" vusion-slot-name="default">
+    <div v-if="$env.VUE_APP_DESIGNER" :class="[$style.value, $style.full]" :ellipsis="ellipsis" vusion-slot-name="default">
+        <slot></slot>
+    </div>
+    <div v-else :class="$style.value" :ellipsis="ellipsis" >
         <slot></slot>
     </div>
 </div>
@@ -116,5 +119,8 @@ export default {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+.full {
+    width: 100%;
 }
 </style>

@@ -272,7 +272,7 @@
       support:
         - name: u-table-view-column
           title: 表格列
-          snippet: <u-table-view-column title="表格列"></u-table-view-column>
+          snippet: '<u-table-view-column title="表格列"><template #cell="scope"></template></u-table-view-column>'
     - name: loading
       title: 加载中内容
       description: 自定义加载中内容。

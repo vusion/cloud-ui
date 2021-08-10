@@ -1,6 +1,9 @@
 <template>
 <div :class="$style.root">
-    <slot></slot>
+    <div v-if="$env.VUE_APP_DESIGNER" vusion-slot-name="default" :class="$style.content">
+        <slot></slot>
+    </div>
+     <slot v-else></slot>
     <span :class="$style.value" v-if="currentValue">{{ currentValue }}</span>
 </div>
 </template>
@@ -23,6 +26,10 @@ export default {
 <style module>
 .root {
     position: relative;
+    display: inline-block;
+}
+
+.content {
     display: inline-block;
 }
 

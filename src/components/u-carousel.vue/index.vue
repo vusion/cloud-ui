@@ -1,9 +1,21 @@
 <template>
 <div :class="$style.root">
-    <div :class="$style.body">
+    <div v-if="$env.VUE_APP_DESIGNER && !$slots.default" :class="$style.emptyBackground">
+    </div>
+    <div :class="$style.body" name="realpostion" v-else>
         <slot></slot>
     </div>
-    <nav :class="$style.nav">
+    <nav :class="$style.nav" v-if="$env.VUE_APP_DESIGNER">
+        <a :class="$style['nav-item']"
+            v-for="(itemVM, index) in itemVMs"
+            :title="itemVM.title"
+            :vusion-index="index"
+            findname="realpostion"
+            :selected="router ? itemVM.active : itemVM === selectedVM"
+            @click="select(itemVM)">
+        </a>
+    </nav>
+    <nav :class="$style.nav" v-else>
         <a :class="$style['nav-item']"
             v-for="itemVM in itemVMs"
             :title="itemVM.title"
@@ -11,8 +23,8 @@
             @click="select(itemVM)">
         </a>
     </nav>
-    <div v-show="!hideButtons && !(!loop && selectedIndex === 0)" :class="$style.button" role="prev" @click="prev()"></div>
-    <div v-show="!hideButtons && !(!loop && selectedIndex === itemVMs.length - 1)" :class="$style.button" role="next" @click="next()"></div>
+    <div v-show="!hideButtons && !(!loop && selectedIndex === 0)" :class="$style.button" findname="realpostion" :vusion-index="selectedIndex" role="prev" @click="prev()"></div>
+    <div v-show="!hideButtons && !(!loop && selectedIndex === itemVMs.length - 1)" :class="$style.button"  findname="realpostion" :vusion-index="selectedIndex" role="next" @click="next()"></div>
 </div>
 </template>
 
@@ -69,15 +81,24 @@ export default {
             clearTimeout(this.timer);
             const length = this.itemVMs.length;
             this.selectedIndex = (this.selectedIndex - 1 + length) % length;
+             // 可视化的展示去掉动态播放
+            if (this.$env.VUE_APP_DESIGNER) {
+                return;
+            }
             this.play();
         },
         next() {
             clearTimeout(this.timer);
             const length = this.itemVMs.length;
             const index = this.selectedIndex + 1;
+           
             if (!this.loop && index >= length)
                 return;
             this.selectedIndex = index % length;
+             // 可视化的展示去掉动态播放
+            if (this.$env.VUE_APP_DESIGNER) {
+                return;
+            }
             this.play();
         },
         play() {
@@ -98,6 +119,14 @@ export default {
     overflow: hidden;
     width: var(--carousel-width);
     height: var(--carousel-height);
+}
+
+.emptyBackground {
+    background-image: url('./assets/carousel.svg');  
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 100%;
+    width: 100%;
 }
 
 .body {
