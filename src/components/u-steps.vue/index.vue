@@ -4,12 +4,15 @@
         <a :class="$style.item"
             v-for="(itemVM, index) in itemVMs"
             ref="item"
+            allowChild
             :vusion-scope-id="itemVM.$vnode.context.$options._scopeId"
             :vusion-node-path="itemVM.$attrs['vusion-node-path']"
+            :vusion-node-tag="itemVM.$attrs['vusion-node-tag']"
             :passed="selectedVM && index <= selectedVM.index"
             :selected="selectedVM && index === selectedVM.index"
             :disabled="itemVM.disabled || disabled"
             v-show="!itemVM.hidden"
+            findname="realpostion"
             :style="{ width: currentItemWidth }">
             <div :class="$style['item-body']" @click="select(itemVM)" :title="itemVM.title">
                 <span :class="$style.radio"></span>

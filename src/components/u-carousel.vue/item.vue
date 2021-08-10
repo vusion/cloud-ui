@@ -3,6 +3,7 @@
     <div v-if="$env.VUE_APP_DESIGNER && !$slots.default" :class="$style.emptyImage">
     </div>
     <div :class="$style.root"
+        allowChild
         v-show="!!selected"
         v-else
         :animation="animation">

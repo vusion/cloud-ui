@@ -11,7 +11,7 @@
             </div>
         </slot>
     </div>
-    <div :class="$style.body">
+    <div :class="$style.body" vusion-slot-name="default">
         <slot>{{ content }}</slot>
     </div>
     <div :class="$style.foot">

@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root">
+<div :class="$style.root" allowChild>
     <div :class="$style.head" v-if="title" vusion-slot-name="title">
         {{ title }}
     </div>

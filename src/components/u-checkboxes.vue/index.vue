@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root">
+<div :class="$style.root" allowChild>
     <slot></slot>
 </div>
 </template>

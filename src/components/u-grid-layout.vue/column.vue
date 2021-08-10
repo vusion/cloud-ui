@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :style="[commonStyle, responsiveStyle]" :empty="!$slots.default">
+<div :class="$style.root" :style="[commonStyle, responsiveStyle]" :empty="!$slots.default" allowChild >
     <slot></slot>
     <div v-if="(!$slots.default) && $env.VUE_APP_DESIGNER" :class="$style.empty">+</div>
 </div>

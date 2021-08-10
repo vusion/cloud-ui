@@ -1,15 +1,19 @@
 <template>
 <div :class="$style.root" :disabled="disabled" :appear="appear" :size="size">
     <div :class="$style.head">
-        <span :class="$style.extra" vusion-slot-name="extra"><slot name="extra"></slot></span>
+        <span :class="[$style.extra, $env.VUE_APP_DESIGNER ? $style.gap : null]" vusion-slot-name="extra">
+            <slot name="extra"></slot>
+        </span>
         <nav :class="$style.nav" :scrollable="showScrollButtons === 'always' || (showScrollButtons === 'auto' && scrollable)">
             <span :class="$style.prev" @click="scrollPrev"></span>
             <div ref="scrollView" :class="$style['scroll-view']">
                 <div :class="$style.scroll">
                     <a :class="$style.item" ref="item"
-                        v-for="itemVM in itemVMs"
+                        v-for="(itemVM, index) in itemVMs"
+                        allowChild
                         :vusion-scope-id="itemVM.$vnode.context.$options._scopeId"
                         :vusion-node-path="itemVM.$attrs['vusion-node-path']"
+                        :vusion-node-tag="itemVM.$attrs['vusion-node-tag']"
                         :href="itemVM.currentHref" :target="itemVM.target" :title="itemVM.title"
                         :selected="router ? itemVM.active : itemVM === selectedVM"
                         :disabled="itemVM.disabled || disabled"
@@ -26,7 +30,7 @@
             <span :class="$style.next" @click="scrollNext"></span>
         </nav>
     </div>
-    <div :class="$style.body" vusion-slot-name="default">
+    <div :class="$style.body">
         <slot></slot>
     </div>
 </div>

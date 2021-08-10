@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" v-if="selected">
+<div :class="$style.root" v-if="selected" allowChild>
     <slot></slot>
 </div>
 </template>

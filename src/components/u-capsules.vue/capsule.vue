@@ -4,6 +4,7 @@
     :readonly="parentVM.readonly"
     :disabled="disabled || parentVM.disabled"
     @click="select()"
+    allowChild
     v-ellipsis-title>
     <!-- @override: 添加了label功能 -->
     <span :class="$style.label">{{ label }}</span>

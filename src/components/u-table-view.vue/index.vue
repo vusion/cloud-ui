@@ -13,8 +13,10 @@
                 </colgroup>
                 <thead><tr>
                     <th ref="th" :class="$style['head-title']" v-for="(columnVM, columnIndex) in visibleColumnVMs"
+                        allowChild
                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                         :vusion-node-path="columnVM.$attrs['vusion-node-path']"
+                        :vusion-node-tag="columnVM.$attrs['vusion-node-tag']"
                         :sortable="columnVM.sortable && sortTrigger === 'head'" :filterable="!!columnVM.filters" @click="columnVM.sortable && sortTrigger === 'head' && onClickSort(columnVM)">
                         <!-- type === 'checkbox' -->
                         <span v-if="columnVM.type === 'checkbox'">
@@ -59,8 +61,9 @@
                                 <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title
                                  v-if="$env.VUE_APP_DESIGNER"
                                  allowChild
+                                 dropSlot="cell"
                                 :vusion-next="true"
-                                 vusion-node-tag="u-table-view-column"
+                                :vusion-node-tag="columnVM.$attrs['vusion-node-tag']"
                                 :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                                 :vusion-node-path="columnVM.$attrs['vusion-node-path']">
                                    <!--可视化占据的虚拟填充区域-->

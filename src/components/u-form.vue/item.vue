@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :label-size="currentLabelSize" :distance="rootVM && rootVM.extraSlots ? 'extra' : ''">
+<div :class="$style.root" allowChild :label-size="currentLabelSize" :distance="rootVM && rootVM.extraSlots ? 'extra' : ''">
     <label :class="$style.label" :required="currentRequired" v-show="label || title || currentLabelSize !== 'auto'" vusion-slot-name="label">
         <slot name="label">{{ label || title }}</slot>
     </label>
