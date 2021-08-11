@@ -1,7 +1,7 @@
 <template>
 <label :class="$style.root" :disabled="disabled" @click="check()"
     tabindex="0" @keydown.space.prevent @keyup.space.prevent="check()"
-    @focus="onFocus" @blur="onBlur" v-on="listeners">
+    @focus="onFocus" @blur="onBlur" v-on="listeners" allowChild>
     <span :class="$style.box" :status="String(currentValue)" :disabled="disabled"></span>
     <span vusion-slot-name="text"><slot>{{ text }}</slot></span>
 </label>

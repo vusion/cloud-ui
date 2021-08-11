@@ -12,7 +12,6 @@
             :selected="selectedVM && index === selectedVM.index"
             :disabled="itemVM.disabled || disabled"
             v-show="!itemVM.hidden"
-            findname="realpostion"
             :style="{ width: currentItemWidth }">
             <div :class="$style['item-body']" @click="select(itemVM)" :title="itemVM.title">
                 <span :class="$style.radio"></span>

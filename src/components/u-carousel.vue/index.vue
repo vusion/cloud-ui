@@ -91,11 +91,11 @@ export default {
             clearTimeout(this.timer);
             const length = this.itemVMs.length;
             const index = this.selectedIndex + 1;
-           
+            
             if (!this.loop && index >= length)
                 return;
             this.selectedIndex = index % length;
-             // 可视化的展示去掉动态播放
+            // 可视化的展示去掉动态播放
             if (this.$env.VUE_APP_DESIGNER) {
                 return;
             }
