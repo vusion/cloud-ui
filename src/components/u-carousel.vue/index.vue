@@ -81,10 +81,6 @@ export default {
             clearTimeout(this.timer);
             const length = this.itemVMs.length;
             this.selectedIndex = (this.selectedIndex - 1 + length) % length;
-             // 可视化的展示去掉动态播放
-            if (this.$env.VUE_APP_DESIGNER) {
-                return;
-            }
             this.play();
         },
         next() {
@@ -95,13 +91,15 @@ export default {
             if (!this.loop && index >= length)
                 return;
             this.selectedIndex = index % length;
-            // 可视化的展示去掉动态播放
-            if (this.$env.VUE_APP_DESIGNER) {
-                return;
-            }
+            
             this.play();
         },
         play() {
+            // 可视化的展示去掉动态播放
+            if (this.$env.VUE_APP_DESIGNER) {
+                clearTimeout(this.timer);
+                return;
+            }
             if (!this.autoplay)
                 return;
             this.timer = setTimeout(() => {
