@@ -1,12 +1,18 @@
 <template>
 <div :class="$style.root" :direction="direction" v-on="$listeners">
     <slot></slot>
+    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
 </div>
 </template>
 
 <script>
+import SEmpty from '../s-empty.vue';
+
 export default {
     name: 'u-linear-layout',
+    components: {
+        SEmpty,
+    },
     props: {
         direction: {
             default: 'horizontal',

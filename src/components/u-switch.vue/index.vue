@@ -3,7 +3,9 @@
     tabindex="0" @keydown.space.prevent @keyup.space.prevent="toggle()"
     @focus="onFocus" @blur="onBlur" v-on="listeners">
     <span :class="$style.button"></span>
-    <span :class="$style.text" vusion-slot-name="default"><slot></slot></span>
+    <span :class="$style.text" vusion-slot-name="default">
+        <slot></slot>
+    </span>
 </label>
 </template>
 

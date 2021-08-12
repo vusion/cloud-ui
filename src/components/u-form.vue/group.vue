@@ -13,6 +13,7 @@
         <f-collapse-transition>
             <div :class="$style.body" vusion-slot-name="default" v-show="currentCollapsible ? currentExpanded : true">
                 <slot></slot>
+                <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
             </div>
         </f-collapse-transition>
     </div>
@@ -20,12 +21,16 @@
 
 <script>
 import { MGroup } from '../m-group.vue';
+import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-form-group',
     parentName: 'u-form',
     childName: 'u-form-item',
     extends: MGroup,
+    components: {
+        SEmpty,
+    },
     props: {
         size: String,
     },

@@ -78,6 +78,7 @@
       description: 标签尺寸
   slots:
     - name: default
+      common-empty-background: true
       title: 默认
       description: 插入`<u-tab>`子组件。
       support:
@@ -296,6 +297,7 @@
       advanced: true
   slots:
     - name: default
+      common-empty-background: true
       title: 默认
       description: 该 tab 下的内容
     - name: title

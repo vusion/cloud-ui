@@ -5,6 +5,7 @@
     </div>
     <div v-if="$env.VUE_APP_DESIGNER" :class="[$style.value, $style.full]" :ellipsis="ellipsis" vusion-slot-name="default">
         <slot></slot>
+        <s-empty v-if="(!$slots.default)"></s-empty>
     </div>
     <div v-else :class="$style.value" :ellipsis="ellipsis" >
         <slot></slot>
@@ -14,12 +15,16 @@
 
 <script>
 import MEmitter from '../m-emitter.vue';
+import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-info-list-item',
     parentName: 'u-info-list',
     groupName: 'u-info-list-group',
     mixins: [MEmitter],
+    components: {
+        SEmpty,
+    },
     props: {
         label: String,
         labelSize: String,

@@ -17,6 +17,7 @@
     </u-input>
     <div ref="body" :class="$style.body" @scroll.stop="onScroll" vusion-slot-name="default">
         <slot></slot>
+        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
         <div ref="virtual" v-if="(!currentLoading && !currentError || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length"
             :style="{ paddingTop: virtualTop + 'px', paddingBottom: virtualBottom + 'px' }">
             <component :is="ChildComponent"
@@ -65,6 +66,7 @@ import FVirtualList from '../f-virtual-list.vue';
 import DataSource from '../../utils/DataSource';
 import debounce from 'lodash/debounce';
 import i18n from './i18n';
+import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-list-view',
@@ -72,6 +74,9 @@ export default {
     childName: 'u-list-view-item',
     mixins: [MComplex, MGroupParent, MField, FVirtualList],
     i18n,
+    components: {
+        SEmpty,
+    },
     props: {
         // @inherit: value: null,
         // @inherit: value: Array,

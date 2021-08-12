@@ -113,6 +113,7 @@
   slots:
     - name: default
       description: 插入`<u-form-item>`子组件。
+      common-empty-background: true
       support:
         - name: u-form-group
           title: 导航分组

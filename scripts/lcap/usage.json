@@ -4745,6 +4745,7 @@
                     "name": "default",
                     "title": "默认",
                     "description": "在表格中插入`<u-table-view-column>`子组件。",
+                    "common-empty-background": true,
                     "support": [
                         {
                             "name": "u-table-view-column",
@@ -6133,6 +6134,7 @@
                 {
                     "name": "default",
                     "description": "插入`<u-form-item>`子组件。",
+                    "common-empty-background": true,
                     "support": [
                         {
                             "name": "u-form-group",
@@ -7765,6 +7767,7 @@
             "slots": [
                 {
                     "name": "default",
+                    "common-empty-background": true,
                     "description": "插入`<u-radio>`子组件。",
                     "support": [
                         {
@@ -8309,6 +8312,7 @@
             "slots": [
                 {
                     "name": "default",
+                    "common-empty-background": true,
                     "description": "插入`<checkbox>`子组件。",
                     "support": [
                         {
@@ -10806,6 +10810,7 @@
             "slots": [
                 {
                     "name": "default",
+                    "common-empty-background": true,
                     "title": "默认",
                     "description": "插入`<u-tab>`子组件。",
                     "support": [
@@ -11150,6 +11155,7 @@
                     "slots": [
                         {
                             "name": "default",
+                            "common-empty-background": true,
                             "title": "默认",
                             "description": "该 tab 下的内容"
                         },
