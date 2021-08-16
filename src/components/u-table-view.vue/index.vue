@@ -68,7 +68,7 @@
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                                         :vusion-node-path="columnVM.$attrs['vusion-node-path']">
                                         <!--可视化占据的虚拟填充区域-->
-                                        <div vusion-slot-name="cell" :plus-empty="columnVM.$attrs['plus-empty']" >
+                                        <div vusion-slot-name="cell" :plus-empty="columnVM.$attrs['plus-empty']">
                                             <!-- type === 'index' -->
                                             <span v-if="columnVM.type === 'index'">{{ (columnVM.startIndex - 0) + rowIndex }}</span>
                                             <!-- type === 'radio' -->
@@ -89,10 +89,7 @@
                                     </td>
                                 </template>
                                 <template v-else>
-                                    <td ref="td" 
-                                        :class="$style.cell" 
-                                        v-for="(columnVM, columnIndex) in visibleColumnVMs" 
-                                        :ellipsis="columnVM.ellipsis" v-ellipsis-title
+                                    <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                                         :vusion-node-path="columnVM.$attrs['vusion-node-path']">
                                             <!-- type === 'index' -->
