@@ -1,8 +1,6 @@
 <template>
 <div :class="$style.root">
-    <div v-if="$env.VUE_APP_DESIGNER && !$slots.default" :class="$style.emptyBackground">
-    </div>
-    <div :class="$style.body" name="realpostion" v-else>
+    <div :class="$style.body" name="realpostion">
         <slot></slot>
     </div>
     <nav :class="$style.nav" v-if="$env.VUE_APP_DESIGNER">
@@ -117,14 +115,6 @@ export default {
     overflow: hidden;
     width: var(--carousel-width);
     height: var(--carousel-height);
-}
-
-.emptyBackground {
-    background-image: url('./assets/carousel.svg');  
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    height: 100%;
-    width: 100%;
 }
 
 .body {

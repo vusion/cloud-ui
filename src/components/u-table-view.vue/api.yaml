@@ -269,7 +269,7 @@
     - name: default
       title: 默认
       description: 在表格中插入`<u-table-view-column>`子组件。
-      common-empty-background: true
+      empty-background: add-sub
       support:
         - name: u-table-view-column
           title: 表格列
@@ -685,12 +685,6 @@
           title: 列索引
           type: number
           description: 列的索引。
-      accept-type: recommanded
-      recommanded:
-        - name: cellSlot
-          title: 列插槽
-          snippet: '<template #cell="{ item }"></template>'
-          type: slot
     - name: title
       title: 标题
       accept-type:

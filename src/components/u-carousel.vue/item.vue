@@ -1,11 +1,8 @@
 <template>
 <transition :name="animation">
-    <div v-if="$env.VUE_APP_DESIGNER && !$slots.default" :class="$style.emptyImage">
-    </div>
     <div :class="$style.root"
         allowChild
         v-show="!!selected"
-        v-else
         :animation="animation">
         <div :class="$style.body"><slot></slot></div>
     </div>
@@ -27,6 +24,8 @@ export default {
         selected() {
             if (this.parentVM)
                 return this.parentVM.router ? this.active : this.parentVM.selectedVM === this;
+            else
+                return undefined;
         },
     },
     methods: {
@@ -51,14 +50,6 @@ export default {
     width: 100%;
     height: 100%;
     /* display: none; */
-}
-
-.emptyImage {
-    background-image: url('./assets/carouselItem.svg');  
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    height: 100%;
-    width: 100%;
 }
 
 .body {
