@@ -64,10 +64,11 @@
                                  dropSlot="cell"
                                 :vusion-next="true"
                                 :vusion-node-tag="columnVM.$attrs['vusion-node-tag']"
+                                :vusion-template-cell-node-path="columnVM.$attrs['vusion-template-cell-node-path']"
                                 :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                                 :vusion-node-path="columnVM.$attrs['vusion-node-path']">
                                    <!--可视化占据的虚拟填充区域-->
-                                   <div vusion-slot-name="default" >
+                                   <div vusion-slot-name="default" :plus-empty="columnVM.$attrs['plus-empty']" >
                                     <!-- type === 'index' -->
                                     <span v-if="columnVM.type === 'index'">{{ (columnVM.startIndex - 0) + rowIndex }}</span>
                                     <!-- type === 'radio' -->
@@ -84,7 +85,7 @@
                                     <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
                                         <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                     </f-slot>
-                                  <div>
+                                  </div>
                                 </td>
                                 <td v-else ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title
                                 :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"

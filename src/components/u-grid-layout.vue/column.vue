@@ -1,12 +1,13 @@
 <template>
 <div :class="$style.root" :style="[commonStyle, responsiveStyle]" :empty="!$slots.default" allowChild >
     <slot></slot>
-    <div v-if="(!$slots.default) && $env.VUE_APP_DESIGNER" :class="$style.empty">+</div>
+    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
 </div>
 </template>
 
 <script>
 import { addResizeListener, removeResizeListener } from '../../utils/dom';
+import SEmpty from '../s-empty.vue';
 
 const breakpoints = [
     { name: 'Huge', width: 1440 },
@@ -18,6 +19,9 @@ const breakpoints = [
 
 export default {
     name: 'u-grid-layout-column',
+    components: {
+        SEmpty,
+    },
     props: {
         span: { type: Number, default: 1 },
         pull: Number,
@@ -96,10 +100,4 @@ export default {
     position: relative;
 }
 
-/* 无子元素的时候背景区域添加默认背景色 */
-.root[empty] .empty {
-    background: #F7F8FA;
-    text-align: center;
-    color: #ccc;
-}
 </style>

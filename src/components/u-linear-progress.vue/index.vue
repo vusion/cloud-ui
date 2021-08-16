@@ -5,13 +5,19 @@
     </div>
     <div vusion-slot-name="default">
       <slot></slot>
+      <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
     </div>
 </div>
 </template>
 
 <script>
+import SEmpty from '../s-empty.vue';
+
 export default {
     name: 'u-linear-progress',
+    components: {
+        SEmpty,
+    },
     props: {
         percent: { type: Number, default: 0 },
         range: {

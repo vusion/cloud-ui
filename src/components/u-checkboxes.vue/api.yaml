@@ -54,6 +54,7 @@
       bindHide: true
   slots:
     - name: default
+      common-empty-background: true
       description: 插入`<checkbox>`子组件。
       support:
         - name: u-checkbox

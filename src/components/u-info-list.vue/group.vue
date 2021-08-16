@@ -5,6 +5,7 @@
         <div :class="$style.extra" vusion-slot-name="extra"><slot name="extra"></slot></div>
     </div>
     <div :class="$style.body" vusion-slot-name="default">
+        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
         <slot></slot>
     </div>
 </div>
@@ -12,12 +13,16 @@
 
 <script>
 import MEmitter from '../m-emitter.vue';
+import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-info-list-group',
     parentName: 'u-info-list',
     childName: 'u-info-list-item',
     mixins: [MEmitter],
+    components: {
+        SEmpty,
+    },
     props: {
         title: String,
         column: [String, Number],
