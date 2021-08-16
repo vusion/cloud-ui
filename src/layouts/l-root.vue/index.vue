@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root">
+<div :class="$style.root" vusion-slot-name="default">
     <slot></slot>
     <div v-if="!$slots.default" :class="$style.box" :active="active">
         <u-text :text="text"></u-text>

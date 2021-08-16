@@ -61,7 +61,7 @@
                                 <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title
                                  v-if="$env.VUE_APP_DESIGNER"
                                  allowChild
-                                 dropSlot="cell"
+                                vusion-slot-name="cell"
                                 :vusion-next="true"
                                 :vusion-node-tag="columnVM.$attrs['vusion-node-tag']"
                                 :vusion-template-cell-node-path="columnVM.$attrs['vusion-template-cell-node-path']"

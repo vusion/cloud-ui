@@ -1,14 +1,14 @@
 <template>
 <div :class="$style.root">
-    <header :class="$style.head">
+    <header :class="$style.head" vusion-slot-name="head">
         <slot name="head"></slot>
     </header>
-    <aside :class="$style.side">
+    <aside :class="$style.side" vusion-slot-name="side">
         <slot name="side"></slot>
     </aside>
-    <main :class="$style.main">
+    <main :class="$style.main" >
         <slot name="main">
-            <div :class="$style.content">
+            <div :class="$style.content" vusion-slot-name="default">
                 <slot></slot>
             </div>
         </slot>
