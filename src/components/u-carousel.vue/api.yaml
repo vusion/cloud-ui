@@ -44,10 +44,11 @@
   slots:
     - name: default
       description: 插入`<u-carousel-item>`子组件。
+      empty-background: add-sub-large
       support:
         - name: u-carousel-item
           title: 幻灯片子项
-          snippet: '<u-carousel-item><u-image style="width: 100%;height:100%" src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg"></u-carousel-item>'
+          snippet: '<u-carousel-item><u-image style="width: 100%; height: 100%" src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg"></u-carousel-item>'
   events:
     - name: before-select
       title: 选择前
@@ -114,6 +115,7 @@
   slots:
     - name: default
       description: 插入文本或 HTML。
+      empty-background: image
     - name: title
       description: 自定义标题文本。
       advanced: true
