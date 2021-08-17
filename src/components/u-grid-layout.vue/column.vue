@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :style="[commonStyle, responsiveStyle]" :empty="!$slots.default" allowChild >
+<div :class="$style.root" vusion-slot-name="default" :style="[commonStyle, responsiveStyle]" :empty="!$slots.default" allowChild >
     <slot></slot>
     <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
 </div>

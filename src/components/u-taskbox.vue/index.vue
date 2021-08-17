@@ -7,6 +7,7 @@
         <span :class="$style.notice"></span>
     </u-badge>
     <u-popup
+        :mode="false"
         trigger="manual"
         placement="bottom"
         :opened.sync="opened"
