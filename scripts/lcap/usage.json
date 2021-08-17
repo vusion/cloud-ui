@@ -5380,6 +5380,7 @@
                             "name": "default",
                             "title": "默认",
                             "description": "默认值",
+                            "plus-empty": true,
                             "accept-type": "all"
                         },
                         {
