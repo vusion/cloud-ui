@@ -525,18 +525,6 @@ export default {
     opacity: 1;
 }
 
-/* .mask:not([multiple]) {
-    cursor: var(--cursor-pointer);
-    text-align: center;
-    line-height: 128px;
-}
-
-.mask:not([multiple])::before {
-    color: rgba(255, 255, 255, 0.6);
-    icon-font: url('./assets/add.svg');
-    font-size: 42px;
-} */
-
 .card .progress {
     position: absolute;
     top: 65%;
