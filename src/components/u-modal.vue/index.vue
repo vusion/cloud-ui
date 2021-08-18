@@ -16,6 +16,7 @@
         is="u-modal-real"
         v-bind="[$attrs, $props]"
         v-on="$listeners"
+        ref="item"
     >
         <slot v-for="(item, name) in this.$slots" :name="name" :slot="name"></slot>
         <template v-for="(_, name) in $scopedSlots" :slot="name" slot-scope="slotData">
@@ -72,6 +73,18 @@ export const UModal = {
         designerDbControl() {
             this.$refs.item.designerDbControl();
         },
+        open() {
+            this.$refs.item.open(); 
+        },
+        close() {
+            this.$refs.item.close(); 
+        },
+        ok() {
+            this.$refs.item.ok(); 
+        },
+        cancel() {
+            this.$refs.item.cancel(); 
+        }
     }
 };
 

@@ -3,6 +3,7 @@
         v-if="this.mode && this.$env.VUE_APP_DESIGNER" 
         is="u-visible-popup"
         v-bind="[$attrs, $props]"
+        v-on="$listeners"
         ref="item"
     >
         <slot v-for="(item, name) in this.$slots" :name="name" :slot="name"></slot>
@@ -14,6 +15,7 @@
         v-else 
         v-bind="[$attrs, $props]"
         v-on="$listeners"
+        ref="item"
         is="u-popup-real"
     >
         <slot v-for="(item, name) in this.$slots" :name="name" :slot="name"></slot>
@@ -44,6 +46,12 @@ export default {
         designerDbControl() {
             this.$refs.item.designerDbControl();
         },
+        open() {
+            this.$refs.item.open();
+        },
+        close() {
+            this.$refs.item.close();
+        }
     }
 };
 </script>
