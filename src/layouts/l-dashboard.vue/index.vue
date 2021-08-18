@@ -6,8 +6,8 @@
     <aside :class="$style.side" vusion-slot-name="side">
         <slot name="side"></slot>
     </aside>
-    <main :class="$style.main" >
-        <slot name="main" vusion-slot-name="default">
+    <main :class="$style.main" vusion-slot-name="default">
+        <slot name="main">
             <div :class="$style.content" >
                 <slot></slot>
             </div>
