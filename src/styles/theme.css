@@ -939,7 +939,7 @@
     --tooltip-padding: 8px 12px;
     --tooltip-arrow-size: 6px;
     --tooltip-arrow-offset: 16px;
-    --tooltip-background: rgba(34, 36, 46, 0.9);
+    --tooltip-background: #242424;
     --tooltip-color: white;
     --tooltip-border-radius: 4px;
     --tooltip-box-shadow: 0px 2px 6px rgba(23, 23, 26, 0.1);
