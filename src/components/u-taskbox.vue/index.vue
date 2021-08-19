@@ -76,8 +76,8 @@ export default {
                 this.setTime();
                 const { Data = {} } = await this.$process.getTasks({
                     query: {
-                        page: this.page - 1,
-                        size: this.size,
+                        pageNumber: this.page - 1,
+                        pageSize: this.size,
                     },
                 }) || {};
                 const { content, totalElements = 0, totalPages = 1 } = Data;
