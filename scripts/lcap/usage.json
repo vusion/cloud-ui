@@ -17,8 +17,6 @@
             "category": "Container",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-router-view.vue/screenshots/0.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -48,8 +46,6 @@
             "category": "Container",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-iframe.vue/screenshots/0.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -95,8 +91,6 @@
             "category": "Layout",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-linear-layout.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-linear-layout.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-linear-layout.vue/screenshots/2.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-linear-layout.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-linear-layout.vue/drawings/1.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-linear-layout.vue/drawings/2.svg",
-            "next": true,
-            "nested": true,
             "blocks": [
                 {
                     "title": "水平排布",
@@ -311,8 +305,6 @@
             "category": "Layout",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-grid-layout.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-grid-layout.vue/screenshots/1.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-grid-layout.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-grid-layout.vue/drawings/1.svg",
-            "next": true,
-            "nested": true,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -375,8 +367,6 @@
                     "name": "u-grid-layout-row",
                     "title": "栅格行",
                     "description": "内部元素行布局",
-                    "next": false,
-                    "nested": false,
                     "attrs": [
                         {
                             "name": "repeat",
@@ -482,8 +472,7 @@
                     "name": "u-grid-layout-column",
                     "title": "栅格列",
                     "description": "内部元素行内列布局",
-                    "next": false,
-                    "nested": true,
+                    "isSub": true,
                     "attrs": [
                         {
                             "name": "span",
@@ -1989,8 +1978,6 @@
             "category": "Layout",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-crumb.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-crumb.vue/screenshots/1.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-crumb.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-crumb.vue/drawings/1.svg",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "自动面包屑",
@@ -2030,7 +2017,6 @@
                     "name": "u-crumb-item",
                     "title": "面包屑选项",
                     "description": "面包屑选项",
-                    "next": false,
                     "attrs": [
                         {
                             "name": "text",
@@ -2270,8 +2256,6 @@
             "category": "Layout",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-panel.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-panel.vue/screenshots/1.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-panel.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-panel.vue/drawings/1.svg",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -2311,7 +2295,6 @@
                     "name": "u-panel-group",
                     "title": "面板组",
                     "description": "面板组",
-                    "next": false,
                     "attrs": [
                         {
                             "name": "title",
@@ -2348,8 +2331,6 @@
             "category": "Layout",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-collapse.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-collapse.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-collapse.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-collapse.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-collapse.vue/screenshots/4.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-collapse.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-collapse.vue/drawings/1.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-collapse.vue/drawings/2.svg",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -2475,7 +2456,6 @@
                     "name": "u-collapse-item",
                     "title": "折叠面板项",
                     "description": "折叠面板项",
-                    "next": false,
                     "attrs": [
                         {
                             "name": "title",
@@ -2603,8 +2583,6 @@
             "category": "Display",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-text.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-text.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-text.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-text.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-text.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-text.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-text.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-text.vue/screenshots/7.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-text.vue/screenshots/8.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-text.vue/screenshots/9.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "普通文本",
@@ -2798,8 +2776,6 @@
             "category": "Display",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-link.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-link.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-link.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-link.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-link.vue/screenshots/4.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "普通链接",
@@ -3084,8 +3060,6 @@
             "category": "Display",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/screenshots/7.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/drawings/1.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/drawings/2.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/drawings/3.svg",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "主要按钮",
@@ -3437,8 +3411,6 @@
             "category": "Display",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/i-icon.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/i-icon.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/i-icon.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/i-icon.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/i-icon.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/i-icon.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/i-icon.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/i-icon.vue/screenshots/7.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/i-icon.vue/screenshots/8.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/i-icon.vue/screenshots/9.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -3571,8 +3543,6 @@
             "category": "Display",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-label.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-label.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-label.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-label.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-label.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-label.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-label.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-label.vue/screenshots/7.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "普通标签",
@@ -3779,8 +3749,6 @@
             "category": "Display",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-badge.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-badge.vue/screenshots/1.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-badge.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-badge.vue/drawings/1.svg",
-            "next": true,
-            "nested": true,
             "blocks": [
                 {
                     "title": "数字徽章",
@@ -3849,7 +3817,6 @@
             "category": "Display",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-carousel.vue/screenshots/0.png",
             "drawings": "",
-            "next": true,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -4002,8 +3969,6 @@
                     "name": "u-carousel-item",
                     "title": "幻灯片选项",
                     "description": "幻灯片选项",
-                    "next": false,
-                    "nested": false,
                     "attrs": [
                         {
                             "name": "title",
@@ -4053,8 +4018,6 @@
             "category": "Display",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-info-list.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-info-list.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-info-list.vue/screenshots/2.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-info-list.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-info-list.vue/drawings/1.svg",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -4125,8 +4088,6 @@
                     "name": "u-info-list-item",
                     "title": "详情列表项",
                     "description": "详情列表项",
-                    "next": false,
-                    "nested": false,
                     "attrs": [
                         {
                             "name": "label",
@@ -4190,7 +4151,6 @@
                     "name": "u-info-list-group",
                     "title": "详情列表组",
                     "description": "详情列表组",
-                    "next": false,
                     "attrs": [
                         {
                             "name": "title",
@@ -4276,8 +4236,6 @@
             "category": "Display",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-image.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-image.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-image.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-image.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-image.vue/screenshots/4.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "图片拉伸完全填充父元素",
@@ -4374,8 +4332,6 @@
             "category": "Table",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-table-view.vue/screenshots/0.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "普通数据表格",
@@ -5254,8 +5210,6 @@
                     "name": "u-table-view-column",
                     "title": "表格列",
                     "description": "表格列",
-                    "next": false,
-                    "nested": false,
                     "attrs": [
                         {
                             "name": "title",
@@ -5512,8 +5466,6 @@
             "category": "Table",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-form-table-view.vue/screenshots/0.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -5765,8 +5717,6 @@
                     "name": "u-form-table-view-column",
                     "title": "表单列元素",
                     "description": "表单列元素",
-                    "next": false,
-                    "nested": false,
                     "attrs": [
                         {
                             "name": "title",
@@ -5981,8 +5931,6 @@
             "category": "Form",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-form.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-form.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-form.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-form.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-form.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-form.vue/screenshots/5.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-form.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-form.vue/drawings/1.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-form.vue/drawings/2.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-form.vue/drawings/3.svg",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基础表单",
@@ -6246,8 +6194,6 @@
                     "name": "u-form-item",
                     "title": "表单项",
                     "description": "表单项",
-                    "next": false,
-                    "nested": false,
                     "attrs": [
                         {
                             "name": "label",
@@ -6483,8 +6429,6 @@
                     "name": "u-form-group",
                     "title": "表单分组",
                     "description": "展开折叠前",
-                    "next": false,
-                    "nested": false,
                     "attrs": [
                         {
                             "name": "title",
@@ -6627,8 +6571,6 @@
             "category": "Form",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-input.vue/screenshots/0.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "",
@@ -7065,8 +7007,6 @@
             "category": "Form",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-number-input.vue/screenshots/0.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -7359,8 +7299,6 @@
             "category": "Form",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-textarea.vue/screenshots/0.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -7732,8 +7670,6 @@
             "category": "Form",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-radios.vue/screenshots/0.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -7914,8 +7850,7 @@
                     "name": "u-radio",
                     "title": "单选项",
                     "description": "单选项",
-                    "next": false,
-                    "nested": false,
+                    "isSub": true,
                     "attrs": [
                         {
                             "name": "text",
@@ -8011,8 +7946,6 @@
             "category": "Form",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-switch.vue/screenshots/0.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -8232,8 +8165,6 @@
             "category": "Form",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-checkboxes.vue/screenshots/0.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基础用法",
@@ -8329,8 +8260,6 @@
                     "name": "u-checkbox",
                     "title": "多选项",
                     "description": "多选项",
-                    "next": false,
-                    "nested": false,
                     "attrs": [
                         {
                             "name": "text",
@@ -8520,8 +8449,6 @@
             "category": "Form",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-capsules.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-capsules.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-capsules.vue/screenshots/2.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-capsules.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-capsules.vue/drawings/1.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-capsules.vue/drawings/2.svg",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本样式",
@@ -8877,8 +8804,7 @@
                     "name": "u-capsule",
                     "title": "子选项",
                     "description": "子选项",
-                    "next": false,
-                    "nested": false,
+                    "isSub": true,
                     "attrs": [
                         {
                             "name": "value",
@@ -9013,8 +8939,6 @@
                     "name": "u-capsule-group",
                     "title": "子选项组",
                     "description": "子选项组",
-                    "next": false,
-                    "nested": false,
                     "slots": [
                         {
                             "name": "default",
@@ -9050,8 +8974,6 @@
             "category": "Form",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-select.vue/screenshots/0.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "数据选择框",
@@ -9740,8 +9662,6 @@
                     "name": "u-select-item",
                     "title": "选择项",
                     "description": "选择项",
-                    "next": false,
-                    "nested": false,
                     "attrs": [
                         {
                             "name": "value",
@@ -9824,8 +9744,6 @@
                     "name": "u-select-group",
                     "title": "选择分组",
                     "description": "选择分组",
-                    "next": false,
-                    "nested": false,
                     "attrs": [
                         {
                             "name": "title",
@@ -9888,8 +9806,6 @@
             "category": "Form",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-rate.vue/screenshots/0.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -9962,8 +9878,6 @@
             "category": "Form",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-combo-slider.vue/screenshots/0.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -10202,8 +10116,6 @@
             "category": "Form",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-uploader.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-uploader.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-uploader.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-uploader.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-uploader.vue/screenshots/4.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-uploader.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-uploader.vue/drawings/1.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-uploader.vue/drawings/2.svg",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "单个文件按钮",
@@ -10662,8 +10574,6 @@
             "category": "Selector",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-tabs.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-tabs.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-tabs.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-tabs.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-tabs.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-tabs.vue/screenshots/5.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -11034,8 +10944,7 @@
                     "title": "标签页",
                     "description": "标签页",
                     "control": "button",
-                    "next": false,
-                    "nested": true,
+                    "isSub": true,
                     "attrs": [
                         {
                             "name": "title",
@@ -11188,8 +11097,6 @@
             "category": "Selector",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-selectable-steps.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-selectable-steps.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-selectable-steps.vue/screenshots/2.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -11343,8 +11250,7 @@
                     "name": "u-selectable-step",
                     "title": "步骤条项",
                     "description": "步骤条项",
-                    "next": false,
-                    "nested": true,
+                    "isSub": true,
                     "attrs": [
                         {
                             "name": "title",
@@ -11393,8 +11299,6 @@
             "category": "Selector",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-pagination.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-pagination.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-pagination.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-pagination.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-pagination.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-pagination.vue/screenshots/5.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -11667,8 +11571,6 @@
             "category": "Selector",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-cascade-select.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-cascade-select.vue/screenshots/1.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -11888,8 +11790,6 @@
             "category": "Selector",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-region-select.vue/screenshots/0.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -12104,8 +12004,6 @@
             "category": "Selector",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-tree-view.vue/screenshots/0.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -12528,8 +12426,6 @@
                     "name": "u-tree-view-node",
                     "title": "树型视图节点",
                     "description": "树型视图节点",
-                    "next": false,
-                    "nested": false,
                     "attrs": [
                         {
                             "name": "value",
@@ -12727,8 +12623,6 @@
             "category": "Selector",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-transfer.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-transfer.vue/screenshots/1.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-transfer.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-transfer.vue/drawings/1.svg",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -13024,8 +12918,6 @@
             "category": "Selector",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-date-picker.vue/screenshots/0.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -13422,8 +13314,6 @@
             "category": "Selector",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-date-time-picker.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-date-time-picker.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-date-time-picker.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-date-time-picker.vue/screenshots/3.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -13608,8 +13498,6 @@
             "category": "chart",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-linear-progress.vue/screenshots/0.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -13690,8 +13578,6 @@
             "category": "chart",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-circular-progress.vue/screenshots/0.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -13736,8 +13622,6 @@
             "category": "Feedback",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-popup.vue/screenshots/0.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -14053,8 +13937,6 @@
             "category": "Feedback",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-modal.vue/screenshots/0.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "基本用法",
@@ -14569,8 +14451,6 @@
             "category": "Process",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-taskbox.vue/screenshots/0.png",
             "drawings": "",
-            "next": true,
-            "nested": false,
             "blocks": [
                 {
                     "title": "任务箱",

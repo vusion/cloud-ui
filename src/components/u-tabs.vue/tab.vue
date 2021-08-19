@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" v-if="selected" allowChild>
+<div :class="$style.root" v-if="selected" vusion-slot-name="default">
     <slot></slot>
 </div>
 </template>

@@ -89,8 +89,7 @@
           description: 旧的步骤数
 - name: u-selectable-step
   title: 步骤条项
-  next: false
-  nested: true
+  isSub: true
   attrs:
     - name: title
       title: 标题

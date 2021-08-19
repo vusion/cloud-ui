@@ -4,8 +4,6 @@
   description: 多项中选择一项
   labels:
     - Form
-  next: true
-  nested: false
   attrs:
     - name: value
       title: 值
@@ -213,8 +211,7 @@
           description: 发送事件实例
 - name: u-capsule
   title: 子选项
-  next: false
-  nested: false
+  isSub: true
   attrs:
     - name: value
       title: 值

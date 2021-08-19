@@ -76,6 +76,7 @@
           type: USteps
           description: 发送事件实例
 - name: u-step
+  isSub: true
   attrs:
     - name: title
       title: 标题
