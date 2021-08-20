@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.empty">+</div>
+  <div :class="$style.empty" s-empty="true">+</div>
 </template>
 <script>
 
