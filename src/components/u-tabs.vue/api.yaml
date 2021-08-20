@@ -210,7 +210,7 @@
 - name: u-tab
   title: 标签页
   control: button
-  isSub: true
+  is-sub: true
   attrs:
     - name: title
       title: 标题

@@ -14,7 +14,22 @@
         </tr></thead>
         <tbody>
             <u-form-table-view-row :class="$style.row" v-for="(item, rowIndex) in currentData" :key="rowIndex" :muted="muted">
-                <td :class="$style.cell" v-for="(columnVM, columnIndex) in columnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title>
+                <td v-if="$env.VUE_APP_DESIGNER" :class="$style.cell" v-for="(columnVM, columnIndex) in columnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title>
+                    <div vusion-slot-name="cell" :plus-empty="columnVM.$attrs['plus-empty']" >
+                        <u-validator display="block" :label="columnVM.title" :action="columnVM.action"
+                            :rules="columnVM.rules" :muted="columnVM.muted"
+                            :ignore-validation="columnVM.ignoreValidation"
+                            :validating-options="Object.assign({ data: currentData, item, rowIndex }, columnVM.validatingOptions)"
+                            :validating-value="columnVM.validatingValue"
+                            :validating-process="columnVM.validatingProcess">
+                            <span v-if="columnVM.type === 'index'">{{ columnVM.startIndex + rowIndex }}</span>
+                            <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex }">
+                                <span>{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
+                            </f-slot>
+                        </u-validator>
+                    </div>
+                </td>
+                 <td v-else :class="$style.cell" v-for="(columnVM, columnIndex) in columnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title>
                     <u-validator display="block" :label="columnVM.title" :action="columnVM.action"
                         :rules="columnVM.rules" :muted="columnVM.muted"
                         :ignore-validation="columnVM.ignoreValidation"

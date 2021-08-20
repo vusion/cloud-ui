@@ -109,7 +109,7 @@
           description: 发送事件实例
 - name: u-radio
   title: 单选项
-  isSub: true
+  is-sub: true
   attrs:
     - name: text
       title: 文本

@@ -348,6 +348,7 @@
                 {
                     "name": "default",
                     "description": "插入`<u-grid-layout-row>`或`<u-grid-layout-column>`子组件。",
+                    "common-empty-background": true,
                     "support": [
                         {
                             "name": "u-grid-layout-row",
@@ -472,7 +473,6 @@
                     "name": "u-grid-layout-column",
                     "title": "栅格列",
                     "description": "内部元素行内列布局",
-                    "isSub": true,
                     "attrs": [
                         {
                             "name": "span",
@@ -2415,6 +2415,7 @@
                 {
                     "name": "toggleAll",
                     "description": "展开/折叠所有面板",
+                    "common-empty-background": true,
                     "params": [
                         {
                             "name": "expanded",
@@ -4069,6 +4070,7 @@
                     "name": "default",
                     "title": "默认",
                     "description": "插入`<u-info-list-item>`或`<u-info-list-group>`子组件。",
+                    "common-empty-background": true,
                     "support": [
                         {
                             "name": "u-info-list-group",
@@ -5334,7 +5336,8 @@
                             "name": "default",
                             "title": "默认",
                             "description": "默认值",
-                            "accept-type": "all"
+                            "accept-type": "all",
+                            "plus-empty": true
                         },
                         {
                             "name": "cell",
@@ -5520,7 +5523,15 @@
             "slots": [
                 {
                     "name": "default",
-                    "description": "添加文本或 HTML。"
+                    "common-empty-background": true,
+                    "description": "添加文本或 HTML。",
+                    "support": [
+                        {
+                            "name": "u-form-table-view-column",
+                            "title": "表单列元素",
+                            "snippet": "<u-form-table-view-column title=\"表单列\"> <template #cell=\"scope\">{{ scope.item.url }}</template></u-form-table-view-column>"
+                        }
+                    ]
                 }
             ],
             "events": [
@@ -5828,10 +5839,12 @@
                     "slots": [
                         {
                             "name": "default",
-                            "description": "在表格列中插入`cell`插槽。"
+                            "description": "在表格列中插入`cell`插槽。",
+                            "plus-empty": true
                         },
                         {
                             "name": "cell",
+                            "plus-empty": true,
                             "description": "对单元格数据展示进行自定义。",
                             "props": [
                                 {
@@ -7850,7 +7863,6 @@
                     "name": "u-radio",
                     "title": "单选项",
                     "description": "单选项",
-                    "isSub": true,
                     "attrs": [
                         {
                             "name": "text",
@@ -8526,7 +8538,7 @@
                             "name": "u-capsules-group",
                             "advanced": true,
                             "title": "子选项组",
-                            "snippet": "<u-capsule-group></u-capsule-group>"
+                            "snippet": "<u-capsule-group><u-capsule>选项</u-capsule></u-capsule-group>"
                         }
                     ]
                 }
@@ -8804,7 +8816,6 @@
                     "name": "u-capsule",
                     "title": "子选项",
                     "description": "子选项",
-                    "isSub": true,
                     "attrs": [
                         {
                             "name": "value",
@@ -10944,7 +10955,6 @@
                     "title": "标签页",
                     "description": "标签页",
                     "control": "button",
-                    "isSub": true,
                     "attrs": [
                         {
                             "name": "title",
@@ -11250,7 +11260,6 @@
                     "name": "u-selectable-step",
                     "title": "步骤条项",
                     "description": "步骤条项",
-                    "isSub": true,
                     "attrs": [
                         {
                             "name": "title",
@@ -11270,6 +11279,7 @@
                     "slots": [
                         {
                             "name": "default",
+                            "plus-empty": true,
                             "description": "插入文本或 HTML。"
                         },
                         {

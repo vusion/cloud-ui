@@ -89,7 +89,7 @@
           description: 旧的步骤数
 - name: u-selectable-step
   title: 步骤条项
-  isSub: true
+  is-sub: true
   attrs:
     - name: title
       title: 标题
@@ -103,6 +103,7 @@
       description: 是否禁用此标签页
   slots:
     - name: default
+      plus-empty: true
       description: 插入文本或 HTML。
     - name: title
       description: 自定义标题文本。

@@ -15,6 +15,7 @@
             <slot name="body">
                 <div :class="$style.content" vusion-slot-name="default">
                     <slot></slot>
+                    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
                 </div>
             </slot>
         </div>
@@ -24,11 +25,15 @@
 
 <script>
 import { MChild } from '../m-parent.vue';
+import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-collapse-item',
     parentName: 'u-collapse',
     mixins: [MChild],
+    components: {
+        SEmpty,
+    },
     props: {
         title: String,
         expanded: { type: Boolean, default: false },

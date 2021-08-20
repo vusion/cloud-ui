@@ -29,6 +29,7 @@
     - name: default
       title: 默认
       description: 插入`<u-info-list-item>`或`<u-info-list-group>`子组件。
+      common-empty-background: true
       support:
         - name: u-info-list-group
           title: 详情列表组
@@ -40,8 +41,6 @@
   description: 详情列表
 - name: u-info-list-item
   title: 详情列表项
-  next: false
-  nested: false
   attrs:
     - name: label
       title: 标签
@@ -80,8 +79,6 @@
   description: 详情列表项
 - name: u-info-list-group
   title: 详情列表组
-  next: false
-  nexted: false
   attrs:
     - name: title
       title: 标签

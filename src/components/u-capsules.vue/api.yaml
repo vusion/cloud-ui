@@ -47,7 +47,7 @@
         - name: u-capsules-group
           advanced: true
           title: 子选项组
-          snippet: <u-capsule-group></u-capsule-group>
+          snippet: <u-capsule-group><u-capsule>选项</u-capsule></u-capsule-group>
   events:
     - name: before-select
       title: 选择前
@@ -211,7 +211,7 @@
           description: 发送事件实例
 - name: u-capsule
   title: 子选项
-  isSub: true
+  is-sub: true
   attrs:
     - name: value
       title: 值
