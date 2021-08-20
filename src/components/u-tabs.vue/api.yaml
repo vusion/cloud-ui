@@ -297,7 +297,7 @@
       title: 默认
       plus-empty: true
       description: 该 tab 下的内容
-      empty-background: add-sub
+      empty-background: add-any
     - name: title
       title: 标题
       description: 自定义标题

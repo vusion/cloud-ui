@@ -10,12 +10,13 @@
     - name: data-source
       title: 数据源
       type: Array<Item> | Function | object | DataSource
-      description: 表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise，详见文档示例。
+      designer-value: '[{}, {}, {}]'
+      description: 表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise。
       group: 数据属性
     - name: data-schema
       title: 数据类型
       type: schema
-      description: 表格的数据类型，对应表格数据的schema
+      description: 表格每一行的数据类型
       group: 数据属性
       compType: dataTypeSelect
     - name: initial-load
@@ -39,11 +40,11 @@
       description: 分页大小。
       group: 数据属性
     - name: page-number
-      title: 当面页数
+      title: 当前页数
       type: number
       sync: true
       default: 1
-      description: 当面页数。
+      description: 当前页数。
       group: 数据属性
       schema:
         $ref: "#/basicTypes/Integer"
@@ -269,7 +270,7 @@
     - name: default
       title: 默认
       description: 在表格中插入`<u-table-view-column>`子组件。
-      empty-background: add-sub
+      empty-background: drag-entity-here
       support:
         - name: u-table-view-column
           title: 表格列
