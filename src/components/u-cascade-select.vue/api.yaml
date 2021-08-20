@@ -23,6 +23,7 @@
       title: 多级分类
       type: Array<{ label, key, placeholder }>
       default: null
+      designer-value: '[{}, {}, {}]'
       description: 多级分类
     - name: hide-empty
       title: 隐藏空列表

@@ -21,6 +21,7 @@ module.exports = [
     { group: 'Display', show: true, name: 'u-image', alias: '图片展示' },
 
     { group: 'Table', show: true, name: 'u-table-view', alias: '数据表格' },
+    { group: 'Table', show: true, name: 'u-list-view', alias: '数据列表' },
     { group: 'Table', show: true, name: 'u-form-table-view', alias: '表单表格', newest: true },
     // { group: 'Table', show: true, name: 'u-list-view', alias: '数据列表' },
     // { group: 'Table', show: true, name: 'u-actions', alias: '操作项' },
