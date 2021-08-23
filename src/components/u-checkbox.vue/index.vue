@@ -96,6 +96,7 @@ export default {
 .root {
     user-select: none;
     cursor: var(--cursor-pointer);
+    color: #666;
 }
 
 .root:focus {
@@ -108,7 +109,7 @@ export default {
 
 .root[disabled] {
     cursor: var(--cursor-not-allowed);
-    color: var(--brand-disabled);
+    color: #666;;
 }
 
 .box {
@@ -130,6 +131,11 @@ export default {
     transition: all var(--transition-duration-base);
 }
 
+.box[status="true"]::before, .box[status="false"]::before {
+    position: relative;
+    top: -12%;
+}
+
 .box[status="false"]::before {
     icon-font: url('../i-icon.vue/assets/check.svg');
     color: transparent;
@@ -142,6 +148,9 @@ export default {
 .box[status="true"]::before {
     icon-font: url('../i-icon.vue/assets/check.svg');
     color: var(--checkbox-color);
+}
+.box[status="true"][disabled]::before {
+    color: #ccc;
 }
 
 .box[status="null"] {
@@ -156,6 +165,6 @@ export default {
 
 .box[disabled] {
     border-color: var(--border-color-base);
-    background: var(--background-color-base);
+    background: #EEEEF0;
 }
 </style>

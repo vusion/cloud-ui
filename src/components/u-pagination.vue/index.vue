@@ -16,7 +16,7 @@
         </span>
         <u-select v-if="showSizer" :class="$style.sizer" v-model="currentPageSize" :readonly="readonly" :disabled="disabled" @select="onSelectPageSize">
             <u-select-item v-for="pageSize in pageSizeOptions" :key="pageSize" :value="pageSize">
-                {{ pageSize }} {{ $t('pageSizeUnit') }}
+                每页 {{ pageSize }} {{ $t('pageSizeUnit') }}
             </u-select-item>
         </u-select>
         <a :class="$style['item-wrap']" :disabled="currentPage <= 1" @click="select(currentPage - 1)">
@@ -199,6 +199,10 @@ export default {
     text-align: right;
 }
 
+.root a:not(:last-child) {
+    margin-right: 8px;
+}
+
 .item {
     display: inline-block;
     text-decoration: none;
@@ -213,6 +217,7 @@ export default {
     color: var(--pagination-item-color);
     cursor: var(--cursor-pointer);
     border: 1px solid var(--pagination-item-border-color);
+    border-radius: 2px;
     margin-left: -1px;
 
     vertical-align: middle;
@@ -262,7 +267,7 @@ export default {
     background: var(--pagination-item-background-blank);
     color: var(--pagination-item-color-blank);
     cursor: initial;
-    border: none;
+    border: 1px solid var(--pagination-item-border-color);
 }
 
 .item-wrap {

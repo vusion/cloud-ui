@@ -407,7 +407,7 @@ export default {
 .list[list-type="text"] .thumb::before {
     icon-font: url('./assets/attachment.svg');
     float: left;
-    margin-right: 3px;
+    margin-right: 8px;
     color: var(--uploader-item-icon-color);
 }
 

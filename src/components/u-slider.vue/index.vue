@@ -194,17 +194,18 @@ export default {
 .handle {
     position: absolute;
     left: 0;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
     cursor: var(--cursor-pointer);
     margin-left: calc(var(--slider-handle-width) / -2);
     width: var(--slider-handle-width);
     height: var(--slider-handle-height);
     background: var(--slider-handle-background);
     border: var(--slider-handle-border);
-    border-radius: 2px;
+    border-radius: calc(var(--slider-handle-width)/2);
 }
 
-.handle::before {
+/* .handle::before {
     content: '';
     position: absolute;
     width: 2px;
@@ -222,7 +223,7 @@ export default {
     background-color: var(--slider-track-background);
     top: 5px;
     right: 3px;
-}
+} */
 
 .root[disabled] {
     cursor: var(--cursor-not-allowed);

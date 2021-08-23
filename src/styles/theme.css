@@ -12,13 +12,13 @@
     --brand-primary-darker: #004bcc;
     --brand-primary-darkest: #003eaa;
 
-    --brand-success-lightest: #e9f9f6;
-    --brand-success-lighter: #bceee4;
-    --brand-success-light: #4dd3b6;
-    --brand-success: #37cdad;
-    --brand-success-dark: #2eb99b;
-    --brand-success-darker: #238b74;
-    --brand-success-darkest: #1d7461;
+    --brand-success-lightest: #e5faef;
+    --brand-success-lighter: #b0efd0;
+    --brand-success-light: #2ed581;
+    --brand-success: #26BD71;
+    --brand-success-dark: #22a864;
+    --brand-success-darker: #197e4b;
+    --brand-success-darkest: #15693f;
 
     --brand-normal-lightest: #f2f9eb;
     --brand-normal-lighter: #d8eec4;
@@ -36,21 +36,21 @@
     --brand-problem-darker: #c9a000;
     --brand-problem-darkest: #a78600;
 
-    --brand-warning-lightest: #fff6e9;
-    --brand-warning-lighter: #ffdba8;
-    --brand-warning-light: #ffb752;
-    --brand-warning: #ffae3c;
-    --brand-warning-dark: #ff9f19;
-    --brand-warning-darker: #d27b00;
-    --brand-warning-darkest: #af6600;
+    --brand-warning-lightest: #fff6e4;
+    --brand-warning-lighter: #ffe4af;
+    --brand-warning-light: #ffb82a;
+    --brand-warning: #ffaf0f;
+    --brand-warning-dark: #f0a000;
+    --brand-warning-darker: #b47800;
+    --brand-warning-darkest: #966400;
 
-    --brand-error-lightest: #ffeded;
-    --brand-error-lighter: #ffc8c8;
-    --brand-error-light: #ff6c6c;
-    --brand-error: #ff5a5a;
-    --brand-error-dark: #ff3434;
-    --brand-error-darker: #e60000;
-    --brand-error-darkest: #c00000;
+    --brand-error-lightest: #feebec;
+    --brand-error-lighter: #fbc4c6;
+    --brand-error-light: #f36266;
+    --brand-error: #f24e53;
+    --brand-error-dark: #f02d33;
+    --brand-error-darker: #c70f14;
+    --brand-error-darkest: #a60c11;
 
     --brand-danger-lightest: #ffeded;
     --brand-danger-lighter: #ffc8c8;
@@ -68,10 +68,10 @@
     --brand-assist-darker: #9a08ff;
     --brand-assist-darkest: #8200db;
 
-    --brand-disabled-light: #dee4ed; /* 选择且禁用的背景 */
-    --brand-disabled: #cdd6e4; /* 输入框、选择框的禁用背景 */
-    --brand-disabled-dark: #c2cdde; /* 禁用文本的颜色 */
-    --brand-disabled-darker: #b7c4d8; /* 禁用文本的颜色 */
+    --brand-disabled-light: #ededed; /* 选择且禁用的背景 */
+    --brand-disabled: #ebebeb; /* 输入框、选择框的禁用背景 */
+    --brand-disabled-dark: #d1d1d1; /* 禁用文本的颜色 */
+    --brand-disabled-darker: #9d9d9d; /* 禁用文本的颜色 */
 
     /* Gray Colors */
     --color-white: white;
@@ -90,25 +90,25 @@
     --background-color-lighter: #f4f6f9; /* 选择框的 hover 颜色 */
     --background-color-lighter-inverse: #33353d; /* 选择框的 hover 颜色 */
     --background-color-light: #f4f6f9; /* 表格等组件标题栏颜色 */
-    --background-color-base: #eef1f6; /* 标签、薯条等组件默认颜色 */
+    --background-color-base: #F7F7FA; /* 标签、薯条等组件默认颜色 */
     --background-color-base-inverse: #33353d; /* 标签、薯条等组件默认颜色 */
     --background-color-dark: #e3e8f0;
     --background-color-dark-inverse: #2e3038;
     --background-color-darker: #d8dfea;
-    --color-lighter: #b6b9be; /* Placeholder 字体颜色 */
-    --color-light: #93989f; /* 次级字体颜色 */
-    --color-base: #585c63; /* 默认字体颜色 */
+    --color-lighter: #bfbfbf; /* Placeholder 字体颜色 */
+    --color-light: #999999; /* 次级字体颜色 */
+    --color-base: #333333; /* 默认字体颜色 */
     --color-base-inverse: white; /* 默认字体颜色 */
     --color-dark: #363a41; /* 默认字体颜色 */
     --border-color-light: #dee4ed; /* 面板等容器类型的边框颜色 */
-    --border-color-base: #dee4ed; /* 输入框等小组件的边框颜色 */
+    --border-color-base: #E3E4E6; /* 输入框等小组件的边框颜色 */
     --border-color-base-inverse: #212123; /* 输入框等小组件的边框颜色 */
-    --border-color-dark: #cdd6e4; /* 按钮等小组件的边框颜色 */
+    --border-color-dark: #E3E4E5; /* 按钮等小组件的边框颜色 */
 
     /* Space Dimensions */
     --space-shrink: -1px;
     --space-mini: 4px;
-    --space-base: 20px;
+    --space-base: 24px;
     --space-small: 10px;
     --space-large: 30px;
     --space-huge: 40px;
@@ -117,7 +117,7 @@
     --border-width-base: 1px;
     --width-mini: 80px;
     --width-small: 120px;
-    --width-base: 160px; /* 以输入框、选择框为基准的尺寸 */
+    --width-base: 240px; /* 以输入框、选择框为基准的尺寸 */
     --width-medium: 280px;
     --width-large: 440px;
     --width-huge: 580px;
@@ -128,7 +128,7 @@
     --height-large: 40px;
     --height-huge: 40px;
     --border-radius-mini: 2px;
-    --border-radius-base: 4px;
+    --border-radius-base: 2px;
     --border-radius-medium: 4px;
     --border-radius-large: 4px;
 
@@ -217,7 +217,7 @@
     --text-color-disabled: var(--brand-disabled-dark);
 
     /* Link */
-    --link-color: #4477d0;
+    --link-color: #337eff;
     --link-color-success: var(--brand-success);
     --link-color-warning: var(--brand-warning);
     --link-color-error: var(--brand-error);
@@ -278,12 +278,12 @@
 
     /* Label */
     --label-padding-x: 8px;
-    --label-padding-x-small: 6px;
-    --label-padding-x-large: 12px;
+    --label-padding-x-small: 8px;
+    --label-padding-x-large: 8px;
     --label-padding-x-huge: 18px;
-    --label-padding-y: 1px;
-    --label-padding-y-small: 0px;
-    --label-padding-y-large: 2px;
+    --label-padding-y: 3px;
+    --label-padding-y-small: 1px;
+    --label-padding-y-large: 3px;
     --label-padding-y-huge: 3px;
     --label-line-height-small: 18px;
     --label-font-size: var(--font-size-small);
@@ -310,7 +310,7 @@
     /* Badge */
     --badge-background: var(--brand-error);
     --badge-color: white;
-    --badge-value-size: 18px;
+    --badge-value-size: 20px;
     --badge-dot-size: 6px;
 
     /* Avatar */
@@ -362,7 +362,7 @@
     --table-caption-color: #6a6f75;
     --table-border-color: var(--border-color-light);
     --table-border-width: 1px;
-    --table-td-color: var(--color-light);
+    --table-td-color: var(--color-base);
     --table-th-line-height: 20px;
     --table-th-padding: 13px 6px 13px 10px;
     --table-td-line-height: 20px;
@@ -409,9 +409,9 @@
     --collapse-transition-duration: var(--transition-duration-base);
 
     /* Navbar */
-    --navbar-height: 64px;
+    --navbar-height: 60px;
     --navbar-space-x: 40px;
-    --navbar-background: #343e4f;
+    --navbar-background: #333333;
     --navbar-background-inverse: var(--brand-primary);
     --navbar-item-space: 30px;
     --navbar-item-padding: 0 10px;
@@ -457,18 +457,25 @@
     --navbar-select-box-shadow: 0 0 6px rgba(47, 53, 58, 0.3);
 
     /* Sidebar */
-    --sidebar-width: 180px;
-    --sidebar-background: #2b333f;
+    --sidebar-width: 240px;
+    --sidebar-background: #ffffff;
+    --sidebar-background-inverse: #2b333f;
     --sidebar-item-height: 54px;
     --sidebar-item-height-small: 32px;
     --sidebar-item-padding-left: 30px;
     --sidebar-item-background: none;
-    --sidebar-item-background-selected: #252b33;
-    --sidebar-item-background-disabled: #2b333f;
-    --sidebar-item-background-selected-disabled: #2b333f;
-    --sidebar-item-color: #8594aa;
-    --sidebar-item-color-hover: white;
-    --sidebar-item-color-selected: white;
+    --sidebar-item-background-selected: rgba(51,126,255,0.12);
+    --sidebar-item-background-selected-inverse: #252b33;
+    --sidebar-item-background-disabled: #ffffff;
+    --sidebar-item-background-disabled-inverse: #2b333f;
+    --sidebar-item-background-selected-disabled: #337EFF;
+    --sidebar-item-background-selected-disabled-inverse: #2b333f;
+    --sidebar-item-color: #333333;
+    --sidebar-item-color-inverse: #8594aa;
+    --sidebar-item-color-hover: #337eff;
+    --sidebar-item-color-hover-inverse: white;
+    --sidebar-item-color-selected: #337eff;
+    --sidebar-item-color-selected-inverse: white;
     --sidebar-item-color-disabled: #586475;
     --sidebar-item-border-right-width: 4px;
     --sidebar-item-border-right-width-small: 3px;
@@ -476,9 +483,12 @@
     --sidebar-group-head-height: 52px;
     --sidebar-group-head-padding-left: 20px;
     --sidebar-group-head-font-weight: var(--font-weight-bold);
-    --sidebar-group-head-color: #9dabc2;
-    --sidebar-group-head-color-hover: white;
-    --sidebar-group-head-color-selected: #9dabc2;
+    --sidebar-group-head-color: #333333;
+    --sidebar-group-head-color-inverse: #9dabc2;
+    --sidebar-group-head-color-hover: #337eff;
+    --sidebar-group-head-color-hover-inverse: white;
+    --sidebar-group-head-color-selected: #337eff;
+    --sidebar-group-head-color-selected-inverse: #9dabc2;
     --sidebar-group-popper-margin-left: 2px;
     --sidebar-divider-margin-y: 8px;
     --sidebar-divider-height: var(--border-width-base);
@@ -513,7 +523,7 @@
     --tabs-border-width: 1px;
     --tabs-border-color: var(--border-color-light);
     --tabs-head-background: none;
-    --tabs-item-height: 36px;
+    --tabs-item-height: 48px;
     --tabs-item-height-small: 30px;
     --tabs-item-height-mini: 24px;
     --tabs-item-padding-x: 30px;
@@ -545,7 +555,7 @@
     /* Steps */
     --steps-item-width: 200px;
     --steps-item-color-disabled: #bbb;
-    --steps-item-radio-size: 18px;
+    --steps-item-radio-size: 24px;
     --steps-item-radio-size-large: 24px;
     --steps-item-radio-background: var(--border-color-base);
     --steps-item-radio-background-passed: var(--brand-primary);
@@ -554,7 +564,7 @@
     /* Crumb */
     --crumb-color-link: var(--brand-primary);
     --crumb-color-disabled: var(--brand-disabled);
-    --crumb-space-x: 5px;
+    --crumb-space-x: 6px;
 
     /* Toc */
     --toc-width: 200px;
@@ -601,7 +611,7 @@
     --form-item-label-padding-right-mini: 10px;
     --form-item-label-padding-right-small: 10px;
     --form-item-label-padding-right-large: 20px;
-    --form-item-label-width: 120px;
+    --form-item-label-width: 76px;
     --form-item-label-width-mini: 50px;
     --form-item-label-width-small: 80px;
     --form-item-label-width-large: 160px;
@@ -664,12 +674,12 @@
     --input-border-radius: 3px;
 
     /* Textarea */
-    --textarea-width: var(--width-base);
+    --textarea-width: 480px;
     --textarea-width-medium: var(--width-medium);
     --textarea-width-large: var(--width-large);
     --textarea-width-huge: var(--width-huge);
     --textarea-min-width: var(--width-base);
-    --textarea-height: 80px;
+    --textarea-height: 120px;
     --textarea-height-medium: 100px;
     --textarea-height-large: 120px;
     --textarea-height-huge: 200px;
@@ -680,7 +690,7 @@
     --textarea-border-color: var(--border-color-base);
 
     /* Number Input */
-    --number-input-height: 14px;
+    --number-input-height: 16px;
     --number-input-padding: 0 4px;
     --number-input-button-background: none;
     --number-input-button-background-hover: none;
@@ -689,8 +699,8 @@
     --number-input-button-color-disabled: var(--brand-disabled);
 
     /* Radio */
-    --radio-space-x: 80px;
-    --radio-size: 16px;
+    --radio-space-x: 40px;
+    --radio-size: 14px;
     --radio-background: var(--background-color-default);
     --radio-box-shadow-focus: var(--button-box-shadow-focus);
 
@@ -784,10 +794,10 @@
     --slider-trail-background: var(--brand-primary);
     --slider-trail-background-disabled: var(--brand-disabled);
     --slider-bound-background: url("../assets/images/stripe.png") repeat-x;
-    --slider-handle-width: 14px;
-    --slider-handle-height: 24px;
-    --slider-handle-background: white;
-    --slider-handle-border: 1px solid var(--border-color-dark);
+    --slider-handle-width: 16px;
+    --slider-handle-height: 16px;
+    --slider-handle-background: #337EFF;
+    --slider-handle-border: 1px solid white;
 
     /* Combo Slider */
     --combo-slider-slider-width: 100%;
@@ -985,7 +995,7 @@
     --modal-dialog-width-small: 300px;
     --modal-dialog-width-large: 600px;
     --modal-dialog-width-huge: 800px;
-    --modal-dialog-border-radius: var(--border-radius-large);
+    --modal-dialog-border-radius: var(--border-radius-base);
     --modal-dialog-background: white;
     --modal-dialog-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     --modal-title-font-size: var(--font-size-large);
@@ -994,9 +1004,9 @@
     --modal-close-color-hover: var(--color-light);
     --modal-head-padding: 13px 24px;
     --modal-static-padding: var(--space-base);
-    --modal-body-margin: 30px 50px;
+    --modal-body-margin: 25px 24px;
     --modal-foot-margin: 0;
-    --modal-foot-padding: 10px 24px;
+    --modal-foot-padding: 10px 20px;
     --modal-border-color: var(--border-color-base);
 
     /* Drawer */
@@ -1024,14 +1034,14 @@
     /* Carousel */
     --carousel-width: 700px;
     --carousel-height: 420px;
-    --carousel-nav-bottom: 20px;
-    --carousel-nav-item-width: 30px;
-    --carousel-nav-item-height: 3px;
-    --carousel-nav-item-padding: 4px;
+    --carousel-nav-bottom: 12px;
+    --carousel-nav-item-width: 8px;
+    --carousel-nav-item-height: 2px;
+    --carousel-nav-item-padding: 0;
     --carousel-nav-item-background: rgba(255, 255, 255, 0.5);
     --carousel-nav-item-background-hover: white;
     --carousel-button-space: 20px;
-    --carousel-button-font-size: 50px;
+    --carousel-button-font-size: 16px;
     --carousel-button-color: rgba(255, 255, 255, 0.6);
     --carousel-button-color-hover: white;
     --carousel-button-transition: all 0.3s;
