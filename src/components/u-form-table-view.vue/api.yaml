@@ -40,7 +40,12 @@
       description: 最大项目数
   slots:
     - name: default
+      common-empty-background: true
       description: 添加文本或 HTML。
+      support:
+         - name: u-form-table-view-column
+           title: 表单列元素
+           snippet:  '<u-form-table-view-column title="表单列"> <template #cell="scope">{{ scope.item.url }}</template></u-form-table-view-column>'
   events:
     - name: before-add
       description: 添加前触发
@@ -240,7 +245,9 @@
   slots:
     - name: default
       description: 在表格列中插入`cell`插槽。
+      plus-empty: true
     - name: cell
+      plus-empty: true
       description: 对单元格数据展示进行自定义。
       props:
         - name: item

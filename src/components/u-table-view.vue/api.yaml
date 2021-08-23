@@ -659,9 +659,10 @@
     - name: default
       title: 默认
       description: 默认值
-      plus-empty: true
       accept-type: all
+      plus-empty: true
     - name: cell
+      plus-empty: true
       description: 对单元格的数据展示进行自定义。
       props:
         - name: item

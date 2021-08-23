@@ -4,8 +4,6 @@
   description: 多项中选择一项
   labels:
     - Form
-  next: true
-  nested: false
   attrs:
     - name: value
       title: 值
@@ -49,7 +47,7 @@
         - name: u-capsules-group
           advanced: true
           title: 子选项组
-          snippet: <u-capsule-group></u-capsule-group>
+          snippet: <u-capsule-group><u-capsule>选项</u-capsule></u-capsule-group>
   events:
     - name: before-select
       title: 选择前
@@ -92,7 +90,7 @@
           type: UCapsules
           description: 发送事件实例
     - name: select
-      title: 选择后
+      title: 选择后（单选模式）
       description: 选择某一项时触发。单选模式中：
       params:
         - name: $event
@@ -122,7 +120,7 @@
           type: UCapsules
           description: 发送事件实例
     - name: select
-      title: 选择后
+      title: 选择后（多选模式）
       description: 选择某一项时触发。多选模式中：
       params:
         - name: $event
@@ -213,8 +211,7 @@
           description: 发送事件实例
 - name: u-capsule
   title: 子选项
-  next: false
-  nested: false
+  is-sub: true
   attrs:
     - name: value
       title: 值

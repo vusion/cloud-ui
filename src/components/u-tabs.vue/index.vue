@@ -10,7 +10,7 @@
                 <div :class="$style.scroll">
                     <a :class="$style.item" ref="item"
                         v-for="(itemVM, index) in itemVMs"
-                        allowChild
+                        :is-sub="itemVM.$attrs['is-sub']"
                         :vusion-scope-id="itemVM.$vnode.context.$options._scopeId"
                         :vusion-node-path="itemVM.$attrs['vusion-node-path']"
                         :vusion-node-tag="itemVM.$attrs['vusion-node-tag']"

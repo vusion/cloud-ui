@@ -1,5 +1,5 @@
 <template>
-<div v-show="selected">
+<div v-show="selected" vusion-slot-name="default">
     <slot></slot>
 </div>
 </template>
