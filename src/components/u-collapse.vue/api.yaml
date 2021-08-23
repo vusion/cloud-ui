@@ -63,6 +63,7 @@
   methods:
     - name: toggleAll
       description: 展开/折叠所有面板
+      common-empty-background: true
       params:
         - name: expanded
           type: boolean

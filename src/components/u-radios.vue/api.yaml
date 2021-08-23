@@ -4,8 +4,6 @@
     - Form
   icon: radios
   description: 多项中选择一个时使用
-  next: true
-  nested: false
   attrs:
     - name: value
       title: 值
@@ -111,8 +109,7 @@
           description: 发送事件实例
 - name: u-radio
   title: 单选项
-  next: false
-  nested: false
+  is-sub: true
   attrs:
     - name: text
       title: 文本

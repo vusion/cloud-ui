@@ -13,7 +13,7 @@
                 </colgroup>
                 <thead><tr>
                     <th ref="th" :class="$style['head-title']" v-for="(columnVM, columnIndex) in visibleColumnVMs"
-                        allowChild
+                        :is-sub="columnVM.$attrs['is-sub']"
                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                         :vusion-node-path="columnVM.$attrs['vusion-node-path']"
                         :vusion-node-tag="columnVM.$attrs['vusion-node-tag']"

@@ -4,8 +4,6 @@
   description: 内部元素按照一定的规则布局
   labels:
     - Layout
-  next: true
-  nested: true
   attrs:
     - name: gap
       title: 间隔
@@ -24,6 +22,7 @@
   slots:
     - name: default
       description: 插入`<u-grid-layout-row>`或`<u-grid-layout-column>`子组件。
+      common-empty-background: true
       support:
         - name: u-grid-layout-row
           title: 插入一行
@@ -38,8 +37,6 @@
 - name: u-grid-layout-row
   title: 栅格行
   description: 内部元素行布局
-  next: false
-  nested: false
   attrs:
     - name: repeat
       title: 栅格数
@@ -101,8 +98,7 @@
 - name: u-grid-layout-column
   title: 栅格列
   description: 内部元素行内列布局
-  next: false
-  nested: true
+  is-sub: true
   attrs:
     - name: span
       title: 占据数
