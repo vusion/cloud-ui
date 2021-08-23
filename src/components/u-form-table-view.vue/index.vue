@@ -14,7 +14,15 @@
         </tr></thead>
         <tbody>
             <u-form-table-view-row :class="$style.row" v-for="(item, rowIndex) in currentData" :key="rowIndex" :muted="muted">
-                <td v-if="$env.VUE_APP_DESIGNER" :class="$style.cell" v-for="(columnVM, columnIndex) in columnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title>
+                <td v-if="$env.VUE_APP_DESIGNER" 
+                    :class="$style.cell" 
+                    v-for="(columnVM, columnIndex) in columnVMs" 
+                    :is-sub="columnVM.$attrs['is-sub']"
+                    :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
+                    :vusion-node-path="columnVM.$attrs['vusion-node-path']"
+                    :vusion-node-tag="columnVM.$attrs['vusion-node-tag']"
+                    :ellipsis="columnVM.ellipsis" 
+                    v-ellipsis-title>
                     <div vusion-slot-name="cell" :plus-empty="columnVM.$attrs['plus-empty']" >
                         <u-validator display="block" :label="columnVM.title" :action="columnVM.action"
                             :rules="columnVM.rules" :muted="columnVM.muted"
@@ -22,6 +30,7 @@
                             :validating-options="Object.assign({ data: currentData, item, rowIndex }, columnVM.validatingOptions)"
                             :validating-value="columnVM.validatingValue"
                             :validating-process="columnVM.validatingProcess">
+                            
                             <span v-if="columnVM.type === 'index'">{{ columnVM.startIndex + rowIndex }}</span>
                             <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex }">
                                 <span>{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
