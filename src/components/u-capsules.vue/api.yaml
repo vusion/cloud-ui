@@ -119,45 +119,6 @@
         - name: senderVM
           type: UCapsules
           description: 发送事件实例
-    - name: select
-      title: 选择后（多选模式）
-      description: 选择某一项时触发。多选模式中：
-      params:
-        - name: $event
-          type: object
-          description: 自定义事件对象
-          schema:
-            $ref: "#/systemTypes/ChangeItemEvent"
-        - name: $event.selected
-          type: boolean
-          description: 选中还是取消
-        - name: $event.item
-          type: boolean
-          description: 该选中项相关对象
-        - name: $event.itemVM
-          type: boolean
-          description: 该选中项子组件
-        - name: $event.value
-          type: Array
-          description: 改变后的值
-        - name: $event.oldValue
-          type: Array
-          description: 旧的值
-        - name: $event.items
-          type: Array<object>
-          description: 所有选中项相关对象的数组
-        - name: $event.oldItems
-          type: Array<object>
-          description: 旧的所有选中项相关对象的数组
-        - name: $event.itemVMs
-          type: Array<UCapsule>
-          description: 所有选中项子组件的数组
-        - name: $event.oldVMs
-          type: Array<UCapsule>
-          description: 旧的所有选中项子组件的数组
-        - name: senderVM
-          type: UCapsules
-          description: 发送事件实例
     - name: change
       title: 改变后
       description: 选择值改变时触发。单选模式中：
@@ -185,27 +146,6 @@
         - name: $event.oldVM
           type: UCapsule
           description: 旧的选择项子组件
-        - name: senderVM
-          type: UCapsules
-          description: 发送事件实例
-    - name: change
-      title: 改变后
-      description: 选择值改变时触发。多选模式中：
-      params:
-        - name: $event
-          type: object
-          description: 自定义事件对象
-          schema:
-            $ref: "#/systemTypes/ChangeItemsEvent"
-        - name: $event.value
-          type: Array
-          description: 所有选中项的值
-        - name: $event.items
-          type: Array<object>
-          description: 所有选中项相关对象的数组
-        - name: $event.itemVMs
-          type: Array<UCapsule>
-          description: 所有选中项子组件的数组
         - name: senderVM
           type: UCapsules
           description: 发送事件实例
