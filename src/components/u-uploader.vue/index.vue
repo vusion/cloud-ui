@@ -27,10 +27,10 @@
                 <div :class="$style.thumb"><img :class="$style.img" :src="item.thumb || item.url"></div>
                 <div :class="$style.mask" :multiple="multiple || readonly" :show-progress="item.showProgress">
                     <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
-                    <div v-show="multiple || readonly" :class="$style.buttons">
+                    <div :class="$style.buttons">
                         <span :class="$style.button" role="preview" @click="onPreview(item, index)"></span>
                         <a :class="$style.button" :href="item.url" target="_blank" role="download"></a>
-                        <span v-if="!readonly && !disabled" :class="$style.button" role="remove" @click="remove(index)"></span>
+                        <span v-if="!readonly && !disabled" :class="$style.button" role="remove" @click.stop="remove(index)"></span>
                     </div>
                 </div>
             </div>
@@ -407,7 +407,7 @@ export default {
 .list[list-type="text"] .thumb::before {
     icon-font: url('./assets/attachment.svg');
     float: left;
-    margin-right: 3px;
+    margin-right: 8px;
     color: var(--uploader-item-icon-color);
 }
 
@@ -523,18 +523,6 @@ export default {
 
 .mask:hover, .mask[show-progress] {
     opacity: 1;
-}
-
-.mask:not([multiple]) {
-    cursor: var(--cursor-pointer);
-    text-align: center;
-    line-height: 128px;
-}
-
-.mask:not([multiple])::before {
-    color: rgba(255, 255, 255, 0.6);
-    icon-font: url('./assets/add.svg');
-    font-size: 42px;
 }
 
 .card .progress {

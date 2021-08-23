@@ -52,14 +52,14 @@ export default {
 }
 
 .item[passed] .radio::before {
-    font-family: 'Devanagari MT', 'Gujarati MT', monospace;
-    content: '\2713';
-    color: white;
+    position: relative;
+    top: -1px;
+    icon-font: url('./assets/pass.svg');
 }
 
 .item[selected] .radio {
     background: white;
-    border: 1px solid var(--border-color-base);
+    border: 1px solid #337EFF;
 }
 
 .item[selected] .radio::before {

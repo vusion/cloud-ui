@@ -33,6 +33,16 @@
     white-space: nowrap;
 }
 
+.scroll a:first-child {
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.scroll a:last-child {
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
 .prev, .next {
     position: absolute;
     display: none;

@@ -59,7 +59,7 @@
         @close="onClose"
         @before-toggle="$emit('before-toggle', $event, this)"
         @toggle="$emit('toggle', $event, this)"
-        @click.stop @scroll.stop="onScroll">
+        @click.stop @scroll.stop="onScroll" @mousedown.stop>
         <slot></slot>
         <template v-if="currentData">
             <component :is="ChildComponent"

@@ -1096,7 +1096,9 @@ export default {
     /* transition: $transition-duration height ease-in-out, $transition-duration padding-top ease-in-out, $transition-duration padding-bottom ease-in-out; */
 }
 
-.column-title {}
+.column-title {
+    color: #999;
+}
 
 .column-field {}
 </style>

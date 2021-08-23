@@ -149,6 +149,7 @@ export default {
     width: var(--carousel-nav-item-width);
     height: var(--carousel-nav-item-height);
     padding: var(--carousel-nav-item-padding);
+    margin-right: 4px;
     background: var(--carousel-nav-item-background);
     background-clip: content-box;
 }
@@ -158,6 +159,7 @@ export default {
 }
 
 .nav-item[selected] {
+    width: 20px;
     background: var(--carousel-nav-item-background-hover);
 }
 
@@ -168,7 +170,8 @@ export default {
     font-weight: var(--font-weight-bold);
     color: var(--carousel-button-color);
     transition: var(--carousel-button-transition);
-    top: 36%;
+    top: 50%;
+    transform: translateY(calc(-50%));
     display: none;
 }
 .root:hover .button {
@@ -178,12 +181,24 @@ export default {
     color: var(--carousel-button-color-hover);
 }
 
+.button[role='prev'], .button[role='next']{
+    width: calc(var(--carousel-button-font-size)*2);
+    height: calc(var(--carousel-button-font-size)*2);
+    border-radius: var(--carousel-button-font-size);
+    background: rgba(0, 0, 0, 0.2);
+}
+
 .button[role='prev'] {
     left: var(--carousel-button-space);
 }
 
 .button[role='prev']::before {
-    content: '\27e8';
+    icon-font: url("./assets/prev.svg");
+    position: absolute;
+    height: var(--carousel-button-font-size);
+    top: 36%;
+    left: 48%;
+    transform: translate(-50%, -50%);
 }
 
 .button[role='next'] {
@@ -191,6 +206,11 @@ export default {
 }
 
 .button[role='next']::before {
-    content: '\27e9';
+    icon-font: url("./assets/next.svg");
+    position: absolute;
+    height: var(--carousel-button-font-size);
+    top: 36%;
+    left: 52%;
+    transform: translate(-50%, -50%);
 }
 </style>

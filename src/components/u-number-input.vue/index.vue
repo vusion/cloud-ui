@@ -235,9 +235,10 @@ export default {
 .button {
     user-select: none;
     position: absolute;
-    right: 1px;
+    right: 0;
     height: var(--number-input-height);
     line-height: var(--number-input-height);
+    border-left: 1px solid var(--border-color-base);
     padding: var(--number-input-padding);
     cursor: var(--cursor-pointer);
     background: var(--number-input-button-background);
@@ -256,11 +257,12 @@ export default {
 }
 
 .button[role="up"] {
-    top: 2px;
+    top: 0;
+    border-bottom: 1px solid var(--border-color-base);
 }
 
 .button[role="down"] {
-    bottom: 2px;
+    bottom: 0;
 }
 
 .button[role="up"]::before {
