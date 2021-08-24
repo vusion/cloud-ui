@@ -4,13 +4,13 @@
      */
 
     /* Brand Colors */
-    --brand-primary-lightest: #ebf2fc;
-    --brand-primary-lighter: #c3d8f7;
-    --brand-primary-light: #5e96eb;
-    --brand-primary: #4a89e8;
-    --brand-primary-dark: #2c75e4;
-    --brand-primary-darker: #1756b5;
-    --brand-primary-darkest: #134897;
+    --brand-primary-lightest: #e8f1ff;
+    --brand-primary-lighter: #bbd4ff;
+    --brand-primary-light: #4a8cff;
+    --brand-primary: #337EFF;
+    --brand-primary-dark: #1168ff;
+    --brand-primary-darker: #004bcc;
+    --brand-primary-darkest: #003eaa;
 
     --brand-success-lightest: #e5faef;
     --brand-success-lighter: #b0efd0;
