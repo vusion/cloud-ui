@@ -18,7 +18,7 @@
 </u-tabs>
 ```
 
-#### 外观-圆形卡片（默认）
+### 外观-圆形卡片（默认）
 
 ``` html
 <u-tabs appear="round" size="small">
@@ -28,7 +28,7 @@
 </u-tabs>
 ```
 
-#### 外观-线条导航
+### 外观-线条导航
 
 ``` html
 <u-tabs appear="line">
@@ -38,7 +38,7 @@
 </u-tabs>
 ```
 
-#### 外观-胶囊导航
+### 外观-胶囊导航
 
 ``` html
 <u-tabs appear="capsule">
@@ -48,7 +48,7 @@
 </u-tabs>
 ```
 
-#### 外观-文本形态
+### 外观-文本形态
 
 ``` html
 <u-tabs appear="text" size="mini">
