@@ -90,7 +90,7 @@
           type: UCapsules
           description: 发送事件实例
     - name: select
-      title: 选择后（单选模式）
+      title: 选择后
       description: 选择某一项时触发。单选模式中：
       params:
         - name: $event

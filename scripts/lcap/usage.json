@@ -8612,7 +8612,7 @@
                 },
                 {
                     "name": "select",
-                    "title": "选择后（单选模式）",
+                    "title": "选择后",
                     "description": "选择某一项时触发。单选模式中：",
                     "params": [
                         {
@@ -8652,71 +8652,6 @@
                             "name": "$event.oldVM",
                             "type": "UCapsule",
                             "description": "旧的选择项子组件"
-                        },
-                        {
-                            "name": "senderVM",
-                            "type": "UCapsules",
-                            "description": "发送事件实例"
-                        }
-                    ]
-                },
-                {
-                    "name": "select",
-                    "title": "选择后（多选模式）",
-                    "description": "选择某一项时触发。多选模式中：",
-                    "params": [
-                        {
-                            "name": "$event",
-                            "type": "object",
-                            "description": "自定义事件对象",
-                            "schema": {
-                                "$ref": "#/systemTypes/ChangeItemEvent"
-                            }
-                        },
-                        {
-                            "name": "$event.selected",
-                            "type": "boolean",
-                            "description": "选中还是取消"
-                        },
-                        {
-                            "name": "$event.item",
-                            "type": "boolean",
-                            "description": "该选中项相关对象"
-                        },
-                        {
-                            "name": "$event.itemVM",
-                            "type": "boolean",
-                            "description": "该选中项子组件"
-                        },
-                        {
-                            "name": "$event.value",
-                            "type": "Array",
-                            "description": "改变后的值"
-                        },
-                        {
-                            "name": "$event.oldValue",
-                            "type": "Array",
-                            "description": "旧的值"
-                        },
-                        {
-                            "name": "$event.items",
-                            "type": "Array<object>",
-                            "description": "所有选中项相关对象的数组"
-                        },
-                        {
-                            "name": "$event.oldItems",
-                            "type": "Array<object>",
-                            "description": "旧的所有选中项相关对象的数组"
-                        },
-                        {
-                            "name": "$event.itemVMs",
-                            "type": "Array<UCapsule>",
-                            "description": "所有选中项子组件的数组"
-                        },
-                        {
-                            "name": "$event.oldVMs",
-                            "type": "Array<UCapsule>",
-                            "description": "旧的所有选中项子组件的数组"
                         },
                         {
                             "name": "senderVM",
@@ -8767,41 +8702,6 @@
                             "name": "$event.oldVM",
                             "type": "UCapsule",
                             "description": "旧的选择项子组件"
-                        },
-                        {
-                            "name": "senderVM",
-                            "type": "UCapsules",
-                            "description": "发送事件实例"
-                        }
-                    ]
-                },
-                {
-                    "name": "change",
-                    "title": "改变后",
-                    "description": "选择值改变时触发。多选模式中：",
-                    "params": [
-                        {
-                            "name": "$event",
-                            "type": "object",
-                            "description": "自定义事件对象",
-                            "schema": {
-                                "$ref": "#/systemTypes/ChangeItemsEvent"
-                            }
-                        },
-                        {
-                            "name": "$event.value",
-                            "type": "Array",
-                            "description": "所有选中项的值"
-                        },
-                        {
-                            "name": "$event.items",
-                            "type": "Array<object>",
-                            "description": "所有选中项相关对象的数组"
-                        },
-                        {
-                            "name": "$event.itemVMs",
-                            "type": "Array<UCapsule>",
-                            "description": "所有选中项子组件的数组"
                         },
                         {
                             "name": "senderVM",
@@ -10577,7 +10477,7 @@
             "Selector"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-tabs.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-tabs.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-tabs.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-tabs.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-tabs.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-tabs.vue/screenshots/5.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs value=\\\"B\\\">\\n    <u-tab title=\\\"选项卡A\\\" value=\\\"A\\\">选项卡 A 的内容</u-tab>\\n    <u-tab title=\\\"选项卡B\\\" value=\\\"B\\\">选项卡 B 的内容</u-tab>\\n    <u-tab title=\\\"选项卡C\\\" value=\\\"C\\\">选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-方形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"square\\\">\\n    <u-tab title=\\\"选项卡A\\\">选项卡 A 的内容</u-tab>\\n    <u-tab title=\\\"选项卡B\\\">选项卡 B 的内容</u-tab>\\n    <u-tab title=\\\"选项卡C\\\">选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-方形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"round\\\" size=\\\"small\\\">\\n    <u-tab title=\\\"选项卡A\\\">选项卡 A 的内容</u-tab>\\n    <u-tab title=\\\"选项卡B\\\">选项卡 B 的内容</u-tab>\\n    <u-tab title=\\\"选项卡C\\\">选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-方形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"line\\\">\\n    <u-tab title=\\\"选项卡A\\\">选项卡 A 的内容</u-tab>\\n    <u-tab title=\\\"选项卡B\\\">选项卡 B 的内容</u-tab>\\n    <u-tab title=\\\"选项卡C\\\">选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-方形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"capsule\\\">\\n    <u-tab title=\\\"选项卡A\\\">选项卡 A 的内容</u-tab>\\n    <u-tab title=\\\"选项卡B\\\">选项卡 B 的内容</u-tab>\\n    <u-tab title=\\\"选项卡C\\\">选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-方形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"text\\\" size=\\\"mini\\\">\\n    <u-tab title=\\\"选项卡A\\\">选项卡 A 的内容</u-tab>\\n    <u-tab title=\\\"选项卡B\\\">选项卡 B 的内容</u-tab>\\n    <u-tab title=\\\"选项卡C\\\">选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs value=\\\"B\\\">\\n    <u-tab title=\\\"选项卡A\\\" value=\\\"A\\\">选项卡 A 的内容</u-tab>\\n    <u-tab title=\\\"选项卡B\\\" value=\\\"B\\\">选项卡 B 的内容</u-tab>\\n    <u-tab title=\\\"选项卡C\\\" value=\\\"C\\\">选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-方形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"square\\\">\\n    <u-tab title=\\\"选项卡A\\\">选项卡 A 的内容</u-tab>\\n    <u-tab title=\\\"选项卡B\\\">选项卡 B 的内容</u-tab>\\n    <u-tab title=\\\"选项卡C\\\">选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-圆形卡片（默认）\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"round\\\" size=\\\"small\\\">\\n    <u-tab title=\\\"选项卡A\\\">选项卡 A 的内容</u-tab>\\n    <u-tab title=\\\"选项卡B\\\">选项卡 B 的内容</u-tab>\\n    <u-tab title=\\\"选项卡C\\\">选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-线条导航\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"line\\\">\\n    <u-tab title=\\\"选项卡A\\\">选项卡 A 的内容</u-tab>\\n    <u-tab title=\\\"选项卡B\\\">选项卡 B 的内容</u-tab>\\n    <u-tab title=\\\"选项卡C\\\">选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-胶囊导航\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"capsule\\\">\\n    <u-tab title=\\\"选项卡A\\\">选项卡 A 的内容</u-tab>\\n    <u-tab title=\\\"选项卡B\\\">选项卡 B 的内容</u-tab>\\n    <u-tab title=\\\"选项卡C\\\">选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"},{\"title\":\"外观-文本形态\",\"description\":\"\",\"code\":\"<template>\\n<u-tabs appear=\\\"text\\\" size=\\\"mini\\\">\\n    <u-tab title=\\\"选项卡A\\\">选项卡 A 的内容</u-tab>\\n    <u-tab title=\\\"选项卡B\\\">选项卡 B 的内容</u-tab>\\n    <u-tab title=\\\"选项卡C\\\">选项卡 C 的内容</u-tab>\\n</u-tabs>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-tabs",
             "title": "选项卡",
@@ -10597,22 +10497,22 @@
                     "code": "<template>\n<u-tabs appear=\"square\">\n    <u-tab title=\"选项卡A\">选项卡 A 的内容</u-tab>\n    <u-tab title=\"选项卡B\">选项卡 B 的内容</u-tab>\n    <u-tab title=\"选项卡C\">选项卡 C 的内容</u-tab>\n</u-tabs>\n</template>\n"
                 },
                 {
-                    "title": "外观-方形卡片（默认）",
+                    "title": "外观-圆形卡片（默认）",
                     "description": "",
                     "code": "<template>\n<u-tabs appear=\"round\" size=\"small\">\n    <u-tab title=\"选项卡A\">选项卡 A 的内容</u-tab>\n    <u-tab title=\"选项卡B\">选项卡 B 的内容</u-tab>\n    <u-tab title=\"选项卡C\">选项卡 C 的内容</u-tab>\n</u-tabs>\n</template>\n"
                 },
                 {
-                    "title": "外观-方形卡片（默认）",
+                    "title": "外观-线条导航",
                     "description": "",
                     "code": "<template>\n<u-tabs appear=\"line\">\n    <u-tab title=\"选项卡A\">选项卡 A 的内容</u-tab>\n    <u-tab title=\"选项卡B\">选项卡 B 的内容</u-tab>\n    <u-tab title=\"选项卡C\">选项卡 C 的内容</u-tab>\n</u-tabs>\n</template>\n"
                 },
                 {
-                    "title": "外观-方形卡片（默认）",
+                    "title": "外观-胶囊导航",
                     "description": "",
                     "code": "<template>\n<u-tabs appear=\"capsule\">\n    <u-tab title=\"选项卡A\">选项卡 A 的内容</u-tab>\n    <u-tab title=\"选项卡B\">选项卡 B 的内容</u-tab>\n    <u-tab title=\"选项卡C\">选项卡 C 的内容</u-tab>\n</u-tabs>\n</template>\n"
                 },
                 {
-                    "title": "外观-方形卡片（默认）",
+                    "title": "外观-文本形态",
                     "description": "",
                     "code": "<template>\n<u-tabs appear=\"text\" size=\"mini\">\n    <u-tab title=\"选项卡A\">选项卡 A 的内容</u-tab>\n    <u-tab title=\"选项卡B\">选项卡 B 的内容</u-tab>\n    <u-tab title=\"选项卡C\">选项卡 C 的内容</u-tab>\n</u-tabs>\n</template>\n"
                 }
@@ -13184,7 +13084,7 @@
             "Selector"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-time-picker.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-time-picker.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-time-picker.vue/screenshots/2.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-time-picker time=\\\"15:46:33\\\"></u-time-picker>\\n</template>\\n\"},{\"title\":\"日期范围\",\"description\":\"\",\"code\":\"<template>\\n<u-time-picker time=\\\"15:46:33\\\" min-time=\\\"12:30:00\\\" max-time=\\\"14:45:00\\\"></u-time-picker>\\n</template>\\n\"},{\"title\":\"日期最小单位\",\"description\":\"\",\"code\":\"<template>\\n<u-time-picker minUnit=\\\"minute\\\" min-time=\\\"12:30\\\" max-time=\\\"14:45\\\" :time=\\\"'13:12'\\\"></u-time-picker>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-time-picker time=\\\"15:46:33\\\"></u-time-picker>\\n</template>\\n\"},{\"title\":\"时间范围\",\"description\":\"\",\"code\":\"<template>\\n<u-time-picker time=\\\"15:46:33\\\" min-time=\\\"12:30:00\\\" max-time=\\\"14:45:00\\\"></u-time-picker>\\n</template>\\n\"},{\"title\":\"时间最小单位\",\"description\":\"\",\"code\":\"<template>\\n<u-time-picker minUnit=\\\"minute\\\" min-time=\\\"12:30\\\" max-time=\\\"14:45\\\" :time=\\\"'13:12'\\\"></u-time-picker>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-time-picker",
             "title": "时间选择",
@@ -13199,12 +13099,12 @@
                     "code": "<template>\n<u-time-picker time=\"15:46:33\"></u-time-picker>\n</template>\n"
                 },
                 {
-                    "title": "日期范围",
+                    "title": "时间范围",
                     "description": "",
                     "code": "<template>\n<u-time-picker time=\"15:46:33\" min-time=\"12:30:00\" max-time=\"14:45:00\"></u-time-picker>\n</template>\n"
                 },
                 {
-                    "title": "日期最小单位",
+                    "title": "时间最小单位",
                     "description": "",
                     "code": "<template>\n<u-time-picker minUnit=\"minute\" min-time=\"12:30\" max-time=\"14:45\" :time=\"'13:12'\"></u-time-picker>\n</template>\n"
                 }
