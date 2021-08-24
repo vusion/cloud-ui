@@ -72,6 +72,10 @@ export default {
     },
     methods: {
         async getTasks() {
+            // IDE 编辑状态不请求接口
+            if (this.$env.VUE_APP_DESIGNER)
+                return;
+
             if (this.$process) {
                 this.setTime();
                 const { Data = {} } = await this.$process.getTasks({
