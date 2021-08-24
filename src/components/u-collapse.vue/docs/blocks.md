@@ -13,7 +13,9 @@
 ``` html
 <u-collapse appear="simple">
     <u-collapse-item title="面板1">
-        <u-link slot="extra">设置</u-link>
+        <template #extra>
+           <u-link>设置</u-link>
+        </template>
         Content1
     </u-collapse-item>
     <u-collapse-item title="面板2" expanded>
