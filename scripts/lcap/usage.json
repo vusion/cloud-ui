@@ -8538,7 +8538,7 @@
                             "name": "u-capsules-group",
                             "advanced": true,
                             "title": "子选项组",
-                            "snippet": "<u-capsule-group><u-capsule>选项</u-capsule></u-capsule-group>"
+                            "snippet": "<u-capsules-group><u-capsule>选项</u-capsule></u-capsules-group>"
                         }
                     ]
                 }
@@ -8847,7 +8847,7 @@
                     ]
                 },
                 {
-                    "name": "u-capsule-group",
+                    "name": "u-capsules-group",
                     "title": "子选项组",
                     "description": "子选项组",
                     "slots": [
