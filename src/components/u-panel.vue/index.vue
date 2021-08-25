@@ -35,6 +35,7 @@ export default {
 
 <style module>
 .root {
+    border-radius: var(--panel-border-radius);
     background: var(--panel-background);
     box-shadow: 0px 2px 10px rgba(64, 69, 78, 0.05);
     border: var(--panel-border-width) solid var(--border-color-light);

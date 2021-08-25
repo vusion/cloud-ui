@@ -78,7 +78,7 @@ export default {
 }
 
 .item::before {
-    icon-font: url('i-material-design.vue/assets/filled/star.svg');
+    icon-font: url('./assets/star.svg');
 }
 
 .item:not(:last-child) {

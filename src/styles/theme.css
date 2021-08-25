@@ -382,6 +382,7 @@
 
     /* Panel */
     --panel-border-width: 1px;
+    --panel-border-radius: var(--border-radius-base);
     --panel-background: var(--background-color-default);
     --panel-border-color: var(--border-color-light);
     --panel-box-shadow: var(--box-shadow-large);
@@ -807,7 +808,7 @@
     --slider-bound-background: url("../assets/images/stripe.png") repeat-x;
     --slider-handle-width: 16px;
     --slider-handle-height: 16px;
-    --slider-handle-background: #337EFF;
+    --slider-handle-background: var(--brand-primary);
     --slider-handle-border: 1px solid white;
 
     /* Combo Slider */
