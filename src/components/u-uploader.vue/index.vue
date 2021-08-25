@@ -9,9 +9,10 @@
         <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
         <div><slot>点击/拖动/粘贴文件到这里</slot></div>
     </div>
-    <div v-else-if="listType !== 'card'" :class="$style.select" @click="select()">
+    <div v-else-if="listType !== 'card'" vusion-slot-name="default" :class="[$style.select, $env.VUE_APP_DESIGNER ? $style.full : null]" @click="select()">
         <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
         <slot></slot>
+        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
     </div>
     <div :class="$style.list" v-if="showFileList" :list-type="listType">
         <template v-if="listType !== 'card'">
@@ -47,7 +48,7 @@
 
 <script>
 import { MEmitter } from '../m-emitter.vue';
-
+import SEmpty from '../s-empty.vue';
 import i18n from './i18n';
 import ajax from './ajax';
 
@@ -62,6 +63,9 @@ export default {
     name: 'u-uploader',
     mixins: [MEmitter],
     i18n,
+    components: {
+        SEmpty,
+    },
     props: {
         value: [Array, String],
         url: { type: String, required: true },
@@ -364,6 +368,10 @@ export default {
     display: inline-block;
     position: relative;
     overflow: hidden\0;
+}
+
+.full {
+    width: 100%;
 }
 
 .file {
