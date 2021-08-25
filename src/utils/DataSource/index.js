@@ -245,12 +245,13 @@ const VueDataSource = Vue.extend({
 
             // 支持 JDL
             if (this.paging) {
-                params.page = params.paging.number - 1;
+                params.page = params.paging.number;
                 params.start = params.paging.offset;
                 params.size = params.paging.size;
             }
             if (this.sorting && this.sorting.field) {
-                params.sort = [params.sorting.field + ',' + (params.sorting.order || 'asc')];
+                params.sort = params.sorting.field;
+                params.order = params.sorting.order;
             }
 
             return this._load(params).then((result) => {
