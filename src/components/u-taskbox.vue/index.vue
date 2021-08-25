@@ -152,7 +152,6 @@ export default {
 }
 .notice::before {
     icon-font: url('i-material-design.vue/assets/outlined/notifications.svg');
-    color: var(--color-base);
     font-weight: bold;
 }
 
