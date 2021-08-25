@@ -87,7 +87,7 @@
                                             </f-slot>
                                         </div>
                                     </td>
-                                <template>
+                                </template>
                                 <template v-else>
                                     <td ref="td" 
                                         :class="$style.cell" 
