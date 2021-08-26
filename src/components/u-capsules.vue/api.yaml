@@ -167,11 +167,11 @@
           title: 正常
       default: normal
       description: 胶囊大小
-    - name: selected
-      title: 选中项
-      type: boolean
-      default: false
-      description: 是否选中此项
+    # - name: selected
+    #   title: 选中项
+    #   type: boolean
+    #   default: false
+    #   description: 是否选中此项
     - name: disabled
       title: 禁用
       type: boolean
