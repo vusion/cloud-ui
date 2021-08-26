@@ -13063,9 +13063,13 @@
                         {
                             "title": "YYYY-MM-DD",
                             "value": "format"
+                        },
+                        {
+                            "title": "暂无",
+                            "value": ""
                         }
                     ],
-                    "default": "json",
+                    "default": "format",
                     "description": "转换器，用于转换时间结果"
                 }
             ],
@@ -13416,9 +13420,17 @@
                         {
                             "title": "Date 对象",
                             "value": "date"
+                        },
+                        {
+                            "title": "YYYY-MM-DD HH:mm:ss",
+                            "value": "format"
+                        },
+                        {
+                            "title": "暂无",
+                            "value": ""
                         }
                     ],
-                    "default": "json",
+                    "default": "format",
                     "description": "转换器"
                 }
             ],
