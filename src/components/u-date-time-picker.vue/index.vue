@@ -153,7 +153,9 @@ export default {
         toValue(date) {
             if (!date)
                 return date;
-            if (this.converter === 'json')
+            if (this.converter === 'format')
+                return this.format(date, 'YYYY-MM-DD HH:mm:ss'); // value 的真实格式
+            else if (this.converter === 'json')
                 return date.toJSON();
             else if (this.converter === 'timestamp')
                 return date.getTime();

@@ -27,6 +27,8 @@
                 }
             ],
             "slots": false,
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -74,6 +76,8 @@
                     "params": []
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -290,6 +294,8 @@
                     "params": []
                 }
             ],
+            "next": true,
+            "nested": true,
             "children": []
         }
     },
@@ -2020,6 +2026,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": [
                 {
                     "name": "u-crumb-item",
@@ -2131,6 +2139,7 @@
                             "description": "是否不可点击。如果为`true`，则不会响应`click`事件。"
                         }
                     ],
+                    "next": false,
                     "events": [
                         {
                             "name": "$listeners",
@@ -2301,6 +2310,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": [
                 {
                     "name": "u-panel-group",
@@ -2320,7 +2331,8 @@
                             "name": "default",
                             "description": "插入默认的元素"
                         }
-                    ]
+                    ],
+                    "next": false
                 }
             ]
         }
@@ -2466,6 +2478,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": [
                 {
                     "name": "u-collapse-item",
@@ -2510,6 +2524,7 @@
                             "description": "在右侧可以附加内容。"
                         }
                     ],
+                    "next": false,
                     "events": [
                         {
                             "name": "before-toggle",
@@ -2773,6 +2788,8 @@
                     "params": []
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -3059,6 +3076,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -3412,6 +3431,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -3546,6 +3567,8 @@
                     "description": "图标名称"
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -3754,6 +3777,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -3992,6 +4017,7 @@
                     ]
                 }
             ],
+            "next": true,
             "children": [
                 {
                     "name": "u-carousel-item",
@@ -4026,7 +4052,9 @@
                             "description": "自定义标题文本。",
                             "advanced": true
                         }
-                    ]
+                    ],
+                    "next": false,
+                    "nested": false
                 }
             ]
         }
@@ -4117,6 +4145,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": [
                 {
                     "name": "u-info-list-item",
@@ -4347,6 +4377,8 @@
                     "params": []
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -5244,6 +5276,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": [
                 {
                     "name": "u-table-view-column",
@@ -5476,7 +5510,9 @@
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    "next": false,
+                    "nested": false
                 }
             ]
         }
@@ -6215,6 +6251,8 @@
                     "title": "数量变更（添加/删除）时触发"
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": [
                 {
                     "name": "u-form-table-view-column",
@@ -6415,7 +6453,9 @@
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    "next": false,
+                    "nested": false
                 }
             ]
         }
@@ -6698,6 +6738,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": [
                 {
                     "name": "u-form-item",
@@ -6901,6 +6943,8 @@
                             "quick-add": "never"
                         }
                     ],
+                    "next": false,
+                    "nested": false,
                     "events": [
                         {
                             "name": "validate",
@@ -6994,6 +7038,8 @@
                             "description": "在右侧可以附加内容。"
                         }
                     ],
+                    "next": false,
+                    "nested": false,
                     "events": [
                         {
                             "name": "before-toggle",
@@ -7501,6 +7547,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -7795,6 +7843,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -8168,6 +8218,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -8664,6 +8716,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -8777,6 +8831,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": [
                 {
                     "name": "u-checkbox",
@@ -8828,6 +8884,8 @@
                             "description": "自动获取焦点"
                         }
                     ],
+                    "next": false,
+                    "nested": false,
                     "events": [
                         {
                             "name": "before-check",
@@ -9253,13 +9311,6 @@
                             "description": "胶囊大小"
                         },
                         {
-                            "name": "selected",
-                            "title": "选中项",
-                            "type": "boolean",
-                            "default": false,
-                            "description": "是否选中此项"
-                        },
-                        {
                             "name": "disabled",
                             "title": "禁用",
                             "type": "boolean",
@@ -9376,7 +9427,9 @@
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    "next": false,
+                    "nested": false
                 }
             ]
         }
@@ -10084,6 +10137,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": [
                 {
                     "name": "u-select-item",
@@ -10125,6 +10180,8 @@
                             "description": "插入文本或 HTML。"
                         }
                     ],
+                    "next": false,
+                    "nested": false,
                     "events": [
                         {
                             "name": "before-select",
@@ -10209,7 +10266,9 @@
                             "description": "在右侧可以附加内容。",
                             "advanced": true
                         }
-                    ]
+                    ],
+                    "next": false,
+                    "nested": false
                 },
                 {
                     "name": "u-select-divider",
@@ -10290,6 +10349,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -10530,6 +10591,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -10543,7 +10606,7 @@
             "Form"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-uploader.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-uploader.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-uploader.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-uploader.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-uploader.vue/screenshots/4.png",
-        "blocks": "[{\"title\":\"单个文件按钮\",\"description\":\"下面的例子为单文件上传。\\n\",\"code\":\"<template>\\n<u-uploader display=\\\"inline\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\" url-field=\\\"result\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\">Upload</u-button>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"单文件卡片\",\"description\":\"不使用`multiple`属性时，仅会显示一个卡片。可以用于头像上传、身份证上传等场景。\\n\",\"code\":\"<template>\\n<u-uploader list-type=\\\"card\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\" url-field=\\\"result\\\"\\n    converter=\\\"json\\\">\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"多图片按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-uploader multiple list-type=\\\"image\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\" url-field=\\\"result\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\">Upload</u-button>\\n</u-uploader>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"单个文件按钮\",\"description\":\"下面的例子为单文件上传。\\n\",\"code\":\"<template>\\n<u-uploader display=\\\"inline\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\" url-field=\\\"result\\\"\\n    :limit=\\\"999\\\"\\n    maxSize=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\">Upload</u-button>\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"单文件卡片\",\"description\":\"不使用`multiple`属性时，仅会显示一个卡片。可以用于头像上传、身份证上传等场景。\\n\",\"code\":\"<template>\\n<u-uploader list-type=\\\"card\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\" url-field=\\\"result\\\"\\n    :limit=\\\"999\\\"\\n    maxSize=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n</u-uploader>\\n</template>\\n\"},{\"title\":\"多图片按钮\",\"description\":\"\",\"code\":\"<template>\\n<u-uploader multiple list-type=\\\"image\\\"\\n    accept=\\\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\\\"\\n    url=\\\"/gateway/lowcode/api/v1/app/upload\\\" url-field=\\\"result\\\"\\n    :limit=\\\"999\\\"\\n    maxSize=\\\"50MB\\\"\\n    converter=\\\"json\\\">\\n    <u-button color=\\\"primary\\\">Upload</u-button>\\n</u-uploader>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-uploader",
             "title": "文件上传",
@@ -10557,17 +10620,17 @@
                 {
                     "title": "单个文件按钮",
                     "description": "下面的例子为单文件上传。\n",
-                    "code": "<template>\n<u-uploader display=\"inline\"\n    url=\"/gateway/lowcode/api/v1/app/upload\" url-field=\"result\"\n    converter=\"json\">\n    <u-button color=\"primary\">Upload</u-button>\n</u-uploader>\n</template>\n"
+                    "code": "<template>\n<u-uploader display=\"inline\"\n    url=\"/gateway/lowcode/api/v1/app/upload\" url-field=\"result\"\n    :limit=\"999\"\n    maxSize=\"50MB\"\n    converter=\"json\">\n    <u-button color=\"primary\">Upload</u-button>\n</u-uploader>\n</template>\n"
                 },
                 {
                     "title": "单文件卡片",
                     "description": "不使用`multiple`属性时，仅会显示一个卡片。可以用于头像上传、身份证上传等场景。\n",
-                    "code": "<template>\n<u-uploader list-type=\"card\"\n    accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n    url=\"/gateway/lowcode/api/v1/app/upload\" url-field=\"result\"\n    converter=\"json\">\n</u-uploader>\n</template>\n"
+                    "code": "<template>\n<u-uploader list-type=\"card\"\n    accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n    url=\"/gateway/lowcode/api/v1/app/upload\" url-field=\"result\"\n    :limit=\"999\"\n    maxSize=\"50MB\"\n    converter=\"json\">\n</u-uploader>\n</template>\n"
                 },
                 {
                     "title": "多图片按钮",
                     "description": "",
-                    "code": "<template>\n<u-uploader multiple list-type=\"image\"\n    accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n    url=\"/gateway/lowcode/api/v1/app/upload\" url-field=\"result\"\n    converter=\"json\">\n    <u-button color=\"primary\">Upload</u-button>\n</u-uploader>\n</template>\n"
+                    "code": "<template>\n<u-uploader multiple list-type=\"image\"\n    accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n    url=\"/gateway/lowcode/api/v1/app/upload\" url-field=\"result\"\n    :limit=\"999\"\n    maxSize=\"50MB\"\n    converter=\"json\">\n    <u-button color=\"primary\">Upload</u-button>\n</u-uploader>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -10950,6 +11013,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -11644,6 +11709,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": [
                 {
                     "name": "u-selectable-step",
@@ -11951,6 +12018,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -12173,6 +12242,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -12389,6 +12460,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -12829,6 +12902,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": [
                 {
                     "name": "u-tree-view-node",
@@ -12884,6 +12959,8 @@
                             "description": "插入文本或 HTML。"
                         }
                     ],
+                    "next": false,
+                    "nested": false,
                     "events": [
                         {
                             "name": "before-select",
@@ -13309,6 +13386,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -13488,9 +13567,13 @@
                         {
                             "title": "YYYY-MM-DD",
                             "value": "format"
+                        },
+                        {
+                            "title": "暂无",
+                            "value": ""
                         }
                     ],
-                    "default": "json",
+                    "default": "format",
                     "description": "转换器，用于转换时间结果"
                 }
             ],
@@ -13575,6 +13658,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -13841,9 +13926,17 @@
                         {
                             "title": "Date 对象",
                             "value": "date"
+                        },
+                        {
+                            "title": "YYYY-MM-DD HH:mm:ss",
+                            "value": "format"
+                        },
+                        {
+                            "title": "暂无",
+                            "value": ""
                         }
                     ],
-                    "default": "json",
+                    "default": "format",
                     "description": "转换器"
                 }
             ],
@@ -13893,6 +13986,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -13975,6 +14070,8 @@
                     "advanced": true
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -14021,6 +14118,8 @@
                     "advanced": true
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -14338,6 +14437,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -14618,6 +14719,8 @@
                     ]
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     },
@@ -14914,6 +15017,8 @@
                     "params": []
                 }
             ],
+            "next": true,
+            "nested": false,
             "children": []
         }
     }

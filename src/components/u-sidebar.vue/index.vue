@@ -21,6 +21,7 @@ export default {
 <style module>
 .root {
     user-select: none;
+    border-right: 1px solid #E9E9EB;
     background: var(--sidebar-background);
     height: 100%;
     overflow: auto;
