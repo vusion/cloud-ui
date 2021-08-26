@@ -5491,7 +5491,7 @@
             "Table"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-list-view.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-list-view.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-list-view.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-list-view.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-list-view.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-list-view.vue/screenshots/5.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-list-view>\\n\\t<template #item=\\\"scope\\\">\\n\\t\\t<u-linear-layout></u-linear-layout>\\n\\t</template>\\n</u-list-view>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-list-view></u-list-view>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-list-view",
             "title": "数据列表",
@@ -5505,7 +5505,7 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-list-view>\n\t<template #item=\"scope\">\n\t\t<u-linear-layout></u-linear-layout>\n\t</template>\n</u-list-view>\n</template>\n"
+                    "code": "<template>\n<u-list-view></u-list-view>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -5589,18 +5589,21 @@
                 },
                 {
                     "name": "title",
+                    "title": "列表标题",
                     "type": "string",
                     "default": "列表",
                     "description": "列表标题"
                 },
                 {
                     "name": "show-foot",
+                    "title": "显示底部",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否显示尾部"
+                    "description": "是否显示底部"
                 },
                 {
                     "name": "loading-text",
+                    "title": "加载中文字",
                     "type": "string",
                     "default": "加载中...",
                     "description": "加载时的文字。使用分页加载时才会出现"
@@ -5634,15 +5637,22 @@
                     "description": "是否可以过滤（搜索），开启将会显示搜索框。"
                 },
                 {
+                    "name": "remote-filtering",
+                    "title": "后端筛选",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否使用后端过滤"
+                },
+                {
                     "name": "placeholder",
-                    "title": "占位符",
+                    "title": "筛选输入框的占位符",
                     "type": "string",
                     "default": "请输入",
                     "description": "搜索框的占位符"
                 },
                 {
                     "name": "clearable",
-                    "title": "清除按钮",
+                    "title": "筛选清除按钮",
                     "type": "boolean",
                     "default": false,
                     "description": "搜索框是否有清除按钮"
@@ -5660,13 +5670,6 @@
                     "type": "boolean",
                     "default": false,
                     "description": "过滤时大小写是否敏感"
-                },
-                {
-                    "name": "remote-filtering",
-                    "title": "后端筛选",
-                    "type": "boolean",
-                    "default": false,
-                    "description": "是否使用后端过滤"
                 },
                 {
                     "name": "size",
@@ -5705,6 +5708,7 @@
                     "name": "default",
                     "title": "默认",
                     "description": "插入文本或 HTML",
+                    "empty-background": "drag-entity-here",
                     "advanced": true
                 },
                 {

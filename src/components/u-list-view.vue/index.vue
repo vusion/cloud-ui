@@ -6,7 +6,7 @@
     <div v-show="showHead" :class="$style.head">
         <slot name="head">
             <u-checkbox v-if="multiple" :value="allChecked" @check="checkAll($event.value)"></u-checkbox>
-            <span :class="$style.title">{{ title }}</span>
+            <span :class="$style.title" vusion-slot-name="title">{{ title }}</span>
             <div :class="$style.extra">
                 <span v-if="multiple">{{ selectedVMs.length }}{{ currentDataSource && currentDataSource.originTotal !== Infinity ? ' / ' + currentDataSource.originTotal : '' }}</span>
             </div>
@@ -15,9 +15,8 @@
     <u-input v-if="filterable" :class="$style.filter" :disabled="disabled" :placeholder="placeholder" size="small" suffix="search" :clearable="clearable"
         :value="filterText" @input="onInput">
     </u-input>
-    <div ref="body" :class="$style.body" @scroll.stop="onScroll" vusion-slot-name="default">
+    <div ref="body" :class="$style.body" @scroll.stop="onScroll">
         <slot></slot>
-        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
         <div ref="virtual" v-if="(!currentLoading && !currentError || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length"
             :style="{ paddingTop: virtualTop + 'px', paddingBottom: virtualBottom + 'px' }">
             <component :is="ChildComponent"
@@ -46,10 +45,9 @@
             <slot name="empty">{{ emptyText }}</slot>
         </div>
     </div>
-    <div v-show="showFoot || pageable === true || pageable === 'pagination'" :class="$style.foot">
+    <div v-show="showFoot || (pageable === true || pageable === 'pagination') && currentDataSource.total > currentDataSource.paging.size" :class="$style.foot">
         <slot name="foot"></slot>
         <u-pagination :class="$style.pagination" v-if="pageable === true || pageable === 'pagination'"
-            :style="{ visibility: currentDataSource.total > currentDataSource.paging.size ? '' : 'hidden' }"
             :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
             :page-size="currentDataSource.paging.size" :side="1" :around="3"
             @change="page($event.page)">
@@ -520,7 +518,6 @@ export default {
     user-select: none;
     overflow: auto;
     position: relative;
-    background: var(--list-view-body-background);
 }
 
 .root[readonly-mode="initial"] .body {
