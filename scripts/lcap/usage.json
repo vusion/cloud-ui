@@ -15,6 +15,8 @@
             "title": "子页面容器",
             "description": "放置子页面的容器。",
             "category": "Container",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-router-view.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
@@ -25,8 +27,6 @@
                 }
             ],
             "slots": false,
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -46,6 +46,8 @@
             "title": "Iframe",
             "description": "用于嵌入其他网页。",
             "category": "Container",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-iframe.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
@@ -72,8 +74,6 @@
                     "params": []
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -93,6 +93,8 @@
             "title": "线性布局",
             "description": "内部元素按照一定的规则布局",
             "category": "Layout",
+            "next": true,
+            "nested": true,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-linear-layout.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-linear-layout.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-linear-layout.vue/screenshots/2.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-linear-layout.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-linear-layout.vue/drawings/1.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-linear-layout.vue/drawings/2.svg",
             "blocks": [
@@ -288,8 +290,6 @@
                     "params": []
                 }
             ],
-            "next": true,
-            "nested": true,
             "children": []
         }
     },
@@ -1982,6 +1982,8 @@
             "title": "面包屑",
             "description": "导航指引",
             "category": "Layout",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-crumb.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-crumb.vue/screenshots/1.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-crumb.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-crumb.vue/drawings/1.svg",
             "blocks": [
@@ -2018,13 +2020,12 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": [
                 {
                     "name": "u-crumb-item",
                     "title": "面包屑选项",
                     "description": "面包屑选项",
+                    "next": false,
                     "attrs": [
                         {
                             "name": "text",
@@ -2130,7 +2131,6 @@
                             "description": "是否不可点击。如果为`true`，则不会响应`click`事件。"
                         }
                     ],
-                    "next": false,
                     "events": [
                         {
                             "name": "$listeners",
@@ -2263,6 +2263,8 @@
             "title": "面板",
             "description": "用于快速布局",
             "category": "Layout",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-panel.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-panel.vue/screenshots/1.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-panel.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-panel.vue/drawings/1.svg",
             "blocks": [
@@ -2299,13 +2301,12 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": [
                 {
                     "name": "u-panel-group",
                     "title": "面板组",
                     "description": "面板组",
+                    "next": false,
                     "attrs": [
                         {
                             "name": "title",
@@ -2319,8 +2320,7 @@
                             "name": "default",
                             "description": "插入默认的元素"
                         }
-                    ],
-                    "next": false
+                    ]
                 }
             ]
         }
@@ -2341,6 +2341,8 @@
             "title": "折叠面板",
             "description": "可以折叠/展开的内容区域。",
             "category": "Layout",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-collapse.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-collapse.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-collapse.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-collapse.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-collapse.vue/screenshots/4.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-collapse.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-collapse.vue/drawings/1.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-collapse.vue/drawings/2.svg",
             "blocks": [
@@ -2464,13 +2466,12 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": [
                 {
                     "name": "u-collapse-item",
                     "title": "折叠面板项",
                     "description": "折叠面板项",
+                    "next": false,
                     "attrs": [
                         {
                             "name": "title",
@@ -2509,7 +2510,6 @@
                             "description": "在右侧可以附加内容。"
                         }
                     ],
-                    "next": false,
                     "events": [
                         {
                             "name": "before-toggle",
@@ -2597,6 +2597,8 @@
             "title": "文本",
             "description": "用于展示文字或表达式",
             "category": "Display",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-text.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-text.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-text.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-text.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-text.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-text.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-text.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-text.vue/screenshots/7.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-text.vue/screenshots/8.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-text.vue/screenshots/9.png",
             "drawings": "",
             "blocks": [
@@ -2771,8 +2773,6 @@
                     "params": []
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -2792,6 +2792,8 @@
             "title": "链接",
             "description": "文字超链接",
             "category": "Display",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-link.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-link.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-link.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-link.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-link.vue/screenshots/4.png",
             "drawings": "",
             "blocks": [
@@ -3057,8 +3059,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -3078,6 +3078,8 @@
             "title": "按钮",
             "description": "用于触发一个即时操作。",
             "category": "Display",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/screenshots/7.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/drawings/1.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/drawings/2.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-button.vue/drawings/3.svg",
             "blocks": [
@@ -3410,8 +3412,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -3431,6 +3431,8 @@
             "title": "图标",
             "description": "自定义图标",
             "category": "Display",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/i-icon.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/i-icon.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/i-icon.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/i-icon.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/i-icon.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/i-icon.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/i-icon.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/i-icon.vue/screenshots/7.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/i-icon.vue/screenshots/8.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/i-icon.vue/screenshots/9.png",
             "drawings": "",
             "blocks": [
@@ -3544,8 +3546,6 @@
                     "description": "图标名称"
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -3565,6 +3565,8 @@
             "title": "标签",
             "description": "用于展示状态、标签、分类等",
             "category": "Display",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-label.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-label.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-label.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-label.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-label.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-label.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-label.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-label.vue/screenshots/7.png",
             "drawings": "",
             "blocks": [
@@ -3752,8 +3754,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -3841,6 +3841,7 @@
             "title": "幻灯片",
             "description": "动态播放内部内容",
             "category": "Display",
+            "next": true,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-carousel.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
@@ -3902,11 +3903,12 @@
                 {
                     "name": "default",
                     "description": "插入`<u-carousel-item>`子组件。",
+                    "empty-background": "add-sub-large",
                     "support": [
                         {
                             "name": "u-carousel-item",
                             "title": "幻灯片子项",
-                            "snippet": "<u-carousel-item><u-image style=\"width: 100%;height:100%\" src=\"https://static-vusion.163yun.com/assets/cloud-ui/1.jpg\"></u-carousel-item>"
+                            "snippet": "<u-carousel-item><u-image style=\"width: 100%; height: 100%\" src=\"https://static-vusion.163yun.com/assets/cloud-ui/1.jpg\"></u-carousel-item>"
                         }
                     ]
                 }
@@ -3990,12 +3992,13 @@
                     ]
                 }
             ],
-            "next": true,
             "children": [
                 {
                     "name": "u-carousel-item",
                     "title": "幻灯片选项",
                     "description": "幻灯片选项",
+                    "next": false,
+                    "nested": false,
                     "attrs": [
                         {
                             "name": "title",
@@ -4015,16 +4018,15 @@
                     "slots": [
                         {
                             "name": "default",
-                            "description": "插入文本或 HTML。"
+                            "description": "插入文本或 HTML。",
+                            "empty-background": "image"
                         },
                         {
                             "name": "title",
                             "description": "自定义标题文本。",
                             "advanced": true
                         }
-                    ],
-                    "next": false,
-                    "nested": false
+                    ]
                 }
             ]
         }
@@ -4045,6 +4047,8 @@
             "title": "详情列表",
             "description": "详情列表",
             "category": "Display",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-info-list.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-info-list.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-info-list.vue/screenshots/2.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-info-list.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-info-list.vue/drawings/1.svg",
             "blocks": [
@@ -4113,8 +4117,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": [
                 {
                     "name": "u-info-list-item",
@@ -4266,6 +4268,8 @@
             "title": "图片展示",
             "description": "可以用来展示一张图片，支持设置图片地址。",
             "category": "Display",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-image.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-image.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-image.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-image.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-image.vue/screenshots/4.png",
             "drawings": "",
             "blocks": [
@@ -4343,8 +4347,6 @@
                     "params": []
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -4358,19 +4360,21 @@
             "Table"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-table-view.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"普通数据表格\",\"description\":\"\",\"code\":\"<template>\\n<u-table-view :data-source=\\\"[{name: '张三', phone: '13000000000', address: '浙江省杭州市滨江区'}]\\\">\\n    <u-table-view-column title=\\\"用户名\\\" width=\\\"20%\\\">\\n        <template #cell=\\\"scope\\\">\\n            {{ scope.item.name }}\\n        </template>\\n    </u-table-view-column>\\n    <u-table-view-column title=\\\"手机号码\\\" width=\\\"20%\\\">\\n        <template #cell=\\\"scope\\\">\\n            {{ scope.item.phone }}\\n        </template>\\n    </u-table-view-column>\\n    <u-table-view-column title=\\\"地址\\\" >\\n        <template #cell=\\\"scope\\\">\\n            {{ scope.item.address }}\\n        </template>\\n    </u-table-view-column>\\n</u-table-view>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"普通数据表格\",\"description\":\"\",\"code\":\"<template>\\n<u-table-view></u-table-view>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-table-view",
             "title": "数据表格",
             "description": "用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。",
             "category": "Table",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-table-view.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
                 {
                     "title": "普通数据表格",
                     "description": "",
-                    "code": "<template>\n<u-table-view :data-source=\"[{name: '张三', phone: '13000000000', address: '浙江省杭州市滨江区'}]\">\n    <u-table-view-column title=\"用户名\" width=\"20%\">\n        <template #cell=\"scope\">\n            {{ scope.item.name }}\n        </template>\n    </u-table-view-column>\n    <u-table-view-column title=\"手机号码\" width=\"20%\">\n        <template #cell=\"scope\">\n            {{ scope.item.phone }}\n        </template>\n    </u-table-view-column>\n    <u-table-view-column title=\"地址\" >\n        <template #cell=\"scope\">\n            {{ scope.item.address }}\n        </template>\n    </u-table-view-column>\n</u-table-view>\n</template>\n"
+                    "code": "<template>\n<u-table-view></u-table-view>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -4378,14 +4382,15 @@
                     "name": "data-source",
                     "title": "数据源",
                     "type": "Array<Item> | Function | object | DataSource",
-                    "description": "表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise，详见文档示例。",
+                    "designer-value": "[{}, {}, {}]",
+                    "description": "表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise。",
                     "group": "数据属性"
                 },
                 {
                     "name": "data-schema",
                     "title": "数据类型",
                     "type": "schema",
-                    "description": "表格的数据类型，对应表格数据的schema",
+                    "description": "表格每一行的数据类型",
                     "group": "数据属性",
                     "compType": "dataTypeSelect"
                 },
@@ -4417,11 +4422,11 @@
                 },
                 {
                     "name": "page-number",
-                    "title": "当面页数",
+                    "title": "当前页数",
                     "type": "number",
                     "sync": true,
                     "default": 1,
-                    "description": "当面页数。",
+                    "description": "当前页数。",
                     "group": "数据属性",
                     "schema": {
                         "$ref": "#/basicTypes/Integer"
@@ -4735,7 +4740,7 @@
                     "name": "default",
                     "title": "默认",
                     "description": "在表格中插入`<u-table-view-column>`子组件。",
-                    "common-empty-background": true,
+                    "empty-background": "drag-entity-here",
                     "support": [
                         {
                             "name": "u-table-view-column",
@@ -5239,13 +5244,13 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": [
                 {
                     "name": "u-table-view-column",
                     "title": "表格列",
                     "description": "表格列",
+                    "next": false,
+                    "nested": false,
                     "attrs": [
                         {
                             "name": "title",
@@ -5408,15 +5413,6 @@
                                     "type": "number",
                                     "description": "列的索引。"
                                 }
-                            ],
-                            "accept-type": "recommanded",
-                            "recommanded": [
-                                {
-                                    "name": "cellSlot",
-                                    "title": "列插槽",
-                                    "snippet": "<template #cell=\"{ item }\"></template>",
-                                    "type": "slot"
-                                }
                             ]
                         },
                         {
@@ -5480,11 +5476,465 @@
                                 }
                             ]
                         }
-                    ],
-                    "next": false,
-                    "nested": false
+                    ]
                 }
             ]
+        }
+    },
+    {
+        "symbol": "u-list-view",
+        "name": "数据列表",
+        "icon": "list-view",
+        "depDescription": {},
+        "description": "用于列举大量数据的列表框，支持单选、多选、过滤（搜索）、分页等功能。",
+        "labels": [
+            "Table"
+        ],
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-list-view.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-list-view.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-list-view.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-list-view.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-list-view.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-list-view.vue/screenshots/5.png",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-list-view>\\n\\t<template #item=\\\"scope\\\">\\n\\t\\t<u-linear-layout></u-linear-layout>\\n\\t</template>\\n</u-list-view>\\n</template>\\n\"}]",
+        "jsonSchema": {
+            "name": "u-list-view",
+            "title": "数据列表",
+            "description": "用于列举大量数据的列表框，支持单选、多选、过滤（搜索）、分页等功能。",
+            "category": "Table",
+            "next": true,
+            "nested": false,
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-list-view.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-list-view.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-list-view.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-list-view.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-list-view.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-list-view.vue/screenshots/5.png",
+            "drawings": "",
+            "blocks": [
+                {
+                    "title": "基本用法",
+                    "description": "",
+                    "code": "<template>\n<u-list-view>\n\t<template #item=\"scope\">\n\t\t<u-linear-layout></u-linear-layout>\n\t</template>\n</u-list-view>\n</template>\n"
+                }
+            ],
+            "attrs": [
+                {
+                    "name": "data-source",
+                    "title": "数据源",
+                    "type": "Array<Item> | Function | object | DataSource",
+                    "designer-value": "[{}, {}, {}]",
+                    "description": "列表的数据源。数组方式表示直接的数据，函数需要返回一个 Promise。"
+                },
+                {
+                    "name": "data-schema",
+                    "title": "数据类型",
+                    "type": "schema",
+                    "description": "表格每一行的数据类型",
+                    "compType": "dataTypeSelect"
+                },
+                {
+                    "name": "initial-load",
+                    "type": "boolean",
+                    "title": "初始加载",
+                    "default": true,
+                    "description": "是否在初始时立即加载"
+                },
+                {
+                    "name": "readonly",
+                    "title": "只读",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否只读"
+                },
+                {
+                    "name": "disabled",
+                    "title": "禁用",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否禁用"
+                },
+                {
+                    "name": "value",
+                    "title": "值",
+                    "type": "any",
+                    "sync": true,
+                    "model": true,
+                    "description": "当前选择的值"
+                },
+                {
+                    "name": "text-field",
+                    "title": "文本字段名",
+                    "type": "string",
+                    "default": "text",
+                    "description": "选项文本的字段名"
+                },
+                {
+                    "name": "value-field",
+                    "title": "值字段名",
+                    "type": "string",
+                    "default": "value",
+                    "description": "选项值的字段名"
+                },
+                {
+                    "name": "cancelable",
+                    "title": "可取消",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否可以取消选择"
+                },
+                {
+                    "name": "multiple",
+                    "title": "可多选",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否可以多选"
+                },
+                {
+                    "name": "show-head",
+                    "title": "显示头部",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否显示头部"
+                },
+                {
+                    "name": "title",
+                    "type": "string",
+                    "default": "列表",
+                    "description": "列表标题"
+                },
+                {
+                    "name": "show-foot",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否显示尾部"
+                },
+                {
+                    "name": "loading-text",
+                    "type": "string",
+                    "default": "加载中...",
+                    "description": "加载时的文字。使用分页加载时才会出现"
+                },
+                {
+                    "name": "pageable",
+                    "title": "可分页",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否需要分页"
+                },
+                {
+                    "name": "page-size",
+                    "title": "分页大小",
+                    "type": "number",
+                    "default": 50,
+                    "description": "分页大小"
+                },
+                {
+                    "name": "remote-paging",
+                    "title": "是否需要后端分页",
+                    "type": "number",
+                    "default": false,
+                    "description": "是否使用后端分页"
+                },
+                {
+                    "name": "filterable",
+                    "title": "可筛选",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否可以过滤（搜索），开启将会显示搜索框。"
+                },
+                {
+                    "name": "placeholder",
+                    "title": "占位符",
+                    "type": "string",
+                    "default": "请输入",
+                    "description": "搜索框的占位符"
+                },
+                {
+                    "name": "clearable",
+                    "title": "清除按钮",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "搜索框是否有清除按钮"
+                },
+                {
+                    "name": "match-method",
+                    "title": "匹配方法",
+                    "type": "string, Function",
+                    "default": "includes",
+                    "description": "过滤时的匹配方法"
+                },
+                {
+                    "name": "case-sensitive",
+                    "title": "大小写敏感",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "过滤时大小写是否敏感"
+                },
+                {
+                    "name": "remote-filtering",
+                    "title": "后端筛选",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "是否使用后端过滤"
+                },
+                {
+                    "name": "size",
+                    "title": "尺寸",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "full",
+                            "title": "占满"
+                        },
+                        {
+                            "value": "huge",
+                            "title": "巨大"
+                        },
+                        {
+                            "value": "large",
+                            "title": "大"
+                        },
+                        {
+                            "value": "normal",
+                            "title": "正常"
+                        },
+                        {
+                            "value": "auto",
+                            "title": "自适应"
+                        }
+                    ],
+                    "default": "normal",
+                    "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度",
+                    "multi": true,
+                    "maxSelect": 2
+                }
+            ],
+            "slots": [
+                {
+                    "name": "default",
+                    "title": "默认",
+                    "description": "插入文本或 HTML",
+                    "advanced": true
+                },
+                {
+                    "name": "item",
+                    "description": "自定义选项的结构和样式"
+                }
+            ],
+            "methods": [
+                {
+                    "name": "load",
+                    "description": "带缓存地加载",
+                    "params": []
+                },
+                {
+                    "name": "reload",
+                    "description": "清除缓存，重新加载",
+                    "params": []
+                }
+            ],
+            "events": [
+                {
+                    "name": "before-select",
+                    "description": "选择某一项前触发",
+                    "advanced": true,
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.value",
+                            "type": "any",
+                            "description": "选择项的值"
+                        },
+                        {
+                            "name": "$event.oldValue",
+                            "type": "any",
+                            "description": "旧的值"
+                        },
+                        {
+                            "name": "$event.item",
+                            "type": "object",
+                            "description": "选择项相关对象"
+                        },
+                        {
+                            "name": "$event.itemVM",
+                            "type": "UListViewItem",
+                            "description": "选择项子组件"
+                        },
+                        {
+                            "name": "$event.preventDefault",
+                            "type": "Function",
+                            "description": "阻止选择流程"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UListView",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
+                {
+                    "name": "input",
+                    "title": "选择时",
+                    "description": "选择某一项时触发",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "any",
+                            "description": "选择项的值",
+                            "schema": {
+                                "$ref": "#/basicTypes/String"
+                            }
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UListView",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
+                {
+                    "name": "select",
+                    "title": "选择后",
+                    "description": "选择某一项时触发。单选模式中：",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.value",
+                            "type": "any",
+                            "description": "改变后的值"
+                        },
+                        {
+                            "name": "$event.oldValue",
+                            "type": "any",
+                            "description": "旧的值"
+                        },
+                        {
+                            "name": "$event.item",
+                            "type": "object",
+                            "description": "选择项相关对象"
+                        },
+                        {
+                            "name": "$event.oldItem",
+                            "type": "object",
+                            "description": "旧的选择项相关对象"
+                        },
+                        {
+                            "name": "$event.itemVM",
+                            "type": "UListViewItem",
+                            "description": "选择项子组件"
+                        },
+                        {
+                            "name": "$event.oldVM",
+                            "type": "UListViewItem",
+                            "description": "旧的选择项子组件"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UListView",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
+                {
+                    "name": "change",
+                    "title": "改变后",
+                    "description": "选择值改变时触发。",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/ChangeItemEvent"
+                            }
+                        },
+                        {
+                            "name": "$event.value",
+                            "type": "any",
+                            "description": "选择项的值"
+                        },
+                        {
+                            "name": "$event.oldValue",
+                            "type": "any",
+                            "description": "旧的值"
+                        },
+                        {
+                            "name": "$event.item",
+                            "type": "object",
+                            "description": "选择项相关对象"
+                        },
+                        {
+                            "name": "$event.oldItem",
+                            "type": "object",
+                            "description": "旧的选择项相关对象"
+                        },
+                        {
+                            "name": "$event.itemVM",
+                            "type": "UListViewItem",
+                            "description": "选择项子组件"
+                        },
+                        {
+                            "name": "$event.oldVM",
+                            "type": "UListViewItem",
+                            "description": "旧的选择项子组件"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UListView",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
+                {
+                    "name": "before-load",
+                    "title": "加载前",
+                    "description": "加载前触发",
+                    "advanced": true,
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "object",
+                            "description": "自定义事件对象",
+                            "schema": {
+                                "$ref": "#/systemTypes/EventTarget"
+                            }
+                        },
+                        {
+                            "name": "$event.preventDefault",
+                            "type": "Function",
+                            "description": "阻止加载流程"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UTableView",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                },
+                {
+                    "name": "load",
+                    "title": "加载后",
+                    "description": "加载时触发",
+                    "params": [
+                        {
+                            "name": "$event",
+                            "type": "",
+                            "description": "空"
+                        },
+                        {
+                            "name": "senderVM",
+                            "type": "UTableView",
+                            "description": "发送事件实例"
+                        }
+                    ]
+                }
+            ],
+            "children": []
         }
     },
     {
@@ -5503,6 +5953,8 @@
             "title": "表格表单",
             "description": "本组件用于在表单中使用表单验证、动态数据等复杂功能。",
             "category": "Table",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-form-table-view.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
@@ -5759,13 +6211,13 @@
                     "title": "数量变更（添加/删除）时触发"
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": [
                 {
                     "name": "u-form-table-view-column",
                     "title": "表单列元素",
                     "description": "表单列元素",
+                    "next": false,
+                    "nested": false,
                     "attrs": [
                         {
                             "name": "title",
@@ -5959,9 +6411,7 @@
                                 }
                             ]
                         }
-                    ],
-                    "next": false,
-                    "nested": false
+                    ]
                 }
             ]
         }
@@ -5982,6 +6432,8 @@
             "title": "表单",
             "description": "具有数据收集、校验和提交功能的表单，包含输入框、选择框、复选框、单选框等元素。",
             "category": "Form",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-form.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-form.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-form.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-form.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-form.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-form.vue/screenshots/5.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-form.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-form.vue/drawings/1.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-form.vue/drawings/2.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-form.vue/drawings/3.svg",
             "blocks": [
@@ -6136,11 +6588,11 @@
                 {
                     "name": "default",
                     "description": "插入`<u-form-item>`子组件。",
-                    "common-empty-background": true,
+                    "empty-background": "add-sub-large",
                     "support": [
                         {
                             "name": "u-form-group",
-                            "title": "导航分组",
+                            "title": "表单分组",
                             "snippet": "<u-form-group title=\"分组\"><u-form-item label=\"表单项\"></u-form-item></u-form-group>"
                         },
                         {
@@ -6242,13 +6694,13 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": [
                 {
                     "name": "u-form-item",
                     "title": "表单项",
                     "description": "表单项",
+                    "next": false,
+                    "nested": false,
                     "attrs": [
                         {
                             "name": "label",
@@ -6445,8 +6897,6 @@
                             "quick-add": "never"
                         }
                     ],
-                    "next": false,
-                    "nested": false,
                     "events": [
                         {
                             "name": "validate",
@@ -6486,6 +6936,8 @@
                     "name": "u-form-group",
                     "title": "表单分组",
                     "description": "展开折叠前",
+                    "next": false,
+                    "nested": false,
                     "attrs": [
                         {
                             "name": "title",
@@ -6538,8 +6990,6 @@
                             "description": "在右侧可以附加内容。"
                         }
                     ],
-                    "next": false,
-                    "nested": false,
                     "events": [
                         {
                             "name": "before-toggle",
@@ -6628,6 +7078,8 @@
             "title": "单行输入",
             "description": "基本的表单输入组件",
             "category": "Form",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-input.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
@@ -7045,8 +7497,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -7066,6 +7516,8 @@
             "title": "数字输入",
             "description": "输入数字时使用",
             "category": "Form",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-number-input.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
@@ -7339,8 +7791,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -7360,6 +7810,8 @@
             "title": "多行输入",
             "description": "多行输入组件",
             "category": "Form",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-textarea.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
@@ -7712,8 +8164,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -7769,8 +8219,8 @@
             "slots": [
                 {
                     "name": "default",
-                    "common-empty-background": true,
                     "description": "插入`<u-radio>`子组件。",
+                    "empty-background": "add-sub",
                     "support": [
                         {
                             "name": "u-radio",
@@ -8008,6 +8458,8 @@
             "title": "开关",
             "description": "开关",
             "category": "Form",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-switch.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
@@ -8208,8 +8660,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -8229,6 +8679,8 @@
             "title": "多选组",
             "description": "多项中选择多个时使用",
             "category": "Form",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-checkboxes.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
@@ -8310,8 +8762,8 @@
             "slots": [
                 {
                     "name": "default",
-                    "common-empty-background": true,
                     "description": "插入`<checkbox>`子组件。",
+                    "empty-background": "add-sub",
                     "support": [
                         {
                             "name": "u-checkbox",
@@ -8321,13 +8773,13 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": [
                 {
                     "name": "u-checkbox",
                     "title": "多选项",
                     "description": "多选项",
+                    "next": false,
+                    "nested": false,
                     "attrs": [
                         {
                             "name": "text",
@@ -8372,8 +8824,6 @@
                             "description": "自动获取焦点"
                         }
                     ],
-                    "next": false,
-                    "nested": false,
                     "events": [
                         {
                             "name": "before-check",
@@ -8901,6 +9351,8 @@
                     "name": "u-capsules-group",
                     "title": "子选项组",
                     "description": "子选项组",
+                    "next": false,
+                    "nested": false,
                     "slots": [
                         {
                             "name": "default",
@@ -8913,9 +9365,7 @@
                                 }
                             ]
                         }
-                    ],
-                    "next": false,
-                    "nested": false
+                    ]
                 }
             ]
         }
@@ -8936,6 +9386,8 @@
             "title": "选择框",
             "description": "下拉选择框，支持单选、多选、搜索等功能",
             "category": "Form",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-select.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
@@ -8959,14 +9411,14 @@
                     "title": "文本字段名",
                     "type": "string",
                     "default": "text",
-                    "description": "选项文本的字段名。"
+                    "description": "选项文本的字段名"
                 },
                 {
                     "name": "value-field",
                     "title": "值字段名",
                     "type": "string",
                     "default": "value",
-                    "description": "选项值的字段名。"
+                    "description": "选项值的字段名"
                 },
                 {
                     "name": "data-source",
@@ -8979,7 +9431,7 @@
                     "title": "可取消",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否可以取消选择。",
+                    "description": "是否可以取消选择",
                     "hidden": true
                 },
                 {
@@ -8987,7 +9439,7 @@
                     "title": "可多选",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否可以多选。"
+                    "description": "是否可以多选"
                 },
                 {
                     "name": "converter",
@@ -9621,13 +10073,13 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": [
                 {
                     "name": "u-select-item",
                     "title": "选择项",
                     "description": "选择项",
+                    "next": false,
+                    "nested": false,
                     "attrs": [
                         {
                             "name": "value",
@@ -9662,8 +10114,6 @@
                             "description": "插入文本或 HTML。"
                         }
                     ],
-                    "next": false,
-                    "nested": false,
                     "events": [
                         {
                             "name": "before-select",
@@ -9712,6 +10162,8 @@
                     "name": "u-select-group",
                     "title": "选择分组",
                     "description": "选择分组",
+                    "next": false,
+                    "nested": false,
                     "attrs": [
                         {
                             "name": "title",
@@ -9746,9 +10198,7 @@
                             "description": "在右侧可以附加内容。",
                             "advanced": true
                         }
-                    ],
-                    "next": false,
-                    "nested": false
+                    ]
                 },
                 {
                     "name": "u-select-divider",
@@ -9774,6 +10224,8 @@
             "title": "评分",
             "description": "评分组件。",
             "category": "Form",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-rate.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
@@ -9827,8 +10279,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -9848,6 +10298,8 @@
             "title": "滑块",
             "description": "滑动选择",
             "category": "Form",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-combo-slider.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
@@ -10067,8 +10519,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -10088,6 +10538,8 @@
             "title": "文件上传",
             "description": "通过点击或者拖拽上传文件。",
             "category": "Form",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-uploader.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-uploader.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-uploader.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-uploader.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-uploader.vue/screenshots/4.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-uploader.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-uploader.vue/drawings/1.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-uploader.vue/drawings/2.svg",
             "blocks": [
@@ -10307,9 +10759,9 @@
             ],
             "events": [
                 {
-                    "name": "before-send",
-                    "title": "发送前",
-                    "description": "发送前触发",
+                    "name": "before-upload",
+                    "title": "上传前",
+                    "description": "上传前触发",
                     "params": [
                         {
                             "name": "$event",
@@ -10320,49 +10772,9 @@
                             }
                         },
                         {
-                            "name": "$event.data",
-                            "type": "object",
-                            "description": "进度相关信息"
-                        },
-                        {
-                            "name": "$event.xhr",
-                            "type": "XMLHttpRequest",
-                            "description": "发送前的 XMLHttpRequest 对象"
-                        },
-                        {
-                            "name": "$event.formData",
-                            "type": "FormData",
-                            "description": "用于发送的数据对象"
-                        },
-                        {
-                            "name": "$event.preventDefault",
-                            "type": "Function",
-                            "description": "阻止上传流程"
-                        },
-                        {
-                            "name": "senderVM",
-                            "type": "UUploader",
-                            "description": "发送事件对象"
-                        }
-                    ]
-                },
-                {
-                    "name": "send",
-                    "title": "发送时",
-                    "description": "刚发送时触发",
-                    "params": [
-                        {
-                            "name": "$event",
-                            "type": "object",
-                            "description": "自定义事件对象",
-                            "schema": {
-                                "$ref": "#/systemTypes/UploadEvent"
-                            }
-                        },
-                        {
-                            "name": "$event.data",
-                            "type": "object",
-                            "description": "进度相关信息"
+                            "name": "$event.file",
+                            "type": "File",
+                            "description": "待上传的文件"
                         },
                         {
                             "name": "$event.preventDefault",
@@ -10527,8 +10939,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -10697,9 +11107,9 @@
             "slots": [
                 {
                     "name": "default",
-                    "common-empty-background": true,
                     "title": "默认",
                     "description": "插入`<u-tab>`子组件。",
+                    "empty-background": "add-sub",
                     "support": [
                         {
                             "name": "u-tab",
@@ -11042,7 +11452,8 @@
                             "name": "default",
                             "title": "默认",
                             "plus-empty": true,
-                            "description": "该 tab 下的内容"
+                            "description": "该 tab 下的内容",
+                            "empty-background": "add-any"
                         },
                         {
                             "name": "title",
@@ -11070,6 +11481,8 @@
             "title": "步骤条",
             "description": "当操作需要分步骤时使用",
             "category": "Selector",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-selectable-steps.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-selectable-steps.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-selectable-steps.vue/screenshots/2.png",
             "drawings": "",
             "blocks": [
@@ -11220,8 +11633,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": [
                 {
                     "name": "u-selectable-step",
@@ -11274,6 +11685,8 @@
             "title": "翻页器",
             "description": "展示多页列表时使用",
             "category": "Selector",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-pagination.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-pagination.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-pagination.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-pagination.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-pagination.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-pagination.vue/screenshots/5.png",
             "drawings": "",
             "blocks": [
@@ -11527,8 +11940,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -11548,6 +11959,8 @@
             "title": "级联选择",
             "description": "一次选择多个相关联的项",
             "category": "Selector",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-cascade-select.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-cascade-select.vue/screenshots/1.png",
             "drawings": "",
             "blocks": [
@@ -11584,6 +11997,7 @@
                     "title": "多级分类",
                     "type": "Array<{ label, key, placeholder }>",
                     "default": null,
+                    "designer-value": "[{}, {}, {}]",
                     "description": "多级分类"
                 },
                 {
@@ -11748,8 +12162,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -11769,6 +12181,8 @@
             "title": "地区选择",
             "description": "该组件从 UCascadeSelect 继承，仅填充了中国的行政区数据，其他功能与 UCascadeSelect 相同。",
             "category": "Selector",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-region-select.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
@@ -11964,8 +12378,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -11985,6 +12397,8 @@
             "title": "树型视图",
             "description": "树形选择器",
             "category": "Selector",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-tree-view.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
@@ -12404,13 +12818,13 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": [
                 {
                     "name": "u-tree-view-node",
                     "title": "树型视图节点",
                     "description": "树型视图节点",
+                    "next": false,
+                    "nested": false,
                     "attrs": [
                         {
                             "name": "value",
@@ -12459,8 +12873,6 @@
                             "description": "插入文本或 HTML。"
                         }
                     ],
-                    "next": false,
-                    "nested": false,
                     "events": [
                         {
                             "name": "before-select",
@@ -12608,6 +13020,8 @@
             "title": "穿梭框",
             "description": "双栏穿梭选择框，常用于将多个项目从一边移动到另一边。",
             "category": "Selector",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-transfer.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-transfer.vue/screenshots/1.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-transfer.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-transfer.vue/drawings/1.svg",
             "blocks": [
@@ -12884,8 +13298,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -12905,6 +13317,8 @@
             "title": "日期选择",
             "description": "日期选择器",
             "category": "Selector",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-date-picker.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
@@ -13154,8 +13568,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -13307,6 +13719,8 @@
             "title": "日期时间选择",
             "description": "日期时间选择器",
             "category": "Selector",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-date-time-picker.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-date-time-picker.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-date-time-picker.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-date-time-picker.vue/screenshots/3.png",
             "drawings": "",
             "blocks": [
@@ -13480,8 +13894,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -13501,6 +13913,8 @@
             "title": "线型进度条",
             "description": "以线条的形式描述当前进度",
             "category": "chart",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-linear-progress.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
@@ -13562,8 +13976,6 @@
                     "advanced": true
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -13583,6 +13995,8 @@
             "title": "圆形进度条",
             "description": "以圆形的形式描述当前进度",
             "category": "chart",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-circular-progress.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
@@ -13608,8 +14022,6 @@
                     "advanced": true
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -13629,6 +14041,8 @@
             "title": "弹出框",
             "description": "点击/鼠标移入元素，弹出气泡式的卡片浮层。",
             "category": "Feedback",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-popup.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
@@ -13925,8 +14339,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -13946,6 +14358,8 @@
             "title": "弹窗",
             "description": "弹窗",
             "category": "Feedback",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-modal.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
@@ -14205,8 +14619,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -14462,6 +14874,8 @@
             "title": "任务箱",
             "description": "用于展示流程任务箱",
             "category": "Process",
+            "next": true,
+            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.11.48/src/components/u-taskbox.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
@@ -14501,8 +14915,6 @@
                     "params": []
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     }

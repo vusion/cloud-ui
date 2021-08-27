@@ -113,10 +113,10 @@
   slots:
     - name: default
       description: 插入`<u-form-item>`子组件。
-      common-empty-background: true
+      empty-background: add-sub-large
       support:
         - name: u-form-group
-          title: 导航分组
+          title: 表单分组
           snippet: <u-form-group title="分组"><u-form-item
             label="表单项"></u-form-item></u-form-group>
         - name: u-form-item

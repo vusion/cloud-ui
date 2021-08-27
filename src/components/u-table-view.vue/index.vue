@@ -7,7 +7,7 @@
         :style="{ width: tableMeta.position !== 'static' && number2Pixel(tableMeta.width), height: number2Pixel(tableHeight)}"
         @scroll="onTableScroll" :shadow="(tableMeta.position === 'left' && !scrollXStart) || (tableMeta.position === 'right' && !scrollXEnd)">
         <div v-if="showHead" :class="$style.head" ref="head" :style="{ width: number2Pixel(tableWidth) }">
-            <u-table :class="$style['head-table']" v-bind="$attrs" :color="color">
+            <u-table :class="$style['head-table']" :color="color">
                 <colgroup>
                     <col v-for="columnVM in visibleColumnVMs" :width="columnVM.computedWidth"></col>
                 </colgroup>
@@ -50,7 +50,7 @@
             </u-table>
         </div>
         <div :class="$style.body" ref="body" :style="{ width: number2Pixel(tableWidth), height: number2Pixel(bodyHeight) }" @scroll="onBodyScroll">
-            <u-table ref="bodyTable" :class="$style['body-table']" v-bind="$attrs">
+            <u-table ref="bodyTable" :class="$style['body-table']">
                 <colgroup>
                     <col v-for="columnVM in visibleColumnVMs" :width="columnVM.computedWidth"></col>
                 </colgroup>
@@ -68,7 +68,7 @@
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                                         :vusion-node-path="columnVM.$attrs['vusion-node-path']">
                                         <!--可视化占据的虚拟填充区域-->
-                                        <div vusion-slot-name="cell" :plus-empty="columnVM.$attrs['plus-empty']" >
+                                        <div vusion-slot-name="cell" :plus-empty="columnVM.$attrs['plus-empty']">
                                             <!-- type === 'index' -->
                                             <span v-if="columnVM.type === 'index'">{{ (columnVM.startIndex - 0) + rowIndex }}</span>
                                             <!-- type === 'radio' -->
@@ -89,10 +89,7 @@
                                     </td>
                                 </template>
                                 <template v-else>
-                                    <td ref="td" 
-                                        :class="$style.cell" 
-                                        v-for="(columnVM, columnIndex) in visibleColumnVMs" 
-                                        :ellipsis="columnVM.ellipsis" v-ellipsis-title
+                                    <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                                         :vusion-node-path="columnVM.$attrs['vusion-node-path']">
                                             <!-- type === 'index' -->
