@@ -901,6 +901,7 @@
     --tree-view-node-background-selected-disabled-inverse: var(--brand-disabled-light-inverse);
 
     /* Table View */
+    --table-view-head-item-color: #999;
     --table-view-table-shadow: 2px 0 6px -2px rgba(0, 0, 0, 0.2);
     --table-view-table-right-shadow: -2px 0 6px -2px rgba(0, 0, 0, 0.2);
     --table-view-filter-background: white;

@@ -1103,7 +1103,7 @@ export default {
 }
 
 .column-title {
-    color: #999;
+    color: var(--table-view-head-item-color);
 }
 
 .column-field {}
