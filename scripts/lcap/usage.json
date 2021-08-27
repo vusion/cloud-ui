@@ -27,8 +27,6 @@
                 }
             ],
             "slots": false,
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -76,8 +74,6 @@
                     "params": []
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -294,8 +290,6 @@
                     "params": []
                 }
             ],
-            "next": true,
-            "nested": true,
             "children": []
         }
     },
@@ -2026,8 +2020,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": [
                 {
                     "name": "u-crumb-item",
@@ -2139,7 +2131,6 @@
                             "description": "是否不可点击。如果为`true`，则不会响应`click`事件。"
                         }
                     ],
-                    "next": false,
                     "events": [
                         {
                             "name": "$listeners",
@@ -2310,8 +2301,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": [
                 {
                     "name": "u-panel-group",
@@ -2331,8 +2320,7 @@
                             "name": "default",
                             "description": "插入默认的元素"
                         }
-                    ],
-                    "next": false
+                    ]
                 }
             ]
         }
@@ -2478,8 +2466,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": [
                 {
                     "name": "u-collapse-item",
@@ -2524,7 +2510,6 @@
                             "description": "在右侧可以附加内容。"
                         }
                     ],
-                    "next": false,
                     "events": [
                         {
                             "name": "before-toggle",
@@ -2788,8 +2773,6 @@
                     "params": []
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -3076,8 +3059,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -3431,8 +3412,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -3567,8 +3546,6 @@
                     "description": "图标名称"
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -3777,8 +3754,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -4017,7 +3992,6 @@
                     ]
                 }
             ],
-            "next": true,
             "children": [
                 {
                     "name": "u-carousel-item",
@@ -4052,9 +4026,7 @@
                             "description": "自定义标题文本。",
                             "advanced": true
                         }
-                    ],
-                    "next": false,
-                    "nested": false
+                    ]
                 }
             ]
         }
@@ -4145,8 +4117,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": [
                 {
                     "name": "u-info-list-item",
@@ -4377,8 +4347,6 @@
                     "params": []
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -5276,8 +5244,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": [
                 {
                     "name": "u-table-view-column",
@@ -5510,9 +5476,7 @@
                                 }
                             ]
                         }
-                    ],
-                    "next": false,
-                    "nested": false
+                    ]
                 }
             ]
         }
@@ -6247,8 +6211,6 @@
                     "title": "数量变更（添加/删除）时触发"
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": [
                 {
                     "name": "u-form-table-view-column",
@@ -6449,9 +6411,7 @@
                                 }
                             ]
                         }
-                    ],
-                    "next": false,
-                    "nested": false
+                    ]
                 }
             ]
         }
@@ -6734,8 +6694,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": [
                 {
                     "name": "u-form-item",
@@ -6939,8 +6897,6 @@
                             "quick-add": "never"
                         }
                     ],
-                    "next": false,
-                    "nested": false,
                     "events": [
                         {
                             "name": "validate",
@@ -7034,8 +6990,6 @@
                             "description": "在右侧可以附加内容。"
                         }
                     ],
-                    "next": false,
-                    "nested": false,
                     "events": [
                         {
                             "name": "before-toggle",
@@ -7543,8 +7497,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -7839,8 +7791,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -8214,8 +8164,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -8712,8 +8660,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -8827,8 +8773,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": [
                 {
                     "name": "u-checkbox",
@@ -8880,8 +8824,6 @@
                             "description": "自动获取焦点"
                         }
                     ],
-                    "next": false,
-                    "nested": false,
                     "events": [
                         {
                             "name": "before-check",
@@ -9423,9 +9365,7 @@
                                 }
                             ]
                         }
-                    ],
-                    "next": false,
-                    "nested": false
+                    ]
                 }
             ]
         }
@@ -10133,8 +10073,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": [
                 {
                     "name": "u-select-item",
@@ -10176,8 +10114,6 @@
                             "description": "插入文本或 HTML。"
                         }
                     ],
-                    "next": false,
-                    "nested": false,
                     "events": [
                         {
                             "name": "before-select",
@@ -10262,9 +10198,7 @@
                             "description": "在右侧可以附加内容。",
                             "advanced": true
                         }
-                    ],
-                    "next": false,
-                    "nested": false
+                    ]
                 },
                 {
                     "name": "u-select-divider",
@@ -10345,8 +10279,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -10587,8 +10519,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -11009,8 +10939,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -11705,8 +11633,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": [
                 {
                     "name": "u-selectable-step",
@@ -12014,8 +11940,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -12238,8 +12162,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -12456,8 +12378,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -12898,8 +12818,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": [
                 {
                     "name": "u-tree-view-node",
@@ -12955,8 +12873,6 @@
                             "description": "插入文本或 HTML。"
                         }
                     ],
-                    "next": false,
-                    "nested": false,
                     "events": [
                         {
                             "name": "before-select",
@@ -13382,8 +13298,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -13654,8 +13568,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -13982,8 +13894,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -14066,8 +13976,6 @@
                     "advanced": true
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -14114,8 +14022,6 @@
                     "advanced": true
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -14433,8 +14339,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -14715,8 +14619,6 @@
                     ]
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     },
@@ -15013,8 +14915,6 @@
                     "params": []
                 }
             ],
-            "next": true,
-            "nested": false,
             "children": []
         }
     }
