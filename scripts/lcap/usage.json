@@ -4,7 +4,7 @@
         "name": "子页面容器",
         "icon": "router-view",
         "depDescription": {},
-        "description": "放置子页面的容器。",
+        "description": "用于嵌入子页面的容器。",
         "labels": [
             "Container"
         ],
@@ -13,10 +13,8 @@
         "jsonSchema": {
             "name": "u-router-view",
             "title": "子页面容器",
-            "description": "放置子页面的容器。",
+            "description": "用于嵌入子页面的容器。",
             "category": "Container",
-            "next": true,
-            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-router-view.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
@@ -26,7 +24,6 @@
                     "code": "<template>\n<u-router-view></u-router-view>\n</template>\n"
                 }
             ],
-            "slots": false,
             "children": []
         }
     },
@@ -35,26 +32,24 @@
         "name": "Iframe",
         "icon": "iframe",
         "depDescription": {},
-        "description": "用于嵌入其他网页。",
+        "description": "用于嵌入其他网页的容器。",
         "labels": [
             "Container"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-iframe.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-iframe src=\\\"https://www.163yun.com\\\" style=\\\"width: 100%; height: 400px;\\\"></u-iframe>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-iframe src=\\\"https://sf.163.com\\\" style=\\\"width: 100%; height: 400px;\\\"></u-iframe>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-iframe",
             "title": "Iframe",
-            "description": "用于嵌入其他网页。",
+            "description": "用于嵌入其他网页的容器。",
             "category": "Container",
-            "next": true,
-            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-iframe.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-iframe src=\"https://www.163yun.com\" style=\"width: 100%; height: 400px;\"></u-iframe>\n</template>\n"
+                    "code": "<template>\n<u-iframe src=\"https://sf.163.com\" style=\"width: 100%; height: 400px;\"></u-iframe>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -62,7 +57,7 @@
                     "name": "src",
                     "title": "网页地址",
                     "type": "string",
-                    "description": "嵌入网页的地址"
+                    "description": "需要嵌入的网页地址。"
                 }
             ],
             "slots": false,
@@ -70,7 +65,7 @@
                 {
                     "name": "load",
                     "title": "加载完成",
-                    "description": "网页加载完成时触发",
+                    "description": "网页加载完成时触发。",
                     "params": []
                 }
             ],
@@ -10535,8 +10530,6 @@
             "title": "文件上传",
             "description": "通过点击或者拖拽上传文件。",
             "category": "Form",
-            "next": true,
-            "nested": false,
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-uploader.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-uploader.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-uploader.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-uploader.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-uploader.vue/screenshots/4.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-uploader.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-uploader.vue/drawings/1.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-uploader.vue/drawings/2.svg",
             "blocks": [
@@ -10571,7 +10564,7 @@
                     "title": "上传的地址",
                     "type": "string",
                     "default": null,
-                    "description": "上传的地址",
+                    "description": "上传的 URL 地址",
                     "required": true,
                     "compType": "interfaceSelect"
                 },
@@ -11675,8 +11668,8 @@
         "labels": [
             "Selector"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-pagination.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-pagination.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-pagination.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-pagination.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-pagination.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-pagination.vue/screenshots/5.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-pagination :total=\\\"11\\\" :page=\\\"6\\\"></u-pagination>\\n</template>\\n\"},{\"title\":\"显示数量\",\"description\":\"当页数多时，可以使用`side`和`around`来设置两边和中间恒定显示的数量。\\n\",\"code\":\"<template>\\n<u-pagination :total=\\\"11\\\" :page=\\\"6\\\" :side=\\\"1\\\" :around=\\\"3\\\"></u-pagination>\\n</template>\\n\"},{\"title\":\"上一页和下一页\",\"description\":\"修改上一页和下一页，接受 slot 来自定义内容\\n\",\"code\":\"<template>\\n<u-linear-layout direction=\\\"vertical\\\">\\n    <u-pagination :total=\\\"11\\\">\\n    <template #prev>\\n        <a role=\\\"text\\\">Previous</a>\\n    </template>\\n    <template #next>\\n        <a role=\\\"text\\\">Next</a>\\n    </template>\\n    </u-pagination>\\n</u-linear-layout>\\n</template>\\n\"},{\"title\":\"显示总条数\",\"description\":\"显示总共多少条数据，接受 slot 来自定义内容\\n\",\"code\":\"<template>\\n<u-linear-layout direction=\\\"vertical\\\">\\n    <u-pagination :total-items=\\\"75\\\" show-total>\\n        <template #total=\\\"{ data }\\\">\\n            {{ (data.page - 1)*data.pageSize + 1}}-{{ data.page*data.pageSize}}条，共{{data.totalItems}}条\\n        </template>\\n    </u-pagination>\\n</u-linear-layout>\\n</template>\\n\"},{\"title\":\"显示所有配置选项\",\"description\":\"\",\"code\":\"<template>\\n<u-linear-layout direction=\\\"vertical\\\">\\n    <u-pagination\\n        :total-items=\\\"75\\\"\\n        show-total\\n        show-sizer\\n        show-jumper\\n        :pageSize=\\\"30\\\"\\n        :pageSizeOptions=\\\"[30,50,100]\\\">\\n    </u-pagination>\\n</u-linear-layout>\\n</template>\\n\"},{\"title\":\"简洁版\",\"description\":\"设置`simple`属性即可使用简洁版的分页，不支持显示总页数、切换每页大小、页面跳转功能\\n\",\"code\":\"<template>\\n<u-pagination :total=\\\"11\\\" simple></u-pagination>\\n</template>\\n\"}]",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-pagination.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-pagination.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-pagination.vue/screenshots/2.png",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-pagination :total=\\\"11\\\" :page=\\\"6\\\"></u-pagination>\\n</template>\\n\"},{\"title\":\"全部配置\",\"description\":\"\",\"code\":\"<template>\\n<u-linear-layout direction=\\\"vertical\\\">\\n    <u-pagination\\n        :total-items=\\\"75\\\"\\n        show-total\\n        show-sizer\\n        show-jumper\\n        :pageSize=\\\"30\\\"\\n        :pageSizeOptions=\\\"[30,50,100]\\\">\\n    </u-pagination>\\n</u-linear-layout>\\n</template>\\n\"},{\"title\":\"简洁版\",\"description\":\"设置`simple`属性即可使用简洁版的分页，不支持显示总页数、切换每页大小、页面跳转功能\\n\",\"code\":\"<template>\\n<u-pagination :total=\\\"11\\\" simple></u-pagination>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-pagination",
             "title": "翻页器",
@@ -11684,7 +11677,7 @@
             "category": "Selector",
             "next": true,
             "nested": false,
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-pagination.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-pagination.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-pagination.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-pagination.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-pagination.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-pagination.vue/screenshots/5.png",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-pagination.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-pagination.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-pagination.vue/screenshots/2.png",
             "drawings": "",
             "blocks": [
                 {
@@ -11693,22 +11686,7 @@
                     "code": "<template>\n<u-pagination :total=\"11\" :page=\"6\"></u-pagination>\n</template>\n"
                 },
                 {
-                    "title": "显示数量",
-                    "description": "当页数多时，可以使用`side`和`around`来设置两边和中间恒定显示的数量。\n",
-                    "code": "<template>\n<u-pagination :total=\"11\" :page=\"6\" :side=\"1\" :around=\"3\"></u-pagination>\n</template>\n"
-                },
-                {
-                    "title": "上一页和下一页",
-                    "description": "修改上一页和下一页，接受 slot 来自定义内容\n",
-                    "code": "<template>\n<u-linear-layout direction=\"vertical\">\n    <u-pagination :total=\"11\">\n    <template #prev>\n        <a role=\"text\">Previous</a>\n    </template>\n    <template #next>\n        <a role=\"text\">Next</a>\n    </template>\n    </u-pagination>\n</u-linear-layout>\n</template>\n"
-                },
-                {
-                    "title": "显示总条数",
-                    "description": "显示总共多少条数据，接受 slot 来自定义内容\n",
-                    "code": "<template>\n<u-linear-layout direction=\"vertical\">\n    <u-pagination :total-items=\"75\" show-total>\n        <template #total=\"{ data }\">\n            {{ (data.page - 1)*data.pageSize + 1}}-{{ data.page*data.pageSize}}条，共{{data.totalItems}}条\n        </template>\n    </u-pagination>\n</u-linear-layout>\n</template>\n"
-                },
-                {
-                    "title": "显示所有配置选项",
+                    "title": "全部配置",
                     "description": "",
                     "code": "<template>\n<u-linear-layout direction=\"vertical\">\n    <u-pagination\n        :total-items=\"75\"\n        show-total\n        show-sizer\n        show-jumper\n        :pageSize=\"30\"\n        :pageSizeOptions=\"[30,50,100]\">\n    </u-pagination>\n</u-linear-layout>\n</template>\n"
                 },
@@ -14349,7 +14327,7 @@
             "Feedback"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-modal.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-modal ref=\\\"modal1\\\">\\n    <template #title>\\n        <div>自定义</div>\\n    </template>\\n    <template #body>\\n        <div>内容</div>\\n    </template>\\n    <template #foot>\\n        <u-linear-layout>\\n            <u-button color=\\\"primary\\\">确定</u-button>\\n            <u-button>取消</u-button>\\n        </u-linear-layout>\\n    </template>\\n</u-modal>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-modal ref=\\\"modal1\\\">\\n    <template #title>\\n        <u-text text=\\\"标题\\\"></u-text>\\n    </template>\\n    <template #body>\\n        <u-linear-layout direction=\\\"vertical\\\">内容</u-linear-layout>\\n    </template>\\n    <template #foot>\\n        <u-linear-layout>\\n            <u-button color=\\\"primary\\\">确定</u-button>\\n            <u-button>取消</u-button>\\n        </u-linear-layout>\\n    </template>\\n</u-modal>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-modal",
             "title": "弹窗",
@@ -14363,7 +14341,7 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-modal ref=\"modal1\">\n    <template #title>\n        <div>自定义</div>\n    </template>\n    <template #body>\n        <div>内容</div>\n    </template>\n    <template #foot>\n        <u-linear-layout>\n            <u-button color=\"primary\">确定</u-button>\n            <u-button>取消</u-button>\n        </u-linear-layout>\n    </template>\n</u-modal>\n</template>\n"
+                    "code": "<template>\n<u-modal ref=\"modal1\">\n    <template #title>\n        <u-text text=\"标题\"></u-text>\n    </template>\n    <template #body>\n        <u-linear-layout direction=\"vertical\">内容</u-linear-layout>\n    </template>\n    <template #foot>\n        <u-linear-layout>\n            <u-button color=\"primary\">确定</u-button>\n            <u-button>取消</u-button>\n        </u-linear-layout>\n    </template>\n</u-modal>\n</template>\n"
                 }
             ],
             "attrs": [

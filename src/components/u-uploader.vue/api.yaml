@@ -4,8 +4,6 @@
   description: 通过点击或者拖拽上传文件。
   labels:
     - Form
-  next: true
-  nested: false
   attrs:
     - name: value
       title: 值
@@ -18,7 +16,7 @@
       title: 上传的地址
       type: string
       default: null
-      description: 上传的地址
+      description: 上传的 URL 地址
       required: true
       compType: interfaceSelect
     - name: name
