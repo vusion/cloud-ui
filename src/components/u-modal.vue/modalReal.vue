@@ -18,7 +18,7 @@
                         <a :class="$style.close" @click="cancel()"></a>
                     </slot>
                 </div>
-                <div :class="$style.body" :icon="icon" vusion-slot-name="default">
+                <div :class="$style.body" :icon="icon" vusion-slot-name="body">
                     <slot name="body">
                         <div :class="$style.text">
                             <div :class="$style.heading"><slot name="heading">{{ heading }}</slot></div>
