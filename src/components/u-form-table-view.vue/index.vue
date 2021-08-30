@@ -40,7 +40,7 @@
                     </td>
                 </template>
                 <template v-else>
-                    <td v-else :class="$style.cell" v-for="(columnVM, columnIndex) in columnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title>
+                    <td :class="$style.cell" v-for="(columnVM, columnIndex) in columnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title>
                         <u-validator display="block" :label="columnVM.title" :action="columnVM.action"
                             :rules="columnVM.rules" :muted="columnVM.muted"
                             :ignore-validation="columnVM.ignoreValidation"

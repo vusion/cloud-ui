@@ -3,10 +3,10 @@
 ``` html
 <u-modal ref="modal1">
     <template #title>
-        <div>自定义</div>
+        <u-text text="标题"></u-text>
     </template>
     <template #body>
-        <div>内容</div>
+        <u-linear-layout direction="vertical">内容</u-linear-layout>
     </template>
     <template #foot>
         <u-linear-layout>

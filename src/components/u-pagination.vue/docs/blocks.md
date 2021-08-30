@@ -4,46 +4,7 @@
 <u-pagination :total="11" :page="6"></u-pagination>
 ```
 
-### 显示数量
-
-当页数多时，可以使用`side`和`around`来设置两边和中间恒定显示的数量。
-
-``` html
-<u-pagination :total="11" :page="6" :side="1" :around="3"></u-pagination>
-```
-
-### 上一页和下一页
-
-修改上一页和下一页，接受 slot 来自定义内容
-
-``` html
-<u-linear-layout direction="vertical">
-    <u-pagination :total="11">
-    <template #prev>
-        <a role="text">Previous</a>
-    </template>
-    <template #next>
-        <a role="text">Next</a>
-    </template>
-    </u-pagination>
-</u-linear-layout>
-```
-
-### 显示总条数
-
-显示总共多少条数据，接受 slot 来自定义内容
-
-``` html
-<u-linear-layout direction="vertical">
-    <u-pagination :total-items="75" show-total>
-        <template #total="{ data }">
-            {{ (data.page - 1)*data.pageSize + 1}}-{{ data.page*data.pageSize}}条，共{{data.totalItems}}条
-        </template>
-    </u-pagination>
-</u-linear-layout>
-```
-
-### 显示所有配置选项
+### 全部配置
 
 ``` html
 <u-linear-layout direction="vertical">

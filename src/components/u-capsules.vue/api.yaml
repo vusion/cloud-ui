@@ -42,12 +42,8 @@
       description: 插入`<u-capsule>`或`<u-capsules-group>`子组件。
       support:
         - name: u-capsule
-          title: 子选项
+          title: 胶囊选项
           snippet: <u-capsule>选项</u-capsule>
-        - name: u-capsules-group
-          advanced: true
-          title: 子选项组
-          snippet: <u-capsules-group><u-capsule>选项</u-capsule></u-capsules-group>
   events:
     - name: before-select
       title: 选择前

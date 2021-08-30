@@ -4407,8 +4407,7 @@
                     "title": "可分页",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否需要分页。",
-                    "advanced": true,
+                    "description": "是否分页。",
                     "group": "数据属性"
                 },
                 {
@@ -9043,14 +9042,8 @@
                     "support": [
                         {
                             "name": "u-capsule",
-                            "title": "子选项",
+                            "title": "胶囊选项",
                             "snippet": "<u-capsule>选项</u-capsule>"
-                        },
-                        {
-                            "name": "u-capsules-group",
-                            "advanced": true,
-                            "title": "子选项组",
-                            "snippet": "<u-capsules-group><u-capsule>选项</u-capsule></u-capsules-group>"
                         }
                     ]
                 }
