@@ -93,7 +93,7 @@ export default {
 }
 
 .full {
-    width: 100%;
+    min-width: 100px;
 }
 
 .label {
