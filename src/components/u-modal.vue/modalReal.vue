@@ -6,7 +6,7 @@
         <transition
             enter-active-class="animate__animated animate__fadeInDownSmall"
             leave-active-class="animate__animated animate__fadeOutUpSmall animate__fast">
-            <div :class="$style.dialog" ref="dialog"
+            <div :class="[$style.dialog, this.$env.VUE_APP_DESIGNER ? $style.pos : null]" ref="dialog"
                 v-if="currentVisible && animationVisible"
                 :style="{ width: width + 'px' }" :size="size">
                 <slot name="inject"></slot>
@@ -229,6 +229,11 @@ export default UModalReal;
     border: 1px solid var(--modal-border-color);
     border-radius: var(--modal-dialog-border-radius);
     box-shadow: var(--modal-dialog-box-shadow);
+}
+
+.pos {
+    vertical-align: top;
+    margin-top: 300px;
 }
 
 .dialog[size="small"] {
