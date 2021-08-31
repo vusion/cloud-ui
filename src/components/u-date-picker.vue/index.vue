@@ -65,7 +65,7 @@ export default {
         yearDiff: { type: [String, Number], default: 20 },
         yearAdd: { type: [String, Number], default: 20 },
         clearable: { type: Boolean, default: false },
-        converter: { type: String, default: 'json' },
+        converter: { type: String, default: 'format' },
     },
     data() {
         const date = this.date || this.value;

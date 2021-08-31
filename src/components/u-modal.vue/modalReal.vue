@@ -10,15 +10,15 @@
                 v-if="currentVisible && animationVisible"
                 :style="{ width: width + 'px' }" :size="size">
                 <slot name="inject"></slot>
-                <div :class="$style.head">
+                <div :class="$style.head" vusion-slot-name="head" :child-cut-disabled="true">
                     <slot name="head">
-                        <div v-if="title" :class="$style.title">
+                        <div v-if="title" vusion-slot-name="title" :class="$style.title" :child-cut-disabled="true">
                             <slot name="title">{{ title }}</slot>
                         </div>
                         <a :class="$style.close" @click="cancel()"></a>
                     </slot>
                 </div>
-                <div :class="$style.body" :icon="icon" vusion-slot-name="body">
+                <div :class="$style.body" :icon="icon" vusion-slot-name="body" :child-cut-disabled="true">
                     <slot name="body">
                         <div :class="$style.text">
                             <div :class="$style.heading"><slot name="heading">{{ heading }}</slot></div>
@@ -26,7 +26,7 @@
                         </div>
                     </slot>
                 </div>
-                <div :class="$style.foot" v-if="okButton || cancelButton">
+                <div :class="$style.foot" vusion-slot-name="foot" :child-cut-disabled="true" v-if="okButton || cancelButton" >
                     <slot name="foot">
                         <u-linear-layout gap="small" justify="end">
                             <u-button :class="$style.button" v-if="cancelButton" :color="primaryButton === 'cancelButton' ? 'primary' : ''" :disabled="disableCancel" @click="cancel()">{{ cancelButton }}</u-button>
