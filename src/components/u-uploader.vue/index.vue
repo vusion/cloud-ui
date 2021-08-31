@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import { MEmitter } from '../m-emitter.vue';
+import MField from '../m-field.vue';
 import i18n from './i18n';
 import ajax from './ajax';
 
@@ -61,7 +61,7 @@ const SIZE_UNITS = {
 
 export default {
     name: 'u-uploader',
-    mixins: [MEmitter],
+    mixins: [MField],
     i18n,
     props: {
         value: [Array, String],
@@ -128,7 +128,8 @@ export default {
         },
         toValue(value) {
             if (this.converter === 'json')
-                return JSON.stringify(value);
+                // fix for u-validator rules="required"
+                return Array.isArray(value) && value.length === 0 ? null : JSON.stringify(value);
             else
                 return value;
         },
