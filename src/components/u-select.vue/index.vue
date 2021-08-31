@@ -237,27 +237,13 @@ export default {
             };
         },
         shift(count) {
-            let focusedIndex = this.itemVMs.indexOf(
-                this.focusedVM || this.selectedVM,
-            );
+            let focusedIndex = this.itemVMs.indexOf(this.focusedVM || this.selectedVM);
             if (count > 0) {
-                for (
-                    let i = focusedIndex + count;
-                    i < this.itemVMs.length;
-                    i++
-                ) {
+                for (let i = focusedIndex + count; i < this.itemVMs.length; i++) {
                     const itemVM = this.itemVMs[i];
                     if (!itemVM.disabled) {
                         this.focusedVM = itemVM;
-                        this.$emit(
-                            'shift',
-                            {
-                                focusedIndex,
-                                focusedVM: itemVM,
-                                value: itemVM.value,
-                            },
-                            this,
-                        );
+                        this.$emit('shift', { focusedIndex, focusedVM: itemVM, value: itemVM.value }, this);
                         this.ensureFocusedInView();
                         break;
                     }

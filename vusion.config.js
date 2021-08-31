@@ -57,6 +57,7 @@ module.exports = {
             { group: 'Form', name: 'u-input', alias: '单行输入' },
             { group: 'Form', name: 'u-number-input', alias: '数字输入' },
             { group: 'Form', name: 'u-textarea', alias: '多行输入' },
+            { group: 'Form', name: 'u-auto-complete', alias: '自动完成' },
             { group: 'Form', name: 'u-radios', alias: '单选组' },
             { group: 'Form', name: 'u-checkboxes', alias: '多选组' },
             { group: 'Form', name: 'u-checkbox-card', alias: '多选卡片', newest: true },

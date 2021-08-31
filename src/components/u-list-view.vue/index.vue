@@ -79,7 +79,8 @@ export default {
         textField: { type: String, default: 'text' },
         valueField: { type: String, default: 'value' },
         data: Array,
-        dataSource: [DataSource, Function, Object, Array], // @inherit: cancelable: { type: Boolean, default: false },
+        dataSource: [DataSource, Function, Object, Array],
+        // @inherit: cancelable: { type: Boolean, default: false },
         // @inherit: multiple: { type: Boolean, default: false },
         // @inherit: collapsible: { type: Boolean, default: false },
         // @inherit: accordion: { type: Boolean, default: false },
@@ -120,20 +121,23 @@ export default {
         pageable: { type: [Boolean, String], default: false },
         pageSize: { type: Number, default: 50 },
         remotePaging: { type: Boolean, default: false },
-        virtual: { type: Boolean, default: false }, // @inherit: virtualCount: { type: Number, default: 60 },
+        virtual: { type: Boolean, default: false },
+        // @inherit: virtualCount: { type: Number, default: 60 },
         // @inherit: throttle: { type: Number, default: 60 },
         listKey: { type: String, default: 'currentData' },
     },
     data() {
         return {
-            ChildComponent: this.$options.childName, // @inherit: groupVMs: [],
+            ChildComponent: this.$options.childName,
+            // @inherit: groupVMs: [],
             // @inherit: itemVMs: [],
             // @inherit: selectedVM: undefined,
             // @inherit: selectedVMs: undefined,
             // @inherit: currentMultiple: this.multiple,
             currentDataSource: undefined,
             currentLoading: this.loading,
-            currentError: this.error, // virtualIndex: 0,
+            currentError: this.error,
+            // virtualIndex: 0,
             // virtualTop: 0,
             // virtualBottom: 0,
             filterText: '', // 过滤文本，只有 input 时会改变它
@@ -189,7 +193,8 @@ export default {
         },
         error(error) {
             this.currentError = error;
-        }, // paging(paging) {
+        },
+        // paging(paging) {
         //     this.page()
         // },
         itemVMs: {

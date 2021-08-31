@@ -20,7 +20,7 @@ export default {
 
 ### 一次性上传多文件
 
-设置`multipleOnce`可以一次性上传多个文件。
+设置`multiple-once`可以一次性上传多个文件。
 
 ``` vue
 <template>
