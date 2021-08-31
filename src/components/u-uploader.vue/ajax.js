@@ -51,7 +51,8 @@ export default function upload(options) {
         });
     }
 
-    formData.append(options.filename, options.file, options.file.name);
+    const files = options.file.length ? Array.from(options.file) : [options.file];
+    files.forEach((file) => formData.append(options.name, file, file.name));
 
     xhr.onerror = function onerror(e) {
         options.onError(e);

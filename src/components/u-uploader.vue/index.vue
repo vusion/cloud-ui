@@ -70,6 +70,7 @@ export default {
         headers: Object,
         withCredentials: { type: Boolean, default: false },
         multiple: { type: Boolean, default: false },
+        multipleOnce: { type: Boolean, default: false },
         directory: { type: Boolean, default: false },
         data: Object,
         limit: { type: Number, default: Infinity },
@@ -191,15 +192,21 @@ export default {
                 return;
             }
 
-            files.forEach((file) => {
-                this.upload(file);
-            });
+            const checkResult = files.map((file) => this.upload(file));
+            if (this.multipleOnce) {
+                if (checkResult.some((value) => value === null))
+                    return;
+                this.post(files, checkResult[0], this.currentValue.length - 1);
+            }
         },
+        /**
+         * multipleOnce 的情况下不直接上传
+         */
         upload(file) {
             if (this.$emitPrevent('before-upload', {
                 file,
             }, this))
-                return;
+                return null;
 
             if (!this.checkSize(file)) {
                 this.$emit('size-exceed', {
@@ -207,7 +214,7 @@ export default {
                     size: file.size,
                     message: `文件${file.name} ${file.size}超出大小${this.maxSize}！`,
                 });
-                return;
+                return null;
             }
             // check format
             // if (this.format.length) {
@@ -215,7 +222,7 @@ export default {
             //     const checked = this.format.some(item => item.toLocaleLowerCase() === _file_format);
             //     if (!checked) {
             //         this.onFormatError(file, this.fileList);
-            //         return false;
+            //         return null;
             //     }
             // }
 
@@ -235,8 +242,10 @@ export default {
                 this.currentValue.splice(0, this.currentValue.length);
             this.currentValue.push(item);
 
-            if (this.autoUpload)
+            if (this.autoUpload && !this.multipleOnce)
                 this.post(file, item, this.currentValue.length - 1);
+
+            return item;
         },
         post(file, item, index) {
             const xhr = ajax({
@@ -245,7 +254,7 @@ export default {
                 withCredentials: this.withCredentials,
                 file,
                 data: this.data,
-                filename: this.name,
+                name: this.name,
                 onProgress: (e) => {
                     const item = this.currentValue[index];
                     item.percent = e.percent;
