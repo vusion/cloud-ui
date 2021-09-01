@@ -134,8 +134,8 @@ export default {
 .box[status="true"]::before, .box[status="false"]::before {
     position: relative;
     display: block;
-    width: calc(var(--checkbox-size)-2);
-    height: calc(var(--checkbox-size)-2);
+    width: calc(var(--checkbox-size) - 2px);
+    height: calc(var(--checkbox-size) - 2px);
 }
 
 .box[status="false"]::before {
