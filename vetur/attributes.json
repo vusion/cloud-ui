@@ -418,6 +418,59 @@
     "description": "自定义显示/隐藏条件"
   },
   "u-action/其余属性透传": {},
+  "u-auto-complete/value": {
+    "type": "string",
+    "description": "输入框的值"
+  },
+  "u-auto-complete/clearable": {
+    "type": "boolean",
+    "description": "开启并在输入框有内容时会显示清除按钮。"
+  },
+  "u-auto-complete/placeholder": {
+    "type": "string",
+    "description": "原生属性。对 IE9 做了兼容。"
+  },
+  "u-auto-complete/minlength": {
+    "type": "number",
+    "description": "原生属性"
+  },
+  "u-auto-complete/maxlength": {
+    "type": "number",
+    "description": "原生属性"
+  },
+  "u-auto-complete/spellcheck": {
+    "type": "boolean",
+    "description": "原生属性"
+  },
+  "u-auto-complete/autofocus": {
+    "type": "boolean",
+    "description": "是否自动获取焦点"
+  },
+  "u-auto-complete/readonly": {
+    "type": "boolean",
+    "description": "是否只读"
+  },
+  "u-auto-complete/disabled": {
+    "type": "boolean",
+    "description": "是否禁用"
+  },
+  "u-auto-complete/size": {
+    "type": "size",
+    "options": [
+      "mini",
+      "small",
+      "normal",
+      "medium",
+      "large",
+      "huge",
+      "full"
+    ],
+    "description": "大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'medium'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式"
+  },
+  "u-auto-complete/maxlengthMessage": {
+    "type": "string",
+    "description": "\b\b输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效"
+  },
   "u-avatar/type": {
     "type": "enum",
     "options": [
@@ -3688,6 +3741,10 @@
   "u-uploader/multiple": {
     "type": "boolean",
     "description": "多文件上传"
+  },
+  "u-uploader/multiple-once": {
+    "type": "boolean",
+    "description": "利用原生 multipart/form-data 传输多个文件的能力，一次性上传多个文件"
   },
   "u-uploader/data-type": {
     "type": "string",
