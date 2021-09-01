@@ -53,7 +53,7 @@ export default {
         },
         boundariesElement: { type: String, default: 'window' },
         arrowElement: { type: String, default: '[u-arrow]' },
-        escapeWithReference: { type: Boolean, default: true },
+        escapeWithReference: { type: Boolean, default: false },
         followCursor: { type: [Boolean, Number, Object], default: false },
         offset: { type: [Number, String], default: 0 },
         options: {

@@ -141,6 +141,7 @@ export default {
 
 .root[layout="inline"] .item:not(:last-child) {
     margin-right: var(--space-base);
+    margin-bottom: var(--space-base);
 }
 
 .root[layout="block"] .item:not(:last-child) {
