@@ -1,18 +1,19 @@
 <template>
-    <u-input ref="input" :value="value" :color="color" :placeholder="placeholder"
-        :clearable="clearable"
-        :readonly="readonly"
-        :disabled="disabled"
-        @input="onInput"
-        @focus="onFocus"
-        @blur="onBlur"
+    <u-input ref="input" :value="currentValue" :color="color" :placeholder="placeholder" :size="size"
+        :opened="currentOpened"
+        :clearable="clearable" :readonly="readonly" :disabled="disabled"
+        @input="onInput" @focus="onFocus" @blur="onBlur"
+        @click.native="focus"
+        @update="$emit('update', $event, this)"
+        @change="$emit('change', $event, this)"
         @keydown.prevent.up="$refs.listView && $refs.listView.shift(-1)"
         @keydown.prevent.down="$refs.listView && $refs.listView.shift(+1)">
-        <m-popper v-show="currentData && currentData.length" :class="$style.popper" ref="popper" :color="color"
+        <m-popper :class="$style.popper" ref="popper" :color="color" :opened.sync="currentOpened"
             append-to="reference"
             trigger="manual">
             <u-list-view :class="$style.listview" ref="listView"
-                empty-text=""
+                :error-text="errorText"
+                :empty-text="emptyText"
                 :value-field="textField" :value="currentValue" @input="onSelect"
                 :data-source="currentDataSource">
             </u-list-view>
@@ -47,42 +48,58 @@ export default {
         //     validator: (value) =>
         //         ['horizontal', 'vertical', 'both'].includes(value),
         // },
+        size: String,
         placement: { type: String, validator: (value) => /^(top|bottom|left|right)(-start|-end)?$/.test(value) },
     },
     data() {
         return {
             currentValue: this.value,
+            currentOpened: false,
             // currentDataSource: undefined,
         };
     },
     computed: {
         filtering() {
-            return {
-                [this.field || this.textField]: {
-                    operator: this.matchMethod,
-                    value: this.currentValue,
-                    caseInsensitive: !this.caseSensitive,
-                },
-            };
+            if (this.filterable) {
+                return {
+                    [this.field || this.textField]: {
+                        operator: this.matchMethod,
+                        value: this.currentValue,
+                        caseInsensitive: !this.caseSensitive,
+                    },
+                };
+            } else {
+                return {};
+            }
         },
     },
     watch: {
         value(value) {
             this.currentValue = value;
+            this.fastLoad(false, true);
         },
+    },
+    mounted() {
+        this.$emit('update', this.value, this);
     },
     methods: {
         onInput($event) {
             this.currentValue = $event;
             this.$emit('input', $event, this);
             this.$emit('update:value', $event, this);
+            // this.$emit('select', $event, this)
             this.fastLoad(false, true);
         },
         onSelect($event) {
+            const oldValue = this.currentValue;
             this.currentValue = $event;
             this.$refs.popper.close();
             this.$emit('input', $event, this);
             this.$emit('update:value', $event, this);
+            this.$emit('select', {
+                value: $event,
+                oldValue,
+            }, this);
             this.$refs.input.focus();
         },
         onFocus(e) {
@@ -95,6 +112,9 @@ export default {
                 // this.$emit('update:input', this.value);
                 this.$emit('blur', e, this);
             }, 200);
+        },
+        focus() {
+            this.onFocus();
         },
     },
 };

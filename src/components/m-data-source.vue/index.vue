@@ -60,7 +60,7 @@ export default {
                 return undefined;
         },
         filtering() {
-            if (this.filterable)
+            if (this.filterable) {
                 return {
                     [this.field || this.textField]: {
                         operator: this.matchMethod,
@@ -68,7 +68,7 @@ export default {
                         caseInsensitive: !this.caseSensitive,
                     },
                 };
-            else {
+            } else {
                 return {};
             }
         },
