@@ -232,6 +232,7 @@ export default {
 | headers | Object |  |  | 请求 headers |
 | with-credentials | boolean |  | `false` | 通过设置 withCredentials 为 true 获得的第三方 cookies，将会依旧享受同源策略 |
 | multiple | boolean |  | `false` | 多文件上传 |
+| multiple-once | boolean |  | `false` | 利用原生 multipart/form-data 传输多个文件的能力，一次性上传多个文件 |
 | data-type | string |  | `'json'` | 接收数据类型。可选值：`text`、`xml`、`json` |
 | data | object |  |  | 附加数据 |
 | limit | number |  | `999` | 列表数量上限 |

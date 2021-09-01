@@ -11,6 +11,7 @@
             :disabled="node.disabled"
             :hidden="node.hidden"
             :node="node"
+            :level="0"
         ></component>
     </template>
     <slot></slot>

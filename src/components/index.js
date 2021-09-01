@@ -24,6 +24,7 @@ export * from './m-root.vue';
 export * from './m-singlex.vue';
 export * from './u-actions.vue';
 export * from './u-article.vue';
+export * from './u-auto-complete.vue';
 export * from './u-avatar.vue';
 export * from './u-badge.vue';
 export * from './u-block.vue';

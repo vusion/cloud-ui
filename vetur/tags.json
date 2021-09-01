@@ -268,6 +268,22 @@
   "u-article": {
     "attributes": []
   },
+  "u-auto-complete": {
+    "attributes": [
+      "value",
+      "clearable",
+      "placeholder",
+      "minlength",
+      "maxlength",
+      "spellcheck",
+      "autofocus",
+      "readonly",
+      "disabled",
+      "size",
+      "maxlengthMessage"
+    ],
+    "description": "输入框自动完成。与选择框的区别是，自动完成是一个带提示的文本框，用户可以自由输入，筛选和填充使用的是文本字段；而选择框是在限定的可选项中进行选择，筛选使用的是文本字段，选择后使用的是值字段。"
+  },
   "u-avatar": {
     "attributes": [
       "type",
@@ -1703,6 +1719,7 @@
       "headers",
       "with-credentials",
       "multiple",
+      "multiple-once",
       "data-type",
       "data",
       "limit",

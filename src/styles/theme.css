@@ -879,15 +879,16 @@
 
     /* Tree View */
     --tree-view-background: white;
-    --tree-view-node-margin-left: 20px;
+    --tree-view-node-margin-left: 30px;
     --tree-view-node-expander-size: 30px;
     --tree-view-node-expander-size-mini: 28px;
-    --tree-view-node-text-padding: 4px 12px;
-    --tree-view-node-text-padding–mini: 4px 8px;
+    --tree-view-node-text-padding: 4px 0;
+    --tree-view-node-text-padding–mini: 4px 0;
     --tree-view-node-background-active: var(--background-color-base);
     --tree-view-node-background-active-inverse: var(--background-color-base-inverse);
     --tree-view-node-background-selected: var(--brand-primary-light);
     --tree-view-node-background-selected-inverse: var(--brand-primary-light);
+    --tree-view-node-background-border-radius: var(--border-radius-base);
     --tree-view-node-color-selected: white;
     --tree-view-node-color-selected-inverse: white;
     --tree-view-node-color-disabled: var(--brand-disabled);

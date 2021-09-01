@@ -100,6 +100,7 @@ export default {
     color: var(--sidebar-group-head-color-hover);
     /* background-color: #dde8f0; */
 }
+
 .head[selected] {
     color: var(--sidebar-group-head-color-selected);
 }

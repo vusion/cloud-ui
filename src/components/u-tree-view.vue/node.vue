@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" v-show="!hidden">
-    <div :class="$style.item" :selected="selected"
+    <div :class="$style.item" :selected="selected" :style="{ paddingLeft: level * 30 + 'px' }"
         :readonly="rootVM.readonly" :readonly-mode="rootVM.readonlyMode"
         :disabled="currentDisabled"
         :tabindex="disabled || rootVM.readonly || rootVM.disabled ? '' : 0"
@@ -10,7 +10,6 @@
         @keyup.enter="select()"
         @keyup.left="toggle(false)"
         @keyup.right="toggle(true)">
-        <div :class="$style.background"></div>
         <u-loading v-if="loading" :class="$style.loading" size="small"></u-loading>
         <div :class="$style.expander"
             v-else-if="node && $at(node, currentChildrenField) || nodeVMs.length || (node && !$at(node, rootVM.isLeafField) && rootVM.currentDataSource && rootVM.currentDataSource.load)"
@@ -44,6 +43,7 @@
                 :hidden="subNode.hidden"
                 :node="subNode"
                 :parent="node"
+                :level="level + 1"
             ></u-tree-view-node>
         </template>
         <template v-if="currentMoreChildrenFields">
@@ -58,6 +58,7 @@
                     :hidden="subNode.hidden"
                     :node="subNode"
                     :parent="node"
+                    :level="level + 1"
                 ></u-tree-view-node>
             </template>
         </template>
@@ -85,8 +86,11 @@ export default {
         moreChildrenFields: Array,
         node: Object,
         parent: Object,
+        level: { type: Number, default() {
+            // eslint-disable-next-line no-nested-ternary
+            return this.$parent ? (this.$parent.level !== undefined ? this.$parent.level + 1 : 0) : 0;
+        } },
     },
-
     data() {
         return {
             loading: false,
@@ -351,32 +355,25 @@ export default {
 </script>
 
 <style module>
-.root {
-    cursor: var(--cursor-pointer);
-    margin-left: var(--tree-view-node-margin-left);
-}
+.root {}
 
 .item {
+    cursor: var(--cursor-pointer);
     position: relative;
+    border-radius: var(--tree-view-node-background-border-radius);
+    /* margin-left: var(--tree-view-node-margin-left); */
 }
 
 .sub {}
 
-.background {
-    position: absolute;
-    left: -10000px;
-    right: -10000px;
-    height: 100%;
-}
-
 .expander {
     position: absolute;
     z-index: 1;
+    top: 0;
     width: var(--tree-view-node-expander-size);
     height: var(--tree-view-node-expander-size);
     line-height: var(--tree-view-node-expander-size);
     text-align: center;
-    margin-left: calc(var(--tree-view-node-margin-left) * -1);
     transition: transform var(--transition-duration-base);
 }
 
@@ -395,19 +392,20 @@ export default {
 .loading {
     position: absolute;
     z-index: 1;
-    margin-top: 7px;
-    margin-left: -16px;
+    top: 7px;
+    margin-left: 7px;
 }
 
 .text {
     position: relative;
+    margin-left: var(--tree-view-node-margin-left);
     padding: var(--tree-view-node-text-padding);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
-.item:hover .background {
+.item:hover {
     background: var(--tree-view-node-background-active);
 }
 
@@ -415,7 +413,7 @@ export default {
     outline: var(--focus-outline);
 }
 
-.item:focus .background {
+.item:focus {
     background: var(--tree-view-node-background-active);
 }
 
@@ -423,11 +421,11 @@ export default {
     cursor: initial;
 }
 
-.item[readonly-mode="initial"] .background {
+.item[readonly-mode="initial"] {
     background: var(--tree-view-node-background-readonly-initial);
 }
 
-.item[selected] .background {
+.item[selected] {
     background: var(--tree-view-node-background-selected);
 }
 
@@ -445,11 +443,11 @@ export default {
     color: var(--tree-view-node-color-disabled);
 }
 
-.item[disabled] .background {
+.item[disabled] {
     background: var(--tree-view-node-background-disabled);
 }
 
-.item[selected][disabled] .background {
+.item[selected][disabled] {
     background: var(--tree-view-node-background-selected-disabled);
 }
 </style>

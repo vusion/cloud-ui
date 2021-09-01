@@ -497,15 +497,15 @@ export default {
     border-color: var(--select-popper-border-color-inverse);
 }
 
-.popper[color="inverse"] [class^="u-tree-view_node_item"]:hover [class^="u-tree-view_node_background"] {
+.popper[color="inverse"] [class^="u-tree-view_node_item"]:hover {
     background: var(--tree-view-node-background-active-inverse);
 }
 
-.popper[color="inverse"] [class^="u-tree-view_node_item"]:focus [class^="u-tree-view_node_background"] {
+.popper[color="inverse"] [class^="u-tree-view_node_item"]:focus {
     background: var(--tree-view-node-background-active-inverse);
 }
 
-.popper[color="inverse"] [class^="u-tree-view_node_item"][selected] [class^="u-tree-view_node_background"] {
+.popper[color="inverse"] [class^="u-tree-view_node_item"][selected] {
     background: var(--tree-view-node-background-selected-inverse);
 }
 
@@ -521,11 +521,11 @@ export default {
     color: var(--tree-view-node-color-disabled-inverse);
 }
 
-.popper[color="inverse"] [class^="u-tree-view_node_item"][disabled] [class^="u-tree-view_node_background"] {
+.popper[color="inverse"] [class^="u-tree-view_node_item"][disabled] {
     background: var(--tree-view-node-background-disabled-inverse);
 }
 
-.popper[color="inverse"] [class^="u-tree-view_node_item"][selected][disabled] [class^="u-tree-view_node_background"] {
+.popper[color="inverse"] [class^="u-tree-view_node_item"][selected][disabled] {
     background: var(--tree-view-node-background-selected-disabled-inverse);
 }
 </style>
