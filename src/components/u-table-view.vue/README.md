@@ -1695,12 +1695,12 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise，详见文档示例。 |
-| data-schema | schema |  |  | 表格的数据类型，对应表格数据的schema |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise。 |
+| data-schema | schema |  |  | 表格每一行的数据类型 |
 | initial-load | boolean |  | `true` | 是否在初始时立即加载。 |
 | pageable | boolean |  | `false` | 是否需要分页。 |
 | page-size.sync | number |  | `20` | 分页大小。 |
-| page-number.sync | number |  | `1` | 当面页数。 |
+| page-number.sync | number |  | `1` | 当前页数。 |
 | page-size-options | Array\<number\> |  | `[10, 20, 50]` | 分页大小的选项列表。 |
 | show-total | boolean |  | `false` | 是否显示总条目数。 |
 | show-sizer | boolean |  | `false` | 是否显示切换分页大小选项。 |

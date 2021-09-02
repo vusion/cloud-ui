@@ -961,10 +961,6 @@
     ],
     "description": "胶囊大小"
   },
-  "u-capsule/selected": {
-    "type": "boolean",
-    "description": "是否选中此项"
-  },
   "u-capsule/disabled": {
     "type": "boolean",
     "description": "禁用此项"
@@ -1694,6 +1690,10 @@
       {
         "title": "YYYY-MM-DD",
         "value": "format"
+      },
+      {
+        "title": "暂无",
+        "value": ""
       }
     ],
     "description": "转换器，用于转换时间结果"
@@ -1752,6 +1752,14 @@
       {
         "title": "Date 对象",
         "value": "date"
+      },
+      {
+        "title": "YYYY-MM-DD HH:mm:ss",
+        "value": "format"
+      },
+      {
+        "title": "暂无",
+        "value": ""
       }
     ],
     "description": "转换器"
@@ -3137,13 +3145,29 @@
     ],
     "description": "展示方式"
   },
+  "u-list-view/data-source": {
+    "type": "Array<Item> | Function | object | DataSource",
+    "description": "列表的数据源。数组方式表示直接的数据，函数需要返回一个 Promise。"
+  },
+  "u-list-view/data-schema": {
+    "type": "schema",
+    "description": "表格每一行的数据类型"
+  },
+  "u-list-view/initial-load": {
+    "type": "boolean",
+    "description": "是否在初始时立即加载"
+  },
+  "u-list-view/readonly": {
+    "type": "boolean",
+    "description": "是否只读"
+  },
+  "u-list-view/disabled": {
+    "type": "boolean",
+    "description": "是否禁用"
+  },
   "u-list-view/value": {
     "type": "any",
     "description": "当前选择的值"
-  },
-  "u-list-view/field": {
-    "type": "string",
-    "description": "选项文本的字段名"
   },
   "u-list-view/text-field": {
     "type": "string",
@@ -3152,14 +3176,6 @@
   "u-list-view/value-field": {
     "type": "string",
     "description": "选项值的字段名"
-  },
-  "u-list-view/data": {
-    "type": "Array<{ text, value }>",
-    "description": "列表数据"
-  },
-  "u-list-view/data-source": {
-    "type": "object, Function, DataSource",
-    "description": "多功能数据源"
   },
   "u-list-view/cancelable": {
     "type": "boolean",
@@ -3185,9 +3201,17 @@
     "type": "string",
     "description": "加载时的文字。使用分页加载时才会出现"
   },
-  "u-list-view/initial-load": {
+  "u-list-view/pageable": {
     "type": "boolean",
-    "description": "是否在初始时立即加载"
+    "description": "是否需要分页"
+  },
+  "u-list-view/page-size": {
+    "type": "number",
+    "description": "分页大小"
+  },
+  "u-list-view/remote-paging": {
+    "type": "number",
+    "description": "是否使用后端分页"
   },
   "u-list-view/filterable": {
     "type": "boolean",
@@ -3213,51 +3237,31 @@
     "type": "boolean",
     "description": "是否使用后端过滤"
   },
-  "u-list-view/pageable": {
-    "type": "boolean",
-    "description": "是否需要分页"
-  },
-  "u-list-view/page-size": {
-    "type": "number",
-    "description": "分页大小"
-  },
-  "u-list-view/remote-paging": {
-    "type": "number",
-    "description": "是否使用后端分页"
-  },
-  "u-list-view/readonly": {
-    "type": "boolean",
-    "description": "是否只读"
-  },
-  "u-list-view/disabled": {
-    "type": "boolean",
-    "description": "是否禁用"
-  },
   "u-list-view/size": {
     "type": "string",
     "options": [
       {
-        "value": "normal",
-        "title": "正常"
-      },
-      {
-        "value": "large",
-        "title": "大"
+        "value": "full",
+        "title": "占满"
       },
       {
         "value": "huge",
         "title": "巨大"
       },
       {
-        "value": "auto",
-        "title": "自适应"
+        "value": "large",
+        "title": "大"
       },
       {
-        "value": "full",
-        "title": "占满"
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "auto",
+        "title": "自适应"
       }
     ],
-    "description": "设置尺寸。五种宽高的自由组合。"
+    "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度"
   },
   "u-list/type": {
     "type": "string",
@@ -4036,11 +4040,11 @@
   },
   "u-select/text-field": {
     "type": "string",
-    "description": "选项文本的字段名。"
+    "description": "选项文本的字段名"
   },
   "u-select/value-field": {
     "type": "string",
-    "description": "选项值的字段名。"
+    "description": "选项值的字段名"
   },
   "u-select/data-source": {
     "type": "Array<Item> | Function | object | DataSource",
@@ -4048,11 +4052,11 @@
   },
   "u-select/cancelable": {
     "type": "boolean",
-    "description": "是否可以取消选择。"
+    "description": "是否可以取消选择"
   },
   "u-select/multiple": {
     "type": "boolean",
-    "description": "是否可以多选。"
+    "description": "是否可以多选"
   },
   "u-select/converter": {
     "type": "string",
@@ -4474,11 +4478,11 @@
   },
   "u-table-view/data-source": {
     "type": "Array<Item> | Function | object | DataSource",
-    "description": "表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise，详见文档示例。"
+    "description": "表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise。"
   },
   "u-table-view/data-schema": {
     "type": "schema",
-    "description": "表格的数据类型，对应表格数据的schema"
+    "description": "表格每一行的数据类型"
   },
   "u-table-view/initial-load": {
     "type": "boolean",
@@ -4494,7 +4498,7 @@
   },
   "u-table-view/page-number": {
     "type": "number",
-    "description": "当面页数。"
+    "description": "当前页数。"
   },
   "u-table-view/page-size-options": {
     "type": "Array<number>",

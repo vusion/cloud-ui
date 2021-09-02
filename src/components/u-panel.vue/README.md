@@ -9,6 +9,7 @@
     - [Slots](#slots)
 - [UPanelGroup API](#upanelgroup-api)
     - [Props/Attrs](#propsattrs-2)
+    - [Slots](#slots-2)
 
 **Layout**
 
@@ -53,4 +54,10 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | title | string |  |  | 面板项的标题 |
+
+### Slots
+
+#### (default)
+
+插入默认的元素
 

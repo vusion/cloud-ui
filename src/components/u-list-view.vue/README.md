@@ -1,6 +1,6 @@
 <!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-# UListView 列表视图
+# UListView 数据列表
 
 - [示例](#示例)
     - [基本用法](#基本用法)
@@ -1390,31 +1390,30 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 列表的数据源。数组方式表示直接的数据，函数需要返回一个 Promise。 |
+| data-schema | schema |  |  | 表格每一行的数据类型 |
+| initial-load | boolean |  | `true` | 是否在初始时立即加载 |
+| readonly | boolean |  | `false` | 是否只读 |
+| disabled | boolean |  | `false` | 是否禁用 |
 | value.sync, v-model | any |  |  | 当前选择的值 |
-| field | string |  | `'text'` | 选项文本的字段名 |
 | text-field | string |  | `'text'` | 选项文本的字段名 |
 | value-field | string |  | `'value'` | 选项值的字段名 |
-| data | Array\<{ text, value }\> |  |  | 列表数据 |
-| data-source | object, Function, DataSource |  |  | 多功能数据源 |
 | cancelable | boolean |  | `false` | 是否可以取消选择 |
 | multiple | boolean |  | `false` | 是否可以多选 |
 | show-head | boolean |  | `false` | 是否显示头部 |
 | title | string |  | `'列表'` | 列表标题 |
 | show-foot | boolean |  | `false` | 是否显示尾部 |
 | loading-text | string |  | `'加载中...'` | 加载时的文字。使用分页加载时才会出现 |
-| initial-load | boolean |  | `true` | 是否在初始时立即加载 |
+| pageable | boolean |  | `false` | 是否需要分页 |
+| page-size | number |  | `50` | 分页大小 |
+| remote-paging | number |  | `false` | 是否使用后端分页 |
 | filterable | boolean |  | `false` | 是否可以过滤（搜索），开启将会显示搜索框。 |
 | placeholder | string |  | `'请输入'` | 搜索框的占位符 |
 | clearable | boolean |  | `false` | 搜索框是否有清除按钮 |
 | match-method | string, Function |  | `'includes'` | 过滤时的匹配方法 |
 | case-sensitive | boolean |  | `false` | 过滤时大小写是否敏感 |
 | remote-filtering | boolean |  | `false` | 是否使用后端过滤 |
-| pageable | boolean |  | `false` | 是否需要分页 |
-| page-size | number |  | `50` | 分页大小 |
-| remote-paging | number |  | `false` | 是否使用后端分页 |
-| readonly | boolean |  | `false` | 是否只读 |
-| disabled | boolean |  | `false` | 是否禁用 |
-| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置尺寸。五种宽高的自由组合。 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度 |
 
 ### Slots
 
@@ -1466,27 +1465,9 @@ export default {
 | $event.oldVM | UListViewItem | 旧的选择项子组件 |
 | senderVM | UListView | 发送事件实例 |
 
-#### @select
-
-选择某一项时触发。多选模式中：
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| $event | object | 自定义事件对象 |
-| $event.selected | boolean | 选中还是取消 |
-| $event.item | object | 该选中项相关对象 |
-| $event.itemVM | object | 该选中项子组件 |
-| $event.value | Array | 改变后的值 |
-| $event.oldValue | Array | 旧的值 |
-| $event.items | Array\<object\> | 所有选中项相关对象的数组 |
-| $event.oldItems | Array\<object\> | 旧的所有选中项相关对象的数组 |
-| $event.itemVMs | Array\<UListViewItem\> | 所有选中项子组件的数组 |
-| $event.oldVMs | Array\<UListViewItem\> | 旧的所有选中项子组件的数组 |
-| senderVM | UListView | 发送事件实例 |
-
 #### @change
 
-选择值改变时触发。单选模式中：
+选择值改变时触发。
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
@@ -1497,18 +1478,6 @@ export default {
 | $event.oldItem | object | 旧的选择项相关对象 |
 | $event.itemVM | UListViewItem | 选择项子组件 |
 | $event.oldVM | UListViewItem | 旧的选择项子组件 |
-| senderVM | UListView | 发送事件实例 |
-
-#### @change
-
-选择值改变时触发。多选模式中：
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| $event | object | 自定义事件对象 |
-| $event.value | Array | 所有选中项的值 |
-| $event.items | Array\<object\> | 所有选中项相关对象的数组 |
-| $event.itemVMs | Array\<UListViewItem\> | 所有选中项子组件的数组 |
 | senderVM | UListView | 发送事件实例 |
 
 #### @before-load

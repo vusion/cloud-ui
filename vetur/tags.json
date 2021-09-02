@@ -335,14 +335,13 @@
     "description": "多项中选择一项",
     "subtags": [
       "u-capsule",
-      "u-capsule-group"
+      "u-capsules-group"
     ]
   },
   "u-capsule": {
     "attributes": [
       "value",
       "size",
-      "selected",
       "disabled",
       "label",
       "flag",
@@ -350,7 +349,7 @@
     ],
     "description": "子选项"
   },
-  "u-capsule-group": {
+  "u-capsules-group": {
     "attributes": [],
     "description": "子选项组"
   },
@@ -902,30 +901,29 @@
   },
   "u-list-view": {
     "attributes": [
+      "data-source",
+      "data-schema",
+      "initial-load",
+      "readonly",
+      "disabled",
       "value",
-      "field",
       "text-field",
       "value-field",
-      "data",
-      "data-source",
       "cancelable",
       "multiple",
       "show-head",
       "title",
       "show-foot",
       "loading-text",
-      "initial-load",
+      "pageable",
+      "page-size",
+      "remote-paging",
       "filterable",
       "placeholder",
       "clearable",
       "match-method",
       "case-sensitive",
       "remote-filtering",
-      "pageable",
-      "page-size",
-      "remote-paging",
-      "readonly",
-      "disabled",
       "size"
     ],
     "description": "用于列举大量数据的列表框，支持单选、多选、过滤（搜索）、分页等功能。"
