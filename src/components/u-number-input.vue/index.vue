@@ -311,9 +311,9 @@ export default {
 }
 
 .root[size="mini"] .button {
-    right: -2px;
+    right: -1px;
     height: calc((100% - 1px) / 2);
-    line-height: calc((100% / 2) + 3px);
+    line-height: calc((100% / 2) + 4px);
 }
 
 .root[size="mini"] .button[role="up"] {
