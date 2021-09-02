@@ -19,7 +19,7 @@
     - [Props/Attrs](#propsattrs-2)
     - [Slots](#slots-2)
     - [Events](#events-2)
-- [UCapsuleGroup API](#ucapsulegroup-api)
+- [UCapsulesGroup API](#ucapsulesgroup-api)
     - [Slots](#slots-3)
 
 **Form**
@@ -191,24 +191,6 @@
 | $event.oldVM | UCapsule | 旧的选择项子组件 |
 | senderVM | UCapsules | 发送事件实例 |
 
-#### @select
-
-选择某一项时触发。多选模式中：
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| $event | object | 自定义事件对象 |
-| $event.selected | boolean | 选中还是取消 |
-| $event.item | boolean | 该选中项相关对象 |
-| $event.itemVM | boolean | 该选中项子组件 |
-| $event.value | Array | 改变后的值 |
-| $event.oldValue | Array | 旧的值 |
-| $event.items | Array\<object\> | 所有选中项相关对象的数组 |
-| $event.oldItems | Array\<object\> | 旧的所有选中项相关对象的数组 |
-| $event.itemVMs | Array\<UCapsule\> | 所有选中项子组件的数组 |
-| $event.oldVMs | Array\<UCapsule\> | 旧的所有选中项子组件的数组 |
-| senderVM | UCapsules | 发送事件实例 |
-
 #### @change
 
 选择值改变时触发。单选模式中：
@@ -224,18 +206,6 @@
 | $event.oldVM | UCapsule | 旧的选择项子组件 |
 | senderVM | UCapsules | 发送事件实例 |
 
-#### @change
-
-选择值改变时触发。多选模式中：
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| $event | object | 自定义事件对象 |
-| $event.value | Array | 所有选中项的值 |
-| $event.items | Array\<object\> | 所有选中项相关对象的数组 |
-| $event.itemVMs | Array\<UCapsule\> | 所有选中项子组件的数组 |
-| senderVM | UCapsules | 发送事件实例 |
-
 ## UCapsule API
 ### Props/Attrs
 
@@ -243,7 +213,6 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | value | any |  |  | 此项的值 |
 | size | string | `[object Object]`<br/>`[object Object]` | `'normal'` | 胶囊大小 |
-| selected | boolean |  | `false` | 是否选中此项 |
 | disabled | boolean |  | `false` | 禁用此项 |
 | label | string |  | `''` | 顶部自定义提示文本 |
 | flag | boolean |  | `false` | 是否右上角有flag标志 |
@@ -279,7 +248,7 @@
 | $event.preventDefault | Function | 阻止选择流程 |
 | senderVM | UCapsule | 发送事件实例 |
 
-## UCapsuleGroup API
+## UCapsulesGroup API
 ### Slots
 
 #### (default)

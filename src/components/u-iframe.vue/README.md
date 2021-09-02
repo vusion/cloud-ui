@@ -11,19 +11,19 @@
 
 **Container**
 
-用于嵌入其他网页。
+用于嵌入其他网页的容器。
 
 ## 示例
 ### 基本用法
 
 ``` html
-<u-iframe src="https://www.baidu.com" style="width: 100%; height: 400px;"></u-iframe>
+<u-iframe src="https://sf.163.com" style="width: 100%; height: 400px;"></u-iframe>
 ```
 
 ### iframe 其他属性
 
 ``` html
-<u-iframe src="https://www.baidu.com" sandbox="allow-same-origin" style="width: 100%; height: 400px"></u-iframe>
+<u-iframe src="https://sf.163.com" sandbox="allow-same-origin" style="width: 100%; height: 400px"></u-iframe>
 ```
 
 ## API
@@ -31,13 +31,13 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| src | string |  |  | 嵌入网页的地址 |
+| src | string |  |  | 需要嵌入的网页地址。 |
 
 ### Events
 
 #### @load
 
-网页加载完成时触发
+网页加载完成时触发。
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |

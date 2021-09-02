@@ -226,7 +226,7 @@ export default {
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value.sync, v-model | Array |  | `'\[\]'` | 当前文件列表 |
-| url | string |  |  | 上传的地址 |
+| url | string |  |  | 上传的 URL 地址 |
 | name | string |  | `'file'` | 上传的文件字段名，后端需要这个字段获取 |
 | accept | string |  |  | 接受的上传类型 |
 | headers | Object |  |  | 请求 headers |
@@ -256,27 +256,14 @@ export default {
 
 ### Events
 
-#### @before-send
+#### @before-upload
 
-发送前触发
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| $event | object | 自定义事件对象 |
-| $event.data | object | 进度相关信息 |
-| $event.xhr | XMLHttpRequest | 发送前的 XMLHttpRequest 对象 |
-| $event.formData | FormData | 用于发送的数据对象 |
-| $event.preventDefault | Function | 阻止上传流程 |
-| senderVM | UUploader | 发送事件对象 |
-
-#### @send
-
-刚发送时触发
+上传前触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | $event | object | 自定义事件对象 |
-| $event.data | object | 进度相关信息 |
+| $event.file | File | 待上传的文件 |
 | $event.preventDefault | Function | 阻止上传流程 |
 | senderVM | UUploader | 发送事件对象 |
 

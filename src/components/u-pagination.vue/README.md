@@ -7,7 +7,7 @@
     - [显示数量](#显示数量)
     - [上一页和下一页](#上一页和下一页)
     - [显示总条数](#显示总条数)
-    - [显示所有配置选项](#显示所有配置选项)
+    - [全部配置](#全部配置)
     - [只读和禁用](#只读和禁用)
     - [简洁版](#简洁版)
 - [API]()
@@ -43,8 +43,8 @@
 ``` html
 <u-linear-layout direction="vertical">
     <u-pagination :total="11">
-        <a slot="prev" role="text">Previous</a>
-        <a slot="next" role="text">Next</a>
+        <a slot="prev" role="text">上一页</a>
+        <a slot="next" role="text">下一页</a>
     </u-pagination>
 </u-linear-layout>
 ```
@@ -64,7 +64,7 @@
 </u-linear-layout>
 ```
 
-### 显示所有配置选项
+### 全部配置
 
 ``` html
 <u-linear-layout direction="vertical">
