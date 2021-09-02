@@ -312,13 +312,15 @@ export default {
 
 .root[size="mini"] .button {
     right: -2px;
+    height: calc((100% - 1px) / 2);
+    line-height: calc((100% / 2) + 3px);
 }
 
 .root[size="mini"] .button[role="up"] {
-    top: -1px;
+    height: calc((100% - 1px) / 2 + 1px);
 }
 
 .root[size="mini"] .button[role="down"] {
-    bottom: -1px;
+    bottom: 0;
 }
 </style>
