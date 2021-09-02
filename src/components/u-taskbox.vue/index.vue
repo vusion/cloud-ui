@@ -89,7 +89,7 @@ export default {
                 this.total = totalElements;
                 this.totalPages = totalPages;
                 // 刷新时可能数据变化造成分页过大，此时自动调整分页
-                if (this.page > this.totalPages) {
+                if (this.totalPages > 0 && this.page > this.totalPages) {
                     this.page = this.totalPages;
                 }
             }
