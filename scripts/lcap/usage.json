@@ -10602,6 +10602,13 @@
                     "description": "多文件上传"
                 },
                 {
+                    "name": "multiple-once",
+                    "title": "一次性上传多文件",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "利用原生 multipart/form-data 传输多个文件的能力，一次性上传多个文件"
+                },
+                {
                     "name": "data-type",
                     "title": "接收数据类型",
                     "type": "string",
