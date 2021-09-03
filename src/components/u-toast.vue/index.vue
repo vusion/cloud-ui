@@ -4,7 +4,7 @@
     enter-active-class="animate__animated animate__fadeInUpSmall"
     leave-active-class="animate__animated animate__fadeOutUpSmall fast animate__list-leave-active">
     <div v-for="item in items" :key="item.timestamp" :class="$style['item-wrap']">
-        <div :class="$style.item" :color="item.color">
+        <div :class="$style.item" :color="item.color" :position="position">
             <slot :item="item">{{ item.text }}</slot>
             <a :class="$style.close" v-if="closable" @click="close(item)"></a>
         </div>
@@ -138,10 +138,10 @@ export default {
 }
 
 .root[position='top-center'], .root[position='bottom-center'] {
-    left: 50%;
-    /* margin-left: calc(var(--toast-width) / -2); */
-    transform: translateX(-50%);
-    text-align: center;
+    margin: 0 auto;
+    width: 0;
+    left: 0;
+    right: 0;
 }
 
 .root[position='bottom-center'], .root[position='bottom-left'], .root[position='bottom-right'] {
@@ -190,6 +190,10 @@ export default {
     color: var(--toast-item-color);
     border-radius: var(--toast-item-border-radius);
     text-align: var(--toast-item-icon-text-align);
+}
+
+.item[position='top-center'], .item[position='bottom-center'] {
+    transform: translateX(-50%);
 }
 
 .close {
