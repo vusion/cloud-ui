@@ -321,7 +321,8 @@ export default {
             const focusedEl = focusedVM.$el;
             if (!focusedEl)
                 return;
-            const parentEl = focusedEl.parentElement;
+            let parentEl = focusedEl.parentElement;
+            parentEl = this.getScrollParent(parentEl); // focusedEl.parentElement不一定可以滚动，需要找到滚动的父元素
             if (!parentEl)
                 return;
             const selectedIndex = this.itemVMs.indexOf(focusedVM);
@@ -472,6 +473,23 @@ export default {
             this.$emit('input', value, this);
             this.$emit('update:value', value, this);
             this.$emit('checkAll', { value, oldValue, checked }, this);
+        },
+        /**
+         * 获取滚动的父元素
+        */
+        getScrollParent(el) {
+            if (!el)
+                return el;
+            if (el.scrollTop > 0) {
+                return el;
+            } else {
+                el.scrollTop++;
+                if (el.scrollTop > 0)
+                    return el;
+                else {
+                    return this.getScrollParent(el.parentElement);
+                }
+            }
         },
     },
 };
