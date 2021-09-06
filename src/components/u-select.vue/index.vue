@@ -7,6 +7,7 @@
     @keydown.down.prevent="$refs.popper.currentOpened ? shift(+1) : open()"
     @keydown.enter.stop="onEnter"
     @keydown.esc.stop="close(), filterText = ''"
+    @keydown.delete.stop="clearable && clear()"
     @blur="onRootBlur">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
     <span v-show="!filterText && (multiple ? !selectedVMs.length : !selectedVM)" :class="$style.placeholder">{{ placeholder }}</span>
@@ -334,7 +335,7 @@ export default {
             this.fastLoad(false, true);
             this.open();
         },
-        onBlur() {
+        onBlur(e) {
             if (!this.filterable)
                 return; // 这边必须要用 setTimeout，$nextTick 也不行，需要保证在 @select 之后完成
             setTimeout(() => {
@@ -343,11 +344,17 @@ export default {
                 this.selectByText(this.filterText);
                 this.close();
             }, 200);
+            if (!this.preventBlur) {
+                this.$emit('blur', e);
+            }
         },
-        onRootBlur() {
+        onRootBlur(e) {
             setTimeout(() => {
                 this.close();
             }, 200);
+            if (!this.preventBlur) {
+                this.$emit('blur', e);
+            }
         },
         selectByText(text) {
             if (this.multiple) {
@@ -471,6 +478,9 @@ export default {
             } else {
                 this.currentPopperWidth = this.popperWidth || '100%';
             }
+        },
+        rootFocus() {
+            this.$el.focus();
         },
     },
 };
