@@ -194,15 +194,14 @@ export default {
                 return;
             }
 
-            const checkResult = files.map((file) => this.upload(file));
-            if (this.multipleOnce) {
-                if (checkResult.some((value) => value === null))
-                    return;
-                this.post(files, checkResult[0], this.currentValue.length - 1);
+            if (!this.multipleOnce) {
+                files.map((file) => this.upload(file));
+            } else {
+                this.uploadOnce(files);
             }
         },
         /**
-         * multipleOnce 的情况下不直接上传
+         * 单文件上传
          */
         upload(file) {
             if (this.$emitPrevent('before-upload', {
@@ -244,8 +243,57 @@ export default {
                 this.currentValue.splice(0, this.currentValue.length);
             this.currentValue.push(item);
 
-            if (this.autoUpload && !this.multipleOnce)
+            if (this.autoUpload)
                 this.post(file, item, this.currentValue.length - 1);
+
+            return item;
+        },
+        /**
+         * multipleOnce 的场景
+         */
+        uploadOnce(files) {
+            if (this.$emitPrevent('before-upload', {
+                files,
+            }, this))
+                return null;
+
+            // if (!this.checkSize(file)) {
+            //     this.$emit('size-exceed', {
+            //         maxSize: this.maxSize,
+            //         size: file.size,
+            //         message: `文件${file.name} ${file.size}超出大小${this.maxSize}！`,
+            //     });
+            //     return null;
+            // }
+            // check format
+            // if (this.format.length) {
+            //     const _file_format = file.name.split('.').pop().toLocaleLowerCase();
+            //     const checked = this.format.some(item => item.toLocaleLowerCase() === _file_format);
+            //     if (!checked) {
+            //         this.onFormatError(file, this.fileList);
+            //         return null;
+            //     }
+            // }
+
+            const file = files[0];
+            const item = {
+                uid: file.uid !== undefined ? file.uid : Date.now() + this.currentValue.length,
+                status: 'uploading',
+                name: files.map((file) => file.name).join(','),
+                size: files.reduce((acc, file) => acc + file.size, 0),
+                percent: 0,
+                showProgress: true,
+            };
+
+            if (this.listType === 'image' || this.listType === 'card')
+                item.url = URL.createObjectURL(file);
+
+            if (!this.multiple)
+                this.currentValue.splice(0, this.currentValue.length);
+            this.currentValue.push(item);
+
+            if (this.autoUpload)
+                this.post(files, item, this.currentValue.length - 1);
 
             return item;
         },
