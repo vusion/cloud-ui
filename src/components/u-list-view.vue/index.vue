@@ -48,10 +48,10 @@
     <div v-show="showFoot || pageable === true || pageable === 'pagination'" :class="$style.foot">
         <slot name="foot"></slot>
         <u-pagination :class="$style.pagination" v-if="pageable === true || pageable === 'pagination'"
-            :style="{ visibility: currentDataSource.total > currentDataSource.paging.size ? '' : 'hidden' }"
             :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
-            :page-size="currentDataSource.paging.size" :side="1" :around="3"
-            @change="page($event.page)">
+            :page-size="currentDataSource.paging.size" :page-size-options="pageSizeOptions" :show-total="showTotal" :show-sizer="showSizer" :show-jumper="showJumper"
+            :side="1" :around="3"
+            @change="page($event.page)" @change-page-size="page(currentDataSource.paging.number, $event.pageSize)">
         </u-pagination>
     </div>
 </div>
@@ -121,6 +121,16 @@ export default {
         remoteFiltering: { type: Boolean, default: false },
         pageable: { type: [Boolean, String], default: false },
         pageSize: { type: Number, default: 50 },
+        pageNumber: { type: Number, default: 1 },
+        pageSizeOptions: {
+            type: Array,
+            default() {
+                return [10, 20, 50];
+            },
+        },
+        showTotal: { type: Boolean, default: false },
+        showSizer: { type: Boolean, default: false },
+        showJumper: { type: Boolean, default: false },
         remotePaging: { type: Boolean, default: false },
         virtual: { type: Boolean, default: false },
         // @inherit: virtualCount: { type: Number, default: 60 },
@@ -208,6 +218,16 @@ export default {
         },
     },
     created() {
+        // 自动补充 pageSizeOptions
+        if (this.pageSizeOptions && !this.pageSizeOptions.includes(this.pageSize)) {
+            for (let i = 0; i < this.pageSizeOptions.length; i++) {
+                if (this.pageSizeOptions[i] > this.pageSize) {
+                    this.pageSizeOptions.splice(i, 0, this.pageSize);
+                    break;
+                }
+            }
+        }
+
         this.debouncedLoad = debounce(this.load, 300);
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
         if (this.currentDataSource && this.initialLoad) {

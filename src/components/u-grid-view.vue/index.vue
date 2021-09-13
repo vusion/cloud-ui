@@ -9,7 +9,7 @@ export default {
     extends: UListView,
     i18n,
     props: {
-        repeat: { type: Number, default: 4 },
+        repeat: { type: Number, default: 5 },
     },
     computed: {
         itemWidth() {
