@@ -335,6 +335,10 @@ export default UModal;
     border-top: 1px solid var(--modal-border-color);
 }
 
+.foot [class^="u-linear-layout_"][direction="horizontal"] > *:not(:last-child) {
+    margin-right: 10px;
+}
+
 @media (--small-window) {
     .dialog {
         width: auto;

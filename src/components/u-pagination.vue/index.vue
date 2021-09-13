@@ -233,6 +233,7 @@ export default {
 .item[selected] {
     background: var(--pagination-item-background-selected);
     color: var(--pagination-item-color-selected);
+    border: 0;
 }
 
 .item[disabled] {

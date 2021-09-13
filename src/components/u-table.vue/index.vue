@@ -28,6 +28,10 @@ export default { name: 'u-table' };
     padding: var(--table-td-padding);
 }
 
+.root td[vusion-slot-name="empty"] {
+    color: #999;
+}
+
 .root thead tr {
     background-color: var(--table-head-background);
     border-bottom: 1px solid var(--table-border-color);

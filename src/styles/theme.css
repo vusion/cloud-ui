@@ -272,7 +272,7 @@
     --button-box-shadow-focus-danger: 0 0 0 2px rgba(254, 90, 90, 0.2);
     --button-box-shadow-active: inset 0 1px 3px rgba(0, 0, 0, 0.2);
     --button-loading-size: 18px;
-    --button-loading-width: 2px;
+    --button-loading-width: 1.5px;
     --button-height-loading: 18px;
     --button-loading-animation-duration: 1s;
 
@@ -665,7 +665,7 @@
     --input-padding-x-full: 10px;
     --input-border-width: var(--border-width-base);
     --input-background: var(--background-color-default);
-    --input-background-disabled: #cddae9;
+    --input-background-disabled: #F7F8FA;
     --input-color: var(--color-base);
     --input-border-color: var(--border-color-base);
     --input-border-color-error: var(--brand-error);
@@ -891,7 +891,7 @@
     --tree-view-node-background-selected-disabled-inverse: var(--brand-disabled-light-inverse);
 
     /* Table View */
-    --table-view-head-item-color: #999;
+    --table-view-head-item-color: #333;
     --table-view-table-shadow: 2px 0 6px -2px rgba(0, 0, 0, 0.2);
     --table-view-table-right-shadow: -2px 0 6px -2px rgba(0, 0, 0, 0.2);
     --table-view-filter-background: white;
