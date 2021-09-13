@@ -379,6 +379,19 @@
     --article-h2-color: #999fac;
     --article-h2-border-color: #ebf0f4;
 
+    /* Card */
+    --card-border-width: 1px;
+    --card-border-radius: var(--border-radius-base);
+    --card-background: var(--background-color-default);
+    --card-border-color: var(--border-color-light);
+    --card-box-shadow: var(--box-shadow-base);
+    --card-head-padding-x: 12px;
+    --card-head-padding-y: 8px;
+    --card-body-padding-x: 12px;
+    --card-body-padding-y: 8px;
+    --card-title-font-size: 16px;
+    --card-title-font-weight: bold;
+
     /* Panel */
     --panel-border-width: 1px;
     --panel-border-radius: var(--border-radius-base);
@@ -865,6 +878,9 @@
     --list-view-group-head-background: #ebedf5;
     --list-view-group-expander-size: 26px;
     --list-view-filter-margin: 5px;
+
+    /* Grid View */
+    --grid-view-item-space: var(--space-base);
 
     /* Tree View */
     --tree-view-background: white;
