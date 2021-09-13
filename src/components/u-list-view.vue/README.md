@@ -1,6 +1,6 @@
 <!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-# UListView 列表视图
+# UListView 数据列表
 
 - [示例](#示例)
     - [基本用法](#基本用法)
@@ -1377,6 +1377,7 @@ export default {
 | data-source | object, Function, DataSource |  |  | 多功能数据源 |
 | cancelable | boolean |  | `false` | 是否可以取消选择 |
 | multiple | boolean |  | `false` | 是否可以多选 |
+| repeat | number |  | `5` | 每行排列几项 |
 | show-head | boolean |  | `false` | 是否显示头部 |
 | title | string |  | `'列表'` | 列表标题 |
 | show-foot | boolean |  | `false` | 是否显示尾部 |

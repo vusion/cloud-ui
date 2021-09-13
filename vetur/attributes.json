@@ -1592,6 +1592,113 @@
     "type": "number",
     "description": "响应式布局`<=480px`的列跨越栅格数"
   },
+  "u-grid-view/value": {
+    "type": "any",
+    "description": "当前选择的值"
+  },
+  "u-grid-view/field": {
+    "type": "string",
+    "description": "选项文本的字段名"
+  },
+  "u-grid-view/text-field": {
+    "type": "string",
+    "description": "选项文本的字段名"
+  },
+  "u-grid-view/value-field": {
+    "type": "string",
+    "description": "选项值的字段名"
+  },
+  "u-grid-view/data": {
+    "type": "Array<{ text, value }>",
+    "description": "列表数据"
+  },
+  "u-grid-view/data-source": {
+    "type": "object, Function, DataSource",
+    "description": "多功能数据源"
+  },
+  "u-grid-view/cancelable": {
+    "type": "boolean",
+    "description": "是否可以取消选择"
+  },
+  "u-grid-view/multiple": {
+    "type": "boolean",
+    "description": "是否可以多选"
+  },
+  "u-grid-view/show-head": {
+    "type": "boolean",
+    "description": "是否显示头部"
+  },
+  "u-grid-view/title": {
+    "type": "string",
+    "description": "列表标题"
+  },
+  "u-grid-view/show-foot": {
+    "type": "boolean",
+    "description": "是否显示尾部"
+  },
+  "u-grid-view/loading-text": {
+    "type": "string",
+    "description": "加载时的文字。使用分页加载时才会出现"
+  },
+  "u-grid-view/initial-load": {
+    "type": "boolean",
+    "description": "是否在初始时立即加载"
+  },
+  "u-grid-view/filterable": {
+    "type": "boolean",
+    "description": "是否可以过滤（搜索），开启将会显示搜索框。"
+  },
+  "u-grid-view/placeholder": {
+    "type": "string",
+    "description": "搜索框的占位符"
+  },
+  "u-grid-view/clearable": {
+    "type": "boolean",
+    "description": "搜索框是否有清除按钮"
+  },
+  "u-grid-view/match-method": {
+    "type": "string, Function",
+    "description": "过滤时的匹配方法"
+  },
+  "u-grid-view/case-sensitive": {
+    "type": "string, Function",
+    "description": "过滤时大小写是否敏感"
+  },
+  "u-grid-view/remote-filtering": {
+    "type": "boolean",
+    "description": "是否使用后端过滤"
+  },
+  "u-grid-view/pageable": {
+    "type": "boolean",
+    "description": "是否需要分页"
+  },
+  "u-grid-view/page-size": {
+    "type": "number",
+    "description": "分页大小"
+  },
+  "u-grid-view/remote-paging": {
+    "type": "number",
+    "description": "是否使用后端分页"
+  },
+  "u-grid-view/readonly": {
+    "type": "boolean",
+    "description": "是否只读"
+  },
+  "u-grid-view/disabled": {
+    "type": "boolean",
+    "description": "是否禁用"
+  },
+  "u-grid-view/size": {
+    "type": "enum",
+    "options": [
+      "normal",
+      "large",
+      "huge",
+      "auto",
+      "full"
+    ],
+    "description": "设置尺寸。五种宽高的自由组合。"
+  },
   "u-icon-tooltip/type": {
     "type": "string",
     "description": "图标类型。可选值：`'info'`, `'help'`, `'detail'`"
@@ -2000,6 +2107,10 @@
   "u-list-view/multiple": {
     "type": "boolean",
     "description": "是否可以多选"
+  },
+  "u-list-view/repeat": {
+    "type": "number",
+    "description": "每行排列几项"
   },
   "u-list-view/show-head": {
     "type": "boolean",
