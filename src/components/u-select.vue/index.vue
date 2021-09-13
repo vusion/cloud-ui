@@ -344,17 +344,12 @@ export default {
                 this.selectByText(this.filterText);
                 this.close();
             }, 200);
-            if (!this.preventBlur) {
-                this.$emit('blur', e);
-            }
         },
         onRootBlur(e) {
             setTimeout(() => {
                 this.close();
-            }, 200);
-            if (!this.preventBlur) {
                 this.$emit('blur', e);
-            }
+            }, 200);
         },
         selectByText(text) {
             if (this.multiple) {
