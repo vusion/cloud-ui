@@ -78,6 +78,7 @@
             :initial-load="initialLoad"
             :readonly="readonly"
             :disabled="disabled"
+            ifExpanded
             @change="$emit('change', $event, this)"
             @before-select="$emit('before-select', $event, this)"
             @select="$emit('select', $event, this)"

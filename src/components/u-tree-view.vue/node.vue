@@ -12,7 +12,7 @@
         @keyup.right="toggle(true)">
         <u-loading v-if="loading" :class="$style.loading" size="small"></u-loading>
         <div :class="$style.expander"
-            v-else-if="node && $at(node, currentChildrenField) || nodeVMs.length || (node && !$at(node, rootVM.isLeafField) && rootVM.currentDataSource && rootVM.currentDataSource.load)"
+            v-else-if="hasChildren || nodeVMs.length || (node && !$at(node, rootVM.isLeafField) && rootVM.currentDataSource && rootVM.currentDataSource.load)"
             :expand-trigger="rootVM.expandTrigger" :expanded="currentExpanded"
             @click="rootVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"></div>
         <div :class="$style.text">
@@ -31,7 +31,7 @@
             </f-slot>
         </div>
     </div>
-    <div :class="$style.sub" v-if="rootVM.ifExpanded ? currentExpanded : true" v-show="currentExpanded">
+    <div :class="$style.sub" v-if="rootVM.ifExpanded && !childrenRendered && !node.childrenRendered ? currentExpanded : true" v-show="currentExpanded">
         <template v-if="node && $at(node, currentChildrenField)">
             <u-tree-view-node
                 v-for="subNode in $at(node, currentChildrenField)"
@@ -99,7 +99,12 @@ export default {
             // @inherit: parentVM: undefined,
             currentExpanded: this.expanded,
             currentChecked: this.checked,
+            childrenRendered: this.expanded,
         };
+    },
+    created() {
+        if(this.$parent?.$options.name === 'u-tree-view')
+           this.renderSelectedVm(); 
     },
     computed: {
         selected() {
@@ -152,6 +157,24 @@ export default {
 
             return this.rootVM;
         },
+        currentFields() {
+            const { currentChildrenField, currentMoreChildrenFields } = this;
+            let fields = [currentChildrenField];
+            if(currentMoreChildrenFields)
+                fields = fields.concat(currentMoreChildrenFields);
+            return fields;
+        },
+        hasChildren() {
+            const { node } = this;
+            if(!node)
+                return false;
+
+            for(const field of this.currentFields) {
+                if(this.$at(node, field))
+                    return true;
+            }
+            return false;
+        },
     },
 
     watch: {
@@ -164,6 +187,14 @@ export default {
         nodeVMs() {
             this.rootVM.selectedVM = undefined;
             this.rootVM.watchValue(this.rootVM.value);
+        },
+        currentExpanded(currentExpanded) {
+            if(currentExpanded)
+                this.childrenRendered = true;
+        },
+        'node.childrenRendered'(childrenRendered) {
+            if(childrenRendered)
+                this.childrenRendered = true;
         },
     },
 
@@ -218,7 +249,7 @@ export default {
         toggle(expanded) {
             if (this.currentDisabled)
                 return;
-            if (!(this.node && this.$at(this.node, this.currentChildrenField)
+            if (!(this.hasChildren
                 || this.nodeVMs.length
                 || (this.node && !this.$at(this.node, this.rootVM.isLeafField) && this.rootVM.currentDataSource && this.rootVM.currentDataSource.load)))
                 return;
@@ -346,6 +377,44 @@ export default {
             );
 
             this.rootVM.onCheck(this, checked, oldChecked);
+        },
+        renderSelectedVm() {
+            if(!this.rootVM?.value) return;
+
+            const { value, valueField } = this.rootVM;
+            const { currentFields, node, $at } = this;
+
+            const that = this;
+            function dfs(node, parent = null, fields) {
+                if(!node) return;
+
+                if($at(node, valueField) === value) {
+                    if(parent)
+                        that.$set(parent, 'childrenRendered', true);
+                    return;
+                }
+
+                if(!fields) {
+                    const childrenField = node.childrenField || that.rootVM.childrenField;
+                    const moreChildrenFields = node.moreChildrenFields || that.rootVM.moreChildrenFields;
+                    fields = [childrenField];
+                    if(moreChildrenFields)
+                        fields = fields.concat(moreChildrenFields);
+                }
+
+                for(const field of fields) {
+                    if(!$at(node, field)) continue;
+
+                    for(const child of $at(node, field)) {
+                        dfs(child, node);
+                    }
+                    
+                }
+
+                if(node.childrenRendered && parent)
+                    that.$set(parent, 'childrenRendered', true);
+            }
+            dfs(node, null, currentFields);
         },
     },
 };
