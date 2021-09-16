@@ -132,12 +132,16 @@ export default {
             // }
         },
         currentMoreChildrenFields() {
+            let fields;
             if (this.moreChildrenFields)
-                return this.moreChildrenFields;
+                fields = this.moreChildrenFields;
             else if (this.node && this.node.moreChildrenFields)
-                return this.node.moreChildrenFields;
+                fields = this.node.moreChildrenFields;
             else
-                return this.rootVM.moreChildrenFields;
+                fields = this.rootVM.moreChildrenFields;
+
+            const { excludeFields } = this.rootVM;
+            return fields?.filter((item) => !excludeFields.includes(item));
             // let vm = this;
             // while (vm) {
             //     if (vm.moreChildrenFields)
@@ -170,7 +174,7 @@ export default {
                 return false;
 
             for(const field of this.currentFields) {
-                if(this.$at(node, field))
+                if(this.$at(node, field) && this.$at(node, field).length !== 0)
                     return true;
             }
             return false;
