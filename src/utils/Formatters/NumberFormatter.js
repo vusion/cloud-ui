@@ -8,6 +8,8 @@ export class NumberFormatter extends Formatter {
 
     format(value, pattern) {
         pattern = pattern || this.pattern;
+        if (typeof value !== 'number')
+            return pattern.replace(/[0#.,]+/, value);
 
         const number = (pattern.match(/[0#.,]+/) || ['0'])[0];
         const parts = number.split('.');
