@@ -1,7 +1,7 @@
 ### 基本用法
 
 ``` html
-<u-modal ref="modal1">
+<u-modal>
     <template #title>
         <u-text text="标题"></u-text>
     </template>
