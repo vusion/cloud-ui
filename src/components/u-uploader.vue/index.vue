@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div v-if="(multiple || currentValue.length === 0) && !draggable && !readonly" :class="$style.card" role="select" @click="select()">
+            <div v-if="uploadEnable && !draggable && !readonly" :class="$style.card" role="select" @click="select()">
                 <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
             </div>
         </template>
@@ -96,6 +96,11 @@ export default {
             lightboxVisible: false,
             currentIndex: 0,
         };
+    },
+    computed: {
+        uploadEnable() {
+            return this.multiple ? this.currentValue.length < this.limit : this.currentValue.length === 0;
+        },
     },
     watch: {
         value(value) {
