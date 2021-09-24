@@ -27,6 +27,7 @@ export default { name: 'l-dashboard' };
     right: 0;
     top: 0;
     height: 100%;
+    min-height: 600px;
 }
 
 .head {
