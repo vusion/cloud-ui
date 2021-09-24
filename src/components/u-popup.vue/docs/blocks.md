@@ -3,7 +3,7 @@
 将需要弹出的内容用`<u-popup>`包裹起来，并插入到触发事件的元素中。
 
 ``` html
-<u-popup ref="popup1">
+<u-popup>
     <template #title>
         <span>标题 <u-badge :value="3"></u-badge></span>
     </template>
