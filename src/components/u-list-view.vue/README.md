@@ -1391,7 +1391,7 @@ export default {
 | remote-filtering | boolean |  | `false` | 是否使用后端过滤 |
 | pageable | boolean |  | `false` | 是否需要分页 |
 | page-size | number |  | `50` | 分页大小 |
-| remote-paging | number |  | `false` | 是否使用后端分页 |
+| remote-paging | boolean |  | `false` | 是否使用后端分页 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | size | enum | `'normal'`<br/>`'large'`<br/>`'huge'`<br/>`'auto'`<br/>`'full'` |  | 设置尺寸。五种宽高的自由组合。 |

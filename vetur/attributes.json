@@ -2165,7 +2165,7 @@
     "description": "分页大小"
   },
   "u-list-view/remote-paging": {
-    "type": "number",
+    "type": "boolean",
     "description": "是否使用后端分页"
   },
   "u-list-view/readonly": {
