@@ -1,12 +1,12 @@
 <template>
 <div :class="$style.header">
-    <input :class="$style.input" :placeholder="placeholder" @click.stop="$refs.popper.toggle(true)" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}" @change="onInput($event)">
+    <input :class="$style.input" :placeholder="placeholder" @click.stop="$refs.popper.toggle(true)" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}" @change="onInput($event)" @focus="onFocus" @blur="onBlur" :color="formItemVM && formItemVM.color">
     <span v-if="showDate && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
         <i :class="[$style.closeIcon]"></i>
     </span>
     <m-popper :class="$style.popper" ref="popper" append-to="reference" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="closeCalendar">
         <div :class="$style.body" @click.stop>
-            <u-calendar :picker="picker" ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="showDate"  :value="date" @select="select($event.date)"></u-calendar>
+            <u-calendar :picker="picker" ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="showDate" :value="date" @select="select($event.date)"></u-calendar>
         </div>
     </m-popper>
 </div>
@@ -15,7 +15,7 @@
 <script>
 import Calendar from '../u-calendar.vue';
 import { clickOutside } from '../../directives';
-import { format, transformDate, ChangeDate} from '../../utils/date';
+import { format, transformDate, ChangeDate } from '../../utils/date';
 import MField from '../m-field.vue';
 import i18n from './i18n';
 const MS_OF_DAY = 24 * 3600 * 1000;
@@ -111,15 +111,15 @@ export default {
             if ((minDate / MS_OF_DAY) >> 0 > (maxDate / MS_OF_DAY) >> 0)
                 throw new Calendar.DateRangeError(minDate, maxDate);
         }
-        this.$emit(
-            'input',
-            this.toValue(this.showDate ? new Date(this.transformDate(this.showDate)) : ''),
-        ); // document.addEventListener('click', this.fadeOut, false);
+        // this.$emit(
+        //     'input',
+        //     this.toValue(this.showDate ? new Date(this.transformDate(this.showDate)) : ''),
+        // ); // document.addEventListener('click', this.fadeOut, false);
     },
     methods: {
         getFormatString() {
             if (this.picker === 'date') {
-                return 'YYYY-MM-DD'
+                return 'YYYY-MM-DD';
             }
 
             if (this.picker === 'year') {
@@ -141,7 +141,7 @@ export default {
                 return date;
             if (this.converter === 'format')
                 return this.format(date, 'YYYY-MM-DD'); // value 的真实格式
-            else if (this.converter === 'json') 
+            else if (this.converter === 'json')
                 return date.toJSON();
             else if (this.converter === 'timestamp')
                 return date.getTime();
@@ -255,6 +255,12 @@ export default {
         clearValue() {
             this.showDate = undefined;
         },
+        onBlur(e) {
+            this.$emit('blur', e, this);
+        },
+        onFocus(e) {
+            this.$emit('focus', e, this);
+        },
     },
 };
 </script>
@@ -281,6 +287,9 @@ export default {
     cursor: var(--cursor-not-allowed);
     background: #eee;
     color: var(--color-light);
+}
+.input[color="error"] {
+    border-color: var(--input-border-color-error);
 }
 
 .placeholder, .input::placeholder {
