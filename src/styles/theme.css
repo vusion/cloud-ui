@@ -101,7 +101,7 @@
     --color-base-inverse: white; /* 默认字体颜色 */
     --color-dark: #363a41; /* 默认字体颜色 */
     --border-color-light: #dee4ed; /* 面板等容器类型的边框颜色 */
-    --border-color-base: #E3E4E6; /* 输入框等小组件的边框颜色 */
+    --border-color-base: #E3E4E5; /* 输入框等小组件的边框颜色 */
     --border-color-base-inverse: #212123; /* 输入框等小组件的边框颜色 */
     --border-color-dark: #E3E4E5; /* 按钮等小组件的边框颜色 */
 

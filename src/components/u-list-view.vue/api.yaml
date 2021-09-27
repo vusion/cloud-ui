@@ -94,7 +94,7 @@
       default: 50
       description: 分页大小
     - name: remote-paging
-      type: number
+      type: boolean
       default: false
       description: 是否使用后端分页
     - name: readonly

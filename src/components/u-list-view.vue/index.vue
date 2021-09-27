@@ -449,21 +449,12 @@ export default {
         },
         onScroll(e) {
             this.throttledVirtualScroll(e);
-            if (
-                !(
-                    this.pageable === 'auto-more'
-                    || (this.pageable === true && this.$options.isSelect)
-                )
-            )
+            if (!(this.pageable === 'auto-more' || (this.pageable === true && this.$options.isSelect)))
                 return;
             if (this.currentLoading)
                 return;
             const el = e.target;
-            if (
-                el.scrollHeight === el.scrollTop + el.clientHeight
-                && this.currentDataSource
-                && this.currentDataSource.hasMore()
-            )
+            if (el.scrollHeight === el.scrollTop + el.clientHeight && this.currentDataSource && this.currentDataSource.hasMore())
                 this.debouncedLoad(true);
         },
         onInput(value) {
