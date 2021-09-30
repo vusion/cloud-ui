@@ -57,7 +57,7 @@
                 <tbody>
                     <template v-if="(!currentLoading && !currentError || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
                         <template v-for="(item, rowIndex) in currentData">
-                            <tr :key="rowIndex" :class="$style.row" :color="item.rowColor" :selected="selectable && selectedItem === item" @click="selectable && select(item)">
+                            <tr :key="rowIndex" :class="$style.row" :color="item.rowColor" :selected="selectable && selectedItem === item" @click="selectable && select(item)" :style="{ display: item.display }">
                                 <template v-if="$env.VUE_APP_DESIGNER">
                                     <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title
                                         allowChild
@@ -81,11 +81,12 @@
                                             </span>
                                             <!-- type === 'expander' -->
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click="toggleExpanded(item)"></span>
+                                            <span :class="$style.tree_expander" v-if="item.hasChildren && columnIndex===0" :expanded="item.expanded" @click="toggleExpanded(item)"></span>
                                             <!-- Normal text -->
                                             <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
                                                 <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                             </f-slot>
-                                        </div>
+                                       </div>
                                     </td>
                                 </template>
                                 <template v-else>
@@ -104,6 +105,11 @@
                                             </span>
                                             <!-- type === 'expander' -->
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click="toggleExpanded(item)"></span>
+                                            <template v-if="item.level !== undefined && columnIndex===0">
+                                                <span :class="$style.indent" :style="{ paddingLeft: 16*item.level + 'px' }"></span>
+                                                <span :class="$style.tree_expander" v-if="item.hasChildren" :expanded="item.expanded" @click="toggleTreeExpanded(item)"></span>
+                                                <span :class="$style.tree_placeholder" v-else></span>
+                                            </template>
                                             <!-- Normal text -->
                                             <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
                                                 <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
@@ -231,6 +237,8 @@ export default {
         resizeRemaining: { type: String, default: 'average' },
         showHead: { type: Boolean, default: true },
         color: String,
+        treeDisplay: { type: Boolean, default: false },
+        treeChildren: { type: String, default: 'children' },
     },
     data() {
         return {
@@ -258,7 +266,11 @@ export default {
                     tdEl.__vue__ = this.columnVMs[index % length];
                 });
             });
-            return this.currentDataSource ? this.currentDataSource.viewData.filter((item) => !!item) : this.currentDataSource;
+            let data = this.currentDataSource ? this.currentDataSource.viewData.filter((item) => !!item) : this.currentDataSource;
+            if (this.treeDisplay && data) {
+                data = this.processTreeData(data);
+            }
+            return data;
         },
         visibleColumnVMs() {
             return this.columnVMs.filter((columnVM) => !columnVM.hidden);
@@ -378,7 +390,7 @@ export default {
     mounted() {
         if (this.data)
             this.processData(this.data);
-        
+
         this.watchCurrentData();
         this.watchValue(this.value);
         this.watchValues(this.values);
@@ -804,8 +816,9 @@ export default {
         },
         watchCurrentData() {
             this.$watch(() => this.currentData, (currentData) => {
-                if(currentData)
+                if (currentData) {
                     this.processData(currentData);
+                }
             }, {
                 immediate: true,
             });
@@ -920,6 +933,35 @@ export default {
                         otherItem.expanded = false;
                 });
             }
+        },
+        processTreeData(data, level = 0, parent) {
+            let newData = [];
+            for (const item of data) {
+                item.level = level;
+                item.treeParent = parent;
+                if (item[this.treeChildren] && item[this.treeChildren].length) {
+                    item.hasChildren = true;
+                    item.expanded = false;
+                }
+                if (parent) {
+                    this.$set(item, 'display', 'none');
+                }
+                newData.push(item);
+                if (item[this.treeChildren] && item[this.treeChildren].length) {
+                    newData = newData.concat(this.processTreeData(item[this.treeChildren], level + 1, item));
+                }
+            }
+            return newData;
+        },
+        toggleTreeExpanded(item, expanded) {
+            if (expanded === undefined)
+                expanded = !item.expanded;
+            this.$set(item, 'expanded', expanded);
+            this.currentData.forEach((itemData) => {
+                if (itemData.treeParent === item) {
+                    itemData.display = expanded ? '' : 'none';
+                }
+            });
         },
     },
 };
@@ -1107,4 +1149,33 @@ export default {
 }
 
 .column-field {}
+
+.tree_expander {
+    display: inline-block;
+    width: var(--table-view-tree-expander-size);
+    height: var(--table-view-tree-expander-size);
+    line-height: var(--table-view-tree-expander-size);
+    text-align: center;
+    /* margin-left: calc(var(--table-view-tree-margin-left) * -1); */
+    transition: transform var(--transition-duration-base);
+}
+
+.tree_expander::before {
+    icon-font: url('i-material-design.vue/assets/filled/arrow_right.svg');
+}
+
+.tree_expander {
+    cursor: pointer;
+}
+
+.tree_expander[expanded] {
+    transform: rotate(90deg);
+}
+.tree_placeholder{
+    display: inline-block;
+    width: var(--table-view-tree-expander-size);
+    height: var(--table-view-tree-expander-size);
+    line-height: var(--table-view-tree-expander-size);
+    text-align: center;
+}
 </style>
