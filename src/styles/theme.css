@@ -916,6 +916,8 @@
     --table-view-row-selected-background: #e4eeff;
     --table-view-pagination-space: var(--space-base);
     --table-view-tree-expander-size: 20px;
+    --table-view-tree-expander-loading-size: 10px;
+    --table-view-tree-expander-loading-border-width: 1px;
 
     /* Transfer */
     --transfer-height: var(--list-view-height);

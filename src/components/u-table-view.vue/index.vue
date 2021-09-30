@@ -107,7 +107,7 @@
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click="toggleExpanded(item)"></span>
                                             <template v-if="item.level !== undefined && columnIndex===0">
                                                 <span :class="$style.indent" :style="{ paddingLeft: 16*item.level + 'px' }"></span>
-                                                <span :class="$style.tree_expander" v-if="item.hasChildren" :expanded="item.expanded" @click="toggleTreeExpanded(item)"></span>
+                                                <span :class="$style.tree_expander" v-if="item[treeHaschildrenField]" :expanded="item.expanded" @click="toggleTreeExpanded(item)" :loading="item.loading"></span>
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
                                             <!-- Normal text -->
@@ -238,7 +238,10 @@ export default {
         showHead: { type: Boolean, default: true },
         color: String,
         treeDisplay: { type: Boolean, default: false },
-        treeChildren: { type: String, default: 'children' },
+        treeChildrenField: { type: String, default: 'children' },
+        treeHaschildrenField: { type: String, default: 'hasChildren' },
+        treeDataSource: [DataSource, Function, Object, Array],
+        rowKey: { type: String, default: 'id' },
     },
     data() {
         return {
@@ -935,17 +938,17 @@ export default {
             let newData = [];
             for (const item of data) {
                 item.level = level;
-                item.treeParent = parent;
-                if (item[this.treeChildren] && item[this.treeChildren].length) {
-                    item.hasChildren = true;
-                    item.expanded = false;
+                item.treeParent = parent && `${parent[this.rowKey]}${parent.treeParent ? ',' + parent.treeParent : ''}`;
+                if (item[this.treeChildrenField] && item[this.treeChildrenField].length) {
+                    item[this.treeHaschildrenField] = true;
+                    item.expanded = item.expanded || false;
                 }
-                if (parent) {
+                if (parent && !item.hasOwnProperty('display')) {
                     this.$set(item, 'display', 'none');
                 }
                 newData.push(item);
-                if (item[this.treeChildren] && item[this.treeChildren].length) {
-                    newData = newData.concat(this.processTreeData(item[this.treeChildren], level + 1, item));
+                if (item[this.treeChildrenField] && item[this.treeChildrenField].length) {
+                    newData = newData.concat(this.processTreeData(item[this.treeChildrenField], level + 1, item));
                 }
             }
             return newData;
@@ -953,12 +956,52 @@ export default {
         toggleTreeExpanded(item, expanded) {
             if (expanded === undefined)
                 expanded = !item.expanded;
+            if (this.$emitPrevent('before-tree-toggle-expanded', { item, oldExpanded: !expanded, expanded }, this))
+                return;
             this.$set(item, 'expanded', expanded);
-            this.currentData.forEach((itemData) => {
-                if (itemData.treeParent === item) {
-                    itemData.display = expanded ? '' : 'none';
-                }
-            });
+            this.$emit('tree-toggle-expanded', { item, expanded }, this);
+            if (!item[this.treeChildrenField] && this.treeDataSource) {
+                this.$set(item, 'loading', true);
+                this.treeDataSource(item).then((res) => {
+                    const result = res;
+                    if (result instanceof Array) {
+                        item.children = result;
+                        const index = this.currentData.findIndex((currentData) => currentData[this.rowKey] === item[this.rowKey]);
+                        if (index !== -1) {
+                            const treeData = this.processTreeData(result, item.level + 1, item);
+                            this.currentData.splice(index + 1, 0, ...treeData);
+                            this.currentData.forEach((itemData) => {
+                                if (itemData.treeParent) {
+                                    if (expanded) {
+                                        if (itemData.treeParent.split(',')[0] === item[this.rowKey]) {
+                                            itemData.display = '';
+                                        }
+                                    } else {
+                                        if (itemData.treeParent.includes(item[this.rowKey])) {
+                                            itemData.display = 'none';
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                    }
+                    this.$set(item, 'loading', false);
+                });
+            } else {
+                this.currentData.forEach((itemData) => {
+                    if (itemData.treeParent) {
+                        if (expanded) {
+                            if (itemData.treeParent.split(',')[0] === item[this.rowKey]) {
+                                itemData.display = '';
+                            }
+                        } else {
+                            if (itemData.treeParent.includes(item[this.rowKey])) {
+                                itemData.display = 'none';
+                            }
+                        }
+                    }
+                });
+            }
         },
     },
 };
@@ -1174,5 +1217,22 @@ export default {
     height: var(--table-view-tree-expander-size);
     line-height: var(--table-view-tree-expander-size);
     text-align: center;
+}
+.tree_expander[icon="loading"]::before, /* @deprecated */
+.tree_expander[loading]::before {
+    content: '';
+    font: inherit;
+    display: inline-block;
+    width: var(--table-view-tree-expander-loading-size);
+    height: var(--table-view-tree-expander-loading-size);
+    border: var(--table-view-tree-expander-loading-border-width) solid currentColor;
+    border-top-color: transparent;
+    border-radius: var(--table-view-tree-expander-loading-size);
+    animation: rotate var(--spinner-animation-duration) ease-in-out var(--spinner-animation-delay) infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
 }
 </style>
