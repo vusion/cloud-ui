@@ -249,6 +249,7 @@ export default {
 .item {
     width: 50px;
     height: 34px;
+    padding: 0 4px;
 }
 .root .item input {
     box-sizing: border-box;
