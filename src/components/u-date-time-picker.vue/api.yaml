@@ -75,6 +75,7 @@
           value: ""
       default: format
       description: 转换器
+      advanced: true
   events:
     - name: select
       description: 日期值发生变化触发

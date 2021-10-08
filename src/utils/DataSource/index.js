@@ -307,8 +307,10 @@ const VueDataSource = Vue.extend({
         loadMore() {
             if (!this.hasMore())
                 return Promise.resolve([]);
-            else
-                return this.load(this.offset + this.limit).then(() => this.paging.number++);
+            else {
+                this.paging.number++;
+                return this.load(this.offset + this.limit);
+            }
         },
         reload() {
             this.clearLocalData();

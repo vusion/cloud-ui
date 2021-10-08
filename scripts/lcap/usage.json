@@ -13695,7 +13695,7 @@
             "Selector"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-date-time-picker.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-date-time-picker.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-date-time-picker.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.12.0/src/components/u-date-time-picker.vue/screenshots/3.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-date-time-picker date=\\\"2018-08-08\\\"></u-date-time-picker>\\n</template>\\n\"},{\"title\":\"只读\",\"description\":\"\",\"code\":\"<template>\\n   <u-date-time-picker date=\\\"2018-08-08\\\" readonly></u-date-time-picker>\\n</template>\\n\"},{\"title\":\"禁用\",\"description\":\"\",\"code\":\"<template>\\n<u-date-time-picker date=\\\"2018-08-08\\\" disabled></u-date-time-picker>\\n</template>\\n\"},{\"title\":\"最大值和最小值\",\"description\":\"\",\"code\":\"<template>\\n<u-date-time-picker date=\\\"2017-05-12 8:00:00\\\" min-date=\\\"2017-01-10 07:00:00\\\" max-date=\\\"2017-12-12 07:00:00\\\"></u-date-time-picker>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-date-time-picker date=\\\"2018-08-08\\\" converter=\\\"json\\\"></u-date-time-picker>\\n</template>\\n\"},{\"title\":\"只读\",\"description\":\"\",\"code\":\"<template>\\n   <u-date-time-picker date=\\\"2018-08-08\\\" readonly converter=\\\"json\\\"></u-date-time-picker>\\n</template>\\n\"},{\"title\":\"禁用\",\"description\":\"\",\"code\":\"<template>\\n<u-date-time-picker date=\\\"2018-08-08\\\" disabled converter=\\\"json\\\"></u-date-time-picker>\\n</template>\\n\"},{\"title\":\"最大值和最小值\",\"description\":\"\",\"code\":\"<template>\\n<u-date-time-picker date=\\\"2017-05-12 8:00:00\\\" min-date=\\\"2017-01-10 07:00:00\\\" max-date=\\\"2017-12-12 07:00:00\\\" converter=\\\"json\\\"></u-date-time-picker>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-date-time-picker",
             "title": "日期时间选择",
@@ -13709,22 +13709,22 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-date-time-picker date=\"2018-08-08\"></u-date-time-picker>\n</template>\n"
+                    "code": "<template>\n<u-date-time-picker date=\"2018-08-08\" converter=\"json\"></u-date-time-picker>\n</template>\n"
                 },
                 {
                     "title": "只读",
                     "description": "",
-                    "code": "<template>\n   <u-date-time-picker date=\"2018-08-08\" readonly></u-date-time-picker>\n</template>\n"
+                    "code": "<template>\n   <u-date-time-picker date=\"2018-08-08\" readonly converter=\"json\"></u-date-time-picker>\n</template>\n"
                 },
                 {
                     "title": "禁用",
                     "description": "",
-                    "code": "<template>\n<u-date-time-picker date=\"2018-08-08\" disabled></u-date-time-picker>\n</template>\n"
+                    "code": "<template>\n<u-date-time-picker date=\"2018-08-08\" disabled converter=\"json\"></u-date-time-picker>\n</template>\n"
                 },
                 {
                     "title": "最大值和最小值",
                     "description": "",
-                    "code": "<template>\n<u-date-time-picker date=\"2017-05-12 8:00:00\" min-date=\"2017-01-10 07:00:00\" max-date=\"2017-12-12 07:00:00\"></u-date-time-picker>\n</template>\n"
+                    "code": "<template>\n<u-date-time-picker date=\"2017-05-12 8:00:00\" min-date=\"2017-01-10 07:00:00\" max-date=\"2017-12-12 07:00:00\" converter=\"json\"></u-date-time-picker>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -13827,7 +13827,8 @@
                         }
                     ],
                     "default": "format",
-                    "description": "转换器"
+                    "description": "转换器",
+                    "advanced": true
                 }
             ],
             "events": [
