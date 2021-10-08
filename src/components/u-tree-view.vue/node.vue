@@ -103,7 +103,7 @@ export default {
         };
     },
     created() {
-        if(this.$parent?.$options.name === 'u-tree-view')
+        if(this.$parent && this.$parent.$options.name === 'u-tree-view')
            this.renderSelectedVm(); 
     },
     computed: {
@@ -141,7 +141,8 @@ export default {
                 fields = this.rootVM.moreChildrenFields;
 
             const { excludeFields } = this.rootVM;
-            return fields?.filter((item) => !excludeFields.includes(item));
+            fields = fields || [];
+            return fields.filter((item) => !excludeFields.includes(item));
             // let vm = this;
             // while (vm) {
             //     if (vm.moreChildrenFields)
@@ -383,7 +384,7 @@ export default {
             this.rootVM.onCheck(this, checked, oldChecked);
         },
         renderSelectedVm() {
-            if(!this.rootVM?.value) return;
+            if(!this.rootVM || !this.rootVM.value) return;
 
             const { value, valueField } = this.rootVM;
             const { currentFields, node, $at } = this;
