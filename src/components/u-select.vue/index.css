@@ -70,6 +70,9 @@
     color: var(--select-arrow-color);
     transition: transform var(--transition-duration-base);
 }
+.root:hover::after {
+    color: var(--select-arrow-color-hover);
+}
 .root[opened]::after {
     transform: rotate(-180deg);
 }

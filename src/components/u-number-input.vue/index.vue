@@ -286,6 +286,11 @@ export default {
     line-height: calc((100% / 2) + 4px);
 }
 
+.root[size="huge"] .button {
+    height: calc(var(--input-height-huge) / 2 - 1px);
+    line-height: calc(var(--input-height-huge) / 2 - 1px);
+}
+
 .root[size="mini"] .button[role="up"] {
     height: calc((100% - 1px) / 2 + 1px);
 }
