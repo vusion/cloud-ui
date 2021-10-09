@@ -30,6 +30,7 @@ export * from './u-badge.vue';
 export * from './u-block.vue';
 export * from './u-button.vue';
 export * from './u-calendar.vue';
+export * from './u-calendar-view.vue';
 export * from './u-capsules.vue';
 export * from './u-carousel.vue';
 export * from './u-cascade-capsules.vue';

@@ -1,0 +1,52 @@
+- name: u-calendar-view
+  title: 日历
+  attrs:
+    - name: date
+      title: 值
+      type: Date | string
+      sync: true
+      model: true
+      default: TODAY
+      description: 当前选择的日期
+    - name: min-date
+      title: 最小日期
+      type: Date | string
+      default: null
+      description: 最小日期，如果为空则不限制
+    - name: max-date
+      title: 最大日期
+      type: Date | string
+      default: text
+      description: 最大日期，如果为空则不限制
+    - name: first-day-of-week
+      title: 周起始日
+      type: number
+      default: 1
+      description: 周起始日，1～7（周一～周日）
+    - name: show-week-number
+      title: 展示周数
+      type: boolean
+      default: false
+      description: 是否展示周数
+  slots:
+    - name: default
+      description: 插入文本或 HTML 至日期组件底部
+  events:
+    - name: change
+      title: 改变后
+      description: 日期改变时触发
+      params:
+        - name: date
+          type: object
+          description: 改变后的日期
+          schema:
+            $ref: "#/basicTypes/DateTime"
+    - name: select
+      title: 选择后
+      description: 选择某一个日期时触发
+      params:
+        - name: date
+          type: object
+          description: 当前选择的日期
+          schema:
+            $ref: "#/basicTypes/DateTime"
