@@ -2297,9 +2297,9 @@
     "type": "string",
     "description": "弹窗的内容"
   },
-  "u-modal/heading": {
+  "u-modal/description": {
     "type": "string",
-    "description": "弹窗的内容"
+    "description": "弹窗的详情描述"
   },
   "u-modal/visible": {
     "type": "boolean",

@@ -2,35 +2,21 @@
 
 # UModal 弹窗
 
-- [UModal 弹窗](#umodal-弹窗)
-  - [示例](#示例)
+- [示例](#示例)
     - [基本用法](#基本用法)
     - [快捷方式](#快捷方式)
     - [Static](#static)
     - [标题与内容](#标题与内容)
-    - [图标、小标题与描述](#图标小标题与描述)
+    - [图标、小标题与描述](#图标-小标题与描述)
     - [改变主要按钮](#改变主要按钮)
     - [禁用按钮](#禁用按钮)
     - [自定义](#自定义)
     - [大小扩展](#大小扩展)
-  - [API](#api)
+- [API]()
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
-      - [title](#title)
-      - [head](#head)
-      - [body](#body)
-      - [foot](#foot)
-      - [heading](#heading)
-      - [(default)](#default)
     - [Events](#events)
-      - [@before-open](#before-open)
-      - [@open](#open)
-      - [@ok](#ok)
-      - [@cancel](#cancel)
-      - [@before-close](#before-close)
-      - [@close](#close)
-      - [alert(content, title)](#alertcontent-title)
-      - [confirm(content, title)](#confirmcontent-title)
+    - [Methods](#methods)
 
 ## 示例
 ### 基本用法
@@ -65,6 +51,7 @@ export default {
 <u-linear-layout gap="small">
     <u-button @click="alert()">Alert</u-button>
     <u-button @click="confirm()">Confirm</u-button>
+    <u-button @click="custom()">Custom</u-button>
 </u-linear-layout>
 </template>
 
@@ -76,6 +63,17 @@ export default {
         },
         confirm() {
             this.$confirm('是否要删除该任务？').then(() => {
+                console.info('用户点击了确定。');
+            }).catch(() => {
+                console.info('用户点击了取消。');
+            });
+        },
+        custom() {
+            this.$confirm({
+                title: '删除',
+                content: '是否要删除该任务？',
+                icon: 'error',
+            }).then(() => {
                 console.info('用户点击了确定。');
             }).catch(() => {
                 console.info('用户点击了取消。');
@@ -102,9 +100,12 @@ export default {
 
 ``` html
 <u-modal title="删除" content="确定删除该服务吗？" icon="warning" visible static>
-    <span #description>删除后不可恢复。</span>
+    <template #description>
+        <span>删除后不可恢复。</span>
+    </template>
 </u-modal>
-<u-modal title="创建" content="创建成功" icon="success" visible static></u-modal>
+<u-modal title="创建" content="创建成功!" icon="success" visible static></u-modal>
+<u-modal title="创建" content="创建失败!" icon="error" visible static></u-modal>
 ```
 
 ### 改变主要按钮
@@ -156,7 +157,7 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | title | string |  | `'提示'` | 弹窗的标题 |
 | content | string |  | `'提示内容'` | 弹窗的内容 |
-| heading | string |  | `'提示内容'` | 弹窗的内容 |
+| description | string |  | `'详情描述'` | 弹窗的详情描述 |
 | visible.sync | boolean |  | `false` | 是否显示 |
 | ok-button | string |  | `'确定'` | 确定按钮文本，如果为空则不显示 |
 | cancel-button | string |  | `'取消'` | 取消按钮文本，如果为空则不显示 |

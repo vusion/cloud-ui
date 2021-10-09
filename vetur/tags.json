@@ -942,7 +942,7 @@
     "attributes": [
       "title",
       "content",
-      "heading",
+      "description",
       "visible",
       "ok-button",
       "cancel-button",
