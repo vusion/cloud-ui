@@ -54,6 +54,10 @@ export default {
     color: var(--icon-tooltip-color);
 }
 
+.root:hover {
+    color: var(--brand-primary);
+}
+
 .root::before {
     icon-font: url('./assets/info.svg');
 }

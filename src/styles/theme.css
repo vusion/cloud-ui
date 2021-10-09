@@ -350,7 +350,7 @@
 
     /* Table */
     --table-background: var(--background-color-default);
-    --table-head-background: var(--background-color-light);
+    --table-head-background: #F7F8FA;
     --table-head-background-light: var(--background-color-default);
     --table-row-background: var(--background-color-base);
     --table-row-background-hover: var(--background-color-lighter);
@@ -364,9 +364,9 @@
     --table-border-width: 1px;
     --table-td-color: var(--color-base);
     --table-th-line-height: 20px;
-    --table-th-padding: 13px 6px 13px 10px;
+    --table-th-padding: 12px 6px 12px 10px;
     --table-td-line-height: 20px;
-    --table-td-padding: 14px 6px 14px 10px;
+    --table-td-padding: 20px 6px 20px 10px;
 
     /* Article */
     --article-table-font-size: calc(var(--font-size-base) * (13 / 14));
@@ -907,7 +907,7 @@
     --tree-view-node-background-selected-disabled-inverse: var(--brand-disabled-light-inverse);
 
     /* Table View */
-    --table-view-head-item-color: #333;
+    --table-view-head-item-color: #999;
     --table-view-table-shadow: 2px 0 6px -2px rgba(0, 0, 0, 0.2);
     --table-view-table-right-shadow: -2px 0 6px -2px rgba(0, 0, 0, 0.2);
     --table-view-filter-background: white;
@@ -974,7 +974,7 @@
     --tooltip-box-shadow: 0px 2px 6px rgba(23, 23, 26, 0.1);
 
     /* Icon Tooltip */
-    --icon-tooltip-color: #cccccc;
+    --icon-tooltip-color: #666;
 
     /* Spinner */
     --spinner-animation-duration: 1s;

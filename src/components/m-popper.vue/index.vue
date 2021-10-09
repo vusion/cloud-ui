@@ -157,6 +157,7 @@ export default {
             options.escapeWithReference = this.escapeWithReference;
             options.modifiers.arrow = { element: this.arrowElement };
             options.modifiers.preventOverflow = {
+                enabled: false,
                 boundariesElement: this.boundariesElement,
             };
             return options;

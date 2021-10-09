@@ -156,41 +156,35 @@ export const UModal = {
     },
     install(Vue, id) {
         const Ctor = Vue.component(id);
-        Vue.prototype.$alert = (content, title, okButton) => {
+        Vue.prototype.$alert = (content, title, okButton) => new Promise((resolve, reject) => {
             const propsData = typeof content === 'object' ? content : { content, title, okButton, cancelButton: '' };
-            return new Promise((resolve, reject) => {
-                const instance = new Ctor({
-                    propsData,
-                });
-
-                instance.$on('ok', () => resolve(true));
-                instance.open();
+            const instance = new Ctor({
+                propsData,
             });
-        };
-        Vue.prototype.$confirm = (content, title, okButton, cancelButton) => {
+
+            instance.$on('ok', () => resolve(true));
+            instance.open();
+        });
+        Vue.prototype.$confirm = (content, title, okButton, cancelButton) => new Promise((resolve, reject) => {
             const propsData = typeof content === 'object' ? content : { content, title, okButton, cancelButton: '' };
-            return new Promise((resolve, reject) => {
-                const instance = new Ctor({
-                    propsData,
-                });
-
-                instance.$on('ok', () => resolve(true));
-                instance.$on('cancel', () => reject(false));
-                instance.open();
+            const instance = new Ctor({
+                propsData,
             });
-        };
-        Vue.prototype.$confirmResult = (content, title, okButton, cancelButton) => {
+
+            instance.$on('ok', () => resolve(true));
+            instance.$on('cancel', () => reject(false));
+            instance.open();
+        });
+        Vue.prototype.$confirmResult = (content, title, okButton, cancelButton) => new Promise((resolve, reject) => {
             const propsData = typeof content === 'object' ? content : { content, title, okButton, cancelButton: '' };
-            return new Promise((resolve, reject) => {
-                const instance = new Ctor({
-                    propsData,
-                });
-
-                instance.$on('ok', () => resolve(true));
-                instance.$on('cancel', () => resolve(false));
-                instance.open();
+            const instance = new Ctor({
+                propsData,
             });
-        };
+
+            instance.$on('ok', () => resolve(true));
+            instance.$on('cancel', () => resolve(false));
+            instance.open();
+        });
     },
 };
 
