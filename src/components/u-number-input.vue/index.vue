@@ -286,7 +286,7 @@ export default {
     line-height: calc((100% / 2) + 4px);
 }
 
-.root[size="huge"] .button {
+.root[size*="huge"] .button {
     height: calc(var(--input-height-huge) / 2 - 1px);
     line-height: calc(var(--input-height-huge) / 2 - 1px);
 }
