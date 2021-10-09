@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" vusion-slot-name="default">
+<div :class="[$style.root, $env.VUE_APP_DESIGNER ? $style.height : null]" vusion-slot-name="default">
     <slot></slot>
     <div v-if="!$slots.default" :class="$style.box" :active="active">
         <u-text :text="text"></u-text>
@@ -35,5 +35,9 @@ export default {
     background: rgba(78, 117, 236, 0.1);
     border: 1px dashed #4E75EC;
     color: #4E75EC;
+}
+
+.height {
+    min-height: 200px;
 }
 </style>
