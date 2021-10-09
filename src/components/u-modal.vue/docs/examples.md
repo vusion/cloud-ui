@@ -30,6 +30,7 @@ export default {
 <u-linear-layout gap="small">
     <u-button @click="alert()">Alert</u-button>
     <u-button @click="confirm()">Confirm</u-button>
+    <u-button @click="custom()">Custom</u-button>
 </u-linear-layout>
 </template>
 
@@ -41,6 +42,17 @@ export default {
         },
         confirm() {
             this.$confirm('是否要删除该任务？').then(() => {
+                console.info('用户点击了确定。');
+            }).catch(() => {
+                console.info('用户点击了取消。');
+            });
+        },
+        custom() {
+            this.$confirm({
+                title: '删除',
+                content: '是否要删除该任务？',
+                icon: 'error',
+            }).then(() => {
                 console.info('用户点击了确定。');
             }).catch(() => {
                 console.info('用户点击了取消。');
@@ -66,8 +78,13 @@ export default {
 ### 图标、小标题与描述
 
 ``` html
-<u-modal title="删除" heading="确定删除该服务吗？" icon="warning" visible static>删除后不可恢复。</u-modal>
-<u-modal title="创建" heading="创建成功" icon="success" visible static></u-modal>
+<u-modal title="删除" content="确定删除该服务吗？" icon="warning" visible static>
+    <template #description>
+        <span>删除后不可恢复。</span>
+    </template>
+</u-modal>
+<u-modal title="创建" content="创建成功!" icon="success" visible static></u-modal>
+<u-modal title="创建" content="创建失败!" icon="error" visible static></u-modal>
 ```
 
 ### 改变主要按钮

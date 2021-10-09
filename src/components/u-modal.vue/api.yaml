@@ -11,11 +11,11 @@
       type: string
       default: 提示内容
       description: 弹窗的内容
-    - name: heading
-      title: 内容头部
+    - name: description
+      title: 详情描述
       type: string
-      default: 提示内容
-      description: 弹窗的内容
+      default: 详情描述
+      description: 弹窗的详情描述
     - name: visible
       title: 是否显示
       type: boolean

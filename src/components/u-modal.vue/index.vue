@@ -20,8 +20,8 @@
                 <div :class="$style.body" :icon="icon">
                     <slot name="body">
                         <div :class="$style.text">
-                            <div :class="$style.heading"><slot name="heading">{{ heading }}</slot></div>
                             <div :class="$style.content"><slot>{{ content }}</slot></div>
+                            <div :class="$style.description"><slot name="description">{{ description }}</slot></div>
                         </div>
                     </slot>
                 </div>
@@ -40,7 +40,6 @@
 </template>
 
 <script>
-import Vue from 'vue';
 import { clickOutside } from '../../directives';
 import i18n from './i18n';
 import MEmitter from '../m-emitter.vue';
@@ -59,7 +58,7 @@ export const UModal = {
             },
         },
         content: String,
-        heading: String,
+        description: String,
         okButton: {
             type: String,
             default() {
@@ -157,35 +156,41 @@ export const UModal = {
     },
     install(Vue, id) {
         const Ctor = Vue.component(id);
-        Vue.prototype.$alert = (content, title, okButton) =>
-            new Promise((resolve, reject) => {
+        Vue.prototype.$alert = (content, title, okButton) => {
+            const propsData = typeof content === 'object' ? content : { content, title, okButton, cancelButton: '' };
+            return new Promise((resolve, reject) => {
                 const instance = new Ctor({
-                    propsData: { content, title, okButton, cancelButton: '' },
+                    propsData,
                 });
 
                 instance.$on('ok', () => resolve(true));
                 instance.open();
             });
-        Vue.prototype.$confirm = (content, title, okButton, cancelButton) =>
-            new Promise((resolve, reject) => {
+        };
+        Vue.prototype.$confirm = (content, title, okButton, cancelButton) => {
+            const propsData = typeof content === 'object' ? content : { content, title, okButton, cancelButton: '' };
+            return new Promise((resolve, reject) => {
                 const instance = new Ctor({
-                    propsData: { content, title, okButton, cancelButton },
+                    propsData,
                 });
 
                 instance.$on('ok', () => resolve(true));
                 instance.$on('cancel', () => reject(false));
                 instance.open();
             });
-        Vue.prototype.$confirmResult = (content, title, okButton, cancelButton) =>
-            new Promise((resolve, reject) => {
+        };
+        Vue.prototype.$confirmResult = (content, title, okButton, cancelButton) => {
+            const propsData = typeof content === 'object' ? content : { content, title, okButton, cancelButton: '' };
+            return new Promise((resolve, reject) => {
                 const instance = new Ctor({
-                    propsData: { content, title, okButton, cancelButton },
+                    propsData,
                 });
 
                 instance.$on('ok', () => resolve(true));
                 instance.$on('cancel', () => resolve(false));
                 instance.open();
             });
+        };
     },
 };
 
@@ -273,8 +278,8 @@ export default UModal;
 }
 
 .close::before {
-    icon-font: url("../i-icon.vue/icons/close.svg");
-    font-size: var(--modal-title-font-size);
+    icon-font: url("./assets/close.svg");
+    font-size: 12px;
 }
 
 .body {
@@ -283,7 +288,7 @@ export default UModal;
 }
 
 .body[icon] {
-    margin-top: 50px;
+    margin: 34px 60px;
 }
 
 .body[icon]::before {
@@ -293,39 +298,40 @@ export default UModal;
 }
 
 .body[icon="warning"]::before {
-    icon-font: url('../i-icon.vue/assets/warning.svg');
-    color: #fbcc3e;
-    font-size: 40px;
-    line-height: 40px;
+    icon-font: url('./assets/warning.svg');
+    color: #FFAF0F;
+    font-size: 48px;
+    line-height: 48px;
 }
 
 .body[icon="success"]::before {
-    icon-font: url('../i-icon.vue/assets/success.svg');
-    color: #3ad0af;
-    font-size: 40px;
-    line-height: 40px;
+    icon-font: url('./assets/success.svg');
+    color: #26BD71;
+    font-size: 48px;
+    line-height: 48px;
 }
 
 .body[icon="error"]::before {
-    icon-font: url('../i-icon.vue/assets/error.svg');
-    color: #ff867f;
-    font-size: 40px;
-    line-height: 40px;
+    icon-font: url('./assets/warning.svg');
+    color: #F24957;
+    font-size: 48px;
+    line-height: 48px;
 }
 
 .body[icon] .text {
-    margin-left: 50px;
-}
-
-.heading {
-    font-size: 20px;
-    line-height: 24px;
-    margin-bottom: 10px;
-    color: var(--color-base);
+    margin-left: calc(48px + 16px);
+    min-height: 48px;
 }
 
 .content {
-    color: var(--color-light);
+    font-size: 14px;
+    color: var(--color-base);
+}
+
+.description {
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--color-base);
 }
 
 .foot {

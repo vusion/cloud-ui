@@ -1019,8 +1019,8 @@
     --modal-dialog-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     --modal-title-font-size: var(--font-size-large);
     --modal-close-right: 24px;
-    --modal-close-color: var(--gray-light);
-    --modal-close-color-hover: var(--color-light);
+    --modal-close-color: var(--gray-dark);
+    --modal-close-color-hover: var(--gray-darker);
     --modal-head-padding: 13px 24px;
     --modal-static-padding: var(--space-base);
     --modal-body-margin: 25px 24px;
@@ -1035,8 +1035,8 @@
     --drawer-wrap-background: rgba(0, 0, 0, 0.6);
     --drawer-background: white;
     --drawer-close-size: 15px;
-    --drawer-close-color: var(--gray-light);
-    --drawer-close-color-hover: var(--color-light);
+    --drawer-close-color: var(--gray-dark);
+    --drawer-close-color-hover: var(--gray-darker);
     --drawer-head-padding: 15px;
     --drawer-body-padding: 15px;
     --drawer-foot-padding: 20px 15px;

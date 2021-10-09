@@ -2,21 +2,35 @@
 
 # UModal 弹窗
 
-- [示例](#示例)
+- [UModal 弹窗](#umodal-弹窗)
+  - [示例](#示例)
     - [基本用法](#基本用法)
     - [快捷方式](#快捷方式)
     - [Static](#static)
     - [标题与内容](#标题与内容)
-    - [图标、小标题与描述](#图标-小标题与描述)
+    - [图标、小标题与描述](#图标小标题与描述)
     - [改变主要按钮](#改变主要按钮)
     - [禁用按钮](#禁用按钮)
     - [自定义](#自定义)
     - [大小扩展](#大小扩展)
-- [API]()
+  - [API](#api)
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
+      - [title](#title)
+      - [head](#head)
+      - [body](#body)
+      - [foot](#foot)
+      - [heading](#heading)
+      - [(default)](#default)
     - [Events](#events)
-    - [Methods](#methods)
+      - [@before-open](#before-open)
+      - [@open](#open)
+      - [@ok](#ok)
+      - [@cancel](#cancel)
+      - [@before-close](#before-close)
+      - [@close](#close)
+      - [alert(content, title)](#alertcontent-title)
+      - [confirm(content, title)](#confirmcontent-title)
 
 ## 示例
 ### 基本用法
@@ -87,8 +101,10 @@ export default {
 ### 图标、小标题与描述
 
 ``` html
-<u-modal title="删除" heading="确定删除该服务吗？" icon="warning" visible static>删除后不可恢复。</u-modal>
-<u-modal title="创建" heading="创建成功" icon="success" visible static></u-modal>
+<u-modal title="删除" content="确定删除该服务吗？" icon="warning" visible static>
+    <span #description>删除后不可恢复。</span>
+</u-modal>
+<u-modal title="创建" content="创建成功" icon="success" visible static></u-modal>
 ```
 
 ### 改变主要按钮
