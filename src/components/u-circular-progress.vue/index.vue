@@ -27,7 +27,7 @@ export default {
         content: String,
     },
     data() {
-        return { radius: 45 };
+        return { radius: 42 };
     },
     computed: {
         strokeDasharray() {
@@ -77,7 +77,8 @@ export default {
 
 .percent {
     font-size: var(--circular-progress-percent-font-size);
-    color: var(--color-light);
+    font-weight: var(--circular-progress-percent-font-weight);
+    color: var(--color-base);
     line-height: 30px;
 }
 

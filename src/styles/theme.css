@@ -633,7 +633,7 @@
     --form-required-right: 12px;
     --form-required-right-small: 2px;
     --form-required-right-large: 12px;
- 
+
     /* Field */
     --field-background: white;
     --field-color: var(--color-light);
@@ -974,7 +974,7 @@
     --tooltip-box-shadow: 0px 2px 6px rgba(23, 23, 26, 0.1);
 
     /* Icon Tooltip */
-    --icon-tooltip-color: #bac2cf;
+    --icon-tooltip-color: #cccccc;
 
     /* Spinner */
     --spinner-animation-duration: 1s;
@@ -1084,13 +1084,14 @@
 
     /* Circular Progress */
     --circular-progress-size: 100px;
-    --circular-progress-stroke-width: 6px;
+    --circular-progress-stroke-width: 10px;
     --circular-progress-track-stroke: var(--background-color-base);
     --circular-progress-trail-stroke: var(--brand-primary);
     --circular-progress-trail-transition: stroke 0.6s ease, stroke-dasharray 0.6s ease;
     --circular-progress-text-color: #999;
     --circular-progress-font-size: var(--font-size-base);
-    --circular-progress-percent-font-size: 20px;
+    --circular-progress-percent-font-size: var(--font-size-large);
+    --circular-progress-percent-font-weight: 600;
     --circular-progress-text-line-height: normal;
 
     /* Group */
