@@ -211,7 +211,7 @@ const VueDataSource = Vue.extend({
             return this.arrangedData.slice(offset, newOffset);
         },
         // _load(params)
-        load(offset, limit) {
+        load(offset, limit, newPageNumber) {
             if (offset === undefined)
                 offset = this.offset;
             if (limit === undefined)
@@ -236,6 +236,9 @@ const VueDataSource = Vue.extend({
                 this.params = {};
             }
             const paging = Object.assign({ offset: offset - this.prependedData.length, limit: this.limit }, this.paging);
+            if (newPageNumber !== undefined) {
+                paging.number = newPageNumber;
+            }
 
             const params = Object.assign({
                 paging,
@@ -308,8 +311,9 @@ const VueDataSource = Vue.extend({
             if (!this.hasMore())
                 return Promise.resolve([]);
             else {
-                this.paging.number++;
-                return this.load(this.offset + this.limit);
+                const newPageNumber = this.paging.number + 1;
+                return this.load(this.offset + this.limit, undefined, newPageNumber)
+                    .then(() => this.paging.number = newPageNumber);
             }
         },
         reload() {
