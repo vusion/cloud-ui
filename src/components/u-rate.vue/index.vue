@@ -31,6 +31,9 @@ export default {
         };
     },
     watch: {
+        value(value, oldValue) {
+            this.currentValue = value;
+        },
         currentValue(value, oldValue) {
             this.$emit('change', {
                 value,
