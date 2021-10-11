@@ -240,7 +240,7 @@ export default {
         treeDisplay: { type: Boolean, default: false },
         treeChildrenField: { type: String, default: 'children' },
         treeHaschildrenField: { type: String, default: 'hasChildren' },
-        treeDataSource: [DataSource, Function, Object, Array],
+        treeDataSource: [Function],
         rowKey: { type: String, default: 'id' },
     },
     data() {
@@ -937,17 +937,23 @@ export default {
                 });
             }
         },
+        /**
+         * 转换成平铺型数据
+         */
         processTreeData(data, level = 0, parent) {
             let newData = [];
             for (const item of data) {
                 item.level = level;
-                item.treeParent = parent && `${parent[this.rowKey]}${parent.treeParent ? ',' + parent.treeParent : ''}`;
+                item.parentPointer = parent && parent[this.rowKey];
                 if (item[this.treeChildrenField] && item[this.treeChildrenField].length) {
                     item[this.treeHaschildrenField] = true;
                     item.expanded = item.expanded || false;
                 }
                 if (parent && !item.hasOwnProperty('display')) {
                     this.$set(item, 'display', 'none');
+                }
+                if (!item.hasOwnProperty('loading')) {
+                    this.$set(item, 'loading', false);
                 }
                 newData.push(item);
                 if (item[this.treeChildrenField] && item[this.treeChildrenField].length) {
@@ -957,6 +963,8 @@ export default {
             return newData;
         },
         toggleTreeExpanded(item, expanded) {
+            if (item.loading)
+                return;
             if (expanded === undefined)
                 expanded = !item.expanded;
             if (this.$emitPrevent('before-tree-toggle-expanded', { item, oldExpanded: !expanded, expanded }, this))
@@ -965,46 +973,53 @@ export default {
             this.$emit('tree-toggle-expanded', { item, expanded }, this);
             if (!item[this.treeChildrenField] && this.treeDataSource) {
                 this.$set(item, 'loading', true);
+                this.$forceUpdate();
                 this.treeDataSource(item).then((res) => {
                     const result = res;
                     if (result instanceof Array) {
-                        item.children = result;
-                        const index = this.currentData.findIndex((currentData) => currentData[this.rowKey] === item[this.rowKey]);
-                        if (index !== -1) {
-                            const treeData = this.processTreeData(result, item.level + 1, item);
-                            this.currentData.splice(index + 1, 0, ...treeData);
-                            this.currentData.forEach((itemData) => {
-                                if (itemData.treeParent) {
-                                    if (expanded) {
-                                        if (itemData.treeParent.split(',')[0] === item[this.rowKey]) {
-                                            itemData.display = '';
-                                        }
-                                    } else {
-                                        if (itemData.treeParent.includes(item[this.rowKey])) {
-                                            itemData.display = 'none';
-                                        }
-                                    }
-                                }
-                            });
-                        }
+                        item[this.treeChildrenField] = result;
+                        // 促使currentData更新
+                        this.currentDataSource = this.normalizeDataSource(this.currentDataSource.viewData);
+                        this.updateTreeExpanded(item, expanded);
                     }
                     this.$set(item, 'loading', false);
                 });
             } else {
+                this.updateTreeExpanded(item, expanded);
+            }
+        },
+        /**
+         * 递归处理children情况
+         */
+        traverse(node, func) {
+            const list = node && node[this.treeChildrenField];
+            if (!list)
+                return;
+            for (let index = 0; index < list.length; index++) {
+                const child = list[index];
+                if (!child)
+                    continue;
+                func(child, node);
+                this.traverse(child, func);
+            }
+        },
+        updateTreeExpanded(expandNode, expanded) {
+            this.traverse(expandNode, (node, parent) => {
                 this.currentData.forEach((itemData) => {
-                    if (itemData.treeParent) {
+                    if (itemData.parentPointer === parent[this.rowKey]) {
                         if (expanded) {
-                            if (itemData.treeParent.split(',')[0] === item[this.rowKey]) {
-                                itemData.display = '';
+                            if (parent.expanded) {
+                                this.$set(itemData, 'display', '');
+                            } else {
+                                this.$set(itemData, 'display', 'none');
                             }
                         } else {
-                            if (itemData.treeParent.includes(item[this.rowKey])) {
-                                itemData.display = 'none';
-                            }
+                            this.$set(itemData, 'display', 'none');
                         }
                     }
                 });
-            }
+            });
+            this.$forceUpdate(); // 有loading的情况下，forceUpdate才会更新
         },
     },
 };
