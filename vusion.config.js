@@ -89,7 +89,7 @@ module.exports = {
             { group: 'Data', name: 'u-timeline', alias: '时间线' },
             { group: 'Data', name: 'u-countup', alias: '数字渐变' },
             { group: 'DateTime', name: 'u-calendar', alias: '日历' },
-            { group: 'DateTime', name: 'u-calendar-view', alias: '数据日历' },
+            { group: 'DateTime', name: 'u-calendar-view', alias: '日历' },
             { group: 'DateTime', name: 'u-date-picker', alias: '日期选择' },
             { group: 'DateTime', name: 'u-time-picker', alias: '时间选择' },
             { group: 'DateTime', name: 'u-date-time-picker', alias: '日期时间' },

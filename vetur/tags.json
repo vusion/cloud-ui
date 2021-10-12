@@ -328,6 +328,22 @@
     ],
     "description": "用于触发一个即时操作。"
   },
+  "u-calendar-view": {
+    "attributes": [
+      "value",
+      "min-date",
+      "max-date",
+      "data-source",
+      "data-schema",
+      "start-key",
+      "end-key",
+      "show-week-days",
+      "show-weeks",
+      "show-basic",
+      "show-advance",
+      "first-day-of-week"
+    ]
+  },
   "u-calendar": {
     "attributes": [
       "date",

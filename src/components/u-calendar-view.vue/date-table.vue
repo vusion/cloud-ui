@@ -5,6 +5,7 @@
         :class="$style.root"
     >
         <thead v-if="showWeekDays">
+            <th v-if="showWeeks" :class="{ [$style.th]: true, [$style.week]: true }">{{ $t('Week') }}</th>
             <th
                 v-for="item in realWeekDayTexts"
                 :key="item"
@@ -18,6 +19,12 @@
                 :class="$style.tr"
             >
                 <td
+                    v-if="showWeeks && row && row.length"
+                    :class="{ [$style.td]: true, [$style.weekTd]: true }"
+                >
+                    <slot name="week">{{ row[0].week }}</slot>
+                </td>
+                <td
                     v-for="cell in row"
                     :key="cell.key"
                     :type="cell.type"
@@ -27,10 +34,15 @@
                     :class="$style.td"
                     @click="onSelectDate(cell)"
                 >
-                    <div :class="$style.date" vusion-slot-name="default">
+                    <div
+                        :class="$style.date"
+                        vusion-slot-name="default"
+                        :vusion-next="true"
+                        allowChild
+                    >
                         <slot name="head">{{ cell.date }}</slot>
                         <div :class="$style.main">
-                            <slot></slot>
+                            <slot :item="cell"></slot>
                         </div>
                     </div>
                 </td>
@@ -42,8 +54,7 @@
 <script>
 import dayjs from 'dayjs';
 import i18n from './i18n';
-
-const DefaultFormatType = 'YYYY-MM-DD';
+import { getDay, DefaultFormatType } from './utils';
 
 export default {
     name: 'date-table',
@@ -54,7 +65,11 @@ export default {
         minDay: Object,
         maxDay: Object,
         showWeekDays: { type: Boolean, default: true },
+        showWeeks: { type: Boolean, default: false },
         firstDayOfWeek: { type: Number, default: 1 },
+        data: Array,
+        startKey: String,
+        endKey: String,
     },
     data() {
         return {
@@ -84,7 +99,7 @@ export default {
             return this.current.format(DefaultFormatType);
         },
         rows() {
-            const datesLength = 35;
+            const datesLength = 42;
             const { firstDayOfWeek, selectedDate } = this;
             // #date 日期，#day 星期几，参考 day.js API
             const firstDateOfMonth = selectedDate.clone().date(1);
@@ -94,35 +109,20 @@ export default {
             // 日历第一行可能存在前一个月数据
             for (let i = prevMonthDateLength; i >= 1; i--) {
                 const prevMonthDate = firstDateOfMonth.subtract(i, 'day');
-                dates.push({
-                    date: prevMonthDate.date(),
-                    key: prevMonthDate.format(DefaultFormatType),
-                    type: 'prev',
-                    disabled: this.checkDateDisabled(prevMonthDate),
-                });
+                dates.push(this.getCommonAttrs(prevMonthDate, { type: 'prev' }));
             }
             // 补齐当月数据
             const firstDateOfNextMonth = firstDateOfMonth.add(1, 'month');
             const lastDateOfMonth = firstDateOfNextMonth.subtract(1, 'day');
             for (let i = 0; i < lastDateOfMonth.date(); i++) {
                 const currentMonthDate = firstDateOfMonth.add(i, 'day');
-                dates.push({
-                    date: currentMonthDate.date(),
-                    key: currentMonthDate.format(DefaultFormatType),
-                    type: 'current',
-                    disabled: this.checkDateDisabled(currentMonthDate),
-                });
+                dates.push(this.getCommonAttrs(currentMonthDate, { type: 'current' }));
             }
             // 补齐下个月数据
             const nextMonthDatesLength = datesLength - dates.length;
             for (let i = 0; i < nextMonthDatesLength; i++) {
                 const nextMonthDate = firstDateOfNextMonth.add(i, 'day');
-                dates.push({
-                    date: nextMonthDate.date(),
-                    key: nextMonthDate.format(DefaultFormatType),
-                    type: 'next',
-                    disabled: this.checkDateDisabled(nextMonthDate),
-                });
+                dates.push(this.getCommonAttrs(nextMonthDate, { type: 'next' }));
             }
             const rows = [];
             for (let i = 0; i < datesLength / 7; i++) {
@@ -133,10 +133,15 @@ export default {
         },
     },
     methods: {
-        onSelectDate({ type, key, disabled }) {
+        onSelectDate(cell) {
+            const { type, key, disabled } = cell;
             if (disabled)
                 return;
 
+            this.$emit('select', cell);
+            if (key !== this.selectedDateKey) {
+                this.$emit('change', cell);
+            }
             const selectedDate = dayjs(key, DefaultFormatType);
             if (type !== 'current') {
                 this.$emit('update:month', selectedDate.month());
@@ -144,8 +149,35 @@ export default {
             }
             this.$emit('update:selectedDate', selectedDate);
         },
-        checkDateDisabled(date) {
-            return date.isBefore(this.minDay) || date.isAfter(this.maxDay);
+        getCommonAttrs(date, extra) {
+            return {
+                date: date.date(),
+                week: date.week(),
+                key: date.format(DefaultFormatType),
+                disabled: date.isBefore(this.minDay) || date.isAfter(this.maxDay),
+                data: this.getData(date),
+                ...extra,
+            };
+        },
+        getData(date) {
+            const { data, startKey, endKey } = this;
+            if (!data || !data.length)
+                return {};
+            const validData = data.filter((item) => {
+                const startTime = item[startKey];
+                const endTime = item[endKey];
+                const startDate = getDay(startTime, null);
+                const endDate = getDay(endTime, null);
+                if (endDate) {
+                    return date.isSameOrBefore(endDate) && date.isSameOrAfter(startDate);
+                }
+                return date.format(DefaultFormatType) === startDate.format(DefaultFormatType);
+            });
+            if (!validData.length)
+                return {};
+            if (validData.length === 1)
+                return validData[0];
+            return validData;
         },
     },
 };
@@ -160,6 +192,10 @@ export default {
 .th {
     padding: 12px 0;
     font-weight: var(--font-weight-normal);
+}
+.week {
+    width: 36px;
+    text-align: center;
 }
 
 .tr:first-child .td {
@@ -197,6 +233,9 @@ export default {
 }
 .td:hover {
     background: var(--background-color-lighter);
+}
+.weekTd {
+    text-align: center;
 }
 
 .date {

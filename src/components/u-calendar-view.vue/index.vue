@@ -33,24 +33,27 @@
             :max-day="maxDay"
             :first-day-of-week="realFirstDayOfWeek"
             :show-week-days="showWeekDays"
-        ></date-table>
+            :show-weeks="showWeeks"
+            :data="tableData"
+            :start-key="startKey"
+            :end-key="endKey"
+            @select="$emit('select', $event, this)"
+            @change="$emit('change', $event, this)"
+        >
+            <template v-slot="scope">
+                <slot :item="scope.item"></slot>
+            </template>
+        </date-table>
     </div>
 </div>
 </template>
 
 <script>
 import dayjs from 'dayjs';
-import weekOfYear from 'dayjs/plugin/weekOfYear';
-import customParseFormat from 'dayjs/plugin/customParseFormat';
-import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import i18n from './i18n';
 import DateTable from './date-table.vue';
-
-dayjs.extend(weekOfYear);
-dayjs.extend(customParseFormat);
-dayjs.extend(isSameOrBefore);
-
-const DefaultFormatType = 'YYYY-MM-DD';
+import './initDayjs';
+import { getDay } from './utils';
 
 export default {
     name: 'u-calendar-view',
@@ -67,8 +70,18 @@ export default {
         },
         minDate: [String, Date, Number],
         maxDate: [String, Date, Number],
+        data: Array,
+        dataSource: [Function, Array],
+        startKey: {
+            type: String,
+            default: 'StartTime',
+        },
+        endKey: {
+            type: String,
+            default: 'EndTime',
+        },
         showWeekDays: { type: Boolean, default: true },
-        showWeekNumber: { type: Boolean, default: false },
+        showWeeks: { type: Boolean, default: false },
         showBasic: { type: Boolean, default: true },
         showAdvance: { type: Boolean, default: true },
         firstDayOfWeek: { type: Number, default: 1 },
@@ -97,6 +110,7 @@ export default {
             });
         }
         return {
+            tempData: [],
             date,
             selectedDate: date.clone(),
             year: date.year(),
@@ -126,8 +140,8 @@ export default {
                 return fullMonths;
         },
         realFirstDayOfWeek() {
-            const { firstDayOfWeek, showWeekNumber } = this;
-            if (showWeekNumber || typeof firstDayOfWeek !== 'number' || firstDayOfWeek < 1 || firstDayOfWeek > 7)
+            const { firstDayOfWeek, showWeeks } = this;
+            if (showWeeks || typeof firstDayOfWeek !== 'number' || firstDayOfWeek < 1 || firstDayOfWeek > 7)
                 return 1;
             else
                 return Math.floor(firstDayOfWeek);
@@ -144,17 +158,14 @@ export default {
             const { monthTexts, month, year } = this;
             return `${year} ${this.$t('year')} ${monthTexts[month]} ${this.$t('month')}`;
         },
+        tableData() {
+            return this.data || this.tempData;
+        },
     },
     watch: {
         minDate: {
             handler(value) {
-                let minDay;
-                if (!value)
-                    minDay = dayjs().subtract(10, 'year').month(0).day(0);
-                else if (typeof value === 'string')
-                    minDay = dayjs(value, DefaultFormatType);
-                else
-                    minDay = dayjs(value);
+                const minDay = getDay(value, dayjs().subtract(10, 'year').month(0).day(0));
                 this.minDay = minDay;
                 this.minYear = minDay.year();
                 this.minMonth = minDay.month();
@@ -164,19 +175,29 @@ export default {
         },
         maxDate: {
             handler(value) {
-                let maxDay;
-                if (!value)
-                    maxDay = dayjs().add(9, 'year').month(0).day(0);
-                else if (typeof value === 'string')
-                    maxDay = dayjs(value, DefaultFormatType);
-                else
-                    maxDay = dayjs(value);
+                const maxDay = getDay(value, dayjs().add(9, 'year').month(0).day(0));
                 this.maxDay = maxDay;
                 this.maxYear = maxDay.year();
                 this.maxMonth = maxDay.month();
                 this.getConfigs();
             },
             immediate: true,
+        },
+        async dataSource(dataSource) {
+            let tempData = [];
+            if (dataSource instanceof Promise) {
+                tempData = await dataSource();
+            } else if (typeof dataSource === 'function') {
+                tempData = dataSource();
+            } else if (Array.isArray(dataSource)) {
+                tempData = dataSource;
+            }
+
+            if (Array.isArray(tempData)) {
+                console.error(`[cloud-ui] Please confirm that the final result is an array in 'data-source' prop.`);
+                tempData = [];
+            }
+            this.tempData = tempData;
         },
     },
     methods: {
