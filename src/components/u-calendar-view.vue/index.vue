@@ -195,21 +195,22 @@ export default {
             },
             immediate: true,
         },
-        async dataSource(dataSource) {
-            let tempData = [];
-            if (dataSource instanceof Promise) {
-                tempData = await dataSource();
-            } else if (typeof dataSource === 'function') {
-                tempData = dataSource();
-            } else if (Array.isArray(dataSource)) {
-                tempData = dataSource;
-            }
+        dataSource: {
+            async handler(dataSource) {
+                let tempData = [];
+                if (dataSource instanceof Promise || typeof dataSource === 'function') {
+                    tempData = await dataSource();
+                } else if (Array.isArray(dataSource)) {
+                    tempData = dataSource;
+                }
 
-            if (!Array.isArray(tempData)) {
-                console.error(`[cloud-ui] Please confirm that the final result is an array in 'data-source' prop.`);
-                tempData = [];
-            }
-            this.tempData = tempData;
+                if (!Array.isArray(tempData)) {
+                    console.error(`[cloud-ui] Please confirm that the final result is an array in 'data-source' prop.`);
+                    tempData = [];
+                }
+                this.tempData = tempData;
+            },
+            immediate: true,
         },
     },
     methods: {

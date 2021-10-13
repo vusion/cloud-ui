@@ -10,8 +10,8 @@
 <template>
     <u-calendar-view :data="data">
         <template #default="scope">
-            <p v-if="scope.item.data.apple">苹果: {{scope.item.data.apple}}</p>
-            <p v-if="scope.item.data.orange">橘子: {{scope.item.data.orange}}</p>
+            <p v-if="scope.item.apple">苹果: {{scope.item.apple}}</p>
+            <p v-if="scope.item.orange">橘子: {{scope.item.orange}}</p>
         </template>
     </u-calendar-view>
 </template>

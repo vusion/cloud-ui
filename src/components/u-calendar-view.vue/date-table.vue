@@ -26,11 +26,11 @@
                 </td>
                 <td
                     v-for="cell in row"
-                    :key="cell.key"
-                    :type="cell.type"
+                    :key="cell.__key__"
+                    :type="cell.__type__"
                     :disabled="cell.disabled"
-                    :selected="cell.key === selectedDateKey"
-                    :current="cell.key === currentKey"
+                    :selected="cell.__key__ === selectedDateKey"
+                    :current="cell.__key__ === currentKey"
                     :class="$style.td"
                     @click="onSelectDate(cell)"
                 >
@@ -105,20 +105,20 @@ export default {
             // 日历第一行可能存在前一个月数据
             for (let i = prevMonthDateLength; i >= 1; i--) {
                 const prevMonthDate = firstDateOfMonth.subtract(i, 'day');
-                dates.push(this.getCommonAttrs(prevMonthDate, { type: 'prev' }));
+                dates.push(this.getCommonAttrs(prevMonthDate, { __type__: 'prev' }));
             }
             // 补齐当月数据
             const firstDateOfNextMonth = firstDateOfMonth.add(1, 'month');
             const lastDateOfMonth = firstDateOfNextMonth.subtract(1, 'day');
             for (let i = 0; i < lastDateOfMonth.date(); i++) {
                 const currentMonthDate = firstDateOfMonth.add(i, 'day');
-                dates.push(this.getCommonAttrs(currentMonthDate, { type: 'current' }));
+                dates.push(this.getCommonAttrs(currentMonthDate, { __type__: 'current' }));
             }
             // 补齐下个月数据
             const nextMonthDatesLength = datesLength - dates.length;
             for (let i = 0; i < nextMonthDatesLength; i++) {
                 const nextMonthDate = firstDateOfNextMonth.add(i, 'day');
-                dates.push(this.getCommonAttrs(nextMonthDate, { type: 'next' }));
+                dates.push(this.getCommonAttrs(nextMonthDate, { __type__: 'next' }));
             }
             const rows = [];
             for (let i = 0; i < datesLength / 7; i++) {
@@ -130,16 +130,16 @@ export default {
     },
     methods: {
         onSelectDate(cell) {
-            const { type, key, disabled } = cell;
+            const { __type__, __key__, disabled } = cell;
             if (disabled)
                 return;
 
             this.$emit('select', cell);
-            if (key !== this.selectedDateKey) {
+            if (__key__ !== this.selectedDateKey) {
                 this.$emit('change', cell);
             }
-            const selectedDate = dayjs(key, DefaultFormatType);
-            if (type !== 'current') {
+            const selectedDate = dayjs(__key__, DefaultFormatType);
+            if (__type__ !== 'current') {
                 this.$emit('update:month', selectedDate.month());
                 this.$emit('update:year', selectedDate.year());
             }
@@ -149,10 +149,10 @@ export default {
             return {
                 date: date.date(),
                 week: date.week(),
-                key: date.format(DefaultFormatType),
                 disabled: date.isBefore(this.minDay) || date.isAfter(this.maxDay),
-                data: this.getData(date),
+                __key__: date.format(DefaultFormatType),
                 ...extra,
+                ...this.getData(date),
             };
         },
         getData(date) {
@@ -174,8 +174,8 @@ export default {
             if (!validData.length)
                 return {};
             if (validData.length === 1)
-                return validData[0];
-            return validData;
+                return { ...validData[0], list: validData };
+            return { list: validData };
         },
     },
 };
