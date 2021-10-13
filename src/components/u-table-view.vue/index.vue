@@ -81,7 +81,11 @@
                                             </span>
                                             <!-- type === 'expander' -->
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click="toggleExpanded(item)"></span>
-                                            <span :class="$style.tree_expander" v-if="item.hasChildren && columnIndex===0" :expanded="item.expanded" @click="toggleExpanded(item)"></span>
+                                            <template v-if="item.level !== undefined && columnIndex===0">
+                                                <span :class="$style.indent" :style="{ paddingLeft: 16*item.level + 'px' }"></span>
+                                                <span :class="$style.tree_expander" v-if="item[treeHaschildrenField]" :expanded="item.expanded" @click="toggleTreeExpanded(item)" :loading="item.loading"></span>
+                                                <span :class="$style.tree_placeholder" v-else></span>
+                                            </template>
                                             <!-- Normal text -->
                                             <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
                                                 <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
@@ -979,7 +983,11 @@ export default {
                     if (result instanceof Array) {
                         item[this.treeChildrenField] = result;
                         // 促使currentData更新
-                        this.currentDataSource = this.normalizeDataSource(this.currentDataSource.viewData);
+                        const index = this.currentData.findIndex((currentData) => currentData[this.rowKey] === item[this.rowKey]);
+                        if (index !== -1) {
+                            const treeData = this.processTreeData(result, item.level + 1, item);
+                            this.currentData.splice(index + 1, 0, ...treeData);
+                        }
                         this.updateTreeExpanded(item, expanded);
                     }
                     this.$set(item, 'loading', false);
@@ -1247,6 +1255,12 @@ export default {
     border-top-color: transparent;
     border-radius: var(--table-view-tree-expander-loading-size);
     animation: rotate var(--spinner-animation-duration) ease-in-out var(--spinner-animation-delay) infinite;
+}
+
+.tree_expander + div,
+.tree_placeholder + div
+{
+    display: inline-block;
 }
 
 @keyframes rotate {
