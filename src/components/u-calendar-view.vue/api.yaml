@@ -1,5 +1,11 @@
 - name: u-calendar-view
   title: 日历
+  icon: table-view
+  labels:
+    - Table
+  description: 用于展示大量结构化数据。支持日历结构展示。
+  next: true
+  nested: false
   attrs:
     - name: value
       title: 值
@@ -11,12 +17,12 @@
     - name: min-date
       title: 最小日期
       type: Date | string ｜ number
-      default: 10 years ago
+      default: null
       description: 最小日期，默认 10 年前
     - name: max-date
       title: 最大日期
       type: Date | string ｜ number
-      default:  9 years later
+      default: null
       description: 最大日期，默认 9 年后
     - name: data-source
       title: 数据源
@@ -33,12 +39,12 @@
     - name: start-key
       type: string
       title: 数据内表示开始时间的字段
-      default:  StartTime
+      default:  startTime
       description: 数据内表示开始时间的字段
     - name: end-key
       type: string
       title: 数据内表示结束时间的字段
-      default:  EndTime
+      default:  endTime
       description: 数据内表示结束时间的字段
     - name: show-week-days
       title: 展示周天
@@ -51,15 +57,15 @@
       default: false
       description: 是否展示周数
     - name: show-basic
-      title: 展示顶部左侧的 "<" "今天" ">" 等基础配置功能
+      title: 展示基础配置
       type: boolean
       default: true
-      description: 是否展示基础配置功能
+      description: 是否展示顶部左侧的 "<" "今天" ">" 等基础配置功能
     - name: show-advance
-      title: 展示顶部右侧的年份、月份选项高级配置
+      title: 展示高级配置
       type: boolean
       default: true
-      description: 是否展示高级配置
+      description: 是否展示顶部右侧的年份、月份选项高级配置
     - name: first-day-of-week
       title: 周起始日
       type: number

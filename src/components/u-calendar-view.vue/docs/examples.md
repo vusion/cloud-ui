@@ -20,15 +20,15 @@ export default{
     data() {
         return {
             data: [{
-                StartTime: '2021-10-05',
+                startTime: '2021-10-05',
                 Apple: 8,
                 Orange: 8,
             }, {
-                StartTime: '2021-10-16',
+                startTime: '2021-10-16',
                 Apple: 1,
                 Orange: 2,
             }, {
-                StartTime: '2021-10-31',
+                startTime: '2021-10-31',
                 Apple: 3,
                 Orange: 2,
             }],

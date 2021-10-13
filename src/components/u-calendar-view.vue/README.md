@@ -12,6 +12,10 @@
     - [Slots](#slots)
     - [Events](#events)
 
+**Table**
+
+用于展示大量结构化数据。支持日历结构展示。
+
 ## 示例
 ### 基本用法
 
@@ -35,15 +39,15 @@ export default{
     data() {
         return {
             data: [{
-                StartTime: '2021-10-05',
+                startTime: '2021-10-05',
                 Apple: 8,
                 Orange: 8,
             }, {
-                StartTime: '2021-10-16',
+                startTime: '2021-10-16',
                 Apple: 1,
                 Orange: 2,
             }, {
-                StartTime: '2021-10-31',
+                startTime: '2021-10-31',
                 Apple: 3,
                 Orange: 2,
             }],
@@ -72,16 +76,16 @@ export default{
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value.sync, v-model | Date \| string ｜ number |  | `'TODAY'` | 当前选择的日期 |
-| min-date | Date \| string ｜ number |  | `'10 years ago'` | 最小日期，默认 10 年前 |
-| max-date | Date \| string ｜ number |  | `'9 years later'` | 最大日期，默认 9 年后 |
+| min-date | Date \| string ｜ number |  |  | 最小日期，默认 10 年前 |
+| max-date | Date \| string ｜ number |  |  | 最大日期，默认 9 年后 |
 | data-source | Array\<Item\> \| Function |  |  | 日历数据源，数组方式表示直接的数据，函数需要返回一个 Promise |
 | data-schema | schema |  |  | 日历中每天的数据类型 |
-| start-key | string |  | `'StartTime'` | 数据内表示开始时间的字段 |
-| end-key | string |  | `'EndTime'` | 数据内表示结束时间的字段 |
+| start-key | string |  | `'startTime'` | 数据内表示开始时间的字段 |
+| end-key | string |  | `'endTime'` | 数据内表示结束时间的字段 |
 | show-week-days | boolean |  | `true` | 是否展示周天 |
 | show-weeks | boolean |  | `false` | 是否展示周数 |
-| show-basic | boolean |  | `true` | 是否展示基础配置功能 |
-| show-advance | boolean |  | `true` | 是否展示高级配置 |
+| show-basic | boolean |  | `true` | 是否展示顶部左侧的 "<" "今天" ">" 等基础配置功能 |
+| show-advance | boolean |  | `true` | 是否展示顶部右侧的年份、月份选项高级配置 |
 | first-day-of-week | number |  | `1` | 周起始日，1～7（周一～周日） |
 
 ### Slots

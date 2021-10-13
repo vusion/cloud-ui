@@ -40,7 +40,12 @@
             @select="$emit('select', $event, this)"
             @change="$emit('change', $event, this)"
         >
-            <template v-slot="scope">
+            <template
+                v-slot="scope"
+                vusion-slot-name="default"
+                :vusion-next="true"
+                allowChild
+            >
                 <slot :item="scope.item"></slot>
             </template>
         </date-table>
@@ -74,11 +79,11 @@ export default {
         dataSource: [Function, Array],
         startKey: {
             type: String,
-            default: 'StartTime',
+            default: 'startTime',
         },
         endKey: {
             type: String,
-            default: 'EndTime',
+            default: 'endTime',
         },
         showWeekDays: { type: Boolean, default: true },
         showWeeks: { type: Boolean, default: false },

@@ -34,14 +34,14 @@
                     :class="$style.td"
                     @click="onSelectDate(cell)"
                 >
-                    <div
-                        :class="$style.date"
-                        vusion-slot-name="default"
-                        :vusion-next="true"
-                        allowChild
-                    >
-                        <slot name="head">{{ cell.date }}</slot>
-                        <div :class="$style.main">
+                    <div :class="$style.date">
+                        {{ cell.date }}
+                        <div
+                            :class="$style.main"
+                            vusion-slot-name="default"
+                            :vusion-next="true"
+                            allowChild
+                        >
                             <slot :item="cell"></slot>
                         </div>
                     </div>
