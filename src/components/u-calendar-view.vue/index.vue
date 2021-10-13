@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root">
-    <u-linear-layout :class="$style.head" justify="space-between">
+    <u-linear-layout justify="space-between">
         <u-linear-layout v-if="showBasic" gap="small">
             <u-button @click="onPrevMonth" size="mini" :disabled="prevDisabled">{{ $t('PrevMonth') }}</u-button>
             <u-button v-if="showToday" @click="onToday" size="mini">{{ $t('Today') }}</u-button>
@@ -340,7 +340,7 @@ export default {
     color: #555;
 }
 
-.month[size$="mini"] {
+.root .month[size$="mini"] {
     width: 65px;
 }
 
