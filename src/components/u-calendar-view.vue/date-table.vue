@@ -163,6 +163,8 @@ export default {
                 const endTime = item[endKey];
                 const startDate = getDay(startTime, null);
                 const endDate = getDay(endTime, null);
+                if (!startDate)
+                    return false;
                 if (endDate) {
                     return date.isSameOrBefore(endDate) && date.isSameOrAfter(startDate);
                 }
