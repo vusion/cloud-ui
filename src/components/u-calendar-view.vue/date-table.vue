@@ -173,9 +173,7 @@ export default {
             });
             if (!validData.length)
                 return {};
-            if (validData.length === 1)
-                return { ...validData[0], list: validData };
-            return { list: validData };
+            return { ...validData[0], list: validData };
         },
     },
 };
