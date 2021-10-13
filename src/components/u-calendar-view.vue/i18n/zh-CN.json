@@ -25,6 +25,8 @@
     "October": "10",
     "November": "11",
     "December": "12",
+    "PrevMonth": "上个月",
+    "NextMonth": "下个月",
     "Today": "今天",
     "Week": "周数"
 }

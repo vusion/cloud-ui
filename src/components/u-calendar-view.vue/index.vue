@@ -2,9 +2,9 @@
 <div :class="$style.root">
     <u-linear-layout :class="$style.head" justify="space-between">
         <u-linear-layout v-if="showBasic" gap="small">
-            <u-button @click="onPrevMonth" size="mini" :disabled="prevDisabled" :class="$style.prev"></u-button>
+            <u-button @click="onPrevMonth" size="mini" :disabled="prevDisabled">{{ $t('PrevMonth') }}</u-button>
             <u-button v-if="showToday" @click="onToday" size="mini">{{ $t('Today') }}</u-button>
-            <u-button @click="onNextMonth" size="mini" :disabled="nextDisabled" :class="$style.next"></u-button>
+            <u-button @click="onNextMonth" size="mini" :disabled="nextDisabled">{{ $t('NextMonth') }}</u-button>
         </u-linear-layout>
         <u-linear-layout v-if="showAdvance" gap="small">
             <u-select
@@ -165,7 +165,13 @@ export default {
     watch: {
         minDate: {
             handler(value) {
-                const minDay = getDay(value, dayjs().subtract(10, 'year').month(0).day(0));
+                const minDay = getDay(value, dayjs().subtract(10, 'year')
+                    .month(0)
+                    .date(1)
+                    .hour(0)
+                    .minute(0)
+                    .second(0)
+                    .millisecond(0));
                 this.minDay = minDay;
                 this.minYear = minDay.year();
                 this.minMonth = minDay.month();
@@ -175,7 +181,13 @@ export default {
         },
         maxDate: {
             handler(value) {
-                const maxDay = getDay(value, dayjs().add(9, 'year').month(0).day(0));
+                const maxDay = getDay(value, dayjs().add(9, 'year')
+                    .month(11)
+                    .date(31)
+                    .hour(23)
+                    .minute(59)
+                    .second(59)
+                    .millisecond(999));
                 this.maxDay = maxDay;
                 this.maxYear = maxDay.year();
                 this.maxMonth = maxDay.month();
@@ -325,13 +337,6 @@ export default {
     padding: 4px;
     background: var(--field-background);
     color: #555;
-}
-
-.prev::before {
-    icon-font: url('../i-icon.vue/assets/angle-left.svg');
-}
-.next::before {
-    icon-font: url('../i-icon.vue/assets/angle-right.svg');
 }
 
 .month[size$="mini"] {

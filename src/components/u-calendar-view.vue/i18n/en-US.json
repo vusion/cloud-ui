@@ -25,6 +25,8 @@
   "October": "Oct",
   "November": "Nov",
   "December": "Dec",
+  "PrevMonth": "Prev Month",
+  "NextMonth": "Next Month",
   "Today": "Today",
   "Week": "Week"
 }

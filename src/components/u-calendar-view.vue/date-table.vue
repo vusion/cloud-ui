@@ -48,6 +48,7 @@
 
 <script>
 import dayjs from 'dayjs';
+import get from 'lodash/get';
 import i18n from './i18n';
 import { getDay, DefaultFormatType } from './utils';
 
@@ -159,8 +160,8 @@ export default {
             if (!data || !data.length)
                 return {};
             const validData = data.filter((item) => {
-                const startTime = item[startKey];
-                const endTime = item[endKey];
+                const startTime = get(item, startKey, null);
+                const endTime = get(item, endKey, null);
                 const startDate = getDay(startTime, null);
                 const endDate = getDay(endTime, null);
                 if (!startDate)
