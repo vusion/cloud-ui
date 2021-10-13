@@ -36,12 +36,7 @@
                 >
                     <div :class="$style.date">
                         {{ cell.date }}
-                        <div
-                            :class="$style.main"
-                            vusion-slot-name="default"
-                            :vusion-next="true"
-                            allowChild
-                        >
+                        <div :class="$style.column">
                             <slot :item="cell"></slot>
                         </div>
                     </div>
@@ -244,7 +239,7 @@ export default {
     min-width: 24px;
     text-align: var(--calendar-date-text-align);
 }
-.main {
+.column {
     position: static;
     width: auto;
     overflow-y: auto;

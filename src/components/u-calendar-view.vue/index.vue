@@ -40,12 +40,7 @@
             @select="$emit('select', $event, this)"
             @change="$emit('change', $event, this)"
         >
-            <template
-                v-slot="scope"
-                vusion-slot-name="default"
-                :vusion-next="true"
-                allowChild
-            >
+            <template v-slot="scope">
                 <slot :item="scope.item"></slot>
             </template>
         </date-table>
@@ -198,7 +193,7 @@ export default {
                 tempData = dataSource;
             }
 
-            if (Array.isArray(tempData)) {
+            if (!Array.isArray(tempData)) {
                 console.error(`[cloud-ui] Please confirm that the final result is an array in 'data-source' prop.`);
                 tempData = [];
             }
@@ -298,20 +293,27 @@ export default {
          * Advance
          */
         onSelectYear(value) {
-            const { minYear, minMonth, maxYear, maxMonth, selectedDate, month } = this;
-            if (value === minYear && month < minMonth) {
+            const { minMonth, maxMonth, selectedDate, minDay, maxDay } = this;
+            let newSelectedDate = selectedDate.clone().year(value);
+            if (newSelectedDate.isBefore(minDay)) {
                 this.month = minMonth;
-                this.selectedDate = selectedDate.year(value).month(minMonth);
-            } else if (value === maxYear && month > maxMonth) {
-                this.month = 0;
-                this.selectedDate = selectedDate.year(value).month(0);
-            } else {
-                this.selectedDate = selectedDate.year(value);
+                newSelectedDate = minDay.clone();
+            } else if (newSelectedDate.isAfter(maxDay)) {
+                this.month = maxMonth;
+                newSelectedDate = maxDay.clone();
             }
+            this.selectedDate = newSelectedDate;
             this.year = value;
         },
         onSelectMonth(value) {
-            this.selectedDate = this.selectedDate.month(value);
+            const { selectedDate, minDay, maxDay } = this;
+            let newSelectedDate = selectedDate.clone().month(value);
+            if (newSelectedDate.isBefore(minDay)) {
+                newSelectedDate = minDay.clone();
+            } else if (newSelectedDate.isAfter(maxDay)) {
+                newSelectedDate = maxDay.clone();
+            }
+            this.selectedDate = newSelectedDate;
             this.month = value;
         },
     },
