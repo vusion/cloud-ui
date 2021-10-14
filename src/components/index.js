@@ -31,6 +31,7 @@ export * from './u-block.vue';
 export * from './u-button.vue';
 export * from './u-calendar.vue';
 export * from './u-calendar-view.vue';
+export * from './u-calendar-table.vue';
 export * from './u-capsules.vue';
 export * from './u-card.vue';
 export * from './u-carousel.vue';

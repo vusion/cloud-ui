@@ -6567,6 +6567,150 @@
         }
     },
     {
+        "symbol": "u-calendar-table",
+        "name": "日历表格",
+        "icon": "table-view",
+        "depDescription": {},
+        "description": "用于展示大量结构化数据。支持按月展示月内每天的数据。",
+        "labels": [
+            "Table"
+        ],
+        "screenShot": "",
+        "blocks": "[{\"title\":\"普通日历\",\"description\":\"\",\"code\":\"<template>\\n<u-calendar-table\\n    firstTitle=\\\"姓名\\\"\\n    firstField=\\\"parent.name\\\"\\n    parent-key=\\\"parent.name\\\"\\n    child-key=\\\"child.name\\\"\\n    start-key=\\\"child.startTime\\\"\\n>\\n    <template #default=\\\"scope\\\">\\n        <u-linear-layout gap=\\\"small\\\"></u-linear-layout>\\n    </template>\\n</u-calendar-table>\\n</template>\\n\"}]",
+        "jsonSchema": {
+            "name": "u-calendar-table",
+            "title": "日历表格",
+            "description": "用于展示大量结构化数据。支持按月展示月内每天的数据。",
+            "category": "Table",
+            "screenShot": "",
+            "drawings": "",
+            "blocks": [
+                {
+                    "title": "普通日历",
+                    "description": "",
+                    "code": "<template>\n<u-calendar-table\n    firstTitle=\"姓名\"\n    firstField=\"parent.name\"\n    parent-key=\"parent.name\"\n    child-key=\"child.name\"\n    start-key=\"child.startTime\"\n>\n    <template #default=\"scope\">\n        <u-linear-layout gap=\"small\"></u-linear-layout>\n    </template>\n</u-calendar-table>\n</template>\n"
+                }
+            ],
+            "attrs": [
+                {
+                    "name": "data-source-parent",
+                    "title": "主数据源",
+                    "type": "Array<Item> | Function | object",
+                    "designer-value": "[{}, {}, {}]",
+                    "description": "日历表格主数据源，数组方式表示直接的数据，函数需要返回一个 Promise",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "data-source-child",
+                    "title": "子数据源",
+                    "type": "Array<Item> | Function | object",
+                    "designer-value": "[{}, {}, {}]",
+                    "description": "日历表格子数据源，数组方式表示直接的数据，函数需要返回一个 Promise",
+                    "group": "数据属性"
+                },
+                {
+                    "name": "first-title",
+                    "title": "表格首项标题",
+                    "type": "string",
+                    "default": "姓名",
+                    "description": "表格第一项内容的标题"
+                },
+                {
+                    "name": "first-field",
+                    "title": "表格首项字段",
+                    "type": "string",
+                    "default": "parent.name",
+                    "group": "数据属性",
+                    "description": "表格第一项内容的在 data-source 中的标识"
+                },
+                {
+                    "name": "parent-key",
+                    "title": "主关键字段",
+                    "type": "String",
+                    "default": "parent.name",
+                    "group": "数据属性",
+                    "description": "主数据源中的关键字段，用来将主/子数据源的数据关联"
+                },
+                {
+                    "name": "child-key",
+                    "title": "子关键字段",
+                    "type": "String",
+                    "default": "child.name",
+                    "group": "数据属性",
+                    "description": "子数据源中的关键字段，用来将主/子数据源的数据关联"
+                },
+                {
+                    "name": "page-size",
+                    "title": "每页条数",
+                    "type": "string | number",
+                    "default": 20,
+                    "description": "每页条数"
+                },
+                {
+                    "name": "data-schema",
+                    "title": "数据类型",
+                    "type": "schema",
+                    "description": "日历表格中每项的数据类型",
+                    "group": "数据属性",
+                    "compType": "dataTypeSelect"
+                },
+                {
+                    "name": "start-key",
+                    "type": "string",
+                    "title": "数据内表示开始时间的字段",
+                    "default": "child.startTime",
+                    "group": "数据属性",
+                    "description": "数据内表示开始时间的字段"
+                },
+                {
+                    "name": "end-key",
+                    "type": "string",
+                    "title": "数据内表示结束时间的字段",
+                    "default": "child.endTime",
+                    "group": "数据属性",
+                    "description": "数据内表示结束时间的字段"
+                },
+                {
+                    "name": "min-date",
+                    "title": "最小日期",
+                    "type": "Date | string ｜ number",
+                    "default": null,
+                    "description": "最小日期，默认 5 年前"
+                },
+                {
+                    "name": "max-date",
+                    "title": "最大日期",
+                    "type": "Date | string ｜ number",
+                    "default": null,
+                    "description": "最大日期，默认 4 年后"
+                },
+                {
+                    "name": "width",
+                    "title": "表格项宽度",
+                    "type": "string | number",
+                    "default": 48,
+                    "description": "表格每一项内容的宽度，默认 48 表示 '48px'"
+                },
+                {
+                    "name": "first-width",
+                    "title": "表格首项宽度",
+                    "type": "string | number",
+                    "default": 64,
+                    "description": "表格首项宽度，默认 64 表示 '64px'"
+                }
+            ],
+            "slots": [
+                {
+                    "name": "default",
+                    "description": "插入文本或 HTML 至表格项"
+                }
+            ],
+            "next": true,
+            "nested": false,
+            "children": []
+        }
+    },
+    {
         "symbol": "u-form",
         "name": "表单",
         "icon": "form",

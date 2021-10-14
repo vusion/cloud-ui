@@ -83,6 +83,7 @@ module.exports = {
             { group: 'Data', name: 'u-grid-view', alias: '数据网络' },
             { group: 'Data', name: 'u-tree-view', alias: '树型列表' },
             { group: 'Data', name: 'u-table-view', alias: '数据表格' },
+            { group: 'Data', name: 'u-calendar-table', alias: '日历表格' },
             { group: 'Data', name: 'u-transfer', alias: '穿梭框' },
             { group: 'Data', name: 'u-capsules', alias: '胶囊' },
             { group: 'Data', name: 'u-cascade-capsules', alias: '级联胶囊' },
