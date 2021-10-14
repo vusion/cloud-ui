@@ -109,7 +109,7 @@
                                             </span>
                                             <!-- type === 'expander' -->
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click="toggleExpanded(item)"></span>
-                                            <template v-if="item.level !== undefined && columnIndex===0">
+                                            <template v-if="item.level !== undefined && columnIndex === treeColumnIndex">
                                                 <span :class="$style.indent" :style="{ paddingLeft: 16*item.level + 'px' }"></span>
                                                 <span :class="$style.tree_expander" v-if="item[treeHaschildrenField]" :expanded="item.expanded" @click="toggleTreeExpanded(item)" :loading="item.loading"></span>
                                                 <span :class="$style.tree_placeholder" v-else></span>
@@ -308,6 +308,20 @@ export default {
                 return true;
             else
                 return null;
+        },
+        treeColumnIndex() {
+            const vms = this.columnVMs.filter((columnVM) => !columnVM.hidden);
+            let treeColumnIndex = vms.findIndex((columnVM) => columnVM.type === 'tree');
+            if (treeColumnIndex === -1) {
+                treeColumnIndex = vms.findIndex((columnVM) => ['index', 'radio', 'checkbox'].includes(columnVM.type));
+                if (treeColumnIndex === -1) {
+                    return 0;
+                } else {
+                    return treeColumnIndex + 1;
+                }
+            } else {
+                return treeColumnIndex;
+            }
         },
     },
     watch: {

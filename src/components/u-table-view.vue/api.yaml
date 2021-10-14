@@ -677,6 +677,8 @@
           title: 多选列
         - value: expander
           title: 展开列
+        - value: tree
+          title: 树形列
       default: index
       description: 列类型
     - name: start-index
