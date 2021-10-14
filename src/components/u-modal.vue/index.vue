@@ -1,31 +1,32 @@
 <template>
-<transition v-if="currentVisible || animationVisible"
+<transition v-if="(currentVisible || animationVisible)"
     enter-active-class="animate__animated animate__fadeIn"
     leave-active-class="animate__animated animate__fadeOut animate__fast">
     <div :class="$style.root" :static="this.static" @click="handleClose">
         <transition
             enter-active-class="animate__animated animate__fadeInDownSmall"
             leave-active-class="animate__animated animate__fadeOutUpSmall animate__fast">
-            <div :class="$style.dialog" ref="dialog"
+            <div :class="[$style.dialog, this.$env.VUE_APP_DESIGNER ? $style.pos : null]" ref="dialog"
                 v-if="currentVisible && animationVisible"
                 :style="{ width: width + 'px' }" :size="size">
-                <div :class="$style.head">
+                <slot name="inject"></slot>
+                <div :class="$style.head" vusion-slot-name="head" :child-cut-disabled="true">
                     <slot name="head">
-                        <div v-if="title" :class="$style.title">
+                        <div v-if="title" vusion-slot-name="title" :class="$style.title" :child-cut-disabled="true">
                             <slot name="title">{{ title }}</slot>
                         </div>
                         <a :class="$style.close" @click="cancel()"></a>
                     </slot>
                 </div>
-                <div :class="$style.body" :icon="icon">
+                <div :class="$style.body" :icon="icon" vusion-slot-name="body" :child-cut-disabled="true">
                     <slot name="body">
                         <div :class="$style.text">
+                            <div :class="$style.heading"><slot name="heading">{{ heading }}</slot></div>
                             <div :class="$style.content"><slot>{{ content }}</slot></div>
-                            <div :class="$style.description"><slot name="description">{{ description }}</slot></div>
                         </div>
                     </slot>
                 </div>
-                <div :class="$style.foot" v-if="okButton || cancelButton">
+                <div :class="$style.foot" vusion-slot-name="foot" :child-cut-disabled="true" v-if="okButton || cancelButton">
                     <slot name="foot">
                         <u-linear-layout gap="small" justify="end">
                             <u-button :class="$style.button" v-if="cancelButton" :color="primaryButton === 'cancelButton' ? 'primary' : ''" :disabled="disableCancel" @click="cancel()">{{ cancelButton }}</u-button>
@@ -40,6 +41,7 @@
 </template>
 
 <script>
+import Vue from 'vue';
 import { clickOutside } from '../../directives';
 import i18n from './i18n';
 import MEmitter from '../m-emitter.vue';
@@ -57,7 +59,7 @@ export const UModal = {
             },
         },
         content: String,
-        description: String,
+        heading: String,
         okButton: {
             type: String,
             default() {
@@ -155,32 +157,32 @@ export const UModal = {
     },
     install(Vue, id) {
         const Ctor = Vue.component(id);
-        Vue.prototype.$alert = (content, title, okButton) => new Promise((resolve, reject) => {
-            const propsData = typeof content === 'object' ? content : { content, title, okButton, cancelButton: '' };
-            const instance = new Ctor({
-                propsData,
+        Vue.prototype.$alert = (content, title, okButton) =>
+            new Promise((resolve, reject) => {
+                const instance = new Ctor({
+                    propsData: { content, title, okButton, cancelButton: '' },
+                });
+                instance.$on('ok', () => resolve(true));
+                instance.open();
             });
-            instance.$on('ok', () => resolve(true));
-            instance.open();
-        });
-        Vue.prototype.$confirm = (content, title, okButton, cancelButton) => new Promise((resolve, reject) => {
-            const propsData = typeof content === 'object' ? content : { content, title, okButton, cancelButton: '' };
-            const instance = new Ctor({
-                propsData,
+        Vue.prototype.$confirm = (content, title, okButton, cancelButton) =>
+            new Promise((resolve, reject) => {
+                const instance = new Ctor({
+                    propsData: { content, title, okButton, cancelButton },
+                });
+                instance.$on('ok', () => resolve(true));
+                instance.$on('cancel', () => reject(false));
+                instance.open();
             });
-            instance.$on('ok', () => resolve(true));
-            instance.$on('cancel', () => reject(false));
-            instance.open();
-        });
-        Vue.prototype.$confirmResult = (content, title, okButton, cancelButton) => new Promise((resolve, reject) => {
-            const propsData = typeof content === 'object' ? content : { content, title, okButton, cancelButton: '' };
-            const instance = new Ctor({
-                propsData,
+        Vue.prototype.$confirmResult = (content, title, okButton, cancelButton) =>
+            new Promise((resolve, reject) => {
+                const instance = new Ctor({
+                    propsData: { content, title, okButton, cancelButton },
+                });
+                instance.$on('ok', () => resolve(true));
+                instance.$on('cancel', () => resolve(false));
+                instance.open();
             });
-            instance.$on('ok', () => resolve(true));
-            instance.$on('cancel', () => resolve(false));
-            instance.open();
-        });
     },
 };
 export default UModal;
@@ -193,7 +195,7 @@ export default UModal;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 9000;
     -webkit-overflow-scrolling: touch;
     touch-action: cross-slide-y pinch-zoom double-tap-zoom;
     text-align: center;
@@ -210,6 +212,7 @@ export default UModal;
     height: 100%;
 }
 .dialog {
+    position: relative;
     width: var(--modal-dialog-width);
     display: inline-block;
     vertical-align: middle;
@@ -218,6 +221,10 @@ export default UModal;
     border: 1px solid var(--modal-border-color);
     border-radius: var(--modal-dialog-border-radius);
     box-shadow: var(--modal-dialog-box-shadow);
+}
+.pos {
+    vertical-align: top;
+    margin-top: 300px;
 }
 .dialog[size="small"] {
     width: var(--modal-dialog-width-small);
@@ -255,15 +262,15 @@ export default UModal;
     color: var(--modal-close-color-hover);
 }
 .close::before {
-    icon-font: url("./assets/close.svg");
-    font-size: 12px;
+    icon-font: url("../i-icon.vue/icons/close.svg");
+    font-size: var(--modal-title-font-size);
 }
 .body {
     position: relative;
     margin: var(--modal-body-margin);
 }
 .body[icon] {
-    margin: 34px 60px;
+    margin-top: 50px;
 }
 .body[icon]::before {
     position: absolute;
@@ -271,44 +278,40 @@ export default UModal;
     top: 0;
 }
 .body[icon="warning"]::before {
-    icon-font: url('./assets/warning.svg');
-    color: #FFAF0F;
-    font-size: 48px;
-    line-height: 48px;
+    icon-font: url('../i-icon.vue/assets/warning.svg');
+    color: #fbcc3e;
+    font-size: 40px;
+    line-height: 40px;
 }
 .body[icon="success"]::before {
-    icon-font: url('./assets/success.svg');
-    color: #26BD71;
-    font-size: 48px;
-    line-height: 48px;
+    icon-font: url('../i-icon.vue/assets/success.svg');
+    color: #3ad0af;
+    font-size: 40px;
+    line-height: 40px;
 }
 .body[icon="error"]::before {
-    icon-font: url('./assets/warning.svg');
-    color: #F24957;
-    font-size: 48px;
-    line-height: 48px;
+    icon-font: url('../i-icon.vue/assets/error.svg');
+    color: #ff867f;
+    font-size: 40px;
+    line-height: 40px;
 }
-.body[icon] .text {
-    margin-left: calc(48px + 16px);
-    min-height: 48px;
+.body[icon] > div {
+    margin-left: 50px;
+}
+.heading {
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 10px;
+    color: var(--color-base);
 }
 .content {
-    font-size: 14px;
-    color: var(--color-base);
-}
-.description {
-    margin-top: 5px;
-    font-size: 12px;
-    color: var(--color-base);
+    color: var(--color-light);
 }
 .foot {
     margin: var(--modal-foot-margin);
     padding: var(--modal-foot-padding);
     text-align: center;
     border-top: 1px solid var(--modal-border-color);
-}
-.foot [class^="u-linear-layout_"][direction="horizontal"] > *:not(:last-child) {
-    margin-right: 10px;
 }
 @media (--small-window) {
     .dialog {
