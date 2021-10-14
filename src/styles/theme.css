@@ -101,7 +101,7 @@
     --color-base-inverse: white; /* 默认字体颜色 */
     --color-dark: #363a41; /* 默认字体颜色 */
     --border-color-light: #dee4ed; /* 面板等容器类型的边框颜色 */
-    --border-color-base: #E3E4E6; /* 输入框等小组件的边框颜色 */
+    --border-color-base: #E3E4E5; /* 输入框等小组件的边框颜色 */
     --border-color-base-inverse: #212123; /* 输入框等小组件的边框颜色 */
     --border-color-dark: #E3E4E5; /* 按钮等小组件的边框颜色 */
 
@@ -273,7 +273,7 @@
     --button-box-shadow-focus-danger: 0 0 0 2px rgba(254, 90, 90, 0.2);
     --button-box-shadow-active: inset 0 1px 3px rgba(0, 0, 0, 0.2);
     --button-loading-size: 18px;
-    --button-loading-width: 2px;
+    --button-loading-width: 1.5px;
     --button-height-loading: 18px;
     --button-loading-animation-duration: 1s;
 
@@ -351,7 +351,7 @@
 
     /* Table */
     --table-background: var(--background-color-default);
-    --table-head-background: var(--background-color-light);
+    --table-head-background: #F7F8FA;
     --table-head-background-light: var(--background-color-default);
     --table-row-background: var(--background-color-base);
     --table-row-background-hover: var(--background-color-lighter);
@@ -365,9 +365,9 @@
     --table-border-width: 1px;
     --table-td-color: var(--color-base);
     --table-th-line-height: 20px;
-    --table-th-padding: 13px 6px 13px 10px;
+    --table-th-padding: 12px 6px 12px 10px;
     --table-td-line-height: 20px;
-    --table-td-padding: 14px 6px 14px 10px;
+    --table-td-padding: 20px 6px 20px 10px;
 
     /* Article */
     --article-table-font-size: calc(var(--font-size-base) * (13 / 14));
@@ -379,6 +379,19 @@
     --article-h6-font-size: calc(var(--font-size-base) * (12 / 14));
     --article-h2-color: #999fac;
     --article-h2-border-color: #ebf0f4;
+
+    /* Card */
+    --card-border-width: 1px;
+    --card-border-radius: var(--border-radius-base);
+    --card-background: var(--background-color-default);
+    --card-border-color: var(--border-color-light);
+    --card-box-shadow: var(--box-shadow-base);
+    --card-head-padding-x: 12px;
+    --card-head-padding-y: 8px;
+    --card-body-padding-x: 12px;
+    --card-body-padding-y: 8px;
+    --card-title-font-size: 16px;
+    --card-title-font-weight: bold;
 
     /* Panel */
     --panel-border-width: 1px;
@@ -670,7 +683,7 @@
     --input-padding-x-full: 10px;
     --input-border-width: var(--border-width-base);
     --input-background: var(--background-color-default);
-    --input-background-disabled: #cddae9;
+    --input-background-disabled: #F7F8FA;
     --input-color: var(--color-base);
     --input-border-color: var(--border-color-base);
     --input-border-color-error: var(--brand-error);
@@ -877,6 +890,9 @@
     --list-view-group-expander-size: 26px;
     --list-view-filter-margin: 5px;
 
+    /* Grid View */
+    --grid-view-item-space: var(--space-base);
+
     /* Tree View */
     --tree-view-background: white;
     --tree-view-node-margin-left: 30px;
@@ -969,7 +985,7 @@
     --tooltip-box-shadow: 0px 2px 6px rgba(23, 23, 26, 0.1);
 
     /* Icon Tooltip */
-    --icon-tooltip-color: #bac2cf;
+    --icon-tooltip-color: #666;
 
     /* Spinner */
     --spinner-animation-duration: 1s;
@@ -1014,8 +1030,8 @@
     --modal-dialog-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     --modal-title-font-size: var(--font-size-large);
     --modal-close-right: 24px;
-    --modal-close-color: var(--gray-light);
-    --modal-close-color-hover: var(--color-light);
+    --modal-close-color: var(--gray-dark);
+    --modal-close-color-hover: var(--gray-darker);
     --modal-head-padding: 13px 24px;
     --modal-static-padding: var(--space-base);
     --modal-body-margin: 25px 24px;
@@ -1030,8 +1046,8 @@
     --drawer-wrap-background: rgba(0, 0, 0, 0.6);
     --drawer-background: white;
     --drawer-close-size: 15px;
-    --drawer-close-color: var(--gray-light);
-    --drawer-close-color-hover: var(--color-light);
+    --drawer-close-color: var(--gray-dark);
+    --drawer-close-color-hover: var(--gray-darker);
     --drawer-head-padding: 15px;
     --drawer-body-padding: 15px;
     --drawer-foot-padding: 20px 15px;
@@ -1083,13 +1099,14 @@
 
     /* Circular Progress */
     --circular-progress-size: 100px;
-    --circular-progress-stroke-width: 6px;
+    --circular-progress-stroke-width: 10px;
     --circular-progress-track-stroke: var(--background-color-base);
     --circular-progress-trail-stroke: var(--brand-primary);
     --circular-progress-trail-transition: stroke 0.6s ease, stroke-dasharray 0.6s ease;
     --circular-progress-text-color: #999;
     --circular-progress-font-size: var(--font-size-base);
-    --circular-progress-percent-font-size: 20px;
+    --circular-progress-percent-font-size: var(--font-size-large);
+    --circular-progress-percent-font-weight: 600;
     --circular-progress-text-line-height: normal;
 
     /* Group */

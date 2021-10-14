@@ -58,6 +58,10 @@
       type: boolean
       default: false
       description: 是否可以多选
+    - name: repeat
+      type: number
+      default: 5
+      description: 每行排列几项
     - name: show-head
       title: 显示头部
       type: boolean

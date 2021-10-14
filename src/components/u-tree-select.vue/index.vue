@@ -71,6 +71,7 @@
             :is-leaf-field="isLeafField"
             :children-field="childrenField"
             :more-children-fields="moreChildrenFields"
+            :exclude-fields="excludeFields"
             :cancelable="cancelable"
             :checkable="cancelable"
             :accordion="accordion"
@@ -78,6 +79,7 @@
             :initial-load="initialLoad"
             :readonly="readonly"
             :disabled="disabled"
+            ifExpanded
             @change="$emit('change', $event, this)"
             @before-select="$emit('before-select', $event, this)"
             @select="$emit('select', $event, this)"
@@ -110,6 +112,7 @@ export default {
         isLeafField: { type: String, default: 'isLeaf' },
         childrenField: { type: String, default: 'children' },
         moreChildrenFields: Array,
+        excludeFields: { type: Array, default: () => [] },
         cancelable: { type: Boolean, default: false },
         multiple: { type: Boolean, default: false },
         checkable: { type: Boolean, default: false },

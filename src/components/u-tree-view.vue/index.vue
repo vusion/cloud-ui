@@ -37,6 +37,7 @@ export default {
         isLeafField: { type: String, default: 'isLeaf' },
         childrenField: { type: String, default: 'children' },
         moreChildrenFields: Array,
+        excludeFields: { type: Array, default: () => [] },
         cancelable: { type: Boolean, default: false },
         checkable: { type: Boolean, default: false },
         accordion: { type: Boolean, default: false },

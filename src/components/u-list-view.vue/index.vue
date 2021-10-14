@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :readonly="readonly" :readonly-mode="readonlyMode" :disabled="disabled"
+<div :class="$style.root" :readonly="readonly" :readonly-mode="readonlyMode" :disabled="disabled" :border="String(border)"
     :tabindex="readonly || disabled ? '' : 0"
     @keydown.prevent.up="shift(-1)"
     @keydown.prevent.down="shift(+1)">
@@ -25,8 +25,8 @@
                 :key="$at(item, valueField)"
                 :value="$at(item, valueField)"
                 :disabled="item.disabled || disabled"
-                :item="item"
-            ><slot name="item" :item="item" :text="$at(item, field || textField)" :value="$at(item, valueField)" :disabled="item.disabled || disabled">{{ $at(item, field || textField) }}</slot>
+                :item="item">
+                <slot name="item" :item="item" :text="$at(item, field || textField)" :value="$at(item, valueField)" :disabled="item.disabled || disabled">{{ $at(item, field || textField) }}</slot>
             </component>
         </div>
         <div :class="$style.status" status="loading" v-if="currentLoading">
@@ -49,8 +49,9 @@
         <slot name="foot"></slot>
         <u-pagination :class="$style.pagination" v-if="pageable === true || pageable === 'pagination'"
             :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
-            :page-size="currentDataSource.paging.size" :side="1" :around="3"
-            @change="page($event.page)">
+            :page-size="currentDataSource.paging.size" :page-size-options="pageSizeOptions" :show-total="showTotal" :show-sizer="showSizer" :show-jumper="showJumper"
+            :side="1" :around="3"
+            @change="page($event.page)" @change-page-size="page(currentDataSource.paging.number, $event.pageSize)">
         </u-pagination>
     </div>
 </div>
@@ -64,7 +65,7 @@ import FVirtualList from '../f-virtual-list.vue';
 import DataSource from '../../utils/DataSource';
 import debounce from 'lodash/debounce';
 import i18n from './i18n';
-import SEmpty from '../s-empty.vue';
+import { findScrollParent } from '../../utils/dom';
 
 export default {
     name: 'u-list-view',
@@ -72,9 +73,6 @@ export default {
     childName: 'u-list-view-item',
     mixins: [MComplex, MGroupParent, MField, FVirtualList],
     i18n,
-    components: {
-        SEmpty,
-    },
     props: {
         // @inherit: value: null,
         // @inherit: value: Array,
@@ -94,6 +92,7 @@ export default {
         showHead: { type: Boolean, default: false },
         title: { type: String, default: '列表' },
         showFoot: { type: Boolean, default: false },
+        border: { type: Boolean, default: true },
         loading: { type: Boolean, default: false },
         loadingText: {
             type: String,
@@ -123,6 +122,16 @@ export default {
         remoteFiltering: { type: Boolean, default: false },
         pageable: { type: [Boolean, String], default: false },
         pageSize: { type: Number, default: 50 },
+        pageNumber: { type: Number, default: 1 },
+        pageSizeOptions: {
+            type: Array,
+            default() {
+                return [10, 20, 50];
+            },
+        },
+        showTotal: { type: Boolean, default: false },
+        showSizer: { type: Boolean, default: false },
+        showJumper: { type: Boolean, default: false },
         remotePaging: { type: Boolean, default: false },
         virtual: { type: Boolean, default: false },
         // @inherit: virtualCount: { type: Number, default: 60 },
@@ -210,6 +219,16 @@ export default {
         },
     },
     created() {
+        // 自动补充 pageSizeOptions
+        if (this.pageSizeOptions && !this.pageSizeOptions.includes(this.pageSize)) {
+            for (let i = 0; i < this.pageSizeOptions.length; i++) {
+                if (this.pageSizeOptions[i] > this.pageSize) {
+                    this.pageSizeOptions.splice(i, 0, this.pageSize);
+                    break;
+                }
+            }
+        }
+
         this.debouncedLoad = debounce(this.load, 300);
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
         if (this.currentDataSource && this.initialLoad) {
@@ -324,7 +343,8 @@ export default {
             const focusedEl = focusedVM.$el;
             if (!focusedEl)
                 return;
-            const parentEl = focusedEl.parentElement;
+            let parentEl = focusedEl.parentElement;
+            parentEl = findScrollParent(focusedEl); // focusedEl.parentElement不一定可以滚动，需要找到滚动的父元素
             if (!parentEl)
                 return;
             const selectedIndex = this.itemVMs.indexOf(focusedVM);
@@ -429,21 +449,12 @@ export default {
         },
         onScroll(e) {
             this.throttledVirtualScroll(e);
-            if (
-                !(
-                    this.pageable === 'auto-more'
-                    || (this.pageable === true && this.$options.isSelect)
-                )
-            )
+            if (!(this.pageable === 'auto-more' || (this.pageable === true && this.$options.isSelect)))
                 return;
             if (this.currentLoading)
                 return;
             const el = e.target;
-            if (
-                el.scrollHeight === el.scrollTop + el.clientHeight
-                && this.currentDataSource
-                && this.currentDataSource.hasMore()
-            )
+            if (el.scrollHeight === el.scrollTop + el.clientHeight && this.currentDataSource && this.currentDataSource.hasMore())
                 this.debouncedLoad(true);
         },
         onInput(value) {
@@ -480,83 +491,4 @@ export default {
 };
 </script>
 
-<style module>
-.root {
-    display: flex;
-    flex-direction: column;
-    background: var(--list-view-body-background);
-    border: 1px solid var(--list-view-border-color);
-    border-radius: var(--border-radius-base);
-    height: var(--list-view-height);
-    min-width: var(--list-view-width);
-    max-width: 100%;
-}
-
-.root:focus {
-    border-color: var(--list-view-border-color-focus);
-    outline: var(--focus-outline);
-}
-
-.status {
-    color: var(--list-view-status-color);
-    text-align: center;
-    padding: var(--list-view-item-padding);
-}
-
-.root[disabled] {
-    border: 1px solid var(--list-view-border-color-disabled);
-}
-
-.head {
-    background: var(--list-view-head-background);
-    padding: var(--list-view-head-padding);
-    border-bottom: 1px solid var(--list-view-border-color);
-}
-
-.extra {
-    float: right;
-    color: var(--color-light);
-}
-
-.body {
-    flex: auto;
-    user-select: none;
-    overflow: auto;
-    position: relative;
-}
-
-.root[readonly-mode="initial"] .body {
-    user-select: initial;
-}
-
-.root[disabled] .body {
-    background: var(--list-view-body-background-disabled);
-}
-
-.foot {
-    background: var(--list-view-foot-background);
-    padding: var(--list-view-foot-padding);
-    border-top: 1px solid var(--list-view-border-color);
-}
-
-.filter[class][class] {
-    margin: var(--list-view-filter-margin);
-    width: calc(100% - var(--list-view-filter-margin) * 2);
-}
-
-.pagination {
-    text-align: center;
-    margin: 0 -12px;
-}
-
-.root[size^="normal"] { height: var(--list-view-height); }
-.root[size^="large"] { height: var(--list-view-height-large); }
-.root[size^="huge"] { height: var(--list-view-height-huge); }
-.root[size^="full"] { height: 100%; }
-.root[size^="auto"] { height: auto; }
-.root[size$="normal"] { width: var(--list-view-width); }
-.root[size$="large"] { width: var(--list-view-width-large); }
-.root[size$="huge"] { width: var(--list-view-width-huge); }
-.root[size$="full"] { width: 100%; }
-.root[size$="auto"] { width: auto; }
-</style>
+<style module src="./index.css"></style>
