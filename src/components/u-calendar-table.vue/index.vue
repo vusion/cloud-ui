@@ -198,6 +198,10 @@ export default {
     methods: {
         async load() {
             const { dataSourceParent, dataSourceChild, parentKey, childKey } = this;
+            if (this.$env.VUE_APP_DESIGNER) {
+                this.tempData = [{ fieldValue: this.firstField, children: [{}] }];
+                return;
+            }
             if (!dataSourceParent || !dataSourceChild) {
                 return;
             }
