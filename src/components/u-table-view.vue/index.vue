@@ -96,7 +96,7 @@
                                 <template v-else>
                                     <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
-                                        :vusion-node-path="columnVM.$attrs['vusion-node-path']" :level="item.level ">
+                                        :vusion-node-path="columnVM.$attrs['vusion-node-path']">
                                             <!-- type === 'index' -->
                                             <span v-if="columnVM.type === 'index'">{{ (columnVM.startIndex - 0) + rowIndex }}</span>
                                             <!-- type === 'radio' -->
