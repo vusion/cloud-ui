@@ -625,7 +625,7 @@
     --form-required-right: 12px;
     --form-required-right-small: 2px;
     --form-required-right-large: 12px;
- 
+
     /* Field */
     --field-background: white;
     --field-color: var(--color-light);
@@ -1100,6 +1100,14 @@
     --group-head-background: var(--background-color-dark);
     --group-expander-size: 26px;
     --group-expander-color-disabled: var(--brand-disabled);
+
+    /* Calendar */
+    --calendar-date-height: 96px;
+    --calendar-date-padding: 4px 8px 0;
+    --calendar-date-text-align: right;
+    --calendar-date-background: var(--brand-primary-lightest);
+    --calendar-date-disabled: var(--brand-disabled-dark);
+    --calendar-date-background-disabled: var(--brand-disabled);
 
     /* --------- */
 

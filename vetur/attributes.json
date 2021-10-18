@@ -944,6 +944,54 @@
     "type": "boolean",
     "description": "需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。"
   },
+  "u-calendar-view/value": {
+    "type": "Date | string ｜ number",
+    "description": "当前选择的日期"
+  },
+  "u-calendar-view/min-date": {
+    "type": "Date | string ｜ number",
+    "description": "最小日期，默认 10 年前"
+  },
+  "u-calendar-view/max-date": {
+    "type": "Date | string ｜ number",
+    "description": "最大日期，默认 9 年后"
+  },
+  "u-calendar-view/data-source": {
+    "type": "Array<Item> | Function",
+    "description": "日历数据源，数组方式表示直接的数据，函数需要返回一个 Promise"
+  },
+  "u-calendar-view/data-schema": {
+    "type": "schema",
+    "description": "日历中每天的数据类型"
+  },
+  "u-calendar-view/start-key": {
+    "type": "string",
+    "description": "数据内表示开始时间的字段"
+  },
+  "u-calendar-view/end-key": {
+    "type": "string",
+    "description": "数据内表示结束时间的字段"
+  },
+  "u-calendar-view/show-week-days": {
+    "type": "boolean",
+    "description": "是否展示周天"
+  },
+  "u-calendar-view/show-weeks": {
+    "type": "boolean",
+    "description": "是否展示周数"
+  },
+  "u-calendar-view/show-basic": {
+    "type": "boolean",
+    "description": "是否展示基础配置功能"
+  },
+  "u-calendar-view/show-advance": {
+    "type": "boolean",
+    "description": "是否展示高级配置"
+  },
+  "u-calendar-view/first-day-of-week": {
+    "type": "number",
+    "description": "周起始日，1～7（周一～周日）"
+  },
   "u-calendar/date": {
     "type": "Date | string",
     "description": "当前选择的日期"

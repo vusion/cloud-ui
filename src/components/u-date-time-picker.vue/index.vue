@@ -64,7 +64,7 @@ export default {
         width: { type: [String, Number], default: 170 },
         yearDiff: { type: [String, Number], default: 20 },
         yearAdd: { type: [String, Number], default: 20 },
-        converter: { type: String, default: 'format' },
+        converter: { type: String, default: 'json' },
         clearable: { type: Boolean, default: false },
     },
     data() {
