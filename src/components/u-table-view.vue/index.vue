@@ -992,7 +992,7 @@ export default {
             if (!item[this.treeChildrenField] && this.treeDataSource) {
                 this.$set(item, 'loading', true);
                 this.$forceUpdate();
-                this.treeDataSource(item).then((res) => {
+                this.treeDataSource({ item }).then((res) => {
                     const result = res;
                     if (result instanceof Array) {
                         item[this.treeChildrenField] = result;
