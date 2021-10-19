@@ -201,7 +201,7 @@
     - name: value-field
       title: 值字段名
       type: string
-      description: 在单选和多选操作中，指定数据唯一值的字段。
+      description: 在单选、多选操作、渲染树形数据中，指定数据唯一值的字段。
       group: 选择属性
     - name: value
       title: 单选值
@@ -264,6 +264,24 @@
           title: 不做任何处理，表格宽度变化
       default: average
       description: 调整列宽时如何处理剩余大小
+      group: 其它属性
+    - name: tree-display
+      title: 树形模式
+      type: boolean
+      default: false
+      description: 以树形数据展示表格。
+      group: 其它属性
+    - name: children-field
+      title: 子节点字段名
+      type: string
+      default: children
+      description: 树形数据子节点字段名。
+      group: 其它属性
+    - name: has-children-field
+      title: 是否包含子节点字段名
+      type: string
+      default: hasChildren
+      description: 该字段指定行数据是否包含子节点数据。
       group: 其它属性
   slots:
     - name: default
@@ -648,6 +666,8 @@
           title: 多选列
         - value: expander
           title: 展开列
+        - value: tree
+          title: 树形列
       default: index
       description: 列类型
     - name: start-index

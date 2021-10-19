@@ -57,7 +57,7 @@
                 <tbody>
                     <template v-if="(!currentLoading && !currentError || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
                         <template v-for="(item, rowIndex) in currentData">
-                            <tr :key="rowIndex" :class="$style.row" :color="item.rowColor" :selected="selectable && selectedItem === item" @click="selectable && select(item)">
+                            <tr :key="rowIndex" :class="$style.row" :color="item.rowColor" :selected="selectable && selectedItem === item" @click="selectable && select(item)" :style="{ display: item.display }">
                                 <template v-if="$env.VUE_APP_DESIGNER">
                                     <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title
                                         allowChild
@@ -81,11 +81,16 @@
                                             </span>
                                             <!-- type === 'expander' -->
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click="toggleExpanded(item)"></span>
+                                            <template v-if="item.level !== undefined && columnIndex === treeColumnIndex">
+                                                <span :class="$style.indent" :style="{ paddingLeft: 16*item.level + 'px' }"></span>
+                                                <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.expanded" @click="toggleTreeExpanded(item)" :loading="item.loading"></span>
+                                                <span :class="$style.tree_placeholder" v-else></span>
+                                            </template>
                                             <!-- Normal text -->
                                             <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
                                                 <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                             </f-slot>
-                                        </div>
+                                       </div>
                                     </td>
                                 </template>
                                 <template v-else>
@@ -104,6 +109,11 @@
                                             </span>
                                             <!-- type === 'expander' -->
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click="toggleExpanded(item)"></span>
+                                            <template v-if="item.level !== undefined && columnIndex === treeColumnIndex">
+                                                <span :class="$style.indent" :style="{ paddingLeft: 16*item.level + 'px' }"></span>
+                                                <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.expanded" @click="toggleTreeExpanded(item)" :loading="item.loading"></span>
+                                                <span :class="$style.tree_placeholder" v-else></span>
+                                            </template>
                                             <!-- Normal text -->
                                             <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
                                                 <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
@@ -165,6 +175,7 @@ import MEmitter from '../m-emitter.vue';
 import debounce from 'lodash/debounce';
 import isNumber from 'lodash/isNumber';
 import i18n from './i18n';
+import { rest } from 'lodash';
 
 export default {
     name: 'u-table-view',
@@ -231,6 +242,10 @@ export default {
         resizeRemaining: { type: String, default: 'average' },
         showHead: { type: Boolean, default: true },
         color: String,
+        treeDisplay: { type: Boolean, default: false },
+        childrenField: { type: String, default: 'children' },
+        hasChildrenField: { type: String, default: 'hasChildren' },
+        treeDataSource: [Function],
     },
     data() {
         return {
@@ -258,7 +273,11 @@ export default {
                     tdEl.__vue__ = this.columnVMs[index % length];
                 });
             });
-            return this.currentDataSource ? this.currentDataSource.viewData.filter((item) => !!item) : this.currentDataSource;
+            let data = this.currentDataSource ? this.currentDataSource.viewData.filter((item) => !!item) : this.currentDataSource;
+            if (this.treeDisplay && data) {
+                data = this.processTreeData(data);
+            }
+            return data;
         },
         visibleColumnVMs() {
             return this.columnVMs.filter((columnVM) => !columnVM.hidden);
@@ -289,6 +308,20 @@ export default {
                 return true;
             else
                 return null;
+        },
+        treeColumnIndex() {
+            const vms = this.columnVMs.filter((columnVM) => !columnVM.hidden);
+            let treeColumnIndex = vms.findIndex((columnVM) => columnVM.type === 'tree');
+            if (treeColumnIndex === -1) {
+                treeColumnIndex = vms.findIndex((columnVM) => ['index', 'radio', 'checkbox'].includes(columnVM.type));
+                if (treeColumnIndex === -1) {
+                    return 0;
+                } else {
+                    return treeColumnIndex + 1;
+                }
+            } else {
+                return treeColumnIndex;
+            }
         },
     },
     watch: {
@@ -380,7 +413,7 @@ export default {
     mounted() {
         if (this.data)
             this.processData(this.data);
-        
+
         this.watchCurrentData();
         this.watchValue(this.value);
         this.watchValues(this.values);
@@ -806,8 +839,9 @@ export default {
         },
         watchCurrentData() {
             this.$watch(() => this.currentData, (currentData) => {
-                if(currentData)
+                if (currentData) {
                     this.processData(currentData);
+                }
             }, {
                 immediate: true,
             });
@@ -922,6 +956,103 @@ export default {
                         otherItem.expanded = false;
                 });
             }
+        },
+        /**
+         * 转换成平铺型数据
+         */
+        processTreeData(data, level = 0, parent) {
+            let newData = [];
+            for (const item of data) {
+                item.level = level;
+                item.parentPointer = parent && this.$at(parent, this.valueField);
+                if (this.$at(item, this.childrenField) && this.$at(item, this.childrenField).length) {
+                    this.$setAt(item, this.hasChildrenField, true);
+                    item.expanded = item.expanded || false;
+                }
+                if (parent && !item.hasOwnProperty('display')) {
+                    this.$set(item, 'display', 'none');
+                }
+                if (!item.hasOwnProperty('loading')) {
+                    this.$set(item, 'loading', false);
+                }
+                newData.push(item);
+                if (this.$at(item, this.childrenField) && this.$at(item, this.childrenField).length) {
+                    newData = newData.concat(this.processTreeData(this.$at(item, this.childrenField), level + 1, item));
+                }
+            }
+            return newData;
+        },
+        toggleTreeExpanded(item, expanded) {
+            if (item.loading)
+                return;
+            if (expanded === undefined)
+                expanded = !item.expanded;
+            if (this.$emitPrevent('before-tree-toggle-expanded', { item, oldExpanded: !expanded, expanded }, this))
+                return;
+            this.$set(item, 'expanded', expanded);
+            this.$emit('tree-toggle-expanded', { item, expanded }, this);
+            if (!this.$at(item, this.childrenField) && (typeof this.dataSource === 'function')) {
+                this.$set(item, 'loading', true);
+                this.$forceUpdate();
+                // 第一个参数是为了兼容laod的参数
+                this.dataSource({ page: this.page, size: this.size }, { item }).then((res) => {
+                    let result = [];
+                    if (Array.isArray(res)) {
+                        result = res;
+                    } else if (typeof res === 'object') { // 特殊处理
+                        Object.keys(res).forEach((key) => {
+                            if (Array.isArray(res[key])) {
+                                result = res[key];
+                            }
+                        });
+                    }
+                    this.$setAt(item, this.childrenField, result);
+                    // 促使currentData更新
+                    const index = this.currentData.findIndex((currentData) => this.$at(currentData, this.valueField) === this.$at(item, this.valueField));
+                    const newDataIndex = this.currentData.findIndex((currentData) => this.$at(currentData, this.valueField) === this.$at(result[0], this.valueField));
+                    if (index !== -1 && newDataIndex === -1) {
+                        const treeData = this.processTreeData(result, item.level + 1, item);
+                        this.currentData.splice(index + 1, 0, ...treeData);
+                    }
+                    this.updateTreeExpanded(item, expanded);
+                    this.$set(item, 'loading', false);
+                });
+            } else {
+                this.updateTreeExpanded(item, expanded);
+            }
+        },
+        /**
+         * 递归处理children情况
+         */
+        traverse(node, func) {
+            const list = node && this.$at(node, this.childrenField);
+            if (!list)
+                return;
+            for (let index = 0; index < list.length; index++) {
+                const child = list[index];
+                if (!child)
+                    continue;
+                func(child, node);
+                this.traverse(child, func);
+            }
+        },
+        updateTreeExpanded(expandNode, expanded) {
+            this.traverse(expandNode, (node, parent) => {
+                this.currentData.forEach((itemData) => {
+                    if (itemData.parentPointer !== undefined && itemData.parentPointer === this.$at(parent, this.valueField)) {
+                        if (expanded) {
+                            if (parent.expanded) {
+                                this.$set(itemData, 'display', '');
+                            } else {
+                                this.$set(itemData, 'display', 'none');
+                            }
+                        } else {
+                            this.$set(itemData, 'display', 'none');
+                        }
+                    }
+                });
+            });
+            this.$forceUpdate(); // 有loading的情况下，forceUpdate才会更新
         },
     },
 };
@@ -1109,4 +1240,56 @@ export default {
 }
 
 .column-field {}
+
+.tree_expander {
+    display: inline-block;
+    width: var(--table-view-tree-expander-size);
+    height: var(--table-view-tree-expander-size);
+    line-height: var(--table-view-tree-expander-size);
+    text-align: center;
+    /* margin-left: calc(var(--table-view-tree-margin-left) * -1); */
+    transition: transform var(--transition-duration-base);
+}
+
+.tree_expander::before {
+    icon-font: url('i-material-design.vue/assets/filled/arrow_right.svg');
+}
+
+.tree_expander {
+    cursor: pointer;
+}
+
+.tree_expander[expanded] {
+    transform: rotate(90deg);
+}
+.tree_placeholder{
+    display: inline-block;
+    width: var(--table-view-tree-expander-size);
+    height: var(--table-view-tree-expander-size);
+    line-height: var(--table-view-tree-expander-size);
+    text-align: center;
+}
+.tree_expander[icon="loading"]::before, /* @deprecated */
+.tree_expander[loading]::before {
+    content: '';
+    font: inherit;
+    display: inline-block;
+    width: var(--table-view-tree-expander-loading-size);
+    height: var(--table-view-tree-expander-loading-size);
+    border: var(--table-view-tree-expander-loading-border-width) solid currentColor;
+    border-top-color: transparent;
+    border-radius: var(--table-view-tree-expander-loading-size);
+    animation: rotate var(--spinner-animation-duration) ease-in-out var(--spinner-animation-delay) infinite;
+}
+
+.tree_expander + div,
+.tree_placeholder + div
+{
+    display: inline;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
+}
 </style>
