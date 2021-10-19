@@ -188,7 +188,9 @@ export default {
         data(data) {
             this.handleData();
         },
-        dataSource(dataSource) {
+        dataSource(dataSource, oldDataSource) {
+            if (typeof dataSource === 'function' && String(dataSource) === String(oldDataSource))
+                return;
             this.handleData();
         },
         loading(loading) {
