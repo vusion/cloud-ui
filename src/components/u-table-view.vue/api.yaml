@@ -201,7 +201,7 @@
     - name: value-field
       title: 值字段名
       type: string
-      description: 在单选和多选操作中，指定数据唯一值的字段。
+      description: 在单选、多选操作、渲染树形数据中，指定数据唯一值的字段。
       group: 选择属性
     - name: value
       title: 单选值
@@ -271,28 +271,17 @@
       default: false
       description: 以树形数据展示表格。
       group: 其它属性
-    - name: tree-children-field
+    - name: children-field
       title: 子节点字段名
       type: string
       default: children
       description: 树形数据子节点字段名。
       group: 其它属性
-    - name: tree-haschildren-field
+    - name: has-children-field
       title: 是否包含子节点字段名
       type: string
       default: hasChildren
       description: 该字段指定行数据是否包含子节点数据。
-      group: 其它属性
-    - name: rowKey
-      title: 唯一标识字段名
-      type: string
-      default: id
-      description: 能唯一标识该行数据的字段。渲染树形数据时，必须要指定。
-      group: 其它属性
-    - name: tree-data-source
-      title: 子节点数据源
-      type: Function
-      description: 子节点表格的数据源，需要为Promise函数。
       group: 其它属性
   slots:
     - name: default

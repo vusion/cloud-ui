@@ -83,7 +83,7 @@
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click="toggleExpanded(item)"></span>
                                             <template v-if="item.level !== undefined && columnIndex === treeColumnIndex">
                                                 <span :class="$style.indent" :style="{ paddingLeft: 16*item.level + 'px' }"></span>
-                                                <span :class="$style.tree_expander" v-if="$at(item, treeHaschildrenField)" :expanded="item.expanded" @click="toggleTreeExpanded(item)" :loading="item.loading"></span>
+                                                <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.expanded" @click="toggleTreeExpanded(item)" :loading="item.loading"></span>
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
                                             <!-- Normal text -->
@@ -111,7 +111,7 @@
                                             <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click="toggleExpanded(item)"></span>
                                             <template v-if="item.level !== undefined && columnIndex === treeColumnIndex">
                                                 <span :class="$style.indent" :style="{ paddingLeft: 16*item.level + 'px' }"></span>
-                                                <span :class="$style.tree_expander" v-if="$at(item, treeHaschildrenField)" :expanded="item.expanded" @click="toggleTreeExpanded(item)" :loading="item.loading"></span>
+                                                <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.expanded" @click="toggleTreeExpanded(item)" :loading="item.loading"></span>
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
                                             <!-- Normal text -->
@@ -243,10 +243,9 @@ export default {
         showHead: { type: Boolean, default: true },
         color: String,
         treeDisplay: { type: Boolean, default: false },
-        treeChildrenField: { type: String, default: 'children' },
-        treeHaschildrenField: { type: String, default: 'hasChildren' },
+        childrenField: { type: String, default: 'children' },
+        hasChildrenField: { type: String, default: 'hasChildren' },
         treeDataSource: [Function],
-        rowKey: { type: String, default: 'id' },
     },
     data() {
         return {
@@ -960,13 +959,12 @@ export default {
          * 转换成平铺型数据
          */
         processTreeData(data, level = 0, parent) {
-            console.log('ggg');
             let newData = [];
             for (const item of data) {
                 item.level = level;
-                item.parentPointer = parent && this.$at(parent, this.rowKey);
-                if (this.$at(item, this.treeChildrenField) && this.$at(item, this.treeChildrenField).length) {
-                    this.$setAt(item, this.treeHaschildrenField, true);
+                item.parentPointer = parent && this.$at(parent, this.valueField);
+                if (this.$at(item, this.childrenField) && this.$at(item, this.childrenField).length) {
+                    this.$setAt(item, this.hasChildrenField, true);
                     item.expanded = item.expanded || false;
                 }
                 if (parent && !item.hasOwnProperty('display')) {
@@ -976,8 +974,8 @@ export default {
                     this.$set(item, 'loading', false);
                 }
                 newData.push(item);
-                if (this.$at(item, this.treeChildrenField) && this.$at(item, this.treeChildrenField).length) {
-                    newData = newData.concat(this.processTreeData(this.$at(item, this.treeChildrenField), level + 1, item));
+                if (this.$at(item, this.childrenField) && this.$at(item, this.childrenField).length) {
+                    newData = newData.concat(this.processTreeData(this.$at(item, this.childrenField), level + 1, item));
                 }
             }
             return newData;
@@ -991,11 +989,11 @@ export default {
                 return;
             this.$set(item, 'expanded', expanded);
             this.$emit('tree-toggle-expanded', { item, expanded }, this);
-            if (!this.$at(item, this.treeChildrenField) && this.treeDataSource) {
+            if (!this.$at(item, this.childrenField) && (typeof this.dataSource === 'function')) {
                 this.$set(item, 'loading', true);
                 this.$forceUpdate();
                 // 第一个参数是为了兼容laod的参数
-                this.treeDataSource({ page: this.page, size: this.size }, { item }).then((res) => {
+                this.dataSource({ page: this.page, size: this.size }, { item }).then((res) => {
                     let result = [];
                     if (Array.isArray(res)) {
                         result = res;
@@ -1006,10 +1004,10 @@ export default {
                             }
                         });
                     }
-                    this.$setAt(item, this.treeChildrenField, result);
+                    this.$setAt(item, this.childrenField, result);
                     // 促使currentData更新
-                    const index = this.currentData.findIndex((currentData) => this.$at(currentData, this.rowKey) === this.$at(item, this.rowKey));
-                    const newDataIndex = this.currentData.findIndex((currentData) => this.$at(currentData, this.rowKey) === this.$at(result[0], this.rowKey));
+                    const index = this.currentData.findIndex((currentData) => this.$at(currentData, this.valueField) === this.$at(item, this.valueField));
+                    const newDataIndex = this.currentData.findIndex((currentData) => this.$at(currentData, this.valueField) === this.$at(result[0], this.valueField));
                     if (index !== -1 && newDataIndex === -1) {
                         const treeData = this.processTreeData(result, item.level + 1, item);
                         this.currentData.splice(index + 1, 0, ...treeData);
@@ -1025,7 +1023,7 @@ export default {
          * 递归处理children情况
          */
         traverse(node, func) {
-            const list = node && this.$at(node, this.treeChildrenField);
+            const list = node && this.$at(node, this.childrenField);
             if (!list)
                 return;
             for (let index = 0; index < list.length; index++) {
@@ -1039,7 +1037,7 @@ export default {
         updateTreeExpanded(expandNode, expanded) {
             this.traverse(expandNode, (node, parent) => {
                 this.currentData.forEach((itemData) => {
-                    if (itemData.parentPointer !== undefined && itemData.parentPointer === this.$at(parent, this.rowKey)) {
+                    if (itemData.parentPointer !== undefined && itemData.parentPointer === this.$at(parent, this.valueField)) {
                         if (expanded) {
                             if (parent.expanded) {
                                 this.$set(itemData, 'display', '');
