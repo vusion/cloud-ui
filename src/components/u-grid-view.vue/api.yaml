@@ -1,5 +1,6 @@
 - name: u-grid-view
   title: 数据网格
+  icon: grid-view
   description: 用于列举大量数据的列表框，支持单选、多选、过滤（搜索）、分页等功能。
   labels:
     - Table
@@ -7,7 +8,7 @@
     - name: data-source
       title: 数据源
       type: Array<Item> | Function | object | DataSource
-      designer-value: '[{}, {}, {}, {}, {}, {}, {}, {}, {}, {}]'
+      designer-value: '[{}, {}, {}, {}, {}, {}, {}, {}]'
       description: 表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise。
       group: 数据属性
     - name: data-schema
@@ -131,6 +132,23 @@
       type: string
       default: 加载中...
       description: 加载时的文字。使用分页加载时才会出现
+    - name: error
+      title: 是否加载失败
+      type: boolean
+      description: 手动设置是否加载失败。
+      group: 状态属性
+    - name: error-text
+      title: 加载失败文字
+      type: string
+      default: 加载失败，请重试
+      description: 加载失败时的文字。
+      group: 状态属性
+    - name: empty-text
+      title: 暂无数据文字
+      type: string
+      default: 暂无数据
+      description: 暂无数据时的文字。
+      group: 状态属性
     - name: filterable
       title: 可筛选
       type: boolean
@@ -286,3 +304,4 @@
     - name: reload
       description: 清除缓存，重新加载
       params: []
+  

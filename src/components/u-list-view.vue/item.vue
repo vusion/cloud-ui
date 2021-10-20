@@ -4,7 +4,9 @@
     :readonly="parentVM.readonly" :readonly-mode="parentVM.readonlyMode"
     :disabled="disabled || parentVM.disabled"
     @click="select"
-    v-ellipsis-title>
+    v-ellipsis-title
+    :designer="$env.VUE_APP_DESIGNER"
+    vusion-slot-name="item">
     <slot>{{ text }}</slot>
 </div>
 </template>

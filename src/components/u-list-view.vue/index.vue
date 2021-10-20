@@ -26,7 +26,7 @@
                 :value="$at(item, valueField)"
                 :disabled="item.disabled || disabled"
                 :item="item">
-                <slot name="item" :item="item" :text="$at(item, field || textField)" :value="$at(item, valueField)" :disabled="item.disabled || disabled">{{ $at(item, field || textField) }}</slot>
+                <slot name="item" :item="item" :text="$at(item, field || textField)" :value="$at(item, valueField)" :disabled="item.disabled || disabled" vusion-slot-name="item">{{ $at(item, field || textField) }}<s-empty v-if="(!$slots.item) && $env.VUE_APP_DESIGNER"></s-empty></slot>
             </component>
         </div>
         <div :class="$style.status" status="loading" v-if="currentLoading">
@@ -66,11 +66,15 @@ import DataSource from '../../utils/DataSource';
 import debounce from 'lodash/debounce';
 import i18n from './i18n';
 import { findScrollParent } from '../../utils/dom';
+import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-list-view',
     groupName: 'u-list-view-group',
     childName: 'u-list-view-item',
+    components: {
+        SEmpty,
+    },
     mixins: [MComplex, MGroupParent, MField, FVirtualList],
     i18n,
     props: {
