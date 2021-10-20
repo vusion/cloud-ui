@@ -11,6 +11,7 @@
   "main": "./index.js",
   "scripts": {
     "dev": "vue-cli-service doc --port 9001",
+    "dev:dark": "vue-cli-service doc --port 9001 --theme dark",
     "build": "vue-cli-service library-build --apply-theme --theme default,dark,seagreen",
     "build:theme": "vue-cli-service library-build --dest dist-theme",
     "build:raw": "vue-cli-service library-build --vusion-mode raw --dest dist-raw",
