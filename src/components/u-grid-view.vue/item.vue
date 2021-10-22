@@ -35,6 +35,14 @@ export default {
     vertical-align: top;
 }
 
+.root:hover {
+    background: none;
+}
+.root[selected] {
+    background: none;
+    color: initial;
+}
+
 .root[designer]{
     position: relative;
 }

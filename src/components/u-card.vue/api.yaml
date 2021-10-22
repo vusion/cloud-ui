@@ -1,5 +1,6 @@
 - name: u-card
   title: 卡片
+  icon: card
   labels:
     - Layout
   description: 用于快速布局
@@ -18,6 +19,27 @@
       title: 标题
       type: string
       description: 卡片标题
+    - name: width
+      title: 宽度
+      type: string
+      description: 卡片宽度
+    - name: shadow
+      title: 阴影
+      type: string
+      description: 卡片阴影显示时机
+      default: always
+      options:
+        - value: always
+          title: 一直显示
+        - value: hover
+          title: hover时显示
+        - value: never
+          title: 不显示
+    - name: border
+      title: 边框
+      type: boolean
+      default: true
+      description: 是否展示卡片边框
   events:
     - name: $listeners
       kind: trigger

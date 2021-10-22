@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" v-on="$listeners">
+<div :class="$style.root" v-on="$listeners" :shadow="shadow" :border="border" :style="{width: /^\d+$/.test(width)? width+'px': width}">
     <div :class="$style.head">
         <slot name="head">
             <div v-if="title" :class="$style.title" vusion-slot-name="title">
@@ -32,6 +32,9 @@ export default {
     props: {
         title: { type: String, default: '提示' },
         content: String,
+        shadow: { type: String, default: 'always' },
+        border: { type: Boolean, default: true },
+        width: { type: [String, Number], default: '' },
     },
 };
 </script>
@@ -40,14 +43,26 @@ export default {
 .root {
     border-radius: var(--card-border-radius);
     background: var(--card-background);
-    box-shadow: 0px 2px 10px rgba(64, 69, 78, 0.05);
-    border: var(--card-border-width) solid var(--border-color-light);
+    /* box-shadow: 0px 2px 10px rgba(64, 69, 78, 0.05); */
+    /* border: var(--card-border-width) solid var(--border-color-light); */
     transition: box-shadow var(--transition-duration-base);
     overflow: hidden;
 }
 
-.root:hover {
+/* .root:hover {
     box-shadow: var(--card-box-shadow);
+} */
+
+.root[shadow='always']{
+    box-shadow: var(--card-box-shadow);
+}
+
+.root[shadow='hover']:hover{
+    box-shadow: var(--card-box-shadow);
+}
+
+.root[border]{
+    border: var(--card-border-width) solid var(--border-color-light);
 }
 
 .head {
