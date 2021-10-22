@@ -4,16 +4,10 @@
   labels:
     - Layout
   description: 用于快速布局
-  next: true
+  next: false
   nested: false
   slots:
     - name: default
-      description: 插入`<u-card-group>`子组件。
-      support:
-        - name: u-card-group
-          advanced: true
-          title: 卡片分组
-          snippet: <u-card-group title="概览">卡片分组</u-card-group>
   attrs:
     - name: title
       title: 标题
