@@ -27,6 +27,7 @@
       type: boolean
       default: false
       description: 是否只读
+      advanced: true
     - name: disabled
       title: 禁用
       type: boolean
@@ -58,6 +59,10 @@
       type: boolean
       default: false
       description: 是否可以多选
+    - name: repeat
+      type: number
+      default: 5
+      description: 每行排列几项
     - name: show-head
       title: 显示头部
       type: boolean
@@ -78,6 +83,23 @@
       type: string
       default: 加载中...
       description: 加载时的文字。使用分页加载时才会出现
+    - name: error
+      title: 是否加载失败
+      type: boolean
+      description: 手动设置是否加载失败。
+      group: 状态属性
+    - name: error-text
+      title: 加载失败文字
+      type: string
+      default: 加载失败，请重试
+      description: 加载失败时的文字。
+      group: 状态属性
+    - name: empty-text
+      title: 暂无数据文字
+      type: string
+      default: 暂无数据
+      description: 暂无数据时的文字。
+      group: 状态属性
     - name: pageable
       title: 可分页
       type: boolean

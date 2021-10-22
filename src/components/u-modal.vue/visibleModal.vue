@@ -1,19 +1,19 @@
 <script>
-import UModalReal from './modalReal.vue';
+import UModalReal from './index.vue';
 const normalizeSlots = (slots, context) => Object.keys(slots)
-        .reduce((arr, key) => {
-            slots[key].forEach((vnode) => {
-                if (!vnode.context) {
-                    slots[key].context = context;
-                }
-                if (!vnode.data) {
-                    vnode.data = {};
-                }
-                vnode.data.slot = key;
-            });
-            return arr.concat(slots[key]);
-        }, []);
-        
+    .reduce((arr, key) => {
+        slots[key].forEach((vnode) => {
+            if (!vnode.context) {
+                slots[key].context = context;
+            }
+            if (!vnode.data) {
+                vnode.data = {};
+            }
+            vnode.data.slot = key;
+        });
+        return arr.concat(slots[key]);
+    }, []);
+
 export default {
     name: 'u-visible-modal',
     i18n: UModalReal.i18n,
@@ -67,7 +67,7 @@ export default {
                 alignItems: 'center',
                 justifyContent: 'center',
                 display: 'flex',
-                cursor: 'pointer'
+                cursor: 'pointer',
             },
         }, [
             h('u-modal-real', {

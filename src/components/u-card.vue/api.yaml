@@ -1,0 +1,61 @@
+- name: u-card
+  title: 卡片
+  icon: card
+  labels:
+    - Layout
+  description: 用于快速布局
+  next: true
+  nested: false
+  slots:
+    - name: default
+      description: 插入`<u-card-group>`子组件。
+      support:
+        - name: u-card-group
+          advanced: true
+          title: 卡片分组
+          snippet: <u-card-group title="概览">卡片分组</u-card-group>
+  attrs:
+    - name: title
+      title: 标题
+      type: string
+      description: 卡片标题
+    - name: width
+      title: 宽度
+      type: string
+      description: 卡片宽度
+    - name: shadow
+      title: 阴影
+      type: string
+      description: 卡片阴影显示时机
+      default: always
+      options:
+        - value: always
+          title: 一直显示
+        - value: hover
+          title: hover时显示
+        - value: never
+          title: 不显示
+    - name: border
+      title: 边框
+      type: boolean
+      default: true
+      description: 是否展示卡片边框
+  events:
+    - name: $listeners
+      kind: trigger
+      description: 监听所有事件。
+      params: []
+- name: u-card-group
+  advanced: true
+  title: 卡片组
+  next: false
+  nexted: false
+  attrs:
+    - name: title
+      title: 标题
+      type: string
+      description: 卡片组的标题
+  description: 卡片组
+  slots: 
+    - name: default
+      description: 插入默认的元素

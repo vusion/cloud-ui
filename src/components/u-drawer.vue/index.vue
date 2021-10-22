@@ -134,8 +134,8 @@ export default {
 }
 
 .close::before {
-    content: '\00d7';
-    font-size: var(--font-size-huge);
+    icon-font: url("../u-modal.vue/assets/close.svg");
+    font-size: 12px;
     line-height: 0.8;
 }
 

@@ -28,9 +28,9 @@
 ```vue
 <template>
     <u-calendar-view :data="data">
-        <template v-slot="scope">
-            <p v-if="scope.item.data.Apple">苹果: {{scope.item.data.Apple}}</p>
-            <p v-if="scope.item.data.Orange">橘子: {{scope.item.data.Orange}}</p>
+        <template #default="scope">
+            <p v-if="scope.item.apple">苹果: {{scope.item.apple}}</p>
+            <p v-if="scope.item.orange">橘子: {{scope.item.orange}}</p>
         </template>
     </u-calendar-view>
 </template>
@@ -40,16 +40,14 @@ export default{
         return {
             data: [{
                 startTime: '2021-10-05',
-                Apple: 8,
-                Orange: 8,
+                orange: 8,
             }, {
                 startTime: '2021-10-16',
-                Apple: 1,
-                Orange: 2,
+                apple: 1,
             }, {
                 startTime: '2021-10-31',
-                Apple: 3,
-                Orange: 2,
+                apple: 3,
+                orange: 2,
             }],
         };
     },

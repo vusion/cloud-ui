@@ -342,7 +342,8 @@
       "show-basic",
       "show-advance",
       "first-day-of-week"
-    ]
+    ],
+    "description": "用于展示大量结构化数据。支持日历结构展示。"
   },
   "u-calendar": {
     "attributes": [
@@ -384,6 +385,16 @@
   "u-capsules-group": {
     "attributes": [],
     "description": "子选项组"
+  },
+  "u-card": {
+    "attributes": [],
+    "description": "用于快速布局",
+    "subtags": [
+      "u-card-group"
+    ]
+  },
+  "u-card-group": {
+    "attributes": []
   },
   "u-carousel": {
     "attributes": [
@@ -781,6 +792,36 @@
     ],
     "description": "内部元素行内列布局"
   },
+  "u-grid-view": {
+    "attributes": [
+      "value",
+      "field",
+      "text-field",
+      "value-field",
+      "data",
+      "data-source",
+      "cancelable",
+      "multiple",
+      "show-head",
+      "title",
+      "show-foot",
+      "loading-text",
+      "initial-load",
+      "filterable",
+      "placeholder",
+      "clearable",
+      "match-method",
+      "case-sensitive",
+      "remote-filtering",
+      "pageable",
+      "page-size",
+      "remote-paging",
+      "readonly",
+      "disabled",
+      "size"
+    ],
+    "description": "用于列举大量数据的列表框，支持单选、多选、过滤（搜索）、分页等功能。"
+  },
   "u-html": {
     "attributes": [
       "html",
@@ -943,6 +984,7 @@
       "value-field",
       "cancelable",
       "multiple",
+      "repeat",
       "show-head",
       "title",
       "show-foot",
@@ -1022,7 +1064,7 @@
     "attributes": [
       "title",
       "content",
-      "heading",
+      "description",
       "visible",
       "ok-button",
       "cancel-button",

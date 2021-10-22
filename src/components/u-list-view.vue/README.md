@@ -1400,6 +1400,7 @@ export default {
 | value-field | string |  | `'value'` | 选项值的字段名 |
 | cancelable | boolean |  | `false` | 是否可以取消选择 |
 | multiple | boolean |  | `false` | 是否可以多选 |
+| repeat | number |  | `5` | 每行排列几项 |
 | show-head | boolean |  | `false` | 是否显示头部 |
 | title | string |  | `'列表'` | 列表标题 |
 | show-foot | boolean |  | `false` | 是否显示底部 |

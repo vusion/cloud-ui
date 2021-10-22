@@ -1,0 +1,52 @@
+.root {
+    cursor: var(--cursor-pointer);
+    padding: var(--list-view-item-padding);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.root:hover {
+    background: var(--list-view-item-background-hover);
+}
+
+.root[focused] {
+    background: var(--list-view-item-background-focused);
+}
+
+.root[readonly] {
+    cursor: initial;
+}
+
+.root[readonly-mode="initial"] {
+    background: var(--list-view-item-background-readonly-initial);
+}
+
+.root[selected] {
+    background: var(--list-view-item-background-selected);
+    color: var(--list-view-item-color-selected);
+}
+
+.root[disabled] {
+    cursor: var(--cursor-not-allowed);
+    background: var(--list-view-item-background-disabled);
+    color: var(--list-view-item-color-disabled);
+}
+
+.root[selected][disabled] {
+    background: var(--list-view-item-background-selected-disabled);
+}
+
+.root[designer]{
+    position: relative;
+}
+.root[designer] + .root[designer]:after{
+    content: '';
+    position: absolute;
+    display: block;
+    background: rgba(255,255,255,0.8);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}

@@ -184,7 +184,7 @@ export default {
                         parentVNode = parentVNode.children.find((child) =>
                             child.elm.contains(this.$el),
                         ); // if (!parentVNode)
-                    if (parentVNode.context === this.$vnode.context)
+                    if (parentVNode && parentVNode.context === this.$vnode.context)
                         return parentVNode.elm; // 否则，找第一个上下文一致的组件
                     let parentVM = this.$parent;
                     while (
@@ -310,7 +310,7 @@ export default {
 
             let referenceLeft = 0;
             let referenceTop = 0;
-            if(this.appendTo === 'reference') {
+            if (this.appendTo === 'reference') {
                 const rect = el.getBoundingClientRect();
                 referenceLeft = rect.left;
                 referenceTop = rect.top;

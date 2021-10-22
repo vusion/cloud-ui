@@ -402,12 +402,11 @@ export default {
         }
         // @TODO: this.pageNumber
         this.$watch('pageNumber', (number) => {
-            this.page(number);
+            if (this.currentDataSource && this.currentDataSource.paging.number !== number)
+                this.page(number);
         });
         this.debouncedLoad = debounce(this.load, 300);
-        this.currentDataSource = this.normalizeDataSource(
-            this.dataSource || this.data,
-        );
+        this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
         this.initialLoad && this.load();
     },
     mounted() {

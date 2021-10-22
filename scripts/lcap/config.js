@@ -9,6 +9,7 @@ module.exports = [
     { group: 'Layout', show: true, name: 'u-crumb', alias: '面包屑' },
     { group: 'Layout', show: true, name: 'u-panel', alias: '面板' },
     { group: 'Layout', show: true, name: 'u-collapse', alias: '折叠面板' },
+    { group: 'Layout', show: true, name: 'u-card', alias: '卡片' },
 
     { group: 'Display', show: true, name: 'u-text', alias: '文本' },
     { group: 'Display', show: true, name: 'u-link', alias: '链接' },
@@ -22,6 +23,7 @@ module.exports = [
 
     { group: 'Table', show: true, name: 'u-table-view', alias: '数据表格' },
     { group: 'Table', show: true, name: 'u-list-view', alias: '数据列表' },
+    { group: 'Table', show: true, name: 'u-grid-view', alias: '数据网格' },
     { group: 'Table', show: true, name: 'u-form-table-view', alias: '表单表格', newest: true },
     { group: 'Table', show: true, name: 'u-calendar-view', alias: '日历' },
     // { group: 'Table', show: true, name: 'u-list-view', alias: '数据列表' },
