@@ -210,7 +210,7 @@ export default {
 
             if (!Array.isArray(parentData) || !Array.isArray(childData)) {
                 console.error(`[cloud-ui] Please confirm that the final result is an array in 'data-source' prop.`);
-                this.tableData = [];
+                this.tempData = [];
                 return;
             }
             this.tempData = parentData.map((parentItem) => {
@@ -228,14 +228,14 @@ export default {
             }
             if (dataSource instanceof Promise || typeof dataSource === 'function') {
                 const result = await dataSource(this.page);
-                return this.handleDateSource(result, isParent);
+                return this.getData(result, isParent);
             }
-            return this.handleDateSource(dataSource, isParent);
+            return this.getData(dataSource, isParent);
         },
         isDataSource(data) {
             return Object.prototype.toString.call(data) === '[object Object]' && data.content;
         },
-        handleDateSource(dataSource, isParent) {
+        getData(dataSource, isParent) {
             if (Array.isArray(dataSource)) {
                 return dataSource;
             } else if (this.isDataSource(dataSource)) {
