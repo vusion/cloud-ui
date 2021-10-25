@@ -46,6 +46,7 @@
   ],
   "dependencies": {
     "@vusion/popper.js": "^1.14.1",
+    "@popperjs/core": "^2.10.2",
     "@vusion/utils": "^0.4.9",
     "@vusion/validator": "^0.2.4",
     "animate.css": "^4.1.1",

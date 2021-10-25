@@ -1,7 +1,7 @@
 @import '../src/styles/theme.css';
 
 :root {
-    --background-color-default: #242424;
+    --background-color-default: var(--background-color-base);
     --background-color-default-inverse: white;
     --background-color-lighter: #33353D;
     --background-color-lighter-inverse: #f4f6f9;
@@ -9,31 +9,41 @@
     --background-color-base-inverse: #eef1f6;
     --background-color-dark: #2E3038;
     --background-color-dark-inverse: #2E3038;
-    --background-color-black: #242424;
+    --background-color-black: var(--background-color-base);
     --background-color-gray: #303030;
 
     --light-background-color-base: #eef1f6;
 
-    --brand-theme-lightest: #ebf1ff;
-    --brand-theme-lighter: #c2d6ff;
-    --brand-theme-light: #5b92ff;
-    --brand-theme: #4784ff;
-    --brand-theme-dark: #236cff;
-    --brand-theme-darker: #0048d9;
-    --brand-theme-darkest: #003cb5;
-    
-    --brand-disabled: #6b717b;
-    --color-lighter: #585c63;
+    --brand-theme-lightest: #ebf2ff;
+    --brand-theme-lighter: #c3d7ff;
+    --brand-theme-light: #6095ff;
+    --brand-theme: #4c88ff;
+    --brand-theme-dark: #2770ff;
+    --brand-theme-darker: #004add;
+    --brand-theme-darkest: #003eb8;
 
-    --color-base: white;
+    --brand-error: #f24957; 
+    --brand-disabled: #6b717b;
+    --brand-disabled-dark: #595959; /* 禁用文本的颜色 */
+    
+    --color-lighter: #585c63;
+    --color-light: #595959;
+    --color-base: white;    /* 基础字色, 一级字色 */
     --color-base-inverse: #212123;
+    --font-second-color: #aaaaaa;   /*二级字色*/
+    --font-third-color: #666666;   /*三级字色*/
     --border-color-base: #212123;
     --border-color-base-inverse: #dee4ed;
     --border-radius-base: 4px;
     --border-color-bar: rgba(69, 71, 77, 0.5);
 
+    /* 分割线颜色 */
+    --divider-global-color: #343538; /* 全局 */
+    --divider-list-color: #404041;  /* 列表 */
+
     --line-height-base: 1.68;
-    --font-size-base: 12px;
+    --font-size-base: 12px; /* 正文/小标题/辅助文字 字号*/
+    --font-family-zh-CN: 'PingFang SC', 'Microsoft YaHei', Arial, 'Helvetica Neue';
 
     --height-base: 30px;
 
@@ -54,15 +64,11 @@
     --button-border-color: rgba(255, 255, 255, 0.6);
 
     /* --input-border-color: 0; */
-    --input-background: #242424;
-    --input-border-color: #242424;
+    --input-background: var(--background-color-base);
+    --input-border-color: var(--background-color-base);
     --input-border-radius: 4px;
     --input-icon-color: rgba(255,255,255,0.6);
     --input-border-color-focus: #517CFF;
-
-    --titlebar-height: 64px;
-    --footbar-height: 36px;
-    --footbar-height-expanded: 200px;
 
     /* your variables */
     --collapse-item-head-background: var(--background-color-base);
@@ -71,7 +77,7 @@
     --switch-background: #61656b;
 
     /* --table-head-background: var(--background-color-base); */
-    --table-head-background: #404041;
+    --table-head-background: var(--divider-list-color);
     --table-border-color: #4E505C;
     --table-th-line-height: inherit;
     --table-th-padding: 8px;
@@ -82,20 +88,21 @@
     --tabs-item-height: 32px;
     --tabs-item-height-small: 32px;
     --tabs-item-background-text: var(--background-color-base);
-    --tabs-item-background-hover: #303030;
+    --tabs-item-background-hover: var(--background-color-gray);
     --tabs-item-background-selected: var(--background-color-dark);
-    --tabs-item-background-capsule: #303030;
+    --tabs-item-background-capsule: var(--background-color-gray);
     --tabs-item-color-hover: inherit;
     --tabs-item-color-selected: inherit;
     --tabs-item-color-selected-capsule: inherit;
     --tabs-body-space: 16px;
     --tabs-body-space-small: 16px;
-    --tabs-border-color: #505359;
-    --tabs-item-border-color-selected: #505359;
-    --tabs-item-border-color-selected-capsule: #505359;
-    --tabs-item-background-selected-capsule: #505359;
+    --tabs-border-base-color: #505359;
+    --tabs-border-color: var(--tabs-border-base-color);
+    --tabs-item-border-color-selected: var(--tabs-border-base-color);
+    --tabs-item-border-color-selected-capsule: var(--tabs-border-base-color);
+    --tabs-item-background-selected-capsule: var(--tabs-border-base-color);
 
-    --modal-dialog-background: #303030;
+    --modal-dialog-background: var(--background-color-gray);
     --modal-head-padding: 10px 16px;
     --modal-foot-padding: 16px;
     --modal-close-right: 16px;
@@ -104,39 +111,32 @@
     --modal-foot-margin: 0;
     --modal-border-color: #3a3b3e;
 
-    --designer-panel-width-left: 176px;
-    --designer-panel-width-right: 271px;
-
     --tree-view-background: transparent;
     --tree-view-node-background-active: #42434e;
-    --tree-view-node-background-selected: #4C88FF;
+    --tree-view-node-background-selected: var(--brand-theme);
     --tree-view-node-expander-size: 27px;
     --tree-view-node-expander-size-mini: 32px;
 
     --menu-padding-y: 8px;
     --menu-min-width: 160px;
     --menu-border-width: 0;
-    --menu-background-hover: #4C88FF;
-    --menu-divider-background: #3E414D;
+    --menu-background-hover: var(--brand-theme);
+    --menu-divider-background: var(--divider-global-color);
     --menu-item-color: #ffffff;
-    --menu-background: #242424;
+    --menu-background: var(--background-color-base);
     --menu-border-radius: 4px;
     --menu-box-shadow: 0px 0px 4px rgba(3, 3, 3, 0.3);
-    --menu-divider-margin-y: 4px;
+    --menu-divider-margin-y: 0;
 
     --form-group-head-background: var(--background-color-base);
     --form-group-head-padding: 8px 10px;
     --form-group-head-line-height: 1;
     --form-group-space: 10px;
 
-    --material-item-background: transparent;
-    --material-item-background-hover: #404041;
-    --material-item-border-color-selected: #4C88FF;
-
     --list-view-group-head-background: transparent;
-    --list-view-item-background-hover: #4c88ff;
-    --list-view-item-background-focused: #4c88ff;
-    --list-view-item-background-selected: #4c88ff;
+    --list-view-item-background-hover: var(--brand-theme);
+    --list-view-item-background-focused: var(--brand-theme);
+    --list-view-item-background-selected: var(--brand-theme);
 
     --input-padding-x: 8px;
     --input-padding-x-mini: 4px;
@@ -163,10 +163,6 @@
     --validator-message-white-space: normal;
     --validator-message-min-width: 152px;
 
-    --logic-brand-primary: #517CFF;
-    --logic-brand-primary-hover: #7093fa;
-    --logic-border-primary-color: #3388FF;
-
     --sidebar-width: 360px;
     --navbar-height: 60px;
     --navbar-background: #33353d;
@@ -175,29 +171,26 @@
     --article-h2-border-color: #3d414c;
 
     --popup-padding: 16px;
-    --tooltip-background: #242424;
+    --popup-box-shadow: -2px -2px 8px rgba(151, 164, 175, .3);
+    --tooltip-background: var(--background-color-base);
+    --tooltip-arrow-size: 4px;
     
     /* 黑色背景字体默认白色 */
     --font-color-primary: #fff;
 
-    --designer-panel-background: #111217;
-
-    --logic-panel-select-background: #C2DBFF;
-    --logic-panel-select-border: #0055CC;
-
     --toast-top: 110px;
     --toast-item-icon-vertical-align: -2px;
 
-    --entity-designer-background-color: #303030;
-    --entity-designer-border-color: #3B3C3F;
-
-    --data-item-designer-background-color: #303030;
-    --data-item-designer-border-color: #3B3C3F;
-
-    --table-background: #303030;
+    --table-background: var(--background-color-gray);
     --table-view-row-selected-background: transparent;
     --table-view-row-hover-background: rgba(64, 64, 65, 0.6);
     --table-view-head-item-color: #fff;
-    --table-border-color: #404041;
+    --table-border-color: var(--divider-list-color);
     --table-td-color: #fff;
+
+    --group-head-background: var(--background-color-base);
+
+    --hr-border-color: var(--divider-global-color);
+
+    --editor-content-background-color: #ebebeb;
 }

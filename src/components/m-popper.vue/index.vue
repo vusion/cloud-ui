@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Popper from '@vusion/popper.js';
+import { createPopper as initialPopper } from '@popperjs/core';
 import MEmitter from '../m-emitter.vue';
 import ev from '../../utils/event';
 import single from '../../utils/event/single';
@@ -59,7 +59,7 @@ export default {
         options: {
             type: Object,
             default() {
-                return { modifiers: {} };
+                return { modifiers: [] };
             },
         },
         disabled: { type: Boolean, default: false },
@@ -150,16 +150,30 @@ export default {
             const options = Object.assign({}, this.options, {
                 placement: this.placement,
             });
-            // 自定义options 传入offset值情况
-            if (!options.modifiers.offset && this.offset) {
-                options.modifiers.offset = { offset: this.offset };
+            options.modifiers.push({ 
+                name: 'arrow',
+                options: {
+                    element: this.arrowElement
             }
-            options.escapeWithReference = this.escapeWithReference;
-            options.modifiers.arrow = { element: this.arrowElement };
-            options.modifiers.preventOverflow = {
-                enabled: false,
-                boundariesElement: this.boundariesElement,
-            };
+            });
+            options.modifiers.push({
+                name: 'preventOverflow',
+                options: {
+                }
+            });
+            options.modifiers.push({
+                name: 'offset',
+                options: {
+                    offset: ({placement, reference, popper}) => {
+                        let hasArrow = this.$el.querySelector('[class*=arrow]');
+                        if (hasArrow && window.getComputedStyle(hasArrow).borderWidth !== 0) {
+                            return [0, 9];
+                        } else {
+                            return [0, 4];
+                        }
+                    }
+            }
+            });
             return options;
         },
         getReferenceEl() {
@@ -279,13 +293,13 @@ export default {
             else if (this.appendTo === 'reference')
                 referenceEl.appendChild(popperEl);
             const options = this.getOptions();
-            this.popper = new Popper(referenceEl, popperEl, options);
+            this.popper = initialPopper(referenceEl, popperEl, options);
         },
         update() {
-            this.popper && this.popper.update();
+            this.popper && this.popper.forceUpdate();
         },
         scheduleUpdate() {
-            this.popper && this.popper.scheduleUpdate();
+            this.popper && this.popper.update();
         },
         destroyPopper() {
             const referenceEl = this.referenceEl;
@@ -321,19 +335,15 @@ export default {
             const right = e.clientX - referenceLeft + this.currentFollowCursor.offsetX;
             const bottom = e.clientY - referenceTop + this.currentFollowCursor.offsetY;
 
-            this.popper.reference = {
-                getBoundingClientRect: () => ({
+            this.referenceEl.getBoundingClientRect = () => ({
                     width: 0,
                     height: 0,
                     top,
                     left,
                     right,
                     bottom,
-                }),
-                clientWidth: 0,
-                clientHeight: 0,
-            };
-            this.popper.scheduleUpdate();
+            });
+            this.popper.update();
         },
         open() {
             // Check if enabled
