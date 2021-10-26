@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" v-on="$listeners" :shadow="shadow" :border="border" :style="{width: /^\d+$/.test(width)? width+'px': width}">
+<div :class="$style.root" v-on="$listeners" :shadow="shadow" :border="border" :style="{width: /^\d+$/.test(width)? width+'px': width}" :designer="$env.VUE_APP_DESIGNER">
     <div :class="$style.head">
         <slot name="head">
             <div v-if="title" :class="$style.title" vusion-slot-name="title">
@@ -13,7 +13,7 @@
     </div>
     <div :class="$style.body" vusion-slot-name="default">
         <slot>{{ content }}</slot>
-        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
+        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER" :class="$style.empty"></s-empty>
     </div>
     <div :class="$style.foot">
         <slot name="foot">
@@ -63,6 +63,14 @@ export default {
 
 .root[border]{
     border: var(--card-border-width) solid var(--border-color-light);
+}
+
+.root[designer]{
+    word-break: break-all;
+    white-space: normal;
+}
+.root[designer] [s-empty="true"]{
+    min-width: inherit;
 }
 
 .head {
