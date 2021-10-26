@@ -92,7 +92,7 @@ export default {
              * @property {object} sender 事件发送对象
              * @property {number} date 改变后的日期 返回格式为日期对象
              */ const showDate = this.returnTime(newValue);
-            const newDate = showDate ? new Date(this.transformDate(showDate)) : '';
+            const newDate = showDate ? new Date(this.transformDate(showDate)) : undefined;
             this.$emit('update:date', this.toValue(newDate));
             this.$emit('change', { sender: this, date: newDate });
             this.$emit('input', this.toValue(newDate));

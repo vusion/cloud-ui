@@ -121,16 +121,17 @@ export default {
                 if (isOutOfRange)
                     newValue = this.format(isOutOfRange, 'YYYY-MM-DD HH:mm:ss');
             }
-            this.$emit('update:date', this.toValue(newValue ? new Date(newValue.replace(/-/g, '/')) : ''));
+            const newDateTime = newValue ? this.toValue(new Date(newValue.replace(/-/g, '/'))) : undefined;
+            this.$emit('update:date', newDateTime);
             /**
              * @event change 日期时间改变时触发
              * @property {object} sender 事件发送对象
              * @property {object} date 改变后的日期时间
              */ this.$emit('change', {
                 sender: this,
-                date: newValue ? new Date(newValue.replace(/-/g, '/')).getTime() : '',
+                date: newValue ? new Date(newValue.replace(/-/g, '/')).getTime() : undefined,
             }); // 方便u-field组件捕获到其值
-            this.$emit('input', this.toValue(newValue ? new Date(newValue.replace(/-/g, '/')) : ''));
+            this.$emit('input', newDateTime);
         },
         maxDate(value) {
             this.currentMaxDate = this.getMaxDate(value);
