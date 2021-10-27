@@ -17,8 +17,8 @@ export default {
     computed: {
         dynamic() {
             return this.$vnode.context.dynamic;
-        },
-    },
+        }
+    }
 };
 </script>
 
