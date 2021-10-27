@@ -39,6 +39,16 @@ export default {
             this.$emit('add', { item, index, data: this.currentData }, this);
             this.$emit('splice', { item, index, data: this.currentData }, this);
         },
+        duplicate(index) {
+            if (this.currentData.length >= this.maxCount)
+                return;
+            const item = this.currentData[index];
+            if (this.$emitPrevent('before-duplicate', { item, index, data: this.currentData }, this))
+                return;
+            this.currentData.splice(index, 0, item);
+            this.$emit('duplicate', { item, index, data: this.currentData }, this);
+            this.$emit('splice', { item, index, data: this.currentData }, this);
+        },
         remove(index) {
             if (this.currentData.length <= this.minCount)
                 return;
