@@ -142,10 +142,10 @@ export default {
     },
     created() {
         // vue中的watch的immediate的执行时间是比created生命周期函数执行时间还早 所以导致u-field无法捕获
-        this.$emit(
-            'input',
-            this.toValue(this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : ''),
-        );
+        // this.$emit(
+        //     'input',
+        //     this.toValue(this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : ''),
+        // );
     },
     methods: {
         clearValue() {
@@ -274,9 +274,9 @@ time = '00:00:00';
         },
         toggle(value) {
             if (this.readonly)
-this.open = false;
+                this.open = false;
             else
-this.open = value;
+                this.open = value;
         },
         format,
         transformDate,
@@ -288,9 +288,9 @@ this.open = value;
             const minTime = new Date(this.minDate).getTime();
             const maxTime = new Date(value).getTime();
             if (maxTime < minTime)
-return this.minDate;
+                return this.minDate;
             else
-return this.maxDate;
+                return this.maxDate;
         },
     },
 };
