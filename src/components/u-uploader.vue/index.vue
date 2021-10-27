@@ -36,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <div v-if="uploadEnable && !draggable && !readonly" :class="$style.card" role="select" @click="select()">
+            <div v-if="uploadEnable && !draggable && (!readonly || $env.VUE_APP_DESIGNER)" :class="$style.card" role="select" @click="select()">
                 <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
             </div>
         </template>

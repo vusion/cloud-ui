@@ -130,7 +130,12 @@
                             </tr>
                         </template>
                     </template>
-                    <tr key="loading" v-if="(currentData === undefined && !currentError) || currentLoading"><!-- 初次加载与加载更多 loading 合并在一起 -->
+                    <tr key="no-data-source" v-if="currentData === undefined && !currentError && $env.VUE_APP_DESIGNER">
+                        <td :class="$style.center" :colspan="visibleColumnVMs.length">
+                            请绑定数据源
+                        </td>
+                    </tr>
+                    <tr key="loading" v-else-if="(currentData === undefined && !currentError) || currentLoading"><!-- 初次加载与加载更多 loading 合并在一起 -->
                         <td :class="$style.center" :colspan="visibleColumnVMs.length" vusion-slot-name="loading">
                             <slot name="loading"><u-spinner></u-spinner> {{ loadingText }}</slot>
                         </td>
