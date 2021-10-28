@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root">
     <slot></slot>
-    <u-popup size="small" v-if="firstError" :opened="!!(!mutedMessage && touched && !valid && firstError)" :placement="placement" :class="$style.message" color="error">
+    <u-popup size="small" :opened="!!(!mutedMessage && touched && !valid && firstError)" :empty="!firstError":placement="placement" :class="$style.message" color="error">
         <span :class="$style.icon"></span>{{ firstError }}
     </u-popup>
 </div>
@@ -104,7 +104,7 @@ export default {
                 );
                 return validatorVM ? validatorVM.firstError : undefined;
             } else
-                return this.fieldTouched && this.firstErrorMessage;
+                return this.fieldTouched && this.firstErrorMessage || undefined;
         },
         mutedMessage() {
             return this.muted === 'all' || this.muted === 'message';

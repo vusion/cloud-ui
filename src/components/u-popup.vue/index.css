@@ -193,6 +193,11 @@
 	position: absolute;
 }
 
+.root[size="small"] .body {
+	padding: 2px;
+}
+
+
 .root[size="small"][data-popper-placement^="top"] { margin-bottom: var(--popup-arrow-size-small); }
 .root[size="small"][data-popper-placement^="top"] .arrow {
 	bottom: calc(-1.4 * var(--popup-arrow-size-small) + 1px);

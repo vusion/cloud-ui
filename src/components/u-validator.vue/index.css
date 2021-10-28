@@ -3,6 +3,10 @@
     position: relative;  
 }
 
+.message[color="error"][empty] {
+    display: none;
+}
+
 .message {
     position: absolute;
     left: 100%;
@@ -59,10 +63,6 @@
     background: var(--validator-message-background-error);
     color: var(--validator-message-background-error);
     border: 1px solid var(--validator-message-background-error);
-}
-
-.message [class^=u-popup_body_] {
-    padding: 0px;
 }
 
 .icon {
