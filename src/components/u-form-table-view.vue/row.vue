@@ -1,7 +1,7 @@
 <template>
 <tr :class="$style.root">
     <slot></slot>
-    <td :class="$style['last-column']" :dynamic="dynamic">
+    <td v-if="!actionDefine" :class="$style['last-column']" :dynamic="dynamic">
         <slot name="last-column"></slot>
         <span v-if="!mutedMessage && touched && !valid && firstError" :class="$style.message" color="error">{{ firstError }}</span>
     </td>
@@ -14,6 +14,9 @@ import UValidator from '../u-validator.vue';
 export default {
     name: 'u-form-table-view-row',
     extends: UValidator,
+    props: {
+        actionDefine: { type: Boolean },
+    },
     computed: {
         dynamic() {
             return this.$vnode.context.dynamic;

@@ -42,7 +42,7 @@ export default {
         duplicate(index) {
             if (this.currentData.length >= this.maxCount)
                 return;
-            const item = this.currentData[index];
+            const item = Object.assign({}, this.currentData[index]);
             if (this.$emitPrevent('before-duplicate', { item, index, data: this.currentData }, this))
                 return;
             this.currentData.splice(index, 0, item);

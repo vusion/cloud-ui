@@ -10,7 +10,7 @@
                     <span>{{ columnVM.title }}</span>
                 </f-slot>
             </th>
-            <th :class="$style['last-column']" :dynamic="dynamic"></th>
+            <th :class="$style['last-column']" :dynamic="dynamic" v-if="dynamic && !actionDefine"></th>
         </tr></thead>
         <tbody>
             <u-form-table-view-row :actionDefine="actionDefine" :class="$style.row" v-for="(item, rowIndex) in currentData" :key="rowIndex" :muted="muted">
