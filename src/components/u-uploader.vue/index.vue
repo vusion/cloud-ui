@@ -108,7 +108,7 @@ export default {
             this.currentValue = this.fromValue(value);
         },
         currentValue: {
-            immediate: true,
+            // immediate: true,
             handler(currentValue, oldValue) {
                 const value = this.toValue(currentValue);
 
