@@ -957,6 +957,7 @@
     /* Popup */
     --popup-padding: 6px 10px;
     --popup-arrow-size: 8px;
+    --popup-arrow-size-small: 4px;
     --popup-arrow-offset: 16px;
     --popup-outer-arrow-size: calc(var(--popup-arrow-size) + 1px);
     --popup-background: white;

@@ -1,8 +1,8 @@
 <template>
 <div :class="$style.root">
     <slot></slot>
-    <u-popup v-if="firstError" :opened="!!(!mutedMessage && touched && !valid && firstError)" :placement="placement" :class="$style.message" color="error">
-     <span :class="$style.icon"></span>{{ firstError }}
+    <u-popup size="small" v-if="firstError" :opened="!!(!mutedMessage && touched && !valid && firstError)" :placement="placement" :class="$style.message" color="error">
+        <span :class="$style.icon"></span>{{ firstError }}
     </u-popup>
 </div>
 </template>

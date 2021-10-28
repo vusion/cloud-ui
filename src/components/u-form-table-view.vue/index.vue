@@ -17,7 +17,7 @@
                 <td :class="$style.cell" v-for="(columnVM, columnIndex) in columnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title>
                     <f-slot v-if="columnVM.$scopedSlots && columnVM.$scopedSlots['action-column']" name="action-column" :vm="columnVM" :props="{ columnVM, item, rowIndex, columnIndex }">
                     </f-slot>
-                    <u-validator v-else display="block" :label="columnVM.title" :action="columnVM.action"
+                    <u-validator v-else display="block" :label="columnVM.title" :action="columnVM.action" :placement="columnVM.placement"
                         :rules="columnVM.rules" :muted="columnVM.muted"
                         :ignore-validation="columnVM.ignoreValidation"
                         :validating-options="Object.assign({ data: currentData, item, rowIndex }, columnVM.validatingOptions)"
