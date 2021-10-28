@@ -1526,14 +1526,6 @@
     "type": "number",
     "description": "划分的栅格数"
   },
-  "u-grid-layout-row/type": {
-    "type": "enum",
-    "options": [
-      "default",
-      "flex"
-    ],
-    "description": "布局模式。可选值：`'flex'`或不填"
-  },
   "u-grid-layout-row/justify": {
     "type": "enum",
     "options": [

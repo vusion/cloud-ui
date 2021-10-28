@@ -690,7 +690,6 @@
   "u-grid-layout-row": {
     "attributes": [
       "repeat",
-      "type",
       "justify",
       "alignment"
     ]
