@@ -7,7 +7,9 @@
 <script>
 export default {
     name: 'u-grid-layout',
-    props: { repeat: { type: Number, default: 12 } },
+    props: {
+        repeat: { type: Number, default: 12 },
+    },
 };
 </script>
 
@@ -18,15 +20,6 @@ export default {
 
 .root .column {
     padding: calc(var(--space-base) / 2);
-}
-
-.root::before,
-.root::after {
-    display: block;
-    content: '.';
-    clear: both;
-    height: 0;
-    visibility: hidden;
 }
 
 .root[gap^="none"] {

@@ -21,13 +21,6 @@
       type: number
       default: 12
       description: 划分的栅格数
-    - name: type
-      title: 类型
-      type: enum
-      options:
-        - default
-        - flex
-      description: 布局模式。可选值：`'flex'`或不填
     - name: justify
       type: enum
       options:

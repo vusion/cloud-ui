@@ -318,8 +318,11 @@ export default UModal;
 }
 
 .content {
-    font-size: 14px;
     color: var(--color-base);
+}
+
+.body[icon] .content {
+    font-size: 14px;
 }
 
 .description {
