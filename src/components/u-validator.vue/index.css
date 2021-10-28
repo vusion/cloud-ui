@@ -1,6 +1,10 @@
 .root {
     display: inline-block;
-    position: relative;
+    position: relative;  
+}
+
+:root {
+    --popup-arrow-size: 4px;
 }
 
 .message {
@@ -55,25 +59,27 @@
     min-width: var(--validator-message-min-width);
 }
 
-.message[color="error"]::before {
+.message [class^=u-popup_arrow_]::before {
+    background: var(--validator-message-background-error);
+    color: var(--validator-message-background-error);
+    border: 1px solid var(--validator-message-background-error);
+}
+
+.message [class^=u-popup_body_] {
+    padding: 0px;
+}
+
+.icon {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 2px;
+}
+
+.icon::before {
     icon-font: url('../i-icon.vue/assets/warning.svg');
     color: white;
     font-size: 14px;
-    margin-left: -2px;
-    margin-right: 6px;
-    vertical-align: -1px;
-}
-
-.message[color="error"]::after {
-    content: '';
-    position: absolute;
-    right: 100%;
-    top: 8px;
-    width: 0;
-    height: 0;
-    border-top: 4px solid transparent;
-    border-right: 4px solid var(--validator-message-background-error);
-    border-bottom: 4px solid transparent;
 }
 
 .root[placement="bottom"] .message {

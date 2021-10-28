@@ -1,7 +1,9 @@
 <template>
 <div :class="$style.root">
     <slot></slot>
-    <span v-if="!mutedMessage && touched && !valid && firstError" :class="$style.message" color="error">{{ firstError }}</span>
+    <u-popup v-if="firstError" :opened="!!(!mutedMessage && touched && !valid && firstError)" :placement="placement" :class="$style.message" color="error">
+     <span :class="$style.icon"></span>{{ firstError }}
+    </u-popup>
 </div>
 </template>
 
@@ -29,6 +31,7 @@ export default {
         ignoreValidation: { type: Boolean, default: false },
         validatingOptions: Object,
         validatingValue: null,
+        placement: { type: String, default: 'right' },
         validatingProcess: { type: Function, default: (value) => value },
         manual: { type: Boolean, default: false },
     },
@@ -106,6 +109,7 @@ export default {
         mutedMessage() {
             return this.muted === 'all' || this.muted === 'message';
         },
+
     },
     watch: {
         currentRules() {

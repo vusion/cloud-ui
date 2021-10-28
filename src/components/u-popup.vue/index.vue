@@ -40,7 +40,7 @@ export default {
         // @inherit: offset: { type: String, default: '0' },
         disabled: { type: Boolean, default: false },
         mergeBorders: { type: Boolean, default: true },
-    },
+    }
 };
 </script>
 

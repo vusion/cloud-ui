@@ -441,6 +441,20 @@ export default {
 </u-linear-layout>
 ```
 
+当然，空间比较小时，也可以使用`placement`提示在左侧。
+
+``` html
+<u-linear-layout gap="small">
+    <u-validator label="容器端口" rules="required | integer | range(1,65535) @i" placement="left">
+        <u-input size="huge normal" placeholder="容器端口，1-65535内的整数"></u-input>
+    </u-validator>
+    <u-validator label="服务端口" rules="required | integer | range(1,65535) @i" placement="left">
+        <u-input size="huge normal" placeholder="服务端口，1-65535内的整数"></u-input>
+    </u-validator>
+</u-linear-layout>
+```
+
+
 ### 复杂案例
 
 下面这些组件已经集成了 UValidator 的嵌套验证功能，可以去相应文档进行查阅[UFormTableView](#components/u-form-table-view)、[UDynamicCards](#components/u-dynamic-cards)。
