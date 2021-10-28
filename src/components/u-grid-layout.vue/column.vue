@@ -96,7 +96,6 @@ export default {
 
 <style module>
 .root {
-    float: left;
     position: relative;
 }
 

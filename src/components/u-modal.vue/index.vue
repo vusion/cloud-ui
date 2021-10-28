@@ -298,15 +298,21 @@ export default UModal;
 .body[icon] > div {
     margin-left: 50px;
 }
-.heading {
-    font-size: 20px;
-    line-height: 24px;
-    margin-bottom: 10px;
+
+.content {
     color: var(--color-base);
 }
-.content {
-    color: var(--color-light);
+
+.body[icon] .content {
+    font-size: 14px;
 }
+
+.description {
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--color-base);
+}
+
 .foot {
     margin: var(--modal-foot-margin);
     padding: var(--modal-foot-padding);
