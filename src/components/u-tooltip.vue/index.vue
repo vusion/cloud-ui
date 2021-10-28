@@ -1,7 +1,7 @@
 <template>
 <transition name="fade-fast">
     <div :class="$style.root" v-show="currentOpened && ($slots.default || content)"><!-- @TODO: disabled by content -->
-        <div :class="$style.arrow"></div><!-- popper在某些场景下可以移动该元素 -->
+        <div data-popper-arrow :class="$style.arrow"></div><!-- popper在某些场景下可以移动该元素 -->
         <div :class="[$style.body, $style.wrap]" :size="size">
             <slot name="body">
                 <slot>{{ content }}</slot>

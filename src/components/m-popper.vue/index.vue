@@ -52,10 +52,10 @@ export default {
             validator: (value) => ['body', 'reference'].includes(value),
         },
         boundariesElement: { type: String, default: 'window' },
-        arrowElement: { type: String, default: '[u-arrow]' },
+        arrowElement: { type: String, default: '[data-popper-arrow]' },
         escapeWithReference: { type: Boolean, default: false },
         followCursor: { type: [Boolean, Number, Object], default: false },
-        offset: { type: [Number, String], default: 0 },
+        offset: { type: [Number, String, Array], default: 0 },
         options: {
             type: Object,
             default() {
@@ -130,6 +130,12 @@ export default {
             this.referenceEl = this.getReferenceEl();
             this.createPopper();
         },
+        offset() {
+            this.destroyTimer = clearTimeout(this.destroyTimer);
+            this.destroyPopper();
+            this.referenceEl = this.getReferenceEl();
+            this.createPopper();
+        }
     },
     mounted() {
         // 字符串类型的 reference 只有首次获取是有效的，因为之后节点会被插到别的地方
@@ -166,8 +172,12 @@ export default {
                 options: {
                     offset: ({placement, reference, popper}) => {
                         let hasArrow = this.$el.querySelector('[class*=arrow]');
-                        if (hasArrow && window.getComputedStyle(hasArrow).borderWidth !== 0) {
-                            return [0, 9];
+                        if (hasArrow && window.getComputedStyle(hasArrow).borderWidth !== 0 && window.getComputedStyle(hasArrow).display !== 'none') {
+                            return [0, 8];
+                        } else if (typeof this.offset === 'number' && this.offset !== 0) {
+                            return [0, this.offset];
+                        } else if (this.offset instanceof Array) {
+                            return this.offset;
                         } else {
                             return [0, 4];
                         }
@@ -395,5 +405,6 @@ export default {
 <style module>
 .root {
     z-index: 10;
+    box-shadow: 0px 0px 4px rgb(3 3 3 / 30%);
 }
 </style>

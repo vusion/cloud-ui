@@ -12,7 +12,7 @@
             append-to="reference"
             trigger="manual"
             placement="bottom">
-            <span :class="$style.arrow"></span>
+            <span v-show="showArrowEL === 1" :class="$style.arrow"></span>
             <u-list-view :class="$style.listview" ref="listView"
                 :error-text="errorText"
                 :empty-text="emptyText"
@@ -52,12 +52,14 @@ export default {
         // },
         size: String,
         placement: { type: String, validator: (value) => /^(top|bottom|left|right)(-start|-end)?$/.test(value) },
+        showArrow: {type: Number, default: 0},
     },
     data() {
         return {
             currentValue: this.value,
             currentOpened: false,
             // currentDataSource: undefined,
+            showArrowEL: this.showArrow
         };
     },
     computed: {
@@ -80,6 +82,9 @@ export default {
             this.currentValue = value;
             this.fastLoad(false, true);
         },
+        showArrow(val) {
+            this.showArrowEL = val;
+        }
     },
     mounted() {
         this.$emit('update', this.value, this);
