@@ -378,23 +378,6 @@
                             "description": "划分的栅格数"
                         },
                         {
-                            "name": "type",
-                            "title": "类型",
-                            "type": "string",
-                            "options": [
-                                {
-                                    "value": "default",
-                                    "title": "默认类型"
-                                },
-                                {
-                                    "value": "flex",
-                                    "title": "flex"
-                                }
-                            ],
-                            "default": "default",
-                            "description": "布局模式"
-                        },
-                        {
                             "name": "justify",
                             "title": "对齐方式",
                             "type": "string",
