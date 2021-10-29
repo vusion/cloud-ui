@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" direction="vertical" gap="small" :size="size">
-    <u-form-table :class="$style.table" :theme="theme" :size="size" v-bind="$attrs">
+    <u-form-table :class="$style.table" :size="size" v-bind="$attrs">
         <thead><tr>
             <th ref="th" v-for="(columnVM, columnIndex) in columnVMs"
                 :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
@@ -10,7 +10,7 @@
                     <span>{{ columnVM.title }}</span>
                 </f-slot>
             </th>
-            <th :class="$style['last-column']" :dynamic="dynamic"></th>
+            <th :class="$style['last-column']" :dynamic="dynamic" :actionDefine="actionDefine"></th>
         </tr></thead>
         <tbody>
             <u-form-table-view-row :actionDefine="actionDefine" :class="$style.row" v-for="(item, rowIndex) in currentData" :key="rowIndex" :muted="muted">
@@ -53,7 +53,6 @@ export default {
         dynamic: { type: Boolean, default: false },
         validateOnAdd: { type: Boolean, default: true },
         size: String,
-        theme: { type: String }, // gray
         showAddButton: { type: Boolean, default: true },
         muted: String,
         actionDefine: { type: Boolean, default: false }
@@ -110,6 +109,11 @@ export default {
     width: 40px;
 }
 
+
+.last-column[dynamic][actionDefine] {
+    width: 0;
+}
+
 .add-button {
     margin-top: var(--space-small);
 }
@@ -121,7 +125,7 @@ export default {
     font-size: var(--button-font-size-mini);
 }
 
-.table[theme='gray'] thead tr{
+.table thead tr{
     background: #f7f8fa;
 }
 </style>

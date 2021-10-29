@@ -14,6 +14,9 @@ import UValidator from '../u-validator.vue';
 export default {
     name: 'u-form-table-view-row',
     extends: UValidator,
+    props: {
+        actionDefine: { type: Boolean }
+    },
     computed: {
         dynamic() {
             return this.$vnode.context.dynamic;
