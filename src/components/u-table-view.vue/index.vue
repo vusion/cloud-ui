@@ -412,6 +412,9 @@ export default {
         });
         this.debouncedLoad = debounce(this.load, 300);
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
+        if (this.pageNumber) {
+            this.page(this.pageNumber);
+        }
         this.initialLoad && this.load();
     },
     mounted() {
@@ -783,9 +786,9 @@ export default {
                 return;
             delete paging.preventDefault;
             this.currentDataSource.page(paging);
-            this.load();
-            this.$emit('page', paging, this);
             this.$emit('update:page-number', number, this);
+            this.$emit('page', paging, this);
+            this.load();
         },
         onClickSort(columnVM) {
             let order;
