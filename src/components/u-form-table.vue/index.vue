@@ -24,11 +24,15 @@ export default { name: 'u-form-table' };
     border-bottom: 1px solid var(--border-color-base);
 }
 
+.root thead tr {
+    background: var(--form-table-head-background);
+}
+
 .root thead th {
     position: relative;
     font-weight: normal;
     text-align: left;
-    height: 48px;
+    height: 44px;
     padding: 0 5px;
 }
 

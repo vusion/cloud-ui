@@ -922,6 +922,9 @@
     --table-view-row-selected-background: #e4eeff;
     --table-view-pagination-space: var(--space-base);
 
+    /* Form Table View */
+    --form-table-head-background: #f7f8fa;
+
     /* Transfer */
     --transfer-height: var(--list-view-height);
     --transfer-height-large: var(--list-view-height-large);
