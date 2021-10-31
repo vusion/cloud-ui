@@ -11,6 +11,7 @@ export default { name: 'u-grid-layout-row', props: { repeat: Number } };
 <style module>
 .root {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .root[justify="start"] { justify-content: flex-start; }
