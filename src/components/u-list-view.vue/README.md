@@ -1405,6 +1405,9 @@ export default {
 | title | string |  | `'列表'` | 列表标题 |
 | show-foot | boolean |  | `false` | 是否显示底部 |
 | loading-text | string |  | `'加载中...'` | 加载时的文字。使用分页加载时才会出现 |
+| error | boolean |  |  | 手动设置是否加载失败。 |
+| error-text | string |  | `'加载失败，请重试'` | 加载失败时的文字。 |
+| empty-text | string |  | `'暂无数据'` | 暂无数据时的文字。 |
 | pageable | boolean |  | `false` | 是否需要分页 |
 | page-size | number |  | `50` | 分页大小 |
 | remote-paging | number |  | `false` | 是否使用后端分页 |

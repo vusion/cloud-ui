@@ -167,27 +167,27 @@
 
 ``` html
 <u-grid-layout>
-	<u-grid-layout-row :repeat="6" type="flex" justify="start">
+	<u-grid-layout-row :repeat="6" justify="start">
 		<u-grid-layout-column :span="1"><u-block>start</u-block></u-grid-layout-column>
 		<u-grid-layout-column :span="1"><u-block>start</u-block></u-grid-layout-column>
 		<u-grid-layout-column :span="1"><u-block>start</u-block></u-grid-layout-column>
 	</u-grid-layout-row>
-	<u-grid-layout-row :repeat="6" type="flex" justify="center">
+	<u-grid-layout-row :repeat="6" justify="center">
 		<u-grid-layout-column :span="1"><u-block>center</u-block></u-grid-layout-column>
 		<u-grid-layout-column :span="1"><u-block>center</u-block></u-grid-layout-column>
 		<u-grid-layout-column :span="1"><u-block>center</u-block></u-grid-layout-column>
 	</u-grid-layout-row>
-	<u-grid-layout-row :repeat="6" type="flex" justify="end">
+	<u-grid-layout-row :repeat="6" justify="end">
 		<u-grid-layout-column :span="1"><u-block>end</u-block></u-grid-layout-column>
 		<u-grid-layout-column :span="1"><u-block>end</u-block></u-grid-layout-column>
 		<u-grid-layout-column :span="1"><u-block>end</u-block></u-grid-layout-column>
 	</u-grid-layout-row>
-	<u-grid-layout-row :repeat="6" type="flex" justify="space-between">
+	<u-grid-layout-row :repeat="6" justify="space-between">
 		<u-grid-layout-column :span="1"><u-block>space-between</u-block></u-grid-layout-column>
 		<u-grid-layout-column :span="1"><u-block>space-between</u-block></u-grid-layout-column>
 		<u-grid-layout-column :span="1"><u-block>space-between</u-block></u-grid-layout-column>
 	</u-grid-layout-row>
-	<u-grid-layout-row :repeat="6" type="flex" justify="space-around">
+	<u-grid-layout-row :repeat="6" justify="space-around">
 		<u-grid-layout-column :span="1"><u-block>space-around</u-block></u-grid-layout-column>
 		<u-grid-layout-column :span="1"><u-block>space-around</u-block></u-grid-layout-column>
 		<u-grid-layout-column :span="1"><u-block>space-around</u-block></u-grid-layout-column>
@@ -199,27 +199,27 @@
 
 ``` html
 <u-grid-layout gap="large small">
-	<u-grid-layout-row :repeat="6" type="flex" alignment="start">
+	<u-grid-layout-row :repeat="6" alignment="start">
 		<u-grid-layout-column :span="1"><u-block>start</u-block></u-grid-layout-column>
 		<u-grid-layout-column :span="1"><u-block size="normal auto">start</u-block></u-grid-layout-column>
 		<u-grid-layout-column :span="1"><u-block size="large auto">start</u-block></u-grid-layout-column>
 	</u-grid-layout-row>
-	<u-grid-layout-row :repeat="6" type="flex" alignment="center">
+	<u-grid-layout-row :repeat="6" alignment="center">
 		<u-grid-layout-column :span="1"><u-block>center</u-block></u-grid-layout-column>
 		<u-grid-layout-column :span="1"><u-block size="normal auto">center</u-block></u-grid-layout-column>
 		<u-grid-layout-column :span="1"><u-block size="large auto">center</u-block></u-grid-layout-column>
 	</u-grid-layout-row>
-	<u-grid-layout-row :repeat="6" type="flex" alignment="end">
+	<u-grid-layout-row :repeat="6" alignment="end">
 		<u-grid-layout-column :span="1"><u-block>end</u-block></u-grid-layout-column>
 		<u-grid-layout-column :span="1"><u-block size="normal auto">end</u-block></u-grid-layout-column>
 		<u-grid-layout-column :span="1"><u-block size="large auto">end</u-block></u-grid-layout-column>
 	</u-grid-layout-row>
-	<u-grid-layout-row :repeat="6" type="flex" alignment="baseline">
+	<u-grid-layout-row :repeat="6" alignment="baseline">
 		<u-grid-layout-column :span="1"><u-block>baseline</u-block></u-grid-layout-column>
 		<u-grid-layout-column :span="1"><u-block size="normal auto">baseline</u-block></u-grid-layout-column>
 		<u-grid-layout-column :span="1"><u-block size="large auto">baseline</u-block></u-grid-layout-column>
 	</u-grid-layout-row>
-	<u-grid-layout-row :repeat="6" type="flex" alignment="stretch">
+	<u-grid-layout-row :repeat="6" alignment="stretch">
 		<u-grid-layout-column :span="1"><u-block style="height: 100%">stretch</u-block></u-grid-layout-column>
 		<u-grid-layout-column :span="1"><u-block size="normal auto" style="height: 100%">stretch</u-block></u-grid-layout-column>
 		<u-grid-layout-column :span="1"><u-block size="large auto" style="height: 100%">stretch</u-block></u-grid-layout-column>
@@ -234,12 +234,12 @@
 ``` html
 <u-grid-layout>
 	<u-grid-layout-row>
-		<u-grid-layout-column :span="2" :media-huge="3" :media-medium="4" :media-small="6"><u-block>Responsive</u-block></u-grid-layout-column>
-		<u-grid-layout-column :span="2" :media-huge="3" :media-medium="4" :media-small="6"><u-block>Responsive</u-block></u-grid-layout-column>
-		<u-grid-layout-column :span="2" :media-huge="3" :media-medium="4" :media-small="6"><u-block>Responsive</u-block></u-grid-layout-column>
-		<u-grid-layout-column :span="2" :media-huge="3" :media-medium="4" :media-small="6"><u-block>Responsive</u-block></u-grid-layout-column>
-		<u-grid-layout-column :span="2" :media-huge="3" :media-medium="4" :media-small="6"><u-block>Responsive</u-block></u-grid-layout-column>
-		<u-grid-layout-column :span="2" :media-huge="3" :media-medium="4" :media-small="6"><u-block>Responsive</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="2" :media-small="3" :media-medium="4" :media-huge="6"><u-block>Responsive</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="2" :media-small="3" :media-medium="4" :media-huge="6"><u-block>Responsive</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="2" :media-small="3" :media-medium="4" :media-huge="6"><u-block>Responsive</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="2" :media-small="3" :media-medium="4" :media-huge="6"><u-block>Responsive</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="2" :media-small="3" :media-medium="4" :media-huge="6"><u-block>Responsive</u-block></u-grid-layout-column>
+		<u-grid-layout-column :span="2" :media-small="3" :media-medium="4" :media-huge="6"><u-block>Responsive</u-block></u-grid-layout-column>
 	</u-grid-layout-row>
 </u-grid-layout>
 ```
@@ -263,7 +263,6 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | repeat | number |  | `12` | 划分的栅格数 |
-| type | string | `[object Object]`<br/>`[object Object]` | `'default'` | 布局模式 |
 | justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` | 内容对齐方式 |
 | alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` | flex布局模式下的交叉轴对齐方式 |
 

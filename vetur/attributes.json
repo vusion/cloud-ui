@@ -1078,6 +1078,40 @@
     "type": "object",
     "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
   },
+  "u-card/title": {
+    "type": "string",
+    "description": "卡片标题"
+  },
+  "u-card/width": {
+    "type": "string",
+    "description": "卡片宽度"
+  },
+  "u-card/shadow": {
+    "type": "string",
+    "options": [
+      {
+        "value": "always",
+        "title": "一直显示"
+      },
+      {
+        "value": "hover",
+        "title": "hover时显示"
+      },
+      {
+        "value": "never",
+        "title": "不显示"
+      }
+    ],
+    "description": "卡片阴影显示时机"
+  },
+  "u-card/border": {
+    "type": "boolean",
+    "description": "是否展示卡片边框"
+  },
+  "u-card-group/title": {
+    "type": "string",
+    "description": "卡片组的标题"
+  },
   "u-carousel/value": {
     "type": "any",
     "description": "播放位置"
@@ -2351,20 +2385,6 @@
     "type": "number",
     "description": "划分的栅格数"
   },
-  "u-grid-layout-row/type": {
-    "type": "string",
-    "options": [
-      {
-        "value": "default",
-        "title": "默认类型"
-      },
-      {
-        "value": "flex",
-        "title": "flex"
-      }
-    ],
-    "description": "布局模式"
-  },
   "u-grid-layout-row/justify": {
     "type": "string",
     "options": [
@@ -2455,6 +2475,50 @@
     "type": "number",
     "description": "响应式布局`<=480px`的列跨越栅格数"
   },
+  "u-grid-view/data-source": {
+    "type": "Array<Item> | Function | object | DataSource",
+    "description": "表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise。"
+  },
+  "u-grid-view/data-schema": {
+    "type": "schema",
+    "description": "表格每一行的数据类型"
+  },
+  "u-grid-view/initial-load": {
+    "type": "boolean",
+    "description": "是否在初始时立即加载"
+  },
+  "u-grid-view/pageable": {
+    "type": "boolean",
+    "description": "是否需要分页"
+  },
+  "u-grid-view/page-size": {
+    "type": "number",
+    "description": "分页大小"
+  },
+  "u-grid-view/page-size-options": {
+    "type": "Array<number>",
+    "description": "分页大小的选项列表。"
+  },
+  "u-grid-view/show-total": {
+    "type": "boolean",
+    "description": "是否显示总条目数。"
+  },
+  "u-grid-view/show-sizer": {
+    "type": "boolean",
+    "description": "是否显示切换分页大小选项。"
+  },
+  "u-grid-view/show-jumper": {
+    "type": "boolean",
+    "description": "是否显示页面跳转输入框。"
+  },
+  "u-grid-view/remote-paging": {
+    "type": "boolean",
+    "description": "是否使用后端分页。"
+  },
+  "u-grid-view/remote-filtering": {
+    "type": "boolean",
+    "description": "是否使用后端筛选"
+  },
   "u-grid-view/value": {
     "type": "any",
     "description": "当前选择的值"
@@ -2471,14 +2535,6 @@
     "type": "string",
     "description": "选项值的字段名"
   },
-  "u-grid-view/data": {
-    "type": "Array<{ text, value }>",
-    "description": "列表数据"
-  },
-  "u-grid-view/data-source": {
-    "type": "object, Function, DataSource",
-    "description": "多功能数据源"
-  },
   "u-grid-view/cancelable": {
     "type": "boolean",
     "description": "是否可以取消选择"
@@ -2486,6 +2542,10 @@
   "u-grid-view/multiple": {
     "type": "boolean",
     "description": "是否可以多选"
+  },
+  "u-grid-view/repeat": {
+    "type": "number",
+    "description": "每行排列几项"
   },
   "u-grid-view/show-head": {
     "type": "boolean",
@@ -2503,9 +2563,17 @@
     "type": "string",
     "description": "加载时的文字。使用分页加载时才会出现"
   },
-  "u-grid-view/initial-load": {
+  "u-grid-view/error": {
     "type": "boolean",
-    "description": "是否在初始时立即加载"
+    "description": "手动设置是否加载失败。"
+  },
+  "u-grid-view/error-text": {
+    "type": "string",
+    "description": "加载失败时的文字。"
+  },
+  "u-grid-view/empty-text": {
+    "type": "string",
+    "description": "暂无数据时的文字。"
   },
   "u-grid-view/filterable": {
     "type": "boolean",
@@ -2527,22 +2595,6 @@
     "type": "string, Function",
     "description": "过滤时大小写是否敏感"
   },
-  "u-grid-view/remote-filtering": {
-    "type": "boolean",
-    "description": "是否使用后端过滤"
-  },
-  "u-grid-view/pageable": {
-    "type": "boolean",
-    "description": "是否需要分页"
-  },
-  "u-grid-view/page-size": {
-    "type": "number",
-    "description": "分页大小"
-  },
-  "u-grid-view/remote-paging": {
-    "type": "number",
-    "description": "是否使用后端分页"
-  },
   "u-grid-view/readonly": {
     "type": "boolean",
     "description": "是否只读"
@@ -2552,15 +2604,30 @@
     "description": "是否禁用"
   },
   "u-grid-view/size": {
-    "type": "enum",
+    "type": "string",
     "options": [
-      "normal",
-      "large",
-      "huge",
-      "auto",
-      "full"
+      {
+        "value": "full",
+        "title": "占满"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "auto",
+        "title": "自适应"
+      }
     ],
-    "description": "设置尺寸。五种宽高的自由组合。"
+    "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度"
   },
   "u-html/html": {
     "type": "string",
@@ -3412,6 +3479,18 @@
   "u-list-view/loading-text": {
     "type": "string",
     "description": "加载时的文字。使用分页加载时才会出现"
+  },
+  "u-list-view/error": {
+    "type": "boolean",
+    "description": "手动设置是否加载失败。"
+  },
+  "u-list-view/error-text": {
+    "type": "string",
+    "description": "加载失败时的文字。"
+  },
+  "u-list-view/empty-text": {
+    "type": "string",
+    "description": "暂无数据时的文字。"
   },
   "u-list-view/pageable": {
     "type": "boolean",
@@ -4826,7 +4905,7 @@
   },
   "u-table-view/value-field": {
     "type": "string",
-    "description": "在单选和多选操作中，指定数据唯一值的字段。"
+    "description": "在单选、多选操作、渲染树形数据中，指定数据唯一值的字段。"
   },
   "u-table-view/value": {
     "type": "any",
@@ -4877,6 +4956,18 @@
       }
     ],
     "description": "调整列宽时如何处理剩余大小"
+  },
+  "u-table-view/tree-display": {
+    "type": "boolean",
+    "description": "以树形数据展示表格。"
+  },
+  "u-table-view/children-field": {
+    "type": "string",
+    "description": "树形数据子节点字段名。"
+  },
+  "u-table-view/has-children-field": {
+    "type": "string",
+    "description": "该字段指定行数据是否包含子节点数据。"
   },
   "u-table-view-column/title": {
     "type": "string",
@@ -4946,6 +5037,10 @@
       {
         "value": "expander",
         "title": "展开列"
+      },
+      {
+        "value": "tree",
+        "title": "树形列"
       }
     ],
     "description": "列类型"

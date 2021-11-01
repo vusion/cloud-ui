@@ -387,14 +387,22 @@
     "description": "子选项组"
   },
   "u-card": {
-    "attributes": [],
+    "attributes": [
+      "title",
+      "width",
+      "shadow",
+      "border"
+    ],
     "description": "用于快速布局",
     "subtags": [
       "u-card-group"
     ]
   },
   "u-card-group": {
-    "attributes": []
+    "attributes": [
+      "title"
+    ],
+    "description": "卡片组"
   },
   "u-carousel": {
     "attributes": [
@@ -772,7 +780,6 @@
   "u-grid-layout-row": {
     "attributes": [
       "repeat",
-      "type",
       "justify",
       "alignment"
     ],
@@ -794,28 +801,36 @@
   },
   "u-grid-view": {
     "attributes": [
+      "data-source",
+      "data-schema",
+      "initial-load",
+      "pageable",
+      "page-size",
+      "page-size-options",
+      "show-total",
+      "show-sizer",
+      "show-jumper",
+      "remote-paging",
+      "remote-filtering",
       "value",
       "field",
       "text-field",
       "value-field",
-      "data",
-      "data-source",
       "cancelable",
       "multiple",
+      "repeat",
       "show-head",
       "title",
       "show-foot",
       "loading-text",
-      "initial-load",
+      "error",
+      "error-text",
+      "empty-text",
       "filterable",
       "placeholder",
       "clearable",
       "match-method",
       "case-sensitive",
-      "remote-filtering",
-      "pageable",
-      "page-size",
-      "remote-paging",
       "readonly",
       "disabled",
       "size"
@@ -989,6 +1004,9 @@
       "title",
       "show-foot",
       "loading-text",
+      "error",
+      "error-text",
+      "empty-text",
       "pageable",
       "page-size",
       "remote-paging",
@@ -1513,7 +1531,10 @@
       "disabled",
       "accordion",
       "resizable",
-      "resize-remaining"
+      "resize-remaining",
+      "tree-display",
+      "children-field",
+      "has-children-field"
     ],
     "description": "用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。",
     "subtags": [
