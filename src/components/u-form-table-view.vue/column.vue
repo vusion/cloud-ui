@@ -41,6 +41,7 @@ export default {
         validatingOptions: Object,
         validatingValue: null,
         validatingProcess: Function,
+        placement: String,
     },
     data() {
         const data = {
