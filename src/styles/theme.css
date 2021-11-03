@@ -367,6 +367,9 @@
     --table-th-padding: 12px 6px 12px 10px;
     --table-td-line-height: 20px;
     --table-td-padding: 20px 6px 20px 10px;
+    --table-hover-border-shadow-display: block;
+    --table-view-row-hover-background: inherit;
+    --table-head-font-weight: 500;
 
     /* Article */
     --article-table-font-size: calc(var(--font-size-base) * (13 / 14));
@@ -605,6 +608,11 @@
     --pagination-item-color-blank: var(--color-base);
     --pagination-item-color-blank-disabled: var(--brand-disabled);
     --pagination-item-border-color: var(--border-color-base);
+    --pagination-item-border-radius: 4px;
+    --pagination-item-size-small: 24px;
+    --pagination-item-size-small-line-height: var(--pagination-item-size-small);
+    --pagination-item-border-radius-left: var(--pagination-item-border-radius);
+    --pagination-item-border-radius-right: var(--pagination-item-border-radius);
 
     /* Combo Pagination */
     --combo-pagination-height: var(--height-small);

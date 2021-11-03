@@ -118,6 +118,7 @@
     <u-pagination :class="$style.pagination" v-if="(pageable === true || pageable === 'pagination') && currentDataSource"
         :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
         :page-size="currentDataSource.paging.size" :page-size-options="pageSizeOptions" :show-total="showTotal" :show-sizer="showSizer" :show-jumper="showJumper"
+        :size="paginationSize"
         @change="page($event.page)" @change-page-size="page(currentDataSource.paging.number, $event.pageSize)">
     </u-pagination>
     <div><slot></slot></div>
@@ -152,6 +153,7 @@ export default {
         showTotal: { type: Boolean, default: false },
         showSizer: { type: Boolean, default: true },
         showJumper: { type: Boolean, default: false },
+        paginationSize: { type: String, default: 'normal' },
         sorting: Object,
         defaultOrder: { type: String, default: 'desc' },
         sortTrigger: { type: String, default: 'head' },
@@ -1018,6 +1020,20 @@ export default {
 
 .row[selected] {
     background: var(--table-view-row-selected-background) !important;
+}
+.row[selected] td{
+    box-shadow: inset 0px 1px 0px 0px var(--table-view-row-selected-border-color),
+        inset 0px -1px 0px 0px var(--table-view-row-selected-border-color);
+}
+.row[selected] td:first-child{
+    box-shadow: inset 0px 1px 0px 0px var(--table-view-row-selected-border-color),
+        inset 0px -1px 0px 0px var(--table-view-row-selected-border-color),
+        inset 1px 0px 0px 0px var(--table-view-row-selected-border-color);
+}
+.row[selected] td:last-child{
+    box-shadow: inset 0px 1px 0px 0px var(--table-view-row-selected-border-color),
+        inset 0px -1px 0px 0px var(--table-view-row-selected-border-color),
+        inset -1px 0px 0px 0px var(--table-view-row-selected-border-color);
 }
 
 .expander {

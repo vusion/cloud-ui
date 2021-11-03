@@ -43,7 +43,7 @@ export default { name: 'u-table' };
 
 .root thead th {
     text-align: left;
-    font-weight: normal;
+    font-weight: var(--table-head-font-weight);
 }
 
 .root tbody tr {
@@ -67,6 +67,7 @@ export default { name: 'u-table' };
     left: 0;
     background: url("../../assets/images/shadow-up.png") repeat-x;
     z-index: 100;
+    display: var(--table-hover-border-shadow-display);
 }
 
 .root tbody > tr:hover > td::after {
@@ -78,6 +79,11 @@ export default { name: 'u-table' };
     left: 0;
     background: url("../../assets/images/shadow-down.png") repeat-x;
     z-index: 100;
+    display: var(--table-hover-border-shadow-display);
+}
+
+.root tbody > tr:hover{
+    background-color: var(--table-view-row-hover-background);
 }
 
 .root tbody > tr:first-child:hover > td::before {

@@ -70,6 +70,14 @@
 </u-linear-layout>
 ```
 
+### size="small"
+
+``` html
+<u-linear-layout direction="vertical">
+    <u-pagination :total-items="75" show-total show-sizer show-jumper size="small"></u-pagination>
+</u-linear-layout>
+```
+
 ### 简洁版
 
 设置`simple`属性即可使用简洁版的分页，不支持显示总页数、切换每页大小、页面跳转功能
