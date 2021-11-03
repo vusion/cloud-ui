@@ -26,8 +26,8 @@
       description: 最大日期，默认 9 年后
     - name: data-source
       title: 数据源
-      type: Array<Item> | Function
-      designer-value: '[{}, {}, {}]'
+      type: Array<Item> | Function | object
+      designer-value: '[{}]'
       description: 日历数据源，数组方式表示直接的数据，函数需要返回一个 Promise
       group: 数据属性
     - name: data-schema

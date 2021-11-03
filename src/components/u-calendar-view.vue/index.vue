@@ -63,15 +63,15 @@ export default {
     },
     props: {
         value: {
-            type: [String, Number, Date],
+            type: [Date, String, Number],
             default() {
                 return new Date();
             },
         },
-        minDate: [String, Date, Number],
-        maxDate: [String, Date, Number],
-        data: Array,
-        dataSource: [Function, Array],
+        minDate: [Date, String, Number],
+        maxDate: [Date, String, Number],
+        data: [Array, Object],
+        dataSource: [Function, Array, Object],
         startKey: {
             type: String,
             default: 'startTime',
@@ -88,6 +88,7 @@ export default {
     },
     data() {
         const date = dayjs();
+        const selectedDate = dayjs(this.value);
         const fullMonths = [];
         const monthTexts = [
             this.$t('January'),
@@ -110,11 +111,11 @@ export default {
             });
         }
         return {
-            tempData: [],
+            dataFromDataSource: [],
             date,
-            selectedDate: date.clone(),
-            year: date.year(),
-            month: date.month(), // 月份从 0 开始
+            selectedDate,
+            year: selectedDate.year(),
+            month: selectedDate.month(), // 月份从 0 开始
             years: [],
             minDay: null,
             minYear: null,
@@ -159,19 +160,18 @@ export default {
             return `${year} ${this.$t('year')} ${monthTexts[month]} ${this.$t('month')}`;
         },
         tableData() {
-            return this.data || this.tempData;
+            const { data, dataFromDataSource } = this;
+            return data ? this.handleData(data) : dataFromDataSource;
         },
     },
     watch: {
         minDate: {
             handler(value) {
-                const minDay = getDay(value, dayjs().subtract(10, 'year')
-                    .month(0)
-                    .date(1)
+                const minDay = getDay(value, dayjs().subtract(10, 'year').month(0).date(1))
                     .hour(0)
                     .minute(0)
                     .second(0)
-                    .millisecond(0));
+                    .millisecond(0);
                 this.minDay = minDay;
                 this.minYear = minDay.year();
                 this.minMonth = minDay.month();
@@ -181,13 +181,11 @@ export default {
         },
         maxDate: {
             handler(value) {
-                const maxDay = getDay(value, dayjs().add(9, 'year')
-                    .month(11)
-                    .date(31)
+                const maxDay = getDay(value, dayjs().add(9, 'year').month(11).date(31))
                     .hour(23)
                     .minute(59)
                     .second(59)
-                    .millisecond(999));
+                    .millisecond(999);
                 this.maxDay = maxDay;
                 this.maxYear = maxDay.year();
                 this.maxMonth = maxDay.month();
@@ -197,36 +195,31 @@ export default {
         },
         dataSource: {
             async handler(dataSource) {
-                let tempData = [];
-                if (dataSource instanceof Promise || typeof dataSource === 'function') {
-                    tempData = await dataSource();
-                } else if (Array.isArray(dataSource)) {
-                    tempData = dataSource;
-                }
+                let dataFromDataSource = await this.handleDataSource(dataSource);
 
-                if (!Array.isArray(tempData)) {
+                if (!Array.isArray(dataFromDataSource)) {
                     console.error(`[cloud-ui] Please confirm that the final result is an array in 'data-source' prop.`);
-                    tempData = [];
+                    dataFromDataSource = [];
                 }
-                this.tempData = tempData;
+                this.dataFromDataSource = dataFromDataSource;
             },
             immediate: true,
         },
     },
     methods: {
         getConfigs() {
-            const { minDay, maxDay, date, minYear, minMonth } = this;
+            const { minDay, maxDay, date, selectedDate, minYear, minMonth } = this;
             if (!minDay || !maxDay)
                 return;
 
             if (minDay.isSameOrBefore(maxDay)) {
                 // 当前日期不在配置日期范围内，重新赋值成最小日期
-                if (maxDay.isBefore(date) || minDay.isAfter(date)) {
+                if (maxDay.isBefore(selectedDate) || minDay.isAfter(selectedDate)) {
                     this.selectedDate = minDay.clone();
                     this.year = minYear;
                     this.month = minMonth;
-                    this.showToday = false;
                 }
+                this.showToday = !maxDay.isBefore(date) && !minDay.isAfter(date);
 
                 this.getYears();
                 this.getMonths();
@@ -328,6 +321,30 @@ export default {
             }
             this.selectedDate = newSelectedDate;
             this.month = value;
+        },
+        /**
+         * DataSource
+         */
+        async handleDataSource(dataSource) {
+            if (!dataSource) {
+                return [];
+            }
+            if (dataSource instanceof Promise || typeof dataSource === 'function') {
+                const result = await dataSource(this.page);
+                return this.handleData(result);
+            }
+            return this.handleData(dataSource);
+        },
+        isDataSource(data) {
+            return Object.prototype.toString.call(data) === '[object Object]' && data.content;
+        },
+        handleData(data) {
+            if (Array.isArray(data)) {
+                return data;
+            } else if (this.isDataSource(data)) {
+                return data.content;
+            }
+            return [];
         },
     },
 };
