@@ -147,8 +147,10 @@ export default {
         },
         getCommonAttrs(date, extra) {
             return {
+                Date: date,
                 date: date.date(),
                 week: date.week(),
+                timestamp: date.valueOf(),
                 disabled: date.isBefore(this.minDay) || date.isAfter(this.maxDay),
                 __key__: date.format(DefaultFormatType),
                 ...extra,
