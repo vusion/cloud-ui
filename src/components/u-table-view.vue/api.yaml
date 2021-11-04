@@ -608,11 +608,6 @@
       title: 列宽度
       type: string | number
       description: 给列指定宽度，可以为数字或百分比。
-    - name: ellipsis
-      title: 省略显示
-      type: boolean
-      default: false
-      description: 文字过长是否省略显示。默认文字超出时会换行。
     - name: formatter
       title: 格式器
       type: string | object | Function | Formatter

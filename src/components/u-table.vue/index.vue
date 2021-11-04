@@ -88,22 +88,22 @@ export default { name: 'u-table' };
     display: none;
 }
 
-.root[line="both"] th, .root[line="both"] td {
+.root[line] th, .root[line] td {
     border: 1px solid var(--table-border-color);
 }
 
-.root[line="both"] th, .root[line="both"] thead tr {
+.root[line] th, .root[line] thead tr {
     border-bottom: none;
 }
 
 /* 下一个大版本放开 */
-/* .root[striped] thead tr {
+.root[striped] thead tr {
     border-top: 1px solid var(--table-border-color);
 }
 
 .root[striped] tbody tr:nth-of-type(even) {
     background: var(--table-row-background-striped);
-} */
+}
 
 .root tbody > tr[color="light"] {
     background: var(--table-row-background-light);
