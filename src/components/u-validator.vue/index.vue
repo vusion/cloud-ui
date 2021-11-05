@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root">
     <slot></slot>
-    <span v-if="!mutedMessage && touched && !valid && firstError" :class="$style.message" color="error">{{ firstError }}</span>
+    <span v-if="!mutedMessage && touched && !valid && firstError && !blur" :class="$style.message" color="error">{{ firstError }}</span>
 </div>
 </template>
 
@@ -10,6 +10,7 @@ import MEmitter from '../m-emitter.vue';
 import VusionValidator from '@vusion/validator';
 import VueVusionValidator from '@vusion/validator/VuePlugin';
 import debounce from 'lodash/debounce';
+import cloneDeep from 'lodash/cloneDeep';
 
 export default {
     name: 'u-validator',
@@ -25,6 +26,7 @@ export default {
         rules: [String, Array, Object], // target: { type: String, default: 'auto' }, // 暂不开放此属性
         message: String,
         muted: String,
+        blurReset: { type: Boolean, default: false }, 
         ignoreRules: { type: Boolean, default: false }, // @deprecated
         ignoreValidation: { type: Boolean, default: false },
         validatingOptions: Object,
@@ -43,6 +45,7 @@ export default {
             fieldTouched: false,
             realValid: false,
             triggerValid: false,
+            blur: false,
             validatorVMs: [],
             fieldVM: undefined,
             parentVM: undefined,
@@ -224,9 +227,20 @@ export default {
             if (this.currentTarget === 'validatorVMs')
                 return;
             this.color = 'focus';
+            this.blur = false;
+            this.beforeValue = cloneDeep(this.value);
             this.currentMessage = this.message;
         },
-        onBlur() {
+        errorCheck() {
+           return  !this.mutedMessage && this.touched && !this.valid && this.firstError;
+        },
+        onBlur($event) {
+            if (this.blurReset) {
+                this.blur = true;
+                if (this.errorCheck()) {
+                    this.fieldVM.currentValue = this.beforeValue;
+                }
+            }
             if (this.currentTarget === 'validatorVMs' || this.manual)
                 return;
             if (!this.fieldTouched)

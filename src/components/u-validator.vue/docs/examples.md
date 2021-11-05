@@ -24,6 +24,13 @@
 </u-form-item>
 ```
 
+### 失去焦点，隐藏错误
+``` html
+<u-form-item label="用户名" rules="^azAZ | ^azAZ09-$ | azAZ09$ | minLength(4)" blurReset >
+    <u-input maxlength="12" placeholder="4-12个字符" value="abcd"></u-input>
+</u-form-item>
+```
+
 #### 字符串简写说明：
 
 多条验证规则用`|`分隔开，类似 Vue 的过滤器写法。
