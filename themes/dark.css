@@ -83,9 +83,9 @@
     --table-head-background: var(--divider-list-color);
     --table-border-color: #4E505C;
     --table-th-line-height: inherit;
-    --table-th-padding: 8px;
+    --table-th-padding: 16px;
     --table-td-line-height: inherit;
-    --table-td-padding: 10px 8px;
+    --table-td-padding: 10px 16px;
     --table-td-color: #b5b8c3;
 
     --tabs-item-height: 32px;
@@ -197,6 +197,12 @@
     --table-view-head-item-color: #aaa;
     --table-head-font-weight: 500;
     --table-view-row-selected-border-color: #4c88ff;
+    --table-view-head-title-sortable-hover: inherit;
+    --table-view-sort-color-hover: #fff;
+    --table-view-filter-color-hover: #fff;
+    --table-view-filter-background: #242424;
+    --table-view-filter-item-hover: #404041;
+    --table-view-filter-item-focus: var(--table-view-filter-item-hover);
 
     --group-head-background: var(--background-color-base);
 
@@ -216,4 +222,5 @@
     --pagination-item-border-color-hover: #fff;
     --pagination-item-color-hover: #fff;
     --pagination-item-border-color-disabled: #505359;
+    --pagination-item-color-disabled: #595959;
 }

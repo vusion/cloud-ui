@@ -370,6 +370,11 @@
     --table-hover-border-shadow-display: block;
     --table-view-row-hover-background: inherit;
     --table-head-font-weight: 500;
+    --table-view-head-title-sortable-hover: #eef2f8;
+    --table-view-sort-color-hover: #aaa;
+    --table-view-filter-color-hover: #aaa;
+    --table-view-filter-item-hover: var(--background-color-light);
+    --table-view-filter-item-focus: var(--background-color-light);
 
     /* Article */
     --article-table-font-size: calc(var(--font-size-base) * (13 / 14));

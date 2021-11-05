@@ -922,7 +922,11 @@ export default {
 }
 
 .head-title[sortable]:hover {
-    background: #eef2f8;
+    background: var(--table-view-head-title-sortable-hover);
+    cursor: pointer;
+}
+.head-title[sortable]:hover .sort{
+    color: var(--table-view-sort-color-hover);
 }
 
 .extra {
@@ -978,11 +982,15 @@ export default {
     cursor: var(--cursor-pointer);
     padding-bottom: 6px;
     margin-bottom: -6px;
+    color: var(--brand-disabled);
+}
+.filter-wrap:hover{
+    color: var(--table-view-filter-color-hover);
 }
 
 .filter-wrap::before {
     icon-font: url('../i-icon.vue/assets/filter.svg');
-    color: var(--brand-disabled);
+    color: inherit;
     font-size: var(--font-size-small);
     vertical-align: -2px;
 }
