@@ -11,7 +11,6 @@
 
 export default {
     name: 'u-iframe',
-    inheritAttrs: false,
     props: {
         src: {
             type: String,
