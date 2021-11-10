@@ -327,7 +327,7 @@ export default {
         delayDestroyPopper() {
             this.destroyTimer = setTimeout(() => this.destroyPopper(), this.hideDelay);
         },
-        updatePositionByCursor(e, el) {
+        async updatePositionByCursor(e, el) {
             // @TODO: 两种 offset 属性有些冗余
             if (!el.contains(e.target) || !this.popper)
                 return;
@@ -353,7 +353,8 @@ export default {
                     right,
                     bottom,
             });
-            this.popper.update();
+            await this.popper.update();
+            delete this.referenceEl.getBoundingClientRect;
         },
         open() {
             // Check if enabled
