@@ -52,6 +52,47 @@
       description: value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成
         value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象
       bindHide: true
+  events:
+    - name: input
+      title: 输入时
+      description: 切换选项时触发
+      params:
+        - name: $event
+          type: Array<string>
+          description: 切换后的选中值
+        - name: senderVM
+          type: UCheckbox
+          description: 发送事件实例
+    - name: check
+      title: 选中后
+      description: 切换选项时触发
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
+        - name: $event.value
+          type: Array<string>
+          description: 切换后的选中值
+        - name: senderVM
+          type: UCheckboxes
+          description: 发送事件实例
+    - name: change
+      title: 改变后
+      description: 选中状态改变时触发
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
+        - name: $event.value
+          type: Array<string>
+          description: 选中状态
+        - name: $event.oldValue
+          type: Array<string>
+          description: 旧的选中状态
   slots:
     - name: default
       description: 插入`<checkbox>`子组件。
