@@ -89,3 +89,7 @@
         - name: cell
           type: object
           description: 当前选择的日期以及相关数据
+  methods:
+    - name: reload
+      description: 重新加载
+      params: []

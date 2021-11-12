@@ -346,6 +346,10 @@ export default {
             }
             return [];
         },
+        async reload() {
+            const dataFromDataSource = await this.handleDataSource(this.dataSource);
+            this.dataFromDataSource = dataFromDataSource;
+        },
     },
 };
 </script>
