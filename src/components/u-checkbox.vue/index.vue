@@ -109,7 +109,7 @@ export default {
 
 .root[disabled] {
     cursor: var(--cursor-not-allowed);
-    color: #666;;
+    color: #666;
 }
 
 .box {
@@ -117,14 +117,18 @@ export default {
     width: var(--checkbox-size);
     height: var(--checkbox-size);
     line-height: calc(var(--checkbox-size) - 2px);
-    background: var(--background-color-default);
-    border: 1px solid var(--border-color-base);
+    background: var(--checkbox-background-default);
+    border: 1px solid var(--checkbox-border-color);
     border-radius: var(--checkbox-border-radius);
-    margin-right: 5px;
+    margin-right: var(--checkbox-inner-space-x);
     text-align: center;
     font-size: var(--font-size-small);
     transition: all var(--transition-duration-base);
     vertical-align: 1px;
+}
+
+.box:hover {
+    border-color: var(--checkbox-border-color-hover);
 }
 
 .box::before {
@@ -152,7 +156,7 @@ export default {
     color: var(--checkbox-color);
 }
 .box[status="true"][disabled]::before {
-    color: #ccc;
+    color: var(--checkbox-color-disabled);
 }
 
 .box[status="null"] {
@@ -166,7 +170,7 @@ export default {
 }
 
 .box[disabled] {
-    border-color: var(--border-color-base);
-    background: #EEEEF0;
+    border-color: var(--checkbox-border-color-disabled);
+    background: var(--checkbox-background-disabled);
 }
 </style>

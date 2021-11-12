@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :disabled="disabled" :appear="appear" :size="size">
+<div :class="$style.root" :disabled="disabled" :appear="appear" :size="size" :item-width="itemWidth">
     <div :class="$style.head">
         <span :class="$style.extra" vusion-slot-name="extra"><slot name="extra"></slot></span>
         <nav :class="$style.nav" :scrollable="showScrollButtons === 'always' || (showScrollButtons === 'auto' && scrollable)">

@@ -83,8 +83,11 @@ export default {
 </script>
 
 <style module>
+@import url("../u-validator.vue/index.css");
+
 .root {
     position: relative;
+    display: block;
 }
 
 .label {
@@ -108,96 +111,6 @@ export default {
 .field {
     display: inline-block;
     position: relative;
-}
-
-.message {
-    position: absolute;
-    left: 100%;
-    top: 0;
-    z-index: var(--validator-message-z-index);
-    display: none;
-    line-height: var(--validator-message-line-height);
-    font-size: 12px;
-    margin-left: var(--validator-message-margin-left);
-    margin-top: var(--validator-message-margin-top);
-    padding: var(--validator-message-padding);
-    background: var(--validator-message-background);
-    border-radius: var(--validator-message-border-radius);
-    box-shadow: var(--validator-message-box-shadow);
-}
-
-.message[color="focus"] {
-    display: block;
-    padding: 3px 10px;
-    height: auto;
-    width: 300px;
-    background: #f7faff;
-    color: #7dacde;
-    border: 1px solid #d6e6fe;
-}
-
-.message[color="focus"]::after, .message[color="focus"]::before {
-    position: absolute;
-    content: '';
-    top: 10px;
-    left: -8px;
-    border: 4px solid transparent;
-    border-right: 4px solid #f7faff;
-}
-
-.message[color="focus"]::before {
-    border-right-color: #d6e6fe;
-    left: -9px;
-}
-
-.message[color="error"] {
-    display: block;
-    top: 50%;
-    transform: translateY(-50%);
-    white-space: nowrap;
-    background: var(--validator-message-background-error);
-    color: var(--validator-message-color-error);
-    white-space: var(--validator-message-white-space);
-    border-radius: var(--validator-message-border-radius);
-    box-shadow: var(--validator-message-box-shadow);
-    min-width: var(--validator-message-min-width);
-}
-
-.message[color="error"]::before {
-    icon-font: url('../i-icon.vue/assets/warning.svg');
-    color: white;
-    font-size: 14px;
-    margin-left: -2px;
-    margin-right: 6px;
-    vertical-align: -1px;
-}
-
-.message[color="error"]::after {
-    content: '';
-    position: absolute;
-    right: 100%;
-    top: 8px;
-    width: 0;
-    height: 0;
-    border-top: 4px solid transparent;
-    border-right: 4px solid var(--validator-message-background-error);
-    border-bottom: 4px solid transparent;
-}
-
-.root[placement="bottom"] .message {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    margin-left: var(--validator-message-margin-left-bottom);
-    transform: translateY(0);
-}
-
-.root[placement="bottom"] .message::after {
-    display: none;
-}
-
-.root[placement="bottom"] .message[color="error"] {
-    transform: none;
 }
 
 .root[label-size$="mini"] > .label { width: var(--form-item-label-width-mini); padding-right: var(--form-item-label-padding-right-mini); }

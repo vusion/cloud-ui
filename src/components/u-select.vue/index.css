@@ -15,8 +15,13 @@
     border-radius: var(--border-radius-base);
 }
 
+.root:hover {
+    border-color: var(--select-border-color-hover);
+}
+
 .root:focus {
     outline: var(--focus-outline);
+    border-color: var(--select-border-color-hover);
     box-shadow: var(--select-box-shadow-focus);
 }
 
@@ -120,7 +125,7 @@
     line-height: var(--select-tag-line-height);
     vertical-align: 1px;
     background: var(--select-tag-background);
-    border-radius: 2px;
+    border-radius: var(--select-tag-border-radius);
 }
 
 .tag:not(:last-child) {
@@ -160,6 +165,7 @@
 .popper {
     position: absolute;
     box-sizing: content-box;
+    padding: var(--select-popper-padding);
     width: 100%;
     line-height: var(--select-popper-line-height);
     max-height: var(--select-popper-max-height);

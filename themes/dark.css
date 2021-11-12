@@ -23,8 +23,8 @@
     --brand-theme-darkest: #003eb8;
 
     --brand-error: #f24957; 
-    --brand-disabled: #6b717b;
-    --brand-disabled-dark: #595959; /* 禁用文本的颜色 */
+    --brand-disabled: #595959; /* 禁用文本的颜色 */
+    --brand-disabled-dark: var(--brand-disabled); /* 禁用文本的颜色 */
     
     --color-lighter: #585c63;
     --color-light: #595959;
@@ -54,30 +54,64 @@
     --scrollbar-background: hsla(220 8% 36% / 0.6);
     --scrollbar-border-radius: 6px;
 
+    --button-padding-x: 25px;
+    --button-height: 32px;
     --button-background: transparent;
+    --button-background-primary: #4C88FF;
+    --button-background-primary-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #4C88FF;
+    --button-background-primary-disabled: #505359;
+    --button-background-secondary: #505359;
+    --button-background-secondary-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), #505359;
+    --button-background-secondary-disabled: #505359;
     --button-background-hover: transparent;
     --button-background-active: transparent;
     --button-background-disabled: transparent;
-    --button-border-color-disabled: #626a75;
-    --button-color-disabled: #626a75;
     --button-color: white;
-    --button-padding-x: 25px;
-    --button-height: 32px;
+    --button-color-disabled: #595959;
+    --button-color-primary-disabled: #aaaaaa;
+    --button-color-hover: white;
+    --button-color-secondary-hover: white;
+    --button-color-secondary-disabled: #aaaaaa;
     --button-border-radius: 4px;
     --button-border-color: rgba(255, 255, 255, 0.6);
+    --button-border-color-hover: white;
+    --button-border-color-disabled: rgba(255, 255, 255, 0.2);
+    --button-grey-border-color: #505359;
+    --button-grey-border-color-hover: white;
+
+    --checkbox-color: white;
+    --checkbox-color-disabled: rgba(255,255,255,0.2);
+    --checkbox-border-color: rgba(255, 255, 255, 0.6);
+    --checkbox-border-color-hover: white;
+    --checkbox-border-color-disabled: rgba(255, 255, 255, 0.4);
+    --checkbox-border-radius: 4px;
+    --checkbox-inner-space-x: 12px;
+    --checkbox-background: var(--brand-theme);
+    --checkbox-background-default: #303030;
+    --checkbox-background-disabled: rgba(255, 255, 255, 0.2);
 
     /* --input-border-color: 0; */
     --input-background: var(--background-color-base);
+    --input-background-disabled: rgba(36, 36, 36, 0.5);
     --input-border-color: var(--background-color-base);
     --input-border-radius: 4px;
     --input-icon-color: rgba(255,255,255,0.6);
-    --input-border-color-focus: #517CFF;
+    --input-border-color-focus: #4c88FF;
+    --input-box-shadow-focus: 0 0 0 2px rgba(76, 136, 255, 0.25);
+    --input-height-small: 32px;
+    --input-placeholder-color: var(--color-light);
+    --input-padding-x: 8px;
+    --input-padding-x-mini: 4px;
+    --input-padding-x-medium: 8px;
+
+    --textarea-background: rgba(36, 36, 36, 0.5);
 
     /* your variables */
     --collapse-item-head-background: var(--background-color-base);
     --collapse-border-color: var(--border-color-base);
 
     --switch-background: #61656b;
+    --switch-transition: all var(--transition-duration-base);
 
     /* --table-head-background: var(--background-color-base); */
     --table-head-background: var(--divider-list-color);
@@ -90,10 +124,11 @@
 
     --tabs-item-height: 32px;
     --tabs-item-height-small: 32px;
-    --tabs-item-background-text: var(--background-color-base);
+    --tabs-item-background-text: transparent;
     --tabs-item-background-hover: var(--background-color-gray);
     --tabs-item-background-selected: var(--background-color-dark);
     --tabs-item-background-capsule: var(--background-color-gray);
+    --tabs-item-color: #666666;
     --tabs-item-color-hover: inherit;
     --tabs-item-color-selected: inherit;
     --tabs-item-color-selected-capsule: inherit;
@@ -135,29 +170,35 @@
     --form-group-head-padding: 8px 10px;
     --form-group-head-line-height: 1;
     --form-group-space: 10px;
+    --form-table-head-background: transparent;
+    --form-table-head-color: #aaaaaa;
+    --form-table-head-padding: 0;
+    --form-table-remove-button-color: #f24957;
 
     --list-view-group-head-background: transparent;
     --list-view-item-background-hover: var(--brand-theme);
     --list-view-item-background-focused: var(--brand-theme);
     --list-view-item-background-selected: var(--brand-theme);
 
-    --input-padding-x: 8px;
-    --input-padding-x-mini: 4px;
-    --input-padding-x-small: 6px;
-    --input-padding-x-medium: 8px;
     --select-padding-x: 8px;
     --select-padding-x-mini: 4px;
     --select-padding-x-small: 6px;
     --select-padding-x-medium: 8px;
-
     --select-height: 36px;
     --select-box-shadow-focus: 0 0 0 2px rgba(76, 136, 255, 0.25);
     --select-popper-box-shadow: 0px 0px 4px rgba(3, 3, 3, 0.3);
     --select-popper-border-color: #1D1E24;
+    --select-popper-padding: 8px 0;
     --select-arrow-color: rgba(255,255,255,0.6);
     --select-arrow-color-hover: rgba(255,255,255,1);
+    --select-border-color-hover: #4c88ff;
+    --select-tags-padding: 4px 26px 4px 4px;
+    --select-tags-padding-y: 1px;
+    --select-tag-background: #343538;
+    --select-tag-border-radius: 4px;
+    --select-tag-remove-color: rgba(255, 255, 255, 0.2);
 
-    --validator-message-padding: 6px 10px;
+    --validator-message-padding: 6px 17px 6px 40px;
     --validator-message-line-height: 20px;
     --validator-message-margin-top: 4px;
     --validator-message-background-error: #F24957;
@@ -180,6 +221,17 @@
     --tooltip-background: var(--background-color-base);
     --tooltip-arrow-size: 4px;
     --tooltip-box-shadow: 0px 0px 4px rgba(3, 3, 3, 0.3);
+
+    --radio-space-x: 32px;
+    --radio-inner-space-x: 8px;
+    --radio-size: 16px;
+    --radio-solid-circle-size: 7px;
+    --radio-solid-circle-background-disabled: rgba(255, 255, 255, 0.4);
+    --radio-box-shadow-focus: none;
+    --radio-border-color: rgba(255, 255, 255, 0.6);
+    --radio-border-color-hover: white;
+    --radio-border-color-disabled: rgba(255, 255, 255, 0.4);
+    --radio-circle-background-disabled: rgba(255, 255, 255, 0.2);
     
     /* 黑色背景字体默认白色 */
     --font-color-primary: #fff;

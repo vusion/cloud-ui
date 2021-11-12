@@ -98,23 +98,33 @@ export default {
 
 .radio {
     display: inline-block;
+    position: relative;
+    vertical-align: text-top;
     width: var(--radio-size);
     height: var(--radio-size);
     border-radius: 100px;
     line-height: calc(var(--radio-size) - 2px);
     background: var(--radio-background);
-    border: 1px solid var(--border-color-base);
-    margin-right: 5px;
+    border: 1px solid var(--radio-border-color);
+    margin-right: var(--radio-inner-space-x);
     text-align: center;
     transition: all var(--transition-duration-base);
     font-size: 14px;
 }
 
+.radio:hover {
+    border-color: var(--radio-border-color-hover);
+}
+
 .radio::before {
     display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     content: '\2713';
-    width: 10px;
-    height: 10px;
+    width: var(--radio-solid-circle-size);
+    height: var(--radio-solid-circle-size);
     border-radius: 100px;
     color: transparent;
     overflow: hidden;
@@ -125,11 +135,15 @@ export default {
 }
 
 .radio[selected]::before {
-    background: var(--brand-primary);
+    background: var(--radio-solid-circle-background);
+}
+
+.radio[selected][disabled]::before {
+    background: var(--radio-solid-circle-background-disabled);
 }
 
 .radio[disabled] {
-    border-color: var(--border-color-base);
-    background: var(--background-color-base);
+    border-color: var(--radio-border-color-disabled);
+    background: var(--radio-circle-background-disabled);
 }
 </style>

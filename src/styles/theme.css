@@ -558,6 +558,7 @@
     --tabs-item-color-disabled: var(--brand-disabled);
     --tabs-item-border-color-selected: var(--border-color-light);
     --tabs-item-border-color-selected-capsule: var(--brand-primary);
+    --tabs-item-border-radius: 4px;
     --tabs-item-border-radius-round: 5px;
     --tabs-body-space: var(--space-base);
     --tabs-body-space-small: var(--space-small);
@@ -702,6 +703,7 @@
     --textarea-padding: 5px 10px;
     --textarea-color: var(--color-base);
     --textarea-border-color: var(--border-color-base);
+    --textarea-background: var(--brand-disabled);
 
     /* Number Input */
     --number-input-height: 16px;
@@ -714,16 +716,28 @@
 
     /* Radio */
     --radio-space-x: 40px;
+    --radio-inner-space-x: 5px;
     --radio-size: 14px;
+    --radio-solid-circle-size: 10px;
+    --radio-solid-circle-background: var(--brand-primary);
     --radio-background: var(--background-color-default);
+    --radio-circle-background-disabled: var(--background-color-base);
     --radio-box-shadow-focus: var(--button-box-shadow-focus);
+    --radio-border-color: var(--border-color-base);
+    --radio-border-color-disabled: var(--border-color-base);
 
     /* Checkbox */
     --checkbox-space-x: 80px;
+    --checkbox-inner-space-x: 5px;
     --checkbox-size: 16px;
+    --checkbox-border-color: var(--border-color-base);
+    --checkbox-border-color-disabled: var(--border-color-base);
     --checkbox-border-radius: 3px;
     --checkbox-background: var(--brand-primary);
+    --checkbox-background-default: var(--background-color-default);
+    --checkbox-background-disabled: #EEEEF0;
     --checkbox-color: var(--background-color-default);
+    --checkbox-color-disabled: #ccc;
     --checkbox-box-shadow-focus: var(--button-box-shadow-focus);
 
     /* Switch */
@@ -792,6 +806,7 @@
     --select-tag-margin-x: 4px;
     --select-tag-remove-color: var(--color-lighter);
     --select-tag-remove-color-hover: var(--color-base);
+    --select-tag-border-radius: 2px;
     --select-popper-background: var(--background-color-default);
     --select-popper-background-inverse: var(--background-color-default-inverse);
     --select-popper-border-color: var(--border-color-base);
@@ -924,6 +939,10 @@
 
     /* Form Table View */
     --form-table-head-background: #f7f8fa;
+    --form-table-head-color: var(--color-light);
+    --form-table-head-padding: 0 5px;
+
+    --form-table-remove-button-color: #ff867f;
 
     /* Transfer */
     --transfer-height: var(--list-view-height);

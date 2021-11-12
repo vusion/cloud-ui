@@ -73,8 +73,13 @@
     outline: var(--focus-outline);
 }
 
+.root:hover {
+    border-color: var(--input-border-color-focus);
+}
+
 .root[focus] {
     border-color: var(--input-border-color-focus);
+    box-shadow: var(--input-box-shadow-focus);
 }
 
 .root[color="default"] { /* By default */ }
@@ -122,7 +127,7 @@
 }
 
 .root[prefix] .input {
-    padding-left: 30px;
+    padding-left: 48px;
 }
 
 .root[clearable] .input, .root[suffix] .input {

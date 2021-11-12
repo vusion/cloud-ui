@@ -19,7 +19,7 @@ export default { name: 'u-form-table' };
 }
 
 .root thead {
-    color: var(--color-light);
+    color: var(--form-table-head-color);
     line-height: 40px;
     border-bottom: 1px solid var(--border-color-base);
 }
@@ -33,7 +33,7 @@ export default { name: 'u-form-table' };
     font-weight: normal;
     text-align: left;
     height: 44px;
-    padding: 0 5px;
+    padding: var(--form-table-head-padding);
 }
 
 .root tbody td {
