@@ -780,7 +780,24 @@ export default {
                 .filter((item) => !!item)
                 .join(',');
         },
-        async exportExcel(page, size, sort, order) {
+        async exportExcel(page = 1, size = 2000, sort, order) {
+            if (this.currentDataSource.sorting && this.currentDataSource.sorting.field) {
+                const { sorting } = this.currentDataSource;
+                sort = sort || sorting.field;
+                order = order || sorting.order;
+            }
+
+            if(!(typeof page === 'number' && page > 0)) {
+                this.$toast.show('页数page必须大于0');
+                return;
+            }
+            
+            if(!(typeof size === 'number' && size > 0 && size <= 2000)) {
+                this.$toast.show('数据条数size必须在1-2000之间');
+                return;
+            }            
+
+
             const fn = (event) => event.stopPropagation();
             document.addEventListener('click', fn, true)
 
