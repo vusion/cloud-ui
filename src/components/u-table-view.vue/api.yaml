@@ -589,6 +589,17 @@
     - name: getFields
       description: 获取所有表格列的 field
       params: []
+    - name: exportExcel
+      description: 导出 excel 文件
+      params:
+        - name: page
+          type: number
+        - name: size
+          type: number
+        - name: sort
+          type: string
+        - name: order
+          type: string
 - name: u-table-view-column
   accept-parent:
     - u-table-view
