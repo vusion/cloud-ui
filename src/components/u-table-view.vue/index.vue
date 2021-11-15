@@ -181,6 +181,7 @@ import debounce from 'lodash/debounce';
 import isNumber from 'lodash/isNumber';
 import i18n from './i18n';
 import { rest } from 'lodash';
+import { exportExcel } from '../../utils/xlsx';
 
 export default {
     name: 'u-table-view',
@@ -270,10 +271,14 @@ export default {
             selectedItem: undefined,
             currentValues: this.values || [],
             tableHeight: undefined,
+            exportData: undefined,
         };
     },
     computed: {
         currentData() {
+            if(this.exportData)
+                return this.exportData;
+
             setTimeout(() => {
                 this.$refs.td && this.$refs.td.forEach((tdEl, index) => {
                     const length = this.columnVMs.length;
@@ -774,6 +779,81 @@ export default {
                 .map((item) => item.field)
                 .filter((item) => !!item)
                 .join(',');
+        },
+        async exportExcel(page, size, sort, order) {
+            const fn = (event) => event.stopPropagation();
+            document.addEventListener('click', fn, true)
+
+            try {
+                console.time('加载数据');
+                const res = await this.currentDataSource._load({ page, size, sort, order });
+                console.timeEnd('加载数据');
+
+                const content = await this.getRenderResult(res.content);
+
+                console.time('生成文件');
+                const sheetData = this.getSheetData(content);
+                exportExcel(sheetData, 'abcd', 'xxxx');  
+                console.timeEnd('生成文件');       
+            } catch(err) {
+            }
+            
+            await new Promise((res) => {
+                setTimeout(res);
+            });
+            document.removeEventListener('click', fn, true);
+        },
+        async getRenderResult(arr = []) {
+            console.time('渲染数据');
+            const startIndexes = [];
+            for(let i=0;i<this.visibleColumnVMs.length;i++){
+                const vm = this.visibleColumnVMs[i];
+                if(vm.type === 'index')
+                    startIndexes[i] = +vm.startIndex;
+            }
+ 
+            let res = [];
+            const page = this.currentDataSource.paging.size;
+            for(let i=0;i<arr.length;i += page) {
+                this.exportData = arr.slice(i, i + page);
+                await new Promise((res) => {
+                    this.$once('hook:updated', res);
+                });
+                const res1 = Array.from(this.$el.querySelectorAll(i === 0 ? 'tr' : 'tbody tr')).map((tr) => {
+                    return Array.from(tr.querySelectorAll('th, td')).map((node) => node.innerText);
+                });
+                res = res.concat(res1);
+            }
+
+            for(let rowIndex=1;rowIndex<res.length;rowIndex++) {
+                const item = res[rowIndex];
+                for(let j=0;j<item.length;j++){
+                    if(startIndexes[j] !== undefined)
+                        item[j] = startIndexes[j] + (rowIndex - 1);
+                }
+            }
+            console.timeEnd('渲染数据');
+
+            console.time('复原表格');
+            this.exportData = undefined;
+            await new Promise((res) => {
+                this.$once('hook:updated', res);
+            });
+            console.timeEnd('复原表格'); 
+
+            return res;
+        },
+        getSheetData(arr) {
+            const titles = arr[0];
+            const sheetData = [];
+            for(let i=1;i<arr.length;i++){
+                const item = {};
+                for(let j=0;j<titles.length;j++){
+                    item[titles[j]] = arr[i][j];
+                }
+                sheetData.push(item);
+            }
+            return sheetData;            
         },
         page(number, size) {
             if (size === undefined)
