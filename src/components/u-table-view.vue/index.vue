@@ -176,6 +176,7 @@
 <script>
 import DataSource from '../../utils/DataSource';
 import { addResizeListener, removeResizeListener } from '../../utils/dom';
+import { format } from '../../utils/date';
 import MEmitter from '../m-emitter.vue';
 import debounce from 'lodash/debounce';
 import isNumber from 'lodash/isNumber';
@@ -810,7 +811,11 @@ export default {
 
                 console.time('生成文件');
                 const sheetData = this.getSheetData(content);
-                exportExcel(sheetData, 'abcd', 'xxxx');  
+
+                let fileName = document.title.split(' ').shift() || 'Export';
+                fileName += format(new Date(), '_YYYYMMDD_HHmmss');
+
+                exportExcel(sheetData, 'Sheet1', fileName);  
                 console.timeEnd('生成文件');       
             } catch(err) {
             }
