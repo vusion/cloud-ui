@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root">
     <slot></slot>
-    <span v-if="!mutedMessage && touched && !valid && firstError && !blur" :class="$style.message" color="error">{{ firstError }}</span>
+    <span v-if="!mutedMessage && touched && !valid && firstError && !fieldBlured" :class="$style.message" color="error">{{ firstError }}</span>
 </div>
 </template>
 
@@ -45,7 +45,7 @@ export default {
             fieldTouched: false,
             realValid: false,
             triggerValid: false,
-            blur: false,
+            fieldBlured: false,
             validatorVMs: [],
             fieldVM: undefined,
             parentVM: undefined,
@@ -227,7 +227,7 @@ export default {
             if (this.currentTarget === 'validatorVMs')
                 return;
             this.color = 'focus';
-            this.blur = false;
+            this.fieldBlured = false;
             this.beforeValue = cloneDeep(this.value);
             this.currentMessage = this.message;
         },
@@ -236,7 +236,7 @@ export default {
         },
         onBlur($event) {
             if (this.blurReset) {
-                this.blur = true;
+                this.fieldBlured = true;
                 if (this.errorCheck()) {
                     this.fieldVM.currentValue = this.beforeValue;
                 }
