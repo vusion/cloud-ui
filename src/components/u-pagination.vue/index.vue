@@ -1,5 +1,5 @@
 <template>
-<nav :class="$style.root" :disabled="disabled" :readonly="readonly" :simple="simple">
+<nav :class="$style.root" :disabled="disabled" :readonly="readonly" :simple="simple" :size="size">
     <template v-if="simple">
         <a :class="$style.item" role="prev" :disabled="currentPage <= 1" @click="select(currentPage - 1)"></a>
         <div :class="$style['jumper-wrap']">
@@ -87,6 +87,7 @@ export default {
         showSizer: { type: Boolean, default: false },
         showJumper: { type: Boolean, default: false },
         simple: { type: Boolean, default: false },
+        size: { type: String, default: 'normal' },
     },
     data() {
         return { currentPage: this.page, currentPageSize: this.pageSize };
@@ -217,7 +218,7 @@ export default {
     color: var(--pagination-item-color);
     cursor: var(--cursor-pointer);
     border: 1px solid var(--pagination-item-border-color);
-    border-radius: 2px;
+    border-radius: var(--pagination-item-border-radius);
     margin-left: -1px;
 
     vertical-align: middle;
@@ -227,7 +228,7 @@ export default {
     color: var(--pagination-item-color-hover);
     background: var(--pagination-item-background-hover);
     position: relative;
-    /* border-color: var(--brand-primary); */
+    border-color: var(--pagination-item-border-color-hover);
 }
 
 .item[selected] {
@@ -240,28 +241,35 @@ export default {
     cursor: var(--cursor-not-allowed);
     color: var(--pagination-item-color-disabled);
     background: none;
+    border-color: var(--pagination-item-border-color-disabled);
 }
 
 .item[role="prev"] {
     font-size: var(--font-size-large);
     padding: 0 4px;
-    border-radius: var(--border-radius-base) 0 0 var(--border-radius-base);
+    border-radius: var(--border-radius-base) var(--pagination-item-border-radius-right) var(--pagination-item-border-radius-right) var(--border-radius-base);
     color: var(--color-light);
 }
 
 .item[role="prev"]::before {
     icon-font: url('../i-icon.vue/assets/angle-left.svg');
 }
+.item[role="prev"]:hover{
+    color: var(--pagination-item-color-hover);
+}
 
 .item[role="next"] {
     font-size: var(--font-size-large);
     padding: 0 4px;
-    border-radius: 0 var(--border-radius-base) var(--border-radius-base) 0;
+    border-radius: var(--pagination-item-border-radius-left) var(--border-radius-base) var(--border-radius-base) var(--pagination-item-border-radius-left);
     color: var(--color-light);
 }
 
 .item[role="next"]::before {
     icon-font: url('../i-icon.vue/assets/angle-right.svg');
+}
+.item[role="next"]:hover{
+    color: var(--pagination-item-color-hover);
 }
 
 .item[role="blank"] {
@@ -283,6 +291,7 @@ export default {
     cursor: var(--cursor-not-allowed);
     color: var(--pagination-item-color-disabled);
     background: none;
+    border-color: var(--pagination-item-border-color-disabled);
 }
 
 .item-wrap > [role="text"]{
@@ -332,6 +341,7 @@ export default {
     color: var(--pagination-item-color-disabled);
     cursor: var(--cursor-not-allowed);
     background: none;
+    border-color: var(--pagination-item-border-color-disabled);
 }
 
 .root[disabled] .item[role="blank"] {
@@ -344,6 +354,8 @@ export default {
 }
 .root[readonly] .item {
     cursor: default;
+    color: var(--pagination-item-color);
+    border-color: var(--pagination-item-border-color);
 }
 
 .root[display="inline"] {
@@ -367,5 +379,15 @@ export default {
 .root[simple][disabled] .item,
 .root[simple][disabled] .item:hover {
     color: var(--pagination-item-color-disabled);
+}
+
+.root[size="small"] .item{
+    border: none;
+    min-width: var(--pagination-item-size-small);
+    height: var(--pagination-item-size-small);
+    line-height: var(--pagination-item-size-small-line-height);
+}
+.root[size="small"] a:not(:last-child) {
+    margin-right: 4px;
 }
 </style>

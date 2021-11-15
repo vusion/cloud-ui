@@ -29,7 +29,7 @@ export default {
 }
 
 .root:hover {
-    background: var(--background-color-light);
+    background: var(--table-view-filter-item-hover);
 }
 
 .root[readonly] {
@@ -38,7 +38,7 @@ export default {
 }
 
 .root[focused] {
-    background: var(--background-color-light);
+    background: var(--table-view-filter-item-focus);
 }
 
 .root[selected] {
