@@ -19,8 +19,8 @@ export default {
             },
         },
     },
-    created() {
-        !this.data && (this.currentData = require('./region.json'));
+    async created() {
+        !this.data && (this.currentData = await import(/* webpackChunkName: 'region' */ './region.json'));
     },
 };
 </script>
