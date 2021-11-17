@@ -182,7 +182,6 @@ import debounce from 'lodash/debounce';
 import isNumber from 'lodash/isNumber';
 import i18n from './i18n';
 import { rest } from 'lodash';
-import { exportExcel } from '../../utils/xlsx';
 
 export default {
     name: 'u-table-view',
@@ -815,9 +814,11 @@ export default {
                 let fileName = document.title.split(' ').shift() || 'Export';
                 fileName += format(new Date(), '_YYYYMMDD_HHmmss');
 
+                const { exportExcel } = await import(/* webpackChunkName: 'xlsx' */ '../../utils/xlsx');
                 exportExcel(sheetData, 'Sheet1', fileName);  
                 // console.timeEnd('生成文件');       
             } catch(err) {
+                console.error(err);
             }
             
             await new Promise((res) => {
