@@ -594,12 +594,20 @@
       params:
         - name: page
           type: number
+          description: 当前页码
+          default: 1
         - name: size
           type: number
+          description: 每页条数
+          default: 2000
         - name: sort
           type: string
+          description: 排序字段
+          default: tableView.params.sort
         - name: order
           type: string
+          description: 排序顺序，'asc' 或 'desc'
+          default: tableView.params.order
 - name: u-table-view-column
   accept-parent:
     - u-table-view
