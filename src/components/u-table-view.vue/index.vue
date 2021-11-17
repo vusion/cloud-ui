@@ -803,20 +803,20 @@ export default {
             document.addEventListener('click', fn, true)
 
             try {
-                console.time('加载数据');
+                // console.time('加载数据');
                 const res = await this.currentDataSource._load({ page, size, sort, order });
-                console.timeEnd('加载数据');
+                // console.timeEnd('加载数据');
 
                 const content = await this.getRenderResult(res.content);
 
-                console.time('生成文件');
+                // console.time('生成文件');
                 const sheetData = this.getSheetData(content);
 
                 let fileName = document.title.split(' ').shift() || 'Export';
                 fileName += format(new Date(), '_YYYYMMDD_HHmmss');
 
                 exportExcel(sheetData, 'Sheet1', fileName);  
-                console.timeEnd('生成文件');       
+                // console.timeEnd('生成文件');       
             } catch(err) {
             }
             
@@ -826,7 +826,7 @@ export default {
             document.removeEventListener('click', fn, true);
         },
         async getRenderResult(arr = []) {
-            console.time('渲染数据');
+            // console.time('渲染数据');
             const startIndexes = [];
             for(let i=0;i<this.visibleColumnVMs.length;i++){
                 const vm = this.visibleColumnVMs[i];
@@ -854,14 +854,14 @@ export default {
                         item[j] = startIndexes[j] + (rowIndex - 1);
                 }
             }
-            console.timeEnd('渲染数据');
+            // console.timeEnd('渲染数据');
 
-            console.time('复原表格');
+            // console.time('复原表格');
             this.exportData = undefined;
             await new Promise((res) => {
                 this.$once('hook:updated', res);
             });
-            console.timeEnd('复原表格'); 
+            // console.timeEnd('复原表格'); 
 
             return res;
         },

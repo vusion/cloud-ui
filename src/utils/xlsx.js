@@ -1,16 +1,8 @@
 import XLSX from 'xlsx';
 
-/**
- *
- * @param sheetData 数组表格数据
- * @param fileName 文件名
- */
 export function exportExcel(sheetData, sheetName, fileName) {
-    // 将由对象组成的数组转化成sheet
     const sheet = XLSX.utils.json_to_sheet(sheetData)
-    // 创建虚拟的workbook
     const wb = XLSX.utils.book_new()
-    // 把sheet添加到workbook中
     XLSX.utils.book_append_sheet(wb, sheet, sheetName)
     const workbookBlob = workbook2blob(wb)
     openDownload(workbookBlob, `${fileName}.xlsx`);
