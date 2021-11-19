@@ -798,8 +798,12 @@ export default {
             }            
 
 
-            const fn = (event) => event.stopPropagation();
-            document.addEventListener('click', fn, true)
+            const fn = (event) => {
+                event.stopPropagation();
+                event.preventDefault();
+            }
+            document.addEventListener('click', fn, true);
+            document.addEventListener('keydown', fn, true)
 
             try {
                 // console.time('加载数据');
@@ -825,6 +829,7 @@ export default {
                 setTimeout(res);
             });
             document.removeEventListener('click', fn, true);
+            document.removeEventListener('keydown', fn, true);
         },
         async getRenderResult(arr = []) {
             // console.time('渲染数据');
