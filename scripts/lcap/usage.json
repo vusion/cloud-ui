@@ -4885,6 +4885,36 @@
                     "name": "getFields",
                     "description": "获取所有表格列的 field",
                     "params": []
+                },
+                {
+                    "name": "exportExcel",
+                    "description": "导出 excel 文件",
+                    "params": [
+                        {
+                            "name": "page",
+                            "type": "number",
+                            "description": "当前页码",
+                            "default": 1
+                        },
+                        {
+                            "name": "size",
+                            "type": "number",
+                            "description": "每页条数",
+                            "default": 2000
+                        },
+                        {
+                            "name": "sort",
+                            "type": "string",
+                            "description": "排序字段",
+                            "default": "tableView.params.sort"
+                        },
+                        {
+                            "name": "order",
+                            "type": "string",
+                            "description": "排序顺序，'asc' 或 'desc'",
+                            "default": "tableView.params.order"
+                        }
+                    ]
                 }
             ],
             "events": [
@@ -7175,6 +7205,13 @@
                 {
                     "name": "default",
                     "description": "插入文本或 HTML 至日期组件底部"
+                }
+            ],
+            "methods": [
+                {
+                    "name": "reload",
+                    "description": "重新加载",
+                    "params": []
                 }
             ],
             "events": [
