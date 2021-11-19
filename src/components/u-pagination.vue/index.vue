@@ -304,15 +304,15 @@ export default {
 
 .sizer {
     text-align: left;
-    width: var(--combo-pagination-sizer-width);
-    height: var(--combo-pagination-height);
-    line-height: var(--combo-pagination-line-height);
+    width: var(--pagination-sizer-width);
+    height: var(--pagination-item-size);
+    line-height: var(--pagination-line-height);
     margin-right: var(--space-small);
     vertical-align: top;
 }
 
 .sizer .item {
-    line-height: var(--combo-pagination-line-height);
+    line-height: var(--pagination-line-height);
 }
 
 .jumper-wrap {
@@ -321,9 +321,9 @@ export default {
 }
 
 .jumper {
-    width: var(--combo-pagination-jumper-width);
-    height: var(--combo-pagination-height);
-    line-height: var(--combo-pagination-line-height);
+    width: var(--pagination-jumper-width);
+    height: var(--pagination-item-size);
+    line-height: var(--pagination-line-height);
 }
 
 .root[disabled] {

@@ -17,7 +17,7 @@
     position: absolute;
     width: 10px;
     height: 10px;
-    background: var(--timeline-dot-bgColor);
+    background: var(--timeline-dot-background-color);
     border: 2px solid var(--border-color-base);
     border-radius: 100px;
 }
