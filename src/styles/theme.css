@@ -237,16 +237,16 @@
     --collapse-item-head-background: var(--background-color-light);
     --collapse-item-head-color-disabled: var(--brand-disabled-dark);
     --collapse-item-head-padding: 10px 20px 10px 40px;
-    --collapse-item-head-padding-small: 6px 8px 6px 32px;
-    --collapse-item-head-padding-mini: 4px 8px 4px 28px;
+    --collapse-item-head-padding-small: 6px 8px 6px 32px; /* @hidden */
+    --collapse-item-head-padding-mini: 4px 8px 4px 28px; /* @hidden */
     --collapse-item-expander-size: 42px;
-    --collapse-item-expander-size-small: 34px;
-    --collapse-item-expander-size-mini: 28px;
+    --collapse-item-expander-size-small: 34px; /* @hidden */
+    --collapse-item-expander-size-mini: 28px; /* @hidden */
     --collapse-item-expander-color: var(--color-light);
     --collapse-item-expander-color-disabled: var(--brand-disabled-dark);
     --collapse-item-expander-font-size: 18px;
     --collapse-item-content-padding: 20px;
-    --collapse-item-content-padding-mini: 10px;
+    --collapse-item-content-padding-mini: 10px; /* @hidden */
     --collapse-transition-duration: var(--transition-duration-base);
 
     /* @component u-card */
@@ -385,7 +385,7 @@
     --text-font-size: var(--font-size-base);
     --text-font-size-small: var(--font-size-small);
     --text-font-size-large: calc(var(--font-size-base) * (18 / 14));
-    --text-font-size-huge: calc(var(--font-size-base) * (22 / 14));
+    --text-font-size-huge: calc(var(--font-size-base) * (22 / 14)); /* @hidden */
     --text-color-primary: var(--brand-primary);
     --text-color-secondary: var(--color-light);
     --text-color-success: var(--brand-success);
@@ -400,15 +400,15 @@
     --link-color-error: var(--brand-error);
     --link-color-danger: var(--brand-danger);
     --link-color-disabled: var(--brand-disabled-dark);
-    --link-color-light: #6eadff;
-    --link-color-white: white;
+    --link-color-light: #6eadff; /* @hidden */
+    --link-color-white: white; /* @hidden */
 
     /* @component u-button */
     --button-height: var(--height-base);
     --button-height-mini: var(--height-mini);
     --button-height-small: var(--height-small);
     --button-height-large: var(--height-large);
-    --button-height-huge: var(--height-huge);
+    --button-height-huge: var(--height-huge); /* @hidden */
     --button-padding-y: 0px;
     --button-padding-x: 30px;
     --button-padding-x-mini: 8px;
@@ -419,7 +419,7 @@
     --button-font-size-mini: var(--font-size-small);
     --button-font-size-small: inherit;
     --button-font-size-large: var(--font-size-large);
-    --button-font-size-huge: var(--font-size-huge);
+    --button-font-size-huge: var(--font-size-huge); /* @hidden */
     --button-border-width: var(--border-width-base);
     --button-border-radius: var(--border-radius-base);
     --button-background: white;
@@ -457,20 +457,20 @@
     --label-padding-x: 8px;
     --label-padding-x-small: 8px;
     --label-padding-x-large: 8px;
-    --label-padding-x-huge: 18px;
+    --label-padding-x-huge: 18px; /* @hidden */
     --label-padding-y: 3px;
     --label-padding-y-small: 1px;
     --label-padding-y-large: 3px;
-    --label-padding-y-huge: 3px;
+    --label-padding-y-huge: 3px; /* @hidden */
     --label-line-height-small: 18px;
     --label-font-size: var(--font-size-small);
     --label-font-size-small: var(--font-size-small);
     --label-font-size-large: var(--font-size-small);
-    --label-font-size-huge: var(--font-size-base);
+    --label-font-size-huge: var(--font-size-base); /* @hidden */
     --label-remove-padding-x: 3px;
     --label-remove-padding-x-small: 3px;
     --label-remove-padding-x-large: 6px;
-    --label-remove-padding-x-huge: 10px;
+    --label-remove-padding-x-huge: 10px; /* @hidden */
     --label-background: var(--background-color-base);
     --label-background-primary: var(--brand-primary);
     --label-background-success: var(--brand-success);
@@ -536,17 +536,17 @@
     --desc-list-item-label-width-small: 60px;
     --desc-list-item-label-width-large: 120px;
 
-    /* @component u-table @hidden */
+    /* @component u-table as u-table-view */
     --table-background: var(--background-color-default);
     --table-head-background: #F7F8FA;
-    --table-head-background-light: var(--background-color-default);
+    --table-head-background-light: var(--background-color-default); /* @hidden */
     --table-row-background: var(--background-color-base);
-    --table-row-background-hover: var(--background-color-lighter);
-    --table-row-background-striped: var(--background-color-lighter);
-    --table-row-background-primary: rgba(103, 170, 245, 0.2);
-    --table-row-background-error: rgb(255, 138, 122, 0.2);
-    --table-row-background-dark: var(--background-color-dark);
-    --table-row-background-light: var(--background-color-lighter);
+    --table-row-background-hover: var(--background-color-lighter); /* @hidden */
+    --table-row-background-striped: var(--background-color-lighter); /* @hidden */
+    --table-row-background-primary: rgba(103, 170, 245, 0.2); /* @hidden */
+    --table-row-background-error: rgb(255, 138, 122, 0.2); /* @hidden */
+    --table-row-background-dark: var(--background-color-dark); /* @hidden */
+    --table-row-background-light: var(--background-color-lighter); /* @hidden */
     --table-caption-color: #6a6f75;
     --table-border-color: var(--border-color-light);
     --table-border-width: 1px;
@@ -590,24 +590,24 @@
 
     /* @component u-table-view */
     --table-view-head-item-color: #999;
-    --table-view-head-title-sortable-hover: #eef2f8;
-    --table-view-sort-color-hover: #aaa;
-    --table-view-table-shadow: 2px 0 6px -2px rgba(0, 0, 0, 0.2);
-    --table-view-table-right-shadow: -2px 0 6px -2px rgba(0, 0, 0, 0.2);
-    --table-view-filter-color-hover: #aaa;
-    --table-view-filter-item-hover: var(--background-color-light);
-    --table-view-filter-item-focus: var(--background-color-light);
-    --table-view-filter-background: white;
-    --table-view-filter-max-height: 180px;
-    --table-view-filter-line-height: 1.6;
-    --table-view-title-space: 10px;
-    --table-view-table-background: white;
-    --table-view-sort-color: var(--brand-disabled);
-    --table-view-sort-color-active: var(--brand-primary);
-    --table-view-sort-size: 1em;
-    --table-view-expander-size: 26px;
-    --table-view-row-selected-background: #e4eeff;
-    --table-view-pagination-space: var(--space-base);
+    --table-view-head-title-sortable-hover: #eef2f8; /* @hidden */
+    --table-view-sort-color-hover: #aaa; /* @hidden */
+    --table-view-table-shadow: 2px 0 6px -2px rgba(0, 0, 0, 0.2); /* @hidden */
+    --table-view-table-right-shadow: -2px 0 6px -2px rgba(0, 0, 0, 0.2); /* @hidden */
+    --table-view-filter-color-hover: #aaa; /* @hidden */
+    --table-view-filter-item-hover: var(--background-color-light); /* @hidden */
+    --table-view-filter-item-focus: var(--background-color-light); /* @hidden */
+    --table-view-filter-background: white; /* @hidden */
+    --table-view-filter-max-height: 180px; /* @hidden */
+    --table-view-filter-line-height: 1.6; /* @hidden */
+    --table-view-title-space: 10px; /* @hidden */
+    --table-view-table-background: white; /* @hidden */
+    --table-view-sort-color: var(--brand-disabled); /* @hidden */
+    --table-view-sort-color-active: var(--brand-primary); /* @hidden */
+    --table-view-sort-size: 1em; /* @hidden */
+    --table-view-expander-size: 26px; /* @hidden */
+    --table-view-row-selected-background: #e4eeff; /* @hidden */
+    --table-view-pagination-space: var(--space-base); /* @hidden */
 
     /* @component u-list-view */
     --list-view-width: var(--width-medium);
@@ -712,17 +712,17 @@
     --form-group-body-padding-y: 30px;
     --form-group-space: 20px;
     --form-item-label-padding-right: 20px;
-    --form-item-label-padding-right-mini: 10px;
-    --form-item-label-padding-right-small: 10px;
-    --form-item-label-padding-right-large: 20px;
+    --form-item-label-padding-right-mini: 10px; /* @hidden */
+    --form-item-label-padding-right-small: 10px; /* @hidden */
+    --form-item-label-padding-right-large: 20px; /* @hidden */
     --form-item-label-width: 76px;
-    --form-item-label-width-mini: 50px;
-    --form-item-label-width-small: 80px;
-    --form-item-label-width-large: 160px;
+    --form-item-label-width-mini: 50px; /* @hidden */
+    --form-item-label-width-small: 80px; /* @hidden */
+    --form-item-label-width-large: 160px; /* @hidden */
     --form-required-color: red;
     --form-required-right: 12px;
-    --form-required-right-small: 2px;
-    --form-required-right-large: 12px;
+    --form-required-right-small: 2px; /* @hidden */
+    --form-required-right-large: 12px; /* @hidden */
 
     /* @component u-field @hidden */
     --field-background: white;
@@ -911,7 +911,7 @@
     --slider-track-background: var(--background-color-base);
     --slider-trail-background: var(--brand-primary);
     --slider-trail-background-disabled: var(--brand-disabled);
-    --slider-bound-background: url("../assets/images/stripe.png") repeat-x;
+    --slider-bound-background: url("../assets/images/stripe.png") repeat-x; /* @hidden */
     --slider-handle-width: 16px;
     --slider-handle-height: 16px;
     --slider-handle-background: var(--brand-primary);
@@ -1143,6 +1143,12 @@
     --skeleton-background: var(--background-color-base);
     --skeleton-title-width: 36%;
     --skeleton-paragraph-width: 72%;
+
+    /**
+     * ========================
+     *   特效
+     * ========================
+     */
 
     /* @component e-ripple @hidden */
     --ripple-transition: transform 1s, background-color 1s;
