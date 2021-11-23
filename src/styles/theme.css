@@ -106,6 +106,7 @@
     --border-color-base: #E3E4E5; /* 输入框等小组件的边框颜色 */
     --border-color-base-inverse: #212123; /* 输入框等小组件的边框颜色 */
     --border-color-dark: #E3E4E5; /* 按钮等小组件的边框颜色 */
+    --border-color-darker: #e0e0e0;
 
     /* Space Dimensions */
     --space-shrink: -1px;
@@ -125,6 +126,7 @@
     --width-huge: 580px;
     --height-mini: 24px;
     --height-small: 30px;
+    --height-normal: 32px;
     --height-base: 34px; /* 以输入框、选择框为基准的尺寸 */
     --height-medium: 36px;
     --height-large: 40px;
@@ -990,26 +992,28 @@
     --steps-item-radio-color-passed: white;
 
     /* @component u-pagination */
-    --pagination-item-size: var(--height-small);
+    --pagination-item-size: var(--height-normal);
     --pagination-line-height: calc(var(--pagination-item-size) - var(--border-width-base) * 2);
     --pagination-item-padding: 0;
-    --pagination-item-background: var(--background-color-default);
-    --pagination-item-background-hover: var(--background-color-lighter);
-    --pagination-item-background-selected: var(--brand-primary);
-    --pagination-item-background-disabled-selected: var(--background-color-default);
+    --pagination-item-background: transparent;
+    --pagination-item-background-hover: var(--pagination-item-background);
+    --pagination-item-background-selected: #4d88ff;
+    --pagination-item-background-disabled-selected: var(--pagination-item-background);
     --pagination-item-background-blank: none;
-    --pagination-item-color: var(--color-base);
-    --pagination-item-color-hover: var(--brand-primary);
+    --pagination-item-color: var(--gray-darker);
+    --pagination-item-color-hover: #4d88ff;
     --pagination-item-color-selected: var(--background-color-default);
-    --pagination-item-color-disabled: var(--brand-disabled);
+    --pagination-item-color-disabled: var(--gray-light);
     --pagination-item-color-blank: var(--color-base);
     --pagination-item-color-blank-disabled: var(--brand-disabled);
-    --pagination-item-border-color: var(--border-color-base);
+    --pagination-item-border-color: #ccc;
     --pagination-item-border-radius: 4px;
     --pagination-item-size-small: 24px;
     --pagination-item-size-small-line-height: var(--pagination-item-size-small);
     --pagination-item-border-radius-left: var(--pagination-item-border-radius);
     --pagination-item-border-radius-right: var(--pagination-item-border-radius);
+    --pagination-item-prenext-font-size: 18px;
+    --pagination-item-border-color-disabled: var(--border-color-darker);
     --pagination-sizer-width: 100px;
     --pagination-jumper-width: 50px;
 

@@ -245,9 +245,9 @@ export default {
 }
 
 .item[role="prev"] {
-    font-size: var(--font-size-large);
+    font-size: var(--pagination-item-prenext-font-size);
     padding: 0 4px;
-    border-radius: var(--border-radius-base) var(--pagination-item-border-radius-right) var(--pagination-item-border-radius-right) var(--border-radius-base);
+    border-radius: var(--pagination-item-border-radius);
     color: var(--color-light);
 }
 
@@ -259,9 +259,9 @@ export default {
 }
 
 .item[role="next"] {
-    font-size: var(--font-size-large);
+    font-size: var(--pagination-item-prenext-font-size);
     padding: 0 4px;
-    border-radius: var(--pagination-item-border-radius-left) var(--border-radius-base) var(--border-radius-base) var(--pagination-item-border-radius-left);
+    border-radius: var(--pagination-item-border-radius);
     color: var(--color-light);
 }
 
@@ -354,8 +354,8 @@ export default {
 }
 .root[readonly] .item {
     cursor: default;
-    color: var(--pagination-item-color);
-    border-color: var(--pagination-item-border-color);
+    /* color: var(--pagination-item-color); */
+    /* border-color: var(--pagination-item-border-color); */
 }
 
 .root[display="inline"] {
