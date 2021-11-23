@@ -32,6 +32,7 @@ export default { name: 'u-button', extends: ULink };
     border: var(--button-border-width) solid var(--button-border-color);
     border-radius: var(--button-border-radius);
     transition: all var(--transition-duration-base);
+    font-weight: var(--button-font-weight);
 }
 
 .root:hover {

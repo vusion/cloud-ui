@@ -1,0 +1,8 @@
+- name: scrollbar
+  title: 滚动条
+  attrs:
+    - name: native
+      title: 是否启用原生滚动条
+      type: Boolean
+      default: false
+      description: 是否启用原生滚动条

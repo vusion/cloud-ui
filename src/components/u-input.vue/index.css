@@ -127,15 +127,15 @@
 }
 
 .root[prefix] .input {
-    padding-left: 48px;
+    padding-left: var(--input-prefix-padding-left);
 }
 
 .root[clearable] .input, .root[suffix] .input {
-    padding-right: 30px;
+    padding-right: var(--input-suffix-padding-right);
 }
 
 .prefix[name="search"]::before, .suffix[name="search"]::before {
-    icon-font: url("i-material-design.vue/assets/filled/search.svg");
+    icon-font: url("./assets/search.svg");
     font-size: 16px;
     color: var(--input-icon-color);
 }

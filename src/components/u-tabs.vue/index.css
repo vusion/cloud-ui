@@ -360,4 +360,5 @@
 .title {
     display: flex;
     justify-content: center;
+    font-weight: var(--tabs-item-title-font-weight);
 }

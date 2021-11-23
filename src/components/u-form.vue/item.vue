@@ -14,8 +14,8 @@
         <div :class="$style.wrap">
             <slot></slot>
             <span v-if="color === 'focus' && currentMessage" :class="$style.message" color="focus"><slot name="message">{{ currentMessage }}</slot></span>
-            <span v-else-if="currentMessage" :class="$style.message" :color="color"><slot name="message">{{ currentMessage }}</slot></span>
-            <span v-else-if="bubble && !mutedMessage && touched && !valid && firstError" :class="$style.message" color="error">{{ firstError }}</span>
+            <span v-else-if="currentMessage" :class="$style.message" :color="color" placement="bottom"><slot name="message">{{ currentMessage }}</slot></span>
+            <span v-else-if="bubble && !mutedMessage && touched && !valid && firstError" :class="$style.message" color="error" placement="bottom">{{ firstError }}</span>
         </div>
     </div>
 </div>

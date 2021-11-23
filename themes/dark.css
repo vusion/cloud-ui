@@ -22,6 +22,8 @@
     --brand-theme-darker: #004add;
     --brand-theme-darkest: #003eb8;
 
+    --brand-primary: var(--brand-theme);
+
     --brand-error: #f24957; 
     --brand-disabled: #595959; /* 禁用文本的颜色 */
     --brand-disabled-dark: var(--brand-disabled); /* 禁用文本的颜色 */
@@ -78,6 +80,7 @@
     --button-border-color-disabled: rgba(255, 255, 255, 0.2);
     --button-grey-border-color: #505359;
     --button-grey-border-color-hover: white;
+    --button-font-weight: 500;
 
     --checkbox-color: white;
     --checkbox-color-disabled: rgba(255,255,255,0.2);
@@ -89,10 +92,11 @@
     --checkbox-background: var(--brand-theme);
     --checkbox-background-default: #303030;
     --checkbox-background-disabled: rgba(255, 255, 255, 0.2);
+    --check-icon: '\ff02';
 
     /* --input-border-color: 0; */
     --input-background: var(--background-color-base);
-    --input-background-disabled: rgba(36, 36, 36, 0.5);
+    --input-background-disabled: rgba(36, 36, 36, 0.75);
     --input-border-color: var(--background-color-base);
     --input-border-radius: 4px;
     --input-icon-color: rgba(255,255,255,0.6);
@@ -103,8 +107,10 @@
     --input-padding-x: 8px;
     --input-padding-x-mini: 4px;
     --input-padding-x-medium: 8px;
+    --input-prefix-padding-left: 32px;
+    --input-suffix-padding-right: 28px;
 
-    --textarea-background: rgba(36, 36, 36, 0.5);
+    --textarea-background: rgba(36, 36, 36, 0.75);
 
     /* your variables */
     --collapse-item-head-background: var(--background-color-base);
@@ -139,6 +145,7 @@
     --tabs-item-border-color-selected: var(--tabs-border-base-color);
     --tabs-item-border-color-selected-capsule: var(--tabs-border-base-color);
     --tabs-item-background-selected-capsule: var(--tabs-border-base-color);
+    --tabs-item-title-font-weight: 500;
 
     --modal-dialog-background: var(--background-color-gray);
     --modal-head-padding: 10px 16px;
@@ -185,6 +192,7 @@
     --select-padding-x-small: 6px;
     --select-padding-x-medium: 8px;
     --select-height: 36px;
+    --select-height-small: 32px;
     --select-box-shadow-focus: 0 0 0 2px rgba(76, 136, 255, 0.25);
     --select-popper-box-shadow: 0px 0px 4px rgba(3, 3, 3, 0.3);
     --select-popper-border-color: #1D1E24;
@@ -192,6 +200,8 @@
     --select-arrow-color: rgba(255,255,255,0.6);
     --select-arrow-color-hover: rgba(255,255,255,1);
     --select-border-color-hover: #4c88ff;
+    --select-multiple-border-color: 1px solid rgba(255,255,255,0.6);
+    --select-multiple-background-color: white;
     --select-tags-padding: 4px 26px 4px 4px;
     --select-tags-padding-y: 1px;
     --select-tag-background: #343538;

@@ -57,6 +57,12 @@
     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 48%, rgba(255,255,255,0) 48%);
 }
 
+.message[color="error"][placement="bottom"]  {
+    top: 100%;
+    left: 0;
+    transform: none;
+}
+
 .root[placement="bottom"] .message {
     position: absolute;
     top: 100%;
@@ -135,6 +141,7 @@
     margin-left: -2px;
     margin-right: 6px;
     vertical-align: -1px;
+    background: transparent;
 }
 
 .root[placement="bottom"][display="appear"] .message {

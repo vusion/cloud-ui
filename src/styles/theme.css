@@ -243,6 +243,7 @@
     --button-font-size-small: inherit;
     --button-font-size-large: var(--font-size-large);
     --button-font-size-huge: var(--font-size-huge);
+    --button-font-weight: normal;
     --button-border-width: var(--border-width-base);
     --button-border-radius: var(--border-radius-base);
     --button-background: white;
@@ -560,6 +561,7 @@
     --tabs-item-border-color-selected-capsule: var(--brand-primary);
     --tabs-item-border-radius: 4px;
     --tabs-item-border-radius-round: 5px;
+    --tabs-item-title-font-weight: inherit;
     --tabs-body-space: var(--space-base);
     --tabs-body-space-small: var(--space-small);
     --tabs-body-space-mini: var(--space-mini);
@@ -677,6 +679,8 @@
     --input-padding-x-large: 10px;
     --input-padding-x-huge: 10px;
     --input-padding-x-full: 10px;
+    --input-prefix-padding-left: 48px;
+    --input-suffix-padding-right: 30px;
     --input-border-width: var(--border-width-base);
     --input-background: var(--background-color-default);
     --input-background-disabled: #F7F8FA;
@@ -724,6 +728,7 @@
     --radio-circle-background-disabled: var(--background-color-base);
     --radio-box-shadow-focus: var(--button-box-shadow-focus);
     --radio-border-color: var(--border-color-base);
+    --radio-border-color-hover: transparent;
     --radio-border-color-disabled: var(--border-color-base);
 
     /* Checkbox */
@@ -739,6 +744,7 @@
     --checkbox-color: var(--background-color-default);
     --checkbox-color-disabled: #ccc;
     --checkbox-box-shadow-focus: var(--button-box-shadow-focus);
+    --check-icon: '\ff01';
 
     /* Switch */
     --switch-width: 44px;
@@ -782,9 +788,12 @@
     --select-background: var(--background-color-default);
     --select-background-inverse: var(--background-color-default-inverse);
     --select-background-disabled: var(--brand-disabled);
+    --select-multiple-background-color: transparent;
     --select-border-width: var(--border-width-base);
     --select-border-color: var(--border-color-base);
+    --select-border-color-hover: transparent;
     --select-border-color-inverse: var(--border-color-base-inverse);
+    --select-multiple-border-color: transparent;
     --select-color: var(--color-base);
     --select-color-inverse: var(--color-base-inverse);
     --select-color-disabled: var(--brand-disabled-dark);
