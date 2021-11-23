@@ -43,6 +43,7 @@ export default { name: 'u-table' };
 
 .root thead th {
     text-align: left;
+    color: var(--table-head-color);
     font-weight: var(--table-head-font-weight);
 }
 

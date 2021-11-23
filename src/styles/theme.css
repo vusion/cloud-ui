@@ -540,8 +540,10 @@
 
     /* @component u-table as u-table-view */
     --table-background: var(--background-color-default);
-    --table-head-background: #F7F8FA;
+    --table-head-background: #f9f9f9;
     --table-head-background-light: var(--background-color-default); /* @hidden */
+    --table-head-font-weight: 500;
+    --table-head-color: var(--gray-dark);
     --table-row-background: var(--background-color-base);
     --table-row-background-hover: var(--background-color-lighter); /* @hidden */
     --table-row-background-striped: var(--background-color-lighter); /* @hidden */
@@ -554,12 +556,10 @@
     --table-border-width: 1px;
     --table-td-color: var(--color-base);
     --table-th-line-height: 20px;
-    --table-th-padding: 12px 6px 12px 10px;
+    --table-th-padding: 10px 6px 10px 10px;
     --table-td-line-height: 20px;
-    --table-td-padding: 20px 6px 20px 10px;
-    --table-hover-border-shadow-display: block;
-    --table-view-row-hover-background: inherit;
-    --table-head-font-weight: 500;
+    --table-td-padding: 10px 6px 10px 10px;
+    --table-hover-border-shadow-display: none;
 
     /* @component u-form-table @hidden */
     --form-table-head-background: #f7f8fa;
@@ -610,6 +610,7 @@
     --table-view-expander-size: 26px; /* @hidden */
     --table-view-row-selected-background: #e4eeff; /* @hidden */
     --table-view-pagination-space: var(--space-base); /* @hidden */
+    --table-view-row-hover-background: #f9f9f9;
 
     /* @component u-list-view */
     --list-view-width: var(--width-medium);
