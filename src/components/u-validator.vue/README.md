@@ -12,6 +12,7 @@
     - [单行嵌套](#单行嵌套)
     - [复杂案例](#复杂案例)
     - [过长提示](#过长提示)
+    - [失去焦点，还原正确的值](#失去焦点还原正确的值)
 - [内置规则](#内置规则)
     - [空值判断](#空值判断)
     - [范围判断](#范围判断)
@@ -491,6 +492,14 @@ export default {
         <u-input maxlength="4" maxlength-message="不超过4个字符" placeholder="不超过4个字符"></u-input>
     </u-form-item>
 </u-form>
+```
+
+### 失去焦点，还原正确的值
+
+``` html
+<u-form-item label="用户名" rules="^azAZ | ^azAZ09-$ | azAZ09$ | minLength(4)" blur-reset>
+    <u-input maxlength="12" placeholder="4-12个字符" value="oldValue"></u-input>
+</u-form-item>
 ```
 
 ## 内置规则

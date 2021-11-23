@@ -203,6 +203,11 @@ export default {
         this.$on('select', ($event) => {
             if (!this.multiple)
                 this.close();
+            else {
+                if (this.appendTo === 'body') {
+                    this.preventRootBlur = true;
+                }
+            }
             if (this.filterable) {
                 this.filterText = this.selectedVM ? this.selectedVM.currentText : '';
                 setTimeout(() => {
@@ -295,6 +300,7 @@ export default {
         onClose($event) {
             this.popperOpened = false;
             this.focusedVM = undefined;
+            this.preventRootBlur = false;
             this.$emit('close', $event, this);
             this.$emit('update:opened', false);
         },
@@ -347,6 +353,8 @@ export default {
         },
         onRootBlur(e) {
             setTimeout(() => {
+                if (this.preventRootBlur)
+                    return (this.preventRootBlur = false);
                 this.close();
                 this.$emit('blur', e);
             }, 200);

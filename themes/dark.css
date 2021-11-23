@@ -123,9 +123,7 @@
     --table-head-background: var(--divider-list-color);
     --table-border-color: #4E505C;
     --table-th-line-height: inherit;
-    --table-th-padding: 8px;
     --table-td-line-height: inherit;
-    --table-td-padding: 6px 8px;
     --table-td-color: #b5b8c3;
 
     --tabs-item-height: 32px;
@@ -181,6 +179,8 @@
     --form-table-head-color: #aaaaaa;
     --form-table-head-padding: 0;
     --form-table-remove-button-color: #f24957;
+
+    --form-table-head-background: transparent;
 
     --list-view-group-head-background: transparent;
     --list-view-item-background-hover: var(--brand-theme);
@@ -249,12 +249,25 @@
     --toast-top: 110px;
     --toast-item-icon-vertical-align: -2px;
 
+    
+
     --table-background: var(--background-color-gray);
+    --table-head-font-weight: 500;
+    --table-border-color: var(--divider-list-color);
+    --table-td-color: #fff;
+    --table-hover-border-shadow-display: none;
+    
     --table-view-row-selected-background: transparent;
     --table-view-row-hover-background: rgba(64, 64, 65, 0.6);
     --table-view-head-item-color: #fff;
-    --table-border-color: var(--divider-list-color);
-    --table-td-color: #fff;
+    --table-view-head-item-color: #aaa;
+    --table-view-row-selected-border-color: #4c88ff;
+    --table-view-head-title-sortable-hover: inherit;
+    --table-view-sort-color-hover: #fff;
+    --table-view-filter-color-hover: #fff;
+    --table-view-filter-background: #242424;
+    --table-view-filter-item-hover: #404041;
+    --table-view-filter-item-focus: var(--table-view-filter-item-hover);
 
     --group-head-background: var(--background-color-base);
 
@@ -265,4 +278,13 @@
     --tree-data-list-popper-offset-y: 5;
     
     --popper-arrow-isShow: 1;
+
+    --pagination-item-color-selected: #fff;
+    --pagination-item-color: #aaa;
+    --pagination-item-border-color: #505359;
+    --pagination-item-background-hover: initial;
+    --pagination-item-border-color-hover: #fff;
+    --pagination-item-color-hover: #fff;
+    --pagination-item-border-color-disabled: #505359;
+    --pagination-item-color-disabled: #595959;
 }

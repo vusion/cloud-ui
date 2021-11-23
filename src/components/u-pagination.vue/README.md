@@ -9,6 +9,7 @@
     - [显示总条数](#显示总条数)
     - [显示所有配置选项](#显示所有配置选项)
     - [只读和禁用](#只读和禁用)
+    - [size="small"](#sizesmall)
     - [简洁版](#简洁版)
 - [API]()
     - [Props/Attrs](#propsattrs)
@@ -86,6 +87,14 @@
     <u-pagination :total-items="75" show-total show-sizer show-jumper readonly></u-pagination>
     <u-pagination :total="11" disabled></u-pagination>
     <u-pagination :total-items="75" show-total show-sizer show-jumper disabled></u-pagination>
+</u-linear-layout>
+```
+
+### size="small"
+
+``` html
+<u-linear-layout direction="vertical">
+    <u-pagination :total-items="75" show-total show-sizer show-jumper size="small"></u-pagination>
 </u-linear-layout>
 ```
 

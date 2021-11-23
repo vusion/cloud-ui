@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root">
     <slot></slot>
-    <span v-if="!mutedMessage && touched && !valid && firstError" :class="$style.message" color="error">{{ firstError }}</span>
+    <span v-if="!mutedMessage && touched && !valid && firstError && !blurred" :class="$style.message" color="error">{{ firstError }}</span>
 </div>
 </template>
 
@@ -25,6 +25,7 @@ export default {
         rules: [String, Array, Object], // target: { type: String, default: 'auto' }, // 暂不开放此属性
         message: String,
         muted: String,
+        blurReset: { type: Boolean, default: false },
         ignoreRules: { type: Boolean, default: false }, // @deprecated
         ignoreValidation: { type: Boolean, default: false },
         validatingOptions: Object,
@@ -43,6 +44,7 @@ export default {
             fieldTouched: false,
             realValid: false,
             triggerValid: false,
+            blurred: false,
             validatorVMs: [],
             fieldVM: undefined,
             parentVM: undefined,
@@ -224,9 +226,20 @@ export default {
             if (this.currentTarget === 'validatorVMs')
                 return;
             this.color = 'focus';
+            this.blurred = false;
+            this.oldValue = this.value;
             this.currentMessage = this.message;
         },
-        onBlur() {
+        errorCheck() {
+            return !this.mutedMessage && this.touched && !this.valid && this.firstError;
+        },
+        onBlur($event) {
+            if (this.blurReset) {
+                this.blurred = true;
+                if (this.errorCheck()) {
+                    this.fieldVM.currentValue = this.oldValue;
+                }
+            }
             if (this.currentTarget === 'validatorVMs' || this.manual)
                 return;
             if (!this.fieldTouched)
