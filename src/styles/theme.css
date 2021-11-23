@@ -397,7 +397,7 @@
     --link-color: #337eff;
     --link-color-success: var(--brand-success);
     --link-color-warning: var(--brand-warning);
-    --link-color-error: var(--brand-error);
+    --link-color-error: var(--brand-error); /* @hidden */
     --link-color-danger: var(--brand-danger);
     --link-color-disabled: var(--brand-disabled-dark);
     --link-color-light: #6eadff; /* @hidden */
