@@ -57,7 +57,7 @@ export default {
     },
     data() {
         return {
-            showTime: this.isOutOfRange(this.time) ? this.isOutOfRange(this.time) : this.time,
+            showTime: this.isOutOfRange(this.time) ? this.isOutOfRange(this.time) : this.time || '00:00:00',
             hourmin: HOUR_MIN,
             hourmax: HOUR_MAX,
             minutemin: MINUTE_MIN,
