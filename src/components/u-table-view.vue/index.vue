@@ -832,6 +832,14 @@ export default {
             document.removeEventListener('keydown', fn, true);
         },
         async getRenderResult(arr = []) {
+            if(arr.length === 0) {
+                const res = Array.from(this.$el.querySelectorAll('thead tr')).map((tr) => {
+                    return Array.from(tr.querySelectorAll('th')).map((node) => node.innerText);
+                });
+                res[1] = res[0].map((item) => '');
+                return res;
+            }
+
             // console.time('渲染数据');
             const startIndexes = [];
             for(let i=0;i<this.visibleColumnVMs.length;i++){
