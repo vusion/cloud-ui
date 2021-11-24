@@ -57,6 +57,11 @@
       "vnode"
     ]
   },
+  "f-scroll-view": {
+    "attributes": [
+      "native"
+    ]
+  },
   "f-slot": {
     "attributes": [
       "vm",
