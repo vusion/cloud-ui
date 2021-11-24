@@ -1,5 +1,5 @@
-- name: scrollbar
-  title: 滚动条
+- name: f-scroll-view
+  title: 滚动视图
   attrs:
     - name: native
       title: 是否启用原生滚动条

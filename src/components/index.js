@@ -104,4 +104,4 @@ export * from './u-tree-select.vue';
 export * from './u-uploader.vue';
 export * from './u-validator-tr.vue';
 export * from './u-validator.vue';
-export * from './u-scroll-view.vue';
+export * from './f-scroll-view.vue';
