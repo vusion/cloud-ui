@@ -207,7 +207,8 @@
     --kbd-box-shadow: 0 1px 1px rgba(0,0,0,.2), 0 2px 0 0 rgba(255,255,255,.7) inset;
 
     --scrollbar-size: 6px;
-    --scrollbar-background: rgba(92, 110, 130, 0.6);
+    --scrollbar-background: rgba(92, 110, 130, 0.3);
+    --scrollbar-background-hover: rgba(92, 110, 130, 0.6);
     --scrollbar-border-radius: 3px;
 
     /**

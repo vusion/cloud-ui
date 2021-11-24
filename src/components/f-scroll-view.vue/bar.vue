@@ -111,8 +111,8 @@ export default {
 <style module>
 .root {
     position: absolute;
-    right: 4px;
-    bottom: 4px;
+    right: var(--scrollbar-size);
+    bottom: var(--scrollbar-size);
     z-index: 1;
     border-radius: 3px;
     opacity: 0;
@@ -125,17 +125,17 @@ export default {
     width: 0;
     height: 0;
     border-radius: inherit;
-    background-color: rgba(255,255,255,.2);
+    background-color: var(--scrollbar-background);
     transition: background-color .3s;
 }
 
 .thumb:hover {
-    background-color: rgba(255,255,255,.4);
+    background-color: var(--scrollbar-background-hover);
 }
 
 .root[direction="horizontal"] {
-    height: 4px;
-    left: 4px;
+    height: var(--scrollbar-size);
+    left: var(--scrollbar-size);
 }
 
 .root[direction="horizontal"] > div {
@@ -143,8 +143,8 @@ export default {
 }
 
 .root[direction="vertical"] {
-    width: 4px;
-    top: 4px;
+    width: var(--scrollbar-size);
+    top: var(--scrollbar-size);
 }
 
 .root[direction="vertical"] > div {
