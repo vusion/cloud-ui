@@ -892,6 +892,7 @@
 
     /* Grid View */
     --grid-view-item-space: var(--space-base);
+    --grid-view-foot-padding: calc(var(--grid-view-item-space) / 2);
 
     /* Tree View */
     --tree-view-background: white;

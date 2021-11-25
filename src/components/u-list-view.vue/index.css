@@ -76,7 +76,6 @@
 
 .pagination {
     text-align: center;
-    margin: 0 -12px;
 }
 
 .root[size^="normal"] { height: var(--list-view-height); }
