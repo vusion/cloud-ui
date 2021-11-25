@@ -195,7 +195,7 @@ export default UModal;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 9000;
+    z-index: var(--z-index-modal);
     -webkit-overflow-scrolling: touch;
     touch-action: cross-slide-y pinch-zoom double-tap-zoom;
     text-align: center;
