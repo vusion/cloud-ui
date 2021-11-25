@@ -92,7 +92,8 @@
     --checkbox-background: var(--brand-theme);
     --checkbox-background-default: #303030;
     --checkbox-background-disabled: rgba(255, 255, 255, 0.2);
-    --check-icon: '\ff02';
+    --checkbox-icon: '\ff02';
+    --checkbox-icon-size: 16px;
 
     /* --input-border-color: 0; */
     --input-background: var(--background-color-base);
@@ -188,6 +189,7 @@
     --list-view-item-background-hover: var(--brand-theme);
     --list-view-item-background-focused: var(--brand-theme);
     --list-view-item-background-selected: var(--brand-theme);
+    --list-view-item-padding: 4px 8px;
 
     --select-padding-x: 8px;
     --select-padding-x-mini: 4px;
@@ -209,6 +211,7 @@
     --select-tag-background: #343538;
     --select-tag-border-radius: 4px;
     --select-tag-remove-color: rgba(255, 255, 255, 0.2);
+    --select-background-disabled: rgba(36,36,36,0.75);
 
     --validator-message-padding: 6px 17px 6px 40px;
     --validator-message-line-height: 20px;
@@ -244,6 +247,7 @@
     --radio-border-color-hover: white;
     --radio-border-color-disabled: rgba(255, 255, 255, 0.4);
     --radio-circle-background-disabled: rgba(255, 255, 255, 0.2);
+    --radio-background: transparent;
     
     /* 黑色背景字体默认白色 */
     --font-color-primary: #fff;

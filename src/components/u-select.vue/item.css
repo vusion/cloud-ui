@@ -47,6 +47,31 @@
     background: var(--list-view-item-background-hover);
 }
 
+.root[isShowMultipleIcon]::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: var(--select-multiple-border-color);
+    border-radius: 4px;
+    vertical-align: text-top;
+    margin-right: 8px;
+}
+
+.root[isShowMultipleIcon][selected]:before {
+    border-color: transparent;
+    background-color: var(--select-multiple-background-color);
+}
+
+.root[isShowMultipleIcon][selected]:after {
+    position: absolute;
+    left: 9px;
+    top: 1px;
+    font-size: 16px;
+    color: #517cff;
+    icon-font: url('../i-icon.vue/icons/select-dark.svg');
+}
+
 .flag {
     position: absolute;
     top: 0;

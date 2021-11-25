@@ -1,6 +1,7 @@
 <template>
 <div :class="$style.root"
     :selected="parentVM.multiple ? currentSelected : isSelected"
+    :isShowMultipleIcon="parentVM.multiple"
     :duplicated="parentVM.duplicated"
     :focused="isFocused"
     :readonly="parentVM.readonly"

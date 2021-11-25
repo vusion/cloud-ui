@@ -821,7 +821,7 @@
     --radio-circle-background-disabled: var(--background-color-base);
     --radio-box-shadow-focus: var(--button-box-shadow-focus);
     --radio-border-color: var(--border-color-base);
-    --radio-border-color-hover: transparent;
+    --radio-border-color-hover: var(--radio-border-color);
     --radio-border-color-disabled: var(--border-color-base);
 
     /* @component u-switch */
@@ -856,8 +856,8 @@
     --checkbox-color: var(--background-color-default);
     --checkbox-color-disabled: #ccc;
     --checkbox-box-shadow-focus: var(--button-box-shadow-focus);
-    --check-icon: '\ff01';
-
+    --checkbox-icon: '\ff01';
+    --checkbox-icon-size: var(--font-size-small);
     /* @component u-select */
     --select-width: var(--width-base);
     --select-width-mini: var(--width-mini);
@@ -881,12 +881,12 @@
     --select-background: var(--background-color-default);
     --select-background-inverse: var(--background-color-default-inverse);
     --select-background-disabled: var(--brand-disabled);
-    --select-multiple-background-color: transparent;
+    --select-multiple-background-color: inherit;
     --select-border-width: var(--border-width-base);
     --select-border-color: var(--border-color-base);
-    --select-border-color-hover: transparent;
+    --select-border-color-hover: var(--select-border-color);
     --select-border-color-inverse: var(--border-color-base-inverse);
-    --select-multiple-border-color: transparent;
+    --select-multiple-border-color: inherit;
     --select-color: var(--color-base);
     --select-color-inverse: var(--color-base-inverse);
     --select-color-disabled: var(--brand-disabled-dark);
