@@ -596,17 +596,31 @@
           type: number
           description: 当前页码
           default: 1
+          designerDefault:
+            label: '原子项'
+            level: 'expressionNode'
+            type: 'NumericLiteral'
+            value: 1
+            valueType: 'int'
         - name: size
           type: number
           description: 每页条数
           default: 2000
+          designerDefault:
+            label: '原子项'
+            level: 'expressionNode'
+            type: 'NumericLiteral'
+            value: 2000
+            valueType: 'int'
         - name: sort
           type: string
           description: 排序字段
+          required: false
           default: tableView.params.sort
         - name: order
           type: string
           description: 排序顺序，'asc' 或 'desc'
+          required: false
           default: tableView.params.order
 - name: u-table-view-column
   accept-parent:
