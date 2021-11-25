@@ -435,7 +435,23 @@ export default {
         },
         reload() {
             this.currentDataSource.clearLocalData();
-            this.load();
+            const paging = {
+                size: this.currentDataSource.paging.size,
+                oldSize: this.currentDataSource.paging.size,
+                number: 1,
+                oldNumber: this.currentDataSource.paging.number,
+            };
+            // eslint-disable-next-line no-console
+            console.log(JSON.stringify(paging));
+            try {
+                this.currentDataSource.page(paging);
+                this.load();
+                this.$emit('page', paging, this);
+                this.$emit('update:page-number', 1, this);
+            } catch (error) {
+                // eslint-disable-next-line no-console
+                console.log(error);
+            }
         },
         page(number, size) {
             if (size === undefined)
