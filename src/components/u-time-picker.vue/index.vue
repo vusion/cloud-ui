@@ -210,6 +210,9 @@ export default {
          */ isOutOfRange(time) {
             const minTime = this.minTime;
             const maxTime = this.maxTime; // minTime && time < minTime && minTime，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的时间
+            if (minTime > maxTime)
+                return time;
+
             return (
                 (minTime && time < minTime && minTime)
                 || (maxTime && time > maxTime && maxTime)

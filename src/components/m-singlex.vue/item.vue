@@ -51,6 +51,8 @@ export default {
                 const destination = this.destination.split('/');
                 destination.splice(1, 1);
                 to = destination.join('/');
+                if (!to)
+                    return false;
             }
             const target = this.$router.resolve(to).route;
             const currentPath = decodeURIComponent(current.path.replace(trailingSlashRE, '/'));
