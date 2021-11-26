@@ -156,6 +156,6 @@
     transform: none;
 }
 
-.root[display="block"][display="appear"] {
+.root[display="appear"] {
     display: block;
 }
