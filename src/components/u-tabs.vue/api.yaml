@@ -237,6 +237,7 @@
           title: 下载链接
       default: href
       description: 链接类型
+      advanced: true
       compType: linkTypeSelect
     - name: href
       title: 链接

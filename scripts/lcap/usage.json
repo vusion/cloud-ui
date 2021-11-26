@@ -12283,6 +12283,7 @@
                             ],
                             "default": "href",
                             "description": "链接类型",
+                            "advanced": true,
                             "compType": "linkTypeSelect"
                         },
                         {
