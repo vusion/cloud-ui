@@ -208,7 +208,9 @@
 
     --scrollbar-size: 6px;
     --scrollbar-background: rgba(92, 110, 130, 0.3);
+    --scrollbar-background-inverse: rgba(92, 110, 130, 0.3);
     --scrollbar-background-hover: rgba(92, 110, 130, 0.6);
+    --scrollbar-background-hover-inverse: rgba(92, 110, 130, 0.6);
     --scrollbar-border-radius: 3px;
 
     /**

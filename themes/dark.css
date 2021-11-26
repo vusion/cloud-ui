@@ -54,6 +54,8 @@
 
     --scrollbar-size: 6px;
     --scrollbar-background: hsla(220 8% 36% / 0.6);
+    --scrollbar-background-inverse: rgba(48, 48, 48, 0.2);
+    --scrollbar-background-hover-inverse: rgba(48, 48, 48, 0.4);
     --scrollbar-border-radius: 6px;
 
     --button-padding-x: 25px;

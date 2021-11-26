@@ -25,6 +25,15 @@ ul[class], ol[class] {
     background-color: var(--scrollbar-background-hover);
 }
 
+[color="inverse"] div::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-background-inverse);
+}
+
+[color="inverse"] div::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-background-hover-inverse);
+}
+
+
 ::-webkit-scrollbar-button,
 ::-webkit-scrollbar-corner {
     display: none;
