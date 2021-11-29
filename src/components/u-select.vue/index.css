@@ -74,6 +74,7 @@
     margin: auto;
     color: var(--select-arrow-color);
     transition: transform var(--transition-duration-base);
+    pointer-events: none;
 }
 .root:hover::after {
     color: var(--select-arrow-color-hover);
