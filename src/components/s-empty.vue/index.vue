@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.empty" s-empty="true">+</div>
+    <div :class="$style.empty" s-empty="true"></div>
 </template>
 <script>
 
@@ -10,14 +10,19 @@ export default {
 </script>
 <style module>
 .empty {
-	  background: #F7F8FA;
+    background: #F7F8FA;
     text-align: center;
     color: #ccc;
-		min-height: 32px;
-		min-width: 90px;
-		width: 100%;
+    min-height: 32px;
+    min-width: 90px;
+    width: 100%;
     align-items: center;
     display: inline-flex;
     justify-content: center;
+}
+
+.empty::after {
+    content: '+';
+    font-size: 16px;
 }
 </style>
