@@ -22,7 +22,10 @@ export default {
 }
 
 .empty::after {
-    content: '+';
-    font-size: 16px;
+    content: "+";
+    font-size: 20px;
+    line-height: 12px;
+    display: inline-block;
+    margin-bottom: 2px;
 }
 </style>
