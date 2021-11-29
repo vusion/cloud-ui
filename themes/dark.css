@@ -92,7 +92,7 @@
     --checkbox-border-radius: 4px;
     --checkbox-inner-space-x: 12px;
     --checkbox-background: var(--brand-theme);
-    --checkbox-background-default: #303030;
+    --checkbox-background-default: transparent;
     --checkbox-background-disabled: rgba(255, 255, 255, 0.2);
     --checkbox-icon: '\ff02';
     --checkbox-icon-size: 16px;
@@ -178,6 +178,7 @@
     --form-group-head-padding: 8px 10px;
     --form-group-head-line-height: 1;
     --form-group-space: 10px;
+    --form-item-text-color: #aaaaaa;
     --form-table-head-background: transparent;
     --form-table-head-color: #aaaaaa;
     --form-table-head-padding: 0;

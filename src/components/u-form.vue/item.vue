@@ -93,7 +93,7 @@ export default {
 .label {
     display: inline-block;
     padding-right: var(--form-item-label-padding-right);
-    color: var(--color-light);
+    color: var(--form-item-text-color);
     text-align: right;
     position: relative;
 }
