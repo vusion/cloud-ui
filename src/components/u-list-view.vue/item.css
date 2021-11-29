@@ -18,8 +18,8 @@
     cursor: initial;
 }
 
-.root[readonly-mode="initial"] {
-    background: var(--list-view-item-background-readonly-initial);
+.root[readonly] {
+    background: transparent;
 }
 
 .root[selected] {
