@@ -155,7 +155,3 @@
 .root[placement="bottom"][display="appear"] .message[color="error"] {
     transform: none;
 }
-
-.root[display="appear"] {
-    display: block;
-}
