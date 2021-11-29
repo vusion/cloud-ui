@@ -28,7 +28,7 @@
         <a :class="$style.icon" role="next" :disabled="!this.getYearNext()" @click="handleYearNext()"></a>
     </div>
     <div v-if="picker === 'year' || currentMode === 'year'" :class="$style.content" type="year">
-        <year-page 
+        <year-page
             :date="showDate"
             :minDate="minDate"
             :maxDate="maxDate" 
@@ -340,11 +340,11 @@ export default {
             let minDate = null;
             let maxDate = null;
             if (this.minDate) {
-                minDate = ChangeDate(this.transformDate(this.minDate), this.picker, 'min');
+                minDate = this.transformDate(this.minDate);
                 minDate = new Date(minDate).getTime();
             }
             if (this.maxDate) {
-                maxDate = ChangeDate(this.transformDate(this.maxDate), this.picker, 'max');
+                maxDate = this.transformDate(this.maxDate);
                 maxDate = new Date(maxDate).getTime();
             }
             // 根据选择面板的当前年份，确认季度列表的样式
@@ -356,14 +356,12 @@ export default {
                 const obj = { flag: i, value: currentMonth }; // 标记季度间隔
                 const dateFormat = currentYear + '/' + currentMonth;
                 const dateTime = new Date(dateFormat).getTime();
-
-
-                if (minDate && dateTime < minDate)
+                if ((minDate && dateTime < minDate) || (maxDate && dateTime > maxDate)) {
                     obj.disabled = true;
-                else if (maxDate && dateTime > maxDate)
-                    obj.disabled = true;
-                else
+                } else {
                     obj.disabled = false;
+                }
+                    
                 quartercol.push(obj);
             }
             return quartercol;
