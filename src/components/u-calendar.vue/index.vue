@@ -222,7 +222,7 @@ export default {
         showYear(newValue) {
             this.monthCol = this.getMonthCol(newValue + '');
             this.quarterCol = this.getQuarterCol(newValue + '');
-        }, // 月份发生变化需要监听 会影响日的选择
+        }, 
     },
     created() {
         this.update();
@@ -340,11 +340,11 @@ export default {
             let minDate = null;
             let maxDate = null;
             if (this.minDate) {
-                minDate = this.transformDate(this.minDate);
+                minDate = ChangeDate(this.transformDate(this.minDate), this.picker, 'min');
                 minDate = new Date(minDate).getTime();
             }
             if (this.maxDate) {
-                maxDate = this.transformDate(this.maxDate);
+                maxDate = ChangeDate(this.transformDate(this.maxDate), this.picker, 'min');
                 maxDate = new Date(maxDate).getTime();
             }
             // 根据选择面板的当前年份，确认季度列表的样式
