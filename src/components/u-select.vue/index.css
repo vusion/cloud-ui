@@ -173,10 +173,6 @@
     right: 8px;
 }
 
-.root[prefix] .text {
-    padding-left: 30px;
-}
-
 .root[clearable] .text, .root[suffix] .text {
     padding-right: 30px;
 }
@@ -230,6 +226,10 @@
     height: 14px;
     border: none;
     background-image: url("../../assets/images/high.png");
+}
+
+.root[start] {
+    padding-left: 24px;
 }
 
 .root[size$="mini"] { width: var(--select-width-mini); padding: 0 var(--select-padding-x-mini); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-mini)); }

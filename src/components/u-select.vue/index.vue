@@ -2,6 +2,7 @@
 <div :class="$style.root" :color="color" :readonly="readonly" :disabled="currentDisabled" :opened="popperOpened"
     :clearable="clearable && !!(filterable ? filterText : currentText)" :multiple="multiple" :multiple-tags="multiple && multipleAppearance === 'tags'"
     :prefix="prefix" :suffix="suffix"
+    :start="!!prefix"
     :tabindex="readonly || currentDisabled ? '' : 0"
     @click="focus"
     @keydown.up.prevent="$refs.popper.currentOpened ? shift(-1) : open()"
