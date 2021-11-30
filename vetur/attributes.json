@@ -957,7 +957,7 @@
     "description": "最大日期，默认 9 年后"
   },
   "u-calendar-view/data-source": {
-    "type": "Array<Item> | Function",
+    "type": "Array<Item> | Function | object",
     "description": "日历数据源，数组方式表示直接的数据，函数需要返回一个 Promise"
   },
   "u-calendar-view/data-schema": {
@@ -4981,10 +4981,6 @@
     "type": "string | number",
     "description": "给列指定宽度，可以为数字或百分比。"
   },
-  "u-table-view-column/ellipsis": {
-    "type": "boolean",
-    "description": "文字过长是否省略显示。默认文字超出时会换行。"
-  },
   "u-table-view-column/formatter": {
     "type": "string | object | Function | Formatter",
     "description": "格式器。"
@@ -5014,6 +5010,10 @@
   "u-table-view-column/filters": {
     "type": "Array<{ text: string, value: any }>",
     "description": "筛选项的参数"
+  },
+  "u-table-view-column/ellipsis": {
+    "type": "boolean",
+    "description": "文字过长是否省略显示。默认文字超出时会换行。"
   },
   "u-table-view-column/hidden": {
     "type": "boolean",

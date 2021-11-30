@@ -14,9 +14,10 @@
 - [UCheckboxes API](#ucheckboxes-api)
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
+    - [Events](#events)
 - [UCheckbox API](#ucheckbox-api)
     - [Props/Attrs](#propsattrs-2)
-    - [Events](#events)
+    - [Events](#events-2)
 
 **Form**
 
@@ -213,6 +214,37 @@ export default {
 #### (default)
 
 插入`<checkbox>`子组件。
+
+### Events
+
+#### @input
+
+切换选项时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | Array\<string\> | 切换后的选中值 |
+| senderVM | UCheckbox | 发送事件实例 |
+
+#### @check
+
+切换选项时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.value | Array\<string\> | 切换后的选中值 |
+| senderVM | UCheckboxes | 发送事件实例 |
+
+#### @change
+
+选中状态改变时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.value | Array\<string\> | 选中状态 |
+| $event.oldValue | Array\<string\> | 旧的选中状态 |
 
 ## UCheckbox API
 ### Props/Attrs

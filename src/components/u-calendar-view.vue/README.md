@@ -11,6 +11,7 @@
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
     - [Events](#events)
+    - [Methods](#methods)
 
 **Table**
 
@@ -27,7 +28,7 @@
 
 ```vue
 <template>
-    <u-calendar-view :data="data">
+    <u-calendar-view :data="data" value="2021-10-01">
         <template #default="scope">
             <p v-if="scope.item.apple">苹果: {{scope.item.apple}}</p>
             <p v-if="scope.item.orange">橘子: {{scope.item.orange}}</p>
@@ -76,7 +77,7 @@ export default{
 | value.sync, v-model | Date \| string ｜ number |  | `'TODAY'` | 当前选择的日期 |
 | min-date | Date \| string ｜ number |  |  | 最小日期，默认 10 年前 |
 | max-date | Date \| string ｜ number |  |  | 最大日期，默认 9 年后 |
-| data-source | Array\<Item\> \| Function |  |  | 日历数据源，数组方式表示直接的数据，函数需要返回一个 Promise |
+| data-source | Array\<Item\> \| Function \| object |  |  | 日历数据源，数组方式表示直接的数据，函数需要返回一个 Promise |
 | data-schema | schema |  |  | 日历中每天的数据类型 |
 | start-key | string |  | `'startTime'` | 数据内表示开始时间的字段 |
 | end-key | string |  | `'endTime'` | 数据内表示结束时间的字段 |
@@ -109,4 +110,13 @@ export default{
 | Param | Type | Description |
 | ----- | ---- | ----------- |
 | cell | object | 当前选择的日期以及相关数据 |
+
+Methods
+
+#### reload()
+
+重新加载
+
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
 

@@ -48,6 +48,7 @@
 <u-calendar picker="year"></u-calendar>
 ```
 
+
 ### 只读和禁用
 ``` html
 <u-linear-layout>
@@ -55,12 +56,6 @@
 <u-calendar date="2018-08-08" min-date="2017-08-08" max-date="2019-08-08" disabled style="display: inline-block"></u-calendar>
 </u-linear-layout>
 ```
-
-### 最大值最小值
-``` html
-<u-calendar date="2018-08-08" min-date="2018-08-02" max-date="2018-08-18"></u-calendar>
-```
-
 
 ### 最大值最小值
 ``` html

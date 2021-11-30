@@ -1304,9 +1304,19 @@ export default {
 </u-validator>
 ```
 
+#### macAddress <u-label>input+blur</u-label>
+
+必须输入正确的 MAC 地址。
+
+``` html
+<u-validator label="名称" rules="macAddress">
+    <u-input placeholder="请输入 MAC 地址"></u-input>
+</u-validator>
+```
+
 #### ascii <u-label>input+blur</u-label>
 
-必须输入ascii字符。
+必须输入 ascii 字符。
 
 ``` html
 <u-validator label="名称" rules="ascii">
@@ -1316,7 +1326,7 @@ export default {
 
 #### base64 <u-label>blur</u-label>
 
-必须输入base64编码。
+必须输入 base64 编码。
 
 ``` html
 <u-validator label="名称" rules="base64">
@@ -1339,7 +1349,7 @@ export default {
 
 #### dataURI <u-label>blur</u-label>
 
-必须输入dataURI编码。
+必须输入 dataURI 编码。
 
 ``` html
 <u-validator label="编码" rules="dataURI">
