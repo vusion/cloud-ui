@@ -25,7 +25,7 @@
     "deploy:dev": "node ./scripts/lcap && lcap deploy dist-theme --platform http://lcp.vusion.top && node bin/deploy-lcp-images --platform=http://lcp.vusion.top",
     "deploy:test": "node ./scripts/lcap && lcap deploy dist-theme --platform http://defaulttenant.qa-ci.lcap.group && node bin/deploy-lcp-images --platform=http://defaulttenant.qa-ci.lcap.group",
     "deploy:online": "node ./scripts/lcap && vusion deploy --framework cloud-ui.vusion@0.11 -v minor && vusion deploy --framework cloud-ui dist-theme && node bin/deploy-screenshots && node bin/deploy-drawings",
-    "prepublishOnly": "npm run build && npm run build:theme && npm run build:raw && vusion readme && vusion vetur && git add .",
+    "prepublishOnly": "rm -rf node_modules/.cache && npm run build && npm run build:theme && npm run build:raw && vusion readme && vusion vetur && git add .",
     "postpublish": "npm run build:docs && npm run deploy:online"
   },
   "repository": "vusion/cloud-ui",
