@@ -66,7 +66,7 @@ export default {
     transition: background var(--transition-duration-base);
 }
 
-.root[direction="horizontal"] .splitter {
+.root[direction="horizontal"] > .splitter {
     width: 0;
     top: 0;
     bottom: 0;
@@ -75,7 +75,7 @@ export default {
     cursor: col-resize;
 }
 
-.root[direction="vertical"] .splitter {
+.root[direction="vertical"] > .splitter {
     height: 0;
     left: 0;
     right: 0;
