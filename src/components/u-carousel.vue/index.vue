@@ -152,13 +152,14 @@ export default {
 }
 .button:hover {
     color: var(--carousel-button-color-hover);
+    background: var(--carousel-button-background-hover);
 }
 
 .button[role='prev'], .button[role='next']{
     width: calc(var(--carousel-button-font-size)*2);
     height: calc(var(--carousel-button-font-size)*2);
     border-radius: var(--carousel-button-font-size);
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--carousel-button-background);
 }
 
 .button[role='prev'] {
