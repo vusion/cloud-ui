@@ -839,6 +839,7 @@
     --switch-button-size: 18px;
     --switch-button-size-small: 14px;
     --switch-button-background: white;
+    --switch-button-background-checked: white;
     --switch-button-radius: 100px;
     --switch-background: var(--border-color-base);
     --switch-background-checked: var(--brand-primary);
