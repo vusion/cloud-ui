@@ -239,12 +239,12 @@ export default {
     /* background: #dd4b39;
     color: white; */
 }
-.item[color] {
+.item[color][class][class] {
     padding: 9px 16px 9px 40px;
 }
-.item[color]::before {
+.item[color][class][class]::before {
     position: absolute;
-    top: 9px;
+    top: var(--toast-item-icon-top);
     left: 16px;
 }
 </style>

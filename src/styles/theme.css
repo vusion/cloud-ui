@@ -1115,6 +1115,7 @@
     --toast-item-padding: 8px 16px;
     --toast-item-space: 10px;
     --toast-item-border-radius: var(--border-radius-large);
+    --toast-item-icon-top: 8px;
     --toast-item-icon-margin-right: 8px;
     --toast-item-icon-vertical-align: -1px;
     --toast-item-icon-font-size: 16px;
