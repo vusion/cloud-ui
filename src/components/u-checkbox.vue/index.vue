@@ -135,7 +135,7 @@ export default {
     transition: all var(--transition-duration-base);
 }
 
-.box[status="true"]::before, .box[status="false"]::before {
+.box[status="true"]::before, .box[status="false"]::before, .box[status="null"]::before {
     position: relative;
     display: block;
     width: calc(var(--checkbox-size) - 2px);
@@ -168,7 +168,7 @@ export default {
     border-color: var(--checkbox-background);
 }
 .box[status="null"]::before {
-    icon-font: url('i-material-design.vue/assets/filled/horizontal_rule.svg');
+    icon-font: url('./assets/check-null.svg');
     color: var(--checkbox-color);
     font-weight: bold;
 }
