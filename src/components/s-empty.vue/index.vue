@@ -11,8 +11,9 @@ export default {
 <style module>
 .empty {
     background: #F7F8FA;
+    border: 1px dashed #C3C3C3;
     text-align: center;
-    color: #ccc;
+    color: #999;
     min-height: 32px;
     min-width: 90px;
     width: 100%;
