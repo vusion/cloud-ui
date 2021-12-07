@@ -192,7 +192,6 @@
       type: boolean
       default: false
       description: 是否只读
-      advanced: true
     - name: disabled
       title: 是否禁用
       type: boolean
