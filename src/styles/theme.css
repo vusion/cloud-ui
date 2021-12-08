@@ -864,6 +864,8 @@
     --checkbox-box-shadow-focus: var(--button-box-shadow-focus);
     --checkbox-icon: '\ff01';
     --checkbox-icon-size: var(--font-size-small);
+    --checkbox-icon-left: 0;
+    --checkbox-icon-top: 0;
     /* @component u-select */
     --select-width: var(--width-base);
     --select-width-mini: var(--width-mini);

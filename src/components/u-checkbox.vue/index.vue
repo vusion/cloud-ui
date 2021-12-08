@@ -113,6 +113,8 @@ export default {
 }
 
 .box {
+    position: relative;
+    top: var(--checkbox-icon-top);
     display: inline-block;
     width: var(--checkbox-size);
     height: var(--checkbox-size);
@@ -138,6 +140,7 @@ export default {
 .box[status="true"]::before, .box[status="false"]::before, .box[status="null"]::before {
     position: relative;
     display: block;
+    left: var(--checkbox-icon-left);
     width: calc(var(--checkbox-size) - 2px);
     height: calc(var(--checkbox-size) - 2px);
 }
