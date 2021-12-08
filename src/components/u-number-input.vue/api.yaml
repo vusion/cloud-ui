@@ -1,6 +1,6 @@
 - name: u-number-input
   title: 数字输入
-  icon: input
+  icon: number
   labels:
     - Form
   description: 输入数字时使用
