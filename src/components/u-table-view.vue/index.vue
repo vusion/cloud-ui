@@ -420,7 +420,7 @@ export default {
         this.debouncedLoad = debounce(this.load, 300);
         this.currentDataSource = this.normalizeDataSource(this.dataSource || this.data);
         if (this.pageNumber && this.pageable) {
-            this.page(this.pageNumber);
+            this.initialLoad && this.page(this.pageNumber);
         }
         this.initialLoad && this.load();
     },
