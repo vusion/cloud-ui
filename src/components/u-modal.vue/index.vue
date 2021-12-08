@@ -256,6 +256,7 @@ export default UModal;
 .title {
     margin: 0;
     font-size: var(--modal-title-font-size);
+    font-weight: var(--modal-title-font-weight);
 }
 
 .close {

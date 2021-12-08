@@ -1135,6 +1135,7 @@
     --modal-dialog-background: white;
     --modal-dialog-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     --modal-title-font-size: var(--font-size-large);
+    --modal-title-font-weight: normal;
     --modal-close-right: 24px;
     --modal-close-color: var(--gray-dark);
     --modal-close-color-hover: var(--gray-darker);
