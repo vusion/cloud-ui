@@ -18,7 +18,13 @@
                         :width-fixed="!!currentItemWidth"
                         :alignment="itemAlign"
                         @click="onClick(itemVM, $event)">
-                        <span :class="$style.title" vusion-slot-name="title"><f-slot :vm="itemVM" name="title">{{ itemVM.title }}</f-slot></span>
+                        <span :class="$style.title" vusion-slot-name="title">
+                            <f-slot
+                                :vm="itemVM"
+                                name="title"
+                                :props="{ selected: router ? itemVM.active : itemVM === selectedVM }"
+                            >{{ itemVM.title }}</f-slot>
+                        </span>
                         <span v-if="closable" :class="$style.close" @click.stop="close(itemVM)"></span>
                     </a>
                 </div>
