@@ -21,7 +21,7 @@
                     <slot name="body">
                         <div :class="$style.text">
                             <div :class="$style.content"><slot>{{ content }}</slot></div>
-                            <div :class="$style.description"><slot name="description">{{ description }}</slot></div>
+                            <div v-if="!!description" :class="$style.description"><slot name="description">{{ description }}</slot></div>
                         </div>
                     </slot>
                 </div>
