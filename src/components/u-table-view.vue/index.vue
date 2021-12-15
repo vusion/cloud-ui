@@ -17,6 +17,9 @@
                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                         :vusion-node-path="columnVM.$attrs['vusion-node-path']"
                         :vusion-node-tag="columnVM.$attrs['vusion-node-tag']"
+                        :vusion-disabled-move="columnVM.$attrs['vusion-disabled-move']"
+                        :vusion-disabled-duplicate="columnVM.$attrs['vusion-disabled-duplicate']"
+                        :vusion-disabled-cut="columnVM.$attrs['vusion-disabled-cut']"
                         :sortable="columnVM.sortable && sortTrigger === 'head'" :filterable="!!columnVM.filters" @click="columnVM.sortable && sortTrigger === 'head' && onClickSort(columnVM)">
                         <!-- type === 'checkbox' -->
                         <span v-if="columnVM.type === 'checkbox'">
@@ -63,6 +66,9 @@
                                         allowChild
                                         vusion-slot-name="cell"
                                         :vusion-next="true"
+                                        :vusion-disabled-move="columnVM.$attrs['vusion-disabled-move']"
+                                        :vusion-disabled-duplicate="columnVM.$attrs['vusion-disabled-duplicate']"
+                                        :vusion-disabled-cut="columnVM.$attrs['vusion-disabled-cut']"
                                         :vusion-node-tag="columnVM.$attrs['vusion-node-tag']"
                                         :vusion-template-cell-node-path="columnVM.$attrs['vusion-template-cell-node-path']"
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
@@ -94,8 +100,13 @@
                                     </td>
                                 </template>
                                 <template v-else>
-                                    <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title
+                                    <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" 
+                                        :ellipsis="columnVM.ellipsis" 
+                                        v-ellipsis-title
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
+                                        :vusion-disabled-move="columnVM.$attrs['vusion-disabled-move']"
+                                        :vusion-disabled-duplicate="columnVM.$attrs['vusion-disabled-duplicate']"
+                                        :vusion-disabled-cut="columnVM.$attrs['vusion-disabled-cut']"
                                         :vusion-node-path="columnVM.$attrs['vusion-node-path']">
                                             <!-- type === 'index' -->
                                             <span v-if="columnVM.type === 'index'">{{ (columnVM.startIndex - 0) + rowIndex }}</span>
