@@ -2,6 +2,6 @@
 
 ``` html
 <u-linear-layout>
-    <i-iconv name="home-o">area</i-iconv>
+    <i-iconv name="shouye">area</i-iconv>
 </u-linear-layout>
 ```

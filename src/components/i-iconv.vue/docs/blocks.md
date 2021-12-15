@@ -1,5 +1,5 @@
 ### 基本用法
 
 ``` html
-<i-iconv name="home-o"></i-iconv>
+<i-iconv name="shouye"></i-iconv>
 ```
