@@ -432,7 +432,7 @@ export default {
         },
         handleResize() {
             this.tableWidth = undefined;
-            this.bodyHeight = undefined;
+            // this.bodyHeight = undefined;
             this.clearTimeout();
             this.timer = setTimeout(() => {
                 this.timer = undefined;
