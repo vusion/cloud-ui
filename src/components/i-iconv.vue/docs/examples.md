@@ -2,6 +2,8 @@
 
 ``` html
 <u-linear-layout>
-    <i-iconv name="shouye">area</i-iconv>
+    <i-iconv name="默认">
+        <u-text>默认</u-text>
+    </i-iconv>
 </u-linear-layout>
 ```

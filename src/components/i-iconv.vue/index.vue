@@ -1,5 +1,5 @@
 <template>
-<i :class="['lcp-iconv', `lcp-iconv-${name}`]" :name="name" v-on="$listeners"
+<i :class="[$style['lcp-iconv']]" v-on="$listeners"
     @click="onClick($event)"
     @dblclick="onDblclick($event)"
     @contextmenu="onRightClick($event)"
@@ -7,19 +7,28 @@
     @mouseout="onmouseout($event)"
     @mousedown="onmousedown($event)"
 >
-    <span v-if="text" vusion-slot-name="text" class="van-shoud-pa lcp-iconv_text">{{ text }}</span>
+    <span :class="$style.iconwrap">
+        <svg :class="$style.iconsvg" aria-hidden="true">
+            <use :xlink:href="`#${iconconfig.css_prefix_text}${getName()}`" />
+        </svg>
+    </span>
+    <div :class="$style.icontext">
+        <slot></slot>
+        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
+    </div>
 </i>
 </template>
 
 <script>
+import './icon.js';
+import iconconfig from './iconconfig.js';
+import SEmpty from '../../components/s-empty.vue';
+
 export default {
     name: 'i-iconv',
+    components: { SEmpty },
     props: {
         name: String,
-        text: {
-            type: String,
-            default: '图标',
-        },
         href: String,
         target: { type: String, default: '_self' },
         to: [String, Object],
@@ -29,7 +38,16 @@ export default {
         download: { type: Boolean, default: false },
         destination: String,
     },
+    data() {
+        return {
+            iconconfig,
+        };
+    },
     methods: {
+        getName() {
+            const item = this.iconconfig.glyphs.find((v) => v.name === this.name);
+            return item.font_class;
+        },
         onClick(ev) {
             const props = this._props;
             const parent = this.$parent;
@@ -109,5 +127,24 @@ export default {
     },
 };
 </script>
+<style module>
+.root {
+}
+.lcp-iconv {
+    display: inline-block;
+    font-size: 12px;
+    text-align: center;
+}
+.iconwrap {
+    padding: 8px;
+}
+.iconsvg {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+.icontext {
 
-<style src="./index.css"></style>
+}
+</style>
