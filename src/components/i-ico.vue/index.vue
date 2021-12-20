@@ -12,7 +12,7 @@
             <use :xlink:href="`#${iconconfig.css_prefix_text}${getName()}`" />
         </svg>
     </span>
-    <div :class="$style.icontext">
+    <div :class="$style.icontext" :vusion-scope-iddd="$vnode.context.$options._scopeId" vusion-slot-name="default">
         <slot></slot>
         <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
     </div>
@@ -25,7 +25,7 @@ import iconconfig from './iconconfig.js';
 import SEmpty from '../../components/s-empty.vue';
 
 export default {
-    name: 'i-iconv',
+    name: 'i-ico',
     components: { SEmpty },
     props: {
         name: String,
