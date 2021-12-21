@@ -4,7 +4,8 @@
     @click="onClick"
 >
     <u-badge corner :value="total">
-        <span :class="$style.notice"></span>
+        <!-- <span :class="$style.notice"></span> -->
+        <i-ico v-if="icon" :name="icon" :class="$style.taskicon" notext></i-ico>
     </u-badge>
     <u-popup
         :mode="false"
@@ -34,9 +35,17 @@
 </template>
 
 <script>
+import IIco from '../i-ico.vue';
 export default {
     name: 'u-taskbox',
+    component: {
+        IIco,
+    },
     props: {
+        icon: {
+            type: String,
+            default: '通知',
+        },
         title: {
             type: String,
             default: '通知',
@@ -176,5 +185,8 @@ export default {
 .time {
     color: var(--color-lighter);
     font-size: 12px;
+}
+.taskicon {
+    font-size: 20px;
 }
 </style>

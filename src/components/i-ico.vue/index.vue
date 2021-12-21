@@ -14,7 +14,7 @@
     </span>
     <div :class="$style.icontext" :vusion-scope-iddd="$vnode.context.$options._scopeId" vusion-slot-name="default">
         <slot></slot>
-        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
+        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !notext"></s-empty>
     </div>
 </i>
 </template>
@@ -29,6 +29,7 @@ export default {
     components: { SEmpty },
     props: {
         name: String,
+        notext: Boolean,
         href: String,
         target: { type: String, default: '_self' },
         to: [String, Object],
@@ -46,7 +47,7 @@ export default {
     methods: {
         getName() {
             const item = this.iconconfig.glyphs.find((v) => v.name === this.name);
-            return item.font_class;
+            return item ? item.font_class : 'moren';
         },
         onClick(ev) {
             const props = this._props;
@@ -140,7 +141,7 @@ export default {
 }
 .iconsvg {
     width: 1em; height: 1em;
-    vertical-align: -0.15em;
+    vertical-align: -0.075em;
     fill: currentColor;
     overflow: hidden;
 }

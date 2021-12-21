@@ -4,7 +4,7 @@
 
 ``` html
 <u-navbar style="background: #4289db;">
-    <u-navbar-item to="/components">组件</u-navbar-item>
+    <u-navbar-item to="/components" icon="首页">组件</u-navbar-item>
     <u-navbar-item>概念</u-navbar-item>
     <u-navbar-item disabled>指令</u-navbar-item>
     <u-navbar-divider></u-navbar-divider>

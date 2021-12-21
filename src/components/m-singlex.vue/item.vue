@@ -4,6 +4,7 @@
     :href="currentHref" :target="target" @click="parentVM.router ? onClick($event) : select($event)" v-on="listeners"
     v-ellipsis-title
     vusion-slot-name="text">
+    <i-ico v-if="icon" :name="icon" :class="$style.singleicon" notext></i-ico>
     <slot>{{ text }}</slot>
 </a>
 </template>
@@ -11,6 +12,7 @@
 <script>
 import { MChild } from '../m-parent.vue';
 import ULink from '../u-link.vue';
+import IIco from '../i-ico.vue';
 import { ellipsisTitle } from '../../directives';
 
 const trailingSlashRE = /\/?$/;
@@ -20,8 +22,12 @@ export default {
     parentName: 'm-singlex',
     groupName: 'm-singlex-group',
     directives: { ellipsisTitle },
+    components: {
+        IIco,
+    },
     mixins: [MChild, ULink],
     props: {
+        icon: String,
         text: String,
         value: null,
         disabled: { type: Boolean, default: false },

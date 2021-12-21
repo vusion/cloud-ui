@@ -46,4 +46,7 @@ export default {
     cursor: var(--cursor-not-allowed);
     color: var(--navbar-item-color-disabled);
 }
+.root [class^="i-ico_lcp-iconv"] {
+    margin-left: -8px;
+}
 </style>
