@@ -2,7 +2,7 @@
 <i :class="[$style['lcp-iconv']]" v-on="$listeners"
     @click="onClick($event)"
     @dblclick="onDblclick($event)"
-    @contextmenu="onRightClick($event)"
+    @contextmenu="onContextMenu($event)"
     @mouseover="onmouseover($event)"
     @mouseout="onmouseout($event)"
     @mousedown="onmousedown($event)"
@@ -110,10 +110,11 @@ export default {
                 downloadClick();
             }
         },
-        onDblClick(ev) {
+        onDblclick(ev) {
             this.$emit('dblclick', ev);
         },
         onContextMenu(ev) {
+            ev.preventDefault();
             this.$emit('rightclick', ev);
         },
         onmouseover(ev) {
@@ -145,7 +146,7 @@ export default {
     fill: currentColor;
     overflow: hidden;
 }
-.icontext {
-
+.icontext [class^="u-text_"]{
+    font-style: initial;
 }
 </style>
