@@ -134,10 +134,10 @@ export default {
 }
 .lcp-iconv {
     display: inline-block;
-    font-size: 12px;
     text-align: center;
 }
 .iconwrap {
+    font-size: 16px;
     padding: 8px;
 }
 .iconsvg {
