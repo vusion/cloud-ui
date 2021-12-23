@@ -138,7 +138,7 @@ export default {
 }
 .iconwrap {
     font-size: 16px;
-    padding: 8px;
+    /* padding: 8px; */
 }
 .iconsvg {
     width: 1em; height: 1em;
@@ -146,7 +146,12 @@ export default {
     fill: currentColor;
     overflow: hidden;
 }
+.icontext {
+    line-height: 1;
+}
 .icontext [class^="u-text_"]{
     font-style: initial;
+    font-size: 14px;
+    color: #666;
 }
 </style>
