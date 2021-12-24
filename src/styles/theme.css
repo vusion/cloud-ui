@@ -788,6 +788,7 @@
     --input-border-color-focus: #81abe9;
     --input-placeholder-color: var(--color-lighter);
     --input-icon-color: #a7afbb;
+    --input-icon-color-hover: var(--input-icon-color);
     --input-border-radius: 3px;
 
     /* @component u-textarea */
@@ -925,6 +926,8 @@
     --select-popper-color-inverse: var(--color-base-inverse);
     --select-status-color: var(--color-light);
     --select-box-shadow-focus: var(--button-box-shadow-focus);
+    --select-icon-color: #a7afbb;
+    --select-icon-color-hover: var(--select-icon-color);
 
     /* @component u-slider */
     --slider-body-margin: 0 10px;

@@ -55,7 +55,10 @@
     margin: auto;
     icon-font: url('../i-icon.vue/assets/close-solid.svg');
     cursor: var(--cursor-pointer);
-    color: #a7afbb;
+    color: var(--select-icon-color);
+}
+.clearable:hover::before {
+    color: var(--select-icon-color-hover);
 }
 
 .root[filterable] {

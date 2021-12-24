@@ -68,6 +68,9 @@
     cursor: var(--cursor-pointer);
     color: var(--input-icon-color);
 }
+.clearable:hover::before {
+    color: var(--input-icon-color-hover);
+}
 
 .input:focus {
     outline: var(--focus-outline);
