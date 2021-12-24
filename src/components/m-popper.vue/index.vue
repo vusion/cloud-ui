@@ -63,6 +63,7 @@ export default {
             },
         },
         disabled: { type: Boolean, default: false },
+        disabledScroll: {type: Boolean, default: false},
     },
     data() {
         return {
@@ -367,6 +368,11 @@ export default {
             this.currentOpened = true;
             this.$emit('update:opened', true, this); // Emit `after-` events
             // this.$emit('open', undefined, this);
+            if (this.disabledScroll) {
+                // passive：false是为了解除chrome内核浏览器对滚动类事件调用preventDefault方法的限制
+                document.addEventListener('DOMMouseScroll', this.scrollFunc, {passive: false});  
+                document.addEventListener('mousewheel', this.scrollFunc, {passive: false});
+            }
         },
         close() {
             // Check if enabled
@@ -379,6 +385,10 @@ export default {
             this.currentOpened = false;
             this.$emit('update:opened', false, this); // Emit `after-` events
             // this.$emit('close', undefined, this);
+            if (this.disabledScroll) {
+                document.removeEventListener('DOMMouseScroll', this.scrollFunc, {passive: false});  
+                document.removeEventListener('mousewheel',this.scrollFunc, {passive: false});
+            }
         },
         toggle(opened) {
             // Method overloading
@@ -399,6 +409,12 @@ export default {
                 this.timers[index] = clearTimeout(timer);
             });
         },
+        scrollFunc(e) {
+            let events = e || window.event;  
+            events.preventDefault();  
+            events.stopPropagation();
+            return false;
+        }
     },
 };
 </script>

@@ -112,6 +112,7 @@ export default {
 
 .root[checked] .button {
     left: calc(100% - var(--switch-button-size) - var(--switch-button-space));
+    background: var(--switch-button-background-checked);
 }
 
 .root[checked] .text {

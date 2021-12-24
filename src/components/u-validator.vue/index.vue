@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root">
     <slot></slot>
-    <span v-if="!mutedMessage && touched && !valid && firstError && !blurred" :class="$style.message" color="error">{{ firstError }}</span>
+    <span ref="message" v-show="!mutedMessage && touched && !valid && firstError && !blurred" :class="$style.message" color="error">{{ firstError }}</span>
 </div>
 </template>
 
@@ -32,6 +32,7 @@ export default {
         validatingValue: null,
         validatingProcess: { type: Function, default: (value) => value },
         manual: { type: Boolean, default: false },
+        widthReferenceEle: {type: HTMLElement, default: null}
     },
     data() {
         return {
@@ -120,6 +121,20 @@ export default {
             );
             this.validate('submit', !this.touched).catch((errors) => errors);
         },
+        valid(newValue) {
+            if (!newValue) {
+                if (this.widthReferenceEle){
+                    let refEleLeft = this.widthReferenceEle.getBoundingClientRect().left;
+                    let msgEleLeft = this.$refs.message.parentNode.getBoundingClientRect().left;
+                    let leftPos = msgEleLeft - refEleLeft;
+                    let msgWidth = window.getComputedStyle(this.widthReferenceEle).getPropertyValue('width');
+                    console.log((+msgWidth.substring(-2) - 16) + 'px');
+                    this.$refs.message.style.width = (+msgWidth.substring(0, msgWidth.length-2) - 32) + 'px';
+                    this.$refs.message.style.left = "-"+ (leftPos-16) + "px";
+                    this.$refs.message.style.right = "16px";
+                }
+            }
+        }
     },
     created() {
         const context = this.$vnode.context;

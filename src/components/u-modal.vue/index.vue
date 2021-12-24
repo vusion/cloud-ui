@@ -21,7 +21,7 @@
                     <slot name="body">
                         <div :class="$style.text">
                             <div :class="$style.content"><slot>{{ content }}</slot></div>
-                            <div :class="$style.description"><slot name="description">{{ description }}</slot></div>
+                            <div v-if="!!description" :class="$style.description"><slot name="description">{{ description }}</slot></div>
                         </div>
                     </slot>
                 </div>
@@ -256,6 +256,7 @@ export default UModal;
 .title {
     margin: 0;
     font-size: var(--modal-title-font-size);
+    font-weight: var(--modal-title-font-weight);
 }
 
 .close {

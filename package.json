@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.10.21",
+  "version": "0.10.22-beta.2",
   "author": "Forrest <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -75,11 +75,11 @@
     "stylelint-config-vusion": "^1.1.2",
     "ts-node": "^10.4.0",
     "typescript": "^4.4.4",
-    "vue": "^2.6.10",
+    "vue": "2.6.12",
     "vue-cli-plugin-vusion": "^0.13.4",
     "vue-i18n": "^8.15.5",
-    "vue-router": "^3.1.3",
-    "vue-template-compiler": "^2.6.10",
+    "vue-router": "3.3.4",
+    "vue-template-compiler": "2.6.12",
     "vusion-hooks": "^0.3.0"
   },
   "peerDependencies": {

@@ -26,6 +26,7 @@
                 disabled: currentDisabled,
                 node,
                 parent,
+                selected,
             }">
                 <span>{{ text }}</span>
             </f-slot>
@@ -103,7 +104,7 @@ export default {
         };
     },
     created() {
-        this.renderSelectedVm(); 
+        this.renderSelectedVm();
     },
     computed: {
         selected() {
@@ -416,7 +417,7 @@ export default {
                     for(const child of $at(node, field)) {
                         dfs(child, node);
                     }
-                    
+
                 }
 
                 if(node.childrenRendered && parent)

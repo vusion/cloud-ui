@@ -121,7 +121,7 @@ export default {
 .input::placeholder {
     /* Removes placeholder transparency in Firefox. */
     opacity: 1;
-    color: var(--color-light);
+    color: var(--textarea-placeholder-color);
 }
 
 .root[focus] {
