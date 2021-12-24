@@ -1,10 +1,10 @@
 <template>
-<i :class="[$style['lcp-iconv']]" v-on="$listeners"
+<span :class="[$style['lcp-iconv']]"
     @click="onClick($event)"
     @dblclick="onDblclick($event)"
     @contextmenu="onContextMenu($event)"
-    @mouseover="onmouseover($event)"
-    @mouseout="onmouseout($event)"
+    @mouseenter="onmouseover($event)"
+    @mouseleave="onmouseout($event)"
     @mousedown="onmousedown($event)"
 >
     <span :class="$style.iconwrap">
@@ -16,7 +16,7 @@
         <slot></slot>
         <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !notext"></s-empty>
     </div>
-</i>
+</span>
 </template>
 
 <script>
@@ -50,6 +50,7 @@ export default {
             return item ? item.font_class : 'moren';
         },
         onClick(ev) {
+            console.log(ev, 999)
             const props = this._props;
             const parent = this.$parent;
             function currentHref() {
