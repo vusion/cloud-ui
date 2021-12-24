@@ -357,7 +357,7 @@ export default {
                     return (this.preventRootBlur = false);
                 this.close();
                 this.$emit('blur', e);
-            }, 200);
+            }, 400);
         },
         selectByText(text) {
             if (this.multiple) {
