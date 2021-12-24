@@ -143,7 +143,7 @@ export default {
 }
 .iconsvg {
     width: 1em; height: 1em;
-    vertical-align: -0.075em;
+    vertical-align: -0.15em;
     fill: currentColor;
     overflow: hidden;
 }
