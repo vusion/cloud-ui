@@ -788,6 +788,7 @@
     --input-border-color-focus: #81abe9;
     --input-placeholder-color: var(--color-lighter);
     --input-icon-color: #a7afbb;
+    --input-clear-icon-color: #a7afbb;
     --input-icon-color-hover: var(--input-icon-color);
     --input-border-radius: 3px;
 
