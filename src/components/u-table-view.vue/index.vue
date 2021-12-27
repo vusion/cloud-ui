@@ -199,6 +199,7 @@ export default {
         resizeRemaining: { type: String, default: 'average' },
         showHead: { type: Boolean, default: true },
         color: String,
+        minColumnWidth: { type: Number, default: 44 },
     },
     data() {
         return {
@@ -432,7 +433,7 @@ export default {
         },
         handleResize() {
             this.tableWidth = undefined;
-            this.bodyHeight = undefined;
+            // this.bodyHeight = undefined;
             this.clearTimeout();
             this.timer = setTimeout(() => {
                 this.timer = undefined;
@@ -560,7 +561,7 @@ export default {
             });
         },
         onResizerDrag($event, columnVM, index) {
-            const minWidth = 44;
+            const minWidth = this.minColumnWidth;
             const rootWidth = this.$el.offsetWidth;
             let beforeWidth = 0;
             for (let i = 0; i < index; i++)
