@@ -48,5 +48,6 @@ export default {
 }
 .root [class^="i-ico_lcp-iconv"] {
     margin-left: -8px;
+    margin-right: 8px;
 }
 </style>

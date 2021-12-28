@@ -187,6 +187,6 @@ export default {
     font-size: 12px;
 }
 .taskicon {
-    font-size: 20px;
+    font-size: 24px;
 }
 </style>

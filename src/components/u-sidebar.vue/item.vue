@@ -71,6 +71,7 @@ export default {
     background: var(--sidebar-item-background-selected-disabled);
 }
 .root [class^="i-ico_lcp-iconv"] {
-    /* margin-left: -28px; */
+    margin-left: -24px;
+    margin-right: 8px;
 }
 </style>
