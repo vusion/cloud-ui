@@ -33,7 +33,7 @@
         </div>
     </div>
     <div :class="$style.sub" v-if="rootVM.ifExpanded && !childrenRendered && !node.childrenRendered ? currentExpanded : true" v-show="currentExpanded">
-        <template v-if="node && $at(node, currentChildrenField)">
+        <template v-if="node && $at(node, currentChildrenField) && !rootVM.excludeFields.includes(currentChildrenField)">
             <u-tree-view-node
                 v-for="subNode in $at(node, currentChildrenField)"
                 :text="$at(subNode, rootVM.field || rootVM.textField)"
@@ -164,7 +164,9 @@ export default {
         },
         currentFields() {
             const { currentChildrenField, currentMoreChildrenFields } = this;
-            let fields = [currentChildrenField];
+            let fields = [];
+            if(!this.rootVM.excludeFields.includes(currentChildrenField))
+                fields = [currentChildrenField];
             if(currentMoreChildrenFields)
                 fields = fields.concat(currentMoreChildrenFields);
             return fields;
