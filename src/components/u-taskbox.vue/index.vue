@@ -189,4 +189,7 @@ export default {
 .taskicon {
     font-size: 24px;
 }
+.taskicon [class^="i-ico_iconwrap"] {
+   font-size: 24px;
+}
 </style>
