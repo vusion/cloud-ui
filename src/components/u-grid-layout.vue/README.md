@@ -263,8 +263,8 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | repeat | number |  | `12` | 划分的栅格数 |
-| justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` | 内容对齐方式 |
-| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` | flex布局模式下的交叉轴对齐方式 |
+| justify | enum | `'start'`<br/>`'center'`<br/>`'end'`<br/>`'space-between'`<br/>`'space-around'` | `'start'` | flex布局模式的水平分布方式，可选值：`'start'`, `'center'`, `'end'`, `'space-between'`, `'space-around'` |
+| alignment | enum | `'start'`<br/>`'center'`<br/>`'end'`<br/>`'baseline'`<br/>`'stretch'` | `'stretch'` | flex布局模式的垂直对齐方式，可选值：`'start'`, `'center'`, `'end'`, `'baseline'`, `'stretch'` |
 
 ### Slots
 

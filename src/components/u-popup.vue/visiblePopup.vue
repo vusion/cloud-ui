@@ -1,6 +1,6 @@
 
 <script>
-import UPopupReal from './popupReal.vue';
+import UPopupReal from './index.vue';
 const normalizeSlots = (slots, context) => Object.keys(slots)
 		.reduce((arr, key) => {
 				slots[key].forEach((vnode) => {

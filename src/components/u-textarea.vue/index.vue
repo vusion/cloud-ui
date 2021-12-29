@@ -121,15 +121,15 @@ export default {
 .input::placeholder {
     /* Removes placeholder transparency in Firefox. */
     opacity: 1;
-    color: var(--color-light);
+    color: var(--textarea-placeholder-color);
 }
 
 .root[focus] {
-    border-color: #8ebee9;
+    border-color: var(--input-border-color-focus);
 }
 
 .root[disabled] {
-    background-color: var(--brand-disabled);
+    background: var(--textarea-background);
 }
 
 .root[color="error"] {

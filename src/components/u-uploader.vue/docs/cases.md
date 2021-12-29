@@ -18,7 +18,6 @@ export default {
 </script>
 ```
 
-<<<<<<< HEAD
 ### 单文件只读
 
 ``` vue

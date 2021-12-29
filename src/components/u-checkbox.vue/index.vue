@@ -104,7 +104,7 @@ export default {
     outline: var(--focus-outline);
 }
 
-.root:focus .box {
+.root:focus .box[status="true"] {
     box-shadow: var(--checkbox-box-shadow-focus);
 }
 
@@ -114,33 +114,42 @@ export default {
 }
 
 .box {
+    position: relative;
+    top: var(--checkbox-icon-top);
     display: inline-block;
     width: var(--checkbox-size);
     height: var(--checkbox-size);
     line-height: calc(var(--checkbox-size) - 2px);
-    background: var(--background-color-default);
-    border: 1px solid var(--border-color-base);
+    background: var(--checkbox-background-default);
+    border: 1px solid var(--checkbox-border-color);
     border-radius: var(--checkbox-border-radius);
-    margin-right: 5px;
+    margin-right: var(--checkbox-inner-space-x);
     text-align: center;
-    font-size: var(--font-size-small);
+    font-size: var(--checkbox-icon-size);
     transition: all var(--transition-duration-base);
     vertical-align: 1px;
+}
+
+.box:hover {
+    border-color: var(--checkbox-border-color-hover);
 }
 
 .box::before {
     transition: all var(--transition-duration-base);
 }
 
-.box[status="true"]::before, .box[status="false"]::before {
+.box[status="true"]::before, .box[status="false"]::before, .box[status="null"]::before {
     position: relative;
     display: block;
+    left: var(--checkbox-icon-left);
     width: calc(var(--checkbox-size) - 2px);
     height: calc(var(--checkbox-size) - 2px);
 }
 
 .box[status="false"]::before {
-    icon-font: url('../i-icon.vue/assets/check.svg');
+    icon-font: url('../i-icon.vue/assets/check.svg') '\ff01';
+    icon-font: url('./assets/check-dark.svg') '\ff02';
+    content: var(--checkbox-icon);
     color: transparent;
 }
 
@@ -149,11 +158,13 @@ export default {
     border-color: var(--checkbox-background);
 }
 .box[status="true"]::before {
-    icon-font: url('../i-icon.vue/assets/check.svg');
+    icon-font: url('../i-icon.vue/assets/check.svg') '\ff01';
+    icon-font: url('./assets/check-dark.svg') '\ff02';
+    content: var(--checkbox-icon);
     color: var(--checkbox-color);
 }
 .box[status="true"][disabled]::before {
-    color: #ccc;
+    color: var(--checkbox-color-disabled);
 }
 
 .box[status="null"] {
@@ -161,13 +172,13 @@ export default {
     border-color: var(--checkbox-background);
 }
 .box[status="null"]::before {
-    icon-font: url('i-material-design.vue/assets/filled/horizontal_rule.svg');
+    icon-font: url('./assets/check-null.svg');
     color: var(--checkbox-color);
     font-weight: bold;
 }
 
 .box[disabled] {
-    border-color: var(--border-color-base);
-    background: #EEEEF0;
+    border-color: var(--checkbox-border-color-disabled);
+    background: var(--checkbox-background-disabled);
 }
 </style>

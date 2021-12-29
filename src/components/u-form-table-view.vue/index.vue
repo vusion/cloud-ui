@@ -10,7 +10,7 @@
                     <span>{{ columnVM.title }}</span>
                 </f-slot>
             </th>
-            <th :class="$style['last-column']" :dynamic="dynamic"></th>
+            <th :class="$style['last-column']" :dynamic="dynamic" :custom="!!$scopedSlots['last-column']" :style="lastColumnStyle"></th>
         </tr></thead>
         <tbody>
             <u-form-table-view-row :class="$style.row" v-for="(item, rowIndex) in currentData" :key="rowIndex" :muted="muted">
@@ -55,7 +55,9 @@
                     </td>
                 </template>
                 <template slot="last-column" v-if="dynamic">
-                    <u-form-table-remove-button @click="remove(rowIndex)" :disabled="currentData.length <= minCount || item.disabled"></u-form-table-remove-button>
+                    <slot name="last-column" :item="item" :rowIndex="rowIndex">
+                        <u-form-table-remove-button @click="remove(rowIndex)" :disabled="currentData.length <= minCount || item.disabled"></u-form-table-remove-button>
+                    </slot>
                 </template>
             </u-form-table-view-row>
         </tbody>
@@ -81,6 +83,7 @@ export default {
         size: String,
         showAddButton: { type: Boolean, default: true },
         muted: String,
+        lastColumnStyle: Object,
     },
     data() {
         return { columnVMs: [] };
@@ -121,6 +124,10 @@ export default {
 
 .last-column[dynamic] {
     width: 40px;
+}
+
+.last-column[custom] {
+    width: auto;
 }
 
 .add-button {

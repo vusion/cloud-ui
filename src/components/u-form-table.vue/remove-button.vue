@@ -14,9 +14,14 @@ export default {
     cursor: var(--cursor-pointer);
     margin-bottom: 0;
     font-size: 40px;
-    color: #ff867f;
+    color: var(--form-table-remove-button-color);
     height: 40px;
     line-height: 40px;
+    opacity: 0.6;
+}
+
+.root:hover {
+    opacity: 1;
 }
 
 .root[disabled] {

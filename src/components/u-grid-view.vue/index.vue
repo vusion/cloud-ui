@@ -22,7 +22,7 @@ export default {
 <style module>
 @import '../u-list-view.vue/index.css';
 
-.body {
+.body{
     margin: 0 calc(var(--grid-view-item-space) / (-2));
 }
 
@@ -34,10 +34,8 @@ export default {
     text-align: right;
     margin: 0;
 }
-
 .foot {
     margin: 0 calc(var(--grid-view-item-space) / (-2));
     padding: var(--grid-view-foot-padding);
 }
-
 </style>

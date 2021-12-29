@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :disabled="disabled" :appear="appear" :size="size">
+<div :class="$style.root" :disabled="disabled" :appear="appear" :size="size" :item-width="itemWidth">
     <div :class="$style.head">
         <span :class="[$style.extra, $env.VUE_APP_DESIGNER ? $style.gap : null]" vusion-slot-name="extra">
             <slot name="extra"></slot>
@@ -25,7 +25,13 @@
                         :width-fixed="!!currentItemWidth"
                         :alignment="itemAlign"
                         @click="onClick(itemVM, $event)">
-                        <span :class="$style.title" vusion-slot-name="title"><f-slot :vm="itemVM" name="title">{{ itemVM.title }}</f-slot></span>
+                        <span :class="$style.title" vusion-slot-name="title">
+                            <f-slot
+                                :vm="itemVM"
+                                name="title"
+                                :props="{ selected: router ? itemVM.active : itemVM === selectedVM }"
+                            >{{ itemVM.title }}</f-slot>
+                        </span>
                         <span v-if="closable" :class="$style.close" @click.stop="close(itemVM)"></span>
                     </a>
                 </div>

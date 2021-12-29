@@ -10,7 +10,9 @@
         @keydown.prevent.down="$refs.listView && $refs.listView.shift(+1)">
         <m-popper :class="$style.popper" ref="popper" :color="color" :opened.sync="currentOpened"
             append-to="reference"
-            trigger="manual">
+            trigger="manual"
+            placement="bottom">
+            <span v-show="showArrowEL === 1" :class="$style.arrow"></span>
             <u-list-view :class="$style.listview" ref="listView"
                 :error-text="errorText"
                 :empty-text="emptyText"
@@ -50,12 +52,14 @@ export default {
         // },
         size: String,
         placement: { type: String, validator: (value) => /^(top|bottom|left|right)(-start|-end)?$/.test(value) },
+        showArrow: {type: Number, default: 0},
     },
     data() {
         return {
             currentValue: this.value,
             currentOpened: false,
             // currentDataSource: undefined,
+            showArrowEL: this.showArrow
         };
     },
     computed: {
@@ -78,6 +82,9 @@ export default {
             this.currentValue = value;
             this.fastLoad(false, true);
         },
+        showArrow(val) {
+            this.showArrowEL = val;
+        }
     },
     mounted() {
         this.$emit('update', this.value, this);
@@ -132,5 +139,75 @@ export default {
     height: auto;
     overflow-y: auto;
     max-height: var(--list-view-height);
+}
+
+.listview [class^="u-list-view_body__"] {
+    padding: 8px 0;
+}
+
+.arrow {
+    display: block;
+    position: absolute;
+    width: calc(1.4*2*var(--tooltip-arrow-size));
+    height: calc(1.4*var(--tooltip-arrow-size));
+    overflow: hidden;
+}
+
+.arrow::before {
+    display: block;
+    position: absolute;
+    left:50%;
+    content: '';
+    width: calc(2*var(--tooltip-arrow-size));
+    height: calc(2*var(--tooltip-arrow-size));
+    background: var(--list-view-body-background);
+    border-radius: calc(0.5*var(--tooltip-arrow-size));
+    border: 1px solid var(--list-view-border-color);
+    transform: translate(-50%) rotate(45deg);
+}
+
+.popper[data-popper-placement^="top"] { margin-bottom: var(--tooltip-arrow-size); }
+.popper[data-popper-placement^="top"] .arrow {
+    bottom: calc(-1.4 * var(--tooltip-arrow-size) + 1px);
+    transform: translateX(-50%);
+}
+
+.popper[data-popper-placement^="top"] .arrow::before {
+    top: calc(-50% * 1.4);
+}
+
+.popper[data-popper-placement^="top"]::before {
+    left: 0;
+    right: 0;
+    height: var(--tooltip-arrow-size);
+    bottom: calc(-1 * var(--tooltip-arrow-size));
+}
+
+.popper[data-popper-placement="top-start"] .arrow { left: var(--tooltip-arrow-offset); }
+.popper[data-popper-placement="top"] .arrow { left: 50%; }
+.popper[data-popper-placement="top-end"] .arrow {
+    right: var(--tooltip-arrow-offset);
+}
+
+.popper[data-popper-placement^="bottom"] { margin-top: var(--tooltip-arrow-size); }
+.popper[data-popper-placement^="bottom"] .arrow {
+    top: calc(-1.4 * var(--tooltip-arrow-size) + 1px);
+    transform: translateX(-50%);
+}
+
+.popper[data-popper-placement^="bottom"] .arrow::before {
+    bottom: calc(-50% * 1.4);
+}
+
+.popper[data-popper-placement^="bottom"]::before {
+    left: 0;
+    right: 0;
+    height: var(--tooltip-arrow-size);
+    top: calc(-1 * var(--tooltip-arrow-size));
+}
+.popper[data-popper-placement="bottom-start"] .arrow { left: var(--tooltip-arrow-offset); }
+.popper[data-popper-placement="bottom"] .arrow { left: 50%; }
+.popper[data-popper-placement="bottom-end"] .arrow {
+    right: var(--tooltip-arrow-offset);
 }
 </style>

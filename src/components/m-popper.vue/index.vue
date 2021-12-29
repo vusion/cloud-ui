@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Popper from '@vusion/popper.js';
+import { createPopper as initialPopper } from '@popperjs/core';
 import MEmitter from '../m-emitter.vue';
 import ev from '../../utils/event';
 import single from '../../utils/event/single';
@@ -52,17 +52,18 @@ export default {
             validator: (value) => ['body', 'reference'].includes(value),
         },
         boundariesElement: { type: String, default: 'window' },
-        arrowElement: { type: String, default: '[u-arrow]' },
+        arrowElement: { type: String, default: '[data-popper-arrow]' },
         escapeWithReference: { type: Boolean, default: false },
         followCursor: { type: [Boolean, Number, Object], default: false },
-        offset: { type: [Number, String], default: 0 },
+        offset: { type: [Number, String, Array], default: 0 },
         options: {
             type: Object,
             default() {
-                return { modifiers: {} };
+                return { modifiers: [] };
             },
         },
         disabled: { type: Boolean, default: false },
+        disabledScroll: {type: Boolean, default: false},
     },
     data() {
         return {
@@ -130,6 +131,12 @@ export default {
             this.referenceEl = this.getReferenceEl();
             this.createPopper();
         },
+        offset() {
+            this.destroyTimer = clearTimeout(this.destroyTimer);
+            this.destroyPopper();
+            this.referenceEl = this.getReferenceEl();
+            this.createPopper();
+        }
     },
     mounted() {
         // 字符串类型的 reference 只有首次获取是有效的，因为之后节点会被插到别的地方
@@ -150,16 +157,34 @@ export default {
             const options = Object.assign({}, this.options, {
                 placement: this.placement,
             });
-            // 自定义options 传入offset值情况
-            if (!options.modifiers.offset && this.offset) {
-                options.modifiers.offset = { offset: this.offset };
+            options.modifiers.push({ 
+                name: 'arrow',
+                options: {
+                    element: this.arrowElement
             }
-            options.escapeWithReference = this.escapeWithReference;
-            options.modifiers.arrow = { element: this.arrowElement };
-            options.modifiers.preventOverflow = {
-                enabled: false,
-                boundariesElement: this.boundariesElement,
-            };
+            });
+            options.modifiers.push({
+                name: 'preventOverflow',
+                options: {
+                }
+            });
+            options.modifiers.push({
+                name: 'offset',
+                options: {
+                    offset: ({placement, reference, popper}) => {
+                        let hasArrow = this.$el.querySelector('[class*=arrow]');
+                        if (hasArrow && window.getComputedStyle(hasArrow).borderWidth !== 0 && window.getComputedStyle(hasArrow).display !== 'none') {
+                            return [0, 8];
+                        } else if (typeof this.offset === 'number' && this.offset !== 0) {
+                            return [0, this.offset];
+                        } else if (this.offset instanceof Array) {
+                            return this.offset;
+                        } else {
+                            return [0, 4];
+                        }
+                    }
+            }
+            });
             return options;
         },
         getReferenceEl() {
@@ -279,13 +304,13 @@ export default {
             else if (this.appendTo === 'reference')
                 referenceEl.appendChild(popperEl);
             const options = this.getOptions();
-            this.popper = new Popper(referenceEl, popperEl, options);
+            this.popper = initialPopper(referenceEl, popperEl, options);
         },
         update() {
-            this.popper && this.popper.update();
+            this.popper && this.popper.forceUpdate();
         },
         scheduleUpdate() {
-            this.popper && this.popper.scheduleUpdate();
+            this.popper && this.popper.update();
         },
         destroyPopper() {
             const referenceEl = this.referenceEl;
@@ -303,7 +328,7 @@ export default {
         delayDestroyPopper() {
             this.destroyTimer = setTimeout(() => this.destroyPopper(), this.hideDelay);
         },
-        updatePositionByCursor(e, el) {
+        async updatePositionByCursor(e, el) {
             // @TODO: 两种 offset 属性有些冗余
             if (!el.contains(e.target) || !this.popper)
                 return;
@@ -321,19 +346,16 @@ export default {
             const right = e.clientX - referenceLeft + this.currentFollowCursor.offsetX;
             const bottom = e.clientY - referenceTop + this.currentFollowCursor.offsetY;
 
-            this.popper.reference = {
-                getBoundingClientRect: () => ({
+            this.referenceEl.getBoundingClientRect = () => ({
                     width: 0,
                     height: 0,
                     top,
                     left,
                     right,
                     bottom,
-                }),
-                clientWidth: 0,
-                clientHeight: 0,
-            };
-            this.popper.scheduleUpdate();
+            });
+            await this.popper.update();
+            delete this.referenceEl.getBoundingClientRect;
         },
         open() {
             // Check if enabled
@@ -346,6 +368,11 @@ export default {
             this.currentOpened = true;
             this.$emit('update:opened', true, this); // Emit `after-` events
             // this.$emit('open', undefined, this);
+            if (this.disabledScroll) {
+                // passive：false是为了解除chrome内核浏览器对滚动类事件调用preventDefault方法的限制
+                document.addEventListener('DOMMouseScroll', this.scrollFunc, {passive: false});  
+                document.addEventListener('mousewheel', this.scrollFunc, {passive: false});
+            }
         },
         close() {
             // Check if enabled
@@ -360,6 +387,10 @@ export default {
             this.currentOpened = false;
             this.$emit('update:opened', false, this); // Emit `after-` events
             // this.$emit('close', undefined, this);
+            if (this.disabledScroll) {
+                document.removeEventListener('DOMMouseScroll', this.scrollFunc, {passive: false});  
+                document.removeEventListener('mousewheel',this.scrollFunc, {passive: false});
+            }
         },
         designerControl() {
             this.toggle();
@@ -383,12 +414,19 @@ export default {
                 this.timers[index] = clearTimeout(timer);
             });
         },
+        scrollFunc(e) {
+            let events = e || window.event;  
+            events.preventDefault();  
+            events.stopPropagation();
+            return false;
+        }
     },
 };
 </script>
 
 <style module>
 .root {
-    z-index: 10;
+    z-index: var(--z-index-popper);
+    box-shadow: 0px 0px 4px rgb(3 3 3 / 30%);
 }
 </style>

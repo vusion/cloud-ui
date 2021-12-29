@@ -212,8 +212,10 @@ export default {
                 this.close();
             } else {
                 this.preventBlur = true;
+                if (this.appendTo === 'body') {
+                    this.preventRootBlur = true;
+                }
             }
-
             if (this.filterable) {
                 this.filterText = this.selectedVM ? this.selectedVM.currentText : '';
                 setTimeout(() => {
@@ -309,6 +311,7 @@ export default {
         onClose($event) {
             this.popperOpened = false;
             this.focusedVM = undefined;
+            this.preventRootBlur = false;
             this.$emit('close', $event, this);
             this.$emit('update:opened', false);
         },
@@ -363,9 +366,11 @@ export default {
             setTimeout(() => {
                 if (this.$refs.input && this.$refs.input.focused || this.preventBlur)
                     return;
+                if (this.preventRootBlur)
+                    return (this.preventRootBlur = false);
                 this.close();
                 this.$emit('blur', e);
-            }, 200);
+            }, 400);
         },
         selectByText(text) {
             if (!text)

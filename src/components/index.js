@@ -114,3 +114,4 @@ export * from './u-for.vue';
 export * from './u-if.vue';
 export * from './u-taskbox.vue';
 
+export * from './f-scroll-view.vue';

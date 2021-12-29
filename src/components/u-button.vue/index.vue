@@ -32,6 +32,7 @@ export default { name: 'u-button', extends: ULink };
     border: var(--button-border-width) solid var(--button-border-color);
     border-radius: var(--button-border-radius);
     transition: all var(--transition-duration-base);
+    font-weight: var(--button-font-weight);
 }
 
 .root:hover {
@@ -95,6 +96,45 @@ export default { name: 'u-button', extends: ULink };
     color: var(--button-color-primary-disabled);
     border-color: var(--button-background-primary-disabled);
     box-shadow: none;
+}
+
+.root[color="secondary"] {
+    background: var(--button-background-secondary);
+    color: var(--button-color-secondary);
+    border-color: var(--button-background-secondary);
+}
+
+.root[color="secondary"]:hover {
+    background: var(--button-background-secondary-hover);
+    color: var(--button-color-secondary-hover);
+    border-color: var(--button-background-secondary-hover);
+}
+
+.root[color="secondary"]:focus {
+    box-shadow: var(--button-box-shadow-focus-secondary);
+}
+
+.root[color="secondary"]:active {
+    box-shadow: var(--button-box-shadow-active);
+}
+
+.root[color="secondary"][disabled] {
+    background: var(--button-background-secondary-disabled);
+    color: var(--button-color-secondary-disabled);
+    border-color: var(--button-background-secondary-disabled);
+    box-shadow: none;
+}
+
+.root[grey-border] {
+    border-color: var(--button-grey-border-color);
+}
+
+.root[grey-border]:hover {
+    border-color: var(--button-grey-border-color-hover);
+}
+
+.root[grey-border][disabled] {
+    border-color: var(--button-grey-border-color);
 }
 
 .root[color="danger"] {

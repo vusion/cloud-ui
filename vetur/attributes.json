@@ -113,6 +113,10 @@
     "type": "VNode",
     "description": "需要渲染的 VNode 节点"
   },
+  "f-scroll-view/native": {
+    "type": "Boolean",
+    "description": "是否启用原生滚动条"
+  },
   "f-slot/vm": {
     "type": "Vue",
     "description": "实例"

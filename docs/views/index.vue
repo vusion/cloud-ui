@@ -84,7 +84,7 @@ export default {
 
 <style module>
 :root {
-    --sidebar-width: 210px;
+    --sidebar-width: 240px;
 }
 
 .root {}

@@ -178,6 +178,7 @@
     <u-pagination :class="$style.pagination" v-if="(pageable === true || pageable === 'pagination') && currentDataSource"
         :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
         :page-size="currentDataSource.paging.size" :page-size-options="pageSizeOptions" :show-total="showTotal" :show-sizer="showSizer" :show-jumper="showJumper"
+        :size="paginationSize"
         @change="page($event.page)" @change-page-size="page(currentDataSource.paging.number, $event.pageSize)">
     </u-pagination>
     <div><slot></slot></div>
@@ -214,6 +215,7 @@ export default {
         showTotal: { type: Boolean, default: false },
         showSizer: { type: Boolean, default: true },
         showJumper: { type: Boolean, default: false },
+        paginationSize: { type: String, default: 'normal' },
         sorting: Object,
         defaultOrder: { type: String, default: 'desc' },
         sortTrigger: { type: String, default: 'head' },
@@ -265,6 +267,7 @@ export default {
         childrenField: { type: String, default: 'children' },
         hasChildrenField: { type: String, default: 'hasChildren' },
         treeDataSource: [Function],
+        minColumnWidth: { type: Number, default: 44 },
     },
     data() {
         return {
@@ -535,7 +538,7 @@ export default {
         },
         handleResize() {
             this.tableWidth = undefined;
-            this.bodyHeight = undefined;
+            // this.bodyHeight = undefined;
             this.clearTimeout();
             this.timer = setTimeout(() => {
                 this.timer = undefined;
@@ -648,11 +651,17 @@ export default {
                         const headHeight = this.$refs.head[0] ? this.$refs.head[0].offsetHeight : 0;
                         this.bodyHeight = rootHeight - titleHeight - headHeight;
                     }
+                }else{
+                    this.bodyHeight = undefined;
                 }
 
                 // 当 root 设置了 height，设置 table 的 height，避免隐藏列时的闪烁
-                if (this.$el.style.height !== '' && this.$el.style.height !== 'auto')
+                if (this.$el.style.height !== '' && this.$el.style.height !== 'auto'){
                     this.tableHeight = this.$el.offsetHeight;
+                }
+                else{
+                    this.tableHeight = undefined;
+                }
                 this.$emit('resize', undefined, this);
             });
         },
@@ -663,7 +672,7 @@ export default {
             });
         },
         onResizerDrag($event, columnVM, index) {
-            const minWidth = 44;
+            const minWidth = this.minColumnWidth;
             const rootWidth = this.$el.offsetWidth;
             let beforeWidth = 0;
             for (let i = 0; i < index; i++)
@@ -1241,7 +1250,11 @@ export default {
 }
 
 .head-title[sortable]:hover {
-    background: #eef2f8;
+    background: var(--table-view-head-title-sortable-hover);
+    cursor: pointer;
+}
+.head-title[sortable]:hover .sort{
+    color: var(--table-view-sort-color-hover);
 }
 
 .extra {
@@ -1297,11 +1310,15 @@ export default {
     cursor: var(--cursor-pointer);
     padding-bottom: 6px;
     margin-bottom: -6px;
+    color: var(--brand-disabled);
+}
+.filter-wrap:hover{
+    color: var(--table-view-filter-color-hover);
 }
 
 .filter-wrap::before {
     icon-font: url('../i-icon.vue/assets/filter.svg');
-    color: var(--brand-disabled);
+    color: inherit;
     font-size: var(--font-size-small);
     vertical-align: -2px;
 }
@@ -1339,6 +1356,20 @@ export default {
 
 .row[selected] {
     background: var(--table-view-row-selected-background) !important;
+}
+.row[selected] td{
+    box-shadow: inset 0px 1px 0px 0px var(--table-view-row-selected-border-color),
+        inset 0px -1px 0px 0px var(--table-view-row-selected-border-color);
+}
+.row[selected] td:first-child{
+    box-shadow: inset 0px 1px 0px 0px var(--table-view-row-selected-border-color),
+        inset 0px -1px 0px 0px var(--table-view-row-selected-border-color),
+        inset 1px 0px 0px 0px var(--table-view-row-selected-border-color);
+}
+.row[selected] td:last-child{
+    box-shadow: inset 0px 1px 0px 0px var(--table-view-row-selected-border-color),
+        inset 0px -1px 0px 0px var(--table-view-row-selected-border-color),
+        inset -1px 0px 0px 0px var(--table-view-row-selected-border-color);
 }
 
 .expander {

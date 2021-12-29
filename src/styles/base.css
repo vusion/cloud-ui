@@ -17,8 +17,22 @@ ul[class], ol[class] {
 
 ::-webkit-scrollbar-thumb {
     border-radius: var(--scrollbar-border-radius);
-    background: var(--scrollbar-background);
+    background-color: var(--scrollbar-background);
+    transition: background-color var(--transition-duration-base);
 }
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-background-hover);
+}
+
+[color="inverse"] div::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-background-inverse);
+}
+
+[color="inverse"] div::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-background-hover-inverse);
+}
+
 
 ::-webkit-scrollbar-button,
 ::-webkit-scrollbar-corner {

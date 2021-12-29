@@ -66,15 +66,23 @@
     margin: auto;
     icon-font: url('../i-icon.vue/assets/close-solid.svg');
     cursor: var(--cursor-pointer);
-    color: var(--input-icon-color);
+    color: var(--input-clear-icon-color);
+}
+.clearable:hover::before {
+    color: var(--input-icon-color-hover);
 }
 
 .input:focus {
     outline: var(--focus-outline);
 }
 
+.root:hover {
+    border-color: var(--input-border-color-focus);
+}
+
 .root[focus] {
     border-color: var(--input-border-color-focus);
+    box-shadow: var(--input-box-shadow-focus);
 }
 
 .root[color="default"] { /* By default */ }
@@ -119,15 +127,15 @@
 }
 
 .root[prefix] .input {
-    padding-left: 30px;
+    padding-left: var(--input-prefix-padding-left);
 }
 
 .root[clearable] .input, .root[suffix] .input {
-    padding-right: 30px;
+    padding-right: var(--input-suffix-padding-right);
 }
 
 .prefix[name="search"]::before, .suffix[name="search"]::before {
-    icon-font: url("i-material-design.vue/assets/filled/search.svg");
+    icon-font: url("./assets/search.svg");
     font-size: 16px;
     color: var(--input-icon-color);
 }

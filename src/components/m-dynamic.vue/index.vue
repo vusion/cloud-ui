@@ -1,5 +1,6 @@
 <script>
 import MEmitter from '../m-emitter.vue';
+import cloneDeep from 'lodash/cloneDeep';
 
 export default {
     name: 'm-dynamic',
@@ -37,6 +38,16 @@ export default {
                 return;
             this.currentData.push(item);
             this.$emit('add', { item, index, data: this.currentData }, this);
+            this.$emit('splice', { item, index, data: this.currentData }, this);
+        },
+        duplicate(index) {
+            if (this.currentData.length >= this.maxCount)
+                return;
+            const item = cloneDeep(this.currentData[index]);
+            if (this.$emitPrevent('before-duplicate', { item, index, data: this.currentData }, this))
+                return;
+            this.currentData.splice(index, 0, item);
+            this.$emit('duplicate', { item, index, data: this.currentData }, this);
             this.$emit('splice', { item, index, data: this.currentData }, this);
         },
         remove(index) {

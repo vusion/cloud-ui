@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root">
     <slot></slot>
-    <span v-if="!mutedMessage && touched && !valid && firstError" :class="$style.message" color="error">{{ firstError }}</span>
+    <span ref="message" v-show="!mutedMessage && touched && !valid && firstError && !blurred" :class="$style.message" color="error">{{ firstError }}</span>
 </div>
 </template>
 
@@ -25,12 +25,14 @@ export default {
         rules: [String, Array, Object], // target: { type: String, default: 'auto' }, // 暂不开放此属性
         message: String,
         muted: String,
+        blurReset: { type: Boolean, default: false },
         ignoreRules: { type: Boolean, default: false }, // @deprecated
         ignoreValidation: { type: Boolean, default: false },
         validatingOptions: Object,
         validatingValue: null,
         validatingProcess: { type: Function, default: (value) => value },
         manual: { type: Boolean, default: false },
+        widthReferenceEle: {type: HTMLElement, default: null}
     },
     data() {
         return {
@@ -43,6 +45,7 @@ export default {
             fieldTouched: false,
             realValid: false,
             triggerValid: false,
+            blurred: false,
             validatorVMs: [],
             fieldVM: undefined,
             parentVM: undefined,
@@ -104,6 +107,20 @@ export default {
             );
             this.validate('submit', !this.touched);
         },
+        valid(newValue) {
+            if (!newValue) {
+                if (this.widthReferenceEle){
+                    let refEleLeft = this.widthReferenceEle.getBoundingClientRect().left;
+                    let msgEleLeft = this.$refs.message.parentNode.getBoundingClientRect().left;
+                    let leftPos = msgEleLeft - refEleLeft;
+                    let msgWidth = window.getComputedStyle(this.widthReferenceEle).getPropertyValue('width');
+                    console.log((+msgWidth.substring(-2) - 16) + 'px');
+                    this.$refs.message.style.width = (+msgWidth.substring(0, msgWidth.length-2) - 32) + 'px';
+                    this.$refs.message.style.left = "-"+ (leftPos-16) + "px";
+                    this.$refs.message.style.right = "16px";
+                }
+            }
+        }
     },
     created() {
         const context = this.$vnode.context;
@@ -197,9 +214,20 @@ export default {
             if (this.currentTarget === 'validatorVMs')
                 return;
             this.color = 'focus';
+            this.blurred = false;
+            this.oldValue = this.value;
             this.currentMessage = this.message;
         },
-        onBlur() {
+        errorCheck() {
+            return !this.mutedMessage && this.touched && !this.valid && this.firstError;
+        },
+        onBlur($event) {
+            if (this.blurReset) {
+                this.blurred = true;
+                if (this.errorCheck()) {
+                    this.fieldVM.currentValue = this.oldValue;
+                }
+            }
             if (this.currentTarget === 'validatorVMs' || this.manual)
                 return;
             if (!this.fieldTouched)
