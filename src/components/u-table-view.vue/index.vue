@@ -546,11 +546,17 @@ export default {
                         const headHeight = this.$refs.head[0] ? this.$refs.head[0].offsetHeight : 0;
                         this.bodyHeight = rootHeight - titleHeight - headHeight;
                     }
+                }else{
+                    this.bodyHeight = undefined;
                 }
 
                 // 当 root 设置了 height，设置 table 的 height，避免隐藏列时的闪烁
-                if (this.$el.style.height !== '' && this.$el.style.height !== 'auto')
+                if (this.$el.style.height !== '' && this.$el.style.height !== 'auto'){
                     this.tableHeight = this.$el.offsetHeight;
+                }
+                else{
+                    this.tableHeight = undefined;
+                }
                 this.$emit('resize', undefined, this);
             });
         },
