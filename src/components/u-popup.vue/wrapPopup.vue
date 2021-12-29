@@ -25,7 +25,7 @@
     </component>
 </template>
 <script>
-import UPopupReal from './popupReal.vue';
+import UPopupReal from './index.vue';
 import UVisiblePopup from './visiblePopup.vue';
 export default {
     name: 'u-popup',

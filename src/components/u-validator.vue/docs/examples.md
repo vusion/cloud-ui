@@ -53,7 +53,7 @@
 
 ``` vue
 <template>
-<u-form-item label="端口" required rules="required | integer | range(80, 65535) | unique(...existingPortList)">
+<u-form-item label="端口" required rules="required | integer | range(80, 65535) | unique(existingPortList)">
     <u-input v-model.number="model.port" maxlength="5" placeholder="80-65535内的整数"></u-input>
 </u-form-item>
 </template>
@@ -136,7 +136,7 @@ interface Rule {
 参数为需要验证的值，加上若干函数需要的参数。返回布尔值或布尔值的 Promise。
 
 ``` ts
-type Validator = (value: any, ...args: any[]) => boolean | Promise<boolean>;
+type Validator = (value: any, args: any[]) => boolean | Promise<boolean>;
 ```
 
 参见[内置的验证器](https://github.com/vusion/atom-validator/blob/master/src/builtIn/validators.ts)。
@@ -250,8 +250,8 @@ export default {
         </u-radios>
     </u-form-item>
     <u-form-item label="端口" required :rules="model.protocol === 'HTTP' ?
-        'required | integer | range(80, 65535) | unique(...existingPortList)' :
-        'required | integer | range(443, 65535) | unique(...existingPortList)'">
+        'required | integer | range(80, 65535) | unique(existingPortList)' :
+        'required | integer | range(443, 65535) | unique(existingPortList)'">
         <u-input size="huge medium" v-model.number="model.port" maxlength="5" :placeholder="model.protocol === 'HTTP' ? '80-65535内的整数' : '443-65535内的整数'"></u-input>
     </u-form-item>
 </u-form>
@@ -316,7 +316,7 @@ export default {
                         }
                     },
                 },
-                'unique(...existingPortList)',
+                'unique(existingPortList)',
             ],
         };
     },
@@ -381,7 +381,7 @@ export default {
 ``` vue
 <template>
 <u-form gap="large">
-    <u-form-item label="名称1" required rules="nameBase | rangeLength(4,12) | unique(...existingList)">
+    <u-form-item label="名称1" required rules="nameBase | rangeLength(4,12) | unique(existingList)">
         <u-input size="huge medium" maxlength="12" placeholder="4-12个字符"></u-input>
     </u-form-item>
     <u-form-item label="名称2" required rules="nameBase | rangeLength(8,24)">
