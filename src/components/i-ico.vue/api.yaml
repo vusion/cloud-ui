@@ -10,7 +10,6 @@
     type: iconv
     default: ''
     description: 图标
-    compType: iconInput
   - name: linkType
     title: 链接类型
     type: string
