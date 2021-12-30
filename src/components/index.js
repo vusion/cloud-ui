@@ -9,6 +9,7 @@ export * from './f-render.vue';
 export * from './f-slot.vue';
 export * from './f-virtual-list.vue';
 export * from './i-icon.vue';
+export * from './i-ico.vue';
 export * from './m-complex.vue';
 export * from './m-debug.vue';
 export * from './m-dynamic.vue';
