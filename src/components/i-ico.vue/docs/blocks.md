@@ -1,7 +1,7 @@
 ### 基本用法
 
 ``` html
-<i-ico name="默认">
+<i-ico name="moren">
     <u-text>默认</u-text>
 </i-ico>
 ```
