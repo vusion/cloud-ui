@@ -107,7 +107,7 @@ export default {
       {
         "icon_id": "26504227",
         "name": "任务失败",
-        "font_class": "task-fail",
+        "font_class": "task-failed",
         "unicode": "e648",
         "unicode_decimal": 58952
       },
@@ -149,7 +149,7 @@ export default {
       {
         "icon_id": "26504107",
         "name": "查找",
-        "font_class": "look",
+        "font_class": "find",
         "unicode": "e642",
         "unicode_decimal": 58946
       },
@@ -170,7 +170,7 @@ export default {
       {
         "icon_id": "26504037",
         "name": "删除",
-        "font_class": "del",
+        "font_class": "remove",
         "unicode": "e63f",
         "unicode_decimal": 58943
       },
@@ -191,7 +191,7 @@ export default {
       {
         "icon_id": "26503500",
         "name": "提醒",
-        "font_class": "notice",
+        "font_class": "info",
         "unicode": "e63a",
         "unicode_decimal": 58938
       },
@@ -212,28 +212,28 @@ export default {
       {
         "icon_id": "26503372",
         "name": "失败",
-        "font_class": "fail",
+        "font_class": "error",
         "unicode": "e637",
         "unicode_decimal": 58935
       },
       {
         "icon_id": "26503253",
         "name": "收藏",
-        "font_class": "store",
+        "font_class": "star",
         "unicode": "e636",
         "unicode_decimal": 58934
       },
       {
         "icon_id": "26503186",
         "name": "附件",
-        "font_class": "appendix",
+        "font_class": "attachment",
         "unicode": "e635",
         "unicode_decimal": 58933
       },
       {
         "icon_id": "26503172",
         "name": "通知",
-        "font_class": "advise",
+        "font_class": "notice",
         "unicode": "e634",
         "unicode_decimal": 58932
       }
