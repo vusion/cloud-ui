@@ -146,6 +146,10 @@ export default {
         //     'input',
         //     this.toValue(this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : ''),
         // );
+        this.$emit(
+            'update',
+            this.toValue(this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : ''),
+        );
     },
     methods: {
         clearValue() {
