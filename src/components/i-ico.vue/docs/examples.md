@@ -2,7 +2,7 @@
 
 ``` html
 <u-linear-layout>
-    <i-ico name="moren">
+    <i-ico name="default">
         <u-text>默认</u-text>
     </i-ico>
 </u-linear-layout>

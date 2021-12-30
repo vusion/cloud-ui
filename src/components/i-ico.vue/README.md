@@ -17,7 +17,7 @@
 
 ``` html
 <u-linear-layout>
-    <i-ico name="moren">默认</i-ico>
+    <i-ico name="default">默认</i-ico>
 </u-linear-layout>
 ```
 

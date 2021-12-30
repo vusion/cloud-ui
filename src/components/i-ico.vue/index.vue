@@ -47,7 +47,7 @@ export default {
     methods: {
         getName() {
             const item = this.iconconfig.glyphs.find((v) => v.font_class === this.name);
-            return item ? item.font_class : 'moren';
+            return item ? item.font_class : 'default';
         },
         onClick(ev) {
             console.log(ev, 999)
