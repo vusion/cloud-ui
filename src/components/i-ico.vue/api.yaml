@@ -7,7 +7,7 @@
   attrs:
   - name: name
     title: 图标
-    type: iconv
+    type: icon
     default: ''
     description: 图标
   - name: linkType

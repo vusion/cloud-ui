@@ -178,10 +178,9 @@
       description: 此项的值
     - name: icon
       title: 图标
-      type: iconv
+      type: icon
       default: ''
       description: 图标
-      compType: iconInput
     - name: disabled
       title: 禁用
       type: boolean

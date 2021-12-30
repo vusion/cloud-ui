@@ -9,10 +9,9 @@
   attrs:
     - name: icon
       title: 图标
-      type: iconv
+      type: icon
       default: 通知
       description: 图标
-      compType: iconInput
     - name: size
       type: number
       default: 5
