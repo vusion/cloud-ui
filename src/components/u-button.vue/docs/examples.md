@@ -19,12 +19,12 @@
 <u-linear-layout gap="small">
     <u-button color="primary" text="Primary"></u-button>
     <u-button color="primary" shape="round" text="Round"></u-button>
-    <u-button color="primary" shape="square" icon="刷新"></u-button>
-    <u-button color="primary" shape="circle" icon="刷新"></u-button>
+    <u-button color="primary" shape="square" icon="refresh"></u-button>
+    <u-button color="primary" shape="circle" icon="refresh"></u-button>
     <u-button text="Default"></u-button>
     <u-button shape="round" text="Round"></u-button>
-    <u-button shape="square" icon="刷新"></u-button>
-    <u-button shape="circle" icon="刷新"></u-button>
+    <u-button shape="square" icon="refresh"></u-button>
+    <u-button shape="circle" icon="refresh"></u-button>
 </u-linear-layout>
 ```
 
@@ -50,26 +50,26 @@
     <u-linear-layout gap="small">
         <u-button size="mini" color="primary" text="Primary"></u-button>
         <u-button size="mini" color="primary" shape="round" text="Round"></u-button>
-        <u-button size="mini" shape="square" icon="刷新"></u-button>
-        <u-button size="mini" shape="circle" icon="刷新"></u-button>
+        <u-button size="mini" shape="square" icon="refresh"></u-button>
+        <u-button size="mini" shape="circle" icon="refresh"></u-button>
     </u-linear-layout>
     <u-linear-layout gap="small">
         <u-button size="small" color="primary" text="Primary"></u-button>
         <u-button size="small" color="primary" shape="round" text="Round"></u-button>
-        <u-button size="small" shape="square" icon="刷新"></u-button>
-        <u-button size="small" shape="circle" icon="刷新"></u-button>
+        <u-button size="small" shape="square" icon="refresh"></u-button>
+        <u-button size="small" shape="circle" icon="refresh"></u-button>
     </u-linear-layout>
     <u-linear-layout gap="small">
         <u-button size="normal" color="primary" text="Primary"></u-button>
         <u-button size="normal" color="primary" shape="round" text="Round"></u-button>
-        <u-button size="normal" shape="square" icon="刷新"></u-button>
-        <u-button size="normal" shape="circle" icon="刷新"></u-button>
+        <u-button size="normal" shape="square" icon="refresh"></u-button>
+        <u-button size="normal" shape="circle" icon="refresh"></u-button>
     </u-linear-layout>
     <u-linear-layout gap="small">
         <u-button size="large" color="primary" text="Primary"></u-button>
         <u-button size="large" color="primary" shape="round" text="Round"></u-button>
-        <u-button size="large" shape="square" icon="刷新"></u-button>
-        <u-button size="large" shape="circle" icon="刷新"></u-button>
+        <u-button size="large" shape="square" icon="refresh"></u-button>
+        <u-button size="large" shape="circle" icon="refresh"></u-button>
     </u-linear-layout>
 </u-linear-layout>
 ```
@@ -100,11 +100,11 @@
 
 ``` html
 <u-linear-layout gap="small">
-    <u-button color="primary" icon="添加" text="确定"></u-button>
-    <u-button color="primary" icon="添加" disabled text="创建实例"></u-button>
-    <u-button color="primary" icon="成功" text="创建成功"></u-button>
-    <u-button shape="square" icon="刷新"></u-button>
-    <u-button icon="首页" text="首页"></u-button>
+    <u-button color="primary" icon="add" text="确定"></u-button>
+    <u-button color="primary" icon="add" disabled text="创建实例"></u-button>
+    <u-button color="primary" icon="success" text="创建成功"></u-button>
+    <u-button shape="square" icon="refresh"></u-button>
+    <u-button icon="home" text="首页"></u-button>
 </u-linear-layout>
 ```
 
@@ -116,8 +116,8 @@
 <template>
 <u-linear-layout gap="small">
     <u-button color="primary" loading text="创建实例"></u-button>
-    <u-button color="primary" icon="添加" loading disabled text="创建实例"></u-button>
-    <u-button color="primary" shape="square" icon="刷新"
+    <u-button color="primary" icon="add" loading disabled text="创建实例"></u-button>
+    <u-button color="primary" shape="square" icon="refresh"
         :loading="loading" :disabled="loading"
         @click="loading = true">
     </u-button>

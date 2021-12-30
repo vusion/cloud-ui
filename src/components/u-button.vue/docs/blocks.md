@@ -13,5 +13,5 @@
 ### 图标按钮
 
 ``` html
-<u-button color="primary" icon="添加" text="确定"></u-button>
+<u-button color="primary" icon="add" text="确定"></u-button>
 ```
