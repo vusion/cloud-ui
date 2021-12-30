@@ -1,5 +1,5 @@
 ### 任务箱
 
 ``` html
-<u-taskbox icon="advise"></u-taskbox>
+<u-taskbox icon="notice"></u-taskbox>
 ```
