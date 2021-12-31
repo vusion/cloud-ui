@@ -58,8 +58,8 @@ export default {
                     return props.href;
                 if (props.destination !== undefined && props.destination !== "")
                     return props.destination;
-                else if (parent?.$router && props.to !== undefined)
-                    return parent?.$router.resolve(props.to, parent?.$route, props.append).href;
+                else if (parent && parent.$router && props.to !== undefined)
+                    return parent && parent.$router.resolve(props.to, parent && parent.$route, props.append).href;
                 else
                     return undefined;
             }
@@ -89,8 +89,8 @@ export default {
                 let cancel = false;
                 if (cancel)
                     return;
-                const $router = parent?.$router;
-                const $route = parent?.$route;
+                const $router = parent && parent.$router;
+                const $route = parent && parent.$route;
                 const { location } = $router.resolve(
                     currentTo,
                     $route,
