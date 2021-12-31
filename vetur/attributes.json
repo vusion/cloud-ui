@@ -157,6 +157,56 @@
     "type": "string",
     "description": "列表的键。一般用于 mixin 方式，修改全部数据的列表来源。"
   },
+  "i-ico/name": {
+    "type": "icon",
+    "description": "图标"
+  },
+  "i-ico/linkType": {
+    "type": "string",
+    "options": [
+      {
+        "value": "destination",
+        "title": "页面跳转"
+      },
+      {
+        "value": "href",
+        "title": "普通链接"
+      },
+      {
+        "value": "download",
+        "title": "下载链接"
+      }
+    ],
+    "description": "链接类型"
+  },
+  "i-ico/hrefAndTo": {
+    "type": "string",
+    "description": "链接地址"
+  },
+  "i-ico/target": {
+    "type": "string",
+    "options": [
+      {
+        "value": "_blank",
+        "title": "新标签页"
+      },
+      {
+        "value": "_self",
+        "title": "当前窗口"
+      },
+      {
+        "value": "_parent",
+        "title": "父级窗口",
+        "advanced": true
+      },
+      {
+        "value": "_top",
+        "title": "顶级窗口",
+        "advanced": true
+      }
+    ],
+    "description": "链接打开方式"
+  },
   "i-icon/name": {
     "type": "string",
     "options": [
@@ -865,22 +915,8 @@
     "description": "展示方式"
   },
   "u-button/icon": {
-    "type": "string",
-    "options": [
-      {
-        "value": "refresh",
-        "title": "刷新"
-      },
-      {
-        "value": "create",
-        "title": "创建"
-      },
-      {
-        "value": "success",
-        "title": "成功"
-      }
-    ],
-    "description": "设置图标。"
+    "type": "icon",
+    "description": "图标"
   },
   "u-button/loading": {
     "type": "boolean",
@@ -3780,6 +3816,10 @@
     "type": "any",
     "description": "此项的值"
   },
+  "u-navbar-item/icon": {
+    "type": "icon",
+    "description": "图标"
+  },
   "u-navbar-item/disabled": {
     "type": "boolean",
     "description": "禁用此项"
@@ -4605,6 +4645,10 @@
     "type": "any",
     "description": "此项的值"
   },
+  "u-sidebar-item/icon": {
+    "type": "icon",
+    "description": "图标"
+  },
   "u-sidebar-item/disabled": {
     "type": "boolean",
     "description": "禁用此项"
@@ -5248,6 +5292,10 @@
   "u-tab/exact": {
     "type": "boolean",
     "description": "需要 router 为 true，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。"
+  },
+  "u-taskbox/icon": {
+    "type": "icon",
+    "description": "图标"
   },
   "u-taskbox/size": {
     "type": "number",

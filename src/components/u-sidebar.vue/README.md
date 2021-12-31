@@ -35,7 +35,7 @@
 
 ``` html
 <u-sidebar style="width: 200px;">
-    <u-sidebar-item>指南</u-sidebar-item>
+    <u-sidebar-item icon="refresh">指南</u-sidebar-item>
     <u-sidebar-item>概念</u-sidebar-item>
     <u-sidebar-item to="/cloud-ui">组件</u-sidebar-item>
 </u-sidebar>
@@ -357,6 +357,7 @@ Methods
 | --------- | ---- | ------- | ------- | ----------- |
 | text | string |  |  | 文本内容 |
 | value | any |  |  | 此项的值 |
+| icon | icon |  | `''` | 图标 |
 | disabled | boolean |  | `false` | 禁用此项 |
 | item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
 | linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'href'` | 链接类型 |
