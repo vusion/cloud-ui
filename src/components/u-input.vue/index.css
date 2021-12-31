@@ -66,7 +66,10 @@
     margin: auto;
     icon-font: url('../i-icon.vue/assets/close-solid.svg');
     cursor: var(--cursor-pointer);
-    color: var(--input-icon-color);
+    color: var(--input-clear-icon-color);
+}
+.clearable:hover::before {
+    color: var(--input-icon-color-hover);
 }
 
 .input:focus {

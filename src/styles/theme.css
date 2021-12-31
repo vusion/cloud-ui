@@ -509,6 +509,8 @@
     --carousel-button-font-size: 16px;
     --carousel-button-color: rgba(255, 255, 255, 0.6);
     --carousel-button-color-hover: white;
+    --carousel-button-background: rgba(0, 0, 0, 0.2);
+    --carousel-button-background-hover: rgba(0, 0, 0, 0.2);
     --carousel-button-transition: all 0.3s;
 
     /* @component u-avatar @hidden */
@@ -786,6 +788,8 @@
     --input-border-color-focus: #81abe9;
     --input-placeholder-color: var(--color-lighter);
     --input-icon-color: #a7afbb;
+    --input-clear-icon-color: #a7afbb;
+    --input-icon-color-hover: var(--input-icon-color);
     --input-border-radius: 3px;
 
     /* @component u-textarea */
@@ -804,6 +808,7 @@
     --textarea-color: var(--color-base);
     --textarea-border-color: var(--border-color-base);
     --textarea-background: var(--brand-disabled);
+    --textarea-placeholder-color: var(--color-light);
 
     /* @component u-number-input */
     --number-input-height: 16px;
@@ -837,6 +842,7 @@
     --switch-button-size: 18px;
     --switch-button-size-small: 14px;
     --switch-button-background: white;
+    --switch-button-background-checked: white;
     --switch-button-radius: 100px;
     --switch-background: var(--border-color-base);
     --switch-background-checked: var(--brand-primary);
@@ -861,6 +867,8 @@
     --checkbox-box-shadow-focus: var(--button-box-shadow-focus);
     --checkbox-icon: '\ff01';
     --checkbox-icon-size: var(--font-size-small);
+    --checkbox-icon-left: 0;
+    --checkbox-icon-top: 0;
     /* @component u-select */
     --select-width: var(--width-base);
     --select-width-mini: var(--width-mini);
@@ -919,6 +927,8 @@
     --select-popper-color-inverse: var(--color-base-inverse);
     --select-status-color: var(--color-light);
     --select-box-shadow-focus: var(--button-box-shadow-focus);
+    --select-icon-color: #a7afbb;
+    --select-icon-color-hover: var(--select-icon-color);
 
     /* @component u-slider */
     --slider-body-margin: 0 10px;
@@ -1112,6 +1122,7 @@
     --toast-item-padding: 8px 16px;
     --toast-item-space: 10px;
     --toast-item-border-radius: var(--border-radius-large);
+    --toast-item-icon-top: 8px;
     --toast-item-icon-margin-right: 8px;
     --toast-item-icon-vertical-align: -1px;
     --toast-item-icon-font-size: 16px;
@@ -1131,6 +1142,7 @@
     --modal-dialog-background: white;
     --modal-dialog-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     --modal-title-font-size: var(--font-size-large);
+    --modal-title-font-weight: normal;
     --modal-close-right: 24px;
     --modal-close-color: var(--gray-dark);
     --modal-close-color-hover: var(--gray-darker);
