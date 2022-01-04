@@ -271,4 +271,7 @@ export default { name: 'u-button', extends: ULink };
     display: block;
     width: auto;
 }
+.root [class^="i-ico_lcp-iconv"] {
+    margin-right: 4px;
+}
 </style>

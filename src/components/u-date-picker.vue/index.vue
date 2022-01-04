@@ -115,6 +115,11 @@ export default {
         //     'input',
         //     this.toValue(this.showDate ? new Date(this.transformDate(this.showDate)) : ''),
         // ); // document.addEventListener('click', this.fadeOut, false);
+
+        this.$emit(
+            'update',
+            this.toValue(this.showDate ? new Date(this.transformDate(this.showDate)) : ''),
+        );
     },
     methods: {
         getFormatString() {

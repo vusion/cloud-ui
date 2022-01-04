@@ -7,6 +7,11 @@
   next: true
   nested: false
   attrs:
+    - name: icon
+      title: 图标
+      type: icon
+      default: 通知
+      description: 图标
     - name: size
       type: number
       default: 5

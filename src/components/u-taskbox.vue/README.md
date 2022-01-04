@@ -19,6 +19,7 @@
 
 ``` html
 <u-linear-layout gap="large">
+    <u-taskbox icon="notice"></u-taskbox>
     <u-taskbox :size="5"></u-taskbox>
     <u-taskbox :size="10"></u-taskbox>
 </u-linear-layout>
@@ -29,6 +30,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| icon | icon |  | `'通知'` | 图标 |
 | size | number |  | `5` | 每页条数 |
 | interval | number |  | `30` | 定时刷新时间间隔 s |
 | title | string |  |  | 鼠标 hover 在图标上展示文案 |

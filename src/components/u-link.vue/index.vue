@@ -6,14 +6,21 @@
     :loading="loading || $attrs.loading"
     @click="onClick" v-on="listeners"
     vusion-slot-name="text">
+    <i-ico v-if="icon" :name="icon" :class="$style.btnicon" notext></i-ico>
     <slot>{{ text }}</slot>
 </a>
 </template>
 
 <script>
+import IIco from '../i-ico.vue';
+
 export default {
     name: 'u-link',
+    components: {
+        IIco,
+    },
     props: {
+        icon: String,
         text: String,
         href: String,
         target: { type: String, default: '_self' },
@@ -200,5 +207,8 @@ export default {
 .root:lang(en) {
     display: inline-block;
     max-width: 100%;
+}
+.btnicon {
+
 }
 </style>

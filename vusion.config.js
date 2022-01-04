@@ -43,7 +43,7 @@ module.exports = {
             { group: '展示', name: 'u-text', alias: '文本' },
             { group: '展示', name: 'u-link', alias: '链接' },
             { group: '展示', name: 'u-button', alias: '按钮' },
-            { group: '展示', name: 'i-icon', alias: '图标' },
+            { group: '展示', name: 'i-ico', alias: '图标' },
             { group: '展示', name: 'u-label', alias: '标签' },
             { group: '展示', name: 'u-badge', alias: '徽章' },
             { group: '展示', name: 'u-carousel', alias: '幻灯片' },

@@ -48,7 +48,7 @@
 
 ``` html
 <u-navbar style="background: #4289db;">
-    <u-navbar-item to="/components">组件</u-navbar-item>
+    <u-navbar-item to="/components" icon="home">组件</u-navbar-item>
     <u-navbar-item>概念</u-navbar-item>
     <u-navbar-item disabled>指令</u-navbar-item>
     <u-navbar-divider></u-navbar-divider>
@@ -323,6 +323,7 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | text | string |  |  | 文本内容 |
 | value | any |  |  | 此项的值 |
+| icon | icon |  | `''` | 图标 |
 | disabled | boolean |  | `false` | 禁用此项 |
 | item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
 | linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'href'` | 链接类型 |

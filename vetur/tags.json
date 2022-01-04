@@ -83,6 +83,15 @@
     ],
     "description": "用于提升大数据量列表的性能。支持自动计算列表项高度。"
   },
+  "i-ico": {
+    "attributes": [
+      "name",
+      "linkType",
+      "hrefAndTo",
+      "target"
+    ],
+    "description": "图标"
+  },
   "i-icon": {
     "attributes": [
       "name"
@@ -1125,6 +1134,7 @@
     "attributes": [
       "text",
       "value",
+      "icon",
       "disabled",
       "item",
       "linkType",
@@ -1416,6 +1426,7 @@
     "attributes": [
       "text",
       "value",
+      "icon",
       "disabled",
       "item",
       "linkType",
@@ -1621,6 +1632,7 @@
   },
   "u-taskbox": {
     "attributes": [
+      "icon",
       "size",
       "interval",
       "title"

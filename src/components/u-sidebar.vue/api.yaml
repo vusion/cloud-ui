@@ -183,6 +183,11 @@
       type: any
       default: null
       description: 此项的值
+    - name: icon
+      title: 图标
+      type: icon
+      default: ''
+      description: 图标
     - name: disabled
       title: 禁用
       type: boolean

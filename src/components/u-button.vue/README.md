@@ -122,10 +122,11 @@
 
 ``` html
 <u-linear-layout gap="small">
-    <u-button color="primary" icon="create" text="创建实例"></u-button>
-    <u-button color="primary" icon="create" disabled text="创建实例"></u-button>
+    <u-button color="primary" icon="add" text="确定"></u-button>
+    <u-button color="primary" icon="add" disabled text="创建实例"></u-button>
     <u-button color="primary" icon="success" text="创建成功"></u-button>
     <u-button shape="square" icon="refresh"></u-button>
+    <u-button icon="home" text="首页"></u-button>
 </u-linear-layout>
 ```
 
@@ -137,7 +138,7 @@
 <template>
 <u-linear-layout gap="small">
     <u-button color="primary" loading text="创建实例"></u-button>
-    <u-button color="primary" icon="create" loading disabled text="创建实例"></u-button>
+    <u-button color="primary" icon="add" loading disabled text="创建实例"></u-button>
     <u-button color="primary" shape="square" icon="refresh"
         :loading="loading" :disabled="loading"
         @click="loading = true">
@@ -179,7 +180,7 @@ export default {
 | shape | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 设置形状 |
 | disabled | boolean |  | `false` | 是否禁用。禁用后不会响应点击事件。 |
 | display | string | `[object Object]`<br/>`[object Object]` | `'inline'` | 展示方式 |
-| icon | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'success'` | 设置图标。 |
+| icon | icon |  | `''` | 图标 |
 | loading | boolean |  | `false` | 是否为加载中。 |
 | linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'href'` | 链接类型 |
 | hrefAndTo | string |  |  | 链接地址 |
