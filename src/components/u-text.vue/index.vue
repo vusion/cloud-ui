@@ -78,6 +78,7 @@ export default {
 .root[overflow="break"], .root[wrap="break"] {
     word-wrap: break-word;
     hyphens: auto;
+    white-space: normal;
 }
 
 .root[overflow="nowrap"], .root[wrap="nowrap"] {
