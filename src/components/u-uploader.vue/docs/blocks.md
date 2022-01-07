@@ -8,7 +8,22 @@
     :limit="999"
     maxSize="50MB"
     converter="json">
-    <u-button color="primary">Upload</u-button>
+    <u-button color="primary" icon="upload">上传</u-button>
+</u-uploader>
+```
+
+### 单个文件按钮
+
+下面的例子为单文件上传。
+
+``` html
+<u-uploader
+    draggable
+    url="/gateway/lowcode/api/v1/app/upload" url-field="result"
+    :limit="999"
+    maxSize="50MB"
+    converter="json">
+    <u-button color="primary">选择文件</u-button>
 </u-uploader>
 ```
 
@@ -35,6 +50,6 @@
     :limit="999"
     maxSize="50MB"
     converter="json">
-    <u-button color="primary">Upload</u-button>
+    <u-button color="primary" icon="upload">上传</u-button>
 </u-uploader>
 ```

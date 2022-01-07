@@ -8,12 +8,12 @@
 
 ``` vue
 <template>
-<u-switch v-model="value" width="wide">{{ value ? 'ON' : 'OFF' }}</u-switch>
+<u-switch v-model="value" width="wide" disabled>{{ value ? 'ON' : 'OFF' }}</u-switch>
 </template>
 <script>
 export default {
     data() {
-        return { value: false };
+        return { value: true };
     },
 };
 </script>

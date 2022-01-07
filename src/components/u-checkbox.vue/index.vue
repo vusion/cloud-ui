@@ -1,8 +1,8 @@
 <template>
-<label :class="$style.root" :disabled="disabled" @click="check()"
+<label :class="$style.root" :disabled="currentDisabled" @click="check()"
     tabindex="0" @keydown.space.prevent @keyup.space.prevent="check()"
     @focus="onFocus" @blur="onBlur" v-on="listeners" allowChild>
-    <span :class="$style.box" :status="String(currentValue)" :disabled="disabled"></span>
+    <span :class="$style.box" :status="String(currentValue)" :disabled="currentDisabled"></span>
     <span vusion-slot-name="text"><slot>{{ text }}</slot></span>
 </label>
 </template>
@@ -33,6 +33,9 @@ export default {
                 delete listeners[prop];
             });
             return listeners;
+        },
+        currentDisabled() {
+            return this.disabled || (this.parentVM && this.parentVM.exceedMax() && !this.currentValue);
         },
     },
     watch: {
@@ -97,7 +100,7 @@ export default {
 .root {
     user-select: none;
     cursor: var(--cursor-pointer);
-    color: #666;
+    color: var(--checkbox-font-color);
 }
 
 .root:focus {
@@ -110,7 +113,10 @@ export default {
 
 .root[disabled] {
     cursor: var(--cursor-not-allowed);
-    color: #666;
+    color: var(--checkbox-font-color-disabled);
+}
+.root[disabled]:focus .box[status="true"]{
+    box-shadow: none;
 }
 
 .box {
@@ -127,7 +133,7 @@ export default {
     text-align: center;
     font-size: var(--checkbox-icon-size);
     transition: all var(--transition-duration-base);
-    vertical-align: 1px;
+    vertical-align: -1px;
 }
 
 .box:hover {
