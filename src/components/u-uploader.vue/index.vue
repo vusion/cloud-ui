@@ -20,7 +20,8 @@
             <div :class="$style.item" v-for="(item, index) in currentValue" :key="index">
                 <div :class="$style.thumb"><img :class="$style.img" v-if="listType === 'image'" :src="item.thumb || item.url"></div>
                 <a :class="$style.link" :href="item.url" target="_blank">{{ item.name }}</a>
-                <span v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></span>
+                <!-- <span v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></span> -->
+                <i-ico name="remove" v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></i-ico>
                 <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
             </div>
         </template>
@@ -515,7 +516,7 @@ export default {
     display: none;
     float: right;
     line-height: 1;
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 4px;
     cursor: var(--cursor-pointer);
     opacity: 0.5;
@@ -529,12 +530,12 @@ export default {
     opacity: 1;
 }
 
-.remove::before {
+/* .remove::before {
     icon-font: url('../i-icon.vue/assets/close.svg');
-}
+} */
 
 .list[list-type="image"] .remove {
-    margin-top: 2px;
+    margin-top: 18px;
 }
 
 .list[list-type="card"] {
@@ -657,7 +658,13 @@ export default {
 }
 
 .draggable::before {
-    font-size: 32px;
+    font-size: 24px;
     icon-font: url('./assets/upload.svg');
+    color: var(--uploader-draggable-color);
+}
+.draggable:focus::before,
+.draggable:hover::before,
+.draggable[dragover]::before{
+    color: var(--uploader-draggable-color-hover);
 }
 </style>

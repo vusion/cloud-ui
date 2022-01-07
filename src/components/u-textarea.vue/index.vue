@@ -11,7 +11,7 @@
     <slot></slot>
     <span v-if="clearable && currentValue" :class="$style.clearable" @click.stop="clear"></span>
     <f-dragger @dragstart="onDragStart" @drag="onDrag">
-        <div ref="handle" :class="$style.handle" v-show="resize !== 'none'"></div>
+        <div ref="handle" :class="$style.handle" v-show="resize !== 'none'" :resize="resize"></div>
     </f-dragger>
 </div>
 </template>
@@ -116,6 +116,15 @@ export default {
     border-top: 1px solid #666;
     border-bottom: 1px solid #666;
     transform: rotate(-45deg) translate(-2px, 2px);
+}
+.handle[resize="vertical"]{
+    cursor: ns-resize;
+}
+.handle[resize="horizontal"]{
+    cursor: ew-resize;
+}
+.handle[resize="both"]{
+    cursor: nwse-resize;
 }
 
 .input::placeholder {

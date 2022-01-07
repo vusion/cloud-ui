@@ -86,6 +86,7 @@
 
     --checkbox-color: white;
     --checkbox-color-disabled: rgba(255,255,255,0.2);
+    --checkbox-font-color: white;
     --checkbox-border-color: rgba(255, 255, 255, 0.6);
     --checkbox-border-color-hover: white;
     --checkbox-border-color-disabled: rgba(255, 255, 255, 0.4);
@@ -96,6 +97,7 @@
     --checkbox-background-disabled: rgba(255, 255, 255, 0.2);
     --checkbox-icon: '\ff02';
     --checkbox-icon-size: 16px;
+    --checkbox-size: 16px;
 
     /* --input-border-color: 0; */
     --input-background: var(--background-color-base);
@@ -186,7 +188,7 @@
 
     --list-view-group-head-background: transparent;
     --list-view-item-background-hover: var(--brand-theme);
-    --list-view-item-background-focused: var(--brand-theme);
+    --list-view-item-background-focused: #404041;
     --list-view-item-background-selected: var(--brand-theme);
     --list-view-item-padding: 4px 8px;
 

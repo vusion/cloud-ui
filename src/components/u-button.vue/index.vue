@@ -230,7 +230,7 @@ export default { name: 'u-button', extends: ULink };
 /**
  * Icon extends
  */
-.root[icon="create"]::before {
+/* .root[icon="create"]::before {
     icon-font: url('../i-icon.vue/icons/create.svg');
 }
 
@@ -242,7 +242,7 @@ export default { name: 'u-button', extends: ULink };
     icon-font: url('../i-icon.vue/assets/success.svg');
     font-size: 18px;
     vertical-align: -2px;
-}
+} */
 
 .root[icon="loading"]::before, /* @deprecated */
 .root[loading]::before {

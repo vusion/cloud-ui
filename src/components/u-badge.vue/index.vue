@@ -43,6 +43,7 @@ export default {
     border-radius: 100px;
     background: var(--badge-background);
     color: var(--badge-color);
+    box-shadow: var(--badge-box-shadow);
 }
 
 .root[corner] {

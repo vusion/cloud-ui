@@ -1,8 +1,8 @@
 <template>
 <label :class="$style.root" allowChild :disabled="currentDisabled" @click="select()"
 tabindex="0" @keydown.space.prevent @keyup.space.prevent="select()"
-@focus="onFocus" @blur="onBlur" v-on="listeners">
-    <span :class="$style.radio" :selected="selected" :disabled="currentDisabled"></span>
+@focus="onFocus" @blur="onBlur" v-on="listeners" :readonly="currentReadonly">
+    <span :class="$style.radio" :selected="selected" :disabled="currentDisabled" :readonly="currentReadonly"></span>
     <span vusion-slot-name="text"><slot>{{ text }}</slot></span>
 </label>
 </template>
@@ -40,6 +40,9 @@ export default {
         },
         currentDisabled() {
             return this.disabled || (this.parentVM && this.parentVM.disabled);
+        },
+        currentReadonly() {
+            return this.readonly || (this.parentVM && this.parentVM.readonly);
         },
     },
     mounted() {
@@ -94,7 +97,15 @@ export default {
 
 .root[disabled] {
     cursor: var(--cursor-not-allowed);
-    color: var(--brand-disabled);
+    color: var(--radio-color-disabled);
+}
+.root[disabled]:focus .radio,
+.root[readonly]:focus .radio
+{
+    box-shadow: var(--radio-box-shadow-focus-disabled);
+}
+.root[readonly]:hover {
+    cursor: var(--radio-cursor-readonly);
 }
 
 .radio {
@@ -116,6 +127,11 @@ export default {
 .radio:hover {
     border-color: var(--radio-border-color-hover);
 }
+.radio[readonly]:hover,
+.radio[disabled]:hover {
+    border-color: var(--radio-border-color-disabled);
+}
+
 
 .radio::before {
     display: inline-block;

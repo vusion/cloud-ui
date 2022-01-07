@@ -1429,7 +1429,9 @@ export default {
     line-height: var(--table-view-tree-expander-size);
     text-align: center;
 }
-.tree_expander[icon="loading"]::before, /* @deprecated */
+.tree_expander[loading]{
+    margin-right: 4px;
+}
 .tree_expander[loading]::before {
     content: '';
     font: inherit;
