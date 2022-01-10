@@ -53,7 +53,7 @@ export default {
 .root[corner] .value {
     position: absolute;
     transform: translateX(50%);
-    right: 0;
+    right: -5px;
     top: calc(var(--badge-value-size) / -2);
 }
 

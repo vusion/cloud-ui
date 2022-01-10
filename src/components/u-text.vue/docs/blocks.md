@@ -22,10 +22,10 @@
 <u-text color="primary" text="主要文本"></u-text>
 ```
 
-### 次要文本
+### 辅助文本
 
 ``` html
-<u-text color="secondary" text="次要文本"></u-text>
+<u-text color="secondary" text="辅助文本"></u-text>
 ```
 
 ### 成功文本
@@ -46,10 +46,10 @@
 <u-text color="error" text="错误文本"></u-text>
 ```
 
-### 禁默文本
+### 禁用文本
 
 ``` html
-<u-text color="disabled" text="禁默文本"></u-text>
+<u-text color="disabled" text="禁用文本"></u-text>
 ```
 
 ### 文本过长省略
