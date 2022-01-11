@@ -309,7 +309,7 @@ export default {
     z-index: 100;
     width: 248px;
     top: 100%;
-    margin-top: 2px;
+    /* margin-top: 2px; */
 }
 
 .wrap {
@@ -324,9 +324,8 @@ export default {
     cursor: var(--cursor-pointer);
 }
 
-.closeIcon:hover {
-    color: var(--color-light);
-    background-color: #ebedef;
+.closeIcon:hover::before {
+    color: var(--input-icon-color-hover);
 }
 
 .closeIcon::before {
@@ -340,10 +339,12 @@ export default {
     margin: auto;
     icon-font: url('../i-icon.vue/assets/close-solid.svg');
     cursor: var(--cursor-pointer);
-    color: var(--input-clearable-color);
+    color: var(--input-clear-icon-color);
 }
 
 .popper {
     z-index: var(--z-index-tooltip);
+    box-shadow: var(--select-popper-box-shadow);
+    border-radius: var(--border-radius-base);
 }
 </style>
