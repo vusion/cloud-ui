@@ -52,6 +52,10 @@
       type: boolean
       default: false
       description: 是否隐藏按钮
+    - name: clearable
+      title: 清除按钮
+      type: boolean
+      description: 开启并在输入框有内容时会显示清除按钮。
     - name: readonly
       title: 只读
       type: boolean

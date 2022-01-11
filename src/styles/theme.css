@@ -833,7 +833,7 @@
     --input-placeholder-color: var(--color-lighter);
     --input-icon-color: var(--font-second-color);
     --input-clear-icon-color: var(--font-third-color);
-    --input-icon-color-hover: var(--font-fourth-color);
+    --input-icon-color-hover: var(--font-second-color);
     --input-border-radius: 3px;
     --input-box-shadow-focus: 0 0 0 2px rgba(77, 136, 255, 0.2);
 
@@ -1013,6 +1013,7 @@
     /* @component u-uploader */
     --uploader-list-margin-top: 6px;
     --uploader-item-space: 2px;
+    --uploader-list-image-margin-top: 6px;
     --uploader-item-padding: 4px;
     --uploader-item-line-height: 1.8;
     --uploader-item-border-radius: var(--border-radius-base);
@@ -1030,8 +1031,14 @@
     --uploader-draggable-border-color-hover: var(--brand-primary);
     --uploader-draggable-border-radius: var(--border-radius-large);
     --uploader-draggable-padding: 12px 0 20px;
-    --uploader-draggable-color: #ccc;
+    --uploader-draggable-color: #666;
+    --uploader-draggable-icon-color: #ccc;
     --uploader-draggable-color-hover: var(--brand-primary);
+    --uploader-card-width: 80px;
+    --uploader-card-height: 80px;
+    --uploader-card-button-font-size: 16px;
+    --uploader-card-background: #fcfcfc;
+    --uploader-color: #999;
 
     /**
      * ========================

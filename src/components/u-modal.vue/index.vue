@@ -219,6 +219,7 @@ export default UModal;
 }
 
 .dialog {
+    position: relative;
     width: var(--modal-dialog-width);
     display: inline-block;
     vertical-align: middle;
