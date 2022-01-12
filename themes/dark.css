@@ -164,6 +164,9 @@
     --tree-view-node-background-selected: var(--brand-theme);
     --tree-view-node-expander-size: 27px;
     --tree-view-node-expander-size-mini: 32px;
+    --tree-view-node-expander-color: #FFFFFF99;
+    --tree-view-node-expander-color-hover: white;
+    --tree-view-node-expander-color-disabled: #FFFFFF33;
 
     --menu-padding-y: 8px;
     --menu-min-width: 160px;

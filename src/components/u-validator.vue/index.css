@@ -61,6 +61,8 @@
     top: 100%;
     left: 0;
     transform: none;
+    margin-left: var(--validator-message-margin-left-bottom);
+    margin-top: var(--validator-message-margin-top-bottom);
 }
 
 .root[placement="bottom"] .message {
@@ -68,6 +70,7 @@
     top: 100%;
     left: 0;
     margin-left: var(--validator-message-margin-left-bottom);
+    margin-top: var(--validator-message-margin-top-bottom);
     transform: translateY(0);
 }
 

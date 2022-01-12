@@ -93,7 +93,7 @@
     --background-color-lighter: #f4f6f9; /* 选择框的 hover 颜色 */
     --background-color-lighter-inverse: #33353d; /* 选择框的 hover 颜色 */
     --background-color-light: #f4f6f9; /* 表格等组件标题栏颜色 */
-    --background-color-base: #F7F7FA; /* 标签、薯条等组件默认颜色 */
+    --background-color-base: #ededed; /* 标签、薯条等组件默认颜色 */
     --background-color-base-inverse: #33353d; /* 标签、薯条等组件默认颜色 */
     --background-color-dark: #e3e8f0;
     --background-color-dark-inverse: #2e3038;
@@ -165,7 +165,7 @@
     --font-weight-bold: 700;
     --font-weight-bolder: bolder;
 
-    --box-shadow-base: 0 0 8px rgba(151, 164, 175, .3);
+    --box-shadow-base: 0 0 4px rgba(3, 3, 3, .1);
     --box-shadow-large: 0px 2px 15px rgba(64, 69, 78, 0.15);
 
     /* Z-Index */
@@ -608,7 +608,7 @@
 
     /* @component u-form-table @hidden */
     --form-table-head-background: #f7f8fa;
-    --form-table-head-color: var(--color-light);
+    --form-table-head-color: #666;
     --form-table-head-padding: 0 5px;
     --form-table-remove-button-color: #ff867f;
 
@@ -719,8 +719,12 @@
     --tree-view-node-color-selected-inverse: white;
     --tree-view-node-color-disabled: var(--brand-disabled);
     --tree-view-node-color-disabled-inverse: var(--brand-disabled);
+    --tree-view-node-expander-color: #999;
+    --tree-view-node-expander-color-hover: #333;
+    --tree-view-node-expander-color-disabled: #ccc;
     --tree-view-node-expander-color-selected: white;
     --tree-view-node-expander-color-selected-inverse:white;
+    --tree-view-node-expander-font-size: 14px;
     --tree-view-node-background-readonly-initial: none;
     --tree-view-node-background-disabled: none;
     --tree-view-node-background-disabled-inverse: none;
@@ -774,7 +778,7 @@
     --form-item-label-width-mini: 50px; /* @hidden */
     --form-item-label-width-small: 80px; /* @hidden */
     --form-item-label-width-large: 160px; /* @hidden */
-    --form-required-color: red;
+    --form-required-color: var(--brand-error);
     --form-required-right: 12px;
     --form-required-right-small: 2px; /* @hidden */
     --form-required-right-large: 12px; /* @hidden */
@@ -790,6 +794,7 @@
     /* @component u-validator @hidden */
     --validator-message-margin-left: 10px;
     --validator-message-margin-left-bottom: 0;
+    --validator-message-margin-top-bottom: 4px;
     --validator-message-margin-top: 0;
     --validator-message-padding: 0 10px;
     --validator-message-min-width: auto;
