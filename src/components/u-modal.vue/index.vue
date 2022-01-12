@@ -230,6 +230,11 @@ export default UModal;
     box-shadow: var(--modal-dialog-box-shadow);
 }
 
+.pos {
+    vertical-align: top;
+    margin-top: 300px;
+}
+
 .dialog[size="small"] {
     width: var(--modal-dialog-width-small);
 }
