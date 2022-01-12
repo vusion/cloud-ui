@@ -526,6 +526,7 @@
     --label-color-normal: white;
     --label-color-warning: white;
     --label-color-error: white;
+    --label-border-radius: 2px;
 
     /* @component u-badge */
     --badge-background: var(--brand-error);
