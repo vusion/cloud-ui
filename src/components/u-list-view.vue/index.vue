@@ -45,7 +45,7 @@
             <slot name="empty">{{ emptyText }}</slot>
         </div>
     </div>
-    <div v-show="showFoot || (pageable === true || pageable === 'pagination') && currentDataSource.total > currentDataSource.paging.size" :class="$style.foot">
+    <div v-show="showFoot && (pageable === true || pageable === 'pagination')" :class="$style.foot">
         <slot name="foot"></slot>
         <u-pagination :class="$style.pagination" v-if="pageable === true || pageable === 'pagination'"
             :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
@@ -95,7 +95,7 @@ export default {
         // @inherit: disabled: { type: Boolean, default: false },
         showHead: { type: Boolean, default: false },
         title: { type: String, default: '列表' },
-        showFoot: { type: Boolean, default: false },
+        showFoot: { type: Boolean, default: true },
         border: { type: Boolean, default: true },
         loading: { type: Boolean, default: false },
         loadingText: {
