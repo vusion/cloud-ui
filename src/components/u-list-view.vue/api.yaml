@@ -119,7 +119,7 @@
     - name: show-foot
       title: 显示底部
       type: boolean
-      default: false
+      default: true
       description: 是否显示底部
       group: 样式属性
     - name: size
@@ -176,11 +176,13 @@
       sync: true
       model: true
       description: 当前选择的值
+      group: 选择属性   
     - name: text-field
       title: 文本字段名
       type: string
       default: text
       description: 选项文本的字段名
+      group: 选择属性   
     - name: value-field
       title: 值字段名
       type: string

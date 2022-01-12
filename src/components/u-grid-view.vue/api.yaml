@@ -125,7 +125,7 @@
     - name: show-foot
       title: 显示底部
       type: boolean
-      default: false
+      default: true
       description: 是否显示尾部
       group: 样式属性
     - name: size
