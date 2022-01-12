@@ -455,6 +455,8 @@ export default {
     line-height: var(--tree-view-node-expander-size);
     text-align: center;
     transition: transform var(--transition-duration-base);
+    color: var(--tree-view-node-expander-color);
+    font-size: var(--tree-view-node-expander-font-size);
 }
 
 .expander::before {
@@ -487,6 +489,10 @@ export default {
 
 .item:hover {
     background: var(--tree-view-node-background-active);
+}
+
+.item:hover .expander{
+    color: var(--tree-view-node-expander-color-hover);
 }
 
 .item:focus {
@@ -529,5 +535,8 @@ export default {
 
 .item[selected][disabled] {
     background: var(--tree-view-node-background-selected-disabled);
+}
+.item[disabled] .expander{
+    color: var(--tree-view-node-expander-color-disabled);
 }
 </style>
