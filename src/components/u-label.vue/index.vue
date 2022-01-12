@@ -33,7 +33,7 @@ export default {
     font-size: var(--label-font-size);
     background: var(--label-background);
     color: var(--label-color);
-    border-radius: var(--border-radius-base);
+    border-radius: var(--label-border-radius);
     white-space: nowrap;
 }
 
