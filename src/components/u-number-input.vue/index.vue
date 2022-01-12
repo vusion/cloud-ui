@@ -71,6 +71,7 @@ export default {
             const currentPrecision = (this.currentPrecision = this.getCurrentPrecision(value));
             const currentValue = (this.currentValue = this.fix(value, currentPrecision));
             this.formattedValue = this.currentFormatter.format(currentValue);
+            this.$emit('update', this.currentValue, this);
         },
     },
     created() {
