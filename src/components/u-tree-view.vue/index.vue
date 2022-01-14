@@ -48,6 +48,7 @@ export default {
         readonlyMode: String,
         disabled: { type: Boolean, default: false },
         checkControlled: { type: Boolean, default: false },
+        expanderWidth: {type: Number, default: 30 },
     },
     data() {
         return {

@@ -61,7 +61,7 @@
         @open="onOpen"
         @close="onClose"
         @click.stop>
-        <u-tree-view ref="treeView" style="border: none; min-width: 300px;"
+        <u-tree-view ref="treeView" style="border: none; min-width: 100%; display:inline-block;"
             :value="value"
             :values="values"
             :data="data"
@@ -79,6 +79,7 @@
             :initial-load="initialLoad"
             :readonly="readonly"
             :disabled="disabled"
+            :expanderWidth="expanderWidth"
             ifExpanded
             @change="$emit('change', $event, this)"
             @before-select="$emit('before-select', $event, this)"
@@ -137,6 +138,7 @@ export default {
             validator: (value) => ['body', 'reference'].includes(value),
         },
         color: String,
+        expanderWidth: {type: Number, default: 30 },
     },
     data() {
         return {
@@ -261,10 +263,14 @@ export default {
     color: var(--select-color);
     border-radius: var(--border-radius-base);
 }
+.root:hover{
+    border-color: var(--select-border-color-hover);
+}
 
 .root:focus {
     outline: var(--focus-outline);
     box-shadow: var(--select-box-shadow-focus);
+    border-color: var(--select-border-color-hover);
 }
 
 .baseline {
@@ -415,6 +421,8 @@ export default {
     border-radius: var(--border-radius-base);
     box-shadow: var(--select-popper-box-shadow);
     padding: var(--select-popper-padding);
+    min-width: var(--select-popper-min-width);
+    width: var(--select-popper-width);
 }
 
 .status {
