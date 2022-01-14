@@ -286,6 +286,7 @@
     --navbar-space-x: 40px;
     --navbar-background: #333333;
     --navbar-background-inverse: var(--brand-primary);
+    --navbar-color: white;
     --navbar-item-space: 30px;
     --navbar-item-padding: 0 10px;
     --navbar-item-font-size: var(--font-size-large);
@@ -307,6 +308,8 @@
     --navbar-dropdown-icon-font-size: 18px;
     --navbar-dropdown-popper-line-height: var(--line-height-base);
     --navbar-dropdown-popper-font-size: var(--font-size-base);
+    --navbar-dropdown-popper-padding: 8px 0;
+    --navbar-dropdown-popper-background: var(--navbar-menu-item-background);
     --navbar-dropdown-color-disabled: var(--brand-disabled);
     --navbar-menu-item-padding: 7px 18px;
     --navbar-menu-item-background: #232d3e;
@@ -962,6 +965,8 @@
     --select-color-inverse: var(--color-base-inverse);
     --select-color-disabled: var(--brand-disabled-dark);
     --select-popper-max-height: 194px;
+    --select-popper-min-width: 300px;
+    --select-popper-width: auto;
     --select-popper-line-height: 1.6;
     --select-popper-line-height-small: 1.6;
     --select-popper-box-shadow: var(--box-shadow-base);
