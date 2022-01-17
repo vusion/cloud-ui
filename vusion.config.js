@@ -47,6 +47,7 @@ module.exports = {
             { group: '展示', name: 'u-label', alias: '标签' },
             { group: '展示', name: 'u-badge', alias: '徽章' },
             { group: '展示', name: 'u-carousel', alias: '幻灯片' },
+            { group: '展示', name: 'u-gallery', alias: '画廊' },
             { group: '展示', name: 'u-image', alias: '图片展示' },
             // { group: 'Basic', name: 'u-avatar', alias: '头像' },
             // { group: 'Basic', name: 'u-actions', alias: '操作项' },

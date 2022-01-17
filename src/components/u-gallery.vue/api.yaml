@@ -1,0 +1,56 @@
+- name: u-gallery
+  title: 画廊
+  icon: gallery
+  labels:
+    - Display
+  description: 画廊
+  attrs:
+  - name: data-source
+    title: 数据源
+    type: Array<Item> | Function | object
+    description: 数据源
+  - name: 
+    title: 画廊模式
+    type: pattern
+    options:
+      - value: small
+        title: 缩略图模式
+      - value: big
+        title: 大图模式
+    default: big
+    description: 链接类型
+  - name: num	
+    title: 显示图片数	
+    type: number
+    description: 显示图片数	
+  - name: arrow	
+    title: 是否显示左右箭头	
+    type: boolean
+    default: true
+    description: 是否显示左右箭头
+  slots: false
+  events:
+    - name: click
+      title: 点击后
+      description: 点击此项时触发
+      params: []
+    - name: dblclick
+      title: 双击
+      description: 双击此项时触发
+      params: []
+    - name: rightclick
+      title: 右键点击
+      description: 右键点击此项时触发
+      params: []
+    - name: over
+      title: 鼠标移入
+      description: 鼠标移入此项时触发
+      params: []
+    - name: out
+      title: 鼠标移出
+      description: 鼠标移出此项时触发
+      params: []
+    - name: down
+      title: 鼠标按下
+      description: 鼠标按下此项时触发
+      params: []

@@ -16,6 +16,7 @@ module.exports = [
     { group: 'Display', show: true, name: 'u-button', alias: '按钮' },
     // { group: 'Display', show: true, name: 'i-icon', alias: '图标' },
     { group: 'Display', show: true, name: 'i-ico', alias: '图标' },
+    { group: 'Display', show: true, name: 'u-gallery', alias: '画廊' },
     { group: 'Display', show: true, name: 'u-label', alias: '标签' },
     { group: 'Display', show: true, name: 'u-badge', alias: '徽章' },
     { group: 'Display', show: true, name: 'u-carousel', alias: '走马灯' },
