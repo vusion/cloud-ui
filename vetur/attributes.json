@@ -838,12 +838,20 @@
         "title": "主要按钮"
       },
       {
-        "value": "default",
+        "value": "primary_secondary",
         "title": "次要按钮"
+      },
+      {
+        "value": "default",
+        "title": "普通按钮"
       },
       {
         "value": "danger",
         "title": "危险操作按钮"
+      },
+      {
+        "value": "danger_secondary",
+        "title": "次要危险操作按钮"
       }
     ],
     "description": "设置颜色"
@@ -2535,6 +2543,10 @@
     "type": "number",
     "description": "分页大小"
   },
+  "u-grid-view/page-number": {
+    "type": "number",
+    "description": "当前页数。"
+  },
   "u-grid-view/page-size-options": {
     "type": "Array<number>",
     "description": "分页大小的选项列表。"
@@ -2551,6 +2563,10 @@
     "type": "boolean",
     "description": "是否显示页面跳转输入框。"
   },
+  "u-grid-view/filterable": {
+    "type": "boolean",
+    "description": "是否可以过滤（搜索），开启将会显示搜索框。"
+  },
   "u-grid-view/remote-paging": {
     "type": "boolean",
     "description": "是否使用后端分页。"
@@ -2559,29 +2575,13 @@
     "type": "boolean",
     "description": "是否使用后端筛选"
   },
-  "u-grid-view/value": {
-    "type": "any",
-    "description": "当前选择的值"
+  "u-grid-view/match-method": {
+    "type": "string, Function",
+    "description": "过滤时的匹配方法"
   },
-  "u-grid-view/field": {
-    "type": "string",
-    "description": "选项文本的字段名"
-  },
-  "u-grid-view/text-field": {
-    "type": "string",
-    "description": "选项文本的字段名"
-  },
-  "u-grid-view/value-field": {
-    "type": "string",
-    "description": "选项值的字段名"
-  },
-  "u-grid-view/cancelable": {
-    "type": "boolean",
-    "description": "是否可以取消选择"
-  },
-  "u-grid-view/multiple": {
-    "type": "boolean",
-    "description": "是否可以多选"
+  "u-grid-view/case-sensitive": {
+    "type": "string, Function",
+    "description": "过滤时大小写是否敏感"
   },
   "u-grid-view/repeat": {
     "type": "number",
@@ -2598,50 +2598,6 @@
   "u-grid-view/show-foot": {
     "type": "boolean",
     "description": "是否显示尾部"
-  },
-  "u-grid-view/loading-text": {
-    "type": "string",
-    "description": "加载时的文字。使用分页加载时才会出现"
-  },
-  "u-grid-view/error": {
-    "type": "boolean",
-    "description": "手动设置是否加载失败。"
-  },
-  "u-grid-view/error-text": {
-    "type": "string",
-    "description": "加载失败时的文字。"
-  },
-  "u-grid-view/empty-text": {
-    "type": "string",
-    "description": "暂无数据时的文字。"
-  },
-  "u-grid-view/filterable": {
-    "type": "boolean",
-    "description": "是否可以过滤（搜索），开启将会显示搜索框。"
-  },
-  "u-grid-view/placeholder": {
-    "type": "string",
-    "description": "搜索框的占位符"
-  },
-  "u-grid-view/clearable": {
-    "type": "boolean",
-    "description": "搜索框是否有清除按钮"
-  },
-  "u-grid-view/match-method": {
-    "type": "string, Function",
-    "description": "过滤时的匹配方法"
-  },
-  "u-grid-view/case-sensitive": {
-    "type": "string, Function",
-    "description": "过滤时大小写是否敏感"
-  },
-  "u-grid-view/readonly": {
-    "type": "boolean",
-    "description": "是否只读"
-  },
-  "u-grid-view/disabled": {
-    "type": "boolean",
-    "description": "是否禁用"
   },
   "u-grid-view/size": {
     "type": "string",
@@ -2668,6 +2624,62 @@
       }
     ],
     "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度"
+  },
+  "u-grid-view/loading-text": {
+    "type": "string",
+    "description": "加载时的文字。使用分页加载时才会出现"
+  },
+  "u-grid-view/error": {
+    "type": "boolean",
+    "description": "手动设置是否加载失败。"
+  },
+  "u-grid-view/error-text": {
+    "type": "string",
+    "description": "加载失败时的文字。"
+  },
+  "u-grid-view/empty-text": {
+    "type": "string",
+    "description": "暂无数据时的文字。"
+  },
+  "u-grid-view/placeholder": {
+    "type": "string",
+    "description": "搜索框的占位符"
+  },
+  "u-grid-view/value": {
+    "type": "any",
+    "description": "当前选择的值"
+  },
+  "u-grid-view/field": {
+    "type": "string",
+    "description": "选项文本的字段名"
+  },
+  "u-grid-view/text-field": {
+    "type": "string",
+    "description": "选项文本的字段名"
+  },
+  "u-grid-view/value-field": {
+    "type": "string",
+    "description": "选项值的字段名"
+  },
+  "u-grid-view/cancelable": {
+    "type": "boolean",
+    "description": "是否可以取消选择"
+  },
+  "u-grid-view/multiple": {
+    "type": "boolean",
+    "description": "是否可以多选"
+  },
+  "u-grid-view/clearable": {
+    "type": "boolean",
+    "description": "搜索框是否有清除按钮"
+  },
+  "u-grid-view/readonly": {
+    "type": "boolean",
+    "description": "是否只读"
+  },
+  "u-grid-view/disabled": {
+    "type": "boolean",
+    "description": "是否禁用"
   },
   "u-html/html": {
     "type": "string",
@@ -3472,37 +3484,53 @@
     "type": "boolean",
     "description": "是否在初始时立即加载"
   },
-  "u-list-view/readonly": {
+  "u-list-view/pageable": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": "是否需要分页"
   },
-  "u-list-view/disabled": {
-    "type": "boolean",
-    "description": "是否禁用"
-  },
-  "u-list-view/value": {
-    "type": "any",
-    "description": "当前选择的值"
-  },
-  "u-list-view/text-field": {
-    "type": "string",
-    "description": "选项文本的字段名"
-  },
-  "u-list-view/value-field": {
-    "type": "string",
-    "description": "选项值的字段名"
-  },
-  "u-list-view/cancelable": {
-    "type": "boolean",
-    "description": "是否可以取消选择"
-  },
-  "u-list-view/multiple": {
-    "type": "boolean",
-    "description": "是否可以多选"
-  },
-  "u-list-view/repeat": {
+  "u-list-view/page-size": {
     "type": "number",
-    "description": "每行排列几项"
+    "description": "分页大小"
+  },
+  "u-list-view/page-number": {
+    "type": "number",
+    "description": "当前页数。"
+  },
+  "u-list-view/page-size-options": {
+    "type": "Array<number>",
+    "description": "分页大小的选项列表。"
+  },
+  "u-list-view/show-total": {
+    "type": "boolean",
+    "description": "是否显示总条目数。"
+  },
+  "u-list-view/show-sizer": {
+    "type": "boolean",
+    "description": "是否显示切换分页大小选项。"
+  },
+  "u-list-view/show-jumper": {
+    "type": "boolean",
+    "description": "是否显示页面跳转输入框。"
+  },
+  "u-list-view/filterable": {
+    "type": "boolean",
+    "description": "是否可以过滤（搜索），开启将会显示搜索框。"
+  },
+  "u-list-view/remote-paging": {
+    "type": "boolean",
+    "description": "是否使用后端分页。"
+  },
+  "u-list-view/remote-filtering": {
+    "type": "boolean",
+    "description": "是否使用后端筛选"
+  },
+  "u-list-view/match-method": {
+    "type": "string, Function",
+    "description": "过滤时的匹配方法"
+  },
+  "u-list-view/case-sensitive": {
+    "type": "boolean",
+    "description": "过滤时大小写是否敏感"
   },
   "u-list-view/show-head": {
     "type": "boolean",
@@ -3515,58 +3543,6 @@
   "u-list-view/show-foot": {
     "type": "boolean",
     "description": "是否显示底部"
-  },
-  "u-list-view/loading-text": {
-    "type": "string",
-    "description": "加载时的文字。使用分页加载时才会出现"
-  },
-  "u-list-view/error": {
-    "type": "boolean",
-    "description": "手动设置是否加载失败。"
-  },
-  "u-list-view/error-text": {
-    "type": "string",
-    "description": "加载失败时的文字。"
-  },
-  "u-list-view/empty-text": {
-    "type": "string",
-    "description": "暂无数据时的文字。"
-  },
-  "u-list-view/pageable": {
-    "type": "boolean",
-    "description": "是否需要分页"
-  },
-  "u-list-view/page-size": {
-    "type": "number",
-    "description": "分页大小"
-  },
-  "u-list-view/remote-paging": {
-    "type": "number",
-    "description": "是否使用后端分页"
-  },
-  "u-list-view/filterable": {
-    "type": "boolean",
-    "description": "是否可以过滤（搜索），开启将会显示搜索框。"
-  },
-  "u-list-view/remote-filtering": {
-    "type": "boolean",
-    "description": "是否使用后端过滤"
-  },
-  "u-list-view/placeholder": {
-    "type": "string",
-    "description": "搜索框的占位符"
-  },
-  "u-list-view/clearable": {
-    "type": "boolean",
-    "description": "搜索框是否有清除按钮"
-  },
-  "u-list-view/match-method": {
-    "type": "string, Function",
-    "description": "过滤时的匹配方法"
-  },
-  "u-list-view/case-sensitive": {
-    "type": "boolean",
-    "description": "过滤时大小写是否敏感"
   },
   "u-list-view/size": {
     "type": "string",
@@ -3593,6 +3569,62 @@
       }
     ],
     "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度"
+  },
+  "u-list-view/loading-text": {
+    "type": "string",
+    "description": "加载时的文字。使用分页加载时才会出现"
+  },
+  "u-list-view/error": {
+    "type": "boolean",
+    "description": "手动设置是否加载失败。"
+  },
+  "u-list-view/error-text": {
+    "type": "string",
+    "description": "加载失败时的文字。"
+  },
+  "u-list-view/empty-text": {
+    "type": "string",
+    "description": "暂无数据时的文字。"
+  },
+  "u-list-view/placeholder": {
+    "type": "string",
+    "description": "搜索框的占位符"
+  },
+  "u-list-view/value": {
+    "type": "any",
+    "description": "当前选择的值"
+  },
+  "u-list-view/text-field": {
+    "type": "string",
+    "description": "选项文本的字段名"
+  },
+  "u-list-view/value-field": {
+    "type": "string",
+    "description": "选项值的字段名"
+  },
+  "u-list-view/cancelable": {
+    "type": "boolean",
+    "description": "是否可以取消选择"
+  },
+  "u-list-view/multiple": {
+    "type": "boolean",
+    "description": "是否可以多选"
+  },
+  "u-list-view/repeat": {
+    "type": "number",
+    "description": "每行排列几项"
+  },
+  "u-list-view/clearable": {
+    "type": "boolean",
+    "description": "搜索框是否有清除按钮"
+  },
+  "u-list-view/readonly": {
+    "type": "boolean",
+    "description": "是否只读"
+  },
+  "u-list-view/disabled": {
+    "type": "boolean",
+    "description": "是否禁用"
   },
   "u-list/type": {
     "type": "string",
@@ -4028,6 +4060,10 @@
   "u-number-input/hide-buttons": {
     "type": "boolean",
     "description": "是否隐藏按钮"
+  },
+  "u-number-input/clearable": {
+    "type": "boolean",
+    "description": "开启并在输入框有内容时会显示清除按钮。"
   },
   "u-number-input/readonly": {
     "type": "boolean",
@@ -6115,6 +6151,18 @@
       }
     ],
     "description": "展示方式"
+  },
+  "u-uploader/description": {
+    "type": "string",
+    "description": "在上传组件下方展示一些提示信息，如上传的数量、大小等"
+  },
+  "u-uploader/showErrorMessage": {
+    "type": "boolean",
+    "description": "是否展示上传时的出错信息，如超出数量、大小"
+  },
+  "u-uploader/dragDescription": {
+    "type": "string",
+    "description": "拖拽描述信息"
   },
   "u-validator/name": {
     "type": "string",

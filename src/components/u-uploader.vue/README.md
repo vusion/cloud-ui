@@ -247,6 +247,9 @@ export default {
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | display | string | `[object Object]`<br/>`[object Object]` | `'block'` | 展示方式 |
+| description | string |  |  | 在上传组件下方展示一些提示信息，如上传的数量、大小等 |
+| showErrorMessage | boolean |  | `true` | 是否展示上传时的出错信息，如超出数量、大小 |
+| dragDescription | string |  | `'点击/拖动/粘贴文件到这里'` | 拖拽描述信息 |
 
 ### Slots
 
