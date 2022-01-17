@@ -111,12 +111,28 @@ export default {
     box-shadow: var(--checkbox-box-shadow-focus);
 }
 
+.root:active {
+    outline: var(--focus-outline);
+}
+.root:active .box,
+.root:active .box[status="true"] {
+    box-shadow: var(--checkbox-box-shadow-active);
+    border-color: var(--checkbox-border-color-hover);
+}
+
 .root[disabled] {
     cursor: var(--cursor-not-allowed);
     color: var(--checkbox-font-color-disabled);
 }
+
 .root[disabled]:focus .box[status="true"]{
     box-shadow: none;
+}
+
+.root[disabled]:active .box,
+.root[disabled]:active .box[status="true"]{
+    box-shadow: none;
+    border-color: var(--checkbox-border-color);
 }
 
 .box {

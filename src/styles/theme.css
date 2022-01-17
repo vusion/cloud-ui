@@ -487,12 +487,16 @@
     --button-border-primary-secondary-disabled: var(--button-border-color-disabled);
     --button-border-danger-secondary-hover: var(--brand-error-light);
     --button-border-danger-secondary-disabled: var(--button-border-color-disabled);
-    --button-box-shadow-focus: 0 0 0 2px rgba(61, 111, 196, 0.2);
-    --button-box-shadow-focus-primary: var(--button-box-shadow-focus);
-    --button-box-shadow-focus-primary-secondary: var(--button-box-shadow-focus-primary);
-    --button-box-shadow-focus-danger: 0 0 0 2px rgba(254, 90, 90, 0.2);
-    --button-box-shadow-focus-danger-secondary: var(--button-box-shadow-focus-danger);
-    --button-box-shadow-active: none;
+    --button-box-shadow-focus: none;
+    --button-box-shadow-focus-primary: none;
+    --button-box-shadow-focus-primary-secondary: none;
+    --button-box-shadow-focus-danger: none;
+    --button-box-shadow-focus-danger-secondary: none;
+    --button-box-shadow-active: 0 0 0 2px rgba(61, 111, 196, 0.2);
+    --button-box-shadow-active-primary: var(--button-box-shadow-active);
+    --button-box-shadow-active-primary-secondary: var(--button-box-shadow-active-primary);
+    --button-box-shadow-active-danger: 0 0 0 2px rgba(254, 90, 90, 0.2);
+    --button-box-shadow-active-danger-secondary: var(--button-box-shadow-active-danger);
     --button-loading-size: 18px; /* @hidden */
     --button-loading-width: 1.5px; /* @hidden */
     --button-height-loading: 18px; /* @hidden */
@@ -872,6 +876,7 @@
     --number-input-button-background-active: none;
     --number-input-button-background-disabled: none;
     --number-input-button-color-disabled: var(--brand-disabled);
+    --number-input-icon-color-hover: var(--brand-primary);
 
     /* @component u-radio as u-radios */
     --radio-space-x: 32px;
@@ -889,6 +894,8 @@
     --radio-color-disabled: var(--gray-dark);
     --radio-box-shadow-focus-disabled: none;
     --radio-cursor-readonly: default;
+    --radio-box-shadow-active: var(--button-box-shadow-active);
+    --radio-box-shadow-active-disabled: none;
 
     /* @component u-switch */
     --switch-width: 40px;
@@ -927,7 +934,8 @@
     --checkbox-color-disabled: #ccc;
     --checkbox-font-color-disabled: #999;
     --checkbox-font-color: #333;
-    --checkbox-box-shadow-focus: var(--button-box-shadow-focus);
+    --checkbox-box-shadow-focus: none;
+    --checkbox-box-shadow-active: var(--button-box-shadow-active);
     --checkbox-icon: '\ff02';
     --checkbox-icon-size: 16px;
     --checkbox-icon-left: 0;
@@ -991,7 +999,8 @@
     --select-popper-border-color-inverse: var(--border-color-base-inverse);
     --select-popper-color-inverse: var(--color-base-inverse);
     --select-status-color: var(--color-light);
-    --select-box-shadow-focus: 0 0 0 2px rgba(77, 136, 255, 0.2);
+    --select-box-shadow-focus: none;
+    --select-box-shadow-active: 0 0 0 2px rgba(77, 136, 255, 0.2);
     --select-icon-color: var(--font-second-color);
     --select-clear-icon-color: var(--font-third-color);
     --select-icon-color-hover: var(--font-fourth-color);
