@@ -280,28 +280,41 @@ export default {
     margin: 0;
     padding: 0 12px;
     vertical-align: middle;
-    border: 1px solid var(--border-color-base);
-    color: #555;
-    background: var(--field-background);
-    border-radius: 3px;
-    height: 34px;
-    line-height: 34px;
+    border: var(--datepicker-input-border-width) solid var(--datepicker-input-border-color);
+    color: var(--datepicker-input-color);
+    background: var(--datepicker-input-background);
+    border-radius: var(--datepicker-input-border-radius);
+    height: var(--datepicker-input-height);
+    line-height: calc(var(--datepicker-input-height) - var(--datepicker-input-border-width) * 2);
     outline: none;
 }
 .input[disabled] {
     cursor: var(--cursor-not-allowed);
-    background: #eee;
+    background: var(--datepicker-input-background-disabled);
     color: var(--color-light);
 }
 .input[color="error"] {
-    border-color: var(--input-border-color-error);
+    border-color: var(--datepicker-input-border-color-error);
+}
+.input:focus {
+    outline: var(--focus-outline);
+    border-color: var(--datepicker-input-border-color-focus);
+    box-shadow: var(--datepicker-input-box-shadow-focus);
+}
+.header:hover .input{
+    border-color: var(--datepicker-input-border-color-focus);
+}
+
+.input[focus] {
+    border-color: var(--datepicker-input-border-color-focus);
+    box-shadow: var(--datepicker-input-box-shadow-focus);
 }
 
 .placeholder, .input::placeholder {
     /* Removes placeholder transparency in Firefox. */
     opacity: 1;
     font-size: inherit;
-    color: var(--input-placeholder-color);
+    color: var(--datepicker-input-placeholder-color);
 }
 
 .body {
@@ -325,7 +338,7 @@ export default {
 }
 
 .closeIcon:hover::before {
-    color: var(--input-icon-color-hover);
+    color: var(--datepicker-input-icon-color-hover);
 }
 
 .closeIcon::before {
@@ -339,12 +352,12 @@ export default {
     margin: auto;
     icon-font: url('../i-icon.vue/assets/close-solid.svg');
     cursor: var(--cursor-pointer);
-    color: var(--input-clear-icon-color);
+    color: var(--datepicker-input-clear-icon-color);
 }
 
 .popper {
     z-index: var(--z-index-tooltip);
-    box-shadow: var(--select-popper-box-shadow);
-    border-radius: var(--border-radius-base);
+    box-shadow: var(--datepicker-popper-box-shadow);
+    border-radius: var(--datepicker-popper-border-radius);
 }
 </style>
