@@ -847,7 +847,7 @@
     --input-icon-color: var(--font-second-color);
     --input-clear-icon-color: var(--font-third-color);
     --input-icon-color-hover: var(--font-second-color);
-    --input-border-radius: 3px;
+    --input-border-radius: var(--border-radius-base);
     --input-box-shadow-focus: 0 0 0 2px rgba(77, 136, 255, 0.2);
 
     /* @component u-textarea */
@@ -925,7 +925,7 @@
     --checkbox-size: 16px;
     --checkbox-border-color: var(--border-color-base);
     --checkbox-border-color-disabled: var(--border-color-base);
-    --checkbox-border-radius: 4px;
+    --checkbox-border-radius: var(--border-radius-base);
     --checkbox-background: var(--brand-primary);
     --checkbox-background-default: var(--background-color-default);
     --checkbox-background-disabled: var(--background-color-disabled);
@@ -999,7 +999,7 @@
     --select-popper-border-color-inverse: var(--border-color-base-inverse);
     --select-popper-color-inverse: var(--color-base-inverse);
     --select-status-color: var(--color-light);
-    --select-box-shadow-focus: none;
+    --select-box-shadow-focus: 0 0 0 2px rgba(77, 136, 255, 0.2);
     --select-box-shadow-active: 0 0 0 2px rgba(77, 136, 255, 0.2);
     --select-icon-color: var(--font-second-color);
     --select-clear-icon-color: var(--font-third-color);
@@ -1092,7 +1092,7 @@
     --tabs-item-color-disabled: #999;
     --tabs-item-border-color-selected: var(--border-color-light);
     --tabs-item-border-color-selected-capsule: var(--brand-primary);
-    --tabs-item-border-radius: 4px;
+    --tabs-item-border-radius: var(--border-radius-base);
     --tabs-item-border-radius-round: 5px;
     --tabs-body-space: var(--space-base);
     --tabs-body-space-small: var(--space-small);
@@ -1124,7 +1124,7 @@
     --pagination-item-color-blank: var(--color-base);
     --pagination-item-color-blank-disabled: var(--brand-disabled);
     --pagination-item-border-color: #ccc;
-    --pagination-item-border-radius: 4px;
+    --pagination-item-border-radius: var(--border-radius-base);
     --pagination-item-size-small: 24px;
     --pagination-item-size-small-line-height: var(--pagination-item-size-small);
     --pagination-item-border-radius-left: var(--pagination-item-border-radius);
@@ -1185,7 +1185,7 @@
     --tooltip-arrow-offset: 16px;
     --tooltip-background: #242424;
     --tooltip-color: white;
-    --tooltip-border-radius: 4px;
+    --tooltip-border-radius: var(--border-radius-base);
     --tooltip-box-shadow: 0px 2px 6px rgba(23, 23, 26, 0.1);
 
     /* @component icon-tooltip @hidden */
@@ -1296,6 +1296,23 @@
     --calendar-date-background: var(--brand-primary-lightest);
     --calendar-date-disabled: var(--brand-disabled-dark);
     --calendar-date-background-disabled: var(--brand-disabled);
+
+    /* @component u-date-picker */
+    --datepicker-input-border-color: var(--input-border-color);
+    --datepicker-input-border-width: var(--input-border-width);
+    --datepicker-input-color: var(--input-color);
+    --datepicker-input-background: var(--input-background);
+    --datepicker-input-border-radius: var(--input-border-radius);
+    --datepicker-input-height: var(--input-height);
+    --datepicker-input-background-disabled: var(--input-background-disabled);
+    --datepicker-input-border-color-error: var(--input-border-color-error);
+    --datepicker-input-border-color-focus: var(--input-border-color-focus);
+    --datepicker-input-box-shadow-focus: var(--input-box-shadow-focus);
+    --datepicker-input-placeholder-color: var(--input-placeholder-color);
+    --datepicker-input-icon-color-hover: var(--input-icon-color-hover);
+    --datepicker-input-clear-icon-color: var(--input-clear-icon-color);
+    --datepicker-popper-box-shadow: var(--select-popper-box-shadow);
+    --datepicker-popper-border-radius: var(--border-radius-base);
 }
 
 @custom-media --mini-window (max-width: 479px);

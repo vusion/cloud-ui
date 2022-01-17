@@ -606,6 +606,9 @@ export default {
 .card[role="select"]:hover {
     border-color: var(--brand-primary);
 }
+.card[role="select"]:hover::before{
+    color: var(--brand-primary);
+}
 
 .card:not(:last-child) {
     margin-right: var(--uploader-card-space);
