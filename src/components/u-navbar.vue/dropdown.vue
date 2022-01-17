@@ -38,7 +38,7 @@ export default {
     border: none;
     padding: var(--navbar-dropdown-padding);
     font-size: var(--navbar-item-font-size);
-    color: white;
+    color: var(--navbar-color);
 }
 
 .root:not(:last-child) {
@@ -50,18 +50,19 @@ export default {
     icon-font: url('../i-icon.vue/icons/keyboard-arrow-down.svg');
     height: auto;
     line-height: var(--navbar-height);
-    color: white;
+    color: var(--navbar-color);
     font-size: 20px;
     right: 6px;
     top: 0;
 }
 
 .popper {
-    background: white;
+    background: var(--navbar-dropdown-popper-background);
     font-size: var(--navbar-dropdown-popper-font-size);
     width: 100%;
     line-height: var(--navbar-dropdown-popper-line-height);
-    padding-top: 3px;
+    /* padding-top: 3px; */
+    padding: var(--navbar-dropdown-popper-padding);
 }
 
 .root[disabled] {

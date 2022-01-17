@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" v-show="!hidden">
-    <div :class="$style.item" :selected="selected" :style="{ paddingLeft: level * 30 + 'px' }"
+    <div :class="$style.item" :selected="selected" :style="{ paddingLeft: level * expanderWidth + 'px' }"
         :readonly="rootVM.readonly" :readonly-mode="rootVM.readonlyMode"
         :disabled="currentDisabled"
         :tabindex="disabled || rootVM.readonly || rootVM.disabled ? '' : 0"
@@ -14,8 +14,9 @@
         <div :class="$style.expander"
             v-else-if="hasChildren || nodeVMs.length || (node && !$at(node, rootVM.isLeafField) && rootVM.currentDataSource && rootVM.currentDataSource.load)"
             :expand-trigger="rootVM.expandTrigger" :expanded="currentExpanded"
-            @click="rootVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"></div>
-        <div :class="$style.text">
+            @click="rootVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"
+            :style="{ width : expanderWidth? expanderWidth + 'px':'' }"></div>
+        <div :class="$style.text" :style="{ marginLeft : expanderWidth? expanderWidth + 'px':'' }">
             <u-checkbox v-if="rootVM.checkable" :value="currentChecked" :disabled="currentDisabled" @check="check($event.value)" @click.native.stop></u-checkbox>
             <f-slot name="text" :vm="currentTextSlotVM" :props="{
                 data: node && $at(node, currentChildrenField),
@@ -181,6 +182,9 @@ export default {
                     return true;
             }
             return false;
+        },
+        expanderWidth(){
+            return this.rootVM && this.rootVM.expanderWidth || 30;
         },
     },
 
@@ -455,6 +459,8 @@ export default {
     line-height: var(--tree-view-node-expander-size);
     text-align: center;
     transition: transform var(--transition-duration-base);
+    color: var(--tree-view-node-expander-color);
+    font-size: var(--tree-view-node-expander-font-size);
 }
 
 .expander::before {
@@ -487,6 +493,10 @@ export default {
 
 .item:hover {
     background: var(--tree-view-node-background-active);
+}
+
+.item:hover .expander{
+    color: var(--tree-view-node-expander-color-hover);
 }
 
 .item:focus {
@@ -529,5 +539,8 @@ export default {
 
 .item[selected][disabled] {
     background: var(--tree-view-node-background-selected-disabled);
+}
+.item[disabled] .expander{
+    color: var(--tree-view-node-expander-color-disabled);
 }
 </style>

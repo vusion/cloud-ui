@@ -144,6 +144,17 @@ export default {
             this.$emit('change', { page, oldPage }, this);
         },
     },
+    created() {
+        // 自动补充 pageSizeOptions
+        if (this.pageSizeOptions && !this.pageSizeOptions.includes(this.pageSize)) {
+            for (let i = 0; i < this.pageSizeOptions.length; i++) {
+                if (this.pageSizeOptions[i] > this.pageSize) {
+                    this.pageSizeOptions.splice(i, 0, this.pageSize);
+                    break;
+                }
+            }
+        }
+    },
     methods: {
         select(page) {
             if (this.readonly || this.disabled)

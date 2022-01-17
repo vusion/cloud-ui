@@ -136,9 +136,10 @@ export default {
 .lcp-iconv {
     display: inline-block;
     text-align: center;
+    font-size: 16px;
 }
 .iconwrap {
-    font-size: 16px;
+    /* font-size: 16px;  */
     /* padding: 8px; */
 }
 .iconsvg {

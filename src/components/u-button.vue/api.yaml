@@ -17,10 +17,14 @@
       options:
         - value: primary
           title: 主要按钮
-        - value: default
+        - value: primary_secondary
           title: 次要按钮
+        - value: default
+          title: 普通按钮
         - value: danger
           title: 危险操作按钮
+        - value: danger_secondary
+          title: 次要危险操作按钮
       default: default
       description: 设置颜色
     - name: dashed

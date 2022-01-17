@@ -96,6 +96,9 @@
     background: var(--input-background-disabled);
     color: var(--color-light);
 }
+.root[disabled]:hover{
+    border-color: var(--input-border-color);
+}
 
 .root[size="normal"] { /* By default */ }
 

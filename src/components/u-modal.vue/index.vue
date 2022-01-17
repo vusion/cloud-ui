@@ -219,6 +219,7 @@ export default UModal;
 }
 
 .dialog {
+    position: relative;
     width: var(--modal-dialog-width);
     display: inline-block;
     vertical-align: middle;
@@ -227,6 +228,11 @@ export default UModal;
     border: 1px solid var(--modal-border-color);
     border-radius: var(--modal-dialog-border-radius);
     box-shadow: var(--modal-dialog-box-shadow);
+}
+
+.pos {
+    vertical-align: top;
+    margin-top: 300px;
 }
 
 .dialog[size="small"] {

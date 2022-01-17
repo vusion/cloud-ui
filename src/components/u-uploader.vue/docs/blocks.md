@@ -8,7 +8,7 @@
     :limit="999"
     maxSize="50MB"
     converter="json">
-    <u-button color="primary">Upload</u-button>
+    <u-button color="primary" icon="upload">上传</u-button>
 </u-uploader>
 ```
 
@@ -35,6 +35,6 @@
     :limit="999"
     maxSize="50MB"
     converter="json">
-    <u-button color="primary">Upload</u-button>
+    <u-button color="primary" icon="upload">上传</u-button>
 </u-uploader>
 ```

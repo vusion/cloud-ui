@@ -13,8 +13,8 @@
         show-total
         show-sizer
         show-jumper
-        :pageSize="30"
-        :pageSizeOptions="[30,50,100]">
+        :page-size="10"
+        :page-size-options="[40,50,100]">
     </u-pagination>
 </u-linear-layout>
 ```
@@ -24,5 +24,5 @@
 设置`simple`属性即可使用简洁版的分页，不支持显示总页数、切换每页大小、页面跳转功能
 
 ``` html
-<u-pagination :total="11" simple></u-pagination>
+<u-pagination :total="11" :simple="true"></u-pagination>
 ```

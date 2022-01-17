@@ -3,7 +3,7 @@
 ``` html
 <u-form gap="large">
     <u-form-item label="名称" required>
-        <u-input size="huge medium" placeholder="由字母、数字和中划线组成"></u-input>
+        <u-input placeholder="由字母、数字和中划线组成"></u-input>
     </u-form-item>
     <u-form-item label="类型" required>
         <u-radios>

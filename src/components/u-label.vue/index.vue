@@ -28,12 +28,12 @@ export default {
 <style module>
 .root {
     display: inline-block;
-    line-height: var(--line-height-base);
+    line-height: var(--label-line-height);
     padding: var(--label-padding-y) var(--label-padding-x);
     font-size: var(--label-font-size);
     background: var(--label-background);
     color: var(--label-color);
-    border-radius: var(--border-radius-base);
+    border-radius: var(--label-border-radius);
     white-space: nowrap;
 }
 
@@ -41,8 +41,8 @@ export default {
     display: inline;
     cursor: var(--cursor-pointer);
     opacity: 0.7;
-    padding: var(--label-remove-padding-x);
-    margin-right: calc(var(--label-remove-padding-x) * (-2));
+    padding: 0 var(--label-remove-padding-x);
+    margin-right: calc(var(--label-padding-x) * (-1));
 }
 
 .remove:hover {
@@ -86,7 +86,7 @@ export default {
 
 .root[size="small"] .remove {
     padding: var(--label-remove-padding-x-small);
-    margin-right: calc(var(--label-remove-padding-x-small) * (-2));
+    margin-right:  calc(var(--label-remove-padding-x-small) * (-1));
 }
 
 .root[size="large"] {
@@ -96,7 +96,7 @@ export default {
 
 .root[size="large"] .remove {
     padding: var(--label-remove-padding-x-large);
-    margin-right: calc(var(--label-remove-padding-x-large) * (-2));
+    margin-right: calc(var(--label-padding-x-large) * (-1));
 }
 
 .root[size="huge"] {
@@ -106,7 +106,7 @@ export default {
 
 .root[size="huge"] .remove {
     padding: var(--label-remove-padding-x-huge);
-    margin-right: calc(var(--label-remove-padding-x-huge) * (-2));
+    margin-right: calc(var(--label-padding-x-huge) * (-1));
 }
 
 .root[display="block"] {

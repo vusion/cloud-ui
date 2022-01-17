@@ -294,8 +294,11 @@ const VueDataSource = Vue.extend({
                         partialData = this._process(result.data);
                     } // 否则什么都不做
 
-                    if (limit === Infinity)
-                        throw new Error('You must specify page size');
+                    if (limit === Infinity) {
+                        this.data = partialData;
+                        this.arrange();
+                        return partialData;
+                    }
                     for (let i = 0; i < limit; i++) {
                         const item = partialData[i];
                         if (item)

@@ -89,6 +89,9 @@ export default {
                 itemVM: $event.itemVM,
             });
         },
+        exceedMax(){
+            return Array.isArray(this.currentValue) && this.currentValue.length >= this.max;
+        },
     },
 };
 </script>

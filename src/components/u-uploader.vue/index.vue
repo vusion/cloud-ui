@@ -7,7 +7,10 @@
         @dragover.prevent="dragover = true"
         @dragleave.prevent="dragover = false">
         <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
-        <div><slot>点击/拖动/粘贴文件到这里</slot></div>
+        <div>
+            <div v-if="dragDescription" vusion-slot-name="dragDescription" :class="$style.dragDescription"><slot name="dragDescription">{{dragDescription}}</slot></div>
+            <slot></slot>
+        </div>
     </div>
     <div v-else-if="listType !== 'card'" :class="$style.select" @click="select()"
         vusion-slot-name="default"
@@ -15,12 +18,17 @@
         <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
         <slot></slot>
     </div>
+    <template v-if="listType !== 'card'">
+        <div v-if="description" :class="$style.description">{{ description }}</div>
+        <div v-if="showErrorMessage && errorMessage" :class="$style.errmessage">{{ errorMessage }}</div>
+    </template>
     <div :class="$style.list" v-if="showFileList" :list-type="listType">
         <template v-if="listType !== 'card'">
             <div :class="$style.item" v-for="(item, index) in currentValue" :key="index">
                 <div :class="$style.thumb"><img :class="$style.img" v-if="listType === 'image'" :src="item.thumb || item.url"></div>
                 <a :class="$style.link" :href="item.url" target="_blank">{{ item.name }}</a>
-                <span v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></span>
+                <!-- <span v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></span> -->
+                <i-ico name="remove" v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></i-ico>
                 <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
             </div>
         </template>
@@ -30,14 +38,18 @@
                 <div :class="$style.mask" :multiple="multiple || readonly" :show-progress="item.showProgress">
                     <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
                     <div :class="$style.buttons">
+                        <span v-if="!readonly && !disabled" :class="$style.button" role="remove" @click.stop="remove(index)"></span>
                         <span :class="$style.button" role="preview" @click="onPreview(item, index)"></span>
                         <a :class="$style.button" :href="item.url" target="_blank" role="download"></a>
-                        <span v-if="!readonly && !disabled" :class="$style.button" role="remove" @click.stop="remove(index)"></span>
                     </div>
                 </div>
             </div>
-            <div v-if="uploadEnable && !draggable && (!readonly || $env.VUE_APP_DESIGNER)" :class="$style.card" role="select" @click="select()">
-                <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
+            <div :class="$style.cardwrap" v-if="uploadEnable && !draggable && (!readonly || $env.VUE_APP_DESIGNER)">
+                <div :class="$style.card" role="select" @click="select()">
+                    <input :class="$style.file" ref="file" type="file" :name="name" :accept="accept" :multiple="multiple" :readonly="readonly" :disabled="disabled" @click.stop @change="onChange">
+                </div>
+                <div v-if="description" :class="$style.description">{{ description }}</div>
+                <div v-if="showErrorMessage && errorMessage" :class="$style.errmessage">{{ errorMessage }}</div>
             </div>
         </template>
     </div>
@@ -85,6 +97,14 @@ export default {
         converter: String,
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
+        dragDescription: {
+            type: String,
+            default() {
+                return '点击/拖动/粘贴文件到这里';
+            },
+        },
+        description: String, // 上传限制描述等
+        showErrorMessage: { type: Boolean, default: true },
     },
     data() {
         return {
@@ -96,6 +116,7 @@ export default {
             dragover: false,
             lightboxVisible: false,
             currentIndex: 0,
+            errorMessage: '',
         };
     },
     computed: {
@@ -188,14 +209,17 @@ export default {
 
             const count = this.currentValue.length + files.length;
             if (count > this.limit) {
+                this.errorMessage = `文件数量${count}超出限制 ${this.limit}！`
                 this.$emit('count-exceed', {
                     files,
                     value: this.currentValue,
                     count,
                     limit: this.limit,
-                    message: `文件数量${count}超出限制 ${this.limit}！`,
+                    message: this.errorMessage,
                 }, this);
                 return;
+            } else {
+                this.errorMessage = '';
             }
 
             if (!this.multipleOnce) {
@@ -214,12 +238,15 @@ export default {
                 return null;
 
             if (!this.checkSize(file)) {
+                this.errorMessage = `文件${file.name} ${file.size}超出大小${this.maxSize}！`;
                 this.$emit('size-exceed', {
                     maxSize: this.maxSize,
                     size: file.size,
-                    message: `文件${file.name} ${file.size}超出大小${this.maxSize}！`,
+                    message: this.errorMessage,
                 });
                 return null;
+            } else {
+                this.errorMessage = '';
             }
             // check format
             // if (this.format.length) {
@@ -480,6 +507,7 @@ export default {
 
 .list[list-type="image"] .item {
     border: 1px solid var(--border-color-base);
+    margin-top: var(--uploader-list-image-margin-top);
 }
 
 .list[list-type="image"] .thumb {
@@ -515,10 +543,11 @@ export default {
     display: none;
     float: right;
     line-height: 1;
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 4px;
     cursor: var(--cursor-pointer);
     opacity: 0.5;
+    margin-right: 5px;
 }
 
 .item:hover .remove {
@@ -529,23 +558,28 @@ export default {
     opacity: 1;
 }
 
-.remove::before {
+/* .remove::before {
     icon-font: url('../i-icon.vue/assets/close.svg');
-}
+} */
 
 .list[list-type="image"] .remove {
-    margin-top: 2px;
+    margin-top: 18px;
 }
 
 .list[list-type="card"] {
     margin: calc(var(--uploader-card-space) / (-2));
 }
 
+.cardwrap{
+    position: relative;
+    display: inline-block;
+}
+
 .card {
     position: relative;
     display: inline-block;
-    width: 128px;
-    height: 128px;
+    width: var(--uploader-card-width);
+    height: var(--uploader-card-height);
     border: 1px solid var(--border-color-base);
     border-radius: var(--uploader-card-border-radius);
     margin: calc(var(--uploader-card-space) / 2);
@@ -556,17 +590,17 @@ export default {
 .card[role="select"] {
     cursor: var(--cursor-pointer);
     text-align: center;
-    line-height: 128px;
+    line-height: var(--uploader-card-width);
     border-style: dashed;
     transition: all var(--transition-duration-base);
-    background: var(--background-color-lighter);
+    background: var(--uploader-card-background);
     vertical-align: bottom;
 }
 
 .card[role="select"]::before {
     color: var(--border-color-base);
     icon-font: url('./assets/add.svg');
-    font-size: 42px;
+    font-size: 30px;
 }
 
 .card[role="select"]:hover {
@@ -599,7 +633,7 @@ export default {
     left: 14%;
 }
 
-.card .progress > div {
+.card .progress > div[class^="u-linear-progress_track__"] {
     background: rgba(0, 0, 0, 0.5);
     height: 6px;
     border-radius: 100px;
@@ -607,7 +641,7 @@ export default {
 
 .buttons {
     position: absolute;
-    font-size: 20px;
+    font-size: var(--uploader-card-button-font-size);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -657,7 +691,46 @@ export default {
 }
 
 .draggable::before {
-    font-size: 32px;
+    font-size: 24px;
     icon-font: url('./assets/upload.svg');
+    color: var(--uploader-draggable-icon-color);
 }
+.draggable:focus::before,
+.draggable[dragover]::before{
+    color: var(--uploader-draggable-color-hover);
+}
+
+.dragDescription{
+    margin-bottom: 10px;
+    color: var(--uploader-draggable-color);
+}
+
+.errmessage {
+    display: block;
+    white-space: var(--validator-message-white-space);
+    color: #F24957;
+    border-radius: var(--validator-message-border-radius);
+    min-width: var(--validator-message-min-width);
+    margin: 4px 0;
+    font-size: 12px;
+}
+.errmessage::before {
+    icon-font: url('../i-icon.vue/assets/warning.svg');
+    font-size: 12px;
+    margin-left: 1px;
+    margin-right: 4px;
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 48%, rgba(255,255,255,0) 48%);
+}
+
+.description {
+    color: var(--uploader-color);
+    margin: 4px 0;
+    font-size: 12px;
+}
+.cardwrap .description,
+.cardwrap .errmessage {
+    margin-left: var(--uploader-card-space);
+}
+
+
 </style>
