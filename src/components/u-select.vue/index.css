@@ -25,6 +25,12 @@
     box-shadow: var(--select-box-shadow-focus);
 }
 
+.root:active {
+    outline: var(--focus-outline);
+    border-color: var(--select-border-color-hover);
+    box-shadow: var(--select-box-shadow-active);
+}
+
 .baseline {
     visibility: hidden;
     display: inline-block;

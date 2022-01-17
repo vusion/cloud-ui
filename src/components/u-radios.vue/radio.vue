@@ -95,6 +95,14 @@ export default {
     box-shadow: var(--radio-box-shadow-focus);
 }
 
+.root:active {
+    outline: var(--focus-outline);
+}
+
+.root:active .radio {
+    box-shadow: var(--radio-box-shadow-active);
+}
+
 .root[disabled] {
     cursor: var(--cursor-not-allowed);
     color: var(--radio-color-disabled);
@@ -107,6 +115,12 @@ export default {
 .root[readonly]:hover {
     cursor: var(--radio-cursor-readonly);
 }
+.root[disabled]:active .radio,
+.root[readonly]:active .radio
+{
+    box-shadow: var(--radio-box-shadow-active-disabled);
+}
+
 
 .radio {
     display: inline-block;

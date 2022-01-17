@@ -55,6 +55,7 @@ export default { name: 'u-button', extends: ULink };
 .root:active {
     background: var(--button-background-active);
     box-shadow: var(--button-box-shadow-active);
+    border-color: var(--button-border-color-hover);
 }
 
 .root[disabled] {
@@ -89,7 +90,7 @@ export default { name: 'u-button', extends: ULink };
 }
 
 .root[color="primary"]:active {
-    box-shadow: var(--button-box-shadow-active);
+    box-shadow: var(--button-box-shadow-active-primary);
 }
 
 .root[color="primary"][disabled] {
@@ -116,7 +117,7 @@ export default { name: 'u-button', extends: ULink };
 }
 
 .root[color="primary_secondary"]:active {
-    box-shadow: var(--button-box-shadow-active);
+    box-shadow: var(--button-box-shadow-active-primary-secondary);
 }
 
 .root[color="primary_secondary"][disabled] {
@@ -155,7 +156,7 @@ export default { name: 'u-button', extends: ULink };
 }
 
 .root[color="danger"]:active {
-    box-shadow: var(--button-box-shadow-active);
+    box-shadow: var(--button-box-shadow-active-danger);
 }
 
 .root[color="danger"][disabled] {
@@ -182,7 +183,7 @@ export default { name: 'u-button', extends: ULink };
 }
 
 .root[color="danger_secondary"]:active {
-    box-shadow: var(--button-box-shadow-active);
+    box-shadow: var(--button-box-shadow-active-danger-secondary);
 }
 
 .root[color="danger_secondary"][disabled] {

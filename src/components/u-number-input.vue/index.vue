@@ -253,7 +253,7 @@ export default {
 }
 
 .button:hover::before {
-    color: var(--brand-primary);
+    color: var(--number-input-icon-color-hover);
 }
 
 .button[disabled]:hover::before {
