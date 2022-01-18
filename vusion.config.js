@@ -68,6 +68,7 @@ module.exports = {
             { group: '数据', name: 'u-transfer', alias: '穿梭框' },
             { group: '数据', name: 'u-form-table-view', alias: '表单表格', advanced: true },
             { group: '数据', name: 'u-calendar-view', alias: '日历' },
+            { group: '数据', name: 'u-list-components', alias: '组件列表' },
 
             { group: '表单', name: 'u-form', alias: '表单' },
             { group: '表单', name: 'u-validator', alias: '验证器', advanced: true },

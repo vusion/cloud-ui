@@ -1,0 +1,24 @@
+- name: u-list-components
+  title: 组件列表
+  icon: forcom
+  labels:
+    - Table
+  description: 组件列表
+  attrs:
+    - name: data-source
+      title: 数据源
+      type: array
+      description: 一个包含字符串或对象的数组
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      description: 组件列表每一项的结构
+      compType: dataTypeComsItem
+    - name: colnum
+      title: 每行排列项数
+      type: number
+      default: 5
+      description: 每行排列项数
+  slots:
+    - name: default
+      description: 内容自定义

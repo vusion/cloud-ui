@@ -11,6 +11,7 @@ export * from './f-virtual-list.vue';
 export * from './i-icon.vue';
 export * from './i-ico.vue';
 export * from './u-gallery.vue';
+export * from './u-list-components.vue';
 export * from './m-complex.vue';
 export * from './m-debug.vue';
 export * from './m-dynamic.vue';
