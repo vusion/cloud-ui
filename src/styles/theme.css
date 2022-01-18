@@ -592,10 +592,10 @@
 
     /* @component u-table as u-table-view */
     --table-background: var(--background-color-default);
-    --table-head-background: #f6f7fa;
+    --table-head-background: #f7f8fa;
     --table-head-background-light: var(--background-color-default); /* @hidden */
     --table-head-font-weight: 500;
-    --table-head-color: var(--gray-darker);
+    --table-head-color: var(--gray-darkest);
     --table-row-background: var(--background-color-base);
     --table-row-background-hover: var(--background-color-lighter); /* @hidden */
     --table-row-background-striped: var(--background-color-lighter); /* @hidden */
@@ -643,7 +643,7 @@
      */
 
     /* @component u-table-view */
-    --table-view-head-item-color: var(--gray-darker);
+    --table-view-head-item-color: var(--gray-darkest);
     --table-view-head-title-sortable-hover: #eef2f8; /* @hidden */
     --table-view-sort-color-hover: #aaa; /* @hidden */
     --table-view-table-shadow: 2px 0 6px -2px rgba(0, 0, 0, 0.2); /* @hidden */
@@ -1271,24 +1271,6 @@
     --skeleton-title-width: 36%;
     --skeleton-paragraph-width: 72%;
 
-    /**
-     * ========================
-     *   特效
-     * ========================
-     */
-
-    /* @component e-ripple @hidden */
-    --ripple-transition: transform 1s, background-color 1s;
-    --ripple-background: rgba(0, 0, 0, 0.2);
-    --ripple-background-light: rgba(255, 255, 255, 0.2);
-    --ripple-size: 100px;
-
-    /* @component m-group @hidden */
-    --group-head-padding: 2px 4px;
-    --group-head-background: var(--background-color-dark);
-    --group-expander-size: 26px;
-    --group-expander-color-disabled: var(--brand-disabled);
-
     /* @component u-calendar-view */
     --calendar-date-height: 96px;
     --calendar-date-padding: 4px 8px 0;
@@ -1313,6 +1295,27 @@
     --datepicker-input-clear-icon-color: var(--input-clear-icon-color);
     --datepicker-popper-box-shadow: var(--select-popper-box-shadow);
     --datepicker-popper-border-radius: var(--border-radius-base);
+
+    /**
+     * ========================
+     *   特效
+     * ========================
+     */
+
+    /* @component e-ripple @hidden */
+    --ripple-transition: transform 1s, background-color 1s;
+    --ripple-background: rgba(0, 0, 0, 0.2);
+    --ripple-background-light: rgba(255, 255, 255, 0.2);
+    --ripple-size: 100px;
+
+    /* @component m-group @hidden */
+    --group-head-padding: 2px 4px;
+    --group-head-background: var(--background-color-dark);
+    --group-expander-size: 26px;
+    --group-expander-color-disabled: var(--brand-disabled);
+
+    /* @component m-popper @hidden */
+    --popper-box-shadow: var(--box-shadow-base);
 }
 
 @custom-media --mini-window (max-width: 479px);
