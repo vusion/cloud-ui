@@ -63,6 +63,7 @@
     "normalize.css": "^7.0.0",
     "regenerator-runtime": "^0.13.9",
     "resize-observer-polyfill": "^1.5.1",
+    "swiper": "^7.4.1",
     "vusion-api": "^0.6.30",
     "xlsx": "^0.17.3",
     "yargs": "^16.2.0"

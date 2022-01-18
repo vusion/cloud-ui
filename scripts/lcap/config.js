@@ -16,6 +16,7 @@ module.exports = [
     { group: 'Display', show: true, name: 'u-button', alias: '按钮' },
     // { group: 'Display', show: true, name: 'i-icon', alias: '图标' },
     { group: 'Display', show: true, name: 'i-ico', alias: '图标' },
+    { group: 'Display', show: true, name: 'u-gallery', alias: '画廊' },
     { group: 'Display', show: true, name: 'u-label', alias: '标签' },
     { group: 'Display', show: true, name: 'u-badge', alias: '徽章' },
     { group: 'Display', show: true, name: 'u-carousel', alias: '走马灯' },
@@ -27,6 +28,7 @@ module.exports = [
     { group: 'Table', show: true, name: 'u-grid-view', alias: '数据网格' },
     { group: 'Table', show: true, name: 'u-form-table-view', alias: '表单表格', newest: true },
     { group: 'Table', show: true, name: 'u-calendar-view', alias: '日历' },
+    { group: 'Table', show: true, name: 'u-list-components', alias: '组件列表' },
     // { group: 'Table', show: true, name: 'u-list-view', alias: '数据列表' },
     // { group: 'Table', show: true, name: 'u-actions', alias: '操作项' },
 

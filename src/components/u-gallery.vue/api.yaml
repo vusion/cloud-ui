@@ -1,0 +1,34 @@
+- name: u-gallery
+  title: 画廊
+  icon: gallery
+  labels:
+    - Display
+  description: 画廊
+  attrs:
+  - name: data-source
+    title: 数据源
+    type: Array<Item> | Function | object
+    default: '["https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg", "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg", "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg", "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg", "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"]'
+    description: 数据源
+  - name: 
+    title: 画廊模式
+    type: pattern
+    options:
+      - value: small
+        title: 缩略图模式
+      - value: big
+        title: 大图模式
+    default: big
+    description: 链接类型
+  - name: num	
+    title: 显示图片数	
+    type: number
+    default: 5
+    description: 显示图片数	
+  - name: arrow	
+    title: 是否显示左右箭头	
+    type: boolean
+    default: true
+    description: 是否显示左右箭头
+  slots: false
+  events:

@@ -47,6 +47,7 @@ module.exports = {
             { group: '展示', name: 'u-label', alias: '标签' },
             { group: '展示', name: 'u-badge', alias: '徽章' },
             { group: '展示', name: 'u-carousel', alias: '幻灯片' },
+            { group: '展示', name: 'u-gallery', alias: '画廊' },
             { group: '展示', name: 'u-image', alias: '图片展示' },
             // { group: 'Basic', name: 'u-avatar', alias: '头像' },
             // { group: 'Basic', name: 'u-actions', alias: '操作项' },
@@ -67,6 +68,7 @@ module.exports = {
             { group: '数据', name: 'u-transfer', alias: '穿梭框' },
             { group: '数据', name: 'u-form-table-view', alias: '表单表格', advanced: true },
             { group: '数据', name: 'u-calendar-view', alias: '日历' },
+            { group: '数据', name: 'u-list-components', alias: '组件列表' },
 
             { group: '表单', name: 'u-form', alias: '表单' },
             { group: '表单', name: 'u-validator', alias: '验证器', advanced: true },
