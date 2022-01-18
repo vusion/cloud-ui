@@ -164,6 +164,7 @@ export default {
     border-radius: calc(0.5*var(--tooltip-arrow-size));
     border: 1px solid var(--list-view-border-color);
     transform: translate(-50%) rotate(45deg);
+    box-shadow: var(--popper-box-shadow);
 }
 
 .popper[data-popper-placement^="top"] { margin-bottom: var(--tooltip-arrow-size); }

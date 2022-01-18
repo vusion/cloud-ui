@@ -169,7 +169,7 @@ export default {
 }
 
 .box[status="false"]::before {
-    icon-font: url('../i-icon.vue/assets/check.svg') '\ff01';
+    icon-font: url('./assets/check.svg') '\ff01';
     icon-font: url('./assets/check-dark.svg') '\ff02';
     content: var(--checkbox-icon);
     color: transparent;
@@ -180,7 +180,7 @@ export default {
     border-color: var(--checkbox-background);
 }
 .box[status="true"]::before {
-    icon-font: url('../i-icon.vue/assets/check.svg') '\ff01';
+    icon-font: url('./assets/check.svg') '\ff01';
     icon-font: url('./assets/check-dark.svg') '\ff02';
     content: var(--checkbox-icon);
     color: var(--checkbox-color);

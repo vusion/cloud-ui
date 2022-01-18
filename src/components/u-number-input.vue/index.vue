@@ -231,10 +231,12 @@ export default {
 .button[role="up"] {
     top: 0;
     border-bottom: 1px solid var(--border-color-base);
+    border-top-right-radius: var(--number-input-button-border-radius);
 }
 
 .button[role="down"] {
     bottom: 0;
+    border-bottom-right-radius: var(--number-input-button-border-radius);
 }
 
 .button[role="up"]::before {
