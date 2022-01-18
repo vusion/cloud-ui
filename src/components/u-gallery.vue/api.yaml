@@ -8,6 +8,7 @@
   - name: data-source
     title: 数据源
     type: Array<Item> | Function | object
+    default: '["https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg", "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg", "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg", "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg", "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"]'
     description: 数据源
   - name: 
     title: 画廊模式
@@ -22,6 +23,7 @@
   - name: num	
     title: 显示图片数	
     type: number
+    default: 5
     description: 显示图片数	
   - name: arrow	
     title: 是否显示左右箭头	
@@ -30,27 +32,3 @@
     description: 是否显示左右箭头
   slots: false
   events:
-    - name: click
-      title: 点击后
-      description: 点击此项时触发
-      params: []
-    - name: dblclick
-      title: 双击
-      description: 双击此项时触发
-      params: []
-    - name: rightclick
-      title: 右键点击
-      description: 右键点击此项时触发
-      params: []
-    - name: over
-      title: 鼠标移入
-      description: 鼠标移入此项时触发
-      params: []
-    - name: out
-      title: 鼠标移出
-      description: 鼠标移出此项时触发
-      params: []
-    - name: down
-      title: 鼠标按下
-      description: 鼠标按下此项时触发
-      params: []
