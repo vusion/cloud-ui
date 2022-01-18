@@ -50,6 +50,7 @@ export default {
         disabled: { type: Boolean, default: false },
         checkControlled: { type: Boolean, default: false },
         expanderWidth: {type: Number, default: 30 },
+        paddingLeft: {type: Number, default: 0 },
     },
     data() {
         return {

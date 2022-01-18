@@ -714,7 +714,11 @@
     --tree-view-background: white;
     --tree-view-node-margin-left: 30px;
     --tree-view-node-expander-size: 30px;
-    --tree-view-node-expander-size-mini: 28px;
+    --tree-view-node-expander-size-mini: 26px;
+    --tree-view-node-expander-width: 30px;
+    --tree-view-node-expander-height: 30px;
+    --tree-view-node-expander-width-mini: 26px;
+    --tree-view-node-expander-height-mini: 26px;
     --tree-view-node-text-padding: 4px 0;
     --tree-view-node-text-padding–mini: 4px 0;
     --tree-view-node-background-active: var(--background-color-base);
@@ -877,6 +881,7 @@
     --number-input-button-background-disabled: none;
     --number-input-button-color-disabled: var(--brand-disabled);
     --number-input-icon-color-hover: var(--brand-primary);
+    --number-input-button-border-radius: var(--input-border-radius);
 
     /* @component u-radio as u-radios */
     --radio-space-x: 32px;
@@ -936,8 +941,8 @@
     --checkbox-font-color: #333;
     --checkbox-box-shadow-focus: none;
     --checkbox-box-shadow-active: var(--button-box-shadow-active);
-    --checkbox-icon: '\ff02';
-    --checkbox-icon-size: 16px;
+    --checkbox-icon: '\ff01';
+    --checkbox-icon-size: var(--font-size-small);
     --checkbox-icon-left: 0;
     --checkbox-icon-top: 0;
     /* @component u-select */
@@ -1059,6 +1064,7 @@
     --uploader-card-button-font-size: 16px;
     --uploader-card-background: #fcfcfc;
     --uploader-color: #999;
+    --uploader-border-color: var(--border-color-base);
 
     /**
      * ========================

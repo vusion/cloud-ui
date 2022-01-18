@@ -506,7 +506,7 @@ export default {
 }
 
 .list[list-type="image"] .item {
-    border: 1px solid var(--border-color-base);
+    border: 1px solid var(--uploader-border-color);
     margin-top: var(--uploader-list-image-margin-top);
 }
 
@@ -598,7 +598,7 @@ export default {
 }
 
 .card[role="select"]::before {
-    color: var(--border-color-base);
+    color: var(--uploader-border-color);
     icon-font: url('./assets/add.svg');
     font-size: 30px;
 }

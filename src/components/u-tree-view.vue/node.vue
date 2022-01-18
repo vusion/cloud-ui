@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" v-show="!hidden">
-    <div :class="$style.item" :selected="selected" :style="{ paddingLeft: level * expanderWidth + 'px' }"
+    <div :class="$style.item" :selected="selected" :style="{ paddingLeft: level * expanderWidth + paddingLeft + 'px' }"
         :readonly="rootVM.readonly" :readonly-mode="rootVM.readonlyMode"
         :disabled="currentDisabled"
         :tabindex="disabled || rootVM.readonly || rootVM.disabled ? '' : 0"
@@ -185,6 +185,9 @@ export default {
         },
         expanderWidth(){
             return this.rootVM && this.rootVM.expanderWidth || 30;
+        },
+        paddingLeft(){
+            return this.rootVM && this.rootVM.paddingLeft || 0;
         },
     },
 
