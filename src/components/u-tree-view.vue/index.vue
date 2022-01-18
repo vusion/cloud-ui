@@ -9,7 +9,7 @@
             :expanded.sync="node.expanded"
             :checked.sync="node.checked"
             :disabled="node.disabled"
-            :hidden="node.hidden"
+            :hidden="$at(node, hiddenField)"
             :node="node"
             :level="0"
         ></component>
@@ -34,6 +34,7 @@ export default {
         dataSource: [Array, Object, Function],
         textField: { type: String, default: 'text' },
         valueField: { type: String, default: 'value' },
+        hiddenField: { type: String, default: 'hidden' },
         isLeafField: { type: String, default: 'isLeaf' },
         childrenField: { type: String, default: 'children' },
         moreChildrenFields: Array,
