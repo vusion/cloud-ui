@@ -44,16 +44,19 @@ export default {
     props: {
         dataSource: {
             type: [Array, Object, Function],
-            default: () => [1, 2, 3, 4, 5],
+            default: () => '["https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg", "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg", "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg", "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg", "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"]',
         },
-        num: Number,
+        num: {
+            type: Number,
+            default: 5,
+        },
         arrow: {
             type: Boolean,
             default: true,
         },
         pattern: {
             type: String,
-            default: 'small',
+            default: 'big',
         },
     },
     data() {
@@ -65,7 +68,7 @@ export default {
             bigOption: {
                 observeParents: true,
                 centeredSlides: true,
-                slidesPerView: 3,
+                slidesPerView: this.num,
                 spaceBetween: 32,
                 loop: true,
                 navigation: {
@@ -111,7 +114,11 @@ export default {
             this.thumbsSwiper = swiper;
         },
         getUrl(item) {
-            return 'https://github.surmon.me/images/example/1.jpg';
+            const type = typeof item === 'object';
+            if (type) {
+                return item.url;
+            }
+            return item;
         },
         fromValue(value) {
             try {
@@ -150,8 +157,10 @@ export default {
                     this.swiperthumb = null;
                 }
                 this[`swiper${this.pattern}`] = new Swiper(`.swiper${this.pattern}`, this[`${this.pattern}Option`]);
-                const newHeight = document.querySelector('.swiper-slide-thumb').offsetWidth;
-                this.$refs.thumbwrap.style.height = `${newHeight}px`;
+                if (this.pattern === 'small') {
+                    const newHeight = document.querySelector('.swiper-slide-thumb').offsetWidth;
+                    this.$refs.thumbwrap.style.height = `${newHeight}px`;
+                }
             });
         },
         prev() {
