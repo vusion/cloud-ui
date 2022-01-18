@@ -1,39 +1,46 @@
 <template>
 <div :class="[$style['wrap'],pattern==='big' ? $style['wrapbig'] :$style['wrapsmall']]" class="swiper-for-vusion">
-    <swiper ref="mySwiper" :class="$style.swiper" class="swiper-small-wrap" :options="swiperOption" v-if="pattern==='small'" :auto-update="true" :auto-destroy="true" :delete-instance-on-destroy="true" :cleanup-styles-on-destroy="true">
-        <swiper-slide :class="$style.swiperslide" v-for="(item, index) in options" :key="index">
-            {{ item }}
-        </swiper-slide>
-        <div class="swiper-pagination" slot="pagination"></div>
-        <div class="swiper-button-prev" slot="button-prev" v-if="arrow"></div>
-        <div class="swiper-button-next" slot="button-next" v-if="arrow"></div>
-    </swiper>
     <template v-if="pattern==='big'">
-        <swiper ref="mySwiperbig" :class="$style.swiperbig" class="swiper-big gallery-top" :options="swiperOptionbig" :auto-update="true" :auto-destroy="true" :delete-instance-on-destroy="true" :cleanup-styles-on-destroy="true">
-            <swiper-slide :class="$style.swiperslidebig" class="swiper-big-slide swiper-big-thumb-slide" v-for="(item, index) in options" :key="index">
-                {{ item }}
-            </swiper-slide>
-        </swiper>
-        <div class="swiper-gallery-thumbs-wrap">
-            <swiper ref="swiperThumbs" :class="$style.swiperthumb" class="gallery-thumbs" :options="swiperOptionThumbs" :auto-update="true" :auto-destroy="true" :delete-instance-on-destroy="true" :cleanup-styles-on-destroy="true">
-                <swiper-slide :class="$style.swiperslidethumbs" class="swiper-thumb-slide swiper-big-thumb-slide" v-for="(item, index) in options" :key="index">
-                    {{ item }}
-                </swiper-slide>
-            </swiper>
-            <i-ico name="left-arrow" class="swiper-thumb-left-arrow" @click="prev" v-if="arrow"></i-ico>
-            <i-ico name="right-arrow" class="swiper-thumb-right-arrow" @click="next" v-if="arrow"></i-ico>
+        <div class="swiper mySwiper swiperbig">
+            <div class="swiper-wrapper swiper-wrapper-big">
+                <div class="swiper-slide swiper-slide-big" v-for="(item, index) in options" :key="index">
+                    <img :src="getUrl(item)" class="swiper-slide-big-image">
+                </div>
+            </div>
+        </div>
+        <i-ico name="left-arrow" class="swiper-big-left-arrow" @click="prev" v-if="arrow"></i-ico>
+        <i-ico name="right-arrow" class="swiper-big-right-arrow" @click="next" v-if="arrow"></i-ico>
+    </template>
+    <template v-if="pattern==='small'">
+        <div class="swiper mySwiper swipersmall">
+            <div class="swiper-wrapper swiper-wrapper-small">
+                <div class="swiper-slide swiper-slide-small" v-for="(item, index) in options" :key="index">
+                    <img :src="getUrl(item)" class="swiper-slide-small-image">
+                </div>
+            </div>
+        </div>
+        <div class="swiperthumb-wrap" ref="thumbwrap">
+            <div class="swiper mySwiper swiperthumb">
+                <div class="swiper-wrapper swiper-wrapper-thumb">
+                    <div class="swiper-slide swiper-slide-thumb" v-for="(item, index) in options" :key="index">
+                        <img :src="getUrl(item)" class="swiper-slide-thumb-image">
+                    </div>
+                </div>
+            </div>
+            <i-ico name="left-arrow" class="swiper-thumb-left-arrow" @click="prevthumb" v-if="arrow"></i-ico>
+            <i-ico name="right-arrow" class="swiper-thumb-right-arrow" @click="nextthumb" v-if="arrow"></i-ico>
         </div>
     </template>
 </div>
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
-import 'swiper/css/swiper.css';
+import Swiper from 'swiper/swiper-bundle.esm.js';
+import 'swiper/swiper-bundle.min.css';
 
 export default {
     name: 'u-gallery',
-    components: { Swiper, SwiperSlide },
+    components: { },
     props: {
         dataSource: {
             type: [Array, Object, Function],
@@ -46,68 +53,47 @@ export default {
         },
         pattern: {
             type: String,
-            default: 'big',
+            default: 'small',
         },
     },
     data() {
         return {
             options: [],
-            swiperOption: {
-                observer: true,
-                resizeObserver: true,
+            swiperbig: null,
+            swipersmall: null,
+            swiperthumb: null,
+            bigOption: {
                 observeParents: true,
+                centeredSlides: true,
                 slidesPerView: 3,
                 spaceBetween: 32,
-                slidesPerGroup: 1,
                 loop: true,
-                loopFillGroupWithBlank: true,
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
                 navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
+                    nextEl: '.swiper-button-next-big',
+                    prevEl: '.swiper-button-prev-big',
                 },
             },
-            swiperOptionbig: {
-                observer: true,
-                resizeObserver: true,
+            smallOption: {
                 observeParents: true,
                 loop: true,
-                loopedSlides: 5, // looped slides should be the same
                 spaceBetween: 10,
+                navigation: {
+                },
+                thumbs: {
+                    swiper: this.swiperthumb,
+                },
             },
-            swiperOptionThumbs: {
-                observer: true,
-                resizeObserver: true,
+            thumbOption: {
                 observeParents: true,
                 loop: true,
-                loopedSlides: 5, // looped slides should be the same
                 spaceBetween: 10,
                 slidesPerView: 5,
-                slidesPerGroup: 1,
-                centeredSlides: true,
-                // slidesPerView: 'auto',
-                // touchRatio: 0.2,
-                slideToClickedSlide: true,
-                navigation: {
-                    nextEl: '.swiper-button-next-thumb',
-                    prevEl: '.swiper-button-prev-thumb',
-                },
+                freeMode: true,
+                watchSlidesProgress: true,
             },
         };
     },
     computed: {
-        swiper() {
-            return this.$refs.mySwiper.$swiper;
-        },
-        swiperbig() {
-            return this.$refs.mySwiperbig.$swiper;
-        },
-        swiperThumbs() {
-            return this.$refs.swiperThumbs.$swiper;
-        },
     },
     watch: {
         dataSource: {
@@ -117,35 +103,68 @@ export default {
         },
         pattern: {
             deep: true,
-            handler: 'setType',
-            immediate: true,
+            handler: 'renderSwiper',
         },
-    },
-    mounted() {
-        this.setType();
-        setTimeout(() => {
-            this.options = [1, 2, 3, 4, 5, 67, 89, 555];
-        }, 6000);
     },
     methods: {
-        update() {
-            this.options = this.dataSource;
+        setThumbsSwiper(swiper) {
+            this.thumbsSwiper = swiper;
         },
-        setType() {
-            if (this.pattern === 'big') {
-                this.$nextTick(() => {
-                    const swiperTop = this.$refs.mySwiperbig.$swiper;
-                    const swiperThumbs = this.$refs.swiperThumbs.$swiper;
-                    swiperTop.controller.control = swiperThumbs;
-                    swiperThumbs.controller.control = swiperTop;
-                });
+        getUrl(item) {
+            return 'https://github.surmon.me/images/example/1.jpg';
+        },
+        fromValue(value) {
+            try {
+                if (value === null || value === undefined)
+                    return [];
+                if (typeof value === 'string')
+                    return JSON.parse(value || '[]');
+                if (typeof value === 'object')
+                    return value;
+            } catch (err) {
+                return [];
             }
         },
+        async update() {
+            if (typeof (this.dataSource) === 'function') {
+                try {
+                    const res = await this.dataSource({
+                        page: 1,
+                        size: 1000,
+                    });
+                    this.options = (res.content);
+                } catch (error) {
+                    console.error(error);
+                }
+            } else {
+                this.options = (this.fromValue(this.dataSource));
+            }
+            this.renderSwiper();
+        },
+        renderSwiper() {
+            this.$nextTick(() => {
+                if (this.pattern === 'small') {
+                    this.swiperthumb = new Swiper(`.swiperthumb`, this.thumbOption);
+                    this.smallOption.thumbs.swiper = this.swiperthumb;
+                } else {
+                    this.swiperthumb = null;
+                }
+                this[`swiper${this.pattern}`] = new Swiper(`.swiper${this.pattern}`, this[`${this.pattern}Option`]);
+                const newHeight = document.querySelector('.swiper-slide-thumb').offsetWidth;
+                this.$refs.thumbwrap.style.height = `${newHeight}px`;
+            });
+        },
         prev() {
-            this.swiperThumbs.slidePrev();
+            this[`swiper${this.pattern}`].slidePrev();
         },
         next() {
-            this.swiperThumbs.slideNext();
+            this[`swiper${this.pattern}`].slideNext();
+        },
+        prevthumb() {
+            this.swiperthumb.slidePrev();
+        },
+        nextthumb() {
+            this.swiperthumb.slideNext();
         },
     },
 };
@@ -153,121 +172,94 @@ export default {
 <style module>
 .wrap {
     width: 100%;
-    height: 300px;
+    height: 400px;
     overflow: hidden;
 }
 .wrapbig {
+    width: 100%;
+    height: 400px;
+    padding: 0 72px;
+    position: relative;
+}
+.wrapsmall {
+    width: 100%;
     height: 472px;
-    width: 400px;
+    overflow: unset;
 }
-.swiper{
-    width: 100%;
-    height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    overflow: hidden;
-    list-style: none;
-    padding: 0;
-    z-index: 1;
-}
-.swiperslide {
-    height: 90.90909090909091%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-weight: bold;
-    font-size: 30px;
-    background-color: rgb(202, 25, 25);
-  }
-.swiperbig{
-    width: 100%;
-    height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    overflow: hidden;
-    list-style: none;
-    padding: 0;
-    z-index: 1;
-}
-.swiperslidethumbs {
-    width: 60px;
-    height: 60px;
-}
-.swiperslidebig {
-    height: 90.90909090909091%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-weight: bold;
-    font-size: 30px;
-    background-color: rgb(202, 25, 25);
-  }
 </style>
 <style>
-    .swiper-for-vusion .swiper-wrapper {
-        align-items: center;
-    }
-    .swiper-for-vusion .swiper-small-wrap .swiper-slide-next {
-        transform: scale(1.1,1.1);
-    }
-    .swiper-for-vusion .swiper-button-prev, .swiper-for-vusion .swiper-button-next {
-        color: #ccc;
-        width: 39.18px;
-        height: 21.84px;
-    }
-    .swiper-for-vusion .swiper-big-thumb-slide {
-        background-size: cover;
-        background-position: center;
-    }
-    .swiper-for-vusion .gallery-top.swiper-big {
-      height: 80%;
-      width: 100%;
-      margin-bottom: 12px;
-    }
-    .swiper-for-vusion .swiper-big-slide {
-        height: 100%;
+    .swiper-for-vusion .swiper {
         width: 100%;
-    }
-    .swiper-for-vusion .swiper-gallery-thumbs-wrap {
-        overflow: hidden;
-        padding: 0 36px;
+        height: 100%;
         position: relative;
     }
-    .swiper-for-vusion .gallery-thumbs {
-      box-sizing: border-box;
+    .swiper-for-vusion .swiper-wrapper-big {
+         align-items: center;
     }
-    .swiper-for-vusion .gallery-thumbs .swiper-slide {
-      width: 60px;
-      height: 60px;
-      opacity: 0.4;
+    .swiper-for-vusion .swiper-wrapper-big .swiper-slide-big {
+        text-align: center;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90.90909090909091%;
+      }
+
+    .swiper-for-vusion .swiper-wrapper-big .swiper-slide-big-image {
+        display: block;
+        width: 100%;
+        height: 100%;
     }
-    .swiper-for-vusion .gallery-thumbs .swiper-slide-active {
-      opacity: 1;
+    .swiper-for-vusion .swiper-wrapper-big .swiper-slide-active {
+        transform: scale(1.1,1.1);
     }
-    .swiper-for-vusion .gallery-thumbs .swiper-button-prev, .swiper-for-vusion .gallery-thumbs .swiper-button-next {
+    .swiper-for-vusion .swiper-slide-thumb-active {
+        box-sizing: border-box;
+        border: 2px solid #4c88ff;
+    }
+    .swiper-big-left-arrow, .swiper-big-right-arrow {
+        font-size: 48px;
         color: #ccc;
-        width: 19.59px;
-        height: 10.92px;
-    }
-    .swiper-for-vusion .gallery-thumbs .swiper-button-prev:after, .swiper-for-vusion .gallery-thumbs .swiper-button-next:after {
-        font-size: 100%;
-    }
-    .swiper-thumb-left-arrow, .swiper-thumb-right-arrow {
-        color: #ccc;
-        font-size: 20px;
         position: absolute;
+        left: 0;
         top: 50%;
         transform: translateY(-50%);
         cursor: pointer;
     }
-    .swiper-thumb-left-arrow {
+    .swiper-big-right-arrow {
+        left: auto;
+        right: 0;
+    }
+    .swiper-for-vusion .swipersmall {
+        width: 100%;
+        height: 84.7457627118644%;
+        position: relative;
+        margin-bottom: 12px;
+    }
+    .swiper-for-vusion .swiperthumb-wrap {
+        padding: 0 36px;
+        position: relative;
+    }
+
+    .swiper-for-vusion .swiperthumb {
+
+    }
+    .swiper-for-vusion .swiper-wrapper-thumb .swiper-slide-thumb-image {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-thumb-left-arrow, .swiper-thumb-right-arrow {
+        font-size: 20px;
+        color: #ccc;
+        position: absolute;
         left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
     }
     .swiper-thumb-right-arrow {
+        left: auto;
         right: 0;
     }
 </style>
