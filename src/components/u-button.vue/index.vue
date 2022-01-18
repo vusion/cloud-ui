@@ -312,6 +312,7 @@ export default { name: 'u-button', extends: ULink };
 }
 .root [class^="i-ico_lcp-iconv"] {
     margin: 0 4px;
+    vertical-align: top;
 }
 .root[loading] [class^="i-ico_lcp-iconv"]{
     display: none;

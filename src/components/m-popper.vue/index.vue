@@ -427,6 +427,6 @@ export default {
 <style module>
 .root {
     z-index: var(--z-index-popper);
-    box-shadow: 0px 0px 4px rgb(3 3 3 / 30%);
+    box-shadow: var(--popper-box-shadow);
 }
 </style>
