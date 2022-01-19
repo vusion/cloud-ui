@@ -58,6 +58,7 @@
                     :checked.sync="subNode.checked"
                     :disabled="subNode.disabled"
                     :hidden="$at(subNode, rootVM.hiddenField)"
+                    :node="subNode"
                     :parent="node"
                     :level="level + 1"
                 ></u-tree-view-node>
