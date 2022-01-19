@@ -595,7 +595,7 @@
     --table-head-background: #f7f8fa;
     --table-head-background-light: var(--background-color-default); /* @hidden */
     --table-head-font-weight: 500;
-    --table-head-color: var(--gray-darkest);
+    --table-head-color: var(--gray-dark);
     --table-row-background: var(--background-color-base);
     --table-row-background-hover: var(--background-color-lighter); /* @hidden */
     --table-row-background-striped: var(--background-color-lighter); /* @hidden */
@@ -643,7 +643,7 @@
      */
 
     /* @component u-table-view */
-    --table-view-head-item-color: var(--gray-darkest);
+    --table-view-head-item-color: var(--gray-darker);
     --table-view-head-title-sortable-hover: #eef2f8; /* @hidden */
     --table-view-sort-color-hover: #aaa; /* @hidden */
     --table-view-table-shadow: 2px 0 6px -2px rgba(0, 0, 0, 0.2); /* @hidden */
@@ -715,10 +715,6 @@
     --tree-view-node-margin-left: 30px;
     --tree-view-node-expander-size: 30px;
     --tree-view-node-expander-size-mini: 26px;
-    --tree-view-node-expander-width: 30px;
-    --tree-view-node-expander-height: 30px;
-    --tree-view-node-expander-width-mini: 26px;
-    --tree-view-node-expander-height-mini: 26px;
     --tree-view-node-text-padding: 4px 0;
     --tree-view-node-text-padding–mini: 4px 0;
     --tree-view-node-background-active: var(--background-color-base);
