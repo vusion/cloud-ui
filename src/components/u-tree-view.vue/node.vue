@@ -58,7 +58,6 @@
                     :expanded.sync="subNode.expanded"
                     :checked.sync="subNode.checked"
                     :disabled="subNode.disabled"
-                    :hidden="subNode.hidden"
                     :hidden="$at(subNode, hiddenField)"
                     :hiddenField="hiddenField"
                     :parent="node"
