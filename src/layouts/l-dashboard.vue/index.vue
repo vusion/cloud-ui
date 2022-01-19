@@ -8,7 +8,7 @@
     </aside>
     <main :class="$style.main" vusion-slot-name="default">
         <slot name="main">
-            <div :class="$style.content" >
+            <div :class="$style.content">
                 <slot></slot>
             </div>
         </slot>
@@ -60,7 +60,7 @@ export default { name: 'l-dashboard' };
 
 .content {
     position: relative;
-    min-width: 1110px;
+    min-width: 1020px;
     padding: 40px;
 }
 </style>
