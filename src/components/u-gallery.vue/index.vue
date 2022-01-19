@@ -149,10 +149,10 @@ export default {
                     this.swiperthumb = null;
                 }
                 this[`swiper${this.pattern}`] = new Swiper(`.swiper${this.pattern}`, this[`${this.pattern}Option`]);
-                if (this.pattern === 'small') {
-                    const newHeight = document.querySelector('.swiper-slide-thumb').offsetWidth;
-                    this.$refs.thumbwrap.style.height = `${newHeight}px`;
-                }
+                // if (this.pattern === 'small') {
+                //     const newHeight = document.querySelector('.swiper-slide-thumb').offsetWidth;
+                //     this.$refs.thumbwrap.style.height = `${newHeight}px`;
+                // }
             });
         },
         prev() {
@@ -183,8 +183,8 @@ export default {
     position: relative;
 }
 .wrapsmall {
-    width: 100%;
-    height: 472px;
+    width: 1446px;
+    height: 1706px;
     overflow: unset;
 }
 </style>
@@ -215,6 +215,7 @@ export default {
         display: block;
         width: 100%;
         height: 100%;
+        object-fit: cover;
     }
     .swiper-for-vusion .swiper-wrapper-big .swiper-slide-active {
         transform: scale(1.1,1.1);
