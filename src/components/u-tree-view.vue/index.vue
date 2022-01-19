@@ -10,6 +10,7 @@
             :checked.sync="node.checked"
             :disabled="node.disabled"
             :hidden="$at(node, hiddenField)"
+            :hiddenField="hiddenField"
             :node="node"
             :level="0"
         ></component>
