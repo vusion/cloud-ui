@@ -1,36 +1,32 @@
 <template>
 <div :class="[$style['wrap'],pattern==='big' ? $style['wrapbig'] :$style['wrapsmall']]" class="swiper-for-vusion">
-    <template v-if="pattern==='big'">
-        <div class="swiper mySwiper swiperbig">
-            <div class="swiper-wrapper swiper-wrapper-big">
-                <div class="swiper-slide swiper-slide-big" v-for="(item, index) in options" :key="index">
-                    <img :src="getUrl(item)" class="swiper-slide-big-image">
+    <div class="swiper mySwiper swiperbig" v-show="pattern==='big'">
+        <div class="swiper-wrapper swiper-wrapper-big">
+            <div class="swiper-slide swiper-slide-big" v-for="(item, index) in options" :key="index">
+                <img :src="getUrl(item)" class="swiper-slide-big-image">
+            </div>
+        </div>
+    </div>
+    <i-ico name="left-arrow" class="swiper-big-left-arrow" @click="prev" v-if="arrow && pattern==='big'" :notext="true"></i-ico>
+    <i-ico name="right-arrow" class="swiper-big-right-arrow" @click="next" v-if="arrow && pattern==='big'" :notext="true"></i-ico>
+    <div class="swiper mySwiper swipersmall" v-show="pattern==='small'">
+        <div class="swiper-wrapper swiper-wrapper-small">
+            <div class="swiper-slide swiper-slide-small" v-for="(item, index) in options" :key="index">
+                <img :src="getUrl(item)" class="swiper-slide-small-image">
+            </div>
+        </div>
+    </div>
+    <div class="swiperthumb-wrap" ref="thumbwrap">
+        <div class="swiper mySwiper swiperthumb">
+            <div class="swiper-wrapper swiper-wrapper-thumb">
+                <div class="swiper-slide swiper-slide-thumb" v-for="(item, index) in options" :key="index">
+                    <img :src="getUrl(item)" class="swiper-slide-thumb-image">
                 </div>
             </div>
         </div>
-        <i-ico name="left-arrow" class="swiper-big-left-arrow" @click="prev" v-if="arrow"></i-ico>
-        <i-ico name="right-arrow" class="swiper-big-right-arrow" @click="next" v-if="arrow"></i-ico>
-    </template>
-    <template v-if="pattern==='small'">
-        <div class="swiper mySwiper swipersmall">
-            <div class="swiper-wrapper swiper-wrapper-small">
-                <div class="swiper-slide swiper-slide-small" v-for="(item, index) in options" :key="index">
-                    <img :src="getUrl(item)" class="swiper-slide-small-image">
-                </div>
-            </div>
-        </div>
-        <div class="swiperthumb-wrap" ref="thumbwrap">
-            <div class="swiper mySwiper swiperthumb">
-                <div class="swiper-wrapper swiper-wrapper-thumb">
-                    <div class="swiper-slide swiper-slide-thumb" v-for="(item, index) in options" :key="index">
-                        <img :src="getUrl(item)" class="swiper-slide-thumb-image">
-                    </div>
-                </div>
-            </div>
-            <i-ico name="left-arrow" class="swiper-thumb-left-arrow" @click="prevthumb" v-if="arrow"></i-ico>
-            <i-ico name="right-arrow" class="swiper-thumb-right-arrow" @click="nextthumb" v-if="arrow"></i-ico>
-        </div>
-    </template>
+        <i-ico name="left-arrow" class="swiper-thumb-left-arrow" @click="prevthumb" v-if="arrow && pattern==='small'" :notext="true"></i-ico>
+        <i-ico name="right-arrow" class="swiper-thumb-right-arrow" @click="nextthumb" v-if="arrow && pattern==='small'" :notext="true"></i-ico>
+    </div>
 </div>
 </template>
 
@@ -44,7 +40,7 @@ export default {
     props: {
         dataSource: {
             type: [Array, Object, Function],
-            default: () => '["https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg", "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg", "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg", "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg", "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"]',
+            default: () => '[{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"}]',
         },
         num: {
             type: Number,
@@ -56,7 +52,7 @@ export default {
         },
         pattern: {
             type: String,
-            default: 'big',
+            default: 'small',
         },
     },
     data() {
@@ -114,11 +110,7 @@ export default {
             this.thumbsSwiper = swiper;
         },
         getUrl(item) {
-            const type = typeof item === 'object';
-            if (type) {
-                return item.url;
-            }
-            return item;
+            return item.thumb || item.url || item;
         },
         fromValue(value) {
             try {
@@ -215,6 +207,11 @@ export default {
       }
 
     .swiper-for-vusion .swiper-wrapper-big .swiper-slide-big-image {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-for-vusion  .swiper-slide-small-image {
         display: block;
         width: 100%;
         height: 100%;
