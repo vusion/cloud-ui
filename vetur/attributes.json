@@ -2407,6 +2407,32 @@
     "type": "boolean",
     "description": "是否禁用。禁用时无法展开/折叠"
   },
+  "u-gallery/data-source": {
+    "type": "Array<Item> | Function | object",
+    "description": "数据源"
+  },
+  "u-gallery/pattern": {
+    "type": "string",
+    "options": [
+      {
+        "value": "small",
+        "title": "缩略图模式"
+      },
+      {
+        "value": "big",
+        "title": "大图模式"
+      }
+    ],
+    "description": "链接类型"
+  },
+  "u-gallery/num": {
+    "type": "number",
+    "description": "显示图片数"
+  },
+  "u-gallery/arrow": {
+    "type": "boolean",
+    "description": "是否显示左右箭头"
+  },
   "u-grid-layout/gap": {
     "type": "string",
     "options": [
@@ -3471,6 +3497,18 @@
       }
     ],
     "description": "展示方式"
+  },
+  "u-list-components/data-source": {
+    "type": "array",
+    "description": "一个包含字符串或对象的数组"
+  },
+  "u-list-components/data-schema": {
+    "type": "schema",
+    "description": "组件列表每一项的结构"
+  },
+  "u-list-components/colnum": {
+    "type": "number",
+    "description": "每行排列项数"
   },
   "u-list-view/data-source": {
     "type": "Array<Item> | Function | object | DataSource",
@@ -6126,6 +6164,10 @@
       {
         "title": "JSON",
         "value": "json"
+      },
+      {
+        "title": "Simple",
+        "value": "simple"
       }
     ],
     "description": "转换器"
