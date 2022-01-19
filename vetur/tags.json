@@ -781,6 +781,15 @@
     ],
     "description": "展开折叠前"
   },
+  "u-gallery": {
+    "attributes": [
+      "data-source",
+      "pattern",
+      "num",
+      "arrow"
+    ],
+    "description": "画廊"
+  },
   "u-grid-layout": {
     "attributes": [
       "gap"
@@ -1001,6 +1010,14 @@
       "display"
     ],
     "description": "文字超链接"
+  },
+  "u-list-components": {
+    "attributes": [
+      "data-source",
+      "data-schema",
+      "colnum"
+    ],
+    "description": "组件列表"
   },
   "u-list-view": {
     "attributes": [
