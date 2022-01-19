@@ -42,8 +42,7 @@
                 :expanded.sync="subNode.expanded"
                 :checked.sync="subNode.checked"
                 :disabled="subNode.disabled"
-                :hidden="$at(subNode, hiddenField)"
-                :hiddenField="hiddenField"
+                :hidden="$at(subNode, rootVM.hiddenField)"
                 :node="subNode"
                 :parent="node"
                 :level="level + 1"
@@ -58,8 +57,7 @@
                     :expanded.sync="subNode.expanded"
                     :checked.sync="subNode.checked"
                     :disabled="subNode.disabled"
-                    :hidden="$at(subNode, hiddenField)"
-                    :hiddenField="hiddenField"
+                    :hidden="$at(subNode, rootVM.hiddenField)"
                     :parent="node"
                     :level="level + 1"
                 ></u-tree-view-node>
@@ -86,7 +84,6 @@ export default {
         disabled: { type: Boolean, default: false },
         hidden: { type: Boolean, default: false },
         childrenField: String,
-        hiddenField: { type: String, default: 'hidden' },
         moreChildrenFields: Array,
         node: Object,
         parent: Object,
