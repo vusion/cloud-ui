@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root" :fit="fit">
     <template v-if="ready">
-        <img :src="src" :style="imageStyle" v-bind="$attrs">
+        <img :src="getSrc(src)" :style="imageStyle" v-bind="$attrs">
     </template>
 </div>
 </template>
@@ -37,6 +37,15 @@ export default {
         this.loadImage();
     },
     methods: {
+        getSrc(src) {
+            try {
+                const tempSrc = JSON.parse(src);
+                const tempItem = tempSrc[0];
+                return tempItem.url;
+            } catch (e) {
+                return src;
+            }
+        },
         loadImage() {
             this.ready = false;
             const img = new Image();

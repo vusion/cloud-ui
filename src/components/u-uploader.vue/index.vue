@@ -25,7 +25,7 @@
     <div :class="$style.list" v-if="showFileList" :list-type="listType">
         <template v-if="listType !== 'card'">
             <div :class="$style.item" v-for="(item, index) in currentValue" :key="index">
-                <div :class="$style.thumb"><img :class="$style.img" v-if="listType === 'image'" :src="item.thumb || item.url"></div>
+                <div :class="$style.thumb"><img :class="$style.img" v-if="listType === 'image'" :src="getUrl(item)"></div>
                 <a :class="$style.link" :href="item.url" target="_blank">{{ item.name }}</a>
                 <!-- <span v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></span> -->
                 <i-ico name="remove" v-if="!readonly && !disabled" :class="$style.remove" @click="remove(index)"></i-ico>
@@ -34,7 +34,7 @@
         </template>
         <template v-else>
             <div :class="$style.card" v-for="(item, index) in currentValue" :key="index" @click="!multiple && !readonly && select()">
-                <div :class="$style.thumb"><img :class="$style.img" :src="item.thumb || item.url"></div>
+                <div :class="$style.thumb"><img :class="$style.img" :src="getUrl(item)"></div>
                 <div :class="$style.mask" :multiple="multiple || readonly" :show-progress="item.showProgress">
                     <u-linear-progress v-if="item.showProgress" :class="$style.progress" :percent="item.percent"></u-linear-progress>
                     <div :class="$style.buttons">
@@ -143,7 +143,7 @@ export default {
     },
     methods: {
         fromValue(value) {
-            if (this.converter === 'json')
+            if (this.converter === 'json' || this.converter === 'simple')
                 try {
                     return JSON.parse(value || '[]');
                 } catch (err) {
@@ -156,8 +156,16 @@ export default {
             if (this.converter === 'json')
                 // fix for u-validator rules="required"
                 return Array.isArray(value) && value.length === 0 ? null : JSON.stringify(value);
+            if (this.converter === 'simple')
+                return Array.isArray(value) && value.length === 0 ? null : JSON.stringify(this.simpleConvert(value));
             else
                 return value;
+        },
+        simpleConvert(value) {
+            return value.map((x) => ({ url: x.url }));
+        },
+        getUrl(item) {
+            return item.thumb || item.url;
         },
         select() {
             if (this.readonly || this.disabled || this.sending)
@@ -209,7 +217,7 @@ export default {
 
             const count = this.currentValue.length + files.length;
             if (count > this.limit) {
-                this.errorMessage = `文件数量${count}超出限制 ${this.limit}！`
+                this.errorMessage = `文件数量${count}超出限制 ${this.limit}！`;
                 this.$emit('count-exceed', {
                     files,
                     value: this.currentValue,
