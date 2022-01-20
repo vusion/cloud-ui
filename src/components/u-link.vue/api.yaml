@@ -23,8 +23,6 @@
           title: 成功色
         - value: warning
           title: 警告色
-        - value: error
-          title: 错误色
         - value: danger
           title: 危险色
       default: default
