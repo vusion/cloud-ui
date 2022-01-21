@@ -94,7 +94,7 @@
 .root[disabled] {
     cursor: var(--cursor-not-allowed);
     background: var(--input-background-disabled);
-    color: var(--color-light);
+    color: var(--input-color-disabled);
 }
 .root[disabled]:hover{
     border-color: var(--input-border-color);

@@ -104,7 +104,7 @@
     cursor: var(--cursor-not-allowed);
     background: var(--select-background-disabled);
     color: var(--select-color-disabled);
-    border: 1px solid var(--brand-disabled);
+    border: 1px solid var(--select-border-color-disabled);
 }
 
 .text {
