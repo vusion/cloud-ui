@@ -3,7 +3,7 @@
     :class="{ [$style.root]: true, [$style.active]: active }"
     @click="onClick"
 >
-    <u-badge corner :value="total">
+    <u-badge corner :value="total" :class="$style.badge">
         <!-- <span :class="$style.notice"></span> -->
         <i-ico v-if="icon" :name="icon" :class="$style.taskicon" notext></i-ico>
     </u-badge>
@@ -191,5 +191,8 @@ export default {
 }
 .taskicon [class^="i-ico_iconwrap"] {
    font-size: 24px;
+}
+.badge [class^="u-badge_value__"]{
+    box-shadow: var(--taskbox-badge-box-shadow);
 }
 </style>

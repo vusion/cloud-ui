@@ -93,6 +93,7 @@ export default {
 
 .root:focus .radio {
     box-shadow: var(--radio-box-shadow-focus);
+    border-color: var(--radio-border-color-focus);
 }
 
 .root:active {
@@ -111,6 +112,7 @@ export default {
 .root[readonly]:focus .radio
 {
     box-shadow: var(--radio-box-shadow-focus-disabled);
+    border-color: var(--radio-border-color-disabled);
 }
 .root[readonly]:hover {
     cursor: var(--radio-cursor-readonly);

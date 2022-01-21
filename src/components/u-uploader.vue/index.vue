@@ -608,7 +608,7 @@ export default {
 .card[role="select"]::before {
     color: var(--uploader-border-color);
     icon-font: url('./assets/add.svg');
-    font-size: 30px;
+    font-size: var(--uploader-card-icon-font-size);
 }
 
 .card[role="select"]:hover {
