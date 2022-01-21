@@ -2,6 +2,6 @@
 
 ``` html
 <i-ico name="default">
-    <u-text>默认</u-text>
+    <u-text>图标</u-text>
 </i-ico>
 ```

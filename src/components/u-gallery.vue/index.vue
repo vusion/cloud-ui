@@ -1,6 +1,6 @@
 <template>
 <div :class="[$style['wrap'],pattern==='big' ? $style['wrapbig'] :$style['wrapsmall']]" class="swiper-for-vusion">
-    <div class="swiper mySwiper swiperbig" v-show="pattern==='big'">
+    <div class="swiper mySwiper swiperbig" v-show="pattern==='big'" ref="swiperbig">
         <div class="swiper-wrapper swiper-wrapper-big">
             <div class="swiper-slide swiper-slide-big" v-for="(item, index) in options" :key="index">
                 <img :src="getUrl(item)" class="swiper-slide-big-image">
@@ -9,15 +9,15 @@
     </div>
     <i-ico name="left-arrow" class="swiper-big-left-arrow" @click="prev" v-if="arrow && pattern==='big'" :notext="true"></i-ico>
     <i-ico name="right-arrow" class="swiper-big-right-arrow" @click="next" v-if="arrow && pattern==='big'" :notext="true"></i-ico>
-    <div class="swiper mySwiper swipersmall" v-show="pattern==='small'">
+    <div class="swiper mySwiper swipersmall" v-show="pattern==='small'" ref="swipersmall">
         <div class="swiper-wrapper swiper-wrapper-small">
             <div class="swiper-slide swiper-slide-small" v-for="(item, index) in options" :key="index">
                 <img :src="getUrl(item)" class="swiper-slide-small-image">
             </div>
         </div>
     </div>
-    <div class="swiperthumb-wrap" ref="thumbwrap">
-        <div class="swiper mySwiper swiperthumb">
+    <div class="swiperthumb-wrap">
+        <div class="swiper mySwiper swiperthumb" ref="swiperthumb">
             <div class="swiper-wrapper swiper-wrapper-thumb">
                 <div class="swiper-slide swiper-slide-thumb" v-for="(item, index) in options" :key="index">
                     <img :src="getUrl(item)" class="swiper-slide-thumb-image">
@@ -143,24 +143,24 @@ export default {
             return Math.min(this.num, this.options.length);
         },
         renderSwiper() {
+            try {
+                this.swiperthumb && this.swiperthumb.destroy();
+                this.swiperbig && this.swiperbig.destroy();
+                this.swipersmall && this.swipersmall.destroy();
+            } catch (e) {
+                // eslint-disable-next-line no-console
+                console.log(e);
+            }
             this.$nextTick(() => {
-                try {
-                    this.swiperthumb.destroy();
-                    this.swiperbig.destroy();
-                    this.swipersmall.destroy();
-                } catch (e) {
-                    // eslint-disable-next-line no-console
-                    console.log(e);
-                }
                 if (this.pattern === 'small') {
                     this.thumbOption.slidesPerView = this.maxNum();
-                    this.swiperthumb = new Swiper(`.swiperthumb`, this.thumbOption);
+                    this.swiperthumb = new Swiper(this.$refs.swiperthumb, this.thumbOption);
                     this.smallOption.thumbs.swiper = this.swiperthumb;
                 } else {
                     this.swiperthumb = null;
                     this.bigOption.slidesPerView = this.maxNum();
                 }
-                this[`swiper${this.pattern}`] = new Swiper(`.swiper${this.pattern}`, this[`${this.pattern}Option`]);
+                this[`swiper${this.pattern}`] = new Swiper(this.$refs[`swiper${this.pattern}`], this[`${this.pattern}Option`]);
                 // if (this.pattern === 'small') {
                 //     const newHeight = document.querySelector('.swiper-slide-thumb').offsetWidth;
                 //     this.$refs.thumbwrap.style.height = `${newHeight}px`;
