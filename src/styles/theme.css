@@ -10,7 +10,7 @@
     --brand-primary-lighter: #bbd4ff;
     --brand-primary-light: #5c98ff;
     --brand-primary: #337EFF;
-    --brand-primary-dark: #878b91;
+    --brand-primary-dark: #1168ff;
     --brand-primary-darker: #004bcc;
     --brand-primary-darkest: #003eaa;
     --brand-primary-disabled: #adcbff;
@@ -644,7 +644,7 @@
      */
 
     /* @component u-table-view */
-    --table-view-head-item-color: var(--gray-darker);
+    --table-view-head-item-color: var(--gray-dark);
     --table-view-head-title-sortable-hover: #eef2f8; /* @hidden */
     --table-view-sort-color-hover: #aaa; /* @hidden */
     --table-view-table-shadow: 2px 0 6px -2px rgba(0, 0, 0, 0.2); /* @hidden */
@@ -786,6 +786,9 @@
     --form-item-label-width-mini: 50px; /* @hidden */
     --form-item-label-width-small: 80px; /* @hidden */
     --form-item-label-width-large: 160px; /* @hidden */
+    --form-item-margin-bottom: 20px;
+    --form-item-margin-bottom-large: var(--space-large);
+    --form-item-margin-bottom-small: var(--space-small);
     --form-required-color: var(--brand-error);
     --form-required-right: 12px;
     --form-required-right-small: 2px; /* @hidden */
@@ -802,7 +805,7 @@
     /* @component u-validator @hidden */
     --validator-message-margin-left: 10px;
     --validator-message-margin-left-bottom: 0;
-    --validator-message-margin-top-bottom: 4px;
+    --validator-message-margin-top-bottom: 2px;
     --validator-message-margin-top: 0;
     --validator-message-padding: 0 10px;
     --validator-message-min-width: auto;
@@ -841,6 +844,7 @@
     --input-background: var(--background-color-default);
     --input-background-disabled: var(--background-color-disabled-light);
     --input-color: var(--color-base);
+    --input-color-disabled: var(--color-light);
     --input-border-color: var(--border-color-base);
     --input-border-color-error: var(--brand-error);
     --input-border-color-focus: #4c88FF;
@@ -972,6 +976,7 @@
     --select-border-color: var(--border-color-base);
     --select-border-color-hover: var(--brand-primary);
     --select-border-color-inverse: var(--border-color-base-inverse);
+    --select-border-color-disabled: var(--brand-disabled);
     --select-multiple-border-color: var(--border-width-base) solid var(--border-color-darker);
     --select-color: var(--color-base);
     --select-color-inverse: var(--color-base-inverse);

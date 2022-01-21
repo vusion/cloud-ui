@@ -686,6 +686,8 @@
       title: 列类型
       type: string
       options:
+        - value: normal
+          title: 普通列
         - value: index
           title: 序号列
         - value: radio
@@ -696,7 +698,7 @@
           title: 展开列
         - value: tree
           title: 树形列
-      default: index
+      default: normal
       description: 列类型
     - name: start-index
       title: 起始序号
