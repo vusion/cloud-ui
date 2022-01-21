@@ -104,7 +104,7 @@ export default {
 }
 
 .root[layout="block"] .item:not(:last-child) {
-    margin-bottom: var(--space-base);
+    margin-bottom: var(--form-item-margin-bottom);
 }
 
 .root[layout="inline"]::after {
@@ -116,7 +116,7 @@ export default {
 }
 
 .root[gap="large"][layout="block"] .item:not(:last-child) {
-    margin-bottom: var(--space-large);
+    margin-bottom: var(--form-item-margin-bottom-large);
 }
 
 .root[gap="large"][layout="inline"] .item:not(:last-child) {
@@ -124,7 +124,7 @@ export default {
 }
 
 .root[gap="small"][layout="block"] .item:not(:last-child) {
-    margin-bottom: var(--space-small);
+    margin-bottom: var(--form-item-margin-bottom-small);
 }
 
 .root[gap="small"][layout="inline"] .item:not(:last-child) {
