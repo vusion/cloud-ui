@@ -8,32 +8,35 @@
             <span :class="$style.prev" @click="scrollPrev"></span>
             <div ref="scrollView" :class="$style['scroll-view']">
                 <div :class="$style.scroll">
-                    <a :class="$style.item" ref="item"
-                        v-for="(itemVM, index) in itemVMs"
-                        :is-sub="itemVM.$attrs['is-sub']"
-                        :vusion-scope-id="itemVM.$vnode.context.$options._scopeId"
-                        :vusion-node-path="itemVM.$attrs['vusion-node-path']"
-                        :vusion-node-tag="itemVM.$attrs['vusion-node-tag']"
-                        :vusion-disabled-move="itemVM.$attrs['vusion-disabled-move']"
-                        :vusion-disabled-duplicate="itemVM.$attrs['vusion-disabled-duplicate']"
-                        :vusion-disabled-cut="itemVM.$attrs['vusion-disabled-cut']"
-                        :href="itemVM.currentHref" :target="itemVM.target" :title="itemVM.title"
-                        :selected="router ? itemVM.active : itemVM === selectedVM"
-                        :disabled="itemVM.disabled || disabled"
-                        v-show="!itemVM.hidden"
-                        :style="{ width: currentItemWidth }"
-                        :width-fixed="!!currentItemWidth"
-                        :alignment="itemAlign"
-                        @click="onClick(itemVM, $event)">
-                        <span :class="$style.title" vusion-slot-name="title">
-                            <f-slot
-                                :vm="itemVM"
-                                name="title"
-                                :props="{ selected: router ? itemVM.active : itemVM === selectedVM }"
-                            >{{ itemVM.title }}</f-slot>
-                        </span>
-                        <span v-if="closable" :class="$style.close" @click.stop="close(itemVM)"></span>
-                    </a>
+                    <template v-for="(itemVM, index) in itemVMs">
+                        <a v-show="!itemVM.hidden" :class="$style.item" 
+                            ref="item"
+                            :key="index"
+                            :is-sub="itemVM.$attrs['is-sub']"
+                            :vusion-scope-id="itemVM.$vnode.context.$options._scopeId"
+                            :vusion-node-path="itemVM.$attrs['vusion-node-path']"
+                            :vusion-node-tag="itemVM.$attrs['vusion-node-tag']"
+                            :vusion-disabled-move="itemVM.$attrs['vusion-disabled-move']"
+                            :vusion-disabled-duplicate="itemVM.$attrs['vusion-disabled-duplicate']"
+                            :vusion-disabled-cut="itemVM.$attrs['vusion-disabled-cut']"
+                            :href="itemVM.currentHref" :target="itemVM.target" :title="itemVM.title"
+                            :selected="router ? itemVM.active : itemVM === selectedVM"
+                            :disabled="itemVM.disabled || disabled"
+                            :style="{ width: currentItemWidth }"
+                            :width-fixed="!!currentItemWidth"
+                            :alignment="itemAlign"
+                            @click="onClick(itemVM, $event)">
+                            <span :class="$style.title" vusion-slot-name="title">
+                                <f-slot
+                                    :vm="itemVM"
+                                    name="title"
+                                    :props="{ selected: router ? itemVM.active : itemVM === selectedVM }">
+                                    {{ itemVM.title }}
+                                </f-slot>
+                            </span>
+                            <span v-if="closable" :class="$style.close" @click.stop="close(itemVM)"></span>
+                        </a>
+                    </template>
                 </div>
             </div>
             <span :class="$style.next" @click="scrollNext"></span>
@@ -64,7 +67,9 @@ export default {
         itemAlign: { type: String, default: 'center' },
     },
     data() {
-        return { scrollable: false };
+        return {
+            scrollable: false
+        };
     },
     computed: {
         currentItemWidth() {
@@ -79,15 +84,20 @@ export default {
     watch: {
         itemVMs(itemVMs) {
             this.$nextTick(() => {
-                this.scrollable
-                    = this.$refs.scrollView.scrollWidth
-                        > this.$refs.scrollView.clientWidth;
+                this.scrollable = this.$refs.scrollView.scrollWidth > this.$refs.scrollView.clientWidth;
                 this.$refs.item
                     && this.$refs.item.forEach((itemEl, index) => {
                         itemEl.__vue__ = itemVMs[index];
                     });
+                this.scrollToSelectedVM();
             });
         },
+        selectedVM: {
+            immediate: true,
+            handler() {
+                this.scrollToSelectedVM();
+            }
+        }
     },
     methods: {
         onClick(itemVM, e) {
@@ -142,18 +152,30 @@ export default {
                 this.$emit('update:value', value, this);
             }
         },
+        scrollToSelectedVM() {
+            const scrollViewEl = this.$refs.scrollView;
+            const children = this.$refs.item;
+            if(scrollViewEl && this.selectedVM && Array.isArray(children)) {
+                const index = this.itemVMs.indexOf(this.selectedVM);
+                if(index !== -1) {
+                    let accWidth = 0;
+                    for(let i = 0; i < index; i++) {
+                        const itemEl = children[i];
+                        accWidth += itemEl?.offsetWidth || 0;
+                    }
+                    scrollTo(scrollViewEl, { left: accWidth, duration: 1000 });
+                }
+            }
+        },
         scrollPrev() {
             const scrollViewEl = this.$refs.scrollView;
-            const children = scrollViewEl.children[0].children; // 查找第一个不截断的项
+            const children = this.$refs.item; // 查找第一个不截断的项
             let accWidth = 0;
             if (scrollViewEl.scrollLeft - scrollViewEl.clientWidth > 0) {
                 for (let i = 0; i < children.length; i++) {
                     const itemEl = children[i];
                     accWidth += itemEl.offsetWidth;
-                    if (
-                        accWidth + itemEl.offsetWidth
-                        > scrollViewEl.scrollLeft - scrollViewEl.clientWidth
-                    )
+                    if (accWidth + itemEl.offsetWidth > scrollViewEl.scrollLeft - scrollViewEl.clientWidth)
                         break;
                 }
             }
@@ -161,14 +183,11 @@ export default {
         },
         scrollNext() {
             const scrollViewEl = this.$refs.scrollView;
-            const children = scrollViewEl.children[0].children; // 查找第一个不截断的项
+            const children = this.$refs.item; // 查找第一个不截断的项
             let accWidth = 0;
             for (let i = 0; i < children.length; i++) {
                 const itemEl = children[i];
-                if (
-                    accWidth + itemEl.offsetWidth
-                    > scrollViewEl.scrollLeft + scrollViewEl.clientWidth
-                )
+                if (accWidth + itemEl.offsetWidth > scrollViewEl.scrollLeft + scrollViewEl.clientWidth)
                     break;
                 accWidth += itemEl.offsetWidth;
             }
