@@ -847,7 +847,7 @@ export default {
         },
         async getRenderResult(arr = []) {
             if(arr.length === 0) {
-                const res = Array.from(this.$el.querySelectorAll('thead tr')).map((tr) => {
+                const res = Array.from(this.$el.querySelectorAll('[position=static] thead tr')).map((tr) => {
                     return Array.from(tr.querySelectorAll('th')).map((node) => node.innerText);
                 });
                 res[1] = res[0].map((item) => '');
@@ -869,7 +869,7 @@ export default {
                 await new Promise((res) => {
                     this.$once('hook:updated', res);
                 });
-                const res1 = Array.from(this.$el.querySelectorAll(i === 0 ? 'tr' : 'tbody tr')).map((tr) => {
+                const res1 = Array.from(this.$el.querySelectorAll(i === 0 ? '[position=static] tr' : '[position=static] tbody tr')).map((tr) => {
                     return Array.from(tr.querySelectorAll('th, td')).map((node) => node.innerText);
                 });
                 res = res.concat(res1);
