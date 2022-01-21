@@ -52,7 +52,7 @@ export default {
         },
         pattern: {
             type: String,
-            default: 'small',
+            default: 'big',
         },
     },
     data() {
@@ -63,6 +63,7 @@ export default {
             swiperthumb: null,
             bigOption: {
                 observeParents: true,
+                slideToClickedSlide: true,
                 centeredSlides: true,
                 slidesPerView: this.num,
                 spaceBetween: 32,
@@ -86,7 +87,7 @@ export default {
                 observeParents: true,
                 loop: true,
                 spaceBetween: 10,
-                slidesPerView: 5,
+                slidesPerView: this.num,
                 freeMode: true,
                 watchSlidesProgress: true,
             },
@@ -101,6 +102,10 @@ export default {
             immediate: true,
         },
         pattern: {
+            deep: true,
+            handler: 'renderSwiper',
+        },
+        num: {
             deep: true,
             handler: 'renderSwiper',
         },
@@ -140,13 +145,26 @@ export default {
             }
             this.renderSwiper();
         },
+        maxNum() {
+            return Math.min(this.num, this.options.length);
+        },
         renderSwiper() {
             this.$nextTick(() => {
+                try {
+                    this.swiperthumb.destroy();
+                    this.swiperbig.destroy();
+                    this.swipersmall.destroy();
+                } catch (e) {
+                    // eslint-disable-next-line no-console
+                    console.log(e);
+                }
                 if (this.pattern === 'small') {
+                    this.thumbOption.slidesPerView = this.maxNum();
                     this.swiperthumb = new Swiper(`.swiperthumb`, this.thumbOption);
                     this.smallOption.thumbs.swiper = this.swiperthumb;
                 } else {
                     this.swiperthumb = null;
+                    this.bigOption.slidesPerView = this.maxNum();
                 }
                 this[`swiper${this.pattern}`] = new Swiper(`.swiper${this.pattern}`, this[`${this.pattern}Option`]);
                 // if (this.pattern === 'small') {
@@ -173,18 +191,16 @@ export default {
 <style module>
 .wrap {
     width: 100%;
-    height: 400px;
+    height: 600px;
     overflow: hidden;
 }
 .wrapbig {
     width: 100%;
-    height: 400px;
     padding: 0 72px;
     position: relative;
 }
 .wrapsmall {
-    width: 1446px;
-    height: 1706px;
+    width: 1000px;
     overflow: unset;
 }
 </style>
@@ -215,7 +231,7 @@ export default {
         display: block;
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
     }
     .swiper-for-vusion .swiper-wrapper-big .swiper-slide-active {
         transform: scale(1.1,1.1);
@@ -244,6 +260,7 @@ export default {
         margin-bottom: 12px;
     }
     .swiper-for-vusion .swiperthumb-wrap {
+        height: calc(15.254237288135599% - 12px);
         padding: 0 36px;
         position: relative;
     }
