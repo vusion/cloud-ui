@@ -36,10 +36,12 @@
       title: 尺寸
       type: string
       options:
-        - value: large
-          title: 大
         - value: huge
           title: 巨大
+        - value: large
+          title: 大
+        - value: medium
+          title: 中型
         - value: normal
           title: 正常
         - value: small
