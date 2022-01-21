@@ -167,6 +167,7 @@
 
     --box-shadow-base: 0 0 4px rgba(3, 3, 3, .1);
     --box-shadow-large: 0px 2px 15px rgba(64, 69, 78, 0.15);
+    --box-shadow-form-item-base: 0 0 0 2px rgba(77, 136, 255, 0.2);
 
     /* Z-Index */
     --z-index-loading: 9000;
@@ -465,7 +466,7 @@
     --button-background-danger-secondary-hover: white;
     --button-background-danger-secondary-active: white;
     --button-background-danger-secondary-disabled: var(--button-background-disabled);
-    --button-color: var(--color-base);
+    --button-color: var(--font-second-color);
     --button-color-hover: var(--brand-primary);
     --button-color-disabled: #999;
     --button-color-primary: white;
@@ -888,10 +889,11 @@
     --radio-solid-circle-background-disabled: #ccc;
     --radio-background: var(--background-color-default);
     --radio-circle-background-disabled: var(--background-color-disabled);
-    --radio-box-shadow-focus: var(--button-box-shadow-focus);
+    --radio-box-shadow-focus: var(--box-shadow-form-item-base);
     --radio-border-color: var(--border-color-base);
     --radio-border-color-hover: var(--brand-primary);
     --radio-border-color-disabled: var(--border-color-base);
+    --radio-border-color-focus: var(--brand-primary);
     --radio-color-disabled: var(--gray-dark);
     --radio-box-shadow-focus-disabled: none;
     --radio-cursor-readonly: default;
@@ -926,16 +928,17 @@
     --checkbox-size: 16px;
     --checkbox-border-color: var(--border-color-base);
     --checkbox-border-color-disabled: var(--border-color-base);
+    --checkbox-border-color-focus: var(--brand-primary);
+    --checkbox-border-color-hover: var(--brand-primary);
     --checkbox-border-radius: var(--border-radius-base);
     --checkbox-background: var(--brand-primary);
     --checkbox-background-default: var(--background-color-default);
     --checkbox-background-disabled: var(--background-color-disabled);
-    --checkbox-border-color-hover: var(--brand-primary);
     --checkbox-color: var(--background-color-default);
     --checkbox-color-disabled: #ccc;
     --checkbox-font-color-disabled: #999;
     --checkbox-font-color: #333;
-    --checkbox-box-shadow-focus: none;
+    --checkbox-box-shadow-focus: var(--box-shadow-form-item-base);
     --checkbox-box-shadow-active: var(--button-box-shadow-active);
     --checkbox-icon: '\ff01';
     --checkbox-icon-size: var(--font-size-small);
@@ -1062,6 +1065,7 @@
     --uploader-card-background: #fcfcfc;
     --uploader-color: #999;
     --uploader-border-color: var(--border-color-base);
+    --uploader-card-icon-font-size: 24px;
 
     /**
      * ========================
@@ -1298,6 +1302,9 @@
     --datepicker-input-clear-icon-color: var(--input-clear-icon-color);
     --datepicker-popper-box-shadow: var(--select-popper-box-shadow);
     --datepicker-popper-border-radius: var(--border-radius-base);
+
+     /* @component u-taskbox @hidden */
+    --taskbox-badge-box-shadow: none;
 
     /**
      * ========================

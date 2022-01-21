@@ -107,8 +107,10 @@ export default {
     outline: var(--focus-outline);
 }
 
+.root:focus .box,
 .root:focus .box[status="true"] {
     box-shadow: var(--checkbox-box-shadow-focus);
+    border-color: var(--checkbox-border-color-focus);
 }
 
 .root:active {
@@ -125,8 +127,10 @@ export default {
     color: var(--checkbox-font-color-disabled);
 }
 
+.root[disabled]:focus .box,
 .root[disabled]:focus .box[status="true"]{
     box-shadow: none;
+    border-color: var(--checkbox-border-color-disabled);
 }
 
 .root[disabled]:active .box,

@@ -202,6 +202,9 @@ export default { name: 'u-button', extends: ULink };
     padding: 0 var(--button-padding-x-mini);
     font-size: var(--button-font-size-mini);
 }
+.root[size="mini"] [class^="i-ico_lcp-iconv"] {
+    font-size: var(--button-font-size-mini);
+}
 
 .root[size="small"] {
     height: var(--button-height-small);
