@@ -64,10 +64,8 @@ export default {
             bigOption: {
                 observeParents: true,
                 slideToClickedSlide: true,
-                centeredSlides: true,
                 slidesPerView: this.num,
                 spaceBetween: 32,
-                loop: true,
                 navigation: {
                     nextEl: '.swiper-button-next-big',
                     prevEl: '.swiper-button-prev-big',
@@ -75,7 +73,6 @@ export default {
             },
             smallOption: {
                 observeParents: true,
-                loop: true,
                 spaceBetween: 10,
                 navigation: {
                 },
@@ -85,7 +82,6 @@ export default {
             },
             thumbOption: {
                 observeParents: true,
-                loop: true,
                 spaceBetween: 10,
                 slidesPerView: this.num,
                 freeMode: true,
