@@ -67,8 +67,6 @@ export default {
                 slidesPerView: this.num,
                 spaceBetween: 32,
                 navigation: {
-                    nextEl: '.swiper-button-next-big',
-                    prevEl: '.swiper-button-prev-big',
                 },
             },
             smallOption: {
