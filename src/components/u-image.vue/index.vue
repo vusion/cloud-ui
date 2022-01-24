@@ -29,6 +29,9 @@ export default {
         };
     },
     watch: {
+        src() {
+            this.getImageStyle(); 
+        },
         fit() {
             this.getImageStyle();
         },
