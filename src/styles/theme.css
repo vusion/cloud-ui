@@ -1119,6 +1119,19 @@
     --steps-item-radio-background: var(--border-color-base);
     --steps-item-radio-background-passed: var(--brand-primary);
     --steps-item-radio-color-passed: white;
+    --steps-item-radio-border-color-hover: var(--brand-primary);
+    --steps-seleatable-item-width: 140px;
+    --steps-seleatable-item-width-auto: 60%;
+    --steps-seleatable-border-color-passed: var(--brand-primary);
+    --steps-seleatable-background-selected: var(--brand-primary);
+    --steps-seleatable-item-body-background: white;
+    --steps-seleatable-radio-background: white;
+    --steps-seleatable-radio-border-color: var(--border-color-base);
+    --steps-seleatable-radio-border-color-disabled: var(--steps-seleatable-radio-border-color);
+    --steps-seleatable-radio-background-selected: white;
+    --steps-seleatable-radio-dot-width-selected: 10px;
+    --steps-seleatable-radio-dot-height-selected: 10px;
+    --steps-seleatable-item-radio-border-color-hover: var(--brand-primary);
 
     /* @component u-pagination */
     --pagination-item-size: var(--height-normal);
