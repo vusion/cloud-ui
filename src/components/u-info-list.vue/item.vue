@@ -125,5 +125,5 @@ export default {
     white-space: nowrap;
     text-overflow: ellipsis;
     width: 100%;
-}å
+}
 </style>
