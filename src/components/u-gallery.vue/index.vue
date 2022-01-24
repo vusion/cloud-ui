@@ -52,7 +52,7 @@ export default {
         },
         pattern: {
             type: String,
-            default: 'big',
+            default: 'small',
         },
     },
     data() {
@@ -266,6 +266,7 @@ export default {
         display: block;
         width: 100%;
         height: 100%;
+        object-fit: contain;
     }
     .swiper-thumb-left-arrow, .swiper-thumb-right-arrow {
         font-size: 20px;
