@@ -28,7 +28,7 @@
       type: boolean
       sync: true
       default: false
-      description: 是否显示
+      description: 弹窗默认打开
     - name: ok-button
       title: 确定按钮
       type: string
@@ -56,7 +56,7 @@
         - value: auto
           title: 自适应
       default: normal
-      description: 弹框的尺寸
+      description: 弹窗的尺寸
     - name: icon
       title: 提示图标
       type: string
@@ -67,8 +67,8 @@
           title: 警告
         - value: error
           title: 错误
-      default:
-      description: 提示图标
+      default: null
+      description: ""
     - name: static
       title: 嵌入页面显示
       type: boolean
@@ -79,7 +79,7 @@
       title: 点击遮罩关闭
       type: boolean
       default: false
-      description: 是否点击遮罩时关闭弹窗
+      description: 点击遮罩关闭弹窗
   slots:
     - name: title
       description: 弹窗标题自定义

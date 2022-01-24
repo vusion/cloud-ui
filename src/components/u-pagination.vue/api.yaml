@@ -12,12 +12,12 @@
       type: number
       sync: true
       default: 1
-      description: 当前页码
+      description: ""
     - name: total
       title: 总页数
       type: number
       default: 11
-      description: 总页数
+      description: ""
     - name: side
       title: 两边显示的数量
       type: number
@@ -32,12 +32,12 @@
       title: 只读
       type: boolean
       default: false
-      description: 是否只读
+      description: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用
+      description: ""
     - name: total-items
       title: 总条数
       type: number
@@ -47,7 +47,7 @@
       type: number
       sync: true
       default: 20
-      description: 每页条数
+      description: ""
     - name: page-size-options
       title: 条数选项列表
       type: Array
@@ -60,7 +60,7 @@
       title: 总条数
       type: boolean
       default: false
-      description: 是否显示总条目数
+      description: ""
     - name: show-sizer
       title: 切换条数选项
       type: boolean

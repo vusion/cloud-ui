@@ -18,12 +18,12 @@
       sync: true
       model: true
       default: null
-      description: 当前选择的值
+      description: ""
     - name: categories
       title: 多级分类
       type: Array<{ label, key, placeholder }>
       default: null
-      designer-value: '[{}, {}, {}]'
+      designer-value: "[{}, {}, {}]"
       description: 多级分类
     - name: hide-empty
       title: 隐藏空列表
@@ -43,9 +43,7 @@
         - value: json
           title: json
       default: join
-      description: value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成
-        value，`'join.number'`与`join`类似，只是会考虑它为数字的情况。也可以用`:`修改分隔符，类似 Vue
-        的指令参数，`'last-value'`表示以最后一项的值作为 value。也可以传入一个包含 { get, set } 的一个对象
+      description: 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式
       advanced: true
     - name: field
       title: 文本字段
@@ -56,12 +54,12 @@
       title: 只读
       type: boolean
       default: false
-      description: 是否只读
+      description: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用
+      description: ""
   events:
     - name: input
       title: 输入时

@@ -13,17 +13,17 @@
       sync: true
       model: true
       default: 0
-      description: 评分值
+      description: ""
     - name: max
       title: 最大分数
       type: number
       default: 5
-      description: 最大分数
+      description: ""
     - name: readonly
       title: 只读
       type: boolean
       default: false
-      description: 是否只读
+      description: ""
   events:
     - name: change
       title: 改变后

@@ -16,7 +16,7 @@
         - value: vertical
           title: 纵向排列
       default: horizontal
-      description: 排列方向
+      description: 可更改布局的排列方向
     - name: gap
       title: 间隙
       type: string
@@ -43,9 +43,9 @@
         - value: block
           title: 块级
       default: block
-      description: 展示方式
+      description: 行内展示，或块级换行展示
     - name: layout
-      title: 子元素布局方式
+      title: 子元素展示方式
       type: string
       options:
         - value: none
@@ -55,7 +55,7 @@
         - value: block
           title: 子元素块级布局
       default: none
-      description: 子元素的展示方式
+      description: 子元素行内展示或块级换行展示
     - name: type
       title: 布局模式
       type: string

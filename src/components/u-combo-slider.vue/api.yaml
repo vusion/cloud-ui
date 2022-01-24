@@ -13,22 +13,22 @@
       sync: true
       model: true
       default: 0
-      description: 滑块的值
+      description: ""
     - name: min
       title: 最小值
       type: number
       default: 0
-      description: 最小值
+      description: ""
     - name: max
       title: 最大值
       type: number
       default: 100
-      description: 最大值
+      description: ""
     - name: step
       title: 间隔
       type: number
       default: 1
-      description: 间隔。`0`表示连续
+      description: 间隔，`0`表示连续
     - name: precision
       title: 精度
       type: number
@@ -38,12 +38,12 @@
       title: 范围
       type: Array
       default: []
-      description: 进一步对`value`限制，通常传入一个数组，第一个值表示范围开始值，第二个值表示范围的结束值。
+      description: 进一步对`value`限制，通常传入一个数组，第一个值表示范围开始值，第二个值表示范围的结束值
     - name: formatter
       title: 格式化
       type: string, object
       default: null
-      description: 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。
+      description: 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象
       advanced: true
     - name: sync-on
       title: 同步时机
@@ -54,7 +54,7 @@
         - value: blur
           title: 失焦时同步
       default: input
-      description: 同步时机
+      description: ""
     - name: hide-buttons
       title: 隐藏按钮
       type: boolean
@@ -64,22 +64,22 @@
       title: 只读
       type: boolean
       default: false
-      description: 是否只读
+      description: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用
+      description: ""
     - name: unit
       title: 单位
       type: string
       default: null
-      description: 单位
+      description: ""
     - name: tip
       title: 提示
       type: string
       default: null
-      description: 提示
+      description: ""
   events:
     - name: input
       description: 滑块的值改变时触发

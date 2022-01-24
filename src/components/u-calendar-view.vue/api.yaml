@@ -27,8 +27,8 @@
     - name: data-source
       title: 数据源
       type: Array<Item> | Function | object
-      designer-value: '[{}]'
-      description: 日历数据源，数组方式表示直接的数据，函数需要返回一个 Promise
+      designer-value: "[{}]"
+      description: 日历的数据源，数据集对象或者返回数据集的逻辑
       group: 数据属性
     - name: data-schema
       title: 数据类型
@@ -39,23 +39,23 @@
     - name: start-key
       type: string
       title: 数据内表示开始时间的字段
-      default:  startTime
+      default: startTime
       description: 数据内表示开始时间的字段
     - name: end-key
       type: string
       title: 数据内表示结束时间的字段
-      default:  endTime
+      default: endTime
       description: 数据内表示结束时间的字段
     - name: show-week-days
       title: 展示周天
       type: boolean
       default: true
-      description: 是否展示周天
+      description: ""
     - name: show-weeks
       title: 展示周数
       type: boolean
       default: false
-      description: 是否展示周数
+      description: ""
     - name: show-basic
       title: 展示基础配置
       type: boolean
@@ -67,10 +67,10 @@
       default: true
       description: 是否展示顶部右侧的年份、月份选项高级配置
     - name: first-day-of-week
-      title: 周起始日
+      title: 首列星期
       type: number
       default: 1
-      description: 周起始日，1～7（周一～周日）
+      description: 填写数字1~7，分别表示周一~周日
   slots:
     - name: default
       description: 插入文本或 HTML 至日期组件底部

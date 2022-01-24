@@ -28,7 +28,7 @@
         - value: scale-down
           title: 取 contain、none 中较小的
       default: contain
-      description: 图片地址
+      description: 图片填充方式
   slots: false
   events:
     - name: load

@@ -15,12 +15,12 @@
       title: 只读
       type: boolean
       default: false
-      description: 是否只读
+      description: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用
+      description: ""
   slots:
     - name: default
       description: 插入`<u-radio>`子组件。
@@ -114,7 +114,7 @@
     - name: text
       title: 文本
       type: string
-      description: 文本内容
+      description: 显示文本内容
     - name: label
       title: 选项值
       type: any
@@ -123,17 +123,17 @@
       title: 只读
       type: boolean
       default: false
-      description: 禁用只读
+      description: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 禁用此项
+      description: ""
     - name: autofocus
       title: 自动获取焦点
       type: boolean
       default: false
-      description: 自动获取焦点
+      description: ""
   events:
     - name: before-select
       title: 选择前
@@ -158,4 +158,3 @@
           type: URadio
           description: 发送事件实例
   description: 单选项
-  

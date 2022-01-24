@@ -10,7 +10,7 @@
     - name: text
       title: 文本
       type: string
-      description: 文本内容
+      description: 显示文本内容
     - name: color
       title: 颜色
       type: string
@@ -30,7 +30,7 @@
         - value: disabled
           title: 禁用色
       default: default
-      description: 设置颜色
+      description: 设置文本颜色
     - name: size
       title: 尺寸
       type: string
@@ -44,7 +44,7 @@
         - value: huge
           title: 巨大
       default: normal
-      description: 尺寸设置
+      description: 设置文本大小
     - name: display
       title: 展示方式
       type: string
@@ -54,7 +54,7 @@
         - value: block
           title: 块级
       default: inline
-      description: 展示方式
+      description: 行内展示，或块级换行展示
     - name: overflow
       title: 隐藏处理
       type: string

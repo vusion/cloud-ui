@@ -16,7 +16,7 @@
     - name: width
       title: 宽度
       type: string
-      description: 卡片宽度
+      description: 卡片宽度：像素或百分比
     - name: shadow
       title: 阴影
       type: string
@@ -50,6 +50,6 @@
       type: string
       description: 卡片组的标题
   description: 卡片组
-  slots: 
+  slots:
     - name: default
       description: 插入默认的元素

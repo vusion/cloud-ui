@@ -42,7 +42,7 @@
       title: 栅格数
       type: number
       default: 12
-      description: 划分的栅格数
+      description: 默认24，可设置栅格行大小
     - name: justify
       title: 对齐方式
       type: string
@@ -76,7 +76,7 @@
         - value: stretch
           title: 拉伸子元素充满整个父元素空间
       default: stretch
-      description: flex布局模式下的交叉轴对齐方式
+      description: 栅格内容对齐方式
       advanced: true
   slots:
     - name: default
@@ -91,22 +91,22 @@
   is-sub: true
   attrs:
     - name: span
-      title: 占据数
+      title: 占据栅格数
       type: number
       default: 1
-      description: 列占据的栅格数
+      description: 列占据栅格行的栅格数
     - name: offset
-      title: 偏移数
+      title: 偏移栅格数
       type: number
-      description: 列左边偏移的栅格数
+      description: 列偏移的栅格数
     - name: pull
-      title: 左移动数
+      title: 左移动栅格数
       type: number
-      description: 列向左移动栅格数
+      description: 列向左移动的栅格数
     - name: push
-      title: 右移动数
+      title: 右移动栅格数
       type: number
-      description: 列向右移动栅格数
+      description: 列向右移动的栅格数
     - name: media-huge
       title: 响应很大屏
       type: number

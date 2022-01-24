@@ -45,7 +45,7 @@
     - name: label
       title: 标签
       type: string
-      description: 标签
+      description: ""
     - name: span
       title: 占据数
       type: string
@@ -63,7 +63,7 @@
         - value: large
           title: 大
       default: auto
-      description: 标签大小。
+      description: ""
     - name: ellipsis
       title: 省略显示
       type: boolean
@@ -83,7 +83,7 @@
     - name: title
       title: 标签
       type: string
-      description: 标题
+      description: ""
     - name: repeat
       title: 列数
       type: number

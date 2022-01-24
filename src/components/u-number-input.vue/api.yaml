@@ -17,13 +17,13 @@
     - name: min
       title: 最小值
       type: number
-      default:
-      description: 最小值
+      default: null
+      description: ""
     - name: max
       title: 最大值
       type: number
-      default:
-      description: 最大值
+      default: null
+      description: ""
     - name: step
       title: 间隔
       type: number
@@ -42,16 +42,16 @@
     - name: placeholder
       title: 占位符
       type: string
-      description: 原生属性
+      description: 为空时的提示文本
     - name: autofocus
       title: 自动获取焦点
       type: boolean
-      description: 原生属性
+      description: ""
     - name: hide-buttons
       title: 隐藏按钮
       type: boolean
       default: false
-      description: 是否隐藏按钮
+      description: 是否隐藏上下点击按钮
     - name: clearable
       title: 清除按钮
       type: boolean
@@ -60,12 +60,12 @@
       title: 只读
       type: boolean
       default: false
-      description: 是否只读
+      description: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用
+      description: ""
     - name: size
       title: 尺寸
       type: string
@@ -85,7 +85,7 @@
         - value: mini
           title: 迷你
       default: normal
-      description: 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度
+      description: 设置数字输入框大小
       multi: true
       maxSelect: 2
   slots:
