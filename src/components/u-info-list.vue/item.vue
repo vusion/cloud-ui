@@ -3,11 +3,11 @@
     <div :class="$style.label" vusion-slot-name="label">
         <slot name="label">{{ label }}</slot>
     </div>
-    <div v-if="$env.VUE_APP_DESIGNER" :class="[$style.value, $style.full]" :ellipsis="ellipsis" vusion-slot-name="default">
+    <div v-if="$env.VUE_APP_DESIGNER" :class="$style.value" :ellipsis="ellipsis" vusion-slot-name="default">
         <slot></slot>
         <s-empty v-if="(!$slots.default)"></s-empty>
     </div>
-    <div v-else :class="$style.value" :ellipsis="ellipsis" >
+    <div v-else :class="$style.value" :ellipsis="ellipsis">
         <slot></slot>
     </div>
 </div>
@@ -124,8 +124,6 @@ export default {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-}
-.full {
     width: 100%;
-}
+}å
 </style>
