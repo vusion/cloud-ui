@@ -118,6 +118,7 @@ export default {
 .value {
     white-space: normal;
     word-break: break-all;
+    width: 100%;
 }
 
 .value[ellipsis] {
