@@ -81,6 +81,7 @@
 | value.sync, v-model | number |  | `0` | 当前步骤数 |
 | readonly | boolean |  | `false` | 是否只读。非只读的情况下可以选择 |
 | disabled | boolean |  | `false` | 是否禁用 |
+| size | string | `[object Object]`<br/>`[object Object]` | `'normal'` | 设置尺寸 |
 
 ### Slots
 
