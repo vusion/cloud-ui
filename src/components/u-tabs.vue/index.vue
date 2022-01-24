@@ -161,10 +161,10 @@ export default {
                     // 选中节点的右侧距离
                     let activeMin = 0;
                     for(let i = 0; i < index; i++) {
-                        const itemEl = children[i];
-                        activeMin += itemEl?.offsetWidth || 0;
+                        const itemEl = children[i] || {};
+                        activeMin += itemEl.offsetWidth || 0;
                     }
-                    const activeMax = activeMin + (children[index]?.offsetWidth || 0) ;    
+                    const activeMax = activeMin + ((children[index] || {}).offsetWidth || 0) ;    
                     // 可视区宽度
                     const scrollWidth = scrollViewEl.clientWidth;
                     // 可视区域左侧
