@@ -864,12 +864,16 @@
     "type": "string",
     "options": [
       {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
         "value": "large",
         "title": "大"
       },
       {
-        "value": "huge",
-        "title": "巨大"
+        "value": "medium",
+        "title": "中型"
       },
       {
         "value": "normal",
@@ -3408,10 +3412,6 @@
         "title": "警告色"
       },
       {
-        "value": "error",
-        "title": "错误色"
-      },
-      {
         "value": "danger",
         "title": "危险色"
       }
@@ -4669,6 +4669,20 @@
     "type": "boolean",
     "description": "是否禁用"
   },
+  "u-selectable-steps/size": {
+    "type": "string",
+    "options": [
+      {
+        "value": "auto",
+        "title": "自适应"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      }
+    ],
+    "description": "设置尺寸"
+  },
   "u-selectable-step/title": {
     "type": "string",
     "description": "步骤名"
@@ -5144,6 +5158,10 @@
   "u-table-view-column/type": {
     "type": "string",
     "options": [
+      {
+        "value": "normal",
+        "title": "普通列"
+      },
       {
         "value": "index",
         "title": "序号列"

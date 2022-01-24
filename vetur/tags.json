@@ -1415,7 +1415,8 @@
     "attributes": [
       "value",
       "readonly",
-      "disabled"
+      "disabled",
+      "size"
     ],
     "description": "当操作需要分步骤时使用",
     "subtags": [
