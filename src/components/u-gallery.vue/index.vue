@@ -7,8 +7,8 @@
             </div>
         </div>
     </div>
-    <i-ico name="left-arrow" class="swiper-big-left-arrow" @click="prev" v-if="arrow && pattern==='big'" :notext="true"></i-ico>
-    <i-ico name="right-arrow" class="swiper-big-right-arrow" @click="next" v-if="arrow && pattern==='big'" :notext="true"></i-ico>
+    <i-ico name="left-arrow" vusion-click-enabled class="swiper-big-left-arrow" @click="prev" v-if="arrow && pattern==='big'" :notext="true"></i-ico>
+    <i-ico name="right-arrow" vusion-click-enabled class="swiper-big-right-arrow" @click="next" v-if="arrow && pattern==='big'" :notext="true"></i-ico>
     <div class="swiper mySwiper swipersmall" v-show="pattern==='small'" ref="swipersmall">
         <div class="swiper-wrapper swiper-wrapper-small">
             <div class="swiper-slide swiper-slide-small" v-for="(item, index) in options" :key="index">
@@ -24,8 +24,8 @@
                 </div>
             </div>
         </div>
-        <i-ico name="left-arrow" class="swiper-thumb-left-arrow" @click="prevthumb" v-if="arrow && pattern==='small'" :notext="true"></i-ico>
-        <i-ico name="right-arrow" class="swiper-thumb-right-arrow" @click="nextthumb" v-if="arrow && pattern==='small'" :notext="true"></i-ico>
+        <i-ico name="left-arrow" vusion-click-enabled class="swiper-thumb-left-arrow" @click="prevthumb" v-if="arrow && pattern==='small'" :notext="true"></i-ico>
+        <i-ico name="right-arrow" vusion-click-enabled class="swiper-thumb-right-arrow" @click="nextthumb" v-if="arrow && pattern==='small'" :notext="true"></i-ico>
     </div>
 </div>
 </template>
