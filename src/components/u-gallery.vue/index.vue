@@ -52,7 +52,7 @@ export default {
         },
         pattern: {
             type: String,
-            default: 'small',
+            default: 'big',
         },
     },
     data() {
@@ -67,6 +67,8 @@ export default {
                 slidesPerView: this.num,
                 spaceBetween: 32,
                 navigation: {
+                    nextEl: '.swiper-big-right-arrow',
+                    prevEl: '.swiper-big-left-arrow',
                 },
             },
             smallOption: {
@@ -84,6 +86,10 @@ export default {
                 slidesPerView: this.num,
                 freeMode: true,
                 watchSlidesProgress: true,
+                navigation: {
+                    nextEl: '.swiper-thumb-right-arrow',
+                    prevEl: '.swiper-thumb-left-arrow',
+                },
             },
         };
     },
@@ -167,16 +173,20 @@ export default {
                 // }
             });
         },
-        prev() {
+        prev(e) {
+            e.stopImmediatePropagation();
             this[`swiper${this.pattern}`].slidePrev();
         },
-        next() {
+        next(e) {
+            e.stopImmediatePropagation();
             this[`swiper${this.pattern}`].slideNext();
         },
-        prevthumb() {
+        prevthumb(e) {
+            e.stopImmediatePropagation();
             this.swiperthumb.slidePrev();
         },
-        nextthumb() {
+        nextthumb(e) {
+            e.stopImmediatePropagation();
             this.swiperthumb.slideNext();
         },
     },
@@ -269,7 +279,7 @@ export default {
         object-fit: contain;
     }
     .swiper-thumb-left-arrow, .swiper-thumb-right-arrow {
-        font-size: 20px;
+        font-size: 24px;
         color: #ccc;
         position: absolute;
         left: 0;
@@ -280,5 +290,8 @@ export default {
     .swiper-thumb-right-arrow {
         left: auto;
         right: 0;
+    }
+    .swiper-for-vusion .swiper-button-disabled {
+        display: none;
     }
 </style>
