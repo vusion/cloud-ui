@@ -265,6 +265,10 @@ export default {
                         this.followCursor && this.$nextTick(() => this.updatePositionByCursor(e, el));
                     }, this.hoverDelay);
                 }));
+                this.offEvents.push(ev.on(document, 'scroll', () => {
+                    this.clearTimers();
+                    this.close();
+                }));
                 this.offEvents.push(ev.on(el, 'mouseleave', () => {
                     this.clearTimers();
                     this.timers[1] = setTimeout(() => this.close(), this.hideDelay);
