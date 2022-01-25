@@ -2897,6 +2897,10 @@
     ],
     "description": "图片地址"
   },
+  "u-image/convertSrcFn": {
+    "type": "Function",
+    "description": "将传入的src转换为符合要求的字符串"
+  },
   "u-info-list/repeat": {
     "type": "number",
     "description": "整个详情列表的划分列数"
@@ -3508,7 +3512,7 @@
   },
   "u-list-components/colnum": {
     "type": "number",
-    "description": "每行排列项数"
+    "description": "为空时自适应宽度，自动换行"
   },
   "u-list-view/data-source": {
     "type": "Array<Item> | Function | object | DataSource",
