@@ -2696,7 +2696,7 @@
             "description": "用于展示文字或表达式",
             "category": "Display",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-text.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-text.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-text.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-text.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-text.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-text.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-text.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-text.vue/screenshots/7.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-text.vue/screenshots/8.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-text.vue/screenshots/9.png",
-            "drawings": "",
+            "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-text.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-text.vue/drawings/1.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-text.vue/drawings/2.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-text.vue/drawings/3.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-text.vue/drawings/4.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-text.vue/drawings/5.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-text.vue/drawings/6.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-text.vue/drawings/7.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-text.vue/drawings/8.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-text.vue/drawings/9.svg",
             "blocks": [
                 {
                     "title": "普通文本",
@@ -2946,10 +2946,6 @@
                         {
                             "value": "warning",
                             "title": "警告色"
-                        },
-                        {
-                            "value": "error",
-                            "title": "错误色"
                         },
                         {
                             "value": "danger",
@@ -3249,12 +3245,16 @@
                     "type": "string",
                     "options": [
                         {
+                            "value": "huge",
+                            "title": "巨大"
+                        },
+                        {
                             "value": "large",
                             "title": "大"
                         },
                         {
-                            "value": "huge",
-                            "title": "巨大"
+                            "value": "medium",
+                            "title": "中型"
                         },
                         {
                             "value": "normal",
@@ -3516,7 +3516,7 @@
             "Display"
         ],
         "screenShot": "",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-ico name=\\\"default\\\">\\n    <u-text>默认</u-text>\\n</i-ico>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<i-ico name=\\\"default\\\">\\n    <u-text>图标</u-text>\\n</i-ico>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "i-ico",
             "title": "图标",
@@ -3528,7 +3528,7 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<i-ico name=\"default\">\n    <u-text>默认</u-text>\n</i-ico>\n</template>\n"
+                    "code": "<template>\n<i-ico name=\"default\">\n    <u-text>图标</u-text>\n</i-ico>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -3725,7 +3725,7 @@
             "description": "用于展示状态、标签、分类等",
             "category": "Display",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-label.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-label.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-label.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-label.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-label.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-label.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-label.vue/screenshots/6.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-label.vue/screenshots/7.png",
-            "drawings": "",
+            "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-label.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-label.vue/drawings/1.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-label.vue/drawings/2.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-label.vue/drawings/3.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-label.vue/drawings/4.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-label.vue/drawings/5.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-label.vue/drawings/6.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-label.vue/drawings/7.svg",
             "blocks": [
                 {
                     "title": "普通标签",
@@ -4493,6 +4493,14 @@
                     ],
                     "default": "contain",
                     "description": "图片地址"
+                },
+                {
+                    "name": "convertSrcFn",
+                    "title": "图片地址转换器",
+                    "type": "Function",
+                    "default": "(src) => {  try { const tempSrc = JSON.parse(src); const tempItem = tempSrc[0]; return tempItem.url; } catch (e) { return src;}}",
+                    "description": "将传入的src转换为符合要求的字符串",
+                    "advanced": true
                 }
             ],
             "slots": false,
@@ -5562,6 +5570,10 @@
                             "type": "string",
                             "options": [
                                 {
+                                    "value": "normal",
+                                    "title": "普通列"
+                                },
+                                {
                                     "value": "index",
                                     "title": "序号列"
                                 },
@@ -5582,7 +5594,7 @@
                                     "title": "树形列"
                                 }
                             ],
-                            "default": "index",
+                            "default": "normal",
                             "description": "列类型"
                         },
                         {
@@ -12692,6 +12704,23 @@
                     "type": "boolean",
                     "default": false,
                     "description": "是否禁用"
+                },
+                {
+                    "name": "size",
+                    "title": "尺寸",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "auto",
+                            "title": "自适应"
+                        },
+                        {
+                            "value": "normal",
+                            "title": "正常"
+                        }
+                    ],
+                    "default": "normal",
+                    "description": "设置尺寸"
                 }
             ],
             "slots": [
@@ -15185,7 +15214,7 @@
             "Feedback"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.0/src/components/u-popup.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"将需要弹出的内容用`<u-popup>`包裹起来，并插入到触发事件的元素中。\\n\",\"code\":\"<template>\\n<u-popup>\\n    <template #title>\\n        <span>标题 <u-badge :value=\\\"3\\\"></u-badge></span>\\n    </template>\\n    <span>使用 <u-link>slot</u-link> 可以添加一些复杂功能</span>\\n</u-popup>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"将需要弹出的内容用`<u-popup>`包裹起来，并插入到触发事件的元素中。\\n\",\"code\":\"<template>\\n<u-popup></u-popup>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-popup",
             "title": "弹出框",
@@ -15197,7 +15226,7 @@
                 {
                     "title": "基本用法",
                     "description": "将需要弹出的内容用`<u-popup>`包裹起来，并插入到触发事件的元素中。\n",
-                    "code": "<template>\n<u-popup>\n    <template #title>\n        <span>标题 <u-badge :value=\"3\"></u-badge></span>\n    </template>\n    <span>使用 <u-link>slot</u-link> 可以添加一些复杂功能</span>\n</u-popup>\n</template>\n"
+                    "code": "<template>\n<u-popup></u-popup>\n</template>\n"
                 }
             ],
             "attrs": [

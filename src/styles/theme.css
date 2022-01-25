@@ -101,7 +101,7 @@
     --background-color-disabled: #f5f5f5;
     --background-color-hover: #f5f5f5;
     --background-color-disabled-light: #F7F8FA;
-    --color-lighter: #bfbfbf; /* Placeholder 字体颜色 */
+    --color-lighter: #ccc; /* Placeholder 字体颜色 */
     --color-light: #999999; /* 次级字体颜色 */
     --color-base: #333333; /* 默认字体颜色 */
     --color-base-inverse: white; /* 默认字体颜色 */
@@ -541,7 +541,7 @@
     --badge-color: white;
     --badge-value-size: 20px;
     --badge-dot-size: 6px;
-    --badge-box-shadow: 0 0 0 2px #fff;
+    --badge-box-shadow: 0 0 0 1px #fff;
 
     /* @component u-carousel */
     --carousel-width: 700px;
@@ -871,7 +871,7 @@
     --textarea-color: var(--color-base);
     --textarea-border-color: var(--border-color-base);
     --textarea-background: var(--background-color-disabled-light);
-    --textarea-placeholder-color: var(--color-light);
+    --textarea-placeholder-color: var(--color-lighter);
 
     /* @component u-number-input */
     --number-input-height: 16px;
