@@ -54,6 +54,7 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | src | image |  | `''` | 图片地址 |
 | fit | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'contain'` | 图片地址 |
+| convertSrcFn | Function |  | `'(src) =\> {  try { const tempSrc = JSON.parse(src); const tempItem = tempSrc\[0\]; return tempItem.url; } catch (e) { return src;}}'` | 将传入的src转换为符合要求的字符串 |
 
 ### Events
 
