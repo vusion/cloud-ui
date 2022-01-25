@@ -541,7 +541,7 @@
     --badge-color: white;
     --badge-value-size: 20px;
     --badge-dot-size: 6px;
-    --badge-box-shadow: 0 0 0 2px #fff;
+    --badge-box-shadow: 0 0 0 1px #fff;
 
     /* @component u-carousel */
     --carousel-width: 700px;
