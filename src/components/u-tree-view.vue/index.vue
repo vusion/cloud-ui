@@ -6,7 +6,7 @@
             v-for="node in currentDataSource.data"
             :text="$at(node, field || textField)"
             :value="$at(node, valueField)"
-            :expanded.sync="node.expanded"
+            :expanded="$at(node, expandedField)"
             :checked.sync="node.checked"
             :disabled="node.disabled"
             :hidden="$at(node, hiddenField)"
@@ -35,6 +35,7 @@ export default {
         textField: { type: String, default: 'text' },
         valueField: { type: String, default: 'value' },
         hiddenField: { type: String, default: 'hidden' },
+        expandedField: { type: String, default: 'expanded' },
         isLeafField: { type: String, default: 'isLeaf' },
         childrenField: { type: String, default: 'children' },
         moreChildrenFields: Array,
