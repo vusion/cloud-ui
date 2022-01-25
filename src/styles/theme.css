@@ -871,7 +871,7 @@
     --textarea-color: var(--color-base);
     --textarea-border-color: var(--border-color-base);
     --textarea-background: var(--background-color-disabled-light);
-    --textarea-placeholder-color: var(--color-light);
+    --textarea-placeholder-color: var(--color-lighter);
 
     /* @component u-number-input */
     --number-input-height: 16px;
