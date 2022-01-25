@@ -40,7 +40,7 @@ export default {
     props: {
         dataSource: {
             type: [Array, Object, Function],
-            default: () => '[{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"}]',
+            default: () => '[{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_1.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_2.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_3.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_4.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_5.png"}]',
         },
         num: {
             type: Number,
@@ -204,7 +204,7 @@ export default {
     position: relative;
 }
 .wrapsmall {
-    width: 1000px;
+    width: 600px;
     overflow: unset;
 }
 </style>
@@ -230,12 +230,13 @@ export default {
         display: block;
         width: 100%;
         height: 100%;
+        object-fit: contain;
     }
     .swiper-for-vusion  .swiper-slide-small-image {
         display: block;
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
     }
     .swiper-for-vusion .swiper-wrapper-big .swiper-slide-active {
         transform: scale(1.1,1.1);
@@ -245,8 +246,8 @@ export default {
         border: 2px solid #4c88ff;
     }
     .swiper-big-left-arrow, .swiper-big-right-arrow {
-        font-size: 48px;
-        color: #ccc;
+        font-size: 40px;
+        color: #999;
         position: absolute;
         left: 0;
         top: 50%;
@@ -279,8 +280,8 @@ export default {
         object-fit: contain;
     }
     .swiper-thumb-left-arrow, .swiper-thumb-right-arrow {
-        font-size: 24px;
-        color: #ccc;
+        font-size: 20px;
+        color: #999;
         position: absolute;
         left: 0;
         top: 50%;
@@ -292,6 +293,7 @@ export default {
         right: 0;
     }
     .swiper-for-vusion .swiper-button-disabled {
-        display: none;
+        color: #ccc !important;
+        display: block;
     }
 </style>
