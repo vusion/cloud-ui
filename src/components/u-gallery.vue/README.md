@@ -24,7 +24,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| data-source | Array\<Item\> \| Function \| object |  | `'\[{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"}\]'` | 数据源 |
+| data-source | Array\<Item\> \| Function \| object |  | `'\[{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_1.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_2.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_3.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_4.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_5.png"}\]'` | 数据源 |
 | pattern | string | `[object Object]`<br/>`[object Object]` | `'big'` | 链接类型 |
 | num | number |  | `5` | 显示图片数 |
 | arrow | boolean |  | `true` | 是否显示左右箭头 |
