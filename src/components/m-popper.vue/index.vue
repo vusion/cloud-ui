@@ -265,7 +265,11 @@ export default {
                         this.followCursor && this.$nextTick(() => this.updatePositionByCursor(e, el));
                     }, this.hoverDelay);
                 }));
-                this.offEvents.push(ev.on(document, 'scroll', () => {
+                this.offEvents.push(ev.on(document, 'mousewheel', () => {
+                    this.clearTimers();
+                    this.close();
+                }));
+                this.offEvents.push(ev.on(document, 'DOMMouseScroll', () => {
                     this.clearTimers();
                     this.close();
                 }));
