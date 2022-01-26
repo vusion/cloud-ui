@@ -334,6 +334,11 @@ export default UModal;
     font-size: 14px;
 }
 
+.body[icon] > :not(.text){
+    margin-left: calc(48px + 16px);
+    min-height: 48px;
+}
+
 .description {
     margin-top: 5px;
     font-size: 12px;
