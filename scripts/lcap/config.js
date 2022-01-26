@@ -60,6 +60,7 @@ module.exports = [
     { group: 'Chart', show: true, name: 'u-circular-progress', alias: '圆型进度条' },
 
     { group: 'Feedback', show: true, name: 'u-popup', alias: '弹出框' },
+    { group: 'Feedback', show: true, name: 'u-popup-combination', alias: '弹出框组合' },
     { group: 'Feedback', show: true, name: 'u-modal', alias: '弹窗' },
 
     { group: 'Effects', show: true, name: 'e-watermark', alias: '水印' },
