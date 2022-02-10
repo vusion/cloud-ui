@@ -74,7 +74,7 @@
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                                         :vusion-node-path="columnVM.$attrs['vusion-node-path']">
                                         <!--可视化占据的虚拟填充区域-->
-                                        <div vusion-slot-name="cell" :plus-empty="typeCheck(columnVM.type) ? false : columnVM.$attrs['plus-empty']">
+                                        <div :vusion-slot-name="cell" :plus-empty="typeCheck(columnVM.type) ? false : columnVM.$attrs['plus-empty']">
                                             <!-- type === 'index' -->
                                             <span v-if="columnVM.type === 'index'">{{ (columnVM.startIndex - 0) + rowIndex }}</span>
                                             <!-- type === 'radio' -->
@@ -132,13 +132,34 @@
                                     </td>
                                 </template>
                             </tr>
-                            <tr :class="$style['expand-content']" v-if="expanderColumnVM && item.expanded">
-                                <f-collapse-transition>
-                                    <td :colspan="visibleColumnVMs.length" :class="$style['expand-td']" v-show="item.expanded" vusion-slot-name="expand-content">
-                                        <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: $at(item, expanderColumnVM.field), columnVM: expanderColumnVM, rowIndex, index: rowIndex }"></f-slot>
-                                    </td>
-                                </f-collapse-transition>
-                            </tr>
+                            <template v-if="$env.VUE_APP_DESIGNER && expanderColumnVM && rowIndex===0">
+                                <tr :class="$style['expand-content']">
+                                    <f-collapse-transition>
+                                        <td :colspan="visibleColumnVMs.length" :class="$style['expand-td']"
+                                        vusion-slot-name="expand-content"
+                                        :vusion-disabled-move="expanderColumnVM.$attrs['vusion-disabled-move']"
+                                        :vusion-disabled-duplicate="expanderColumnVM.$attrs['vusion-disabled-duplicate']"
+                                        :vusion-disabled-cut="expanderColumnVM.$attrs['vusion-disabled-cut']"
+                                        :vusion-node-tag="expanderColumnVM.$attrs['vusion-node-tag']"
+                                        :vusion-template-cell-node-path="expanderColumnVM.$attrs['vusion-template-cell-node-path']"
+                                        :vusion-scope-id="expanderColumnVM.$vnode.context.$options._scopeId"
+                                        :vusion-node-path="expanderColumnVM.$attrs['vusion-node-path']">
+                                            <div style="background:#FAFAFA;border:1px dashed #C3C3C3;padding: 20px 0;text-align:center;">展开列编辑区</div>
+                                            <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: $at(item, expanderColumnVM.field), columnVM: expanderColumnVM, rowIndex, index: rowIndex }">
+                                            </f-slot>
+                                        </td>
+                                    </f-collapse-transition>
+                                </tr>
+                            </template>
+                            <template v-else>
+                                <tr :class="$style['expand-content']" v-if="expanderColumnVM && item.expanded">
+                                    <f-collapse-transition>
+                                        <td :colspan="visibleColumnVMs.length" :class="$style['expand-td']" v-show="item.expanded">
+                                            <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: $at(item, expanderColumnVM.field), columnVM: expanderColumnVM, rowIndex, index: rowIndex }"></f-slot>
+                                        </td>
+                                    </f-collapse-transition>
+                                </tr>
+                            </template>
                         </template>
                     </template>
                     <tr key="no-data-source" v-if="currentData === undefined && !currentError && $env.VUE_APP_DESIGNER">
@@ -194,11 +215,13 @@ import debounce from 'lodash/debounce';
 import isNumber from 'lodash/isNumber';
 import i18n from './i18n';
 import { rest } from 'lodash';
+import SEmpty from '../../components/s-empty.vue';
 
 export default {
     name: 'u-table-view',
     mixins: [MEmitter],
     i18n,
+    components: {  SEmpty },
     props: {
         data: Array,
         dataSource: [DataSource, Function, Object, Array],
@@ -268,6 +291,7 @@ export default {
         hasChildrenField: { type: String, default: 'hasChildren' },
         treeDataSource: [Function],
         minColumnWidth: { type: Number, default: 44 },
+        extraParams: Object,
     },
     data() {
         return {
@@ -455,7 +479,7 @@ export default {
     },
     methods: {
         typeCheck(type) {
-            return ['index', 'radio', 'checkbox'].includes(type);
+            return ['index', 'radio', 'checkbox', 'expander'].includes(type);
         },
         clearTimeout() {
             if (this.timer) {
@@ -496,7 +520,7 @@ export default {
             this.handleResize();
         },
         getExtraParams() {
-            return undefined;
+            return this.extraParams;
         },
         getDataSourceOptions() {
             return {
@@ -519,8 +543,8 @@ export default {
                 options.data = Array.from(dataSource);
                 return new DataSource(options);
             } else if (dataSource instanceof Function) {
-                options.load = function load(params) {
-                    const result = dataSource(params);
+                options.load = function load(params, extraParams) {
+                    const result = dataSource(params, extraParams);
                     if (result instanceof Promise)
                         return result;
                     else if (result instanceof Array)

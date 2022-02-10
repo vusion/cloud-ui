@@ -19,6 +19,11 @@
       description: 表格每一行的数据类型
       group: 数据属性
       compType: dataTypeSelect
+    - name: extra-params
+      title: 数据源参数
+      type: object
+      description: 数据源除了DataSourceParams外还需要的参数
+      group: 数据属性
     - name: initial-load
       title: 初始加载
       type: boolean
@@ -579,6 +584,16 @@
         - name: oldWidth
           type: number
           description: 调整前的宽度
+    - name: toggle-expanded
+      title: 列展开后
+      description: 点击展开类后触发
+      params:
+        - name: $event.item
+          type: object
+          description: 选择行相关对象
+        - name: $event.expanded
+          type: boolean
+          description: 展开状态值
   methods:
     - name: load
       description: 带缓存地加载
