@@ -80,6 +80,7 @@ export * from './u-panel.vue';
 export * from './u-pills.vue';
 export * from './u-placeholder.vue';
 export * from './u-popup.vue';
+export * from './u-popup-combination.vue';
 export * from './u-radios.vue';
 export * from './u-rate.vue';
 export * from './u-region-select.vue';

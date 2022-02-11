@@ -45,14 +45,16 @@ export default {
     render(h) {
         const slots = normalizeSlots(this.$slots, this.$vnode.context) || [];
 
+        this.$attrs.reference = '$parent';
+
         return h('div', {
             style: {
                 background: '#FAFAFA',
                 border: '1px dashed #C3C3C3',
-                height: '40px',
-                alignItems: 'center',
-                justifyContent: 'center',
-                display: 'flex',
+                // alignItems: 'center',
+                // justifyContent: 'center',
+                // display: 'flex',
+                padding: '15px',
                 cursor: 'pointer',
             },
         }, [

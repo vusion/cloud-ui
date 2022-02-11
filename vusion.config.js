@@ -105,6 +105,7 @@ module.exports = {
             { group: '图表', name: 'u-circular-progress', alias: '圆型进度条' },
 
             { group: '反馈', name: 'u-popup', alias: '弹出框' },
+            { group: '反馈', name: 'u-popup-combination', alias: '弹出框组合' },
             { group: '反馈', name: 'u-tooltip', alias: '工具提示', advanced: true },
             { group: '反馈', name: 'u-icon-tooltip', alias: '图标提示', advanced: true },
             { group: '反馈', name: 'u-spinner', alias: '加载图标', advanced: true },
