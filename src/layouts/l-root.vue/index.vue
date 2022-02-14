@@ -39,5 +39,6 @@ export default {
 
 .height {
     min-height: 200px;
+    padding-bottom: 100px;
 }
 </style>

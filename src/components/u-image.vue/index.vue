@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root" :fit="fit">
     <template v-if="ready">
-        <img :src="getSrc(src)" :style="imageStyle" v-bind="$attrs">
+        <img :src="convertedSrc" :style="imageStyle" v-bind="$attrs">
     </template>
 </div>
 </template>
@@ -20,6 +20,27 @@ export default {
             type: String,
             default: 'contain',
         },
+        convertSrcFn: {
+            type: Function,
+            default: (src) => {
+                try {
+                    const tempSrc = JSON.parse(src);
+                    const tempItem = tempSrc[0];
+                    return tempItem.url;
+                } catch (e) {
+                    return src;
+                }
+            }
+        }
+    },
+    computed: {
+        convertedSrc() {
+            if(typeof this.convertSrcFn === 'function') {
+                return this.convertSrcFn(this.src);
+            } else {
+                return this.src;
+            }
+        }
     },
     data() {
         return {
@@ -29,6 +50,14 @@ export default {
         };
     },
     watch: {
+        // src变化重新加载图片
+        src() {
+            this.loadImage();
+        },
+        // convertSrcFn变化重新加载图片
+        convertSrcFn() {
+            this.loadImage();
+        },
         fit() {
             this.getImageStyle();
         },
@@ -37,15 +66,6 @@ export default {
         this.loadImage();
     },
     methods: {
-        getSrc(src) {
-            try {
-                const tempSrc = JSON.parse(src);
-                const tempItem = tempSrc[0];
-                return tempItem.url;
-            } catch (e) {
-                return src;
-            }
-        },
         loadImage() {
             this.ready = false;
             const img = new Image();
@@ -63,7 +83,7 @@ export default {
                 img.onload = undefined;
                 img.onerror = undefined;
             };
-            img.src = this.src;
+            img.src = this.convertedSrc;
         },
         getImageStyle() {
             let fit = this.fit;

@@ -10,10 +10,13 @@
                     </div>
                 </slot>
             </div>
-            <div :class="$style.body" v-if="content || $slots.body || $slots.default">
+            <div :class="$style.body" v-if="content || $slots.body || $slots.default" vusion-slot-name="default">
                 <slot name="body">
                     <slot>{{ content }}</slot>
                 </slot>
+            </div>
+            <div :class="$style.body" v-else-if="$env.VUE_APP_DESIGNER" vusion-slot-name="default">
+                <s-empty></s-empty>
             </div>
             <div :class="$style.foot" v-if="$slots.foot">
                 <slot name="foot"></slot>
@@ -25,8 +28,10 @@
 
 <script>
 import MPopper from '../m-popper.vue';
+import SEmpty from '../../components/s-empty.vue';
 export default {
     name: 'u-popup',
+    components: { SEmpty },
     extends: MPopper,
     props: {
         title: String,

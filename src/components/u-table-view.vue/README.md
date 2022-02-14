@@ -2105,7 +2105,7 @@ Methods
 | filters | Array\<{ text: string, value: any }\> |  |  | 筛选项的参数 |
 | ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
 | hidden | boolean |  | `false` | 是否隐藏该列。 |
-| type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'index'` | 列类型 |
+| type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 列类型 |
 | start-index | number |  | `1` | 当`type="index"`时的起始序号。 |
 
 ### Slots

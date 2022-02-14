@@ -64,7 +64,7 @@ export default {
             const percentItemVMs = [];
             const valueItemVMs = [];
             const noSizeItemVMs = []; // 统计固定列的数量
-            this.itemVMs.forEach((itemVM, index) => {
+            this.itemVMs.forEach((itemVM) => {
                 if (!itemVM.currentSize)
                     noSizeItemVMs.push(itemVM);
                 else if (String(itemVM.currentSize).endsWith('%'))
@@ -82,12 +82,12 @@ export default {
                     });
                 }
             }
-
-            // 全部都是数值的情况，按实际大小
             const percentSizeSum = percentItemVMs.reduce((prev, itemVM) => {
                 itemVM.computedSize = (parseFloat(itemVM.currentSize) * rootSize) / 100;
                 return prev + itemVM.computedSize;
             }, 0);
+
+            // 全部都是数值的情况，按实际大小
             const valueSizeSum = valueItemVMs.reduce((prev, itemVM) => {
                 itemVM.computedSize = parseFloat(itemVM.currentSize);
                 return prev + itemVM.computedSize;
@@ -103,46 +103,82 @@ export default {
 
             // 如果所有列均有值，则总宽度有超出的可能。否则总宽度为根节点的宽度。
             let finalSize = '';
-            if (this.itemVMs.every((itemVM) => itemVM.currentSize)) {
+            if (this.itemVMs.every((itemVM) => itemVM.computedSize)) {
+                this.itemVMs.forEach((itemVM) => {
+                    itemVM.computedSize = Math.max(itemVM.computedSize, this.minSize);
+                });
+
                 finalSize = this.itemVMs.reduce((prev, itemVM) => {
                     if (String(itemVM.currentSize).endsWith('%')) {
                         return (prev + (parseFloat(itemVM.currentSize) * rootSize) / 100);
                     } else
                         return prev + itemVM.computedSize;
                 }, 0);
-
                 const diffSize = finalSize - rootSize;
-                if (Math.abs(diffSize) > 1)
-                    this.itemVMs.forEach((itemVM) => itemVM.computedSize -= diffSize * itemVM.computedSize / rootSize);
-                // this.itemVMs[this.itemVMs.length - 1].computedSize -= finalSize - rootSize;
-                // this.finalSize = finalSize;
-            } // else
-            // this.finalSize = finalSize = rootSize; // @important: Work with overflow-x: hidden to prevent two horizontal scrollbar
 
+                if (Math.abs(diffSize) > 1) {
+                    let fixedSize = 0;
+                    let adjustableItems = []
+                    let hasValueSize = 0;
+                    const hasValueItems = [];
+                    this.itemVMs.forEach((itemVM) => {
+                        if(diffSize > 0  &&  itemVM.computedSize === this.minSize) { // 如果已经是最小值，不能再缩小
+                            fixedSize += this.minSize;
+                        } else if(itemVM.currentSize) { // 已经设过值的模块理论上不改变大小，如果没有地方能变，再来改这部分的大小
+                            hasValueSize += this.minSize;
+                            hasValueItems.push(itemVM);
+                        } else {
+                            adjustableItems.push(itemVM);
+                        }
+                    });
+                    // 如果大家都不能调整，则整体都按相同比例调整
+                    if(!adjustableItems.length) {
+                        // 没有可以调整的区域
+                        if(!!hasValueItems.length) {
+                            hasValueSize = 0;
+                            adjustableItems = [...hasValueItems];
+                        } else {
+                            adjustableItems = [...this.itemVMs];
+                        }
+                    }
+                    adjustableItems.forEach((itemVM) => itemVM.computedSize = itemVM.computedSize *  (rootSize - fixedSize - hasValueSize) / (finalSize - fixedSize - hasValueSize));
+                }
+                this.itemVMs.forEach((itemVM) => {
+                    if(!!itemVM.currentSize) {
+                        itemVM.currentSize = itemVM.computedSize;
+                    }
+                })
+            }
             setTimeout(() => this.$emit('resize', {}, this));
         },
         onResizerDragStart($event, itemVM) {
             this.itemVMs.forEach((itemVM) => {
-                itemVM.currentSize = itemVM.computedSize;
                 itemVM.oldSize = itemVM.computedSize;
             });
-
             this.$emit('drag-start', $event, this);
         },
         onResizerDrag($event, itemVM) {
             const index = this.itemVMs.indexOf(itemVM);
-
             const minSize = this.minSize;
             const rootSize = this.direction === 'horizontal' ? this.$el.clientWidth : this.$el.clientHeight;
+            // 当前元素之前的元素所占的空间大小
             let beforeSize = 0;
             for (let i = 0; i < index; i++)
                 beforeSize += this.itemVMs[i].computedSize;
-
+            
+            // 可以调整的最大大小
             const maxSize = rootSize - beforeSize - (this.itemVMs.length - 1 - index) * minSize;
-            const size = Math.max(minSize, Math.min(itemVM.oldSize + (this.direction === 'horizontal' ? $event.dragX : $event.dragY), maxSize));
+
+            const size = Math.max(
+                minSize,
+                Math.min(
+                    itemVM.oldSize + (this.direction === 'horizontal' ? $event.dragX : $event.dragY), 
+                    maxSize
+                )
+            );
 
             let remainingSize = size - itemVM.computedSize;
-            itemVM.currentSize = itemVM.computedSize = size;
+            itemVM.computedSize = size;
 
             if (this.resizeRemaining === 'sequence') {
                 for (let i = index + 1; i < this.itemVMs.length; i++) {
@@ -150,11 +186,11 @@ export default {
                         break;
                     const itemVM = this.itemVMs[i];
                     if (itemVM.computedSize - remainingSize >= minSize) {
-                        itemVM.currentSize = itemVM.computedSize -= remainingSize;
+                        itemVM.computedSize -= remainingSize;
                         remainingSize = 0;
                     } else {
                         remainingSize -= itemVM.computedSize - minSize;
-                        itemVM.currentSize = itemVM.computedSize = minSize;
+                        itemVM.computedSize = minSize;
                     }
                 }
             } else if (this.resizeRemaining === 'average') {
@@ -164,29 +200,29 @@ export default {
                     const wideitemVMs = [];
                     itemVMs.forEach((itemVM) => {
                         if (itemVM.computedSize - averageSize >= minSize) {
-                            itemVM.currentSize = itemVM.computedSize -= averageSize;
+                            itemVM.computedSize -= averageSize;
                             remainingSize -= averageSize;
                             wideitemVMs.push(itemVM);
                         } else {
                             remainingSize -= itemVM.computedSize - minSize;
-                            itemVM.currentSize = itemVM.computedSize = minSize;
+                            itemVM.computedSize = minSize;
                         }
                     });
                     if (Math.abs(remainingSize) >= 1 && wideitemVMs.length)
                         distributeInAverage(wideitemVMs);
                 }
                 distributeInAverage(this.itemVMs.slice(index + 1));
-                itemVM.currentSize = itemVM.computedSize -= remainingSize;
+                itemVM.computedSize -= remainingSize;
             }
             $event.transferEl.style.left = '';
             $event.transferEl.style.top = '';
-
+            if(!!itemVM.currentSize) {
+                itemVM.currentSize = itemVM.computedSize;
+            }
             this.$emit('drag', $event, this);
         },
         onResizerDragEnd($event, itemVM) {
             const index = this.itemVMs.indexOf(itemVM);
-
-            this.handleResize();
             this.$emit('resize', {
                 itemVM,
                 index,

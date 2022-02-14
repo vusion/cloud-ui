@@ -176,7 +176,7 @@ export default {
 | text | string |  |  | 文本内容 |
 | color | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 设置颜色 |
 | dashed | boolean |  | `false` | 边框是否为虚线。 |
-| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置尺寸 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置尺寸 |
 | shape | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 设置形状 |
 | disabled | boolean |  | `false` | 是否禁用。禁用后不会响应点击事件。 |
 | display | string | `[object Object]`<br/>`[object Object]` | `'inline'` | 展示方式 |

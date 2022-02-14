@@ -40,6 +40,9 @@
     background: var(--steps-item-radio-background);
     color: var(--color-light);
 }
+.radio:hover {
+    border-color: var(--steps-item-radio-border-color-hover);
+}
 
 .root[shape-size="large"] .radio {
     width: var(--steps-item-radio-size-large);

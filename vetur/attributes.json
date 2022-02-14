@@ -864,12 +864,16 @@
     "type": "string",
     "options": [
       {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
         "value": "large",
         "title": "大"
       },
       {
-        "value": "huge",
-        "title": "巨大"
+        "value": "medium",
+        "title": "中型"
       },
       {
         "value": "normal",
@@ -2893,6 +2897,10 @@
     ],
     "description": "图片地址"
   },
+  "u-image/convertSrcFn": {
+    "type": "Function",
+    "description": "将传入的src转换为符合要求的字符串"
+  },
   "u-info-list/repeat": {
     "type": "number",
     "description": "整个详情列表的划分列数"
@@ -3408,10 +3416,6 @@
         "title": "警告色"
       },
       {
-        "value": "error",
-        "title": "错误色"
-      },
-      {
         "value": "danger",
         "title": "危险色"
       }
@@ -3508,7 +3512,7 @@
   },
   "u-list-components/colnum": {
     "type": "number",
-    "description": "每行排列项数"
+    "description": "为空时自适应宽度，自动换行"
   },
   "u-list-view/data-source": {
     "type": "Array<Item> | Function | object | DataSource",
@@ -4669,6 +4673,20 @@
     "type": "boolean",
     "description": "是否禁用"
   },
+  "u-selectable-steps/size": {
+    "type": "string",
+    "options": [
+      {
+        "value": "auto",
+        "title": "自适应"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      }
+    ],
+    "description": "设置尺寸"
+  },
   "u-selectable-step/title": {
     "type": "string",
     "description": "步骤名"
@@ -5144,6 +5162,10 @@
   "u-table-view-column/type": {
     "type": "string",
     "options": [
+      {
+        "value": "normal",
+        "title": "普通列"
+      },
       {
         "value": "index",
         "title": "序号列"

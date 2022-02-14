@@ -898,7 +898,8 @@
   "u-image": {
     "attributes": [
       "src",
-      "fit"
+      "fit",
+      "convertSrcFn"
     ],
     "description": "可以用来展示一张图片，支持设置图片地址。"
   },
@@ -1415,7 +1416,8 @@
     "attributes": [
       "value",
       "readonly",
-      "disabled"
+      "disabled",
+      "size"
     ],
     "description": "当操作需要分步骤时使用",
     "subtags": [

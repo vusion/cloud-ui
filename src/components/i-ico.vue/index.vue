@@ -12,7 +12,7 @@
             <use :xlink:href="`#${iconconfig.css_prefix_text}${getName()}`" />
         </svg>
     </span>
-    <div :class="$style.icontext" :vusion-scope-iddd="$vnode.context.$options._scopeId" vusion-slot-name="default">
+    <div :class="$style.icontext" vusion-slot-name="default">
         <slot></slot>
         <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER && !notext"></s-empty>
     </div>

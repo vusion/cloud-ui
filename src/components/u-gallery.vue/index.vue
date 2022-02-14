@@ -7,8 +7,8 @@
             </div>
         </div>
     </div>
-    <i-ico name="left-arrow" class="swiper-big-left-arrow" @click="prev" v-if="arrow && pattern==='big'" :notext="true"></i-ico>
-    <i-ico name="right-arrow" class="swiper-big-right-arrow" @click="next" v-if="arrow && pattern==='big'" :notext="true"></i-ico>
+    <i-ico name="left-arrow" vusion-click-enabled class="swiper-big-left-arrow" @click="prev" v-if="arrow && pattern==='big'" :notext="true"></i-ico>
+    <i-ico name="right-arrow" vusion-click-enabled class="swiper-big-right-arrow" @click="next" v-if="arrow && pattern==='big'" :notext="true"></i-ico>
     <div class="swiper mySwiper swipersmall" v-show="pattern==='small'" ref="swipersmall">
         <div class="swiper-wrapper swiper-wrapper-small">
             <div class="swiper-slide swiper-slide-small" v-for="(item, index) in options" :key="index">
@@ -24,8 +24,8 @@
                 </div>
             </div>
         </div>
-        <i-ico name="left-arrow" class="swiper-thumb-left-arrow" @click="prevthumb" v-if="arrow && pattern==='small'" :notext="true"></i-ico>
-        <i-ico name="right-arrow" class="swiper-thumb-right-arrow" @click="nextthumb" v-if="arrow && pattern==='small'" :notext="true"></i-ico>
+        <i-ico name="left-arrow" vusion-click-enabled class="swiper-thumb-left-arrow" @click="prevthumb" v-if="arrow && pattern==='small'" :notext="true"></i-ico>
+        <i-ico name="right-arrow" vusion-click-enabled class="swiper-thumb-right-arrow" @click="nextthumb" v-if="arrow && pattern==='small'" :notext="true"></i-ico>
     </div>
 </div>
 </template>
@@ -40,7 +40,7 @@ export default {
     props: {
         dataSource: {
             type: [Array, Object, Function],
-            default: () => '[{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/cat.jpeg"}]',
+            default: () => '[{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_1.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_2.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_3.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_4.png"},{"url": "https://static-vusion.nos-eastchina1.126.net/h5-template/gallery/1_5.png"}]',
         },
         num: {
             type: Number,
@@ -67,6 +67,8 @@ export default {
                 slidesPerView: this.num,
                 spaceBetween: 32,
                 navigation: {
+                    nextEl: '.swiper-big-right-arrow',
+                    prevEl: '.swiper-big-left-arrow',
                 },
             },
             smallOption: {
@@ -84,6 +86,10 @@ export default {
                 slidesPerView: this.num,
                 freeMode: true,
                 watchSlidesProgress: true,
+                navigation: {
+                    nextEl: '.swiper-thumb-right-arrow',
+                    prevEl: '.swiper-thumb-left-arrow',
+                },
             },
         };
     },
@@ -167,16 +173,20 @@ export default {
                 // }
             });
         },
-        prev() {
+        prev(e) {
+            e.stopImmediatePropagation();
             this[`swiper${this.pattern}`].slidePrev();
         },
-        next() {
+        next(e) {
+            e.stopImmediatePropagation();
             this[`swiper${this.pattern}`].slideNext();
         },
-        prevthumb() {
+        prevthumb(e) {
+            e.stopImmediatePropagation();
             this.swiperthumb.slidePrev();
         },
-        nextthumb() {
+        nextthumb(e) {
+            e.stopImmediatePropagation();
             this.swiperthumb.slideNext();
         },
     },
@@ -194,7 +204,7 @@ export default {
     position: relative;
 }
 .wrapsmall {
-    width: 1000px;
+    width: 600px;
     overflow: unset;
 }
 </style>
@@ -220,12 +230,13 @@ export default {
         display: block;
         width: 100%;
         height: 100%;
+        object-fit: contain;
     }
     .swiper-for-vusion  .swiper-slide-small-image {
         display: block;
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
     }
     .swiper-for-vusion .swiper-wrapper-big .swiper-slide-active {
         transform: scale(1.1,1.1);
@@ -235,8 +246,8 @@ export default {
         border: 2px solid #4c88ff;
     }
     .swiper-big-left-arrow, .swiper-big-right-arrow {
-        font-size: 48px;
-        color: #ccc;
+        font-size: 40px;
+        color: #999;
         position: absolute;
         left: 0;
         top: 50%;
@@ -266,10 +277,11 @@ export default {
         display: block;
         width: 100%;
         height: 100%;
+        object-fit: contain;
     }
     .swiper-thumb-left-arrow, .swiper-thumb-right-arrow {
         font-size: 20px;
-        color: #ccc;
+        color: #999;
         position: absolute;
         left: 0;
         top: 50%;
@@ -279,5 +291,9 @@ export default {
     .swiper-thumb-right-arrow {
         left: auto;
         right: 0;
+    }
+    .swiper-for-vusion .swiper-button-disabled {
+        color: #ccc !important;
+        display: block;
     }
 </style>
