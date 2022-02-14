@@ -4245,6 +4245,128 @@
     "type": "object",
     "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
   },
+  "u-popup-combination/title": {
+    "type": "string",
+    "description": "弹出框标题"
+  },
+  "u-popup-combination/opened": {
+    "type": "boolean",
+    "description": "弹出/关闭状态"
+  },
+  "u-popup-combination/trigger": {
+    "type": "string",
+    "options": [
+      {
+        "value": "click",
+        "title": "点击"
+      },
+      {
+        "value": "hover",
+        "title": "悬浮"
+      },
+      {
+        "value": "right-click",
+        "title": "右击"
+      },
+      {
+        "value": "double-click",
+        "title": "双击"
+      },
+      {
+        "value": "manual",
+        "title": "手动"
+      }
+    ],
+    "description": "弹出框的触发方式"
+  },
+  "u-popup-combination/placement": {
+    "type": "string",
+    "options": [
+      {
+        "value": "top",
+        "title": "上"
+      },
+      {
+        "value": "bottom",
+        "title": "下"
+      },
+      {
+        "value": "left",
+        "title": "左"
+      },
+      {
+        "value": "right",
+        "title": "右"
+      },
+      {
+        "value": "top-start",
+        "title": "上左"
+      },
+      {
+        "value": "top-end",
+        "title": "上右"
+      },
+      {
+        "value": "bottom-start",
+        "title": "下左"
+      },
+      {
+        "value": "bottom-end",
+        "title": "下右"
+      },
+      {
+        "value": "left-start",
+        "title": "左上"
+      },
+      {
+        "value": "left-end",
+        "title": "左下"
+      },
+      {
+        "value": "right-start",
+        "title": "右上"
+      },
+      {
+        "value": "right-end",
+        "title": "右下"
+      }
+    ],
+    "description": "弹出框的弹出方向。"
+  },
+  "u-popup-combination/hide-delay": {
+    "type": "number",
+    "description": "当触发方式为'悬浮'时，提示内容消失延迟时间，单位是`'ms'`"
+  },
+  "u-popup-combination/offset": {
+    "type": "string",
+    "description": "弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px`"
+  },
+  "u-popup-combination/follow-cursor": {
+    "type": "boolean",
+    "description": "是否跟随鼠标"
+  },
+  "u-popup-combination/disabled": {
+    "type": "boolean",
+    "description": "是否禁用"
+  },
+  "u-popup-combination/merge-borders": {
+    "type": "boolean",
+    "description": "是否自动合并内外边框"
+  },
+  "u-popup-combination/display": {
+    "type": "string",
+    "options": [
+      {
+        "value": "inline",
+        "title": "行内展示"
+      },
+      {
+        "value": "block",
+        "title": "块级展示，宽度会充满父元素"
+      }
+    ],
+    "description": "展示方式"
+  },
   "u-popup/title": {
     "type": "string",
     "description": "弹出框标题"

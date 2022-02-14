@@ -1295,6 +1295,21 @@
       "item"
     ]
   },
+  "u-popup-combination": {
+    "attributes": [
+      "title",
+      "opened",
+      "trigger",
+      "placement",
+      "hide-delay",
+      "offset",
+      "follow-cursor",
+      "disabled",
+      "merge-borders",
+      "display"
+    ],
+    "description": "点击/鼠标移入元素，弹出气泡式的卡片浮层。"
+  },
   "u-popup": {
     "attributes": [
       "title",
