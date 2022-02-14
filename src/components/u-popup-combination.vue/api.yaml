@@ -68,7 +68,7 @@
       title: 消失延迟时间
       type: number
       default: 200
-      description: 提示内容消失延迟时间，单位是`'ms'`
+      description: 当触发方式为'悬浮'时，提示内容消失延迟时间，单位是`'ms'`
     - name: offset
       title: 弹出层偏移
       type: string
