@@ -28,11 +28,12 @@
         - value: scale-down
           title: 取 contain、none 中较小的
       default: contain
-      description: 图片地址
+      description: 图片填充方式
     - name: convertSrcFn
       title: 图片地址转换器
       type: Function
-      default: (src) => {  try { const tempSrc = JSON.parse(src); const tempItem = tempSrc[0]; return tempItem.url; } catch (e) { return src;}}
+      default: (src) => {  try { const tempSrc = JSON.parse(src); const tempItem =
+        tempSrc[0]; return tempItem.url; } catch (e) { return src;}}
       description: 将传入的src转换为符合要求的字符串
       advanced: true
   slots: false
