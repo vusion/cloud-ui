@@ -1,4 +1,4 @@
-- name: u-popup
+- name: u-popup-combination
   title: 弹出框
   icon: popup
   labels:
@@ -17,7 +17,7 @@
       type: boolean
       sync: true
       default: false
-      description: 弹出框默认弹出
+      description: 弹出/关闭状态
     - name: trigger
       title: 触发方式
       type: string
@@ -33,7 +33,7 @@
         - value: manual
           title: 手动
       default: click
-      description: 弹出框触发方式
+      description: 弹出框的触发方式
     - name: placement
       title: 弹出方向
       type: string
@@ -68,7 +68,7 @@
       title: 消失延迟时间
       type: number
       default: 200
-      description: 提示内容消失延迟时间，单位毫秒（ms）
+      description: 当触发方式为'悬浮'时，提示内容消失延迟时间，单位是`'ms'`
     - name: offset
       title: 弹出层偏移
       type: string
@@ -79,31 +79,33 @@
       title: 跟随鼠标
       type: boolean
       default: false
-      description: 弹出框跟随鼠标移动
+      description: 是否跟随鼠标
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: ""
+      description: 是否禁用
     - name: merge-borders
       title: 合并边框
       type: boolean
       default: true
       description: 是否自动合并内外边框
       advanced: true
+    - name: display
+      title: 展示方式
+      type: string
+      options:
+        - value: inline
+          title: 行内展示
+        - value: block
+          title: 块级展示，宽度会充满父元素
+      default: inline
+      description: 展示方式
   slots:
     - name: default
       description: 自定义弹出的内容。
-    - name: root
-      description: 自定义整个弹出层。
-    - name: head
-      description: 自定义头部。
-    - name: body
-      description: 自定义中部。
-    - name: foot
-      description: 自定义尾部。
-    - name: title
-      description: 自定义标题文本。
+    - name: reference
+      description: 弹出层触发节点。
   events:
     - name: before-open
       title: 弹出前
