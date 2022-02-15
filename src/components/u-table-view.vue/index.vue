@@ -137,14 +137,13 @@
                                     <f-collapse-transition>
                                         <td :colspan="visibleColumnVMs.length" :class="$style['expand-td']"
                                         vusion-slot-name="expand-content"
-                                        :vusion-disabled-move="expanderColumnVM.$attrs['vusion-disabled-move']"
-                                        :vusion-disabled-duplicate="expanderColumnVM.$attrs['vusion-disabled-duplicate']"
-                                        :vusion-disabled-cut="expanderColumnVM.$attrs['vusion-disabled-cut']"
+                                        :vusion-disabled-selected="true"
                                         :vusion-node-tag="expanderColumnVM.$attrs['vusion-node-tag']"
-                                        :vusion-template-cell-node-path="expanderColumnVM.$attrs['vusion-template-cell-node-path']"
+                                        :vusion-template-expand-content-node-path="expanderColumnVM.$attrs['vusion-template-expand-content-node-path']"
                                         :vusion-scope-id="expanderColumnVM.$vnode.context.$options._scopeId"
                                         :vusion-node-path="expanderColumnVM.$attrs['vusion-node-path']">
-                                            <div style="background:#FAFAFA;border:1px dashed #C3C3C3;padding: 20px 0;text-align:center;">展开列编辑区</div>
+                                            <div style="background:#FAFAFA;border:1px dashed #C3C3C3;padding: 10px 0;text-align:center;margin-bottom:10px;">展开列编辑区</div>
+                                            <div :plus-empty="expanderColumnVM.$attrs['plus-empty']"></div>
                                             <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: $at(item, expanderColumnVM.field), columnVM: expanderColumnVM, rowIndex, index: rowIndex }">
                                             </f-slot>
                                         </td>
@@ -215,13 +214,11 @@ import debounce from 'lodash/debounce';
 import isNumber from 'lodash/isNumber';
 import i18n from './i18n';
 import { rest } from 'lodash';
-import SEmpty from '../../components/s-empty.vue';
 
 export default {
     name: 'u-table-view',
     mixins: [MEmitter],
     i18n,
-    components: {  SEmpty },
     props: {
         data: Array,
         dataSource: [DataSource, Function, Object, Array],

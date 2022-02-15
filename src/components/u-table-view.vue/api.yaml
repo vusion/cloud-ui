@@ -584,9 +584,22 @@
         - name: oldWidth
           type: number
           description: 调整前的宽度
+    - name: before-toggle-expanded
+      title: 展开行前
+      description: 点击展开按钮前触发
+      params:
+        - name: $event.item
+          type: object
+          description: 选择行相关对象
+        - name: $event.expanded
+          type: boolean
+          description: 展开状态值
+        - name: $event.oldExpanded
+          type: boolean
+          description: 展开前状态值
     - name: toggle-expanded
-      title: 列展开后
-      description: 点击展开类后触发
+      title: 展开行后
+      description: 点击展开按钮后触发
       params:
         - name: $event.item
           type: object
@@ -766,6 +779,7 @@
           type: number
           description: 列的索引。
     - name: expand-content
+      plus-empty: true
       title: 展开列内容
       accept-type: all
       description: 展开列的内容。
