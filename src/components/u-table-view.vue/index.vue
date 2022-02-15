@@ -289,6 +289,7 @@ export default {
         treeDataSource: [Function],
         minColumnWidth: { type: Number, default: 44 },
         extraParams: Object,
+        defaultColumnWidth: [String, Number],
     },
     data() {
         return {
@@ -561,6 +562,7 @@ export default {
         handleResize() {
             this.tableWidth = undefined;
             // this.bodyHeight = undefined;
+            const defaultColumnWidth = this.defaultColumnWidth;
             this.clearTimeout();
             this.timer = setTimeout(() => {
                 this.timer = undefined;
@@ -582,6 +584,11 @@ export default {
                 let fixedRightCount = 0;
                 let lastIsFixed = false;
                 this.visibleColumnVMs.forEach((columnVM, index) => {
+                    if (defaultColumnWidth) {
+                        if (!columnVM.currentWidth) {
+                            columnVM.currentWidth = defaultColumnWidth;
+                        }
+                    }
                     if (!columnVM.currentWidth)
                         noWidthColumnVMs.push(columnVM);
                     else if (String(columnVM.currentWidth).endsWith('%'))

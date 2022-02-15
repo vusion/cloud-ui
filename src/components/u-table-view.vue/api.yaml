@@ -173,6 +173,11 @@
       default: true
       description: 是否显示表格头部。
       group: 样式属性
+    - name: default-column-width
+      title: 默认列宽度
+      type: string | number
+      description: 给每一列设置默认宽度，可以为数字或百分比。
+      group: 样式属性
     - name: loading
       title: 是否加载中
       type: boolean
