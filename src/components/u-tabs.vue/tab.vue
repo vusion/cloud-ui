@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" v-show="selected">
+<div :class="$style.root" v-show="selected" vusion-slot-name="default">
     <slot></slot>
 </div>
 </template>
@@ -13,15 +13,20 @@ export default {
     extends: MSinglexItem,
     props: {
         title: String,
-        /* @TODO: Remove this option */ hidden: {
+        /* @TODO: Remove this option */
+        hidden: {
             type: Boolean,
             default: false,
         },
     },
     computed: {
         selected() {
-            if (this.parentVM)
-                return this.parentVM.router ? this.active : this.parentVM.selectedVM === this;
+            return this.parentVM && (this.parentVM.router ? this.active : this.parentVM.selectedVM === this);
+        },
+    },
+    methods: {
+        designerControl() {
+            this.parentVM.select(this);
         },
     },
 };

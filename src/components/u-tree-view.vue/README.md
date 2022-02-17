@@ -25,6 +25,10 @@
     - [Slots](#slots-2)
     - [Events](#events-2)
 
+**Selector**
+
+树形选择器
+
 ## 示例
 ### 基本用法
 
@@ -671,7 +675,7 @@ export default {
 | cancelable | boolean |  | `false` | 是否可以取消选择 |
 | checkable | boolean |  | `false` | 是否可以选中/取消 |
 | accordion | boolean |  | `false` | 是否每次只会展开一个分组 |
-| expand-trigger | string |  | `'click'` | 展开/折叠的触发方式。可选值：`'click'`表示整行点击均可触发、`'click-expander'`表示仅点击小箭头时触发 |
+| expand-trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 展开/折叠的触发方式 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | check-controlled | boolean |  | `false` | checkable 开启情况下，是否完全受控（父子节点状态不关联） |
@@ -690,6 +694,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选择项的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.node | object | 选择项相关对象 |
@@ -714,6 +719,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 改变后的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.node | object | 选择项相关对象 |
@@ -728,6 +734,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选择项的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.node | object | 选择项相关对象 |
@@ -742,6 +749,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.expanded | boolean | 展开/折叠状态 |
 | $event.node | object | 节点相关对象 |
 | $event.nodeVM | UTreeViewNode | 节点组件 |
@@ -753,6 +761,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.checked | boolean | 选中/取消状态 |
 | $event.oldChecked | boolean | 旧的选中/取消状态 |
 | $event.values | Array | 所有选中节点的值 |
@@ -786,7 +795,7 @@ Methods
 | ----- | ---- | ------- | ----------- |
 | expanded | boolean |  | 展开/折叠 |
 
-#### checkAll(checked)
+#### checkAll(expanded)
 
 选中/取消所有节点
 
@@ -800,8 +809,9 @@ Methods
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value | any |  |  | 此项的值 |
-| expanded.sync | any |  |  | 展开/折叠状态 |
-| checked.sync | any |  |  | 选中/取消状态 |
+| text | string |  |  | 此项的显示值 |
+| expanded.sync | boolean |  |  | 展开/折叠状态 |
+| checked.sync | boolean |  |  | 选中/取消状态 |
 | disabled | boolean |  | `false` | 禁用此项 |
 | node | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
 

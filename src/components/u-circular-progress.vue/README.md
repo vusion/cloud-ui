@@ -8,6 +8,10 @@
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
 
+**chart**
+
+以圆形的形式描述当前进度
+
 ## 示例
 ### 基本用法
 

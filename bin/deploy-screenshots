@@ -12,8 +12,10 @@ if (argv._[0]) {
     components = config.docs.components.filter((component) => !component.href && !component.path && !component.deprecated);
 }
 
+const packageJSON = require('../package.json');
+const libInfo = `${packageJSON.name}`;
 components.forEach((component) => {
-    const command = `vusion deploy --framework cloud-ui.vusion@0.9 -v minor src/components/${component.name}.vue/screenshots`;
+    const command = `vusion deploy --framework cloud-ui src/components/${component.name}.vue/screenshots`;
     console.log(command);
     vusion.cli.execSync(command);
     vusion.cli.done(component.name + '.vue');

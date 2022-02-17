@@ -6,10 +6,10 @@
             v-for="node in currentDataSource.data"
             :text="$at(node, field || textField)"
             :value="$at(node, valueField)"
-            :expanded.sync="node.expanded"
+            :expanded="$at(node, expandedField)"
             :checked.sync="node.checked"
             :disabled="node.disabled"
-            :hidden="node.hidden"
+            :hidden="$at(node, hiddenField)"
             :node="node"
             :level="0"
         ></component>
@@ -34,6 +34,8 @@ export default {
         dataSource: [Array, Object, Function],
         textField: { type: String, default: 'text' },
         valueField: { type: String, default: 'value' },
+        hiddenField: { type: String, default: 'hidden' },
+        expandedField: { type: String, default: 'expanded' },
         isLeafField: { type: String, default: 'isLeaf' },
         childrenField: { type: String, default: 'children' },
         moreChildrenFields: Array,
@@ -48,6 +50,8 @@ export default {
         readonlyMode: String,
         disabled: { type: Boolean, default: false },
         checkControlled: { type: Boolean, default: false },
+        expanderWidth: {type: Number, default: 30 },
+        paddingLeft: {type: Number, default: 0 },
     },
     data() {
         return {
@@ -63,7 +67,9 @@ export default {
         data(data) {
             this.handleData();
         },
-        dataSource(dataSource) {
+        dataSource(dataSource, oldDataSource) {
+            if (typeof dataSource === 'function' && String(dataSource) === String(oldDataSource))
+                return;
             this.handleData();
         },
         // It is dynamic to find selected item by value

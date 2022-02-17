@@ -17,7 +17,7 @@
 | get-default-item | Function |  |  | 传入获取默认项的方法 |
 | initial-add | boolean |  | `true` | 是否自动补充项，如果初始时`data`中的项目数少于`min-count` |
 | min-count | number |  | `1` | 最小项目数 |
-| max-count | number |  | `Infinity` | 最大项目数 |
+| max-count | number |  | `999` | 最大项目数 |
 
 ### Slots
 

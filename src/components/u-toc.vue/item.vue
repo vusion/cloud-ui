@@ -6,7 +6,8 @@
         v-ellipsis-title>
         {{ label }}
     </a>
-    <div :class="$style.sub">
+    <div :class="$style.sub" vusion-slot-name="default">
+        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
         <slot></slot>
     </div>
 </div>
@@ -14,11 +15,15 @@
 
 <script>
 import { MSinglexItem } from '../m-singlex.vue';
+import SEmpty from '../s-empty.vue';
 
 export const UTocItem = {
     name: 'u-toc-item',
     parentName: 'u-toc',
     extends: MSinglexItem,
+    components: {
+        SEmpty,
+    },
     props: {
         label: String,
         exact: { type: Boolean, default: true },

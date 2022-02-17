@@ -1,19 +1,32 @@
 - name: u-button
   title: 按钮
+  icon: button
   labels:
-    - 路由链接
-    - 行内展示
+    - Display
   description: 用于触发一个即时操作。
+  next: true
+  nested: false
   attrs:
+    - name: text
+      title: 文本
+      type: string
+      description: 文本内容
     - name: color
       title: 颜色
-      type: enum
+      type: string
       options:
-        - default
-        - primary
-        - danger
+        - value: primary
+          title: 主要按钮
+        - value: primary_secondary
+          title: 次要按钮
+        - value: default
+          title: 普通按钮
+        - value: danger
+          title: 危险操作按钮
+        - value: danger_secondary
+          title: 次要危险操作按钮
       default: default
-      description: 设置颜色。`'primary'`表示主按钮，`'danger'`表示危险按钮。
+      description: 设置颜色
     - name: dashed
       title: 虚线边框
       type: boolean
@@ -21,25 +34,36 @@
       description: 边框是否为虚线。
     - name: size
       title: 尺寸
-      type: enum
+      type: string
       options:
-        - mini
-        - small
-        - normal
-        - large
-        - huge
+        - value: huge
+          title: 巨大
+        - value: large
+          title: 大
+        - value: medium
+          title: 中型
+        - value: normal
+          title: 正常
+        - value: small
+          title: 小
+        - value: mini
+          title: 迷你
       default: normal
-      description: 设置尺寸。可选值：`'mini'`、`'small'`、`'normal'`、`'large'`、`'huge'`
+      description: 设置尺寸
     - name: shape
       title: 形状
-      type: enum
+      type: string
       options:
-        - default
-        - square
-        - round
-        - circle
-      default: false
-      description: 设置形状。选项分别为默认、圆角、方形、圆形。
+        - value: default
+          title: 默认
+        - value: square
+          title: 方形
+        - value: round
+          title: 圆角
+        - value: circle
+          title: 圆形
+      default: default
+      description: 设置形状
     - name: disabled
       title: 禁用
       type: boolean
@@ -47,63 +71,78 @@
       description: 是否禁用。禁用后不会响应点击事件。
     - name: display
       title: 展示方式
-      type: enum
+      type: string
       options:
-        - inline
-        - block
+        - value: inline
+          title: 行内展示
+        - value: block
+          title: 块级展示，宽度会充满父元素
       default: inline
-      description: 展示方式。`'inline'`表示行内展示，`'block'`表示块级展示，宽度会充满父元素。
+      description: 展示方式
     - name: icon
       title: 图标
-      type: enum
-      options:
-        - refresh
-        - create
-        - success
-      description: 设置图标。
+      type: icon
+      default: ''
+      description: 图标
     - name: loading
       title: 加载中
       type: boolean
       default: false
       description: 是否为加载中。
-    - name: href
+      advanced: true
+    - name: linkType
+      title: 链接类型
+      type: string
+      options:
+        - value: destination
+          title: 页面跳转
+        - value: href
+          title: 普通链接
+        - value: download
+          title: 下载链接
+      default: href
+      description: 链接类型
+      compType: linkTypeSelect
+    - name: hrefAndTo
       title: 链接
       type: string
       description: 链接地址
+      compType: linkHrefInput
     - name: target
       title: 打开方式
-      type: enum
+      type: string
       options:
-        - name: 新标签页 (_blank)
-          value: _blank
-        - name: 当前窗口 (_self)
-          value: _self
-        - name: 父级窗口 (_parent)
-          value: _parent
-        - name: 顶级窗口 (_top)
-          value: _top
-      description: （原生属性）。比如设置`_blank`，会在新标签页中打开。
+        - value: _blank
+          title: 新窗口
+        - value: _self
+          title: 当前窗口
+        - value: _parent
+          title: 父级窗口
+          advanced: true
+        - value: _top
+          title: 顶级窗口
+          advanced: true
+      default: _blank
+      description: 链接打开方式
     - name: to
       title: 路由链接
       type: string, Location
       description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
+      advanced: true
     - name: replace
+      title: 替换
       type: boolean
       default: false
       description: 需要
         vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history
         `记录。
+      advanced: true
     - name: append
+      title: 追加路径
       type: boolean
       default: false
       description: 需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。
-  slots:
-    - name: default
-      title: 默认
-      description: 插入文本或 HTML。
-      accept-type:
-        - text
-        - inline
+      advanced: true
   events:
     - name: $listeners
       kind: trigger
@@ -111,8 +150,14 @@
       params: []
     - name: before-navigate
       title: 切换路由前
+      advanced: true
       description: 使用 router 相关属性切换路由前触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/NavigateEvent"
         - name: $event.to
           type: string, Location
           description: "`to`属性的值"
@@ -130,8 +175,14 @@
           description: 发送事件实例
     - name: navigate
       title: 切换路由后
+      advanced: true
       description: 使用 router 相关属性切换路由后触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/NavigateEvent"
         - name: $event.to
           type: string, Location
           description: "`to`属性的值"

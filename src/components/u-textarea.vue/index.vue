@@ -11,7 +11,7 @@
     <slot></slot>
     <span v-if="clearable && currentValue" :class="$style.clearable" @click.stop="clear"></span>
     <f-dragger @dragstart="onDragStart" @drag="onDrag">
-        <div ref="handle" :class="$style.handle" v-show="resize !== 'none'"></div>
+        <div ref="handle" :class="$style.handle" v-show="resize !== 'none'" :resize="resize"></div>
     </f-dragger>
 </div>
 </template>
@@ -117,6 +117,15 @@ export default {
     border-bottom: 1px solid #666;
     transform: rotate(-45deg) translate(-2px, 2px);
 }
+.handle[resize="vertical"]{
+    cursor: ns-resize;
+}
+.handle[resize="horizontal"]{
+    cursor: ew-resize;
+}
+.handle[resize="both"]{
+    cursor: nwse-resize;
+}
 
 .input::placeholder {
     /* Removes placeholder transparency in Firefox. */
@@ -137,16 +146,16 @@ export default {
 }
 
 .root[size$="normal"] { width: var(--textarea-width); }
-.root[size^="normal"] { height: var(--textarea-height); }
+.root[size^="normal"] { height: var(--textarea-height); line-height: inherit; }
 
 .root[size$="medium"] { width: var(--textarea-width-medium); }
-.root[size^="medium"] { height: var(--textarea-height-medium); }
+.root[size^="medium"] { height: var(--textarea-height-medium); line-height: inherit; }
 
 .root[size$="large"] { width: var(--textarea-width-large); }
-.root[size^="large"] { height: var(--textarea-height-large); }
+.root[size^="large"] { height: var(--textarea-height-large); line-height: inherit; }
 
 .root[size$="huge"] { width: var(--textarea-width-huge); }
-.root[size^="huge"] { height: var(--textarea-height-huge); }
+.root[size^="huge"] { height: var(--textarea-height-huge); line-height: inherit; }
 
 .root[size$="full"] { width: 100%; }
 .root[size^="full"] { height: 100%; }

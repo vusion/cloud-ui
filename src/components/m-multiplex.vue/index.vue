@@ -7,12 +7,13 @@
 <script>
 import MEmitter from '../m-emitter.vue';
 import { MParent } from '../m-parent.vue';
+import MConverter from '../m-converter.vue';
 
 export default {
     name: 'm-multiplex',
     groupName: 'm-multiplex-group',
     childName: 'm-multiplex-item',
-    mixins: [MEmitter, MParent],
+    mixins: [MEmitter, MParent, MConverter],
     props: {
         value: Array,
         keepOrder: { type: Boolean, default: false },
@@ -28,21 +29,29 @@ export default {
     },
     watch: {
         value(value, oldValue) {
-            if (!Array.isArray(value))
+            let currentValue = value;
+            if (this.converter)
+                currentValue = this.currentConverter.set(value);
+            if (!Array.isArray(currentValue))
                 throw new Error('`value` should be an Array!'); // @TODO: 因为是同一个数组。。没有好的剪枝方法
             // if (value !== oldValue && value.length === oldValue.length
             //     && value.every((val, index) => val === oldValue[index]))
             //     return;
-            this.watchValue(value);
+            this.watchValue(currentValue);
         },
         selectedVMs(selectedVMs, oldVMs) {
             // const oldValue = oldVMs.map((itemVM) => itemVM.value);
-            const value = selectedVMs.map((itemVM) => itemVM.value); // @TODO: 因为是同一个数组。。没有好的剪枝方法
+            const values = selectedVMs.map((itemVM) => itemVM.value); // @TODO: 因为是同一个数组。。没有好的剪枝方法
             // if (value.length === oldValue.length && value.every((val, index) => val === oldValue[index]))
             //     return;
+            let value = values;
+            if (this.converter) {
+                value = this.currentConverter.get(values);
+            }
             const selectedItems = selectedVMs.map((itemVM) => itemVM.item);
             this.$emit('change', {
                 value, // @TODO: oldValue,
+                values,
                 items: selectedItems,
                 itemVMs: selectedVMs,
             });
@@ -67,6 +76,8 @@ export default {
                     selectedMap[selectedVM.value] = selectedVM;
             });
             if (value) {
+                if (this.converter)
+                    value = this.currentConverter.set(value);
                 if (!this.keepOrder) {
                     value.forEach((val) => {
                         const itemVM = this.itemVMs.find(
@@ -120,7 +131,9 @@ export default {
                 if (selected === undefined)
                     selected = true;
             }
-            const oldValue = this.value;
+            let oldValue = this.value;
+            if (this.converter)
+                oldValue = this.currentConverter.get(this.value);
             const oldVMs = this.selectedVMs;
             const oldItems = oldVMs.map((itemVM) => itemVM.item); // Emit a `before-` event with preventDefault()
             if (
@@ -142,7 +155,9 @@ export default {
             itemVM.$emit('update:selected', selected);
             this.watchSelectedChange(itemVM); // Assign and sync `value`
             const selectedVMs = this.selectedVMs;
-            const value = selectedVMs.map((itemVM) => itemVM.value);
+            let value = selectedVMs.map((itemVM) => itemVM.value);
+            if (this.converter)
+                value = this.currentConverter.get(value);
             const selectedItems = selectedVMs.map((itemVM) => itemVM.item);
             this.$emit('input', value, this);
             this.$emit('update', value, this);

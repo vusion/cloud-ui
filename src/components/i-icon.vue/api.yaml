@@ -1,10 +1,39 @@
 - name: i-icon
   title: 图标
+  icon: icon
   labels:
-    - 图标组件
-    - 行内展示
+    - Display
+  description: 自定义图标
+  next: true
+  nested: false
   attrs:
     - name: name
+      title: 图标名称
       type: string
-      default: null
+      options:
+        - value: arrow-down
+          title: arrow-down
+        - value: arrow-up
+          title: arrow-up
+        - value: arrow-left
+          title: arrow-left
+        - value: arrow-right
+          title: arrow-right
+        - value: angle-up
+          title: angle-up
+        - value: angle-down
+          title: angle-down
+        - value: angle-left
+          title: angle-left
+        - value: angle-right
+          title: angle-right
+        - value: close
+          title: close
+        - value: close-solid
+          title: close-solid
+        - value: filter
+          title: filter
+        - value: github
+          title: github
+      default: arrow-down
       description: 图标名称

@@ -1,10 +1,11 @@
 - name: u-textarea
   title: 多行输入
+  icon: textarea
   labels:
-    - UI 组件
-    - 表单类
-    - 行内展示
-  description: 多行输入组件，在原生`<textarea>`控件基础上进行了一些功能扩展。
+    - Form
+  description: 多行输入组件
+  next: true
+  nested: false
   attrs:
     - name: value
       title: 值
@@ -22,12 +23,13 @@
       title: 占位符
       type: string
       default: null
-      description: 原生属性。对 IE9 做了兼容。
+      description: 为空时提示内容
     - name: minlength
       title: 最小长度
       type: number
       default: null
       description: 原生属性
+      advanced: true
     - name: maxlength
       title: 最大长度
       type: number
@@ -38,11 +40,13 @@
       type: boolean
       default: null
       description: 原生属性
+      advanced: true
     - name: autofocus
-      title: 自动聚焦
+      title: 自动获取焦点
       type: boolean
       default: null
       description: 是否自动获取焦点
+      advanced: true
     - name: readonly
       title: 只读
       type: boolean
@@ -53,21 +57,53 @@
       type: boolean
       default: false
       description: 是否禁用
+    - name: size
+      title: 尺寸
+      type: string
+      options:
+        - value: full
+          title: 占满
+        - value: huge
+          title: 巨大
+        - value: large
+          title: 大
+        - value: medium
+          title: 中型
+        - value: normal
+          title: 正常
+      default: normal
+      description: 设置尺寸
     - name: resize
       title: 调整大小
       type: string
+      options:
+        - value: none
+          title: 不可调整
+        - value: both
+          title: 可调整
+        - value: horizontal
+          title: 水平可调整
+        - value: vertical
+          title: 竖直可调整
       default: none
-      description: 是否可以调整大小。可选值：`'none'`、`'both'`、`'horizontal'`、`'vertical'`
+      description: 是否可以调整大小
   slots:
     - name: default
       title: 默认
       description: 插入 HTML 或 `Component`, 可展示额外内容。
+      advanced: true
       quick-add: never
   events:
     - name: before-input
       title: 输入前
       description: 输入前触发。可以在这个阶段阻止输入，或者修改输入的值 $event.value
+      advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.oldValue
           type: string
           description: 旧的值
@@ -87,6 +123,8 @@
         - name: $event
           type: string
           description: 输入框的值
+          schema:
+            $ref: "#/basicTypes/String"
         - name: senderVM
           type: UTextarea
           description: 发送事件实例
@@ -94,6 +132,11 @@
       title: 改变后
       description: 值变化时触发。（注意：与原生事件不同）
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.value
           type: string
           description: 改变后的值
@@ -106,27 +149,41 @@
     - name: focus
       title: 聚焦后
       description: 获得焦点时触发。
+      advanced: true
       params:
         - name: $event
           type: FocusEvent
           description: 原生事件对象
+          schema:
+            $ref: "#/systemTypes/FocusEvent"
         - name: senderVM
           type: UTextarea
           description: 发送事件实例
     - name: blur
       title: 失焦后
       description: 失去焦点时触发。
+      advanced: true
       params:
         - name: $event
-          type: FocusEvent
+          type: Object
+          title: 原生事件对象
           description: 原生事件对象
+          schema:
+            $ref: "#/systemTypes/FocusEvent"
         - name: senderVM
+          title: 发送事件实例
           type: UTextarea
           description: 发送事件实例
     - name: before-clear
+      advanced: true
       title: 清空前
       description: 清空前触发。
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.value
           type: string
           description: 清空后的值
@@ -153,12 +210,15 @@
           type: UTextarea
           description: 发送事件实例
   methods:
-    - name: focus()
+    - name: focus
       description: 让输入框获取焦点。
       params: []
-    - name: blur()
+      advanced: true
+    - name: blur
       description: 让输入框失去焦点。
       params: []
-    - name: clear()
+      advanced: true
+    - name: clear
       description: 清空输入框。
       params: []
+      advanced: true

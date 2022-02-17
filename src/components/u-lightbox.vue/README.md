@@ -107,6 +107,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.preventDefault | Function | 阻止关闭流程 |
 
 #### @close

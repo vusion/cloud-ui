@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import UModal from '../u-modal.vue';
+import UModal from '../u-modal.vue/index.vue';
 
 export default {
     name: 'u-drawer',

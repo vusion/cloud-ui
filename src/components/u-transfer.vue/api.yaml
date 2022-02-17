@@ -1,6 +1,11 @@
 - name: u-transfer
+  icon: transfer
+  labels:
+    - Selector
   title: 穿梭框
   description: 双栏穿梭选择框，常用于将多个项目从一边移动到另一边。
+  next: true
+  nested: false
   attrs:
     - name: source
       title: 原始数据
@@ -62,21 +67,24 @@
       type: string, Function
       default: includes
       description: 过滤时的匹配方法
+      advanced: true
     - name: case-sensitive
       title: 大小写敏感
-      type: string, Function
-      default: includes
+      type: boolean
+      default: false
       description: 过滤时大小写是否敏感
     - name: pageable
       title: 分页
       type: boolean
       default: false
       description: 是否需要分页
+      advanced: true
     - name: page-size
       title: 分页大小
       type: number
       default: 50
       description: 分页大小
+      advanced: true
     - name: readonly
       title: 只读
       type: boolean
@@ -97,6 +105,11 @@
       title: 数据转移时
       description: 数据转移时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/TransferEvent"
         - name: $event.source
           type: Array<{ text, value }>
           description: 原数据列表
@@ -116,6 +129,11 @@
       title: 改变后
       description: 数据改变时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/TransferEvent"
         - name: $event.source
           type: Array<{ text, value }>
           description: 原数据列表
@@ -148,12 +166,14 @@
       description: 转移指定项的数据。
       params:
         - name: direction
-          type: enum
+          type: string
           options:
-            - forward
-            - reverse
+            - value: forward
+              title: 从左向右
+            - value: reverse
+              title: 从右向左
           default: forward
-          description: 方向，`forward`表示从左向右，`reverse`表示从右向左。
+          description: 方向
         - name: values
           type: Array<string>
           description: 指定转移选项值的列表。

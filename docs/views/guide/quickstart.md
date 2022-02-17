@@ -1,6 +1,6 @@
 # Quickstart 快速开始
 
-[![NPM Version](https://img.shields.io/badge/version-0.9.x-orange.svg?style=flat-square&longCache=true)](http://npmjs.org/package/cloud-ui.vusion)
+[![NPM Version](https://img.shields.io/badge/version-0.11.x-orange.svg?style=flat-square&longCache=true)](http://npmjs.org/package/cloud-ui.vusion)
 
 Cloud UI 是网易云计算前端团队推出的一款基于 Vusion 的桌面端组件库，主要服务于网易云控制台及相关产品。
 

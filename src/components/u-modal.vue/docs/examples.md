@@ -128,3 +128,9 @@ export default {
     Auto
 </u-modal>
 ```
+
+### 点击遮罩关闭
+
+``` html
+<u-modal title="标题" visible static :maskClose="true">内容</u-modal>
+```

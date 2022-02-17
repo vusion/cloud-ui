@@ -3,6 +3,9 @@
     <div :class="$style.head">
         <input :class="$style.input" :placeholder="placeholder" :value="dateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
             @focus="toggle(true)" @change="onInput($event)">
+         <span v-if="dateTime && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
+            <i :class="[$style.closeIcon]"></i>
+        </span>
     </div>
     <div :class="$style.body" v-show="open">
         <u-calendar :readonly="readonly" :year-diff="yearDiff" :year-add="yearAdd" :min-date="minCalendarDate" :max-date="maxCalendarDate" :date="showDate" @select="outRangeDateTime($event.date, showTime)">
@@ -59,8 +62,10 @@ export default {
         maxDate: [String, Number, Date],
         date: [String, Number, Date],
         width: { type: [String, Number], default: 170 },
-        yearDiff: { type: [String, Number], default: 3 },
-        yearAdd: { type: [String, Number], default: 1 },
+        yearDiff: { type: [String, Number], default: 20 },
+        yearAdd: { type: [String, Number], default: 20 },
+        converter: { type: String, default: 'json' },
+        clearable: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -116,16 +121,17 @@ export default {
                 if (isOutOfRange)
                     newValue = this.format(isOutOfRange, 'YYYY-MM-DD HH:mm:ss');
             }
-            this.$emit('update:date', newValue ? new Date(newValue.replace(/-/g, '/')).getTime() : '');
+            const newDateTime = newValue ? this.toValue(new Date(newValue.replace(/-/g, '/'))) : undefined;
+            this.$emit('update:date', newDateTime);
             /**
              * @event change 日期时间改变时触发
              * @property {object} sender 事件发送对象
              * @property {object} date 改变后的日期时间
              */ this.$emit('change', {
                 sender: this,
-                date: newValue ? new Date(newValue.replace(/-/g, '/')).getTime() : '',
+                date: newValue ? new Date(newValue.replace(/-/g, '/')).getTime() : undefined,
             }); // 方便u-field组件捕获到其值
-            this.$emit('input', newValue ? new Date(newValue.replace(/-/g, '/')) : '');
+            this.$emit('input', newDateTime);
         },
         maxDate(value) {
             this.currentMaxDate = this.getMaxDate(value);
@@ -136,12 +142,31 @@ export default {
     },
     created() {
         // vue中的watch的immediate的执行时间是比created生命周期函数执行时间还早 所以导致u-field无法捕获
+        // this.$emit(
+        //     'input',
+        //     this.toValue(this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : ''),
+        // );
         this.$emit(
-            'input',
-            this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : '',
+            'update',
+            this.toValue(this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : ''),
         );
     },
     methods: {
+        clearValue() {
+            this.dateTime = undefined;
+        },
+        toValue(date) {
+            if (!date)
+                return date;
+            if (this.converter === 'format')
+                return this.format(date, 'YYYY-MM-DD HH:mm:ss'); // value 的真实格式
+            else if (this.converter === 'json')
+                return date.toJSON();
+            else if (this.converter === 'timestamp')
+                return date.getTime();
+            else
+                return date;
+        },
         /**
          * @method outRangeDateTime(date, time) 修改日期为最大日期或最小日期
          * @private
@@ -253,9 +278,9 @@ time = '00:00:00';
         },
         toggle(value) {
             if (this.readonly)
-this.open = false;
+                this.open = false;
             else
-this.open = value;
+                this.open = value;
         },
         format,
         transformDate,
@@ -267,9 +292,9 @@ this.open = value;
             const minTime = new Date(this.minDate).getTime();
             const maxTime = new Date(value).getTime();
             if (maxTime < minTime)
-return this.minDate;
+                return this.minDate;
             else
-return this.maxDate;
+                return this.maxDate;
         },
     },
 };
@@ -285,7 +310,7 @@ return this.maxDate;
 .input {
     box-sizing: border-box;
     margin: 0;
-    padding: 0 12px;
+    padding: 0 4px;
     vertical-align: middle;
     border: 1px solid var(--border-color-base);
     color: #555;
@@ -326,4 +351,36 @@ return this.maxDate;
 .footer {
     padding: 15px 0 5px;
 }
+
+.wrap {
+    position: absolute;
+    text-align: center;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.close {
+    cursor: var(--cursor-pointer);
+}
+
+.closeIcon:hover {
+    color: var(--color-light);
+    background-color: #ebedef;
+}
+
+.closeIcon::before {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    line-height: 1;
+    height: 1em;
+    margin: auto;
+    icon-font: url('../i-icon.vue/assets/close-solid.svg');
+    cursor: var(--cursor-pointer);
+    color: var(--input-clearable-color);
+}
+
 </style>

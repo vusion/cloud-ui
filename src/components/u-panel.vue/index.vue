@@ -2,7 +2,7 @@
 <div :class="$style.root">
     <div :class="$style.head">
         <slot name="head">
-            <div v-if="title" :class="$style.title">
+            <div v-if="title" :class="$style.title" vusion-slot-name="title">
                 <slot name="title">{{ title }}</slot>
             </div>
             <a :class="$style.close" @click="cancel()"></a>
@@ -11,8 +11,9 @@
             </div>
         </slot>
     </div>
-    <div :class="$style.body">
+    <div :class="$style.body" vusion-slot-name="default">
         <slot>{{ content }}</slot>
+        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
     </div>
     <div :class="$style.foot">
         <slot name="foot">
@@ -22,9 +23,13 @@
 </template>
 
 <script>
+import SEmpty from '../s-empty.vue';
 export default {
     name: 'u-panel',
-    props: { title: { type: String, default: '提示' }, content: String },
+    components: {
+        SEmpty,
+    },
+    props: { title: String, content: String },
 };
 </script>
 

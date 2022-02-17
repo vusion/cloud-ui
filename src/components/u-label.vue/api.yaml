@@ -1,49 +1,79 @@
 - name: u-label
   title: 标签
+  icon: label
   labels:
-    - 行内展示
-  description: 对事物进行标记和分类。
+    - Display
+  description: 用于展示状态、标签、分类等
+  next: true
+  nested: false
   attrs:
+    - name: text
+      title: 文本
+      type: string
+      description: 文本内容
     - name: color
-      type: enum
+      title: 设置颜色
+      type: string
       options:
-        - default
-        - primary
-        - success
-        - warning
-        - error
+        - value: default
+          title: 默认
+        - value: primary
+          title: 主要色
+        - value: success
+          title: 成功色
+        - value: warning
+          title: 警告色
+        - value: error
+          title: 错误色
       default: default
-      description: 设置颜色。
+      description: 设置颜色
     - name: size
-      type: enum
+      title: 大小
+      type: string
       options:
-        - small
-        - normal
-        - large
-        - huge
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+        - value: large
+          title: 大
+        - value: huge
+          title: 巨大
       default: normal
-      description: 设置尺寸。
+      description: 设置尺寸
     - name: removable
+      title: 是否显示删除图标
       type: boolean
       default: false
-      description: 是否可删除。开启时可以通过删除按钮触发`remove`事件，需要自己实现删除逻辑。
+      description: 是否显示删除图标
     - name: display
-      type: enum
+      title: 排列
+      type: string
       options:
-        - inline
-        - block
+        - value: inline
+          title: 行内
+        - value: block
+          title: 块级
       default: inline
-      description: 展示方式。`'inline'`表示行内展示, `'block'`表示块级展示，宽度会充满父元素。
-  slots:
-    - name: default
-      description: 插入文本或 HTML。
+      description: 展示方式
   events:
     - name: $listeners
+      kind: trigger
       description: 监听所有`<span>`元素的事件。
-      params: []
+      params:
+        - name: $event
+          type: trigger
+          description: 自定义事件对象
     - name: before-remove
       description: 删除前触发
+      title: 删除前触发
+      advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/EventTarget"
         - name: $event.preventDefault
           type: Function
           description: 阻止删除流程
@@ -52,6 +82,7 @@
           description: 发送事件实例
     - name: remove
       description: 删除时触发
+      title: 删除时触发
       params:
         - name: $event
           type: "null"

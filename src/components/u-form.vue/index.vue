@@ -5,22 +5,24 @@
 </template>
 
 <script>
+import MParent from '../m-parent.vue';
+import MGroupParent from '../m-group.vue/parent.vue';
 import UValidator from '../u-validator.vue';
 import cloneDeep from 'lodash/cloneDeep';
 
 export default {
     name: 'u-form',
-    mixins: [UValidator],
+    mixins: [MParent, MGroupParent, UValidator],
     props: {
         model: Object,
         rules: Object,
         layout: { type: String, default: 'block' },
+        size: { type: String, default: 'normal' },
         labelSize: { type: String, default: 'normal' },
+        collapsible: { type: Boolean, default: false },
     },
     data() {
         return {
-            // @TODO: Optimize
-            state: '',
             itemVMs: [],
             comparedModel: null,
         };
@@ -35,11 +37,7 @@ export default {
             handler(val) {
                 if (this.comparedModel) {
                     // @TODO: 考虑到 @change 事件是基于子组件的 @change 事件的，所以 @modify 命名分开
-                    this.$emit(
-                        'modify',
-                        { modified: this.deepCompare(val, this.comparedModel) },
-                        this,
-                    );
+                    this.$emit('modify', { modified: this.deepCompare(val, this.comparedModel) }, this);
                 }
             },
             deep: true,
@@ -54,14 +52,6 @@ export default {
             itemVM.parentVM = undefined;
             this.itemVMs.splice(this.itemVMs.indexOf(itemVM), 1);
         });
-        this.$on('validate-item-vm', () => {
-            this.state = this.getState();
-            this.$emit(
-                'validate',
-                { valid: this.state === 'success' && this.valid },
-                this,
-            );
-        });
     },
     methods: {
         validate(trigger = 'submit', untouched = false) {
@@ -69,45 +59,14 @@ export default {
                 untouched = trigger;
                 trigger = 'submit';
             } // @compat
-            return Promise.all(
-                []
-                    .concat(this.validatorVMs, this.itemVMs)
-                    .map((validatorVM) =>
-                        validatorVM
-                            .validate('submit', untouched)
-                            .catch((errors) => errors),
-                    ),
-            ).then((results) => {
-                if (results.some((result) => !!result))
-                    throw results;
-            }); // return Validator.methods.validate.call(this, trigger, untouched);
+            return Promise.all([].concat(this.validatorVMs, this.itemVMs)
+                .map((validatorVM) => validatorVM.validate('submit', untouched)),
+            ).then((results) => this.get$event(trigger));
         },
         validateItem(name, trigger = 'submit', silent = false) {
             const itemVM = this.itemVMs.find((itemVM) => itemVM.name === name);
             if (itemVM)
                 return itemVM.validate(trigger, silent);
-        },
-        getState() {
-            console.warn(
-                '[cloud-ui]',
-                '<u-form-item>升级为<u-validator>的子类，此函数已废弃。可能是由于你使用了<u-form-items>等其他表单衍生组件，请尽快更新。',
-            );
-            const STATE_LEVEL = {
-                '': 4,
-                focus: 3,
-                validating: 2,
-                error: 1,
-                success: 0,
-            };
-            let state = 'success';
-            this.itemVMs.forEach((itemVM) => {
-                if (
-                    itemVM.currentRules
-                    && STATE_LEVEL[itemVM.state] > STATE_LEVEL[state]
-                )
-                    state = itemVM.state;
-            });
-            return state;
         },
         record() {
             this.comparedModel = cloneDeep(this.model);
@@ -145,7 +104,7 @@ export default {
 }
 
 .root[layout="block"] .item:not(:last-child) {
-    margin-bottom: var(--space-base);
+    margin-bottom: var(--form-item-margin-bottom);
 }
 
 .root[layout="inline"]::after {
@@ -157,7 +116,7 @@ export default {
 }
 
 .root[gap="large"][layout="block"] .item:not(:last-child) {
-    margin-bottom: var(--space-large);
+    margin-bottom: var(--form-item-margin-bottom-large);
 }
 
 .root[gap="large"][layout="inline"] .item:not(:last-child) {
@@ -165,7 +124,7 @@ export default {
 }
 
 .root[gap="small"][layout="block"] .item:not(:last-child) {
-    margin-bottom: var(--space-small);
+    margin-bottom: var(--form-item-margin-bottom-small);
 }
 
 .root[gap="small"][layout="inline"] .item:not(:last-child) {

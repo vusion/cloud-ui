@@ -11,7 +11,7 @@
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
 
-**表单控件**, **块级展示**
+**Selector**
 
 该组件从 UCascadeSelect 继承，仅填充了中国的行政区数据，其他功能与 UCascadeSelect 相同。
 
@@ -69,11 +69,11 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| data | Array\<{ text, value }\> |  | `'数据'` | 数据列表 |
+| data | Array\<{ text, value }\> |  | `'数据'` | 数据列表，当前地区数据集合不满足需求，可以重设此数据 |
 | value.sync, v-model | any |  |  | 当前选择的值 |
 | categories | Array\<{ label, key, placeholder }\> |  | `'数据'` | 多级分类 |
 | hide-empty | boolean |  | `false` | 是否隐藏空列表 |
-| converter | string \| object |  | `'join'` | value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value，`'join.number'`与`join`类似，只是会考虑它为数字的情况。也可以用`:`修改分隔符，类似 Vue 的指令参数，`'last-value'`表示以最后一项的值作为 value。也可以传入一个包含 { get, set } 的一个对象 |
+| converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'join'` | value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value，`'join.number'`与`join`类似，只是会考虑它为数字的情况。也可以用`:`修改分隔符，类似 Vue 的指令参数，`'last-value'`表示以最后一项的值作为 value。也可以传入一个包含 { get, set } 的一个对象 |
 | field | string |  | `'value'` | 显示文本字段 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
@@ -95,6 +95,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.level | number | 选择的层级 |
 | $event.value | any | 改变后的值 |
 | $event.values | Array | 改变后每项值的数组 |
@@ -108,6 +109,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 改变后的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.values | Array | 改变后每项值的数组 |

@@ -68,7 +68,7 @@
 </u-validator>
 ```
 
-#### maxLength(min: number) <u-label>blur</u-label>
+#### maxLength(max: number) <u-label>blur</u-label>
 
 不得超过指定的字符数。字符串、数组长度均可比较。
 
@@ -105,7 +105,7 @@
 </u-validator>
 ```
 
-#### max(min: any) <u-label>blur</u-label>
+#### max(max: any) <u-label>blur</u-label>
 
 不得大于指定的值。数字、字符串、日期比较均可。
 
@@ -257,12 +257,12 @@ export default {
 </script>
 ```
 
-#### includes(...args: any[]) <u-label>input+blur</u-label>
+#### includes(arr: any[]) <u-label>input+blur</u-label>
 
 验证值为数组，必须包含参数中的项。
 
 ``` html
-<u-validator label="列表" rules="includes('水杯', '坚果')">
+<u-validator label="列表" rules="includes(['水杯', '坚果'])">
     <u-checkboxes>
         <u-checkbox label="水杯">水杯</u-checkbox>
         <u-checkbox label="坚果">坚果</u-checkbox>
@@ -272,12 +272,12 @@ export default {
 </u-validator>
 ```
 
-#### excludes(...args: any[]) <u-label>input+blur</u-label>
+#### excludes(arr: any[]) <u-label>input+blur</u-label>
 
 验证值为数组，不能包含参数中的项。
 
 ``` html
-<u-validator label="列表" rules="excludes('水杯', '坚果')">
+<u-validator label="列表" rules="excludes(['水杯', '坚果'])">
     <u-checkboxes>
         <u-checkbox label="水杯">水杯</u-checkbox>
         <u-checkbox label="坚果">坚果</u-checkbox>
@@ -287,12 +287,12 @@ export default {
 </u-validator>
 ```
 
-#### included(...args: any[]) <u-label>input+blur</u-label>
+#### included(arr: any[]) <u-label>input+blur</u-label>
 
 必须为参数中的某一个值。
 
 ``` html
-<u-validator label="列表" rules="included('水杯', '坚果')">
+<u-validator label="列表" rules="included(['水杯', '坚果'])">
     <u-select>
         <u-select-item value="水杯">水杯</u-select-item>
         <u-select-item value="坚果">坚果</u-select-item>
@@ -302,12 +302,12 @@ export default {
 </u-validator>
 ```
 
-#### excluded(...args: any[]) <u-label>input+blur</u-label>
+#### excluded(arr: any[]) <u-label>input+blur</u-label>
 
 不能为参数中的任一个值。
 
 ``` html
-<u-validator label="列表" rules="excluded('水杯', '坚果')">
+<u-validator label="列表" rules="excluded(['水杯', '坚果'])">
     <u-select>
         <u-select-item value="水杯">水杯</u-select-item>
         <u-select-item value="坚果">坚果</u-select-item>
@@ -317,13 +317,13 @@ export default {
 </u-validator>
 ```
 
-#### unique(...args: any[]) <u-label>blur</u-label>
+#### unique(arr: any[]) <u-label>blur</u-label>
 
 验证逻辑与`excluded`相同，错误信息专用于判断是否重复。
 
 ``` vue
 <template>
-<u-form-item label="端口" required rules="required | integer | unique(...existingPortList)">
+<u-form-item label="端口" required rules="required | integer | unique(existingPortList)">
     <u-input v-model.number="model.port" maxlength="5" placeholder="请输入端口"></u-input>
 </u-form-item>
 </template>
@@ -808,9 +808,19 @@ export default {
 </u-validator>
 ```
 
+#### macAddress <u-label>input+blur</u-label>
+
+必须输入正确的 MAC 地址。
+
+``` html
+<u-validator label="名称" rules="macAddress">
+    <u-input placeholder="请输入 MAC 地址"></u-input>
+</u-validator>
+```
+
 #### ascii <u-label>input+blur</u-label>
 
-必须输入ascii字符。
+必须输入 ascii 字符。
 
 ``` html
 <u-validator label="名称" rules="ascii">
@@ -820,7 +830,7 @@ export default {
 
 #### base64 <u-label>blur</u-label>
 
-必须输入base64编码。
+必须输入 base64 编码。
 
 ``` html
 <u-validator label="名称" rules="base64">
@@ -843,7 +853,7 @@ export default {
 
 #### dataURI <u-label>blur</u-label>
 
-必须输入dataURI编码。
+必须输入 dataURI 编码。
 
 ``` html
 <u-validator label="编码" rules="dataURI">

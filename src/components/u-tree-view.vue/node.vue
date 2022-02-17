@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" v-show="!hidden">
-    <div :class="$style.item" :selected="selected" :style="{ paddingLeft: level * 30 + 'px' }"
+    <div :class="$style.item" :selected="selected" :style="{ paddingLeft: level * expanderWidth + paddingLeft + 'px' }"
         :readonly="rootVM.readonly" :readonly-mode="rootVM.readonlyMode"
         :disabled="currentDisabled"
         :tabindex="disabled || rootVM.readonly || rootVM.disabled ? '' : 0"
@@ -14,8 +14,9 @@
         <div :class="$style.expander"
             v-else-if="hasChildren || nodeVMs.length || (node && !$at(node, rootVM.isLeafField) && rootVM.currentDataSource && rootVM.currentDataSource.load)"
             :expand-trigger="rootVM.expandTrigger" :expanded="currentExpanded"
-            @click="rootVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"></div>
-        <div :class="$style.text">
+            @click="rootVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"
+            :style="{ width : expanderWidth? expanderWidth + 'px':'' }"></div>
+        <div :class="$style.text" :style="{ marginLeft : expanderWidth? expanderWidth + 'px':'' }">
             <u-checkbox v-if="rootVM.checkable" :value="currentChecked" :disabled="currentDisabled" @check="check($event.value)" @click.native.stop></u-checkbox>
             <f-slot name="text" :vm="currentTextSlotVM" :props="{
                 data: node && $at(node, currentChildrenField),
@@ -38,10 +39,10 @@
                 v-for="subNode in $at(node, currentChildrenField)"
                 :text="$at(subNode, rootVM.field || rootVM.textField)"
                 :value="$at(subNode, rootVM.valueField)"
-                :expanded.sync="subNode.expanded"
+                :expanded="$at(subNode, rootVM.expandedField)"
                 :checked.sync="subNode.checked"
                 :disabled="subNode.disabled"
-                :hidden="subNode.hidden"
+                :hidden="$at(subNode, rootVM.hiddenField)"
                 :node="subNode"
                 :parent="node"
                 :level="level + 1"
@@ -53,10 +54,10 @@
                     v-for="subNode in $at(node, subField)"
                     :text="$at(subNode, rootVM.field || rootVM.textField)"
                     :value="$at(subNode, rootVM.valueField)"
-                    :expanded.sync="subNode.expanded"
+                    :expanded="$at(subNode, rootVM.expandedField)"
                     :checked.sync="subNode.checked"
                     :disabled="subNode.disabled"
-                    :hidden="subNode.hidden"
+                    :hidden="$at(subNode, rootVM.hiddenField)"
                     :node="subNode"
                     :parent="node"
                     :level="level + 1"
@@ -182,6 +183,12 @@ export default {
             }
             return false;
         },
+        expanderWidth(){
+            return this.rootVM && this.rootVM.expanderWidth || 30;
+        },
+        paddingLeft(){
+            return this.rootVM && this.rootVM.paddingLeft || 0;
+        },
     },
 
     watch: {
@@ -255,6 +262,9 @@ export default {
         },
         reload() {
             this.load();
+        },
+        designerControl() {
+            this.toggle();
         },
         toggle(expanded) {
             if (this.currentDisabled)
@@ -452,6 +462,8 @@ export default {
     line-height: var(--tree-view-node-expander-size);
     text-align: center;
     transition: transform var(--transition-duration-base);
+    color: var(--tree-view-node-expander-color);
+    font-size: var(--tree-view-node-expander-font-size);
 }
 
 .expander::before {
@@ -484,6 +496,10 @@ export default {
 
 .item:hover {
     background: var(--tree-view-node-background-active);
+}
+
+.item:hover .expander{
+    color: var(--tree-view-node-expander-color-hover);
 }
 
 .item:focus {
@@ -526,5 +542,8 @@ export default {
 
 .item[selected][disabled] {
     background: var(--tree-view-node-background-selected-disabled);
+}
+.item[disabled] .expander{
+    color: var(--tree-view-node-expander-color-disabled);
 }
 </style>

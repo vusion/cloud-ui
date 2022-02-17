@@ -1,9 +1,9 @@
 <template>
-<label :class="$style.root" :disabled="currentDisabled" @click="select()"
+<label :class="$style.root" allowChild :disabled="currentDisabled" @click="select()"
 tabindex="0" @keydown.space.prevent @keyup.space.prevent="select()"
-@focus="onFocus" @blur="onBlur" v-on="listeners">
-    <span :class="$style.radio" :selected="selected" :disabled="currentDisabled"></span>
-    <slot></slot>
+@focus="onFocus" @blur="onBlur" v-on="listeners" :readonly="currentReadonly">
+    <span :class="$style.radio" :selected="selected" :disabled="currentDisabled" :readonly="currentReadonly"></span>
+    <span vusion-slot-name="text"><slot>{{ text }}</slot></span>
 </label>
 </template>
 
@@ -16,6 +16,7 @@ export default {
     parentName: 'u-radios',
     mixins: [MChild, MField],
     props: {
+        text: String,
         value: { type: Boolean, default: false },
         label: null,
         readonly: { type: Boolean, default: false },
@@ -39,6 +40,9 @@ export default {
         },
         currentDisabled() {
             return this.disabled || (this.parentVM && this.parentVM.disabled);
+        },
+        currentReadonly() {
+            return this.readonly || (this.parentVM && this.parentVM.readonly);
         },
     },
     mounted() {
@@ -89,12 +93,36 @@ export default {
 
 .root:focus .radio {
     box-shadow: var(--radio-box-shadow-focus);
+    border-color: var(--radio-border-color-focus);
+}
+
+.root:active {
+    outline: var(--focus-outline);
+}
+
+.root:active .radio {
+    box-shadow: var(--radio-box-shadow-active);
 }
 
 .root[disabled] {
     cursor: var(--cursor-not-allowed);
-    color: var(--brand-disabled);
+    color: var(--radio-color-disabled);
 }
+.root[disabled]:focus .radio,
+.root[readonly]:focus .radio
+{
+    box-shadow: var(--radio-box-shadow-focus-disabled);
+    border-color: var(--radio-border-color-disabled);
+}
+.root[readonly]:hover {
+    cursor: var(--radio-cursor-readonly);
+}
+.root[disabled]:active .radio,
+.root[readonly]:active .radio
+{
+    box-shadow: var(--radio-box-shadow-active-disabled);
+}
+
 
 .radio {
     display: inline-block;
@@ -115,6 +143,11 @@ export default {
 .radio:hover {
     border-color: var(--radio-border-color-hover);
 }
+.radio[readonly]:hover,
+.radio[disabled]:hover {
+    border-color: var(--radio-border-color-disabled);
+}
+
 
 .radio::before {
     display: inline-block;

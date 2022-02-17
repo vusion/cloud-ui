@@ -1,6 +1,6 @@
 <!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-# USelectableSteps 可选步骤条
+# USelectableSteps 步骤条
 
 - [示例](#示例)
     - [基本用法](#基本用法)
@@ -14,6 +14,10 @@
 - [USelectableStep API](#uselectablestep-api)
     - [Props/Attrs](#propsattrs-2)
     - [Slots](#slots-2)
+
+**Selector**
+
+当操作需要分步骤时使用
 
 ## 示例
 ### 基本用法
@@ -77,12 +81,13 @@
 | value.sync, v-model | number |  | `0` | 当前步骤数 |
 | readonly | boolean |  | `false` | 是否只读。非只读的情况下可以选择 |
 | disabled | boolean |  | `false` | 是否禁用 |
+| size | string | `[object Object]`<br/>`[object Object]` | `'normal'` | 设置尺寸 |
 
 ### Slots
 
 #### (default)
 
-插入`<u-step>`子组件。
+插入`<u-selectable-step>`子组件。
 
 ### Events
 
@@ -92,6 +97,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | value | any | 选中步骤的值 |
 | oldValue | any | 旧的值 |
 | itemVM | SelectableStep | 选中步骤实例 |
@@ -103,6 +109,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | value | any | 选中步骤的值 |
 | oldValue | any | 旧的值 |
 | itemVM | SelectableStep | 选中步骤实例 |
@@ -113,6 +120,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | value | number | 当前步骤数 |
 | oldValue | number | 旧的步骤数 |
 

@@ -17,9 +17,9 @@
     - [Events](#events)
     - [Methods](#methods)
 
-**表单控件**, **行内展示**
+**Form**
 
-基本的表单输入组件，在原生`<input>`控件基础上进行了一些功能扩展。
+基本的表单输入组件
 
 ## 示例
 ### 基本用法
@@ -147,18 +147,20 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| type | enum | `'text'`<br/>`'password'` | `'text'` | 输入框的类型，目前支持两种：`'text'`和`'password'` |
+| type | string | `[object Object]`<br/>`[object Object]` | `'text'` | 输入框的类型 |
 | value.sync, v-model | string |  |  | 输入框的值 |
 | clearable | boolean |  |  | 开启并在输入框有内容时会显示清除按钮。 |
-| placeholder | string |  |  | 原生属性。对 IE9 做了兼容。 |
-| minlength | number |  |  | 原生属性 |
-| maxlength | number |  |  | 原生属性 |
+| placeholder | string |  |  | 原生属性 |
+| minlength | number |  |  | 最小输入长度 |
+| maxlength | number |  |  | 最大输入长度 |
 | spellcheck | boolean |  |  | 原生属性 |
 | autofocus | boolean |  |  | 是否自动获取焦点 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
-| size | size | `'mini'`<br/>`'small'`<br/>`'normal'`<br/>`'medium'`<br/>`'large'`<br/>`'huge'`<br/>`'full'` | `'normal'` | 大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'medium'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度 |
 | maxlengthMessage | string |  |  | 输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效 |
+| prefix | string | `[object Object]`<br/>`[object Object]` | `''` | 前缀图标 |
+| suffix | string | `[object Object]`<br/>`[object Object]` | `''` | 后缀图标 |
 
 ### Slots
 
@@ -174,6 +176,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.oldValue | string | 旧的值 |
 | $event.value | string | 输入框的值 |
 | $event.preventDefault | Function | 阻止输入流程 |
@@ -194,6 +197,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | string | 改变后的值 |
 | $event.oldValue | string | 旧的值 |
 | senderVM | UInput | 发送事件实例 |
@@ -222,6 +226,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | string | 清空后的值 |
 | $event.oldValue | string | 待清空的值 |
 | $event.preventDefault | Function | 阻止清空流程 |
@@ -233,9 +238,26 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | string | 清空后的值 |
 | $event.oldValue | string | 旧的值 |
 | senderVM | UInput | 发送事件实例 |
+
+#### @click-prefix
+
+点击前缀图标后触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 鼠标事件对象 |
+
+#### @click-suffix
+
+点击后缀图标后触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 鼠标事件对象 |
 
 Methods
 

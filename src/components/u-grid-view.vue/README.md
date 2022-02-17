@@ -16,11 +16,16 @@
     - [后端过滤（搜索）](#后端过滤搜索)
     - [前端分页与加载更多](#前端分页与加载更多)
     - [后端分页与加载更多](#后端分页与加载更多)
+    - [自定义内容](#自定义内容-2)
+    - [自定义内容](#自定义内容-3)
+    - [结合卡片](#结合卡片)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
     - [Events](#events)
     - [Methods](#methods)
+
+**Table**
 
 用于列举大量数据的列表框，支持单选、多选、过滤（搜索）、分页等功能。
 
@@ -1364,36 +1369,332 @@ export default {
 </script>
 ```
 
+### 自定义内容
+
+``` vue
+<template>
+<u-grid-layout :repeat="2">
+    <u-grid-layout-column>
+        <u-grid-view show-head title="单选列表" :data-source="list">
+            <template #item="{ item }">
+                <h3 :class="$style.title">{{ item.text }}</h3>
+                <u-text wrap="ellipsis">{{ item.text + ' is a specfic language with some features that ...' }}</u-text>
+            </template>
+        </u-grid-view>
+    </u-grid-layout-column>
+    <u-grid-layout-column>
+        <u-grid-view multiple show-head title="多选列表" :data-source="list">
+            <template #item="{ item }">
+                <h3 :class="$style.title">{{ item.text }}</h3>
+                <u-text wrap="ellipsis">{{ item.text + ' is a specfic language with some features that ...' }}</u-text>
+            </template>
+        </u-grid-view>
+    </u-grid-layout-column>
+</u-grid-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            list: [
+                { text: 'Batch', value: 'bat' },
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'CSS', value: 'css' },
+                { text: 'Clojure', value: 'clojure' },
+                { text: 'CoffeeScript', value: 'coffeescript' },
+                { text: 'Coq', value: 'coq' },
+                { text: 'Diff', value: 'diff' },
+                { text: 'Dockerfile', value: 'dockerfile' },
+                { text: 'F#', value: 'fshape' },
+                { text: 'Go', value: 'go' },
+                { text: 'Groovy', value: 'groovy' },
+                { text: 'HLSL', value: 'hlsl' },
+                { text: 'HTML', value: 'html' },
+                { text: 'Handlebars', value: 'Handlebars' },
+                { text: 'Ignore', value: 'ignore' },
+                { text: 'Ini', value: 'ini' },
+                { text: 'JSON', value: 'json' },
+                { text: 'Java', value: 'java' },
+                { text: 'JavaScript', value: 'javascript' },
+                { text: 'Jinja', value: 'jinja' },
+                { text: 'Jupyter', value: 'jupyter' },
+                { text: 'Less', value: 'less' },
+                { text: 'Log', value: 'log' },
+                { text: 'Lua', value: 'lua' },
+                { text: 'Makefile', value: 'makefile' },
+                { text: 'Markdown', value: 'markdown' },
+                { text: 'Objective-C', value: 'objective-c' },
+                { text: 'Objective-C++', value: 'objective-cpp' },
+                { text: 'PHP', value: 'php' },
+                { text: 'Perl', value: 'perl' },
+                { text: 'PowerShell', value: 'powershell' },
+                { text: 'Properties', value: 'properties' },
+                { text: 'Pug', value: 'jade' },
+                { text: 'Python', value: 'python' },
+                { text: 'R', value: 'r' },
+                { text: 'Razor', value: 'razor' },
+                { text: 'Ruby', value: 'ruby' },
+                { text: 'Rust', value: 'rust' },
+                { text: 'SCSS', value: 'scss' },
+                { text: 'SQL', value: 'sql' },
+                { text: 'SVG', value: 'svg' },
+                { text: 'Shaderlab', value: 'shaderlab' },
+                { text: 'Shell Script', value: 'shellscript' },
+                { text: 'Swift', value: 'swift' },
+                { text: 'TypeScript', value: 'typescript' },
+                { text: 'Visual Basic', value: 'vb' },
+                { text: 'Vue', value: 'vue' },
+                { text: 'XML', value: 'xml' },
+                { text: 'XSL', value: 'xsl' },
+                { text: 'YAML', value: 'yaml' },
+            ],
+        };
+    },
+};
+</script>
+<style module>
+.title {
+    margin: 0;
+}
+</style>
+```
+
+### 自定义内容
+
+``` vue
+<template>
+<u-grid-layout :repeat="2">
+    <u-grid-layout-column>
+        <u-grid-view :repeat="4" readonly reaonly-mode="initial" show-head title="单选列表" :data-source="list">
+            <template #item="{ item }">
+                <u-card :title="item.text">{{ item.text + ' is a specfic language with some features that ...' }}</u-card>
+            </template>
+        </u-grid-view>
+    </u-grid-layout-column>
+    <u-grid-layout-column>
+        <u-grid-view :repeat="4" readonly reaonly-mode="initial" multiple show-head title="多选列表" :data-source="list">
+            <template #item="{ item }">
+                <u-card :title="item.text">{{ item.text + ' is a specfic language with some features that ...' }}</u-card>
+            </template>
+        </u-grid-view>
+    </u-grid-layout-column>
+</u-grid-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            list: [
+                { text: 'Batch', value: 'bat' },
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'CSS', value: 'css' },
+                { text: 'Clojure', value: 'clojure' },
+                { text: 'CoffeeScript', value: 'coffeescript' },
+                { text: 'Coq', value: 'coq' },
+                { text: 'Diff', value: 'diff' },
+                { text: 'Dockerfile', value: 'dockerfile' },
+                { text: 'F#', value: 'fshape' },
+                { text: 'Go', value: 'go' },
+                { text: 'Groovy', value: 'groovy' },
+                { text: 'HLSL', value: 'hlsl' },
+                { text: 'HTML', value: 'html' },
+                { text: 'Handlebars', value: 'Handlebars' },
+                { text: 'Ignore', value: 'ignore' },
+                { text: 'Ini', value: 'ini' },
+                { text: 'JSON', value: 'json' },
+                { text: 'Java', value: 'java' },
+                { text: 'JavaScript', value: 'javascript' },
+                { text: 'Jinja', value: 'jinja' },
+                { text: 'Jupyter', value: 'jupyter' },
+                { text: 'Less', value: 'less' },
+                { text: 'Log', value: 'log' },
+                { text: 'Lua', value: 'lua' },
+                { text: 'Makefile', value: 'makefile' },
+                { text: 'Markdown', value: 'markdown' },
+                { text: 'Objective-C', value: 'objective-c' },
+                { text: 'Objective-C++', value: 'objective-cpp' },
+                { text: 'PHP', value: 'php' },
+                { text: 'Perl', value: 'perl' },
+                { text: 'PowerShell', value: 'powershell' },
+                { text: 'Properties', value: 'properties' },
+                { text: 'Pug', value: 'jade' },
+                { text: 'Python', value: 'python' },
+                { text: 'R', value: 'r' },
+                { text: 'Razor', value: 'razor' },
+                { text: 'Ruby', value: 'ruby' },
+                { text: 'Rust', value: 'rust' },
+                { text: 'SCSS', value: 'scss' },
+                { text: 'SQL', value: 'sql' },
+                { text: 'SVG', value: 'svg' },
+                { text: 'Shaderlab', value: 'shaderlab' },
+                { text: 'Shell Script', value: 'shellscript' },
+                { text: 'Swift', value: 'swift' },
+                { text: 'TypeScript', value: 'typescript' },
+                { text: 'Visual Basic', value: 'vb' },
+                { text: 'Vue', value: 'vue' },
+                { text: 'XML', value: 'xml' },
+                { text: 'XSL', value: 'xsl' },
+                { text: 'YAML', value: 'yaml' },
+            ],
+        };
+    },
+};
+</script>
+<style module>
+.title {
+    margin: 0;
+}
+</style>
+```
+
+
+### 结合卡片
+
+``` vue
+<template>
+<u-grid-view :repeat="4"
+    pageable :page-size="12" remote-paging
+                show-total show-sizer
+                readonly readonly-mode="initial" :border="false"
+                :style="{ height: 'auto' }"
+                :data-source="list">
+    <template #item="{ item }">
+        <u-card :title="''">
+            <u-grid-layout :repeat="3">
+                <u-grid-layout-column :span="1">
+                    <u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" fit="cover" style="width:100%;height:80px"></u-image>
+                </u-grid-layout-column>
+                <u-grid-layout-column :span="2">
+                    <u-linear-layout direction="vertical" gap="small">
+                        <u-linear-layout direction="horizontal">
+                            <u-text text="语言"></u-text><u-text :text="item.value"></u-text>
+                        </u-linear-layout>
+                        <u-linear-layout direction="horizontal">
+                            <u-text text="描述"></u-text><u-text :text="item.description"></u-text>
+                        </u-linear-layout>
+                        <u-linear-layout direction="horizontal">
+                            <u-text text="创建时间"></u-text><u-text :text="item.createTime"></u-text>
+                        </u-linear-layout>
+                    </u-linear-layout>
+                </u-grid-layout-column>
+            </u-grid-layout>
+        </u-card>
+    </template>
+</u-grid-view>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            list: [
+                { text: 'Batch', value: 'bat', description: 'bat', createTime: '2021-10-14 13:58:38'},
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'CSS', value: 'css' },
+                { text: 'Clojure', value: 'clojure' },
+                { text: 'CoffeeScript', value: 'coffeescript' },
+                { text: 'Coq', value: 'coq' },
+                { text: 'Diff', value: 'diff' },
+                { text: 'Dockerfile', value: 'dockerfile' },
+                { text: 'F#', value: 'fshape' },
+                { text: 'Go', value: 'go' },
+                { text: 'Groovy', value: 'groovy' },
+                { text: 'HLSL', value: 'hlsl' },
+                { text: 'HTML', value: 'html' },
+                { text: 'Handlebars', value: 'Handlebars' },
+                { text: 'Ignore', value: 'ignore' },
+                { text: 'Ini', value: 'ini' },
+                { text: 'JSON', value: 'json' },
+                { text: 'Java', value: 'java' },
+                { text: 'JavaScript', value: 'javascript' },
+                { text: 'Jinja', value: 'jinja' },
+                { text: 'Jupyter', value: 'jupyter' },
+                { text: 'Less', value: 'less' },
+                { text: 'Log', value: 'log' },
+                { text: 'Lua', value: 'lua' },
+                { text: 'Makefile', value: 'makefile' },
+                { text: 'Markdown', value: 'markdown' },
+                { text: 'Objective-C', value: 'objective-c' },
+                { text: 'Objective-C++', value: 'objective-cpp' },
+                { text: 'PHP', value: 'php' },
+                { text: 'Perl', value: 'perl' },
+                { text: 'PowerShell', value: 'powershell' },
+                { text: 'Properties', value: 'properties' },
+                { text: 'Pug', value: 'jade' },
+                { text: 'Python', value: 'python' },
+                { text: 'R', value: 'r' },
+                { text: 'Razor', value: 'razor' },
+                { text: 'Ruby', value: 'ruby' },
+                { text: 'Rust', value: 'rust' },
+                { text: 'SCSS', value: 'scss' },
+                { text: 'SQL', value: 'sql' },
+                { text: 'SVG', value: 'svg' },
+                { text: 'Shaderlab', value: 'shaderlab' },
+                { text: 'Shell Script', value: 'shellscript' },
+                { text: 'Swift', value: 'swift' },
+                { text: 'TypeScript', value: 'typescript' },
+                { text: 'Visual Basic', value: 'vb' },
+                { text: 'Vue', value: 'vue' },
+                { text: 'XML', value: 'xml' },
+                { text: 'XSL', value: 'xsl' },
+                { text: 'YAML', value: 'yaml' },
+            ],
+        };
+    },
+};
+</script>
+<style module>
+.title {
+    margin: 0;
+}
+</style>
+```
+
+
 ## API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise。 |
+| data-schema | schema |  |  | 表格每一行的数据类型 |
+| initial-load | boolean |  | `true` | 是否在初始时立即加载 |
+| pageable | boolean |  | `false` | 是否需要分页 |
+| page-size | number |  | `50` | 分页大小 |
+| page-number.sync | number |  | `1` | 当前页数。 |
+| page-size-options | Array\<number\> |  | `[10, 20, 50]` | 分页大小的选项列表。 |
+| show-total | boolean |  | `false` | 是否显示总条目数。 |
+| show-sizer | boolean |  | `false` | 是否显示切换分页大小选项。 |
+| show-jumper | boolean |  | `false` | 是否显示页面跳转输入框。 |
+| filterable | boolean |  | `false` | 是否可以过滤（搜索），开启将会显示搜索框。 |
+| remote-paging | boolean |  | `false` | 是否使用后端分页。 |
+| remote-filtering | boolean |  | `false` | 是否使用后端筛选 |
+| match-method | string, Function |  | `'includes'` | 过滤时的匹配方法 |
+| case-sensitive | string, Function |  | `'includes'` | 过滤时大小写是否敏感 |
+| repeat | number |  | `5` | 每行排列几项 |
+| show-head | boolean |  | `false` | 是否显示头部 |
+| title | string |  | `'列表'` | 列表标题 |
+| show-foot | boolean |  | `true` | 是否显示尾部 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度 |
+| loading-text | string |  | `'加载中...'` | 加载时的文字。使用分页加载时才会出现 |
+| error | boolean |  |  | 手动设置是否加载失败。 |
+| error-text | string |  | `'加载失败，请重试'` | 加载失败时的文字。 |
+| empty-text | string |  | `'暂无数据'` | 暂无数据时的文字。 |
+| placeholder | string |  | `'请输入'` | 搜索框的占位符 |
 | value.sync, v-model | any |  |  | 当前选择的值 |
 | field | string |  | `'text'` | 选项文本的字段名 |
 | text-field | string |  | `'text'` | 选项文本的字段名 |
 | value-field | string |  | `'value'` | 选项值的字段名 |
-| data | Array\<{ text, value }\> |  |  | 列表数据 |
-| data-source | object, Function, DataSource |  |  | 多功能数据源 |
 | cancelable | boolean |  | `false` | 是否可以取消选择 |
 | multiple | boolean |  | `false` | 是否可以多选 |
-| show-head | boolean |  | `false` | 是否显示头部 |
-| title | string |  | `'列表'` | 列表标题 |
-| show-foot | boolean |  | `false` | 是否显示尾部 |
-| loading-text | string |  | `'加载中...'` | 加载时的文字。使用分页加载时才会出现 |
-| initial-load | boolean |  | `true` | 是否在初始时立即加载 |
-| filterable | boolean |  | `false` | 是否可以过滤（搜索），开启将会显示搜索框。 |
-| placeholder | string |  | `'请输入'` | 搜索框的占位符 |
 | clearable | boolean |  | `false` | 搜索框是否有清除按钮 |
-| match-method | string, Function |  | `'includes'` | 过滤时的匹配方法 |
-| case-sensitive | string, Function |  | `'includes'` | 过滤时大小写是否敏感 |
-| remote-filtering | boolean |  | `false` | 是否使用后端过滤 |
-| pageable | boolean |  | `false` | 是否需要分页 |
-| page-size | number |  | `50` | 分页大小 |
-| remote-paging | number |  | `false` | 是否使用后端分页 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
-| size | enum | `'normal'`<br/>`'large'`<br/>`'huge'`<br/>`'auto'`<br/>`'full'` |  | 设置尺寸。五种宽高的自由组合。 |
 
 ### Slots
 
@@ -1443,23 +1744,6 @@ export default {
 | $event.oldVM | UListViewItem | 旧的选择项子组件 |
 | senderVM | UListView | 发送事件实例 |
 
-#### @select
-
-选择某一项时触发。多选模式中：
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| $event.selected | boolean | 选中还是取消 |
-| $event.item | boolean | 该选中项相关对象 |
-| $event.itemVM | boolean | 该选中项子组件 |
-| $event.value | Array | 改变后的值 |
-| $event.oldValue | Array | 旧的值 |
-| $event.items | Array\<object\> | 所有选中项相关对象的数组 |
-| $event.oldItems | Array\<object\> | 旧的所有选中项相关对象的数组 |
-| $event.itemVMs | Array\<UListViewItem\> | 所有选中项子组件的数组 |
-| $event.oldVMs | Array\<UListViewItem\> | 旧的所有选中项子组件的数组 |
-| senderVM | UListView | 发送事件实例 |
-
 #### @change
 
 选择值改变时触发。单选模式中：
@@ -1472,17 +1756,6 @@ export default {
 | $event.oldItem | object | 旧的选择项相关对象 |
 | $event.itemVM | UListViewItem | 选择项子组件 |
 | $event.oldVM | UListViewItem | 旧的选择项子组件 |
-| senderVM | UListView | 发送事件实例 |
-
-#### @change
-
-选择值改变时触发。多选模式中：
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| $event.value | Array | 所有选中项的值 |
-| $event.items | Array\<object\> | 所有选中项相关对象的数组 |
-| $event.itemVMs | Array\<UListViewItem\> | 所有选中项子组件的数组 |
 | senderVM | UListView | 发送事件实例 |
 
 #### @before-load

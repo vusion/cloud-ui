@@ -423,6 +423,84 @@ export default {
 </script>
 ```
 
+值转换器：组件的 value 与 各选择器的 value 的转换器。
+converter值可以为`'join'``'json'`，表示将 values 数组 join 之后变成 value。`'join'`的分隔符可以是`','`,`'|'`等，默认是`','`。
+
+``` vue
+<template>
+<u-select multiple v-model="values" title="多选列表" :data-source="list" converter="join:|"></u-select>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            values: '',
+            list: [
+                { text: 'Java', value: 'java' },
+                { text: 'Node.js', value: 'nodejs' },
+                { text: 'Go', value: 'go' },
+                { text: 'Python', value: 'python' },
+                { text: 'Ruby', value: 'ruby', disabled: true },
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'PHP', value: 'php', disabled: true },
+            ],
+        };
+    },
+};
+</script>
+```
+
+``` vue
+<template>
+<u-select multiple v-model="values" title="多选列表" :data-source="list" converter="json"></u-select>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            values: '[]',
+            list: [
+                { text: 'Java', value: 'java' },
+                { text: 'Node.js', value: 'nodejs' },
+                { text: 'Go', value: 'go' },
+                { text: 'Python', value: 'python' },
+                { text: 'Ruby', value: 'ruby', disabled: true },
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'PHP', value: 'php', disabled: true },
+            ],
+        };
+    },
+};
+</script>
+```
+
+设置属性text形式
+``` vue
+<template>
+<u-linear-layout>
+    <u-select v-model="values" multiple style="width: 240px">
+        <u-select-item text="Java" value="java"></u-select-item>
+        <u-select-item text="Node.js" value="nodejs"></u-select-item>
+        <u-select-item text="Go" value="go"></u-select-item>
+        <u-select-item text="Python" value="python"></u-select-item>
+    </u-select>
+</u-linear-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            values: ['java', 'nodejs'],
+        };
+    },
+};
+</script>
+```
+
 ### Tags 风格
 
 Tags 过多时如何显示。
@@ -1188,4 +1266,32 @@ export default {
     },
 };
 </script>
+```
+
+
+#### 前缀方式
+
+使用`<u-select-item>`组件添加。在有少量静态数据的时候，推荐使用这种方式。
+
+``` html
+<u-linear-layout>
+    <u-select prefix="search">
+        <u-select-item value="java">Java</u-select-item>
+        <u-select-item value="nodejs">Node.js</u-select-item>
+        <u-select-item value="go">Go</u-select-item>
+        <u-select-item value="python">Python</u-select-item>
+        <u-select-item value="ruby">Ruby</u-select-item>
+        <u-select-item value="csharp">C#</u-select-item>
+        <u-select-item value="php">PHP</u-select-item>
+    </u-select>
+    <u-select suffix="search" placeholder="设置占位符">
+        <u-select-item value="java">Java</u-select-item>
+        <u-select-item value="nodejs">Node.js</u-select-item>
+        <u-select-item value="go">Go</u-select-item>
+        <u-select-item value="python">Python</u-select-item>
+        <u-select-item value="ruby">Ruby</u-select-item>
+        <u-select-item value="csharp">C#</u-select-item>
+        <u-select-item value="php">PHP</u-select-item>
+    </u-select>
+</u-linear-layout>
 ```

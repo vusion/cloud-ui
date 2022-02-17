@@ -12,11 +12,16 @@
     - [禁用按钮](#禁用按钮)
     - [自定义](#自定义)
     - [大小扩展](#大小扩展)
+    - [点击遮罩关闭](#点击遮罩关闭)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
     - [Events](#events)
     - [Methods](#methods)
+
+**Feedback**
+
+弹窗
 
 ## 示例
 ### 基本用法
@@ -150,6 +155,12 @@ export default {
 </u-modal>
 ```
 
+### 点击遮罩关闭
+
+``` html
+<u-modal title="标题" visible static :maskClose="true">内容</u-modal>
+```
+
 ## API
 ### Props/Attrs
 
@@ -161,10 +172,10 @@ export default {
 | visible.sync | boolean |  | `false` | 是否显示 |
 | ok-button | string |  | `'确定'` | 确定按钮文本，如果为空则不显示 |
 | cancel-button | string |  | `'取消'` | 取消按钮文本，如果为空则不显示 |
-| size | enum | `'small'`<br/>`'normal'`<br/>`'large'`<br/>`'huge'`<br/>`'auto'` | `'normal'` | 弹框的尺寸, 可选值：`'small'`, `'normal'`, `'large'`, `'huge'`, `'auto'`, |
-| icon | string |  | `''` | 提示图标, 可选值：`success`, `warning`, `error` |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 弹框的尺寸 |
+| icon | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 提示图标 |
 | static | boolean |  | `false` | 是否嵌入页面显示 |
-| mask-closable | boolean |  | `false` | 是否点击遮罩时关闭弹窗 |
+| mask-close | boolean |  | `false` | 是否点击遮罩时关闭弹窗 |
 
 ### Slots
 
@@ -247,21 +258,19 @@ export default {
 
 Methods
 
-#### alert(content, title)
+#### open()
 
-打开只有确定按钮的消息提示
+打开弹窗
 
-| Param | Type | Default | Description |
-| ----- | ---- | ------- | ----------- |
-| content | string |  | 提示内容 |
-| title | string |  | 提示标题 |
+#### close()
 
-#### confirm(content, title)
+关闭弹窗
 
-打开有确定和取消按钮的消息提示
+#### ok()
 
-| Param | Type | Default | Description |
-| ----- | ---- | ------- | ----------- |
-| content | string |  | 提示内容 |
-| title | string |  | 提示标题 |
+确定弹窗
+
+#### cancel()
+
+取消弹窗
 

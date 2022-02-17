@@ -211,7 +211,7 @@ const VueDataSource = Vue.extend({
             return this.arrangedData.slice(offset, newOffset);
         },
         // _load(params)
-        load(offset, limit) {
+        load(offset, limit, newPageNumber) {
             if (offset === undefined)
                 offset = this.offset;
             if (limit === undefined)
@@ -236,6 +236,9 @@ const VueDataSource = Vue.extend({
                 this.params = {};
             }
             const paging = Object.assign({ offset: offset - this.prependedData.length, limit: this.limit }, this.paging);
+            if (newPageNumber !== undefined) {
+                paging.number = newPageNumber;
+            }
 
             const params = Object.assign({
                 paging,
@@ -243,8 +246,25 @@ const VueDataSource = Vue.extend({
                 filtering: this.filtering,
             }, this._getExtraParams());
 
+            // 支持 JDL
+            if (this.paging) {
+                params.page = params.paging.number;
+                params.start = params.paging.offset;
+                params.size = params.paging.size;
+            }
+            if (this.sorting && this.sorting.field) {
+                params.sort = params.sorting.field;
+                params.order = params.sorting.order;
+            }
+
             return this._load(params).then((result) => {
                 this.initialLoaded = true;
+
+                // 支持 JDL
+                if (result instanceof Object && result.hasOwnProperty('totalElements') && result.hasOwnProperty('content')) {
+                    result.total = result.totalElements;
+                    result.data = result.content;
+                }
 
                 if (!this.remotePaging) { // 没有后端分页，认为是全部数据
                     if (result instanceof Array) { // 只返回数组，没有 total 字段
@@ -274,6 +294,11 @@ const VueDataSource = Vue.extend({
                         partialData = this._process(result.data);
                     } // 否则什么都不做
 
+                    if (limit === Infinity) {
+                        this.data = partialData;
+                        this.arrange();
+                        return partialData;
+                    }
                     for (let i = 0; i < limit; i++) {
                         const item = partialData[i];
                         if (item)
@@ -288,8 +313,11 @@ const VueDataSource = Vue.extend({
         loadMore() {
             if (!this.hasMore())
                 return Promise.resolve([]);
-            else
-                return this.load(this.offset + this.limit).then(() => this.paging.number++);
+            else {
+                const newPageNumber = this.paging.number + 1;
+                return this.load(this.offset + this.limit, undefined, newPageNumber)
+                    .then(() => this.paging.number = newPageNumber);
+            }
         },
         reload() {
             this.clearLocalData();

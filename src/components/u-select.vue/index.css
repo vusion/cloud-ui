@@ -25,6 +25,12 @@
     box-shadow: var(--select-box-shadow-focus);
 }
 
+.root:active {
+    outline: var(--focus-outline);
+    border-color: var(--select-border-color-hover);
+    box-shadow: var(--select-box-shadow-active);
+}
+
 .baseline {
     visibility: hidden;
     display: inline-block;
@@ -98,7 +104,7 @@
     cursor: var(--cursor-not-allowed);
     background: var(--select-background-disabled);
     color: var(--select-color-disabled);
-    border: 1px solid var(--brand-disabled);
+    border: 1px solid var(--select-border-color-disabled);
 }
 
 .text {
@@ -166,6 +172,36 @@
     padding: 0;
 }
 
+.prefix, .suffix {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    z-index: 1;
+}
+
+.prefix {
+    left: 8px;
+}
+
+.suffix {
+    right: 8px;
+}
+
+.root[clearable] .text, .root[suffix] .text {
+    padding-right: 30px;
+}
+
+.root[suffix]::after {
+    display: none;
+}
+
+.prefix[name="search"]::before, .suffix[name="search"]::before {
+    icon-font: url("../i-icon.vue/icons/search.svg");
+    font-size: 16px;
+    color: #a7afbb;
+}
+
 .popper {
     position: absolute;
     box-sizing: content-box;
@@ -206,6 +242,10 @@
     height: 14px;
     border: none;
     background-image: url("../../assets/images/high.png");
+}
+
+.root[start] {
+    padding-left: 24px;
 }
 
 .root[size$="mini"] { width: var(--select-width-mini); padding: 0 var(--select-padding-x-mini); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-mini)); }

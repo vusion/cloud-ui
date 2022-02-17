@@ -1,0 +1,43 @@
+- name: u-image
+  icon: image
+  title: 图片展示
+  labels:
+    - Display
+  description: 可以用来展示一张图片，支持设置图片地址。
+  next: true
+  nested: false
+  attrs:
+    - name: src
+      title: 地址
+      type: image
+      default: ""
+      description: 图片地址
+      compType: linkInput
+    - name: fit
+      title: 填充方式
+      type: string
+      options:
+        - value: fill
+          title: 图片拉伸完全填充
+        - value: contain
+          title: 图片缩放比例完全填充
+        - value: cover
+          title: 图片按比例尽可能大的填充
+        - value: none
+          title: 图片以原尺寸填充
+        - value: scale-down
+          title: 取 contain、none 中较小的
+      default: contain
+      description: 图片地址
+    - name: convertSrcFn
+      title: 图片地址转换器
+      type: Function
+      default: (src) => {  try { const tempSrc = JSON.parse(src); const tempItem = tempSrc[0]; return tempItem.url; } catch (e) { return src;}}
+      description: 将传入的src转换为符合要求的字符串
+      advanced: true
+  slots: false
+  events:
+    - name: load
+      title: 加载完成
+      description: 网页加载完成时触发
+      params: []

@@ -66,6 +66,32 @@
     transition: color var(--transition-duration-base);
 }
 
+.gap:empty {
+    position: relative;
+    z-index: 999;
+    min-width: 90px;
+    min-height: 28px;
+    vertical-align: 3px;
+    user-select: none;
+    cursor: cell !important;
+    text-align: center;
+    transition: all 0.2s;
+    color: #ccc;
+    background: #f7f8fa;
+    border: 1px solid transparent;
+}
+
+.gap:empty::before {
+    content: '+';
+    font-size: 24px;
+    line-height: 22px;
+    position: absolute;
+    left: 50%;
+    margin-left: -12px;
+    width: 24px;
+    height: 24px;
+}
+
 .prev:hover, .next:hover {
     color: rgba(0, 0, 0, 0.65);
 }
@@ -141,6 +167,13 @@
     color: var(--tabs-item-color-selected-capsule);
     border-color: var(--tabs-item-border-color-selected-capsule);
 }
+.root[appear="capsule"] .item[disabled]{
+    background: var(--tabs-item-background-disabled-capsule);
+    color: var(--tabs-item-color-disabled);
+}
+.root[appear="capsule"] .item[disabled]:hover{
+    color: var(--tabs-item-color-disabled);
+}
 
 .root[appear="square"] .item {
     box-sizing: content-box;
@@ -152,6 +185,7 @@
 
 .root[appear="square"] .item:hover {
     background: var(--tabs-item-background-hover);
+    color: var(--tabs-item-color-hover);
 }
 
 .root[appear="square"] .item[selected] {
@@ -181,6 +215,7 @@
 
 .root[appear="round"] .item:hover {
     background: var(--tabs-item-background-hover);
+    color: var(--tabs-item-color-hover);
 }
 
 .root[appear="round"] .item[selected] {
@@ -207,7 +242,7 @@
 
 .root[appear="line"] .item:hover {
     background: none;
-    color: var(--color-dark);
+    color: var(--tabs-item-color-hover);
 }
 
 .root[appear="line"] .item[selected] {

@@ -10,7 +10,8 @@
       "text",
       "image",
       "opacity"
-    ]
+    ],
+    "description": "在页面显示水印"
   },
   "f-collapse-transition": {
     "attributes": []
@@ -82,10 +83,20 @@
     ],
     "description": "用于提升大数据量列表的性能。支持自动计算列表项高度。"
   },
+  "i-ico": {
+    "attributes": [
+      "name",
+      "linkType",
+      "hrefAndTo",
+      "target"
+    ],
+    "description": "图标"
+  },
   "i-icon": {
     "attributes": [
       "name"
-    ]
+    ],
+    "description": "自定义图标"
   },
   "m-complex": {
     "attributes": [
@@ -103,11 +114,16 @@
   },
   "m-complex-item": {
     "attributes": [
+      "text",
       "value",
       "selected",
       "disabled",
       "item"
     ]
+  },
+  "m-converter": {
+    "attributes": [],
+    "description": "该 Mixin 集成了数据转换方式。继承之后直接使用converter方法"
   },
   "m-dynamic": {
     "attributes": [
@@ -168,6 +184,7 @@
   },
   "m-multiplex-item": {
     "attributes": [
+      "text",
       "value",
       "selected",
       "disabled",
@@ -232,6 +249,7 @@
   },
   "m-singlex-item": {
     "attributes": [
+      "text",
       "value",
       "disabled",
       "item"
@@ -243,6 +261,7 @@
       "menu-title",
       "placement"
     ],
+    "description": "当待操作项过多时，会自动收纳",
     "subtags": [
       "u-action"
     ]
@@ -250,8 +269,15 @@
   "u-action": {
     "attributes": [
       "hidden",
-      "其余属性透传"
-    ]
+      "color",
+      "linkType",
+      "hrefAndTo",
+      "target",
+      "decoration",
+      "disabled",
+      "display"
+    ],
+    "description": "单个操作项"
   },
   "u-article": {
     "attributes": []
@@ -298,6 +324,7 @@
   },
   "u-button": {
     "attributes": [
+      "text",
       "color",
       "dashed",
       "size",
@@ -306,13 +333,31 @@
       "display",
       "icon",
       "loading",
-      "href",
+      "linkType",
+      "hrefAndTo",
       "target",
       "to",
       "replace",
       "append"
     ],
     "description": "用于触发一个即时操作。"
+  },
+  "u-calendar-view": {
+    "attributes": [
+      "value",
+      "min-date",
+      "max-date",
+      "data-source",
+      "data-schema",
+      "start-key",
+      "end-key",
+      "show-week-days",
+      "show-weeks",
+      "show-basic",
+      "show-advance",
+      "first-day-of-week"
+    ],
+    "description": "用于展示大量结构化数据。支持日历结构展示。"
   },
   "u-calendar": {
     "attributes": [
@@ -334,34 +379,44 @@
       "readonly",
       "disabled"
     ],
+    "description": "多项中选择一项",
     "subtags": [
       "u-capsule",
-      "u-capsule-group"
+      "u-capsules-group"
     ]
   },
   "u-capsule": {
     "attributes": [
       "value",
       "size",
-      "selected",
       "disabled",
       "label",
       "flag",
       "item"
-    ]
+    ],
+    "description": "子选项"
   },
-  "u-capsule-group": {
-    "attributes": []
+  "u-capsules-group": {
+    "attributes": [],
+    "description": "子选项组"
   },
   "u-card": {
-    "attributes": [],
+    "attributes": [
+      "title",
+      "width",
+      "shadow",
+      "border"
+    ],
     "description": "用于快速布局",
     "subtags": [
       "u-card-group"
     ]
   },
   "u-card-group": {
-    "attributes": []
+    "attributes": [
+      "title"
+    ],
+    "description": "卡片组"
   },
   "u-carousel": {
     "attributes": [
@@ -372,6 +427,7 @@
       "direction",
       "animation"
     ],
+    "description": "动态播放内部内容",
     "subtags": [
       "u-carousel-item"
     ]
@@ -380,7 +436,8 @@
     "attributes": [
       "title",
       "value"
-    ]
+    ],
+    "description": "幻灯片选项"
   },
   "u-cascade-capsules": {
     "attributes": [
@@ -406,7 +463,8 @@
       "field",
       "readonly",
       "disabled"
-    ]
+    ],
+    "description": "一次选择多个相关联的项"
   },
   "u-checkbox-card": {
     "attributes": [
@@ -414,17 +472,20 @@
       "value",
       "placeholder",
       "size",
-      "column"
+      "column",
+      "converter"
     ]
   },
   "u-checkbox": {
     "attributes": [
+      "text",
       "value",
       "label",
       "readonly",
       "disabled",
       "autofocus"
-    ]
+    ],
+    "description": "多选项"
   },
   "u-checkboxes": {
     "attributes": [
@@ -432,8 +493,10 @@
       "min",
       "max",
       "readonly",
-      "disabled"
+      "disabled",
+      "converter"
     ],
+    "description": "多项中选择多个时使用",
     "subtags": [
       "u-checkbox"
     ]
@@ -441,7 +504,8 @@
   "u-circular-progress": {
     "attributes": [
       "percent"
-    ]
+    ],
+    "description": "以圆形的形式描述当前进度"
   },
   "u-collapse": {
     "attributes": [
@@ -460,7 +524,8 @@
       "title",
       "expanded",
       "disabled"
-    ]
+    ],
+    "description": "折叠面板项"
   },
   "u-combo-slider": {
     "attributes": [
@@ -477,7 +542,8 @@
       "disabled",
       "unit",
       "tip"
-    ]
+    ],
+    "description": "滑动选择"
   },
   "u-copy": {
     "attributes": [
@@ -489,7 +555,7 @@
       "hide-delay",
       "disabled"
     ],
-    "description": "复制文本到剪切板。"
+    "description": "复制文本到剪切板"
   },
   "u-count-up": {
     "attributes": [
@@ -511,25 +577,29 @@
   },
   "u-crumb": {
     "attributes": [
-      "无"
+      "auto"
     ],
+    "description": "导航指引",
     "subtags": [
       "u-crumb-item"
     ]
   },
   "u-crumb-item": {
     "attributes": [
+      "text",
       "type",
-      "href",
+      "linkType",
+      "hrefAndTo",
       "target",
-      "to",
       "replace",
       "append",
       "disabled"
-    ]
+    ],
+    "description": "面包屑选项"
   },
   "u-date-picker": {
     "attributes": [
+      "picker",
       "width",
       "date",
       "minDate",
@@ -538,11 +608,14 @@
       "disabled",
       "autofocus",
       "placeholder",
+      "clearable",
       "alignment",
       "time",
-      "yeadDiff",
-      "yearAdd"
-    ]
+      "yearDiff",
+      "yearAdd",
+      "converter"
+    ],
+    "description": "日期选择器"
   },
   "u-date-time-picker": {
     "attributes": [
@@ -551,11 +624,14 @@
       "maxDate",
       "placeholder",
       "autofocus",
+      "clearable",
       "disabled",
       "readonly",
       "yearDiff",
-      "yearAdd"
-    ]
+      "yearAdd",
+      "converter"
+    ],
+    "description": "日期时间选择器"
   },
   "u-desc-list": {
     "attributes": [
@@ -606,11 +682,17 @@
   "u-footbar": {
     "attributes": [
       "position"
-    ]
+    ],
+    "description": "底部栏"
+  },
+  "u-for": {
+    "attributes": [
+      "data"
+    ],
+    "description": "用于对数组类型的数据结构循环展示"
   },
   "u-form-table-view": {
     "attributes": [
-      "border",
       "data",
       "dynamic",
       "get-default-item",
@@ -640,7 +722,8 @@
       "validating-options",
       "validating-value",
       "validating-process"
-    ]
+    ],
+    "description": "表单列元素"
   },
   "u-form-table": {
     "attributes": [
@@ -648,7 +731,7 @@
       "striped",
       "hover"
     ],
-    "description": "在表单中使用的表格，本组件主要实现基本样式，方便在特殊场景下扩展。如果需要快速使用动态数据、表单验证等功能，请使用 [UFormTableView](#components/u-form-table-view)。"
+    "description": "在表单中使用的表格"
   },
   "u-form": {
     "attributes": [
@@ -656,11 +739,16 @@
       "rules",
       "layout",
       "gap",
-      "label-size"
+      "label-size",
+      "size",
+      "collapsible",
+      "accordion",
+      "expand-trigger"
     ],
     "description": "具有数据收集、校验和提交功能的表单，包含输入框、选择框、复选框、单选框等元素。",
     "subtags": [
-      "u-form-item"
+      "u-form-item",
+      "u-form-group"
     ]
   },
   "u-form-item": {
@@ -681,12 +769,32 @@
       "validating-options",
       "validating-value",
       "validating-process"
-    ]
+    ],
+    "description": "表单项"
+  },
+  "u-form-group": {
+    "attributes": [
+      "title",
+      "collapsible",
+      "expanded",
+      "disabled"
+    ],
+    "description": "展开折叠前"
+  },
+  "u-gallery": {
+    "attributes": [
+      "data-source",
+      "pattern",
+      "num",
+      "arrow"
+    ],
+    "description": "画廊"
   },
   "u-grid-layout": {
     "attributes": [
       "gap"
     ],
+    "description": "内部元素按照一定的规则布局",
     "subtags": [
       "u-grid-layout-row",
       "u-grid-layout-column"
@@ -697,7 +805,8 @@
       "repeat",
       "justify",
       "alignment"
-    ]
+    ],
+    "description": "内部元素行布局"
   },
   "u-grid-layout-column": {
     "attributes": [
@@ -710,37 +819,55 @@
       "media-medium",
       "media-small",
       "media-mini"
-    ]
+    ],
+    "description": "内部元素行内列布局"
   },
   "u-grid-view": {
     "attributes": [
+      "data-source",
+      "data-schema",
+      "initial-load",
+      "pageable",
+      "page-size",
+      "page-number",
+      "page-size-options",
+      "show-total",
+      "show-sizer",
+      "show-jumper",
+      "filterable",
+      "remote-paging",
+      "remote-filtering",
+      "match-method",
+      "case-sensitive",
+      "repeat",
+      "show-head",
+      "title",
+      "show-foot",
+      "size",
+      "loading-text",
+      "error",
+      "error-text",
+      "empty-text",
+      "placeholder",
       "value",
       "field",
       "text-field",
       "value-field",
-      "data",
-      "data-source",
       "cancelable",
       "multiple",
-      "show-head",
-      "title",
-      "show-foot",
-      "loading-text",
-      "initial-load",
-      "filterable",
-      "placeholder",
       "clearable",
-      "match-method",
-      "case-sensitive",
-      "remote-filtering",
-      "pageable",
-      "page-size",
-      "remote-paging",
       "readonly",
-      "disabled",
-      "size"
+      "disabled"
     ],
     "description": "用于列举大量数据的列表框，支持单选、多选、过滤（搜索）、分页等功能。"
+  },
+  "u-html": {
+    "attributes": [
+      "html",
+      "security",
+      "options"
+    ],
+    "description": "用于添加 html 文本"
   },
   "u-icon-tooltip": {
     "attributes": [
@@ -756,11 +883,32 @@
     ],
     "description": "图标与`<u-tooltip>`的组合。"
   },
+  "u-if": {
+    "attributes": [
+      "check"
+    ],
+    "description": "用于按照条件展示内容"
+  },
+  "u-iframe": {
+    "attributes": [
+      "src"
+    ],
+    "description": "用于嵌入其他网页的容器。"
+  },
+  "u-image": {
+    "attributes": [
+      "src",
+      "fit",
+      "convertSrcFn"
+    ],
+    "description": "可以用来展示一张图片，支持设置图片地址。"
+  },
   "u-info-list": {
     "attributes": [
       "repeat",
       "label-size"
     ],
+    "description": "详情列表",
     "subtags": [
       "u-info-list-item",
       "u-info-list-group"
@@ -772,14 +920,16 @@
       "span",
       "label-size",
       "ellipsis"
-    ]
+    ],
+    "description": "详情列表项"
   },
   "u-info-list-group": {
     "attributes": [
       "title",
       "repeat",
       "label-size"
-    ]
+    ],
+    "description": "详情列表组"
   },
   "u-input": {
     "attributes": [
@@ -794,18 +944,21 @@
       "readonly",
       "disabled",
       "size",
-      "maxlengthMessage"
+      "maxlengthMessage",
+      "prefix",
+      "suffix"
     ],
-    "description": "基本的表单输入组件，在原生`<input>`控件基础上进行了一些功能扩展。"
+    "description": "基本的表单输入组件"
   },
   "u-label": {
     "attributes": [
+      "text",
       "color",
       "size",
       "removable",
       "display"
     ],
-    "description": "对事物进行标记和分类。"
+    "description": "用于展示状态、标签、分类等"
   },
   "u-lightbox": {
     "attributes": [
@@ -832,56 +985,76 @@
       "type",
       "justify",
       "alignment"
-    ]
+    ],
+    "description": "内部元素按照一定的规则布局"
   },
   "u-linear-progress": {
     "attributes": [
       "percent",
       "size",
       "range"
-    ]
+    ],
+    "description": "以线条的形式描述当前进度"
   },
   "u-link": {
     "attributes": [
+      "text",
       "color",
-      "href",
+      "linkType",
+      "hrefAndTo",
       "target",
       "to",
       "replace",
       "append",
+      "decoration",
       "disabled",
       "display"
     ],
-    "description": "文字超链接。"
+    "description": "文字超链接"
+  },
+  "u-list-components": {
+    "attributes": [
+      "data-source",
+      "data-schema",
+      "colnum"
+    ],
+    "description": "组件列表"
   },
   "u-list-view": {
     "attributes": [
-      "value",
-      "field",
-      "text-field",
-      "value-field",
-      "data",
       "data-source",
-      "cancelable",
-      "multiple",
-      "repeat",
+      "data-schema",
+      "initial-load",
+      "pageable",
+      "page-size",
+      "page-number",
+      "page-size-options",
+      "show-total",
+      "show-sizer",
+      "show-jumper",
+      "filterable",
+      "remote-paging",
+      "remote-filtering",
+      "match-method",
+      "case-sensitive",
       "show-head",
       "title",
       "show-foot",
+      "size",
       "loading-text",
-      "initial-load",
-      "filterable",
+      "error",
+      "error-text",
+      "empty-text",
       "placeholder",
+      "value",
+      "text-field",
+      "value-field",
+      "cancelable",
+      "multiple",
+      "repeat",
       "clearable",
-      "match-method",
-      "case-sensitive",
-      "remote-filtering",
-      "pageable",
-      "page-size",
-      "remote-paging",
       "readonly",
-      "disabled",
-      "size"
+      "disabled"
     ],
     "description": "用于列举大量数据的列表框，支持单选、多选、过滤（搜索）、分页等功能。"
   },
@@ -924,12 +1097,13 @@
   },
   "u-menu-item": {
     "attributes": [
+      "text",
       "value",
       "disabled",
       "item",
-      "href",
+      "linkType",
+      "hrefAndTo",
       "target",
-      "to",
       "replace",
       "exact"
     ]
@@ -953,8 +1127,9 @@
       "size",
       "icon",
       "static",
-      "mask-closable"
-    ]
+      "mask-close"
+    ],
+    "description": "弹窗"
   },
   "u-navbar": {
     "attributes": [
@@ -969,37 +1144,75 @@
       "u-navbar-item",
       "u-navbar-divider",
       "u-navbar-dropdown",
-      "u-navbar-menu、u-navbar-menu-group、u-navbar-menu-item、u-navbar-menu-divider",
-      "u-navbar-select、u-navbar-select-group、u-navbar-select-item、u-navbar-select-divider"
+      "u-navbar-menu",
+      "u-navbar-menu-group",
+      "u-navbar-menu-item",
+      "u-navbar-menu-divider",
+      "u-navbar-select",
+      "u-navbar-select-group",
+      "u-navbar-select-item",
+      "u-navbar-select-divider"
     ]
   },
   "u-navbar-item": {
     "attributes": [
+      "text",
       "value",
+      "icon",
       "disabled",
       "item",
-      "href",
+      "linkType",
+      "hrefAndTo",
       "target",
       "to",
       "replace",
       "exact"
-    ]
+    ],
+    "description": "导航栏的子项目"
   },
   "u-navbar-divider": {
-    "attributes": []
+    "attributes": [],
+    "description": "导航栏的分割线"
   },
   "u-navbar-dropdown": {
     "attributes": [
       "trigger",
       "placement",
       "disabled"
-    ]
+    ],
+    "description": "导航栏下拉菜单"
   },
-  "u-navbar-menu、u-navbar-menu-group、u-navbar-menu-item、u-navbar-menu-divider": {
-    "attributes": []
+  "u-navbar-menu": {
+    "attributes": [],
+    "description": "导航菜单"
   },
-  "u-navbar-select、u-navbar-select-group、u-navbar-select-item、u-navbar-select-divider": {
-    "attributes": []
+  "u-navbar-menu-group": {
+    "attributes": [],
+    "description": "导航菜单分组"
+  },
+  "u-navbar-menu-item": {
+    "attributes": [],
+    "description": "导航菜单项"
+  },
+  "u-navbar-menu-divider": {
+    "attributes": [],
+    "description": "导航菜单分割线"
+  },
+  "u-navbar-select": {
+    "attributes": [],
+    "description": "导航选择"
+  },
+  "u-navbar-select-group": {
+    "attributes": [],
+    "description": "导航选择分组"
+  },
+  "u-navbar-select-item": {
+    "attributes": [],
+    "description": "导航选择项"
+  },
+  "u-navbar-select-divider": {
+    "attributes": [],
+    "description": "导航选择分割线"
   },
   "u-new-time-picker": {
     "attributes": [
@@ -1022,10 +1235,12 @@
       "placeholder",
       "autofocus",
       "hide-buttons",
+      "clearable",
       "readonly",
       "disabled",
       "size"
-    ]
+    ],
+    "description": "输入数字时使用"
   },
   "u-pagination": {
     "attributes": [
@@ -1041,17 +1256,23 @@
       "show-total",
       "show-sizer",
       "show-jumper"
-    ]
+    ],
+    "description": "展示多页列表时使用"
   },
   "u-panel": {
-    "attributes": [],
+    "attributes": [
+      "title"
+    ],
     "description": "用于快速布局",
     "subtags": [
       "u-panel-group"
     ]
   },
   "u-panel-group": {
-    "attributes": []
+    "attributes": [
+      "title"
+    ],
+    "description": "面板组"
   },
   "u-pills": {
     "attributes": [
@@ -1074,6 +1295,21 @@
       "item"
     ]
   },
+  "u-popup-combination": {
+    "attributes": [
+      "title",
+      "opened",
+      "trigger",
+      "placement",
+      "hide-delay",
+      "offset",
+      "follow-cursor",
+      "disabled",
+      "merge-borders",
+      "display"
+    ],
+    "description": "点击/鼠标移入元素，弹出气泡式的卡片浮层。"
+  },
   "u-popup": {
     "attributes": [
       "title",
@@ -1094,17 +1330,28 @@
       "readonly",
       "disabled"
     ],
+    "description": "多项中选择一个时使用",
     "subtags": [
       "u-radio"
     ]
   },
   "u-radio": {
     "attributes": [
+      "text",
       "label",
       "readonly",
       "disabled",
       "autofocus"
-    ]
+    ],
+    "description": "单选项"
+  },
+  "u-rate": {
+    "attributes": [
+      "value",
+      "max",
+      "readonly"
+    ],
+    "description": "评分组件。"
   },
   "u-region-select": {
     "attributes": [
@@ -1119,6 +1366,10 @@
     ],
     "description": "该组件从 UCascadeSelect 继承，仅填充了中国的行政区数据，其他功能与 UCascadeSelect 相同。"
   },
+  "u-router-view": {
+    "attributes": [],
+    "description": "用于嵌入子页面的容器。"
+  },
   "u-select": {
     "attributes": [
       "value",
@@ -1127,27 +1378,30 @@
       "data-source",
       "cancelable",
       "multiple",
+      "converter",
       "placeholder",
       "loading-text",
       "empty-text",
       "empty-disabled",
       "initial-load",
       "pageable",
-      "page-size",
       "remote-paging",
+      "page-size",
       "clearable",
       "filterable",
+      "remote-filtering",
       "match-method",
       "case-sensitive",
-      "remote-filtering",
       "auto-complete",
       "readonly",
       "disabled",
       "size",
       "opened",
-      "autofocus"
+      "autofocus",
+      "prefix",
+      "suffix"
     ],
-    "description": "下拉选择框，支持单选、多选、搜索等功能，用于代替原生的选择框。",
+    "description": "下拉选择框，支持单选、多选、搜索等功能",
     "subtags": [
       "u-select-item",
       "u-select-group",
@@ -1157,24 +1411,30 @@
   "u-select-item": {
     "attributes": [
       "value",
+      "text",
       "disabled",
       "item"
-    ]
+    ],
+    "description": "选择项"
   },
   "u-select-group": {
     "attributes": [
       "title"
-    ]
+    ],
+    "description": "选择分组"
   },
   "u-select-divider": {
-    "attributes": []
+    "attributes": [],
+    "description": "分隔线"
   },
   "u-selectable-steps": {
     "attributes": [
       "value",
       "readonly",
-      "disabled"
+      "disabled",
+      "size"
     ],
+    "description": "当操作需要分步骤时使用",
     "subtags": [
       "u-selectable-step"
     ]
@@ -1183,7 +1443,8 @@
     "attributes": [
       "title",
       "disabled"
-    ]
+    ],
+    "description": "步骤条项"
   },
   "u-sidebar": {
     "attributes": [
@@ -1204,15 +1465,19 @@
   },
   "u-sidebar-item": {
     "attributes": [
+      "text",
       "value",
+      "icon",
       "disabled",
       "item",
-      "href",
+      "linkType",
+      "hrefAndTo",
       "target",
       "to",
       "replace",
       "exact"
-    ]
+    ],
+    "description": "侧边栏项"
   },
   "u-sidebar-group": {
     "attributes": [
@@ -1220,10 +1485,12 @@
       "collapsible",
       "expanded",
       "disabled"
-    ]
+    ],
+    "description": "侧边栏分组"
   },
   "u-sidebar-divider": {
-    "attributes": []
+    "attributes": [],
+    "description": "侧边栏分隔线"
   },
   "u-skeleton": {
     "attributes": [
@@ -1279,11 +1546,13 @@
       "readonly",
       "disabled",
       "with-text"
-    ]
+    ],
+    "description": "开关"
   },
   "u-table-view": {
     "attributes": [
       "data-source",
+      "data-schema",
       "initial-load",
       "pageable",
       "page-size",
@@ -1319,7 +1588,10 @@
       "disabled",
       "accordion",
       "resizable",
-      "resize-remaining"
+      "resize-remaining",
+      "tree-display",
+      "children-field",
+      "has-children-field"
     ],
     "description": "用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。",
     "subtags": [
@@ -1331,7 +1603,6 @@
       "title",
       "field",
       "width",
-      "ellipsis",
       "formatter",
       "fixed",
       "sortable",
@@ -1341,7 +1612,8 @@
       "hidden",
       "type",
       "start-index"
-    ]
+    ],
+    "description": "表格列"
   },
   "u-table": {
     "attributes": []
@@ -1388,22 +1660,35 @@
       "title",
       "value",
       "disabled",
+      "linkType",
       "href",
+      "hrefAndTo",
       "target",
       "to",
       "replace",
       "append",
       "exact"
-    ]
+    ],
+    "description": "标签页"
+  },
+  "u-taskbox": {
+    "attributes": [
+      "icon",
+      "size",
+      "interval",
+      "title"
+    ],
+    "description": "用于展示流程任务箱"
   },
   "u-text": {
     "attributes": [
+      "text",
       "color",
       "size",
       "display",
       "overflow"
     ],
-    "description": "用于在业务中快速调整文本尺寸、颜色等特性。"
+    "description": "用于展示文字或表达式"
   },
   "u-textarea": {
     "attributes": [
@@ -1416,9 +1701,10 @@
       "autofocus",
       "readonly",
       "disabled",
+      "size",
       "resize"
     ],
-    "description": "多行输入组件，在原生`<textarea>`控件基础上进行了一些功能扩展。"
+    "description": "多行输入组件"
   },
   "u-time-picker": {
     "attributes": [
@@ -1430,7 +1716,8 @@
       "readonly",
       "disabled",
       "visible"
-    ]
+    ],
+    "description": "时间选择器"
   },
   "u-timeline": {
     "attributes": [
@@ -1456,7 +1743,8 @@
       "text",
       "color",
       "closable"
-    ]
+    ],
+    "description": "吐司提示"
   },
   "u-toc": {
     "attributes": [
@@ -1477,9 +1765,9 @@
       "value",
       "disabled",
       "item",
-      "href",
+      "linkType",
+      "hrefAndTo",
       "target",
-      "to",
       "replace",
       "exact",
       "exact"
@@ -1495,7 +1783,8 @@
       "follow-cursor",
       "disabled",
       "size"
-    ]
+    ],
+    "description": "工具提示"
   },
   "u-transfer": {
     "attributes": [
@@ -1539,6 +1828,7 @@
       "disabled",
       "check-controlled"
     ],
+    "description": "树形选择器",
     "subtags": [
       "u-tree-view-node"
     ]
@@ -1546,11 +1836,13 @@
   "u-tree-view-node": {
     "attributes": [
       "value",
+      "text",
       "expanded",
       "checked",
       "disabled",
       "node"
-    ]
+    ],
+    "description": "树型视图节点"
   },
   "u-uploader": {
     "attributes": [
@@ -1564,15 +1856,21 @@
       "multiple-once",
       "data-type",
       "data",
-      "extensions",
       "limit",
       "max-size",
       "list-type",
+      "url-field",
       "auto-upload",
       "draggable",
       "pastable",
       "show-file-list",
-      "disabled"
+      "converter",
+      "readonly",
+      "disabled",
+      "display",
+      "description",
+      "showErrorMessage",
+      "dragDescription"
     ],
     "description": "通过点击或者拖拽上传文件。"
   },
@@ -1618,6 +1916,10 @@
   },
   "l-page-section": {
     "attributes": []
+  },
+  "l-root": {
+    "attributes": [],
+    "description": "默认布局的根节点。"
   },
   "l-side-main": {
     "attributes": []

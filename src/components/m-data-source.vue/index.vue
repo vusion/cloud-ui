@@ -74,7 +74,9 @@ export default {
         },
     },
     watch: {
-        dataSource(dataSource) {
+        dataSource(dataSource, oldDataSource) {
+            if (typeof dataSource === 'function' && String(dataSource) === String(oldDataSource))
+                return;
             this.handleData();
         },
     },

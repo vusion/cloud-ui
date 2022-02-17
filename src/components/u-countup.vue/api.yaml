@@ -73,22 +73,26 @@
         - name: $event
           type: number
           description: 最新结束值
+          schema:
+            $ref: "#/basicTypes/Integer"
     - name: reset
       description: 重置
       params:
         - name: $event
           type: number
           description: 初始值
+          schema:
+            $ref: "#/basicTypes/Integer"
     - name: pauseResume
       description: 切换渐变
   methods:
-    - name: update(value)
+    - name: update
       description: 更新渐变结束值
       params:
         - name: value
           type: number
           description: 最新结束值
-    - name: reset()
+    - name: reset
       description: 重置
-    - name: pauseResume()
+    - name: pauseResume
       description: 切换渐变

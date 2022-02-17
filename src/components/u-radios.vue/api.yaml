@@ -1,8 +1,9 @@
 - name: u-radios
   title: 单选组
   labels:
-    - 表单控件
-    - 块级展示
+    - Form
+  icon: radios
+  description: 多项中选择一个时使用
   attrs:
     - name: value
       title: 值
@@ -23,11 +24,22 @@
   slots:
     - name: default
       description: 插入`<u-radio>`子组件。
+      empty-background: add-sub
+      support:
+        - name: u-radio
+          title: 单选项
+          snippet: <u-radio title="步骤 N"></u-radio>
   events:
     - name: before-select
       title: 选择前
       description: 选择某一项前触发
+      advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选择项的值
@@ -50,6 +62,8 @@
         - name: $event
           type: any
           description: 选择项的值
+          schema:
+            $ref: "#/basicTypes/String"
         - name: senderVM
           type: URadios
           description: 发送事件实例
@@ -73,6 +87,11 @@
       title: 改变后
       description: 选择值改变时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选择项的值
@@ -89,11 +108,17 @@
           type: URadios
           description: 发送事件实例
 - name: u-radio
+  title: 单选项
+  is-sub: true
   attrs:
+    - name: text
+      title: 文本
+      type: string
+      description: 文本内容
     - name: label
-      title: 标签
+      title: 选项值
       type: any
-      description: 单选框标签。用于关联单选组的值
+      description: 单选框选项值。
     - name: readonly
       title: 只读
       type: boolean
@@ -105,17 +130,21 @@
       default: false
       description: 禁用此项
     - name: autofocus
+      title: 自动获取焦点
       type: boolean
       default: false
       description: 自动获取焦点
-  slots:
-    - name: default
-      description: 插入文本或 HTML。
   events:
     - name: before-select
       title: 选择前
       description: 选择此项前触发
+      advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.label
           type: any
           description: 此项的标签
@@ -128,3 +157,5 @@
         - name: senderVM
           type: URadio
           description: 发送事件实例
+  description: 单选项
+  

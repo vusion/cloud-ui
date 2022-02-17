@@ -1,8 +1,8 @@
 - name: u-tabs
+  icon: tabs
   title: 选项卡
   labels:
-    - 路由链接
-    - 块级展示
+    - Selector
   description: 选项卡切换组件，常用于平级区域大块内容的收纳和展现。
   attrs:
     - name: router
@@ -10,8 +10,9 @@
       type: boolean
       default: false
       description: 是否根据 vue-router 来控制选择哪个标签页。
+      advanced: true
     - name: value
-      title: 选择值
+      title: 值
       type: any
       sync: true
       model: true
@@ -31,49 +32,61 @@
       type: boolean
       default: false
       description: 是否可以关闭。
+      advanced: true
     - name: show-scroll-buttons
       title: 显示滚动按钮
-      type: enum | boolean
+      type: string
       options:
-        - never
-        - auto
-        - always
+        - value: auto
+          title: 有滚动的情况下显示
+        - value: always
+          title: 始终显示
+        - value: never
+          title: 始终不显示
       default: auto
-      description: 是否显示标签滚动左右箭头按钮。`'auto'`表示有滚动的情况下显示，`‘always'`表示始终显示，`'never'`表示始终不显示。
+      description: 是否显示标签滚动左右箭头按钮
+      advanced: true
     - name: appear
       title: 展示外观
-      type: enum
+      type: string
       options:
-        - square
-        - round
-        - card
-        - line
-        - text
-        - capsule
-      default: tab
+        - value: square
+          title: 方形卡片
+        - value: round
+          title: 圆角卡片
+        - value: line
+          title: 线条
+        - value: text
+          title: 文本
+        - value: capsule
+          title: 胶囊
+      default: square
       description: 标签展示的外观
     - name: size
       title: 标签尺寸
-      type: enum
+      type: string
       options:
-        - normal
-        - small
-        - mini
+        - value: normal
+          title: 正常
+        - value: small
+          title: 小
+        - value: mini
+          title: 迷你
       default: normal
       description: 标签尺寸
   slots:
     - name: default
       title: 默认
       description: 插入`<u-tab>`子组件。
-      accept-type: recommanded
-      recommanded:
+      empty-background: add-sub
+      support:
         - name: u-tab
-          title: 选项
-          snippet: <u-tab title="标签页"></u-tab>
+          title: 子选项
+          snippet: <u-tab title="标签页">内容</u-tab>
     - name: extra
       title: 右侧附加
       description: 在标签右侧可以附加的组件。
-      accept-type: all
+      advanced: true
   events:
     - name: click
       title: 点击后
@@ -96,7 +109,13 @@
     - name: before-select
       title: 选择前
       description: 选择某一页前触发
+      advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选中标签页的值
@@ -117,8 +136,13 @@
           description: 发送事件实例
     - name: select
       title: 选择后
-      description: 选择某一页后触发
+      description: 选择某一项后触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选中标签页的值
@@ -137,7 +161,13 @@
     - name: before-close
       title: 关闭前
       description: 关闭某一页前触发
+      advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 待关闭标签页的值
@@ -157,6 +187,11 @@
       title: 关闭后
       description: 关闭某一页后触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 关闭的标签页的值
@@ -174,6 +209,8 @@
           description: 发送事件实例
 - name: u-tab
   title: 标签页
+  control: button
+  is-sub: true
   attrs:
     - name: title
       title: 标题
@@ -188,47 +225,81 @@
       type: boolean
       default: false
       description: 是否禁用此标签页。
+    - name: linkType
+      title: 链接类型
+      type: string
+      options:
+        - value: destination
+          title: 页面跳转
+        - value: href
+          title: 普通链接
+        - value: download
+          title: 下载链接
+      default: href
+      description: 链接类型
+      advanced: true
+      compType: linkTypeSelect
     - name: href
       title: 链接
       type: string
       description: 链接地址
+      advanced: true
+    - name: hrefAndTo
+      title: 链接
+      type: string
+      description: 链接地址
+      advanced: true
+      compType: linkHrefInput
     - name: target
       title: 打开方式
-      type: enum
+      type: string
       options:
-        - name: 新标签页 (_blank)
-          value: _blank
-        - name: 当前窗口 (_self)
-          value: _self
-        - name: 父级窗口 (_parent)
-          value: _parent
-        - name: 顶级窗口 (_top)
-          value: _top
-      description: （原生属性）。比如设置`_blank`，会在新标签页中打开。
+        - value: _blank
+          title: 新标签页
+        - value: _self
+          title: 当前窗口
+        - value: _parent
+          title: 父级窗口
+          advanced: true
+        - value: _top
+          title: 顶级窗口
+          advanced: true
+      default: _blank
+      description: 打开方式
+      advanced: true
     - name: to
       title: 路由链接
       type: string, Location
       description: 需要 router 为 true，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
+      advanced: true
     - name: replace
+      title: 替换
       type: boolean
       default: false
       description: 需要 router 为
         true，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history
         `记录。
+      advanced: true
     - name: append
+      title: 追加路径
       type: boolean
       default: false
       description: 需要 router 为
         true，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。
+      advanced: true
     - name: exact
       title: 精确匹配
       type: boolean
       default: false
       description: 需要 router 为 true，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
+      advanced: true
   slots:
     - name: default
       title: 默认
-      description: 插入文本或 HTML。
+      plus-empty: true
+      description: 该 tab 下的内容
+      empty-background: add-any
     - name: title
-      title: 标题自定义
-      description: 自定义标题文本。
+      title: 标题
+      description: 自定义标题
+  description: 标签页

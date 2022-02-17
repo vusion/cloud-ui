@@ -14,8 +14,25 @@
     - [Props/Attrs](#propsattrs-2)
     - [Slots](#slots-2)
 
+**Display**
+
+动态播放内部内容
+
 ## 示例
 ### 基本用法
+
+``` html
+<u-carousel>
+</u-carousel>
+```
+
+
+``` html
+<u-carousel>
+     <u-carousel-item></u-carousel-item>
+     <u-carousel-item></u-carousel-item>
+</u-carousel>
+```
 
 ``` html
 <u-carousel>
@@ -84,8 +101,8 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | value.sync | any |  |  | 播放位置 |
 | autoplay | boolean |  | `true` | 是否自动播放 |
-| loop | boolean |  | `true` | 是否循环播放，即首尾连接 |
-| interval | number |  | `4000` | 幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换 |
+| loop | boolean |  | `true` | 是否循环播放 |
+| interval | number |  | `4000` | 单位：毫秒，幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换 |
 | direction | string |  | `'right'` | 幻灯片播放方向 |
 | animation | string |  |  | 幻灯片过渡动画 |
 
@@ -103,6 +120,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选中项的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.itemVM | UCarouselItem | 选中项实例 |
@@ -115,6 +133,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选中项的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.itemVM | UCarouselItem | 选中项实例 |

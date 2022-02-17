@@ -18,14 +18,18 @@
     - [Props/Attrs](#propsattrs-3)
     - [Slots](#slots-3)
 
+**Display**
+
+详情列表
+
 ## 示例
 ### 基本用法
 
 ``` html
-<u-info-list>
+<u-info-list labelSize="small">
     <u-info-list-group title="基本信息">
-        <u-info-list-item label="VPC名称">defaultVPC</u-info-list-item>
-        <u-info-list-item label="UUID">152f36a3cfff4572a3a35</u-info-list-item>
+        <u-info-list-item label="VPC名称" ellipsis>defaultVPC</u-info-list-item>
+        <u-info-list-item label="UUID" ellipsis>152f36a3cfff4572a3a35</u-info-list-item>
         <u-info-list-item label="网段">10.3.0.4/16</u-info-list-item>
         <u-info-list-item label="默认VPC">是</u-info-list-item>
         <u-info-list-item label="创建时间">2018-02-22</u-info-list-item>
@@ -167,8 +171,8 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| repeat | string,number |  | `3` | 整个详情列表的划分列数 |
-| label-size | enum | `'small'`<br/>`'normal'`<br/>`'large'`<br/>`'auto'` | `'auto'` | 详情列表所有项的标签大小。 |
+| repeat | number |  | `3` | 整个详情列表的划分列数 |
+| label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` | 详情列表所有项的标签大小。 |
 
 ### Slots
 
@@ -183,8 +187,8 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | label | string |  |  | 标签 |
 | span | string |  |  | 列跨越的格数 |
-| label-size | enum | `'small'`<br/>`'normal'`<br/>`'large'`<br/>`'auto'` | `'auto'` | 标签大小。 |
-| ellipsis | boolean |  | `false` | 是否换行，默认换行，值为`true`则开启不换行，超出部分显示为省略号 |
+| label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` | 标签大小。 |
+| ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
 
 ### Slots
 
@@ -202,8 +206,8 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | title | string |  |  | 标题 |
-| repeat | string,number |  | `3` | 当前组范围内的划分列数 |
-| label-size | enum | `'small'`<br/>`'normal'`<br/>`'large'`<br/>`'auto'` | `'auto'` | 当前组所有项的标签大小。 |
+| repeat | number |  |  | 当前组范围内的划分列数 |
+| label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` | 当前组所有项的标签大小。 |
 
 ### Slots
 

@@ -11,9 +11,19 @@
 - name: l-page-center
   attrs:
     - name: size
-      type: enum
+      type: string
       default: normal
-      options: [mini, small, normal, large, huge]
+      options:
+        - value: mini
+          title: 迷你
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+        - value: large
+          title: 大
+        - value: huge
+          title: 巨大
       description: 宽度大小。
   slots:
     - name: default

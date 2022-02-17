@@ -133,6 +133,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选中步骤的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.itemVM | UStep | 选中步骤实例 |
@@ -146,6 +147,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选中步骤的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.itemVM | UStep | 选中步骤实例 |

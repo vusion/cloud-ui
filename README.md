@@ -48,13 +48,41 @@ Vue.use(CloudUI); // 全局安装组件库中的组件、指令等
 
 构建用于物料体系的文档入口。
 
-### npm run deploy
+### npm run deploy:dev 发布联调环境 NOS
 
-将`public/`下的文档发布到 NOS
+将 `dist-theme/` 、 `screenshots` 和 `drawings` 下的文档发布到 NOS
+
+### npm run deploy:test 发布测试环境 NOS
+
+将 `dist-theme/` 、 `screenshots` 和 `drawings` 下的文档发布到 NOS
+
+### npm publish 发布正式 npm 包（线上环境）
+
+脚本会自动执行 deploy:online 等将 `dist-theme/` 、 `screenshots` 和 `drawings` 下的文档发布到 NOS
 
 ### npm run deploy:doc-entry
 
 将`dist-doc-entry/`下的文档入口发布到 NOS
+
+### upload single screenshot
+
+```sh
+yarn run build:docs
+node bin/screenshot u-button
+npm run deploy:screenshots u-button
+```
+
+### 设计图片
+
+存储在 drawings 里面
+
+## Publish
+
+```
+vusion publish
+```
+
+usage.json 在低代码平台上登记。
 
 ## Changelog
 
@@ -67,3 +95,7 @@ See [Contributing Guide](https://github.com/vusion/DOCUMENTATION/issues/8)
 ## License
 
 [MIT](LICENSE)
+
+## Test environment
+
+deploy:inlcap

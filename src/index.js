@@ -1,4 +1,5 @@
 import 'baseCSS';
+import 'themeCSS';
 export * from './components';
 export * from './layouts';
 export * from './assist';
@@ -10,3 +11,16 @@ export { directives, filters, utils };
 
 export { install } from '@vusion/utils';
 
+import Vue from 'vue';
+Vue.prototype.$env = Vue.prototype.$env || {};
+Vue.prototype.$env.VUE_APP_DESIGNER = String(process.env.VUE_APP_DESIGNER) === 'true';
+
+function getAsyncPublicPath () {
+    const script = document.querySelector('script[src*="cloud-ui.vusion"]');
+    if(!script) return;
+    
+    const src = script.src;
+    const publicPath = src.replace(/\/[^/]+$/, '/');
+    __webpack_public_path__ = publicPath;
+};
+getAsyncPublicPath();

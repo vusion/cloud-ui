@@ -317,10 +317,12 @@ export default {
         };
     },
     methods: {
-        submit() {
-            this.$refs.form.validate()
-                .then(() => this.$toast.show('验证通过，提交成功！'))
-                .catch(() => this.$toast.show('验证失败！'));
+        async submit() {
+            const result = await this.$refs.form.validate();
+            if (result.valid)
+                this.$toast.show('验证通过，提交成功！');
+            else
+                this.$toast.show('验证失败！');
         },
     },
 };

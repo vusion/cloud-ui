@@ -1,6 +1,35 @@
 - name: u-panel
   title: 面板
+  icon: panel
   labels:
-    - 块级展示
+    - Layout
   description: 用于快速布局
+  next: true
+  nested: false
+  slots:
+    - name: default
+      description: 插入`<u-panel-group>`子组件。
+      support:
+        - name: u-panel-group
+          advanced: true
+          title: 面板项
+          snippet: <u-panel-group title="概览">面板项</u-panel-group>
+  attrs:
+    - name: title
+      title: 标题
+      type: string
+      description: 面板项的标题
 - name: u-panel-group
+  advanced: true
+  title: 面板组
+  next: false
+  nexted: false
+  attrs:
+    - name: title
+      title: 标题
+      type: string
+      description: 面板项的标题
+  description: 面板组
+  slots: 
+    - name: default
+      description: 插入默认的元素

@@ -78,6 +78,9 @@ export default {
         );
     },
     methods: {
+        designerControl() {
+            this.toggle();
+        },
         toggle(expanded) {
             if (
                 this.disabled

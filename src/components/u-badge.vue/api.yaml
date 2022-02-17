@@ -1,8 +1,9 @@
 - name: u-badge
   title: 徽章
+  icon: badge
   description: 用于显示消息条数和提醒用户处理的角标。
   labels:
-    - 行内展示
+    - Display
   attrs:
     - name: value
       title: 值
@@ -22,6 +23,7 @@
       type: boolean
       default: false
       description: 是否显示为小圆点
+      advanced: true
   slots:
     - name: default
       description: 插入需要附加徽章的元素。

@@ -289,6 +289,6 @@
           type: FDroppable
           description: 发送事件实例
   methods:
-    - name: cancel()
+    - name: cancel
       description: 取消拖拽。
       params: []

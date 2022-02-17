@@ -1,31 +1,43 @@
 - name: u-time-picker
   title: 时间选择
+  icon: time-picker
+  description: 时间选择器
+  labels:
+    - Selector
   attrs:
     - name: time
       title: 值
       type: string
+      sync: true
+      model: true
       default: 00:00
       description: 当前的时间值
     - name: minUnit
       title: 最小单位
       type: string
+      options:
+        - value: second
+          title: 秒
+        - value: minute
+          title: 分
       default: second
-      description: 最小时间单位`'second'`或者是`'minute'`
+      description: 最小时间单位
     - name: minTime
       title: 最小时间
       type: string
-      default: 00:00
+      default: '00:00:00'
       description: 最小时间
     - name: maxTime
       title: 最大时间
       type: string
-      default: 23:59
+      default: '23:59:59'
       description: 最大时间
     - name: autofocus
       title: 自动聚焦
       type: boolean
       default: false
       description: 是否自动获得焦点
+      advanced: true
     - name: readonly
       title: 只读
       type: boolean
@@ -41,11 +53,17 @@
       type: boolean
       default: true
       description: 是否显示
+      hidden: true
   events:
     - name: change
       title: 改变后
       description: 时间改变时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/DateEvent"
         - name: time
           type: object
           description: 改变后的时间

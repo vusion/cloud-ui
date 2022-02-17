@@ -1,6 +1,11 @@
 {
   "year": " ",
   "month": " ",
+  "Q1": "One",
+  "Q2": "Two",
+  "Q3": "Three",
+  "Q4": "Four",
+  "quarter": "Q",
   "Sunday": "Sun",
   "Monday": "Mon",
   "Tuesday": "Tue",

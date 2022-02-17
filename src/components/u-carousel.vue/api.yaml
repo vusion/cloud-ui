@@ -1,43 +1,65 @@
 - name: u-carousel
   title: 幻灯片
+  icon: carousel
+  description: 动态播放内部内容
+  labels:
+    - Display
+  next: true
+  nexted: false
   attrs:
     - name: value
       title: 值
       type: any
       sync: true
       description: 播放位置
+      advanced: true
     - name: autoplay
       title: 自动播放
       type: boolean
       default: true
       description: 是否自动播放
+      advanced: true
     - name: loop
       title: 循环播放
       type: boolean
       default: true
-      description: 是否循环播放，即首尾连接
+      description: 是否循环播放
+      advanced: true
     - name: interval
       title: 切换时间
       type: number
       default: 4000
-      description: 幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换
+      description: 单位：毫秒，幻灯片切换时间，如果设置值小于动画时长，会在动画完成后切换
     - name: direction
       title: 播放方向
       type: string
       default: right
       description: 幻灯片播放方向
+      advanced: true
     - name: animation
       title: 过度动画
       type: string
       description: 幻灯片过渡动画
+      advanced: true
   slots:
     - name: default
       description: 插入`<u-carousel-item>`子组件。
+      empty-background: add-sub-large
+      support:
+        - name: u-carousel-item
+          title: 幻灯片子项
+          snippet: '<u-carousel-item><u-image style="width: 100%; height: 100%" src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg"></u-carousel-item>'
   events:
     - name: before-select
       title: 选择前
       description: 选择某一页前触发
+      advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选中项的值
@@ -56,7 +78,13 @@
     - name: select
       title: 选择后
       description: 选择某一页时触发
+      advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选中项的值
@@ -70,17 +98,25 @@
           type: UCarousel
           description: 发送事件实例
 - name: u-carousel-item
+  title: 幻灯片选项
+  next: false
+  nested: false
   attrs:
     - name: title
       title: 标题
       type: string
       description: 该项的标题
+      advanced: true
     - name: value
       title: 值
       type: any
       description: 该项的值
+      advanced: true
   slots:
     - name: default
       description: 插入文本或 HTML。
+      empty-background: image
     - name: title
       description: 自定义标题文本。
+      advanced: true
+  description: 幻灯片选项

@@ -1,48 +1,94 @@
 - name: u-form
   title: 表单
+  icon: form
   description: 具有数据收集、校验和提交功能的表单，包含输入框、选择框、复选框、单选框等元素。
   labels:
-    - 表单验证器
-    - 块级展示
+    - Form
+  next: true
+  nested: false
   attrs:
     - name: model
       title: 数据模型
       type: object
       description: 表单数据模型
+      advanced: true
     - name: rules
       title: 验证规则
       type: object
       description: 表单所有域的验证规则，已废弃，推荐在各`<u-form-item>`中自行添加 rules。
+      advanced: true
       deprecated: true
+      compType: validationRulesSelect
     - name: layout
       title: 表单布局
-      type: enum
+      type: string
       options:
-        - block
-        - inline
+        - value: inline
+          title: 行内展示
+        - value: block
+          title: 块级展示，宽度会充满父元素
       default: block
-      description: 表单布局方式。可选值：`block`、`inline`。
+      description: 表单布局方式
     - name: gap
       title: 间隔
-      type: enum
+      type: string
       options:
-        - none
-        - small
-        - normal
-        - large
+        - value: none
+          title: 无
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+        - value: large
+          title: 大
       default: normal
-      description: "表单项之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。可选值: `'none'`, `'small'`,
-        `'normal'`, `'large'`"
+      description: 表单项之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。
+      multi: true
+      maxSelect: 2
     - name: label-size
       title: 标签宽度
-      type: enum
+      type: string
       options:
-        - mini
-        - small
-        - normal
-        - large
+        - value: mini
+          title: 迷你
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+        - value: large
+          title: 大
       default: normal
-      description: 标签宽度。可选值：`mini`、`small`、`normal`、`large`。
+      description: 标签宽度。
+    - name: size
+      title: 表单尺寸
+      type: string
+      options:
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+      default: normal
+      description: 表单尺寸，表单组间隙等
+    - name: collapsible
+      title: 是否可折叠
+      type: boolean
+      default: false
+      description: 分组是否可以折叠
+    - name: accordion
+      title: 手风琴模式
+      type: boolean
+      default: false
+      description: 是否每次只会展开一个分组
+    - name: expand-trigger
+      title: 展开触发方式
+      type: string
+      options:
+        - value: click
+          title: 整行点击均可触发
+        - value: click-expander
+          title: 仅点击小箭头时触发
+      default: click
+      description: 展开/折叠的触发方式
   computed:
     - name: touched
       title: 触碰
@@ -67,8 +113,12 @@
   slots:
     - name: default
       description: 插入`<u-form-item>`子组件。
-      accept-type: recommanded
-      recommanded:
+      empty-background: add-sub-large
+      support:
+        - name: u-form-group
+          title: 表单分组
+          snippet: <u-form-group title="分组"><u-form-item
+            label="表单项"></u-form-item></u-form-group>
         - name: u-form-item
           title: 表单项
           snippet: <u-form-item label="表单项"></u-form-item>
@@ -77,8 +127,13 @@
       title: 验证后
       description: 验证时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ValidateEvent"
         - name: $event.trigger
-          type: enum
+          type: string
           description: 本次验证的触发方式
         - name: $event.valid
           type: boolean
@@ -96,7 +151,7 @@
           type: UValidator
           description: 发送事件实例
   methods:
-    - name: validate(trigger, muted)
+    - name: validate
       description: 手动验证。
       params:
         - name: trigger
@@ -107,7 +162,7 @@
           type: boolean
           default: false
           description: 是否验证后无提示
-    - name: validateItem(name, trigger, slient)
+    - name: validateItem
       description: 验证表单中的某一项，已废弃。表单中的项是嵌套的，用 name 层级较深，而且可能有重名。
       params:
         - name: name
@@ -124,12 +179,15 @@
           description: 是否验证后无提示
 - name: u-form-item
   title: 表单项
+  next: false
+  nested: false
   attrs:
     - name: name
       title: 字段名称
       type: string
       default: null
       description: 表单项名称。已废弃
+      advanced: true
       deprecated: true
     - name: label
       title: 标签名
@@ -137,23 +195,32 @@
       description: 标签名。用于左侧显示，同时用于提示消息的合成。
     - name: label-size
       title: 标签大小
-      type: enum
+      type: string
       options:
-        - mini
-        - small
-        - normal
-        - large
+        - value: mini
+          title: 迷你
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+        - value: large
+          title: 大
       default: normal
       description: 单独设置表单项的标签大小。
     - name: field-size
       title: 字段大小
-      type: enum
+      type: string
       options:
-        - mini
-        - small
-        - normal
-        - large
-      description: 单独设置表单项的内容大小。可选值：`'full'`
+        - value: mini
+          title: 迷你
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+        - value: large
+          title: 大
+      default: normal
+      description: 单独设置表单项的内容大小
     - name: required
       title: 必填标记
       type: boolean
@@ -165,37 +232,46 @@
       description: 默认提示消息
     - name: muted
       title: 验证是否静默
-      type: enum
+      type: string
       options:
-        - none
-        - message
-        - all
+        - value: message
+          title: 只静默消息提示
+        - value: all
+          title: 同时静默消息提示和红框提示
+        - value: none
+          title: 不作处理
       default: none
-      description: 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示
+      description: 验证是否静默
+      advanced: true
     - name: description
       title: 描述内容
       type: string
       description: 添加描述内容
     - name: placement
       title: 提示信息位置
-      type: enum
+      type: string
       options:
-        - right
-        - bottom
+        - value: right
+          title: 提示信息在右侧显示
+        - value: bottom
+          title: 提示信息在底部显示
       default: right
-      description: 值为`'bottom'`时提示信息在底部显示，改变提示信息显示位置
+      description: 改变提示信息显示位置
     - name: layout
       title: 布局方式
-      type: enum
+      type: string
       options:
-        - block
-        - inline
+        - value: inline
+          title: 行内
+        - value: block
+          title: 块级
       default: inline
       description: 布局方式。
     - name: rules
       title: 验证规则
       type: string | Array
       description: 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型
+      compType: validationRulesSelect
     - name: ignore-validation
       title: 忽略验证
       type: boolean
@@ -206,36 +282,42 @@
       type: boolean
       default: false
       description: 忽略验证规则。已废弃，同`ignore-validation`
+      advanced: true
       deprecated: true
     - name: validating-options
       title: 验证辅助对象
       type: object
       description: 验证辅助对象。在 Rule 的 `validate` 方法中使用
+      advanced: true
     - name: validating-value
       title: 修改验证值
       type: any
       description: 临时修改验证值
+      advanced: true
     - name: validating-process
       title: 验证前预处理
       type: Function
       description: 验证前对值进行预处理
+      advanced: true
   slots:
     - name: default
       title: 默认
       description: 插入文本或 HTML。
-      recommanded:
-        - name: u-input
-          title: 单行输入框
-          snippet: <u-input></u-input>
     - name: label
       title: 标签自定义
       description: 插入自定义标签，代替`label`属性。
+      advanced: true
+      quick-add: never
     - name: description
       title: 描述自定义
       description: 插入自定义描述内容，代替`description`属性。
+      advanced: true
+      quick-add: never
     - name: extra
       title: 附加内容
       description: 自定义标签右侧额外内容。
+      advanced: true
+      quick-add: never
   events:
     - name: validate
       title: 验证后
@@ -257,7 +339,7 @@
           type: UValidator
           description: 发送事件实例
   methods:
-    - name: validate(trigger, muted)
+    - name: validate
       description: 验证此表单项。
       params:
         - name: trigger
@@ -268,3 +350,83 @@
           type: boolean
           default: false
           description: 是否验证后无提示
+  description: 表单项
+- name: u-form-group
+  title: 表单分组
+  next: false
+  nested: false
+  attrs:
+    - name: title
+      title: 标题
+      type: string
+      default: null
+      description: 显示的标题
+    - name: collapsible
+      title: 是否可折叠
+      type: boolean
+      default: false
+      description: 分组是否可以折叠
+    - name: expanded
+      title: 展开折叠状态
+      type: boolean
+      sync: true
+      default: false
+      description: 展开/折叠状态
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 是否禁用。禁用时无法展开/折叠
+  slots:
+    - name: default
+      description: 插入`<u-form-item>`或`<u-form-divider>`子组件。
+      support:
+        - name: u-form-item
+          title: 导航项
+          snippet: <u-form-item>导航项</u-form-item>
+    - name: title
+      description: 自定义标题文本。
+    - name: extra
+      description: 在右侧可以附加内容。
+  events:
+    - name: before-toggle
+      title: 展开折叠前
+      description: 展开/折叠此分组前触发
+      advanced: true
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/CollapseEvent"
+        - name: $event.expanded
+          type: boolean
+          description: 展开/折叠状态
+        - name: $event.groupVM
+          type: UFormGroup
+          description: 分组组件
+        - name: $event.preventDefault
+          type: Function
+          description: 阻止展开/折叠流程
+        - name: senderVM
+          type: Vue
+          description: 发送事件实例
+    - name: toggle
+      title: 展开折叠后
+      description: 展开/折叠某分组时触发
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/CollapseEvent"
+        - name: $event.expanded
+          type: boolean
+          description: 展开/折叠状态
+        - name: $event.groupVM
+          type: UFormGroup
+          description: 分组组件
+        - name: senderVM
+          type: Vue
+          description: 发送事件实例
+  description: 展开折叠前

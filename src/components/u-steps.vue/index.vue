@@ -3,8 +3,14 @@
     <nav :class="$style.head">
         <a :class="$style.item"
             v-for="(itemVM, index) in itemVMs"
+            ref="item"
+            allowChild
             :vusion-scope-id="itemVM.$vnode.context.$options._scopeId"
             :vusion-node-path="itemVM.$attrs['vusion-node-path']"
+            :vusion-node-tag="itemVM.$attrs['vusion-node-tag']"
+            :vusion-disabled-move="itemVM.$attrs['vusion-disabled-move']"
+            :vusion-disabled-duplicate="itemVM.$attrs['vusion-disabled-duplicate']"
+            :vusion-disabled-cut="itemVM.$attrs['vusion-disabled-cut']"
             :passed="selectedVM && index <= selectedVM.index"
             :selected="selectedVM && index === selectedVM.index"
             :disabled="itemVM.disabled || disabled"
@@ -56,10 +62,12 @@ export default {
                 const value = this.selectedVM ? this.selectedVM.index : this.value;
                 this.selectedVM = undefined;
                 this.watchValue(value);
-                this.$refs.item
+                this.$nextTick(() => {
+                    this.$refs.item
                     && this.$refs.item.forEach((itemEl, index) => {
                         itemEl.__vue__ = itemVMs[index];
                     });
+                });
             },
         },
     },

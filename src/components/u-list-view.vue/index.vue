@@ -6,7 +6,7 @@
     <div v-show="showHead" :class="$style.head">
         <slot name="head">
             <u-checkbox v-if="multiple" :value="allChecked" @check="checkAll($event.value)"></u-checkbox>
-            <span :class="$style.title">{{ title }}</span>
+            <span :class="$style.title" vusion-slot-name="title">{{ title }}</span>
             <div :class="$style.extra">
                 <span v-if="multiple">{{ selectedVMs.length }}{{ currentDataSource && currentDataSource.originTotal !== Infinity ? ' / ' + currentDataSource.originTotal : '' }}</span>
             </div>
@@ -26,7 +26,7 @@
                 :value="$at(item, valueField)"
                 :disabled="item.disabled || disabled"
                 :item="item">
-                <slot name="item" :item="item" :text="$at(item, field || textField)" :value="$at(item, valueField)" :disabled="item.disabled || disabled">{{ $at(item, field || textField) }}</slot>
+                <slot name="item" :item="item" :text="$at(item, field || textField)" :value="$at(item, valueField)" :disabled="item.disabled || disabled" vusion-slot-name="item">{{ $at(item, field || textField) }}<s-empty v-if="(!$slots.item) && $env.VUE_APP_DESIGNER"></s-empty></slot>
             </component>
         </div>
         <div :class="$style.status" status="loading" v-if="currentLoading">
@@ -45,7 +45,7 @@
             <slot name="empty">{{ emptyText }}</slot>
         </div>
     </div>
-    <div v-show="showFoot || pageable === true || pageable === 'pagination'" :class="$style.foot">
+    <div v-show="showFoot && (pageable === true || pageable === 'pagination')" :class="$style.foot">
         <slot name="foot"></slot>
         <u-pagination :class="$style.pagination" v-if="pageable === true || pageable === 'pagination'"
             :total-items="currentDataSource.total" :page="currentDataSource.paging.number"
@@ -66,11 +66,15 @@ import DataSource from '../../utils/DataSource';
 import debounce from 'lodash/debounce';
 import i18n from './i18n';
 import { findScrollParent } from '../../utils/dom';
+import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-list-view',
     groupName: 'u-list-view-group',
     childName: 'u-list-view-item',
+    components: {
+        SEmpty,
+    },
     mixins: [MComplex, MGroupParent, MField, FVirtualList],
     i18n,
     props: {
@@ -91,7 +95,7 @@ export default {
         // @inherit: disabled: { type: Boolean, default: false },
         showHead: { type: Boolean, default: false },
         title: { type: String, default: '列表' },
-        showFoot: { type: Boolean, default: false },
+        showFoot: { type: Boolean, default: true },
         border: { type: Boolean, default: true },
         loading: { type: Boolean, default: false },
         loadingText: {
@@ -197,7 +201,9 @@ export default {
         data(data) {
             this.handleData();
         },
-        dataSource(dataSource) {
+        dataSource(dataSource, oldDataSource) {
+            if (typeof dataSource === 'function' && String(dataSource) === String(oldDataSource))
+                return;
             this.handleData();
         },
         loading(loading) {
@@ -429,7 +435,23 @@ export default {
         },
         reload() {
             this.currentDataSource.clearLocalData();
-            this.load();
+            const paging = {
+                size: this.currentDataSource.paging.size,
+                oldSize: this.currentDataSource.paging.size,
+                number: 1,
+                oldNumber: this.currentDataSource.paging.number,
+            };
+            // eslint-disable-next-line no-console
+            console.log(JSON.stringify(paging));
+            try {
+                this.currentDataSource.page(paging);
+                this.load();
+                this.$emit('page', paging, this);
+                this.$emit('update:page-number', 1, this);
+            } catch (error) {
+                // eslint-disable-next-line no-console
+                console.log(error);
+            }
         },
         page(number, size) {
             if (size === undefined)

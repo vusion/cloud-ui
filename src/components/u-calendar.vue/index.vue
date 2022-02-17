@@ -1,17 +1,17 @@
 <template>
 <div :class="$style.root" :disabled="disabled">
-    <div :class="$style.head">
+    <div :class="$style.head" v-if="picker === 'date' || picker === 'week' || picker === 'time'">
         <div :class="$style.year">
-            <span :class="$style.textYear">{{ showYear }}{{ $t('year') }}</span>
+            <span :class="$style.textYear" >{{ showYear }}{{ $t('year') }}</span>
             <m-popper trigger="click" :opened.sync="yearvisible" append-to="reference">
                 <div :class="$style.yearList" @click.stop>
-                    <u-list-view :class="$style.yearListInner" ref="yearList" :value="showYear" @select="yearSelect($event.value)">
+                    <u-list-view :class="$style.yearListInner" ref="yearList" :value="showYear" @select="yearSelect($event)">
                         <u-list-view-item :class="$style.yearitem" v-for="(year, index) in yearCol" :key="index" :value="year.value" :disabled="year.disabled">{{ year.value }}{{ $t('year') }}</u-list-view-item>
                     </u-list-view>
                 </div>
             </m-popper>
         </div>
-        <div :class="$style.month">
+        <div v-if="picker === 'date' || picker === 'week' || picker === 'time'" :class="$style.month">
             <span :class="$style.textMonth">{{ monthTextList[showMonth - 1] }}{{ $t('month') }}</span>
             <m-popper trigger="click" placement="bottom-end" :opened.sync="monthvisible" append-to="reference">
                 <ul :class="$style.monthList">
@@ -20,9 +20,43 @@
             </m-popper>
         </div>
     </div>
-    <div :class="$style.content">
+    <div :class="$style.headCenter" v-if="(picker === 'month' || picker === 'quarter') && currentMode === ''">
+        <a :class="$style.icon" role="prev" :disabled="!this.getYearPrev()" @click="handleYearPrev()"></a>
+        <div :class="$style.yearCenter">
+            <span @click="handlerMode" >{{ showYear }}{{ $t('year') }}</span>
+        </div>
+        <a :class="$style.icon" role="next" :disabled="!this.getYearNext()" @click="handleYearNext()"></a>
+    </div>
+    <div v-if="picker === 'year' || currentMode === 'year'" :class="$style.content" type="year">
+        <year-page
+            :date="showDate"
+            :minDate="minDate"
+            :maxDate="maxDate" 
+            :yearDiff="yearDiff"
+            :yearAdd="yearAdd"
+            @ok="handlerOk" 
+            :showYear="showYear" 
+            :picker="picker"
+            :pageSize="yearPageSize" 
+            @select="yearSelect($event)"
+        >
+        </year-page>
+    </div>
+     <div v-if="currentMode === ''">
+        <div v-if="picker === 'quarter'" :class="$style.content" type="quarter">
+                <ul :class="$style.quarterBox">
+                    <li :class="$style.quarterItem" v-for="(quarter, mindex) in quarterCol" :role="quarter.value === showMonth" :disabled="quarter.disabled" @click.stop="monthSelect(quarter, mindex)">{{ $t('quarter') }}{{ quarterTextList[quarter.flag - 1] }}</li>
+                </ul>
+            </div>
+        <div v-if="picker === 'month'" :class="$style.content" type="month">
+                <ul :class="$style.monthBox">
+                    <li :class="$style.boxItem" v-for="(month, mindex) in monthCol" :role="month.value === showMonth" :disabled="month.disabled" @click.stop="monthSelect(month, mindex)">{{ monthTextList[month.value - 1] }}{{ $t('month') }}</li>
+                </ul>
+            </div>
+    </div>
+    <div :class="$style.content" v-if="picker === 'date' || picker === 'week' || picker === 'time'">
         <div :class="$style.week"><span :class="$style.dayitem" role="week">{{ $t('Sunday') }}</span><span :class="$style.dayitem">{{ $t('Monday') }}</span><span :class="$style.dayitem">{{ $t('Tuesday') }}</span><span :class="$style.dayitem">{{ $t('Wednesday') }}</span><span :class="$style.dayitem">{{ $t('Thursday') }}</span><span :class="$style.dayitem">{{ $t('Friday') }}</span><span :class="$style.dayitem" role="week">{{ $t('Saturday') }}</span></div>
-        <div :class="$style.day"><span v-for="day in days_" :class="$style.item" :sel="selectedDate.toDateString() === day.toDateString() ? 'sel' : ''" :disabled="!!isOutOfRange(day)" :role="showDate.getMonth() !== day.getMonth() ? 'muted': ''" @click.stop="select(day)">{{ day | format('dd') }}</span></div>
+        <div :class="$style.day"><span v-for="day in days_" :class="$style.item" :sel="getSel(day) ? 'sel' : ''" :disabled="!!isOutOfRange(day)" :role="showDate.getMonth() !== day.getMonth() ? 'muted': ''" @click.stop="select(day)">{{ day | format('dd') }}</span></div>
         <slot></slot>
     </div>
 </div>
@@ -31,7 +65,8 @@
 <script>
 const MS_OF_DAY = 24 * 3600 * 1000;
 import i18n from './i18n';
-import { format, transformDate } from '../../utils/date';
+import { format, transformDate, ChangeDate } from '../../utils/date';
+import YearPage from './yearpage';
 
 const DateRangeError = function (minDate, maxDate) {
     this.name = 'DateRangeError';
@@ -49,6 +84,9 @@ export default {
     name: 'u-calendar',
     i18n,
     filters: { format },
+    components: {
+        YearPage,
+    },
     props: {
         date: {
             type: [String, Number, Date],
@@ -56,23 +94,36 @@ export default {
                 return new Date();
             },
         },
+        /* week, month, year, quarter */
+        picker: { type: String, default: 'date' },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         minDate: [String, Date, Number],
         maxDate: [String, Date, Number],
-        yearDiff: { type: [String, Number], default: 3 },
-        yearAdd: { type: [String, Number], default: 1 },
+        yearDiff: { type: [String, Number], default: 20 },
+        yearAdd: { type: [String, Number], default: 4 },
+        yearPageSize: { type: Number, default: 12 },
     },
     data() {
+        const date = this.transformDate(this.date);
+        const yearmin = date.getFullYear() - this.yearDiff;
+        const yearmax = date.getFullYear() + parseInt(this.yearAdd);
+
         return {
+            /* 目前主要用于 month 和 quarter 切换到 年份选择面板到控制 */
+            currentMode: '',
+            yearmin,
+            yearmax,
             days_: [],
             showDate: this.date,
             updateFlag: false,
             monthCol: this.getMonthCol(),
             yearCol: this.getYearCol(),
+            quarterCol: this.getQuarterCol(),
             yearvisible: false,
             monthvisible: false,
             selectedDate: new Date(this.transformDate(this.date)),
+            quarterTextList: [this.$t('Q1'), this.$t('Q2'), this.$t('Q3'), this.$t('Q4')],
             monthTextList: [
                 this.$t('January'),
                 this.$t('February'),
@@ -161,19 +212,93 @@ export default {
         minDate(newValue, oldValue) {
             this.monthCol = this.getMonthCol();
             this.yearCol = this.getYearCol();
+            this.quarterCol = this.getQuarterCol();
         },
         maxDate(newValue, oldValue) {
             this.monthCol = this.getMonthCol();
             this.yearCol = this.getYearCol();
+            this.quarterCol = this.getQuarterCol();
         }, // 年份发生变化需要监听 在设置最小值和最大值的情况 会影响月份的选择
         showYear(newValue) {
             this.monthCol = this.getMonthCol(newValue + '');
-        }, // 月份发生变化需要监听 会影响日的选择
+            this.quarterCol = this.getQuarterCol(newValue + '');
+        }, 
     },
     created() {
         this.update();
     },
     methods: {
+        getYearPrev() {
+            return this.showYear > this.yearmin;
+        },
+        getYearNext() {
+            return this.showYear < this.yearmax;
+        },
+        handleYearPrev() {
+            let minDate = null;
+           
+            if (this.minDate) {
+                minDate = this.transformDate(this.minDate).getFullYear();
+                if (minDate >= this.showYear) {
+                    return;
+                }
+            }
+
+            this.showYear = this.showYear - 1;
+            // 设置为最早的时间
+            const date = this.showDate;
+            date.setMonth(0);
+            date.setDate(1);
+            date.setHours(0, 0, 0, 0);
+            this.selectedDate = date;
+        },
+        handleYearNext() {
+            let maxDate = null;
+            if (this.maxDate) {
+                maxDate = this.transformDate(this.maxDate).getFullYear();
+                if (maxDate <= this.showYear) {
+                    return;
+                }
+            }
+            
+            this.showYear = this.showYear + 1;
+            // 设置为最早的时间
+            const date = this.showDate;
+            date.setMonth(0);
+            date.setDate(1);
+            date.setHours(0, 0, 0, 0);
+            this.selectedDate = date;
+        },
+        handlerMode() {
+            // 切换到年份选择模式
+           this.currentMode = 'year';
+        },
+        handlerOk({ start, limit }) {
+            this.currentYearList = this.getYearCol().splice(start, limit);
+        }, 
+        getSel(day) {
+            // 日选择
+            if (this.picker === 'date') {
+                return this.selectedDate.toDateString() === day.toDateString();
+            }
+            // 周选择，当前所在周都为高亮，并且 this.day 记录为这周的第一天
+            if (this.picker === 'week') {
+                let weekDiff = this.selectedDate.getDay() -1;
+                // 选择的当前周的第一天
+                const tmpTime = this.selectedDate - weekDiff * MS_OF_DAY;
+                const tmp = new Date(tmpTime);
+                const thisWeek = [
+                    tmp.toDateString(), 
+                    new Date(tmpTime + 1 * MS_OF_DAY).toDateString(),
+                    new Date(tmpTime + 2 * MS_OF_DAY).toDateString(),
+                    new Date(tmpTime + 3 * MS_OF_DAY).toDateString(),
+                    new Date(tmpTime + 4 * MS_OF_DAY).toDateString(),
+                    new Date(tmpTime + 5 * MS_OF_DAY).toDateString(),
+                    new Date(tmpTime + 6 * MS_OF_DAY).toDateString(),
+                ];
+                return thisWeek.includes(day.toDateString());
+            }
+        },
         updateShowDate(newValue) {
             const newDate = this.transformDate(newValue);
             if (newDate - 0 !== this.showDate - 0) {
@@ -181,24 +306,74 @@ export default {
                 this.updateFlag = true;
             }
         },
-        yearSelect(value) {
+        yearSelect({ value }) {
             this.showYear = value;
             this.yearvisible = false;
+            // 设置为最早的时间
+            const date = this.showDate;
+            date.setMonth(0);
+            date.setDate(1);
+            date.setHours(0, 0, 0, 0);
+            this.selectedDate = date;
+            if (this.currentMode === 'year') {
+                // 选择年份后模式设置为普通模式
+                this.currentMode = '';
+            }
+            this.$emit('select', { sender: this, date });
         },
-        monthSelect(month) {
+        monthSelect(month, flag) {
             if (!month.disabled) {
                 this.showMonth = month.value;
                 this.monthvisible = false;
             }
+
+            if (this.picker === 'month' || this.picker === 'quarter') {
+                const date = this.showDate;
+                date.setDate(1);
+                date.setHours(0, 0, 0, 0);
+                this.selectedDate = date;
+                this.$emit('select', { sender: this, date, flag });
+            }
+        },
+        getQuarterCol(value) {
+            const date = this.transformDate(value || this.date);
+            let minDate = null;
+            let maxDate = null;
+            if (this.minDate) {
+                minDate = ChangeDate(this.transformDate(this.minDate), this.picker, 'min');
+                minDate = new Date(minDate).getTime();
+            }
+            if (this.maxDate) {
+                maxDate = ChangeDate(this.transformDate(this.maxDate), this.picker, 'min');
+                maxDate = new Date(maxDate).getTime();
+            }
+            // 根据选择面板的当前年份，确认季度列表的样式
+            const currentYear = date.getFullYear();
+            const quartercol = []; 
+            for (let i = 1; i <= 4; i++) {
+                // 季度是间隔三个月
+                const currentMonth = (i - 1) * 3 + 1;
+                const obj = { flag: i, value: currentMonth }; // 标记季度间隔
+                const dateFormat = currentYear + '/' + currentMonth;
+                const dateTime = new Date(dateFormat).getTime();
+                if ((minDate && dateTime < minDate) || (maxDate && dateTime > maxDate)) {
+                    obj.disabled = true;
+                } else {
+                    obj.disabled = false;
+                }
+                    
+                quartercol.push(obj);
+            }
+            return quartercol;
         },
         getYearCol() {
             const date = this.transformDate(this.date);
             let minDate = null;
             let maxDate = null;
             if (this.minDate)
-                minDate = this.transformDate(this.minDate).getFullYear();
+                minDate = ChangeDate(this.transformDate(this.minDate).getFullYear(), this.picker);
             if (this.maxDate)
-                maxDate = this.transformDate(this.maxDate).getFullYear();
+                maxDate = ChangeDate(this.transformDate(this.maxDate).getFullYear(), this.picker);
             const currentYear = date.getFullYear();
             const yearcol = [];
             const yearmin = currentYear - this.yearDiff;
@@ -219,20 +394,33 @@ export default {
             const date = this.transformDate(value || this.date);
             let minDate = null;
             let maxDate = null;
-            if (this.minDate) {
-                minDate = this.transformDate(this.minDate);
-                const minYear = minDate.getFullYear();
-                const minMonth = minDate.getMonth();
-                const minFormat = minYear + '/' + (minMonth + 1);
-                minDate = new Date(minFormat).getTime();
-            }
-            if (this.maxDate) {
-                maxDate = this.transformDate(this.maxDate);
-                const maxYear = maxDate.getFullYear();
-                const maxMonth = maxDate.getMonth();
-                const maxFormat = maxYear + '/' + (maxMonth + 1);
-                maxDate = new Date(maxFormat).getTime();
-            }
+            if (this.picker === 'month') {
+                // 如果是月份的话，不需要放开有部分超过限制时间的月份
+                if (this.minDate) {
+                    minDate = ChangeDate(this.transformDate(this.minDate), this.picker);
+                    minDate = new Date(minDate).getTime();
+                }
+                if (this.maxDate) {
+                    maxDate = ChangeDate(this.transformDate(this.maxDate), this.picker);
+                    maxDate = new Date(maxDate).getTime();
+                }
+            } else {
+                if (this.minDate) {
+                    minDate = this.transformDate(this.minDate);
+                    const minYear = minDate.getFullYear();
+                    const minMonth = minDate.getMonth();
+                    const minFormat = minYear + '/' + (minMonth + 1);
+                    minDate = new Date(minFormat).getTime();
+                }
+                if (this.maxDate) {
+                    maxDate = this.transformDate(this.maxDate);
+                    const maxYear = maxDate.getFullYear();
+                    const maxMonth = maxDate.getMonth();
+                    const maxFormat = maxYear + '/' + (maxMonth + 1);
+                    maxDate = new Date(maxFormat).getTime();
+                }
+            } 
+
             const currentYear = date.getFullYear();
             const monthcol = []; // const mindate = currentYear - this.yearDiff;
             // const maxdate = parseInt(currentYear) + parseInt(this.yearAdd);
@@ -339,8 +527,8 @@ this.updateFlag = true;
          * @param {Date} date 待测的日期
          * @return {boolean|Date} date 如果没有超出日期范围，则返回false；如果超出日期范围，则返回范围边界的日期
          */ isOutOfRange(date) {
-            let minDate = this.transformDate(this.minDate);
-            let maxDate = this.transformDate(this.maxDate); // 不要直接在$watch中改变`minDate`和`maxDate`的值，因为有时向外绑定时可能不希望改变它们。
+            let minDate = ChangeDate(this.transformDate(this.minDate), this.picker);
+            let maxDate = ChangeDate(this.transformDate(this.maxDate), this.picker); // 不要直接在$watch中改变`minDate`和`maxDate`的值，因为有时向外绑定时可能不希望改变它们。
             minDate = minDate && minDate.setHours(0, 0, 0, 0);
             maxDate = maxDate && maxDate.setHours(0, 0, 0, 0); // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期
             return (
@@ -456,6 +644,16 @@ this.updateFlag = true;
     box-sizing: border-box;
 }
 
+.headCenter {
+    display: flex;
+    line-height: 32px;
+}
+
+.yearCenter {
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
 .yearList {
     z-index: 10;
 }
@@ -485,6 +683,61 @@ this.updateFlag = true;
     background: white;
     border: 1px solid #ccc;
 }
+
+.monthBox {
+    list-style: none;
+}
+
+.boxItem {
+    cursor: pointer;
+    width: 33.3%;
+    display: inline-flex;
+    padding: 10px 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.boxItem[role] {
+    background-color: var(--brand-primary);
+    color: var(--field-background);
+}
+.boxItem[role]:hover {
+    background-color: var(--brand-primary);
+}
+
+.boxItem[disabled], .boxItem[disabled]:hover {
+    cursor: var(--cursor-not-allowed);
+    background-color: var(--field-background);
+    color: var(--color-light);
+}
+
+.quarterBox {
+    list-style: none;
+}
+
+.quarterItem {
+    cursor: pointer;
+    width: 25%;
+    display: inline-flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.quarterItem[role] {
+    background-color: var(--brand-primary);
+    color: var(--field-background);
+}
+.quarterItem[role]:hover {
+    background-color: var(--brand-primary);
+}
+
+.quarterItem[disabled], .quarterItem[disabled]:hover {
+    cursor: var(--cursor-not-allowed);
+    background-color: var(--field-background);
+    color: var(--color-light);
+}
+
+
 .listitem {
     float: left;
     width: 30px;
@@ -537,4 +790,25 @@ this.updateFlag = true;
 .yearitem[disabled] {
     color: var(--color-light);
 }
+
+.icon[role="prev"]::before {
+    icon-font: url('../i-icon.vue/assets/angle-left.svg');
+}
+
+.icon[role="next"]::before {
+    icon-font: url('../i-icon.vue/assets/angle-right.svg');
+}
+.iconBox {
+    display: flex;
+    height: 20px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.iconBox[disabled], .iconBox[disabled]:hover {
+    cursor: var(--cursor-not-allowed);
+    background-color: var(--field-background);
+    color: var(--color-light);
+}
+
 </style>

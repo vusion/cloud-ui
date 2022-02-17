@@ -1,0 +1,33 @@
+- name: u-taskbox
+  title: 任务箱
+  icon: taskbox
+  labels:
+    - Process
+  description: 用于展示流程任务箱
+  next: true
+  nested: false
+  attrs:
+    - name: icon
+      title: 图标
+      type: icon
+      default: 通知
+      description: 图标
+    - name: size
+      type: number
+      default: 5
+      title: 每页条数
+      description: 每页条数
+    - name: interval
+      type: number
+      default: 30
+      title: 时间间隔 s
+      description: 定时刷新时间间隔 s
+    - name: title
+      title: 通知
+      type: string
+      description: 鼠标 hover 在图标上展示文案
+  events:
+    - name: $listeners
+      title: 监听事件
+      description: 监听所有`<span>`元素的事件。
+      params: []

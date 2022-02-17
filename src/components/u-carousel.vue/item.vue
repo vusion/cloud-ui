@@ -1,6 +1,7 @@
 <template>
 <transition :name="animation">
     <div :class="$style.root"
+        allowChild
         v-show="!!selected"
         :animation="animation">
         <div :class="$style.body"><slot></slot></div>
@@ -23,9 +24,14 @@ export default {
         selected() {
             if (this.parentVM)
                 return this.parentVM.router ? this.active : this.parentVM.selectedVM === this;
+            else
+                return undefined;
         },
     },
     methods: {
+        designerControl() {
+            this.parentVM.select(this);
+        },
         onAnimationStart() {
             this.parentVM.animating = true;
         },

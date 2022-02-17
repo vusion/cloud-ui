@@ -1,7 +1,7 @@
 {
   "name": "cloud-ui.vusion",
   "description": "Vusion Cloud UI",
-  "version": "0.10.23",
+  "version": "0.14.2",
   "author": "Forrest <rainforest92@126.com>",
   "contributors": [
     "haoxutong <1255965516@qq.com>",
@@ -11,6 +11,8 @@
   "main": "./index.js",
   "scripts": {
     "dev": "vue-cli-service doc --port 9001",
+    "validator": "node ./scripts/lcap/validator.js --HELP=true",
+    "dev:designer": "cross-env VUE_APP_DESIGNER=true vue-cli-service doc --port 9001",
     "dev:dark": "vue-cli-service doc --port 9001 --theme dark",
     "build": "vue-cli-service library-build --apply-theme --theme default,dark,seagreen",
     "build:theme": "vue-cli-service library-build --dest dist-theme",
@@ -21,11 +23,12 @@
     "screenshot": "node bin/screenshot",
     "lint": "eslint --fix --ext .js,.vue src && stylelint --fix ./src/**/*.css",
     "ghpages": "vusion ghpages",
-    "deploy": "vusion deploy --framework cloud-ui.vusion@0.9 -v minor",
-    "deploy:screenshots": "node bin/deploy-screenshots",
     "deploy:doc-entry": "vusion deploy --framework cloud-ui -v minor dist-doc-entry",
+    "deploy:dev": "node ./scripts/lcap && lcap deploy dist-theme --platform http://lcp.vusion.top && node bin/deploy-lcp-images --platform=http://lcp.vusion.top",
+    "deploy:test": "node ./scripts/lcap && lcap deploy dist-theme --platform http://defaulttenant.qa-ci.lcap.group && node bin/deploy-lcp-images --platform=http://defaulttenant.qa-ci.lcap.group",
+    "deploy:online": "node ./scripts/lcap && vusion deploy --framework cloud-ui.vusion@0.11 -v minor && vusion deploy --framework cloud-ui dist-theme && node bin/deploy-screenshots && node bin/deploy-drawings",
     "prepublishOnly": "rm -rf node_modules/.cache && npm run build && npm run build:theme && npm run build:raw && vusion readme && vusion vetur && git add .",
-    "postpublish": "npm run build:docs && npm run deploy && vusion ghpages"
+    "postpublish": "npm run build:docs && npm run deploy:online && vusion ghpages"
   },
   "repository": "vusion/cloud-ui",
   "homepage": "http://vusion.github.io/cloud-ui",
@@ -47,20 +50,29 @@
   ],
   "dependencies": {
     "@popperjs/core": "^2.10.2",
-    "@vusion/utils": "^0.4.9",
-    "@vusion/validator": "^0.2.4",
+    "@vusion/utils": "^0.4.10",
+    "@vusion/validator": "^0.4.1",
     "animate.css": "^4.1.1",
     "countup.js": "^1.9.3",
+    "dayjs": "^1.10.7",
+    "dompurify": "^2.0.15",
+    "fs-extra": "^9.0.1",
     "i-material-design.vue": "^5.1.0",
+    "js-yaml": "^3.14.0",
     "lodash": "^4.17.5",
     "normalize.css": "^7.0.0",
+    "regenerator-runtime": "^0.13.9",
     "resize-observer-polyfill": "^1.5.1",
-    "vusion-async-validator": "^1.8.8"
+    "swiper": "^7.4.1",
+    "vusion-api": "^0.6.30",
+    "xlsx": "^0.17.3",
+    "yargs": "^16.2.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.3.0",
     "@vue/cli-service": "^4.3.0",
     "@vusion/mock": "^0.1.1",
+    "ajv": "^7.0.4",
     "commander": "^2.20.0",
     "core-js": "^3.6.5",
     "cross-env": "^7.0.2",
@@ -80,6 +92,7 @@
     "vue-i18n": "^8.15.5",
     "vue-router": "3.3.4",
     "vue-template-compiler": "2.6.12",
+    "vusion": "^0.12.21",
     "vusion-hooks": "^0.3.0"
   },
   "peerDependencies": {

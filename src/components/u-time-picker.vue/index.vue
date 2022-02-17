@@ -57,7 +57,7 @@ export default {
     },
     data() {
         return {
-            showTime: this.isOutOfRange(this.time) ? this.isOutOfRange(this.time) : this.time,
+            showTime: this.isOutOfRange(this.time) ? this.isOutOfRange(this.time) : this.time || '00:00:00',
             hourmin: HOUR_MIN,
             hourmax: HOUR_MAX,
             minutemin: MINUTE_MIN,
@@ -171,7 +171,10 @@ export default {
              * @event change 时间改变时触发
              * @property {object} sender 事件发送对象
              * @property {object} time 改变后的时间
-             */ this.$emit('change', { sender: this, time: newValue });
+             */
+            this.$emit('input', newValue, this);
+            this.$emit('update:time', newValue, this);
+            this.$emit('change', { time: newValue }, this);
         },
         minTime(newValue, oldValue) {
             if (newValue) {
@@ -207,6 +210,9 @@ export default {
          */ isOutOfRange(time) {
             const minTime = this.minTime;
             const maxTime = this.maxTime; // minTime && time < minTime && minTime，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的时间
+            if (minTime > maxTime)
+                return time;
+
             return (
                 (minTime && time < minTime && minTime)
                 || (maxTime && time > maxTime && maxTime)

@@ -1,11 +1,17 @@
 - name: u-modal
+  icon: modal
+  labels:
+    - Feedback
   title: 弹窗
+  next: true
+  nested: false
   attrs:
     - name: title
       title: 标题
       type: string
       default: 提示
       description: 弹窗的标题
+      advanced: true
     - name: content
       title: 内容
       type: string
@@ -16,6 +22,7 @@
       type: string
       default: 详情描述
       description: 弹窗的详情描述
+      advanced: true
     - name: visible
       title: 是否显示
       type: boolean
@@ -27,33 +34,48 @@
       type: string
       default: 确定
       description: 确定按钮文本，如果为空则不显示
+      advanced: true
     - name: cancel-button
       title: 取消按钮
       type: string
       default: 取消
       description: 取消按钮文本，如果为空则不显示
+      advanced: true
     - name: size
       title: 尺寸
-      type: enum
+      type: string
       options:
-        - small
-        - normal
-        - large
-        - huge
-        - auto
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+        - value: large
+          title: 大
+        - value: huge
+          title: 巨大
+        - value: auto
+          title: 自适应
       default: normal
-      description: 弹框的尺寸, 可选值：`'small'`, `'normal'`, `'large'`, `'huge'`, `'auto'`,
+      description: 弹框的尺寸
     - name: icon
       title: 提示图标
       type: string
-      default: ""
-      description: 提示图标, 可选值：`success`, `warning`, `error`
+      options:
+        - value: success
+          title: 成功
+        - value: warning
+          title: 警告
+        - value: error
+          title: 错误
+      default:
+      description: 提示图标
     - name: static
       title: 嵌入页面显示
       type: boolean
       default: false
       description: 是否嵌入页面显示
-    - name: mask-closable
+      advanced: true
+    - name: mask-close
       title: 点击遮罩关闭
       type: boolean
       default: false
@@ -75,6 +97,7 @@
     - name: before-open
       title: 打开前
       description: 打开弹窗前触发
+      advanced: true
       params:
         - name: senderVM
           type: UModal
@@ -103,6 +126,7 @@
     - name: before-close
       title: 关闭前
       description: 关闭弹窗前触发
+      advanced: true
       params:
         - name: $event.ok
           type: boolean
@@ -124,21 +148,12 @@
           type: UModal
           description: 发送事件实例
   methods:
-    - name: alert(content, title)
-      description: 打开只有确定按钮的消息提示
-      params:
-        - name: content
-          type: string
-          description: 提示内容
-        - name: title
-          type: string
-          description: 提示标题
-    - name: confirm(content, title)
-      description: 打开有确定和取消按钮的消息提示
-      params:
-        - name: content
-          type: string
-          description: 提示内容
-        - name: title
-          type: string
-          description: 提示标题
+    - name: open
+      description: 打开弹窗
+    - name: close
+      description: 关闭弹窗
+    - name: ok
+      description: 确定弹窗
+    - name: cancel
+      description: 取消弹窗
+  description: 弹窗

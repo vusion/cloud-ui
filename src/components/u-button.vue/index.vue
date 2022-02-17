@@ -47,6 +47,7 @@ export default { name: 'u-button', extends: ULink };
     /* Remove default focus style */
     outline: var(--focus-outline);
     box-shadow: var(--button-box-shadow-focus);
+    border-color: var(--button-border-color-hover);
     /* Required for `a` elements */
     text-decoration: none;
 }
@@ -54,6 +55,7 @@ export default { name: 'u-button', extends: ULink };
 .root:active {
     background: var(--button-background-active);
     box-shadow: var(--button-box-shadow-active);
+    border-color: var(--button-border-color-hover);
 }
 
 .root[disabled] {
@@ -88,7 +90,7 @@ export default { name: 'u-button', extends: ULink };
 }
 
 .root[color="primary"]:active {
-    box-shadow: var(--button-box-shadow-active);
+    box-shadow: var(--button-box-shadow-active-primary);
 }
 
 .root[color="primary"][disabled] {
@@ -98,30 +100,30 @@ export default { name: 'u-button', extends: ULink };
     box-shadow: none;
 }
 
-.root[color="secondary"] {
-    background: var(--button-background-secondary);
-    color: var(--button-color-secondary);
-    border-color: var(--button-background-secondary);
+.root[color="primary_secondary"] {
+    background: var(--button-background-primary-secondary);
+    color: var(--button-color-primary-secondary);
+    border-color: var(--button-background-primary);
 }
 
-.root[color="secondary"]:hover {
-    background: var(--button-background-secondary-hover);
-    color: var(--button-color-secondary-hover);
-    border-color: var(--button-background-secondary-hover);
+.root[color="primary_secondary"]:hover {
+    background: var(--button-background-primary-secondary-hover);
+    color: var(--button-color-primary-secondary-hover);
+    border-color: var(--button-border-primary-secondary-hover);
 }
 
-.root[color="secondary"]:focus {
-    box-shadow: var(--button-box-shadow-focus-secondary);
+.root[color="primary_secondary"]:focus {
+    box-shadow: var(--button-box-shadow-focus-primary-secondary);
 }
 
-.root[color="secondary"]:active {
-    box-shadow: var(--button-box-shadow-active);
+.root[color="primary_secondary"]:active {
+    box-shadow: var(--button-box-shadow-active-primary-secondary);
 }
 
-.root[color="secondary"][disabled] {
-    background: var(--button-background-secondary-disabled);
-    color: var(--button-color-secondary-disabled);
-    border-color: var(--button-background-secondary-disabled);
+.root[color="primary_secondary"][disabled] {
+    background: var(--button-background-primary-secondary-disabled);
+    color: var(--button-color-primary-secondary-disabled);
+    border-color: var(--button-border-primary-secondary-disabled);
     box-shadow: none;
 }
 
@@ -154,13 +156,40 @@ export default { name: 'u-button', extends: ULink };
 }
 
 .root[color="danger"]:active {
-    box-shadow: var(--button-box-shadow-active);
+    box-shadow: var(--button-box-shadow-active-danger);
 }
 
 .root[color="danger"][disabled] {
     background: var(--button-background-danger-disabled);
     color: var(--button-color-danger-disabled);
     border-color: var(--button-background-danger-disabled);
+    box-shadow: none;
+}
+
+.root[color="danger_secondary"] {
+    background: var(--button-background-danger-secondary);
+    color: var(--button-color-danger-secondary);
+    border-color: var(--button-background-danger);
+}
+
+.root[color="danger_secondary"]:hover {
+    background: var(--button-background-danger-secondary-hover);
+    color: var(--button-color-danger-secondary-hover);
+    border-color: var(--button-border-danger-secondary-hover);
+}
+
+.root[color="danger_secondary"]:focus {
+    box-shadow: var(--button-box-shadow-focus-danger-secondary);
+}
+
+.root[color="danger_secondary"]:active {
+    box-shadow: var(--button-box-shadow-active-danger-secondary);
+}
+
+.root[color="danger_secondary"][disabled] {
+    background: var(--button-background-danger-secondary-disabled);
+    color: var(--button-color-danger-secondary-disabled);
+    border-color: var(--button-border-danger-secondary-disabled);
     box-shadow: none;
 }
 
@@ -173,12 +202,22 @@ export default { name: 'u-button', extends: ULink };
     padding: 0 var(--button-padding-x-mini);
     font-size: var(--button-font-size-mini);
 }
+.root[size="mini"] [class^="i-ico_lcp-iconv"] {
+    font-size: var(--button-font-size-mini);
+}
 
 .root[size="small"] {
     height: var(--button-height-small);
     line-height: calc(var(--button-height-small) - var(--button-border-width) * 2 - var(--button-padding-y) * 2);
     padding: 0 var(--button-padding-x-small);
     font-size: var(--button-font-size-small);
+}
+
+.root[size="medium"] {
+    height: var(--button-height-medium);
+    line-height: calc(var(--button-height-medium) - var(--button-border-width) * 2 - var(--button-padding-y) * 2);
+    padding: 0 var(--button-padding-x-medium);
+    font-size: var(--button-font-size-medium);
 }
 
 .root[size="large"] {
@@ -230,7 +269,7 @@ export default { name: 'u-button', extends: ULink };
 /**
  * Icon extends
  */
-.root[icon="create"]::before {
+/* .root[icon="create"]::before {
     icon-font: url('../i-icon.vue/icons/create.svg');
 }
 
@@ -242,7 +281,7 @@ export default { name: 'u-button', extends: ULink };
     icon-font: url('../i-icon.vue/assets/success.svg');
     font-size: 18px;
     vertical-align: -2px;
-}
+} */
 
 .root[icon="loading"]::before, /* @deprecated */
 .root[loading]::before {
@@ -258,8 +297,11 @@ export default { name: 'u-button', extends: ULink };
     animation: rotate var(--spinner-animation-duration) ease-in-out var(--spinner-animation-delay) infinite;
 }
 
-.root[icon]:not(:empty)::before, .root[loading]:not(:empty)::before {
+/* .root[icon]:not(:empty)::before, .root[loading]:not(:empty)::before {
     margin-right: 6px;
+} */
+.root[loading]::before{
+    margin: 0 4px;
 }
 
 @keyframes rotate {
@@ -270,5 +312,12 @@ export default { name: 'u-button', extends: ULink };
 .root[display="block"] {
     display: block;
     width: auto;
+}
+.root [class^="i-ico_lcp-iconv"] {
+    margin: 0 4px;
+    vertical-align: top;
+}
+.root[loading] [class^="i-ico_lcp-iconv"]{
+    display: none;
 }
 </style>

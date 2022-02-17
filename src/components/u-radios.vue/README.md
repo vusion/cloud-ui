@@ -12,10 +12,11 @@
     - [Events](#events)
 - [URadio API](#uradio-api)
     - [Props/Attrs](#propsattrs-2)
-    - [Slots](#slots-2)
     - [Events](#events-2)
 
-**表单控件**, **块级展示**
+**Form**
+
+多项中选择一个时使用
 
 ## 示例
 ### 基本用法
@@ -88,6 +89,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选择项的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.itemVM | URadio | 选择项子组件 |
@@ -120,6 +122,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选择项的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择项相关对象 |
@@ -131,16 +134,11 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| label | any |  |  | 单选框标签。用于关联单选组的值 |
+| text | string |  |  | 文本内容 |
+| label | any |  |  | 单选框选项值。 |
 | readonly | boolean |  | `false` | 禁用只读 |
 | disabled | boolean |  | `false` | 禁用此项 |
 | autofocus | boolean |  | `false` | 自动获取焦点 |
-
-### Slots
-
-#### (default)
-
-插入文本或 HTML。
 
 ### Events
 
@@ -150,6 +148,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.label | any | 此项的标签 |
 | $event.itemVM | URadio | 此组件 |
 | $event.preventDefault | Function | 阻止选择流程 |

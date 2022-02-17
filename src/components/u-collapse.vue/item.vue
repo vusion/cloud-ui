@@ -1,7 +1,7 @@
 <template>
 <div :class="$style.root" :disabled="disabled" :expanded="currentExpanded">
     <div :class="$style.head" :expand-trigger="parentVM.expandTrigger" @click="parentVM.expandTrigger === 'click' && toggle()">
-        <span :class="$style.title">
+        <span :class="$style.title" vusion-slot-name="title">
             <slot name="title">{{ title }}</slot>
         </span>
         <span :class="$style.expander"
@@ -13,8 +13,9 @@
     <f-collapse-transition>
         <div :class="$style.body" v-show="currentExpanded">
             <slot name="body">
-                <div :class="$style.content">
+                <div :class="$style.content" vusion-slot-name="default">
                     <slot></slot>
+                    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
                 </div>
             </slot>
         </div>
@@ -24,11 +25,15 @@
 
 <script>
 import { MChild } from '../m-parent.vue';
+import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-collapse-item',
     parentName: 'u-collapse',
     mixins: [MChild],
+    components: {
+        SEmpty,
+    },
     props: {
         title: String,
         expanded: { type: Boolean, default: false },
@@ -75,6 +80,9 @@ export default {
             this.$emit('update:expanded', false, this);
             this.$emit('collapse', {}, this);
             this.parentVM.onItemCollapse(this);
+        },
+        designerControl() {
+            this.toggle();
         },
         toggle(expanded) {
             if (expanded === undefined)

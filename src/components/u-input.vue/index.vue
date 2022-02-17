@@ -1,10 +1,10 @@
 <template>
 <div :class="$style.root" :readonly="readonly" :disabled="disabled" :color="currentColor || formItemVM && formItemVM.color"
-    :focus="focused" :clearable="clearable && currentValue" :prefix="prefix" :suffix="suffix" :search="search"
+    :focus="focused" :clearable="clearable && currentValue" :prefix="prefix" :suffix="suffix"
     @click.self="!focused && focus()">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
     <span :class="$style.placeholder">{{ currentValue ? '' : placeholder }}</span><!-- 兼容 IE9 -->
-    <span v-if="prefix" :class="$style.prefix" :name="prefix"><slot name="prefix"></slot></span>
+    <span v-if="prefix" :class="$style.prefix" :name="prefix" @click="$emit('click-prefix', $event, this)"><slot name="prefix"></slot></span>
     <input ref="input" :class="$style.input" v-bind="$attrs" :value="currentValue"
         :placeholder="placeholder" v-focus="autofocus" :readonly="readonly" :disabled="disabled"
         @input="onInput" @focus="onFocus" @blur="onBlur" @keypress="onKeypress" @keyup="onKeyup" v-on="listeners"
@@ -12,9 +12,9 @@
         @compositionend="onCompositionEnd"
         :title="currentValue && !disabled ? '' : ($attrs.title || placeholder)">
     <slot></slot>
-    <span v-if="suffix" v-show="!clearable || !currentValue" :class="$style.suffix" :name="suffix"><slot name="suffix"></slot></span>
+    <span v-if="suffix" v-show="!clearable || !currentValue" :class="$style.suffix" :name="suffix"
+        @click="$emit('click-suffix', $event, this)"><slot name="suffix"></slot></span>
     <span :class="$style.clearable" v-if="clearable && currentValue" @click.stop="clear"></span>
-    <span :class="$style.search" v-if="search" v-show="!clearable || !currentValue || search === 'left'" :alignment="search"></span>
 </div>
 </template>
 
@@ -37,7 +37,6 @@ export default {
         maxlengthMessage: String,
         prefix: String,
         suffix: String,
-        search: String,
         autoSize: {
             type: String,
             validator: (value) =>

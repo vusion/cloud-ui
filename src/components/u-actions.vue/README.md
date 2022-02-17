@@ -12,6 +12,10 @@
     - [Props/Attrs](#propsattrs-2)
     - [Events](#events)
 
+**Table**
+
+当待操作项过多时，会自动收纳
+
 ## 示例
 ### 基本用法
 
@@ -55,7 +59,7 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | max-count | number |  | `3` | 一列最多显示链接个数 |
 | menu-title | string |  | `'更多'` | 菜单标题 |
-| placement | enum | `'top'`<br/>`'bottom'`<br/>`'left'`<br/>`'right'`<br/>`'top-start'`<br/>`'top-end'`<br/>`'bottom-start'`<br/>`'bottom-end'`<br/>`'left-start'`<br/>`'left-end''`<br/>`'right-start'`<br/>`'right-end'` | `'bottom-end'` | 菜单的弹出方向。可选值：`'top'`, `'bottom'`, `'left'`, `'right'`, `'top-start'`, `'top-end'`, `'bottom-start'`, `'bottom-end'`, `'left-start',` `'left-end'`, `'right-start'`, `'right-end'` |
+| placement | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'bottom-end'` | 菜单的弹出方向 |
 
 ### Slots
 
@@ -69,7 +73,13 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | hidden | boolean |  | `false` | 自定义显示/隐藏条件 |
-| 其余属性透传 |  |  |  | undefined |
+| color | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 设置颜色 |
+| linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'href'` | 链接类型 |
+| hrefAndTo | string |  |  | 链接地址 |
+| target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_self'` | 链接打开方式 |
+| decoration | boolean |  | `true` | 是否显示下划线 |
+| disabled | boolean |  | `false` | 是否禁用。禁用后不会响应点击事件。 |
+| display | string | `[object Object]`<br/>`[object Object]` | `'inline'` | 展示方式 |
 
 ### Events
 

@@ -101,6 +101,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选择项的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择项相关对象 |
@@ -123,6 +124,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 改变后的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择项相关对象 |
@@ -140,9 +142,9 @@ export default {
 | value | any |  |  | 此项的值 |
 | disabled | boolean |  | `false` | 禁用此项 |
 | item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
-| href | string |  |  | 链接地址 |
-| target | enum | `'新标签页 (_blank)'` ()<br/>`'当前窗口 (_self)'` ()<br/>`'父级窗口 (_parent)'` ()<br/>`'顶级窗口 (_top)'` () |  | （原生属性）。比如设置`_blank`，会在新标签页中打开。 |
-| to | string, Location |  |  | 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
+| linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'href'` | 链接类型 |
+| hrefAndTo | string |  |  | 链接地址 |
+| target | enum | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_blank'` | 链接打开方式 |
 | replace | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
 | exact | boolean |  | `true` | 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。 |
 | exact | boolean |  | `true` | 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。 |
@@ -170,6 +172,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 此项的值 |
 | $event.item | object | 此项的相关对象 |
 | $event.itemVM | UTocItem | 此组件 |
@@ -182,6 +185,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.to | string, Location | `to`属性的值 |
 | $event.replace | boolean | `replace`属性的值 |
 | $event.exact | boolean | `exact`属性的值 |
@@ -194,6 +198,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.to | string, Location | `to`属性的值 |
 | $event.replace | boolean | `replace`属性的值 |
 | $event.exact | boolean | `exact`属性的值 |

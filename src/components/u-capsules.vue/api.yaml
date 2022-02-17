@@ -1,5 +1,9 @@
 - name: u-capsules
   title: 胶囊
+  icon: capsules
+  description: 多项中选择一项
+  labels:
+    - Form
   attrs:
     - name: value
       title: 值
@@ -36,11 +40,21 @@
   slots:
     - name: default
       description: 插入`<u-capsule>`或`<u-capsules-group>`子组件。
+      support:
+        - name: u-capsule
+          title: 胶囊选项
+          snippet: <u-capsule>选项</u-capsule>
   events:
     - name: before-select
       title: 选择前
       description: 选择某一项前触发
+      advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选择项的值
@@ -66,6 +80,8 @@
         - name: $event
           type: any
           description: 选择项的值
+          schema:
+            $ref: "#/basicTypes/String"
         - name: senderVM
           type: UCapsules
           description: 发送事件实例
@@ -73,6 +89,11 @@
       title: 选择后
       description: 选择某一项时触发。单选模式中：
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 改变后的值
@@ -94,44 +115,15 @@
         - name: senderVM
           type: UCapsules
           description: 发送事件实例
-    - name: select
-      title: 选择后
-      description: 选择某一项时触发。多选模式中：
-      params:
-        - name: $event.selected
-          type: boolean
-          description: 选中还是取消
-        - name: $event.item
-          type: boolean
-          description: 该选中项相关对象
-        - name: $event.itemVM
-          type: boolean
-          description: 该选中项子组件
-        - name: $event.value
-          type: Array
-          description: 改变后的值
-        - name: $event.oldValue
-          type: Array
-          description: 旧的值
-        - name: $event.items
-          type: Array<object>
-          description: 所有选中项相关对象的数组
-        - name: $event.oldItems
-          type: Array<object>
-          description: 旧的所有选中项相关对象的数组
-        - name: $event.itemVMs
-          type: Array<UCapsule>
-          description: 所有选中项子组件的数组
-        - name: $event.oldVMs
-          type: Array<UCapsule>
-          description: 旧的所有选中项子组件的数组
-        - name: senderVM
-          type: UCapsules
-          description: 发送事件实例
     - name: change
       title: 改变后
       description: 选择值改变时触发。单选模式中：
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选择项的值
@@ -153,23 +145,9 @@
         - name: senderVM
           type: UCapsules
           description: 发送事件实例
-    - name: change
-      title: 改变后
-      description: 选择值改变时触发。多选模式中：
-      params:
-        - name: $event.value
-          type: Array
-          description: 所有选中项的值
-        - name: $event.items
-          type: Array<object>
-          description: 所有选中项相关对象的数组
-        - name: $event.itemVMs
-          type: Array<UCapsule>
-          description: 所有选中项子组件的数组
-        - name: senderVM
-          type: UCapsules
-          description: 发送事件实例
 - name: u-capsule
+  title: 子选项
+  is-sub: true
   attrs:
     - name: value
       title: 值
@@ -177,15 +155,19 @@
       description: 此项的值
     - name: size
       title: 尺寸
-      type: enum
+      type: string
       options:
-        - small
-      description: 胶囊大小，可选值：`'small'`
-    - name: selected
-      title: 选中项
-      type: boolean
-      default: false
-      description: 是否选中此项
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+      default: normal
+      description: 胶囊大小
+    # - name: selected
+    #   title: 选中项
+    #   type: boolean
+    #   default: false
+    #   description: 是否选中此项
     - name: disabled
       title: 禁用
       type: boolean
@@ -198,12 +180,14 @@
       description: 顶部自定义提示文本
     - name: flag
       title: flag标志
-      type: any
+      type: boolean
+      default: false
       description: 是否右上角有flag标志
     - name: item
       title: 相关对象
       type: object
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
+      advanced: true
   slots:
     - name: default
       description: 插入文本或 HTML。
@@ -215,13 +199,21 @@
         - name: $event
           type: MouseEvent
           description: 鼠标事件对象
+          schema:
+            $ref: "#/systemTypes/MouseEvent"
         - name: senderVM
           type: UCapsule
           description: 发送事件实例
     - name: before-select
       title: 选择前
       description: 选择此项前触发
+      advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 此项的值
@@ -237,4 +229,16 @@
         - name: senderVM
           type: UCapsule
           description: 发送事件实例
-- name: u-capsule-group
+  description: 子选项
+- name: u-capsules-group
+  title: 子选项组
+  next: false
+  nested: false
+  slots:
+    - name: default
+      description: 插入`<u-capsule>`或`<u-capsules-group>`子组件。
+      support:
+        - name: u-capsule
+          title: 子选项
+          snippet: <u-capsule>选项</u-capsule>
+  description: 子选项组

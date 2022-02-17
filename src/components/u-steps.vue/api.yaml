@@ -28,6 +28,11 @@
       title: 选择前
       description: 选择某一步骤前触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选中步骤的值
@@ -50,6 +55,11 @@
       title: 选择后
       description: 选择某一步骤时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选中步骤的值
@@ -66,6 +76,7 @@
           type: USteps
           description: 发送事件实例
 - name: u-step
+  is-sub: true
   attrs:
     - name: title
       title: 标题

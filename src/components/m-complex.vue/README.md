@@ -12,7 +12,6 @@
     - [Events](#events)
 - [MComplexItem API](#mcomplexitem-api)
     - [Props/Attrs](#propsattrs-2)
-    - [Slots](#slots-2)
     - [Events](#events-2)
 
 一个组件中，通过`multiple`属性切换单选还是多选的模式。
@@ -24,11 +23,11 @@
 
 ``` html
 <m-complex>
-    <m-complex-item>水杯</m-complex-item>
-    <m-complex-item>咖啡</m-complex-item>
-    <m-complex-item disabled>坚果</m-complex-item>
-    <m-complex-item>毛巾</m-complex-item>
-    <m-complex-item>沙发</m-complex-item>
+    <m-complex-item text="水杯"></m-complex-item>
+    <m-complex-item text="咖啡"></m-complex-item>
+    <m-complex-item disabled text="坚果"></m-complex-item>
+    <m-complex-item text="毛巾"></m-complex-item>
+    <m-complex-item text="沙发"></m-complex-item>
 </m-complex>
 ```
 
@@ -41,11 +40,11 @@
 ``` vue
 <template>
 <m-complex v-model="value">
-    <m-complex-item value="cup">水杯</m-complex-item>
-    <m-complex-item value="coffee">咖啡</m-complex-item>
-    <m-complex-item value="nut">坚果</m-complex-item>
-    <m-complex-item value="towel">毛巾</m-complex-item>
-    <m-complex-item value="sofa">沙发</m-complex-item>
+    <m-complex-item value="cup" text="水杯"></m-complex-item>
+    <m-complex-item value="coffee" text="咖啡"></m-complex-item>
+    <m-complex-item value="nut" text="坚果"></m-complex-item>
+    <m-complex-item value="towel" text="毛巾"></m-complex-item>
+    <m-complex-item value="sofa" text="沙发"></m-complex-item>
 </m-complex>
 </template>
 <script>
@@ -64,11 +63,11 @@ export default {
 ``` vue
 <template>
 <m-complex multiple v-model="values">
-    <m-complex-item value="cup">水杯</m-complex-item>
-    <m-complex-item value="coffee">咖啡</m-complex-item>
-    <m-complex-item value="nut">坚果</m-complex-item>
-    <m-complex-item value="towel">毛巾</m-complex-item>
-    <m-complex-item value="sofa">沙发</m-complex-item>
+    <m-complex-item value="cup" text="水杯"></m-complex-item>
+    <m-complex-item value="coffee" text="咖啡"></m-complex-item>
+    <m-complex-item value="nut" text="坚果"></m-complex-item>
+    <m-complex-item value="towel" text="毛巾"></m-complex-item>
+    <m-complex-item value="sofa" text="沙发"></m-complex-item>
 </m-complex>
 </template>
 <script>
@@ -88,29 +87,29 @@ export default {
 <u-grid-layout>
     <u-grid-layout-column :span="4">
         <m-complex value="towel" readonly>
-            <m-complex-item value="cup">水杯</m-complex-item>
-            <m-complex-item value="coffee">咖啡</m-complex-item>
-            <m-complex-item value="nut">坚果</m-complex-item>
-            <m-complex-item value="towel">毛巾</m-complex-item>
-            <m-complex-item value="sofa">沙发</m-complex-item>
+            <m-complex-item value="cup" text="水杯"></m-complex-item>
+            <m-complex-item value="coffee" text="咖啡"></m-complex-item>
+            <m-complex-item value="nut" text="坚果"></m-complex-item>
+            <m-complex-item value="towel" text="毛巾"></m-complex-item>
+            <m-complex-item value="sofa" text="沙发"></m-complex-item>
         </m-complex>
     </u-grid-layout-column>
     <u-grid-layout-column :span="4">
         <m-complex value="towel" disabled>
-            <m-complex-item value="cup">水杯</m-complex-item>
-            <m-complex-item value="coffee">咖啡</m-complex-item>
-            <m-complex-item value="nut">坚果</m-complex-item>
-            <m-complex-item value="towel">毛巾</m-complex-item>
-            <m-complex-item value="sofa">沙发</m-complex-item>
+            <m-complex-item value="cup" text="水杯"></m-complex-item>
+            <m-complex-item value="coffee" text="咖啡"></m-complex-item>
+            <m-complex-item value="nut" text="坚果"></m-complex-item>
+            <m-complex-item value="towel" text="毛巾"></m-complex-item>
+            <m-complex-item value="sofa" text="沙发"></m-complex-item>
         </m-complex>
     </u-grid-layout-column>
     <u-grid-layout-column :span="4">
         <m-complex value="towel">
-            <m-complex-item value="cup">水杯</m-complex-item>
-            <m-complex-item value="coffee">咖啡</m-complex-item>
-            <m-complex-item value="nut" disabled>坚果</m-complex-item>
-            <m-complex-item value="towel" disabled>毛巾</m-complex-item>
-            <m-complex-item value="sofa">沙发</m-complex-item>
+            <m-complex-item value="cup" text="水杯"></m-complex-item>
+            <m-complex-item value="coffee" text="咖啡"></m-complex-item>
+            <m-complex-item value="nut" disabled text="坚果"></m-complex-item>
+            <m-complex-item value="towel" disabled text="毛巾"></m-complex-item>
+            <m-complex-item value="sofa" text="沙发"></m-complex-item>
         </m-complex>
     </u-grid-layout-column>
 </u-grid-layout>
@@ -221,16 +220,11 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| text | string |  |  | 文本内容 |
 | value | any |  |  | 此项的值 |
 | selected | boolean |  | `false` | 是否选中此项 |
 | disabled | boolean |  | `false` | 禁用此项 |
 | item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
-
-### Slots
-
-#### (default)
-
-插入文本或 HTML。
 
 ### Events
 

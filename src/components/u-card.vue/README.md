@@ -6,11 +6,14 @@
     - [基本用法](#基本用法)
     - [卡片分组](#卡片分组)
 - [UCard API](#ucard-api)
-
+    - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
+    - [Events](#events)
 - [UCardGroup API](#ucardgroup-api)
+    - [Props/Attrs](#propsattrs-2)
+    - [Slots](#slots-2)
 
-
-**块级展示**
+**Layout**
 
 用于快速布局
 
@@ -37,8 +40,40 @@
 ```
 
 ## UCard API
+### Props/Attrs
 
-暂无
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| title | string |  |  | 卡片标题 |
+| width | string |  |  | 卡片宽度 |
+| shadow | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'always'` | 卡片阴影显示时机 |
+| border | boolean |  | `true` | 是否展示卡片边框 |
+
+### Slots
+
+#### (default)
+
+
+
+### Events
+
+#### @$listeners
+
+监听所有事件。
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+
 ## UCardGroup API
+### Props/Attrs
 
-暂无
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| title | string |  |  | 卡片组的标题 |
+
+### Slots
+
+#### (default)
+
+插入默认的元素
+

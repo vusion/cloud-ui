@@ -1,18 +1,22 @@
 - name: u-input
+  icon: input
   title: 单行输入
   labels:
-    - 表单控件
-    - 行内展示
-  description: 基本的表单输入组件，在原生`<input>`控件基础上进行了一些功能扩展。
+    - Form
+  description: 基本的表单输入组件
+  next: true
+  nested: false
   attrs:
     - name: type
       title: 类型
-      type: enum
+      type: string
       options:
-        - text
-        - password
+        - value: text
+          title: 文本
+        - value: password
+          title: 密码
       default: text
-      description: 输入框的类型，目前支持两种：`'text'`和`'password'`
+      description: 输入框的类型
     - name: value
       title: 值
       type: string
@@ -26,23 +30,26 @@
     - name: placeholder
       title: 占位符
       type: string
-      description: 原生属性。对 IE9 做了兼容。
+      description: 原生属性
     - name: minlength
       title: 最小长度
       type: number
-      description: 原生属性
+      description: 最小输入长度
+      advanced: true
     - name: maxlength
       title: 最大长度
       type: number
-      description: 原生属性
+      description: 最大输入长度
     - name: spellcheck
       title: 拼写检查
       type: boolean
       description: 原生属性
+      advanced: true
     - name: autofocus
       title: 自动获取焦点
       type: boolean
       description: 是否自动获取焦点
+      advanced: true
     - name: readonly
       title: 只读
       type: boolean
@@ -55,33 +62,69 @@
       description: 是否禁用
     - name: size
       title: 尺寸
-      type: size
+      type: string
       options:
-        - mini
-        - small
-        - normal
-        - medium
-        - large
-        - huge
-        - full
+        - value: full
+          title: 占满
+        - value: huge
+          title: 巨大
+        - value: large
+          title: 大
+        - value: medium
+          title: 中型
+        - value: normal
+          title: 正常
+        - value: small
+          title: 小
+        - value: mini
+          title: 迷你
       default: normal
-      description: 大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'medium'`, `'large'`,
-        `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式
+      description: 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度
+      multi: true
+      maxSelect: 2
     - name: maxlengthMessage
       title: 长度上限提示
       type: string
       default: null
       description: "\b\b输入内容达到上限时的错误提示，且被 [FormItem](#/components/u-form) 包裹时生效"
+      advanced: true
+    - name: prefix
+      title: 前缀图标
+      type: string
+      options:
+        - value: search
+          title: 搜索
+        - value: ""
+          title: 暂无
+      default: ""
+      description: 前缀图标
+    - name: suffix
+      title: 后缀图标
+      type: string
+      options:
+        - value: search
+          title: 搜索
+        - value: ""
+          title: 暂无
+      default: ""
+      description: 后缀图标
   slots:
     - name: default
+      advanced: true
       title: 默认
       description: 插入 HTML 或 `Component`, 可展示额外内容。
       quick-add: never
   events:
     - name: before-input
       title: 输入前
+      advanced: true
       description: 输入前触发。可以在这个阶段阻止输入，或者修改输入的值 $event.value
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.oldValue
           type: string
           description: 旧的值
@@ -108,6 +151,11 @@
       title: 改变后
       description: 值变化时触发。（注意：与原生事件不同）
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.value
           type: string
           description: 改变后的值
@@ -124,6 +172,8 @@
         - name: $event
           type: FocusEvent
           description: 原生事件对象
+          schema:
+            $ref: "#/systemTypes/FocusEvent"
         - name: senderVM
           type: UInput
           description: 发送事件实例
@@ -134,13 +184,21 @@
         - name: $event
           type: FocusEvent
           description: 原生事件对象
+          schema:
+            $ref: "#/systemTypes/FocusEvent"
         - name: senderVM
           type: UInput
           description: 发送事件实例
     - name: before-clear
       title: 清空前
       description: 清空前触发。
+      advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.value
           type: string
           description: 清空后的值
@@ -157,6 +215,11 @@
       title: 清空后
       description: 清空后触发。
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.value
           type: string
           description: 清空后的值
@@ -166,13 +229,31 @@
         - name: senderVM
           type: UInput
           description: 发送事件实例
+    - name: click-prefix
+      title: 点击前缀图标
+      description: 点击前缀图标后触发
+      params:
+        - name: $event
+          type: object
+          description: 鼠标事件对象
+          schema:
+            $ref: "#/systemTypes/MouseEvent"
+    - name: click-suffix
+      title: 点击后缀图标
+      description: 点击后缀图标后触发
+      params:
+        - name: $event
+          type: object
+          description: 鼠标事件对象
+          schema:
+            $ref: "#/systemTypes/MouseEvent"
   methods:
-    - name: focus()
+    - name: focus
       description: 让输入框获取焦点。
       params: []
-    - name: blur()
+    - name: blur
       description: 让输入框失去焦点。
       params: []
-    - name: clear()
+    - name: clear
       description: 清空输入框。
       params: []

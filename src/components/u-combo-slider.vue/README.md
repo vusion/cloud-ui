@@ -1,6 +1,6 @@
 <!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-# UComboSlider 复合滑块
+# UComboSlider 滑块
 
 - [示例](#示例)
     - [基本用法](#基本用法)
@@ -16,7 +16,9 @@
     - [Events](#events)
     - [ARIA and Keyboard](#aria-and-keyboard)
 
-**表单控件**, **块级展示**
+**Form**
+
+滑动选择
 
 ## 示例
 ### 基本用法
@@ -129,12 +131,12 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | value.sync, v-model | number |  | `0` | 滑块的值 |
 | min | number |  | `0` | 最小值 |
-| max | number |  | `0` | 最大值 |
+| max | number |  | `100` | 最大值 |
 | step | number |  | `1` | 间隔。`0`表示连续 |
 | precision | number |  | `1` | 精度，表示数字要保留的最小单位，整数、小数均可 |
 | range | Array |  | `[]` | 进一步对`value`限制，通常传入一个数组，第一个值表示范围开始值，第二个值表示范围的结束值。 |
 | formatter | string, object |  |  | 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。 |
-| sync-on | string |  | `'input'` | 输入后何时同步值到`<u-slider>`组件中。可选值：`'input'`表示在输入时同步，`'blur'`表示在失焦时同步 |
+| sync-on | string | `[object Object]`<br/>`[object Object]` | `'input'` | 同步时机 |
 | hide-buttons | boolean |  | `true` | 是否隐藏按钮 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
@@ -157,6 +159,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | number | 滑块的值 |
 | $event.oldValue | number | 旧的值 |
 | $event.percent | number | 滑块位置所在的百分比 |
@@ -167,6 +170,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | number | 改变后的值 |
 | $event.oldValue | number | 旧的值 |
 

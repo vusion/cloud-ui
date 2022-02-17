@@ -14,7 +14,7 @@
     - [Events](#events)
     - [Methods](#methods)
 
-**表单控件**, **行内展示**
+**Form**
 
 通过点击或者拖拽上传文件。
 
@@ -25,7 +25,7 @@
 
 ``` vue
 <template>
-<u-uploader v-model="files" url="http://localhost:7000/api/library/upload">
+<u-uploader v-model="files" url="/gateway/lowcode/api/v1/app/upload">
     <u-button color="primary">Upload</u-button>
 </u-uploader>
 </template>
@@ -48,7 +48,7 @@ export default {
 
 ``` vue
 <template>
-<u-uploader v-model="files" multiple url="http://localhost:7000/api/library/upload">
+<u-uploader v-model="files" multiple url="/gateway/lowcode/api/v1/app/upload">
     <u-button color="primary">Upload</u-button>
 </u-uploader>
 </template>
@@ -166,7 +166,7 @@ export default {
 
 ``` vue
 <template>
-<u-uploader v-model="files" url="http://localhost:7000/api/library/upload" draggable pastable></u-uploader>
+<u-uploader v-model="files" url="/gateway/lowcode/api/v1/app/upload" draggable pastable></u-uploader>
 </template>
 <script>
 export default {
@@ -182,9 +182,42 @@ export default {
 ### 禁用状态
 
 ``` html
-<u-uploader url="http://localhost:7000/api/library/upload" disabled>
+<u-uploader url="/gateway/lowcode/api/v1/app/upload" disabled>
     <u-button color="primary" disabled>Upload</u-button>
 </u-uploader>
+```
+
+
+#### 只读
+
+只读可以用于预览图片。
+
+``` vue
+<template>
+<u-uploader v-model="files" readonly multiple list-type="card"
+    accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
+    url="http://localhost:7000/api/library/upload">
+</u-uploader>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            files: [{
+                uid: '1',
+                name: 'breakfast.png',
+                status: 'success',
+                url: 'https://static-vusion.163yun.com/assets/breakfast.png',
+            }, {
+                uid: '2',
+                name: 'salad.png',
+                status: 'success',
+                url: 'https://static-vusion.163yun.com/assets/salad.png',
+            }],
+        };
+    },
+};
+</script>
 ```
 
 ## API
@@ -193,24 +226,30 @@ export default {
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value.sync, v-model | Array |  | `'\[\]'` | 当前文件列表 |
-| url | string |  |  | 上传的地址 |
+| url | string |  |  | 上传的 URL 地址 |
 | name | string |  | `'file'` | 上传的文件字段名，后端需要这个字段获取 |
 | accept | string |  |  | 接受的上传类型 |
 | headers | Object |  |  | 请求 headers |
-| with-credentials | boolean |  | `false` | undefined |
+| with-credentials | boolean |  | `false` | 通过设置 withCredentials 为 true 获得的第三方 cookies，将会依旧享受同源策略 |
 | multiple | boolean |  | `false` | 多文件上传 |
 | multiple-once | boolean |  | `false` | 利用原生 multipart/form-data 传输多个文件的能力，一次性上传多个文件 |
 | data-type | string |  | `'json'` | 接收数据类型。可选值：`text`、`xml`、`json` |
 | data | object |  |  | 附加数据 |
-| extensions | string, Array |  | `''` | 可上传的扩展名。默认为空，表示可上传任意文件类型的文件。可以为字符串，多个扩展名用`,`隔开，如：`'png,jpg,gif'`；也可以为数组，如：`['png', 'jpg', 'gif']` |
-| limit | number |  | `Infinity` | 列表数量上限 |
-| max-size | string, number |  | `Infinity` | 可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB` |
-| list-type | enum | `'text'`<br/>`'image'`<br/>`'card'` | `'text'` | 列表展示类型 |
+| limit | number |  | `999` | 列表数量上限 |
+| max-size | string |  | `'50MB'` | 可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB` |
+| list-type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'text'` | 列表展示类型 |
+| url-field | string |  | `'url'` | 请求返回的 URL 字段名 |
 | auto-upload | boolean |  | `true` | 是否自动上传 |
 | draggable | boolean |  | `false` | 是否可以拖拽上传 |
 | pastable | boolean |  | `false` | 是否可以粘贴 |
 | show-file-list | boolean |  | `true` | 是否显示文件列表 |
+| converter | string | `[object Object]`<br/>`[object Object]` | `'json'` | 转换器 |
+| readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
+| display | string | `[object Object]`<br/>`[object Object]` | `'block'` | 展示方式 |
+| description | string |  |  | 在上传组件下方展示一些提示信息，如上传的数量、大小等 |
+| showErrorMessage | boolean |  | `true` | 是否展示上传时的出错信息，如超出数量、大小 |
+| dragDescription | string |  | `'点击/拖动/粘贴文件到这里'` | 拖拽描述信息 |
 
 ### Slots
 
@@ -220,25 +259,14 @@ export default {
 
 ### Events
 
-#### @before-send
+#### @before-upload
 
-发送前触发
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| $event.data | object | 进度相关信息 |
-| $event.xhr | XMLHttpRequest | 发送前的 XMLHttpRequest 对象 |
-| $event.formData | FormData | 用于发送的数据对象 |
-| $event.preventDefault | Function | 阻止上传流程 |
-| senderVM | UUploader | 发送事件对象 |
-
-#### @send
-
-刚发送时触发
+上传前触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.data | object | 进度相关信息 |
+| $event | object | 自定义事件对象 |
+| $event.file | File | 待上传的文件 |
 | $event.preventDefault | Function | 阻止上传流程 |
 | senderVM | UUploader | 发送事件对象 |
 
@@ -248,15 +276,27 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.data | object | 进度相关信息 |
 | senderVM | UUploader | 发送事件对象 |
 
-#### @complete
+#### @count-exceed
 
-上传完成时触发
+文件数量超额时触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.xml | string | 服务器回传信息 |
+| senderVM | UUploader | 发送事件对象 |
+
+#### @size-exceed
+
+文件大小超额时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.xml | string | 服务器回传信息 |
 | senderVM | UUploader | 发送事件对象 |
 
@@ -266,6 +306,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.data | object | 服务器回传信息对象 |
 | $event.file | object | 上传文件信息，不包含文件主体内容 |
 | senderVM | UUploader | 发送事件对象 |
@@ -276,6 +317,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.name | string | 错误名 |
 | $event.message | string | 错误描述 |
 | $event.extensions | string | 限制类型 |

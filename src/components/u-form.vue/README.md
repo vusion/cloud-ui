@@ -22,8 +22,12 @@
     - [Slots](#slots-2)
     - [Events](#events-2)
     - [Methods](#methods-2)
+- [UFormGroup API](#uformgroup-api)
+    - [Props/Attrs](#propsattrs-3)
+    - [Slots](#slots-3)
+    - [Events](#events-3)
 
-**表单验证器**, **块级展示**
+**Form**
 
 具有数据收集、校验和提交功能的表单，包含输入框、选择框、复选框、单选框等元素。
 
@@ -371,10 +375,12 @@ export default {
         };
     },
     methods: {
-        submit() {
-            this.$refs.form.validate()
-                .then(() => this.$toast.show('验证通过，提交成功！'))
-                .catch(() => this.$toast.show('验证失败！'));
+        async submit() {
+            const result = await this.$refs.form.validate();
+            if (result.valid)
+                this.$toast.show('验证通过，提交成功！');
+            else
+                this.$toast.show('验证失败！');
         },
     },
 };
@@ -388,9 +394,13 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | model | object |  |  | 表单数据模型 |
 | rules | object |  |  | 表单所有域的验证规则，已废弃，推荐在各`<u-form-item>`中自行添加 rules。 |
-| layout | enum | `'block'`<br/>`'inline'` | `'block'` | 表单布局方式。可选值：`block`、`inline`。 |
-| gap | enum | `'none'`<br/>`'small'`<br/>`'normal'`<br/>`'large'` | `'normal'` | 表单项之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。可选值: `'none'`, `'small'`, `'normal'`, `'large'` |
-| label-size | enum | `'mini'`<br/>`'small'`<br/>`'normal'`<br/>`'large'` | `'normal'` | 标签宽度。可选值：`mini`、`small`、`normal`、`large`。 |
+| layout | string | `[object Object]`<br/>`[object Object]` | `'block'` | 表单布局方式 |
+| gap | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 表单项之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。 |
+| label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 标签宽度。 |
+| size | string | `[object Object]`<br/>`[object Object]` | `'normal'` | 表单尺寸，表单组间隙等 |
+| collapsible | boolean |  | `false` | 分组是否可以折叠 |
+| accordion | boolean |  | `false` | 是否每次只会展开一个分组 |
+| expand-trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 展开/折叠的触发方式 |
 
 ### Computed
 
@@ -415,7 +425,8 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event.trigger | enum | 本次验证的触发方式 |
+| $event | object | 自定义事件对象 |
+| $event.trigger | string | 本次验证的触发方式 |
 | $event.valid | boolean | 验证是否通过 |
 | $event.touched | boolean | 用户是否触碰 |
 | $event.dirty | boolean | 用户是否修改值 |
@@ -433,7 +444,7 @@ Methods
 | trigger | string | `'submit'` | 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。 |
 | muted | boolean | `false` | 是否验证后无提示 |
 
-#### validateItem(name, trigger, slient)
+#### validateItem(name, trigger, muted)
 
 验证表单中的某一项，已废弃。表单中的项是嵌套的，用 name 层级较深，而且可能有重名。
 
@@ -450,14 +461,14 @@ Methods
 | --------- | ---- | ------- | ------- | ----------- |
 | name | string |  |  | 表单项名称。已废弃 |
 | label | string |  |  | 标签名。用于左侧显示，同时用于提示消息的合成。 |
-| label-size | enum | `'mini'`<br/>`'small'`<br/>`'normal'`<br/>`'large'` | `'normal'` | 单独设置表单项的标签大小。 |
-| field-size | enum | `'mini'`<br/>`'small'`<br/>`'normal'`<br/>`'large'` |  | 单独设置表单项的内容大小。可选值：`'full'` |
+| label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 单独设置表单项的标签大小。 |
+| field-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 单独设置表单项的内容大小 |
 | required | boolean |  | `false` | 是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。 |
 | message | string |  |  | 默认提示消息 |
-| muted | enum | `'none'`<br/>`'message'`<br/>`'all'` | `'none'` | 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示 |
+| muted | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'none'` | 验证是否静默 |
 | description | string |  |  | 添加描述内容 |
-| placement | enum | `'right'`<br/>`'bottom'` | `'right'` | 值为`'bottom'`时提示信息在底部显示，改变提示信息显示位置 |
-| layout | enum | `'block'`<br/>`'inline'` | `'inline'` | 布局方式。 |
+| placement | string | `[object Object]`<br/>`[object Object]` | `'right'` | 改变提示信息显示位置 |
+| layout | string | `[object Object]`<br/>`[object Object]` | `'inline'` | 布局方式。 |
 | rules | string \| Array |  |  | 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型 |
 | ignore-validation | boolean |  | `false` | 忽略验证 |
 | ignore-rules | boolean |  | `false` | 忽略验证规则。已废弃，同`ignore-validation` |
@@ -507,4 +518,53 @@ Methods
 | ----- | ---- | ------- | ----------- |
 | trigger | string | `'submit'` | 触发方式，可选值：`submit`、`blur`和`input`之一，或者它们的任意组合。 |
 | muted | boolean | `false` | 是否验证后无提示 |
+
+## UFormGroup API
+### Props/Attrs
+
+| Prop/Attr | Type | Options | Default | Description |
+| --------- | ---- | ------- | ------- | ----------- |
+| title | string |  |  | 显示的标题 |
+| collapsible | boolean |  | `false` | 分组是否可以折叠 |
+| expanded.sync | boolean |  | `false` | 展开/折叠状态 |
+| disabled | boolean |  | `false` | 是否禁用。禁用时无法展开/折叠 |
+
+### Slots
+
+#### (default)
+
+插入`<u-form-item>`或`<u-form-divider>`子组件。
+
+#### title
+
+自定义标题文本。
+
+#### extra
+
+在右侧可以附加内容。
+
+### Events
+
+#### @before-toggle
+
+展开/折叠此分组前触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.expanded | boolean | 展开/折叠状态 |
+| $event.groupVM | UFormGroup | 分组组件 |
+| $event.preventDefault | Function | 阻止展开/折叠流程 |
+| senderVM | Vue | 发送事件实例 |
+
+#### @toggle
+
+展开/折叠某分组时触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.expanded | boolean | 展开/折叠状态 |
+| $event.groupVM | UFormGroup | 分组组件 |
+| senderVM | Vue | 发送事件实例 |
 

@@ -15,13 +15,16 @@
       description: 当前选择的值
     - name: label-size
       title: 标签尺寸
-      type: enum
+      type: string
       options:
-        - small
-        - normal
-        - large
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+        - value: large
+          title: 大
       default: normal
-      description: label的大小，可选值：`'small'`, `'large'`
+      description: 标签 的大小
     - name: categories
       title: 多级分类
       type: Array<{ label, key, tip }>
@@ -34,11 +37,21 @@
       description: 是否可自动选择
     - name: converter
       title: 转换器
-      type: string | object
+      type: string
+      options:
+        - value: join
+          title: 以','连接
+        - value: join:|
+          title: 以'|'连接
+        - value: join:;
+          title: 以';'连接
+        - value: json
+          title: json
       default: join
       description: value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成
         value，`'join.number'`与`join`类似，只是会考虑它为数字的情况。也可以用`:`修改分隔符，类似 Vue
         的指令参数，`'last-value'`表示以最后一项的值作为 value。也可以传入一个包含 { get, set } 的一个对象
+      bindHide: true
     - name: field
       title: 字段
       type: string
@@ -67,10 +80,17 @@
         - name: $event
           type: any
           description: 选择项的值
+          schema:
+            $ref: "#/basicTypes/String"
     - name: select
       title: 选择后
       description: 选择某一项时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/CascadeCapsulesEvent"
         - name: $event.level
           type: number
           description: 选择的层级
@@ -90,6 +110,11 @@
       title: 改变后
       description: 选择值改变时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.value
           type: any
           description: 改变后的值

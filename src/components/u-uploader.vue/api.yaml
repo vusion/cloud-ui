@@ -1,34 +1,42 @@
 - name: u-uploader
   title: 文件上传
+  icon: uploader
   description: 通过点击或者拖拽上传文件。
   labels:
-    - 表单控件
-    - 行内展示
+    - Form
   attrs:
     - name: value
+      title: 值
       type: Array
       sync: true
       model: true
       default: "[]"
       description: 当前文件列表
     - name: url
+      title: 上传的地址
       type: string
       default: null
-      description: 上传的地址
+      description: 上传的 URL 地址
       required: true
+      compType: interfaceSelect
     - name: name
+      title: 上传的文件字段名
       type: string
       default: file
       description: 上传的文件字段名，后端需要这个字段获取
     - name: accept
+      title: 接受的上传类型
       type: string
       description: 接受的上传类型
     - name: headers
+      title: 请求 headers
       type: Object
       description: 请求 headers
     - name: with-credentials
+      title: 设置cookie值
       type: boolean
       default: false
+      description: 通过设置 withCredentials 为 true 获得的第三方 cookies，将会依旧享受同源策略
     - name: multiple
       title: 多文件上传
       type: boolean
@@ -40,35 +48,44 @@
       default: false
       description: 利用原生 multipart/form-data 传输多个文件的能力，一次性上传多个文件
     - name: data-type
+      title: 接收数据类型
       type: string
       default: json
       description: 接收数据类型。可选值：`text`、`xml`、`json`
+      advanced: true
+      hidden: true
     - name: data
+      title: 附加数据
       type: object
       default: null
       description: 附加数据
-    - name: extensions
-      type: string, Array
-      default: ""
-      description: 可上传的扩展名。默认为空，表示可上传任意文件类型的文件。可以为字符串，多个扩展名用`,`隔开，如：`'png,jpg,gif'`；也可以为数组，如：`['png',
-        'jpg', 'gif']`
     - name: limit
+      title: 列表数量上限
       type: number
-      default: .inf
+      default: 999
       description: 列表数量上限
     - name: max-size
-      type: string, number
-      default: .inf
+      title: 最大文件大小
+      type: string
+      default: 50MB
       description: 可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB`
     - name: list-type
       title: 列表类型
-      type: enum
+      type: string
       options:
-        - text
-        - image
-        - card
+        - title: 文本
+          value: text
+        - title: 图片
+          value: image
+        - title: 卡片
+          value: card
       default: text
       description: 列表展示类型
+    - name: url-field
+      title: URL 字段名
+      type: string
+      default: url
+      description: 请求返回的 URL 字段名
     - name: auto-upload
       title: 是否自动上传
       type: boolean
@@ -84,43 +101,73 @@
       type: boolean
       default: false
       description: 是否可以粘贴
+      advanced: true
     - name: show-file-list
       title: 是否显示文件列表
       type: boolean
       default: true
       description: 是否显示文件列表
+    - name: converter
+      title: 转换器
+      type: string
+      options:
+        - title: JSON
+          value: json
+        - title: Simple
+          value: simple
+      default: json
+      description: 转换器
+    - name: readonly
+      title: 只读
+      type: boolean
+      default: false
+      description: 是否只读
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
       description: 是否禁用
+    - name: display
+      title: 展示方式
+      type: string
+      options:
+        - value: inline
+          title: 行内展示
+        - value: block
+          title: 块级展示，宽度会充满父元素
+      default: block
+      description: 展示方式
+    - name: description
+      title: 上传提示信息
+      type: string
+      default: null
+      description: 在上传组件下方展示一些提示信息，如上传的数量、大小等
+    - name: showErrorMessage
+      title: 出错信息
+      type: boolean
+      default: true
+      description: 是否展示上传时的出错信息，如超出数量、大小
+    - name: dragDescription
+      title: 拖拽描述
+      type: string
+      default: 点击/拖动/粘贴文件到这里
+      description: 拖拽描述信息
   slots:
     - name: default
       description: 插入文本 或 HTML。
   events:
-    - name: before-send
-      description: 发送前触发
+    - name: before-upload
+      title: 上传前
+      description: 上传前触发
       params:
-        - name: $event.data
+        - name: $event
           type: object
-          description: 进度相关信息
-        - name: $event.xhr
-          type: XMLHttpRequest
-          description: 发送前的 XMLHttpRequest 对象
-        - name: $event.formData
-          type: FormData
-          description: 用于发送的数据对象
-        - name: $event.preventDefault
-          type: Function
-          description: 阻止上传流程
-        - name: senderVM
-          type: UUploader
-          description: 发送事件对象
-    - name: send
-      description: 刚发送时触发
-      params:
-        - name: $event.data
-          type: object
-          description: 进度相关信息
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/UploadEvent"
+        - name: $event.file
+          type: File
+          description: 待上传的文件
         - name: $event.preventDefault
           type: Function
           description: 阻止上传流程
@@ -128,17 +175,44 @@
           type: UUploader
           description: 发送事件对象
     - name: progress
+      title: 进度改变时
       description: 发送进度改变时触发，在上传进度条时使用
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/UploadEvent"
         - name: $event.data
           type: object
           description: 进度相关信息
         - name: senderVM
           type: UUploader
           description: 发送事件对象
-    - name: complete
-      description: 上传完成时触发
+    - name: count-exceed
+      title: 文件数量超额
+      description: 文件数量超额时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/UploadErrorEvent"
+        - name: $event.xml
+          type: string
+          description: 服务器回传信息
+        - name: senderVM
+          type: UUploader
+          description: 发送事件对象
+    - name: size-exceed
+      title: 文件大小超额
+      description: 文件大小超额时触发
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/UploadErrorEvent"
         - name: $event.xml
           type: string
           description: 服务器回传信息
@@ -146,8 +220,14 @@
           type: UUploader
           description: 发送事件对象
     - name: success
+      title: 上传成功时
       description: 上传成功时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/UploadEvent"
         - name: $event.data
           type: object
           description: 服务器回传信息对象
@@ -158,8 +238,14 @@
           type: UUploader
           description: 发送事件对象
     - name: error
+      title: 上传错误时
       description: 上传报错时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/UploadErrorEvent"
         - name: $event.name
           type: string
           description: 错误名
@@ -180,5 +266,6 @@
           description: 发送事件对象
   methods:
     - name: select
+      title: 选择
       description: 选择文件上传
       params: []

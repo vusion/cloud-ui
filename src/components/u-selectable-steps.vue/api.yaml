@@ -1,5 +1,11 @@
 - name: u-selectable-steps
-  title: 可选步骤条
+  title: 步骤条
+  icon: steps
+  labels:
+    - Selector
+  description: 当操作需要分步骤时使用
+  next: true
+  nested: false
   attrs:
     - name: value
       title: 值
@@ -18,14 +24,34 @@
       type: boolean
       default: false
       description: 是否禁用
+    - name: size
+      title: 尺寸
+      type: string
+      options:
+        - value: auto
+          title: 自适应
+        - value: normal
+          title: 正常
+      default: normal
+      description: 设置尺寸
   slots:
     - name: default
-      description: 插入`<u-step>`子组件。
+      description: 插入`<u-selectable-step>`子组件。
+      support:
+        - name: u-selectable-step
+          title: 步骤条子组件
+          snippet: <u-selectable-step title="步骤 N"></u-selectable-step>
   events:
     - name: before-select
       title: 选择前
       description: 选择某一步骤前触发
+      advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
         - name: value
           type: any
           description: 选中步骤的值
@@ -42,6 +68,11 @@
       title: 选择后
       description: 选择某一步骤时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
         - name: value
           type: any
           description: 选中步骤的值
@@ -55,6 +86,11 @@
       title: 改变后
       description: 步骤数改变后触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
         - name: value
           type: number
           description: 当前步骤数
@@ -62,6 +98,8 @@
           type: number
           description: 旧的步骤数
 - name: u-selectable-step
+  title: 步骤条项
+  is-sub: true
   attrs:
     - name: title
       title: 标题
@@ -69,11 +107,14 @@
       default: null
       description: 步骤名
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
       description: 是否禁用此标签页
   slots:
     - name: default
+      plus-empty: true
       description: 插入文本或 HTML。
     - name: title
       description: 自定义标题文本。
+  description: 步骤条项

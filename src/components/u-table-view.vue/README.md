@@ -17,6 +17,8 @@
     - [过滤（筛选）](#过滤筛选)
     - [特殊列](#特殊列)
     - [编辑行](#编辑行)
+    - [树形展示](#树形展示)
+    - [导出 Excel](#导出-excel)
 - [常见问题](#常见问题)
 
 - [UTableView API](#utableview-api)
@@ -28,7 +30,7 @@
     - [Props/Attrs](#propsattrs-2)
     - [Slots](#slots-2)
 
-**数据源**, **块级展示**
+**Table**
 
 用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。
 
@@ -1643,20 +1645,22 @@ export default {
         },
         onClickConfirm(item) {
             const tasks = [];
-            const index = this.data.findIndex((temp)=>temp.name === item.name);
-            Object.keys(item).forEach((key)=>{
+            const index = this.data.findIndex((temp) => temp.name === item.name);
+            Object.keys(item).forEach((key) => {
                 const node = this.$refs[`${key}_${index}`];
                 if(node){
                     tasks.push(node.validate());
                 }
             });
-            Promise.all(tasks).then((valid)=>{
-                if(item.adding){
-                    this.onAdd(item);
-                }else{
-                    this.onEdit(item);
+            Promise.all(tasks).then((results) => {
+                if (results.every((result) => result.valid)) {
+                    if(item.adding) {
+                        this.onAdd(item);
+                    } else {
+                        this.onEdit(item);
+                    }
                 }
-            }).catch((e)=>e);
+            });
         },
         onClickDelete(item) {
             const index = this.data.findIndex((temp)=>temp.id === item.id);
@@ -1683,6 +1687,139 @@ export default {
 </script>
 ```
 
+### 树形展示
+
+同步数据。
+
+``` vue
+<template>
+<u-table-view :data-source="[
+    { name: '张三', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+    { name: '张三dd', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000, children:[
+        { name: '张三11', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+        { name: '张三12', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000,children:[
+        { name: '张三121', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+        { name: '张三122', phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000},
+    ]},
+    ]},
+    { name: '小明', phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 },
+    { name: '李四', phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
+    { name: '李华', phone: '18749261214', email: 'lihua@163.com', address: '浙江省杭州市滨江区长河路590号东忠科技园', createdTime: 1476073921000, loginTime: 1544428081000 },
+    { name: '王五', phone: '13579340020', email: 'wangwu@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦二期', createdTime: 1468614726000, loginTime: 1531675926000 },
+]" tree-display value-field="name">
+    <u-table-view-column type="checkbox" width="30"></u-table-view-column>
+    <u-table-view-column title="用户名" field="name" width="20%"></u-table-view-column>
+    <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
+    <u-table-view-column title="地址" field="address"></u-table-view-column>
+    <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
+</u-table-view>
+</template>
+```
+
+异步加载数据，指定`treeDataSource`。
+
+``` vue
+<template>
+<u-table-view :data-source="load" tree-display value-field="name">
+    <u-table-view-column title="用户名" field="name" width="20%" ellipsis></u-table-view-column>
+    <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
+    <u-table-view-column title="地址" field="address"></u-table-view-column>
+    <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>
+</u-table-view>
+</template>
+<script>
+// 模拟后端请求
+const mockRequest = (name, timeout = 1000) => {
+    const mockData = [
+            { name: '张三1'+name, phone: '18612917895', email: 'zhangsan@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦', createdTime: 1464421931000, loginTime: 1527515531000, hasChildren: true },
+            { name: '小明1'+name, phone: '13727160283', email: 'xiaoming@163.com', address: '浙江省杭州市滨江区江虹路459号英飞特科技园', createdTime: 1520864676000, loginTime: 1552400676000 },
+            { name: '李四1'+name, phone: '18897127809', email: 'lisi@163.com', address: '浙江省杭州市滨江区秋溢路606号西可科技园', createdTime: 1494488730000, loginTime: 1558165530000 },
+            { name: '李华1'+name, phone: '18749261214', email: 'lihua@163.com', address: '浙江省杭州市滨江区长河路590号东忠科技园', createdTime: 1476073921000, loginTime: 1544428081000 },
+            { name: '王五1'+name, phone: '13579340020', email: 'wangwu@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦二期', createdTime: 1468614726000, loginTime: 1531675926000 },
+        ];
+    return new Promise((res, rej) => setTimeout(() => res(mockData), timeout));
+};
+
+// 模拟数据服务
+const mockService = {
+    loadList(name) {
+        // 在这里模拟了一个从后端一次性获取数据的请求
+        return mockRequest(name);
+    },
+};
+
+export default {
+    methods: {
+        load(params, itemData) {
+            const name = itemData&&itemData.item?itemData.item.name : '';
+            return mockService.loadList(name);
+        },
+    },
+};
+</script>
+```
+
+### 导出 Excel
+
+要使用 exportExcel 方法, 需要向`data-source`属性中传入一个加载函数。传递给 exportExcel 的参数最终会传递给加载函数
+
+``` vue
+<template>
+    <u-linear-layout direction="vertical">
+        <u-button color="primary" @click="() => $refs.tableView.exportExcel()">导出 Excel</u-button>
+        <u-table-view ref="tableView" pageable :remote-paging="true" :data-source="load">
+            <u-table-view-column type="index" width="60" title="序号"></u-table-view-column>
+            <u-table-view-column title="创建时间">
+                <template #cell="scope">
+                        <u-text :text="scope.item.student.createdTime"></u-text>
+                </template>
+            </u-table-view-column>
+            <u-table-view-column title="更新时间">
+                <template #cell="scope">
+                        <u-text :text="scope.item.student.updatedTime"></u-text>
+                </template>
+            </u-table-view-column>
+            <u-table-view-column title="name">
+                <template #cell="scope">
+                        <u-text :text="scope.item.student.name"></u-text>
+                </template>
+            </u-table-view-column>
+            <u-table-view-column title="age">
+                <template #cell="scope">
+                        <u-text :text="scope.item.student.age"></u-text>
+                </template>
+            </u-table-view-column>
+            <u-table-view-column title="操作">
+                <template #cell="scope">
+                    <u-linear-layout gap="small">
+                        <u-link text="修改" @click="modify($event,scope)"></u-link>
+                        <u-link text="删除" @click="remove($event,scope)"></u-link>
+                    </u-linear-layout>
+                </template>
+            </u-table-view-column>
+        </u-table-view>
+    </u-linear-layout>
+</template>
+<script>
+// 模拟后端请求
+const mockRequest = (data, timeout = 300) => new Promise((res, rej) => setTimeout(() => res(data), timeout));
+// 模拟数据服务
+const mockService = {
+    load() {
+        return {"number":1,"last":false,"size":20,"numberOfElements":20,"totalPages":20,"content":[{"student":{"id":1137630473356288,"createdTime":"2021-11-11T03:05:37.000Z","updatedTime":"2021-11-11T03:05:37.000Z","createdBy":null,"updatedBy":null,"name":"张三","age":10}},{"student":{"id":1137631165416448,"createdTime":"2021-11-11T03:08:23.000Z","updatedTime":"2021-11-11T03:08:23.000Z","createdBy":null,"updatedBy":null,"name":"name_0","age":35}},{"student":{"id":1137631165416449,"createdTime":"2021-11-11T03:08:23.000Z","updatedTime":"2021-11-11T03:08:23.000Z","createdBy":null,"updatedBy":null,"name":"name_1","age":57}},{"student":{"id":1137631165416450,"createdTime":"2021-11-11T03:08:23.000Z","updatedTime":"2021-11-11T03:08:23.000Z","createdBy":null,"updatedBy":null,"name":"name_2","age":44}},{"student":{"id":1137631165416451,"createdTime":"2021-11-11T03:08:23.000Z","updatedTime":"2021-11-11T03:08:23.000Z","createdBy":null,"updatedBy":null,"name":"name_3","age":25}},{"student":{"id":1137631165416452,"createdTime":"2021-11-11T03:08:23.000Z","updatedTime":"2021-11-11T03:08:23.000Z","createdBy":null,"updatedBy":null,"name":"name_4","age":75}},{"student":{"id":1137631165416453,"createdTime":"2021-11-11T03:08:23.000Z","updatedTime":"2021-11-11T03:08:23.000Z","createdBy":null,"updatedBy":null,"name":"name_5","age":8}},{"student":{"id":1137631165416454,"createdTime":"2021-11-11T03:08:23.000Z","updatedTime":"2021-11-11T03:08:23.000Z","createdBy":null,"updatedBy":null,"name":"name_6","age":52}},{"student":{"id":1137631165416455,"createdTime":"2021-11-11T03:08:23.000Z","updatedTime":"2021-11-11T03:08:23.000Z","createdBy":null,"updatedBy":null,"name":"name_7","age":31}},{"student":{"id":1137631165416456,"createdTime":"2021-11-11T03:08:23.000Z","updatedTime":"2021-11-11T03:08:23.000Z","createdBy":null,"updatedBy":null,"name":"name_8","age":44}},{"student":{"id":1137631169610752,"createdTime":"2021-11-11T03:08:23.000Z","updatedTime":"2021-11-11T03:08:23.000Z","createdBy":null,"updatedBy":null,"name":"name_9","age":21}},{"student":{"id":1137631303828480,"createdTime":"2021-11-11T03:08:56.000Z","updatedTime":"2021-11-11T03:08:56.000Z","createdBy":null,"updatedBy":null,"name":"name_10","age":83}},{"student":{"id":1137631303828481,"createdTime":"2021-11-11T03:08:56.000Z","updatedTime":"2021-11-11T03:08:56.000Z","createdBy":null,"updatedBy":null,"name":"name_11","age":10}},{"student":{"id":1137631303828482,"createdTime":"2021-11-11T03:08:56.000Z","updatedTime":"2021-11-11T03:08:56.000Z","createdBy":null,"updatedBy":null,"name":"name_12","age":79}},{"student":{"id":1137631308022784,"createdTime":"2021-11-11T03:08:56.000Z","updatedTime":"2021-11-11T03:08:56.000Z","createdBy":null,"updatedBy":null,"name":"name_13","age":93}},{"student":{"id":1137631308022785,"createdTime":"2021-11-11T03:08:56.000Z","updatedTime":"2021-11-11T03:08:56.000Z","createdBy":null,"updatedBy":null,"name":"name_14","age":44}},{"student":{"id":1137631308022786,"createdTime":"2021-11-11T03:08:56.000Z","updatedTime":"2021-11-11T03:08:56.000Z","createdBy":null,"updatedBy":null,"name":"name_15","age":70}},{"student":{"id":1137631308022787,"createdTime":"2021-11-11T03:08:56.000Z","updatedTime":"2021-11-11T03:08:56.000Z","createdBy":null,"updatedBy":null,"name":"name_16","age":81}},{"student":{"id":1137631308022788,"createdTime":"2021-11-11T03:08:56.000Z","updatedTime":"2021-11-11T03:08:56.000Z","createdBy":null,"updatedBy":null,"name":"name_17","age":11}},{"student":{"id":1137631308022789,"createdTime":"2021-11-11T03:08:56.000Z","updatedTime":"2021-11-11T03:08:56.000Z","createdBy":null,"updatedBy":null,"name":"name_18","age":90}}],"first":true,"totalElements":20,"empty":false};
+    },
+};
+
+export default {
+    methods: {
+        load() {
+            return mockService.load();
+        },
+    },
+};
+</script>
+```
+
 
 
 
@@ -1693,23 +1830,24 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise，详见文档示例。 |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise。 |
+| data-schema | schema |  |  | 表格每一行的数据类型 |
 | initial-load | boolean |  | `true` | 是否在初始时立即加载。 |
-| pageable | boolean |  | `false` | 是否需要分页。 |
+| pageable | boolean |  | `false` | 是否分页。 |
 | page-size.sync | number |  | `20` | 分页大小。 |
-| page-number.sync | number |  | `1` | 当面页数。 |
+| page-number.sync | number |  | `1` | 当前页数。 |
 | page-size-options | Array\<number\> |  | `[10, 20, 50]` | 分页大小的选项列表。 |
 | show-total | boolean |  | `false` | 是否显示总条目数。 |
 | show-sizer | boolean |  | `false` | 是否显示切换分页大小选项。 |
 | show-jumper | boolean |  | `false` | 是否显示页面跳转输入框。 |
 | sorting.sync | { field: string, order: string, compare: Function } |  | `'{ field: undefined, order: 'desc' }'` | 当前排序的字段和顺序。 |
-| default-order | enum | `'asc'`<br/>`'desc'` | `'asc'` | 所有列首次点击时的排序顺序。 |
+| default-order | string | `[object Object]`<br/>`[object Object]` | `'asc'` | 所有列首次点击时的排序顺序。 |
 | filtering.sync | object |  |  | 筛选参数。 |
 | remote-paging | boolean |  | `false` | 是否使用后端分页。 |
 | remote-sorting | boolean |  | `false` | 是否使用后端排序。 |
 | remote-filtering | boolean |  | `false` | 是否使用后端筛选 |
 | title | string |  |  | 表格标题。 |
-| title-alignment | enum | `'left'`<br/>`'center'`<br/>`'right'` | `'center'` | 表格标题的对齐方式。 |
+| title-alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'center'` | 表格标题的对齐方式。 |
 | border | boolean |  | `false` | 是否显示边框。 |
 | line | boolean |  | `false` | 单元格之间是否显示分隔线条。 |
 | striped | boolean |  | `false` | 表格行是否按斑马线条纹显示。 |
@@ -1720,7 +1858,7 @@ export default {
 | error | boolean |  |  | 手动设置是否加载失败。 |
 | error-text | string |  | `'加载失败，请重试'` | 加载失败时的文字。 |
 | empty-text | string |  | `'暂无数据'` | 暂无数据时的文字。 |
-| value-field | string |  |  | 在单选和多选操作中，指定数据唯一值的字段。 |
+| value-field | string |  |  | 在单选、多选操作、渲染树形数据中，指定数据唯一值的字段。 |
 | value.sync, v-model | any |  |  | 单项选择的值。 |
 | values.sync | Array |  |  | 多项选择的值。 |
 | selectable | boolean |  | `false` | 是否可以单选行。 |
@@ -1729,7 +1867,10 @@ export default {
 | disabled | boolean |  | `false` | 是否禁用。 |
 | accordion | boolean |  | `false` | 在有`expander`列的情况下，展开一行的同时，是否收起其它行。 |
 | resizable | boolean |  | `false` | 是否可以调整列宽。 |
-| resize-remaining | enum | `'sequence'`<br/>`'average'`<br/>`'none'` | `'average'` | 调整列宽时如何处理剩余大小。可选值：`sequence`表示保持总宽不变，优先后一列弥补宽度；`average`表示保持总宽不变，后面所有列平均弥补宽度；`none`表示不做任何处理，表格宽度变化。 |
+| resize-remaining | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'average'` | 调整列宽时如何处理剩余大小 |
+| tree-display | boolean |  | `false` | 以树形数据展示表格。 |
+| children-field | string |  | `'children'` | 树形数据子节点字段名。 |
+| has-children-field | string |  | `'hasChildren'` | 该字段指定行数据是否包含子节点数据。 |
 
 ### Slots
 
@@ -1757,6 +1898,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.preventDefault | Function | 阻止加载流程 |
 | senderVM | UTableView | 发送事件实例 |
 
@@ -1775,6 +1917,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.size | number | 分页大小 |
 | $event.oldSize | number | 旧的分页大小 |
 | $event.number | number | 当前页数 |
@@ -1788,6 +1931,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.size | number | 分页大小 |
 | $event.oldSize | number | 分页大小 |
 | $event.number | number | 当前页数 |
@@ -1800,6 +1944,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.field | string | 排序字段 |
 | $event.order | string | 排序顺序 |
 | $event.compare | Function | 排序比较函数 |
@@ -1812,6 +1957,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.field | string | 排序顺序 |
 | $event.order | string | 排序字段 |
 | $event.compare | Function | 排序比较函数 |
@@ -1842,6 +1988,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选择行的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择行相关对象 |
@@ -1864,6 +2011,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 改变后的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择行相关对象 |
@@ -1877,6 +2025,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.checked | boolean | 选中状态 |
 | $event.values | Array | 选择后的值 |
 | $event.oldValues | Array | 旧的值 |
@@ -1889,6 +2038,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选择行的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择行相关对象 |
@@ -1922,6 +2072,24 @@ Methods
 | Param | Type | Default | Description |
 | ----- | ---- | ------- | ----------- |
 
+#### getFields()
+
+获取所有表格列的 field
+
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
+
+#### exportExcel(page, size, sort, order)
+
+导出 excel 文件
+
+| Param | Type | Default | Description |
+| ----- | ---- | ------- | ----------- |
+| page | number | `1` | 当前页码 |
+| size | number | `2000` | 每页条数 |
+| sort | string | `'tableView.params.sort'` | 排序字段 |
+| order | string | `'tableView.params.order'` | 排序顺序，'asc' 或 'desc' |
+
 ## UTableViewColumn API
 ### Props/Attrs
 
@@ -1930,22 +2098,21 @@ Methods
 | title | string |  |  | 列标题。 |
 | field | string |  |  | data 项中的字段名。 |
 | width | string \| number |  |  | 给列指定宽度，可以为数字或百分比。 |
-| ellipsis | boolean |  | `false` | 是否省略显示。默认文字超出时会换行。 |
 | formatter | string \| object \| Function \| Formatter |  | `'placeholder'` | 格式器。 |
 | fixed | boolean |  | `false` | 该列是否固定。 |
 | sortable | boolean |  | `false` | 该列是否可以排序。 |
-| default-order | enum | `'asc'`<br/>`'desc'` | `'asc'` | 该列首次点击时的排序顺序 |
+| default-order | string | `[object Object]`<br/>`[object Object]` | `'asc'` | 该列首次点击时的排序顺序 |
 | filters | Array\<{ text: string, value: any }\> |  |  | 筛选项的参数 |
 | ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
 | hidden | boolean |  | `false` | 是否隐藏该列。 |
-| type | enum | `'index'`<br/>`'radio'`<br/>`'checkbox'`<br/>`'expander'` |  | 列类型。可选值：`index`表示序号列，`radio`表示单选列，`checkbox`表示多选列，`expander`表示展开列。 |
+| type | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 列类型 |
 | start-index | number |  | `1` | 当`type="index"`时的起始序号。 |
 
 ### Slots
 
 #### (default)
 
-
+默认值
 
 #### cell
 
