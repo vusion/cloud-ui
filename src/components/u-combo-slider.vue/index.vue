@@ -123,7 +123,9 @@ export default {
 </script>
 
 <style module>
-.root {}
+.root {
+  text-align: center;
+}
 
 .slider {
     display: inline-block;
@@ -143,7 +145,7 @@ export default {
 
 .main {
     display: inline-block;
-    width: 330px;
+    width: calc(100% - 100px);
     vertical-align: -20px;
 }
 
@@ -152,6 +154,7 @@ export default {
 }
 
 .tip {
+    float: left;
     margin-left: 7px;
     margin-bottom: 4px;
     font-size: 12px;
