@@ -1,7 +1,12 @@
 - name: u-footbar
   title: 底部栏
+  icon: footbar
+  description: 底部栏
+  labels:
+    - Layout
   attrs:
     - name: position
+      title: 显示位置
       type: string
-      default: null
+      default: static
       description: 显示的位置。

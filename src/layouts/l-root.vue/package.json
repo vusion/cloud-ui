@@ -1,0 +1,41 @@
+{
+  "name": "@cloud-ui/l-root.vue",
+  "description": "根组件的布局。",
+  "version": "0.1.0",
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vusion/cloud-ui.git",
+    "directory": "src/layouts/l-root.vue"
+  },
+  "homepage": "https://unpkg.com/@cloud-ui/l-root.vue@0.6.0/public/index.html",
+  "bugs": "http://github.com/vusion/cloud-ui/issues",
+  "license": "MIT",
+  "keywords": [
+    "proto",
+    "extension",
+    "ui",
+    "layout"
+  ],
+  "scripts": {
+    "dev": "../../../node_modules/.bin/vue-cli-service doc --port 9090",
+    "build:doc": "../../../node_modules/.bin/vue-cli-service doc-build",
+    "screenshot": "vusion screenshot public/index.html --code-example --package",
+    "prepublishOnly": "npm run build:doc && npm run screenshot && vusion readme && vusion vetur && git add ."
+  },
+  "vuePlugins": {
+    "resolveFrom": "../../../"
+  },
+  "peerDependencies": {
+    "vue": "^2.5.0",
+    "cloud-ui.vusion": "^0.6.0"
+  },
+  "vusion": {
+    "type": "component",
+    "title": "页面布局的根节点",
+    "team": "necfe",
+    "access": "public",
+    "category": "layout",
+    "ui": "cloud-ui.vusion"
+  }
+}

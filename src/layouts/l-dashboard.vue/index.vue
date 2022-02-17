@@ -1,12 +1,12 @@
 <template>
 <div :class="$style.root">
-    <header :class="$style.head">
+    <header :class="$style.head" vusion-slot-name="head">
         <slot name="head"></slot>
     </header>
-    <aside :class="$style.side">
+    <aside :class="$style.side" vusion-slot-name="side">
         <slot name="side"></slot>
     </aside>
-    <main :class="$style.main">
+    <main :class="$style.main" vusion-slot-name="default">
         <slot name="main">
             <div :class="$style.content">
                 <slot></slot>
@@ -27,6 +27,7 @@ export default { name: 'l-dashboard' };
     right: 0;
     top: 0;
     height: 100%;
+    min-height: 600px;
 }
 
 .head {
@@ -59,7 +60,7 @@ export default { name: 'l-dashboard' };
 
 .content {
     position: relative;
-    min-width: 1110px;
+    min-width: 1020px;
     padding: 40px;
 }
 </style>

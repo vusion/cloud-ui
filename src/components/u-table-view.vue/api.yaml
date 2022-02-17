@@ -1,15 +1,24 @@
 - name: u-table-view
   title: 数据表格
+  icon: table-view
   labels:
-    - 数据源
-    - 块级展示
+    - Table
   description: 用于展示大量结构化数据。支持排序、过滤（筛选）、分页、自定义操作等复杂功能。
+  next: true
+  nested: false
   attrs:
     - name: data-source
       title: 数据源
       type: Array<Item> | Function | object | DataSource
-      description: 表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise，详见文档示例。
+      designer-value: "[{}, {}, {}]"
+      description: 表格的数据源，数据集对象或者返回数据集的逻辑
       group: 数据属性
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      description: 表格每一行的数据类型
+      group: 数据属性
+      compType: dataTypeSelect
     - name: initial-load
       title: 初始加载
       type: boolean
@@ -20,22 +29,24 @@
       title: 可分页
       type: boolean
       default: false
-      description: 是否需要分页。
+      description: ""
       group: 数据属性
     - name: page-size
       title: 分页大小
       type: number
       sync: true
       default: 20
-      description: 分页大小。
+      description: ""
       group: 数据属性
     - name: page-number
-      title: 当面页数
+      title: 当前页数
       type: number
       sync: true
       default: 1
-      description: 当面页数。
+      description: ""
       group: 数据属性
+      schema:
+        $ref: "#/basicTypes/Integer"
     - name: page-size-options
       title: 分页大小选项
       type: Array<number>
@@ -49,19 +60,19 @@
       title: 显示总条目数
       type: boolean
       default: false
-      description: 是否显示总条目数。
+      description: ""
       group: 数据属性
     - name: show-sizer
       title: 显示分页大小
       type: boolean
       default: false
-      description: 是否显示切换分页大小选项。
+      description: ""
       group: 数据属性
     - name: show-jumper
       title: 显示跳转输入
       type: boolean
       default: false
-      description: 是否显示页面跳转输入框。
+      description: ""
       group: 数据属性
     - name: sorting
       title: 排序参数
@@ -72,10 +83,12 @@
       group: 数据属性
     - name: default-order
       title: 默认排序顺序
-      type: enum
+      type: string
       options:
-        - asc
-        - desc
+        - value: asc
+          title: 升序
+        - value: desc
+          title: 倒序
       default: asc
       description: 所有列首次点击时的排序顺序。
       group: 数据属性
@@ -83,7 +96,8 @@
       title: 筛选参数
       type: object
       sync: true
-      description: 筛选参数。
+      description: ""
+      advanced: true
       group: 数据属性
     - name: remote-paging
       title: 后端分页
@@ -102,27 +116,31 @@
       type: boolean
       default: false
       description: 是否使用后端筛选
+      advanced: true
       group: 数据属性
     - name: title
       title: 表格标题
       type: string
-      description: 表格标题。
+      description: ""
       group: 样式属性
     - name: title-alignment
       title: 标题对齐方式
-      type: enum
+      type: string
       options:
-        - left
-        - center
-        - right
+        - value: left
+          title: 左对齐
+        - value: center
+          title: 居中对齐
+        - value: right
+          title: 右对齐
       default: center
-      description: 表格标题的对齐方式。
+      description: ""
       group: 样式属性
     - name: border
       title: 显示边框
       type: boolean
       default: false
-      description: 是否显示边框。
+      description: ""
       group: 样式属性
     - name: line
       title: 分隔线条
@@ -136,28 +154,32 @@
       default: false
       description: 表格行是否按斑马线条纹显示。
       group: 样式属性
+      hidden: true
     - name: hover
       title: 悬浮高亮行
       type: boolean
       default: false
       description: 表格行在悬浮时是否高亮显示。
       group: 样式属性
+      hidden: true
     - name: show-head
       title: 显示表格头部
       type: boolean
       default: true
-      description: 是否显示表格头部。
+      description: ""
       group: 样式属性
     - name: loading
       title: 是否加载中
       type: boolean
       description: 手动设置是否正在加载中。
+      advanced: true
       group: 状态属性
     - name: loading-text
       title: 加载中文字
       type: string
       default: 正在加载中
       description: 正在加载中的文字。
+      advanced: true
       group: 状态属性
     - name: error
       title: 是否加载失败
@@ -168,18 +190,18 @@
       title: 加载失败文字
       type: string
       default: 加载失败，请重试
-      description: 加载失败时的文字。
+      description: ""
       group: 状态属性
     - name: empty-text
       title: 暂无数据文字
       type: string
       default: 暂无数据
-      description: 暂无数据时的文字。
+      description: ""
       group: 状态属性
     - name: value-field
       title: 值字段名
       type: string
-      description: 在单选和多选操作中，指定数据唯一值的字段。
+      description: 在单选、多选操作、渲染树形数据中，指定数据唯一值的字段。
       group: 选择属性
     - name: value
       title: 单选值
@@ -210,19 +232,19 @@
       title: 只读
       type: boolean
       default: false
-      description: 是否只读。
+      description: ""
       group: 选择属性
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用。
+      description: ""
       group: 选择属性
     - name: accordion
       title: 手风琴模式
       type: boolean
       default: false
-      description: 在有`expander`列的情况下，展开一行的同时，是否收起其它行。
+      description: 是否每次只会展开一行
       group: 其它属性
     - name: resizable
       title: 可调整列宽
@@ -232,23 +254,45 @@
       group: 其它属性
     - name: resize-remaining
       title: 调整列宽效果
-      type: enum
+      type: string
       options:
-        - sequence
-        - average
-        - none
+        - value: sequence
+          title: 保持总宽不变，优先后一列弥补宽度
+        - value: average
+          title: 保持总宽不变，后面所有列平均弥补宽度
+        - value: none
+          title: 不做任何处理，表格宽度变化
       default: average
-      description: 调整列宽时如何处理剩余大小。可选值：`sequence`表示保持总宽不变，优先后一列弥补宽度；`average`表示保持总宽不变，后面所有列平均弥补宽度；`none`表示不做任何处理，表格宽度变化。
+      description: 调整列宽时如何处理剩余大小
+      group: 其它属性
+    - name: tree-display
+      title: 树形模式
+      type: boolean
+      default: false
+      description: 以树形数据展示表格。
+      group: 其它属性
+    - name: children-field
+      title: 子节点字段名
+      type: string
+      default: children
+      description: 树形数据子节点字段名。
+      group: 其它属性
+    - name: has-children-field
+      title: 是否包含子节点字段名
+      type: string
+      default: hasChildren
+      description: 该字段指定行数据是否包含子节点数据。
       group: 其它属性
   slots:
     - name: default
       title: 默认
       description: 在表格中插入`<u-table-view-column>`子组件。
-      accept-type: recommanded
-      recommanded:
+      empty-background: drag-entity-here
+      support:
         - name: u-table-view-column
           title: 表格列
-          snippet: <u-table-view-column title="表格列"></u-table-view-column>
+          snippet: '<u-table-view-column title="表格列"><template
+            #cell="scope"></template></u-table-view-column>'
     - name: loading
       title: 加载中内容
       description: 自定义加载中内容。
@@ -262,7 +306,13 @@
     - name: before-load
       title: 加载前
       description: 加载前触发
+      advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/EventTarget"
         - name: $event.preventDefault
           type: Function
           description: 阻止加载流程
@@ -274,7 +324,7 @@
       description: 加载后触发
       params:
         - name: $event
-          type: null
+          type: "null"
           description: 无
         - name: senderVM
           type: UTableView
@@ -282,7 +332,13 @@
     - name: before-page
       title: 切换分页前
       description: 切换分页前触发
+      advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/PaginationEvent"
         - name: $event.size
           type: number
           description: 分页大小
@@ -305,6 +361,11 @@
       title: 切换分页后
       description: 切换分页或改变分页大小时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/PaginationEvent"
         - name: $event.size
           type: number
           description: 分页大小
@@ -323,7 +384,13 @@
     - name: before-sort
       title: 排序前
       description: 排序前触发
+      advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/SortEvent"
         - name: $event.field
           type: string
           description: 排序字段
@@ -343,6 +410,11 @@
       title: 排序后
       description: 排序后触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/SortEvent"
         - name: $event.field
           type: string
           description: 排序顺序
@@ -358,6 +430,7 @@
     - name: before-filter
       title: 筛选前
       description: 筛选前触发
+      advanced: true
       params:
         - name: $event
           type: object
@@ -381,7 +454,13 @@
     - name: before-select
       title: 选择前
       description: 选择某一项前触发
+      advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选择行的值
@@ -402,6 +481,7 @@
           description: 发送事件实例
     - name: input
       description: 选择某一项后触发
+      title: 选择触发
       params:
         - name: $event
           type: any
@@ -413,6 +493,11 @@
       title: 选择后
       description: 选择某一项后触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 改变后的值
@@ -435,6 +520,11 @@
       title: 多选后
       description: 多选模式中，选中节点后触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/CheckedEvent"
         - name: $event.checked
           type: boolean
           description: 选中状态
@@ -454,6 +544,11 @@
       title: 改变后
       description: 单选或多选值改变后触发。
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选择行的值
@@ -486,16 +581,54 @@
           type: number
           description: 调整前的宽度
   methods:
-    - name: load()
+    - name: load
       description: 带缓存地加载
       params: []
-    - name: reload()
+    - name: reload
       description: 清除缓存，重新加载
       params: []
+    - name: getFields
+      description: 获取所有表格列的 field
+      params: []
+    - name: exportExcel
+      description: 导出 excel 文件
+      params:
+        - name: page
+          type: number
+          description: 当前页码
+          default: 1
+          designerDefault:
+            label: 原子项
+            level: expressionNode
+            type: NumericLiteral
+            value: 1
+            valueType: int
+        - name: size
+          type: number
+          description: 每页条数
+          default: 2000
+          designerDefault:
+            label: 原子项
+            level: expressionNode
+            type: NumericLiteral
+            value: 2000
+            valueType: int
+        - name: sort
+          type: string
+          description: 排序字段
+          required: false
+          default: tableView.params.sort
+        - name: order
+          type: string
+          description: 排序顺序，'asc' 或 'desc'
+          required: false
+          default: tableView.params.order
 - name: u-table-view-column
   accept-parent:
     - u-table-view
   title: 表格列
+  next: false
+  nested: false
   attrs:
     - name: title
       title: 列标题
@@ -509,16 +642,12 @@
       title: 列宽度
       type: string | number
       description: 给列指定宽度，可以为数字或百分比。
-    - name: ellipsis
-      title: 省略显示
-      type: boolean
-      default: false
-      description: 是否省略显示。默认文字超出时会换行。
     - name: formatter
       title: 格式器
       type: string | object | Function | Formatter
       default: placeholder
       description: 格式器。
+      advanced: true
     - name: fixed
       title: 固定列
       type: boolean
@@ -531,16 +660,19 @@
       description: 该列是否可以排序。
     - name: default-order
       title: 默认顺序
-      type: enum
+      type: string
       options:
-        - asc
-        - desc
+        - value: asc
+          title: 升序
+        - value: desc
+          title: 倒序
       default: asc
       description: 该列首次点击时的排序顺序
     - name: filters
       title: 筛选项
       type: "Array<{ text: string, value: any }>"
       description: 筛选项的参数
+      advanced: true
     - name: ellipsis
       title: 省略显示
       type: boolean
@@ -553,13 +685,22 @@
       description: 是否隐藏该列。
     - name: type
       title: 列类型
-      type: enum
+      type: string
       options:
-        - index
-        - radio
-        - checkbox
-        - expander
-      description: 列类型。可选值：`index`表示序号列，`radio`表示单选列，`checkbox`表示多选列，`expander`表示展开列。
+        - value: normal
+          title: 普通列
+        - value: index
+          title: 序号列
+        - value: radio
+          title: 单选列
+        - value: checkbox
+          title: 多选列
+        - value: expander
+          title: 展开列
+        - value: tree
+          title: 树形列
+      default: normal
+      description: 列类型
     - name: start-index
       title: 起始序号
       type: number
@@ -568,8 +709,11 @@
   slots:
     - name: default
       title: 默认
+      description: 默认值
       accept-type: all
+      plus-empty: true
     - name: cell
+      plus-empty: true
       description: 对单元格的数据展示进行自定义。
       props:
         - name: item
@@ -592,12 +736,6 @@
           title: 列索引
           type: number
           description: 列的索引。
-      accept-type: recommanded
-      recommanded:
-        - name: cellSlot
-          title: 列插槽
-          snippet: '<template #cell="{ item }"></template>'
-          type: slot
     - name: title
       title: 标题
       accept-type:
@@ -638,3 +776,4 @@
           title: 展开列索引
           type: number
           description: 展开列的索引。
+  description: 表格列

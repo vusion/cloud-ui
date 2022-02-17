@@ -2,12 +2,29 @@
 
 ``` html
 <u-linear-layout>
-    <u-date-time-picker></u-date-time-picker>
+    <u-date-time-picker clearable></u-date-time-picker>
     <u-date-time-picker date="2018-08-08"></u-date-time-picker>
 </u-linear-layout>
 ```
 
-### 自动对焦
+### 选择日期
+
+``` vue
+<template>
+<u-date-time-picker v-model="date"></u-date-time-picker>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            date: '',
+        };
+    },
+};
+</script>
+```
+
+### 自动获取焦点
 ``` html
 <u-date-time-picker date="2018-08-08" autofocus></u-date-time-picker>
 ```
@@ -27,7 +44,7 @@
 
 ### 自定义底部
 ``` html
-<u-date-time-picker>
+<u-date-time-picker clearable>
     <div slot="footer" style="padding: 15px 0 5px;text-align:center">
         插入文本或  HTML 至日期组件底部
     </div>

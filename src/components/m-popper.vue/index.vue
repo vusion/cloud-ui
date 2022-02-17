@@ -81,8 +81,8 @@ export default {
             if (typeof this.followCursor === 'object')
                 return this.followCursor;
             else {
-                let followCursor;
-                if (typeof this.followCursor === 'boolean')
+                let followCursor = {};
+                if (typeof this.followCursor === 'boolean' || ['true', 'false'].includes(this.followCursor))
                     followCursor = { offsetX: 4, offsetY: 4 };
                 else if (typeof this.followCursor === 'number')
                     followCursor = {
@@ -265,6 +265,14 @@ export default {
                         this.followCursor && this.$nextTick(() => this.updatePositionByCursor(e, el));
                     }, this.hoverDelay);
                 }));
+                this.offEvents.push(ev.on(document, 'mousewheel', () => {
+                    this.clearTimers();
+                    this.close();
+                }));
+                this.offEvents.push(ev.on(document, 'DOMMouseScroll', () => {
+                    this.clearTimers();
+                    this.close();
+                }));
                 this.offEvents.push(ev.on(el, 'mouseleave', () => {
                     this.clearTimers();
                     this.timers[1] = setTimeout(() => this.close(), this.hideDelay);
@@ -380,6 +388,8 @@ export default {
                 return; // Prevent replication
             if (!this.currentOpened)
                 return; // Emit a `before-` event with preventDefault()
+            // if (this.$env.VUE_APP_DESIGNER)
+            //     return;
             if (this.$emitPrevent('before-close', undefined, this))
                 return; // Assign and sync `opened`
             this.currentOpened = false;
@@ -389,6 +399,9 @@ export default {
                 document.removeEventListener('DOMMouseScroll', this.scrollFunc, {passive: false});  
                 document.removeEventListener('mousewheel',this.scrollFunc, {passive: false});
             }
+        },
+        designerControl() {
+            this.toggle();
         },
         toggle(opened) {
             // Method overloading
@@ -422,6 +435,6 @@ export default {
 <style module>
 .root {
     z-index: var(--z-index-popper);
-    box-shadow: 0px 0px 4px rgb(3 3 3 / 30%);
+    box-shadow: var(--popper-box-shadow);
 }
 </style>

@@ -1,8 +1,7 @@
 - name: u-validator
   title: 验证器
   labels:
-    - 表单验证器
-    - 行内展示
+    - Form
   description: 实现了基础的嵌套验证功能和原子化验证功能，包含提示样式。常用于嵌套验证时使用，或用于派生一些较复杂的组件。
   docs:
     rules: 内置规则
@@ -19,6 +18,7 @@
       title: 规则
       type: string | Array
       description: 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型
+      compType: validationRulesSelect
     - name: message
       title: 提示信息
       type: string
@@ -80,8 +80,13 @@
       title: 验证后
       description: 对于第一个 Field 或者所有子 UValidator：
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ValidateEvent"
         - name: $event.trigger
-          type: enum
+          type: string
           description: 本次验证的触发方式
         - name: $event.valid
           type: boolean
@@ -99,7 +104,7 @@
           type: UValidator
           description: 发送事件实例
   methods:
-    - name: validate(trigger, muted)
+    - name: validate
       description: 手动验证。
       params:
         - name: trigger

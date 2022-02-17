@@ -16,9 +16,9 @@
     - [Events](#events)
     - [Methods](#methods)
 
-**UI 组件**, **表单类**, **行内展示**
+**Form**
 
-多行输入组件，在原生`<textarea>`控件基础上进行了一些功能扩展。
+多行输入组件
 
 ## 示例
 ## 示例
@@ -99,20 +99,20 @@ export default {
 ```html
 <u-linear-layout direction="vertical">
     <u-linear-layout>
-        <u-textarea size="normal" value="normal" readonly></u-textarea>
-        <u-textarea size="normal large" value="normal large" readonly></u-textarea>
+        <u-textarea size="normal" value="normal"></u-textarea>
+        <u-textarea size="normal large" value="normal large"></u-textarea>
     </u-linear-layout>
     <u-linear-layout>
-        <u-textarea size="medium" value="medium" readonly></u-textarea>
+        <u-textarea size="medium" value="medium"></u-textarea>
     </u-linear-layout>
     <u-linear-layout>
-        <u-textarea size="large" value="large" readonly></u-textarea>
+        <u-textarea size="large" value="large"></u-textarea>
     </u-linear-layout>
     <u-linear-layout>
-        <u-textarea size="huge" value="huge" readonly></u-textarea>
+        <u-textarea size="huge" value="huge"></u-textarea>
     </u-linear-layout>
     <u-linear-layout>
-        <u-textarea size="huge full" value="huge full" readonly></u-textarea>
+        <u-textarea size="huge full" value="huge full"></u-textarea>
     </u-linear-layout>
 </u-linear-layout>
 ```
@@ -124,14 +124,15 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | value.sync, v-model | string |  |  | 输入框的值 |
 | clearable | boolean |  | `false` | 是否可清空。开启并在输入框有内容时会显示清空按钮。 |
-| placeholder | string |  |  | 原生属性。对 IE9 做了兼容。 |
+| placeholder | string |  |  | 为空时提示内容 |
 | minlength | number |  |  | 原生属性 |
 | maxlength | number |  |  | 原生属性 |
 | spellcheck | boolean |  |  | 原生属性 |
 | autofocus | boolean |  |  | 是否自动获取焦点 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
-| resize | string |  | `'none'` | 是否可以调整大小。可选值：`'none'`、`'both'`、`'horizontal'`、`'vertical'` |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置尺寸 |
+| resize | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'none'` | 是否可以调整大小 |
 
 ### Slots
 
@@ -147,6 +148,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.oldValue | string | 旧的值 |
 | $event.value | string | 输入框的值 |
 | $event.preventDefault | Function | 阻止输入流程 |
@@ -167,6 +169,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | string | 改变后的值 |
 | $event.oldValue | string | 旧的值 |
 | senderVM | UTextarea | 发送事件实例 |
@@ -186,7 +189,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| $event | FocusEvent | 原生事件对象 |
+| $event | Object | 原生事件对象 |
 | senderVM | UTextarea | 发送事件实例 |
 
 #### @before-clear
@@ -195,6 +198,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | string | 清空后的值 |
 | $event.oldValue | string | 待清空的值 |
 | $event.preventDefault | Function | 阻止清空流程 |

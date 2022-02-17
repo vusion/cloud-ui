@@ -9,12 +9,11 @@
     - [文本过长](#文本过长)
 - [API]()
     - [Props/Attrs](#propsattrs)
-    - [Slots](#slots)
     - [Events](#events)
 
-**行内展示**
+**Display**
 
-用于在业务中快速调整文本尺寸、颜色等特性。
+用于展示文字或表达式
 
 ## 示例
 ### 设置尺寸
@@ -23,11 +22,11 @@
 
 ``` html
 <u-linear-layout gap="small">
-    <u-text size="small">小号文本</u-text>
-    <u-text size="normal">正常文本</u-text>
-    <u-text size="large">大号文本</u-text>
-    <u-text size="huge">特大号文本</u-text>
-    <u-text style="font-size: 26px;">自定义大小</u-text>
+    <u-text size="small" text="小号文本"></u-text>
+    <u-text size="normal" text="正常文本"></u-text>
+    <u-text size="large" text="大号文本"></u-text>
+    <u-text size="huge" text="特大号文本"></u-text>
+    <u-text style="font-size: 26px;" text="自定义大小"></u-text>
 </u-linear-layout>
 ```
 
@@ -37,13 +36,13 @@
 
 ``` html
 <u-linear-layout gap="small">
-    <u-text>默认颜色</u-text>
-    <u-text color="primary">主要文本</u-text>
-    <u-text color="secondary">次要文本</u-text>
-    <u-text color="success">成功文本</u-text>
-    <u-text color="warning">警告文本</u-text>
-    <u-text color="error">错误文本</u-text>
-    <u-text color="disabled">禁默文本</u-text>
+    <u-text text="默认颜色"></u-text>
+    <u-text color="primary" text="主要文本"></u-text>
+    <u-text color="secondary" text="次要文本"></u-text>
+    <u-text color="success" text="成功文本"></u-text>
+    <u-text color="warning" text="警告文本"></u-text>
+    <u-text color="error" text="错误文本"></u-text>
+    <u-text color="disabled" text="禁默文本"></u-text>
 </u-linear-layout>
 ```
 
@@ -52,8 +51,8 @@
 使用`display="block"`可以快速将文本宽度充满整行。
 
 ``` html
-<u-text color="secondary">行内文本</u-text>与周围其他文字保持在同一行。
-<u-text display="block" color="secondary">块级文本</u-text>宽度充满整行。
+<u-text color="secondary" text="行内文本"></u-text>与周围其他文字保持在同一行。
+<u-text display="block" color="secondary" text="块级文本"></u-text>宽度充满整行。
 ```
 
 ### 文本过长
@@ -62,9 +61,9 @@
 
 ``` html
 <u-linear-layout direction="vertical">
-    <u-text display="block" overflow="ellipsis" style="width: 200px; background: var(--background-color-base);">围绕应用和微服务打造的一站式 PaaS 平台，帮助用户快速实现易接入、易运维的微服务解决方案。</u-text>
-    <u-text display="block" overflow="break" style="width: 200px; background: var(--background-color-base);">围绕应用和微服务打造的一站式 PaaS 平台，帮助用户快速实现易接入、易运维的微服务解决方案。</u-text>
-    <u-text display="block" overflow="nowrap" style="width: 200px; background: var(--background-color-base);">围绕应用和微服务打造的一站式 PaaS 平台，帮助用户快速实现易接入、易运维的微服务解决方案。</u-text>
+    <u-text display="block" overflow="ellipsis" style="width: 200px; background: var(--background-color-base);" text="围绕应用和微服务打造的一站式 PaaS 平台，帮助用户快速实现易接入、易运维的微服务解决方案。"></u-text>
+    <u-text display="block" overflow="break" style="width: 200px; background: var(--background-color-base);" text="围绕应用和微服务打造的一站式 PaaS 平台，帮助用户快速实现易接入、易运维的微服务解决方案。"></u-text>
+    <u-text display="block" overflow="nowrap" style="width: 200px; background: var(--background-color-base);" text="围绕应用和微服务打造的一站式 PaaS 平台，帮助用户快速实现易接入、易运维的微服务解决方案。"></u-text>
 </u-linear-layout>
 ```
 
@@ -73,16 +72,11 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| color | enum | `'default'`<br/>`'primary'`<br/>`'secondary'`<br/>`'success'`<br/>`'warning'`<br/>`'error'`<br/>`'disabled'` | `'default'` | 设置颜色。 |
-| size | enum | `'small'`<br/>`'normal'`<br/>`'large'`<br/>`'huge'` | `'normal'` | 设置尺寸。 |
-| display | string | `'inline'`<br/>`'block'` | `'inline'` | 展示方式。 |
-| overflow | string | `'normal'`<br/>`'ellipsis'`<br/>`'break'`<br/>`'nowrap'` | `'normal'` | 文本过长的处理方式。`'normal'`表示默认方式，`'ellipsis'`表示多余的文本省略，`'break'`表示强制换行且英文自动添加换行符，`'nowrap'`表示始终不换行。 |
-
-### Slots
-
-#### (default)
-
-插入文本或 HTML。
+| text | string |  |  | 文本内容 |
+| color | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 设置颜色 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 尺寸设置 |
+| display | string | `[object Object]`<br/>`[object Object]` | `'inline'` | 展示方式 |
+| overflow | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 文本过长的处理方式 |
 
 ### Events
 

@@ -1,13 +1,19 @@
 <template>
 <div :class="$style.root">
-    <slot></slot>
+    <div v-if="$env.VUE_APP_DESIGNER" vusion-slot-name="default" :class="$style.content">
+        <slot></slot>
+        <s-empty v-if="(!$slots.default)"></s-empty>
+    </div>
+     <slot v-else></slot>
     <span :class="$style.value" v-if="currentValue">{{ currentValue }}</span>
 </div>
 </template>
 
 <script>
+import SEmpty from '../../components/s-empty.vue';
 export default {
     name: 'u-badge',
+    components: { SEmpty },
     props: { value: [Number, String], max: { type: Number, default: 99 } },
     computed: {
         currentValue() {
@@ -26,6 +32,10 @@ export default {
     display: inline-block;
 }
 
+.content {
+    display: inline-block;
+}
+
 .value {
     display: inline-block;
     text-align: center;
@@ -36,6 +46,7 @@ export default {
     border-radius: 100px;
     background: var(--badge-background);
     color: var(--badge-color);
+    box-shadow: var(--badge-box-shadow);
 }
 
 .root[corner] {
@@ -44,9 +55,10 @@ export default {
 
 .root[corner] .value {
     position: absolute;
-    transform: translateX(50%);
-    right: 0;
+    /* transform: translateX(50%); */
+    /* right: -5px; */
     top: calc(var(--badge-value-size) / -2);
+    left: calc(100% - 7px);
 }
 
 .root[dot] .value {
@@ -56,6 +68,7 @@ export default {
     min-width: auto;
     padding: 0;
     top: calc(var(--badge-dot-size) / -2);
+    left: 100%;
 }
 
 .root[display="block"] {

@@ -3,7 +3,9 @@
     tabindex="0" @keydown.space.prevent @keyup.space.prevent="toggle()"
     @focus="onFocus" @blur="onBlur" v-on="listeners">
     <span :class="$style.button"></span>
-    <span :class="$style.text"><slot></slot></span>
+    <span :class="$style.text" vusion-slot-name="default">
+        <slot></slot>
+    </span>
 </label>
 </template>
 
@@ -102,8 +104,10 @@ export default {
 
 .text {
     display: block;
-    text-align: right;
-    margin: var(--switch-text-margin);
+    text-align: center;
+    font-size: var(--switch-font-size);
+    /* text-align: right; */
+    /* margin: var(--switch-text-margin); */
 }
 
 .root[checked] {
@@ -115,10 +119,6 @@ export default {
     background: var(--switch-button-background-checked);
 }
 
-.root[checked] .text {
-    text-align: left;
-}
-
 .root[width="wide"] {
     width: var(--switch-width-wide);
 }
@@ -127,13 +127,20 @@ export default {
     cursor: var(--cursor-not-allowed);
     background: var(--switch-background-disabled);
 }
+.root[disabled][checked]{
+    background: var(--switch-background-disabled-checked);
+}
+
+.root[readonly]{
+    cursor: default;
+}
 
 .root[with-text] {
-    width: 54px;
+    width: var(--switch-width-wide);
 }
 
 .root[with-text][checked] .button {
-    left: calc(54px - var(--switch-button-size) - 2px);
+    left: calc(var(--switch-width-wide) - var(--switch-button-size) - 2px);
 }
 
 .root[with-text] .text::before {
@@ -159,4 +166,16 @@ export default {
 .root[size="small"][checked] .button {
     left: calc(100% - var(--switch-button-size-small) - var(--switch-button-space));
 }
+
+.root .text {
+    margin-left: var(--switch-button-size);
+}
+.root[checked] .text {
+    margin-left: 0;
+    margin-right: var(--switch-button-size);
+}
+.root[size="small"][checked] .text {
+    margin-right: var(--switch-button-size-small);
+}
+
 </style>

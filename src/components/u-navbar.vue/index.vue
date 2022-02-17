@@ -6,7 +6,7 @@
     <div :class="$style.right">
         <slot name="right"></slot>
     </div>
-    <nav :class="$style.middle">
+    <nav :class="$style.middle" vusion-slot-name="default">
         <slot></slot>
     </nav>
 </div>

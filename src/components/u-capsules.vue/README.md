@@ -19,8 +19,12 @@
     - [Props/Attrs](#propsattrs-2)
     - [Slots](#slots-2)
     - [Events](#events-2)
-- [UCapsuleGroup API](#ucapsulegroup-api)
+- [UCapsulesGroup API](#ucapsulesgroup-api)
+    - [Slots](#slots-3)
 
+**Form**
+
+多项中选择一项
 
 ## 示例
 ### 基本样式
@@ -155,6 +159,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选择项的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择项相关对象 |
@@ -177,6 +182,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 改变后的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择项相关对象 |
@@ -185,29 +191,13 @@
 | $event.oldVM | UCapsule | 旧的选择项子组件 |
 | senderVM | UCapsules | 发送事件实例 |
 
-#### @select
-
-选择某一项时触发。多选模式中：
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| $event.selected | boolean | 选中还是取消 |
-| $event.item | boolean | 该选中项相关对象 |
-| $event.itemVM | boolean | 该选中项子组件 |
-| $event.value | Array | 改变后的值 |
-| $event.oldValue | Array | 旧的值 |
-| $event.items | Array\<object\> | 所有选中项相关对象的数组 |
-| $event.oldItems | Array\<object\> | 旧的所有选中项相关对象的数组 |
-| $event.itemVMs | Array\<UCapsule\> | 所有选中项子组件的数组 |
-| $event.oldVMs | Array\<UCapsule\> | 旧的所有选中项子组件的数组 |
-| senderVM | UCapsules | 发送事件实例 |
-
 #### @change
 
 选择值改变时触发。单选模式中：
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选择项的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择项相关对象 |
@@ -216,28 +206,16 @@
 | $event.oldVM | UCapsule | 旧的选择项子组件 |
 | senderVM | UCapsules | 发送事件实例 |
 
-#### @change
-
-选择值改变时触发。多选模式中：
-
-| Param | Type | Description |
-| ----- | ---- | ----------- |
-| $event.value | Array | 所有选中项的值 |
-| $event.items | Array\<object\> | 所有选中项相关对象的数组 |
-| $event.itemVMs | Array\<UCapsule\> | 所有选中项子组件的数组 |
-| senderVM | UCapsules | 发送事件实例 |
-
 ## UCapsule API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value | any |  |  | 此项的值 |
-| size | enum | `'small'` |  | 胶囊大小，可选值：`'small'` |
-| selected | boolean |  | `false` | 是否选中此项 |
+| size | string | `[object Object]`<br/>`[object Object]` | `'normal'` | 胶囊大小 |
 | disabled | boolean |  | `false` | 禁用此项 |
 | label | string |  | `''` | 顶部自定义提示文本 |
-| flag | any |  |  | 是否右上角有flag标志 |
+| flag | boolean |  | `false` | 是否右上角有flag标志 |
 | item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
 
 ### Slots
@@ -263,12 +241,17 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 此项的值 |
 | $event.item | object | 此项的相关对象 |
 | $event.itemVM | UCapsule | 此组件 |
 | $event.preventDefault | Function | 阻止选择流程 |
 | senderVM | UCapsule | 发送事件实例 |
 
-## UCapsuleGroup API
+## UCapsulesGroup API
+### Slots
 
-暂无
+#### (default)
+
+插入`<u-capsule>`或`<u-capsules-group>`子组件。
+

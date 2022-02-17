@@ -1,18 +1,19 @@
 <template>
 <div :class="$style.root" :label-size="currentLabelSize" :distance="rootVM && rootVM.extraSlots ? 'extra' : ''">
-    <label :class="$style.label" :required="currentRequired" v-show="label || title || currentLabelSize !== 'auto'">
+    <label :class="$style.label" :required="currentRequired" v-show="label || title || currentLabelSize !== 'auto'" vusion-slot-name="label">
         <slot name="label">{{ label || title }}</slot>
     </label>
-    <span :class="$style.extra" v-if="!hideSlots && rootVM && rootVM.extraSlots">
+    <span :class="$style.extra" v-if="!hideSlots && rootVM && rootVM.extraSlots" vusion-slot-name="extra">
         <slot name="extra"></slot>
     </span>
-    <div :class="$style.field">
+    <div :class="[$style.field, $env.VUE_APP_DESIGNER ? $style.full : null]">
         <!-- 添加了描述功能 -->
-        <div :class="$style.description">
+        <div :class="$style.description" vusion-slot-name="description">
             <slot name="description">{{ description }}</slot>
         </div>
-        <div :class="$style.wrap">
+        <div :class="[$style.wrap, $env.VUE_APP_DESIGNER ? $style.full : null]" vusion-slot-name="default">
             <slot></slot>
+            <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
             <span v-if="color === 'focus' && currentMessage" :class="$style.message" color="focus"><slot name="message">{{ currentMessage }}</slot></span>
             <span v-else-if="currentMessage" :class="$style.message" :color="color" placement="bottom"><slot name="message">{{ currentMessage }}</slot></span>
             <span v-else-if="bubble && !mutedMessage && touched && !valid && firstError" :class="$style.message" color="error" placement="bottom">{{ firstError }}</span>
@@ -23,10 +24,14 @@
 
 <script>
 import UValidator from '../u-validator.vue';
+import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-form-item',
     mixins: [UValidator],
+    components: {
+        SEmpty,
+    },
     props: {
         // name: String,
         // label: String,
@@ -76,7 +81,7 @@ export default {
         // },
         // onBlur() {
         //     this.color = this.state = '';
-        //     this.$nextTick(() => this.validate('blur').catch((errors) => errors));
+        //     this.$nextTick(() => this.validate('blur');
         // },
     },
 };
@@ -88,6 +93,10 @@ export default {
 .root {
     position: relative;
     display: block;
+}
+
+.full {
+    min-width: 100px;
 }
 
 .label {

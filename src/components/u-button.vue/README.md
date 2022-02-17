@@ -13,10 +13,9 @@
     - [链接](#链接)
 - [API]()
     - [Props/Attrs](#propsattrs)
-    - [Slots](#slots)
     - [Events](#events)
 
-**路由链接**, **行内展示**
+**Display**
 
 用于触发一个即时操作。
 
@@ -27,10 +26,10 @@
 
 ``` html
 <u-linear-layout gap="small">
-    <u-button color="primary">Primary</u-button>
-    <u-button>Default</u-button>
-    <u-button dashed>Dashed</u-button>
-    <u-button color="danger">Danger</u-button>
+    <u-button color="primary" text="Primary"></u-button>
+    <u-button text="Default"></u-button>
+    <u-button dashed text="Dashed"></u-button>
+    <u-button color="danger" text="Danger"></u-button>
 </u-linear-layout>
 ```
 
@@ -40,12 +39,12 @@
 
 ``` html
 <u-linear-layout gap="small">
-    <u-button color="primary">Primary</u-button>
-    <u-button color="primary" shape="round">Round</u-button>
+    <u-button color="primary" text="Primary"></u-button>
+    <u-button color="primary" shape="round" text="Round"></u-button>
     <u-button color="primary" shape="square" icon="refresh"></u-button>
     <u-button color="primary" shape="circle" icon="refresh"></u-button>
-    <u-button>Default</u-button>
-    <u-button shape="round">Round</u-button>
+    <u-button text="Default"></u-button>
+    <u-button shape="round" text="Round"></u-button>
     <u-button shape="square" icon="refresh"></u-button>
     <u-button shape="circle" icon="refresh"></u-button>
 </u-linear-layout>
@@ -57,10 +56,10 @@
 
 ``` html
 <u-linear-layout>
-    <u-button color="primary" disabled>Primary</u-button>
-    <u-button disabled>Default</u-button>
-    <u-button dashed disabled>Dashed</u-button>
-    <u-button color="danger" disabled>Danger</u-button>
+    <u-button color="primary" disabled text="Primary"></u-button>
+    <u-button disabled text="Default"></u-button>
+    <u-button dashed disabled text="Dashed"></u-button>
+    <u-button color="danger" disabled text="Danger"></u-button>
 </u-linear-layout>
 ```
 
@@ -71,26 +70,26 @@
 ``` html
 <u-linear-layout direction="vertical">
     <u-linear-layout gap="small">
-        <u-button size="mini" color="primary">Primary</u-button>
-        <u-button size="mini" color="primary" shape="round">Round</u-button>
+        <u-button size="mini" color="primary" text="Primary"></u-button>
+        <u-button size="mini" color="primary" shape="round" text="Round"></u-button>
         <u-button size="mini" shape="square" icon="refresh"></u-button>
         <u-button size="mini" shape="circle" icon="refresh"></u-button>
     </u-linear-layout>
     <u-linear-layout gap="small">
-        <u-button size="small" color="primary">Primary</u-button>
-        <u-button size="small" color="primary" shape="round">Round</u-button>
+        <u-button size="small" color="primary" text="Primary"></u-button>
+        <u-button size="small" color="primary" shape="round" text="Round"></u-button>
         <u-button size="small" shape="square" icon="refresh"></u-button>
         <u-button size="small" shape="circle" icon="refresh"></u-button>
     </u-linear-layout>
     <u-linear-layout gap="small">
-        <u-button size="normal" color="primary">Primary</u-button>
-        <u-button size="normal" color="primary" shape="round">Round</u-button>
+        <u-button size="normal" color="primary" text="Primary"></u-button>
+        <u-button size="normal" color="primary" shape="round" text="Round"></u-button>
         <u-button size="normal" shape="square" icon="refresh"></u-button>
         <u-button size="normal" shape="circle" icon="refresh"></u-button>
     </u-linear-layout>
     <u-linear-layout gap="small">
-        <u-button size="large" color="primary">Primary</u-button>
-        <u-button size="large" color="primary" shape="round">Round</u-button>
+        <u-button size="large" color="primary" text="Primary"></u-button>
+        <u-button size="large" color="primary" shape="round" text="Round"></u-button>
         <u-button size="large" shape="square" icon="refresh"></u-button>
         <u-button size="large" shape="circle" icon="refresh"></u-button>
     </u-linear-layout>
@@ -110,10 +109,10 @@
 
 ``` html
 <u-linear-layout direction="vertical" gap="small">
-    <u-button display="block">Default</u-button>
-    <u-button display="block" color="primary">Primary</u-button>
-    <u-button display="block" dashed>Dashed</u-button>
-    <u-button display="block" color="danger">Danger</u-button>
+    <u-button display="block" text="Default"></u-button>
+    <u-button display="block" color="primary" text="Primary"></u-button>
+    <u-button display="block" dashed text="Dashed"></u-button>
+    <u-button display="block" color="danger" text="Danger"></u-button>
 </u-linear-layout>
 ```
 
@@ -123,10 +122,11 @@
 
 ``` html
 <u-linear-layout gap="small">
-    <u-button color="primary" icon="create">创建实例</u-button>
-    <u-button color="primary" icon="create" disabled>创建实例</u-button>
-    <u-button color="primary" icon="success">创建成功</u-button>
+    <u-button color="primary" icon="add" text="确定"></u-button>
+    <u-button color="primary" icon="add" disabled text="创建实例"></u-button>
+    <u-button color="primary" icon="success" text="创建成功"></u-button>
     <u-button shape="square" icon="refresh"></u-button>
+    <u-button icon="home" text="首页"></u-button>
 </u-linear-layout>
 ```
 
@@ -137,8 +137,8 @@
 ``` vue
 <template>
 <u-linear-layout gap="small">
-    <u-button color="primary" loading>创建实例</u-button>
-    <u-button color="primary" icon="create" loading disabled>创建实例</u-button>
+    <u-button color="primary" loading text="创建实例"></u-button>
+    <u-button color="primary" icon="add" loading disabled text="创建实例"></u-button>
     <u-button color="primary" shape="square" icon="refresh"
         :loading="loading" :disabled="loading"
         @click="loading = true">
@@ -162,9 +162,9 @@ export default {
 
 ``` html
 <u-linear-layout gap="small">
-    <u-button color="primary" href="https://vusion.github.io" target="_blank">打开新窗口</u-button>
-    <u-button to="/cloud-ui/components/u-link">路由跳转</u-button>
-    <u-button color="primary" href="https://vusion.github.io" disabled>禁用链接</u-button>
+    <u-button color="primary" href="https://vusion.github.io" target="_blank" text="打开新窗口"></u-button>
+    <u-button to="/cloud-ui/components/u-link" text="路由跳转"></u-button>
+    <u-button color="primary" href="https://vusion.github.io" disabled text="禁用链接"></u-button>
 </u-linear-layout>
 ```
 
@@ -173,25 +173,21 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| color | enum | `'default'`<br/>`'primary'`<br/>`'danger'` | `'default'` | 设置颜色。`'primary'`表示主按钮，`'danger'`表示危险按钮。 |
+| text | string |  |  | 文本内容 |
+| color | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 设置颜色 |
 | dashed | boolean |  | `false` | 边框是否为虚线。 |
-| size | enum | `'mini'`<br/>`'small'`<br/>`'normal'`<br/>`'large'`<br/>`'huge'` | `'normal'` | 设置尺寸。可选值：`'mini'`、`'small'`、`'normal'`、`'large'`、`'huge'` |
-| shape | enum | `'default'`<br/>`'square'`<br/>`'round'`<br/>`'circle'` | `false` | 设置形状。选项分别为默认、圆角、方形、圆形。 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置尺寸 |
+| shape | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 设置形状 |
 | disabled | boolean |  | `false` | 是否禁用。禁用后不会响应点击事件。 |
-| display | enum | `'inline'`<br/>`'block'` | `'inline'` | 展示方式。`'inline'`表示行内展示，`'block'`表示块级展示，宽度会充满父元素。 |
-| icon | enum | `'refresh'`<br/>`'create'`<br/>`'success'` |  | 设置图标。 |
+| display | string | `[object Object]`<br/>`[object Object]` | `'inline'` | 展示方式 |
+| icon | icon |  | `''` | 图标 |
 | loading | boolean |  | `false` | 是否为加载中。 |
-| href | string |  |  | 链接地址 |
-| target | enum | `'新标签页 (_blank)'` ()<br/>`'当前窗口 (_self)'` ()<br/>`'父级窗口 (_parent)'` ()<br/>`'顶级窗口 (_top)'` () |  | （原生属性）。比如设置`_blank`，会在新标签页中打开。 |
+| linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'href'` | 链接类型 |
+| hrefAndTo | string |  |  | 链接地址 |
+| target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_blank'` | 链接打开方式 |
 | to | string, Location |  |  | 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
 | replace | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
 | append | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。 |
-
-### Slots
-
-#### (default)
-
-插入文本或 HTML。
 
 ### Events
 
@@ -208,6 +204,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.to | string, Location | `to`属性的值 |
 | $event.replace | boolean | `replace`属性的值 |
 | $event.append | boolean | `append`属性的值 |
@@ -220,6 +217,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.to | string, Location | `to`属性的值 |
 | $event.replace | boolean | `replace`属性的值 |
 | $event.append | boolean | `append`属性的值 |

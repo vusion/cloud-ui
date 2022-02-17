@@ -1,5 +1,11 @@
 - name: u-tree-view
   title: 树型视图
+  icon: tree-view
+  description: 树形选择器
+  labels:
+    - Selector
+  next: true
+  nested: false
   attrs:
     - name: data
       title: 数据
@@ -10,7 +16,7 @@
       type: any
       sync: true
       model: true
-      description: 当前选择的值
+      description: ""
     - name: text-field
       title: 文本字段
       type: string
@@ -32,25 +38,30 @@
       default: false
       description: 是否可以选中/取消
     - name: accordion
-      title: 展开分组
+      title: 手风琴模式
       type: boolean
       default: false
       description: 是否每次只会展开一个分组
     - name: expand-trigger
       title: 触发方式
       type: string
+      options:
+        - value: click
+          title: 整行点击均可触发
+        - value: click-expander
+          title: 点击小箭头时触发
       default: click
-      description: 展开/折叠的触发方式。可选值：`'click'`表示整行点击均可触发、`'click-expander'`表示仅点击小箭头时触发
+      description: 展开/折叠的触发方式
     - name: readonly
       title: 只读
       type: boolean
       default: false
-      description: 是否只读
+      description: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用
+      description: ""
     - name: check-controlled
       title: 完全受控
       type: boolean
@@ -59,11 +70,21 @@
   slots:
     - name: default
       description: 插入`<u-tree-view-node>`子组件
+      support:
+        - name: u-tree-view-node
+          title: 子节点
+          snippet: <u-tree-view-node text="节点"></u-tree-view-node>
   events:
     - name: before-select
       title: 选择前
       description: 选择某一项前触发
+      advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/TreeChangeEvent"
         - name: $event.value
           type: any
           description: 选择项的值
@@ -95,6 +116,8 @@
         - name: $event
           type: any
           description: 选择项的值
+          schema:
+            $ref: "#/basicTypes/String"
         - name: senderVM
           type: UTreeView
           description: 发送事件实例
@@ -102,6 +125,11 @@
       title: 选择后
       description: 选择某一项时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/TreeChangeEvent"
         - name: $event.value
           type: any
           description: 改变后的值
@@ -127,6 +155,11 @@
       title: 改变后
       description: 选择值改变时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/TreeChangeEvent"
         - name: $event.value
           type: any
           description: 选择项的值
@@ -152,6 +185,11 @@
       title: 展开折叠后
       description: 展开/折叠某节点时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/CollapseEvent"
         - name: $event.expanded
           type: boolean
           description: 展开/折叠状态
@@ -168,6 +206,11 @@
       title: 选中取消后
       description: 选中/取消节点时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/CheckedEvent"
         - name: $event.checked
           type: boolean
           description: 选中/取消状态
@@ -187,61 +230,77 @@
           type: UTreeView
           description: 发送事件实例
   methods:
-    - name: walk(func)
+    - name: walk
+      advanced: true
       description: 广度优先遍历树。当`func`函数有返回值时，停止遍历。
       params:
         - name: func
           type: Function
           description: 遍历的处理函数
-    - name: find(func)
+    - name: find
+      advanced: true
       description: 查找节点实例。
       params:
         - name: func
           type: Function
           description: 查找函数。找到第一个返回值为`true`的实例。
-    - name: toggleAll(expanded)
+    - name: toggleAll
+      advanced: true
       description: 展开/折叠所有节点
       params:
         - name: expanded
           type: boolean
           description: 展开/折叠
-    - name: checkAll(checked)
+    - name: checkAll
+      advanced: true
       description: 选中/取消所有节点
       params:
         - name: expanded
           type: boolean
           description: 选中/取消
 - name: u-tree-view-node
+  title: 树型视图节点
+  next: false
+  nested: false
   attrs:
     - name: value
       title: 值
       type: any
-      description: 此项的值
+      description: 节点的值
+    - name: text
+      title: 文本
+      type: string
+      description: 节点的文本
     - name: expanded
       title: 展开折叠状态
-      type: any
+      type: boolean
       sync: true
-      description: 展开/折叠状态
+      description: 节点默认展开
     - name: checked
       title: 选中取消状态
-      type: any
+      type: boolean
       sync: true
-      description: 选中/取消状态
+      description: 是否可以选中/取消
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 禁用此项
+      description: ""
     - name: node
       title: 相关对象
       type: object
-      description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
+      description: 当选择此节点时，抛出的事件会传递该对象，便于开发
+      advanced: true
   slots:
     - name: default
       description: 插入文本或 HTML。
+  blocks:
+    - name: 基础示例
+      code: <u-tree-view-node text="节点 1"></u-tree-view-node>
   events:
     - name: before-select
       title: 选择前
+      advanced: true
       description: 选择此项前触发
       params:
         - name: $event.value
@@ -262,6 +321,7 @@
     - name: before-toggle
       title: 展开折叠前
       description: 展开/折叠此节点前触发
+      advanced: true
       params:
         - name: $event.expanded
           type: boolean
@@ -313,3 +373,4 @@
         - name: senderVM
           type: UTreeViewNode
           description: 发送事件实例
+  description: 树型视图节点

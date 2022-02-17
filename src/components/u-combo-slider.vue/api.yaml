@@ -1,73 +1,105 @@
 - name: u-combo-slider
-  title: 复合滑块
+  title: 滑块
+  icon: slider
   labels:
-    - 表单控件
-    - 块级展示
+    - Form
+  description: 滑动选择
+  next: true
+  nested: false
   attrs:
     - name: value
+      title: 滑块的值
       type: number
       sync: true
       model: true
       default: 0
-      description: 滑块的值
+      description: ""
     - name: min
+      title: 最小值
       type: number
       default: 0
-      description: 最小值
+      description: ""
     - name: max
+      title: 最大值
       type: number
-      default: 0
-      description: 最大值
+      default: 100
+      description: ""
     - name: step
+      title: 间隔
       type: number
       default: 1
-      description: 间隔。`0`表示连续
+      description: 间隔，`0`表示连续
     - name: precision
+      title: 精度
       type: number
       default: 1
       description: 精度，表示数字要保留的最小单位，整数、小数均可
     - name: range
+      title: 范围
       type: Array
       default: []
-      description: 进一步对`value`限制，通常传入一个数组，第一个值表示范围开始值，第二个值表示范围的结束值。
+      description: 进一步对`value`限制，通常传入一个数组，第一个值表示范围开始值，第二个值表示范围的结束值
     - name: formatter
+      title: 格式化
       type: string, object
       default: null
-      description: 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。
+      description: 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象
+      advanced: true
     - name: sync-on
+      title: 同步时机
       type: string
+      options:
+        - value: input
+          title: 输入时同步
+        - value: blur
+          title: 失焦时同步
       default: input
-      description: 输入后何时同步值到`<u-slider>`组件中。可选值：`'input'`表示在输入时同步，`'blur'`表示在失焦时同步
+      description: ""
     - name: hide-buttons
+      title: 隐藏按钮
       type: boolean
       default: true
       description: 是否隐藏按钮
     - name: readonly
+      title: 只读
       type: boolean
       default: false
-      description: 是否只读
+      description: ""
     - name: disabled
+      title: 禁用
       type: boolean
       default: false
-      description: 是否禁用
+      description: ""
     - name: unit
+      title: 单位
       type: string
       default: null
-      description: 单位
+      description: ""
     - name: tip
+      title: 提示
       type: string
       default: null
-      description: 提示
+      description: ""
   events:
     - name: input
       description: 滑块的值改变时触发
+      title: 值改变时
       params:
         - name: $event
           type: number
           description: 滑块的值
+          title: 滑块的值
+          schema:
+            $ref: "#/basicTypes/Integer"
     - name: slide
       description: 拖动滑块时触发
+      title: 拖动滑块时
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/SliderEvent"
         - name: $event.value
           type: number
           description: 滑块的值
@@ -79,7 +111,13 @@
           description: 滑块位置所在的百分比
     - name: change
       description: 滑块的值改变后触发
+      title: 值改变后
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.value
           type: number
           description: 改变后的值
@@ -88,20 +126,30 @@
           description: 旧的值
     - name: number-input
       description: 改变数字输入框的值后触发
+      title: 改变数字输入框的值后
       params:
         - name: $event.value
           type: number
           description: 改变后滑块的值
+          schema:
+            $ref: "#/basicTypes/Integer"
     - name: slide-end
       description: 拖动滑块结束后触发
+      title: 拖动滑块结束后
+      advanced: true
       params:
         - name: $event.value
           type: number
           description: 改变后的值
+          schema:
+            $ref: "#/basicTypes/Integer"
   aria:
     - key: ↑
       description: 按`step`量增加值
+      advanced: true
     - key: ↓
       description: 按`step`量减小值
+      advanced: true
     - key: Enter
       description: 自动修复为合法的值，并且应用更改
+      advanced: true

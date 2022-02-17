@@ -1,0 +1,95 @@
+- name: u-calendar-view
+  title: 日历
+  icon: calendar
+  labels:
+    - Table
+  description: 用于展示大量结构化数据。支持日历结构展示。
+  next: true
+  nested: false
+  attrs:
+    - name: value
+      title: 值
+      type: Date | string ｜ number
+      sync: true
+      model: true
+      default: TODAY
+      description: 当前选择的日期
+    - name: min-date
+      title: 最小日期
+      type: Date | string ｜ number
+      default: null
+      description: 最小日期，默认 10 年前
+    - name: max-date
+      title: 最大日期
+      type: Date | string ｜ number
+      default: null
+      description: 最大日期，默认 9 年后
+    - name: data-source
+      title: 数据源
+      type: Array<Item> | Function | object
+      designer-value: "[{}]"
+      description: 日历的数据源，数据集对象或者返回数据集的逻辑
+      group: 数据属性
+    - name: data-schema
+      title: 数据类型
+      type: schema
+      description: 日历中每天的数据类型
+      group: 数据属性
+      compType: dataTypeSelect
+    - name: start-key
+      type: string
+      title: 数据内表示开始时间的字段
+      default: startTime
+      description: 数据内表示开始时间的字段
+    - name: end-key
+      type: string
+      title: 数据内表示结束时间的字段
+      default: endTime
+      description: 数据内表示结束时间的字段
+    - name: show-week-days
+      title: 展示周天
+      type: boolean
+      default: true
+      description: ""
+    - name: show-weeks
+      title: 展示周数
+      type: boolean
+      default: false
+      description: ""
+    - name: show-basic
+      title: 展示基础配置
+      type: boolean
+      default: true
+      description: 是否展示顶部左侧的 "<" "今天" ">" 等基础配置功能
+    - name: show-advance
+      title: 展示高级配置
+      type: boolean
+      default: true
+      description: 是否展示顶部右侧的年份、月份选项高级配置
+    - name: first-day-of-week
+      title: 首列星期
+      type: number
+      default: 1
+      description: 填写数字1~7，分别表示周一~周日
+  slots:
+    - name: default
+      description: 插入文本或 HTML 至日期组件底部
+  events:
+    - name: change
+      title: 改变后
+      description: 日期改变时触发
+      params:
+        - name: cell
+          type: object
+          description: 改变后的日期以及相关数据
+    - name: select
+      title: 选择后
+      description: 选择某一个日期时触发
+      params:
+        - name: cell
+          type: object
+          description: 当前选择的日期以及相关数据
+  methods:
+    - name: reload
+      description: 重新加载
+      params: []

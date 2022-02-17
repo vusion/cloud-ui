@@ -177,7 +177,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| size | enum | `'mini'`<br/>`'small'`<br/>`'normal'`<br/>`'large'`<br/>`'huge'` | `'normal'` | 宽度大小。 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 宽度大小。 |
 
 ### Slots
 

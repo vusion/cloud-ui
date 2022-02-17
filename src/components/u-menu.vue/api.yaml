@@ -49,6 +49,11 @@
       title: 选择前
       description: 选择某一项前触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 选择项的值
@@ -71,10 +76,17 @@
         - name: $event
           type: any
           description: 选择项的值
+          schema:
+            $ref: "#/basicTypes/String"
     - name: select
       title: 选择后
       description: 选择某一项时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 改变后的值
@@ -100,6 +112,11 @@
       title: 展开折叠后
       description: 展开/折叠某分组时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/CollapseEvent"
         - name: $event.expanded
           type: boolean
           description: 展开/折叠状态
@@ -107,14 +124,20 @@
           type: UMenuGroup
           description: 分组组件
   methods:
-    - name: toggleAll(expanded)
+    - name: toggleAll
       description: 展开/折叠所有分组
       params:
         - name: expanded
           type: boolean
           description: 展开/折叠
+          schema:
+            $ref: "#/systemTypes/CollapseEvent"
 - name: u-menu-item
   attrs:
+    - name: text
+      title: 文本
+      type: string
+      description: 文本内容
     - name: value
       title: 值
       type: any
@@ -128,27 +151,40 @@
       title: 相关对象
       type: object
       description: 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发
-    - name: href
+    - name: linkType
+      title: 链接类型
+      type: string
+      options:
+        - value: destination
+          title: 页面跳转
+        - value: href
+          title: 普通链接
+        - value: download
+          title: 下载链接
+      default: href
+      description: 链接类型
+      compType: linkTypeSelect
+    - name: hrefAndTo
       title: 链接
       type: string
       description: 链接地址
+      compType: linkHrefInput
     - name: target
       title: 打开方式
-      type: enum
+      type: string
       options:
-        - name: 新标签页 (_blank)
-          value: _blank
-        - name: 当前窗口 (_self)
-          value: _self
-        - name: 父级窗口 (_parent)
-          value: _parent
-        - name: 顶级窗口 (_top)
-          value: _top
-      description: （原生属性）。比如设置`_blank`，会在新标签页中打开。
-    - name: to
-      title: 路由链接
-      type: string, Location
-      description: 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。
+        - value: _blank
+          title: 新标签页
+        - value: _self
+          title: 当前窗口
+        - value: _parent
+          title: 父级窗口
+          advanced: true
+        - value: _top
+          title: 顶级窗口
+          advanced: true
+      default: _blank
+      description: 链接打开方式
     - name: replace
       type: boolean
       default: false
@@ -160,9 +196,6 @@
       type: boolean
       default: false
       description: 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。
-  slots:
-    - name: default
-      description: 插入文本或 HTML。
   events:
     - name: click
       title: 点击
@@ -171,6 +204,8 @@
         - name: $event
           type: MouseEvent
           description: 鼠标事件对象
+          schema:
+            $ref: "#/systemTypes/MouseEvent"
         - name: senderVM
           type: Vue
           description: 发送事件实例
@@ -178,6 +213,11 @@
       title: 选择前
       description: 选择此项前触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeItemEvent"
         - name: $event.value
           type: any
           description: 此项的值
@@ -197,6 +237,11 @@
       title: 导航前
       description: 使用 router 相关属性切换路由前触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/NavigateEvent"
         - name: $event.to
           type: string, Location
           description: "`to`属性的值"
@@ -214,8 +259,14 @@
           description: 发送事件实例
     - name: navigate
       title: 导航
+      advanced: true
       description: 使用router相关属性切换路由时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/NavigateEvent"
         - name: $event.to
           type: string, Location
           description: "`to`属性的值"
@@ -248,6 +299,11 @@
       title: 展开折叠前
       description: 展开/折叠此分组前触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/CollapseEvent"
         - name: $event.expanded
           type: boolean
           description: 展开/折叠状态
@@ -264,6 +320,11 @@
       title: 展开折叠后
       description: 展开/折叠某分组时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/CollapseEvent"
         - name: $event.expanded
           type: boolean
           description: 展开/折叠状态

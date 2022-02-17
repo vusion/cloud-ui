@@ -4,7 +4,7 @@
 
 ``` vue
 <template>
-<u-uploader v-model="files" url="http://localhost:7000/api/library/upload">
+<u-uploader v-model="files" url="/gateway/lowcode/api/v1/app/upload">
     <u-button color="primary">Upload</u-button>
 </u-uploader>
 </template>
@@ -27,7 +27,7 @@ export default {
 
 ``` vue
 <template>
-<u-uploader v-model="files" multiple url="http://localhost:7000/api/library/upload">
+<u-uploader v-model="files" multiple url="/gateway/lowcode/api/v1/app/upload">
     <u-button color="primary">Upload</u-button>
 </u-uploader>
 </template>
@@ -145,7 +145,7 @@ export default {
 
 ``` vue
 <template>
-<u-uploader v-model="files" url="http://localhost:7000/api/library/upload" draggable pastable></u-uploader>
+<u-uploader v-model="files" url="/gateway/lowcode/api/v1/app/upload" draggable pastable></u-uploader>
 </template>
 <script>
 export default {
@@ -161,7 +161,40 @@ export default {
 ### 禁用状态
 
 ``` html
-<u-uploader url="http://localhost:7000/api/library/upload" disabled>
+<u-uploader url="/gateway/lowcode/api/v1/app/upload" disabled>
     <u-button color="primary" disabled>Upload</u-button>
 </u-uploader>
+```
+
+
+#### 只读
+
+只读可以用于预览图片。
+
+``` vue
+<template>
+<u-uploader v-model="files" readonly multiple list-type="card"
+    accept="image/png, image/jpg, image/jpeg, image/gif, image/bmp"
+    url="http://localhost:7000/api/library/upload">
+</u-uploader>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            files: [{
+                uid: '1',
+                name: 'breakfast.png',
+                status: 'success',
+                url: 'https://static-vusion.163yun.com/assets/breakfast.png',
+            }, {
+                uid: '2',
+                name: 'salad.png',
+                status: 'success',
+                url: 'https://static-vusion.163yun.com/assets/salad.png',
+            }],
+        };
+    },
+};
+</script>
 ```

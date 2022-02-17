@@ -2,14 +2,17 @@
 <a :class="$style.root"
     :selected="parentVM.router ? active : isSelected" :readonly="parentVM.readonly" :disabled="disabled || parentVM.disabled"
     :href="currentHref" :target="target" @click="parentVM.router ? onClick($event) : select($event)" v-on="listeners"
-    v-ellipsis-title>
-    <slot></slot>
+    v-ellipsis-title
+    vusion-slot-name="text">
+    <i-ico v-if="icon" :name="icon" :class="$style.singleicon" notext></i-ico>
+    <slot>{{ text }}</slot>
 </a>
 </template>
 
 <script>
 import { MChild } from '../m-parent.vue';
 import ULink from '../u-link.vue';
+import IIco from '../i-ico.vue';
 import { ellipsisTitle } from '../../directives';
 
 const trailingSlashRE = /\/?$/;
@@ -19,8 +22,13 @@ export default {
     parentName: 'm-singlex',
     groupName: 'm-singlex-group',
     directives: { ellipsisTitle },
+    components: {
+        IIco,
+    },
     mixins: [MChild, ULink],
     props: {
+        icon: String,
+        text: String,
         value: null,
         disabled: { type: Boolean, default: false },
         item: Object,
@@ -37,14 +45,22 @@ export default {
             return this.parentVM && this.parentVM.selectedVM === this;
         },
         active() {
-            if (this.to === undefined)
+            if (this.to === undefined && !this.destination)
                 return;
             if (!this.$router)
                 return console.warn(
                     '[cloud-ui] Use `<m-router-item>` but cannot find vue router.',
                 );
             const current = this.$route;
-            const target = this.$router.resolve(this.to).route;
+            let to = this.to;
+            if (this.destination) {
+                const destination = this.destination.split('/');
+                destination.splice(1, 1);
+                to = destination.join('/');
+                if (!to)
+                    return false;
+            }
+            const target = this.$router.resolve(to).route;
             const currentPath = decodeURIComponent(current.path.replace(trailingSlashRE, '/'));
             const targetPath = decodeURIComponent((target.redirectedFrom ? this.$router.resolve(target.redirectedFrom).location.path : target.path).replace(trailingSlashRE, '/')); // @TODO: 是否要检查 query 的包含关系
             const currentHash = decodeURIComponent(current.hash);

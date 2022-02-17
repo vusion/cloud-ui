@@ -1,9 +1,13 @@
 <template>
-<div :class="$style.root" :column="currentColumn" :label-size="currentLabelSize" :style="responsiveStyle">
-    <div :class="$style.label">
+<div :class="$style.root" :column="currentColumn" allowChild :label-size="currentLabelSize" :style="responsiveStyle">
+    <div :class="$style.label" vusion-slot-name="label">
         <slot name="label">{{ label }}</slot>
     </div>
-    <div :class="$style.value" :ellipsis="ellipsis">
+    <div v-if="$env.VUE_APP_DESIGNER" :class="$style.value" :ellipsis="ellipsis" vusion-slot-name="default">
+        <slot></slot>
+        <s-empty v-if="(!$slots.default)"></s-empty>
+    </div>
+    <div v-else :class="$style.value" :ellipsis="ellipsis">
         <slot></slot>
     </div>
 </div>
@@ -11,12 +15,16 @@
 
 <script>
 import MEmitter from '../m-emitter.vue';
+import SEmpty from '../s-empty.vue';
 
 export default {
     name: 'u-info-list-item',
     parentName: 'u-info-list',
     groupName: 'u-info-list-group',
     mixins: [MEmitter],
+    components: {
+        SEmpty,
+    },
     props: {
         label: String,
         labelSize: String,
@@ -85,7 +93,7 @@ export default {
 <style module>
 .root {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
     padding: 16px 0 16px 20px;
     vertical-align: top;
     line-height: 24px;
@@ -98,17 +106,16 @@ export default {
 .root[column="4"] { width: 25% !important; }
 
 .label {
-    display: table-cell;
+    flex: 0 0 auto;
     padding-right: 20px;
     color: var(--color-light);
 }
-
-.root[label-size$="small"] .label { width: 80px; }
-.root[label-size$="normal"] .label { width: 100px; }
-.root[label-size$="large"] .label { width: 120px; }
+.root .label { max-width: calc(50% - 20px); white-space: normal; }
+.root[label-size$="small"] .label { width: 80px; white-space: normal; }
+.root[label-size$="normal"] .label { width: 100px; white-space: normal; }
+.root[label-size$="large"] .label { width: 120px; white-space: normal; }
 
 .value {
-    display: table-cell;
     white-space: normal;
     word-break: break-all;
     width: 100%;
@@ -119,6 +126,5 @@ export default {
     white-space: nowrap;
     text-overflow: ellipsis;
     width: 100%;
-    max-width: 0;
 }
 </style>

@@ -9,7 +9,7 @@
          <!-- @override: 增加数值显示 -->
         <div :class="$style.scales">
             <span :class="$style.scale">{{ min }}{{ unit }}</span>
-            <span :class="$style.scale">{{ (min + max) / 2 >> 0 }}{{ unit }}</span>
+            <span :class="$style.scale">{{ ((min - 0) + (max - 0)) / 2 >> 0 }}{{ unit }}</span>
             <span :class="$style.scale">{{ max }}{{ unit }}</span>
         </div>
     </div>

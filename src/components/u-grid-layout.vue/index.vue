@@ -15,7 +15,7 @@ export default {
 
 <style module>
 .root {
-    margin: calc(var(--space-base) / (-2));
+    margin: 0 calc(var(--space-base) / (-2));
 }
 
 .root .column {
@@ -81,4 +81,5 @@ export default {
     padding-left: calc(var(--space-large) / 2);
     padding-right: calc(var(--space-large) / 2);
 }
+
 </style>

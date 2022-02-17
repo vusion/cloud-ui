@@ -19,6 +19,8 @@
     - [Events](#events)
     - [Methods](#methods)
 
+**Selector**
+
 双栏穿梭选择框，常用于将多个项目从一边移动到另一边。
 
 ## 示例
@@ -724,7 +726,7 @@ export default {
 | placeholder | string |  | `'请输入'` | 搜索框的占位符 |
 | clearable | boolean |  | `false` | 搜索框是否有清除按钮 |
 | match-method | string, Function |  | `'includes'` | 过滤时的匹配方法 |
-| case-sensitive | string, Function |  | `'includes'` | 过滤时大小写是否敏感 |
+| case-sensitive | boolean |  | `false` | 过滤时大小写是否敏感 |
 | pageable | boolean |  | `false` | 是否需要分页 |
 | page-size | number |  | `50` | 分页大小 |
 | readonly | boolean |  | `false` | 是否只读 |
@@ -748,6 +750,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.source | Array\<{ text, value }\> | 原数据列表 |
 | $event.target | Array\<{ text, value }\> | 目标数据列表 |
 | $event.transfer | Array\<{ text, value }\> | 移动的项 |
@@ -760,6 +763,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.source | Array\<{ text, value }\> | 原数据列表 |
 | $event.target | Array\<{ text, value }\> | 目标数据列表 |
 | $event.transfer | Array\<{ text, value }\> | 移动的项 |
@@ -790,6 +794,6 @@ Methods
 
 | Param | Type | Default | Description |
 | ----- | ---- | ------- | ----------- |
-| direction | enum | `'forward'` | 方向，`forward`表示从左向右，`reverse`表示从右向左。 |
+| direction | string | `'forward'` | 方向 |
 | values | Array\<string\> |  | 指定转移选项值的列表。 |
 

@@ -103,7 +103,7 @@
 
 ``` vue
 <template>
-<u-tabs>
+<u-tabs v-model="value">
     <u-tab v-for="title in list" :key="title" :title="title" :value="title">{{ title }} 的内容</u-tab>
     <u-button size="small" slot="extra" @click="addTab">添加</u-button>
 </u-tabs>
@@ -115,7 +115,10 @@ export default {
         for (let i = 0; i < 20; i++)
             list.push('标签页 ' + (i + 1));
 
-        return { list };
+        return { 
+            value: '标签页 7',
+            list 
+        };
     },
     methods: {
         addTab() {

@@ -1,6 +1,11 @@
 - name: u-transfer
+  icon: transfer
+  labels:
+    - Selector
   title: 穿梭框
   description: 双栏穿梭选择框，常用于将多个项目从一边移动到另一边。
+  next: true
+  nested: false
   attrs:
     - name: source
       title: 原始数据
@@ -26,7 +31,7 @@
       title: 显示头部
       type: boolean
       default: false
-      description: 是否显示头部
+      description: ""
     - name: source-title
       title: 左侧列表标题
       type: string
@@ -41,52 +46,55 @@
       title: 显示尾部
       type: boolean
       default: false
-      description: 是否显示尾部
+      description: ""
     - name: filterable
       title: 过滤
       type: boolean
       default: false
-      description: 是否可以过滤（搜索），开启将会显示搜索框。
+      description: 显示过滤（搜索框）
     - name: placeholder
       title: 占位符
       type: string
       default: 请输入
-      description: 搜索框的占位符
+      description: 搜索框的提示文字
     - name: clearable
       title: 清除
       type: boolean
       default: false
-      description: 搜索框是否有清除按钮
+      description: 搜索框输入内容支持一键清除
     - name: match-method
       title: 过滤匹配方法
       type: string, Function
       default: includes
       description: 过滤时的匹配方法
+      advanced: true
     - name: case-sensitive
       title: 大小写敏感
-      type: string, Function
-      default: includes
-      description: 过滤时大小写是否敏感
+      type: boolean
+      default: false
+      description: 过滤时大小写敏感
     - name: pageable
       title: 分页
       type: boolean
       default: false
       description: 是否需要分页
+      advanced: true
     - name: page-size
       title: 分页大小
       type: number
       default: 50
-      description: 分页大小
+      description: ""
+      advanced: true
     - name: readonly
       title: 只读
       type: boolean
       default: false
-      description: 是否只读
+      description: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用
+      description: ""
   slots:
     - name: default
       description: 插入文本或 HTML
@@ -97,6 +105,11 @@
       title: 数据转移时
       description: 数据转移时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/TransferEvent"
         - name: $event.source
           type: Array<{ text, value }>
           description: 原数据列表
@@ -116,6 +129,11 @@
       title: 改变后
       description: 数据改变时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/TransferEvent"
         - name: $event.source
           type: Array<{ text, value }>
           description: 原数据列表
@@ -148,12 +166,14 @@
       description: 转移指定项的数据。
       params:
         - name: direction
-          type: enum
+          type: string
           options:
-            - forward
-            - reverse
+            - value: forward
+              title: 从左向右
+            - value: reverse
+              title: 从右向左
           default: forward
-          description: 方向，`forward`表示从左向右，`reverse`表示从右向左。
+          description: 方向
         - name: values
           type: Array<string>
           description: 指定转移选项值的列表。

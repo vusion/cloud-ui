@@ -1,12 +1,12 @@
 <template>
 <div :class="$style.header">
-    <input :class="$style.input" :placeholder="placeholder" @click.stop="$refs.popper.toggle(true)" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}" @change="onInput($event)">
-    <span v-if="showDate && reset" :class="[$style.wrap, $style.close]" @click.stop="resetValue">
-        <i :class="[$style.icon, $style.closeIcon]"></i>
+    <input :class="$style.input" :placeholder="placeholder" @click.stop="$refs.popper.toggle(true)" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}" @change="onInput($event)" @focus="onFocus" @blur="onBlur" :color="formItemVM && formItemVM.color">
+    <span v-if="showDate && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
+        <i :class="[$style.closeIcon]"></i>
     </span>
     <m-popper :class="$style.popper" ref="popper" append-to="reference" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="closeCalendar">
         <div :class="$style.body" @click.stop>
-            <u-calendar ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="showDate" @select="select($event.date)"></u-calendar>
+            <u-calendar :picker="picker" ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="showDate" :value="date" @select="select($event.date)"></u-calendar>
         </div>
     </m-popper>
 </div>
@@ -15,7 +15,7 @@
 <script>
 import Calendar from '../u-calendar.vue';
 import { clickOutside } from '../../directives';
-import { format, transformDate } from '../../utils/date';
+import { format, transformDate, ChangeDate } from '../../utils/date';
 import MField from '../m-field.vue';
 import i18n from './i18n';
 const MS_OF_DAY = 24 * 3600 * 1000;
@@ -40,8 +40,10 @@ export default {
     mixins: [MField],
     props: {
         date: [String, Number, Date],
+        value: [String, Number, Date],
         minDate: [String, Number, Date],
         maxDate: [String, Number, Date],
+        picker: { type: String, default: 'date' },
         disabled: { type: Boolean, default: false },
         autofocus: { type: Boolean, default: false },
         readonly: { type: Boolean, default: false },
@@ -60,12 +62,14 @@ export default {
             },
         },
         time: { type: [String, Number], default: 'start' },
-        yearDiff: { type: [String, Number], default: 3 },
-        yearAdd: { type: [String, Number], default: 1 },
-        reset: { type: Boolean, default: false },
+        yearDiff: { type: [String, Number], default: 20 },
+        yearAdd: { type: [String, Number], default: 20 },
+        clearable: { type: Boolean, default: false },
+        converter: { type: String, default: 'format' },
     },
     data() {
-        return { showDate: this.format(this.date, 'YYYY-MM-DD'), lastDate: '' };
+        const date = this.date || this.value;
+        return { showDate: this.format(date, this.getFormatString()), lastDate: '' };
     },
     computed: {
         placement() {
@@ -77,7 +81,10 @@ export default {
     },
     watch: {
         date(newValue) {
-            this.showDate = this.format(newValue, 'YYYY-MM-DD');
+            this.showDate = this.format(newValue, this.getFormatString());
+        },
+        value(newValue) {
+            this.showDate = this.format(newValue, this.getFormatString());
         },
         showDate(newValue) {
             /**
@@ -85,10 +92,10 @@ export default {
              * @property {object} sender 事件发送对象
              * @property {number} date 改变后的日期 返回格式为日期对象
              */ const showDate = this.returnTime(newValue);
-            const newDate = showDate ? new Date(showDate.replace(/-/g, '/')) : '';
-            this.$emit('update:date', newDate);
+            const newDate = showDate ? new Date(this.transformDate(showDate)) : undefined;
+            this.$emit('update:date', this.toValue(newDate));
             this.$emit('change', { sender: this, date: newDate });
-            this.$emit('input', newDate);
+            this.$emit('input', this.toValue(newDate));
         },
         minDate(newValue) {
             return this.checkDate(newValue);
@@ -104,12 +111,48 @@ export default {
             if ((minDate / MS_OF_DAY) >> 0 > (maxDate / MS_OF_DAY) >> 0)
                 throw new Calendar.DateRangeError(minDate, maxDate);
         }
+        // this.$emit(
+        //     'input',
+        //     this.toValue(this.showDate ? new Date(this.transformDate(this.showDate)) : ''),
+        // ); // document.addEventListener('click', this.fadeOut, false);
+
         this.$emit(
-            'input',
-            this.showDate ? new Date(this.showDate.replace(/-/g, '/')) : '',
-        ); // document.addEventListener('click', this.fadeOut, false);
+            'update',
+            this.toValue(this.showDate ? new Date(this.transformDate(this.showDate)) : ''),
+        );
     },
     methods: {
+        getFormatString() {
+            if (this.picker === 'date') {
+                return 'YYYY-MM-DD';
+            }
+
+            if (this.picker === 'year') {
+                return 'YYYY';
+            }
+
+            if (this.picker === 'month') {
+                return 'YYYY-MM';
+            }
+
+            if (this.picker === 'quarter') {
+                return 'YYYY-QQ';
+            }
+
+            return 'YYYY-MM-DD';
+        },
+        toValue(date) {
+            if (!date)
+                return date;
+            if (this.converter === 'format')
+                return this.format(date, 'YYYY-MM-DD'); // value 的真实格式
+            else if (this.converter === 'json')
+                return date.toJSON();
+            else if (this.converter === 'timestamp')
+                return date.getTime();
+            else
+                return date;
+        },
         checkDate(date) {
             if (!date)
                 return;
@@ -121,18 +164,20 @@ export default {
          * @public
          * @param  {Date=null} date 选择的日期
          * @return {void}
-         */ select(date) {
+         */
+        select(date) {
             if (this.readonly || this.disabled || this.isOutOfRange(date))
                 return;
-            this.showDate = this.format(date, 'YYYY-MM-DD');
+            this.showDate = this.format(date, this.getFormatString());
             const showDate = this.returnTime(this.showDate);
             /**
              * @event select 选择某一项时触发
              * @property {object} sender 事件发送对象
              * @property {number} date 当前选择项 返回格式是日期对象
-             */ this.$emit('select', {
+             */
+            this.$emit('select', {
                 sender: this,
-                date: new Date(showDate.replace(/-/g, '/')),
+                date: new Date(this.transformDate(showDate)),
             });
             this.$refs.popper.toggle(false);
         },
@@ -141,18 +186,19 @@ export default {
          * @private
          * @param  {object} $event
          * @return {void}
-         */ onInput($event) {
+         */
+        onInput($event) {
             const value = $event.target.value;
-            let date = value ? new Date(value.replace(/-/g, '/')) : null;
+            let date = value ? new Date(this.transformDate(value)) : null;
             this.lastDate = this.showDate;
             let showDate = '';
             if (date !== null && date.toString() !== 'Invalid Date') {
                 date = this.isOutOfRange(date) || date; // 此处有坑 需要特殊处理 由于改成最小值 再次输入不合法的值会变成最小值 认为没有发生变化
-                showDate = this.format(date, 'YYYY-MM-DD');
+                showDate = this.format(date, this.getFormatString());
             } else
                 showDate = this.$refs.input.value = this.format(
                     this.lastDate,
-                    'YYYY-MM-DD',
+                    this.getFormatString(),
                 );
             this.showDate = showDate;
         },
@@ -161,9 +207,10 @@ export default {
          * @public
          * @param {Date} date 待测的日期
          * @return {boolean|Date} date 如果没有超出日期范围，则返回false；如果超出日期范围，则返回范围边界的日期
-         */ isOutOfRange(date) {
-            let minDate = this.transformDate(this.minDate);
-            let maxDate = this.transformDate(this.maxDate); // 不要直接在$watch中改变`minDate`和`maxDate`的值，因为有时向外绑定时可能不希望改变它们。
+         */
+        isOutOfRange(date) {
+            let minDate = ChangeDate(this.transformDate(this.minDate), this.picker, 'min');
+            let maxDate = ChangeDate(this.transformDate(this.maxDate), this.picker, 'max'); // 不要直接在$watch中改变`minDate`和`maxDate`的值，因为有时向外绑定时可能不希望改变它们。
             minDate = minDate && minDate.setHours(0, 0, 0, 0);
             maxDate = maxDate && maxDate.setHours(0, 0, 0, 0); // minDate && date < minDate && minDate，先判断是否为空，再判断是否超出范围，如果超出则返回范围边界的日期。
             return (
@@ -175,7 +222,8 @@ export default {
          * @method toggle(flag) 是否显示日历组件
          * @public
          * @param {flag} true 显示 false 隐藏
-         */ onToggle($event) {
+         */
+        onToggle($event) {
             this.$emit('toggle', $event);
         },
         format,
@@ -209,8 +257,14 @@ export default {
             }
             return date + ' ' + time;
         },
-        resetValue() {
+        clearValue() {
             this.showDate = undefined;
+        },
+        onBlur(e) {
+            this.$emit('blur', e, this);
+        },
+        onFocus(e) {
+            this.$emit('focus', e, this);
         },
     },
 };
@@ -226,25 +280,41 @@ export default {
     margin: 0;
     padding: 0 12px;
     vertical-align: middle;
-    border: 1px solid var(--border-color-base);
-    color: #555;
-    background: var(--field-background);
-    border-radius: 3px;
-    height: 34px;
-    line-height: 34px;
+    border: var(--datepicker-input-border-width) solid var(--datepicker-input-border-color);
+    color: var(--datepicker-input-color);
+    background: var(--datepicker-input-background);
+    border-radius: var(--datepicker-input-border-radius);
+    height: var(--datepicker-input-height);
+    line-height: calc(var(--datepicker-input-height) - var(--datepicker-input-border-width) * 2);
     outline: none;
 }
 .input[disabled] {
     cursor: var(--cursor-not-allowed);
-    background: #eee;
+    background: var(--datepicker-input-background-disabled);
     color: var(--color-light);
+}
+.input[color="error"] {
+    border-color: var(--datepicker-input-border-color-error);
+}
+.input:focus {
+    outline: var(--focus-outline);
+    border-color: var(--datepicker-input-border-color-focus);
+    box-shadow: var(--datepicker-input-box-shadow-focus);
+}
+.header:hover .input{
+    border-color: var(--datepicker-input-border-color-focus);
+}
+
+.input[focus] {
+    border-color: var(--datepicker-input-border-color-focus);
+    box-shadow: var(--datepicker-input-box-shadow-focus);
 }
 
 .placeholder, .input::placeholder {
     /* Removes placeholder transparency in Firefox. */
     opacity: 1;
     font-size: inherit;
-    color: var(--input-placeholder-color);
+    color: var(--datepicker-input-placeholder-color);
 }
 
 .body {
@@ -252,7 +322,7 @@ export default {
     z-index: 100;
     width: 248px;
     top: 100%;
-    margin-top: 2px;
+    /* margin-top: 2px; */
 }
 
 .wrap {
@@ -267,29 +337,27 @@ export default {
     cursor: var(--cursor-pointer);
 }
 
-.icon {
-    width: 18px;
-    height: 18px;
-    line-height: 18px;
-    background: var(--background-color-light);
-    border-radius: 100%;
-    display: inline-block;
-}
-
-.closeIcon:hover {
-    color: var(--color-light);
-    background-color: #ebedef;
+.closeIcon:hover::before {
+    color: var(--datepicker-input-icon-color-hover);
 }
 
 .closeIcon::before {
-    icon-font: url("../i-icon.vue/icons/close-small.svg");
-    font-size: 16px;
-    color: #b4b4b4;
-    margin-right: 0;
-    vertical-align: middle;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    line-height: 1;
+    height: 1em;
+    margin: auto;
+    icon-font: url('../i-icon.vue/assets/close-solid.svg');
+    cursor: var(--cursor-pointer);
+    color: var(--datepicker-input-clear-icon-color);
 }
 
 .popper {
     z-index: var(--z-index-tooltip);
+    box-shadow: var(--datepicker-popper-box-shadow);
+    border-radius: var(--datepicker-popper-border-radius);
 }
 </style>

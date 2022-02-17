@@ -1,6 +1,6 @@
 <template>
 <u-input ref="input" :class="$style.root" :value="formattedValue"
-    :readonly="readonly" :disabled="disabled"
+    :readonly="readonly" :disabled="disabled" :clearable="clearable"
     @keydown.native.up.prevent="increase" @keydown.native.down.prevent="decrease" @keydown.native.enter="onEnter"
     @input="onInput" @focus="onFocus" @blur="onBlur" v-bind="$attrs" v-on="listeners">
     <span :class="$style.button" v-if="!hideButtons" :disabled="currentValue >= max" role="up" v-repeat-click="increase"
@@ -33,6 +33,7 @@ export default {
         hideButtons: { type: Boolean, default: false },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
+        clearable: { type: Boolean, default: false },
     },
     data() {
         // 根据初始值计算 fix 精度
@@ -70,6 +71,7 @@ export default {
             const currentPrecision = (this.currentPrecision = this.getCurrentPrecision(value));
             const currentValue = (this.currentValue = this.fix(value, currentPrecision));
             this.formattedValue = this.currentFormatter.format(currentValue);
+            this.$emit('update', this.currentValue, this);
         },
     },
     created() {
@@ -165,10 +167,10 @@ export default {
         },
         increase() {
             const step = this.step === 0 ? this.computePrecision(this.currentValue) : this.step;
-            this.adjust(+this.currentValue + step);
+            this.adjust(+this.currentValue + (step - 0));
         },
         decrease() {
-            const step = this.step === 0 ? this.computePrecision(this.currentValue) : this.step;
+            const step = this.step === 0 ? this.computePrecision(this.currentValue) : +this.step;
             this.adjust(+this.currentValue - step);
         },
         onInput(rawValue) {
@@ -229,10 +231,12 @@ export default {
 .button[role="up"] {
     top: 0;
     border-bottom: 1px solid var(--border-color-base);
+    border-top-right-radius: var(--number-input-button-border-radius);
 }
 
 .button[role="down"] {
     bottom: 0;
+    border-bottom-right-radius: var(--number-input-button-border-radius);
 }
 
 .button[role="up"]::before {
@@ -251,7 +255,7 @@ export default {
 }
 
 .button:hover::before {
-    color: var(--brand-primary);
+    color: var(--number-input-icon-color-hover);
 }
 
 .button[disabled]:hover::before {

@@ -17,8 +17,8 @@ export default {
 @extends '../u-steps.vue/index.css';
 
 .radio {
-    background: white;
-    border: 1px solid var(--border-color-base);
+    background: var(--steps-seleatable-radio-background);
+    border: 1px solid var(--steps-seleatable-radio-border-color);
     vertical-align: middle;
 }
 
@@ -36,19 +36,30 @@ export default {
     position: static;
     display: inline-block;
     vertical-align: middle;
-    width: 140px;
+    width: var(--steps-seleatable-item-width);
 }
 
 .root[size="auto"] .item::before {
-    width: 60%;
+    width: var(--steps-seleatable-item-width-auto);
+}
+
+.radio:hover {
+    border-color: var(--steps-seleatable-item-radio-border-color-hover);
+}
+
+.root[readonly] .radio,
+.root[disabled] .radio,
+.item[readonly] .radio,
+.item[disabled] .radio {
+    border-color: var(--steps-seleatable-radio-border-color-disabled);
 }
 
 .item-body {
-    background: white;
+    background: var(--steps-seleatable-item-body-background);
 }
 
 .item[passed] .radio {
-    border-color: var(--brand-primary);
+    border-color: var(--steps-seleatable-border-color-passed);
 }
 
 .item[passed] .radio::before {
@@ -58,16 +69,17 @@ export default {
 }
 
 .item[selected] .radio {
-    background: white;
-    border: 1px solid #337EFF;
+    background: var(--steps-seleatable-radio-background-selected);
+    border: 1px solid var(--steps-seleatable-border-color-passed);
 }
 
 .item[selected] .radio::before {
     display: inline-block;
     content: '';
-    width: 10px;
-    height: 10px;
+    width: var(--steps-seleatable-radio-dot-width-selected);
+    height: var(--steps-seleatable-radio-dot-height-selected);
     border-radius: 100px;
-    background: var(--brand-primary);
+    background: var(--steps-seleatable-background-selected);
+    top: 0;
 }
 </style>

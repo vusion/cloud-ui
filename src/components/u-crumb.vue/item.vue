@@ -1,13 +1,13 @@
 <template>
 <div :class="$style.root">
-    <span v-if="type === 'text'" :class="$style.text">
-        <slot></slot>
+    <span v-if="readonly" :class="$style.readonly">
+        <slot>{{ text }}</slot>
     </span>
     <span v-else-if="disabled" :class="$style.disabled">
-        <slot></slot>
+        <slot>{{ text }}</slot>
     </span>
     <a v-else :class="$style.link" :href="currentHref" :target="target" :disabled="disabled" @click="onClick" v-on="listeners">
-        <slot></slot>
+        <slot>{{ text }}</slot>
     </a>
 </div>
 </template>
@@ -21,7 +21,8 @@ export default {
     parentName: 'u-crumb',
     mixins: [MChild, ULink],
     props: {
-        type: { type: String, default: 'link' },
+        text: String,
+        readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
     },
     data() {
@@ -51,7 +52,7 @@ export default {
     text-decoration: underline;
 }
 
-.text {
+.readonly {
     color: inherit;
     cursor: default;
 }

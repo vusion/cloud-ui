@@ -318,6 +318,7 @@ export default {
 | placeholder | string |  |  | 没有数据时的占位显示 |
 | size | enum | `'normal'` | `'normal'` | 卡片尺寸 |
 | column | number |  |  | 一行固定多少个选择项，如果不传则固定单项宽度为158px，每行个数自适应行宽 |
+| converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'join'` | value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象 |
 
 ### Slots
 
@@ -346,6 +347,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | string | 改变后的值 |
 | $event.oldValue | string | 旧的值 |
 | senderVM | UInput | 发送事件实例 |

@@ -54,7 +54,7 @@ export default {
         },
         collapse() {
             this.parentVM.collapse(this.index);
-            this.validate().catch(() => undefined);
+            this.validate();
         },
         remove() {
             this.parentVM.remove(this.index);

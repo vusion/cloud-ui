@@ -1,9 +1,9 @@
 <template>
-<label :class="$style.root" :disabled="disabled" @click="check()"
+<label :class="$style.root" :disabled="currentDisabled" @click="check()"
     tabindex="0" @keydown.space.prevent @keyup.space.prevent="check()"
-    @focus="onFocus" @blur="onBlur" v-on="listeners">
-    <span :class="$style.box" :status="String(currentValue)" :disabled="disabled"></span>
-    <slot></slot>
+    @focus="onFocus" @blur="onBlur" v-on="listeners" allowChild>
+    <span :class="$style.box" :status="String(currentValue)" :disabled="currentDisabled"></span>
+    <span vusion-slot-name="text"><slot>{{ text }}</slot></span>
 </label>
 </template>
 
@@ -18,6 +18,7 @@ export default {
     props: {
         value: { type: Boolean, default: false },
         label: null,
+        text: String,
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         autofocus: { type: Boolean, default: false },
@@ -32,6 +33,9 @@ export default {
                 delete listeners[prop];
             });
             return listeners;
+        },
+        currentDisabled() {
+            return this.disabled || (this.parentVM && this.parentVM.exceedMax() && !this.currentValue);
         },
     },
     watch: {
@@ -96,20 +100,43 @@ export default {
 .root {
     user-select: none;
     cursor: var(--cursor-pointer);
-    color: #666;
+    color: var(--checkbox-font-color);
 }
 
 .root:focus {
     outline: var(--focus-outline);
 }
 
+.root:focus .box,
 .root:focus .box[status="true"] {
     box-shadow: var(--checkbox-box-shadow-focus);
+    border-color: var(--checkbox-border-color-focus);
+}
+
+.root:active {
+    outline: var(--focus-outline);
+}
+.root:active .box,
+.root:active .box[status="true"] {
+    box-shadow: var(--checkbox-box-shadow-active);
+    border-color: var(--checkbox-border-color-hover);
 }
 
 .root[disabled] {
     cursor: var(--cursor-not-allowed);
-    color: #666;
+    color: var(--checkbox-font-color-disabled);
+}
+
+.root[disabled]:focus .box,
+.root[disabled]:focus .box[status="true"]{
+    box-shadow: none;
+    border-color: var(--checkbox-border-color-disabled);
+}
+
+.root[disabled]:active .box,
+.root[disabled]:active .box[status="true"]{
+    box-shadow: none;
+    border-color: var(--checkbox-border-color);
 }
 
 .box {
@@ -126,7 +153,7 @@ export default {
     text-align: center;
     font-size: var(--checkbox-icon-size);
     transition: all var(--transition-duration-base);
-    vertical-align: 1px;
+    vertical-align: -1px;
 }
 
 .box:hover {
@@ -146,7 +173,7 @@ export default {
 }
 
 .box[status="false"]::before {
-    icon-font: url('../i-icon.vue/assets/check.svg') '\ff01';
+    icon-font: url('./assets/check.svg') '\ff01';
     icon-font: url('./assets/check-dark.svg') '\ff02';
     content: var(--checkbox-icon);
     color: transparent;
@@ -157,7 +184,7 @@ export default {
     border-color: var(--checkbox-background);
 }
 .box[status="true"]::before {
-    icon-font: url('../i-icon.vue/assets/check.svg') '\ff01';
+    icon-font: url('./assets/check.svg') '\ff01';
     icon-font: url('./assets/check-dark.svg') '\ff02';
     content: var(--checkbox-icon);
     color: var(--checkbox-color);

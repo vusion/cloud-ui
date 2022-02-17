@@ -9,10 +9,11 @@
     - [调整尺寸](#调整尺寸)
 - [API]()
     - [Props/Attrs](#propsattrs)
-    - [Slots](#slots)
     - [Events](#events)
 
-**表单控件**, **行内展示**
+**Form**
+
+开关
 
 ## 示例
 ### 基本用法
@@ -25,12 +26,12 @@
 
 ``` vue
 <template>
-<u-switch v-model="value" width="wide">{{ value ? 'ON' : 'OFF' }}</u-switch>
+<u-switch v-model="value" width="wide" disabled>{{ value ? 'ON' : 'OFF' }}</u-switch>
 </template>
 <script>
 export default {
     data() {
-        return { value: false };
+        return { value: true };
     },
 };
 </script>
@@ -66,20 +67,10 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value | boolean |  | `false` | 开关状态 |
+| value.sync, v-model | boolean |  | `false` | 开关状态 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | with-text | boolean |  | `false` | 是否显示开关`ON`和`OFF`文字 |
-
-### Slots
-
-#### (default)
-
-
-
-#### undefined
-
-插入文本或HTML
 
 ### Events
 
@@ -89,6 +80,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | boolean | 开关状态 |
 | $event.oldValue | boolean | 旧的开关状态 |
 | $event.preventDefault | Function | 阻止切换流程 |
@@ -127,6 +119,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | boolean | 开关状态 |
 | $event.oldValue | boolean | 旧的开关状态 |
 | senderVM | USwitch | 发送事件实例 |
@@ -137,6 +130,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | boolean | 开关状态 |
 | $event.oldValue | boolean | 旧的开关状态 |
 | senderVM | USwitch | 发送事件实例 |

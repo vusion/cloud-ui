@@ -1,15 +1,23 @@
 - name: e-watermark
   title: 水印
+  icon: watermark
+  description: 在页面显示水印
+  labels:
+    - Effects
   attrs:
     - name: text
+      title: 文本
       type: string
-      default: ""
+      default: 水印
       description: 水印文本
     - name: image
+      title: 水印图案
       type: CanvasImageSource
       default: null
       description: 水印图案。如果没有，则默认按文本绘制
+      advanced: true
     - name: opacity
+      title: 透明程度
       type: number
       default: 0.1
-      description: 透明度
+      description: 0-1之间的小数，0代表完全透明，1代表完全不透明

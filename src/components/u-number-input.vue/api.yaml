@@ -1,8 +1,11 @@
 - name: u-number-input
   title: 数字输入
+  icon: number
   labels:
-    - 表单控件
-    - 行内展示
+    - Form
+  description: 输入数字时使用
+  next: true
+  nested: false
   attrs:
     - name: value
       title: 值
@@ -14,13 +17,13 @@
     - name: min
       title: 最小值
       type: number
-      default: -.inf
-      description: 最小值
+      default: null
+      description: ""
     - name: max
       title: 最大值
       type: number
-      default: .inf
-      description: 最大值
+      default: null
+      description: ""
     - name: step
       title: 间隔
       type: number
@@ -35,42 +38,62 @@
       title: 格式化
       type: string, object
       description: 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。
+      advanced: true
     - name: placeholder
       title: 占位符
       type: string
-      description: 原生属性
+      description: 为空时的提示文本
     - name: autofocus
-      title: 自动聚焦
+      title: 自动获取焦点
       type: boolean
-      description: 原生属性
+      description: ""
     - name: hide-buttons
       title: 隐藏按钮
       type: boolean
       default: false
-      description: 是否隐藏按钮
+      description: 是否隐藏上下点击按钮
+    - name: clearable
+      title: 清除按钮
+      type: boolean
+      description: 开启并在输入框有内容时会显示清除按钮。
     - name: readonly
       title: 只读
       type: boolean
       default: false
-      description: 是否只读
+      description: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用
+      description: ""
     - name: size
       title: 尺寸
-      type: size
+      type: string
       options:
-        - mini
-        - small
-        - normal
-        - large
-        - huge
-        - full
+        - value: full
+          title: 占满
+        - value: huge
+          title: 巨大
+        - value: large
+          title: 大
+        - value: medium
+          title: 中型
+        - value: normal
+          title: 正常
+        - value: small
+          title: 小
+        - value: mini
+          title: 迷你
       default: normal
-      description: 大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`,
-        `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式
+      description: 设置数字输入框大小
+      multi: true
+      maxSelect: 2
+  slots:
+    - name: default
+      advanced: true
+      title: 默认
+      description: 插入 HTML 或 `Component`, 可展示额外内容。
+      quick-add: never
   events:
     - name: input
       title: 输入时
@@ -79,6 +102,8 @@
         - name: $event
           type: string
           description: 输入框的值
+          schema:
+            $ref: "#/basicTypes/String"
         - name: senderVM
           type: UNumberInput
           description: 发送事件实例
@@ -86,6 +111,11 @@
       title: 验证时
       description: 输入验证时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ValidateEvent"
         - name: $event.rawValue
           type: string
           description: 用户输入的原始值
@@ -102,6 +132,11 @@
       title: 改变后
       description: 值变化时触发（与原生事件不同）
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.value
           type: number
           description: 改变后的值
@@ -124,6 +159,8 @@
         - name: $event
           type: string
           description: 原生事件对象
+          schema:
+            $ref: "#/systemTypes/FocusEvent"
         - name: senderVM
           type: UNumberInput
           description: 发送事件实例
@@ -134,13 +171,18 @@
         - name: $event
           type: string
           description: 原生事件对象
+          schema:
+            $ref: "#/systemTypes/FocusEvent"
         - name: senderVM
           type: UNumberInput
           description: 发送事件实例
   aria:
     - key: ↑
       description: 按`step`量增加值
+      advanced: true
     - key: ↓
       description: 按`step`量减小值
+      advanced: true
     - key: Enter
       description: 自动修复为合法的值，并且应用更改
+      advanced: true

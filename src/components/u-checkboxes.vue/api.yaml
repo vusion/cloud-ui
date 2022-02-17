@@ -1,12 +1,17 @@
 - name: u-checkboxes
   title: 多选组
   labels:
-    - 表单控件
-    - 块级展示
+    - Form
+  icon: checkboxes
+  description: 多项中选择多个时使用
+  next: true
+  nested: false
   attrs:
     - name: value
       title: 值
       type: Array
+      sync: true
+      model: true
       default: []
       description: 多选组的选中项
     - name: min
@@ -17,23 +22,93 @@
     - name: max
       title: 选中最大数
       type: number
-      default: .inf
+      default: 999
       description: 可以勾选多选框的最大数量
     - name: readonly
       title: 只读
       type: boolean
       default: false
-      description: 是否只读
+      description: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用
+      description: ""
+    - name: converter
+      title: 转换器
+      type: string
+      options:
+        - value: join
+          title: 以','连接
+        - value: join:|
+          title: 以'|'连接
+        - value: join:;
+          title: 以';'连接
+        - value: json
+          title: json
+        - value: ""
+          title: 无
+      default: ""
+      description: 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式
+      bindHide: true
+  events:
+    - name: input
+      title: 输入时
+      description: 切换选项时触发
+      params:
+        - name: $event
+          type: Array<string>
+          description: 切换后的选中值
+        - name: senderVM
+          type: UCheckbox
+          description: 发送事件实例
+    - name: check
+      title: 选中后
+      description: 切换选项时触发
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
+        - name: $event.value
+          type: Array<string>
+          description: 切换后的选中值
+        - name: senderVM
+          type: UCheckboxes
+          description: 发送事件实例
+    - name: change
+      title: 改变后
+      description: 选中状态改变时触发
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
+        - name: $event.value
+          type: Array<string>
+          description: 选中状态
+        - name: $event.oldValue
+          type: Array<string>
+          description: 旧的选中状态
   slots:
     - name: default
       description: 插入`<checkbox>`子组件。
+      empty-background: add-sub
+      support:
+        - name: u-checkbox
+          title: 多选项
+          snippet: <u-checkbox>多选</u-checkbox>
 - name: u-checkbox
+  title: 多选项
+  next: false
+  nested: false
   attrs:
+    - name: text
+      title: 文本
+      type: string
+      description: 显示文本内容
     - name: value
       title: 值
       type: boolean, null
@@ -42,32 +117,35 @@
       default: false
       description: 选中状态，`null`表示不确定状态
     - name: label
-      title: 标签
+      title: 选项值
       type: any
-      default: null
-      description: 多选框标签。用于关联多选组的值
+      description: 多选框选项值，只在多选组中使用
     - name: readonly
       title: 只读
       type: boolean
       default: false
-      description: 是否只读
+      description: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用
+      description: ""
     - name: autofocus
+      title: 自动获取焦点
       type: boolean
       default: false
-      description: 自动获取焦点
-  slots:
-    - name: default
-      description: 插入文本或 HTML。
+      description: ""
   events:
     - name: before-check
       title: 选中前
       description: 切换选中状态前触发
+      advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.value
           type: boolean, null
           description: 选中状态
@@ -87,6 +165,8 @@
         - name: $event
           type: boolean, null
           description: 切换后的选中状态
+          schema:
+            $ref: "#/basicTypes/Boolean"
         - name: senderVM
           type: UCheckbox
           description: 发送事件实例
@@ -94,6 +174,11 @@
       title: 选中后
       description: 切换选中状态时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.value
           type: boolean, null
           description: 选中状态
@@ -110,6 +195,11 @@
       title: 改变后
       description: 选中状态改变时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.value
           type: boolean, null
           description: 选中状态
@@ -119,3 +209,4 @@
         - name: senderVM
           type: UCheckbox
           description: 发送事件实例
+  description: 多选项

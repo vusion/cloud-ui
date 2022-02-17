@@ -18,7 +18,7 @@
     - [Props/Attrs](#propsattrs-2)
     - [Slots](#slots-2)
 
-**路由链接**, **块级展示**
+**Selector**
 
 选项卡切换组件，常用于平级区域大块内容的收纳和展现。
 
@@ -128,7 +128,7 @@
 
 ``` vue
 <template>
-<u-tabs>
+<u-tabs v-model="value">
     <u-tab v-for="title in list" :key="title" :title="title" :value="title">{{ title }} 的内容</u-tab>
     <u-button size="small" slot="extra" @click="addTab">添加</u-button>
 </u-tabs>
@@ -140,7 +140,10 @@ export default {
         for (let i = 0; i < 20; i++)
             list.push('标签页 ' + (i + 1));
 
-        return { list };
+        return { 
+            value: '标签页 7',
+            list 
+        };
     },
     methods: {
         addTab() {
@@ -186,9 +189,9 @@ export default {
 | readonly | boolean |  | `false` | 是否只读。 |
 | disabled | boolean |  | `false` | 是否禁用。 |
 | closable | boolean |  | `false` | 是否可以关闭。 |
-| show-scroll-buttons | enum \| boolean | `'never'`<br/>`'auto'`<br/>`'always'` | `'auto'` | 是否显示标签滚动左右箭头按钮。`'auto'`表示有滚动的情况下显示，`‘always'`表示始终显示，`'never'`表示始终不显示。 |
-| appear | enum | `'square'`<br/>`'round'`<br/>`'card'`<br/>`'line'`<br/>`'text'`<br/>`'capsule'` | `'tab'` | 标签展示的外观 |
-| size | enum | `'normal'`<br/>`'small'`<br/>`'mini'` | `'normal'` | 标签尺寸 |
+| show-scroll-buttons | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` | 是否显示标签滚动左右箭头按钮 |
+| appear | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'square'` | 标签展示的外观 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 标签尺寸 |
 
 ### Slots
 
@@ -219,6 +222,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选中标签页的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.itemVM | UTab | 选中标签页实例 |
@@ -228,10 +232,11 @@ export default {
 
 #### @select
 
-选择某一页后触发
+选择某一项后触发
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选中标签页的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.itemVM | UTab | 选中标签页实例 |
@@ -244,6 +249,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 待关闭标签页的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.itemVM | UTab | 待关闭的标签页实例 |
@@ -256,6 +262,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 关闭的标签页的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.itemVM | UTabs | 关闭的标签页实例 |
@@ -270,8 +277,10 @@ export default {
 | title | string |  |  | 标签页标题。 |
 | value | any |  |  | 标签页的值。 |
 | disabled | boolean |  | `false` | 是否禁用此标签页。 |
+| linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'href'` | 链接类型 |
 | href | string |  |  | 链接地址 |
-| target | enum | `'新标签页 (_blank)'` ()<br/>`'当前窗口 (_self)'` ()<br/>`'父级窗口 (_parent)'` ()<br/>`'顶级窗口 (_top)'` () |  | （原生属性）。比如设置`_blank`，会在新标签页中打开。 |
+| hrefAndTo | string |  |  | 链接地址 |
+| target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_blank'` | 打开方式 |
 | to | string, Location |  |  | 需要 router 为 true，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
 | replace | boolean |  | `false` | 需要 router 为 true，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
 | append | boolean |  | `false` | 需要 router 为 true，与`<router-link>`的`append`属性相同。如果为`true`，则在当前路径后追加`to`的路径。 |
@@ -281,9 +290,9 @@ export default {
 
 #### (default)
 
-插入文本或 HTML。
+该 tab 下的内容
 
 #### title
 
-自定义标题文本。
+自定义标题
 

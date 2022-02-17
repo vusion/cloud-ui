@@ -2,7 +2,7 @@
 <div :class="$style.root">
     <div @click="copy">
         <slot>
-            <u-link :disabled="disabled">{{ text }}</u-link>
+            <u-link :disabled="disabled" vusion-slot-name="text">{{ text }}</u-link>
         </slot>
     </div>
     <u-tooltip v-if="feedback === 'tooltip'" :placement="placement" trigger="manual" :opened.sync="success">

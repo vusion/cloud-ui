@@ -11,10 +11,13 @@
     - [只读和禁用](#只读和禁用)
 - [API]()
     - [Props/Attrs](#propsattrs)
+    - [Slots](#slots)
     - [Events](#events)
     - [ARIA and Keyboard](#aria-and-keyboard)
 
-**表单控件**, **行内展示**
+**Form**
+
+输入数字时使用
 
 ## 示例
 ### 基本用法
@@ -108,17 +111,24 @@ export default {
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value.sync, v-model | number |  | `0` | 输入框的值 |
-| min | number |  | `-Infinity` | 最小值 |
-| max | number |  | `Infinity` | 最大值 |
+| min | number |  |  | 最小值 |
+| max | number |  |  | 最大值 |
 | step | number |  | `1` | 间隔，表示点击按钮或按上下键所增加或减少的量 |
 | precision | number |  | `1` | 精度，表示数字要保留的最小单位，整数、小数均可 |
 | formatter | string, object |  |  | 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。 |
 | placeholder | string |  |  | 原生属性 |
 | autofocus | boolean |  |  | 原生属性 |
 | hide-buttons | boolean |  | `false` | 是否隐藏按钮 |
+| clearable | boolean |  |  | 开启并在输入框有内容时会显示清除按钮。 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
-| size | size | `'mini'`<br/>`'small'`<br/>`'normal'`<br/>`'large'`<br/>`'huge'`<br/>`'full'` | `'normal'` | 大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度 |
+
+### Slots
+
+#### (default)
+
+插入 HTML 或 `Component`, 可展示额外内容。
 
 ### Events
 
@@ -137,6 +147,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.rawValue | string | 用户输入的原始值 |
 | $event.value | number | 验证修复的值 |
 | $event.valid | boolean | 原始值是否合法 |
@@ -148,6 +159,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | number | 改变后的值 |
 | $event.oldValue | number | 旧的值 |
 | $event.formattedValue | string | 格式化后的值 |

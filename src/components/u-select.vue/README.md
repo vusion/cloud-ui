@@ -33,9 +33,9 @@
 - [USelectDivider API](#uselectdivider-api)
 
 
-**表单控件**, **行内展示**
+**Form**
 
-下拉选择框，支持单选、多选、搜索等功能，用于代替原生的选择框。
+下拉选择框，支持单选、多选、搜索等功能
 
 ## 示例
 ### 基本用法
@@ -457,6 +457,84 @@ export default {
                 { text: 'C++', value: 'cpp' },
                 { text: 'PHP', value: 'php', disabled: true },
             ],
+        };
+    },
+};
+</script>
+```
+
+值转换器：组件的 value 与 各选择器的 value 的转换器。
+converter值可以为`'join'``'json'`，表示将 values 数组 join 之后变成 value。`'join'`的分隔符可以是`','`,`'|'`等，默认是`','`。
+
+``` vue
+<template>
+<u-select multiple v-model="values" title="多选列表" :data-source="list" converter="join:|"></u-select>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            values: '',
+            list: [
+                { text: 'Java', value: 'java' },
+                { text: 'Node.js', value: 'nodejs' },
+                { text: 'Go', value: 'go' },
+                { text: 'Python', value: 'python' },
+                { text: 'Ruby', value: 'ruby', disabled: true },
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'PHP', value: 'php', disabled: true },
+            ],
+        };
+    },
+};
+</script>
+```
+
+``` vue
+<template>
+<u-select multiple v-model="values" title="多选列表" :data-source="list" converter="json"></u-select>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            values: '[]',
+            list: [
+                { text: 'Java', value: 'java' },
+                { text: 'Node.js', value: 'nodejs' },
+                { text: 'Go', value: 'go' },
+                { text: 'Python', value: 'python' },
+                { text: 'Ruby', value: 'ruby', disabled: true },
+                { text: 'C', value: 'c' },
+                { text: 'C#', value: 'csharp' },
+                { text: 'C++', value: 'cpp' },
+                { text: 'PHP', value: 'php', disabled: true },
+            ],
+        };
+    },
+};
+</script>
+```
+
+设置属性text形式
+``` vue
+<template>
+<u-linear-layout>
+    <u-select v-model="values" multiple style="width: 240px">
+        <u-select-item text="Java" value="java"></u-select-item>
+        <u-select-item text="Node.js" value="nodejs"></u-select-item>
+        <u-select-item text="Go" value="go"></u-select-item>
+        <u-select-item text="Python" value="python"></u-select-item>
+    </u-select>
+</u-linear-layout>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            values: ['java', 'nodejs'],
         };
     },
 };
@@ -1229,36 +1307,68 @@ export default {
 };
 </script>
 ```
+
+
+#### 前缀方式
+
+使用`<u-select-item>`组件添加。在有少量静态数据的时候，推荐使用这种方式。
+
+``` html
+<u-linear-layout>
+    <u-select prefix="search">
+        <u-select-item value="java">Java</u-select-item>
+        <u-select-item value="nodejs">Node.js</u-select-item>
+        <u-select-item value="go">Go</u-select-item>
+        <u-select-item value="python">Python</u-select-item>
+        <u-select-item value="ruby">Ruby</u-select-item>
+        <u-select-item value="csharp">C#</u-select-item>
+        <u-select-item value="php">PHP</u-select-item>
+    </u-select>
+    <u-select suffix="search" placeholder="设置占位符">
+        <u-select-item value="java">Java</u-select-item>
+        <u-select-item value="nodejs">Node.js</u-select-item>
+        <u-select-item value="go">Go</u-select-item>
+        <u-select-item value="python">Python</u-select-item>
+        <u-select-item value="ruby">Ruby</u-select-item>
+        <u-select-item value="csharp">C#</u-select-item>
+        <u-select-item value="php">PHP</u-select-item>
+    </u-select>
+</u-linear-layout>
+```
+
 ## USelect API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value.sync, v-model | any |  |  | 当前选择的值 |
-| text-field | string |  | `'text'` | 选项文本的字段名。 |
-| value-field | string |  | `'value'` | 选项值的字段名。 |
+| text-field | string |  | `'text'` | 选项文本的字段名 |
+| value-field | string |  | `'value'` | 选项值的字段名 |
 | data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 选择框的数据源。数组方式表示直接的数据，函数需要返回一个 Promise，详见文档示例。 |
-| cancelable | boolean |  | `false` | 是否可以取消选择。 |
-| multiple | boolean |  | `false` | 是否可以多选。 |
+| cancelable | boolean |  | `false` | 是否可以取消选择 |
+| multiple | boolean |  | `false` | 是否可以多选 |
+| converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象 |
 | placeholder | string |  | `'请选择'` | 选择框的占位符。 |
 | loading-text | string |  | `'加载中...'` | 正在加载中的文字。使用分页加载时才会出现。 |
 | empty-text | string |  | `'暂无数据'` | 暂无数据时的文字。 |
 | empty-disabled | boolean |  | `false` | 没有数据时，自动禁用。 |
 | initial-load | boolean |  | `true` | 是否在初始时立即加载。 |
-| pageable | boolean |  | `false` | 是否需要分页。 |
-| page-size.sync | number |  | `50` | 分页大小。 |
+| pageable | boolean |  | `false` | 是否使用分页功能加载更多。 |
 | remote-paging | boolean |  | `false` | 是否使用后端分页。 |
+| page-size.sync | number |  | `50` | 分页大小。 |
 | clearable | boolean |  | `false` | 是否有清除按钮。 |
-| filterable | boolean |  | `false` | 是否使用输入框进行过滤。 |
-| match-method | string \| Function |  | `'includes'` | 过滤时的匹配方法。 |
+| filterable | boolean |  | `false` | 是否使用输入框进行筛选。 |
+| remote-filtering | boolean |  | `false` | 是否使用后端筛选。 |
+| match-method | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'includes'` | 过滤时的匹配方法。 |
 | case-sensitive | string \| Function |  | `'includes'` | 过滤时大小写是否敏感 |
-| remote-filtering | boolean |  | `false` | 是否使用后端过滤。 |
 | auto-complete | boolean |  | `false` | 是否开启自动补充模式，用于增加列表中没有的项。 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
-| size | size | `'mini'`<br/>`'small'`<br/>`'normal'`<br/>`'medium'`<br/>`'large'`<br/>`'huge'`<br/>`'full'` | `'normal'` | 大小扩展，支持一个值：`'mini'`, `'small'`, `'normal'`, `'medium'`, `'large'`, `'huge'`, `'full'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度 |
 | opened.sync | boolean |  | `false` | 切换弹出/关闭状态 |
 | autofocus | boolean |  | `false` | 自动获取焦点 |
+| prefix | string | `[object Object]`<br/>`[object Object]` | `''` | 前缀图标 |
+| suffix | string | `[object Object]`<br/>`[object Object]` | `''` | 后缀图标 |
 
 ### Slots
 
@@ -1274,6 +1384,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选择项的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择项相关对象 |
@@ -1296,6 +1407,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 改变后的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择项相关对象 |
@@ -1310,6 +1422,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选择项的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择项相关对象 |
@@ -1324,6 +1437,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.preventDefault | Function | 阻止弹出流程 |
 | senderVM | USelect | 发送事件实例 |
 
@@ -1342,6 +1456,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.preventDefault | Function | 阻止关闭流程 |
 | senderVM | USelect | 发送事件实例 |
 
@@ -1360,6 +1475,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.preventDefault | Function | 阻止加载流程 |
 | senderVM | USelect | 发送事件实例 |
 
@@ -1371,6 +1487,22 @@ export default {
 | ----- | ---- | ----------- |
 | $event |  | 空 |
 | senderVM | USelect | 发送事件实例 |
+
+#### @click-prefix
+
+点击前缀图标后触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 鼠标事件对象 |
+
+#### @click-suffix
+
+点击后缀图标后触发
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 鼠标事件对象 |
 
 Methods
 
@@ -1416,6 +1548,7 @@ Methods
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value | any |  |  | 此项的值。 |
+| text | string |  |  | 此项的显示值 |
 | disabled | boolean |  | `false` | 禁用此项。 |
 | item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发。 |
 
@@ -1433,6 +1566,7 @@ Methods
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 此项的值 |
 | $event.item | object | 此项的相关对象 |
 | $event.itemVM | SelectItem | 此组件 |

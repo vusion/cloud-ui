@@ -9,16 +9,23 @@
     - [最大值和最小值](#最大值和最小值)
     - [只读和禁用](#只读和禁用)
     - [方法](#方法)
+    - [月份选择](#月份选择)
+    - [季度选择](#季度选择)
+    - [年份选择](#年份选择)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
+
+**Selector**
+
+日期选择器
 
 ## 示例
 ### 基本用法
 
 ``` html
 <u-linear-layout>
-    <u-date-picker></u-date-picker>
+    <u-date-picker clearable></u-date-picker>
     <u-date-picker date="2018-08-08"></u-date-picker>
 </u-linear-layout>
 ```
@@ -55,7 +62,40 @@
 ### 方法
 ``` vue
 <template>
-<u-date-picker time="morning" year-diff="1" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
+<u-date-picker min-date="2021-06-18T00:00:00.000Z" time="morning" year-diff="1" max-date="2025" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
+</template>  
+
+<script>
+export default {
+	data(){
+		return {
+			date: '2018-08-01',
+		}
+	},
+    methods: {
+        change(newVal) {
+            console.log(newVal);
+        },
+        select(newVal) {
+        	console.log(newVal);
+        },
+        toggle(event) {
+        	console.log(event.open);
+        }
+    },
+    watch: {
+        date(newValue) {
+            console.log(newValue);
+        },
+    },
+};
+</script>
+```
+
+### 月份选择
+``` vue
+<template>
+<u-date-picker min-date="2021-06-18T00:00:00.000Z" picker="month" time="morning" max-date="2024-5"  year-diff="1" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
 </template>
 
 <script>
@@ -85,23 +125,92 @@ export default {
 </script>
 ```
 
+### 季度选择
+``` vue
+<template>
+<u-date-picker min-date="2021-06-18T00:00:00.000Z" picker="quarter" time="morning" max-date="2024-5" year-diff="1" year-add="5" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
+</template>
+
+<script>
+export default {
+	data(){
+		return {
+			date: '2021-01-01',
+		}
+	},
+    methods: {
+        change(newVal) {
+            console.log(newVal);
+        },
+        select(newVal) {
+        	console.log(newVal);
+        },
+        toggle(event) {
+        	console.log(event.open);
+        }
+    },
+    watch: {
+        date(newValue) {
+            console.log(newValue);
+        },
+    },
+};
+</script>
+```
+
+### 年份选择
+``` vue
+<template>
+<u-date-picker min-date="2021-07-18T00:00:00.000Z" max-date="2024" picker="year" time="morning" clearable year-diff="20" year-add="20" :date.sync="date" @change="change" @select="select" @toggle="toggle($event)">Modal</u-date-picker>
+</template>
+
+<script>
+export default {
+	data(){
+		return {
+			date: '2018-01-01',
+		}
+	},
+    methods: {
+        change(newVal) {
+            console.log(newVal);
+        },
+        select(newVal) {
+        	console.log(newVal);
+        },
+        toggle(event) {
+        	console.log(event.open);
+        }
+    },
+    watch: {
+        date(newValue) {
+            console.log(newValue);
+        },
+    },
+};
+</script>
+```
+
 ## API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| width | string, number |  | `160` | 输入框宽度 |
-| date.sync | string,number,Date |  |  | 初始日期值 |
+| picker | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'date'` | 用于定义选择的格式 |
+| width | number |  | `160` | 输入框宽度 |
+| date.sync, v-model | string,number,Date |  |  | 选择值 |
 | minDate | string,number,Date |  |  | 最小日期 |
 | maxDate | string,number,Date |  |  | 最大日期 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | autofocus | boolean |  | `false` | 文本框默认处于focus |
 | placeholder | string |  | `'请输入'` | 文本框默认提示 |
-| alignment | string |  | `'left'` | 日历弹窗对其方式，可选值：`left`, `right` |
-| time | string, number |  | `'start'` | 设置返回的日期的时分秒值，可选值为`start`,表示时分秒是0:00:00,`morning`:时分秒为8:00:00,`end`:表示时分秒为: 23:59:59, 输入整数表示对应的整数时刻，例如输入9代表时分秒为9:00:00,自定义时分秒请输入对应格式的字符串即可 |
-| yeadDiff | string, number |  | `3` | 当前年份前几年 |
-| yearAdd | string, number |  | `1` | 当前年份后几年 |
+| clearable | boolean |  |  | 开启并在输入框有内容时会显示清除按钮。 |
+| alignment | string | `[object Object]`<br/>`[object Object]` | `'left'` | 日历弹窗对其方式 |
+| time | string, number |  | `'0:00:00'` | 输入对应格式的字符串（8:00:00）即可 |
+| yearDiff | number |  | `20` | 最小可选年份值为当前年减去此值 |
+| yearAdd | number |  | `20` | 最大可选年份值为当前年加上此值 |
+| converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'format'` | 转换器，用于转换时间结果 |
 
 ### Events
 
@@ -119,6 +228,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.date | Date | 改变后的日期值 |
 
 #### @select
@@ -127,6 +237,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.date | Date | 选择后的日期值 |
 
 #### @toggle
@@ -135,5 +246,6 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.open | boolean | 弹出/隐藏状态 |
 

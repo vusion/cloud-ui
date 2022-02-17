@@ -1,0 +1,72 @@
+- name: i-ico
+  title: 图标
+  icon: icon
+  labels:
+    - Display
+  description: 图标
+  attrs:
+    - name: name
+      title: 图标
+      type: icon
+      default: ""
+      description: ""
+    - name: linkType
+      title: 链接类型
+      type: string
+      options:
+        - value: destination
+          title: 页面跳转
+        - value: href
+          title: 普通链接
+        - value: download
+          title: 下载链接
+      default: href
+      description: ""
+      compType: linkTypeSelect
+    - name: hrefAndTo
+      title: 链接地址
+      type: string
+      description: ""
+      compType: linkHrefInput
+    - name: target
+      title: 打开方式
+      type: string
+      options:
+        - value: _blank
+          title: 新标签页
+        - value: _self
+          title: 当前窗口
+        - value: _parent
+          title: 父级窗口
+          advanced: true
+        - value: _top
+          title: 顶级窗口
+          advanced: true
+      default: _self
+      description: 链接打开方式
+  slots: false
+  events:
+    - name: click
+      title: 点击后
+      description: 点击此项时触发
+      params: []
+    - name: dblclick
+      title: 双击
+      description: 双击此项时触发
+      params: []
+    - name: rightclick
+      title: 右键点击
+      description: 右键点击此项时触发
+      params: []
+    - name: over
+      title: 鼠标移入
+      description: 鼠标移入此项时触发
+      params: []
+    - name: out
+      title: 鼠标移出
+      description: 鼠标移出此项时触发
+      params: []
+    - name: down
+      title: 鼠标按下
+      description: 鼠标按下此项时触发
+      params: []

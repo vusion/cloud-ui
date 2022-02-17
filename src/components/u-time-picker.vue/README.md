@@ -12,6 +12,10 @@
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
 
+**Selector**
+
+时间选择器
+
 ## 示例
 ### 基本用法
 
@@ -82,10 +86,10 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| time | string |  | `'00:00'` | 当前的时间值 |
-| minUnit | string |  | `'second'` | 最小时间单位`'second'`或者是`'minute'` |
-| minTime | string |  | `'00:00'` | 最小时间 |
-| maxTime | string |  | `'23:59'` | 最大时间 |
+| time.sync, v-model | string |  | `'00:00'` | 当前的时间值 |
+| minUnit | string | `[object Object]`<br/>`[object Object]` | `'second'` | 最小时间单位 |
+| minTime | string |  | `'00:00:00'` | 最小时间 |
+| maxTime | string |  | `'23:59:59'` | 最大时间 |
 | autofocus | boolean |  | `false` | 是否自动获得焦点 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
@@ -99,5 +103,6 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | time | object | 改变后的时间 |
 

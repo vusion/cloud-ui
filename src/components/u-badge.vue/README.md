@@ -11,7 +11,7 @@
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
 
-**行内展示**
+**Display**
 
 用于显示消息条数和提醒用户处理的角标。
 

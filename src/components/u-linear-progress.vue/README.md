@@ -10,6 +10,10 @@
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
 
+**chart**
+
+以线条的形式描述当前进度
+
 ## 示例
 ### 基本用法
 
@@ -53,9 +57,9 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| percent | number |  | `0` | 百分比 |
-| size | string |  | `'normal'` | 高度扩展，值有`'small'`, `'normal'`, `'large'`, `'huge'`四个值 |
-| range | Array |  | `[0, 100]` | 百分比范围限制 |
+| percent | number |  | `0` | 百分比，0-100 之间的数字 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 高度扩展 |
+| range | array\<number\> |  | `[0, 100]` | 百分比范围限制 |
 
 ### Slots
 

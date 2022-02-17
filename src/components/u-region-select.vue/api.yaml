@@ -1,22 +1,24 @@
 - name: u-region-select
   title: 地区选择
+  icon: region-select
   labels:
-    - 表单控件
-    - 块级展示
+    - Selector
   description: 该组件从 UCascadeSelect 继承，仅填充了中国的行政区数据，其他功能与 UCascadeSelect 相同。
+  next: true
+  nested: false
   attrs:
     - name: data
       title: 数据
       type: Array<{ text, value }>
       default: 数据
-      description: 数据列表
+      description: 数据列表，当前地区数据集合不满足需求，可以重设此数据
     - name: value
       title: 值
       type: any
       sync: true
       model: true
       default: null
-      description: 当前选择的值
+      description: ""
     - name: categories
       title: 多级分类
       type: Array<{ label, key, placeholder }>
@@ -29,13 +31,21 @@
       description: 是否隐藏空列表
     - name: converter
       title: 转换器
-      type: string | object
+      type: string
+      options:
+        - value: join
+          title: 以','连接
+        - value: join:|
+          title: 以'|'连接
+        - value: join:;
+          title: 以';'连接
+        - value: json
+          title: json
       default: join
-      description: value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成
-        value，`'join.number'`与`join`类似，只是会考虑它为数字的情况。也可以用`:`修改分隔符，类似 Vue
-        的指令参数，`'last-value'`表示以最后一项的值作为 value。也可以传入一个包含 { get, set } 的一个对象
+      description: 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式
+      advanced: true
     - name: field
-      title: 字段
+      title: 文本字段
       type: string
       default: value
       description: 显示文本字段
@@ -43,12 +53,12 @@
       title: 只读
       type: boolean
       default: false
-      description: 是否只读
+      description: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用
+      description: ""
   events:
     - name: input
       title: 输入时
@@ -57,6 +67,8 @@
         - name: $event
           type: any
           description: 选择项的值
+          schema:
+            $ref: "#/basicTypes/String"
         - name: senderVM
           type: URegionSelect
           description: 发送事件实例
@@ -64,6 +76,11 @@
       title: 选择后
       description: 选择某一项时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/CascadeCapsulesEvent"
         - name: $event.level
           type: number
           description: 选择的层级
@@ -86,6 +103,11 @@
       title: 改变后
       description: 选择值改变时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/CascadeCapsulesEvent"
         - name: $event.value
           type: any
           description: 改变后的值

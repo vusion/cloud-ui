@@ -1,31 +1,33 @@
 <template>
-<transition v-if="currentVisible || animationVisible"
+<transition v-if="(currentVisible || animationVisible)"
     enter-active-class="animate__animated animate__fadeIn"
     leave-active-class="animate__animated animate__fadeOut animate__fast">
     <div :class="$style.root" :static="this.static" @click="handleClose">
         <transition
             enter-active-class="animate__animated animate__fadeInDownSmall"
             leave-active-class="animate__animated animate__fadeOutUpSmall animate__fast">
-            <div :class="$style.dialog" ref="dialog"
+            <div :class="[$style.dialog, this.$env.VUE_APP_DESIGNER ? $style.pos : null]" ref="dialog"
                 v-if="currentVisible && animationVisible"
                 :style="{ width: width + 'px' }" :size="size">
-                <div :class="$style.head">
+                <slot name="inject"></slot>
+                <div :class="$style.head" vusion-slot-name="head" :child-cut-disabled="true">
                     <slot name="head">
-                        <div v-if="title" :class="$style.title">
+                        <div v-if="title" vusion-slot-name="title" :class="$style.title" :child-cut-disabled="true">
                             <slot name="title">{{ title }}</slot>
                         </div>
                         <a :class="$style.close" @click="cancel()"></a>
                     </slot>
                 </div>
-                <div :class="$style.body" :icon="icon">
+                <div :class="$style.body" :icon="icon" vusion-slot-name="body" :child-cut-disabled="true">
                     <slot name="body">
                         <div :class="$style.text">
+                            <div :class="$style.heading"><slot name="heading">{{ heading }}</slot></div>
                             <div :class="$style.content"><slot>{{ content }}</slot></div>
                             <div v-if="!!description" :class="$style.description"><slot name="description">{{ description }}</slot></div>
                         </div>
                     </slot>
                 </div>
-                <div :class="$style.foot" v-if="okButton || cancelButton">
+                <div :class="$style.foot" vusion-slot-name="foot" :child-cut-disabled="true" v-if="okButton || cancelButton">
                     <slot name="foot">
                         <u-linear-layout gap="small" justify="end">
                             <u-button :class="$style.button" v-if="cancelButton" :color="primaryButton === 'cancelButton' ? 'primary' : ''" :disabled="disableCancel" @click="cancel()">{{ cancelButton }}</u-button>
@@ -217,6 +219,7 @@ export default UModal;
 }
 
 .dialog {
+    position: relative;
     width: var(--modal-dialog-width);
     display: inline-block;
     vertical-align: middle;
@@ -225,6 +228,11 @@ export default UModal;
     border: 1px solid var(--modal-border-color);
     border-radius: var(--modal-dialog-border-radius);
     box-shadow: var(--modal-dialog-box-shadow);
+}
+
+.pos {
+    vertical-align: top;
+    margin-top: 300px;
 }
 
 .dialog[size="small"] {
@@ -324,6 +332,11 @@ export default UModal;
 
 .body[icon] .content {
     font-size: 14px;
+}
+
+.body[icon] > :not(.text){
+    margin-left: calc(48px + 16px);
+    min-height: 48px;
 }
 
 .description {

@@ -16,16 +16,15 @@
     - [Methods](#methods)
 - [USidebarItem API](#usidebaritem-api)
     - [Props/Attrs](#propsattrs-2)
-    - [Slots](#slots-2)
     - [Events](#events-2)
 - [USidebarGroup API](#usidebargroup-api)
     - [Props/Attrs](#propsattrs-3)
-    - [Slots](#slots-3)
+    - [Slots](#slots-2)
     - [Events](#events-3)
 - [USidebarDivider API](#usidebardivider-api)
 
 
-**路由链接**, **块级展示**
+**Layout**
 
 通常用于页面左侧的导航栏。
 
@@ -36,7 +35,7 @@
 
 ``` html
 <u-sidebar style="width: 200px;">
-    <u-sidebar-item>指南</u-sidebar-item>
+    <u-sidebar-item icon="refresh">指南</u-sidebar-item>
     <u-sidebar-item>概念</u-sidebar-item>
     <u-sidebar-item to="/cloud-ui">组件</u-sidebar-item>
 </u-sidebar>
@@ -271,7 +270,7 @@ export default {
 | value.sync, v-model | any |  |  | 当前选择的值 |
 | collapsible | boolean |  | `false` | 分组是否可以折叠 |
 | accordion | boolean |  | `false` | 是否每次只会展开一个分组 |
-| expand-trigger | string | `'click'`<br/>`'click-expander'` | `'click'` | 展开/折叠的触发方式。可选值：`'click'`表示整行点击均可触发、`'click-expander'`表示仅点击小箭头时触发 |
+| expand-trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 展开/折叠的触发方式 |
 | readonly | boolean |  | `false` | 是否只读 |
 | disabled | boolean |  | `false` | 是否禁用 |
 
@@ -298,6 +297,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 选择项的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择项相关对象 |
@@ -320,6 +320,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 改变后的值 |
 | $event.oldValue | any | 旧的值 |
 | $event.item | object | 选择项相关对象 |
@@ -334,6 +335,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.expanded | boolean | 展开/折叠状态 |
 | $event.groupVM | USidebarGroup | 分组组件 |
 | senderVM | Vue | 发送事件实例 |
@@ -353,20 +355,17 @@ Methods
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
+| text | string |  |  | 文本内容 |
 | value | any |  |  | 此项的值 |
+| icon | icon |  | `''` | 图标 |
 | disabled | boolean |  | `false` | 禁用此项 |
 | item | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
-| href | string |  |  | 链接地址 |
-| target | enum | `'新标签页 (_blank)'` ()<br/>`'当前窗口 (_self)'` ()<br/>`'父级窗口 (_parent)'` ()<br/>`'顶级窗口 (_top)'` () |  | （原生属性）。比如设置`_blank`，会在新标签页中打开。 |
+| linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'href'` | 链接类型 |
+| hrefAndTo | string |  |  | 链接地址 |
+| target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_blank'` | 链接跳转方式 |
 | to | string, Location |  |  | 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
 | replace | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |
 | exact | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。 |
-
-### Slots
-
-#### (default)
-
-插入文本或 HTML。
 
 ### Events
 
@@ -376,6 +375,7 @@ Methods
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.value | any | 此项的值 |
 | $event.item | object | 此项的相关对象 |
 | $event.itemVM | USidebarItem | 此组件 |
@@ -388,6 +388,7 @@ Methods
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.to | string, Location | `to`属性的值 |
 | $event.replace | boolean | `replace`属性的值 |
 | $event.exact | boolean | `exact`属性的值 |
@@ -400,6 +401,7 @@ Methods
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.to | string, Location | `to`属性的值 |
 | $event.replace | boolean | `replace`属性的值 |
 | $event.exact | boolean | `exact`属性的值 |
@@ -411,7 +413,7 @@ Methods
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | title | string |  |  | 显示的标题 |
-| collapsible | boolean |  |  | `false` |
+| collapsible | boolean |  | `false` | 分组是否可以折叠 |
 | expanded.sync | boolean |  | `false` | 展开/折叠状态 |
 | disabled | boolean |  | `false` | 是否禁用。禁用时无法展开/折叠 |
 
@@ -437,6 +439,7 @@ Methods
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.expanded | boolean | 展开/折叠状态 |
 | $event.groupVM | USidebarGroup | 分组组件 |
 | $event.preventDefault | Function | 阻止展开/折叠流程 |
@@ -448,6 +451,7 @@ Methods
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.expanded | boolean | 展开/折叠状态 |
 | $event.groupVM | USidebarGroup | 分组组件 |
 | senderVM | Vue | 发送事件实例 |

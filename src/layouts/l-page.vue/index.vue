@@ -1,12 +1,12 @@
 <template>
 <div :class="$style.root">
-    <header :class="$style.head">
+    <header :class="$style.head" vusion-slot-name="head">
         <slot name="head"></slot>
     </header>
-    <div :class="$style.body">
+    <div :class="$style.body" vusion-slot-name="default">
         <slot></slot>
     </div>
-    <footer :class="$style.foot">
+    <footer :class="$style.foot" vusion-slot-name="foot">
         <slot name="foot"></slot>
     </footer>
 </div>

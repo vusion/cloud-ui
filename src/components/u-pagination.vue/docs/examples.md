@@ -22,8 +22,8 @@
 ``` html
 <u-linear-layout direction="vertical">
     <u-pagination :total="11">
-        <a slot="prev" role="text">Previous</a>
-        <a slot="next" role="text">Next</a>
+        <a slot="prev" role="text">上一页</a>
+        <a slot="next" role="text">下一页</a>
     </u-pagination>
 </u-linear-layout>
 ```
@@ -43,7 +43,7 @@
 </u-linear-layout>
 ```
 
-### 显示所有配置选项
+### 全部配置
 
 ``` html
 <u-linear-layout direction="vertical">

@@ -23,6 +23,9 @@ module.exports = {
             { group: '指南', name: 'theme', alias: '主题', path: 'library/styles/theme.md' },
             { group: '指南', name: 'overview', alias: '快速预览', path: './docs/views/guide/overview.md' },
 
+            { group: '容器', name: 'u-router-view', alias: '子页面容器' },
+            { group: '容器', name: 'u-iframe', alias: 'iFrame' },
+
             { group: '布局', name: 'u-linear-layout', alias: '线性布局' },
             { group: '布局', name: 'u-grid-layout', alias: '栅格布局' },
             { group: '布局', name: 'u-split-layout', alias: '分割布局', advanced: true },
@@ -40,10 +43,12 @@ module.exports = {
             { group: '展示', name: 'u-text', alias: '文本' },
             { group: '展示', name: 'u-link', alias: '链接' },
             { group: '展示', name: 'u-button', alias: '按钮' },
-            { group: '展示', name: 'i-icon', alias: '图标' },
+            { group: '展示', name: 'i-ico', alias: '图标' },
             { group: '展示', name: 'u-label', alias: '标签' },
             { group: '展示', name: 'u-badge', alias: '徽章' },
             { group: '展示', name: 'u-carousel', alias: '幻灯片' },
+            { group: '展示', name: 'u-gallery', alias: '画廊' },
+            { group: '展示', name: 'u-image', alias: '图片展示' },
             // { group: 'Basic', name: 'u-avatar', alias: '头像' },
             // { group: 'Basic', name: 'u-actions', alias: '操作项' },
             { group: '展示', name: 'u-list', alias: '列表', advanced: true },
@@ -62,6 +67,8 @@ module.exports = {
             { group: '数据', name: 'u-tree-view', alias: '树型列表' },
             { group: '数据', name: 'u-transfer', alias: '穿梭框' },
             { group: '数据', name: 'u-form-table-view', alias: '表单表格', advanced: true },
+            { group: '数据', name: 'u-calendar-view', alias: '日历' },
+            { group: '数据', name: 'u-list-components', alias: '组件列表' },
 
             { group: '表单', name: 'u-form', alias: '表单' },
             { group: '表单', name: 'u-validator', alias: '验证器', advanced: true },
@@ -98,6 +105,7 @@ module.exports = {
             { group: '图表', name: 'u-circular-progress', alias: '圆型进度条' },
 
             { group: '反馈', name: 'u-popup', alias: '弹出框' },
+            { group: '反馈', name: 'u-popup-combination', alias: '弹出框组合' },
             { group: '反馈', name: 'u-tooltip', alias: '工具提示', advanced: true },
             { group: '反馈', name: 'u-icon-tooltip', alias: '图标提示', advanced: true },
             { group: '反馈', name: 'u-spinner', alias: '加载图标', advanced: true },
@@ -111,6 +119,8 @@ module.exports = {
             { group: '特效', name: 'e-ripple', alias: '波纹', advanced: true },
             { group: '特效', name: 'e-watermark', alias: '水印' },
             { group: '特效', name: 'u-copy', alias: '复制' },
+
+            { group: '流程', name: 'u-taskbox', alias: '任务箱' },
 
             { group: 'Mixins & Functional', name: 'm-dynamic', alias: '动态列表', advanced: true },
             { group: 'Mixins & Functional', name: 'm-emitter', alias: '发送器', advanced: true },
@@ -153,6 +163,7 @@ module.exports = {
             { group: 'Layout', name: 'l-side-main', alias: '左侧栏固定布局' },
             { group: 'Layout', name: 'l-left-middle-right', alias: '左中右布局' },
             { group: 'Layout', name: 'l-wrapper', alias: '透传页' },
+            { group: 'Layout', name: 'l-root', alias: '界面根节点' },
         ],
     },
 };

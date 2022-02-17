@@ -15,14 +15,14 @@
 ### Basic
 
 ``` html
-<u-checkbox>Checkbox</u-checkbox>
+<u-checkbox text="Checkbox"></u-checkbox>
 ```
 
 ### v-model
 
 ``` vue
 <template>
-<u-checkbox v-model="value">{{ value }}</u-checkbox>
+<u-checkbox v-model="value" :text="value"></u-checkbox>
 </template>
 <script>
 export default {
@@ -39,15 +39,15 @@ export default {
 
 ``` html
 <u-linear-layout>
-    <u-checkbox :value="true" readonly>Readonly</u-checkbox>
-    <u-checkbox :value="true" disabled>Disabled</u-checkbox>
+    <u-checkbox :value="true" readonly text="Readonly"></u-checkbox>
+    <u-checkbox :value="true" disabled text="Disabled"></u-checkbox>
 </u-linear-layout>
 ```
 
 ### Indeterminate
 
 ``` html
-<u-checkbox :value="null">Indeterminate</u-checkbox>
+<u-checkbox :value="null" text="Indeterminate"></u-checkbox>
 ```
 
 ## API
@@ -55,7 +55,9 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value | boolean \| null |  | `false` | Checked status. `null`表示不确定状态. |
+| text | string |  |  | 文本内容 |
+| value.sync, v-model | boolean \| null |  | `false` | Checked status. `null`表示不确定状态. |
+| label | any |  |  | 多选框选项值，只在多选组中使用。 |
 | readonly | boolean |  | `false` | Readonly |
 | disabled | boolean |  | `false` | Disabled |
 | autofocus | boolean |  | `false` | 自动获取焦点 |
@@ -68,7 +70,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
-| undefined | boolean, null | 选中状态 |
+| $event | boolean, null | 选中状态 |
 
 #### @change
 
@@ -76,6 +78,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | newValue | boolean, null | 新的值 |
 | oldValue | boolean, null | 旧的值 |
 

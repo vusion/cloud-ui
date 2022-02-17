@@ -1,5 +1,8 @@
 - name: u-tooltip
   title: 工具提示
+  icon: tooltip
+  labels:
+    - Feedback
   attrs:
     - name: opened
       title: 弹出关闭状态
@@ -9,30 +12,48 @@
       description: 弹出/关闭状态
     - name: trigger
       title: 触发方式
-      type: enum
+      type: string
       options:
-        - click
-        - hover
-        - right-click
-        - double-click
+        - value: click
+          title: 点击
+        - value: hover
+          title: 悬浮
+        - value: right-click
+          title: 右击
+        - value: double-click
+          title: 双击
+        - value: manual
+          title: 手动
       default: hover
       description: 工具提示的触发方式。
     - name: placement
       title: 弹出方向
-      type: enum
+      type: string
       options:
-        - top
-        - bottom
-        - left
-        - right
-        - top-start
-        - top-end
-        - bottom-start
-        - bottom-end
-        - left-start
-        - left-end
-        - right-start
-        - right-end
+        - value: top
+          title: 上
+        - value: bottom
+          title: 下
+        - value: left
+          title: 左
+        - value: right
+          title: 右
+        - value: top-start
+          title: 上左
+        - value: top-end
+          title: 上右
+        - value: bottom-start
+          title: 下左
+        - value: bottom-end
+          title: 下右
+        - value: left-start
+          title: 左上
+        - value: left-end
+          title: 左下
+        - value: right-start
+          title: 右上
+        - value: right-end
+          title: 右下
       default: bottom
       description: 工具提示的弹出方向。
     - name: hide-delay
@@ -45,6 +66,7 @@
       type: string
       default: "0"
       description: 弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px`
+      advanced: true
     - name: follow-cursor
       title: 跟随鼠标
       type: boolean, number, object
@@ -57,14 +79,20 @@
       description: 是否禁用
     - name: size
       title: 尺寸
-      type: size
+      type: string
       options:
-        - small
-        - normal
-        - large
+        - value: small
+          title: 小型
+        - value: normal
+          title: 正常
+        - value: large
+          title: 大
+        - value: auto
+          title: 自适应
       default: normal
-      description: 大小扩展，支持一个值： `'small'`, `'normal'`, `'large'`,
-        `'auto'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式
+      description: 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度
+      multi: true
+      maxSelect: 2
   slots:
     - name: default
       description: 插入需要弹出的内容。
@@ -78,7 +106,13 @@
     - name: before-open
       title: 弹出前
       description: 弹出前触发。
+      advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/EventTarget"
         - name: $event.preventDefault
           type: Function
           description: 阻止弹出流程
@@ -98,7 +132,13 @@
     - name: before-close
       title: 关闭前
       description: 隐藏前触发。
+      advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/EventTarget"
         - name: $event.preventDefault
           type: Function
           description: 阻止隐藏流程
@@ -116,31 +156,34 @@
           type: UTooltip
           description: 发送事件实例
     - name: before-toggle
+      advanced: true
       title: 弹出关闭前
       description: "@deprecated"
       params: []
     - name: toggle
+      advanced: true
       title: 弹出关闭后
       description: "@deprecated"
       params: []
   methods:
-    - name: open()
+    - name: open
       description: 弹出实例。
       params: []
-    - name: close()
+    - name: close
       description: 关闭实例。
       params: []
-    - name: toggle(opened?)
+    - name: toggle
       description: 切换弹出/关闭状态。
       params:
         - name: opened?
           type: boolean
           description: 可选。弹出/关闭状态
-    - name: update()
+    - name: update
       description: 更新 popper 实例。参考
         [Popper.update()](https://popper.js.org/popper-documentation.html#Popper.update)。
       params: []
-    - name: scheduleUpdate()
+    - name: scheduleUpdate
       description: 在下次 UI 渲染时一块更新 popper 实例，比`update()`性能要好。参考
         [Popper.scheduleUpdate()](https://popper.js.org/popper-documentation.html#Popper.scheduleUpdate)。
       params: []
+  description: 工具提示

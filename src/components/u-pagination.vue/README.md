@@ -7,7 +7,7 @@
     - [显示数量](#显示数量)
     - [上一页和下一页](#上一页和下一页)
     - [显示总条数](#显示总条数)
-    - [显示所有配置选项](#显示所有配置选项)
+    - [全部配置](#全部配置)
     - [只读和禁用](#只读和禁用)
     - [size="small"](#sizesmall)
     - [简洁版](#简洁版)
@@ -15,7 +15,9 @@
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
 
-**块级展示**
+**Selector**
+
+展示多页列表时使用
 
 ## 示例
 ### 基本用法
@@ -42,8 +44,8 @@
 ``` html
 <u-linear-layout direction="vertical">
     <u-pagination :total="11">
-        <a slot="prev" role="text">Previous</a>
-        <a slot="next" role="text">Next</a>
+        <a slot="prev" role="text">上一页</a>
+        <a slot="next" role="text">下一页</a>
     </u-pagination>
 </u-linear-layout>
 ```
@@ -63,7 +65,7 @@
 </u-linear-layout>
 ```
 
-### 显示所有配置选项
+### 全部配置
 
 ``` html
 <u-linear-layout direction="vertical">
@@ -136,6 +138,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.page | number | 选择的页码 |
 | $event.oldPage | number | 旧的页码 |
 | $event.preventDefault | Function | 阻止选择流程 |
@@ -147,6 +150,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.page | number | 选择的页码 |
 | $event.oldPage | number | 旧的页码 |
 | senderVM | UPagination | 发送事件实例 |
@@ -157,6 +161,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.page | number | 当前页码 |
 | $event.oldPage | number | 旧的页码 |
 | senderVM | UPagination | 发送事件实例 |
@@ -167,6 +172,7 @@
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.pageSize | number | 当前每页条数 |
 | $event.oldPageSize | number | 旧的每页条数 |
 | senderVM | UPagination | 发送事件实例 |

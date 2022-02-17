@@ -1,20 +1,29 @@
 - name: u-toast
+  icon: toast
   title: 吐司提示
+  labels:
+    - Feedback
   attrs:
     - name: position
       title: 位置
-      type: enum
+      type: string
       options:
-        - top-center
-        - top-left
-        - top-right
-        - bottom-center
-        - bottom-left
-        - bottom-right
-        - static
+        - value: top-center
+          title: 上中
+        - value: top-left
+          title: 上左
+        - value: top-right
+          title: 上右
+        - value: bottom-center
+          title: 下中
+        - value: bottom-left
+          title: 下左
+        - value: bottom-right
+          title: 下右
+        - value: static
+          title: 静态
       default: top-center
-      description: 显示的位置，可选值：`'top-center'`, `'top-left'`, `'top-right'`,
-        `'bottom-center'`, `'bottom-left'`, `'bottom-right'`, `static`
+      description: 显示的位置
     - name: duration
       title: 停留时间
       type: number
@@ -25,6 +34,7 @@
       type: boolean
       default: false
       description: 多个提示会合并为一个
+      advanced: true
     - name: text
       title: 提示内容
       type: string
@@ -33,6 +43,15 @@
     - name: color
       title: 颜色
       type: string
+      options:
+        - value: info
+          title: 信息提示
+        - value: success
+          title: 成功信息提示
+        - value: warning
+          title: 警告信息提示
+        - value: error
+          title: 错误信息提示
       default: default
       description: 提示的颜色
     - name: closable
@@ -42,9 +61,14 @@
       description: 是否可以关闭提示
   events:
     - name: open
-      title: 弹出后
+      title: 弹出后事件
       description: 弹出提示时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/DurationEvent"
         - name: $event.text
           type: string
           description: 提示的内容
@@ -60,7 +84,13 @@
     - name: before-close
       title: 关闭前
       description: 关闭提示前触发
+      advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/DurationEvent"
         - name: $event.text
           type: string
           description: 提示的内容
@@ -80,6 +110,11 @@
       title: 关闭后
       description: 关闭提示时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/DurationEvent"
         - name: $event.text
           type: string
           description: 提示的内容
@@ -92,3 +127,4 @@
         - name: senderVM
           type: UToast
           description: 发送事件实例
+  description: 吐司提示

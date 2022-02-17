@@ -8,6 +8,10 @@
 - [API]()
     - [Props/Attrs](#propsattrs)
 
+**Layout**
+
+底部栏
+
 ## 示例
 ### 基本用法
 
@@ -78,5 +82,5 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| position | string |  |  | 显示的位置。 |
+| position | string |  | `'static'` | 显示的位置。 |
 

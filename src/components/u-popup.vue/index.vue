@@ -10,10 +10,13 @@
                     </div>
                 </slot>
             </div>
-            <div :class="$style.body" v-if="content || $slots.body || $slots.default">
+            <div :class="$style.body" v-if="content || $slots.body || $slots.default" vusion-slot-name="default">
                 <slot name="body">
                     <slot>{{ content }}</slot>
                 </slot>
+            </div>
+            <div :class="$style.body" v-else-if="$env.VUE_APP_DESIGNER" vusion-slot-name="default">
+                <s-empty></s-empty>
             </div>
             <div :class="$style.foot" v-if="$slots.foot">
                 <slot name="foot"></slot>
@@ -25,9 +28,10 @@
 
 <script>
 import MPopper from '../m-popper.vue';
-
+import SEmpty from '../../components/s-empty.vue';
 export default {
     name: 'u-popup',
+    components: { SEmpty },
     extends: MPopper,
     props: {
         title: String,
@@ -53,26 +57,21 @@ export default {
     box-shadow: var(--popup-box-shadow);
     z-index: var(--z-index-popper);
 }
-
 .head {
     padding: var(--popup-padding);
     background: var(--popup-head-background);
     border-bottom: 1px solid var(--popup-border-color);
 }
-
 .title {
     font-weight: var(--font-weight-bold);
 }
-
 .body {
     padding: var(--popup-padding);
 }
-
 .foot {
     border-top: 1px solid var(--popup-border-color);
     padding: var(--popup-padding);
 }
-
 .arrow {
     display: block;
     position: absolute;
@@ -80,7 +79,6 @@ export default {
     height: calc(1.4*var(--popup-arrow-size));
     overflow: hidden;
 }
-
 .arrow::before {
     display: block;
     position: absolute;
@@ -94,7 +92,6 @@ export default {
     box-shadow: var(--popup-box-shadow);
     transform: translate(-50%) rotate(45deg);
 }
-
 /**
  - 扩大区域鼠标 hover 区域
  - 保证原来的 .root 可以直接控制样式
@@ -104,40 +101,33 @@ export default {
     display: block;
     position: absolute;
 }
-
 .root[data-popper-placement^="top"] { margin-bottom: var(--popup-arrow-size); }
 .root[data-popper-placement^="top"] .arrow {
     bottom: calc(-1.4 * var(--popup-arrow-size) + 1px);
     transform: translateX(-50%);
 }
-
 .root[data-popper-placement^="top"] .arrow::before {
     top: calc(-50% * 1.4);
 }
-
 .root[data-popper-placement^="top"]::before {
     left: 0;
     right: 0;
     height: var(--popup-arrow-size);
     bottom: calc(-1 * var(--popup-arrow-size));
 }
-
 .root[data-popper-placement="top-start"] .arrow { left: var(--popup-arrow-offset); }
 .root[data-popper-placement="top"] .arrow { left: 50%; }
 .root[data-popper-placement="top-end"] .arrow {
     right: var(--popup-arrow-offset);
 }
-
 .root[data-popper-placement^="bottom"] { margin-top: var(--popup-arrow-size); }
 .root[data-popper-placement^="bottom"] .arrow {
     top: calc(-1.4 * var(--popup-arrow-size) + 1px);
     transform: translateX(-50%);
 }
-
 .root[data-popper-placement^="bottom"] .arrow::before {
     bottom: calc(-50% * 1.4);
 }
-
 .root[data-popper-placement^="bottom"]::before {
     left: 0;
     right: 0;
@@ -149,7 +139,6 @@ export default {
 .root[data-popper-placement="bottom-end"] .arrow {
     right: var(--popup-arrow-offset);
 }
-
 .root[data-popper-placement^="left"] { margin-right: var(--popup-arrow-size); }
 .root[data-popper-placement^="left"] .arrow {
     height: calc(1.4*2*var(--popup-arrow-size));
@@ -157,13 +146,11 @@ export default {
     right: calc(-1.4 * var(--popup-arrow-size) + 1px);
     transform: translateY(-50%);
 }
-
 .root[data-popper-placement^="left"] .arrow::before {
     left: 0;
     top: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
 }
-
 .root[data-popper-placement^="left"]::before {
     top: 0;
     bottom: 0;
@@ -175,7 +162,6 @@ export default {
 .root[data-popper-placement="left-end"] .arrow {
     top: var(--popup-arrow-offset);
 }
-
 .root[data-popper-placement^="right"] { margin-left: var(--popup-arrow-size); }
 .root[data-popper-placement^="right"] .arrow {
     height: calc(1.4*2*var(--popup-arrow-size));
@@ -183,13 +169,11 @@ export default {
     left: calc(-1.4 * var(--popup-arrow-size) + 1px);
     transform: translateY(-50%);
 }
-
 .root[data-popper-placement^="right"] .arrow::before {
     left: 100%;
     top: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
 }
-
 .root[data-popper-placement^="right"]::before {
     top: 0;
     bottom: 0;
@@ -201,7 +185,6 @@ export default {
 .root[data-popper-placement="right-end"] .arrow {
     top: var(--popup-arrow-offset);
 }
-
 .root[merge-borders] .arrow ~ * {
     border: none;
     box-shadow: none;

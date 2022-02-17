@@ -15,6 +15,10 @@
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
 
+**Feedback**
+
+吐司提示
+
 ## 示例
 ### 基本用法
 
@@ -164,11 +168,11 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| position | enum | `'top-center'`<br/>`'top-left'`<br/>`'top-right'`<br/>`'bottom-center'`<br/>`'bottom-left'`<br/>`'bottom-right'`<br/>`'static'` | `'top-center'` | 显示的位置，可选值：`'top-center'`, `'top-left'`, `'top-right'`, `'bottom-center'`, `'bottom-left'`, `'bottom-right'`, `static` |
+| position | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'top-center'` | 显示的位置 |
 | duration | number |  | `2000` | 提示停留的时间。`0`表示常驻。 |
 | single | boolean |  | `false` | 多个提示会合并为一个 |
 | text | string |  | `''` | 默认提示内容 |
-| color | string |  | `'default'` | 提示的颜色 |
+| color | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 提示的颜色 |
 | closable | boolean |  | `false` | 是否可以关闭提示 |
 
 ### Events
@@ -179,6 +183,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.text | string | 提示的内容 |
 | $event.color | string | 提示的颜色 |
 | $event.duration | number | 提示停留的时间 |
@@ -190,6 +195,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.text | string | 提示的内容 |
 | $event.color | string | 提示的颜色 |
 | $event.duration | number | 提示停留的时间 |
@@ -202,6 +208,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.text | string | 提示的内容 |
 | $event.color | string | 提示的颜色 |
 | $event.duration | number | 提示停留的时间 |

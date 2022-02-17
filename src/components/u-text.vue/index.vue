@@ -1,11 +1,16 @@
 <template>
-<span :class="$style.root" v-on="$listeners">
-    <slot></slot>
+<span :class="$style.root" v-on="$listeners" vusion-slot-name="text">
+    <slot>{{ text }}</slot>
 </span>
 </template>
 
 <script>
-export default { name: 'u-text' };
+export default {
+    name: 'u-text',
+    props: {
+        text: String,
+    },
+};
 </script>
 
 <style module>
@@ -73,6 +78,7 @@ export default { name: 'u-text' };
 .root[overflow="break"], .root[wrap="break"] {
     word-wrap: break-word;
     hyphens: auto;
+    white-space: normal;
 }
 
 .root[overflow="nowrap"], .root[wrap="nowrap"] {

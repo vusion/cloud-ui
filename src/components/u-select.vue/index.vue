@@ -1,16 +1,19 @@
 <template>
 <div :class="$style.root" :color="color" :readonly="readonly" :disabled="currentDisabled" :opened="popperOpened"
     :clearable="clearable && !!(filterable ? filterText : currentText)" :multiple="multiple" :multiple-tags="multiple && multipleAppearance === 'tags'"
+    :prefix="prefix" :suffix="suffix"
+    :start="!!prefix"
     :tabindex="readonly || currentDisabled ? '' : 0"
     @click="focus"
     @keydown.up.prevent="$refs.popper.currentOpened ? shift(-1) : open()"
     @keydown.down.prevent="$refs.popper.currentOpened ? shift(+1) : open()"
-    @keydown.enter.stop="onEnter"
+    @keydown.enter.stop.prevent="onEnter"
     @keydown.esc.stop="close(), filterText = ''"
     @keydown.delete.stop="clearable && clear()"
     @blur="onRootBlur">
     <span :class="$style.baseline">b</span><!-- 用于基线对齐 -->
     <span v-show="!filterText && (multiple ? !selectedVMs.length : !selectedVM)" :class="$style.placeholder">{{ placeholder }}</span>
+    <span v-if="prefix" :class="$style.prefix" :name="prefix" @click="$emit('click-prefix', $event, this)"><slot name="prefix"></slot></span>
     <div :class="$style.text" v-ellipsis-title :tags-overflow="tagsOverflow" :style="{direction: ellipsisDirection}">
         <!-- @override: 添加了flag功能 -->
         <slot name="flag">
@@ -20,7 +23,7 @@
             {{ label }}
             <slot name="label"></slot>
         </span>
-        <f-render v-if="!multiple && !filterable" :vnode="selectedVM && selectedVM.$slots.default"></f-render>
+        <f-render v-if="!multiple && !filterable" :vnode="selectedVM && (selectedVM.$slots.default ? selectedVM.$slots.default : [$at(selectedVM, field || textField)])"></f-render>
         <span v-else-if="multipleAppearance === 'text'">{{ currentText }}</span>
         <template v-else-if="multipleAppearance === 'tags'">
             <template v-if="tagsOverflow === 'hidden' || tagsOverflow === 'visible'">
@@ -42,10 +45,12 @@
         <u-input v-if="filterable" :class="$style.input" ref="input" :readonly="readonly" :disabled="currentDisabled"
             :placeholder="multiple && selectedVMs.length ? '' : placeholder" :filterable="filterable" :multiple-tags="multiple && multipleAppearance === 'tags'"
             :value="filterText" @input="onInput" @focus="onFocus" @blur="onBlur"
-            @keydown.enter.stop="onInputEnter" @keydown.delete.stop="onInputDelete"
+            @keydown.enter.stop.prevent="onInputEnter" @keydown.delete.stop="onInputDelete"
             :style="{ width: multiple && (inputWidth + 'px') }">
         </u-input>
     </div>
+    <span v-if="suffix" v-show="!(clearable && !!(filterable ? filterText : currentText))" :class="$style.suffix" :name="suffix"
+        @click="$emit('click-suffix', $event, this)"><slot name="suffix"></slot></span>
     <span v-if="clearable && !!(filterable ? filterText : currentText)" :class="$style.clearable" @click="clear"></span>
     <m-popper :class="$style.popper" ref="popper" :color="color" :placement="placement" :append-to="appendTo" :disabled="readonly || currentDisabled"
         :style="{ width: currentPopperWidth }"
@@ -124,6 +129,8 @@ export default {
         remoteFiltering: { type: Boolean, default: false },
         autoComplete: { type: Boolean, default: false },
         opened: { type: Boolean, default: false },
+        prefix: String,
+        suffix: String,
         label: { type: String, default: '' },
         ellipsisDirection: { type: String, default: 'ltr' },
         appendTo: {
@@ -201,9 +208,10 @@ export default {
             popperVM && popperVM.currentOpened && popperVM.scheduleUpdate();
         });
         this.$on('select', ($event) => {
-            if (!this.multiple)
+            if (!this.multiple) {
                 this.close();
-            else {
+            } else {
+                this.preventBlur = true;
                 if (this.appendTo === 'body') {
                     this.preventRootBlur = true;
                 }
@@ -285,6 +293,9 @@ export default {
         toggle(opened) {
             this.$refs.popper && this.$refs.popper.toggle(opened);
         },
+        designerControl() {
+            this.toggle();
+        },
         onOpen($event) {
             this.popperOpened = true; // 刚打开时，除非是没有加载，否则保留上次的 filter 过的数据
             if (this.filterable && !this.currentDataSource.initialLoaded) {
@@ -353,6 +364,8 @@ export default {
         },
         onRootBlur(e) {
             setTimeout(() => {
+                if (this.$refs.input && this.$refs.input.focused || this.preventBlur)
+                    return;
                 if (this.preventRootBlur)
                     return (this.preventRootBlur = false);
                 this.close();
@@ -360,6 +373,8 @@ export default {
             }, 400);
         },
         selectByText(text) {
+            if (!text)
+                return;
             if (this.multiple) {
                 const oldVMs = this.selectedVMs;
                 const selectedVM = this.itemVMs.find(

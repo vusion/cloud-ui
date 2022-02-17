@@ -1,37 +1,45 @@
 - name: u-switch
   title: 开关
   labels:
-    - 表单控件
-    - 行内展示
+    - Form
+  icon: switch
+  next: true
+  nested: false
   attrs:
     - name: value
       title: 值
       type: boolean
+      sync: true
+      model: true
       default: false
       description: 开关状态
     - name: readonly
       title: 只读
       type: boolean
       default: false
-      description: 是否只读
+      description: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用
+      description: ""
     - name: with-text
       title: 显示开关文字
       type: boolean
       default: false
       description: 是否显示开关`ON`和`OFF`文字
-  slots:
-    - name: default
-    - description: 插入文本或HTML
+  slots: false
   events:
     - name: before-toggle
       title: 切换状态前
       description: 切换开关状态前触发
+      advanced: true
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ChangeEvent"
         - name: $event.value
           type: boolean
           description: 开关状态
@@ -51,6 +59,8 @@
         - name: $event
           type: boolean
           description: 切换后的开关状态
+          schema:
+            $ref: "#/basicTypes/Boolean"
         - name: senderVM
           type: USwitch
           description: 发送事件实例
@@ -61,6 +71,8 @@
         - name: $event
           type: ""
           description: 无
+          schema:
+            $ref: "#/basicTypes/Boolean"
         - name: senderVM
           type: USwitch
           description: 发送事件实例
@@ -71,6 +83,8 @@
         - name: $event
           type: ""
           description: 无
+          schema:
+            $ref: "#/basicTypes/Boolean"
         - name: senderVM
           type: USwitch
           description: 发送事件实例
@@ -78,6 +92,11 @@
       title: 切换状态后
       description: 切换开关状态时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/CollapseEvent"
         - name: $event.value
           type: boolean
           description: 开关状态
@@ -91,6 +110,11 @@
       title: 改变后
       description: 开关状态改变时触发
       params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/CollapseEvent"
         - name: $event.value
           type: boolean
           description: 开关状态
@@ -100,3 +124,4 @@
         - name: senderVM
           type: USwitch
           description: 发送事件实例
+  description: 开关

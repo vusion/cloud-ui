@@ -14,6 +14,10 @@
     - [Events](#events)
     - [Methods](#methods)
 
+**Feedback**
+
+工具提示
+
 ## 示例
 ### 基本用法
 
@@ -330,13 +334,13 @@ export default {
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | opened.sync | boolean |  | `false` | 弹出/关闭状态 |
-| trigger | enum | `'click'`<br/>`'hover'`<br/>`'right-click'`<br/>`'double-click'` | `'hover'` | 工具提示的触发方式。 |
-| placement | enum | `'top'`<br/>`'bottom'`<br/>`'left'`<br/>`'right'`<br/>`'top-start'`<br/>`'top-end'`<br/>`'bottom-start'`<br/>`'bottom-end'`<br/>`'left-start'`<br/>`'left-end'`<br/>`'right-start'`<br/>`'right-end'` | `'bottom'` | 工具提示的弹出方向。 |
+| trigger | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'hover'` | 工具提示的触发方式。 |
+| placement | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'bottom'` | 工具提示的弹出方向。 |
 | hide-delay | number |  | `200` | 提示内容消失延迟时间，单位是 ms |
 | offset | string |  | `'0'` | 弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px` |
 | follow-cursor | boolean, number, object |  | `false` | 是否跟随鼠标 |
 | disabled | boolean |  | `false` | 是否禁用 |
-| size | size | `'small'`<br/>`'normal'`<br/>`'large'` | `'normal'` | 大小扩展，支持一个值： `'small'`, `'normal'`, `'large'`, `'auto'`，或两个值的组合，前者表示高度，后者表示宽度，类似CSS的padding书写格式 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度 |
 
 ### Slots
 
@@ -364,6 +368,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.preventDefault | Function | 阻止弹出流程 |
 | senderVM | UTooltip | 发送事件实例 |
 
@@ -382,6 +387,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.preventDefault | Function | 阻止隐藏流程 |
 | senderVM | UTooltip | 发送事件实例 |
 

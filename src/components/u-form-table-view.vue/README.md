@@ -1,6 +1,6 @@
 <!-- 该 README.md 根据 api.yaml 和 docs/*.md 自动生成，为了方便在 GitHub 和 NPM 上查阅。如需修改，请查看源文件 -->
 
-# UFormTableView 表格表单视图
+# UFormTableView 表格表单
 
 - [示例](#示例)
     - [基本用法](#基本用法)
@@ -16,7 +16,7 @@
     - [Props/Attrs](#propsattrs-2)
     - [Slots](#slots-2)
 
-**表单验证器**, **块级展示**
+**Table**
 
 本组件用于在表单中使用表单验证、动态数据等复杂功能。
 
@@ -480,13 +480,12 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| border | boolean |  |  | 是否有边框 |
 | data | Array |  |  | 数据 |
 | dynamic | boolean |  | `false` | 是否可以动态添加/删除项 |
 | get-default-item | Function |  |  | 传入获取默认项的方法 |
 | initial-add | boolean |  | `true` | 是否自动补充项，如果初始时`data`中的项目数少于`min-count` |
 | min-count | number |  | `1` | 最小项目数 |
-| max-count | number |  | `Infinity` | 最大项目数 |
+| max-count | number |  | `999` | 最大项目数 |
 
 ### Slots
 
@@ -502,6 +501,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.item | any | 添加的项 |
 | $event.index | number | 添加的索引 |
 | $event.data | Array | 当前数据 |
@@ -514,6 +514,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.item | any | 添加的项 |
 | $event.index | number | 添加的索引 |
 | $event.data | Array | 当前数据 |
@@ -525,6 +526,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.item | any | 删除的项 |
 | $event.index | number | 删除的索引 |
 | $event.data | Array | 当前数据 |
@@ -537,6 +539,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.item | any | 删除的项 |
 | $event.index | number | 删除的索引 |
 | $event.data | Array | 当前数据 |
@@ -548,6 +551,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.item | any | 变更的项 |
 | $event.index | number | 变更的索引 |
 | $event.data | Array | 当前数据 |
@@ -561,11 +565,10 @@ export default {
 | title | string |  |  | 列标题 |
 | field | string |  |  | data 中的字段名 |
 | width | string, number |  |  | 给列指定宽度，可以为数字或百分比 |
-| ellipsis | boolean |  | `false` | 是否省略显示。默认文字超出时会换行 |
+| ellipsis | boolean |  | `false` | 文字过长是否省略显示。默认文字超出时会换行。 |
 | formatter | string, object, Function, Formatter |  | `'placeholder'` | 格式器 |
 | hidden | boolean |  | `false` | 是否隐藏 |
 | start-index | number |  | `1` | 当`type="index"`时的起始序号 |
-| **Validator Props/Attrs** |  |  |  |  |
 | label | string |  |  | 标签。用于提示消息的合成 |
 | muted | string |  |  | 验证时是否静默。可选值：`'message'`表示只静默消息提示，`'all'`同时静默消息提示和红框提示 |
 | rules | string, Array |  |  | 验证规则。简写格式为字符串类型，完整格式或混合格式为数组类型 |

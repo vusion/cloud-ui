@@ -9,9 +9,9 @@
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
 
-**块级展示**
+**Table**
 
-在表单中使用的表格，本组件主要实现基本样式，方便在特殊场景下扩展。如果需要快速使用动态数据、表单验证等功能，请使用 [UFormTableView](#components/u-form-table-view)。
+在表单中使用的表格
 
 ## 示例
 ### 基本用法

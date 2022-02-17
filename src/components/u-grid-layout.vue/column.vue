@@ -1,11 +1,13 @@
 <template>
-<div :class="$style.root" :style="[commonStyle, responsiveStyle]">
+<div :class="$style.root" vusion-slot-name="default" :style="[commonStyle, responsiveStyle]" :empty="!$slots.default" allowChild >
     <slot></slot>
+    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
 </div>
 </template>
 
 <script>
 import { addResizeListener, removeResizeListener } from '../../utils/dom';
+import SEmpty from '../s-empty.vue';
 
 const breakpoints = [
     { name: 'Huge', width: 1440 },
@@ -17,6 +19,9 @@ const breakpoints = [
 
 export default {
     name: 'u-grid-layout-column',
+    components: {
+        SEmpty,
+    },
     props: {
         span: { type: Number, default: 1 },
         pull: Number,
@@ -26,7 +31,7 @@ export default {
         mediaSmall: Number,
         mediaMedium: Number,
         mediaLarge: Number,
-        mediaHuge: Number,
+        mediaHuge: Number
     },
     data() {
         return { parentVM: this.$parent, currentSpan: this.span };
@@ -55,6 +60,9 @@ export default {
     watch: {
         currentSpan(span, oldSpan) {
             this.$emit('responsive', { span, oldSpan }, this);
+        },
+        span(span) {
+            this.currentSpan = span;
         },
     },
     mounted() {
@@ -90,4 +98,5 @@ export default {
 .root {
     position: relative;
 }
+
 </style>

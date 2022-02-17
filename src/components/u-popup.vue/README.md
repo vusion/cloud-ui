@@ -15,6 +15,8 @@
     - [Events](#events)
     - [Methods](#methods)
 
+**Feedback**
+
 点击/鼠标移入元素，弹出气泡式的卡片浮层。
 
 ## 示例
@@ -300,11 +302,11 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | title | string |  | `'标题'` | 弹出框标题 |
 | opened.sync | boolean |  | `false` | 弹出/关闭状态 |
-| trigger | enum | `'click'`<br/>`'hover'`<br/>`'right-click'`<br/>`'double-click'` | `'click'` | 弹出框的触发方式。可选值：`'click'`, `'hover'`, `'right-click'`, `'double-click'`, `'manual'` |
-| placement | enum | `'top'`<br/>`'bottom'`<br/>`'left'`<br/>`'right'`<br/>`'top-start'`<br/>`'top-end'`<br/>`'bottom-start'`<br/>`'bottom-end'`<br/>`'left-start'`<br/>`'left-end'`<br/>`'right-start'`<br/>`'right-end'` | `'bottom'` | 弹出框的弹出方向。 |
+| trigger | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'click'` | 弹出框的触发方式 |
+| placement | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'bottom-start'` | 弹出框的弹出方向。 |
 | hide-delay | number |  | `200` | 提示内容消失延迟时间，单位是`'ms'` |
 | offset | string |  | `'0'` | 弹出层偏移，如：'10', '10px 10px', '10% 10%', 第一个值表示水平偏移，第二个值表示垂直位移, 默认单位是`px` |
-| follow-cursor | boolean, number, object |  | `false` | 是否跟随鼠标 |
+| follow-cursor | boolean |  | `false` | 是否跟随鼠标 |
 | disabled | boolean |  | `false` | 是否禁用 |
 | merge-borders | boolean |  | `true` | 是否自动合并内外边框 |
 
@@ -342,6 +344,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.preventDefault | Function | 阻止弹出流程 |
 | senderVM | UPopup | 发送事件实例 |
 
@@ -360,6 +363,7 @@ export default {
 
 | Param | Type | Description |
 | ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
 | $event.preventDefault | Function | 阻止隐藏流程 |
 | senderVM | UPopup | 发送事件实例 |
 

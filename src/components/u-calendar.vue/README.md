@@ -4,6 +4,10 @@
 
 - [示例](#示例)
     - [基本用法](#基本用法)
+    - [周选择组件](#周选择组件)
+    - [月选择组件](#月选择组件)
+    - [季选择组件](#季选择组件)
+    - [年选择组件](#年选择组件)
     - [只读和禁用](#只读和禁用)
     - [最大值最小值](#最大值最小值)
     - [增加展示年份](#增加展示年份)
@@ -16,8 +20,34 @@
 ### 基本用法
 
 ``` html
-<u-calendar></u-calendar>
+<u-calendar picker="date"></u-calendar>
 ```
+
+### 周选择组件
+
+``` html
+<u-calendar picker="week"></u-calendar>
+```
+
+### 月选择组件
+
+``` html
+<u-calendar picker="month"></u-calendar>
+```
+
+### 季选择组件
+
+``` html
+<u-calendar picker="quarter"></u-calendar>
+```
+
+
+### 年选择组件
+
+``` html
+<u-calendar picker="year"></u-calendar>
+```
+
 
 ### 只读和禁用
 ``` html
@@ -47,7 +77,7 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| date | Date \| string |  | `'TODAY'` | 当前选择的日期 |
+| date.sync, v-model | Date \| string |  | `'TODAY'` | 当前选择的日期 |
 | min-date | Date \| string |  |  | 最小日期，如果为空则不限制 |
 | max-date | Date \| string |  | `'text'` | 最大日期，如果为空则不限制 |
 | year-diff | string \| number |  | `3` | 当前年份往前展示的年数，例：当前为`2018`年，则从`2015`年开始展示 |
@@ -59,7 +89,7 @@
 
 #### (default)
 
-插入文本或  HTML 至日期组件底部
+插入文本或 HTML 至日期组件底部
 
 ### Events
 

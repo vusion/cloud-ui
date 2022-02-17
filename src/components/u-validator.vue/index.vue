@@ -60,12 +60,7 @@ export default {
     },
     computed: {
         currentRules() {
-            return (
-                this.rules
-                || (this.rootVM
-                    && this.rootVM.rules
-                    && this.rootVM.rules[this.name])
-            );
+            return (this.rules || (this.rootVM && this.rootVM.rules && this.rootVM.rules[this.name]));
         },
         currentTarget() {
             // if (this.target === 'auto')
@@ -74,34 +69,25 @@ export default {
         },
         touched() {
             if (this.currentTarget === 'validatorVMs')
-                return this.validatorVMs.some(
-                    (validatorVM) => validatorVM.touched,
-                );
+                return this.validatorVMs.some((validatorVM) => validatorVM.touched);
             else
                 return this.fieldTouched;
         },
         dirty() {
             if (this.currentTarget === 'validatorVMs')
-                return this.validatorVMs.some(
-                    (validatorVM) => validatorVM.dirty,
-                );
+                return this.validatorVMs.some((validatorVM) => validatorVM.dirty);
             else
                 return this.value !== this.oldValue;
         },
         valid() {
             if (this.currentTarget === 'validatorVMs')
-                return this.validatorVMs.every(
-                    (validatorVM) => validatorVM.valid,
-                );
+                return this.validatorVMs.every((validatorVM) => validatorVM.valid);
             else
                 return this.realValid;
         },
         firstError() {
             if (this.currentTarget === 'validatorVMs') {
-                const validatorVM = this.validatorVMs.find(
-                    (validatorVM) =>
-                        validatorVM.touched && validatorVM.firstError,
-                );
+                const validatorVM = this.validatorVMs.find((validatorVM) => validatorVM.touched && validatorVM.firstError);
                 return validatorVM ? validatorVM.firstError : undefined;
             } else
                 return this.fieldTouched && this.firstErrorMessage;
@@ -119,7 +105,7 @@ export default {
                 this.currentRules,
                 context,
             );
-            this.validate('submit', !this.touched).catch((errors) => errors);
+            this.validate('submit', !this.touched);
         },
         valid(newValue) {
             if (!newValue) {
@@ -159,17 +145,10 @@ export default {
             this.validatorVMs.splice(this.validatorVMs.indexOf(validatorVM), 1);
         });
         if (this.$options.name !== 'u-form')
-            this.$dispatch(
-                ($parent) =>
-                    $parent.$options.isValidator || $parent.$options.isField,
-                'add-validator-vm',
-                this,
-            );
+            this.$dispatch(($parent) => $parent.$options.isValidator || $parent.$options.isField, 'add-validator-vm', this);
         if (!this.parentVM || this.$options.name === 'u-form')
             this.rootVM = this;
-        this.triggerValid = this.realValid = !(
-            this.currentRules && this.currentRules.length
-        );
+        this.triggerValid = this.realValid = !(this.currentRules && this.currentRules.length);
         this.$on('add-field-vm', (fieldVM) => {
             const addField = (vm) => {
                 this.fieldVM = vm;
@@ -177,7 +156,7 @@ export default {
                 vm.formItemVM = this; // @compat
                 this.fieldTouched = false;
                 this.value = vm.value; // 初始化的时候自行验证一次。Fix #23
-                this.validate('submit', true).catch((errors) => errors);
+                this.validate('submit', true);
             }; // @TODO: 一个`<u-form-item>`中，只注册一个`fieldVM`，其他的忽略
             if (!this.fieldVM)
                 addField(fieldVM);
@@ -197,11 +176,7 @@ export default {
         this.$on('blur', this.onBlur);
     },
     destroyed() {
-        this.$dispatch(
-            ($parent) => $parent.$options.isValidator,
-            'remove-validator-vm',
-            this,
-        );
+        this.$dispatch(($parent) => $parent.$options.isValidator, 'remove-validator-vm', this);
     },
     methods: {
         onUpdate(value) {
@@ -211,9 +186,7 @@ export default {
             this.value = value; // 在没有触碰前，走 @update 事件；在触碰后，走 @input 事件
             if (!this.fieldTouched) {
                 this.oldValue = value;
-                this.$nextTick(() =>
-                    this.validate('submit', true).catch((errors) => errors),
-                );
+                this.$nextTick(() => this.validate('submit', true));
             }
         },
         onInput(value) {
@@ -224,7 +197,7 @@ export default {
             this.inputing = true;
             this.value = value; // 处理输入法输入的问题
             this.$nextTick(() => {
-                this.validate('input').catch((errors) => errors);
+                this.validate('input');
                 this.inputing = false;
             });
         },
@@ -235,7 +208,7 @@ export default {
                 this.oldValue = $event.value;
             this.value = $event.value; // @compat: 以后推荐使用 @update & @input 事件
             if (!this.hasUpdateEvent && !this.inputing)
-                this.validate('submit', true).catch((errors) => errors);
+                this.validate('submit', true);
         },
         onFocus() {
             if (this.currentTarget === 'validatorVMs')
@@ -260,30 +233,19 @@ export default {
             if (!this.fieldTouched)
                 this.fieldTouched = true;
             this.color = this.state = '';
-            this.$nextTick(() =>
-                this.validate('blur').catch((errors) => errors),
-            );
+            this.$nextTick(() => this.validate('blur'));
         },
         validate(trigger = 'submit', untouched = false) {
             if (this.currentTarget === 'validatorVMs') {
-                return Promise.all(
-                    this.validatorVMs.map((validatorVM) =>
-                        validatorVM
-                            .validate('submit', untouched)
-                            .catch((errors) => errors),
-                    ),
-                ).then((results) => {
-                    if (results.some((result) => !!result))
-                        throw results;
-                });
+                return Promise.all(this.validatorVMs.map((validatorVM) => validatorVM.validate('submit', untouched)))
+                    .then((results) => this.get$event(trigger));
             } else {
                 this.triggerValid = true;
                 this.realValid = true;
                 if (this.ignoreRules || this.ignoreValidation) {
                     this.firstErrorMessage = this.currentMessage = '';
                     this.color = '';
-                    this.onValidate(trigger);
-                    return Promise.resolve();
+                    return Promise.resolve(this.onValidate(trigger));
                 }
                 this.pending = true;
                 this.state = 'validating';
@@ -299,9 +261,14 @@ export default {
                     this.color = this.state;
                 if (trigger === 'submit')
                     trigger = '';
-                const value = this.validatingProcess(
-                    this.validatingValue === undefined ? this.value : this.validatingValue,
-                );
+                const value = this.validatingProcess(this.validatingValue === undefined ? this.value : this.validatingValue);
+
+                // @TODO: 临时解决一下，用 blur 当 change
+                const INPUT_NAMES = ['u-input', 'u-textarea', 'u-number-input'];
+                if (trigger === 'input' && !INPUT_NAMES.includes(this.fieldVM.$options.name)) {
+                    trigger = 'blur';
+                }
+
                 return this.validator.validate(value, trigger, Object.assign({
                     label: this.label || '字段',
                     action: this.action || '输入',
@@ -311,49 +278,26 @@ export default {
                     this.realValid = this.triggerValid;
                     this.state = 'success';
                     this.firstErrorMessage = '';
-                    if (
-                        !untouched
-                        && this.muted !== 'all'
-                        && this.muted !== 'color'
-                    )
+                    if (!untouched && this.muted !== 'all' && this.muted !== 'color')
                         this.color = this.state;
-                    if (
-                        !untouched
-                        && this.muted !== 'all'
-                        && this.muted !== 'message'
-                    )
+                    if (!untouched && this.muted !== 'all' && this.muted !== 'message')
                         this.currentMessage = this.message;
-                    this.onValidate(trigger);
+                    return this.onValidate(trigger);
                 }).catch((error) => {
                     this.pending = false;
                     this.triggerValid = false;
                     this.realValid = this.triggerValid;
                     this.state = 'error';
                     this.firstErrorMessage = error;
-                    if (
-                        !untouched
-                        && this.muted !== 'all'
-                        && this.muted !== 'color'
-                    )
+                    if (!untouched && this.muted !== 'all' && this.muted !== 'color')
                         this.color = this.state;
-                    if (
-                        !untouched
-                        && this.muted !== 'all'
-                        && this.muted !== 'message'
-                    )
+                    if (!untouched && this.muted !== 'all' && this.muted !== 'message')
                         this.currentMessage = error;
-                    this.onValidate(trigger);
-                    throw error;
+                    return this.onValidate(trigger);
                 });
             }
         },
-        /**
-         * 验证结果用 if 判断，不用 try-catch
-         */
-        validateResult(trigger = 'submit', untouched = false) {
-            return this.validate(trigger, untouched).catch((errors) => errors);
-        },
-        onValidate(trigger) {
+        get$event(trigger) {
             const $event = {
                 trigger,
                 valid: this.valid,
@@ -367,6 +311,11 @@ export default {
                 $event.value = this.value;
                 $event.oldValue = this.oldValue;
             }
+
+            return $event;
+        },
+        onValidate(trigger) {
+            const $event = this.get$event(trigger);
             this.$emit('validate', $event, this);
             if ($event.touched) {
                 if ($event.trigger === 'blur') {
@@ -405,6 +354,7 @@ export default {
                 }
             }
             this.parentVM && this.parentVM.debouncedOnValidate(trigger);
+            return $event;
         },
     },
 };

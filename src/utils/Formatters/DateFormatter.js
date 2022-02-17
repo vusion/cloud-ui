@@ -21,6 +21,7 @@ const replacers = {
         }
         return fix(date.getDate());
     },
+    QQ(date) { return `Q${Math.ceil((date.getMonth() + 1)/3)}`},
     DD(date) { return fix(date.getDate()); },
     HH(date) { return fix(date.getHours()); },
     mm(date) { return fix(date.getMinutes()); },

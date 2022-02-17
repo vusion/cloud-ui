@@ -12,7 +12,7 @@
     v-ellipsis-title>
     <!-- @override: 添加了flag功能 -->
     <span v-if="flag !== undefined" :class="$style.flag" :layer="layer" v-tooltip.top="flag"></span>
-    <slot></slot>
+    <slot>{{ text }}</slot>
 </div>
 </template>
 
@@ -24,13 +24,13 @@ export default {
     parentName: 'u-select',
     groupName: 'u-select-group',
     extends: UListViewItem,
-    props: { flag: { type: String }, layer: { type: String } },
+    props: { flag: { type: String }, layer: { type: String }, text: { type: String } },
     computed: {
         isFocused() {
             return this.parentVM && this.parentVM.focusedVM === this;
         },
         currentText() {
-            return this.$slots.default[0] && this.$slots.default[0].text;
+            return this.text || this.$slots.default[0] && this.$slots.default[0].text;
         },
     },
     methods: {

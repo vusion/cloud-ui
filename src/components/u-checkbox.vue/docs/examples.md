@@ -1,14 +1,14 @@
 ### Basic
 
 ``` html
-<u-checkbox>Checkbox</u-checkbox>
+<u-checkbox text="Checkbox"></u-checkbox>
 ```
 
 ### v-model
 
 ``` vue
 <template>
-<u-checkbox v-model="value">{{ value }}</u-checkbox>
+<u-checkbox v-model="value" :text="value"></u-checkbox>
 </template>
 <script>
 export default {
@@ -25,13 +25,13 @@ export default {
 
 ``` html
 <u-linear-layout>
-    <u-checkbox :value="true" readonly>Readonly</u-checkbox>
-    <u-checkbox :value="true" disabled>Disabled</u-checkbox>
+    <u-checkbox :value="true" readonly text="Readonly"></u-checkbox>
+    <u-checkbox :value="true" disabled text="Disabled"></u-checkbox>
 </u-linear-layout>
 ```
 
 ### Indeterminate
 
 ``` html
-<u-checkbox :value="null">Indeterminate</u-checkbox>
+<u-checkbox :value="null" text="Indeterminate"></u-checkbox>
 ```
