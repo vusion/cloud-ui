@@ -1,0 +1,98 @@
+- name: u-multi-layout
+  title: 分栏布局
+  description: 一定的规则布局
+  icon: multi-layout
+  labels:
+    - Layout
+  attrs:
+    - name: direction
+      title: 排列方向
+      type: string
+      options:
+        - value: horizontal
+          title: 横向排列
+        - value: vertical
+          title: 纵向排列
+      default: horizontal
+      description: 布局中模块的排列方向
+    - name: gap
+      title: 间隙
+      type: string
+      options:
+        - value: shrink
+          title: 收缩
+        - value: none
+          title: 无
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+        - value: large
+          title: 大
+      default: normal
+      description: 布局中各分栏间的空隙大小
+  slots:
+    - name: default
+      description: 插入`<u-multi-layout-item>`子组件。
+      support:
+        - name: u-multi-layout-item
+          title: 插入一列
+          snippet: <u-multi-layout-item>span:8</u-multi-layout-item>
+  events:
+    - name: $listeners
+      kind: trigger
+      description: 监听所有事件。
+      params: []
+- name: u-multi-layout-item
+  title: 布局栏
+  description: 一定的规则布局
+  icon: multi-layout-item
+  labels:
+    - Layout
+  attrs:
+    - name: fixed
+      title: 固定展示
+      type: Boolean
+      default: false
+      description: 开启后滚动时该项固定显示
+    - name: justify-content
+      title: 横向对齐方式
+      type: string
+      options:
+        - value: flex-start
+          title: 左对齐
+        - value: center
+          title: 居中
+        - value: flex-end
+          title: 右对齐
+      default: flex-start
+      description: 布局中子元素的对齐方式
+    - name: align-items
+      title: 纵向对齐方式	
+      type: string
+      options:
+        - value: flex-start
+          title: 左对齐
+        - value: center
+          title: 居中
+        - value: flex-end
+          title: 右对齐
+      default: flex-start
+      description: 布局中子元素的对齐方式
+    - name: 宽度
+      title: 横向对齐方式
+      type: string, number
+      description: 可在样式中实现
+    - name: 高度
+      title: 横向对齐方式
+      type: string, number
+      default: auto
+      description: 可在样式中实现
+  slots:
+    - name: default
+      description: 内容
+  events:
+    - name: $listeners
+      kind: trigger
+      description: 监听所有事件。
+      params: []

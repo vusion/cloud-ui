@@ -27,6 +27,7 @@ module.exports = {
             { group: '容器', name: 'u-iframe', alias: 'iFrame' },
 
             { group: '布局', name: 'u-linear-layout', alias: '线性布局' },
+            { group: '布局', name: 'u-multi-layout', alias: '分栏布局' },
             { group: '布局', name: 'u-grid-layout', alias: '栅格布局' },
             { group: '布局', name: 'u-split-layout', alias: '分割布局', advanced: true },
             { group: '布局', name: 'u-crumb', alias: '面包屑' },
