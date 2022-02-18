@@ -11,7 +11,7 @@
       title: 百分比
       type: number
       default: 0
-      description: 百分比，0-100 之间的数字
+      description: 进度条显示的进度百分比，1-100之间的数字
     - name: size
       title: 尺寸
       type: string
@@ -25,7 +25,7 @@
         - value: huge
           title: 巨大
       default: normal
-      description: 高度扩展
+      description: 进度条高度大小
     - name: range
       title: 百分比范围
       type: array<number>

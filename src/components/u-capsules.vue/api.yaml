@@ -11,7 +11,7 @@
       sync: true
       model: true
       default: null
-      description: 当前选择的值
+      description: ""
     - name: auto-select
       title: 自动选择
       type: boolean
@@ -31,12 +31,12 @@
       title: 只读
       type: boolean
       default: false
-      description: 是否只读
+      description: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用
+      description: ""
   slots:
     - name: default
       description: 插入`<u-capsule>`或`<u-capsules-group>`子组件。
@@ -163,11 +163,6 @@
           title: 正常
       default: normal
       description: 胶囊大小
-    # - name: selected
-    #   title: 选中项
-    #   type: boolean
-    #   default: false
-    #   description: 是否选中此项
     - name: disabled
       title: 禁用
       type: boolean

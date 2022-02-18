@@ -8,10 +8,10 @@
   nested: false
   attrs:
     - name: auto
-      title: 支持自动
+      title: 自动生成
       type: boolean
       default: false
-      description: 是否自动根据配置的 items 生成面包屑
+      description: 是否自动根据子页面配置的面包屑属性自动生成
   slots:
     - name: default
       description: 插入`<u-crumb-item>`子组件。

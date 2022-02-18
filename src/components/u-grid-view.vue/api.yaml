@@ -8,8 +8,8 @@
     - name: data-source
       title: 数据源
       type: Array<Item> | Function | object | DataSource
-      designer-value: '[{}, {}, {}, {}, {}, {}, {}, {}]'
-      description: 表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise。
+      designer-value: "[{}, {}, {}, {}, {}, {}, {}, {}]"
+      description: 数据网格的数据源，数据集对象或者返回数据集的逻辑
       group: 数据属性
     - name: data-schema
       title: 数据类型
@@ -27,13 +27,13 @@
       title: 可分页
       type: boolean
       default: false
-      description: 是否需要分页
+      description: ""
       group: 数据属性
     - name: page-size
       title: 分页大小
       type: number
       default: 50
-      description: 分页大小
+      description: ""
       group: 数据属性
     - name: page-number
       title: 当前页数
@@ -51,25 +51,25 @@
         - 10
         - 20
         - 50
-      description: 分页大小的选项列表。
+      description: ""
       group: 数据属性
     - name: show-total
       title: 显示总条目数
       type: boolean
       default: false
-      description: 是否显示总条目数。
+      description: ""
       group: 数据属性
     - name: show-sizer
       title: 显示分页大小
       type: boolean
       default: false
-      description: 是否显示切换分页大小选项。
+      description: ""
       group: 数据属性
     - name: show-jumper
       title: 显示跳转输入
       type: boolean
       default: false
-      description: 是否显示页面跳转输入框。
+      description: ""
       group: 数据属性
     - name: filterable
       title: 可筛选
@@ -81,13 +81,13 @@
       title: 后端分页
       type: boolean
       default: false
-      description: 是否使用后端分页。
+      description: ""
       group: 数据属性
     - name: remote-filtering
       title: 后端筛选
       type: boolean
       default: false
-      description: 是否使用后端筛选
+      description: ""
       advanced: true
       group: 数据属性
     - name: match-method
@@ -101,7 +101,7 @@
       title: 大小写敏感
       type: string, Function
       default: includes
-      description: 过滤时大小写是否敏感
+      description: 过滤时是否区分大小写
       advanced: true
       group: 数据属性
     - name: repeat
@@ -114,19 +114,19 @@
       title: 显示头部
       type: boolean
       default: false
-      description: 是否显示头部
+      description: ""
       group: 样式属性
     - name: title
       title: 列表标题
       type: string
       default: 列表
-      description: 列表标题
+      description: ""
       group: 样式属性
     - name: show-foot
       title: 显示底部
       type: boolean
       default: true
-      description: 是否显示尾部
+      description: ""
       group: 样式属性
     - name: size
       title: 尺寸
@@ -143,7 +143,7 @@
         - value: auto
           title: 自适应
       default: normal
-      description: 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度
+      description: 设置数据网格大小
       multi: true
       maxSelect: 2
       advanced: true
@@ -172,10 +172,10 @@
       description: 暂无数据时的文字。
       group: 状态属性
     - name: placeholder
-      title: 筛选输入框的占位符
+      title: 搜索框占位符
       type: string
       default: 请输入
-      description: 搜索框的占位符
+      description: 搜索框为空时提示文本
       advanced: true
     - name: value
       title: 值
@@ -208,13 +208,13 @@
       title: 可取消
       type: boolean
       default: false
-      description: 是否可以取消选择
+      description: ""
       advanced: true
     - name: multiple
       title: 可多选
       type: boolean
       default: false
-      description: 是否可以多选
+      description: ""
       advanced: true
     - name: clearable
       title: 筛选清除按钮
@@ -223,16 +223,16 @@
       description: 搜索框是否有清除按钮
       advanced: true
     - name: readonly
-      title: 是否只读
+      title: 只读
       type: boolean
       default: false
-      description: 是否只读
+      description: ""
       group: 选择属性
     - name: disabled
-      title: 是否禁用
+      title: 禁用
       type: boolean
       default: false
-      description: 是否禁用
+      description: ""
       group: 选择属性
   slots:
     - name: default
@@ -344,4 +344,3 @@
     - name: reload
       description: 清除缓存，重新加载
       params: []
-  

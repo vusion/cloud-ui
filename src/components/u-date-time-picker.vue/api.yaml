@@ -13,22 +13,22 @@
       sync: true
       model: true
       default: null
-      description: 显示的日期值
+      description: 默认显示的日期时间值，格式如2018-08-08 08:08:08
     - name: minDate
       title: 最小日期值
       type: string, number, Date
       default: null
-      description: 最小日期值
+      description: 支持输入的最小日期时间，不限制填写null
     - name: maxDate
       title: 最大日期值
       type: string, number, Date
       default: null
-      description: 最大日期值
+      description: 支持输入的最大日期时间，不限制填写null
     - name: placeholder
       title: 默认提示文案
       type: string
       default: 请选择时间
-      description: 默认提示语
+      description: 输入框的提示文字
     - name: autofocus
       title: 自动获焦
       type: boolean
@@ -38,17 +38,17 @@
     - name: clearable
       title: 清除按钮
       type: boolean
-      description: 开启并在输入框有内容时会显示清除按钮。
+      description: 输入框输入内容支持一键清除
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用
+      description: ""
     - name: readonly
       title: 只读
       type: boolean
       default: false
-      description: 是否只读
+      description: ""
     - name: yearDiff
       title: 最小可选年份到当前年份的差值
       type: number

@@ -20,4 +20,4 @@
       title: 透明程度
       type: number
       default: 0.1
-      description: 透明程度, 0-1 之间的小数
+      description: 0-1之间的小数，0代表完全透明，1代表完全不透明

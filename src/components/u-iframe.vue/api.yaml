@@ -6,9 +6,9 @@
   description: 用于嵌入其他网页的容器。
   attrs:
     - name: src
-      title: 网页地址
+      title: 地址
       type: string
-      description: 需要嵌入的网页地址。
+      description: 需要嵌入的网页地址
   slots: false
   events:
     - name: load

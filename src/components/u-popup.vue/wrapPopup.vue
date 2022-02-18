@@ -5,7 +5,6 @@
         v-bind="[$attrs, $props]"
         v-on="$listeners"
         ref="item"
-        :vusion-scope-id="$vnode.context.$options._scopeId"
     >
         <slot v-for="(item, name) in this.$slots" :name="name" :slot="name"></slot>
         <template v-for="(_, name) in $scopedSlots" :slot="name" slot-scope="slotData">

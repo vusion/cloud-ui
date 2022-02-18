@@ -10,7 +10,7 @@
     - name: text
       title: 文本
       type: string
-      description: 文本内容
+      description: 显示文本内容
     - name: color
       title: 颜色
       type: string
@@ -26,7 +26,7 @@
         - value: danger_secondary
           title: 次要危险操作按钮
       default: default
-      description: 设置颜色
+      description: 设置文本颜色
     - name: dashed
       title: 虚线边框
       type: boolean
@@ -49,7 +49,7 @@
         - value: mini
           title: 迷你
       default: normal
-      description: 设置尺寸
+      description: 设置按钮大小
     - name: shape
       title: 形状
       type: string
@@ -63,12 +63,12 @@
         - value: circle
           title: 圆形
       default: default
-      description: 设置形状
+      description: 设置按钮形状
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用。禁用后不会响应点击事件。
+      description: ""
     - name: display
       title: 展示方式
       type: string
@@ -78,12 +78,12 @@
         - value: block
           title: 块级展示，宽度会充满父元素
       default: inline
-      description: 展示方式
+      description: 行内展示，或块级换行展示
     - name: icon
       title: 图标
       type: icon
-      default: ''
-      description: 图标
+      default: ""
+      description: ""
     - name: loading
       title: 加载中
       type: boolean
@@ -101,12 +101,12 @@
         - value: download
           title: 下载链接
       default: href
-      description: 链接类型
+      description: ""
       compType: linkTypeSelect
     - name: hrefAndTo
-      title: 链接
+      title: 链接地址
       type: string
-      description: 链接地址
+      description: ""
       compType: linkHrefInput
     - name: target
       title: 打开方式

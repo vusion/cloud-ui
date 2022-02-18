@@ -10,7 +10,7 @@
     - name: picker
       title: 格式
       type: string
-      options: 
+      options:
         - title: 日期
           value: date
         - title: 月份
@@ -20,39 +20,39 @@
         - title: 年份
           value: year
       default: date
-      description: 用于定义选择的格式
+      description: 日期格式设置
     - name: width
       title: 输入框宽度
       type: number
       default: 160
-      description: 输入框宽度
+      description: ""
     - name: date
       title: 值
       type: string,number,Date
       sync: true
       model: true
       default: null
-      description: 选择值
+      description: 默认显示的日期值，格式如2018-08-08
     - name: minDate
       title: 最小日期
       type: string,number,Date
       default: null
-      description: 最小日期
+      description: 支持输入的最小日期，不限制填写null
     - name: maxDate
       title: 最大日期
       type: string,number,Date
       default: null
-      description: 最大日期
+      description: 支持输入的最大日期，不限制填写null
     - name: readonly
       title: 只读
       type: boolean
       default: false
-      description: 是否只读
+      description: ""
     - name: disabled
       title: 禁用
       type: boolean
       default: false
-      description: 是否禁用
+      description: ""
     - name: autofocus
       title: 文本框默认处于 focus
       type: boolean
@@ -63,11 +63,11 @@
       title: 文本框默认提示
       type: string
       default: 请输入
-      description: 文本框默认提示
+      description: 输入框的提示文字
     - name: clearable
       title: 清除按钮
       type: boolean
-      description: 开启并在输入框有内容时会显示清除按钮。
+      description: 输入框输入内容支持一键清除
     - name: alignment
       title: 日历弹窗对其方式
       type: string
@@ -77,7 +77,7 @@
         - value: right
           title: 右对齐
       default: left
-      description: 日历弹窗对其方式
+      description: 日历弹窗对齐方式
     - name: time
       title: 时间格式
       type: string, number

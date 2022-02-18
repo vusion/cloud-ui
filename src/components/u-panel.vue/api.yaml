@@ -30,6 +30,6 @@
       type: string
       description: 面板项的标题
   description: 面板组
-  slots: 
+  slots:
     - name: default
       description: 插入默认的元素
