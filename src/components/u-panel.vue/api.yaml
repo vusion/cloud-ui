@@ -19,6 +19,25 @@
       title: 标题
       type: string
       description: 面板项的标题
+    - name: content
+      title: 内容
+      type: string
+      default: ''
+      description: 面板内容
+    - name: bordered
+      title: 边框
+      type: boolean
+      default: true
+      description: 是否显示边框
+    - name: shadow
+      title: 阴影
+      type: string
+      options:
+        - always
+        - hover
+        - never
+      default: always
+      description: 阴影显示方式。`'always'`表示总是显示阴影；`'hover'`表示鼠标悬浮时显示阴影；`'never'`表示不显示阴影。
 - name: u-panel-group
   advanced: true
   title: 面板组

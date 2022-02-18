@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root">
+<div :class="[$style.root, shadowClassName, { bordered }]">
     <div :class="$style.head">
         <slot name="head">
             <div v-if="title" :class="$style.title" vusion-slot-name="title">
@@ -29,7 +29,23 @@ export default {
     components: {
         SEmpty,
     },
-    props: { title: String, content: String },
+    props: {
+        title: { type: String, default: null },
+        content: { type: String, default: null },
+        bordered: { type: Boolean, default: true },
+        shadow: { type: String, default: 'always' },
+    },
+    computed: {
+        shadowClassName() {
+            return (
+                {
+                    always: 'is-shadow--always',
+                    hover: 'is-shadow--hover',
+                    never: 'is-shadow--never',
+                }[this.shadow] || ''
+            );
+        },
+    },
 };
 </script>
 
@@ -37,13 +53,27 @@ export default {
 .root {
     border-radius: var(--panel-border-radius);
     background: var(--panel-background);
-    box-shadow: 0px 2px 10px rgba(64, 69, 78, 0.05);
-    border: var(--panel-border-width) solid var(--border-color-light);
+}
+
+.root[class~="is-shadow--always"] {
+    box-shadow: var(--panel-box-shadow);
+}
+
+.root[class~="is-shadow--hover"]:hover {
+    box-shadow: var(--panel-box-shadow-hover);
+}
+
+.root[class~="is-shadow--always"],
+.root[class~="is-shadow--hover"]:hover {
     transition: box-shadow var(--transition-duration-base);
 }
 
-.root:hover {
-    box-shadow: var(--panel-box-shadow);
+.root[class~="is-shadow--never"] {
+    box-shadow: none;
+}
+
+.root[class~="bordered"] {
+    border: var(--panel-border-width) solid var(--border-color-light);
 }
 
 .head {

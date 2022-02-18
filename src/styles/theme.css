@@ -166,6 +166,7 @@
     --font-weight-bolder: bolder;
 
     --box-shadow-base: 0 0 4px rgba(3, 3, 3, .1);
+    --box-shadow-small: 0px 2px 12px rgba(0, 0, 0, 0.06);
     --box-shadow-large: 0px 2px 15px rgba(64, 69, 78, 0.15);
     --box-shadow-form-item-base: 0 0 0 2px rgba(77, 136, 255, 0.2);
 
@@ -241,10 +242,11 @@
 
     /* @component u-panel */
     --panel-border-width: 1px;
-    --panel-border-radius: var(--border-radius-base);
+    --panel-border-radius: var(--border-radius-medium);
     --panel-background: var(--background-color-default);
     --panel-border-color: var(--border-color-light);
-    --panel-box-shadow: var(--box-shadow-large);
+    --panel-box-shadow: var(--box-shadow-small);
+    --panel-box-shadow-hover: 0px 2px 16px rgba(0, 0, 0, 0.12);
     --panel-head-padding: var(--space-base);
     --panel-body-padding: var(--space-base);
     --panel-title-font-size: 18px;
