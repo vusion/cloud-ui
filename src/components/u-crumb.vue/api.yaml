@@ -12,6 +12,21 @@
       type: boolean
       default: false
       description: 是否自动根据子页面配置的面包屑属性自动生成
+    - name: separator
+      title: 分隔符
+      type: string
+      options:
+        - value: arrow
+          title: 基础样式
+        - value: slash
+          title: 分隔符样式
+      default: arrow
+      description: 面包屑分隔符
+    - name: icon
+      title: 面包屑图标
+      type: boolean
+      default: false
+      description: 是否显示面包屑图标
   slots:
     - name: default
       description: 插入`<u-crumb-item>`子组件。
@@ -92,6 +107,10 @@
       type: boolean
       default: false
       description: 是否不可点击。如果为`true`，则不会响应`click`事件。
+    - name: icon
+      title: 图标
+      type: string
+      description: 面包屑图标
   events:
     - name: $listeners
       kind: trigger

@@ -237,8 +237,8 @@
 
     /* @component u-crumb */
     --crumb-color-link: var(--brand-primary);
-    --crumb-color-disabled: var(--brand-disabled);
-    --crumb-space-x: 6px;
+    --crumb-color-disabled: var(--gray-darker);
+    --crumb-space-x: 5px;
 
     /* @component u-panel */
     --panel-border-width: 1px;
