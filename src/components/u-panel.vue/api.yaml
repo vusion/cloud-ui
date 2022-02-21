@@ -27,17 +27,25 @@
     - name: bordered
       title: 边框
       type: boolean
+      options:
+        - value: true
+          title: 是
+        - value: false
+          title: 否
       default: true
       description: 是否显示边框
     - name: shadow
       title: 阴影
       type: string
       options:
-        - always
-        - hover
-        - never
+        - value: always
+          title: 一直显示
+        - value: hover
+          title: hover时显示
+        - value: never
+          title: 不显示
       default: always
-      description: 阴影显示方式。`'always'`表示总是显示阴影；`'hover'`表示鼠标悬浮时显示阴影；`'never'`表示不显示阴影。
+      description: 阴影显示方式
 - name: u-panel-group
   advanced: true
   title: 面板组
