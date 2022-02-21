@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :appear="appear">
+<div :class="$style.root" :appear="appear" :fill="fill">
     <slot></slot>
 </div>
 </template>
@@ -16,6 +16,7 @@ export default {
         expandTrigger: { type: String, default: 'click' },
         appear: String,
         disabled: { type: Boolean, default: false },
+        fill: { type: String, default: 'head' },
     },
     data() {
         return {
@@ -54,7 +55,13 @@ export default {
 .root[appear="simple"] {
     border: none;
     border-top: var(--collapse-border-width) solid var(--collapse-border-color);
-    border-bottom: var(--collapse-border-width) solid var(--collapse-border-color);
+    border-bottom: var(--collapse-border-width) solid
+        var(--collapse-border-color);
+}
+
+.root[fill="head"] .item_head,
+.root[fill="content"] .item_content {
+    background: var(--collapse-item-fill-background);
 }
 
 .root[appear="simple"] .item_head {
