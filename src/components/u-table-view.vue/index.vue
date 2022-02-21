@@ -119,7 +119,7 @@
                                                 <u-checkbox :value="item.checked" :label="$at(item, valueField)" :disabled="item.disabled" @check="check(item, $event.value)"></u-checkbox>
                                             </span>
                                             <!-- type === 'expander' -->
-                                            <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click="toggleExpanded(item)"></span>
+                                            <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" :disabled="item.disabled" @click="toggleExpanded(item)"></span>
                                             <template v-if="item.level !== undefined && columnIndex === treeColumnIndex">
                                                 <span :class="$style.indent" :style="{ paddingLeft: 16*item.level + 'px' }"></span>
                                                 <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.expanded" @click="toggleTreeExpanded(item)" :loading="item.loading"></span>
@@ -141,9 +141,9 @@
                                         :vusion-node-tag="expanderColumnVM.$attrs['vusion-node-tag']"
                                         :vusion-template-expand-content-node-path="expanderColumnVM.$attrs['vusion-template-expand-content-node-path']"
                                         :vusion-scope-id="expanderColumnVM.$vnode.context.$options._scopeId"
-                                        :vusion-node-path="expanderColumnVM.$attrs['vusion-node-path']">
-                                            <div style="background:#FAFAFA;border:1px dashed #C3C3C3;padding: 10px 0;text-align:center;margin-bottom:10px;">展开列编辑区</div>
-                                            <div :plus-empty="expanderColumnVM.$attrs['plus-empty']"></div>
+                                        :vusion-node-path="expanderColumnVM.$attrs['vusion-node-path']"
+                                        style="background: #F7F8FA;">
+                                            <div :plus-empty="expanderColumnVM.$attrs['plus-empty']" color="inverse"></div>
                                             <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: $at(item, expanderColumnVM.field), columnVM: expanderColumnVM, rowIndex, index: rowIndex }">
                                             </f-slot>
                                         </td>
@@ -1110,6 +1110,8 @@ export default {
             this.$emit('check', { values: this.currentValues, oldValues, checked }, this);
         },
         toggleExpanded(item, expanded) {
+            if (item.disabled)
+                return;
             // Method overloading
             if (expanded === undefined)
                 expanded = !item.expanded; // Emit a `before-` event with preventDefault()
@@ -1408,20 +1410,62 @@ export default {
     height: var(--table-view-expander-size);
     line-height: var(--table-view-expander-size);
     vertical-align: -2px;
-    text-align: center;
-    transform: rotate(-180deg);
+    /* text-align: center;
+    transform: rotate(-180deg); */
+    position: relative;
+    background-color: var(--table-view-expander-background);
+    cursor: pointer;
+    border: 1px solid var(--table-view-expander-border-color);
+    border-radius: var(--table-view-expander-border-radius);
+}
+.expander:hover{
+    background-color: var(--table-view-expander-background-hover);
+    border-color: var(--table-view-expander-border-color-hover);
+}
+.expander::before,
+.expander::after {
+    position: absolute;
+    background: currentcolor;
+    content: "";
+    background: var(--table-view-expander-color);
+    transition: transform .2s ease-out;
+}
+.expander:hover::before,
+.expander:hover::after{
+    background: var(--table-view-expander-color-hover);
 }
 
 .expander::before {
-    icon-font: url('../i-icon.vue/icons/square-down.svg');
+    top: 6px;
+    right: 3px;
+    left: 3px;
+    height: 2px;
+    transform: rotate(-180deg);
+}
+.expander::after {
+    top: 3px;
+    bottom: 3px;
+    left: 6px;
+    width: 2px;
+    transform: rotate(0deg);
 }
 
-.expander[expanded] {
-    transform: rotate(0);
+.expander[expanded]::after {
+   transform: rotate(90deg);
+}
+.expander[disabled] {
+    border: 1px solid var(--table-view-expander-border-color-disabled);
+    background: var(--table-view-expander-background-disabled);
+    cursor: not-allowed;
+}
+.expander[disabled]::before,
+.expander[disabled]::after{
+    background: var(--table-view-expander-color-disabled);
 }
 
 .expand-td {
     /* transition: $transition-duration height ease-in-out, $transition-duration padding-top ease-in-out, $transition-duration padding-bottom ease-in-out; */
+    background-color: var(--table-view-expand-td-background);
 }
 
 .column-title {
