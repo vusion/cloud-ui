@@ -3,13 +3,16 @@
 ``` html
 <u-multi-layout direction="vertical">
     <u-multi-layout-item>
+        <u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" fit="cover"></u-image>
     </u-multi-layout-item>
-    <u-multi-layout>
-        <u-multi-layout-item style="width: 200px;left:0;" fixed>
-        </u-multi-layout-item>
-        <u-multi-layout-item style="margin-left: 200px;">
-        </u-multi-layout-item>
-    </u-multi-layout>
+    <u-multi-layout-item>
+        <u-multi-layout>
+            <u-multi-layout-item style="width: 200px;left:0;" fixed>
+            </u-multi-layout-item>
+            <u-multi-layout-item style="margin-left: 200px;">
+            </u-multi-layout-item>
+        </u-multi-layout>
+    </u-multi-layout-item>
 </u-multi-layout>
 ```
 ### 三栏-常规
@@ -18,14 +21,16 @@
 <u-multi-layout direction="vertical">
     <u-multi-layout-item>
     </u-multi-layout-item>
-    <u-multi-layout>
-        <u-multi-layout-item>
-        </u-multi-layout-item>
-        <u-multi-layout-item>
-        </u-multi-layout-item>
-        <u-multi-layout-item>
-        </u-multi-layout-item>
-    </u-multi-layout>
+    <u-multi-layout-item>
+        <u-multi-layout>
+            <u-multi-layout-item>
+            </u-multi-layout-item>
+            <u-multi-layout-item>
+            </u-multi-layout-item>
+            <u-multi-layout-item>
+            </u-multi-layout-item>
+        </u-multi-layout>
+    </u-multi-layout-item>
 </u-multi-layout>
 ```
 ### 三栏-全部
@@ -34,14 +39,16 @@
 <u-multi-layout direction="vertical">
     <u-multi-layout-item>
     </u-multi-layout-item>
-    <u-multi-layout>
-        <u-multi-layout-item>
-        </u-multi-layout-item>
-        <u-multi-layout-item>
-        </u-multi-layout-item>
-        <u-multi-layout-item>
-        </u-multi-layout-item>
-    </u-multi-layout>
+    <u-multi-layout-item>
+        <u-multi-layout>
+            <u-multi-layout-item>
+            </u-multi-layout-item>
+            <u-multi-layout-item>
+            </u-multi-layout-item>
+            <u-multi-layout-item>
+            </u-multi-layout-item>
+        </u-multi-layout>
+    </u-multi-layout-item>
     <u-multi-layout-item>
     </u-multi-layout-item>
 </u-multi-layout>
@@ -76,11 +83,35 @@
 <u-multi-layout direction="vertical">
     <u-multi-layout-item>
     </u-multi-layout-item>
-    <u-multi-layout>
-        <u-multi-layout-item style="width: 200px;right:0;" fixed>
-        </u-multi-layout-item>
-        <u-multi-layout-item style="margin-right: 200px;">
-        </u-multi-layout-item>
-    </u-multi-layout>
+    <u-multi-layout-item>
+        <u-multi-layout>
+            <u-multi-layout-item style="width: 200px;right:0;" fixed>
+            </u-multi-layout-item>
+            <u-multi-layout-item style="margin-right: 200px;">
+            </u-multi-layout-item>
+        </u-multi-layout>
+    </u-multi-layout-item>
+</u-multi-layout>
+```
+### 三栏-双左栏
+
+``` html
+<u-multi-layout direction="vertical">
+    <u-multi-layout-item>
+    </u-multi-layout-item>
+    <u-multi-layout-item>
+        <u-multi-layout>
+            <u-multi-layout-item style="width: 400px;left:0;" fixed>
+                <u-multi-layout>
+                    <u-multi-layout-item>
+                    </u-multi-layout-item>
+                    <u-multi-layout-item>
+                    </u-multi-layout-item>
+                </u-multi-layout>
+            </u-multi-layout-item>
+            <u-multi-layout-item style="margin-left: 400px;">
+            </u-multi-layout-item>
+        </u-multi-layout>
+    </u-multi-layout-item>
 </u-multi-layout>
 ```
