@@ -1,5 +1,5 @@
 ``` html
-<u-grid-layout gap="normal none">
+<u-grid-layout gap="normal none" :class="$style.gridLayout">
     <u-grid-layout-row :repeat="6">
         <u-grid-layout-column :span="3">
             <u-block style="opacity: 0.5;">3/6</u-block>
