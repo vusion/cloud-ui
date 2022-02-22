@@ -8,7 +8,7 @@
     /* Brand Colors */
     --brand-primary-lightest: #e8f1ff;
     --brand-primary-lighter: #bbd4ff;
-    --brand-primary-light: #5c98ff;
+    --brand-primary-light: #70A4FF;
     --brand-primary: #337EFF;
     --brand-primary-dark: #1168ff;
     --brand-primary-darker: #004bcc;
@@ -42,7 +42,7 @@
     --brand-warning-lightest: #fff6e4;
     --brand-warning-lighter: #ffe4af;
     --brand-warning-light: #ffb82a;
-    --brand-warning: #ffb21a;
+    --brand-warning: #FFB21A;
     --brand-warning-dark: #f0a000;
     --brand-warning-darker: #b47800;
     --brand-warning-darkest: #966400;
@@ -50,7 +50,7 @@
     --brand-error-lightest: #feebec;
     --brand-error-lighter: #fab6bc;
     --brand-error-light: #f56d79;
-    --brand-error: #f24957;
+    --brand-error: #F24957;
     --brand-error-dark: #f02d33;
     --brand-error-darker: #c70f14;
     --brand-error-darkest: #a60c11;
@@ -58,7 +58,7 @@
     --brand-danger-lightest: #ffeded;
     --brand-danger-lighter: #ffc8c8;
     --brand-danger-light: #ff6c6c;
-    --brand-danger: #f24957;
+    --brand-danger: #F24957;
     --brand-danger-dark: #ff3434;
     --brand-danger-darker: #e60000;
     --brand-danger-darkest: #c00000;
@@ -417,12 +417,18 @@
     --text-color-disabled: var(--brand-disabled-dark);
 
     /* @component u-link */
-    --link-color: #337eff;
+    --link-color: var(--brand-primary);
+    --link-color-hover: var(--brand-primary-light);
     --link-color-success: var(--brand-success);
+    --link-color-success-hover: var(--brand-success-light);
     --link-color-warning: var(--brand-warning);
+    --link-color-warning-hover: var(--brand-warning-light);
     --link-color-error: var(--brand-error); /* @hidden */
+    --link-color-error-hover: var(--brand-error-light);
     --link-color-danger: var(--brand-danger);
-    --link-color-disabled: var(--brand-disabled-dark);
+    --link-color-danger-hover: var(--brand-danger-light);
+    --link-color-disabled: var(--brand-disabled);
+    --link-color-disabled-hover: var(--brand-disabled-light);
     --link-color-light: #6eadff; /* @hidden */
     --link-color-white: white; /* @hidden */
 
@@ -987,6 +993,32 @@
     --select-popper-line-height: 1.6;
     --select-popper-line-height-small: 1.6;
     --select-popper-box-shadow: var(--box-shadow-base);
+
+    /* normal */
+    --select-popper-item-color: inherit;
+    --select-popper-item-background: inherit;
+    /* hover */
+    --select-popper-item-color-hover: inherit;
+    --select-popper-item-background-hover: var(--list-view-item-background-hover);
+    /* readonly */
+    --select-popper-item-color-readonly: inherit;
+    --select-popper-item-background-readonly: var(--list-view-item-background-readonly);
+    /* focused */
+    --select-popper-item-color-focused: var(--select-popper-item-color-hover);
+    --select-popper-item-background-focused: var(--select-popper-item-background-hover);
+    /* selected */
+    --select-popper-item-color-selected: var(--list-view-item-color-selected);
+    --select-popper-item-background-selected: var(--list-view-item-background-selected);
+    /* selected disabled */
+    --select-popper-item-color-selected-disabled: inherit;
+    --select-popper-item-background-selected-disabled: var(--list-view-item-background-selected-disabled);
+    /* duplicated */
+    --select-popper-item-color-duplicated: inherit;
+    --select-popper-item-background-duplicated: none;
+    /* duplicated hover */
+    --select-popper-item-color-duplicated-hover: var(--select-popper-item-color-hover);
+    --select-popper-item-background-duplicated-hover: var(--select-popper-item-background-hover);
+
     --select-placeholder-color: var(--color-lighter);
     --select-arrow-color: var(--color-light);
     --select-arrow-size: 18px;

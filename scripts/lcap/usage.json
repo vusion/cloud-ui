@@ -55,9 +55,9 @@
             "attrs": [
                 {
                     "name": "src",
-                    "title": "网页地址",
+                    "title": "地址",
                     "type": "string",
-                    "description": "需要嵌入的网页地址。"
+                    "description": "需要嵌入的网页地址"
                 }
             ],
             "slots": false,
@@ -123,7 +123,7 @@
                         }
                     ],
                     "default": "horizontal",
-                    "description": "排列方向"
+                    "description": "可更改布局的排列方向"
                 },
                 {
                     "name": "gap",
@@ -170,11 +170,11 @@
                         }
                     ],
                     "default": "block",
-                    "description": "展示方式"
+                    "description": "行内展示，或块级换行展示"
                 },
                 {
                     "name": "layout",
-                    "title": "子元素布局方式",
+                    "title": "子元素展示方式",
                     "type": "string",
                     "options": [
                         {
@@ -191,7 +191,7 @@
                         }
                     ],
                     "default": "none",
-                    "description": "子元素的展示方式"
+                    "description": "子元素行内展示或块级换行展示"
                 },
                 {
                     "name": "type",
@@ -375,7 +375,7 @@
                             "title": "栅格数",
                             "type": "number",
                             "default": 12,
-                            "description": "划分的栅格数"
+                            "description": "默认24，可设置栅格行大小"
                         },
                         {
                             "name": "justify",
@@ -435,7 +435,7 @@
                                 }
                             ],
                             "default": "stretch",
-                            "description": "flex布局模式下的交叉轴对齐方式",
+                            "description": "栅格内容对齐方式",
                             "advanced": true
                         }
                     ],
@@ -460,28 +460,28 @@
                     "attrs": [
                         {
                             "name": "span",
-                            "title": "占据数",
+                            "title": "占据栅格数",
                             "type": "number",
                             "default": 1,
-                            "description": "列占据的栅格数"
+                            "description": "列占据栅格行的栅格数"
                         },
                         {
                             "name": "offset",
-                            "title": "偏移数",
+                            "title": "偏移栅格数",
                             "type": "number",
-                            "description": "列左边偏移的栅格数"
+                            "description": "列偏移的栅格数"
                         },
                         {
                             "name": "pull",
-                            "title": "左移动数",
+                            "title": "左移动栅格数",
                             "type": "number",
-                            "description": "列向左移动栅格数"
+                            "description": "列向左移动的栅格数"
                         },
                         {
                             "name": "push",
-                            "title": "右移动数",
+                            "title": "右移动栅格数",
                             "type": "number",
-                            "description": "列向右移动栅格数"
+                            "description": "列向右移动的栅格数"
                         },
                         {
                             "name": "media-huge",
@@ -1991,10 +1991,10 @@
             "attrs": [
                 {
                     "name": "auto",
-                    "title": "支持自动",
+                    "title": "自动生成",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否自动根据配置的 items 生成面包屑"
+                    "description": "是否自动根据子页面配置的面包屑属性自动生成"
                 }
             ],
             "slots": [
@@ -2392,14 +2392,14 @@
                         }
                     ],
                     "default": "default",
-                    "description": "显示样式"
+                    "description": ""
                 },
                 {
                     "name": "disabled",
-                    "title": "禁用展开",
+                    "title": "禁用展开/折叠",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用"
+                    "description": "不可点击展开/折叠"
                 }
             ],
             "slots": [
@@ -2609,7 +2609,7 @@
                     "name": "width",
                     "title": "宽度",
                     "type": "string",
-                    "description": "卡片宽度"
+                    "description": "卡片宽度：像素或百分比"
                 },
                 {
                     "name": "shadow",
@@ -2754,7 +2754,7 @@
                     "name": "text",
                     "title": "文本",
                     "type": "string",
-                    "description": "文本内容"
+                    "description": "显示文本内容"
                 },
                 {
                     "name": "color",
@@ -2791,7 +2791,7 @@
                         }
                     ],
                     "default": "default",
-                    "description": "设置颜色"
+                    "description": "设置文本颜色"
                 },
                 {
                     "name": "size",
@@ -2816,7 +2816,7 @@
                         }
                     ],
                     "default": "normal",
-                    "description": "尺寸设置"
+                    "description": "设置文本大小"
                 },
                 {
                     "name": "display",
@@ -2833,7 +2833,7 @@
                         }
                     ],
                     "default": "inline",
-                    "description": "展示方式"
+                    "description": "行内展示，或块级换行展示"
                 },
                 {
                     "name": "overflow",
@@ -2924,7 +2924,7 @@
                     "name": "text",
                     "title": "文本",
                     "type": "string",
-                    "description": "文本内容"
+                    "description": "显示文本内容"
                 },
                 {
                     "name": "color",
@@ -2953,7 +2953,7 @@
                         }
                     ],
                     "default": "default",
-                    "description": "设置颜色"
+                    "description": "设置文本颜色"
                 },
                 {
                     "name": "linkType",
@@ -2974,14 +2974,14 @@
                         }
                     ],
                     "default": "href",
-                    "description": "链接类型",
+                    "description": "",
                     "compType": "linkTypeSelect"
                 },
                 {
                     "name": "hrefAndTo",
-                    "title": "链接",
+                    "title": "链接地址",
                     "type": "string",
-                    "description": "链接地址",
+                    "description": "",
                     "compType": "linkHrefInput"
                 },
                 {
@@ -3046,7 +3046,7 @@
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用。禁用后不会响应点击事件。"
+                    "description": ""
                 },
                 {
                     "name": "display",
@@ -3201,7 +3201,7 @@
                     "name": "text",
                     "title": "文本",
                     "type": "string",
-                    "description": "文本内容"
+                    "description": "显示文本内容"
                 },
                 {
                     "name": "color",
@@ -3230,7 +3230,7 @@
                         }
                     ],
                     "default": "default",
-                    "description": "设置颜色"
+                    "description": "设置文本颜色"
                 },
                 {
                     "name": "dashed",
@@ -3270,7 +3270,7 @@
                         }
                     ],
                     "default": "normal",
-                    "description": "设置尺寸"
+                    "description": "设置按钮大小"
                 },
                 {
                     "name": "shape",
@@ -3295,14 +3295,14 @@
                         }
                     ],
                     "default": "default",
-                    "description": "设置形状"
+                    "description": "设置按钮形状"
                 },
                 {
                     "name": "disabled",
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用。禁用后不会响应点击事件。"
+                    "description": ""
                 },
                 {
                     "name": "display",
@@ -3319,14 +3319,14 @@
                         }
                     ],
                     "default": "inline",
-                    "description": "展示方式"
+                    "description": "行内展示，或块级换行展示"
                 },
                 {
                     "name": "icon",
                     "title": "图标",
                     "type": "icon",
                     "default": "",
-                    "description": "图标"
+                    "description": ""
                 },
                 {
                     "name": "loading",
@@ -3355,14 +3355,14 @@
                         }
                     ],
                     "default": "href",
-                    "description": "链接类型",
+                    "description": "",
                     "compType": "linkTypeSelect"
                 },
                 {
                     "name": "hrefAndTo",
-                    "title": "链接",
+                    "title": "链接地址",
                     "type": "string",
-                    "description": "链接地址",
+                    "description": "",
                     "compType": "linkHrefInput"
                 },
                 {
@@ -3537,7 +3537,7 @@
                     "title": "图标",
                     "type": "icon",
                     "default": "",
-                    "description": "图标"
+                    "description": ""
                 },
                 {
                     "name": "linkType",
@@ -3558,14 +3558,14 @@
                         }
                     ],
                     "default": "href",
-                    "description": "链接类型",
+                    "description": "",
                     "compType": "linkTypeSelect"
                 },
                 {
                     "name": "hrefAndTo",
-                    "title": "链接",
+                    "title": "链接地址",
                     "type": "string",
-                    "description": "链接地址",
+                    "description": "",
                     "compType": "linkHrefInput"
                 },
                 {
@@ -3773,11 +3773,11 @@
                     "name": "text",
                     "title": "文本",
                     "type": "string",
-                    "description": "文本内容"
+                    "description": "显示文本内容"
                 },
                 {
                     "name": "color",
-                    "title": "设置颜色",
+                    "title": "颜色",
                     "type": "string",
                     "options": [
                         {
@@ -3802,11 +3802,11 @@
                         }
                     ],
                     "default": "default",
-                    "description": "设置颜色"
+                    "description": "设置文本颜色"
                 },
                 {
                     "name": "size",
-                    "title": "大小",
+                    "title": "尺寸",
                     "type": "string",
                     "options": [
                         {
@@ -3827,18 +3827,18 @@
                         }
                     ],
                     "default": "normal",
-                    "description": "设置尺寸"
+                    "description": "设置标签大小"
                 },
                 {
                     "name": "removable",
                     "title": "是否显示删除图标",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否显示删除图标"
+                    "description": ""
                 },
                 {
                     "name": "display",
-                    "title": "排列",
+                    "title": "展示方式",
                     "type": "string",
                     "options": [
                         {
@@ -3851,7 +3851,7 @@
                         }
                     ],
                     "default": "inline",
-                    "description": "展示方式"
+                    "description": "行内展示，或块级换行展示"
                 }
             ],
             "events": [
@@ -3957,14 +3957,14 @@
                     "name": "max",
                     "title": "最大值",
                     "type": "number",
-                    "description": "最大值，超过最大值会显示为`max+`的形式，要求`value`是 `Number`类型。"
+                    "description": "最大值，超过最大值会显示为“最大值+”的形式，当最大值是数字类型时生效"
                 },
                 {
                     "name": "corner",
                     "title": "插入右上角",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否插入到右上角"
+                    "description": ""
                 },
                 {
                     "name": "dot",
@@ -4286,7 +4286,7 @@
                             "name": "label",
                             "title": "标签",
                             "type": "string",
-                            "description": "标签"
+                            "description": ""
                         },
                         {
                             "name": "span",
@@ -4317,7 +4317,7 @@
                                 }
                             ],
                             "default": "auto",
-                            "description": "标签大小。"
+                            "description": ""
                         },
                         {
                             "name": "ellipsis",
@@ -4349,7 +4349,7 @@
                             "name": "title",
                             "title": "标签",
                             "type": "string",
-                            "description": "标题"
+                            "description": ""
                         },
                         {
                             "name": "repeat",
@@ -4492,7 +4492,7 @@
                         }
                     ],
                     "default": "contain",
-                    "description": "图片地址"
+                    "description": "图片填充方式"
                 },
                 {
                     "name": "convertSrcFn",
@@ -4548,7 +4548,7 @@
                     "title": "数据源",
                     "type": "Array<Item> | Function | object | DataSource",
                     "designer-value": "[{}, {}, {}]",
-                    "description": "表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise。",
+                    "description": "表格的数据源，数据集对象或者返回数据集的逻辑",
                     "group": "数据属性"
                 },
                 {
@@ -4572,7 +4572,7 @@
                     "title": "可分页",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否分页。",
+                    "description": "",
                     "group": "数据属性"
                 },
                 {
@@ -4581,7 +4581,7 @@
                     "type": "number",
                     "sync": true,
                     "default": 20,
-                    "description": "分页大小。",
+                    "description": "",
                     "group": "数据属性"
                 },
                 {
@@ -4590,7 +4590,7 @@
                     "type": "number",
                     "sync": true,
                     "default": 1,
-                    "description": "当前页数。",
+                    "description": "",
                     "group": "数据属性",
                     "schema": {
                         "$ref": "#/basicTypes/Integer"
@@ -4613,7 +4613,7 @@
                     "title": "显示总条目数",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否显示总条目数。",
+                    "description": "",
                     "group": "数据属性"
                 },
                 {
@@ -4621,7 +4621,7 @@
                     "title": "显示分页大小",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否显示切换分页大小选项。",
+                    "description": "",
                     "group": "数据属性"
                 },
                 {
@@ -4629,7 +4629,7 @@
                     "title": "显示跳转输入",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否显示页面跳转输入框。",
+                    "description": "",
                     "group": "数据属性"
                 },
                 {
@@ -4664,7 +4664,7 @@
                     "title": "筛选参数",
                     "type": "object",
                     "sync": true,
-                    "description": "筛选参数。",
+                    "description": "",
                     "advanced": true,
                     "group": "数据属性"
                 },
@@ -4697,7 +4697,7 @@
                     "name": "title",
                     "title": "表格标题",
                     "type": "string",
-                    "description": "表格标题。",
+                    "description": "",
                     "group": "样式属性"
                 },
                 {
@@ -4719,7 +4719,7 @@
                         }
                     ],
                     "default": "center",
-                    "description": "表格标题的对齐方式。",
+                    "description": "",
                     "group": "样式属性"
                 },
                 {
@@ -4727,7 +4727,7 @@
                     "title": "显示边框",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否显示边框。",
+                    "description": "",
                     "group": "样式属性"
                 },
                 {
@@ -4761,7 +4761,7 @@
                     "title": "显示表格头部",
                     "type": "boolean",
                     "default": true,
-                    "description": "是否显示表格头部。",
+                    "description": "",
                     "group": "样式属性"
                 },
                 {
@@ -4793,7 +4793,7 @@
                     "title": "加载失败文字",
                     "type": "string",
                     "default": "加载失败，请重试",
-                    "description": "加载失败时的文字。",
+                    "description": "",
                     "group": "状态属性"
                 },
                 {
@@ -4801,7 +4801,7 @@
                     "title": "暂无数据文字",
                     "type": "string",
                     "default": "暂无数据",
-                    "description": "暂无数据时的文字。",
+                    "description": "",
                     "group": "状态属性"
                 },
                 {
@@ -4849,7 +4849,7 @@
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读。",
+                    "description": "",
                     "group": "选择属性"
                 },
                 {
@@ -4857,7 +4857,7 @@
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用。",
+                    "description": "",
                     "group": "选择属性"
                 },
                 {
@@ -4865,7 +4865,7 @@
                     "title": "手风琴模式",
                     "type": "boolean",
                     "default": false,
-                    "description": "在有`expander`列的情况下，展开一行的同时，是否收起其它行。",
+                    "description": "是否每次只会展开一行",
                     "group": "其它属性"
                 },
                 {
@@ -5749,7 +5749,7 @@
                     "title": "数据源",
                     "type": "Array<Item> | Function | object | DataSource",
                     "designer-value": "[{}, {}, {}]",
-                    "description": "列表的数据源。数组方式表示直接的数据，函数需要返回一个 Promise。",
+                    "description": "列表的数据源，数据集对象或者返回数据集的逻辑",
                     "group": "数据属性"
                 },
                 {
@@ -5773,15 +5773,15 @@
                     "title": "可分页",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否需要分页",
+                    "description": "",
                     "group": "数据属性"
                 },
                 {
                     "name": "page-size",
-                    "title": "分页大小",
+                    "title": "每页数据条数",
                     "type": "number",
                     "default": 50,
-                    "description": "分页大小",
+                    "description": "",
                     "group": "数据属性"
                 },
                 {
@@ -5853,7 +5853,7 @@
                     "title": "后端筛选",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否使用后端筛选",
+                    "description": "",
                     "advanced": true,
                     "group": "数据属性"
                 },
@@ -5862,7 +5862,7 @@
                     "title": "匹配方法",
                     "type": "string, Function",
                     "default": "includes",
-                    "description": "过滤时的匹配方法",
+                    "description": "筛选时的匹配方法",
                     "group": "数据属性"
                 },
                 {
@@ -5870,7 +5870,7 @@
                     "title": "大小写敏感",
                     "type": "boolean",
                     "default": false,
-                    "description": "过滤时大小写是否敏感",
+                    "description": "是否区分大小写",
                     "group": "数据属性"
                 },
                 {
@@ -5878,7 +5878,7 @@
                     "title": "显示头部",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否显示头部",
+                    "description": "",
                     "group": "样式属性"
                 },
                 {
@@ -5886,7 +5886,7 @@
                     "title": "列表标题",
                     "type": "string",
                     "default": "列表",
-                    "description": "列表标题",
+                    "description": "",
                     "group": "样式属性"
                 },
                 {
@@ -5894,7 +5894,7 @@
                     "title": "显示底部",
                     "type": "boolean",
                     "default": true,
-                    "description": "是否显示底部",
+                    "description": "",
                     "group": "样式属性"
                 },
                 {
@@ -5924,7 +5924,7 @@
                         }
                     ],
                     "default": "normal",
-                    "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度",
+                    "description": "设置数据列表大小",
                     "multi": true,
                     "maxSelect": 2,
                     "group": "样式属性"
@@ -5962,10 +5962,10 @@
                 },
                 {
                     "name": "placeholder",
-                    "title": "筛选输入框的占位符",
+                    "title": "搜索框占位符",
                     "type": "string",
                     "default": "请输入",
-                    "description": "搜索框的占位符",
+                    "description": "搜索框为空时提示文本",
                     "group": "状态属性"
                 },
                 {
@@ -5974,7 +5974,7 @@
                     "type": "any",
                     "sync": true,
                     "model": true,
-                    "description": "当前选择的值",
+                    "description": "显示的值",
                     "group": "选择属性"
                 },
                 {
@@ -5982,7 +5982,7 @@
                     "title": "文本字段名",
                     "type": "string",
                     "default": "text",
-                    "description": "选项文本的字段名",
+                    "description": "当开启可多选时，显示的选项文本字段名",
                     "group": "选择属性"
                 },
                 {
@@ -5990,7 +5990,7 @@
                     "title": "值字段名",
                     "type": "string",
                     "default": "value",
-                    "description": "选项值的字段名",
+                    "description": "当开启可多选时，选项值的字段名",
                     "group": "选择属性"
                 },
                 {
@@ -5998,7 +5998,7 @@
                     "title": "可取消",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否可以取消选择",
+                    "description": "",
                     "group": "选择属性"
                 },
                 {
@@ -6006,7 +6006,7 @@
                     "title": "可多选",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否可以多选",
+                    "description": "",
                     "group": "选择属性"
                 },
                 {
@@ -6029,7 +6029,7 @@
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读",
+                    "description": "",
                     "group": "选择属性"
                 },
                 {
@@ -6037,7 +6037,7 @@
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用",
+                    "description": "",
                     "group": "选择属性"
                 }
             ],
@@ -6312,7 +6312,7 @@
                     "title": "数据源",
                     "type": "Array<Item> | Function | object | DataSource",
                     "designer-value": "[{}, {}, {}, {}, {}, {}, {}, {}]",
-                    "description": "表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise。",
+                    "description": "数据网格的数据源，数据集对象或者返回数据集的逻辑",
                     "group": "数据属性"
                 },
                 {
@@ -6336,7 +6336,7 @@
                     "title": "可分页",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否需要分页",
+                    "description": "",
                     "group": "数据属性"
                 },
                 {
@@ -6344,7 +6344,7 @@
                     "title": "分页大小",
                     "type": "number",
                     "default": 50,
-                    "description": "分页大小",
+                    "description": "",
                     "group": "数据属性"
                 },
                 {
@@ -6368,7 +6368,7 @@
                         20,
                         50
                     ],
-                    "description": "分页大小的选项列表。",
+                    "description": "",
                     "group": "数据属性"
                 },
                 {
@@ -6376,7 +6376,7 @@
                     "title": "显示总条目数",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否显示总条目数。",
+                    "description": "",
                     "group": "数据属性"
                 },
                 {
@@ -6384,7 +6384,7 @@
                     "title": "显示分页大小",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否显示切换分页大小选项。",
+                    "description": "",
                     "group": "数据属性"
                 },
                 {
@@ -6392,7 +6392,7 @@
                     "title": "显示跳转输入",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否显示页面跳转输入框。",
+                    "description": "",
                     "group": "数据属性"
                 },
                 {
@@ -6408,7 +6408,7 @@
                     "title": "后端分页",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否使用后端分页。",
+                    "description": "",
                     "group": "数据属性"
                 },
                 {
@@ -6416,7 +6416,7 @@
                     "title": "后端筛选",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否使用后端筛选",
+                    "description": "",
                     "advanced": true,
                     "group": "数据属性"
                 },
@@ -6434,7 +6434,7 @@
                     "title": "大小写敏感",
                     "type": "string, Function",
                     "default": "includes",
-                    "description": "过滤时大小写是否敏感",
+                    "description": "过滤时是否区分大小写",
                     "advanced": true,
                     "group": "数据属性"
                 },
@@ -6451,7 +6451,7 @@
                     "title": "显示头部",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否显示头部",
+                    "description": "",
                     "group": "样式属性"
                 },
                 {
@@ -6459,7 +6459,7 @@
                     "title": "列表标题",
                     "type": "string",
                     "default": "列表",
-                    "description": "列表标题",
+                    "description": "",
                     "group": "样式属性"
                 },
                 {
@@ -6467,7 +6467,7 @@
                     "title": "显示底部",
                     "type": "boolean",
                     "default": true,
-                    "description": "是否显示尾部",
+                    "description": "",
                     "group": "样式属性"
                 },
                 {
@@ -6497,7 +6497,7 @@
                         }
                     ],
                     "default": "normal",
-                    "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度",
+                    "description": "设置数据网格大小",
                     "multi": true,
                     "maxSelect": 2,
                     "advanced": true,
@@ -6536,10 +6536,10 @@
                 },
                 {
                     "name": "placeholder",
-                    "title": "筛选输入框的占位符",
+                    "title": "搜索框占位符",
                     "type": "string",
                     "default": "请输入",
-                    "description": "搜索框的占位符",
+                    "description": "搜索框为空时提示文本",
                     "advanced": true
                 },
                 {
@@ -6573,7 +6573,7 @@
                     "title": "可取消",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否可以取消选择",
+                    "description": "",
                     "advanced": true
                 },
                 {
@@ -6581,7 +6581,7 @@
                     "title": "可多选",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否可以多选",
+                    "description": "",
                     "advanced": true
                 },
                 {
@@ -6594,18 +6594,18 @@
                 },
                 {
                     "name": "readonly",
-                    "title": "是否只读",
+                    "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读",
+                    "description": "",
                     "group": "选择属性"
                 },
                 {
                     "name": "disabled",
-                    "title": "是否禁用",
+                    "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用",
+                    "description": "",
                     "group": "选择属性"
                 }
             ],
@@ -7336,7 +7336,7 @@
                     "title": "数据源",
                     "type": "Array<Item> | Function | object",
                     "designer-value": "[{}]",
-                    "description": "日历数据源，数组方式表示直接的数据，函数需要返回一个 Promise",
+                    "description": "日历的数据源，数据集对象或者返回数据集的逻辑",
                     "group": "数据属性"
                 },
                 {
@@ -7366,14 +7366,14 @@
                     "title": "展示周天",
                     "type": "boolean",
                     "default": true,
-                    "description": "是否展示周天"
+                    "description": ""
                 },
                 {
                     "name": "show-weeks",
                     "title": "展示周数",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否展示周数"
+                    "description": ""
                 },
                 {
                     "name": "show-basic",
@@ -7391,10 +7391,10 @@
                 },
                 {
                     "name": "first-day-of-week",
-                    "title": "周起始日",
+                    "title": "首列星期",
                     "type": "number",
                     "default": 1,
-                    "description": "周起始日，1～7（周一～周日）"
+                    "description": "填写数字1~7，分别表示周一~周日"
                 }
             ],
             "slots": [
@@ -7560,7 +7560,7 @@
                         }
                     ],
                     "default": "block",
-                    "description": "表单布局方式"
+                    "description": ""
                 },
                 {
                     "name": "gap",
@@ -7585,7 +7585,7 @@
                         }
                     ],
                     "default": "normal",
-                    "description": "表单项之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。",
+                    "description": "表单项之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）",
                     "multi": true,
                     "maxSelect": 2
                 },
@@ -7612,7 +7612,7 @@
                         }
                     ],
                     "default": "normal",
-                    "description": "标签宽度。"
+                    "description": ""
                 },
                 {
                     "name": "size",
@@ -7629,7 +7629,7 @@
                         }
                     ],
                     "default": "normal",
-                    "description": "表单尺寸，表单组间隙等"
+                    "description": ""
                 },
                 {
                     "name": "collapsible",
@@ -8184,7 +8184,7 @@
                         }
                     ],
                     "default": "text",
-                    "description": "输入框的类型"
+                    "description": "文本框或者密码框"
                 },
                 {
                     "name": "value",
@@ -8204,20 +8204,20 @@
                     "name": "placeholder",
                     "title": "占位符",
                     "type": "string",
-                    "description": "原生属性"
+                    "description": "为空时的提示文本"
                 },
                 {
                     "name": "minlength",
                     "title": "最小长度",
                     "type": "number",
-                    "description": "最小输入长度",
+                    "description": "",
                     "advanced": true
                 },
                 {
                     "name": "maxlength",
                     "title": "最大长度",
                     "type": "number",
-                    "description": "最大输入长度"
+                    "description": ""
                 },
                 {
                     "name": "spellcheck",
@@ -8238,14 +8238,14 @@
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读"
+                    "description": ""
                 },
                 {
                     "name": "disabled",
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用"
+                    "description": ""
                 },
                 {
                     "name": "size",
@@ -8282,7 +8282,7 @@
                         }
                     ],
                     "default": "normal",
-                    "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度",
+                    "description": "设置单行输入框大小",
                     "multi": true,
                     "maxSelect": 2
                 },
@@ -8309,7 +8309,7 @@
                         }
                     ],
                     "default": "",
-                    "description": "前缀图标"
+                    "description": ""
                 },
                 {
                     "name": "suffix",
@@ -8326,7 +8326,7 @@
                         }
                     ],
                     "default": "",
-                    "description": "后缀图标"
+                    "description": ""
                 }
             ],
             "slots": [
@@ -8621,14 +8621,14 @@
                     "title": "最小值",
                     "type": "number",
                     "default": null,
-                    "description": "最小值"
+                    "description": ""
                 },
                 {
                     "name": "max",
                     "title": "最大值",
                     "type": "number",
                     "default": null,
-                    "description": "最大值"
+                    "description": ""
                 },
                 {
                     "name": "step",
@@ -8655,20 +8655,20 @@
                     "name": "placeholder",
                     "title": "占位符",
                     "type": "string",
-                    "description": "原生属性"
+                    "description": "为空时的提示文本"
                 },
                 {
                     "name": "autofocus",
                     "title": "自动获取焦点",
                     "type": "boolean",
-                    "description": "原生属性"
+                    "description": ""
                 },
                 {
                     "name": "hide-buttons",
                     "title": "隐藏按钮",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否隐藏按钮"
+                    "description": "是否隐藏上下点击按钮"
                 },
                 {
                     "name": "clearable",
@@ -8681,14 +8681,14 @@
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读"
+                    "description": ""
                 },
                 {
                     "name": "disabled",
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用"
+                    "description": ""
                 },
                 {
                     "name": "size",
@@ -8725,7 +8725,7 @@
                         }
                     ],
                     "default": "normal",
-                    "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度",
+                    "description": "设置数字输入框大小",
                     "multi": true,
                     "maxSelect": 2
                 }
@@ -8928,14 +8928,14 @@
                     "title": "占位符",
                     "type": "string",
                     "default": null,
-                    "description": "为空时提示内容"
+                    "description": "为空时的提示文本"
                 },
                 {
                     "name": "minlength",
                     "title": "最小长度",
                     "type": "number",
                     "default": null,
-                    "description": "原生属性",
+                    "description": "",
                     "advanced": true
                 },
                 {
@@ -8943,14 +8943,14 @@
                     "title": "最大长度",
                     "type": "number",
                     "default": null,
-                    "description": "原生属性"
+                    "description": ""
                 },
                 {
                     "name": "spellcheck",
                     "title": "拼写检查",
                     "type": "boolean",
                     "default": null,
-                    "description": "原生属性",
+                    "description": "",
                     "advanced": true
                 },
                 {
@@ -8958,7 +8958,7 @@
                     "title": "自动获取焦点",
                     "type": "boolean",
                     "default": null,
-                    "description": "是否自动获取焦点",
+                    "description": "",
                     "advanced": true
                 },
                 {
@@ -8966,14 +8966,14 @@
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读"
+                    "description": ""
                 },
                 {
                     "name": "disabled",
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用"
+                    "description": ""
                 },
                 {
                     "name": "size",
@@ -9002,7 +9002,7 @@
                         }
                     ],
                     "default": "normal",
-                    "description": "设置尺寸"
+                    "description": "设置多行输入框大小"
                 },
                 {
                     "name": "resize",
@@ -9293,14 +9293,14 @@
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读"
+                    "description": ""
                 },
                 {
                     "name": "disabled",
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用"
+                    "description": ""
                 }
             ],
             "slots": [
@@ -9457,7 +9457,7 @@
                             "name": "text",
                             "title": "文本",
                             "type": "string",
-                            "description": "文本内容"
+                            "description": "显示文本内容"
                         },
                         {
                             "name": "label",
@@ -9470,21 +9470,21 @@
                             "title": "只读",
                             "type": "boolean",
                             "default": false,
-                            "description": "禁用只读"
+                            "description": ""
                         },
                         {
                             "name": "disabled",
                             "title": "禁用",
                             "type": "boolean",
                             "default": false,
-                            "description": "禁用此项"
+                            "description": ""
                         },
                         {
                             "name": "autofocus",
                             "title": "自动获取焦点",
                             "type": "boolean",
                             "default": false,
-                            "description": "自动获取焦点"
+                            "description": ""
                         }
                     ],
                     "events": [
@@ -9569,14 +9569,14 @@
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读"
+                    "description": ""
                 },
                 {
                     "name": "disabled",
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用"
+                    "description": ""
                 },
                 {
                     "name": "with-text",
@@ -9804,14 +9804,14 @@
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读"
+                    "description": ""
                 },
                 {
                     "name": "disabled",
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用"
+                    "description": ""
                 },
                 {
                     "name": "converter",
@@ -9840,7 +9840,7 @@
                         }
                     ],
                     "default": "",
-                    "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象",
+                    "description": "将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式",
                     "bindHide": true
                 }
             ],
@@ -9939,7 +9939,7 @@
                             "name": "text",
                             "title": "文本",
                             "type": "string",
-                            "description": "文本内容"
+                            "description": "显示文本内容"
                         },
                         {
                             "name": "value",
@@ -9954,28 +9954,28 @@
                             "name": "label",
                             "title": "选项值",
                             "type": "any",
-                            "description": "多选框选项值，只在多选组中使用。"
+                            "description": "多选框选项值，只在多选组中使用"
                         },
                         {
                             "name": "readonly",
                             "title": "只读",
                             "type": "boolean",
                             "default": false,
-                            "description": "是否只读"
+                            "description": ""
                         },
                         {
                             "name": "disabled",
                             "title": "禁用",
                             "type": "boolean",
                             "default": false,
-                            "description": "是否禁用"
+                            "description": ""
                         },
                         {
                             "name": "autofocus",
                             "title": "自动获取焦点",
                             "type": "boolean",
                             "default": false,
-                            "description": "自动获取焦点"
+                            "description": ""
                         }
                     ],
                     "next": false,
@@ -10150,7 +10150,7 @@
                     "sync": true,
                     "model": true,
                     "default": null,
-                    "description": "当前选择的值"
+                    "description": ""
                 },
                 {
                     "name": "auto-select",
@@ -10178,14 +10178,14 @@
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读"
+                    "description": ""
                 },
                 {
                     "name": "disabled",
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用"
+                    "description": ""
                 }
             ],
             "slots": [
@@ -10552,7 +10552,7 @@
                     "type": "any",
                     "sync": true,
                     "model": true,
-                    "description": "当前选择的值"
+                    "description": ""
                 },
                 {
                     "name": "text-field",
@@ -10572,14 +10572,14 @@
                     "name": "data-source",
                     "title": "数据源",
                     "type": "Array<Item> | Function | object | DataSource",
-                    "description": "选择框的数据源。数组方式表示直接的数据，函数需要返回一个 Promise，详见文档示例。"
+                    "description": "选择框的数据源，数据集对象或者返回数据集的逻辑"
                 },
                 {
                     "name": "cancelable",
                     "title": "可取消",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否可以取消选择",
+                    "description": "",
                     "hidden": true
                 },
                 {
@@ -10612,7 +10612,7 @@
                         }
                     ],
                     "default": null,
-                    "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象",
+                    "description": "将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式。",
                     "bindHide": true
                 },
                 {
@@ -10620,14 +10620,14 @@
                     "title": "占位符",
                     "type": "string",
                     "default": "请选择",
-                    "description": "选择框的占位符。"
+                    "description": "选择框的占位符"
                 },
                 {
                     "name": "loading-text",
                     "title": "加载中文字",
                     "type": "string",
                     "default": "加载中...",
-                    "description": "正在加载中的文字。使用分页加载时才会出现。",
+                    "description": "正在加载中的文字，使用分页加载时才会出现",
                     "advanced": true
                 },
                 {
@@ -10635,7 +10635,7 @@
                     "title": "暂无数据文字",
                     "type": "string",
                     "default": "暂无数据",
-                    "description": "暂无数据时的文字。",
+                    "description": "暂无数据时的文字",
                     "advanced": true
                 },
                 {
@@ -10643,28 +10643,28 @@
                     "title": "为空自动禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "没有数据时，自动禁用。"
+                    "description": "没有数据时，自动禁用"
                 },
                 {
                     "name": "initial-load",
                     "title": "初始时加载",
                     "type": "boolean",
                     "default": true,
-                    "description": "是否在初始时立即加载。"
+                    "description": "是否在初始时立即加载"
                 },
                 {
                     "name": "pageable",
                     "title": "分页加载更多",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否使用分页功能加载更多。"
+                    "description": "是否使用分页功能加载更多"
                 },
                 {
                     "name": "remote-paging",
                     "title": "后端分页",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否使用后端分页。"
+                    "description": "是否使用后端分页"
                 },
                 {
                     "name": "page-size",
@@ -10672,7 +10672,7 @@
                     "type": "number",
                     "sync": true,
                     "default": 50,
-                    "description": "分页大小。",
+                    "description": "",
                     "advanced": true
                 },
                 {
@@ -10680,21 +10680,21 @@
                     "title": "清除按钮",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否有清除按钮。"
+                    "description": "是否有清除按钮"
                 },
                 {
                     "name": "filterable",
                     "title": "可筛选",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否使用输入框进行筛选。"
+                    "description": "是否使用输入框进行筛选"
                 },
                 {
                     "name": "remote-filtering",
                     "title": "后端筛选",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否使用后端筛选。"
+                    "description": "是否使用后端筛选"
                 },
                 {
                     "name": "match-method",
@@ -10715,7 +10715,7 @@
                         }
                     ],
                     "default": "includes",
-                    "description": "过滤时的匹配方法。"
+                    "description": "过滤时的匹配方法"
                 },
                 {
                     "name": "case-sensitive",
@@ -10730,7 +10730,7 @@
                     "title": "自动补全",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否开启自动补充模式，用于增加列表中没有的项。",
+                    "description": "是否开启自动补充模式，用于增加列表中没有的项",
                     "advanced": true
                 },
                 {
@@ -10738,14 +10738,14 @@
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读"
+                    "description": ""
                 },
                 {
                     "name": "disabled",
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用"
+                    "description": ""
                 },
                 {
                     "name": "size",
@@ -10799,7 +10799,7 @@
                     "title": "自动获取焦点",
                     "type": "boolean",
                     "default": false,
-                    "description": "自动获取焦点"
+                    "description": ""
                 },
                 {
                     "name": "prefix",
@@ -10816,7 +10816,7 @@
                         }
                     ],
                     "default": "",
-                    "description": "前缀图标"
+                    "description": ""
                 },
                 {
                     "name": "suffix",
@@ -10833,7 +10833,7 @@
                         }
                     ],
                     "default": "",
-                    "description": "后缀图标"
+                    "description": ""
                 }
             ],
             "slots": [
@@ -11391,21 +11391,21 @@
                     "sync": true,
                     "model": true,
                     "default": 0,
-                    "description": "评分值"
+                    "description": ""
                 },
                 {
                     "name": "max",
                     "title": "最大分数",
                     "type": "number",
                     "default": 5,
-                    "description": "最大分数"
+                    "description": ""
                 },
                 {
                     "name": "readonly",
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读"
+                    "description": ""
                 }
             ],
             "events": [
@@ -11465,28 +11465,28 @@
                     "sync": true,
                     "model": true,
                     "default": 0,
-                    "description": "滑块的值"
+                    "description": ""
                 },
                 {
                     "name": "min",
                     "title": "最小值",
                     "type": "number",
                     "default": 0,
-                    "description": "最小值"
+                    "description": ""
                 },
                 {
                     "name": "max",
                     "title": "最大值",
                     "type": "number",
                     "default": 100,
-                    "description": "最大值"
+                    "description": ""
                 },
                 {
                     "name": "step",
                     "title": "间隔",
                     "type": "number",
                     "default": 1,
-                    "description": "间隔。`0`表示连续"
+                    "description": "间隔，`0`表示连续"
                 },
                 {
                     "name": "precision",
@@ -11500,14 +11500,14 @@
                     "title": "范围",
                     "type": "Array",
                     "default": [],
-                    "description": "进一步对`value`限制，通常传入一个数组，第一个值表示范围开始值，第二个值表示范围的结束值。"
+                    "description": "进一步对`value`限制，通常传入一个数组，第一个值表示范围开始值，第二个值表示范围的结束值"
                 },
                 {
                     "name": "formatter",
                     "title": "格式化",
                     "type": "string, object",
                     "default": null,
-                    "description": "格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。",
+                    "description": "格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象",
                     "advanced": true
                 },
                 {
@@ -11525,7 +11525,7 @@
                         }
                     ],
                     "default": "input",
-                    "description": "同步时机"
+                    "description": ""
                 },
                 {
                     "name": "hide-buttons",
@@ -11539,28 +11539,28 @@
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读"
+                    "description": ""
                 },
                 {
                     "name": "disabled",
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用"
+                    "description": ""
                 },
                 {
                     "name": "unit",
                     "title": "单位",
                     "type": "string",
                     "default": null,
-                    "description": "单位"
+                    "description": ""
                 },
                 {
                     "name": "tip",
                     "title": "提示",
                     "type": "string",
                     "default": null,
-                    "description": "提示"
+                    "description": ""
                 }
             ],
             "events": [
@@ -11737,13 +11737,13 @@
                     "name": "accept",
                     "title": "接受的上传类型",
                     "type": "string",
-                    "description": "接受的上传类型"
+                    "description": ""
                 },
                 {
                     "name": "headers",
                     "title": "请求 headers",
                     "type": "Object",
-                    "description": "请求 headers"
+                    "description": ""
                 },
                 {
                     "name": "with-credentials",
@@ -11757,7 +11757,7 @@
                     "title": "多文件上传",
                     "type": "boolean",
                     "default": false,
-                    "description": "多文件上传"
+                    "description": ""
                 },
                 {
                     "name": "multiple-once",
@@ -11780,14 +11780,14 @@
                     "title": "附加数据",
                     "type": "object",
                     "default": null,
-                    "description": "附加数据"
+                    "description": ""
                 },
                 {
                     "name": "limit",
                     "title": "列表数量上限",
                     "type": "number",
                     "default": 999,
-                    "description": "列表数量上限"
+                    "description": ""
                 },
                 {
                     "name": "max-size",
@@ -11829,21 +11829,21 @@
                     "title": "是否自动上传",
                     "type": "boolean",
                     "default": true,
-                    "description": "是否自动上传"
+                    "description": ""
                 },
                 {
                     "name": "draggable",
                     "title": "是否可以拖拽",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否可以拖拽上传"
+                    "description": ""
                 },
                 {
                     "name": "pastable",
                     "title": "是否可以粘贴",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否可以粘贴",
+                    "description": "",
                     "advanced": true
                 },
                 {
@@ -11851,7 +11851,7 @@
                     "title": "是否显示文件列表",
                     "type": "boolean",
                     "default": true,
-                    "description": "是否显示文件列表"
+                    "description": ""
                 },
                 {
                     "name": "converter",
@@ -11868,21 +11868,21 @@
                         }
                     ],
                     "default": "json",
-                    "description": "转换器"
+                    "description": ""
                 },
                 {
                     "name": "readonly",
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读"
+                    "description": ""
                 },
                 {
                     "name": "disabled",
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用"
+                    "description": ""
                 },
                 {
                     "name": "display",
@@ -11899,7 +11899,7 @@
                         }
                     ],
                     "default": "block",
-                    "description": "展示方式"
+                    "description": "行内展示，或块级换行展示"
                 },
                 {
                     "name": "description",
@@ -12178,7 +12178,7 @@
                     "title": "绑定路由",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否根据 vue-router 来控制选择哪个标签页。",
+                    "description": "是否根据 vue-router 来控制选择哪个标签页",
                     "advanced": true
                 },
                 {
@@ -12187,28 +12187,28 @@
                     "type": "any",
                     "sync": true,
                     "model": true,
-                    "description": "选中标签页的值。"
+                    "description": ""
                 },
                 {
                     "name": "readonly",
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读。"
+                    "description": ""
                 },
                 {
                     "name": "disabled",
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用。"
+                    "description": ""
                 },
                 {
                     "name": "closable",
                     "title": "可关闭",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否可以关闭。",
+                    "description": "是否可以关闭",
                     "advanced": true
                 },
                 {
@@ -12696,14 +12696,14 @@
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读。非只读的情况下可以选择"
+                    "description": "是否只读，非只读的情况下可以选择"
                 },
                 {
                     "name": "disabled",
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用"
+                    "description": ""
                 },
                 {
                     "name": "size",
@@ -12842,14 +12842,14 @@
                             "title": "标题",
                             "type": "string",
                             "default": null,
-                            "description": "步骤名"
+                            "description": ""
                         },
                         {
                             "name": "disabled",
                             "title": "禁用",
                             "type": "boolean",
                             "default": false,
-                            "description": "是否禁用此标签页"
+                            "description": ""
                         }
                     ],
                     "slots": [
@@ -12909,14 +12909,14 @@
                     "type": "number",
                     "sync": true,
                     "default": 1,
-                    "description": "当前页码"
+                    "description": ""
                 },
                 {
                     "name": "total",
                     "title": "总页数",
                     "type": "number",
                     "default": 11,
-                    "description": "总页数"
+                    "description": ""
                 },
                 {
                     "name": "side",
@@ -12937,14 +12937,14 @@
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读"
+                    "description": ""
                 },
                 {
                     "name": "disabled",
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用"
+                    "description": ""
                 },
                 {
                     "name": "total-items",
@@ -12958,7 +12958,7 @@
                     "type": "number",
                     "sync": true,
                     "default": 20,
-                    "description": "每页条数"
+                    "description": ""
                 },
                 {
                     "name": "page-size-options",
@@ -12976,7 +12976,7 @@
                     "title": "总条数",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否显示总条目数"
+                    "description": ""
                 },
                 {
                     "name": "show-sizer",
@@ -13166,7 +13166,7 @@
                     "sync": true,
                     "model": true,
                     "default": null,
-                    "description": "当前选择的值"
+                    "description": ""
                 },
                 {
                     "name": "categories",
@@ -13206,7 +13206,7 @@
                         }
                     ],
                     "default": "join",
-                    "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value，`'join.number'`与`join`类似，只是会考虑它为数字的情况。也可以用`:`修改分隔符，类似 Vue 的指令参数，`'last-value'`表示以最后一项的值作为 value。也可以传入一个包含 { get, set } 的一个对象",
+                    "description": "将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式",
                     "advanced": true
                 },
                 {
@@ -13221,14 +13221,14 @@
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读"
+                    "description": ""
                 },
                 {
                     "name": "disabled",
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用"
+                    "description": ""
                 }
             ],
             "events": [
@@ -13383,7 +13383,7 @@
                     "sync": true,
                     "model": true,
                     "default": null,
-                    "description": "当前选择的值"
+                    "description": ""
                 },
                 {
                     "name": "categories",
@@ -13422,7 +13422,7 @@
                         }
                     ],
                     "default": "join",
-                    "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value，`'join.number'`与`join`类似，只是会考虑它为数字的情况。也可以用`:`修改分隔符，类似 Vue 的指令参数，`'last-value'`表示以最后一项的值作为 value。也可以传入一个包含 { get, set } 的一个对象",
+                    "description": "将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式",
                     "advanced": true
                 },
                 {
@@ -13437,14 +13437,14 @@
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读"
+                    "description": ""
                 },
                 {
                     "name": "disabled",
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用"
+                    "description": ""
                 }
             ],
             "events": [
@@ -13597,7 +13597,7 @@
                     "type": "any",
                     "sync": true,
                     "model": true,
-                    "description": "当前选择的值"
+                    "description": ""
                 },
                 {
                     "name": "text-field",
@@ -13656,14 +13656,14 @@
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读"
+                    "description": ""
                 },
                 {
                     "name": "disabled",
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用"
+                    "description": ""
                 },
                 {
                     "name": "check-controlled",
@@ -14006,40 +14006,40 @@
                             "name": "value",
                             "title": "值",
                             "type": "any",
-                            "description": "此项的值"
+                            "description": "节点的值"
                         },
                         {
                             "name": "text",
                             "title": "文本",
                             "type": "string",
-                            "description": "此项的显示值"
+                            "description": "节点的文本"
                         },
                         {
                             "name": "expanded",
                             "title": "展开折叠状态",
                             "type": "boolean",
                             "sync": true,
-                            "description": "展开/折叠状态"
+                            "description": "节点默认展开"
                         },
                         {
                             "name": "checked",
                             "title": "选中取消状态",
                             "type": "boolean",
                             "sync": true,
-                            "description": "选中/取消状态"
+                            "description": "是否可以选中/取消"
                         },
                         {
                             "name": "disabled",
                             "title": "禁用",
                             "type": "boolean",
                             "default": false,
-                            "description": "禁用此项"
+                            "description": ""
                         },
                         {
                             "name": "node",
                             "title": "相关对象",
                             "type": "object",
-                            "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发",
+                            "description": "当选择此节点时，抛出的事件会传递该对象，便于开发",
                             "advanced": true
                         }
                     ],
@@ -14241,7 +14241,7 @@
                     "title": "显示头部",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否显示头部"
+                    "description": ""
                 },
                 {
                     "name": "source-title",
@@ -14262,28 +14262,28 @@
                     "title": "显示尾部",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否显示尾部"
+                    "description": ""
                 },
                 {
                     "name": "filterable",
                     "title": "过滤",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否可以过滤（搜索），开启将会显示搜索框。"
+                    "description": "显示过滤（搜索框）"
                 },
                 {
                     "name": "placeholder",
                     "title": "占位符",
                     "type": "string",
                     "default": "请输入",
-                    "description": "搜索框的占位符"
+                    "description": "搜索框的提示文字"
                 },
                 {
                     "name": "clearable",
                     "title": "清除",
                     "type": "boolean",
                     "default": false,
-                    "description": "搜索框是否有清除按钮"
+                    "description": "搜索框输入内容支持一键清除"
                 },
                 {
                     "name": "match-method",
@@ -14298,7 +14298,7 @@
                     "title": "大小写敏感",
                     "type": "boolean",
                     "default": false,
-                    "description": "过滤时大小写是否敏感"
+                    "description": "过滤时大小写敏感"
                 },
                 {
                     "name": "pageable",
@@ -14313,7 +14313,7 @@
                     "title": "分页大小",
                     "type": "number",
                     "default": 50,
-                    "description": "分页大小",
+                    "description": "",
                     "advanced": true
                 },
                 {
@@ -14321,14 +14321,14 @@
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读"
+                    "description": ""
                 },
                 {
                     "name": "disabled",
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用"
+                    "description": ""
                 }
             ],
             "slots": [
@@ -14528,14 +14528,14 @@
                         }
                     ],
                     "default": "date",
-                    "description": "用于定义选择的格式"
+                    "description": "日期格式设置"
                 },
                 {
                     "name": "width",
                     "title": "输入框宽度",
                     "type": "number",
                     "default": 160,
-                    "description": "输入框宽度"
+                    "description": ""
                 },
                 {
                     "name": "date",
@@ -14544,35 +14544,35 @@
                     "sync": true,
                     "model": true,
                     "default": null,
-                    "description": "选择值"
+                    "description": "默认显示的日期值，格式如2018-08-08"
                 },
                 {
                     "name": "minDate",
                     "title": "最小日期",
                     "type": "string,number,Date",
                     "default": null,
-                    "description": "最小日期"
+                    "description": "支持输入的最小日期，不限制填写null"
                 },
                 {
                     "name": "maxDate",
                     "title": "最大日期",
                     "type": "string,number,Date",
                     "default": null,
-                    "description": "最大日期"
+                    "description": "支持输入的最大日期，不限制填写null"
                 },
                 {
                     "name": "readonly",
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读"
+                    "description": ""
                 },
                 {
                     "name": "disabled",
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用"
+                    "description": ""
                 },
                 {
                     "name": "autofocus",
@@ -14587,13 +14587,13 @@
                     "title": "文本框默认提示",
                     "type": "string",
                     "default": "请输入",
-                    "description": "文本框默认提示"
+                    "description": "输入框的提示文字"
                 },
                 {
                     "name": "clearable",
                     "title": "清除按钮",
                     "type": "boolean",
-                    "description": "开启并在输入框有内容时会显示清除按钮。"
+                    "description": "输入框输入内容支持一键清除"
                 },
                 {
                     "name": "alignment",
@@ -14610,7 +14610,7 @@
                         }
                     ],
                     "default": "left",
-                    "description": "日历弹窗对其方式"
+                    "description": "日历弹窗对齐方式"
                 },
                 {
                     "name": "time",
@@ -14792,7 +14792,7 @@
                     "sync": true,
                     "model": true,
                     "default": "00:00",
-                    "description": "当前的时间值"
+                    "description": "默认显示的时间值，格式如08:08:08"
                 },
                 {
                     "name": "minUnit",
@@ -14816,14 +14816,14 @@
                     "title": "最小时间",
                     "type": "string",
                     "default": "00:00:00",
-                    "description": "最小时间"
+                    "description": "支持输入的最小时间"
                 },
                 {
                     "name": "maxTime",
                     "title": "最大时间",
                     "type": "string",
-                    "default": "23:59:59",
-                    "description": "最大时间"
+                    "default": 86399,
+                    "description": "支持输入的最大时间"
                 },
                 {
                     "name": "autofocus",
@@ -14838,14 +14838,14 @@
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读"
+                    "description": ""
                 },
                 {
                     "name": "disabled",
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用"
+                    "description": ""
                 },
                 {
                     "name": "visible",
@@ -14929,28 +14929,28 @@
                     "sync": true,
                     "model": true,
                     "default": null,
-                    "description": "显示的日期值"
+                    "description": "默认显示的日期时间值，格式如2018-08-08 08:08:08"
                 },
                 {
                     "name": "minDate",
                     "title": "最小日期值",
                     "type": "string, number, Date",
                     "default": null,
-                    "description": "最小日期值"
+                    "description": "支持输入的最小日期时间，不限制填写null"
                 },
                 {
                     "name": "maxDate",
                     "title": "最大日期值",
                     "type": "string, number, Date",
                     "default": null,
-                    "description": "最大日期值"
+                    "description": "支持输入的最大日期时间，不限制填写null"
                 },
                 {
                     "name": "placeholder",
                     "title": "默认提示文案",
                     "type": "string",
                     "default": "请选择时间",
-                    "description": "默认提示语"
+                    "description": "输入框的提示文字"
                 },
                 {
                     "name": "autofocus",
@@ -14964,21 +14964,21 @@
                     "name": "clearable",
                     "title": "清除按钮",
                     "type": "boolean",
-                    "description": "开启并在输入框有内容时会显示清除按钮。"
+                    "description": "输入框输入内容支持一键清除"
                 },
                 {
                     "name": "disabled",
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁用"
+                    "description": ""
                 },
                 {
                     "name": "readonly",
                     "title": "只读",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否只读"
+                    "description": ""
                 },
                 {
                     "name": "yearDiff",
@@ -15107,7 +15107,7 @@
                     "title": "百分比",
                     "type": "number",
                     "default": 0,
-                    "description": "百分比，0-100 之间的数字"
+                    "description": "进度条显示的进度百分比，1-100之间的数字"
                 },
                 {
                     "name": "size",
@@ -15132,7 +15132,7 @@
                         }
                     ],
                     "default": "normal",
-                    "description": "高度扩展"
+                    "description": "进度条高度大小"
                 },
                 {
                     "name": "range",
@@ -15189,7 +15189,7 @@
                     "title": "百分比",
                     "type": "number",
                     "default": 0,
-                    "description": "百分比"
+                    "description": "进度条显示的进度百分比，1-100之间的数字"
                 }
             ],
             "slots": [
@@ -15577,7 +15577,7 @@
                     "type": "boolean",
                     "sync": true,
                     "default": false,
-                    "description": "是否显示"
+                    "description": "弹窗默认打开"
                 },
                 {
                     "name": "ok-button",
@@ -15622,7 +15622,7 @@
                         }
                     ],
                     "default": "normal",
-                    "description": "弹框的尺寸"
+                    "description": "弹窗的尺寸"
                 },
                 {
                     "name": "icon",
@@ -15643,7 +15643,7 @@
                         }
                     ],
                     "default": null,
-                    "description": "提示图标"
+                    "description": ""
                 },
                 {
                     "name": "static",
@@ -15658,7 +15658,7 @@
                     "title": "点击遮罩关闭",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否点击遮罩时关闭弹窗"
+                    "description": "点击遮罩关闭弹窗"
                 }
             ],
             "slots": [
@@ -15847,7 +15847,7 @@
                     "title": "透明程度",
                     "type": "number",
                     "default": 0.1,
-                    "description": "透明程度, 0-1 之间的小数"
+                    "description": "0-1之间的小数，0代表完全透明，1代表完全不透明"
                 }
             ],
             "children": []
@@ -15995,7 +15995,7 @@
                     "title": "禁用",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否禁止复制"
+                    "description": "禁止复制"
                 }
             ],
             "slots": [
@@ -16075,14 +16075,14 @@
                     "type": "number",
                     "default": 5,
                     "title": "每页条数",
-                    "description": "每页条数"
+                    "description": "每页展示的任务数量"
                 },
                 {
                     "name": "interval",
                     "type": "number",
                     "default": 30,
                     "title": "时间间隔 s",
-                    "description": "定时刷新时间间隔 s"
+                    "description": "任务刷新时间间隔"
                 },
                 {
                     "name": "title",

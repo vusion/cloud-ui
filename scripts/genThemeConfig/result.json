@@ -127,12 +127,16 @@
                 "type": ["", "success", "warning", "danger"],
                 "cssProperty": {
                     "--link-color": "color",
+                    "--link-color-hover": "color",
                     "--link-color-success": "color",
+                    "--link-color-success-hover": "color",
                     "--link-color-warning": "color",
+                    "--link-color-warning-hover": "color",
                     "--link-color-danger": "color",
+                    "--link-color-danger-hover": "color",
                     "--link-color-disabled": "color"
                 },
-                "blocks": "<div>\n    <u-link style=\"margin-right:24px;\">Base</u-link>\n    <u-link style=\"margin-right:24px;\" color=\"success\">Success</u-link>\n    <u-link style=\"margin-right:24px;\" color=\"warning\">Warning</u-link>\n    <u-link style=\"margin-right:24px;\" color=\"danger\">Danger</u-link>\n    <u-link disabled>Disabled</u-link>\n</div>"
+                "blocks": "<div>\n    <div style=\"margin-bottom: 40px;\">\n        <div :class=\"$style.componentClassTitle\">鼠标悬停状态为下划线</div>\n        <u-link style=\"margin-right:24px;\">Base</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"success\">Success</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"warning\">Warning</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"danger\">Danger</u-link>\n        <u-link disabled>Disabled</u-link>\n    </div>\n    <div>\n        <div :class=\"$style.componentClassTitle\">鼠标悬停状态为颜色变化</div>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\">Base</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"success\">Success</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"warning\">Warning</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"danger\">Danger</u-link>\n        <u-link hovertype=\"color\" disabled>Disabled</u-link>\n    </div>\n</div>"
             },
             {
                 "id": 14,
@@ -396,7 +400,21 @@
                     "--select-popper-border-color": "color",
                     "--select-popper-border-color-inverse": "color",
                     "--select-status-color": "color",
-                    "--select-box-shadow-focus": "input"
+                    "--select-box-shadow-focus": "input",
+                    "--select-popper-item-color": "color",
+                    "--select-popper-item-background": "color",
+                    "--select-popper-item-color-hover": "color",
+                    "--select-popper-item-background-hover": "color",
+                    "--select-popper-item-color-readonly": "color",
+                    "--select-popper-item-background-readonly": "color",
+                    "--select-popper-item-color-selected": "color",
+                    "--select-popper-item-background-selected": "color",
+                    "--select-popper-item-color-selected-disabled": "color",
+                    "--select-popper-item-background-selected-disabled": "color",
+                    "--select-popper-item-color-duplicated": "color",
+                    "--select-popper-item-background-duplicated": "color",
+                    "--select-popper-item-color-duplicated-hover": "color",
+                    "--select-popper-item-background-duplicated-hover": "color"
                 },
                 "blocks": "<u-select>\n                                <u-select-item value=\"java\">Java</u-select-item>\n                                <u-select-item value=\"nodejs\">Node.js</u-select-item>\n                                <u-select-item value=\"go\">Go</u-select-item>\n                            </u-select>"
             },
