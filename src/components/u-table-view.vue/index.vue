@@ -562,7 +562,6 @@ export default {
         handleResize() {
             this.tableWidth = undefined;
             // this.bodyHeight = undefined;
-            const defaultColumnWidth = this.defaultColumnWidth;
             this.clearTimeout();
             this.timer = setTimeout(() => {
                 this.timer = undefined;
@@ -583,15 +582,19 @@ export default {
                 let fixedLeftCount = 0;
                 let fixedRightCount = 0;
                 let lastIsFixed = false;
+                let defaultColumnWidth = this.defaultColumnWidth;
+                if (String(defaultColumnWidth).endsWith('%')) {
+                    defaultColumnWidth = (parseFloat(defaultColumnWidth) * rootWidth) / 100;
+                }
+                defaultColumnWidth = defaultColumnWidth? defaultColumnWidth: 0;
                 this.visibleColumnVMs.forEach((columnVM, index) => {
-                    if (defaultColumnWidth) {
-                        if (!columnVM.currentWidth) {
-                            columnVM.currentWidth = defaultColumnWidth;
-                        }
-                    }
-                    if (!columnVM.currentWidth)
+                    if (!columnVM.currentWidth){
                         noWidthColumnVMs.push(columnVM);
-                    else if (String(columnVM.currentWidth).endsWith('%'))
+                        columnVM.currentWidth = defaultColumnWidth;
+                    }
+                });
+                this.visibleColumnVMs.forEach((columnVM, index) => {
+                    if (String(columnVM.currentWidth).endsWith('%'))
                         percentColumnVMs.push(columnVM);
                     else
                         valueColumnVMs.push(columnVM);
@@ -630,8 +633,13 @@ export default {
 
                 const remainingWidth = rootWidth - percentWidthSum - valueWidthSum;
                 if (remainingWidth > 0 && noWidthColumnVMs.length) {
-                    const averageWidth = remainingWidth / noWidthColumnVMs.length;
-                    noWidthColumnVMs.forEach((columnVM) => columnVM.computedWidth = averageWidth);
+                    if(defaultColumnWidth){
+                        const averageWidth = remainingWidth / noWidthColumnVMs.length;
+                        noWidthColumnVMs.forEach((columnVM) => columnVM.computedWidth = columnVM.computedWidth + averageWidth);
+                    } else {
+                        const averageWidth = remainingWidth / noWidthColumnVMs.length;
+                        noWidthColumnVMs.forEach((columnVM) => columnVM.computedWidth = averageWidth);
+                    }
                 } else if (remainingWidth > 0 && valueWidthSum !== 0) {
                     const averageWidth = remainingWidth / valueColumnVMs.length;
                     valueColumnVMs.forEach((columnVM) => columnVM.computedWidth = columnVM.computedWidth + averageWidth);
