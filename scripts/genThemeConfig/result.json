@@ -1,586 +1,676 @@
 [
     {
-        "name": "u-crumb",
-        "properties": {
-            "--crumb-color-link": { "type": "input", "default": "var(--brand-primary)" },
-            "--crumb-color-disabled": { "type": "input", "default": "var(--brand-disabled)" },
-            "--crumb-space-x": { "type": "input", "default": "6px" }
-        }
+        "id": 0,
+        "title": "快速自定义样式",
+        "toPosition": "quickSetting",
+        "items": [
+            {
+                "id": 1,
+                "title": "主题颜色",
+                "toPosition": "colorStyle",
+                "type": [],
+                "cssProperty": {}
+            },
+            {
+                "id": 2,
+                "title": "导航",
+                "toPosition": "navBar",
+                "type": [],
+                "cssProperty": {}
+            },
+            {
+                "id": 3,
+                "title": "字体",
+                "toPosition": "font",
+                "type": [],
+                "cssProperty": {}
+            }
+        ]
     },
     {
-        "name": "u-panel",
-        "properties": {
-            "--panel-border-width": { "type": "input", "default": "1px" },
-            "--panel-border-radius": { "type": "input", "default": "var(--border-radius-base)" },
-            "--panel-background": { "type": "input", "default": "var(--background-color-default)" },
-            "--panel-border-color": { "type": "input", "default": "var(--border-color-light)" },
-            "--panel-box-shadow": { "type": "input", "default": "var(--box-shadow-large)" },
-            "--panel-head-padding": { "type": "input", "default": "var(--space-base)" },
-            "--panel-body-padding": { "type": "input", "default": "var(--space-base)" },
-            "--panel-title-font-size": { "type": "input", "default": "18px" },
-            "--panel-title-font-weight": { "type": "input", "default": "bold" }
-        }
-    },
-    {
-        "name": "u-collapse",
-        "properties": {
-            "--collapse-border-width": { "type": "input", "default": "var(--border-width-base)" },
-            "--collapse-border-color": { "type": "input", "default": "var(--border-color-base)" },
-            "--collapse-border-radius": { "type": "input", "default": "var(--border-radius-base)" },
-            "--collapse-item-head-background": { "type": "input", "default": "var(--background-color-light)" },
-            "--collapse-item-head-color-disabled": { "type": "input", "default": "var(--brand-disabled-dark)" },
-            "--collapse-item-head-padding": { "type": "input", "default": "10px 20px 10px 40px" },
-            "--collapse-item-expander-size": { "type": "input", "default": "42px" },
-            "--collapse-item-expander-color": { "type": "input", "default": "var(--color-light)" },
-            "--collapse-item-expander-color-disabled": { "type": "input", "default": "var(--brand-disabled-dark)" },
-            "--collapse-item-expander-font-size": { "type": "input", "default": "18px" },
-            "--collapse-item-content-padding": { "type": "input", "default": "20px" },
-            "--collapse-transition-duration": { "type": "input", "default": "var(--transition-duration-base)" }
-        }
-    },
-    {
-        "name": "u-text",
-        "properties": {
-            "--text-font-size": { "type": "input", "default": "var(--font-size-base)" },
-            "--text-font-size-small": { "type": "input", "default": "var(--font-size-small)" },
-            "--text-font-size-large": { "type": "input", "default": "calc(var(--font-size-base) * (18 / 14))" },
-            "--text-color-primary": { "type": "input", "default": "var(--brand-primary)" },
-            "--text-color-secondary": { "type": "input", "default": "var(--color-light)" },
-            "--text-color-success": { "type": "input", "default": "var(--brand-success)" },
-            "--text-color-warning": { "type": "input", "default": "var(--brand-warning)" },
-            "--text-color-error": { "type": "input", "default": "var(--brand-error)" },
-            "--text-color-disabled": { "type": "input", "default": "var(--brand-disabled-dark)" }
-        }
-    },
-    {
-        "name": "u-link",
-        "properties": {
-            "--link-color": { "type": "input", "default": "#337eff" },
-            "--link-color-success": { "type": "input", "default": "var(--brand-success)" },
-            "--link-color-warning": { "type": "input", "default": "var(--brand-warning)" },
-            "--link-color-error": { "type": "input", "default": "var(--brand-error)" },
-            "--link-color-danger": { "type": "input", "default": "var(--brand-danger)" },
-            "--link-color-disabled": { "type": "input", "default": "var(--brand-disabled-dark)" }
-        }
-    },
-    {
-        "name": "u-button",
-        "properties": {
-            "--button-height": { "type": "input", "default": "var(--height-base)" },
-            "--button-height-mini": { "type": "input", "default": "var(--height-mini)" },
-            "--button-height-small": { "type": "input", "default": "var(--height-small)" },
-            "--button-height-large": { "type": "input", "default": "var(--height-large)" },
-            "--button-padding-y": { "type": "input", "default": "0px" },
-            "--button-padding-x": { "type": "input", "default": "30px" },
-            "--button-padding-x-mini": { "type": "input", "default": "8px" },
-            "--button-padding-x-small": { "type": "input", "default": "12px" },
-            "--button-padding-x-large": { "type": "input", "default": "50px" },
-            "--button-padding-x-huge": { "type": "input", "default": "64px" },
-            "--button-font-size": { "type": "input", "default": "inherit" },
-            "--button-font-size-mini": { "type": "input", "default": "var(--font-size-small)" },
-            "--button-font-size-small": { "type": "input", "default": "inherit" },
-            "--button-font-size-large": { "type": "input", "default": "var(--font-size-large)" },
-            "--button-border-width": { "type": "input", "default": "var(--border-width-base)" },
-            "--button-border-radius": { "type": "input", "default": "var(--border-radius-base)" },
-            "--button-background": { "type": "input", "default": "white" },
-            "--button-background-hover": { "type": "input", "default": "white" },
-            "--button-background-active": { "type": "input", "default": "white" },
-            "--button-background-disabled": { "type": "input", "default": "white" },
-            "--button-background-primary": { "type": "input", "default": "var(--brand-primary)" },
-            "--button-background-primary-hover": { "type": "input", "default": "var(--brand-primary-light)" },
-            "--button-background-primary-disabled": { "type": "input", "default": "var(--brand-disabled)" },
-            "--button-background-danger": { "type": "input", "default": "var(--brand-error)" },
-            "--button-background-danger-hover": { "type": "input", "default": "var(--brand-error-light)" },
-            "--button-background-danger-disabled": { "type": "input", "default": "var(--brand-disabled)" },
-            "--button-color": { "type": "input", "default": "var(--color-base)" },
-            "--button-color-hover": { "type": "input", "default": "var(--brand-primary)" },
-            "--button-color-disabled": { "type": "input", "default": "var(--brand-disabled)" },
-            "--button-color-primary": { "type": "input", "default": "white" },
-            "--button-color-primary-hover": { "type": "input", "default": "var(--button-color-primary)" },
-            "--button-color-primary-disabled": { "type": "input", "default": "white" },
-            "--button-color-danger": { "type": "input", "default": "white" },
-            "--button-color-danger-hover": { "type": "input", "default": "var(--button-color-danger)" },
-            "--button-color-danger-disabled": { "type": "input", "default": "white" },
-            "--button-border-color": { "type": "input", "default": "var(--border-color-dark)" },
-            "--button-border-color-hover": { "type": "input", "default": "var(--brand-primary)" },
-            "--button-border-color-disabled": { "type": "input", "default": "var(--border-color-dark)" },
-            "--button-box-shadow-focus": { "type": "input", "default": "0 0 0 2px rgba(80, 139, 233, 0.2)" },
-            "--button-box-shadow-focus-primary": { "type": "input", "default": "var(--button-box-shadow-focus)" },
-            "--button-box-shadow-focus-danger": { "type": "input", "default": "0 0 0 2px rgba(254, 90, 90, 0.2)" },
-            "--button-box-shadow-active": { "type": "input", "default": "inset 0 1px 3px rgba(0, 0, 0, 0.2)" }
-        }
-    },
-    {
-        "name": "u-label",
-        "properties": {
-            "--label-padding-x": { "type": "input", "default": "8px" },
-            "--label-padding-x-small": { "type": "input", "default": "8px" },
-            "--label-padding-x-large": { "type": "input", "default": "8px" },
-            "--label-padding-y": { "type": "input", "default": "3px" },
-            "--label-padding-y-small": { "type": "input", "default": "1px" },
-            "--label-padding-y-large": { "type": "input", "default": "3px" },
-            "--label-line-height-small": { "type": "input", "default": "18px" },
-            "--label-font-size": { "type": "input", "default": "var(--font-size-small)" },
-            "--label-font-size-small": { "type": "input", "default": "var(--font-size-small)" },
-            "--label-font-size-large": { "type": "input", "default": "var(--font-size-small)" },
-            "--label-remove-padding-x": { "type": "input", "default": "3px" },
-            "--label-remove-padding-x-small": { "type": "input", "default": "3px" },
-            "--label-remove-padding-x-large": { "type": "input", "default": "6px" },
-            "--label-background": { "type": "input", "default": "var(--background-color-base)" },
-            "--label-background-primary": { "type": "input", "default": "var(--brand-primary)" },
-            "--label-background-success": { "type": "input", "default": "var(--brand-success)" },
-            "--label-background-normal": { "type": "input", "default": "var(--brand-normal)" },
-            "--label-background-warning": { "type": "input", "default": "var(--brand-warning)" },
-            "--label-background-error": { "type": "input", "default": "var(--brand-error)" },
-            "--label-color": { "type": "input", "default": "#646a70" },
-            "--label-color-primary": { "type": "input", "default": "white" },
-            "--label-color-success": { "type": "input", "default": "white" },
-            "--label-color-normal": { "type": "input", "default": "white" },
-            "--label-color-warning": { "type": "input", "default": "white" },
-            "--label-color-error": { "type": "input", "default": "white" }
-        }
-    },
-    {
-        "name": "u-badge",
-        "properties": {
-            "--badge-background": { "type": "input", "default": "var(--brand-error)" },
-            "--badge-color": { "type": "input", "default": "white" },
-            "--badge-value-size": { "type": "input", "default": "20px" },
-            "--badge-dot-size": { "type": "input", "default": "6px" }
-        }
-    },
-    {
-        "name": "u-table-view",
-        "properties": {
-            "--table-view-head-item-color": { "type": "input", "default": "#999" }
-        }
-    },
-    {
-        "name": "u-list-view",
-        "properties": {
-            "--list-view-width": { "type": "input", "default": "var(--width-medium)" },
-            "--list-view-width-large": { "type": "input", "default": "var(--width-large)" },
-            "--list-view-width-huge": { "type": "input", "default": "var(--width-huge)" },
-            "--list-view-height": { "type": "input", "default": "calc(30px * 10 + var(--border-width-base) * 2)" },
-            "--list-view-height-large": { "type": "input", "default": "calc(30px * 18 + var(--border-width-base) * 2)" },
-            "--list-view-height-huge": { "type": "input", "default": "80vh" },
-            "--list-view-head-background": { "type": "input", "default": "var(--background-color-base)" },
-            "--list-view-body-background": { "type": "input", "default": "var(--background-color-default)" },
-            "--list-view-body-background-disabled": { "type": "input", "default": "var(--background-color-default)" },
-            "--list-view-foot-background": { "type": "input", "default": "var(--background-color-default)" },
-            "--list-view-border-color": { "type": "input", "default": "var(--border-color-base)" },
-            "--list-view-border-color-focus": { "type": "input", "default": "var(--border-color-base)" },
-            "--list-view-border-color-disabled": { "type": "input", "default": "var(--brand-disabled)" },
-            "--list-view-status-color": { "type": "input", "default": "var(--color-light)" },
-            "--list-view-head-padding": { "type": "input", "default": "8px 12px" },
-            "--list-view-foot-padding": { "type": "input", "default": "8px 12px" },
-            "--list-view-item-padding": { "type": "input", "default": "4px 12px" },
-            "--list-view-item-background-hover": { "type": "input", "default": "var(--background-color-lighter)" },
-            "--list-view-item-background-hover-inverse": { "type": "input", "default": "var(--background-color-lighter-inverse)" },
-            "--list-view-item-background-readonly-initial": { "type": "input", "default": "none" },
-            "--list-view-item-background-focused": { "type": "input", "default": "var(--background-color-lighter)" },
-            "--list-view-item-background-focused-inverse": { "type": "input", "default": "var(--background-color-lighter-inverse)" },
-            "--list-view-item-background-selected": { "type": "input", "default": "var(--brand-primary-light)" },
-            "--list-view-item-background-selected-inverse": { "type": "input", "default": "var(--brand-primary-light)" },
-            "--list-view-item-color-selected": { "type": "input", "default": "white" },
-            "--list-view-item-color-selected-inverse": { "type": "input", "default": "white" },
-            "--list-view-item-color-disabled": { "type": "input", "default": "var(--brand-disabled-dark)" },
-            "--list-view-item-color-disabled-inverse": { "type": "input", "default": "var(--brand-disabled-dark-inverse)" },
-            "--list-view-item-background-disabled": { "type": "input", "default": "none" },
-            "--list-view-item-background-disabled-inverse": { "type": "input", "default": "none" },
-            "--list-view-item-background-selected-disabled": { "type": "input", "default": "var(--brand-disabled-light)" },
-            "--list-view-item-background-selected-disabled-inverse": { "type": "input", "default": "var(--brand-disabled-light-inverse)" },
-            "--list-view-divider-margin": { "type": "input", "default": "9px 0" },
-            "--list-view-divider-background": { "type": "input", "default": "var(--border-color-base)" },
-            "--list-view-group-head-padding": { "type": "input", "default": "2px 4px" },
-            "--list-view-group-head-background": { "type": "input", "default": "#ebedf5" },
-            "--list-view-group-expander-size": { "type": "input", "default": "26px" },
-            "--list-view-filter-margin": { "type": "input", "default": "5px" }
-        }
-    },
-    {
-        "name": "u-grid-view",
-        "properties": {
-            "--grid-view-item-space": { "type": "input", "default": "var(--space-base)" }
-        }
-    },
-    {
-        "name": "u-tree-view",
-        "properties": {
-            "--tree-view-background": { "type": "input", "default": "white" },
-            "--tree-view-node-margin-left": { "type": "input", "default": "30px" },
-            "--tree-view-node-expander-size": { "type": "input", "default": "30px" },
-            "--tree-view-node-expander-size-mini": { "type": "input", "default": "28px" },
-            "--tree-view-node-text-padding": { "type": "input", "default": "4px 0" },
-            "--tree-view-node-text-padding–mini": { "type": "input", "default": "4px 0" },
-            "--tree-view-node-background-active": { "type": "input", "default": "var(--background-color-base)" },
-            "--tree-view-node-background-active-inverse": { "type": "input", "default": "var(--background-color-base-inverse)" },
-            "--tree-view-node-background-selected": { "type": "input", "default": "var(--brand-primary-light)" },
-            "--tree-view-node-background-selected-inverse": { "type": "input", "default": "var(--brand-primary-light)" },
-            "--tree-view-node-background-border-radius": { "type": "input", "default": "var(--border-radius-base)" },
-            "--tree-view-node-color-selected": { "type": "input", "default": "white" },
-            "--tree-view-node-color-selected-inverse": { "type": "input", "default": "white" },
-            "--tree-view-node-color-disabled": { "type": "input", "default": "var(--brand-disabled)" },
-            "--tree-view-node-color-disabled-inverse": { "type": "input", "default": "var(--brand-disabled)" },
-            "--tree-view-node-expander-color-selected": { "type": "input", "default": "white" },
-            "--tree-view-node-expander-color-selected-inverse": { "type": "input", "default": "white" },
-            "--tree-view-node-background-readonly-initial": { "type": "input", "default": "none" },
-            "--tree-view-node-background-disabled": { "type": "input", "default": "none" },
-            "--tree-view-node-background-disabled-inverse": { "type": "input", "default": "none" },
-            "--tree-view-node-background-selected-disabled": { "type": "input", "default": "var(--brand-disabled-light)" },
-            "--tree-view-node-background-selected-disabled-inverse": { "type": "input", "default": "var(--brand-disabled-light-inverse)" }
-        }
-    },
-    {
-        "name": "u-transfer",
-        "properties": {
-            "--transfer-height": { "type": "input", "default": "var(--list-view-height)" },
-            "--transfer-height-large": { "type": "input", "default": "var(--list-view-height-large)" },
-            "--transfer-height-huge": { "type": "input", "default": "var(--list-view-height-huge)" },
-            "--transfer-width": { "type": "input", "default": "var(--width-medium)" },
-            "--transfer-width-large": { "type": "input", "default": "var(--width-large)" },
-            "--transfer-width-huge": { "type": "input", "default": "var(--width-huge)" },
-            "--transfer-button-size": { "type": "input", "default": "var(--height-base)" },
-            "--transfer-button-space": { "type": "input", "default": "10px" },
-            "--transfer-button-background": { "type": "input", "default": "var(--button-background-primary)" },
-            "--transfer-button-background-hover": { "type": "input", "default": "var(--button-background-primary-hover)" },
-            "--transfer-button-background-active": { "type": "input", "default": "var(--button-background-primary-hover)" },
-            "--transfer-button-background-disabled": { "type": "input", "default": "var(--button-background-primary-disabled)" },
-            "--transfer-button-color": { "type": "input", "default": "white" },
-            "--transfer-button-color-hover": { "type": "input", "default": "white" },
-            "--transfer-button-color-disabled": { "type": "input", "default": "white" },
-            "--transfer-button-border-color": { "type": "input", "default": "var(--button-background-primary)" },
-            "--transfer-button-border-color-hover": { "type": "input", "default": "var(--button-background-primary-hover)" },
-            "--transfer-button-border-color-disabled": { "type": "input", "default": "var(--button-background-primary-disabled)" }
-        }
-    },
-    {
-        "name": "u-input",
-        "properties": {
-            "--input-width": { "type": "input", "default": "var(--width-base)" },
-            "--input-width-mini": { "type": "input", "default": "var(--width-mini)" },
-            "--input-width-small": { "type": "input", "default": "var(--width-small)" },
-            "--input-width-medium": { "type": "input", "default": "var(--width-medium)" },
-            "--input-width-large": { "type": "input", "default": "var(--width-large)" },
-            "--input-width-huge": { "type": "input", "default": "var(--width-huge)" },
-            "--input-height": { "type": "input", "default": "var(--height-base)" },
-            "--input-height-mini": { "type": "input", "default": "var(--height-mini)" },
-            "--input-height-small": { "type": "input", "default": "var(--height-small)" },
-            "--input-height-medium": { "type": "input", "default": "var(--height-medium)" },
-            "--input-height-large": { "type": "input", "default": "var(--height-large)" },
-            "--input-height-huge": { "type": "input", "default": "var(--height-huge)" },
-            "--input-padding-x": { "type": "input", "default": "10px" },
-            "--input-padding-x-mini": { "type": "input", "default": "6px" },
-            "--input-padding-x-small": { "type": "input", "default": "8px" },
-            "--input-padding-x-medium": { "type": "input", "default": "10px" },
-            "--input-padding-x-large": { "type": "input", "default": "10px" },
-            "--input-padding-x-huge": { "type": "input", "default": "10px" },
-            "--input-padding-x-full": { "type": "input", "default": "10px" },
-            "--input-border-width": { "type": "input", "default": "var(--border-width-base)" },
-            "--input-background": { "type": "input", "default": "var(--background-color-default)" },
-            "--input-background-disabled": { "type": "input", "default": "#F7F8FA" },
-            "--input-color": { "type": "input", "default": "var(--color-base)" },
-            "--input-border-color": { "type": "input", "default": "var(--border-color-base)" },
-            "--input-border-color-error": { "type": "input", "default": "var(--brand-error)" },
-            "--input-border-color-focus": { "type": "input", "default": "#81abe9" },
-            "--input-placeholder-color": { "type": "input", "default": "var(--color-lighter)" },
-            "--input-icon-color": { "type": "input", "default": "#a7afbb" },
-            "--input-border-radius": { "type": "input", "default": "3px" }
-        }
-    },
-    {
-        "name": "u-textarea",
-        "properties": {
-            "--textarea-width": { "type": "input", "default": "480px" },
-            "--textarea-width-medium": { "type": "input", "default": "var(--width-medium)" },
-            "--textarea-width-large": { "type": "input", "default": "var(--width-large)" },
-            "--textarea-width-huge": { "type": "input", "default": "var(--width-huge)" },
-            "--textarea-min-width": { "type": "input", "default": "var(--width-base)" },
-            "--textarea-height": { "type": "input", "default": "120px" },
-            "--textarea-height-medium": { "type": "input", "default": "100px" },
-            "--textarea-height-large": { "type": "input", "default": "120px" },
-            "--textarea-height-huge": { "type": "input", "default": "200px" },
-            "--textarea-min-height": { "type": "input", "default": "var(--height-base)" },
-            "--textarea-border-radius": { "type": "input", "default": "var(--border-radius-medium)" },
-            "--textarea-padding": { "type": "input", "default": "5px 10px" },
-            "--textarea-color": { "type": "input", "default": "var(--color-base)" },
-            "--textarea-border-color": { "type": "input", "default": "var(--border-color-base)" },
-            "--textarea-background": { "type": "input", "default": "var(--brand-disabled)" }
-        }
-    },
-    {
-        "name": "u-number-input",
-        "properties": {
-            "--number-input-height": { "type": "input", "default": "16px" },
-            "--number-input-padding": { "type": "input", "default": "0 4px" },
-            "--number-input-button-background": { "type": "input", "default": "none" },
-            "--number-input-button-background-hover": { "type": "input", "default": "none" },
-            "--number-input-button-background-active": { "type": "input", "default": "none" },
-            "--number-input-button-background-disabled": { "type": "input", "default": "none" },
-            "--number-input-button-color-disabled": { "type": "input", "default": "var(--brand-disabled)" }
-        }
-    },
-    {
-        "name": "u-radio",
-        "properties": {
-            "--radio-space-x": { "type": "input", "default": "40px" },
-            "--radio-inner-space-x": { "type": "input", "default": "5px" },
-            "--radio-size": { "type": "input", "default": "14px" },
-            "--radio-solid-circle-size": { "type": "input", "default": "10px" },
-            "--radio-solid-circle-background": { "type": "input", "default": "var(--brand-primary)" },
-            "--radio-background": { "type": "input", "default": "var(--background-color-default)" },
-            "--radio-circle-background-disabled": { "type": "input", "default": "var(--background-color-base)" },
-            "--radio-box-shadow-focus": { "type": "input", "default": "var(--button-box-shadow-focus)" },
-            "--radio-border-color": { "type": "input", "default": "var(--border-color-base)" },
-            "--radio-border-color-disabled": { "type": "input", "default": "var(--border-color-base)" }
-        }
-    },
-    {
-        "name": "u-switch",
-        "properties": {
-            "--switch-width": { "type": "input", "default": "44px" },
-            "--switch-width-small": { "type": "input", "default": "40px" },
-            "--switch-width-wide": { "type": "input", "default": "54px" },
-            "--switch-height": { "type": "input", "default": "22px" },
-            "--switch-height-small": { "type": "input", "default": "18px" },
-            "--switch-button-space": { "type": "input", "default": "2px" },
-            "--switch-button-size": { "type": "input", "default": "18px" },
-            "--switch-button-size-small": { "type": "input", "default": "14px" },
-            "--switch-button-background": { "type": "input", "default": "white" },
-            "--switch-button-radius": { "type": "input", "default": "100px" },
-            "--switch-background": { "type": "input", "default": "var(--border-color-base)" },
-            "--switch-background-checked": { "type": "input", "default": "var(--brand-primary)" },
-            "--switch-background-disabled": { "type": "input", "default": "var(--background-color-base)" },
-            "--switch-color": { "type": "input", "default": "white" },
-            "--switch-text-margin": { "type": "input", "default": "0 5px" },
-            "--switch-transition": { "type": "input", "default": "background-color var(--transition-duration-base)" },
-            "--switch-button-transition": { "type": "input", "default": "all var(--transition-duration-base)" }
-        }
-    },
-    {
-        "name": "u-checkbox",
-        "properties": {
-            "--checkbox-space-x": { "type": "input", "default": "80px" },
-            "--checkbox-inner-space-x": { "type": "input", "default": "5px" },
-            "--checkbox-size": { "type": "input", "default": "16px" },
-            "--checkbox-border-color": { "type": "input", "default": "var(--border-color-base)" },
-            "--checkbox-border-color-disabled": { "type": "input", "default": "var(--border-color-base)" },
-            "--checkbox-border-radius": { "type": "input", "default": "3px" },
-            "--checkbox-background": { "type": "input", "default": "var(--brand-primary)" },
-            "--checkbox-background-default": { "type": "input", "default": "var(--background-color-default)" },
-            "--checkbox-background-disabled": { "type": "input", "default": "#EEEEF0" },
-            "--checkbox-color": { "type": "input", "default": "var(--background-color-default)" },
-            "--checkbox-color-disabled": { "type": "input", "default": "#ccc" },
-            "--checkbox-box-shadow-focus": { "type": "input", "default": "var(--button-box-shadow-focus)" }
-        }
-    },
-    {
-        "name": "u-select",
-        "properties": {
-            "--select-width": { "type": "input", "default": "var(--width-base)" },
-            "--select-width-mini": { "type": "input", "default": "var(--width-mini)" },
-            "--select-width-small": { "type": "input", "default": "var(--width-small)" },
-            "--select-width-medium": { "type": "input", "default": "var(--width-medium)" },
-            "--select-width-large": { "type": "input", "default": "var(--width-large)" },
-            "--select-width-huge": { "type": "input", "default": "var(--width-huge)" },
-            "--select-height": { "type": "input", "default": "var(--height-base)" },
-            "--select-height-mini": { "type": "input", "default": "var(--height-mini)" },
-            "--select-height-small": { "type": "input", "default": "var(--height-small)" },
-            "--select-height-medium": { "type": "input", "default": "var(--height-medium)" },
-            "--select-height-large": { "type": "input", "default": "var(--height-large)" },
-            "--select-height-huge": { "type": "input", "default": "var(--height-huge)" },
-            "--select-padding-x": { "type": "input", "default": "10px" },
-            "--select-padding-x-mini": { "type": "input", "default": "6px" },
-            "--select-padding-x-small": { "type": "input", "default": "8px" },
-            "--select-padding-x-medium": { "type": "input", "default": "10px" },
-            "--select-padding-x-large": { "type": "input", "default": "10px" },
-            "--select-padding-x-huge": { "type": "input", "default": "10px" },
-            "--select-padding-x-full": { "type": "input", "default": "10px" },
-            "--select-background": { "type": "input", "default": "var(--background-color-default)" },
-            "--select-background-inverse": { "type": "input", "default": "var(--background-color-default-inverse)" },
-            "--select-background-disabled": { "type": "input", "default": "var(--brand-disabled)" },
-            "--select-border-width": { "type": "input", "default": "var(--border-width-base)" },
-            "--select-border-color": { "type": "input", "default": "var(--border-color-base)" },
-            "--select-border-color-inverse": { "type": "input", "default": "var(--border-color-base-inverse)" },
-            "--select-color": { "type": "input", "default": "var(--color-base)" },
-            "--select-color-inverse": { "type": "input", "default": "var(--color-base-inverse)" },
-            "--select-color-disabled": { "type": "input", "default": "var(--brand-disabled-dark)" },
-            "--select-popper-max-height": { "type": "input", "default": "194px" },
-            "--select-popper-line-height": { "type": "input", "default": "1.6" },
-            "--select-popper-line-height-small": { "type": "input", "default": "1.6" },
-            "--select-popper-box-shadow": { "type": "input", "default": "var(--box-shadow-base)" },
-            "--select-placeholder-color": { "type": "input", "default": "var(--color-lighter)" },
-            "--select-arrow-color": { "type": "input", "default": "var(--color-light)" },
-            "--select-arrow-size": { "type": "input", "default": "18px" },
-            "--select-arrow-right-ratio": { "type": "input", "default": "0.6" },
-            "--select-tags-padding-y": { "type": "input", "default": "2px" },
-            "--select-tags-padding": { "type": "input", "default": "3px 26px 3px 5px" },
-            "--select-tags-line-height": { "type": "input", "default": "26px" },
-            "--select-tags-filterable-width": { "type": "input", "default": "40px" },
-            "--select-tag-line-height": { "type": "input", "default": "calc(var(--select-tags-line-height) - var(--select-tags-padding-y) * 2)" },
-            "--select-tag-background": { "type": "input", "default": "var(--background-color-base)" },
-            "--select-tag-padding": { "type": "input", "default": "0 6px" },
-            "--select-tag-margin-x": { "type": "input", "default": "4px" },
-            "--select-tag-remove-color": { "type": "input", "default": "var(--color-lighter)" },
-            "--select-tag-remove-color-hover": { "type": "input", "default": "var(--color-base)" },
-            "--select-tag-border-radius": { "type": "input", "default": "2px" },
-            "--select-popper-background": { "type": "input", "default": "var(--background-color-default)" },
-            "--select-popper-background-inverse": { "type": "input", "default": "var(--background-color-default-inverse)" },
-            "--select-popper-border-color": { "type": "input", "default": "var(--border-color-base)" },
-            "--select-popper-border-color-inverse": { "type": "input", "default": "var(--border-color-base-inverse)" },
-            "--select-popper-color-inverse": { "type": "input", "default": "var(--color-base-inverse)" },
-            "--select-status-color": { "type": "input", "default": "var(--color-light)" },
-            "--select-box-shadow-focus": { "type": "input", "default": "var(--button-box-shadow-focus)" }
-        }
-    },
-    {
-        "name": "u-uploader",
-        "properties": {
-            "--uploader-list-margin-top": { "type": "input", "default": "6px" },
-            "--uploader-item-space": { "type": "input", "default": "2px" },
-            "--uploader-item-padding": { "type": "input", "default": "4px" },
-            "--uploader-item-line-height": { "type": "input", "default": "1.8" },
-            "--uploader-item-border-radius": { "type": "input", "default": "var(--border-radius-base)" },
-            "--uploader-item-background": { "type": "input", "default": "transparent" },
-            "--uploader-item-background-hover": { "type": "input", "default": "var(--background-color-base)" },
-            "--uploader-item-icon-color": { "type": "input", "default": "var(--color-light)" },
-            "--uploader-link-color": { "type": "input", "default": "inherit" },
-            "--uploader-link-color-hover": { "type": "input", "default": "var(--link-color)" },
-            "--uploader-card-border-radius": { "type": "input", "default": "var(--border-radius-large)" },
-            "--uploader-card-space": { "type": "input", "default": "8px" },
-            "--uploader-mask-background": { "type": "input", "default": "rgba(0, 0, 0, 0.6)" },
-            "--uploader-draggable-background": { "type": "input", "default": "var(--background-color-lighter)" },
-            "--uploader-draggable-border-width": { "type": "input", "default": "1px" },
-            "--uploader-draggable-border-color": { "type": "input", "default": "var(--border-color-base)" },
-            "--uploader-draggable-border-color-hover": { "type": "input", "default": "var(--brand-primary)" },
-            "--uploader-draggable-border-radius": { "type": "input", "default": "var(--border-radius-large)" },
-            "--uploader-draggable-padding": { "type": "input", "default": "12px 0 20px" }
-        }
-    },
-    {
-        "name": "u-tabs",
-        "properties": {
-            "--tabs-border-width": { "type": "input", "default": "1px" },
-            "--tabs-border-color": { "type": "input", "default": "var(--border-color-light)" },
-            "--tabs-head-background": { "type": "input", "default": "none" },
-            "--tabs-item-height": { "type": "input", "default": "48px" },
-            "--tabs-item-height-small": { "type": "input", "default": "30px" },
-            "--tabs-item-height-mini": { "type": "input", "default": "24px" },
-            "--tabs-item-padding-x": { "type": "input", "default": "30px" },
-            "--tabs-item-padding-x-small": { "type": "input", "default": "22px" },
-            "--tabs-item-padding-x-mini": { "type": "input", "default": "16px" },
-            "--tabs-item-line-width": { "type": "input", "default": "2px" },
-            "--tabs-item-background-text": { "type": "input", "default": "none" },
-            "--tabs-item-background-capsule": { "type": "input", "default": "none" },
-            "--tabs-item-background-hover": { "type": "input", "default": "var(--background-color-lighter)" },
-            "--tabs-item-background-selected": { "type": "input", "default": "var(--background-color-default)" },
-            "--tabs-item-background-selected-capsule": { "type": "input", "default": "none" },
-            "--tabs-item-background-disabled": { "type": "input", "default": "transparent" },
-            "--tabs-item-background-selected-disabled": { "type": "input", "default": "var(--background-color-default)" },
-            "--tabs-item-color": { "type": "input", "default": "inherit" },
-            "--tabs-item-color-hover": { "type": "input", "default": "var(--brand-primary)" },
-            "--tabs-item-color-selected": { "type": "input", "default": "var(--brand-primary)" },
-            "--tabs-item-color-selected-capsule": { "type": "input", "default": "var(--brand-primary)" },
-            "--tabs-item-color-disabled": { "type": "input", "default": "var(--brand-disabled)" },
-            "--tabs-item-border-color-selected": { "type": "input", "default": "var(--border-color-light)" },
-            "--tabs-item-border-color-selected-capsule": { "type": "input", "default": "var(--brand-primary)" },
-            "--tabs-item-border-radius": { "type": "input", "default": "4px" },
-            "--tabs-item-border-radius-round": { "type": "input", "default": "5px" },
-            "--tabs-body-space": { "type": "input", "default": "var(--space-base)" },
-            "--tabs-body-space-small": { "type": "input", "default": "var(--space-small)" },
-            "--tabs-body-space-mini": { "type": "input", "default": "var(--space-mini)" }
-        }
-    },
-    {
-        "name": "u-steps",
-        "properties": {
-            "--steps-item-width": { "type": "input", "default": "200px" },
-            "--steps-item-color-disabled": { "type": "input", "default": "#bbb" },
-            "--steps-item-radio-size": { "type": "input", "default": "24px" },
-            "--steps-item-radio-size-large": { "type": "input", "default": "24px" },
-            "--steps-item-radio-background": { "type": "input", "default": "var(--border-color-base)" },
-            "--steps-item-radio-background-passed": { "type": "input", "default": "var(--brand-primary)" },
-            "--steps-item-radio-color-passed": { "type": "input", "default": "white" }
-        }
-    },
-    {
-        "name": "u-pagination",
-        "properties": {
-            "--pagination-item-size": { "type": "input", "default": "var(--height-small)" },
-            "--pagination-line-height": { "type": "input", "default": "calc(var(--pagination-item-size) - var(--border-width-base) * 2)" },
-            "--pagination-item-padding": { "type": "input", "default": "0" },
-            "--pagination-item-background": { "type": "input", "default": "var(--background-color-default)" },
-            "--pagination-item-background-hover": { "type": "input", "default": "var(--background-color-lighter)" },
-            "--pagination-item-background-selected": { "type": "input", "default": "var(--brand-primary)" },
-            "--pagination-item-background-disabled-selected": { "type": "input", "default": "var(--background-color-default)" },
-            "--pagination-item-background-blank": { "type": "input", "default": "none" },
-            "--pagination-item-color": { "type": "input", "default": "var(--color-base)" },
-            "--pagination-item-color-hover": { "type": "input", "default": "var(--brand-primary)" },
-            "--pagination-item-color-selected": { "type": "input", "default": "var(--background-color-default)" },
-            "--pagination-item-color-disabled": { "type": "input", "default": "var(--brand-disabled)" },
-            "--pagination-item-color-blank": { "type": "input", "default": "var(--color-base)" },
-            "--pagination-item-color-blank-disabled": { "type": "input", "default": "var(--brand-disabled)" },
-            "--pagination-item-border-color": { "type": "input", "default": "var(--border-color-base)" },
-            "--pagination-item-border-radius": { "type": "input", "default": "4px" },
-            "--pagination-item-size-small": { "type": "input", "default": "24px" },
-            "--pagination-item-size-small-line-height": { "type": "input", "default": "var(--pagination-item-size-small)" },
-            "--pagination-item-border-radius-left": { "type": "input", "default": "var(--pagination-item-border-radius)" },
-            "--pagination-item-border-radius-right": { "type": "input", "default": "var(--pagination-item-border-radius)" },
-            "--pagination-sizer-width": { "type": "input", "default": "100px" },
-            "--pagination-jumper-width": { "type": "input", "default": "50px" }
-        }
-    },
-    {
-        "name": "u-linear-progress",
-        "properties": {
-            "--linear-progress-height": { "type": "input", "default": "4px" },
-            "--linear-progress-height-small": { "type": "input", "default": "2px" },
-            "--linear-progress-height-large": { "type": "input", "default": "8px" },
-            "--linear-progress-height-huge": { "type": "input", "default": "12px" },
-            "--linear-progress-track-background": { "type": "input", "default": "var(--background-color-base)" },
-            "--linear-progress-trail-font-size": { "type": "input", "default": "var(--font-size-small)" },
-            "--linear-progress-trail-background": { "type": "input", "default": "var(--brand-primary)" },
-            "--linear-progress-trail-color": { "type": "input", "default": "white" },
-            "--linear-progress-trail-transition": { "type": "input", "default": "width 0.6s ease" }
-        }
-    },
-    {
-        "name": "u-circular-progress",
-        "properties": {
-            "--circular-progress-size": { "type": "input", "default": "100px" },
-            "--circular-progress-stroke-width": { "type": "input", "default": "10px" },
-            "--circular-progress-track-stroke": { "type": "input", "default": "var(--background-color-base)" },
-            "--circular-progress-trail-stroke": { "type": "input", "default": "var(--brand-primary)" },
-            "--circular-progress-trail-transition": { "type": "input", "default": "stroke 0.6s ease, stroke-dasharray 0.6s ease" },
-            "--circular-progress-text-color": { "type": "input", "default": "#999" },
-            "--circular-progress-font-size": { "type": "input", "default": "var(--font-size-base)" },
-            "--circular-progress-percent-font-size": { "type": "input", "default": "var(--font-size-large)" },
-            "--circular-progress-percent-font-weight": { "type": "input", "default": "600" },
-            "--circular-progress-text-line-height": { "type": "input", "default": "normal" }
-        }
-    },
-    {
-        "name": "u-toast",
-        "properties": {
-            "--toast-margin": { "type": "input", "default": "30px" },
-            "--toast-width": { "type": "input", "default": "300px" },
-            "--toast-max-width": { "type": "input", "default": "326px" },
-            "--toast-top": { "type": "input", "default": "90px" },
-            "--toast-close-font-size": { "type": "input", "default": "18px" },
-            "--toast-close-color": { "type": "input", "default": "white" },
-            "--toast-item-color": { "type": "input", "default": "white" },
-            "--toast-item-padding": { "type": "input", "default": "8px 16px" },
-            "--toast-item-space": { "type": "input", "default": "10px" },
-            "--toast-item-border-radius": { "type": "input", "default": "var(--border-radius-large)" },
-            "--toast-item-icon-margin-right": { "type": "input", "default": "8px" },
-            "--toast-item-icon-vertical-align": { "type": "input", "default": "-1px" },
-            "--toast-item-icon-font-size": { "type": "input", "default": "16px" },
-            "--toast-item-icon-text-align": { "type": "input", "default": "left" },
-            "--toast-item-icon-color-info": { "type": "input", "default": "#4c88ff" },
-            "--toast-item-icon-color-success": { "type": "input", "default": "#26bd71" },
-            "--toast-item-icon-color-warning": { "type": "input", "default": "#ffaf0f" },
-            "--toast-item-icon-color-error": { "type": "input", "default": "#f24957" },
-            "--toast-background-color": { "type": "input", "default": "rgba(0, 0, 0, 0.6)" }
-        }
+        "id": 0.1,
+        "title": "高级设置",
+        "toPosition": "highLevelSetting",
+        "items": [
+            {
+                "id": 6,
+                "title": "线性布局",
+                "toPosition": "linearLayout",
+                "type": ["vertical", "horizontal", "space-between"],
+                "cssProperty": {
+                    "--space-base": "input"
+                },
+                "blocks": "<div>\n    <u-linear-layout direction=\"horizontal\"\n        justify=space-between\n        style=\"margin-bottom:8px;\">\n        <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n        <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n    </u-linear-layout>\n        <u-linear-layout direction=\"horizontal\"\n        style=\"margin-bottom:16px;line-height: 0;\">\n        <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n        <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n        <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n    </u-linear-layout>\n        <u-linear-layout direction=\"horizontal\"\n        style=\"margin-bottom:16px;line-height: 0;\">\n        <u-block style=\"width: 100%;\"></u-block>\n        <u-block style=\"width: 100%;\"></u-block>\n    </u-linear-layout>\n</div>"
+            },
+            {
+                "id": 7,
+                "title": "栅格布局",
+                "toPosition": "gridLayout",
+                "type": [],
+                "cssProperty": {
+                    "--space-base": "input"
+                },
+                "blocks": "<u-grid-layout gap=\"normal none\">\n    <u-grid-layout-row :repeat=\"6\">\n        <u-grid-layout-column :span=\"3\">\n            <u-block style=\"opacity: 0.5;\">3/6</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"3\">\n            <u-block style=\"opacity: 0.8;\">3/6</u-block>\n        </u-grid-layout-column>\n    </u-grid-layout-row>\n    <u-grid-layout-row :repeat=\"24\">\n        <u-grid-layout-column :span=\"2\">\n            <u-block style=\"opacity: 0.5;\">2/24</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"4\">\n            <u-block style=\"opacity: 0.8;\">4/24</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"8\">\n            <u-block style=\"opacity: 0.5;\">8/24</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"10\">\n            <u-block style=\"opacity: 0.8;\">10/24</u-block>\n        </u-grid-layout-column>\n    </u-grid-layout-row>\n    <u-grid-layout-row :repeat=\"3\">\n        <u-grid-layout-column :span=\"1\">\n            <u-block style=\"opacity: 0.5;\">1/3</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"2\">\n            <u-block style=\"opacity: 0.8;\">2/3</u-block>\n        </u-grid-layout-column>\n    </u-grid-layout-row>\n</u-grid-layout>"
+            },
+            {
+                "id": 8,
+                "title": "面包屑",
+                "toPosition": "crumb",
+                "type": [],
+                "cssProperty": {
+                    "--crumb-color-link": "color",
+                    "--crumb-color-disabled": "color",
+                    "--crumb-space-x": "input"
+                },
+                "blocks": "<u-crumb>\n    <u-crumb-item to=\"/\">一级页面</u-crumb-item>\n    <u-crumb-item to=\"/two\">二级页面</u-crumb-item>\n    <u-crumb-item type=\"text\" to=\"/two/three\">三级页面</u-crumb-item>\n    <u-crumb-item disabled>四级页面</u-crumb-item>\n</u-crumb>"
+            },
+            {
+                "id": 9,
+                "title": "面板",
+                "toPosition": "panel",
+                "type": [],
+                "cssProperty": {
+                    "--panel-border-width": "input",
+                    "--panel-border-radius": "input",
+                    "--panel-background": "color",
+                    "--panel-box-shadow": "input",
+                    "--panel-head-padding": "input",
+                    "--panel-body-padding": "input",
+                    "--panel-title-font-size": "input",
+                    "--panel-title-font-weight": "input"
+                },
+                "blocks": "<u-panel title=\"面板标题\">\n                                <u-skeleton></u-skeleton>\n                            </u-panel>"
+            },
+            {
+                "id": 10,
+                "title": "折叠面板",
+                "toPosition": "collapse",
+                "type": ["base", "simple"],
+                "cssProperty": {
+                    "--collapse-border-width": "input",
+                    "--collapse-border-color": "color",
+                    "--collapse-border-radius": "input",
+                    "--collapse-item-head-background": "color",
+                    "--collapse-item-head-color-disabled": "color",
+                    "--collapse-item-head-padding": "input",
+                    "--collapse-item-expander-size": "input",
+                    "--collapse-item-expander-color": "color",
+                    "--collapse-item-expander-color-disabled": "color",
+                    "--collapse-item-expander-font-size": "input",
+                    "--collapse-item-content-padding": "input",
+                    "--collapse-transition-duration": "input"
+                },
+                "blocks": "<div>\n    <div>基础样式一</div>\n    <u-collapse appear=\"simple\">\n        <u-collapse-item title=\"面板1\">Content1</u-collapse-item>\n        <u-collapse-item title=\"面板2\" expanded>Content2</u-collapse-item>\n        <u-collapse-item title=\"面板3\" disabled>Content3</u-collapse-item>\n    </u-collapse>\n    <div>基础样式二</div>\n    <u-collapse style=\"margin-bottom:48px;\">\n        <u-collapse-item title=\"面板1\">Content1</u-collapse-item>\n        <u-collapse-item title=\"面板2\" expanded>Content2</u-collapse-item>\n        <u-collapse-item title=\"面板3\" disabled>Content3</u-collapse-item>\n    </u-collapse>\n</div>"
+            },
+            {
+                "id": 11,
+                "title": "文本",
+                "toPosition": "text",
+                "type": ["normal", "small", "large", "primary", "secondary", "success", "warning", "error", "disabled", "ellipsis"],
+                "cssProperty": {
+                    "--text-font-size": "input",
+                    "--text-font-size-small": "input",
+                    "--text-font-size-large": "input",
+                    "--text-color-primary": "color",
+                    "--text-color-secondary": "color",
+                    "--text-color-success": "color",
+                    "--text-color-warning": "color",
+                    "--text-color-error": "color",
+                    "--text-color-disabled": "color"
+                },
+                "blocks": "<div>\n    <div>基础样式</div>\n    <div style=\"margin-bottom:40px;\">\n        <u-text size=\"normal\" color=\"normal\" style=\"margin-right:24px;\">\n            Normal\n        </u-text>\n        <u-text size=\"small\"  style=\"margin-right:24px;\">\n            Small\n        </u-text>\n        <u-text size=\"large\" style=\"margin-right:24px;\">\n            Large\n        </u-text>\n        <u-text size=\"primary\" color=\"primary\" style=\"margin-right:24px;\">\n            Primary\n        </u-text>\n        <u-text size=\"secondary\" color=\"secondary\" style=\"margin-right:24px;\">\n            Secondary\n        </u-text>\n        <u-text size=\"success\" color=\"success\" style=\"margin-right:24px;\">\n            Success\n        </u-text>\n        <u-text size=\"warning\" color=\"warning\" style=\"margin-right:24px;\">\n            Warning\n        </u-text>\n        <u-text size=\"error\" color=\"error\" style=\"margin-right:24px;\">\n            Error\n        </u-text>\n        <u-text size=\"disabled\" color=\"disabled\" style=\"margin-right:24px;\">\n            Disabled\n        </u-text>\n    </div>\n    <div>长文本</div>\n    <u-text overflow=\"ellipsis\" size=\"normal\">\n        Content content content content content content content content content content content content content content content content content content content content content content content content content content content...\n    </u-text>\n</div>"
+            },
+            {
+                "id": 12,
+                "title": "链接",
+                "toPosition": "link",
+                "type": ["", "success", "warning", "danger"],
+                "cssProperty": {
+                    "--link-color": "color",
+                    "--link-color-success": "color",
+                    "--link-color-warning": "color",
+                    "--link-color-danger": "color",
+                    "--link-color-disabled": "color"
+                },
+                "blocks": "<div>\n    <u-link style=\"margin-right:24px;\">Base</u-link>\n    <u-link style=\"margin-right:24px;\" color=\"success\">Success</u-link>\n    <u-link style=\"margin-right:24px;\" color=\"warning\">Warning</u-link>\n    <u-link style=\"margin-right:24px;\" color=\"danger\">Danger</u-link>\n    <u-link disabled>Disabled</u-link>\n</div>"
+            },
+            {
+                "id": 14,
+                "title": "标签",
+                "toPosition": "label",
+                "type": ["", "primary", "success", "warning", "error", "small", "large"],
+                "cssProperty": {
+                    "--label-padding-x": "input",
+                    "--label-padding-x-small": "input",
+                    "--label-padding-x-large": "input",
+                    "--label-padding-y": "input",
+                    "--label-padding-y-small": "input",
+                    "--label-padding-y-large": "input",
+                    "--label-line-height-small": "input",
+                    "--label-font-size": "input",
+                    "--label-font-size-small": "input",
+                    "--label-font-size-large": "input",
+                    "--label-remove-padding-x": "input",
+                    "--label-remove-padding-x-small": "input",
+                    "--label-remove-padding-x-large": "input",
+                    "--label-background": "color",
+                    "--label-background-primary": "color",
+                    "--label-background-success": "color",
+                    "--label-background-warning": "color",
+                    "--label-background-error": "color",
+                    "--label-color": "color",
+                    "--label-color-primary": "color",
+                    "--label-color-success": "color",
+                    "--label-color-warning": "color",
+                    "--label-color-error": "color"
+                },
+                "blocks": "<div>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\">Base</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"primary\">Primary</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"success\">Success</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"warning\">Warning</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"error\">Error</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"small\">Small</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"large\">Large</u-label>\n    <u-label removable>removable</u-label>\n</div>"
+            },
+            {
+                "id": 15,
+                "title": "徽章",
+                "toPosition": "badge",
+                "type": ["", "dot"],
+                "cssProperty": {
+                    "--badge-background": "color",
+                    "--badge-color": "color",
+                    "--badge-value-size": "input",
+                    "--badge-dot-size": "input"
+                },
+                "blocks": "<div>\n    <p style=\"display:inline-block;margin-right:20px;\">\n        消息 <u-badge :value=\"3\"></u-badge>\n    </p>\n    <p style=\"display:inline-block;\">\n        <u-badge :value=\"3\" dot corner>消息</u-badge>\n    </p>\n</div>"
+            },
+            {
+                "id": 16,
+                "title": "幻灯片",
+                "toPosition": "carousel",
+                "type": [],
+                "cssProperty": {
+                    "--carousel-width": "input",
+                    "--carousel-height": "input",
+                    "--carousel-nav-bottom": "input",
+                    "--carousel-nav-item-width": "input",
+                    "--carousel-nav-item-height": "input",
+                    "--carousel-nav-item-padding": "input",
+                    "--carousel-nav-item-background": "color",
+                    "--carousel-nav-item-background-hover": "color",
+                    "--carousel-button-space": "input",
+                    "--carousel-button-font-size": "input",
+                    "--carousel-button-color": "color",
+                    "--carousel-button-color-hover": "color",
+                    "--carousel-button-transition": "input"
+                },
+                "blocks": "<u-carousel>\n    <u-carousel-item>\n        <img src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/2.jpg\">\n    </u-carousel-item>\n    <u-carousel-item>\n        <img src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/3.jpg\">\n    </u-carousel-item>\n    <u-carousel-item>\n        <img src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/4.jpg\">\n    </u-carousel-item>\n</u-carousel>"
+            },
+            {
+                "id": 18,
+                "title": "图片展示",
+                "toPosition": "pictureView",
+                "type": ["fill", "fit", "contain", "cover", "none", "scale-down"],
+                "cssProperty": {
+                    "--image-width": "input",
+                    "--image-height": "input"
+                },
+                "blocks": "<div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Fill</div>\n        <u-image fit=\"fill\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Fit</div>\n        <u-image fit=\"fit\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Contain</div>\n        <u-image fit=\"contain\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Scale-down</div>\n        <u-image fit=\"cover\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Fill</div>\n        <u-image fit=\"none\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Fill</div>\n        <u-image fit=\"scale-down\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n</div>"
+            },
+            {
+                "id": 19,
+                "title": "按钮",
+                "toPosition": "button",
+                "type": ["", "primary", "create", "refresh"],
+                "cssProperty": {
+                    "--button-height": "input",
+                    "--button-padding-y": "input",
+                    "--button-padding-x": "input",
+                    "--button-font-size": "input",
+                    "--button-border-width": "input",
+                    "--button-border-radius": "input",
+                    "--button-background": "color",
+                    "--button-background-hover": "color",
+                    "--button-background-active": "color",
+                    "--button-background-disabled": "color",
+                    "--button-background-primary": "color",
+                    "--button-background-primary-hover": "color",
+                    "--button-background-primary-disabled": "color",
+                    "--button-color": "color",
+                    "--button-color-hover": "color",
+                    "--button-color-disabled": "color",
+                    "--button-color-primary": "color",
+                    "--button-color-primary-hover": "color",
+                    "--button-color-primary-disabled": "color",
+                    "--button-border-color": "color",
+                    "--button-border-color-hover": "color",
+                    "--button-border-color-disabled": "color",
+                    "--button-box-shadow-focus": "input",
+                    "--button-box-shadow-focus-primary": "input",
+                    "--button-box-shadow-active": "input"
+                },
+                "blocks": "<div>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\">Base</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary\">Primary</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"add\">Add</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"refresh\">Refresh</u-button>\n</div>"
+            },
+            {
+                "id": 20,
+                "title": "表单",
+                "toPosition": "_form",
+                "type": ["block", "inline", "grid", "group"],
+                "cssProperty": {
+                    "--form-item-label-padding-right": "input",
+                    "--form-item-label-width": "input"
+                }
+            },
+            {
+                "id": 21,
+                "title": "单行输入",
+                "toPosition": "input",
+                "type": [],
+                "cssProperty": {
+                    "--input-width": "input",
+                    "--input-height": "input",
+                    "--input-padding-x": "input",
+                    "--input-border-width": "input",
+                    "--input-background": "color",
+                    "--input-color": "color",
+                    "--input-border-color": "color",
+                    "--input-border-color-focus": "color",
+                    "--input-placeholder-color": "color",
+                    "--input-border-radius": "input"
+                },
+                "blocks": "<u-input\n                                maxlength=\"12\"\n                                placeholder=\"1~12位小写字母\"\n                                autofocus>\n                            </u-input>"
+            },
+            {
+                "id": 22,
+                "title": "数字输入",
+                "toPosition": "numberInput",
+                "type": [],
+                "cssProperty": {
+                    "--number-input-height": "input",
+                    "--number-input-padding": "input",
+                    "--number-input-button-background": "color",
+                    "--number-input-button-background-hover": "color",
+                    "--number-input-button-background-active": "color"
+                },
+                "blocks": "<u-number-input></u-number-input>"
+            },
+            {
+                "id": 23,
+                "title": "多行输入",
+                "toPosition": "textareaInput",
+                "type": [],
+                "cssProperty": {
+                    "--textarea-width": "input",
+                    "--textarea-min-width": "input",
+                    "--textarea-height": "input",
+                    "--textarea-min-height": "input",
+                    "--textarea-border-radius": "input",
+                    "--textarea-padding": "input",
+                    "--textarea-color": "color",
+                    "--textarea-border-color": "color"
+                },
+                "blocks": "<u-textarea\n                                placeholder=\"请输入模块描述，不超过200字符\"\n                                autofocus>\n                            </u-textarea>"
+            },
+            {
+                "id": 24,
+                "title": "单选组",
+                "toPosition": "radio",
+                "type": [],
+                "cssProperty": {
+                    "--radio-space-x": "input",
+                    "--radio-size": "input",
+                    "--radio-background": "color",
+                    "--radio-box-shadow-focus": "input"
+                },
+                "blocks": "<div>\n    <u-radios style=\"margin-bottom:16px;\" value=\"开\">\n        <u-radio label=\"关\">关</u-radio>\n        <u-radio label=\"开\">开</u-radio>\n    </u-radios>\n    <u-radios value=\"开\">\n        <u-radio label=\"关\" disabled>关_禁用</u-radio>\n        <u-radio label=\"开\" disabled>开_禁用</u-radio>\n    </u-radios>\n</div>"
+            },
+            {
+                "id": 25,
+                "title": "开关",
+                "toPosition": "switch",
+                "type": [],
+                "cssProperty": {
+                    "--switch-width": "input",
+                    "--switch-height": "input",
+                    "--switch-button-space": "input",
+                    "--switch-button-size": "input",
+                    "--switch-button-background": "color",
+                    "--switch-button-radius": "input",
+                    "--switch-background": "color",
+                    "--switch-background-checked": "color",
+                    "--switch-background-disabled": "color",
+                    "--switch-color": "color",
+                    "--switch-text-margin": "input",
+                    "--switch-transition": "input",
+                    "--switch-button-transition": "input"
+                },
+                "blocks": "<div>\n    <div style=\"display:inline-block;margin-right:40px;\">\n        <u-switch style=\"margin-right:8px;\"></u-switch>\n        <u-text>关</u-text>\n    </div>\n    <div style=\"display:inline-block;margin-right:40px;\">\n        <u-switch value=\"true\" readonly style=\"margin-right:8px;\"></u-switch>\n        <u-text>开</u-text>\n    </div>\n    <div style=\"display:inline-block;margin-right:40px;\">\n        <u-switch disabled style=\"margin-right:8px;\"></u-switch>\n        <u-text>禁用</u-text>\n    </div>\n</div>"
+            },
+            {
+                "id": 26,
+                "title": "多选组",
+                "toPosition": "checkbox",
+                "type": [],
+                "cssProperty": {
+                    "--checkbox-space-x": "input",
+                    "--checkbox-size": "input",
+                    "--checkbox-border-radius": "input",
+                    "--checkbox-background": "color",
+                    "--checkbox-color": "color",
+                    "--checkbox-box-shadow-focus": "input"
+                },
+                "blocks": "<u-linear-layout>\n                                <u-checkbox :value=\"false\" style=\"margin-right:40px;\">关</u-checkbox>\n                                <u-checkbox :value=\"true\" readonly style=\"margin-right:40px;\">开</u-checkbox>\n                                <u-checkbox :value=\"false\" disabled style=\"margin-right:40px;\">关_禁用</u-checkbox>\n                                <u-checkbox :value=\"true\" disabled style=\"margin-right:40px;\">开_禁用</u-checkbox>\n                            </u-linear-layout>"
+            },
+            {
+                "id": 28,
+                "title": "选择框",
+                "toPosition": "select",
+                "type": [],
+                "cssProperty": {
+                    "--select-width": "input",
+                    "--select-height": "input",
+                    "--select-padding-x": "input",
+                    "--select-background": "color",
+                    "--select-border-width": "input",
+                    "--select-border-color": "color",
+                    "--select-color": "color",
+                    "--select-popper-max-height": "input",
+                    "--select-popper-box-shadow": "input",
+                    "--select-placeholder-color": "color",
+                    "--select-arrow-color": "color",
+                    "--select-arrow-size": "input",
+                    "--select-arrow-right-ratio": "input",
+                    "--select-popper-background": "color",
+                    "--select-popper-border-color": "color",
+                    "--select-popper-border-color-inverse": "color",
+                    "--select-status-color": "color",
+                    "--select-box-shadow-focus": "input"
+                },
+                "blocks": "<u-select>\n                                <u-select-item value=\"java\">Java</u-select-item>\n                                <u-select-item value=\"nodejs\">Node.js</u-select-item>\n                                <u-select-item value=\"go\">Go</u-select-item>\n                            </u-select>"
+            },
+            {
+                "id": 29,
+                "title": "评分",
+                "toPosition": "rating",
+                "type": [],
+                "cssProperty": {
+                    "--rate-space": "input",
+                    "--rate-size": "input",
+                    "--rate-color": "color",
+                    "--rate-color-full": "color"
+                },
+                "blocks": "<u-rate></u-rate>"
+            },
+            {
+                "id": 30,
+                "title": "滑块",
+                "toPosition": "slider",
+                "type": [],
+                "cssProperty": {
+                    "--slider-body-margin": "input",
+                    "--slider-body-padding": "input",
+                    "--slider-track-height": "input",
+                    "--slider-track-background": "color",
+                    "--slider-trail-background": "color",
+                    "--slider-trail-background-disabled": "color",
+                    "--slider-handle-width": "input",
+                    "--slider-handle-height": "input",
+                    "--slider-handle-background": "color",
+                    "--slider-handle-border": "input"
+                },
+                "blocks": "<u-slider :value=\"36\"></u-slider>"
+            },
+            {
+                "id": 31,
+                "title": "文件上传",
+                "toPosition": "uploader",
+                "type": ["", "card", "image"],
+                "cssProperty": {
+                    "--uploader-list-margin-top": "input",
+                    "--uploader-item-space": "input",
+                    "--uploader-item-padding": "input",
+                    "--uploader-item-line-height": "input",
+                    "--uploader-item-border-radius": "input",
+                    "--uploader-item-background": "color",
+                    "--uploader-item-background-hover": "color",
+                    "--uploader-item-icon-color": "color",
+                    "--uploader-link-color": "color",
+                    "--uploader-link-color-hover": "color",
+                    "--uploader-card-border-radius": "input",
+                    "--uploader-card-space": "input",
+                    "--uploader-mask-background": "color",
+                    "--uploader-draggable-background": "color",
+                    "--uploader-draggable-border-width": "input",
+                    "--uploader-draggable-border-color": "color",
+                    "--uploader-draggable-border-color-hover": "color",
+                    "--uploader-draggable-border-radius": "input",
+                    "--uploader-draggable-padding": "input"
+                }
+            },
+            {
+                "id": 32,
+                "title": "数据表格",
+                "toPosition": "tableView",
+                "type": [],
+                "cssProperty": {
+                    "--table-view-head-item-color": "color",
+                    "--table-background": "color",
+                    "--table-head-background": "color",
+                    "--table-border-color": "color",
+                    "--table-td-color": "color",
+                    "--table-th-line-height": "input",
+                    "--table-th-padding": "input",
+                    "--table-td-line-height": "input",
+                    "--table-td-padding": "input"
+                }
+            },
+            {
+                "id": 34,
+                "title": "选项卡",
+                "toPosition": "tabs",
+                "type": ["", "square", "round", "line", "capsule", "text"],
+                "cssProperty": {
+                    "--tabs-border-width": "input",
+                    "--tabs-border-color": "color",
+                    "--tabs-head-background": "color",
+                    "--tabs-item-height": "input",
+                    "--tabs-item-padding-x": "input",
+                    "--tabs-item-line-width": "input",
+                    "--tabs-item-background-text": "color",
+                    "--tabs-item-background-capsule": "color",
+                    "--tabs-item-background-hover": "color",
+                    "--tabs-item-background-selected": "color",
+                    "--tabs-item-background-selected-capsule": "color",
+                    "--tabs-item-color": "color",
+                    "--tabs-item-color-hover": "color",
+                    "--tabs-item-color-selected": "color",
+                    "--tabs-item-color-selected-capsule": "color",
+                    "--tabs-item-color-disabled": "color",
+                    "--tabs-item-border-color-selected": "color",
+                    "--tabs-item-border-color-selected-capsule": "color",
+                    "--tabs-item-border-radius-round": "input",
+                    "--tabs-body-space": "input"
+                }
+            },
+            {
+                "id": 35,
+                "title": "步骤条",
+                "toPosition": "select-steps",
+                "type": [],
+                "cssProperty": {
+                    "--steps-item-color-disabled": "color",
+                    "--steps-item-radio-size": "input",
+                    "--steps-item-radio-background": "color",
+                    "--steps-item-radio-background-passed": "color",
+                    "--steps-item-radio-color-passed": "color"
+                },
+                "blocks": "<u-selectable-steps :value=\"1\">\n    <u-selectable-step title=\"Step1\"></u-selectable-step>\n    <u-selectable-step title=\"Step2\"></u-selectable-step>\n    <u-selectable-step title=\"Step3\"></u-selectable-step>\n</u-selectable-steps>"
+            },
+            {
+                "id": 36,
+                "title": "翻页器",
+                "toPosition": "pagination",
+                "type": ["", "showNum", "prevAndNext", "showSum", "showAll", "simple"],
+                "cssProperty": {
+                    "--pagination-item-size": "input",
+                    "--pagination-item-padding": "input",
+                    "--pagination-item-background": "color",
+                    "--pagination-item-background-hover": "color",
+                    "--pagination-item-background-selected": "color",
+                    "--pagination-item-background-blank": "color",
+                    "--pagination-item-color": "color",
+                    "--pagination-item-color-hover": "color",
+                    "--pagination-item-color-selected": "color",
+                    "--pagination-item-color-disabled": "color",
+                    "--pagination-item-color-blank": "color",
+                    "--pagination-item-color-blank-disabled": "color",
+                    "--pagination-item-border-color": "color",
+                    "--combo-pagination-height": "input",
+                    "--combo-pagination-line-height": "input",
+                    "--combo-pagination-sizer-width": "input",
+                    "--combo-pagination-jumper-width": "input"
+                },
+                "blocks": "<div>\n    <u-pagination style=\"margin-bottom:16px;\" :total=\"11\" :page=\"6\"></u-pagination>\n    <u-pagination style=\"margin-bottom:16px;\" :total=\"11\">\n        <a slot=\"prev\" role=\"text\">Previous</a>\n        <a slot=\"next\" role=\"text\">Next</a>\n    </u-pagination>\n    <u-pagination\n        style=\"margin-bottom:16px;\"\n        :total-items=\"75\"\n        show-total>\n    </u-pagination>\n    <u-pagination\n        style=\"margin-bottom:16px;\"\n        :total-items=\"75\"\n        show-total\n        show-sizer\n        show-jumper>\n    </u-pagination>\n    <u-pagination\n        style=\"margin-bottom:16px;\"\n        :total=\"11\"\n        simple\n        readonly>\n    </u-pagination>\n    <u-pagination\n        :total=\"11\"\n        simple\n        disabled>\n    </u-pagination>\n</div>"
+            },
+            {
+                "id": 39,
+                "title": "树形视图",
+                "toPosition": "treeView",
+                "type": [],
+                "cssProperty": {
+                    "--tree-view-background": "color",
+                    "--tree-view-node-margin-left": "input",
+                    "--tree-view-node-expander-size": "input",
+                    "--tree-view-node-text-padding": "input",
+                    "--tree-view-node-background-active": "color",
+                    "--tree-view-node-background-selected": "color",
+                    "--tree-view-node-color-selected": "color",
+                    "--tree-view-node-expander-color-selected": "color",
+                    "--tree-view-node-background-selected-disabled": "color"
+                }
+            },
+            {
+                "id": 40,
+                "title": "穿梭框",
+                "toPosition": "transfer",
+                "type": [],
+                "cssProperty": {
+                    "--transfer-height": "input",
+                    "--transfer-width": "input",
+                    "--transfer-button-size": "input",
+                    "--transfer-button-space": "input",
+                    "--transfer-button-background": "color",
+                    "--transfer-button-background-hover": "color",
+                    "--transfer-button-background-active": "color",
+                    "--transfer-button-background-disabled": "color",
+                    "--transfer-button-color": "color",
+                    "--transfer-button-color-hover": "color",
+                    "--transfer-button-color-disabled": "color",
+                    "--transfer-button-border-color": "color",
+                    "--transfer-button-border-color-hover": "color",
+                    "--transfer-button-border-color-disabled": "color"
+                },
+                "blocks": "<u-transfer show-head\n    source-title=\"左列表\"\n    target-title=\"右列表\"\n    :source=\"source\"\n    :target=\"target\">\n</u-transfer>",
+                "data": {
+                    "source": [
+                        { "text": "C", "value": "c" },
+                        { "text": "C#", "value": "csharp" },
+                        { "text": "C++", "value": "cpp" },
+                        { "text": "Coq", "value": "coq" },
+                        { "text": "Go", "value": "go" },
+                        { "text": "Handlebars", "value": "Handlebars" },
+                        { "text": "JSON", "value": "json" },
+                        { "text": "Java", "value": "java" },
+                        { "text": "Makefile", "value": "makefile" },
+                        { "text": "Markdown", "value": "markdown" },
+                        { "text": "Objective-C", "value": "objective-c" },
+                        { "text": "Objective-C++", "value": "objective-cpp" },
+                        { "text": "PHP", "value": "php" },
+                        { "text": "Perl", "value": "perl" },
+                        { "text": "PowerShell", "value": "powershell" },
+                        { "text": "Python", "value": "python" },
+                        { "text": "Ruby", "value": "ruby" },
+                        { "text": "SQL", "value": "sql" },
+                        { "text": "SVG", "value": "svg" },
+                        { "text": "Shell Script", "value": "shellscript" },
+                        { "text": "Swift", "value": "swift" },
+                        { "text": "Visual Basic", "value": "vb" },
+                        { "text": "XML", "value": "xml" },
+                        { "text": "YAML", "value": "yaml" }
+                    ],
+                    "target": [
+                        { "text": "CSS", "value": "css" },
+                        { "text": "HTML", "value": "html" },
+                        { "text": "JavaScript", "value": "javascript" },
+                        { "text": "Vue", "value": "vue" }
+                    ]
+                }
+            },
+            {
+                "id": 44,
+                "title": "线型进度条",
+                "toPosition": "linearProgress",
+                "type": [],
+                "cssProperty": {
+                    "--linear-progress-height": "input",
+                    "--linear-progress-track-background": "color",
+                    "--linear-progress-trail-font-size": "input",
+                    "--linear-progress-trail-background": "color",
+                    "--linear-progress-trail-color": "color",
+                    "--linear-progress-trail-transition": "input"
+                },
+                "blocks": "<u-linear-progress :percent=\"25\"></u-linear-progress>"
+            },
+            {
+                "id": 45,
+                "title": "圆形进度条",
+                "toPosition": "circularProgress",
+                "type": [],
+                "cssProperty": {
+                    "--circular-progress-size": "input",
+                    "--circular-progress-stroke-width": "input",
+                    "--circular-progress-track-stroke": "color",
+                    "--circular-progress-trail-stroke": "color",
+                    "--circular-progress-trail-transition": "input",
+                    "--circular-progress-percent-font-size": "input"
+                },
+                "blocks": "<u-circular-progress :percent=\"25\"></u-circular-progress>"
+            },
+            {
+                "id": 46,
+                "title": "弹出框",
+                "toPosition": "popup",
+                "type": [],
+                "cssProperty": {
+                    "--popup-padding": "input",
+                    "--popup-arrow-size": "input",
+                    "--popup-arrow-offset": "input",
+                    "--popup-outer-arrow-size": "input",
+                    "--popup-background": "color",
+                    "--popup-box-shadow": "input",
+                    "--popup-border-color": "color"
+                },
+                "blocks": "<div>\n    <u-button style=\"box-shadow:none;margin-right:40px;\">\n        内容\n        <u-popup>使用 content 属性添加内容</u-popup>\n    </u-button>\n    <u-button style=\"box-shadow:none;\">\n        内容\n        <u-popup trigger=\"hover\">使用 content 属性添加内容</u-popup>\n    </u-button>\n</div>"
+            },
+            {
+                "id": 47,
+                "title": "弹窗",
+                "toPosition": "modal",
+                "type": [],
+                "cssProperty": {
+                    "--modal-dialog-width": "input",
+                    "--modal-dialog-border-radius": "input",
+                    "--modal-dialog-background": "color",
+                    "--modal-dialog-box-shadow": "input",
+                    "--modal-title-font-size": "input",
+                    "--modal-close-right": "input",
+                    "--modal-close-color": "color",
+                    "--modal-close-color-hover": "color",
+                    "--modal-body-margin": "input",
+                    "--modal-foot-margin": "input",
+                    "--modal-foot-padding": "input",
+                    "--modal-border-color": "color"
+                },
+                "blocks": "<div>\n   <u-modal :visible.sync=\"exampleModalvisible\" title=\"标题\">\n        <div style=\"position:relative;width:100%;height:85px;background:#F2F3F5;text-align:center;\">\n            <u-text style=\"position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);\">对话框内容</u-text>\n        </div>\n    </u-modal>\n    <u-linear-layout>\n        <u-button @click=\"exampleModalvisible = true\">Modal</u-button>\n    </u-linear-layout>\n</div>",
+                "data": {
+                    "exampleModalvisible": false
+                }
+            }
+        ]
     }
 ]
