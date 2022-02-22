@@ -16,7 +16,7 @@
         </span>
         <u-select v-if="showSizer" :class="$style.sizer" v-model="currentPageSize" :readonly="readonly" :disabled="disabled" @select="onSelectPageSize">
             <u-select-item v-for="pageSize in pageSizeOptions" :key="pageSize" :value="pageSize">
-                每页 {{ pageSize }} {{ $t('pageSizeUnit') }}
+                每页{{ pageSize }}{{ $t('pageSizeUnit') }}
             </u-select-item>
         </u-select>
         <a :class="$style['item-wrap']" :disabled="currentPage <= 1" @click="select(currentPage - 1)">
@@ -218,7 +218,6 @@ export default {
 .item {
     display: inline-block;
     text-decoration: none;
-
     padding: var(--pagination-item-padding);
     min-width: var(--pagination-item-size);
     height: var(--pagination-item-size);
@@ -231,21 +230,20 @@ export default {
     border: 1px solid var(--pagination-item-border-color);
     border-radius: var(--pagination-item-border-radius);
     margin-left: -1px;
-
     vertical-align: middle;
 }
 
 .item:hover {
-    color: var(--pagination-item-color-hover);
-    background: var(--pagination-item-background-hover);
     position: relative;
+    background: var(--pagination-item-background-hover);
     border-color: var(--pagination-item-border-color-hover);
+    color: var(--pagination-item-color-hover);
 }
 
 .item[selected] {
+    border-color: var(--pagination-item-border-color-selected);
     background: var(--pagination-item-background-selected);
     color: var(--pagination-item-color-selected);
-    border: 0;
 }
 
 .item[disabled] {
@@ -259,7 +257,7 @@ export default {
     font-size: var(--pagination-item-prenext-font-size);
     padding: 0 4px;
     border-radius: var(--pagination-item-border-radius);
-    color: var(--color-light);
+    color: var(--pagination-item-color);
 }
 
 .item[role="prev"]::before {
@@ -273,7 +271,7 @@ export default {
     font-size: var(--pagination-item-prenext-font-size);
     padding: 0 4px;
     border-radius: var(--pagination-item-border-radius);
-    color: var(--color-light);
+    color: var(--pagination-item-color);
 }
 
 .item[role="next"]::before {
@@ -284,10 +282,11 @@ export default {
 }
 
 .item[role="blank"] {
+    line-height: 2;
+    border: 1px solid var(--pagination-item-border-color);
     background: var(--pagination-item-background-blank);
     color: var(--pagination-item-color-blank);
     cursor: initial;
-    border: 1px solid var(--pagination-item-border-color);
 }
 
 .item-wrap {
@@ -388,7 +387,9 @@ export default {
 }
 
 .root[simple][disabled] .item,
-.root[simple][disabled] .item:hover {
+.root[simple][disabled] .item:hover,
+.root[simple] .item[disabled],
+.root[simple] .item[disabled]:hover {
     color: var(--pagination-item-color-disabled);
 }
 
