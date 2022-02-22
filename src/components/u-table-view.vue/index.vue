@@ -590,11 +590,7 @@ export default {
                 this.visibleColumnVMs.forEach((columnVM, index) => {
                     if (!columnVM.currentWidth){
                         noWidthColumnVMs.push(columnVM);
-                        columnVM.currentWidth = defaultColumnWidth;
-                    }
-                });
-                this.visibleColumnVMs.forEach((columnVM, index) => {
-                    if (String(columnVM.currentWidth).endsWith('%'))
+                    } else if (String(columnVM.currentWidth).endsWith('%'))
                         percentColumnVMs.push(columnVM);
                     else
                         valueColumnVMs.push(columnVM);
@@ -633,13 +629,9 @@ export default {
 
                 const remainingWidth = rootWidth - percentWidthSum - valueWidthSum;
                 if (remainingWidth > 0 && noWidthColumnVMs.length) {
-                    if(defaultColumnWidth){
-                        const averageWidth = remainingWidth / noWidthColumnVMs.length;
-                        noWidthColumnVMs.forEach((columnVM) => columnVM.computedWidth = columnVM.computedWidth + averageWidth);
-                    } else {
-                        const averageWidth = remainingWidth / noWidthColumnVMs.length;
-                        noWidthColumnVMs.forEach((columnVM) => columnVM.computedWidth = averageWidth);
-                    }
+                    const averageWidth = remainingWidth / noWidthColumnVMs.length;
+                    const finalWidth = averageWidth > defaultColumnWidth ? averageWidth : defaultColumnWidth;
+                    noWidthColumnVMs.forEach((columnVM) => columnVM.computedWidth = finalWidth);
                 } else if (remainingWidth > 0 && valueWidthSum !== 0) {
                     const averageWidth = remainingWidth / valueColumnVMs.length;
                     valueColumnVMs.forEach((columnVM) => columnVM.computedWidth = columnVM.computedWidth + averageWidth);
@@ -647,7 +639,7 @@ export default {
 
                 // 如果所有列均有值，则总宽度有超出的可能。否则总宽度为根节点的宽度。
                 let tableWidth = '';
-                if (this.visibleColumnVMs.every((columnVM) => columnVM.currentWidth)) {
+                if (this.visibleColumnVMs.every((columnVM) => columnVM.currentWidth) || defaultColumnWidth) {
                     tableWidth = this.visibleColumnVMs.reduce((prev, columnVM) => {
                         if (String(columnVM.currentWidth).endsWith('%'))
                             return (prev + (parseFloat(columnVM.currentWidth) * rootWidth) / 100);
