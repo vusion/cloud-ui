@@ -193,7 +193,6 @@ import MEmitter from '../m-emitter.vue';
 import debounce from 'lodash/debounce';
 import isNumber from 'lodash/isNumber';
 import i18n from './i18n';
-import { rest } from 'lodash';
 
 export default {
     name: 'u-table-view',

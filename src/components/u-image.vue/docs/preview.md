@@ -13,15 +13,15 @@
         <u-image fit="contain" src="//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg"></u-image>
     </div>
     <div style="display:inline-block;margin-right:20px;">
-        <div style="margin-bottom:16px;">Scale-down</div>
+        <div style="margin-bottom:16px;">Cover</div>
         <u-image fit="cover" src="//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg"></u-image>
     </div>
     <div style="display:inline-block;margin-right:20px;">
-        <div style="margin-bottom:16px;">Fill</div>
+        <div style="margin-bottom:16px;">none</div>
         <u-image fit="none" src="//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg"></u-image>
     </div>
     <div style="display:inline-block;margin-right:20px;">
-        <div style="margin-bottom:16px;">Fill</div>
+        <div style="margin-bottom:16px;">Scale-down</div>
         <u-image fit="scale-down" src="//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg"></u-image>
     </div>
 </div>

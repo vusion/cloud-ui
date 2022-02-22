@@ -210,13 +210,13 @@
                     "--image-width": "input",
                     "--image-height": "input"
                 },
-                "blocks": "<div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Fill</div>\n        <u-image fit=\"fill\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Fit</div>\n        <u-image fit=\"fit\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Contain</div>\n        <u-image fit=\"contain\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Scale-down</div>\n        <u-image fit=\"cover\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Fill</div>\n        <u-image fit=\"none\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Fill</div>\n        <u-image fit=\"scale-down\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n</div>"
+                "blocks": "<div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Fill</div>\n        <u-image fit=\"fill\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Fit</div>\n        <u-image fit=\"fit\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Contain</div>\n        <u-image fit=\"contain\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Cover</div>\n        <u-image fit=\"cover\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">none</div>\n        <u-image fit=\"none\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Scale-down</div>\n        <u-image fit=\"scale-down\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n</div>"
             },
             {
                 "id": 19,
                 "title": "按钮",
                 "toPosition": "button",
-                "type": ["", "primary", "create", "refresh"],
+                "type": ["", "primary", "create", "refresh", ""],
                 "cssProperty": {
                     "--button-height": "input",
                     "--button-padding-y": "input",
@@ -244,7 +244,7 @@
                     "--button-box-shadow-focus-primary": "input",
                     "--button-box-shadow-active": "input"
                 },
-                "blocks": "<div>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\">Base</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary\">Primary</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"add\">Add</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"refresh\">Refresh</u-button>\n</div>"
+                "blocks": "<div>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\">Base</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary\">Primary</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"add\">Add</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"refresh\">Refresh</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"huge\">Huge</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"large\">Large</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\">Normal</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"small\">Small</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"mini\">Mini</u-button>\n</div>"
             },
             {
                 "id": 20,
@@ -254,7 +254,8 @@
                 "cssProperty": {
                     "--form-item-label-padding-right": "input",
                     "--form-item-label-width": "input"
-                }
+                },
+                "blocks": "<div>\n    <div>基础布局</div>\n    <u-form gap=\"large\">\n        <u-form-item label=\"计费方式\" required>\n            <u-radios value=\"0\">\n                <u-radio label=\"0\">包年包月</u-radio>\n                <u-radio label=\"1\">按量付费</u-radio>\n            </u-radios>\n        </u-form-item>\n        <u-form-item label=\"实例名称\" required>\n            <u-input size=\"huge\" maxlength=\"63\" placeholder=\"由1-63个小写字母，数字，中划线组成，以字母开头，字母或数字结尾\"></u-input>\n        </u-form-item>\n        <u-form-item label=\"　\" required>\n            <u-input size=\"huge\" maxlength=\"63\" placeholder=\"label为空的必填项\"></u-input>\n        </u-form-item>\n        <u-form-item label=\"规格\">\n            <u-capsules value=\"0101\">\n                <u-capsule value=\"0101\">1核 1GB</u-capsule>\n                <u-capsule value=\"0102\">1核 2GB</u-capsule>\n                <u-capsule value=\"0204\">2核 4GB</u-capsule>\n                <u-capsule value=\"0408\">4核 8GB</u-capsule>\n                <u-capsule value=\"0816\">8核 16GB</u-capsule>\n                <u-capsule value=\"0832\">8核 32GB</u-capsule>\n                <u-capsule value=\"1664\">16核 64GB</u-capsule>\n            </u-capsules>\n        </u-form-item>\n        <u-form-item label=\"类型\" description=\"高性能 SSD 云盘不支持快照功能\" layout=\"block\">\n            <u-capsules value=\"SSD\">\n                <u-capsule value=\"SSD\">SSD 云盘</u-capsule>\n                <u-capsule value=\"HSSD\">高性能 SSD 云盘</u-capsule>\n            </u-capsules>\n        </u-form-item>\n        <u-form-item label=\"端口号\" required>\n            <u-input size=\"huge medium\" maxlength=\"5\" placeholder=\"1150-65535\" value=\"3306\"></u-input>\n        </u-form-item>\n        <u-form-item label=\"公网带宽\">\n            <u-combo-slider :step=\"10\" unit=\"Mbps\"></u-combo-slider>\n        </u-form-item>\n        <u-form-item label=\"详情\" layout=\"block\">\n            <u-textarea size=\"huge\"></u-textarea>\n        </u-form-item>\n        <u-form-item>\n            <u-button color=\"primary\">立即创建</u-button>\n        </u-form-item>\n    </u-form>\n    <div>行内布局</div>\n    <u-form layout=\"inline\" label-size=\"auto\">\n        <u-form-item label=\"状态\">\n            <u-select auto-select>\n                <u-select-item>认证中</u-select-item>\n            </u-select>\n        </u-form-item>\n        <u-form-item label=\"用户名\">\n            <u-input maxlength=\"63\" placeholder=\"请输入用户名\"></u-input>\n        </u-form-item>\n        <u-form-item label=\"联系号码\">\n            <u-input maxlength=\"63\" placeholder=\"请输入联系号码\"></u-input>\n        </u-form-item>\n        <u-form-item>\n            <u-button color=\"primary\">查询</u-button>\n        </u-form-item>\n    </u-form>\n    <div>栅格布局</div>\n    <u-form layout=\"inline\">\n        <u-grid-layout>\n            <u-grid-layout-row :repeat=\"3\">\n                <u-grid-layout-column>\n                    <u-form-item label=\"状态\">\n                        <u-select auto-select>\n                            <u-select-item>认证中</u-select-item>\n                        </u-select>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item label=\"备案类型\">\n                        <u-select auto-select>\n                            <u-select-item>全部</u-select-item>\n                        </u-select>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item label=\"备案号\">\n                        <u-input maxlength=\"63\"></u-input>\n                    </u-form-item>\n                </u-grid-layout-column>\n            </u-grid-layout-row>\n            <u-grid-layout-row :repeat=\"3\">\n                <u-grid-layout-column>\n                    <u-form-item label=\"用户名\">\n                        <u-input maxlength=\"63\"></u-input>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item label=\"单位名称\">\n                        <u-input maxlength=\"63\"></u-input>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item>\n                        <u-button color=\"primary\">查询</u-button>\n                    </u-form-item>\n                </u-grid-layout-column>\n            </u-grid-layout-row>\n        </u-grid-layout>\n    </u-form>\n</div>"
             },
             {
                 "id": 21,
@@ -440,7 +441,8 @@
                     "--uploader-draggable-border-color-hover": "color",
                     "--uploader-draggable-border-radius": "input",
                     "--uploader-draggable-padding": "input"
-                }
+                },
+                "blocks": "<div>\n     <div>\n        <div>单文件按钮</div>\n        <u-uploader\n            url=\"http://localhost:7000/api/library/upload\" mutiple>\n            <u-button color=\"primary\">Upload</u-button>\n        </u-uploader>\n    </div>\n    <div>\n        <div>单文件卡片</div>\n        <u-uploader accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n            url=\"http://localhost:7000/api/library/upload\"\n            list-type=\"card\"\n            mutiple>\n        </u-uploader>\n    </div>\n    <div style=\"margin-bottom:40px;\">\n        <div>多图片按钮</div>\n        <u-uploader accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n            url=\"http://localhost:7000/api/library/upload\"\n            list-type=\"image\"\n            mutiple>\n            <u-button color=\"primary\">Upload</u-button>\n        </u-uploader>\n    </div>\n</div>"
             },
             {
                 "id": 32,
@@ -457,6 +459,14 @@
                     "--table-th-padding": "input",
                     "--table-td-line-height": "input",
                     "--table-td-padding": "input"
+                },
+                "blocks": "<u-table-view :data-source=\"data.tableView\">\n    <u-table-view-column\n        title=\"用户名\"\n        field=\"name\"\n        width=\"20%\">\n    </u-table-view-column>\n    <u-table-view-column\n        title=\"手机号码\"\n        field=\"phone\"\n        width=\"20%\">\n    </u-table-view-column>\n    <u-table-view-column\n        title=\"地址\"\n        field=\"address\">\n    </u-table-view-column>\n    <u-table-view-column\n        title=\"最近登录时间\"\n        field=\"loginTime\"\n        formatter=\"placeholder | date\"\n        width=\"20%\">\n    </u-table-view-column>\n</u-table-view>",
+                "data": {
+                    "tableView": [
+                        { "name": "张三", "phone": "18612917895", "email": "zhangsan@163.com", "address": "浙江省杭州市滨江区网商路599号网易大厦", "createdTime": "1464421931000", "loginTime": "1527515531000" },
+                        { "name": "小明", "phone": "13727160283", "email": "xiaoming@163.com", "address": "浙江省杭州市滨江区江虹路459号英飞特科技园", "createdTime": "1520864676000", "loginTime": "1552400676000" },
+                        { "name": "李四", "phone": "18897127809", "email": "lisi@163.com", "address": "浙江省杭州市滨江区秋溢路606号西可科技园", "createdTime": "1494488730000", "loginTime": "1558165530000" }
+                    ]
                 }
             },
             {
@@ -485,7 +495,8 @@
                     "--tabs-item-border-color-selected-capsule": "color",
                     "--tabs-item-border-radius-round": "input",
                     "--tabs-body-space": "input"
-                }
+                },
+                "blocks": "<div>\n    <div>基础样式</div>\n    <u-tabs>\n        <u-tab title=\"选项一\"></u-tab>\n        <u-tab title=\"选项二\"></u-tab>\n        <u-tab title=\"选项三\"></u-tab>\n        <u-tab title=\"选项四\" disabled></u-tab>\n    </u-tabs>\n    <div>基础样式</div>\n    <u-tabs appear=\"square\">\n        <u-tab title=\"选项一\"></u-tab>\n        <u-tab title=\"选项二\"></u-tab>\n        <u-tab title=\"选项三\"></u-tab>\n        <u-tab title=\"选项四\" disabled></u-tab>\n    </u-tabs>\n     <div>基础样式</div>\n    <u-tabs appear=\"round\">\n        <u-tab title=\"选项一\"></u-tab>\n        <u-tab title=\"选项二\"></u-tab>\n        <u-tab title=\"选项三\"></u-tab>\n        <u-tab title=\"选项四\" disabled></u-tab>\n    </u-tabs>\n     <div>基础样式</div>\n    <u-tabs appear=\"line\">\n        <u-tab title=\"选项一\"></u-tab>\n        <u-tab title=\"选项二\"></u-tab>\n        <u-tab title=\"选项三\"></u-tab>\n        <u-tab title=\"选项四\" disabled></u-tab>\n    </u-tabs>\n     <div>基础样式</div>\n    <u-tabs appear=\"capsule\">\n        <u-tab title=\"选项一\"></u-tab>\n        <u-tab title=\"选项二\"></u-tab>\n        <u-tab title=\"选项三\"></u-tab>\n        <u-tab title=\"选项四\" disabled></u-tab>\n    </u-tabs>\n     <div>基础样式</div>\n    <u-tabs appear=\"text\">\n        <u-tab title=\"选项一\"></u-tab>\n        <u-tab title=\"选项二\"></u-tab>\n        <u-tab title=\"选项三\"></u-tab>\n        <u-tab title=\"选项四\" disabled></u-tab>\n    </u-tabs>\n</div>"
             },
             {
                 "id": 35,
@@ -542,6 +553,28 @@
                     "--tree-view-node-color-selected": "color",
                     "--tree-view-node-expander-color-selected": "color",
                     "--tree-view-node-background-selected-disabled": "color"
+                },
+                "blocks": "<u-tree-view value=\"4\" :data=\"data.treeView\"></u-tree-view>",
+                "data": {
+                    "treeView": [
+                        { "text": "一级分类", "children": [
+                            { "text": "二级分类选项文字极限很长...", "children": [
+                                {"text": "三级分类"}
+                            ]},
+                            { "text": "二级分类", "children": [
+                                {"text": "三级分类"}
+                            ]},
+                            { "text": "二级分类", "children": [
+                                { "text": "三级分类", "value":"3", "children":[
+                                    {"text": "四级分类", "value": "4"}
+                                ] }
+                            ] }
+                        ] },
+                        { "text": "一级分类", "children": [
+                            { "text": "二级分类" },
+                            { "text": "二级分类" }
+                        ] }
+                    ] 
                 }
             },
             {
