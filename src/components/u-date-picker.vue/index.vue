@@ -275,10 +275,11 @@ export default {
     display: inline-block;
     position: relative;
 }
+
 .input {
     box-sizing: border-box;
     margin: 0;
-    padding: 0 12px;
+    padding: 0 var(--datepicker-input-padding-x);
     vertical-align: middle;
     border: var(--datepicker-input-border-width) solid var(--datepicker-input-border-color);
     color: var(--datepicker-input-color);
@@ -288,19 +289,24 @@ export default {
     line-height: calc(var(--datepicker-input-height) - var(--datepicker-input-border-width) * 2);
     outline: none;
 }
+
 .input[disabled] {
+    width: var(--datepicker-width);
     cursor: var(--cursor-not-allowed);
     background: var(--datepicker-input-background-disabled);
     color: var(--color-light);
 }
+
 .input[color="error"] {
     border-color: var(--datepicker-input-border-color-error);
 }
+
 .input:focus {
     outline: var(--focus-outline);
     border-color: var(--datepicker-input-border-color-focus);
     box-shadow: var(--datepicker-input-box-shadow-focus);
 }
+
 .header:hover .input{
     border-color: var(--datepicker-input-border-color-focus);
 }
@@ -322,7 +328,6 @@ export default {
     z-index: 100;
     width: 248px;
     top: 100%;
-    /* margin-top: 2px; */
 }
 
 .wrap {

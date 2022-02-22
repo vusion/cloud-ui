@@ -1341,8 +1341,9 @@
     --datepicker-input-border-width: var(--input-border-width);
     --datepicker-input-color: var(--input-color);
     --datepicker-input-background: var(--input-background);
-    --datepicker-input-border-radius: var(--input-border-radius);
+    --datepicker-input-border-radius: 3px;
     --datepicker-input-height: var(--input-height);
+    --datepicker-input-padding-x: 8px;
     --datepicker-input-background-disabled: var(--input-background-disabled);
     --datepicker-input-border-color-error: var(--input-border-color-error);
     --datepicker-input-border-color-focus: var(--input-border-color-focus);
@@ -1352,6 +1353,15 @@
     --datepicker-input-clear-icon-color: var(--input-clear-icon-color);
     --datepicker-popper-box-shadow: var(--select-popper-box-shadow);
     --datepicker-popper-border-radius: var(--border-radius-base);
+
+    /* @component u-date-time-picker */
+    --datetime-input-border-color: var(--input-border-color);
+    --datetime-input-border-width: var(--input-border-width);
+    --datetime-input-width: 300px;
+    --datetime-input-padding-x: 8px;
+    --datetime-input-height: var(--input-height);
+    --datetime-input-placeholder-color: var(--input-placeholder-color);
+    --datetime-input-border-radius: 3px;
 
      /* @component u-taskbox @hidden */
     --taskbox-badge-box-shadow: none;

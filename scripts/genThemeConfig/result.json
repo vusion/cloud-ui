@@ -737,6 +737,37 @@
                 "data": {
                     "exampleModalvisible": false
                 }
+            },
+            {
+                "id": 48,
+                "title": "日期选择器",
+                "toPosition": "datepicker",
+                "type": [],
+                "cssProperty": {
+                    "--datepicker-input-border-color": "color",
+                    "--datepicker-input-border-width": "input",
+                    "--datepicker-input-padding-x": "input",
+                    "--datepicker-input-height": "input",
+                    "--datepicker-input-placeholder-color": "color",
+                    "--datepicker-input-border-radius": "input"
+                },
+                "blocks": "<u-date-picker date=\"2018-08-08\" clearable></u-date-picker>"
+            },
+            {
+                "id": 49,
+                "title": "日期时间选择器",
+                "toPosition": "u-date-time-picker",
+                "type": [],
+                "cssProperty": {
+                    "--datetime-input-border-color": "color",
+                    "--datetime-input-border-width": "input",
+                    "--datetime-input-width": "input",
+                    "--datetime-input-padding-x": "input",
+                    "--datetime-input-height": "input",
+                    "--datetime-input-placeholder-color": "color",
+                    "--datetime-input-border-radius": "input"
+                },
+                "blocks": "<u-date-time-picker  date=\"2018-08-08\" clearable></u-date-time-picker>"
             }
         ]
     }

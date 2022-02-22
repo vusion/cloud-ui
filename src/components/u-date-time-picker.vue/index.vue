@@ -305,28 +305,30 @@ time = '00:00:00';
     display: inline-block;
     position: relative;
     max-width: 100%; /* 防止表格等小的地方超出区域 */
-    width: 170px;
+    width: var(--datetime-input-width);
 }
+
 .input {
     box-sizing: border-box;
     margin: 0;
-    padding: 0 4px;
+    padding: 0 var(--datetime-input-padding-x);
     vertical-align: middle;
-    border: 1px solid var(--border-color-base);
+    border: var(--datetime-input-border-width) solid var(--datetime-input-border-color);
     color: #555;
     background: var(--field-background);
-    border-radius: 3px;
+    border-radius: var(--datetime-input-border-radius);
     height: 34px;
     line-height: 34px;
     outline: none;
     width: 100%;
+    height: var(--datetime-input-height);
 }
 
 .placeholder, .input::placeholder {
     /* Removes placeholder transparency in Firefox. */
     opacity: 1;
     font-size: inherit;
-    color: var(--input-placeholder-color);
+    color: var(--datetime-input-placeholder-color);
 }
 
 .body {
@@ -337,13 +339,14 @@ time = '00:00:00';
     margin-top: 2px;
     min-width: 160px;
 }
+
 .input[disabled] {
     cursor: var(--cursor-not-allowed);
     background: #eee;
     color: var(--color-light);
 }
+
 .timePicker {
-    /* text-align: center; */
     width: 100%;
     box-sizing: border-box;
     padding-left: 32px;
