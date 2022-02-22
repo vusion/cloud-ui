@@ -19,6 +19,11 @@
       description: 表格每一行的数据类型
       group: 数据属性
       compType: dataTypeSelect
+    - name: extra-params
+      title: 数据源参数
+      type: object
+      description: 数据源除了DataSourceParams外还需要的参数
+      group: 数据属性
     - name: initial-load
       title: 初始加载
       type: boolean
@@ -167,6 +172,11 @@
       type: boolean
       default: true
       description: ""
+      group: 样式属性
+    - name: default-column-width
+      title: 默认列宽度
+      type: string | number
+      description: 表格的默认列宽度，可以设置为百分比或数字。
       group: 样式属性
     - name: loading
       title: 是否加载中
@@ -580,6 +590,29 @@
         - name: oldWidth
           type: number
           description: 调整前的宽度
+    - name: before-toggle-expanded
+      title: 展开行前
+      description: 点击展开按钮前触发
+      params:
+        - name: $event.item
+          type: object
+          description: 选择行相关对象
+        - name: $event.expanded
+          type: boolean
+          description: 展开状态值
+        - name: $event.oldExpanded
+          type: boolean
+          description: 展开前状态值
+    - name: toggle-expanded
+      title: 展开行后
+      description: 点击展开按钮后触发
+      params:
+        - name: $event.item
+          type: object
+          description: 选择行相关对象
+        - name: $event.expanded
+          type: boolean
+          description: 展开状态值
   methods:
     - name: load
       description: 带缓存地加载
@@ -752,6 +785,7 @@
           type: number
           description: 列的索引。
     - name: expand-content
+      plus-empty: true
       title: 展开列内容
       accept-type: all
       description: 展开列的内容。

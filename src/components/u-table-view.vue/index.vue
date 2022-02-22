@@ -119,7 +119,7 @@
                                                 <u-checkbox :value="item.checked" :label="$at(item, valueField)" :disabled="item.disabled" @check="check(item, $event.value)"></u-checkbox>
                                             </span>
                                             <!-- type === 'expander' -->
-                                            <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" @click="toggleExpanded(item)"></span>
+                                            <span :class="$style.expander" v-if="columnVM.type === 'expander'" :expanded="item.expanded" :disabled="item.disabled" @click="toggleExpanded(item)"></span>
                                             <template v-if="item.level !== undefined && columnIndex === treeColumnIndex">
                                                 <span :class="$style.indent" :style="{ paddingLeft: 16*item.level + 'px' }"></span>
                                                 <span :class="$style.tree_expander" v-if="$at(item, hasChildrenField)" :expanded="item.expanded" @click="toggleTreeExpanded(item)" :loading="item.loading"></span>
@@ -132,13 +132,33 @@
                                     </td>
                                 </template>
                             </tr>
-                            <tr :class="$style['expand-content']" v-if="expanderColumnVM && item.expanded">
-                                <f-collapse-transition>
-                                    <td :colspan="visibleColumnVMs.length" :class="$style['expand-td']" v-show="item.expanded" vusion-slot-name="expand-content">
-                                        <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: $at(item, expanderColumnVM.field), columnVM: expanderColumnVM, rowIndex, index: rowIndex }"></f-slot>
-                                    </td>
-                                </f-collapse-transition>
-                            </tr>
+                            <template v-if="$env.VUE_APP_DESIGNER && expanderColumnVM && rowIndex===0">
+                                <tr :class="$style['expand-content']">
+                                    <f-collapse-transition>
+                                        <td :colspan="visibleColumnVMs.length" :class="$style['expand-td']"
+                                        vusion-slot-name="expand-content"
+                                        :vusion-disabled-selected="true"
+                                        :vusion-node-tag="expanderColumnVM.$attrs['vusion-node-tag']"
+                                        :vusion-template-expand-content-node-path="expanderColumnVM.$attrs['vusion-template-expand-content-node-path']"
+                                        :vusion-scope-id="expanderColumnVM.$vnode.context.$options._scopeId"
+                                        :vusion-node-path="expanderColumnVM.$attrs['vusion-node-path']"
+                                        style="background: #F7F8FA;">
+                                            <div :plus-empty="expanderColumnVM.$attrs['plus-empty']" color="inverse"></div>
+                                            <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: $at(item, expanderColumnVM.field), columnVM: expanderColumnVM, rowIndex, index: rowIndex }">
+                                            </f-slot>
+                                        </td>
+                                    </f-collapse-transition>
+                                </tr>
+                            </template>
+                            <template v-else>
+                                <tr :class="$style['expand-content']" v-if="expanderColumnVM && item.expanded">
+                                    <f-collapse-transition>
+                                        <td :colspan="visibleColumnVMs.length" :class="$style['expand-td']" v-show="item.expanded">
+                                            <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: $at(item, expanderColumnVM.field), columnVM: expanderColumnVM, rowIndex, index: rowIndex }"></f-slot>
+                                        </td>
+                                    </f-collapse-transition>
+                                </tr>
+                            </template>
                         </template>
                     </template>
                     <tr key="no-data-source" v-if="currentData === undefined && !currentError && $env.VUE_APP_DESIGNER">
@@ -268,6 +288,8 @@ export default {
         hasChildrenField: { type: String, default: 'hasChildren' },
         treeDataSource: [Function],
         minColumnWidth: { type: Number, default: 44 },
+        extraParams: Object,
+        defaultColumnWidth: [String, Number],
     },
     data() {
         return {
@@ -455,7 +477,7 @@ export default {
     },
     methods: {
         typeCheck(type) {
-            return ['index', 'radio', 'checkbox'].includes(type);
+            return ['index', 'radio', 'checkbox', 'expander'].includes(type);
         },
         clearTimeout() {
             if (this.timer) {
@@ -496,7 +518,7 @@ export default {
             this.handleResize();
         },
         getExtraParams() {
-            return undefined;
+            return this.extraParams;
         },
         getDataSourceOptions() {
             return {
@@ -519,8 +541,8 @@ export default {
                 options.data = Array.from(dataSource);
                 return new DataSource(options);
             } else if (dataSource instanceof Function) {
-                options.load = function load(params) {
-                    const result = dataSource(params);
+                options.load = function load(params, extraParams) {
+                    const result = dataSource(params, extraParams);
                     if (result instanceof Promise)
                         return result;
                     else if (result instanceof Array)
@@ -540,6 +562,7 @@ export default {
         handleResize() {
             this.tableWidth = undefined;
             // this.bodyHeight = undefined;
+            const defaultColumnWidth = this.defaultColumnWidth;
             this.clearTimeout();
             this.timer = setTimeout(() => {
                 this.timer = undefined;
@@ -561,6 +584,11 @@ export default {
                 let fixedRightCount = 0;
                 let lastIsFixed = false;
                 this.visibleColumnVMs.forEach((columnVM, index) => {
+                    if (defaultColumnWidth) {
+                        if (!columnVM.currentWidth) {
+                            columnVM.currentWidth = defaultColumnWidth;
+                        }
+                    }
                     if (!columnVM.currentWidth)
                         noWidthColumnVMs.push(columnVM);
                     else if (String(columnVM.currentWidth).endsWith('%'))
@@ -1082,6 +1110,8 @@ export default {
             this.$emit('check', { values: this.currentValues, oldValues, checked }, this);
         },
         toggleExpanded(item, expanded) {
+            if (item.disabled)
+                return;
             // Method overloading
             if (expanded === undefined)
                 expanded = !item.expanded; // Emit a `before-` event with preventDefault()
@@ -1380,20 +1410,62 @@ export default {
     height: var(--table-view-expander-size);
     line-height: var(--table-view-expander-size);
     vertical-align: -2px;
-    text-align: center;
-    transform: rotate(-180deg);
+    /* text-align: center;
+    transform: rotate(-180deg); */
+    position: relative;
+    background-color: var(--table-view-expander-background);
+    cursor: pointer;
+    border: 1px solid var(--table-view-expander-border-color);
+    border-radius: var(--table-view-expander-border-radius);
+}
+.expander:hover{
+    background-color: var(--table-view-expander-background-hover);
+    border-color: var(--table-view-expander-border-color-hover);
+}
+.expander::before,
+.expander::after {
+    position: absolute;
+    background: currentcolor;
+    content: "";
+    background: var(--table-view-expander-color);
+    transition: transform .2s ease-out;
+}
+.expander:hover::before,
+.expander:hover::after{
+    background: var(--table-view-expander-color-hover);
 }
 
 .expander::before {
-    icon-font: url('../i-icon.vue/icons/square-down.svg');
+    top: 6px;
+    right: 3px;
+    left: 3px;
+    height: 2px;
+    transform: rotate(-180deg);
+}
+.expander::after {
+    top: 3px;
+    bottom: 3px;
+    left: 6px;
+    width: 2px;
+    transform: rotate(0deg);
 }
 
-.expander[expanded] {
-    transform: rotate(0);
+.expander[expanded]::after {
+   transform: rotate(90deg);
+}
+.expander[disabled] {
+    border: 1px solid var(--table-view-expander-border-color-disabled);
+    background: var(--table-view-expander-background-disabled);
+    cursor: not-allowed;
+}
+.expander[disabled]::before,
+.expander[disabled]::after{
+    background: var(--table-view-expander-color-disabled);
 }
 
 .expand-td {
     /* transition: $transition-duration height ease-in-out, $transition-duration padding-top ease-in-out, $transition-duration padding-bottom ease-in-out; */
+    background-color: var(--table-view-expand-td-background);
 }
 
 .column-title {
