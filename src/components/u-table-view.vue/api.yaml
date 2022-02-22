@@ -176,7 +176,7 @@
     - name: default-column-width
       title: 默认列宽度
       type: string | number
-      description: 给每一列设置默认宽度，可以为数字或百分比。
+      description: 表格的默认列宽度，可以设置为百分比或数字。
       group: 样式属性
     - name: loading
       title: 是否加载中
