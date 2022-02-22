@@ -48,7 +48,7 @@
     user-select: none;
     overflow: auto;
     position: relative;
-    background: var(--list-view-body-background);
+    /* background: var(--list-view-body-background); */
 }
 
 .root[readonly-mode="initial"] .body {
