@@ -17,7 +17,7 @@
         <u-image fit="cover" src="//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg"></u-image>
     </div>
     <div style="display:inline-block;margin-right:20px;">
-        <div style="margin-bottom:16px;">none</div>
+        <div style="margin-bottom:16px;">None</div>
         <u-image fit="none" src="//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg"></u-image>
     </div>
     <div style="display:inline-block;margin-right:20px;">

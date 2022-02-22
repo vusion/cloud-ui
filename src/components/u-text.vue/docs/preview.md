@@ -1,6 +1,6 @@
 ``` html
 <div>
-    <div>基础样式</div>
+    <div :class="$style.componentClassTitle">基础样式</div>
     <div style="margin-bottom:40px;">
         <u-text size="normal" color="normal" style="margin-right:24px;">
             Normal
@@ -30,7 +30,7 @@
             Disabled
         </u-text>
     </div>
-    <div>长文本</div>
+    <div :class="$style.componentClassTitle">长文本</div>
     <u-text overflow="ellipsis" size="normal">
         Content content content content content content content content content content content content content content content content content content content content content content content content content content content...
     </u-text>
