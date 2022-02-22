@@ -32,7 +32,7 @@ export default {
     flex: 1;
     flex-basis: auto;
     box-sizing: border-box;
-    min-width: 0;
+    position: relative;
 }
 .root[direction="horizontal"] {
     /* width: 100%; */

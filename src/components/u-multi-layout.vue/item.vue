@@ -50,6 +50,10 @@ export default {
             const ifwh = dom && (dom.style.height || dom.style.width);
             if (ifwh) {
                 dom.style.flexGrow = 0;
+                dom.style.flexBasis = 'auto';
+            } else {
+                dom.style.flexGrow = 1;
+                dom.style.flexBasis = 0;
             }
         },
     },
@@ -69,15 +73,19 @@ export default {
 .root {
     display: flex;
     flex: 1;
-    flex-basis: auto;
+    box-sizing: border-box;
     flex-direction: row;
     overflow: auto;
+    flex-wrap: wrap;
 }
 .root[fixed="true"] {
-    position: fixed;
-    overflow: auto;
+    position: absolute;
+    height: 100%;
 }
 .root [class^="s-empty_empty"] {
+    height: 100%;
+}
+.root > [class^="u-multi-layout__"][direction=horizontal] {
     height: 100%;
 }
 </style>

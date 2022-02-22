@@ -36,8 +36,8 @@
       description: 插入`<u-multi-layout-item>`子组件。
       support:
         - name: u-multi-layout-item
-          title: 插入一列
-          snippet: <u-multi-layout-item>span:8</u-multi-layout-item>
+          title: 布局栏
+          snippet: <u-multi-layout-item></u-multi-layout-item>
   events:
     - name: $listeners
       kind: trigger
@@ -82,11 +82,12 @@
     - name: 宽度
       title: 横向对齐方式
       type: string, number
+      advanced: true
       description: 可在样式中实现
     - name: 高度
       title: 横向对齐方式
       type: string, number
-      default: auto
+      advanced: true
       description: 可在样式中实现
   slots:
     - name: default
