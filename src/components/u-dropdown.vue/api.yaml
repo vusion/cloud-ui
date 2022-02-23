@@ -1,0 +1,87 @@
+- name: u-dropdown
+  title: 下拉菜单
+  icon: dropdown-new
+  labels:
+    - Display
+  attrs:
+    - name: trigger
+      title: 触发方式
+      type: string
+      advanced: true
+      options:
+        - value: click
+          title: 点击
+        - value: hover
+          title: 悬浮
+        - value: right-click
+          title: 右击
+        - value: double-click
+          title: 双击
+        - value: manual
+          title: 手动
+      default: hover
+      description: 触发方式
+    - name: placement
+      title: 弹出位置
+      type: string
+      options:
+        - value: top
+          title: 上
+        - value: bottom
+          title: 下
+        - value: left
+          title: 左
+        - value: right
+          title: 右
+        - value: top-start
+          title: 上左
+        - value: top-end
+          title: 上右
+        - value: bottom-start
+          title: 下左
+        - value: bottom-end
+          title: 下右
+        - value: left-start
+          title: 左上
+        - value: left-end
+          title: 左下
+        - value: right-start
+          title: 右上
+        - value: right-end
+          title: 右下
+      default: bottom
+      description: 弹出方位
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: 是否禁用
+  slots:
+    - name: default
+      description: 插入`<u-dropdown-item>`子组件。
+      support:
+        - name: u-dropdown-item
+          title: 菜单项
+          snippet: <u-dropdown-item text="item"></u-dropdown-item>
+  description: 下拉菜单
+- name: u-dropdown-item
+  title: 下拉菜单项
+  icon: dropdown-new-item
+  labels:
+    - Display
+  attrs:
+    - name: text
+      title: 文本
+      type: string
+      description: 显示文本内容
+    - name: disabled
+      title: 禁用
+      type: boolean
+      default: false
+      description: ""
+    - name: icon
+      title: 图标
+      type: icon
+      default: ""
+      description: ""
+  description: 下拉菜单项

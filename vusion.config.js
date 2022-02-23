@@ -34,8 +34,8 @@ module.exports = {
             { group: '布局', name: 'u-panel', alias: '面板' },
             { group: '布局', name: 'u-collapse', alias: '折叠面板' },
             { group: '布局', name: 'u-card', alias: '卡片' },
-            { group: '布局', name: 'u-navbar', alias: '导航栏', advanced: true },
-            { group: '布局', name: 'u-sidebar', alias: '侧边栏', advanced: true },
+            { group: '布局', name: 'u-sidebar', alias: '侧边栏' },
+            { group: '布局', name: 'u-navbar-multi', alias: '导航栏' },
             { group: '布局', name: 'u-footbar', alias: '底部栏', advanced: true },
             { group: '布局', name: 'u-menu', alias: '菜单', advanced: true },
             { group: '布局', name: 'u-toc', alias: '目录', advanced: true },
@@ -61,6 +61,7 @@ module.exports = {
             { group: '展示', name: 'u-timeline', alias: '时间线', advanced: true },
             { group: '展示', name: 'u-countup', alias: '数字渐变', advanced: true },
             { group: '展示', name: 'u-dynamic-cards', alias: '动态卡片', advanced: true },
+            { group: '展示', name: 'u-dropdown', alias: '下拉菜单' },
 
             { group: '数据', name: 'u-table-view', alias: '数据表格' },
             { group: '数据', name: 'u-list-view', alias: '数据列表' },
