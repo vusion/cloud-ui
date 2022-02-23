@@ -71,6 +71,7 @@
                                         :vusion-disabled-cut="columnVM.$attrs['vusion-disabled-cut']"
                                         :vusion-node-tag="columnVM.$attrs['vusion-node-tag']"
                                         :vusion-template-cell-node-path="columnVM.$attrs['vusion-template-cell-node-path']"
+                                        :vusion-template-editcell-node-path="columnVM.$attrs['vusion-template-editcell-node-path']"
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                                         :vusion-node-path="columnVM.$attrs['vusion-node-path']">
                                         <!--可视化占据的虚拟填充区域-->
@@ -95,6 +96,11 @@
                                             <!-- Normal text -->
                                             <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
                                                 <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
+                                            </f-slot>
+                                       </div>
+                                       <div v-if="columnVM.type === 'editable'" vusion-slot-name="editcell" :plus-empty="columnVM.$attrs['editcell-plus-empty']" style="margin-top:10px">
+                                           <f-slot name="editcell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                                <span v-if="columnVM.field" vusion-slot-name="editcell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                             </f-slot>
                                        </div>
                                     </td>
@@ -126,9 +132,26 @@
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
                                             <!-- Normal text -->
-                                            <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
-                                                <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
-                                            </f-slot>
+                                            <template v-if="columnVM.type === 'editable'">
+                                                <div @dblclick="onSetEditing(item, columnVM.field)">
+                                                    <template v-if="item.editing === columnVM.field">
+                                                        <f-slot name="editcell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                                            <span v-if="columnVM.field" vusion-slot-name="editcell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
+                                                        </f-slot>
+                                                    </template>
+                                                    <template v-else>
+                                                        <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                                            <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
+                                                        </f-slot>
+                                                    </template>
+                                                </div>
+                                            </template>
+                                            <template v-else>
+                                                <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                                    <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
+                                                </f-slot>
+                                            </template>
+                                            
                                     </td>
                                 </template>
                             </tr>
@@ -488,6 +511,7 @@ export default {
             const selectable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'radio');
             const checkable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'checkbox');
             const expandable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'expander');
+            const editable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'editable');
             if (selectable) {
                 data.forEach((item) => {
                     if (!item.hasOwnProperty('disabled'))
@@ -506,6 +530,12 @@ export default {
                 data.forEach((item) => {
                     if (!item.hasOwnProperty('expanded'))
                         this.$set(item, 'expanded', false);
+                });
+            }
+            if (editable) {
+                data.forEach((item) => {
+                    if (!item.hasOwnProperty('editing'))
+                        this.$set(item, 'editing', '');
                 });
             }
             return data;
@@ -1223,6 +1253,9 @@ export default {
             });
             this.$forceUpdate(); // 有loading的情况下，forceUpdate才会更新
         },
+        onSetEditing(item, fieldName) {
+            item.editing = fieldName;
+        }
     },
 };
 </script>

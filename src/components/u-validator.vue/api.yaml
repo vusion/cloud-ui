@@ -103,6 +103,60 @@
         - name: senderVM
           type: UValidator
           description: 发送事件实例
+    - name: blur-valid
+      title: 失焦验证通过后
+      description: 对于第一个 Field 或者所有子 UValidator：
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ValidateEvent"
+        - name: $event.trigger
+          type: string
+          description: 本次验证的触发方式
+        - name: $event.valid
+          type: boolean
+          description: 验证是否通过
+        - name: $event.touched
+          type: boolean
+          description: 用户是否触碰
+        - name: $event.dirty
+          type: boolean
+          description: 用户是否修改值
+        - name: $event.firstError
+          type: string
+          description: 第一个错误提示消息
+        - name: senderVM
+          type: UValidator
+          description: 发送事件实例
+    - name: blur-invalid
+      title: 失焦验证不通过后
+      description: 对于第一个 Field 或者所有子 UValidator：
+      params:
+        - name: $event
+          type: object
+          description: 自定义事件对象
+          schema:
+            $ref: "#/systemTypes/ValidateEvent"
+        - name: $event.trigger
+          type: string
+          description: 本次验证的触发方式
+        - name: $event.valid
+          type: boolean
+          description: 验证是否通过
+        - name: $event.touched
+          type: boolean
+          description: 用户是否触碰
+        - name: $event.dirty
+          type: boolean
+          description: 用户是否修改值
+        - name: $event.firstError
+          type: string
+          description: 第一个错误提示消息
+        - name: senderVM
+          type: UValidator
+          description: 发送事件实例
   methods:
     - name: validate
       description: 手动验证。

@@ -732,6 +732,8 @@
           title: 展开列
         - value: tree
           title: 树形列
+        - value: editable
+          title: 编辑列
       default: normal
       description: 列类型
     - name: start-index
@@ -748,6 +750,30 @@
     - name: cell
       plus-empty: true
       description: 对单元格的数据展示进行自定义。
+      props:
+        - name: item
+          title: 当前项
+          type: object
+          description: 循环中的当前项。
+        - name: value
+          title: 字段值
+          type: any
+          description: item 中 field 字段对应的值。
+        - name: columnVM
+          title: 列实例
+          type: string
+          description: 该列组件实例。
+        - name: rowIndex
+          title: 行索引
+          type: number
+          description: 行的索引。
+        - name: columnIndex
+          title: 列索引
+          type: number
+          description: 列的索引。
+    - name: editcell
+      plus-empty: true
+      description: 对单元格的编辑数据展示进行自定义。
       props:
         - name: item
           title: 当前项

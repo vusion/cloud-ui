@@ -1,7 +1,8 @@
 <template>
-<div :class="$style.root">
+<div :class="$style.root" vusion-slot-name="default">
     <slot></slot>
     <span ref="message" v-show="!mutedMessage && touched && !valid && firstError && !blurred" :class="$style.message" color="error">{{ firstError }}</span>
+    <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
 </div>
 </template>
 
@@ -10,10 +11,12 @@ import MEmitter from '../m-emitter.vue';
 import VusionValidator from '@vusion/validator';
 import VueVusionValidator from '@vusion/validator/VuePlugin';
 import debounce from 'lodash/debounce';
+import SEmpty from '../../components/s-empty.vue';
 
 export default {
     name: 'u-validator',
     isValidator: true,
+    components: { SEmpty },
     install(Vue) {
         Vue.use(VueVusionValidator, { locale: Vue.i18n && Vue.i18n.locale });
     },
