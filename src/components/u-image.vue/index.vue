@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :fit="fit">
+<div :class="$style.root" :fit="fit" :circle="circle">
     <template v-if="ready">
         <img :src="convertedSrc" :style="imageStyle" v-bind="$attrs">
     </template>
@@ -19,6 +19,10 @@ export default {
         fit: {
             type: String,
             default: 'contain',
+        },
+        circle: {
+            type: Boolean,
+            default: false,
         },
         convertSrcFn: {
             type: Function,
@@ -124,10 +128,16 @@ export default {
     display: inline-block;
     overflow: hidden;
 }
+
 .root {
     width: var(--image-width);
     height: var(--image-height);
 }
+
+.root[circle] {
+    border-radius: 50%;
+}
+
 .root img {
     width: 100%;
     height: 100%;
