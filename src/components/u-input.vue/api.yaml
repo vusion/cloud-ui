@@ -60,8 +60,8 @@
       type: boolean
       default: false
       description: ""
-    - name: size
-      title: 尺寸
+    - name: width
+      title: 宽度
       type: string
       options:
         - value: full
@@ -79,7 +79,29 @@
         - value: mini
           title: 迷你
       default: normal
-      description: 设置单行输入框大小
+      description: 设置单行输入框宽度
+      multi: true
+      maxSelect: 2
+    - name: height
+      title: 高度
+      type: string
+      options:
+        - value: full
+          title: 占满
+        - value: huge
+          title: 巨大
+        - value: large
+          title: 大
+        - value: medium
+          title: 中型
+        - value: normal
+          title: 正常
+        - value: small
+          title: 小
+        - value: mini
+          title: 迷你
+      default: normal
+      description: 设置单行输入框高度
       multi: true
       maxSelect: 2
     - name: maxlengthMessage
