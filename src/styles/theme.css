@@ -1337,8 +1337,10 @@
     --calendar-date-background-disabled: var(--brand-disabled);
 
     /* @component u-date-picker */
+
     --datepicker-input-border-color: var(--input-border-color);
     --datepicker-input-border-width: var(--input-border-width);
+    --datepicker-input-width: 160px;
     --datepicker-input-color: var(--input-color);
     --datepicker-input-background: var(--input-background);
     --datepicker-input-border-radius: 3px;

@@ -14531,13 +14531,6 @@
                     "description": "日期格式设置"
                 },
                 {
-                    "name": "width",
-                    "title": "输入框宽度",
-                    "type": "number",
-                    "default": 160,
-                    "description": ""
-                },
-                {
                     "name": "date",
                     "title": "值",
                     "type": "string,number,Date",

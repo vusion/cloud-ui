@@ -1,6 +1,8 @@
 <template>
-<div :class="$style.header">
-    <input :class="$style.input" :placeholder="placeholder" @click.stop="$refs.popper.toggle(true)" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}" @change="onInput($event)" @focus="onFocus" @blur="onBlur" :color="formItemVM && formItemVM.color">
+<div :class="$style.header" :style="{ 
+    width: `${width}px`
+}">
+    <input :class="$style.input" :placeholder="placeholder" @click.stop="$refs.popper.toggle(true)" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"  @change="onInput($event)" @focus="onFocus" @blur="onBlur" :color="formItemVM && formItemVM.color">
     <span v-if="showDate && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
         <i :class="[$style.closeIcon]"></i>
     </span>
@@ -53,7 +55,7 @@ export default {
                 return this.$t('selectDateText');
             },
         },
-        width: { type: [String, Number], default: 160 },
+        width: { type: [String, Number], default: '' },
         alignment: {
             type: String,
             default: 'left',
@@ -272,11 +274,13 @@ export default {
 
 <style module>
 .header {
+    width: var(--datepicker-input-width);
     display: inline-block;
     position: relative;
 }
 
 .input {
+    width: 100%;
     box-sizing: border-box;
     margin: 0;
     padding: 0 var(--datepicker-input-padding-x);
@@ -291,7 +295,7 @@ export default {
 }
 
 .input[disabled] {
-    width: var(--datepicker-width);
+    width: 100%;
     cursor: var(--cursor-not-allowed);
     background: var(--datepicker-input-background-disabled);
     color: var(--color-light);
