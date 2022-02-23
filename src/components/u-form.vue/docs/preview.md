@@ -1,6 +1,6 @@
-``` html
+<template>
 <div>
-    <div :class="$style.componentClassTitle">基础布局</div>
+    <div class="componentClassTitle">基础布局</div>
     <u-form gap="large" style="margin-bottom: 40px;">
         <u-form-item label="状态">
             <u-select auto-select>
@@ -17,7 +17,7 @@
             <u-button color="primary">查询</u-button>
         </u-form-item>
     </u-form>
-    <div :class="$style.componentClassTitle">行内布局</div>
+    <div class="componentClassTitle">行内布局</div>
     <u-form layout="inline" label-size="auto" style="margin-bottom: 40px;">
         <u-form-item label="状态">
             <u-select auto-select>
@@ -34,7 +34,7 @@
             <u-button color="primary">查询</u-button>
         </u-form-item>
     </u-form>
-    <div :class="$style.componentClassTitle">栅格布局</div>
+    <div class="componentClassTitle">栅格布局</div>
     <u-form layout="inline" style="margin-bottom: 8px;">
         <u-grid-layout>
             <u-grid-layout-row :repeat="3">
@@ -78,4 +78,4 @@
         </u-grid-layout>
     </u-form>
 </div>
-```
+</template>

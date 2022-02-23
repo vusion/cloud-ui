@@ -1,4 +1,4 @@
-``` html
+<template>
 <div>
     <div style="display:inline-block;margin-right:20px;">
         <div style="margin-bottom:16px;">Fill</div>
@@ -25,4 +25,4 @@
         <u-image fit="scale-down" src="//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg"></u-image>
     </div>
 </div>
-```
+</template>

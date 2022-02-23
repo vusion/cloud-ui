@@ -1,4 +1,4 @@
-``` html
+<template>
 <div>
     <u-label style="margin-right:20px;margin-bottom:20px;" size="normal">Base</u-label>
     <u-label style="margin-right:20px;margin-bottom:20px;" size="normal" color="primary">Primary</u-label>
@@ -9,4 +9,4 @@
     <u-label style="margin-right:20px;margin-bottom:20px;" size="large">Large</u-label>
     <u-label removable>removable</u-label>
 </div>
-```
+</template>

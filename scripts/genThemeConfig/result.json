@@ -34,26 +34,39 @@
         "items": [
             {
                 "id": 6,
+                "name": "u-linear-layout",
                 "title": "线性布局",
                 "toPosition": "linearLayout",
-                "type": ["vertical", "horizontal", "space-between"],
+                "type": [
+                    "vertical",
+                    "horizontal",
+                    "space-between"
+                ],
                 "cssProperty": {
                     "--space-base": "input"
                 },
-                "blocks": "<div>\n     <u-linear-layout direction=\"vertical\"\n        style=\"margin-bottom:16px;line-height: 0;\"\n        :class=\"$style.linearLayout\">\n        <u-block style=\"width: 100%;\"></u-block>\n        <u-block style=\"width: 100%;\"></u-block>\n    </u-linear-layout>\n    <u-linear-layout direction=\"horizontal\"\n        style=\"margin-bottom:16px;line-height: 0;\"\n        :class=\"$style.linearLayout\">\n        <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n        <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n        <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n    </u-linear-layout>\n    <u-linear-layout direction=\"horizontal\"\n        justify=space-between\n        style=\"margin-bottom:8px;\"\n        :class=\"$style.linearLayout\">\n        <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n        <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n    </u-linear-layout>\n</div>"
+                "preview": {
+                    "template":"<div>\n        <u-linear-layout direction=\"vertical\" :class=\"$style.linearLayout\"\n            style=\"margin-bottom:16px;line-height: 0;\">\n            <u-block style=\"width: 100%;\"></u-block>\n            <u-block style=\"width: 100%;\"></u-block>\n        </u-linear-layout>\n        <u-linear-layout direction=\"horizontal\" :class=\"$style.linearLayout\"\n            style=\"margin-bottom:16px;line-height: 0;\">\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n        </u-linear-layout>\n        <u-linear-layout direction=\"horizontal\" :class=\"$style.linearLayout\"\n            justify=\"space-between\"\n            style=\"margin-bottom:8px;\">\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n            <u-block style=\"display:inline-block;width: 104px;\"></u-block>\n        </u-linear-layout>\n    </div>",
+                    "style": ".linearLayout [class^=\"u-block\"] {\n    height: 48px;\n    background: #337EFF !important;\n    opacity: 0.5;\n}"
+                }
             },
             {
                 "id": 7,
+                "name": "u-grid-layout",
                 "title": "栅格布局",
                 "toPosition": "gridLayout",
                 "type": [],
                 "cssProperty": {
                     "--space-base": "input"
                 },
-                "blocks": "<u-grid-layout gap=\"normal none\" :class=\"$style.gridLayout\">\n    <u-grid-layout-row :repeat=\"6\">\n        <u-grid-layout-column :span=\"3\">\n            <u-block style=\"opacity: 0.5;\">3/6</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"3\">\n            <u-block style=\"opacity: 0.8;\">3/6</u-block>\n        </u-grid-layout-column>\n    </u-grid-layout-row>\n    <u-grid-layout-row :repeat=\"24\">\n        <u-grid-layout-column :span=\"2\">\n            <u-block style=\"opacity: 0.5;\">2/24</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"4\">\n            <u-block style=\"opacity: 0.8;\">4/24</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"8\">\n            <u-block style=\"opacity: 0.5;\">8/24</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"10\">\n            <u-block style=\"opacity: 0.8;\">10/24</u-block>\n        </u-grid-layout-column>\n    </u-grid-layout-row>\n    <u-grid-layout-row :repeat=\"3\">\n        <u-grid-layout-column :span=\"1\">\n            <u-block style=\"opacity: 0.5;\">1/3</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"2\">\n            <u-block style=\"opacity: 0.8;\">2/3</u-block>\n        </u-grid-layout-column>\n    </u-grid-layout-row>\n</u-grid-layout>"
+                "preview": {
+                    "template": "<u-grid-layout gap=\"normal none\" :class=\"$style.gridLayout\">\n    <u-grid-layout-row :repeat=\"6\">\n        <u-grid-layout-column :span=\"3\">\n            <u-block style=\"opacity: 0.5;\">3/6</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"3\">\n            <u-block style=\"opacity: 0.8;\">3/6</u-block>\n        </u-grid-layout-column>\n    </u-grid-layout-row>\n    <u-grid-layout-row :repeat=\"24\">\n        <u-grid-layout-column :span=\"2\">\n            <u-block style=\"opacity: 0.5;\">2/24</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"4\">\n            <u-block style=\"opacity: 0.8;\">4/24</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"8\">\n            <u-block style=\"opacity: 0.5;\">8/24</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"10\">\n            <u-block style=\"opacity: 0.8;\">10/24</u-block>\n        </u-grid-layout-column>\n    </u-grid-layout-row>\n    <u-grid-layout-row :repeat=\"3\">\n        <u-grid-layout-column :span=\"1\">\n            <u-block style=\"opacity: 0.5;\">1/3</u-block>\n        </u-grid-layout-column>\n        <u-grid-layout-column :span=\"2\">\n            <u-block style=\"opacity: 0.8;\">2/3</u-block>\n        </u-grid-layout-column>\n    </u-grid-layout-row>\n</u-grid-layout>",
+                    "style": ".gridLayout [class^=\"u-block\"]{\n    height: 48px;\n    line-height: 48px;\n    padding: 0;\n    background: #4C88FF !important;\n    color: white !important;\n}"
+                }
             },
             {
                 "id": 8,
+                "name": "u-crumb",
                 "title": "面包屑",
                 "toPosition": "crumb",
                 "type": [],
@@ -62,12 +75,15 @@
                     "--crumb-color-disabled": "color",
                     "--crumb-space-x": "input"
                 },
-                "blocks": "<u-crumb>\n    <u-crumb-item to=\"/\">一级页面</u-crumb-item>\n    <u-crumb-item to=\"/two\">二级页面</u-crumb-item>\n    <u-crumb-item type=\"text\" to=\"/two/three\">三级页面</u-crumb-item>\n    <u-crumb-item disabled>四级页面</u-crumb-item>\n</u-crumb>"
+                "preview": {
+                    "template": "<u-crumb>\n    <u-crumb-item to=\"/\">一级页面</u-crumb-item>\n    <u-crumb-item to=\"/two\">二级页面</u-crumb-item>\n    <u-crumb-item type=\"text\" to=\"/two/three\">三级页面</u-crumb-item>\n    <u-crumb-item disabled>四级页面</u-crumb-item>\n</u-crumb>"
+                }
             },
             {
                 "id": 9,
+                "name": "u-crumb",
                 "title": "面板",
-                "toPosition": "panel",
+                "toPosition": "u-panel",
                 "type": [],
                 "cssProperty": {
                     "--panel-border-width": "input",
@@ -79,13 +95,19 @@
                     "--panel-title-font-size": "input",
                     "--panel-title-font-weight": "input"
                 },
-                "blocks": "<u-panel title=\"面板标题\">\n                                <u-skeleton></u-skeleton>\n                            </u-panel>"
+                "preview": {
+                    "template": "<u-panel title=\"面板标题\">\n                                <u-skeleton></u-skeleton>\n                            </u-panel>"
+                }
             },
             {
                 "id": 10,
+                "name": "u-collapse",
                 "title": "折叠面板",
                 "toPosition": "collapse",
-                "type": ["base", "simple"],
+                "type": [
+                    "base",
+                    "simple"
+                ],
                 "cssProperty": {
                     "--collapse-border-width": "input",
                     "--collapse-border-color": "color",
@@ -100,13 +122,27 @@
                     "--collapse-item-content-padding": "input",
                     "--collapse-transition-duration": "input"
                 },
-                "blocks": "<div>\n    <div :class=\"$style.componentClassTitle\">基础样式一</div>\n    <u-collapse style=\"margin-bottom:48px;\">\n        <u-collapse-item title=\"面板1\">Content1</u-collapse-item>\n        <u-collapse-item title=\"面板2\" expanded>Content2</u-collapse-item>\n        <u-collapse-item title=\"面板3\" disabled>Content3</u-collapse-item>\n    </u-collapse>\n    <div :class=\"$style.componentClassTitle\">基础样式二</div>\n    <u-collapse appear=\"simple\">\n        <u-collapse-item title=\"面板1\">Content1</u-collapse-item>\n        <u-collapse-item title=\"面板2\" expanded>Content2</u-collapse-item>\n        <u-collapse-item title=\"面板3\" disabled>Content3</u-collapse-item>\n    </u-collapse>\n</div>"
+                "preview": {
+                    "template": "<div>\n    <div class=\"componentClassTitle\">基础样式一</div>\n    <u-collapse style=\"margin-bottom:48px;\">\n        <u-collapse-item title=\"面板1\">Content1</u-collapse-item>\n        <u-collapse-item title=\"面板2\" expanded>Content2</u-collapse-item>\n        <u-collapse-item title=\"面板3\" disabled>Content3</u-collapse-item>\n    </u-collapse>\n    <div class=\"componentClassTitle\">基础样式二</div>\n    <u-collapse appear=\"simple\">\n        <u-collapse-item title=\"面板1\">Content1</u-collapse-item>\n        <u-collapse-item title=\"面板2\" expanded>Content2</u-collapse-item>\n        <u-collapse-item title=\"面板3\" disabled>Content3</u-collapse-item>\n    </u-collapse>\n</div>"
+                }
             },
             {
                 "id": 11,
+                "name": "u-text",
                 "title": "文本",
                 "toPosition": "text",
-                "type": ["normal", "small", "large", "primary", "secondary", "success", "warning", "error", "disabled", "ellipsis"],
+                "type": [
+                    "normal",
+                    "small",
+                    "large",
+                    "primary",
+                    "secondary",
+                    "success",
+                    "warning",
+                    "error",
+                    "disabled",
+                    "ellipsis"
+                ],
                 "cssProperty": {
                     "--text-font-size": "input",
                     "--text-font-size-small": "input",
@@ -118,13 +154,21 @@
                     "--text-color-error": "color",
                     "--text-color-disabled": "color"
                 },
-                "blocks": "<div>\n    <div :class=\"$style.componentClassTitle\">基础样式</div>\n    <div style=\"margin-bottom:40px;\">\n        <u-text size=\"normal\" color=\"normal\" style=\"margin-right:24px;\">\n            Normal\n        </u-text>\n        <u-text size=\"small\"  style=\"margin-right:24px;\">\n            Small\n        </u-text>\n        <u-text size=\"large\" style=\"margin-right:24px;\">\n            Large\n        </u-text>\n        <u-text size=\"primary\" color=\"primary\" style=\"margin-right:24px;\">\n            Primary\n        </u-text>\n        <u-text size=\"secondary\" color=\"secondary\" style=\"margin-right:24px;\">\n            Secondary\n        </u-text>\n        <u-text size=\"success\" color=\"success\" style=\"margin-right:24px;\">\n            Success\n        </u-text>\n        <u-text size=\"warning\" color=\"warning\" style=\"margin-right:24px;\">\n            Warning\n        </u-text>\n        <u-text size=\"error\" color=\"error\" style=\"margin-right:24px;\">\n            Error\n        </u-text>\n        <u-text size=\"disabled\" color=\"disabled\" style=\"margin-right:24px;\">\n            Disabled\n        </u-text>\n    </div>\n    <div :class=\"$style.componentClassTitle\">长文本</div>\n    <u-text overflow=\"ellipsis\" size=\"normal\">\n        Content content content content content content content content content content content content content content content content content content content content content content content content content content content...\n    </u-text>\n</div>"
+                "preview": {
+                    "template": "<div>\n    <div class=\"componentClassTitle\">基础样式</div>\n    <div style=\"margin-bottom:40px;\">\n        <u-text size=\"normal\" color=\"normal\" style=\"margin-right:24px;\">\n            Normal\n        </u-text>\n        <u-text size=\"small\"  style=\"margin-right:24px;\">\n            Small\n        </u-text>\n        <u-text size=\"large\" style=\"margin-right:24px;\">\n            Large\n        </u-text>\n        <u-text size=\"primary\" color=\"primary\" style=\"margin-right:24px;\">\n            Primary\n        </u-text>\n        <u-text size=\"secondary\" color=\"secondary\" style=\"margin-right:24px;\">\n            Secondary\n        </u-text>\n        <u-text size=\"success\" color=\"success\" style=\"margin-right:24px;\">\n            Success\n        </u-text>\n        <u-text size=\"warning\" color=\"warning\" style=\"margin-right:24px;\">\n            Warning\n        </u-text>\n        <u-text size=\"error\" color=\"error\" style=\"margin-right:24px;\">\n            Error\n        </u-text>\n        <u-text size=\"disabled\" color=\"disabled\" style=\"margin-right:24px;\">\n            Disabled\n        </u-text>\n    </div>\n    <div class=\"componentClassTitle\">长文本</div>\n    <u-text overflow=\"ellipsis\" size=\"normal\">\n        Content content content content content content content content content content content content content content content content content content content content content content content content content content content...\n    </u-text>\n</div>"
+                }
             },
             {
                 "id": 12,
+                "name": "u-link",
                 "title": "链接",
                 "toPosition": "link",
-                "type": ["", "success", "warning", "danger"],
+                "type": [
+                    "",
+                    "success",
+                    "warning",
+                    "danger"
+                ],
                 "cssProperty": {
                     "--link-color": "color",
                     "--link-color-hover": "color",
@@ -136,13 +180,24 @@
                     "--link-color-danger-hover": "color",
                     "--link-color-disabled": "color"
                 },
-                "blocks": "<div>\n    <div style=\"margin-bottom: 40px;\">\n        <div :class=\"$style.componentClassTitle\">鼠标悬停状态为下划线</div>\n        <u-link style=\"margin-right:24px;\">Base</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"success\">Success</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"warning\">Warning</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"danger\">Danger</u-link>\n        <u-link disabled>Disabled</u-link>\n    </div>\n    <div>\n        <div :class=\"$style.componentClassTitle\">鼠标悬停状态为颜色变化</div>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\">Base</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"success\">Success</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"warning\">Warning</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"danger\">Danger</u-link>\n        <u-link hovertype=\"color\" disabled>Disabled</u-link>\n    </div>\n</div>"
+                "preview": {
+                    "template": "<div>\n    <div style=\"margin-bottom: 40px;\">\n        <div class=\"componentClassTitle\">鼠标悬停状态为下划线</div>\n        <u-link style=\"margin-right:24px;\">Base</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"success\">Success</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"warning\">Warning</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"danger\">Danger</u-link>\n        <u-link disabled>Disabled</u-link>\n    </div>\n    <div>\n        <div class=\"componentClassTitle\">鼠标悬停状态为颜色变化</div>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\">Base</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"success\">Success</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"warning\">Warning</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"danger\">Danger</u-link>\n        <u-link hovertype=\"color\" disabled>Disabled</u-link>\n    </div>\n</div>"
+                }
             },
             {
                 "id": 14,
+                "name": "u-label",
                 "title": "标签",
                 "toPosition": "label",
-                "type": ["", "primary", "success", "warning", "error", "small", "large"],
+                "type": [
+                    "",
+                    "primary",
+                    "success",
+                    "warning",
+                    "error",
+                    "small",
+                    "large"
+                ],
                 "cssProperty": {
                     "--label-padding-x": "input",
                     "--label-padding-x-small": "input",
@@ -168,23 +223,32 @@
                     "--label-color-warning": "color",
                     "--label-color-error": "color"
                 },
-                "blocks": "<div>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\">Base</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"primary\">Primary</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"success\">Success</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"warning\">Warning</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"error\">Error</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"small\">Small</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"large\">Large</u-label>\n    <u-label removable>removable</u-label>\n</div>"
+                "preview": {
+                    "template": "<div>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\">Base</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"primary\">Primary</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"success\">Success</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"warning\">Warning</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\" color=\"error\">Error</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"small\">Small</u-label>\n    <u-label style=\"margin-right:20px;margin-bottom:20px;\" size=\"large\">Large</u-label>\n    <u-label removable>removable</u-label>\n</div>"
+                }
             },
             {
                 "id": 15,
+                "name": "u-badge",
                 "title": "徽章",
                 "toPosition": "badge",
-                "type": ["", "dot"],
+                "type": [
+                    "",
+                    "dot"
+                ],
                 "cssProperty": {
                     "--badge-background": "color",
                     "--badge-color": "color",
                     "--badge-value-size": "input",
                     "--badge-dot-size": "input"
                 },
-                "blocks": "<div>\n    <p style=\"display:inline-block;margin-right:20px;\">\n        消息 <u-badge :value=\"3\"></u-badge>\n    </p>\n    <p style=\"display:inline-block;\">\n        <u-badge :value=\"3\" dot corner>消息</u-badge>\n    </p>\n</div>"
+                "preview": {
+                    "template": "<div>\n    <p style=\"display:inline-block;margin-right:20px;\">\n        消息 <u-badge :value=\"3\"></u-badge>\n    </p>\n    <p style=\"display:inline-block;\">\n        <u-badge :value=\"3\" dot corner>消息</u-badge>\n    </p>\n</div>"
+                }
             },
             {
                 "id": 16,
+                "name": "u-carousel",
                 "title": "幻灯片",
                 "toPosition": "carousel",
                 "type": [],
@@ -203,24 +267,43 @@
                     "--carousel-button-color-hover": "color",
                     "--carousel-button-transition": "input"
                 },
-                "blocks": "<u-carousel>\n    <u-carousel-item>\n        <img src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/2.jpg\">\n    </u-carousel-item>\n    <u-carousel-item>\n        <img src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/3.jpg\">\n    </u-carousel-item>\n    <u-carousel-item>\n        <img src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/4.jpg\">\n    </u-carousel-item>\n</u-carousel>"
+                "preview": {
+                    "template": "<u-carousel>\n    <u-carousel-item>\n        <img src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/2.jpg\">\n    </u-carousel-item>\n    <u-carousel-item>\n        <img src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/3.jpg\">\n    </u-carousel-item>\n    <u-carousel-item>\n        <img src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/4.jpg\">\n    </u-carousel-item>\n</u-carousel>"
+                }
             },
             {
                 "id": 18,
+                "name": "u-image",
                 "title": "图片展示",
                 "toPosition": "pictureView",
-                "type": ["fill", "fit", "contain", "cover", "none", "scale-down"],
+                "type": [
+                    "fill",
+                    "fit",
+                    "contain",
+                    "cover",
+                    "none",
+                    "scale-down"
+                ],
                 "cssProperty": {
                     "--image-width": "input",
                     "--image-height": "input"
                 },
-                "blocks": "<div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Fill</div>\n        <u-image fit=\"fill\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Fit</div>\n        <u-image fit=\"fit\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Contain</div>\n        <u-image fit=\"contain\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Cover</div>\n        <u-image fit=\"cover\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">None</div>\n        <u-image fit=\"none\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Scale-down</div>\n        <u-image fit=\"scale-down\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n</div>"
+                "preview": {
+                    "template": "<div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Fill</div>\n        <u-image fit=\"fill\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Fit</div>\n        <u-image fit=\"fit\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Contain</div>\n        <u-image fit=\"contain\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Cover</div>\n        <u-image fit=\"cover\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">None</div>\n        <u-image fit=\"none\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n    <div style=\"display:inline-block;margin-right:20px;\">\n        <div style=\"margin-bottom:16px;\">Scale-down</div>\n        <u-image fit=\"scale-down\" src=\"//test-lcpapp-static.nos-eastchina1.126.net/assets/cloud-ui/1.jpg\"></u-image>\n    </div>\n</div>"
+                }
             },
             {
                 "id": 19,
+                "name": "u-button",
                 "title": "按钮",
                 "toPosition": "button",
-                "type": ["", "primary", "create", "refresh", ""],
+                "type": [
+                    "",
+                    "primary",
+                    "create",
+                    "refresh",
+                    ""
+                ],
                 "cssProperty": {
                     "--button-height-huge": "input",
                     "--button-height-large": "input",
@@ -264,21 +347,32 @@
                     "--button-box-shadow-focus-primary": "input",
                     "--button-box-shadow-active": "input"
                 },
-                "blocks": "<div>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\">Base</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary\">Primary</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"add\">Add</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"refresh\">Refresh</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"huge\">Huge</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"large\">Large</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\">Normal</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"small\">Small</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"mini\">Mini</u-button>\n</div>"
+                "preview": {
+                    "template": "<div>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\">Base</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary\">Primary</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"add\">Add</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"refresh\">Refresh</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"huge\">Huge</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"large\">Large</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\">Normal</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"small\">Small</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"mini\">Mini</u-button>\n</div>"
+                }
             },
             {
                 "id": 20,
+                "name": "u-form",
                 "title": "表单",
                 "toPosition": "_form",
-                "type": ["block", "inline", "grid", "group"],
+                "type": [
+                    "block",
+                    "inline",
+                    "grid",
+                    "group"
+                ],
                 "cssProperty": {
                     "--form-item-label-padding-right": "input",
                     "--form-item-label-width": "input"
                 },
-                "blocks": "<div>\n    <div :class=\"$style.componentClassTitle\">基础布局</div>\n    <u-form gap=\"large\" style=\"margin-bottom: 40px;\">\n        <u-form-item label=\"状态\">\n            <u-select auto-select>\n                <u-select-item>认证中</u-select-item>\n            </u-select>\n        </u-form-item>\n        <u-form-item label=\"用户名\">\n            <u-input maxlength=\"63\" placeholder=\"请输入用户名\"></u-input>\n        </u-form-item>\n        <u-form-item label=\"联系号码\">\n            <u-input maxlength=\"63\" placeholder=\"请输入联系号码\"></u-input>\n        </u-form-item>\n        <u-form-item>\n            <u-button color=\"primary\">查询</u-button>\n        </u-form-item>\n    </u-form>\n    <div :class=\"$style.componentClassTitle\">行内布局</div>\n    <u-form layout=\"inline\" label-size=\"auto\" style=\"margin-bottom: 40px;\">\n        <u-form-item label=\"状态\">\n            <u-select auto-select>\n                <u-select-item>认证中</u-select-item>\n            </u-select>\n        </u-form-item>\n        <u-form-item label=\"用户名\">\n            <u-input maxlength=\"63\" placeholder=\"请输入用户名\"></u-input>\n        </u-form-item>\n        <u-form-item label=\"联系号码\">\n            <u-input maxlength=\"63\" placeholder=\"请输入联系号码\"></u-input>\n        </u-form-item>\n        <u-form-item>\n            <u-button color=\"primary\">查询</u-button>\n        </u-form-item>\n    </u-form>\n    <div :class=\"$style.componentClassTitle\">栅格布局</div>\n    <u-form layout=\"inline\" style=\"margin-bottom: 8px;\">\n        <u-grid-layout>\n            <u-grid-layout-row :repeat=\"3\">\n                <u-grid-layout-column>\n                    <u-form-item label=\"状态\" style=\"width: 100%;\">\n                        <u-select auto-select>\n                            <u-select-item>认证中</u-select-item>\n                        </u-select>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item label=\"备案类型\" style=\"width: 100%;\">\n                        <u-select auto-select>\n                            <u-select-item>全部</u-select-item>\n                        </u-select>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item label=\"备案号\" style=\"width: 100%;\">\n                        <u-input placeholder=\"请输入备案号\" maxlength=\"63\"></u-input>\n                    </u-form-item>\n                </u-grid-layout-column>\n            </u-grid-layout-row>\n            <u-grid-layout-row :repeat=\"3\">\n                <u-grid-layout-column>\n                    <u-form-item label=\"用户名\" style=\"width: 100%;\">\n                        <u-input placeholder=\"请输入用户名\" maxlength=\"63\"></u-input>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item label=\"单位名称\" style=\"width: 100%;\">\n                        <u-input placeholder=\"请输入单位名称\" maxlength=\"63\"></u-input>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item style=\"width: 100%;\">\n                        <u-button color=\"primary\">查询</u-button>\n                    </u-form-item>\n                </u-grid-layout-column>\n            </u-grid-layout-row>\n        </u-grid-layout>\n    </u-form>\n</div>"
+                "preview": {
+                    "template": "<div>\n    <div class=\"componentClassTitle\">基础布局</div>\n    <u-form gap=\"large\" style=\"margin-bottom: 40px;\">\n        <u-form-item label=\"状态\">\n            <u-select auto-select>\n                <u-select-item>认证中</u-select-item>\n            </u-select>\n        </u-form-item>\n        <u-form-item label=\"用户名\">\n            <u-input maxlength=\"63\" placeholder=\"请输入用户名\"></u-input>\n        </u-form-item>\n        <u-form-item label=\"联系号码\">\n            <u-input maxlength=\"63\" placeholder=\"请输入联系号码\"></u-input>\n        </u-form-item>\n        <u-form-item>\n            <u-button color=\"primary\">查询</u-button>\n        </u-form-item>\n    </u-form>\n    <div class=\"componentClassTitle\">行内布局</div>\n    <u-form layout=\"inline\" label-size=\"auto\" style=\"margin-bottom: 40px;\">\n        <u-form-item label=\"状态\">\n            <u-select auto-select>\n                <u-select-item>认证中</u-select-item>\n            </u-select>\n        </u-form-item>\n        <u-form-item label=\"用户名\">\n            <u-input maxlength=\"63\" placeholder=\"请输入用户名\"></u-input>\n        </u-form-item>\n        <u-form-item label=\"联系号码\">\n            <u-input maxlength=\"63\" placeholder=\"请输入联系号码\"></u-input>\n        </u-form-item>\n        <u-form-item>\n            <u-button color=\"primary\">查询</u-button>\n        </u-form-item>\n    </u-form>\n    <div class=\"componentClassTitle\">栅格布局</div>\n    <u-form layout=\"inline\" style=\"margin-bottom: 8px;\">\n        <u-grid-layout>\n            <u-grid-layout-row :repeat=\"3\">\n                <u-grid-layout-column>\n                    <u-form-item label=\"状态\" style=\"width: 100%;\">\n                        <u-select auto-select>\n                            <u-select-item>认证中</u-select-item>\n                        </u-select>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item label=\"备案类型\" style=\"width: 100%;\">\n                        <u-select auto-select>\n                            <u-select-item>全部</u-select-item>\n                        </u-select>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item label=\"备案号\" style=\"width: 100%;\">\n                        <u-input placeholder=\"请输入备案号\" maxlength=\"63\"></u-input>\n                    </u-form-item>\n                </u-grid-layout-column>\n            </u-grid-layout-row>\n            <u-grid-layout-row :repeat=\"3\">\n                <u-grid-layout-column>\n                    <u-form-item label=\"用户名\" style=\"width: 100%;\">\n                        <u-input placeholder=\"请输入用户名\" maxlength=\"63\"></u-input>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item label=\"单位名称\" style=\"width: 100%;\">\n                        <u-input placeholder=\"请输入单位名称\" maxlength=\"63\"></u-input>\n                    </u-form-item>\n                </u-grid-layout-column>\n                <u-grid-layout-column>\n                    <u-form-item style=\"width: 100%;\">\n                        <u-button color=\"primary\">查询</u-button>\n                    </u-form-item>\n                </u-grid-layout-column>\n            </u-grid-layout-row>\n        </u-grid-layout>\n    </u-form>\n</div>"
+                }
             },
             {
                 "id": 21,
+                "name": "u-input",
                 "title": "单行输入",
                 "toPosition": "input",
                 "type": [],
@@ -294,10 +388,13 @@
                     "--input-placeholder-color": "color",
                     "--input-border-radius": "input"
                 },
-                "blocks": "<u-input\n                                maxlength=\"12\"\n                                placeholder=\"1~12位小写字母\"\n                                autofocus>\n                            </u-input>"
+                "preview": {
+                    "template": "<u-input\n                                maxlength=\"12\"\n                                placeholder=\"1~12位小写字母\"\n                                autofocus>\n                            </u-input>"
+                }
             },
             {
                 "id": 22,
+                "name": "u-number-input",
                 "title": "数字输入",
                 "toPosition": "numberInput",
                 "type": [],
@@ -308,10 +405,13 @@
                     "--number-input-button-background-hover": "color",
                     "--number-input-button-background-active": "color"
                 },
-                "blocks": "<u-number-input></u-number-input>"
+                "preview": {
+                    "template": "<u-number-input></u-number-input>"
+                }
             },
             {
                 "id": 23,
+                "name": "u-textarea",
                 "title": "多行输入",
                 "toPosition": "textareaInput",
                 "type": [],
@@ -325,10 +425,13 @@
                     "--textarea-color": "color",
                     "--textarea-border-color": "color"
                 },
-                "blocks": "<u-textarea\n                                placeholder=\"请输入模块描述，不超过200字符\"\n                                autofocus>\n                            </u-textarea>"
+                "preview": {
+                    "template": "<u-textarea\n                                placeholder=\"请输入模块描述，不超过200字符\"\n                                autofocus>\n                            </u-textarea>"
+                }
             },
             {
                 "id": 24,
+                "name": "u-radios",
                 "title": "单选组",
                 "toPosition": "radio",
                 "type": [],
@@ -338,10 +441,13 @@
                     "--radio-background": "color",
                     "--radio-box-shadow-focus": "input"
                 },
-                "blocks": "<div>\n    <u-radios style=\"margin-bottom:16px;\" value=\"开\">\n        <u-radio label=\"关\">关</u-radio>\n        <u-radio label=\"开\">开</u-radio>\n    </u-radios>\n    <u-radios value=\"开\">\n        <u-radio label=\"关\" disabled>关_禁用</u-radio>\n        <u-radio label=\"开\" disabled>开_禁用</u-radio>\n    </u-radios>\n</div>"
+                "preview": {
+                    "template": "<div>\n    <u-radios style=\"margin-bottom:16px;\" value=\"开\">\n        <u-radio label=\"关\">关</u-radio>\n        <u-radio label=\"开\">开</u-radio>\n    </u-radios>\n    <u-radios value=\"开\">\n        <u-radio label=\"关\" disabled>关_禁用</u-radio>\n        <u-radio label=\"开\" disabled>开_禁用</u-radio>\n    </u-radios>\n</div>"
+                }
             },
             {
                 "id": 25,
+                "name": "u-switch",
                 "title": "开关",
                 "toPosition": "switch",
                 "type": [],
@@ -360,10 +466,13 @@
                     "--switch-transition": "input",
                     "--switch-button-transition": "input"
                 },
-                "blocks": "<div>\n    <div style=\"display:inline-block;margin-right:40px;\">\n        <u-switch style=\"margin-right:8px;\"></u-switch>\n        <u-text>关</u-text>\n    </div>\n    <div style=\"display:inline-block;margin-right:40px;\">\n        <u-switch value=\"true\" readonly style=\"margin-right:8px;\"></u-switch>\n        <u-text>开</u-text>\n    </div>\n    <div style=\"display:inline-block;margin-right:40px;\">\n        <u-switch disabled style=\"margin-right:8px;\"></u-switch>\n        <u-text>禁用</u-text>\n    </div>\n</div>"
+                "preview": {
+                    "template": "<div>\n    <div style=\"display:inline-block;margin-right:40px;\">\n        <u-switch style=\"margin-right:8px;\"></u-switch>\n        <u-text>关</u-text>\n    </div>\n    <div style=\"display:inline-block;margin-right:40px;\">\n        <u-switch value=\"true\" readonly style=\"margin-right:8px;\"></u-switch>\n        <u-text>开</u-text>\n    </div>\n    <div style=\"display:inline-block;margin-right:40px;\">\n        <u-switch disabled style=\"margin-right:8px;\"></u-switch>\n        <u-text>禁用</u-text>\n    </div>\n</div>"
+                }
             },
             {
                 "id": 26,
+                "name": "u-checkbox",
                 "title": "多选组",
                 "toPosition": "checkbox",
                 "type": [],
@@ -375,10 +484,13 @@
                     "--checkbox-color": "color",
                     "--checkbox-box-shadow-focus": "input"
                 },
-                "blocks": "<u-linear-layout>\n                                <u-checkbox :value=\"false\" style=\"margin-right:40px;\">关</u-checkbox>\n                                <u-checkbox :value=\"true\" readonly style=\"margin-right:40px;\">开</u-checkbox>\n                                <u-checkbox :value=\"false\" disabled style=\"margin-right:40px;\">关_禁用</u-checkbox>\n                                <u-checkbox :value=\"true\" disabled style=\"margin-right:40px;\">开_禁用</u-checkbox>\n                            </u-linear-layout>"
+                "preview": {
+                    "template": "<u-linear-layout>\n                                <u-checkbox :value=\"false\" style=\"margin-right:40px;\">关</u-checkbox>\n                                <u-checkbox :value=\"true\" readonly style=\"margin-right:40px;\">开</u-checkbox>\n                                <u-checkbox :value=\"false\" disabled style=\"margin-right:40px;\">关_禁用</u-checkbox>\n                                <u-checkbox :value=\"true\" disabled style=\"margin-right:40px;\">开_禁用</u-checkbox>\n                            </u-linear-layout>"
+                }
             },
             {
                 "id": 28,
+                "name": "u-select",
                 "title": "选择框",
                 "toPosition": "select",
                 "type": [],
@@ -416,10 +528,13 @@
                     "--select-popper-item-color-duplicated-hover": "color",
                     "--select-popper-item-background-duplicated-hover": "color"
                 },
-                "blocks": "<u-select>\n                                <u-select-item value=\"java\">Java</u-select-item>\n                                <u-select-item value=\"nodejs\">Node.js</u-select-item>\n                                <u-select-item value=\"go\">Go</u-select-item>\n                            </u-select>"
+                "preview": {
+                    "template": "<u-select>\n                                <u-select-item value=\"java\">Java</u-select-item>\n                                <u-select-item value=\"nodejs\">Node.js</u-select-item>\n                                <u-select-item value=\"go\">Go</u-select-item>\n                            </u-select>"
+                }
             },
             {
                 "id": 29,
+                "name": "u-rating",
                 "title": "评分",
                 "toPosition": "rating",
                 "type": [],
@@ -429,10 +544,13 @@
                     "--rate-color": "color",
                     "--rate-color-full": "color"
                 },
-                "blocks": "<u-rate></u-rate>"
+                "preview": {
+                    "template": "<u-rate></u-rate>"
+                }
             },
             {
                 "id": 30,
+                "name": "u-slider",
                 "title": "滑块",
                 "toPosition": "slider",
                 "type": [],
@@ -448,13 +566,20 @@
                     "--slider-handle-background": "color",
                     "--slider-handle-border": "input"
                 },
-                "blocks": "<u-slider :value=\"36\"></u-slider>"
+                "preview": {
+                    "template": "<u-slider :value=\"36\"></u-slider>"
+                }
             },
             {
                 "id": 31,
+                "name": "u-uploader",
                 "title": "文件上传",
                 "toPosition": "uploader",
-                "type": ["", "card", "image"],
+                "type": [
+                    "",
+                    "card",
+                    "image"
+                ],
                 "cssProperty": {
                     "--uploader-list-margin-top": "input",
                     "--uploader-item-space": "input",
@@ -476,10 +601,13 @@
                     "--uploader-draggable-border-radius": "input",
                     "--uploader-draggable-padding": "input"
                 },
-                "blocks": "<div>\n     <div style=\"margin-bottom:40px;\">\n        <div :class=\"$style.componentClassTitle\">单文件按钮</div>\n        <u-uploader\n            url=\"http://localhost:7000/api/library/upload\" mutiple>\n            <u-button color=\"primary\">Upload</u-button>\n        </u-uploader>\n    </div>\n    <div style=\"margin-bottom:40px;\">\n        <div :class=\"$style.componentClassTitle\">单文件卡片</div>\n        <u-uploader accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n            url=\"http://localhost:7000/api/library/upload\"\n            list-type=\"card\"\n            mutiple>\n        </u-uploader>\n    </div>\n    <div style=\"margin-bottom:40px;\">\n        <div :class=\"$style.componentClassTitle\">多图片按钮</div>\n        <u-uploader accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n            url=\"http://localhost:7000/api/library/upload\"\n            list-type=\"image\"\n            mutiple>\n            <u-button color=\"primary\">Upload</u-button>\n        </u-uploader>\n    </div>\n</div>"
+                "preview": {
+                    "template": "<div>\n     <div style=\"margin-bottom:40px;\">\n        <div class=\"componentClassTitle\">单文件按钮</div>\n        <u-uploader\n            url=\"http://localhost:7000/api/library/upload\" mutiple>\n            <u-button color=\"primary\">Upload</u-button>\n        </u-uploader>\n    </div>\n    <div style=\"margin-bottom:40px;\">\n        <div class=\"componentClassTitle\">单文件卡片</div>\n        <u-uploader accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n            url=\"http://localhost:7000/api/library/upload\"\n            list-type=\"card\"\n            mutiple>\n        </u-uploader>\n    </div>\n    <div style=\"margin-bottom:40px;\">\n        <div class=\"componentClassTitle\">多图片按钮</div>\n        <u-uploader accept=\"image/png, image/jpg, image/jpeg, image/gif, image/bmp\"\n            url=\"http://localhost:7000/api/library/upload\"\n            list-type=\"image\"\n            mutiple>\n            <u-button color=\"primary\">Upload</u-button>\n        </u-uploader>\n    </div>\n</div>"
+                }
             },
             {
                 "id": 32,
+                "name": "u-table-view",
                 "title": "数据表格",
                 "toPosition": "tableView",
                 "type": [],
@@ -494,20 +622,24 @@
                     "--table-td-line-height": "input",
                     "--table-td-padding": "input"
                 },
-                "blocks": "<u-table-view :data-source=\"data.tableView\">\n    <u-table-view-column\n        title=\"用户名\"\n        field=\"name\"\n        width=\"20%\">\n    </u-table-view-column>\n    <u-table-view-column\n        title=\"手机号码\"\n        field=\"phone\"\n        width=\"20%\">\n    </u-table-view-column>\n    <u-table-view-column\n        title=\"地址\"\n        field=\"address\">\n    </u-table-view-column>\n    <u-table-view-column\n        title=\"最近登录时间\"\n        field=\"loginTime\"\n        formatter=\"placeholder | date\"\n        width=\"20%\">\n    </u-table-view-column>\n</u-table-view>",
-                "data": {
-                    "tableView": [
-                        { "name": "张三", "phone": "18612917895", "email": "zhangsan@163.com", "address": "浙江省杭州市滨江区网商路599号网易大厦", "createdTime": "1464421931000", "loginTime": "1527515531000" },
-                        { "name": "小明", "phone": "13727160283", "email": "xiaoming@163.com", "address": "浙江省杭州市滨江区江虹路459号英飞特科技园", "createdTime": "1520864676000", "loginTime": "1552400676000" },
-                        { "name": "李四", "phone": "18897127809", "email": "lisi@163.com", "address": "浙江省杭州市滨江区秋溢路606号西可科技园", "createdTime": "1494488730000", "loginTime": "1558165530000" }
-                    ]
+                "preview": {
+                    "template": "<u-table-view :data-source=\"tableView\">\n    <u-table-view-column\n        title=\"用户名\"\n        field=\"name\"\n        width=\"20%\">\n    </u-table-view-column>\n    <u-table-view-column\n        title=\"手机号码\"\n        field=\"phone\"\n        width=\"20%\">\n    </u-table-view-column>\n    <u-table-view-column\n        title=\"地址\"\n        field=\"address\">\n    </u-table-view-column>\n    <u-table-view-column\n        title=\"最近登录时间\"\n        field=\"loginTime\"\n        formatter=\"placeholder | date\"\n        width=\"20%\">\n    </u-table-view-column>\n</u-table-view>",
+                    "script": "export default {\n    data() {\n        return {\n            tableView: [\n                {\n                    name: '张三',\n                    phone: '18612917895',\n                    email: 'zhangsan@163.com',\n                    address: '浙江省杭州市滨江区网商路599号网易大厦',\n                    createdTime: '1464421931000',\n                    loginTime: '1527515531000',\n                },\n                {\n                    name: '小明',\n                    phone: '13727160283',\n                    email: 'xiaoming@163.com',\n                    address: '浙江省杭州市滨江区江虹路459号英飞特科技园',\n                    createdTime: '1520864676000',\n                    loginTime: '1552400676000',\n                },\n                {\n                    name: '李四',\n                    phone: '18897127809',\n                    email: 'lisi@163.com',\n                    address: '浙江省杭州市滨江区秋溢路606号西可科技园',\n                    createdTime: '1494488730000',\n                    loginTime: '1558165530000',\n                },\n            ],\n        };\n    },\n};"
                 }
             },
             {
                 "id": 34,
+                "name": "u-tabs",
                 "title": "选项卡",
                 "toPosition": "tabs",
-                "type": ["", "square", "round", "line", "capsule", "text"],
+                "type": [
+                    "",
+                    "square",
+                    "round",
+                    "line",
+                    "capsule",
+                    "text"
+                ],
                 "cssProperty": {
                     "--tabs-border-width": "input",
                     "--tabs-border-color": "color",
@@ -530,10 +662,13 @@
                     "--tabs-item-border-radius-round": "input",
                     "--tabs-body-space": "input"
                 },
-                "blocks": "<div>\n    <div style=\"margin-bottom: 40px;\">\n        <div :class=\"$style.componentClassTitle\">基础样式1</div>\n        <u-tabs appear=\"square\">\n            <u-tab title=\"选项一\"></u-tab>\n            <u-tab title=\"选项二\"></u-tab>\n            <u-tab title=\"选项三\"></u-tab>\n            <u-tab title=\"选项四\" disabled></u-tab>\n        </u-tabs>\n    </div>\n    <div style=\"margin-bottom: 40px;\">\n        <div :class=\"$style.componentClassTitle\">基础样式2</div>\n        <u-tabs appear=\"round\" style=\"margin-bottom: 40px;\">\n            <u-tab title=\"选项一\"></u-tab>\n            <u-tab title=\"选项二\"></u-tab>\n            <u-tab title=\"选项三\"></u-tab>\n            <u-tab title=\"选项四\" disabled></u-tab>\n        </u-tabs>\n    </div>\n    <div style=\"margin-bottom: 40px;\">\n        <div :class=\"$style.componentClassTitle\">基础样式3</div>\n        <u-tabs appear=\"line\" style=\"margin-bottom: 40px;\">\n            <u-tab title=\"选项一\"></u-tab>\n            <u-tab title=\"选项二\"></u-tab>\n            <u-tab title=\"选项三\"></u-tab>\n            <u-tab title=\"选项四\" disabled></u-tab>\n        </u-tabs>\n    </div>\n    <div style=\"margin-bottom: 40px;\">\n        <div :class=\"$style.componentClassTitle\">基础样式4</div>\n        <u-tabs appear=\"capsule\" style=\"margin-bottom: 40px;\">\n            <u-tab title=\"选项一\"></u-tab>\n            <u-tab title=\"选项二\"></u-tab>\n            <u-tab title=\"选项三\"></u-tab>\n            <u-tab title=\"选项四\" disabled></u-tab>\n        </u-tabs>\n    </div>\n    <div style=\"margin-bottom: 40px;\">\n        <div :class=\"$style.componentClassTitle\">基础样式5</div>\n        <u-tabs appear=\"text\">\n            <u-tab title=\"选项一\"></u-tab>\n            <u-tab title=\"选项二\"></u-tab>\n            <u-tab title=\"选项三\"></u-tab>\n            <u-tab title=\"选项四\" disabled></u-tab>\n        </u-tabs>\n    </div>\n</div>"
+                "preview": {
+                    "template": "<u-selectable-steps :value=\"1\">\n    <u-selectable-step title=\"Step1\"></u-selectable-step>\n    <u-selectable-step title=\"Step2\"></u-selectable-step>\n    <u-selectable-step title=\"Step3\"></u-selectable-step>\n</u-selectable-steps>"
+                }
             },
             {
                 "id": 35,
+                "name": "u-selectable-steps",
                 "title": "步骤条",
                 "toPosition": "select-steps",
                 "type": [],
@@ -544,13 +679,23 @@
                     "--steps-item-radio-background-passed": "color",
                     "--steps-item-radio-color-passed": "color"
                 },
-                "blocks": "<u-selectable-steps :value=\"1\">\n    <u-selectable-step title=\"Step1\"></u-selectable-step>\n    <u-selectable-step title=\"Step2\"></u-selectable-step>\n    <u-selectable-step title=\"Step3\"></u-selectable-step>\n</u-selectable-steps>"
+                "preview": {
+                    "template": "<u-selectable-steps :value=\"1\">\n    <u-selectable-step title=\"Step1\"></u-selectable-step>\n    <u-selectable-step title=\"Step2\"></u-selectable-step>\n    <u-selectable-step title=\"Step3\"></u-selectable-step>\n</u-selectable-steps>"
+                }
             },
             {
                 "id": 36,
+                "name": "u-pagination",
                 "title": "翻页器",
                 "toPosition": "pagination",
-                "type": ["", "showNum", "prevAndNext", "showSum", "showAll", "simple"],
+                "type": [
+                    "",
+                    "showNum",
+                    "prevAndNext",
+                    "showSum",
+                    "showAll",
+                    "simple"
+                ],
                 "cssProperty": {
                     "--pagination-item-size": "input",
                     "--pagination-item-padding": "input",
@@ -570,10 +715,13 @@
                     "--combo-pagination-sizer-width": "input",
                     "--combo-pagination-jumper-width": "input"
                 },
-                "blocks": "<div>\n    <u-pagination style=\"margin-bottom:16px;\" :total=\"11\" :page=\"6\"></u-pagination>\n    <u-pagination style=\"margin-bottom:16px;\" :total=\"11\">\n        <a slot=\"prev\" role=\"text\">Previous</a>\n        <a slot=\"next\" role=\"text\">Next</a>\n    </u-pagination>\n    <u-pagination\n        style=\"margin-bottom:16px;\"\n        :total-items=\"75\"\n        show-total>\n    </u-pagination>\n    <u-pagination\n        style=\"margin-bottom:16px;\"\n        :total-items=\"75\"\n        show-total\n        show-sizer\n        show-jumper>\n    </u-pagination>\n    <u-pagination\n        style=\"margin-bottom:16px;\"\n        :total=\"11\"\n        simple\n        readonly>\n    </u-pagination>\n    <u-pagination\n        :total=\"11\"\n        simple\n        disabled>\n    </u-pagination>\n</div>"
+                "preview": {
+                    "template": "<div>\n    <u-pagination style=\"margin-bottom:16px;\" :total=\"11\" :page=\"6\"></u-pagination>\n    <u-pagination style=\"margin-bottom:16px;\" :total=\"11\">\n        <a slot=\"prev\" role=\"text\">Previous</a>\n        <a slot=\"next\" role=\"text\">Next</a>\n    </u-pagination>\n    <u-pagination\n        style=\"margin-bottom:16px;\"\n        :total-items=\"75\"\n        show-total>\n    </u-pagination>\n    <u-pagination\n        style=\"margin-bottom:16px;\"\n        :total-items=\"75\"\n        show-total\n        show-sizer\n        show-jumper>\n    </u-pagination>\n    <u-pagination\n        style=\"margin-bottom:16px;\"\n        :total=\"11\"\n        simple\n        readonly>\n    </u-pagination>\n    <u-pagination\n        :total=\"11\"\n        simple\n        disabled>\n    </u-pagination>\n</div>"
+                }
             },
             {
                 "id": 39,
+                "name": "u-tree-view",
                 "title": "树形视图",
                 "toPosition": "treeView",
                 "type": [],
@@ -588,31 +736,14 @@
                     "--tree-view-node-expander-color-selected": "color",
                     "--tree-view-node-background-selected-disabled": "color"
                 },
-                "blocks": "<u-tree-view value=\"4\" :data=\"data.treeView\"></u-tree-view>",
-                "data": {
-                    "treeView": [
-                        { "text": "一级分类", "children": [
-                            { "text": "二级分类选项文字极限很长...", "children": [
-                                {"text": "三级分类"}
-                            ]},
-                            { "text": "二级分类", "children": [
-                                {"text": "三级分类"}
-                            ]},
-                            { "text": "二级分类", "children": [
-                                { "text": "三级分类", "value":"3", "children":[
-                                    {"text": "四级分类", "value": "4"}
-                                ] }
-                            ] }
-                        ] },
-                        { "text": "一级分类", "children": [
-                            { "text": "二级分类" },
-                            { "text": "二级分类" }
-                        ] }
-                    ] 
+                "preview": {
+                    "template": "<u-tree-view value=\"4\" :data=\"list\"></u-tree-view>",
+                    "script": "export default {\n    data() {\n        return {\n            list: [\n                {\n                    text: '一级分类',\n                    children: [\n                        {\n                            text: '二级分类选项文字极限很长...',\n                            children: [\n                                {\n                                    text: '三级分类',\n                                },\n                            ],\n                        },\n                        {\n                            text: '二级分类',\n                            children: [\n                                {\n                                    text: '三级分类',\n                                },\n                            ],\n                        },\n                        {\n                            text: '二级分类',\n                            children: [\n                                {\n                                    text: '三级分类',\n                                    value: '3',\n                                    children: [\n                                        {\n                                            text: '四级分类',\n                                            value: '4',\n                                        },\n                                    ],\n                                },\n                            ],\n                        },\n                    ],\n                },\n                {\n                    text: '一级分类',\n                    children: [\n                        {\n                            text: '二级分类',\n                        },\n                        {\n                            text: '二级分类',\n                        },\n                    ],\n                },\n            ],\n        };\n    },\n};"
                 }
             },
             {
                 "id": 40,
+                "name": "u-transfer",
                 "title": "穿梭框",
                 "toPosition": "transfer",
                 "type": [],
@@ -632,44 +763,14 @@
                     "--transfer-button-border-color-hover": "color",
                     "--transfer-button-border-color-disabled": "color"
                 },
-                "blocks": "<u-transfer show-head\n    source-title=\"左列表\"\n    target-title=\"右列表\"\n    :source=\"source\"\n    :target=\"target\">\n</u-transfer>",
-                "data": {
-                    "source": [
-                        { "text": "C", "value": "c" },
-                        { "text": "C#", "value": "csharp" },
-                        { "text": "C++", "value": "cpp" },
-                        { "text": "Coq", "value": "coq" },
-                        { "text": "Go", "value": "go" },
-                        { "text": "Handlebars", "value": "Handlebars" },
-                        { "text": "JSON", "value": "json" },
-                        { "text": "Java", "value": "java" },
-                        { "text": "Makefile", "value": "makefile" },
-                        { "text": "Markdown", "value": "markdown" },
-                        { "text": "Objective-C", "value": "objective-c" },
-                        { "text": "Objective-C++", "value": "objective-cpp" },
-                        { "text": "PHP", "value": "php" },
-                        { "text": "Perl", "value": "perl" },
-                        { "text": "PowerShell", "value": "powershell" },
-                        { "text": "Python", "value": "python" },
-                        { "text": "Ruby", "value": "ruby" },
-                        { "text": "SQL", "value": "sql" },
-                        { "text": "SVG", "value": "svg" },
-                        { "text": "Shell Script", "value": "shellscript" },
-                        { "text": "Swift", "value": "swift" },
-                        { "text": "Visual Basic", "value": "vb" },
-                        { "text": "XML", "value": "xml" },
-                        { "text": "YAML", "value": "yaml" }
-                    ],
-                    "target": [
-                        { "text": "CSS", "value": "css" },
-                        { "text": "HTML", "value": "html" },
-                        { "text": "JavaScript", "value": "javascript" },
-                        { "text": "Vue", "value": "vue" }
-                    ]
+                "preview": {
+                    "template": "<u-transfer show-head\n    source-title=\"左列表\"\n    target-title=\"右列表\"\n    :source=\"source\"\n    :target=\"target\">\n</u-transfer>",
+                    "script": "export default {\n    data() {\n        return {\n            source: [\n                { text: 'C', value: 'c' },\n                { text: 'C#', value: 'csharp' },\n                { text: 'C++', value: 'cpp' },\n                { text: 'Coq', value: 'coq' },\n                { text: 'Go', value: 'go' },\n                { text: 'Handlebars', value: 'Handlebars' },\n                { text: 'JSON', value: 'json' },\n                { text: 'Java', value: 'java' },\n                { text: 'Makefile', value: 'makefile' },\n                { text: 'Markdown', value: 'markdown' },\n                { text: 'Objective-C', value: 'objective-c' },\n                { text: 'Objective-C++', value: 'objective-cpp' },\n                { text: 'PHP', value: 'php' },\n                { text: 'Perl', value: 'perl' },\n                { text: 'PowerShell', value: 'powershell' },\n                { text: 'Python', value: 'python' },\n                { text: 'Ruby', value: 'ruby' },\n                { text: 'SQL', value: 'sql' },\n                { text: 'SVG', value: 'svg' },\n                { text: 'Shell Script', value: 'shellscript' },\n                { text: 'Swift', value: 'swift' },\n                { text: 'Visual Basic', value: 'vb' },\n                { text: 'XML', value: 'xml' },\n                { text: 'YAML', value: 'yaml' },\n            ],\n            target: [\n                { text: 'CSS', value: 'css' },\n                { text: 'HTML', value: 'html' },\n                { text: 'JavaScript', value: 'javascript' },\n                { text: 'Vue', value: 'vue' },\n            ],\n        };\n    },\n};"
                 }
             },
             {
                 "id": 44,
+                "name": "u-linear-progress",
                 "title": "线型进度条",
                 "toPosition": "linearProgress",
                 "type": [],
@@ -681,10 +782,13 @@
                     "--linear-progress-trail-color": "color",
                     "--linear-progress-trail-transition": "input"
                 },
-                "blocks": "<u-linear-progress :percent=\"25\"></u-linear-progress>"
+                "preview": {
+                    "template": "<u-linear-progress :percent=\"25\"></u-linear-progress>"
+                }
             },
             {
                 "id": 45,
+                "name": "u-circular-progress",
                 "title": "圆形进度条",
                 "toPosition": "circularProgress",
                 "type": [],
@@ -696,10 +800,13 @@
                     "--circular-progress-trail-transition": "input",
                     "--circular-progress-percent-font-size": "input"
                 },
-                "blocks": "<u-circular-progress :percent=\"25\"></u-circular-progress>"
+                "preview": {
+                    "template": "<u-circular-progress :percent=\"25\"></u-circular-progress>"
+                }
             },
             {
                 "id": 46,
+                "name": "u-popup",
                 "title": "弹出框",
                 "toPosition": "popup",
                 "type": [],
@@ -712,11 +819,14 @@
                     "--popup-box-shadow": "input",
                     "--popup-border-color": "color"
                 },
-                "blocks": "<div>\n    <u-button style=\"box-shadow:none;margin-right:40px;\">\n        内容\n        <u-popup>使用 content 属性添加内容</u-popup>\n    </u-button>\n    <u-button style=\"box-shadow:none;\">\n        内容\n        <u-popup trigger=\"hover\">使用 content 属性添加内容</u-popup>\n    </u-button>\n</div>"
+                "preview": {
+                    "template": "<div>\n    <u-button style=\"box-shadow:none;margin-right:40px;\">\n        内容\n        <u-popup>使用 content 属性添加内容</u-popup>\n    </u-button>\n    <u-button style=\"box-shadow:none;\">\n        内容\n        <u-popup trigger=\"hover\">使用 content 属性添加内容</u-popup>\n    </u-button>\n</div>"
+                }
             },
             {
                 "id": 47,
                 "title": "弹窗",
+                "name": "u-modal",
                 "toPosition": "modal",
                 "type": [],
                 "cssProperty": {
@@ -733,14 +843,45 @@
                     "--modal-foot-padding": "input",
                     "--modal-border-color": "color"
                 },
-                "blocks": "<div>\n   <u-modal :visible.sync=\"exampleModalvisible\" title=\"标题\">\n        <div style=\"position:relative;width:100%;height:85px;background:#F2F3F5;text-align:center;\">\n            <u-text style=\"position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);\">对话框内容</u-text>\n        </div>\n    </u-modal>\n    <u-linear-layout>\n        <u-button @click=\"exampleModalvisible = true\">Modal</u-button>\n    </u-linear-layout>\n</div>",
-                "data": {
-                    "exampleModalvisible": false
+                "preview": {
+                    "template": "<div>\n        <u-modal :visible.sync=\"exampleModalvisible\" title=\"标题\">\n            <div style=\"position:relative;width:100%;height:85px;background:#F2F3F5;text-align:center;\">\n                <u-text style=\"position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);\">对话框内容</u-text>\n            </div>\n        </u-modal>\n        <u-linear-layout>\n            <u-button @click=\"onOpen\">Modal</u-button>\n        </u-linear-layout>\n    </div>",
+                    "script": "export default {\n    data() {\n        return {\n            exampleModalvisible: false,\n        };\n    },\n    methods: {\n        onOpen() {\n            this.exampleModalvisible = true;\n        },\n    },\n};"
                 }
             },
             {
                 "id": 48,
+                "title": "日历面板",
+                "name": "u-calendar",
+                "toPosition": "calendar",
+                "type": [],
+                "cssProperty": {
+                    "--calendar-border-color": "color",
+                    "--calendar-background": "color",
+                    "--calendar-border-radius": "input",
+                    "--calendar-item-color": "color",
+                    "--calendar-item-border-radius": "input",
+                    "--calendar-item-border-color": "color",
+                    "--calendar-item-background": "color",
+                    "--calendar-item-color-hover": "color",
+                    "--calendar-item-border-color-hover": "color",
+                    "--calendar-item-background-hover": "color",
+                    "--calendar-item-color-selected": "color",
+                    "--calendar-item-border-color-selected": "color",
+                    "--calendar-item-background-selected": "color",
+                    "--calendar-item-color-muted": "color",
+                    "--calendar-item-color-disabled": "color",
+                    "--calendar-item-background-disabled":"color",
+                    "--calendar-item-color-selected-disabled": "color",
+                    "--calendar-item-background-selected-disabled": "color"
+                },
+                "preview": {
+                    "template": "<u-calendar picker=\"date\"></u-calendar>"
+                }
+            },
+            {
+                "id": 49,
                 "title": "日期选择器",
+                "name": "u-datepicker",
                 "toPosition": "datepicker",
                 "type": [],
                 "cssProperty": {
@@ -751,10 +892,13 @@
                     "--datepicker-input-placeholder-color": "color",
                     "--datepicker-input-border-radius": "input"
                 },
-                "blocks": "<u-date-picker date=\"2018-08-08\" clearable></u-date-picker>"
+                "preview": {
+                    "template": "<u-date-picker date=\"2018-08-08\" clearable></u-date-picker>"
+                }
             },
             {
-                "id": 49,
+                "id": 50,
+                "name": "u-date-time-picker",
                 "title": "日期时间选择器",
                 "toPosition": "u-date-time-picker",
                 "type": [],
@@ -767,7 +911,9 @@
                     "--datetime-input-placeholder-color": "color",
                     "--datetime-input-border-radius": "input"
                 },
-                "blocks": "<u-date-time-picker  date=\"2018-08-08\" clearable></u-date-time-picker>"
+                "preview": {
+                    "template": "<u-date-time-picker  date=\"2018-08-08\" clearable></u-date-time-picker>"
+                }
             }
         ]
     }

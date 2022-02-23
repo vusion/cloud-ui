@@ -1,4 +1,4 @@
-``` html
+<template>
  <u-form-table-view :data="data.formTableView">
     <u-form-table-view-column title="URL" width="20%">
         <template slot="cell" slot-scope="{ item }">
@@ -21,4 +21,4 @@
         </template>
     </u-form-table-view-column>
 </u-form-table-view>
-```
+</template>

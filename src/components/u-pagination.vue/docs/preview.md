@@ -1,4 +1,4 @@
-``` html
+<template>
 <div>
     <u-pagination style="margin-bottom:16px;" :total="11" :page="6"></u-pagination>
     <u-pagination style="margin-bottom:16px;" :total="11">
@@ -29,4 +29,4 @@
         disabled>
     </u-pagination>
 </div>
-```
+</template>
