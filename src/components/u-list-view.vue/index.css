@@ -88,3 +88,14 @@
 .root[size$="huge"] { width: var(--list-view-width-huge); }
 .root[size$="full"] { width: 100%; }
 .root[size$="auto"] { width: auto; }
+
+.root[height="normal"] { height: var(--list-view-height); }
+.root[height="large"] { height: var(--list-view-height-large); }
+.root[height="huge"] { height: var(--list-view-height-huge); }
+.root[height="full"] { height: 100%; }
+.root[height="auto"] { height: auto; }
+.root[width="normal"] { width: var(--list-view-width); }
+.root[width="large"] { width: var(--list-view-width-large); }
+.root[width="huge"] { width: var(--list-view-width-huge); }
+.root[width="full"] { width: 100%; }
+.root[width="auto"] { width: auto; }

@@ -78,7 +78,7 @@
           title: 小
         - value: mini
           title: 迷你
-      default: ""
+      default: normal
       description: 设置单行输入框宽度
     - name: height
       title: 高度
@@ -98,7 +98,7 @@
           title: 小
         - value: mini
           title: 迷你
-      default: ""
+      default: normal
       description: 设置单行输入框高度
     - name: maxlengthMessage
       title: 长度上限提示

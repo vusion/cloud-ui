@@ -122,7 +122,24 @@
       default: true
       description: ""
       group: 样式属性
-    - name: size
+    - name: width
+      title: 宽度
+      type: string
+      options:
+        - value: full
+          title: 占满
+        - value: huge
+          title: 巨大
+        - value: large
+          title: 大
+        - value: normal
+          title: 正常
+        - value: auto
+          title: 自适应
+      default: normal
+      description: 设置数据列表宽度
+      group: 样式属性
+    - name: height
       title: 尺寸
       type: string
       options:
@@ -137,9 +154,7 @@
         - value: auto
           title: 自适应
       default: normal
-      description: 设置数据列表大小
-      multi: true
-      maxSelect: 2
+      description: 设置数据列表高度
       group: 样式属性
     - name: loading-text
       title: 加载中文字
