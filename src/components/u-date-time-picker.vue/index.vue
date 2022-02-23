@@ -305,7 +305,7 @@ time = '00:00:00';
     display: inline-block;
     position: relative;
     max-width: 100%; /* 防止表格等小的地方超出区域 */
-    width: 170px;
+    width: var(--date-time-picker-width);
 }
 .input {
     box-sizing: border-box;
