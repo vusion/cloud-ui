@@ -1,29 +1,29 @@
-### 拉伸 - 图片拉伸完全填充
+### 适应
 
 ``` html
-<u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" fit="fill" circle></u-image>
+<u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" style="width: 300px; height: 150px;" fit="contain"></u-image>
 ```
 
-### 适应 - 图片缩放比例完全填充
+### 适应（图片小于父元素时以原尺寸展示）
 
 ``` html
-<u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" fit="contain"></u-image>
+<u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" style="width: 300px; height: 150px;" fit="scale-down"></u-image>
 ```
 
-### 填充 - 按比例尽可能大的填充
+### 拉伸
 
 ``` html
-<u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" fit="cover"></u-image>
+<u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" style="width: 300px; height: 150px;" fit="fill"></u-image>
 ```
 
-### 平铺 - 原始尺寸
+### 填充
 
 ``` html
-<u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" fit="none"></u-image>
+<u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" style="width: 300px; height: 150px;" fit="cover"></u-image>
 ```
 
-### 取适应、平铺中较小的
+### 原尺寸
 
 ``` html
-<u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" fit="scale-down"></u-image>
+<u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" style="width: 300px; height: 150px;" fit="none"></u-image>
 ```

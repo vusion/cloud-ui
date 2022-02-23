@@ -1,5 +1,7 @@
 <template>
-<div :class="$style.root" :fit="fit" :circle="circle">
+<div :class="$style.root" :fit="fit" :style="{ 'border-radius': circle && radius }"
+    :vertical-center="verticalCenter"
+    :horizontal-center="horizontalCenter">
     <template v-if="ready">
         <img :src="convertedSrc" :style="imageStyle" v-bind="$attrs">
     </template>
@@ -7,7 +9,6 @@
 </template>
 
 <script>
-
 export default {
     name: 'u-image',
     props: {
@@ -24,6 +25,14 @@ export default {
             type: Boolean,
             default: false,
         },
+        verticalCenter: {
+            type: String,
+            default: 'center',
+        },
+        horizontalCenter: {
+            type: String,
+            default: 'center',
+        },
         convertSrcFn: {
             type: Function,
             default: (src) => {
@@ -34,15 +43,27 @@ export default {
                 } catch (e) {
                     return src;
                 }
-            }
-        }
+            },
+        },
     },
     computed: {
         convertedSrc() {
-            if(typeof this.convertSrcFn === 'function') {
+            if (typeof this.convertSrcFn === 'function') {
                 return this.convertSrcFn(this.src);
             } else {
                 return this.src;
+            }
+        },
+        minSide() {
+            return Math.min(this.imageWidth, this.imageHeight);
+        },
+        radius() {
+            return Math.round(this.minSide / 2) + 'px';
+        },
+        imageStyle() {
+            return {
+                'object-fit': this.fit,
+                'object-position': `${this.verticalCenter} ${this.horizontalCenter}`
             }
         }
     },
@@ -62,9 +83,6 @@ export default {
         convertSrcFn() {
             this.loadImage();
         },
-        fit() {
-            this.getImageStyle();
-        },
     },
     mounted() {
         this.loadImage();
@@ -80,7 +98,6 @@ export default {
                 img.onerror = undefined;
                 that.imageWidth = img.width;
                 that.imageHeight = img.height;
-                that.getImageStyle();
             };
             img.onerror = function (img) {
                 that.ready = true;
@@ -89,65 +106,22 @@ export default {
             };
             img.src = this.convertedSrc;
         },
-        getImageStyle() {
-            let fit = this.fit;
-            const { imageWidth, imageHeight } = this;
-            const {
-                clientWidth: containerWidth,
-                clientHeight: containerHeight,
-            } = this.$el;
-            if (!imageWidth || !imageHeight || !containerWidth || !containerHeight)
-                this.imageStyle = {};
-            const vertical = imageWidth / imageHeight < 1;
-            if (fit === 'scale-down') {
-                const isSmaller = imageWidth < containerWidth && imageHeight < containerHeight;
-                fit = isSmaller ? 'none' : 'contain';
-            }
-            switch (fit) {
-                case 'none':
-                    this.imageStyle = { width: 'auto', height: 'auto' };
-                    break;
-                case 'contain':
-                    this.imageStyle = vertical ? { width: 'auto' } : { height: 'auto' };
-                    break;
-                case 'cover':
-                    this.imageStyle = vertical ? { height: 'auto' } : { width: 'auto' };
-                    break;
-                default:
-                    this.imageStyle = {};
-            }
-        },
     },
 };
 </script>
 
-<style module >
-
+<style module>
 .root {
-    position: relative;
     display: inline-block;
     overflow: hidden;
-}
-
-.root {
-    width: var(--image-width);
-    height: var(--image-height);
-}
-
-.root[circle] {
-    border-radius: 50%;
 }
 
 .root img {
     width: 100%;
     height: 100%;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
     display: block;
     max-width: none;
     max-height: none;
+    object-position: left top;
 }
 </style>
