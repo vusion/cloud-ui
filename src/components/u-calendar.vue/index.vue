@@ -583,7 +583,7 @@ this.updateFlag = true;
     border-radius: var(--calendar-item-border-radius);
     background: var(--calendar-item-background);
     color: var(--calendar-item-color);
-    border-color: var(--calendar-item-border-color);
+    border: 1px solid var(--calendar-item-border-color);
 }
 
 .dayitem[role="week"] {
