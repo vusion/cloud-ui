@@ -133,7 +133,7 @@
                                             </template>
                                             <!-- Normal text -->
                                             <template v-if="columnVM.type === 'editable'">
-                                                <div @dblclick="onSetEditing(item, columnVM.field)">
+                                                <div @dblclick="onSetEditing(item, columnVM.field)" :class="$style.editablewrap">
                                                     <template v-if="item.editing === columnVM.field">
                                                         <f-slot name="editcell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
                                                             <span v-if="columnVM.field" vusion-slot-name="editcell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
@@ -1264,6 +1264,16 @@ export default {
 .root {
     position: relative;
     /* 不能加这句，会使分页器的 Select 无法显示！ overflow: hidden; */
+}
+
+.root[editable] td{
+    padding-top: 4px;
+    padding-bottom: 4px;
+    min-height: var(--table-view-editable-td-min-height);
+}
+.editablewrap{
+    min-height: var(--table-view-editable-td-min-height);
+    line-height: var(--table-view-editable-td-min-height);
 }
 
 .title {

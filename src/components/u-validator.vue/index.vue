@@ -1,7 +1,14 @@
 <template>
-<div :class="$style.root" vusion-slot-name="default">
+<div :class="$style.root" vusion-slot-name="default" :display="display">
     <slot></slot>
-    <span ref="message" v-show="!mutedMessage && touched && !valid && firstError && !blurred" :class="$style.message" color="error">{{ firstError }}</span>
+    <template v-if="appendTo === 'body'">
+         <m-popper append-to="body" disabledClose>
+            <span ref="message" v-show="!mutedMessage && touched && !valid && firstError && !blurred" :class="[$style.message, $style.messagepop]" color="error" :display="display">{{ firstError }}</span>
+        </m-popper>
+    </template>
+    <template v-else>
+        <span ref="message" v-show="!mutedMessage && touched && !valid && firstError && !blurred" :class="$style.message" color="error">{{ firstError }}</span>
+    </template>
     <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
 </div>
 </template>
@@ -35,7 +42,13 @@ export default {
         validatingValue: null,
         validatingProcess: { type: Function, default: (value) => value },
         manual: { type: Boolean, default: false },
-        widthReferenceEle: {type: HTMLElement, default: null}
+        widthReferenceEle: {type: HTMLElement, default: null},
+        appendTo: {
+            type: String,
+            default: 'reference',
+            validator: (value) => ['body', 'reference'].includes(value),
+        },
+        display: String,
     },
     data() {
         return {

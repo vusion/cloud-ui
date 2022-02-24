@@ -679,6 +679,7 @@
     --table-view-expander-border-color-hover: var(--table-view-expander-background-hover);
     --table-view-expander-border-color-disabled: #e5e5e5;
     --table-view-expand-td-background: #F7F8FA;
+    --table-view-editable-td-min-height: 32px;
 
     /* @component u-list-view */
     --list-view-width: var(--width-medium);
@@ -819,17 +820,18 @@
     --validator-message-margin-left: 10px;
     --validator-message-margin-left-bottom: 0;
     --validator-message-margin-top-bottom: 2px;
-    --validator-message-margin-top: 0;
-    --validator-message-padding: 0 10px;
+    --validator-message-margin-top: 4px;
+    --validator-message-padding: 6px 17px 6px 40px;;
     --validator-message-min-width: auto;
     --validator-message-background: var(--background-color-base);
     --validator-message-background-error: var(--brand-error-light);
     --validator-message-color-error: white;
     --validator-message-line-height: 26px;
     --validator-message-z-index: 1;
-    --validator-message-border-radius: 0;
+    --validator-message-border-radius: 4px;
     --validator-message-box-shadow: none;
     --validator-message-white-space: nowrap;
+    --validator-message-popper-margin-top: 13px;
 
     /* @component u-input */
     --input-width: var(--width-base);

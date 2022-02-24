@@ -4,7 +4,7 @@
     <span v-if="showDate && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
         <i :class="[$style.closeIcon]"></i>
     </span>
-    <m-popper :class="$style.popper" ref="popper" append-to="reference" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="closeCalendar">
+    <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="closeCalendar">
         <div :class="$style.body" @click.stop>
             <u-calendar :picker="picker" ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="showDate" :value="date" @select="select($event.date)"></u-calendar>
         </div>
@@ -66,6 +66,11 @@ export default {
         yearAdd: { type: [String, Number], default: 20 },
         clearable: { type: Boolean, default: false },
         converter: { type: String, default: 'format' },
+        appendTo: {
+            type: String,
+            default: 'reference',
+            validator: (value) => ['body', 'reference'].includes(value),
+        },
     },
     data() {
         const date = this.date || this.value;
@@ -120,6 +125,9 @@ export default {
             'update',
             this.toValue(this.showDate ? new Date(this.transformDate(this.showDate)) : ''),
         );
+    },
+    mounted() {
+        this.autofocus && this.$refs.input.focus();
     },
     methods: {
         getFormatString() {
