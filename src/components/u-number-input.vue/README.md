@@ -29,6 +29,14 @@
 </u-linear-layout>
 ```
 
+### 按钮为两端分布
+
+``` html
+<u-linear-layout>
+    <u-number-input buttonDisplay="bothEnds"></u-number-input>
+</u-linear-layout>
+```
+
 ### 双向绑定
 
 ``` vue

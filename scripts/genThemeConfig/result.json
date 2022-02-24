@@ -427,11 +427,14 @@
                     "--number-input-box-shadow-focus": "input",
                     "--number-input-button-padding": "input",
                     "--number-input-button-background": "color",
+                    "--number-input-button-both-ends-background": "color",
                     "--number-input-button-background-hover": "color",
-                    "--number-input-button-background-active": "color"
+                    "--number-input-button-both-ends-background-hover": "color",
+                    "--number-input-button-background-active": "color",
+                    "--number-input-button-both-ends-background-active": "color"
                 },
                 "preview": {
-                    "template": "<u-number-input></u-number-input>"
+                    "template": "<div>\n        <u-number-input :value=\"6\"></u-number-input>\n        <u-number-input button-display=\"bothEnds\" :value=\"6\"></u-number-input>\n    </div>"
                 }
             },
             {
