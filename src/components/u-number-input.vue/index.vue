@@ -1,14 +1,14 @@
 <template>
-<u-input ref="input" :class="$style.root" :value="formattedValue"
-    :readonly="readonly" :disabled="disabled" :clearable="clearable"
-    @keydown.native.up.prevent="increase" @keydown.native.down.prevent="decrease" @keydown.native.enter="onEnter"
-    @input="onInput" @focus="onFocus" @blur="onBlur" v-bind="$attrs" v-on="listeners">
-    <span :class="$style.button" v-if="!hideButtons" :disabled="currentValue >= max" role="up" v-repeat-click="increase"
-        tabindex="0" @keydown.prevent></span>
-    <span :class="$style.button" v-if="!hideButtons" :disabled="currentValue <= min" role="down" v-repeat-click="decrease"
-        tabindex="0" @keydown.prevent></span>
-    <slot></slot>
-</u-input>
+    <u-input ref="input" :class="$style.root" :value="formattedValue"
+        :readonly="readonly" :disabled="disabled" :clearable="clearable"
+        @keydown.native.up.prevent="increase" @keydown.native.down.prevent="decrease" @keydown.native.enter="onEnter"
+        @input="onInput" @focus="onFocus" @blur="onBlur" v-bind="$attrs" v-on="listeners">
+        <span :class="$style.button" v-if="!hideButtons" :disabled="currentValue >= max" role="up" v-repeat-click="increase"
+            tabindex="0" @keydown.prevent></span>
+        <span :class="$style.button" v-if="!hideButtons" :disabled="currentValue <= min" role="down" v-repeat-click="decrease"
+            tabindex="0" @keydown.prevent></span>
+        <slot></slot>
+    </u-input>
 </template>
 
 <script>

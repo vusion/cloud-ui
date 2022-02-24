@@ -878,8 +878,11 @@
     --textarea-padding: 5px 10px;
     --textarea-color: var(--color-base);
     --textarea-border-color: var(--border-color-base);
+    --textarea-border-color-focus: var(--input-border-color-focus);
     --textarea-background: var(--background-color-disabled-light);
     --textarea-placeholder-color: var(--color-lighter);
+    --textarea-box-shadow-focus-color: rgba(77, 136, 255, 0.2);
+    --textarea-box-shadow-focus:  0 0 0 2px var(--textarea-box-shadow-focus-color);
 
     /* @component u-number-input */
     --number-input-height: var(--input-height);

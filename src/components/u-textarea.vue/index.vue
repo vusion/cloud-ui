@@ -86,6 +86,7 @@ export default {
     border-color: var(--textarea-border-color);
     border-radius: var(--textarea-border-radius);
     transition: border-color var(--transition-duration-base);
+    box-shadow: var(--textarea-box-shadow-focus);
 }
 
 .input {
@@ -134,7 +135,7 @@ export default {
 }
 
 .root[focus] {
-    border-color: var(--input-border-color-focus);
+    border-color: var(--textarea-border-color-focus);
 }
 
 .root[disabled] {
