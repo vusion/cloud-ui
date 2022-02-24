@@ -349,6 +349,7 @@
     --sidebar-item-background-selected-disabled-inverse: #2b333f;
     --sidebar-item-color: #333333;
     --sidebar-item-color-inverse: #8594aa;
+    --sidebar-item-background-hover: var(--sidebar-item-background);
     --sidebar-item-color-hover: #337eff;
     --sidebar-item-color-hover-inverse: white;
     --sidebar-item-color-selected: #337eff;

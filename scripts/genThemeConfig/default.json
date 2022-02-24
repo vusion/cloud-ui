@@ -207,6 +207,7 @@
     "--sidebar-item-color-inverse": "#8594aa",
     "--sidebar-item-color-hover": "#337eff",
     "--sidebar-item-color-hover-inverse": "white",
+    "--sidebar-item-background-hover": "var(--sidebar-item-background)",
     "--sidebar-item-color-selected": "#337eff",
     "--sidebar-item-color-selected-inverse": "white",
     "--sidebar-item-color-disabled": "#586475",
