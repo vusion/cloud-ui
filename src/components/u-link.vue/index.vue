@@ -214,6 +214,10 @@ export default {
     text-decoration: none;
 }
 
+.root[hoverType=color][disabled]:hover {
+    color: var(--link-color-disabled);
+}
+
 @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
