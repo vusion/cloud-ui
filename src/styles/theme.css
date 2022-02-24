@@ -439,7 +439,9 @@
     --button-height-medium: var(--height-medium);
     --button-height-large: var(--height-large);
     --button-height-huge: var(--height-huge); /* @hidden */
+
     --button-padding-y: 0px;
+    
     --button-padding-x: 24px;
     --button-padding-x-mini: 16px;
     --button-padding-x-small: 20px;
