@@ -1024,7 +1024,7 @@
     --select-popper-item-background-hover: var(--list-view-item-background-hover);
     /* readonly */
     --select-popper-item-color-readonly: inherit;
-    --select-popper-item-background-readonly: var(--list-view-item-background-readonly);
+    --select-popper-item-background-readonly: var(--list-view-item-background-readonly-initial);
     /* focused */
     --select-popper-item-color-focused: var(--select-popper-item-color-hover);
     --select-popper-item-background-focused: var(--select-popper-item-background-hover);
@@ -1199,6 +1199,7 @@
     --pagination-item-padding: 0;
     --pagination-item-background: transparent;
     --pagination-item-background-hover: var(--pagination-item-background);
+    --pagination-item-border-color-hover: var(--brand-primary);
     --pagination-item-background-selected: #4d88ff;
     --pagination-item-background-disabled-selected: var(--pagination-item-background);
     --pagination-item-background-blank: none;
