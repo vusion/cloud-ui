@@ -140,7 +140,7 @@
       description: 设置数据列表宽度
       group: 样式属性
     - name: height
-      title: 尺寸
+      title: 高度
       type: string
       options:
         - value: full
