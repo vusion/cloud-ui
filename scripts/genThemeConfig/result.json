@@ -420,7 +420,7 @@
                     "--number-input-height": "input",
                     "--number-input-background": "input",
                     "--number-input-color": "color",
-                    "--number-input-border-width": "color",
+                    "--number-input-border-width": "input",
                     "--number-input-border-color": "color",
                     "--number-input-border-color-focus": "color",
                     "--number-input-box-shadow-focus-color": "color",
@@ -431,7 +431,11 @@
                     "--number-input-button-background-hover": "color",
                     "--number-input-button-both-ends-background-hover": "color",
                     "--number-input-button-background-active": "color",
-                    "--number-input-button-both-ends-background-active": "color"
+                    "--number-input-button-both-ends-background-active": "color",
+                    "--number-input-button-background-focus": "color",
+                    "--number-input-button-both-ends-background-focus": "color",
+                    "--number-input-button-outline": "input",
+                    "--number-input-button-both-ends-outline": "input"
                 },
                 "preview": {
                     "template": "<div>\n        <u-number-input :value=\"6\"></u-number-input>\n        <u-number-input button-display=\"bothEnds\" :value=\"6\"></u-number-input>\n    </div>"

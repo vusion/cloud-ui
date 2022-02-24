@@ -8652,6 +8652,13 @@
                     "advanced": true
                 },
                 {
+                    "name": "buttonDisplay",
+                    "title": "按钮呈现形式",
+                    "type": "string",
+                    "default": "tail",
+                    "description": "按钮呈现形式"
+                },
+                {
                     "name": "placeholder",
                     "title": "占位符",
                     "type": "string",

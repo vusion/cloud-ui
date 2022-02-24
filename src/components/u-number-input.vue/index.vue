@@ -258,8 +258,18 @@ export default {
     background: var(--number-input-button-background-hover);
 }
 
+.button[buttonDisplay="bothEnds"]:hover {
+    background: var(--number-input-button-both-ends-background-hover);
+}
+
 .button:focus {
-    outline: var(--focus-outline);
+    background: var(--number-input-button-background-focus);
+    outline: var(--number-input-button-outline);
+}
+
+.button[buttonDisplay="bothEnds"]:focus {
+    background: var(--number-input-button-both-ends-background-focus);
+    outline: var(--number-input-button-both-ends-outline);
 }
 
 .button:active {
@@ -332,7 +342,11 @@ export default {
     color: #989898;
 }
 
-.button:hover::before {
+.root[buttonDisplay="tail"] .button:hover::before {
+    color: var(--number-input-icon-color-hover);
+}
+
+.root[buttonDisplay="bothEnds"] .button:hover::before {
     color: var(--number-input-icon-color-hover);
 }
 
