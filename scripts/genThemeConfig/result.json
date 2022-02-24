@@ -434,8 +434,7 @@
                     "--number-input-button-both-ends-background-active": "color",
                     "--number-input-button-background-focus": "color",
                     "--number-input-button-both-ends-background-focus": "color",
-                    "--number-input-button-outline": "input",
-                    "--number-input-button-both-ends-outline": "input"
+                    "--number-input-button-outline": "input"
                 },
                 "preview": {
                     "template": "<div>\n        <u-number-input :value=\"6\"></u-number-input>\n        <u-number-input button-display=\"bothEnds\" :value=\"6\"></u-number-input>\n    </div>"
