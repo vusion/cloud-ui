@@ -656,7 +656,6 @@
      */
 
     /* @component u-table-view */
-    --table-view-head-background: var();
     --table-view-head-item-size: var(--font-size-base);
     --table-view-head-item-color: var(--gray-dark);
     --table-view-head-title-sortable-hover: #eef2f8; /* @hidden */
@@ -1193,8 +1192,8 @@
     --pagination-item-width-small: 24px;
     --pagination-item-height-small: 24px;
     --pagination-item-height-small-line-height: var(--pagination-item-height-small);
-    --pagination-item-width: var(--height-normal);
-    --pagination-item-height: var(--height-normal);
+    --pagination-item-width: 32px;
+    --pagination-item-height: 32px;
     --pagination-line-height: calc(var(--pagination-item-height) - var(--border-width-base) * 2);
     --pagination-item-padding: 0;
     --pagination-item-background: transparent;
