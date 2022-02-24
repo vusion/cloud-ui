@@ -685,6 +685,8 @@
                     "--tabs-item-height": "input",
                     "--tabs-item-padding-x": "input",
                     "--tabs-item-line-width": "input",
+                    "--tabs-font-size": "input",
+                    "--tabs-item-line-background": "color",
                     "--tabs-item-background-text": "color",
                     "--tabs-item-background-capsule": "color",
                     "--tabs-item-background-hover": "color",

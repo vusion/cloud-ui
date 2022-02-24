@@ -1130,6 +1130,7 @@
     --tabs-border-width: 1px;
     --tabs-border-color: var(--border-color-light);
     --tabs-head-background: none;
+    --tabs-font-size: var(--font-size-base);
     --tabs-item-height: 48px;
     --tabs-item-height-small: 30px;
     --tabs-item-height-mini: 24px;
@@ -1137,6 +1138,7 @@
     --tabs-item-padding-x-small: 22px;
     --tabs-item-padding-x-mini: 16px;
     --tabs-item-line-width: 2px;
+    --tabs-item-line-background: var(--brand-primary);
     --tabs-item-background-text: none;
     --tabs-item-background-capsule: none;
     --tabs-item-background-hover: transparent;
