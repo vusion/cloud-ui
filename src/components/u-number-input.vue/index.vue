@@ -202,16 +202,31 @@ export default {
 </script>
 
 <style module>
-.root {}
+.root {
+    height: var(--number-input-height);
+    background: var(--number-input-background);
+    border: var(--number-input-border-width) solid var(--number-input-border-color);
+    border-radius: var(--number-input-border-radius);
+    color: var(--number-input-color);
+}
+
+.root:hover {
+    border-color: var(--number-input-border-color-focus);
+}
+
+.root[focus] {
+    border-color: var(--number-input-border-color-focus);
+    box-shadow: var(--number-input-box-shadow-focus);
+}
 
 .button {
     user-select: none;
     position: absolute;
     right: 0;
-    height: var(--number-input-height);
-    line-height: var(--number-input-height);
+    height: var(--number-input-button-height);
+    line-height: var(--number-input-button-height);
     border-left: 1px solid var(--border-color-base);
-    padding: var(--number-input-padding);
+    padding: var(--number-input-button-padding);
     cursor: var(--cursor-pointer);
     background: var(--number-input-button-background);
 }

@@ -838,7 +838,6 @@
     --input-height-medium: var(--height-medium);
     --input-height-large: var(--height-large);
     --input-height-huge: var(--height-huge);
-
     --input-padding-x-mini: 6px;
     --input-padding-x-small: 8px;
     --input-padding-x: 10px;
@@ -846,7 +845,6 @@
     --input-padding-x-large: 10px;
     --input-padding-x-huge: 10px;
     --input-padding-x-full: 10px;
-    
     --input-prefix-padding-left: 36px;
     --input-suffix-padding-right: 30px;
     --input-border-width: var(--border-width-base);
@@ -862,7 +860,8 @@
     --input-clear-icon-color: var(--font-third-color);
     --input-icon-color-hover: var(--font-second-color);
     --input-border-radius: var(--border-radius-base);
-    --input-box-shadow-focus: 0 0 0 2px rgba(77, 136, 255, 0.2);
+    --input-box-shadow-focus-color: rgba(77, 136, 255, 0.2);
+    --input-box-shadow-focus: 0 0 0 2px var(--input-box-shadow-focus-color);
 
     /* @component u-textarea */
     --textarea-width: var(--width-base);
@@ -883,8 +882,17 @@
     --textarea-placeholder-color: var(--color-lighter);
 
     /* @component u-number-input */
-    --number-input-height: 16px;
-    --number-input-padding: 0 4px;
+    --number-input-height: var(--input-height);
+    --number-input-background: var(--input-background);
+    --number-input-color: var(--input-color);
+    --number-input-border-width: var(--input-border-width);
+    --number-input-border-radius: var(--input-border-radius);
+    --number-input-border-color: var(--input-border-color);
+    --number-input-border-color-focus: var(--input-border-color-focus);
+    --number-input-box-shadow-focus-color: rgba(77, 136, 255, 0.2);
+    --number-input-box-shadow-focus: 0 0 0 2px var(--number-input-box-shadow-focus-color);
+    --number-input-button-padding: 0 4px;
+    --number-input-button-height: 16px;
     --number-input-button-background: none;
     --number-input-button-background-hover: none;
     --number-input-button-background-active: none;
