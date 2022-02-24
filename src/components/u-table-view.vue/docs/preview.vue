@@ -1,32 +1,36 @@
 <template>
-    <u-table-view :data-source="tableView">
-        <u-table-view-column
-            title="用户名"
-            field="name"
-            width="20%">
-        </u-table-view-column>
-        <u-table-view-column
-            title="手机号码"
-            field="phone"
-            width="20%">
-        </u-table-view-column>
-        <u-table-view-column
-            title="地址"
-            field="address">
-        </u-table-view-column>
-        <u-table-view-column
-            title="最近登录时间"
-            field="loginTime"
-            formatter="placeholder | date"
-            width="20%">
-        </u-table-view-column>
-    </u-table-view>
+    <div>
+        <u-switch v-model="striped">打开斑马纹</u-switch>
+        <u-table-view :striped="striped" :data-source="tableView">
+            <u-table-view-column
+                title="用户名"
+                field="name"
+                width="20%">
+            </u-table-view-column>
+            <u-table-view-column
+                title="手机号码"
+                field="phone"
+                width="20%">
+            </u-table-view-column>
+            <u-table-view-column
+                title="地址"
+                field="address">
+            </u-table-view-column>
+            <u-table-view-column
+                title="最近登录时间"
+                field="loginTime"
+                formatter="placeholder | date"
+                width="20%">
+            </u-table-view-column>
+        </u-table-view>
+    </div>
 </template>
 
 <script>
 export default {
     data() {
         return {
+            striped: true,
             tableView: [
                 {
                     name: '张三',

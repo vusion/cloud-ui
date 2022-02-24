@@ -650,6 +650,8 @@
      */
 
     /* @component u-table-view */
+    --table-view-head-background: var();
+    --table-view-head-item-size: var(--font-size-base);
     --table-view-head-item-color: var(--gray-dark);
     --table-view-head-title-sortable-hover: #eef2f8; /* @hidden */
     --table-view-sort-color-hover: #aaa; /* @hidden */

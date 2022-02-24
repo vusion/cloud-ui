@@ -648,19 +648,21 @@
                 "toPosition": "tableView",
                 "type": [],
                 "cssProperty": {
+                    "--table-head-background": "color",
                     "--table-view-head-item-color": "color",
                     "--table-background": "color",
-                    "--table-head-background": "color",
+                    "--table-view-head-item-size": "input",
                     "--table-border-color": "color",
                     "--table-td-color": "color",
                     "--table-th-line-height": "input",
                     "--table-th-padding": "input",
                     "--table-td-line-height": "input",
-                    "--table-td-padding": "input"
+                    "--table-td-padding": "input",
+                    "--table-row-background-striped": "color"
                 },
                 "preview": {
-                    "template": "<u-table-view :data-source=\"tableView\">\n    <u-table-view-column\n        title=\"用户名\"\n        field=\"name\"\n        width=\"20%\">\n    </u-table-view-column>\n    <u-table-view-column\n        title=\"手机号码\"\n        field=\"phone\"\n        width=\"20%\">\n    </u-table-view-column>\n    <u-table-view-column\n        title=\"地址\"\n        field=\"address\">\n    </u-table-view-column>\n    <u-table-view-column\n        title=\"最近登录时间\"\n        field=\"loginTime\"\n        formatter=\"placeholder | date\"\n        width=\"20%\">\n    </u-table-view-column>\n</u-table-view>",
-                    "script": "export default {\n    data() {\n        return {\n            tableView: [\n                {\n                    name: '张三',\n                    phone: '18612917895',\n                    email: 'zhangsan@163.com',\n                    address: '浙江省杭州市滨江区网商路599号网易大厦',\n                    createdTime: '1464421931000',\n                    loginTime: '1527515531000',\n                },\n                {\n                    name: '小明',\n                    phone: '13727160283',\n                    email: 'xiaoming@163.com',\n                    address: '浙江省杭州市滨江区江虹路459号英飞特科技园',\n                    createdTime: '1520864676000',\n                    loginTime: '1552400676000',\n                },\n                {\n                    name: '李四',\n                    phone: '18897127809',\n                    email: 'lisi@163.com',\n                    address: '浙江省杭州市滨江区秋溢路606号西可科技园',\n                    createdTime: '1494488730000',\n                    loginTime: '1558165530000',\n                },\n            ],\n        };\n    },\n};"
+                    "template": "<div>\n        <u-switch v-model=\"striped\">打开斑马纹</u-switch>\n        <u-table-view :striped=\"striped\" :data-source=\"tableView\">\n            <u-table-view-column\n                title=\"用户名\"\n                field=\"name\"\n                width=\"20%\">\n            </u-table-view-column>\n            <u-table-view-column\n                title=\"手机号码\"\n                field=\"phone\"\n                width=\"20%\">\n            </u-table-view-column>\n            <u-table-view-column\n                title=\"地址\"\n                field=\"address\">\n            </u-table-view-column>\n            <u-table-view-column\n                title=\"最近登录时间\"\n                field=\"loginTime\"\n                formatter=\"placeholder | date\"\n                width=\"20%\">\n            </u-table-view-column>\n        </u-table-view>\n    </div>",
+                    "script": "export default {\n    data() {\n        return {\n            striped: true,\n            tableView: [\n                {\n                    name: '张三',\n                    phone: '18612917895',\n                    email: 'zhangsan@163.com',\n                    address: '浙江省杭州市滨江区网商路599号网易大厦',\n                    createdTime: '1464421931000',\n                    loginTime: '1527515531000',\n                },\n                {\n                    name: '小明',\n                    phone: '13727160283',\n                    email: 'xiaoming@163.com',\n                    address: '浙江省杭州市滨江区江虹路459号英飞特科技园',\n                    createdTime: '1520864676000',\n                    loginTime: '1552400676000',\n                },\n                {\n                    name: '李四',\n                    phone: '18897127809',\n                    email: 'lisi@163.com',\n                    address: '浙江省杭州市滨江区秋溢路606号西可科技园',\n                    createdTime: '1494488730000',\n                    loginTime: '1558165530000',\n                },\n            ],\n        };\n    },\n};"
                 }
             },
             {
