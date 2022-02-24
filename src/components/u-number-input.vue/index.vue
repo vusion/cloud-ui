@@ -249,7 +249,7 @@ export default {
 .root[buttonDisplay="bothEnds"] .button {
     width: var(--number-input-both-ends-button-width);
     height: var(--number-input-both-ends-button-height);
-    line-height: var(--number-both-ends-input-button-height);
+    line-height: var(--number-input-both-ends-button-height);
     background: var(--number-input-button-both-ends-background);
     top: 0;
 }
