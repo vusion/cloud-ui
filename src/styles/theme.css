@@ -1182,8 +1182,12 @@
     --steps-seleatable-item-radio-border-color-hover: var(--brand-primary);
 
     /* @component u-pagination */
-    --pagination-item-size: var(--height-normal);
-    --pagination-line-height: calc(var(--pagination-item-size) - var(--border-width-base) * 2);
+    --pagination-item-width-small: 24px;
+    --pagination-item-height-small: 24px;
+    --pagination-item-height-small-line-height: var(--pagination-item-height-small);
+    --pagination-item-width: var(--height-normal);
+    --pagination-item-height: var(--height-normal);
+    --pagination-line-height: calc(var(--pagination-item-height) - var(--border-width-base) * 2);
     --pagination-item-padding: 0;
     --pagination-item-background: transparent;
     --pagination-item-background-hover: var(--pagination-item-background);
@@ -1198,8 +1202,6 @@
     --pagination-item-color-blank-disabled: var(--brand-disabled);
     --pagination-item-border-color: #ccc;
     --pagination-item-border-radius: var(--border-radius-base);
-    --pagination-item-size-small: 24px;
-    --pagination-item-size-small-line-height: var(--pagination-item-size-small);
     --pagination-item-border-radius-left: var(--pagination-item-border-radius);
     --pagination-item-border-radius-right: var(--pagination-item-border-radius);
     --pagination-item-prenext-font-size: 18px;

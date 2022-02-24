@@ -735,8 +735,12 @@
                     "simple"
                 ],
                 "cssProperty": {
-                    "--pagination-item-size": "input",
+                    "--pagination-item-width-small": "input",
+                    "--pagination-item-width": "input",
+                    "--pagination-item-height-small": "input",
+                    "--pagination-item-height": "input",
                     "--pagination-item-padding": "input",
+                    "--pagination-item-border-radius": "input",
                     "--pagination-item-background": "color",
                     "--pagination-item-background-hover": "color",
                     "--pagination-item-background-selected": "color",
@@ -748,13 +752,11 @@
                     "--pagination-item-color-blank": "color",
                     "--pagination-item-color-blank-disabled": "color",
                     "--pagination-item-border-color": "color",
-                    "--combo-pagination-height": "input",
-                    "--combo-pagination-line-height": "input",
-                    "--combo-pagination-sizer-width": "input",
-                    "--combo-pagination-jumper-width": "input"
+                    "--pagination-item-border-color-hover": "color",
+                    "--pagination-item-border-color-disabled": "color"
                 },
                 "preview": {
-                    "template": "<div>\n    <u-pagination style=\"margin-bottom:16px;\" :total=\"11\" :page=\"6\"></u-pagination>\n    <u-pagination style=\"margin-bottom:16px;\" :total=\"11\">\n        <a slot=\"prev\" role=\"text\">Previous</a>\n        <a slot=\"next\" role=\"text\">Next</a>\n    </u-pagination>\n    <u-pagination\n        style=\"margin-bottom:16px;\"\n        :total-items=\"75\"\n        show-total>\n    </u-pagination>\n    <u-pagination\n        style=\"margin-bottom:16px;\"\n        :total-items=\"75\"\n        show-total\n        show-sizer\n        show-jumper>\n    </u-pagination>\n    <u-pagination\n        style=\"margin-bottom:16px;\"\n        :total=\"11\"\n        simple\n        readonly>\n    </u-pagination>\n    <u-pagination\n        :total=\"11\"\n        simple\n        disabled>\n    </u-pagination>\n</div>"
+                    "template": "<div>\n        <u-pagination style=\"margin-bottom:16px;\" :total=\"11\" :page=\"6\"></u-pagination>\n        <u-pagination size=\"small\" style=\"margin-bottom:16px;\" :total=\"11\" :page=\"6\"></u-pagination>\n        <u-pagination style=\"margin-bottom:16px;\" :total=\"11\">\n            <a slot=\"prev\" role=\"text\">Previous</a>\n            <a slot=\"next\" role=\"text\">Next</a>\n        </u-pagination>\n        <u-pagination\n            style=\"margin-bottom:16px;\"\n            :total-items=\"75\"\n            show-total>\n        </u-pagination>\n        <u-pagination\n            style=\"margin-bottom:16px;\"\n            :total-items=\"75\"\n            show-total\n            show-sizer\n            show-jumper>\n        </u-pagination>\n        <u-pagination\n            style=\"margin-bottom:16px;\"\n            :total=\"11\"\n            simple\n            readonly>\n        </u-pagination>\n        <u-pagination\n            :total=\"11\"\n            simple\n            disabled>\n        </u-pagination>\n    </div>"
                 }
             },
             {

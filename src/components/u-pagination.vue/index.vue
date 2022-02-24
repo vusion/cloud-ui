@@ -218,11 +218,10 @@ export default {
 .item {
     display: inline-block;
     text-decoration: none;
-
     padding: var(--pagination-item-padding);
-    min-width: var(--pagination-item-size);
-    height: var(--pagination-item-size);
-    line-height: calc(var(--pagination-item-size) - 1px * 2);
+    min-width: var(--pagination-item-width);
+    height: var(--pagination-item-height);
+    line-height: calc(var(--pagination-item-height) - 1px * 2);
     font-size: var(--font-size-small);
     text-align: center;
     background: var(--pagination-item-background);
@@ -316,7 +315,7 @@ export default {
 .sizer {
     text-align: left;
     width: var(--pagination-sizer-width);
-    height: var(--pagination-item-size);
+    height: var(--pagination-item-height);
     line-height: var(--pagination-line-height);
     margin-right: var(--space-small);
     vertical-align: top;
@@ -333,7 +332,7 @@ export default {
 
 .jumper {
     width: var(--pagination-jumper-width);
-    height: var(--pagination-item-size);
+    height: var(--pagination-item-height);
     line-height: var(--pagination-line-height);
 }
 
@@ -365,8 +364,6 @@ export default {
 }
 .root[readonly] .item {
     cursor: default;
-    /* color: var(--pagination-item-color); */
-    /* border-color: var(--pagination-item-border-color); */
 }
 
 .root[display="inline"] {
@@ -394,9 +391,9 @@ export default {
 
 .root[size="small"] .item{
     border: none;
-    min-width: var(--pagination-item-size-small);
-    height: var(--pagination-item-size-small);
-    line-height: var(--pagination-item-size-small-line-height);
+    min-width: var(--pagination-item-width-small);
+    height: var(--pagination-item-height-small);
+    line-height: var(--pagination-item-height-small-line-height);
 }
 .root[size="small"] a:not(:last-child) {
     margin-right: 4px;
