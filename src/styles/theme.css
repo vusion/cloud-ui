@@ -825,25 +825,28 @@
     --validator-message-white-space: nowrap;
 
     /* @component u-input */
-    --input-width: var(--width-base);
     --input-width-mini: var(--width-mini);
     --input-width-small: var(--width-small);
+    --input-width: var(--width-base);
     --input-width-medium: var(--width-medium);
     --input-width-large: var(--width-large);
     --input-width-huge: var(--width-huge);
-    --input-height: var(--height-base);
+
     --input-height-mini: var(--height-mini);
     --input-height-small: var(--height-small);
+    --input-height: var(--height-base);
     --input-height-medium: var(--height-medium);
     --input-height-large: var(--height-large);
     --input-height-huge: var(--height-huge);
-    --input-padding-x: 10px;
+
     --input-padding-x-mini: 6px;
     --input-padding-x-small: 8px;
+    --input-padding-x: 10px;
     --input-padding-x-medium: 10px;
     --input-padding-x-large: 10px;
     --input-padding-x-huge: 10px;
     --input-padding-x-full: 10px;
+    
     --input-prefix-padding-left: 36px;
     --input-suffix-padding-right: 30px;
     --input-border-width: var(--border-width-base);

@@ -81,7 +81,7 @@
             },
             {
                 "id": 9,
-                "name": "u-crumb",
+                "name": "u-panel",
                 "title": "面板",
                 "toPosition": "u-panel",
                 "type": [],
@@ -378,19 +378,38 @@
                 "toPosition": "input",
                 "type": [],
                 "cssProperty": {
+                    "--input-width-mini": "input",
+                    "--input-width-small": "input",
                     "--input-width": "input",
+                    "--input-width-medium": "input",
+                    "--input-width-large": "input",
+                    "--input-width-huge": "input",
+                    "--input-height-mini": "input",
+                    "--input-height-small": "input",
                     "--input-height": "input",
+                    "--input-height-medium": "input",
+                    "--input-height-large": "input",
+                    "--input-height-huge": "input",
+                    "--input-padding-x-mini": "input",
+                    "--input-padding-x-small": "input",
                     "--input-padding-x": "input",
+                    "--input-padding-x-medium": "input",
+                    "--input-padding-x-large": "input",
+                    "--input-padding-x-huge": "input",
                     "--input-border-width": "input",
+                    "--input-placeholder-color": "color",
+                    "--input-border-radius": "input",
+
                     "--input-background": "color",
                     "--input-color": "color",
                     "--input-border-color": "color",
                     "--input-border-color-focus": "color",
-                    "--input-placeholder-color": "color",
-                    "--input-border-radius": "input"
+                    "--input-box-shadow-focus": "input",
+                    "--input-box-shadow-focus-color": "color"
+                    
                 },
                 "preview": {
-                    "template": "<u-input\n                                maxlength=\"12\"\n                                placeholder=\"1~12位小写字母\"\n                                autofocus>\n                            </u-input>"
+                    "template": "<div>\n        <div class=\"componentClassTitle\">宽度迷你</div>\n        <u-input maxlength=\"12\" size=\"medium mini\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度小</div>\n        <u-input maxlength=\"12\" size=\"medium small\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度正常</div>\n        <u-input maxlength=\"12\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度中型</div>\n        <u-input maxlength=\"12\" size=\"medium medium\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度大</div>\n        <u-input maxlength=\"12\" size=\"medium large\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度巨大</div>\n        <u-input maxlength=\"12\" size=\"medium huge\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 80px;\"></u-input>\n\n        <div class=\"componentClassTitle\">高度迷你</div>\n        <u-input maxlength=\"12\" size=\"mini medium\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度小</div>\n        <u-input maxlength=\"12\" size=\"small medium\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度正常</div>\n        <u-input maxlength=\"12\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度中型</div>\n        <u-input maxlength=\"12\" size=\"medium medium\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度大</div>\n        <u-input maxlength=\"12\" size=\"large medium\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度巨大</div>\n        <u-input maxlength=\"12\" size=\"huge medium\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n    </div>"
                 }
             },
             {
