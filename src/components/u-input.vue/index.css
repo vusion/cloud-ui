@@ -55,7 +55,8 @@
     overflow: hidden;
 }
 
-.clearable::before {
+.clearable::before,
+.password::before {
     display: block;
     position: absolute;
     right: 8px;
@@ -64,12 +65,30 @@
     line-height: 1;
     height: 1em;
     margin: auto;
-    icon-font: url('../i-icon.vue/assets/close-solid.svg');
     cursor: var(--cursor-pointer);
     color: var(--input-clear-icon-color);
 }
-.clearable:hover::before {
+
+.clearable:hover::before,
+.password:hover::before {
     color: var(--input-icon-color-hover);
+}
+
+.clearable::before {
+    icon-font: url('../i-icon.vue/assets/close-solid.svg');
+}
+
+.password::before {
+    icon-font: url('../i-icon.vue/assets/hide.svg');
+}
+
+.root[password][show-password] .password::before {
+    icon-font: url('../i-icon.vue/assets/show.svg');
+}
+
+.root[password][suffix] .password::before,
+.root[password][clearable]:not([password][clearable=""]) .password::before {
+    right: var(--input-suffix-padding-right);
 }
 
 .input:focus {
@@ -110,7 +129,7 @@
 }
 
 .root[clearable] .input .input {
-    padding-right: 30px;
+    padding-right: var(--input-suffix-padding-right);
 }
 
 .prefix, .suffix {
@@ -133,8 +152,15 @@
     padding-left: var(--input-prefix-padding-left);
 }
 
-.root[clearable] .input, .root[suffix] .input {
+.root[suffix] .input,
+.root[password] .input,
+.root[clearable] .input {
     padding-right: var(--input-suffix-padding-right);
+}
+
+.root[password][suffix] .input,
+.root[password][clearable]:not([password][clearable=""]) .input {
+    padding-right: 50px;
 }
 
 .prefix[name="search"]::before, .suffix[name="search"]::before {
