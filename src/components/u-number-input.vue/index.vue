@@ -254,29 +254,29 @@ export default {
     top: 0;
 }
 
-.button:hover {
+.root[buttonDisplay="tail"] .button:hover {
     background: var(--number-input-button-background-hover);
 }
 
-.button[buttonDisplay="bothEnds"]:hover {
+.root[buttonDisplay="bothEnds"] .button:hover {
     background: var(--number-input-button-both-ends-background-hover);
 }
 
-.button:focus {
+.root[buttonDisplay="tail"] .button:focus {
     background: var(--number-input-button-background-focus);
     outline: var(--number-input-button-outline);
 }
 
-.button[buttonDisplay="bothEnds"]:focus {
+.root[buttonDisplay="bothEnds"] .button:focus {
     background: var(--number-input-button-both-ends-background-focus);
     outline: var(--number-input-button-both-ends-outline);
 }
 
-.button:active {
+.root[buttonDisplay="tail"] .button:active {
     background: var(--number-input-button-background-active);
 }
 
-.button[buttonDisplay="bothEnds"]:active {
+.root[buttonDisplay="bothEnds"] .button:active {
     background: var(--number-input-button-both-ends-background-active);
 }
 
@@ -350,7 +350,7 @@ export default {
     color: var(--number-input-icon-color-hover);
 }
 
-.button[disabled]:hover::before {
+.root .button[disabled]:hover::before {
     color: #989898;
 }
 
