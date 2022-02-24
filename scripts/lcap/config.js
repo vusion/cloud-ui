@@ -10,7 +10,7 @@ module.exports = [
     { group: 'Layout', show: true, name: 'u-collapse', alias: '折叠面板' },
     { group: 'Layout', show: true, name: 'u-card', alias: '卡片' },
     { group: 'Layout', show: true, name: 'u-sidebar', alias: '侧边栏' },
-    // { group: 'Layout', show: true, name: 'u-navbar-multi', alias: '导航栏' },
+    // { group: 'Layout', show: true, name: 'u-navbar', alias: '导航栏' },
 
     { group: 'Display', show: true, name: 'u-text', alias: '文本' },
     { group: 'Display', show: true, name: 'u-link', alias: '链接' },

@@ -35,7 +35,7 @@ module.exports = {
             { group: '布局', name: 'u-collapse', alias: '折叠面板' },
             { group: '布局', name: 'u-card', alias: '卡片' },
             { group: '布局', name: 'u-sidebar', alias: '侧边栏' },
-            { group: '布局', name: 'u-navbar-multi', alias: '导航栏' },
+            { group: '布局', name: 'u-navbar', alias: '导航栏' },
             { group: '布局', name: 'u-footbar', alias: '底部栏', advanced: true },
             { group: '布局', name: 'u-menu', alias: '菜单', advanced: true },
             { group: '布局', name: 'u-toc', alias: '目录', advanced: true },

@@ -1,6 +1,6 @@
 <template>
 <div :class="$style.root" :disabled="disabled">
-    <div :class="$style.title" vusion-slot-name="title" vusion-click-enabled>
+    <div :class="$style.title" vusion-slot-name="title" no-for-edit vusion-click-enabled can-nodeinfo>
         <!-- <u-linear-layout gap="small">
             <template v-if="userInfo">
                 <u-image fit="cover" src="https://static-vusion.163yun.com/assets/avatar-default.svg" style="width: 36px; height: 36px; vertical-align: middle;"></u-image>
@@ -13,7 +13,7 @@
             </template>
         </u-linear-layout> -->
         <slot name="title"></slot>
-        <s-empty v-if="(!$slots.title && ($scopedSlots && !$scopedSlots.title)) && $env.VUE_APP_DESIGNER"></s-empty>
+        <s-empty v-if="(!$slots.title && ($scopedSlots && !($scopedSlots.title && $scopedSlots.title()))) && $env.VUE_APP_DESIGNER"></s-empty>
     </div>
     <m-popper :class="$style.popper" :trigger="trigger" :placement="placement" :disabled="disabled" append-to="reference"
         :opened="opened" @update:opened="$emit('update:opened', $event)">
@@ -95,7 +95,7 @@ export default {
     height: var(--navbar-height);
     line-height: var(--navbar-height);
     border: none;
-    padding: 0 10px;
+    padding: 0 20px;
     font-size: var(--navbar-item-font-size);
     color: var(--navbar-color);
 }
@@ -104,24 +104,28 @@ export default {
     margin-right: var(--navbar-item-space);
 }
 
-.root::after {
+.title {
+    position: relative;
+}
+
+.title::after {
     position: absolute;
     icon-font: url('../i-icon.vue/icons/keyboard-arrow-down.svg');
     height: auto;
     line-height: var(--navbar-height);
     color: var(--navbar-color);
     font-size: 20px;
-    right: 6px;
+    right: -18px;
     top: 0;
 }
 
 .popper {
-    background: var(--navbar-dropdown-popper-background);
+    background: #fff;
     font-size: var(--navbar-dropdown-popper-font-size);
-    width: 100%;
+    min-width: 100%;
     line-height: var(--navbar-dropdown-popper-line-height);
     /* padding-top: 3px; */
-    padding: var(--navbar-dropdown-popper-padding);
+    /* padding: var(--navbar-dropdown-popper-padding); */
 }
 
 .root[disabled] {

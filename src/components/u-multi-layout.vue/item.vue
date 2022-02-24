@@ -75,7 +75,6 @@ export default {
     flex: 1;
     box-sizing: border-box;
     flex-direction: row;
-    overflow: auto;
     flex-wrap: wrap;
 }
 .root[fixed="true"] {

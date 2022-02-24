@@ -18,6 +18,9 @@ export default {
     props: {
     },
     parentName: 'u-dropdown',
+    mounted() {
+        console.log(this.parentVM, 8888)
+    }
 };
 </script>
 
@@ -32,6 +35,29 @@ export default {
     border: none;
     padding: 0 10px;
     font-size: var(--navbar-item-font-size);
-    color: var(--navbar-color);
+    color: var(--color-base);
+}
+.root:hover {
+     color: var(--brand-primary);
+}
+
+.root[readonly] {
+    cursor: default;
+    background: none;
+}
+
+.root[selected] {
+    color: var(--brand-primary);
+}
+
+.root[disabled] {
+    /* @Private */
+    cursor: var(--cursor-not-allowed);
+    background: none;
+    color: var(--color-light);
+}
+
+.root[selected][disabled] {
+    background: var(--gray-lighter);
 }
 </style>
