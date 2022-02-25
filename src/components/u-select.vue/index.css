@@ -170,6 +170,8 @@
     width: var(--select-tags-filterable-width);
     line-height: var(--select-tags-line-height);
     padding: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 .prefix, .suffix {
