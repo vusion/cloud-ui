@@ -121,3 +121,4 @@ export * from './u-taskbox.vue';
 
 export * from './u-multi-layout.vue';
 export * from './u-dropdown.vue';
+export * from './u-navbar-multi.vue';
