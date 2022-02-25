@@ -90,6 +90,7 @@
     /* Component Base Colors */
     --background-color-default: white; /* body 默认的背景 */
     --background-color-default-inverse: #17181f; /* body 默认的背景 */
+    --background-color-lightest: #f4f4f4;
     --background-color-lighter: #f4f6f9; /* 选择框的 hover 颜色 */
     --background-color-lighter-inverse: #33353d; /* 选择框的 hover 颜色 */
     --background-color-light: #f4f6f9; /* 表格等组件标题栏颜色 */
@@ -235,6 +236,9 @@
      *   布局
      * ========================
      */
+
+    /* @layouts l-dashboard */
+    --dashboard-background: var(--background-color-lightest);
 
     /* @component u-crumb */
     --crumb-color-link: var(--brand-primary);
