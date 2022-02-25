@@ -2,8 +2,8 @@
 <div :class="$style.root" vusion-slot-name="default" :display="display">
     <slot></slot>
     <template v-if="appendTo === 'body'">
-         <m-popper append-to="body" disabledClose>
-            <span ref="message" v-show="!mutedMessage && touched && !valid && firstError && !blurred" :class="[$style.message, $style.messagepop]" color="error" :display="display">{{ firstError }}</span>
+         <m-popper append-to="body" disabledClose trigger="manual" :opened="showMessage">
+            <span ref="message" v-show="showMessage" :class="[$style.message, $style.messagepop]" color="error" :display="display">{{ firstError }}</span>
         </m-popper>
     </template>
     <template v-else>
@@ -110,6 +110,9 @@ export default {
         },
         mutedMessage() {
             return this.muted === 'all' || this.muted === 'message';
+        },
+        showMessage() {
+            return !this.mutedMessage && this.touched && !this.valid && this.firstError && !this.blurred;
         },
     },
     watch: {

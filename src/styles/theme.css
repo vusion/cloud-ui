@@ -679,7 +679,7 @@
     --table-view-expander-border-color-hover: var(--table-view-expander-background-hover);
     --table-view-expander-border-color-disabled: #e5e5e5;
     --table-view-expand-td-background: #F7F8FA;
-    --table-view-editable-td-min-height: 32px;
+    --table-view-editable-td-min-height: 34px;
 
     /* @component u-list-view */
     --list-view-width: var(--width-medium);

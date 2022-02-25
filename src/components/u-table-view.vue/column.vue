@@ -28,6 +28,7 @@ export default {
         ellipsis: { type: Boolean, default: false },
         formatter: { type: [String, Object, Function, Formatter], default: 'placeholder' },
         hidden: { type: Boolean, default: false },
+        dblclickHandler: Function,
     },
     data() {
         const data = {

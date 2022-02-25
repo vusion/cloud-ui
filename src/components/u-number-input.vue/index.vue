@@ -83,6 +83,7 @@ export default {
         this.autofocus && this.$refs.input.focus();
     },
     destroyed() {
+        clearTimeout(this.timer);
         this.timer = null;
     },
     methods: {

@@ -7,7 +7,7 @@
             <i :class="[$style.closeIcon]"></i>
         </span>
     </div>
-    <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)">
+    <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="onPopperClose">
         <div :class="$style.body" @click.stop>
             <u-calendar :readonly="readonly" :year-diff="yearDiff" :year-add="yearAdd" :min-date="minCalendarDate" :max-date="maxCalendarDate" :date="showDate" @select="outRangeDateTime($event.date, showTime)">
                 <u-time-picker :class="$style.timePicker" :readonly="readonly" :time="showTime" width="50" :min-time="minTime" :max-time="maxTime" @change="outRangeDateTime(showDate, $event.time)"></u-time-picker>
@@ -73,6 +73,14 @@ export default {
             default: 'reference',
             validator: (value) => ['body', 'reference'].includes(value),
         },
+        opened: { type: Boolean, default: false },
+        alignment: {
+            type: String,
+            default: 'left',
+            validator(value) {
+                return ['left', 'right'].includes(value);
+            },
+        },
     },
     data() {
         return {
@@ -113,6 +121,12 @@ export default {
                 disabled = date > this.transformDate(currentMaxDate);
             }
             return disabled;
+        },
+        placement() {
+            if (this.alignment === 'left')
+                return 'bottom-start';
+            else if (this.alignment === 'right')
+                return 'bottom-end';
         },
     },
     watch: {
@@ -160,6 +174,9 @@ export default {
     },
     mounted() {
         this.autofocus && this.$refs.input.focus();
+        // 在编辑器里不要打开
+        if(!this.$env.VUE_APP_DESIGNER)
+            this.toggle(this.opened);
     },
     methods: {
         clearValue() {
@@ -231,6 +248,7 @@ date = new Date(date);
                 sender: this,
                 date: new Date(date).getTime(),
             });
+            this.preventBlur = true;
         },
         /**
          * @method onDateTimeChange(date, time) 日期或时间改变后更新日期时间
@@ -287,13 +305,10 @@ time = '00:00:00';
             );
         },
         toggle(value) {
-            this.$refs.popper.toggle(value);
+            this.$refs.popper && this.$refs.popper.toggle(value);
         },
         format,
         transformDate,
-        handleClose() {
-            this.open = false;
-        },
         getMaxDate(value) {
             value = value || this.maxDate;
             const minTime = new Date(this.minDate).getTime();
@@ -310,13 +325,24 @@ time = '00:00:00';
          */
         onToggle($event) {
             this.$emit('toggle', $event);
+            if($event && $event.opened){
+                this.preventBlur = true;
+            }
         },
-        onBlur(e) {
+        onBlur(e) { //只有autofocus的input的blur
+            if (this.preventBlur)
+                return (this.preventBlur = false);
             this.$emit('blur', e, this);
         },
         onFocus(e) {
             this.$emit('focus', e, this);
         },
+        onPopperClose(e){
+            this.$emit('blur', e, this);
+            setTimeout(()=>{ // 为了不触发input的blur，否则会有两次blur
+                this.preventBlur = false;
+            }, 0);
+        }
     },
 };
 </script>

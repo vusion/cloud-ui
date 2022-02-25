@@ -412,6 +412,15 @@
           description: 鼠标事件对象
           schema:
             $ref: "#/systemTypes/MouseEvent"
+    - name: blur
+      title: 失去焦点
+      description: 失去焦点时触发。
+      params:
+        - name: $event
+          type: FocusEvent
+          description: 原生事件对象
+        - name: senderVM
+          description: 发送事件实例
   methods:
     - name: open
       description: 弹出选择框。

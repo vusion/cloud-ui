@@ -741,6 +741,10 @@
       type: number
       default: 1
       description: 当`type="index"`时的起始序号。
+    - name: dblclickHandler
+      title: 双击处理函数
+      type: Function
+      description: 用于可编辑表格，双击表格列时的处理函数
   slots:
     - name: default
       title: 默认

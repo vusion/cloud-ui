@@ -48,8 +48,8 @@
     - name: autofocus
       title: 自动获取焦点
       type: boolean
+      default: false
       description: 是否自动获取焦点
-      advanced: true
     - name: readonly
       title: 只读
       type: boolean

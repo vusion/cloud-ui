@@ -22,14 +22,7 @@
     { name: '李华', phone: '18749261214', email: 'lihua@163.com', address: '浙江省杭州市滨江区长河路590号东忠科技园', createdTime: 1476073921000, loginTime: 1544428081000 },
     { name: '王五', phone: '13579340020', email: 'wangwu@163.com', address: '浙江省杭州市滨江区网商路599号网易大厦二期', createdTime: 1468614726000, loginTime: 1531675926000 },
 ]">
-    <u-table-view-column title="用户名" field="name" width="20%" type="editable">
-        <template slot="cell" slot-scope="{ item }">
-            <u-text>{{item.name}}</u-text>
-        </template>
-        <template slot="editcell" slot-scope="{ item }">
-            <u-input :value.sync="item.name" autofocus></u-input>
-        </template>
-    </u-table-view-column>
+    <u-table-view-column title="用户名" field="name" width="20%"></u-table-view-column>
     <u-table-view-column title="手机号码" field="phone" width="20%"></u-table-view-column>
     <u-table-view-column title="地址" field="address"></u-table-view-column>
     <u-table-view-column title="最近登录时间" field="loginTime" formatter="placeholder | date" width="20%"></u-table-view-column>

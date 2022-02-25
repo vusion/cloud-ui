@@ -157,6 +157,6 @@ export default {
 .root[size$="huge"] { width: var(--textarea-width-huge); }
 .root[size^="huge"] { height: var(--textarea-height-huge); line-height: inherit; }
 
-.root[size$="full"] { width: 100%; }
+.root[size$="full"] { width: 100%; min-width: 0;}
 .root[size^="full"] { height: 100%; }
 </style>
