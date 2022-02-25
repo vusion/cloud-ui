@@ -1,5 +1,5 @@
 <template>
-<div :class="[$style.root, shadowClassName, { bordered }]">
+<div :class="$style.root" :shadow="shadow" :bordered="bordered">
     <div :class="$style.head">
         <slot name="head">
             <div v-if="title" :class="$style.title" vusion-slot-name="title">
@@ -35,17 +35,6 @@ export default {
         bordered: { type: Boolean, default: true },
         shadow: { type: String, default: 'always' },
     },
-    computed: {
-        shadowClassName() {
-            return (
-                {
-                    always: 'is-shadow--always',
-                    hover: 'is-shadow--hover',
-                    never: 'is-shadow--never',
-                }[this.shadow] || ''
-            );
-        },
-    },
 };
 </script>
 
@@ -55,31 +44,30 @@ export default {
     background: var(--panel-background);
 }
 
-.root[class~="is-shadow--always"] {
+.root[shadow="always"] {
     box-shadow: var(--panel-box-shadow);
 }
 
-.root[class~="is-shadow--hover"]:hover {
+.root[shadow="hover"]:hover {
     box-shadow: var(--panel-box-shadow-hover);
 }
 
-.root[class~="is-shadow--always"],
-.root[class~="is-shadow--hover"]:hover {
+.root[shadow="always"],
+.root[shadow="hover"] {
     transition: box-shadow var(--transition-duration-base);
 }
 
-.root[class~="is-shadow--never"] {
+.root[shadow="never"] {
     box-shadow: none;
 }
 
-.root[class~="bordered"] {
-    border: var(--panel-border-width) solid var(--border-color-light);
+.root[bordered] {
+    border: var(--panel-border-width) solid var(--border-color-base);
 }
 
 .head {
     position: relative;
-    padding: var(--panel-head-padding);
-    padding-top: 15px;
+    padding: var(--panel-head-padding-y) var(--panel-head-padding-x);
     padding-bottom: 0;
 }
 
@@ -92,11 +80,11 @@ export default {
 .extra {
     position: absolute;
     right: var(--panel-head-padding);
-    top: 15px;
+    top: var(--panel-head-padding);
 }
 
 .body {
     clear: both;
-    padding: var(--panel-body-padding);
+    padding: var(--panel-body-padding-y) var(--panel-body-padding-x);
 }
 </style>

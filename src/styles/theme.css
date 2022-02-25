@@ -126,6 +126,7 @@
     --space-mini: 4px;
     --space-base: 16px;
     --space-small: 10px;
+    --space-medium: 24px;
     --space-large: 30px;
     --space-huge: 40px;
 
@@ -146,7 +147,7 @@
     --height-huge: 42px;
     --border-radius-mini: 2px;
     --border-radius-base: 4px;
-    --border-radius-medium: 4px;
+    --border-radius-medium: 5px;
     --border-radius-large: 4px;
 
     /* Fonts */
@@ -247,8 +248,10 @@
     --panel-border-color: var(--border-color-light);
     --panel-box-shadow: var(--box-shadow-small);
     --panel-box-shadow-hover: 0px 2px 16px rgba(0, 0, 0, 0.12);
-    --panel-head-padding: var(--space-base);
-    --panel-body-padding: var(--space-base);
+    --panel-head-padding-x: 24px;
+    --panel-head-padding-y: 14px;
+    --panel-body-padding-x: 24px;
+    --panel-body-padding-y: 18px;
     --panel-title-font-size: 18px;
     --panel-title-font-weight: bold;
 
@@ -277,12 +280,13 @@
     --card-border-radius: var(--border-radius-base);
     --card-background: var(--background-color-default);
     --card-border-color: var(--border-color-light);
-    --card-box-shadow: var(--box-shadow-base);
+    --card-box-shadow: var(--box-shadow-small);
+    --card-box-shadow-hover: 0px 2px 16px rgba(0, 0, 0, 0.12);
     --card-head-padding-x: 12px;
-    --card-head-padding-y: 8px;
+    --card-head-padding-y: 10px;
     --card-body-padding-x: 12px;
-    --card-body-padding-y: 8px;
-    --card-title-font-size: 16px;
+    --card-body-padding-y: 12px;
+    --card-title-font-size: 18px;
     --card-title-font-weight: bold;
 
     /* @component u-navbar @hidden */
@@ -450,7 +454,7 @@
     --button-font-size-huge: var(--font-size-huge); /* @hidden */
     --button-font-weight: normal;
     --button-border-width: var(--border-width-base);
-    --button-border-radius: var(--border-radius-medium);
+    --button-border-radius: var(--border-radius-base);
     --button-background: white;
     --button-background-hover: white;
     --button-background-active: white;
@@ -869,7 +873,7 @@
     --textarea-height-large: 120px;
     --textarea-height-huge: 200px;
     --textarea-min-height: var(--height-base);
-    --textarea-border-radius: var(--border-radius-medium);
+    --textarea-border-radius: var(--border-radius-base);
     --textarea-padding: 5px 10px;
     --textarea-color: var(--color-base);
     --textarea-border-color: var(--border-color-base);

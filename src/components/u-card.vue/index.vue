@@ -1,5 +1,9 @@
 <template>
-<div :class="$style.root" v-on="$listeners" :shadow="shadow" :border="border" :style="{width: /^\d+$/.test(width)? width+'px': width}" :designer="$env.VUE_APP_DESIGNER">
+<div :class="$style.root" v-on="$listeners" :shadow="shadow" :border="border" :split="split"
+    :style="{width: /^\d+$/.test(width)? width+'px': width}" :designer="$env.VUE_APP_DESIGNER">
+    <div :class="$style.cover">
+        <slot name="cover"></slot>
+    </div>
     <div :class="$style.head">
         <slot name="head">
             <div v-if="title" :class="$style.title" vusion-slot-name="title">
@@ -34,6 +38,7 @@ export default {
         content: String,
         shadow: { type: String, default: 'always' },
         border: { type: Boolean, default: true },
+        split: { type: Boolean, default: false },
         width: { type: [String, Number], default: '' },
     },
 };
@@ -43,34 +48,49 @@ export default {
 .root {
     border-radius: var(--card-border-radius);
     background: var(--card-background);
-    /* box-shadow: 0px 2px 10px rgba(64, 69, 78, 0.05); */
-    /* border: var(--card-border-width) solid var(--border-color-light); */
-    transition: box-shadow var(--transition-duration-base);
     overflow: hidden;
 }
 
-/* .root:hover {
-    box-shadow: var(--card-box-shadow);
-} */
-
-.root[shadow='always']{
+.root[shadow="always"] {
     box-shadow: var(--card-box-shadow);
 }
 
-.root[shadow='hover']:hover{
-    box-shadow: var(--card-box-shadow);
+.root[shadow="hover"]:hover {
+    box-shadow: var(--card-box-shadow-hover);
 }
 
-.root[border]{
-    border: var(--card-border-width) solid var(--border-color-light);
+.root[shadow="always"],
+.root[shadow="hover"] {
+    transition: box-shadow var(--transition-duration-base);
 }
 
-.root[designer]{
+.root[shadow="never"] {
+    box-shadow: none;
+}
+
+.root[split] .head {
+    border-bottom: var(--card-border-width) solid var(--border-color-base);
+    padding-bottom: var(--card-head-padding-y);
+}
+
+.root[border] {
+    border: var(--card-border-width) solid var(--border-color-base);
+}
+
+.root[designer] {
     word-break: break-all;
     white-space: normal;
 }
-.root[designer] [s-empty="true"]{
+.root[designer] [s-empty="true"] {
     min-width: inherit;
+}
+
+.cover {
+    padding: 0;
+}
+
+.cover > * {
+    vertical-align: middle;
 }
 
 .head {

@@ -1,7 +1,24 @@
-### 基本用法
+### 基本样式
 
 ``` html
-<u-card title="卡片总览">
+<u-card title="卡片">
+    卡片内容
+</u-card>
+```
+
+### 带分割线样式
+
+``` html
+<u-card title="卡片" split>
+    卡片内容
+</u-card>
+```
+
+### 带图片样式
+
+``` html
+<u-card title="卡片" style="width: 280px">
+    <u-image slot="cover" src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" fit="contain"></u-image>
     卡片内容
 </u-card>
 ```
