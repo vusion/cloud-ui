@@ -33,6 +33,7 @@ export default { name: 'u-button', extends: ULink };
     border-radius: var(--button-border-radius);
     transition: all var(--transition-duration-base);
     font-weight: var(--button-font-weight);
+    font-size: var(--button-font-size);
 }
 
 .root:hover {
@@ -47,15 +48,16 @@ export default { name: 'u-button', extends: ULink };
     /* Remove default focus style */
     outline: var(--focus-outline);
     box-shadow: var(--button-box-shadow-focus);
-    border-color: var(--button-border-color-hover);
+    border-color: var(--button-border-color-active);
     /* Required for `a` elements */
     text-decoration: none;
 }
 
 .root:active {
     background: var(--button-background-active);
+    border-color: var(--button-border-color-active);
+    color: var(--button-color-active);
     box-shadow: var(--button-box-shadow-active);
-    border-color: var(--button-border-color-hover);
 }
 
 .root[disabled] {
@@ -76,13 +78,13 @@ export default { name: 'u-button', extends: ULink };
 .root[color="primary"] {
     background: var(--button-background-primary);
     color: var(--button-color-primary);
-    border-color: var(--button-background-primary);
+    border-color: var(--button-border-color-primary);
 }
 
 .root[color="primary"]:hover {
     background: var(--button-background-primary-hover);
+    border-color: var(--button-border-color-primary-hover);
     color: var(--button-color-primary-hover);
-    border-color: var(--button-background-primary-hover);
 }
 
 .root[color="primary"]:focus {
@@ -90,26 +92,29 @@ export default { name: 'u-button', extends: ULink };
 }
 
 .root[color="primary"]:active {
+    background: var(--button-background-primary-active);
+    border-color: var(--button-border-color-primary-active);
+    color: var(--button-color-primary-active);
     box-shadow: var(--button-box-shadow-active-primary);
 }
 
 .root[color="primary"][disabled] {
     background: var(--button-background-primary-disabled);
+    border-color: var(--button-border-color-primary-disabled);
     color: var(--button-color-primary-disabled);
-    border-color: var(--button-background-primary-disabled);
     box-shadow: none;
 }
 
 .root[color="primary_secondary"] {
     background: var(--button-background-primary-secondary);
     color: var(--button-color-primary-secondary);
-    border-color: var(--button-background-primary);
+    border-color: var(--button-border-color-primary-secondary);
 }
 
 .root[color="primary_secondary"]:hover {
     background: var(--button-background-primary-secondary-hover);
+    border-color: var(--button-border-color-primary-secondary-hover);
     color: var(--button-color-primary-secondary-hover);
-    border-color: var(--button-border-primary-secondary-hover);
 }
 
 .root[color="primary_secondary"]:focus {
@@ -117,13 +122,16 @@ export default { name: 'u-button', extends: ULink };
 }
 
 .root[color="primary_secondary"]:active {
+    background: var(--button-background-primary-secondary-active);
+    border-color: var(--button-border-color-primary-secondary-active);
+    color: var(--button-color-primary-secondary-active);
     box-shadow: var(--button-box-shadow-active-primary-secondary);
 }
 
 .root[color="primary_secondary"][disabled] {
     background: var(--button-background-primary-secondary-disabled);
+    border-color: var(--button-border-color-primary-secondary-disabled);
     color: var(--button-color-primary-secondary-disabled);
-    border-color: var(--button-border-primary-secondary-disabled);
     box-shadow: none;
 }
 
@@ -142,13 +150,13 @@ export default { name: 'u-button', extends: ULink };
 .root[color="danger"] {
     background: var(--button-background-danger);
     color: var(--button-color-danger);
-    border-color: var(--button-background-danger);
+    border-color: var(--button-border-color-danger);
 }
 
 .root[color="danger"]:hover {
     background: var(--button-background-danger-hover);
+    border-color: var(--button-border-color-danger-hover);
     color: var(--button-color-danger-hover);
-    border-color: var(--button-background-danger-hover);
 }
 
 .root[color="danger"]:focus {
@@ -156,26 +164,29 @@ export default { name: 'u-button', extends: ULink };
 }
 
 .root[color="danger"]:active {
+    background: var(--button-background-danger-active);
+    border-color: var(--button-border-color-danger-active);
+    color: var(--button-color-danger-active);
     box-shadow: var(--button-box-shadow-active-danger);
 }
 
 .root[color="danger"][disabled] {
     background: var(--button-background-danger-disabled);
+    border-color: var(--button-border-color-danger-disabled);
     color: var(--button-color-danger-disabled);
-    border-color: var(--button-background-danger-disabled);
     box-shadow: none;
 }
 
 .root[color="danger_secondary"] {
     background: var(--button-background-danger-secondary);
     color: var(--button-color-danger-secondary);
-    border-color: var(--button-background-danger);
+    border-color: var(--button-border-color-danger-secondary);
 }
 
 .root[color="danger_secondary"]:hover {
     background: var(--button-background-danger-secondary-hover);
+    border-color: var(--button-border-color-danger-secondary-hover);
     color: var(--button-color-danger-secondary-hover);
-    border-color: var(--button-border-danger-secondary-hover);
 }
 
 .root[color="danger_secondary"]:focus {
@@ -183,13 +194,16 @@ export default { name: 'u-button', extends: ULink };
 }
 
 .root[color="danger_secondary"]:active {
+    background: var(--button-background-danger-secondary-active);
+    border-color: var(--button-border-color-danger-secondary-active);
+    color: var(--button-color-danger-secondary-active);
     box-shadow: var(--button-box-shadow-active-danger-secondary);
 }
 
 .root[color="danger_secondary"][disabled] {
     background: var(--button-background-danger-secondary-disabled);
+    border-color: var(--button-border-color-danger-secondary-disabled);
     color: var(--button-color-danger-secondary-disabled);
-    border-color: var(--button-border-danger-secondary-disabled);
     box-shadow: none;
 }
 

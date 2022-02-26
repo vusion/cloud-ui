@@ -305,46 +305,113 @@
                     ""
                 ],
                 "cssProperty": {
-                    "--button-height-huge": "input",
-                    "--button-height-large": "input",
-                    "--button-height": "input",
-                    "--button-height-small": "input",
                     "--button-height-mini": "input",
+                    "--button-height-small": "input",
+                    "--button-height": "input",
+                    "--button-height-medium": "input",
+                    "--button-height-large": "input",
+                    "--button-height-huge": "input",
+                    
+
                     "--button-padding-y-mini": "input",
-                    "--button-padding-x-mini": "input",
                     "--button-padding-y-small": "input",
-                    "--button-padding-x-small": "input",
                     "--button-padding-y": "input",
-                    "--button-padding-x": "input",
                     "--button-padding-y-medium": "input",
-                    "--button-padding-x-medium": "input",
                     "--button-padding-y-large": "input",
-                    "--button-padding-x-large": "input",
                     "--button-padding-y-huge": "input",
+
+                    "--button-padding-x-mini": "input",
+                    "--button-padding-x-small": "input",
+                    "--button-padding-x": "input",
+                    "--button-padding-x-medium": "input",
+                    "--button-padding-x-large": "input",
                     "--button-padding-x-huge": "input",
+
+
+                    "--button-background-primary": "color",
+                    "--button-background-primary-secondary": "color",
+                    "--button-background": "color",
+                    "--button-background-danger": "color",
+                    "--button-background-danger-secondary": "color",
+                
+                    "--button-background-primary-hover": "color",
+                    "--button-background-primary-secondary-hover": "color",
+                    "--button-background-hover": "color",
+                    "--button-background-danger-hover": "color",
+                    "--button-background-danger-secondary-hover": "color",
+                
+                    "--button-background-primary-active": "color",
+                    "--button-background-primary-secondary-active": "color",
+                    "--button-background-active": "color",
+                    "--button-background-danger-active": "color",
+                    "--button-background-danger-secondary-active": "color",
+                
+                    "--button-background-primary-disabled": "color",
+                    "--button-background-primary-secondary-disabled": "color",
+                    "--button-background-disabled": "color",
+                    "--button-background-danger-disabled": "color",
+                    "--button-background-danger-secondary-disabled": "color",
+
+
+                    "--button-border-color-primary": "color",
+                    "--button-border-color-primary-secondary": "color",
+                    "--button-border-color": "color",
+                    "--button-border-color-danger": "color",
+                    "--button-border-color-danger-secondary": "color",
+
+                    "--button-border-color-primary-hover": "color",
+                    "--button-border-color-primary-secondary-hover": "color",
+                    "--button-border-color-hover": "color",
+                    "--button-border-color-danger-hover": "color",
+                    "--button-border-color-danger-secondary-hover": "color",
+                
+                    "--button-border-color-primary-active": "color",
+                    "--button-border-color-primary-secondary-active": "color",
+                    "--button-border-color-active": "color",
+                    "--button-border-color-danger-active": "color",
+                    "--button-border-color-danger-secondary-active": "color",
+                
+                    "--button-border-color-primary-disabled": "color",
+                    "--button-border-color-primary-secondary-disabled": "color",
+                    "--button-border-color-disabled": "color",
+                    "--button-border-color-danger-disabled": "color",
+                    "--button-border-color-danger-secondary-disabled": "color",
+
+
+                    "--button-font-size-mini": "input",
+                    "--button-font-size-small": "input",
+                    "--button-font-size": "input",
+                    "--button-font-size-medium": "input",
                     "--button-font-size-large": "input",
                     "--button-font-size-huge": "input",
-                    "--button-font-size": "input",
-                    "--button-font-size-small": "input",
-                    "--button-font-size-mini": "input",
+
+                    "--button-color-primary": "color",
+                    "--button-color-primary-secondary": "color",
+                    "--button-color": "color",
+                    "--button-color-danger": "color",
+                    "--button-color-danger-secondary": "color",
+
+                    "--button-color-primary-hover": "color",
+                    "--button-color-primary-secondary-hover": "color",
+                    "--button-color-hover": "color",
+                    "--button-color-danger-hover": "color",
+                    "--button-color-danger-secondary-hover": "color",
+
+                    "--button-color-primary-active": "color",
+                    "--button-color-primary-secondary-active": "color",
+                    "--button-color-active": "color",
+                    "--button-color-danger-active": "color",
+                    "--button-color-danger-secondary-active": "color",
+
+                    "--button-color-primary-disabled": "color",
+                    "--button-color-primary-secondary-disabled": "color",
+                    "--button-color-disabled": "color",
+                    "--button-color-danger-disabled": "color",
+                    "--button-color-danger-secondary-disabled": "color",
+                    
+                    
                     "--button-border-width": "input",
                     "--button-border-radius": "input",
-                    "--button-background": "color",
-                    "--button-background-hover": "color",
-                    "--button-background-active": "color",
-                    "--button-background-disabled": "color",
-                    "--button-background-primary": "color",
-                    "--button-background-primary-hover": "color",
-                    "--button-background-primary-disabled": "color",
-                    "--button-color": "color",
-                    "--button-color-hover": "color",
-                    "--button-color-disabled": "color",
-                    "--button-color-primary": "color",
-                    "--button-color-primary-hover": "color",
-                    "--button-color-primary-disabled": "color",
-                    "--button-border-color": "color",
-                    "--button-border-color-hover": "color",
-                    "--button-border-color-disabled": "color",
                     "--button-box-shadow-focus-color": "color",
                     "--button-box-shadow-focus-primary-color": "color",
                     "--button-box-shadow-focus-danger-color": "color",
@@ -355,7 +422,7 @@
                     "--button-box-shadow-active": "input"
                 },
                 "preview": {
-                    "template": "<div>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\">Base</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary\">Primary</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"add\">Add</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"refresh\">Refresh</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"huge\">Huge</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"large\">Large</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\">Normal</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"medium\">Medium</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"small\">Small</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"mini\">Mini</u-button>\n    </div>"
+                    "template": "<div>\n        <div class=\"componentClassTitle\">类型</div>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary\">主要按钮</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary_secondary\">次要按钮</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\">普通按钮</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"danger\">危险操作按钮</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"danger_secondary\">次要危险操作按钮</u-button>\n\n        <div class=\"componentClassTitle\">禁用</div>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary\" disabled>主要按钮禁用</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary_secondary\" disabled>次要按钮禁用</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" disabled>普通按钮禁用</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"danger\" disabled>危险操作按钮禁用</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"danger_secondary\" disabled>次要危险操作按钮禁用</u-button>\n\n        <div class=\"componentClassTitle\">尺寸</div>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"mini\">Mini</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"small\">Small</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\">Normal</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"medium\">Medium</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"large\">Large</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"huge\">Huge</u-button>\n\n        <div class=\"componentClassTitle\">图标</div>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"add\">Add</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"refresh\">Refresh</u-button>\n    </div>"
                 }
             },
             {

@@ -5,6 +5,7 @@
     "--background-color-base-inverse": "#33353d",
     "--background-color-light": "#f4f6f9",
     "--background-color-lighter": "#f4f6f9",
+    "--brand-primary-disabled": "#adcbff",
     "--brand-primary-lightest": "#e8f1ff",
     "--brand-primary-lighter": "#bbd4ff",
     "--brand-primary-light": "#4a8cff",
@@ -329,52 +330,123 @@
     "--carousel-button-transition": "all 0.3s",
     "--image-width": "128px",
     "--image-height": "128px",
-    "--button-height": "var(--height-base)",
+
+
     "--button-height-mini": "var(--height-mini)",
     "--button-height-small": "var(--height-small)",
+    "--button-height": "var(--height-base)",
+    "--button-height-medium": "var(--height-medium)",
     "--button-height-large": "var(--height-large)",
     "--button-height-huge": "var(--height-huge)",
-    "--button-padding-x-mini": "16px",
+
+
     "--button-padding-y-mini": "var(--button-padding-y)",
-    "--button-padding-x-small": "20px",
     "--button-padding-y-small": "var(--button-padding-y)",
-    "--button-padding-x": "24px",
     "--button-padding-y": "0px",
-    "--button-padding-x-medium": "28px",
     "--button-padding-y-medium": "var(--button-padding-y)",
-    "--button-padding-x-large": "32px",
     "--button-padding-y-large": "var(--button-padding-y)",
-    "--button-padding-x-huge": "36px",
     "--button-padding-y-huge": "var(--button-padding-y)",
-    "--button-font-size": "inherit",
+
+
+    "--button-padding-x-mini": "16px",
+    "--button-padding-x-small": "20px",
+    "--button-padding-x": "24px",
+    "--button-padding-x-medium": "28px",
+    "--button-padding-x-large": "32px",
+    "--button-padding-x-huge": "36px",
+
+
+    "--button-background-primary": "var(--brand-primary)",
+    "--button-background-primary-secondary": "white",
+    "--button-background": "white",
+    "--button-background-danger": "var(--brand-error)",
+    "--button-background-danger-secondary": "white",
+
+    "--button-background-primary-hover": "var(--brand-primary-light)",
+    "--button-background-primary-secondary-hover": "white",
+    "--button-background-hover": "white",
+    "--button-background-danger-hover": "var(--brand-error-light)",
+    "--button-background-danger-secondary-hover": "white",
+
+    "--button-background-primary-active": "var(--brand-primary)",
+    "--button-background-primary-secondary-active": "white",
+    "--button-background-active": "white",
+    "--button-background-danger-active": "var(--brand-error)",
+    "--button-background-danger-secondary-active": "white",
+
+    "--button-background-primary-disabled": "var(--brand-primary-disabled)",
+    "--button-background-primary-secondary-disabled": "var(--button-background-disabled)",
+    "--button-background-disabled": "#f5f5f5",
+    "--button-background-danger-disabled": "var(--brand-error-lighter)",
+    "--button-background-danger-secondary-disabled": "var(--button-background-disabled)",
+
+
+   
+    "--button-border-color-primary": "var(--button-background-primary)",
+    "--button-border-color-primary-secondary": "var(--button-background-primary)",
+    "--button-border-color": "var(--border-color-dark)",
+    "--button-border-color-danger": "var(--button-background-danger)",
+    "--button-border-color-danger-secondary": "var(--button-background-danger)",
+   
+    "--button-border-color-primary-hover": "var(--button-background-primary-hover)",
+    "--button-border-color-primary-secondary-hover": "var(--brand-primary-light)",
+    "--button-border-color-hover": "var(--brand-primary)",
+    "--button-border-color-danger-hover": "var(--button-background-danger-hover)",
+    "--button-border-color-danger-secondary-hover": "var(--brand-error-light)",
+   
+    "--button-border-color-primary-active": "var(--button-background-primary-active)",
+    "--button-border-color-primary-secondary-active": "var(--button-background-primary-secondary-active)",
+    "--button-border-color-active": "var(--brand-primary)",
+    "--button-border-color-danger-active": "var(--button-background-danger-active)",
+    "--button-border-color-danger-secondary-active": "var(--button-background-danger-secondary-active)",
+   
+    "--button-border-color-primary-disabled": "var(--button-background-primary-disabled)",
+    "--button-border-color-primary-secondary-disabled": "var(--button-border-color-disabled)",
+    "--button-border-color-disabled": "#e5e5e5",
+    "--button-border-color-danger-disabled": "var(--button-background-danger-disabled)",
+    "--button-border-color-danger-secondary-disabled": "var(--button-border-color-disabled)",
+
+
     "--button-font-size-mini": "var(--font-size-small)",
     "--button-font-size-small": "inherit",
+    "--button-font-size": "inherit",
+    "--button-font-size-medium": "inherit",
     "--button-font-size-large": "var(--font-size-large)",
     "--button-font-size-huge": "var(--font-size-huge)",
+
+
+    "--button-color-primary": "white",
+    "--button-color-primary-secondary": "var(--brand-primary)",
+    "--button-color": "var(--color-base)",
+    "--button-color-danger": "white",
+    "--button-color-danger-secondary": "var(--brand-error)",
+
+    "--button-color-primary-hover": "var(--button-color-primary)",
+    "--button-color-primary-secondary-hover": "var(--brand-primary-light)",
+    "--button-color-hover": "var(--brand-primary)",
+    "--button-color-danger-hover": "var(--button-color-danger)",
+    "--button-color-danger-secondary-hover": "var(--brand-error-light)",
+
+    "--button-color-primary-active": "var(--button-color-primary-hover)",
+    "--button-color-primary-secondary-active": "var(--button-color-primary-secondary-hover)",
+    "--button-color-active": "var(--button-color-hover)",
+    "--button-color-danger-active": "var(--button-color-danger-hover)",
+    "--button-color-danger-secondary-active": "var(--button-color-danger-secondary-hover)",
+
+    "--button-color-primary-disabled": "white",
+    "--button-color-primary-secondary-disabled": "var(--button-color-disabled)",
+    "--button-color-disabled": "#999",
+    "--button-color-danger-disabled": "white",
+    "--button-color-danger-secondary-disabled": "var(--button-color-disabled)",
+
+
+
+
     "--button-border-width": "var(--border-width-base)",
     "--button-border-radius": "var(--border-radius-base)",
-    "--button-background": "white",
-    "--button-background-hover": "white",
-    "--button-background-active": "white",
-    "--button-background-disabled": "white",
-    "--button-background-primary": "var(--brand-primary)",
-    "--button-background-primary-hover": "var(--brand-primary-light)",
-    "--button-background-primary-disabled": "var(--brand-disabled)",
-    "--button-background-danger": "var(--brand-error)",
-    "--button-background-danger-hover": "var(--brand-error-light)",
-    "--button-background-danger-disabled": "var(--brand-disabled)",
-    "--button-color": "var(--color-base)",
-    "--button-color-hover": "var(--brand-primary)",
-    "--button-color-disabled": "var(--brand-disabled)",
-    "--button-color-primary": "white",
-    "--button-color-primary-hover": "var(--button-color-primary)",
-    "--button-color-primary-disabled": "white",
-    "--button-color-danger": "white",
-    "--button-color-danger-hover": "var(--button-color-danger)",
-    "--button-color-danger-disabled": "white",
-    "--button-border-color": "var(--border-color-dark)",
-    "--button-border-color-hover": "var(--brand-primary)",
-    "--button-border-color-disabled": "var(--border-color-dark)",
+   
+    
+   
     "--button-box-shadow-focus-color": "rgba(80, 139, 233, 0.2)",
     "--button-box-shadow-focus": "0 0 0 2px var(--button-box-shadow-focus-color)",
     "--button-box-shadow-focus-primary-color": "rgba(80, 139, 233, 0.2)",
