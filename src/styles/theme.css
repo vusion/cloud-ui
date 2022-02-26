@@ -1463,14 +1463,14 @@
     --calendar-item-background-selected-disabled: #eee;
 
     /* @component u-date-picker */
+    --datepicker-input-width: 300px;
+    --datepicker-input-height: var(--input-height);
 
     --datepicker-input-border-color: var(--input-border-color);
     --datepicker-input-border-width: var(--input-border-width);
-    --datepicker-input-width: 160px;
     --datepicker-input-color: var(--input-color);
     --datepicker-input-background: var(--input-background);
     --datepicker-input-border-radius: 3px;
-    --datepicker-input-height: var(--input-height);
     --datepicker-input-padding-x: 8px;
     --datepicker-input-background-disabled: var(--input-background-disabled);
     --datepicker-input-border-color-error: var(--input-border-color-error);
@@ -1483,11 +1483,15 @@
     --datepicker-popper-border-radius: var(--border-radius-base);
 
     /* @component u-date-time-picker */
+    --datetime-input-width: 300px;
+    --datetime-input-height: var(--input-height);
+
+
+
     --datetime-input-border-color: var(--input-border-color);
     --datetime-input-border-width: var(--input-border-width);
-    --datetime-input-width: 300px;
+    
     --datetime-input-padding-x: 8px;
-    --datetime-input-height: var(--input-height);
     --datetime-input-placeholder-color: var(--input-placeholder-color);
     --datetime-input-border-radius: 3px;
 

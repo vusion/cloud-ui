@@ -171,14 +171,14 @@
                 ],
                 "cssProperty": {
                     "--link-color": "color",
-                    "--link-color-hover": "color",
                     "--link-color-success": "color",
-                    "--link-color-success-hover": "color",
                     "--link-color-warning": "color",
-                    "--link-color-warning-hover": "color",
                     "--link-color-danger": "color",
-                    "--link-color-danger-hover": "color",
-                    "--link-color-disabled": "color"
+                    "--link-color-disabled": "color",
+                    "--link-color-hover": "color",
+                    "--link-color-success-hover": "color",
+                    "--link-color-warning-hover": "color",
+                    "--link-color-danger-hover": "color"
                 },
                 "preview": {
                     "template": "<div>\n    <div style=\"margin-bottom: 40px;\">\n        <div class=\"componentClassTitle\">鼠标悬停状态为下划线</div>\n        <u-link style=\"margin-right:24px;\">Base</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"success\">Success</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"warning\">Warning</u-link>\n        <u-link style=\"margin-right:24px;\" color=\"danger\">Danger</u-link>\n        <u-link disabled>Disabled</u-link>\n    </div>\n    <div>\n        <div class=\"componentClassTitle\">鼠标悬停状态为颜色变化</div>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\">Base</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"success\">Success</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"warning\">Warning</u-link>\n        <u-link hovertype=\"color\" style=\"margin-right:24px;\" color=\"danger\">Danger</u-link>\n        <u-link hovertype=\"color\" disabled>Disabled</u-link>\n    </div>\n</div>"
@@ -1007,11 +1007,12 @@
                 "toPosition": "datepicker",
                 "type": [],
                 "cssProperty": {
-                    "--datepicker-input-border-color": "color",
-                    "--datepicker-input-border-width": "input",
-                    "--datepicker-input-padding-x": "input",
+                    "--datepicker-input-width": "input",
                     "--datepicker-input-height": "input",
+                    "--datepicker-input-padding-x": "input",
                     "--datepicker-input-placeholder-color": "color",
+                    "--datepicker-input-border-width": "input",
+                    "--datepicker-input-border-color": "color",
                     "--datepicker-input-border-radius": "input"
                 },
                 "preview": {
@@ -1025,12 +1026,12 @@
                 "toPosition": "u-date-time-picker",
                 "type": [],
                 "cssProperty": {
-                    "--datetime-input-border-color": "color",
-                    "--datetime-input-border-width": "input",
                     "--datetime-input-width": "input",
-                    "--datetime-input-padding-x": "input",
                     "--datetime-input-height": "input",
+                    "--datetime-input-padding-x": "input",
                     "--datetime-input-placeholder-color": "color",
+                    "--datetime-input-border-width": "input",
+                    "--datetime-input-border-color": "color",
                     "--datetime-input-border-radius": "input"
                 },
                 "preview": {
