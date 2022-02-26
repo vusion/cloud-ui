@@ -310,10 +310,18 @@
                     "--button-height": "input",
                     "--button-height-small": "input",
                     "--button-height-mini": "input",
-                    "--button-padding-y": "input",
+                    "--button-padding-y-mini": "input",
                     "--button-padding-x-mini": "input",
+                    "--button-padding-y-small": "input",
                     "--button-padding-x-small": "input",
+                    "--button-padding-y": "input",
                     "--button-padding-x": "input",
+                    "--button-padding-y-medium": "input",
+                    "--button-padding-x-medium": "input",
+                    "--button-padding-y-large": "input",
+                    "--button-padding-x-large": "input",
+                    "--button-padding-y-huge": "input",
+                    "--button-padding-x-huge": "input",
                     "--button-font-size-large": "input",
                     "--button-font-size-huge": "input",
                     "--button-font-size": "input",
@@ -347,7 +355,7 @@
                     "--button-box-shadow-active": "input"
                 },
                 "preview": {
-                    "template": "<div>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\">Base</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary\">Primary</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"add\">Add</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"refresh\">Refresh</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"huge\">Huge</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"large\">Large</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\">Normal</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"small\">Small</u-button>\n    <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"mini\">Mini</u-button>\n</div>"
+                    "template": "<div>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\">Base</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" color=\"primary\">Primary</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"add\">Add</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" icon=\"refresh\">Refresh</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"huge\">Huge</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"large\">Large</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"normal\">Normal</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"medium\">Medium</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"small\">Small</u-button>\n        <u-button style=\"margin-right:20px;margin-bottom:20px;\" size=\"mini\">Mini</u-button>\n    </div>"
                 }
             },
             {

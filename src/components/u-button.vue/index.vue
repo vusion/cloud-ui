@@ -198,39 +198,40 @@ export default { name: 'u-button', extends: ULink };
  */
 .root[size="mini"] {
     height: var(--button-height-mini);
-    line-height: calc(var(--button-height-mini) - var(--button-border-width) * 2 - var(--button-padding-y) * 2);
-    padding: 0 var(--button-padding-x-mini);
+    line-height: calc(var(--button-height-mini) - var(--button-border-width) * 2 - var(--button-padding-y-mini) * 2);
+    padding: var(--button-padding-y-mini) var(--button-padding-x-mini);
     font-size: var(--button-font-size-mini);
 }
+
 .root[size="mini"] [class^="i-ico_lcp-iconv"] {
     font-size: var(--button-font-size-mini);
 }
 
 .root[size="small"] {
     height: var(--button-height-small);
-    line-height: calc(var(--button-height-small) - var(--button-border-width) * 2 - var(--button-padding-y) * 2);
-    padding: 0 var(--button-padding-x-small);
+    line-height: calc(var(--button-height-small) - var(--button-border-width) * 2 - var(--button-padding-y-small) * 2);
+    padding: var(--button-padding-y-small) var(--button-padding-x-small);
     font-size: var(--button-font-size-small);
 }
 
 .root[size="medium"] {
     height: var(--button-height-medium);
-    line-height: calc(var(--button-height-medium) - var(--button-border-width) * 2 - var(--button-padding-y) * 2);
-    padding: 0 var(--button-padding-x-medium);
+    line-height: calc(var(--button-height-medium) - var(--button-border-width) * 2 - var(--button-padding-y-medium) * 2);
+    padding: var(--button-padding-y-medium) var(--button-padding-x-medium);
     font-size: var(--button-font-size-medium);
 }
 
 .root[size="large"] {
     height: var(--button-height-large);
-    line-height: calc(var(--button-height-large) - var(--button-border-width) * 2 - var(--button-padding-y) * 2);
-    padding: 0 var(--button-padding-x-large);
+    line-height: calc(var(--button-height-large) - var(--button-border-width) * 2 - var(--button-padding-y-large) * 2);
+    padding: var(--button-padding-y-large) var(--button-padding-x-large);
     font-size: var(--button-font-size-large);
 }
 
 .root[size="huge"] {
     height: var(--button-height-huge);
-    line-height: calc(var(--button-height-huge) - var(--button-border-width) * 2 - var(--button-padding-y) * 2);
-    padding: 0 var(--button-padding-x-huge);
+    line-height: calc(var(--button-height-huge) - var(--button-border-width) * 2 - var(--button-padding-y-huge) * 2);
+    padding: var(--button-padding-y-huge) var(--button-padding-x-huge);
     font-size: var(--button-font-size-huge);
 }
 

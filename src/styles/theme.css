@@ -441,14 +441,20 @@
     --button-height-large: var(--height-large);
     --button-height-huge: var(--height-huge); /* @hidden */
 
-    --button-padding-y: 0px;
-    
-    --button-padding-x: 24px;
+
     --button-padding-x-mini: 16px;
+    --button-padding-y-mini: var(--button-padding-y);
     --button-padding-x-small: 20px;
+    --button-padding-y-small: var(--button-padding-y);
+    --button-padding-x: 24px;
+    --button-padding-y: 0px;
     --button-padding-x-medium: 28px;
+    --button-padding-y-medium: var(--button-padding-y);
     --button-padding-x-large: 32px;
+    --button-padding-y-large: var(--button-padding-y);
     --button-padding-x-huge: 36px;
+    --button-padding-y-huge: var(--button-padding-y);
+
     --button-font-size: inherit;
     --button-font-size-mini: var(--font-size-small);
     --button-font-size-small: inherit;
