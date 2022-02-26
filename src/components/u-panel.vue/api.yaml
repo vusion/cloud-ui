@@ -27,11 +27,6 @@
     - name: bordered
       title: 边框
       type: boolean
-      options:
-        - value: true
-          title: 是
-        - value: false
-          title: 否
       default: true
       description: 是否显示边框
     - name: shadow

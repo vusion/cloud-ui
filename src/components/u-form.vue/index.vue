@@ -20,6 +20,7 @@ export default {
         size: { type: String, default: 'normal' },
         labelSize: { type: String, default: 'normal' },
         collapsible: { type: Boolean, default: false },
+        repeat: { type: [String, Number], default: null },
     },
     data() {
         return {
@@ -99,7 +100,7 @@ export default {
 }
 
 .root[layout="inline"] .item:not(:last-child) {
-    margin-right: var(--space-base);
+    padding-right: var(--space-base);
     margin-bottom: var(--space-base);
 }
 
@@ -120,7 +121,7 @@ export default {
 }
 
 .root[gap="large"][layout="inline"] .item:not(:last-child) {
-    margin-right: var(--space-large);
+    padding-right: var(--space-large);
 }
 
 .root[gap="small"][layout="block"] .item:not(:last-child) {
@@ -128,7 +129,7 @@ export default {
 }
 
 .root[gap="small"][layout="inline"] .item:not(:last-child) {
-    margin-right: var(--space-small);
+    padding-right: var(--space-small);
 }
 
 .root[gap="small"][layout="inline"] .item > .item_label { padding-right: 10px; }

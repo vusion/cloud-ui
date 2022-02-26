@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :label-size="currentLabelSize" :distance="rootVM && rootVM.extraSlots ? 'extra' : ''">
+<div :class="$style.root" :label-size="currentLabelSize" :distance="rootVM && rootVM.extraSlots ? 'extra' : ''" :style="responsiveStyle">
     <label :class="$style.label" :required="currentRequired" v-show="label || title || currentLabelSize !== 'auto'" vusion-slot-name="label">
         <slot name="label">{{ label || title }}</slot>
     </label>
@@ -44,10 +44,11 @@ export default {
         bubble: { type: Boolean, default: false },
         description: String,
         hideSlots: { type: Boolean, default: false },
+        span: { type: [Number, String], default: 1 },
     },
-
     data() {
         return {
+            currentSpan: this.span,
             // value: undefined,
             // state: '',
             // color: '',
@@ -72,8 +73,16 @@ export default {
                 || 'auto'
             );
         },
+        responsiveStyle() {
+            const width = this.getPercent(this.currentSpan);
+            return { width };
+        },
     },
-
+    watch: {
+        span(span) {
+            this.currentSpan = span;
+        },
+    },
     methods: {
         // onFocus() {
         //     this.color = 'focus';
@@ -83,6 +92,16 @@ export default {
         //     this.color = this.state = '';
         //     this.$nextTick(() => this.validate('blur');
         // },
+        getPercent(span) {
+            const isInline = this.parentVM && this.parentVM.layout === 'inline';
+            const repeat
+                = (this.groupVM && this.groupVM.repeat)
+                || (this.parentVM && this.parentVM.repeat);
+
+            if (isInline && repeat > 0) {
+                return (span / repeat) * 100 + '%';
+            }
+        },
     },
 };
 </script>
@@ -108,7 +127,7 @@ export default {
 }
 
 .label[required]::after {
-    content: '*';
+    content: "*";
     color: var(--form-required-color);
     position: absolute;
     right: var(--form-required-right);
@@ -122,21 +141,49 @@ export default {
     position: relative;
 }
 
-.root[label-size$="mini"] > .label { width: var(--form-item-label-width-mini); padding-right: var(--form-item-label-padding-right-mini); }
-.root[label-size$="mini"] > .label::after { right: var(--form-required-right-mini); }
-.root[label-size$="mini"] > .field { max-width: calc(100% - var(--form-item-label-width-mini)); }
+.root[label-size$="mini"] > .label {
+    width: var(--form-item-label-width-mini);
+    padding-right: var(--form-item-label-padding-right-mini);
+}
+.root[label-size$="mini"] > .label::after {
+    right: var(--form-required-right-mini);
+}
+.root[label-size$="mini"] > .field {
+    max-width: calc(100% - var(--form-item-label-width-mini));
+}
 
-.root[label-size$="small"] > .label { width: var(--form-item-label-width-small); padding-right: var(--form-item-label-padding-right-small); }
-.root[label-size$="small"] > .label::after { right: var(--form-required-right-small); }
-.root[label-size$="small"] > .field { max-width: calc(100% - var(--form-item-label-width-small)); }
+.root[label-size$="small"] > .label {
+    width: var(--form-item-label-width-small);
+    padding-right: var(--form-item-label-padding-right-small);
+}
+.root[label-size$="small"] > .label::after {
+    right: var(--form-required-right-small);
+}
+.root[label-size$="small"] > .field {
+    max-width: calc(100% - var(--form-item-label-width-small));
+}
 
-.root[label-size$="normal"] > .label { width: var(--form-item-label-width); padding-right: var(--form-item-label-padding-right); }
-.root[label-size$="normal"] > .label::after { right: var(--form-required-right); }
-.root[label-size$="normal"] > .field { max-width: calc(100% - var(--form-item-label-width)); }
+.root[label-size$="normal"] > .label {
+    width: var(--form-item-label-width);
+    padding-right: var(--form-item-label-padding-right);
+}
+.root[label-size$="normal"] > .label::after {
+    right: var(--form-required-right);
+}
+.root[label-size$="normal"] > .field {
+    max-width: calc(100% - var(--form-item-label-width));
+}
 
-.root[label-size$="large"] > .label { width: var(--form-item-label-width-large); padding-right: var(--form-item-label-padding-right-large); }
-.root[label-size$="large"] > .label::after { right: var(--form-required-right-large); }
-.root[label-size$="large"] > .field { max-width: calc(100% - var(--form-item-label-width-large)); }
+.root[label-size$="large"] > .label {
+    width: var(--form-item-label-width-large);
+    padding-right: var(--form-item-label-padding-right-large);
+}
+.root[label-size$="large"] > .label::after {
+    right: var(--form-required-right-large);
+}
+.root[label-size$="large"] > .field {
+    max-width: calc(100% - var(--form-item-label-width-large));
+}
 
 .root[field-size="full"] > .field {
     width: 100%;

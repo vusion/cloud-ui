@@ -27,12 +27,13 @@ export default {
     name: 'u-form-group',
     parentName: 'u-form',
     childName: 'u-form-item',
-    extends: MGroup,
     components: {
         SEmpty,
     },
+    extends: MGroup,
     props: {
         size: String,
+        repeat: { type: [String, Number], default: null },
     },
     computed: {
         currentSize() {
