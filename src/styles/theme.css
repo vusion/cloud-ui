@@ -866,7 +866,7 @@
     --form-required-right: 12px;
     --form-required-right-small: 2px; /* @hidden */
     --form-required-right-large: 12px; /* @hidden */
-    --form-item-text-color: var(--color-light);
+    --form-item-label-color: var(--color-light);
 
     /* @component u-field @hidden */
     --field-background: white;

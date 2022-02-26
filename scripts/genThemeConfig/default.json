@@ -478,7 +478,7 @@
     "--form-item-label-width-mini": "50px",
     "--form-item-label-width-small": "80px",
     "--form-item-label-width-large": "160px",
-    "--form-item-text-color": "var(--color-light)",
+    "--form-item-label-color": "var(--color-light)",
     "--form-required-color": "red",
     "--form-required-right": "12px",
     "--form-required-right-small": "2px",
