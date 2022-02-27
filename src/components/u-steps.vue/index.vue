@@ -11,18 +11,19 @@
             :vusion-disabled-move="itemVM.$attrs['vusion-disabled-move']"
             :vusion-disabled-duplicate="itemVM.$attrs['vusion-disabled-duplicate']"
             :vusion-disabled-cut="itemVM.$attrs['vusion-disabled-cut']"
-            :passed="selectedVM && index <= selectedVM.index"
+            :passed="selectedVM && index < selectedVM.index || value >= itemVMs.length && index <= value"
             :selected="selectedVM && index === selectedVM.index"
             :disabled="itemVM.disabled || disabled"
             v-show="!itemVM.hidden"
             :style="{ width: currentItemWidth }">
-            <div :class="$style['item-body']" @click="select(itemVM)" :title="itemVM.title">
-                <span :class="$style.radio"></span>
-                <span :class="$style.title"><f-slot :vm="itemVM" name="title">{{ itemVM.title }}</f-slot></span>
+            <div :class="$style['item-body']" :title="itemVM.title">
+                <span :class="$style.radio" @click="select(itemVM)"></span>
+                <span :class="$style.title" @click="select(itemVM)"><f-slot :vm="itemVM" name="title">{{ itemVM.title }}</f-slot></span>
                 <u-tooltip v-if="itemVM.tooltip || itemVM.$slots.tooltip">
                     <f-slot name="tooltip" :vm="itemVM">{{ itemVM.tooltip }}</f-slot>
                 </u-tooltip>
             </div>
+            <span v-if="itemVM.desc || itemVM.$slots.desc" :class="$style.desc"><f-slot :vm="itemVM" name="desc">{{ itemVM.desc }}</f-slot></span>
         </a>
     </nav>
     <div :class="$style.body">
@@ -64,9 +65,9 @@ export default {
                 this.watchValue(value);
                 this.$nextTick(() => {
                     this.$refs.item
-                    && this.$refs.item.forEach((itemEl, index) => {
-                        itemEl.__vue__ = itemVMs[index];
-                    });
+                        && this.$refs.item.forEach((itemEl, index) => {
+                            itemEl.__vue__ = itemVMs[index];
+                        });
                 });
             },
         },
@@ -122,7 +123,8 @@ export default {
 </script>
 
 <style module>
-.root {}
+.root {
+}
 
 .head {
     text-align: center;
@@ -154,7 +156,7 @@ export default {
 
 .radio {
     display: inline-block;
-    content: '';
+    content: "";
     width: var(--steps-item-radio-size);
     height: var(--steps-item-radio-size);
     line-height: var(--steps-item-radio-size);
@@ -177,24 +179,24 @@ export default {
     line-height: var(--steps-item-radio-size);
 }
 
-.item::before {
+.item::after {
     display: block;
-    content: '';
+    content: "";
     pointer-events: none;
     position: absolute;
     z-index: 1;
-    right: 50%;
+    left: 50%;
     top: 12px;
     height: 1px;
     width: 100%;
     background-color: var(--steps-item-radio-background);
 }
 
-.item[passed]::before {
+.item[passed]::after {
     background-color: var(--steps-item-radio-background-passed);
 }
 
-.item:first-child::before {
+.item:last-child::after {
     display: none;
 }
 

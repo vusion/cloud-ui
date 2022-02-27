@@ -1124,11 +1124,12 @@
 
     /* @component u-steps */
     --steps-item-width: 200px;
-    --steps-item-color-disabled: #bbb;
+    --steps-item-color-disabled: var(--brand-disabled-dark);
     --steps-item-radio-size: 24px;
     --steps-item-radio-size-large: 24px;
     --steps-item-radio-background: var(--border-color-base);
     --steps-item-radio-background-passed: var(--brand-primary);
+    --steps-item-radio-background-disabled: var(--background-color-disabled);
     --steps-item-radio-color-passed: white;
     --steps-item-radio-border-color-hover: var(--brand-primary);
     --steps-seleatable-item-width: 140px;
@@ -1137,7 +1138,7 @@
     --steps-seleatable-background-selected: var(--brand-primary);
     --steps-seleatable-item-body-background: white;
     --steps-seleatable-radio-background: white;
-    --steps-seleatable-radio-border-color: var(--border-color-base);
+    --steps-seleatable-radio-border-color: var(--color-lighter);
     --steps-seleatable-radio-border-color-disabled: var(--steps-seleatable-radio-border-color);
     --steps-seleatable-radio-background-selected: white;
     --steps-seleatable-radio-dot-width-selected: 10px;

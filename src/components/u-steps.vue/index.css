@@ -31,6 +31,7 @@
 .radio {
     display: inline-block;
     content: '';
+    flex-shrink: 0;
     width: var(--steps-item-radio-size);
     height: var(--steps-item-radio-size);
     line-height: var(--steps-item-radio-size);
@@ -56,29 +57,29 @@
     line-height: var(--steps-item-radio-size);
 }
 
-.item::before {
+.item .item-body::after {
     display: block;
     content: '';
     pointer-events: none;
     position: absolute;
     z-index: 1;
-    right: 50%;
+    left: 50%;
     top: 12px;
     height: 1px;
     width: 100%;
     background-color: var(--steps-item-radio-background);
 }
 
-.item[passed]::before {
+.item[passed] .item-body::after {
     background-color: var(--steps-item-radio-background-passed);
 }
 
-.item:first-child::before {
+.item:last-child .item-body::after {
     display: none;
 }
 
 .item[passed] .radio {
-    background-color: var(--steps-item-radio-background-passed);
+    background: var(--steps-item-radio-background-passed);
     color: var(--steps-item-radio-color-passed);
 }
 
