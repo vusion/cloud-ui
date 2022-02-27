@@ -920,8 +920,9 @@
     --input-color: var(--color-base);
     --input-color-disabled: var(--color-light);
     --input-border-color: var(--border-color-base);
-    --input-border-color-error: var(--brand-error);
+    --input-border-color-hover: #4c88FF;
     --input-border-color-focus: #4c88FF;
+    --input-border-color-error: var(--brand-error);
     --input-placeholder-color: var(--color-lighter);
     --input-icon-color: var(--font-second-color);
     --input-clear-icon-color: var(--font-third-color);
@@ -1286,6 +1287,7 @@
     --pagination-item-border-radius-right: var(--pagination-item-border-radius);
     --pagination-item-prenext-font-size: 18px;
     --pagination-item-border-color-disabled: var(--border-color-darker);
+    --pagination-item-font-size: var(--font-size-small);
     --pagination-sizer-width: 100px;
     --pagination-jumper-width: 50px;
 

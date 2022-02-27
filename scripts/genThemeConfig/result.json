@@ -452,6 +452,14 @@
                 "toPosition": "input",
                 "type": [],
                 "cssProperty": {
+                    "--input-border-color": "color",
+                    "--input-border-color-hover": "color",
+                    "--input-border-color-focus": "color",
+                    "--input-box-shadow-focus-color": "color",
+                    "--input-box-shadow-focus": "input",
+                    "--input-placeholder-color": "color",
+                    "--input-border-radius": "input",
+                    
                     "--input-width-mini": "input",
                     "--input-width-small": "input",
                     "--input-width": "input",
@@ -471,15 +479,10 @@
                     "--input-padding-x-large": "input",
                     "--input-padding-x-huge": "input",
                     "--input-border-width": "input",
-                    "--input-placeholder-color": "color",
-                    "--input-border-radius": "input",
-
+                    
+                    
                     "--input-background": "color",
-                    "--input-color": "color",
-                    "--input-border-color": "color",
-                    "--input-border-color-focus": "color",
-                    "--input-box-shadow-focus-color": "color",
-                    "--input-box-shadow-focus": "input"                    
+                    "--input-color": "color"
                 },
                 "preview": {
                     "template": "<div>\n        <div class=\"componentClassTitle\">宽度迷你</div>\n        <u-input maxlength=\"12\" size=\"normal mini\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度小</div>\n        <u-input maxlength=\"12\" size=\"normal small\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度正常</div>\n        <u-input maxlength=\"12\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度中型</div>\n        <u-input maxlength=\"12\" size=\"normal medium\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度大</div>\n        <u-input maxlength=\"12\" size=\"normal large\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度巨大</div>\n        <u-input maxlength=\"12\" size=\"normal huge\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 80px;\"></u-input>\n\n        <div class=\"componentClassTitle\">高度迷你</div>\n        <u-input maxlength=\"12\" size=\"mini normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度小</div>\n        <u-input maxlength=\"12\" size=\"small normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度正常</div>\n        <u-input maxlength=\"12\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度中型</div>\n        <u-input maxlength=\"12\" size=\"medium normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度大</div>\n        <u-input maxlength=\"12\" size=\"large normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度巨大</div>\n        <u-input maxlength=\"12\" size=\"huge normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n    </div>"
@@ -492,15 +495,6 @@
                 "toPosition": "numberInput",
                 "type": [],
                 "cssProperty": {
-                    "--number-input-height": "input",
-                    "--number-input-background": "input",
-                    "--number-input-color": "color",
-                    "--number-input-border-width": "input",
-                    "--number-input-border-color": "color",
-                    "--number-input-border-color-focus": "color",
-                    "--number-input-box-shadow-focus-color": "color",
-                    "--number-input-box-shadow-focus": "input",
-                    "--number-input-button-padding": "input",
                     "--number-input-button-background": "color",
                     "--number-input-button-both-ends-background": "color",
                     "--number-input-button-background-hover": "color",
@@ -509,6 +503,16 @@
                     "--number-input-button-both-ends-background-active": "color",
                     "--number-input-button-background-focus": "color",
                     "--number-input-button-both-ends-background-focus": "color",
+                    "--number-input-border-color": "color",
+                    "--number-input-border-color-focus": "color",
+                    "--number-input-color": "color",
+
+                    "--number-input-height": "input",
+                    "--number-input-background": "input",
+                    "--number-input-border-width": "input",
+                    "--number-input-box-shadow-focus-color": "color",
+                    "--number-input-box-shadow-focus": "input",
+                    "--number-input-button-padding": "input",
                     "--number-input-button-outline": "input"
                 },
                 "preview": {
@@ -729,17 +733,19 @@
                 "toPosition": "tableView",
                 "type": [],
                 "cssProperty": {
+                    "--table-view-row-hover-background": "color",
                     "--table-head-background": "color",
+                    "--table-view-head-item-size": "input",
+                    "--table-row-background-striped": "color",
+                    
                     "--table-view-head-item-color": "color",
                     "--table-background": "color",
-                    "--table-view-head-item-size": "input",
                     "--table-border-color": "color",
                     "--table-td-color": "color",
                     "--table-th-line-height": "input",
                     "--table-th-padding": "input",
                     "--table-td-line-height": "input",
-                    "--table-td-padding": "input",
-                    "--table-row-background-striped": "color"
+                    "--table-td-padding": "input"
                 },
                 "preview": {
                     "template": "<div>\n        <u-switch v-model=\"striped\">打开斑马纹</u-switch>\n        <u-table-view :striped=\"striped\" :data-source=\"tableView\">\n            <u-table-view-column\n                title=\"用户名\"\n                field=\"name\"\n                width=\"20%\">\n            </u-table-view-column>\n            <u-table-view-column\n                title=\"手机号码\"\n                field=\"phone\"\n                width=\"20%\">\n            </u-table-view-column>\n            <u-table-view-column\n                title=\"地址\"\n                field=\"address\">\n            </u-table-view-column>\n            <u-table-view-column\n                title=\"最近登录时间\"\n                field=\"loginTime\"\n                formatter=\"placeholder | date\"\n                width=\"20%\">\n            </u-table-view-column>\n        </u-table-view>\n    </div>",
@@ -818,25 +824,26 @@
                     "simple"
                 ],
                 "cssProperty": {
-                    "--pagination-item-width-small": "input",
-                    "--pagination-item-width": "input",
+                    "--pagination-item-border-radius": "input",
+                    "--pagination-item-border-color": "color",
+                    "--pagination-item-border-color-hover": "color",
+                    "--pagination-item-border-color-disabled": "color",
                     "--pagination-item-height-small": "input",
                     "--pagination-item-height": "input",
-                    "--pagination-item-padding": "input",
-                    "--pagination-item-border-radius": "input",
-                    "--pagination-item-background": "color",
-                    "--pagination-item-background-hover": "color",
-                    "--pagination-item-background-selected": "color",
-                    "--pagination-item-background-blank": "color",
+                    "--pagination-item-width-small": "input",
+                    "--pagination-item-width": "input",
+                    "--pagination-item-font-size": "input",
                     "--pagination-item-color": "color",
                     "--pagination-item-color-hover": "color",
                     "--pagination-item-color-selected": "color",
                     "--pagination-item-color-disabled": "color",
                     "--pagination-item-color-blank": "color",
                     "--pagination-item-color-blank-disabled": "color",
-                    "--pagination-item-border-color": "color",
-                    "--pagination-item-border-color-hover": "color",
-                    "--pagination-item-border-color-disabled": "color"
+                    "--pagination-item-background": "color",
+                    "--pagination-item-background-hover": "color",
+                    "--pagination-item-background-selected": "color",
+                    "--pagination-item-background-blank": "color",
+                    "--pagination-item-padding": "input"
                 },
                 "preview": {
                     "template": "<div>\n        <u-pagination style=\"margin-bottom:16px;\" :total=\"11\" :page=\"6\"></u-pagination>\n        <u-pagination size=\"small\" style=\"margin-bottom:16px;\" :total=\"11\" :page=\"6\"></u-pagination>\n        <u-pagination style=\"margin-bottom:16px;\" :total=\"11\">\n            <a slot=\"prev\" role=\"text\">Previous</a>\n            <a slot=\"next\" role=\"text\">Next</a>\n        </u-pagination>\n        <u-pagination\n            style=\"margin-bottom:16px;\"\n            :total-items=\"75\"\n            show-total>\n        </u-pagination>\n        <u-pagination\n            style=\"margin-bottom:16px;\"\n            :total-items=\"75\"\n            show-total\n            show-sizer\n            show-jumper>\n        </u-pagination>\n        <u-pagination\n            style=\"margin-bottom:16px;\"\n            :total=\"11\"\n            simple\n            readonly>\n        </u-pagination>\n        <u-pagination\n            :total=\"11\"\n            simple\n            disabled>\n        </u-pagination>\n    </div>"

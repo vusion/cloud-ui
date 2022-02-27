@@ -222,7 +222,7 @@ export default {
     min-width: var(--pagination-item-width);
     height: var(--pagination-item-height);
     line-height: calc(var(--pagination-item-height) - 1px * 2);
-    font-size: var(--font-size-small);
+    font-size: var(--pagination-item-font-size);
     text-align: center;
     background: var(--pagination-item-background);
     color: var(--pagination-item-color);
