@@ -66,8 +66,8 @@
       type: boolean
       default: false
       description: ""
-    - name: size
-      title: 尺寸
+    - name: width
+      title: 宽度
       type: string
       options:
         - value: full
@@ -85,9 +85,27 @@
         - value: mini
           title: 迷你
       default: normal
-      description: 设置数字输入框大小
-      multi: true
-      maxSelect: 2
+      description: 设置数字输入框宽度
+    - name: height
+      title: 高度
+      type: string
+      options:
+        - value: full
+          title: 占满
+        - value: huge
+          title: 巨大
+        - value: large
+          title: 大
+        - value: medium
+          title: 中型
+        - value: normal
+          title: 正常
+        - value: small
+          title: 小
+        - value: mini
+          title: 迷你
+      default: normal
+      description: 设置数字输入框高度
   slots:
     - name: default
       advanced: true

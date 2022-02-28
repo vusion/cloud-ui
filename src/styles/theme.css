@@ -802,6 +802,7 @@
     --form-item-margin-bottom: 20px;
     --form-item-margin-bottom-large: var(--space-large);
     --form-item-margin-bottom-small: var(--space-small);
+    --form-item-margin-bottom-none: 0;
     --form-required-color: var(--brand-error);
     --form-required-right: 12px;
     --form-required-right-small: 2px; /* @hidden */

@@ -45,7 +45,7 @@
 
 .placeholder { /* for IE9 */
     display: none;
-    display: block\9; /* stylelint-disable-line declaration-block-no-duplicate-properties */
+    display: block \9; /* stylelint-disable-line declaration-block-no-duplicate-properties */
     position: absolute;
     left: 0;
     top: 0;
@@ -68,6 +68,7 @@
     cursor: var(--cursor-pointer);
     color: var(--input-clear-icon-color);
 }
+
 .clearable:hover::before {
     color: var(--input-icon-color-hover);
 }
@@ -85,7 +86,8 @@
     box-shadow: var(--input-box-shadow-focus);
 }
 
-.root[color="default"] { /* By default */ }
+.root[color="default"] { /* By default */
+}
 
 .root[color="error"] {
     border-color: var(--input-border-color-error);
@@ -96,13 +98,16 @@
     background: var(--input-background-disabled);
     color: var(--input-color-disabled);
 }
-.root[disabled]:hover{
+
+.root[disabled]:hover {
     border-color: var(--input-border-color);
 }
 
-.root[size="normal"] { /* By default */ }
+.root[size="normal"] { /* By default */
+}
 
-.root[display="inline"] { /* By default */ }
+.root[display="inline"] { /* By default */
+}
 
 .root[display="block"] {
     display: block;
@@ -143,9 +148,7 @@
     color: var(--input-icon-color);
 }
 
-.root[size$="mini"] { width: var(--input-width-mini); padding-left: var(--input-padding-x-mini); padding-right: var(--input-padding-x-mini); }
-.root[size^="mini"] { height: var(--input-height-mini); line-height: calc(var(--input-height-mini) - var(--input-border-width) * 2); }
-
+/* 兼容历史遗留组件中的size属性 */
 .root[size$="small"] { width: var(--input-width-small); padding-left: var(--input-padding-x-small); padding-right: var(--input-padding-x-small); }
 .root[size^="small"] { height: var(--input-height-small); line-height: calc(var(--input-height-small) - var(--input-border-width) * 2); }
 
@@ -163,3 +166,80 @@
 
 .root[size$="full"] { width: 100%; padding-left: var(--input-padding-x-full); padding-right: var(--input-padding-x-full); }
 .root[size^="full"] { height: 100%; }
+
+/* 针对新的组件中设置尺寸width和height， 同时存在时，width和height会自动覆盖size */
+.root[width="mini"] {
+    width: var(--input-width-mini);
+    padding-left: var(--input-padding-x-mini);
+    padding-right: var(--input-padding-x-mini);
+}
+
+.root[height="mini"] {
+    height: var(--input-height-mini);
+    line-height: calc(var(--input-height-mini) - var(--input-border-width) * 2);
+}
+
+.root[width="small"] {
+    width: var(--input-width-small);
+    padding-left: var(--input-padding-x-small);
+    padding-right: var(--input-padding-x-small);
+}
+
+.root[height="small"] {
+    height: var(--input-height-small);
+    line-height: calc(var(--input-height-small) - var(--input-border-width) * 2);
+}
+
+.root[width="normal"] {
+    width: var(--input-width);
+    padding-left: var(--input-padding-x);
+    padding-right: var(--input-padding-x);
+}
+
+.root[height="normal"] {
+    height: var(--input-height);
+    line-height: calc(var(--input-height) - var(--input-border-width) * 2);
+}
+
+.root[width="medium"] {
+    width: var(--input-width-medium);
+    padding-left: var(--input-padding-x-medium);
+    padding-right: var(--input-padding-x-medium);
+}
+
+.root[height="medium"] {
+    height: var(--input-height-medium);
+    line-height: calc(var(--input-height-medium) - var(--input-border-width) * 2);
+}
+
+.root[width="large"] {
+    width: var(--input-width-large);
+    padding-left: var(--input-padding-x-large);
+    padding-right: var(--input-padding-x-large);
+}
+
+.root[height="large"] {
+    height: var(--input-height-large);
+    line-height: calc(var(--input-height-large) - var(--input-border-width) * 2);
+}
+
+.root[width="huge"] {
+    width: var(--input-width-huge);
+    padding-left: var(--input-padding-x-huge);
+    padding-right: var(--input-padding-x-huge);
+}
+
+.root[height="huge"] {
+    height: var(--input-height-huge);
+    line-height: calc(var(--input-height-huge) - var(--input-border-width) * 2);
+}
+
+.root[width="full"] {
+    width: 100%;
+    padding-left: var(--input-padding-x-full);
+    padding-right: var(--input-padding-x-full);
+}
+
+.root[height="full"] {
+    height: 100%;
+}
