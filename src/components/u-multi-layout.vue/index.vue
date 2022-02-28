@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :direction="direction" :gap="gap" v-on="$listeners" vusion-slot-name="default">
+<div :class="$style.root" v-bind="$attrs" :direction="direction" :gap="gap" v-on="$listeners" vusion-slot-name="default">
     <slot></slot>
     <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
 </div>

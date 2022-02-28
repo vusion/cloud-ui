@@ -1,8 +1,12 @@
 <template>
-    <div>
-        <u-multi-layout :class="$style.root" :animation="animation" :readonly="readonly" :disabled="disabled">
-        <slot></slot>
-    </u-multi-layout>
+    <div :class="$style.root" :animation="animation" :readonly="readonly" :disabled="disabled">
+        <u-multi-layout :vusion-scope-id="$vnode.context.$options._scopeId" vusion-node-tag="u-multi-layout" ref="multi">
+            <slot name="left"></slot>
+            <u-multi-layout-item align-items="center">
+                <slot></slot>
+            </u-multi-layout-item>
+            <slot name="right"></slot>
+        </u-multi-layout>
     </div>
 </template>
 
@@ -36,6 +40,12 @@ export default {
         this.$auth && this.$auth.getUserInfo().then((userInfo) => this.userInfo = userInfo);
         this.$on('select', ({ itemVM }) => this.router && itemVM.navigate());
     },
+    // mounted() {
+    //     setTimeout(() => {
+    //         const el = document.querySelector('div[class^="l-root__"]');
+    //         this.$refs.multi.$el.setAttribute('vusion-scope-id', el && el.__vue__.$vnode.context.$options._scopeId);
+    //     }, 3000);
+    // },
     methods: {
         logout() {
             /* eslint-disable new-cap */
