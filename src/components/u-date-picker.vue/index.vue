@@ -1,6 +1,8 @@
 <template>
-<div :class="$style.header">
-    <input :class="$style.input" :placeholder="placeholder" @click.stop="$refs.popper.toggle(true)" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" :style="{width: width+'px'}" @change="onInput($event)" @focus="onFocus" @blur="onBlur" :color="formItemVM && formItemVM.color">
+<div :class="$style.header" :style="{ 
+    width: `${width}px`
+}">
+    <input :class="$style.input" :placeholder="placeholder" @click.stop="$refs.popper.toggle(true)" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"  @change="onInput($event)" @focus="onFocus" @blur="onBlur" :color="formItemVM && formItemVM.color">
     <span v-if="showDate && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
         <i :class="[$style.closeIcon]"></i>
     </span>
@@ -53,7 +55,7 @@ export default {
                 return this.$t('selectDateText');
             },
         },
-        width: { type: [String, Number], default: 160 },
+        width: { type: [String, Number], default: '' },
         alignment: {
             type: String,
             default: 'left',
@@ -272,13 +274,16 @@ export default {
 
 <style module>
 .header {
+    width: var(--datepicker-input-width);
     display: inline-block;
     position: relative;
 }
+
 .input {
+    width: 100%;
     box-sizing: border-box;
     margin: 0;
-    padding: 0 12px;
+    padding: 0 var(--datepicker-input-padding-x);
     vertical-align: middle;
     border: var(--datepicker-input-border-width) solid var(--datepicker-input-border-color);
     color: var(--datepicker-input-color);
@@ -288,19 +293,24 @@ export default {
     line-height: calc(var(--datepicker-input-height) - var(--datepicker-input-border-width) * 2);
     outline: none;
 }
+
 .input[disabled] {
+    width: 100%;
     cursor: var(--cursor-not-allowed);
     background: var(--datepicker-input-background-disabled);
     color: var(--color-light);
 }
+
 .input[color="error"] {
     border-color: var(--datepicker-input-border-color-error);
 }
+
 .input:focus {
     outline: var(--focus-outline);
     border-color: var(--datepicker-input-border-color-focus);
     box-shadow: var(--datepicker-input-box-shadow-focus);
 }
+
 .header:hover .input{
     border-color: var(--datepicker-input-border-color-focus);
 }
@@ -322,7 +332,6 @@ export default {
     z-index: 100;
     width: 248px;
     top: 100%;
-    /* margin-top: 2px; */
 }
 
 .wrap {

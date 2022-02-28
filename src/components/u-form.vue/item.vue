@@ -103,7 +103,7 @@ export default {
     display: inline-block;
     width: var(--form-item-label-width);
     padding-right: var(--form-item-label-padding-right);
-    color: var(--form-item-text-color);
+    color: var(--form-item-label-color);
     text-align: right;
     position: relative;
 }

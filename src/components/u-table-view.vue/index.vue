@@ -9,10 +9,11 @@
         <div v-if="showHead" :class="$style.head" ref="head" :style="{ width: number2Pixel(tableWidth) }">
             <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped">
                 <colgroup>
-                    <col v-for="columnVM in visibleColumnVMs" :width="columnVM.computedWidth"></col>
+                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
                 </colgroup>
                 <thead><tr>
                     <th ref="th" :class="$style['head-title']" v-for="(columnVM, columnIndex) in visibleColumnVMs"
+                        :key="columnIndex"
                         :is-sub="columnVM.$attrs['is-sub']"
                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                         :vusion-node-path="columnVM.$attrs['vusion-node-path']"
@@ -55,7 +56,7 @@
         <div :class="$style.body" ref="body" :style="{ width: number2Pixel(tableWidth), height: number2Pixel(bodyHeight) }" @scroll="onBodyScroll">
             <u-table ref="bodyTable" :class="$style['body-table']" :line="line" :striped="striped">
                 <colgroup>
-                    <col v-for="columnVM in visibleColumnVMs" :width="columnVM.computedWidth"></col>
+                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
                 </colgroup>
                 <tbody>
                     <template v-if="(!currentLoading && !currentError || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
@@ -65,6 +66,7 @@
                                     <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title
                                         allowChild
                                         vusion-slot-name="cell"
+                                        :key="columnIndex"
                                         :vusion-next="true"
                                         :vusion-disabled-move="columnVM.$attrs['vusion-disabled-move']"
                                         :vusion-disabled-duplicate="columnVM.$attrs['vusion-disabled-duplicate']"
@@ -103,6 +105,7 @@
                                     <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" 
                                         :ellipsis="columnVM.ellipsis" 
                                         v-ellipsis-title
+                                        :key="columnIndex"
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                                         :vusion-disabled-move="columnVM.$attrs['vusion-disabled-move']"
                                         :vusion-disabled-duplicate="columnVM.$attrs['vusion-disabled-duplicate']"
@@ -213,7 +216,6 @@ import MEmitter from '../m-emitter.vue';
 import debounce from 'lodash/debounce';
 import isNumber from 'lodash/isNumber';
 import i18n from './i18n';
-import { rest } from 'lodash';
 
 export default {
     name: 'u-table-view',
@@ -1469,6 +1471,7 @@ export default {
 }
 
 .column-title {
+    font-size: var(--table-view-head-item-size);
     color: var(--table-view-head-item-color);
 }
 

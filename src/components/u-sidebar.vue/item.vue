@@ -48,6 +48,7 @@ export default {
 }
 
 .root:hover {
+    background: var(--sidebar-item-background-hover);
     color: var(--sidebar-item-color-hover);
 }
 

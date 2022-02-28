@@ -8,24 +8,29 @@
     line-height: 32px;
     padding-top: 0;
     padding-bottom: 0;
+    color: var(--select-popper-item-color);
+    background: var(--select-popper-item-background);
 }
 
 .root:hover {
-    background: var(--list-view-item-background-hover);
+    color: var(--select-popper-item-color-hover);
+    background: var(--select-popper-item-background-hover);
 }
 
 .root[readonly] {
     cursor: default !important;
-    background: var(--list-view-item-background-readonly);
+    color: var(--select-popper-item-color-readonly);
+    background: var(--select-popper-item-background-readonly);
 }
 
 .root[focused] {
-    background: var(--list-view-item-background-focused);
+    color: var(--select-popper-item-color-focused);
+    background: var(--select-popper-item-background-focused);
 }
 
 .root[selected] {
-    background: var(--list-view-item-background-selected);
-    color: var(--list-view-item-color-selected);
+    color: var(--select-popper-item-color-selected);
+    background: var(--select-popper-item-background-selected);
 }
 
 .root[disabled] {
@@ -35,16 +40,18 @@
 }
 
 .root[selected][disabled] {
-    background: var(--list-view-item-background-selected-disabled);
+    color: var(--select-popper-item-color-selected-disabled);
+    background: var(--select-popper-item-background-selected-disabled);
 }
 
 .root[duplicated] {
-    color: inherit;
-    background: none;
+    color: var(--select-popper-item-color-duplicated);
+    background: var(--select-popper-item-background-duplicated);
 }
 
 .root[duplicated]:hover {
-    background: var(--list-view-item-background-hover);
+    color: var(--select-popper-item-color-duplicated-hover);
+    background: var(--select-popper-item-background-duplicated-hover);
 }
 
 .root[isShowMultipleIcon]::before {
