@@ -39,8 +39,9 @@ export default {
     flex-direction: row;
 }
 .root[direction="vertical"] {
-    height: 100%;
+    /* height: 100%; */
     flex-direction: column;
+    min-height: 100px;
 }
 .root[direction="horizontal"][gap="shrink"] [class^="u-multi-layout_item"]:not(:last-child) {
     margin-right: var(--space-shrink);;

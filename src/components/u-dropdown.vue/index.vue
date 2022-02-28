@@ -37,7 +37,6 @@ export default {
     },
     data() {
         return {
-            // userInfo: {},
         }
     },
     components: {
@@ -45,7 +44,6 @@ export default {
         SEmpty,
     },
     created() {
-        this.$auth && this.$auth.getUserInfo().then((userInfo) => {this.userInfo = userInfo});
         this.$on('select', ({ itemVM }) => this.router && itemVM.navigate());
     },
     methods: {

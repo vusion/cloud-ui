@@ -23,49 +23,14 @@ export default {
     },
     data() {
         return {
-            userInfo: {},
-            noticeCount: 0,
-            noticeActive: false,
         };
     },
     watch: {
-        $route: {
-            immediate: true,
-            handler($route) {
-                this.noticeActive = $route.path.startsWith('/notice');
-            },
-        },
     },
     created() {
-        this.$auth && this.$auth.getUserInfo().then((userInfo) => this.userInfo = userInfo);
         this.$on('select', ({ itemVM }) => this.router && itemVM.navigate());
     },
-    // mounted() {
-    //     setTimeout(() => {
-    //         const el = document.querySelector('div[class^="l-root__"]');
-    //         this.$refs.multi.$el.setAttribute('vusion-scope-id', el && el.__vue__.$vnode.context.$options._scopeId);
-    //     }, 3000);
-    // },
     methods: {
-        logout() {
-            /* eslint-disable new-cap */
-            this.$confirm('确定退出登录吗？', '提示')
-                .then(() => this.$auth.logout())
-                .then(() => {
-                    this.eraseCookie();
-                    location.reload();
-                });
-        },
-        eraseCookie() {
-            const cookies = document.cookie.split(';');
-            cookies.forEach((cookie) => {
-                const eqPos = cookie.indexOf('=');
-                const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-                const d = new Date();
-                d.setTime(d.getTime() - (1 * 24 * 60 * 60 * 1000));
-                document.cookie = `${name}=; expires=${d.toGMTString()}; path=/`;
-            });
-        },
     },
 };
 </script>
