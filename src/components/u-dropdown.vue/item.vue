@@ -18,9 +18,6 @@ export default {
     props: {
     },
     parentName: 'u-dropdown',
-    mounted() {
-        console.log(this.parentVM, 8888)
-    }
 };
 </script>
 

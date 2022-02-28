@@ -44,8 +44,6 @@ export default {
     },
     methods: {
         pwh(mutationsList, observer) {
-            console.log(mutationsList);
-            console.log(observer);
             const dom = this.$refs.item;
             const ifwh = dom && (dom.style.height || dom.style.width);
             if (ifwh) {

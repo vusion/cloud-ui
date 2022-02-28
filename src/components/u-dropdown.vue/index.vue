@@ -1,25 +1,11 @@
 <template>
 <div :class="$style.root" :disabled="disabled">
     <div :class="$style.title" vusion-slot-name="title" no-for-edit vusion-click-enabled can-nodeinfo>
-        <!-- <u-linear-layout gap="small">
-            <template v-if="userInfo">
-                <u-image fit="cover" src="https://static-vusion.163yun.com/assets/avatar-default.svg" style="width: 36px; height: 36px; vertical-align: middle;"></u-image>
-            <span style="display: inline-block; vertical-align: top; margin-left: 10px; margin-right: 10px; color: white;">
-                <u-text :text="userInfo.UserName"></u-text>
-            </span>
-            </template>
-            <template v-else>
-                <u-dropdwon-item href="/login">登录</u-dropdwon-item>
-            </template>
-        </u-linear-layout> -->
         <slot name="title"></slot>
         <s-empty v-if="(!$slots.title && ($scopedSlots && !($scopedSlots.title && $scopedSlots.title()))) && $env.VUE_APP_DESIGNER"></s-empty>
     </div>
     <m-popper :class="$style.popper" :trigger="trigger" :placement="placement" :disabled="disabled" append-to="reference"
         :opened="opened" @update:opened="$emit('update:opened', $event)">
-        <!-- <u-dropdwon-item v-if="userInfo">
-            <div @click="logout">安全退出</div>
-        </u-dropdwon-item> -->
         <slot></slot>
     </m-popper>
 </div>
@@ -59,7 +45,7 @@ export default {
         SEmpty,
     },
     created() {
-        this.$auth && this.$auth.getUserInfo().then((userInfo) => {console.log(666, userInfo);this.userInfo = userInfo});
+        this.$auth && this.$auth.getUserInfo().then((userInfo) => {this.userInfo = userInfo});
         this.$on('select', ({ itemVM }) => this.router && itemVM.navigate());
     },
     methods: {
