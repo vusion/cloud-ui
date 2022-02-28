@@ -28,7 +28,7 @@
       title: 边框
       type: boolean
       default: true
-      description: 是否显示边框
+      description: 显示/隐藏边框
     - name: shadow
       title: 阴影
       type: string
