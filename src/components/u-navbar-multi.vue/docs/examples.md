@@ -9,8 +9,10 @@
             <u-text text="应用名称" size="large" style="color: white; --custom-start: auto; vertical-align: middle;"></u-text>
         </u-multi-layout-item>
     </template>
-    <u-navbar-item-multi>Item 1</u-navbar-item-multi>
-    <u-navbar-item-multi>Item 2</u-navbar-item-multi>
+    <u-multi-layout-item align-items="center">
+        <u-navbar-item-multi>Item 1</u-navbar-item-multi>
+        <u-navbar-item-multi>Item 2</u-navbar-item-multi>
+    </u-multi-layout-item>
     <template #right>
         <u-multi-layout-item align-items="center" justify-content="center">
             <u-dropdown style="margin-right: 10px;" v-if="userInfo">

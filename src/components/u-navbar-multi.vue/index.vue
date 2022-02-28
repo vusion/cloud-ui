@@ -1,10 +1,8 @@
 <template>
     <div :class="$style.root" :animation="animation" :readonly="readonly" :disabled="disabled">
-        <u-multi-layout :vusion-scope-id="$vnode.context.$options._scopeId" vusion-node-tag="u-multi-layout" ref="multi">
+        <u-multi-layout :vusion-scope-id="$vnode.context.$options._scopeId" vusion-node-tag="u-multi-layout">
             <slot name="left"></slot>
-            <u-multi-layout-item align-items="center">
-                <slot></slot>
-            </u-multi-layout-item>
+            <slot></slot>
             <slot name="right"></slot>
         </u-multi-layout>
     </div>

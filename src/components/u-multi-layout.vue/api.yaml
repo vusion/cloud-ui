@@ -55,6 +55,16 @@
       type: Boolean
       default: false
       description: 开启后滚动时该项固定显示
+    - name: direction
+      title: 排列方向
+      type: string
+      options:
+        - value: horizontal
+          title: 横向排列
+        - value: vertical
+          title: 纵向排列
+      default: horizontal
+      description: 布局中模块的排列方向
     - name: justify-content
       title: 横向对齐方式
       type: string

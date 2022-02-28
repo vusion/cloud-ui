@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :style="style" :fixed="String(fixed)" v-on="$listeners" vusion-slot-name="default" ref="item">
+<div :class="$style.root" :style="style" :direction="direction" :fixed="String(fixed)" v-on="$listeners" vusion-slot-name="default" ref="item">
     <slot></slot>
     <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
 </div>
@@ -25,6 +25,10 @@ export default {
         'align-items': {
             type: String,
             default: 'flex-start',
+        },
+        direction: {
+            type: String,
+            default: 'horizontal',
         },
     },
     data() {
@@ -84,5 +88,14 @@ export default {
 }
 .root > [class^="u-multi-layout__"][direction=horizontal] {
     height: 100%;
+}
+.root[direction="horizontal"] {
+    flex-direction: row;
+}
+.root[direction="vertical"] {
+    flex-direction: column;
+}
+.root > [class^="u-router-view_"] {
+    width: 100%;
 }
 </style>
