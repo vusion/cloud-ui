@@ -29,8 +29,8 @@
           title: 块级展示，宽度会充满父元素
       default: block
       description: ""
-    - name: gap
-      title: 间隔
+    - name: gap-width
+      title: 列间隔
       type: string
       options:
         - value: none
@@ -42,9 +42,21 @@
         - value: large
           title: 大
       default: normal
-      description: 表单项之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）
-      multi: true
-      maxSelect: 2
+      description: 设置表单列间隔大小
+    - name: gap-height
+      title: 行间隔
+      type: string
+      options:
+        - value: none
+          title: 无
+        - value: small
+          title: 小
+        - value: normal
+          title: 正常
+        - value: large
+          title: 大
+      default: normal
+      description: 设置表单行间隔大小
     - name: label-size
       title: 标签宽度
       type: string

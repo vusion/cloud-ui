@@ -284,22 +284,22 @@ export default {
     cursor: var(--cursor-not-allowed);
 }
 
-.root[size="mini"] .button {
+.root[size="mini"] .button , .root[height="mini"] .button {
     right: -1px;
     height: calc((100% - 1px) / 2);
     line-height: calc((100% / 2) + 4px);
 }
 
-.root[size*="huge"] .button {
+.root[size*="huge"] .button , .root[height="huge"] .button {
     height: calc(var(--input-height-huge) / 2 - 1px);
     line-height: calc(var(--input-height-huge) / 2 - 1px);
 }
 
-.root[size="mini"] .button[role="up"] {
+.root[size="mini"] .button[role="up"] , .root[height="mini"] .button[role="up"]{
     height: calc((100% - 1px) / 2 + 1px);
 }
 
-.root[size="mini"] .button[role="down"] {
+.root[size="mini"] .button[role="down"] , .root[height="mini"] .button[role="down"] {
     bottom: 0;
 }
 </style>

@@ -257,7 +257,9 @@ const VueDataSource = Vue.extend({
                 params.order = params.sorting.order;
             }
 
-            return this._load(params).then((result) => {
+            const extraParams = this._getExtraParams();
+
+            return this._load(params, extraParams).then((result) => {
                 this.initialLoaded = true;
 
                 // 支持 JDL

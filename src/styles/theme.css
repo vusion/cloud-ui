@@ -231,6 +231,8 @@
     --scrollbar-background-hover: rgba(92, 110, 130, 0.6);
     --scrollbar-background-hover-inverse: rgba(92, 110, 130, 0.6);
     --scrollbar-border-radius: 3px;
+    --scrollbar-border-color: rgba(92, 110, 130, 0.3);
+    --scrollbar-border-width: 4px;
 
     /**
      * ========================
@@ -672,12 +674,23 @@
     --table-view-sort-color: var(--brand-disabled); /* @hidden */
     --table-view-sort-color-active: var(--brand-primary); /* @hidden */
     --table-view-sort-size: 1em; /* @hidden */
-    --table-view-expander-size: 26px; /* @hidden */
+    --table-view-expander-size: 16px; /* @hidden */
     --table-view-row-selected-background: #f5f5f5; /* @hidden */
     --table-view-pagination-space: var(--space-base); /* @hidden */
     --table-view-row-hover-background: #f9f9f9;
     --table-view-tree-expander-loading-size: 10px;
     --table-view-tree-expander-loading-border-width: 1px;
+    --table-view-expander-border-radius: 4px;
+    --table-view-expander-background: #f5f5f5; 
+    --table-view-expander-background-hover: #e5e5e5;
+    --table-view-expander-background-disabled: #f5f5f5; 
+    --table-view-expander-color: #999;
+    --table-view-expander-color-hover: #333;
+    --table-view-expander-color-disabled: #ccc;
+    --table-view-expander-border-color: var(--table-view-expander-background);
+    --table-view-expander-border-color-hover: var(--table-view-expander-background-hover);
+    --table-view-expander-border-color-disabled: #e5e5e5;
+    --table-view-expand-td-background: #F7F8FA;
 
     /* @component u-list-view */
     --list-view-width: var(--width-medium);
@@ -801,10 +814,12 @@
     --form-item-margin-bottom: 20px;
     --form-item-margin-bottom-large: var(--space-large);
     --form-item-margin-bottom-small: var(--space-small);
+    --form-item-margin-bottom-none: 0;
     --form-required-color: var(--brand-error);
     --form-required-right: 12px;
     --form-required-right-small: 2px; /* @hidden */
     --form-required-right-large: 12px; /* @hidden */
+    --form-required-top: 7px;
     --form-item-text-color: var(--color-light);
 
     /* @component u-field @hidden */
@@ -1335,6 +1350,9 @@
     --datepicker-input-clear-icon-color: var(--input-clear-icon-color);
     --datepicker-popper-box-shadow: var(--select-popper-box-shadow);
     --datepicker-popper-border-radius: var(--border-radius-base);
+
+    /* @component u-date-time-picker */
+    --date-time-picker-width: 170px;
 
      /* @component u-taskbox @hidden */
     --taskbox-badge-box-shadow: none;

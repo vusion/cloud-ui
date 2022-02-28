@@ -120,6 +120,7 @@ export default {
 
 .label {
     display: inline-block;
+    width: var(--form-item-label-width);
     padding-right: var(--form-item-label-padding-right);
     color: var(--form-item-text-color);
     text-align: right;
@@ -133,7 +134,7 @@ export default {
     right: var(--form-required-right);
     height: 12px;
     line-height: 12px;
-    top: 7px;
+    top: var(--form-required-top);
 }
 
 .field {
