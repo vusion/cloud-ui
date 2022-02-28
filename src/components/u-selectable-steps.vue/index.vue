@@ -9,6 +9,7 @@ export default {
         readonly: { type: Boolean, default: false },
         counter: { type: Boolean, default: false },
         layout: { type: String, default: 'inline' },
+        direction: { type: String, default: 'row' },
     },
 };
 </script>
@@ -97,7 +98,7 @@ export default {
 .item[passed] .radio::before {
     position: relative;
     top: -1px;
-    icon-font: url('./assets/pass.svg');
+    icon-font: url("./assets/pass.svg");
 }
 
 .item[selected]:not([passed]) .radio {
@@ -107,11 +108,63 @@ export default {
 
 .item[selected]:not([passed]) .radio::before {
     display: inline-block;
-    content: '';
+    content: "";
     width: var(--steps-seleatable-radio-dot-width-selected);
     height: var(--steps-seleatable-radio-dot-height-selected);
     border-radius: 100px;
     background: var(--steps-seleatable-background-selected);
     top: 0;
+}
+
+.root[direction="column"] {
+    display: flex;
+}
+
+.root[direction="column"] .head {
+    flex-direction: column;
+    margin-right: 24px;
+}
+
+.root[direction="column"] .item {
+    min-height: 200px;
+    margin-right: 0;
+    margin-bottom: 16px;
+}
+
+.root[direction="column"] .item:last-child {
+    min-height: auto;
+    margin-bottom: 0;
+}
+
+.root[direction="column"] .item .item-body::after {
+    display: none;
+}
+
+.root[direction="column"] .item::after {
+    content: "";
+    width: 1px;
+    height: 160px;
+    display: block;
+    pointer-events: none;
+    background-color: var(--steps-item-radio-background);
+    margin-left: 11px;
+    margin: 16px 0 0 11px;
+}
+
+.root[direction="column"] .item[passed]::after {
+    background-color: var(--steps-item-radio-background-passed);
+}
+
+.root[direction="column"] .item:last-child::after {
+    display: none;
+}
+
+.root[direction="column"] .item[desc]::after {
+    margin-top: 0;
+}
+
+.root[direction="column"] .body {
+    margin-top: 0;
+    flex: 1;
 }
 </style>

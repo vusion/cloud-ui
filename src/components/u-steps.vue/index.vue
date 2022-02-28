@@ -1,5 +1,6 @@
 <template>
-<div :class="$style.root" :readonly="readonly" :disabled="disabled" :counter="counter" :layout="layout" :size="size">
+<div :class="$style.root" :readonly="readonly" :disabled="disabled"
+    :counter="counter" :layout="layout" :size="size" :direction="direction">
     <nav :class="$style.head">
         <a :class="$style.item"
             v-for="(itemVM, index) in itemVMs"
@@ -14,6 +15,7 @@
             :passed="selectedVM && index < selectedVM.index || value >= itemVMs.length && index <= value"
             :selected="selectedVM && index === selectedVM.index"
             :disabled="itemVM.disabled || disabled"
+            :desc="!!(itemVM.desc || itemVM.$slots.desc)"
             v-show="!itemVM.hidden"
             :style="{ width: currentItemWidth }">
             <div :class="$style['item-body']" :title="itemVM.title">

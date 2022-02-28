@@ -13,7 +13,7 @@
 
 .item-body {
     display: inline-block;
-    color: #666;
+    color: var(--font-fourth-color);
     cursor: var(--cursor-pointer);
     position: relative;
     z-index: 2;

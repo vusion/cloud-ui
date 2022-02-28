@@ -24,6 +24,16 @@
       type: boolean
       default: false
       description: ""
+    - name: direction
+      title: 步骤条方向
+      type: string
+      options:
+        - value: row
+          title: 横向
+        - value: column
+          title: 竖向
+      default: row
+      description: ""
     - name: size
       title: 尺寸
       type: string
