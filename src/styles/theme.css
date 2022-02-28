@@ -169,6 +169,7 @@
 
     --box-shadow-base: 0 0 4px rgba(3, 3, 3, .1);
     --box-shadow-small: 0px 2px 12px rgba(0, 0, 0, 0.06);
+    --box-shadow-small-hover: 0px 2px 16px rgba(0, 0, 0, 0.12);
     --box-shadow-large: 0px 2px 15px rgba(64, 69, 78, 0.15);
     --box-shadow-form-item-base: 0 0 0 2px rgba(77, 136, 255, 0.2);
 
@@ -251,7 +252,7 @@
     --panel-background: var(--background-color-default);
     --panel-border-color: var(--border-color-light);
     --panel-box-shadow: var(--box-shadow-small);
-    --panel-box-shadow-hover: 0px 2px 16px rgba(0, 0, 0, 0.12);
+    --panel-box-shadow-hover: var(--box-shadow-small-hover);
     --panel-head-padding-x: 24px;
     --panel-head-padding-y: 14px;
     --panel-body-padding-x: 24px;
@@ -285,7 +286,7 @@
     --card-background: var(--background-color-default);
     --card-border-color: var(--border-color-light);
     --card-box-shadow: var(--box-shadow-small);
-    --card-box-shadow-hover: 0px 2px 16px rgba(0, 0, 0, 0.12);
+    --card-box-shadow-hover: var(--box-shadow-small-hover);
     --card-head-padding-x: 12px;
     --card-head-padding-y: 10px;
     --card-body-padding-x: 12px;
@@ -1209,12 +1210,12 @@
      */
 
     /* @component u-popup */
-    --popup-padding: 6px 10px;
-    --popup-arrow-size: 8px;
-    --popup-arrow-offset: 16px;
+    --popup-padding: 5px 12px;
+    --popup-arrow-size: 4px;
+    --popup-arrow-offset: 17px;
     --popup-outer-arrow-size: calc(var(--popup-arrow-size) + 1px);
     --popup-background: white;
-    --popup-box-shadow: var(--box-shadow-base);
+    --popup-box-shadow: var(--box-shadow-small-hover);
     --popup-head-background: white;
     --popup-border-color: var(--border-color-base);
 
