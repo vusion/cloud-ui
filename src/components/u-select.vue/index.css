@@ -336,7 +336,7 @@
 .root[height="huge"] .item { line-height: calc(var(--select-height-huge) - var(--select-border-width) * 2); }
 .root[height="huge"] .popper { max-height: calc(6 * calc(var(--select-height-huge) - var(--select-border-width) * 2)); }
 
-.root[widht="full"] { width: 100%; padding: 0 var(--select-padding-x-full); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-full)); }
+.root[width="full"] { width: 100%; padding: 0 var(--select-padding-x-full); padding-right: calc(var(--select-arrow-size) * 7 / 9 + var(--select-arrow-right-ratio) * var(--select-padding-x-full)); }
 .root[width="full"] .item { padding: 0 var(--select-padding-x-full); }
 .root[height="full"] { height: 100%; }
 

@@ -131,8 +131,9 @@ export default {
     margin-right: var(--space-small);
 }
 
-.root[gap="small"][layout="inline"] .item > .item_label { padding-right: 10px; }
-/* gap转换成gap-height, gap-width */
+.root[gap="small"][layout="inline"] .item > .item_label { padding-right: var(--space-small); }
+
+/* gap转换成gap-height, gap-width, 保留gap为了历史遗留组件的样式兼容问题 */
 .root[gap-height="large"][layout="block"] .item:not(:last-child) {
   margin-bottom: var(--form-item-margin-bottom-large);
 }
@@ -141,8 +142,16 @@ export default {
   margin-right: var(--space-large);
 }
 
+.root[gap-width="none"][layout="inline"] .item:not(:last-child) {
+  margin-right: var(--form-item-margin-bottom-none);
+}
+
 .root[gap-height="small"][layout="block"] .item:not(:last-child) {
   margin-bottom: var(--form-item-margin-bottom-small);
+}
+
+.root[gap-height="none"][layout="block"] .item:not(:last-child) {
+  margin-bottom: var(--form-item-margin-bottom-none);
 }
 
 .root[gap-width="small"][layout="inline"] .item:not(:last-child) {
@@ -150,7 +159,7 @@ export default {
 }
 
 .root[gap-width="small"][layout="inline"] .item > .item_label {
-  padding-right: 10px;
+  padding-right: var(--space-small);
 }
 
 </style>
