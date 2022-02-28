@@ -3064,6 +3064,23 @@
                     ],
                     "default": "inline",
                     "description": "展示方式"
+                },
+                {
+                    "name": "hoverType",
+                    "title": "鼠标移动到上面的响应方式",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "underline",
+                            "title": "下划线"
+                        },
+                        {
+                            "value": "color",
+                            "title": "颜色变化"
+                        }
+                    ],
+                    "default": "underline",
+                    "description": "鼠标移动到上面的响应方式"
                 }
             ],
             "events": [
@@ -4751,8 +4768,7 @@
                     "type": "boolean",
                     "default": false,
                     "description": "表格行是否按斑马线条纹显示。",
-                    "group": "样式属性",
-                    "hidden": true
+                    "group": "样式属性"
                 },
                 {
                     "name": "hover",

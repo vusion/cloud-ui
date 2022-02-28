@@ -159,7 +159,6 @@
       default: false
       description: 表格行是否按斑马线条纹显示。
       group: 样式属性
-      hidden: true
     - name: hover
       title: 悬浮高亮行
       type: boolean
