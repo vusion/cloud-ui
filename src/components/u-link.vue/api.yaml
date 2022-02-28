@@ -100,6 +100,16 @@
           title: 块级展示，宽度会充满父元素
       default: inline
       description: 展示方式
+    - name: hoverType
+      title: 鼠标移动到上面的响应方式
+      type: string
+      options:
+        - value: underline
+          title: 下划线
+        - value: color
+          title: 颜色变化
+      default: underline
+      description: 鼠标移动到上面的响应方式
   events:
     - name: $listeners
       kind: trigger
