@@ -508,7 +508,7 @@
                     "--number-input-color": "color",
 
                     "--number-input-height": "input",
-                    "--number-input-background": "input",
+                    "--number-input-background": "color",
                     "--number-input-border-width": "input",
                     "--number-input-box-shadow-focus-color": "color",
                     "--number-input-box-shadow-focus": "input",

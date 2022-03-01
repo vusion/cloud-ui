@@ -43,6 +43,11 @@
       title: 按钮呈现形式
       type: string
       default: tail
+      options:
+        - value: tail
+          title: 尾部
+        - value: bothEnds
+          title: 两端
       description: 按钮呈现形式
     - name: placeholder
       title: 占位符
