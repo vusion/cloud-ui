@@ -1,25 +1,27 @@
 <template>
-<div :class="$style.root" ref="element" v-click-outside="handleClose">
+<div :class="$style.root" ref="element">
     <div :class="$style.head">
         <input :class="$style.input" :placeholder="placeholder" :value="dateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
-            @focus="toggle(true)" @change="onInput($event)">
+            @click.stop="toggle(true)" @change="onInput($event)" @focus="onFocus" @blur="onBlur">
          <span v-if="dateTime && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
             <i :class="[$style.closeIcon]"></i>
         </span>
     </div>
-    <div :class="$style.body" v-show="open">
-        <u-calendar :readonly="readonly" :year-diff="yearDiff" :year-add="yearAdd" :min-date="minCalendarDate" :max-date="maxCalendarDate" :date="showDate" @select="outRangeDateTime($event.date, showTime)">
-            <u-time-picker :class="$style.timePicker" :readonly="readonly" :time="showTime" width="50" :min-time="minTime" :max-time="maxTime" @change="outRangeDateTime(showDate, $event.time)"></u-time-picker>
-                <slot name="footer">
-                    <div :class="$style.footer">
-                        <u-linear-layout justify="end">
-                            <u-button size="small" @click="setDateNow()" :readonly="readonly" :disabled="disabled || disabledNow">{{ $t('now') }}</u-button>
-                            <u-button size="small" @click="toggle(false)" color="primary" :readonly="readonly" :disabled="disabled">{{ $t('submit') }}</u-button>
-                        </u-linear-layout>
-                    </div>
-                </slot>
-        </u-calendar>
-    </div>
+    <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="onPopperClose">
+        <div :class="$style.body" @click.stop>
+            <u-calendar :readonly="readonly" :year-diff="yearDiff" :year-add="yearAdd" :min-date="minCalendarDate" :max-date="maxCalendarDate" :date="showDate" @select="outRangeDateTime($event.date, showTime)">
+                <u-time-picker :class="$style.timePicker" :readonly="readonly" :time="showTime" width="50" :min-time="minTime" :max-time="maxTime" @change="outRangeDateTime(showDate, $event.time)"></u-time-picker>
+                    <slot name="footer">
+                        <div :class="$style.footer">
+                            <u-linear-layout justify="end">
+                                <u-button size="small" @click="setDateNow()" :readonly="readonly" :disabled="disabled || disabledNow">{{ $t('now') }}</u-button>
+                                <u-button size="small" @click="toggle(false)" color="primary" :readonly="readonly" :disabled="disabled">{{ $t('submit') }}</u-button>
+                            </u-linear-layout>
+                        </div>
+                    </slot>
+            </u-calendar>
+        </div>
+    </m-popper>
     <slot></slot>
 </div>
 </template>
@@ -46,7 +48,7 @@ import i18n from './i18n';
 export default {
     name: 'u-date-time-picker',
     i18n,
-    directives: { clickOutside },
+    // directives: { clickOutside },
     mixins: [MField],
     props: {
         disabled: { type: Boolean, default: false },
@@ -66,6 +68,19 @@ export default {
         yearAdd: { type: [String, Number], default: 20 },
         converter: { type: String, default: 'json' },
         clearable: { type: Boolean, default: false },
+        appendTo: {
+            type: String,
+            default: 'reference',
+            validator: (value) => ['body', 'reference'].includes(value),
+        },
+        opened: { type: Boolean, default: false },
+        alignment: {
+            type: String,
+            default: 'left',
+            validator(value) {
+                return ['left', 'right'].includes(value);
+            },
+        },
     },
     data() {
         return {
@@ -106,6 +121,12 @@ export default {
                 disabled = date > this.transformDate(currentMaxDate);
             }
             return disabled;
+        },
+        placement() {
+            if (this.alignment === 'left')
+                return 'bottom-start';
+            else if (this.alignment === 'right')
+                return 'bottom-end';
         },
     },
     watch: {
@@ -150,6 +171,12 @@ export default {
             'update',
             this.toValue(this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : ''),
         );
+    },
+    mounted() {
+        this.autofocus && this.$refs.input.focus();
+        // 在编辑器里不要打开
+        if(!this.$env.VUE_APP_DESIGNER)
+            this.toggle(this.opened);
     },
     methods: {
         clearValue() {
@@ -221,6 +248,7 @@ date = new Date(date);
                 sender: this,
                 date: new Date(date).getTime(),
             });
+            this.preventBlur = true;
         },
         /**
          * @method onDateTimeChange(date, time) 日期或时间改变后更新日期时间
@@ -277,16 +305,10 @@ time = '00:00:00';
             );
         },
         toggle(value) {
-            if (this.readonly)
-                this.open = false;
-            else
-                this.open = value;
+            this.$refs.popper && this.$refs.popper.toggle(value);
         },
         format,
         transformDate,
-        handleClose() {
-            this.open = false;
-        },
         getMaxDate(value) {
             value = value || this.maxDate;
             const minTime = new Date(this.minDate).getTime();
@@ -296,6 +318,31 @@ time = '00:00:00';
             else
                 return this.maxDate;
         },
+        /**
+         * @method toggle(flag) 是否显示日历组件
+         * @public
+         * @param {flag} true 显示 false 隐藏
+         */
+        onToggle($event) {
+            this.$emit('toggle', $event);
+            if($event && $event.opened){
+                this.preventBlur = true;
+            }
+        },
+        onBlur(e) { //只有autofocus的input的blur
+            if (this.preventBlur)
+                return (this.preventBlur = false);
+            this.$emit('blur', e, this);
+        },
+        onFocus(e) {
+            this.$emit('focus', e, this);
+        },
+        onPopperClose(e){
+            this.$emit('blur', e, this);
+            setTimeout(()=>{ // 为了不触发input的blur，否则会有两次blur
+                this.preventBlur = false;
+            }, 0);
+        }
     },
 };
 </script>
@@ -346,6 +393,16 @@ time = '00:00:00';
     color: var(--color-light);
 }
 
+.input:focus {
+    outline: var(--focus-outline);
+    border-color: var(--datepicker-input-border-color-focus);
+    box-shadow: var(--datepicker-input-box-shadow-focus);
+}
+
+.head:hover .input{
+    border-color: var(--datepicker-input-border-color-focus);
+}
+
 .timePicker {
     width: 100%;
     box-sizing: border-box;
@@ -358,7 +415,7 @@ time = '00:00:00';
 .wrap {
     position: absolute;
     text-align: center;
-    right: 10px;
+    right: 3px;
     top: 50%;
     transform: translateY(-50%);
 }

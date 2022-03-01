@@ -48,12 +48,16 @@
       type: boolean
       default: false
       description: ""
-    - name: autofocus
-      title: 文本框默认处于 focus
+    - name: opened
+      title: 弹出状态
       type: boolean
       default: false
-      description: 文本框默认处于focus
-      advanced: true
+      description: 切换弹出/关闭状态
+    - name: autofocus
+      title: 自动获取焦点
+      type: boolean
+      default: false
+      description: 是否自动获取焦点
     - name: placeholder
       title: 文本框默认提示
       type: string
@@ -154,3 +158,12 @@
         - name: $event.open
           type: boolean
           description: 弹出/隐藏状态
+    - name: blur
+      title: 失去焦点
+      description: 失去焦点时触发。
+      params:
+        - name: $event
+          type: FocusEvent
+          description: 原生事件对象
+        - name: senderVM
+          description: 发送事件实例

@@ -2,11 +2,11 @@
 <div :class="$style.header" :style="{ 
     width: `${width}px`
 }">
-    <input :class="$style.input" :placeholder="placeholder" @click.stop="$refs.popper.toggle(true)" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"  @change="onInput($event)" @focus="onFocus" @blur="onBlur" :color="formItemVM && formItemVM.color">
+    <input :class="$style.input" :placeholder="placeholder" @click.stop="toggle(true)" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" @change="onInput($event)" @focus="onFocus" @blur="onBlur" :color="formItemVM && formItemVM.color">
     <span v-if="showDate && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
         <i :class="[$style.closeIcon]"></i>
     </span>
-    <m-popper :class="$style.popper" ref="popper" append-to="reference" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="closeCalendar">
+    <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="closeCalendar">
         <div :class="$style.body" @click.stop>
             <u-calendar :picker="picker" ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="showDate" :value="date" @select="select($event.date)"></u-calendar>
         </div>
@@ -68,6 +68,12 @@ export default {
         yearAdd: { type: [String, Number], default: 20 },
         clearable: { type: Boolean, default: false },
         converter: { type: String, default: 'format' },
+        appendTo: {
+            type: String,
+            default: 'reference',
+            validator: (value) => ['body', 'reference'].includes(value),
+        },
+        opened: { type: Boolean, default: false },
     },
     data() {
         const date = this.date || this.value;
@@ -122,6 +128,12 @@ export default {
             'update',
             this.toValue(this.showDate ? new Date(this.transformDate(this.showDate)) : ''),
         );
+    },
+    mounted() {
+        this.autofocus && this.$refs.input.focus();
+        // 在编辑器里不要打开
+        if(!this.$env.VUE_APP_DESIGNER)
+            this.toggle(this.opened);
     },
     methods: {
         getFormatString() {
@@ -181,7 +193,7 @@ export default {
                 sender: this,
                 date: new Date(this.transformDate(showDate)),
             });
-            this.$refs.popper.toggle(false);
+            this.toggle(false);
         },
         /**
          * @method onInput($event) 输入日期
@@ -227,12 +239,19 @@ export default {
          */
         onToggle($event) {
             this.$emit('toggle', $event);
+            if($event && $event.opened){
+                this.preventBlur = true;
+            }
         },
         format,
         transformDate,
-        closeCalendar() {
+        closeCalendar(e) {
             if (this.showDate)
                 this.$refs.calendar.updateShowDate(this.showDate);
+            this.$emit('blur', e, this);
+            setTimeout(()=>{ // 为了不触发input的blur，否则会有两次blur
+                this.preventBlur = false;
+            }, 0);
         },
         returnTime(date) {
             if (!date)
@@ -263,10 +282,15 @@ export default {
             this.showDate = undefined;
         },
         onBlur(e) {
+            if (this.preventBlur)
+                return (this.preventBlur = false);
             this.$emit('blur', e, this);
         },
         onFocus(e) {
             this.$emit('focus', e, this);
+        },
+        toggle(value) {
+            this.$refs.popper && this.$refs.popper.toggle(value);
         },
     },
 };
