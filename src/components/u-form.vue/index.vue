@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" @submit.prevent :layout="layout">
+<div :class="$style.root" @submit.prevent :layout="layoutValue">
     <slot></slot>
 </div>
 </template>
@@ -32,6 +32,13 @@ export default {
         extraSlots() {
             return this.validatorVMs.some((itemVM) => itemVM.$slots.extra);
         },
+        layoutValue() {
+            if (this.repeat > 0) {
+                return 'inline'
+            } else {
+                return this.layout
+            }
+        }
     },
     watch: {
         model: {

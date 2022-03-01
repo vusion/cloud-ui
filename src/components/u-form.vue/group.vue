@@ -39,6 +39,13 @@ export default {
         currentSize() {
             return this.size || this.parentVM.size;
         },
+        layoutValue() {
+            if (this.repeat > 0) {
+                return 'inline';
+            } else {
+                return this.layout;
+            }
+        },
     },
 };
 </script>

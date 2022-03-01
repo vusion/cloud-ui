@@ -73,7 +73,7 @@
 使用栅格布局可以使多行表单对齐美观，设置 `repeat` 划分栅格数量，设置 `span` 占用对应空间。
 
 ``` html
-<u-form layout="inline" repeat="3">
+<u-form repeat="3">
     <u-form-item label="状态">
         <u-select auto-select>
             <u-select-item>认证中</u-select-item>

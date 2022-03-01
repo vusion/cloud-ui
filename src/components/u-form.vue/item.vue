@@ -77,6 +77,12 @@ export default {
             const width = this.getPercent(this.currentSpan);
             return { width };
         },
+        repeat() {
+            return (
+                (this.groupVM && this.groupVM.repeat)
+                || (this.parentVM && this.parentVM.repeat)
+            );
+        },
     },
     watch: {
         span(span) {
@@ -93,13 +99,8 @@ export default {
         //     this.$nextTick(() => this.validate('blur');
         // },
         getPercent(span) {
-            const isInline = this.parentVM && this.parentVM.layout === 'inline';
-            const repeat
-                = (this.groupVM && this.groupVM.repeat)
-                || (this.parentVM && this.parentVM.repeat);
-
-            if (isInline && repeat > 0) {
-                return (span / repeat) * 100 + '%';
+            if (this.repeat > 0) {
+                return (span / this.repeat) * 100 + '%';
             }
         },
     },
