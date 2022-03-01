@@ -28,11 +28,11 @@
       title: 步骤条方向
       type: string
       options:
-        - value: row
+        - value: horizontal
           title: 横向
-        - value: column
+        - value: vertical
           title: 竖向
-      default: row
+      default: horizontal
       description: ""
     - name: size
       title: 尺寸
@@ -132,6 +132,4 @@
       description: 插入文本或 HTML
     - name: title
       description: 自定义标题文本
-    - name: desc
-      description: 自定义描述信息
   description: 步骤条项

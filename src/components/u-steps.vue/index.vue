@@ -25,7 +25,7 @@
                     <f-slot name="tooltip" :vm="itemVM">{{ itemVM.tooltip }}</f-slot>
                 </u-tooltip>
             </div>
-            <span v-if="itemVM.desc || itemVM.$slots.desc" :class="$style.desc"><f-slot :vm="itemVM" name="desc">{{ itemVM.desc }}</f-slot></span>
+            <span v-if="itemVM.desc" :class="$style.desc">{{itemVM.desc}}</span>
         </a>
     </nav>
     <div :class="$style.body">
@@ -47,6 +47,8 @@ export default {
         layout: { type: String, default: 'block' },
         size: String,
         counter: { type: Boolean, default: true },
+        // direction暂时只支持USelectableSteps组件
+        direction: { type: String, default: 'horizontal' },
     },
     computed: {
         currentItemWidth() {

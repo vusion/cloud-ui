@@ -13,9 +13,9 @@
 对于一些操作项，可以使用 `extra` 插槽添加在详情列表组的右上角。
 
 ``` html
-<u-collapse>
+<u-collapse show-extra-empty-slot>
     <u-collapse-item title="面板1">
-        <template slot="extra">
+        <template #extra>
             <u-link>设置</u-link>
         </template>
         Content1

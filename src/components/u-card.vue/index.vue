@@ -1,8 +1,9 @@
 <template>
 <div :class="$style.root" v-on="$listeners" :shadow="shadow" :border="border" :split="split"
     :style="{width: /^\d+$/.test(width)? width+'px': width}" :designer="$env.VUE_APP_DESIGNER">
-    <div :class="$style.cover">
+    <div :class="$style.cover" vusion-slot-name="cover">
         <slot name="cover"></slot>
+        <s-empty v-if="(!$slots.cover) && $env.VUE_APP_DESIGNER"></s-empty>
     </div>
     <div :class="$style.head">
         <slot name="head">
@@ -17,7 +18,7 @@
     </div>
     <div :class="$style.body" vusion-slot-name="default">
         <slot>{{ content }}</slot>
-        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER" :class="$style.empty"></s-empty>
+        <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
     </div>
     <div :class="$style.foot">
         <slot name="foot">

@@ -8,7 +8,11 @@
             :expanded="currentExpanded"
             @click="parentVM.expandTrigger === 'click-expander' && ($event.stopPropagation(), toggle())"
         ></span>
-        <span :class="$style.extra"><slot name="extra"></slot></span>
+        <span :class="$style.extra" vusion-slot-name="extra">
+            <slot name="extra"></slot>
+            <!-- 使模板可控制empty-slot的显隐 -->
+            <s-empty v-if="parentVM.showExtraEmptySlot && (!$slots.extra) && $env.VUE_APP_DESIGNER"></s-empty>
+        </span>
     </div>
     <f-collapse-transition>
         <div :class="$style.body" v-show="currentExpanded">

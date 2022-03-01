@@ -17,6 +17,7 @@ export default {
         appear: String,
         disabled: { type: Boolean, default: false },
         fill: { type: String, default: 'head' },
+        showExtraEmptySlot: { type: Boolean, default: false },
     },
     data() {
         return {

@@ -16,9 +16,7 @@
 <u-selectable-steps :value="1">
     <u-selectable-step title="Step1" desc="步骤描述信息"></u-selectable-step>
     <u-selectable-step title="Step2" desc="步骤描述信息"></u-selectable-step>
-    <u-selectable-step title="Step3">
-        <span slot="desc">步骤描述信息</span>
-    </u-selectable-step>
+    <u-selectable-step title="Step3" desc="步骤描述信息"></u-selectable-step>
 </u-selectable-steps>
 ```
 

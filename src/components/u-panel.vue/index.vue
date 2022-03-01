@@ -6,8 +6,9 @@
                 <slot name="title">{{ title }}</slot>
             </div>
             <a :class="$style.close" @click="cancel()"></a>
-            <div :class="$style.extra">
+            <div :class="$style.extra" vusion-slot-name="extra">
                 <slot name="extra"></slot>
+                <s-empty v-if="(!$slots.extra) && $env.VUE_APP_DESIGNER"></s-empty>
             </div>
         </slot>
     </div>

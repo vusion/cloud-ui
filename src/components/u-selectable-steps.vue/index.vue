@@ -9,7 +9,7 @@ export default {
         readonly: { type: Boolean, default: false },
         counter: { type: Boolean, default: false },
         layout: { type: String, default: 'inline' },
-        direction: { type: String, default: 'row' },
+        direction: { type: String, default: 'horizontal' },
     },
 };
 </script>
@@ -116,31 +116,31 @@ export default {
     top: 0;
 }
 
-.root[direction="column"] {
+.root[direction="vertical"] {
     display: flex;
 }
 
-.root[direction="column"] .head {
+.root[direction="vertical"] .head {
     flex-direction: column;
     margin-right: 24px;
 }
 
-.root[direction="column"] .item {
+.root[direction="vertical"] .item {
     min-height: 200px;
     margin-right: 0;
     margin-bottom: 16px;
 }
 
-.root[direction="column"] .item:last-child {
+.root[direction="vertical"] .item:last-child {
     min-height: auto;
     margin-bottom: 0;
 }
 
-.root[direction="column"] .item .item-body::after {
+.root[direction="vertical"] .item .item-body::after {
     display: none;
 }
 
-.root[direction="column"] .item::after {
+.root[direction="vertical"] .item::after {
     content: "";
     width: 1px;
     height: 160px;
@@ -151,19 +151,19 @@ export default {
     margin: 16px 0 0 11px;
 }
 
-.root[direction="column"] .item[passed]::after {
+.root[direction="vertical"] .item[passed]::after {
     background-color: var(--steps-item-radio-background-passed);
 }
 
-.root[direction="column"] .item:last-child::after {
+.root[direction="vertical"] .item:last-child::after {
     display: none;
 }
 
-.root[direction="column"] .item[desc]::after {
+.root[direction="vertical"] .item[desc]::after {
     margin-top: 0;
 }
 
-.root[direction="column"] .body {
+.root[direction="vertical"] .body {
     margin-top: 0;
     flex: 1;
 }
