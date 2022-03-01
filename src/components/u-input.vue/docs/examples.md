@@ -8,10 +8,10 @@
 
 ### 加密
 
-将`type`属性设置为`password`可以加密显示。
+将`type`属性设置为`password`可以加密显示，`password` 属性增加密码显示按钮。
 
 ``` html
-<u-input type="password" maxlength="12" placeholder="请输入密码"></u-input>
+<u-input type="password" password maxlength="12" placeholder="请输入密码"></u-input>
 ```
 
 ### 双向绑定

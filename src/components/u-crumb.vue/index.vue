@@ -26,6 +26,8 @@ export default {
     mixins: [MParent],
     props: {
         auto: { type: Boolean, default: false },
+        separator: { type: String, default: 'arrow' },
+        icon: { type: Boolean, default: false },
     },
     data() {
         return {

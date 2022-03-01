@@ -55,6 +55,28 @@
 </u-collapse>
 ```
 
+### 填充模式
+
+内容填充
+
+``` html
+<u-collapse fill="content">
+    <u-collapse-item title="面板1" expanded>Content1</u-collapse-item>
+    <u-collapse-item title="面板2">Content2</u-collapse-item>
+    <u-collapse-item title="面板3">Content3</u-collapse-item>
+</u-collapse>
+```
+
+无填充
+
+``` html
+<u-collapse fill="none">
+    <u-collapse-item title="面板1" expanded>Content1</u-collapse-item>
+    <u-collapse-item title="面板2">Content2</u-collapse-item>
+    <u-collapse-item title="面板3">Content3</u-collapse-item>
+</u-collapse>
+```
+
 ### 简洁模式
 
 ``` html

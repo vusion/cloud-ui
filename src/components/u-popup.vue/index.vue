@@ -54,13 +54,26 @@ export default {
     min-width: 140px;
     background: var(--popup-background);
     border: 1px solid var(--popup-border-color);
-    box-shadow: var(--popup-box-shadow);
     z-index: var(--z-index-popper);
+    border-radius: var(--border-radius-base);
+    filter: drop-shadow(var(--popup-box-shadow));
+}
+.root > *:not(.arrow):first-of-type {
+    border-top-left-radius: var(--border-radius-base);
+    border-top-right-radius: var(--border-radius-base);
+}
+.root > *:not(.arrow):last-of-type {
+    border-bottom-left-radius: var(--border-radius-base);
+    border-bottom-right-radius: var(--border-radius-base);
 }
 .head {
     padding: var(--popup-padding);
     background: var(--popup-head-background);
     border-bottom: 1px solid var(--popup-border-color);
+    border-radius: var(--border-radius-base) var(--border-radius-base) 0 0;
+}
+.head + div {
+    padding-top: 0;
 }
 .title {
     font-weight: var(--font-weight-bold);
@@ -89,7 +102,6 @@ export default {
     background: var(--popup-background);
     border-radius: calc(0.5*var(--popup-arrow-size));
     border: 1px solid var(--popup-border-color);
-    box-shadow: var(--popup-box-shadow);
     transform: translate(-50%) rotate(45deg);
 }
 /**
@@ -103,7 +115,7 @@ export default {
 }
 .root[data-popper-placement^="top"] { margin-bottom: var(--popup-arrow-size); }
 .root[data-popper-placement^="top"] .arrow {
-    bottom: calc(-1.4 * var(--popup-arrow-size) + 1px);
+    bottom: calc(-1.4 * var(--popup-arrow-size));
     transform: translateX(-50%);
 }
 .root[data-popper-placement^="top"] .arrow::before {
@@ -122,7 +134,7 @@ export default {
 }
 .root[data-popper-placement^="bottom"] { margin-top: var(--popup-arrow-size); }
 .root[data-popper-placement^="bottom"] .arrow {
-    top: calc(-1.4 * var(--popup-arrow-size) + 1px);
+    top: calc(-1.4 * var(--popup-arrow-size));
     transform: translateX(-50%);
 }
 .root[data-popper-placement^="bottom"] .arrow::before {
@@ -143,7 +155,7 @@ export default {
 .root[data-popper-placement^="left"] .arrow {
     height: calc(1.4*2*var(--popup-arrow-size));
     width: calc(1.4*var(--popup-arrow-size));
-    right: calc(-1.4 * var(--popup-arrow-size) + 1px);
+    right: calc(-1.4 * var(--popup-arrow-size));
     transform: translateY(-50%);
 }
 .root[data-popper-placement^="left"] .arrow::before {
@@ -166,7 +178,7 @@ export default {
 .root[data-popper-placement^="right"] .arrow {
     height: calc(1.4*2*var(--popup-arrow-size));
     width: calc(1.4*var(--popup-arrow-size));
-    left: calc(-1.4 * var(--popup-arrow-size) + 1px);
+    left: calc(-1.4 * var(--popup-arrow-size));
     transform: translateY(-50%);
 }
 .root[data-popper-placement^="right"] .arrow::before {

@@ -8,6 +8,9 @@
   nested: false
   slots:
     - name: default
+      description: 插入默认的元素
+    - name: cover
+      description: 插入图片
   attrs:
     - name: title
       title: 标题
@@ -33,7 +36,12 @@
       title: 边框
       type: boolean
       default: true
-      description: 是否展示卡片边框
+      description: 是否显示卡片边框
+    - name: split
+      title: 分割线
+      type: boolean
+      default: false
+      description: 是否显示分割线
   events:
     - name: $listeners
       kind: trigger
@@ -53,3 +61,5 @@
   slots:
     - name: default
       description: 插入默认的元素
+    - name: cover
+      description: 插入图片
