@@ -2249,7 +2249,7 @@
             "Layout"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-panel.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-panel.vue/screenshots/1.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-panel title=\\\"任务总览\\\">\\n    任务内容\\n</u-panel>\\n</template>\\n\"},{\"title\":\"面板分组\",\"description\":\"\",\"code\":\"<template>\\n<u-panel title=\\\"服务\\\">\\n    <u-panel-group title=\\\"当天概览\\\">\\n        概览内容\\n    </u-panel-group>\\n    <u-panel-group title=\\\"事务分组\\\">\\n        事务内容\\n    </u-panel-group>\\n</u-panel>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-panel title=\\\"任务总览\\\">任务内容</u-panel>\\n</template>\\n\"},{\"title\":\"面板分组\",\"description\":\"\",\"code\":\"<template>\\n<u-panel title=\\\"服务\\\">\\n    <u-panel-group title=\\\"当天概览\\\">概览内容</u-panel-group>\\n    <u-panel-group title=\\\"事务分组\\\">事务内容</u-panel-group>\\n</u-panel>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-panel",
             "title": "面板",
@@ -2261,12 +2261,12 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-panel title=\"任务总览\">\n    任务内容\n</u-panel>\n</template>\n"
+                    "code": "<template>\n<u-panel title=\"任务总览\">任务内容</u-panel>\n</template>\n"
                 },
                 {
                     "title": "面板分组",
                     "description": "",
-                    "code": "<template>\n<u-panel title=\"服务\">\n    <u-panel-group title=\"当天概览\">\n        概览内容\n    </u-panel-group>\n    <u-panel-group title=\"事务分组\">\n        事务内容\n    </u-panel-group>\n</u-panel>\n</template>\n"
+                    "code": "<template>\n<u-panel title=\"服务\">\n    <u-panel-group title=\"当天概览\">概览内容</u-panel-group>\n    <u-panel-group title=\"事务分组\">事务内容</u-panel-group>\n</u-panel>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -2583,7 +2583,7 @@
             "Layout"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-card.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-card title=\\\"卡片总览\\\">\\n    卡片内容\\n</u-card>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-card title=\\\"卡片总览\\\">卡片内容</u-card>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-card",
             "title": "卡片",
@@ -2595,7 +2595,7 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-card title=\"卡片总览\">\n    卡片内容\n</u-card>\n</template>\n"
+                    "code": "<template>\n<u-card title=\"卡片总览\">卡片内容</u-card>\n</template>\n"
                 }
             ],
             "attrs": [
