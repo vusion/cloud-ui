@@ -11,7 +11,7 @@
         <span :class="$style.extra" vusion-slot-name="extra">
             <slot name="extra"></slot>
             <!-- 使模板可控制empty-slot的显隐 -->
-            <s-empty v-if="parentVM.showExtraEmptySlot && (!$slots.extra) && $env.VUE_APP_DESIGNER"></s-empty>
+            <s-empty v-if="parentVM.showExtraEmptySlot && (!$slots.extra) && $env.VUE_APP_DESIGNER" :class="$style.emptySlot"></s-empty>
         </span>
     </div>
     <f-collapse-transition>
@@ -134,7 +134,7 @@ export default {
 }
 
 .expander::before {
-    icon-font: url('i-material-design.vue/assets/filled/keyboard_arrow_right.svg');
+    icon-font: url("i-material-design.vue/assets/filled/keyboard_arrow_right.svg");
 }
 
 .expander[expanded] {
@@ -154,9 +154,15 @@ export default {
     float: right;
 }
 
+.emptySlot {
+    width: auto;
+}
+
 .body {
     border-top: var(--collapse-border-width) solid var(--collapse-border-color);
-    transition: var(--collapse-transition-duration) height ease-in-out, var(--collapse-transition-duration) padding-top ease-in-out, var(--collapse-transition-duration) padding-bottom ease-in-out;
+    transition: var(--collapse-transition-duration) height ease-in-out,
+        var(--collapse-transition-duration) padding-top ease-in-out,
+        var(--collapse-transition-duration) padding-bottom ease-in-out;
 }
 
 .content {
