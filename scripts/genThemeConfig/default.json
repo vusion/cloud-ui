@@ -270,7 +270,7 @@
     "--text-color-error": "var(--brand-error)",
     "--text-color-disabled": "var(--brand-disabled-dark)",
 
-    "--link-color": "#337eff",
+    "--link-color": "var(--brand-primary)",
     "--link-color-success": "var(--brand-success)",
     "--link-color-warning": "var(--brand-warning)",
     "--link-color-danger": "var(--brand-danger)",
