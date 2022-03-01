@@ -35,6 +35,7 @@ export default {
 
 <style module>
 .root {
+    width: 100%;
     user-select: none;
     height: var(--navbar-height);
     /* display: flex;
