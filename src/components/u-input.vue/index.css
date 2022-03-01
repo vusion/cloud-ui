@@ -96,7 +96,7 @@
 }
 
 .root:hover {
-    border-color: var(--input-border-color-focus);
+    border-color: var(--input-border-color-hover);
 }
 
 .root[focus] {

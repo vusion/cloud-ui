@@ -108,7 +108,8 @@
     --input-border-radius: 4px;
     --input-icon-color: rgba(255,255,255,0.6);
     --input-border-color-focus: #4c88FF;
-    --input-box-shadow-focus: 0 0 0 2px rgba(76, 136, 255, 0.25);
+    --input-box-shadow-focus-color: rgba(76, 136, 255, 0.25);
+    --input-box-shadow-focus: 0 0 0 2px var(--input-box-shadow-focus-color);
     --input-height-small: 32px;
     --input-placeholder-color: var(--color-light);
     --input-padding-x: 8px;
@@ -185,7 +186,7 @@
     --form-group-head-padding: 8px 10px;
     --form-group-head-line-height: 1;
     --form-group-space: 10px;
-    --form-item-text-color: #aaaaaa;
+    --form-item-label-color: #aaaaaa;
     --form-table-head-background: transparent;
     --form-table-head-color: #aaaaaa;
     --form-table-head-padding: 0;

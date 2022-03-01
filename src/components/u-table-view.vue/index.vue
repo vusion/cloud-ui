@@ -9,10 +9,11 @@
         <div v-if="showHead" :class="$style.head" ref="head" :style="{ width: number2Pixel(tableWidth) }">
             <u-table :class="$style['head-table']" :color="color" :line="line" :striped="striped">
                 <colgroup>
-                    <col v-for="columnVM in visibleColumnVMs" :width="columnVM.computedWidth"></col>
+                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
                 </colgroup>
                 <thead><tr>
                     <th ref="th" :class="$style['head-title']" v-for="(columnVM, columnIndex) in visibleColumnVMs"
+                        :key="columnIndex"
                         :is-sub="columnVM.$attrs['is-sub']"
                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                         :vusion-node-path="columnVM.$attrs['vusion-node-path']"
@@ -55,7 +56,7 @@
         <div :class="$style.body" ref="body" :style="{ width: number2Pixel(tableWidth), height: number2Pixel(bodyHeight) }" @scroll="onBodyScroll">
             <u-table ref="bodyTable" :class="$style['body-table']" :line="line" :striped="striped">
                 <colgroup>
-                    <col v-for="columnVM in visibleColumnVMs" :width="columnVM.computedWidth"></col>
+                    <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
                 </colgroup>
                 <tbody>
                     <template v-if="(!currentLoading && !currentError || pageable === 'auto-more' || pageable === 'load-more') && currentData && currentData.length">
@@ -65,12 +66,14 @@
                                     <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" :ellipsis="columnVM.ellipsis" v-ellipsis-title
                                         allowChild
                                         vusion-slot-name="cell"
+                                        :key="columnIndex"
                                         :vusion-next="true"
                                         :vusion-disabled-move="columnVM.$attrs['vusion-disabled-move']"
                                         :vusion-disabled-duplicate="columnVM.$attrs['vusion-disabled-duplicate']"
                                         :vusion-disabled-cut="columnVM.$attrs['vusion-disabled-cut']"
                                         :vusion-node-tag="columnVM.$attrs['vusion-node-tag']"
                                         :vusion-template-cell-node-path="columnVM.$attrs['vusion-template-cell-node-path']"
+                                        :vusion-template-editcell-node-path="columnVM.$attrs['vusion-template-editcell-node-path']"
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                                         :vusion-node-path="columnVM.$attrs['vusion-node-path']">
                                         <!--可视化占据的虚拟填充区域-->
@@ -97,12 +100,18 @@
                                                 <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
                                             </f-slot>
                                        </div>
+                                       <div v-if="columnVM.type === 'editable'" vusion-slot-name="editcell" :plus-empty="columnVM.$attrs['editcell-plus-empty']" style="margin-top:10px">
+                                           <f-slot name="editcell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                                <span v-if="columnVM.field" vusion-slot-name="editcell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
+                                            </f-slot>
+                                       </div>
                                     </td>
                                 </template>
                                 <template v-else>
                                     <td ref="td" :class="$style.cell" v-for="(columnVM, columnIndex) in visibleColumnVMs" 
                                         :ellipsis="columnVM.ellipsis" 
                                         v-ellipsis-title
+                                        :key="columnIndex"
                                         :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
                                         :vusion-disabled-move="columnVM.$attrs['vusion-disabled-move']"
                                         :vusion-disabled-duplicate="columnVM.$attrs['vusion-disabled-duplicate']"
@@ -126,9 +135,28 @@
                                                 <span :class="$style.tree_placeholder" v-else></span>
                                             </template>
                                             <!-- Normal text -->
-                                            <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
-                                                <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
-                                            </f-slot>
+                                            <template v-if="columnVM.type === 'editable'">
+                                                <div @dblclick="onSetEditing(item, columnVM)" :class="$style.editablewrap">
+                                                    <div>
+                                                        <template v-if="item.editing === columnVM.field">
+                                                            <f-slot name="editcell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                                                <span v-if="columnVM.field" vusion-slot-name="editcell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
+                                                            </f-slot>
+                                                        </template>
+                                                        <template v-else>
+                                                            <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                                                <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
+                                                            </f-slot>
+                                                        </template>
+                                                    </div>
+                                                </div>
+                                            </template>
+                                            <template v-else>
+                                                <f-slot name="cell" :vm="columnVM" :props="{ item, value: $at(item, columnVM.field), columnVM, rowIndex, columnIndex, index: rowIndex }">
+                                                    <span v-if="columnVM.field" vusion-slot-name="cell" :class="$style['column-field']">{{ columnVM.currentFormatter.format($at(item, columnVM.field)) }}</span>
+                                                </f-slot>
+                                            </template>
+                                            
                                     </td>
                                 </template>
                             </tr>
@@ -213,7 +241,6 @@ import MEmitter from '../m-emitter.vue';
 import debounce from 'lodash/debounce';
 import isNumber from 'lodash/isNumber';
 import i18n from './i18n';
-import { rest } from 'lodash';
 
 export default {
     name: 'u-table-view',
@@ -488,6 +515,7 @@ export default {
             const selectable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'radio');
             const checkable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'checkbox');
             const expandable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'expander');
+            const editable = this.visibleColumnVMs.some((columnVM) => columnVM.type === 'editable');
             if (selectable) {
                 data.forEach((item) => {
                     if (!item.hasOwnProperty('disabled'))
@@ -506,6 +534,12 @@ export default {
                 data.forEach((item) => {
                     if (!item.hasOwnProperty('expanded'))
                         this.$set(item, 'expanded', false);
+                });
+            }
+            if (editable) {
+                data.forEach((item) => {
+                    if (!item.hasOwnProperty('editing'))
+                        this.$set(item, 'editing', '');
                 });
             }
             return data;
@@ -560,8 +594,7 @@ export default {
             return isNumber(value) ? value + 'px' : '';
         },
         handleResize() {
-            this.tableWidth = undefined;
-            // this.bodyHeight = undefined;
+            this.bodyHeight = undefined;
             this.clearTimeout();
             this.timer = setTimeout(() => {
                 this.timer = undefined;
@@ -1223,6 +1256,13 @@ export default {
             });
             this.$forceUpdate(); // 有loading的情况下，forceUpdate才会更新
         },
+        onSetEditing(item, columnVM) {
+            const fieldName = columnVM.field;
+            item.editing = fieldName;
+            if(columnVM.dblclickHandler){
+                columnVM.dblclickHandler({ item, columnVM });
+            }
+        }
     },
 };
 </script>
@@ -1231,6 +1271,29 @@ export default {
 .root {
     position: relative;
     /* 不能加这句，会使分页器的 Select 无法显示！ overflow: hidden; */
+}
+
+.root[editable] td{
+    padding-top: 4px;
+    padding-bottom: 4px;
+    min-height: var(--table-view-editable-td-min-height);
+    height: 1px;
+}
+.editablewrap{
+    display: table;
+    width: 100%;
+    height: 100%;
+    table-layout: fixed;
+    min-height: var(--table-view-editable-td-min-height);
+}
+.editablewrap > div {
+    display: table-cell;
+    vertical-align: middle;
+}
+.cell[ellipsis] .editablewrap > div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .title {
@@ -1469,6 +1532,7 @@ export default {
 }
 
 .column-title {
+    font-size: var(--table-view-head-item-size);
     color: var(--table-view-head-item-color);
 }
 

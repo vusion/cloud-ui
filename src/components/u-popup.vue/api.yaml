@@ -63,7 +63,7 @@
         - value: right-end
           title: 右下
       default: bottom-start
-      description: 弹出框的弹出方向。
+      description: 弹出框弹出方向
     - name: hide-delay
       title: 消失延迟时间
       type: number

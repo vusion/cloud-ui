@@ -23,6 +23,22 @@
 <u-link color="danger" text="危险链接"></u-link>&nbsp;
 ```
 
+### 鼠标悬停状态为颜色变化
+
+用`hoverType`属性修改鼠标悬停状态。
+
+``` html
+<u-link href="#" text="默认颜色" hoverType="color"></u-link>&nbsp;
+<u-link href="#" hoverType="color" color="light"  text="浅色链接">
+    <u-tooltip>
+        <u-link href="#" color="light">浅色链接</u-link>一般用于深色背景
+    </u-tooltip>
+</u-link>&nbsp;
+<u-link hoverType="color" color="success" text="成功链接"></u-link>&nbsp;
+<u-link hoverType="color" color="warning" text="警告链接"></u-link>&nbsp;
+<u-link hoverType="color" color="danger" text="危险链接"></u-link>&nbsp;
+```
+
 ### 禁用状态
 
 链接在禁用状态下，不会响应点击事件。
