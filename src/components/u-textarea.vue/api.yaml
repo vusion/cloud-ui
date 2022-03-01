@@ -46,7 +46,7 @@
       type: boolean
       default: null
       description: ""
-      advanced: true
+      designer-value: false
     - name: readonly
       title: 只读
       type: boolean

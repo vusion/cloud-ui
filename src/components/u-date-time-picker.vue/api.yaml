@@ -39,6 +39,7 @@
       type: boolean
       default: false
       description: 是否自动获取焦点
+      designer-value: false
     - name: clearable
       title: 清除按钮
       type: boolean

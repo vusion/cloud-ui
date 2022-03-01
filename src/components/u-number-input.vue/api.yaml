@@ -47,6 +47,7 @@
       title: 自动获取焦点
       type: boolean
       description: ""
+      designer-value: false
     - name: hide-buttons
       title: 隐藏按钮
       type: boolean
