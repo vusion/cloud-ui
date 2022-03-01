@@ -247,7 +247,7 @@ export default {
 }
 
 .root:hover {
-    border-color: var(--number-input-border-color-focus);
+    border-color: var(--number-input-border-color-hover);
 }
 
 .root[focus] {
@@ -379,9 +379,27 @@ export default {
     color: #989898;
 }
 
-.root[readonly] .button:hover::before { color: #989898; }
+.root[readonly] .button:hover::before {
+     color: #989898; 
+}
 
-.root[disabled] .button:hover::before { color: #989898; }
+.root[disabled] .button:hover::before {
+    color: #989898; 
+}
+
+.root[disabled] {
+    background: var(--number-input-background-disabled);
+    color: var(--number-input-color-disabled);
+    border-color: var(--number-input-border-color-disabled);
+}
+
+.root[disabled][buttonDisplay="tail"] .button {
+    background: var(--number-input-button-background-disabled);
+}
+
+.root[disabled][buttonDisplay="bothEnds"] .button {
+    background: var(--number-input-button-both-ends-background-disabled);
+}
 
 .button[disabled] {
     background: var(--number-input-button-background-disabled);

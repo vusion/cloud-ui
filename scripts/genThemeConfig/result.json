@@ -455,11 +455,11 @@
                     "--input-border-color": "color",
                     "--input-border-color-hover": "color",
                     "--input-border-color-focus": "color",
+                    "--input-border-color-disabled": "color",
                     "--input-box-shadow-focus-color": "color",
                     "--input-box-shadow-focus": "input",
                     "--input-placeholder-color": "color",
                     "--input-border-radius": "input",
-                    
                     "--input-width-mini": "input",
                     "--input-width-small": "input",
                     "--input-width": "input",
@@ -503,12 +503,19 @@
                     "--number-input-button-both-ends-background-active": "color",
                     "--number-input-button-background-focus": "color",
                     "--number-input-button-both-ends-background-focus": "color",
-                    "--number-input-border-color": "color",
-                    "--number-input-border-color-focus": "color",
-                    "--number-input-color": "color",
+                    "--number-input-button-background-disabled": "color",
+                    "--number-input-button-both-ends-background-disabled": "color",
 
+                    "--number-input-border-color": "color",
+                    "--number-input-border-color-hover": "color",
+                    "--number-input-border-color-focus": "color",
+                    "--number-input-border-color-disabled": "color",
+
+                    "--number-input-color": "color",
+                    "--number-input-color-disabled": "color",
                     "--number-input-height": "input",
                     "--number-input-background": "color",
+                    "--number-input-background-disabled": "color",
                     "--number-input-border-width": "input",
                     "--number-input-box-shadow-focus-color": "color",
                     "--number-input-box-shadow-focus": "input",
@@ -516,7 +523,7 @@
                     "--number-input-button-outline": "input"
                 },
                 "preview": {
-                    "template": "<div>\n        <u-number-input :value=\"6\"></u-number-input>\n        <u-number-input button-display=\"bothEnds\" :value=\"6\"></u-number-input>\n    </div>"
+                    "template": "<div>\n        <div class=\"componentClassTitle\">进本用法</div>\n        <u-number-input></u-number-input>\n        <u-number-input button-display=\"bothEnds\"></u-number-input>\n        <div class=\"componentClassTitle\">禁用</div>\n        <u-number-input :value=\"6\" disabled></u-number-input>\n        <u-number-input button-display=\"bothEnds\" :value=\"6\" disabled></u-number-input>\n    </div>"
                 }
             },
             {
