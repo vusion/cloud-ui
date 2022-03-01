@@ -266,7 +266,7 @@ export default {
     height: var(--number-input-button-height);
     line-height: var(--number-input-button-height);
     right: 0;
-    border-left: 1px solid var(--border-color-base);
+    border-left: 1px solid var(--number-input-border-color);
     padding: var(--number-input-button-padding);
     background: var(--number-input-button-background);
 }
@@ -307,7 +307,7 @@ export default {
 
 .root[buttonDisplay="tail"] .button[role="up"] {
     top: 0;
-    border-bottom: 1px solid var(--number-input-button-border);
+    border-bottom: 1px solid var(--number-input-border-color);
     border-top-right-radius: var(--number-input-button-border-radius);
 }
 
@@ -317,7 +317,7 @@ export default {
 }
 
 .root[buttonDisplay="tail"] .button[role="up"] {
-    border-bottom: 1px solid var(--number-input-button-border);
+    border-bottom: 1px solid var(--number-input-border-color);
     border-top-right-radius: var(--number-input-button-border-radius);
 }
 
@@ -336,14 +336,14 @@ export default {
 
 .root[buttonDisplay="bothEnds"] .button[role="up"] {
     right: 0;
-    border-left: 1px solid var(--number-input-both-ends-button-border);
+    border-left: 1px solid var(--number-input-border-color);
     border-top-right-radius: var(--number-input-button-border-radius);
     border-bottom-right-radius: var(--number-input-button-border-radius);
 }
 
 .root[buttonDisplay="bothEnds"] .button[role="down"] {
     left: 0;
-    border-right: 1px solid var(--number-input-both-ends-button-border);
+    border-right: 1px solid var(--number-input-border-color);
     border-top-left-radius: var(--number-input-button-border-radius);
     border-bottom-left-radius: var(--number-input-button-border-radius);
 }
@@ -364,32 +364,27 @@ export default {
     width: 1em;
     display: inline-block;
     font-size: 16px;
-    color: #989898;
 }
 
-.root[buttonDisplay="tail"] .button:hover::before {
-    color: var(--number-input-icon-color-hover);
+.root[buttonDisplay="tail"] .button:hover, 
+.root[buttonDisplay="bothEnds"] .button:hover {
+    color: var(--number-input-button-color-hover);
 }
 
-.root[buttonDisplay="bothEnds"] .button:hover::before {
-    color: var(--number-input-icon-color-hover);
-}
-
-.root .button[disabled]:hover::before {
-    color: #989898;
-}
-
-.root[readonly] .button:hover::before {
-     color: #989898; 
-}
-
-.root[disabled] .button:hover::before {
-    color: #989898; 
+.root .button[disabled]:hover, 
+.root[readonly] .button:hover, 
+.root[disabled] .button:hover {
+     color: var(--number-input-button-color-disabled);
 }
 
 .root[disabled] {
     background: var(--number-input-background-disabled);
     color: var(--number-input-color-disabled);
+    border-color: var(--number-input-border-color-disabled);
+}
+
+.root[disabled] .button[role="up"],
+.root[disabled] .button[role="down"] {
     border-color: var(--number-input-border-color-disabled);
 }
 
@@ -401,7 +396,11 @@ export default {
     background: var(--number-input-button-both-ends-background-disabled);
 }
 
-.button[disabled] {
+.button {
+    color: var(--number-input-button-color);
+}
+
+.root[disabled] .button, .button[disabled] {
     background: var(--number-input-button-background-disabled);
     color: var(--number-input-button-color-disabled);
     cursor: var(--cursor-not-allowed);
@@ -411,12 +410,6 @@ export default {
 .root[readonly] .button {
     background: var(--number-input-button-background);
     cursor: default;
-}
-
-.root[disabled] .button {
-    background: var(--number-input-button-background-disabled);
-    color: var(--number-input-button-color-disabled);
-    cursor: var(--cursor-not-allowed);
 }
 
 .root[size="mini"] .button , .root[height="mini"] .button {

@@ -25,6 +25,9 @@
         <u-input maxlength="12" size="large normal" placeholder="1~12位小写字母" autofocus style="margin-bottom: 20px;"></u-input>
         <div class="componentClassTitle">高度巨大</div>
         <u-input maxlength="12" size="huge normal" placeholder="1~12位小写字母" autofocus style="margin-bottom: 20px;"></u-input>
+
+        <div class="componentClassTitle">禁用</div>
+        <u-input value="禁用" maxlength="12" placeholder="1~12位小写字母" autofocus style="margin-bottom: 20px;" disabled></u-input>
     </div>
 </template>
 

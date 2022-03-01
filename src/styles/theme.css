@@ -976,9 +976,12 @@
     --textarea-border-radius: var(--border-radius-base);
     --textarea-padding: 5px 10px;
     --textarea-color: var(--color-base);
+    --textarea-color-disabled: var(--input-color-disabled);
     --textarea-border-color: var(--border-color-base);
     --textarea-border-color-focus: var(--input-border-color-focus);
+    --textarea-border-color-disabled: var(--textarea-border-color);
     --textarea-background: var(--background-color-disabled-light);
+    --textarea-background-disabled: var(--input-background-disabled);
     --textarea-placeholder-color: var(--color-lighter);
     --textarea-box-shadow-focus-color: rgba(77, 136, 255, 0.2);
     --textarea-box-shadow-focus:  0 0 0 2px var(--textarea-box-shadow-focus-color);
@@ -989,7 +992,12 @@
     --number-input-background: var(--input-background);
     --number-input-background-disabled: var(--input-background-disabled);
     --number-input-color: var(--input-color);
-    --number-input-color-disabled: var(--number-input-color);
+    --number-input-color-disabled: #999999;
+
+    --number-input-button-color: #989898;
+    --number-input-button-color-hover: var(--brand-primary);
+    --number-input-button-color-disabled: #CCCCCC;
+
     --number-input-border-width: var(--input-border-width);
     --number-input-border-radius: var(--input-border-radius);
     --number-input-border-color: var(--input-border-color);
@@ -1015,11 +1023,7 @@
 
     --number-input-button-outline: var(--focus-outline);
     --number-input-button-both-ends-outline: var(--number-input-button-outline);
-    --number-input-button-color-disabled: var(--brand-disabled);
-    --number-input-icon-color-hover: var(--brand-primary);
     --number-input-button-border-radius: var(--input-border-radius);
-    --number-input-button-border: var(--border-color-base);
-    --number-input-both-ends-button-border: var(--border-color-base);
 
     /* @component u-radio as u-radios */
     --radio-space-x: 32px;
