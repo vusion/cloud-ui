@@ -1,5 +1,8 @@
 <template>
 <div :class="$style.root">
+    <div :class="$style.cover">
+        <slot name="cover"></slot>
+    </div>
     <div :class="$style.head" v-if="title">
         {{ title }}
     </div>
@@ -38,5 +41,15 @@ export default {
 
 .body {
     /* padding-bottom: var(--); */
+}
+
+.cover {
+    padding: 0;
+    margin-left: calc(var(--card-head-padding-x) * (-1));
+    margin-right: calc(var(--card-head-padding-x) * (-1));
+}
+
+.cover > * {
+    vertical-align: middle;
 }
 </style>

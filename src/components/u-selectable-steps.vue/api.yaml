@@ -119,7 +119,7 @@
     - name: desc
       title: 描述信息
       type: string
-      default: null
+      default: ""
       description: 步骤描述信息
     - name: disabled
       title: 禁用
