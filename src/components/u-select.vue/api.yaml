@@ -165,7 +165,7 @@
         - value: mini
           title: 迷你
       default: normal
-      description: 设置选择框宽度
+      description: 设置选择框宽度大小
     - name: height
       title: 高度
       type: string
@@ -185,7 +185,7 @@
         - value: mini
           title: 迷你
       default: normal
-      description: 设置选择框高度
+      description: 设置选择框高度大小
     - name: opened
       title: 弹出状态
       type: boolean
