@@ -39,6 +39,10 @@
   next: false
   nexted: false
   attrs:
+    - name: icon
+      title: 图标
+      type: icon
+      description: 面包屑图标
     - name: text
       title: 文本
       type: string
@@ -107,10 +111,6 @@
       type: boolean
       default: false
       description: 是否不可点击。如果为`true`，则不会响应`click`事件。
-    - name: icon
-      title: 图标
-      type: string
-      description: 面包屑图标
   events:
     - name: $listeners
       kind: trigger

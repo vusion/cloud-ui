@@ -49,7 +49,7 @@
   title: 详情列表项
   attrs:
     - name: label
-      title: 标签
+      title: 标签名
       type: string
       description: ""
     - name: span

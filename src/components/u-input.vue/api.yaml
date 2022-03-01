@@ -26,7 +26,12 @@
     - name: clearable
       title: 清除按钮
       type: boolean
-      description: 开启并在输入框有内容时会显示清除按钮。
+      description: 开启并在输入框有内容时会显示清除按钮
+    - name: password
+      title: 显示/隐藏密码
+      type: boolean
+      default: false
+      description: 切换密码的显示/隐藏
     - name: placeholder
       title: 占位符
       type: string

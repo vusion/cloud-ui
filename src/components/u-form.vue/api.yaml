@@ -29,6 +29,11 @@
           title: 块级展示，宽度会充满父元素
       default: block
       description: ""
+    - name: repeat
+      title: 列数
+      type: number
+      default: 1
+      description: 整个表单的划分列数
     - name: gap-width
       title: 列间隔
       type: string
@@ -204,7 +209,12 @@
     - name: label
       title: 标签名
       type: string
-      description: 标签名。用于左侧显示，同时用于提示消息的合成。
+      description: 用于左侧显示，同时用于提示消息的合成
+    - name: span
+      title: 占据数
+      type: string
+      default: 1
+      description: 列跨越的格数
     - name: label-size
       title: 标签大小
       type: string
@@ -373,6 +383,11 @@
       type: string
       default: null
       description: 显示的标题
+    - name: repeat
+      title: 列数
+      type: number
+      default: 1
+      description: 整个表单的划分列数
     - name: collapsible
       title: 是否可折叠
       type: boolean
