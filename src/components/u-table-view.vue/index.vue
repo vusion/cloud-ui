@@ -594,10 +594,7 @@ export default {
             return isNumber(value) ? value + 'px' : '';
         },
         handleResize() {
-            if(!this.$env.VUE_APP_DESIGNER){ // tableWidth为undefined，会导致滚动条滚动到最左边。在编辑器里不要滚动
-                this.tableWidth = undefined;
-            }
-            // this.bodyHeight = undefined;
+            this.bodyHeight = undefined;
             this.clearTimeout();
             this.timer = setTimeout(() => {
                 this.timer = undefined;
