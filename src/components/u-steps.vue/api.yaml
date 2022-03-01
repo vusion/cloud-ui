@@ -88,6 +88,6 @@
       description: 是否禁用此标签页
   slots:
     - name: default
-      description: 插入文本或 HTML。
+      description: 插入文本或 HTML
     - name: title
-      description: 自定义标题文本。
+      description: 自定义标题文本

@@ -90,6 +90,7 @@
     /* Component Base Colors */
     --background-color-default: white; /* body 默认的背景 */
     --background-color-default-inverse: #17181f; /* body 默认的背景 */
+    --background-color-lightest: #f4f4f4;
     --background-color-lighter: #f4f6f9; /* 选择框的 hover 颜色 */
     --background-color-lighter-inverse: #33353d; /* 选择框的 hover 颜色 */
     --background-color-light: #f4f6f9; /* 表格等组件标题栏颜色 */
@@ -126,6 +127,7 @@
     --space-mini: 4px;
     --space-base: 16px;
     --space-small: 10px;
+    --space-medium: 24px;
     --space-large: 30px;
     --space-huge: 40px;
 
@@ -146,7 +148,7 @@
     --height-huge: 42px;
     --border-radius-mini: 2px;
     --border-radius-base: 4px;
-    --border-radius-medium: 4px;
+    --border-radius-medium: 5px;
     --border-radius-large: 4px;
 
     /* Fonts */
@@ -166,6 +168,8 @@
     --font-weight-bolder: bolder;
 
     --box-shadow-base: 0 0 4px rgba(3, 3, 3, .1);
+    --box-shadow-small: 0px 2px 12px rgba(0, 0, 0, 0.06);
+    --box-shadow-small-hover: 0px 2px 16px rgba(0, 0, 0, 0.12);
     --box-shadow-large: 0px 2px 15px rgba(64, 69, 78, 0.15);
     --box-shadow-form-item-base: 0 0 0 2px rgba(77, 136, 255, 0.2);
 
@@ -236,19 +240,25 @@
      * ========================
      */
 
+    /* @layouts l-dashboard */
+    --dashboard-background: var(--background-color-lightest);
+
     /* @component u-crumb */
     --crumb-color-link: var(--brand-primary);
-    --crumb-color-disabled: var(--brand-disabled);
-    --crumb-space-x: 6px;
+    --crumb-color-disabled: var(--gray-darker);
+    --crumb-space-x: 5px;
 
     /* @component u-panel */
     --panel-border-width: 1px;
-    --panel-border-radius: var(--border-radius-base);
+    --panel-border-radius: var(--border-radius-medium);
     --panel-background: var(--background-color-default);
     --panel-border-color: var(--border-color-light);
-    --panel-box-shadow: var(--box-shadow-large);
-    --panel-head-padding: var(--space-base);
-    --panel-body-padding: var(--space-base);
+    --panel-box-shadow: var(--box-shadow-small);
+    --panel-box-shadow-hover: var(--box-shadow-small-hover);
+    --panel-head-padding-x: 24px;
+    --panel-head-padding-y: 14px;
+    --panel-body-padding-x: 24px;
+    --panel-body-padding-y: 18px;
     --panel-title-font-size: 18px;
     --panel-title-font-weight: bold;
 
@@ -256,7 +266,8 @@
     --collapse-border-width: var(--border-width-base);
     --collapse-border-color: var(--border-color-base);
     --collapse-border-radius: var(--border-radius-base);
-    --collapse-item-head-background: var(--background-color-light);
+    --collapse-item-head-background: var(--background-color-default);
+    --collapse-item-fill-background: var(--background-color-light);
     --collapse-item-head-color-disabled: var(--brand-disabled-dark);
     --collapse-item-head-padding: 10px 20px 10px 40px;
     --collapse-item-head-padding-small: 6px 8px 6px 32px; /* @hidden */
@@ -276,12 +287,13 @@
     --card-border-radius: var(--border-radius-base);
     --card-background: var(--background-color-default);
     --card-border-color: var(--border-color-light);
-    --card-box-shadow: var(--box-shadow-base);
+    --card-box-shadow: var(--box-shadow-small);
+    --card-box-shadow-hover: var(--box-shadow-small-hover);
     --card-head-padding-x: 12px;
-    --card-head-padding-y: 8px;
+    --card-head-padding-y: 10px;
     --card-body-padding-x: 12px;
-    --card-body-padding-y: 8px;
-    --card-title-font-size: 16px;
+    --card-body-padding-y: 12px;
+    --card-title-font-size: 18px;
     --card-title-font-weight: bold;
 
     /* @component u-navbar @hidden */
@@ -443,7 +455,7 @@
     --button-height-medium: var(--height-medium);
     --button-height-large: var(--height-large);
     --button-height-huge: var(--height-huge); /* @hidden */
-    
+
     /* 上下边距 */
     --button-padding-y-mini: var(--button-padding-y);
     --button-padding-y-small: var(--button-padding-y);
@@ -551,10 +563,10 @@
     --button-font-weight: normal;
     --button-border-width: var(--border-width-base);
     --button-border-radius: var(--border-radius-medium);
-    
-    
-    
-    
+
+
+
+
 
 
 
@@ -742,9 +754,9 @@
     --table-view-tree-expander-loading-size: 10px;
     --table-view-tree-expander-loading-border-width: 1px;
     --table-view-expander-border-radius: 4px;
-    --table-view-expander-background: #f5f5f5; 
+    --table-view-expander-background: #f5f5f5;
     --table-view-expander-background-hover: #e5e5e5;
-    --table-view-expander-background-disabled: #f5f5f5; 
+    --table-view-expander-background-disabled: #f5f5f5;
     --table-view-expander-color: #999;
     --table-view-expander-color-hover: #333;
     --table-view-expander-color-disabled: #ccc;
@@ -960,7 +972,7 @@
     --textarea-height-large: 120px;
     --textarea-height-huge: 200px;
     --textarea-min-height: var(--height-base);
-    --textarea-border-radius: var(--border-radius-medium);
+    --textarea-border-radius: var(--border-radius-base);
     --textarea-padding: 5px 10px;
     --textarea-color: var(--color-base);
     --textarea-border-color: var(--border-color-base);
@@ -1259,11 +1271,12 @@
 
     /* @component u-steps */
     --steps-item-width: 200px;
-    --steps-item-color-disabled: #bbb;
+    --steps-item-color-disabled: var(--brand-disabled-dark);
     --steps-item-radio-size: 24px;
     --steps-item-radio-size-large: 24px;
     --steps-item-radio-background: var(--border-color-base);
     --steps-item-radio-background-passed: var(--brand-primary);
+    --steps-item-radio-background-disabled: var(--background-color-disabled);
     --steps-item-radio-color-passed: white;
     --steps-item-radio-border-color-hover: var(--brand-primary);
     --steps-seleatable-item-width: 140px;
@@ -1272,7 +1285,7 @@
     --steps-seleatable-background-selected: var(--brand-primary);
     --steps-seleatable-item-body-background: white;
     --steps-seleatable-radio-background: white;
-    --steps-seleatable-radio-border-color: var(--border-color-base);
+    --steps-seleatable-radio-border-color: var(--color-lighter);
     --steps-seleatable-radio-border-color-disabled: var(--steps-seleatable-radio-border-color);
     --steps-seleatable-radio-background-selected: white;
     --steps-seleatable-radio-dot-width-selected: 10px;
@@ -1289,17 +1302,18 @@
     --pagination-item-padding: 0;
     --pagination-item-background: transparent;
     --pagination-item-background-hover: var(--pagination-item-background);
-    --pagination-item-border-color-hover: var(--brand-primary);
-    --pagination-item-background-selected: #4d88ff;
+    --pagination-item-background-selected: var(--brand-primary);
     --pagination-item-background-disabled-selected: var(--pagination-item-background);
     --pagination-item-background-blank: none;
-    --pagination-item-color: var(--gray-darker);
-    --pagination-item-color-hover: #4d88ff;
-    --pagination-item-color-selected: var(--background-color-default);
+    --pagination-item-color: var(--color-base);
+    --pagination-item-color-hover: var(--brand-primary);
+    --pagination-item-color-selected: var(--color-white);
     --pagination-item-color-disabled: var(--gray-light);
     --pagination-item-color-blank: var(--color-base);
     --pagination-item-color-blank-disabled: var(--brand-disabled);
-    --pagination-item-border-color: #ccc;
+    --pagination-item-border-color: var(--border-color-base);
+    --pagination-item-border-color-hover: var(--brand-primary);
+    --pagination-item-border-color-selected: var(--brand-primary);
     --pagination-item-border-radius: var(--border-radius-base);
     --pagination-item-border-radius-left: var(--pagination-item-border-radius);
     --pagination-item-border-radius-right: var(--pagination-item-border-radius);
@@ -1345,12 +1359,12 @@
      */
 
     /* @component u-popup */
-    --popup-padding: 6px 10px;
-    --popup-arrow-size: 8px;
-    --popup-arrow-offset: 16px;
+    --popup-padding: 5px 12px;
+    --popup-arrow-size: 4px;
+    --popup-arrow-offset: 17px;
     --popup-outer-arrow-size: calc(var(--popup-arrow-size) + 1px);
     --popup-background: white;
-    --popup-box-shadow: var(--box-shadow-base);
+    --popup-box-shadow: var(--box-shadow-small-hover);
     --popup-head-background: white;
     --popup-border-color: var(--border-color-base);
 
@@ -1460,7 +1474,7 @@
     --calendar-background: var(--field-background);
     --calendar-border-radius: var(--border-radius-base);
 
-    
+
     --calendar-item-color: #555;
     --calendar-item-border-radius: 50%;
     --calendar-item-border-color: transparent;
@@ -1475,7 +1489,7 @@
     --calendar-item-background-selected: var(--brand-primary);
 
     --calendar-item-color-muted: var(--color-light);
-   
+
     --calendar-item-color-disabled: var(--color-light);
     --calendar-item-background-disabled: var(--field-background);
 
@@ -1510,7 +1524,7 @@
 
     --datetime-input-border-color: var(--input-border-color);
     --datetime-input-border-width: var(--input-border-width);
-    
+
     --datetime-input-padding-x: 8px;
     --datetime-input-placeholder-color: var(--input-placeholder-color);
     --datetime-input-border-radius: 3px;

@@ -11,7 +11,10 @@ export default {
     name: 'u-step',
     parentName: 'u-steps',
     extends: UTab,
-    props: { value: { type: Number, default: 0 } },
+    props: {
+        value: { type: Number, default: 0 },
+        desc: { type: String, default: null },
+    },
     computed: {
         index() {
             return this.parentVM && this.parentVM.itemVMs.indexOf(this);

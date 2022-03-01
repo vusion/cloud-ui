@@ -24,6 +24,16 @@
       type: boolean
       default: false
       description: ""
+    - name: direction
+      title: 步骤条方向
+      type: string
+      options:
+        - value: horizontal
+          title: 横向
+        - value: vertical
+          title: 竖向
+      default: horizontal
+      description: ""
     - name: size
       title: 尺寸
       type: string
@@ -105,7 +115,12 @@
       title: 标题
       type: string
       default: null
-      description: ""
+      description: 步骤标题文本
+    - name: desc
+      title: 描述信息
+      type: string
+      default: ""
+      description: 步骤描述信息
     - name: disabled
       title: 禁用
       type: boolean
@@ -114,7 +129,7 @@
   slots:
     - name: default
       plus-empty: true
-      description: 插入文本或 HTML。
+      description: 插入文本或 HTML
     - name: title
-      description: 自定义标题文本。
+      description: 自定义标题文本
   description: 步骤条项

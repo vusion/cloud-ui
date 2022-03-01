@@ -27,16 +27,24 @@ export default {
     name: 'u-form-group',
     parentName: 'u-form',
     childName: 'u-form-item',
-    extends: MGroup,
     components: {
         SEmpty,
     },
+    extends: MGroup,
     props: {
         size: String,
+        repeat: { type: [String, Number], default: null },
     },
     computed: {
         currentSize() {
             return this.size || this.parentVM.size;
+        },
+        layoutValue() {
+            if (this.repeat > 0) {
+                return 'inline';
+            } else {
+                return this.layout;
+            }
         },
     },
 };
