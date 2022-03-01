@@ -42,7 +42,7 @@
     - name: buttonDisplay
       title: 按钮呈现形式
       type: string
-      default: "tail"
+      default: tail
       description: 按钮呈现形式
     - name: placeholder
       title: 占位符
