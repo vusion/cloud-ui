@@ -109,6 +109,7 @@
                     "simple"
                 ],
                 "cssProperty": {
+                    "--collapse-item-fill-background": "color",
                     "--collapse-border-width": "input",
                     "--collapse-border-color": "color",
                     "--collapse-border-radius": "input",
@@ -311,7 +312,7 @@
                     "--button-height-medium": "input",
                     "--button-height-large": "input",
                     "--button-height-huge": "input",
-                    
+
 
                     "--button-padding-y-mini": "input",
                     "--button-padding-y-small": "input",
@@ -333,19 +334,19 @@
                     "--button-background": "color",
                     "--button-background-danger": "color",
                     "--button-background-danger-secondary": "color",
-                
+
                     "--button-background-primary-hover": "color",
                     "--button-background-primary-secondary-hover": "color",
                     "--button-background-hover": "color",
                     "--button-background-danger-hover": "color",
                     "--button-background-danger-secondary-hover": "color",
-                
+
                     "--button-background-primary-active": "color",
                     "--button-background-primary-secondary-active": "color",
                     "--button-background-active": "color",
                     "--button-background-danger-active": "color",
                     "--button-background-danger-secondary-active": "color",
-                
+
                     "--button-background-primary-disabled": "color",
                     "--button-background-primary-secondary-disabled": "color",
                     "--button-background-disabled": "color",
@@ -364,13 +365,13 @@
                     "--button-border-color-hover": "color",
                     "--button-border-color-danger-hover": "color",
                     "--button-border-color-danger-secondary-hover": "color",
-                
+
                     "--button-border-color-primary-active": "color",
                     "--button-border-color-primary-secondary-active": "color",
                     "--button-border-color-active": "color",
                     "--button-border-color-danger-active": "color",
                     "--button-border-color-danger-secondary-active": "color",
-                
+
                     "--button-border-color-primary-disabled": "color",
                     "--button-border-color-primary-secondary-disabled": "color",
                     "--button-border-color-disabled": "color",
@@ -408,8 +409,8 @@
                     "--button-color-disabled": "color",
                     "--button-color-danger-disabled": "color",
                     "--button-color-danger-secondary-disabled": "color",
-                    
-                    
+
+
                     "--button-border-width": "input",
                     "--button-border-radius": "input",
                     "--button-box-shadow-focus-color": "color",
@@ -479,7 +480,6 @@
                     "--input-padding-x-large": "input",
                     "--input-padding-x-huge": "input",
                     "--input-border-width": "input",
-                    
                     "--input-background": "color",
                     "--input-background-disabled": "color",
                     "--input-color": "color",
@@ -522,7 +522,7 @@
                     "--number-input-button-color-hover": "color",
                     "--number-input-button-color-disabled": "color",
 
-                   
+
 
                     "--number-input-height": "input",
                     "--number-input-border-width": "input",
@@ -659,7 +659,7 @@
                     "--select-popper-border-color": "color",
                     "--select-popper-border-color-inverse": "color",
                     "--select-status-color": "color",
-                    "--select-box-shadow-focus": "input",                    
+                    "--select-box-shadow-focus": "input",
                     "--select-popper-item-color-readonly": "color",
                     "--select-popper-item-background-readonly": "color",
                     "--select-popper-item-color-selected-disabled": "color",
@@ -757,7 +757,7 @@
                     "--table-head-background": "color",
                     "--table-view-head-item-size": "input",
                     "--table-row-background-striped": "color",
-                    
+
                     "--table-view-head-item-color": "color",
                     "--table-background": "color",
                     "--table-border-color": "color",
