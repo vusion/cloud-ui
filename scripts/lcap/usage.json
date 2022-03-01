@@ -8399,7 +8399,8 @@
                     "title": "自动获取焦点",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否自动获取焦点"
+                    "description": "是否自动获取焦点",
+                    "designer-value": false
                 },
                 {
                     "name": "readonly",
@@ -8869,7 +8870,8 @@
                     "name": "autofocus",
                     "title": "自动获取焦点",
                     "type": "boolean",
-                    "description": ""
+                    "description": "",
+                    "designer-value": false
                 },
                 {
                     "name": "hide-buttons",
@@ -9202,7 +9204,7 @@
                     "type": "boolean",
                     "default": null,
                     "description": "",
-                    "advanced": true
+                    "designer-value": false
                 },
                 {
                     "name": "readonly",
@@ -11077,7 +11079,8 @@
                     "title": "自动获取焦点",
                     "type": "boolean",
                     "default": false,
-                    "description": ""
+                    "description": "",
+                    "designer-value": false
                 },
                 {
                     "name": "prefix",
@@ -15129,7 +15132,8 @@
                     "title": "自动获取焦点",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否自动获取焦点"
+                    "description": "是否自动获取焦点",
+                    "designer-value": false
                 },
                 {
                     "name": "placeholder",
@@ -15396,7 +15400,7 @@
                     "type": "boolean",
                     "default": false,
                     "description": "是否自动获得焦点",
-                    "advanced": true
+                    "designer-value": false
                 },
                 {
                     "name": "readonly",
@@ -15545,7 +15549,8 @@
                     "title": "自动获取焦点",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否自动获取焦点"
+                    "description": "是否自动获取焦点",
+                    "designer-value": false
                 },
                 {
                     "name": "clearable",
