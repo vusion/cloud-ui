@@ -197,6 +197,7 @@
       type: boolean
       default: false
       description: ""
+      designer-value: false
     - name: prefix
       title: 前缀图标
       type: string

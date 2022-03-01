@@ -58,6 +58,7 @@
       type: boolean
       default: false
       description: 是否自动获取焦点
+      designer-value: false
     - name: placeholder
       title: 文本框默认提示
       type: string
