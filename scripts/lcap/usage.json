@@ -3067,7 +3067,7 @@
                 },
                 {
                     "name": "hoverType",
-                    "title": "鼠标移动到上面的响应方式",
+                    "title": "鼠标悬停状态",
                     "type": "string",
                     "options": [
                         {
@@ -3080,7 +3080,7 @@
                         }
                     ],
                     "default": "underline",
-                    "description": "鼠标移动到上面的响应方式"
+                    "description": "鼠标悬停时的样式变化方式"
                 }
             ],
             "events": [
@@ -8793,20 +8793,25 @@
         "labels": [
             "Form"
         ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-number-input.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-number-input :value=\\\"6\\\"></u-number-input>\\n</template>\\n\"}]",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-number-input.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-number-input.vue/screenshots/1.png",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-number-input :value=\\\"6\\\"></u-number-input>\\n</template>\\n\"},{\"title\":\"按钮样式\",\"description\":\"\",\"code\":\"<template>\\n<u-number-input button-display=\\\"bothEnds\\\" :value=\\\"6\\\"></u-number-input>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-number-input",
             "title": "数字输入",
             "description": "输入数字时使用",
             "category": "Form",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-number-input.vue/screenshots/0.png",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-number-input.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-number-input.vue/screenshots/1.png",
             "drawings": "",
             "blocks": [
                 {
                     "title": "基本用法",
                     "description": "",
                     "code": "<template>\n<u-number-input :value=\"6\"></u-number-input>\n</template>\n"
+                },
+                {
+                    "title": "按钮样式",
+                    "description": "",
+                    "code": "<template>\n<u-number-input button-display=\"bothEnds\" :value=\"6\"></u-number-input>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -8853,23 +8858,6 @@
                     "type": "string, object",
                     "description": "格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。",
                     "advanced": true
-                },
-                {
-                    "name": "buttonDisplay",
-                    "title": "按钮呈现形式",
-                    "type": "string",
-                    "default": "tail",
-                    "options": [
-                        {
-                            "value": "tail",
-                            "title": "尾部"
-                        },
-                        {
-                            "value": "bothEnds",
-                            "title": "两端"
-                        }
-                    ],
-                    "description": "按钮呈现形式"
                 },
                 {
                     "name": "placeholder",
