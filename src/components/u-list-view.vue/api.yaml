@@ -136,7 +136,7 @@
           title: 正常
         - value: auto
           title: 自适应
-      default: normal
+      default: auto
       description: 设置数据列表宽度
       group: 样式属性
     - name: height
@@ -153,7 +153,7 @@
           title: 正常
         - value: auto
           title: 自适应
-      default: normal
+      default: auto
       description: 设置数据列表高度
       group: 样式属性
     - name: loading-text
