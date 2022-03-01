@@ -67,3 +67,12 @@
         - name: time
           type: object
           description: 改变后的时间
+    - name: blur
+      title: 失去焦点
+      description: 失去焦点时触发。
+      params:
+        - name: $event
+          type: FocusEvent
+          description: 原生事件对象
+        - name: senderVM
+          description: 发送事件实例

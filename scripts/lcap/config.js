@@ -44,6 +44,7 @@ module.exports = [
     { group: 'Form', show: true, name: 'u-rate', alias: '评分' },
     { group: 'Form', show: true, name: 'u-combo-slider', alias: '滑块' },
     { group: 'Form', show: true, name: 'u-uploader', alias: '文件上传' },
+    { group: 'Form', show: true, name: 'u-validator', alias: '验证器' },
 
     { group: 'Selector', show: true, name: 'u-tabs', alias: '选项卡' },
     { group: 'Selector', show: true, name: 'u-selectable-steps', alias: '步骤条', vscode: false },

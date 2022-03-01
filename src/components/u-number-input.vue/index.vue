@@ -2,7 +2,7 @@
     <u-input ref="input" :class="$style.root" :buttonDisplay="buttonDisplay" :value="formattedValue"
         :readonly="readonly" :disabled="disabled" :clearable="clearable"
         @keydown.native.up.prevent="increase" @keydown.native.down.prevent="decrease" @keydown.native.enter="onEnter"
-        @input="onInput" @focus="onFocus" @blur="onBlur" v-bind="$attrs" v-on="listeners">
+        @input="onInput" @focus="onFocus" @blur="onBlur" v-bind="$attrs" v-on="listeners" v-click-outside="handleClickOutside">
         <span :class="$style.button" v-if="!hideButtons" :disabled="currentValue >= max" role="up" v-repeat-click="increase"
             tabindex="0" @keydown.prevent></span>
         <span :class="$style.button" v-if="!hideButtons" :disabled="currentValue <= min" role="down" v-repeat-click="decrease"
@@ -13,13 +13,13 @@
 
 <script>
 import MField from '../m-field.vue';
-import { repeatClick } from '../../directives';
+import { repeatClick, clickOutside } from '../../directives';
 import { noopFormatter, NumberFormatter } from '../../utils/Formatters';
 const isNil = (value) => (typeof value === 'string' && value.trim() === '') || value === null || value === undefined;
 
 export default {
     name: 'u-number-input',
-    directives: { repeatClick },
+    directives: { repeatClick, clickOutside },
     mixins: [MField],
     props: {
         // String 类型是为了验证抛出
@@ -39,6 +39,7 @@ export default {
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         clearable: { type: Boolean, default: false },
+        autofocus: { type: Boolean, default: false },
     },
     data() {
         // 根据初始值计算 fix 精度
@@ -82,6 +83,13 @@ export default {
     created() {
         const value = this.currentValue;
         this.$emit('update', value, this);
+    },
+    mounted() {
+        this.autofocus && this.$refs.input.focus();
+    },
+    destroyed() {
+        clearTimeout(this.timer);
+        this.timer = null;
     },
     methods: {
         strip(num, precision = 15) {
@@ -169,14 +177,23 @@ export default {
                 oldValue,
                 formattedValue: this.formattedValue,
             }, this);
+            this.hasFocus = true;
         },
         increase() {
             const step = this.step === 0 ? this.computePrecision(this.currentValue) : this.step;
             this.adjust(+this.currentValue + (step - 0));
+            this.preventBlur = true;
+            this.timer = setTimeout(()=>{
+                this.$refs.input.focus();
+            }, 0);
         },
         decrease() {
             const step = this.step === 0 ? this.computePrecision(this.currentValue) : +this.step;
             this.adjust(+this.currentValue - step);
+            this.preventBlur = true;
+            this.timer = setTimeout(()=>{
+                this.$refs.input.focus();
+            }, 0);
         },
         onInput(rawValue) {
             if (this.readonly || this.disabled)
@@ -200,7 +217,15 @@ export default {
         onBlur(e) {
             const inputValue = this.$refs.input.currentValue;
             this.input(isNil(inputValue) ? inputValue : this.currentFormatter.parse(inputValue));
+            if (this.preventBlur)
+                return (this.preventBlur = false);
             this.$emit('blur', e, this);
+        },
+        handleClickOutside(){
+            if(this.hasFocus){
+                this.$emit('blur');
+                this.hasFocus = false;
+            }
         },
     },
 };
