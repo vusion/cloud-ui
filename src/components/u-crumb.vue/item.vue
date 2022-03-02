@@ -12,8 +12,7 @@
         <i-ico v-if="parentVM.icon" :name="icon" notext :class="$style.icon"></i-ico>
         <slot>{{ text }}</slot>
     </a>
-    <i-ico v-if="parentVM.separator === 'arrow'" name="right-arrow" notext :class="$style.separator" ></i-ico>
-    <span v-else-if="parentVM.separator === 'slash'" :class="$style.separator" >/</span>
+    <span :class="$style.separator" :icon="parentVM.separator"></span>
 </div>
 </template>
 
@@ -48,7 +47,18 @@ export default {
 }
 
 .root .separator {
+    display: inline-block;
+    line-height: initial;
+    font-size: 12px;
     margin: 0 var(--crumb-space-x);
+}
+
+.root .separator[icon="arrow"]::before {
+    icon-font: url("../i-icon.vue/icons/line-right.svg");
+}
+
+.root .separator[icon="slash"]::before {
+    icon-font: url("../i-icon.vue/icons/slash.svg");
 }
 
 .root:last-child .separator {
@@ -56,6 +66,7 @@ export default {
 }
 
 .icon {
+    line-height: initial;
     margin-right: var(--crumb-space-x);
 }
 
