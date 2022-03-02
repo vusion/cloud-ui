@@ -24,10 +24,10 @@
 
     --brand-primary: var(--brand-theme);
 
-    --brand-error: #f24957; 
+    --brand-error: #f24957;
     --brand-disabled: #595959; /* 禁用文本的颜色 */
     --brand-disabled-dark: var(--brand-disabled); /* 禁用文本的颜色 */
-    
+
     --color-lighter: #585c63;
     --color-light: #595959;
     --color-base: white;    /* 基础字色, 一级字色 */
@@ -121,7 +121,6 @@
     --textarea-background: rgba(36, 36, 36, 0.75);
 
     /* your variables */
-    --collapse-item-head-background: var(--background-color-base);
     --collapse-border-color: var(--border-color-base);
 
     --switch-background: #61656b;
@@ -257,21 +256,21 @@
     --radio-border-color-disabled: rgba(255, 255, 255, 0.4);
     --radio-circle-background-disabled: rgba(255, 255, 255, 0.2);
     --radio-background: transparent;
-    
+
     /* 黑色背景字体默认白色 */
     --font-color-primary: #fff;
 
     --toast-top: 110px;
     --toast-item-icon-vertical-align: -2px;
 
-    
+
 
     --table-background: var(--background-color-gray);
     --table-head-font-weight: 500;
     --table-border-color: var(--divider-list-color);
     --table-td-color: #fff;
     --table-hover-border-shadow-display: none;
-    
+
     --table-view-row-selected-background: transparent;
     --table-view-row-hover-background: rgba(64, 64, 65, 0.6);
     --table-view-head-item-color: #fff;
@@ -291,7 +290,7 @@
     --editor-content-background-color: #ebebeb;
 
     --tree-data-list-popper-offset-y: 5;
-    
+
     --popper-arrow-isShow: 1;
 
     --pagination-item-color-selected: #fff;

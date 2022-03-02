@@ -266,7 +266,6 @@
     --collapse-border-width: var(--border-width-base);
     --collapse-border-color: var(--border-color-base);
     --collapse-border-radius: var(--border-radius-base);
-    --collapse-item-head-background: var(--background-color-default);
     --collapse-item-fill-background: var(--background-color-light);
     --collapse-item-head-color-disabled: var(--brand-disabled-dark);
     --collapse-item-head-padding: 10px 20px 10px 40px;
