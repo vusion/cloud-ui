@@ -232,7 +232,7 @@
     "--sidebar-expander-color-disabled": "var(--brand-disabled)",
     "--crumb-color-link": "var(--brand-primary)",
     "--crumb-color-disabled": "var(--gray-darker)",
-    "--crumb-space-x": "5px",
+    "--crumb-space-x": "6px",
     "--panel-border-width": "1px",
     "--panel-border-radius": "var(--border-radius-medium)",
     "--panel-background": "var(--background-color-default)",
