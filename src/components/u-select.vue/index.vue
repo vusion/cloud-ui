@@ -233,7 +233,9 @@ export default {
     },
     mounted() {
         this.autofocus && this.$el.focus();
-        this.toggle(this.opened);
+        // 在编辑器里不要打开
+        if(!this.$env.VUE_APP_DESIGNER)
+            this.toggle(this.opened);
         this.setPopperWidth();
     },
     methods: {
