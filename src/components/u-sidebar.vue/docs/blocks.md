@@ -11,7 +11,7 @@
 ### 折叠功能
 
 ``` html
-<u-sidebar collapsible>
+<u-sidebar collapsible style="width: 200px;">
     <u-sidebar-group title="Basic">
         <u-sidebar-item text="链接"></u-sidebar-item>
         <u-sidebar-item text="按钮"></u-sidebar-item>
@@ -34,7 +34,7 @@
 ### 分组
 
 ``` html
-<u-sidebar>
+<u-sidebar style="width: 200px;">
     <u-sidebar-group title="Basic">
         <u-sidebar-item text="链接"></u-sidebar-item>
         <u-sidebar-item text="按钮"></u-sidebar-item>
@@ -56,7 +56,7 @@
 ### 手风琴模式
 
 ```html
-<u-sidebar collapsible accordion>
+<u-sidebar collapsible accordion style="width: 200px;">
     <u-sidebar-group title="Basic">
         <u-sidebar-item text="链接"></u-sidebar-item>
         <u-sidebar-item text="按钮"></u-sidebar-item>
