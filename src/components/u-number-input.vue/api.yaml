@@ -17,12 +17,12 @@
     - name: min
       title: 最小值
       type: number
-      default: null
+      default: ""
       description: ""
     - name: max
       title: 最大值
       type: number
-      default: null
+      default: ""
       description: ""
     - name: step
       title: 间隔
@@ -86,7 +86,7 @@
         - value: mini
           title: 迷你
       default: normal
-      description: 设置数字输入框宽度
+      description: 设置数字输入框宽度大小
     - name: height
       title: 高度
       type: string
@@ -106,7 +106,7 @@
         - value: mini
           title: 迷你
       default: normal
-      description: 设置数字输入框高度
+      description: 设置数字输入框高度大小
   slots:
     - name: default
       advanced: true
