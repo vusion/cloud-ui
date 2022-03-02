@@ -55,6 +55,16 @@
       default: false
       description: 是否采取手动验证。如果为`true`，则 UValidator
         将不会在监听到子组件的`input`、`change`和`blur`事件后进行相应的验证。
+    - name: append-to
+      title: 弹出层展示位置
+      type: string
+      default: reference
+      description: 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中
+      options:
+        - value: reference
+          title: 引用元素下
+        - value: body
+          title: 全局body
   computed:
     - name: touched
       title: 触碰
