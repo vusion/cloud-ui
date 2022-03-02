@@ -315,7 +315,7 @@ export default {
             "unicode_decimal": 58975
         },
         {
-            "icon_id": "27918248",
+            "icon_id": "27976277",
             "name": "组织架构",
             "font_class": "organization",
             "unicode": "e65d",
