@@ -113,7 +113,6 @@
                     "--collapse-border-width": "input",
                     "--collapse-border-color": "color",
                     "--collapse-border-radius": "input",
-                    "--collapse-item-head-background": "color",
                     "--collapse-item-head-color-disabled": "color",
                     "--collapse-item-head-padding": "input",
                     "--collapse-item-expander-size": "input",
