@@ -33,15 +33,15 @@ export default {
     flex-basis: auto;
     box-sizing: border-box;
     position: relative;
+    height: 100%;
 }
 .root[direction="horizontal"] {
     /* width: 100%; */
     flex-direction: row;
+    min-width: 0;
 }
 .root[direction="vertical"] {
-    /* height: 100%; */
     flex-direction: column;
-    min-height: 100px;
 }
 .root[direction="horizontal"][gap="shrink"] [class^="u-multi-layout_item"]:not(:last-child) {
     margin-right: var(--space-shrink);;

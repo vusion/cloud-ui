@@ -39,9 +39,11 @@ export default {
     mounted() {
         this.observerwh = new MutationObserver(this.pwh);
         this.observerwh.observe(this.$refs.item, {
-            attributes: true,
+            attributes: true, childList: true, subtree: true
         });
-        this.pwh();
+        setTimeout(() => {
+            this.pwh();
+        }, 100);
     },
     destroyed() {
         this.observerwh && this.observerwh.disconnect();
@@ -49,6 +51,9 @@ export default {
     methods: {
         pwh(mutationsList, observer) {
             const dom = this.$refs.item;
+            const ifO1 = (dom.scrollWidth > dom.offsetWidth);
+            const ifO2 = (dom.scrollHeight > dom.offsetHeight);
+            const ifO = (ifO1 || ifO2);
             const ifwh = dom && (dom.style.height || dom.style.width);
             if (ifwh) {
                 dom.style.flexGrow = 0;
@@ -56,6 +61,11 @@ export default {
             } else {
                 dom.style.flexGrow = 1;
                 dom.style.flexBasis = 0;
+            }
+            if (ifO) {
+                dom.style.overflow = 'auto';
+            } else {
+                dom.style.overflow = 'unset';
             }
         },
     },
@@ -77,7 +87,6 @@ export default {
     flex: 1;
     box-sizing: border-box;
     flex-direction: row;
-    flex-wrap: wrap;
 }
 .root[fixed="true"] {
     position: absolute;
@@ -91,9 +100,11 @@ export default {
 }
 .root[direction="horizontal"] {
     flex-direction: row;
+    min-width: 0;
 }
 .root[direction="vertical"] {
     flex-direction: column;
+    min-height: 0;
 }
 .root > [class^="u-router-view_"] {
     width: 100%;
