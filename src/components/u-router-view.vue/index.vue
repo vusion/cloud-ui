@@ -18,7 +18,6 @@ export default {
     white 50%, white 75%,
     rgba(138, 205, 78, 0.25) 75%);
     background-size: 20px 20px;
-    width: 100%;
-    height: 100%;
+    min-height: 20px;
 }
 </style>
