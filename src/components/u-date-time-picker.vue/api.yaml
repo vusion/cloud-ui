@@ -29,12 +29,17 @@
       type: string
       default: 请选择时间
       description: 输入框的提示文字
-    - name: autofocus
-      title: 自动获焦
+    - name: opened
+      title: 弹出状态
       type: boolean
       default: false
-      description: 是否默认处于focus状态
-      advanced: true
+      description: 切换弹出/关闭状态
+    - name: autofocus
+      title: 自动获取焦点
+      type: boolean
+      default: false
+      description: 是否自动获取焦点
+      designer-value: false
     - name: clearable
       title: 清除按钮
       type: boolean
@@ -105,3 +110,12 @@
           type: number
           title: 选择项的值
           description: 选择项的值，默认返回时间戳
+    - name: blur
+      title: 失去焦点
+      description: 失去焦点时触发。
+      params:
+        - name: $event
+          type: FocusEvent
+          description: 原生事件对象
+        - name: senderVM
+          description: 发送事件实例

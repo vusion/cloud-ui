@@ -1,5 +1,6 @@
 <template>
 <div :class="$style.root"
+    :size="parentVM.$attrs.size"
     :selected="parentVM.multiple ? currentSelected : isSelected"
     :readonly="parentVM.readonly"
     :disabled="disabled || parentVM.disabled"
@@ -7,7 +8,7 @@
     allowChild
     v-ellipsis-title>
     <!-- @override: 添加了label功能 -->
-    <span :class="$style.label">{{ label }}</span>
+    <span v-if="label" :class="$style.label">{{ label }}</span>
     <slot></slot>
 </div>
 </template>
@@ -25,19 +26,18 @@ export default {
 
 <style module>
 .root {
-    cursor: var(--cursor-pointer);
     display: inline-block;
     position: relative;
-    z-index: 1;
-    height: 30px;
-    line-height: 28px;
+    height: 32px;
+    line-height: 30px;
     font-size: var(--font-size-base);
     text-align: center;
-    padding: 0 16px;
     margin-right: -1px;
-    background: white;
-    color: #666;
-    border: 1px solid var(--brand-primary);
+    padding: 0 20px;
+    border: 1px solid var(--border-color-base);
+    background: var(--color-white);
+    color: var(--color-base);
+    cursor: var(--cursor-pointer);
 }
 
 .root:first-child {
@@ -50,10 +50,39 @@ export default {
     border-bottom-right-radius: var(--border-radius-base);
 }
 
-.root[selected] {
-    position: relative;
+.root:not([selected], [readonly], [disabled]):hover {
+    z-index: 1;
+    border-color: var(--brand-primary);
+    color: var(--brand-primary);
+}
+
+.root[selected]:not([disabled]) {
+    z-index: 1;
+    border-color: var(--brand-primary);
     background: var(--brand-primary);
-    color: white;
+    color: var(--color-white);
+}
+
+.root[selected]:not([readonly], [disabled]):hover {
+    border-color: var(--brand-primary-light);
+    background: var(--brand-primary-light);
+}
+
+.root[readonly] {
+    cursor: initial;
+}
+
+.root[disabled] {
+    z-index: auto;
+    background: var(--background-color-disabled);
+    color: var(--gray-base);
+    cursor: var(--cursor-not-allowed);
+}
+
+.root[disabled][selected] {
+    border-color: var(--brand-primary-disabled);
+    background: var(--brand-primary-disabled);
+    color: var(--color-white);
 }
 
 .root[flag]::after {
@@ -62,38 +91,29 @@ export default {
     top: 0;
     right: 0;
     border: 5px solid;
-    border-color: #fc7272 #fc7272 transparent transparent;
+    border-color: var(--brand-danger) var(--brand-danger) transparent transparent;
+}
+
+.root:last-child[flag]::after {
+    border-top-right-radius: 3px;
 }
 
 .label {
     position: absolute;
     top: -8px;
     left: 50%;
-    transform: translate(-50%);
-    color: white;
-    background: #fc7272;
+    transform: translateX(-50%);
     font-size: 12px;
-    height: 13px;
     line-height: 14px;
-    padding: 0 2px;
+    padding: 0 4px;
+    border-radius: 2px;
     white-space: nowrap;
+    background: var(--brand-error);
+    color: var(--color-white);
 }
 
 .label:empty {
     display: none;
-}
-
-.root[disabled] {
-    position: relative;
-    z-index: 0;
-    color: #d6d6d6;
-    border-color: #c2ddfb;
-    cursor: var(--cursor-not-allowed);
-}
-
-.root[selected][disabled] {
-    background: #c2ddfb;
-    color: white;
 }
 
 .root[size="small"] {

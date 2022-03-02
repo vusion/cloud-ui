@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root">
+<div :class="$style.root" :shadow="shadow" :bordered="bordered">
     <div :class="$style.head">
         <slot name="head">
             <div v-if="title" :class="$style.title" vusion-slot-name="title">
@@ -29,7 +29,12 @@ export default {
     components: {
         SEmpty,
     },
-    props: { title: String, content: String },
+    props: {
+        title: { type: String, default: null },
+        content: { type: String, default: null },
+        bordered: { type: Boolean, default: true },
+        shadow: { type: String, default: 'always' },
+    },
 };
 </script>
 
@@ -37,19 +42,32 @@ export default {
 .root {
     border-radius: var(--panel-border-radius);
     background: var(--panel-background);
-    box-shadow: 0px 2px 10px rgba(64, 69, 78, 0.05);
-    border: var(--panel-border-width) solid var(--border-color-light);
+}
+
+.root[shadow="always"] {
+    box-shadow: var(--panel-box-shadow);
+}
+
+.root[shadow="hover"]:hover {
+    box-shadow: var(--panel-box-shadow-hover);
+}
+
+.root[shadow="always"],
+.root[shadow="hover"] {
     transition: box-shadow var(--transition-duration-base);
 }
 
-.root:hover {
-    box-shadow: var(--panel-box-shadow);
+.root[shadow="never"] {
+    box-shadow: none;
+}
+
+.root[bordered] {
+    border: var(--panel-border-width) solid var(--border-color-base);
 }
 
 .head {
     position: relative;
-    padding: var(--panel-head-padding);
-    padding-top: 15px;
+    padding: var(--panel-head-padding-y) var(--panel-head-padding-x);
     padding-bottom: 0;
 }
 
@@ -62,11 +80,11 @@ export default {
 .extra {
     position: absolute;
     right: var(--panel-head-padding);
-    top: 15px;
+    top: var(--panel-head-padding);
 }
 
 .body {
     clear: both;
-    padding: var(--panel-body-padding);
+    padding: var(--panel-body-padding-y) var(--panel-body-padding-x);
 }
 </style>

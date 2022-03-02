@@ -32,7 +32,6 @@ export default {
     height: var(--sidebar-item-height-small);
     line-height: var(--sidebar-item-height-small);
     font-size: 12px;
-    /* background: transparent; */
     cursor: default;
 }
 

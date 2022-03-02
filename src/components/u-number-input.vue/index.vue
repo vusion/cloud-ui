@@ -1,25 +1,25 @@
 <template>
-<u-input ref="input" :class="$style.root" :value="formattedValue"
-    :readonly="readonly" :disabled="disabled" :clearable="clearable"
-    @keydown.native.up.prevent="increase" @keydown.native.down.prevent="decrease" @keydown.native.enter="onEnter"
-    @input="onInput" @focus="onFocus" @blur="onBlur" v-bind="$attrs" v-on="listeners">
-    <span :class="$style.button" v-if="!hideButtons" :disabled="currentValue >= max" role="up" v-repeat-click="increase"
-        tabindex="0" @keydown.prevent></span>
-    <span :class="$style.button" v-if="!hideButtons" :disabled="currentValue <= min" role="down" v-repeat-click="decrease"
-        tabindex="0" @keydown.prevent></span>
-    <slot></slot>
-</u-input>
+    <u-input ref="input" :class="$style.root" :buttonDisplay="buttonDisplay" :value="formattedValue"
+        :readonly="readonly" :disabled="disabled" :clearable="clearable"
+        @keydown.native.up.prevent="increase" @keydown.native.down.prevent="decrease" @keydown.native.enter="onEnter"
+        @input="onInput" @focus="onFocus" @blur="onBlur" v-bind="$attrs" v-on="listeners" v-click-outside="handleClickOutside">
+        <span :class="$style.button" v-if="!hideButtons" :disabled="currentValue >= max" role="up" v-repeat-click="increase"
+            tabindex="0" @keydown.prevent></span>
+        <span :class="$style.button" v-if="!hideButtons" :disabled="currentValue <= min" role="down" v-repeat-click="decrease"
+            tabindex="0" @keydown.prevent></span>
+        <slot></slot>
+    </u-input>
 </template>
 
 <script>
 import MField from '../m-field.vue';
-import { repeatClick } from '../../directives';
+import { repeatClick, clickOutside } from '../../directives';
 import { noopFormatter, NumberFormatter } from '../../utils/Formatters';
 const isNil = (value) => (typeof value === 'string' && value.trim() === '') || value === null || value === undefined;
 
 export default {
     name: 'u-number-input',
-    directives: { repeatClick },
+    directives: { repeatClick, clickOutside },
     mixins: [MField],
     props: {
         // String 类型是为了验证抛出
@@ -31,9 +31,15 @@ export default {
         precision: { type: Number, default: 1, validator: (precision) => precision >= 0 },
         formatter: { type: [String, Object] },
         hideButtons: { type: Boolean, default: false },
+        // 按钮呈现形式 tail ｜ bothEnds
+        buttonDisplay: {
+            type: String,
+            default: 'tail'
+        },
         readonly: { type: Boolean, default: false },
         disabled: { type: Boolean, default: false },
         clearable: { type: Boolean, default: false },
+        autofocus: { type: Boolean, default: false },
     },
     data() {
         // 根据初始值计算 fix 精度
@@ -77,6 +83,13 @@ export default {
     created() {
         const value = this.currentValue;
         this.$emit('update', value, this);
+    },
+    mounted() {
+        this.autofocus && this.$refs.input.focus();
+    },
+    destroyed() {
+        clearTimeout(this.timer);
+        this.timer = null;
     },
     methods: {
         strip(num, precision = 15) {
@@ -164,14 +177,23 @@ export default {
                 oldValue,
                 formattedValue: this.formattedValue,
             }, this);
+            this.hasFocus = true;
         },
         increase() {
             const step = this.step === 0 ? this.computePrecision(this.currentValue) : this.step;
             this.adjust(+this.currentValue + (step - 0));
+            this.preventBlur = true;
+            this.timer = setTimeout(()=>{
+                this.$refs.input.focus();
+            }, 0);
         },
         decrease() {
             const step = this.step === 0 ? this.computePrecision(this.currentValue) : +this.step;
             this.adjust(+this.currentValue - step);
+            this.preventBlur = true;
+            this.timer = setTimeout(()=>{
+                this.$refs.input.focus();
+            }, 0);
         },
         onInput(rawValue) {
             if (this.readonly || this.disabled)
@@ -195,78 +217,190 @@ export default {
         onBlur(e) {
             const inputValue = this.$refs.input.currentValue;
             this.input(isNil(inputValue) ? inputValue : this.currentFormatter.parse(inputValue));
+            if (this.preventBlur)
+                return (this.preventBlur = false);
             this.$emit('blur', e, this);
+        },
+        handleClickOutside(){
+            if(this.hasFocus){
+                this.$emit('blur');
+                this.hasFocus = false;
+            }
         },
     },
 };
 </script>
 
 <style module>
-.root {}
+.root {
+    width: var(--number-input-width);
+    height: var(--number-input-height);
+    background: var(--number-input-background);
+    border: var(--number-input-border-width) solid var(--number-input-border-color);
+    border-radius: var(--number-input-border-radius);
+    color: var(--number-input-color);
+}
+
+.root[buttonDisplay="bothEnds"]  {
+    text-align: center;
+    padding: 0 calc(var(--number-input-both-ends-button-width) + 12px);
+}
+
+.root:hover {
+    border-color: var(--number-input-border-color-hover);
+}
+
+.root[focus] {
+    border-color: var(--number-input-border-color-focus);
+    box-shadow: var(--number-input-box-shadow-focus);
+}
 
 .button {
     user-select: none;
     position: absolute;
-    right: 0;
-    height: var(--number-input-height);
-    line-height: var(--number-input-height);
-    border-left: 1px solid var(--border-color-base);
-    padding: var(--number-input-padding);
     cursor: var(--cursor-pointer);
+    text-align: center;
+}
+
+.root[buttonDisplay="tail"] .button {
+    height: var(--number-input-button-height);
+    line-height: var(--number-input-button-height);
+    right: 0;
+    border-left: 1px solid var(--number-input-border-color);
+    padding: var(--number-input-button-padding);
     background: var(--number-input-button-background);
 }
 
-.button:hover {
+.root[buttonDisplay="bothEnds"] .button {
+    width: var(--number-input-both-ends-button-width);
+    height: var(--number-input-both-ends-button-height);
+    line-height: var(--number-input-both-ends-button-height);
+    background: var(--number-input-button-both-ends-background);
+    top: 0;
+}
+
+.root[buttonDisplay="tail"] .button:hover {
     background: var(--number-input-button-background-hover);
 }
 
-.button:focus {
-    outline: var(--focus-outline);
+.root[buttonDisplay="bothEnds"] .button:hover {
+    background: var(--number-input-button-both-ends-background-hover);
 }
 
-.button:active {
+.root[buttonDisplay="tail"] .button:focus {
+    background: var(--number-input-button-background-focus);
+    outline: var(--number-input-button-outline);
+}
+
+.root[buttonDisplay="bothEnds"] .button:focus {
+    background: var(--number-input-button-both-ends-background-focus);
+    outline: var(--number-input-button-both-ends-outline);
+}
+
+.root[buttonDisplay="tail"] .button:active {
     background: var(--number-input-button-background-active);
 }
 
-.button[role="up"] {
+.root[buttonDisplay="bothEnds"] .button:active {
+    background: var(--number-input-button-both-ends-background-active);
+}
+
+.root[buttonDisplay="tail"] .button[role="up"] {
     top: 0;
-    border-bottom: 1px solid var(--border-color-base);
+    border-bottom: 1px solid var(--number-input-border-color);
     border-top-right-radius: var(--number-input-button-border-radius);
 }
 
-.button[role="down"] {
+.root[buttonDisplay="tail"] .button[role="down"] {
     bottom: 0;
     border-bottom-right-radius: var(--number-input-button-border-radius);
 }
 
-.button[role="up"]::before {
+.root[buttonDisplay="tail"] .button[role="up"] {
+    border-bottom: 1px solid var(--number-input-border-color);
+    border-top-right-radius: var(--number-input-button-border-radius);
+}
+
+.root[buttonDisplay="tail"] .button[role="down"] {
+    bottom: 0;
+    border-bottom-right-radius: var(--number-input-button-border-radius);
+}
+
+.root[buttonDisplay="tail"] .button[role="up"]::before {
     icon-font: url("../i-icon.vue/icons/keyboard-arrow-up.svg");
 }
 
-.button[role="down"]::before {
+.root[buttonDisplay="tail"] .button[role="down"]::before {
     icon-font: url("../i-icon.vue/icons/keyboard-arrow-down.svg");
+}
+
+.root[buttonDisplay="bothEnds"] .button[role="up"] {
+    right: 0;
+    border-left: 1px solid var(--number-input-border-color);
+    border-top-right-radius: var(--number-input-button-border-radius);
+    border-bottom-right-radius: var(--number-input-button-border-radius);
+}
+
+.root[buttonDisplay="bothEnds"] .button[role="down"] {
+    left: 0;
+    border-right: 1px solid var(--number-input-border-color);
+    border-top-left-radius: var(--number-input-button-border-radius);
+    border-bottom-left-radius: var(--number-input-button-border-radius);
+}
+
+.root[buttonDisplay="bothEnds"] .button::before {
+    font-family: var(--font-family-zh-CN);
+}
+
+.root[buttonDisplay="bothEnds"] .button[role="up"]::before {
+    content: "+";
+}
+
+.root[buttonDisplay="bothEnds"] .button[role="down"]::before {
+    content: '-';
 }
 
 .button::before {
     width: 1em;
     display: inline-block;
     font-size: 16px;
-    color: #989898;
 }
 
-.button:hover::before {
-    color: var(--number-input-icon-color-hover);
+.root[buttonDisplay="tail"] .button:hover, 
+.root[buttonDisplay="bothEnds"] .button:hover {
+    color: var(--number-input-button-color-hover);
 }
 
-.button[disabled]:hover::before {
-    color: #989898;
+.root .button[disabled]:hover, 
+.root[readonly] .button:hover, 
+.root[disabled] .button:hover {
+     color: var(--number-input-button-color-disabled);
 }
 
-.root[readonly] .button:hover::before { color: #989898; }
+.root[disabled] {
+    background: var(--number-input-background-disabled);
+    color: var(--number-input-color-disabled);
+    border-color: var(--number-input-border-color-disabled);
+}
 
-.root[disabled] .button:hover::before { color: #989898; }
+.root[disabled] .button[role="up"],
+.root[disabled] .button[role="down"] {
+    border-color: var(--number-input-border-color-disabled);
+}
 
-.button[disabled] {
+.root[disabled][buttonDisplay="tail"] .button {
+    background: var(--number-input-button-background-disabled);
+}
+
+.root[disabled][buttonDisplay="bothEnds"] .button {
+    background: var(--number-input-button-both-ends-background-disabled);
+}
+
+.button {
+    color: var(--number-input-button-color);
+}
+
+.root[disabled] .button, .button[disabled] {
     background: var(--number-input-button-background-disabled);
     color: var(--number-input-button-color-disabled);
     cursor: var(--cursor-not-allowed);
@@ -278,28 +412,22 @@ export default {
     cursor: default;
 }
 
-.root[disabled] .button {
-    background: var(--number-input-button-background-disabled);
-    color: var(--number-input-button-color-disabled);
-    cursor: var(--cursor-not-allowed);
-}
-
-.root[size="mini"] .button {
+.root[size="mini"] .button , .root[height="mini"] .button {
     right: -1px;
     height: calc((100% - 1px) / 2);
     line-height: calc((100% / 2) + 4px);
 }
 
-.root[size*="huge"] .button {
+.root[size*="huge"] .button , .root[height="huge"] .button {
     height: calc(var(--input-height-huge) / 2 - 1px);
     line-height: calc(var(--input-height-huge) / 2 - 1px);
 }
 
-.root[size="mini"] .button[role="up"] {
+.root[size="mini"] .button[role="up"] , .root[height="mini"] .button[role="up"]{
     height: calc((100% - 1px) / 2 + 1px);
 }
 
-.root[size="mini"] .button[role="down"] {
+.root[size="mini"] .button[role="down"] , .root[height="mini"] .button[role="down"] {
     bottom: 0;
 }
 </style>

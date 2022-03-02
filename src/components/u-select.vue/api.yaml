@@ -146,8 +146,8 @@
       type: boolean
       default: false
       description: ""
-    - name: size
-      title: 尺寸
+    - name: width
+      title: 宽度
       type: string
       options:
         - value: full
@@ -165,9 +165,27 @@
         - value: mini
           title: 迷你
       default: normal
-      description: 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度
-      multi: true
-      maxSelect: 2
+      description: 设置选择框宽度
+    - name: height
+      title: 高度
+      type: string
+      options:
+        - value: full
+          title: 占满
+        - value: huge
+          title: 巨大
+        - value: large
+          title: 大
+        - value: medium
+          title: 中型
+        - value: normal
+          title: 正常
+        - value: small
+          title: 小
+        - value: mini
+          title: 迷你
+      default: normal
+      description: 设置选择框高度
     - name: opened
       title: 弹出状态
       type: boolean
@@ -179,6 +197,7 @@
       type: boolean
       default: false
       description: ""
+      designer-value: false
     - name: prefix
       title: 前缀图标
       type: string
@@ -412,6 +431,15 @@
           description: 鼠标事件对象
           schema:
             $ref: "#/systemTypes/MouseEvent"
+    - name: blur
+      title: 失去焦点
+      description: 失去焦点时触发。
+      params:
+        - name: $event
+          type: FocusEvent
+          description: 原生事件对象
+        - name: senderVM
+          description: 发送事件实例
   methods:
     - name: open
       description: 弹出选择框。

@@ -37,6 +37,18 @@
       type: boolean
       default: false
       description: 不可点击展开/折叠
+    - name: fill
+      title: 填充位置
+      type: string
+      options:
+        - value: head
+          title: 头部填充
+        - value: content
+          title: 内容填充
+        - value: none
+          title: 无填充
+      default: head
+      description: 填充位置
   slots:
     - name: default
       description: 插入`<u-collapse-item>`子组件。

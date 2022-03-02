@@ -13,6 +13,7 @@ export default {
         column: [String, Number],
         labelSize: String,
         repeat: { type: [String, Number], default: 3 },
+        showHead: { type: Boolean, default: true },
     },
     data() {
         return { groupVMs: [], itemVMs: [] };

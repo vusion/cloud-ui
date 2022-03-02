@@ -42,7 +42,7 @@
 
 ### 可取消
 
-点击两次同一项，可取消状态
+点击两次同一项，可取消状态
 
 ``` html
 <u-capsules value="C" cancelable>
@@ -94,12 +94,11 @@
 ### 标签
 
 ``` html
-<u-capsules>
-    <u-capsule value="6" size="small">6</u-capsule>
-    <u-capsule value="7" size="small" label="88折">7</u-capsule>
-    <u-capsule value="8" size="small" label="88折">8</u-capsule>
-    <u-capsule value="9" size="small" label="88折">9</u-capsule>
-    <u-capsule value="10" size="small" label="88折">1年</u-capsule>
-    <u-capsule value="11" size="small" label="80折">2年</u-capsule>
+<u-capsules size="small">
+    <u-capsule value="1" >1月</u-capsule>
+    <u-capsule value="3">3月</u-capsule>
+    <u-capsule value="6" label="95折">6月</u-capsule>
+    <u-capsule value="12" label="88折">1年</u-capsule>
+    <u-capsule value="24" label="80折">2年</u-capsule>
 </u-capsules>
 ```

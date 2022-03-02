@@ -17,18 +17,47 @@
       title: 填充方式
       type: string
       options:
-        - value: fill
-          title: 图片拉伸完全填充
         - value: contain
-          title: 图片缩放比例完全填充
-        - value: cover
-          title: 图片按比例尽可能大的填充
-        - value: none
-          title: 图片以原尺寸填充
+          title: 适应
         - value: scale-down
-          title: 取 contain、none 中较小的
+          title: 适应（图片小于父元素时以原尺寸展示）
+        - value: none
+          title: 原尺寸
+        - value: fill
+          title: 拉伸
+        - value: cover
+          title: 填充
       default: contain
       description: 图片填充方式
+    - name: circle
+      title: 圆形遮罩
+      type: boolean
+      default: false
+      description: 是否开启圆形遮罩
+    - name: horizontalCenter
+      title: 水平对齐方式
+      type: string
+      options:
+        - value: left
+          name: 左对齐
+        - value: center
+          name: 居中对齐
+        - value: right
+          name: 右对齐
+      default: center
+      description: 图片水平对齐方式
+    - name: verticalCenter
+      title: 垂直对齐方式
+      type: string
+      options:
+        - value: top
+          name: 顶部对齐
+        - value: center
+          name: 居中对齐
+        - value: bottom
+          name: 底部对齐
+      default: center
+      description: 图片垂直对齐方式
     - name: convertSrcFn
       title: 图片地址转换器
       type: Function

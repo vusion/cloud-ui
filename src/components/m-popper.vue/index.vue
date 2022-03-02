@@ -64,6 +64,7 @@ export default {
         },
         disabled: { type: Boolean, default: false },
         disabledScroll: {type: Boolean, default: false},
+        disabledClose: {type: Boolean, default: false},
     },
     data() {
         return {
@@ -386,6 +387,8 @@ export default {
             // Check if enabled
             if (this.disabled)
                 return; // Prevent replication
+            if (this.disabledClose)
+                return;
             if (!this.currentOpened)
                 return; // Emit a `before-` event with preventDefault()
             // if (this.$env.VUE_APP_DESIGNER)

@@ -8,28 +8,18 @@
 </u-collapse>
 ```
 
-### 简洁模式
+### 额外插槽
+
+对于一些操作项，可以使用 `extra` 插槽添加在详情列表组的右上角。
 
 ``` html
-<u-collapse appear="simple">
+<u-collapse show-extra-empty-slot>
     <u-collapse-item title="面板1">
         <template #extra>
-           <u-link>设置</u-link>
+            <u-link>设置</u-link>
         </template>
         Content1
     </u-collapse-item>
-    <u-collapse-item title="面板2" expanded>
-        Content2
-    </u-collapse-item>
-    <u-collapse-item title="面板3">Content3</u-collapse-item>
-</u-collapse>
-```
-
-### 手风琴模式
-
-``` html
-<u-collapse accordion>
-    <u-collapse-item title="面板1" expanded>Content1</u-collapse-item>
     <u-collapse-item title="面板2" expanded>Content2</u-collapse-item>
     <u-collapse-item title="面板3">Content3</u-collapse-item>
 </u-collapse>
