@@ -66,7 +66,7 @@
     height: 1em;
     margin: auto;
     cursor: var(--cursor-pointer);
-    color: var(--input-clear-icon-color);
+    color: var(--input-icon-color);
 }
 
 .clearable:hover::before,
