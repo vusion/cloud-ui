@@ -20,7 +20,10 @@ export default {
         },
     },
     async created() {
-        !this.data && (this.currentData = await import(/* webpackChunkName: 'region' */ './region.json'));
+        if(!this.data){
+            const currentData=  await import(/* webpackChunkName: 'region' */ './region.json');
+            this.currentData = currentData.default;
+        }
     },
 };
 </script>
