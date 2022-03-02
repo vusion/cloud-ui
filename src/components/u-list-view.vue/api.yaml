@@ -153,7 +153,7 @@
           title: 正常
         - value: auto
           title: 自适应
-      default: auto
+      default: normal
       description: 设置数据列表高度大小
       group: 样式属性
     - name: loading-text
