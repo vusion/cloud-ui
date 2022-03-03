@@ -75,11 +75,17 @@
 }
 
 .clearable::before {
+    visibility: hidden;
     icon-font: url('../i-icon.vue/assets/close-solid.svg');
 }
 
 .password::before {
     icon-font: url('../i-icon.vue/assets/hide.svg');
+}
+
+.input:focus ~ .clearable::before,
+.root:hover .clearable::before {
+    visibility: visible;
 }
 
 .root[password][show-password] .password::before {
