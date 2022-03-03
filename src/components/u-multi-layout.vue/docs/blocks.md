@@ -72,8 +72,8 @@
     </u-multi-layout-item>
     <u-multi-layout-item>
     </u-multi-layout-item>
-    <u-multi-layout-item>
-    </u-multi-layout-item style="width: 200px;">
+    <u-multi-layout-item style="width: 200px;">
+    </u-multi-layout-item>
 </u-multi-layout>
 ```
 ### 两栏-右侧固定
