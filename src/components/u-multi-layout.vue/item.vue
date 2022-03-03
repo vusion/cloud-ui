@@ -53,7 +53,7 @@ export default {
             const dom = this.$refs.item;
             const ifO1 = (dom.scrollWidth > dom.offsetWidth);
             const ifO2 = (dom.scrollHeight > dom.offsetHeight);
-            const ifO = (ifO1 || ifO2);
+            const ifO = (ifO1);
             const ifwh = dom && (dom.style.height || dom.style.width);
             if (ifwh) {
                 dom.style.flexGrow = 0;

@@ -2,7 +2,7 @@
   title: 下拉菜单
   icon: dropdown-new
   labels:
-    - Display
+    - Navigation
   attrs:
     - name: trigger
       title: 触发方式

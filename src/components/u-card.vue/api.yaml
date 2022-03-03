@@ -2,7 +2,7 @@
   title: 卡片
   icon: card
   labels:
-    - Layout
+    - Container
   description: 用于快速布局
   next: false
   nested: false
