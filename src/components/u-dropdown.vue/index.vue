@@ -77,11 +77,10 @@ export default {
     z-index: 1;
     cursor: var(--cursor-pointer);
     height: var(--navbar-height);
-    line-height: var(--navbar-height);
     border: none;
     padding: 0 20px;
     font-size: var(--navbar-item-font-size);
-    color: var(--navbar-color);
+    color: #666;
 }
 
 .root:not(:last-child) {
