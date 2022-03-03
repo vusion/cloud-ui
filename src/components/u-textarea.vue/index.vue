@@ -139,7 +139,9 @@ export default {
 }
 
 .root[disabled] {
-    background: var(--textarea-background);
+    background: var(--textarea-background-disabled);
+    border-color: var(--textarea-border-color-disabled);
+    color: var(--textarea-color-disabled);
 }
 
 .root[color="error"] {

@@ -165,7 +165,7 @@
         - value: mini
           title: 迷你
       default: normal
-      description: 设置选择框宽度
+      description: 设置选择框宽度大小
     - name: height
       title: 高度
       type: string
@@ -185,7 +185,7 @@
         - value: mini
           title: 迷你
       default: normal
-      description: 设置选择框高度
+      description: 设置选择框高度大小
     - name: opened
       title: 弹出状态
       type: boolean
@@ -197,6 +197,7 @@
       type: boolean
       default: false
       description: ""
+      designer-value: false
     - name: prefix
       title: 前缀图标
       type: string
@@ -217,6 +218,16 @@
           title: 暂无
       default: ""
       description: ""
+    - name: append-to
+      title: 弹出层展示位置
+      type: string
+      default: reference
+      description: 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中
+      options:
+        - value: reference
+          title: 引用元素下
+        - value: body
+          title: 全局body
   slots:
     - name: default
       description: 插入`<u-select-item>`、`<u-select-divider>`或`<u-select-group>`子组件。

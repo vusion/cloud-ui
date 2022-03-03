@@ -1,7 +1,7 @@
 - name: u-collapse
   title: 折叠面板
   labels:
-    - Layout
+    - Container
   icon: collapse
   description: 可以折叠/展开的内容区域。
   next: true

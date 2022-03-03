@@ -455,11 +455,11 @@
                     "--input-border-color": "color",
                     "--input-border-color-hover": "color",
                     "--input-border-color-focus": "color",
+                    "--input-border-color-disabled": "color",
                     "--input-box-shadow-focus-color": "color",
                     "--input-box-shadow-focus": "input",
                     "--input-placeholder-color": "color",
                     "--input-border-radius": "input",
-
                     "--input-width-mini": "input",
                     "--input-width-small": "input",
                     "--input-width": "input",
@@ -479,13 +479,13 @@
                     "--input-padding-x-large": "input",
                     "--input-padding-x-huge": "input",
                     "--input-border-width": "input",
-
-
                     "--input-background": "color",
-                    "--input-color": "color"
+                    "--input-background-disabled": "color",
+                    "--input-color": "color",
+                    "--input-color-disabled": "color"
                 },
                 "preview": {
-                    "template": "<div>\n        <div class=\"componentClassTitle\">宽度迷你</div>\n        <u-input maxlength=\"12\" size=\"normal mini\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度小</div>\n        <u-input maxlength=\"12\" size=\"normal small\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度正常</div>\n        <u-input maxlength=\"12\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度中型</div>\n        <u-input maxlength=\"12\" size=\"normal medium\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度大</div>\n        <u-input maxlength=\"12\" size=\"normal large\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度巨大</div>\n        <u-input maxlength=\"12\" size=\"normal huge\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 80px;\"></u-input>\n\n        <div class=\"componentClassTitle\">高度迷你</div>\n        <u-input maxlength=\"12\" size=\"mini normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度小</div>\n        <u-input maxlength=\"12\" size=\"small normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度正常</div>\n        <u-input maxlength=\"12\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度中型</div>\n        <u-input maxlength=\"12\" size=\"medium normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度大</div>\n        <u-input maxlength=\"12\" size=\"large normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度巨大</div>\n        <u-input maxlength=\"12\" size=\"huge normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n    </div>"
+                    "template": "<div>\n        <div class=\"componentClassTitle\">宽度迷你</div>\n        <u-input maxlength=\"12\" size=\"normal mini\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度小</div>\n        <u-input maxlength=\"12\" size=\"normal small\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度正常</div>\n        <u-input maxlength=\"12\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度中型</div>\n        <u-input maxlength=\"12\" size=\"normal medium\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度大</div>\n        <u-input maxlength=\"12\" size=\"normal large\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">宽度巨大</div>\n        <u-input maxlength=\"12\" size=\"normal huge\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 80px;\"></u-input>\n\n        <div class=\"componentClassTitle\">高度迷你</div>\n        <u-input maxlength=\"12\" size=\"mini normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度小</div>\n        <u-input maxlength=\"12\" size=\"small normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度正常</div>\n        <u-input maxlength=\"12\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度中型</div>\n        <u-input maxlength=\"12\" size=\"medium normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度大</div>\n        <u-input maxlength=\"12\" size=\"large normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n        <div class=\"componentClassTitle\">高度巨大</div>\n        <u-input maxlength=\"12\" size=\"huge normal\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\"></u-input>\n\n        <div class=\"componentClassTitle\">禁用</div>\n        <u-input value=\"禁用\" maxlength=\"12\" placeholder=\"1~12位小写字母\" autofocus style=\"margin-bottom: 20px;\" disabled></u-input>\n    </div>"
                 }
             },
             {
@@ -495,6 +495,12 @@
                 "toPosition": "numberInput",
                 "type": [],
                 "cssProperty": {
+                    "--number-input-background": "color",
+                    "--number-input-background-disabled": "color",
+
+                    "--number-input-color": "color",
+                    "--number-input-color-disabled": "color",
+
                     "--number-input-button-background": "color",
                     "--number-input-button-both-ends-background": "color",
                     "--number-input-button-background-hover": "color",
@@ -503,12 +509,21 @@
                     "--number-input-button-both-ends-background-active": "color",
                     "--number-input-button-background-focus": "color",
                     "--number-input-button-both-ends-background-focus": "color",
+                    "--number-input-button-background-disabled": "color",
+                    "--number-input-button-both-ends-background-disabled": "color",
+
                     "--number-input-border-color": "color",
+                    "--number-input-border-color-hover": "color",
                     "--number-input-border-color-focus": "color",
-                    "--number-input-color": "color",
+                    "--number-input-border-color-disabled": "color",
+
+                    "--number-input-button-color": "color",
+                    "--number-input-button-color-hover": "color",
+                    "--number-input-button-color-disabled": "color",
+
+
 
                     "--number-input-height": "input",
-                    "--number-input-background": "color",
                     "--number-input-border-width": "input",
                     "--number-input-box-shadow-focus-color": "color",
                     "--number-input-box-shadow-focus": "input",
@@ -516,7 +531,7 @@
                     "--number-input-button-outline": "input"
                 },
                 "preview": {
-                    "template": "<div>\n        <u-number-input :value=\"6\"></u-number-input>\n        <u-number-input button-display=\"bothEnds\" :value=\"6\"></u-number-input>\n    </div>"
+                    "template": "<div>\n        <div class=\"componentClassTitle\">基本用法</div>\n        <u-number-input :value=\"6\"></u-number-input>\n        <u-number-input button-display=\"bothEnds\" :value=\"6\"></u-number-input>\n        <div class=\"componentClassTitle\" style=\"margin-top: 20px;\">禁用</div>\n        <u-number-input :value=\"6\" disabled></u-number-input>\n        <u-number-input button-display=\"bothEnds\" :value=\"6\" disabled></u-number-input>\n    </div>"
                 }
             },
             {
@@ -540,13 +555,17 @@
                     "--textarea-border-radius": "input",
                     "--textarea-border-color": "color",
                     "--textarea-border-color-focus": "color",
+                    "--textarea-border-color-disabled": "color",
+                    "--textarea-background": "color",
+                    "--textarea-background-disabled": "color",
                     "--textarea-color": "color",
+                    "--textarea-color-disabled": "color",
                     "--textarea-placeholder-color": "color",
                     "--textarea-box-shadow-focus-color": "color",
                     "--textarea-box-shadow-focus": "input"
                 },
                 "preview": {
-                    "template": "<div>\n        <div class=\"componentClassTitle\">宽度正常</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">宽度中型</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"normal medium\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">宽度大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"normal large\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">宽度巨大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"normal huge\" style=\"margin-bottom: 40px;\"></u-textarea>\n\n        <div class=\"componentClassTitle\">高度正常</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">高度中型</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"medium normal\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">高度大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"large normal\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">高度巨大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"huge normal\" style=\"margin-bottom: 40px;\"></u-textarea>\n    </div>"
+                    "template": "<div>\n        <div class=\"componentClassTitle\">宽度正常</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">宽度中型</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"normal medium\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">宽度大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"normal large\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">宽度巨大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"normal huge\" style=\"margin-bottom: 40px;\"></u-textarea>\n\n        <div class=\"componentClassTitle\">高度正常</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">高度中型</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"medium normal\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">高度大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"large normal\" style=\"margin-bottom: 20px;\"></u-textarea>\n        <div class=\"componentClassTitle\">高度巨大</div>\n        <u-textarea placeholder=\"请输入模块描述，不超过200字符\" autofocus size=\"huge normal\" style=\"margin-bottom: 40px;\"></u-textarea>\n\n        <div class=\"componentClassTitle\">禁用</div>\n         <u-textarea value=\"禁用\" autofocus style=\"margin-bottom: 20px;\" disabled></u-textarea>\n    </div>"
                 }
             },
             {

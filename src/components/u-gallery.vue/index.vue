@@ -2,7 +2,7 @@
 <div :class="[$style['wrap'],pattern==='big' ? $style['wrapbig'] :$style['wrapsmall']]" class="swiper-for-vusion">
     <div class="swiper mySwiper swiperbig" v-show="pattern==='big'" ref="swiperbig">
         <div class="swiper-wrapper swiper-wrapper-big">
-            <div class="swiper-slide swiper-slide-big" v-for="(item, index) in options" :key="index">
+            <div class="swiper-slide swiper-slide-big" v-for="(item, index) in options" :key="index" @click="tagAct">
                 <img :src="getUrl(item)" class="swiper-slide-big-image">
             </div>
         </div>
@@ -189,6 +189,11 @@ export default {
             e.stopImmediatePropagation();
             this.swiperthumb.slideNext();
         },
+        tagAct() {
+            const allbig = document.querySelectorAll('.swiper-slide-big');
+            allbig.forEach(x => x.classList.remove('swiper-act'));
+            this[`swiperbig`].clickedSlide.classList.add('swiper-act');
+        },
     },
 };
 </script>
@@ -238,7 +243,7 @@ export default {
         height: 100%;
         object-fit: cover;
     }
-    .swiper-for-vusion .swiper-wrapper-big .swiper-slide-active {
+    .swiper-for-vusion .swiper-wrapper-big .swiper-act {
         transform: scale(1.1,1.1);
     }
     .swiper-for-vusion .swiper-slide-thumb-active {

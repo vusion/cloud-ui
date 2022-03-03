@@ -88,5 +88,7 @@ export default {
 <u-linear-layout>
     <u-number-input :value="6" readonly></u-number-input>
     <u-number-input :value="6" disabled></u-number-input>
+    <u-number-input buttonDisplay="bothEnds" :value="6" readonly></u-number-input>
+    <u-number-input buttonDisplay="bothEnds" :value="6" disabled></u-number-input>
 </u-linear-layout>
 ```

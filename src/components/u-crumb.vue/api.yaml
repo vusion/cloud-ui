@@ -1,7 +1,7 @@
 - name: u-crumb
   title: 面包屑
   labels:
-    - Layout
+    - Navigation
   description: 导航指引
   icon: crumb
   next: true

@@ -103,7 +103,7 @@
 
     /* --input-border-color: 0; */
     --input-background: var(--background-color-base);
-    --input-background-disabled: rgba(36, 36, 36, 0.75);
+    --input-background-disabled: #F5F5F5;
     --input-border-color: var(--background-color-base);
     --input-border-radius: 4px;
     --input-icon-color: rgba(255,255,255,0.6);

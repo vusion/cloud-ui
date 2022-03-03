@@ -37,7 +37,7 @@
       type: boolean
       default: false
       description: 是否自动获得焦点
-      advanced: true
+      designer-value: false
     - name: readonly
       title: 只读
       type: boolean

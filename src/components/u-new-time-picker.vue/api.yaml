@@ -10,10 +10,11 @@
       type: string
       default: HH:mm:ss
     - name: autofocus
-      title: 自动聚焦
+      title: 自动获取聚焦
       type: boolean
       default: false
       description: 是否自动获得焦点
+      designer-value: false
     - name: readonly
       title: 只读
       type: boolean

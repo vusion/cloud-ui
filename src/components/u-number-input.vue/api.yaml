@@ -17,12 +17,12 @@
     - name: min
       title: 最小值
       type: number
-      default: null
+      default: ""
       description: ""
     - name: max
       title: 最大值
       type: number
-      default: null
+      default: ""
       description: ""
     - name: step
       title: 间隔
@@ -39,16 +39,6 @@
       type: string, object
       description: 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。
       advanced: true
-    - name: buttonDisplay
-      title: 按钮呈现形式
-      type: string
-      default: tail
-      options:
-        - value: tail
-          title: 尾部
-        - value: bothEnds
-          title: 两端
-      description: 按钮呈现形式
     - name: placeholder
       title: 占位符
       type: string
@@ -57,6 +47,7 @@
       title: 自动获取焦点
       type: boolean
       description: ""
+      designer-value: false
     - name: hide-buttons
       title: 隐藏按钮
       type: boolean
@@ -95,7 +86,7 @@
         - value: mini
           title: 迷你
       default: normal
-      description: 设置数字输入框宽度
+      description: 设置数字输入框宽度大小
     - name: height
       title: 高度
       type: string
@@ -115,7 +106,7 @@
         - value: mini
           title: 迷你
       default: normal
-      description: 设置数字输入框高度
+      description: 设置数字输入框高度大小
   slots:
     - name: default
       advanced: true

@@ -2,7 +2,7 @@
   title: 侧边栏
   icon: sidebar
   labels:
-    - Layout
+    - Navigation
   description: 通常用于页面左侧的导航栏。
   attrs:
     - name: router
