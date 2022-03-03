@@ -20,6 +20,7 @@ export default {
 
 <style module>
 .root {
+    width: 100%;
     user-select: none;
     border-right: 1px solid #E9E9EB;
     background: var(--sidebar-background);
