@@ -109,7 +109,7 @@ export default {
 .head {
     user-select: none;
     padding: var(--collapse-item-head-padding);
-    background: var(--collapse-item-head-background);
+    background: var(--background-color-default);
     overflow: hidden;
 }
 

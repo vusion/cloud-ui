@@ -246,7 +246,7 @@
     /* @component u-crumb */
     --crumb-color-link: var(--brand-primary);
     --crumb-color-disabled: var(--gray-darker);
-    --crumb-space-x: 5px;
+    --crumb-space-x: 6px;
 
     /* @component u-panel */
     --panel-border-width: 1px;
@@ -266,7 +266,6 @@
     --collapse-border-width: var(--border-width-base);
     --collapse-border-color: var(--border-color-base);
     --collapse-border-radius: var(--border-radius-base);
-    --collapse-item-head-background: var(--background-color-default);
     --collapse-item-fill-background: var(--background-color-light);
     --collapse-item-head-color-disabled: var(--brand-disabled-dark);
     --collapse-item-head-padding: 10px 20px 10px 40px;
@@ -955,9 +954,8 @@
     --input-border-color-disabled: var(--input-border-color);
     --input-border-color-error: var(--brand-error);
     --input-placeholder-color: var(--color-lighter);
-    --input-icon-color: var(--font-second-color);
-    --input-clear-icon-color: var(--font-third-color);
-    --input-icon-color-hover: var(--font-second-color);
+    --input-icon-color: var(--color-lighter);
+    --input-icon-color-hover: var(--font-third-color);
     --input-border-radius: var(--border-radius-base);
     --input-box-shadow-focus-color: rgba(77, 136, 255, 0.2);
     --input-box-shadow-focus: 0 0 0 2px var(--input-box-shadow-focus-color);
@@ -1331,7 +1329,7 @@
     --pagination-item-prenext-font-size: 18px;
     --pagination-item-border-color-disabled: var(--border-color-darker);
     --pagination-item-font-size: var(--font-size-small);
-    --pagination-sizer-width: 100px;
+    --pagination-sizer-width: 104px;
     --pagination-jumper-width: 50px;
 
     /**
@@ -1523,7 +1521,7 @@
     --datepicker-input-box-shadow-focus: var(--input-box-shadow-focus);
     --datepicker-input-placeholder-color: var(--input-placeholder-color);
     --datepicker-input-icon-color-hover: var(--input-icon-color-hover);
-    --datepicker-input-clear-icon-color: var(--input-clear-icon-color);
+    --datepicker-input-clear-icon-color: var(--input-icon-color);
     --datepicker-popper-box-shadow: var(--select-popper-box-shadow);
     --datepicker-popper-border-radius: var(--border-radius-base);
 
