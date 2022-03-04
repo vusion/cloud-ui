@@ -14,7 +14,7 @@
         <u-navbar-item-multi>Item 2</u-navbar-item-multi>
     </u-multi-layout-item>
     <template #right>
-        <u-multi-layout-item align-items="center" justify-content="center">
+        <u-multi-layout-item align-items="center" justify="end" alignment="center">
             <u-dropdown style="margin-right: 10px;" v-if="userInfo">
                 <template #title>
                     <u-linear-layout gap="small">
@@ -28,9 +28,6 @@
                         <u-dropdown-item @click="logout">安全退出</u-dropdown-item>
                 </template>
             </u-dropdown>
-            <template v-else>
-                <u-link text="登录" destination="login" :decoration="false"></u-link>
-            </template>
         </u-multi-layout-item>
     </template>
 </u-navbar-multi>

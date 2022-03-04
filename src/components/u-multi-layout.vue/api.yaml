@@ -55,64 +55,14 @@
       type: Boolean
       default: false
       description: 开启后滚动时该项固定显示
-    - name: direction
-      title: 排列方向
-      type: string
-      options:
-        - value: horizontal
-          title: 横向排列
-        - value: vertical
-          title: 纵向排列
-      default: horizontal
-      description: 可更改布局的排列方向
-    - name: gap
-      title: 间隙
-      type: string
-      options:
-        - value: shrink
-          title: 收缩
-          advanced: true
-        - value: none
-          title: 无
-        - value: small
-          title: 小
-        - value: normal
-          title: 正常
-        - value: large
-          title: 大
-      default: normal
-      description: 内容块间隙大小
     - name: display
       title: 展示方式
       type: string
       options:
-        - value: inline
-          title: 行内
         - value: block
           title: 块级
       default: block
       description: 行内展示，或块级换行展示
-    - name: layout
-      title: 子元素展示方式
-      type: string
-      options:
-        - value: none
-          title: 子元素默认布局
-        - value: inline
-          title: 子元素行内布局
-        - value: block
-          title: 子元素块级布局
-      default: none
-      description: 子元素行内展示或块级换行展示
-    - name: type
-      title: 布局模式
-      type: string
-      options:
-        - value: flex
-          title: flex 布局模式
-      default: null
-      description: 布局模式
-      advanced: true
     - name: justify
       title: 主轴分布方式
       type: string
