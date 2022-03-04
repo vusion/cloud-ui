@@ -41,9 +41,10 @@ export default {
         this.observerwh.observe(this.$refs.item, {
             attributes: true, childList: true, subtree: true
         });
-        setTimeout(() => {
-            this.pwh();
-        }, 100);
+        this.pwh();
+        // setTimeout(() => {
+        //     this.pwh();
+        // }, 100);
     },
     destroyed() {
         this.observerwh && this.observerwh.disconnect();
@@ -108,5 +109,8 @@ export default {
 }
 .root > [class^="u-router-view_"] {
     width: 100%;
+}
+.root > * {
+    flex-shrink: 0;
 }
 </style>
