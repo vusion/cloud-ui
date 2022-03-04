@@ -14,13 +14,8 @@
 
 ``` html
 <u-collapse show-extra-empty-slot>
-    <u-collapse-item title="面板1">
-        <template #extra>
-            <u-link>设置</u-link>
-        </template>
-        Content1
-    </u-collapse-item>
-    <u-collapse-item title="面板2" expanded>Content2</u-collapse-item>
-    <u-collapse-item title="面板3">Content3</u-collapse-item>
+    <u-collapse-item title="面板1"><template #extra><u-link>设置</u-link></template>Content1</u-collapse-item>
+    <u-collapse-item title="面板2" expanded><template #extra></template>Content2</u-collapse-item>
+    <u-collapse-item title="面板3"><template #extra></template>Content3</u-collapse-item>
 </u-collapse>
 ```
