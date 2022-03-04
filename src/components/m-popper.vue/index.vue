@@ -440,4 +440,7 @@ export default {
     z-index: var(--z-index-popper);
     box-shadow: var(--popper-box-shadow);
 }
+.root[data-popper-reference-hidden]{
+    opacity: 0;
+}
 </style>
