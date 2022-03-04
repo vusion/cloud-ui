@@ -57,6 +57,7 @@
 
 .clearable::before,
 .password::before {
+    visibility: hidden;
     display: block;
     position: absolute;
     right: 8px;
@@ -75,7 +76,6 @@
 }
 
 .clearable::before {
-    visibility: hidden;
     icon-font: url('../i-icon.vue/assets/close-solid.svg');
 }
 
@@ -83,8 +83,10 @@
     icon-font: url('../i-icon.vue/assets/hide.svg');
 }
 
+.root:hover .clearable::before,
+.root:hover .password::before,
 .input:focus ~ .clearable::before,
-.root:hover .clearable::before {
+.input:focus ~ .password::before {
     visibility: visible;
 }
 
