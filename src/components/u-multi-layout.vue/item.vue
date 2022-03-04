@@ -52,9 +52,9 @@ export default {
     methods: {
         pwh(mutationsList, observer) {
             const dom = this.$refs.item;
-            const ifO1 = (dom.scrollWidth > dom.offsetWidth);
-            const ifO2 = (dom.scrollHeight > dom.offsetHeight);
-            const ifO = (ifO1);
+            // const ifO1 = (dom.scrollWidth > dom.offsetWidth);
+            // const ifO2 = (dom.scrollHeight > dom.offsetHeight);
+            // const ifO = (ifO1);
             const ifwh = dom && (dom.style.height || dom.style.width);
             if (ifwh) {
                 dom.style.flexGrow = 0;
@@ -63,11 +63,11 @@ export default {
                 dom.style.flexGrow = 1;
                 dom.style.flexBasis = 0;
             }
-            if (ifO) {
-                dom.style.overflow = 'auto';
-            } else {
-                dom.style.overflow = 'unset';
-            }
+            // if (ifO) {
+            //     dom.style.overflow = 'auto';
+            // } else {
+            //     dom.style.overflow = 'unset';
+            // }
         },
     },
     computed: {
@@ -88,6 +88,7 @@ export default {
     flex: 1;
     box-sizing: border-box;
     flex-direction: row;
+    max-width: 100%;
 }
 .root[fixed="true"] {
     position: absolute;
@@ -108,6 +109,9 @@ export default {
     min-height: 0;
 }
 .root > [class^="u-router-view_"] {
+    width: 100%;
+}
+.root > [class^="u-linear-layout_"]  {
     width: 100%;
 }
 </style>

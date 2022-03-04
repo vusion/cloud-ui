@@ -34,6 +34,7 @@ export default {
     box-sizing: border-box;
     position: relative;
     height: 100%;
+    max-width: 100%;
 }
 .root[direction="horizontal"] {
     /* width: 100%; */
