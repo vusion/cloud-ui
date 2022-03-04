@@ -110,7 +110,4 @@ export default {
 .root > [class^="u-router-view_"] {
     width: 100%;
 }
-.root > * {
-    flex-shrink: 0;
-}
 </style>
