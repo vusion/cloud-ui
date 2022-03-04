@@ -1274,7 +1274,7 @@
     --tabs-item-background-disabled-capsule: #f5f5f5;
     --tabs-item-color: inherit;
     --tabs-item-color-hover: var(--brand-primary);
-    --tabs-item-color-selected: #e25355;
+    --tabs-item-color-selected: var(--brand-primary);
     --tabs-item-color-selected-capsule: var(--brand-primary);
     --tabs-item-color-disabled: #999;
     --tabs-item-border-color-selected: var(--border-color-light);
