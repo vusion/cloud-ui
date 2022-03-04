@@ -154,7 +154,11 @@ export default {
 }
 
 .body {}
-.title {}
+.title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 .extra {
     position: absolute;
     right: 5px;
