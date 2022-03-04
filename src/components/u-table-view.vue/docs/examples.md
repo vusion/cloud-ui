@@ -1724,7 +1724,7 @@ export default {
 
 ### 导出 Excel
 
-要使用 exportExcel 方法, 需要向`data-source`属性中传入一个加载函数。传递给 exportExcel 的参数最终会传递给加载函数
+要使用 exportExcel 方法, 需要向`data-source`属性中可传入加载函数，也可传入数组。传递给 exportExcel 的参数最终会传递给加载函数
 
 ``` vue
 <template>
