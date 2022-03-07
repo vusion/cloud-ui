@@ -242,6 +242,7 @@
 
     /* @layouts l-dashboard */
     --dashboard-background: var(--background-color-lightest);
+    --dashboard-padding: 40px;
 
     /* @component u-crumb */
     --crumb-color-link: var(--brand-primary);
@@ -371,6 +372,8 @@
     --sidebar-item-border-right-width: 4px;
     --sidebar-item-border-right-width-small: 3px;
     --sidebar-item-border-right-color: var(--brand-primary);
+    --sidebar-item-border-bottom-width: 0px;
+    --sidebar-item-border-bottom-color: #e5e5e5;
     --sidebar-group-head-height: 52px;
     --sidebar-group-head-padding-left: 20px;
     --sidebar-group-head-font-weight: var(--font-weight-bold);
@@ -378,8 +381,11 @@
     --sidebar-group-head-color-inverse: #9dabc2;
     --sidebar-group-head-color-hover: #337eff;
     --sidebar-group-head-color-hover-inverse: white;
+    --sidebar-group-head-background-hover: #f5f5f5;
     --sidebar-group-head-color-selected: #337eff;
     --sidebar-group-head-color-selected-inverse: #9dabc2;
+    --sidebar-group-head-border-bottom-width: 0px;
+    --sidebar-group-head-border-bottom-color: #e5e5e5;
     --sidebar-group-popper-margin-left: 2px;
     --sidebar-divider-margin-y: 8px;
     --sidebar-divider-height: var(--border-width-base);
