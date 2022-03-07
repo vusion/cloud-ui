@@ -2,7 +2,7 @@
   title: 卡片
   icon: card
   labels:
-    - Layout
+    - Container
   description: 用于快速布局
   next: false
   nested: false
@@ -20,6 +20,7 @@
       title: 宽度
       type: string
       description: 卡片宽度：像素或百分比
+      group: 样式属性
     - name: shadow
       title: 阴影
       type: string
@@ -32,16 +33,19 @@
           title: hover时显示
         - value: never
           title: 不显示
+      group: 样式属性
     - name: border
-      title: 边框
+      title: 显示边框
       type: boolean
       default: true
       description: 是否显示卡片边框
+      group: 样式属性
     - name: split
       title: 分割线
       type: boolean
       default: false
       description: 是否显示分割线
+      group: 样式属性
   events:
     - name: $listeners
       kind: trigger

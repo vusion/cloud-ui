@@ -435,12 +435,19 @@ export default {
         },
         reload() {
             this.currentDataSource.clearLocalData();
-            const paging = {
-                size: this.currentDataSource.paging.size,
-                oldSize: this.currentDataSource.paging.size,
-                number: 1,
-                oldNumber: this.currentDataSource.paging.number,
-            };
+            const { 
+                paging: oldPaging 
+            } = this.currentDataSource;
+            let paging = undefined;
+            if(oldPaging) {
+                const { size,number } = oldPaging
+                paging = {
+                    size: size,
+                    oldSize: size,
+                    number: 1,
+                    oldNumber: number,
+                };
+            }
             // eslint-disable-next-line no-console
             console.log(JSON.stringify(paging));
             try {

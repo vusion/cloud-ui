@@ -1,4 +1,4 @@
-### 下拉菜单与选择
+### 导航栏
 
 ``` html
 <u-navbar-multi>
@@ -14,7 +14,7 @@
         <u-navbar-item-multi text="Item 2"></u-navbar-item-multi>
     </u-multi-layout-item>
     <template #right>
-        <u-multi-layout-item align-items="center" justify-content="center">
+        <u-multi-layout-item align-items="center" justify="end">
             <u-dropdown style="margin-right: 10px;">
                 <template #title>
                     <u-linear-layout gap="small" v-if="$global.userInfo">

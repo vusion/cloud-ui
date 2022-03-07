@@ -2,7 +2,7 @@
   title: 面板
   icon: panel
   labels:
-    - Layout
+    - Container
   description: 用于快速布局
   next: true
   nested: false

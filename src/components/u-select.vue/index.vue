@@ -238,6 +238,10 @@ export default {
             this.toggle(this.opened);
         this.setPopperWidth();
     },
+    destroyed() {
+        clearTimeout(this.inputBlurTimer);
+        clearTimeout(this.rootBlurTimer);
+    },
     methods: {
         getExtraParams() {
             return { filterText: this.filterText };
@@ -314,6 +318,9 @@ export default {
             this.popperOpened = false;
             this.focusedVM = undefined;
             this.preventRootBlur = false;
+            this.preventBlur = false;
+            clearTimeout(this.inputBlurTimer);
+            clearTimeout(this.rootBlurTimer);
             this.$emit('close', $event, this);
             this.$emit('update:opened', false);
         },
@@ -357,7 +364,7 @@ export default {
         onBlur(e) {
             if (!this.filterable)
                 return; // 这边必须要用 setTimeout，$nextTick 也不行，需要保证在 @select 之后完成
-            setTimeout(() => {
+            this.inputBlurTimer = setTimeout(() => {
                 if (this.preventBlur)
                     return (this.preventBlur = false);
                 this.selectByText(this.filterText);
@@ -365,7 +372,7 @@ export default {
             }, 200);
         },
         onRootBlur(e) {
-            setTimeout(() => {
+            this.rootBlurTimer = setTimeout(() => {
                 if (this.$refs.input && this.$refs.input.focused || this.preventBlur)
                     return;
                 if (this.preventRootBlur)

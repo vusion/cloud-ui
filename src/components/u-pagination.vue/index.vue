@@ -319,6 +319,13 @@ export default {
     line-height: var(--pagination-line-height);
     margin-right: var(--space-small);
     vertical-align: top;
+    padding-right: 24px;
+}
+
+.sizer::after {
+    right: 10px;
+    font-size: 12px;
+    icon-font: url('../i-icon.vue/assets/arrow-down.svg');
 }
 
 .sizer .item {

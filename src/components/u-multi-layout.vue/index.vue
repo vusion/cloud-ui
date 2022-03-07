@@ -29,16 +29,12 @@ export default {
 <style module>
 .root {
     display: flex;
-    flex: 1;
-    flex-basis: auto;
     box-sizing: border-box;
     position: relative;
     height: 100%;
 }
 .root[direction="horizontal"] {
-    /* width: 100%; */
     flex-direction: row;
-    min-width: 0;
 }
 .root[direction="vertical"] {
     flex-direction: column;

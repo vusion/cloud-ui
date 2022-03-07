@@ -55,50 +55,49 @@
       type: Boolean
       default: false
       description: 开启后滚动时该项固定显示
-    - name: direction
-      title: 排列方向
+    - name: display
+      title: 展示方式
       type: string
       options:
-        - value: horizontal
-          title: 横向排列
-        - value: vertical
-          title: 纵向排列
-      default: horizontal
-      description: 布局中模块的排列方向
-    - name: justify-content
-      title: 横向对齐方式
+        - value: block
+          title: 块级
+      default: block
+      description: 行内展示，或块级换行展示
+    - name: justify
+      title: 主轴分布方式
       type: string
       options:
-        - value: flex-start
+        - value: start
           title: 左对齐
         - value: center
-          title: 居中
-        - value: flex-end
+          title: 居中对齐
+        - value: end
           title: 右对齐
-      default: flex-start
-      description: 布局中子元素的对齐方式
-    - name: align-items
-      title: 纵向对齐方式	
+        - value: space-between
+          title: 各行之间留有空
+          advanced: true
+        - value: space-around
+          title: 之前、之间、之后都留有空白
+          advanced: true
+      default: start
+      description: 内容对齐方式
+    - name: alignment
+      title: 纵轴对齐方式
       type: string
       options:
-        - value: flex-start
-          title: 左对齐
+        - value: start
+          title: 头对齐
         - value: center
-          title: 居中
-        - value: flex-end
-          title: 右对齐
-      default: flex-start
-      description: 布局中子元素的对齐方式
-    - name: 宽度
-      title: 横向对齐方式
-      type: string, number
+          title: 居中对齐
+        - value: end
+          title: 尾对齐
+        - value: baseline
+          title: 基线对齐
+        - value: stretch
+          title: 拉伸子元素充满整个父元素空间
+      default: stretch
+      description: flex布局模式下的交叉轴对齐方式
       advanced: true
-      description: 可在样式中实现
-    - name: 高度
-      title: 横向对齐方式
-      type: string, number
-      advanced: true
-      description: 可在样式中实现
   slots:
     - name: default
       description: 内容

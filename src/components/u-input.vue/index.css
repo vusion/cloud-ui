@@ -57,6 +57,7 @@
 
 .clearable::before,
 .password::before {
+    visibility: hidden;
     display: block;
     position: absolute;
     right: 8px;
@@ -66,7 +67,7 @@
     height: 1em;
     margin: auto;
     cursor: var(--cursor-pointer);
-    color: var(--input-clear-icon-color);
+    color: var(--input-icon-color);
 }
 
 .clearable:hover::before,
@@ -80,6 +81,13 @@
 
 .password::before {
     icon-font: url('../i-icon.vue/assets/hide.svg');
+}
+
+.root:hover .clearable::before,
+.root:hover .password::before,
+.input:focus ~ .clearable::before,
+.input:focus ~ .password::before {
+    visibility: visible;
 }
 
 .root[password][show-password] .password::before {

@@ -170,7 +170,7 @@
                                         :vusion-scope-id="expanderColumnVM.$vnode.context.$options._scopeId"
                                         :vusion-node-path="expanderColumnVM.$attrs['vusion-node-path']"
                                         style="background: #F7F8FA;">
-                                            <div :plus-empty="expanderColumnVM.$attrs['plus-empty']" color="inverse"></div>
+                                            <div :plus-empty="expanderColumnVM.$attrs['expand-content-plus-empty']" color="inverse"></div>
                                             <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: $at(item, expanderColumnVM.field), columnVM: expanderColumnVM, rowIndex, index: rowIndex }">
                                             </f-slot>
                                         </td>
@@ -880,11 +880,30 @@ export default {
             document.addEventListener('keydown', fn, true)
 
             try {
-                // console.time('加载数据');
-                const res = await this.currentDataSource._load({ page, size, sort, order });
-                // console.timeEnd('加载数据');
 
-                const content = await this.getRenderResult(res.content);
+                let content = [];
+                if (!this.remote) {
+                    content = await this.getRenderResult(this.currentDataSource.data);
+                } else {
+                    // console.time('加载数据');
+                    let res = await this.currentDataSource._load({ page, size, sort, order });
+                    // console.timeEnd('加载数据');
+
+                    if (res instanceof Object) {
+                        if (res.hasOwnProperty('content'))
+                            res = res.content;
+                        else if (res.hasOwnProperty('data'))
+                            res = res.data;
+                    }
+
+                    if(!(res instanceof Array)) {
+                        this.$toast.show('数据格式不是数组');
+                        return;
+                    }  
+
+                    content = await this.getRenderResult(res);
+                }
+                
 
                 // console.time('生成文件');
                 const sheetData = this.getSheetData(content);
@@ -923,7 +942,8 @@ export default {
             }
  
             let res = [];
-            const page = this.currentDataSource.paging.size;
+            // this.currentDataSource.paging.size 会受可分页选项影响，直接改成pageSize
+            const page = this.pageSize;
             for(let i=0;i<arr.length;i += page) {
                 this.exportData = arr.slice(i, i + page);
                 await new Promise((res) => {

@@ -33,6 +33,7 @@ export default {
     padding: 0 10px;
     font-size: var(--navbar-item-font-size);
     color: var(--color-base);
+    text-align: left;
 }
 .root:hover {
      color: var(--brand-primary);

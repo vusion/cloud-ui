@@ -776,6 +776,7 @@
           description: 列的索引。
     - name: editcell
       plus-empty: true
+      plus-empty-tag: editcell-plus-empty
       description: 对单元格的编辑数据展示进行自定义。
       props:
         - name: item
@@ -815,6 +816,7 @@
           description: 列的索引。
     - name: expand-content
       plus-empty: true
+      plus-empty-tag: expand-content-plus-empty
       title: 展开列内容
       accept-type: all
       description: 展开列的内容。

@@ -1,7 +1,7 @@
 - name: u-collapse
   title: 折叠面板
   labels:
-    - Layout
+    - Container
   icon: collapse
   description: 可以折叠/展开的内容区域。
   next: true
@@ -55,7 +55,7 @@
       support:
         - name: u-collapse-item
           title: 多选项
-          snippet: <u-collapse-item title="面板">内容</u-collapse-item>
+          snippet: '<u-collapse-item title="面板"><template #extra></template>内容</u-collapse-item>'
   events:
     - name: toggle
       description: 展开/折叠某面板时触发
