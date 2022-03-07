@@ -128,8 +128,26 @@
       default: true
       description: ""
       group: 样式属性
-    - name: size
-      title: 尺寸
+    - name: width
+      title: 宽度
+      type: string
+      options:
+        - value: full
+          title: 占满
+        - value: huge
+          title: 巨大
+        - value: large
+          title: 大
+        - value: normal
+          title: 正常
+        - value: auto
+          title: 自适应
+      default: auto
+      description: 设置数据网格宽度大小
+      advanced: true
+      group: 样式属性
+    - name: height
+      title: 高度
       type: string
       options:
         - value: full
@@ -143,9 +161,7 @@
         - value: auto
           title: 自适应
       default: normal
-      description: 设置数据网格大小
-      multi: true
-      maxSelect: 2
+      description: 设置数据网格高度大小
       advanced: true
       group: 样式属性
     - name: loading-text
