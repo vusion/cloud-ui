@@ -573,7 +573,7 @@ this.updateFlag = true;
 }
 
 .item, .dayitem {
-    width: 32px;
+    width: 30px;
     height: 30px;
     line-height: 30px;
     margin: 1px;

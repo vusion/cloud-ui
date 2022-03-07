@@ -379,12 +379,12 @@ time = '00:00:00';
 }
 
 .body {
-    position: absolute;
+    /* position: absolute;
     z-index: 100;
     width: 100%;
     top: 100%;
     margin-top: 2px;
-    min-width: 160px;
+    min-width: 160px; */
 }
 
 .input[disabled] {
