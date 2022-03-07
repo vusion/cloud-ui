@@ -242,7 +242,7 @@
 
     /* @layouts l-dashboard */
     --dashboard-background: var(--background-color-lightest);
-    --dashboard-padding: 16px;
+    --dashboard-padding: 40px;
 
     /* @component u-crumb */
     --crumb-color-link: var(--brand-primary);
