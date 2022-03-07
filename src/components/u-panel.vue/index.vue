@@ -79,8 +79,8 @@ export default {
 
 .extra {
     position: absolute;
-    right: var(--panel-head-padding);
-    top: var(--panel-head-padding);
+    top: var(--panel-head-padding-y);
+    right: var(--panel-head-padding-x);
 }
 
 .body {

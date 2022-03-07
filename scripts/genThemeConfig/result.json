@@ -90,8 +90,10 @@
                     "--panel-border-radius": "input",
                     "--panel-background": "color",
                     "--panel-box-shadow": "input",
-                    "--panel-head-padding": "input",
-                    "--panel-body-padding": "input",
+                    "--panel-head-padding-x": "input",
+                    "--panel-head-padding-y": "input",
+                    "--panel-body-padding-x": "input",
+                    "--panel-body-padding-y": "input",
                     "--panel-title-font-size": "input",
                     "--panel-title-font-weight": "input"
                 },
