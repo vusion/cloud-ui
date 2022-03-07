@@ -2,9 +2,9 @@
 
 ``` html
 <u-sidebar value="3" :router="false">
-    <u-sidebar-item value="1" text="指南"></u-sidebar-item>
-    <u-sidebar-item value="2" text="概念"></u-sidebar-item>
-    <u-sidebar-item value="3" text="组件"></u-sidebar-item>
+    <u-sidebar-item value="1" text="导航一"></u-sidebar-item>
+    <u-sidebar-item value="2" text="导航二"></u-sidebar-item>
+    <u-sidebar-item value="3" text="导航三"></u-sidebar-item>
 </u-sidebar>
 ```
 
@@ -12,20 +12,11 @@
 
 ``` html
 <u-sidebar collapsible>
-    <u-sidebar-group title="Basic">
-        <u-sidebar-item text="链接"></u-sidebar-item>
-        <u-sidebar-item text="按钮"></u-sidebar-item>
-        <u-sidebar-item text="标签"></u-sidebar-item>
+    <u-sidebar-group title="导航一" expanded>
+        <u-sidebar-item text="选项一"></u-sidebar-item>
     </u-sidebar-group>
-    <u-sidebar-group title="Navigation" expanded disabled>
-        <u-sidebar-item text="导航栏"></u-sidebar-item>
-        <u-sidebar-item text="标签页"></u-sidebar-item>
-    </u-sidebar-group>
-    <u-sidebar-group title="Form" :collapsible="false">
-        <u-sidebar-item text="单行输入"></u-sidebar-item>
-        <u-sidebar-item text="多行输入"></u-sidebar-item>
-        <u-sidebar-item text="选择框"></u-sidebar-item>
-        <u-sidebar-item text="表单"></u-sidebar-item>
+    <u-sidebar-group title="导航二" expanded disabled>
+        <u-sidebar-item text="选项一"></u-sidebar-item>
     </u-sidebar-group>
 </u-sidebar>
 ```
@@ -35,20 +26,11 @@
 
 ``` html
 <u-sidebar>
-    <u-sidebar-group title="Basic">
-        <u-sidebar-item text="链接"></u-sidebar-item>
-        <u-sidebar-item text="按钮"></u-sidebar-item>
-        <u-sidebar-item text="标签"></u-sidebar-item>
+    <u-sidebar-group title="导航一" expanded>
+        <u-sidebar-item text="选项一"></u-sidebar-item>
     </u-sidebar-group>
-    <u-sidebar-group title="Navigation">
-        <u-sidebar-item text="导航栏"></u-sidebar-item>
-        <u-sidebar-item text="标签页"></u-sidebar-item>
-    </u-sidebar-group>
-    <u-sidebar-group title="Form">
-        <u-sidebar-item text="单行输入"></u-sidebar-item>
-        <u-sidebar-item text="多行输入"></u-sidebar-item>
-        <u-sidebar-item text="选择框"></u-sidebar-item>
-        <u-sidebar-item text="表单"></u-sidebar-item>
+    <u-sidebar-group title="导航二" expanded>
+        <u-sidebar-item text="选项一"></u-sidebar-item>
     </u-sidebar-group>
 </u-sidebar>
 ```
@@ -57,20 +39,14 @@
 
 ```html
 <u-sidebar collapsible accordion>
-    <u-sidebar-group title="Basic">
-        <u-sidebar-item text="链接"></u-sidebar-item>
-        <u-sidebar-item text="按钮"></u-sidebar-item>
-        <u-sidebar-item text="标签"></u-sidebar-item>
+    <u-sidebar-group title="导航一">
+        <u-sidebar-item text="选项一"></u-sidebar-item>
     </u-sidebar-group>
-    <u-sidebar-group title="Navigation">
-        <u-sidebar-item text="导航栏"></u-sidebar-item>
-        <u-sidebar-item text="标签页"></u-sidebar-item>
+    <u-sidebar-group title="导航二">
+        <u-sidebar-item text="选项一"></u-sidebar-item>
     </u-sidebar-group>
-    <u-sidebar-group title="Form">
-        <u-sidebar-item text="单行输入"></u-sidebar-item>
-        <u-sidebar-item text="多行输入"></u-sidebar-item>
-        <u-sidebar-item text="选择框"></u-sidebar-item>
-        <u-sidebar-item text="表单"></u-sidebar-item>
+    <u-sidebar-group title="导航三">
+        <u-sidebar-item text="选项一"></u-sidebar-item>
     </u-sidebar-group>
 </u-sidebar>
 ```
