@@ -170,7 +170,7 @@
                                         :vusion-scope-id="expanderColumnVM.$vnode.context.$options._scopeId"
                                         :vusion-node-path="expanderColumnVM.$attrs['vusion-node-path']"
                                         style="background: #F7F8FA;">
-                                            <div :plus-empty="expanderColumnVM.$attrs['plus-empty']" color="inverse"></div>
+                                            <div :plus-empty="expanderColumnVM.$attrs['expand-content-plus-empty']" color="inverse"></div>
                                             <f-slot name="expand-content" :vm="expanderColumnVM" :props="{ item, value: $at(item, expanderColumnVM.field), columnVM: expanderColumnVM, rowIndex, index: rowIndex }">
                                             </f-slot>
                                         </td>
