@@ -13,7 +13,7 @@
       default: false
       description: 是否自动根据子页面配置的面包屑属性自动生成
     - name: separator
-      title: 分隔符
+      title: 面包屑样式
       type: string
       options:
         - value: arrow
