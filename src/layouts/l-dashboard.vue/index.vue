@@ -62,6 +62,6 @@ export default { name: 'l-dashboard' };
 .content {
     position: relative;
     min-width: 1020px;
-    padding: 40px;
+    padding: var(--dashboard-padding);
 }
 </style>

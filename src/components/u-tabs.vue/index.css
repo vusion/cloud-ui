@@ -248,7 +248,7 @@
 }
 
 .root[appear="line"] .item[selected] {
-    color: var(--brand-primary);
+    color: var(--tabs-item-color-selected);
 }
 
 .root[appear="line"] .item::after {

@@ -45,6 +45,8 @@ export default {
     color: var(--sidebar-item-color);
     background: var(--sidebar-item-background);
     transition: all var(--transition-duration-base);
+    border-bottom: var(--sidebar-item-border-bottom-width) solid var(--sidebar-item-border-bottom-color);
+
 }
 
 .root:hover {
