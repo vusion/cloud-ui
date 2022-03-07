@@ -1512,7 +1512,7 @@
     --calendar-item-background-selected-disabled: #eee;
 
     /* @component u-date-picker */
-    --datepicker-input-width: var(--width-base);
+    --datepicker-input-width: 300px;
     --datepicker-input-height: var(--input-height);
 
     --datepicker-input-border-color: var(--input-border-color);
