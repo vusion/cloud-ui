@@ -864,7 +864,7 @@
     "--popup-arrow-offset": "17px",
     "--popup-outer-arrow-size": "calc(var(--popup-arrow-size) + 1px)",
     "--popup-background": "white",
-    "--popup-box-shadow": "var(--box-shadow-small-hover)",
+    "--popup-box-shadow": "0px 2px 6px rgba(0, 0, 0, 0.1)",
     "--popup-head-background": "white",
     "--popup-border-color": "var(--border-color-base)",
     "--modal-dialog-width": "400px",
