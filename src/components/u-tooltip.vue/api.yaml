@@ -25,7 +25,7 @@
         - value: manual
           title: 手动
       default: hover
-      description: 工具提示的触发方式。
+      description: 工具提示的触发方式
     - name: placement
       title: 弹出方向
       type: string
@@ -55,7 +55,7 @@
         - value: right-end
           title: 右下
       default: bottom
-      description: 工具提示的弹出方向。
+      description: 工具提示的弹出方向
     - name: hide-delay
       title: 消失延迟时间
       type: number

@@ -1,5 +1,8 @@
 {
+    "--background-color-disabled-light": "#F7F8FA",
     "--focus-outline": "none",
+    "--gray-darker": "#666",
+    "--box-shadow-small": "0px 2px 12px rgba(0, 0, 0, 0.06)",
     "--background-color-default": "white",
     "--background-color-default-inverse": "#17181f",
     "--background-color-base": "#F7F7FA",
@@ -524,6 +527,7 @@
     "--input-border-radius": "3px",
     "--number-input-height": "var(--input-height)",
     "--number-input-background": "var(--input-background)",
+    "--number-input-background-disabled": "var(--input-background-disabled)",
     "--number-input-color": "var(--input-color)",
     "--number-input-color-disabled": "#999999",
     "--number-input-border-width": "var(--input-border-width)",
