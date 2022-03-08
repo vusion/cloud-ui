@@ -81,6 +81,7 @@ export const UModal = {
         static: { type: Boolean, default: false },
         icon: String,
         maskClose: { type: Boolean, default: false },
+        disableEsc: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -146,7 +147,7 @@ export const UModal = {
             this.close(false);
         },
         escPress(event) {
-            if (event.keyCode === 27)
+            if (event.keyCode === 27 && !this.disableEsc)
                 this.cancel();
         },
         handleClose(e) {
