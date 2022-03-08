@@ -1,7 +1,7 @@
 <template>
 <transition name="fade">
     <div :class="$style.root" :merge-borders="mergeBorders" v-show="currentOpened">
-        <span :class="$style.arrow"></span><!-- popper在某些场景下可以移动该元素 -->
+        <span data-popper-arrow :class="$style.arrow"></span><!-- popper在某些场景下可以移动该元素 -->
         <slot name="root">
             <div :class="$style.head" v-if="title || $slots.head || $slots.title">
                 <slot name="head">
