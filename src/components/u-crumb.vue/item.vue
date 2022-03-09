@@ -1,15 +1,15 @@
 <template>
 <div :class="$style.root">
     <span v-if="readonly" :class="$style.readonly">
-        <i-ico v-if="parentVM.icon" :name="icon" notext :class="$style.icon"></i-ico>
+        <i-ico v-if="!parentVM.auto && parentVM.icon" :name="icon" notext :class="$style.icon"></i-ico>
         <slot>{{ text }}</slot>
     </span>
     <span v-else-if="disabled" :class="$style.disabled">
-        <i-ico v-if="parentVM.icon" :name="icon" notext :class="$style.icon"></i-ico>
+        <i-ico v-if="!parentVM.auto && parentVM.icon" :name="icon" notext :class="$style.icon"></i-ico>
         <slot>{{ text }}</slot>
     </span>
     <a v-else :class="$style.link" :href="currentHref" :target="target" :disabled="disabled" @click="onClick" v-on="listeners">
-        <i-ico v-if="parentVM.icon" :name="icon" notext :class="$style.icon"></i-ico>
+        <i-ico v-if="!parentVM.auto && parentVM.icon" :name="icon" notext :class="$style.icon"></i-ico>
         <slot>{{ text }}</slot>
     </a>
     <span :class="$style.separator" :icon="parentVM.separator"></span>
