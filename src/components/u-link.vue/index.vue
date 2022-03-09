@@ -1,13 +1,12 @@
 <template>
-<a :class="[$style.root]" 
+<a vusion-slot-name="text" :class="[$style.root]" 
     :href="currentHref" :target="target"
     :noDecoration="!decoration"
     :disabled="currentDisabled" :tabindex="currentDisabled ? -1 : 0"
     :download="download"
     :loading="loading || $attrs.loading"
     :hoverType="hoverType"
-    @click="onClick" v-on="listeners"
-    vusion-slot-name="text">
+    @click="onClick" v-on="listeners">
     <i-ico v-if="icon" :name="icon" :class="$style.btnicon" notext></i-ico>
     <slot>{{ text }}</slot>
 </a>

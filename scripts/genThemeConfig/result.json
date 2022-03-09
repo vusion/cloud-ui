@@ -1053,6 +1053,8 @@
                 "cssProperty": {
                     "--datepicker-input-width": "input",
                     "--datepicker-input-height": "input",
+                    "--datepicker-input-pre-icon-color": "color",
+                    "--datepicker-input-after-icon-color": "color",
                     "--datepicker-input-padding-x": "input",
                     "--datepicker-input-placeholder-color": "color",
                     "--datepicker-input-border-width": "input",
@@ -1072,6 +1074,8 @@
                 "cssProperty": {
                     "--datetime-input-width": "input",
                     "--datetime-input-height": "input",
+                    "--datetime-input-pre-icon-color": "color",
+                    "--datetime-input-after-icon-color": "color",
                     "--datetime-input-padding-x": "input",
                     "--datetime-input-placeholder-color": "color",
                     "--datetime-input-border-width": "input",

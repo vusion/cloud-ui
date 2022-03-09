@@ -354,7 +354,7 @@
     --sidebar-item-height: 54px;
     --sidebar-item-height-small: 32px;
     --sidebar-item-padding-left: 30px;
-    --sidebar-item-background: none;
+    --sidebar-item-background: #ffffff;
     --sidebar-item-background-selected: rgba(51,126,255,0.12);
     --sidebar-item-background-selected-inverse: #252b33;
     --sidebar-item-background-disabled: #ffffff;
@@ -1515,12 +1515,16 @@
     --datepicker-input-width: 300px;
     --datepicker-input-height: var(--input-height);
 
+    --datepicker-input-pre-icon-color: var(--gray-light);
+    --datepicker-input-after-icon-color: var(--gray-light);
+
+
     --datepicker-input-border-color: var(--input-border-color);
     --datepicker-input-border-width: var(--input-border-width);
     --datepicker-input-color: var(--input-color);
     --datepicker-input-background: var(--input-background);
     --datepicker-input-border-radius: 3px;
-    --datepicker-input-padding-x: 8px;
+    --datepicker-input-padding-x: 34px;
     --datepicker-input-background-disabled: var(--input-background-disabled);
     --datepicker-input-border-color-error: var(--input-border-color-error);
     --datepicker-input-border-color-focus: var(--input-border-color-focus);
@@ -1535,12 +1539,16 @@
     --datetime-input-width: 300px;
     --datetime-input-height: var(--input-height);
 
+    --datetime-input-pre-icon-color: var(--gray-light);
+    --datetime-input-after-icon-color: var(--gray-light);
+    --datetime-input-border-color-focus: var(--input-border-color-focus);
+    --datetime-input-box-shadow-focus: var(--input-box-shadow-focus);
 
 
     --datetime-input-border-color: var(--input-border-color);
     --datetime-input-border-width: var(--input-border-width);
 
-    --datetime-input-padding-x: 8px;
+    --datetime-input-padding-x: 34px;
     --datetime-input-placeholder-color: var(--input-placeholder-color);
     --datetime-input-border-radius: 3px;
 

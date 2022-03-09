@@ -2,10 +2,12 @@
 <div :class="$style.header" :style="{ 
     width: `${width}px`
 }">
+    <i-ico v-if="preIcon" :name="preIcon" :class="[$style.btnicon, $style.preIcon]"></i-ico>
     <input :class="$style.input" :placeholder="placeholder" @click.stop="toggle(true)" :value="showDate" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled" @change="onInput($event)" @focus="onFocus" @blur="onBlur" :color="formItemVM && formItemVM.color">
     <span v-if="showDate && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
         <i :class="[$style.closeIcon]"></i>
     </span>
+    <i-ico v-if="afterIcon" :name="afterIcon" :class="[$style.btnicon, $style.afterIcon]"></i-ico>
     <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="closeCalendar">
         <div :class="$style.body" @click.stop>
             <u-calendar :picker="picker" ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="showDate" :value="date" @select="select($event.date)"></u-calendar>
@@ -41,6 +43,14 @@ export default {
     directives: { clickOutside },
     mixins: [MField],
     props: {
+        preIcon: { 
+            type: String, 
+            default: 'calendar'
+        },
+        afterIcon: { 
+            type: String, 
+            default: ''
+        },
         date: [String, Number, Date],
         value: [String, Number, Date],
         minDate: [String, Number, Date],
@@ -301,6 +311,22 @@ export default {
     width: var(--datepicker-input-width);
     display: inline-block;
     position: relative;
+}
+
+.btnicon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.preIcon {
+    left: 12px;
+    color: var(--datepicker-input-pre-icon-color);
+}
+
+.afterIcon {
+    right: 12px;
+    color: var(--datepicker-input-after-icon-color);
 }
 
 .input {

@@ -201,7 +201,7 @@
     "--sidebar-item-height": "54px",
     "--sidebar-item-height-small": "32px",
     "--sidebar-item-padding-left": "30px",
-    "--sidebar-item-background": "none",
+    "--sidebar-item-background": "#ffffff",
     "--sidebar-item-background-selected": "rgba(51,126,255,0.12)",
     "--sidebar-item-background-selected-inverse": "#252b33",
     "--sidebar-item-background-disabled": "#ffffff",
@@ -909,7 +909,10 @@
 
     "--datepicker-input-width": "300px",
     "--datepicker-input-height": "var(--input-height)",
-    "--datepicker-input-padding-x": "8px",
+    "--datepicker-input-pre-icon-color": "var(--gray-light)",
+    "--datepicker-input-after-icon-color": "var(--gray-light)",
+
+    "--datepicker-input-padding-x": "34px",
     "--datepicker-input-placeholder-color": "var(--input-placeholder-color)",
     "--datepicker-input-border-width": "var(--input-border-width)",
     "--datepicker-input-border-color": "var(--input-border-color)",
@@ -923,12 +926,16 @@
     "--datepicker-input-icon-color-hover": "var(--input-icon-color-hover)",
     "--datepicker-input-clear-icon-color": "var(--input-clear-icon-color)",
 
+    
+
     "--datepicker-popper-box-shadow": "var(--select-popper-box-shadow)",
     "--datepicker-popper-border-radius": "var(--border-radius-base)",
 
     "--datetime-input-width": "300px",
     "--datetime-input-height": "var(--input-height)",
-    "--datetime-input-padding-x": "8px",
+    "--datetime-input-pre-icon-color": "var(--gray-light)",
+    "--datetime-input-after-icon-color": "var(--gray-light)",
+    "--datetime-input-padding-x": "34px",
     "--datetime-input-placeholder-color": "var(--input-placeholder-color)",
     "--datetime-input-border-width": "var(--input-border-width)",
     "--datetime-input-border-color": "var(--input-border-color)",

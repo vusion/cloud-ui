@@ -1,7 +1,10 @@
 <script>
 import ULink from '../u-link.vue';
 
-export default { name: 'u-button', extends: ULink };
+export default {
+    name: 'u-button',
+    extends: ULink,
+};
 </script>
 
 <style module>

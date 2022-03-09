@@ -1,11 +1,13 @@
 <template>
 <div :class="$style.root" ref="element">
     <div :class="$style.head">
+        <i-ico v-if="preIcon" :name="preIcon" :class="[$style.btnicon, $style.preIcon]"></i-ico>
         <input :class="$style.input" :placeholder="placeholder" :value="dateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
             @click.stop="toggle(true)" @change="onInput($event)" @focus="onFocus" @blur="onBlur">
          <span v-if="dateTime && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
             <i :class="[$style.closeIcon]"></i>
         </span>
+        <i-ico v-if="afterIcon" :name="afterIcon" :class="[$style.btnicon, $style.afterIcon]"></i-ico>
     </div>
     <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="onPopperClose">
         <div :class="$style.body" @click.stop>
@@ -27,7 +29,6 @@
 </template>
 
 <script>
-import { clickOutside } from '../../directives';
 import { format, transformDate } from '../../utils/date';
 import MField from '../m-field.vue';
 import i18n from './i18n';
@@ -51,6 +52,14 @@ export default {
     // directives: { clickOutside },
     mixins: [MField],
     props: {
+        preIcon: { 
+            type: String, 
+            default: 'calendar'
+        },
+        afterIcon: { 
+            type: String, 
+            default: ''
+        },
         disabled: { type: Boolean, default: false },
         placeholder: {
             type: String,
@@ -378,15 +387,6 @@ time = '00:00:00';
     color: var(--datetime-input-placeholder-color);
 }
 
-.body {
-    /* position: absolute;
-    z-index: 100;
-    width: 100%;
-    top: 100%;
-    margin-top: 2px;
-    min-width: 160px; */
-}
-
 .input[disabled] {
     cursor: var(--cursor-not-allowed);
     background: #eee;
@@ -395,12 +395,32 @@ time = '00:00:00';
 
 .input:focus {
     outline: var(--focus-outline);
-    border-color: var(--datepicker-input-border-color-focus);
-    box-shadow: var(--datepicker-input-box-shadow-focus);
+    border-color: var(--datetime-input-border-color-focus);
+    box-shadow: var(--datetime-input-box-shadow-focus);
+}
+
+.head {
+    position: relative;
+}
+
+.btnicon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.preIcon {
+    left: 12px;
+    color: var(--datetime-input-pre-icon-color);
+}
+
+.afterIcon {
+    right: 12px;
+    color: var(--datetime-input-after-icon-color);
 }
 
 .head:hover .input{
-    border-color: var(--datepicker-input-border-color-focus);
+    border-color: var(--datetime-input-border-color-focus);
 }
 
 .timePicker {
@@ -408,6 +428,7 @@ time = '00:00:00';
     box-sizing: border-box;
     padding-left: 32px;
 }
+
 .footer {
     padding: 15px 0 5px;
 }

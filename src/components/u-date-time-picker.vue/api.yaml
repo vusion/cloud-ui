@@ -7,6 +7,16 @@
   next: true
   nested: false
   attrs:
+    - name: preIcon
+      title: 前置图标
+      type: icon
+      default: "calendar"
+      description: ""
+    - name: icon
+      title: 后置图标
+      type: afterIcon
+      default: ""
+      description: ""
     - name: date
       title: 值
       type: string, number, Date

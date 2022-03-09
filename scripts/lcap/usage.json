@@ -289,235 +289,6 @@
         }
     },
     {
-        "symbol": "u-multi-layout",
-        "name": "分栏布局",
-        "icon": "multi-layout",
-        "depDescription": {},
-        "description": "一定的规则布局",
-        "labels": [
-            "Layout"
-        ],
-        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/6.png",
-        "blocks": "[{\"title\":\"两栏-左侧固定\",\"description\":\"\",\"code\":\"<template>\\n<u-multi-layout direction=\\\"vertical\\\">\\n    <u-multi-layout-item>\\n    </u-multi-layout-item>\\n    <u-multi-layout-item>\\n        <u-multi-layout>\\n            <u-multi-layout-item style=\\\"width: 200px;left:0;\\\" fixed>\\n            </u-multi-layout-item>\\n            <u-multi-layout-item style=\\\"margin-left: 200px;\\\">\\n            </u-multi-layout-item>\\n        </u-multi-layout>\\n    </u-multi-layout-item>\\n</u-multi-layout>\\n</template>\\n\"},{\"title\":\"三栏-常规\",\"description\":\"\",\"code\":\"<template>\\n<u-multi-layout direction=\\\"vertical\\\">\\n    <u-multi-layout-item>\\n    </u-multi-layout-item>\\n    <u-multi-layout-item>\\n        <u-multi-layout>\\n            <u-multi-layout-item>\\n            </u-multi-layout-item>\\n            <u-multi-layout-item>\\n            </u-multi-layout-item>\\n            <u-multi-layout-item>\\n            </u-multi-layout-item>\\n        </u-multi-layout>\\n    </u-multi-layout-item>\\n</u-multi-layout>\\n</template>\\n\"},{\"title\":\"三栏-全部\",\"description\":\"\",\"code\":\"<template>\\n<u-multi-layout direction=\\\"vertical\\\">\\n    <u-multi-layout-item>\\n    </u-multi-layout-item>\\n    <u-multi-layout-item>\\n        <u-multi-layout>\\n            <u-multi-layout-item>\\n            </u-multi-layout-item>\\n            <u-multi-layout-item>\\n            </u-multi-layout-item>\\n            <u-multi-layout-item>\\n            </u-multi-layout-item>\\n        </u-multi-layout>\\n    </u-multi-layout-item>\\n    <u-multi-layout-item>\\n    </u-multi-layout-item>\\n</u-multi-layout>\\n</template>\\n\"},{\"title\":\"通栏-纵向\",\"description\":\"\",\"code\":\"<template>\\n<u-multi-layout direction=\\\"vertical\\\">\\n    <u-multi-layout-item>\\n    </u-multi-layout-item>\\n    <u-multi-layout-item>\\n    </u-multi-layout-item>\\n    <u-multi-layout-item>\\n    </u-multi-layout-item>\\n</u-multi-layout>\\n</template>\\n\"},{\"title\":\"通栏-横向\",\"description\":\"\",\"code\":\"<template>\\n<u-multi-layout>\\n    <u-multi-layout-item>\\n    </u-multi-layout-item>\\n    <u-multi-layout-item>\\n    </u-multi-layout-item>\\n    <u-multi-layout-item>\\n    </u-multi-layout-item>\\n</u-multi-layout>\\n</template>\\n\"},{\"title\":\"两栏-右侧固定\",\"description\":\"\",\"code\":\"<template>\\n<u-multi-layout direction=\\\"vertical\\\">\\n    <u-multi-layout-item>\\n    </u-multi-layout-item>\\n    <u-multi-layout-item>\\n        <u-multi-layout>\\n            <u-multi-layout-item style=\\\"width: 200px;right:0;\\\" fixed>\\n            </u-multi-layout-item>\\n            <u-multi-layout-item style=\\\"margin-right: 200px;\\\">\\n            </u-multi-layout-item>\\n        </u-multi-layout>\\n    </u-multi-layout-item>\\n</u-multi-layout>\\n</template>\\n\"},{\"title\":\"三栏-双左栏\",\"description\":\"\",\"code\":\"<template>\\n<u-multi-layout direction=\\\"vertical\\\">\\n    <u-multi-layout-item>\\n    </u-multi-layout-item>\\n    <u-multi-layout-item>\\n        <u-multi-layout>\\n            <u-multi-layout-item style=\\\"width: 400px;left:0;\\\" fixed>\\n                <u-multi-layout>\\n                    <u-multi-layout-item>\\n                    </u-multi-layout-item>\\n                    <u-multi-layout-item>\\n                    </u-multi-layout-item>\\n                </u-multi-layout>\\n            </u-multi-layout-item>\\n            <u-multi-layout-item style=\\\"margin-left: 400px;\\\">\\n            </u-multi-layout-item>\\n        </u-multi-layout>\\n    </u-multi-layout-item>\\n</u-multi-layout>\\n</template>\\n\"}]",
-        "jsonSchema": {
-            "name": "u-multi-layout",
-            "title": "分栏布局",
-            "description": "一定的规则布局",
-            "category": "Layout",
-            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/6.png",
-            "drawings": "",
-            "blocks": [
-                {
-                    "title": "两栏-左侧固定",
-                    "description": "",
-                    "code": "<template>\n<u-multi-layout direction=\"vertical\">\n    <u-multi-layout-item>\n    </u-multi-layout-item>\n    <u-multi-layout-item>\n        <u-multi-layout>\n            <u-multi-layout-item style=\"width: 200px;left:0;\" fixed>\n            </u-multi-layout-item>\n            <u-multi-layout-item style=\"margin-left: 200px;\">\n            </u-multi-layout-item>\n        </u-multi-layout>\n    </u-multi-layout-item>\n</u-multi-layout>\n</template>\n"
-                },
-                {
-                    "title": "三栏-常规",
-                    "description": "",
-                    "code": "<template>\n<u-multi-layout direction=\"vertical\">\n    <u-multi-layout-item>\n    </u-multi-layout-item>\n    <u-multi-layout-item>\n        <u-multi-layout>\n            <u-multi-layout-item>\n            </u-multi-layout-item>\n            <u-multi-layout-item>\n            </u-multi-layout-item>\n            <u-multi-layout-item>\n            </u-multi-layout-item>\n        </u-multi-layout>\n    </u-multi-layout-item>\n</u-multi-layout>\n</template>\n"
-                },
-                {
-                    "title": "三栏-全部",
-                    "description": "",
-                    "code": "<template>\n<u-multi-layout direction=\"vertical\">\n    <u-multi-layout-item>\n    </u-multi-layout-item>\n    <u-multi-layout-item>\n        <u-multi-layout>\n            <u-multi-layout-item>\n            </u-multi-layout-item>\n            <u-multi-layout-item>\n            </u-multi-layout-item>\n            <u-multi-layout-item>\n            </u-multi-layout-item>\n        </u-multi-layout>\n    </u-multi-layout-item>\n    <u-multi-layout-item>\n    </u-multi-layout-item>\n</u-multi-layout>\n</template>\n"
-                },
-                {
-                    "title": "通栏-纵向",
-                    "description": "",
-                    "code": "<template>\n<u-multi-layout direction=\"vertical\">\n    <u-multi-layout-item>\n    </u-multi-layout-item>\n    <u-multi-layout-item>\n    </u-multi-layout-item>\n    <u-multi-layout-item>\n    </u-multi-layout-item>\n</u-multi-layout>\n</template>\n"
-                },
-                {
-                    "title": "通栏-横向",
-                    "description": "",
-                    "code": "<template>\n<u-multi-layout>\n    <u-multi-layout-item>\n    </u-multi-layout-item>\n    <u-multi-layout-item>\n    </u-multi-layout-item>\n    <u-multi-layout-item>\n    </u-multi-layout-item>\n</u-multi-layout>\n</template>\n"
-                },
-                {
-                    "title": "两栏-右侧固定",
-                    "description": "",
-                    "code": "<template>\n<u-multi-layout direction=\"vertical\">\n    <u-multi-layout-item>\n    </u-multi-layout-item>\n    <u-multi-layout-item>\n        <u-multi-layout>\n            <u-multi-layout-item style=\"width: 200px;right:0;\" fixed>\n            </u-multi-layout-item>\n            <u-multi-layout-item style=\"margin-right: 200px;\">\n            </u-multi-layout-item>\n        </u-multi-layout>\n    </u-multi-layout-item>\n</u-multi-layout>\n</template>\n"
-                },
-                {
-                    "title": "三栏-双左栏",
-                    "description": "",
-                    "code": "<template>\n<u-multi-layout direction=\"vertical\">\n    <u-multi-layout-item>\n    </u-multi-layout-item>\n    <u-multi-layout-item>\n        <u-multi-layout>\n            <u-multi-layout-item style=\"width: 400px;left:0;\" fixed>\n                <u-multi-layout>\n                    <u-multi-layout-item>\n                    </u-multi-layout-item>\n                    <u-multi-layout-item>\n                    </u-multi-layout-item>\n                </u-multi-layout>\n            </u-multi-layout-item>\n            <u-multi-layout-item style=\"margin-left: 400px;\">\n            </u-multi-layout-item>\n        </u-multi-layout>\n    </u-multi-layout-item>\n</u-multi-layout>\n</template>\n"
-                }
-            ],
-            "attrs": [
-                {
-                    "name": "direction",
-                    "title": "排列方向",
-                    "type": "string",
-                    "options": [
-                        {
-                            "value": "horizontal",
-                            "title": "横向排列"
-                        },
-                        {
-                            "value": "vertical",
-                            "title": "纵向排列"
-                        }
-                    ],
-                    "default": "horizontal",
-                    "description": "布局中模块的排列方向"
-                },
-                {
-                    "name": "gap",
-                    "title": "间隙",
-                    "type": "string",
-                    "options": [
-                        {
-                            "value": "shrink",
-                            "title": "收缩"
-                        },
-                        {
-                            "value": "none",
-                            "title": "无"
-                        },
-                        {
-                            "value": "small",
-                            "title": "小"
-                        },
-                        {
-                            "value": "normal",
-                            "title": "正常"
-                        },
-                        {
-                            "value": "large",
-                            "title": "大"
-                        }
-                    ],
-                    "default": "normal",
-                    "description": "布局中各分栏间的空隙大小"
-                }
-            ],
-            "slots": [
-                {
-                    "name": "default",
-                    "description": "插入`<u-multi-layout-item>`子组件。",
-                    "support": [
-                        {
-                            "name": "u-multi-layout-item",
-                            "title": "布局栏",
-                            "snippet": "<u-multi-layout-item></u-multi-layout-item>"
-                        }
-                    ]
-                }
-            ],
-            "events": [
-                {
-                    "name": "$listeners",
-                    "kind": "trigger",
-                    "description": "监听所有事件。",
-                    "params": []
-                }
-            ],
-            "children": [
-                {
-                    "name": "u-multi-layout-item",
-                    "title": "布局栏",
-                    "description": "一定的规则布局",
-                    "attrs": [
-                        {
-                            "name": "fixed",
-                            "title": "固定展示",
-                            "type": "Boolean",
-                            "default": false,
-                            "description": "开启后滚动时该项固定显示"
-                        },
-                        {
-                            "name": "direction",
-                            "title": "排列方向",
-                            "type": "string",
-                            "options": [
-                                {
-                                    "value": "horizontal",
-                                    "title": "横向排列"
-                                },
-                                {
-                                    "value": "vertical",
-                                    "title": "纵向排列"
-                                }
-                            ],
-                            "default": "horizontal",
-                            "description": "布局中模块的排列方向"
-                        },
-                        {
-                            "name": "justify-content",
-                            "title": "横向对齐方式",
-                            "type": "string",
-                            "options": [
-                                {
-                                    "value": "flex-start",
-                                    "title": "左对齐"
-                                },
-                                {
-                                    "value": "center",
-                                    "title": "居中"
-                                },
-                                {
-                                    "value": "flex-end",
-                                    "title": "右对齐"
-                                }
-                            ],
-                            "default": "flex-start",
-                            "description": "布局中子元素的对齐方式"
-                        },
-                        {
-                            "name": "align-items",
-                            "title": "纵向对齐方式",
-                            "type": "string",
-                            "options": [
-                                {
-                                    "value": "flex-start",
-                                    "title": "左对齐"
-                                },
-                                {
-                                    "value": "center",
-                                    "title": "居中"
-                                },
-                                {
-                                    "value": "flex-end",
-                                    "title": "右对齐"
-                                }
-                            ],
-                            "default": "flex-start",
-                            "description": "布局中子元素的对齐方式"
-                        },
-                        {
-                            "name": "宽度",
-                            "title": "横向对齐方式",
-                            "type": "string, number",
-                            "advanced": true,
-                            "description": "可在样式中实现"
-                        },
-                        {
-                            "name": "高度",
-                            "title": "横向对齐方式",
-                            "type": "string, number",
-                            "advanced": true,
-                            "description": "可在样式中实现"
-                        }
-                    ],
-                    "slots": [
-                        {
-                            "name": "default",
-                            "description": "内容"
-                        }
-                    ],
-                    "events": [
-                        {
-                            "name": "$listeners",
-                            "kind": "trigger",
-                            "description": "监听所有事件。",
-                            "params": []
-                        }
-                    ]
-                }
-            ]
-        }
-    },
-    {
         "symbol": "u-grid-layout",
         "name": "栅格布局",
         "icon": "grid-layout",
@@ -784,6 +555,236 @@
         }
     },
     {
+        "symbol": "u-multi-layout",
+        "name": "分栏布局",
+        "icon": "multi-layout",
+        "depDescription": {},
+        "description": "一定的规则布局",
+        "labels": [
+            "Layout"
+        ],
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/6.png",
+        "blocks": "[{\"title\":\"两栏-左侧固定\",\"description\":\"\",\"code\":\"<template>\\n<u-multi-layout direction=\\\"vertical\\\">\\n    <u-multi-layout-item style=\\\"height: 60px;\\\">\\n    </u-multi-layout-item>\\n    <u-multi-layout-item>\\n        <u-multi-layout>\\n            <u-multi-layout-item style=\\\"width: 200px;left:0;\\\" fixed>\\n            </u-multi-layout-item>\\n            <u-multi-layout-item style=\\\"margin-left: 200px;\\\">\\n            </u-multi-layout-item>\\n        </u-multi-layout>\\n    </u-multi-layout-item>\\n</u-multi-layout>\\n</template>\\n\"},{\"title\":\"三栏-常规\",\"description\":\"\",\"code\":\"<template>\\n<u-multi-layout direction=\\\"vertical\\\">\\n    <u-multi-layout-item style=\\\"height: 60px;\\\">\\n    </u-multi-layout-item>\\n    <u-multi-layout-item>\\n        <u-multi-layout>\\n            <u-multi-layout-item style=\\\"width: 200px;\\\">\\n            </u-multi-layout-item>\\n            <u-multi-layout-item>\\n            </u-multi-layout-item>\\n            <u-multi-layout-item style=\\\"width: 200px;\\\">\\n            </u-multi-layout-item>\\n        </u-multi-layout>\\n    </u-multi-layout-item>\\n</u-multi-layout>\\n</template>\\n\"},{\"title\":\"三栏-全部\",\"description\":\"\",\"code\":\"<template>\\n<u-multi-layout direction=\\\"vertical\\\">\\n    <u-multi-layout-item style=\\\"height: 60px;\\\">\\n    </u-multi-layout-item>\\n    <u-multi-layout-item>\\n        <u-multi-layout>\\n            <u-multi-layout-item style=\\\"width: 200px;\\\">\\n            </u-multi-layout-item>\\n            <u-multi-layout-item>\\n            </u-multi-layout-item>\\n            <u-multi-layout-item style=\\\"width: 200px;\\\">\\n            </u-multi-layout-item>\\n        </u-multi-layout>\\n    </u-multi-layout-item>\\n    <u-multi-layout-item style=\\\"height: 60px;\\\">\\n    </u-multi-layout-item>\\n</u-multi-layout>\\n</template>\\n\"},{\"title\":\"通栏-纵向\",\"description\":\"\",\"code\":\"<template>\\n<u-multi-layout direction=\\\"vertical\\\">\\n    <u-multi-layout-item style=\\\"height: 60px;\\\">\\n    </u-multi-layout-item>\\n    <u-multi-layout-item>\\n    </u-multi-layout-item>\\n    <u-multi-layout-item style=\\\"height: 60px;\\\">\\n    </u-multi-layout-item>\\n</u-multi-layout>\\n</template>\\n\"},{\"title\":\"通栏-横向\",\"description\":\"\",\"code\":\"<template>\\n<u-multi-layout>\\n    <u-multi-layout-item style=\\\"width: 200px;\\\">\\n    </u-multi-layout-item>\\n    <u-multi-layout-item>\\n    </u-multi-layout-item>\\n    <u-multi-layout-item style=\\\"width: 200px;\\\">\\n    </u-multi-layout-item>\\n</u-multi-layout>\\n</template>\\n\"},{\"title\":\"两栏-右侧固定\",\"description\":\"\",\"code\":\"<template>\\n<u-multi-layout direction=\\\"vertical\\\">\\n    <u-multi-layout-item style=\\\"height: 60px;\\\">\\n    </u-multi-layout-item>\\n    <u-multi-layout-item>\\n        <u-multi-layout>\\n            <u-multi-layout-item style=\\\"width: 200px;right:0;\\\" fixed>\\n            </u-multi-layout-item>\\n            <u-multi-layout-item style=\\\"margin-right: 200px;\\\">\\n            </u-multi-layout-item>\\n        </u-multi-layout>\\n    </u-multi-layout-item>\\n</u-multi-layout>\\n</template>\\n\"},{\"title\":\"三栏-双左栏\",\"description\":\"\",\"code\":\"<template>\\n<u-multi-layout direction=\\\"vertical\\\">\\n    <u-multi-layout-item style=\\\"height: 60px;\\\">\\n    </u-multi-layout-item>\\n    <u-multi-layout-item>\\n        <u-multi-layout>\\n            <u-multi-layout-item style=\\\"width: 400px;left:0;\\\" fixed>\\n                <u-multi-layout>\\n                    <u-multi-layout-item>\\n                    </u-multi-layout-item>\\n                    <u-multi-layout-item>\\n                    </u-multi-layout-item>\\n                </u-multi-layout>\\n            </u-multi-layout-item>\\n            <u-multi-layout-item style=\\\"margin-left: 400px;\\\">\\n            </u-multi-layout-item>\\n        </u-multi-layout>\\n    </u-multi-layout-item>\\n</u-multi-layout>\\n</template>\\n\"}]",
+        "jsonSchema": {
+            "name": "u-multi-layout",
+            "title": "分栏布局",
+            "description": "一定的规则布局",
+            "category": "Layout",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/4.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/5.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-multi-layout.vue/screenshots/6.png",
+            "drawings": "",
+            "blocks": [
+                {
+                    "title": "两栏-左侧固定",
+                    "description": "",
+                    "code": "<template>\n<u-multi-layout direction=\"vertical\">\n    <u-multi-layout-item style=\"height: 60px;\">\n    </u-multi-layout-item>\n    <u-multi-layout-item>\n        <u-multi-layout>\n            <u-multi-layout-item style=\"width: 200px;left:0;\" fixed>\n            </u-multi-layout-item>\n            <u-multi-layout-item style=\"margin-left: 200px;\">\n            </u-multi-layout-item>\n        </u-multi-layout>\n    </u-multi-layout-item>\n</u-multi-layout>\n</template>\n"
+                },
+                {
+                    "title": "三栏-常规",
+                    "description": "",
+                    "code": "<template>\n<u-multi-layout direction=\"vertical\">\n    <u-multi-layout-item style=\"height: 60px;\">\n    </u-multi-layout-item>\n    <u-multi-layout-item>\n        <u-multi-layout>\n            <u-multi-layout-item style=\"width: 200px;\">\n            </u-multi-layout-item>\n            <u-multi-layout-item>\n            </u-multi-layout-item>\n            <u-multi-layout-item style=\"width: 200px;\">\n            </u-multi-layout-item>\n        </u-multi-layout>\n    </u-multi-layout-item>\n</u-multi-layout>\n</template>\n"
+                },
+                {
+                    "title": "三栏-全部",
+                    "description": "",
+                    "code": "<template>\n<u-multi-layout direction=\"vertical\">\n    <u-multi-layout-item style=\"height: 60px;\">\n    </u-multi-layout-item>\n    <u-multi-layout-item>\n        <u-multi-layout>\n            <u-multi-layout-item style=\"width: 200px;\">\n            </u-multi-layout-item>\n            <u-multi-layout-item>\n            </u-multi-layout-item>\n            <u-multi-layout-item style=\"width: 200px;\">\n            </u-multi-layout-item>\n        </u-multi-layout>\n    </u-multi-layout-item>\n    <u-multi-layout-item style=\"height: 60px;\">\n    </u-multi-layout-item>\n</u-multi-layout>\n</template>\n"
+                },
+                {
+                    "title": "通栏-纵向",
+                    "description": "",
+                    "code": "<template>\n<u-multi-layout direction=\"vertical\">\n    <u-multi-layout-item style=\"height: 60px;\">\n    </u-multi-layout-item>\n    <u-multi-layout-item>\n    </u-multi-layout-item>\n    <u-multi-layout-item style=\"height: 60px;\">\n    </u-multi-layout-item>\n</u-multi-layout>\n</template>\n"
+                },
+                {
+                    "title": "通栏-横向",
+                    "description": "",
+                    "code": "<template>\n<u-multi-layout>\n    <u-multi-layout-item style=\"width: 200px;\">\n    </u-multi-layout-item>\n    <u-multi-layout-item>\n    </u-multi-layout-item>\n    <u-multi-layout-item style=\"width: 200px;\">\n    </u-multi-layout-item>\n</u-multi-layout>\n</template>\n"
+                },
+                {
+                    "title": "两栏-右侧固定",
+                    "description": "",
+                    "code": "<template>\n<u-multi-layout direction=\"vertical\">\n    <u-multi-layout-item style=\"height: 60px;\">\n    </u-multi-layout-item>\n    <u-multi-layout-item>\n        <u-multi-layout>\n            <u-multi-layout-item style=\"width: 200px;right:0;\" fixed>\n            </u-multi-layout-item>\n            <u-multi-layout-item style=\"margin-right: 200px;\">\n            </u-multi-layout-item>\n        </u-multi-layout>\n    </u-multi-layout-item>\n</u-multi-layout>\n</template>\n"
+                },
+                {
+                    "title": "三栏-双左栏",
+                    "description": "",
+                    "code": "<template>\n<u-multi-layout direction=\"vertical\">\n    <u-multi-layout-item style=\"height: 60px;\">\n    </u-multi-layout-item>\n    <u-multi-layout-item>\n        <u-multi-layout>\n            <u-multi-layout-item style=\"width: 400px;left:0;\" fixed>\n                <u-multi-layout>\n                    <u-multi-layout-item>\n                    </u-multi-layout-item>\n                    <u-multi-layout-item>\n                    </u-multi-layout-item>\n                </u-multi-layout>\n            </u-multi-layout-item>\n            <u-multi-layout-item style=\"margin-left: 400px;\">\n            </u-multi-layout-item>\n        </u-multi-layout>\n    </u-multi-layout-item>\n</u-multi-layout>\n</template>\n"
+                }
+            ],
+            "attrs": [
+                {
+                    "name": "direction",
+                    "title": "排列方向",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "horizontal",
+                            "title": "横向排列"
+                        },
+                        {
+                            "value": "vertical",
+                            "title": "纵向排列"
+                        }
+                    ],
+                    "default": "horizontal",
+                    "description": "布局中模块的排列方向"
+                },
+                {
+                    "name": "gap",
+                    "title": "间隙",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "shrink",
+                            "title": "收缩"
+                        },
+                        {
+                            "value": "none",
+                            "title": "无"
+                        },
+                        {
+                            "value": "small",
+                            "title": "小"
+                        },
+                        {
+                            "value": "normal",
+                            "title": "正常"
+                        },
+                        {
+                            "value": "large",
+                            "title": "大"
+                        }
+                    ],
+                    "default": "normal",
+                    "description": "布局中各分栏间的空隙大小"
+                }
+            ],
+            "slots": [
+                {
+                    "name": "default",
+                    "description": "插入`<u-multi-layout-item>`子组件。",
+                    "support": [
+                        {
+                            "name": "u-multi-layout-item",
+                            "title": "布局栏",
+                            "snippet": "<u-multi-layout-item></u-multi-layout-item>"
+                        }
+                    ]
+                }
+            ],
+            "events": [
+                {
+                    "name": "$listeners",
+                    "kind": "trigger",
+                    "description": "监听所有事件。",
+                    "params": []
+                }
+            ],
+            "children": [
+                {
+                    "name": "u-multi-layout-item",
+                    "title": "布局栏",
+                    "description": "一定的规则布局",
+                    "attrs": [
+                        {
+                            "name": "fixed",
+                            "title": "固定展示",
+                            "type": "Boolean",
+                            "default": false,
+                            "description": "开启后滚动时该项固定显示"
+                        },
+                        {
+                            "name": "display",
+                            "title": "展示方式",
+                            "type": "string",
+                            "options": [
+                                {
+                                    "value": "block",
+                                    "title": "块级"
+                                }
+                            ],
+                            "default": "block",
+                            "description": "行内展示，或块级换行展示"
+                        },
+                        {
+                            "name": "justify",
+                            "title": "主轴分布方式",
+                            "type": "string",
+                            "options": [
+                                {
+                                    "value": "start",
+                                    "title": "左对齐"
+                                },
+                                {
+                                    "value": "center",
+                                    "title": "居中对齐"
+                                },
+                                {
+                                    "value": "end",
+                                    "title": "右对齐"
+                                },
+                                {
+                                    "value": "space-between",
+                                    "title": "各行之间留有空",
+                                    "advanced": true
+                                },
+                                {
+                                    "value": "space-around",
+                                    "title": "之前、之间、之后都留有空白",
+                                    "advanced": true
+                                }
+                            ],
+                            "default": "start",
+                            "description": "内容对齐方式"
+                        },
+                        {
+                            "name": "alignment",
+                            "title": "纵轴对齐方式",
+                            "type": "string",
+                            "options": [
+                                {
+                                    "value": "start",
+                                    "title": "头对齐"
+                                },
+                                {
+                                    "value": "center",
+                                    "title": "居中对齐"
+                                },
+                                {
+                                    "value": "end",
+                                    "title": "尾对齐"
+                                },
+                                {
+                                    "value": "baseline",
+                                    "title": "基线对齐"
+                                },
+                                {
+                                    "value": "stretch",
+                                    "title": "拉伸子元素充满整个父元素空间"
+                                }
+                            ],
+                            "default": "stretch",
+                            "description": "flex布局模式下的交叉轴对齐方式",
+                            "advanced": true
+                        }
+                    ],
+                    "slots": [
+                        {
+                            "name": "default",
+                            "description": "内容"
+                        }
+                    ],
+                    "events": [
+                        {
+                            "name": "$listeners",
+                            "kind": "trigger",
+                            "description": "监听所有事件。",
+                            "params": []
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
         "symbol": "u-footbar",
         "name": "底部栏",
         "icon": "footbar",
@@ -827,22 +828,22 @@
         "depDescription": {},
         "description": "导航指引",
         "labels": [
-            "Layout"
+            "Navigation"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-crumb.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-crumb.vue/screenshots/1.png",
-        "blocks": "[{\"title\":\"手动面包屑\",\"description\":\"\",\"code\":\"<template>\\n<u-crumb>\\n    <u-crumb-item text=\\\"主页面\\\"></u-crumb-item>\\n    <u-crumb-item text=\\\"一级子页面\\\"></u-crumb-item>\\n    <u-crumb-item text=\\\"二级子页面\\\"></u-crumb-item>\\n</u-crumb>\\n</template>\\n\"},{\"title\":\"自动面包屑\",\"description\":\"\",\"code\":\"<template>\\n<u-crumb auto></u-crumb>\\n</template>\\n\"},{\"title\":\"图标面包屑\",\"description\":\"\",\"code\":\"<template>\\n<u-crumb icon>\\n    <u-crumb-item icon=\\\"home\\\" text=\\\"主页面\\\"></u-crumb-item>\\n    <u-crumb-item icon=\\\"user\\\" text=\\\"一级子页面\\\"></u-crumb-item>\\n    <u-crumb-item icon=\\\"task\\\" text=\\\"二级子页面\\\"></u-crumb-item>\\n</u-crumb>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"手动面包屑\",\"description\":\"\",\"code\":\"<template>\\n<u-crumb :icon=\\\"false\\\">\\n    <u-crumb-item icon=\\\"home\\\" text=\\\"主页面\\\"></u-crumb-item>\\n    <u-crumb-item icon=\\\"user\\\" text=\\\"一级子页面\\\"></u-crumb-item>\\n    <u-crumb-item icon=\\\"task\\\" text=\\\"二级子页面\\\"></u-crumb-item>\\n</u-crumb>\\n</template>\\n\"},{\"title\":\"自动面包屑\",\"description\":\"\",\"code\":\"<template>\\n<u-crumb auto></u-crumb>\\n</template>\\n\"},{\"title\":\"图标面包屑\",\"description\":\"\",\"code\":\"<template>\\n<u-crumb icon>\\n    <u-crumb-item icon=\\\"home\\\" text=\\\"主页面\\\"></u-crumb-item>\\n    <u-crumb-item icon=\\\"user\\\" text=\\\"一级子页面\\\"></u-crumb-item>\\n    <u-crumb-item icon=\\\"task\\\" text=\\\"二级子页面\\\"></u-crumb-item>\\n</u-crumb>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-crumb",
             "title": "面包屑",
             "description": "导航指引",
-            "category": "Layout",
+            "category": "Navigation",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-crumb.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-crumb.vue/screenshots/1.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-crumb.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-crumb.vue/drawings/1.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-crumb.vue/drawings/2.svg",
             "blocks": [
                 {
                     "title": "手动面包屑",
                     "description": "",
-                    "code": "<template>\n<u-crumb>\n    <u-crumb-item text=\"主页面\"></u-crumb-item>\n    <u-crumb-item text=\"一级子页面\"></u-crumb-item>\n    <u-crumb-item text=\"二级子页面\"></u-crumb-item>\n</u-crumb>\n</template>\n"
+                    "code": "<template>\n<u-crumb :icon=\"false\">\n    <u-crumb-item icon=\"home\" text=\"主页面\"></u-crumb-item>\n    <u-crumb-item icon=\"user\" text=\"一级子页面\"></u-crumb-item>\n    <u-crumb-item icon=\"task\" text=\"二级子页面\"></u-crumb-item>\n</u-crumb>\n</template>\n"
                 },
                 {
                     "title": "自动面包屑",
@@ -865,7 +866,7 @@
                 },
                 {
                     "name": "separator",
-                    "title": "分隔符",
+                    "title": "面包屑样式",
                     "type": "string",
                     "options": [
                         {
@@ -1143,7 +1144,7 @@
         "depDescription": {},
         "description": "用于快速布局",
         "labels": [
-            "Layout"
+            "Container"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-panel.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-panel.vue/screenshots/1.png",
         "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-panel title=\\\"任务总览\\\">任务内容</u-panel>\\n</template>\\n\"},{\"title\":\"面板分组\",\"description\":\"\",\"code\":\"<template>\\n<u-panel title=\\\"服务\\\">\\n    <u-panel-group title=\\\"当天概览\\\">概览内容</u-panel-group>\\n    <u-panel-group title=\\\"事务分组\\\">事务内容</u-panel-group>\\n</u-panel>\\n</template>\\n\"}]",
@@ -1151,7 +1152,7 @@
             "name": "u-panel",
             "title": "面板",
             "description": "用于快速布局",
-            "category": "Layout",
+            "category": "Container",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-panel.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-panel.vue/screenshots/1.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-panel.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-panel.vue/drawings/1.svg",
             "blocks": [
@@ -1256,15 +1257,15 @@
         "depDescription": {},
         "description": "可以折叠/展开的内容区域。",
         "labels": [
-            "Layout"
+            "Container"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-collapse.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-collapse.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-collapse.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-collapse.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-collapse.vue/screenshots/4.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-collapse>\\n    <u-collapse-item title=\\\"面板1\\\">Content1</u-collapse-item>\\n    <u-collapse-item title=\\\"面板2\\\" expanded>Content2</u-collapse-item>\\n    <u-collapse-item title=\\\"面板3\\\">Content3</u-collapse-item>\\n</u-collapse>\\n</template>\\n\"},{\"title\":\"额外插槽\",\"description\":\"对于一些操作项，可以使用 `extra` 插槽添加在详情列表组的右上角。\\n\",\"code\":\"<template>\\n<u-collapse show-extra-empty-slot>\\n    <u-collapse-item title=\\\"面板1\\\">\\n        <template #extra>\\n            <u-link>设置</u-link>\\n        </template>\\n        Content1\\n    </u-collapse-item>\\n    <u-collapse-item title=\\\"面板2\\\" expanded>Content2</u-collapse-item>\\n    <u-collapse-item title=\\\"面板3\\\">Content3</u-collapse-item>\\n</u-collapse>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-collapse>\\n    <u-collapse-item title=\\\"面板1\\\">Content1</u-collapse-item>\\n    <u-collapse-item title=\\\"面板2\\\" expanded>Content2</u-collapse-item>\\n    <u-collapse-item title=\\\"面板3\\\">Content3</u-collapse-item>\\n</u-collapse>\\n</template>\\n\"},{\"title\":\"额外插槽\",\"description\":\"对于一些操作项，可以使用 `extra` 插槽添加在详情列表组的右上角。\\n\",\"code\":\"<template>\\n<u-collapse show-extra-empty-slot>\\n    <u-collapse-item title=\\\"面板1\\\"><template #extra><u-link>设置</u-link></template>Content1</u-collapse-item>\\n    <u-collapse-item title=\\\"面板2\\\" expanded><template #extra></template>Content2</u-collapse-item>\\n    <u-collapse-item title=\\\"面板3\\\"><template #extra></template>Content3</u-collapse-item>\\n</u-collapse>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-collapse",
             "title": "折叠面板",
             "description": "可以折叠/展开的内容区域。",
-            "category": "Layout",
+            "category": "Container",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-collapse.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-collapse.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-collapse.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-collapse.vue/screenshots/3.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-collapse.vue/screenshots/4.png",
             "drawings": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-collapse.vue/drawings/0.svg,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-collapse.vue/drawings/1.svg",
             "blocks": [
@@ -1276,7 +1277,7 @@
                 {
                     "title": "额外插槽",
                     "description": "对于一些操作项，可以使用 `extra` 插槽添加在详情列表组的右上角。\n",
-                    "code": "<template>\n<u-collapse show-extra-empty-slot>\n    <u-collapse-item title=\"面板1\">\n        <template #extra>\n            <u-link>设置</u-link>\n        </template>\n        Content1\n    </u-collapse-item>\n    <u-collapse-item title=\"面板2\" expanded>Content2</u-collapse-item>\n    <u-collapse-item title=\"面板3\">Content3</u-collapse-item>\n</u-collapse>\n</template>\n"
+                    "code": "<template>\n<u-collapse show-extra-empty-slot>\n    <u-collapse-item title=\"面板1\"><template #extra><u-link>设置</u-link></template>Content1</u-collapse-item>\n    <u-collapse-item title=\"面板2\" expanded><template #extra></template>Content2</u-collapse-item>\n    <u-collapse-item title=\"面板3\"><template #extra></template>Content3</u-collapse-item>\n</u-collapse>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -1358,7 +1359,7 @@
                         {
                             "name": "u-collapse-item",
                             "title": "多选项",
-                            "snippet": "<u-collapse-item title=\"面板\">内容</u-collapse-item>"
+                            "snippet": "<u-collapse-item title=\"面板\"><template #extra></template>内容</u-collapse-item>"
                         }
                     ]
                 }
@@ -1528,7 +1529,7 @@
         "depDescription": {},
         "description": "用于快速布局",
         "labels": [
-            "Layout"
+            "Container"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-card.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-card.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-card.vue/screenshots/2.png",
         "blocks": "[{\"title\":\"基本样式\",\"description\":\"\",\"code\":\"<template>\\n<u-card title=\\\"卡片总览\\\">卡片内容</u-card>\\n</template>\\n\"},{\"title\":\"带分割线样式\",\"description\":\"\",\"code\":\"<template>\\n<u-card title=\\\"卡片\\\" split>卡片内容</u-card>\\n</template>\\n\"},{\"title\":\"带图片样式\",\"description\":\"\",\"code\":\"<template>\\n<u-card title=\\\"卡片\\\" style=\\\"width: 280px\\\" show-cover-empty-slot><template #cover>\\n        <u-image src=\\\"https://static-vusion.163yun.com/assets/cloud-ui/1.jpg\\\" fit=\\\"contain\\\"></u-image>\\n</template>卡片内容</u-card>\\n</template>\\n\"}]",
@@ -1536,7 +1537,7 @@
             "name": "u-card",
             "title": "卡片",
             "description": "用于快速布局",
-            "category": "Layout",
+            "category": "Container",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-card.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-card.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-card.vue/screenshots/2.png",
             "drawings": "",
             "blocks": [
@@ -1567,7 +1568,8 @@
                     "name": "width",
                     "title": "宽度",
                     "type": "string",
-                    "description": "卡片宽度：像素或百分比"
+                    "description": "卡片宽度：像素或百分比",
+                    "group": "样式属性"
                 },
                 {
                     "name": "shadow",
@@ -1588,21 +1590,24 @@
                             "value": "never",
                             "title": "不显示"
                         }
-                    ]
+                    ],
+                    "group": "样式属性"
                 },
                 {
                     "name": "border",
-                    "title": "边框",
+                    "title": "显示边框",
                     "type": "boolean",
                     "default": true,
-                    "description": "是否显示卡片边框"
+                    "description": "是否显示卡片边框",
+                    "group": "样式属性"
                 },
                 {
                     "name": "split",
                     "title": "分割线",
                     "type": "boolean",
                     "default": false,
-                    "description": "是否显示分割线"
+                    "description": "是否显示分割线",
+                    "group": "样式属性"
                 }
             ],
             "slots": [
@@ -1660,37 +1665,37 @@
         "depDescription": {},
         "description": "通常用于页面左侧的导航栏。",
         "labels": [
-            "Layout"
+            "Navigation"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-sidebar.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-sidebar.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-sidebar.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-sidebar.vue/screenshots/3.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-sidebar value=\\\"3\\\" :router=\\\"false\\\" style=\\\"width: 200px;\\\">\\n    <u-sidebar-item value=\\\"1\\\" text=\\\"指南\\\"></u-sidebar-item>\\n    <u-sidebar-item value=\\\"2\\\" text=\\\"概念\\\"></u-sidebar-item>\\n    <u-sidebar-item value=\\\"3\\\" text=\\\"组件\\\"></u-sidebar-item>\\n</u-sidebar>\\n</template>\\n\"},{\"title\":\"折叠功能\",\"description\":\"\",\"code\":\"<template>\\n<u-sidebar collapsible>\\n    <u-sidebar-group title=\\\"Basic\\\">\\n        <u-sidebar-item text=\\\"链接\\\"></u-sidebar-item>\\n        <u-sidebar-item text=\\\"按钮\\\"></u-sidebar-item>\\n        <u-sidebar-item text=\\\"标签\\\"></u-sidebar-item>\\n    </u-sidebar-group>\\n    <u-sidebar-group title=\\\"Navigation\\\" expanded disabled>\\n        <u-sidebar-item text=\\\"导航栏\\\"></u-sidebar-item>\\n        <u-sidebar-item text=\\\"标签页\\\"></u-sidebar-item>\\n    </u-sidebar-group>\\n    <u-sidebar-group title=\\\"Form\\\" :collapsible=\\\"false\\\">\\n        <u-sidebar-item text=\\\"单行输入\\\"></u-sidebar-item>\\n        <u-sidebar-item text=\\\"多行输入\\\"></u-sidebar-item>\\n        <u-sidebar-item text=\\\"选择框\\\"></u-sidebar-item>\\n        <u-sidebar-item text=\\\"表单\\\"></u-sidebar-item>\\n    </u-sidebar-group>\\n</u-sidebar>\\n</template>\\n\"},{\"title\":\"分组\",\"description\":\"\",\"code\":\"<template>\\n<u-sidebar>\\n    <u-sidebar-group title=\\\"Basic\\\">\\n        <u-sidebar-item text=\\\"链接\\\"></u-sidebar-item>\\n        <u-sidebar-item text=\\\"按钮\\\"></u-sidebar-item>\\n        <u-sidebar-item text=\\\"标签\\\"></u-sidebar-item>\\n    </u-sidebar-group>\\n    <u-sidebar-group title=\\\"Navigation\\\">\\n        <u-sidebar-item text=\\\"导航栏\\\"></u-sidebar-item>\\n        <u-sidebar-item text=\\\"标签页\\\"></u-sidebar-item>\\n    </u-sidebar-group>\\n    <u-sidebar-group title=\\\"Form\\\">\\n        <u-sidebar-item text=\\\"单行输入\\\"></u-sidebar-item>\\n        <u-sidebar-item text=\\\"多行输入\\\"></u-sidebar-item>\\n        <u-sidebar-item text=\\\"选择框\\\"></u-sidebar-item>\\n        <u-sidebar-item text=\\\"表单\\\"></u-sidebar-item>\\n    </u-sidebar-group>\\n</u-sidebar>\\n</template>\\n\"},{\"title\":\"手风琴模式\",\"description\":\"\",\"code\":\"<template>\\n<u-sidebar collapsible accordion>\\n    <u-sidebar-group title=\\\"Basic\\\">\\n        <u-sidebar-item text=\\\"链接\\\"></u-sidebar-item>\\n        <u-sidebar-item text=\\\"按钮\\\"></u-sidebar-item>\\n        <u-sidebar-item text=\\\"标签\\\"></u-sidebar-item>\\n    </u-sidebar-group>\\n    <u-sidebar-group title=\\\"Navigation\\\">\\n        <u-sidebar-item text=\\\"导航栏\\\"></u-sidebar-item>\\n        <u-sidebar-item text=\\\"标签页\\\"></u-sidebar-item>\\n    </u-sidebar-group>\\n    <u-sidebar-group title=\\\"Form\\\">\\n        <u-sidebar-item text=\\\"单行输入\\\"></u-sidebar-item>\\n        <u-sidebar-item text=\\\"多行输入\\\"></u-sidebar-item>\\n        <u-sidebar-item text=\\\"选择框\\\"></u-sidebar-item>\\n        <u-sidebar-item text=\\\"表单\\\"></u-sidebar-item>\\n    </u-sidebar-group>\\n</u-sidebar>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-sidebar value=\\\"3\\\" :router=\\\"false\\\">\\n    <u-sidebar-item value=\\\"1\\\" text=\\\"导航一\\\"></u-sidebar-item>\\n    <u-sidebar-item value=\\\"2\\\" text=\\\"导航二\\\"></u-sidebar-item>\\n    <u-sidebar-item value=\\\"3\\\" text=\\\"导航三\\\"></u-sidebar-item>\\n</u-sidebar>\\n</template>\\n\"},{\"title\":\"折叠功能\",\"description\":\"\",\"code\":\"<template>\\n<u-sidebar collapsible>\\n    <u-sidebar-group title=\\\"导航一\\\" expanded>\\n        <u-sidebar-item text=\\\"选项一\\\"></u-sidebar-item>\\n    </u-sidebar-group>\\n    <u-sidebar-group title=\\\"导航二\\\" expanded disabled>\\n        <u-sidebar-item text=\\\"选项一\\\"></u-sidebar-item>\\n    </u-sidebar-group>\\n</u-sidebar>\\n</template>\\n\"},{\"title\":\"分组\",\"description\":\"\",\"code\":\"<template>\\n<u-sidebar>\\n    <u-sidebar-group title=\\\"导航一\\\" expanded>\\n        <u-sidebar-item text=\\\"选项一\\\"></u-sidebar-item>\\n    </u-sidebar-group>\\n    <u-sidebar-group title=\\\"导航二\\\" expanded>\\n        <u-sidebar-item text=\\\"选项一\\\"></u-sidebar-item>\\n    </u-sidebar-group>\\n</u-sidebar>\\n</template>\\n\"},{\"title\":\"手风琴模式\",\"description\":\"\",\"code\":\"<template>\\n<u-sidebar collapsible accordion>\\n    <u-sidebar-group title=\\\"导航一\\\">\\n        <u-sidebar-item text=\\\"选项一\\\"></u-sidebar-item>\\n    </u-sidebar-group>\\n    <u-sidebar-group title=\\\"导航二\\\">\\n        <u-sidebar-item text=\\\"选项一\\\"></u-sidebar-item>\\n    </u-sidebar-group>\\n    <u-sidebar-group title=\\\"导航三\\\">\\n        <u-sidebar-item text=\\\"选项一\\\"></u-sidebar-item>\\n    </u-sidebar-group>\\n</u-sidebar>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-sidebar",
             "title": "侧边栏",
             "description": "通常用于页面左侧的导航栏。",
-            "category": "Layout",
+            "category": "Navigation",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-sidebar.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-sidebar.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-sidebar.vue/screenshots/2.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-sidebar.vue/screenshots/3.png",
             "drawings": "",
             "blocks": [
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-sidebar value=\"3\" :router=\"false\" style=\"width: 200px;\">\n    <u-sidebar-item value=\"1\" text=\"指南\"></u-sidebar-item>\n    <u-sidebar-item value=\"2\" text=\"概念\"></u-sidebar-item>\n    <u-sidebar-item value=\"3\" text=\"组件\"></u-sidebar-item>\n</u-sidebar>\n</template>\n"
+                    "code": "<template>\n<u-sidebar value=\"3\" :router=\"false\">\n    <u-sidebar-item value=\"1\" text=\"导航一\"></u-sidebar-item>\n    <u-sidebar-item value=\"2\" text=\"导航二\"></u-sidebar-item>\n    <u-sidebar-item value=\"3\" text=\"导航三\"></u-sidebar-item>\n</u-sidebar>\n</template>\n"
                 },
                 {
                     "title": "折叠功能",
                     "description": "",
-                    "code": "<template>\n<u-sidebar collapsible>\n    <u-sidebar-group title=\"Basic\">\n        <u-sidebar-item text=\"链接\"></u-sidebar-item>\n        <u-sidebar-item text=\"按钮\"></u-sidebar-item>\n        <u-sidebar-item text=\"标签\"></u-sidebar-item>\n    </u-sidebar-group>\n    <u-sidebar-group title=\"Navigation\" expanded disabled>\n        <u-sidebar-item text=\"导航栏\"></u-sidebar-item>\n        <u-sidebar-item text=\"标签页\"></u-sidebar-item>\n    </u-sidebar-group>\n    <u-sidebar-group title=\"Form\" :collapsible=\"false\">\n        <u-sidebar-item text=\"单行输入\"></u-sidebar-item>\n        <u-sidebar-item text=\"多行输入\"></u-sidebar-item>\n        <u-sidebar-item text=\"选择框\"></u-sidebar-item>\n        <u-sidebar-item text=\"表单\"></u-sidebar-item>\n    </u-sidebar-group>\n</u-sidebar>\n</template>\n"
+                    "code": "<template>\n<u-sidebar collapsible>\n    <u-sidebar-group title=\"导航一\" expanded>\n        <u-sidebar-item text=\"选项一\"></u-sidebar-item>\n    </u-sidebar-group>\n    <u-sidebar-group title=\"导航二\" expanded disabled>\n        <u-sidebar-item text=\"选项一\"></u-sidebar-item>\n    </u-sidebar-group>\n</u-sidebar>\n</template>\n"
                 },
                 {
                     "title": "分组",
                     "description": "",
-                    "code": "<template>\n<u-sidebar>\n    <u-sidebar-group title=\"Basic\">\n        <u-sidebar-item text=\"链接\"></u-sidebar-item>\n        <u-sidebar-item text=\"按钮\"></u-sidebar-item>\n        <u-sidebar-item text=\"标签\"></u-sidebar-item>\n    </u-sidebar-group>\n    <u-sidebar-group title=\"Navigation\">\n        <u-sidebar-item text=\"导航栏\"></u-sidebar-item>\n        <u-sidebar-item text=\"标签页\"></u-sidebar-item>\n    </u-sidebar-group>\n    <u-sidebar-group title=\"Form\">\n        <u-sidebar-item text=\"单行输入\"></u-sidebar-item>\n        <u-sidebar-item text=\"多行输入\"></u-sidebar-item>\n        <u-sidebar-item text=\"选择框\"></u-sidebar-item>\n        <u-sidebar-item text=\"表单\"></u-sidebar-item>\n    </u-sidebar-group>\n</u-sidebar>\n</template>\n"
+                    "code": "<template>\n<u-sidebar>\n    <u-sidebar-group title=\"导航一\" expanded>\n        <u-sidebar-item text=\"选项一\"></u-sidebar-item>\n    </u-sidebar-group>\n    <u-sidebar-group title=\"导航二\" expanded>\n        <u-sidebar-item text=\"选项一\"></u-sidebar-item>\n    </u-sidebar-group>\n</u-sidebar>\n</template>\n"
                 },
                 {
                     "title": "手风琴模式",
                     "description": "",
-                    "code": "<template>\n<u-sidebar collapsible accordion>\n    <u-sidebar-group title=\"Basic\">\n        <u-sidebar-item text=\"链接\"></u-sidebar-item>\n        <u-sidebar-item text=\"按钮\"></u-sidebar-item>\n        <u-sidebar-item text=\"标签\"></u-sidebar-item>\n    </u-sidebar-group>\n    <u-sidebar-group title=\"Navigation\">\n        <u-sidebar-item text=\"导航栏\"></u-sidebar-item>\n        <u-sidebar-item text=\"标签页\"></u-sidebar-item>\n    </u-sidebar-group>\n    <u-sidebar-group title=\"Form\">\n        <u-sidebar-item text=\"单行输入\"></u-sidebar-item>\n        <u-sidebar-item text=\"多行输入\"></u-sidebar-item>\n        <u-sidebar-item text=\"选择框\"></u-sidebar-item>\n        <u-sidebar-item text=\"表单\"></u-sidebar-item>\n    </u-sidebar-group>\n</u-sidebar>\n</template>\n"
+                    "code": "<template>\n<u-sidebar collapsible accordion>\n    <u-sidebar-group title=\"导航一\">\n        <u-sidebar-item text=\"选项一\"></u-sidebar-item>\n    </u-sidebar-group>\n    <u-sidebar-group title=\"导航二\">\n        <u-sidebar-item text=\"选项一\"></u-sidebar-item>\n    </u-sidebar-group>\n    <u-sidebar-group title=\"导航三\">\n        <u-sidebar-item text=\"选项一\"></u-sidebar-item>\n    </u-sidebar-group>\n</u-sidebar>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -1791,174 +1796,6 @@
                             "schema": {
                                 "$ref": "#/systemTypes/CollapseEvent"
                             }
-                        }
-                    ]
-                }
-            ],
-            "events": [
-                {
-                    "name": "click",
-                    "title": "点击",
-                    "description": "点击此项时触发，与原生 click 事件不同的是，它只会在非只读和禁用的情况下触发。",
-                    "params": [
-                        {
-                            "name": "$event",
-                            "type": "MouseEvent",
-                            "description": "鼠标事件对象",
-                            "schema": {
-                                "$ref": "#/systemTypes/MouseEvent"
-                            }
-                        },
-                        {
-                            "name": "senderVM",
-                            "type": "Vue",
-                            "description": "发送事件实例"
-                        }
-                    ]
-                },
-                {
-                    "name": "before-select",
-                    "title": "选择前",
-                    "advanced": true,
-                    "description": "选择某一项前触发",
-                    "params": [
-                        {
-                            "name": "$event",
-                            "type": "object",
-                            "description": "自定义事件对象",
-                            "schema": {
-                                "$ref": "#/systemTypes/ChangeItemEvent"
-                            }
-                        },
-                        {
-                            "name": "$event.value",
-                            "type": "any",
-                            "description": "选择项的值"
-                        },
-                        {
-                            "name": "$event.oldValue",
-                            "type": "any",
-                            "description": "旧的值"
-                        },
-                        {
-                            "name": "$event.item",
-                            "type": "object",
-                            "description": "选择项相关对象"
-                        },
-                        {
-                            "name": "$event.itemVM",
-                            "type": "USidebarItem",
-                            "description": "选择项子组件"
-                        },
-                        {
-                            "name": "$event.preventDefault",
-                            "type": "Function",
-                            "description": "阻止选择流程"
-                        },
-                        {
-                            "name": "senderVM",
-                            "type": "Vue",
-                            "description": "发送事件实例"
-                        }
-                    ]
-                },
-                {
-                    "name": "input",
-                    "title": "输入时",
-                    "description": "选择某一项时触发",
-                    "params": [
-                        {
-                            "name": "$event",
-                            "type": "any",
-                            "description": "选择项的值",
-                            "schema": {
-                                "$ref": "#/basicTypes/String"
-                            }
-                        },
-                        {
-                            "name": "senderVM",
-                            "type": "Vue",
-                            "description": "发送事件实例"
-                        }
-                    ]
-                },
-                {
-                    "name": "select",
-                    "title": "选择后",
-                    "description": "选择某一项时触发",
-                    "params": [
-                        {
-                            "name": "$event",
-                            "type": "object",
-                            "description": "自定义事件对象",
-                            "schema": {
-                                "$ref": "#/systemTypes/ChangeItemEvent"
-                            }
-                        },
-                        {
-                            "name": "$event.value",
-                            "type": "any",
-                            "description": "改变后的值"
-                        },
-                        {
-                            "name": "$event.oldValue",
-                            "type": "any",
-                            "description": "旧的值"
-                        },
-                        {
-                            "name": "$event.item",
-                            "type": "object",
-                            "description": "选择项相关对象"
-                        },
-                        {
-                            "name": "$event.oldItem",
-                            "type": "object",
-                            "description": "旧的选择项相关对象"
-                        },
-                        {
-                            "name": "$event.itemVM",
-                            "type": "USidebarItem",
-                            "description": "选择项子组件"
-                        },
-                        {
-                            "name": "$event.oldVM",
-                            "type": "USidebarItem",
-                            "description": "旧的选择项子组件"
-                        },
-                        {
-                            "name": "senderVM",
-                            "type": "USidebar",
-                            "description": "发送事件实例"
-                        }
-                    ]
-                },
-                {
-                    "name": "toggle",
-                    "title": "展开折叠后",
-                    "description": "展开/折叠某分组时触发",
-                    "params": [
-                        {
-                            "name": "$event",
-                            "type": "object",
-                            "description": "自定义事件对象",
-                            "schema": {
-                                "$ref": "#/systemTypes/CollapseEvent"
-                            }
-                        },
-                        {
-                            "name": "$event.expanded",
-                            "type": "boolean",
-                            "description": "展开/折叠状态"
-                        },
-                        {
-                            "name": "$event.groupVM",
-                            "type": "USidebarGroup",
-                            "description": "分组组件"
-                        },
-                        {
-                            "name": "senderVM",
-                            "type": "Vue",
-                            "description": "发送事件实例"
                         }
                     ]
                 }
@@ -2083,126 +1920,6 @@
                             "description": "需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。",
                             "advanced": true
                         }
-                    ],
-                    "events": [
-                        {
-                            "name": "before-select",
-                            "title": "选择前",
-                            "advanced": true,
-                            "description": "选择此项前触发",
-                            "params": [
-                                {
-                                    "name": "$event",
-                                    "type": "object",
-                                    "description": "自定义事件对象",
-                                    "schema": {
-                                        "$ref": "#/systemTypes/ChangeItemEvent"
-                                    }
-                                },
-                                {
-                                    "name": "$event.value",
-                                    "type": "any",
-                                    "description": "此项的值"
-                                },
-                                {
-                                    "name": "$event.item",
-                                    "type": "object",
-                                    "description": "此项的相关对象"
-                                },
-                                {
-                                    "name": "$event.itemVM",
-                                    "type": "USidebarItem",
-                                    "description": "此组件"
-                                },
-                                {
-                                    "name": "$event.preventDefault",
-                                    "type": "Function",
-                                    "description": "阻止选择流程"
-                                },
-                                {
-                                    "name": "senderVM",
-                                    "type": "Vue",
-                                    "description": "发送事件实例"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "before-navigate",
-                            "title": "导航前",
-                            "advanced": true,
-                            "description": "使用 router 相关属性切换路由前触发",
-                            "params": [
-                                {
-                                    "name": "$event",
-                                    "type": "object",
-                                    "description": "自定义事件对象",
-                                    "schema": {
-                                        "$ref": "#/systemTypes/NavigateEvent"
-                                    }
-                                },
-                                {
-                                    "name": "$event.to",
-                                    "type": "string, Location",
-                                    "description": "`to`属性的值"
-                                },
-                                {
-                                    "name": "$event.replace",
-                                    "type": "boolean",
-                                    "description": "`replace`属性的值"
-                                },
-                                {
-                                    "name": "$event.exact",
-                                    "type": "boolean",
-                                    "description": "`exact`属性的值"
-                                },
-                                {
-                                    "name": "$event.preventDefault",
-                                    "type": "Function",
-                                    "description": "阻止切换流程"
-                                },
-                                {
-                                    "name": "senderVM",
-                                    "type": "Vue",
-                                    "description": "发送事件实例"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "navigate",
-                            "title": "导航",
-                            "advanced": true,
-                            "description": "使用router相关属性切换路由时触发",
-                            "params": [
-                                {
-                                    "name": "$event",
-                                    "type": "object",
-                                    "description": "自定义事件对象",
-                                    "schema": {
-                                        "$ref": "#/systemTypes/NavigateEvent"
-                                    }
-                                },
-                                {
-                                    "name": "$event.to",
-                                    "type": "string, Location",
-                                    "description": "`to`属性的值"
-                                },
-                                {
-                                    "name": "$event.replace",
-                                    "type": "boolean",
-                                    "description": "`replace`属性的值"
-                                },
-                                {
-                                    "name": "$event.exact",
-                                    "type": "boolean",
-                                    "description": "`exact`属性的值"
-                                },
-                                {
-                                    "name": "senderVM",
-                                    "type": "Vue",
-                                    "description": "发送事件实例"
-                                }
-                            ]
-                        }
                     ]
                 },
                 {
@@ -2265,74 +1982,6 @@
                             "name": "extra",
                             "description": "在右侧可以附加内容。"
                         }
-                    ],
-                    "events": [
-                        {
-                            "name": "before-toggle",
-                            "title": "展开折叠前",
-                            "description": "展开/折叠此分组前触发",
-                            "advanced": true,
-                            "params": [
-                                {
-                                    "name": "$event",
-                                    "type": "object",
-                                    "description": "自定义事件对象",
-                                    "schema": {
-                                        "$ref": "#/systemTypes/CollapseEvent"
-                                    }
-                                },
-                                {
-                                    "name": "$event.expanded",
-                                    "type": "boolean",
-                                    "description": "展开/折叠状态"
-                                },
-                                {
-                                    "name": "$event.groupVM",
-                                    "type": "USidebarGroup",
-                                    "description": "分组组件"
-                                },
-                                {
-                                    "name": "$event.preventDefault",
-                                    "type": "Function",
-                                    "description": "阻止展开/折叠流程"
-                                },
-                                {
-                                    "name": "senderVM",
-                                    "type": "Vue",
-                                    "description": "发送事件实例"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "toggle",
-                            "title": "展开折叠后",
-                            "description": "展开/折叠某分组时触发",
-                            "params": [
-                                {
-                                    "name": "$event",
-                                    "type": "object",
-                                    "description": "自定义事件对象",
-                                    "schema": {
-                                        "$ref": "#/systemTypes/CollapseEvent"
-                                    }
-                                },
-                                {
-                                    "name": "$event.expanded",
-                                    "type": "boolean",
-                                    "description": "展开/折叠状态"
-                                },
-                                {
-                                    "name": "$event.groupVM",
-                                    "type": "USidebarGroup",
-                                    "description": "分组组件"
-                                },
-                                {
-                                    "name": "senderVM",
-                                    "type": "Vue",
-                                    "description": "发送事件实例"
-                                }
-                            ]
-                        }
                     ]
                 },
                 {
@@ -2350,7 +1999,7 @@
         "depDescription": {},
         "description": "通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。",
         "labels": [
-            "Layout"
+            "Navigation"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-navbar.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-navbar.vue/screenshots/1.png",
         "blocks": "[{\"title\":\"基本用法\",\"description\":\"下面展示了导航条的一些基本特性，如配置链接、添加分隔线、禁用选项等。\\n\",\"code\":\"<template>\\n<u-navbar style=\\\"background: #4289db;\\\">\\n    <u-navbar-item href=\\\"https://github.com/vusion/cloud-ui\\\" text=\\\"GitHub\\\"></u-navbar-item>\\n    <u-navbar-item disabled text=\\\"指令\\\"></u-navbar-item>\\n    <u-navbar-divider></u-navbar-divider>\\n    <u-navbar-item text=\\\"配置\\\"></u-navbar-item>\\n</u-navbar>\\n</template>\\n\"},{\"title\":\"选择控制\",\"description\":\"\",\"code\":\"<template>\\n<u-navbar value=\\\"3\\\" :router=\\\"false\\\" style=\\\"background: #4289db;\\\">\\n    <u-navbar-item value=\\\"1\\\" text=\\\"组件\\\"></u-navbar-item>\\n    <u-navbar-item value=\\\"2\\\" text=\\\"备案管理\\\"></u-navbar-item>\\n    <u-navbar-item value=\\\"3\\\" text=\\\"帮助\\\"></u-navbar-item>\\n    <u-navbar-item value=\\\"4\\\" text=\\\"GitHub\\\"></u-navbar-item>\\n</u-navbar>\\n</template>\\n\"}]",
@@ -2358,7 +2007,7 @@
             "name": "u-navbar",
             "title": "导航栏",
             "description": "通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。",
-            "category": "Layout",
+            "category": "Navigation",
             "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-navbar.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-navbar.vue/screenshots/1.png",
             "drawings": "",
             "blocks": [
@@ -3027,22 +2676,22 @@
         "depDescription": {},
         "description": "通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。",
         "labels": [
-            "Layout"
+            "Navigation"
         ],
-        "screenShot": "",
-        "blocks": "[{\"title\":\"下拉菜单与选择\",\"description\":\"\",\"code\":\"<template>\\n<u-navbar-multi>\\n    <template #left>\\n        <u-multi-layout-item align-items=\\\"center\\\">\\n            <u-image fit=\\\"cover\\\" src=\\\"https://static-vusion.163yun.com/assets/lcap-logo-light.svg\\\"\\n                    style=\\\"width: 28px; height: 28px; margin: 16px 14px; --custom-start: auto; vertical-align: middle;\\\"></u-image>\\n            <u-text text=\\\"应用名称\\\" size=\\\"large\\\" style=\\\"color: white; --custom-start: auto; vertical-align: middle;\\\"></u-text>\\n        </u-multi-layout-item>\\n    </template>\\n    <u-multi-layout-item align-items=\\\"center\\\">\\n        <u-navbar-item-multi text=\\\"Item 1\\\"></u-navbar-item-multi>\\n        <u-navbar-item-multi text=\\\"Item 2\\\"></u-navbar-item-multi>\\n    </u-multi-layout-item>\\n    <template #right>\\n        <u-multi-layout-item align-items=\\\"center\\\" justify-content=\\\"center\\\">\\n            <u-dropdown style=\\\"margin-right: 10px;\\\">\\n                <template #title>\\n                    <u-linear-layout gap=\\\"small\\\" v-if=\\\"$global.userInfo\\\">\\n                        <u-image fit=\\\"cover\\\" src=\\\"https://static-vusion.163yun.com/assets/avatar-default.svg\\\" style=\\\"width: 36px; height: 36px; vertical-align: middle;\\\"></u-image>\\n                        <span style=\\\"display: inline-block; vertical-align: top; margin-left: 10px; margin-right: 10px; color: white;\\\">\\n                            <u-text :text=\\\"$global.userInfo.UserName\\\"></u-text>\\n                        </span>\\n                    </u-linear-layout>\\n                </template>\\n                <template #default>\\n                        <u-dropdown-item>安全退出</u-dropdown-item>\\n                </template>\\n            </u-dropdown>\\n        </u-multi-layout-item>\\n    </template>\\n</u-navbar-multi>\\n</template>\\n\"}]",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-navbar-multi.vue/screenshots/0.png",
+        "blocks": "[{\"title\":\"导航栏\",\"description\":\"\",\"code\":\"<template>\\n<u-navbar-multi>\\n    <template #left>\\n        <u-multi-layout-item align-items=\\\"center\\\">\\n            <u-image fit=\\\"cover\\\" src=\\\"https://static-vusion.163yun.com/assets/lcap-logo-light.svg\\\"\\n                    style=\\\"width: 28px; height: 28px; margin: 16px 14px; --custom-start: auto; vertical-align: middle;\\\"></u-image>\\n            <u-text text=\\\"应用名称\\\" size=\\\"large\\\" style=\\\"color: white; --custom-start: auto; vertical-align: middle;\\\"></u-text>\\n        </u-multi-layout-item>\\n    </template>\\n    <u-multi-layout-item align-items=\\\"center\\\">\\n        <u-navbar-item-multi text=\\\"Item 1\\\"></u-navbar-item-multi>\\n        <u-navbar-item-multi text=\\\"Item 2\\\"></u-navbar-item-multi>\\n    </u-multi-layout-item>\\n    <template #right>\\n        <u-multi-layout-item align-items=\\\"center\\\" justify=\\\"end\\\">\\n            <u-dropdown style=\\\"margin-right: 10px;\\\">\\n                <template #title>\\n                    <u-linear-layout gap=\\\"small\\\" v-if=\\\"$global.userInfo\\\">\\n                        <u-image fit=\\\"cover\\\" src=\\\"https://static-vusion.163yun.com/assets/avatar-default.svg\\\" style=\\\"width: 36px; height: 36px; vertical-align: middle;\\\"></u-image>\\n                        <span style=\\\"display: inline-block; vertical-align: top; margin-left: 10px; margin-right: 10px; color: white;\\\">\\n                            <u-text :text=\\\"$global.userInfo.UserName\\\"></u-text>\\n                        </span>\\n                    </u-linear-layout>\\n                </template>\\n                <template #default>\\n                        <u-dropdown-item>安全退出</u-dropdown-item>\\n                </template>\\n            </u-dropdown>\\n        </u-multi-layout-item>\\n    </template>\\n</u-navbar-multi>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-navbar-multi",
             "title": "导航栏",
             "description": "通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。",
-            "category": "Layout",
-            "screenShot": "",
+            "category": "Navigation",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-navbar-multi.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
                 {
-                    "title": "下拉菜单与选择",
+                    "title": "导航栏",
                     "description": "",
-                    "code": "<template>\n<u-navbar-multi>\n    <template #left>\n        <u-multi-layout-item align-items=\"center\">\n            <u-image fit=\"cover\" src=\"https://static-vusion.163yun.com/assets/lcap-logo-light.svg\"\n                    style=\"width: 28px; height: 28px; margin: 16px 14px; --custom-start: auto; vertical-align: middle;\"></u-image>\n            <u-text text=\"应用名称\" size=\"large\" style=\"color: white; --custom-start: auto; vertical-align: middle;\"></u-text>\n        </u-multi-layout-item>\n    </template>\n    <u-multi-layout-item align-items=\"center\">\n        <u-navbar-item-multi text=\"Item 1\"></u-navbar-item-multi>\n        <u-navbar-item-multi text=\"Item 2\"></u-navbar-item-multi>\n    </u-multi-layout-item>\n    <template #right>\n        <u-multi-layout-item align-items=\"center\" justify-content=\"center\">\n            <u-dropdown style=\"margin-right: 10px;\">\n                <template #title>\n                    <u-linear-layout gap=\"small\" v-if=\"$global.userInfo\">\n                        <u-image fit=\"cover\" src=\"https://static-vusion.163yun.com/assets/avatar-default.svg\" style=\"width: 36px; height: 36px; vertical-align: middle;\"></u-image>\n                        <span style=\"display: inline-block; vertical-align: top; margin-left: 10px; margin-right: 10px; color: white;\">\n                            <u-text :text=\"$global.userInfo.UserName\"></u-text>\n                        </span>\n                    </u-linear-layout>\n                </template>\n                <template #default>\n                        <u-dropdown-item>安全退出</u-dropdown-item>\n                </template>\n            </u-dropdown>\n        </u-multi-layout-item>\n    </template>\n</u-navbar-multi>\n</template>\n"
+                    "code": "<template>\n<u-navbar-multi>\n    <template #left>\n        <u-multi-layout-item align-items=\"center\">\n            <u-image fit=\"cover\" src=\"https://static-vusion.163yun.com/assets/lcap-logo-light.svg\"\n                    style=\"width: 28px; height: 28px; margin: 16px 14px; --custom-start: auto; vertical-align: middle;\"></u-image>\n            <u-text text=\"应用名称\" size=\"large\" style=\"color: white; --custom-start: auto; vertical-align: middle;\"></u-text>\n        </u-multi-layout-item>\n    </template>\n    <u-multi-layout-item align-items=\"center\">\n        <u-navbar-item-multi text=\"Item 1\"></u-navbar-item-multi>\n        <u-navbar-item-multi text=\"Item 2\"></u-navbar-item-multi>\n    </u-multi-layout-item>\n    <template #right>\n        <u-multi-layout-item align-items=\"center\" justify=\"end\">\n            <u-dropdown style=\"margin-right: 10px;\">\n                <template #title>\n                    <u-linear-layout gap=\"small\" v-if=\"$global.userInfo\">\n                        <u-image fit=\"cover\" src=\"https://static-vusion.163yun.com/assets/avatar-default.svg\" style=\"width: 36px; height: 36px; vertical-align: middle;\"></u-image>\n                        <span style=\"display: inline-block; vertical-align: top; margin-left: 10px; margin-right: 10px; color: white;\">\n                            <u-text :text=\"$global.userInfo.UserName\"></u-text>\n                        </span>\n                    </u-linear-layout>\n                </template>\n                <template #default>\n                        <u-dropdown-item>安全退出</u-dropdown-item>\n                </template>\n            </u-dropdown>\n        </u-multi-layout-item>\n    </template>\n</u-navbar-multi>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -3082,197 +2731,6 @@
                     "type": "boolean",
                     "default": false,
                     "description": "是否禁用"
-                }
-            ],
-            "events": [
-                {
-                    "name": "click",
-                    "title": "点击",
-                    "advanced": true,
-                    "description": "点击此项时触发，与原生 click 事件不同的是，它只会在非只读和禁用的情况下触发。",
-                    "params": [
-                        {
-                            "name": "$event",
-                            "type": "MouseEvent",
-                            "description": "鼠标事件对象",
-                            "schema": {
-                                "$ref": "#/systemTypes/MouseEvent"
-                            }
-                        },
-                        {
-                            "name": "senderVM",
-                            "type": "Vue",
-                            "description": "发送事件实例"
-                        }
-                    ]
-                },
-                {
-                    "name": "before-select",
-                    "advanced": true,
-                    "title": "输入前",
-                    "description": "选择某一项前触发",
-                    "params": [
-                        {
-                            "name": "$event",
-                            "type": "object",
-                            "description": "自定义事件对象",
-                            "schema": {
-                                "$ref": "#/systemTypes/ChangeItemEvent"
-                            }
-                        },
-                        {
-                            "name": "$event.value",
-                            "type": "any",
-                            "description": "选择项的值"
-                        },
-                        {
-                            "name": "$event.oldValue",
-                            "type": "any",
-                            "description": "旧的值"
-                        },
-                        {
-                            "name": "$event.item",
-                            "type": "object",
-                            "description": "选择项相关对象"
-                        },
-                        {
-                            "name": "$event.itemVM",
-                            "type": "NavbarItem",
-                            "description": "选择项子组件"
-                        },
-                        {
-                            "name": "$event.preventDefault",
-                            "type": "Function",
-                            "description": "阻止选择流程"
-                        },
-                        {
-                            "name": "senderVM",
-                            "type": "Vue",
-                            "description": "发送事件实例"
-                        }
-                    ]
-                },
-                {
-                    "name": "input",
-                    "advanced": true,
-                    "title": "输入时",
-                    "description": "选择某一项时触发",
-                    "params": [
-                        {
-                            "name": "$event",
-                            "type": "any",
-                            "description": "选择项的值",
-                            "schema": {
-                                "$ref": "#/basicTypes/String"
-                            }
-                        },
-                        {
-                            "name": "senderVM",
-                            "type": "Vue",
-                            "description": "发送事件实例"
-                        }
-                    ]
-                },
-                {
-                    "name": "select",
-                    "title": "选择后",
-                    "description": "选择某一项时触发",
-                    "params": [
-                        {
-                            "name": "$event",
-                            "type": "object",
-                            "description": "自定义事件对象",
-                            "schema": {
-                                "$ref": "#/systemTypes/ChangeItemEvent"
-                            }
-                        },
-                        {
-                            "name": "$event.value",
-                            "type": "any",
-                            "description": "改变后的值"
-                        },
-                        {
-                            "name": "$event.oldValue",
-                            "type": "any",
-                            "description": "旧的值"
-                        },
-                        {
-                            "name": "$event.item",
-                            "type": "object",
-                            "description": "选择项相关对象"
-                        },
-                        {
-                            "name": "$event.oldItem",
-                            "type": "object",
-                            "description": "旧的选择项相关对象"
-                        },
-                        {
-                            "name": "$event.itemVM",
-                            "type": "UNavbarItem",
-                            "description": "选择项子组件"
-                        },
-                        {
-                            "name": "$event.oldVM",
-                            "type": "UNavbarItem",
-                            "description": "旧的选择项子组件"
-                        },
-                        {
-                            "name": "senderVM",
-                            "type": "Vue",
-                            "description": "发送事件实例"
-                        }
-                    ]
-                },
-                {
-                    "name": "change",
-                    "title": "改变后",
-                    "description": "选择值改变时触发",
-                    "advanced": true,
-                    "params": [
-                        {
-                            "name": "$event",
-                            "type": "object",
-                            "description": "自定义事件对象",
-                            "schema": {
-                                "$ref": "#/systemTypes/ChangeItemEvent"
-                            }
-                        },
-                        {
-                            "name": "$event.value",
-                            "type": "any",
-                            "description": "选择项的值"
-                        },
-                        {
-                            "name": "$event.oldValue",
-                            "type": "any",
-                            "description": "旧的值"
-                        },
-                        {
-                            "name": "$event.item",
-                            "type": "object",
-                            "description": "选择项相关对象"
-                        },
-                        {
-                            "name": "$event.oldItem",
-                            "type": "object",
-                            "description": "旧的选择项相关对象"
-                        },
-                        {
-                            "name": "$event.itemVM",
-                            "type": "UNavbarItem",
-                            "description": "选择项子组件"
-                        },
-                        {
-                            "name": "$event.oldVM",
-                            "type": "UNavbarItem",
-                            "description": "旧的选择项子组件"
-                        },
-                        {
-                            "name": "senderVM",
-                            "type": "UNavbar",
-                            "description": "发送事件实例"
-                        }
-                    ]
                 }
             ],
             "children": [
@@ -3392,126 +2850,6 @@
                             "default": false,
                             "description": "需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。",
                             "advanced": true
-                        }
-                    ],
-                    "events": [
-                        {
-                            "name": "before-select",
-                            "title": "选择前",
-                            "description": "选择此项前触发",
-                            "advanced": true,
-                            "params": [
-                                {
-                                    "name": "$event",
-                                    "type": "object",
-                                    "description": "自定义事件对象",
-                                    "schema": {
-                                        "$ref": "#/systemTypes/ChangeItemEvent"
-                                    }
-                                },
-                                {
-                                    "name": "$event.value",
-                                    "type": "any",
-                                    "description": "此项的值"
-                                },
-                                {
-                                    "name": "$event.item",
-                                    "type": "object",
-                                    "description": "此项的相关对象"
-                                },
-                                {
-                                    "name": "$event.itemVM",
-                                    "type": "UNavbarItem",
-                                    "description": "此组件"
-                                },
-                                {
-                                    "name": "$event.preventDefault",
-                                    "type": "Function",
-                                    "description": "阻止选择流程"
-                                },
-                                {
-                                    "name": "senderVM",
-                                    "type": "Vue",
-                                    "description": "发送事件实例"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "before-navigate",
-                            "title": "导航前",
-                            "advanced": true,
-                            "description": "使用 router 相关属性切换路由前触发",
-                            "params": [
-                                {
-                                    "name": "$event",
-                                    "type": "object",
-                                    "description": "自定义事件对象",
-                                    "schema": {
-                                        "$ref": "#/systemTypes/NavigateEvent"
-                                    }
-                                },
-                                {
-                                    "name": "$event.to",
-                                    "type": "string, Location",
-                                    "description": "`to`属性的值"
-                                },
-                                {
-                                    "name": "$event.replace",
-                                    "type": "boolean",
-                                    "description": "`replace`属性的值"
-                                },
-                                {
-                                    "name": "$event.exact",
-                                    "type": "boolean",
-                                    "description": "`exact`属性的值"
-                                },
-                                {
-                                    "name": "$event.preventDefault",
-                                    "type": "Function",
-                                    "description": "阻止切换流程"
-                                },
-                                {
-                                    "name": "senderVM",
-                                    "type": "Vue",
-                                    "description": "发送事件实例"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "navigate",
-                            "title": "导航",
-                            "advanced": true,
-                            "description": "使用router相关属性切换路由时触发",
-                            "params": [
-                                {
-                                    "name": "$event",
-                                    "type": "object",
-                                    "description": "自定义事件对象",
-                                    "schema": {
-                                        "$ref": "#/systemTypes/NavigateEvent"
-                                    }
-                                },
-                                {
-                                    "name": "$event.to",
-                                    "type": "string, Location",
-                                    "description": "`to`属性的值"
-                                },
-                                {
-                                    "name": "$event.replace",
-                                    "type": "boolean",
-                                    "description": "`replace`属性的值"
-                                },
-                                {
-                                    "name": "$event.exact",
-                                    "type": "boolean",
-                                    "description": "`exact`属性的值"
-                                },
-                                {
-                                    "name": "senderVM",
-                                    "type": "Vue",
-                                    "description": "发送事件实例"
-                                }
-                            ]
                         }
                     ]
                 },
@@ -4648,14 +3986,14 @@
         "labels": [
             "Display"
         ],
-        "screenShot": "",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-gallery.vue/screenshots/0.png",
         "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-gallery>\\n    \\n</u-gallery>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-gallery",
             "title": "画廊",
             "description": "画廊",
             "category": "Display",
-            "screenShot": "",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-gallery.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
                 {
@@ -4995,7 +4333,7 @@
             "Display"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-carousel.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-carousel>\\n    <u-carousel-item><u-image style=\\\"width: 100%; height:100%\\\" src=\\\"https://static-vusion.163yun.com/assets/cloud-ui/1.jpg\\\"></u-image></u-carousel-item>\\n    <u-carousel-item><u-image style=\\\"width: 100%; height:100%\\\" src=\\\"https://static-vusion.163yun.com/assets/cloud-ui/2.jpg\\\"></u-image></u-carousel-item>\\n    <u-carousel-item><u-image style=\\\"width: 100%; height:100%\\\" src=\\\"https://static-vusion.163yun.com/assets/cloud-ui/3.jpg\\\"></u-image></u-carousel-item>\\n</u-carousel>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-carousel>\\n    <u-carousel-item><u-image style=\\\"width: 100%; height:100%\\\" fit=\\\"cover\\\" src=\\\"https://static-vusion.163yun.com/assets/cloud-ui/1.jpg\\\"></u-image></u-carousel-item>\\n    <u-carousel-item><u-image style=\\\"width: 100%; height:100%\\\" fit=\\\"cover\\\" src=\\\"https://static-vusion.163yun.com/assets/cloud-ui/2.jpg\\\"></u-image></u-carousel-item>\\n    <u-carousel-item><u-image style=\\\"width: 100%; height:100%\\\" fit=\\\"cover\\\" src=\\\"https://static-vusion.163yun.com/assets/cloud-ui/3.jpg\\\"></u-image></u-carousel-item>\\n</u-carousel>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-carousel",
             "title": "幻灯片",
@@ -5007,7 +4345,7 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-carousel>\n    <u-carousel-item><u-image style=\"width: 100%; height:100%\" src=\"https://static-vusion.163yun.com/assets/cloud-ui/1.jpg\"></u-image></u-carousel-item>\n    <u-carousel-item><u-image style=\"width: 100%; height:100%\" src=\"https://static-vusion.163yun.com/assets/cloud-ui/2.jpg\"></u-image></u-carousel-item>\n    <u-carousel-item><u-image style=\"width: 100%; height:100%\" src=\"https://static-vusion.163yun.com/assets/cloud-ui/3.jpg\"></u-image></u-carousel-item>\n</u-carousel>\n</template>\n"
+                    "code": "<template>\n<u-carousel>\n    <u-carousel-item><u-image style=\"width: 100%; height:100%\" fit=\"cover\" src=\"https://static-vusion.163yun.com/assets/cloud-ui/1.jpg\"></u-image></u-carousel-item>\n    <u-carousel-item><u-image style=\"width: 100%; height:100%\" fit=\"cover\" src=\"https://static-vusion.163yun.com/assets/cloud-ui/2.jpg\"></u-image></u-carousel-item>\n    <u-carousel-item><u-image style=\"width: 100%; height:100%\" fit=\"cover\" src=\"https://static-vusion.163yun.com/assets/cloud-ui/3.jpg\"></u-image></u-carousel-item>\n</u-carousel>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -5067,7 +4405,7 @@
                         {
                             "name": "u-carousel-item",
                             "title": "幻灯片子项",
-                            "snippet": "<u-carousel-item><u-image style=\"width: 100%; height: 100%\" src=\"https://static-vusion.163yun.com/assets/cloud-ui/1.jpg\"></u-carousel-item>"
+                            "snippet": "<u-carousel-item><u-image style=\"width: 100%; height: 100%\" fit=\"cover\" src=\"https://static-vusion.163yun.com/assets/cloud-ui/1.jpg\"></u-carousel-item>"
                         }
                     ]
                 }
@@ -5582,16 +4920,16 @@
         "depDescription": {},
         "description": "下拉菜单",
         "labels": [
-            "Display"
+            "Navigation"
         ],
-        "screenShot": "",
+        "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-dropdown.vue/screenshots/0.png",
         "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-dropdown>\\n    <u-dropdown-item text=\\\"item\\\">\\n    </u-dropdown-item>\\n</u-dropdown>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-dropdown",
             "title": "下拉菜单",
             "description": "下拉菜单",
-            "category": "Display",
-            "screenShot": "",
+            "category": "Navigation",
+            "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-dropdown.vue/screenshots/0.png",
             "drawings": "",
             "blocks": [
                 {
@@ -7009,6 +6347,7 @@
                         {
                             "name": "editcell",
                             "plus-empty": true,
+                            "plus-empty-tag": "editcell-plus-empty",
                             "description": "对单元格的编辑数据展示进行自定义。",
                             "props": [
                                 {
@@ -7069,6 +6408,7 @@
                         {
                             "name": "expand-content",
                             "plus-empty": true,
+                            "plus-empty-tag": "expand-content-plus-empty",
                             "title": "展开列内容",
                             "accept-type": "all",
                             "description": "展开列的内容。",
@@ -7317,8 +6657,8 @@
                             "title": "自适应"
                         }
                     ],
-                    "default": "normal",
-                    "description": "设置数据列表宽度",
+                    "default": "auto",
+                    "description": "设置数据列表宽度大小",
                     "group": "样式属性"
                 },
                 {
@@ -7348,7 +6688,7 @@
                         }
                     ],
                     "default": "normal",
-                    "description": "设置数据列表高度",
+                    "description": "设置数据列表高度大小",
                     "group": "样式属性"
                 },
                 {
@@ -7893,8 +7233,39 @@
                     "group": "样式属性"
                 },
                 {
-                    "name": "size",
-                    "title": "尺寸",
+                    "name": "width",
+                    "title": "宽度",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "full",
+                            "title": "占满"
+                        },
+                        {
+                            "value": "huge",
+                            "title": "巨大"
+                        },
+                        {
+                            "value": "large",
+                            "title": "大"
+                        },
+                        {
+                            "value": "normal",
+                            "title": "正常"
+                        },
+                        {
+                            "value": "auto",
+                            "title": "自适应"
+                        }
+                    ],
+                    "default": "auto",
+                    "description": "设置数据网格宽度大小",
+                    "advanced": true,
+                    "group": "样式属性"
+                },
+                {
+                    "name": "height",
+                    "title": "高度",
                     "type": "string",
                     "options": [
                         {
@@ -7919,9 +7290,7 @@
                         }
                     ],
                     "default": "normal",
-                    "description": "设置数据网格大小",
-                    "multi": true,
-                    "maxSelect": 2,
+                    "description": "设置数据网格高度大小",
                     "advanced": true,
                     "group": "样式属性"
                 },
@@ -9751,7 +9120,7 @@
                         }
                     ],
                     "default": "normal",
-                    "description": "设置单行输入框宽度"
+                    "description": "设置单行输入框宽度大小"
                 },
                 {
                     "name": "height",
@@ -9788,7 +9157,7 @@
                         }
                     ],
                     "default": "normal",
-                    "description": "设置单行输入框高度"
+                    "description": "设置单行输入框高度大小"
                 },
                 {
                     "name": "maxlengthMessage",
@@ -10129,14 +9498,14 @@
                     "name": "min",
                     "title": "最小值",
                     "type": "number",
-                    "default": null,
+                    "default": "",
                     "description": ""
                 },
                 {
                     "name": "max",
                     "title": "最大值",
                     "type": "number",
-                    "default": null,
+                    "default": "",
                     "description": ""
                 },
                 {
@@ -10235,7 +9604,7 @@
                         }
                     ],
                     "default": "normal",
-                    "description": "设置数字输入框宽度"
+                    "description": "设置数字输入框宽度大小"
                 },
                 {
                     "name": "height",
@@ -10272,7 +9641,7 @@
                         }
                     ],
                     "default": "normal",
-                    "description": "设置数字输入框高度"
+                    "description": "设置数字输入框高度大小"
                 }
             ],
             "slots": [
@@ -12327,7 +11696,7 @@
                         }
                     ],
                     "default": "normal",
-                    "description": "设置选择框宽度"
+                    "description": "设置选择框宽度大小"
                 },
                 {
                     "name": "height",
@@ -12364,7 +11733,7 @@
                         }
                     ],
                     "default": "normal",
-                    "description": "设置选择框高度"
+                    "description": "设置选择框高度大小"
                 },
                 {
                     "name": "opened",
@@ -12415,6 +11784,23 @@
                     ],
                     "default": "",
                     "description": ""
+                },
+                {
+                    "name": "append-to",
+                    "title": "弹出层展示位置",
+                    "type": "string",
+                    "default": "reference",
+                    "description": "设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中",
+                    "options": [
+                        {
+                            "value": "reference",
+                            "title": "引用元素下"
+                        },
+                        {
+                            "value": "body",
+                            "title": "全局body"
+                        }
+                    ]
                 }
             ],
             "slots": [
@@ -13807,6 +13193,23 @@
                     "type": "boolean",
                     "default": false,
                     "description": "是否采取手动验证。如果为`true`，则 UValidator 将不会在监听到子组件的`input`、`change`和`blur`事件后进行相应的验证。"
+                },
+                {
+                    "name": "append-to",
+                    "title": "弹出层展示位置",
+                    "type": "string",
+                    "default": "reference",
+                    "description": "设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中",
+                    "options": [
+                        {
+                            "value": "reference",
+                            "title": "引用元素下"
+                        },
+                        {
+                            "value": "body",
+                            "title": "全局body"
+                        }
+                    ]
                 }
             ],
             "slots": [
@@ -16383,6 +15786,20 @@
             ],
             "attrs": [
                 {
+                    "name": "preIcon",
+                    "title": "前置图标",
+                    "type": "icon",
+                    "default": "calendar",
+                    "description": ""
+                },
+                {
+                    "name": "icon",
+                    "title": "后置图标",
+                    "type": "afterIcon",
+                    "default": "",
+                    "description": ""
+                },
+                {
                     "name": "picker",
                     "title": "格式",
                     "type": "string",
@@ -16538,6 +15955,23 @@
                     ],
                     "default": "format",
                     "description": "转换器，用于转换时间结果"
+                },
+                {
+                    "name": "append-to",
+                    "title": "弹出层展示位置",
+                    "type": "string",
+                    "default": "reference",
+                    "description": "设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中",
+                    "options": [
+                        {
+                            "value": "reference",
+                            "title": "引用元素下"
+                        },
+                        {
+                            "value": "body",
+                            "title": "全局body"
+                        }
+                    ]
                 }
             ],
             "events": [
@@ -16832,6 +16266,20 @@
             ],
             "attrs": [
                 {
+                    "name": "preIcon",
+                    "title": "前置图标",
+                    "type": "icon",
+                    "default": "calendar",
+                    "description": ""
+                },
+                {
+                    "name": "icon",
+                    "title": "后置图标",
+                    "type": "afterIcon",
+                    "default": "",
+                    "description": ""
+                },
+                {
                     "name": "date",
                     "title": "值",
                     "type": "string, number, Date",
@@ -16939,6 +16387,23 @@
                     "default": "format",
                     "description": "转换器",
                     "advanced": true
+                },
+                {
+                    "name": "append-to",
+                    "title": "弹出层展示位置",
+                    "type": "string",
+                    "default": "reference",
+                    "description": "设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中",
+                    "options": [
+                        {
+                            "value": "reference",
+                            "title": "引用元素下"
+                        },
+                        {
+                            "value": "body",
+                            "title": "全局body"
+                        }
+                    ]
                 }
             ],
             "events": [
