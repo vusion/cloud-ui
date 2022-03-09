@@ -3,7 +3,7 @@
     :style="{width: /^\d+$/.test(width)? width+'px': width}" :designer="$env.VUE_APP_DESIGNER">
     <div :class="$style.cover" vusion-slot-name="cover">
         <slot name="cover"></slot>
-        <s-empty v-if="showCoverEmptySlot && (!$slots.cover)"></s-empty>
+        <s-empty v-if="coverSlot && (!$slots.cover)"></s-empty>
     </div>
     <div :class="$style.head">
         <slot name="head">
@@ -42,7 +42,7 @@ export default {
         split: { type: Boolean, default: false },
         width: { type: [String, Number], default: '' },
         // 控制模板占位插槽的显示
-        showCoverEmptySlot: { type: Boolean, default: false },
+        coverSlot: { type: Boolean, default: false },
     },
 };
 </script>
