@@ -65,6 +65,7 @@ export default {
 .root[fixed="true"] {
     position: absolute;
     height: 100%;
+    overflow-y: auto;
 }
 .root [class^="s-empty_empty"] {
     height: 100%;
@@ -86,6 +87,9 @@ export default {
 
 .root[direction="horizontal"] > *:not(:last-child) {
     margin-right: var(--space-base);
+}
+.root[direction="horizontal"][fixed] > *:not(:last-child) {
+    margin-right: 0;
 }
 .root[direction="vertical"] > *:not(:last-child) {
     margin-bottom: var(--space-base);

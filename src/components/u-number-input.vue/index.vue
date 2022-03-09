@@ -92,7 +92,7 @@ export default {
         this.timer = null;
     },
     methods: {
-        strip(num, precision = 15) {
+        strip(num, precision = 17) {
             return +parseFloat(num).toPrecision(precision);
         },
         fix(value, precision = this.currentPrecision) {

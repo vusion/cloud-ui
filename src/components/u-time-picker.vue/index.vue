@@ -69,6 +69,20 @@ export default {
             secondmax: SECOND_MAX,
         };
     },
+    created(){
+        if(this.minTime && this.checkTime(this.minTime)){
+            const newValueArr = this.minTime.split(':');
+            this.hourmin = newValueArr[0] / 1;
+            this.minutemin = newValueArr[1] / 1;
+            this.secondmin = newValueArr[2] / 1;
+        }
+        if(this.maxTime && this.checkTime(this.minTime)){
+            const newValueArr = this.maxTime.split(':');
+            this.hourmax = newValueArr[0] / 1;
+            this.minutemax = newValueArr[1] / 1;
+            this.secondmax = newValueArr[2] / 1;
+        }
+    },
     computed: {
         hour() {
             const isOutOfRange = this.isOutOfRange(this.showTime);
@@ -252,6 +266,9 @@ export default {
                 this.$emit('blur');
                 this.hasFocus = false;
             }
+        },
+        checkTime(time){
+            return /^(20|21|22|23|[0-1]\d):[0-5]\d:[0-5]\d$/.test(time);
         },
     },
 };

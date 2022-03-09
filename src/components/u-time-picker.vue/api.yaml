@@ -25,12 +25,12 @@
     - name: minTime
       title: 最小时间
       type: string
-      default: 00:00:00
+      default: '00:00:00'
       description: 支持输入的最小时间
     - name: maxTime
       title: 最大时间
       type: string
-      default: 23:59:59
+      default: '23:59:59'
       description: 支持输入的最大时间
     - name: autofocus
       title: 自动聚焦

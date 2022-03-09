@@ -26,6 +26,7 @@
                 checked: currentChecked,
                 disabled: currentDisabled,
                 node,
+                nodeVM: this,
                 parent,
                 selected,
             }">

@@ -180,6 +180,10 @@ export default {
             'update',
             this.toValue(this.dateTime ? new Date(this.dateTime.replace(/-/g, '/')) : ''),
         );
+        if(this.minDate)
+            this.minTime = this.format(this.minDate, 'HH:mm:ss');
+        if(this.maxDate)
+            this.maxTime = this.format(this.maxDate, 'HH:mm:ss');
     },
     mounted() {
         this.autofocus && this.$refs.input.focus();
