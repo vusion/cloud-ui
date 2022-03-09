@@ -141,6 +141,12 @@
       default: center
       description: ""
       group: 样式属性
+    - name: boldHeader
+      title: 表头加粗
+      type: boolean
+      default: true
+      description: ""
+      group: 样式属性
     - name: border
       title: 显示边框
       type: boolean

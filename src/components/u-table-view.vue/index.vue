@@ -11,46 +11,48 @@
                 <colgroup>
                     <col v-for="(columnVM, columnIndex) in visibleColumnVMs" :key="columnIndex" :width="columnVM.computedWidth"></col>
                 </colgroup>
-                <thead><tr>
-                    <th ref="th" :class="$style['head-title']" v-for="(columnVM, columnIndex) in visibleColumnVMs"
-                        :key="columnIndex"
-                        :is-sub="columnVM.$attrs['is-sub']"
-                        :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
-                        :vusion-node-path="columnVM.$attrs['vusion-node-path']"
-                        :vusion-node-tag="columnVM.$attrs['vusion-node-tag']"
-                        :vusion-disabled-move="columnVM.$attrs['vusion-disabled-move']"
-                        :vusion-disabled-duplicate="columnVM.$attrs['vusion-disabled-duplicate']"
-                        :vusion-disabled-cut="columnVM.$attrs['vusion-disabled-cut']"
-                        :sortable="columnVM.sortable && sortTrigger === 'head'" :filterable="!!columnVM.filters" @click="columnVM.sortable && sortTrigger === 'head' && onClickSort(columnVM)">
-                        <!-- type === 'checkbox' -->
-                        <span v-if="columnVM.type === 'checkbox'">
-                            <u-checkbox :value="allChecked" @check="checkAll($event.value)"></u-checkbox>
-                        </span>
-                        <!-- Normal title -->
-                        <template>
-                            <f-slot name="title" :vm="columnVM" :props="{ columnVM, columnIndex }">
-                                <span vusion-slot-name="title" :class="$style['column-title']">{{ columnVM.title }}</span>
-                            </f-slot>
-                        </template>
-                        <!-- Sortable -->
-                        <span v-if="columnVM.sortable" :class="$style.sort"
-                            :sorting="currentSorting && currentSorting.field === columnVM.field" :order="currentSorting && currentSorting.order"
-                            @click="sortTrigger === 'icon' && ($event.stopPropagation(), onClickSort(columnVM))"></span>
-                        <!-- Filterable -->
-                        <span v-if="columnVM.filters" :class="$style['filter-wrap']">
-                            <u-table-view-filters :value="getFiltersValue(columnVM.field)" @select="onSelectFilters(columnVM.field, $event)">
-                                <u-table-view-filter v-for="filter in columnVM.filters" :key="filter.value" :value="filter.value">{{ filter.text }}</u-table-view-filter>
-                            </u-table-view-filters>
-                        </span>
-                        <!-- Resizable -->
-                        <f-dragger v-if="resizable && columnIndex !== visibleColumnVMs.length - 1" axis="horizontal"
-                            @dragstart="onResizerDragStart($event, columnVM)"
-                            @drag="onResizerDrag($event, columnVM, columnIndex)"
-                            @dragend="onResizerDragEnd($event, columnVM, columnIndex)">
-                            <div :class="$style.resizer" @click.stop></div>
-                        </f-dragger>
-                    </th>
-                </tr></thead>
+                <thead>
+                    <tr>
+                        <th ref="th" :class="[$style['head-title'], boldHeader ? $style.boldHeader : null]" v-for="(columnVM, columnIndex) in visibleColumnVMs"
+                            :key="columnIndex"
+                            :is-sub="columnVM.$attrs['is-sub']"
+                            :vusion-scope-id="columnVM.$vnode.context.$options._scopeId"
+                            :vusion-node-path="columnVM.$attrs['vusion-node-path']"
+                            :vusion-node-tag="columnVM.$attrs['vusion-node-tag']"
+                            :vusion-disabled-move="columnVM.$attrs['vusion-disabled-move']"
+                            :vusion-disabled-duplicate="columnVM.$attrs['vusion-disabled-duplicate']"
+                            :vusion-disabled-cut="columnVM.$attrs['vusion-disabled-cut']"
+                            :sortable="columnVM.sortable && sortTrigger === 'head'" :filterable="!!columnVM.filters" @click="columnVM.sortable && sortTrigger === 'head' && onClickSort(columnVM)">
+                            <!-- type === 'checkbox' -->
+                            <span v-if="columnVM.type === 'checkbox'">
+                                <u-checkbox :value="allChecked" @check="checkAll($event.value)"></u-checkbox>
+                            </span>
+                            <!-- Normal title -->
+                            <template>
+                                <f-slot name="title" :vm="columnVM" :props="{ columnVM, columnIndex }">
+                                    <span vusion-slot-name="title" :class="$style['column-title']">{{ columnVM.title }}</span>
+                                </f-slot>
+                            </template>
+                            <!-- Sortable -->
+                            <span v-if="columnVM.sortable" :class="$style.sort"
+                                :sorting="currentSorting && currentSorting.field === columnVM.field" :order="currentSorting && currentSorting.order"
+                                @click="sortTrigger === 'icon' && ($event.stopPropagation(), onClickSort(columnVM))"></span>
+                            <!-- Filterable -->
+                            <span v-if="columnVM.filters" :class="$style['filter-wrap']">
+                                <u-table-view-filters :value="getFiltersValue(columnVM.field)" @select="onSelectFilters(columnVM.field, $event)">
+                                    <u-table-view-filter v-for="filter in columnVM.filters" :key="filter.value" :value="filter.value">{{ filter.text }}</u-table-view-filter>
+                                </u-table-view-filters>
+                            </span>
+                            <!-- Resizable -->
+                            <f-dragger v-if="resizable && columnIndex !== visibleColumnVMs.length - 1" axis="horizontal"
+                                @dragstart="onResizerDragStart($event, columnVM)"
+                                @drag="onResizerDrag($event, columnVM, columnIndex)"
+                                @dragend="onResizerDragEnd($event, columnVM, columnIndex)">
+                                <div :class="$style.resizer" @click.stop></div>
+                            </f-dragger>
+                        </th>
+                    </tr>
+                </thead>
             </u-table>
         </div>
         <div :class="$style.body" ref="body" :style="{ width: number2Pixel(tableWidth), height: number2Pixel(bodyHeight) }" @scroll="onBodyScroll">
@@ -246,6 +248,10 @@ export default {
     mixins: [MEmitter],
     i18n,
     props: {
+        boldHeader: {
+            type: Boolean,
+            default: true
+        },
         data: Array,
         dataSource: [DataSource, Function, Object, Array],
         initialLoad: { type: Boolean, default: true },
@@ -1368,6 +1374,10 @@ export default {
 }
 .head-title[sortable]:hover .sort{
     color: var(--table-view-sort-color-hover);
+}
+
+.head-title.boldHeader {
+    font-weight: var(--table-head-font-weight);
 }
 
 .extra {

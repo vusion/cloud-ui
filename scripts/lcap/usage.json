@@ -5370,6 +5370,14 @@
                     "group": "样式属性"
                 },
                 {
+                    "name": "boldHeader",
+                    "title": "表头加粗",
+                    "type": "boolean",
+                    "default": true,
+                    "description": "",
+                    "group": "样式属性"
+                },
+                {
                     "name": "line",
                     "title": "分隔线条",
                     "type": "boolean",
