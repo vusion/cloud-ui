@@ -25,7 +25,7 @@
                     </u-linear-layout>
                 </template>
                 <template #default>
-                        <u-dropdown-item>安全退出</u-dropdown-item>
+                        <u-dropdown-item text="安全退出"></u-dropdown-item>
                 </template>
             </u-dropdown>
         </u-multi-layout-item>
