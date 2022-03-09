@@ -1,13 +1,13 @@
 <template>
 <div :class="$style.root" ref="element">
     <div :class="$style.head">
-        <i-ico v-if="preIcon" :name="preIcon" :class="[$style.btnicon, $style.preIcon]"></i-ico>
+        <i-ico v-if="preIcon" :name="preIcon" :class="[$style.btnicon, $style.preIcon]" notext></i-ico>
         <input :class="$style.input" :placeholder="placeholder" :value="dateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
             @click.stop="toggle(true)" @change="onInput($event)" @focus="onFocus" @blur="onBlur">
          <span v-if="dateTime && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
             <i :class="[$style.closeIcon]"></i>
         </span>
-        <i-ico v-if="afterIcon" :name="afterIcon" :class="[$style.btnicon, $style.afterIcon]"></i-ico>
+        <i-ico v-if="afterIcon" :name="afterIcon" :class="[$style.btnicon, $style.afterIcon]" notext></i-ico>
     </div>
     <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="onPopperClose">
         <div :class="$style.body" @click.stop>

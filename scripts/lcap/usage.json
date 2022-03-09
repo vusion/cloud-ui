@@ -2679,7 +2679,7 @@
             "Navigation"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-navbar-multi.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"导航栏\",\"description\":\"\",\"code\":\"<template>\\n<u-navbar-multi>\\n    <template #left>\\n        <u-multi-layout-item align-items=\\\"center\\\">\\n            <u-image fit=\\\"cover\\\" src=\\\"https://static-vusion.163yun.com/assets/lcap-logo-light.svg\\\"\\n                    style=\\\"width: 28px; height: 28px; margin: 16px 14px; --custom-start: auto; vertical-align: middle;\\\"></u-image>\\n            <u-text text=\\\"应用名称\\\" size=\\\"large\\\" style=\\\"color: white; --custom-start: auto; vertical-align: middle;\\\"></u-text>\\n        </u-multi-layout-item>\\n    </template>\\n    <u-multi-layout-item align-items=\\\"center\\\">\\n        <u-navbar-item-multi text=\\\"Item 1\\\"></u-navbar-item-multi>\\n        <u-navbar-item-multi text=\\\"Item 2\\\"></u-navbar-item-multi>\\n    </u-multi-layout-item>\\n    <template #right>\\n        <u-multi-layout-item align-items=\\\"center\\\" justify=\\\"end\\\">\\n            <u-dropdown style=\\\"margin-right: 10px;\\\">\\n                <template #title>\\n                    <u-linear-layout gap=\\\"small\\\" v-if=\\\"$global.userInfo\\\">\\n                        <u-image fit=\\\"cover\\\" src=\\\"https://static-vusion.163yun.com/assets/avatar-default.svg\\\" style=\\\"width: 36px; height: 36px; vertical-align: middle;\\\"></u-image>\\n                        <span style=\\\"display: inline-block; vertical-align: top; margin-left: 10px; margin-right: 10px; color: white;\\\">\\n                            <u-text :text=\\\"$global.userInfo.UserName\\\"></u-text>\\n                        </span>\\n                    </u-linear-layout>\\n                </template>\\n                <template #default>\\n                        <u-dropdown-item>安全退出</u-dropdown-item>\\n                </template>\\n            </u-dropdown>\\n        </u-multi-layout-item>\\n    </template>\\n</u-navbar-multi>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"导航栏\",\"description\":\"\",\"code\":\"<template>\\n<u-navbar-multi>\\n    <template #left>\\n        <u-multi-layout-item align-items=\\\"center\\\">\\n            <u-image fit=\\\"cover\\\" src=\\\"https://static-vusion.163yun.com/assets/lcap-logo-light.svg\\\"\\n                    style=\\\"width: 28px; height: 28px; margin: 16px 14px; --custom-start: auto; vertical-align: middle;\\\"></u-image>\\n            <u-text text=\\\"应用名称\\\" size=\\\"large\\\" style=\\\"color: white; --custom-start: auto; vertical-align: middle;\\\"></u-text>\\n        </u-multi-layout-item>\\n    </template>\\n    <u-multi-layout-item align-items=\\\"center\\\">\\n        <u-navbar-item-multi text=\\\"Item 1\\\"></u-navbar-item-multi>\\n        <u-navbar-item-multi text=\\\"Item 2\\\"></u-navbar-item-multi>\\n    </u-multi-layout-item>\\n    <template #right>\\n        <u-multi-layout-item align-items=\\\"center\\\" justify=\\\"end\\\">\\n            <u-dropdown style=\\\"margin-right: 10px;\\\">\\n                <template #title>\\n                    <u-linear-layout gap=\\\"small\\\" v-if=\\\"$global.userInfo\\\">\\n                        <u-image fit=\\\"cover\\\" src=\\\"https://static-vusion.163yun.com/assets/avatar-default.svg\\\" style=\\\"width: 36px; height: 36px; vertical-align: middle;\\\"></u-image>\\n                        <span style=\\\"display: inline-block; vertical-align: top; margin-left: 10px; margin-right: 10px; color: white;\\\">\\n                            <u-text :text=\\\"$global.userInfo.UserName\\\"></u-text>\\n                        </span>\\n                    </u-linear-layout>\\n                </template>\\n                <template #default>\\n                        <u-dropdown-item text=\\\"安全退出\\\"></u-dropdown-item>\\n                </template>\\n            </u-dropdown>\\n        </u-multi-layout-item>\\n    </template>\\n</u-navbar-multi>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-navbar-multi",
             "title": "导航栏",
@@ -2691,7 +2691,7 @@
                 {
                     "title": "导航栏",
                     "description": "",
-                    "code": "<template>\n<u-navbar-multi>\n    <template #left>\n        <u-multi-layout-item align-items=\"center\">\n            <u-image fit=\"cover\" src=\"https://static-vusion.163yun.com/assets/lcap-logo-light.svg\"\n                    style=\"width: 28px; height: 28px; margin: 16px 14px; --custom-start: auto; vertical-align: middle;\"></u-image>\n            <u-text text=\"应用名称\" size=\"large\" style=\"color: white; --custom-start: auto; vertical-align: middle;\"></u-text>\n        </u-multi-layout-item>\n    </template>\n    <u-multi-layout-item align-items=\"center\">\n        <u-navbar-item-multi text=\"Item 1\"></u-navbar-item-multi>\n        <u-navbar-item-multi text=\"Item 2\"></u-navbar-item-multi>\n    </u-multi-layout-item>\n    <template #right>\n        <u-multi-layout-item align-items=\"center\" justify=\"end\">\n            <u-dropdown style=\"margin-right: 10px;\">\n                <template #title>\n                    <u-linear-layout gap=\"small\" v-if=\"$global.userInfo\">\n                        <u-image fit=\"cover\" src=\"https://static-vusion.163yun.com/assets/avatar-default.svg\" style=\"width: 36px; height: 36px; vertical-align: middle;\"></u-image>\n                        <span style=\"display: inline-block; vertical-align: top; margin-left: 10px; margin-right: 10px; color: white;\">\n                            <u-text :text=\"$global.userInfo.UserName\"></u-text>\n                        </span>\n                    </u-linear-layout>\n                </template>\n                <template #default>\n                        <u-dropdown-item>安全退出</u-dropdown-item>\n                </template>\n            </u-dropdown>\n        </u-multi-layout-item>\n    </template>\n</u-navbar-multi>\n</template>\n"
+                    "code": "<template>\n<u-navbar-multi>\n    <template #left>\n        <u-multi-layout-item align-items=\"center\">\n            <u-image fit=\"cover\" src=\"https://static-vusion.163yun.com/assets/lcap-logo-light.svg\"\n                    style=\"width: 28px; height: 28px; margin: 16px 14px; --custom-start: auto; vertical-align: middle;\"></u-image>\n            <u-text text=\"应用名称\" size=\"large\" style=\"color: white; --custom-start: auto; vertical-align: middle;\"></u-text>\n        </u-multi-layout-item>\n    </template>\n    <u-multi-layout-item align-items=\"center\">\n        <u-navbar-item-multi text=\"Item 1\"></u-navbar-item-multi>\n        <u-navbar-item-multi text=\"Item 2\"></u-navbar-item-multi>\n    </u-multi-layout-item>\n    <template #right>\n        <u-multi-layout-item align-items=\"center\" justify=\"end\">\n            <u-dropdown style=\"margin-right: 10px;\">\n                <template #title>\n                    <u-linear-layout gap=\"small\" v-if=\"$global.userInfo\">\n                        <u-image fit=\"cover\" src=\"https://static-vusion.163yun.com/assets/avatar-default.svg\" style=\"width: 36px; height: 36px; vertical-align: middle;\"></u-image>\n                        <span style=\"display: inline-block; vertical-align: top; margin-left: 10px; margin-right: 10px; color: white;\">\n                            <u-text :text=\"$global.userInfo.UserName\"></u-text>\n                        </span>\n                    </u-linear-layout>\n                </template>\n                <template #default>\n                        <u-dropdown-item text=\"安全退出\"></u-dropdown-item>\n                </template>\n            </u-dropdown>\n        </u-multi-layout-item>\n    </template>\n</u-navbar-multi>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -15793,9 +15793,9 @@
                     "description": ""
                 },
                 {
-                    "name": "icon",
+                    "name": "afterIcon",
                     "title": "后置图标",
-                    "type": "afterIcon",
+                    "type": "icon",
                     "default": "",
                     "description": ""
                 },
@@ -16149,7 +16149,7 @@
                     "name": "maxTime",
                     "title": "最大时间",
                     "type": "string",
-                    "default": 86399,
+                    "default": "23:59:59",
                     "description": "支持输入的最大时间"
                 },
                 {
@@ -16273,9 +16273,9 @@
                     "description": ""
                 },
                 {
-                    "name": "icon",
+                    "name": "afterIcon",
                     "title": "后置图标",
-                    "type": "afterIcon",
+                    "type": "icon",
                     "default": "",
                     "description": ""
                 },

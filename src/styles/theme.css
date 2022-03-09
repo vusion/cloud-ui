@@ -374,6 +374,9 @@
     --sidebar-item-border-right-color: var(--brand-primary);
     --sidebar-item-border-bottom-width: 0px;
     --sidebar-item-border-bottom-color: #e5e5e5;
+    --sidebar-item-icon-font-size: 16px;
+    --sidebar-item-icon-color: var(--gray-light);
+    --sidebar-item-icon-color-hover: var(--sidebar-item-icon-color);
     --sidebar-group-head-height: 52px;
     --sidebar-group-head-padding-left: 20px;
     --sidebar-group-head-font-weight: var(--font-weight-bold);

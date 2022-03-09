@@ -12,9 +12,9 @@
       type: icon
       default: "calendar"
       description: ""
-    - name: icon
+    - name: afterIcon
       title: 后置图标
-      type: afterIcon
+      type: icon
       default: ""
       description: ""
     - name: date
