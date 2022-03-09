@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :fit="fit" :style="{ 'border-radius': circle && radius }"
+<div :class="$style.root" :fit="fit" :style="wrapStyle"
     :vertical-center="verticalCenter"
     :horizontal-center="horizontalCenter">
     <template v-if="ready">
@@ -64,6 +64,11 @@ export default {
             return {
                 'object-fit': this.fit,
                 'object-position': `${this.verticalCenter} ${this.horizontalCenter}`
+            }
+        },
+        wrapStyle() {
+            return {
+                'border-radius': this.circle ? this.radius : ''
             }
         }
     },
