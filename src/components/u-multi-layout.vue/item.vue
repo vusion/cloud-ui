@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.root" :direction="direction" :fixed="String(fixed)" v-on="$listeners" vusion-slot-name="default" ref="item">
+<div :class="$style.root" :direction="direction" :fixed="String(fixed)" :fixdirec="String(fixdirec)" v-on="$listeners" vusion-slot-name="default" ref="item">
     <slot></slot>
     <s-empty v-if="(!$slots.default) && $env.VUE_APP_DESIGNER"></s-empty>
 </div>
@@ -17,6 +17,10 @@ export default {
         fixed: {
             type: Boolean,
             default: false,
+        },
+        fixdirec: {
+            type: String,
+            default: 'left',
         },
         direction: {
             type: String,
@@ -66,6 +70,14 @@ export default {
     position: absolute;
     height: 100%;
     overflow-y: auto;
+}
+.root[fixed="true"][fixdirec="left"] {
+    left: 0;
+    top:0;
+}
+.root[fixed="true"][fixdirec="right"] {
+    right: 0;
+    top:0;
 }
 .root [class^="s-empty_empty"] {
     height: 100%;

@@ -39,19 +39,19 @@ export default {
 .root[direction="vertical"] {
     flex-direction: column;
 }
-.root[direction="horizontal"][gap="shrink"] [class^="u-multi-layout_item"]:not(:last-child) {
+.root[direction="horizontal"][gap="shrink"] > [class^="u-multi-layout_item"]:not(:last-child) {
     margin-right: var(--space-shrink);;
 }
-.root[direction="horizontal"][gap="none"] [class^="u-multi-layout_item"]:not(:last-child) {
+.root[direction="horizontal"][gap="none"] > [class^="u-multi-layout_item"]:not(:last-child) {
     margin-right: 0;
 }
-.root[direction="horizontal"][gap="small"] [class^="u-multi-layout_item"]:not(:last-child) {
+.root[direction="horizontal"][gap="small"] > [class^="u-multi-layout_item"]:not(:last-child) {
     margin-right: var(--space-small);
 }
-.root[direction="horizontal"][gap="normal"] [class^="u-multi-layout_item"]:not(:last-child) {
+.root[direction="horizontal"][gap="normal"] > [class^="u-multi-layout_item"]:not(:last-child) {
     margin-right: var(--space-base);
 }
-.root[direction="horizontal"][gap="large"] [class^="u-multi-layout_item"]:not(:last-child) {
+.root[direction="horizontal"][gap="large"] > [class^="u-multi-layout_item"]:not(:last-child) {
     margin-right: var(--space-large);
 }
 .root[direction="vertical"][gap="shrink"] [class^="u-multi-layout_item"]:not(:last-child) {

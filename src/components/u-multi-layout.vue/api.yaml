@@ -29,7 +29,7 @@
           title: 正常
         - value: large
           title: 大
-      default: normal
+      default: none
       description: 布局中各分栏间的空隙大小
   slots:
     - name: default
@@ -52,15 +52,27 @@
   attrs:
     - name: fixed
       title: 固定展示
-      type: Boolean
+      type: boolean
       default: false
       description: 开启后滚动时该项固定显示
+    - name: fixdirec
+      title: 固定位置
+      type: string
+      options:
+        - value: left
+          title: 左
+        - value: right
+          title: 右
+      default: left
+      description: 固定在左侧还是右侧
     - name: display
       title: 展示方式
       type: string
       options:
         - value: block
           title: 块级
+        - value: inline
+          title: 行内
       default: block
       description: 行内展示，或块级换行展示
     - name: justify
