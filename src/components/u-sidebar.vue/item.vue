@@ -77,4 +77,13 @@ export default {
     margin-left: -24px;
     margin-right: 8px;
 }
+
+.root .singleicon {
+    font-size: var(--sidebar-item-icon-font-size);
+    color: var(--sidebar-item-icon-color);
+}
+
+.root:hover .singleicon {
+    color: var(--sidebar-item-icon-color-hover);
+}
 </style>
