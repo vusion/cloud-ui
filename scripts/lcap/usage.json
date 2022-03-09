@@ -653,7 +653,7 @@
                             "title": "大"
                         }
                     ],
-                    "default": "normal",
+                    "default": "none",
                     "description": "布局中各分栏间的空隙大小"
                 }
             ],
@@ -687,9 +687,26 @@
                         {
                             "name": "fixed",
                             "title": "固定展示",
-                            "type": "Boolean",
+                            "type": "boolean",
                             "default": false,
                             "description": "开启后滚动时该项固定显示"
+                        },
+                        {
+                            "name": "fixdirec",
+                            "title": "固定位置",
+                            "type": "string",
+                            "options": [
+                                {
+                                    "value": "left",
+                                    "title": "左"
+                                },
+                                {
+                                    "value": "right",
+                                    "title": "右"
+                                }
+                            ],
+                            "default": "left",
+                            "description": "固定在左侧还是右侧"
                         },
                         {
                             "name": "display",
@@ -699,6 +716,10 @@
                                 {
                                     "value": "block",
                                     "title": "块级"
+                                },
+                                {
+                                    "value": "inline",
+                                    "title": "行内"
                                 }
                             ],
                             "default": "block",
@@ -4923,7 +4944,7 @@
             "Navigation"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-dropdown.vue/screenshots/0.png",
-        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-dropdown>\\n    <u-dropdown-item text=\\\"item\\\">\\n    </u-dropdown-item>\\n</u-dropdown>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本用法\",\"description\":\"\",\"code\":\"<template>\\n<u-dropdown>\\n    <u-dropdown-item text=\\\"item\\\">\\n    </u-dropdown-item>\\n    <template #title=\\\"scope\\\">\\n        <u-text text=\\\"下拉菜单\\\"></u-text>\\n        <i-ico name=\\\"bottom-arrow\\\" notext></i-ico>\\n    </template>\\n</u-dropdown>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-dropdown",
             "title": "下拉菜单",
@@ -4935,7 +4956,7 @@
                 {
                     "title": "基本用法",
                     "description": "",
-                    "code": "<template>\n<u-dropdown>\n    <u-dropdown-item text=\"item\">\n    </u-dropdown-item>\n</u-dropdown>\n</template>\n"
+                    "code": "<template>\n<u-dropdown>\n    <u-dropdown-item text=\"item\">\n    </u-dropdown-item>\n    <template #title=\"scope\">\n        <u-text text=\"下拉菜单\"></u-text>\n        <i-ico name=\"bottom-arrow\" notext></i-ico>\n    </template>\n</u-dropdown>\n</template>\n"
                 }
             ],
             "attrs": [
@@ -5362,18 +5383,18 @@
                     "group": "样式属性"
                 },
                 {
-                    "name": "border",
-                    "title": "显示边框",
-                    "type": "boolean",
-                    "default": false,
-                    "description": "",
-                    "group": "样式属性"
-                },
-                {
                     "name": "boldHeader",
                     "title": "表头加粗",
                     "type": "boolean",
                     "default": true,
+                    "description": "",
+                    "group": "样式属性"
+                },
+                {
+                    "name": "border",
+                    "title": "显示边框",
+                    "type": "boolean",
+                    "default": false,
                     "description": "",
                     "group": "样式属性"
                 },

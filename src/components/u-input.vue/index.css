@@ -136,6 +136,17 @@
 .root[display="inline"] { /* By default */
 }
 
+.root[size^=mini] {
+    height: var(--input-height-mini);
+    line-height: calc(var(--input-height-mini) - var(--input-border-width)*2);
+}
+
+.root[size$=mini] {
+    width: var(--input-width-mini);
+    padding-left: var(--input-padding-x-mini);
+    padding-right: var(--input-padding-x-mini);
+}
+
 .root[display="block"] {
     display: block;
     width: auto;
