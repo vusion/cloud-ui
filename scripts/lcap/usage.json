@@ -1532,7 +1532,7 @@
             "Container"
         ],
         "screenShot": "https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-card.vue/screenshots/0.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-card.vue/screenshots/1.png,https://static-vusion.163yun.com/packages/cloud-ui.vusion@0.14.3/src/components/u-card.vue/screenshots/2.png",
-        "blocks": "[{\"title\":\"基本样式\",\"description\":\"\",\"code\":\"<template>\\n<u-card title=\\\"卡片总览\\\">卡片内容</u-card>\\n</template>\\n\"},{\"title\":\"带分割线样式\",\"description\":\"\",\"code\":\"<template>\\n<u-card title=\\\"卡片\\\" split>卡片内容</u-card>\\n</template>\\n\"},{\"title\":\"带图片样式\",\"description\":\"\",\"code\":\"<template>\\n<u-card title=\\\"卡片\\\" style=\\\"width: 280px\\\" show-cover-empty-slot><template #cover>\\n        <u-image src=\\\"https://static-vusion.163yun.com/assets/cloud-ui/1.jpg\\\" fit=\\\"contain\\\"></u-image>\\n</template>卡片内容</u-card>\\n</template>\\n\"}]",
+        "blocks": "[{\"title\":\"基本样式\",\"description\":\"\",\"code\":\"<template>\\n<u-card title=\\\"卡片总览\\\">卡片内容</u-card>\\n</template>\\n\"},{\"title\":\"带分割线样式\",\"description\":\"\",\"code\":\"<template>\\n<u-card title=\\\"卡片\\\" split>卡片内容</u-card>\\n</template>\\n\"},{\"title\":\"带图片样式\",\"description\":\"\",\"code\":\"<template>\\n<u-card title=\\\"卡片\\\" style=\\\"width: 280px\\\" cover-slot><template #cover>\\n        <u-image src=\\\"https://static-vusion.163yun.com/assets/cloud-ui/1.jpg\\\" fit=\\\"contain\\\"></u-image>\\n</template>卡片内容</u-card>\\n</template>\\n\"}]",
         "jsonSchema": {
             "name": "u-card",
             "title": "卡片",
@@ -1554,7 +1554,7 @@
                 {
                     "title": "带图片样式",
                     "description": "",
-                    "code": "<template>\n<u-card title=\"卡片\" style=\"width: 280px\" show-cover-empty-slot><template #cover>\n        <u-image src=\"https://static-vusion.163yun.com/assets/cloud-ui/1.jpg\" fit=\"contain\"></u-image>\n</template>卡片内容</u-card>\n</template>\n"
+                    "code": "<template>\n<u-card title=\"卡片\" style=\"width: 280px\" cover-slot><template #cover>\n        <u-image src=\"https://static-vusion.163yun.com/assets/cloud-ui/1.jpg\" fit=\"contain\"></u-image>\n</template>卡片内容</u-card>\n</template>\n"
                 }
             ],
             "attrs": [
