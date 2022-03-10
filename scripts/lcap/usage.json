@@ -15816,15 +15816,35 @@
             "attrs": [
                 {
                     "name": "preIcon",
-                    "title": "前置图标",
-                    "type": "icon",
+                    "title": "前缀图标",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "calendar",
+                            "title": "日历"
+                        },
+                        {
+                            "value": "",
+                            "title": "暂无"
+                        }
+                    ],
                     "default": "calendar",
                     "description": ""
                 },
                 {
-                    "name": "afterIcon",
-                    "title": "后置图标",
-                    "type": "icon",
+                    "name": "suffixIcon",
+                    "title": "后缀图标",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "calendar",
+                            "title": "日历"
+                        },
+                        {
+                            "value": "",
+                            "title": "暂无"
+                        }
+                    ],
                     "default": "",
                     "description": ""
                 },
@@ -16296,15 +16316,35 @@
             "attrs": [
                 {
                     "name": "preIcon",
-                    "title": "前置图标",
-                    "type": "icon",
+                    "title": "前缀图标",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "calendar",
+                            "title": "日历"
+                        },
+                        {
+                            "value": "",
+                            "title": "暂无"
+                        }
+                    ],
                     "default": "calendar",
                     "description": ""
                 },
                 {
-                    "name": "afterIcon",
-                    "title": "后置图标",
-                    "type": "icon",
+                    "name": "suffixIcon",
+                    "title": "后缀图标",
+                    "type": "string",
+                    "options": [
+                        {
+                            "value": "calendar",
+                            "title": "日历"
+                        },
+                        {
+                            "value": "",
+                            "title": "暂无"
+                        }
+                    ],
                     "default": "",
                     "description": ""
                 },
