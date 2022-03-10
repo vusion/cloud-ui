@@ -1661,40 +1661,41 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise。 |
+| data-source | Array\<Item\> \| Function \| object \| DataSource |  |  | 数据网格的数据源，数据集对象或者返回数据集的逻辑 |
 | data-schema | schema |  |  | 表格每一行的数据类型 |
 | initial-load | boolean |  | `true` | 是否在初始时立即加载 |
-| pageable | boolean |  | `false` | 是否需要分页 |
-| page-size | number |  | `50` | 分页大小 |
+| pageable | boolean |  | `false` |  |
+| page-size | number |  | `50` |  |
 | page-number.sync | number |  | `1` | 当前页数。 |
-| page-size-options | Array\<number\> |  | `[10, 20, 50]` | 分页大小的选项列表。 |
-| show-total | boolean |  | `false` | 是否显示总条目数。 |
-| show-sizer | boolean |  | `false` | 是否显示切换分页大小选项。 |
-| show-jumper | boolean |  | `false` | 是否显示页面跳转输入框。 |
+| page-size-options | Array\<number\> |  | `[10, 20, 50]` |  |
+| show-total | boolean |  | `false` |  |
+| show-sizer | boolean |  | `false` |  |
+| show-jumper | boolean |  | `false` |  |
 | filterable | boolean |  | `false` | 是否可以过滤（搜索），开启将会显示搜索框。 |
-| remote-paging | boolean |  | `false` | 是否使用后端分页。 |
-| remote-filtering | boolean |  | `false` | 是否使用后端筛选 |
+| remote-paging | boolean |  | `false` |  |
+| remote-filtering | boolean |  | `false` |  |
 | match-method | string, Function |  | `'includes'` | 过滤时的匹配方法 |
-| case-sensitive | string, Function |  | `'includes'` | 过滤时大小写是否敏感 |
+| case-sensitive | string, Function |  | `'includes'` | 过滤时是否区分大小写 |
 | repeat | number |  | `5` | 每行排列几项 |
-| show-head | boolean |  | `false` | 是否显示头部 |
-| title | string |  | `'列表'` | 列表标题 |
-| show-foot | boolean |  | `true` | 是否显示尾部 |
-| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度 |
+| show-head | boolean |  | `false` |  |
+| title | string |  | `'列表'` |  |
+| show-foot | boolean |  | `true` |  |
+| width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` | 设置数据网格宽度大小 |
+| height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置数据网格高度大小 |
 | loading-text | string |  | `'加载中...'` | 加载时的文字。使用分页加载时才会出现 |
 | error | boolean |  |  | 手动设置是否加载失败。 |
 | error-text | string |  | `'加载失败，请重试'` | 加载失败时的文字。 |
 | empty-text | string |  | `'暂无数据'` | 暂无数据时的文字。 |
-| placeholder | string |  | `'请输入'` | 搜索框的占位符 |
+| placeholder | string |  | `'请输入'` | 搜索框为空时提示文本 |
 | value.sync, v-model | any |  |  | 当前选择的值 |
 | field | string |  | `'text'` | 选项文本的字段名 |
 | text-field | string |  | `'text'` | 选项文本的字段名 |
 | value-field | string |  | `'value'` | 选项值的字段名 |
-| cancelable | boolean |  | `false` | 是否可以取消选择 |
-| multiple | boolean |  | `false` | 是否可以多选 |
+| cancelable | boolean |  | `false` |  |
+| multiple | boolean |  | `false` |  |
 | clearable | boolean |  | `false` | 搜索框是否有清除按钮 |
-| readonly | boolean |  | `false` | 是否只读 |
-| disabled | boolean |  | `false` | 是否禁用 |
+| readonly | boolean |  | `false` |  |
+| disabled | boolean |  | `false` |  |
 
 ### Slots
 

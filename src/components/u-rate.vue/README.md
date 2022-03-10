@@ -53,9 +53,9 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value.sync, v-model | number |  | `0` | 评分值 |
-| max | number |  | `5` | 最大分数 |
-| readonly | boolean |  | `false` | 是否只读 |
+| value.sync, v-model | number |  | `0` |  |
+| max | number |  | `5` |  |
+| readonly | boolean |  | `false` |  |
 
 ### Events
 

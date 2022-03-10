@@ -124,14 +124,14 @@ export default {
 | --------- | ---- | ------- | ------- | ----------- |
 | value.sync, v-model | string |  |  | 输入框的值 |
 | clearable | boolean |  | `false` | 是否可清空。开启并在输入框有内容时会显示清空按钮。 |
-| placeholder | string |  |  | 为空时提示内容 |
-| minlength | number |  |  | 原生属性 |
-| maxlength | number |  |  | 原生属性 |
-| spellcheck | boolean |  |  | 原生属性 |
-| autofocus | boolean |  |  | 是否自动获取焦点 |
-| readonly | boolean |  | `false` | 是否只读 |
-| disabled | boolean |  | `false` | 是否禁用 |
-| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置尺寸 |
+| placeholder | string |  |  | 为空时的提示文本 |
+| minlength | number |  |  |  |
+| maxlength | number |  |  |  |
+| spellcheck | boolean |  |  |  |
+| autofocus | boolean |  |  |  |
+| readonly | boolean |  | `false` |  |
+| disabled | boolean |  | `false` |  |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置多行输入框大小 |
 | resize | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'none'` | 是否可以调整大小 |
 
 ### Slots

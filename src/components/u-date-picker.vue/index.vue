@@ -1,5 +1,5 @@
 <template>
-<div :class="$style.header" :style="{ 
+<div :class="[$style.header, preIcon ? $style.preIconHeader: '', suffixIcon ? $style.suffixIconHeader: '']" :style="{ 
     width: `${width}px`
 }">
     <i-ico v-if="preIcon" :name="preIcon" :class="[$style.btnicon, $style.preIcon]" notext></i-ico>
@@ -7,7 +7,7 @@
     <span v-if="showDate && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
         <i :class="[$style.closeIcon]"></i>
     </span>
-    <i-ico v-if="afterIcon" :name="afterIcon" :class="[$style.btnicon, $style.afterIcon]" notext></i-ico>
+    <i-ico v-if="suffixIcon" :name="suffixIcon" :class="[$style.btnicon, $style.suffixIcon]" notext></i-ico>
     <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="closeCalendar">
         <div :class="$style.body" @click.stop>
             <u-calendar :picker="picker" ref="calendar" :min-date="minDate" :year-diff="yearDiff" :year-add="yearAdd" :max-date="maxDate" :date="showDate" :value="date" @select="select($event.date)"></u-calendar>
@@ -47,7 +47,7 @@ export default {
             type: String, 
             default: 'calendar'
         },
-        afterIcon: { 
+        suffixIcon: { 
             type: String, 
             default: ''
         },
@@ -324,7 +324,7 @@ export default {
     color: var(--datepicker-input-pre-icon-color);
 }
 
-.afterIcon {
+.suffixIcon {
     right: 12px;
     color: var(--datepicker-input-after-icon-color);
 }
@@ -342,6 +342,14 @@ export default {
     height: var(--datepicker-input-height);
     line-height: calc(var(--datepicker-input-height) - var(--datepicker-input-border-width) * 2);
     outline: none;
+}
+
+.preIconHeader .input {
+    padding-left: calc(var(--datepicker-input-padding-x) + 26px);
+}
+
+.suffixIconHeader .input {
+    padding-right: calc(var(--datepicker-input-padding-x) + 26px);
 }
 
 .input[disabled] {
@@ -390,6 +398,10 @@ export default {
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.suffixIconHeader .wrap  {
+    right: calc(10px + 26px);
 }
 
 .close {

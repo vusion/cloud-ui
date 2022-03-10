@@ -1618,6 +1618,7 @@ export default {
 | validating-value | any |  |  | 临时修改验证值 |
 | validating-process | Function |  |  | 验证前对值进行预处理 |
 | manual | boolean |  | `false` | 是否采取手动验证。如果为`true`，则 UValidator 将不会在监听到子组件的`input`、`change`和`blur`事件后进行相应的验证。 |
+| append-to | string | `[object Object]`<br/>`[object Object]` | `'reference'` | 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中 |
 
 ### Computed
 
@@ -1637,6 +1638,34 @@ export default {
 ### Events
 
 #### @validate
+
+对于第一个 Field 或者所有子 UValidator：
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.trigger | string | 本次验证的触发方式 |
+| $event.valid | boolean | 验证是否通过 |
+| $event.touched | boolean | 用户是否触碰 |
+| $event.dirty | boolean | 用户是否修改值 |
+| $event.firstError | string | 第一个错误提示消息 |
+| senderVM | UValidator | 发送事件实例 |
+
+#### @blur-valid
+
+对于第一个 Field 或者所有子 UValidator：
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | object | 自定义事件对象 |
+| $event.trigger | string | 本次验证的触发方式 |
+| $event.valid | boolean | 验证是否通过 |
+| $event.touched | boolean | 用户是否触碰 |
+| $event.dirty | boolean | 用户是否修改值 |
+| $event.firstError | string | 第一个错误提示消息 |
+| senderVM | UValidator | 发送事件实例 |
+
+#### @blur-invalid
 
 对于第一个 Field 或者所有子 UValidator：
 

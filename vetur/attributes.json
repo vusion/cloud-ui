@@ -23,7 +23,7 @@
   },
   "e-watermark/opacity": {
     "type": "number",
-    "description": "透明程度, 0-1 之间的小数"
+    "description": "0-1之间的小数，0代表完全透明，1代表完全不透明"
   },
   "f-draggable/value": {
     "type": "any",
@@ -163,7 +163,7 @@
   },
   "i-ico/name": {
     "type": "icon",
-    "description": "图标"
+    "description": ""
   },
   "i-ico/linkType": {
     "type": "string",
@@ -181,11 +181,11 @@
         "title": "下载链接"
       }
     ],
-    "description": "链接类型"
+    "description": ""
   },
   "i-ico/hrefAndTo": {
     "type": "string",
-    "description": "链接地址"
+    "description": ""
   },
   "i-ico/target": {
     "type": "string",
@@ -816,11 +816,11 @@
   },
   "u-badge/max": {
     "type": "number",
-    "description": "最大值，超过最大值会显示为`max+`的形式，要求`value`是 `Number`类型。"
+    "description": "最大值，超过最大值会显示为“最大值+”的形式，当最大值是数字类型时生效"
   },
   "u-badge/corner": {
     "type": "boolean",
-    "description": "是否插入到右上角"
+    "description": ""
   },
   "u-badge/dot": {
     "type": "boolean",
@@ -828,7 +828,7 @@
   },
   "u-button/text": {
     "type": "string",
-    "description": "文本内容"
+    "description": "显示文本内容"
   },
   "u-button/color": {
     "type": "string",
@@ -854,7 +854,7 @@
         "title": "次要危险操作按钮"
       }
     ],
-    "description": "设置颜色"
+    "description": "设置文本颜色"
   },
   "u-button/dashed": {
     "type": "boolean",
@@ -888,7 +888,7 @@
         "title": "迷你"
       }
     ],
-    "description": "设置尺寸"
+    "description": "设置按钮大小"
   },
   "u-button/shape": {
     "type": "string",
@@ -910,11 +910,11 @@
         "title": "圆形"
       }
     ],
-    "description": "设置形状"
+    "description": "设置按钮形状"
   },
   "u-button/disabled": {
     "type": "boolean",
-    "description": "是否禁用。禁用后不会响应点击事件。"
+    "description": ""
   },
   "u-button/display": {
     "type": "string",
@@ -928,11 +928,11 @@
         "title": "块级展示，宽度会充满父元素"
       }
     ],
-    "description": "展示方式"
+    "description": "行内展示，或块级换行展示"
   },
   "u-button/icon": {
     "type": "icon",
-    "description": "图标"
+    "description": ""
   },
   "u-button/loading": {
     "type": "boolean",
@@ -954,11 +954,11 @@
         "title": "下载链接"
       }
     ],
-    "description": "链接类型"
+    "description": ""
   },
   "u-button/hrefAndTo": {
     "type": "string",
-    "description": "链接地址"
+    "description": ""
   },
   "u-button/target": {
     "type": "string",
@@ -1010,7 +1010,7 @@
   },
   "u-calendar-view/data-source": {
     "type": "Array<Item> | Function | object",
-    "description": "日历数据源，数组方式表示直接的数据，函数需要返回一个 Promise"
+    "description": "日历的数据源，数据集对象或者返回数据集的逻辑"
   },
   "u-calendar-view/data-schema": {
     "type": "schema",
@@ -1026,11 +1026,11 @@
   },
   "u-calendar-view/show-week-days": {
     "type": "boolean",
-    "description": "是否展示周天"
+    "description": ""
   },
   "u-calendar-view/show-weeks": {
     "type": "boolean",
-    "description": "是否展示周数"
+    "description": ""
   },
   "u-calendar-view/show-basic": {
     "type": "boolean",
@@ -1042,7 +1042,7 @@
   },
   "u-calendar-view/first-day-of-week": {
     "type": "number",
-    "description": "周起始日，1～7（周一～周日）"
+    "description": "填写数字1~7，分别表示周一~周日"
   },
   "u-calendar/date": {
     "type": "Date | string",
@@ -1074,7 +1074,7 @@
   },
   "u-capsules/value": {
     "type": "any",
-    "description": "当前选择的值"
+    "description": ""
   },
   "u-capsules/auto-select": {
     "type": "boolean",
@@ -1090,11 +1090,11 @@
   },
   "u-capsules/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": ""
   },
   "u-capsules/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
   },
   "u-capsule/value": {
     "type": "any",
@@ -1136,7 +1136,7 @@
   },
   "u-card/width": {
     "type": "string",
-    "description": "卡片宽度"
+    "description": "卡片宽度：像素或百分比"
   },
   "u-card/shadow": {
     "type": "string",
@@ -1158,7 +1158,11 @@
   },
   "u-card/border": {
     "type": "boolean",
-    "description": "是否展示卡片边框"
+    "description": "是否显示卡片边框"
+  },
+  "u-card/split": {
+    "type": "boolean",
+    "description": "是否显示分割线"
   },
   "u-card-group/title": {
     "type": "string",
@@ -1274,7 +1278,7 @@
   },
   "u-cascade-select/value": {
     "type": "any",
-    "description": "当前选择的值"
+    "description": ""
   },
   "u-cascade-select/categories": {
     "type": "Array<{ label, key, placeholder }>",
@@ -1304,7 +1308,7 @@
         "title": "json"
       }
     ],
-    "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value，`'join.number'`与`join`类似，只是会考虑它为数字的情况。也可以用`:`修改分隔符，类似 Vue 的指令参数，`'last-value'`表示以最后一项的值作为 value。也可以传入一个包含 { get, set } 的一个对象"
+    "description": "将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式"
   },
   "u-cascade-select/field": {
     "type": "string",
@@ -1312,11 +1316,11 @@
   },
   "u-cascade-select/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": ""
   },
   "u-cascade-select/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
   },
   "u-checkbox-card/data": {
     "type": "array",
@@ -1365,7 +1369,7 @@
   },
   "u-checkbox/text": {
     "type": "string",
-    "description": "文本内容"
+    "description": "显示文本内容"
   },
   "u-checkbox/value": {
     "type": "boolean, null",
@@ -1373,19 +1377,19 @@
   },
   "u-checkbox/label": {
     "type": "any",
-    "description": "多选框选项值，只在多选组中使用。"
+    "description": "多选框选项值，只在多选组中使用"
   },
   "u-checkbox/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": ""
   },
   "u-checkbox/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
   },
   "u-checkbox/autofocus": {
     "type": "boolean",
-    "description": "自动获取焦点"
+    "description": ""
   },
   "u-checkboxes/value": {
     "type": "Array",
@@ -1401,11 +1405,11 @@
   },
   "u-checkboxes/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": ""
   },
   "u-checkboxes/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
   },
   "u-checkboxes/converter": {
     "type": "string",
@@ -1431,11 +1435,11 @@
         "title": "无"
       }
     ],
-    "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象"
+    "description": "将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式"
   },
   "u-circular-progress/percent": {
     "type": "number",
-    "description": "百分比"
+    "description": "进度条显示的进度百分比，1-100之间的数字"
   },
   "u-collapse/accordion": {
     "type": "boolean",
@@ -1467,11 +1471,29 @@
         "title": "简洁模式"
       }
     ],
-    "description": "显示样式"
+    "description": ""
   },
   "u-collapse/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": "不可点击展开/折叠"
+  },
+  "u-collapse/fill": {
+    "type": "string",
+    "options": [
+      {
+        "value": "head",
+        "title": "头部填充"
+      },
+      {
+        "value": "content",
+        "title": "内容填充"
+      },
+      {
+        "value": "none",
+        "title": "无填充"
+      }
+    ],
+    "description": "填充位置"
   },
   "u-collapse-item/title": {
     "type": "string",
@@ -1487,19 +1509,19 @@
   },
   "u-combo-slider/value": {
     "type": "number",
-    "description": "滑块的值"
+    "description": ""
   },
   "u-combo-slider/min": {
     "type": "number",
-    "description": "最小值"
+    "description": ""
   },
   "u-combo-slider/max": {
     "type": "number",
-    "description": "最大值"
+    "description": ""
   },
   "u-combo-slider/step": {
     "type": "number",
-    "description": "间隔。`0`表示连续"
+    "description": "间隔，`0`表示连续"
   },
   "u-combo-slider/precision": {
     "type": "number",
@@ -1507,11 +1529,11 @@
   },
   "u-combo-slider/range": {
     "type": "Array",
-    "description": "进一步对`value`限制，通常传入一个数组，第一个值表示范围开始值，第二个值表示范围的结束值。"
+    "description": "进一步对`value`限制，通常传入一个数组，第一个值表示范围开始值，第二个值表示范围的结束值"
   },
   "u-combo-slider/formatter": {
     "type": "string, object",
-    "description": "格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。"
+    "description": "格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象"
   },
   "u-combo-slider/sync-on": {
     "type": "string",
@@ -1525,7 +1547,7 @@
         "title": "失焦时同步"
       }
     ],
-    "description": "同步时机"
+    "description": ""
   },
   "u-combo-slider/hide-buttons": {
     "type": "boolean",
@@ -1533,19 +1555,19 @@
   },
   "u-combo-slider/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": ""
   },
   "u-combo-slider/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
   },
   "u-combo-slider/unit": {
     "type": "string",
-    "description": "单位"
+    "description": ""
   },
   "u-combo-slider/tip": {
     "type": "string",
-    "description": "提示"
+    "description": ""
   },
   "u-copy/value": {
     "type": "string",
@@ -1637,7 +1659,7 @@
   },
   "u-copy/disabled": {
     "type": "boolean",
-    "description": "是否禁止复制"
+    "description": "禁止复制"
   },
   "u-count-up/start": {
     "type": "number",
@@ -1697,7 +1719,29 @@
   },
   "u-crumb/auto": {
     "type": "boolean",
-    "description": "是否自动根据配置的 items 生成面包屑"
+    "description": "是否自动根据子页面配置的面包屑属性自动生成"
+  },
+  "u-crumb/separator": {
+    "type": "string",
+    "options": [
+      {
+        "value": "arrow",
+        "title": "基础样式"
+      },
+      {
+        "value": "slash",
+        "title": "分隔符样式"
+      }
+    ],
+    "description": "面包屑分隔符"
+  },
+  "u-crumb/icon": {
+    "type": "boolean",
+    "description": "是否显示面包屑图标"
+  },
+  "u-crumb-item/icon": {
+    "type": "icon",
+    "description": "面包屑图标"
   },
   "u-crumb-item/text": {
     "type": "string",
@@ -1775,6 +1819,34 @@
     "type": "boolean",
     "description": "是否不可点击。如果为`true`，则不会响应`click`事件。"
   },
+  "u-date-picker/preIcon": {
+    "type": "string",
+    "options": [
+      {
+        "value": "calendar",
+        "title": "日历"
+      },
+      {
+        "value": "",
+        "title": "暂无"
+      }
+    ],
+    "description": ""
+  },
+  "u-date-picker/suffixIcon": {
+    "type": "string",
+    "options": [
+      {
+        "value": "calendar",
+        "title": "日历"
+      },
+      {
+        "value": "",
+        "title": "暂无"
+      }
+    ],
+    "description": ""
+  },
   "u-date-picker/picker": {
     "type": "string",
     "options": [
@@ -1795,43 +1867,43 @@
         "value": "year"
       }
     ],
-    "description": "用于定义选择的格式"
-  },
-  "u-date-picker/width": {
-    "type": "number",
-    "description": "输入框宽度"
+    "description": "日期格式设置"
   },
   "u-date-picker/date": {
     "type": "string,number,Date",
-    "description": "选择值"
+    "description": "默认显示的日期值，格式如2018-08-08"
   },
   "u-date-picker/minDate": {
     "type": "string,number,Date",
-    "description": "最小日期"
+    "description": "支持输入的最小日期，不限制填写null"
   },
   "u-date-picker/maxDate": {
     "type": "string,number,Date",
-    "description": "最大日期"
+    "description": "支持输入的最大日期，不限制填写null"
   },
   "u-date-picker/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": ""
   },
   "u-date-picker/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
+  },
+  "u-date-picker/opened": {
+    "type": "boolean",
+    "description": "切换弹出/关闭状态"
   },
   "u-date-picker/autofocus": {
     "type": "boolean",
-    "description": "文本框默认处于focus"
+    "description": "是否自动获取焦点"
   },
   "u-date-picker/placeholder": {
     "type": "string",
-    "description": "文本框默认提示"
+    "description": "输入框的提示文字"
   },
   "u-date-picker/clearable": {
     "type": "boolean",
-    "description": "开启并在输入框有内容时会显示清除按钮。"
+    "description": "输入框输入内容支持一键清除"
   },
   "u-date-picker/alignment": {
     "type": "string",
@@ -1845,7 +1917,7 @@
         "title": "右对齐"
       }
     ],
-    "description": "日历弹窗对其方式"
+    "description": "日历弹窗对齐方式"
   },
   "u-date-picker/time": {
     "type": "string, number",
@@ -1885,37 +1957,83 @@
     ],
     "description": "转换器，用于转换时间结果"
   },
+  "u-date-picker/append-to": {
+    "type": "string",
+    "options": [
+      {
+        "value": "reference",
+        "title": "引用元素下"
+      },
+      {
+        "value": "body",
+        "title": "全局body"
+      }
+    ],
+    "description": "设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中"
+  },
+  "u-date-time-picker/preIcon": {
+    "type": "string",
+    "options": [
+      {
+        "value": "calendar",
+        "title": "日历"
+      },
+      {
+        "value": "",
+        "title": "暂无"
+      }
+    ],
+    "description": ""
+  },
+  "u-date-time-picker/suffixIcon": {
+    "type": "string",
+    "options": [
+      {
+        "value": "calendar",
+        "title": "日历"
+      },
+      {
+        "value": "",
+        "title": "暂无"
+      }
+    ],
+    "description": ""
+  },
   "u-date-time-picker/date": {
     "type": "string, number, Date",
-    "description": "显示的日期值"
+    "description": "默认显示的日期时间值，格式如2018-08-08 08:08:08"
   },
   "u-date-time-picker/minDate": {
     "type": "string, number, Date",
-    "description": "最小日期值"
+    "description": "支持输入的最小日期时间，不限制填写null"
   },
   "u-date-time-picker/maxDate": {
     "type": "string, number, Date",
-    "description": "最大日期值"
+    "description": "支持输入的最大日期时间，不限制填写null"
   },
   "u-date-time-picker/placeholder": {
     "type": "string",
-    "description": "默认提示语"
+    "description": "输入框的提示文字"
+  },
+  "u-date-time-picker/opened": {
+    "type": "boolean",
+    "description": "切换弹出/关闭状态"
   },
   "u-date-time-picker/autofocus": {
     "type": "boolean",
-    "description": "是否默认处于focus状态"
+    "description": "是否自动获取焦点"
   },
   "u-date-time-picker/clearable": {
     "type": "boolean",
-    "description": "开启并在输入框有内容时会显示清除按钮。"
+    "description": "输入框输入内容支持一键清除"
   },
   "u-date-time-picker/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
   },
   "u-date-time-picker/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": ""
   },
   "u-date-time-picker/yearDiff": {
     "type": "number",
@@ -1950,6 +2068,20 @@
       }
     ],
     "description": "转换器"
+  },
+  "u-date-time-picker/append-to": {
+    "type": "string",
+    "options": [
+      {
+        "value": "reference",
+        "title": "引用元素下"
+      },
+      {
+        "value": "body",
+        "title": "全局body"
+      }
+    ],
+    "description": "设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中"
   },
   "u-desc-list/label-size": {
     "type": "enum",
@@ -2014,6 +2146,152 @@
   "u-drawer/maskClosable": {
     "type": "boolean",
     "description": "是否点击遮罩时关闭抽屉"
+  },
+  "u-dropdown/trigger": {
+    "type": "string",
+    "options": [
+      {
+        "value": "click",
+        "title": "点击"
+      },
+      {
+        "value": "hover",
+        "title": "悬浮"
+      },
+      {
+        "value": "right-click",
+        "title": "右击"
+      },
+      {
+        "value": "double-click",
+        "title": "双击"
+      },
+      {
+        "value": "manual",
+        "title": "手动"
+      }
+    ],
+    "description": "触发方式"
+  },
+  "u-dropdown/placement": {
+    "type": "string",
+    "options": [
+      {
+        "value": "top",
+        "title": "上"
+      },
+      {
+        "value": "bottom",
+        "title": "下"
+      },
+      {
+        "value": "left",
+        "title": "左"
+      },
+      {
+        "value": "right",
+        "title": "右"
+      },
+      {
+        "value": "top-start",
+        "title": "上左"
+      },
+      {
+        "value": "top-end",
+        "title": "上右"
+      },
+      {
+        "value": "bottom-start",
+        "title": "下左"
+      },
+      {
+        "value": "bottom-end",
+        "title": "下右"
+      },
+      {
+        "value": "left-start",
+        "title": "左上"
+      },
+      {
+        "value": "left-end",
+        "title": "左下"
+      },
+      {
+        "value": "right-start",
+        "title": "右上"
+      },
+      {
+        "value": "right-end",
+        "title": "右下"
+      }
+    ],
+    "description": "弹出方位"
+  },
+  "u-dropdown/disabled": {
+    "type": "boolean",
+    "description": "是否禁用"
+  },
+  "u-dropdown-item/text": {
+    "type": "string",
+    "description": "显示文本内容"
+  },
+  "u-dropdown-item/disabled": {
+    "type": "boolean",
+    "description": ""
+  },
+  "u-dropdown-item/icon": {
+    "type": "icon",
+    "description": ""
+  },
+  "u-dropdown-item/linkType": {
+    "type": "string",
+    "options": [
+      {
+        "value": "destination",
+        "title": "页面跳转"
+      },
+      {
+        "value": "href",
+        "title": "普通链接"
+      },
+      {
+        "value": "download",
+        "title": "下载链接"
+      }
+    ],
+    "description": "链接类型"
+  },
+  "u-dropdown-item/hrefAndTo": {
+    "type": "string",
+    "description": "链接地址"
+  },
+  "u-dropdown-item/target": {
+    "type": "string",
+    "options": [
+      {
+        "value": "_blank",
+        "title": "新标签页"
+      },
+      {
+        "value": "_self",
+        "title": "当前窗口"
+      },
+      {
+        "value": "_parent",
+        "title": "父级窗口",
+        "advanced": true
+      },
+      {
+        "value": "_top",
+        "title": "顶级窗口",
+        "advanced": true
+      }
+    ],
+    "description": "链接打开方式"
+  },
+  "u-dropdown-item/to": {
+    "type": "string, Location",
+    "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
   },
   "u-dynamic-cards/data": {
     "type": "Array",
@@ -2165,7 +2443,7 @@
   },
   "u-form/rules": {
     "type": "object",
-    "description": "表单所有域的验证规则，已废弃，推荐在各`<u-form-item>`中自行添加 rules。"
+    "description": "表单所有域的验证规则，已废弃，推荐在各`<u-form-item>`中自行添加 rules"
   },
   "u-form/layout": {
     "type": "string",
@@ -2179,9 +2457,13 @@
         "title": "块级展示，宽度会充满父元素"
       }
     ],
-    "description": "表单布局方式"
+    "description": ""
   },
-  "u-form/gap": {
+  "u-form/repeat": {
+    "type": "number",
+    "description": "整个表单的划分列数"
+  },
+  "u-form/gap-width": {
     "type": "string",
     "options": [
       {
@@ -2201,7 +2483,29 @@
         "title": "大"
       }
     ],
-    "description": "表单项之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。"
+    "description": "设置表单列间隔大小"
+  },
+  "u-form/gap-height": {
+    "type": "string",
+    "options": [
+      {
+        "value": "none",
+        "title": "无"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      }
+    ],
+    "description": "设置表单行间隔大小"
   },
   "u-form/label-size": {
     "type": "string",
@@ -2223,7 +2527,7 @@
         "title": "大"
       }
     ],
-    "description": "标签宽度。"
+    "description": ""
   },
   "u-form/size": {
     "type": "string",
@@ -2237,7 +2541,7 @@
         "title": "正常"
       }
     ],
-    "description": "表单尺寸，表单组间隙等"
+    "description": ""
   },
   "u-form/collapsible": {
     "type": "boolean",
@@ -2267,7 +2571,11 @@
   },
   "u-form-item/label": {
     "type": "string",
-    "description": "标签名。用于左侧显示，同时用于提示消息的合成。"
+    "description": "用于左侧显示，同时用于提示消息的合成"
+  },
+  "u-form-item/span": {
+    "type": "string",
+    "description": "列跨越的格数"
   },
   "u-form-item/label-size": {
     "type": "string",
@@ -2399,6 +2707,10 @@
     "type": "string",
     "description": "显示的标题"
   },
+  "u-form-group/repeat": {
+    "type": "number",
+    "description": "整个表单的划分列数"
+  },
   "u-form-group/collapsible": {
     "type": "boolean",
     "description": "分组是否可以折叠"
@@ -2461,7 +2773,7 @@
   },
   "u-grid-layout-row/repeat": {
     "type": "number",
-    "description": "划分的栅格数"
+    "description": "默认24，可设置栅格行大小"
   },
   "u-grid-layout-row/justify": {
     "type": "string",
@@ -2515,23 +2827,23 @@
         "title": "拉伸子元素充满整个父元素空间"
       }
     ],
-    "description": "flex布局模式下的交叉轴对齐方式"
+    "description": "栅格内容对齐方式"
   },
   "u-grid-layout-column/span": {
     "type": "number",
-    "description": "列占据的栅格数"
+    "description": "列占据栅格行的栅格数"
   },
   "u-grid-layout-column/offset": {
     "type": "number",
-    "description": "列左边偏移的栅格数"
+    "description": "列偏移的栅格数"
   },
   "u-grid-layout-column/pull": {
     "type": "number",
-    "description": "列向左移动栅格数"
+    "description": "列向左移动的栅格数"
   },
   "u-grid-layout-column/push": {
     "type": "number",
-    "description": "列向右移动栅格数"
+    "description": "列向右移动的栅格数"
   },
   "u-grid-layout-column/media-huge": {
     "type": "number",
@@ -2555,7 +2867,7 @@
   },
   "u-grid-view/data-source": {
     "type": "Array<Item> | Function | object | DataSource",
-    "description": "表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise。"
+    "description": "数据网格的数据源，数据集对象或者返回数据集的逻辑"
   },
   "u-grid-view/data-schema": {
     "type": "schema",
@@ -2567,11 +2879,11 @@
   },
   "u-grid-view/pageable": {
     "type": "boolean",
-    "description": "是否需要分页"
+    "description": ""
   },
   "u-grid-view/page-size": {
     "type": "number",
-    "description": "分页大小"
+    "description": ""
   },
   "u-grid-view/page-number": {
     "type": "number",
@@ -2579,19 +2891,19 @@
   },
   "u-grid-view/page-size-options": {
     "type": "Array<number>",
-    "description": "分页大小的选项列表。"
+    "description": ""
   },
   "u-grid-view/show-total": {
     "type": "boolean",
-    "description": "是否显示总条目数。"
+    "description": ""
   },
   "u-grid-view/show-sizer": {
     "type": "boolean",
-    "description": "是否显示切换分页大小选项。"
+    "description": ""
   },
   "u-grid-view/show-jumper": {
     "type": "boolean",
-    "description": "是否显示页面跳转输入框。"
+    "description": ""
   },
   "u-grid-view/filterable": {
     "type": "boolean",
@@ -2599,11 +2911,11 @@
   },
   "u-grid-view/remote-paging": {
     "type": "boolean",
-    "description": "是否使用后端分页。"
+    "description": ""
   },
   "u-grid-view/remote-filtering": {
     "type": "boolean",
-    "description": "是否使用后端筛选"
+    "description": ""
   },
   "u-grid-view/match-method": {
     "type": "string, Function",
@@ -2611,7 +2923,7 @@
   },
   "u-grid-view/case-sensitive": {
     "type": "string, Function",
-    "description": "过滤时大小写是否敏感"
+    "description": "过滤时是否区分大小写"
   },
   "u-grid-view/repeat": {
     "type": "number",
@@ -2619,17 +2931,17 @@
   },
   "u-grid-view/show-head": {
     "type": "boolean",
-    "description": "是否显示头部"
+    "description": ""
   },
   "u-grid-view/title": {
     "type": "string",
-    "description": "列表标题"
+    "description": ""
   },
   "u-grid-view/show-foot": {
     "type": "boolean",
-    "description": "是否显示尾部"
+    "description": ""
   },
-  "u-grid-view/size": {
+  "u-grid-view/width": {
     "type": "string",
     "options": [
       {
@@ -2653,7 +2965,33 @@
         "title": "自适应"
       }
     ],
-    "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度"
+    "description": "设置数据网格宽度大小"
+  },
+  "u-grid-view/height": {
+    "type": "string",
+    "options": [
+      {
+        "value": "full",
+        "title": "占满"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "auto",
+        "title": "自适应"
+      }
+    ],
+    "description": "设置数据网格高度大小"
   },
   "u-grid-view/loading-text": {
     "type": "string",
@@ -2673,7 +3011,7 @@
   },
   "u-grid-view/placeholder": {
     "type": "string",
-    "description": "搜索框的占位符"
+    "description": "搜索框为空时提示文本"
   },
   "u-grid-view/value": {
     "type": "any",
@@ -2693,11 +3031,11 @@
   },
   "u-grid-view/cancelable": {
     "type": "boolean",
-    "description": "是否可以取消选择"
+    "description": ""
   },
   "u-grid-view/multiple": {
     "type": "boolean",
-    "description": "是否可以多选"
+    "description": ""
   },
   "u-grid-view/clearable": {
     "type": "boolean",
@@ -2705,11 +3043,11 @@
   },
   "u-grid-view/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": ""
   },
   "u-grid-view/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
   },
   "u-html/html": {
     "type": "string",
@@ -2865,7 +3203,7 @@
   },
   "u-iframe/src": {
     "type": "string",
-    "description": "需要嵌入的网页地址。"
+    "description": "需要嵌入的网页地址"
   },
   "u-image/src": {
     "type": "image",
@@ -2875,27 +3213,67 @@
     "type": "string",
     "options": [
       {
-        "value": "fill",
-        "title": "图片拉伸完全填充"
-      },
-      {
         "value": "contain",
-        "title": "图片缩放比例完全填充"
-      },
-      {
-        "value": "cover",
-        "title": "图片按比例尽可能大的填充"
-      },
-      {
-        "value": "none",
-        "title": "图片以原尺寸填充"
+        "title": "适应"
       },
       {
         "value": "scale-down",
-        "title": "取 contain、none 中较小的"
+        "title": "适应（图片小于父元素时以原尺寸展示）"
+      },
+      {
+        "value": "none",
+        "title": "原尺寸"
+      },
+      {
+        "value": "fill",
+        "title": "拉伸"
+      },
+      {
+        "value": "cover",
+        "title": "填充"
       }
     ],
-    "description": "图片地址"
+    "description": "图片填充方式"
+  },
+  "u-image/circle": {
+    "type": "boolean",
+    "description": "是否开启圆形遮罩"
+  },
+  "u-image/horizontalCenter": {
+    "type": "string",
+    "options": [
+      {
+        "value": "left",
+        "name": "左对齐"
+      },
+      {
+        "value": "center",
+        "name": "居中对齐"
+      },
+      {
+        "value": "right",
+        "name": "右对齐"
+      }
+    ],
+    "description": "图片水平对齐方式"
+  },
+  "u-image/verticalCenter": {
+    "type": "string",
+    "options": [
+      {
+        "value": "top",
+        "name": "顶部对齐"
+      },
+      {
+        "value": "center",
+        "name": "居中对齐"
+      },
+      {
+        "value": "bottom",
+        "name": "底部对齐"
+      }
+    ],
+    "description": "图片垂直对齐方式"
   },
   "u-image/convertSrcFn": {
     "type": "Function",
@@ -2927,9 +3305,13 @@
     ],
     "description": "详情列表所有项的标签大小。"
   },
+  "u-info-list/show-head": {
+    "type": "boolean",
+    "description": "是否显示表格头部"
+  },
   "u-info-list-item/label": {
     "type": "string",
-    "description": "标签"
+    "description": ""
   },
   "u-info-list-item/span": {
     "type": "string",
@@ -2955,7 +3337,7 @@
         "title": "大"
       }
     ],
-    "description": "标签大小。"
+    "description": ""
   },
   "u-info-list-item/ellipsis": {
     "type": "boolean",
@@ -2963,7 +3345,7 @@
   },
   "u-info-list-group/title": {
     "type": "string",
-    "description": "标题"
+    "description": ""
   },
   "u-info-list-group/repeat": {
     "type": "number",
@@ -3003,7 +3385,7 @@
         "title": "密码"
       }
     ],
-    "description": "输入框的类型"
+    "description": "文本框或者密码框"
   },
   "u-input/value": {
     "type": "string",
@@ -3011,19 +3393,23 @@
   },
   "u-input/clearable": {
     "type": "boolean",
-    "description": "开启并在输入框有内容时会显示清除按钮。"
+    "description": "开启并在输入框有内容时会显示清除按钮"
+  },
+  "u-input/password": {
+    "type": "boolean",
+    "description": "切换密码的显示/隐藏"
   },
   "u-input/placeholder": {
     "type": "string",
-    "description": "原生属性"
+    "description": "为空时的提示文本"
   },
   "u-input/minlength": {
     "type": "number",
-    "description": "最小输入长度"
+    "description": ""
   },
   "u-input/maxlength": {
     "type": "number",
-    "description": "最大输入长度"
+    "description": ""
   },
   "u-input/spellcheck": {
     "type": "boolean",
@@ -3035,13 +3421,13 @@
   },
   "u-input/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": ""
   },
   "u-input/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
   },
-  "u-input/size": {
+  "u-input/width": {
     "type": "string",
     "options": [
       {
@@ -3073,7 +3459,41 @@
         "title": "迷你"
       }
     ],
-    "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度"
+    "description": "设置单行输入框宽度大小"
+  },
+  "u-input/height": {
+    "type": "string",
+    "options": [
+      {
+        "value": "full",
+        "title": "占满"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "medium",
+        "title": "中型"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "mini",
+        "title": "迷你"
+      }
+    ],
+    "description": "设置单行输入框高度大小"
   },
   "u-input/maxlengthMessage": {
     "type": "string",
@@ -3091,7 +3511,7 @@
         "title": "暂无"
       }
     ],
-    "description": "前缀图标"
+    "description": ""
   },
   "u-input/suffix": {
     "type": "string",
@@ -3105,11 +3525,11 @@
         "title": "暂无"
       }
     ],
-    "description": "后缀图标"
+    "description": ""
   },
   "u-label/text": {
     "type": "string",
-    "description": "文本内容"
+    "description": "显示文本内容"
   },
   "u-label/color": {
     "type": "string",
@@ -3135,7 +3555,7 @@
         "title": "错误色"
       }
     ],
-    "description": "设置颜色"
+    "description": "设置文本颜色"
   },
   "u-label/size": {
     "type": "string",
@@ -3157,11 +3577,11 @@
         "title": "巨大"
       }
     ],
-    "description": "设置尺寸"
+    "description": "设置标签大小"
   },
   "u-label/removable": {
     "type": "boolean",
-    "description": "是否显示删除图标"
+    "description": ""
   },
   "u-label/display": {
     "type": "string",
@@ -3175,7 +3595,7 @@
         "title": "块级"
       }
     ],
-    "description": "展示方式"
+    "description": "行内展示，或块级换行展示"
   },
   "u-lightbox/visible": {
     "type": "boolean",
@@ -3237,7 +3657,7 @@
         "title": "纵向排列"
       }
     ],
-    "description": "排列方向"
+    "description": "可更改布局的排列方向"
   },
   "u-linear-layout/gap": {
     "type": "string",
@@ -3278,7 +3698,7 @@
         "title": "块级"
       }
     ],
-    "description": "展示方式"
+    "description": "行内展示，或块级换行展示"
   },
   "u-linear-layout/layout": {
     "type": "string",
@@ -3296,7 +3716,7 @@
         "title": "子元素块级布局"
       }
     ],
-    "description": "子元素的展示方式"
+    "description": "子元素行内展示或块级换行展示"
   },
   "u-linear-layout/type": {
     "type": "string",
@@ -3364,7 +3784,7 @@
   },
   "u-linear-progress/percent": {
     "type": "number",
-    "description": "百分比，0-100 之间的数字"
+    "description": "进度条显示的进度百分比，1-100之间的数字"
   },
   "u-linear-progress/size": {
     "type": "string",
@@ -3386,7 +3806,7 @@
         "title": "巨大"
       }
     ],
-    "description": "高度扩展"
+    "description": "进度条高度大小"
   },
   "u-linear-progress/range": {
     "type": "array<number>",
@@ -3394,7 +3814,7 @@
   },
   "u-link/text": {
     "type": "string",
-    "description": "文本内容"
+    "description": "显示文本内容"
   },
   "u-link/color": {
     "type": "string",
@@ -3420,7 +3840,7 @@
         "title": "危险色"
       }
     ],
-    "description": "设置颜色"
+    "description": "设置文本颜色"
   },
   "u-link/linkType": {
     "type": "string",
@@ -3438,11 +3858,11 @@
         "title": "下载链接"
       }
     ],
-    "description": "链接类型"
+    "description": ""
   },
   "u-link/hrefAndTo": {
     "type": "string",
-    "description": "链接地址"
+    "description": ""
   },
   "u-link/target": {
     "type": "string",
@@ -3486,7 +3906,7 @@
   },
   "u-link/disabled": {
     "type": "boolean",
-    "description": "是否禁用。禁用后不会响应点击事件。"
+    "description": ""
   },
   "u-link/display": {
     "type": "string",
@@ -3502,6 +3922,20 @@
     ],
     "description": "展示方式"
   },
+  "u-link/hoverType": {
+    "type": "string",
+    "options": [
+      {
+        "value": "underline",
+        "title": "下划线"
+      },
+      {
+        "value": "color",
+        "title": "颜色变化"
+      }
+    ],
+    "description": "鼠标悬停时的样式变化方式"
+  },
   "u-list-components/data-source": {
     "type": "array",
     "description": "一个包含字符串或对象的数组"
@@ -3516,7 +3950,7 @@
   },
   "u-list-view/data-source": {
     "type": "Array<Item> | Function | object | DataSource",
-    "description": "列表的数据源。数组方式表示直接的数据，函数需要返回一个 Promise。"
+    "description": "列表的数据源，数据集对象或者返回数据集的逻辑"
   },
   "u-list-view/data-schema": {
     "type": "schema",
@@ -3528,11 +3962,11 @@
   },
   "u-list-view/pageable": {
     "type": "boolean",
-    "description": "是否需要分页"
+    "description": ""
   },
   "u-list-view/page-size": {
     "type": "number",
-    "description": "分页大小"
+    "description": ""
   },
   "u-list-view/page-number": {
     "type": "number",
@@ -3564,29 +3998,29 @@
   },
   "u-list-view/remote-filtering": {
     "type": "boolean",
-    "description": "是否使用后端筛选"
+    "description": ""
   },
   "u-list-view/match-method": {
     "type": "string, Function",
-    "description": "过滤时的匹配方法"
+    "description": "筛选时的匹配方法"
   },
   "u-list-view/case-sensitive": {
     "type": "boolean",
-    "description": "过滤时大小写是否敏感"
+    "description": "是否区分大小写"
   },
   "u-list-view/show-head": {
     "type": "boolean",
-    "description": "是否显示头部"
+    "description": ""
   },
   "u-list-view/title": {
     "type": "string",
-    "description": "列表标题"
+    "description": ""
   },
   "u-list-view/show-foot": {
     "type": "boolean",
-    "description": "是否显示底部"
+    "description": ""
   },
-  "u-list-view/size": {
+  "u-list-view/width": {
     "type": "string",
     "options": [
       {
@@ -3610,7 +4044,33 @@
         "title": "自适应"
       }
     ],
-    "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度"
+    "description": "设置数据列表宽度大小"
+  },
+  "u-list-view/height": {
+    "type": "string",
+    "options": [
+      {
+        "value": "full",
+        "title": "占满"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "auto",
+        "title": "自适应"
+      }
+    ],
+    "description": "设置数据列表高度大小"
   },
   "u-list-view/loading-text": {
     "type": "string",
@@ -3630,27 +4090,27 @@
   },
   "u-list-view/placeholder": {
     "type": "string",
-    "description": "搜索框的占位符"
+    "description": "搜索框为空时提示文本"
   },
   "u-list-view/value": {
     "type": "any",
-    "description": "当前选择的值"
+    "description": "显示的值"
   },
   "u-list-view/text-field": {
     "type": "string",
-    "description": "选项文本的字段名"
+    "description": "当开启可多选时，显示的选项文本字段名"
   },
   "u-list-view/value-field": {
     "type": "string",
-    "description": "选项值的字段名"
+    "description": "当开启可多选时，选项值的字段名"
   },
   "u-list-view/cancelable": {
     "type": "boolean",
-    "description": "是否可以取消选择"
+    "description": ""
   },
   "u-list-view/multiple": {
     "type": "boolean",
-    "description": "是否可以多选"
+    "description": ""
   },
   "u-list-view/repeat": {
     "type": "number",
@@ -3662,11 +4122,11 @@
   },
   "u-list-view/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": ""
   },
   "u-list-view/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
   },
   "u-list/type": {
     "type": "string",
@@ -3804,7 +4264,7 @@
   },
   "u-modal/visible": {
     "type": "boolean",
-    "description": "是否显示"
+    "description": "弹窗默认打开"
   },
   "u-modal/ok-button": {
     "type": "string",
@@ -3838,7 +4298,7 @@
         "title": "自适应"
       }
     ],
-    "description": "弹框的尺寸"
+    "description": "弹窗的尺寸"
   },
   "u-modal/icon": {
     "type": "string",
@@ -3856,7 +4316,7 @@
         "title": "错误"
       }
     ],
-    "description": "提示图标"
+    "description": ""
   },
   "u-modal/static": {
     "type": "boolean",
@@ -3864,7 +4324,315 @@
   },
   "u-modal/mask-close": {
     "type": "boolean",
-    "description": "是否点击遮罩时关闭弹窗"
+    "description": "点击遮罩关闭弹窗"
+  },
+  "u-multi-layout/direction": {
+    "type": "string",
+    "options": [
+      {
+        "value": "horizontal",
+        "title": "横向排列"
+      },
+      {
+        "value": "vertical",
+        "title": "纵向排列"
+      }
+    ],
+    "description": "布局中模块的排列方向"
+  },
+  "u-multi-layout/gap": {
+    "type": "string",
+    "options": [
+      {
+        "value": "shrink",
+        "title": "收缩"
+      },
+      {
+        "value": "none",
+        "title": "无"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      }
+    ],
+    "description": "布局中各分栏间的空隙大小"
+  },
+  "u-multi-layout-item/fixed": {
+    "type": "boolean",
+    "description": "开启后滚动时该项固定显示"
+  },
+  "u-multi-layout-item/fixdirec": {
+    "type": "string",
+    "options": [
+      {
+        "value": "left",
+        "title": "左"
+      },
+      {
+        "value": "right",
+        "title": "右"
+      }
+    ],
+    "description": "固定在左侧还是右侧"
+  },
+  "u-multi-layout-item/display": {
+    "type": "string",
+    "options": [
+      {
+        "value": "block",
+        "title": "块级"
+      },
+      {
+        "value": "inline",
+        "title": "行内"
+      }
+    ],
+    "description": "行内展示，或块级换行展示"
+  },
+  "u-multi-layout-item/justify": {
+    "type": "string",
+    "options": [
+      {
+        "value": "start",
+        "title": "左对齐"
+      },
+      {
+        "value": "center",
+        "title": "居中对齐"
+      },
+      {
+        "value": "end",
+        "title": "右对齐"
+      },
+      {
+        "value": "space-between",
+        "title": "各行之间留有空",
+        "advanced": true
+      },
+      {
+        "value": "space-around",
+        "title": "之前、之间、之后都留有空白",
+        "advanced": true
+      }
+    ],
+    "description": "内容对齐方式"
+  },
+  "u-multi-layout-item/alignment": {
+    "type": "string",
+    "options": [
+      {
+        "value": "start",
+        "title": "头对齐"
+      },
+      {
+        "value": "center",
+        "title": "居中对齐"
+      },
+      {
+        "value": "end",
+        "title": "尾对齐"
+      },
+      {
+        "value": "baseline",
+        "title": "基线对齐"
+      },
+      {
+        "value": "stretch",
+        "title": "拉伸子元素充满整个父元素空间"
+      }
+    ],
+    "description": "flex布局模式下的交叉轴对齐方式"
+  },
+  "u-navbar-multi/router": {
+    "type": "boolean",
+    "description": "是否根据 vue-router 来控制选择项"
+  },
+  "u-navbar-multi/value": {
+    "type": "any",
+    "description": "当前选择的值"
+  },
+  "u-navbar-multi/field": {
+    "type": "string",
+    "description": "显示文本字段"
+  },
+  "u-navbar-multi/readonly": {
+    "type": "boolean",
+    "description": "是否只读"
+  },
+  "u-navbar-multi/disabled": {
+    "type": "boolean",
+    "description": "是否禁用"
+  },
+  "u-navbar-item-multi/text": {
+    "type": "string",
+    "description": "文本内容"
+  },
+  "u-navbar-item-multi/value": {
+    "type": "any",
+    "description": "此项的值"
+  },
+  "u-navbar-item-multi/icon": {
+    "type": "icon",
+    "description": "图标"
+  },
+  "u-navbar-item-multi/disabled": {
+    "type": "boolean",
+    "description": "禁用此项"
+  },
+  "u-navbar-item-multi/item": {
+    "type": "object",
+    "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
+  },
+  "u-navbar-item-multi/linkType": {
+    "type": "string",
+    "options": [
+      {
+        "value": "destination",
+        "title": "页面跳转"
+      },
+      {
+        "value": "href",
+        "title": "普通链接"
+      },
+      {
+        "value": "download",
+        "title": "下载链接"
+      }
+    ],
+    "description": "链接类型"
+  },
+  "u-navbar-item-multi/hrefAndTo": {
+    "type": "string",
+    "description": "链接地址"
+  },
+  "u-navbar-item-multi/target": {
+    "type": "string",
+    "options": [
+      {
+        "value": "_blank",
+        "title": "新标签页"
+      },
+      {
+        "value": "_self",
+        "title": "当前窗口"
+      },
+      {
+        "value": "_parent",
+        "title": "父级窗口",
+        "advanced": true
+      },
+      {
+        "value": "_top",
+        "title": "顶级窗口",
+        "advanced": true
+      }
+    ],
+    "description": "链接跳转方式"
+  },
+  "u-navbar-item-multi/to": {
+    "type": "string, Location",
+    "description": "需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。"
+  },
+  "u-navbar-item-multi/replace": {
+    "type": "boolean",
+    "description": "需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。"
+  },
+  "u-navbar-item-multi/exact": {
+    "type": "boolean",
+    "description": "需要 vue-router，与`<router-link>`的`exact`属性相同。是否与路由完全一致时才高亮显示。"
+  },
+  "u-navbar-dropdown-multi/trigger": {
+    "type": "string",
+    "options": [
+      {
+        "value": "click",
+        "title": "点击"
+      },
+      {
+        "value": "hover",
+        "title": "悬浮"
+      },
+      {
+        "value": "right-click",
+        "title": "右击"
+      },
+      {
+        "value": "double-click",
+        "title": "双击"
+      },
+      {
+        "value": "manual",
+        "title": "手动"
+      }
+    ],
+    "description": "触发方式"
+  },
+  "u-navbar-dropdown-multi/placement": {
+    "type": "string",
+    "options": [
+      {
+        "value": "top",
+        "title": "上"
+      },
+      {
+        "value": "bottom",
+        "title": "下"
+      },
+      {
+        "value": "left",
+        "title": "左"
+      },
+      {
+        "value": "right",
+        "title": "右"
+      },
+      {
+        "value": "top-start",
+        "title": "上左"
+      },
+      {
+        "value": "top-end",
+        "title": "上右"
+      },
+      {
+        "value": "bottom-start",
+        "title": "下左"
+      },
+      {
+        "value": "bottom-end",
+        "title": "下右"
+      },
+      {
+        "value": "left-start",
+        "title": "左上"
+      },
+      {
+        "value": "left-end",
+        "title": "左下"
+      },
+      {
+        "value": "right-start",
+        "title": "右上"
+      },
+      {
+        "value": "right-end",
+        "title": "右下"
+      }
+    ],
+    "description": "弹出方位"
+  },
+  "u-navbar-dropdown-multi/disabled": {
+    "type": "boolean",
+    "description": "是否禁用"
   },
   "u-navbar/router": {
     "type": "boolean",
@@ -4073,11 +4841,11 @@
   },
   "u-number-input/min": {
     "type": "number",
-    "description": "最小值"
+    "description": ""
   },
   "u-number-input/max": {
     "type": "number",
-    "description": "最大值"
+    "description": ""
   },
   "u-number-input/step": {
     "type": "number",
@@ -4093,15 +4861,15 @@
   },
   "u-number-input/placeholder": {
     "type": "string",
-    "description": "原生属性"
+    "description": "为空时的提示文本"
   },
   "u-number-input/autofocus": {
     "type": "boolean",
-    "description": "原生属性"
+    "description": ""
   },
   "u-number-input/hide-buttons": {
     "type": "boolean",
-    "description": "是否隐藏按钮"
+    "description": "是否隐藏上下点击按钮"
   },
   "u-number-input/clearable": {
     "type": "boolean",
@@ -4109,13 +4877,13 @@
   },
   "u-number-input/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": ""
   },
   "u-number-input/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
   },
-  "u-number-input/size": {
+  "u-number-input/width": {
     "type": "string",
     "options": [
       {
@@ -4147,15 +4915,49 @@
         "title": "迷你"
       }
     ],
-    "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度"
+    "description": "设置数字输入框宽度大小"
+  },
+  "u-number-input/height": {
+    "type": "string",
+    "options": [
+      {
+        "value": "full",
+        "title": "占满"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "medium",
+        "title": "中型"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "mini",
+        "title": "迷你"
+      }
+    ],
+    "description": "设置数字输入框高度大小"
   },
   "u-pagination/page": {
     "type": "number",
-    "description": "当前页码"
+    "description": ""
   },
   "u-pagination/total": {
     "type": "number",
-    "description": "总页数"
+    "description": ""
   },
   "u-pagination/side": {
     "type": "number",
@@ -4167,11 +4969,11 @@
   },
   "u-pagination/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": ""
   },
   "u-pagination/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
   },
   "u-pagination/total-items": {
     "type": "number",
@@ -4179,7 +4981,7 @@
   },
   "u-pagination/page-size": {
     "type": "number",
-    "description": "每页条数"
+    "description": ""
   },
   "u-pagination/page-size-options": {
     "type": "Array",
@@ -4187,7 +4989,7 @@
   },
   "u-pagination/show-total": {
     "type": "boolean",
-    "description": "是否显示总条目数"
+    "description": ""
   },
   "u-pagination/show-sizer": {
     "type": "boolean",
@@ -4200,6 +5002,32 @@
   "u-panel/title": {
     "type": "string",
     "description": "面板项的标题"
+  },
+  "u-panel/content": {
+    "type": "string",
+    "description": "面板内容"
+  },
+  "u-panel/bordered": {
+    "type": "boolean",
+    "description": "显示/隐藏边框"
+  },
+  "u-panel/shadow": {
+    "type": "string",
+    "options": [
+      {
+        "value": "always",
+        "title": "一直显示"
+      },
+      {
+        "value": "hover",
+        "title": "hover时显示"
+      },
+      {
+        "value": "never",
+        "title": "不显示"
+      }
+    ],
+    "description": "阴影显示方式"
   },
   "u-panel-group/title": {
     "type": "string",
@@ -4373,7 +5201,7 @@
   },
   "u-popup/opened": {
     "type": "boolean",
-    "description": "弹出/关闭状态"
+    "description": "弹出框默认弹出"
   },
   "u-popup/trigger": {
     "type": "string",
@@ -4399,7 +5227,7 @@
         "title": "手动"
       }
     ],
-    "description": "弹出框的触发方式"
+    "description": "弹出框触发方式"
   },
   "u-popup/placement": {
     "type": "string",
@@ -4453,11 +5281,11 @@
         "title": "右下"
       }
     ],
-    "description": "弹出框的弹出方向。"
+    "description": "弹出框弹出方向"
   },
   "u-popup/hide-delay": {
     "type": "number",
-    "description": "提示内容消失延迟时间，单位是`'ms'`"
+    "description": "提示内容消失延迟时间，单位毫秒（ms）"
   },
   "u-popup/offset": {
     "type": "string",
@@ -4465,11 +5293,11 @@
   },
   "u-popup/follow-cursor": {
     "type": "boolean",
-    "description": "是否跟随鼠标"
+    "description": "弹出框跟随鼠标移动"
   },
   "u-popup/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
   },
   "u-popup/merge-borders": {
     "type": "boolean",
@@ -4481,15 +5309,15 @@
   },
   "u-radios/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": ""
   },
   "u-radios/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
   },
   "u-radio/text": {
     "type": "string",
-    "description": "文本内容"
+    "description": "显示文本内容"
   },
   "u-radio/label": {
     "type": "any",
@@ -4497,27 +5325,27 @@
   },
   "u-radio/readonly": {
     "type": "boolean",
-    "description": "禁用只读"
+    "description": ""
   },
   "u-radio/disabled": {
     "type": "boolean",
-    "description": "禁用此项"
+    "description": ""
   },
   "u-radio/autofocus": {
     "type": "boolean",
-    "description": "自动获取焦点"
+    "description": ""
   },
   "u-rate/value": {
     "type": "number",
-    "description": "评分值"
+    "description": ""
   },
   "u-rate/max": {
     "type": "number",
-    "description": "最大分数"
+    "description": ""
   },
   "u-rate/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": ""
   },
   "u-region-select/data": {
     "type": "Array<{ text, value }>",
@@ -4525,7 +5353,7 @@
   },
   "u-region-select/value": {
     "type": "any",
-    "description": "当前选择的值"
+    "description": ""
   },
   "u-region-select/categories": {
     "type": "Array<{ label, key, placeholder }>",
@@ -4555,7 +5383,7 @@
         "title": "json"
       }
     ],
-    "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value，`'join.number'`与`join`类似，只是会考虑它为数字的情况。也可以用`:`修改分隔符，类似 Vue 的指令参数，`'last-value'`表示以最后一项的值作为 value。也可以传入一个包含 { get, set } 的一个对象"
+    "description": "将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式"
   },
   "u-region-select/field": {
     "type": "string",
@@ -4563,15 +5391,15 @@
   },
   "u-region-select/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": ""
   },
   "u-region-select/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
   },
   "u-select/value": {
     "type": "any",
-    "description": "当前选择的值"
+    "description": ""
   },
   "u-select/text-field": {
     "type": "string",
@@ -4583,11 +5411,11 @@
   },
   "u-select/data-source": {
     "type": "Array<Item> | Function | object | DataSource",
-    "description": "选择框的数据源。数组方式表示直接的数据，函数需要返回一个 Promise，详见文档示例。"
+    "description": "选择框的数据源，数据集对象或者返回数据集的逻辑"
   },
   "u-select/cancelable": {
     "type": "boolean",
-    "description": "是否可以取消选择"
+    "description": ""
   },
   "u-select/multiple": {
     "type": "boolean",
@@ -4613,51 +5441,51 @@
         "title": "json"
       }
     ],
-    "description": "value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象"
+    "description": "将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式。"
   },
   "u-select/placeholder": {
     "type": "string",
-    "description": "选择框的占位符。"
+    "description": "选择框的占位符"
   },
   "u-select/loading-text": {
     "type": "string",
-    "description": "正在加载中的文字。使用分页加载时才会出现。"
+    "description": "正在加载中的文字，使用分页加载时才会出现"
   },
   "u-select/empty-text": {
     "type": "string",
-    "description": "暂无数据时的文字。"
+    "description": "暂无数据时的文字"
   },
   "u-select/empty-disabled": {
     "type": "boolean",
-    "description": "没有数据时，自动禁用。"
+    "description": "没有数据时，自动禁用"
   },
   "u-select/initial-load": {
     "type": "boolean",
-    "description": "是否在初始时立即加载。"
+    "description": "是否在初始时立即加载"
   },
   "u-select/pageable": {
     "type": "boolean",
-    "description": "是否使用分页功能加载更多。"
+    "description": "是否使用分页功能加载更多"
   },
   "u-select/remote-paging": {
     "type": "boolean",
-    "description": "是否使用后端分页。"
+    "description": "是否使用后端分页"
   },
   "u-select/page-size": {
     "type": "number",
-    "description": "分页大小。"
+    "description": ""
   },
   "u-select/clearable": {
     "type": "boolean",
-    "description": "是否有清除按钮。"
+    "description": "是否有清除按钮"
   },
   "u-select/filterable": {
     "type": "boolean",
-    "description": "是否使用输入框进行筛选。"
+    "description": "是否使用输入框进行筛选"
   },
   "u-select/remote-filtering": {
     "type": "boolean",
-    "description": "是否使用后端筛选。"
+    "description": "是否使用后端筛选"
   },
   "u-select/match-method": {
     "type": "string",
@@ -4675,7 +5503,7 @@
         "title": "匹配结尾"
       }
     ],
-    "description": "过滤时的匹配方法。"
+    "description": "过滤时的匹配方法"
   },
   "u-select/case-sensitive": {
     "type": "string | Function",
@@ -4683,17 +5511,17 @@
   },
   "u-select/auto-complete": {
     "type": "boolean",
-    "description": "是否开启自动补充模式，用于增加列表中没有的项。"
+    "description": "是否开启自动补充模式，用于增加列表中没有的项"
   },
   "u-select/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": ""
   },
   "u-select/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
   },
-  "u-select/size": {
+  "u-select/width": {
     "type": "string",
     "options": [
       {
@@ -4725,7 +5553,41 @@
         "title": "迷你"
       }
     ],
-    "description": "大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度"
+    "description": "设置选择框宽度大小"
+  },
+  "u-select/height": {
+    "type": "string",
+    "options": [
+      {
+        "value": "full",
+        "title": "占满"
+      },
+      {
+        "value": "huge",
+        "title": "巨大"
+      },
+      {
+        "value": "large",
+        "title": "大"
+      },
+      {
+        "value": "medium",
+        "title": "中型"
+      },
+      {
+        "value": "normal",
+        "title": "正常"
+      },
+      {
+        "value": "small",
+        "title": "小"
+      },
+      {
+        "value": "mini",
+        "title": "迷你"
+      }
+    ],
+    "description": "设置选择框高度大小"
   },
   "u-select/opened": {
     "type": "boolean",
@@ -4733,7 +5595,7 @@
   },
   "u-select/autofocus": {
     "type": "boolean",
-    "description": "自动获取焦点"
+    "description": ""
   },
   "u-select/prefix": {
     "type": "string",
@@ -4747,7 +5609,7 @@
         "title": "暂无"
       }
     ],
-    "description": "前缀图标"
+    "description": ""
   },
   "u-select/suffix": {
     "type": "string",
@@ -4761,7 +5623,21 @@
         "title": "暂无"
       }
     ],
-    "description": "后缀图标"
+    "description": ""
+  },
+  "u-select/append-to": {
+    "type": "string",
+    "options": [
+      {
+        "value": "reference",
+        "title": "引用元素下"
+      },
+      {
+        "value": "body",
+        "title": "全局body"
+      }
+    ],
+    "description": "设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中"
   },
   "u-select-item/value": {
     "type": "any",
@@ -4789,11 +5665,25 @@
   },
   "u-selectable-steps/readonly": {
     "type": "boolean",
-    "description": "是否只读。非只读的情况下可以选择"
+    "description": "是否只读，非只读的情况下可以选择"
   },
   "u-selectable-steps/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
+  },
+  "u-selectable-steps/direction": {
+    "type": "string",
+    "options": [
+      {
+        "value": "horizontal",
+        "title": "横向"
+      },
+      {
+        "value": "vertical",
+        "title": "竖向"
+      }
+    ],
+    "description": ""
   },
   "u-selectable-steps/size": {
     "type": "string",
@@ -4811,11 +5701,15 @@
   },
   "u-selectable-step/title": {
     "type": "string",
-    "description": "步骤名"
+    "description": "步骤标题文本"
+  },
+  "u-selectable-step/desc": {
+    "type": "string",
+    "description": "步骤描述信息"
   },
   "u-selectable-step/disabled": {
     "type": "boolean",
-    "description": "是否禁用此标签页"
+    "description": ""
   },
   "u-sidebar/router": {
     "type": "boolean",
@@ -5019,11 +5913,11 @@
   },
   "u-switch/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": ""
   },
   "u-switch/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
   },
   "u-switch/with-text": {
     "type": "boolean",
@@ -5031,11 +5925,15 @@
   },
   "u-table-view/data-source": {
     "type": "Array<Item> | Function | object | DataSource",
-    "description": "表格的数据源。数组方式表示直接的数据，函数需要返回一个 Promise。"
+    "description": "表格的数据源，数据集对象或者返回数据集的逻辑"
   },
   "u-table-view/data-schema": {
     "type": "schema",
     "description": "表格每一行的数据类型"
+  },
+  "u-table-view/extra-params": {
+    "type": "object",
+    "description": "数据源除了DataSourceParams外还需要的参数"
   },
   "u-table-view/initial-load": {
     "type": "boolean",
@@ -5043,15 +5941,15 @@
   },
   "u-table-view/pageable": {
     "type": "boolean",
-    "description": "是否分页。"
+    "description": ""
   },
   "u-table-view/page-size": {
     "type": "number",
-    "description": "分页大小。"
+    "description": ""
   },
   "u-table-view/page-number": {
     "type": "number",
-    "description": "当前页数。"
+    "description": ""
   },
   "u-table-view/page-size-options": {
     "type": "Array<number>",
@@ -5059,15 +5957,15 @@
   },
   "u-table-view/show-total": {
     "type": "boolean",
-    "description": "是否显示总条目数。"
+    "description": ""
   },
   "u-table-view/show-sizer": {
     "type": "boolean",
-    "description": "是否显示切换分页大小选项。"
+    "description": ""
   },
   "u-table-view/show-jumper": {
     "type": "boolean",
-    "description": "是否显示页面跳转输入框。"
+    "description": ""
   },
   "u-table-view/sorting": {
     "type": "{ field: string, order: string, compare: Function }",
@@ -5089,7 +5987,7 @@
   },
   "u-table-view/filtering": {
     "type": "object",
-    "description": "筛选参数。"
+    "description": ""
   },
   "u-table-view/remote-paging": {
     "type": "boolean",
@@ -5105,7 +6003,7 @@
   },
   "u-table-view/title": {
     "type": "string",
-    "description": "表格标题。"
+    "description": ""
   },
   "u-table-view/title-alignment": {
     "type": "string",
@@ -5123,11 +6021,15 @@
         "title": "右对齐"
       }
     ],
-    "description": "表格标题的对齐方式。"
+    "description": ""
+  },
+  "u-table-view/boldHeader": {
+    "type": "boolean",
+    "description": ""
   },
   "u-table-view/border": {
     "type": "boolean",
-    "description": "是否显示边框。"
+    "description": ""
   },
   "u-table-view/line": {
     "type": "boolean",
@@ -5143,7 +6045,11 @@
   },
   "u-table-view/show-head": {
     "type": "boolean",
-    "description": "是否显示表格头部。"
+    "description": ""
+  },
+  "u-table-view/default-column-width": {
+    "type": "string | number",
+    "description": "表格的默认列宽度，可以设置为百分比或数字。"
   },
   "u-table-view/loading": {
     "type": "boolean",
@@ -5159,11 +6065,11 @@
   },
   "u-table-view/error-text": {
     "type": "string",
-    "description": "加载失败时的文字。"
+    "description": ""
   },
   "u-table-view/empty-text": {
     "type": "string",
-    "description": "暂无数据时的文字。"
+    "description": ""
   },
   "u-table-view/value-field": {
     "type": "string",
@@ -5187,15 +6093,15 @@
   },
   "u-table-view/readonly": {
     "type": "boolean",
-    "description": "是否只读。"
+    "description": ""
   },
   "u-table-view/disabled": {
     "type": "boolean",
-    "description": "是否禁用。"
+    "description": ""
   },
   "u-table-view/accordion": {
     "type": "boolean",
-    "description": "在有`expander`列的情况下，展开一行的同时，是否收起其它行。"
+    "description": "是否每次只会展开一行"
   },
   "u-table-view/resizable": {
     "type": "boolean",
@@ -5307,6 +6213,10 @@
       {
         "value": "tree",
         "title": "树形列"
+      },
+      {
+        "value": "editable",
+        "title": "编辑列"
       }
     ],
     "description": "列类型"
@@ -5314,6 +6224,10 @@
   "u-table-view-column/start-index": {
     "type": "number",
     "description": "当`type=\"index\"`时的起始序号。"
+  },
+  "u-table-view-column/dblclickHandler": {
+    "type": "Function",
+    "description": "用于可编辑表格，双击表格列时的处理函数"
   },
   "u-tablets/value": {
     "type": "any",
@@ -5357,23 +6271,23 @@
   },
   "u-tabs/router": {
     "type": "boolean",
-    "description": "是否根据 vue-router 来控制选择哪个标签页。"
+    "description": "是否根据 vue-router 来控制选择哪个标签页"
   },
   "u-tabs/value": {
     "type": "any",
-    "description": "选中标签页的值。"
+    "description": ""
   },
   "u-tabs/readonly": {
     "type": "boolean",
-    "description": "是否只读。"
+    "description": ""
   },
   "u-tabs/disabled": {
     "type": "boolean",
-    "description": "是否禁用。"
+    "description": ""
   },
   "u-tabs/closable": {
     "type": "boolean",
-    "description": "是否可以关闭。"
+    "description": "是否可以关闭"
   },
   "u-tabs/show-scroll-buttons": {
     "type": "string",
@@ -5521,11 +6435,11 @@
   },
   "u-taskbox/size": {
     "type": "number",
-    "description": "每页条数"
+    "description": "每页展示的任务数量"
   },
   "u-taskbox/interval": {
     "type": "number",
-    "description": "定时刷新时间间隔 s"
+    "description": "任务刷新时间间隔"
   },
   "u-taskbox/title": {
     "type": "string",
@@ -5533,7 +6447,7 @@
   },
   "u-text/text": {
     "type": "string",
-    "description": "文本内容"
+    "description": "显示文本内容"
   },
   "u-text/color": {
     "type": "string",
@@ -5567,7 +6481,7 @@
         "title": "禁用色"
       }
     ],
-    "description": "设置颜色"
+    "description": "设置文本颜色"
   },
   "u-text/size": {
     "type": "string",
@@ -5589,7 +6503,7 @@
         "title": "巨大"
       }
     ],
-    "description": "尺寸设置"
+    "description": "设置文本大小"
   },
   "u-text/display": {
     "type": "string",
@@ -5603,7 +6517,7 @@
         "title": "块级"
       }
     ],
-    "description": "展示方式"
+    "description": "行内展示，或块级换行展示"
   },
   "u-text/overflow": {
     "type": "string",
@@ -5637,31 +6551,31 @@
   },
   "u-textarea/placeholder": {
     "type": "string",
-    "description": "为空时提示内容"
+    "description": "为空时的提示文本"
   },
   "u-textarea/minlength": {
     "type": "number",
-    "description": "原生属性"
+    "description": ""
   },
   "u-textarea/maxlength": {
     "type": "number",
-    "description": "原生属性"
+    "description": ""
   },
   "u-textarea/spellcheck": {
     "type": "boolean",
-    "description": "原生属性"
+    "description": ""
   },
   "u-textarea/autofocus": {
     "type": "boolean",
-    "description": "是否自动获取焦点"
+    "description": ""
   },
   "u-textarea/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": ""
   },
   "u-textarea/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
   },
   "u-textarea/size": {
     "type": "string",
@@ -5687,7 +6601,7 @@
         "title": "正常"
       }
     ],
-    "description": "设置尺寸"
+    "description": "设置多行输入框大小"
   },
   "u-textarea/resize": {
     "type": "string",
@@ -5713,7 +6627,7 @@
   },
   "u-time-picker/time": {
     "type": "string",
-    "description": "当前的时间值"
+    "description": "默认显示的时间值，格式如08:08:08"
   },
   "u-time-picker/minUnit": {
     "type": "string",
@@ -5731,11 +6645,11 @@
   },
   "u-time-picker/minTime": {
     "type": "string",
-    "description": "最小时间"
+    "description": "支持输入的最小时间"
   },
   "u-time-picker/maxTime": {
     "type": "string",
-    "description": "最大时间"
+    "description": "支持输入的最大时间"
   },
   "u-time-picker/autofocus": {
     "type": "boolean",
@@ -5743,11 +6657,11 @@
   },
   "u-time-picker/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": ""
   },
   "u-time-picker/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
   },
   "u-time-picker/visible": {
     "type": "boolean",
@@ -5972,7 +6886,7 @@
         "title": "手动"
       }
     ],
-    "description": "工具提示的触发方式。"
+    "description": "工具提示的触发方式"
   },
   "u-tooltip/placement": {
     "type": "string",
@@ -6026,7 +6940,7 @@
         "title": "右下"
       }
     ],
-    "description": "工具提示的弹出方向。"
+    "description": "工具提示的弹出方向"
   },
   "u-tooltip/hide-delay": {
     "type": "number",
@@ -6084,7 +6998,7 @@
   },
   "u-transfer/show-head": {
     "type": "boolean",
-    "description": "是否显示头部"
+    "description": ""
   },
   "u-transfer/source-title": {
     "type": "string",
@@ -6096,19 +7010,19 @@
   },
   "u-transfer/show-foot": {
     "type": "boolean",
-    "description": "是否显示尾部"
+    "description": ""
   },
   "u-transfer/filterable": {
     "type": "boolean",
-    "description": "是否可以过滤（搜索），开启将会显示搜索框。"
+    "description": "显示过滤（搜索框）"
   },
   "u-transfer/placeholder": {
     "type": "string",
-    "description": "搜索框的占位符"
+    "description": "搜索框的提示文字"
   },
   "u-transfer/clearable": {
     "type": "boolean",
-    "description": "搜索框是否有清除按钮"
+    "description": "搜索框输入内容支持一键清除"
   },
   "u-transfer/match-method": {
     "type": "string, Function",
@@ -6116,7 +7030,7 @@
   },
   "u-transfer/case-sensitive": {
     "type": "boolean",
-    "description": "过滤时大小写是否敏感"
+    "description": "过滤时大小写敏感"
   },
   "u-transfer/pageable": {
     "type": "boolean",
@@ -6124,15 +7038,15 @@
   },
   "u-transfer/page-size": {
     "type": "number",
-    "description": "分页大小"
+    "description": ""
   },
   "u-transfer/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": ""
   },
   "u-transfer/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
   },
   "u-tree-select/value": {
     "type": "number",
@@ -6144,7 +7058,7 @@
   },
   "u-tree-view/value": {
     "type": "any",
-    "description": "当前选择的值"
+    "description": ""
   },
   "u-tree-view/text-field": {
     "type": "string",
@@ -6182,11 +7096,11 @@
   },
   "u-tree-view/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": ""
   },
   "u-tree-view/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
   },
   "u-tree-view/check-controlled": {
     "type": "boolean",
@@ -6194,27 +7108,27 @@
   },
   "u-tree-view-node/value": {
     "type": "any",
-    "description": "此项的值"
+    "description": "节点的值"
   },
   "u-tree-view-node/text": {
     "type": "string",
-    "description": "此项的显示值"
+    "description": "节点的文本"
   },
   "u-tree-view-node/expanded": {
     "type": "boolean",
-    "description": "展开/折叠状态"
+    "description": "节点默认展开"
   },
   "u-tree-view-node/checked": {
     "type": "boolean",
-    "description": "选中/取消状态"
+    "description": "是否可以选中/取消"
   },
   "u-tree-view-node/disabled": {
     "type": "boolean",
-    "description": "禁用此项"
+    "description": ""
   },
   "u-tree-view-node/node": {
     "type": "object",
-    "description": "相关对象。当选择此项时，抛出的事件会传递该对象，便于开发"
+    "description": "当选择此节点时，抛出的事件会传递该对象，便于开发"
   },
   "u-uploader/value": {
     "type": "Array",
@@ -6230,11 +7144,11 @@
   },
   "u-uploader/accept": {
     "type": "string",
-    "description": "接受的上传类型"
+    "description": ""
   },
   "u-uploader/headers": {
     "type": "Object",
-    "description": "请求 headers"
+    "description": ""
   },
   "u-uploader/with-credentials": {
     "type": "boolean",
@@ -6242,7 +7156,7 @@
   },
   "u-uploader/multiple": {
     "type": "boolean",
-    "description": "多文件上传"
+    "description": ""
   },
   "u-uploader/multiple-once": {
     "type": "boolean",
@@ -6254,11 +7168,11 @@
   },
   "u-uploader/data": {
     "type": "object",
-    "description": "附加数据"
+    "description": ""
   },
   "u-uploader/limit": {
     "type": "number",
-    "description": "列表数量上限"
+    "description": ""
   },
   "u-uploader/max-size": {
     "type": "string",
@@ -6288,19 +7202,19 @@
   },
   "u-uploader/auto-upload": {
     "type": "boolean",
-    "description": "是否自动上传"
+    "description": ""
   },
   "u-uploader/draggable": {
     "type": "boolean",
-    "description": "是否可以拖拽上传"
+    "description": ""
   },
   "u-uploader/pastable": {
     "type": "boolean",
-    "description": "是否可以粘贴"
+    "description": ""
   },
   "u-uploader/show-file-list": {
     "type": "boolean",
-    "description": "是否显示文件列表"
+    "description": ""
   },
   "u-uploader/converter": {
     "type": "string",
@@ -6314,15 +7228,15 @@
         "value": "simple"
       }
     ],
-    "description": "转换器"
+    "description": ""
   },
   "u-uploader/readonly": {
     "type": "boolean",
-    "description": "是否只读"
+    "description": ""
   },
   "u-uploader/disabled": {
     "type": "boolean",
-    "description": "是否禁用"
+    "description": ""
   },
   "u-uploader/display": {
     "type": "string",
@@ -6336,7 +7250,7 @@
         "title": "块级展示，宽度会充满父元素"
       }
     ],
-    "description": "展示方式"
+    "description": "行内展示，或块级换行展示"
   },
   "u-uploader/description": {
     "type": "string",
@@ -6393,6 +7307,20 @@
   "u-validator/manual": {
     "type": "boolean",
     "description": "是否采取手动验证。如果为`true`，则 UValidator 将不会在监听到子组件的`input`、`change`和`blur`事件后进行相应的验证。"
+  },
+  "u-validator/append-to": {
+    "type": "string",
+    "options": [
+      {
+        "value": "reference",
+        "title": "引用元素下"
+      },
+      {
+        "value": "body",
+        "title": "全局body"
+      }
+    ],
+    "description": "设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中"
   },
   "l-page-center/size": {
     "type": "string",

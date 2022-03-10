@@ -1527,7 +1527,7 @@
     --datepicker-input-color: var(--input-color);
     --datepicker-input-background: var(--input-background);
     --datepicker-input-border-radius: 3px;
-    --datepicker-input-padding-x: 34px;
+    --datepicker-input-padding-x: 8px;
     --datepicker-input-background-disabled: var(--input-background-disabled);
     --datepicker-input-border-color-error: var(--input-border-color-error);
     --datepicker-input-border-color-focus: var(--input-border-color-focus);
@@ -1551,9 +1551,12 @@
     --datetime-input-border-color: var(--input-border-color);
     --datetime-input-border-width: var(--input-border-width);
 
-    --datetime-input-padding-x: 34px;
+    --datetime-input-padding-x: 8px;
     --datetime-input-placeholder-color: var(--input-placeholder-color);
     --datetime-input-border-radius: 3px;
+
+    --datetime-input-icon-color-hover: var(--input-icon-color-hover);
+    --datetime-input-clear-icon-color: var(--input-icon-color);
 
      /* @component u-taskbox @hidden */
     --taskbox-badge-box-shadow: none;

@@ -1,13 +1,13 @@
 <template>
 <div :class="$style.root" ref="element">
-    <div :class="$style.head">
+    <div :class="[$style.head, preIcon ? $style.preIconHeader: '', suffixIcon ? $style.suffixIconHeader: '']">
         <i-ico v-if="preIcon" :name="preIcon" :class="[$style.btnicon, $style.preIcon]" notext></i-ico>
         <input :class="$style.input" :placeholder="placeholder" :value="dateTime" ref="input" :autofocus="autofocus" :readonly="readonly" :disabled="disabled"
             @click.stop="toggle(true)" @change="onInput($event)" @focus="onFocus" @blur="onBlur">
          <span v-if="dateTime && clearable" :class="[$style.wrap, $style.close]" @click.stop="clearValue">
             <i :class="[$style.closeIcon]"></i>
         </span>
-        <i-ico v-if="afterIcon" :name="afterIcon" :class="[$style.btnicon, $style.afterIcon]" notext></i-ico>
+        <i-ico v-if="suffixIcon" :name="suffixIcon" :class="[$style.btnicon, $style.suffixIcon]" notext></i-ico>
     </div>
     <m-popper :class="$style.popper" ref="popper" :append-to="appendTo" :disabled="disabled || readonly" :placement="placement" @toggle="onToggle($event)" @close="onPopperClose">
         <div :class="$style.body" @click.stop>
@@ -49,14 +49,13 @@ import i18n from './i18n';
 export default {
     name: 'u-date-time-picker',
     i18n,
-    // directives: { clickOutside },
     mixins: [MField],
     props: {
         preIcon: { 
             type: String, 
             default: 'calendar'
         },
-        afterIcon: { 
+        suffixIcon: { 
             type: String, 
             default: ''
         },
@@ -384,6 +383,14 @@ time = '00:00:00';
     height: var(--datetime-input-height);
 }
 
+.preIconHeader .input {
+    padding-left: calc(var(--datetime-input-padding-x) + 26px);
+}
+
+.suffixIconHeader .input {
+    padding-right: calc(var(--datetime-input-padding-x) + 26px);
+}
+
 .placeholder, .input::placeholder {
     /* Removes placeholder transparency in Firefox. */
     opacity: 1;
@@ -418,12 +425,12 @@ time = '00:00:00';
     color: var(--datetime-input-pre-icon-color);
 }
 
-.afterIcon {
+.suffixIcon {
     right: 12px;
     color: var(--datetime-input-after-icon-color);
 }
 
-.head:hover .input{
+.head:hover .input {
     border-color: var(--datetime-input-border-color-focus);
 }
 
@@ -440,9 +447,13 @@ time = '00:00:00';
 .wrap {
     position: absolute;
     text-align: center;
-    right: 3px;
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.suffixIconHeader .wrap  {
+    right: calc(10px + 26px);
 }
 
 .close {
@@ -450,8 +461,11 @@ time = '00:00:00';
 }
 
 .closeIcon:hover {
-    color: var(--color-light);
     background-color: #ebedef;
+}
+
+.closeIcon:hover::before {
+    color: var(--datetime-input-icon-color-hover);
 }
 
 .closeIcon::before {
@@ -465,7 +479,7 @@ time = '00:00:00';
     margin: auto;
     icon-font: url('../i-icon.vue/assets/close-solid.svg');
     cursor: var(--cursor-pointer);
-    color: var(--input-clearable-color);
+    color: var(--datetime-input-clear-icon-color);
 }
 
 </style>

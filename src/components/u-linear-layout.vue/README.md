@@ -238,10 +238,10 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| direction | string | `[object Object]`<br/>`[object Object]` | `'horizontal'` | 排列方向 |
+| direction | string | `[object Object]`<br/>`[object Object]` | `'horizontal'` | 可更改布局的排列方向 |
 | gap | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 内容块间隙大小 |
-| display | string | `[object Object]`<br/>`[object Object]` | `'block'` | 展示方式 |
-| layout | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'none'` | 子元素的展示方式 |
+| display | string | `[object Object]`<br/>`[object Object]` | `'block'` | 行内展示，或块级换行展示 |
+| layout | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'none'` | 子元素行内展示或块级换行展示 |
 | type | string | `[object Object]` |  | 布局模式 |
 | justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` | 内容对齐方式 |
 | alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` | flex布局模式下的交叉轴对齐方式 |

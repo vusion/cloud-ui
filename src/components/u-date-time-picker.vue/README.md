@@ -23,7 +23,7 @@
 
 ``` html
 <u-linear-layout>
-    <u-date-time-picker clearable></u-date-time-picker>
+    <u-date-time-picker preIcon suffixIcon="calendar" clearable></u-date-time-picker>
     <u-date-time-picker date="2018-08-08"></u-date-time-picker>
 </u-linear-layout>
 ```
@@ -102,17 +102,21 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| date.sync, v-model | string, number, Date |  |  | 显示的日期值 |
-| minDate | string, number, Date |  |  | 最小日期值 |
-| maxDate | string, number, Date |  |  | 最大日期值 |
-| placeholder | string |  | `'请选择时间'` | 默认提示语 |
-| autofocus | boolean |  | `false` | 是否默认处于focus状态 |
-| clearable | boolean |  |  | 开启并在输入框有内容时会显示清除按钮。 |
-| disabled | boolean |  | `false` | 是否禁用 |
-| readonly | boolean |  | `false` | 是否只读 |
+| preIcon | string | `[object Object]`<br/>`[object Object]` | `'calendar'` |  |
+| suffixIcon | string | `[object Object]`<br/>`[object Object]` | `''` |  |
+| date.sync, v-model | string, number, Date |  |  | 默认显示的日期时间值，格式如2018-08-08 08:08:08 |
+| minDate | string, number, Date |  |  | 支持输入的最小日期时间，不限制填写null |
+| maxDate | string, number, Date |  |  | 支持输入的最大日期时间，不限制填写null |
+| placeholder | string |  | `'请选择时间'` | 输入框的提示文字 |
+| opened | boolean |  | `false` | 切换弹出/关闭状态 |
+| autofocus | boolean |  | `false` | 是否自动获取焦点 |
+| clearable | boolean |  |  | 输入框输入内容支持一键清除 |
+| disabled | boolean |  | `false` |  |
+| readonly | boolean |  | `false` |  |
 | yearDiff | number |  | `20` | 最小可选年份值为当前年减去此值 |
 | yearAdd | number |  | `20` | 最大可选年份值为当前年加上此值 |
 | converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'format'` | 转换器 |
+| append-to | string | `[object Object]`<br/>`[object Object]` | `'reference'` | 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中 |
 
 ### Events
 
@@ -133,4 +137,13 @@ export default {
 | ----- | ---- | ----------- |
 | $event | object | 自定义事件对象 |
 | $event.date | number | 选择项的值，默认返回时间戳 |
+
+#### @blur
+
+失去焦点时触发。
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | FocusEvent | 原生事件对象 |
+| senderVM |  | 发送事件实例 |
 

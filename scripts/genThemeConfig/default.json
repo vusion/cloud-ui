@@ -915,7 +915,7 @@
     "--datepicker-input-pre-icon-color": "var(--gray-light)",
     "--datepicker-input-after-icon-color": "var(--gray-light)",
 
-    "--datepicker-input-padding-x": "34px",
+    "--datepicker-input-padding-x": "8px",
     "--datepicker-input-placeholder-color": "var(--input-placeholder-color)",
     "--datepicker-input-border-width": "var(--input-border-width)",
     "--datepicker-input-border-color": "var(--input-border-color)",
@@ -938,7 +938,7 @@
     "--datetime-input-height": "var(--input-height)",
     "--datetime-input-pre-icon-color": "var(--gray-light)",
     "--datetime-input-after-icon-color": "var(--gray-light)",
-    "--datetime-input-padding-x": "34px",
+    "--datetime-input-padding-x": "8px",
     "--datetime-input-placeholder-color": "var(--input-placeholder-color)",
     "--datetime-input-border-width": "var(--input-border-width)",
     "--datetime-input-border-color": "var(--input-border-color)",

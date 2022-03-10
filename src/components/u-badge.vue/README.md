@@ -58,8 +58,8 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value | number \| string |  |  | 显示的值 |
-| max | number |  |  | 最大值，超过最大值会显示为`max+`的形式，要求`value`是 `Number`类型。 |
-| corner | boolean |  | `false` | 是否插入到右上角 |
+| max | number |  |  | 最大值，超过最大值会显示为“最大值+”的形式，当最大值是数字类型时生效 |
+| corner | boolean |  | `false` |  |
 | dot | boolean |  | `false` | 是否显示为小圆点 |
 
 ### Slots

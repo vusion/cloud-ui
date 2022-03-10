@@ -4,6 +4,7 @@
 
 - [示例](#示例)
     - [基本用法](#基本用法)
+    - [按钮为两端分布](#按钮为两端分布)
     - [双向绑定](#双向绑定)
     - [最大值和最小值](#最大值和最小值)
     - [精度与间隔](#精度与间隔)
@@ -33,7 +34,7 @@
 
 ``` html
 <u-linear-layout>
-    <u-number-input buttonDisplay="bothEnds"></u-number-input>
+    <u-number-input buttonDisplay="bothEnds" :value="6"></u-number-input>
 </u-linear-layout>
 ```
 
@@ -110,6 +111,8 @@ export default {
 <u-linear-layout>
     <u-number-input :value="6" readonly></u-number-input>
     <u-number-input :value="6" disabled></u-number-input>
+    <u-number-input buttonDisplay="bothEnds" :value="6" readonly></u-number-input>
+    <u-number-input buttonDisplay="bothEnds" :value="6" disabled></u-number-input>
 </u-linear-layout>
 ```
 
@@ -119,18 +122,19 @@ export default {
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value.sync, v-model | number |  | `0` | 输入框的值 |
-| min | number |  |  | 最小值 |
-| max | number |  |  | 最大值 |
+| min | number |  | `''` |  |
+| max | number |  | `''` |  |
 | step | number |  | `1` | 间隔，表示点击按钮或按上下键所增加或减少的量 |
 | precision | number |  | `1` | 精度，表示数字要保留的最小单位，整数、小数均可 |
 | formatter | string, object |  |  | 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。 |
-| placeholder | string |  |  | 原生属性 |
-| autofocus | boolean |  |  | 原生属性 |
-| hide-buttons | boolean |  | `false` | 是否隐藏按钮 |
+| placeholder | string |  |  | 为空时的提示文本 |
+| autofocus | boolean |  |  |  |
+| hide-buttons | boolean |  | `false` | 是否隐藏上下点击按钮 |
 | clearable | boolean |  |  | 开启并在输入框有内容时会显示清除按钮。 |
-| readonly | boolean |  | `false` | 是否只读 |
-| disabled | boolean |  | `false` | 是否禁用 |
-| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 大小扩展，支持一个值或两个值的组合，前者表示高度，后者表示宽度 |
+| readonly | boolean |  | `false` |  |
+| disabled | boolean |  | `false` |  |
+| width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置数字输入框宽度大小 |
+| height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置数字输入框高度大小 |
 
 ### Slots
 

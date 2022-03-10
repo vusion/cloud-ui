@@ -184,11 +184,11 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| router | boolean |  | `false` | 是否根据 vue-router 来控制选择哪个标签页。 |
-| value.sync, v-model | any |  |  | 选中标签页的值。 |
-| readonly | boolean |  | `false` | 是否只读。 |
-| disabled | boolean |  | `false` | 是否禁用。 |
-| closable | boolean |  | `false` | 是否可以关闭。 |
+| router | boolean |  | `false` | 是否根据 vue-router 来控制选择哪个标签页 |
+| value.sync, v-model | any |  |  |  |
+| readonly | boolean |  | `false` |  |
+| disabled | boolean |  | `false` |  |
+| closable | boolean |  | `false` | 是否可以关闭 |
 | show-scroll-buttons | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'auto'` | 是否显示标签滚动左右箭头按钮 |
 | appear | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'square'` | 标签展示的外观 |
 | size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 标签尺寸 |

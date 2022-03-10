@@ -173,17 +173,17 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| text | string |  |  | 文本内容 |
-| color | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 设置颜色 |
+| text | string |  |  | 显示文本内容 |
+| color | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 设置文本颜色 |
 | dashed | boolean |  | `false` | 边框是否为虚线。 |
-| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置尺寸 |
-| shape | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 设置形状 |
-| disabled | boolean |  | `false` | 是否禁用。禁用后不会响应点击事件。 |
-| display | string | `[object Object]`<br/>`[object Object]` | `'inline'` | 展示方式 |
-| icon | icon |  | `''` | 图标 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置按钮大小 |
+| shape | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'default'` | 设置按钮形状 |
+| disabled | boolean |  | `false` |  |
+| display | string | `[object Object]`<br/>`[object Object]` | `'inline'` | 行内展示，或块级换行展示 |
+| icon | icon |  | `''` |  |
 | loading | boolean |  | `false` | 是否为加载中。 |
-| linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'href'` | 链接类型 |
-| hrefAndTo | string |  |  | 链接地址 |
+| linkType | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'href'` |  |
+| hrefAndTo | string |  |  |  |
 | target | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'_blank'` | 链接打开方式 |
 | to | string, Location |  |  | 需要 vue-router，与`<router-link>`的`to`属性相同。可以是一个字符串或者是描述目标位置的对象。 |
 | replace | boolean |  | `false` | 需要 vue-router，与`<router-link>`的`replace`属性相同。如果为`true`，当点击时，会调用`router.replace()`而不是`router.push()`，于是导航后不会留下`history `记录。 |

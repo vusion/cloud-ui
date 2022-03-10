@@ -129,19 +129,19 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value.sync, v-model | number |  | `0` | 滑块的值 |
-| min | number |  | `0` | 最小值 |
-| max | number |  | `100` | 最大值 |
-| step | number |  | `1` | 间隔。`0`表示连续 |
+| value.sync, v-model | number |  | `0` |  |
+| min | number |  | `0` |  |
+| max | number |  | `100` |  |
+| step | number |  | `1` | 间隔，`0`表示连续 |
 | precision | number |  | `1` | 精度，表示数字要保留的最小单位，整数、小数均可 |
-| range | Array |  | `[]` | 进一步对`value`限制，通常传入一个数组，第一个值表示范围开始值，第二个值表示范围的结束值。 |
-| formatter | string, object |  |  | 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象。 |
-| sync-on | string | `[object Object]`<br/>`[object Object]` | `'input'` | 同步时机 |
+| range | Array |  | `[]` | 进一步对`value`限制，通常传入一个数组，第一个值表示范围开始值，第二个值表示范围的结束值 |
+| formatter | string, object |  |  | 格式化字符串，具体参见示例。也可以传入一个包含`get`和`set`方法的格式化对象 |
+| sync-on | string | `[object Object]`<br/>`[object Object]` | `'input'` |  |
 | hide-buttons | boolean |  | `true` | 是否隐藏按钮 |
-| readonly | boolean |  | `false` | 是否只读 |
-| disabled | boolean |  | `false` | 是否禁用 |
-| unit | string |  |  | 单位 |
-| tip | string |  |  | 提示 |
+| readonly | boolean |  | `false` |  |
+| disabled | boolean |  | `false` |  |
+| unit | string |  |  |  |
+| tip | string |  |  |  |
 
 ### Events
 

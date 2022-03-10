@@ -405,7 +405,8 @@
       "title",
       "width",
       "shadow",
-      "border"
+      "border",
+      "split"
     ],
     "description": "用于快速布局",
     "subtags": [
@@ -512,7 +513,8 @@
       "accordion",
       "expand-trigger",
       "appear",
-      "disabled"
+      "disabled",
+      "fill"
     ],
     "description": "可以折叠/展开的内容区域。",
     "subtags": [
@@ -577,7 +579,9 @@
   },
   "u-crumb": {
     "attributes": [
-      "auto"
+      "auto",
+      "separator",
+      "icon"
     ],
     "description": "导航指引",
     "subtags": [
@@ -586,6 +590,7 @@
   },
   "u-crumb-item": {
     "attributes": [
+      "icon",
       "text",
       "type",
       "linkType",
@@ -599,13 +604,15 @@
   },
   "u-date-picker": {
     "attributes": [
+      "preIcon",
+      "suffixIcon",
       "picker",
-      "width",
       "date",
       "minDate",
       "maxDate",
       "readonly",
       "disabled",
+      "opened",
       "autofocus",
       "placeholder",
       "clearable",
@@ -613,23 +620,28 @@
       "time",
       "yearDiff",
       "yearAdd",
-      "converter"
+      "converter",
+      "append-to"
     ],
     "description": "日期选择器"
   },
   "u-date-time-picker": {
     "attributes": [
+      "preIcon",
+      "suffixIcon",
       "date",
       "minDate",
       "maxDate",
       "placeholder",
+      "opened",
       "autofocus",
       "clearable",
       "disabled",
       "readonly",
       "yearDiff",
       "yearAdd",
-      "converter"
+      "converter",
+      "append-to"
     ],
     "description": "日期时间选择器"
   },
@@ -664,6 +676,29 @@
       "static",
       "maskClosable"
     ]
+  },
+  "u-dropdown": {
+    "attributes": [
+      "trigger",
+      "placement",
+      "disabled"
+    ],
+    "description": "下拉菜单",
+    "subtags": [
+      "u-dropdown-item"
+    ]
+  },
+  "u-dropdown-item": {
+    "attributes": [
+      "text",
+      "disabled",
+      "icon",
+      "linkType",
+      "hrefAndTo",
+      "target",
+      "to"
+    ],
+    "description": "下拉菜单项"
   },
   "u-dynamic-cards": {
     "attributes": [
@@ -738,7 +773,9 @@
       "model",
       "rules",
       "layout",
-      "gap",
+      "repeat",
+      "gap-width",
+      "gap-height",
       "label-size",
       "size",
       "collapsible",
@@ -755,6 +792,7 @@
     "attributes": [
       "name",
       "label",
+      "span",
       "label-size",
       "field-size",
       "required",
@@ -775,6 +813,7 @@
   "u-form-group": {
     "attributes": [
       "title",
+      "repeat",
       "collapsible",
       "expanded",
       "disabled"
@@ -843,7 +882,8 @@
       "show-head",
       "title",
       "show-foot",
-      "size",
+      "width",
+      "height",
       "loading-text",
       "error",
       "error-text",
@@ -899,6 +939,9 @@
     "attributes": [
       "src",
       "fit",
+      "circle",
+      "horizontalCenter",
+      "verticalCenter",
       "convertSrcFn"
     ],
     "description": "可以用来展示一张图片，支持设置图片地址。"
@@ -906,7 +949,8 @@
   "u-info-list": {
     "attributes": [
       "repeat",
-      "label-size"
+      "label-size",
+      "show-head"
     ],
     "description": "详情列表",
     "subtags": [
@@ -936,6 +980,7 @@
       "type",
       "value",
       "clearable",
+      "password",
       "placeholder",
       "minlength",
       "maxlength",
@@ -943,7 +988,8 @@
       "autofocus",
       "readonly",
       "disabled",
-      "size",
+      "width",
+      "height",
       "maxlengthMessage",
       "prefix",
       "suffix"
@@ -1008,7 +1054,8 @@
       "append",
       "decoration",
       "disabled",
-      "display"
+      "display",
+      "hoverType"
     ],
     "description": "文字超链接"
   },
@@ -1040,7 +1087,8 @@
       "show-head",
       "title",
       "show-foot",
-      "size",
+      "width",
+      "height",
       "loading-text",
       "error",
       "error-text",
@@ -1130,6 +1178,109 @@
       "mask-close"
     ],
     "description": "弹窗"
+  },
+  "u-multi-layout": {
+    "attributes": [
+      "direction",
+      "gap"
+    ],
+    "description": "一定的规则布局",
+    "subtags": [
+      "u-multi-layout-item"
+    ]
+  },
+  "u-multi-layout-item": {
+    "attributes": [
+      "fixed",
+      "fixdirec",
+      "display",
+      "justify",
+      "alignment"
+    ],
+    "description": "一定的规则布局"
+  },
+  "u-navbar-multi": {
+    "attributes": [
+      "router",
+      "value",
+      "field",
+      "readonly",
+      "disabled"
+    ],
+    "description": "通常用于页面顶部的导航菜单，放置 Logo、导航链接、用户信息等。",
+    "subtags": [
+      "u-navbar-item-multi",
+      "u-navbar-divider-multi",
+      "u-navbar-dropdown-multi",
+      "u-navbar-menu-multi",
+      "u-navbar-menu-group-multi",
+      "u-navbar-menu-item-multi",
+      "u-navbar-menu-divider-multi",
+      "u-navbar-select-multi",
+      "u-navbar-select-group-multi",
+      "u-navbar-select-item-multi",
+      "u-navbar-select-divider-multi"
+    ]
+  },
+  "u-navbar-item-multi": {
+    "attributes": [
+      "text",
+      "value",
+      "icon",
+      "disabled",
+      "item",
+      "linkType",
+      "hrefAndTo",
+      "target",
+      "to",
+      "replace",
+      "exact"
+    ],
+    "description": "导航栏的子项目"
+  },
+  "u-navbar-divider-multi": {
+    "attributes": [],
+    "description": "导航栏的分割线"
+  },
+  "u-navbar-dropdown-multi": {
+    "attributes": [
+      "trigger",
+      "placement",
+      "disabled"
+    ],
+    "description": "导航栏下拉菜单"
+  },
+  "u-navbar-menu-multi": {
+    "attributes": [],
+    "description": "导航菜单"
+  },
+  "u-navbar-menu-group-multi": {
+    "attributes": [],
+    "description": "导航菜单分组"
+  },
+  "u-navbar-menu-item-multi": {
+    "attributes": [],
+    "description": "导航菜单项"
+  },
+  "u-navbar-menu-divider-multi": {
+    "attributes": [],
+    "description": "导航菜单分割线"
+  },
+  "u-navbar-select-multi": {
+    "attributes": [],
+    "description": "导航选择"
+  },
+  "u-navbar-select-group-multi": {
+    "attributes": [],
+    "description": "导航选择分组"
+  },
+  "u-navbar-select-item-multi": {
+    "attributes": [],
+    "description": "导航选择项"
+  },
+  "u-navbar-select-divider-multi": {
+    "attributes": [],
+    "description": "导航选择分割线"
   },
   "u-navbar": {
     "attributes": [
@@ -1238,7 +1389,8 @@
       "clearable",
       "readonly",
       "disabled",
-      "size"
+      "width",
+      "height"
     ],
     "description": "输入数字时使用"
   },
@@ -1261,7 +1413,10 @@
   },
   "u-panel": {
     "attributes": [
-      "title"
+      "title",
+      "content",
+      "bordered",
+      "shadow"
     ],
     "description": "用于快速布局",
     "subtags": [
@@ -1395,11 +1550,13 @@
       "auto-complete",
       "readonly",
       "disabled",
-      "size",
+      "width",
+      "height",
       "opened",
       "autofocus",
       "prefix",
-      "suffix"
+      "suffix",
+      "append-to"
     ],
     "description": "下拉选择框，支持单选、多选、搜索等功能",
     "subtags": [
@@ -1432,6 +1589,7 @@
       "value",
       "readonly",
       "disabled",
+      "direction",
       "size"
     ],
     "description": "当操作需要分步骤时使用",
@@ -1442,6 +1600,7 @@
   "u-selectable-step": {
     "attributes": [
       "title",
+      "desc",
       "disabled"
     ],
     "description": "步骤条项"
@@ -1553,6 +1712,7 @@
     "attributes": [
       "data-source",
       "data-schema",
+      "extra-params",
       "initial-load",
       "pageable",
       "page-size",
@@ -1569,11 +1729,13 @@
       "remote-filtering",
       "title",
       "title-alignment",
+      "boldHeader",
       "border",
       "line",
       "striped",
       "hover",
       "show-head",
+      "default-column-width",
       "loading",
       "loading-text",
       "error",
@@ -1611,7 +1773,8 @@
       "ellipsis",
       "hidden",
       "type",
-      "start-index"
+      "start-index",
+      "dblclickHandler"
     ],
     "description": "表格列"
   },
@@ -1886,7 +2049,8 @@
       "validating-options",
       "validating-value",
       "validating-process",
-      "manual"
+      "manual",
+      "append-to"
     ],
     "description": "实现了基础的嵌套验证功能和原子化验证功能，包含提示样式。常用于嵌套验证时使用，或用于派生一些较复杂的组件。"
   },
