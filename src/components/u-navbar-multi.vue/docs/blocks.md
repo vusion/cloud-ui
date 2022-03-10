@@ -3,7 +3,7 @@
 ``` html
 <u-navbar-multi>
     <template #left>
-        <u-multi-layout-item align-items="center">
+        <u-multi-layout-item align-items="center" style="width: 200px;">
             <u-image fit="cover" src="https://static-vusion.163yun.com/assets/lcap-logo-light.svg"
                     style="width: 28px; height: 28px; margin: 16px 14px; --custom-start: auto; vertical-align: middle;"></u-image>
             <u-text text="应用名称" size="large" style="color: white; --custom-start: auto; vertical-align: middle;"></u-text>
