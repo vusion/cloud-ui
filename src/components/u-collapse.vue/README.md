@@ -7,6 +7,7 @@
     - [手风琴模式](#手风琴模式)
     - [面板嵌套](#面板嵌套)
     - [使用插槽](#使用插槽)
+    - [填充模式](#填充模式)
     - [简洁模式](#简洁模式)
     - [触发方式](#触发方式)
     - [设置尺寸](#设置尺寸)
@@ -20,7 +21,7 @@
     - [Slots](#slots-2)
     - [Events](#events-2)
 
-**Layout**
+**Container**
 
 可以折叠/展开的内容区域。
 
@@ -82,6 +83,28 @@
 </u-collapse>
 ```
 
+### 填充模式
+
+内容填充
+
+``` html
+<u-collapse fill="content">
+    <u-collapse-item title="面板1" expanded>Content1</u-collapse-item>
+    <u-collapse-item title="面板2">Content2</u-collapse-item>
+    <u-collapse-item title="面板3">Content3</u-collapse-item>
+</u-collapse>
+```
+
+无填充
+
+``` html
+<u-collapse fill="none">
+    <u-collapse-item title="面板1" expanded>Content1</u-collapse-item>
+    <u-collapse-item title="面板2">Content2</u-collapse-item>
+    <u-collapse-item title="面板3">Content3</u-collapse-item>
+</u-collapse>
+```
+
 ### 简洁模式
 
 ``` html
@@ -132,8 +155,9 @@
 | --------- | ---- | ------- | ------- | ----------- |
 | accordion | boolean |  | `false` | 是否每次只会展开一个面板 |
 | expand-trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 展开/折叠的触发方式 |
-| appear | string | `[object Object]`<br/>`[object Object]` | `'default'` | 显示样式 |
-| disabled | boolean |  | `false` | 是否禁用 |
+| appear | string | `[object Object]`<br/>`[object Object]` | `'default'` |  |
+| disabled | boolean |  | `false` | 不可点击展开/折叠 |
+| fill | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'head'` | 填充位置 |
 
 ### Slots
 

@@ -262,9 +262,9 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| repeat | number |  | `12` | 划分的栅格数 |
+| repeat | number |  | `12` | 默认24，可设置栅格行大小 |
 | justify | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'start'` | 内容对齐方式 |
-| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` | flex布局模式下的交叉轴对齐方式 |
+| alignment | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'stretch'` | 栅格内容对齐方式 |
 
 ### Slots
 
@@ -277,10 +277,10 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| span | number |  | `1` | 列占据的栅格数 |
-| offset | number |  |  | 列左边偏移的栅格数 |
-| pull | number |  |  | 列向左移动栅格数 |
-| push | number |  |  | 列向右移动栅格数 |
+| span | number |  | `1` | 列占据栅格行的栅格数 |
+| offset | number |  |  | 列偏移的栅格数 |
+| pull | number |  |  | 列向左移动的栅格数 |
+| push | number |  |  | 列向右移动的栅格数 |
 | media-huge | number |  |  | 响应式布局`<=1440px`的列跨越栅格数 |
 | media-large | number |  |  | 响应式布局`<=1200px`的列跨越栅格数 |
 | media-medium | number |  |  | 响应式布局`<=960px`的列跨越栅格数 |

@@ -669,15 +669,15 @@ export default {
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | data | Array\<{ text, value }\> |  |  | Data书写方式中的数据列表 |
-| value.sync, v-model | any |  |  | 当前选择的值 |
+| value.sync, v-model | any |  |  |  |
 | text-field | string |  | `'text'` | 选项文本的字段名 |
 | value-field | string |  | `'value'` | 选项值的字段名 |
 | cancelable | boolean |  | `false` | 是否可以取消选择 |
 | checkable | boolean |  | `false` | 是否可以选中/取消 |
 | accordion | boolean |  | `false` | 是否每次只会展开一个分组 |
 | expand-trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 展开/折叠的触发方式 |
-| readonly | boolean |  | `false` | 是否只读 |
-| disabled | boolean |  | `false` | 是否禁用 |
+| readonly | boolean |  | `false` |  |
+| disabled | boolean |  | `false` |  |
 | check-controlled | boolean |  | `false` | checkable 开启情况下，是否完全受控（父子节点状态不关联） |
 
 ### Slots
@@ -808,12 +808,12 @@ Methods
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| value | any |  |  | 此项的值 |
-| text | string |  |  | 此项的显示值 |
-| expanded.sync | boolean |  |  | 展开/折叠状态 |
-| checked.sync | boolean |  |  | 选中/取消状态 |
-| disabled | boolean |  | `false` | 禁用此项 |
-| node | object |  |  | 相关对象。当选择此项时，抛出的事件会传递该对象，便于开发 |
+| value | any |  |  | 节点的值 |
+| text | string |  |  | 节点的文本 |
+| expanded.sync | boolean |  |  | 节点默认展开 |
+| checked.sync | boolean |  |  | 是否可以选中/取消 |
+| disabled | boolean |  | `false` |  |
+| node | object |  |  | 当选择此节点时，抛出的事件会传递该对象，便于开发 |
 
 ### Slots
 

@@ -77,15 +77,15 @@ export default{
 | value.sync, v-model | Date \| string ｜ number |  | `'TODAY'` | 当前选择的日期 |
 | min-date | Date \| string ｜ number |  |  | 最小日期，默认 10 年前 |
 | max-date | Date \| string ｜ number |  |  | 最大日期，默认 9 年后 |
-| data-source | Array\<Item\> \| Function \| object |  |  | 日历数据源，数组方式表示直接的数据，函数需要返回一个 Promise |
+| data-source | Array\<Item\> \| Function \| object |  |  | 日历的数据源，数据集对象或者返回数据集的逻辑 |
 | data-schema | schema |  |  | 日历中每天的数据类型 |
 | start-key | string |  | `'startTime'` | 数据内表示开始时间的字段 |
 | end-key | string |  | `'endTime'` | 数据内表示结束时间的字段 |
-| show-week-days | boolean |  | `true` | 是否展示周天 |
-| show-weeks | boolean |  | `false` | 是否展示周数 |
+| show-week-days | boolean |  | `true` |  |
+| show-weeks | boolean |  | `false` |  |
 | show-basic | boolean |  | `true` | 是否展示顶部左侧的 "<" "今天" ">" 等基础配置功能 |
 | show-advance | boolean |  | `true` | 是否展示顶部右侧的年份、月份选项高级配置 |
-| first-day-of-week | number |  | `1` | 周起始日，1～7（周一～周日） |
+| first-day-of-week | number |  | `1` | 填写数字1~7，分别表示周一~周日 |
 
 ### Slots
 

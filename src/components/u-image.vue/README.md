@@ -3,11 +3,11 @@
 # UImage 图片展示
 
 - [示例](#示例)
-    - [图片拉伸完全填充父元素](#图片拉伸完全填充父元素)
-    - [图片缩放比例完全填充父元素](#图片缩放比例完全填充父元素)
-    - [图片按比例尽可能大的填充父元素](#图片按比例尽可能大的填充父元素)
-    - [图片以原尺寸填充父元素](#图片以原尺寸填充父元素)
-    - [取 contain、none 中较小的](#取-contain-none-中较小的)
+    - [适应](#适应)
+    - [适应（图片小于父元素时以原尺寸展示）](#适应图片小于父元素时以原尺寸展示)
+    - [拉伸](#拉伸)
+    - [填充](#填充)
+    - [原尺寸](#原尺寸)
 - [API]()
     - [Props/Attrs](#propsattrs)
     - [Events](#events)
@@ -17,34 +17,34 @@
 可以用来展示一张图片，支持设置图片地址。
 
 ## 示例
-### 图片拉伸完全填充父元素
+### 适应
 
 ``` html
-<u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" fit="fill"></u-image>
+<u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" style="width: 300px; height: 150px;" fit="contain"></u-image>
 ```
 
-### 图片缩放比例完全填充父元素
+### 适应（图片小于父元素时以原尺寸展示）
 
 ``` html
-<u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" fit="contain"></u-image>
+<u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" style="width: 300px; height: 150px;" fit="scale-down"></u-image>
 ```
 
-### 图片按比例尽可能大的填充父元素
+### 拉伸
 
 ``` html
-<u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" fit="cover"></u-image>
+<u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" style="width: 300px; height: 150px;" fit="fill"></u-image>
 ```
 
-### 图片以原尺寸填充父元素
+### 填充
 
 ``` html
-<u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" fit="none"></u-image>
+<u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" style="width: 300px; height: 150px;" fit="cover"></u-image>
 ```
 
-### 取 contain、none 中较小的
+### 原尺寸
 
 ``` html
-<u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" fit="scale-down"></u-image>
+<u-image src="https://static-vusion.163yun.com/assets/cloud-ui/1.jpg" style="width: 300px; height: 150px;" fit="none"></u-image>
 ```
 
 ## API
@@ -53,7 +53,10 @@
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | src | image |  | `''` | 图片地址 |
-| fit | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'contain'` | 图片地址 |
+| fit | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'contain'` | 图片填充方式 |
+| circle | boolean |  | `false` | 是否开启圆形遮罩 |
+| horizontalCenter | string | `'左对齐'` ()<br/>`'居中对齐'` ()<br/>`'右对齐'` () | `'center'` | 图片水平对齐方式 |
+| verticalCenter | string | `'顶部对齐'` ()<br/>`'居中对齐'` ()<br/>`'底部对齐'` () | `'center'` | 图片垂直对齐方式 |
 | convertSrcFn | Function |  | `'(src) =\> {  try { const tempSrc = JSON.parse(src); const tempItem = tempSrc\[0\]; return tempItem.url; } catch (e) { return src;}}'` | 将传入的src转换为符合要求的字符串 |
 
 ### Events

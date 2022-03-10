@@ -169,13 +169,13 @@ export default {
 | title | string |  | `'提示'` | 弹窗的标题 |
 | content | string |  | `'提示内容'` | 弹窗的内容 |
 | description | string |  | `'详情描述'` | 弹窗的详情描述 |
-| visible.sync | boolean |  | `false` | 是否显示 |
+| visible.sync | boolean |  | `false` | 弹窗默认打开 |
 | ok-button | string |  | `'确定'` | 确定按钮文本，如果为空则不显示 |
 | cancel-button | string |  | `'取消'` | 取消按钮文本，如果为空则不显示 |
-| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 弹框的尺寸 |
-| icon | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  | 提示图标 |
+| size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 弹窗的尺寸 |
+| icon | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` |  |  |
 | static | boolean |  | `false` | 是否嵌入页面显示 |
-| mask-close | boolean |  | `false` | 是否点击遮罩时关闭弹窗 |
+| mask-close | boolean |  | `false` | 点击遮罩关闭弹窗 |
 
 ### Slots
 

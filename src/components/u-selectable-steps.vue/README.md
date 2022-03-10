@@ -7,6 +7,7 @@
     - [自定义标题](#自定义标题)
     - [宽度自适应](#宽度自适应)
     - [禁用](#禁用)
+    - [竖向步骤条](#竖向步骤条)
 - [USelectableSteps API](#uselectablesteps-api)
     - [Props/Attrs](#propsattrs)
     - [Slots](#slots)
@@ -73,14 +74,25 @@
 </u-selectable-steps>
 ```
 
+### 竖向步骤条
+
+``` html
+<u-selectable-steps :value="0" direction="vertical">
+    <u-selectable-step title="Step1">Content1</u-selectable-step>
+    <u-selectable-step title="Step2">Content2</u-selectable-step>
+    <u-selectable-step title="Step3">Content3</u-selectable-step>
+</u-selectable-steps>
+```
+
 ## USelectableSteps API
 ### Props/Attrs
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | value.sync, v-model | number |  | `0` | 当前步骤数 |
-| readonly | boolean |  | `false` | 是否只读。非只读的情况下可以选择 |
-| disabled | boolean |  | `false` | 是否禁用 |
+| readonly | boolean |  | `false` | 是否只读，非只读的情况下可以选择 |
+| disabled | boolean |  | `false` |  |
+| direction | string | `[object Object]`<br/>`[object Object]` | `'horizontal'` |  |
 | size | string | `[object Object]`<br/>`[object Object]` | `'normal'` | 设置尺寸 |
 
 ### Slots
@@ -129,16 +141,17 @@
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| title | string |  |  | 步骤名 |
-| disabled | boolean |  | `false` | 是否禁用此标签页 |
+| title | string |  |  | 步骤标题文本 |
+| desc | string |  | `''` | 步骤描述信息 |
+| disabled | boolean |  | `false` |  |
 
 ### Slots
 
 #### (default)
 
-插入文本或 HTML。
+插入文本或 HTML
 
 #### title
 
-自定义标题文本。
+自定义标题文本
 

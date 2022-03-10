@@ -205,9 +205,9 @@ export default {
 | value.sync, v-model | Array |  | `[]` | 多选组的选中项 |
 | min | number |  | `0` | 可以勾选多选框的最小数量 |
 | max | number |  | `999` | 可以勾选多选框的最大数量 |
-| readonly | boolean |  | `false` | 是否只读 |
-| disabled | boolean |  | `false` | 是否禁用 |
-| converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `''` | value 与 values 的转换器。可选值：`'join'`表示将 values 数组 join 之后变成 value。也可以用`:`修改分隔符，类似 Vue 的指令参数。也可以传入一个包含 { get, set } 的一个对象 |
+| readonly | boolean |  | `false` |  |
+| disabled | boolean |  | `false` |  |
+| converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `''` | 将选中的值以选择的符号作为连接符，转为字符串格式；选择“json”则转为JSON字符串格式 |
 
 ### Slots
 
@@ -251,12 +251,12 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| text | string |  |  | 文本内容 |
+| text | string |  |  | 显示文本内容 |
 | value.sync, v-model | boolean, null |  | `false` | 选中状态，`null`表示不确定状态 |
-| label | any |  |  | 多选框选项值，只在多选组中使用。 |
-| readonly | boolean |  | `false` | 是否只读 |
-| disabled | boolean |  | `false` | 是否禁用 |
-| autofocus | boolean |  | `false` | 自动获取焦点 |
+| label | any |  |  | 多选框选项值，只在多选组中使用 |
+| readonly | boolean |  | `false` |  |
+| disabled | boolean |  | `false` |  |
+| autofocus | boolean |  | `false` |  |
 
 ### Events
 

@@ -25,8 +25,8 @@
 
 ``` html
 <u-linear-layout>
-    <u-date-picker clearable></u-date-picker>
-    <u-date-picker date="2018-08-08"></u-date-picker>
+    <u-date-picker preIcon suffixIcon="calendar" width="400" clearable></u-date-picker>
+    <u-date-picker date="2018-08-08" clearable></u-date-picker>
 </u-linear-layout>
 ```
 ### 自动对焦
@@ -196,21 +196,24 @@ export default {
 
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
-| picker | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'date'` | 用于定义选择的格式 |
-| width | number |  | `160` | 输入框宽度 |
-| date.sync, v-model | string,number,Date |  |  | 选择值 |
-| minDate | string,number,Date |  |  | 最小日期 |
-| maxDate | string,number,Date |  |  | 最大日期 |
-| readonly | boolean |  | `false` | 是否只读 |
-| disabled | boolean |  | `false` | 是否禁用 |
-| autofocus | boolean |  | `false` | 文本框默认处于focus |
-| placeholder | string |  | `'请输入'` | 文本框默认提示 |
-| clearable | boolean |  |  | 开启并在输入框有内容时会显示清除按钮。 |
-| alignment | string | `[object Object]`<br/>`[object Object]` | `'left'` | 日历弹窗对其方式 |
+| preIcon | string | `[object Object]`<br/>`[object Object]` | `'calendar'` |  |
+| suffixIcon | string | `[object Object]`<br/>`[object Object]` | `''` |  |
+| picker | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'date'` | 日期格式设置 |
+| date.sync, v-model | string,number,Date |  |  | 默认显示的日期值，格式如2018-08-08 |
+| minDate | string,number,Date |  |  | 支持输入的最小日期，不限制填写null |
+| maxDate | string,number,Date |  |  | 支持输入的最大日期，不限制填写null |
+| readonly | boolean |  | `false` |  |
+| disabled | boolean |  | `false` |  |
+| opened | boolean |  | `false` | 切换弹出/关闭状态 |
+| autofocus | boolean |  | `false` | 是否自动获取焦点 |
+| placeholder | string |  | `'请输入'` | 输入框的提示文字 |
+| clearable | boolean |  |  | 输入框输入内容支持一键清除 |
+| alignment | string | `[object Object]`<br/>`[object Object]` | `'left'` | 日历弹窗对齐方式 |
 | time | string, number |  | `'0:00:00'` | 输入对应格式的字符串（8:00:00）即可 |
 | yearDiff | number |  | `20` | 最小可选年份值为当前年减去此值 |
 | yearAdd | number |  | `20` | 最大可选年份值为当前年加上此值 |
 | converter | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'format'` | 转换器，用于转换时间结果 |
+| append-to | string | `[object Object]`<br/>`[object Object]` | `'reference'` | 设置添加到哪个元素。可选值：`'body'`表示添加到 document.body，`'reference'`表示添加到参考元素中 |
 
 ### Events
 
@@ -248,4 +251,13 @@ export default {
 | ----- | ---- | ----------- |
 | $event | object | 自定义事件对象 |
 | $event.open | boolean | 弹出/隐藏状态 |
+
+#### @blur
+
+失去焦点时触发。
+
+| Param | Type | Description |
+| ----- | ---- | ----------- |
+| $event | FocusEvent | 原生事件对象 |
+| senderVM |  | 发送事件实例 |
 

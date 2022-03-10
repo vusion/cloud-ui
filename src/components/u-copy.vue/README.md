@@ -245,7 +245,7 @@
 | feedback | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'tooltip'` | 复制提示反馈方式 |
 | placement | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'top'` | tooltip 提示框位置 |
 | hide-delay | number |  | `3000` | 提示框显示时长 |
-| disabled | boolean |  | `false` | 是否禁止复制 |
+| disabled | boolean |  | `false` | 禁止复制 |
 
 ### Slots
 

@@ -128,50 +128,32 @@ MField 作为各种表单域（表单控件）的基类，用于触发 UValidato
 
 ### 栅格布局
 
-有多行的表单为了对齐美观，通常与栅格布局搭配使用。
+使用栅格布局可以使多行表单对齐美观，设置 `repeat` 划分栅格数量，设置 `span` 占用对应空间。
 
 ``` html
-<u-form layout="inline">
-    <u-grid-layout>
-        <u-grid-layout-row :repeat="3">
-            <u-grid-layout-column>
-                <u-form-item label="状态">
-                    <u-select auto-select>
-                        <u-select-item>认证中</u-select-item>
-                    </u-select>
-                </u-form-item>
-            </u-grid-layout-column>
-            <u-grid-layout-column>
-                <u-form-item label="备案类型">
-                    <u-select auto-select>
-                        <u-select-item>全部</u-select-item>
-                    </u-select>
-                </u-form-item>
-            </u-grid-layout-column>
-            <u-grid-layout-column>
-                <u-form-item label="备案号">
-                    <u-input maxlength="63"></u-input>
-                </u-form-item>
-            </u-grid-layout-column>
-        </u-grid-layout-row>
-        <u-grid-layout-row :repeat="3">
-            <u-grid-layout-column>
-                <u-form-item label="用户名">
-                    <u-input maxlength="63"></u-input>
-                </u-form-item>
-            </u-grid-layout-column>
-            <u-grid-layout-column>
-                <u-form-item label="单位名称">
-                    <u-input maxlength="63"></u-input>
-                </u-form-item>
-            </u-grid-layout-column>
-            <u-grid-layout-column>
-                <u-form-item>
-                    <u-button color="primary">查询</u-button>
-                </u-form-item>
-            </u-grid-layout-column>
-        </u-grid-layout-row>
-    </u-grid-layout>
+<u-form repeat="3">
+    <u-form-item label="状态">
+        <u-select auto-select>
+            <u-select-item>认证中</u-select-item>
+        </u-select>
+    </u-form-item>
+    <u-form-item label="备案类型">
+        <u-select auto-select>
+            <u-select-item>全部</u-select-item>
+        </u-select>
+    </u-form-item>
+    <u-form-item label="备案号">
+        <u-input maxlength="63"></u-input>
+    </u-form-item>
+    <u-form-item label="用户名">
+        <u-input maxlength="63"></u-input>
+    </u-form-item>
+    <u-form-item label="单位名称">
+        <u-input maxlength="63"></u-input>
+    </u-form-item>
+    <u-form-item span="3">
+        <u-button color="primary">查询</u-button>
+    </u-form-item>
 </u-form>
 ```
 
@@ -393,11 +375,13 @@ export default {
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | model | object |  |  | 表单数据模型 |
-| rules | object |  |  | 表单所有域的验证规则，已废弃，推荐在各`<u-form-item>`中自行添加 rules。 |
-| layout | string | `[object Object]`<br/>`[object Object]` | `'block'` | 表单布局方式 |
-| gap | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 表单项之间的间隔，一个值（行列间隔）或两个值（行间隔 列间隔）。 |
-| label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 标签宽度。 |
-| size | string | `[object Object]`<br/>`[object Object]` | `'normal'` | 表单尺寸，表单组间隙等 |
+| rules | object |  |  | 表单所有域的验证规则，已废弃，推荐在各`<u-form-item>`中自行添加 rules |
+| layout | string | `[object Object]`<br/>`[object Object]` | `'block'` |  |
+| repeat | number |  | `0` | 整个表单的划分列数 |
+| gap-width | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置表单列间隔大小 |
+| gap-height | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 设置表单行间隔大小 |
+| label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` |  |
+| size | string | `[object Object]`<br/>`[object Object]` | `'normal'` |  |
 | collapsible | boolean |  | `false` | 分组是否可以折叠 |
 | accordion | boolean |  | `false` | 是否每次只会展开一个分组 |
 | expand-trigger | string | `[object Object]`<br/>`[object Object]` | `'click'` | 展开/折叠的触发方式 |
@@ -460,7 +444,8 @@ Methods
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | name | string |  |  | 表单项名称。已废弃 |
-| label | string |  |  | 标签名。用于左侧显示，同时用于提示消息的合成。 |
+| label | string |  |  | 用于左侧显示，同时用于提示消息的合成 |
+| span | string |  | `1` | 列跨越的格数 |
 | label-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 单独设置表单项的标签大小。 |
 | field-size | string | `[object Object]`<br/>`[object Object]`<br/>`[object Object]`<br/>`[object Object]` | `'normal'` | 单独设置表单项的内容大小 |
 | required | boolean |  | `false` | 是否必填。仅显示样式，如果要验证必填项，需要在`rules`中添加必填规则。 |
@@ -525,6 +510,7 @@ Methods
 | Prop/Attr | Type | Options | Default | Description |
 | --------- | ---- | ------- | ------- | ----------- |
 | title | string |  |  | 显示的标题 |
+| repeat | number |  | `0` | 整个表单的划分列数 |
 | collapsible | boolean |  | `false` | 分组是否可以折叠 |
 | expanded.sync | boolean |  | `false` | 展开/折叠状态 |
 | disabled | boolean |  | `false` | 是否禁用。禁用时无法展开/折叠 |
