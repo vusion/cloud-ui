@@ -266,7 +266,7 @@
 
 
     --table-background: var(--background-color-gray);
-    --table-head-font-weight: 500;
+    --table-head-font-weight: bold;
     --table-border-color: var(--divider-list-color);
     --table-td-color: #fff;
     --table-hover-border-shadow-display: none;

@@ -689,7 +689,7 @@
     --table-background: var(--background-color-default);
     --table-head-background: #f7f8fa;
     --table-head-background-light: var(--background-color-default); /* @hidden */
-    --table-head-font-weight: 500;
+    --table-head-font-weight: bold;
     --table-head-color: var(--gray-dark);
     --table-row-background: var(--background-color-base);
     --table-row-background-hover: var(--background-color-lighter); /* @hidden */
