@@ -54,10 +54,12 @@
       title: 固定展示
       type: boolean
       default: false
+      advanced: true
       description: 开启后滚动时该项固定显示
     - name: fixdirec
       title: 固定位置
       type: string
+      advanced: true
       options:
         - value: left
           title: 左

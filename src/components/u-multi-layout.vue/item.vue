@@ -45,8 +45,11 @@ export default {
     methods: {
         pwh(mutationsList, observer) {
             const dom = this.$refs.item;
-            const ifwh = dom && (dom.style.height || dom.style.width);
-            if (ifwh) {
+            const ifw = dom && (dom.style.width);
+            const ifh = dom && (dom.style.height);
+            const direction = this.$parent.direction;
+
+            if ((ifw && direction==='horizontal') || (ifh && direction==='vertical')) {
                 dom.style.flexGrow = 0;
                 dom.style.flexBasis = 'auto';
             } else {
