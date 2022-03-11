@@ -137,7 +137,6 @@ export default {
     display: inline-block;
     text-align: center;
     font-size: 16px;
-    line-height: 25.6px;
 }
 .iconwrap {
     /* font-size: 16px;  */
