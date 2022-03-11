@@ -1,4 +1,4 @@
-import 'baseCSS';
+import './styles/base.css';
 import 'themeCSS';
 export * from './components';
 export * from './layouts';
